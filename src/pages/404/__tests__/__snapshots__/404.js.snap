@@ -1,0 +1,89 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NotFoundPage renders correctly 1`] = `
+<div
+  className="StyledGrommet-sc-19lkkz7-0 cqQlmF"
+  style={
+    Object {
+      "display": "flex",
+      "flexDirection": "column",
+      "height": "auto",
+      "maxWidth": "100%",
+      "minHeight": "100vh",
+    }
+  }
+>
+  <div
+    className="StyledBox-sc-13pk1d4-0 dOfRrV"
+  >
+    <a
+      href="/"
+    >
+      <span
+        className="StyledText-sc-1sadyjn-0 dPfkAU"
+      >
+        My site
+      </span>
+    </a>
+    <div
+      className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iChEkS"
+    />
+    <a
+      href="/blog"
+    >
+      <span
+        className="StyledText-sc-1sadyjn-0 dPfkAU"
+      >
+        Blog
+      </span>
+    </a>
+  </div>
+  <main
+    className="StyledBox-sc-13pk1d4-0 gYrpnw"
+  >
+    <div
+      className="StyledBox-sc-13pk1d4-0 QIaXS"
+    >
+      <h1
+        className="StyledHeading-sc-1rdh4aw-0 jowXmd"
+      >
+        Not Found
+      </h1>
+      <p
+        className="StyledParagraph-tbetod-0 laepNS"
+      >
+        This page doesn't exist... the sadness.
+      </p>
+    </div>
+  </main>
+  <footer
+    className="StyledBox-sc-13pk1d4-0 cJOxqP"
+  >
+    <div
+      className="StyledBox-sc-13pk1d4-0 ldwCNw"
+    >
+      <span
+        className="StyledText-sc-1sadyjn-0 fWSbXS"
+      >
+        © 
+        2019
+        , Built with
+         
+        <a
+          className="StyledAnchor-sc-1rp7lwl-0 llbwuF"
+          href="https://grommet.io"
+          onBlur={[Function]}
+          onFocus={[Function]}
+        >
+          <span
+            aria-label="love"
+            role="img"
+          >
+            💜
+          </span>
+        </a>
+      </span>
+    </div>
+  </footer>
+</div>
+`;

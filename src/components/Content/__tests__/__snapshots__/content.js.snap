@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Content renders correctly 1`] = `
+<div
+  className="StyledBox-sc-13pk1d4-0 gmaUvW"
+>
+  This is my content
+</div>
+`;

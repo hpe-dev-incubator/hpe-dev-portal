@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header renders correctly 1`] = `
+<div
+  className="StyledBox-sc-13pk1d4-0 dOfRrV"
+>
+  <a
+    href="/"
+  >
+    <span
+      className="StyledText-sc-1sadyjn-0 dPfkAU"
+    >
+      My site
+    </span>
+  </a>
+  <div
+    className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iChEkS"
+  />
+  <a
+    href="/blog"
+  >
+    <span
+      className="StyledText-sc-1sadyjn-0 dPfkAU"
+    >
+      Blog
+    </span>
+  </a>
+</div>
+`;

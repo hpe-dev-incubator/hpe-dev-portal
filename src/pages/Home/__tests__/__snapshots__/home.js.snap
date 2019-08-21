@@ -1,0 +1,373 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HomePage renders correctly 1`] = `
+<div
+  className="StyledGrommet-sc-19lkkz7-0 cqQlmF"
+  style={
+    Object {
+      "display": "flex",
+      "flexDirection": "column",
+      "height": "auto",
+      "maxWidth": "100%",
+      "minHeight": "100vh",
+    }
+  }
+>
+  <div
+    className="StyledBox-sc-13pk1d4-0 dOfRrV"
+  >
+    <a
+      href="/"
+    >
+      <span
+        className="StyledText-sc-1sadyjn-0 dPfkAU"
+      >
+        My site
+      </span>
+    </a>
+    <div
+      className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iChEkS"
+    />
+    <a
+      href="/blog"
+    >
+      <span
+        className="StyledText-sc-1sadyjn-0 dPfkAU"
+      >
+        Blog
+      </span>
+    </a>
+  </div>
+  <main
+    className="StyledBox-sc-13pk1d4-0 gYrpnw"
+  >
+    <div
+      className="StyledBox-sc-13pk1d4-0 bBfQzQ"
+    >
+      <div
+        className="StyledBox-sc-13pk1d4-0 iaNxlk"
+      >
+        <h1
+          className="StyledHeading-sc-1rdh4aw-0 gUQWrt"
+          size="large"
+        >
+          Our Coolest Product
+        </h1>
+        <div
+          className="StyledBox__StyledBoxGap-sc-13pk1d4-1 irlfVP"
+        />
+        <span
+          className="StyledText-sc-1sadyjn-0 brldlG"
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi viverra sodales urna, eget finibus orci rutrum non. Vivamus blandit, erat vel condimentum dapibus.
+        </span>
+        <div
+          className="StyledBox__StyledBoxGap-sc-13pk1d4-1 irlfVP"
+        />
+        <div
+          className="StyledBox-sc-13pk1d4-0 ffeAql"
+        >
+          <button
+            className="StyledButton-sc-323bzc-0 dEplip"
+            onBlur={[Function]}
+            onFocus={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}
+            type="button"
+          >
+            <span
+              className="StyledText-sc-1sadyjn-0 bnqisW"
+            >
+              Learn more
+            </span>
+          </button>
+          <div
+            className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iChEkS"
+          />
+          <button
+            className="StyledButton-sc-323bzc-0 gcyyIl"
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}
+            type="button"
+          >
+            <span
+              className="StyledText-sc-1sadyjn-0 bLEHmJ"
+            >
+              Login
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      className="StyledBox-sc-13pk1d4-0 cKZvad"
+    >
+      <h1
+        className="StyledHeading-sc-1rdh4aw-0 hHNPHI"
+        size="large"
+      >
+        An Amazing Cloud Experience
+      </h1>
+    </div>
+    <div
+      className="StyledBox-sc-13pk1d4-0 hdEICp"
+    >
+      <div
+        className="StyledBox-sc-13pk1d4-0 chRJRB"
+      >
+        <div
+          className="StyledBox-sc-13pk1d4-0 kGlKjX"
+        >
+          <svg
+            aria-label="CloudUpload"
+            className="StyledIcon-ofa7kd-0 efHRah"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M6,17 C3.23857625,17 1,14.7614237 1,12 C1,9.23857625 3.23857625,7 6,7 L12,7 M6,7 L6,6 C6,3 8,2 11,2 L13,2 C16,2 18,3 18,6 L18,7 C20.7614237,7 23,9.23857625 23,12 C23,14.7614237 20.7614237,17 18,17 M12,13 L12,22 M8,16.0000004 L11.9653427,11.9653429 L16,16.0000002"
+              fill="none"
+              stroke="#000"
+              strokeWidth="2"
+            />
+          </svg>
+        </div>
+        <div
+          className="StyledBox__StyledBoxGap-sc-13pk1d4-1 irlfVP"
+        />
+        <h1
+          className="StyledHeading-sc-1rdh4aw-0 kwWPxX"
+        >
+          Persistance
+        </h1>
+        <div
+          className="StyledBox__StyledBoxGap-sc-13pk1d4-1 irlfVP"
+        />
+        <span
+          className="StyledText-sc-1sadyjn-0 dmvzzC"
+        >
+          Activated charcoal chambray, hoodie mlkshk glossier church-key green juice air plant letterpress shaman banjo keytar kinfolk.
+        </span>
+      </div>
+      <div
+        className="StyledBox-sc-13pk1d4-0 hnZkeE"
+      >
+        <div
+          className="StyledBox-sc-13pk1d4-0 kGlKjX"
+        >
+          <svg
+            aria-label="ServerCluster"
+            className="StyledIcon-ofa7kd-0 efHRah"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M1,8 L23,8 L23,1 L1,1 L1,8 Z M11,5 L12,5 L12,4 L11,4 L11,5 Z M19,5 L20,5 L20,4 L19,4 L19,5 Z M15,5 L16,5 L16,4 L15,4 L15,5 Z M11,12 L12,12 L12,11 L11,11 L11,12 Z M19,12 L20,12 L20,11 L19,11 L19,12 Z M15,12 L16,12 L16,11 L15,11 L15,12 Z M11,19 L12,19 L12,18 L11,18 L11,19 Z M19,19 L20,19 L20,18 L19,18 L19,19 Z M15,19 L16,19 L16,18 L15,18 L15,19 Z M1,15 L23,15 L23,8 L1,8 L1,15 Z M1,22 L23,22 L23,15 L1,15 L1,22 Z M21,23 L3,23"
+              fill="none"
+              stroke="#000"
+              strokeWidth="2"
+            />
+          </svg>
+        </div>
+        <div
+          className="StyledBox__StyledBoxGap-sc-13pk1d4-1 irlfVP"
+        />
+        <h1
+          className="StyledHeading-sc-1rdh4aw-0 kwWPxX"
+        >
+          Reliability
+        </h1>
+        <div
+          className="StyledBox__StyledBoxGap-sc-13pk1d4-1 irlfVP"
+        />
+        <span
+          className="StyledText-sc-1sadyjn-0 dmvzzC"
+        >
+          Flannel austin ethical, fanny pack ugh photo booth marfa dreamcatcher direct trade lyft.
+        </span>
+      </div>
+      <div
+        className="StyledBox-sc-13pk1d4-0 dJOdpm"
+      >
+        <div
+          className="StyledBox-sc-13pk1d4-0 kGlKjX"
+        >
+          <svg
+            aria-label="Services"
+            className="StyledIcon-ofa7kd-0 efHRah"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M6,9 C7.65685425,9 9,7.65685425 9,6 C9,4.34314575 7.65685425,3 6,3 C4.34314575,3 3,4.34314575 3,6 C3,7.65685425 4.34314575,9 6,9 Z M6,3 L6,0 M6,12 L6,9 M0,6 L3,6 M9,6 L12,6 M2,2 L4,4 M8,8 L10,10 M10,2 L8,4 M4,8 L2,10 M18,12 C19.6568542,12 21,10.6568542 21,9 C21,7.34314575 19.6568542,6 18,6 C16.3431458,6 15,7.34314575 15,9 C15,10.6568542 16.3431458,12 18,12 Z M18,6 L18,3 M18,15 L18,12 M12,9 L15,9 M21,9 L24,9 M14,5 L16,7 M20,11 L22,13 M22,5 L20,7 M16,11 L14,13 M9,21 C10.6568542,21 12,19.6568542 12,18 C12,16.3431458 10.6568542,15 9,15 C7.34314575,15 6,16.3431458 6,18 C6,19.6568542 7.34314575,21 9,21 Z M9,15 L9,12 M9,24 L9,21 M3,18 L6,18 M12,18 L15,18 M5,14 L7,16 M11,20 L13,22 M13,14 L11,16 M7,20 L5,22"
+              fill="none"
+              stroke="#000"
+              strokeWidth="2"
+            />
+          </svg>
+        </div>
+        <div
+          className="StyledBox__StyledBoxGap-sc-13pk1d4-1 irlfVP"
+        />
+        <h1
+          className="StyledHeading-sc-1rdh4aw-0 kwWPxX"
+        >
+          Cloud Backup
+        </h1>
+        <div
+          className="StyledBox__StyledBoxGap-sc-13pk1d4-1 irlfVP"
+        />
+        <span
+          className="StyledText-sc-1sadyjn-0 dmvzzC"
+        >
+          Biodiesel hashtag palo santo unicorn synth vinyl af raw denim kitsch ugh shoreditch quinoa la croix bespoke.
+        </span>
+      </div>
+    </div>
+    <div
+      className="StyledBox-sc-13pk1d4-0 imQOMg"
+    >
+      <div
+        className="StyledBox-sc-13pk1d4-0 ksNQYm"
+      >
+        <h1
+          className="StyledHeading-sc-1rdh4aw-0 hHNPHI"
+          size="large"
+        >
+          Learn More with Videos
+        </h1>
+      </div>
+      <div
+        className="StyledBox-sc-13pk1d4-0 ldmEVE"
+      >
+        <div
+          className="StyledBox-sc-13pk1d4-0 lnnCY"
+        >
+          <div
+            className="StyledBox-sc-13pk1d4-0 QIaXS"
+          >
+            <svg
+              aria-label="CirclePlay"
+              className="StyledIcon-ofa7kd-0 cNBvFk"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M12,22 C17.5228475,22 22,17.5228475 22,12 C22,6.4771525 17.5228475,2 12,2 C6.4771525,2 2,6.4771525 2,12 C2,17.5228475 6.4771525,22 12,22 Z M9.5,15.5 L15.5,12 L9.5,8.5 L9.5,15.5 Z M10.5,13.5 L12.5,12 L10.5,10.5 L10.5,13.5 Z"
+                fill="none"
+                stroke="#000"
+                strokeWidth="2"
+              />
+            </svg>
+          </div>
+          <div
+            className="StyledBox-sc-13pk1d4-0 iFQNp"
+          >
+            <span
+              className="StyledText-sc-1sadyjn-0 fMbRNm"
+              size="large"
+            >
+              Learn About Things
+            </span>
+          </div>
+        </div>
+        <div
+          className="StyledBox__StyledBoxGap-sc-13pk1d4-1 cdvXba"
+        />
+        <div
+          className="StyledBox-sc-13pk1d4-0 iBocPw"
+        >
+          <div
+            className="StyledBox-sc-13pk1d4-0 QIaXS"
+          >
+            <svg
+              aria-label="CirclePlay"
+              className="StyledIcon-ofa7kd-0 cNBvFk"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M12,22 C17.5228475,22 22,17.5228475 22,12 C22,6.4771525 17.5228475,2 12,2 C6.4771525,2 2,6.4771525 2,12 C2,17.5228475 6.4771525,22 12,22 Z M9.5,15.5 L15.5,12 L9.5,8.5 L9.5,15.5 Z M10.5,13.5 L12.5,12 L10.5,10.5 L10.5,13.5 Z"
+                fill="none"
+                stroke="#000"
+                strokeWidth="2"
+              />
+            </svg>
+          </div>
+          <div
+            className="StyledBox-sc-13pk1d4-0 iFQNp"
+          >
+            <span
+              className="StyledText-sc-1sadyjn-0 fMbRNm"
+              size="large"
+            >
+              Learn About Things 2
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="StyledBox-sc-13pk1d4-0 ggephV"
+    >
+      <div
+        className="StyledBox-sc-13pk1d4-0 gmvHmr"
+      >
+        <h1
+          className="StyledHeading-sc-1rdh4aw-0 ijAJIB"
+          size="large"
+        >
+          Get Started Today
+        </h1>
+        <span
+          className="StyledText-sc-1sadyjn-0 cdCnev"
+          size="xlarge"
+        >
+          Photo booth marvel dreamcatcher direct trade lyft.
+        </span>
+        <div
+          className="StyledBox-sc-13pk1d4-0 ffeAql"
+        >
+          <button
+            className="StyledButton-sc-323bzc-0 dkEQUy"
+            onBlur={[Function]}
+            onFocus={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}
+            type="button"
+          >
+            Sign Up
+          </button>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer
+    className="StyledBox-sc-13pk1d4-0 cJOxqP"
+  >
+    <div
+      className="StyledBox-sc-13pk1d4-0 ldwCNw"
+    >
+      <span
+        className="StyledText-sc-1sadyjn-0 fWSbXS"
+      >
+        © 
+        2019
+        , Built with
+         
+        <a
+          className="StyledAnchor-sc-1rp7lwl-0 llbwuF"
+          href="https://grommet.io"
+          onBlur={[Function]}
+          onFocus={[Function]}
+        >
+          <span
+            aria-label="love"
+            role="img"
+          >
+            💜
+          </span>
+        </a>
+      </span>
+    </div>
+  </footer>
+</div>
+`;
