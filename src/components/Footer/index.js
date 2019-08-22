@@ -12,7 +12,7 @@ export const Footer = ({ ...rest }) => (
     >
       <Box direction="row" gap="medium" justify="center">
         <StyledLink to="/opensource">Open Source</StyledLink>
-        <StyledLink to="/events">>Events</StyledLink>
+        <StyledLink to="/events">Events</StyledLink>
         <StyledLink to="/community">Community</StyledLink>
       </Box>
       <SocialMedia />

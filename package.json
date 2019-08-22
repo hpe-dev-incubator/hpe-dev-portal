@@ -1,10 +1,10 @@
 {
-  "name": "gatsby-cms",
-  "description": "A starter for a landing page powered by Gatsby, Grommet, and Markdown",
+  "name": "hpe-dev-portal",
+  "description": "HPE Development Portal",
   "version": "0.1.0",
-  "author": "Alex Mejias",
+  "author": "Mike Kingdom",
   "bugs": {
-    "url": "https://github.com/karatechops/gatsby-cms/issues"
+    "url": "https://github.com/hpe-dev-incubator/hpe-dev-portal/issues"
   },
   "dependencies": {
     "@babel/core": "^7.0.0-0",
@@ -54,7 +54,7 @@
     "prettier": "^1.18.0",
     "react-test-renderer": "^16.8.6"
   },
-  "homepage": "https://github.com/karatechops/gatsby-cms/blob/master/README.md",
+  "homepage": "https://github.com/hpe-dev-incubator/hpe-dev-portal/blob/master/README.md",
   "keywords": [
     "gatsby"
   ],
@@ -62,7 +62,7 @@
   "main": "n/a",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/karatechops/gatsby-cms.git"
+    "url": "git+https://github.com/hpe-dev-incubator/hpe-dev-portal.git"
   },
   "scripts": {
     "build": "gatsby build",
