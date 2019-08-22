@@ -1,4 +1,4 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/a751eb89-35ab-484f-adb2-2608fd87a3fc/deploy-status)](https://app.netlify.com/sites/nervous-archimedes-fe6745/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/a751eb89-35ab-484f-adb2-2608fd87a3fc/deploy-status)](https://app.netlify.com/sites/hpe-dev-portal/deploys)
 
 <h1 align="center">
   HPE Dev Portal
