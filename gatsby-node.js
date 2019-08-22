@@ -60,7 +60,7 @@ exports.onCreatePage = ({ page, actions }) => {
 
   return new Promise(resolve => {
     // if the page component is the index page component
-    if (page.componentPath === `${__dirname}/src/pages/home/index.js`) {
+    if (page.componentPath.indexOf('/src/pages/Home/index.js') >= 0) {
       deletePage(page);
       // create a new page but with '/' as path
       createPage({
