@@ -1,34 +1,20 @@
-<!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
-<p align="center">
-  <a href="https://www.gatsbyjs.org">
-    <img alt="Gatsby" src="https://www.gatsbyjs.org/monogram.svg" width="60" />
-  </a>
-</p>
+[![Netlify Status](https://api.netlify.com/api/v1/badges/a751eb89-35ab-484f-adb2-2608fd87a3fc/deploy-status)](https://app.netlify.com/sites/nervous-archimedes-fe6745/deploys)
+
 <h1 align="center">
-  Gatsby's blog starter
+  HPE Dev Portal
 </h1>
 
 Kick off your project with this blog boilerplate. This starter ships with the main Gatsby configuration files you might need to get up and running blazing fast with the blazing fast app generator for React.
 
 _Have another more specific idea? You may want to check out our vibrant collection of [official and community-created starters](https://www.gatsbyjs.org/docs/gatsby-starters/)._
 
-## 🚀 Quick start
-
-1.  **Create a Gatsby site.**
-
-    Use the Gatsby CLI to create a new site, specifying the blog starter.
-
-    ```sh
-    # create a new Gatsby site using the blog starter
-    gatsby new my-blog-starter https://github.com/gatsbyjs/gatsby-starter-blog
-    ```
-
+## Commands
 1.  **Start developing.**
 
     Navigate into your new site’s directory and start it up.
 
     ```sh
-    cd my-blog-starter/
+    cd hpe-dev-portal/
     gatsby develop
     ```
 
@@ -92,7 +78,6 @@ Looking for more guidance? Full documentation for Gatsby lives [on the website](
 
 ## 💫 Deploy
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-blog)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/hpe-dev-incubator/hpe-dev-portal/)
 
-<!-- AUTO-GENERATED-CONTENT:END -->
 # hpe-dev-portal
