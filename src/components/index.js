@@ -7,7 +7,7 @@ import Header from './Header';
 import Layout from './Layout';
 import SEO from './Seo';
 import SocialMedia from './SocialMedia';
-import StyledLink from './StyledLink';
+import Link from './Link';
 import Footer from './Footer';
 
 export {
@@ -21,5 +21,5 @@ export {
   SEO,
   Header,
   SocialMedia,
-  StyledLink,
+  Link,
 };

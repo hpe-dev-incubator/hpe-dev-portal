@@ -6,11 +6,11 @@ intro: >-
   dapibus. Test
 heroBg: /img/joe-gardner-98180-unsplash.jpg
 content:
-  - image: /img/hpedev.png 
+  - image: /img/hpedev.png
     title: HPE Developer
     description: Good things come to those who collaborate and make ideas happen.
     category:
-  - image: 
+  - image:
     title: The 🧠 Design Thinking Workshop Handbook
     description: In this book you'll learn how to put the thinking-based framework popularize by the Standford d.school into practice so you can take on challenges in your organization and reach insightful solutions.
     category: Research
@@ -39,4 +39,3 @@ content:
     description: Run the HPE Developer Utility to download the latest Greenlake beta. As new betas become available you will receive a notification and can install them from the Software Update pane in your dev environment.
     category: Develop
 ---
-
