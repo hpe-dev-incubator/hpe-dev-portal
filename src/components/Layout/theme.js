@@ -4,6 +4,16 @@ import { css } from 'styled-components';
 
 const theme = deepMerge(
   {
+    global: {
+      colors: {
+        develop: '#FEC901',
+        design: '#7630EA',
+        event: '#CCCCCC',
+        community: '#0E5265',
+        'open source': '#7630EA',
+        research: '#33DAC8',
+      },
+    },
     heading: {
       extend: css`
         font-weight: 700;
