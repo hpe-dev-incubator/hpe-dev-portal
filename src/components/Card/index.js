@@ -1,24 +1,28 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Box, Text, ThemeContext } from 'grommet';
+import { Box, Heading, Text, ThemeContext } from 'grommet';
 
-/*
-These should pull from the theme we pass to Grommet.
-NOTE - Should we update grommet HPE theme to V2 to
-support new brand colors?
-*/
-/* 
-const colorMap = {
-  Develop: '#FEC901',
-  Design: '#7630EA',
-  Event: '#CCCCCC',
-  Community: '#0E5265',
-  'Open Source': '#7630EA',
-  Research: '#33DAC8',
+export const Title = ({ children, ...rest }) => (
+  <Heading margin={{ top: 'none', bottom: 'xsmall' }} level={2} {...rest}>
+    {children}
+  </Heading>
+);
+
+Title.propTypes = {
+  children: PropTypes.node.isRequired,
 };
 
-const getColor = category => colorMap[category] || colorMap.Develop;
-*/
+const Description = ({ children, ...rest }) => (
+  <Text color="dark-3" size="xlarge" {...rest}>
+    {children}
+  </Text>
+);
+
+Description.propTypes = {
+  children: PropTypes.node.isRequired,
+  width: PropTypes.string,
+};
+
 export const Card = ({ key, children, pad, width, gap, category, ...rest }) => (
   <ThemeContext.Consumer>
     {theme => (
@@ -51,6 +55,9 @@ export const Card = ({ key, children, pad, width, gap, category, ...rest }) => (
     )}
   </ThemeContext.Consumer>
 );
+
+Card.Title = Title;
+Card.Description = Description;
 
 Card.propTypes = {
   key: PropTypes.string,

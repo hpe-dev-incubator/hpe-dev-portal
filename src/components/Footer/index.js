@@ -9,6 +9,7 @@ export const Footer = ({ ...rest }) => (
       align="center"
       justify="between"
       pad={{ horizontal: 'large' }}
+      {...rest}
     >
       <Box direction="row" gap="medium" justify="center">
         <Link to="/opensource">Open Source</Link>
@@ -17,7 +18,6 @@ export const Footer = ({ ...rest }) => (
       </Box>
       <SocialMedia />
     </Box>
-    <Box background="light-2" pad={{ vertical: 'medium' }} {...rest} />
   </Box>
 );
 

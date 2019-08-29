@@ -2,7 +2,7 @@
 
 exports[`NotFoundPage renders correctly 1`] = `
 <div
-  className="StyledGrommet-sc-19lkkz7-0 cqQlmF"
+  className="StyledGrommet-sc-19lkkz7-0 edlFAH"
   style={
     Object {
       "display": "flex",
@@ -14,29 +14,95 @@ exports[`NotFoundPage renders correctly 1`] = `
   }
 >
   <div
-    className="StyledBox-sc-13pk1d4-0 dOfRrV"
+    className="StyledBox-sc-13pk1d4-0 IRSNj"
   >
-    <a
-      href="/"
-    >
-      <span
-        className="StyledText-sc-1sadyjn-0 dPfkAU"
-      >
-        My site
-      </span>
-    </a>
     <div
-      className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iChEkS"
-    />
-    <a
-      href="/blog"
+      className="StyledBox-sc-13pk1d4-0 iKWNXL"
+    >
+      <a
+        href="/"
+      >
+        <svg
+          aria-label="Hpe"
+          className="StyledIcon-ofa7kd-0 fmJQic"
+          viewBox="0 0 24 24"
+        >
+          <rect
+            fill="none"
+            height="6"
+            stroke="#01A982"
+            strokeWidth="3"
+            width="22"
+            x="1"
+            y="9"
+          />
+        </svg>
+      </a>
+      <div
+        className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iChEkS"
+      />
+      <svg
+        aria-label="More"
+        className="StyledIcon-ofa7kd-0 iOkQrb"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M3,13 L3,11 L5,11 L5,13 L3,13 Z M11,12.9995001 L11,11 L12.9995001,11 L12.9995001,12.9995001 L11,12.9995001 Z M19,12.9995001 L19,11 L20.9995001,11 L20.9995001,12.9995001 L19,12.9995001 Z"
+          fill="none"
+          stroke="#000"
+          strokeWidth="2"
+        />
+      </svg>
+    </div>
+    <div
+      className="StyledBox-sc-13pk1d4-0 dmrmMT"
     >
       <span
-        className="StyledText-sc-1sadyjn-0 dPfkAU"
+        className="StyledText-sc-1sadyjn-0 jRUGKF"
       >
-        Blog
+        HPE Developer
       </span>
-    </a>
+      <div
+        className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iChEkS"
+      />
+      <div
+        className="StyledBox-sc-13pk1d4-0 exddWn"
+      >
+        <a
+          className="sc-bdVaJa bwmoIK"
+          href="/research"
+        >
+          Research
+        </a>
+        <div
+          className="StyledBox__StyledBoxGap-sc-13pk1d4-1 hyyRSo"
+        />
+        <a
+          className="sc-bdVaJa bwmoIK"
+          href="/design"
+        >
+          Design
+        </a>
+        <div
+          className="StyledBox__StyledBoxGap-sc-13pk1d4-1 hyyRSo"
+        />
+        <a
+          className="sc-bdVaJa bwmoIK"
+          href="/develop"
+        >
+          Develop
+        </a>
+        <div
+          className="StyledBox__StyledBoxGap-sc-13pk1d4-1 hyyRSo"
+        />
+        <a
+          className="sc-bdVaJa bwmoIK"
+          href="/support"
+        >
+          Support
+        </a>
+      </div>
+    </div>
   </div>
   <main
     className="StyledBox-sc-13pk1d4-0 gYrpnw"
@@ -45,7 +111,7 @@ exports[`NotFoundPage renders correctly 1`] = `
       className="StyledBox-sc-13pk1d4-0 QIaXS"
     >
       <h1
-        className="StyledHeading-sc-1rdh4aw-0 jowXmd"
+        className="StyledHeading-sc-1rdh4aw-0 khDegO"
       >
         Not Found
       </h1>
@@ -56,34 +122,114 @@ exports[`NotFoundPage renders correctly 1`] = `
       </p>
     </div>
   </main>
-  <footer
-    className="StyledBox-sc-13pk1d4-0 cJOxqP"
+  <div
+    className="StyledBox-sc-13pk1d4-0 IRSNj"
   >
     <div
-      className="StyledBox-sc-13pk1d4-0 ldwCNw"
+      className="StyledBox-sc-13pk1d4-0 dmhBnD"
     >
-      <span
-        className="StyledText-sc-1sadyjn-0 fWSbXS"
+      <div
+        className="StyledBox-sc-13pk1d4-0 exddWn"
       >
-        © 
-        2019
-        , Built with
-         
         <a
-          className="StyledAnchor-sc-1rp7lwl-0 llbwuF"
-          href="https://grommet.io"
+          className="sc-bdVaJa bwmoIK"
+          href="/opensource"
+        >
+          Open Source
+        </a>
+        <div
+          className="StyledBox__StyledBoxGap-sc-13pk1d4-1 hyyRSo"
+        />
+        <a
+          className="sc-bdVaJa bwmoIK"
+          href="/events"
+        >
+          Events
+        </a>
+        <div
+          className="StyledBox__StyledBoxGap-sc-13pk1d4-1 hyyRSo"
+        />
+        <a
+          className="sc-bdVaJa bwmoIK"
+          href="/community"
+        >
+          Community
+        </a>
+      </div>
+      <div
+        className="StyledBox-sc-13pk1d4-0 exddWn"
+      >
+        <a
+          aria-label="Follow us on Twitter"
+          className="StyledAnchor-sc-1rp7lwl-0 hdTGql"
+          href="https://twitter.com/"
           onBlur={[Function]}
           onFocus={[Function]}
+          target="_blank"
         >
-          <span
-            aria-label="love"
-            role="img"
+          <svg
+            aria-label="Twitter"
+            className="StyledIcon-ofa7kd-0 fDZBFh"
+            viewBox="0 0 24 24"
           >
-            💜
-          </span>
+            <path
+              d="M24,4.3086 C23.117,4.7006 22.168,4.9646 21.172,5.0836 C22.188,4.4746 22.969,3.5096 23.337,2.3596 C22.386,2.9246 21.332,3.3336 20.21,3.5556 C19.312,2.5976 18.032,1.9996 16.616,1.9996 C13.897,1.9996 11.692,4.2046 11.692,6.9236 C11.692,7.3096 11.736,7.6856 11.82,8.0456 C7.728,7.8406 4.099,5.8806 1.671,2.9006 C1.247,3.6286 1.004,4.4736 1.004,5.3766 C1.004,7.0846 1.873,8.5926 3.195,9.4756 C2.388,9.4486 1.628,9.2276 0.964,8.8596 L0.964,8.9206 C0.964,11.3066 2.661,13.2966 4.914,13.7486 C4.501,13.8626 4.065,13.9216 3.617,13.9216 C3.299,13.9216 2.991,13.8906 2.69,13.8336 C3.317,15.7896 5.135,17.2136 7.29,17.2536 C5.604,18.5736 3.481,19.3606 1.175,19.3606 C0.777,19.3606 0.385,19.3376 0,19.2926 C2.179,20.6886 4.767,21.5046 7.548,21.5046 C16.605,21.5046 21.557,14.0016 21.557,7.4946 C21.557,7.2816 21.552,7.0696 21.543,6.8586 C22.505,6.1636 23.34,5.2966 24,4.3086"
+              fill="#1DA1F2"
+              fillRule="evenodd"
+            />
+          </svg>
         </a>
-      </span>
+        <div
+          className="StyledBox__StyledBoxGap-sc-13pk1d4-1 fcyNTM"
+        />
+        <a
+          aria-label="Share feedback on Github"
+          className="StyledAnchor-sc-1rp7lwl-0 hdTGql"
+          href="https://www.github.com/"
+          onBlur={[Function]}
+          onFocus={[Function]}
+          target="_blank"
+        >
+          <svg
+            aria-label="Github"
+            className="StyledIcon-ofa7kd-0 fDZBFh"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M11.9989871,1 C5.92550416,1 1,5.92482888 1,12.0003376 C1,16.8603395 4.15153934,20.9829338 8.52263728,22.4374904 C9.0729918,22.5387827 9.27355045,22.199116 9.27355045,21.9073943 C9.27355045,21.6467356 9.2640965,20.954572 9.25869425,20.0368642 C6.19899322,20.7013414 5.55342398,18.5620492 5.55342398,18.5620492 C5.0530403,17.2911692 4.33183953,16.9528531 4.33183953,16.9528531 C3.33309801,16.2708186 4.40747107,16.2843243 4.40747107,16.2843243 C5.51155652,16.3619816 6.09229872,17.4181221 6.09229872,17.4181221 C7.07348292,19.0988981 8.66714755,18.6133706 9.2938089,18.3317781 C9.39375058,17.6213819 9.67804414,17.1365297 9.99205009,16.86169 C7.54955646,16.5841493 4.98146045,15.6401056 4.98146045,11.4249977 C4.98146045,10.224347 5.41026428,9.24181221 6.11390773,8.47334172 C6.00046042,8.19512569 5.62297799,7.07618404 6.22195279,5.56220265 C6.22195279,5.56220265 7.14506277,5.26642929 9.24653918,6.68992296 C10.12373,6.44547101 11.0650726,6.32392032 12.0003376,6.31919335 C12.9349274,6.32392032 13.8755947,6.44547101 14.7541361,6.68992296 C16.8542619,5.26642929 17.7760214,5.56220265 17.7760214,5.56220265 C18.3763467,7.07618404 17.9988643,8.19512569 17.8860923,8.47334172 C18.5910863,9.24181221 19.0165137,10.224347 19.0165137,11.4249977 C19.0165137,15.6509101 16.444366,16.5807729 13.9944443,16.8529114 C14.3888087,17.192578 14.7406305,17.863808 14.7406305,18.890236 C14.7406305,20.3603241 14.7271248,21.5467939 14.7271248,21.9073943 C14.7271248,22.2018171 14.9256576,22.5441849 15.4834403,22.4368151 C19.8511618,20.9788821 23,16.8589889 23,12.0003376 C23,5.92482888 18.0744958,1 11.9989871,1"
+              fill="#333"
+              fillRule="evenodd"
+            />
+          </svg>
+        </a>
+        <div
+          className="StyledBox__StyledBoxGap-sc-13pk1d4-1 fcyNTM"
+        />
+        <a
+          aria-label="Chat with us on Slack"
+          className="StyledAnchor-sc-1rp7lwl-0 hdTGql"
+          href="https://www.slack.com/"
+          onBlur={[Function]}
+          onFocus={[Function]}
+          target="_blank"
+        >
+          <svg
+            aria-label="Slack"
+            className="StyledIcon-ofa7kd-0 fDZBFh"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M10.9829147,13.9325266 L10.0460003,11.1353533 L12.9732746,10.1548615 L13.910189,12.9520348 L10.9829147,13.9325266 Z M22.0848234,8.9814134 C19.8208835,1.4349469 16.5278799,-0.348763364 8.9814134,1.91517659 C1.4349469,4.17911654 -0.348763364,7.4721201 1.91517659,15.0185866 C4.17911654,22.5650531 7.4721201,24.3487634 15.0185866,22.0848234 C22.5650531,19.8208835 24.3487634,16.5278799 22.0848234,8.9814134 L22.0848234,8.9814134 Z M18.2429859,13.8523145 L16.8022969,14.3325442 L17.2825265,15.7732332 C17.4883393,16.3906714 17.1453181,17.0081096 16.5964841,17.2139223 C16.4592757,17.2825265 16.3220672,17.2825265 16.1848587,17.2825265 C15.704629,17.2825265 15.2930036,16.9395053 15.1557951,16.5278799 L14.6755654,15.0871908 L11.725583,16.0476502 L12.2058127,17.4883393 C12.4116254,18.1057774 12.0686042,18.7232156 11.5197703,18.9290283 C11.3825618,18.9976326 11.2453534,18.9976326 11.1081449,18.9976326 C10.6279152,18.9976326 10.2162897,18.6546114 10.0790813,18.2429859 L9.59885157,16.8022969 L8.15816251,17.2825265 C8.02095403,17.3511308 7.88374555,17.3511308 7.74653706,17.3511308 C7.26630738,17.3511308 6.85468193,17.0081096 6.71747345,16.5964841 C6.51166073,15.979046 6.85468193,15.3616078 7.40351586,15.1557951 L8.84420492,14.6755654 L7.88374555,11.7941873 L6.51166073,12.274417 C6.37445225,12.3430212 6.23724376,12.3430212 6.10003528,12.3430212 C5.6198056,12.3430212 5.20818015,12 5.07097167,11.5883746 C4.86515895,10.9709364 5.20818015,10.3534982 5.75701408,10.1476855 L7.19770314,9.66745581 L6.71747345,8.22676675 C6.51166073,7.60932858 6.78607769,6.92328617 7.40351586,6.71747345 C8.02095403,6.51166073 8.6383922,6.85468193 8.84420492,7.40351586 L9.3244346,8.84420492 L12.274417,7.88374555 L11.7941873,6.44305649 C11.5883746,5.82561832 11.9313958,5.20818015 12.4802297,5.00236743 C13.0976679,4.7965547 13.715106,5.13957591 13.9209187,5.68840984 L14.4011484,7.19770314 L15.8418375,6.71747345 C16.4592757,6.51166073 17.0767138,6.85468193 17.2825265,7.40351586 C17.4883393,8.02095403 17.1453181,8.6383922 16.5964841,8.84420492 L15.1557951,9.3244346 L16.1162545,12.1372085 L17.5569435,11.6569788 C18.1743817,11.4511661 18.7918198,11.7941873 18.9976326,12.3430212 C19.1348411,13.0290636 18.8604241,13.6465018 18.2429859,13.8523145 L18.2429859,13.8523145 Z"
+              fill="#6ECADC"
+              fillRule="evenodd"
+            />
+          </svg>
+        </a>
+      </div>
     </div>
-  </footer>
+    <div
+      className="StyledBox-sc-13pk1d4-0 drFEZ"
+    />
+  </div>
 </div>
 `;

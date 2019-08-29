@@ -38,9 +38,10 @@
     "styled-components": "^4.3.1"
   },
   "devDependencies": {
-    "@hpe/project-scripts": "^1.0.3",
+    "@hpe/project-scripts": "^1.0.4",
     "babel-jest": "^24.8.0",
     "babel-preset-gatsby": "^0.2.1",
+    "cypress": "^3.4.1",
     "eslint": "^5.3.0",
     "eslint-config-airbnb": "^17.1.1",
     "eslint-config-prettier": "^6.0.0",
@@ -70,7 +71,8 @@
     "format": "prettier --write src/**/*.{js,jsx}",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "test": "jest"
+    "test": "jest",
+    "cypress:open": "cypress open"
   },
   "husky": {
     "hooks": {

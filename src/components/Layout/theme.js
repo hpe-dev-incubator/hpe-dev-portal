@@ -6,12 +6,13 @@ const theme = deepMerge(
   {
     global: {
       colors: {
-        develop: '#FEC901',
-        design: '#7630EA',
+        // new HPE secondary colors starting 9/1/2019. These aren't in grommet's HPE theme yet
+        develop: '#FEC901', // HPE Yellow
+        design: '#7630EA', // HPE Medium Purple
         event: '#CCCCCC',
-        community: '#0E5265',
-        'open source': '#7630EA',
-        research: '#33DAC8',
+        community: '#0D5265', // HPE Dark Blue
+        'open source': '#7630EA', // HPE Medium Purple
+        research: '#33DAC8', // HPE Medium Blue
       },
     },
     heading: {

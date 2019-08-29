@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import { Box, Text, Image } from 'grommet';
 
-import { Layout, SEO, Card, CardHeading, Description } from '../../components';
+import { Layout, SEO, Card } from '../../components';
 
 class Home extends React.Component {
   render() {
@@ -35,36 +35,38 @@ class Home extends React.Component {
               >
                 <Image src={homeTile.image} />
                 <Box>
-                  <CardHeading level={1}>{homeTile.title}</CardHeading>
-                  <Description>{homeTile.description}</Description>
+                  <Card.Title level={1}>{homeTile.title}</Card.Title>
+                  <Card.Description>{homeTile.description}</Card.Description>
                 </Box>
               </Card>
             )}
             <Card category={researchTile.category}>
-              <CardHeading>{researchTile.title}</CardHeading>
-              <Description>{researchTile.description}</Description>
+              <Card.Title>{researchTile.title}</Card.Title>
+              <Card.Description>{researchTile.description}</Card.Description>
             </Card>
             <Card width="medium" category={designTile.category}>
               <Box align="start" gap="medium">
                 <Image src={designTile.image} />
                 <Box>
-                  <CardHeading>{designTile.title}</CardHeading>
-                  <Description>{designTile.description}</Description>
+                  <Card.Title>{designTile.title}</Card.Title>
+                  <Card.Description>{designTile.description}</Card.Description>
                 </Box>
               </Box>
             </Card>
             <Card width="medium" gap="large" category={eventTile.category}>
               <Image src={eventTile.image} />
               <Box justify="center" align="center">
-                <CardHeading>{eventTile.title}</CardHeading>
-                <Description>{eventTile.description}</Description>
+                <Card.Title>{eventTile.title}</Card.Title>
+                <Card.Description>{eventTile.description}</Card.Description>
               </Box>
             </Card>
             <Card width="large" gap="large" category={researchTileBig.category}>
               <Image src={researchTileBig.image} />
               <Box align="center">
-                <CardHeading>{researchTileBig.title}</CardHeading>
-                <Description>{researchTileBig.description}</Description>
+                <Card.Title>{researchTileBig.title}</Card.Title>
+                <Card.Description>
+                  {researchTileBig.description}
+                </Card.Description>
               </Box>
             </Card>
             <Card
@@ -77,15 +79,17 @@ class Home extends React.Component {
                 <Text size="medium" color="dark-3">
                   May 23, 2019
                 </Text>
-                <CardHeading>{communityTile.title}</CardHeading>
-                <Description>{communityTile.description}</Description>
+                <Card.Title>{communityTile.title}</Card.Title>
+                <Card.Description>{communityTile.description}</Card.Description>
               </Box>
               <Image src={communityTile.image} />
             </Card>
             <Card width="medium" gap="large" category={openSourceTile.category}>
               <Box align="center">
-                <CardHeading>{openSourceTile.title}</CardHeading>
-                <Description>{openSourceTile.description}</Description>
+                <Card.Title>{openSourceTile.title}</Card.Title>
+                <Card.Description>
+                  {openSourceTile.description}
+                </Card.Description>
               </Box>
               <Image src={openSourceTile.image} />
             </Card>
@@ -97,8 +101,8 @@ class Home extends React.Component {
             >
               <Image src={developTile.image} />
               <Box>
-                <CardHeading>{developTile.title}</CardHeading>
-                <Description>{developTile.description}</Description>
+                <Card.Title>{developTile.title}</Card.Title>
+                <Card.Description>{developTile.description}</Card.Description>
               </Box>
             </Card>
           </Box>
