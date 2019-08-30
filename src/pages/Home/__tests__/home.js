@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { useStaticQuery } from 'gatsby';
-import HomePage from '../index';
+import Home from '../index';
 
 // Data for SEO component
 beforeEach(() => {
@@ -28,23 +28,29 @@ describe('HomePage', () => {
           heroBg: '/img/test.jpg',
           intro:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi viverra sodales urna, eget finibus orci rutrum non. Vivamus blandit, erat vel condimentum dapibus.',
-          title: 'Our Coolest Product',
-          videos: [
+          title: 'Home',
+          content: [
             {
-              photo: '/img/video-thumb-01.jpg',
-              title: 'Learn About Things',
-              url: 'https://www.youtube.com/watch?v=test',
+              image: '/img/hpedev.png',
+              title: 'HPE Developer',
+              description:
+                'Good things come to those who collaborate and make ideas happen.',
+              category: null,
             },
             {
-              photo: '/img/video-thumb-02.jpg',
-              title: 'Learn About Things 2',
-              url: 'https://www.youtube.com/watch?v=test',
+              image: null,
+              title: 'The 🧠 Design Thinking Workshop Handbook',
+              description: `In this book you'll learn how to put the
+                thinking-based framework popularize by the Standford
+                d.school into practice so you can take on challenges
+                in your organization and reach insightful solutions.`,
+              category: 'Research',
             },
           ],
         },
       },
     };
-    const tree = renderer.create(<HomePage data={data} />).toJSON();
+    const tree = renderer.create(<Home data={data} />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 });

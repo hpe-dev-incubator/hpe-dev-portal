@@ -23,9 +23,8 @@ class Home extends React.Component {
     return (
       <Layout title={siteTitle}>
         <SEO title={title} />
-        <Box flex overflow="auto" gap="medium" pad="medium">
+        <Box flex overflow="auto" gap="medium" pad="small">
           <Box flex={false} direction="row-responsive" wrap>
-            {/* Conditionally render all tiles */}
             {homeTile && (
               <Card
                 direction="row"
@@ -40,71 +39,97 @@ class Home extends React.Component {
                 </Box>
               </Card>
             )}
-            <Card category={researchTile.category}>
-              <Card.Title>{researchTile.title}</Card.Title>
-              <Card.Description>{researchTile.description}</Card.Description>
-            </Card>
-            <Card width="medium" category={designTile.category}>
-              <Box align="start" gap="medium">
-                <Image src={designTile.image} />
-                <Box>
-                  <Card.Title>{designTile.title}</Card.Title>
-                  <Card.Description>{designTile.description}</Card.Description>
+            {researchTile && (
+              <Card category={researchTile.category}>
+                <Card.Title>{researchTile.title}</Card.Title>
+                <Card.Description>{researchTile.description}</Card.Description>
+              </Card>
+            )}
+            {designTile && (
+              <Card width="medium" category={designTile.category}>
+                <Box align="start" gap="medium">
+                  <Image src={designTile.image} />
+                  <Box>
+                    <Card.Title>{designTile.title}</Card.Title>
+                    <Card.Description>
+                      {designTile.description}
+                    </Card.Description>
+                  </Box>
                 </Box>
-              </Box>
-            </Card>
-            <Card width="medium" gap="large" category={eventTile.category}>
-              <Image src={eventTile.image} />
-              <Box justify="center" align="center">
-                <Card.Title>{eventTile.title}</Card.Title>
-                <Card.Description>{eventTile.description}</Card.Description>
-              </Box>
-            </Card>
-            <Card width="large" gap="large" category={researchTileBig.category}>
-              <Image src={researchTileBig.image} />
-              <Box align="center">
-                <Card.Title>{researchTileBig.title}</Card.Title>
-                <Card.Description>
-                  {researchTileBig.description}
-                </Card.Description>
-              </Box>
-            </Card>
-            <Card
-              width="medium"
-              align="start"
-              gap="medium"
-              category={communityTile.category}
-            >
-              <Box>
-                <Text size="medium" color="dark-3">
-                  May 23, 2019
-                </Text>
-                <Card.Title>{communityTile.title}</Card.Title>
-                <Card.Description>{communityTile.description}</Card.Description>
-              </Box>
-              <Image src={communityTile.image} />
-            </Card>
-            <Card width="medium" gap="large" category={openSourceTile.category}>
-              <Box align="center">
-                <Card.Title>{openSourceTile.title}</Card.Title>
-                <Card.Description>
-                  {openSourceTile.description}
-                </Card.Description>
-              </Box>
-              <Image src={openSourceTile.image} />
-            </Card>
-            <Card
-              width="medium"
-              align="start"
-              gap="medium"
-              category={developTile.category}
-            >
-              <Image src={developTile.image} />
-              <Box>
-                <Card.Title>{developTile.title}</Card.Title>
-                <Card.Description>{developTile.description}</Card.Description>
-              </Box>
-            </Card>
+              </Card>
+            )}
+            {eventTile && (
+              <Card width="medium" gap="large" category={eventTile.category}>
+                <Image src={eventTile.image} />
+                <Box justify="center" align="center">
+                  <Card.Title>{eventTile.title}</Card.Title>
+                  <Card.Description>{eventTile.description}</Card.Description>
+                </Box>
+              </Card>
+            )}
+            {researchTileBig && (
+              <Card
+                width="large"
+                gap="large"
+                category={researchTileBig.category}
+              >
+                <Image src={researchTileBig.image} />
+                <Box align="center">
+                  <Card.Title>{researchTileBig.title}</Card.Title>
+                  <Card.Description>
+                    {researchTileBig.description}
+                  </Card.Description>
+                </Box>
+              </Card>
+            )}
+            {communityTile && (
+              <Card
+                width="medium"
+                align="start"
+                gap="medium"
+                category={communityTile.category}
+              >
+                <Box>
+                  <Text size="medium" color="dark-3">
+                    May 23, 2019
+                  </Text>
+                  <Card.Title>{communityTile.title}</Card.Title>
+                  <Card.Description>
+                    {communityTile.description}
+                  </Card.Description>
+                </Box>
+                <Image src={communityTile.image} />
+              </Card>
+            )}
+            {openSourceTile && (
+              <Card
+                width="medium"
+                gap="large"
+                category={openSourceTile.category}
+              >
+                <Box align="center">
+                  <Card.Title>{openSourceTile.title}</Card.Title>
+                  <Card.Description>
+                    {openSourceTile.description}
+                  </Card.Description>
+                </Box>
+                <Image src={openSourceTile.image} />
+              </Card>
+            )}
+            {developTile && (
+              <Card
+                width="medium"
+                align="start"
+                gap="medium"
+                category={developTile.category}
+              >
+                <Image src={developTile.image} />
+                <Box>
+                  <Card.Title>{developTile.title}</Card.Title>
+                  <Card.Description>{developTile.description}</Card.Description>
+                </Box>
+              </Card>
+            )}
           </Box>
         </Box>
       </Layout>

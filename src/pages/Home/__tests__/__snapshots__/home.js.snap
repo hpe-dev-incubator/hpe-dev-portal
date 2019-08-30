@@ -2,7 +2,7 @@
 
 exports[`HomePage renders correctly 1`] = `
 <div
-  className="StyledGrommet-sc-19lkkz7-0 cqQlmF"
+  className="StyledGrommet-sc-19lkkz7-0 edlFAH"
   style={
     Object {
       "display": "flex",
@@ -14,360 +14,261 @@ exports[`HomePage renders correctly 1`] = `
   }
 >
   <div
-    className="StyledBox-sc-13pk1d4-0 dOfRrV"
+    className="StyledBox-sc-13pk1d4-0 dmrmMT"
   >
-    <a
-      href="/"
+    <span
+      className="StyledText-sc-1sadyjn-0 jRUGKF"
     >
-      <span
-        className="StyledText-sc-1sadyjn-0 dPfkAU"
-      >
-        My site
-      </span>
-    </a>
+      HPE Developer
+    </span>
     <div
       className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iChEkS"
     />
-    <a
-      href="/blog"
+    <div
+      className="StyledBox-sc-13pk1d4-0 exddWn"
     >
-      <span
-        className="StyledText-sc-1sadyjn-0 dPfkAU"
+      <a
+        className="sc-bdVaJa bwmoIK"
+        href="/research"
       >
-        Blog
-      </span>
-    </a>
+        Research
+      </a>
+      <div
+        className="StyledBox__StyledBoxGap-sc-13pk1d4-1 hyyRSo"
+      />
+      <a
+        className="sc-bdVaJa bwmoIK"
+        href="/design"
+      >
+        Design
+      </a>
+      <div
+        className="StyledBox__StyledBoxGap-sc-13pk1d4-1 hyyRSo"
+      />
+      <a
+        className="sc-bdVaJa bwmoIK"
+        href="/develop"
+      >
+        Develop
+      </a>
+      <div
+        className="StyledBox__StyledBoxGap-sc-13pk1d4-1 hyyRSo"
+      />
+      <a
+        className="sc-bdVaJa bwmoIK"
+        href="/support"
+      >
+        Support
+      </a>
+    </div>
   </div>
   <main
     className="StyledBox-sc-13pk1d4-0 gYrpnw"
   >
     <div
-      className="StyledBox-sc-13pk1d4-0 bBfQzQ"
+      className="StyledBox-sc-13pk1d4-0 joAbhP"
     >
       <div
-        className="StyledBox-sc-13pk1d4-0 iaNxlk"
+        className="StyledBox-sc-13pk1d4-0 eihtzb"
       >
-        <h1
-          className="StyledHeading-sc-1rdh4aw-0 gUQWrt"
-          size="large"
-        >
-          Our Coolest Product
-        </h1>
         <div
-          className="StyledBox__StyledBoxGap-sc-13pk1d4-1 irlfVP"
-        />
-        <span
-          className="StyledText-sc-1sadyjn-0 brldlG"
+          className="StyledBox-sc-13pk1d4-0 ftpJHP"
         >
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi viverra sodales urna, eget finibus orci rutrum non. Vivamus blandit, erat vel condimentum dapibus.
-        </span>
-        <div
-          className="StyledBox__StyledBoxGap-sc-13pk1d4-1 irlfVP"
-        />
-        <div
-          className="StyledBox-sc-13pk1d4-0 ffeAql"
-        >
-          <button
-            className="StyledButton-sc-323bzc-0 dEplip"
-            onBlur={[Function]}
-            onFocus={[Function]}
-            onMouseOut={[Function]}
-            onMouseOver={[Function]}
-            type="button"
-          >
-            <span
-              className="StyledText-sc-1sadyjn-0 bnqisW"
-            >
-              Learn more
-            </span>
-          </button>
           <div
-            className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iChEkS"
-          />
-          <button
-            className="StyledButton-sc-323bzc-0 gcyyIl"
-            onBlur={[Function]}
-            onClick={[Function]}
-            onFocus={[Function]}
-            onMouseOut={[Function]}
-            onMouseOver={[Function]}
-            type="button"
+            className="StyledBox-sc-13pk1d4-0 dgXxAY"
           >
             <span
-              className="StyledText-sc-1sadyjn-0 bLEHmJ"
-            >
-              Login
-            </span>
-          </button>
-        </div>
-      </div>
-    </div>
-    <div
-      className="StyledBox-sc-13pk1d4-0 cKZvad"
-    >
-      <h1
-        className="StyledHeading-sc-1rdh4aw-0 hHNPHI"
-        size="large"
-      >
-        An Amazing Cloud Experience
-      </h1>
-    </div>
-    <div
-      className="StyledBox-sc-13pk1d4-0 hdEICp"
-    >
-      <div
-        className="StyledBox-sc-13pk1d4-0 chRJRB"
-      >
-        <div
-          className="StyledBox-sc-13pk1d4-0 kGlKjX"
-        >
-          <svg
-            aria-label="CloudUpload"
-            className="StyledIcon-ofa7kd-0 efHRah"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M6,17 C3.23857625,17 1,14.7614237 1,12 C1,9.23857625 3.23857625,7 6,7 L12,7 M6,7 L6,6 C6,3 8,2 11,2 L13,2 C16,2 18,3 18,6 L18,7 C20.7614237,7 23,9.23857625 23,12 C23,14.7614237 20.7614237,17 18,17 M12,13 L12,22 M8,16.0000004 L11.9653427,11.9653429 L16,16.0000002"
-              fill="none"
-              stroke="#000"
-              strokeWidth="2"
+              className="StyledText-sc-1sadyjn-0 iueFpz"
             />
-          </svg>
-        </div>
-        <div
-          className="StyledBox__StyledBoxGap-sc-13pk1d4-1 irlfVP"
-        />
-        <h1
-          className="StyledHeading-sc-1rdh4aw-0 kwWPxX"
-        >
-          Persistance
-        </h1>
-        <div
-          className="StyledBox__StyledBoxGap-sc-13pk1d4-1 irlfVP"
-        />
-        <span
-          className="StyledText-sc-1sadyjn-0 dmvzzC"
-        >
-          Activated charcoal chambray, hoodie mlkshk glossier church-key green juice air plant letterpress shaman banjo keytar kinfolk.
-        </span>
-      </div>
-      <div
-        className="StyledBox-sc-13pk1d4-0 hnZkeE"
-      >
-        <div
-          className="StyledBox-sc-13pk1d4-0 kGlKjX"
-        >
-          <svg
-            aria-label="ServerCluster"
-            className="StyledIcon-ofa7kd-0 efHRah"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M1,8 L23,8 L23,1 L1,1 L1,8 Z M11,5 L12,5 L12,4 L11,4 L11,5 Z M19,5 L20,5 L20,4 L19,4 L19,5 Z M15,5 L16,5 L16,4 L15,4 L15,5 Z M11,12 L12,12 L12,11 L11,11 L11,12 Z M19,12 L20,12 L20,11 L19,11 L19,12 Z M15,12 L16,12 L16,11 L15,11 L15,12 Z M11,19 L12,19 L12,18 L11,18 L11,19 Z M19,19 L20,19 L20,18 L19,18 L19,19 Z M15,19 L16,19 L16,18 L15,18 L15,19 Z M1,15 L23,15 L23,8 L1,8 L1,15 Z M1,22 L23,22 L23,15 L1,15 L1,22 Z M21,23 L3,23"
-              fill="none"
-              stroke="#000"
-              strokeWidth="2"
-            />
-          </svg>
-        </div>
-        <div
-          className="StyledBox__StyledBoxGap-sc-13pk1d4-1 irlfVP"
-        />
-        <h1
-          className="StyledHeading-sc-1rdh4aw-0 kwWPxX"
-        >
-          Reliability
-        </h1>
-        <div
-          className="StyledBox__StyledBoxGap-sc-13pk1d4-1 irlfVP"
-        />
-        <span
-          className="StyledText-sc-1sadyjn-0 dmvzzC"
-        >
-          Flannel austin ethical, fanny pack ugh photo booth marfa dreamcatcher direct trade lyft.
-        </span>
-      </div>
-      <div
-        className="StyledBox-sc-13pk1d4-0 dJOdpm"
-      >
-        <div
-          className="StyledBox-sc-13pk1d4-0 kGlKjX"
-        >
-          <svg
-            aria-label="Services"
-            className="StyledIcon-ofa7kd-0 efHRah"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M6,9 C7.65685425,9 9,7.65685425 9,6 C9,4.34314575 7.65685425,3 6,3 C4.34314575,3 3,4.34314575 3,6 C3,7.65685425 4.34314575,9 6,9 Z M6,3 L6,0 M6,12 L6,9 M0,6 L3,6 M9,6 L12,6 M2,2 L4,4 M8,8 L10,10 M10,2 L8,4 M4,8 L2,10 M18,12 C19.6568542,12 21,10.6568542 21,9 C21,7.34314575 19.6568542,6 18,6 C16.3431458,6 15,7.34314575 15,9 C15,10.6568542 16.3431458,12 18,12 Z M18,6 L18,3 M18,15 L18,12 M12,9 L15,9 M21,9 L24,9 M14,5 L16,7 M20,11 L22,13 M22,5 L20,7 M16,11 L14,13 M9,21 C10.6568542,21 12,19.6568542 12,18 C12,16.3431458 10.6568542,15 9,15 C7.34314575,15 6,16.3431458 6,18 C6,19.6568542 7.34314575,21 9,21 Z M9,15 L9,12 M9,24 L9,21 M3,18 L6,18 M12,18 L15,18 M5,14 L7,16 M11,20 L13,22 M13,14 L11,16 M7,20 L5,22"
-              fill="none"
-              stroke="#000"
-              strokeWidth="2"
-            />
-          </svg>
-        </div>
-        <div
-          className="StyledBox__StyledBoxGap-sc-13pk1d4-1 irlfVP"
-        />
-        <h1
-          className="StyledHeading-sc-1rdh4aw-0 kwWPxX"
-        >
-          Cloud Backup
-        </h1>
-        <div
-          className="StyledBox__StyledBoxGap-sc-13pk1d4-1 irlfVP"
-        />
-        <span
-          className="StyledText-sc-1sadyjn-0 dmvzzC"
-        >
-          Biodiesel hashtag palo santo unicorn synth vinyl af raw denim kitsch ugh shoreditch quinoa la croix bespoke.
-        </span>
-      </div>
-    </div>
-    <div
-      className="StyledBox-sc-13pk1d4-0 imQOMg"
-    >
-      <div
-        className="StyledBox-sc-13pk1d4-0 ksNQYm"
-      >
-        <h1
-          className="StyledHeading-sc-1rdh4aw-0 hHNPHI"
-          size="large"
-        >
-          Learn More with Videos
-        </h1>
-      </div>
-      <div
-        className="StyledBox-sc-13pk1d4-0 ldmEVE"
-      >
-        <div
-          className="StyledBox-sc-13pk1d4-0 lnnCY"
-        >
-          <div
-            className="StyledBox-sc-13pk1d4-0 QIaXS"
-          >
-            <svg
-              aria-label="CirclePlay"
-              className="StyledIcon-ofa7kd-0 cNBvFk"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M12,22 C17.5228475,22 22,17.5228475 22,12 C22,6.4771525 17.5228475,2 12,2 C6.4771525,2 2,6.4771525 2,12 C2,17.5228475 6.4771525,22 12,22 Z M9.5,15.5 L15.5,12 L9.5,8.5 L9.5,15.5 Z M10.5,13.5 L12.5,12 L10.5,10.5 L10.5,13.5 Z"
-                fill="none"
-                stroke="#000"
-                strokeWidth="2"
-              />
-            </svg>
           </div>
           <div
-            className="StyledBox-sc-13pk1d4-0 iFQNp"
+            className="StyledBox-sc-13pk1d4-0 eJQXWk"
+          >
+            <img
+              className="StyledImage-ey4zx9-0 fmkmCl"
+              src="/img/hpedev.png"
+            />
+            <div
+              className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iCPMSy"
+            />
+            <div
+              className="StyledBox-sc-13pk1d4-0 IRSNj"
+            >
+              <h1
+                className="StyledHeading-sc-1rdh4aw-0 bHZESG"
+              >
+                HPE Developer
+              </h1>
+              <span
+                className="StyledText-sc-1sadyjn-0 MnsHo"
+                size="xlarge"
+              >
+                Good things come to those who collaborate and make ideas happen.
+              </span>
+            </div>
+          </div>
+        </div>
+        <div
+          className="StyledBox-sc-13pk1d4-0 cJFGfo"
+        >
+          <div
+            className="StyledBox-sc-13pk1d4-0 dgXxAY"
           >
             <span
-              className="StyledText-sc-1sadyjn-0 fMbRNm"
-              size="large"
+              className="StyledText-sc-1sadyjn-0 iueFpz"
             >
-              Learn About Things
+              Research
             </span>
           </div>
-        </div>
-        <div
-          className="StyledBox__StyledBoxGap-sc-13pk1d4-1 cdvXba"
-        />
-        <div
-          className="StyledBox-sc-13pk1d4-0 iBocPw"
-        >
           <div
-            className="StyledBox-sc-13pk1d4-0 QIaXS"
+            className="StyledBox-sc-13pk1d4-0 iAQyvF"
           >
-            <svg
-              aria-label="CirclePlay"
-              className="StyledIcon-ofa7kd-0 cNBvFk"
-              viewBox="0 0 24 24"
+            <h2
+              className="StyledHeading-sc-1rdh4aw-0 bgnyIw"
             >
-              <path
-                d="M12,22 C17.5228475,22 22,17.5228475 22,12 C22,6.4771525 17.5228475,2 12,2 C6.4771525,2 2,6.4771525 2,12 C2,17.5228475 6.4771525,22 12,22 Z M9.5,15.5 L15.5,12 L9.5,8.5 L9.5,15.5 Z M10.5,13.5 L12.5,12 L10.5,10.5 L10.5,13.5 Z"
-                fill="none"
-                stroke="#000"
-                strokeWidth="2"
-              />
-            </svg>
-          </div>
-          <div
-            className="StyledBox-sc-13pk1d4-0 iFQNp"
-          >
+              The 🧠 Design Thinking Workshop Handbook
+            </h2>
+            <div
+              className="StyledBox__StyledBoxGap-sc-13pk1d4-1 jlbBeA"
+            />
             <span
-              className="StyledText-sc-1sadyjn-0 fMbRNm"
-              size="large"
+              className="StyledText-sc-1sadyjn-0 MnsHo"
+              size="xlarge"
             >
-              Learn About Things 2
+              In this book you'll learn how to put the
+                thinking-based framework popularize by the Standford
+                d.school into practice so you can take on challenges
+                in your organization and reach insightful solutions.
             </span>
           </div>
-        </div>
-      </div>
-    </div>
-    <div
-      className="StyledBox-sc-13pk1d4-0 ggephV"
-    >
-      <div
-        className="StyledBox-sc-13pk1d4-0 gmvHmr"
-      >
-        <h1
-          className="StyledHeading-sc-1rdh4aw-0 ijAJIB"
-          size="large"
-        >
-          Get Started Today
-        </h1>
-        <span
-          className="StyledText-sc-1sadyjn-0 cdCnev"
-          size="xlarge"
-        >
-          Photo booth marvel dreamcatcher direct trade lyft.
-        </span>
-        <div
-          className="StyledBox-sc-13pk1d4-0 ffeAql"
-        >
-          <button
-            className="StyledButton-sc-323bzc-0 dkEQUy"
-            onBlur={[Function]}
-            onFocus={[Function]}
-            onMouseOut={[Function]}
-            onMouseOver={[Function]}
-            type="button"
-          >
-            Sign Up
-          </button>
         </div>
       </div>
     </div>
   </main>
-  <footer
-    className="StyledBox-sc-13pk1d4-0 cJOxqP"
+  <div
+    className="StyledBox-sc-13pk1d4-0 IRSNj"
   >
     <div
-      className="StyledBox-sc-13pk1d4-0 ldwCNw"
+      className="StyledBox-sc-13pk1d4-0 hoKQJh"
     >
-      <span
-        className="StyledText-sc-1sadyjn-0 fWSbXS"
+      <div
+        className="StyledBox-sc-13pk1d4-0 exddWn"
       >
-        © 
-        2019
-        , Built with
-         
         <a
-          className="StyledAnchor-sc-1rp7lwl-0 llbwuF"
-          href="https://grommet.io"
+          className="sc-bdVaJa bwmoIK"
+          href="/opensource"
+        >
+          Open Source
+        </a>
+        <div
+          className="StyledBox__StyledBoxGap-sc-13pk1d4-1 hyyRSo"
+        />
+        <a
+          className="sc-bdVaJa bwmoIK"
+          href="/events"
+        >
+          Events
+        </a>
+        <div
+          className="StyledBox__StyledBoxGap-sc-13pk1d4-1 hyyRSo"
+        />
+        <a
+          className="sc-bdVaJa bwmoIK"
+          href="/community"
+        >
+          Community
+        </a>
+      </div>
+      <div
+        className="StyledBox-sc-13pk1d4-0 exddWn"
+      >
+        <a
+          aria-label="Follow us on Twitter"
+          className="StyledAnchor-sc-1rp7lwl-0 hdTGql"
+          href="https://twitter.com/"
           onBlur={[Function]}
           onFocus={[Function]}
+          rel="noopener noreferrer"
+          target="_blank"
         >
-          <span
-            aria-label="love"
-            role="img"
+          <svg
+            aria-label="Twitter"
+            className="StyledIcon-ofa7kd-0 fDZBFh"
+            viewBox="0 0 24 24"
           >
-            💜
-          </span>
+            <path
+              d="M24,4.3086 C23.117,4.7006 22.168,4.9646 21.172,5.0836 C22.188,4.4746 22.969,3.5096 23.337,2.3596 C22.386,2.9246 21.332,3.3336 20.21,3.5556 C19.312,2.5976 18.032,1.9996 16.616,1.9996 C13.897,1.9996 11.692,4.2046 11.692,6.9236 C11.692,7.3096 11.736,7.6856 11.82,8.0456 C7.728,7.8406 4.099,5.8806 1.671,2.9006 C1.247,3.6286 1.004,4.4736 1.004,5.3766 C1.004,7.0846 1.873,8.5926 3.195,9.4756 C2.388,9.4486 1.628,9.2276 0.964,8.8596 L0.964,8.9206 C0.964,11.3066 2.661,13.2966 4.914,13.7486 C4.501,13.8626 4.065,13.9216 3.617,13.9216 C3.299,13.9216 2.991,13.8906 2.69,13.8336 C3.317,15.7896 5.135,17.2136 7.29,17.2536 C5.604,18.5736 3.481,19.3606 1.175,19.3606 C0.777,19.3606 0.385,19.3376 0,19.2926 C2.179,20.6886 4.767,21.5046 7.548,21.5046 C16.605,21.5046 21.557,14.0016 21.557,7.4946 C21.557,7.2816 21.552,7.0696 21.543,6.8586 C22.505,6.1636 23.34,5.2966 24,4.3086"
+              fill="#1DA1F2"
+              fillRule="evenodd"
+            />
+          </svg>
         </a>
-      </span>
+        <div
+          className="StyledBox__StyledBoxGap-sc-13pk1d4-1 fcyNTM"
+        />
+        <a
+          aria-label="Share feedback on Github"
+          className="StyledAnchor-sc-1rp7lwl-0 hdTGql"
+          href="https://www.github.com/"
+          onBlur={[Function]}
+          onFocus={[Function]}
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <svg
+            aria-label="Github"
+            className="StyledIcon-ofa7kd-0 fDZBFh"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M11.9989871,1 C5.92550416,1 1,5.92482888 1,12.0003376 C1,16.8603395 4.15153934,20.9829338 8.52263728,22.4374904 C9.0729918,22.5387827 9.27355045,22.199116 9.27355045,21.9073943 C9.27355045,21.6467356 9.2640965,20.954572 9.25869425,20.0368642 C6.19899322,20.7013414 5.55342398,18.5620492 5.55342398,18.5620492 C5.0530403,17.2911692 4.33183953,16.9528531 4.33183953,16.9528531 C3.33309801,16.2708186 4.40747107,16.2843243 4.40747107,16.2843243 C5.51155652,16.3619816 6.09229872,17.4181221 6.09229872,17.4181221 C7.07348292,19.0988981 8.66714755,18.6133706 9.2938089,18.3317781 C9.39375058,17.6213819 9.67804414,17.1365297 9.99205009,16.86169 C7.54955646,16.5841493 4.98146045,15.6401056 4.98146045,11.4249977 C4.98146045,10.224347 5.41026428,9.24181221 6.11390773,8.47334172 C6.00046042,8.19512569 5.62297799,7.07618404 6.22195279,5.56220265 C6.22195279,5.56220265 7.14506277,5.26642929 9.24653918,6.68992296 C10.12373,6.44547101 11.0650726,6.32392032 12.0003376,6.31919335 C12.9349274,6.32392032 13.8755947,6.44547101 14.7541361,6.68992296 C16.8542619,5.26642929 17.7760214,5.56220265 17.7760214,5.56220265 C18.3763467,7.07618404 17.9988643,8.19512569 17.8860923,8.47334172 C18.5910863,9.24181221 19.0165137,10.224347 19.0165137,11.4249977 C19.0165137,15.6509101 16.444366,16.5807729 13.9944443,16.8529114 C14.3888087,17.192578 14.7406305,17.863808 14.7406305,18.890236 C14.7406305,20.3603241 14.7271248,21.5467939 14.7271248,21.9073943 C14.7271248,22.2018171 14.9256576,22.5441849 15.4834403,22.4368151 C19.8511618,20.9788821 23,16.8589889 23,12.0003376 C23,5.92482888 18.0744958,1 11.9989871,1"
+              fill="#333"
+              fillRule="evenodd"
+            />
+          </svg>
+        </a>
+        <div
+          className="StyledBox__StyledBoxGap-sc-13pk1d4-1 fcyNTM"
+        />
+        <a
+          aria-label="Chat with us on Slack"
+          className="StyledAnchor-sc-1rp7lwl-0 hdTGql"
+          href="https://www.slack.com/"
+          onBlur={[Function]}
+          onFocus={[Function]}
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <svg
+            aria-label="Slack"
+            className="StyledIcon-ofa7kd-0 fDZBFh"
+            viewBox="0 0 24 24"
+          >
+            <g
+              fill="none"
+              fillRule="evenodd"
+            >
+              <path
+                d="M5.04765714 15.1238095C5.04765714 16.5142857 3.92384762 17.6380952 2.53337143 17.6380952 1.14289524 17.6380952.0190857143 16.5142857.0190857143 15.1238095.0190857143 13.7333333 1.14289524 12.6095238 2.53337143 12.6095238L5.04765714 12.6095238 5.04765714 15.1238095zM6.30472381 15.1238095C6.30472381 13.7333333 7.42853333 12.6095238 8.81900952 12.6095238 10.2094857 12.6095238 11.3332952 13.7333333 11.3332952 15.1238095L11.3332952 21.4095238C11.3332952 22.8 10.2094857 23.9238095 8.81900952 23.9238095 7.42853333 23.9238095 6.30472381 22.8 6.30472381 21.4095238L6.30472381 15.1238095z"
+                fill="#E01E5A"
+              />
+              <path
+                d="M8.81904762 5.02857143C7.42857143 5.02857143 6.3047619 3.9047619 6.3047619 2.51428571 6.3047619 1.12380952 7.42857143 0 8.81904762 0 10.2095238 0 11.3333333 1.12380952 11.3333333 2.51428571L11.3333333 5.02857143 8.81904762 5.02857143zM8.81904762 6.3048C10.2095238 6.3048 11.3333333 7.42860952 11.3333333 8.81908571 11.3333333 10.2095619 10.2095238 11.3333714 8.81904762 11.3333714L2.51428571 11.3333714C1.12380952 11.3333714 0 10.2095619 0 8.81908571 0 7.42860952 1.12380952 6.3048 2.51428571 6.3048L8.81904762 6.3048z"
+                fill="#36C5F0"
+              />
+              <path
+                d="M18.895219 8.81902857C18.895219 7.42855238 20.0190286 6.30474286 21.4095048 6.30474286 22.799981 6.30474286 23.9237905 7.42855238 23.9237905 8.81902857 23.9237905 10.2095048 22.799981 11.3333143 21.4095048 11.3333143L18.895219 11.3333143 18.895219 8.81902857zM17.6380571 8.81902857C17.6380571 10.2095048 16.5142476 11.3333143 15.1237714 11.3333143 13.7332952 11.3333143 12.6094857 10.2095048 12.6094857 8.81902857L12.6094857 2.51426667C12.6094857 1.12379048 13.7332952-.0000190476191 15.1237714-.0000190476191 16.5142476-.0000190476191 17.6380571 1.12379048 17.6380571 2.51426667L17.6380571 8.81902857z"
+                fill="#2EB67D"
+              />
+              <path
+                d="M15.1238286 18.8952C16.5143048 18.8952 17.6381143 20.0190095 17.6381143 21.4094857 17.6381143 22.7999619 16.5143048 23.9237714 15.1238286 23.9237714 13.7333524 23.9237714 12.6095429 22.7999619 12.6095429 21.4094857L12.6095429 18.8952 15.1238286 18.8952zM15.1238286 17.6381333C13.7333524 17.6381333 12.6095429 16.5143238 12.6095429 15.1238476 12.6095429 13.7333714 13.7333524 12.6095619 15.1238286 12.6095619L21.4285905 12.6095619C22.8190667 12.6095619 23.9428762 13.7333714 23.9428762 15.1238476 23.9428762 16.5143238 22.8190667 17.6381333 21.4285905 17.6381333L15.1238286 17.6381333z"
+                fill="#ECB22E"
+              />
+            </g>
+          </svg>
+        </a>
+      </div>
     </div>
-  </footer>
+  </div>
 </div>
 `;
