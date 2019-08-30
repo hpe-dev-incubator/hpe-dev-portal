@@ -8,7 +8,7 @@ export const Footer = ({ ...rest }) => (
       direction="row"
       align="center"
       justify="between"
-      pad={{ horizontal: 'large' }}
+      pad={{ horizontal: 'medium' }}
       {...rest}
     >
       <Box direction="row" gap="medium" justify="center">
