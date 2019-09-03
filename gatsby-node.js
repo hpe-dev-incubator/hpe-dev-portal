@@ -58,6 +58,7 @@ exports.createPages = ({ graphql, actions }) => {
 exports.onCreatePage = ({ page, actions }) => {
   const { deletePage, createPage } = actions;
 
+  // console.log('Create ' + JSON.stringify(page));
   return new Promise(resolve => {
     // if the page component is the index page component
     if (page.componentPath.indexOf('/src/pages/Home/index.js') >= 0) {
