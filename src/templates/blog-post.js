@@ -1,9 +1,10 @@
 import React from 'react';
+import { Location } from '@reach/router';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import { Box, Heading, Text, Markdown, Paragraph, Image } from 'grommet';
-import { Content, Layout, SEO } from '../components';
+import { Content, Layout, SEO, Share } from '../components';
 import { useSiteMetadata } from '../hooks/use-site-metadata';
 
 const components = {
@@ -19,9 +20,7 @@ const components = {
   img: {
     component: Image,
     props: {
-      style: {
-        maxWidth: '820px',
-      },
+      style: {},
     },
   },
 };
@@ -39,6 +38,11 @@ function BlogPostTemplate({ data }) {
   const post = data.markdownRemark;
   const siteMetadata = useSiteMetadata();
   const siteTitle = siteMetadata.title;
+  const dateFormat = Intl.DateTimeFormat('default', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
 
   return (
     <Layout title={siteTitle}>
@@ -46,19 +50,38 @@ function BlogPostTemplate({ data }) {
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
       />
-      <Box background="brand">
-        <Content margin={{ vertical: 'large' }}>
-          <Heading size="xlarge" margin="none" style={{ lineHeight: 1 }}>
+      <Box direction="row-responsive" pad="large">
+        <Box gap="medium">
+          <Text>{dateFormat.format(new Date(post.frontmatter.date))}</Text>
+          <Heading margin="none" style={{ lineHeight: 1 }}>
             {post.frontmatter.title}
           </Heading>
-          <Text weight={100}>{post.frontmatter.date}</Text>
+          <Box direction="row" gap="small" align="center">
+            <Box
+              background={{
+                image: 'url(/img/default-avatar-brand.svg)',
+                size: 'contain',
+              }}
+              pad="medium"
+            />
+            <Text size="xlarge" weight={600}>
+              {post.frontmatter.author}
+            </Text>
+          </Box>
+          <Location>
+            {({ location }) => {
+              return (
+                <Share url={location.href} text={post.frontmatter.title} />
+              );
+            }}
+          </Location>
+        </Box>
+        <Content margin={{ vertical: 'large' }}>
+          <MarkdownLayout components={components}>
+            {post.rawMarkdownBody}
+          </MarkdownLayout>
         </Content>
       </Box>
-      <Content margin={{ vertical: 'large' }}>
-        <MarkdownLayout components={components}>
-          {post.rawMarkdownBody}
-        </MarkdownLayout>
-      </Content>
     </Layout>
   );
 }
@@ -76,8 +99,9 @@ BlogPostTemplate.propTypes = {
       html: PropTypes.string.isRequired,
       frontmatter: PropTypes.shape({
         title: PropTypes.string,
-        description: PropTypes.string,
+        author: PropTypes.string,
         date: PropTypes.string,
+        description: PropTypes.string,
       }).isRequired,
     }).isRequired,
   }).isRequired,
@@ -101,6 +125,7 @@ export const pageQuery = graphql`
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
+        author
         description
       }
     }

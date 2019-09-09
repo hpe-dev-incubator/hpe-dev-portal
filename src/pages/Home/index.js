@@ -27,7 +27,7 @@ class Home extends React.Component {
           <Box flex={false} direction="row-responsive" wrap>
             {homeTile && (
               <Card
-                direction="row"
+                direction="row-responsive"
                 width="large"
                 gap="large"
                 category={homeTile.category}
@@ -147,8 +147,6 @@ Home.propTypes = {
     markdownRemark: PropTypes.shape({
       frontmatter: PropTypes.shape({
         title: PropTypes.string.isRequired,
-        intro: PropTypes.string.isRequired,
-        heroBg: PropTypes.string.isRequired,
         content: PropTypes.arrayOf(
           PropTypes.shape({
             title: PropTypes.string,
@@ -175,8 +173,6 @@ export const pageQuery = graphql`
       excerpt
       frontmatter {
         title
-        intro
-        heroBg
         content {
           image
           title

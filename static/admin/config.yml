@@ -1,6 +1,6 @@
 backend:
-  name: git-gateway
-  branch: master
+ name: test-repo
+ branch: master
 
 media_folder: static/img
 public_folder: /img
@@ -15,16 +15,15 @@ collections:
         name: 'Home'
         file: 'content/home.md'
         fields:
-          - { label: Hero Title, name: title, widget: string }
-          - { label: Hero Intro, name: intro, widget: markdown }
-          - { label: Hero Background, name: heroBg, widget: image }
-          - label: Videos
-            name: videos
+          - { label: Title, name: title, widget: string }
+          - label: Content
+            name: content
             widget: list
             fields:
               - { label: Title, name: title, widget: string }
-              - { label: YouTube URL, name: url, widget: string }
-              - { label: Thumbnail, name: photo, widget: image }
+              - { label: Description, name: description, widget: string }
+              - { label: Image, name: image, widget: image }
+              - { label: Category, name: category, widget: string }
   # Blog collection
   - name: 'blog'
     label: 'Blog'
@@ -36,5 +35,5 @@ collections:
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Publish Date', name: 'date', widget: 'datetime' }
-      - { label: 'Description', name: 'description', widget: 'string' }
+      - { label: 'Author', name: 'author', widget: 'string' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
