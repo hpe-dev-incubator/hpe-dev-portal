@@ -5,7 +5,7 @@ import { SocialMedia, Link } from '../index';
 export const Footer = ({ ...rest }) => (
   <Box>
     <Box
-      direction="row"
+      direction="row-responsive"
       align="center"
       justify="between"
       pad={{ horizontal: 'medium' }}

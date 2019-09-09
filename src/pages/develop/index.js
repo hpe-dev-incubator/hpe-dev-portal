@@ -35,6 +35,7 @@ Card.propTypes = {
 const Heading = ({ children, ...rest }) => (
   <GrommetHeading
     level={2}
+    size="large"
     margin={{ top: 'none', bottom: 'xsmall' }}
     {...rest}
   >
@@ -43,6 +44,21 @@ const Heading = ({ children, ...rest }) => (
 );
 
 Heading.propTypes = {
+  children: PropTypes.node.isRequired,
+};
+
+const Heading3 = ({ children, ...rest }) => (
+  <GrommetHeading
+    level={3}
+    size="large"
+    margin={{ top: 'none', bottom: 'none' }}
+    {...rest}
+  >
+    {children}
+  </GrommetHeading>
+);
+
+Heading3.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
@@ -140,7 +156,7 @@ class Develop extends React.Component {
               <Box direction="row" gap="medium" wrap>
                 <Platform>
                   <Box>
-                    <Heading level={3}>OneView</Heading>
+                    <Heading3>OneView</Heading3>
                     <Text color="neutral-4" size="small">
                       v 6.01.8964
                     </Text>
@@ -151,7 +167,7 @@ class Develop extends React.Component {
                 </Platform>
                 <Platform>
                   <Box>
-                    <Heading level={3}>Simplivity</Heading>
+                    <Heading3>Simplivity</Heading3>
                     <Text color="neutral-4" size="small">
                       v 6.01.8964
                     </Text>
@@ -163,7 +179,7 @@ class Develop extends React.Component {
                 </Platform>
                 <Platform>
                   <Box>
-                    <Heading level={3}>HPE Azure Stack</Heading>
+                    <Heading3>HPE Azure Stack</Heading3>
                     <Text color="neutral-4" size="small">
                       v 6.01.8964
                     </Text>
@@ -175,7 +191,7 @@ class Develop extends React.Component {
                 </Platform>
                 <Platform>
                   <Box>
-                    <Heading level={3}>Nimble</Heading>
+                    <Heading3>Nimble</Heading3>
                     <Text color="neutral-4" size="small">
                       v 6.01.8964
                     </Text>
@@ -187,7 +203,7 @@ class Develop extends React.Component {
                 </Platform>
                 <Platform>
                   <Box>
-                    <Heading level={3}>iLO</Heading>
+                    <Heading3>iLO</Heading3>
                     <Text color="neutral-4" size="small">
                       v 6.01.8964
                     </Text>

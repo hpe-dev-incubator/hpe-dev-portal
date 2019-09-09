@@ -1,10 +1,6 @@
 ---
 title: Home
-intro: >-
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi viverra sodales
-  urna, eget finibus orci rutrum non. Vivamus blandit, erat vel condimentum
-  dapibus. Test
-heroBg: /img/joe-gardner-98180-unsplash.jpg
+author: HPE
 content:
   - image: /img/hpedev.png
     title: HPE Developer
