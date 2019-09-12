@@ -1,11 +1,8 @@
 import React from 'react';
 import { Box, Text } from 'grommet';
 import { Link } from '..';
-// import { useSiteMetadata } from '../../hooks/use-site-metadata';
 
 function Header() {
-  // const siteMetadata = useSiteMetadata();
-
   return (
     <Box
       direction="row-responsive"

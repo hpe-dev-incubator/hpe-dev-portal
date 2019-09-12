@@ -1,6 +1,7 @@
 import React from 'react';
+import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { Box, Heading, Text } from 'grommet';
+import { Box, Heading, Image, Markdown, Text } from 'grommet';
 
 const colors = {
   develop: 'accent-4', // HPE Yellow
@@ -11,30 +12,89 @@ const colors = {
   research: 'accent-1', // HPE Medium Blue
 };
 
-export const Title = ({ children, ...rest }) => (
-  <Heading margin={{ top: 'none', bottom: 'xsmall' }} level={2} {...rest}>
-    {children}
-  </Heading>
-);
+// Remove padding or margin from first markdown element.
+// This allows the heading and content to have the same gap.
+const MarkdownLayout = styled(Markdown)`
+  & > *:first-child {
+    margin-top: 0;
+    padding-top: 0;
+  }
+`;
 
-Title.propTypes = {
-  children: PropTypes.node.isRequired,
+// Remove padding or margin from first markdown element.
+// This allows the heading and content to have the same gap.
+const MarkdownCenteredLayout = styled(Markdown)`
+  & > *:first-child {
+    margin-top: 0;
+    padding-top: 0;
+  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const components = {
+  h1: {
+    component: Heading,
+    props: {
+      margin: { top: 'none', bottom: 'xsmall' },
+      level: 1,
+    },
+  },
+  h2: {
+    component: Heading,
+    props: {
+      margin: { top: 'none', bottom: 'xsmall' },
+      level: 2,
+    },
+  },
+  h3: {
+    component: Heading,
+    props: {
+      margin: { top: 'none', bottom: 'xsmall' },
+      level: 3,
+    },
+  },
+  h4: {
+    component: Heading,
+    props: {
+      margin: { top: 'none', bottom: 'none' },
+      level: 4,
+      style: {
+        fontWeight: 'normal',
+      },
+    },
+  },
+  p: {
+    component: Text,
+    props: {
+      size: 'xlarge',
+      color: 'dark-3',
+      style: {
+        maxWidth: '100%',
+      },
+    },
+  },
+  img: {
+    component: Image,
+    props: {
+      margin: { vertical: 'medium' },
+      style: {},
+    },
+  },
 };
 
-const Description = ({ children, ...rest }) => (
-  <Text size="xlarge" color="dark-3" {...rest}>
-    {children}
-  </Text>
-);
-
-Description.propTypes = {
-  children: PropTypes.node.isRequired,
-  width: PropTypes.string,
-};
-
-export const Card = ({ key, children, pad, width, gap, category, ...rest }) => (
+export const Card = ({
+  children,
+  pad,
+  width,
+  gap,
+  category,
+  content,
+  align,
+  ...rest
+}) => (
   <Box
-    key={key}
     margin="small"
     flex="grow"
     width={width || 'medium'}
@@ -56,16 +116,24 @@ export const Card = ({ key, children, pad, width, gap, category, ...rest }) => (
       {...rest}
     >
       {children}
+      {content && align === 'center' && (
+        <MarkdownCenteredLayout components={components}>
+          {content}
+        </MarkdownCenteredLayout>
+      )}
+      {content && align !== 'center' && (
+        <MarkdownLayout components={components}>{content}</MarkdownLayout>
+      )}
     </Box>
   </Box>
 );
 
-Card.Title = Title;
-Card.Description = Description;
+// Card.Title = Title;
+// Card.Description = Description;
 
 Card.propTypes = {
-  key: PropTypes.string,
-  children: PropTypes.node.isRequired,
+  content: PropTypes.string,
+  children: PropTypes.node,
   width: PropTypes.string,
   gap: PropTypes.string,
   pad: PropTypes.shape({
@@ -73,6 +141,7 @@ Card.propTypes = {
     vertical: PropTypes.string,
   }),
   category: PropTypes.string,
+  align: PropTypes.string,
 };
 
 export default Card;

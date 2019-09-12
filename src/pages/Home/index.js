@@ -1,135 +1,42 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
-import { Box, Text, Image } from 'grommet';
+import { Box, Image } from 'grommet';
 
 import { Layout, SEO, Card } from '../../components';
 
 class Home extends React.Component {
   render() {
     const { data } = this.props;
-    const { title, content } = data.markdownRemark.frontmatter;
+    const { title, image } = data.markdownRemark.frontmatter;
     const siteTitle = data.site.siteMetadata.title;
-    const [
-      homeTile,
-      researchTile,
-      designTile,
-      eventTile,
-      researchTileBig,
-      communityTile,
-      openSourceTile,
-      developTile,
-    ] = content;
+
+    const panels = data.allMarkdownRemark.edges;
+
     return (
       <Layout title={siteTitle}>
         <SEO title={title} />
         <Box flex overflow="auto" gap="medium" pad="small">
           <Box flex={false} direction="row-responsive" wrap>
-            {homeTile && (
-              <Card
-                direction="row-responsive"
-                width="large"
-                gap="large"
-                category={homeTile.category}
-              >
-                <Image src={homeTile.image} />
-                <Box>
-                  <Card.Title level={1}>{homeTile.title}</Card.Title>
-                  <Card.Description>{homeTile.description}</Card.Description>
-                </Box>
-              </Card>
-            )}
-            {researchTile && (
-              <Card category={researchTile.category}>
-                <Card.Title>{researchTile.title}</Card.Title>
-                <Card.Description>{researchTile.description}</Card.Description>
-              </Card>
-            )}
-            {designTile && (
-              <Card width="medium" category={designTile.category}>
-                <Box align="start" gap="medium">
-                  <Image src={designTile.image} />
-                  <Box>
-                    <Card.Title>{designTile.title}</Card.Title>
-                    <Card.Description>
-                      {designTile.description}
-                    </Card.Description>
-                  </Box>
-                </Box>
-              </Card>
-            )}
-            {eventTile && (
-              <Card width="medium" gap="large" category={eventTile.category}>
-                <Image src={eventTile.image} />
-                <Box justify="center" align="center">
-                  <Card.Title>{eventTile.title}</Card.Title>
-                  <Card.Description>{eventTile.description}</Card.Description>
-                </Box>
-              </Card>
-            )}
-            {researchTileBig && (
-              <Card
-                width="large"
-                gap="large"
-                category={researchTileBig.category}
-              >
-                <Image src={researchTileBig.image} />
-                <Box align="center">
-                  <Card.Title>{researchTileBig.title}</Card.Title>
-                  <Card.Description>
-                    {researchTileBig.description}
-                  </Card.Description>
-                </Box>
-              </Card>
-            )}
-            {communityTile && (
-              <Card
-                width="medium"
-                align="start"
-                gap="medium"
-                category={communityTile.category}
-              >
-                <Box>
-                  <Text size="medium" color="dark-3">
-                    May 23, 2019
-                  </Text>
-                  <Card.Title>{communityTile.title}</Card.Title>
-                  <Card.Description>
-                    {communityTile.description}
-                  </Card.Description>
-                </Box>
-                <Image src={communityTile.image} />
-              </Card>
-            )}
-            {openSourceTile && (
-              <Card
-                width="medium"
-                gap="large"
-                category={openSourceTile.category}
-              >
-                <Box align="center">
-                  <Card.Title>{openSourceTile.title}</Card.Title>
-                  <Card.Description>
-                    {openSourceTile.description}
-                  </Card.Description>
-                </Box>
-                <Image src={openSourceTile.image} />
-              </Card>
-            )}
-            {developTile && (
-              <Card
-                width="medium"
-                align="start"
-                gap="medium"
-                category={developTile.category}
-              >
-                <Image src={developTile.image} />
-                <Box>
-                  <Card.Title>{developTile.title}</Card.Title>
-                  <Card.Description>{developTile.description}</Card.Description>
-                </Box>
-              </Card>
-            )}
+            <Card
+              direction="row-responsive"
+              width="large"
+              gap="large"
+              category=""
+              content={data.markdownRemark.rawMarkdownBody}
+            >
+              <Box align="center">{image && <Image src={image} />}</Box>
+            </Card>
+            {panels &&
+              panels.map(({ node }) => (
+                <Card
+                  key={node.id}
+                  category={node.frontmatter.category}
+                  width={node.frontmatter.width}
+                  align={node.frontmatter.align}
+                  content={node.rawMarkdownBody}
+                />
+              ))}
           </Box>
         </Box>
       </Layout>
@@ -147,16 +54,26 @@ Home.propTypes = {
     markdownRemark: PropTypes.shape({
       frontmatter: PropTypes.shape({
         title: PropTypes.string.isRequired,
-        content: PropTypes.arrayOf(
-          PropTypes.shape({
-            title: PropTypes.string,
-            description: PropTypes.string,
-            image: PropTypes.string,
-            category: PropTypes.string,
-          }),
-        ),
+        image: PropTypes.string,
       }).isRequired,
+      rawMarkdownBody: PropTypes.string,
     }).isRequired,
+    allMarkdownRemark: PropTypes.shape({
+      edges: PropTypes.arrayOf(
+        PropTypes.shape({
+          node: PropTypes.shape({
+            id: PropTypes.string,
+            frontmatter: PropTypes.shape({
+              width: PropTypes.string,
+              align: PropTypes.string,
+              category: PropTypes.string,
+              priority: PropTypes.number,
+            }),
+          }),
+          rawMarkdownBody: PropTypes.string,
+        }),
+      ),
+    }),
   }).isRequired,
 };
 
@@ -173,11 +90,23 @@ export const pageQuery = graphql`
       excerpt
       frontmatter {
         title
-        content {
-          image
-          title
-          description
-          category
+        image
+      }
+      rawMarkdownBody
+    }
+    allMarkdownRemark(
+      filter: { fields: { sourceInstanceName: { eq: "homepanels" } } }
+      sort: { fields: [frontmatter___priority] }
+    ) {
+      edges {
+        node {
+          id
+          frontmatter {
+            width
+            align
+            category
+          }
+          rawMarkdownBody
         }
       }
     }
