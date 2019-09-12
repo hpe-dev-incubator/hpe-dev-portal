@@ -72,21 +72,25 @@ Description.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-const Platform = ({ children, ...rest }) => (
+const Platform = ({ children, image, ...rest }) => (
   <Box width="288px" gap="small" pad={{ top: 'medium' }} {...rest}>
-    <Box background="light-2" width="288px" height="288px" />
+    <Box background="light-2" width="288px" height="288px">
+      {image && <Image fit="contain" src={image} />}
+    </Box>
     {children}
   </Box>
 );
 
 Platform.propTypes = {
   children: PropTypes.node.isRequired,
+  image: PropTypes.string,
 };
 
 class Develop extends React.Component {
   render() {
     const { data } = this.props;
     const siteTitle = data.site.siteMetadata.title;
+    const platforms = data.allMarkdownRemark.edges;
 
     return (
       <Layout title={siteTitle}>
@@ -154,65 +158,18 @@ class Develop extends React.Component {
                 and think you will be too.
               </Description>
               <Box direction="row" gap="medium" wrap>
-                <Platform>
-                  <Box>
-                    <Heading3>OneView</Heading3>
-                    <Text color="neutral-4" size="small">
-                      v 6.01.8964
-                    </Text>
-                  </Box>
-                  <Description>
-                    The foundation for a software-defined data center.
-                  </Description>
-                </Platform>
-                <Platform>
-                  <Box>
-                    <Heading3>Simplivity</Heading3>
-                    <Text color="neutral-4" size="small">
-                      v 6.01.8964
-                    </Text>
-                  </Box>
-                  <Description>
-                    A hyperconverged platform uniting best-in-class data
-                    services with the world's bestselling server.
-                  </Description>
-                </Platform>
-                <Platform>
-                  <Box>
-                    <Heading3>HPE Azure Stack</Heading3>
-                    <Text color="neutral-4" size="small">
-                      v 6.01.8964
-                    </Text>
-                  </Box>
-                  <Description>
-                    Run Azure services on-premise. An integrated hybrid cloud
-                    that incorporates compute, storage, and networking.
-                  </Description>
-                </Platform>
-                <Platform>
-                  <Box>
-                    <Heading3>Nimble</Heading3>
-                    <Text color="neutral-4" size="small">
-                      v 6.01.8964
-                    </Text>
-                  </Box>
-                  <Description>
-                    The Cloud Ready storage platform with Predictive Analytics
-                    provides robust APIs for the next generation data center.
-                  </Description>
-                </Platform>
-                <Platform>
-                  <Box>
-                    <Heading3>iLO</Heading3>
-                    <Text color="neutral-4" size="small">
-                      v 6.01.8964
-                    </Text>
-                  </Box>
-                  <Description>
-                    Simple and automated remote HPE Server management through
-                    Redfish.
-                  </Description>
-                </Platform>
+                {platforms &&
+                  platforms.map(({ node }) => (
+                    <Platform image={node.frontmatter.image} key={node.id}>
+                      <Box>
+                        <Heading3>{node.frontmatter.title}</Heading3>
+                        <Text color="neutral-4" size="small">
+                          {node.frontmatter.version}
+                        </Text>
+                      </Box>
+                      <Description>{node.frontmatter.description}</Description>
+                    </Platform>
+                  ))}
               </Box>
               <Anchor color="brand" label="See all Platforms >" />
             </Card>
@@ -231,6 +188,24 @@ Develop.propTypes = {
         title: PropTypes.string.isRequired,
       }).isRequired,
     }).isRequired,
+    allMarkdownRemark: PropTypes.shape({
+      edges: PropTypes.arrayOf(
+        PropTypes.shape({
+          node: PropTypes.shape({
+            id: PropTypes.string,
+            frontmatter: PropTypes.shape({
+              title: PropTypes.string,
+              version: PropTypes.string,
+              description: PropTypes.string,
+              image: PropTypes.string,
+              frontpage: PropTypes.bool,
+              priority: PropTypes.number,
+            }),
+          }),
+          rawMarkdownBody: PropTypes.string,
+        }),
+      ),
+    }),
   }).isRequired,
 };
 
@@ -241,6 +216,28 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+      }
+    }
+    allMarkdownRemark(
+      filter: {
+        fields: { sourceInstanceName: { eq: "platform" } }
+        frontmatter: { frontpage: { eq: true } }
+      }
+      sort: { fields: [frontmatter___priority] }
+    ) {
+      edges {
+        node {
+          id
+          frontmatter {
+            title
+            version
+            description
+            image
+            frontpage
+            priority
+          }
+          rawMarkdownBody
+        }
       }
     }
   }

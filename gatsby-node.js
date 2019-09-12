@@ -16,6 +16,7 @@ exports.createPages = ({ graphql, actions }) => {
             node {
               fields {
                 slug
+                sourceInstanceName
               }
               frontmatter {
                 title
@@ -34,13 +35,16 @@ exports.createPages = ({ graphql, actions }) => {
     const posts = result.data.allMarkdownRemark.edges;
 
     posts.forEach((post, index) => {
-      if (post.slug !== '/') {
+      if (post.node.fields.sourceInstanceName === 'blog') {
         const previous =
           index === posts.length - 1 ? null : posts[index + 1].node;
         const next = index === 0 ? null : posts[index - 1].node;
+        const { sourceInstanceName, slug } = post.node.fields;
 
+        console.log(`Create pages /${sourceInstanceName}${slug} from ${slug}`);
+        console.log('------------------------------');
         createPage({
-          path: `/blog${post.node.fields.slug}`,
+          path: `/${sourceInstanceName}${slug}`,
           component: blogPost,
           context: {
             slug: post.node.fields.slug,
@@ -58,7 +62,7 @@ exports.createPages = ({ graphql, actions }) => {
 exports.onCreatePage = ({ page, actions }) => {
   const { deletePage, createPage } = actions;
 
-  // console.log('Create ' + JSON.stringify(page));
+  console.log('onCreatePage ' + page.componentPath);
   return new Promise(resolve => {
     // if the page component is the index page component
     if (page.componentPath.indexOf('/src/pages/Home/index.js') >= 0) {
@@ -78,11 +82,20 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
 
   if (node.internal.type === 'MarkdownRemark') {
+    const { sourceInstanceName, absolutePath } = getNode(node.parent);
+    console.log(
+      '==== onCreateNode ' + sourceInstanceName + ' ---- ' + absolutePath,
+    );
     const value = createFilePath({ node, getNode });
     createNodeField({
       name: 'slug',
       node,
       value,
+    });
+    createNodeField({
+      name: 'sourceInstanceName',
+      node,
+      value: sourceInstanceName,
     });
   }
 };
