@@ -1,4 +1,5 @@
 ---
+title: grommet-2
 width: medium
 align: center
 category: Open Source

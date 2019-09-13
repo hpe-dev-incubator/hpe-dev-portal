@@ -1,4 +1,5 @@
 ---
+title: brittany-journey
 width: medium
 align: left
 category: Community
