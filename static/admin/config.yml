@@ -11,21 +11,16 @@ collections:
     name: 'home'
     format: 'frontmatter'
     editor:
-      preview: false
+      preview: true
     files:
       - label: 'Landing Page'
         name: 'Home'
         file: 'content/home.md'
         fields:
           - { label: Title, name: title, widget: string }
-          - label: Content
-            name: content
-            widget: list
-            fields:
-              - { label: Title, name: title, widget: string }
-              - { label: Author, name: author, widget: string }
-              - { label: Image, name: image, widget: image }
-              - { label: Body, name: body, widget: 'markdown' }
+          - { label: Author, name: author, widget: string }
+          - { label: Image, name: image, widget: image }
+          - { label: Body, name: body, widget: 'markdown' }
   # Homepanels collection
   - name: 'homepanels'
     label: 'Home Panels'
@@ -35,7 +30,7 @@ collections:
     create: true
     slug: '{{priority}}-{{slug}}'
     editor:
-      preview: false
+      preview: true
     fields:
       - { label: 'ID', name: 'title', widget: 'string', hint: 'used for the filename and tagging' }
       - { label: 'Category', name: 'category', widget: 'select', options: [ { label: 'none', value: ''}, { label: 'Community', value: 'Community' }, { label: 'Design', value: 'Design' }, { label: 'Develop', value: 'Develop' }, { label: 'Event', value: 'Event' }, { label: 'Open Source', value: 'Open Source' }, { label: 'Research', value: 'Research' } ], default: 'none' }
@@ -57,3 +52,19 @@ collections:
       - { label: 'Publish Date', name: 'date', widget: 'datetime' }
       - { label: 'Author', name: 'author', widget: 'string' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
+  # Platform collection
+  - name: 'platform'
+    label: 'Platform'
+    folder: 'content/platform'
+    extension: 'md'
+    create: true
+    slug: '{{slug}}'
+    editor:
+      preview: false
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Version', name: 'version', widget: 'string' }
+      - { label: 'Descriptions', name: 'author', widget: 'string' }
+      - { label: 'Image', name: 'image', widget: 'image' }
+      - { label: 'Show on front page', name: 'frontpage', widget: 'boolean', default: false}
+      - { label: 'Priority', name: 'priority', widget: 'number', hint: 'controls the position on the page'}

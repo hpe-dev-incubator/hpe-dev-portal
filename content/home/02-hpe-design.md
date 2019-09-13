@@ -1,4 +1,5 @@
 ---
+title: hpe-design
 width: medium
 align: left
 category: Design

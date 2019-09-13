@@ -1,4 +1,5 @@
 ---
+title: jsconf
 width: medium
 align: center
 category: Event

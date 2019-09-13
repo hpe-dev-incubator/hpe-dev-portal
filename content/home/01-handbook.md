@@ -1,4 +1,5 @@
 ---
+title: handbook
 width: medium
 align: left
 category: Research
