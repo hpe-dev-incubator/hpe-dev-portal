@@ -1,5 +1,6 @@
 backend:
- name: git-gateway
+ name: github
+ repo: hpe-dev-incubator/hpe-dev-portal
  branch: master
 
 media_folder: static/img
