@@ -35,6 +35,7 @@ class Home extends React.Component {
                   width={node.frontmatter.width}
                   align={node.frontmatter.align}
                   content={node.rawMarkdownBody}
+                  link={node.frontmatter.link}
                 />
               ))}
           </Box>
@@ -68,6 +69,7 @@ Home.propTypes = {
               align: PropTypes.string,
               category: PropTypes.string,
               priority: PropTypes.number,
+              link: PropTypes.string,
             }),
           }),
           rawMarkdownBody: PropTypes.string,
@@ -105,6 +107,7 @@ export const pageQuery = graphql`
             width
             align
             category
+            link
           }
           rawMarkdownBody
         }
