@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { Box, Heading, Image, Markdown, Text } from 'grommet';
+import { Link } from '..';
 
 const colors = {
   develop: 'accent-4', // HPE Yellow
@@ -92,6 +93,7 @@ export const Card = ({
   category,
   content,
   align,
+  link,
   ...rest
 }) => (
   <Box
@@ -107,24 +109,26 @@ export const Card = ({
     <Box align="end">
       <Text color="light-5">{category}</Text>
     </Box>
-    <Box
-      fill="vertical"
-      justify="center"
-      align="center"
-      gap={gap || 'none'}
-      pad={{ horizontal: 'large', vertical: 'large', ...pad }}
-      {...rest}
-    >
-      {children}
-      {content && align === 'center' && (
-        <MarkdownCenteredLayout components={components}>
-          {content}
-        </MarkdownCenteredLayout>
-      )}
-      {content && align !== 'center' && (
-        <MarkdownLayout components={components}>{content}</MarkdownLayout>
-      )}
-    </Box>
+    <Link to={link}>
+      <Box
+        fill="vertical"
+        justify="center"
+        align="center"
+        gap={gap || 'none'}
+        pad={{ horizontal: 'large', vertical: 'large', ...pad }}
+        {...rest}
+      >
+        {children}
+        {content && align === 'center' && (
+          <MarkdownCenteredLayout components={components}>
+            {content}
+          </MarkdownCenteredLayout>
+        )}
+        {content && align !== 'center' && (
+          <MarkdownLayout components={components}>{content}</MarkdownLayout>
+        )}
+      </Box>
+    </Link>
   </Box>
 );
 
@@ -142,6 +146,7 @@ Card.propTypes = {
   }),
   category: PropTypes.string,
   align: PropTypes.string,
+  link: PropTypes.string,
 };
 
 export default Card;

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
-import { Box, Heading as GrommetHeading, Image, Text, Anchor } from 'grommet';
+import { Box, Heading as GrommetHeading, Image, Text } from 'grommet';
 
 import { Link, Layout, SEO } from '../../components';
 
@@ -171,7 +171,9 @@ class Develop extends React.Component {
                     </Platform>
                   ))}
               </Box>
-              <Anchor color="brand" label="See all Platforms >" />
+              <Link to="/platforms" color="brand">
+                <Text color="brand">See all Platforms ></Text>
+              </Link>
             </Card>
           </Box>
           {/* main body */}

@@ -4,6 +4,7 @@ width: medium
 align: left
 category: Community
 priority: 5
+link: /blog/2019-05-23-brittany-journey/
 ---
 #### May 23, 2019
 

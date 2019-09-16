@@ -37,6 +37,7 @@ collections:
       - { label: 'Priority', name: 'priority', widget: 'number', hint: 'controls the position on the page'}
       - { label: 'Width', name: 'width', widget: 'select', options: [ 'small', 'medium', 'large', 'xlarge' ], default: 'medium'}
       - { label: 'Align', name: 'align', widget: 'select', options: [ 'left', 'center' ], default: 'left' }
+      - { label: 'Link', name: 'align', widget: 'string', required: false }
       - { label: 'Body', name: 'body', widget: 'markdown' }
   # Blog collection
   - name: 'blog'
