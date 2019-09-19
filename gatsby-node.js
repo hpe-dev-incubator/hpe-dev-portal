@@ -5,6 +5,9 @@ exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
 
   const blogPost = path.resolve('./src/templates/blog-post.js');
+  const platform = path.resolve('./src/templates/platform.js');
+  const tagTemplate = path.resolve('./src/templates/tags.js');
+
   return graphql(
     `
       {
@@ -22,6 +25,11 @@ exports.createPages = ({ graphql, actions }) => {
                 title
               }
             }
+          }
+        }
+        tagsGroup: allMarkdownRemark(limit: 2000) {
+          group(field: frontmatter___tags) {
+            fieldValue
           }
         }
       }
@@ -52,7 +60,30 @@ exports.createPages = ({ graphql, actions }) => {
             next,
           },
         });
+      } else if (post.node.fields.sourceInstanceName === 'platform') {
+        const { sourceInstanceName, slug } = post.node.fields;
+
+        console.log(`Create pages /${sourceInstanceName}${slug} from ${slug}`);
+        console.log('------------------------------');
+        createPage({
+          path: `/${sourceInstanceName}${slug}`,
+          component: platform,
+          context: {
+            slug: post.node.fields.slug,
+          },
+        });
       }
+    });
+
+    const tags = result.data.tagsGroup.group;
+    tags.forEach(tag => {
+      createPage({
+        path: `/blog/tag/${tag.fieldValue}/`,
+        component: tagTemplate,
+        context: {
+          tag: tag.fieldValue,
+        },
+      });
     });
 
     return null;

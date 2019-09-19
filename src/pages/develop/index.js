@@ -1,9 +1,14 @@
 import React from 'react';
+import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { graphql } from 'gatsby';
+import { graphql, Link as GatsbyLink } from 'gatsby';
 import { Box, Heading as GrommetHeading, Image, Text } from 'grommet';
 
-import { Link, Layout, SEO } from '../../components';
+import { Layout, Link, SEO } from '../../components';
+
+const NavLink = styled(GatsbyLink)`
+  text-decoration: none;
+`;
 
 const Card = ({ children, ...rest }) => (
   <Box
@@ -72,18 +77,21 @@ Description.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-const Platform = ({ children, image, ...rest }) => (
-  <Box width="288px" gap="small" pad={{ top: 'medium' }} {...rest}>
-    <Box background="light-2" width="288px" height="288px">
-      {image && <Image fit="contain" src={image} />}
+const Platform = ({ children, image, link, ...rest }) => (
+  <NavLink to={link}>
+    <Box width="288px" gap="small" pad={{ top: 'medium' }} {...rest}>
+      <Box background="light-2" width="288px" height="288px">
+        {image && <Image fit="contain" src={image} />}
+      </Box>
+      {children}
     </Box>
-    {children}
-  </Box>
+  </NavLink>
 );
 
 Platform.propTypes = {
   children: PropTypes.node.isRequired,
   image: PropTypes.string,
+  link: PropTypes.string,
 };
 
 class Develop extends React.Component {
@@ -109,11 +117,21 @@ class Develop extends React.Component {
                     in the Enterprise
                   </Description>
                   <Box direction="row-responsive" gap="medium">
-                    <Link to="/platforms">Platforms</Link>
-                    <Link to="/devops">DevOps</Link>
-                    <Link to="/documentation">Documentation</Link>
-                    <Link to="/videos">Videos</Link>
-                    <Link to="/downloads">Downloads</Link>
+                    <Link to="/platforms" color="neutral-4">
+                      Platforms
+                    </Link>
+                    <Link to="/devops" color="neutral-4">
+                      DevOps
+                    </Link>
+                    <Link to="/documentation" color="neutral-4">
+                      Documentation
+                    </Link>
+                    <Link to="/videos" color="neutral-4">
+                      Videos
+                    </Link>
+                    <Link to="/downloads" color="neutral-4">
+                      Downloads
+                    </Link>
                   </Box>
                 </Card>
 
@@ -160,7 +178,11 @@ class Develop extends React.Component {
               <Box direction="row" gap="medium" wrap>
                 {platforms &&
                   platforms.map(({ node }) => (
-                    <Platform image={node.frontmatter.image} key={node.id}>
+                    <Platform
+                      image={node.frontmatter.image}
+                      key={node.id}
+                      link={`/${node.fields.sourceInstanceName}${node.fields.slug}`}
+                    >
                       <Box>
                         <Heading3>{node.frontmatter.title}</Heading3>
                         <Text color="neutral-4" size="small">
@@ -171,9 +193,7 @@ class Develop extends React.Component {
                     </Platform>
                   ))}
               </Box>
-              <Link to="/platforms" color="brand">
-                <Text color="brand">See all Platforms ></Text>
-              </Link>
+              <Link to="/platforms" label="See all Platforms >" />
             </Card>
           </Box>
           {/* main body */}
@@ -239,6 +259,10 @@ export const pageQuery = graphql`
             priority
           }
           rawMarkdownBody
+          fields {
+            slug
+            sourceInstanceName
+          }
         }
       }
     }
