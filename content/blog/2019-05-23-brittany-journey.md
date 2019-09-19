@@ -3,6 +3,7 @@ title: My Journey from Student to HPE Full-stack Developer
 date: 2019-05-29T18:50:19.963Z
 author: Brittany Archibeque
 description: description
+tags: ["Grommet"]
 ---
 ![](/img/unsquished-brittany-grad-picture-1558709131030.jpg)
 

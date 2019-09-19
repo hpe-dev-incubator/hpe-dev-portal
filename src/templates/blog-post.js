@@ -3,8 +3,16 @@ import { Location } from '@reach/router';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
-import { Box, Heading, Text, Markdown, Paragraph, Image } from 'grommet';
-import { Content, Layout, SEO, Share } from '../components';
+import {
+  Anchor,
+  Box,
+  Heading,
+  Text,
+  Markdown,
+  Paragraph,
+  Image,
+} from 'grommet';
+import { Content, Layout, Link, SEO, Share } from '../components';
 import { useSiteMetadata } from '../hooks/use-site-metadata';
 
 const components = {
@@ -22,6 +30,9 @@ const components = {
     props: {
       style: {},
     },
+  },
+  a: {
+    component: Anchor,
   },
 };
 
@@ -43,19 +54,16 @@ function BlogPostTemplate({ data }) {
     month: 'long',
     day: 'numeric',
   });
+  const { rawMarkdownBody, excerpt } = post;
+  const { description, date, title, author, tags } = post.frontmatter;
 
   return (
     <Layout title={siteTitle}>
-      <SEO
-        title={post.frontmatter.title}
-        description={post.frontmatter.description || post.excerpt}
-      />
+      <SEO title={title} description={description || excerpt} />
       <Box direction="row-responsive" pad="large">
         <Box gap="medium">
-          <Text>{dateFormat.format(new Date(post.frontmatter.date))}</Text>
-          <Heading margin="none" style={{ lineHeight: 1 }}>
-            {post.frontmatter.title}
-          </Heading>
+          <Text>{dateFormat.format(new Date(date))}</Text>
+          <Heading margin="none">{title}</Heading>
           <Box direction="row" gap="small" align="center">
             <Box
               background={{
@@ -65,21 +73,31 @@ function BlogPostTemplate({ data }) {
               pad="medium"
             />
             <Text size="xlarge" weight={600}>
-              {post.frontmatter.author}
+              {author}
             </Text>
           </Box>
           <Location>
             {({ location }) => {
-              return (
-                <Share url={location.href} text={post.frontmatter.title} />
-              );
+              return <Share url={location.href} text={title} />;
             }}
           </Location>
         </Box>
         <Content margin={{ vertical: 'large' }}>
           <MarkdownLayout components={components}>
-            {post.rawMarkdownBody}
+            {rawMarkdownBody}
           </MarkdownLayout>
+          {tags && (
+            <Box direction="row-responsive" align="baseline" gap="small">
+              <Heading level={2} margin={{ vertical: 'none' }}>
+                Tags:
+              </Heading>
+              {tags.map(tag => (
+                <Link to={`/blog/tag/${tag}`} key={tag} size="xxlarge">
+                  {tag}
+                </Link>
+              ))}
+            </Box>
+          )}
         </Content>
       </Box>
     </Layout>
@@ -102,6 +120,7 @@ BlogPostTemplate.propTypes = {
         author: PropTypes.string,
         date: PropTypes.string,
         description: PropTypes.string,
+        tags: PropTypes.arrayOf(PropTypes.string),
       }).isRequired,
     }).isRequired,
   }).isRequired,
@@ -127,6 +146,7 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         author
         description
+        tags
       }
     }
   }

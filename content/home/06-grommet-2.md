@@ -4,6 +4,7 @@ width: medium
 align: center
 category: Open Source
 priority: 6
+link: /platform/Grommet/
 ---
 ## Grommet 2
 

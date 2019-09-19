@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { Box, Heading, Image, Markdown, Text } from 'grommet';
-import { Link } from '..';
+import { Link as GatsbyLink } from 'gatsby';
 
 const colors = {
   develop: 'accent-4', // HPE Yellow
@@ -12,6 +12,10 @@ const colors = {
   'open source': 'accent-2', // HPE Medium Purple
   research: 'accent-1', // HPE Medium Blue
 };
+
+const NavLink = styled(GatsbyLink)`
+  text-decoration: none;
+`;
 
 // Remove padding or margin from first markdown element.
 // This allows the heading and content to have the same gap.
@@ -109,7 +113,7 @@ export const Card = ({
     <Box align="end">
       <Text color="light-5">{category}</Text>
     </Box>
-    <Link to={link}>
+    <NavLink to={link}>
       <Box
         fill="vertical"
         justify="center"
@@ -128,12 +132,9 @@ export const Card = ({
           <MarkdownLayout components={components}>{content}</MarkdownLayout>
         )}
       </Box>
-    </Link>
+    </NavLink>
   </Box>
 );
-
-// Card.Title = Title;
-// Card.Description = Description;
 
 Card.propTypes = {
   content: PropTypes.string,

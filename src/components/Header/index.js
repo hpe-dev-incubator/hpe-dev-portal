@@ -16,11 +16,21 @@ function Header() {
         </Text>
       </Link>
       <Box direction="row" gap="medium" justify="center">
-        <Link to="/research">Research</Link>
-        <Link to="/design">Design</Link>
-        <Link to="/develop">Develop</Link>
-        <Link to="/blog">Blog</Link>
-        <Link to="/support">Support</Link>
+        <Link to="/research" color="neutral-4">
+          Research
+        </Link>
+        <Link to="/design" color="neutral-4">
+          Design
+        </Link>
+        <Link to="/develop" color="neutral-4">
+          Develop
+        </Link>
+        <Link to="/blog" color="neutral-4">
+          Blog
+        </Link>
+        <Link to="/support" color="neutral-4">
+          Support
+        </Link>
       </Box>
     </Box>
   );

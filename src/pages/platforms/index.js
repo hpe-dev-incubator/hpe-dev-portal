@@ -1,48 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
-import { Box, Heading as GrommetHeading, Paragraph, Text } from 'grommet';
+import { Box, Heading } from 'grommet';
 
-import { Layout, Link, SEO } from '../../components';
+import { BlogCard, Layout, SEO } from '../../components';
 import { useSiteMetadata } from '../../hooks/use-site-metadata';
-
-const Card = ({ children, ...rest }) => (
-  <Box
-    margin={{
-      left: 'large',
-      right: 'large',
-    }}
-    pad={{
-      bottom: 'large',
-      top: 'large',
-    }}
-    gap="medium"
-    border={{
-      side: 'bottom',
-      color: 'light-2',
-      size: 'medium',
-    }}
-    justify="center"
-    {...rest}
-  >
-    {children}
-  </Box>
-);
-
-Card.propTypes = {
-  children: PropTypes.node.isRequired,
-};
-
-const Heading = ({ children, ...rest }) => (
-  <GrommetHeading
-    level={2}
-    size="large"
-    margin={{ top: 'none', bottom: 'xsmall' }}
-    {...rest}
-  >
-    {children}
-  </GrommetHeading>
-);
 
 Heading.propTypes = {
   children: PropTypes.node.isRequired,
@@ -58,31 +20,13 @@ function Platforms({ data }) {
       <SEO title="Platforms" />
       <Box flex overflow="auto" gap="medium" pad="small">
         <Box flex={false} direction="row-responsive" wrap>
-          <Box pad={{ vertical: 'large', horizontal: 'xlarge' }}>
-            <Heading border={{ size: '0px' }}>Platforms</Heading>
+          <Box pad={{ vertical: 'large', horizontal: 'large' }}>
+            <Heading margin="none">Platforms</Heading>
           </Box>
           <Box>
-            {posts.map(
-              ({ node }) =>
-                node.fields.slug !== '/' && (
-                  <Card key={node.id} gap="medium">
-                    <Box>
-                      <Heading>{node.frontmatter.title}</Heading>
-                      <Text size="small" color="neutral-4">
-                        {node.frontmatter.version}
-                      </Text>
-                    </Box>
-                    <Box width="medium">
-                      <Paragraph margin="none">
-                        {node.frontmatter.description}
-                      </Paragraph>
-                    </Box>
-                    <Link to={`/platform${node.fields.slug}`}>
-                      <Text color="brand">Read more ></Text>
-                    </Link>
-                  </Card>
-                ),
-            )}
+            {posts.map(({ node }) => (
+              <BlogCard node={node} />
+            ))}
           </Box>
         </Box>
       </Box>
@@ -106,6 +50,10 @@ Platforms.propTypes = {
               priority: PropTypes.number,
             }).isRequired,
             excerpt: PropTypes.string.isRequired,
+            fields: PropTypes.shape({
+              slug: PropTypes.string.isRequired,
+              sourceInstanceName: PropTypes.string.isRequired,
+            }),
           }).isRequired,
         }).isRequired,
       ).isRequired,
@@ -127,6 +75,7 @@ export const pageQuery = graphql`
           rawMarkdownBody
           fields {
             slug
+            sourceInstanceName
           }
           excerpt
           frontmatter {

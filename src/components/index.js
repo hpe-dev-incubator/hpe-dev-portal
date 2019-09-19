@@ -1,3 +1,4 @@
+import BlogCard from './BlogCard';
 import Card from './Card';
 import Content from './Content';
 import Hero from './Hero';
@@ -10,6 +11,7 @@ import Link from './Link';
 import Footer from './Footer';
 
 export {
+  BlogCard,
   Card,
   Content,
   Footer,
