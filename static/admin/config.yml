@@ -52,6 +52,7 @@ collections:
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Publish Date', name: 'date', widget: 'datetime' }
       - { label: 'Author', name: 'author', widget: 'string' }
+      - { label: 'Tags', name: 'tags', widget: 'list', allow_add: true, required: false, field: {label: 'Tag', name: 'tag', widget: 'string'}  }
       - { label: 'Body', name: 'body', widget: 'markdown' }
   # Platform collection
   - name: 'platform'
@@ -65,7 +66,9 @@ collections:
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Version', name: 'version', widget: 'string' }
-      - { label: 'Descriptions', name: 'author', widget: 'string' }
-      - { label: 'Image', name: 'image', widget: 'image' }
-      - { label: 'Show on front page', name: 'frontpage', widget: 'boolean', default: false}
-      - { label: 'Priority', name: 'priority', widget: 'number', hint: 'controls the position on the page'}
+      - { label: 'Description', name: 'description', widget: 'string' }
+      - { label: 'Image', name: 'image', widget: 'image', hint 'image to appear on Develop page' }
+      - { label: 'Show on Develop page', name: 'frontpage', widget: 'boolean', default: false}
+      - { label: 'Priority', name: 'priority', widget: 'number', hint: 'controls the position on the Develop page'}
+      - { label: 'Tags', name: 'tags', widget: 'list', allow_add: true, required: false, field: {label: 'Tag', name: 'tag', widget: 'string'} }
+      - { label: 'Body', name: 'body', widget: 'markdown' }

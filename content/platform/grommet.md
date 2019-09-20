@@ -5,6 +5,7 @@ description: An open source UI development and design tool
 image: /img/monster.png
 frontpage: true
 priority: 7
+tags: ["Grommet"]
 ---
 ## Build awesome apps with Grommet
 

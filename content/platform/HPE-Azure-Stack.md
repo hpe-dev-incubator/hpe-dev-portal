@@ -5,6 +5,7 @@ description: Run Azure services on-premise. An integrated hybrid cloud that inco
 image: 
 frontpage: true
 priority: 3
+tags: ["HPE-Azure-Stack"]
 ---
 ## Microsoft Azure in your data center
 

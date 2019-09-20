@@ -5,6 +5,7 @@ description: The foundation for a software-defined data center.
 image:
 frontpage: true
 priority: 1
+tags: ["OneView"]
 ---
 ## HPE OneView Developers Hub
 
