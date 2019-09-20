@@ -5,6 +5,7 @@ description: A hyperconverged platform uniting best-in-class data services with 
 image: 
 frontpage: true
 priority: 2
+tags: ["Simplivity"]
 ---
 
 ## HPE OmniStack REST API

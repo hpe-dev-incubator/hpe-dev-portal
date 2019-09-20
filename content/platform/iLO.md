@@ -5,6 +5,7 @@ description: Simple and automated remote HPE Server management through Redfish.
 image: 
 frontpage: true
 priority: 5
+tags: ["iLO"]
 ---
 # One Interface for Server Management Automation
 

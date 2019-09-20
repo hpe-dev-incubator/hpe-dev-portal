@@ -12,7 +12,7 @@ import {
   Text,
 } from 'grommet';
 import { Github } from 'grommet-icons';
-import { Content, Layout, SEO } from '../components';
+import { BlogCard, Content, Layout, SEO } from '../components';
 import { useSiteMetadata } from '../hooks/use-site-metadata';
 
 class Image extends React.Component {
@@ -71,6 +71,7 @@ const MarkdownLayout = styled(Markdown)`
 
 function PlatformTemplate({ data }) {
   const post = data.markdownRemark;
+  const { edges } = data.allMarkdownRemark;
   const siteMetadata = useSiteMetadata();
   const siteTitle = siteMetadata.title;
   const { rawMarkdownBody, excerpt } = post;
@@ -89,6 +90,17 @@ function PlatformTemplate({ data }) {
             <MarkdownLayout components={components}>
               {rawMarkdownBody}
             </MarkdownLayout>
+          </Content>
+        </Box>
+        <Box flex={false} direction="row-responsive" wrap>
+          <Box pad={{ vertical: 'large', horizontal: 'large' }}>
+            <Heading margin="none">Blog posts</Heading>
+          </Box>
+          <Content gap="medium" width="xlarge">
+            {edges.map(({ node }) => {
+              const { slug } = node.fields;
+              return <BlogCard node={node} key={slug} margin="none" />;
+            })}
           </Content>
         </Box>
       </Box>
@@ -118,7 +130,7 @@ PlatformTemplate.propTypes = {
 export default PlatformTemplate;
 
 export const pageQuery = graphql`
-  query PlatformBySlug($slug: String!) {
+  query PlatformBySlug($slug: String!, $tags: [String!]) {
     site {
       siteMetadata {
         title
@@ -133,6 +145,30 @@ export const pageQuery = graphql`
         title
         version
         description
+      }
+    }
+    allMarkdownRemark(
+      limit: 2000
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: {
+        frontmatter: { tags: { in: $tags } }
+        fields: { sourceInstanceName: { eq: "blog" } }
+      }
+    ) {
+      totalCount
+      edges {
+        node {
+          fields {
+            slug
+            sourceInstanceName
+          }
+          frontmatter {
+            title
+            author
+            date
+          }
+          excerpt
+        }
       }
     }
   }

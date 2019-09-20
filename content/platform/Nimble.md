@@ -5,6 +5,7 @@ description: The Cloud Ready storage platform with Predictive Analytics provides
 image: 
 frontpage: true
 priority: 4
+tags: ["Nimble"]
 ---
 HPE Nimble Storage customers have full access to the REST API of the arrays. We also provide Open Source projects for various automation platforms and DevOps ecosystems. The array API is available on InfoSight for customers only while the REST API for HPE Cloud Volumes is public.
 
