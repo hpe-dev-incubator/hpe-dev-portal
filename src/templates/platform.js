@@ -124,6 +124,26 @@ PlatformTemplate.propTypes = {
         description: PropTypes.string,
       }).isRequired,
     }).isRequired,
+    allMarkdownRemark: PropTypes.shape({
+      edges: PropTypes.arrayOf(
+        PropTypes.shape({
+          node: PropTypes.shape({
+            frontmatter: PropTypes.shape({
+              title: PropTypes.string.isRequired,
+              author: PropTypes.string,
+              date: PropTypes.string,
+              description: PropTypes.string.isRequired,
+              version: PropTypes.string,
+            }).isRequired,
+            excerpt: PropTypes.string.isRequired,
+            fields: PropTypes.shape({
+              slug: PropTypes.string.isRequired,
+              sourceInstanceName: PropTypes.string.isRequired,
+            }),
+          }).isRequired,
+        }),
+      ).isRequired,
+    }).isRequired,
   }).isRequired,
 };
 

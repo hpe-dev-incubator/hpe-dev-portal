@@ -21,7 +21,7 @@ git clone http://<userid>@github.com/bluek8s/kubedirector.
 
 The KubeDirectorApp definition for the Spark 2.2.1 application is located in the file `kubedirector/deploy/example_catalog/cr-app-spark221e2.json`.
 
-```
+```javascript
 ~> cat kubedirector/deploy/example_catalog/cr-app-spark221e2.json
  {
     "apiVersion": "kubedirector.bluedata.io/v1alpha1",
@@ -45,7 +45,7 @@ The KubeDirectorApp definition for the Spark 2.2.1 application is located in the
 
 The configuration of an application cluster is referred to as a KubeDirectorCluster resource. The KubeDirectorCluster definition for a sample Spark 2.2.1 cluster is located in the file `kubedirector/deploy/example_clusters/cr-cluster-spark221.e1.yaml`.
 
-```
+```yaml
 ~> cat kubedirector/deploy/example_clusters/cr-cluster-spark221.e1.yaml
 apiVersion: "kubedirector.bluedata.io/v1alpha1"
 kind: "KubeDirectorCluster"
@@ -90,7 +90,7 @@ Server Version: version.Info{Major:"1", Minor:"11", GitVersion:"v1.11.3", GitCom
 
 Deploy the KubeDirector service and the example KubeDirectorApp resource definitions with the commands:
 
-```
+```bash
 cd kubedirector
 make deploy
 ```
@@ -146,7 +146,7 @@ Pointing the browser at port 31533 connects to the Spark Master UI:
 That’s all there is to it! In fact, in the example above we also deployed a Jupyter notebook along with the Spark cluster.
 To start another application (e.g. Cassandra), just specify another KubeDirectorApp file:
 
-```
+```bash
 kubectl create -f deploy/example_clusters/cr-cluster-cassandra311.yaml
 ```
 

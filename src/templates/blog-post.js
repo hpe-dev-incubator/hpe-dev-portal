@@ -1,49 +1,19 @@
 import React from 'react';
 import { Location } from '@reach/router';
-import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
-import {
-  Anchor,
-  Box,
-  Heading,
-  Text,
-  Markdown,
-  Paragraph,
-  Image,
-} from 'grommet';
+import { Box, Heading, Text } from 'grommet';
 import { Content, Layout, Link, SEO, Share } from '../components';
 import { useSiteMetadata } from '../hooks/use-site-metadata';
 
-const components = {
-  p: {
-    component: Paragraph,
-    props: {
-      size: 'xlarge',
-      style: {
-        maxWidth: '100%',
-      },
-    },
-  },
-  img: {
-    component: Image,
-    props: {
-      style: {},
-    },
-  },
-  a: {
-    component: Anchor,
-  },
-};
+function Markdown({ content }) {
+  const markup = { __html: content };
+  return <div dangerouslySetInnerHTML={markup} />;
+}
 
-// Remove padding or margin from first markdown element.
-// This allows the heading and content to have the same gap.
-const MarkdownLayout = styled(Markdown)`
-  & > *:first-child {
-    margin-top: 0;
-    padding-top: 0;
-  }
-`;
+Markdown.propTypes = {
+  content: PropTypes.string,
+};
 
 function BlogPostTemplate({ data }) {
   const post = data.markdownRemark;
@@ -54,7 +24,7 @@ function BlogPostTemplate({ data }) {
     month: 'long',
     day: 'numeric',
   });
-  const { rawMarkdownBody, excerpt } = post;
+  const { html, excerpt } = post;
   const { description, date, title, author, tags } = post.frontmatter;
 
   return (
@@ -83,9 +53,7 @@ function BlogPostTemplate({ data }) {
           </Location>
         </Box>
         <Content margin={{ vertical: 'large' }}>
-          <MarkdownLayout components={components}>
-            {rawMarkdownBody}
-          </MarkdownLayout>
+          <Markdown content={html} />
           {tags && (
             <Box direction="row-responsive" align="baseline" gap="small">
               <Heading level={2} margin={{ vertical: 'none' }}>
