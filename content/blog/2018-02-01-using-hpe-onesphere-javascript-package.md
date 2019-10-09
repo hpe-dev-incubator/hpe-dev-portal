@@ -17,6 +17,7 @@ When a developer [installs Node](https://nodejs.org/en/), it comes bundled with 
 
 # Starting the Project
 Let's start by creating a new project directory I called mine `hpe-onesphere-js-app`. In your terminal window within this directory initiate your project by running `npm init -y`, the `-y` lets NPM know we want to accept whatever default project name value it chooses. After running the `init` command you will see an output similar to the following:
+
 ```json
 {
   "name": "hpe-onesphere-js-app",
@@ -37,6 +38,7 @@ These are the contents of your `package.json` file.
 Our next step is to get our Node/Express API ready. In your project's directory, run the following command `npm i -S express babel-cli babel-preset-env`. This will install the express, babel-cli, and babel-preset packages, the `-S` lets NPM know these packages are project dependencies not just development dependencies. We will be using express as our web server. Babel-cli is used to allow us to include the latest Javascript syntax to our code. To learn more about why developers choose babel check out [this article](https://kleopetrov.me/2016/03/18/everything-about-babel/).
 
 Our next step is to create a `.babelrc` in our base project directory, this file tells babel what extra features of the latest Javascript spec to include. We will be including the latest spec which will allow us to use imports, consts, and arrow functions in our project. To learn more about the latest Javascript syntax features, check out this [handy repo](https://github.com/lukehoban/es6features). The contents of our `.babelrc` should look like this:
+
 ```json
 {
   "presets": ["env"],
@@ -45,6 +47,7 @@ Our next step is to create a `.babelrc` in our base project directory, this file
 ```
 
 Now, create an `index.js` file in your project folder. This will be the entry point for our project. Your index.js should look like the following:
+
 ```javascript
 // Import the express npm package from our node_modules directory.
 import express from 'express';
@@ -62,6 +65,7 @@ app.listen(3000, () => {
   // Send a message to our terminal window that we're ready for action.
   console.log('Server listening to http://localhost:3000');
 });
+
 ``` 
 I've added comments in the code to clarify what each line of code is doing to help create our application. Save your `index.js` file and open your terminal. In the project directory, run `npx babel-node index.js`, this runs our current application in Node. We're running our application in babel-node to transpile the latest Javascript features to lower versions of Javascript on the fly. *Note: babel-node is being used here for demonstration purposes and ease of use, babel-node should not be used in production. Instead a developer would look to transpiling their Javascript to a distribution bundle via [Webpack](https://webpack.js.org/).*
 
@@ -69,6 +73,7 @@ Upon running the babel-node command you should see `Server listening to http://l
 
 # NPM Scripts
 Now that we've learned how to run our project, let's look at a quicker method of handling spinning up our application. In your `package.json` file, in the `"scripts"` key, let's add the script  `"start": npx babel-node index.js`. Your `package.json` should look like this:
+
 ```json
 {
   "name": "hpe-onesphere-js-app",
@@ -93,10 +98,12 @@ Now we can run our project by simply typing `npm start` in our terminal.
 
 # Time to OneSphere
 We'll start by adding the HPE OneSphere Javascript language bindings to our app by running `npm i -S npm i @hpe/hpe-onesphere-js` in our terminal. Once the package has been installed open your `index.js`. Next, we will add the OneSphere package with the following import statement:
+
 ```
 import OneSphere from '@hpe/hpe-onesphere-js';`
 ```
 Then instantiate the class with our host name.
+
 ```javascript
 const oneSphere = new OneSphere('https://my-instance-name.hpeonesphere.com');
 ```
@@ -105,6 +112,7 @@ Now that we have our `oneSphere` class instance we can start to communicate with
 
 # Sessions
 Most requests to OneSphere's API require the user to post  session details. We accomplish this by calling the `postSession` method, this will initiate a session in our class that will be re-used every time we make a request. Just below your `oneSphere` instantiation, add a request to post a session.
+
 ```javascript
 oneSphere.postSession({
   username: 'user@email.com',
@@ -115,6 +123,7 @@ If you run `npm start` in your terminal now you should see a message logged to y
 
 # A Real Live API Route
 The finish line is in sight, an OneSphere API route for our app. Let's create a route to check the OneSphere server status. Below your hello world route add the following:
+
 ```javascript
 app.get('/onesphere-status', (req, res) => {
   oneSphere.getStatus()
@@ -122,6 +131,7 @@ app.get('/onesphere-status', (req, res) => {
 });
 ```
 If we `npm start` our app and check the `http://localhost:3000/onesphere-status` URL in our browser, we should see the following JSON output:
+
 ```json
 {
   "service": "OK",
@@ -132,6 +142,7 @@ Well there it is, the service is running and we have successfully created an HPE
 
 # Error Handling
 This is great and all but what about when we get an error during our API request? Javascript has a great way of handling promise chain failures known as a `catch` statement. Let's add a `catch` to our server status route.
+
 ```javascript
 app.get('/onesphere-status', (req, res) => {
   oneSphere.getStatus()
@@ -142,6 +153,7 @@ app.get('/onesphere-status', (req, res) => {
 With `catch` in place if an error happens in the `then` block `catch` will takeover and handle things from there. Notice we introduced sending the HTTP response code with `status`. This is very helpful when communicating with an API from a front end application, as the developer can decide what to do based on the response code not just the content of the response body.
 
 Here's our final application:
+
 ```javascript
 // Import the express and HPE OneSphere package from our node_modules directory.
 import express from 'express';

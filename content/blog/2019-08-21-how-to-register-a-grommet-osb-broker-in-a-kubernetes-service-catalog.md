@@ -135,6 +135,7 @@ Notice that the status reflects that the broker's catalog of service offerings h
 ## Step 3 – Viewing ClusterServiceClasses and ClusterServicePlans
 
 The controller has already created a ClusterServiceClass for each service that the grommet broker provides. We can view the ClusterServiceClass resources available:
+
 ```bash
 $ svcat get classes
    NAME     NAMESPACE     DESCRIPTION
@@ -147,6 +148,7 @@ NAME                                   EXTERNAL-NAME   BROKER           AGE
 
 ```
 * NOTE: The above kubectl command uses a custom set of columns. The NAME field is the Kubernetes name of the ClusterServiceClass and the EXTERNAL NAME field is the human-readable name for the service that the broker returns.
+
 ```bash
 $ svcat describe class grommet
   Name:              grommet
@@ -204,6 +206,7 @@ status:
   removedFromBrokerCatalog: false
 ```
 Additionally, the controller created a ClusterServicePlan for each of the plans for the broker's services. We can view the ClusterServicePlan resources available in the cluster:
+
 ```bash
 $ svcat get plans
        NAME        NAMESPACE    CLASS     DESCRIPTION
@@ -218,6 +221,7 @@ e3c4f66b-b7ae-4f64-b5a3-51c910b19ac0   grommet-plan-2   grommet-broker   97ca7e2
 
 ```
 You can view the details of a ClusterServicePlan with this command:
+
 ```bash
 $ svcat describe plan grommet/default
 
@@ -261,6 +265,7 @@ $ kubectl create namespace grommet-ns
 namespace/grommet-ns created
 ```
 Then, create the ServiceInstance:
+
 ```bash
 $ cat grommet-broker-instance.yaml
 apiVersion: servicecatalog.k8s.io/v1beta1
@@ -465,11 +470,13 @@ grommet-broker-binding   Opaque                                2      3m37s
 
 ## Step 6 – Delete the ServiceBinding
 Now, let's unbind the instance:
+
 ```bash
 $ svcat unbind -n grommet-ns grommet-broker-instance
 deleted grommet-broker-binding
 ```
 After the deletion is complete, we should see that the Secret is gone:
+
 ```bash
 $ kubectl get secrets -n grommet-ns
 NAME                  TYPE                                  DATA   AGE
@@ -477,6 +484,7 @@ default-token-hjm6z   kubernetes.io/service-account-token   3      154m
 ```
 ## Step 7 – Deleting the ServiceInstance
 There may be times you want to delete a ServiceInstance. In that case you can deprovision it. You can do so using the following steps:
+
 ```bash
 $ svcat deprovision -n grommet-ns grommet-broker-instance
 deleted grommet-broker-instance
@@ -484,6 +492,7 @@ deleted grommet-broker-instance
 
 ## Step 8 – Deleting the ClusterServiceBroker
 Next, remove the ClusterServiceBroker resource. This tells the service catalog to remove the broker's services from the catalog. Do so with this command:
+
 ```bash
 $ kubectl delete clusterservicebrokers grommet-broker
 clusterservicebroker.servicecatalog.k8s.io "grommet-broker" deleted

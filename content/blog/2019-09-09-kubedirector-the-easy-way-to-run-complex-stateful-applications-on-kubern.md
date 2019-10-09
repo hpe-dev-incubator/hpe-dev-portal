@@ -1,5 +1,6 @@
 ---
-title: KubeDirector&#58; The easy way to run complex stateful applications on Kubernetes
+title: >
+    KubeDirector: The easy way to run complex stateful applications on Kubernetes
 date: 2019-09-09T17:42:49.847Z
 author: Tom Phelan 
 tags: ["bluedata"]
@@ -16,9 +17,15 @@ KubeDirector provides the following capabilities:
 * An application-agnostic deployment pattern, minimizing the time to onboard new stateful applications to Kubernetes.
 KubeDirector enables data scientists familiar with data-intensive distributed applications such as Hadoop, Spark, Cassandra, TensorFlow, Caffe2, etc. to run these applications on Kubernetes – with a minimal learning curve and no need to write GO code. The applications controlled by KubeDirector are defined by some basic metadata and an associated package of configuration artifacts. The application metadata is referred to as a KubeDirectorApp resource.
 
-To understand the components of KubeDirector, clone the repository on [GitHub](https://github.com/bluek8s/kubedirector/) using a command similar to:```
+To understand the components of KubeDirector, clone the repository on [GitHub](https://github.com/bluek8s/kubedirector/) using a command similar to:
+
+```
 git clone http://<userid>@github.com/bluek8s/kubedirector.
-```The KubeDirectorApp definition for the Spark 2.2.1 application is located in the file `kubedirector/deploy/example_catalog/cr-app-spark221e2.json`.```
+```
+
+The KubeDirectorApp definition for the Spark 2.2.1 application is located in the file `kubedirector/deploy/example_catalog/cr-app-spark221e2.json`.
+
+```
  ~> cat kubedirector/deploy/example_catalog/cr-app-spark221e2.json
  {
     "apiVersion": "kubedirector.bluedata.io/v1alpha1",
@@ -38,7 +45,11 @@ git clone http://<userid>@github.com/bluek8s/kubedirector.
                         "spark_worker"
                     ],
 …
-```The configuration of an application cluster is referred to as a KubeDirectorCluster resource. The KubeDirectorCluster definition for a sample Spark 2.2.1 cluster is located in the file `kubedirector/deploy/example_clusters/cr-cluster-spark221.e1.yaml`.```
+```
+
+The configuration of an application cluster is referred to as a KubeDirectorCluster resource. The KubeDirectorCluster definition for a sample Spark 2.2.1 cluster is located in the file `kubedirector/deploy/example_clusters/cr-cluster-spark221.e1.yaml`.
+
+```
 ~> cat kubedirector/deploy/example_clusters/cr-cluster-spark221.e1.yaml
 apiVersion: "kubedirector.bluedata.io/v1alpha1"
 kind: "KubeDirectorCluster"
@@ -67,14 +78,20 @@ spec:
         cpu: "2"
   - name: jupyter
 …
-```## Running Spark on Kubernetes with KubeDirector
+```
+
+## Running Spark on Kubernetes with KubeDirector
 With KubeDirector, it’s easy to run Spark clusters on Kubernetes.
 
-First, verify that Kubernetes (version 1.9 or later) is running, using the command `kubectl version````
+First, verify that Kubernetes (version 1.9 or later) is running, using the command `kubectl version`
+
+```
 ~> kubectl version
 Client Version: version.Info{Major:"1", Minor:"11", GitVersion:"v1.11.3", GitCommit:"a4529464e4629c21224b3d52edfe0ea91b072862", GitTreeState:"clean", BuildDate:"2018-09-09T18:02:47Z", GoVersion:"go1.10.3", Compiler:"gc", Platform:"linux/amd64"}
 Server Version: version.Info{Major:"1", Minor:"11", GitVersion:"v1.11.3", GitCommit:"a4529464e4629c21224b3d52edfe0ea91b072862", GitTreeState:"clean", BuildDate:"2018-09-09T17:53:03Z", GoVersion:"go1.10.3", Compiler:"gc", Platform:"linux/amd64"} 
-```Deploy the KubeDirector service and the example KubeDirectorApp resource definitions with the commands:
+```
+
+Deploy the KubeDirector service and the example KubeDirectorApp resource definitions with the commands:
 
 ```
 cd kubedirector
