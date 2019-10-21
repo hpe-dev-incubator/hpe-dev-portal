@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const path = require('path');
 const { createFilePath } = require('gatsby-source-filesystem');
 
@@ -95,7 +96,7 @@ exports.createPages = ({ graphql, actions }) => {
 exports.onCreatePage = ({ page, actions }) => {
   const { deletePage, createPage } = actions;
 
-  console.log('onCreatePage ' + page.componentPath);
+  console.log(`onCreatePage ${page.componentPath}`);
   return new Promise(resolve => {
     // if the page component is the index page component
     if (page.componentPath.indexOf('/src/pages/Home/index.js') >= 0) {
@@ -116,9 +117,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 
   if (node.internal.type === 'MarkdownRemark') {
     const { sourceInstanceName, absolutePath } = getNode(node.parent);
-    console.log(
-      '==== onCreateNode ' + sourceInstanceName + ' ---- ' + absolutePath,
-    );
+    console.log(`==== onCreateNode ${sourceInstanceName} ---- ${absolutePath}`);
     const value = createFilePath({ node, getNode });
     createNodeField({
       name: 'slug',

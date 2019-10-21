@@ -3,38 +3,10 @@ import { Location } from '@reach/router';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
-import {
-  Anchor,
-  Box,
-  Heading,
-  Text,
-  Markdown,
-  Paragraph,
-  Image,
-} from 'grommet';
-import { Content, Layout, Link, SEO, Share } from '../components';
-import { useSiteMetadata } from '../hooks/use-site-metadata';
+import { Box, Heading, Text } from 'grommet';
 
-const components = {
-  p: {
-    component: Paragraph,
-    props: {
-      size: 'xlarge',
-      style: {
-        maxWidth: '100%',
-      },
-    },
-  },
-  img: {
-    component: Image,
-    props: {
-      style: {},
-    },
-  },
-  a: {
-    component: Anchor,
-  },
-};
+import { Content, Layout, Markdown, Link, SEO, Share } from '../components';
+import { useSiteMetadata } from '../hooks/use-site-metadata';
 
 // Remove padding or margin from first markdown element.
 // This allows the heading and content to have the same gap.
@@ -83,9 +55,7 @@ function BlogPostTemplate({ data }) {
           </Location>
         </Box>
         <Content margin={{ vertical: 'large' }}>
-          <MarkdownLayout components={components}>
-            {rawMarkdownBody}
-          </MarkdownLayout>
+          <MarkdownLayout>{rawMarkdownBody}</MarkdownLayout>
           {tags && (
             <Box direction="row-responsive" align="baseline" gap="small">
               <Heading level={2} margin={{ vertical: 'none' }}>

@@ -36,13 +36,14 @@
     "react": "^16.9.0",
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1",
+    "react-syntax-highlighter": "^11.0.2",
     "redux": "^4.0.4",
     "slate": "^0.47.8",
     "styled-components": "^4.3.2",
     "typescript": "^3.6.2"
   },
   "devDependencies": {
-    "@hpe/project-scripts": "^1.0.4",
+    "@hpe/project-scripts": "^1.0.5",
     "babel-jest": "^24.9.0",
     "babel-preset-gatsby": "^0.2.11",
     "cypress": "^3.4.1",

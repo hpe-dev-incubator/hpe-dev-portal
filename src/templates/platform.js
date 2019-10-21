@@ -2,63 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
-import {
-  Anchor,
-  Box,
-  Heading,
-  Markdown,
-  Paragraph,
-  Image as GrommetImage,
-  Text,
-} from 'grommet';
-import { Github } from 'grommet-icons';
-import { BlogCard, Content, Layout, SEO } from '../components';
+import { Box, Heading, Text } from 'grommet';
+import { BlogCard, Content, Layout, Markdown, SEO } from '../components';
 import { useSiteMetadata } from '../hooks/use-site-metadata';
-
-class Image extends React.Component {
-  render() {
-    const { src } = this.props;
-    return src === 'Github' ? (
-      <Github color="brand" />
-    ) : (
-      <GrommetImage {...this.props} />
-    );
-  }
-}
-
-Image.propTypes = {
-  src: PropTypes.string.isRequired,
-};
-
-const components = {
-  p: {
-    component: Paragraph,
-    props: {
-      size: 'xlarge',
-      style: {
-        maxWidth: '100%',
-      },
-    },
-  },
-  img: {
-    component: Image,
-    props: {
-      style: {},
-    },
-  },
-  hr: {
-    component: Box,
-    props: {
-      border: {
-        top: 'small',
-        color: 'light-3',
-      },
-    },
-  },
-  a: {
-    component: Anchor,
-  },
-};
 
 // Remove padding or margin from first markdown element.
 // This allows the heading and content to have the same gap.
@@ -87,9 +33,7 @@ function PlatformTemplate({ data }) {
           </Box>
           <Content gap="medium" width="xlarge" margin={{ vertical: 'large' }}>
             <Text size="xlarge">{description}</Text>
-            <MarkdownLayout components={components}>
-              {rawMarkdownBody}
-            </MarkdownLayout>
+            <MarkdownLayout>{rawMarkdownBody}</MarkdownLayout>
           </Content>
         </Box>
         <Box flex={false} direction="row-responsive" wrap>
@@ -124,6 +68,24 @@ PlatformTemplate.propTypes = {
         description: PropTypes.string,
       }).isRequired,
     }).isRequired,
+    allMarkdownRemark: PropTypes.shape({
+      edges: PropTypes.arrayOf(
+        PropTypes.shape({
+          node: PropTypes.shape({
+            frontmatter: PropTypes.shape({
+              title: PropTypes.string.isRequired,
+              author: PropTypes.string,
+              date: PropTypes.string,
+            }).isRequired,
+            excerpt: PropTypes.string.isRequired,
+            fields: PropTypes.shape({
+              slug: PropTypes.string.isRequired,
+              sourceInstanceName: PropTypes.string.isRequired,
+            }),
+          }).isRequired,
+        }),
+      ),
+    }),
   }).isRequired,
 };
 
