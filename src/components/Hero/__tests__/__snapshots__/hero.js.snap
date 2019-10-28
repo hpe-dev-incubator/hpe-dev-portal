@@ -2,10 +2,10 @@
 
 exports[`Hero renders correctly 1`] = `
 <div
-  className="StyledBox-sc-13pk1d4-0 bRIVSP"
+  className="StyledBox-sc-13pk1d4-0 jTrljf"
 >
   <div
-    className="StyledBox-sc-13pk1d4-0 iaNxlk"
+    className="StyledBox-sc-13pk1d4-0 bdFdoP"
   >
     <h1
       className="StyledHeading-sc-1rdh4aw-0 iMVrbt"
@@ -25,10 +25,10 @@ exports[`Hero renders correctly 1`] = `
       className="StyledBox__StyledBoxGap-sc-13pk1d4-1 irlfVP"
     />
     <div
-      className="StyledBox-sc-13pk1d4-0 ffeAql"
+      className="StyledBox-sc-13pk1d4-0 ekjAwv"
     >
       <button
-        className="StyledButton-sc-323bzc-0 aNlbA"
+        className="StyledButton-sc-323bzc-0 hsEINM"
         onBlur={[Function]}
         onFocus={[Function]}
         onMouseOut={[Function]}
@@ -45,7 +45,7 @@ exports[`Hero renders correctly 1`] = `
         className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iChEkS"
       />
       <button
-        className="StyledButton-sc-323bzc-0 kHrfdt"
+        className="StyledButton-sc-323bzc-0 eVzWWp"
         onBlur={[Function]}
         onClick={[Function]}
         onFocus={[Function]}
