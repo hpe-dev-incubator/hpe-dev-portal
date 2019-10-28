@@ -30,6 +30,7 @@
     "grommet": "^2.7.10",
     "grommet-icons": "^4.2.0",
     "grommet-theme-hpe": "^0.4.2",
+    "jest-styled-components": "^6.3.3",
     "netlify-cms-app": "^2.9.7",
     "prismjs": "^1.17.1",
     "prop-types": "^15.7.2",
