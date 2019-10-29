@@ -1,8 +1,43 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Content renders correctly 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  margin: 0px;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 384px;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+@media only screen and (max-width:768px) {
+  .c0 {
+    margin: 0px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c0 {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+}
+
 <div
-  className="StyledBox-sc-13pk1d4-0 gmaUvW"
+  className="c0"
 >
   This is my content
 </div>

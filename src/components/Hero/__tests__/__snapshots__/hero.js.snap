@@ -1,34 +1,254 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Hero renders correctly 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  margin: 0px;
+  background: url(https://test.com/iimage.jpg) no-repeat center center;
+  background-size: cover;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 768px;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  padding: 48px;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  margin: 0px;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 768px;
+  padding: 0px;
+}
+
+.c5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  margin: 0px;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  padding: 0px;
+}
+
+.c3 {
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  height: 24px;
+}
+
+.c8 {
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  width: 12px;
+}
+
+.c6 {
+  display: inline-block;
+  box-sizing: border-box;
+  cursor: pointer;
+  outline: none;
+  font: inherit;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  margin: 0;
+  background: transparent;
+  overflow: visible;
+  text-transform: none;
+  border: 2px solid #7D4CDB;
+  border-radius: 18px;
+  color: #444444;
+  padding: 4px 22px;
+  font-size: 18px;
+  line-height: 24px;
+  background: #7D4CDB;
+  color: #f8f8f8;
+  border-radius: 18px;
+  -webkit-transition-property: color, background-color, border-color, box-shadow;
+  transition-property: color, background-color, border-color, box-shadow;
+  -webkit-transition-duration: 0.1s;
+  transition-duration: 0.1s;
+  -webkit-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
+}
+
+.c6:hover {
+  box-shadow: 0px 0px 0px 2px #7D4CDB;
+}
+
+.c9 {
+  display: inline-block;
+  box-sizing: border-box;
+  cursor: pointer;
+  outline: none;
+  font: inherit;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  margin: 0;
+  background: transparent;
+  overflow: visible;
+  text-transform: none;
+  border: 2px solid #7D4CDB;
+  border-radius: 18px;
+  color: #444444;
+  padding: 4px 22px;
+  font-size: 18px;
+  line-height: 24px;
+  -webkit-transition-property: color, background-color, border-color, box-shadow;
+  transition-property: color, background-color, border-color, box-shadow;
+  -webkit-transition-duration: 0.1s;
+  transition-duration: 0.1s;
+  -webkit-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
+}
+
+.c9:hover {
+  box-shadow: 0px 0px 0px 2px #7D4CDB;
+}
+
+.c2 {
+  margin: 0px;
+  font-size: 82px;
+  line-height: 88px;
+  max-width: 1968px;
+  font-weight: 600;
+  color: #FFFFFF;
+}
+
+.c4 {
+  font-size: 18px;
+  line-height: 24px;
+  color: #FFFFFF;
+}
+
+.c7 {
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: bold;
+}
+
+.c10 {
+  font-size: 18px;
+  line-height: 24px;
+  color: #F8F8F8;
+  font-weight: bold;
+}
+
+@media only screen and (max-width:768px) {
+  .c0 {
+    margin: 0px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c0 {
+    padding: 24px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c1 {
+    margin: 0px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c1 {
+    padding: 0px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c5 {
+    margin: 0px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c5 {
+    padding: 0px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c3 {
+    height: 12px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c2 {
+    margin: 0px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c2 {
+    font-size: 50px;
+    line-height: 56px;
+    max-width: 1200px;
+  }
+}
+
 <div
-  className="StyledBox-sc-13pk1d4-0 bRIVSP"
+  className="c0"
 >
   <div
-    className="StyledBox-sc-13pk1d4-0 iaNxlk"
+    className="c1"
   >
     <h1
-      className="StyledHeading-sc-1rdh4aw-0 iMVrbt"
+      className="c2"
       size="large"
     >
       Starter
     </h1>
     <div
-      className="StyledBox__StyledBoxGap-sc-13pk1d4-1 irlfVP"
+      className="c3"
     />
     <span
-      className="StyledText-sc-1sadyjn-0 brldlG"
+      className="c4"
     >
       My description.
     </span>
     <div
-      className="StyledBox__StyledBoxGap-sc-13pk1d4-1 irlfVP"
+      className="c3"
     />
     <div
-      className="StyledBox-sc-13pk1d4-0 ffeAql"
+      className="c5"
     >
       <button
-        className="StyledButton-sc-323bzc-0 aNlbA"
+        className="c6"
         onBlur={[Function]}
         onFocus={[Function]}
         onMouseOut={[Function]}
@@ -36,16 +256,16 @@ exports[`Hero renders correctly 1`] = `
         type="button"
       >
         <span
-          className="StyledText-sc-1sadyjn-0 bnqisW"
+          className="c7"
         >
           Learn more
         </span>
       </button>
       <div
-        className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iChEkS"
+        className="c8"
       />
       <button
-        className="StyledButton-sc-323bzc-0 kHrfdt"
+        className="c9"
         onBlur={[Function]}
         onClick={[Function]}
         onFocus={[Function]}
@@ -54,7 +274,7 @@ exports[`Hero renders correctly 1`] = `
         type="button"
       >
         <span
-          className="StyledText-sc-1sadyjn-0 bLEHmJ"
+          className="c10"
         >
           Login
         </span>
