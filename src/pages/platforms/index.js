@@ -14,7 +14,6 @@ function Platforms({ data }) {
   const posts = data.allMarkdownRemark.edges;
   const siteMetadata = useSiteMetadata();
   const siteTitle = siteMetadata.title;
-
   return (
     <Layout title={siteTitle}>
       <SEO title="Platforms" />
@@ -25,7 +24,7 @@ function Platforms({ data }) {
           </Box>
           <Box>
             {posts.map(({ node }) => (
-              <BlogCard node={node} />
+              <BlogCard key={node.id} node={node} />
             ))}
           </Box>
         </Box>
