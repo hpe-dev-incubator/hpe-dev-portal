@@ -5,7 +5,7 @@ import { Box } from 'grommet';
 export const Content = ({ children, pad, width, ...rest }) => (
   <Box
     width={width || 'xxlarge'}
-    alignSelf="center"
+    alignSelf="start"
     pad={{ horizontal: 'medium', ...pad }}
     {...rest}
   >
