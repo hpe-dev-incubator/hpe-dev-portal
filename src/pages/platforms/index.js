@@ -65,7 +65,10 @@ export default Platforms;
 export const pageQuery = graphql`
   query {
     allMarkdownRemark(
-      filter: { fields: { sourceInstanceName: { eq: "platform" } } }
+      filter: {
+        fields: { sourceInstanceName: { eq: "platform" } }
+        frontmatter: { title: { ne: "" } }
+      }
       sort: { fields: [frontmatter___title] }
     ) {
       edges {
