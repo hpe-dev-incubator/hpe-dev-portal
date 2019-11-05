@@ -25,6 +25,7 @@ exports.createPages = ({ graphql, actions }) => {
               frontmatter {
                 title
                 tags
+                isAside
               }
             }
           }
@@ -47,7 +48,7 @@ exports.createPages = ({ graphql, actions }) => {
     posts.forEach((post, index) => {
       // Don't create a page for any markdown file with a title of Aside.
       // MD files with Aside in the title are used exclusively for creating links.
-      if (post.node.frontmatter.title !== 'Aside') {
+      if (!post.node.frontmatter.isAside) {
         if (post.node.fields.sourceInstanceName === 'blog') {
           const previous =
             index === posts.length - 1 ? null : posts[index + 1].node;
@@ -124,7 +125,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   if (node.internal.type === 'MarkdownRemark') {
     // Don't create a node for any markdown file with a title of Aside.
     // MD files with Aside in the title are used exclusively for creating links.
-    if (node.frontmatter.title !== 'Aside') {
+    if (!node.frontmatter.isAside) {
       const { sourceInstanceName, absolutePath } = getNode(node.parent);
       console.log(
         `==== onCreateNode ${sourceInstanceName} ---- ${absolutePath}`,

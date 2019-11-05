@@ -1,8 +1,10 @@
 ---
-title: Aside
+title: Simplivity
 version: v 6.01.8964
 description: Simplivity aside links
 tags: ["Simplivity"]
+frontpage: false
+isAside: true
 ---
 ### About the API
 

@@ -104,6 +104,9 @@ PlatformTemplate.propTypes = {
     aside: PropTypes.shape({
       rawMarkdownBody: PropTypes.string.isRequired,
       excerpt: PropTypes.string,
+      frontmatter: PropTypes.shape({
+        isAside: PropTypes.bool,
+      }),
     }),
   }).isRequired,
 };
@@ -153,7 +156,7 @@ export const pageQuery = graphql`
       }
     }
     aside: markdownRemark(
-      frontmatter: { tags: { in: $tags }, title: { eq: "Aside" } }
+      frontmatter: { tags: { in: $tags }, isAside: { eq: true } }
     ) {
       id
       excerpt
