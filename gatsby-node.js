@@ -123,8 +123,6 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
 
   if (node.internal.type === 'MarkdownRemark') {
-    // Don't create a node for any markdown file with a title of Aside.
-    // MD files with Aside in the title are used exclusively for creating links.
     const { sourceInstanceName, absolutePath } = getNode(node.parent);
     console.log(`==== onCreateNode ${sourceInstanceName} ---- ${absolutePath}`);
     const value = createFilePath({ node, getNode });
