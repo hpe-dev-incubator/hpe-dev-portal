@@ -125,22 +125,18 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   if (node.internal.type === 'MarkdownRemark') {
     // Don't create a node for any markdown file with a title of Aside.
     // MD files with Aside in the title are used exclusively for creating links.
-    if (!node.frontmatter.isAside) {
-      const { sourceInstanceName, absolutePath } = getNode(node.parent);
-      console.log(
-        `==== onCreateNode ${sourceInstanceName} ---- ${absolutePath}`,
-      );
-      const value = createFilePath({ node, getNode });
-      createNodeField({
-        name: 'slug',
-        node,
-        value,
-      });
-      createNodeField({
-        name: 'sourceInstanceName',
-        node,
-        value: sourceInstanceName,
-      });
-    }
+    const { sourceInstanceName, absolutePath } = getNode(node.parent);
+    console.log(`==== onCreateNode ${sourceInstanceName} ---- ${absolutePath}`);
+    const value = createFilePath({ node, getNode });
+    createNodeField({
+      name: 'slug',
+      node,
+      value,
+    });
+    createNodeField({
+      name: 'sourceInstanceName',
+      node,
+      value: sourceInstanceName,
+    });
   }
 };
