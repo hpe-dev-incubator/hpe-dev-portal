@@ -1,5 +1,5 @@
 ---
-title: ""
+title: "Simplivity"
 version: v 6.01.8964
 description:
 image: 
