@@ -37,6 +37,7 @@ Now that we understand HTTP Verbs used to access an API, let me introduce two ad
 
 The following illustration shows an example of a JSON payload used to login to an API:
 
+
 ```json
 {
 "userName":"administrator", "password":"password"
@@ -44,6 +45,7 @@ The following illustration shows an example of a JSON payload used to login to a
 ```
 
 The next example is an output response from the API, still formatted in JSON
+
 ```json
 {
     "total": 5,
@@ -107,6 +109,7 @@ The response from such a call will be a JSON body and a Status Code of 200.
 > Note: Any Status Code in the 200 range is good. Status Code of 404 is most likely a mistake in the URL  used, while 405 is most likely an authorization problem. An error code of 500 is very bad and should not be encountered.
 
 The response body will be of the following format:
+
 ```json
 {
     "service": "OK",

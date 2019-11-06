@@ -17,6 +17,7 @@ Now that we have added our JSON library, we should start installing libcurl. Ins
 ## Usage
 We can use the C++ language binding by making an OSClient object and passing our host url, username, and password as parameters. The OSClient automatically posts a session in its constructor, so we can now make requests to any of the APIs. When we make a request, like doing GetProjects for example, the function returns a JSON object to us. If we want to print the output, we can use the .dump() method, with an optional indent parameter for readability. The sample code, for instance, makes an OSClient object, then does get requests for several APIs, dumping the results once it gets the JSON.
 Example code:
+
 ````C++
 int main() {
     OSClient client("https://onesphere-host-url", "username", "password");

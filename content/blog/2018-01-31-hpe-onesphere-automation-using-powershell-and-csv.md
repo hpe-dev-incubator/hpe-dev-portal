@@ -27,6 +27,7 @@ The Export script will create CSV files corresponding to each HPE OneSphere reso
 
 ## Folder Structure
 After downloading it, the following folder structure is created:
+
 ```
 your project folder
      |--Samples
@@ -47,11 +48,13 @@ Import-OSResources.ps1 is a PowerShell script that configures the HPE OneSphere 
 ## Syntax
 
 ### To create Users
+
 ```
 .\Import-OSResources.ps1 -Portal "YourHPEOneSpherePortalURL" -Username "YourHPEOneSpherePortalUsername" -Password "YourHPEOneSpherePortalPassword" -OSUsersCSV "PathToUsers.csv file"
 ```
 
 ### To create Projects
+
 ```
 .\Import-OSResources.ps1 -Portal "YourHPEOneSpherePortalURL" -Username "YourHPEOneSpherePortalUsername" -Password "YourHPEOneSpherePortalPassword" -OSProjectsCSV "PathToProjects.csv file"
 ```
@@ -66,16 +69,19 @@ Export-OSResources.ps1 is a PowerShell script that exports HPE OneSphere resourc
 
 ### To export all resources
 
+
 ```
 .\Export-OSResources.ps1 -Portal "YourHPEOneSpherePortalURL" -Username "YourHPEOneSpherePortalUsername" -Password "YourHPEOneSpherePortalPassword" -All
 ```
 
 ### To export Users
+
 ```
 .\Export-OSResources.ps1 -Portal "YourHPEOneSpherePortalURL" -Username "YourHPEOneSpherePortalUsername" -Password "YourHPEOneSpherePortalPassword" -OSUsersCSV "PathToUsers.csv file"
 ```
 
 ### To export Projects
+
 ```
 .\Export-OSResources.ps1 -Portal "YourHPEOneSpherePortalURL" -Username "YourHPEOneSpherePortalUsername" -Password "YourHPEOneSpherePortalPassword" -OSProjectsCSV "PathToProjects.csv file"
 ```
@@ -98,6 +104,7 @@ You will run Export-OSResources.ps1 script to export HPE OneSphere resources (Pr
 
 2. In the PowerShell window, navigate to the project samples folder and execute the following command by replacing with your HPE OneSphere credentials:
 
+
 ```
 .\Export-OSResources.ps1 -Portal "YourHPEOneSpherePortalURL" -Username "YourHPEOneSpherePortalPassword" -Password "YourHPEOneSpherePortalPassword" -All
 ```
@@ -114,6 +121,7 @@ You will run Export-OSResources.ps1 script to export HPE OneSphere resources (Pr
 You will run Import-OSResources.ps1 script to create users in HPE OneSphere
 
 1. Open PowerShell window, navigate to the project samples folder and execute the following command by replacing with your HPE OneSphere credentials:
+
 
 ```
 .\Import-OSResources.ps1 -Portal "YourHPEOneSpherePortalURL" -Username "YourHPEOneSpherePortalPassword" -Password "YourHPEOneSpherePortalPassword" -OSUsersCSV .\ImportOneSphereCSV\Users.csv
@@ -135,6 +143,7 @@ You will run Import-OSResources.ps1 script to create users in HPE OneSphere
 You will run Import-OSResources.ps1 script to create projects in HPE OneSphere
 
 1. Open PowerShell window, navigate to the project folder and execute the following command by replacing with your HPE OneSphere credentials:
+
 
 ```
 .\Import-OSResources.ps1 -Portal "YourHPEOneSpherePortalURL" -Username "YourHPEOneSpherePortalPassword" -Password "YourHPEOneSpherePortalPassword" -OSProjectsCSV .\ImportOneSphereCSV\Projects.csv

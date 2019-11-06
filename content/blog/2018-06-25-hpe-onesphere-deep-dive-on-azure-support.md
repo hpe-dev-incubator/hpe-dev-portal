@@ -33,9 +33,11 @@ path: hpe-onesphere-deep-dive-on-azure-support
 ![azure_billing1](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2018/7/azure_billing1-1533012455985.png)
 
 #### Below rest API explains the onboarding  of Azure billing account from OneSphere.  Values for the following fields needs to be provided for the rest API:  Customer-name, directoryUri, enrollmentNumber, apiAccessKey and name### Request URL :
+
 ```
 curl -v -L -X POST -H "Authorization: Bearer <token>" -H "Content-Type: application/json"  https://<customer-name>/rest/billing-accounts -d {"directoryUri":"hpe.onmicrosoft.com","enrollmentNumber":"5053985","apiAccessKey":"*******","name":"EA","providerTypeUri":"/rest/provider-types/azure"}
 ```### Response :
+
 
 ```
 {
@@ -63,9 +65,11 @@ curl -v -L -X POST -H "Authorization: Bearer <token>" -H "Content-Type: applicat
 ![azure_provider3](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2018/7/azure_provider3-1533015113947.png)
 
 #### Below, the rest API call is used to get the list of subscriptions that are available for the account admin who is logged in.### Request URL :
+
 ```
 curl -v -L -X GET -H "Authorization: Bearer <token>" -H "Content-Type: application/json" https://<customer-name>/rest/onboarding/azure/subscriptions/71ff6703-72d9-412f-9591-c8acd9fb5dbf?directoryUri=1sqe.onmicrosoft.com&location=https%3A%2F%2Fteam-tiger1.test.hpedevops.net%2Fproject%2Fsubscriptions%3Fcode%3DAQABAAIAAADX8GCi6Js6SK82TsD2Pb7rb9ruNBNFsX1_curhHyaTMTJVayB-LRLAJ40x1n2zmJvJmOpnBV7ZeyP3OQ2nk6EJPU1R6OrcU4M6mYgLfzIc2f--mXGDIzCyWMt7SKEPO5L5q8EtxLxWYD0Cxnd1J7JfBNb1liwgirMro08_IlF_zOk6J4keQb89zv030_FDcDQbcqqxNheIDLNu-xEze7rPuTxo198VX6rmmEjE_s9eU1PFGYvnihq3AUqDE3EkAPAjb-mwvfYXUu0LXx1kH05m59Q6dZ9yoVwAM1tMhreGccdB8_uBzY3I768LtSplnLQSlxIdKtgEN0iciTxEF67j7akUfpRyM260BIbteGyKljsO-IyYOo7kaE7VGo4bQXZowDqAv5XrSp-6qUtv4Gl20w5b1q2rgT_u7X961x9kRFnULvPxSS4IO06eEtKjSqWGxssLWtk0SWACrJxOFHfYshve86-NXLlOtwUaecNxYFDB6vTNmZ7VO5HeV_9b-xT2iQ66p4MDRFwGWXj8m0Tvxx6wT07FkaFqjzVLkZkPkSB6vCxevViH9noJ2wLYYF6L2KmL9n5nsXw5BELpYlkT6M91ZTX95uzKwjNB9iZsiyAA%26state%3D%257b%2522projectUri%2522%253a%2522%252frest%252fprojects%252fd0123c1d19274371b5c6d6edc24b74d2%2522%252c%2522billingAccountUri%2522%253a%2522%252frest%252fbilling-accounts%252f81ce737f-31fd-47a1-8414-839e415e9896%2522%252c%2522directoryUri%2522%253a%25221sqe.onmicrosoft.com%2522%257d%26session_state%3Df65f2fb0-32d7-49f8-9332-3e439eec480b
 ```### Response :
+
 ```
 {
   "members": [
@@ -84,10 +88,12 @@ curl -v -L -X GET -H "Authorization: Bearer <token>" -H "Content-Type: applicati
   "count": 1
 }
 ```#### Below, the rest API call is used to assign reader role for the HPE OneSphere application in the selected subscription from the previous step.### Request URL :
+
 ```
 curl -v -L -X PUT -H "Authorization: Bearer <token>" -H "Content-Type: application/json-patch+json" 
 https://<customer-name>/rest/onboarding/azure/subscriptions/71ff6703-72d9-412f-9591-c8acd9fb5dbf?directoryUri=1sqe.onmicrosoft.com&location=https%3A%2F%2Fteam-tiger1.test.hpedevops.net%2Fproject%2Fsubscriptions%3Fcode%3DAQABAAIAAADX8GCi6Js6SK82TsD2Pb7rb9ruNBNFsX1_curhHyaTMTJVayB-LRLAJ40x1n2zmJvJmOpnBV7ZeyP3OQ2nk6EJPU1R6OrcU4M6mYgLfzIc2f--mXGDIzCyWMt7SKEPO5L5q8EtxLxWYD0Cxnd1J7JfBNb1liwgirMro08_IlF_zOk6J4keQb89zv030_FDcDQbcqqxNheIDLNu-xEze7rPuTxo198VX6rmmEjE_s9eU1PFGYvnihq3AUqDE3EkAPAjb-mwvfYXUu0LXx1kH05m59Q6dZ9yoVwAM1tMhreGccdB8_uBzY3I768LtSplnLQSlxIdKtgEN0iciTxEF67j7akUfpRyM260BIbteGyKljsO-IyYOo7kaE7VGo4bQXZowDqAv5XrSp-6qUtv4Gl20w5b1q2rgT_u7X961x9kRFnULvPxSS4IO06eEtKjSqWGxssLWtk0SWACrJxOFHfYshve86-NXLlOtwUaecNxYFDB6vTNmZ7VO5HeV_9b-xT2iQ66p4MDRFwGWXj8m0Tvxx6wT07FkaFqjzVLkZkPkSB6vCxevViH9noJ2wLYYF6L2KmL9n5nsXw5BELpYlkT6M91ZTX95uzKwjNB9iZsiyAA%26state%3D%257b%2522projectUri%2522%253a%2522%252frest%252fprojects%252fd0123c1d19274371b5c6d6edc24b74d2%2522%252c%2522billingAccountUri%2522%253a%2522%252frest%252fbilling-accounts%252f81ce737f-31fd-47a1-8414-839e415e9896%2522%252c%2522directoryUri%2522%253a%25221sqe.onmicrosoft.com%2522%257d%26session_state%3Df65f2fb0-32d7-49f8-9332-3e439eec480b  -d { [ {"op":"add", "path":"/roles","vaule":['Reader'] } ] }
 ```### Response :
+
 ```
 {
   "id": "71ff6703-72d9-412f-9591-c8acd9fb5dbf",
@@ -99,9 +105,11 @@ https://<customer-name>/rest/onboarding/azure/subscriptions/71ff6703-72d9-412f-9
   "uri": "/rest/onboarding/azure/subscriptions/71ff6703-72d9-412f-9591-c8acd9fb5dbf"
 }
 ```#### Below, the rest API call is used to onboard the selected subscription into HPE OneSphere.### Request URL :
+
 ```
 curl -v -L -X POST -H "Authorization: Bearer <token>" -H "Content-Type: application/json"  https://<customer-name>/rest/providers -d {"name":"Microsoft Azure Enterprise-Sai","subscriptionId":"71ff6703-72d9-412f-9591-c8acd9fb5dbf","billingAccountUri":"/rest/billing-accounts/81ce737f-31fd-47a1-8414-839e415e9896","projectURIs":["/rest/projects/d0123c1d19274371b5c6d6edc24b74d2"],"directoryUri":"1sqe.onmicrosoft.com","tenantId":"06ce6688-4f6a-42e0-aa33-ce711ea45b57","uniqueName":"gowri@1sqe.onmicrosoft.com","familyName":"M","givenName":"Gowri","providerTypeUri":"/rest/provider-types/azure","state":"Enabled"}
 ```###  Response :
+
 ```
 {
   "id": "e341c82b-d9a9-4832-a924-d9b9ceb3cc81",
@@ -143,9 +151,11 @@ curl -v -L -X POST -H "Authorization: Bearer <token>" -H "Content-Type: applicat
 ![azure_monitoring](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2018/7/azure_monitoring-1533015148287.png)
 
 #### Below, the rest API shows the scores of the Azure subscription based on Rating, Utilization, Availability and Performance.### Request URL :
+
 ```
 /rest/metrics?resourceUri=%2Frest%2Fprovider-types%2Fazure&name=score.overall&name=score.availability&name=score.utilization&name=score.performance&period=day&periodCount=30&periodStart=2018-06-28T00%3A00%3A00Z
 ```### Response :
+
 ```
 {
   "total": 4,
@@ -243,9 +253,11 @@ curl -v -L -X POST -H "Authorization: Bearer <token>" -H "Content-Type: applicat
   ]
 }
 ```#### Below, the rest API shows the status check of the virtual machine deployed in the Azure subscription. It shows the VM status, CPU usage, CPU total, VM IOPS current and VM IOPS peak.### Request URL :
+
 ```
 /rest/metrics?resourceUri=%2Frest%2Fprovider-types%2Fazure&name=vm.status_checks&name=vm.status_down&name=vm.cpu.total&name=vm.cpu.usage&name=vm.iops.current&name=vm.iops.peak&period=day&periodStart=2018-06-28T00%3A00%3A00Z&periodCount=30
 ```### Response :
+
 ```
 {
   "total": 6,
@@ -395,9 +407,11 @@ curl -v -L -X POST -H "Authorization: Bearer <token>" -H "Content-Type: applicat
 ![azure_cost_new2](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2018/7/azure_cost_new2-1533016027827.png)
 
 #### Below, the rest API shows the usage costs for the Azure provider which is associated with an HPE OneSphere project.### Request URL :
+
 ```
 /rest/metrics?name=cost.usage&period=month&periodStart=2018-08-01T00%3A00%3A00Z&periodCount=-2&category=projects&query=providerUri+EQ+%2Frest%2Fproviders%2Fea1964af-6e9f-4164-b169-6a0a8cf3dd1f&view=full
 ```### Response :
+
 ```
 {
   "total": 1,
@@ -659,9 +673,11 @@ curl -v -L -X POST -H "Authorization: Bearer <token>" -H "Content-Type: applicat
   ]
 }
 ```#### Below, the rest API shows the usage costs for the consumed services for the Azure provider.### Request URL :
+
 ```
 /rest/metrics?name=cost.usage&period=month&periodStart=2018-08-01T00%3A00%3A00Z&periodCount=-2&category=provider-services&groupBy=providerServiceTypeUri&query=providerUri+EQ+%2Frest%2Fproviders%2Fea1964af-6e9f-4164-b169-6a0a8cf3dd1f+AND+projectUri+EQ+%2Frest%2Fprojects%2F7a3a7f437cd6424793c5998625a08b71&view=full
 ```### Response :
+
 ```
 {
   "total": 6,

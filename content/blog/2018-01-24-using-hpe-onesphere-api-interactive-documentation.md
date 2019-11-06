@@ -49,6 +49,7 @@ You should get a successful status code and your token in the JSON response. Sel
 ## And use this token everywhere else...
 We now have a token which will allow us access to the rest of the calls in the API. So let's try to retrieve the list of Projects in your HPE OneSphere environment. To do this, select the Projects page in Swagger, then the little arrow beside the **GET /rest/projects**. Open the Header section (top right corner), and add an **Authorization** header to the ones already there. Paste from the clipboard to set the value of the header in between double quotes as illustrated below:
 
+
 ````JSON
 {
   "Accept": "application/json",

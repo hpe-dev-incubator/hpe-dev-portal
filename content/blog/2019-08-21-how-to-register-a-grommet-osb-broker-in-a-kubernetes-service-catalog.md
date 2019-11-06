@@ -21,7 +21,7 @@ In the figure below, you can see the overall architecture setup of the Kubernete
 ![picture1](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2019/8/picture1-1566414261415.png)
 
 In this architecture, the Kubernetes Service Catalog establishes an association with the Grommet OSB broker by sending a GET request to the /v2/catalog endpoint, which then responds with a 200 OK and a body containing all the information about the services it offers. Kubernetes stores and exposes these services to consumers via the Kubernetes Service Catalog. Cloud operators will instantiate the service by sending a PUT request to the /v2/service_instances/:service_id end point. The broker will do the actual provisioning of the service instance. Let’s discuss each of these components individually.
-<br/>
+
 ## Kubernetes Internal Architecture
 
 To start, I will briefly cover the basics of how Kubernetes works internally. There is an API server that listens to user requests. Users perform most actions by declaratively describing Kubernetes resources in yaml files that get written through to Etcd, shared key-value store. In my example here, a user is declaring some object Foo, which creates a record in the Etcd.
@@ -67,6 +67,7 @@ In this second step, the, cluster operator creates a ClusterServiceBroker resour
 
 Because we haven't created any resources in the service-catalog API server yet, querying the service catalog returns an empty list of resources:
 
+
 ```bash
 $ svcat get brokers
   NAME   URL   STATUS
@@ -78,6 +79,7 @@ No resources found.
 
 We'll register a broker server with the catalog by creating a new ClusterServiceBroker resource:
 
+
 ```bash
 $ cat grommet-broker-clusterservicebroker.yaml
 apiVersion: servicecatalog.k8s.io/v1beta1
@@ -88,6 +90,7 @@ spec:
         url: http://3.86.206.101:8099
 ```
 
+
 ```bash
 $ kubectl create -f grommet-broker-clusterservicebroker.yaml
 clusterservicebroker.servicecatalog.k8s.io/grommet-broker created
@@ -96,6 +99,7 @@ clusterservicebroker.servicecatalog.k8s.io/grommet-broker created
 When we create this ClusterServiceBroker resource, the service catalog controller responds by querying the broker server to see what services it offers and creates a ClusterServiceClass for each.
 
 We can check the status of the broker by entering the following commands:
+
 
 ```bash
 $ svcat describe broker grommet-broker
@@ -260,6 +264,7 @@ Now that a ClusterServiceClass named grommet exists within our cluster's service
 
 Unlike ClusterServiceBroker and ClusterServiceClass resources, ServiceInstance resources must be namespaced. Create a namespace with the following command:
 
+
 ```bash
 $ kubectl create namespace grommet-ns
 namespace/grommet-ns created
@@ -289,6 +294,7 @@ serviceinstance.servicecatalog.k8s.io/grommet-broker-instance created
 ```
 
 After the ServiceInstance is created, the service catalog controller will communicate with the appropriate broker server to initiate provisioning. Check the status of that process:
+
 
 ```bash
 $ svcat describe instance -n grommet-ns grommet-broker-instance
@@ -392,12 +398,14 @@ The service broker returns the information necessary to connect and access the m
 
 Now that our ServiceInstance has been created, we can bind to it. Create a ServiceBinding resource:
 
+
 ```bash
 $ kubectl create -f grommet-broker-binding.yaml
 servicebinding.servicecatalog.k8s.io/grommet-broker-binding created
 ```
 
 After the ServiceBinding resource is created, the service catalog controller will communicate with the appropriate broker server to initiate binding. Generally, this will cause the broker server to create and issue credentials that the service catalog controller will insert into a Kubernetes Secret. We can check the status of this process like so:
+
 
 ```bash
 $ svcat describe binding -n grommet-ns grommet-broker-binding
@@ -460,6 +468,7 @@ status:
 
 Notice that the status has a Ready condition set. This means our binding is ready to use! If we look at the Secrets in our grommet-ns namespace, we should see a new one:
 
+
 ```bash
 $ kubectl get secrets -n grommet-ns
 NAME                     TYPE                                  DATA   AGE
@@ -498,6 +507,7 @@ $ kubectl delete clusterservicebrokers grommet-broker
 clusterservicebroker.servicecatalog.k8s.io "grommet-broker" deleted
 ```
 You should now see that all the ClusterServiceClass resources that came from that broker have also been deleted:
+
 
 ```bash
 $ svcat get classes

@@ -29,6 +29,7 @@ There are multiple ways to install the HPE OneSphere PowerShell module. The easi
 ### Installing from PowerShell Gallery
 Installing from the PowerShell Gallery is very easy as it happens directly from PowerShell. You would simply have to run the following command:
 
+
 ````PowerShell
 Install-Module -Name HPEOneSphere
 ````
@@ -40,38 +41,45 @@ The source code for the HPE OneSphere PowerShell module is actually provided on 
 
 ## Load...
 Next step is to load the installed module using the import-module cmdlet:
+
 ````PowerShell
 Import-Module -Name HPEOneSphere
 ````
 or
+
 ````PowerShell
 Import-Module ./hpeonesphere
 ````
 If you decided to run the module locally.
 
 The next step is to understand the new set of cmdlets, provided by this module, that can now be used in your PowerShell environment.
+
 ````PowerShell
 Get-Command -module hpeonesphere
 ````
 You will see a fairly long list of cmdlets such as Connect-HPEOS, GET-HPEOSStatus, Get-HPEOSUser. The pattern, as you can guess, is always going to be Verb-HPEOSObject, which is the way PowerShell was designed. It means that we run the given *verb* on the provided type of *object*. 
 
 For each of these you can get help by calling Get-Help (or just help for short)
+
 ````PowerShell
 Get-Help get-hpeosstatus
 Help get-hpeosstatus -examples
 ````
 Remember we said in a previous article that retrieving HPE OneSphere status didn't require authentication, so let's try it:
+
 ````PowerShell
 Get-HPEOSstatus -portal https://OneSphere
 Status of HPE OneShere is: OK
 ````
 ## Connect...
 That's cool, but let's now connect to this HPE OneSphere instance and continue exploring the rest of the module content. Well before you do this try to call GET-HPEOSUser and see what you get without connecting first.
+
 ````PowerShell
 Get-HPEOSuser 
 Not connected to any OneSphere portal
 ````
 To connect, use the Connect-HPEOS cmdlet. It will prompt you for missing parameters if you omit them from the command line. For example, the URL to the portal is required as well as valid credentials.  
+
 ````PowerShell
 Connect-HPEOS 
 cmdlet Connect-HPEOS at command pipeline position 1
@@ -80,40 +88,48 @@ Portal: https://OneSphere
 Credentials
 ````
 It is good programming practice to cleanup when finished, and in this case to delete session tokens. You can use Disconnect-HPEOS to do this for you:
+
 ````PowerShell
 Disconnect-HPEOS 
 ````
 ## Use interactively
 If the operation was successful, you are now connected to HPE OneSphere, ready to run other cmdlets. Let's try a few, starting with the Get-HPEOSuser which failed before we connected:
+
 ````PowerShell
 Get-HPEOSuser 
 ````
 This will now return a nicely formatted list of registered users.
 
 We have provided a default formatter with most types of objects, but if you want access to all properties of objects in a response you can always pipe the command with the format-list cmdlet (fl for short).
+
 ````PowerShell
 Get-HPEOSuser | fl
 ````
 We provide a Add-HPEOSuser cmdlet to add a new user of HPE OneSphere. Feel free to lookup the help for it.
+
 ````PowerShell
 Add-HPEOSuser -name foo -email foo.bar@hpe.com -password supersecret123! -role administrator
 ````
 > Note: the created object is also returned by the cmdlet, so it could be stored in a PowerShell variable with $newuser=Add-HPEOSUser -name foo -email foo.bar@hpe.com -password supersecret123! -role administrator
 
 You can get the user list again to see that new user foo is now an administrator of HPE OneSphere. You can look up its Id and retrieve that single user with:
+
 ````PowerShell
 Get-HPEOSuser -id 19b1e30b81da4abd963868326379f9da
 ````
 Which leads me to show another powerful feature of PowerShell, which has an object-enabled pipeline. This means that if a cmdlet returns an object or a collection of objects (which most of them do), you can pipe this into another command which will use these objects as input parameters. Let's say we would like to delete the user foo we have just created. We can do it with:
+
 ````PowerShell
 $foo = Get-HPEOSuser -id 19b1e30b81da4abd963868326379f9da
 Remove-HPEOSuser -user $foo
 ````
 or 
+
 ````PowerShell
 Get-HPEOSuser -id 19b1e30b81da4abd963868326379f9da | Remove-HPEOSuser 
 ````
 This is very powerful and dangerous too, as the command will process collections of users in one single line. In case of doubt you can always suffix a destructive command with the option -whatif. 
+
 
 ````PowerShell
 Get-HPEOSuser -id 19b1e30b81da4abd963868326379f9da | Remove-HPEOSuser -whatif
@@ -121,6 +137,7 @@ What if: Performing the operation "Remove-HPEOSUser" on target "foo".
 ````
 ## and script too!
 Using PowerShell in interactive mode is obviously nice, but the next step is to build your own PowerShell scripts to automate repetitive tasks. The interesting thing about PowerShell and the fact that it's an interpreted language, is that every succession of commands that you type interactively could be cut and pasted into a script.  We can do this with the cmdlets used so far in this article and build ourselves a file called myfirstscript.ps1  with the following content:
+
 
 ````PowerShell
 Param
@@ -164,7 +181,8 @@ Disconnect-HPEOS
 remove-module hpeonesphere
 ````
 Once saved, run it with:
- ```` PowerShell
+ 
+```` PowerShell
 ./myfirstscript.ps1
 ````
 It will load the module, connect to HPE OneSphere, display the Status, the number of projects, the list of projects, then the number of users and the list of users.

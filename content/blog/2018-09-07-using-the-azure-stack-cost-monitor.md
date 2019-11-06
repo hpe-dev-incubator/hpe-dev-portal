@@ -26,6 +26,7 @@ If you have not already done so, install PowerShell for Azure Stack using [these
 ## Verify connectivity to Azure Stack ARM endpoint
 * Launch PowerShell
 * Copy the lines below into your PowerShell window.  Replace the name and endpoint details for your Azure Stack environment
+
 ````powershell
 # To get this value for Azure Stack integrated systems, contact your administrator who deployed Azure Stack.
 #Example: For an Azure Stack that has been deployed with regionname=seattle; externalFQDN=stackcloud.com use value as, https://adminmanagement.seattle.stackcloud.com
@@ -48,6 +49,7 @@ These commands should list the resource groups available on the Azure Stack inst
   * Granularity : Daily or Hourly
   * Time range : From, To datetimes
   * Aggregation Level : Provider or Tenant
+
 
 ````powershell
 #

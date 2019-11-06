@@ -11,7 +11,7 @@ While the OpenStack-based control plane is hosted and managed by the cloud servi
 
 In this blog, you will learn how to extend your ability to monitor KVM-based private clouds using the enterprise open source monitoring platform Nagios with NRPE (Nagios Remote Plugin Executor) add-on.
 
-<br/>
+
 
 ## About Nagios – the open source monitoring software
 
@@ -79,12 +79,13 @@ Figure 1 and Figure 2 show Nagios Core-based monitoring with NRPE add-on for a K
 
 *Figure 2 – Health monitoring of OpenStack control plane services*In this scenario, standard Nagios NRPE check plugins are used to monitor compute server health (processes, CPU load, storage disk space, reachability, NTP time, DNS resolution). HPE DEV developed a few simple bash scripts and leveraged several others from existing sample codes available in GitHub to create custom checks (also known as plugins). These custom checks are used to monitor the status of the OpenStack services such as Nova, Cinder, Glance, Neutron, and the OpenStack control plane REST API endpoint. They are also used to verify the secure communication channel between the on-premises compute servers and the control plane hosted in the cloud.
 
-<br/>
+
 
 ## Some of the custom checks are shown here:
 __Custom check to monitor the OpenStack control plane endpoint status__
 
 Here is a custom NRPE plugin developed to check status of the OpenStack control plane REST API endpoint:
+
 
 ```bash
 #!/bin/bash
@@ -114,6 +115,7 @@ __Custom check to monitor for error in host agent logs__
 
 Here is a custom NRPE plugin developed to check for a host agent error running on the compute server:
 
+
 ```bash
 #!/bin/bash
 #
@@ -137,6 +139,7 @@ fi
 __Custom check (obtained from GitHub) to monitor OpenStack Nova compute services:__
 
 Here is a custom NRPE plugin obtained from GitHub to check for the OpenStack Nova compute services status. Very similar custom checks are used to monitor other OpenStack services such as Cinder, Neutron, and Glance.
+
 
 ```bash
 #!/bin/bash
@@ -185,6 +188,7 @@ echo "CRITICAL - not all nova services are up and running: $CMD"
 __Custom check (obtained from GitHub) to monitor OpenStack Virtual Machine instance status:__
 
 Here is a custom NRPE plugin obtained from GitHub to check for OpenStack Virtual Machine instances status for all tenants.
+
 
 ```bash 
 #!/bin/bash

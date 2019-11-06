@@ -1,6 +1,5 @@
 ---
-title: >
-    Complex Stateful Applications on Kubernetes: KubeDirector version 0.2
+title: Complex Stateful Applications on Kubernetes&#58; KubeDirector version 0.2
 date: 2019-09-09T17:26:49.571Z
 author: Tom Phelan 
 tags: ["bluedata"]

@@ -42,9 +42,12 @@ A habitat package consists of a plan file and may also include application lifec
 
 HPE OneSphere APIs make it easy to deploy virtual machines. Here is a summary of the steps used to deploy Nginx on an AWS VM in an HPE OneSphere environment:
 
-1. Package Nginx with Habitat. It helps that a large number of Habitat [core plans](https://github.com/habitat-sh/core-plans) that package commonly used applications are publicly available. I have based my package on ```core/nginx``` by adding it in dependencies of my plan. My Habitat package is named as ```chefshafique/hab-webserver```, its details are available [here](https://github.com/mudash/hab-web-example/tree/master/web-server-package) in the reference repository. For detailed instructions on developing Habitat packages, refer the [tutorials](https://www.habitat.sh/docs/developing-packages/) available at Habitat website.
+1. Package Nginx with Habitat. It helps that a large number of Habitat [core plans](https://github.com/habitat-sh/core-plans) that package commonly used applications are publicly available. I have based my package on 
+```core/nginx``` by adding it in dependencies of my plan. My Habitat package is named as 
+```chefshafique/hab-webserver```, its details are available [here](https://github.com/mudash/hab-web-example/tree/master/web-server-package) in the reference repository. For detailed instructions on developing Habitat packages, refer the [tutorials](https://www.habitat.sh/docs/developing-packages/) available at Habitat website.
 
 2. Write a [Chef recipe](https://github.com/mudash/hab-web-example/blob/master/web-server-recipe/hab_web_example/recipes/default.rb) that installs my Habitat package for Nginx. This simple recipe depends on [Habitat cookbook](https://supermarket.chef.io/cookbooks/habitat), which includes necessary Habitat resources. With the help of these resources, I can install my Habitat package and start its related service in a few lines of code.
+
 ```
 hab_sup 'default'
 hab_package 'chefshafique/hab-webserver' do
@@ -55,6 +58,7 @@ hab_service 'chefshafique/hab-webserver'
 3. Create a [script](https://github.com/mudash/hab-web-example/blob/master/vm-install/create-node) based on Python bindings of HPE OneSphere APIs that create AWS-based VM and installs my Habitat package using the above recipe I wrote in step 2. To configure this script for your own environment, refer to the details [here](https://github.com/mudash/hab-web-example/tree/master/vm-install).
 
 4. Execute the script created in step 3 with the following switches. This creates a virtual machine that has Nginx installed with my Habitat package.
+
 ```
 python3.6 create-node demo-webserver -a -v
 ```
@@ -87,24 +91,29 @@ Clicking this catalog item will lead you to a web form where you can enter speci
 ![chef phase2 fig 07](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2018/12/chef-phase2-fig-07-1544818089082.png)
 
 2. Export the Habitat package using Kubernetes exporter from Habtiat studio using the following command
+
 ```
 hab pkg export kubernetes chefshafique/hab-webserver
 ```
 This provides a docker container image and a Kubernetes manifest file. I modified this [manifest file](https://github.com/mudash/hab-web-example/blob/master/k8s-install/deploy-k8s-webserver.yaml) to include a load balancer in addition to a default installation.
 
 3. Push the container image to your docker hub
+
 ```
 $ sudo docker push chefshafique/hab-webserver
 ```
 4. Start the Habitat operator for Kubernetes
+
 ```
 $ habitat-operator --kubeconfig ~/.kube/config
 ```
 5. Deploy the Kubernetes manifest file (from step 2) to Kubernetes cluster
+
 ```
 $ kubectl create -f ~/src/deploy-k8s-webserver.yaml
 ```
 6. Verify the results 
+
 ```
 $ kubectl get services
 NAME            	TYPE           	CLUSTER-IP    	EXTERNAL-IP      	PORT(S)        

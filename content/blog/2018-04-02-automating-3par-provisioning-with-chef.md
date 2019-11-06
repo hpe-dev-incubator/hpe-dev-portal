@@ -37,18 +37,21 @@ The main README found on [https://github.com/HewlettPackard/hpe3par_chef_cookboo
 
 1.	To get started, we'll create a new directory named **chef-repo**; this is where we'll put our new cookbooks. Also in this directory, lives the **_chef/knife.rb_** configuration file used to connect to a Chef server.
 
+
 ```bash
 $ mkdir chef-repo
 $ cd chef-repo
 ```
 
 2.	We’ll create a directory within our **_chef-repo_** named cookbooks, where our cookbooks will live:
+
 ```bash
 $ mkdir cookbooks
 $ cd cookbooks
 ```
 
 3.	Now we will need to download the **_hpe3par_** cookbook.
+
 ```bash
 # You can use knife to download the hpe3par cookbook or you can use git – use whichever you are most comfortable with
 
@@ -75,6 +78,7 @@ $ rm hpe3par-*.tar.gz
 
 4. Now we can use the chef command to generate a new cookbook named 'my-3par':
 
+
 ```bash
 $ chef generate cookbook my_3par
 $ cd my_3par
@@ -84,7 +88,8 @@ You can examine the files and folders that were created `ls -la`, the most impor
 
  5. At this point, as noted in the main README, we need to specify a dependency to the `hpe3par` cookbook. We do this by adding the following line to the end of the **_metadata.rb_** file:
 
- ```bash
+ 
+```bash
  # my_3par/metadata.rb
  ...
  depends 'hpe3par'
@@ -93,6 +98,7 @@ You can examine the files and folders that were created `ls -la`, the most impor
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Tip:** Check out the [Chef docs](https://docs.chef.io/config_rb_metadata.html) to see what all else you can put in the **_metadata.rb_** file.
 
 6.	Now we can create our first recipe. Open up **_recipes/default.rb_** and add the following lines:
+
 
 ```bash
 #Configure Storage system
@@ -124,6 +130,7 @@ end
 
 For example:
 
+
 ```ruby
 # global storage system - configured in attributes/default.rb
 default['hpe3par']['storage_system'] = {
@@ -145,6 +152,7 @@ default['hpe3par']['virtual_volume']['snap_cpg'] = 'FC_r1'
 
 The recipe will change slightly as well. Note the parameters are missing, they are now being defined in the **_attributes/default.rb_** file:
 
+
 ```ruby
 #Example recipe using attributes/default.rb defininition file
 
@@ -165,11 +173,13 @@ end
 To learn more about attributes go here: [docs.chef.io/attributes](https://docs.chef.io/attributes.html)
 
 7.	Now let’s run our recipe and see what happens:
+
 ```bash
 $ chef-client -z -o my_3par::default
 ````
 
 **Note:** If you see an error saying it can't find the correct cookbook, this is because Chef either can’t find our cookbooks or we haven't downloaded the cookbook dependencies (**_hpe3par_**) yet. We can fix this by creating a **_knife.rb_** file at **_chef-repo/.chef/knife.rb_** and adding:
+
 
 ```ruby
 # See http://docs.chef.io/config_rb_knife.html for more information on knife configuration options
@@ -182,6 +192,7 @@ cookbook_path ["#{current_dir}/../cookbooks"]
 ```
 
 Now download the **hpe3par** cookbook by running:
+
 
 ```bash
 # (make sure we are in chef-repo/cookbooks)

@@ -19,6 +19,7 @@ Strong scaling assumes that the problem size remains the same and we vary the nu
 |   8   | 0,1,2,3,4,5,6,7 |         128        |         1024         |
 
 The efficiency of strong scaling is calculated in the following manner: 
+
 ```
 efficiency = t1 / (N * tN) * 100% 
 ```
@@ -37,6 +38,7 @@ Weak scaling assumes we keep the amount of work per compute device per iteration
 |   8   | 0,1,2,3,4,5,6,7 |        128         |        1024          |
 
 The efficiency of weak scaling is calculated in the following way: 
+
 ```
 efficiency = t1 / tN * 100% 
 ```
@@ -52,6 +54,7 @@ All supported frameworks (BVLC/NVIDIA Caffe, Caffe2, MXNet and TensorFlow) can b
 
 ### Weak scaling
 The default option implemented in DLBS is a `weak` scaling. Users need to provide a `--exp.device_batch` and `exp.gpus` parameters. The first one is an integer value specifying a per-GPU batch size. The second one is a comma-separated list of GPU identifiers. For instance, the following command line launches TensorFlow benchmark with ResNet50 on a an eight-GPU system with a per GPU batch size being equal to 32:
+
 ```bash
 python experimenter.py run -Pexp.framework='"tensorflow"' \
                            -Pexp.model='"resnet50"' \
@@ -62,6 +65,7 @@ python experimenter.py run -Pexp.framework='"tensorflow"' \
 ```
 
 DLBS will compute internal parameter `exp.effective_batch` by multiplying number of GPUs by a per-GPU device batch size:
+
 ```json
 {
     "exp.num_gpus": "$(len('${exp.gpus}'.replace(',', ' ').split()))$",
@@ -74,6 +78,7 @@ DLBS will compute internal parameter `exp.effective_batch` by multiplying number
 There are several ways to benchmark strong scaling. One is to correctly adjust a per-device batch size with parameter `exp.device_batch` so that the effective batch size does not change. The mechanism of [extensions](https://hewlettpackard.github.io/dlcookbook-dlbs/#/intro/intro?id=extensions) can effectively be used to disable certain benchmarks that result in non-desirable effective batch sizes.
 
 The second approach is to provide effective batch size as a base parameter and compute per-device batch size based on it. For instance, to explore Caffe2's strong scaling with AlexNet model with 1024 images in a batch on an eight-GPU system, users can run the following command:
+
 ```bash
 python experimenter.py run -Pexp.framework='"caffe2"' \
                            -Pexp.model='"alexnet"' \

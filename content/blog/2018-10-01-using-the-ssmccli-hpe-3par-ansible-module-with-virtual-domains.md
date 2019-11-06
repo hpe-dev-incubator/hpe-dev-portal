@@ -69,6 +69,7 @@ If you want to use Ansible to configure the domains and users, Ansible can pass 
 
 For example:
 
+
 ```YAML
 ---
 - name: Create 3PAR Domain & Users
@@ -113,17 +114,20 @@ Also everything else from this point is done via the HPE 3PAR Ansible Storage Mo
 First, we need to make sure we have the 3PAR storage module for Ansible downloaded.
 
 1. Clone the HPE 3PAR Ansible Storage Modules
+
 ```
 https://github.com/HewlettPackard/hpe3par_ansible_module
 ```
 
 2. Install the HPE 3PAR Python SDK
 
+
 ```
 pip install hpe3par_sdk
 ```
 
 Now, clone the `hpe3par-examples` repo to get access to the Virtual Domain demo.
+
 
 ```
 https://github.com/hpe-storage/hpe3par-examples
@@ -136,11 +140,13 @@ https://github.com/hpe-storage/hpe3par-examples
 
 >If you have other modules already installed on this system, you can move the **Modules** folder from this repo to that directory.
 
+
 ```
 vi /etc/ansible/ansible.cfg
 ```
 
 2. Under the `[defaults]` section, edit `library` to point to your Modules directory.
+
 
 ```
 [defaults]
@@ -161,6 +167,7 @@ Navigate to the `hpe3par_examples/automation_tools/ansible/demo/virtual_domains`
 * **virtual_domains_demo_3par_user.yml**
 * **properties/storage_system_properties.yml** (This is configuration files containing the 3PAR IP address, Storage admin username and password for the 3PAR array)
 * **properties/storage_system_properties_bob.yml** (This is configuration files containing the 3PAR IP address, Domain user username and password for the 3PAR array)
+
 
 ```
 cd ~/workspace/hpe3par_examples/automation_tools/ansible/
@@ -183,9 +190,11 @@ drwxr-xr-x. 2 root root  116 Sep 26 09:23 properties
 
 1. Lets configure the `properties/storage_system_properties.yml` and add the 3PAR IP address. Enter the **Storage Admin** username and password. Save the file.
 
+
 ```
 vi **properties/storage_system_properties.yml**
 ```
+
 
 ```
 storage_system_ip: "192.168.1.50"
@@ -195,9 +204,11 @@ storage_system_password: "3pardata"
 
 2. Edit the `properties/storage_system_properties_bob.yml` and configure the 3PAR IP address. Enter the **bob_user** username and password. Save the file.
 
+
 ```
 vi **properties/storage_system_properties_bob.yml**
 ```
+
 
 ```
 storage_system_ip: "192.168.1.50"
@@ -213,6 +224,7 @@ Ansible Vault is a feature of ansible that allows you to keep sensitive data suc
 
 1. Run `ansible-vault encrypt` on each of the properties files. Enter a unique password for each file.
 
+
 ```
 ansible-vault encrypt properties/storage_system_properties.yml
 
@@ -220,6 +232,7 @@ ansible-vault encrypt properties/storage_system_properties_bob.yml
 ```
 
 2. Check to verify they are encrypted. You should see something similar to below.
+
 
 ```
 $ head -2 properties/storage_system_properties.yml
@@ -239,6 +252,7 @@ We will be working in the `virtual_domains_demo_3par_admin.yml` playbook. This p
 >**Note:** These are very simple examples to help you understand the capabilities of the Virtual Domains within the HPE 3PAR system. You can expand these to add multiple CPGs and multiple Hosts within the same playbook without ever having to log into the SSMC. This is the power automating the configuration of the HPE 3PAR Storage System using the Ansible Storage Modules.
 
 When we open the file, we see multiple sections. Again we are assuming that you are familiar with **YAML** and Ansible playbooks to understand the layout and structure.
+
 
 ```yaml
 ---
@@ -338,6 +352,7 @@ Now that we know what is going on within the admin playbook, we can run it in or
 
 We run this playbook with the `ansible-playbook --ask-vault-pass` option in order to decrypt the `storage_system_properties.yml` file.
 
+
 ```yaml
 $ ansible-playbook --ask-vault-pass virtual_domains_demo_3par_admin.yml
 Vault password:
@@ -392,11 +407,13 @@ Let's take a look at our Ansible playbooks again. Since we have everything ready
 
 * Navigate to the **hpe3par_examples/automation_tools/ansible/demo/virtual_domains** folder.
 
+
 ```
 cd hpe3par_examples/automation_tools/ansible/demo/virtual_domains
 ```
 
 Here we find the `virtual_domains_demo_3par_user.yml` playbook and the `properties/storage_system_properties_bob.yml` (This file contains the 3PAR IP address, 3PAR Domain user username/password).
+
 
 ```
 [root@ansible-host virtual_domains]# ls -la
@@ -415,11 +432,13 @@ Before we go much further, make sure you have configured the `properties/storage
 
 Let's look at the 'virtual_domains_demo_3par_user.yml' playbook.
 
+
 ```
 vi virtual_domains_demo_3par_user.yaml
 ```
 
 When we open the file, we see multiple sections. Again we are assuming that you are familiar with **YAML** and Ansible playbooks to understand the layout and structure.
+
 
 ```yaml
 ---
@@ -519,6 +538,7 @@ Please refer to the [Modules README](https://github.com/HewlettPackard/hpe3par_a
 Now that we have configured our playbook, we can run it in order to create the **Volumes**, **VolumeSet** all within the `bob_domain`.
 
 We run this playbook with the `ansible-playbook --ask-vault-pass` option in order to decrypt the **storage_system_properties_bob.yml** file.
+
 
 ```yaml
 $ ansible-playbook --ask-vault-pass virtual_domains_demo_3par_user.yml

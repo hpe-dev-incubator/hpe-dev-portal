@@ -28,6 +28,7 @@ The supported version of the Go module is go1.9.2.
 ## Use the Go Module in Go Code
 
 Assuming that the folder structure is this:
+
 ````
 your project foler
      |-- onesphere
@@ -36,6 +37,7 @@ your project foler
 ````
 
 The following is code sample using the module in Go code.
+
 ````Go
 package main
 
@@ -62,6 +64,7 @@ func main() {
 ````
 
 Then you can run the Go code:
+
 ````Go
 $ go run sample.go
 ````

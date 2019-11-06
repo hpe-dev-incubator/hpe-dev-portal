@@ -26,24 +26,29 @@ The Python modules are placed in the folder onesphere. There are two Python file
 
 ## Use the Python Module in Command Line
 First, start the Python interpreter.
+
 ````Python
 $ python
 ````
 or run python3 to start the Python 3 interpreter.
+
 ````Python
 $ python3
 ````
 Then next step is to import the modules.
+
 ````Python
 >>> import json
 >>> import onesphere.osbinding2 as osb
 ````
 Or the following for Python 3:
+
 ````Python
 >>> import json
 >>> import onesphere.osbinding3 as osb
 ````
 The next step is to create an instance of the OSClient class (OneSphere Client).
+
 ````Python
 >>> osinst = osb.OSClient('onesphere-host-url', 'username', 'password')
 ````
@@ -54,6 +59,7 @@ The next step is to create an instance of the OSClient class (OneSphere Client).
 > password: the password of the user for the HPE OneSphere environment
 
 The last step is to understand the set of APIs in the modules and then starting calling the methods off the instance (osinst). All the methods return values in JSON format. You can use json.dump to convert that into string.
+
 ````Python
 obj = osinst.GetRoles()
 str = json.dump(obj)
@@ -62,6 +68,7 @@ str = json.dump(obj)
 ## Use the Python Module in Python Code
 
 The following is code sample of using the module in Python code.
+
 ````Python
 # sample.py
 
@@ -95,10 +102,12 @@ if __name__ == '__main__':
 ````
 
 Then you can run the Python code:
+
 ````Python
 $ python3 sample.py
 ````
 Or for Python 2:
+
 ````Python
 $ python sample.py
 ````

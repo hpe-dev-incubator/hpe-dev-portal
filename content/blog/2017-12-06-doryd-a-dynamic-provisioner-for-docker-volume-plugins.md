@@ -19,6 +19,7 @@ The rest of this blog post walks through the steps on how to get started with Do
 Dory is an [open source project available on GitHub](https://github.com/hpe-storage/dory). The latest instructions on how to build and install Dory will always be available in the [README.md](https://github.com/hpe-storage/dory/blob/master/docs/dory/README.md), steps vary between distributions. I've covered this [in the past](https://community.hpe.com/t5/HPE-Nimble-Storage-Tech-Blog/Dory-A-FlexVolume-Driver-that-speaks-Whale/ba-p/6986638) but it did not include Doryd and the naming schemes required for Doryd.
 
 I currently have an Ubuntu 16.04.3 machine in front of me with K8s 1.8.4 and the latest Nimble Linux Toolkit (NLT) installed but I choose to install the binary instead. NLT contains the HPE Nimble Storage Docker Volume plugin and the rest of the guide assumes all hosts have the Docker Volume plugin installed and working.
+
 ```
 sudo mkdir -p /usr/libexec/kubernetes/kubelet-plugins/volume/exec/dev.hpe.com~nimble
 sudo curl -sLo /usr/libexec/kubernetes/kubelet-plugins/volume/exec/dev.hpe.com~nimble/nimble \
@@ -29,12 +30,14 @@ sudo chmod 755 /usr/libexec/kubernetes/kubelet-plugins/volume/exec/dev.hpe.com~n
 **Note:** What is being made available to the kubelet is a FlexVolume driver referenced as `dev.hpe.com/nimble`. Changing `dev.hpe.com` to something else will break the stock provisioner we're going to use in the examples below. 
 
 In the same directory where you placed the `dory` binary, in my case `dev.hpe.com~nimble`, you need to copy `dory.json` file from the Dory repository to `dev.hpe.com~nimble/nimble.json`. 
+
 ```
 sudo curl -sLo /usr/libexec/kubernetes/kubelet-plugins/volume/exec/dev.hpe.com~nimble/nimble.json \
 https://raw.githubusercontent.com/hpe-storage/dory/master/src/nimblestorage/cmd/dory/dory.json
 ```
 
 The key here is to identify where the socket file to your Docker Volume plugin accepts API calls. Since this can vary between plugins and distributions as well, please `curl` an API call to the socket file you intend to use. For example, in my case:
+
 ```
 sudo curl -XPOST --unix-socket /run/docker/plugins/nimble.sock http:/Plugin.Activate
 {"Implements":["VolumeDriver"]}
@@ -43,6 +46,7 @@ sudo curl -XPOST --unix-socket /run/docker/plugins/nimble.sock http:/Plugin.Acti
 **Note:** `curl --unix-socket` is a fairly new thing for `curl` and could be missing from your distribution.
 
 Adjust your `dory.json` accordingly. Full documentation for each key is available in [the Dory repo](https://github.com/hpe-storage/dory/blob/master/docs/dory/README.md#building). In most cases, only `dockerVolumePluginSocketPath` needs to be changed.
+
 ```JSON
 {
     "logFilePath": "/var/log/dory.log",
@@ -61,11 +65,13 @@ Adjust your `dory.json` accordingly. Full documentation for each key is availabl
 Another gotcha worth mentioning, if you intend to only create PVs against the FlexVolume driver. PVs are not created until a pod or deployment requests an attachment of the PV. In other words, just creating the PV and PVC won't create the Docker Volume itself.
 
 **Important:** If you're using K8s < 1.8, The kubelet needs to be restarted to pick up the installed FlexVolume driver. This step may be different depending on how you run your kubelet, on Ubuntu 16.04 where the cluster has been installed with `kubeadm`, simply:
+
 ```
 sudo systemctl restart kubelet
 ```
 
 Watch `/var/log/dory.log` for initialization:
+
 ```
 tail /var/log/dory.log
 Info : 2017/12/02 20:50:31 dory.go:55: [5202] entry  : Driver=nimble Version=1.1.0-d95ad289 Socket=/run/docker/plugins/nimble.sock Overridden=true
@@ -77,16 +83,19 @@ We're now ready to move on to Doryd!
 
 # Kubekuddle this!
 Conveniently enough, `doryd` runs as a DaemonSet (DS), a DS ensures the provisioner runs (and keep running) on all the cluster nodes. You're given the option to build the `doryd` image and specify your own DS specification, however, the following specification is known to work under most circumstances:
+
 ```
 kubectl apply -f https://raw.githubusercontent.com/hpe-storage/dory/985f0313440cd2181c27e5d94b31f9fe75714c3f/examples/ds-doryd.yaml
 ```
 
 You may inspect the DS on the cluster by running:
+
 ```
 kubectl describe ds/doryd
 ```
 
 You'll see something similar to this:
+
 ```
 Name:           doryd
 Selector:       daemon=dory-daemon
@@ -139,6 +148,7 @@ The below YAML files are available in the [container-examples repository](https:
 
 ## transactionaldb
 An example SC optimized for a transactional workload on an all-flash pool where we would attach a stock Protection Template.
+
 ```JSON
 ---
 kind: StorageClass
@@ -153,11 +163,13 @@ parameters:
 ```
 
 Create the SC with:
+
 ```
 kubectl create -f https://raw.githubusercontent.com/NimbleStorage/container-examples/master/dory/doryd-intro/sc-transactionaldb.yml
 ```
 
 This SC may then be referenced as such:
+
 ```JSON
 ---
 apiVersion: v1
@@ -174,11 +186,13 @@ spec:
 ```
 
 Let's create the PVC and walk through what we can expect:
+
 ```
 kubectl create -f https://raw.githubusercontent.com/NimbleStorage/container-examples/master/dory/doryd-intro/pvc-example.yml
 ```
 
 A subtle difference between using SCs and the FlexVolume driver directly, is that Docker Volumes actually gets created upon creating the PVC. Example inspection:
+
 ```
 $ kubectl get pvc/example-claim 
 NAME            STATUS    VOLUME                                                 CAPACITY   ACCESS MODES   STORAGECLASS      AGE
@@ -191,6 +205,7 @@ nimble transactionaldb-8db1a469-d7f3-11e7-8f86-000c291bed2c
 ```
 
 That particular PVC could then be referenced from a pod or deployment to have the volume dynamically attached upon request. A complete example that creates a MariaDB deployment with a `transactionaldb` SC is available in the example repo. For completeness:
+
 ```
 kubectl create -f https://raw.githubusercontent.com/NimbleStorage/container-examples/master/dory/doryd-intro/mariadb.yml
 ```
@@ -199,6 +214,7 @@ The below examples require your array to have certain resources setup and pre-co
 
 ## unstructuredfile
 Optimizing for a traditional file/web server dishing out fairly static content, with another stock Protection Template on a hybrid flash pool named `hybridflash`.
+
 ```JSON
 ---
 kind: StorageClass
@@ -215,6 +231,7 @@ parameters:
 
 ## securearchive
 For PVs requiring a secure destination for archival data, you could potentially have an array in the group that has more stringent security measures and setup for long-term storage and protection. The below example would provision PVs in a performance restricted folder (a HPE Nimble Storage concept of collectively restricting bandwidth, IOPS and capacity to a group of volumes). A custom Performance Policy would deny caching of volumesand set a block size of 32KiB. Volumes are also encrypted at rest.
+
 ```JSON
 ---
 kind: StorageClass
@@ -237,6 +254,7 @@ One of the most useful features offered by the HPE Nimble Storage Docker Volume 
 It's not too uncommon for developers wanting a sandbox copy of the latest production database to develop against and refresh at will. I refrain from using the term "[copy data management](http://searchstorage.techtarget.com/definition/copy-data-management-CDM)" as it means a lot of different things depending on your background but it's essentially exactly what is if you don't care about the anonymization (which you can do for yourself or some databases has built in with RBAC).
 
 Assuming there is a production pod spawned that is actively using `transactionaldb-26063d7f-d7f2-11e7-8f86-000c291bed2c`. The cluster administrator would then create an SC along these lines:
+
 ```JSON
 ---
 kind: StorageClass
@@ -251,6 +269,7 @@ parameters:
 ```
 
 The developer may then create/delete PVCs against that particular SC to refresh his data from the `nightly-locktables` snapshot.
+
 ```JSON
 ---
 apiVersion: v1
@@ -267,6 +286,7 @@ spec:
 ```
 
 The volume being created, could be inspected as such:
+
 ```
 $ docker volume inspect from-production-dc10ebf3-d7f8-11e7-8f86-000c291bed2c --format '{{ .Status.Parent }} {{ .Status.ParentSnapshot }}'
 transactionaldb-26063d7f-d7f2-11e7-8f86-000c291bed2c.kubernetes nightly-locktables
@@ -280,6 +300,7 @@ Assuming that there is particular column that needs to be scrambled before a dev
 In the case where a temporary view is needed of a particular PV, be it for ETL (Extract, Transform, Load) or CI/CD (Continuous Integration/Continuous Deployment/Delivery) pipelines it becomes extremely powerful to create ephemeral representations of PVs. Think a container that has terabytes of data in it ready for processing without having to ship the data in a container image.
 
 This SC will recreate the underlying Docker Volume for each attachment:
+
 ```JSON
 ---
 kind: StorageClass

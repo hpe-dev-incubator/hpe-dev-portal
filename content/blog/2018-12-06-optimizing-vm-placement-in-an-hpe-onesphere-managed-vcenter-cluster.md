@@ -33,6 +33,7 @@ The solution is a PowerShell script which
 
 ## Dependencies
 This script requires two PowerShell modules, one for manipulating Excel spreadsheets and the second for interfacing with VMware vCenter. These two modules can be installed from the Microsoft PowerShell Gallery with the following instructions:
+
 ```` PowerShell
 install-module importexcel
 install-module VMware.VimAutomation.Core
@@ -46,26 +47,32 @@ This switch, which cannot be used together with **-CreateFolder**, can be used t
 
 ## Calling the script
 The next example calls the script with all default option:
+
 ```` PowerShell
 .\OneSphereVMMover.ps1 -VCServerName <vCenter-FQDN> -DatacenterName <DCName> -Username <vCenterUsername> -Password <vCenterPassword>
 ````
 In the next call we would prefer to only create the folder structure but not move any VMs:
+
 ```` PowerShell
 .\OneSphereVMMover.ps1 -VCServerName <vCenter-FQDN> -DatacenterName <DCName> -Username <vCenterUsername> -Password <vCenterPassword> -CreateTarget only
 ````
 While in this call we want all VMs to be moved and folders created automatically:
+
 ```` PowerShell
 .\OneSphereVMMover.ps1 -VCServerName <vCenter-FQDN> -DatacenterName <DCName> -Username <vCenterUsername> -Password <vCenterPassword> -CreateTarget always
 ````
 The next call will bring back all VMs in the Root folder:
+
 ```` PowerShell
 .\OneSphereVMMover.ps1 -VCServerName <vCenter-FQDN> -DatacenterName <DCName> -Username <vCenterUsername> -Password <vCenterPassword> -reset
 ````
 Finally the next call uses a different location for the Excel Spreadsheet
+
 ```` PowerShell
 .\OneSphereVMMover.ps1 -VCServerName <VeEnter-FQDN> -DatacenterName <DCName> -Username <vCenterUsername> -Password <vCenterPassword> -CreateFolder always -ExcelFilename myfile.xls
 ````
 All these example can be used with the additional option **-verbose** to get more information about the decision made and the VM moved.
+
 ```` PowerShell
 .\OneSphereVMMover.ps1 -VCServerName <vCenter-FQDN> -DatacenterName <DCName> -Username <vCenterUsername> -Password <vCenterPassword> -CreateTarget always -verbose
 ````

@@ -72,6 +72,7 @@ So now what? Well, we need to get the rest of the dataset. And there are multipl
 
 This strategy implies that we will "move" a virtual cursor to get the next batch of data by calling **GET /rest/services** again with the following parameter: start=50, count=50, and then again with: start=100, count=50 to get all of the data (150). A pseudo algorithm could be:
 
+
 ````
 newstart = 0
 newcount = 50
@@ -93,6 +94,7 @@ The following illustration shows the result of the second iteration:
 ### The 2-step approach
 
 In the two step approach, we will retrieve the data in 2 steps. The first step will get the default batch (and the *total* and *count* parameters), then the second will get the rest. A pseudo algorithm could be:
+
 ````
   Set1 = GET /rest/services
   #parse response to retrieve total, count and start
@@ -115,6 +117,7 @@ The following illustration show the result of the second step:
 ### The simpler 2-step approach
 
 This approach is similar to the 2-step approach in that we will make 2 calls to the GET API, but it's also different because in the first call we only request the total number of items. It's simpler because there is no need to merge datasets. A pseudo algorithm could be:
+
 ````
   GET /rest/services?count
   # parse response to retrieve total

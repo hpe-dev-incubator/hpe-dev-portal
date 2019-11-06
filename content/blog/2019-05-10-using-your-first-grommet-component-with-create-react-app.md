@@ -21,12 +21,14 @@ Create and name your application with create-react-app. Then navigate into the f
 
 *If you have create-react-app installed globally,*
 
+
 ```bash
 create-react-app grommet-rules
 cd grommet-rules
 ```
 
 *or if you use npx.*
+
 
 ```
 npx create-react-app grommet-rules
@@ -52,6 +54,7 @@ All associated imports and components in index.js and App.js must be deleted as 
 
 Your `App.js` file should look like this,
 
+
 ```jsx
 import React from 'react';
 function App() {
@@ -67,6 +70,7 @@ export default App;
 
 and your `index.js` file should look like this.
 
+
 ```jsx
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -80,11 +84,13 @@ serviceWorker.unregister();
 **It's sanity check time!**   
 Run your application with
 
+
 ```bash
 yarn start
 ```
 
 or
+
 
 ```bash
 npm start
@@ -98,11 +104,13 @@ npm start
 
 Install the grommet packages and dependencies using a package manager of your choice.
 
+
 ```bash
 yarn add grommet grommet-icons styled-components
 ```
 
 or
+
 
 ```bash
 npm install grommet grommet-icons styled-components --save
@@ -113,6 +121,7 @@ You will not be using grommet-icons and styled-components in this tutorial, but 
 A requirement for grommet is to import it and use it as a top-level node. You can do this in `App.js`.
 
 *In `App.js`, import grommet and replace the div component with the Grommet component. Your app is now ready to use all that grommet has to offer.*
+
 
 ```jsx
 import React from 'react';
@@ -132,6 +141,7 @@ export default App;
 Grommet components, such as Heading, can be imported and included in very much the same way as you did in the previous step.
 
 *In `App.js`, import the Heading component, put it within the Grommet component, and add some text.*
+
 
 ```jsx
 import React from 'react';
@@ -158,6 +168,7 @@ Properties can be used to position and style your grommet components. The Headin
 
 *In `App.js`, within your Heading component add the properties color and size, and give them values.  
 Detailed information on how the properties of each component can be modified can be found at [grommet components docs](https://v2.grommet.io/components).*
+
 
 ```jsx
 import React from 'react';

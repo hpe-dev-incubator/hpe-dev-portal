@@ -54,6 +54,7 @@ So let us try!
 On a Linux machine with Internet access, type the following command,
 which will retrieve the version of the API.
 
+
 ```postscript
 curl -i -k -H "accept: application/json" \\
 -X GET https://213.30.139.22:37441/rest/version
@@ -72,6 +73,7 @@ available from http://stedolan.github.io/jq/download/linux64/jq
 
 Once installed you can use it like this:
 
+
 ```postscript
 curl -k -H "accept: application/json" \\
 -X GET https://213.30.139.22:37441/rest/version | jq -r "."
@@ -81,6 +83,7 @@ curl -k -H "accept: application/json" \\
 
 This will just pretty print the JSON response, but you can also extract
 field, for example to retrieve the currentVersion.
+
 
 ```postscript
 curl -k -H "accept: application/json" \\
@@ -93,6 +96,7 @@ So let us pretend would like to capture the currentVersion in a variable
 within a shell script, we could do the following:
 
 \#Retrieve API version
+
 
 ```postscript
 currentVersion=$(curl -k -H "accept: application/json" -X GET
@@ -110,6 +114,7 @@ and start managing our HPE Composable Infrastructure. As we have already
 seen in previous articles, we need to send a POST to the
 /rest/login-sessions API.
 
+
 ```postscript
 curl -k -H "accept: application/json" -H "content-type:
 application/json" \\
@@ -121,6 +126,7 @@ application/json" \\
 
 We can then, extract the sessionID in a variable using the following
 syntax:
+
 
 ```postscript
 sessionID=$(curl -k -H "accept: application/json" -H "content-type:
@@ -139,6 +145,7 @@ We have now retrieved the API Version (currentVersion) and a login
 session (sessionID), we are now ready to explore the full HPE Composable
 Infrastructure API with a simple shell script. For example, let us
 enumerate the models of the servers managed in this environment
+
 
 ```postscript
 curl -k -H "accept: application/json" -H "content-type:
@@ -170,6 +177,7 @@ above.
 
 Once curl and jq are installed and in the default path, we can then
 execute the following command to retrieve a sessionID:
+
 
 ```postscript
 curl -k -H "accept: application/json" -H "content-type:

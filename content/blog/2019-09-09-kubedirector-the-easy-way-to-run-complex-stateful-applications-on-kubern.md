@@ -1,6 +1,5 @@
 ---
-title: >
-    KubeDirector: The easy way to run complex stateful applications on Kubernetes
+title: KubeDirector&#58; The easy way to run complex stateful applications on Kubernetes
 date: 2019-09-09T17:42:49.847Z
 author: Tom Phelan 
 tags: ["bluedata"]
@@ -18,13 +17,9 @@ KubeDirector provides the following capabilities:
 KubeDirector enables data scientists familiar with data-intensive distributed applications such as Hadoop, Spark, Cassandra, TensorFlow, Caffe2, etc. to run these applications on Kubernetes – with a minimal learning curve and no need to write GO code. The applications controlled by KubeDirector are defined by some basic metadata and an associated package of configuration artifacts. The application metadata is referred to as a KubeDirectorApp resource.
 
 To understand the components of KubeDirector, clone the repository on [GitHub](https://github.com/bluek8s/kubedirector/) using a command similar to:
-
 ```
 git clone http://<userid>@github.com/bluek8s/kubedirector.
-```
-
-The KubeDirectorApp definition for the Spark 2.2.1 application is located in the file `kubedirector/deploy/example_catalog/cr-app-spark221e2.json`.
-
+```The KubeDirectorApp definition for the Spark 2.2.1 application is located in the file `kubedirector/deploy/example_catalog/cr-app-spark221e2.json`.
 ```
  ~> cat kubedirector/deploy/example_catalog/cr-app-spark221e2.json
  {
@@ -45,10 +40,7 @@ The KubeDirectorApp definition for the Spark 2.2.1 application is located in the
                         "spark_worker"
                     ],
 …
-```
-
-The configuration of an application cluster is referred to as a KubeDirectorCluster resource. The KubeDirectorCluster definition for a sample Spark 2.2.1 cluster is located in the file `kubedirector/deploy/example_clusters/cr-cluster-spark221.e1.yaml`.
-
+```The configuration of an application cluster is referred to as a KubeDirectorCluster resource. The KubeDirectorCluster definition for a sample Spark 2.2.1 cluster is located in the file `kubedirector/deploy/example_clusters/cr-cluster-spark221.e1.yaml`.
 ```
 ~> cat kubedirector/deploy/example_clusters/cr-cluster-spark221.e1.yaml
 apiVersion: "kubedirector.bluedata.io/v1alpha1"
@@ -78,20 +70,16 @@ spec:
         cpu: "2"
   - name: jupyter
 …
-```
-
-## Running Spark on Kubernetes with KubeDirector
+```## Running Spark on Kubernetes with KubeDirector
 With KubeDirector, it’s easy to run Spark clusters on Kubernetes.
 
 First, verify that Kubernetes (version 1.9 or later) is running, using the command `kubectl version`
-
 ```
 ~> kubectl version
 Client Version: version.Info{Major:"1", Minor:"11", GitVersion:"v1.11.3", GitCommit:"a4529464e4629c21224b3d52edfe0ea91b072862", GitTreeState:"clean", BuildDate:"2018-09-09T18:02:47Z", GoVersion:"go1.10.3", Compiler:"gc", Platform:"linux/amd64"}
 Server Version: version.Info{Major:"1", Minor:"11", GitVersion:"v1.11.3", GitCommit:"a4529464e4629c21224b3d52edfe0ea91b072862", GitTreeState:"clean", BuildDate:"2018-09-09T17:53:03Z", GoVersion:"go1.10.3", Compiler:"gc", Platform:"linux/amd64"} 
-```
+```Deploy the KubeDirector service and the example KubeDirectorApp resource definitions with the commands:
 
-Deploy the KubeDirector service and the example KubeDirectorApp resource definitions with the commands:
 
 ```
 cd kubedirector
@@ -99,12 +87,14 @@ make deploy
 ```
 These will start the KubeDirector pod:
 
+
 ```
 ~> kubectl get pods
 NAME                           READY     STATUS     RESTARTS     AGE
 kubedirector-58cf59869-qd9hb   1/1       Running    0            1m   
 ```
 List the installed KubeDirector applications with `kubectl get KubeDirectorApp`
+
 
 ```
 ~> kubectl get KubeDirectorApp
@@ -114,6 +104,7 @@ spark211up     30m
 spark221e2     30m
 ```
 Now you can launch a Spark 2.2.1 cluster using the example KubeDirectorCluster file and the `kubectl create -f deploy/example_clusters/cr-cluster-spark211up.yaml` command. Verify that the Spark cluster has been started:
+
 
 ```
 ~> kubectl get pods
@@ -125,6 +116,7 @@ spark221e2-worker-4gzbz-0        1/1       Running   0          23m
 spark221e2-worker-4gzbz-1        1/1       Running   0          23m
 ```
 The running services now include the Spark services:
+
 
 ```
 ~> kubectl get service
@@ -147,11 +139,13 @@ That’s all there is to it! In fact, in the example above we also deployed a Ju
 
 To start another application (e.g. Cassandra), just specify another KubeDirectorApp file:
 
+
 ```
 kubectl create -f deploy/example_clusters/cr-cluster-cassandra311.yaml
 ```
 
 See the running Cassandra cluster:
+
 
 ```
 ~> kubectl get pods
@@ -167,6 +161,7 @@ spark221e2-worker-d9892-0         1/1       Running   0          22m
 spark221e2-worker-d9892-1         1/1       Running   0          22m
 ```
 Now you have a Spark cluster (with a Jupyter notebook) and a Cassandra cluster running on Kubernetes. Use `kubectl get service` to see the set of services.
+
 
 ```
 ~> kubectl get service

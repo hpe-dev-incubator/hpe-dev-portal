@@ -49,6 +49,7 @@ An infrastructure managed by Terraform is defined in .tf files, which are writte
 Create a new definition file called example.tf inside /usr/local/bin/terraform folder.
 
 
+
 ```js
 # example.tf file
 # OneSphere Credentials
@@ -70,6 +71,7 @@ For now, I am going to use four basic commands: plan, apply, show, and destroy. 
 ### Add Project
 
 First, I am going to create an HPE OneSphere project by including a resource configuration block “onesphere_project” in example.tf file.
+
 
 ```js
 #example.tf
@@ -102,6 +104,7 @@ As the network is already present in HPE OneSphere, I first need to import the n
 
 Here, I create an HPE OneSphere network resource configuration block to which the imported object will be mapped.
 
+
 ```js
 #example.tf
 # Import a OneSphere Network
@@ -115,6 +118,7 @@ Now, I will execute terraform import –provider=onesphere onesphere_network.ter
 ![5bf2e1a0cd93d0796238ae01-blog-content-1555103112729](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2019/4/onw-1555103112728.png)
 
 The next step is to provide network access to the created project “Terraform” by performing “add” operation. 
+
 
 ```js
 #example.tf
@@ -148,6 +152,7 @@ NOTE: The administrator needs to create a service group with services and expose
 Let’s assume that administrator exposed “rhel61forsca” service to the terraform project.
 
 Now I create an HPE OneSphere deployment by including a resource configuration block “onesphere_deployment” in example.tf file.
+
 
 ```js
 #example.tf

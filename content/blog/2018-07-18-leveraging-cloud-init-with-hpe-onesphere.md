@@ -12,6 +12,7 @@ The configuration file is typically provided by a user at ordering time (via a u
 
 ## cloud-config file format
 The cloud-config configuration file is written in YAML and it has to start with the following first line: 
+
 ````
 #cloud-config
 ````
@@ -28,6 +29,7 @@ After this first line, it can contain any number of configuration directives (ak
 - **write_files**: manipulate files on target filesystem
  
 Each directive expects parameters, which will be set on the following lines, indented from directive as shown in the example below:
+
 ```` 
 #cloud-config
 manage-resolv-conf: true
@@ -38,6 +40,7 @@ resolv_conf:
   domain: mydomain.com
 ````
 It can also embed commands, which will be executed on the target system. The directive to do this is runcmd followed by lines of commands to be executed. For example:
+
 ````
 #cloud-config
 runcmd:
@@ -81,6 +84,7 @@ We can also use the PowerShell module for HPE OneSphere available from the [Micr
 `Install-module hpeonesphere` or `Import-module hpeonesphere`
 
 Then we can use the add-hpeosdeployment function to create a new VM using cloud-init. The help command reveals the user-data string parameter to use for passing the cloud-config content to HPE OneSphere
+
 ````
 PS> help Add-HPEOSDeployment
 
@@ -111,6 +115,7 @@ REMARKS
 There are many usage of cloud-init which can be used to bootstrap a Chef or a Puppet agent, or call a Salt Minion. However, in this use case, we would like to use CentOS as a target machine, using a standard image both on our (VMware based) private cloud and on AWS public cloud. The idea is to keep the number of curated images small and customize those images just-in-time with cloud-init, whether these are public or private images. In this use case, we simply would like to install the latest version of Docker on the target system. Moreover, because we use an automated CI/CD tooling, we need this to be done using a PowerShell script, without any GUI and human intervention.
 First, let us assemble the following YAML file as a cloud-config script. This script will install Docker and some of the dependencies.
 ### cloud-config
+
 ````
 package_upgrade: true
 package_reboot_if_required: true
@@ -125,6 +130,7 @@ runcmd:
 We have saved this file as cloud-config.yaml
 ### PowerShell Script
 Let us now control the provisioning of this VM with the passing of the cloud-config file using a PowerShell script. In this script, we collect the parameters required by the add-hpeosdeployment (project, service, zone, network, virtual machine profile, public key and userdata)
+
 ````
 # Connect to HPE OneSphere
 connect-hpeos -portal https://<myportal>.hpeonesphere.com `
@@ -153,6 +159,7 @@ $my_newdeployment=Add-HPEOSDeployment -DeploymentName test-with-cloud-init `
 -PublicKey $my_key -UserData $my_64baseuserdata
 ````
 We should also enter a loop to query the status of the deployment until it becomes Ok and then retrieve the allocated IP address with something like the following:
+
 ````
 do { $d=get-hpeosdeployment -id $my_newdeployment.id ; sleep 10 } `
 while ($d.Status -ne "Ok")

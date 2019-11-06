@@ -37,6 +37,7 @@ Let's try this in Postman:
 
 We also need to set the following JSON body (in raw format)
 
+
 ```json
 {
 "userName":"MyOneSphereUser", "password":"MyOneSpherePassword"

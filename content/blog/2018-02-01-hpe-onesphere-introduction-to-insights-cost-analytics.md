@@ -55,6 +55,7 @@ path: hpe-onesphere-introduction-to-insights-cost-analytics
 For all the below rest calls, we have taken the example to show the costs for the February month by giving the `periodStart` as 2018-02-01 and `periodCount` as 1.  
 
 a) To get the usage costs of all the deployments based on the providers category:
+
 ```
 /rest/metrics?name=cost.usage&period=month&periodStart=2018-02-01T00:00:00Z&periodCount=1&category=providers&view=full
 ```
@@ -63,6 +64,7 @@ a) To get the usage costs of all the deployments based on the providers category
 ![cost1](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2018/2/cost1-1519120309105.png)
 
 b) To get the usage costs of all the deployments based on the projects category:
+
 ```
 /rest/metrics?name=cost.usage&period=month&periodStart=2018-02-01T00%3A00%3A00Z&periodCount=1&category=projects&view=full
 ```
@@ -71,6 +73,7 @@ b) To get the usage costs of all the deployments based on the projects category:
 ![cost2](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2018/2/cost2-1519120593778.png)
 
 c) To get the usage costs of all deployments based on the projects which is associated to 'Tier' tag key:
+
 ```
 /rest/metrics?name=cost.usage&period=month&periodStart=2018-02-01T00%3A00%3A00Z&periodCount=1&category=projects&groupBy=tagKeyUri&query=tagKeyUri+EQ+%2Frest%2Ftag-keys%2Ftier&view=full
 ```
@@ -79,6 +82,7 @@ c) To get the usage costs of all deployments based on the projects which is asso
 ![cost3](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2018/2/cost3-1519120610491.png)
 
 d) To get the total cost of all providers grouped by provider-type:
+
 ```
 /rest/metrics?name=cost.total&period=month&periodStart=2018-03-01T00%3A00%3A00Z&periodCount=-2&category=providers&groupBy=providerTypeUri&view=full
 ```
@@ -87,6 +91,7 @@ d) To get the total cost of all providers grouped by provider-type:
 ![cost4](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2018/2/cost4-1519120969465.png)
 
 e) To get the managed utilization and the consolidated usage costs of all providers grouped by the provider-type:
+
 ```
 /rest/metrics?name=cost.total&name=cost.efficiency&name=cost.usage&period=month&periodStart=2018-02-01T00%3A00%3A00Z&periodCount=1&category=providers&groupBy=providerTypeUri&view=full
 ```
@@ -95,6 +100,7 @@ e) To get the managed utilization and the consolidated usage costs of all provid
 ![cost5](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2018/2/cost5-1519121259583.png)
 
 f) To get the usage costs of all deployments based on the projects which is associated to 'environment' tag key:
+
 ```
 /rest/metrics?name=cost.usage&period=month&periodStart=2018-02-01T00%3A00%3A00Z&periodCount=1&category=projects&groupBy=tagKeyUri&query=tagKeyUri+EQ+%2Frest%2Ftag-keys%2Fenvironment&view=full
 ```
@@ -103,6 +109,7 @@ f) To get the usage costs of all deployments based on the projects which is asso
 ![cost6](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2018/2/cost6-1519121506385.png)
 
 g) To get the usage costs of all deployments based on the projects which is associated to 'line of business' tag key:
+
 ```
 /rest/metrics?name=cost.usage&period=month&periodStart=2018-02-01T00%3A00%3A00Z&periodCount=1&category=projects&groupBy=tagKeyUri&query=tagKeyUri+EQ+%2Frest%2Ftag-keys%2Fline-of-business&view=full
 ```

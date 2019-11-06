@@ -77,6 +77,7 @@ Note that this resource can only be modified when the system is `Off` or in `Fin
 
 In summary, the deployment process of a bare-metal server could be written as:
 
+
 ```Pseudo Code
 Set server in `Off` state
 set `HostName` to a null or a well-known string different from the final OS hostname
@@ -97,6 +98,7 @@ In addition to the `PowerState` and `PostState` properties, the `DeviceDiscovery
 It may happen during startup that a system returns `InPostDiscoveryComplete` while not all of its devices have been discovered.
 
 The following script polls every other second the `PostState` and the `DeviceDiscoveryComplete` properties:
+
 
 ```bash
 let i=1

@@ -43,6 +43,7 @@ The example goes from spinning up eight EC2 instances to consume HPE Cloud Volum
 All playbooks and roles are hosted on [GitHub](https://github.com/NimbleStorage/automation-examples). The Ansible host uses Ubuntu 16.04.3 in these examples but any Linux distro will do, please adjust the install procedure accordingly.
 
 Prepare Ansible host (Ubuntu 16.04.3):
+
 ```
 sudo apt-get update 
 sudo apt-get install -y git python python-boto python-boto3 python-jmespath python-pip
@@ -55,11 +56,13 @@ ansible-galaxy install -r galaxy.txt
 **Important:** The rest of this guide assumes current working directory `automation-examples/cloud/varlibdocker`
 
 Copy `group_vars/all/main.yml-dist` and `group_vars/all/secrets.yml-dist` to their respective basenames:
+
 ```
 for i in group_vars/all/*-dist; do mv ${i} $(sed -e 's/-dist$//' <<< ${i});done
 ```
 
 Edit `group_vars/all/main.yml` to fit your AWS environment:
+
 ```YAML
 ---
 # Configure these
@@ -72,6 +75,7 @@ swarm_cloud: vpc-00000000      # The VPC the HPE Cloud Volumes will be provision
 There are a few other preference parameters to look at, like instance and cluster sizes. These are not necessary to tune.
 
 Edit `group_vars/all/secrets.yml` and store your HPE Cloud Volumes credentials:
+
 ```YAML
 ---
 cloud_portal_access_key: nimble            # Your HPE Cloud Volumes key
@@ -81,18 +85,21 @@ cloud_portal_access_secret: nimblestorage  # Your HPE Cloud Volumes secret
 **Note:** While not required, it's highly recommended to protect credentials with Ansible Vault. 
 
 The next few steps require you to download and install the named AWS key that is referenced in the `swarm_key` variable and name it `ec2.pem`:
+
 ```
 scp user@host:mykey.pem ec2.pem
 chmod 0400 ec2.pem
 ```
 
 Next, we rely on the latest `ec2.py` dynamic inventory script. Download accordingly:
+
 ```
 wget -O contrib/inventory/ec2.py https://raw.githubusercontent.com/ansible/ansible/devel/contrib/inventory/ec2.py
 chmod 755 contrib/inventory/ec2.py
 ```
 
 Both the the `ec2.py` inventory script and the Ansible modules relies on environment variables with your access key, secret key and AWS region you're working with:
+
 ```
 set +o history
 export AWS_ACCESS_KEY_ID=nimble
@@ -102,6 +109,7 @@ set -o history
 ```
 
 If you have instances running in EC2 under your account. Now is a good time to see if your credentials are good:
+
 ```
 ./contrib/inventory/ec2.py --list
 ```
@@ -117,6 +125,7 @@ The next few steps discuss the operation of the playbooks provided. Please ensur
 As per convention, `site.yml` sets up the environment end-to-end and after execution you should have a Minio environment set up at the ELB URL presented at the end of the play.
 
 Execute as follows:
+
 ```
 ansible-playbook site.yml
 ```
@@ -148,6 +157,7 @@ The last step deploys an ELB that fronts the NGINX server. The ELB is an unencry
 If the `site.yml` play completes successfully, you should see a URL at the end of the play. This is where your Minio instance is running. Please proceed to login with username `nimble` and password `nimblestorage`.
 
 Just before the profile summary and play recap:
+
 ```
 
 TASK [deploy_elb : debug] ***************************************************************
@@ -201,6 +211,7 @@ Once logged you'll see something that resembles this:
 ![Minio Empty](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2017/11/minio-empty-1511947029503.png)
 
 Here you can either create buckets and upload files or you can simply use the `mc` utility to access Minio:
+
 ```
 sudo wget -O /usr/local/bin/mc wget https://dl.minio.io/client/mc/release/linux-amd64/mc
 sudo chmod 755 /usr/local/bin/mc
@@ -208,6 +219,7 @@ mc config host add mys3 http://minio-271113730.us-west-1.elb.amazonaws.com:9000 
 ```
 
 With `mc` you can perform normal unix-like commands. Let's create a bucket and upload this repo's roles directory:
+
 ```
 mc mb mys3/mybucket
 mc cp -r roles mys3/mybucket
@@ -222,6 +234,7 @@ Included in the repository is a couple of utility playbooks. One expands the cap
 Before expanding the volumes, load up the Minio landing page that indicates how much space there is. After the play has finished, reload the page. You should see the extra space accordingly. 
 
 Expand Cloud Volume:
+
 ```
 ansible-playbook util_expand_cloud_volume.yml -e '{"cloud_volume_size": 1000000}'
 ```
@@ -234,6 +247,7 @@ You should have similar space as observed in the screenshots above if you didn't
 While it's entirely possible to write a playbook that takes both capacity and IOPS in one go, it's more intuitive to perform controlled updates in isolated increments.
 
 Set a new IOPS limit:
+
 ```
 ansible-playbook util_iops_cloud_volume.yml -e '{"cloud_volume_iops": 10000 }'
 ```
@@ -244,6 +258,7 @@ The new limit and capacity should be reflected in the HPE Cloud Volumes portal:
 
 ## Destroy
 Once done playing in the sandbox, the following playbook destroys **everything** provisioned. Including your HPE Cloud Volumes, ELB and EC2 instances.
+
 ```
 ansible-playbook util_stack_destroy.yml
 ```

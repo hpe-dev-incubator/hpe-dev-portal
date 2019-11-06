@@ -25,10 +25,12 @@ I. Deployed an AWS Linux VM in public cloud and a Windows Server 2016 VM in a pr
 II. Spun up a [Chef Automate](https://automate.chef.io/docs/install/) server and configured a workstation to communicate with it using [knife](https://docs.chef.io/knife_setup.html)
 
 III. Download the Chef cookbooks and InSpec profiles used in this example from [Git repository](https://github.com/chef-partners/1s-inspec-example)
+
 ````
 git clone https://github.com/chef-partners/1s-inspec-example
 ````
 Upload the cookbooks using berks utility, a Berksfile is present under cookbooks folder
+
 ````
 cd 1s-inspec-example/cookbooks
 berks install
@@ -44,12 +46,14 @@ b. **Check password history is set to 24 or more passwords:** Another profile to
 These profiles are part of [Git repository](https://github.com/chef-partners/1s-inspec-example) cloned in the environment setup section. Follow the steps below to upload these to Chef Automate compliance server:
 
 I. Login to InSpec from your workstation
+
 ````
 inspec compliance login https://Your-Chef-Automate-URL --user='admin' --ent=Your-Chef-Org-Name --token=Your-API-Token --insecure
 ````
 You can generate API token from Chef Automate with [these steps](https://automate.chef.io/docs/api-tokens/#creating-a-standard-api-token).
 
 II.	Upload the InSpec profiles
+
 ````
 cd 1s-inspec-example
 inspec compliance upload inspec/ssh-check
@@ -62,14 +66,17 @@ These profiles will now appear in Chef Automate UI.
 To attach HPE OneSphere deployments with Chef Automate, bootstrap these VMs using Knife. 
 
 I. Bootstrap AWS Linux VM
+
 ````
 knife bootstrap ec2-user@FQDN-OR-IP -i YOUR-SSH-KEY.pem -N AWS_Linux --sudo
 ````
 II. Bootstrap Windows Server
+
 ````
 knife bootstrap windows winrm FQDN-OR-IP --node-name Windows_Server --winrm-user Administrator --winrm-password YOUR-PASSWORD
 ````
 III. Update the run-lists
+
 ````
 cd 1s-inspec-example/cookbooks
 
@@ -88,6 +95,7 @@ Switch to the compliance section in Chef Automate to see the results of scans. B
 Solutions of compliance issues need to be automated and continuous. Our [Git repository](https://github.com/chef-partners/1s-inspec-example) has some cookbooks and recipes that contain fixes for issues reported by our compliance runs. Chef Automate maintains a run-list of recipes for each node. Adding these recipes to run-list of nodes will make them execute with every Chef client run. With the first run, these recipes will fix the issues and every subsequent Chef client run will ensure the system stays in the desired state continuously.
 
 Use the following commands from your workstation to update the run lists:
+
 ````
 cd 1s-inspec-example/cookbooks
 

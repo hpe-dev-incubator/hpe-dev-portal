@@ -42,6 +42,7 @@ Eclipse.
 -   Cut and paste the following Java code which will be the starting
     point for our experiments
 
+
 ```java
 	import java.io.IOException;
 	import java.io.IOException;
@@ -70,6 +71,7 @@ Eclipse.
     when we used POSTman in [API version? What API version?
     ](https://community.dev.hpe.com/t5/Blogs/API-version-What-API-version/ba-p/235776)
 
+
 ```java	
 	HttpURLConnection conn = (HttpURLConnection)url.openConnection();
 	conn.setRequestMethod("GET");
@@ -78,11 +80,13 @@ Eclipse.
 
 -   Next, we want to read the result in a BufferedReader object with:
 
+
 ```java
 	BufferedReader br = new BufferedReader(new InputStreamReader((conn.getInputStream())));
 ```
 
 -   To keep it simple, let's only continue if we received a Status code of 200
+
 
 ```java
 	if (conn.getResponseCode() != 200) {
@@ -91,6 +95,7 @@ Eclipse.
 	}
 ```
 -   Finally, let's print the result on the console with
+
 
 ```java
     String output;
@@ -101,6 +106,7 @@ Eclipse.
 ```
 
 -   And close the connection
+
 
 ```java
 	conn.disconnect();
@@ -208,6 +214,7 @@ cut/paste the code from HelloOneViewWorld.java.
 
 -   Replace the connection properties with the following:
 
+
 ```java
 	conn.setRequestMethod("POST");
 	conn.setDoOutput(true);
@@ -232,6 +239,7 @@ mentioned above, will return the following:
 
 HPE OneView Response is:
 
+
 ```json
 	{"partnerData":{},
 	"sessionID":"MjA5NjEwOTM0MTQ4bcFsogYf-fHCmOPdSsLu0259scrx\_SFV"}
@@ -246,6 +254,7 @@ following connection properties:
 	conn.setRequestProperty("Accept", "application/json");
 	conn.setRequestProperty("X-API-Version", "YourSelectedVersion");
 	conn.setRequestProperty("auth", "your-sessionID-goes-here");
+
 ```
 
 However, you should also be aware that a Java SDK for HPE OneView is

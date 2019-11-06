@@ -22,6 +22,7 @@ The options available to Nemo are divided in a number of self-explanatory sectio
 * Nimble Compatible Vanity Options: These options does not provide any real functionality
 
 These sections are outlined below and available in the `-o help` output from the plugin:
+
 ```
 gem:~ mmattsson$ sudo docker volume create -d nemo -o help
 Error response from daemon: create c6e7ad6cd8199feac4c485a5e79ad4edef8e231e9fa179e0191a1e5fadfe88fc: VolumeDriver.Create:  -o help
@@ -105,6 +106,7 @@ The `docker volume inspect` output somewhat represents a fairly compatible outpu
 Nemo is primarily being distributed in source form but will be made available for broader developer-friendly container ecosystems. There's a managed Docker Volume plugin available that installs pretty much out-of-the-box on an Ubuntu 18.04 machine. Instructions to get OpenZFS and Nemo rolling on RHEL and CentOS is available for the tinkerer [in the repo](https://github.com/NimbleStorage/Nemo/tree/master/runtime/docker-v2#other-distributions). 
 
 This is what a "get to know Nemo session" could look like on an Ubuntu server provisioned with `docker-machine`:
+
 ```
 gem:~ mmattsson$ docker-machine create --driver generic --generic-ssh-port=22 --generic-ssh-user=vagrant --generic-ip-address=192.168.59.131 --generic-ssh-key=.vagrant/machines/default/vmware_fusion/private_key nemo
 Running pre-create checks...
@@ -123,9 +125,11 @@ Checking connection to Docker...
 Docker is up and running!
 To see how to connect your Docker Client to the Docker Engine running on this virtual machine, run: docker-machine env nemo
 ```
+
 ```
 gem:~ mmattsson$ eval $(docker-machine env nemo)
 ```
+
 ```
 gem:~ mmattsson$ docker version
 Client:
@@ -147,6 +151,7 @@ Server:
   OS/Arch:          linux/amd64
   Experimental:     false
 ```
+
 ```
 gem:~ mmattsson$ docker plugin install --alias nemo --grant-all-permissions nimblestorage/nemo:1.0.0
 1.0.0: Pulling from nimblestorage/nemo
@@ -155,10 +160,12 @@ Digest: sha256:8f256853b8d2a97aa233938f93ac69686be4f5a280c7372e2cd672898519828c
 Status: Downloaded newer image for nimblestorage/nemo:1.0.0
 Installed plugin nimblestorage/nemo:1.0.0
 ```
+
 ```
 gem:~ mmattsson$ docker volume create -d nemo myvol1
 myvol1
 ```
+
 ```
 gem:~ mmattsson$ docker volume inspect myvol1
 [
@@ -198,6 +205,7 @@ gem:~ mmattsson$ docker volume inspect myvol1
     }
 ]
 ```
+
 ```
 gem:~ mmattsson$ docker run --rm -it -v myvol1:/data bash
 Unable to find image 'bash:latest' locally
@@ -213,10 +221,12 @@ tank/v2/myvol1           10.0G    128.0K     10.0G   0% /data
 bash-4.4# touch /data/myfile.txt
 bash-4.4# exit
 ```
+
 ```
 gem:~ mmattsson$ docker volume create -d nemo -o cloneOf=myvol1 myvol1-clone
 myvol1-clone
 ```
+
 ```
 gem:~ mmattsson$ docker run --rm -it -v myvol1-clone:/data bash
 bash-4.4# ls /data
@@ -236,10 +246,12 @@ The exact same workflow, along with several others, is available with the HPE Ni
 One might wonder if Nemo is compatible with [Dory](https://github.com/hpe-storage/dory)? That is a given! Nemo fully implements the Docker Volume API, `dory` and `doryd` pretty much work stock with the exception that certain defaults needs to be overridden. More details on the Kubernetes integration is available [in the repo](https://github.com/NimbleStorage/Nemo/tree/master/runtime/k8s).
 
 Example setup procedures for Kubernetes:
+
 ```
 gem:~ mmattsson$ kubectl create -f https://raw.githubusercontent.com/NimbleStorage/Nemo/master/runtime/k8s/daemonset-nemod.yaml
 daemonset.apps/nemod created
 ```
+
 ```
 gem:~ mmattsson$ kubectl create -f https://raw.githubusercontent.com/NimbleStorage/Nemo/master/runtime/k8s/deploy-doryd.yaml
 clusterrole.rbac.authorization.k8s.io/doryd created
@@ -249,10 +261,12 @@ deployment.extensions/kube-storage-controller-doryd created
 ```
 
 The cluster is now ready to create Storage Classes, Persistent Volume Claims or use the FlexVolume driver inline. A `StorageClass` and `StatefulSet` example is provided:
+
 ```
 gem:~ mmattsson$ kubectl create -f https://raw.githubusercontent.com/NimbleStorage/Nemo/master/runtime/k8s/sc-transactionaldb.yaml
 storageclass.storage.k8s.io/transactionaldb created
 ```
+
 ```
 gem:~ mmattsson$ kubectl create -f https://raw.githubusercontent.com/NimbleStorage/Nemo/master/runtime/k8s/statefulset-mariadb.yaml
 secret/mariadb created
@@ -261,6 +275,7 @@ service/mariadb created
 ```
 
 The `PersistentVolumeClaim` created by the `volumeClaimTemplate` part of the `StatefulSet` can be inspect with `kubectl`:
+
 ```
 gem:~ mmattsson$ kubectl get -o yaml pvc/mariadb-mariadb-0
 apiVersion: v1

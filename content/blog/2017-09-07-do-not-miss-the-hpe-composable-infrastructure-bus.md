@@ -196,6 +196,7 @@ message bus from the online documentation,
 
 The following is an example of an SCMB message:
 
+
 ```json
 {"data":null  
 "timestamp":"2016-07-04T15:26:02.109Z"  
@@ -265,6 +266,7 @@ of the messages in a list.
 
 We can select to view the JSON details which displays the following
 content (highlighted in red are the important fields):
+
 
 ```json
 {"data":null  

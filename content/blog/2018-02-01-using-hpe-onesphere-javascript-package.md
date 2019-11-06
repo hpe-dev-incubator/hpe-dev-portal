@@ -65,7 +65,6 @@ app.listen(3000, () => {
   // Send a message to our terminal window that we're ready for action.
   console.log('Server listening to http://localhost:3000');
 });
-
 ``` 
 I've added comments in the code to clarify what each line of code is doing to help create our application. Save your `index.js` file and open your terminal. In the project directory, run `npx babel-node index.js`, this runs our current application in Node. We're running our application in babel-node to transpile the latest Javascript features to lower versions of Javascript on the fly. *Note: babel-node is being used here for demonstration purposes and ease of use, babel-node should not be used in production. Instead a developer would look to transpiling their Javascript to a distribution bundle via [Webpack](https://webpack.js.org/).*
 

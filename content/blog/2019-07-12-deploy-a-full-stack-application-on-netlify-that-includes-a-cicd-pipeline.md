@@ -17,6 +17,7 @@ For the purpose of this example, let’s assume that you have an application alr
 
 At the root of the project, add the netlify.toml file and include the following text. 
 
+
 ```
 [build]
   command = "yarn build"
@@ -27,6 +28,7 @@ At the root of the project, add the netlify.toml file and include the following 
 Create a folder called `dist` at the project root so that when netlify starts its build command, it automatically copies the compiled binary files into a `dist` folder. You can also delegate this task to netlify and have it create a build folder during compilation using commands provided as part of the build command. 
 
 Your package.json file should look like this when the deployment process is complete. 
+
 
 ```
 "scripts": {
@@ -86,6 +88,7 @@ If your app needs to access any other routes apart from ‘/’ route, the above
 
 _redirects:
 
+
 ```
 /*    /index.html   200
 
@@ -98,6 +101,7 @@ Having completed the above, you should now have a working frontend application. 
 __Pre-requisites:__ You need to install the netlify-lambda package to enable serverless lambda functions for running the API. Since lambda functions run as service from the same host, you also need two more dependencies:  1) a `http-proxy-middleware` package to have localhost proxy setup, and 2) a ` npm-run-all` package to run all build commands in parallel. 
 
 Once you install the `netlify-lambda` and `http-proxy-middleware` packages, update the package.json file to reflect the scripts tag. 
+
 
 ```
 
@@ -117,6 +121,7 @@ Now, add a setupProxy.js file inside the `src` directory and add the following c
 
 __Note:__ You do not need to import this file anywhere. It is automatically registered by create-react-app when you start the development server.
 
+
 ```
 
 const proxy = require('http-proxy-middleware');
@@ -134,6 +139,7 @@ module.exports = function(app) {
 
 At the root of the project, update `netlify.toml` file with the following code: 
 
+
 ```
 [build]
   command = "yarn build"
@@ -142,6 +148,7 @@ At the root of the project, update `netlify.toml` file with the following code:
 
 ```
 Now, add a `lambda` folder under the `src` directory to start setting the server side functionality. For simplicity, we will write a simple express.js app with few routes.
+
 
 ```
 

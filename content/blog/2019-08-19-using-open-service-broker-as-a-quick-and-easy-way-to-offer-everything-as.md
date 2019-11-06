@@ -49,6 +49,7 @@ The first thing that needs to happen is we need to associate a broker with our p
 
 * NOTE: The Grommet OSB broker exposes services via /v2/catalog endpoint. Below, you can find the sample Python code exposing the service called “grommet” with two plans - “grommet-plan-1” and “grommet-plan-2”.
 
+
 ```python
 def catalog():
     """
@@ -79,6 +80,7 @@ def catalog():
     return {"services": [service]}
 ```
 
+
 ```python
 {
   "services": [
@@ -106,6 +108,7 @@ def catalog():
 Now, if I want to create a service, I send a PUT request to /v2/service_instances/:service_id, where the service ID is a unique ID for the service being created. It’s up to the platform to create and track these. Once the service has been created, the broker returns a 201 to the platform.
 
 * NOTE: The Grommet OSB broker exposes a /v2/service_instances/:service_id endpoint to create a service instance. Below, you can find the sample Python code creating a Ec2 instance in an AWS cloud.
+
 
 ```python
 def provision(instance_id):
@@ -152,6 +155,7 @@ Example: Grommet OSB broker /v2/service_instances/:instance_id/service_bindings/
 * NOTE: The Grommet OSB broker exposes
  /v2/service_instances/:instance_id/service_bindings/:binding_id endpoint to create a binding for an instance. Below, you can find the sample Python code used to create access credentials for an Ec2 instance provisioned in the previous step. End users can use these credentials to access the Grommet Dev Environment and start creating Grommet-based web apps.
 
+
 ```python
 def bind(instance_id, binding_id):
     """
@@ -192,6 +196,7 @@ Example: Grommet OSB broker DELETE /v2/service_instances/:service_id/service_bin
 
 * NOTE: The Grommet OSB broker exposes a DELETE /v2/service_instances/:service_id/service_bindings/:binding_id endpoint to delete a binding for an instance. Below, you can find the sample Python code to delete the binding for a previously provisioned Ec2 instance.
 
+
 ```python
 def unbind(instance_id, binding_id):
     """
@@ -216,6 +221,7 @@ Now, if I want to remove the provisioned service instance, I send a DELETE reque
 Example: Grommet OSB broker DELETE /v2/service_instances/:service_id/ endpoint
 
 * NOTE: The Grommet OSB broker exposes a DELETE /v2/service_instances/:service_id/ endpoint to delete an instance. Below, you can find the sample Python code used to delete a previously provisioned Ec2 instance.
+
 
 ```python
 def deprovision(instance_id):

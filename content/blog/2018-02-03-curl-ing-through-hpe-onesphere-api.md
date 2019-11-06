@@ -37,6 +37,7 @@ We can call cURL --help, to see the syntax of the command. There are many availa
 ## So let us try!
 On a (Linux) machine with Internet access, type the following command, which will retrieve the status of your HPE OneSphere environment:
 
+
 ````bash
 curl -i -k -H "accept: application/json" -X GET https://YourOneSphere/rest/status
 HTTP/1.1 200 OK
@@ -57,6 +58,7 @@ We can see in the last line of the above example that the response is provided i
 
 Once installed you can use it like this:
 
+
 ````bash
 curl -k -H "accept: application/json" -X GET https://YourOneSphere/rest/status | jq -r "."
 {
@@ -66,11 +68,13 @@ curl -k -H "accept: application/json" -X GET https://YourOneSphere/rest/status |
 ````
 This will just pretty-print the JSON response, but you can also extract field, for example to retrieve the service status.
 
+
 ````bash
 curl -k -H "accept: application/json" -X GET https://YourOneSphere/rest/status | jq -r ".service"
 OK
 ````
 So let us pretend would like to capture the service status in a variable within a shell script. We could do the following:
+
 ````bash
 #Retrieve HPE OneSphere Status
 status=$(curl -k -H "accept: application/json" -X GET https://YourOneSphere/rest/status | jq -r ".service")
@@ -79,6 +83,7 @@ OK
 ```` 
 ## Getting a Session token
 Let us now apply this technique to login to HPE OneSphere and start managing our hybrid cloud. As we have already seen in previous articles, we need to send a POST to the /rest/session API.
+
 ````bash
 curl -k -H "accept: application/json" -H "content-type: application/json" \
 -d '{"userName":"Administrator","password":"password"}' \
@@ -89,6 +94,7 @@ curl -k -H "accept: application/json" -H "content-type: application/json" \
 }
 ````
 We can then, extract the token in a variable using the following syntax:
+
 ````bash
 # Retrieve HPE OneSphere session token
 token=$(curl -k -H "accept: application/json" -H "content-type: application/json" \
@@ -99,6 +105,7 @@ gAAAAABadYYWh2fcZTVzY8tkZ7baNCRokyoVDECK1jp-zsoLg5L_8adZeX89hbx2VqKyuQYp5lUqLP27
 ````
 ## Putting it all together
 We have now retrieved a login session (stored in variable token), and we are now ready to explore the full HPE OneSphere API with a simple shell script. For example, let us enumerate project names and user names in this environment:
+
 ````bash
 # Retrieve Projects and Users from HPE OneSphere
 echo "-- Projects"
@@ -135,11 +142,13 @@ Another option is to install jq and cURL for Windows, and in that case, you will
 
 Once curl and jq are installed and in the default path, we can then execute the following command to retrieve a token:
 
+
 ````bash
 curl -k -H "accept: application/json" -H "content-type: application/json" -X POST https://YourOneSphere/rest/session -d "{\"userName\":\"Administrator\",\"password\":\"password\"}" | jq -r ".token"
 ````
  
 However, if you really need to store it into a variable in Windows command interpreter, things get a little more complicated:
+
 
 ````bash
 for /f "delims=" %a in ('curl -k -H "accept: application/json" -H "content-type: application/json" -X POST https://YourOneSphere/rest/session -d "{\"userName\":\"Administrator\",\"password\":\"password\"}" ^| jq -r ".token"') do @set token=%a

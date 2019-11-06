@@ -15,6 +15,7 @@ If you aren’t familiar with YAML, it stands for “YAML Ain't Markup Language�
 
 Here is a quick example from Ansible’s website. Take a look at the documentation to learn more about the formatting for YAML. Reading YAML is pretty straightforward.
 
+
 ``` yaml
 # Employee records
 -  martin:
@@ -56,6 +57,7 @@ Here is a “simple” example of a custom playbook using the uri module to quer
 
 Let’s start with creating the playbook. Every playbook (since it is YAML based) starts with `---` and then the name of the playbook. Here you can define the hosts that it will run against. Since we are using the **uri** module on the local machine to connect to a 3PAR, we set this to **localhost**
 
+
 ```yaml
 ---
 - name: Connect to 3par - get volumes
@@ -73,6 +75,7 @@ Let’s start with creating the playbook. Every playbook (since it is YAML based
 >Be aware, **YAML** is space sensitive. Always make sure your sections contain the same number of spaces in front otherwise it may be interpreted differently. Also, TABS have been outlawed in YAML and are not allowed to prevent errors between editors. You have been warned.
 
 The next section contains the task(s). A playbook can contain a single task or multiple tasks to accomplish the desired configuration. Each task is denoted with the `– name:` descriptor and provides a meaningful name to the task. Each task calls upon an Ansible module that is able to accomplish the desired endstate, in our case the **uri** module. Under the **uri** module, you will see the various parameters that are required in order for Ansible to talk with the HPE 3PAR.
+
 
 ```yaml
 tasks:
@@ -166,6 +169,7 @@ So let’s look at what a playbook looks like using the HPE 3PAR modules for Ans
 
 First step to using the storage module, is to download it from Github. As of Ansible 2.5 and earlier, you will need to download it from Github, after the release of Ansible 2.6, it will be part of Ansible core and included when you download future versions.
 
+
 ```
 git clone https://github.com/HewlettPackard/hpe3par_ansible_module
 ```
@@ -213,6 +217,7 @@ Open your favorite editor.
 
 Let’s provide a name for our playbook and it will be running against `localhost` again.
   
+
 ```YAML
 ---
 - name: Demo 3PAR Ansible playbook
@@ -220,6 +225,7 @@ Let’s provide a name for our playbook and it will be running against `localhos
 ```
 
 Next let’s define our variables. In this example, we will use a combination of locally defined **variables** and an external configuration file (`include_vars`). Under `vars`, we specify the volume specifics.
+
 
 ```YAML
 vars:
@@ -238,6 +244,7 @@ tasks:
 
 Before we go further, here is what the `properties/storage_system_properties.yml` file looks like. It is a simple file with 3 lines, defining the connection information for the HPE 3PAR. 
 
+
 ```YAML
 storage_system_ip: "192.168.1.50"
 storage_system_username: "3paruser"
@@ -247,6 +254,7 @@ storage_system_password: "3parpass"
 **Note:** You can include any of your variables in a combination of configuration files or within the playbook itself. It is completely up to you. I like to use configuration file for my “global” variables or to use them as “profiles” to limit the user defined variables in my playbooks.
 
 Now let’s create our tasks. Like I mentioned before, we can copy and paste these from the playbook templates found under the playbooks folder in the HPE 3PAR Storage Module. We will be copying the **_Create Volume_** action from the **volume_playbook.yml** and the **_Create VLUN_** action from the **volume_to_host_vlun_playbook.yml** playbook.  
+
 
 ```YAML
 - name: Create Volume "{{ volume_name }}"
@@ -274,11 +282,13 @@ Now let’s create our tasks. Like I mentioned before, we can copy and paste the
 
 We need to make one minor change. Under the **_Create VLUN_** task, we need to modify the following variable:
 
+
 ```YAML
 volume_name="{{ vlun_volume_name }}"
 ```
 
 to
+
 
 ```YAML
 volume_name="{{ volume_name }}"
@@ -287,6 +297,7 @@ volume_name="{{ volume_name }}"
 This allows you to link the two tasks by using the volume you created as the volume to export in the following task. Other than that we are done and have created a simple, yet powerful provisioning playbook.
 
 With it all together, it should look like and is ready to run.
+
 
 ```yaml
 ---
@@ -331,6 +342,7 @@ With it all together, it should look like and is ready to run.
 ```
 
 Now let’s run the playbook.
+
 
 ```
 ansible-playbook demo_playbook.yml

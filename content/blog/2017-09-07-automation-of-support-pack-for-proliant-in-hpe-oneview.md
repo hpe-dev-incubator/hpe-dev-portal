@@ -110,6 +110,7 @@ Import-module HPEOneView.200
 
 -   Connect to a given HPE OneView Appliance (if not already connected)
 
+
 ```postscript
 if (!$global:myAppliance) {
 	$global:myAppliance = Read-Host "HPE OneView FQDN or IP address"
@@ -121,6 +122,7 @@ if ($global:ConnectedSessions.Name -notcontains $global:myAppliance) {
 ```
 
 -   Enumerate Firmware Bundles already on appliance
+
 ```postscript
 $bundlesloaded = get-hpovbaseline
 write-host "Found the following baseline on appliance"
@@ -129,6 +131,7 @@ $item.isoFilename}
 ```
 
 -   Enumerate ISO images in current folder
+
 ```postscript
 $filesinfolder = get-item \*.iso
 write-host "Found the following ISO in folder"
@@ -136,6 +139,7 @@ foreach ($item in $filesinfolder) { write-host " - " $item.Name}
 ```
 
 -   Ask for confirmation
+
 ```postscript
 Write-Host "Ok to upload ISO files on disk to appliance (Y/N)?"
 $key = $Host.UI.RawUI.ReadKey("NoEcho, IncludeKeyDown")
@@ -143,6 +147,7 @@ if ($key.Character -ne "Y") { write-host You wimp! ; break }
 ```
 
 -   And start uploading
+
 ```postscript
 foreach ($item in $filesinfolder) {
 write-host "Uploading file" $item.name "to appliance"
@@ -152,6 +157,7 @@ $t = Wait-HPOVTaskComplete $task.uri -timeout (New-TimeSpan -Minutes 30)
 ```
 
 -   Terminate
+
 ```postscript
 Write-Host "Done!"
 Write-Host "Disconnecting..."

@@ -32,6 +32,7 @@ There are several body parameters for the POST, here is how you can fill some ke
 * **userData:** 64-bit encoded command set for VM initialization
 
 An example implementation using Python bindings will look like this, complete script can be found at the included [repository](https://github.com/HewlettPackard/hpe-onesphere-chef).
+
 ````Python
 def get_api_uris(conn, config):
     projectUri = field_from(conn.GetProjects(user_query=config['project_name']))
@@ -56,6 +57,7 @@ I can configure the VM to initialize with a Chef client installation that will c
 * A firstboot.json file is used to set the runlist for your VM. This runlist will contain the Chef recipes that will maintain the configuration of the VM
 ## Deploy application with Habitat
 Habitat allows you to package applications to deploy them in any environment. After configuration your application can be installed with a Chef recipe. You simply need to include the recipe in the runlist of VM listed in the firstboot.json above. Here is an example recipe that installs National Parks application. This is a web application that shows the location of US National Parks on a map. It has an application layer written in Java hosted on Apache Tomcat, whereas MongoDB is used at the data layer. 
+
 ````
 hab_sup 'default'
 hab_service 'np-mongodb'
@@ -70,19 +72,23 @@ The sample Python code available in the Github [repository](https://github.com/H
 Your Chef Automate server can live anywhere. I am using an AWS Opsworks based installation in this example. Follow [these](https://docs.aws.amazon.com/opsworks/latest/userguide/gettingstarted-opscm-create.html) steps to create a new Chef Automate server on AWS OpsWorks. Download the [starter kit](https://docs.aws.amazon.com/opsworks/latest/userguide/opscm-starterkit.html) and credentials for newly created server. 
 
 You will need to upload the cookbooks to Chef Automate server before they can be applied to the new VM. Append the Berksfile found in the starter kit with the following:
+
 ````
 cookbook "hab_national_parks", git: "https://github.com/chef-partners/hab_national_parks.git"
 ````
 Now let’s upload the cookbooks:
+
 ````
 berks install
 berks upload
 ````
 Use the following knife command to create initial validation key for Chef client, you will pass this key to the VM.
+
 ````
 knife client key create default-validator -f validation.pem --key-name validation
 ````### Update the config file
 Rename onesphere.conf.example file to onesphere.conf and update it with your environment details. Include the path to your public key for VM and validation key for Chef Automate generated earlier.
+
 ````
 [onesphere]
 hostname=https://YOURSERVER.hpeonesphere.com
@@ -103,6 +109,7 @@ run_list="role[foo]","recipe[bar]","recipe[baz]"
 ````
 ### Kick start the deployment
 Now is the time to see all your work in action. Run the Python script with deployment name as parameter.
+
 ````python
 python3 create-node national-parks
 ````
