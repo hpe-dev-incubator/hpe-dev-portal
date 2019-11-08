@@ -17,36 +17,51 @@ const MarkdownLayout = styled(Markdown)`
 
 function PlatformTemplate({ data }) {
   const post = data.markdownRemark;
-  const { edges } = data.allMarkdownRemark;
+  const { edges: blogs } = data.blogs;
+  const { rawMarkdownBody: aside } = data.aside ? data.aside : false;
   const siteMetadata = useSiteMetadata();
   const siteTitle = siteMetadata.title;
   const { rawMarkdownBody, excerpt } = post;
   const { title, description } = post.frontmatter;
-
   return (
     <Layout title={siteTitle}>
       <SEO title={title} description={description || excerpt} />
       <Box flex overflow="auto" gap="medium" pad="small">
         <Box flex={false} direction="row-responsive" wrap>
-          <Box pad={{ vertical: 'large', horizontal: 'large' }}>
-            <Heading margin="none">{title}</Heading>
+          <Box
+            pad={{ vertical: 'large', horizontal: 'large' }}
+            direction="column"
+          >
+            <Heading
+              margin={{
+                bottom: 'medium',
+                left: 'none',
+                right: 'none',
+                top: 'none',
+              }}
+            >
+              {title}
+            </Heading>
+            {aside && <MarkdownLayout>{aside}</MarkdownLayout>}
           </Box>
-          <Content gap="medium" width="xlarge" margin={{ vertical: 'large' }}>
+          <Content gap="medium" width="large" margin={{ vertical: 'large' }}>
             <Text size="xlarge">{description}</Text>
             <MarkdownLayout>{rawMarkdownBody}</MarkdownLayout>
           </Content>
         </Box>
-        <Box flex={false} direction="row-responsive" wrap>
-          <Box pad={{ vertical: 'large', horizontal: 'large' }}>
-            <Heading margin="none">Blog posts</Heading>
+        {blogs.length > 0 && (
+          <Box flex={false} direction="row-responsive" wrap>
+            <Box pad={{ vertical: 'large', horizontal: 'large' }}>
+              <Heading margin="none">Blog posts</Heading>
+            </Box>
+            <Content gap="medium" width="xlarge">
+              {blogs.map(({ node }) => {
+                const { slug } = node.fields;
+                return <BlogCard node={node} key={slug} margin="none" />;
+              })}
+            </Content>
           </Box>
-          <Content gap="medium" width="xlarge">
-            {edges.map(({ node }) => {
-              const { slug } = node.fields;
-              return <BlogCard node={node} key={slug} margin="none" />;
-            })}
-          </Content>
-        </Box>
+        )}
       </Box>
     </Layout>
   );
@@ -68,7 +83,7 @@ PlatformTemplate.propTypes = {
         description: PropTypes.string,
       }).isRequired,
     }).isRequired,
-    allMarkdownRemark: PropTypes.shape({
+    blogs: PropTypes.shape({
       edges: PropTypes.arrayOf(
         PropTypes.shape({
           node: PropTypes.shape({
@@ -85,6 +100,13 @@ PlatformTemplate.propTypes = {
           }).isRequired,
         }),
       ),
+    }),
+    aside: PropTypes.shape({
+      rawMarkdownBody: PropTypes.string.isRequired,
+      excerpt: PropTypes.string,
+      frontmatter: PropTypes.shape({
+        isAside: PropTypes.bool,
+      }),
     }),
   }).isRequired,
 };
@@ -109,7 +131,7 @@ export const pageQuery = graphql`
         description
       }
     }
-    allMarkdownRemark(
+    blogs: allMarkdownRemark(
       limit: 2000
       sort: { fields: [frontmatter___date], order: DESC }
       filter: {
@@ -132,6 +154,13 @@ export const pageQuery = graphql`
           excerpt
         }
       }
+    }
+    aside: markdownRemark(
+      frontmatter: { tags: { in: $tags }, isAside: { eq: true } }
+    ) {
+      id
+      excerpt
+      rawMarkdownBody
     }
   }
 `;

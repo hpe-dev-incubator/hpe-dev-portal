@@ -14,7 +14,6 @@ function Platforms({ data }) {
   const posts = data.allMarkdownRemark.edges;
   const siteMetadata = useSiteMetadata();
   const siteTitle = siteMetadata.title;
-
   return (
     <Layout title={siteTitle}>
       <SEO title="Platforms" />
@@ -25,7 +24,7 @@ function Platforms({ data }) {
           </Box>
           <Box>
             {posts.map(({ node }) => (
-              <BlogCard node={node} />
+              <BlogCard key={node.id} node={node} />
             ))}
           </Box>
         </Box>
@@ -66,7 +65,10 @@ export default Platforms;
 export const pageQuery = graphql`
   query {
     allMarkdownRemark(
-      filter: { fields: { sourceInstanceName: { eq: "platform" } } }
+      filter: {
+        fields: { sourceInstanceName: { eq: "platform" } }
+        frontmatter: { frontpage: { eq: true }, isAside: { ne: true } }
+      }
       sort: { fields: [frontmatter___title] }
     ) {
       edges {
