@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import { Box, Heading, Text } from 'grommet';
-import { BlogCard, Content, Layout, Markdown, SEO } from '../components';
+import { BlogCard, Content, Layout, Markdown, SEO, Link } from '../components';
 import { useSiteMetadata } from '../hooks/use-site-metadata';
 
 // Remove padding or margin from first markdown element.
@@ -23,6 +23,7 @@ function PlatformTemplate({ data }) {
   const siteTitle = siteMetadata.title;
   const { rawMarkdownBody, excerpt } = post;
   const { title, description } = post.frontmatter;
+  const homeRoute = `/platform/${post.fields.slug.split('/')[1]}/home`;
   return (
     <Layout title={siteTitle}>
       <SEO title={title} description={description || excerpt} />
@@ -32,16 +33,18 @@ function PlatformTemplate({ data }) {
             pad={{ vertical: 'large', horizontal: 'large' }}
             direction="column"
           >
-            <Heading
-              margin={{
-                bottom: 'medium',
-                left: 'none',
-                right: 'none',
-                top: 'none',
-              }}
-            >
-              {title}
-            </Heading>
+            <Link to={homeRoute}>
+              <Heading
+                margin={{
+                  bottom: 'medium',
+                  left: 'none',
+                  right: 'none',
+                  top: 'none',
+                }}
+              >
+                {title}
+              </Heading>
+            </Link>
             {aside && <MarkdownLayout>{aside}</MarkdownLayout>}
           </Box>
           <Content gap="medium" width="large" margin={{ vertical: 'large' }}>
@@ -82,6 +85,9 @@ PlatformTemplate.propTypes = {
         version: PropTypes.string,
         description: PropTypes.string,
       }).isRequired,
+      fields: PropTypes.shape({
+        slug: PropTypes.string.isRequired,
+      }),
     }).isRequired,
     blogs: PropTypes.shape({
       edges: PropTypes.arrayOf(
@@ -129,6 +135,9 @@ export const pageQuery = graphql`
         title
         version
         description
+      }
+      fields {
+        slug
       }
     }
     blogs: allMarkdownRemark(
