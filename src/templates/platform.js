@@ -3,7 +3,15 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import { Box, Heading, Text } from 'grommet';
-import { BlogCard, Content, Layout, Markdown, SEO, Link } from '../components';
+import {
+  BlogCard,
+  Content,
+  Layout,
+  Markdown,
+  SEO,
+  Link,
+  Aside,
+} from '../components';
 import { useSiteMetadata } from '../hooks/use-site-metadata';
 
 // Remove padding or margin from first markdown element.
@@ -17,13 +25,14 @@ const MarkdownLayout = styled(Markdown)`
 
 function PlatformTemplate({ data }) {
   const post = data.markdownRemark;
+  const { slug } = post.fields;
   const { edges: blogs } = data.blogs;
   const { rawMarkdownBody: aside } = data.aside ? data.aside : false;
   const siteMetadata = useSiteMetadata();
   const siteTitle = siteMetadata.title;
   const { rawMarkdownBody, excerpt } = post;
   const { title, description } = post.frontmatter;
-  const homeRoute = `/platform/${post.fields.slug.split('/')[1]}/home`;
+  const homeRoute = `/platform/${slug.split('/')[1]}/home`;
   return (
     <Layout title={siteTitle}>
       <SEO title={title} description={description || excerpt} />
@@ -45,7 +54,7 @@ function PlatformTemplate({ data }) {
                 {title}
               </Heading>
             </Link>
-            {aside && <MarkdownLayout>{aside}</MarkdownLayout>}
+            {aside && <Aside>{aside}</Aside>}
           </Box>
           <Content gap="medium" width="large" margin={{ vertical: 'large' }}>
             <Text size="xlarge">{description}</Text>
@@ -58,9 +67,8 @@ function PlatformTemplate({ data }) {
               <Heading margin="none">Blog posts</Heading>
             </Box>
             <Content gap="medium" width="xlarge">
-              {blogs.map(({ node }) => {
-                const { slug } = node.fields;
-                return <BlogCard node={node} key={slug} margin="none" />;
+              {blogs.map(({ node }, i) => {
+                return <BlogCard node={node} key={i} margin="none" />;
               })}
             </Content>
           </Box>

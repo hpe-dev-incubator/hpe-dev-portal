@@ -5,7 +5,7 @@ description:
 image: 
 frontpage: false
 priority: 2
-tags: ["Simplivity"]
+tags: ["hpe-simplivity"]
 ---
 
 Restoring virtual machines

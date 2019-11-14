@@ -1,3 +1,4 @@
+import Aside from './Aside';
 import BlogCard from './BlogCard';
 import Card from './Card';
 import Content from './Content';
@@ -12,6 +13,7 @@ import Share from './Share';
 import SocialMedia from './SocialMedia';
 
 export {
+  Aside,
   BlogCard,
   Card,
   Content,

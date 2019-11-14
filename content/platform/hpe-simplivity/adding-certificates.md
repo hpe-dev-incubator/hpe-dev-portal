@@ -5,7 +5,7 @@ description:
 image: 
 frontpage: false
 priority: 2
-tags: ["Simplivity"]
+tags: ["hpe-simplivity"]
 ---
 
 Adding certificates to the trust store
