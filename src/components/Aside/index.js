@@ -12,7 +12,11 @@ const Link = ({ to, activeStyle, name }) => {
       </GatsbyLink>
     );
   }
-  return <a href={to}>{name}</a>;
+  return (
+    <a href={to}>
+      <Markdown>{name}</Markdown>
+    </a>
+  );
 };
 
 Link.propTypes = {
