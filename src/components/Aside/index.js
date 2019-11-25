@@ -1,64 +1,91 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import {
+  Anchor,
+  ThemeContext,
+  Image as GrommetImage,
+  Markdown as GrommetMarkdown,
+  Paragraph,
+} from 'grommet';
 import { Link as GatsbyLink } from 'gatsby';
-import { Markdown } from '../index';
+import { Download, Github } from 'grommet-icons';
+import PropTypes from 'prop-types';
 
-const Link = ({ to, activeStyle, name }) => {
-  const internal = /^\/(?!\/)/.test(to);
-  if (internal) {
-    return (
-      <GatsbyLink to={to} activeStyle={activeStyle}>
-        <Markdown>{name}</Markdown>
-      </GatsbyLink>
-    );
+class Image extends React.Component {
+  render() {
+    const { src } = this.props;
+    if (src === 'Github') {
+      return <Github color="brand" />;
+    }
+    if (src === 'Download') {
+      return <Download color="brand" />;
+    }
+    return <GrommetImage {...this.props} />;
   }
-  return (
-    <a href={to}>
-      <Markdown>{name}</Markdown>
-    </a>
-  );
+}
+
+Image.propTypes = {
+  src: PropTypes.string,
 };
 
+class Link extends React.Component {
+  render() {
+    const { href, theme } = this.props;
+    const { color, fontWeight, hover, textDecoration } = theme.anchor;
+    const linkStyle = {
+      color: color.light,
+      fontWeight,
+      hover,
+      textDecoration,
+    };
+    const internal = /^\/(?!\/)/.test(href);
+    if (internal) {
+      return (
+        <GatsbyLink
+          to={href}
+          {...this.props}
+          activeStyle={{ textDecoration: 'underline' }}
+          style={linkStyle}
+        />
+      );
+    }
+    return <Anchor {...this.props} />;
+  }
+}
+
 Link.propTypes = {
-  to: PropTypes.string,
-  activeStyle: PropTypes.object,
-  name: PropTypes.string,
+  href: PropTypes.string,
+  theme: PropTypes.object,
+};
+
+const components = {
+  p: {
+    component: Paragraph,
+    props: {
+      size: 'xlarge',
+      style: {
+        maxWidth: '100%',
+      },
+    },
+  },
+  img: {
+    component: Image,
+    props: {
+      style: {},
+    },
+  },
+  a: {
+    component: props => (
+      <ThemeContext.Consumer>
+        {theme => <Link {...props} theme={theme} />}
+      </ThemeContext.Consumer>
+    ),
+  },
 };
 
 class Aside extends React.Component {
   render() {
-    const asideData = [];
-    const data = this.props.children.split('\n').filter(el => el !== '');
-    const findLinks = /\(([^)]+)\)/;
-    const findNames = /\[(.*?)\]/;
-    data.map(el => {
-      const link = findLinks.exec(el);
-      const name = findNames.exec(el);
-      if (link && name) {
-        asideData.push({ name: name[1], link: link[1] });
-      } else {
-        asideData.push(el);
-      }
-      return asideData;
-    });
-    return asideData.map((aside, i) => {
-      if (typeof aside === 'object') {
-        return (
-          <Link
-            to={aside.link}
-            activeStyle={{ color: 'red' }}
-            key={i}
-            name={aside.name}
-          />
-        );
-      }
-      return <Markdown key={i}>{aside}</Markdown>;
-    });
+    return <GrommetMarkdown components={components} {...this.props} />;
   }
 }
 
 export default Aside;
-
-Aside.propTypes = {
-  children: PropTypes.node,
-};
