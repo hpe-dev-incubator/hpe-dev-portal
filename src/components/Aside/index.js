@@ -30,11 +30,10 @@ Image.propTypes = {
 class Link extends React.Component {
   render() {
     const { href, theme } = this.props;
-    const { color, fontWeight, hover, textDecoration } = theme.anchor;
+    const { color, fontWeight, textDecoration } = theme.anchor;
     const linkStyle = {
       color: color.light,
       fontWeight,
-      hover,
       textDecoration,
     };
     const internal = /^\/(?!\/)/.test(href);
