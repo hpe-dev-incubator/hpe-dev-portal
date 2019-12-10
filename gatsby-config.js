@@ -1,3 +1,7 @@
+const lunrHighlightPlugin = lunr => builder => {
+  builder.metadataWhitelist.push('position');
+};
+
 module.exports = {
   siteMetadata: {
     title: 'HPE Developer Portal',
@@ -93,5 +97,37 @@ module.exports = {
       },
     },
     'gatsby-plugin-react-helmet',
+    {
+      resolve: 'gatsby-plugin-lunr',
+      options: {
+        languages: [{ name: 'en', plugins: [lunrHighlightPlugin] }],
+        // Fields to index
+        fields: [
+          { name: 'title', store: true, attributes: { boost: 20 } },
+          { name: 'tags', store: true },
+          { name: 'body', store: true },
+          { name: 'path', store: true },
+          { name: 'sourceInstanceName', store: true },
+        ],
+        filterNodes: node => !!node.frontmatter,
+        // How to resolve each field's value for a supported node type
+        resolvers: {
+          // For any node of type MarkdownRemark, list how to resolve the fields' values
+          MarkdownRemark: {
+            title: node => node.frontmatter.title,
+            tags: node =>
+              node.frontmatter.tags
+                ? node.frontmatter.tags.join(', ')
+                : undefined,
+            body: node => node.rawMarkdownBody,
+            path: node =>
+              node.fields.sourceInstanceName === 'homepanels'
+                ? '/'
+                : `${node.fields.sourceInstanceName}${node.fields.slug}`,
+            sourceInstanceName: node => node.fields.sourceInstanceName,
+          },
+        },
+      },
+    },
   ],
 };
