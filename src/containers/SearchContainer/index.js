@@ -23,24 +23,24 @@ const Results = ({ searchTerm, results }) => {
     );
   }
 
-  return results.map(({ doc, title, body, tags }, index) => (
+  return results.map(({ doc, titlePos, bodyPos, tagsPos }, index) => (
     <Box pad={{ bottom: 'medium' }} border={{ side: 'bottom' }} key={index}>
       <Text size="small">{categoryLabel(doc.sourceInstanceName)}</Text>
       <Link to={doc.path}>
-        <HighlightedText content={doc.title} positions={title} />
+        <HighlightedText content={doc.title} positions={titlePos} />
       </Link>
-      {body.length > 0 && (
+      {bodyPos.length > 0 && (
         <HighlightedText
           content={doc.body}
-          positions={body}
+          positions={bodyPos}
           isMarkdown
           maxLength={100}
         />
       )}
-      {tags.length > 0 && (
+      {tagsPos.length > 0 && (
         <Box direction="row" gap="small">
           <Text>Tags:</Text>
-          <HighlightedText content={doc.tags} positions={tags} />
+          <HighlightedText content={doc.tags} positions={tagsPos} />
         </Box>
       )}
     </Box>
@@ -58,9 +58,12 @@ Results.propTypes = {
         sourceInstanceName: PropTypes.string,
         path: PropTypes.string,
       }),
-      title: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.number)).isRequired,
-      body: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.number)).isRequired,
-      tags: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.number)).isRequired,
+      titlePos: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.number))
+        .isRequired,
+      bodyPos: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.number))
+        .isRequired,
+      tagsPos: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.number))
+        .isRequired,
     }),
   ).isRequired,
 };
@@ -112,9 +115,9 @@ const getSearchResults = query => {
         const doc = window.__LUNR__.en.store[searchResult.ref];
         categoryMap[doc.sourceInstanceName] = true;
         return {
-          title: getPositions(searchResult, 'title'),
-          body: getPositions(searchResult, 'body'),
-          tags: getPositions(searchResult, 'tags'),
+          titlePos: getPositions(searchResult, 'title'),
+          bodyPos: getPositions(searchResult, 'body'),
+          tagsPos: getPositions(searchResult, 'tags'),
           doc,
         };
       });
@@ -161,7 +164,7 @@ const SearchContainer = ({ location }) => {
   return (
     <Box flex overflow="auto" gap="medium" pad="small">
       <Box flex={false} direction="row-responsive" wrap>
-        <Box pad={{ vertical: 'large', horizontal: 'large' }}>
+        <Box pad="large">
           <Heading margin="none">Search</Heading>
         </Box>
         <Box pad={{ vertical: 'large' }} gap="medium">
@@ -170,9 +173,7 @@ const SearchContainer = ({ location }) => {
             direction="row"
             align="center"
             pad={{ horizontal: 'small', vertical: 'xsmall' }}
-            border={{
-              side: 'all',
-            }}
+            border
             round="small"
           >
             <SearchIcon color="brand" />
