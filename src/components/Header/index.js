@@ -28,6 +28,9 @@ function Header() {
         <Link to="/blog" color="neutral-4">
           Blog
         </Link>
+        <Link to="/events" color="neutral-4">
+          Events
+        </Link>
         <Link to="/support" color="neutral-4">
           Support
         </Link>
