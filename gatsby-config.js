@@ -123,7 +123,10 @@ module.exports = {
             path: node =>
               node.fields.sourceInstanceName === 'homepanels'
                 ? '/'
-                : `${node.fields.sourceInstanceName}${node.fields.slug}`,
+                : `${node.fields.sourceInstanceName}${node.fields.slug.replace(
+                    /\/aside[\/]?$/,
+                    '/home',
+                  )}`,
             sourceInstanceName: node => node.fields.sourceInstanceName,
           },
         },

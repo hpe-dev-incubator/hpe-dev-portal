@@ -60,7 +60,6 @@
     "husky": "^3.1.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^24.9.0",
-    "prettier": "^1.19.1",
     "react-test-renderer": "^16.12.0"
   },
   "homepage": "https://github.com/hpe-dev-incubator/hpe-dev-portal/blob/master/README.md",
