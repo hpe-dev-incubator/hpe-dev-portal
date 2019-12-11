@@ -1,19 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Markdown, Text } from 'grommet';
+import { Text } from 'grommet';
 
-const PlainText = ({ children }) => <Text> {children} </Text>;
-
-PlainText.propTypes = {
-  children: PropTypes.node,
-};
-
-// TODO: truncate needs to be done after markdown formatting/cleanup somehow
-//   to avoid breaking markup. Probably the best thing to do is instead strip
-//   markup from the body before putting it in the search index. This would also
-//   help avoid accidentally truncating markup and would also avoid matching
-//   search terms in the markup itself. (ie. change the 'body' resolver function
-//   in the gatsby-plugin-lunr in gatsby-config.js)
 function truncate(chunks, maxLength) {
   if (!maxLength || !chunks || !chunks.length) {
     return chunks;
@@ -81,18 +69,6 @@ function highlight(content, positions, maxLength) {
   return truncate(chunks, maxLength);
 }
 
-const chunksToText = chunks =>
-  chunks
-    .map(({ text, isHighlighted }) => {
-      if (isHighlighted) {
-        // wrap text in <mark>.
-        // The RE helps avoid mangling markup.
-        return text.replace(/(\w+)/g, match => `<mark>${match}</mark>`);
-      }
-      return text;
-    })
-    .join('');
-
 const HighlightedText = ({
   positions,
   content,
@@ -102,24 +78,7 @@ const HighlightedText = ({
 }) => {
   const chunks = highlight(content, positions, maxLength);
 
-  return isMarkdown ? (
-    <Markdown
-      components={{
-        a: PlainText,
-        h1: PlainText,
-        h2: PlainText,
-        h3: PlainText,
-        h4: PlainText,
-        h5: PlainText,
-        p: PlainText,
-        img: PlainText,
-        pre: PlainText,
-        code: PlainText,
-      }}
-    >
-      {chunksToText(chunks)}
-    </Markdown>
-  ) : (
+  return (
     <Text {...rest}>
       {chunks.map(({ text, isHighlighted }, index) => {
         if (isHighlighted) {
