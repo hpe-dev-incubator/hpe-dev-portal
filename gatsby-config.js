@@ -1,5 +1,18 @@
-const lunrHighlightPlugin = lunr => builder => {
+const remark = require('remark');
+const strip = require('strip-markdown');
+
+const lunrHighlightPlugin = () => builder => {
   builder.metadataWhitelist.push('position');
+};
+
+const stripMarkdown = markdown => {
+  let text = markdown;
+  remark()
+    .use(strip)
+    .process(markdown, (err, file) => {
+      text = file.contents;
+    });
+  return text;
 };
 
 module.exports = {
@@ -112,14 +125,15 @@ module.exports = {
         filterNodes: node => !!node.frontmatter,
         // How to resolve each field's value for a supported node type
         resolvers: {
-          // For any node of type MarkdownRemark, list how to resolve the fields' values
+          // For any node of type MarkdownRemark, list how to resolve the
+          // fields' values
           MarkdownRemark: {
             title: node => node.frontmatter.title,
             tags: node =>
               node.frontmatter.tags
                 ? node.frontmatter.tags.join(', ')
                 : undefined,
-            body: node => node.rawMarkdownBody,
+            body: node => stripMarkdown(node.rawMarkdownBody),
             path: node =>
               node.fields.sourceInstanceName === 'homepanels'
                 ? '/'
