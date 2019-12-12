@@ -2,6 +2,11 @@
 const path = require('path');
 const { createFilePath } = require('gatsby-source-filesystem');
 
+const escapeRegExp = string => string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
+const arrayToRE = a =>
+  a ? '/^' + a.map(str => `(${escapeRegExp(str)})`).join('|') + '$/i' : '';
+
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
 
@@ -77,7 +82,7 @@ exports.createPages = ({ graphql, actions }) => {
             component: platform,
             context: {
               slug: post.node.fields.slug,
-              tags: post.node.frontmatter.tags || [],
+              tagRE: arrayToRE(post.node.frontmatter.tags),
             },
           });
         }
@@ -86,11 +91,14 @@ exports.createPages = ({ graphql, actions }) => {
 
     const tags = result.data.tagsGroup.group;
     tags.forEach(tag => {
+      console.log(`Create pages /blog/tag/${tag.fieldValue.toLowerCase()}/`);
+      console.log('------------------------------');
       createPage({
-        path: `/blog/tag/${tag.fieldValue}/`,
+        path: `/blog/tag/${tag.fieldValue.toLowerCase()}/`,
         component: tagTemplate,
         context: {
           tag: tag.fieldValue,
+          tagRE: `/^${escapeRegExp(tag.fieldValue)}$/i`,
         },
       });
     });

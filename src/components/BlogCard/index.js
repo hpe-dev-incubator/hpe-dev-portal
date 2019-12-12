@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import remark from 'remark';
+import strip from 'strip-markdown';
 import { Box, Heading, Paragraph, Markdown, Text } from 'grommet';
 import { Link } from '..';
 
@@ -8,6 +10,16 @@ const dateFormat = Intl.DateTimeFormat('default', {
   month: 'short',
   day: 'numeric',
 });
+
+const stripMarkdown = markdown => {
+  let text = markdown;
+  remark()
+    .use(strip)
+    .process(markdown, (err, file) => {
+      text = file.contents;
+    });
+  return text;
+};
 
 export const BlogCard = ({ node, ...rest }) => (
   <Box
@@ -51,7 +63,7 @@ export const BlogCard = ({ node, ...rest }) => (
     </Box>
     <Box width="large">
       <Paragraph margin="none">
-        {node.frontmatter.description || node.excerpt}
+        {node.frontmatter.description || stripMarkdown(node.excerpt)}
       </Paragraph>
     </Box>
     <Link

@@ -62,7 +62,11 @@ function BlogPostTemplate({ data }) {
                 Tags:
               </Heading>
               {tags.map(tag => (
-                <Link to={`/blog/tag/${tag}`} key={tag} size="xxlarge">
+                <Link
+                  to={`/blog/tag/${tag.toLowerCase()}`}
+                  key={tag}
+                  size="xxlarge"
+                >
                   {tag}
                 </Link>
               ))}

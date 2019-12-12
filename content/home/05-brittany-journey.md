@@ -4,7 +4,7 @@ width: medium
 align: left
 category: Community
 priority: 5
-link: /blog/2019-05-23-brittany-journey/
+link: /blog/2019-05-23-my-journey-from-student-to-hpe-full-stack-developer/
 ---
 #### May 23, 2019
 

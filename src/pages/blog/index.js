@@ -43,6 +43,7 @@ Blog.propTypes = {
               title: PropTypes.string.isRequired,
               author: PropTypes.string.isRequired,
               date: PropTypes.string,
+              description: PropTypes.string,
             }).isRequired,
             excerpt: PropTypes.string.isRequired,
             fields: PropTypes.shape({
@@ -72,7 +73,7 @@ export const pageQuery = graphql`
             slug
             sourceInstanceName
           }
-          excerpt
+          excerpt(format: MARKDOWN)
           frontmatter {
             title
             date
