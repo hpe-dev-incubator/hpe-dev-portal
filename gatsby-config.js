@@ -1,3 +1,20 @@
+const remark = require('remark');
+const strip = require('strip-markdown');
+
+const lunrHighlightPlugin = () => builder => {
+  builder.metadataWhitelist.push('position');
+};
+
+const stripMarkdown = markdown => {
+  let text = markdown;
+  remark()
+    .use(strip)
+    .process(markdown, (err, file) => {
+      text = file.contents;
+    });
+  return text;
+};
+
 module.exports = {
   siteMetadata: {
     title: 'HPE Developer Portal',
@@ -100,5 +117,48 @@ module.exports = {
       },
     },
     'gatsby-plugin-react-helmet',
+    {
+      resolve: 'gatsby-plugin-nprogress',
+      options: {
+        color: '#00c781',
+        showSpinner: false,
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-lunr',
+      options: {
+        languages: [{ name: 'en', plugins: [lunrHighlightPlugin] }],
+        // Fields to index
+        fields: [
+          { name: 'title', store: true, attributes: { boost: 20 } },
+          { name: 'tags', store: true },
+          { name: 'body', store: true },
+          { name: 'path', store: true },
+          { name: 'sourceInstanceName', store: true },
+        ],
+        filterNodes: node => !!node.frontmatter,
+        // How to resolve each field's value for a supported node type
+        resolvers: {
+          // For any node of type MarkdownRemark, list how to resolve the
+          // fields' values
+          MarkdownRemark: {
+            title: node => node.frontmatter.title,
+            tags: node =>
+              node.frontmatter.tags
+                ? node.frontmatter.tags.join(', ')
+                : undefined,
+            body: node => stripMarkdown(node.rawMarkdownBody),
+            path: node =>
+              node.fields.sourceInstanceName === 'homepanels'
+                ? '/'
+                : `${node.fields.sourceInstanceName}${node.fields.slug.replace(
+                    /\/aside[/]?$/,
+                    '/home',
+                  )}`,
+            sourceInstanceName: node => node.fields.sourceInstanceName,
+          },
+        },
+      },
+    },
   ],
 };

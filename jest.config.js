@@ -1,3 +1,5 @@
+/* eslint-disable max-len */
+
 module.exports = {
   transform: {
     '^.+\\.jsx?$': '<rootDir>/jest-preprocess.js',

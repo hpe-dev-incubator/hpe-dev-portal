@@ -47,8 +47,7 @@ exports.createPages = ({ graphql, actions }) => {
     const posts = result.data.allMarkdownRemark.edges;
 
     posts.forEach((post, index) => {
-      // Don't create a page for any markdown file with a title of Aside.
-      // MD files with Aside in the title are used exclusively for creating links.
+      // Don't create a page for any markdown file which are asides.
       if (!post.node.frontmatter.isAside) {
         if (post.node.fields.sourceInstanceName === 'blog') {
           const previous =

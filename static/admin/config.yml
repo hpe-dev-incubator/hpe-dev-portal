@@ -57,7 +57,7 @@ collections:
   # Platform collection
   - name: 'platform'
     label: 'Platform'
-    folder: 'content/platform'
+    folder: 'content/platform/'
     extension: 'md'
     create: true
     slug: '{{slug}}'

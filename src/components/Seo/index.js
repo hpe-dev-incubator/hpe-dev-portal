@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /**
  * SEO component that queries for data with
  *  Gatsby's useStaticQuery React hook
