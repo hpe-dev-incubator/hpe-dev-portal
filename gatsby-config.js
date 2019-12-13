@@ -111,6 +111,13 @@ module.exports = {
     },
     'gatsby-plugin-react-helmet',
     {
+      resolve: 'gatsby-plugin-nprogress',
+      options: {
+        color: '#00c781',
+        showSpinner: false,
+      },
+    },
+    {
       resolve: 'gatsby-plugin-lunr',
       options: {
         languages: [{ name: 'en', plugins: [lunrHighlightPlugin] }],
@@ -138,7 +145,7 @@ module.exports = {
               node.fields.sourceInstanceName === 'homepanels'
                 ? '/'
                 : `${node.fields.sourceInstanceName}${node.fields.slug.replace(
-                    /\/aside[\/]?$/,
+                    /\/aside[/]?$/,
                     '/home',
                   )}`,
             sourceInstanceName: node => node.fields.sourceInstanceName,
