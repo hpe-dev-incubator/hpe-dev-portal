@@ -5,6 +5,7 @@ import Content from './Content';
 import Footer from './Footer';
 import Hero from './Hero';
 import Header from './Header';
+import HighlightedText from './HighlightedText';
 import Layout from './Layout';
 import Link from './Link';
 import Markdown from './Markdown';
@@ -20,6 +21,7 @@ export {
   Footer,
   Header,
   Hero,
+  HighlightedText,
   Layout,
   Link,
   Markdown,
