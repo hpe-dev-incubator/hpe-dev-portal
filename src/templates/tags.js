@@ -67,7 +67,7 @@ Tags.propTypes = {
 export default Tags;
 
 export const pageQuery = graphql`
-  query($tag: String) {
+  query($tagRE: String) {
     site {
       siteMetadata {
         title
@@ -77,7 +77,7 @@ export const pageQuery = graphql`
     allMarkdownRemark(
       limit: 2000
       sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { tags: { in: [$tag] } } }
+      filter: { frontmatter: { tags: { regex: $tagRE } } }
     ) {
       totalCount
       edges {

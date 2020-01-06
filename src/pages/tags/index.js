@@ -6,6 +6,28 @@ import { Box, Heading, Text } from 'grommet';
 import { Layout, Link, SEO } from '../../components';
 import { useSiteMetadata } from '../../hooks/use-site-metadata';
 
+const tags = group => {
+  const counts = {};
+
+  group.map(({ fieldValue, totalCount }) => {
+    if (fieldValue) {
+      const tag = fieldValue.toLowerCase();
+      const entry = counts[tag];
+      if (entry) {
+        entry.totalCount += totalCount;
+      } else {
+        counts[tag] = { fieldValue, totalCount, tag, url: `/blog/tag/${tag}` };
+      }
+    }
+    return undefined;
+  });
+
+  // convert to array
+  return Object.keys(counts)
+    .map(key => counts[key])
+    .sort((a, b) => a.tag.localeCompare(b.tag));
+};
+
 function Tags({ data }) {
   const { group } = data.allMarkdownRemark;
   const siteMetadata = useSiteMetadata();
@@ -20,11 +42,11 @@ function Tags({ data }) {
         </Box>
         <Box pad="large">
           <ul>
-            {group.map(tag => (
-              <li key={tag.fieldValue}>
-                <Link to={`/blog/tag/${tag.fieldValue}/`}>
+            {tags(group).map(({ fieldValue, totalCount, url }) => (
+              <li key={fieldValue}>
+                <Link to={url}>
                   <Text size="large">
-                    {tag.fieldValue} ({tag.totalCount})
+                    {fieldValue} ({totalCount})
                   </Text>
                 </Link>
               </li>

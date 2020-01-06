@@ -128,7 +128,7 @@ PlatformTemplate.propTypes = {
 export default PlatformTemplate;
 
 export const pageQuery = graphql`
-  query PlatformBySlug($slug: String!, $tags: [String!]) {
+  query PlatformBySlug($slug: String!, $tagRE: String!) {
     site {
       siteMetadata {
         title
@@ -152,7 +152,7 @@ export const pageQuery = graphql`
       limit: 2000
       sort: { fields: [frontmatter___date], order: DESC }
       filter: {
-        frontmatter: { tags: { in: $tags } }
+        frontmatter: { tags: { regex: $tagRE } }
         fields: { sourceInstanceName: { eq: "blog" } }
       }
     ) {
@@ -168,12 +168,12 @@ export const pageQuery = graphql`
             author
             date
           }
-          excerpt
+          excerpt(format: MARKDOWN)
         }
       }
     }
     aside: markdownRemark(
-      frontmatter: { tags: { in: $tags }, isAside: { eq: true } }
+      frontmatter: { tags: { regex: $tagRE }, isAside: { eq: true } }
     ) {
       id
       excerpt
