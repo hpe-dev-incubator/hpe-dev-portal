@@ -10,6 +10,8 @@ function Events({ data }) {
   const posts = data.allMarkdownRemark.edges;
   const siteMetadata = useSiteMetadata();
   const siteTitle = siteMetadata.title;
+  const currentDate = new Date().toISOString();
+
   return (
     <Layout title={siteTitle}>
       <SEO title="Events" />
@@ -19,12 +21,15 @@ function Events({ data }) {
             <Heading margin="none">Events</Heading>
           </Box>
           <Box>
-            {posts.map(
-              ({ node }) =>
-                node.fields.slug !== '/' && (
-                  <BlogCard key={node.id} node={node} />
-                ),
-            )}
+            {posts.map(({ node }) => {
+              if (
+                node.fields.slug !== '/' &&
+                node.frontmatter.dateEnd > currentDate
+              ) {
+                return <BlogCard key={node.id} node={node} />;
+              }
+              return false;
+            })}
           </Box>
         </Box>
       </Box>
@@ -72,6 +77,7 @@ export const pageQuery = graphql`
           excerpt
           frontmatter {
             title
+            dateEnd
           }
         }
       }

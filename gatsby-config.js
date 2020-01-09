@@ -1,5 +1,8 @@
 const remark = require('remark');
 const strip = require('strip-markdown');
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
 
 const lunrHighlightPlugin = () => builder => {
   builder.metadataWhitelist.push('position');
