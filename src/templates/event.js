@@ -15,6 +15,19 @@ const MarkdownLayout = styled(Markdown)`
     padding-top: 0;
   }
 `;
+const handleDate = (dateStart, dateEnd, dateFormat) => {
+  if (dateStart === dateEnd) {
+    return (
+      <Text size="large">{`${dateFormat.format(new Date(dateStart))}`}</Text>
+    );
+  }
+  return (
+    <Text size="large">
+      {`${dateFormat.format(new Date(dateStart))} -
+      ${dateFormat.format(new Date(dateEnd))}`}
+    </Text>
+  );
+};
 
 function EventTemplate({ data }) {
   const post = data.markdownRemark;
@@ -33,10 +46,7 @@ function EventTemplate({ data }) {
       <Box direction="row-responsive" pad="large">
         <Box gap="medium">
           <Heading margin="none">{title}</Heading>
-          <Text size="large">
-            {`${dateFormat.format(new Date(dateStart))} -
-              ${dateFormat.format(new Date(dateEnd))}`}
-          </Text>
+          {handleDate(dateStart, dateEnd, dateFormat)}
         </Box>
         <Content margin={{ vertical: 'large' }}>
           <MarkdownLayout>{rawMarkdownBody}</MarkdownLayout>
