@@ -16,17 +16,11 @@ const MarkdownLayout = styled(Markdown)`
   }
 `;
 const handleDate = (dateStart, dateEnd, dateFormat) => {
-  if (dateStart === dateEnd) {
-    return (
-      <Text size="large">{`${dateFormat.format(new Date(dateStart))}`}</Text>
-    );
+  let dateString = dateFormat.format(new Date(dateStart));
+  if (dateStart !== dateEnd) {
+    dateString = `${dateString} - ${dateFormat.format(new Date(dateEnd))}`;
   }
-  return (
-    <Text size="large">
-      {`${dateFormat.format(new Date(dateStart))} -
-      ${dateFormat.format(new Date(dateEnd))}`}
-    </Text>
-  );
+  return <Text size="large">{dateString}</Text>;
 };
 
 function EventTemplate({ data }) {
