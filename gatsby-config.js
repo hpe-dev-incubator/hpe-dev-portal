@@ -1,5 +1,8 @@
 const remark = require('remark');
 const strip = require('strip-markdown');
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
 
 const lunrHighlightPlugin = () => builder => {
   builder.metadataWhitelist.push('position');
@@ -37,6 +40,13 @@ module.exports = {
       options: {
         path: `${__dirname}/content/blog`,
         name: 'blog',
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/content/event`,
+        name: 'event',
       },
     },
     {

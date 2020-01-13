@@ -12,6 +12,7 @@ exports.createPages = ({ graphql, actions }) => {
 
   const blogPost = path.resolve('./src/templates/blog-post.js');
   const platform = path.resolve('./src/templates/platform.js');
+  const event = path.resolve('./src/templates/event.js');
   const tagTemplate = path.resolve('./src/templates/tags.js');
 
   return graphql(
@@ -83,6 +84,20 @@ exports.createPages = ({ graphql, actions }) => {
             context: {
               slug: post.node.fields.slug,
               tagRE: arrayToRE(post.node.frontmatter.tags),
+            },
+          });
+        } else if (post.node.fields.sourceInstanceName === 'event') {
+          const { sourceInstanceName, slug } = post.node.fields;
+          console.log(
+            `Create pages /${sourceInstanceName}${slug} from ${slug}`,
+          );
+          console.log('------------------------------');
+          createPage({
+            path: `/${sourceInstanceName}${slug}`,
+            component: event,
+            context: {
+              slug: post.node.fields.slug,
+              tags: post.node.frontmatter.tags || [],
             },
           });
         }

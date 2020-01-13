@@ -21,6 +21,9 @@ export const Footer = ({ ...rest }) => (
         <Link to="/community" color="neutral-4">
           Community
         </Link>
+        <Link to="/newsletter-signup" color="neutral-4">
+          Sign up for our newsletter
+        </Link>
       </Box>
       <SocialMedia />
     </Box>
