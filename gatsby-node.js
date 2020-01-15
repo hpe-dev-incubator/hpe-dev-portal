@@ -5,7 +5,7 @@ const { createFilePath } = require('gatsby-source-filesystem');
 const escapeRegExp = string => string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
 const arrayToRE = a =>
-  a ? '/^' + a.map(str => `(${escapeRegExp(str)})`).join('|') + '$/i' : '';
+  a ? '/^' + a.map(str => `(${escapeRegExp(str)})`).join('|') + '$/i' : ''; // eslint-disable-line
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
@@ -13,6 +13,7 @@ exports.createPages = ({ graphql, actions }) => {
   const blogPost = path.resolve('./src/templates/blog-post.js');
   const platform = path.resolve('./src/templates/platform.js');
   const event = path.resolve('./src/templates/event.js');
+  const newsletter = path.resolve('./src/templates/newsletter.js');
   const tagTemplate = path.resolve('./src/templates/tags.js');
 
   return graphql(
@@ -100,10 +101,23 @@ exports.createPages = ({ graphql, actions }) => {
               tags: post.node.frontmatter.tags || [],
             },
           });
+        } else if (post.node.fields.sourceInstanceName === 'newsletter') {
+          const { sourceInstanceName, slug } = post.node.fields;
+          console.log(
+            `Create pages /${sourceInstanceName}${slug} from ${slug}`,
+          );
+          console.log('------------------------------');
+          createPage({
+            path: `/${sourceInstanceName}${slug}`,
+            component: newsletter,
+            context: {
+              slug: post.node.fields.slug,
+              tags: post.node.frontmatter.tags || [],
+            },
+          });
         }
       }
     });
-
     const tags = result.data.tagsGroup.group;
     tags.forEach(tag => {
       console.log(`Create pages /blog/tag/${tag.fieldValue.toLowerCase()}/`);
@@ -117,7 +131,6 @@ exports.createPages = ({ graphql, actions }) => {
         },
       });
     });
-
     return null;
   });
 };

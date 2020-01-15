@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Box, Heading, Text, Form, Button, TextInput, CheckBox } from 'grommet';
-
-import { Layout, SEO } from '../../components';
+import { Layout, SEO, Link } from '../../components';
 
 function NewsletterSignup() {
   const [email, setEmail] = useState('');
@@ -118,7 +117,9 @@ function NewsletterSignup() {
             news, and project information as it becomes available.
           </Text>
           <Text size="xlarge" margin={{ bottom: 'large' }}>
-            View the Newsletter Archive to see past content.
+            View the
+            <Link to="/newsletter-archive" label=" Newsletter archive " />
+            to see past content.
           </Text>
           <Box width="medium">{handleForm()}</Box>
         </Box>
