@@ -6,7 +6,7 @@ import { Box, Heading, Text } from 'grommet';
 import { Layout, Link, SEO } from '../../components';
 import { useSiteMetadata } from '../../hooks/use-site-metadata';
 
-const tags = group => {
+const tags = (group) => {
   const counts = {};
 
   group.map(({ fieldValue, totalCount }) => {
@@ -24,7 +24,7 @@ const tags = group => {
 
   // convert to array
   return Object.keys(counts)
-    .map(key => counts[key])
+    .map((key) => counts[key])
     .sort((a, b) => a.tag.localeCompare(b.tag));
 };
 

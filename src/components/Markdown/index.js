@@ -1,3 +1,4 @@
+/* eslint-disable max-classes-per-file */
 /* eslint-disable max-len */
 import React from 'react';
 import {
@@ -10,7 +11,7 @@ import {
 import { Download, Github } from 'grommet-icons';
 import PropTypes from 'prop-types';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { dark as codestyle } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import { a11yDark as codestyle } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 class Image extends React.Component {
   render() {

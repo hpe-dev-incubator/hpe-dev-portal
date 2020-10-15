@@ -8,10 +8,10 @@ import { Search as SearchIcon } from 'grommet-icons';
 import { Link, HighlightedText } from '../../components';
 import { useParams } from '../../hooks/use-params';
 
-const capitalize = text =>
+const capitalize = (text) =>
   text.substring(0, 1).toUpperCase() + text.substring(1);
 
-const categoryLabel = category =>
+const categoryLabel = (category) =>
   category === 'homepanels' ? 'Home' : capitalize(category);
 
 const Results = ({ searchTerm, results }) => {
@@ -94,7 +94,7 @@ const getPositions = (searchResult, field) => {
   let positions = [];
   if (searchResult.matchData && searchResult.matchData.metadata) {
     const data = searchResult.matchData.metadata;
-    Object.keys(data).forEach(searchTerm => {
+    Object.keys(data).forEach((searchTerm) => {
       if (data[searchTerm][field] && data[searchTerm][field].position) {
         positions = positions.concat(data[searchTerm][field].position);
       }
@@ -103,7 +103,7 @@ const getPositions = (searchResult, field) => {
   return positions;
 };
 
-const getSearchResults = query => {
+const getSearchResults = (query) => {
   let searchResults = [];
   const categoryMap = { 'All Results': true };
 
@@ -111,7 +111,7 @@ const getSearchResults = query => {
     try {
       const queryResults = window.__LUNR__.en.index.search(query);
 
-      searchResults = queryResults.map(searchResult => {
+      searchResults = queryResults.map((searchResult) => {
         const doc = window.__LUNR__.en.store[searchResult.ref];
         categoryMap[doc.sourceInstanceName] = true;
         return {
@@ -137,7 +137,7 @@ const SearchContainer = ({ location }) => {
   const [categories, setCategories] = useState(initialSearch.searchCategories);
   const [activeCategoryIndex, setActiveCategoryIndex] = React.useState(0);
 
-  const onChange = event => {
+  const onChange = (event) => {
     const { value: newValue } = event.target;
     setValue(newValue);
 
@@ -151,7 +151,7 @@ const SearchContainer = ({ location }) => {
     // todo update route term= param
   };
 
-  const filterResults = category =>
+  const filterResults = (category) =>
     results.filter(
       ({ doc }) =>
         !category ||
@@ -159,7 +159,7 @@ const SearchContainer = ({ location }) => {
         doc.sourceInstanceName === category,
     );
 
-  const onCategoryChange = index => setActiveCategoryIndex(index);
+  const onCategoryChange = (index) => setActiveCategoryIndex(index);
 
   return (
     <Box flex overflow="auto" gap="medium" pad="small">
@@ -191,7 +191,7 @@ const SearchContainer = ({ location }) => {
                 activeIndex={activeCategoryIndex}
                 onActive={onCategoryChange}
               >
-                {categories.map(category => (
+                {categories.map((category) => (
                   <Tab title={categoryLabel(category)} />
                 ))}
               </Tabs>

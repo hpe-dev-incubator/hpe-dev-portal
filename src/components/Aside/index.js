@@ -1,3 +1,4 @@
+/* eslint-disable max-classes-per-file */
 import React from 'react';
 import {
   Anchor,
@@ -73,9 +74,9 @@ const components = {
     },
   },
   a: {
-    component: props => (
+    component: (props) => (
       <ThemeContext.Consumer>
-        {theme => <Link {...props} theme={theme} />}
+        {(theme) => <Link {...props} theme={theme} />}
       </ThemeContext.Consumer>
     ),
   },

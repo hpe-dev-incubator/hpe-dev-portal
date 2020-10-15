@@ -9,7 +9,7 @@ function NewsletterSignup() {
   const [optIn, setOptin] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
 
-  const onChange = e => {
+  const onChange = (e) => {
     setErrorMsg('');
     setEmail(e.target.value);
   };
@@ -36,7 +36,7 @@ function NewsletterSignup() {
     return true;
   };
 
-  const onSubmit = e => {
+  const onSubmit = (e) => {
     e.preventDefault();
     if (validateForm()) {
       setLoading(true);
@@ -53,8 +53,8 @@ function NewsletterSignup() {
         ]),
         json: true,
       })
-        .then(res => res.json())
-        .then(res => {
+        .then((res) => res.json())
+        .then((res) => {
           setLoading(false);
           if (res.error_count !== 0) {
             setLoading(false);
@@ -68,7 +68,7 @@ function NewsletterSignup() {
             setErrorMsg('You have already signed up for our newsletter.');
           }
         })
-        .catch(err => {
+        .catch((err) => {
           console.log(err);
         });
     }
@@ -83,11 +83,11 @@ function NewsletterSignup() {
       return <Text>You have successfully signed up for our newsletter!</Text>;
     }
     return (
-      <Form onSubmit={e => onSubmit(e)}>
+      <Form onSubmit={(e) => onSubmit(e)}>
         <TextInput
           placeHolder="Email Address"
           value={email}
-          onChange={e => onChange(e)}
+          onChange={(e) => onChange(e)}
         />
         <Box margin={{ top: 'large' }}>
           <CheckBox
