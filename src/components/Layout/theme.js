@@ -208,7 +208,7 @@ const hpeLight = {
   },
   heading: {
     level: {
-      '1': {
+      1: {
         small: {
           size: '34px',
           height: '40px',
@@ -230,7 +230,7 @@ const hpeLight = {
           maxWidth: '2736px',
         },
       },
-      '2': {
+      2: {
         small: {
           size: '26px',
           height: '32px',
@@ -252,7 +252,7 @@ const hpeLight = {
           maxWidth: '1584px',
         },
       },
-      '3': {
+      3: {
         small: {
           size: '22px',
           height: '28px',
@@ -274,7 +274,7 @@ const hpeLight = {
           maxWidth: '1008px',
         },
       },
-      '4': {
+      4: {
         small: {
           size: '18px',
           height: '24px',
@@ -296,7 +296,7 @@ const hpeLight = {
           maxWidth: '432px',
         },
       },
-      '5': {
+      5: {
         small: {
           size: '16px',
           height: '22px',
@@ -318,7 +318,7 @@ const hpeLight = {
           maxWidth: '384px',
         },
       },
-      '6': {
+      6: {
         small: {
           size: '14px',
           height: '20px',

@@ -61,7 +61,7 @@ function BlogPostTemplate({ data }) {
               <Heading level={2} margin={{ vertical: 'none' }}>
                 Tags:
               </Heading>
-              {tags.map(tag => (
+              {tags.map((tag) => (
                 <Link
                   to={`/blog/tag/${tag.toLowerCase()}`}
                   key={tag}

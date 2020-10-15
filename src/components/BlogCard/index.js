@@ -11,7 +11,7 @@ const dateFormat = Intl.DateTimeFormat('default', {
   day: 'numeric',
 });
 
-const stripMarkdown = markdown => {
+const stripMarkdown = (markdown) => {
   let text = markdown;
   remark()
     .use(strip)
