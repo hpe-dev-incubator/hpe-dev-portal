@@ -66,8 +66,11 @@ export const pageQuery = graphql`
   query {
     allMarkdownRemark(
       filter: {
-        fields: { sourceInstanceName: { eq: "platform" } }
-        frontmatter: { frontpage: { eq: true }, isAside: { ne: true } }
+        fields: {
+          sourceInstanceName: { eq: "platform" }
+          slug: { regex: "//home/$/" }
+        }
+        frontmatter: { isAside: { ne: true } }
       }
       sort: { fields: [frontmatter___title] }
     ) {
