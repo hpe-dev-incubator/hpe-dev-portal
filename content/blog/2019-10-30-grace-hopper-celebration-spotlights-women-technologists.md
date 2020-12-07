@@ -1,5 +1,5 @@
 ---
-title: Grace Hopper Celebration spotlights women technologists
+title: "Grace Hopper Celebration spotlights women technologists"
 date: 2019-10-30T20:53:14.405Z
 author: Brittany Archibeque 
 tags: []

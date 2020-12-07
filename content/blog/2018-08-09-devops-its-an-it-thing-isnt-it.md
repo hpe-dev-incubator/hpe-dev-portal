@@ -1,5 +1,5 @@
 ---
-title:  DevOps – It’s an IT thing, isn’t it?
+title: " DevOps – It’s an IT thing, isn’t it?"
 date: 2018-08-09T16:13:21.978Z
 author: Mario Devargas 
 tags: ["DevOps","business"]
@@ -88,7 +88,7 @@ According to Heraclitus, the Greek philosopher, “the only thing constant is ch
 True transformation and change, continuous agile processes, collaborative and co-creation working, effective governance and quality services are a matter for all disciplines in an organisation. IT obviously must enable the business with effective technologies and governance, but it cannot do it alone – it needs a true partner in the business to deliver effective business solutions and outcomes.
 
 
-“[In our obsessive wish to arrive, we often forget the most important thing, which is the journey](http://www.azquotes.com/quote/6827990)” , [Paulo Coelho](http://www.azquotes.com/author/3041-Paulo_Coelho)
+“[In our obsessive wish to arrive, we often forget the most important thing, which is the journey](https://quotesia.com/paulo-coelho-quote/908683)” , [Paulo Coelho](https://quotesia.com/paulo-coelho-quotes)
 
 
 

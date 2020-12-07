@@ -1,5 +1,5 @@
 ---
-title: Why we created HPE Deep Learning Cookbook
+title: "Why we created HPE Deep Learning Cookbook"
 date: 2018-03-21T06:00:26.841Z
 author: Natalia Vassilieva, Sergey Serebryakov 
 tags: ["hpe-deep-learning-cookbook"]

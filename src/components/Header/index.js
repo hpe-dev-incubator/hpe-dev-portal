@@ -19,8 +19,8 @@ function Header() {
         <Link to="/research" color="neutral-4">
           Research
         </Link>
-        <Link to="/design" color="neutral-4">
-          Design
+        <Link to="/platforms" color="neutral-4">
+          Platform
         </Link>
         <Link to="/develop" color="neutral-4">
           Develop

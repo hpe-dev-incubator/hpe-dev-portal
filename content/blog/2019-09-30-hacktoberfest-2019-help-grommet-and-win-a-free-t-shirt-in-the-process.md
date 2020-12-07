@@ -1,5 +1,5 @@
 ---
-title: Hacktoberfest 2019 - Help Grommet and win a free t-shirt in the process
+title: "Hacktoberfest 2019 - Help Grommet and win a free t-shirt in the process"
 date: 2019-09-30T16:06:29.981Z
 author: HPE DEV staff 
 tags: []

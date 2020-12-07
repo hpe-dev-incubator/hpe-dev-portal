@@ -1,5 +1,5 @@
 ---
-title: Using the Azure Stack cost monitor
+title: "Using the Azure Stack cost monitor"
 date: 2018-09-07T21:43:43.204Z
 author: Vivek Kulkarni 
 tags: ["hpe-proliant-for-microsoft-azure-stack"]

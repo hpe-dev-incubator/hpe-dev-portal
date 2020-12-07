@@ -1,5 +1,5 @@
 ---
-title: Is continuous deployment of modern web applications in Microsoft Azure really so difficult? 
+title: "Is continuous deployment of modern web applications in Microsoft Azure really so difficult? "
 date: 2019-09-26T16:24:18.739Z
 author: Denis Choukroun 
 tags: ["hpe-proliant-for-microsoft-azure-stack"]

@@ -1,5 +1,5 @@
 ---
-title: Mingle with Microsoft experts at Microsoft Ignite
+title: "Mingle with Microsoft experts at Microsoft Ignite"
 date: 2019-10-23T15:45:39.550Z
 author: Pramod Sareddy 
 tags: ["MicrosoftIgnite","microsoft-ignite-orlando-2019","HPEMSFT"]

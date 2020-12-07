@@ -1,5 +1,5 @@
 ---
-title: Meet the HPE DEV Team – Brian Martin and Chris Young
+title: "Meet the HPE DEV Team – Brian Martin and Chris Young"
 date: 2019-09-25T15:31:13.005Z
 author: Dale Rensing 
 tags: []

@@ -1,5 +1,5 @@
 ---
-title: DevOps and its impact on project management
+title: "DevOps and its impact on project management"
 date: 2019-10-07T20:18:47.496Z
 author: Mike Walrath 
 tags: ["DevOps"]

@@ -1,5 +1,5 @@
 ---
-title: Designing, Installing, and Configuring a Failover Cluster with Hyper-V Managed by SCVMM 
+title: "Designing, Installing, and Configuring a Failover Cluster with Hyper-V Managed by SCVMM "
 date: 2019-08-05T15:40:49.039Z
 author: Patrick Francois 
 tags: []

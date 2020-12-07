@@ -1,10 +1,11 @@
 ---
-title: iLO
+title: iLO RESTful API
 version: v 6.01.8964
-description: Simple and automated remote HPE Server management through Redfish.
+description: Redfish® API conformant for simple and automate remote HPE Server management.
 image: 
+width: medium
 frontpage: true
-priority: 5
+priority: 7
 tags: ["iLO"]
 ---
 # One Interface for Server Management Automation

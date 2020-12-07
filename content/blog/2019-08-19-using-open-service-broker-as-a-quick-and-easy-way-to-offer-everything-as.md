@@ -1,5 +1,5 @@
 ---
-title: Using Open Service Broker as a Quick and Easy Way to Offer Everything as-a-Service 
+title: "Using Open Service Broker as a Quick and Easy Way to Offer Everything as-a-Service "
 date: 2019-08-19T15:29:52.117Z
 author: Pramod Sareddy 
 tags: []

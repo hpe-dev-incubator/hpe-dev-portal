@@ -1,5 +1,5 @@
 ---
-title: Meet Us at the Hack Shack at HPE Discover Las Vegas, June 18-20
+title: "Meet Us at the Hack Shack at HPE Discover Las Vegas, June 18-20"
 date: 2019-05-14T19:19:11.930Z
 author: HPE DEV staff 
 tags: ["HPEDiscover","HackShack"]
