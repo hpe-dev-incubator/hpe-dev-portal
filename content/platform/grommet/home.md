@@ -2,9 +2,10 @@
 title: Grommet
 version: v 2.01.8964
 description: An open source UI development and design tool
-image: /img/monster.png
+image: /img/platforms/monster.svg
+width: large
 frontpage: true
-priority: 7
+priority: 2
 tags: ["Grommet"]
 ---
 ## Build awesome apps with Grommet

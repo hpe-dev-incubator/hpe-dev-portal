@@ -1,8 +1,8 @@
 ---
-title: Use Grommet Face Detection and Microsoft Azure Cognitive Services to identify people in pictures
+title: "Use Grommet Face Detection and Microsoft Azure Cognitive Services to identify people in pictures"
 date: 2019-11-01T02:40:45.562Z
 author: Pramod Sareddy 
-tags: ["grommet"]
+tags: ["grommet","opensource"]
 path: use-grommet-face-detection-and-microsoft-azure-cognitive-services-to-ide
 ---
 ![picture1](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2019/10/picture1-1572576650255.png)

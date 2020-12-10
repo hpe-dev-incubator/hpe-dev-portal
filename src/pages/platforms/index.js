@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
-import { Box, Heading } from 'grommet';
+import { Box, Heading, Text, Image } from 'grommet';
 
-import { BlogCard, Layout, SEO } from '../../components';
+import { PlatformCard, Layout, SEO } from '../../components';
 import { useSiteMetadata } from '../../hooks/use-site-metadata';
 
 Heading.propTypes = {
@@ -11,22 +11,57 @@ Heading.propTypes = {
 };
 
 function Platforms({ data }) {
-  const posts = data.allMarkdownRemark.edges;
+  const platforms = data.allMarkdownRemark.edges;
   const siteMetadata = useSiteMetadata();
   const siteTitle = siteMetadata.title;
   return (
     <Layout title={siteTitle}>
       <SEO title="Platforms" />
-      <Box flex overflow="auto" gap="medium" pad="small">
-        <Box flex={false} direction="row-responsive" wrap>
-          <Box pad={{ vertical: 'large', horizontal: 'large' }}>
-            <Heading margin="none">Platforms</Heading>
-          </Box>
+      <Box
+        flex
+        overflow="auto"
+        gap="medium"
+        pad="large"
+        direction="column"
+        wrap
+      >
+        <Box direction="row-responsive" align="left" gap="medium">
           <Box>
-            {posts.map(({ node }) => (
-              <BlogCard key={node.id} node={node} />
-            ))}
+            <Image fit="contain" src="/img/platforms/platform.svg" />
           </Box>
+          <Box
+            align="left"
+            direction="column"
+            pad={{ vertical: 'large', horizontal: 'small' }}
+          >
+            <Heading margin="none">Platforms</Heading>
+            <Text>
+              Get a peek at some of the new technologies we're excited about and
+              think you will be too!
+            </Text>
+          </Box>
+        </Box>
+        <Box
+          flex={false}
+          direction="row"
+          wrap
+          border={{
+            side: 'top',
+            color: 'orange',
+            size: 'small',
+          }}
+        >
+          {platforms.map(({ node }) => (
+            <PlatformCard
+              key={node.id}
+              width="large"
+              align={node.frontmatter.align}
+              content={node.frontmatter.description}
+              link={`/${node.fields.sourceInstanceName}${node.fields.slug}`}
+              image={node.frontmatter.image}
+              title={node.frontmatter.title}
+            />
+          ))}
         </Box>
       </Box>
     </Layout>

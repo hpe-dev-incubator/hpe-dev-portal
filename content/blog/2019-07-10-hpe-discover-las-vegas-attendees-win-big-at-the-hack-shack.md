@@ -1,5 +1,5 @@
 ---
-title: HPE Discover Las Vegas Attendees Win Big at the Hack Shack
+title: "HPE Discover Las Vegas Attendees Win Big at the Hack Shack"
 date: 2019-07-10T15:34:34.939Z
 author: HPE DEV staff 
 tags: ["HPEDISCOVER"]

@@ -1,5 +1,5 @@
 ---
-title: HPE DEV at Google Cloud Next `19
+title: "HPE DEV at Google Cloud Next `19"
 date: 2019-04-23T20:04:56.137Z
 author: HPE DEV staff 
 tags: []

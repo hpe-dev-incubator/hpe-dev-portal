@@ -1,5 +1,5 @@
 ---
-title: Get Hands on with HPE Hybrid Cloud and Container Solutions at KubeCon, December 11-13
+title: "Get Hands on with HPE Hybrid Cloud and Container Solutions at KubeCon, December 11-13"
 date: 2018-12-03T19:49:02.431Z
 author: HPE DEV staff 
 tags: ["kubecon-seattle-2018"]

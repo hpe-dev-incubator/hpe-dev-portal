@@ -1,5 +1,5 @@
 ---
-title: Using Your First Grommet Component with Create-React-App
+title: "Using Your First Grommet Component with Create-React-App"
 date: 2019-05-10T15:27:12.417Z
 author: Ian Bovard 
 tags: ["Grommet"]

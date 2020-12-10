@@ -1,10 +1,11 @@
 ---
 title: Simplivity
 version: v 6.01.8964
-description: A hyperconverged platform uniting best-in-class data services with the world's bestselling server.
-image: 
+description: An enterprise-grade hyperconverged platform uniting best-in-class data services with the world’s bestselling server.
+image: /img/monster.png
+width: medium
 frontpage: true
-priority: 2
+priority: 6
 tags: ["hpe-simplivity"]
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: HPE at Microsoft Ignite event, September 24-27
+title: "HPE at Microsoft Ignite event, September 24-27"
 date: 2018-09-12T19:16:44.471Z
 author: HPE DEV staff 
 tags: ["HPEDeveloperCommunity","HPEOneSphere","HPEOneView","HPEProLiantforMicrosoftAzureStack","HPESimpliVity","MSIgnite"]

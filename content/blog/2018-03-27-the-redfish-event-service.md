@@ -1,12 +1,13 @@
 ---
-title: The Redfish® Event Service
+title: "The Redfish® Event Service"
 date: 2018-03-27T15:17:22.504Z
 author: François Donzé - Technical consultant 
 tags: ["ilo-restful-api","Redfish","iLO"]
 path: the-redfish-event-service
 ---
 # The Redfish Event Subscription Service
-
+Updated: October 2019   
+  
 ## Scope of this article
 
 This article describes the Redfish Event Subscription service implemented in HPE iLO 5 with a firmware version of 1.40 or later. The implementation of this service in iLO 4 may differ slightly.
