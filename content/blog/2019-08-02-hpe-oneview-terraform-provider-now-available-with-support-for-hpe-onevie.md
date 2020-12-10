@@ -1,5 +1,5 @@
 ---
-title: HPE OneView Terraform provider now available with support for HPE OneView 4.1
+title: "HPE OneView Terraform provider now available with support for HPE OneView 4.1"
 date: 2019-08-02T20:57:51.233Z
 author: Bob Fraser 
 tags: ["HPE-OneView","OneView","Terraform"]

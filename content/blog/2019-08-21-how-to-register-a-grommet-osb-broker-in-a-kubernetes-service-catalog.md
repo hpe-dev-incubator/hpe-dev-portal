@@ -1,8 +1,8 @@
 ---
-title: How to Register a Grommet OSB Broker in a Kubernetes Service Catalog
+title: "How to Register a Grommet OSB Broker in a Kubernetes Service Catalog"
 date: 2019-08-21T18:44:52.096Z
 author: Pramod Sareddy 
-tags: []
+tags: ["grommet","opensource"]
 path: how-to-register-a-grommet-osb-broker-in-a-kubernetes-service-catalog
 ---
 ![registering a broker](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2019/8/registering-a-broker-1566920379874.png)

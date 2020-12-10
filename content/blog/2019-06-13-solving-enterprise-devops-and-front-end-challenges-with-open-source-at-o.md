@@ -1,5 +1,5 @@
 ---
-title: Solving Enterprise DevOps and Front End Challenges with Open Source at OSCON 2019
+title: "Solving Enterprise DevOps and Front End Challenges with Open Source at OSCON 2019"
 date: 2019-06-13T21:11:32.054Z
 author: Dale Rensing 
 tags: []

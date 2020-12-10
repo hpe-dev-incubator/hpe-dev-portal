@@ -1,12 +1,13 @@
 ---
-title: Storage management with Redfish
+title: "Storage management with Redfish"
 date: 2018-10-30T17:05:18.375Z
 author: Francois Donze 
 tags: ["ilo-restful-api","Redfish","SmartStorage","SmartArray","Synergy","ProLiant","iLO5"]
 path: storage-management-with-redfish
 ---
 # Storage management with Redfish&reg;
-
+Updated: October 2019  
+    
 ## Introduction
 
 Integrated Lights-Out ([iLO](https://www.hpe.com/info/ilo))  is an HPE ProLiant and Synergy server embedded technology that delivers the core foundation for server intelligence along with out-of-band and in-band management facilities. This technology is a combination of the iLO ASIC that is part of the server-board and the firmware that powers the ASIC. Out of the box, HPE iLO simplifies server setup, provides access to server health information, and enables server management at scale, including basic remote administration. Different generations of ProLiant Servers carry different versions of the iLO ASIC.  

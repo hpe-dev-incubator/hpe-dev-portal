@@ -1,5 +1,5 @@
 ---
-title: Developing a Client App for Accessing Services via the Open Service Broker API
+title: "Developing a Client App for Accessing Services via the Open Service Broker API"
 date: 2019-08-28T15:36:16.964Z
 author: Carson Stone and Kailash Ramakrishnan 
 tags: []

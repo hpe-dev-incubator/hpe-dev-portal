@@ -1,5 +1,5 @@
 ---
-title: HPE OneView Ruby SDK now available with support for HPE OneView 4.0
+title: "HPE OneView Ruby SDK now available with support for HPE OneView 4.0"
 date: 2018-04-04T21:08:12.018Z
 author: bob.fraser@hpe.com 
 tags: ["HPE-OneView","OneView","RESTAPI","Ruby"]

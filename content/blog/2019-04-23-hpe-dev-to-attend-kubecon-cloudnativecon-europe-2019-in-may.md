@@ -1,5 +1,5 @@
 ---
-title: HPE DEV to attend KubeCon + CloudNativeCon Europe 2019 in May
+title: "HPE DEV to attend KubeCon + CloudNativeCon Europe 2019 in May"
 date: 2019-04-23T19:56:01.184Z
 author: Didier Lalli 
 tags: []

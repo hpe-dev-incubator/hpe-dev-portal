@@ -1,5 +1,5 @@
 ---
-title: Doryd&#58; A Dynamic Provisioner for Docker Volume plugins
+title: "Doryd: A Dynamic Provisioner for Docker Volume plugins"
 date: 2017-12-06T00:39:08.306Z
 author: Michael Mattsson 
 tags: ["hpe-nimble-storage","dory","doryd","kubernetes","containers","docker"]

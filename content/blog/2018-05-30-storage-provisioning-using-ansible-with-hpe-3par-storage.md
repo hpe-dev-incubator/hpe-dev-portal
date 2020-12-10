@@ -1,8 +1,8 @@
 ---
-title: Storage Provisioning using Ansible with HPE 3PAR Storage
+title: "Storage Provisioning using Ansible with HPE 3PAR Storage"
 date: 2018-05-30T22:22:15.634Z
 author: Chris Snell 
-tags: ["3PAR","Ansible","Automation","REST","Storage","hpe-3PAR"]
+tags: ["3PAR","Ansible","Automation","REST","Storage","hpe-3PAR","hpe-3par-and-primera"]
 path: storage-provisioning-using-ansible-with-hpe-3par-storage
 ---
 # Storage Provisioning using Ansible with HPE 3PAR Storage

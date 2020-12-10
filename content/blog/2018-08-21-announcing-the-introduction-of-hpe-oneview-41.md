@@ -1,5 +1,5 @@
 ---
-title: Announcing the Introduction of HPE OneView 4.1
+title: "Announcing the Introduction of HPE OneView 4.1"
 date: 2018-08-21T22:50:40.813Z
 author: HPE DEV staff 
 tags: ["HPE-OneView","OneView"]

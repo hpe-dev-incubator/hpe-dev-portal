@@ -1,5 +1,5 @@
 ---
-title: My Journey from Student to HPE Full-stack Developer 
+title: "My Journey from Student to HPE Full-stack Developer "
 date: 2019-05-23T18:08:07.481Z
 author: Brittany Archibeque 
 tags: ["Grommet"]

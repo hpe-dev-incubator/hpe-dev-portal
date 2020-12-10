@@ -2,9 +2,10 @@
 title: OneView
 version: v 6.01.8964
 description: The foundation for a software-defined data center.
-image:
+image: /img/monster.png
+width: large
 frontpage: true
-priority: 1
+priority: 4
 tags: ["OneView"]
 ---
 ## HPE OneView Developers Hub

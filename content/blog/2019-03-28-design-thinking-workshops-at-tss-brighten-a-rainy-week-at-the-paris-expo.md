@@ -1,5 +1,5 @@
 ---
-title: Design Thinking Workshops at TSS Brighten a Rainy Week at the Paris Expo
+title: "Design Thinking Workshops at TSS Brighten a Rainy Week at the Paris Expo"
 date: 2019-03-28T20:49:25.455Z
 author: Dana Lynn, Lead Experience Designer 
 tags: ["design"]

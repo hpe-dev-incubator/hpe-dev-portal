@@ -21,18 +21,18 @@ function Platforms({ data }) {
         flex
         overflow="auto"
         gap="medium"
-        pad="small"
+        pad="large"
         direction="column"
         wrap
       >
-        <Box direction="row-responsive" align="left" gap="medium" pad="large">
+        <Box direction="row-responsive" align="start" gap="medium">
           <Box>
             <Image fit="contain" src="/img/platforms/platform.svg" />
           </Box>
           <Box
-            align="left"
+            align="start"
             direction="column"
-            pad={{ vertical: 'large', horizontal: 'large' }}
+            pad={{ vertical: 'large', horizontal: 'small' }}
           >
             <Heading margin="none">Platforms</Heading>
             <Text>
@@ -43,19 +43,19 @@ function Platforms({ data }) {
         </Box>
         <Box
           flex={false}
-          direction="row-responsive"
+          direction="row"
           wrap
-          pad={{ top: 'medium' }}
           border={{
             side: 'top',
             color: 'orange',
             size: 'small',
           }}
+          gap="medium"
         >
           {platforms.map(({ node }) => (
             <PlatformCard
               key={node.id}
-              width={node.frontmatter.width}
+              width="large"
               align={node.frontmatter.align}
               content={node.frontmatter.description}
               link={`/${node.fields.sourceInstanceName}${node.fields.slug}`}

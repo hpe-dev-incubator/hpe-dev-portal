@@ -1,5 +1,5 @@
 ---
-title:  Discovering HPE DEV – A Newcomer’s perspective
+title: " Discovering HPE DEV – A Newcomer’s perspective"
 date: 2019-03-28T21:03:14.662Z
 author: Dale Rensing, HPE DEV team member 
 tags: ["hpedev"]
