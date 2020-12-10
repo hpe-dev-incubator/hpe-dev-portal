@@ -6,7 +6,7 @@ import { navigate } from 'gatsby';
 const Link = ({ to, ...rest }) => (
   <Anchor
     href={to}
-    onClick={(ev) => {
+    onClick={ev => {
       navigate(to);
       ev.preventDefault();
     }}

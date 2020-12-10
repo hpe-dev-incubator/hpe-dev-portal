@@ -12,6 +12,7 @@ import Markdown from './Markdown';
 import SEO from './Seo';
 import Share from './Share';
 import SocialMedia from './SocialMedia';
+import PlatformCard from './PlatformCard';
 
 export {
   Aside,
@@ -28,4 +29,5 @@ export {
   SEO,
   Share,
   SocialMedia,
+  PlatformCard,
 };
