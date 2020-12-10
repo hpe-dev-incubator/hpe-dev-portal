@@ -5,6 +5,7 @@ import { navigate } from 'gatsby';
 
 const Link = ({ to, ...rest }) => (
   <Anchor
+    style={{ textDecoration: 'none' }}
     href={to}
     onClick={ev => {
       navigate(to);

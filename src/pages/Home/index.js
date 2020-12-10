@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import { Box, Heading, Image } from 'grommet';
 
-import { Layout, SEO, Card } from '../../components';
+import { Layout, SEO, Card, PlatformCard } from '../../components';
 
 class Home extends React.Component {
   render() {
@@ -42,19 +42,22 @@ class Home extends React.Component {
                 />
               ))}
           </Box>
-          <Box>
-            <Heading>Our Open SOurce Projects</Heading>
-            {projects &&
-              projects.map(({ node }) => (
-                <Card
-                  key={node.id}
-                  category={node.frontmatter.category}
-                  width="medium"
-                  align="start"
-                  description={node.frontmatter.description}
-                  image={node.frontmatter.image}
-                />
-              ))}
+          <Box direction="column">
+            <Heading>Our Open Source Projects</Heading>
+            <Box direction="row" wrap>
+              {projects &&
+                projects.map(({ node }) => (
+                  <PlatformCard
+                    key={node.id}
+                    title={node.frontmatter.title}
+                    category={node.frontmatter.category}
+                    width="small"
+                    align="start"
+                    content={node.frontmatter.description}
+                    image={node.frontmatter.image}
+                  />
+                ))}
+            </Box>
           </Box>
         </Box>
       </Layout>
