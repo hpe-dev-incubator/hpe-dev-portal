@@ -1,5 +1,5 @@
 ---
-title: Returning from the land of ports and developers, AKA OSCON 2019 in Portland!
+title: "Returning from the land of ports and developers, AKA OSCON 2019 in Portland!"
 date: 2019-07-31T19:12:15.673Z
 author: Alex Mejias 
 tags: ["OSCON"]

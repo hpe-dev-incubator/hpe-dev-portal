@@ -1,8 +1,8 @@
 ---
-title: Automating 3PAR provisioning with Chef
+title: "Automating 3PAR provisioning with Chef"
 date: 2018-04-02T08:46:25.782Z
 author: Chris Snell 
-tags: ["chef","hpe-3par","storeserv","cookbook","devops","configuration-management"]
+tags: ["chef","hpe-3par","storeserv","cookbook","devops","configuration-management","hpe-3par-and-primera"]
 path: automating-3par-provisioning-with-chef
 ---
 # Using Chef to configure your 3PAR Storeserv

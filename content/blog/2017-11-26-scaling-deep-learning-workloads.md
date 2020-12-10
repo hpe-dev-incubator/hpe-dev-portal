@@ -1,5 +1,5 @@
 ---
-title: Scaling deep learning workloads
+title: "Scaling deep learning workloads"
 date: 2017-11-26T09:38:36.284Z
 author: Sergey Serebryakov 
 tags: ["deep-learning-cookbook"]

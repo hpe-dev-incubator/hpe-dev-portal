@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { Box, Image, Text } from 'grommet';
+import { Box, Heading, Image, Text } from 'grommet';
 import { Link as GatsbyLink } from 'gatsby';
 
 const NavLink = styled(GatsbyLink)`
@@ -22,30 +22,31 @@ export const PlatformCard = ({
   ...rest
 }) => (
   <Box
-    margin="small"
     flex="grow"
     width={width || 'medium'}
     elevation="small"
-    pad="medium"
-    direction="row-responsive"
+    pad="small"
+    direction="row"
+    overflow="hidden"
+    wrap
   >
     <NavLink to={link}>
       <Box
         // fill="horizontal"
-        direction="column"
+        direction="row-responsive"
         justify="between"
         align="center"
         gap={gap || 'medium'}
         pad={{ horizontal: 'small', vertical: 'small ', ...pad }}
         {...rest}
       >
-        <Box align="center">{image && <Image src={image} />}</Box>
+        <Box height="small" width="small" align="center">
+          {image && <Image fit="contain" src={image} />}
+        </Box>
         <Box>
           <Box direction="column">
-            <Text weight="bold" color="#444444">
-              {title}
-            </Text>
-            <Text color="#666666">{content}</Text>
+            <Heading color="#444444">{title} </Heading>
+            <Text color="#666666"> {content}</Text>
           </Box>
         </Box>
       </Box>

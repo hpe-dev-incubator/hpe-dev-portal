@@ -1,5 +1,5 @@
 ---
-title: Accessing the HPE OneView Global Dashboard API
+title: "Accessing the HPE OneView Global Dashboard API"
 date: 2018-10-11T15:14:06.880Z
 author: Brad Stanley 
 tags: ["hpe-oneview-global-dashboard"]
@@ -35,7 +35,7 @@ To add an appliance there are a few steps, and this is where it can be helpful t
 #### **Add an appliance**
 * `POST https://<Global Dashboard IP>/rest/login-sessions`
   * Look at your Global Dashboard’s API docs for more information: `https://<Global Dashboard IP>/apidoc/#tag/Login-Sessions`
-  * This will need to be done with x-api-version having a value of 2
+  * For Global Dashboard versions 2.1 and earlier, this will need to be done with x-api-version having a value of 2
   * And content-type will need to be specified with application/json
   * If you look at your Global Dashboard’s API docs, you’ll see under Header Parameters that these two fields are required
   * You’ll also notice a required Request Body, which is comprised of your userName, password and optionally an authLoginDomain

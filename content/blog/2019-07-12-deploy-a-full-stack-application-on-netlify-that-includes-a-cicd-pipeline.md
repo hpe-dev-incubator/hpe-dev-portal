@@ -1,5 +1,5 @@
 ---
-title: Deploy a Full Stack Application on Netlify that Includes a CI/CD Pipeline
+title: "Deploy a Full Stack Application on Netlify that Includes a CI/CD Pipeline"
 date: 2019-07-12T15:44:24.898Z
 author: Madhu Rebbana 
 tags: []

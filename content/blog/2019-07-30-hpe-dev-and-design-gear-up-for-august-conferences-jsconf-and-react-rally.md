@@ -1,5 +1,5 @@
 ---
-title: HPE DEV and Design Gear Up for August Conferences&#58; JSConf and React Rally
+title: "HPE DEV and Design Gear Up for August Conferences: JSConf and React Rally"
 date: 2019-07-30T16:25:53.840Z
 author: HPE DEV staff 
 tags: []

@@ -44,7 +44,7 @@ class Home extends React.Component {
           </Box>
           <Box direction="column">
             <Heading>Our Open Source Projects</Heading>
-            <Box direction="row" wrap>
+            <Box direction="row" wrap overflow="hidden">
               {projects &&
                 projects.map(({ node }) => (
                   <PlatformCard

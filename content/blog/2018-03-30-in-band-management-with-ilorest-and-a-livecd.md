@@ -1,5 +1,5 @@
 ---
-title: In-band management with ilorest and a LiveCD
+title: "In-band management with ilorest and a LiveCD"
 date: 2018-03-30T11:19:26.056Z
 author: François Donzé 
 tags: ["iLO","ilorest","ProLiant"]

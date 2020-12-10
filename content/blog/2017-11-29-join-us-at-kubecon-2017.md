@@ -1,5 +1,5 @@
 ---
-title: Join us at KubeCon 2017
+title: "Join us at KubeCon 2017"
 date: 2017-11-29T19:10:21.860Z
 author: Amit 
 tags: ["kubecon-austin-2017"]

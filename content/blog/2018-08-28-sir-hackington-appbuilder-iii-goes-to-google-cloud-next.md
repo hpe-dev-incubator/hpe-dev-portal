@@ -1,5 +1,5 @@
 ---
-title: Sir Hackington Appbuilder III Goes to Google Cloud Next
+title: "Sir Hackington Appbuilder III Goes to Google Cloud Next"
 date: 2018-08-28T14:50:51.758Z
 author: Sir Hackington Appbuilder III 
 tags: ["GoogleCloudNext"]

@@ -1,5 +1,5 @@
 ---
-title: Master the Redfish Server States to improve your monitoring and management applications
+title: "Master the Redfish Server States to improve your monitoring and management applications"
 date: 2018-08-06T14:07:07.818Z
 author: François Donzé 
 tags: ["Redfish","PostState","PowerState","ServerState","iLO5","ProLiant","Synergy"]

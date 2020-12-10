@@ -1,5 +1,5 @@
 ---
-title: CodeWars, A Unique, Mind Boggling Coding Competition for Senior High School Students
+title: "CodeWars, A Unique, Mind Boggling Coding Competition for Senior High School Students"
 date: 2019-08-21T22:29:46.519Z
 author: Uzma Syeda 
 tags: ["HPECodeWars","CodeWars2019","Hackathon"]

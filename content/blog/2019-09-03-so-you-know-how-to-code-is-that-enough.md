@@ -1,5 +1,5 @@
 ---
-title: So you know how to code. Is that enough? 
+title: "So you know how to code. Is that enough? "
 date: 2019-09-03T17:08:20.891Z
 author: Jeff Krenek 
 tags: []

@@ -2,10 +2,10 @@
 const path = require('path');
 const { createFilePath } = require('gatsby-source-filesystem');
 
-const escapeRegExp = (string) => string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+const escapeRegExp = string => string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
-const arrayToRE = (a) =>
-  a ? '/^' + a.map((str) => `(${escapeRegExp(str)})`).join('|') + '$/i' : ''; // eslint-disable-line
+const arrayToRE = a =>
+  a ? '/^' + a.map(str => `(${escapeRegExp(str)})`).join('|') + '$/i' : ''; // eslint-disable-line
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
@@ -44,7 +44,7 @@ exports.createPages = ({ graphql, actions }) => {
         }
       }
     `,
-  ).then((result) => {
+  ).then(result => {
     if (result.errors) {
       throw result.errors;
     }
@@ -119,7 +119,7 @@ exports.createPages = ({ graphql, actions }) => {
       }
     });
     const tags = result.data.tagsGroup.group;
-    tags.forEach((tag) => {
+    tags.forEach(tag => {
       console.log(`Create pages /blog/tag/${tag.fieldValue.toLowerCase()}/`);
       console.log('------------------------------');
       createPage({
@@ -139,7 +139,7 @@ exports.onCreatePage = ({ page, actions }) => {
   const { deletePage, createPage } = actions;
 
   console.log(`onCreatePage ${page.componentPath}`);
-  return new Promise((resolve) => {
+  return new Promise(resolve => {
     // if the page component is the index page component
     if (page.componentPath.indexOf('/src/pages/Home/index.js') >= 0) {
       deletePage(page);

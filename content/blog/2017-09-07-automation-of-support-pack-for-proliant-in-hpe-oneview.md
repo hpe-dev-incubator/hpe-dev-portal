@@ -1,5 +1,5 @@
 ---
-title: Automation of Support Pack for ProLiant in HPE OneView
+title: "Automation of Support Pack for ProLiant in HPE OneView"
 date: 2017-09-07T03:17:17.230Z
 author: Didier Lalli 
 tags: ["HPE-OneView","OneView","PowerShell"]

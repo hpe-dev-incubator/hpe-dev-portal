@@ -1,5 +1,5 @@
 ---
-title: Meet the HPE DEV Team
+title: "Meet the HPE DEV Team"
 date: 2019-08-08T22:00:10.257Z
 author: Dale Rensing 
 tags: []

@@ -1,5 +1,5 @@
 ---
-title: Elaborate the Monitoring of KVM-based Private Clouds Using Open Source Tools such as Nagios
+title: "Elaborate the Monitoring of KVM-based Private Clouds Using Open Source Tools such as Nagios"
 date: 2019-05-29T21:28:19.523Z
 author: Denis Choukroun  
 tags: []
