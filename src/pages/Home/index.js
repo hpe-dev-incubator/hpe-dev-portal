@@ -1,17 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
-import { Box, Image } from 'grommet';
+import { Box, Heading, Image } from 'grommet';
 
 import { Layout, SEO, Card } from '../../components';
 
 class Home extends React.Component {
   render() {
     const { data } = this.props;
+    console.log('data', data);
     const { title, image } = data.markdownRemark.frontmatter;
     const siteTitle = data.site.siteMetadata.title;
 
-    const panels = data.allMarkdownRemark.edges;
+    const panels = data.home.edges;
+
+    const projects = data.opensource.edges;
 
     return (
       <Layout title={siteTitle}>
@@ -39,6 +42,20 @@ class Home extends React.Component {
                 />
               ))}
           </Box>
+          <Box>
+            <Heading>Our Open SOurce Projects</Heading>
+            {projects &&
+              projects.map(({ node }) => (
+                <Card
+                  key={node.id}
+                  category={node.frontmatter.category}
+                  width="medium"
+                  align="start"
+                  description={node.frontmatter.description}
+                  image={node.frontmatter.image}
+                />
+              ))}
+          </Box>
         </Box>
       </Layout>
     );
@@ -59,7 +76,7 @@ Home.propTypes = {
       }).isRequired,
       rawMarkdownBody: PropTypes.string,
     }).isRequired,
-    allMarkdownRemark: PropTypes.shape({
+    home: PropTypes.shape({
       edges: PropTypes.arrayOf(
         PropTypes.shape({
           node: PropTypes.shape({
@@ -70,6 +87,22 @@ Home.propTypes = {
               category: PropTypes.string,
               priority: PropTypes.number,
               link: PropTypes.string,
+            }),
+          }),
+          rawMarkdownBody: PropTypes.string,
+        }),
+      ),
+    }),
+    opensource: PropTypes.shape({
+      edges: PropTypes.arrayOf(
+        PropTypes.shape({
+          node: PropTypes.shape({
+            id: PropTypes.string,
+            frontmatter: PropTypes.shape({
+              title: PropTypes.string,
+              category: PropTypes.string,
+              description: PropTypes.string,
+              image: PropTypes.number,
             }),
           }),
           rawMarkdownBody: PropTypes.string,
@@ -96,7 +129,7 @@ export const pageQuery = graphql`
       }
       rawMarkdownBody
     }
-    allMarkdownRemark(
+    home: allMarkdownRemark(
       filter: { fields: { sourceInstanceName: { eq: "homepanels" } } }
       sort: { fields: [frontmatter___priority] }
     ) {
@@ -110,6 +143,31 @@ export const pageQuery = graphql`
             link
           }
           rawMarkdownBody
+        }
+      }
+    }
+    opensource: allMarkdownRemark(
+      filter: { fields: { sourceInstanceName: { eq: "opensource" } } }
+      sort: { fields: [frontmatter___title] }
+      limit: 5
+    ) {
+      edges {
+        node {
+          id
+          rawMarkdownBody
+          fields {
+            slug
+            sourceInstanceName
+          }
+          excerpt
+          frontmatter {
+            title
+            category
+            description
+            image
+            frontpage
+            priority
+          }
         }
       }
     }

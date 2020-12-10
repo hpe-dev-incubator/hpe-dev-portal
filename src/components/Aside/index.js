@@ -74,9 +74,9 @@ const components = {
     },
   },
   a: {
-    component: (props) => (
+    component: props => (
       <ThemeContext.Consumer>
-        {(theme) => <Link {...props} theme={theme} />}
+        {theme => <Link {...props} theme={theme} />}
       </ThemeContext.Consumer>
     ),
   },
