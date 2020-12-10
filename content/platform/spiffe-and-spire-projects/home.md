@@ -2,7 +2,7 @@
 title: SPIFFE and SPIRE Projects 
 version: v 6.01.8964
 description: Hewlett Packard Enterprise (HPE) is the leading contributor to Cloud Native Computing Foundation’s (CNCF) SPIFFE and SPIRE open source projects.
-image: /img/monster.png
+image: /img/platforms/greenlake.png
 width: medium
 frontpage: true
 priority: 4

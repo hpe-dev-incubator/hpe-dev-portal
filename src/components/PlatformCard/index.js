@@ -22,11 +22,10 @@ export const PlatformCard = ({
   ...rest
 }) => (
   <Box
-    margin="small"
     flex="grow"
     width={width || 'medium'}
     elevation="small"
-    pad="medium"
+    pad="small"
     direction="row-responsive"
   >
     <NavLink to={link}>
@@ -39,7 +38,9 @@ export const PlatformCard = ({
         pad={{ horizontal: 'small', vertical: 'small ', ...pad }}
         {...rest}
       >
-        <Box align="center">{image && <Image fit="contain" src={image} />}</Box>
+        <Box height="small" width="small" align="center">
+          {image && <Image fit="contain" src={image} />}
+        </Box>
         <Box>
           <Box direction="column">
             <Heading color="#444444">{title} </Heading>
