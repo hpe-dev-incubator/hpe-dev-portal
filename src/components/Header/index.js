@@ -16,9 +16,7 @@ function Header() {
         </Text>
       </Link>
       <Box direction="row" gap="medium" justify="center">
-        <Link to="/research" color="neutral-4">
-          Research
-        </Link>
+        <Link to="/research">Research</Link>
         <Link to="/platforms" color="neutral-4">
           Platform
         </Link>

@@ -39,7 +39,7 @@ export const PlatformCard = ({
         pad={{ horizontal: 'small', vertical: 'small ', ...pad }}
         {...rest}
       >
-        <Box align="center">{image && <Image src={image} />}</Box>
+        <Box align="center">{image && <Image fit="contain" src={image} />}</Box>
         <Box>
           <Box direction="column">
             <Heading color="#444444">{title} </Heading>

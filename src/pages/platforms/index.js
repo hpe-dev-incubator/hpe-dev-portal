@@ -43,7 +43,7 @@ function Platforms({ data }) {
         </Box>
         <Box
           flex={false}
-          direction="row-responsive"
+          direction="row"
           wrap
           pad={{ top: 'medium' }}
           border={{
@@ -55,7 +55,7 @@ function Platforms({ data }) {
           {platforms.map(({ node }) => (
             <PlatformCard
               key={node.id}
-              width={node.frontmatter.width}
+              width="large"
               align={node.frontmatter.align}
               content={node.frontmatter.description}
               link={`/${node.fields.sourceInstanceName}${node.fields.slug}`}
