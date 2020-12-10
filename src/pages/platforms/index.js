@@ -25,12 +25,12 @@ function Platforms({ data }) {
         direction="column"
         wrap
       >
-        <Box direction="row-responsive" align="left" gap="medium">
+        <Box direction="row-responsive" align="start" gap="medium">
           <Box>
             <Image fit="contain" src="/img/platforms/platform.svg" />
           </Box>
           <Box
-            align="left"
+            align="start"
             direction="column"
             pad={{ vertical: 'large', horizontal: 'small' }}
           >
@@ -50,6 +50,7 @@ function Platforms({ data }) {
             color: 'orange',
             size: 'small',
           }}
+          gap="medium"
         >
           {platforms.map(({ node }) => (
             <PlatformCard
