@@ -6,31 +6,27 @@ import theme from './theme';
 import './reset.css';
 import { Footer, Header } from '../index';
 
-class Layout extends React.Component {
-  render() {
-    const { children } = this.props;
-
-    return (
-      <Grommet
-        full
-        theme={theme}
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          maxWidth: '100%',
-          minHeight: '100vh',
-          height: 'auto',
-        }}
-      >
-        <Header />
-        <Box flex as="main">
-          {children}
-        </Box>
-        <Footer />
-      </Grommet>
-    );
-  }
-}
+const Layout = ({ children }) => {
+  return (
+    <Grommet
+      full
+      theme={theme}
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        maxWidth: '100%',
+        minHeight: '100vh',
+        height: 'auto',
+      }}
+    >
+      <Header />
+      <Box flex as="main">
+        {children}
+      </Box>
+      <Footer />
+    </Grommet>
+  );
+};
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,

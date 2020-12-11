@@ -4,14 +4,14 @@ import PropTypes from 'prop-types';
 import { Box, Heading, Image, Markdown, Text } from 'grommet';
 import { Link as GatsbyLink } from 'gatsby';
 
-const colors = {
-  develop: 'accent-4', // HPE Yellow
-  design: 'accent-2', // HPE Medium Purple
-  event: 'status-unknown',
-  community: 'neutral-1', // HPE Dark Blue
-  'open source': 'accent-2', // HPE Medium Purple
-  research: 'accent-1', // HPE Medium Blue
-};
+// const colors = {
+//   develop: 'accent-4', // HPE Yellow
+//   design: 'accent-2', // HPE Medium Purple
+//   event: 'status-unknown',
+//   community: 'neutral-1', // HPE Dark Blue
+//   'open source': 'accent-2', // HPE Medium Purple
+//   research: 'accent-1', // HPE Medium Blue
+// };
 
 const NavLink = styled(GatsbyLink)`
   text-decoration: none;
@@ -98,17 +98,19 @@ export const Card = ({
   content,
   align,
   link,
+  image,
   ...rest
 }) => (
   <Box
     margin="small"
     flex="grow"
     width={width || 'medium'}
-    border={{
-      side: 'top',
-      color: colors[category ? category.toLowerCase() : 'develop'],
-      size: 'medium',
-    }}
+    elevation="small"
+    // border={{
+    //   side: 'top',
+    //   color: colors[category ? category.toLowerCase() : 'develop'],
+    //   size: 'medium',
+    // }}
   >
     <Box align="end">
       <Text color="light-5">{category}</Text>
@@ -148,6 +150,7 @@ Card.propTypes = {
   category: PropTypes.string,
   align: PropTypes.string,
   link: PropTypes.string,
+  image: PropTypes.string,
 };
 
 export default Card;

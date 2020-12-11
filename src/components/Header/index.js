@@ -10,7 +10,7 @@ function Header() {
       pad={{ vertical: 'xsmall', horizontal: 'medium' }}
       justify="between"
     >
-      <Link to="/">
+      <Link to="/" style={{ textDecoration: 'none' }}>
         <Text weight="bold" color="dark-1">
           HPE Developer
         </Text>

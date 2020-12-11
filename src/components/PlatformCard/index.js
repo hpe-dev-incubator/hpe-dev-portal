@@ -26,7 +26,9 @@ export const PlatformCard = ({
     width={width || 'medium'}
     elevation="small"
     pad="small"
-    direction="row-responsive"
+    direction="row"
+    overflow="hidden"
+    wrap
   >
     <NavLink to={link}>
       <Box
