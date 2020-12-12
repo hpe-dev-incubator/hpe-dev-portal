@@ -1,9 +1,14 @@
 import React from 'react';
+import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import remark from 'remark';
 import strip from 'strip-markdown';
-import { Box, Heading, Paragraph, Markdown, Text } from 'grommet';
-import { Link } from '..';
+import { Box, Heading, Paragraph, Text } from 'grommet';
+import { Link as GatsbyLink } from 'gatsby';
+
+const NavLink = styled(GatsbyLink)`
+  text-decoration: none;
+`;
 
 const dateFormat = Intl.DateTimeFormat('default', {
   year: 'numeric',
@@ -23,53 +28,47 @@ const stripMarkdown = (markdown) => {
 
 export const BlogCard = ({ node, ...rest }) => (
   <Box
-    margin={{
-      left: 'large',
-      right: 'large',
-    }}
-    pad={{
-      bottom: 'large',
-      top: 'large',
-    }}
-    gap="medium"
-    border={{
-      side: 'bottom',
-      color: 'light-2',
-      size: 'medium',
-    }}
-    justify="center"
+    pad="large"
+    width="large"
+    direction="row"
+    justify="between"
     {...rest}
+    elevation="medium"
+    wrap
   >
-    <Box>
-      {node.frontmatter.date && node.frontmatter.author && (
-        <Markdown>
-          {`${dateFormat.format(new Date(node.frontmatter.date))} by **${
-            node.frontmatter.author
-          }**`}
-        </Markdown>
-      )}
-      <Heading
-        level={2}
-        size="large"
-        margin={{ top: 'none', bottom: 'xsmall' }}
-      >
-        {node.frontmatter.title}
-      </Heading>
-      {node.frontmatter.version && (
-        <Text size="small" color="neutral-4">
-          {node.frontmatter.version}
-        </Text>
-      )}
-    </Box>
-    <Box width="large">
-      <Paragraph margin="none">
-        {node.frontmatter.description || stripMarkdown(node.excerpt)}
-      </Paragraph>
-    </Box>
-    <Link
-      to={`/${node.fields.sourceInstanceName}${node.fields.slug}`}
-      label="Read more >"
-    />
+    <NavLink to={`/${node.fields.sourceInstanceName}${node.fields.slug}`}>
+      <Box pad="small">
+        <Heading
+          level={4}
+          margin={{ top: 'none', bottom: 'xsmall' }}
+          color="text"
+        >
+          {node.frontmatter.title}
+        </Heading>
+        <Paragraph margin="none" color="border">
+          {node.frontmatter.description || stripMarkdown(node.excerpt)}
+        </Paragraph>
+        {node.frontmatter.version && (
+          <Text size="small" color="neutral-4">
+            {node.frontmatter.version}
+          </Text>
+        )}
+      </Box>
+      <Box direction="row" pad="small" width="large">
+        <Box>
+          {node.frontmatter.author && (
+            <Text color="text" weight="bold">
+              {node.frontmatter.author}
+            </Text>
+          )}
+          {node.frontmatter.date && node.frontmatter.author && (
+            <Text color="border">
+              {`${dateFormat.format(new Date(node.frontmatter.date))}`}
+            </Text>
+          )}
+        </Box>
+      </Box>
+    </NavLink>
   </Box>
 );
 
