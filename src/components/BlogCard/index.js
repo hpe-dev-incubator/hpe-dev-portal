@@ -36,34 +36,36 @@ export const BlogCard = ({ node, ...rest }) => (
     elevation="medium"
     wrap
   >
-    <NavLink to={`/${node.fields.sourceInstanceName}${node.fields.slug}`}>
+    <NavLink to={`${node.path || node.frontmatter.path}`}>
       <Box pad="small">
         <Heading
           level={4}
           margin={{ top: 'none', bottom: 'xsmall' }}
           color="text"
         >
-          {node.frontmatter.title}
+          {node.title || node.frontmatter.title}
         </Heading>
         <Paragraph margin="none" color="border">
-          {node.frontmatter.description || stripMarkdown(node.excerpt)}
+          {node.description || stripMarkdown(node.excerpt)}
         </Paragraph>
-        {node.frontmatter.version && (
+        {/* {node.frontmatter.version && (
           <Text size="small" color="neutral-4">
             {node.frontmatter.version}
           </Text>
-        )}
+        )} */}
       </Box>
       <Box direction="row" pad="small" width="large">
         <Box>
-          {node.frontmatter.author && (
+          {(node.author || node.frontmatter.author) && (
             <Text color="text" weight="bold">
-              {node.frontmatter.author}
+              {node.author || node.frontmatter.author}
             </Text>
           )}
-          {node.frontmatter.date && node.frontmatter.author && (
+          {(node.date || node.frontmatter.date) && (
             <Text color="border">
-              {`${dateFormat.format(new Date(node.frontmatter.date))}`}
+              {`${dateFormat.format(
+                new Date(node.date || node.frontmatter.date),
+              )}`}
             </Text>
           )}
         </Box>
@@ -80,8 +82,15 @@ BlogCard.propTypes = {
       date: PropTypes.string,
       description: PropTypes.string,
       version: PropTypes.string,
-    }).isRequired,
-    excerpt: PropTypes.string.isRequired,
+      path: PropTypes.string,
+    }),
+    title: PropTypes.string,
+    author: PropTypes.string,
+    date: PropTypes.string,
+    description: PropTypes.string,
+    version: PropTypes.string,
+    path: PropTypes.string,
+    excerpt: PropTypes.string,
     fields: PropTypes.shape({
       slug: PropTypes.string.isRequired,
       sourceInstanceName: PropTypes.string.isRequired,

@@ -45,6 +45,13 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
+        path: `${__dirname}/content/featuredblogs`,
+        name: 'featuredblogs',
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
         path: `${__dirname}/content/event`,
         name: 'event',
       },
@@ -139,6 +146,44 @@ module.exports = {
       options: {
         color: '#00c781',
         showSpinner: false,
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-paginated-collection',
+      options: {
+        name: 'blog-posts',
+        pageSize: 10,
+        query: `
+          {
+            allMarkdownRemark( filter: { fields: 
+              { sourceInstanceName: { eq: "blog" } } }
+            sort: { fields: [frontmatter___date], order: DESC }) {
+              nodes {
+                id
+                frontmatter {
+                  title
+                  date
+                  description
+                  author
+                  tags
+                  path
+                }
+                excerpt
+              }
+            }
+          }
+        `,
+        normalizer: ({ data }) =>
+          data.allMarkdownRemark.nodes.map(node => ({
+            id: node.id,
+            title: node.frontmatter.title,
+            date:node.frontmatter.date,
+            description: node.excerpt,
+            author: node.frontmatter.author,
+            tags:node.frontmatter.tags,
+            path: `/blog/${node.frontmatter.path}`,
+
+          })),
       },
     },
     {

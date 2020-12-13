@@ -21,6 +21,7 @@
     "gatsby-plugin-manifest": "2.4.34",
     "gatsby-plugin-netlify-cms": "^4.6.0",
     "gatsby-plugin-nprogress": "2.6.0",
+    "gatsby-plugin-paginated-collection": "^0.2.3",
     "gatsby-plugin-react-helmet": "^3.6.0",
     "gatsby-plugin-sharp": "2.6.42",
     "gatsby-plugin-styled-components": "^3.6.0",
