@@ -31,7 +31,7 @@ export const CommunityCard = ({
         // fill="horizontal"
         justify="between"
         align="start"
-        gap='medium'
+        gap="medium"
         pad={{ horizontal: 'small' }}
         // pad={{ horizontal: 'small', vertical: 'small ', ...pad }}
         {...rest}
