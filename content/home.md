@@ -1,7 +1,7 @@
 ---
 title: Home
 author: HPE
-image: /img/hpedev.png  
+image: /img/hpedev.svg  
 ---
 # HPE Developer
 
