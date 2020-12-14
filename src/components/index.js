@@ -13,6 +13,7 @@ import SEO from './Seo';
 import Share from './Share';
 import SocialMedia from './SocialMedia';
 import PlatformCard from './PlatformCard';
+import CommunityCard from './CommunityCard';
 
 export {
   Aside,
@@ -30,4 +31,5 @@ export {
   Share,
   SocialMedia,
   PlatformCard,
+  CommunityCard,
 };
