@@ -1,13 +1,12 @@
 ---
 title: HPE Dev Workshops-on-Demand
-width: medium
-align: left
+width: large
 category: Workshop
 priority: 3
-externallink: https://design-system.hpe.design/
-label: Learn more
+image: /img/home/workshops-on-demand.svg
+link: https://design-system.hpe.design
 ---
-![workshopsondemand](/img/home/workshops-on-demand.svg)
-
 ## HPE Dev Workshops-on-Demand
 Get hands on experience with our technologies through various Workshops-on-Demand.
+
+[Learn More](https://design-system.hpe.design)
