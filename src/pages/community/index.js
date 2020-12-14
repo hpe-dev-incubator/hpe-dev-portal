@@ -25,11 +25,7 @@ function Community({ data }) {
         direction="column"
         wrap
       >
-        <Box
-          direction="row-responsive"
-          align="start"
-          gap="medium"
-        >
+        <Box direction="row-responsive" align="start" gap="medium">
           <Box height="small" width="small">
             <Image fit="contain" src="/img/community/community.svg" />
           </Box>
@@ -38,7 +34,7 @@ function Community({ data }) {
             direction="column"
             pad={{ vertical: 'large', horizontal: 'small' }}
           >
-            <Heading  margin="none">Community</Heading>
+            <Heading margin="none">Community</Heading>
             <Text>
               Build with us, Contribute to the HPE Developer Community
             </Text>
