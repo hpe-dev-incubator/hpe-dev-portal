@@ -133,7 +133,7 @@ export const cardComponents = {
     props: {
       size: 'large',
       style: {
-        //maxWidth: '100%',
+        // maxWidth: '100%',
       },
     },
   },
