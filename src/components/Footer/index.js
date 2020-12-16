@@ -19,7 +19,7 @@ export const Footer = () => (
         </Heading>
         <Button
           align="start"
-          href="https://twitter.com/HPE_DevCom"
+          href="https://slack.hpedev.io/"
           label="Slack Channel"
           target="_blank"
           rel="noopener noreferrer"
