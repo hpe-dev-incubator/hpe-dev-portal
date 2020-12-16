@@ -19,7 +19,7 @@ function Blog({ data }) {
 
   useEffect(() => {
     setCollectionId(latestPage.collection.id);
-  }, [latestPage.collection.id]);
+  }, []);
 
   const loadNextPage = useCallback(async () => {
     if (!latestPage.hasNextPage) return;
@@ -32,7 +32,7 @@ function Blog({ data }) {
 
     setBlogPosts((state) => [...state, ...json.nodes]);
     setLatestPage(json);
-  }, [latestPage, collectionId]);
+  }, [latestPage,collectionId]);
 
   return (
     <Layout title={siteTitle}>
