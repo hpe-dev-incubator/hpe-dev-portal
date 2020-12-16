@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
-import { Box, Heading, Text, Image } from 'grommet';
+import { Box, Heading, Text, Image, Button, Card,Paragraph,
+  CardBody, Grid, CardFooter } from 'grommet';
 
-import { CommunityCard, Layout, SEO } from '../../components';
+import { PageDescription, Layout, SEO } from '../../components';
 import { useSiteMetadata } from '../../hooks/use-site-metadata';
 
 Heading.propTypes = {
@@ -17,52 +18,45 @@ function Community({ data }) {
   return (
     <Layout title={siteTitle}>
       <SEO title="Community" />
-      <Box
-        flex
-        overflow="auto"
-        gap="medium"
-        pad="large"
-        direction="column"
-        wrap
+      <PageDescription
+        image="/img/community/community.svg" title="Community" description1="Build with us," description2="Contribute to the HPE Developer Community"
       >
-        <Box direction="row-responsive" align="start" gap="medium">
-          <Box height="small" width="small">
-            <Image fit="contain" src="/img/community/community.svg" />
-          </Box>
-          <Box
-            align="start"
-            direction="column"
-            pad={{ vertical: 'large', horizontal: 'small' }}
-          >
-            <Heading margin="none">Community</Heading>
-            <Text>
-              Build with us, Contribute to the HPE Developer Community
-            </Text>
-          </Box>
-        </Box>
         <Box
-          flex={false}
-          direction="row"
-          wrap
           border={{
             side: 'top',
             color: 'orange',
             size: 'small',
           }}
-          gap="medium"
+          fill="horizontal"
         >
+          <Grid gap="medium"  columns={{ count: 'fit', size: 'small' }}>
           {communities.map(({ node }) => (
-            <CommunityCard
-              key={node.frontmatter.title}
-              title={node.frontmatter.title}
-              link={node.frontmatter.link}
-              linkname={node.frontmatter.linkname}
-              image={node.frontmatter.image}
-              description={node.frontmatter.description}
-            />
+            <Card elevation="medium" pad="large">
+              <CardBody pad="medium" align="start" >
+               {node.frontmatter.image && <Image src={node.frontmatter.image} />}
+              </CardBody>
+              <Box pad={{ horizontal: 'medium' }} responsive={false}>
+                <Heading margin="none" level="4">
+                  {node.frontmatter.title}
+                </Heading>
+                <Paragraph margin={{ top: 'none' }}> {node.frontmatter.description}</Paragraph>
+              </Box>
+              <CardFooter>
+                <Box wrap>
+                  <Button
+                    color="yellow"
+                    primary
+                    label={node.frontmatter.linkname}
+                    href={node.frontmatter.link}
+                    target="_Blank"
+                  />
+                </Box>
+              </CardFooter>
+            </Card>
           ))}
+          </Grid>
         </Box>
-      </Box>
+      </PageDescription>
     </Layout>
   );
 }
