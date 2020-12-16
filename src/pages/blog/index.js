@@ -18,8 +18,8 @@ function Blog({ data }) {
   const [collectionId, setCollectionId] = useState(initialPage.collection.id);
 
   useEffect(() => {
-    setCollectionId(latestPage.collection.id)
-  }, []);
+    setCollectionId(latestPage.collection.id);
+  }, [latestPage.collection.id]);
 
   const loadNextPage = useCallback(async () => {
     if (!latestPage.hasNextPage) return;
@@ -32,7 +32,7 @@ function Blog({ data }) {
 
     setBlogPosts((state) => [...state, ...json.nodes]);
     setLatestPage(json);
-  }, [latestPage]);
+  }, [latestPage,collectionId]);
 
   return (
     <Layout title={siteTitle}>
@@ -172,7 +172,10 @@ export const pageQuery = graphql`
       }
     }
     featuredblogs: allMarkdownRemark(
-      filter: { fields: { sourceInstanceName: { eq: "blog" }}, frontmatter: { featuredBlog: { eq: true } } }
+      filter: {
+        fields: { sourceInstanceName: { eq: "blog" } }
+        frontmatter: { featuredBlog: { eq: true } }
+      }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
       edges {
