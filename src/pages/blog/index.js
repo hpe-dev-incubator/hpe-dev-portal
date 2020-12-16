@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { graphql, withPrefix } from 'gatsby';
 import { Box, Button, Heading, Image, Text } from 'grommet';
@@ -15,16 +15,18 @@ function Blog({ data }) {
   const initialPage = data.paginatedCollectionPage;
   const [latestPage, setLatestPage] = useState(initialPage);
   const [blogPosts, setBlogPosts] = useState(initialPage.nodes);
+  const [collectionId, setCollectionId] = useState(initialPage.collection.id);
+
+  useEffect(() => {
+    setCollectionId(latestPage.collection.id)
+  }, []);
 
   const loadNextPage = useCallback(async () => {
     if (!latestPage.hasNextPage) return;
-
-    const collectionId = latestPage.collection.id;
     const nextPageId = latestPage.nextPage.id;
     const path = withPrefix(
       `/paginated-data/${collectionId}/${nextPageId}.json`,
     );
-
     const res = await fetch(path);
     const json = await res.json();
 
@@ -170,7 +172,7 @@ export const pageQuery = graphql`
       }
     }
     featuredblogs: allMarkdownRemark(
-      filter: { fields: { sourceInstanceName: { eq: "featuredblogs" } } }
+      filter: { fields: { sourceInstanceName: { eq: "blog" }}, frontmatter: { featuredBlog: { eq: true } } }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
       edges {
