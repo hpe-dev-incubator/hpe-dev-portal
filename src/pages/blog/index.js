@@ -32,7 +32,7 @@ function Blog({ data }) {
 
     setBlogPosts((state) => [...state, ...json.nodes]);
     setLatestPage(json);
-  }, [latestPage,collectionId]);
+  }, [latestPage, collectionId]);
 
   return (
     <Layout title={siteTitle}>
