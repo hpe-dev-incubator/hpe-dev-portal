@@ -2,7 +2,7 @@
 title: HPE GreenLake
 version: v 2.01.8964
 description: A managed cloud experience that accelerates your transformation by helping you to design, build, manage, and optimize your on- and off-premises clouds.
-image: /img/platforms/greenlake.png
+image: /img/platforms/Greenlake.svg
 width: large
 frontpage: true
 priority: 1

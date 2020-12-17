@@ -2,7 +2,7 @@
 title: HPE Nimble Storage
 version: v 6.01.8964
 description: The Cloud Ready storage platform with Predictive Analytics provides robust APIs for service providers and tinkerers alike for the next generation data center.
-image: /img/platforms/nimble.png
+image: /img/platforms/NimbleStorage.svg
 width: large
 frontpage: true
 priority: 3

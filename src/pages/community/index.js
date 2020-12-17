@@ -36,7 +36,7 @@ function Community({ data }) {
         <Box
           border={{
             side: 'top',
-            color: 'orange',
+            color: 'yellow',
             size: 'small',
           }}
           fill="horizontal"

@@ -2,7 +2,7 @@
 title: HPE 3PAR and Primera
 version: v 2.01.8964
 description: The world's most intelligent storage for mission-critical apps that provides an on-demand experience for instant access to data and is consumable as a service.
-image: /img/platforms/3par.png
+image: /img/platforms/3PAR -Primera.svg
 width: large
 frontpage: true
 priority: 1

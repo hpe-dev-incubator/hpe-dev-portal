@@ -2,7 +2,7 @@
 title: iLO RESTful API
 version: v 6.01.8964
 description: Redfish® API conformant for simple and automate remote HPE Server management.
-image: /img/platforms/greenlake.png
+image: /img/platforms/iLOrestfulAPI.svg
 width: medium
 frontpage: true
 priority: 7

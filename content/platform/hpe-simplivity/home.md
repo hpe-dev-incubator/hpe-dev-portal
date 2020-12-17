@@ -2,7 +2,7 @@
 title: Simplivity
 version: v 6.01.8964
 description: An enterprise-grade hyperconverged platform uniting best-in-class data services with the world’s bestselling server.
-image: /img/monster.png
+image: /img/platforms/Simplivity.svg
 width: medium
 frontpage: true
 priority: 6
