@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
-import { Box, Heading, Text, Image } from 'grommet';
+import { Box, Heading, Text, Grid } from 'grommet';
 
-import { PlatformCard, Layout, SEO } from '../../components';
+import { PlatformCard, Layout, SEO, PageDescription } from '../../components';
 import { useSiteMetadata } from '../../hooks/use-site-metadata';
 
 Heading.propTypes = {
@@ -17,32 +17,17 @@ function Platforms({ data }) {
   return (
     <Layout title={siteTitle}>
       <SEO title="Platforms" />
-      <Box
-        flex
-        overflow="auto"
-        gap="medium"
-        pad="large"
-        direction="column"
-        wrap
-      >
-        <Box direction="row-responsive" align="start" gap="medium">
-          <Box>
-            <Image fit="contain" src="/img/platforms/platform.svg" />
-          </Box>
-          <Box
-            align="start"
-            direction="column"
-            pad={{ vertical: 'large', horizontal: 'small' }}
-          >
-            <Heading margin="none">Platforms</Heading>
-            <Text>
-              Get a peek at some of the new technologies we're excited about and
-              think you will be too!
-            </Text>
-          </Box>
-        </Box>
+      <Box flex overflow="auto" gap="large" pad="xlarge" wrap>
+        <PageDescription
+          image="/img/platforms/PlatformsPage.svg"
+          title="Platforms"
+        >
+          <Text>
+            Get a peek at some of the new technologies we're excited about and
+            think you will be too!
+          </Text>
+        </PageDescription>
         <Box
-          flex={false}
           direction="row"
           wrap
           border={{
@@ -50,19 +35,22 @@ function Platforms({ data }) {
             color: 'orange',
             size: 'small',
           }}
-          gap="medium"
+          gap="large"
+          pad={{ top: 'small' }}
         >
-          {platforms.map(({ node }) => (
-            <PlatformCard
-              key={node.id}
-              width="large"
-              align={node.frontmatter.align}
-              content={node.frontmatter.description}
-              link={`/${node.fields.sourceInstanceName}${node.fields.slug}`}
-              image={node.frontmatter.image}
-              title={node.frontmatter.title}
-            />
-          ))}
+          <Grid gap="medium" columns={{ count: 'fit', size: 'large' }}>
+            {platforms.map(({ node }) => (
+              <PlatformCard
+                key={node.id}
+                width={node.frontmatter.width}
+                align={node.frontmatter.align}
+                content={node.frontmatter.description}
+                link={`/${node.fields.sourceInstanceName}${node.fields.slug}`}
+                image={node.frontmatter.image}
+                title={node.frontmatter.title}
+              />
+            ))}
+          </Grid>
         </Box>
       </Box>
     </Layout>

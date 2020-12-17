@@ -10,7 +10,7 @@ const PageDescription = ({ image, title, children }) => {
       gap="large"
       pad={{ vertical: 'large' }}
     >
-      <Box pad={{ horizontal: 'large' }}>
+      <Box>
         <Image src={image} />
       </Box>
       <Box align="start" direction="column">

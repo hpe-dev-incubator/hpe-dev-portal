@@ -2,7 +2,7 @@
 title: Chapel
 version: v 2.01.8964
 description: A programming language designed for productive parallel computing from laptops to supercomputers.
-image: /img/platforms/chapel.png
+image: /img/platforms/Chapel.svg
 width: large
 frontpage: true
 priority: 2

@@ -2,7 +2,7 @@
 title: OneView
 version: v 6.01.8964
 description: The foundation for a software-defined data center.
-image: /img/monster.png
+image: /img/platforms/Oneview.svg
 width: large
 frontpage: true
 priority: 4

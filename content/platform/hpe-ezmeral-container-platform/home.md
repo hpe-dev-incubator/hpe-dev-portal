@@ -2,7 +2,7 @@
 title: HPE Ezmeral Container Platform
 version: v 2.01.8964
 description: A turnkey enterprise-grade container platform for cloud-native and distributed non-cloud native applications with open source Kubernetes.
-image: /img/platforms/ezmeral.png
+image: /img/platforms/EzmeralContainerPatform.svg
 width: large
 frontpage: true
 priority: 1
