@@ -2,7 +2,7 @@
 title: HPE Deep Learning Cookbook
 version: v 2.01.8964
 description: A set of tools to guide the choice of the best hardware/software environment for a given deep learning workload.
-image: /img/platforms/3par.png
+image: /img/platforms/HPEDeepLearningCookbook.svg
 width: large
 frontpage: true
 priority: 1
