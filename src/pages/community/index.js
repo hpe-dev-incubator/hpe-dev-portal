@@ -11,6 +11,7 @@ import {
   CardBody,
   Grid,
   CardFooter,
+  Text,
 } from 'grommet';
 
 import { PageDescription, Layout, SEO } from '../../components';
@@ -27,12 +28,11 @@ function Community({ data }) {
   return (
     <Layout title={siteTitle}>
       <SEO title="Community" />
-      <PageDescription
-        image="/img/community/community.svg"
-        title="Community"
-        description1="Build with us,"
-        description2="Contribute to the HPE Developer Community"
-      >
+      <Box flex overflow="auto" gap="large" pad="xlarge" wrap>
+        <PageDescription image="/img/community/community.svg" title="Community">
+          <Text>Build with us.</Text>
+          <Text>Contribute to the HPE Developer Community</Text>
+        </PageDescription>
         <Box
           border={{
             side: 'top',
@@ -40,32 +40,33 @@ function Community({ data }) {
             size: 'small',
           }}
           fill="horizontal"
+          margin={{ top: 'large' }}
+          pad={{ top: 'small' }}
         >
           <Grid gap="medium" columns={{ count: 'fit', size: 'small' }}>
             {communities.map(({ node }) => (
-              <Card elevation="medium" pad="large">
-                <CardBody pad="medium" align="start">
+              <Card elevation="medium" gap="medium" pad="large">
+                <CardBody pad="none" align="start">
                   {node.frontmatter.image && (
                     <Image src={node.frontmatter.image} />
                   )}
                 </CardBody>
-                <Box pad={{ horizontal: 'medium' }} responsive={false}>
+                <Box responsive={false}>
                   <Heading margin="none" level="4">
                     {node.frontmatter.title}
                   </Heading>
-                  <Paragraph margin={{ top: 'none' }}>
-                    {' '}
+                  <Paragraph margin="none">
                     {node.frontmatter.description}
                   </Paragraph>
                 </Box>
-                <CardFooter>
-                  <Box wrap>
+                <CardFooter pad="none">
+                  <Box wrap align="start">
                     <Button
                       color="yellow"
                       primary
                       label={node.frontmatter.linkname}
                       href={node.frontmatter.link}
-                      target="_Blank"
+                      target="_blank"
                     />
                   </Box>
                 </CardFooter>
@@ -73,7 +74,7 @@ function Community({ data }) {
             ))}
           </Grid>
         </Box>
-      </PageDescription>
+      </Box>
     </Layout>
   );
 }
