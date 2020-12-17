@@ -10,6 +10,7 @@ import SEO from './Seo';
 import Share from './Share';
 import SocialMedia from './SocialMedia';
 import PlatformCard from './PlatformCard';
+import PageDescription from './PageDescription';
 
 export * from './Card';
 export * from './Link';
@@ -28,4 +29,5 @@ export {
   Share,
   SocialMedia,
   PlatformCard,
+  PageDescription,
 };
