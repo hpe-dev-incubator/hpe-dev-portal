@@ -15,6 +15,7 @@ import PageDescription from './PageDescription';
 export * from './Card';
 export * from './Link';
 export * from './Markdown';
+export * from './EventCard';
 
 export {
   Aside,

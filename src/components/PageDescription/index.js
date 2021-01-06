@@ -13,7 +13,7 @@ const PageDescription = ({ image, title, children }) => {
       <Box>
         <Image src={image} />
       </Box>
-      <Box align="start" direction="column">
+      <Box align="start" gap="medium" direction="column">
         <Heading margin="none">{title}</Heading>
         {children}
       </Box>
