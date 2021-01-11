@@ -1,13 +1,20 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { graphql, withPrefix } from 'gatsby';
-import { Box, Button, Heading, Image, Text } from 'grommet';
+import { Box, Button, Text } from 'grommet';
 import { FormDown } from 'grommet-icons';
-import { BlogCard, Layout, SEO } from '../../components';
+import {
+  BlogCard,
+  Layout,
+  SEO,
+  PageDescription,
+  AllBlogsCard,
+  FeaturedBlogCard,
+  SectionHeader,
+} from '../../components';
 import { useSiteMetadata } from '../../hooks/use-site-metadata';
 
 function Blog({ data }) {
-  // const posts = data.blogs.edges;
   const featuredposts = data.featuredblogs.edges;
   const siteMetadata = useSiteMetadata();
   const siteTitle = siteMetadata.title;
@@ -32,71 +39,45 @@ function Blog({ data }) {
 
     setBlogPosts((state) => [...state, ...json.nodes]);
     setLatestPage(json);
-  }, [latestPage,collectionId]);
+  }, [latestPage, collectionId]);
+
+  // Create box for each blog post
+  const listBlogBoxes = blogPosts.map(
+    (blogPost) =>
+      blogPost.url !== '/' && <BlogCard key={blogPost.id} node={blogPost} />,
+  );
 
   return (
     <Layout title={siteTitle}>
       <SEO title="Blog" />
-      <Box flex overflow="auto" gap="medium" pad="large">
-        <Box flex={false} direction="row" pad="large" wrap>
-          <Box height="small" width="small">
-            <Image fit="contain" src="/img/blogs/blogs.svg" />
-          </Box>
-          <Box align="start" pad="large">
-            <Heading level="4" margin="none">
-              Blog
-            </Heading>
-            <Text>
-              Read our blogs on vast range of topics by our community members!
-            </Text>
-          </Box>
-        </Box>
-        <Box>
-          <Heading margin="none" level="4">
-            Featured Blogs
-          </Heading>
-        </Box>
-        <Box
-          flex={false}
-          direction="row"
-          gap="medium"
-          wrap
-          border={{
-            side: 'top',
-            color: 'yellow',
-            size: 'small',
-          }}
-        >
-          {featuredposts.map(
-            ({ node }) =>
-              node.fields.slug !== '/' && (
-                <BlogCard key={node.id} node={node} />
-              ),
-          )}
-        </Box>
-        <Box>
-          <Heading margin="none" level="4">
-            All Blogs
-          </Heading>
-        </Box>
-        <Box
-          flex={false}
-          direction="row"
-          gap="medium"
-          wrap
-          border={{
-            side: 'top',
-            color: 'yellow',
-            size: 'small',
-          }}
-        >
-          {blogPosts.map(
-            (blogPost) =>
-              blogPost.url !== '/' && (
-                <BlogCard key={blogPost.id} node={blogPost} />
-              ),
-          )}
-        </Box>
+      <Box flex overflow="auto" pad="xlarge" wrap>
+        <PageDescription image="/img/blogs/blogs.svg" title="Blog">
+          <Text>
+            Read our blogs on vast range of topics by our community members!
+          </Text>
+        </PageDescription>
+        {featuredposts && featuredposts.length > 0 && (
+          <>
+            <SectionHeader title="Featured Blogs" color="yellow">
+              <FeaturedBlogCard
+                key={featuredposts[0].node.id}
+                node={featuredposts[0].node}
+              />
+              <Box direction="row-responsive" gap="large">
+                {featuredposts.map(
+                  ({ node }, index) =>
+                    node.fields.slug !== '/' &&
+                    index > 0 && <BlogCard key={node.id} node={node} />,
+                )}
+              </Box>
+            </SectionHeader>
+          </>
+        )}
+        <SectionHeader title="All Blogs" color="yellow">
+          <AllBlogsCard gap="large" columns="medium" rows="xsmall">
+            {listBlogBoxes}
+          </AllBlogsCard>
+        </SectionHeader>
         <Box align="center" pad="medium">
           <Button
             icon={<FormDown />}
@@ -117,6 +98,7 @@ Blog.propTypes = {
       edges: PropTypes.arrayOf(
         PropTypes.shape({
           node: PropTypes.shape({
+            id: PropTypes.string.isRequired,
             frontmatter: PropTypes.shape({
               title: PropTypes.string.isRequired,
               author: PropTypes.string.isRequired,
@@ -176,7 +158,7 @@ export const pageQuery = graphql`
         fields: { sourceInstanceName: { eq: "blog" } }
         frontmatter: { featuredBlog: { eq: true } }
       }
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: { fields: [frontmatter___priority], order: ASC }
     ) {
       edges {
         node {

@@ -1,5 +1,4 @@
 import Aside from './Aside';
-import BlogCard from './BlogCard';
 import Content from './Content';
 import Footer from './Footer';
 import Hero from './Hero';
@@ -15,10 +14,10 @@ import PageDescription from './PageDescription';
 export * from './Card';
 export * from './Link';
 export * from './Markdown';
+export * from './BlogCard';
 
 export {
   Aside,
-  BlogCard,
   Content,
   Footer,
   Header,
