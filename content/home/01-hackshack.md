@@ -8,5 +8,3 @@ link: https://hackshack.hpedev.io/
 ---
 ## HPE DEV Hack Shack
 Join the HPE Developer Community at our Virtual Experience to learn more about how HPE and open source technologies work and talk with the teams behind the products.
-
-[Visit the Virtual Hack Shack](https://hackshack.hpedev.io/)
