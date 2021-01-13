@@ -1,35 +1,33 @@
 import React from 'react';
-import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { Box, Heading, Image, Text } from 'grommet';
-import { Link as GatsbyLink } from 'gatsby';
+import { Box, Text, Heading, Image, Card as GrommetCard } from 'grommet';
+import { navigate } from 'gatsby';
 
-const NavLink = styled(GatsbyLink)`
-  text-decoration: none;
-`;
-
-export const PlatformCard = ({ content, link, image, title }) => (
-  <Box elevation="medium" pad="large" direction="row" wrap gap="large">
-    <NavLink to={link}>
-      <Box direction="row-responsive" gap="large" align="center">
-        <Box height="small" width="small">
-          {image && <Image fit="contain" src={image} />}
-        </Box>
+const PlatformCard = ({ description, link, image, title }) => (
+  <GrommetCard
+    elevation="medium"
+    pad="large"
+    gap="large"
+    onClick={link ? () => navigate(link) : undefined}
+  >
+    <Box direction="row-responsive" gap="large" align="center">
+      <Box width="216px" flex={false}>
+        {image && <Image fit="contain" src={image} />}
+      </Box>
+      <Box>
         <Box>
-          <Box>
-            <Heading margin="none" level="4">
-              {title}
-            </Heading>
-            <Text> {content}</Text>
-          </Box>
+          <Heading margin="none" level="4">
+            {title}
+          </Heading>
+          <Text> {description}</Text>
         </Box>
       </Box>
-    </NavLink>
-  </Box>
+    </Box>
+  </GrommetCard>
 );
 
 PlatformCard.propTypes = {
-  content: PropTypes.string,
+  description: PropTypes.string,
   link: PropTypes.string,
   image: PropTypes.string,
   title: PropTypes.string,

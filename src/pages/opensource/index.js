@@ -1,16 +1,35 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
-import { Box, Heading, Text, Image, Button } from 'grommet';
-import { PlatformCard, Layout, SEO } from '../../components';
+import { Box, Text, Button } from 'grommet';
+import {
+  OpenSourceCard,
+  Layout,
+  SEO,
+  PageDescription,
+  ResponsiveGrid,
+} from '../../components';
 import { useSiteMetadata } from '../../hooks/use-site-metadata';
-// Heading.propTypes = {
-//   children: PropTypes.node.isRequired,
-// };
+
+const columns = {
+  small: ['auto'],
+  medium: ['auto', 'auto'],
+  large: ['auto', 'auto', 'auto'],
+  xlarge: ['auto', 'auto', 'auto'],
+};
+
+const rows = {
+  small: ['auto', 'auto', 'auto'],
+  medium: ['auto', 'auto'],
+  large: ['auto'],
+  xlarge: ['auto'],
+};
+
 function Opensource({ data }) {
   const projects = data.allMarkdownRemark.edges;
   const siteMetadata = useSiteMetadata();
   const siteTitle = siteMetadata.title;
+  // Create box for each platform
   // const [index, setIndex] = useState(0);
   // let [categoryMap, setCategoryMap] = useState(new Map());
   // const onActive = nextIndex => setIndex(nextIndex);
@@ -47,30 +66,18 @@ function Opensource({ data }) {
   return (
     <Layout title={siteTitle}>
       <SEO title="Open SOurce" />
-      <Box
-        flex
-        overflow="auto"
-        gap="medium"
-        pad="large"
-        direction="column"
-        wrap
-      >
-        <Box direction="row-responsive" align="start" gap="medium">
-          <Box>
-            <Image fit="contain" src="/img/opensource/opensource.svg" />
-          </Box>
-          <Box
-            align="start"
-            direction="column"
-            pad={{ left: 'small', top: 'none' }}
-            gap="small"
-          >
-            <Heading margin="none">Open Source</Heading>
-            <Text color="strong">
+      <Box flex overflow="auto" gap="large" pad="xlarge" wrap>
+        <PageDescription
+          image="/img/opensource/opensource.svg"
+          title="Open Source"
+          alignSelf="start"
+        >
+          <Box gap="small">
+            <Text>
               We are dedicated to open source innovation through collaboration
               and we are proud to be part of the open source community.
             </Text>
-            <Text color="strong">
+            <Text>
               As the infrastructure of the future moves to open source, HPE
               Developers help lead that charge.
             </Text>
@@ -81,16 +88,9 @@ function Opensource({ data }) {
               rel="noreferrer noopener"
               alignSelf="start"
               label="Visit HPE Open Source"
-              // label={
-              //   <Box pad="xsmall">
-              //     <Text color="text-strong"> Visit HPE Open Source</Text>
-              //   </Box>
-              // }
-            >
-              {' '}
-            </Button>
+            />
           </Box>
-        </Box>
+        </PageDescription>
         {/* <Box gap="medium" pad="medium">
           <Tabs
             // height="medium"
@@ -109,7 +109,6 @@ function Opensource({ data }) {
           </Tabs>
         </Box> */}
         <Box
-          flex={false}
           direction="row"
           wrap
           pad={{ top: 'medium' }}
@@ -119,17 +118,18 @@ function Opensource({ data }) {
             size: 'small',
           }}
         >
-          {projects.map(({ node }) => (
-            <PlatformCard
-              key={node.id}
-              width={node.frontmatter.width}
-              align={node.frontmatter.align}
-              content={node.frontmatter.description}
-              link={`/${node.fields.sourceInstanceName}${node.fields.slug}`}
-              image={node.frontmatter.image}
-              title={node.frontmatter.title}
-            />
-          ))}
+          <ResponsiveGrid gap="large" rows={rows} columns={columns}>
+            {projects.map(({ node }) => (
+              <OpenSourceCard
+                key={node.id}
+                title={node.frontmatter.title}
+                description={node.frontmatter.description}
+                link={node.frontmatter.link}
+                image={node.frontmatter.image}
+                category={node.frontmatter.category}
+              />
+            ))}
+          </ResponsiveGrid>
         </Box>
       </Box>
     </Layout>

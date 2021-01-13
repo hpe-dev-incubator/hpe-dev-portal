@@ -1,19 +1,40 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
-import { Box, Heading, Text, Grid } from 'grommet';
+import { Box, Heading, Text } from 'grommet';
 
-import { PlatformCard, Layout, SEO, PageDescription } from '../../components';
+import {
+  PlatformCard,
+  Layout,
+  SEO,
+  PageDescription,
+  ResponsiveGrid,
+} from '../../components';
 import { useSiteMetadata } from '../../hooks/use-site-metadata';
 
 Heading.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-function Platforms({ data }) {
+const columns = {
+  small: ['auto'],
+  medium: ['auto', 'auto'],
+  large: ['auto', 'auto'],
+  xlarge: ['auto', 'auto'],
+};
+
+const rows = {
+  small: ['auto', 'auto'],
+  medium: ['auto', 'auto'],
+  large: ['auto'],
+  xlarge: ['auto'],
+};
+
+function Platform({ data }) {
   const platforms = data.allMarkdownRemark.edges;
   const siteMetadata = useSiteMetadata();
   const siteTitle = siteMetadata.title;
+
   return (
     <Layout title={siteTitle}>
       <SEO title="Platforms" />
@@ -38,26 +59,25 @@ function Platforms({ data }) {
           gap="large"
           pad={{ top: 'small' }}
         >
-          <Grid gap="medium" columns={{ count: 'fit', size: 'large' }}>
+          <ResponsiveGrid gap="large" rows={rows} columns={columns}>
             {platforms.map(({ node }) => (
               <PlatformCard
                 key={node.id}
-                width={node.frontmatter.width}
-                align={node.frontmatter.align}
-                content={node.frontmatter.description}
+                title={node.frontmatter.title}
+                description={node.frontmatter.description}
                 link={`/${node.fields.sourceInstanceName}${node.fields.slug}`}
                 image={node.frontmatter.image}
-                title={node.frontmatter.title}
+                category={node.frontmatter.category}
               />
             ))}
-          </Grid>
+          </ResponsiveGrid>
         </Box>
       </Box>
     </Layout>
   );
 }
 
-Platforms.propTypes = {
+Platform.propTypes = {
   data: PropTypes.shape({
     allMarkdownRemark: PropTypes.shape({
       edges: PropTypes.arrayOf(
@@ -84,7 +104,7 @@ Platforms.propTypes = {
   }).isRequired,
 };
 
-export default Platforms;
+export default Platform;
 
 export const pageQuery = graphql`
   query {
