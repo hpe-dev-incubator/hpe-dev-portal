@@ -11,11 +11,11 @@ import Share from './Share';
 import SocialMedia from './SocialMedia';
 import PlatformCard from './PlatformCard';
 import PageDescription from './PageDescription';
+import EventCard from './EventCard';
 
 export * from './Card';
 export * from './Link';
 export * from './Markdown';
-export * from './EventCard';
 
 export {
   Aside,
@@ -31,4 +31,5 @@ export {
   SocialMedia,
   PlatformCard,
   PageDescription,
+  EventCard,
 };

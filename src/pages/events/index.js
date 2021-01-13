@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import { Box, Heading, Button } from 'grommet';
 import {
   Layout,
@@ -8,40 +8,38 @@ import {
   PageDescription,
   Card,
   EventCard,
-  PastEventCard,
+  ResponsiveGrid,
 } from '../../components';
 import { useSiteMetadata } from '../../hooks/use-site-metadata';
+
+const columns = {
+  small: ['auto'],
+  medium: ['auto', 'auto'],
+  large: ['auto', 'auto'],
+  xlarge: ['auto', 'auto'],
+};
+
+const rows = {
+  small: ['auto', 'auto', 'auto'],
+  medium: ['auto', 'auto'],
+  large: ['auto'],
+  xlarge: ['auto'],
+};
+
 function Events({ data }) {
   const pastEvents = data.pastEvents.edges;
   const upcomingEvents = data.upcomingEvents.edges;
   const siteMetadata = useSiteMetadata();
   const siteTitle = siteMetadata.title;
 
-  // Create box for each past event
-  const listPastEventBoxes = pastEvents.map(({ node }) => (
-    <EventCard
-      key={node.id}
-      category={node.frontmatter.category}
-      title={node.frontmatter.title}
-      timeframe={node.frontmatter.timeframe}
-      width={node.frontmatter.width}
-      content={node.rawMarkdownBody}
-      link={node.frontmatter.link}
-      image={node.frontmatter.image}
-    />
-  ));
-
   return (
     <Layout title={siteTitle}>
       <SEO title="Events" />
       <Box flex overflow="auto" pad="xlarge" wrap>
         <PageDescription image="/img/events/EventsPage.svg" title="Events">
-          <Button
-            color="blue"
-            primary
-            label="Keep Me Posted"
-            href="/newsletter-signup"
-          />
+          <Link to="/newsletter-signup">
+            <Button color="blue" primary label="Keep Me Posted" />
+          </Link>
         </PageDescription>
         <Box pad="small" margin={{ top: 'large' }}>
           <Heading level="2" margin="none">
@@ -79,9 +77,20 @@ function Events({ data }) {
           }}
           pad={{ top: 'small' }}
         >
-          <PastEventCard gap="large" columns="medium" rows="xsmall">
-            {listPastEventBoxes}
-          </PastEventCard>
+          <ResponsiveGrid gap="large" rows={rows} columns={columns}>
+            {pastEvents.map(({ node }) => (
+              <EventCard
+                key={node.id}
+                category={node.frontmatter.category}
+                title={node.frontmatter.title}
+                timeframe={node.frontmatter.timeframe}
+                width={node.frontmatter.width}
+                content={node.rawMarkdownBody}
+                link={node.frontmatter.link}
+                image={node.frontmatter.image}
+              />
+            ))}
+          </ResponsiveGrid>
         </Box>
       </Box>
     </Layout>
