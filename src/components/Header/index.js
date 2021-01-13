@@ -17,7 +17,7 @@ function Header() {
       </Link>
       <Box direction="row" gap="medium" justify="center">
         <Link to="/opensource">Open Source</Link>
-        <Link to="/platforms">Platforms</Link>
+        <Link to="/platform">Platforms</Link>
         <Link to="/events">Events</Link>
         <Link to="/blog">Blog</Link>
         <Link to="/newsletter">Newsletter</Link>

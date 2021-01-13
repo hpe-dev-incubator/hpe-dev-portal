@@ -8,8 +8,10 @@ import Layout from './Layout';
 import SEO from './Seo';
 import Share from './Share';
 import SocialMedia from './SocialMedia';
-import PlatformCard from './PlatformCard';
 import PageDescription from './PageDescription';
+import ResponsiveGrid from './ResponsiveGrid';
+import PlatformCard from './PlatformCard';
+import OpenSourceCard from './OpenSourceCard';
 
 export * from './Card';
 export * from './Link';
@@ -27,6 +29,8 @@ export {
   SEO,
   Share,
   SocialMedia,
-  PlatformCard,
   PageDescription,
+  ResponsiveGrid,
+  PlatformCard,
+  OpenSourceCard,
 };
