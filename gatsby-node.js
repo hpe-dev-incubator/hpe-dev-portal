@@ -4,10 +4,10 @@ const path = require('path');
 
 const { createFilePath } = require('gatsby-source-filesystem');
 
-const escapeRegExp = string => string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+const escapeRegExp = (string) => string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
-const arrayToRE = a =>
-  a ? '/^' + a.map(str => `(${escapeRegExp(str)})`).join('|') + '$/i' : ''; // eslint-disable-line
+const arrayToRE = (a) =>
+  a ? '/^' + a.map((str) => `(${escapeRegExp(str)})`).join('|') + '$/i' : ''; // eslint-disable-line
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
@@ -72,7 +72,7 @@ collection.pages.forEach(page=>(
         }
       }
     `,
-  ).then(result => {
+  ).then((result) => {
     if (result.errors) {
       throw result.errors;
     }
@@ -147,7 +147,7 @@ collection.pages.forEach(page=>(
       }
     });
     const tags = result.data.tagsGroup.group;
-    tags.forEach(tag => {
+    tags.forEach((tag) => {
       console.log(`Create pages /blog/tag/${tag.fieldValue.toLowerCase()}/`);
       console.log('------------------------------');
       createPage({
@@ -167,7 +167,7 @@ exports.onCreatePage = ({ page, actions }) => {
   const { deletePage, createPage } = actions;
 
   console.log(`onCreatePage ${page.componentPath}`);
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     // if the page component is the index page component
     if (page.componentPath.indexOf('/src/pages/Home/index.js') >= 0) {
       deletePage(page);
@@ -200,4 +200,21 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       value: sourceInstanceName,
     });
   }
+};
+
+// Filter the events based on the end date
+exports.createSchemaCustomization = ({ actions, schema }) => {
+  actions.createTypes([
+    schema.buildObjectType({
+      name: 'MarkdownRemark',
+      interfaces: ['Node'],
+      fields: {
+        isFuture: {
+          type: 'Boolean!',
+          resolve: (source) =>
+            new Date(source.frontmatter.dateEnd) > new Date(),
+        },
+      },
+    }),
+  ]);
 };

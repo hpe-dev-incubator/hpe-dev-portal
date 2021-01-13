@@ -9,6 +9,7 @@ import SEO from './Seo';
 import Share from './Share';
 import SocialMedia from './SocialMedia';
 import PageDescription from './PageDescription';
+import EventCard from './EventCard';
 import ResponsiveGrid from './ResponsiveGrid';
 import PlatformCard from './PlatformCard';
 import OpenSourceCard from './OpenSourceCard';
@@ -30,6 +31,7 @@ export {
   Share,
   SocialMedia,
   PageDescription,
+  EventCard,
   ResponsiveGrid,
   PlatformCard,
   OpenSourceCard,
