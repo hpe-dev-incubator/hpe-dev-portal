@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import remark from 'remark';
 import strip from 'strip-markdown';
@@ -8,17 +7,11 @@ import {
   Heading,
   Text,
   Image,
-  Grid,
-  ResponsiveContext,
   Card as GrommetCard,
   CardHeader,
   Paragraph,
 } from 'grommet';
-import { Link as GatsbyLink, navigate } from 'gatsby';
-
-const NavLink = styled(GatsbyLink)`
-  text-decoration: none;
-`;
+import { navigate } from 'gatsby';
 
 const dateFormat = Intl.DateTimeFormat('default', {
   year: 'numeric',
@@ -36,70 +29,6 @@ const stripMarkdown = (markdown) => {
   return text;
 };
 
-const columns = {
-  small: ['auto'],
-  medium: ['auto', 'auto'],
-  large: ['auto', 'auto', 'auto', 'auto'],
-  xlarge: ['auto', 'auto', 'auto', 'auto'],
-};
-
-const rows = {
-  small: ['auto', 'auto', 'auto'],
-  medium: ['auto', 'auto'],
-  large: ['auto'],
-  xlarge: ['auto'],
-};
-
-export const AllBlogsCard = ({
-  children,
-  overrideColumns,
-  overrideRows,
-  areas,
-  ...props
-}) => (
-  <ResponsiveContext.Consumer>
-    {(size) => {
-      // Take into consideration if not array is sent but a simple string
-      let columnsVal = columns;
-      if (columns) {
-        if (columns[size]) {
-          columnsVal = columns[size];
-        }
-      }
-
-      let rowsVal = rows;
-      if (rows) {
-        if (rows[size]) {
-          rowsVal = rows[size];
-        }
-      }
-
-      // Also if areas is a simple array not an object of arrays for
-      // different sizes
-      let areasVal = areas;
-      if (areas && !Array.isArray(areas)) areasVal = areas[size];
-
-      return (
-        <Grid
-          {...props}
-          areas={!areasVal ? undefined : areasVal}
-          rows={!rowsVal ? size : rowsVal}
-          columns={!columnsVal ? size : columnsVal}
-        >
-          {children}
-        </Grid>
-      );
-    }}
-  </ResponsiveContext.Consumer>
-);
-
-AllBlogsCard.propTypes = {
-  overrideColumns: PropTypes.string,
-  children: PropTypes.node,
-  overrideRows: PropTypes.string,
-  areas: PropTypes.string,
-};
-
 export const BlogCard = ({ node, ...rest }) => (
   <GrommetCard
     pad="large"
@@ -108,27 +37,28 @@ export const BlogCard = ({ node, ...rest }) => (
     {...rest}
     elevation="medium"
     wrap
+    onClick={
+      node.path || node.frontmatter.path
+        ? () => navigate(node.path || node.frontmatter.path)
+        : undefined
+    }
   >
-    <NavLink to={`${node.path || node.frontmatter.path}`}>
-      <Box gap="small">
-        <Box align="start">
-          <Image src="/img/blogs/Avatar1.svg" />
-        </Box>
-        <Box align="start">
-          <Text color="text">{node.author || node.frontmatter.author}</Text>
-        </Box>
-        <Heading level={4} margin="none" color="text">
-          {node.title || node.frontmatter.title}
-        </Heading>
-        {(node.date || node.frontmatter.date) && (
-          <Text color="border">
-            {`${dateFormat.format(
-              new Date(node.date || node.frontmatter.date),
-            )}`}
-          </Text>
-        )}
+    <Box gap="small">
+      <Box align="start">
+        <Image src="/img/blogs/Avatar1.svg" />
       </Box>
-    </NavLink>
+      <Box align="start">
+        <Text>{node.author || node.frontmatter.author}</Text>
+      </Box>
+      <Heading level={4} margin="none">
+        {node.title || node.frontmatter.title}
+      </Heading>
+      {(node.date || node.frontmatter.date) && (
+        <Text color="text-weak">
+          {`${dateFormat.format(new Date(node.date || node.frontmatter.date))}`}
+        </Text>
+      )}
+    </Box>
   </GrommetCard>
 );
 
@@ -166,7 +96,7 @@ export const FeaturedBlogCard = ({ node, ...rest }) => (
     </CardHeader>
     <Box align="start" pad="large" gap="medium">
       <Box gap="small">
-        <Heading level={4} margin="none" color="text">
+        <Heading level={4} margin="none">
           {node.frontmatter.title}
         </Heading>
         <Paragraph margin="none">
@@ -177,7 +107,9 @@ export const FeaturedBlogCard = ({ node, ...rest }) => (
         <Image fit="contain" src="/img/blogs/Avatar1.svg" />
         <Box align="start" alignSelf="center">
           <Text weight="bold">{node.frontmatter.author}</Text>
-          <Text>{dateFormat.format(new Date(node.frontmatter.date))}</Text>
+          <Text color="text-weak">
+            {dateFormat.format(new Date(node.frontmatter.date))}
+          </Text>
         </Box>
       </Box>
     </Box>

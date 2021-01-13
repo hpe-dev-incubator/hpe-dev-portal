@@ -8,12 +8,25 @@ import {
   Layout,
   SEO,
   PageDescription,
-  AllBlogsCard,
   FeaturedBlogCard,
   SectionHeader,
+  ResponsiveGrid,
 } from '../../components';
 import { useSiteMetadata } from '../../hooks/use-site-metadata';
 
+const columns = {
+  small: ['auto'],
+  medium: ['auto', 'auto'],
+  large: ['auto', 'auto', 'auto', 'auto'],
+  xlarge: ['auto', 'auto', 'auto', 'auto'],
+};
+
+const rows = {
+  small: ['auto', 'auto', 'auto'],
+  medium: ['auto', 'auto'],
+  large: ['auto'],
+  xlarge: ['auto'],
+};
 function Blog({ data }) {
   const featuredposts = data.featuredblogs.edges;
   const siteMetadata = useSiteMetadata();
@@ -40,12 +53,6 @@ function Blog({ data }) {
     setBlogPosts((state) => [...state, ...json.nodes]);
     setLatestPage(json);
   }, [latestPage, collectionId]);
-
-  // Create box for each blog post
-  const listBlogBoxes = blogPosts.map(
-    (blogPost) =>
-      blogPost.url !== '/' && <BlogCard key={blogPost.id} node={blogPost} />,
-  );
 
   return (
     <Layout title={siteTitle}>
@@ -74,9 +81,14 @@ function Blog({ data }) {
           </>
         )}
         <SectionHeader title="All Blogs" color="yellow">
-          <AllBlogsCard gap="large" columns="medium" rows="xsmall">
-            {listBlogBoxes}
-          </AllBlogsCard>
+          <ResponsiveGrid gap="large" rows={rows} columns={columns}>
+            {blogPosts.map(
+              (blogPost) =>
+                blogPost.url !== '/' && (
+                  <BlogCard key={blogPost.id} node={blogPost} />
+                ),
+            )}
+          </ResponsiveGrid>
         </SectionHeader>
         <Box align="center" pad="medium">
           <Button
