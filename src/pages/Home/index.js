@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { graphql } from 'gatsby';
+import { graphql, navigate } from 'gatsby';
 import {
   Box,
   Card as GrommetCard,
@@ -40,8 +40,12 @@ OpenSourceCard.propTypes = {
   children: PropTypes.node,
 };
 
-const Project = ({ image, title, description }) => (
-  <Box width="200px" height="308px">
+const Project = ({ image, title, description, link }) => (
+  <Box
+    width="200px"
+    height="308px"
+    onClick={link ? () => navigate(link) : undefined}
+  >
     <Box fill="horizontal" height="96px" flex={false}>
       <Image src={image} />
     </Box>
@@ -66,6 +70,7 @@ Project.propTypes = {
   image: PropTypes.string,
   title: PropTypes.string,
   description: PropTypes.string,
+  link: PropTypes.string,
 };
 
 const Home = ({ data }) => {
@@ -112,6 +117,7 @@ const Home = ({ data }) => {
                 image={node.frontmatter.image}
                 title={node.frontmatter.title}
                 description={node.frontmatter.description}
+                link={node.frontmatter.link}
               />
             ))}
         </OpenSourceCard>
@@ -225,6 +231,7 @@ export const pageQuery = graphql`
             image
             frontpage
             priority
+            link
           }
         }
       }

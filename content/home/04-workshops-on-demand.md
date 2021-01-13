@@ -8,5 +8,3 @@ link: https://design-system.hpe.design
 ---
 ## HPE Dev Workshops-on-Demand
 Get hands on experience with our technologies through various Workshops-on-Demand.
-
-[Learn More](https://design-system.hpe.design)
