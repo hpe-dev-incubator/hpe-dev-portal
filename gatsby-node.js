@@ -1,5 +1,7 @@
 /* eslint-disable no-console */
+const fs = require('fs');
 const path = require('path');
+
 const { createFilePath } = require('gatsby-source-filesystem');
 
 const escapeRegExp = (string) => string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -7,7 +9,7 @@ const escapeRegExp = (string) => string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 const arrayToRE = (a) =>
   a ? '/^' + a.map((str) => `(${escapeRegExp(str)})`).join('|') + '$/i' : ''; // eslint-disable-line
 
-exports.createPages = ({ graphql, actions }) => {
+exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
 
   const blogPost = path.resolve('./src/templates/blog-post.js');
@@ -15,6 +17,32 @@ exports.createPages = ({ graphql, actions }) => {
   const event = path.resolve('./src/templates/event.js');
   const newsletter = path.resolve('./src/templates/newsletter.js');
   const tagTemplate = path.resolve('./src/templates/tags.js');
+
+  const queryResult = await graphql(`
+  {
+    paginatedCollection(name: { eq: "blog-posts" }) {
+      id
+      pages {
+        id
+        nodes
+        hasNextPage
+        nextPage {
+          id
+        }
+      }
+    }
+  }
+`);
+
+const collection = queryResult.data.paginatedCollection;
+const dir = path.join(__dirname, 'public', 'paginated-data', collection.id);
+fs.mkdirSync(dir, { recursive: true });
+collection.pages.forEach(page=>(
+  fs.writeFileSync(
+    path.resolve(dir, `${page.id}.json`),
+    JSON.stringify(page),
+  )
+));
 
   return graphql(
     `
@@ -60,10 +88,10 @@ exports.createPages = ({ graphql, actions }) => {
             index === posts.length - 1 ? null : posts[index + 1].node;
           const next = index === 0 ? null : posts[index - 1].node;
           const { sourceInstanceName, slug } = post.node.fields;
-          console.log(
-            `Create pages /${sourceInstanceName}${slug} from ${slug}`,
-          );
-          console.log('------------------------------');
+          // console.log(
+          //   `Create pages /${sourceInstanceName}${slug} from ${slug}`,
+          // );
+          // console.log('------------------------------');
           createPage({
             path: `/${sourceInstanceName}${slug}`,
             component: blogPost,

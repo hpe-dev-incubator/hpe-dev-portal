@@ -4,6 +4,8 @@ date: 2018-10-11T15:14:06.880Z
 author: Brad Stanley 
 tags: ["hpe-oneview-global-dashboard"]
 path: accessing-the-hpe-oneview-global-dashboard-api
+featuredBlog: true
+priority: 4
 ---
 By Brad Stanley
 

@@ -1,5 +1,4 @@
 import Aside from './Aside';
-import BlogCard from './BlogCard';
 import Content from './Content';
 import Footer from './Footer';
 import Hero from './Hero';
@@ -9,17 +8,19 @@ import Layout from './Layout';
 import SEO from './Seo';
 import Share from './Share';
 import SocialMedia from './SocialMedia';
-import PlatformCard from './PlatformCard';
 import PageDescription from './PageDescription';
 import EventCard from './EventCard';
+import ResponsiveGrid from './ResponsiveGrid';
+import PlatformCard from './PlatformCard';
+import OpenSourceCard from './OpenSourceCard';
 
 export * from './Card';
 export * from './Link';
 export * from './Markdown';
+export * from './BlogCard';
 
 export {
   Aside,
-  BlogCard,
   Content,
   Footer,
   Header,
@@ -29,7 +30,9 @@ export {
   SEO,
   Share,
   SocialMedia,
-  PlatformCard,
   PageDescription,
   EventCard,
+  ResponsiveGrid,
+  PlatformCard,
+  OpenSourceCard,
 };
