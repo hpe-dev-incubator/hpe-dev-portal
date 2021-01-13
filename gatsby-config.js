@@ -4,11 +4,11 @@ require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 });
 
-const lunrHighlightPlugin = () => builder => {
+const lunrHighlightPlugin = () => (builder) => {
   builder.metadataWhitelist.push('position');
 };
 
-const stripMarkdown = markdown => {
+const stripMarkdown = (markdown) => {
   let text = markdown;
   remark()
     .use(strip)
@@ -149,6 +149,43 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-plugin-paginated-collection',
+      options: {
+        name: 'blog-posts',
+        pageSize: 12,
+        query: `
+          {
+            allMarkdownRemark( filter: { fields: 
+              { sourceInstanceName: { eq: "blog" } } }
+            sort: { fields: [frontmatter___date], order: DESC }) {
+              nodes {
+                id
+                frontmatter {
+                  title
+                  date
+                  description
+                  author
+                  tags
+                  path
+                }
+                excerpt
+              }
+            }
+          }
+        `,
+        normalizer: ({ data }) =>
+          data.allMarkdownRemark.nodes.map((node) => ({
+            id: node.id,
+            title: node.frontmatter.title,
+            date: node.frontmatter.date,
+            description: node.excerpt,
+            author: node.frontmatter.author,
+            tags: node.frontmatter.tags,
+            path: `/blog/${node.frontmatter.path}`,
+          })),
+      },
+    },
+    {
       resolve: 'gatsby-plugin-lunr',
       options: {
         languages: [{ name: 'en', plugins: [lunrHighlightPlugin] }],
@@ -160,26 +197,26 @@ module.exports = {
           { name: 'path', store: true },
           { name: 'sourceInstanceName', store: true },
         ],
-        filterNodes: node => !!node.frontmatter,
+        filterNodes: (node) => !!node.frontmatter,
         // How to resolve each field's value for a supported node type
         resolvers: {
           // For any node of type MarkdownRemark, list how to resolve the
           // fields' values
           MarkdownRemark: {
-            title: node => node.frontmatter.title,
-            tags: node =>
+            title: (node) => node.frontmatter.title,
+            tags: (node) =>
               node.frontmatter.tags
                 ? node.frontmatter.tags.join(', ')
                 : undefined,
-            body: node => stripMarkdown(node.rawMarkdownBody),
-            path: node =>
+            body: (node) => stripMarkdown(node.rawMarkdownBody),
+            path: (node) =>
               node.fields.sourceInstanceName === 'homepanels'
                 ? '/'
                 : `${node.fields.sourceInstanceName}${node.fields.slug.replace(
                     /\/aside[/]?$/,
                     '/home',
                   )}`,
-            sourceInstanceName: node => node.fields.sourceInstanceName,
+            sourceInstanceName: (node) => node.fields.sourceInstanceName,
           },
         },
       },

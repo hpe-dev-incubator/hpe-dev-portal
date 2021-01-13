@@ -2,8 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import remark from 'remark';
 import strip from 'strip-markdown';
-import { Box, Heading, Paragraph, Markdown, Text } from 'grommet';
-import { Link } from '..';
+import {
+  Box,
+  Heading,
+  Text,
+  Image,
+  Card as GrommetCard,
+  CardHeader,
+  Paragraph,
+} from 'grommet';
+import { navigate } from 'gatsby';
 
 const dateFormat = Intl.DateTimeFormat('default', {
   year: 'numeric',
@@ -22,55 +30,36 @@ const stripMarkdown = (markdown) => {
 };
 
 export const BlogCard = ({ node, ...rest }) => (
-  <Box
-    margin={{
-      left: 'large',
-      right: 'large',
-    }}
-    pad={{
-      bottom: 'large',
-      top: 'large',
-    }}
-    gap="medium"
-    border={{
-      side: 'bottom',
-      color: 'light-2',
-      size: 'medium',
-    }}
-    justify="center"
+  <GrommetCard
+    pad="large"
+    direction="row"
+    justify="between"
     {...rest}
+    elevation="medium"
+    wrap
+    onClick={
+      node.path || node.frontmatter.path
+        ? () => navigate(node.path || node.frontmatter.path)
+        : undefined
+    }
   >
-    <Box>
-      {node.frontmatter.date && node.frontmatter.author && (
-        <Markdown>
-          {`${dateFormat.format(new Date(node.frontmatter.date))} by **${
-            node.frontmatter.author
-          }**`}
-        </Markdown>
-      )}
-      <Heading
-        level={2}
-        size="large"
-        margin={{ top: 'none', bottom: 'xsmall' }}
-      >
-        {node.frontmatter.title}
+    <Box gap="small">
+      <Box align="start">
+        <Image src="/img/blogs/Avatar1.svg" />
+      </Box>
+      <Box align="start">
+        <Text>{node.author || node.frontmatter.author}</Text>
+      </Box>
+      <Heading level={4} margin="none">
+        {node.title || node.frontmatter.title}
       </Heading>
-      {node.frontmatter.version && (
-        <Text size="small" color="neutral-4">
-          {node.frontmatter.version}
+      {(node.date || node.frontmatter.date) && (
+        <Text color="text-weak">
+          {`${dateFormat.format(new Date(node.date || node.frontmatter.date))}`}
         </Text>
       )}
     </Box>
-    <Box width="large">
-      <Paragraph margin="none">
-        {node.frontmatter.description || stripMarkdown(node.excerpt)}
-      </Paragraph>
-    </Box>
-    <Link
-      to={`/${node.fields.sourceInstanceName}${node.fields.slug}`}
-      label="Read more >"
-    />
-  </Box>
+  </GrommetCard>
 );
 
 BlogCard.propTypes = {
@@ -79,10 +68,13 @@ BlogCard.propTypes = {
       title: PropTypes.string.isRequired,
       author: PropTypes.string,
       date: PropTypes.string,
-      description: PropTypes.string,
-      version: PropTypes.string,
-    }).isRequired,
-    excerpt: PropTypes.string.isRequired,
+      path: PropTypes.string,
+    }),
+    title: PropTypes.string,
+    author: PropTypes.string,
+    date: PropTypes.string,
+    path: PropTypes.string,
+    excerpt: PropTypes.string,
     fields: PropTypes.shape({
       slug: PropTypes.string.isRequired,
       sourceInstanceName: PropTypes.string.isRequired,
@@ -90,4 +82,67 @@ BlogCard.propTypes = {
   }).isRequired,
 };
 
-export default BlogCard;
+export const FeaturedBlogCard = ({ node, ...rest }) => (
+  <GrommetCard
+    elevation="medium"
+    flex="grow"
+    {...rest}
+    onClick={
+      node.frontmatter.path ? () => navigate(node.frontmatter.path) : undefined
+    }
+  >
+    <CardHeader justify="end" pad={{ vertical: 'small', horizontal: 'medium' }}>
+      <Text color="text-weak">{node.frontmatter.tags}</Text>
+    </CardHeader>
+    <Box align="start" pad="large" gap="medium">
+      <Box gap="small">
+        <Heading level={4} margin="none">
+          {node.frontmatter.title}
+        </Heading>
+        <Paragraph margin="none">
+          {node.frontmatter.description || stripMarkdown(node.excerpt)}
+        </Paragraph>
+      </Box>
+      <Box align="start" direction="row" gap="small">
+        <Image fit="contain" src="/img/blogs/Avatar1.svg" />
+        <Box align="start" alignSelf="center">
+          <Text weight="bold">{node.frontmatter.author}</Text>
+          <Text color="text-weak">
+            {dateFormat.format(new Date(node.frontmatter.date))}
+          </Text>
+        </Box>
+      </Box>
+    </Box>
+  </GrommetCard>
+);
+
+FeaturedBlogCard.propTypes = BlogCard.propTypes;
+
+export const SectionHeader = ({ color, title, children }) => {
+  return (
+    <>
+      <Box pad="small" margin={{ top: 'large' }}>
+        <Heading margin="none" level="2">
+          {title}
+        </Heading>
+      </Box>
+      <Box
+        gap="large"
+        border={{
+          side: 'top',
+          color,
+          size: 'small',
+        }}
+        pad={{ top: 'small' }}
+      >
+        {children}
+      </Box>
+    </>
+  );
+};
+
+SectionHeader.propTypes = {
+  color: PropTypes.string,
+  title: PropTypes.string,
+  children: PropTypes.node.isRequired,
+};
