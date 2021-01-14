@@ -8,10 +8,6 @@ tags:
   - ezmeral-container-platform
 path: making-ai-a-reality
 ---
-Making AI a Reality 
-
-By Ellen Friedman   
-
 *Main body of this blog post was originally published on [H2O.ai blog](https://www.h2o.ai/blog/making-ai-a-reality/). Published here with permission.*
 
 Do you want to make AI a part of your company? You can’t just mandate AI. But you can lead by example. 
