@@ -1,7 +1,7 @@
 ---
 title: Authenticating against the Composable API
 date: 2017-09-06T17:11:08.159Z
-author: Zorro
+author: Zorro et Bernardo
 tags:
   - HPE-OneView
   - OneView
