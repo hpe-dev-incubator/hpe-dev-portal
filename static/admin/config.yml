@@ -1,8 +1,9 @@
 backend:
  name: github
  repo: hpe-dev-incubator/hpe-dev-portal
- branch: master
- publish_mode: editorial_workflow
+ branch: development
+ 
+publish_mode: editorial_workflow
 
 media_folder: static/img
 public_folder: /img
