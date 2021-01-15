@@ -1,7 +1,11 @@
 backend:
  name: github
  repo: hpe-dev-incubator/hpe-dev-portal
- branch: master
+ branch: development
+ accept_roles: #optional - accepts all users if left out
+   - admin
+   - blog-edirotbi
+   - platform-owner
 
 publish_mode: editorial_workflow
 
