@@ -2,15 +2,18 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
-import { Box, Heading, Text } from 'grommet';
+import { Box, Heading, Text, Image } from 'grommet';
+import { FormPreviousLink } from 'grommet-icons';
 import {
   BlogCard,
   Content,
   Layout,
   Markdown,
   SEO,
-  Link,
   Aside,
+  SectionHeader,
+  ResponsiveGrid,
+  ButtonLink,
 } from '../components';
 import { useSiteMetadata } from '../hooks/use-site-metadata';
 
@@ -23,16 +26,27 @@ const MarkdownLayout = styled(Markdown)`
   }
 `;
 
+const columns = {
+  small: ['auto'],
+  medium: ['auto', 'auto'],
+  large: ['auto', 'auto', 'auto', 'auto'],
+  xlarge: ['auto', 'auto', 'auto', 'auto'],
+};
+const rows = {
+  small: ['auto', 'auto', 'auto'],
+  medium: ['auto', 'auto'],
+  large: ['auto'],
+  xlarge: ['auto'],
+};
+
 function PlatformTemplate({ data }) {
   const post = data.markdownRemark;
-  const { slug } = post.fields;
   const { edges: blogs } = data.blogs;
   const { rawMarkdownBody: aside } = data.aside ? data.aside : false;
   const siteMetadata = useSiteMetadata();
   const siteTitle = siteMetadata.title;
   const { rawMarkdownBody, excerpt } = post;
-  const { title, description } = post.frontmatter;
-  const homeRoute = `/platform/${slug.split('/')[1]}/home`;
+  const { title, description, image } = post.frontmatter;
   return (
     <Layout title={siteTitle}>
       <SEO title={title} description={description || excerpt} />
@@ -42,37 +56,31 @@ function PlatformTemplate({ data }) {
             pad={{ vertical: 'large', horizontal: 'large' }}
             direction="column"
           >
-            <Link to={homeRoute}>
-              <Heading
-                margin={{
-                  bottom: 'medium',
-                  left: 'none',
-                  right: 'none',
-                  top: 'none',
-                }}
-              >
-                {title}
-              </Heading>
-            </Link>
+            <Image src={image} />
             {aside && <Aside>{aside}</Aside>}
           </Box>
-          <Content gap="medium" width="large" margin={{ vertical: 'large' }}>
+          <Content gap="medium" margin={{ vertical: 'large' }}>
+            <Heading margin="none">{title}</Heading>
             <Text size="xlarge">{description}</Text>
             <MarkdownLayout>{rawMarkdownBody}</MarkdownLayout>
+            {blogs.length > 0 && (
+              <SectionHeader title="Related Blogs" color="border">
+                <ResponsiveGrid gap="large" rows={rows} columns={columns}>
+                  {blogs.map(({ node }, i) => {
+                    return <BlogCard node={node} key={i} margin="none" />;
+                  })}
+                </ResponsiveGrid>
+              </SectionHeader>
+            )}
           </Content>
         </Box>
-        {blogs.length > 0 && (
-          <Box flex={false} direction="row-responsive" wrap>
-            <Box pad={{ vertical: 'large', horizontal: 'large' }}>
-              <Heading margin="none">Blog posts</Heading>
-            </Box>
-            <Content gap="medium" width="xlarge">
-              {blogs.map(({ node }, i) => {
-                return <BlogCard node={node} key={i} margin="none" />;
-              })}
-            </Content>
-          </Box>
-        )}
+        <Box alignSelf="start">
+          <ButtonLink
+            icon={<FormPreviousLink />}
+            label="Go to Platforms Page"
+            to="/platform"
+          />
+        </Box>
       </Box>
     </Layout>
   );
@@ -92,6 +100,7 @@ PlatformTemplate.propTypes = {
         title: PropTypes.string,
         version: PropTypes.string,
         description: PropTypes.string,
+        image: PropTypes.string,
       }).isRequired,
       fields: PropTypes.shape({
         slug: PropTypes.string.isRequired,
@@ -143,6 +152,7 @@ export const pageQuery = graphql`
         title
         version
         description
+        image
       }
       fields {
         slug

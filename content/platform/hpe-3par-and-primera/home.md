@@ -6,7 +6,7 @@ image: /img/platforms/3PAR -Primera.svg
 width: large
 frontpage: true
 priority: 1
-tags: ["3par"]
+tags: ["hpe-3par-and-primera"]
 ---
 
 - Power your mission-critical apps with extreme resiliency and unprecedented simplicity

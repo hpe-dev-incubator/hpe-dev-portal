@@ -6,7 +6,7 @@ image: /img/platforms/Oneview.svg
 width: large
 frontpage: true
 priority: 4
-tags: ["OneView"]
+tags: ["hpe-oneview"]
 ---
 ## HPE OneView Developers Hub
 

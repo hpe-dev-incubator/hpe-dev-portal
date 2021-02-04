@@ -6,7 +6,7 @@ image: /img/platforms/Greenlake.svg
 width: large
 frontpage: true
 priority: 1
-tags: ["greenlake"]
+tags: ["hpe-greenlake"]
 ---
 
 - [Check out the Aruba Developer Hub](https://developer.arubanetworks.com/)
