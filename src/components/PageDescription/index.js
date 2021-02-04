@@ -20,7 +20,7 @@ PageDescription.propTypes = {
   image: PropTypes.string,
   title: PropTypes.string,
   alignSelf: PropTypes.string,
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
 };
 
 export default PageDescription;

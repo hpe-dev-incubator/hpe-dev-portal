@@ -19,30 +19,30 @@ exports.createPages = async ({ graphql, actions }) => {
   const tagTemplate = path.resolve('./src/templates/tags.js');
 
   const queryResult = await graphql(`
-  {
-    paginatedCollection(name: { eq: "blog-posts" }) {
-      id
-      pages {
+    {
+      paginatedCollection(name: { eq: "blog-posts" }) {
         id
-        nodes
-        hasNextPage
-        nextPage {
+        pages {
           id
+          nodes
+          hasNextPage
+          nextPage {
+            id
+          }
         }
       }
     }
-  }
-`);
+  `);
 
-const collection = queryResult.data.paginatedCollection;
-const dir = path.join(__dirname, 'public', 'paginated-data', collection.id);
-fs.mkdirSync(dir, { recursive: true });
-collection.pages.forEach(page=>(
-  fs.writeFileSync(
-    path.resolve(dir, `${page.id}.json`),
-    JSON.stringify(page),
-  )
-));
+  const collection = queryResult.data.paginatedCollection;
+  const dir = path.join(__dirname, 'public', 'paginated-data', collection.id);
+  fs.mkdirSync(dir, { recursive: true });
+  collection.pages.forEach((page) =>
+    fs.writeFileSync(
+      path.resolve(dir, `${page.id}.json`),
+      JSON.stringify(page),
+    ),
+  );
 
   return graphql(
     `
@@ -189,6 +189,9 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     const { sourceInstanceName, absolutePath } = getNode(node.parent);
     console.log(`==== onCreateNode ${sourceInstanceName} ---- ${absolutePath}`);
     const value = createFilePath({ node, getNode });
+    const date = new Date(node.frontmatter.date);
+    const year = date.getFullYear();
+    createNodeField({ node, name: 'year', value: year });
     createNodeField({
       name: 'slug',
       node,

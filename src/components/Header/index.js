@@ -20,7 +20,7 @@ function Header() {
         <Link to="/platform">Platforms</Link>
         <Link to="/events">Events</Link>
         <Link to="/blog">Blog</Link>
-        <Link to="/newsletter">Newsletter</Link>
+        <Link to="/newsletter-signup">Newsletter</Link>
         <Link to="/community">Join Community</Link>
       </Box>
     </Box>
