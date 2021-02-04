@@ -194,7 +194,7 @@ BlogPostTemplate.propTypes = {
 export default BlogPostTemplate;
 
 export const pageQuery = graphql`
-  query BlogPostBySlug($slug: String!, $tags: [String]) {
+  query BlogPostBySlug($slug: String!, $tagRE: String!) {
     site {
       siteMetadata {
         title
@@ -218,7 +218,7 @@ export const pageQuery = graphql`
     blogsByTags: allMarkdownRemark(
       filter: {
         fields: { sourceInstanceName: { eq: "blog" } }
-        frontmatter: { tags: { in: $tags } }
+        frontmatter: { tags: { regex: $tagRE } }
       }
       sort: { fields: [frontmatter___priority], order: ASC }
       limit: 8
