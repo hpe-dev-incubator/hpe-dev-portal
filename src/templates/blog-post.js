@@ -3,7 +3,7 @@ import { Location } from '@reach/router';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
-import { Box, Heading, Text, Image, ResponsiveContext } from 'grommet';
+import { Box, Heading, Text, Image } from 'grommet';
 import { FormPreviousLink } from 'grommet-icons';
 
 import {
@@ -43,11 +43,6 @@ const rows = {
   xlarge: ['auto'],
 };
 
-const sizes = {
-  small: 'medium',
-  medium: 'xxlarge',
-  large: 'xxlarge',
-};
 function BlogPostTemplate({ data }) {
   const { post } = data;
   const blogsByTags = data.blogsByTags.edges;
@@ -63,87 +58,67 @@ function BlogPostTemplate({ data }) {
 
   return (
     <Layout title={siteTitle}>
-      <ResponsiveContext.Consumer>
-        {(size) => (
-          <>
-            <SEO title={title} description={description || excerpt} />
-            <Box
-              align="start"
-              pad="xlarge"
-              gap="xlarge"
-              direction="row-responsive"
-            >
-              <Box height="192px" width="192px" pad={{ top: 'medium' }}>
-                <Image fit="contain" src="/img/blogs/Avatar1.svg" />
-              </Box>
-              <Box wrap>
-                <Box gap="small">
-                  <Text
-                    size={size === 'small' ? undefined : sizes[size]}
-                    weight={500}
-                  >
-                    {author}
-                  </Text>
-                  <Heading margin="none">{title}</Heading>
-                  <Text size={size === 'small' ? undefined : sizes[size]}>
-                    {dateFormat.format(new Date(date))}
-                  </Text>
-                  <Location>
-                    {({ location }) => {
-                      return <Share url={location.href} text={title} />;
-                    }}
-                  </Location>
-                </Box>
-                <Content margin={{ vertical: 'xlarge' }}>
-                  <MarkdownLayout>{rawMarkdownBody}</MarkdownLayout>
-                  {tags && (
-                    <Box align="baseline" gap="small">
-                      <Heading level={2} margin={{ vertical: 'none' }}>
-                        Tags
-                      </Heading>
-                      <Box
-                        direction="row-responsive"
-                        align="baseline"
-                        gap="small"
-                      >
-                        {tags.map((tag) => (
-                          <Link
-                            to={`/blog/tag/${tag.toLowerCase()}`}
-                            key={tag}
-                            size="xxlarge"
-                          >
-                            {tag},
-                          </Link>
-                        ))}
-                      </Box>
-                    </Box>
-                  )}
-                  <SectionHeader title="Related" color="border">
-                    <ResponsiveGrid gap="large" rows={rows} columns={columns}>
-                      {blogsByTags.map(
-                        (blogPost) =>
-                          blogPost.url !== '/' && (
-                            <BlogCard
-                              key={blogPost.node.id}
-                              node={blogPost.node}
-                            />
-                          ),
-                      )}
-                    </ResponsiveGrid>
-                  </SectionHeader>
-                </Content>
-                <Box alignSelf="start">
-                  <ButtonLink
-                    icon={<FormPreviousLink />}
-                    label="Go to Blog Page"
-                    to="/blog"
-                  />
-                </Box>
-              </Box>
+      <SEO title={title} description={description || excerpt} />
+      <Box flex overflow="auto" gap="medium" pad="small">
+        <Box flex={false} direction="row-responsive" wrap>
+          <Box
+            pad={{ vertical: 'large', horizontal: 'xlarge' }}
+            direction="column"
+          >
+            <Image src="/img/blogs/Avatar1.svg" />
+          </Box>
+          <Content gap="large" margin={{ vertical: 'large' }}>
+            <Box gap="small">
+              <Text size="xlarge" weight={500}>
+                {author}
+              </Text>
+              <Heading margin="none">{title}</Heading>
+              <Text size="xlarge">{dateFormat.format(new Date(date))}</Text>
+              <Location>
+                {({ location }) => {
+                  return <Share url={location.href} text={title} />;
+                }}
+              </Location>
             </Box>
-          </>
-        )}
-      </ResponsiveContext.Consumer>
+            <MarkdownLayout>{rawMarkdownBody}</MarkdownLayout>
+            {tags && (
+              <Box align="baseline" gap="small">
+                <Heading level={2} margin={{ vertical: 'none' }}>
+                  Tags
+                </Heading>
+                <Box direction="row-responsive" align="baseline" gap="small">
+                  {tags.map((tag) => (
+                    <Link
+                      to={`/blog/tag/${tag.toLowerCase()}`}
+                      key={tag}
+                      size="xxlarge"
+                    >
+                      {tag},
+                    </Link>
+                  ))}
+                </Box>
+              </Box>
+            )}
+            <SectionHeader title="Related" color="border">
+              <ResponsiveGrid gap="large" rows={rows} columns={columns}>
+                {blogsByTags.map(
+                  (blogPost) =>
+                    blogPost.url !== '/' && (
+                      <BlogCard key={blogPost.node.id} node={blogPost.node} />
+                    ),
+                )}
+              </ResponsiveGrid>
+            </SectionHeader>
+          </Content>
+        </Box>
+        <Box alignSelf="start">
+          <ButtonLink
+            icon={<FormPreviousLink />}
+            label="Go to Blog Page"
+            to="/blog"
+          />
+        </Box>
+      </Box>
     </Layout>
   );
 }
