@@ -17,6 +17,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const event = path.resolve('./src/templates/event.js');
   const newsletter = path.resolve('./src/templates/newsletter.js');
   const tagTemplate = path.resolve('./src/templates/tags.js');
+  const campaignTemplate = path.resolve('./src/templates/campaign.js');
 
   const queryResult = await graphql(`
     {
@@ -139,6 +140,20 @@ exports.createPages = async ({ graphql, actions }) => {
           createPage({
             path: `/${sourceInstanceName}${slug}`,
             component: newsletter,
+            context: {
+              slug: post.node.fields.slug,
+              tags: post.node.frontmatter.tags || [],
+            },
+          });
+        } else if (post.node.fields.sourceInstanceName === 'campaign') {
+          const { sourceInstanceName, slug } = post.node.fields;
+          console.log(
+            `Create pages /${sourceInstanceName}${slug} from ${slug}`,
+          );
+          console.log('------------------------------');
+          createPage({
+            path: `/${sourceInstanceName}${slug}`,
+            component: campaignTemplate,
             context: {
               slug: post.node.fields.slug,
               tags: post.node.frontmatter.tags || [],
