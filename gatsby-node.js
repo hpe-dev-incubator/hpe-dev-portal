@@ -190,6 +190,9 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     const { sourceInstanceName, absolutePath } = getNode(node.parent);
     console.log(`==== onCreateNode ${sourceInstanceName} ---- ${absolutePath}`);
     const value = createFilePath({ node, getNode });
+    const date = new Date(node.frontmatter.date);
+    const year = date.getFullYear();
+    createNodeField({ node, name: 'year', value: year });
     createNodeField({
       name: 'slug',
       node,

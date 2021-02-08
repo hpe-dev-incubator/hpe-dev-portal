@@ -4,7 +4,23 @@ import { Box, Text, Card as GrommetCard, CardHeader, Image } from 'grommet';
 import { navigate } from 'gatsby';
 import { Star } from 'grommet-icons';
 
-const OpenSourceCard = ({ image, title, link, description, category }) => (
+const dateFormat = Intl.DateTimeFormat('default', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+
+const OpenSourceCard = ({
+  image,
+  title,
+  link,
+  description,
+  category,
+  stars,
+  date,
+  monthly,
+  newsletter,
+}) => (
   <GrommetCard
     pad="large"
     elevation="medium"
@@ -12,29 +28,38 @@ const OpenSourceCard = ({ image, title, link, description, category }) => (
     onClick={link ? () => navigate(link) : undefined}
   >
     <CardHeader
-      justify="end"
+      justify="between"
       pad={{ top: 'none', bottom: 'medium', horizontal: 'small' }}
     >
-      <Text color="text-weak">{category}</Text>
+      {date && (
+        <Text weight="bold">{`${dateFormat.format(new Date(date))}`}</Text>
+      )}
+      {
+        <Text color="text-weak">
+          {newsletter ? `Monthly #${monthly}` : category}
+        </Text>
+      }
     </CardHeader>
     <Box gap="small" direction="row">
-      <Box basis="1/3" alignSelf="center">
+      <Box alignSelf="center">
         <Box align="start">
           <Image fit="contain" src={image} />
         </Box>
-        <Box direction="row" gap="xsmall" pad={{ top: 'xsmall' }}>
-          <Star color="yellow" />
-          <Text size="large" weight="bold">
-            123
-          </Text>
-        </Box>
+        {stars && (
+          <Box direction="row" gap="xsmall" pad={{ top: 'xsmall' }}>
+            <Star color="yellow" />
+            <Text size="large" weight="bold">
+              123
+            </Text>
+          </Box>
+        )}
       </Box>
-      <Box basis="2/3" alignSelf="center">
+      <Box alignSelf="center">
         <Text size="large" weight="bold">
           {title}
         </Text>
         <Text margin="none" size="large">
-          {description.substring(0, 200)}
+          {!newsletter ? description.substring(0, 200) : description}
         </Text>
       </Box>
     </Box>
@@ -47,6 +72,10 @@ OpenSourceCard.propTypes = {
   description: PropTypes.string,
   link: PropTypes.string,
   category: PropTypes.string,
+  date: PropTypes.string,
+  stars: PropTypes.bool,
+  monthly: PropTypes.number,
+  newsletter: PropTypes.bool,
 };
 
 export default OpenSourceCard;

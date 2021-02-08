@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import {
   Box,
   Heading,
   Anchor,
-  Paragraph,
   Text,
   Form,
   FormField,
   TextInput,
   Button,
 } from 'grommet';
+
+import { Link } from '../../components';
 
 const emailValidation = [
   {
@@ -29,40 +31,45 @@ const emailValidation = [
   },
 ];
 
-export const EmailCapture = () => {
-  const [succeeded, setSucceeded] = useState(false);
-  const [error, setError] = useState('');
+export const EmailCapture = ({ children, heading, bodyCopy1, bodyCopy2 }) => {
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [errorMsg, setErrorMsg] = useState('');
   const [formData, setFormData] = useState({
     email: '',
   });
 
-  const onSubmit = ({ data, touched }) => {
+  const onSubmit = () => {
     // eslint-disable-line
-    setSucceeded(false);
-    setError('');
-    //  fetch(`https://api.sendgrid.com/v3/contactdb/lists/${list_id}/recipients/${recipient_id}`, {
-    //   method: 'POST',
-    //   headers: new Headers({ // eslint-disable-line
-    //     'Content-Type': 'application/json'
-    //   }),
-    //   body: JSON.stringify( data.emailAddress, listId )
-    // })
-    //   .then(response =>
-    //     response.json().then(json => ({
-    //       status: response.status,
-    //       statusText: response.statusText,
-    //       json,
-    //     })),
-    //   )
-    //   .then(({ status, json }) => {
-    //     if (status >= 400) {
-    //       setError(json.error ||
-    //                  'There was an error processing your request.');
-    //       setSucceeded(false)
-    //     }
-
-    //       setSucceeded(true);
-    //   });
+    setErrorMsg('');
+    const { email } = formData;
+    const listId = 13904898;
+    return fetch('http://localhost:8082/api/emails', {
+      method: 'POST',
+      headers: new Headers({
+        'content-type': 'application/json',
+      }),
+      body: JSON.stringify({ email, listId }),
+      json: true,
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        setLoading(false);
+        if (res.error_count !== 0) {
+          setLoading(false);
+          setErrorMsg('There was an error processing your request.');
+        }
+        if (res.new_count === 1) {
+          setLoading(false);
+          setSuccess(true);
+        }
+        if (res.new_count === 0) {
+          setErrorMsg('You have already signed up for our newsletter.');
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   const resetForm = () => {
@@ -73,25 +80,30 @@ export const EmailCapture = () => {
 
   return (
     <Box align="start" gap="medium">
-      <Box>
-        <Heading margin="none" level="4" align="start">
-          HPE Developer Newsletter
-        </Heading>
-      </Box>
-      <Box>
-        <Text>Stay in the loop.</Text>
-        <Text style={{ marginTop: 0 }}>
-          Sign up for the HPE Developer Newsletter or visit the{' '}
-          <Anchor label="Newsletter Archive" href="/newsletter-archive" /> to
-          see past content.
-        </Text>
-      </Box>
+      {!children && (
+        <Box>
+          <Box size="large">
+            <Heading margin="none">{heading}</Heading>
+          </Box>
+          <Box>
+            <Text>{bodyCopy1}</Text>
+            {!bodyCopy2 && (
+              <Text>
+                Sign up for the HPE Developer Newsletter or visit the{' '}
+                <Link to="/newsletter-signup">Newsletter Archive</Link> to see
+                past content.
+              </Text>
+            )}
+            {bodyCopy2 && <Text>{bodyCopy2}</Text>}
+          </Box>
+        </Box>
+      )}
       <Box>
         <Form
           validate="blur"
           value={formData}
           onChange={setFormData}
-          onSubmit={({ value, touched }) => onSubmit({ value, touched })}
+          onSubmit={() => onSubmit()}
         >
           <FormField
             name="email"
@@ -117,29 +129,40 @@ export const EmailCapture = () => {
             <Button
               alignSelf="start"
               label="Subscribe Now"
-              secondary
+              primary
               type="submit"
             />
-            {error && (
-              <Paragraph size="large" margin="none">
-                {error && 'Unable to subscribe to the newsletter.Try again!'}
-              </Paragraph>
-            )}
+            {errorMsg && <Text color="status-critical">{errorMsg}</Text>}
           </Box>
         </Form>
       </Box>
-      {succeeded && (
+      {loading && (
         <Box>
-          <Paragraph size="large" margin="none">
-            Thanks! You are subscribed to the newsletter.
-          </Paragraph>
-          <Paragraph size="large" margin="none">
+          <Text>Loading...</Text>
+        </Box>
+      )}
+      {success && (
+        <Box>
+          <Text>Thanks! You are subscribed to the newsletter.</Text>
+          <Text>
             <Anchor onClick={resetForm}>Reset entry form</Anchor>
-          </Paragraph>
+          </Text>
         </Box>
       )}
     </Box>
   );
+};
+
+EmailCapture.defaultProps = {
+  heading: 'HPE Developer Newsletter',
+  bodyCopy1: 'Stay in the loop',
+};
+
+EmailCapture.propTypes = {
+  children: PropTypes.node,
+  heading: PropTypes.string,
+  bodyCopy1: PropTypes.string,
+  bodyCopy2: PropTypes.string,
 };
 
 export default EmailCapture;
