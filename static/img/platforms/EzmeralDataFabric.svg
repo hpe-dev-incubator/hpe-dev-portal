@@ -1,43 +1,19 @@
-<svg width="216" height="252" viewBox="0 0 216 252" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect x="2.5" y="2.5" width="211" height="247" stroke="black" stroke-width="5"/>
-<path d="M101.304 30.2H176.696V47.8H101.304V30.2Z" fill="#01A982"/>
-<path d="M88 30.2H101.304V47.8H88V30.2Z" fill="#01A982"/>
-<path d="M176.696 30.2H190V47.8H176.696V30.2Z" fill="#01A982"/>
-<path d="M101.304 47.8H176.696V61H101.304V47.8Z" fill="#01A982"/>
-<path d="M101.304 17H176.696V30.2H101.304V17Z" fill="#01A982"/>
-<path d="M88 30.2L101.304 17V30.2H88Z" fill="#01A982"/>
-<path d="M88 47.8L101.304 61V47.8H88Z" fill="#01A982"/>
-<path d="M190 30.2L176.696 17V30.2H190Z" fill="#01A982"/>
-<path d="M190 47.8L176.696 61V47.8H190Z" fill="#01A982"/>
-<path d="M101.304 88.2H176.696V105.8H101.304V88.2Z" fill="#01A982"/>
-<path d="M88 88.2H101.304V105.8H88V88.2Z" fill="#01A982"/>
-<path d="M176.696 88.2H190V105.8H176.696V88.2Z" fill="#01A982"/>
-<path d="M101.304 105.8H176.696V119H101.304V105.8Z" fill="#01A982"/>
-<path d="M101.304 75H176.696V88.2H101.304V75Z" fill="#01A982"/>
-<path d="M88 88.2L101.304 75V88.2H88Z" fill="#01A982"/>
-<path d="M88 105.8L101.304 119V105.8H88Z" fill="#01A982"/>
-<path d="M190 88.2L176.696 75V88.2H190Z" fill="#01A982"/>
-<path d="M190 105.8L176.696 119V105.8H190Z" fill="#01A982"/>
-<path d="M101.304 145.5H176.696V163.5H101.304V145.5Z" fill="#01A982"/>
-<path d="M88 145.5H101.304V163.5H88V145.5Z" fill="#01A982"/>
-<path d="M176.696 145.5H190V163.5H176.696V145.5Z" fill="#01A982"/>
-<path d="M101.304 163.5H176.696V177H101.304V163.5Z" fill="#01A982"/>
-<path d="M101.304 132H176.696V145.5H101.304V132Z" fill="#01A982"/>
-<path d="M88 145.5L101.304 132V145.5H88Z" fill="#01A982"/>
-<path d="M88 163.5L101.304 177V163.5H88Z" fill="#01A982"/>
-<path d="M190 145.5L176.696 132V145.5H190Z" fill="#01A982"/>
-<path d="M190 163.5L176.696 177V163.5H190Z" fill="#01A982"/>
-<path d="M101.304 203.2H176.696V220.8H101.304V203.2Z" fill="#01A982"/>
-<path d="M88 203.2H101.304V220.8H88V203.2Z" fill="#01A982"/>
-<path d="M176.696 203.2H190V220.8H176.696V203.2Z" fill="#01A982"/>
-<path d="M101.304 220.8H176.696V234H101.304V220.8Z" fill="#01A982"/>
-<path d="M101.304 190H176.696V203.2H101.304V190Z" fill="#01A982"/>
-<path d="M88 203.2L101.304 190V203.2H88Z" fill="#01A982"/>
-<path d="M88 220.8L101.304 234V220.8H88Z" fill="#01A982"/>
-<path d="M190 203.2L176.696 190V203.2H190Z" fill="#01A982"/>
-<path d="M190 220.8L176.696 234V220.8H190Z" fill="#01A982"/>
-<circle cx="49" cy="44" r="22" fill="#01A982"/>
-<circle cx="49" cy="100" r="22" fill="#01A982"/>
-<circle cx="49" cy="156" r="22" fill="#01A982"/>
-<circle cx="49" cy="212" r="22" fill="#01A982"/>
+<svg width="216" height="216" viewBox="0 0 216 216" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="2.5" y="2.5" width="211" height="211" rx="7.5" stroke="black" stroke-width="5"/>
+<rect x="17" y="127" width="182" height="26.3077" rx="4" stroke="#CCCCCC" stroke-width="2"/>
+<rect x="17" y="93" width="182" height="26.3077" rx="4" stroke="#CCCCCC" stroke-width="2"/>
+<rect x="17" y="61" width="182" height="26.3077" rx="4" stroke="#CCCCCC" stroke-width="2"/>
+<rect x="17" y="27" width="182" height="26.3077" rx="4" stroke="#CCCCCC" stroke-width="2"/>
+<line x1="37.8931" y1="190" x2="37.8931" y2="40" stroke="#01A982" stroke-width="5" stroke-dasharray="5 5"/>
+<line x1="177.5" y1="190" x2="177.5" y2="40" stroke="#444444" stroke-width="5" stroke-dasharray="5 5"/>
+<line x1="36.6444" y1="42.1169" x2="178.644" y2="166.117" stroke="#01A982" stroke-width="5" stroke-dasharray="5 5"/>
+<line x1="177.653" y1="42.8753" x2="36.6533" y2="167.179" stroke="#444444" stroke-width="5" stroke-dasharray="5 5"/>
+<path d="M50.5003 44.1819H25.0586C23.1918 44.1819 22.257 42.1354 23.577 40.9386L36.2978 29.4042C37.1161 28.6622 38.4428 28.6622 39.2611 29.4042L51.982 40.9386C53.3019 42.1354 52.3671 44.1819 50.5003 44.1819Z" fill="#01A982"/>
+<path d="M190.5 44H165.059C163.192 44 162.257 41.9535 163.577 40.7567L176.298 29.2223C177.116 28.4803 178.443 28.4803 179.261 29.2223L191.982 40.7567C193.302 41.9535 192.367 44 190.5 44Z" fill="#444444"/>
+<rect x="27" y="162" width="162" height="28" rx="5" fill="#444444"/>
+<path d="M63.6523 162H152.348V178H63.6523V162Z" fill="#01A982"/>
+<path d="M48 162H63.6522V178H48V162Z" fill="#01A982"/>
+<path d="M152.348 162H168V178H152.348V162Z" fill="#01A982"/>
+<path d="M63.6523 178H152.348V190H63.6523V178Z" fill="#01A982"/>
+<path d="M63.5557 162.157H152.445V177.916H63.5557V162.157Z" fill="#00C781"/>
 </svg>

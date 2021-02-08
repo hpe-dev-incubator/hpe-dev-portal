@@ -6,7 +6,7 @@ image: /img/platforms/EzmeralContainerPatform.svg
 width: large
 frontpage: true
 priority: 1
-tags: ["3par"]
+tags: ["hpe-ezmeral-container-platform"]
 ---
 
 - Power your mission-critical apps with extreme resiliency and unprecedented simplicity

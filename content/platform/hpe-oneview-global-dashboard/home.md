@@ -6,7 +6,7 @@ image: /img/platforms/HPEOneviewGlobalDashboard.svg
 width: large
 frontpage: true
 priority: 4
-tags: ["OneView"]
+tags: ["hpe-oneview-global-dashboard"]
 ---
 ## HPE OneView Developers Hub
 

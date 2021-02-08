@@ -6,7 +6,7 @@ image: /img/platforms/iLOrestfulAPI.svg
 width: medium
 frontpage: true
 priority: 7
-tags: ["iLO"]
+tags: ["ilo-restful-api"]
 ---
 # One Interface for Server Management Automation
 
