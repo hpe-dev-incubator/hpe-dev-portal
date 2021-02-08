@@ -19,7 +19,7 @@ const OpenSourceCard = ({ children }) => (
     <GrommetCard elevation="medium" fill="horizontal">
       <CardHeader pad={{ horizontal: 'large', vertical: 'medium' }}>
         <Heading level={2} margin="none">
-          Our Open Source Projects
+          Featured Open Source Projects
         </Heading>
         <ButtonLink icon={<LinkNext color="green" />} to="/opensource" />
       </CardHeader>
