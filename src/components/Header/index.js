@@ -7,12 +7,12 @@ function Header() {
   return (
     <Box
       direction="row-responsive"
-      gap="small"
-      pad={{ vertical: 'xsmall', horizontal: 'medium' }}
+      pad={{ horizontal: 'medium' }}
       justify="between"
+      wrap
     >
       <ButtonLink label="HPE Developer" to="/" />
-      <Box direction="row" gap="medium" justify="center">
+      <Box direction="row-responsive" gap="medium" justify="between" wrap>
         <ButtonLink label="Open Source" to="/opensource" />
         <ButtonLink label="Platforms" to="/platform" />
         <ButtonLink label="Events" to="/events" />
@@ -20,9 +20,7 @@ function Header() {
         <ButtonLink label="Newsletter" to="/newsletter" />
         <ButtonLink label="Join Community" to="/community" />
       </Box>
-      <Box direction="row" gap="medium" justify="center">
-        <ButtonLink to="/search" icon={<Search />} label="Search" reverse />
-      </Box>
+      <ButtonLink to="/search" icon={<Search />} label="Search" reverse />
     </Box>
   );
 }
