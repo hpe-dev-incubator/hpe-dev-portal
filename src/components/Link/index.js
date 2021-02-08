@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Anchor } from 'grommet';
+import { Anchor, Button } from 'grommet';
 import { navigate } from 'gatsby';
 
-const Link = ({ to, ...rest }) => (
+export const Link = ({ to, ...rest }) => (
   <Anchor
     href={to}
     onClick={(ev) => {
@@ -17,4 +17,18 @@ const Link = ({ to, ...rest }) => (
 Link.propTypes = {
   to: PropTypes.string,
 };
-export default Link;
+
+export const ButtonLink = ({ to, ...rest }) => (
+  <Button
+    href={to}
+    onClick={(ev) => {
+      navigate(to);
+      ev.preventDefault();
+    }}
+    {...rest}
+  />
+);
+
+ButtonLink.propTypes = {
+  to: PropTypes.string,
+};

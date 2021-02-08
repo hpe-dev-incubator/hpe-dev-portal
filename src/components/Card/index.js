@@ -1,21 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { Box, Heading, Image, Markdown, Text } from 'grommet';
-import { Link as GatsbyLink } from 'gatsby';
-
-const colors = {
-  develop: 'accent-4', // HPE Yellow
-  design: 'accent-2', // HPE Medium Purple
-  event: 'status-unknown',
-  community: 'neutral-1', // HPE Dark Blue
-  'open source': 'accent-2', // HPE Medium Purple
-  research: 'accent-1', // HPE Medium Blue
-};
-
-const NavLink = styled(GatsbyLink)`
-  text-decoration: none;
-`;
+import {
+  Box,
+  Card as GrommetCard,
+  CardHeader,
+  Grid,
+  Image,
+  Markdown,
+  ResponsiveContext,
+  Text,
+} from 'grommet';
+import { navigate } from 'gatsby';
+import { cardComponents } from '..';
 
 // Remove padding or margin from first markdown element.
 // This allows the heading and content to have the same gap.
@@ -24,6 +21,7 @@ const MarkdownLayout = styled(Markdown)`
     margin-top: 0;
     padding-top: 0;
   }
+  width: 100%;
 `;
 
 // Remove padding or margin from first markdown element.
@@ -36,118 +34,155 @@ const MarkdownCenteredLayout = styled(Markdown)`
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 `;
 
-const components = {
-  h1: {
-    component: Heading,
-    props: {
-      margin: { top: 'none', bottom: 'xsmall' },
-      level: 1,
-    },
+const widths = {
+  small: '396px',
+  medium: '840px',
+  large: '1080px',
+};
+
+const gridProps = {
+  small: {
+    columns: ['auto'],
+    rows: ['auto', 'flex'],
+    areas: [
+      { name: 'image', start: [0, 0], end: [0, 0] },
+      { name: 'content', start: [0, 1], end: [0, 1] },
+    ],
   },
-  h2: {
-    component: Heading,
-    props: {
-      margin: { top: 'none', bottom: 'xsmall' },
-      level: 2,
-    },
+  medium: {
+    gap: 'large',
+    columns: ['flex', 'auto'],
+    rows: ['auto'],
+    areas: [
+      { name: 'image', start: [0, 0], end: [0, 0] },
+      { name: 'content', start: [1, 0], end: [1, 0] },
+    ],
   },
-  h3: {
-    component: Heading,
-    props: {
-      margin: { top: 'none', bottom: 'xsmall' },
-      level: 3,
-    },
-  },
-  h4: {
-    component: Heading,
-    props: {
-      margin: { top: 'none', bottom: 'none' },
-      level: 4,
-      style: {
-        fontWeight: 'normal',
-      },
-    },
-  },
-  p: {
-    component: Text,
-    props: {
-      size: 'xlarge',
-      color: 'dark-3',
-      style: {
-        maxWidth: '100%',
-      },
-    },
-  },
-  img: {
-    component: Image,
-    props: {
-      margin: { vertical: 'medium' },
-      style: {},
-    },
+  large: {
+    gap: 'large',
+    columns: ['flex', 'auto'],
+    rows: ['auto'],
+    areas: [
+      { name: 'image', start: [1, 0], end: [1, 0] },
+      { name: 'content', start: [0, 0], end: [0, 0] },
+    ],
   },
 };
 
-export const Card = ({
-  children,
-  pad,
-  width,
-  gap,
-  category,
-  content,
-  align,
-  link,
-  ...rest
-}) => (
-  <Box
-    margin="small"
-    flex="grow"
-    width={width || 'medium'}
-    border={{
-      side: 'top',
-      color: colors[category ? category.toLowerCase() : 'develop'],
-      size: 'medium',
-    }}
-  >
-    <Box align="end">
-      <Text color="light-5">{category}</Text>
-    </Box>
-    <NavLink to={link}>
-      <Box
-        fill="vertical"
-        justify="center"
-        align="center"
-        gap={gap || 'none'}
-        pad={{ horizontal: 'large', vertical: 'large', ...pad }}
-        {...rest}
+const BodyLayout = ({ width, children }) => {
+  const size = useContext(ResponsiveContext);
+  const layoutProps = gridProps[size === 'small' ? size : width];
+
+  return (
+    <Grid
+      fill
+      justify="start"
+      align="center"
+      pad={{ horizontal: 'large', top: 'medium', bottom: 'large' }}
+      {...layoutProps}
+    >
+      {children}
+    </Grid>
+  );
+};
+
+BodyLayout.propTypes = {
+  width: PropTypes.string,
+  children: PropTypes.node,
+};
+
+export const Card = ({ category, content, width = 'medium', link, image }) => (
+  <ResponsiveContext.Consumer>
+    {(size) => (
+      <GrommetCard
+        elevation="medium"
+        margin="small"
+        width={size === 'small' ? undefined : { min: widths[width] }}
+        flex="grow"
+        onClick={link ? () => navigate(link) : undefined}
       >
-        {children}
-        {content && align === 'center' && (
-          <MarkdownCenteredLayout components={components}>
-            {content}
-          </MarkdownCenteredLayout>
-        )}
-        {content && align !== 'center' && (
-          <MarkdownLayout components={components}>{content}</MarkdownLayout>
-        )}
-      </Box>
-    </NavLink>
-  </Box>
+        <CardHeader
+          justify="end"
+          pad={{ vertical: 'small', horizontal: 'medium' }}
+        >
+          <Text color="text-weak">{category}</Text>
+        </CardHeader>
+        <BodyLayout width={width}>
+          {image && (
+            <Box gridArea="image" align="start" fill="horizontal">
+              {image && <Image src={image} />}
+            </Box>
+          )}
+          {content && (
+            <MarkdownLayout gridArea="content" components={cardComponents}>
+              {content}
+            </MarkdownLayout>
+          )}
+        </BodyLayout>
+      </GrommetCard>
+    )}
+  </ResponsiveContext.Consumer>
 );
 
 Card.propTypes = {
   content: PropTypes.string,
-  children: PropTypes.node,
   width: PropTypes.string,
-  gap: PropTypes.string,
-  pad: PropTypes.shape({
-    horizontal: PropTypes.string,
-    vertical: PropTypes.string,
-  }),
   category: PropTypes.string,
-  align: PropTypes.string,
   link: PropTypes.string,
+  image: PropTypes.string,
 };
 
-export default Card;
+export const Card2 = ({
+  category,
+  content,
+  align,
+  gap,
+  pad,
+  width = 'medium',
+  link,
+  reverse,
+  image,
+}) => (
+  <GrommetCard
+    elevation="medium"
+    margin="small"
+    width={{ min: widths[width], max: widths[width] }}
+    flex="grow"
+    onClick={link ? () => navigate(link) : undefined}
+  >
+    <CardHeader justify="end" pad={{ vertical: 'small', horizontal: 'medium' }}>
+      <Text color="text-weak">{category}</Text>
+    </CardHeader>
+    <Box
+      fill="vertical"
+      justify="start"
+      align="center"
+      gap={gap || 'large'}
+      pad={{ horizontal: 'large', top: 'medium', bottom: 'large', ...pad }}
+      direction="row-responsive"
+    >
+      {image && !reverse && (
+        <Box align="center" fill="horizontal">
+          {image && <Image src={image} />}
+        </Box>
+      )}
+      {content && align === 'center' && (
+        <MarkdownCenteredLayout components={cardComponents}>
+          {content}
+        </MarkdownCenteredLayout>
+      )}
+      {content && align !== 'center' && (
+        <MarkdownLayout components={cardComponents}>{content}</MarkdownLayout>
+      )}
+      {image && reverse && (
+        <Box align="center" fill="horizontal">
+          {image && <Image src={image} />}
+        </Box>
+      )}
+    </Box>
+  </GrommetCard>
+);
+Card2.propTypes = Card.propTypes;

@@ -1,5 +1,7 @@
 /* eslint-disable no-console */
+const fs = require('fs');
 const path = require('path');
+
 const { createFilePath } = require('gatsby-source-filesystem');
 
 const escapeRegExp = (string) => string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -7,7 +9,7 @@ const escapeRegExp = (string) => string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 const arrayToRE = (a) =>
   a ? '/^' + a.map((str) => `(${escapeRegExp(str)})`).join('|') + '$/i' : ''; // eslint-disable-line
 
-exports.createPages = ({ graphql, actions }) => {
+exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
 
   const blogPost = path.resolve('./src/templates/blog-post.js');
@@ -15,6 +17,32 @@ exports.createPages = ({ graphql, actions }) => {
   const event = path.resolve('./src/templates/event.js');
   const newsletter = path.resolve('./src/templates/newsletter.js');
   const tagTemplate = path.resolve('./src/templates/tags.js');
+
+  const queryResult = await graphql(`
+    {
+      paginatedCollection(name: { eq: "blog-posts" }) {
+        id
+        pages {
+          id
+          nodes
+          hasNextPage
+          nextPage {
+            id
+          }
+        }
+      }
+    }
+  `);
+
+  const collection = queryResult.data.paginatedCollection;
+  const dir = path.join(__dirname, 'public', 'paginated-data', collection.id);
+  fs.mkdirSync(dir, { recursive: true });
+  collection.pages.forEach((page) =>
+    fs.writeFileSync(
+      path.resolve(dir, `${page.id}.json`),
+      JSON.stringify(page),
+    ),
+  );
 
   return graphql(
     `
@@ -69,6 +97,7 @@ exports.createPages = ({ graphql, actions }) => {
             component: blogPost,
             context: {
               slug: post.node.fields.slug,
+              tagRE: arrayToRE(post.node.frontmatter.tags),
               previous,
               next,
             },
@@ -161,6 +190,9 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     const { sourceInstanceName, absolutePath } = getNode(node.parent);
     console.log(`==== onCreateNode ${sourceInstanceName} ---- ${absolutePath}`);
     const value = createFilePath({ node, getNode });
+    const date = new Date(node.frontmatter.date);
+    const year = date.getFullYear();
+    createNodeField({ node, name: 'year', value: year });
     createNodeField({
       name: 'slug',
       node,
@@ -172,4 +204,21 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       value: sourceInstanceName,
     });
   }
+};
+
+// Filter the events based on the end date
+exports.createSchemaCustomization = ({ actions, schema }) => {
+  actions.createTypes([
+    schema.buildObjectType({
+      name: 'MarkdownRemark',
+      interfaces: ['Node'],
+      fields: {
+        isFuture: {
+          type: 'Boolean!',
+          resolve: (source) =>
+            new Date(source.frontmatter.dateEnd) > new Date(),
+        },
+      },
+    }),
+  ]);
 };

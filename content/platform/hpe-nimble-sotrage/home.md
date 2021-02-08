@@ -1,11 +1,12 @@
 ---
-title: Nimble
+title: HPE Nimble Storage
 version: v 6.01.8964
-description: The Cloud Ready storage platform with Predictive Analytics provides robust APIs for the next generation data center.
-image: 
+description: The Cloud Ready storage platform with Predictive Analytics provides robust APIs for service providers and tinkerers alike for the next generation data center.
+image: /img/platforms/NimbleStorage.svg
+width: large
 frontpage: true
-priority: 4
-tags: ["Nimble"]
+priority: 3
+tags: ["hpe-nimble-sotrage"]
 ---
 HPE Nimble Storage customers have full access to the REST API of the arrays. We also provide Open Source projects for various automation platforms and DevOps ecosystems. The array API is available on InfoSight for customers only while the REST API for HPE Cloud Volumes is public.
 

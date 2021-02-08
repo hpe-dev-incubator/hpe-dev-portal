@@ -1,0 +1,19 @@
+<svg width="216" height="216" viewBox="0 0 216 216" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="2.5" y="2.5" width="211" height="211" rx="7.5" stroke="black" stroke-width="5"/>
+<rect x="17" y="127" width="182" height="26.3077" rx="4" stroke="#CCCCCC" stroke-width="2"/>
+<rect x="17" y="93" width="182" height="26.3077" rx="4" stroke="#CCCCCC" stroke-width="2"/>
+<rect x="17" y="61" width="182" height="26.3077" rx="4" stroke="#CCCCCC" stroke-width="2"/>
+<rect x="17" y="27" width="182" height="26.3077" rx="4" stroke="#CCCCCC" stroke-width="2"/>
+<line x1="37.8931" y1="190" x2="37.8931" y2="40" stroke="#01A982" stroke-width="5" stroke-dasharray="5 5"/>
+<line x1="177.5" y1="190" x2="177.5" y2="40" stroke="#444444" stroke-width="5" stroke-dasharray="5 5"/>
+<line x1="36.6444" y1="42.1169" x2="178.644" y2="166.117" stroke="#01A982" stroke-width="5" stroke-dasharray="5 5"/>
+<line x1="177.653" y1="42.8753" x2="36.6533" y2="167.179" stroke="#444444" stroke-width="5" stroke-dasharray="5 5"/>
+<path d="M50.5003 44.1819H25.0586C23.1918 44.1819 22.257 42.1354 23.577 40.9386L36.2978 29.4042C37.1161 28.6622 38.4428 28.6622 39.2611 29.4042L51.982 40.9386C53.3019 42.1354 52.3671 44.1819 50.5003 44.1819Z" fill="#01A982"/>
+<path d="M190.5 44H165.059C163.192 44 162.257 41.9535 163.577 40.7567L176.298 29.2223C177.116 28.4803 178.443 28.4803 179.261 29.2223L191.982 40.7567C193.302 41.9535 192.367 44 190.5 44Z" fill="#444444"/>
+<rect x="27" y="162" width="162" height="28" rx="5" fill="#444444"/>
+<path d="M63.6523 162H152.348V178H63.6523V162Z" fill="#01A982"/>
+<path d="M48 162H63.6522V178H48V162Z" fill="#01A982"/>
+<path d="M152.348 162H168V178H152.348V162Z" fill="#01A982"/>
+<path d="M63.6523 178H152.348V190H63.6523V178Z" fill="#01A982"/>
+<path d="M63.5557 162.157H152.445V177.916H63.5557V162.157Z" fill="#00C781"/>
+</svg>

@@ -1,40 +1,26 @@
 import React from 'react';
-import { Box, Text } from 'grommet';
-import { Link } from '..';
+import { Box } from 'grommet';
+import { Search } from 'grommet-icons';
+import { ButtonLink } from '..';
 
 function Header() {
   return (
     <Box
       direction="row-responsive"
-      gap="small"
-      pad={{ vertical: 'xsmall', horizontal: 'medium' }}
+      pad={{ horizontal: 'medium' }}
       justify="between"
+      wrap
     >
-      <Link to="/">
-        <Text weight="bold" color="dark-1">
-          HPE Developer
-        </Text>
-      </Link>
-      <Box direction="row" gap="medium" justify="center">
-        <Link to="/research" color="neutral-4">
-          Research
-        </Link>
-        <Link to="/design" color="neutral-4">
-          Design
-        </Link>
-        <Link to="/develop" color="neutral-4">
-          Develop
-        </Link>
-        <Link to="/blog" color="neutral-4">
-          Blog
-        </Link>
-        <Link to="/search" color="neutral-4">
-          Search
-        </Link>
-        <Link to="/support" color="neutral-4">
-          Support
-        </Link>
+      <ButtonLink label="HPE Developer" to="/" />
+      <Box direction="row-responsive" gap="medium" justify="between" wrap>
+        <ButtonLink label="Open Source" to="/opensource" />
+        <ButtonLink label="Platforms" to="/platform" />
+        <ButtonLink label="Events" to="/events" />
+        <ButtonLink label="Blog" to="/blog" />
+        <ButtonLink label="Newsletter" to="/newsletter-signup" />
+        <ButtonLink label="Join Community" to="/community" />
       </Box>
+      <ButtonLink to="/search" icon={<Search />} label="Search" reverse />
     </Box>
   );
 }
