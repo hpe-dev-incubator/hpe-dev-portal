@@ -88,15 +88,16 @@ exports.createPages = async ({ graphql, actions }) => {
             index === posts.length - 1 ? null : posts[index + 1].node;
           const next = index === 0 ? null : posts[index - 1].node;
           const { sourceInstanceName, slug } = post.node.fields;
-          // console.log(
-          //   `Create pages /${sourceInstanceName}${slug} from ${slug}`,
-          // );
-          // console.log('------------------------------');
+          console.log(
+            `Create pages /${sourceInstanceName}${slug} from ${slug}`,
+          );
+          console.log('------------------------------');
           createPage({
             path: `/${sourceInstanceName}${slug}`,
             component: blogPost,
             context: {
               slug: post.node.fields.slug,
+              tagRE: arrayToRE(post.node.frontmatter.tags),
               previous,
               next,
             },

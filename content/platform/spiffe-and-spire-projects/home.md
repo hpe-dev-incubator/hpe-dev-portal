@@ -6,7 +6,7 @@ image: /img/platforms/SPIFFEandSpire.svg
 width: medium
 frontpage: true
 priority: 4
-tags: ["OneView"]
+tags: ["spiffe-and-spire-projects"]
 ---
 ## HPE OneView Developers Hub
 

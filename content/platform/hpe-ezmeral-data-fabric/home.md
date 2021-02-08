@@ -6,7 +6,7 @@ image: /img/platforms/EzmeralDataFabric.svg
 width: large
 frontpage: true
 priority: 1
-tags: ["3par"]
+tags: ["hpe-ezmeral-data-fabric"]
 ---
 
 - Power your mission-critical apps with extreme resiliency and unprecedented simplicity

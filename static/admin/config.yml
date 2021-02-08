@@ -1,7 +1,13 @@
 backend:
  name: github
  repo: hpe-dev-incubator/hpe-dev-portal
- branch: master
+ branch: development
+ accept_roles: #optional - accepts all users if left out
+   - admin
+   - blog-editor
+   - platform-owner
+
+publish_mode: editorial_workflow
 
 media_folder: static/img
 public_folder: /img
@@ -45,6 +51,7 @@ collections:
     folder: 'content/blog'
     extension: 'md'
     create: true
+    publish: false
     slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
     editor:
       preview: true
@@ -92,6 +99,7 @@ collections:
     preview_path: 'content/platform/{{title}}/{{slug}}'
     extension: 'md'
     create: true
+    publish: false
     slug: 'home'
     editor:
       preview: true
