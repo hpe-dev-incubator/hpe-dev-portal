@@ -155,7 +155,7 @@ export const EmailCapture = ({ children, heading, bodyCopy1, bodyCopy2 }) => {
 
 EmailCapture.defaultProps = {
   heading: 'HPE Developer Newsletter',
-  bodyCopy1: 'Stay in the loop',
+  bodyCopy1: 'Stay in the loop.',
 };
 
 EmailCapture.propTypes = {
