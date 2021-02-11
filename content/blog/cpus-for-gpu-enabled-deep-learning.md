@@ -4,6 +4,7 @@ date: 2017-11-26T09:48:58.426Z
 author: Sergey Serebryakov 
 tags: ["deep-learning-cookbook"]
 path: cpus-for-gpu-enabled-deep-learning
+authorimage: "/img/blogs/Avatar6.svg"
 ---
 # A role of CPUs in Deep Learning pipelines and how many CPU cores is enough for training on a GPU-enabled system
 

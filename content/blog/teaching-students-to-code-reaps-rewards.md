@@ -4,6 +4,7 @@ date: 2020-01-15T20:01:10.958Z
 author: Dale Rensing 
 tags: []
 path: teaching-students-to-code-reaps-rewards
+authorimage: "/img/blogs/Avatar2.svg"
 ---
 ![picture1](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2019/10/picture1-1579118573174.png)
 

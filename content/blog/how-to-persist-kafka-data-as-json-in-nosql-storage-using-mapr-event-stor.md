@@ -1,9 +1,10 @@
 ---
 title: "How to Persist Kafka Data as JSON in NoSQL Storage Using MapR Event Store and MapR Database"
 date: 2020-09-25T06:11:31.778Z
-author: Nathan Burch 
+author: Ian Downard 
 tags: ["hpe-ezmeral-data-fabric","MapR","Kafka","noSQL","opensource"]
 path: how-to-persist-kafka-data-as-json-in-nosql-storage-using-mapr-event-stor
+authorimage: "/img/blogs/Avatar3.svg"
 ---
 **Editor’s Note:** MapR products and solutions sold prior to the acquisition of such assets by Hewlett Packard Enterprise Company in 2019, may have older product names and model numbers that differ from current solutions. For information about current offerings, which are now part of HPE Ezmeral Data Fabric, please visit [https://www.hpe.com/us/en/software/data-fabric.html](https://www.hpe.com/us/en/software/data-fabric.html)
 

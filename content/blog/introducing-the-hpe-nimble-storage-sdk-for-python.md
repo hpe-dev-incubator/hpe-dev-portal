@@ -4,6 +4,7 @@ date: 2020-05-08T22:17:59.474Z
 author: Michael Mattsson 
 tags: ["hpe-nimble-storage"]
 path: introducing-the-hpe-nimble-storage-sdk-for-python
+authorimage: "/img/blogs/Avatar2.svg"
 ---
 Python is by far one of the most approachable programming languages available today. Easy to read semantics, a humongous library for integrating with anything under the sun and best of all, it’s all open source, available on every popular operating system platform. Today, Hewlett Packard Enterprise (HPE) releases HPE Nimble Storage SDK for Python 1.0.0. It allows customers to extract even more value from their HPE Nimble Storage array by abstracting functionality into larger frameworks, whether it’s for custom automation, resource reporting, conformance adherence or any data the business might need to extract from the storage system in a programmatic fashion.
 

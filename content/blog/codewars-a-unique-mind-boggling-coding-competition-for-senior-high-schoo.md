@@ -4,6 +4,7 @@ date: 2019-08-21T22:29:46.519Z
 author: Uzma Syeda 
 tags: ["HPECodeWars","CodeWars2019","Hackathon"]
 path: codewars-a-unique-mind-boggling-coding-competition-for-senior-high-schoo
+authorimage: "/img/blogs/Avatar5.svg"
 ---
 ![picture10](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2019/8/picture10-1566426968816.png)
 

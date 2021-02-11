@@ -1,9 +1,10 @@
 ---
 title: "Fast data processing pipeline for predicting flight delays using Apache APIs: Kafka, Spark Streaming and Machine Learning (part 1)"
 date: 2020-10-21T05:53:58.578Z
-author: Nathan Burch 
+author: Carol McDonald 
 tags: ["hpe-ezmeral-data-fabric","MapR","Machine-Learning","Spark","opensource"]
 path: fast-data-processing-pipeline-for-predicting-flight-delays-using-apache-
+authorimage: "/img/blogs/Avatar2.svg"
 ---
 **Editor’s Note:** MapR products and solutions sold prior to the acquisition of such assets by Hewlett Packard Enterprise Company in 2019, may have older product names and model numbers that differ from current solutions. For information about current offerings, which are now part of HPE Ezmeral Data Fabric, please visit [https://www.hpe.com/us/en/software/data-fabric.html](https://www.hpe.com/us/en/software/data-fabric.html)
 

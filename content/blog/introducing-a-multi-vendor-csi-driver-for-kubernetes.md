@@ -4,6 +4,7 @@ date: 2019-08-30T17:57:28.031Z
 author: Michael Mattsson 
 tags: ["hpe-nimble-storage","hpe-3par-and-primera"]
 path: introducing-a-multi-vendor-csi-driver-for-kubernetes
+authorimage: "/img/blogs/Avatar3.svg"
 ---
 In true HPE storage tradition, we’re introducing an open source, multi-platform and multi-vendor container storage interface (CSI) driver for Kubernetes. In essence, it's meant to support multiple block and file backends from the HPE portfolio. We encourage others to implement our specification (more on this below) to take advantage of the driver architecture for any file and block backend, including those not from HPE. In the same way our FlexVolume driver (dory) and Dynamic Provisioner (doryd) provided an abstraction for any vendor’s Docker Volume plugin to Kubernetes, we are bringing a similar concept to life with the HPE CSI Driver for Kubernetes. In this blog post, I’ll walk you through the architecture, specification and deployment model. But first, let’s go through the basics of what CSI is.
 

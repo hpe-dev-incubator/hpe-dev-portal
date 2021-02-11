@@ -4,6 +4,7 @@ date: 2020-07-28T13:46:21.282Z
 author: Rick Kauffman 
 tags: ["automation","StackStorm"]
 path: master-the-automation-universe-the-easy-way-part-2-the-art-of-packing
+authorimage: "/img/blogs/Avatar5.svg"
 ---
 ![StackStorm integration pack](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/7/stackstorm-part2-1-1595944683785.png)
 

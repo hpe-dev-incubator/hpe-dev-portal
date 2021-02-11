@@ -4,6 +4,7 @@ date: 2020-04-30T16:12:11.635Z
 author: Chris Snell 
 tags: ["hpe-3par-and-primera"]
 path: tutorial-how-to-get-started-with-the-hpe-csi-driver-and-hpe-primera-and-
+authorimage: "/img/blogs/Avatar3.svg"
 ---
 # Tutorial: How to get started with the HPE CSI Driver and HPE Primera and 3PAR
 

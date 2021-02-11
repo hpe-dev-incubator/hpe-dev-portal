@@ -4,6 +4,7 @@ date: 2020-02-10T22:17:20.233Z
 author: Samarth Deyagond 
 tags: ["Python"]
 path: understanding-concurrency-in-python-part-1-threading
+authorimage: "/img/blogs/Avatar1.svg"
 ---
 ![picture3](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/1/picture3-1581373479403.png)
 

@@ -1,12 +1,10 @@
 ---
 title: "Authenticating against the Composable API"
 date: 2017-09-06T17:11:08.159Z
-author: Zorro et Bernardo
-tags:
-  - HPE-OneView
-  - OneView
-  - RESTAPI
+author: Didier Lalli 
+tags: ["HPE-OneView","OneView","RESTAPI"]
 path: authenticating-against-the-composable-api
+authorimage: "/img/blogs/Avatar2.svg"
 ---
 # Login Sessions
 

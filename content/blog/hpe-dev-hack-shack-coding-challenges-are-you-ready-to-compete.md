@@ -4,6 +4,7 @@ date: 2020-10-30T15:04:29.848Z
 author: Pramod Sareddy 
 tags: ["challenges","challenge","codingchallenge","on-demand"]
 path: hpe-dev-hack-shack-coding-challenges-are-you-ready-to-compete
+authorimage: "/img/blogs/Avatar4.svg"
 ---
 ![coding challenge](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/10/coding-challenge-1604080946671.png)
 

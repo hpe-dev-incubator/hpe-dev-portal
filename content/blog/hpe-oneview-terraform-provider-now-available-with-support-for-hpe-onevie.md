@@ -4,6 +4,7 @@ date: 2019-08-02T20:57:51.233Z
 author: Bob Fraser 
 tags: ["HPE-OneView","OneView","Terraform"]
 path: hpe-oneview-terraform-provider-now-available-with-support-for-hpe-onevie
+authorimage: "/img/blogs/Avatar3.svg"
 ---
 [HPE OneView](https://hpe.com/info/oneview) Terraform provider v1.0.1 now supports HPE OneView 4.1 (REST API version 800). [Terraform](https://www.terraform.io/), by [HashiCorp](https://www.hashicorp.com/), is a popular tool for infrastructure automation and is rapidly increasing in adoption. The Terraform community includes a large number of providers that facilitate a multicloud or hybrid cloud approach to infrastructure management. As part of the HPE OneView comprehensive partner ecosystem, Terraform is a powerful orchestration tool used to create, manage, and update infrastructure resources. These resources may be physical machines, VMs, network switches, containers, or others.
 

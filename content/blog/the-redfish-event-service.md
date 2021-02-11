@@ -4,6 +4,7 @@ date: 2018-03-27T15:17:22.504Z
 author: François Donzé - Technical consultant 
 tags: ["ilo-restful-api","Redfish","iLO"]
 path: the-redfish-event-service
+authorimage: "/img/blogs/Avatar6.svg"
 ---
 # The Redfish Event Subscription Service
 Updated: October 2019   

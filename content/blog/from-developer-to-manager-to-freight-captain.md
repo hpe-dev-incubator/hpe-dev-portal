@@ -4,6 +4,7 @@ date: 2019-04-17T19:35:59.548Z
 author: Alex Mejias, UX Development Manager 
 tags: []
 path: from-developer-to-manager-to-freight-captain
+authorimage: "/img/blogs/Avatar3.svg"
 ---
 ![5bf2e1a0cd93d0796238ae01-blog-content-1556306907820](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2019/4/container-1638068_1920-1556306907818.jpg)
 

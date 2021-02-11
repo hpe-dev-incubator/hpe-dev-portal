@@ -1,9 +1,10 @@
 ---
 title: "Provisioning Secure Access Controls in MapR Database"
 date: 2020-11-02T06:21:10.782Z
-author: Nathan Burch 
+author: Jimit Shah 
 tags: ["hpe-ezmeral-data-fabric","MapR","JSON","opensource"]
 path: provisioning-secure-access-controls-in-mapr-database
+authorimage: "/img/blogs/Avatar5.svg"
 ---
 **Editor’s Note:** MapR products and solutions sold prior to the acquisition of such assets by Hewlett Packard Enterprise Company in 2019, may have older product names and model numbers that differ from current solutions. For information about current offerings, which are now part of HPE Ezmeral Data Fabric, please visit [https://www.hpe.com/us/en/software/data-fabric.html](https://www.hpe.com/us/en/software/data-fabric.html)
 

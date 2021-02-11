@@ -4,6 +4,7 @@ date: 2019-09-09T18:08:08.659Z
 author: Brittany Archibeque 
 tags: ["Grommet","opensource"]
 path: using-typescript-in-grommet-applications
+authorimage: "/img/blogs/Avatar4.svg"
 ---
 ![typescriptimage](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2019/8/typescriptimage-1568052628959.jpeg)
 

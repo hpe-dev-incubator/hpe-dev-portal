@@ -1,9 +1,10 @@
 ---
 title: "Apache Spark Machine Learning Tutorial"
 date: 2020-11-25T03:08:41.724Z
-author: Nathan Burch 
+author: Carol McDonald 
 tags: ["hpe-ezmeral-data-fabric","MapR","apache-spark","machine-learning","opensource"]
 path: apache-spark-machine-learning-tutorial
+authorimage: "/img/blogs/Avatar1.svg"
 ---
 **Editor’s Note:** MapR products and solutions sold prior to the acquisition of such assets by Hewlett Packard Enterprise Company in 2019, may have older product names and model numbers that differ from current solutions. For information about current offerings, which are now part of HPE Ezmeral Data Fabric, please visit [https://www.hpe.com/us/en/software/data-fabric.html](https://www.hpe.com/us/en/software/data-fabric.html)
 

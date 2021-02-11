@@ -4,6 +4,7 @@ date: 2018-12-03T07:06:34.687Z
 author: Gokul Sreeramaiah 
 tags: ["ilo-restful-api"]
 path: configuring-threads-for-optimal-performance-in-hpe-powershell-cmdlets
+authorimage: "/img/blogs/Avatar4.svg"
 ---
 Initially when HPE PowerShell cmdlets (1.x version) were launched it had a limit of 256 thread limit which was good for a certain range of IPs but was not sufficient for a big set of input IP data like more than 10k range. Then we re-designed the default thread limit to 64 in iLO and BIOS modules which received good feedback initially but later few customers reported that its slow performance when a big range of data is provided. Then we came up with the idea of configurable threads where on a particular PowerShell session users can configure the threads above default or below that value using Get-HPEXYZMaxThreadLimit and Set-HPEXYZMaxThreadLimit (XYZ - means module name like iLO or BIOS) cmdlets like always go for even exponential power of 2 number. For e.g., 64, 128, 256(default), 512, 1024, 2048, 4096 (Maximum).
 

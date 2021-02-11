@@ -4,6 +4,7 @@ date: 2019-08-08T16:30:30.933Z
 author: Didier Lalli 
 tags: ["DevOps","DevOpsDays","devopsdays-ghent-2019"]
 path: celebrate-the-beginning-of-devops
+authorimage: "/img/blogs/Avatar6.svg"
 ---
 ![gearhead banner](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2019/8/gearhead-banner-1565283401379.png)
 

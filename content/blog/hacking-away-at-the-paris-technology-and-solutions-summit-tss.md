@@ -4,6 +4,7 @@ date: 2019-03-28T21:05:04.114Z
 author: Didier Lalli, Distinguished Technologist 
 tags: ["hackshack"]
 path: hacking-away-at-the-paris-technology-and-solutions-summit-tss
+authorimage: "/img/blogs/Avatar6.svg"
 ---
 ![5bf2e1a0cd93d0796238ae01-blog-content-1553888959463](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2019/3/didier-couch-from-chris-1553888959463.jpg)
 

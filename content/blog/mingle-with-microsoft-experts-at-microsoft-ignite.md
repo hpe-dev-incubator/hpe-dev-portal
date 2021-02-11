@@ -4,6 +4,7 @@ date: 2019-10-23T15:45:39.550Z
 author: Pramod Sareddy 
 tags: ["MicrosoftIgnite","microsoft-ignite-orlando-2019","HPEMSFT"]
 path: mingle-with-microsoft-experts-at-microsoft-ignite
+authorimage: "/img/blogs/Avatar4.svg"
 ---
 ![screen shot 2019 10 23 at 10.14.35 am](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2019/10/screen-shot-2019-10-23-at-101435-am-1571847321995.png)
 

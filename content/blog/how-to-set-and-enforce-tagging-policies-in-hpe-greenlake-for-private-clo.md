@@ -4,6 +4,7 @@ date: 2020-08-03T13:15:13.523Z
 author: Thavamaniraja S 
 tags: ["hpe-greenlake"]
 path: how-to-set-and-enforce-tagging-policies-in-hpe-greenlake-for-private-clo
+authorimage: "/img/blogs/Avatar1.svg"
 ---
 ## Introduction
 HPE GreenLake for private cloud allows customers to assign metadata to their instances in the form of tags. An instance is a set of virtual machines that compose a horizontally scalable entity or a service suite, like a database. Tags help customers manage, report and filter their instances, providing a business context to resource consumption and cost. The goal of this article is to discuss tags and the process of creating and enforcing tagging policies.  

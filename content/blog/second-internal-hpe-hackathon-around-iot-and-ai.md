@@ -4,6 +4,7 @@ date: 2020-03-05T18:11:36.248Z
 author: Marcel Jakob 
 tags: ["hpe-ezmeral-container-platform","hpe-container-platform"]
 path: second-internal-hpe-hackathon-around-iot-and-ai
+authorimage: "/img/blogs/Avatar6.svg"
 ---
 ![picture1](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/1/picture1-1583431980969.png)
 

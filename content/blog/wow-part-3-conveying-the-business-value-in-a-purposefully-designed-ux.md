@@ -4,6 +4,7 @@ date: 2020-06-04T16:59:57.062Z
 author: Parul Tyagi 
 tags: []
 path: wow-part-3-conveying-the-business-value-in-a-purposefully-designed-ux
+authorimage: "/img/blogs/Avatar4.svg"
 ---
 ![picture1](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/3/picture1-1591290304651.png)
 

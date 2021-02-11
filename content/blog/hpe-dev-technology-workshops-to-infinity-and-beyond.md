@@ -4,6 +4,7 @@ date: 2020-08-28T14:36:25.043Z
 author: Didier Lalli 
 tags: ["events","workshops","jupyter","notebook"]
 path: hpe-dev-technology-workshops-to-infinity-and-beyond
+authorimage: "/img/blogs/Avatar4.svg"
 ---
 ![didier1](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/7/didier1-1598625790616.jpg)
 

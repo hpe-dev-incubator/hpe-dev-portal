@@ -4,6 +4,7 @@ date: 2020-02-07T18:29:39.773Z
 author: Chris Pasek 
 tags: ["HPE-OneView","OneView","Ansible"]
 path: new-hpe-oneview-ansible-module-v540-includes-support-for-hpe-oneview-50
+authorimage: "/img/blogs/Avatar3.svg"
 ---
 ![picture1](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/1/picture1-1581100387470.png)
 

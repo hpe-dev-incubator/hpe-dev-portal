@@ -4,6 +4,7 @@ date: 2019-12-04T20:27:38.907Z
 author: Denis Choukroun & Pramod Reddy-Sareddy 
 tags: []
 path: hpe-dev-and-the-new-hpe-container-platform-at-kubecon-2019
+authorimage: "/img/blogs/Avatar6.svg"
 ---
 ![picture1](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2019/10/picture1-1575491346999.png)
 

@@ -174,6 +174,7 @@ module.exports = {
                   author
                   tags
                   path
+                  authorimage
                 }
                 excerpt
               }
@@ -188,7 +189,8 @@ module.exports = {
             description: node.excerpt,
             author: node.frontmatter.author,
             tags: node.frontmatter.tags,
-            path: `/blog/${node.frontmatter.path}`,
+            path: `${node.frontmatter.path}`,
+            authorimage: node.frontmatter.authorimage,
           })),
       },
     },

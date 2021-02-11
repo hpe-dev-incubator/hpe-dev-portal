@@ -1,9 +1,10 @@
 ---
 title: "Containers: Best Practices for Running in Production"
 date: 2020-09-16T16:06:50.613Z
-author: Nathan Burch 
+author: Suzy Visvanathan 
 tags: ["hpe-ezmeral-data-fabric","MapR","containers","opensource"]
 path: containers-best-practices-for-running-in-production
+authorimage: "/img/blogs/Avatar5.svg"
 ---
 **Editor’s Note:** MapR products and solutions sold prior to the acquisition of such assets by Hewlett Packard Enterprise Company in 2019, may have older product names and model numbers that differ from current solutions. For information about current offerings, which are now part of HPE Ezmeral Data Fabric, please visit [https://www.hpe.com/us/en/software/data-fabric.html](https://www.hpe.com/us/en/software/data-fabric.html)
 

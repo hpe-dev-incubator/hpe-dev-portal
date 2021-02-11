@@ -4,6 +4,7 @@ date: 2018-07-19T15:11:44.185Z
 author: Francois Donze 
 tags: ["ilo-restful-api","Redfish","SmartArray","Bios","Postman"]
 path: setting-bios-and-storage-controller-properties-with-redfish
+authorimage: "/img/blogs/Avatar3.svg"
 ---
 The concept of deferred / pending settings in the [Bios]( https://hewlettpackard.github.io/ilo-rest-api-docs/ilo5/#changing-pending-settings-and-understanding-redfish-settings) and [SmartStorage]( https://hewlettpackard.github.io/ilo-rest-api-docs/ilo5/#smartstorage-configuration) subsystems of HPE iLO 4 and 5 is briefly presented in the [HPE Reference API]( https://hewlettpackard.github.io/ilo-rest-api-docs/ilo5/) documentation. With two examples, this document illustrates what is happening when properties are modified in those subsystems using the Redfish REST API against HPE servers.
 

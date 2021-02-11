@@ -4,6 +4,7 @@ date: 2018-10-02T20:58:25.182Z
 author: Bob Fraser 
 tags: ["HPE-OneView","OneView","Ansible"]
 path: running-hpe-oneview-ansible-modules-in-a-container
+authorimage: "/img/blogs/Avatar5.svg"
 ---
 # Running HPE OneView Ansible modules in a container
 

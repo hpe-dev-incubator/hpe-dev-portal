@@ -4,6 +4,7 @@ date: 2020-06-24T08:06:31.204Z
 author: Didier Lalli 
 tags: ["git","github","opensource"]
 path: get-involved-in-the-open-source-community-part-3-contributing-back-to-th
+authorimage: "/img/blogs/Avatar4.svg"
 ---
 ![git101-part1-git icon 1788c](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/3/git-icon-1788c-1590702885345.png)
 

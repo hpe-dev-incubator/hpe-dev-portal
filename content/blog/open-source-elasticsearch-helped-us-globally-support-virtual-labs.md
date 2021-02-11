@@ -4,6 +4,7 @@ date: 2020-09-10T14:39:09.439Z
 author: Didier Lalli 
 tags: ["opensource","elasticsearch","elk"]
 path: open-source-elasticsearch-helped-us-globally-support-virtual-labs
+authorimage: "/img/blogs/Avatar3.svg"
 ---
 <img src="/uploads/media/2020/7/elk-0-1600073593195.png" alt="ElasticSearch + Kibana" />
 

@@ -4,6 +4,7 @@ date: 2017-11-29T19:10:21.860Z
 author: Amit 
 tags: ["kubecon-austin-2017"]
 path: join-us-at-kubecon-2017
+authorimage: "/img/blogs/Avatar1.svg"
 ---
 # HPE is at KubeCon
 

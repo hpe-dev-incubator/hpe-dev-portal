@@ -4,6 +4,7 @@ date: 2020-01-15T21:15:44.891Z
 author: Jonathan Weber 
 tags: []
 path: the-tools-we-use-to-shape-user-experiences
+authorimage: "/img/blogs/Avatar4.svg"
 ---
 ![picture4](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2019/10/picture4-1579123006064.png)
 

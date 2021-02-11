@@ -4,6 +4,7 @@ date: 2017-09-11T16:49:26.055Z
 author: Didier Lalli 
 tags: ["HPE-OneView","OneView","ILO"]
 path: leveraging-hpe-oneview-single-sign-on-to-ilo-management-processors
+authorimage: "/img/blogs/Avatar5.svg"
 ---
 In this previous article, [Surviving in the Schema… while running our
 first

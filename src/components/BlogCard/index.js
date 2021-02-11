@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import remark from 'remark';
 import strip from 'strip-markdown';
+import { navigate } from 'gatsby';
 import {
   Box,
   Heading,
@@ -11,7 +12,6 @@ import {
   CardHeader,
   Paragraph,
 } from 'grommet';
-import { navigate } from 'gatsby';
 
 const dateFormat = Intl.DateTimeFormat('default', {
   year: 'numeric',
@@ -39,13 +39,15 @@ export const BlogCard = ({ node, ...rest }) => (
     wrap
     onClick={
       node.path || node.frontmatter.path
-        ? () => navigate(node.path || node.frontmatter.path)
+        ? () => navigate(`/blog/${node.path || node.frontmatter.path}`)
         : undefined
     }
   >
     <Box gap="small">
       <Box align="start">
-        <Image src="/img/blogs/Avatar1.svg" />
+        {(node.authorimage || node.frontmatter.authorimage) && (
+          <Image src={node.authorimage || node.frontmatter.authorimage} />
+        )}
       </Box>
       <Box align="start">
         <Text>{node.author || node.frontmatter.author}</Text>
@@ -88,30 +90,57 @@ export const FeaturedBlogCard = ({ node, ...rest }) => (
     flex="grow"
     {...rest}
     onClick={
-      node.frontmatter.path ? () => navigate(node.frontmatter.path) : undefined
+      node.frontmatter.path
+        ? () => navigate(`/blog/${node.frontmatter.path}`)
+        : undefined
     }
   >
-    <CardHeader justify="end" pad={{ vertical: 'small', horizontal: 'medium' }}>
-      <Text color="text-weak">{node.frontmatter.tags}</Text>
-    </CardHeader>
-    <Box align="start" pad="large" gap="medium">
-      <Box gap="small">
-        <Heading level={4} margin="none">
-          {node.frontmatter.title}
-        </Heading>
-        <Paragraph margin="none">
-          {node.frontmatter.description || stripMarkdown(node.excerpt)}
-        </Paragraph>
-      </Box>
-      <Box align="start" direction="row" gap="small">
-        <Image fit="contain" src="/img/blogs/Avatar1.svg" />
-        <Box align="start" alignSelf="center">
-          <Text weight="bold">{node.frontmatter.author}</Text>
-          <Text color="text-weak">
-            {dateFormat.format(new Date(node.frontmatter.date))}
-          </Text>
+    {(node.frontmatter.category || node.frontmatter.tags) && (
+      <CardHeader
+        justify="end"
+        pad={{ vertical: 'small', horizontal: 'medium' }}
+      >
+        <Text color="text-weak">
+          {node.frontmatter.category
+            ? node.frontmatter.category
+            : node.frontmatter.tags[0]}
+        </Text>
+      </CardHeader>
+    )}
+    <Box direction="row-responsive" wrap justify="between">
+      <Box
+        align="start"
+        pad={{ vertical: 'large', horizontal: 'xlarge' }}
+        gap="medium"
+      >
+        <Box align="start" direction="row" gap="small">
+          <Image fit="contain" src={node.frontmatter.authorimage} />
+          <Box align="start" alignSelf="center">
+            <Text weight="bold">{node.frontmatter.author}</Text>
+            <Text color="text-weak">
+              {dateFormat.format(new Date(node.frontmatter.date))}
+            </Text>
+          </Box>
+        </Box>
+        <Box gap="small">
+          <Heading level={4} margin="none">
+            {node.frontmatter.title}
+          </Heading>
+          <Paragraph margin="none">
+            {node.frontmatter.description || stripMarkdown(node.excerpt)}
+          </Paragraph>
         </Box>
       </Box>
+      {node.frontmatter.thumbnailimage && (
+        <Box pad={{ vertical: 'large', horizontal: 'xlarge' }}>
+          <Image
+            height="300"
+            width="300"
+            fit="contain"
+            src={node.frontmatter.thumbnailimage}
+          />
+        </Box>
+      )}
     </Box>
   </GrommetCard>
 );
