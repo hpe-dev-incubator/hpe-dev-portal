@@ -1,5 +1,5 @@
 ---
-priority: 1
+priority: 2
 width: large
 title: Aruba Developer Hub
 version: v 2.01.8964
@@ -9,7 +9,8 @@ description: The Aruba Developer Hub is a comprehensive resource for developers
   Services Platform.
 image: /img/platforms/Aruba.svg
 frontpage: true
-tags: ["aruba"]
+tags:
+  - aruba
 ---
 * [Check out the Aruba Developer Hub](https://developer.arubanetworks.com/)
 * [Join the conversation at the Airheads Developer Community](https://community.arubanetworks.com/community-home?communitykey=3b1329d5-bdf8-44d2-93b1-8c252f5094fb)
