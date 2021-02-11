@@ -4,6 +4,7 @@ date: 2018-09-24T15:44:54.759Z
 author: Sir Hackington Appbuilder III 
 tags: ["VMWorld","VMWare"]
 path: sir-hackington-appbuilder-iii-tames-the-it-monster
+authorimage: "/img/blogs/Avatar3.svg"
 ---
 My name’s Sir Hackington Appbuilder III for those of you just meeting me, and I’m the trusted guardian of all the swag when members of the HPE Developer Community (HPE DEV) head out to conferences. I’d like to tell you a little about our recent time at VMworld Las Vegas that was hosted at the end of August.
 

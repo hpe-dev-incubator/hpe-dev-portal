@@ -4,6 +4,7 @@ date: 2019-08-28T15:36:16.964Z
 author: Carson Stone and Kailash Ramakrishnan 
 tags: []
 path: developing-a-client-app-for-accessing-services-via-the-open-service-brok
+authorimage: "/img/blogs/Avatar1.svg"
 ---
 ![picture13](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2019/8/picture13-1567007521162.png)
 

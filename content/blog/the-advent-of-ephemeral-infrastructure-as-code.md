@@ -4,6 +4,7 @@ date: 2019-01-02T15:40:59.636Z
 author: Katreena Mullican 
 tags: []
 path: the-advent-of-ephemeral-infrastructure-as-code
+authorimage: "/img/blogs/Avatar5.svg"
 ---
 **“Ephemeral infrastructure as code”** refers to compute, storage, and networking that is programmatically assembled, provisioned and configured on demand to suit a variety of workloads. Once each workload execution is complete, resulting output is pushed to permanent storage and the infrastructure is available to be re-assembled and re-provisioned. These “composable” building blocks of compute, storage, and networking resources are available in the flexible workhorse known as HPE Synergy. Synergy offers a mix and match of compute nodes and storage drawers within each frame and is managed by a pair of Composer modules, running HPE OneView. A pair of redundant Image Streamer appliances is also available, which provides flexibility for automatically provisioning operating system and applications onto the Synergy nodes. Synergy plus Image Streamer is a powerful combination that is used at HudsonAlpha Institute for Biotechnology, a nonprofit genomics and genetics research institute in Huntsville, AL, to achieve ephemeral infrastructure as code.
 

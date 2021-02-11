@@ -4,6 +4,7 @@ date: 2020-06-15T14:51:00.025Z
 author: Rahul Kumar 
 tags: ["Docker","Containers"]
 path: dockerizing-your-nodejs-based-backend-applications
+authorimage: "/img/blogs/Avatar6.svg"
 ---
   
 Hello developers!  In this blog post, I will take you through a step-by-step procedure that uses best practices to dockerize your NodeJS backend applications. To better understand this tutorial, the reader should have some basic familiarity with Docker as-a-container technology and NodeJS-based backend applications. Briefly, NodeJS is the most popular JavaScript-based server side ecosystem. It is mostly used to build highly scalable, fault tolerant microservices-based backend enterprise applications. Many enterprise application developers prefer NodeJS over other programming languages, such as JAVA, because of its light memory footprint, event driven, non-blocking model. NodeJS is also very popular in building end-to-end applications in JavaScript, typically using MEAN (Mongo, Express, Angular, Node) and MERN (Mongo, Express, React, Node) stacks. In this post, I do not intend to focus on NodeJS-based application development, but rather on how to dockerize already developed NodeJS based applications.

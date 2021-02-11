@@ -4,6 +4,7 @@ date: 2019-11-29T17:05:55.757Z
 author: Michael Mattsson 
 tags: ["hpe-nimble-storage","hpe-cloud-volumes"]
 path: using-hpe-cloud-volumes-with-amazon-eks
+authorimage: "/img/blogs/Avatar6.svg"
 ---
   
 Running applications on Kubernetes is becoming more mainstream by the minute. Kubernetes is fairly unambiguous to the developer but may pose challenges for the Ops teams. Private cloud, hybrid cloud or public cloud? Managed Kubernetes or BYO (build your own) Kubernetes? There’s an endless matrix of combinations. It becomes even more challenging when you start caring about stateful applications and persistent storage, as data has gravity in the sense it becomes sticky to where you deploy your application. This technical tutorial will explore the paradigm of managed Kubernetes and how Hewlett Packard Enterprise (HPE) bring value to the public cloud by providing advanced data services to Kubernetes on Amazon Web Services (AWS).

@@ -4,6 +4,7 @@ date: 2020-06-20T21:04:47.133Z
 author: Michael Mattsson 
 tags: ["hpe-nimble-storage","hpe-3par-and-primera"]
 path: introducing-an-nfs-server-provisioner-for-the-hpe-csi-driver-for-kuberne
+authorimage: "/img/blogs/Avatar5.svg"
 ---
 With the release of HPE CSI Driver for Kubernetes 1.2.0, a new set of features has been made available as a technology preview, including an NFS Server Provisioner and a Pod Monitor. The motivation behind including these new features is explored in the official announcement – [Tech preview: Network File System Server Provisioner for HPE CSI Driver for Kubernetes](https://community.hpe.com/t5/around-the-storage-block/tech-preview-network-file-system-server-provisioner-for-hpe-csi/ba-p/7092948). In this blog post, I’ll demonstrate how to put these features to good use!
 

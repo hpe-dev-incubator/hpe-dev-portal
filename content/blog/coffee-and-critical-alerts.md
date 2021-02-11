@@ -4,6 +4,7 @@ date: 2019-02-20T22:40:05.439Z
 author: Brad Stanley 
 tags: ["hpe-oneview-global-dashboard"]
 path: coffee-and-critical-alerts
+authorimage: "/img/blogs/Avatar2.svg"
 ---
 What could be better than starting your day with a hot cup of coffee and a custom-made critical alerts report? Ok, an exaggeration, but OneView Global Dashboard’s 1.7 (OVGD) release has several new features including a new report – Critical Alerts. This new report combined with the existing feature of scheduling reports can make a powerful ally in keeping your data center healthy by cutting time spent hunting for problems to fix and instead having them presented to you.
 

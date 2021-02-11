@@ -4,6 +4,7 @@ date: 2019-11-20T17:04:41.170Z
 author: Pramod Sareddy 
 tags: []
 path: insights-from-hpe-dev-at-microsoft-ignite-2019
+authorimage: "/img/blogs/Avatar4.svg"
 ---
 ![picture6](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2019/10/picture6-1574269899492.png)
 

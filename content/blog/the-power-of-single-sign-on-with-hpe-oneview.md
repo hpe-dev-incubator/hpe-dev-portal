@@ -4,6 +4,7 @@ date: 2019-07-11T19:44:24.540Z
 author: Vincent Berger 
 tags: ["HPEOneView"]
 path: the-power-of-single-sign-on-with-hpe-oneview
+authorimage: "/img/blogs/Avatar6.svg"
 ---
 An infrastructure management tool, like [HPE OneView,](https://www.hpe.com/us/en/integrated-systems/software.html) allows IT to do most day-to-day infrastructure administration tasks. But there are cases where other related tools can be useful too. It can be tedious to remember how to log on to all these different tools. Sure, you can use a password safe tool, or (please don’t do this…) a TXT file edited with Notepad. 
 

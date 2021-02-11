@@ -4,6 +4,7 @@ date: 2020-03-19T03:36:56.909Z
 author: Michael Mattsson 
 tags: ["hpe-nimble-storage"]
 path: hpe-csi-driver-for-kubernetes-snapshots-clones-and-volume-expansion
+authorimage: "/img/blogs/Avatar1.svg"
 ---
 The Container Storage Interface (CSI) introduces enterprise data management, such as volume snapshots and volume clones as native Kubernetes objects. In Kubernetes 1.17, these interfaces have matured to a beta state. Recently, Hewlett Packard Enterprise (HPE) [released version 1.1.0](https://community.hpe.com/t5/HPE-Storage-Tech-Insiders/HPE-CSI-Driver-for-Kubernetes-1-1-0-Generally-Available/ba-p/7082995) of the HPE CSI Driver for Kubernetes with full support for these features. Let’s walk through how a Kubernetes user can take advantage of these constructs to become more agile by deploying, testing and running stateful applications on Kubernetes.
 

@@ -4,6 +4,7 @@ date: 2019-05-16T01:37:52.554Z
 author: Roy Atkins 
 tags: ["hpe-simplivity"]
 path: hpe-simplivity-powershell-module
+authorimage: "/img/blogs/Avatar3.svg"
 ---
 # HPE SimpliVity PowerShell Module
 

@@ -13,6 +13,8 @@ import {
 
 import { Link } from '../../components';
 
+const { GATSBY_NEWSLETTER_API } = process.env;
+
 const emailValidation = [
   {
     regexp: new RegExp('[^@ \\t\\r\\n]+@'),
@@ -44,7 +46,7 @@ export const EmailCapture = ({ children, heading, bodyCopy1, bodyCopy2 }) => {
     setErrorMsg('');
     const { email } = formData;
     const listId = 13904898;
-    return fetch('http://localhost:8082/api/emails', {
+    return fetch(GATSBY_NEWSLETTER_API, {
       method: 'POST',
       headers: new Headers({
         'content-type': 'application/json',

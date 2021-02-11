@@ -1,9 +1,10 @@
 ---
 title: "Best Practices for Migrating Your Apps to Containers and Kubernetes"
 date: 2020-11-25T02:26:04.249Z
-author: Nathan Burch 
+author: Suzy Visvanathan 
 tags: ["hpe-ezmeral-data-fabric","MapR","mapr-platform","containers","microservices","opensource"]
 path: best-practices-for-migrating-your-apps-to-containers-and-kubernetes
+authorimage: "/img/blogs/Avatar4.svg"
 ---
 **Editor’s Note:** MapR products and solutions sold prior to the acquisition of such assets by Hewlett Packard Enterprise Company in 2019, may have older product names and model numbers that differ from current solutions. For information about current offerings, which are now part of HPE Ezmeral Data Fabric, please visit [https://www.hpe.com/us/en/software/data-fabric.html](https://www.hpe.com/us/en/software/data-fabric.html)
 

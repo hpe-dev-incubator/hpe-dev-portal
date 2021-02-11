@@ -4,6 +4,7 @@ date: 2020-09-16T12:46:52.445Z
 author: Dale Rensing 
 tags: ["workshops-on-demand","workshops","training","on-demand"]
 path: boost-skills-with-free-on-demand-software-technology-workshops
+authorimage: "/img/blogs/Avatar6.svg"
 ---
 ![gettyimages 860310256_1600_0_72_rgb](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/7/gettyimages-860310256_1600_0_72_rgb-1600260582799.JPG)
 

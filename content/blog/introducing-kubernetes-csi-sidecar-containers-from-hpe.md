@@ -4,6 +4,7 @@ date: 2020-08-25T01:45:01.828Z
 author: Michael Mattsson 
 tags: ["hpe-nimble-storage","hpe-3par-and-primera"]
 path: introducing-kubernetes-csi-sidecar-containers-from-hpe
+authorimage: "/img/blogs/Avatar3.svg"
 ---
 With the release of the upcoming HPE CSI Driver for Kubernetes version 1.3.0, Hewlett Packard Enterprise (HPE) introduces the concept of Container Storage Interface (CSI) extensions to the CSI driver using Kubernetes CSI sidecar containers. This concept is not foreign to anyone familiar with the CSI architecture as most new major features get implemented as a sidecar in a true microservice architecture. Services are tightly coupled and communicate over a UNIX socket using a high-speed Remote Procedure Call (RPC) interface, gRPC, for secure and reliable communication.
 

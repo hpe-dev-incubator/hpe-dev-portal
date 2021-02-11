@@ -4,6 +4,7 @@ date: 2017-12-06T00:39:08.306Z
 author: Michael Mattsson 
 tags: ["hpe-nimble-storage","dory","doryd","kubernetes","containers","docker"]
 path: doryd-a-dynamic-provisioner-for-docker-volume-plugins
+authorimage: "/img/blogs/Avatar6.svg"
 ---
 Many vendors have invested quite a lot of effort into building robust Docker Volume plugins, including HPE Nimble Storage and HPE 3PAR. Docker and Kubernetes (K8s) share the same fundamental principle of being able to bind mount a host filesystem inside a container through the `mnt` namespace. Any other similarity pretty much stops there as far as compatibility goes. K8s has a multitude of Persistent Volume (PV) plugins mainly focused on IaaS provider frameworks and native filesystems.
 

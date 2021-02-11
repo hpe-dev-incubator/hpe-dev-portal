@@ -4,6 +4,7 @@ date: 2020-01-08T18:31:57.006Z
 author: Christopher Pasek  
 tags: ["HPE-OneView","OneView","Python"]
 path: hpe-oneview-python-sdk-now-available-with-support-for-hpe-oneview-50
+authorimage: "/img/blogs/Avatar6.svg"
 ---
 ## Use HPE OneView software-defined intelligence to save time and effort
 

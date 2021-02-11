@@ -1,9 +1,10 @@
 ---
-title: "Streaming Machine learning pipeline for Sentiment Analysis using Apache APIs: Kafka, Spark and Drill - Part 1"
-date: 2020-10-28T15:43:34.823Z
-author: Nathan Burch 
-tags: ["hpe-ezmeral-data-fabric","MapR","Machine-Learning","Spark","opensource"]
+title: "Streaming Machine learning pipeline for Sentiment Analysis using Apache APIs: Kafka, Spark and Drill - Part 2"
+date: 2020-12-09T07:13:11.813Z
+author: Carol McDonald 
+tags: ["hpe-ezmeral-data-fabric","MapR","apache-spark","opensource"]
 path: streaming-machine-learning-pipeline-for-sentiment-analysis-using-apache-
+authorimage: "/img/blogs/Avatar4.svg"
 ---
 **Editor’s Note:** MapR products and solutions sold prior to the acquisition of such assets by Hewlett Packard Enterprise Company in 2019, may have older product names and model numbers that differ from current solutions. For information about current offerings, which are now part of HPE Ezmeral Data Fabric, please visit [https://www.hpe.com/us/en/software/data-fabric.html](https://www.hpe.com/us/en/software/data-fabric.html)
 
@@ -11,483 +12,504 @@ path: streaming-machine-learning-pipeline-for-sentiment-analysis-using-apache-
 
 ```
 "authorDisplayName": ["Carol McDonald"],
-"publish": "2019-05-07T07:00:00.000Z",
-"tags": "machine-learning"
+"publish": "2019-05-20T07:00:00.000Z",
+"tags": "mapr-platform"
 ```
 ---
 
-Text mining and analysis of social media, emails, support tickets, chats, product reviews, and recommendations have become a valuable resource used in almost all industry verticals to study data patterns in order to help businesses to gain insights, understand customers, predict and enhance the customer experience, tailor marketing campaigns, and aid in decision-making.
+*Editor's Note:  This tutorial is the second part in a series related to this topic. The first part in this series is found here: [Part 1.](https://developer.hpe.com/blog/wzvGV1qzj3c2YA8QQnMD/streaming-machine-learning-pipeline-for-sentiment-analysis-using-apache-)*
 
-Sentiment analysis uses machine learning algorithms to determine how positive or negative text content is. Example use cases of sentiment analysis include:
+This is the second in a series of blogs that discuss the architecture of a data pipeline that combines streaming data with machine learning and fast storage.  In the first part,  we explored sentiment analysis using Spark Machine learning Data pipelines and saved a sentiment analysis machine learning model. This second post will discuss using the saved sentiment analysis model with streaming data to do real-time analysis of product sentiment, storing the  results in MapR Database, and making them rapidly available for Spark and Drill SQL.
 
--   Quickly understanding the tone from customer reviews
-    -   To gain insights about what customers like or dislike about a product or service
-    -   To gain insights about what might influence buying decisions of new customers
-    -   To give businesses market awareness
-    -   To address issues early
--   Understanding stock market sentiment to gain insights for financial signal predictions
--   Determining what people think about customer support
--   Social media monitoring
--   Brand/product/company popularity/reputation/perception monitoring
--   Discontented customer detection monitoring and alerts
--   Marketing campaign monitoring/analysis
--   Customer service opinion monitoring/analysis
--   Brand sentiment attitude analysis
--   Customer feedback analytics
--   Competition sentiment analytics
--   Brand influencers monitoring
+![](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/12/image1-1607498963348.png)
 
-Manually analyzing the abundance of text produced by customers or potential customers is time-consuming; machine learning is more efficient and with streaming analysis, insights can be provided in real time.
+In this post we will go over the following:
 
-This is the first in a series of blog posts, which discusses the architecture of a data pipeline that combines streaming data with machine learning and fast storage.  In this first part, we will explore sentiment analysis using Spark machine learning data pipelines. We will work with a dataset of Amazon product reviews and build a machine learning model to classify reviews as positive or negative.  In the [second part](https://developer.hpe.com/blog/mmj9zzELM6s3xXrBQOQM/streaming-machine-learning-pipeline-for-sentiment-analysis-using-apache-) of this tutorial, we will use this machine learning model with streaming data to classify documents in real time.  The second post will discuss using the saved model with streaming data to do real-time analysis of product sentiment, storing the  results in MapR Database, and making them rapidly available for Spark and Drill SQL.
+-   Overview of Streaming concepts
+-   Ingesting Kafka Events with Spark Structured Streaming
+-   Enriching events with a machine learning model.
+-   Storing the events in MapR Database
+-   Querying the rapidly available enriched events in MapR Database with Apache Spark SQL and Apache Drill.
 
-![](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/9/image7-1603902952832.png)
+## Streaming Concepts
 
-In this post, we will go over the following:
+## Publish-Subscribe Event Streams with MapR Event Store for Apache Kafka
 
--   Overview of classification and sentiment analysis concepts
--   Building feature vectors from text documents
--   Training a machine learning model to classify positive and negative reviews using logistic regression
--   Evaluating and saving the machine learning model
+MapR Event Store for Apache Kafka is a distributed publish-subscribe event streaming system that enables producers and consumers to exchange events in real time in a parallel and fault-tolerant manner via the Apache Kafka API.
 
-## Classification
+A stream represents a continuous sequence of events that goes from producers to consumers, where an event is defined as a key-value pair.
 
-Classification is a family of supervised machine learning algorithms that identify which category an item belongs to (such as whether an email is spam or not), based on labeled data (such as the email subject and message text). Some common use cases for classification include credit card fraud detection, email spam detection, and sentiment analysis.
+![](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/12/image2-1607498972008.png)
 
-![](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/9/image3-1603902962230.png)
+Topics are a logical stream of events. Topics organize events into categories and decouple producers from consumers. Topics are partitioned for throughput and scalability. MapR Event Store can scale to very high throughput levels, easily delivering millions of messages per second using very modest hardware.
 
-Classification takes a set of data with known labels and predetermined features and learns how to label new records, based on that information. Features are the properties that you can use to make predictions. To build a classifier model, you explore and extract the features that most contribute to the classification.
+![](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/12/image13-1607498981360.png)
 
-![](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/9/image15-1603902978389.png)
+You can think of a partition like an event log: new events are appended to the end and are assigned a sequential ID number called the *offset*.
 
-Let's go through an example for sentiment analysis for text classification of positive or negative.
+![](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/12/image22-1607498989167.png)
 
--   What are we trying to predict?
-    -   In this example, the customer review ratings are used to label reviews as positive or not. A review with 4 to 5 stars is considered a positive review, and a review with 1 to 2 stars is considered a negative review.  
--   What are the properties that you can use to make predictions?
-    -   The review text words are used as the features to discover positive or negative similarities in order to categorize customer text sentiment as positive or negative.
+Like a queue, events are delivered in the order they are received.
 
-## Machine Learning Workflow
+![](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/12/image20-1607498997119.png)
 
-Using Machine Learning is an iterative process, which involves:
+Unlike a queue, however, messages are not deleted when read. They remain on the partition available to other consumers. Messages, once published, are immutable and can be retained forever.
 
-1.  Data discovery and model creation
-    -   Analysis of historical data
-    -   Identifying new data sources, which traditional analytics or databases are not using, due to the format, size, or structure
-    -   Collecting, correlating, and analyzing data across multiple data sources
-    -   Knowing and applying the right kind of machine learning algorithms to get value out of the data
-    -   Training, testing, and evaluating the results of machine learning algorithms to build a model  
-2.  Using the model in production to make predictions
-3.  Data discovery and updating the model with new data
+![](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/12/image5-1607499005836.png)
 
-![](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/9/image18-1603902991041.png)
+Not deleting messages when they are read allows for high performance at scale and also for processing of the same messages by different consumers for different purposes such as multiple views with polyglot persistence.
 
-## Feature Extraction
+![](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/12/image15-1607499014273.png)
 
-Features are the interesting properties in the data that you can use to make predictions. Feature engineering is the process of transforming raw data into inputs for a machine learning algorithm. In order to be used in Spark machine learning algorithms, features have to be put into feature vectors, which are vectors of numbers representing the value for each feature. To build a classifier model, you extract and test to find the features of interest that most contribute to the classification.
+## Spark Dataset, DataFrame, SQL
 
-![](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/9/image8-1603902999171.png)
+A Spark Dataset is a distributed collection of typed objects partitioned across multiple nodes in a cluster. A Dataset can be manipulated using functional transformations (map, flatMap, filter, etc.) and/or Spark SQL. A DataFrame is a Dataset of Row objects and represents a table of data with rows and columns.
 
-## Apache Spark for Text Feature Extraction
+![](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/12/image14-1607499022152.png)
 
-The TF-IDF (Term Frequency–Inverse Document Frequency) feature extractors in [SparkMLlib](http://spark.apache.org/docs/latest/ml-features.html#23tf-idf) can be used to convert text words into feature vectors. TF-IDF calculates the most important words in a single document compared to a collection of documents. For each word in a collection of documents, it computes:
+## Spark Structured Streaming
 
--   Term Frequency (TF), which is the number of times a word occurs in a specific document
--   Document Frequency (DF), which is the number of times a word occurs in a collection of documents
--   Term Frequency-Inverse Document Frequency (TF-IDF), which measures the significance of a word in a document (the word occurs a lot in that document, but is rare in the collection of documents)
+Structured Streaming is a scalable and fault-tolerant stream processing engine built on the Spark SQL engine. Structured Streaming enables you to view data published to Kafka as an unbounded DataFrame and process this data with the same DataFrame, Dataset, and SQL APIs used for batch processing.
 
-For example, if you had a collection of reviews about bike accessories, then the word 'returned' in a review would be more significant for that document than the word  'bike.'In the simple example below, there is one positive text document and one negative text document, with the word tokens 'love,''bike,' and 'returned' (after filtering to remove insignificant words like 'this' and 'I').  The TF, DF, and TF-IDF calculations are shown. The word 'bike' has a TF of 1 in 2 documents (word count in each document), a document frequency of 2 (word count in set of documents), and a TF-IDF of ½ (TF divided by DF).
+![](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/12/image6-1607499031160.png)
 
-![](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/9/image1-1603903007533.png)
+As streaming data continues to arrive, the Spark SQL engine incrementally and continuously processes it and updates the final result.
 
-## Logistic Regression
+![](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/12/image21-1607499040966.png)
 
-[Logistic regression is a popular method to predict a binary response.](https://spark.apache.org/docs/latest/ml-classification-regression.html#23logistic-regression) It is a special case of generalized linear models that predicts the probability of the outcome. Logistic regression measures the relationship between the Y "Label" and the X "Features" by estimating probabilities using [a logistic function.](https://en.wikipedia.org/wiki/Logistic_regression) The model predicts a probability, which is used to predict the label class.
+Stream processing of events is useful for real-time ETL, filtering, transforming, creating counters and aggregations, correlating values, enriching with other data sources or machine learning, persisting to files or Database, and publishing to a different topic for pipelines.
 
-![](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/9/image13-1603903017520.png)
+![](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/12/image4-1607499049861.png)
 
-In our text classification case, logistic regression tries to predict the probability of a review text being positive or negative, given the label and feature vector of TF-IDF values.  Logistic regression finds the best fit weight for each word in the collection of text by multiplying each TF-IDF feature by a weight and passing the sum through a sigmoid function, which transforms the input x into the output y, a number between 0 and 1.  In other words, logistic regression can be understood as finding the [parameters that best fit:](http://logisticregressionanalysis.com/86-what-is-logistic-regression/)
+## Spark Structured Streaming Use Case Example Code
 
-![](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/9/image16-1603903026176.png)
+Below is the data processing pipeline for this use case of sentiment analysis of Amazon product review data to detect positive and negative reviews.
 
-![](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/9/image19-1603903034716.png)
+![](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/12/image1-1607499057405.png)
 
-Logistic regression has the following advantages:
+1.  Amazon product review JSON formatted events are published to a MapR Event Store topic using the Kafka API.
+2.  A Spark Streaming application subscribed to the topic:
+    1.  Ingests a stream of product review events
+    2.  Uses a deployed machine learning model to enrich the review event with a positive or negative sentiment prediction
+    3.  Stores the transformed and enriched data in MapR Database in JSON format.
 
--   Can handle sparse data
--   Fast to train
--   Weights can be interpreted
-  -   Positive weights will correspond to the words that are positive
-  -   Negative weights will correspond to the words that are negative
+![](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/12/image3-1607499065187.png)
 
-## Data Exploration and Feature Extraction
+## Example Use Case Data
 
-We will be using a dataset of Amazon sports and outdoor products review data, which you can download here: [http://jmcauley.ucsd.edu/data/amazon/](http://jmcauley.ucsd.edu/data/amazon/). The dataset has the following schema:  
-**Italicized fields are for sentiment analysis*  
+The example data set is Amazon product reviews data from [the previous blog in this series](https://developer.hpe.com/blog/wzvGV1qzj3c2YA8QQnMD/streaming-machine-learning-pipeline-for-sentiment-analysis-using-apache-). The incoming data is in JSON format; an example is shown below:
 
-`reviewerID` - ID of the reviewer, e.g., A2SUAM1J3GNN3B  
-`asin` - ID of the product, e.g., 0000013714  
-`reviewerName` - name of the reviewer  
-`helpful` - helpfulness rating of the review, e.g., 2/3  
-\*`reviewText` - *text of the review*  
-\*`overall` - *rating of the product*  
-\*`summary` - *summary of the review*  
-`unixReviewTime` - time of the review (Unix time)  
-`reviewTime` - time of the review (raw)
-
-The dataset has the following JSON format:
-
-```
-{
-	"reviewerID": "A1PUWI9RTQV19S",
-	"asin": "B003Y5C132",
-	"reviewerName": "kris",
-	"helpful": [0, 1],
-	"reviewText": "A little small in hind sight, but I did order a .30 cal box. Good condition, and keeps my ammo organized.",
-	"overall": 5.0,
-	"summary": "Nice ammo can",
-	"unixReviewTime": 1384905600,
-	"reviewTime": "11 20, 2013"
-}
+```json
+{"reviewerID": "A3V52OTJHKIJZX", "asin": "2094869245","reviewText": "Light just installed on bike, seems to be well built.", "overall": 5.0, "summary": "Be seen", "unixReviewTime": 1369612800}
 ```
 
-In this scenario, we will use logistic regression to predict the label of positive or not, based on the following:
+We enrich this data with the sentiment prediction, drop some columns, then transform it into the following JSON object:
 
-Label :
--   overall - rating of the product 4-5  = 1 Positive
--   overall - rating of the product 1-2  =  0 Negative
-
-Features :
--   reviewText + summary  of the review → TF-IDF features
-
-## USING THE SPARK ML PACKAGE
-
-Spark ML provides a uniform set of high-level APIs, built on top of DataFrames with the goal of making machine learning scalable and easy. Having ML APIs built on top of DataFrames provides the scalability of partitioned data processing with the ease of SQL for data manipulation.
-
-![](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/9/image9-1603903043455.png)
-
-We will use an ML Pipeline to pass the data through transformers in order to extract the features and an estimator to produce the model.
-
--   Transformer: A transformer is an algorithm that transforms one `DataFrame` into another `DataFrame`. We will use transformers to get a `DataFrame` with a features vector column.
--   Estimator: An estimator is an algorithm that can be fit on a `DataFrame` to produce a transformer. We will use a an estimator to train a model, which can transform input data to get predictions.
--   Pipeline: A pipeline chains multiple transformers and estimators together to specify an ML workflow.
-
-## Load the Data from a File into a DataFrame
-
-The first step is to load our data into a `DataFrame`. Below, we [specify the data source format and path to load into a `DataFrame`](http://spark.apache.org/docs/latest/sql-programming-guide.html#23manually-specifying-options).  Next, we use the `withColumn` method to add a column combining the review summary with the review text, and we drop columns that are not needed.
-
-```
-import org.apache.spark._
-import org.apache.spark.ml._
-import org.apache.spark.sql._
-
-var file ="/user/mapr/data/revsporttrain.json"
-
-val df0  = spark.read.format("json")
- .option("inferSchema", "true")
- .load(file)
-
-val df = df0.withColumn("reviewTS",
-  concat($"summary", lit(" "),$"reviewText"))
- .drop("helpful")
- .drop("reviewerID")
- .drop("reviewerName")
- .drop("reviewTime")
+```json
+{"reviewerID": "A3V52OTJHKIJZX", "_id":"2094869245_1369612800", "reviewText": "Light just installed on bike, seems to be well built.", "overall": 5.0, "summary": "Be seen", "label":"1", "prediction":"1"}
 ```
 
-The `DataFrame printSchema` displays the schema:
+## Loading the Spark *pipeline* Model
 
+The Spark PipelineModel class is used to load the pipeline model, which was fitted on [the historical product review data](https://developer.hpe.com/blog/wzvGV1qzj3c2YA8QQnMD/streaming-machine-learning-pipeline-for-sentiment-analysis-using-apache-) and then saved to the MapR XD file system.
+
+```python
+// Directory to read the saved ML model from
+var modeldirectory ="/user/mapr/sentmodel/"
+
+// load the saved model from the distributed file system
+val model = PipelineModel.load(modeldirectory)
 ```
-df.printSchema
+
+## Reading Data from Kafka Topics
+
+In order to read from Kafka, we must first specify the stream format, topic, and offset options. For more information on the configuration parameters, [see the MapR Streams documentation.](https://docs.datafabric.hpe.com/62/MapR_Streams/differences_in_configuration_parameters_for_producers_and_consumers.html)
+
+```python
+var topic: String = "/user/mapr/stream:reviews"
+
+val df1 = spark.readStream.format("kafka")
+      .option("kafka.bootstrap.servers", "maprdemo:9092")
+      .option("subscribe", topic)
+      .option("group.id", "testgroup")
+      .option("startingOffsets", "earliest")
+      .option("failOnDataLoss", false)
+      .option("maxOffsetsPerTrigger", 1000)
+      .load()
+```
+
+This returns a DataFrame with the following schema:
+
+```python
+df1.printSchema()
+
+result:
+root
+ |-- key: binary (nullable = true)
+ |-- value: binary (nullable = true)
+ |-- topic: string (nullable = true)
+ |-- partition: integer (nullable = true)
+ |-- offset: long (nullable = true)
+ |-- timestamp: timestamp (nullable = true)
+ |-- timestampType: integer (nullable = true)
+```
+
+## Parsing the Message Values into a DataFrame
+
+The next step is to parse and transform the binary values column into a DataFrame with the product review schema.  We will use Spark from_json to extract the JSON data from the Kafka DataFrame value field seen above.  The Spark SQL from_json() function turns an input JSON string column into a Spark struct, with the specified input schema.  
+
+First we use a Spark StructType to define the schema corresponding to the incoming JSON message value.
+
+```json
+val schema = StructType(Array(
+    StructField("asin", StringType, true),
+    StructField("helpful", ArrayType(StringType), true),
+    StructField("overall", DoubleType, true),
+    StructField("reviewText", StringType, true),
+    StructField("reviewTime", StringType, true),
+    StructField("reviewerID", StringType, true),
+    StructField("reviewerName", StringType, true),
+    StructField("summary", StringType, true),
+    StructField("unixReviewTime", LongType, true)
+  ))
+```
+
+In the code below, we use the *from_json()* Spark SQL function, in a *select expression* with a *string cast* of the df1 column *value*, which returns a DataFrame of thespecified schema.
+
+```python
+import spark.implicits._
+
+val df2 = df1.select($"value" cast "string" as "json")
+.select(from_json($"json", schema) as "data")
+.select("data.*")
+```
+
+This returns a DataFrame with the following schema:
+
+```python
+df2.printSchema()
+
+
+result:
+root
+ |-- asin: string (nullable = true)
+ |-- helpful: array (nullable = true)
+ |    |-- element: string (containsNull = true)
+ |-- overall: double (nullable = true)
+ |-- reviewText: string (nullable = true)
+ |-- reviewTime: string (nullable = true)
+ |-- reviewerID: string (nullable = true)
+ |-- reviewerName: string (nullable = true)
+ |-- summary: string (nullable = true)
+ |-- unixReviewTime: long (nullable = true)
+```
+
+In the code below:
+
+-   we use the withColumn method to add a column combining the review summary with the review text .
+-   we filter to remove neutral ratings (=3)
+-   a Spark [Bucketizer](https://spark.apache.org/docs/2.2.0/ml-features.html#bucketizer) is used to add a label 0/1 column to the dataset for Positive (overall rating >=4)  and not positive (overall rating <4)  reviews.  (Note the label is for testing the predictions )
+
+```python
+// combine summary reviewText into one column
+val df3 = df2.withColumn("reviewTS",
+concat($"summary",lit(" "),$"reviewText" ))
+
+//  remove neutral ratings
+val df4 = df3.filter("overall !=3")
+
+// add label column
+val bucketizer = new Bucketizer()
+.setInputCol("overall")
+.setOutputCol("label")
+.setSplits(Array(Double.NegativeInfinity,3.0,Double.PositiveInfinity))
+
+val df5= bucketizer.transform(df4)
+```
+
+## Enriching the DataFrame of Reviews with Sentiment Predictions
+
+Next we transform the DataFrame with the model pipeline, which will transform the features according to the pipeline, estimate and then return the predictions in a column of a new DateFrame.
+
+```python
+// transform the DataFrame with the model pipeline
+val predictions = model.transform(df5)
+```
+
+![](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/12/image16-1607499077714.png)
+
+This returns a DataFrame with the following schema:
+
+```python
+predictions.printSchema()
+
+result:
+root
+ |-- asin: string (nullable = true)
+ |-- helpful: array (nullable = true)
+ |    |-- element: string (containsNull = true)
+ |-- overall: double (nullable = true)
+ |-- reviewText: string (nullable = true)
+ |-- reviewTime: string (nullable = true)
+ |-- reviewerID: string (nullable = true)
+ |-- reviewerName: string (nullable = true)
+ |-- summary: string (nullable = true)
+ |-- unixReviewTime: long (nullable = true)
+ |-- reviewTS: string (nullable = true)
+ |-- label: double (nullable = true)
+ |-- reviewTokensUf: array (nullable = true)
+ |    |-- element: string (containsNull = true)
+ |-- reviewTokens: array (nullable = true)
+ |    |-- element: string (containsNull = true)
+ |-- cv: vector (nullable = true)
+ |-- features: vector (nullable = true)
+ |-- rawPrediction: vector (nullable = true)
+ |-- probability: vector (nullable = true)
+ |-- prediction: double (nullable = false)
+```
+
+## Adding a Unique ID for MapR Database
+
+In the code below we:
+
+-   drop the columns that we do not want to store
+-   create a unique id “\_id” composed of the product id and review timestamp, to us as the row key for storing in MapR Database.
+
+```python
+// drop the columns that we do not want to store
+val df6 = predictions.drop("cv","probability", "features", "reviewTokens", "helpful", "reviewTokensUf", "rawPrediction")
+
+// create column with unique id for MapR Database
+val df7 = df6.withColumn("_id", concat($"asin",lit("_"), $"unixReviewTime"))
+```
+
+This returns a DataFrame with the following schema:
+
+```python
+predictions.printSchema()
+
+
+Result:
 
 root
  |-- asin: string (nullable = true)
  |-- overall: double (nullable = true)
  |-- reviewText: string (nullable = true)
+ |-- reviewTime: string (nullable = true)
+ |-- reviewerID: string (nullable = true)
+ |-- reviewerName: string (nullable = true)
  |-- summary: string (nullable = true)
  |-- unixReviewTime: long (nullable = true)
- |-- reviewTS: string (nullable = true)
+ |-- label: double (nullable = true)
+ |-- reviewTokens: array (nullable = true)
+ |    |-- element: string (containsNull = true)
+ |-- prediction: double (nullable = false)
+ |-- _id: string (nullable = true)
 ```
 
-The `DataFrame show` method displays the first 20 rows or the specified number of rows:
+## Spark Streaming Writing to MapR Database
 
-```
-df.show(5)
-```
+The MapR Database Connector for Apache Spark enables you to use MapR Database as a sink for Spark Structured Streaming or Spark Streaming.
 
-![](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/9/image5-1603903053652.png)
+![](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/12/image9-1607499085506.png)
 
-## Summary Statistics
+One of the challenges when you are processing lots of streaming data is: where do you want to store it? For this application, MapR Database a high performance NoSQL database, was chosen for its scalability and flexible ease of use with JSON.
 
-Spark DataFrames include some [built-in functions](https://spark.apache.org/docs/latest/api/python/pyspark.sql.html#23pyspark.sql.DataFrame) for statistical processing. The `describe()` function performs summary statistics calculations on all numeric columns and returns them as a `DataFrame`. Below, we analyze the product rating overall column:
+## JSON Schema Flexibility
 
-```
-df.describe("overall").show
+MapR Database supports JSON documents as a native data store. MapR Database makes it easy to store, query, and build applications with JSON documents. The Spark connector makes it easy to build real-time or batch pipelines between your JSON data and MapR Database and leverage Spark within the pipeline.
 
-**result:**
-+-------+------------------+
-|**summary**|           **overall**|
-+-------+------------------+
-|  **count**|            **200000**|
-|   **mean**|          **4.395105**|
-| **stddev**|**0.9894654790262587**|
-|    **min**|               **1.0**|
-|    **max**|               **5.0**|
-+-------+------------------+
-```
+![](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/12/image7-1607499093783.png)
 
-In the code below, we filter to remove neutral ratings (=3), then a Spark [Bucketizer](https://spark.apache.org/docs/2.2.0/ml-features.html#23bucketizer) is used to add a label 0/1 column to the dataset for Positive (overall rating >=4) and not positive (overall rating <4) reviews. Then, the resulting total counts are displayed. Grouping the data by the label column and counting the number of instances in each group shows that there are roughly 13 times as many positive samples as not positive samples.
+With MapR Database, a table is automatically partitioned into tablets across a cluster by key range, providing for scalable and fast reads and writes by row key. In this use case, the row key, the \_id, consists of the cluster ID and reverse timestamp, so the table is automatically partitioned and sorted by cluster ID with the most recent first.
 
-```
-val df1 = df.filter("overall !=3")
+![](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/12/image11-1607499101776.png)
 
-val bucketizer = new Bucketizer()
-.setInputCol("overall")
-.setOutputCol("label")
-.setSplits(Array(Double.NegativeInfinity, 4.0,
- Double.PositiveInfinity))
+The Spark MapR Database Connector architecture has a connection object in every Spark Executor, allowing for distributed parallel writes, reads, or scans with MapR Database tablets (partitions).
 
-val df2= bucketizer.transform(df1)
+![](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/12/image25-1607499112026.png)
 
-df2.groupBy("overall","label").count.show
+## Writing to a MapR Database Sink
 
-**result:**
-+-------+-----+------+
-|**overall**|**label**| **count**|
-+-------+-----+------+
-|    **2.0**|  **0.0**|  **6916**|
-|    **5.0**|  **1.0**|**127515**|
-|    **1.0**|  **0.0**|  **6198**|
-|    **4.0**|  **1.0**| **43303**|
-+-------+-----+------+
+To write a Spark Stream to MapR Database, specify the [format with the tablePath, idFieldPath, createTable, bulkMode, and sampleSize parameters](https://docs.datafabric.hpe.com/62/Spark/StructuredSparkStreaming.html). The following example writes out the df7 DataFrame to MapR Database and starts the stream. 
+
+```python
+import com.mapr.db.spark.impl._
+import com.mapr.db.spark.streaming._
+import com.mapr.db.spark.sql._
+import com.mapr.db.spark.streaming.MapRDBSourceConfig
+
+var tableName: String = "/user/mapr/reviewtable"
+val writedb = df7.writeStream
+   .format(MapRDBSourceConfig.Format)
+   .option(MapRDBSourceConfig.TablePathOption, tableName)
+   .option(MapRDBSourceConfig.IdFieldPathOption, "_id")
+   .option(MapRDBSourceConfig.CreateTableOption, false)
+   .option("checkpointLocation", "/tmp/reviewdb")
+   .option(MapRDBSourceConfig.BulkModeOption, true)
+   .option(MapRDBSourceConfig.SampleSizeOption, 1000)
+
+writedb.start()
 ```
 
-## Stratified Sampling
+![](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/12/image8-1607499120962.png)
 
-In order to ensure that our model is sensitive to the negative samples, we can put the two sample types on the same footing using stratified sampling. The DataFrames `sampleBy()` function does this when provided with fractions of each sample type to be returned. Here, we're keeping all instances of negative, but downsampling the  negative instances to 10%, then displaying the results.
+## Querying MapR Database JSON with Spark SQL
 
-```
-val fractions = Map(1.0 -> .1, 0.0 -> 1.0)
-val df3 = df2.stat.sampleBy("label", fractions, 36L)
-df3.groupBy("label").count.show
+The Spark MapR Database Connector enables users to perform complex SQL queries and updates on top of MapR Database using a Spark Dataset, while applying critical techniques such as projection and filter pushdown, custom partitioning, and data locality.
 
-**result:**
+![](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/12/image19-1607499129679.png)
 
-+-----+-----+
-|label|count|
-+-----+-----+
-|  0.0|13114|
-|  1.0|17086|
-+-----+-----+
-```
+## Loading Data from MapR Database into a Spark Dataset
 
-Below, the data is split into a training data set and a test data set: 80% of the data is used to train the model, and 20% will be used for testing.
+To [load data from a MapR Database JSON](https://docs.datafabric.hpe.com/62/Spark/LoadDataFromMapRDBasDataset.html) table into an Apache Spark Dataset, we invoke the `loadFromMapRDB` method on a SparkSession object, providing the tableName, schema, and case class. This returns a Dataset of with the product review schema:
 
-```
-// split into training and test dataset
-val splitSeed = 5043
-val Array(trainingData, testData) = df3.randomSplit(Array(0.8, 0.2), splitSeed)
-```
+```json
+val schema = StructType(Array(
+    StructField("_id", StringType, true),
+    StructField("asin", StringType, true),
+    StructField("overall", DoubleType, true),
+    StructField("reviewText", StringType, true),
+    StructField("reviewTime", StringType, true),
+    StructField("reviewerID", StringType, true),
+    StructField("reviewerName", StringType, true),
+    StructField("summary", StringType, true),
+    StructField("label", StringType, true),
+    StructField("prediction", StringType, true),
+    StructField("unixReviewTime", LongType, true)
+  ))
 
-## Feature Extraction and Pipelining
+var tableName: String = "/user/mapr/reviewtable"
+val df = spark
+    .loadFromMapRDB(tableName, schema)
 
-The ML package needs the label and feature vector to be added as columns to the input `DataFrame`. We set up a pipeline to pass the data through transformers in order to extract the features and label.
-
-The `RegexTokenizer` takes an input text column and returns a `DataFrame` with an additional column of the text split into an array of words by using the provided regex pattern.   The `StopWordsRemover` filters out words which should be excluded, because the words appear frequently and don't carry as much meaning – for example, 'I,' 'is,' 'the.'
-
-In the code below, the `RegexTokenizer` will split up the column with the review and summary text into a column with an array of words, which will then be filtered by the `StopWordsRemover`:
-
-```
-val tokenizer = new RegexTokenizer()
-.setInputCol("reviewTS")
-.setOutputCol("reviewTokensUf")
-.setPattern("\\s+|[,.()\"]")
-
-val remover = new StopWordsRemover()
-.setStopWords(StopWordsRemover
-.loadDefaultStopWords("english"))
-.setInputCol("reviewTokensUf")
-.setOutputCol("reviewTokens")
+df.createOrReplaceTempView("reviews")
 ```
 
-An example of  the results of the `RegexTokenizer` and `StopWordsRemover`, taking as input column `reviewTS` and adding the `reviewTokens` column of filtered words, is shown below:
+## Explore and Query the Product Review Data with Spark SQL
 
-![](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/9/image11-1603903062165.png)
+Now we can query the data that is continuously streaming into MapR Database to ask questions with the Spark DataFrames domain-specific language or with Spark SQL.
 
-| reviewTS | reviewTokens |
-|:--------|:------------|
-| resistance was good but quality wasn't So it worked well for a couple weeks, but during a lunge workout, it snapped on me. I liked it and thought it was a great product until this happened. I noticed small rips on the band. This could have been the issue. | Array(resistance, good, quality, worked, well, couple, weeks, lunge, workout, snapped, liked, thought, great, product, happened, noticed, small, rips, band, issue) |
+Below, we use the DataFrames select and show methods to display the first  5 rows review summary , overall rating, label, and  prediction in tabular format:
 
-A `CountVectorizer` is used to convert the array of word tokens from the previous step to vectors of word token counts.  The `CountVectorizer` is performing the TF part of TF-IDF feature extraction.
+```python
+df.select("summary","overall","label","prediction").show(5)
 
-```
-val cv = new CountVectorizer()
-.setInputCol("reviewTokens")
-.setOutputCol("cv")
-.setVocabSize(200000)
-```
-
-An example of  the results of the `CountVectorizer`, taking as input column `reviewTokens` and adding the `cv` column of vectorized word counts, is shown below.  In the `cv` column: 56004 is the size of the TF word vocabulary; the second array is the position of the word in the word vocabulary ordered by term frequency across the corpus; the third array is the count of the word (TF) in the `reviewTokens` text.
-
-| reviewTokens | cv |
-|:----------|:--|
-| Array(resistance, good, quality, worked, well, couple, weeks, lunge, workout, snapped, liked, thought, great, product, happened, noticed, small, rips, band, issue) | <span style="overflow-wrap: anywhere;">(56004,\[1,2,6,8,13,31,163,168,192,276,487,518,589,643,770,955,1194,1297,4178,19185\],\[1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0\])</span> |
-
-Below the `cv` column created by the `CountVectorizer` (the TF part of TF-IDF feature extraction) is the input for IDF.  IDF takes feature vectors created from the `CountVectorizer` and down-weights features which appear frequently in a collection of texts (the IDF part of TF-IDF feature extraction). The output `features` column is the TF-IDF features vector, which the logistic regression function will use.
-
-```
-// list of feature columns
-val idf = new IDF()
-.setInputCol("cv")
-.setOutputCol("features")
+result:
++--------------------+-------+-----+----------+
+|             summary|overall|label|prediction|
++--------------------+-------+-----+----------+
+|  Excellent Ammo Can|    5.0|  1.0|       1.0|
+|    Glad I bought it|    5.0|  1.0|       1.0|
+|WILL BUY FROM AGA...|    5.0|  1.0|       1.0|
+|looked brand new ...|    5.0|  1.0|       1.0|
+|   I LOVE THIS THING|    5.0|  1.0|       1.0|
++--------------------+-------+-----+----------+
 ```
 
-An example of the results of the IDF, taking as input column `cv` and adding the `features` column of vectorized TF-IDF, is shown below. In the `cv` column, 56004 is the size of the word vocabulary; the second array is the position of the word in the word vocabulary ordered by term frequency across the corpus; the third array is the TF-IDF of the word in the reviewTokens text.
+**What are the products with the most high ratings?**
 
-| cv | features |
-|:--|:------|
-|<span style="overflow-wrap: anywhere;"> \(56004,\[1,2,6,8,13,31,163,168,192,276,487,518,589,643,770,955,1194,1297,4178,19185\],\[1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0\]\)</span> | <span style="overflow-wrap: anywhere;">(56004,\[1,2,6,8,13,31,163,168,192,276,487,518,589,643,770,955,1194,1297,4178,19185\],\[1.3167453737971118,1.3189162538557524,1.5214341820160893,1.9425118863569042,2.052613811061827,2.3350290362765134,3.188779919701724,3.245760634740672,3.316430208091361,3.620260266951124,4.115700971877636,4.165254786332365,4.655788580192657,4.32745920096672,4.781242886345692,5.001914248514512,5.008106218762434,5.169529657918772,6.793673717742568,8.990898295078788\]\)</span> |
+```python
+df.filter($"overall" === 5.0)
+.groupBy("overall","asin")
+.count
+.orderBy(desc("count")).show(2)
 
-The final element in our pipeline is an estimator, a logistic regression classifier, which will train on the vector of labels and features and return a (transformer) model.
-
-```
-// create Logistic Regression estimator
-// regularizer parameters avoid overfitting
-
-val lr = new LogisticRegression()
-.setMaxIter(100)
-.setRegParam(0.02)
-.setElasticNetParam(0.3)
-```
-
-Below, we put the `Tokenizer`, `CountVectorizer`, IDF,  and Logistic Regression Classifier in a pipeline.  A pipeline chains multiple transformers and estimators together to specify an ML workflow for training and using a model.  
-
-```
-val steps =  Array( tokenizer, remover, cv, idf,lr)
-val pipeline = new Pipeline().setStages(steps)
+result:
++-------+----------+-----+
+|overall|      asin|count|
++-------+----------+-----+
+|    5.0|B004TNWD40|  242|
+|    5.0|B004U8CP88|  201|
++-------+----------+-----+
 ```
 
-![](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/9/image10-1603903070796.png)
+**Or in SQL What are the products with the most high ratings?**
 
-## TRAIN THE MODEL
+```sql
+%sql
 
-![](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/9/image17-1603903079716.png)
-
-Next, we train the logistic regression model [with elastic net regularization](https://spark.apache.org/docs/latest/ml-classification-regression.html#23logistic-regression). The model is trained by making associations between the input features and the labeled output associated with those features. The `pipeline.fit` method returns a fitted pipeline model.
-
-```
-val model = pipeline.fit(trainingData)
-```
-
-![](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/9/image6-1603903088693.png)
-
-Note: another option for training the model is to tune the parameters, using grid search, and select the best model, using k-fold cross validation with a Spark CrossValidator and a ParamGridBuilder.
-
-Next, we can get the `CountVectorizer` and `LogisticRegression` model from the fitted pipeline model, in order to print out the coefficient weights of the words in the text vocabulary (the word feature importance).
-
-```
-// get vocabulary from the CountVectorizer
-val vocabulary = model.stages(2)
-.asInstanceOf[CountVectorizerModel]
-.vocabulary
-
-// get the logistic regression model
-val lrModel = model.stages.last
-.asInstanceOf[LogisticRegressionModel]
-
-// Get array of coefficient weights
-val weights = lrModel.coefficients.toArray
-
-// create array of word and corresponding weight
-val word_weight = vocabulary.zip(weights)
-
-// create a dataframe with word and weights columns
-val cdf = sc.parallelize(word_weight)
-.toDF("word","weights")
+SELECT asin,overall, count(overall)  
+FROM  reviews where overall=5.0
+GROUP BY asin, overall
+order by count(overall) desc limit 2
 ```
 
-Recall that logistic regression generates the coefficient weights of a formula to predict the probability of occurrence of the feature x (in this case, a word) to maximize the probability of the outcome Y, 1 or 0 (in this case, positive or negative text sentiment). The weights can be interpreted:
+**Display the best rated product reviews text**
 
--   Positive weights will correspond to the words that are positive
--   Negative weights will correspond to the words that are negative
+```python
+df.select("summary","reviewText","overall","label","prediction").filter("asin='B004TNWD40'").show(5)
 
-Below, we sort the weights in descending order to show the most positive words.  The results show that 'great,' perfect,' 'easy,' 'works,' and 'excellent' are the most important positive words.
-
-```
-// show the most positive weighted words
-cdf.orderBy(desc("weights")).show(10)
-
-**result:**
-+---------+-------------------+
-|     **word**|             **weight**|
-+---------+-------------------+
-|    **great**| **0.6078697902359276**|
-|  **perfect**|**0.34404726951273945**|
-|**excellent**|**0.28217372351853814**|
-|     **easy**|**0.26293906850341764**|
-|     **love**|**0.23518819188672227**|
-|    **works**|  **0.229342771859023**|
-|     **good**| **0.2116386469012886**|
-|   **highly**| **0.2044040462730194**|
-|     **nice**|**0.20088266981583622**|
-|     **best**|**0.18194893152633945**|
-+---------+-------------------+
+result:
++--------------------+--------------------+-------+-----+----------+
+|             summary|          reviewText|overall|label|prediction|
++--------------------+--------------------+-------+-----+----------+
+|             Awesome|This is the perfe...|    5.0|  1.0|       1.0|
+|for the price you...|Great first knife...|    5.0|  1.0|       1.0|
+|Great Mora qualit...|I have extensive ...|    4.0|  1.0|       1.0|
+|       Amazing knife|All I can say is ...|    5.0|  1.0|       1.0|
+|Swedish Mil. Mora...|Overall a nice kn...|    4.0|  1.0|       1.0|
++--------------------+--------------------+-------+-----+----------+
 ```
 
-Below, we sort the weights in ascending order to show the most negative words.The results show that 'returned,' 'poor,' 'waste,' and 'useless' are the most important negative words.
+**Or in SQL:**
 
-```
-// show the most negative sentiment words
-cdf.orderBy("weights").show(10)
-
-**result:**
-+-------------+--------------------+
-|         **word**|              **weight**|
-+-------------+--------------------+
-|     **returned**|**-0.38185206877117467**|
-|         **poor**|**-0.35366409294425644**|
-|        **waste**| **-0.3159724826017525**|
-|      **useless**| **-0.2914292653060789**|
-|       **return**| **-0.2724012497362986**|
-|**disappointing**| **-0.2666580559444479**|
-|        **broke**| **-0.2656765359468423**|
-| **disappointed**|**-0.23852780960293438**|
-|    **returning**|**-0.22432617475366876**|
-|         **junk**|**-0.21457169691127467**|
-+-------------+--------------------+
+```sql
+%sql
+select summary, label, prediction, overall
+from reviews
+where asin='B004TNWD40'
+order by overall desc
 ```
 
-## Predictions and Model Evaluation
+![](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/12/image17-1607499137170.png)
 
-The performance of the model can be determined, using the test data set that has not been used for any training. We transform the test `DataFrame` with the pipeline model, which will pass the test data, according to the pipeline steps, through the feature extraction stage, estimate with the logistic regression model, and then return the label predictions in a column of a new `DataFrame`.
+**What are the products with the highest count of low ratings?**
 
-```
-val predictions = model.transform(testData)
-```
+```python
+df.filter($"overall" === 1.0)
+.groupBy("overall","asin")
+.count.orderBy(desc("count")).show(2)
 
-![](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/9/image4-1603903098021.png)
-
-The `BinaryClassificationEvaluator` provides a metric to measure how well a fitted model does on the test data. The default metric for this evaluator is the area under the ROC curve. The area measures the ability of the test to correctly classify true positives from false positives. A random predictor would have .5. The closer the value is to 1, the better its predictions are.
-
-![](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/9/image14-1603903107176.png)
-
-Below, we pass the predictions `DataFrame` (which has a `rawPrediction` column and a label column) to the `BinaryClassificationEvaluator`, which returns .93 as the area under the ROC curve.  
-
-```
-val evaluator = new BinaryClassificationEvaluator()  
-val areaUnderROC = evaluator.evaluate(predictions)
-
-result:  0.9350783400583272
+result:
++-------+----------+-----+
+|overall|      asin|count|
++-------+----------+-----+
+|    1.0|B00A17I99Q|   18|
+|    1.0|B00BGO0Q9O|   17|
++-------+----------+-----+
 ```
 
-Below, we calculate some more metrics. The number of false/true positives and negative predictions is also useful:
+**Display the product reviews text  for Product with highest count of low ratings**
 
--   True positives are how often the model correctly predicts positive sentiment.
--   False positives are how often the model incorrectly predicts positive sentiment..
--   True negatives indicate how often the model correctly predicts negative sentiment.
--   False negatives indicate how often the model incorrectly predicts negative sentiment.  
+```python
+df.select("summary","reviewText","overall","label","prediction")
+.filter("asin='B00A17I99Q'")
+.orderBy("overall").show(8)
 
+result:
++--------------------+--------------------+-------+-----+----------+
+|             summary|          reviewText|overall|label|prediction|
++--------------------+--------------------+-------+-----+----------+
+|         DO NOT BUY!|Do your research ...|    1.0|  0.0|       0.0|
+|         Returned it|I could not get t...|    1.0|  0.0|       0.0|
+| didn't do it for me|didn't like it.  ...|    1.0|  0.0|       0.0|
+|Fragile, just lik...|Update My second....|    1.0|  0.0|       0.0|
+|Almost perfect de...|I waited a while ...|    1.0|  0.0|       0.0|
+|Not all its crack...|I started with th...|    1.0|  0.0|       0.0|
+|         Returned...|I gave it as a gi...|    1.0|  0.0|       0.0|
+|Defective product...|1st jawbone up 2n...|    1.0|  0.0|       0.0|
++--------------------+--------------------+-------+-----+----------+
 ```
+
+Below, we calculate some prediction evaluation metrics for the streaming data continuously stored in MapR Database. The number of false/true positives:
+
+-   True positives are how often the model correctly positive sentiment.
+-   False positives are how often the model incorrectly positive sentiment..
+-   True negatives indicate how often the model correctly negative sentiment.
+-   False negatives indicate how often the model incorrectly negative sentiment.
+
+```python
 val lp = predictions.select("label", "prediction")
 val counttotal = predictions.count()
 val correct = lp.filter($"label" === $"prediction").count()
@@ -523,83 +545,254 @@ val recall= truep / (truep + falsen)
 val fmeasure= 2 * precision * recall / (precision + recall)
 val accuracy=(truep + truen) / (truep + truen + falsep + falsen)
 
-**result:**
-**counttotal: 6112.0**
-**correct: 5290.0**
-**wrong: 822.0**
-**ratioWrong: 0.13448952879581152**
-**ratioCorrect: 0.8655104712041884**
-**truen: 0.3417866492146597**
-**truep: 0.5237238219895288**
-**falsen: 0.044829842931937175**
-**falsep: 0.08965968586387435**
-**precision: 0.8538276873833023**
-**recall: 0.9211510791366907**
-**fmeasure: 0.8862126245847176**
-**accuracy: 0.8655104712041886**
+
+results:
+counttotal: Double = 84160.0
+correct: Double = 76925.0
+wrong: Double = 7235.0
+truep: Double = 0.8582461977186312
+truen: Double = 0.05578659695817491
+falsep: Double = 0.014543726235741445
+falsen: Double = 0.07142347908745247
+ratioWrong: Double = 0.08596720532319392
+ratioCorrect: Double = 0.9140327946768061
 ```
 
-Below, we print out the summary and review token words for the reviews with the highest probability of a negative sentiment:
+## Projection and Filter Push Down into MapR Database
 
-```
-predictions.filter($"prediction" === 0.0)
-.select("summary","reviewTokens","overall","prediction")
-.orderBy(desc("rawPrediction")).show(5)
+You can see the physical plan for a DataFrame query by calling the explain method shown below. Here in red we see projection and filter push down, which means that the scanning of the *overall* and *summary* columns and the filter on the *overall* column are pushed down into MapR Database, which means that the scanning and filtering will take place in MapR Database before returning the data to Spark. Projection pushdown minimizes data transfer between MapR Database and the Spark engine by omitting unnecessary fields from table scans. It is especially beneficial when a table contains many columns. Filter pushdown improves performance by reducing the amount of data passed between MapR Database and the Spark engine when filtering data.
+
+```python
+// notice projection of selected fields [summary]
+// notice PushedFilters: overall
+df.filter("overall > 3").select("summary").explain
 
 result:
-+--------------------+--------------------+-------+----------+
-|             summary|        reviewTokens|overall|prediction|
-+--------------------+--------------------+-------+----------+
-|  Worthless Garbage!|[worthless, garba...|    1.0|       0.0|
-|Decent but failin...|[decent, failing,...|    1.0|       0.0|
-|over rated and po...|[rated, poorly, m...|    2.0|       0.0|
-|dont waste your m...|[dont, waste, mon...|    1.0|       0.0|
-|Cheap Chinese JUNK! |[cheap, chinese,....|    1.0|       0.0|
-+--------------------+--------------------+-------+----------+
+== Physical Plan ==
+\*(1) Project [summary#7]
++- \*(1) Filter (isnotnull(overall#2) && (overall#2 > 3.0))
++- \*(1) Scan MapRDBRelation MapRDBTableScanRDD
+[summary#7,overall#2]
+**PushedFilters: [IsNotNull(overall),
+GreaterThan(overall,3.0)],**
+ReadSchema: struct&lt;summary:string,overall:double&gt;
 ```
 
-Below we print out the summary and review token words for the reviews with the highest probability of a positive sentiment:
+## Querying the Data with Apache Drill
 
+Apache Drillis an open source, low-latency query engine for big data that delivers interactive SQL analytics at petabyte scale. Drill provides a massively parallel processing execution engine, built to perform distributed query processing across the various nodes in a cluster.
+
+![](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/12/image12-1607499144193.png)
+
+With Drill, you can use SQL to interactively query and join data from files in JSON, Parquet, or CSV format, Hive, and NoSQL stores, including HBase, MapR Database, and Mongo, without defining schemas. MapR provides a [Drill JDBC](https://package.mapr.com/tools/MapR-JDBC/MapR_Drill/) driver that you can use to connect Java applications, BI tools, such as SquirreL and Spotfire, to Drill.
+
+## Below are some example SQL queries using the Drill shell.
+
+Start the Drill shell with:
+
+`sqlline -u jdbc:drill:zk=localhost:5181 -n mapr -p mapr`
+
+**How many streaming product reviews were stored in MapR Database?**
+
+```python
+select count(_id) as totalreviews from dfs.`/user/mapr/reviewtable`;
+
+result:
++---------------+
+| totalreviews  |
++---------------+
+| 84160         |
++---------------+
 ```
-predictions.filter($"prediction" === 1.0)
-.select("summary","reviewTokens","overall","prediction")
-.orderBy("rawPrediction").show(5)
 
-**result:**
-+--------------------+--------------------+-------+----------+
-|             summary|        reviewTokens|overall|prediction|
-+--------------------+--------------------+-------+----------+
-|               great|[great, excellent...|    5.0|       1.0|
-|Outstanding Purchase|[outstanding, pur...|    5.0|       1.0|
-|A fantastic stov....|[fantastic, stov....|    5.0|       1.0|
-|Small But Delight...|[small, delightfu...|    5.0|       1.0|
-|Kabar made a good...|[kabar, made, goo...|    5.0|       1.0|
-+--------------------+--------------------+-------+----------+
+**How many reviews are there for each rating?**
+
+```python
+select overall, count(overall) as countoverall from dfs.`/user/mapr/reviewtable` group by overall order by overall desc;
+
+result:
++----------+---------------+
+| overall  | countoverall  |
++----------+---------------+
+| 5.0      | 57827         |
+| 4.0      | 20414         |
+| 2.0      | 3166          |
+| 1.0      | 2753          |
++----------+---------------+
 ```
 
-## Saving the Model
+**What are the products with the most high review ratings?**
 
-We can now save our fitted pipeline model to the distributed file store for later use in production. This saves both the feature extraction stage and the logistic regression model in the pipeline.
+```python
+select overall, asin, count(*) as ratingcount, sum(overall) as ratingsum
+from dfs.`/user/mapr/reviewtable`
+group by overall, asin
+order by  sum(overall) desc limit 5;
 
+result:
++----------+-------------+--------------+------------+
+| overall  |    asin     | ratingcount  | ratingsum  |
++----------+-------------+--------------+------------+
+| 5.0      | B004TNWD40  | 242          | 1210.0     |
+| 5.0      | B004U8CP88  | 201          | 1005.0     |
+| 5.0      | B006QF3TW4  | 186          | 930.0      |
+| 5.0      | B006X9DLQM  | 183          | 915.0      |
+| 5.0      | B004RR0N8Q  | 165          | 825.0      |
++----------+-------------+--------------+------------+
 ```
-var dir = "/user/mapr/sentmodel/"
-model.write.overwrite().save(dir)
+
+**What are the products with the most positive review predictions?**
+
+```python
+select prediction, asin, count(*) as predictioncount, sum(prediction) as predictionsum
+from dfs.`/user/mapr/reviewtable`
+group by prediction, asin
+order by sum(prediction) desc limit 5;
+
+result:
++-------------+-------------+------------------+----------------+
+| prediction  |    asin     | predictioncount  | predictionsum  |
++-------------+-------------+------------------+----------------+
+| 1.0         | B004TNWD40  | 263              | 263.0          |
+| 1.0         | B004U8CP88  | 252              | 252.0          |
+| 1.0         | B006X9DLQM  | 218              | 218.0          |
+| 1.0         | B006QF3TW4  | 217              | 217.0          |
+| 1.0         | B004RR0N8Q  | 193              | 193.0          |
++-------------+-------------+------------------+----------------+
 ```
 
-The result of saving the pipeline model is a JSON file for metadata and Parquet files for model data. We can reload the model with the load command; the original and reloaded models are the same:
+**Show the review summaries for the  product with the most high review ratings**
 
+```python
+select summary, prediction
+from dfs.`/user/mapr/reviewtable`
+where asin='B004TNWD40' limit 5;
+
+result:
++---------------------------------------------------+-------------+
+|                      summary                      | prediction  |
++---------------------------------------------------+-------------+
+| Awesome                                           | 1.0         |
+| for the price you  cant go wrong with this knife  | 1.0         |
+| Great Mora quality and economy                    | 1.0         |
+| Amazing knife                                     | 1.0         |
+| Swedish Mil. Mora Knife                           | 1.0         |
++---------------------------------------------------+-------------+
 ```
-val sameModel = org.apache.spark.ml.PipelineModel.load(modeldirectory)
+
+**Show the review tokens for the product with the most positive reviews**
+
+```python
+select reviewTokens from dfs.`/user/mapr/reviewtable` where asin='B004TNWD40' limit 1;
+
+ [ "awesome", "perfect", "belt/pocket/neck", "knife", "carbon", "steel", "blade", "last", "life", "time!", "handle", "sheath", "plastic", "cheap", "kind", "plastic", "durable", "also", "last", "life", "time", "everyone", "loves", "doors", "this!", "yes", "ones", "bone", "handles", "leather", "sheaths", "$100+" ]
+```
+
+**What are the products with the most low review ratings?**
+
+```python
+SELECT asin,overall, count(overall) as rcount
+FROM dfs.`/user/mapr/reviewtable`
+where overall=1.0
+GROUP BY asin, overall
+order by count(overall) desc limit 2
+
+result:
++-------------+----------+---------+
+|    asin     | overall  | rcount  |
++-------------+----------+---------+
+| B00A17I99Q  | 1.0      | 18      |
+| B008VS8M58  | 1.0      | 17      |
++-------------+----------+---------+
+```
+
+**What are the products with the most negative review predictions?**
+
+```python
+select prediction, asin, count(*) as predictioncount, sum(prediction) as predictionsum from dfs.`/user/mapr/reviewtable` group by prediction, asin order by  sum(prediction)  limit 2;
+
+result:
++-------------+-------------+------------------+----------------+
+| prediction  |    asin     | predictioncount  | predictionsum  |
++-------------+-------------+------------------+----------------+
+| 0.0         | B007QEUWSI  | 4                | 0.0            |
+| 0.0         | B007QTHPX8  | 4                | 0.0            |
++-------------+-------------+------------------+---------------+
+```
+
+**Show the review summaries for the  product with the most low review ratings**
+
+```python
+select summary
+from dfs.`/user/mapr/reviewtable`
+where asin='B00A17I99Q' and prediction=0.0 limit 5;
+
+result:
++---------------------------------------------------------+
+|                         summary                         |
++---------------------------------------------------------+
+| A comparison to Fitbit One -- The Holistic Wrist        |
+| Fragile, just like the first Jawbone UP!  Overpriced    |
+| Great concept, STILL horrible for daily use             |
+| Excellent idea, bad ergonomics, worse manufacturing...  |
+| get size larger                                         |
++---------------------------------------------------------+
+```
+
+## Querying the Data with the MapR Database Shell
+
+The mapr dbshell is a tool that enables you to create and perform basic manipulation of JSON tables and documents. You run dbshell by typing mapr dbshell on the command line after logging into a node in a MapR cluster.
+
+## Below are some example queries using the MapR dbshell
+
+**Show the review summary, id, prediction  for the  product with the most high review ratings (`_id starts with B004TNWD40`)**
+
+```python
+find /user/mapr/reviewtable --where '{"$and":[{"$eq":{"overall":5.0}}, { "$like" : {"_id":"%B004TNWD40%"} }]}' --f _id,prediction,summary --limit 5
+
+result:
+
+{"_id":"B004TNWD40_1256083200","prediction":1,"summary":"Awesome"}
+{"_id":"B004TNWD40_1257120000","prediction":1,"summary":"for the price you  cant go wrong with this knife"}
+{"_id":"B004TNWD40_1279065600","prediction":1,"summary":"Amazing knife"}
+{"_id":"B004TNWD40_1302393600","prediction":1,"summary":"Great little knife"}
+{"_id":"B004TNWD40_1303257600","prediction":1,"summary":"AWESOME KNIFE"}
+```
+
+**Show the review summary, id, for 10 products with negative sentiment prediction and label**
+
+```python
+find /user/mapr/reviewtable --where '{"$and":[{"$eq":{"prediction":0.0}},{"$eq":{"label":0.0}} ]}' --f _id,summary --limit 10
+
+result:
+{"_id":"B003Y64RBA_1312243200","summary":"A $3.55 rubber band!"}
+{"_id":"B003Y64RBA_1399334400","summary":"cheap not worthy"}
+{"_id":"B003Y71V2C_1359244800","summary":"Couple of Problems"}
+{"_id":"B003Y73EPY_1349740800","summary":"Short Term Pedals - Eggbeaters 1"}
+{"_id":"B003Y9CMGY_1306886400","summary":"Expensive batteries."}
+{"_id":"B003YCWFRM_1336089600","summary":"Poor design"}
+{"_id":"B003YCWFRM_1377043200","summary":"Great while it lasted"}
+{"_id":"B003YD0KZU_1321920000","summary":"No belt clip!!!  Just like the other reviewer..."}
+{"_id":"B003YD0KZU_1338768000","summary":"Useless"}
+{"_id":"B003YD1M5M_1354665600","summary":"Can't recomend this knife."}
 ```
 
 ## Summary
 
-There are plenty of great tools to build classification models. Apache Spark provides an excellent framework for building solutions to business problems that can extract value from massive, distributed datasets.
+In this post, you learned how to use the following:
 
-Machine learning algorithms cannot answer all questions perfectly. But they do provide evidence for humans to consider when interpreting results, assuming the right question is asked in the first place.
+-   A Spark machine learning model in a Spark Structured Streaming application
+-   Spark Structured Streaming with MapR Event Store to ingest messages using the Kafka API
+-   Spark Structured Streaming to persist to MapR Database for continuously rapidly available SQL analysis
+
+All of the components of the use case architecture we just discussed can run on the same cluster with the MapR Data Platform. The MapR Data Platform integrates global event streaming, real-time database capabilities, and scalable enterprise storage with Spark, Drill, and machine learning libraries to power the development of next-generation intelligent applications, which take advantage of modern computational paradigms powered by modern computational infrastructure.
+
+![](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/12/image23-1607499151723.jpg)
 
 ## Code
 
-All of the data and code to train the models and make your own conclusions, using Apache Spark, are located in GitHub; refer to GitHub "README" for more information about running the code.
+All of the data and code to train the models and make your own conclusions, using Apache Spark, are located in GitHub, Refer to github readme for more information about running the code.
 
 -   [https://github.com/caroljmcdonald/mapr-sparkml-sentiment-classification](https://github.com/caroljmcdonald/mapr-sparkml-sentiment-classification)
+
+*Editor's Note:  This tutorial is the second part in a series related to this topic. The first part in this series is found here: [Part 1.](https://developer.hpe.com/blog/wzvGV1qzj3c2YA8QQnMD/streaming-machine-learning-pipeline-for-sentiment-analysis-using-apache-)*

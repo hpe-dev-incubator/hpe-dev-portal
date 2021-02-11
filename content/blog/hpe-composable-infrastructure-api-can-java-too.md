@@ -4,6 +4,7 @@ date: 2017-09-08T16:49:18.215Z
 author: Didier Lalli 
 tags: ["HPE-OneView","OneView","RESTAPI","JAVA"]
 path: hpe-composable-infrastructure-api-can-java-too
+authorimage: "/img/blogs/Avatar6.svg"
 ---
 We have seen in the previous articles, [PowerShell-defined
 infrastructure at your

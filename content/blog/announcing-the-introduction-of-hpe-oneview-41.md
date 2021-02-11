@@ -4,6 +4,7 @@ date: 2018-08-21T22:50:40.813Z
 author: HPE DEV staff 
 tags: ["HPE-OneView","OneView"]
 path: announcing-the-introduction-of-hpe-oneview-41
+authorimage: "/img/blogs/Avatar3.svg"
 ---
 # We are pleased to announce the latest version of HPE OneView
 

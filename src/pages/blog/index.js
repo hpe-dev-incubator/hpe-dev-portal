@@ -64,21 +64,19 @@ function Blog({ data }) {
           </Text>
         </PageDescription>
         {featuredposts && featuredposts.length > 0 && (
-          <>
-            <SectionHeader title="Featured Blogs" color="yellow">
-              <FeaturedBlogCard
-                key={featuredposts[0].node.id}
-                node={featuredposts[0].node}
-              />
-              <Box direction="row-responsive" gap="large">
-                {featuredposts.map(
-                  ({ node }, index) =>
-                    node.fields.slug !== '/' &&
-                    index > 0 && <BlogCard key={node.id} node={node} />,
-                )}
-              </Box>
-            </SectionHeader>
-          </>
+          <SectionHeader title="Featured Blogs" color="yellow">
+            <FeaturedBlogCard
+              key={featuredposts[0].node.id}
+              node={featuredposts[0].node}
+            />
+            <Box direction="row-responsive" gap="large">
+              {featuredposts.map(
+                ({ node }, index) =>
+                  node.fields.slug !== '/' &&
+                  index > 0 && <BlogCard key={node.id} node={node} />,
+              )}
+            </Box>
+          </SectionHeader>
         )}
         <SectionHeader title="All Blogs" color="yellow">
           <ResponsiveGrid gap="large" rows={rows} columns={columns}>
@@ -116,6 +114,10 @@ Blog.propTypes = {
               author: PropTypes.string.isRequired,
               date: PropTypes.string,
               description: PropTypes.string,
+              path: PropTypes.string,
+              authorimage: PropTypes.string,
+              thumbnailimage: PropTypes.string,
+              category: PropTypes.string,
             }).isRequired,
             excerpt: PropTypes.string.isRequired,
             fields: PropTypes.shape({
@@ -134,6 +136,7 @@ Blog.propTypes = {
             author: PropTypes.string.isRequired,
             date: PropTypes.string,
             description: PropTypes.string,
+            authorimage: PropTypes.string,
           }),
         }).isRequired,
       ).isRequired,
@@ -187,6 +190,9 @@ export const pageQuery = graphql`
             author
             path
             tags
+            authorimage
+            thumbnailimage
+            category
           }
         }
       }

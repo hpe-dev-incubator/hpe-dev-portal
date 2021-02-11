@@ -4,6 +4,7 @@ date: 2018-08-09T16:13:21.978Z
 author: Mario Devargas 
 tags: ["DevOps","business"]
 path: devops-its-an-it-thing-isnt-it
+authorimage: "/img/blogs/Avatar3.svg"
 ---
 “[We can never judge the lives of others, because each person knows only their own pain and renunciation. It's one thing to feel that you are on the right path, but it's another to think that yours is the only path.](http://www.azquotes.com/quote/350077)” [Paulo Coelho](http://www.azquotes.com/author/3041-Paulo_Coelho)
 

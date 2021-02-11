@@ -4,6 +4,7 @@ date: 2020-05-26T03:08:40.367Z
 author: Denis Choukroun 
 tags: ["hpe-ezmeral-container-platform","hpe-container-platform"]
 path: hpe-container-platform-rest-api-part-1-authenticating
+authorimage: "/img/blogs/Avatar5.svg"
 ---
 ![image001](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/3/image001-1590504102737.png)
 

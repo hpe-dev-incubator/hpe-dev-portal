@@ -54,7 +54,14 @@ function BlogPostTemplate({ data }) {
     day: 'numeric',
   });
   const { rawMarkdownBody, excerpt } = post;
-  const { description, date, title, author, tags } = post.frontmatter;
+  const {
+    description,
+    date,
+    title,
+    author,
+    tags,
+    authorimage,
+  } = post.frontmatter;
 
   return (
     <Layout title={siteTitle}>
@@ -65,7 +72,7 @@ function BlogPostTemplate({ data }) {
             pad={{ vertical: 'large', horizontal: 'xlarge' }}
             direction="column"
           >
-            <Image src="/img/blogs/Avatar1.svg" />
+            <Image src={authorimage} />
           </Box>
           <Content gap="large" margin={{ vertical: 'large' }}>
             <Box gap="small">
@@ -87,13 +94,13 @@ function BlogPostTemplate({ data }) {
                   Tags
                 </Heading>
                 <Box direction="row-responsive" align="baseline" gap="small">
-                  {tags.map((tag) => (
+                  {tags.map((tag, index) => (
                     <Link
                       to={`/blog/tag/${tag.toLowerCase()}`}
                       key={tag}
                       size="xxlarge"
                     >
-                      {tag},
+                      {(index ? ', ' : '') + tag}
                     </Link>
                   ))}
                 </Box>
@@ -139,7 +146,9 @@ BlogPostTemplate.propTypes = {
         author: PropTypes.string,
         date: PropTypes.string,
         description: PropTypes.string,
+        path: PropTypes.string,
         tags: PropTypes.arrayOf(PropTypes.string),
+        authorimage: PropTypes.string.isRequired,
       }).isRequired,
     }).isRequired,
     blogsByTags: PropTypes.shape({
@@ -153,6 +162,7 @@ BlogPostTemplate.propTypes = {
               date: PropTypes.string,
               path: PropTypes.string,
               tags: PropTypes.array,
+              authorimage: PropTypes.string.isRequired,
             }).isRequired,
             excerpt: PropTypes.string.isRequired,
             fields: PropTypes.shape({
@@ -187,6 +197,8 @@ export const pageQuery = graphql`
         author
         description
         tags
+        path
+        authorimage
       }
     }
 
@@ -212,6 +224,7 @@ export const pageQuery = graphql`
             author
             path
             tags
+            authorimage
           }
           rawMarkdownBody
         }

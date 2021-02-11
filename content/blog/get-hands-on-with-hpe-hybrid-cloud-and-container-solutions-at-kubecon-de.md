@@ -4,6 +4,7 @@ date: 2018-12-03T19:49:02.431Z
 author: HPE DEV staff 
 tags: ["kubecon-seattle-2018"]
 path: get-hands-on-with-hpe-hybrid-cloud-and-container-solutions-at-kubecon-de
+authorimage: "/img/blogs/Avatar2.svg"
 ---
 ![kubecon na 2018](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2018/12/kubecon-na-2018-1543866788069.jpg)
 

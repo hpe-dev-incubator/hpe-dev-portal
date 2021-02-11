@@ -4,6 +4,7 @@ date: 2018-03-21T06:00:26.841Z
 author: Natalia Vassilieva, Sergey Serebryakov 
 tags: ["hpe-deep-learning-cookbook"]
 path: why-we-created-hpe-deep-learning-cookbook
+authorimage: "/img/blogs/Avatar3.svg"
 ---
 A history behind the Cookbook
 -----------------------------

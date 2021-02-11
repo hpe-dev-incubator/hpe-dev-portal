@@ -4,6 +4,7 @@ date: 2017-09-11T18:45:18.180Z
 author: Didier Lalli 
 tags: ["HPE-OneView","OneView","RESTAPI"]
 path: surviving-in-the-schema-while-running-initial-inventory
+authorimage: "/img/blogs/Avatar1.svg"
 ---
 In previous articles, we managed to login and acquire a login session.
 Now let us discover the Composable Infrastructure managed by HPE

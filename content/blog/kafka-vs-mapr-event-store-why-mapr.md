@@ -1,9 +1,10 @@
 ---
 title: "Kafka vs. MapR Event Store: Why MapR?"
 date: 2020-11-11T06:51:11.635Z
-author: Nathan Burch 
+author: Ian Downard 
 tags: ["hpe-ezmeral-data-fabric","MapR","streaming","opensource"]
 path: kafka-vs-mapr-event-store-why-mapr
+authorimage: "/img/blogs/Avatar5.svg"
 ---
 **Editor’s Note:** MapR products and solutions sold prior to the acquisition of such assets by Hewlett Packard Enterprise Company in 2019, may have older product names and model numbers that differ from current solutions. For information about current offerings, which are now part of HPE Ezmeral Data Fabric, please visit [https://www.hpe.com/us/en/software/data-fabric.html](https://www.hpe.com/us/en/software/data-fabric.html)
 

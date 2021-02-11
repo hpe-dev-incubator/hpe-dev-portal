@@ -4,6 +4,7 @@ date: 2020-02-18T17:55:26.750Z
 author: Chris Young 
 tags: []
 path: automation-is-not-testing
+authorimage: "/img/blogs/Avatar3.svg"
 ---
 ![picture1](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/1/picture1-1582049527283.png)
 

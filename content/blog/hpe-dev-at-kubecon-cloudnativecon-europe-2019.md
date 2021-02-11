@@ -4,6 +4,7 @@ date: 2019-06-11T17:40:44.444Z
 author: Didier Lalli 
 tags: []
 path: hpe-dev-at-kubecon-cloudnativecon-europe-2019
+authorimage: "/img/blogs/Avatar4.svg"
 ---
 ![group-picture](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2019/5/grouppicture-1560274699625.png)
 

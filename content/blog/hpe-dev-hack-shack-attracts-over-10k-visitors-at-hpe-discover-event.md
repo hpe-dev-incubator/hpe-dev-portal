@@ -4,6 +4,7 @@ date: 2020-08-19T07:42:44.066Z
 author: Dale Rensing 
 tags: ["hackshack","discover","virtual","event"]
 path: hpe-dev-hack-shack-attracts-over-10k-visitors-at-hpe-discover-event
+authorimage: "/img/blogs/Avatar6.svg"
 ---
 ![hack shack image1](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/7/hack-shack-image1-1597850961298.png)
 

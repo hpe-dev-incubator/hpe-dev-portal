@@ -4,6 +4,7 @@ date: 2019-03-28T20:49:25.455Z
 author: Dana Lynn, Lead Experience Designer 
 tags: ["design"]
 path: design-thinking-workshops-at-tss-brighten-a-rainy-week-at-the-paris-expo
+authorimage: "/img/blogs/Avatar4.svg"
 ---
 ![5bf2e1a0cd93d0796238ae01-blog-content-1553889135906](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2019/3/dana-paris-from-chris-1553889135905.jpg)
 

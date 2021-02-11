@@ -4,6 +4,7 @@ date: 2019-11-06T18:16:14.467Z
 author: By Dale Rensing 
 tags: []
 path: meet-the-hpe-dev-team-blaine-southam-and-michael-mattsson
+authorimage: "/img/blogs/Avatar6.svg"
 ---
 [HPE DEV community](https://developer.hpe.com/community) members hail from a variety of backgrounds. In this edition of our __Meet the HPE DEV Team__ blog, I’m going to introduce you to 
 Blaine Southam and Michael Mattsson. 

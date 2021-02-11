@@ -4,6 +4,7 @@ date: 2017-10-30T20:24:46.680Z
 author: Mike Garrett – Architect iLO RESTful API  
 tags: ["ilo-restful-api","redfish"]
 path: getting-started-with-ilo-restful-api-redfish-api-conformance
+authorimage: "/img/blogs/Avatar2.svg"
 ---
 # **A primer for coders**
 ## Introduction

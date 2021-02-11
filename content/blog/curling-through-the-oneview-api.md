@@ -4,6 +4,7 @@ date: 2017-09-07T17:33:30.771Z
 author: Didier Lalli 
 tags: ["HPE-OneView","OneView","RESTAPI"]
 path: curling-through-the-oneview-api
+authorimage: "/img/blogs/Avatar3.svg"
 ---
 In previous articles, we used a REST client plug-in to Firefox or Chrome
 to exercise the HPE Composable Infrastructure API. This is nice, for

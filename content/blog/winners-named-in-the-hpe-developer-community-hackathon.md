@@ -4,6 +4,7 @@ date: 2018-06-26T16:40:23.564Z
 author: Said Syed, Director Developer Experience and Product Incubation at HPE 
 tags: ["hackathon","hpe-onesphere","community"]
 path: winners-named-in-the-hpe-developer-community-hackathon
+authorimage: "/img/blogs/Avatar1.svg"
 ---
 ![hackathon](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2018/6/hackathon-1530031408442.png)
 

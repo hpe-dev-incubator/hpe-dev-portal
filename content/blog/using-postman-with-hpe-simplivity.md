@@ -4,6 +4,7 @@ date: 2018-11-09T17:39:07.394Z
 author: Ron Dharma 
 tags: ["hpe-simplivity"]
 path: using-postman-with-hpe-simplivity
+authorimage: "/img/blogs/Avatar3.svg"
 ---
 # Using Postman with HPE SimpliVity# Summary
 

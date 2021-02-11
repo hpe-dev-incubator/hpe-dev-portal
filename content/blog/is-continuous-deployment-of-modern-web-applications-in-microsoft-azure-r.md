@@ -4,6 +4,7 @@ date: 2019-09-26T16:24:18.739Z
 author: Denis Choukroun 
 tags: ["hpe-proliant-for-microsoft-azure-stack"]
 path: is-continuous-deployment-of-modern-web-applications-in-microsoft-azure-r
+authorimage: "/img/blogs/Avatar1.svg"
 ---
 In my studies on Microsoft Azure fundamentals, I often need to dive deep into some of the many Azure services available, all the way from Infrastructure-as-a-Service (IaaS) functionalities (compute, networking, storage, firewall, load balancer) to advanced Platform-as-a-Service (PaaS) services. I recently explored how to implement a Continuous Integration/Continuous Delivery (CI/CD) pipeline with the Microsoft Azure PaaS [App Service,](https://docs.microsoft.com/en-us/azure/app-service/overview) a fully-managed web hosting platform used to host any web-based application supported by Azure.
 

@@ -4,6 +4,7 @@ date: 2017-09-07T18:09:49.496Z
 author: Didier Lalli 
 tags: ["HPE-OneView","OneView"]
 path: do-not-miss-the-hpe-composable-infrastructure-bus
+authorimage: "/img/blogs/Avatar6.svg"
 ---
 # One API and 2 Busses
 

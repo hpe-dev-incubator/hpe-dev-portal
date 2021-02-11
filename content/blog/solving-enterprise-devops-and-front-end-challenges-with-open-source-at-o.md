@@ -4,6 +4,7 @@ date: 2019-06-13T21:11:32.054Z
 author: Dale Rensing 
 tags: []
 path: solving-enterprise-devops-and-front-end-challenges-with-open-source-at-o
+authorimage: "/img/blogs/Avatar2.svg"
 ---
 ![5bf2e1a0cd93d0796238ae01-blog-content-1560460835964](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2019/5/picture1-1560460835957.png)
 

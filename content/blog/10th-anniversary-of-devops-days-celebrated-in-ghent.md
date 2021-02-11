@@ -4,6 +4,7 @@ date: 2019-11-14T15:56:42.408Z
 author: Didier Lalli 
 tags: ["DevOps"]
 path: 10th-anniversary-of-devops-days-celebrated-in-ghent
+authorimage: "/img/blogs/Avatar5.svg"
 featuredBlog: true
 priority: 2
 ---

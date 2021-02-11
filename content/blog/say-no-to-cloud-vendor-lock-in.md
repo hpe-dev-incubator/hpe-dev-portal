@@ -4,6 +4,7 @@ date: 2019-09-03T17:13:05.705Z
 author: Didier Lalli 
 tags: ["hpe-ezmeral-container-platform","hpe-container-platform"]
 path: say-no-to-cloud-vendor-lock-in
+authorimage: "/img/blogs/Avatar1.svg"
 ---
 ![gettyimages 761603815](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2019/8/gettyimages-761603815-1567544802064.jpg)
 

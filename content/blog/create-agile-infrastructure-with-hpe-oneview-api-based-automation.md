@@ -4,6 +4,7 @@ date: 2020-06-15T19:23:25.749Z
 author: Christopher Pasek 
 tags: ["hpe-oneview"]
 path: create-agile-infrastructure-with-hpe-oneview-api-based-automation
+authorimage: "/img/blogs/Avatar1.svg"
 ---
 The HPE OneView Python SDK v5.2 is now available, providing support for HPE OneView 5.2 (REST API version 1600) and Image Streamer 5.2 (API 1600). This release leverages new Python standards, including refactored base classes and the introduction of mixed classes, and now supports 30 HPE OneView managed resources.  
 

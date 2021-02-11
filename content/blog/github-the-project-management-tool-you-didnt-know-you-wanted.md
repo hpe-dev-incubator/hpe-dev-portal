@@ -4,6 +4,7 @@ date: 2019-05-23T18:00:37.113Z
 author: Mike Walrath 
 tags: ["Github"]
 path: github-the-project-management-tool-you-didnt-know-you-wanted
+authorimage: "/img/blogs/Avatar5.svg"
 ---
 ![5bf2e1a0cd93d0796238ae01-blog-content-1558638303118](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2019/5/hpe-dev-github-1558638303117.png)
 

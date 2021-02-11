@@ -4,6 +4,7 @@ date: 2018-03-30T11:19:26.056Z
 author: François Donzé 
 tags: ["iLO","ilorest","ProLiant"]
 path: in-band-management-with-ilorest-and-a-livecd
+authorimage: "/img/blogs/Avatar4.svg"
 ---
 # In-band management with `ilorest` and a LiveCD
 

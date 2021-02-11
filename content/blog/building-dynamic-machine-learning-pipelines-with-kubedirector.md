@@ -4,6 +4,7 @@ date: 2020-08-14T10:58:54.949Z
 author: Joel Baxter & Kartik Mathur & Don Wake 
 tags: ["hpe-ezmeral-container-platform","MLOps","pipeline","kubedirector","opensource"]
 path: building-dynamic-machine-learning-pipelines-with-kubedirector
+authorimage: "/img/blogs/Avatar6.svg"
 ---
 Imagine that you’re a data scientist who’s been asked to create an application or service that can predict travel time for a proposed taxi ride. The application needs to have the ability to update the service with new data as it becomes available, so its predictions take recent patterns into account. In this tutorial, we’ll show you how to set up a Machine Learning (ML) pipeline using KubeDirector to train, register, and query your model.
 

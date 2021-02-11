@@ -4,6 +4,7 @@ date: 2018-11-26T17:59:48.284Z
 author: HPE DEV staff 
 tags: ["hpe-discover-madrid-2018","discover"]
 path: dont-miss-it-hpe-discover-hack-shack-offers-something-for-everyone-at-ev
+authorimage: "/img/blogs/Avatar1.svg"
 ---
 [HPE Discover Madrid](https://www.hpe.com/events/discover/) kicks off next week! If you are going to the event, the HPE Discover Hack Shack will offer unique hackathons, technical workshops, and coding challenges focused on a variety of HPE products, including HPE OneSphere, HPE SimpliVity, and the new HPE Composable Fabric Manager API. Whatever your skill level, the HPE Discover Hack Shack has a session for you. Even if you don't know how to code, the Hack Shack located in the Transformation Showcase is still your destination to participate and win some great prizes.
 

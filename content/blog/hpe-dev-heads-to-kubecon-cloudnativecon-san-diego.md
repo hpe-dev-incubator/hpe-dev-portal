@@ -4,6 +4,7 @@ date: 2019-10-09T15:45:53.752Z
 author: HPE DEV staff 
 tags: ["KubeCon","kubecon-san-diego-2019"]
 path: hpe-dev-heads-to-kubecon-cloudnativecon-san-diego
+authorimage: "/img/blogs/Avatar1.svg"
 ---
 ![kubecon2](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2019/8/kubecon2-1570637685840.png)
 

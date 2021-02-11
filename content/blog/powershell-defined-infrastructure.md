@@ -4,6 +4,7 @@ date: 2017-09-11T17:07:33.172Z
 author: Didier Lalli 
 tags: ["HPE-OneView","OneView","RESTAPI","JAVA","PowerShell"]
 path: powershell-defined-infrastructure
+authorimage: "/img/blogs/Avatar2.svg"
 ---
 In previous articles
 ([here](https://community.dev.hpe.com/t5/Blogs/First-steps-with-programming-the-HPE-Composable-Infrastructure/ba-p/235724),

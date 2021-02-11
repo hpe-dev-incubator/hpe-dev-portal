@@ -4,6 +4,7 @@ date: 2018-09-12T19:16:44.471Z
 author: HPE DEV staff 
 tags: ["HPEDeveloperCommunity","HPEOneSphere","HPEOneView","HPEProLiantforMicrosoftAzureStack","HPESimpliVity","MSIgnite"]
 path: hpe-at-microsoft-ignite-event-september-24-27
+authorimage: "/img/blogs/Avatar3.svg"
 ---
 ![hpe at ms ignite](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2018/9/hpe-at-ms-ignite-1536779956115.png)
 

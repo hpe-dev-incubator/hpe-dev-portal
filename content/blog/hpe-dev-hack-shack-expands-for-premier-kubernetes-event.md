@@ -4,6 +4,7 @@ date: 2020-10-28T19:02:50.321Z
 author: Dale Rensing 
 tags: ["kubecon-na-2020"]
 path: hpe-dev-hack-shack-expands-for-premier-kubernetes-event
+authorimage: "/img/blogs/Avatar2.svg"
 ---
 ![kubecon na image](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/9/kubecon-na-image-1603912007661.png)
 

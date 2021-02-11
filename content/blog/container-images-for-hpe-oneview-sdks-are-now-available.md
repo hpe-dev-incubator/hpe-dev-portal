@@ -4,6 +4,7 @@ date: 2020-07-13T18:18:16.000Z
 author: Christopher Pasek 
 tags: ["hpe-oneview","containers"]
 path: container-images-for-hpe-oneview-sdks-are-now-available
+authorimage: "/img/blogs/Avatar1.svg"
 ---
 In keeping with Hewlett Packard Enterprise’s strategic vision on container use for hybrid IT, I am pleased to report that container images of HPE OneView 5.2 SDKs are now available. Docker images of [Ansible](https://hub.docker.com/repository/docker/hewlettpackardenterprise/hpe-oneview-sdk-for-ansible), [Terraform](https://hub.docker.com/repository/docker/hewlettpackardenterprise/hpe-oneview-sdk-for-terraform), [Chef](https://hub.docker.com/repository/docker/hewlettpackardenterprise/hpe-oneview-sdk-for-chef), [Puppet](https://hub.docker.com/repository/docker/hewlettpackardenterprise/hpe-oneview-sdk-for-puppet), [Python](https://hub.docker.com/repository/docker/hewlettpackardenterprise/hpe-oneview-sdk-for-python), [Golang](https://hub.docker.com/repository/docker/hewlettpackardenterprise/hpe-oneview-sdk-for-golang) and [Ruby](https://hub.docker.com/repository/docker/hewlettpackardenterprise/hpe-oneview-sdk-for-ruby) SDKs are now all available on Docker Hub. All prerequisite materials are incorporated into the container images to enable streamlined deployment, which will allow you to simplify maintenance, improve infrastructure agility, and reduce costs.  In addition, you can expect all SDK releases in the future to incorporate an updated Docker image.  
 

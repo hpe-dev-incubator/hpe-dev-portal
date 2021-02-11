@@ -4,6 +4,7 @@ date: 2018-10-01T17:33:50.371Z
 author: Michael Mattsson 
 tags: ["kubernetes","hpe-nimble-storage","docker","nemo","dory","doryd"]
 path: introducing-nemo-hpe-nimble-storage-advanced-data-services-emulator-for-
+authorimage: "/img/blogs/Avatar4.svg"
 ---
 The [HPE Nimble Storage Docker Volume plugin](https://store.docker.com/plugins/nimble) brings a plethora of powerful capabilities to container ecosystems like Docker, Mesos and Kubernetes. The plugin can be used with either [Nimble arrays](https://hpe.com/storage/nimble) or in conjunction with a [HPE Cloud Volumes](https://hpe.com/storage/cloudvolumes) account. Both platforms are very suitable for high performing mission-critical production workloads, which is to be expected. However, given the advanced functionality the Docker Volume plugin provides, wouldn't one be more comfortable experimenting with the features in a completely isolated sandbox? On your laptop?
 

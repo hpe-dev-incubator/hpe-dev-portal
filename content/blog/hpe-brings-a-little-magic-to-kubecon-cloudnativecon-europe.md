@@ -4,6 +4,7 @@ date: 2020-02-19T17:32:59.050Z
 author: Dale Rensing 
 tags: ["kubecon"]
 path: hpe-brings-a-little-magic-to-kubecon-cloudnativecon-europe
+authorimage: "/img/blogs/Avatar1.svg"
 ---
 ![kubecon eu new date image3](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/3/kubecon-eu-new-date-image3-1585572572202.png)
 

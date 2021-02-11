@@ -4,6 +4,7 @@ date: 2019-05-14T19:19:11.930Z
 author: HPE DEV staff 
 tags: ["HPEDiscover","HackShack"]
 path: meet-us-at-the-hack-shack-at-hpe-discover-las-vegas-june-18-20
+authorimage: "/img/blogs/Avatar3.svg"
 ---
 ![5bf2e1a0cd93d0796238ae01-blog-content-1557861662231](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2019/5/img_0246-1557861662220.jpg)
 

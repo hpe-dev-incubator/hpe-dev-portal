@@ -4,6 +4,7 @@ date: 2019-06-18T20:32:33.264Z
 author: Brad Stanley  
 tags: ["hpe-oneview-global-dashboard"]
 path: oneview-global-dashboard-101-chock-full-of-useful-features
+authorimage: "/img/blogs/Avatar4.svg"
 ---
 ![5bf2e1a0cd93d0796238ae01-blog-content-1560890766707](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2019/5/picture1-1560890766706.png)
 

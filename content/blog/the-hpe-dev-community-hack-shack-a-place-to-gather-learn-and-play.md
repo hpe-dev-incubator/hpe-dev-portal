@@ -4,6 +4,7 @@ date: 2020-07-31T07:39:28.479Z
 author: Dale Rensing 
 tags: ["kubecon-europe-2020","kubecon","cncf","containers","developer"]
 path: the-hpe-dev-community-hack-shack-a-place-to-gather-learn-and-play
+authorimage: "/img/blogs/Avatar2.svg"
 ---
 ![kubblog1](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/7/kubblog1-1596183350621.png)
 

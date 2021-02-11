@@ -4,6 +4,7 @@ date: 2018-08-03T16:27:34.727Z
 author: HPE DEV staff 
 tags: ["hpe-simplivity.java","api"]
 path: using-the-simplivity-api-with-java
+authorimage: "/img/blogs/Avatar5.svg"
 ---
 # **Using the SimpliVity API with Java**
 This sample Java code performs authentication, issues example GET requests, performs a POST operation (in this case, renaming a backup), and monitors the status of the operation using a task instance. 
