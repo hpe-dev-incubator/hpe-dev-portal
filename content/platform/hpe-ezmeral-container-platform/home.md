@@ -1,77 +1,82 @@
 ---
+priority: 1
+width: large
 title: HPE Ezmeral Container Platform
 version: v 2.01.8964
-description: A turnkey enterprise-grade container platform for cloud-native and distributed non-cloud native applications with open source Kubernetes.
+description: A turnkey enterprise-grade container platform for cloud-native and
+  distributed non-cloud native applications with open source Kubernetes.
 image: /img/platforms/EzmeralContainerPatform.svg
-width: large
 frontpage: true
-priority: 1
-tags: ["hpe-ezmeral-container-platform"]
+tags:
+  - hpe-ezmeral-container-platform
 ---
+**HPE Ezmeral Container Platform** is the industry’s first enterprise-grade container platform designed to deploy both cloud-native and non-cloud-native applications using Kubernetes – running on bare-metal or virtualized infrastructure, on any public cloud, and at the edge.
 
-- Power your mission-critical apps with extreme resiliency and unprecedented simplicity
-- App-aware resiliency sees beyond the walls of storage to predict/prevent disruptions
-- Predictive acceleration safely consolidates every mission-critical app onto the same platform with extreme low-latency performance
+HPE Ezmeral Container platform brings together IP from HPE’s acquisitions of BlueData and MapR along with 100% open source Kubernetes to deliver a fully integrated comprehensive container platform solution.
 
-## Projects
+The [BlueK8s open source](https://github.com/bluek8s) initiative will include a number of projects to help bring enterprise-level capabilities for distributed stateful applications to Kubernetes.
 
-SDKs, Plugins and Language Bindings
+The first open source project in this initiative is Kubernetes Director or KubeDirector for short.
 
-[PowerShell Toolkit ![](Github)](https://github.com/HewlettPackard/hpe3par_pstoolkit) 
+[HPE Ezmeral Container Platform Main Site](https://www.hpe.com/us/en/solutions/container-platform.html)
 
-HPE 3PAR and Primera StoreServ Storage PowerShell Toolkit provides storage administrators the convenience of managing HPE 3PAR StoreServ Storage Systems from a Microsoft Windows PowerShell environment.
+[HPE Ezmeral Container Platform Documentation](http://docs.bluedata.com/home)
 
-[View Product Details](https://myenterpriselicense.hpe.com/cwp-ui/free-software/3PARPSToolkit)
+[HPE Ezmeral Learn On-Demand academy](https://learn.ezmeral.software.hpe.com/)
 
+[Request your own demo](https://hpedemoportal.ext.hpe.com/home)
 
-[Chef ![](Github)](https://github.com/HewlettPackard/hpe3par_pstoolkit) 
+- - -
 
-Chef Cookbook and examples for HPE 3PAR StoreServ.
+# Learn from the Experts
 
-[Go to Chef Supermarket](https://supermarket.chef.io/cookbooks/hpe3par)
+<iframe width="560" height="315" src="https://www.youtube.com/embed/fCQpSHDEHY0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/4-yGrKZ4M-U" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-[Ansible ![](Github)](https://github.com/HewlettPackard/hpe3par_ansible_module) 
+- - -
 
-The HPE 3PAR and Primera modules for Ansible to enable automation of storage provisioning for the HPE 3PAR and Primera StoreServ array.
+# Interactive Demo Series
 
+Learn about how to perform many common tasks with the HPE Ezmeral Container Platform related to building your stateful, containerized applications in the 7 part video series. The video series is part of [HPE Ezmeral Learn On-Demand academy](https://learn.ezmeral.software.hpe.com/). Click on the below link for the first episode titled “Create a Kubernetes Cluster”. Also in the series you will find the following demos:
 
-[Puppet ![](Github)](https://github.com/HewlettPackard/hpe3par_puppet_module) 
+* Create a Kubernetes Cluster
+<iframe width="560" height="315" src="https://www.youtube.com/embed/OLuQC2yAsCM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-Puppet module and examples for HPE 3PAR StoreServ.
+* Create a Kubernetes Tenant
 
-[Go to Puppet Forge](https://forge.puppet.com/modules/hewlettpackardenterprise/hpe3par)
+<iframe width="560" height="315" src="https://www.youtube.com/embed/IuagZpLZeRE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+* Create a Kubernetes User
 
-[Docker ![](Github)](https://github.com/hpe-storage/python-hpedockerplugin) 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ypKLGGoEGcU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-HPE Docker Volume Plugin, provides persistent block storage for containerized applications using HPE 3PAR and Primera StoreServ.
+* Deploy a Kubernetes App
 
-[Go to Docker Store](https://hub.docker.com/r/hpestorage/legacyvolumeplugin)
+<iframe width="560" height="315" src="https://www.youtube.com/embed/GOabxoGJtNA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+* [Setup Project Repository](https://www.youtube.com/embed/iV2AAf3xvnA)
+* [Build and Train a Model](https://www.youtube.com/embed/ZBsq9quncpw)
+* [Deploy the Model](https://www.youtube.com/embed/Z6qSrYH0tUQ)
 
-[Language SDKs ![](Github)](https://github.com/HewlettPackard) 
+- - -
 
-Client libraries in different languages which provide access to the HPE 3PAR array over WSAPI.
+# Projects
 
-[Go to Python Client](https://github.com/hpe-storage/python-3parclient)
-[Go to Ruby Client](https://github.com/HewlettPackard/hpe3par_ruby_sdk)
+[KubeDirector](https://github.com/bluek8s/kubedirector) 
 
+  Kubernetes Director (aka KubeDirector) for deploying and managing stateful applications on Kubernetes.
 
-[OpenStack ![](Github)](https://github.com/hpe-storage/) 
+# Workshops-on-Demand
 
-The HPE 3PAR and Primera Cinder storage driver for use with Openstack implementations.
+Take advantage of our free, Jupyter-Notebook based Workshops-on-Demand available in the [Hack Shack](https://hackshack.hpedev.io/). These technical workshops provide you with an in-depth, hands-on learning experience where you can interact with and learn from the experts. Designed to fit your schedule, these workshops are available 24/7 – any time, from anywhere. HPE Ezmeral Container Platform workshops are available today.
 
-[Go to Openstack Driver](https://docs.openstack.org/cinder/pike/configuration/block-storage/drivers/hpe-3par-driver.html)
+\-> [Try now!](https://hackshack.hpedev.io/workshops)
 
+- - -
 
-HPE Docker Volume Plugin, provides persistent block storage for containerized applications using HPE 3PAR and Primera StoreServ.
+## Any questions on HPE Ezmeral Container Platform?
 
-[View Product Details](https://myenterpriselicense.hpe.com/cwp-ui/free-software/3PARPSToolkit)
-- [Check out the Aruba Developer Hub](https://developer.arubanetworks.com/)
-- [Join the conversation at the Airheads Developer Community](https://community.arubanetworks.com/community-home?communitykey=3b1329d5-bdf8-44d2-93b1-8c252f5094fb)
-- [Simplify network operations with Aruba and Ansible](https://www.ansible.com/integrations/networks/aruba)
-- [Leverage the Aruba GitHub repository](https://github.com/aruba)
+Join the [HPEDEV Slack Workspace](https://slack.hpedev.io/) and start a discussion in our [\#ezmeral-container-platform](https://app.slack.com/client/T5SNJCC7K/C01BB50LG4W) channel.
 
-## Any questions on Aruba?
-Join the [HPEDEV Slack Workspace](https://slack.hpedev.io/) and start a discussion in our [#aruba](https://hpedev.slack.com/archives/C0164BJHKJP) channel.
+Not a Slack user? You can also ask your questions in our [Ezmeral Forum](https://hpe.com/forum/ezmeral).
