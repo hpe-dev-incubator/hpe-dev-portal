@@ -1,5 +1,5 @@
 ---
-priority: 0
+priority: 3
 width: large
 title: HPE 3PAR and Primera
 version: v 2.01.8964
@@ -21,13 +21,7 @@ Power your mission-critical apps with extreme resiliency and unprecedented simpl
 
 SDKs, Plugins and Language Bindings
 
-<img src="github.png" style="float: left; margin-right: 10px;">
-[PowerShell Toolkit ](https://github.com/HewlettPackard/hpe3par_pstoolkit)![](github.png)
-
-![](github.png)
-
-[PowerShell Toolkit](https://github.com/HewlettPackard/hpe3par_pstoolkit)
-
+[PowerShell Toolkit ![](Github)]](https://github.com/HewlettPackard/hpe3par_pstoolkit)
 
 HPE 3PAR and Primera StoreServ Storage PowerShell Toolkit provides storage administrators the convenience of managing HPE 3PAR StoreServ Storage Systems from a Microsoft Windows PowerShell environment.
 
