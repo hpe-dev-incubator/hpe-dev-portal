@@ -13,6 +13,7 @@ import EventCard from './EventCard';
 import ResponsiveGrid from './ResponsiveGrid';
 import PlatformCard from './PlatformCard';
 import OpenSourceCard from './OpenSourceCard';
+import CommunityCard from './CommunityCard';
 
 export * from './Card';
 export * from './Link';
@@ -35,4 +36,5 @@ export {
   ResponsiveGrid,
   PlatformCard,
   OpenSourceCard,
+  CommunityCard,
 };
