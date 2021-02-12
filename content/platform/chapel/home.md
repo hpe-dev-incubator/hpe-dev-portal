@@ -1,12 +1,14 @@
 ---
+priority: 2
+width: large
 title: Chapel
 version: v 2.01.8964
-description: A programming language designed for productive parallel computing from laptops to supercomputers.
+description: A programming language designed for productive parallel computing
+  from laptops to supercomputers.
 image: /img/platforms/Chapel.svg
-width: large
 frontpage: true
-priority: 2
-tags: ["chapel"]
+tags:
+  - chapel
 ---
 ## What is Chapel?
 
@@ -53,6 +55,7 @@ chplUltra is designed to simulate the dynamics of ultra-light dark matter for as
 
 CrayAI is a suite of distributed machine learning workflow libraries designed with HPC in mind. These libraries are portable, running on anything from a laptop up to a supercomputer. The core back-end of these libraries is written in Chapel, while the user-facing interface is Python. CrayAI currently consists of Cray HPO and Cray FS. Cray HPO is a distributed black-box hyperparameter optimization framework and Cray FS is a distributed feature selection library.
 
+---
 
 ## Any questions on Chapel?
 
