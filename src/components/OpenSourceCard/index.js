@@ -24,7 +24,6 @@ const OpenSourceCard = ({
   <GrommetCard
     pad="large"
     elevation="medium"
-    wrap
     onClick={link ? () => navigate(link) : undefined}
   >
     <CardHeader
@@ -40,11 +39,11 @@ const OpenSourceCard = ({
         </Text>
       }
     </CardHeader>
-    <Box gap="small" direction="row">
+    <Box gap="small" direction="row-responsive" wrap>
       <Box alignSelf="center">
-        <Box align="start">
-          <Image fit="contain" src={image} />
-        </Box>
+        {image && (
+          <Image width="216px" height="216px" fit="contain" src={image} />
+        )}
         {stars && (
           <Box direction="row" gap="xsmall" pad={{ top: 'xsmall' }}>
             <Star color="yellow" />

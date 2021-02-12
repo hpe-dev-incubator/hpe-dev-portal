@@ -15,7 +15,7 @@ export const Footer = () => (
     <Box direction="row" justify="between" gap="large">
       <Box align="start" gap="medium">
         <Heading margin="none" level="4">
-          HPE Dev
+          HPE DEV
         </Heading>
         <Box gap="small">
           <Anchor

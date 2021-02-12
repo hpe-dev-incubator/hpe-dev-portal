@@ -1,5 +1,5 @@
 ---
-title: OneView
+title: HPE OneView
 version: v 6.01.8964
 description: The foundation for a software-defined data center.
 image: /img/platforms/Oneview.svg

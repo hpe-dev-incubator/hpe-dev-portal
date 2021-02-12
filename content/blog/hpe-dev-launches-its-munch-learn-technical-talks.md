@@ -8,7 +8,7 @@ authorimage: "/img/blogs/Avatar2.svg"
 thumbnailimage: "https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/12/munch-and-learn-1608201560403.jpg"
 category: "Munch and Learn"
 featuredBlog: true
-priority: 1
+priority: 2
 ---
 ![munch and learn](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/12/munch-and-learn-1608201560403.jpg)
 

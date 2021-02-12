@@ -1,7 +1,7 @@
 ---
 title: HPE OneView Global Dashboard
 version: v 6.01.8964
-description: HPE OneView Global Dashboard allows you to manage up to 75 HPE OneView or HPE Synergy instances, and 150 HPE Hyper Converged 380 instances across data centers.
+description: A software-defined, programmatic approach to managing infrastructure that allows you to manage  up to 75 HPE OneView or HPE Synergy instances, and 150 HPE Hyper Converged 380 instances across data centers.
 image: /img/platforms/HPEOneviewGlobalDashboard.svg
 width: large
 frontpage: true

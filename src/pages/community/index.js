@@ -39,8 +39,10 @@ function Community({ data }) {
       <SEO title="Community" />
       <Box flex overflow="auto" gap="large" pad="xlarge" wrap>
         <PageDescription image="/img/community/community.svg" title="Community">
-          <Text>Build with us.</Text>
-          <Text>Contribute to the HPE Developer Community</Text>
+          <Text>
+            A community is all about connection. Discover the many different
+            ways you can connect with members of the HPE DEV Community here.
+          </Text>
         </PageDescription>
         <SectionHeader color="yellow">
           <ResponsiveGrid gap="large" rows={rows} columns={columns}>

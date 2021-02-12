@@ -8,6 +8,7 @@ import {
   SEO,
   PageDescription,
   ResponsiveGrid,
+  SectionHeader,
 } from '../../components';
 import { useSiteMetadata } from '../../hooks/use-site-metadata';
 
@@ -74,12 +75,9 @@ function Opensource({ data }) {
         >
           <Box gap="small">
             <Text>
-              We are dedicated to open source innovation through collaboration
-              and we are proud to be part of the open source community.
-            </Text>
-            <Text>
-              As the infrastructure of the future moves to open source, HPE
-              Developers help lead that charge.
+              Dedicated to innovation through collaboration, HPE is proud to
+              lead and contribute to many open source projects. Learn more about
+              these projects here.
             </Text>
             <Button
               primary
@@ -108,16 +106,7 @@ function Opensource({ data }) {
             ))}
           </Tabs>
         </Box> */}
-        <Box
-          direction="row"
-          wrap
-          pad={{ top: 'medium' }}
-          border={{
-            side: 'top',
-            color: 'green',
-            size: 'small',
-          }}
-        >
+        <SectionHeader color="green">
           <ResponsiveGrid gap="large" rows={rows} columns={columns}>
             {projects.map(({ node }) => (
               <OpenSourceCard
@@ -130,7 +119,7 @@ function Opensource({ data }) {
               />
             ))}
           </ResponsiveGrid>
-        </Box>
+        </SectionHeader>
       </Box>
     </Layout>
   );

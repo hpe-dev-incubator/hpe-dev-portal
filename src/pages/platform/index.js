@@ -9,6 +9,7 @@ import {
   SEO,
   PageDescription,
   ResponsiveGrid,
+  SectionHeader,
 } from '../../components';
 import { useSiteMetadata } from '../../hooks/use-site-metadata';
 
@@ -44,21 +45,12 @@ function Platform({ data }) {
           title="Platforms"
         >
           <Text>
-            Get a peek at some of the new technologies we're excited about and
-            think you will be too!
+            Supporting developers, data scientists, and architects is what we
+            do. Find APIs, GitHub repositories and many of the other resources
+            you need here.
           </Text>
         </PageDescription>
-        <Box
-          direction="row"
-          wrap
-          border={{
-            side: 'top',
-            color: 'orange',
-            size: 'small',
-          }}
-          gap="large"
-          pad={{ top: 'small' }}
-        >
+        <SectionHeader color="orange">
           <ResponsiveGrid gap="large" rows={rows} columns={columns}>
             {platforms.map(({ node }) => (
               <PlatformCard
@@ -71,7 +63,7 @@ function Platform({ data }) {
               />
             ))}
           </ResponsiveGrid>
-        </Box>
+        </SectionHeader>
       </Box>
     </Layout>
   );

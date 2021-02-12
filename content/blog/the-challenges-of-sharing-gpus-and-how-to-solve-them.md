@@ -5,6 +5,9 @@ author: Raz Haleva
 tags: ["hpe-ezmeral-container-platform","run:ai","GPU","AI","ML"]
 path: the-challenges-of-sharing-gpus-and-how-to-solve-them
 authorimage: "/img/blogs/Avatar5.svg"
+thumbnailimage: "https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/12/pinkish-image-4-run-ai-post-1612367610553.JPG"
+featuredBlog: true
+priority: 1
 ---
 ![pinkish image 4 run ai post](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/12/pinkish-image-4-run-ai-post-1612367610553.JPG)
 

@@ -5,8 +5,6 @@ author: HPE DEV staff
 tags: ["hackathon","hpe-onesphere","community"]
 path: a-behind-the-scenes-look-into-the-projects-of-the-hpe-hackathon
 authorimage: "/img/blogs/Avatar6.svg"
-featuredBlog: true
-priority: 3
 ---
 ![HPE Hackathon](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2018/5/hpe-hackathon-3d-v1-1-1526997723888.jpg)
 
