@@ -151,9 +151,11 @@ export const SectionHeader = ({ color, title, children }) => {
   return (
     <>
       <Box pad="small" margin={{ top: 'large' }}>
-        <Heading margin="none" level="2">
-          {title}
-        </Heading>
+        {title && (
+          <Heading margin="none" level="2">
+            {title}
+          </Heading>
+        )}
       </Box>
       <Box
         gap="large"

@@ -1,26 +1,35 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
-import {
-  Box,
-  Heading,
-  Image,
-  Button,
-  Card,
-  Paragraph,
-  CardBody,
-  Grid,
-  CardFooter,
-  Text,
-} from 'grommet';
+import { Box, Heading, Text } from 'grommet';
 
-import { PageDescription, Layout, SEO } from '../../components';
+import {
+  PageDescription,
+  Layout,
+  SEO,
+  CommunityCard,
+  SectionHeader,
+  ResponsiveGrid,
+} from '../../components';
 import { useSiteMetadata } from '../../hooks/use-site-metadata';
 
 Heading.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
+const columns = {
+  small: ['auto'],
+  medium: ['auto', 'auto'],
+  large: ['auto', 'auto', 'auto', 'auto'],
+  xlarge: ['auto', 'auto', 'auto', 'auto'],
+};
+
+const rows = {
+  small: ['auto', 'auto', 'auto'],
+  medium: ['auto', 'auto'],
+  large: ['auto'],
+  xlarge: ['auto'],
+};
 function Community({ data }) {
   const communities = data.allMarkdownRemark.edges;
   const siteMetadata = useSiteMetadata();
@@ -35,47 +44,13 @@ function Community({ data }) {
             ways you can connect with members of the HPE DEV Community here.
           </Text>
         </PageDescription>
-        <Box
-          border={{
-            side: 'top',
-            color: 'yellow',
-            size: 'small',
-          }}
-          fill="horizontal"
-          margin={{ top: 'large' }}
-          pad={{ top: 'small' }}
-        >
-          <Grid gap="medium" columns={{ count: 'fit', size: 'small' }}>
-            {communities.map(({ node }) => (
-              <Card elevation="medium" gap="medium" pad="large">
-                <CardBody pad="none" align="start">
-                  {node.frontmatter.image && (
-                    <Image src={node.frontmatter.image} />
-                  )}
-                </CardBody>
-                <Box responsive={false}>
-                  <Heading margin="none" level="4">
-                    {node.frontmatter.title}
-                  </Heading>
-                  <Paragraph margin="none">
-                    {node.frontmatter.description}
-                  </Paragraph>
-                </Box>
-                <CardFooter pad="none">
-                  <Box wrap align="start">
-                    <Button
-                      color="yellow"
-                      primary
-                      label={node.frontmatter.linkname}
-                      href={node.frontmatter.link}
-                      target="_blank"
-                    />
-                  </Box>
-                </CardFooter>
-              </Card>
+        <SectionHeader color="yellow">
+          <ResponsiveGrid gap="large" rows={rows} columns={columns}>
+            {communities.map((community) => (
+              <CommunityCard key={community.node.id} node={community.node} />
             ))}
-          </Grid>
-        </Box>
+          </ResponsiveGrid>
+        </SectionHeader>
       </Box>
     </Layout>
   );
