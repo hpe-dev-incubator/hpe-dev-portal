@@ -1,77 +1,55 @@
 ---
+priority: 2
+width: large
 title: HPE Deep Learning Cookbook
 version: v 2.01.8964
-description: A set of tools to guide the choice of the best hardware/software environment for a given deep learning workload.
+description: A set of tools to guide the choice of the best hardware/software
+  environment for a given deep learning workload.
 image: /img/platforms/HPEDeepLearningCookbook.svg
-width: large
 frontpage: true
-priority: 1
-tags: ["hpe-deep-learning-cookbook"]
+tags:
+  - hpe-deep-learning-cookbook
 ---
+It is a common wisdom today, that to start a deep learning exploration one needs a GPU-enabled system and one of the existing open source deep learning frameworks. But which GPU box to choose? How many GPUs to put in a system? How many systems to put in a cluster and which interconnect to use? Which framework to pick? Answers to these questions are not obvious. That’s why we decided to create HPE Deep Learning Cookbook – a set of tools to characterize deep learning workloads and to recommend optimal hardware/software (HW/SW) stack for any given workload. Our Cookbook consists of several key assets:
 
-- Power your mission-critical apps with extreme resiliency and unprecedented simplicity
-- App-aware resiliency sees beyond the walls of storage to predict/prevent disruptions
-- Predictive acceleration safely consolidates every mission-critical app onto the same platform with extreme low-latency performance
+**HPE Deep Learning Benchmarking Suite:** automated benchmarking tool to collect performance measurements on various HW/SW configurations in a unified way.
 
-## Projects
+**HPE Deep Learning Performance Guide:** a web-based tool which provides access to a knowledge base of benchmarking results. It enables querying and analysis of measured results as well as performance prediction based on analytical performance models.
 
-SDKs, Plugins and Language Bindings
+**Reference Designs:** hardware/software recipes for selected workloads.
 
-[PowerShell Toolkit ![](Github)](https://github.com/HewlettPackard/hpe3par_pstoolkit) 
+Recommendations with our Deep Learning Cookbook are based on a massive collection of performance results for various deep learning workloads on different HW/SW stacks, and analytical performance models. The combination of real measurements and analytical performance models enables us to estimate the performance of any workload and to recommend an optimal hardware/software stack for that workload. Additionally, we use the Cookbook internally to detect bottlenecks in existing hardware and to guide the design of future systems for artificial intelligence and deep learning.
 
-HPE 3PAR and Primera StoreServ Storage PowerShell Toolkit provides storage administrators the convenience of managing HPE 3PAR StoreServ Storage Systems from a Microsoft Windows PowerShell environment.
+[Read a blog post about the HPE Deep Learning Cookbook](https://community.hpe.com/t5/Behind-the-scenes-Labs/The-Deep-Learning-Cookbook/ba-p/6967323#.WhX-xVWnFhF)
 
-[View Product Details](https://myenterpriselicense.hpe.com/cwp-ui/free-software/3PARPSToolkit)
+[Watch a short video introducing the HPE Deep Learning Cookbook](https://youtu.be/ao_DeE9lxvk)
 
+- - -
 
-[Chef ![](Github)](https://github.com/HewlettPackard/hpe3par_pstoolkit) 
+# **Components of the Cookbook**
 
-Chef Cookbook and examples for HPE 3PAR StoreServ.
+[HPE Deep Learning Benchmarking Suite](https://github.com/HewlettPackard/dlcookbook-dlbs)
 
-[Go to Chef Supermarket](https://supermarket.chef.io/cookbooks/hpe3par)
+An automated benchmarking tool, which makes it easy to run performance tests with most popular deep learning frameworks. It enables consistent and reproducible benchmark experiments on various hardware/software combinations.
 
+\-> [Read the documentation](https://hewlettpackard.github.io/dlcookbook-dlbs/#/index?id=deep-learning-benchmarking-suite)
 
-[Ansible ![](Github)](https://github.com/HewlettPackard/hpe3par_ansible_module) 
+HPE Deep Learning Performance Guide
 
-The HPE 3PAR and Primera modules for Ansible to enable automation of storage provisioning for the HPE 3PAR and Primera StoreServ array.
+A web-based tool which provides access to a knowledgebase of benchmarking results.
 
+\-> [Check the tool](https://dlpg.labs.hpe.com/)
 
-[Puppet ![](Github)](https://github.com/HewlettPackard/hpe3par_puppet_module) 
+- - -
 
-Puppet module and examples for HPE 3PAR StoreServ.
+# **Related resources**
 
-[Go to Puppet Forge](https://forge.puppet.com/modules/hewlettpackardenterprise/hpe3par)
+Characterisation and Benchmarking of Deep Learning
 
+A talk at HPC User Forum introducing HPE Deep Learning Cookbook
 
-[Docker ![](Github)](https://github.com/hpe-storage/python-hpedockerplugin) 
+\-> [Watch the talk](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=0ahUKEwi_78-1tdPXAhUF4WMKHf8CCoQQtwIIKDAA&url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DlgK0BlXdOCw&usg=AOvVaw0osgSwEOQqZ4Gg9cVx3b-r)
 
-HPE Docker Volume Plugin, provides persistent block storage for containerized applications using HPE 3PAR and Primera StoreServ.
+HPE Introduces New Set of Artificial Intelligence Offerings
 
-[Go to Docker Store](https://hub.docker.com/r/hpestorage/legacyvolumeplugin)
-
-
-[Language SDKs ![](Github)](https://github.com/HewlettPackard) 
-
-Client libraries in different languages which provide access to the HPE 3PAR array over WSAPI.
-
-[Go to Python Client](https://github.com/hpe-storage/python-3parclient)
-[Go to Ruby Client](https://github.com/HewlettPackard/hpe3par_ruby_sdk)
-
-
-[OpenStack ![](Github)](https://github.com/hpe-storage/) 
-
-The HPE 3PAR and Primera Cinder storage driver for use with Openstack implementations.
-
-[Go to Openstack Driver](https://docs.openstack.org/cinder/pike/configuration/block-storage/drivers/hpe-3par-driver.html)
-
-
-HPE Docker Volume Plugin, provides persistent block storage for containerized applications using HPE 3PAR and Primera StoreServ.
-
-[View Product Details](https://myenterpriselicense.hpe.com/cwp-ui/free-software/3PARPSToolkit)
-- [Check out the Aruba Developer Hub](https://developer.arubanetworks.com/)
-- [Join the conversation at the Airheads Developer Community](https://community.arubanetworks.com/community-home?communitykey=3b1329d5-bdf8-44d2-93b1-8c252f5094fb)
-- [Simplify network operations with Aruba and Ansible](https://www.ansible.com/integrations/networks/aruba)
-- [Leverage the Aruba GitHub repository](https://github.com/aruba)
-
-## Any questions on Aruba?
-Join the [HPEDEV Slack Workspace](https://slack.hpedev.io/) and start a discussion in our [#aruba](https://hpedev.slack.com/archives/C0164BJHKJP) channel.
+\-> [Read the press release](https://news.hpe.com/hpe-introduces-new-set-of-artificial-intelligence-platforms-and-services/)
