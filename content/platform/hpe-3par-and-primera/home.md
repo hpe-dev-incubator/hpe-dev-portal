@@ -21,13 +21,13 @@ Power your mission-critical apps with extreme resiliency and unprecedented simpl
 
 SDKs, Plugins and Language Bindings
 
-[PowerShell Toolkit ![](Github)]](https://github.com/HewlettPackard/hpe3par_pstoolkit)
+[PowerShell Toolkit ![](Github)](https://github.com/HewlettPackard/hpe3par_pstoolkit)
 
 HPE 3PAR and Primera StoreServ Storage PowerShell Toolkit provides storage administrators the convenience of managing HPE 3PAR StoreServ Storage Systems from a Microsoft Windows PowerShell environment.
 
 [View Product Details](https://myenterpriselicense.hpe.com/cwp-ui/free-software/3PARPSToolkit)
 
-[Chef ![](https://github.com/HewlettPackard/hpe3par_pstoolkit)](https://github.com/HewlettPackard/hpe3par_pstoolkit) 
+[Chef ![](Github)](https://github.com/HewlettPackard/hpe3par_pstoolkit) 
 
 Chef Cookbook and examples for HPE 3PAR StoreServ.
 
