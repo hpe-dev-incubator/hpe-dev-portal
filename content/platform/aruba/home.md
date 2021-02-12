@@ -17,6 +17,6 @@ tags:
 * [Simplify network operations with Aruba and Ansible](https://www.ansible.com/integrations/networks/aruba)
 * [Leverage the Aruba GitHub repository](https://github.com/aruba)
 
-## Any questions on Aruba?
+# Any questions on Aruba?
 
 Join the [HPEDEV Slack Workspace](https://slack.hpedev.io/) and start a discussion in our [\#aruba](https://hpedev.slack.com/archives/C0164BJHKJP) channel.
