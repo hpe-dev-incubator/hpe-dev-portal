@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql, Link } from 'gatsby';
-import { Box, Heading, Button } from 'grommet';
+import { Box, Button, Text } from 'grommet';
 import {
   Layout,
   SEO,
@@ -9,6 +9,7 @@ import {
   Card,
   EventCard,
   ResponsiveGrid,
+  SectionHeader,
 } from '../../components';
 import { useSiteMetadata } from '../../hooks/use-site-metadata';
 
@@ -37,22 +38,22 @@ function Events({ data }) {
       <SEO title="Events" />
       <Box flex overflow="auto" pad="xlarge" wrap>
         <PageDescription image="/img/events/EventsPage.svg" title="Events">
-          <Link to="/newsletter-signup">
-            <Button color="blue" primary label="Keep Me Posted" />
-          </Link>
+          <Box gap="small">
+            <Box>
+              <Text>
+                Technology moves fast. Participating in events helps you stay
+                ahead of the curve. Mark your calendar and connect with us at
+                any of these upcoming events.
+              </Text>
+            </Box>
+            <Box>
+              <Link to="/newsletter-signup">
+                <Button primary label="Keep Me Posted" />
+              </Link>
+            </Box>
+          </Box>
         </PageDescription>
-        <Box pad="small" margin={{ top: 'large' }}>
-          <Heading level="2" margin="none">
-            Upcoming Events
-          </Heading>
-        </Box>
-        <Box
-          border={{
-            side: 'top',
-            color: 'blue',
-            size: 'small',
-          }}
-        >
+        <SectionHeader title="Upcoming Events" color="blue">
           {upcomingEvents.map(({ node }) => (
             <Card
               key={node.id}
@@ -63,35 +64,14 @@ function Events({ data }) {
               image={node.frontmatter.image}
             />
           ))}
-        </Box>
-        <Box pad="small" margin={{ top: 'large' }}>
-          <Heading level="2" margin="none">
-            Past Events
-          </Heading>
-        </Box>
-        <Box
-          border={{
-            side: 'top',
-            color: 'blue',
-            size: 'small',
-          }}
-          pad={{ top: 'small' }}
-        >
+        </SectionHeader>
+        <SectionHeader title="Past Events" color="blue">
           <ResponsiveGrid gap="large" rows={rows} columns={columns}>
             {pastEvents.map(({ node }) => (
-              <EventCard
-                key={node.id}
-                category={node.frontmatter.category}
-                title={node.frontmatter.title}
-                timeframe={node.frontmatter.timeframe}
-                width={node.frontmatter.width}
-                content={node.rawMarkdownBody}
-                link={node.frontmatter.link}
-                image={node.frontmatter.image}
-              />
+              <EventCard key={node.id} node={node} />
             ))}
           </ResponsiveGrid>
-        </Box>
+        </SectionHeader>
       </Box>
     </Layout>
   );
@@ -105,7 +85,6 @@ Events.propTypes = {
           node: PropTypes.shape({
             frontmatter: PropTypes.shape({
               title: PropTypes.string.isRequired,
-              timeframe: PropTypes.string.isRequired,
               link: PropTypes.string.isRequired,
               image: PropTypes.string,
               category: PropTypes.string,
@@ -125,7 +104,6 @@ Events.propTypes = {
           node: PropTypes.shape({
             frontmatter: PropTypes.shape({
               title: PropTypes.string.isRequired,
-              timeframe: PropTypes.string.isRequired,
               link: PropTypes.string.isRequired,
               image: PropTypes.string,
               category: PropTypes.string,
@@ -164,9 +142,9 @@ export const pageQuery = graphql`
           excerpt
           frontmatter {
             title
-            timeframe
             image
             category
+            dateStart
             dateEnd
             link
             width
@@ -192,7 +170,6 @@ export const pageQuery = graphql`
           excerpt
           frontmatter {
             title
-            timeframe
             image
             category
             dateEnd

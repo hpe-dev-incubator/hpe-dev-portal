@@ -1,36 +1,54 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Box, Image, Heading } from 'grommet';
+import { Box, Image, Heading, Card as GrommetCard } from 'grommet';
 import { navigate } from 'gatsby';
 
-const EventCard = ({ timeframe, link, image, title }) => (
-  <Box
+const dateFormat = Intl.DateTimeFormat('default', {
+  month: 'long',
+  day: 'numeric',
+});
+const dayFormat = Intl.DateTimeFormat('default', {
+  day: 'numeric',
+});
+
+const EventCard = ({ node, ...rest }) => (
+  <GrommetCard
     elevation="medium"
-    pad="large"
-    wrap
-    gap="large"
-    onClick={link ? () => navigate(link) : undefined}
+    flex="grow"
+    {...rest}
+    onClick={
+      node.frontmatter.link
+        ? () => navigate(`/blog/${node.frontmatter.link}`)
+        : undefined
+    }
   >
-    <Box direction="row-responsive" gap="large" align="center">
-      <Box justify="between" direction="row-responsive">
-        <Box gap="medium">
-          <Box gap="small">
-            <Heading margin="none">{title}</Heading>
-            <Heading margin="none" level="3">
-              {timeframe}
-            </Heading>
-          </Box>
-        </Box>
-        <Box>{image && <Image fit="contain" src={image} />}</Box>
+    <Box pad="large" gap="xlarge" direction="row-responsive">
+      <Box gap="small">
+        <Heading margin="none">{node.frontmatter.title}</Heading>
+        <Heading margin="none" level="3">
+          {`${dateFormat.format(new Date(node.frontmatter.dateStart))}`}
+          {node.frontmatter.dateEnd &&
+            `-${dayFormat.format(new Date(node.frontmatter.dateEnd))}`}
+        </Heading>
+      </Box>
+      <Box>
+        {node.frontmatter.image && (
+          <Image fit="contain" src={node.frontmatter.image} />
+        )}
       </Box>
     </Box>
-  </Box>
+  </GrommetCard>
 );
 EventCard.propTypes = {
-  timeframe: PropTypes.string,
-  link: PropTypes.string,
-  image: PropTypes.string,
-  title: PropTypes.string,
+  node: PropTypes.shape({
+    frontmatter: PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      link: PropTypes.string,
+      image: PropTypes.string,
+      dateStart: PropTypes.string.isRequired,
+      dateEnd: PropTypes.string,
+    }),
+  }).isRequired,
 };
 
 export default EventCard;

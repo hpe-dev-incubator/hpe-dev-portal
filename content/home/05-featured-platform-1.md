@@ -1,12 +1,12 @@
 ---
-title: Grommet V2
+title: HPE Ezmeral Data Fabric
 width: medium
 category: Featured Platform
 priority: 5
-image: /img/home/monster.svg
-link: /platform/grommet/home
+image: /img/platforms/EzmeralDataFabric.svg
+link: /platform/hpe-ezmeral-data-fabric/home/
 ---
-## Grommet V2
+## HPE Ezmeral Data Fabric
 
-build responsive and accessible mobile-first projects for the web with an easy to use component library
+The HPE Ezmeral Data Fabric enables you to run the right application at the right time in the right place on the right data.
 

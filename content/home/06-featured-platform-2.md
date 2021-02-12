@@ -4,7 +4,7 @@ width: medium
 category: Featured Platform
 priority: 6
 image: /img/home/ezmeral.svg
-link: /platform/grommet/home
+link: /platform/hpe-ezmeral-container-platform/home/
 ---
 ## HPE Ezmeral Container Platform
 

@@ -2,7 +2,6 @@
 title: KubeCon NA 2020
 dateStart: 2020-11-17T00:00:00.000Z
 dateEnd: 2019-11-20T00:00:00.000Z
-timeframe: November 17-20, 2020 NA
 tags: ["KubeCon"]
 category: Virtual Event
 image: /img/events/KubeconLogo.svg

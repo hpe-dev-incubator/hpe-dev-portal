@@ -1,13 +1,13 @@
 ---
-title: brittany-journey
+title: The Challenges of Sharing GPUs and How to Solve Them
 width: small
 category: Featured Blog
 priority: 2
-link: /blog/2019-05-23-my-journey-from-student-to-hpe-full-stack-developer/
-image: /img/Brittany.png
+link: /blog/the-challenges-of-sharing-gpus-and-how-to-solve-them
+image: /img/blogs/Avatar1.svg
 ---
-Brittany Archibeque
+Raz Haleva
 
-## My Journey from Student to Full Stack Developer
+## The Challenges of Sharing GPUs and How to Solve Them
 
-#### May 23, 2019
+#### Feb 3, 2021

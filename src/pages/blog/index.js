@@ -60,7 +60,9 @@ function Blog({ data }) {
       <Box flex overflow="auto" pad="xlarge" wrap>
         <PageDescription image="/img/blogs/blogs.svg" title="Blog">
           <Text>
-            Read our blogs on vast range of topics by our community members!
+            Sharing expertise is a great way to move technology forward. Browse
+            through our library of tutorials and articles to learn new ways to
+            do things. Or write your own!
           </Text>
         </PageDescription>
         {featuredposts && featuredposts.length > 0 && (

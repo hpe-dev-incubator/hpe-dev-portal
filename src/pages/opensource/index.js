@@ -74,12 +74,9 @@ function Opensource({ data }) {
         >
           <Box gap="small">
             <Text>
-              We are dedicated to open source innovation through collaboration
-              and we are proud to be part of the open source community.
-            </Text>
-            <Text>
-              As the infrastructure of the future moves to open source, HPE
-              Developers help lead that charge.
+              Dedicated to innovation through collaboration, HPE is proud to
+              lead and contribute to many open source projects. Learn more about
+              these projects here.
             </Text>
             <Button
               primary

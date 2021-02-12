@@ -2,8 +2,9 @@
           title: "KubeDirector"
           category: CLOUDNATIVE
           link: https://github.com/bluek8s/kubedirector
-          description: Kubernetes Director (aka KubeDirector) helps deploying and managing stateful applications on Kubernetes
+          description: Kubernetes Director (aka KubeDirector) helps deploying and managing stateful applications on Kubernetes.
           priority: 16
-          image: '/img/opensource/spiffe.svg'
+          image: '/img/platforms/EzmeralContainerPatform.svg'
+          Featured: true
 ---
           

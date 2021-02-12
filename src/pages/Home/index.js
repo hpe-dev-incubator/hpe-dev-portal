@@ -10,7 +10,7 @@ import {
   Paragraph,
   Text,
 } from 'grommet';
-import { LinkNext, Star } from 'grommet-icons';
+import { LinkNext } from 'grommet-icons';
 
 import { Layout, SEO, Card, TitleMarkdown, ButtonLink } from '../../components';
 
@@ -47,21 +47,17 @@ const Project = ({ image, title, description, link }) => (
     onClick={link ? () => navigate(link) : undefined}
   >
     <Box fill="horizontal" height="96px" flex={false}>
-      <Image src={image} />
+      <Image height="96px" width="96px" src={image} />
     </Box>
     <Box fill="vertical" overflow="hidden">
       <Text size="large" weight="bold">
         {title}
       </Text>
       <Paragraph truncate margin="none" size="large">
-        {description}
+        {description && description.length > 110
+          ? `${description.substring(0, 111)} + '...'`
+          : description}
       </Paragraph>
-    </Box>
-    <Box direction="row" gap="xsmall" pad={{ top: 'xsmall' }}>
-      <Star color="yellow" />
-      <Text size="large" weight="bold">
-        123
-      </Text>
     </Box>
   </Box>
 );
@@ -211,9 +207,11 @@ export const pageQuery = graphql`
       }
     }
     opensource: allMarkdownRemark(
-      filter: { fields: { sourceInstanceName: { eq: "opensource" } } }
-      sort: { fields: [frontmatter___title] }
-      limit: 5
+      filter: {
+        fields: { sourceInstanceName: { eq: "opensource" } }
+        frontmatter: { Featured: { eq: true } }
+      }
+      sort: { fields: [frontmatter___priority] }
     ) {
       edges {
         node {

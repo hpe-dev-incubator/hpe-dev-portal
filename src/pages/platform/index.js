@@ -44,8 +44,9 @@ function Platform({ data }) {
           title="Platforms"
         >
           <Text>
-            Get a peek at some of the new technologies we're excited about and
-            think you will be too!
+            Supporting developers, data scientists, and architects is what we
+            do. Find APIs, GitHub repositories and many of the other resources
+            you need here.
           </Text>
         </PageDescription>
         <Box
