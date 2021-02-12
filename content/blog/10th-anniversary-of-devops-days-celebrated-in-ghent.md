@@ -5,8 +5,6 @@ author: Didier Lalli
 tags: ["DevOps"]
 path: 10th-anniversary-of-devops-days-celebrated-in-ghent
 authorimage: "/img/blogs/Avatar5.svg"
-featuredBlog: true
-priority: 2
 ---
 ![picture2](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2019/10/picture2-1573748147341.png)
 

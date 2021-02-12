@@ -8,6 +8,7 @@ import {
   SEO,
   PageDescription,
   ResponsiveGrid,
+  SectionHeader,
 } from '../../components';
 import { useSiteMetadata } from '../../hooks/use-site-metadata';
 
@@ -105,16 +106,7 @@ function Opensource({ data }) {
             ))}
           </Tabs>
         </Box> */}
-        <Box
-          direction="row"
-          wrap
-          pad={{ top: 'medium' }}
-          border={{
-            side: 'top',
-            color: 'green',
-            size: 'small',
-          }}
-        >
+        <SectionHeader color="green">
           <ResponsiveGrid gap="large" rows={rows} columns={columns}>
             {projects.map(({ node }) => (
               <OpenSourceCard
@@ -127,7 +119,7 @@ function Opensource({ data }) {
               />
             ))}
           </ResponsiveGrid>
-        </Box>
+        </SectionHeader>
       </Box>
     </Layout>
   );

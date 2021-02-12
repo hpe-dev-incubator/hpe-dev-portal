@@ -71,13 +71,13 @@ function Blog({ data }) {
               key={featuredposts[0].node.id}
               node={featuredposts[0].node}
             />
-            <Box direction="row-responsive" gap="large">
+            <ResponsiveGrid gap="large" rows={rows} columns={columns}>
               {featuredposts.map(
                 ({ node }, index) =>
                   node.fields.slug !== '/' &&
                   index > 0 && <BlogCard key={node.id} node={node} />,
               )}
-            </Box>
+            </ResponsiveGrid>
           </SectionHeader>
         )}
         <SectionHeader title="All Blogs" color="yellow">

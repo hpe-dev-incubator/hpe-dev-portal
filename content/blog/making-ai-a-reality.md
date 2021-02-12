@@ -5,6 +5,8 @@ author: Ellen Friedman
 tags: ["ai","h2o.ai","hpe-ezmeral-container-platform","hpe-ezmeral-data-fabric"]
 path: making-ai-a-reality
 authorimage: "/img/blogs/Avatar1.svg"
+featuredBlog: true
+priority: 4
 ---
 ![data drive ai](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/12/data-drive-ai-1610724616865.JPG)
 

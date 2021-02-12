@@ -9,6 +9,7 @@ import {
   SEO,
   PageDescription,
   ResponsiveGrid,
+  SectionHeader,
 } from '../../components';
 import { useSiteMetadata } from '../../hooks/use-site-metadata';
 
@@ -49,17 +50,7 @@ function Platform({ data }) {
             you need here.
           </Text>
         </PageDescription>
-        <Box
-          direction="row"
-          wrap
-          border={{
-            side: 'top',
-            color: 'orange',
-            size: 'small',
-          }}
-          gap="large"
-          pad={{ top: 'small' }}
-        >
+        <SectionHeader color="orange">
           <ResponsiveGrid gap="large" rows={rows} columns={columns}>
             {platforms.map(({ node }) => (
               <PlatformCard
@@ -72,7 +63,7 @@ function Platform({ data }) {
               />
             ))}
           </ResponsiveGrid>
-        </Box>
+        </SectionHeader>
       </Box>
     </Layout>
   );
