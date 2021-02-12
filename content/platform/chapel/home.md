@@ -1,14 +1,16 @@
 ---
+priority: 2
+width: large
 title: Chapel
 version: v 2.01.8964
-description: A programming language designed for productive parallel computing from laptops to supercomputers.
+description: A programming language designed for productive parallel computing
+  from laptops to supercomputers.
 image: /img/platforms/Chapel.svg
-width: large
 frontpage: true
-priority: 2
-tags: ["chapel"]
+tags:
+  - chapel
 ---
-## What is Chapel?
+# What is Chapel?
 
 Chapel is a programming language designed for productive parallel computing on large-scale systems. Chapel's design and implementation have been undertaken with portability in mind, permitting Chapel to run on multicore desktops and laptops, commodity clusters, and the cloud, in addition to the high-end supercomputers for which it was designed. Chapel's design and development are being led by Cray Inc. in collaboration with contributors from academia, computing centers, industry, and the open-source community.
 
@@ -27,7 +29,7 @@ Chapel was designed from first principles rather than by extending an existing l
 
 ---
 
-## Projects Powered by Chapel
+# Projects Powered by Chapel
 
 [Arkouda ![](Github)](https://github.com/mhmerrill/arkouda) 
 
