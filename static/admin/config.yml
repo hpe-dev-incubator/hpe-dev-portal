@@ -2,10 +2,7 @@ backend:
  name: github
  repo: hpe-dev-incubator/hpe-dev-portal
  branch: master
- accept_roles: #optional - accepts all users if left out
-   - admin
-   - blog-editor
-   - platform-owner
+ open_authoring: true
 
 publish_mode: editorial_workflow
 
