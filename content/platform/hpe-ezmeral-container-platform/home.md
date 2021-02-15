@@ -72,7 +72,7 @@ Learn about how to perform many common tasks with the HPE Ezmeral Container Plat
 
 Take advantage of our free, Jupyter-Notebook based Workshops-on-Demand available in the [Hack Shack](https://hackshack.hpedev.io/). These technical workshops provide you with an in-depth, hands-on learning experience where you can interact with and learn from the experts. Designed to fit your schedule, these workshops are available 24/7 – any time, from anywhere. HPE Ezmeral Container Platform workshops are available today.
 
-<a href="https://hackshack.hpedev.io/workshops"><button type="button">Try now!</button></a>
+<a href="https://hackshack.hpedev.io/workshops"><button type="button" class="w3-btn w3-green">Try now!</button></a>
 
 \-> [Try now!](https://hackshack.hpedev.io/workshops)
 
