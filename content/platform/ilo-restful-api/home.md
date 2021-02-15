@@ -15,17 +15,17 @@ HPE Server management provides intelligent remote control automation through HPE
 
 A single API interface integrates server management components and full compute power. Use it with HPE iLO 4 and iLO 5 to perform remote server provisioning, configuration, inventory and monitoring industry standards through Redfish API conformance.
 
-## Redfish API Implementation
+# Redfish API Implementation
 
 Obtain simple, secure management of today’s scalable data center hardware with the Redfish API ecosystem. It’s an open industry-standard specification and schema that helps you integrate solutions within your existing tools. Published by the Distributed Management Task Force ([DMTF](http://www.dmtf.org/standards/redfish)), it’s ideal for cloud and web-based infrastructures, which typically have large quantities of servers in heterogeneous environments.
 
 * [Read about Redfish on iLO RESTful API](https://h20195.www2.hpe.com/V2/GetDocument.aspx?docname=4AA6-1727ENW)
 
-## GitHub Repositories
+# GitHub Repositories
 
 Find tools you need to help you leverage the iLO RESTful API SDK.
 
-### SDKs and Language Bindings
+## SDKs and Language Bindings
 
 ### [iLO RESTful API Documentation ![](Github)](https://hewlettpackard.github.io/ilo-rest-api-docs/)
 
@@ -57,7 +57,7 @@ The Ruby library enables to interact the iLO RESTful API.
 
 The JavaScript library enables Java developers to easily integrate with the iLO RESTful API.
 
-### DevOps
+## DevOps
 
 ### [Chef Cookbook ![](Github)](https://github.com/HewlettPackard/chef-ilorest-cookbook)
 
@@ -75,7 +75,7 @@ Puppet module for installing the Python iLOrest library and examples.
 
 Ansible role for installing the Python iLOrest library and examples.
 
-### IT Operations
+## IT Operations
 
 ### [RESTful Interface Tool ![](Github)](https://github.com/HewlettPackard/python-redfish-utility)
 
@@ -96,7 +96,8 @@ Nagios- Plug-in for Industry Standard in IT infrastructure monitoring.
 
 Take advantage of our free, Jupyter-Notebook based Workshops-on-Demand available in the [Hack Shack](https://hackshack.hpedev.io). These technical workshops provide you with an in-depth, hands-on learning experience where you can interact with and learn from the experts. Designed to fit your schedule, these workshops are available 24/7 – any time, from anywhere. iLO/Redfish workshops are available today.
 
-\-> [Try now!](https://hackshack.hpedev.io/workshops)
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<a href="https://hackshack.hpedev.io/workshops"><button type="button" class="w3-btn w3-teal">Try now!</button></a>
 
 - - -
 
