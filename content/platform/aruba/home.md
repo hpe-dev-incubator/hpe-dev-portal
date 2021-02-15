@@ -52,3 +52,8 @@ tags:
 ## Any questions on Grommet?
 
   Join the [Grommet Slack Workspace](https://grommet.slack.com/) and start a discussion.
+=======
+# Any questions on Aruba?
+
+Join the [HPEDEV Slack Workspace](https://slack.hpedev.io/) and start a discussion in our [\#aruba](https://hpedev.slack.com/archives/C0164BJHKJP) channel.
+
