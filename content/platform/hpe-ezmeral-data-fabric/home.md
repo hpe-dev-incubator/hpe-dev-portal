@@ -10,7 +10,6 @@ frontpage: true
 tags:
   - hpe-ezmeral-data-fabric
 ---
-The HPE Ezmeral Data Fabric enables you to run the right application at the right time in the right place on the right data.
 
 [](<>)[](<>)You can store, manage and access your data from edge to core to cloud at any scale or speed that you need. You can build data structures that span your enterprise using the data fabric to handle data storage and motion. Your current systems can access data in the fabric, and the same bits can be processed by cloud native applications.
 
@@ -47,10 +46,10 @@ The HPE Ezmeral Data Fabric enables you to run the right application at the righ
 ## [Tutorials](#tutorials)           [Data Fabric Blogs](#blogs)           [Free Training](#training)
 
 - - -
-
+<a id="tutorials"></a>
 # Tutorials
 
-## ["Music Catalog" Tutorial: REST and GraphQL ![](Github)](https://github.com/mapr-demos/mapr-music)
+### ["Music Catalog" Tutorial: REST and GraphQL ![](Github)](https://github.com/mapr-demos/mapr-music)
 
 The Music Catalog application explain the key Ezmeral Data Fabric Database features, and how to use them to build a complete Web application. Here are the steps to develop, build and run the application:
 
@@ -73,71 +72,7 @@ The source code of the Music Catalog application is available in this [GitHub R
 
 - - -
 
-\
-The HPE Ezmeral Data Fabric enables you to run the right application at the right time in the right place on the right data.
-
-[](<>)[](<>)
-
-You can store, manage and access your data from edge to core to cloud at any scale or speed that you need. You can build data structures that span your enterprise using the data fabric to handle data storage and motion. Your current systems can access data in the fabric, and the same bits can be processed by cloud native applications.
-
-[HPE Ezmeral Data Fabric Documentation](https://docs.datafabric.hpe.com/)
-
-[HPE Ezmeral Data Fabric API Documentation](https://docs.datafabric.hpe.com/62/APIdocs.html)
-
-[README](https://community.hpe.com/t5/hpe-ezmeral-uncut/if-hpe-ezmeral-data-fabric-is-the-answer-what-is-the-question/ba-p/7092812#.X1saqWdKhE4)
-
-- - -
-
-[Tutorials](https://developer.hpe.com/platform/hpe-ezmeral-data-fabric/home#tutorials)           [Data Fabric Blogs](https://developer.hpe.com/platform/hpe-ezmeral-data-fabric/home#blogs)           [Free Training](https://developer.hpe.com/platform/hpe-ezmeral-data-fabric/home#training)
-
-# Learn from the Experts
-
-### What is HPE Ezmeral Data Fabric?
-
-[What is HPE Ezmeral Data Fabric?](https://www.youtube.com/embed/TT1t8yaHj4w)
-
-### Machine Learning with Symbolic Data
-
-[Machine Learning with Symbolic Data](https://www.youtube.com/embed/1gqRZjKGn50)
-
-### How to size a data fabric system
-
-[How to size a data fabric system](https://www.youtube.com/embed/6khp9SanXhY)
-
-### Practical Erasure Coding in a Data Fabric
-
-[Practical Erasure Coding in a Data Fabric](https://www.youtube.com/embed/-6IBKLiOb_Q)
-
-[](<>)[](<>)
-
-- - -
-
-[Top](https://developer.hpe.com/platform/hpe-ezmeral-data-fabric/home#top)           [Data Fabric Blogs](https://developer.hpe.com/platform/hpe-ezmeral-data-fabric/home#blogs)           [Free Training](https://developer.hpe.com/platform/hpe-ezmeral-data-fabric/home#training)
-
-# Tutorials
-
-["Music Catalog" Tutorial: REST and GraphQL ![](Github)](https://github.com/mapr-demos/mapr-music)
-
-The Music Catalog application explain the key Ezmeral Data Fabric Database features, and how to use them to build a complete Web application. Here are the steps to develop, build and run the application:
-
-1. [Introduction](https://github.com/mapr-demos/mapr-music/blob/master/doc/tutorials/001-introduction.md)
-2. [MapR Music Architecture](https://github.com/mapr-demos/mapr-music/blob/master/doc/tutorials/002-mapr-music-architecture.md)
-3. [Setup your environment](https://github.com/mapr-demos/mapr-music/blob/master/doc/tutorials/003-setting-up-your-environment.md)
-4. [Import the Data Set](https://github.com/mapr-demos/mapr-music/blob/master/doc/tutorials/004-import-the-data-set.md)
-5. [Discover MapR Database Shell and Apache Drill](https://github.com/mapr-demos/mapr-music/blob/master/doc/tutorials/005-discovering-mapr-db-shell-and-drill.md)
-6. [Work with MapR Database and Java](https://github.com/mapr-demos/mapr-music/blob/master/doc/tutorials/006-working-with-mapr-db-and-java.md)
-7. [Add Indexes](https://github.com/mapr-demos/mapr-music/blob/master/doc/tutorials/007-mapr-db-indexes.md)
-8. [Create a REST API](https://github.com/mapr-demos/mapr-music/blob/master/doc/tutorials/008-create-a-rest-api.md)
-9. [Deploy to Wildfly](https://github.com/mapr-demos/mapr-music/blob/master/doc/tutorials/009-deploy-to-wildfly.md)
-10. [Build the Web Application with Angular](https://github.com/mapr-demos/mapr-music/blob/master/doc/tutorials/010-building-a-ui-with-angular.md)
-11. [Work with JSON Arrays](https://github.com/mapr-demos/mapr-music/blob/master/doc/tutorials/011-working-with-arrays.md)
-12. [Change Data Capture](https://github.com/mapr-demos/mapr-music/blob/master/doc/tutorials/012-change-data-capture.md)
-13. [Add Full Text Search to the Application](https://github.com/mapr-demos/mapr-music/blob/master/doc/tutorials/013-adding-full-text-search-to-the-application'.md)
-14. [Build a Recommendation Engine](https://github.com/mapr-demos/mapr-music/blob/master/doc/tutorials/014-creating-recommendation-engine.md)
-
-The source code of the Music Catalog application is available in this [GitHub Repository](https://github.com/mapr-demos/mapr-music). Music Catalog application is also implemented with a [GraphQL](https://graphql.org/) endpoint instead of REST, the application code is available in this [GitHub Repository](https://github.com/mapr-demos/mapr-db-graphql-sample). You can find informations about this implementation in the [project readme file](https://github.com/mapr-demos/mapr-db-graphql-sample/blob/master/README.md).
-
-["Smart Home" IoT Tutorial ![](Github)](https://github.com/mapr-demos/mapr-smart-home)
+### ["Smart Home" IoT Tutorial ![](Github)](https://github.com/mapr-demos/mapr-smart-home)
 
 The Smart Home Tutorial is designated to walk the developer through a process of developing event processing system, starting from defining business requirements and ending with system deployment and testing. The system is built on top of MapR Converged Data Platform and you will be familiarized with:
 
@@ -159,11 +94,11 @@ The source code of the Smart Home application is available in this [GitHub Repo
 
 - - -
 
-[Ezmeral Data Fabric for Predictive Maintenance ![](Github)](https://github.com/mapr-demos/predictive-maintenance)
+### [Ezmeral Data Fabric for Predictive Maintenance ![](Github)](https://github.com/mapr-demos/predictive-maintenance)
 
 This project is intended to show how to build Predictive Maintenance applications on Ezmeral Data Fabric. Predictive Maintenance applications place high demands on data streaming, time-series data storage, and machine learning. Therefore, this project focuses on data ingest with Ezmeral Data Fabric Event Store, time-series data storage with Ezmeral Data Fabric Database and OpenTSDB, and feature engineering with Ezmeral Data Fabric Database and Apache Spark. The source code of the Predictive Maintenance application is available in this [GitHub Repository](https://github.com/mapr-demos/predictive-maintenance). Look at the project [Readme](https://github.com/mapr-demos/predictive-maintenance/blob/master/README.md) to get more informations about this sample application.
 
-[Customer 360 View ![](Github)](https://github.com/mapr-demos/customer360)
+### [Customer 360 View ![](Github)](https://github.com/mapr-demos/customer360)
 
 Customer 360 applications require the ability to access data lakes containing structured and unstructured data, integrate data sets, and run operational and analytical workloads simultaneously. MapR enables applications to glean customer intelligence through machine learning that relates to customer personality, sentiment, propensity to buy, and likelihood to churn. This application focuses on showing how the following three tenants to customer 360 applications can be achieved on Ezmeral Data Fabric:
 
@@ -194,7 +129,7 @@ The source code of the Application for Processing Stock Market Trade Data applic
 ## [Tutorials](#tutorials)           [Data Fabric Blogs](#blogs)           [Free Training](#training)
 
 - - -
-
+<a id="training"></a>
 # Free On-Demand Training
 
 Educate yourself for free with online courses that teach you how to build applications and administer the HPE Ezmeral Data Fabric. These lecture and lab courses are part of HPE Ezmeral Learn On-Demand academy.
@@ -224,3 +159,4 @@ Not a Slack user? You can also ask your questions in our [Ezmeral Forum](https:
 ## [Tutorials](#tutorials)           [Data Fabric Blogs](#blogs)           [Free Training](#training)
 
 - - -
+<a id="blogs"></a>
