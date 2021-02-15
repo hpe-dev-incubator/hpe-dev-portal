@@ -22,9 +22,7 @@ Generates reports for monitored assets to view inventory, including firmware ver
 
 One click navigation of managed resources with single sign-on managing appliance.
 
-[Learn more about Global Dashboard](https://hpe.com/products/ovglobaldashboard)
-
-</br>
+- [Learn more about Global Dashboard](https://hpe.com/products/ovglobaldashboard)
 
 # API Reference
 Global Dashboard provides a public REST API to can be used to retrieve information about resources.  For example, you can retrieve server-hardware information about thousands of servers from datacenters scattered across the global with a single API call.
@@ -32,4 +30,4 @@ Global Dashboard provides a public REST API to can be used to retrieve informati
 
 ### [OpenAPI Definition ![](Github)](https://github.com/HewlettPackard/hpe-globaldashboard-swagger "OpenAPI (Swagger) definition of the Global Dashboard API")
 
-[API Reference on SwaggerHub](http://app.swaggerhub.com/apis/hpe-global-dashboard/hpe-one_view_global_dashboard_rest_api/2)
+### [API Reference on SwaggerHub](http://app.swaggerhub.com/apis/hpe-global-dashboard/hpe-one_view_global_dashboard_rest_api/2)
