@@ -7,7 +7,7 @@ description: Grommet is an open source UI development and design tool
 image: grommet.svg
 frontpage: true
 tags:
-  - aruba
+  - grommet
 ---
 # Build awesome apps with Grommet
 
