@@ -196,7 +196,9 @@ Plan scripts and sample artifact bundles for personalizing and deploying SUSE Li
 
 Take advantage of our free, Jupyter-Notebook based Workshops-on-Demand available in the [Hack Shack](https://hackshack.hpedev.io/). These technical workshops provide you with an in-depth, hands-on learning experience where you can interact with and learn from the experts. Designed to fit your schedule, these workshops are available 24/7 – any time, from anywhere. HPE OneView workshops are available today.
 
-<a href="https://hackshack.hpedev.io/workshops"><button type="button" class="w3-btn w3-green">Try now!</button></a>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<a href="https://hackshack.hpedev.io/workshops"><button type="button" class="w3-btn w3-teal">Try now!</button></a>
 - - -
 
 ## Any questions on HPE OneView?
