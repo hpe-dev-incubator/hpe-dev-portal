@@ -1,5 +1,5 @@
 ---
-priority: 0
+priority: 1
 width: medium
 title: SPIFFE and SPIRE Projects
 version: v 6.01.8964
@@ -21,20 +21,17 @@ These projects recently moved into the CNCF incubator and have received contribu
       
 - [For more information](https://spiffe.io/)
 - [Join us on Github ![](Github)](https://github.com/spiffe/spire)
-   
+
 ---
-    
+
 # Introduction to SPIFFE and SPIRE
    
 <p style="text-align: center;">
 <iframe width="560" height="315" src="https://www.youtube.com/embed/-XGKybqTfZo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </p>
-<br />
 
 ---
 
 ## Any questions on SPIFFE?
 
-Join the ** [SPIFFE Slack Workspace](https://slack.spiffe.io/) ** and start a discussion.
-
-<!--EndFragment-->
+Join the **[SPIFFE Slack Workspace](https://slack.spiffe.io/)** and start a discussion.
