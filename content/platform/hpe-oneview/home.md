@@ -1,5 +1,5 @@
 ---
-priority: 4
+priority: 3
 width: large
 title: HPE OneView
 version: v 6.01.8964
