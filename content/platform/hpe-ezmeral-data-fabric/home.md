@@ -46,7 +46,9 @@ You can store, manage and access your data from edge to core to cloud at any sca
 ## [Tutorials](#tutorials)           [Data Fabric Blogs](#blogs)           [Free Training](#training)
 
 - - -
+
 <a id="tutorials"></a>
+
 # Tutorials
 
 ### ["Music Catalog" Tutorial: REST and GraphQL ![](Github)](https://github.com/mapr-demos/mapr-music)
@@ -129,7 +131,9 @@ The source code of the Application for Processing Stock Market Trade Data applic
 ## [Tutorials](#tutorials)           [Data Fabric Blogs](#blogs)           [Free Training](#training)
 
 - - -
+
 <a id="training"></a>
+
 # Free On-Demand Training
 
 Educate yourself for free with online courses that teach you how to build applications and administer the HPE Ezmeral Data Fabric. These lecture and lab courses are part of HPE Ezmeral Learn On-Demand academy.
@@ -159,4 +163,5 @@ Not a Slack user? You can also ask your questions in our [Ezmeral Forum](https:
 ## [Tutorials](#tutorials)           [Data Fabric Blogs](#blogs)           [Free Training](#training)
 
 - - -
+
 <a id="blogs"></a>
