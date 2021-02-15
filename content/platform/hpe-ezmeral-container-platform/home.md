@@ -63,7 +63,7 @@ Learn about how to perform many common tasks with the HPE Ezmeral Container Plat
 
 # Projects
 
-[KubeDirector](https://github.com/bluek8s/kubedirector) 
+[KubeDirector ![](Github)](https://github.com/bluek8s/kubedirector) 
 
   Kubernetes Director (aka KubeDirector) for deploying and managing stateful applications on Kubernetes.
 
