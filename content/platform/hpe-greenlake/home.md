@@ -33,7 +33,7 @@ With the HPE GreenLake Central platform, you can manage all of your IT operation
 <a href="#container" target="_self">HPE GreenLake for containers</a>    
 <a href="#mlops" target="_self">HPE GreenLake for ML Ops</a>
 
-</br></br>
+<br>
 
 <a id="privatecloud"></a>
     
@@ -46,7 +46,7 @@ HPE GreenLake for private cloud brings the cloud to you, modernizing your on-pre
 
 - [Learn how to create and deploy applications with HPE GreenLake cloud services for private cloud](https://community.hpe.com/t5/The-Cloud-Experience-Everywhere/A-better-way-to-create-and-deploy-applications-HPE-GreenLake/ba-p/7118975)
 
-</br>
+<br>
 <a id="container"></a>
 
 ## HPE GreenLake for containers
@@ -54,7 +54,7 @@ HPE GreenLake for containers is an enterprise-grade container management service
 
 - [Learn more about HPE GreenLake for containers](https://www.hpe.com/us/en/greenlake/containers.html)
 
-</br>
+<br>
 <a id="mlops"></a>
 
 ## HPE GreenLake for ML Ops
@@ -62,7 +62,7 @@ HPE GreenLake for ML Ops is an enterprise-grade machine learning service, with w
 
 - [Learn more about HPE GreenLake for ML Ops](https://www.hpe.com/us/en/greenlake/ml-ops.html)
 
-</br>
+<br>
 
 ---
 <a href="#top" target="_self">Top</a>
