@@ -18,13 +18,13 @@ The [BlueK8s open source](https://github.com/bluek8s) initiative will include 
 
 The first open source project in this initiative is Kubernetes Director or KubeDirector for short.
 
-[HPE Ezmeral Container Platform Main Site](https://www.hpe.com/us/en/solutions/container-platform.html)
+- [HPE Ezmeral Container Platform Main Site](https://www.hpe.com/us/en/solutions/container-platform.html)
 
-[HPE Ezmeral Container Platform Documentation](http://docs.bluedata.com/home)
+- [HPE Ezmeral Container Platform Documentation](http://docs.bluedata.com/home)
 
-[HPE Ezmeral Learn On-Demand academy](https://learn.ezmeral.software.hpe.com/)
+- [HPE Ezmeral Learn On-Demand academy](https://learn.ezmeral.software.hpe.com/)
 
-[Request your own demo](https://hpedemoportal.ext.hpe.com/home)
+- [Request your own demo](https://hpedemoportal.ext.hpe.com/home)
 
 - - -
 
@@ -56,15 +56,23 @@ Learn about how to perform many common tasks with the HPE Ezmeral Container Plat
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/GOabxoGJtNA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-* [Setup Project Repository](https://www.youtube.com/embed/iV2AAf3xvnA)
-* [Build and Train a Model](https://www.youtube.com/embed/ZBsq9quncpw)
-* [Deploy the Model](https://www.youtube.com/embed/Z6qSrYH0tUQ)
+* Setup Project Repository
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/iV2AAf3xvnA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+* Build and Train a Model
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ZBsq9quncpw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+* Deploy the Model
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Z6qSrYH0tUQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 - - -
 
 # Projects
 
-[KubeDirector ![](Github)](https://github.com/bluek8s/kubedirector) 
+### [KubeDirector ![](Github)](https://github.com/bluek8s/kubedirector) 
 
   Kubernetes Director (aka KubeDirector) for deploying and managing stateful applications on Kubernetes.
 
@@ -72,9 +80,8 @@ Learn about how to perform many common tasks with the HPE Ezmeral Container Plat
 
 Take advantage of our free, Jupyter-Notebook based Workshops-on-Demand available in the [Hack Shack](https://hackshack.hpedev.io/). These technical workshops provide you with an in-depth, hands-on learning experience where you can interact with and learn from the experts. Designed to fit your schedule, these workshops are available 24/7 – any time, from anywhere. HPE Ezmeral Container Platform workshops are available today.
 
-<a href="https://hackshack.hpedev.io/workshops"><button type="button" class="w3-btn w3-green">Try now!</button></a>
-
-\-> [Try now!](https://hackshack.hpedev.io/workshops)
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<a href="https://hackshack.hpedev.io/workshops"><button type="button" class="w3-btn w3-teal">Try now!</button></a>
 
 - - -
 
