@@ -31,7 +31,7 @@ The first open source project in this initiative is Kubernetes Director or KubeD
 # Learn from the Experts
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/fCQpSHDEHY0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
+<br />
 <iframe width="560" height="315" src="https://www.youtube.com/embed/4-yGrKZ4M-U" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 - - -
@@ -41,6 +41,7 @@ The first open source project in this initiative is Kubernetes Director or KubeD
 Learn about how to perform many common tasks with the HPE Ezmeral Container Platform related to building your stateful, containerized applications in the 7 part video series. The video series is part of [HPE Ezmeral Learn On-Demand academy](https://learn.ezmeral.software.hpe.com/). Click on the below link for the first episode titled “Create a Kubernetes Cluster”. Also in the series you will find the following demos:
 
 * Create a Kubernetes Cluster
+
 <iframe width="560" height="315" src="https://www.youtube.com/embed/OLuQC2yAsCM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 * Create a Kubernetes Tenant
@@ -70,6 +71,8 @@ Learn about how to perform many common tasks with the HPE Ezmeral Container Plat
 # Workshops-on-Demand
 
 Take advantage of our free, Jupyter-Notebook based Workshops-on-Demand available in the [Hack Shack](https://hackshack.hpedev.io/). These technical workshops provide you with an in-depth, hands-on learning experience where you can interact with and learn from the experts. Designed to fit your schedule, these workshops are available 24/7 – any time, from anywhere. HPE Ezmeral Container Platform workshops are available today.
+
+<a href="https://hackshack.hpedev.io/workshops"><button type="button">Try now!</button></a>
 
 \-> [Try now!](https://hackshack.hpedev.io/workshops)
 
