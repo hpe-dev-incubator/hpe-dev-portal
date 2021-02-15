@@ -25,13 +25,13 @@ These projects recently moved into the CNCF incubator and have received contribu
 <button name="button" onclick="https://spiffe.io/">For more information</button>
 
 ### Introduction to SPIFFE and SPIRE
-
+<p style="text-align: center;">
 <iframe width="560" height="315" src="https://www.youtube.com/embed/-XGKybqTfZo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</p>
 <br />
-
 [Join us on Github](https://github.com/spiffe/spire)
 
-Any questions on SPIFFE?
+### Any questions on SPIFFE?
 
 Join the [SPIFFE Slack Workspace](https://slack.spiffe.io/) and start a discussion.
 
