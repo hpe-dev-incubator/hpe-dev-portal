@@ -96,7 +96,8 @@ Nagios- Plug-in for Industry Standard in IT infrastructure monitoring.
 
 Take advantage of our free, Jupyter-Notebook based Workshops-on-Demand available in the [Hack Shack](https://hackshack.hpedev.io). These technical workshops provide you with an in-depth, hands-on learning experience where you can interact with and learn from the experts. Designed to fit your schedule, these workshops are available 24/7 – any time, from anywhere. iLO/Redfish workshops are available today.
 
-\-> 
+\-> [Try now!](https://hackshack.hpedev.io/workshops)
+
 - - -
 
 ## Any questions on iLO or Redfish?
