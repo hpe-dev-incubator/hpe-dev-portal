@@ -13,7 +13,7 @@ tags:
 ---
 <!--StartFragment-->
 
-<p style="text-align: center;">
+
 Hewlett Packard Enterprise (HPE) is the leading contributor to Cloud Native Computing Foundation’s (CNCF) SPIFFE and SPIRE open source projects.
 
 Inspired by production infrastructure at Facebook, Google, Netflix, and more, SPIFFE is a set of open-source standards for securely authenticating software services in dynamic and heterogeneous infrastructures through platform-agnostic, cryptographic identities. SPIRE is an open-source system that implements the SPIFFE specification in a wide variety of environments.
@@ -22,7 +22,7 @@ Together, the projects deliver a foundational capability, *service identity*, f
 
 These projects recently moved into the CNCF incubator and have received contributions from Bloomberg, Google, Pinterest, Square, Uber, and others. SPIFFE and SPIRE have grown to become a foundational layer within the cloud native ecosystem. These projects integrate with multiple cloud native technologies and projects, such as Istio, Envoy, gPRC, and OPA (Open Policy Agent).
 
-[For more information](https://spiffe.io/)
+<button name="button" onclick="https://spiffe.io/">For more information</button>
 
 ### Introduction to SPIFFE and SPIRE
 
@@ -34,5 +34,5 @@ These projects recently moved into the CNCF incubator and have received contribu
 Any questions on SPIFFE?
 
 Join the [SPIFFE Slack Workspace](https://slack.spiffe.io/) and start a discussion.
-</p>
+
 <!--EndFragment-->
