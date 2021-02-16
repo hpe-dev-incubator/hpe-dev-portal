@@ -4,8 +4,16 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import { Box, Heading, Text, Image } from 'grommet';
+import { FormPreviousLink } from 'grommet-icons';
 
-import { Content, Layout, Markdown, SEO, Share } from '../components';
+import {
+  Content,
+  Layout,
+  Markdown,
+  SEO,
+  Share,
+  ButtonLink,
+} from '../components';
 import { useSiteMetadata } from '../hooks/use-site-metadata';
 
 // Remove padding or margin from first markdown element.
@@ -49,6 +57,13 @@ function CampaignTemplate({ data }) {
             </Box>
             <MarkdownLayout>{rawMarkdownBody}</MarkdownLayout>
           </Content>
+        </Box>
+        <Box alignSelf="start">
+          <ButtonLink
+            icon={<FormPreviousLink />}
+            label="Go to SkillUp Page"
+            to="/skillup"
+          />
         </Box>
       </Box>
     </Layout>

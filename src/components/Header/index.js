@@ -18,7 +18,8 @@ function Header() {
         <ButtonLink label="Events" to="/events" />
         <ButtonLink label="Blog" to="/blog" />
         <ButtonLink label="Newsletter" to="/newsletter-signup" />
-        <ButtonLink label="Join Community" to="/community" />
+        <ButtonLink label="Community" to="/community" />
+        <ButtonLink label="Skill Up" to="/skillup" />
       </Box>
       <ButtonLink to="/search" icon={<Search />} label="Search" reverse />
     </Box>

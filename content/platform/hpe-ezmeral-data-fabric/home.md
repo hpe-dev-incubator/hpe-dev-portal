@@ -3,8 +3,7 @@ priority: 1
 width: large
 title: HPE Ezmeral Data Fabric
 version: v 2.01.8964
-description: An intelligent data fabric that enables you to run the right
-  application at the right time in the right place on the right data.
+description: A sophisticated data fabric that enables you to run the right application at the right time in the right place on the right data.
 image: /img/platforms/EzmeralDataFabric.svg
 frontpage: true
 tags:

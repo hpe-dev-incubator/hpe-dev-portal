@@ -1,5 +1,5 @@
 ---
-title: Simplivity
+title: SimpliVity
 version: v 6.01.8964
 description: An enterprise-grade hyperconverged platform uniting best-in-class data services with the world’s bestselling server.
 image: /img/platforms/Simplivity.svg
