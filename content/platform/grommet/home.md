@@ -1,5 +1,5 @@
 ---
-priority: 1
+priority: 2
 width: large
 title: Grommet
 version: v 2.01.8964
@@ -9,7 +9,7 @@ frontpage: true
 tags:
   - Grommet
 ---
-## Build awesome apps with Grommet & Didier
+## Build awesome apps with Grommet
 
 [Grommet](https://v2.grommet.io/) helps you create responsive and accessible mobile-first projects for the web with an [easy-to-use](https://v2.grommet.io/components), [react](https://reactjs.org/)-based component library that is part design system and part development framework.
 
