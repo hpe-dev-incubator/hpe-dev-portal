@@ -26,9 +26,15 @@ const Results = ({ searchTerm, results }) => {
   return results.map(({ doc, titlePos, bodyPos, tagsPos }, index) => (
     <Box pad={{ bottom: 'medium' }} border={{ side: 'bottom' }} key={index}>
       <Text size="small">{categoryLabel(doc.sourceInstanceName)}</Text>
-      <Link to={doc.path}>
-        <HighlightedText content={doc.title} positions={titlePos} />
-      </Link>
+      {doc && doc.sourceInstanceName !== 'platforms' ? (
+        <Link to={`/${doc.path}`}>
+          <HighlightedText content={doc.title} positions={titlePos} />
+        </Link>
+      ) : (
+        <Link to={doc.path}>
+          <HighlightedText content={doc.title} positions={titlePos} />
+        </Link>
+      )}
       {bodyPos.length > 0 && (
         <HighlightedText
           content={doc.body}
