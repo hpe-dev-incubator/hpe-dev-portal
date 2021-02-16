@@ -1,5 +1,5 @@
 ---
-priority: 1
+priority: 2
 width: large
 title: Grommet
 version: v 2.01.8964
@@ -9,7 +9,7 @@ frontpage: true
 tags:
   - Grommet
 ---
-## Build awesome apps with Grommet & Didier
+## Build awesome apps with Grommet
 
 [Grommet](https://v2.grommet.io/) helps you create responsive and accessible mobile-first projects for the web with an [easy-to-use](https://v2.grommet.io/components), [react](https://reactjs.org/)-based component library that is part design system and part development framework.
 
@@ -42,10 +42,11 @@ HPE product designer at grommet.io, Chris Carlozzi, explains how Grommet is evol
 
 Take advantage of our free, Jupyter-Notebook based Workshops-on-Demand available in the [Hack Shack](https://hackshack.hpedev.io). These technical workshops provide you with an in-depth, hands-on learning experience where you can interact with and learn from the experts. Designed to fit your schedule, these workshops are available 24/7 – any time, from anywhere. Grommet workshops are available today.
 
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<a href="https://hackshack.hpedev.io/workshops"><button type="button" class="w3-btn w3-teal">Try now!</button></a>
+
 - - -
 
-# JOIN US ON SLACK!
-
-Any questions on Grommet?
+## Any questions on Grommet?
 
 Join the [Grommet Slack Workspace](https://grommet.slack.com/) and start a discussion.
