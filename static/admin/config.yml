@@ -2,12 +2,10 @@ backend:
  name: github
  repo: hpe-dev-incubator/hpe-dev-portal
  branch: master
- accept_roles: #optional - accepts all users if left out
-   - admin
-   - blog-editor
-   - platform-owner
+ open_authoring: true
 
 publish_mode: editorial_workflow
+
 
 media_folder: static/img
 public_folder: /img
@@ -58,11 +56,12 @@ collections:
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Publish Date', name: 'date', widget: 'datetime' }
-      - { label: 'Author', name: 'author', widget: 'string' }
+      - { label: 'Author', name: 'author', widget: 'string' } 
+      - { label: 'Author Image', name: 'authorimage', widget: 'string' }
       - { label: 'Tags', name: 'tags', widget: 'list', allow_add: true, required: false, field: {label: 'Tag', name: 'tag', widget: 'string'}  }
       - { label: 'Path', name: 'path', widget: 'string'}
       - { label: 'Body', name: 'body', widget: 'markdown' }
-  # Event collection
+  # Event collectionel: 
   - name: 'event'
     label: 'Event'
     folder: 'content/event'

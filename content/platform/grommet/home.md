@@ -1,11 +1,11 @@
 ---
+priority: 1
+width: large
 title: Grommet
 version: v 2.01.8964
-description: An open source UI development and design tool.
+description: An open source UI development and design tool
 image: /img/platforms/Grommet.svg
-width: large
 frontpage: true
-priority: 1
 tags:
   - Grommet
 ---
@@ -35,3 +35,17 @@ HPE product designer at grommet.io, Chris Carlozzi, explains how Grommet is evol
 * [Use Grommet in CodeSandBox](https://codesandbox.io/s/github/grommet/grommet-sandbox?initialpath=box&module=%2Fsrc%2FBox.js)
 * [Access the Grommet Storybook](https://storybook.grommet.io/?path=/story/components--all)
 * [Check out the Grommet PlayGround](https://v2.grommet.io/play)
+
+- - -
+
+# Workshops-on-Demand
+
+Take advantage of our free, Jupyter-Notebook based Workshops-on-Demand available in the [Hack Shack](https://hackshack.hpedev.io). These technical workshops provide you with an in-depth, hands-on learning experience where you can interact with and learn from the experts. Designed to fit your schedule, these workshops are available 24/7 – any time, from anywhere. Grommet workshops are available today.
+
+- - -
+
+# JOIN US ON SLACK!
+
+Any questions on Grommet?
+
+Join the [Grommet Slack Workspace](https://grommet.slack.com/) and start a discussion.
