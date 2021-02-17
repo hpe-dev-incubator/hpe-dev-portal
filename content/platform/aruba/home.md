@@ -1,5 +1,5 @@
 ---
-priority: 2
+priority: 3
 width: large
 title: Aruba Developer Hub
 version: v 2.01.8964
