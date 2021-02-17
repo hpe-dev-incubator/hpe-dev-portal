@@ -1,14 +1,14 @@
 ---
-title: "Welcome to the HPE DEV Munch & Learns"
+title: "HPE DEV Munch & Learn Technical Talks"
 authorimage: "/img/blogs/HPE-Dev-Staff.svg"
 ---
 
-<img src="https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/12/munch-and-learn-1608201560403.jpg" width="400">
+<img src="/img/skillup/MunchandLearn.jpg" width="400">
 
 
-Munch & Learn are developer/data scientist focused 1-hour sessions delivered by the HPE Developer Community on a monthly basis, at 5PM CET. 
+Munch & Learn Technical Talks are free, one-hour meetups designed to provide developers and data scientists the opportunity to meet and engage with experts in popular HPE and open source technologies. Hosted by the HPE Developer Community, they are held on a monthly basis at 5PM CET. 
 
-So, get your favourite Munchies ready, and join us. 
+Join us to hear from renowned technologists on a variety of topics and get your questions answered while sharing a recipe or two.
 
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Date&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;          | Title  | Speaker(s)  |&nbsp;&nbsp;&nbsp;Link&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   |
 |:-------------:|:------------:|:------- |:-------------|

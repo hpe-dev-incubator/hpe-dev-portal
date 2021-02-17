@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
-import { Box, Heading, Text, Image } from 'grommet';
+import { Box, Heading, Image } from 'grommet';
 import { FormPreviousLink } from 'grommet-icons';
 import {
   BlogCard,
@@ -10,7 +10,6 @@ import {
   Layout,
   Markdown,
   SEO,
-  Aside,
   SectionHeader,
   ResponsiveGrid,
   ButtonLink,
@@ -20,6 +19,7 @@ import { useSiteMetadata } from '../hooks/use-site-metadata';
 // Remove padding or margin from first markdown element.
 // This allows the heading and content to have the same gap.
 const MarkdownLayout = styled(Markdown)`
+  max-width: 988px;
   & > *:first-child {
     margin-top: 0;
     padding-top: 0;
@@ -42,7 +42,6 @@ const rows = {
 function PlatformTemplate({ data }) {
   const post = data.markdownRemark;
   const { edges: blogs } = data.blogs;
-  const { rawMarkdownBody: aside } = data.aside ? data.aside : false;
   const siteMetadata = useSiteMetadata();
   const siteTitle = siteMetadata.title;
   const { rawMarkdownBody, excerpt } = post;
@@ -51,23 +50,22 @@ function PlatformTemplate({ data }) {
     <Layout title={siteTitle}>
       <SEO title={title} description={description || excerpt} />
       <Box flex overflow="auto" gap="medium" pad="small">
-        <Box flex={false} direction="row-responsive" wrap>
-          <Box
-            pad={{ vertical: 'large', horizontal: 'large' }}
-            direction="column"
-          >
-            <Image src={image} />
-            {aside && <Aside>{aside}</Aside>}
+        <Box flex={false} direction="row-responsive">
+          <Box pad={{ vertical: 'large', horizontal: 'large' }}>
+            <Image width="216px" height="216px" src={image} />
           </Box>
           <Content gap="medium" margin={{ vertical: 'large' }}>
             <Heading margin="none">{title}</Heading>
-            <Text size="xlarge">{description}</Text>
             <MarkdownLayout>{rawMarkdownBody}</MarkdownLayout>
             {blogs.length > 0 && (
               <SectionHeader title="Related Blogs" color="border">
                 <ResponsiveGrid gap="large" rows={rows} columns={columns}>
                   {blogs.map(({ node }, i) => {
-                    return <BlogCard node={node} key={i} margin="none" />;
+                    return node &&
+                      (node.frontmatter.authorimage ||
+                        node.frontmatter.author) ? (
+                      <BlogCard node={node} key={i} margin="none" />
+                    ) : undefined;
                   })}
                 </ResponsiveGrid>
               </SectionHeader>

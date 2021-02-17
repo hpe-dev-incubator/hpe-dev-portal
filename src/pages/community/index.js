@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
-import { Box, Heading, Text } from 'grommet';
+import { Box, Heading, Paragraph } from 'grommet';
 
 import {
   PageDescription,
@@ -37,12 +37,12 @@ function Community({ data }) {
   return (
     <Layout title={siteTitle}>
       <SEO title="Community" />
-      <Box flex overflow="auto" gap="large" pad="xlarge" wrap>
+      <Box gap="large" pad="xlarge">
         <PageDescription image="/img/community/community.svg" title="Community">
-          <Text>
+          <Paragraph>
             A community is all about connection. Discover the many different
             ways you can connect with members of the HPE DEV Community here.
-          </Text>
+          </Paragraph>
         </PageDescription>
         <SectionHeader color="yellow">
           <ResponsiveGrid gap="large" rows={rows} columns={columns}>

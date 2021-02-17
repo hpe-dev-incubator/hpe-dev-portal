@@ -107,7 +107,7 @@ export const FeaturedBlogCard = ({ node, ...rest }) => (
         </Text>
       </CardHeader>
     )}
-    <Box direction="row-responsive" wrap justify="between">
+    <Box direction="row-responsive" justify="between">
       <Box
         align="start"
         pad={{ vertical: 'large', horizontal: 'xlarge' }}

@@ -23,6 +23,7 @@ import { useSiteMetadata } from '../hooks/use-site-metadata';
 // Remove padding or margin from first markdown element.
 // This allows the heading and content to have the same gap.
 const MarkdownLayout = styled(Markdown)`
+  max-width: 988px;
   & > *:first-child {
     margin-top: 0;
     padding-top: 0;
@@ -67,14 +68,11 @@ function BlogPostTemplate({ data }) {
     <Layout title={siteTitle}>
       <SEO title={title} description={description || excerpt} />
       <Box flex overflow="auto" gap="medium" pad="small">
-        <Box flex={false} direction="row-responsive" wrap>
-          <Box
-            pad={{ vertical: 'large', horizontal: 'xlarge' }}
-            direction="column"
-          >
-            <Image src={authorimage} />
+        <Box direction="row-responsive">
+          <Box pad={{ vertical: 'large', horizontal: 'medium' }} align="center">
+            <Image width="192px" height="192px" src={authorimage} />
           </Box>
-          <Content gap="large" margin={{ vertical: 'large' }}>
+          <Content gap="large" margin={{ vertical: 'large', right: '74px' }}>
             <Box gap="small">
               <Text size="xlarge" weight={500}>
                 {author}
@@ -108,11 +106,12 @@ function BlogPostTemplate({ data }) {
             )}
             <SectionHeader title="Related" color="border">
               <ResponsiveGrid gap="large" rows={rows} columns={columns}>
-                {blogsByTags.map(
-                  (blogPost) =>
-                    blogPost.url !== '/' && (
-                      <BlogCard key={blogPost.node.id} node={blogPost.node} />
-                    ),
+                {blogsByTags.map((blogPost) =>
+                  blogPost.url !== '/' &&
+                  (blogPost.node.frontmatter.authorimage ||
+                    blogPost.node.frontmatter.author) ? (
+                    <BlogCard key={blogPost.node.id} node={blogPost.node} />
+                  ) : undefined,
                 )}
               </ResponsiveGrid>
             </SectionHeader>

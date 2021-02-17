@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
-import { Box, Text, Button } from 'grommet';
+import { Box, Button, Paragraph } from 'grommet';
 import {
   OpenSourceCard,
   Layout,
@@ -74,11 +74,11 @@ function Opensource({ data }) {
           alignSelf="start"
         >
           <Box gap="small">
-            <Text>
+            <Paragraph>
               Dedicated to innovation through collaboration, HPE is proud to
               lead and contribute to many open source projects. Learn more about
               these projects here.
-            </Text>
+            </Paragraph>
             <Button
               primary
               href="https://www.hpe.com/us/en/software/spiffe-spire-open-source.html"

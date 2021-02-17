@@ -1,7 +1,7 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { graphql, withPrefix } from 'gatsby';
-import { Box, Button, Text } from 'grommet';
+import { Box, Button, Paragraph } from 'grommet';
 import { FormDown } from 'grommet-icons';
 import {
   BlogCard,
@@ -59,11 +59,11 @@ function Blog({ data }) {
       <SEO title="Blog" />
       <Box flex overflow="auto" pad="xlarge" wrap>
         <PageDescription image="/img/blogs/blogs.svg" title="Blog">
-          <Text>
+          <Paragraph>
             Sharing expertise is a great way to move technology forward. Browse
             through our library of tutorials and articles to learn new ways to
             do things. Or write your own!
-          </Text>
+          </Paragraph>
         </PageDescription>
         {featuredposts && featuredposts.length > 0 && (
           <SectionHeader title="Featured Blogs" color="yellow">

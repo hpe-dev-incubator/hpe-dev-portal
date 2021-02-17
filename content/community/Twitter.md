@@ -1,5 +1,5 @@
 ---
-          title: "FOLLOW US ON TWITTER"
+          title: "Follow us on Twitter"
           link: https://twitter.com/hashtag/hpedevcom?src=hash
           linkname: Follow us on Twitter
           description: Interested in what’s currently happening in the HPE Developer Community?

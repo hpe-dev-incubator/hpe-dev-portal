@@ -4,11 +4,11 @@ import { Box, Image, Heading } from 'grommet';
 
 const PageDescription = ({ image, title, alignSelf, children }) => {
   return (
-    <Box direction="row-responsive" wrap align="center" gap="large">
-      <Box>
+    <Box direction="row-responsive" gap="large">
+      <Box width={{ max: 'medium' }}>
         <Image src={image} />
       </Box>
-      <Box width="840px" align="start" alignSelf={alignSelf} direction="column">
+      <Box justify="center">
         <Heading margin="none">{title}</Heading>
         {children}
       </Box>
