@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
-import { Box, Heading, Text } from 'grommet';
+import { Box, Heading, Paragraph } from 'grommet';
 
 import {
   PlatformCard,
@@ -44,11 +44,11 @@ function Platform({ data }) {
           image="/img/platforms/PlatformsPage.svg"
           title="Platforms"
         >
-          <Text>
+          <Paragraph>
             Supporting developers, data scientists, and architects is what we
             do. Find APIs, GitHub repositories and many of the other resources
             you need here.
-          </Text>
+          </Paragraph>
         </PageDescription>
         <SectionHeader color="orange">
           <ResponsiveGrid gap="large" rows={rows} columns={columns}>

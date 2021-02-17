@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql, Link } from 'gatsby';
-import { Box, Button, Text } from 'grommet';
+import { Box, Button, Paragraph } from 'grommet';
 import {
   Layout,
   SEO,
@@ -40,11 +40,11 @@ function Events({ data }) {
         <PageDescription image="/img/events/EventsPage.svg" title="Events">
           <Box gap="small">
             <Box>
-              <Text>
+              <Paragraph>
                 Technology moves fast. Participating in events helps you stay
                 ahead of the curve. Mark your calendar and connect with us at
                 any of these upcoming events.
-              </Text>
+              </Paragraph>
             </Box>
             <Box>
               <Link to="/newsletter-signup">

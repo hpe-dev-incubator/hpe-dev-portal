@@ -12,7 +12,7 @@ function Header() {
       wrap
     >
       <ButtonLink label="HPE Developer" to="/" />
-      <Box direction="row-responsive" gap="medium" justify="between" wrap>
+      <Box direction="row" gap="medium" wrap>
         <ButtonLink label="Open Source" to="/opensource" />
         <ButtonLink label="Platforms" to="/platform" />
         <ButtonLink label="Events" to="/events" />
@@ -21,7 +21,14 @@ function Header() {
         <ButtonLink label="Community" to="/community" />
         <ButtonLink label="Skill Up" to="/skillup" />
       </Box>
-      <ButtonLink to="/search" icon={<Search />} label="Search" reverse />
+      <ButtonLink
+        align="start"
+        alignSelf="start"
+        to="/search"
+        icon={<Search />}
+        label="Search"
+        reverse
+      />
     </Box>
   );
 }

@@ -27,10 +27,10 @@ const rows = {
 };
 
 function NewsletterSignup({ data }) {
-  const newsletters = data.allMarkdownRemark.group;
-  const [index, setIndex] = useState(
-    newsletters && newsletters.length > 0 ? newsletters.length - 1 : 0,
+  const newsletters = data.allMarkdownRemark.group.sort((a, b) =>
+    a.fieldValue < b.fieldValue ? 1 : -1,
   );
+  const [index, setIndex] = useState(0);
   const onActive = (nextIndex) => setIndex(nextIndex);
   const siteMetadata = useSiteMetadata();
   const siteTitle = siteMetadata.title;

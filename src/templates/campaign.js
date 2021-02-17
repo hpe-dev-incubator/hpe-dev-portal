@@ -36,7 +36,7 @@ function CampaignTemplate({ data }) {
     <Layout title={siteTitle}>
       <SEO title={title} description={excerpt} />
       <Box flex overflow="auto" gap="medium" pad="small">
-        <Box flex={false} direction="row-responsive" wrap>
+        <Box flex={false} direction="row-responsive">
           <Box
             pad={{ vertical: 'large', horizontal: 'medium' }}
             direction="column"

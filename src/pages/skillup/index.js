@@ -1,52 +1,57 @@
 import React from 'react';
-import { Location } from '@reach/router';
-import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
-import { Box, Heading, Image } from 'grommet';
+import { Box, Heading, Paragraph } from 'grommet';
 
-import { Content, Layout, Markdown, SEO, Share } from '../../components';
+import {
+  PageDescription,
+  Layout,
+  SEO,
+  CommunityCard,
+  SectionHeader,
+  ResponsiveGrid,
+} from '../../components';
 import { useSiteMetadata } from '../../hooks/use-site-metadata';
 
-// Remove padding or margin from first markdown element.
-// This allows the heading and content to have the same gap.
-const MarkdownLayout = styled(Markdown)`
-  & > *:first-child {
-    margin-top: 0;
-    padding-top: 0;
-  }
-`;
+Heading.propTypes = {
+  children: PropTypes.node.isRequired,
+};
 
+const columns = {
+  small: ['auto'],
+  medium: ['auto', 'auto'],
+  large: ['auto', 'auto', 'auto', 'auto'],
+  xlarge: ['auto', 'auto', 'auto', 'auto'],
+};
+
+const rows = {
+  small: ['auto', 'auto', 'auto'],
+  medium: ['auto', 'auto'],
+  large: ['auto'],
+  xlarge: ['auto'],
+};
 function Skillup({ data }) {
-  const post = data.allMarkdownRemark.edges[0].node;
+  const communities = data.allMarkdownRemark.edges;
   const siteMetadata = useSiteMetadata();
   const siteTitle = siteMetadata.title;
-  const { rawMarkdownBody, excerpt } = post;
-  const { title } = post.frontmatter;
-
   return (
     <Layout title={siteTitle}>
-      <SEO title={title} description={excerpt} />
-      <Box flex overflow="auto" gap="medium" pad="small">
-        <Box flex={false} direction="row-responsive" wrap>
-          <Box
-            pad={{ vertical: 'large', horizontal: 'medium' }}
-            direction="column"
-          >
-            <Image src="/img/blogs/HPE-Dev-Staff.svg" />
-          </Box>
-          <Content gap="large" margin={{ vertical: 'large' }}>
-            <Box gap="small">
-              <Heading margin="none">{title}</Heading>
-              <Location>
-                {({ location }) => {
-                  return <Share url={location.href} text={title} />;
-                }}
-              </Location>
-            </Box>
-            <MarkdownLayout>{rawMarkdownBody}</MarkdownLayout>
-          </Content>
-        </Box>
+      <SEO title="Skill Up" />
+      <Box gap="large" pad="xlarge">
+        <PageDescription image="/img/blogs/HPE-Dev-Staff.svg" title="Skill Up">
+          <Paragraph>
+            With technology constantly evolving, it can be challenging to keep
+            up. Bookmark this page to access a great set of free technical
+            training resources to expand your skill set.
+          </Paragraph>
+        </PageDescription>
+        <SectionHeader color="green">
+          <ResponsiveGrid gap="large" rows={rows} columns={columns}>
+            {communities.map((community) => (
+              <CommunityCard key={community.node.id} node={community.node} />
+            ))}
+          </ResponsiveGrid>
+        </SectionHeader>
       </Box>
     </Layout>
   );
@@ -61,10 +66,14 @@ Skillup.propTypes = {
             id: PropTypes.string,
             frontmatter: PropTypes.shape({
               title: PropTypes.string.isRequired,
+              description: PropTypes.string.isRequired,
+              image: PropTypes.string,
+              link: PropTypes.string,
+              linkname: PropTypes.string,
+              priority: PropTypes.number,
             }).isRequired,
             excerpt: PropTypes.string.isRequired,
             fields: PropTypes.shape({
-              slug: PropTypes.string.isRequired,
               sourceInstanceName: PropTypes.string.isRequired,
             }),
           }).isRequired,
@@ -80,19 +89,23 @@ export const pageQuery = graphql`
   query {
     allMarkdownRemark(
       filter: { fields: { sourceInstanceName: { eq: "skillup" } } }
-      sort: { fields: [frontmatter___title] }
+      sort: { fields: [frontmatter___priority] }
     ) {
       edges {
         node {
           id
           rawMarkdownBody
           fields {
-            slug
             sourceInstanceName
           }
           excerpt
           frontmatter {
             title
+            link
+            description
+            image
+            linkname
+            priority
           }
         }
       }
