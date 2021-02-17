@@ -3,7 +3,8 @@ priority: 1
 width: large
 title: HPE Ezmeral Data Fabric
 version: v 2.01.8964
-description: A sophisticated data fabric that enables you to run the right application at the right time in the right place on the right data.
+description: A sophisticated data fabric that enables you to run the right
+  application at the right time in the right place on the right data.
 image: /img/platforms/EzmeralDataFabric.svg
 frontpage: true
 tags:
@@ -18,7 +19,7 @@ You can store, manage and access your data from edge to core to cloud at any sca
 
 - - -
 
-## [Tutorials](#tutorials)           [Data Fabric Blogs](#blogs)           [Free Training](#training)
+### [Tutorials](#tutorials)           [Data Fabric Blogs](#blogs)           [Free Training](#training)
 
 - - -
 
@@ -42,7 +43,7 @@ You can store, manage and access your data from edge to core to cloud at any sca
 
 - - -
 
-## [Tutorials](#tutorials)           [Data Fabric Blogs](#blogs)           [Free Training](#training)
+### [Tutorials](#tutorials)           [Data Fabric Blogs](#blogs)           [Free Training](#training)
 
 - - -
 
@@ -109,12 +110,11 @@ Customer 360 applications require the ability to access data lakes containing st
 
 The source code of the Customer 360 View application is available in this [GitHub Repository](https://github.com/mapr-demos/customer360).
 
-[Application for Processing Stock Market Trade Data ![](Github)](https://github.com/mapr-demos/finserv-application-blueprint)
+### [Application for Processing Stock Market Trade Data ![](Github)](https://github.com/mapr-demos/finserv-application-blueprint)
 
 This project provides an engine for processing real time streams trading data from stock exchanges. The application consists of the following components:
 
 * A Producer microservice that streams trades using the NYSE TAQ format
-
   * The data source is the Daily Trades dataset described here
   * The schema for our data is detailed in Table 6, "Daily Trades File Data Fields", on page 26 of Daily TAQ Client Specification (from December 1st, 2013)
 * A multi-threaded Consumer microservice that indexes the trades by receiver and sender
@@ -127,7 +127,7 @@ The source code of the Application for Processing Stock Market Trade Data applic
 
 - - -
 
-## [Tutorials](#tutorials)           [Data Fabric Blogs](#blogs)           [Free Training](#training)
+### [Tutorials](#tutorials)           [Data Fabric Blogs](#blogs)           [Free Training](#training)
 
 - - -
 
@@ -159,7 +159,7 @@ Not a Slack user? You can also ask your questions in our [Ezmeral Forum](https:
 
 - - -
 
-## [Tutorials](#tutorials)           [Data Fabric Blogs](#blogs)           [Free Training](#training)
+### [Tutorials](#tutorials)           [Data Fabric Blogs](#blogs)           [Free Training](#training)
 
 - - -
 
