@@ -30,6 +30,7 @@ const rows = {
 function Events({ data }) {
   const pastEvents = data.pastEvents.edges;
   const upcomingEvents = data.upcomingEvents.edges;
+  const onGoingEvents = data.onGoingEvents.edges;
   const siteMetadata = useSiteMetadata();
   const siteTitle = siteMetadata.title;
 
@@ -53,25 +54,43 @@ function Events({ data }) {
             </Box>
           </Box>
         </PageDescription>
-        <SectionHeader title="Upcoming Events" color="blue">
-          {upcomingEvents.map(({ node }) => (
-            <Card
-              key={node.id}
-              category={node.frontmatter.category}
-              width={node.frontmatter.width}
-              content={node.rawMarkdownBody}
-              link={node.frontmatter.link}
-              image={node.frontmatter.image}
-            />
-          ))}
-        </SectionHeader>
-        <SectionHeader title="Past Events" color="blue">
-          <ResponsiveGrid gap="large" rows={rows} columns={columns}>
-            {pastEvents.map(({ node }) => (
-              <EventCard key={node.id} node={node} />
+        {onGoingEvents && onGoingEvents.length > 0 && (
+          <SectionHeader title="Ongoing Events" color="blue">
+            {onGoingEvents.map(({ node }) => (
+              <Card
+                key={node.id}
+                category={node.frontmatter.category}
+                width={node.frontmatter.width}
+                content={node.rawMarkdownBody}
+                link={node.frontmatter.link}
+                image={node.frontmatter.image}
+              />
             ))}
-          </ResponsiveGrid>
-        </SectionHeader>
+          </SectionHeader>
+        )}
+        {upcomingEvents && upcomingEvents.length > 0 && (
+          <SectionHeader title="Upcoming Events" color="blue">
+            {upcomingEvents.map(({ node }) => (
+              <Card
+                key={node.id}
+                category={node.frontmatter.category}
+                width={node.frontmatter.width}
+                content={node.rawMarkdownBody}
+                link={node.frontmatter.link}
+                image={node.frontmatter.image}
+              />
+            ))}
+          </SectionHeader>
+        )}
+        {pastEvents && pastEvents.length > 0 && (
+          <SectionHeader title="Past Events" color="blue">
+            <ResponsiveGrid gap="large" rows={rows} columns={columns}>
+              {pastEvents.map(({ node }) => (
+                <EventCard key={node.id} node={node} />
+              ))}
+            </ResponsiveGrid>
+          </SectionHeader>
+        )}
       </Box>
     </Layout>
   );
@@ -117,6 +136,25 @@ Events.propTypes = {
         }).isRequired,
       ).isRequired,
     }).isRequired,
+    onGoingEvents: PropTypes.shape({
+      edges: PropTypes.arrayOf(
+        PropTypes.shape({
+          node: PropTypes.shape({
+            frontmatter: PropTypes.shape({
+              title: PropTypes.string.isRequired,
+              link: PropTypes.string.isRequired,
+              image: PropTypes.string,
+              category: PropTypes.string,
+            }).isRequired,
+            excerpt: PropTypes.string.isRequired,
+            fields: PropTypes.shape({
+              slug: PropTypes.string.isRequired,
+              sourceInstanceName: PropTypes.string.isRequired,
+            }),
+          }).isRequired,
+        }).isRequired,
+      ).isRequired,
+    }).isRequired,
   }).isRequired,
 };
 
@@ -127,7 +165,7 @@ export const pageQuery = graphql`
     pastEvents: allMarkdownRemark(
       filter: {
         fields: { sourceInstanceName: { eq: "event" } }
-        isFuture: { eq: false }
+        isPast: { eq: true }
       }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
@@ -155,7 +193,7 @@ export const pageQuery = graphql`
     upcomingEvents: allMarkdownRemark(
       filter: {
         fields: { sourceInstanceName: { eq: "event" } }
-        isFuture: { eq: true }
+        isUpcoming: { eq: true }
       }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
@@ -172,6 +210,34 @@ export const pageQuery = graphql`
             title
             image
             category
+            dateEnd
+            link
+            width
+          }
+        }
+      }
+    }
+    onGoingEvents: allMarkdownRemark(
+      filter: {
+        fields: { sourceInstanceName: { eq: "event" } }
+        isOngoing: { eq: true }
+      }
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
+      edges {
+        node {
+          id
+          rawMarkdownBody
+          fields {
+            slug
+            sourceInstanceName
+          }
+          excerpt
+          frontmatter {
+            title
+            image
+            category
+            dateStart
             dateEnd
             link
             width
