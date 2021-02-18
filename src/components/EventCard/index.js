@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, Image, Heading, Card as GrommetCard } from 'grommet';
-import { navigate } from 'gatsby';
 
 const dateFormat = Intl.DateTimeFormat('default', {
   month: 'long',
@@ -18,7 +17,7 @@ const EventCard = ({ node, ...rest }) => (
     {...rest}
     onClick={
       node.frontmatter.link
-        ? () => navigate(`/blog/${node.frontmatter.link}`)
+        ? () => window.open(node.frontmatter.link)
         : undefined
     }
   >

@@ -228,10 +228,25 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
       name: 'MarkdownRemark',
       interfaces: ['Node'],
       fields: {
-        isFuture: {
+        isUpcoming: {
           type: 'Boolean!',
           resolve: (source) =>
-            new Date(source.frontmatter.dateEnd) > new Date(),
+            new Date(source.frontmatter.dateEnd) > new Date() &&
+            !(
+              new Date() >= new Date(source.frontmatter.dateStart) &&
+              new Date() <= new Date(source.frontmatter.dateEnd)
+            ),
+        },
+        isOngoing: {
+          type: 'Boolean!',
+          resolve: (source) =>
+            new Date() >= new Date(source.frontmatter.dateStart) &&
+            new Date() <= new Date(source.frontmatter.dateEnd),
+        },
+        isPast: {
+          type: 'Boolean!',
+          resolve: (source) =>
+            new Date(source.frontmatter.dateEnd) < new Date(),
         },
       },
     }),

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, Image, Heading } from 'grommet';
 
-const PageDescription = ({ image, title, alignSelf, children }) => {
+const PageDescription = ({ image, title, children }) => {
   return (
     <Box direction="row-responsive" gap="large">
       <Box width={{ max: 'medium' }}>
@@ -19,7 +19,6 @@ const PageDescription = ({ image, title, alignSelf, children }) => {
 PageDescription.propTypes = {
   image: PropTypes.string,
   title: PropTypes.string,
-  alignSelf: PropTypes.string,
   children: PropTypes.node,
 };
 
