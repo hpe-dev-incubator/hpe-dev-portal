@@ -5,7 +5,7 @@ authorimage: /img/blogs/HPE-Dev-Staff.svg
 DevTalks are developer/data scientist focused 1-hour sessions delivered by the HPE Developer Community
  every other week on Wednesdays, at 5 PM CET. 
 
-> These talks are internal/partners only.
+Please note that these talks are internal/partners only for now.
 
 | Date      | &nbsp;&nbsp;Title                                                             |     &nbsp;&nbsp;Speaker(s)                               | Link                                             |
 | :---------: | :----------------------------------------------------------------- | :---------------------------------------- | :------------------------------------------------: |
