@@ -3,8 +3,9 @@ title: "Understanding Concurrency in Python Part 2 - Multiprocessing"
 date: 2020-02-19T17:23:08.924Z
 author: Samarth Deyagond 
 tags: []
-path: understanding-concurrency-in-python-part-2-multiprocessing
-authorimage: "/img/blogs/Avatar3.svg"
+authorimage: "/img/blogs/Avatar1.svg"
+featuredBlog:
+thumbnailimage:
 ---
 ![picture2](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/1/picture2-1582133413956.png)
 

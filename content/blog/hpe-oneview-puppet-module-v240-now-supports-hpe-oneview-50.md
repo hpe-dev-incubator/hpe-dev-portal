@@ -3,8 +3,9 @@ title: "HPE OneView Puppet Module v2.4.0 now supports HPE OneView 5.0"
 date: 2020-03-19T19:56:04.411Z
 author: Christopher Pasek 
 tags: ["hpe-oneview"]
-path: hpe-oneview-puppet-module-v240-now-supports-hpe-oneview-50
-authorimage: "/img/blogs/Avatar2.svg"
+authorimage: "/img/blogs/Avatar3.svg"
+featuredBlog:
+thumbnailimage:
 ---
 [Hewlett Packard Enterprise is pleased to introduce the HPE OneView](https://www.hpe.com/us/en/integrated-systems/software.html) Puppet Module v2.4.0 that now supports HPE OneView 5.0 (REST API version 1200). The [HPE OneView Puppet Module](https://github.com/HewlettPackard/oneview-puppet/releases/tag/v2.4.0) automates the configuring and provisioning of bare-metal infrastructure. This enables faster and easier app and service delivery, while increasing reliability, maintaining compliance, and offering deployment flexibility. By automating the provisioning of physical infrastructure on-demand using software-defined templates from HPE OneView, administrators can create a resource topology similar to that of a public cloud on their own physical infrastructure.
 

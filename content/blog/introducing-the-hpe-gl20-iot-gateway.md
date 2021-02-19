@@ -3,8 +3,9 @@ title: "Introducing the HPE GL20 IoT Gateway"
 date: 2021-01-12T10:36:54.822Z
 author: Cenz Wong 
 tags: ["gl20","iot","gateway","sensor","edge"]
-path: introducing-the-hpe-gl20-iot-gateway
-authorimage: "/img/blogs/Avatar3.svg"
+authorimage: "/img/blogs/Avatar4.svg"
+featuredBlog:
+thumbnailimage:
 ---
 <img src="/uploads/media/2020/12/h4-1610447678726.jpg" width="80%" height="80%"/>  
    

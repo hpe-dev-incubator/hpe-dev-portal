@@ -3,8 +3,9 @@ title: "Redfish Workshop at the Open Source Summit NA 2019"
 date: 2019-08-05T16:14:11.909Z
 author: HPE DEV staff 
 tags: []
-path: redfish-workshop-at-the-open-source-summit-na-2019
-authorimage: "/img/blogs/Avatar3.svg"
+authorimage: "/img/blogs/Avatar2.svg"
+featuredBlog:
+thumbnailimage:
 ---
 Bruno Cornec, the HPE Open Source and Linux Technology Strategist, will be speaking at the [upcoming Open Source Summit](https://events.linuxfoundation.org/events/open-source-summit-north-america-2019/)  in San Diego, August 21st – 23rd, 2019. He will deliver two sessions – one on Docker (a hands-on lab that’s designed to help you understand what it means to containerize) and one on Redfish. Bruno will also act as the coordinator for the co-located, first-ever HPE+SUSE Redfish Workshop. 
 

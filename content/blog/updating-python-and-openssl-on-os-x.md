@@ -3,8 +3,9 @@ title: "Updating Python and Openssl on OS X"
 date: 2017-12-18T18:53:11.946Z
 author: Matthew Kocurek- iLOREST Developer 
 tags: ["ilo-restful-api","redfish","openssl","python","ilo",""]
-path: updating-python-and-openssl-on-os-x
-authorimage: "/img/blogs/Avatar1.svg"
+authorimage: "/img/blogs/Avatar6.svg"
+featuredBlog:
+thumbnailimage:
 ---
 # **Updating Python and Openssl on OS X**
 Security is a vital part of any server. On our Enterprise servers we provide options for higher levels of security. However, Mac computers ship with an older version of Openssl, a vital component for our python-redfish-library. In this blog we will cover updating Openssl to at least 1.0.0 to allow support for our python-redfish-library.

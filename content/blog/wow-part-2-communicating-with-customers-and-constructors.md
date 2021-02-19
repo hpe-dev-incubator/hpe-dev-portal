@@ -3,8 +3,9 @@ title: "WOW - Part 2: Communicating with customers and constructors"
 date: 2020-05-08T16:40:10.080Z
 author: Parul Tyagi, Manager -  Experience Design 
 tags: []
-path: wow-part-2-communicating-with-customers-and-constructors
-authorimage: "/img/blogs/Avatar6.svg"
+authorimage: "/img/blogs/Avatar2.svg"
+featuredBlog:
+thumbnailimage:
 ---
 ![title slide](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/3/title-slide-1588956219016.jpg)
 

@@ -3,8 +3,9 @@ title: "Automation of Support Pack for ProLiant in HPE OneView"
 date: 2017-09-07T03:17:17.230Z
 author: Didier Lalli 
 tags: ["HPE-OneView","OneView","PowerShell"]
-path: automation-of-support-pack-for-proliant-in-hpe-oneview
-authorimage: "/img/blogs/Avatar3.svg"
+authorimage: "/img/blogs/Avatar4.svg"
+featuredBlog:
+thumbnailimage:
 ---
 Support Pack for ProLiant (SPP) is the official HPE distribution of
 updates to the ProLiant family of server. It is an ISO image, which

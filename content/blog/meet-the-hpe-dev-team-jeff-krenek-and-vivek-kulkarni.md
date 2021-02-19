@@ -3,8 +3,9 @@ title: "Meet the HPE DEV Team – Jeff Krenek and Vivek Kulkarni"
 date: 2019-08-28T15:56:28.937Z
 author: Dale Rensing 
 tags: []
-path: meet-the-hpe-dev-team-jeff-krenek-and-vivek-kulkarni
-authorimage: "/img/blogs/Avatar3.svg"
+authorimage: "/img/blogs/Avatar1.svg"
+featuredBlog:
+thumbnailimage:
 ---
 As promised in my last [Meet the HPE DEV Team](https://developer.hpe.com/blog/meet-the-hpe-dev-team) blog, I’m going to introduce you to additional members of the [HPE Dev Community.](https://developer.hpe.com/community) This time I’d like to focus on some of our [Azure Stack](https://www.hpe.com/us/en/solutions/cloud/azure-hybrid-cloud.html) experts, Jeff Krenek and Vivek Kulkarni, who work on accelerating the customer adoption of hybrid IT environments. As part of the Azure Stack Innovation Centers, they bring in customer and partner developers to experiment and try out Microsoft Azure Stack, which often results in these developers becoming better informed on the potential of using this platform. 
 

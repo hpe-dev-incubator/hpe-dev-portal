@@ -3,8 +3,10 @@ title: "Association Rule Mining – Not Your Typical Data Science Algorithm"
 date: 2021-01-22T06:28:06.806Z
 author: Kirk Borne 
 tags: ["hpe-ezmeral-data-fabric","MapR","machine-learning","data-mining"]
-path: association-rule-mining-not-your-typical-data-science-algorithm
-authorimage: "/img/blogs/Avatar3.svg"
+authorimage: "/img/blogs/Avatar5.svg"
+featuredBlog:
+priority:
+thumbnailimage:
 ---
 **Editor’s Note:** MapR products and solutions sold prior to the acquisition of such assets by Hewlett Packard Enterprise Company in 2019 may have older product names and model numbers that differ from current solutions. For information about current offerings, which are now part of HPE Ezmeral Data Fabric, please visit [https://www.hpe.com/us/en/software/data-fabric.html](https://www.hpe.com/us/en/software/data-fabric.html)
 

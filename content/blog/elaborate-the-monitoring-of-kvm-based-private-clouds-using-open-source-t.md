@@ -3,8 +3,9 @@ title: "Elaborate the Monitoring of KVM-based Private Clouds Using Open Source T
 date: 2019-05-29T21:28:19.523Z
 author: Denis Choukroun  
 tags: []
-path: elaborate-the-monitoring-of-kvm-based-private-clouds-using-open-source-t
 authorimage: "/img/blogs/Avatar5.svg"
+featuredBlog:
+thumbnailimage:
 ---
 Today, many cloud service providers offer OpenStack-based private cloud management solutions that can be delivered as a Software-as-a-Service (SaaS). In SaaS delivery models for OpenStack-based private clouds, there are two main parts: the OpenStack control plane and the node components. The control plane is generally hosted in the cloud and managed, maintained, and operated by the cloud service provider. The compute, network, and storage resources of the private cloud platforms, however, remain on-premises where customers can maintain greater control and security. The OpenStack control plane REST API endpoint is the only control plane component accessible to customers. Host agents are typically installed on compute servers in the data center to connect the customer’s on-premises compute servers to the hosted control plane through a secure communication channel.
 

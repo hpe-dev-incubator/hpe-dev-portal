@@ -3,8 +3,10 @@ title: "Types of Machine Learning – Part #2 in the Intro to AI/ML Series"
 date: 2020-12-09T07:38:36.968Z
 author: Saira Kennedy 
 tags: ["hpe-ezmeral-data-fabric","MapR","machine-learning","AI"]
-path: types-of-machine-learning-part-2-in-the-intro-to-aiml-series
-authorimage: "/img/blogs/Avatar2.svg"
+authorimage: "/img/blogs/Avatar3.svg"
+featuredBlog:
+priority:
+thumbnailimage:
 ---
 **Editor’s Note:** MapR products and solutions sold prior to the acquisition of such assets by Hewlett Packard Enterprise Company in 2019, may have older product names and model numbers that differ from current solutions. For information about current offerings, which are now part of HPE Ezmeral Data Fabric, please visit [https://www.hpe.com/us/en/software/data-fabric.html](https://www.hpe.com/us/en/software/data-fabric.html)
 

@@ -3,8 +3,10 @@ title: "Spark Custom Streaming Sources"
 date: 2021-01-14T05:34:57.546Z
 author: Nicolas Perez 
 tags: ["hpe-ezmeral-data-fabric","MapR","apache-spark"]
-path: spark-custom-streaming-sources
-authorimage: "/img/blogs/Avatar2.svg"
+authorimage: "/img/blogs/Avatar5.svg"
+featuredBlog:
+priority:
+thumbnailimage:
 ---
 **Editor’s Note:** MapR products and solutions sold prior to the acquisition of such assets by Hewlett Packard Enterprise Company in 2019, may have older product names and model numbers that differ from current solutions. For information about current offerings, which are now part of HPE Ezmeral Data Fabric, please visit [https://www.hpe.com/us/en/software/data-fabric.html](https://www.hpe.com/us/en/software/data-fabric.html)
 

@@ -3,8 +3,9 @@ title: "So you know how to code. Is that enough? "
 date: 2019-09-03T17:08:20.891Z
 author: Jeff Krenek 
 tags: []
-path: so-you-know-how-to-code-is-that-enough
-authorimage: "/img/blogs/Avatar5.svg"
+authorimage: "/img/blogs/Avatar3.svg"
+featuredBlog:
+thumbnailimage:
 ---
 ![picture1](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2019/8/picture1-1567530751772.png)
 

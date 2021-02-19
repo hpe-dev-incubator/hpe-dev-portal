@@ -3,8 +3,9 @@ title: "Scaling deep learning workloads"
 date: 2017-11-26T09:38:36.284Z
 author: Sergey Serebryakov 
 tags: ["deep-learning-cookbook"]
-path: scaling-deep-learning-workloads
-authorimage: "/img/blogs/Avatar3.svg"
+authorimage: "/img/blogs/Avatar6.svg"
+featuredBlog:
+thumbnailimage:
 ---
 # Data parallelism, weak and strong scaling, and what you need to know to scale a single training job to multiple CPUs or GPUs 
 Training of many state-of-the-art deep neural networks is a very compute-intensive task. It can take hours, days or even weeks to train a model with a single computational  device, such as a CPU or GPU. To speed up the training, you have to scale out, to distribute the computations to multiple devices. The most commonly used approach to distribute the training is `data parallelism`, when every computational device possesses its own replica of a model and computes a model update based on its own shard of data. Two options are possible for data parallelism: `Strong` and `weak` scaling. HPE's [Deep Learning Benchmarking Suite](https://hewlettpackard.github.io/dlcookbook-dlbs) supports both.

@@ -3,8 +3,9 @@ title: "Understanding API basics and the value they provide "
 date: 2019-12-03T16:58:32.501Z
 author: Didier Lalli 
 tags: []
-path: understanding-api-basics-and-the-value-they-provide
-authorimage: "/img/blogs/Avatar2.svg"
+authorimage: "/img/blogs/Avatar3.svg"
+featuredBlog:
+thumbnailimage:
 ---
 ![picture1](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2019/10/picture1-1575393131999.png)
 

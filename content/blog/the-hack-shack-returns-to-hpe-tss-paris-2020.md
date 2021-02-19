@@ -3,8 +3,9 @@ title: "The Hack Shack Returns to HPE TSS Paris 2020"
 date: 2020-01-15T20:16:51.542Z
 author: Frederic Passeron 
 tags: []
-path: the-hack-shack-returns-to-hpe-tss-paris-2020
 authorimage: "/img/blogs/Avatar3.svg"
+featuredBlog:
+thumbnailimage:
 ---
 ![picture3](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2019/10/picture3-1579119466925.png)
 

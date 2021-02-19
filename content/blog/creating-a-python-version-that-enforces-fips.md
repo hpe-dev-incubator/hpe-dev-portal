@@ -3,8 +3,9 @@ title: "Creating a Python version that enforces FIPS"
 date: 2018-02-15T18:04:25.100Z
 author: Matthew Kocurek - iLOREST Developer 
 tags: ["ssl","ilo-restful-api","redfish","openssl","python","ilo","fips",""]
-path: creating-a-python-version-that-enforces-fips
 authorimage: "/img/blogs/Avatar6.svg"
+featuredBlog:
+thumbnailimage:
 ---
 # **Creating a Python version that enforces FIPS**
 

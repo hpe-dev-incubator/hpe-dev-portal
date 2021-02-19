@@ -3,8 +3,9 @@ title: "Using Jitsi Meet to reach out to others"
 date: 2020-04-15T21:37:50.843Z
 author: Frederic Passeron 
 tags: ["opensource"]
-path: using-jitsi-meet-to-reach-out-to-others
-authorimage: "/img/blogs/Avatar2.svg"
+authorimage: "/img/blogs/Avatar1.svg"
+featuredBlog:
+thumbnailimage:
 ---
 ![picture11](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/3/picture11-1586988196990.png)
 

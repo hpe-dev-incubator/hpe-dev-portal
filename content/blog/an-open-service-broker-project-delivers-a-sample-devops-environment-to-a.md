@@ -3,8 +3,9 @@ title: "An Open Service Broker Project Delivers a Sample DevOps Environment to A
 date: 2019-05-23T19:07:42.640Z
 author: Peng Liu 
 tags: []
-path: an-open-service-broker-project-delivers-a-sample-devops-environment-to-a
-authorimage: "/img/blogs/Avatar4.svg"
+authorimage: "/img/blogs/Avatar6.svg"
+featuredBlog:
+thumbnailimage:
 ---
 As described by [Wikipedia, “DevOps](https://en.wikipedia.org/wiki/DevOps) is a set of software development practices that combines software development (Dev) and information technology operations (Ops).” DevOps shortens the systems development life cycle while delivering features, fixes, and updates frequently in close alignment with business objectives. In a DevOps environment, different disciplines collaborate, making quality everyone's “job.” DevOps is often hailed as a giant step towards bringing better software to market faster and many organizations now view it as an important goal to establish an efficient DevOps pipeline and attain a true DevOps environment.  
 

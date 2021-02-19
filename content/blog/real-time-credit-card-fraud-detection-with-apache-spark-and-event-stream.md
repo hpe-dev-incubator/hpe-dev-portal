@@ -3,8 +3,10 @@ title: "Real Time Credit Card Fraud Detection with Apache Spark and Event Stream
 date: 2020-11-18T23:37:40.398Z
 author: Carol McDonald 
 tags: ["hpe-ezmeral-data-fabric","MapR","apache-spark","opensource"]
-path: real-time-credit-card-fraud-detection-with-apache-spark-and-event-stream
 authorimage: "/img/blogs/Avatar1.svg"
+featuredBlog:
+priority:
+thumbnailimage:
 ---
 **Editor’s Note:** MapR products and solutions sold prior to the acquisition of such assets by Hewlett Packard Enterprise Company in 2019, may have older product names and model numbers that differ from current solutions. For information about current offerings, which are now part of HPE Ezmeral Data Fabric, please visit [https://www.hpe.com/us/en/software/data-fabric.html](https://www.hpe.com/us/en/software/data-fabric.html)
 

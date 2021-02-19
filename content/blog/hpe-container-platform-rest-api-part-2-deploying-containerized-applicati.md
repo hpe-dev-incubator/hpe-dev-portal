@@ -3,8 +3,9 @@ title: "HPE Container Platform REST API – Part 2: Deploying containerized appl
 date: 2020-06-04T16:41:01.009Z
 author: Denis Choukroun 
 tags: ["hpe-ezmeral-container-platform","hpe-container-platform","kubedirector","opensource"]
-path: hpe-container-platform-rest-api-part-2-deploying-containerized-applicati
-authorimage: "/img/blogs/Avatar6.svg"
+authorimage: "/img/blogs/Avatar2.svg"
+featuredBlog:
+thumbnailimage:
 ---
 In my previous blog post, [HPE Container platform REST API – Part 1: Authenticating](https://developer.hpe.com/blog/hpe-container-platform-rest-api-part-1-authenticating), I introduced the HPE Container Platform (HPE CP) REST API. I showed you how to authenticate to the HPE Container Platform API endpoint and retrieve data from objects in a secure way using the command line cURL. Continuing with this series, my second article will walk you through the steps you need to take to deploy containerized applications programmatically on Kubernetes clusters that are managed by the HPE Container Platform. It will show you how to take the REST API authentication call you established while going through the first blog and apply it to a real life scenario focused on the following areas:
 

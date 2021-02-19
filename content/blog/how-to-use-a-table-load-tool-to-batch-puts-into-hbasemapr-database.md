@@ -3,8 +3,10 @@ title: "How to Use a Table Load Tool to Batch Puts into HBase/MapR Database"
 date: 2020-10-15T06:28:44.470Z
 author: Terry He 
 tags: ["hpe-ezmeral-data-fabric","MapR","opensource"]
-path: how-to-use-a-table-load-tool-to-batch-puts-into-hbasemapr-database
-authorimage: "/img/blogs/Avatar2.svg"
+authorimage: "/img/blogs/Avatar5.svg"
+featuredBlog:
+priority:
+thumbnailimage:
 ---
 **Editor’s Note:** MapR products and solutions sold prior to the acquisition of such assets by Hewlett Packard Enterprise Company in 2019, may have older product names and model numbers that differ from current solutions. For information about current offerings, which are now part of HPE Ezmeral Data Fabric, please visit [https://www.hpe.com/us/en/software/data-fabric.html](https://www.hpe.com/us/en/software/data-fabric.html)
 

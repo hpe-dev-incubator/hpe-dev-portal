@@ -3,8 +3,9 @@ title: "Understanding Concurrency in Python Part 3 - Asyncio"
 date: 2020-02-19T17:32:20.225Z
 author: Samarth Deyagond 
 tags: []
-path: understanding-concurrency-in-python-part-3-asyncio
-authorimage: "/img/blogs/Avatar6.svg"
+authorimage: "/img/blogs/Avatar5.svg"
+featuredBlog:
+thumbnailimage:
 ---
 ![picture1](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/1/picture1-1582323160514.png)
 

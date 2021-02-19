@@ -190,7 +190,6 @@ export const pageQuery = graphql`
             title
             date
             author
-            path
             tags
             authorimage
             thumbnailimage

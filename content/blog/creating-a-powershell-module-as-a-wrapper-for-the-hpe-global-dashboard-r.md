@@ -3,8 +3,10 @@ title: "Creating a Powershell Module as a wrapper for the HPE Global Dashboard R
 date: 2019-04-23T16:59:48.878Z
 author: Rudi Martinsen 
 tags: []
-path: creating-a-powershell-module-as-a-wrapper-for-the-hpe-global-dashboard-r
-authorimage: "/img/blogs/Avatar2.svg"
+authorimage: "/img/blogs/Avatar4.svg"
+featuredBlog:
+priority:
+thumbnailimage:
 ---
  
 With the release of HPE Global Dashboard [version 1.60](https://support.hpe.com/hpsc/doc/public/display?docId=emr_na-a00056235en_us&docLocale=en_US) HPE shipped a new (public) RESTful API.

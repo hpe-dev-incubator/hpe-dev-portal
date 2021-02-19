@@ -3,8 +3,9 @@ title: "Project Golang SDK: A valuable lesson in doing"
 date: 2020-03-30T15:54:22.766Z
 author: Samarth Deyagond 
 tags: []
-path: project-golang-sdk-a-valuable-lesson-in-doing
-authorimage: "/img/blogs/Avatar5.svg"
+authorimage: "/img/blogs/Avatar1.svg"
+featuredBlog:
+thumbnailimage:
 ---
 This year, I decided to learn the Golang programming language. I have always preferred learning any language or technology by working on a project, rather than just implementing some simple example programs from tutorials. So, I carefully considered what sort of project I could do that would not only provide me with a valuable learning experience, but also make a positive contribution. In this blog post, I’d like to share with you how the project I chose helped me achieve my goal in learning Golang.
 

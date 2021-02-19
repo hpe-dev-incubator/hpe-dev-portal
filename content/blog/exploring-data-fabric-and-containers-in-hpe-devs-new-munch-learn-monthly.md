@@ -3,8 +3,9 @@ title: "Exploring Data Fabric and Containers in HPE DEVs new Munch & Learn month
 date: 2021-01-28T18:22:24.394Z
 author: Dale Rensing 
 tags: ["munch-and-Learn","munch","learn","hpe-ezmeral-container-platform","hpe-ezmeral-data-fabric"]
-path: exploring-data-fabric-and-containers-in-hpe-devs-new-munch-learn-monthly
-authorimage: "/img/blogs/Avatar2.svg"
+authorimage: "/img/blogs/Avatar4.svg"
+featuredBlog:
+thumbnailimage:
 ---
 ![munch learn feb 2021](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/12/munch-learn-feb-2021-1611858129501.jpg)
 

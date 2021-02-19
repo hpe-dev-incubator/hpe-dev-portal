@@ -3,8 +3,10 @@ title: " Introducing HPE Nimble Storage SDK for Go"
 date: 2020-11-25T18:25:52.171Z
 author: Michael Mattsson 
 tags: []
-path: introducing-hpe-nimble-storage-sdk-for-go
 authorimage: "/img/blogs/Avatar3.svg"
+featuredBlog:
+priority:
+thumbnailimage:
 ---
 In the cloud-native, API-first economy, the infrastructure platform relevance increases when gauged against how well it integrates with others. The Go Programming Language is considered to be the language of choice for the cloud and the building microservices. Many large, recognized open source projects use Go, such as Kubernetes, Docker, InfluxDB and Terraform. Some of the most successful companies in the new API economy use Go, including Uber, Netflix, Google, and of course, Hewlett Packard Enterprise (HPE). Go was invented by Google and designed to scale concurrency across networked systems and support large codebases, which many of the successful projects can attest to.
 

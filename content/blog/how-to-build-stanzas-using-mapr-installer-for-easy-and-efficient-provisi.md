@@ -3,8 +3,10 @@ title: "How to Build Stanzas Using MapR Installer for Easy and Efficient Provisi
 date: 2020-09-19T05:31:19.092Z
 author: Prashant Rathi 
 tags: ["hpe-ezmeral-data-fabric","MapR","opensource"]
-path: how-to-build-stanzas-using-mapr-installer-for-easy-and-efficient-provisi
-authorimage: "/img/blogs/Avatar5.svg"
+authorimage: "/img/blogs/Avatar6.svg"
+featuredBlog:
+priority:
+thumbnailimage:
 ---
 ## Original Post Information:
 ```

@@ -3,8 +3,9 @@ title: " Discovering HPE DEV – A Newcomer’s perspective"
 date: 2019-03-28T21:03:14.662Z
 author: Dale Rensing, HPE DEV team member 
 tags: ["hpedev"]
-path: discovering-hpe-dev-a-newcomers-perspective
-authorimage: "/img/blogs/Avatar6.svg"
+authorimage: "/img/blogs/Avatar3.svg"
+featuredBlog:
+thumbnailimage:
 ---
 Digital transformation has flipped the industry’s focus from hardware-centricity to a software-defined reality. What makes up the server, and where it’s located, is no longer as important as what’s running on it and how seamlessly these applications can be accessed and used across the infrastructure. No matter how the infrastructure fabric is woven throughout on premise and cloud resources, the most important thing is to ensure the best user experience (UX). 
 

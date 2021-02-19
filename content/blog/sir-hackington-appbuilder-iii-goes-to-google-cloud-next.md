@@ -3,8 +3,9 @@ title: "Sir Hackington Appbuilder III Goes to Google Cloud Next"
 date: 2018-08-28T14:50:51.758Z
 author: Sir Hackington Appbuilder III 
 tags: ["GoogleCloudNext"]
-path: sir-hackington-appbuilder-iii-goes-to-google-cloud-next
-authorimage: "/img/blogs/Avatar4.svg"
+authorimage: "/img/blogs/Avatar6.svg"
+featuredBlog:
+thumbnailimage:
 ---
 Hey, it’s me, your old friend, Sir Hackington Appbuilder III. For those of you who haven’t met me yet, that’s right, I’m the dog here. More importantly, I’m the event mascot of the HPE Developer Community (HPE DEV). Some people like to say that dogs are man’s best friend. In my case, I’m the best friend a developer can have, especially at conferences.
 

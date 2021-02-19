@@ -3,8 +3,9 @@ title: "How to change the factory generated iLO Administrator password"
 date: 2018-03-29T15:34:24.958Z
 author: François Donzé 
 tags: ["iLO","Redfish","ilorest"]
-path: how-to-change-the-factory-generated-ilo-administrator-password
-authorimage: "/img/blogs/Avatar5.svg"
+authorimage: "/img/blogs/Avatar6.svg"
+featuredBlog:
+thumbnailimage:
 ---
 # Boosting your server deployment: How to change the factory generated iLO administrator password
 

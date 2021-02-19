@@ -3,8 +3,10 @@ title: "Architecting the World’s Largest Biometric Identity System: The Aadhaa
 date: 2021-01-07T23:06:37.255Z
 author: Michele Nemschoff 
 tags: ["hpe-ezmeral-data-fabric","MapR"]
-path: architecting-the-worlds-largest-biometric-identity-system-the-aadhaar-ex
-authorimage: "/img/blogs/Avatar4.svg"
+authorimage: "/img/blogs/Avatar5.svg"
+featuredBlog:
+priority:
+thumbnailimage:
 ---
 **Editor’s Note:** MapR products and solutions sold prior to the acquisition of such assets by Hewlett Packard Enterprise Company in 2019 may have older product names and model numbers that differ from current solutions. For information about current offerings, which are now part of HPE Ezmeral Data Fabric, please visit [https://www.hpe.com/us/en/software/data-fabric.html](https://www.hpe.com/us/en/software/data-fabric.html)
 

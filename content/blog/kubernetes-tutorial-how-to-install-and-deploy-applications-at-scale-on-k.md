@@ -3,8 +3,10 @@ title: "Kubernetes Tutorial: How to Install and Deploy Applications at Scale on 
 date: 2020-11-03T16:27:14.138Z
 author: Martijn Kieboom 
 tags: ["hpe-ezmeral-data-fabric","MapR","Kubernetes","opensource"]
-path: kubernetes-tutorial-how-to-install-and-deploy-applications-at-scale-on-k
-authorimage: "/img/blogs/Avatar2.svg"
+authorimage: "/img/blogs/Avatar3.svg"
+featuredBlog:
+priority:
+thumbnailimage:
 ---
 **Editor’s Note:** MapR products and solutions sold prior to the acquisition of such assets by Hewlett Packard Enterprise Company in 2019, may have older product names and model numbers that differ from current solutions. For information about current offerings, which are now part of HPE Ezmeral Data Fabric, please visit [https://www.hpe.com/us/en/software/data-fabric.html](https://www.hpe.com/us/en/software/data-fabric.html)
 

@@ -3,8 +3,9 @@ title: "DevOps and its impact on project management"
 date: 2019-10-07T20:18:47.496Z
 author: Mike Walrath 
 tags: ["DevOps"]
-path: devops-and-its-impact-on-project-management
-authorimage: "/img/blogs/Avatar4.svg"
+authorimage: "/img/blogs/Avatar6.svg"
+featuredBlog:
+thumbnailimage:
 ---
 ![hpe20160726048](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2019/8/hpe20160726048-1570557978016.jpg)
 

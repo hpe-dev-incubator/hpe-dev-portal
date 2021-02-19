@@ -3,8 +3,10 @@ title: "Resource Allocation Configuration for Spark on YARN"
 date: 2020-08-19T06:14:55.424Z
 author: Hao Zhu 
 tags: ["Spark","Yarn","opensource"]
-path: resource-allocation-configuration-for-spark-on-yarn
-authorimage: "/img/blogs/Avatar1.svg"
+authorimage: "/img/blogs/Avatar3.svg"
+featuredBlog:
+priority:
+thumbnailimage:
 ---
 ## Original Post Information:
 ```

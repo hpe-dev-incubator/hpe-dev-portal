@@ -3,12 +3,14 @@ title: " Get started with the HPE Nimble Storage Content Collection for Ansible 
 date: 2020-09-29T18:33:30.419Z
 author: Michael Mattsson 
 tags: ["hpe-nimble-storage","ansible"]
-path: get-started-with-the-hpe-nimble-storage-content-collection-for-ansible
-authorimage: "/img/blogs/Avatar5.svg"
+authorimage: "/img/blogs/Avatar1.svg"
+featuredBlog:
+priority:
+thumbnailimage:
 ---
 With the initial release of the [HPE Nimble Storage Content Collection for Ansible](https://community.hpe.com/t5/around-the-storage-block/introducing-hpe-nimble-storage-content-collection-for-ansible/ba-p/7103452), it’s now possible to manage many aspects of a Nimble array using either Red Hat Ansible Tower or open source Ansible. Ansible is an IT automation platform that embraces an idempotent resource model, which is essential in declarative infrastructure management paradigms. In this blog post, we’ll go through a few examples on how to kickstart your Ansible automation projects with the newly released HPE Nimble Storage modules.
 
-<img src="https://developer.hpe.comhttps://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/9/screen-shot-2020-10-01-at-15454-pm-1601594378015.png">
+<img src="https://developer.hpe.com/uploads/media/2020/9/screen-shot-2020-10-01-at-15454-pm-1601594378015.png">
 
 All the functionality is embedded in the content collection as modules. For the initial release, these are the available modules.
 
@@ -43,7 +45,7 @@ All modules are documented per Ansible community standards. The modules have not
 
 In the following examples there is one node acting as the Ansible management host (node21) and there are two nodes (node22 and node23) acting as iSCSI SAN hosts. There’s one HPE Nimble Storage array (nva) in the environment. Since an Ansible collection is a fairly new construct in the Ansible universe, version 2.9 is required, along with Python 3.6 or newer for the HPE Nimble Storage SDK for Python (which the Ansible modules rely on). We’ll also assume that iSCSI, multipathing and SAN connectivity is established between the SAN hosts and the HPE Nimble Storage array. NimbleOS 5.0 or newer is required on the array. These requirements are also listed with [the modules' documentation](https://hpe-storage.github.io/nimble-ansible-modules/).
 
-<img src="https://developer.hpe.comhttps://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/9/hpedev-alster-for-blog-reva-1601597390641.png">
+<img src="https://developer.hpe.com/uploads/media/2020/9/hpedev-alster-for-blog-reva-1601597390641.png">
 
 Since the collection contains more than a whopping twenty two modules, one blog post won’t be able to cover the entire suite. Expect a series of blog posts over the coming months to cover more use cases. In this first installment, we’ll cover basic volume provisioning, snapshotting, cloning, inspecting, mutations and ultimately decommissioning volumes. Host attachment included!
 

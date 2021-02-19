@@ -3,8 +3,9 @@ title: "All HPE OneView Ecosystem SDKs now support OneView 5.3 automation"
 date: 2020-09-04T06:50:36.903Z
 author: Chris Pasek 
 tags: ["hpe-oneview","devops","automation"]
-path: all-hpe-oneview-ecosystem-sdks-now-support-oneview-53-automation
-authorimage: "/img/blogs/Avatar3.svg"
+authorimage: "/img/blogs/Avatar1.svg"
+featuredBlog:
+thumbnailimage:
 ---
 With our newest update, all of the HPE OneView Ecosystem SDKs now support [HPE OneView 5.3](https://www.hpe.com/us/en/integrated-systems/software.html?chatsrc=ot-en&jumpid=ps_ixkqsmug5a_aid-520023673&gclid=EAIaIQobChMIpPL8tqD16QIVUfDACh0i3g6WEAAYASAAEgLJ-_D_BwE&gclsrc=aw.ds)  (REST API version 1800) automation features. The HPE OneView Ecosystem actively supports [Ansible](https://github.com/HewlettPackard/oneview-ansible), [Python](https://github.com/HewlettPackard/oneview-python), [Golang](https://github.com/HewlettPackard/oneview-golang), [Terraform](https://github.com/HewlettPackard/terraform-provider-oneview/releases/tag/v1.3.0), [Chef](https://github.com/HewlettPackard/oneview-chef), [Puppet](https://github.com/HewlettPackard/oneview-puppet), [PowerShell](https://github.com/HewlettPackard/POSH-HPOneView), and [Ruby](https://github.com/HewlettPackard/oneview-sdk-ruby) SDKs.  The updated SDKs allow IT organizations to leverage the latest HPE OneView features and provide the ability to automate software-defined infrastructure from core to cloud. With such a diverse partner ecosystem, IT organizations benefit from being able to integrate HPE OneView within their preferred platform's existing management frameworks.
 

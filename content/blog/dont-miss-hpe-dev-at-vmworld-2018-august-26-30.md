@@ -3,8 +3,9 @@ title: "Don’t miss HPE DEV at VMWorld 2018, August 26-30"
 date: 2018-08-17T19:31:21.298Z
 author: HPE DEV 
 tags: ["vmworld-las-vegas-2018"]
-path: dont-miss-hpe-dev-at-vmworld-2018-august-26-30
 authorimage: "/img/blogs/Avatar4.svg"
+featuredBlog:
+thumbnailimage:
 ---
 Hewlett Packard Enterprise (HPE) will be attending [VMWorld](https://www.vmworld.com/en/us/index.html) in Las Vegas, NV, August 26--30, 2018. VMworld 2018 is VMware’s premier digital infrastructure event, where businesses can find the tools and partners they need to accelerate their software-defined journey and launch the digital transformation.
 

@@ -3,8 +3,10 @@ title: "Analyzing Flight Delays with Apache Spark GraphFrames and MapR Database"
 date: 2020-12-16T06:33:59.611Z
 author: Carol McDonald 
 tags: ["hpe-ezmeral-data-fabric","MapR","spark","nosql","graphframes"]
-path: analyzing-flight-delays-with-apache-spark-graphframes-and-mapr-database
-authorimage: "/img/blogs/Avatar4.svg"
+authorimage: "/img/blogs/Avatar1.svg"
+featuredBlog:
+priority:
+thumbnailimage:
 ---
 **Editor’s Note:** MapR products and solutions sold prior to the acquisition of such assets by Hewlett Packard Enterprise Company in 2019, may have older product names and model numbers that differ from current solutions. For information about current offerings, which are now part of HPE Ezmeral Data Fabric, please visit [https://www.hpe.com/us/en/software/data-fabric.html](https://www.hpe.com/us/en/software/data-fabric.html)
 

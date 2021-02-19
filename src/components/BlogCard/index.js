@@ -38,8 +38,9 @@ export const BlogCard = ({ node, ...rest }) => (
     elevation="medium"
     wrap
     onClick={
-      node.path || node.frontmatter.path
-        ? () => navigate(`/blog/${node.path || node.frontmatter.path}`)
+      node.fields.slug && node.fields.sourceInstanceName
+        ? () =>
+            navigate(`/${node.fields.sourceInstanceName}${node.fields.slug}`)
         : undefined
     }
   >
@@ -90,8 +91,9 @@ export const FeaturedBlogCard = ({ node, ...rest }) => (
     flex="grow"
     {...rest}
     onClick={
-      node.frontmatter.path
-        ? () => navigate(`/blog/${node.frontmatter.path}`)
+      node.fields.slug && node.fields.sourceInstanceName
+        ? () =>
+            navigate(`/${node.fields.sourceInstanceName}${node.fields.slug}`)
         : undefined
     }
   >

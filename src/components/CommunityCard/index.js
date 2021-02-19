@@ -10,7 +10,6 @@ import {
   Paragraph,
   Button,
 } from 'grommet';
-import { navigate } from 'gatsby';
 
 const CommunityCard = ({ node, ...rest }) => (
   <GrommetCard
@@ -19,7 +18,9 @@ const CommunityCard = ({ node, ...rest }) => (
     pad="large"
     {...rest}
     onClick={
-      node.frontmatter.link ? () => navigate(node.frontmatter.link) : undefined
+      node.frontmatter.link
+        ? () => window.open(node.frontmatter.link)
+        : undefined
     }
   >
     <CardBody pad="none" align="start">

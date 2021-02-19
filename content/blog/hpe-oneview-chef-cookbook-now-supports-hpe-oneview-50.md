@@ -3,8 +3,9 @@ title: "HPE OneView Chef Cookbook now supports HPE OneView 5.0"
 date: 2020-04-06T16:38:30.754Z
 author: Chris Pasek 
 tags: ["hpe-oneview"]
-path: hpe-oneview-chef-cookbook-now-supports-hpe-oneview-50
 authorimage: "/img/blogs/Avatar5.svg"
+featuredBlog:
+thumbnailimage:
 ---
 The HPE OneView Chef Cookbook 3.2.0 now supports HPE OneView 5.0 (REST API version 1200). The Cookbook provides Chef recipes to interact with HPE OneView and HPE Synergy Image Streamer APIs, enabling IT automation teams to easily build integrations and scalable solutions. By automating the provisioning of physical infrastructure on-demand, using software-defined templates from HPE OneView, this integration allows administrators to create a resource topology and user experience similar to that of a public cloud on their own physical infrastructure. In addition, it significantly increases reliability, compliance, and deployment flexibility. 
 

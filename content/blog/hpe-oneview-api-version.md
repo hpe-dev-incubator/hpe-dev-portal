@@ -3,8 +3,9 @@ title: "HPE OneView API Version"
 date: 2017-09-06T13:41:38.185Z
 author: Didier Lalli 
 tags: ["HPE-OneView","OneView","RESTAPI"]
-path: hpe-oneview-api-version
-authorimage: "/img/blogs/Avatar1.svg"
+authorimage: "/img/blogs/Avatar5.svg"
+featuredBlog:
+thumbnailimage:
 ---
 # Backward compatibility of API
 

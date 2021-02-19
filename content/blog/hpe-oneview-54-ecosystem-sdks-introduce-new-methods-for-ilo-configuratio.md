@@ -3,8 +3,9 @@ title: "HPE OneView 5.4 Ecosystem SDKs introduce new methods for ILO configurati
 date: 2020-10-13T18:55:34.129Z
 author: Chris Pasek 
 tags: ["hpe-oneview","devops","automation"]
-path: hpe-oneview-54-ecosystem-sdks-introduce-new-methods-for-ilo-configuratio
-authorimage: "/img/blogs/Avatar2.svg"
+authorimage: "/img/blogs/Avatar3.svg"
+featuredBlog:
+thumbnailimage:
 ---
 HPE OneView Ecosystem SDKs ([Ansible](https://github.com/HewlettPackard/oneview-ansible), [Python](https://github.com/HewlettPackard/oneview-python), [Golang](https://github.com/HewlettPackard/oneview-golang), [Terraform](https://github.com/HewlettPackard/terraform-provider-oneview/releases/tag/v1.3.0), [Chef](https://github.com/HewlettPackard/oneview-chef), [Puppet](https://github.com/HewlettPackard/oneview-puppet), [PowerShell](https://github.com/HewlettPackard/POSH-HPOneView) and [Ruby](https://github.com/HewlettPackard/oneview-sdk-ruby)) now support  HPE OneView 5.4 (REST API version 2000). Each release introduces time savings and error reduction enhancements. 
 

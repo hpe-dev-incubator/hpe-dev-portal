@@ -3,8 +3,9 @@ title: "Dark Mode Theming in Grommet: Theme color customization"
 date: 2020-10-28T13:39:20.480Z
 author: Matt Glissmann 
 tags: ["grommet","opensource"]
-path: dark-mode-theming-in-grommet-theme-color-customization
-authorimage: "/img/blogs/Avatar2.svg"
+authorimage: "/img/blogs/Avatar6.svg"
+featuredBlog:
+thumbnailimage:
 ---
 ![g1lightdark3_1](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/9/g1lightdark3_1-1603892557138.png)
 

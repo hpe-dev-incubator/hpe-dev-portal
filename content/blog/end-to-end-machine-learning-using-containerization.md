@@ -3,8 +3,10 @@ title: "End-to-End Machine Learning Using Containerization"
 date: 2021-02-05T06:50:53.739Z
 author: Rachel Silver 
 tags: ["hpe-ezmeral-data-fabric","MapR","machine-learning","AI"]
-path: end-to-end-machine-learning-using-containerization
-authorimage: "/img/blogs/Avatar5.svg"
+authorimage: "/img/blogs/Avatar1.svg"
+featuredBlog:
+priority:
+thumbnailimage:
 ---
 **Editor’s Note:** MapR products and solutions sold prior to the acquisition of such assets by Hewlett Packard Enterprise Company in 2019 may have older product names and model numbers that differ from current solutions. For information about current offerings, which are now part of HPE Ezmeral Data Fabric, please visit [https://www.hpe.com/us/en/software/data-fabric.html](https://www.hpe.com/us/en/software/data-fabric.html)
 

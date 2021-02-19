@@ -3,8 +3,9 @@ title: "Get involved in the open source community! Part 2: Sharing with the comm
 date: 2020-06-05T12:47:25.671Z
 author: Didier Lalli 
 tags: ["git","github","opensource"]
-path: get-involved-in-the-open-source-community-part-2-sharing-with-the-commun
 authorimage: "/img/blogs/Avatar5.svg"
+featuredBlog:
+thumbnailimage:
 ---
 ![git101-part1-git icon 1788c](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/3/git-icon-1788c-1590702885345.png)
 
