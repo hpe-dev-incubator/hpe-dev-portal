@@ -1,13 +1,12 @@
 ---
-priority: 3
-width: large
 title: Aruba Developer Hub
 version: v 2.01.8964
-description: The Aruba Developer Hub is a comprehensive resource for developers
-  that includes Aruba APIs and documentation to streamline the development of
-  innovative, next-generation edge applications leveraging the Aruba Edge
-  Services Platform.
+description: A comprehensive resource for developers that includes Aruba APIs
+  and documentation to streamline the development of innovative, next-generation
+  edge applications leveraging the Aruba Edge Services Platform.
 image: /img/platforms/Aruba.svg
+width: large
+priority: 3
 frontpage: true
 tags:
   - aruba
