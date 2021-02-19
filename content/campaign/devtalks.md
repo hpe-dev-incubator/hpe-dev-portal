@@ -15,6 +15,6 @@ Please note that these talks are internal/partners only for now.
 | 20-Jan-21 | Building a dynamic Machine Learning pipeline with KubeDirector    | Denis Choukroun                          | [Replay](https://vimeo.com/503611948)            |
 | 03-Feb-21 | Advanced PowerShell scripting with HPE OneView PowerShell library | Dung Hoang Khac                          | [Replay](https://vimeo.com/508802530)            |
 | 17-Feb-21 | How to start developing NLP applications                          | Rohit Rawat & Vineet Gundecha            | Replay                                           |
-| 03-MAR-21 | Delivering the AI Stack for the Modern Enterprise                 | Vinod Iyengar (H2O.ai) &  Ellen Friedman | Register                                         |
-| 17-MAR-21 | No Session                                                        |                                          |                                                  |
-| 31-MAR-21 | Industrialising and transforming Data Science scope and scale     | Doug Cackett                             | Register                                         |
+| 03-Mar-21 | Delivering the AI Stack for the Modern Enterprise                 | Vinod Iyengar (H2O.ai) &  Ellen Friedman | Register                                         |
+| 17-Mar-21 | No Session                                                        |                                          |                                                  |
+| 31-Mar-21 | Industrialising and transforming Data Science scope and scale     | Doug Cackett                             | Register                                         |
