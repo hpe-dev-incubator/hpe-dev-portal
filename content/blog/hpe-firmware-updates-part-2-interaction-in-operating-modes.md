@@ -3,8 +3,9 @@ title: "HPE firmware updates: Part 2 – Interaction in operating modes"
 date: 2020-08-20T11:38:44.224Z
 author: François Donzé 
 tags: ["ilo-restful-api","firmware","uefi","redfish"]
-path: hpe-firmware-updates-part-2-interaction-in-operating-modes
-authorimage: "/img/blogs/Avatar6.svg"
+authorimage: "/img/blogs/Avatar5.svg"
+featuredBlog:
+thumbnailimage:
 ---
 ## Introduction
 In [my first blog](https://developer.hpe.com/blog/hpe-firmware-updates-part-1-file-types-and-smart-components) post regarding how to deal with HPE firmware upgrades, I discussed the main objects involved:

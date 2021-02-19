@@ -3,14 +3,16 @@ title: "Introducing Kubernetes CSI Sidecar Containers from HPE"
 date: 2020-08-25T01:45:01.828Z
 author: Michael Mattsson 
 tags: ["hpe-nimble-storage","hpe-3par-and-primera"]
-path: introducing-kubernetes-csi-sidecar-containers-from-hpe
-authorimage: "/img/blogs/Avatar3.svg"
+authorimage: "/img/blogs/Avatar1.svg"
+featuredBlog:
+priority:
+thumbnailimage:
 ---
 With the release of the upcoming HPE CSI Driver for Kubernetes version 1.3.0, Hewlett Packard Enterprise (HPE) introduces the concept of Container Storage Interface (CSI) extensions to the CSI driver using Kubernetes CSI sidecar containers. This concept is not foreign to anyone familiar with the CSI architecture as most new major features get implemented as a sidecar in a true microservice architecture. Services are tightly coupled and communicate over a UNIX socket using a high-speed Remote Procedure Call (RPC) interface, gRPC, for secure and reliable communication.
 
 The interface allows third parties to write extensions to their drivers to expose a particular storage platform’s differentiating feature where it’s difficult to conceive a broad stroke feature in a vendor neutral manner. It’s also possible to leapfrog SIG Storage (the Kubernetes working group for storage) for features currently in the discovery or design phase if customer demand is being prioritized over standardization.
 
-<img src="https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/6/csi-130-slate-1598320004312.png">
+<img src="/uploads/media/2020/6/csi-130-slate-1598320004312.png">
 
 The first (yes, there’s quite a few in the works) CSI sidecar is a volume mutator. It will allow end-users to alter their `PersistentVolumeClaims` (PVCs) during runtime, even while the `PersistentVolume` (PV) is mounted and serving a workload. What attributes are mutable depends on the backend Container Storage Provider (CSP) being used. Also, what attributes are allowed to be altered by an end-user is controlled by the Kubernetes cluster administrator through the `StorageClass`.
 

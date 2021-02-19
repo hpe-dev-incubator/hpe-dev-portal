@@ -3,8 +3,10 @@ title: "Spark Data Source API: Extending Our Spark SQL Query Engine"
 date: 2020-12-16T06:52:16.163Z
 author: Nicolas Perez 
 tags: ["hpe-ezmeral-data-fabric","MapR","apache-spark","opensource"]
-path: spark-data-source-api-extending-our-spark-sql-query-engine
 authorimage: "/img/blogs/Avatar4.svg"
+featuredBlog:
+priority:
+thumbnailimage:
 ---
 **Editor’s Note:** MapR products and solutions sold prior to the acquisition of such assets by Hewlett Packard Enterprise Company in 2019 may have older product names and model numbers that differ from current solutions. For information about current offerings, which are now part of HPE Ezmeral Data Fabric, please visit [https://www.hpe.com/us/en/software/data-fabric.html](https://www.hpe.com/us/en/software/data-fabric.html)
 

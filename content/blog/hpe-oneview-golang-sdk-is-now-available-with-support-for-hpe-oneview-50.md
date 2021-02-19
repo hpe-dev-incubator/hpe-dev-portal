@@ -3,8 +3,9 @@ title: "HPE OneView Golang SDK is now available with support for HPE OneView 5.0
 date: 2019-12-16T17:01:31.672Z
 author: Christopher Pasek 
 tags: ["HPE-OneView","OneView","Golang"]
-path: hpe-oneview-golang-sdk-is-now-available-with-support-for-hpe-oneview-50
 authorimage: "/img/blogs/Avatar3.svg"
+featuredBlog:
+thumbnailimage:
 ---
 The HPE OneView Golang SDK v1.2.0 now supports HPE OneView 5.0 (REST API version 1200). The HPE OneView Golang SDK extends the HPE OneView API language support for the [go language,](https://golang.org/) which is popular for cloud-native applications. With language support, you can integrate popular tools based on Golang, such as Terraform with HPE OneView. [HPE OneView](https://www.hpe.com/us/en/integrated-systems/software.html) takes a software-defined, programmatic approach to managing infrastructure with efficient workflow automation, a modern RESTful API, and a comprehensive partner ecosystem.
 

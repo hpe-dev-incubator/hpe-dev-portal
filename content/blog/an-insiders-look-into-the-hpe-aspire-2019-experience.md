@@ -3,8 +3,9 @@ title: "An Insider’s Look into the HPE Aspire 2019 Experience"
 date: 2019-06-11T17:43:54.637Z
 author: Pramod Sareddy 
 tags: []
-path: an-insiders-look-into-the-hpe-aspire-2019-experience
 authorimage: "/img/blogs/Avatar3.svg"
+featuredBlog:
+thumbnailimage:
 ---
 ![kubekon](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2019/5/kubekon-1560274711136.png)
 

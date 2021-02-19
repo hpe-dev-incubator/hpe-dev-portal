@@ -3,8 +3,9 @@ title: "HPE firmware updates: Part 1 – File types and Smart Components"
 date: 2020-08-21T15:07:31.534Z
 author: François Donzé 
 tags: ["ilo-restful-api","firmware","uefi","redfish"]
-path: hpe-firmware-updates-part-1-file-types-and-smart-components
-authorimage: "/img/blogs/Avatar6.svg"
+authorimage: "/img/blogs/Avatar2.svg"
+featuredBlog:
+thumbnailimage:
 ---
 ## Introduction
 Computer firmware updates are extremely important as they offer new features, fix bugs, and deliver security improvements. The diversity of devices within a computer that contain firmware is high and, unfortunately, due to their nature and origin, there is not a single path to update them. As an example, HPE ProLiant or Synergy BIOS/ROM firmware may not be updated with the same tools as a partner add-on network card.

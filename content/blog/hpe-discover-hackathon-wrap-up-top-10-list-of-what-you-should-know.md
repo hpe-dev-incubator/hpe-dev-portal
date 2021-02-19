@@ -3,8 +3,9 @@ title: "HPE Discover Hackathon Wrap-up: Top 10 list of what you should know"
 date: 2018-07-10T16:10:36.452Z
 author: The HPE Developer Community  
 tags: ["hackathon","community","discover"]
-path: hpe-discover-hackathon-wrap-up-top-10-list-of-what-you-should-know
-authorimage: "/img/blogs/Avatar1.svg"
+authorimage: "/img/blogs/Avatar6.svg"
+featuredBlog:
+thumbnailimage:
 ---
 ![hpe dev hack shack team](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2018/6/hpe-dev-hack-shack-team-1531348164725.jpg)
 

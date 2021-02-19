@@ -3,8 +3,10 @@ title: "Introducing HPE Storage Container Orchestrator Documentation"
 date: 2020-04-20T19:56:01.345Z
 author: Michael Mattsson 
 tags: ["hpe-nimble-storage","hpe-3par-and-primera","hpe-cloud-volumes"]
-path: introducing-hpe-storage-container-orchestrator-documentation
-authorimage: "/img/blogs/Avatar2.svg"
+authorimage: "/img/blogs/Avatar4.svg"
+featuredBlog:
+priority:
+thumbnailimage:
 ---
 Writing intuitive, end-user facing documentation for complex systems that is easy to navigate and consume is not a simple task.  The Hewlett Packard Enterprise (HPE) storage team picked up the responsibility of consolidating all documentation pertaining to Kubernetes and Docker integration with HPE storage solutions under one umbrella. [HPE Storage Container Orchestrator Documentation](https://scod.hpedev.io), or SCOD for short, is a documentation portal that is now officially available to customers and partners interested in HPE persistent storage solutions that they can integrate with their Kubernetes or Docker projects. Let's explore the toolchain that makes writing documentation effortless and beautiful!
 

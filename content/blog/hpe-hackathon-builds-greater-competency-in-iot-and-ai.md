@@ -3,8 +3,9 @@ title: "HPE Hackathon builds greater competency in IoT and AI "
 date: 2019-11-06T18:12:07.794Z
 author: HPE DEV staff 
 tags: []
-path: hpe-hackathon-builds-greater-competency-in-iot-and-ai
-authorimage: "/img/blogs/Avatar3.svg"
+authorimage: "/img/blogs/Avatar1.svg"
+featuredBlog:
+thumbnailimage:
 ---
 ![florian hackathon first image1](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2019/10/florian-hackathon-first-image1-1573154920702.jpg)
 

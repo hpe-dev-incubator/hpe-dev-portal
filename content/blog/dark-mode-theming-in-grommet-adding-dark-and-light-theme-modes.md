@@ -3,8 +3,9 @@ title: "Dark Mode Theming in Grommet: Adding dark and light theme modes"
 date: 2020-10-21T12:49:17.679Z
 author: Matt Glissmann 
 tags: ["Grommet","theme","mode","opensource"]
-path: dark-mode-theming-in-grommet-adding-dark-and-light-theme-modes
-authorimage: "/img/blogs/Avatar6.svg"
+authorimage: "/img/blogs/Avatar5.svg"
+featuredBlog:
+thumbnailimage:
 ---
 ![f1lightdark2](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/9/f1lightdark2-1603286799167.png)
 

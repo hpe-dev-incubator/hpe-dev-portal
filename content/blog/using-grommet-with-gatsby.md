@@ -3,8 +3,9 @@ title: "Using Grommet with Gatsby"
 date: 2020-01-21T17:34:14.734Z
 author:  Michael Kingdom 
 tags: ["grommet","opensource"]
-path: using-grommet-with-gatsby
-authorimage: "/img/blogs/Avatar1.svg"
+authorimage: "/img/blogs/Avatar4.svg"
+featuredBlog:
+thumbnailimage:
 ---
 ![picture1](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2019/10/picture1-1579628420945.png)
 

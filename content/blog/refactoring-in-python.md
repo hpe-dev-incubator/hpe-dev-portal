@@ -3,8 +3,9 @@ title: "Refactoring in Python"
 date: 2020-01-30T22:57:21.363Z
 author: Samarth Deyagond 
 tags: ["Python"]
-path: refactoring-in-python
 authorimage: "/img/blogs/Avatar5.svg"
+featuredBlog:
+thumbnailimage:
 ---
 ![01 refactoring 1024](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/1/01-refactoring-1024-1581354751665.jpg)
 

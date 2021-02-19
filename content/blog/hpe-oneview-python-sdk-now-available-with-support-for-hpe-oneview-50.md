@@ -3,8 +3,9 @@ title: "HPE OneView Python SDK now available with support for HPE OneView 5.0 "
 date: 2020-01-08T18:31:57.006Z
 author: Christopher Pasek  
 tags: ["HPE-OneView","OneView","Python"]
-path: hpe-oneview-python-sdk-now-available-with-support-for-hpe-oneview-50
-authorimage: "/img/blogs/Avatar6.svg"
+authorimage: "/img/blogs/Avatar2.svg"
+featuredBlog:
+thumbnailimage:
 ---
 ## Use HPE OneView software-defined intelligence to save time and effort
 

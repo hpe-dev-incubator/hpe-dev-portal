@@ -3,8 +3,9 @@ title: "PharML.Bind COVID-19 Compound Affinity Prediction "
 date: 2020-05-26T14:47:37.205Z
 author: Jacob Balma 
 tags: ["opensource"]
-path: pharmlbind-covid-19-compound-affinity-prediction
 authorimage: "/img/blogs/Avatar3.svg"
+featuredBlog:
+thumbnailimage:
 ---
 ![picture1](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/3/picture1-1590504636961.png)
 

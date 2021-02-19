@@ -36,12 +36,29 @@ collections:
     editor:
       preview: true
     fields:
-      - { label: 'ID', name: 'title', widget: 'string', hint: 'used for the filename and tagging' }
+      - { label: 'Title', name: 'title', widget: 'string', hint: 'used for the filename and tagging' }
       - { label: 'Category', name: 'category', widget: 'select', options: [ { label: 'none', value: ''}, { label: 'Community', value: 'Community' }, { label: 'Design', value: 'Design' }, { label: 'Develop', value: 'Develop' }, { label: 'Event', value: 'Event' }, { label: 'Open Source', value: 'Open Source' }, { label: 'Research', value: 'Research' } ], default: 'none' }
       - { label: 'Priority', name: 'priority', widget: 'number', hint: 'controls the position on the page'}
       - { label: 'Width', name: 'width', widget: 'select', options: [ 'small', 'medium', 'large' ], default: 'medium'}
-      - { label: 'Link', name: 'link', widget: 'string', required: false }
+      - { label: 'Link', name: 'link', widget: 'string'}
       - { label: 'Image', name: 'image', widget: 'image', hint 'image shown next to or above content' }
+      - { label: 'Body', name: 'body', widget: 'markdown' }
+  # Opensource collectionel: 
+  - name: 'opensource'
+    label: 'Opensource'
+    folder: 'content/opensource'
+    extension: 'md'
+    create: true
+    slug: '{{slug}}'
+    editor:
+      preview: true
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Category', name: 'category', widget: 'string' }
+      - { label: 'Link', name: 'link', widget: 'string'}
+      - { label: 'Description', name: 'description', widget: 'string'}
+      - { label: 'Priority', name: 'priority', widget: 'number' }
+      - { label: 'Thumbnail Image', name: 'image', widget: 'image', hint 'image to appear on opensource card' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
   # Blog collection
   - name: 'blog'
@@ -56,11 +73,13 @@ collections:
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Publish Date', name: 'date', widget: 'datetime' }
+      - { label: 'Featured', name: 'featuredBlog', widget: 'boolean' }
+      - { label: 'Priority', name: 'priority', widget: 'number' }
       - { label: 'Author', name: 'author', widget: 'string' } 
-      - { label: 'Author Image', name: 'authorimage', widget: 'string' }
-      - { label: 'Tags', name: 'tags', widget: 'list', allow_add: true, required: false, field: {label: 'Tag', name: 'tag', widget: 'string'}  }
-      - { label: 'Path', name: 'path', widget: 'string'}
+      - { label: 'Author Image', name: 'authorimage', widget: 'image',default: "/img/blogs/Avatar1.svg", hint: 'author image shown next to content' }
+      - { label: 'Thumbnail Image', name: 'thumbnailimage', widget: 'image', hint: 'thumbnail image shown next to content' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
+      - { label: 'Tags', name: 'tags', widget: 'list', allow_add: true, required: false, field: {label: 'Tag', name: 'tag', widget: 'string'}  }
   # Event collectionel: 
   - name: 'event'
     label: 'Event'
@@ -72,8 +91,11 @@ collections:
       preview: true
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Start Date', name: 'datestart', widget: 'datetime' }
-      - { label: 'End Date', name: 'dateend', widget: 'datetime' }
+      - { label: 'Start Date', name: 'dateStart', widget: 'datetime' }
+      - { label: 'End Date', name: 'dateEnd', widget: 'datetime' }
+      - { label: 'Thumbnail Image', name: 'image', widget: 'image', hint: 'thumbnail image shown next to content' }
+      - { label: 'Link', name: 'link', widget: 'string'}
+      - { label: 'Width', name: 'width', widget: 'select', options: [ 'small', 'medium', 'large' ], default: 'medium'}
       - { label: 'Tags', name: 'tags', widget: 'list', allow_add: true, required: false, field: {label: 'Tag', name: 'tag', widget: 'string'}  }
       - { label: 'Body', name: 'body', widget: 'markdown' }
   # Newsletter collection
@@ -88,7 +110,9 @@ collections:
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Date', name: 'date', widget: 'datetime' }
-      - { label: 'Tags', name: 'tags', widget: 'list', allow_add: true, required: false, field: {label: 'Tag', name: 'tag', widget: 'string'}  }
+      - { label: 'Link', name: 'link', widget: 'string'}
+      - { label: 'Description', name: 'description', widget: 'string'}
+      - { label: 'Monthly', name: 'monthly', widget: 'number' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
   # Platform collection - TODO: hierarchical content/platform/{name}/home.md 
   - name: 'platform'
@@ -107,7 +131,54 @@ collections:
       - { label: 'Version', name: 'version', widget: 'string' }
       - { label: 'Description', name: 'description', widget: 'string' }
       - { label: 'Image', name: 'image', widget: 'image', hint 'image to appear on Develop page' }
-      - { label: 'Show on Develop page', name: 'frontpage', widget: 'boolean', default: false}
-      - { label: 'Priority', name: 'priority', widget: 'number', hint: 'controls the position on the Develop page'}
+      - { label: 'Width', name: 'width', widget: 'select', options: [ 'small', 'medium', 'large' ], default: 'large'}
+      - { label: 'Priority', name: 'priority', widget: 'number', hint: 'controls the position on the platform page'}
       - { label: 'Tags', name: 'tags', widget: 'list', allow_add: true, required: false, field: {label: 'Tag', name: 'tag', widget: 'string'} }
+      - { label: 'Body', name: 'body', widget: 'markdown' }
+# Community collection
+  - name: 'community'
+    label: 'Community'
+    folder: 'content/community'
+    extension: 'md'
+    create: true
+    slug: 'community'
+    editor:
+      preview: true
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Link', name: 'link', widget: 'string'}
+      - { label: 'Link Name', name: 'linkname', widget: 'string'}
+      - { label: 'Description', name: 'description', widget: 'string' }
+      - { label: 'Priority', name: 'priority', widget: 'number', hint: 'controls the position on the community page'}
+      - { label: 'Image', name: 'image', widget: 'image', hint 'image to appear on community card' }
+      - { label: 'Body', name: 'body', widget: 'markdown' }
+# Campaign collection
+  - name: 'campaign'
+    label: 'Campaign'
+    folder: 'content/campaign'
+    extension: 'md'
+    create: true
+    slug: 'campaign'
+    editor:
+      preview: true
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Author Image', name: 'authorimage', widget: 'image',default: "/img/blogs/Avatar1.svg", hint: 'author image shown next to content' }
+      - { label: 'Body', name: 'body', widget: 'markdown' }
+# Skillup collection
+  - name: 'skillup'
+    label: 'Skillup'
+    folder: 'content/skillup'
+    extension: 'md'
+    create: true
+    slug: 'skillup'
+    editor:
+      preview: true
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Link', name: 'link', widget: 'string'}
+      - { label: 'Link Name', name: 'linkname', widget: 'string'}
+      - { label: 'Description', name: 'description', widget: 'string' }
+      - { label: 'Priority', name: 'priority', widget: 'number', hint: 'controls the position on the community page'}
+      - { label: 'Image', name: 'image', widget: 'image', hint 'image to appear on community card' }
       - { label: 'Body', name: 'body', widget: 'markdown' }

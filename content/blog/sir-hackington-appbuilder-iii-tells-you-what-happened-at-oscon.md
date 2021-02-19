@@ -3,8 +3,9 @@ title: "Sir Hackington Appbuilder III Tells You What Happened at OSCON"
 date: 2018-08-10T01:00:29.215Z
 author: Sir Hackington Appbuilder III 
 tags: ["open-source","community","OSCON"]
-path: sir-hackington-appbuilder-iii-tells-you-what-happened-at-oscon
-authorimage: "/img/blogs/Avatar3.svg"
+authorimage: "/img/blogs/Avatar2.svg"
+featuredBlog:
+thumbnailimage:
 ---
 Sir Hackington Appbuilder III here. Yeah, take a look at the picture. I’m the dog with the lanyards. I’m pretty cute, huh? That’s what people tell me. Sure, they also call me a mascot, but I’d like to think I’m the most important member of the HPE Developer Community (HPE DEV). 
 

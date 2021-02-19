@@ -3,8 +3,9 @@ title: "Grommet – the Glue that Binds Development and Design"
 date: 2019-05-09T14:59:02.506Z
 author: Dale Rensing 
 tags: ["Grommet","opensource"]
-path: grommet-the-glue-that-binds-development-and-design
-authorimage: "/img/blogs/Avatar6.svg"
+authorimage: "/img/blogs/Avatar4.svg"
+featuredBlog:
+thumbnailimage:
 ---
 Simple, consistent, and thoughtfully designed user interfaces (UI) can go a long way to integrating business applications and streamlining operations. Hewlett Packard Enterprise (HPE) is a huge proponent of simplifying complex environments. That’s why HPE developed [Grommet,](http://v2.grommet.io) an open source UI development tool, and made it available to anyone looking to create consistent user experiences for their applications. 
 

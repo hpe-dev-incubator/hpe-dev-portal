@@ -3,8 +3,10 @@ title: "Journey Science in Telecom: Take Customer Experience to the Next Level"
 date: 2021-01-14T05:27:21.177Z
 author: Ronald Van Loon 
 tags: ["hpe-ezmeral-data-fabric","MapR"]
-path: journey-science-in-telecom-take-customer-experience-to-the-next-level
-authorimage: "/img/blogs/Avatar4.svg"
+authorimage: "/img/blogs/Avatar3.svg"
+featuredBlog:
+priority:
+thumbnailimage:
 ---
 **Editor’s Note:** MapR products and solutions sold prior to the acquisition of such assets by Hewlett Packard Enterprise Company in 2019, may have older product names and model numbers that differ from current solutions. For information about current offerings, which are now part of HPE Ezmeral Data Fabric, please visit [https://www.hpe.com/us/en/software/data-fabric.html](https://www.hpe.com/us/en/software/data-fabric.html)
 

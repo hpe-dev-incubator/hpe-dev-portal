@@ -3,8 +3,9 @@ title: "Hacktoberfest 2019 - Help Grommet and win a free t-shirt in the process"
 date: 2019-09-30T16:06:29.981Z
 author: HPE DEV staff 
 tags: []
-path: hacktoberfest-2019-help-grommet-and-win-a-free-t-shirt-in-the-process
-authorimage: "/img/blogs/Avatar4.svg"
+authorimage: "/img/blogs/Avatar2.svg"
+featuredBlog:
+thumbnailimage:
 ---
 ![picture1](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2019/8/picture1-1569859873855.png)
 

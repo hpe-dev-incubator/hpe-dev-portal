@@ -3,8 +3,9 @@ title: "Calling all developers… Make your voices heard!"
 date: 2020-12-08T07:23:25.530Z
 author: Didier Lalli 
 tags: ["survey","opensource"]
-path: calling-all-developers-make-your-voices-heard
-authorimage: "/img/blogs/Avatar3.svg"
+authorimage: "/img/blogs/Avatar1.svg"
+featuredBlog:
+thumbnailimage:
 ---
 ![survey](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/12/survey-1607412365622.png)
 

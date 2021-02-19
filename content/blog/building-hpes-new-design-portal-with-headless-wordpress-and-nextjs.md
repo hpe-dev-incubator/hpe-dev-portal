@@ -3,8 +3,10 @@ title: "Building HPE's new design portal with headless Wordpress and Next.JS"
 date: 2018-11-27T20:35:27.762Z
 author: Alex Mejias 
 tags: []
-path: building-hpes-new-design-portal-with-headless-wordpress-and-nextjs
-authorimage: "/img/blogs/Avatar2.svg"
+authorimage: "/img/blogs/Avatar6.svg"
+featuredBlog:
+priority:
+thumbnailimage:
 ---
 ## Work smarter, not harder
 I can't quite recall who planted the "work smarter, not harder" seed in my head but for the past six months, it has been resonating non-stop in an almost comical manner. This project reflected that mantra to a T.

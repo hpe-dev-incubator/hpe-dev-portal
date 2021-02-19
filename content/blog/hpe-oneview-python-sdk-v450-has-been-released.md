@@ -3,8 +3,9 @@ title: "HPE OneView Python SDK v4.5.0 has been released"
 date: 2018-03-06T19:56:14.991Z
 author: bob.fraser@hpe.com 
 tags: ["HPE-OneView","OneView","RESTAPI","Python"]
-path: hpe-oneview-python-sdk-v450-has-been-released
-authorimage: "/img/blogs/Avatar5.svg"
+authorimage: "/img/blogs/Avatar6.svg"
+featuredBlog:
+thumbnailimage:
 ---
 # HPE OneView Python SDK v4.5.0 has been released
 

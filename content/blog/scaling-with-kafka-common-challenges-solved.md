@@ -3,8 +3,10 @@ title: "Scaling with Kafka – Common Challenges Solved"
 date: 2021-01-29T05:13:45.899Z
 author: Will Ochandarena 
 tags: ["hpe-ezmeral-data-fabric","MapR","kafka"]
-path: scaling-with-kafka-common-challenges-solved
-authorimage: "/img/blogs/Avatar3.svg"
+authorimage: "/img/blogs/Avatar4.svg"
+featuredBlog:
+priority:
+thumbnailimage:
 ---
 **Editor’s Note:** MapR products and solutions sold prior to the acquisition of such assets by Hewlett Packard Enterprise Company in 2019 may have older product names and model numbers that differ from current solutions. For information about current offerings, which are now part of HPE Ezmeral Data Fabric, please visit [https://www.hpe.com/us/en/software/data-fabric.html](https://www.hpe.com/us/en/software/data-fabric.html)
 

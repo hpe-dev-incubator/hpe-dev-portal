@@ -3,8 +3,9 @@ title: "Apps and Infrastructure as Code with Ansible using HPE Cloud Volumes and
 date: 2017-11-29T09:18:49.512Z
 author: Michael Mattsson 
 tags: ["devops","hpe-cloud-volumes","ansible","docker","hpe-nimble-storage"]
-path: apps-and-infrastructure-as-code-with-ansible-using-hpe-cloud-volumes-and
-authorimage: "/img/blogs/Avatar3.svg"
+authorimage: "/img/blogs/Avatar5.svg"
+featuredBlog:
+thumbnailimage:
 ---
 [HPE Cloud Volumes](https://cloudvolumes.hpe.com) (formerly [Nimble Cloud Volumes](https://www.nimblestorage.com/cloud/)) introduces the exciting capability of consuming HPE Nimble Storage as a service in the public cloud. We recently came out of beta and we're introducing new features constantly. We just published our [REST API for HPE Cloud Volumes](https://docs.cloudvolumes.hpe.com/help/rest/api-reference) and all of a sudden open up a plethora of new use cases for the service. One of them is the ability to include HPE Cloud Volumes when managing applications and infrastructure as code as most cloud-native shops do today. Also, we added basic HPE Cloud Volumes functionality to the [HPE Nimble Storage Ansible role](https://galaxy.ansible.com/NimbleStorage/Ansinimble/). The following tutorial will walk through deploying [Docker CE](https://www.docker.com/community-edition) on HPE Cloud Volumes and deploy a distributed application on top of Docker Swarm using [Ansible](https://www.ansible.com).
 

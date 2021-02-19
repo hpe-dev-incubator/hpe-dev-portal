@@ -3,8 +3,9 @@ title: "Complex Stateful Applications on Kubernetes: KubeDirector version 0.2"
 date: 2019-09-09T17:26:49.571Z
 author: Tom Phelan 
 tags: ["hpe-ezmeral-container-platform","hpe-container-platform","bluedata","container","opensource","kubedirector"]
-path: complex-stateful-applications-on-kubernetes-kubedirector-version-02
-authorimage: "/img/blogs/Avatar5.svg"
+authorimage: "/img/blogs/Avatar1.svg"
+featuredBlog:
+thumbnailimage:
 ---
 Last summer, [I wrote here about our BlueK8s initiative and a new open source project](https://www.bluedata.com/blog/2018/07/operation-stateful-bluek8s-and-kubernetes-director/) for deploying and managing complex stateful scale-out applications on Kubernetes: __KubeDirector.__ KubeDirector enables data scientists familiar with data-intensive distributed applications such as Hadoop, Spark, Cassandra, TensorFlow, Caffe2, etc. to easily run these applications on Kubernetes.
 

@@ -3,8 +3,10 @@ title: "Tutorial: Enabling Remote Copy using the HPE CSI Driver for Kubernetes o
 date: 2020-08-26T02:02:34.482Z
 author: Chris Snell 
 tags: ["hpe-3par-and-primera"]
-path: tutorial-enabling-remote-copy-using-the-hpe-csi-driver-for-kubernetes-on
-authorimage: "/img/blogs/Avatar1.svg"
+authorimage: "/img/blogs/Avatar3.svg"
+featuredBlog:
+priority:
+thumbnailimage:
 ---
 The addition of new features to the HPE CSI Driver for Kubernetes never stops and, with the newly released 1.3.0 version of the CSI Driver, comes the much requested support for HPE Primera and 3PAR Remote Copy Peer Persistence. Remote Copy support within Kubernetes provides enhanced availability and transparent failover for disaster recovery protection with Kubernetes. As more and more applications migrate into Kubernetes, HPE recommends customers deploy mission-critical applications with replicated persistent volumes to ensure that these applications are highly available and resistant to failure. HPE Primera and 3PAR Remote Copy can serve as the foundation for a disaster recovery solution. 
 

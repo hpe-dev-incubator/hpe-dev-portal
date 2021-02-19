@@ -174,13 +174,16 @@ module.exports = {
             sort: { fields: [frontmatter___date], order: DESC }) {
               nodes {
                 id
+                fields {
+                  slug
+                  sourceInstanceName
+                }
                 frontmatter {
                   title
                   date
                   description
                   author
                   tags
-                  path
                   authorimage
                 }
                 excerpt
@@ -196,8 +199,11 @@ module.exports = {
             description: node.excerpt,
             author: node.frontmatter.author,
             tags: node.frontmatter.tags,
-            path: `${node.frontmatter.path}`,
             authorimage: node.frontmatter.authorimage,
+            fields: {
+              slug: node.fields.slug,
+              sourceInstanceName: node.fields.sourceInstanceName,
+            },
           })),
       },
     },

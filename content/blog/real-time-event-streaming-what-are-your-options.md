@@ -3,8 +3,10 @@ title: "Real-Time Event Streaming: What Are Your Options?"
 date: 2021-01-29T05:22:57.331Z
 author: Ankur Desai 
 tags: ["hpe-ezmeral-data-fabric","MapR","apache-spark","event-streaming"]
-path: real-time-event-streaming-what-are-your-options
-authorimage: "/img/blogs/Avatar6.svg"
+authorimage: "/img/blogs/Avatar5.svg"
+featuredBlog:
+priority:
+thumbnailimage:
 ---
 **Editor’s Note:** MapR products and solutions sold prior to the acquisition of such assets by Hewlett Packard Enterprise Company in 2019 may have older product names and model numbers that differ from current solutions. For information about current offerings, which are now part of HPE Ezmeral Data Fabric, please visit [https://www.hpe.com/us/en/software/data-fabric.html](https://www.hpe.com/us/en/software/data-fabric.html)
 

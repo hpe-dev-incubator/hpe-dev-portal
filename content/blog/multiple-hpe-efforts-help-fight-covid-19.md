@@ -3,8 +3,9 @@ title: "Multiple HPE efforts help fight COVID-19"
 date: 2020-04-28T15:22:08.451Z
 author:  Dale Rensing 
 tags: ["opensource"]
-path: multiple-hpe-efforts-help-fight-covid-19
-authorimage: "/img/blogs/Avatar2.svg"
+authorimage: "/img/blogs/Avatar3.svg"
+featuredBlog:
+thumbnailimage:
 ---
 ![title slide for covid blog](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/3/title-slide-for-covid-blog-1588088234878.jpg)
 

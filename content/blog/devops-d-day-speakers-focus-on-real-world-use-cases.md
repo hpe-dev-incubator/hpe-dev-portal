@@ -3,8 +3,9 @@ title: "DevOps D-Day speakers focus on real-world use cases"
 date: 2019-11-21T16:00:12.282Z
 author: Didier Lalli 
 tags: []
-path: devops-d-day-speakers-focus-on-real-world-use-cases
-authorimage: "/img/blogs/Avatar4.svg"
+authorimage: "/img/blogs/Avatar6.svg"
+featuredBlog:
+thumbnailimage:
 ---
 ![picture3](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2019/10/picture3-1574352241077.png)
 

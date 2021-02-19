@@ -3,8 +3,10 @@ title: "Setting Up Spark Dynamic Allocation on MapR"
 date: 2021-02-05T05:19:26.501Z
 author: Tugdual Grall 
 tags: ["hpe-ezmeral-data-fabric","MapR","apache-spark"]
-path: setting-up-spark-dynamic-allocation-on-mapr
 authorimage: "/img/blogs/Avatar4.svg"
+featuredBlog:
+priority:
+thumbnailimage:
 ---
 **Editor’s Note:** MapR products and solutions sold prior to the acquisition of such assets by Hewlett Packard Enterprise Company in 2019 may have older product names and model numbers that differ from current solutions. For information about current offerings, which are now part of HPE Ezmeral Data Fabric, please visit [https://www.hpe.com/us/en/software/data-fabric.html](https://www.hpe.com/us/en/software/data-fabric.html)
 

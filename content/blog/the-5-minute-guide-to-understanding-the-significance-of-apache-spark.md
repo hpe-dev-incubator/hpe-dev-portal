@@ -3,8 +3,10 @@ title: "The 5-Minute Guide to Understanding the Significance of Apache Spark"
 date: 2020-11-25T02:19:48.521Z
 author: Nitin Bandugula 
 tags: ["opensource","mapr","apache-spark","hpe-ezmeral-data-fabric"]
-path: the-5-minute-guide-to-understanding-the-significance-of-apache-spark
-authorimage: "/img/blogs/Avatar5.svg"
+authorimage: "/img/blogs/Avatar3.svg"
+featuredBlog:
+priority:
+thumbnailimage:
 ---
 **Editor’s Note:** MapR products and solutions sold prior to the acquisition of such assets by Hewlett Packard Enterprise Company in 2019, may have older product names and model numbers that differ from current solutions. For information about current offerings, which are now part of HPE Ezmeral Data Fabric, please visit [https://www.hpe.com/us/en/software/data-fabric.html](https://www.hpe.com/us/en/software/data-fabric.html)
 

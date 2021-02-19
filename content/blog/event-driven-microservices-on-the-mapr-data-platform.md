@@ -3,8 +3,10 @@ title: "Event-Driven Microservices on the MapR Data Platform"
 date: 2021-02-05T07:05:46.365Z
 author: Rachel Silver 
 tags: ["hpe-ezmeral-data-fabric","MapR"]
-path: event-driven-microservices-on-the-mapr-data-platform
 authorimage: "/img/blogs/Avatar6.svg"
+featuredBlog:
+priority:
+thumbnailimage:
 ---
 **Editor’s Note:** MapR products and solutions sold prior to the acquisition of such assets by Hewlett Packard Enterprise Company in 2019 may have older product names and model numbers that differ from current solutions. For information about current offerings, which are now part of HPE Ezmeral Data Fabric, please visit [https://www.hpe.com/us/en/software/data-fabric.html](https://www.hpe.com/us/en/software/data-fabric.html)
 
@@ -52,7 +54,7 @@ This was built to be specific to stock trading data analysis, but the concepts a
 
 ## How does this all work?
 
-**An integrated publish-and-subscribe framework to support event-driven applications.**
+An integrated publish-and-subscribe framework to support event-driven applications.
 
 The foundation of our microservices offering is our low latency messaging system. It’s adaptable, scalable, and allows you to leverage your converged platform to integrate data-in-motion and data-at-rest to support real-time applications.
 

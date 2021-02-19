@@ -3,8 +3,10 @@ title: "Containers vs. VMs: A 5-Minute Guide to Understanding Their Differences"
 date: 2021-01-29T05:33:44.878Z
 author: Suzy Visvanathan 
 tags: ["hpe-ezmeral-data-fabric","MapR","containers","virtual-machine"]
-path: containers-vs-vms-a-5-minute-guide-to-understanding-their-differences
-authorimage: "/img/blogs/Avatar2.svg"
+authorimage: "/img/blogs/Avatar1.svg"
+featuredBlog:
+priority:
+thumbnailimage:
 ---
 **Editor’s Note:** MapR products and solutions sold prior to the acquisition of such assets by Hewlett Packard Enterprise Company in 2019 may have older product names and model numbers that differ from current solutions. For information about current offerings, which are now part of HPE Ezmeral Data Fabric, please visit [https://www.hpe.com/us/en/software/data-fabric.html](https://www.hpe.com/us/en/software/data-fabric.html)
 

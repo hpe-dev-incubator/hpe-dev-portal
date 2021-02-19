@@ -3,8 +3,10 @@ title: "Data Modeling Guidelines for NoSQL JSON Document Databases"
 date: 2020-07-08T05:22:33.670Z
 author: Carol McDonald 
 tags: ["hpe-ezmeral-data-fabric","MapR","opensource"]
-path: data-modeling-guidelines-for-nosql-json-document-databases
-authorimage: "/img/blogs/Avatar1.svg"
+authorimage: "/img/blogs/Avatar5.svg"
+featuredBlog:
+priority:
+thumbnailimage:
 ---
 ## Original Post Information:
 ```
@@ -22,7 +24,7 @@ Simply put the motivation behind NoSQL is data volume, velocity, and/or variety.
 * HPE Ezmeral Data Fabric as a Wide column database with an Apache HBase API
 * HPE Ezmeral Data Fabric as a Document database with an Open JSON API
 
-<img src="https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/6/mapr-db-json-1594186549663.png" alt="HPE Ezmeral Data Fabric" width="900">
+<img src="/uploads/media/2020/6/mapr-db-json-1594186549663.png" alt="HPE Ezmeral Data Fabric" width="900">
 
 HPE Ezmeral Data Fabric JSON is different than other Document data stores in that the row key design is the same for both models, and both can store data (columns or documents) with different access patterns in a different column family with the same row key.
 
@@ -30,7 +32,7 @@ HPE Ezmeral Data Fabric JSON is different than other Document data stores in tha
 
 In relational design, the focus and effort is around describing the entity and its relation with other entities; the queries and indexes are designed later.  With a relational database you normalize your schema, which eliminates redundant data and makes storage efficient. Then queries with joins bring the data back together again. However joins cause bottlenecks on read, with data distributed across a cluster, this model does not scale horizontally. With HPE Ezmeral Data Fabric, a table is automatically partitioned across a cluster by key range, and each server is the source for a subset of a table (called a tablet). HPE Ezmeral Data Fabric has a “query-first” schema design, queries should be identified first, then the row key should be designed to distribute the data evenly and also to give a meaningful primary index to query by. The row document (JSON) or columns (HBase) should be designed to group data together that will be read together. With HPE Ezmeral Data Fabric you de-normalize your schema to store in one row or document what would be multiple tables with indexes in a relational world. Grouping the data by key range provides for fast reads and writes by row key.
 
-<img src="https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/6/mapr-db-read-writes-1594186238593.png" alt="HPE Ezmeral Data Fabric faster read and writes" width="900">
+<img src="/uploads/media/2020/6/mapr-db-read-writes-1594186238593.png" alt="HPE Ezmeral Data Fabric faster read and writes" width="900">
 
 ## **NoSQL Data Modeling Process**
 
@@ -78,7 +80,7 @@ This is the relational model for the example social application:
 
 In a relational database, you normalize the schema to eliminate redundancy by putting repeating information into a table of its own. In this example below, we have an order table, which has a one-to-many relationship with an order items table. The order items table has a foreign key with the id of the corresponding order.
 
-<img src="https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/6/order-items-table-1594186396974.png" alt="Order Items Table" width="900">
+<img src="/uploads/media/2020/6/order-items-table-1594186396974.png" alt="Order Items Table" width="900">
 
 ## **Denormalization**
 
@@ -110,7 +112,7 @@ Note: that the maximum default row size is 32MB, and optimal size is between 50-
 
 This is the document model for the example social application:
 
-<img src="https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/6/document-model-social-app-1594186415200.png" alt="Document Model for Social Application" width="900">
+<img src="/uploads/media/2020/6/document-model-social-app-1594186415200.png" alt="Document Model for Social Application" width="900">
 
 There are 2 tables in the document model compared to 4 in the relational:
 * User details are stored in the user table
@@ -136,7 +138,7 @@ patientid-timestamp, Heart Rate, "98"
 ```
 This is the document model for the clinical patient event data:
 
-<img src="https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/6/document-model-event-data-1594186470650.png" alt="Document Model Event Data" width="900">
+<img src="/uploads/media/2020/6/document-model-event-data-1594186470650.png" alt="Document Model Event Data" width="900">
 
 The Row Key is the patient ID plus a time stamp. The variable event type and measurement is put in name value pairs.
 
@@ -180,7 +182,7 @@ In modern object-oriented programming models,  different object types can be rel
 
 In this online store example, the type of product is a prefix in the row key. Some of the name value pairs are different, and may be missing depending on the type of product. This allows to model different product types in the same table and to find a group of products easily by product type.
 
-<img src="https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/6/product-type-1594186531426.png" alt="Product Types" width="900">
+<img src="/uploads/media/2020/6/product-type-1594186531426.png" alt="Product Types" width="900">
 
 In this blog post, you learned how document database data modeling is different from traditional relational schema modeling, and you also got some guidelines for document database data modeling.
 

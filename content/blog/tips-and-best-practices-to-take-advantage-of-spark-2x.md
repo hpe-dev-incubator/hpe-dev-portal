@@ -3,8 +3,10 @@ title: "Tips and Best Practices to Take Advantage of Spark 2.x"
 date: 2020-07-08T05:54:32.934Z
 author: Carol McDonald 
 tags: ["hpe-ezmeral-data-fabric","MapR","Spark","AI","opensource"]
-path: tips-and-best-practices-to-take-advantage-of-spark-2x
-authorimage: "/img/blogs/Avatar4.svg"
+authorimage: "/img/blogs/Avatar6.svg"
+featuredBlog:
+priority:
+thumbnailimage:
 ---
 ## Original post information:
 

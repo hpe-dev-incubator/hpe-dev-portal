@@ -3,8 +3,10 @@ title: "MapR, Kubernetes, Spark and Drill: A Two-Part Guide to Accelerating Your
 date: 2020-11-03T16:17:29.186Z
 author: Suresh Ollala 
 tags: ["hpe-ezmeral-data-fabric","MapR","opensource"]
-path: mapr-kubernetes-spark-and-drill-a-two-part-guide-to-accelerating-your-ai
-authorimage: "/img/blogs/Avatar2.svg"
+authorimage: "/img/blogs/Avatar1.svg"
+featuredBlog:
+priority:
+thumbnailimage:
 ---
 **Editor’s Note:** MapR products and solutions sold prior to the acquisition of such assets by Hewlett Packard Enterprise Company in 2019, may have older product names and model numbers that differ from current solutions. For information about current offerings, which are now part of HPE Ezmeral Data Fabric, please visit [https://www.hpe.com/us/en/software/data-fabric.html](https://www.hpe.com/us/en/software/data-fabric.html)
 

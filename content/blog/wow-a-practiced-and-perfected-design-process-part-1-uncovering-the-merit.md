@@ -3,8 +3,9 @@ title: "WOW – A practiced and perfected design process  Part 1 – Uncovering 
 date: 2020-04-13T17:45:00.133Z
 author: Parul Tyagi 
 tags: []
-path: wow-a-practiced-and-perfected-design-process-part-1-uncovering-the-merit
-authorimage: "/img/blogs/Avatar5.svg"
+authorimage: "/img/blogs/Avatar3.svg"
+featuredBlog:
+thumbnailimage:
 ---
 ![title slide](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/3/title-slide-1587659126865.jpg)
 

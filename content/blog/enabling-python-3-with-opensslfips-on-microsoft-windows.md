@@ -3,8 +3,10 @@ title: "Enabling Python 3 with OpenSSL/FIPS on Microsoft Windows"
 date: 2020-12-21T08:48:53.479Z
 author: Rajeev Kallur 
 tags: ["Python","OpenSSL","FIPS"]
-path: enabling-python-3-with-opensslfips-on-microsoft-windows
-authorimage: "/img/blogs/Avatar3.svg"
+authorimage: "/img/blogs/Avatar4.svg"
+featuredBlog:
+priority:
+thumbnailimage:
 ---
 ![](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/12/fips-compliant-1611244310749.png)
 

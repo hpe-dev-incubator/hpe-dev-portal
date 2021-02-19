@@ -3,8 +3,9 @@ title: "HPE firmware updates: Part 3 - The Redfish® update service"
 date: 2020-10-19T13:25:05.597Z
 author: François Donzé 
 tags: ["Redfish","firmware","ilo-restful-api","update"]
-path: hpe-firmware-updates-part-3-the-redfish-update-service
-authorimage: "/img/blogs/Avatar6.svg"
+authorimage: "/img/blogs/Avatar3.svg"
+featuredBlog:
+thumbnailimage:
 ---
 # Introduction
 In the first two blogs of this three part series regarding HPE firmware updates, I explained the[ different objects](https://developer.hpe.com/blog/hpe-firmware-updates-part-1-file-types-and-smart-components) involved in firmware updates and how they are packaged, as well as the interaction between these objects when used in different[ operating modes](https://developer.hpe.com/blog/hpe-firmware-updates-part-2-interaction-in-operating-modes).

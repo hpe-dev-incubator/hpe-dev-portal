@@ -3,8 +3,9 @@ title: "The neuroscience behind a design system"
 date: 2020-05-13T14:53:52.695Z
 author: Taylor Seamans 
 tags: []
-path: the-neuroscience-behind-a-design-system
-authorimage: "/img/blogs/Avatar2.svg"
+authorimage: "/img/blogs/Avatar1.svg"
+featuredBlog:
+thumbnailimage:
 ---
 ![taylor cropped (3)](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/3/taylor-cropped-3-1589386197151.png)
 

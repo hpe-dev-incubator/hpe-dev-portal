@@ -3,8 +3,10 @@ title: "Kubernetes, Kafka Event Sourcing Architecture Patterns and Use Case Exam
 date: 2020-11-11T07:02:01.953Z
 author: Carol McDonald 
 tags: ["hpe-ezmeral-data-fabric","MapR","Kafka","opensource","use-cases"]
-path: kubernetes-kafka-event-sourcing-architecture-patterns-and-use-case-examp
 authorimage: "/img/blogs/Avatar3.svg"
+featuredBlog:
+priority:
+thumbnailimage:
 ---
 **Editor’s Note:** MapR products and solutions sold prior to the acquisition of such assets by Hewlett Packard Enterprise Company in 2019, may have older product names and model numbers that differ from current solutions. For information about current offerings, which are now part of HPE Ezmeral Data Fabric, please visit [https://www.hpe.com/us/en/software/data-fabric.html](https://www.hpe.com/us/en/software/data-fabric.html)
 

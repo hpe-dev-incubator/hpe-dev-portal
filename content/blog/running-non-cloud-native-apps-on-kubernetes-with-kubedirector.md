@@ -3,8 +3,9 @@ title: "Running Non-Cloud-Native Apps on Kubernetes with KubeDirector"
 date: 2019-11-18T17:16:18.520Z
 author: Tom Phelan 
 tags: ["hpe-ezmeral-container-platform","hpe-container-platform","bluedata","container","opensource","kubedirector"]
-path: running-non-cloud-native-apps-on-kubernetes-with-kubedirector
-authorimage: "/img/blogs/Avatar5.svg"
+authorimage: "/img/blogs/Avatar1.svg"
+featuredBlog:
+thumbnailimage:
 ---
 This week at [KubeCon North America,](https://events19.linuxfoundation.org/events/kubecon-cloudnativecon-north-america-2019/) Hewlett Packard Enterprise (HPE) unveiled the new [HPE Container Platform.](https://www.hpe.com/us/en/newsroom/press-release/2019/11/Hewlett-Packard-Enterprise-introduces-Kubernetes-based-platform-for-bare-metal-and-edge-to-cloud-deployments.html) It’s the industry’s first Kubernetes-based software platform designed to run both cloud-native and non-cloud-native applications in containers, enabling true hybrid cloud operations across any location: on-premises, public clouds, and the edge.  
 

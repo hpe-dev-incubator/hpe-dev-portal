@@ -92,7 +92,7 @@ export const EmailCapture = ({ children, heading, bodyCopy1, bodyCopy2 }) => {
             {!bodyCopy2 && (
               <Text>
                 Sign up for the HPE Developer Newsletter or visit the{' '}
-                <Link to="/newsletter-signup">Newsletter Archive</Link> to see
+                <Link to="/newsletter-archive">Newsletter Archive</Link> to see
                 past content.
               </Text>
             )}

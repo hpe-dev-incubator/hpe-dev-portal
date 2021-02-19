@@ -3,8 +3,9 @@ title: "Using the Azure Stack cost monitor"
 date: 2018-09-07T21:43:43.204Z
 author: Vivek Kulkarni 
 tags: ["hpe-proliant-for-microsoft-azure-stack"]
-path: using-the-azure-stack-cost-monitor
 authorimage: "/img/blogs/Avatar5.svg"
+featuredBlog:
+thumbnailimage:
 ---
 # Overview
 The Azure Stack cost monitor scripts are used to pull resource consumption data from an Azure Stack instance.  This data can then be imported, manipulated and displayed in a variety of ways. This article describes how to pull this data and provides an example of what it looks like when displayed in a PowerBI dashboard.

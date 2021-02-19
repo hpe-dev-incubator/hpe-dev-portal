@@ -3,8 +3,9 @@ title: "Using Open Service Broker as a Quick and Easy Way to Offer Everything as
 date: 2019-08-19T15:29:52.117Z
 author: Pramod Sareddy 
 tags: []
-path: using-open-service-broker-as-a-quick-and-easy-way-to-offer-everything-as
-authorimage: "/img/blogs/Avatar5.svg"
+authorimage: "/img/blogs/Avatar6.svg"
+featuredBlog:
+thumbnailimage:
 ---
 ![everything as a service 2](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2019/8/everything-as-a-service-2-1568045844717.png)
 

@@ -3,8 +3,10 @@ title: "Cloud vs. On-Premises – What Are the Best Options for Deploying Micros
 date: 2020-12-16T06:55:47.622Z
 author: Jim Scott 
 tags: ["cloud-computing","microservices","hpe-ezmeral-data-fabric","MapR"]
-path: cloud-vs-on-premises-what-are-the-best-options-for-deploying-microservic
-authorimage: "/img/blogs/Avatar1.svg"
+authorimage: "/img/blogs/Avatar5.svg"
+featuredBlog:
+priority:
+thumbnailimage:
 ---
 **Editor’s Note:** MapR products and solutions sold prior to the acquisition of such assets by Hewlett Packard Enterprise Company in 2019, may have older product names and model numbers that differ from current solutions. For information about current offerings, which are now part of HPE Ezmeral Data Fabric, please visit [https://www.hpe.com/us/en/software/data-fabric.html](https://www.hpe.com/us/en/software/data-fabric.html)
 
