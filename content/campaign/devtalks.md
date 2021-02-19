@@ -7,8 +7,8 @@ DevTalks are developer/data scientist focused 1-hour sessions delivered by the H
 
 Please note that these talks are internal/partners only for now.
 
-| Date      | &nbsp;&nbsp;Title                                                             |     &nbsp;&nbsp;Speaker(s)                               | Link                                             |
-| :---------: | :----------------------------------------------------------------- | :---------------------------------------- | :------------------------------------------------: |
+| &nbsp;&nbsp;&nbsp;Date      | &nbsp;&nbsp;&nbsp;Title                                                             |     &nbsp;&nbsp;Speaker(s)                               | &nbsp;&nbsp;&nbsp;Link                                             |
+| :--------- | :----------------------------------------------------------------- | :---------------------------------------- | :------------------------------------------------ |
 | 09-Dec-20 | What’s a data fabric and how does it work?                        | Ted Dunning                              | [Replay](https://vimeo.com/489790992/47e806f228) |
 | 23-Dec-20 | No Session                                                        |                                          |                                                  |
 | 06-Jan-21 | Managing HPE Cloud Volumes with API                               | Yann Allandit                            | [Replay](https://vimeo.com/498286520/1a5f5f742a) |
