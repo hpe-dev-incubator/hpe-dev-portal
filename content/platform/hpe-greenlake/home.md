@@ -43,16 +43,21 @@ HPE GreenLake for private cloud brings the cloud to you, modernizing your on-pre
 
 
 
+
+
+
+
 * _[HPE GreenLake for private cloud: Instances and blueprints feature overview and best practices](https://h20195.www2.hpe.com/v2/Getdocument.aspx?docname=a50003040enw)_.
 
 
 
-* _[Complete step-by-step examples on how to build a custom instance type using scripts, and how to create an application blueprint and instantiate application from a blueprint](https://assets.ext.hpe.com/is/content/hpedam/a50003251enw)_.
+* _[ HPE GreenLake for private cloud deploy a 2-Tiered WordPress application using scripts and blueprints](https://assets.ext.hpe.com/is/content/hpedam/a50003251enw)_     
+(Complete step-by-step examples on how to build a custom instance type using scripts, and how to create an application blueprint and instantiate application from a blueprint).
 
 
 
-* _[Complete step-by-step examples of how to build an application blueprint using Ansible playbooks integration, automation workflows, instance types and layout](https://developer.hpe.com/uploads/media/2020/6/gl4pc_eshop_bp_v1_35-1593186155592.pdf)_.
-
+* _[HPE GreenLake for private cloud: Utilizing application blueprints to simplify deployment of a multinode application using HPE GreenLake for private cloud](https://developer.hpe.com/uploads/media/2020/6/gl4pc_eshop_bp_v1_35-1593186155592.pdf)_     
+(Complete step-by-step examples of how to build an application blueprint using Ansible playbooks integration, automation workflows, instance types and layout).
 
 <br>
 
