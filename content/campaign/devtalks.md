@@ -7,7 +7,7 @@ DevTalks are developer/data scientist focused 1-hour sessions delivered by the H
 
 Please note that these talks are internal/partners only for now.
 
-| &nbsp;&nbsp;&nbsp;Date      | &nbsp;&nbsp;&nbsp;Title                                                             |     &nbsp;&nbsp;;&nbsp;Speaker(s)                               | &nbsp;&nbsp;&nbsp;Link                                             |
+| &nbsp;&nbsp;&nbsp;Date      | &nbsp;&nbsp;&nbsp;Title                                                             |     &nbsp;&nbsp;&nbsp;Speaker(s)                               | &nbsp;&nbsp;&nbsp;Link                                             |
 | :--------- | :----------------------------------------------------------------- | :---------------------------------------- | :------------------------------------------------ |
 | 09-Dec-20 | What’s a data fabric and how does it work?                        | Ted Dunning                              | [Replay](https://vimeo.com/489790992/47e806f228) |
 | 23-Dec-20 | No Session                                                        |                                          |                                                  |
