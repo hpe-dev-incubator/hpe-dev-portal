@@ -30,9 +30,9 @@ With the HPE GreenLake Central platform, you can manage all of your IT operation
 <br>
 
 <a href="#privatecloud" target="_self">HPE GreenLake for private cloud</a>
-&nbsp;&nbsp;<a href="#container" target="_self">HPE GreenLake for containers</a>
+&nbsp;<a href="#container" target="_self">HPE GreenLake for containers</a>
 
-&nbsp;&nbsp;<a href="#mlops" target="_self">HPE GreenLake for ML Ops</a>
+&nbsp;<a href="#mlops" target="_self">HPE GreenLake for ML Ops</a>
  
 <br>
 
