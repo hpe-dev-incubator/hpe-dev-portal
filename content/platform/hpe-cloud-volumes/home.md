@@ -11,16 +11,11 @@ priority: 4
 
 <br>
 
-
-#### Accelerate your business from edge to cloud with HPE Cloud Volumes services for your edge, on-premises and cloud workloads. Experience cloud-like agility, scalability and innovation with fast deployment and pay-as-you-go economics. Move any workload in any cloud, protect everything and recover anywhere.
+**Accelerate your business from edge to cloud with HPE Cloud Volumes services for your edge, on-premises and cloud workloads. Experience cloud-like agility, scalability and innovation with fast deployment and pay-as-you-go economics. Move any workload in any cloud, protect everything and recover anywhere.**
 
 HPE Cloud Volumes is an enterprise-grade public cloud block storage-as-a-service solution. Designed for easy data mobility, Cloud Volumes allows you to freely move data between on premises environments and public clouds, without costly fees.
 
-
-
 HPE Cloud Volumes is designed to meet all of your multicloud strategy needs, including backup, disaster recovery, and DevOps, in either a native cloud or a hybrid cloud design.
-
-
 
 We provide tools which enable developers to programmatically control HPE Cloud Volumes using a feature-rich set of APIs.
 
@@ -28,11 +23,10 @@ We provide tools which enable developers to programmatically control HPE Cloud V
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/hK2R0LeU2ew" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-
 [Go to HPE Cloud Volumes home page](https://www.hpe.com/us/en/storage/cloud-volumes.html)
 
 [Explore the HPE Cloud Volumes REST API](https://docs.cloudvolumes.hpe.com/help/rest/api-overview/)
 
 ## Any questions on HPE Cloud Volumes?
 
-Join the [HPEDEV Slack Workspace](https://slack.hpedev.io/) and start a discussion in our [#hpe-cloud-volumes](https://hpedev.slack.com/archives/CKCLL1E8Y) channel.
+Join the [HPEDEV Slack Workspace](https://slack.hpedev.io/) and start a discussion in our [\#hpe-cloud-volumes](https://hpedev.slack.com/archives/CKCLL1E8Y) channel.
