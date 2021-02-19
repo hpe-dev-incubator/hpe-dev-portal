@@ -39,23 +39,25 @@ GreenLake offers a broad portfolio of cloud services such as ML Ops, containers,
 
 HPE GreenLake for private cloud brings the cloud to you, modernizing your on-premise infrastructure and delivering workloads as a service from your data center, at the edge, or in a co-location facility. With metered usage and activity-based capacity planning, you pay for what you use and always have capacity ahead of demand. 
 
-* [Learn more about HPE GreenLake for private cloud](https://www.hpe.com/us/en/greenlake/private-cloud.html).
+#### HPE GreenLake for private cloud technical white papers:
 
 
 
-* [Learn how to create and deploy applications with HPE GreenLake cloud services for private cloud](https://community.hpe.com/t5/The-Cloud-Experience-Everywhere/A-better-way-to-create-and-deploy-applications-HPE-GreenLake/ba-p/7118975).
+* _[HPE GreenLake for private cloud: Instances and blueprints feature overview and best practices](https://h20195.www2.hpe.com/v2/Getdocument.aspx?docname=a50003040enw)_.
 
 
 
-* To learn more about these capabilities and best practices that help you realize the full potential of application management with HPE GreenLake cloud services for private cloud, see our technical paper [HPE GreenLake for private cloud: Instances and blueprints feature overview and best practices](https://h20195.www2.hpe.com/v2/Getdocument.aspx?docname=a50003040enw).
+* _[Complete step-by-step examples on how to build a custom instance type using scripts, and how to create an application blueprint and instantiate application from a blueprint](https://assets.ext.hpe.com/is/content/hpedam/a50003251enw)_.
 
 
 
-* For complete step-by-step examples on how to build a custom instance type using scripts, and how to create an application blueprint and instantiate application from a blueprint, see our technical paper [HPE GreenLake for private cloud deploy a 2-Tiered WordPress application using scripts and blueprints](https://assets.ext.hpe.com/is/content/hpedam/a50003251enw).
+* _[Complete step-by-step examples of how to build an application blueprint using Ansible playbooks integration, automation workflows, instance types and layout](https://developer.hpe.com/uploads/media/2020/6/gl4pc_eshop_bp_v1_35-1593186155592.pdf)_.
 
 
+<br>
 
-* For complete step-by-step examples of how to build an application blueprint using Ansible playbooks integration, automation workflows, instance types and layout, see this technical paper: [HPE GreenLake for private cloud: Utilizing application blueprints to simplify deployment of a multinode application using HPE GreenLake for private cloud](https://developer.hpe.com/uploads/media/2020/6/gl4pc_eshop_bp_v1_35-1593186155592.pdf).
+[Learn more about HPE GreenLake for private cloud](https://www.hpe.com/us/en/greenlake/private-cloud.html).
+
 
 <br>
 <a id="container"></a>
@@ -64,7 +66,9 @@ HPE GreenLake for private cloud brings the cloud to you, modernizing your on-pre
 
 HPE GreenLake for containers is an enterprise-grade container management service, with world class HPE infrastructure and software, fully managed for you on premises with cloud experience. It is designed to deploy both cloud-native applications and monolithic applications with persistent data storage, using open source Kubernetes container orchestration. With consumption-based billing and usage monitoring, you pay for what you use and always have capacity ahead of demand.
 
-* [Learn more about HPE GreenLake for containers](https://www.hpe.com/us/en/greenlake/containers.html)
+<br>
+
+[Learn more about HPE GreenLake for containers](https://www.hpe.com/us/en/greenlake/containers.html)
 
 <br>
 <a id="mlops"></a>
@@ -73,7 +77,9 @@ HPE GreenLake for containers is an enterprise-grade container management service
 
 HPE GreenLake for ML Ops is an enterprise-grade machine learning service, with world class AI/ML optimized HPE infrastructure and software, fully managed for you on premises with cloud experience. It solves the operational risks and data gravity issues. It provides end-to-end ML workflow, tooling, and integrated environment so data scientists can focus more on ML and less on infrastructure. With consumption-based billing and usage monitoring, you pay for what you use and always have capacity ahead of demand.
 
-* [Learn more about HPE GreenLake for ML Ops](https://www.hpe.com/us/en/greenlake/ml-ops.html)
+<br>
+
+[Learn more about HPE GreenLake for ML Ops](https://www.hpe.com/us/en/greenlake/ml-ops.html)
 
 <br>
 
