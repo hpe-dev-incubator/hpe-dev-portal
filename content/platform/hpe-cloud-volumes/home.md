@@ -1,0 +1,32 @@
+---
+title: HPE Cloud Volumes
+version: "1.0"
+description: Enterprise-based cloud storage service that provides block storage
+  as a service for use with public cloud services.
+image: cv-platform-cmsv2.png
+width: large
+priority: 4
+---
+<h2 style="text-align: center;"><span style="color: #33cccc;"><span class="text-gray-100 text-4xl font-light tracking-tight lg:font-thin leading-tighter lg:leading-none md:text-5xl lg:text-6xl xl:text-7xl" style="text-align: center;">Hybrid and Multi-Cloud Intelligent Data Storage</span></span></h2>
+<h4 style="text-align: left;"><span style="color: #ffffff;">Accelerate your business from edge to cloud with HPE Cloud Volumes services for your edge, on-premises and cloud workloads. Experience cloud-like agility, scalability and innovation with fast deployment and pay-as-you-go economics. Move any workload in any cloud, protect everything and recover anywhere.</span></h4>
+
+HPE Cloud Volumes is an enterprise-grade public cloud block storage-as-a-service solution. Designed for easy data mobility, Cloud Volumes allows you to freely move data between on premises environments and public clouds, without costly fees.
+
+
+
+HPE Cloud Volumes is designed to meet all of your multicloud strategy needs, including backup, disaster recovery, and DevOps, in either a native cloud or a hybrid cloud design.
+
+
+
+We provide tools which enable developers to programmatically control HPE Cloud Volumes using a feature-rich set of APIs.
+
+# Learn more about HPE Cloud Volumes
+
+https://www.youtube.com/watch?v=hK2R0LeU2ew&t=9s
+
+* [Go to HPE Cloud Volumes home page](https://www.hpe.com/us/en/storage/cloud-volumes.html)
+* [Explore the HPE Cloud Volumes REST API](https://docs.cloudvolumes.hpe.com/help/rest/api-overview/)
+
+## Any questions on HPE Cloud Volumes?
+
+Join the [HPEDEV Slack Workspace](https://slack.hpedev.io/) and start a discussion in our [#hpe-cloud-volumes](https://hpedev.slack.com/archives/CKCLL1E8Y) channel.
