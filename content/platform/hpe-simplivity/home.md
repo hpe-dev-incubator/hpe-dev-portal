@@ -1,12 +1,14 @@
 ---
-title: SimpliVity
+title: HPE SimpliVity
 version: v 6.01.8964
-description: An enterprise-grade hyperconverged platform uniting best-in-class data services with the world’s bestselling server.
+description: An enterprise-grade hyperconverged platform uniting best-in-class
+  data services with the world’s bestselling server.
 image: /img/platforms/Simplivity.svg
 width: medium
-frontpage: true
 priority: 6
-tags: ["hpe-simplivity"]
+frontpage: true
+tags:
+  - hpe-simplivity
 ---
 
 ## HPE OmniStack REST API
