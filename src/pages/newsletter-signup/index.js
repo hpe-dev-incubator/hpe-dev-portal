@@ -42,9 +42,8 @@ function NewsletterSignup({ data }) {
         <PageDescription image="/img/newsletter/NewsletterPage.svg" title="">
           <EmailCapture
             heading="Newsletter"
-            bodyCopy1="Join our mailing list to stay up-to-date on 
-            the newest blog posts and tutorials."
-            bodyCopy2="Sign up for the HPE Developer Newsletter!"
+            bodyCopy1="Subscribe to our HPE Developer Newsletter to stay up-to-date on the 
+            newest HPE Dev Community activities, posts, and tutorials."
           />
         </PageDescription>
         <Box margin={{ top: 'large' }}>

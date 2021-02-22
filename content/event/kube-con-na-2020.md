@@ -1,7 +1,7 @@
 ---
 title: KubeCon NA 2020
 dateStart: 2020-11-17T00:00:00.000Z
-dateEnd: 2019-11-20T00:00:00.000Z
+dateEnd: 2020-11-20T00:00:00.000Z
 image: /img/events/KubeconLogo.svg
 link: https://events.linuxfoundation.org/events/kubecon-cloudnativecon-north-america-2020/
 width: large

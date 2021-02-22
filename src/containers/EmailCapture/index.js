@@ -9,6 +9,7 @@ import {
   FormField,
   TextInput,
   Button,
+  Paragraph,
 } from 'grommet';
 
 import { Link } from '../../components';
@@ -88,15 +89,14 @@ export const EmailCapture = ({ children, heading, bodyCopy1, bodyCopy2 }) => {
             <Heading margin="none">{heading}</Heading>
           </Box>
           <Box>
-            <Text>{bodyCopy1}</Text>
-            {!bodyCopy2 && (
+            <Paragraph margin="none">{bodyCopy1}</Paragraph>
+            {bodyCopy2 && (
               <Text>
                 Sign up for the HPE Developer Newsletter or visit the{' '}
                 <Link to="/newsletter-archive">Newsletter Archive</Link> to see
                 past content.
               </Text>
             )}
-            {bodyCopy2 && <Text>{bodyCopy2}</Text>}
           </Box>
         </Box>
       )}

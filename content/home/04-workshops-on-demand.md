@@ -2,7 +2,7 @@
 title: HPE DEV Workshops-on-Demand
 width: large
 category: Workshop
-priority: 3
+priority: 4
 image: /img/home/workshops-on-demand.svg
 link: https://hackshack.hpedev.io/workshops
 ---

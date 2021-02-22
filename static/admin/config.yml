@@ -14,6 +14,7 @@ collections:
   - label: 'Home'
     name: 'home'
     format: 'frontmatter'
+    publish: false
     editor:
       preview: true
     files:
@@ -32,6 +33,7 @@ collections:
     folder: 'content/home'
     extension: 'md'
     create: true
+    publish: false
     slug: '{{priority}}-{{slug}}'
     editor:
       preview: true
@@ -49,6 +51,7 @@ collections:
     folder: 'content/opensource'
     extension: 'md'
     create: true
+    publish: false
     slug: '{{slug}}'
     editor:
       preview: true
@@ -86,6 +89,7 @@ collections:
     folder: 'content/event'
     extension: 'md'
     create: true
+    publish: false
     slug: '{{slug}}'
     editor:
       preview: true
@@ -104,6 +108,7 @@ collections:
     folder: 'content/newsletter'
     extension: 'md'
     create: true
+    publish: false
     slug: '{{year}}-{{month}}-{{day}}'
     editor:
       preview: true
@@ -141,6 +146,7 @@ collections:
     folder: 'content/community'
     extension: 'md'
     create: true
+    publish: false
     slug: 'community'
     editor:
       preview: true
@@ -158,6 +164,7 @@ collections:
     folder: 'content/campaign'
     extension: 'md'
     create: true
+    publish: false
     slug: 'campaign'
     editor:
       preview: true
@@ -171,6 +178,7 @@ collections:
     folder: 'content/skillup'
     extension: 'md'
     create: true
+    publish: false
     slug: 'skillup'
     editor:
       preview: true
