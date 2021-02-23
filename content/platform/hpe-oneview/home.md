@@ -122,11 +122,6 @@ Interface with HPE OneView using Hubot, an automation tool that can sync with ot
 
 - - -
 
-### [Java ![](Github)](https://github.com/HewlettPackard/oneview-sdk-java)
-
-The Java SDK enables Java developers to easily integrate their Java solutions with HPE OneView. The SDK provides client APIs to consume the OneView REST APIs.
-
-- - -
 
 ### [PowerShell ![](Github)](https://github.com/HewlettPackard/POSH-HPOneView)
 
