@@ -42,7 +42,8 @@ function NewsletterSignup({ data }) {
         <PageDescription image="/img/newsletter/NewsletterPage.svg" title="">
           <EmailCapture
             heading="Newsletter"
-            bodyCopy1="Subscribe to our HPE Developer Newsletter to stay up-to-date on the 
+            bodyCopy1="Subscribe to our HPE Developer Newsletter 
+            to stay up-to-date on the 
             newest HPE Dev Community activities, posts, and tutorials."
           />
         </PageDescription>
