@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box } from 'grommet';
 import { Search } from 'grommet-icons';
-import { ButtonLink } from '..';
+import { ButtonLink, ExternalButtonLink } from '..';
 
 function Header() {
   return (
@@ -13,13 +13,16 @@ function Header() {
     >
       <ButtonLink label="HPE Developer" to="/" />
       <Box direction="row" gap="medium" wrap>
-        <ButtonLink label="Open Source" to="/opensource" />
+        <ExternalButtonLink
+          label="Open Source"
+          to="https://www.hpe.com/us/en/open-source.html"
+        />
         <ButtonLink label="Platforms" to="/platform" />
         <ButtonLink label="Events" to="/events" />
+        <ButtonLink label="Skill Up" to="/skillup" />
         <ButtonLink label="Blog" to="/blog" />
         <ButtonLink label="Newsletter" to="/newsletter-signup" />
         <ButtonLink label="Community" to="/community" />
-        <ButtonLink label="Skill Up" to="/skillup" />
       </Box>
       <ButtonLink
         align="start"

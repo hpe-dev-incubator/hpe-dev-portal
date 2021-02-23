@@ -12,7 +12,13 @@ import {
 } from 'grommet';
 import { LinkNext } from 'grommet-icons';
 
-import { Layout, SEO, Card, TitleMarkdown, ButtonLink } from '../../components';
+import {
+  Layout,
+  SEO,
+  Card,
+  TitleMarkdown,
+  ExternalButtonLink,
+} from '../../components';
 
 const OpenSourceCard = ({ children }) => (
   <Box pad={{ horizontal: 'small' }}>
@@ -21,7 +27,10 @@ const OpenSourceCard = ({ children }) => (
         <Heading level={2} margin="none">
           Featured Open Source Projects
         </Heading>
-        <ButtonLink icon={<LinkNext color="green" />} to="/opensource" />
+        <ExternalButtonLink
+          icon={<LinkNext color="green" />}
+          to="https://www.hpe.com/us/en/open-source.html"
+        />
       </CardHeader>
       <Box
         direction="row"
@@ -70,7 +79,6 @@ Project.propTypes = {
 };
 
 const Home = ({ data }) => {
-  // console.log('data', data);
   const { title, image } = data.markdownRemark.frontmatter;
   const siteTitle = data.site.siteMetadata.title;
 

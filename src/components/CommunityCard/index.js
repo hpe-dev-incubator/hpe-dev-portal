@@ -10,6 +10,7 @@ import {
   Paragraph,
   Button,
 } from 'grommet';
+import { navigate } from 'gatsby';
 
 const CommunityCard = ({ node, ...rest }) => (
   <GrommetCard
@@ -18,7 +19,9 @@ const CommunityCard = ({ node, ...rest }) => (
     pad="large"
     {...rest}
     onClick={
-      node.frontmatter.link
+      node.frontmatter.link && node.frontmatter.link.match(/^\//g)
+        ? () => navigate(node.frontmatter.link)
+        : node.frontmatter.link
         ? () => window.open(node.frontmatter.link)
         : undefined
     }

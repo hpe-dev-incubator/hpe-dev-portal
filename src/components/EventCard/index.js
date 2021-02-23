@@ -1,13 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, Image, Heading, Card as GrommetCard } from 'grommet';
+import { navigate } from 'gatsby';
 
-const dateFormat = Intl.DateTimeFormat('default', {
+const monthDay = Intl.DateTimeFormat('default', {
   month: 'long',
   day: 'numeric',
 });
-const dayFormat = Intl.DateTimeFormat('default', {
+const day = Intl.DateTimeFormat('default', {
   day: 'numeric',
+});
+const year = Intl.DateTimeFormat('default', {
+  year: 'numeric',
 });
 
 const EventCard = ({ node, ...rest }) => (
@@ -16,7 +20,9 @@ const EventCard = ({ node, ...rest }) => (
     flex="grow"
     {...rest}
     onClick={
-      node.frontmatter.link
+      node.frontmatter.link && node.frontmatter.link.match(/^\//g)
+        ? () => navigate(node.frontmatter.link)
+        : node.frontmatter.link
         ? () => window.open(node.frontmatter.link)
         : undefined
     }
@@ -25,9 +31,13 @@ const EventCard = ({ node, ...rest }) => (
       <Box gap="small">
         <Heading margin="none">{node.frontmatter.title}</Heading>
         <Heading margin="none" level="3">
-          {`${dateFormat.format(new Date(node.frontmatter.dateStart))}`}
+          {`${monthDay.format(new Date(node.frontmatter.dateStart))} 
+          `}
           {node.frontmatter.dateEnd &&
-            `-${dayFormat.format(new Date(node.frontmatter.dateEnd))}`}
+            day.format(new Date(node.frontmatter.dateEnd)) >
+              day.format(new Date(node.frontmatter.dateStart)) &&
+            `- ${day.format(new Date(node.frontmatter.dateEnd))}`}
+          {`, ${year.format(new Date(node.frontmatter.dateEnd))}`}
         </Heading>
       </Box>
       <Box>

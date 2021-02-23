@@ -10,7 +10,7 @@ export const Footer = () => (
     pad={{ vertical: 'large', horizontal: 'xlarge' }}
   >
     <Box>
-      <EmailCapture />
+      <EmailCapture bodyCopy2 />
     </Box>
     <Box direction="row" justify="between" gap="large">
       <Box align="start" gap="medium">

@@ -102,7 +102,13 @@ export const Card = ({ category, content, width = 'medium', link, image }) => (
         margin="small"
         width={size === 'small' ? undefined : { min: widths[width] }}
         flex="grow"
-        onClick={link ? () => navigate(link) : undefined}
+        onClick={
+          link && link.match(/^\//g)
+            ? () => navigate(link)
+            : link
+            ? () => window.open(link)
+            : undefined
+        }
       >
         <CardHeader
           justify="end"

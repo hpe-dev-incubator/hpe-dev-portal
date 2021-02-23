@@ -18,6 +18,21 @@ Link.propTypes = {
   to: PropTypes.string,
 };
 
+export const ExternalLink = ({ to, ...rest }) => (
+  <Anchor href={to} target="_blank" rel="noopener noreferrer" {...rest} />
+);
+
+ExternalLink.propTypes = {
+  to: PropTypes.string,
+};
+
+export const ExternalButtonLink = ({ to, ...rest }) => (
+  <Button href={to} target="_blank" rel="noopener noreferrer" {...rest} />
+);
+ExternalButtonLink.propTypes = {
+  to: PropTypes.string,
+};
+
 export const ButtonLink = ({ to, ...rest }) => (
   <Button
     href={to}

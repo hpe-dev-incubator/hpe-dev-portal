@@ -61,7 +61,7 @@ function CampaignTemplate({ data }) {
         <Box alignSelf="start">
           <ButtonLink
             icon={<FormPreviousLink />}
-            label="Go to SkillUp Page"
+            label="Go to Skill Up Page"
             to="/skillup"
           />
         </Box>
