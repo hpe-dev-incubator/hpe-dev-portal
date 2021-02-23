@@ -1,10 +1,10 @@
 ---
-priority: 3
-width: large
 title: HPE OneView
 version: v 6.01.8964
 description: The foundation for a software-defined data center.
 image: /img/platforms/Oneview.svg
+width: large
+priority: 3
 frontpage: true
 tags:
   - hpe-oneview
@@ -15,7 +15,7 @@ tags:
 
 Here you will find repositories, demos, guides and other technical resources from HPE and the Composable Ecosystem Partners to automate infrastructure management and eliminate complex manual processes.
 
-* [Join the conversation on Slack](https://www.labs.hpe.com/slack)
+
 * [Develop together: Visit the HPE GitHub organization](https://github.com/hewlettpackard/)
 * [Looking for solutions: Visit the Composable Ecosystem Partners](https://hpe.com/info/composableprogram)
 * [Download a free trial](https://www.hpe.com/us/en/resources/integrated-systems/oneview-trial.html?parentPage=/us/en/products/integrated-systems/management-software)
@@ -30,6 +30,8 @@ Here you will find repositories, demos, guides and other technical resources fro
 * [Read the Deployment Guide](https://www.redhat.com/en/resources/automate-container-deployment-with-hpe-datasheet)
 * [Read the Accelerating DevOps White Paper](https://h20195.www2.hpe.com/v2/GetDocument.aspx?docname=4AA6-6229ENW)
 * [View Additional Resources](http://h17007.www1.hpe.com/us/en/enterprise/integrated-systems/info-library/index.aspx?cat=ci_mgmt&subcat=ansible#.XJVbZCdMEio)
+* [Ansible Docker Image](https://hub.docker.com/repository/docker/hewlettpackardenterprise/hpe-oneview-sdk-for-ansible)
+
 
 - - -
 
@@ -41,6 +43,7 @@ Here you will find repositories, demos, guides and other technical resources fro
 * [Read the White Paper](https://h20195.www2.hpe.com/V2/GetDocument.aspx?docname=4AA6-1024ENW)
 * [Browse the Chef Marketplace](https://supermarket.chef.io/cookbooks/oneview)
 * [View Additional Resources](http://h17007.www1.hpe.com/us/en/enterprise/integrated-systems/info-library/index.aspx?cat=ci_mgmt&subcat=chef)
+* [Chef Docker Image](https://github.com/HewlettPackard/oneview-chef)
 
 - - -
 
@@ -48,9 +51,7 @@ Here you will find repositories, demos, guides and other technical resources fro
 
 [Docker](https://www.docker.com/) integrates with HPE OneView to bring containerization out of the cloud and onto your bare-metal infrastructure.
 
-* [Watch Docker Enterprise Video](https://www.youtube.com/watch?v=Urplr9ojyfs)
-* [Ref Configuration for Securing Docker](https://h20195.www2.hpe.com/V2/GetDocument.aspx?docname=A00020437ENW)
-* [Ref Configuration for HPE Synergy with Image Streamer](https://h20195.www2.hpe.com/V2/GetDocument.aspx?docname=A00008645ENW)
+* [Reference Configuration for CaaS on HPE Synergy](https://h20195.www2.hpe.com/V2/GetDocument.aspx?docname=a00047301enw)
 
 - - -
 
@@ -58,15 +59,10 @@ Here you will find repositories, demos, guides and other technical resources fro
 
 [HashiCorp Terraform](https://www.hashicorp.com/) provides a common workflow to provision hybrid infrastructure and applications so users can seamlessly and efficiently deploy HPE infrastructure.
 
-- - -
-
-### [Mesosphere ![](Github)](https://github.com/HewlettPackard/dcos-hpe-oneview)
-
-[Mesosphere](https://mesosphere.com/) DC/OS integrates with HPE OneView to simplify the deployment and scale-out of production containers and data services with just a few clicks.
-
-* [Watch the Demo](https://youtu.be/oFu4eATJTKM)
-* [Read the White Paper](https://mesosphere.com/resources/hpe-infrastructure-mesosphere-dcos/)
-* [View Additional Resources](http://h17007.www1.hpe.com/us/en/enterprise/integrated-systems/info-library/index.aspx?cat=ci_mgmt&subcat=mesosphere)
+* [Terraform 0.11.x](https://releases.hashicorp.com/terraform/)
+* [Terraform Overview](https://www.terraform.io/intro/index.html)
+* [Getting started with Terraform](https://learn.hashicorp.com/terraform/getting-started/install.html)
+* [Terraform Docker Image](https://hub.docker.com/repository/docker/hewlettpackardenterprise/hpe-oneview-sdk-for-terraform)
 
 - - -
 
@@ -78,17 +74,15 @@ Here you will find repositories, demos, guides and other technical resources fro
 
 - - -
 
-### [OpenStack® ![](Github)](https://github.com/HewlettPackard/ironic-driver-oneview)
+### [Promotheus - Grafana ![](Github)](https://github.com/HewlettPackard/oneview-prometheus-grafana-connector)
 
-The [OpenStack](https://www.openstack.org/) Ironic driver for HPE OneView enables users to provision bare-metal servers within OpenStack in the same way as OpenStack users provision virtual machines.
+The [Prometheus]( https://prometheus.io/) and [Grafana]( https://grafana.com/) connector enables  monitoring of hardware, virtualizations, applications and containers in a unified dashboard. Supporting the mapping of application, virtual machine and container alters to underlying hardware infrastructure.
 
 - - -
 
 ### [Puppet ![](Github)](https://github.com/HewlettPackard/oneview-puppet)
 
 The [Puppet](https://puppet.com/) module for HPE OneView automates the configuring and provisioning of bare-metal infrastructure so customers can deliver apps and services faster and easier.
-
-* [View the Puppet Forge Repository](https://forge.puppet.com/hewlettpackard/oneview)
 
 - - -
 
@@ -99,14 +93,6 @@ Enable IT operations and application development teams to deliver applications f
 * [Read the Synergy Reference Configuration](https://h20195.www2.hpe.com/V2/GetDocument.aspx?docname=A00038916ENW)
 * [Read the Technical White Paper](https://access.redhat.com/documentation/en-us/reference_architectures/2017/html-single/automate_red_hat_openshift_container_platform_deployment_on_hpe_proliant_servers_with_ansible_tower_and_hpe_oneview/)
 * [View Additional Resources](http://h17007.www1.hpe.com/us/en/enterprise/integrated-systems/info-library/index.aspx?cat=ci_mgmt&subcat=ansible)
-
-- - -
-
-### [ServiceNow ![](Github)](https://github.com/HewlettPackard/servicenow-oneview)
-
-Streamline lifecycle operations for infrastructure and IT service management with ServiceNow and HPE OneView
-
-* [Watch the Demo](https://youtu.be/W1MrCdQ-9KE)
 
 - - -
 
@@ -125,6 +111,8 @@ Access Software Development Kits (SDKs) and language bindings for integrating HP
 ### [Go ![](Github)](https://github.com/HewlettPackard/oneview-golang)
 
 HPE OneView allows you to treat your physical infrastructure as code. Now you can integrate your favorite tools based in Golang with HPE OneView.
+
+* [OneView Golang SDK Docker Image](https://hub.docker.com/r/hewlettpackardenterprise/hpe-oneview-sdk-for-golang)
 
 - - -
 
@@ -150,6 +138,8 @@ This library provides a pure Windows PowerShell interface to the HPE OneView RES
 
 This library provides a pure Python interface to the HPE OneView REST APIs.
 
+* [OneView Python SDK Docker Image](https://hub.docker.com/repository/docker/hewlettpackardenterprise/hpe-oneview-sdk-for-python)
+
 - - -
 
 ### [Redfish ![](Github)](https://github.com/HewlettPackard/oneview-redfish-toolkit)
@@ -161,6 +151,8 @@ The Redfish toolkit allows customers to take automations that use the Redfish sp
 ### [Ruby ![](Github)](https://github.com/HewlettPackard/oneview-sdk-ruby)
 
 The Ruby SDK provides a Ruby library to easily interact with the HPE OneView API, enabling developers to easily build integrations and scalable solutions with HPE OneView.
+
+* [OneView Ruby SDK Docker Image](https://hub.docker.com/r/hewlettpackardenterprise/hpe-oneview-sdk-for-ruby)
 
 - - -
 
