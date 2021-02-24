@@ -3,8 +3,8 @@ title: "Using Raw Block and Ephemeral Inline Volumes on Kubernetes"
 date: 2020-06-11T21:18:38.870Z
 author: Michael Mattsson 
 tags: ["hpe-nimble-storage","hpe-3par-and-primera"]
-authorimage: "/img/blogs/Avatar6.svg"
-featuredBlog:
+authorimage: "/img/blogs/Avatar1.svg"
+featuredBlog: false
 priority:
 thumbnailimage:
 ---

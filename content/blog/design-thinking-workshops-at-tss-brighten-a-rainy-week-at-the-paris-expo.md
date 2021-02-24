@@ -3,8 +3,9 @@ title: "Design Thinking Workshops at TSS Brighten a Rainy Week at the Paris Expo
 date: 2019-03-28T20:49:25.455Z
 author: Dana Lynn, Lead Experience Designer 
 tags: ["design"]
-authorimage: "/img/blogs/Avatar6.svg"
-featuredBlog:
+authorimage: "/img/blogs/Avatar3.svg"
+featuredBlog: false
+priority:
 thumbnailimage:
 ---
 ![5bf2e1a0cd93d0796238ae01-blog-content-1553889135906](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2019/3/dana-paris-from-chris-1553889135905.jpg)

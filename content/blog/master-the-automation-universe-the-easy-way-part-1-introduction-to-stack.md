@@ -3,8 +3,9 @@ title: "Master the automation universe the easy way! Part 1: Introduction to Sta
 date: 2020-06-22T07:20:59.673Z
 author: Rick Kauffman 
 tags: ["automation","StackStorm","opensource"]
-authorimage: "/img/blogs/Avatar5.svg"
-featuredBlog:
+authorimage: "/img/blogs/Avatar6.svg"
+featuredBlog: false
+priority:
 thumbnailimage:
 ---
 ![stackstorm](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/6/stackstorm-1592810807425.png)

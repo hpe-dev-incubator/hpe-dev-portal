@@ -3,8 +3,9 @@ title: "First step with programming the HPE Composable API"
 date: 2017-09-08T16:36:19.453Z
 author: Didier Lalli 
 tags: ["HPE-OneView","OneView","RESTAPI"]
-authorimage: "/img/blogs/Avatar5.svg"
-featuredBlog:
+authorimage: "/img/blogs/Avatar6.svg"
+featuredBlog: false
+priority:
 thumbnailimage:
 ---
 # A bit of history

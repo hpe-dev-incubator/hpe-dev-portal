@@ -4,7 +4,7 @@ date: 2020-11-25T02:26:04.249Z
 author: Suzy Visvanathan 
 tags: ["hpe-ezmeral-data-fabric","MapR","mapr-platform","containers","microservices","opensource"]
 authorimage: "/img/blogs/Avatar5.svg"
-featuredBlog:
+featuredBlog: false
 priority:
 thumbnailimage:
 ---

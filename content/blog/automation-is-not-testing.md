@@ -3,8 +3,9 @@ title: "Automation is not testing"
 date: 2020-02-18T17:55:26.750Z
 author: Chris Young 
 tags: []
-authorimage: "/img/blogs/Avatar6.svg"
-featuredBlog:
+authorimage: "/img/blogs/Avatar4.svg"
+featuredBlog: false
+priority:
 thumbnailimage:
 ---
 ![picture1](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/1/picture1-1582049527283.png)

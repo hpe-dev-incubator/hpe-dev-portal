@@ -3,8 +3,9 @@ title: "HPE firmware updates: Part 3 - The Redfish® update service"
 date: 2020-10-19T13:25:05.597Z
 author: François Donzé 
 tags: ["Redfish","firmware","ilo-restful-api","update"]
-authorimage: "/img/blogs/Avatar3.svg"
-featuredBlog:
+authorimage: "/img/blogs/Avatar5.svg"
+featuredBlog: false
+priority:
 thumbnailimage:
 ---
 # Introduction

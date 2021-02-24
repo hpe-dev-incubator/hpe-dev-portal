@@ -3,8 +3,9 @@ title: "The HPE DEV Community Hack Shack – A place to gather, learn, and play"
 date: 2020-07-31T07:39:28.479Z
 author: Dale Rensing 
 tags: ["kubecon-europe-2020","kubecon","cncf","containers","developer"]
-authorimage: "/img/blogs/Avatar1.svg"
-featuredBlog:
+authorimage: "/img/blogs/Avatar4.svg"
+featuredBlog: false
+priority:
 thumbnailimage:
 ---
 ![kubblog1](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/7/kubblog1-1596183350621.png)

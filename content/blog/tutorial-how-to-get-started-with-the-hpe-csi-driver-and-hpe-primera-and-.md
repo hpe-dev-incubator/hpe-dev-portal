@@ -3,8 +3,8 @@ title: "Tutorial: How to get started with the HPE CSI Driver and HPE Primera and
 date: 2020-04-30T16:12:11.635Z
 author: Chris Snell 
 tags: ["hpe-3par-and-primera"]
-authorimage: "/img/blogs/Avatar2.svg"
-featuredBlog:
+authorimage: "/img/blogs/Avatar6.svg"
+featuredBlog: false
 priority:
 thumbnailimage:
 ---

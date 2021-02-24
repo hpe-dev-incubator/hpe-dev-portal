@@ -3,8 +3,8 @@ title: " Get started with the HPE Nimble Storage Content Collection for Ansible 
 date: 2020-09-29T18:33:30.419Z
 author: Michael Mattsson 
 tags: ["hpe-nimble-storage","ansible"]
-authorimage: "/img/blogs/Avatar1.svg"
-featuredBlog:
+authorimage: "/img/blogs/Avatar4.svg"
+featuredBlog: false
 priority:
 thumbnailimage:
 ---

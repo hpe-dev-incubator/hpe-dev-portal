@@ -3,8 +3,9 @@ title: "HPE OneView Ansible Modules v5.0.0 has been released"
 date: 2018-03-06T20:24:23.713Z
 author: bob.fraser@hpe.com 
 tags: ["HPE-OneView","OneView","RESTAPI","Ansible"]
-authorimage: "/img/blogs/Avatar2.svg"
-featuredBlog:
+authorimage: "/img/blogs/Avatar5.svg"
+featuredBlog: false
+priority:
 thumbnailimage:
 ---
 # HPE OneView Ansible Modules v5.0.0 has been released

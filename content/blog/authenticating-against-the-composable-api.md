@@ -3,8 +3,9 @@ title: "Authenticating against the Composable API"
 date: 2017-09-06T17:11:08.159Z
 author: Didier Lalli 
 tags: ["HPE-OneView","OneView","RESTAPI"]
-authorimage: "/img/blogs/Avatar1.svg"
-featuredBlog:
+authorimage: "/img/blogs/Avatar2.svg"
+featuredBlog: false
+priority:
 thumbnailimage:
 ---
 # Login Sessions

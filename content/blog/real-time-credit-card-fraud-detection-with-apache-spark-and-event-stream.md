@@ -3,8 +3,8 @@ title: "Real Time Credit Card Fraud Detection with Apache Spark and Event Stream
 date: 2020-11-18T23:37:40.398Z
 author: Carol McDonald 
 tags: ["hpe-ezmeral-data-fabric","MapR","apache-spark","opensource"]
-authorimage: "/img/blogs/Avatar1.svg"
-featuredBlog:
+authorimage: "/img/blogs/Avatar5.svg"
+featuredBlog: false
 priority:
 thumbnailimage:
 ---

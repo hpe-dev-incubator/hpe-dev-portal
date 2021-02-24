@@ -3,8 +3,9 @@ title: "Top 13 Capabilities Within SPIFFE and SPIRE Released In 2019"
 date: 2020-04-21T00:42:07.062Z
 author: Umair Khan 
 tags: ["spiffe-and-spire-projects","opensource"]
-authorimage: "/img/blogs/Avatar4.svg"
-featuredBlog:
+authorimage: "/img/blogs/Avatar3.svg"
+featuredBlog: false
+priority:
 thumbnailimage:
 ---
 With the acquisition of Scytale this past February, Hewlett Packard Enterprise (HPE) acquired a seasoned team of experts in cloud-native security and zero-trust networking. The Scytale team is recognized as founding contributors to Cloud Native Foundation’s (CNCF’s) SPIFFE (the Secure Production Identity Framework for Everyone) and SPIRE (the SPIFFE Runtime Environment) open source projects. 

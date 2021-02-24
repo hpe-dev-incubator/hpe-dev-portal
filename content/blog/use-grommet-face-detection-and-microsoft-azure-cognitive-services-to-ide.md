@@ -3,8 +3,9 @@ title: "Use Grommet Face Detection and Microsoft Azure Cognitive Services to ide
 date: 2019-11-01T02:40:45.562Z
 author: Pramod Sareddy 
 tags: ["grommet","opensource"]
-authorimage: "/img/blogs/Avatar3.svg"
-featuredBlog:
+authorimage: "/img/blogs/Avatar1.svg"
+featuredBlog: false
+priority:
 thumbnailimage:
 ---
 ![picture1](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2019/10/picture1-1572576650255.png)

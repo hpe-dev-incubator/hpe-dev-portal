@@ -3,8 +3,9 @@ title: "App DEV and the HPE Container Platform"
 date: 2020-04-09T15:41:06.174Z
 author: Dale Rensing 
 tags: ["hpe-ezmeral-container-platform","hpe-container-platform","opensource","kubedirector"]
-authorimage: "/img/blogs/Avatar5.svg"
-featuredBlog:
+authorimage: "/img/blogs/Avatar1.svg"
+featuredBlog: false
+priority:
 thumbnailimage:
 ---
 ![hpecpimage2](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/3/hpecpimage2-1586446910822.jpg)

@@ -3,8 +3,9 @@ title: "HPE OneView Ansible Module v5.6.0. Now Available"
 date: 2020-06-15T19:09:06.622Z
 author: Christopher Pasek 
 tags: ["hpe-oneview"]
-authorimage: "/img/blogs/Avatar4.svg"
-featuredBlog:
+authorimage: "/img/blogs/Avatar3.svg"
+featuredBlog: false
+priority:
 thumbnailimage:
 ---
 HPE is pleased to announce the availability of the HPE OneView Ansible Module v5.6.0. This module provides integration of HPE OneView with Ansible by Red Hat®, an industry-leading software deployment, provisioning, and configuration management tool. This new module supports HPE OneView 5.2 (REST API version 1600). It also provides support for Image Streamer 5.2 (API 1600).  

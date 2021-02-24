@@ -3,8 +3,9 @@ title: " A view of the network in the Hack Shack at HPE Discover Madrid 2018"
 date: 2018-12-14T14:20:30.488Z
 author: Brian Martin 
 tags: ["hpe-discover-madrid-2018","discover","hackshack","hackathon","hpe-composable-fabric-manager","plexxi","letshackshack"]
-authorimage: "/img/blogs/Avatar5.svg"
-featuredBlog:
+authorimage: "/img/blogs/Avatar4.svg"
+featuredBlog: false
+priority:
 thumbnailimage:
 ---
 ![Discover Madrid Stickers](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2018/12/dmad-stickers-1544797453006.png)

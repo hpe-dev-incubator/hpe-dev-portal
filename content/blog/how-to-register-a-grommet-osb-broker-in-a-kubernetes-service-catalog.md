@@ -4,7 +4,8 @@ date: 2019-08-21T18:44:52.096Z
 author: Pramod Sareddy 
 tags: ["grommet","opensource"]
 authorimage: "/img/blogs/Avatar3.svg"
-featuredBlog:
+featuredBlog: false
+priority:
 thumbnailimage:
 ---
 ![registering a broker](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2019/8/registering-a-broker-1566920379874.png)

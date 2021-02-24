@@ -3,8 +3,9 @@ title: "Virtualization is Not Cloud Computing"
 date: 2019-04-25T15:27:57.406Z
 author: Jeff Krenek 
 tags: []
-authorimage: "/img/blogs/Avatar5.svg"
-featuredBlog:
+authorimage: "/img/blogs/Avatar6.svg"
+featuredBlog: false
+priority:
 thumbnailimage:
 ---
 ![5bf2e1a0cd93d0796238ae01-blog-content-1556211177810](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2019/4/gettyimages-160673315-1556211177673.jpg)

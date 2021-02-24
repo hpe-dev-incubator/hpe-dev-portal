@@ -3,8 +3,9 @@ title: "Designing, Installing, and Configuring a Failover Cluster with Hyper-V M
 date: 2019-08-05T15:40:49.039Z
 author: Patrick Francois 
 tags: []
-authorimage: "/img/blogs/Avatar3.svg"
-featuredBlog:
+authorimage: "/img/blogs/Avatar5.svg"
+featuredBlog: false
+priority:
 thumbnailimage:
 ---
 System Center Virtual Machine Manager (SCVMM) is a management tool developed by Microsoft to efficiently manage Hyper-V in a scalable way. While Hyper-V includes its own tools for managing virtual machines (VMs), as an enterprise scales to include failover clustering, Hyper-V replication, or multiple Hyper-V hosts across a variety of physical servers, SCVMM helps to simplify the management of the virtualized infrastructure. 

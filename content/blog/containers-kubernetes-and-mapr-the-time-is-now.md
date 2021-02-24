@@ -3,8 +3,8 @@ title: "Containers, Kubernetes, and MapR: The Time is Now"
 date: 2021-02-05T06:41:32.999Z
 author: Suzy Visvanathan 
 tags: ["hpe-ezmeral-data-fabric","MapR","kubernetes","container"]
-authorimage: "/img/blogs/Avatar6.svg"
-featuredBlog:
+authorimage: "/img/blogs/Avatar3.svg"
+featuredBlog: false
 priority:
 thumbnailimage:
 ---

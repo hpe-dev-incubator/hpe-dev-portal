@@ -3,8 +3,8 @@ title: "Analyzing Flight Delays with Apache Spark GraphFrames and MapR Database"
 date: 2020-12-16T06:33:59.611Z
 author: Carol McDonald 
 tags: ["hpe-ezmeral-data-fabric","MapR","spark","nosql","graphframes"]
-authorimage: "/img/blogs/Avatar1.svg"
-featuredBlog:
+authorimage: "/img/blogs/Avatar4.svg"
+featuredBlog: false
 priority:
 thumbnailimage:
 ---

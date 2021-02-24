@@ -4,7 +4,8 @@ date: 2019-07-10T15:26:11.433Z
 author: Dale Rensing 
 tags: []
 authorimage: "/img/blogs/Avatar3.svg"
-featuredBlog:
+featuredBlog: false
+priority:
 thumbnailimage:
 ---
 ![5bf2e1a0cd93d0796238ae01-blog-content-1562774149709](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2019/5/connecting-community2-1562774149692.png)

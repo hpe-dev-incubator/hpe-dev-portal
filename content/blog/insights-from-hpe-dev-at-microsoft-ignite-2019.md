@@ -3,8 +3,9 @@ title: "Insights from HPE DEV at Microsoft Ignite 2019 "
 date: 2019-11-20T17:04:41.170Z
 author: Pramod Sareddy 
 tags: []
-authorimage: "/img/blogs/Avatar3.svg"
-featuredBlog:
+authorimage: "/img/blogs/Avatar2.svg"
+featuredBlog: false
+priority:
 thumbnailimage:
 ---
 ![picture6](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2019/10/picture6-1574269899492.png)

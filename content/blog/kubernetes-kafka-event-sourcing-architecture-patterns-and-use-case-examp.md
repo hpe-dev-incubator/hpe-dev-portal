@@ -4,7 +4,7 @@ date: 2020-11-11T07:02:01.953Z
 author: Carol McDonald 
 tags: ["hpe-ezmeral-data-fabric","MapR","Kafka","opensource","use-cases"]
 authorimage: "/img/blogs/Avatar3.svg"
-featuredBlog:
+featuredBlog: false
 priority:
 thumbnailimage:
 ---

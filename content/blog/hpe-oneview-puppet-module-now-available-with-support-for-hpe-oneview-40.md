@@ -3,8 +3,9 @@ title: "HPE OneView Puppet module now available with support for HPE OneView 4.0
 date: 2018-07-03T16:50:59.293Z
 author: HPE DEV staff 
 tags: ["HPE-OneView","OneView","puppet"]
-authorimage: "/img/blogs/Avatar4.svg"
-featuredBlog:
+authorimage: "/img/blogs/Avatar5.svg"
+featuredBlog: false
+priority:
 thumbnailimage:
 ---
 # HPE OneView Puppet module now available with support for HPE OneView 4.0

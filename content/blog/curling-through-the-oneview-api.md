@@ -3,8 +3,9 @@ title: "Curling through the OneView API"
 date: 2017-09-07T17:33:30.771Z
 author: Didier Lalli 
 tags: ["HPE-OneView","OneView","RESTAPI"]
-authorimage: "/img/blogs/Avatar1.svg"
-featuredBlog:
+authorimage: "/img/blogs/Avatar4.svg"
+featuredBlog: false
+priority:
 thumbnailimage:
 ---
 In previous articles, we used a REST client plug-in to Firefox or Chrome

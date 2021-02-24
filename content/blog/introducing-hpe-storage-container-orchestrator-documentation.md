@@ -3,8 +3,8 @@ title: "Introducing HPE Storage Container Orchestrator Documentation"
 date: 2020-04-20T19:56:01.345Z
 author: Michael Mattsson 
 tags: ["hpe-nimble-storage","hpe-3par-and-primera","hpe-cloud-volumes"]
-authorimage: "/img/blogs/Avatar4.svg"
-featuredBlog:
+authorimage: "/img/blogs/Avatar3.svg"
+featuredBlog: false
 priority:
 thumbnailimage:
 ---

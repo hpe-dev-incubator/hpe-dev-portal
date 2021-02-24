@@ -3,8 +3,8 @@ title: "Data Fabric: The Future of Data Management"
 date: 2020-11-05T16:35:05.355Z
 author: Karen Whipple 
 tags: ["hpe-ezmeral-data-fabric","MapR","data-fabric"]
-authorimage: "/img/blogs/Avatar1.svg"
-featuredBlog:
+authorimage: "/img/blogs/Avatar2.svg"
+featuredBlog: false
 priority:
 thumbnailimage:
 ---

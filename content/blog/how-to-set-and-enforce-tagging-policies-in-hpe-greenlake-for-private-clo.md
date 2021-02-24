@@ -3,8 +3,9 @@ title: "How to set and enforce tagging policies in HPE GreenLake for private clo
 date: 2020-08-03T13:15:13.523Z
 author: Thavamaniraja S 
 tags: ["hpe-greenlake"]
-authorimage: "/img/blogs/Avatar5.svg"
-featuredBlog:
+authorimage: "/img/blogs/Avatar4.svg"
+featuredBlog: false
+priority:
 thumbnailimage:
 ---
 ## Introduction

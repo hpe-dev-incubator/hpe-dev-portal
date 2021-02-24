@@ -4,7 +4,8 @@ date: 2018-10-11T15:14:06.880Z
 author: Brad Stanley 
 tags: ["hpe-oneview-global-dashboard"]
 authorimage: "/img/blogs/Avatar6.svg"
-featuredBlog:
+featuredBlog: false
+priority:
 thumbnailimage:
 ---
 By Brad Stanley

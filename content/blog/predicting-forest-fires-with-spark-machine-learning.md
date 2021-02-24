@@ -3,8 +3,8 @@ title: "Predicting Forest Fires with Spark Machine Learning"
 date: 2021-01-14T05:41:09.346Z
 author: Ian Downard 
 tags: ["hpe-ezmeral-data-fabric","MapR","k-means"]
-authorimage: "/img/blogs/Avatar6.svg"
-featuredBlog:
+authorimage: "/img/blogs/Avatar2.svg"
+featuredBlog: false
 priority:
 thumbnailimage:
 ---

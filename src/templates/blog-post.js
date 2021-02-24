@@ -198,6 +198,7 @@ export const pageQuery = graphql`
         tags
         path
         authorimage
+        thumbnailimage
       }
     }
 
@@ -224,6 +225,7 @@ export const pageQuery = graphql`
             path
             tags
             authorimage
+            thumbnailimage
           }
           rawMarkdownBody
         }

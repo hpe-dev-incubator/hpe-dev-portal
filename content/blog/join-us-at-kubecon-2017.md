@@ -4,7 +4,8 @@ date: 2017-11-29T19:10:21.860Z
 author: Amit 
 tags: ["kubecon-austin-2017"]
 authorimage: "/img/blogs/Avatar5.svg"
-featuredBlog:
+featuredBlog: false
+priority:
 thumbnailimage:
 ---
 # HPE is at KubeCon

@@ -3,8 +3,9 @@ title: " Teaching Students to Code Reaps Rewards"
 date: 2020-01-15T20:01:10.958Z
 author: Dale Rensing 
 tags: []
-authorimage: "/img/blogs/Avatar4.svg"
-featuredBlog:
+authorimage: "/img/blogs/Avatar2.svg"
+featuredBlog: false
+priority:
 thumbnailimage:
 ---
 ![picture1](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2019/10/picture1-1579118573174.png)

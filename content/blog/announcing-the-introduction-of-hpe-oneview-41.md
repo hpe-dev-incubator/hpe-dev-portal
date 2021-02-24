@@ -4,7 +4,8 @@ date: 2018-08-21T22:50:40.813Z
 author: HPE DEV staff 
 tags: ["HPE-OneView","OneView"]
 authorimage: "/img/blogs/Avatar1.svg"
-featuredBlog:
+featuredBlog: false
+priority:
 thumbnailimage:
 ---
 # We are pleased to announce the latest version of HPE OneView

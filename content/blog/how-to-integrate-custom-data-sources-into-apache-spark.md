@@ -4,7 +4,7 @@ date: 2021-01-29T05:41:49.300Z
 author: Nicolas Perez 
 tags: ["hpe-ezmeral-data-fabric","MapR","apache-spark","opensource"]
 authorimage: "/img/blogs/Avatar5.svg"
-featuredBlog:
+featuredBlog: false
 priority:
 thumbnailimage:
 ---

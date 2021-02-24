@@ -3,8 +3,9 @@ title: "HPE DEV at Google Cloud Next `19"
 date: 2019-04-23T20:04:56.137Z
 author: HPE DEV staff 
 tags: []
-authorimage: "/img/blogs/Avatar1.svg"
-featuredBlog:
+authorimage: "/img/blogs/Avatar3.svg"
+featuredBlog: false
+priority:
 thumbnailimage:
 ---
 # Sir Hackington Appbuilder III recounts HPE DEV experiences at Google Cloud Next ‘19 April 9-11

@@ -3,8 +3,9 @@ title: "10th anniversary of DevOps Days celebrated in Ghent"
 date: 2019-11-14T15:56:42.408Z
 author: Didier Lalli 
 tags: ["DevOps"]
-authorimage: "/img/blogs/Avatar1.svg"
+authorimage: "/img/blogs/Avatar5.svg"
 featuredBlog: false
+priority:
 thumbnailimage:
 ---
 ![picture2](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2019/10/picture2-1573748147341.png)

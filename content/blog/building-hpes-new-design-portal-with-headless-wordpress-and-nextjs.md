@@ -3,8 +3,8 @@ title: "Building HPE's new design portal with headless Wordpress and Next.JS"
 date: 2018-11-27T20:35:27.762Z
 author: Alex Mejias 
 tags: []
-authorimage: "/img/blogs/Avatar6.svg"
-featuredBlog:
+authorimage: "/img/blogs/Avatar1.svg"
+featuredBlog: false
 priority:
 thumbnailimage:
 ---

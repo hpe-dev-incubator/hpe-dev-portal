@@ -3,8 +3,9 @@ title: "HPE DEV Technology Workshops: To infinity and beyond! "
 date: 2020-08-28T14:36:25.043Z
 author: Didier Lalli 
 tags: ["events","workshops","jupyter","notebook"]
-authorimage: "/img/blogs/Avatar1.svg"
-featuredBlog:
+authorimage: "/img/blogs/Avatar5.svg"
+featuredBlog: false
+priority:
 thumbnailimage:
 ---
 ![didier1](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/7/didier1-1598625790616.jpg)

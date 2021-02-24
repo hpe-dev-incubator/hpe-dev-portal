@@ -3,8 +3,9 @@ title: "The Tools We Use to Shape User Experiences"
 date: 2020-01-15T21:15:44.891Z
 author: Jonathan Weber 
 tags: []
-authorimage: "/img/blogs/Avatar2.svg"
-featuredBlog:
+authorimage: "/img/blogs/Avatar5.svg"
+featuredBlog: false
+priority:
 thumbnailimage:
 ---
 ![picture4](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2019/10/picture4-1579123006064.png)

@@ -3,13 +3,14 @@ title: "Chapel Technical Lead, Brad Chamberlain, Opens Up About Open Source"
 date: 2021-02-12T11:26:55.233Z
 author: Dale Rensing 
 tags: ["chapel","opensource"]
-authorimage: "/img/blogs/Avatar1.svg"
-featuredBlog:
+authorimage: "/img/blogs/Avatar2.svg"
+featuredBlog: false
+priority:
 thumbnailimage:
 ---
 ![brad chamberlain for blog](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/12/brad-chamberlain-for-blog-1613129198318.jpg)
 
-As a leading global, edge-to-cloud Platform-as-a-Service company, Hewlett Packard Enterprise (HPE) prides itself in employing team members who share one common purpose: to advance the way people live and work. Because of this, HPE boasts some of the finest open source  engineering talent. In this blog series, you’ll get to meet a number of them as I interview some of the open source experts who make up our team.
+As a leading global, edge-to-cloud Platform-as-a-Service company, Hewlett Packard Enterprise (HPE) prides itself in employing team members who share one common purpose: to advance the way people live and work. Because of this, HPE boasts some of the finest [open source](https://www.hpe.com/us/en/open-source.html) engineering talent. In this blog series, you’ll get to meet a number of them as I interview some of the open source experts who make up our team.
     
 Dr. Bradford Chamberlain is the principal engineer for the [Chapel parallel programming language](https://chapel-lang.org/). His research interests center around parallel computation, particularly with respect to programming languages, compilers, algorithms, applications, and scalability. Brad comes to HPE through its recent acquisition of Cray Inc.
 
@@ -39,4 +40,4 @@ My team’s current and upcoming projects that I’m most excited about include 
 
 When people think of me, I hope they envision someone who is passionate about making supercomputers as straightforward and fun to program as laptops are, yet without sacrificing performance or scalability.  I also strive to be as approachable and affable as my own mentors were, and hope that comes through to people.
     
-To learn more about the open source projects that HPE is involved with, please visit our open source page. Interested in exploring what HPE offers for developers and data scientists? Check out our [HPE DEV site](https://developer.hpe.com/) for a ton of articles, workshops, tutorials, and other resources.
+To learn more about the open source projects that HPE is involved with, please visit our [open source page](https://www.hpe.com/us/en/open-source.html). Interested in exploring what HPE offers for developers and data scientists? Check out our [HPE DEV site](https://developer.hpe.com/) for a ton of articles, workshops, tutorials, and other resources.

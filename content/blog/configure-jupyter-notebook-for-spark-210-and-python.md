@@ -3,8 +3,8 @@ title: "Configure Jupyter Notebook for Spark 2.1.0 and Python"
 date: 2020-11-05T17:04:32.594Z
 author: Mathieu Dumoulin 
 tags: ["hpe-ezmeral-data-fabric","MapR","apache-spark"]
-authorimage: "/img/blogs/Avatar2.svg"
-featuredBlog:
+authorimage: "/img/blogs/Avatar3.svg"
+featuredBlog: false
 priority:
 thumbnailimage:
 ---
