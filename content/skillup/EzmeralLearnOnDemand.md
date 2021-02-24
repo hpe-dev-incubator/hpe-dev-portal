@@ -1,8 +1,8 @@
 ---
-          title: "HPE Ezmeral Learn on Demand"
+          title: "HPE Ezmeral Learn On-Demand"
           link: https://learn.ezmeral.software.hpe.com/
           linkname: Go to the Academy
-          description: Curious about HPE Ezmeral Data Fabric and DevOps? Our Learn on Demand library offers introductory to advanced courses.
+          description: Learn about Data Fabric and DevOps with free on-demand technical courses found in the HPE Ezmeral learning academy.
           priority: 3
           image: '/img/platforms/EzmeralDataFabric.svg'
 ---

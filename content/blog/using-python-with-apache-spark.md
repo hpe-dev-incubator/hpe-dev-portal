@@ -18,6 +18,7 @@ thumbnailimage:
 "tags": "apache-spark"
 ```
 ---
+
 Apache Spark is awesome. <a target='\_blank'  href='https://www.python.org/'>Python</a> is awesome. This post will show you how to use your favorite programming language to process large datasets quickly.
 
 ## Why Python?
