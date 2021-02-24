@@ -187,7 +187,7 @@ export const pageQuery = graphql`
     }
     post: markdownRemark(fields: { slug: { eq: $slug } }) {
       id
-      excerpt(pruneLength: 160)
+      excerpt(format: MARKDOWN, pruneLength: 160)
       html
       rawMarkdownBody
       frontmatter {

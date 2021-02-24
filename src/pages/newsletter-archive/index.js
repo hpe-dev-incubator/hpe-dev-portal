@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
-import { Box, Tab, Tabs, Heading } from 'grommet';
+import { Box, Tab, Tabs, Heading, Paragraph } from 'grommet';
 import {
   Layout,
   SEO,
@@ -38,7 +38,16 @@ function NewsletterArchive({ data }) {
     <Layout title={siteTitle}>
       <SEO title="Newsletter-Archive" />
       <Box flex overflow="auto" gap="large" pad="xlarge" wrap>
-        <PageDescription image="/img/newsletter/NewsletterPage.svg" title="" />
+        <PageDescription
+          image="/img/newsletter/NewsletterPage.svg"
+          title="Newsletter Archive"
+        >
+          <Paragraph>
+            Each month we alert subscribers to what's new in the HPE DEV
+            Community through our newsletter. Find what you may have missed in
+            any of our previous editions by visiting our archive.
+          </Paragraph>
+        </PageDescription>
         <Box margin={{ top: 'large' }}>
           <Heading margin="none" level="2">
             Newsletter Archive
