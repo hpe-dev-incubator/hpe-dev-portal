@@ -3,8 +3,8 @@ title: "Top Trends: Machine Learning, Microservices, Containers, Kubernetes, Clo
 date: 2021-01-22T06:42:26.928Z
 author: Carol McDonald 
 tags: ["hpe-ezmeral-data-fabric","MapR","machine-learning","microservices"]
-authorimage: "/img/blogs/Avatar3.svg"
-featuredBlog:
+authorimage: "/img/blogs/Avatar6.svg"
+featuredBlog: false
 priority:
 thumbnailimage:
 ---

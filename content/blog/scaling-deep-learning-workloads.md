@@ -3,8 +3,9 @@ title: "Scaling deep learning workloads"
 date: 2017-11-26T09:38:36.284Z
 author: Sergey Serebryakov 
 tags: ["deep-learning-cookbook"]
-authorimage: "/img/blogs/Avatar6.svg"
-featuredBlog:
+authorimage: "/img/blogs/Avatar1.svg"
+featuredBlog: false
+priority:
 thumbnailimage:
 ---
 # Data parallelism, weak and strong scaling, and what you need to know to scale a single training job to multiple CPUs or GPUs 

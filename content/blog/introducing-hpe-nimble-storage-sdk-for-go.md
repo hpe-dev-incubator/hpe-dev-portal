@@ -4,7 +4,7 @@ date: 2020-11-25T18:25:52.171Z
 author: Michael Mattsson 
 tags: []
 authorimage: "/img/blogs/Avatar3.svg"
-featuredBlog:
+featuredBlog: false
 priority:
 thumbnailimage:
 ---

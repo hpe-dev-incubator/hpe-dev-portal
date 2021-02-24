@@ -3,8 +3,9 @@ title: "Infrastructure as code with HPE OneView and Ansible by Red Hat"
 date: 2018-10-03T03:40:59.256Z
 author: Bob Fraser 
 tags: ["HPE-OneView","OneView","Ansible"]
-authorimage: "/img/blogs/Avatar1.svg"
-featuredBlog:
+authorimage: "/img/blogs/Avatar3.svg"
+featuredBlog: false
+priority:
 thumbnailimage:
 ---
 # Infrastructure as code with HPE OneView and Ansible by Red Hat

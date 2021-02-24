@@ -4,7 +4,8 @@ date: 2019-11-29T17:05:55.757Z
 author: Michael Mattsson 
 tags: ["hpe-nimble-storage","hpe-cloud-volumes"]
 authorimage: "/img/blogs/Avatar2.svg"
-featuredBlog:
+featuredBlog: false
+priority:
 thumbnailimage:
 ---
   

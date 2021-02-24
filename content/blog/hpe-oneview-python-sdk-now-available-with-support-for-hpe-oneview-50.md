@@ -4,7 +4,8 @@ date: 2020-01-08T18:31:57.006Z
 author: Christopher Pasek  
 tags: ["HPE-OneView","OneView","Python"]
 authorimage: "/img/blogs/Avatar2.svg"
-featuredBlog:
+featuredBlog: false
+priority:
 thumbnailimage:
 ---
 ## Use HPE OneView software-defined intelligence to save time and effort

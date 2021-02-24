@@ -3,8 +3,9 @@ title: "GitHub – The Project Management Tool You Didn’t Know You Wanted "
 date: 2019-05-23T18:00:37.113Z
 author: Mike Walrath 
 tags: ["Github"]
-authorimage: "/img/blogs/Avatar4.svg"
-featuredBlog:
+authorimage: "/img/blogs/Avatar3.svg"
+featuredBlog: false
+priority:
 thumbnailimage:
 ---
 ![5bf2e1a0cd93d0796238ae01-blog-content-1558638303118](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2019/5/hpe-dev-github-1558638303117.png)

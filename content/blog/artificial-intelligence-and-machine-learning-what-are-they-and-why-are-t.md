@@ -3,8 +3,8 @@ title: "Artificial Intelligence and Machine Learning: What Are They and Why Are 
 date: 2020-11-12T08:03:23.804Z
 author: Saira Kennedy 
 tags: ["hpe-ezmeral-data-fabric","MapR","machine-learning","AI"]
-authorimage: "/img/blogs/Avatar5.svg"
-featuredBlog:
+authorimage: "/img/blogs/Avatar6.svg"
+featuredBlog: false
 priority:
 thumbnailimage:
 ---

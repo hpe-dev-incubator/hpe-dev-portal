@@ -3,8 +3,9 @@ title: "HPE DEV Hack Shack attracts over 10K visitors at HPE Discover event"
 date: 2020-08-19T07:42:44.066Z
 author: Dale Rensing 
 tags: ["hackshack","discover","virtual","event"]
-authorimage: "/img/blogs/Avatar3.svg"
-featuredBlog:
+authorimage: "/img/blogs/Avatar2.svg"
+featuredBlog: false
+priority:
 thumbnailimage:
 ---
 ![hack shack image1](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/7/hack-shack-image1-1597850961298.png)

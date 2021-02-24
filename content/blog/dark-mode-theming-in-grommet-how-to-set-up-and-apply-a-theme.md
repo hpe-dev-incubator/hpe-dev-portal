@@ -3,8 +3,9 @@ title: "Dark Mode Theming in Grommet: How to set up and apply a theme"
 date: 2020-10-14T07:50:10.733Z
 author: Matt Glissmann 
 tags: ["grommet","opensource"]
-authorimage: "/img/blogs/Avatar6.svg"
-featuredBlog:
+authorimage: "/img/blogs/Avatar5.svg"
+featuredBlog: false
+priority:
 thumbnailimage:
 ---
 ![darkmode intro part1](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/9/darkmode-intro-part1-1603293464825.png)

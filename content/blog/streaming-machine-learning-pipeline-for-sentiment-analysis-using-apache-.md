@@ -3,8 +3,8 @@ title: "Streaming Machine learning pipeline for Sentiment Analysis using Apache 
 date: 2020-10-28T15:43:34.823Z
 author: Carol McDonald 
 tags: ["hpe-ezmeral-data-fabric","MapR","Machine-Learning","Spark","opensource"]
-authorimage: "/img/blogs/Avatar4.svg"
-featuredBlog:
+authorimage: "/img/blogs/Avatar2.svg"
+featuredBlog: false
 priority:
 thumbnailimage:
 ---

@@ -3,8 +3,9 @@ title: "A behind the scenes look into the projects of the HPE Hackathon"
 date: 2018-05-24T20:29:14.193Z
 author: HPE DEV staff 
 tags: ["hackathon","hpe-onesphere","community"]
-authorimage: "/img/blogs/Avatar1.svg"
-featuredBlog:
+authorimage: "/img/blogs/Avatar5.svg"
+featuredBlog: false
+priority:
 thumbnailimage:
 ---
 ![HPE Hackathon](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2018/5/hpe-hackathon-3d-v1-1-1526997723888.jpg)

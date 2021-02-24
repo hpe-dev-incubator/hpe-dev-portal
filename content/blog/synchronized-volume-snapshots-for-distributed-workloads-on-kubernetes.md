@@ -3,7 +3,7 @@ title: "Synchronized Volume Snapshots for Distributed Workloads on Kubernetes"
 date: 2021-01-14T18:10:48.848Z
 author: Michael Mattsson 
 tags: ["hpe-nimble-storage","hpe-3par-and-primera"]
-authorimage: "/img/blogs/Avatar5.svg"
+authorimage: "/img/blogs/Avatar1.svg"
 featuredBlog: true
 priority: 3
 thumbnailimage:

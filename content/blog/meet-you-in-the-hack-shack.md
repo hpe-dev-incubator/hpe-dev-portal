@@ -3,8 +3,9 @@ title: "Meet you in the Hack Shack!"
 date: 2020-06-30T16:48:15.244Z
 author: Dale Rensing 
 tags: ["hpe-discover-us-2020","HPEDiscover"]
-authorimage: "/img/blogs/Avatar5.svg"
-featuredBlog:
+authorimage: "/img/blogs/Avatar2.svg"
+featuredBlog: false
+priority:
 thumbnailimage:
 ---
 Prior to the pandemic, developers looked forward to connecting with one another at the HPE DEV Hack Shack at events like HPE Technology and Solutions Summit (TSS) and HPE Discover. Out of necessity for the health and safety of everyone, these events have gone virtual. While there’s some concern that this detracts from the personal touch offered at physical events, the option of going virtual has significant benefits. One major advantage is being able to reach a broader audience than just those folks who can afford to fly into town for an event.  

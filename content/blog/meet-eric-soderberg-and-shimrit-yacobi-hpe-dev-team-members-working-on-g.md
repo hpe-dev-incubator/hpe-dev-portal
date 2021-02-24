@@ -3,8 +3,9 @@ title: "Meet Eric Soderberg and Shimrit Yacobi - HPE DEV Team Members working on
 date: 2020-02-07T18:33:36.735Z
 author: Dale Rensing 
 tags: ["grommet"]
-authorimage: "/img/blogs/Avatar5.svg"
-featuredBlog:
+authorimage: "/img/blogs/Avatar3.svg"
+featuredBlog: false
+priority:
 thumbnailimage:
 ---
 In this Meet the HPE DEV Team blog, I’d like to introduce Eric Soderberg [@ericsoderberg](https://twitter.com/ericsoderberg?lang=en) and Shimrit (aka “Shimi”) Yacobi, members of the [HPE Dev Community](https://developer.hpe.com/community)  who are focused on [Grommet.](https://developer.hpe.com/platform/grommet/home) Grommet is a React-based library of reusable UI components that help developers and designers create web applications. This open source UI development and design framework simplifies the way web applications are built by providing a package of commonly used interface elements from which developers and designers can choose to use.

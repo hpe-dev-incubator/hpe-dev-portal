@@ -4,7 +4,7 @@ date: 2020-11-11T06:51:11.635Z
 author: Ian Downard 
 tags: ["hpe-ezmeral-data-fabric","MapR","streaming","opensource"]
 authorimage: "/img/blogs/Avatar2.svg"
-featuredBlog:
+featuredBlog: false
 priority:
 thumbnailimage:
 ---

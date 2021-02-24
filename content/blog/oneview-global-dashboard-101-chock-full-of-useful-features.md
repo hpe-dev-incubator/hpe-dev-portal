@@ -3,8 +3,9 @@ title: "OneView Global Dashboard 101: Chock-Full of Useful Features"
 date: 2019-06-18T20:32:33.264Z
 author: Brad Stanley  
 tags: ["hpe-oneview-global-dashboard"]
-authorimage: "/img/blogs/Avatar3.svg"
-featuredBlog:
+authorimage: "/img/blogs/Avatar6.svg"
+featuredBlog: false
+priority:
 thumbnailimage:
 ---
 ![5bf2e1a0cd93d0796238ae01-blog-content-1560890766707](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2019/5/picture1-1560890766706.png)

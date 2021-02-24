@@ -3,8 +3,8 @@ title: "The 5-Minute Guide to Understanding the Significance of Apache Spark"
 date: 2020-11-25T02:19:48.521Z
 author: Nitin Bandugula 
 tags: ["opensource","mapr","apache-spark","hpe-ezmeral-data-fabric"]
-authorimage: "/img/blogs/Avatar3.svg"
-featuredBlog:
+authorimage: "/img/blogs/Avatar4.svg"
+featuredBlog: false
 priority:
 thumbnailimage:
 ---

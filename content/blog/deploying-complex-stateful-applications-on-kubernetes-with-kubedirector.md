@@ -3,8 +3,9 @@ title: "Deploying Complex Stateful Applications on Kubernetes with KubeDirector"
 date: 2019-09-09T17:36:33.319Z
 author: Tom Phelan & Joel Baxter 
 tags: ["hpe-ezmeral-container-platform","hpe-container-platform","bluedata","container","opensource","kubedirector"]
-authorimage: "/img/blogs/Avatar5.svg"
-featuredBlog:
+authorimage: "/img/blogs/Avatar2.svg"
+featuredBlog: false
+priority:
 thumbnailimage:
 ---
 Kubernetes is clearly the container orchestrator of choice for cloud-native stateless applications. And with StatefulSets and Persistent Volumes, it’s now possible to run stateful applications on Kubernetes. Tools like Kustomize, Helm, and Kubeflow help tackle some of the deployment complexity for stateful applications. However, running complex stateful applications for distributed AI, machine learning, and big data analytics on Kubernetes remains beyond the reach of most users.

@@ -3,8 +3,8 @@ title: "Configuring threads for Optimal performance in HPE PowerShell Cmdlets"
 date: 2018-12-03T07:06:34.687Z
 author: Gokul Sreeramaiah 
 tags: ["ilo-restful-api"]
-authorimage: "/img/blogs/Avatar5.svg"
-featuredBlog:
+authorimage: "/img/blogs/Avatar3.svg"
+featuredBlog: false
 priority:
 thumbnailimage:
 ---

@@ -4,7 +4,8 @@ date: 2020-02-19T17:23:08.924Z
 author: Samarth Deyagond 
 tags: []
 authorimage: "/img/blogs/Avatar1.svg"
-featuredBlog:
+featuredBlog: false
+priority:
 thumbnailimage:
 ---
 ![picture2](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/1/picture2-1582133413956.png)

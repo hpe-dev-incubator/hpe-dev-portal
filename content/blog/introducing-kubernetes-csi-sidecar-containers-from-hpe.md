@@ -3,8 +3,8 @@ title: "Introducing Kubernetes CSI Sidecar Containers from HPE"
 date: 2020-08-25T01:45:01.828Z
 author: Michael Mattsson 
 tags: ["hpe-nimble-storage","hpe-3par-and-primera"]
-authorimage: "/img/blogs/Avatar1.svg"
-featuredBlog:
+authorimage: "/img/blogs/Avatar3.svg"
+featuredBlog: false
 priority:
 thumbnailimage:
 ---

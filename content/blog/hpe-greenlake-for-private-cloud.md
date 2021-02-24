@@ -3,8 +3,9 @@ title: "HPE GreenLake for private cloud"
 date: 2020-06-16T10:51:11.005Z
 author: Steve Showalter & Thavamaniraja S 
 tags: ["hpe-greenlake"]
-authorimage: "/img/blogs/Avatar5.svg"
-featuredBlog:
+authorimage: "/img/blogs/Avatar1.svg"
+featuredBlog: false
+priority:
 thumbnailimage:
 ---
 ![blog greenlake intro 1200p](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/6/blog-greenlake-intro-1200p-1592501708480.jpg)

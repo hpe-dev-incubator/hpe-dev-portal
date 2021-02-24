@@ -3,8 +3,9 @@ title: "Returning from the land of ports and developers, AKA OSCON 2019 in Portl
 date: 2019-07-31T19:12:15.673Z
 author: Alex Mejias 
 tags: ["OSCON"]
-authorimage: "/img/blogs/Avatar3.svg"
-featuredBlog:
+authorimage: "/img/blogs/Avatar2.svg"
+featuredBlog: false
+priority:
 thumbnailimage:
 ---
 ![5bf2e1a0cd93d0796238ae01-blog-content-1564600558790](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2019/5/picture1-1564600558780.png)

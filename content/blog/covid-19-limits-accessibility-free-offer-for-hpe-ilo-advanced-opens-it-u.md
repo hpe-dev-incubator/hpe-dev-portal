@@ -3,8 +3,9 @@ title: "COVID-19 limits accessibility – Free offer for HPE iLO Advanced opens 
 date: 2020-04-23T15:56:14.053Z
 author: HPE DEV staff 
 tags: ["ilo-restful-api"]
-authorimage: "/img/blogs/Avatar1.svg"
-featuredBlog:
+authorimage: "/img/blogs/Avatar2.svg"
+featuredBlog: false
+priority:
 thumbnailimage:
 ---
 COVID-19 has introduced a variety of new challenges for many HPE customers and partners, such as closed offices, inaccessible server rooms, and/or work-from-home mandates. Like many businesses across the globe, you may be facing the need to quickly adapt and transform, in order to continue to serve your customers’ needs. If you are an HPE customer or partner (or plan to be), know that we are here to support you, so you can focus your efforts on your customers.

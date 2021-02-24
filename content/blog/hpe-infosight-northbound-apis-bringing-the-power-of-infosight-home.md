@@ -4,7 +4,8 @@ date: 2021-01-20T11:20:19.782Z
 author: Fatima Hassan 
 tags: ["hpe-infosight"]
 authorimage: "/img/blogs/Avatar4.svg"
-featuredBlog:
+featuredBlog: false
+priority:
 thumbnailimage:
 ---
 ![infosight](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/12/infosight-1611162508158.jpg)

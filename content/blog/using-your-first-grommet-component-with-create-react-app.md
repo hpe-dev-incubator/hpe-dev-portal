@@ -3,8 +3,9 @@ title: "Using Your First Grommet Component with Create-React-App"
 date: 2019-05-10T15:27:12.417Z
 author: Ian Bovard 
 tags: ["Grommet"]
-authorimage: "/img/blogs/Avatar3.svg"
-featuredBlog:
+authorimage: "/img/blogs/Avatar1.svg"
+featuredBlog: false
+priority:
 thumbnailimage:
 ---
 In this tutorial, I will walk you through the steps it takes to set up your first grommet component using create-react-app.

@@ -4,7 +4,7 @@ date: 2021-01-29T05:22:57.331Z
 author: Ankur Desai 
 tags: ["hpe-ezmeral-data-fabric","MapR","apache-spark","event-streaming"]
 authorimage: "/img/blogs/Avatar5.svg"
-featuredBlog:
+featuredBlog: false
 priority:
 thumbnailimage:
 ---

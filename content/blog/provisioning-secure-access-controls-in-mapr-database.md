@@ -3,8 +3,8 @@ title: "Provisioning Secure Access Controls in MapR Database"
 date: 2020-11-02T06:21:10.782Z
 author: Jimit Shah 
 tags: ["hpe-ezmeral-data-fabric","MapR","JSON","opensource"]
-authorimage: "/img/blogs/Avatar1.svg"
-featuredBlog:
+authorimage: "/img/blogs/Avatar4.svg"
+featuredBlog: false
 priority:
 thumbnailimage:
 ---

@@ -3,8 +3,9 @@ title: "Open source Elasticsearch helped us globally support virtual labs"
 date: 2020-09-10T14:39:09.439Z
 author: Didier Lalli 
 tags: ["opensource","elasticsearch","elk"]
-authorimage: "/img/blogs/Avatar6.svg"
-featuredBlog:
+authorimage: "/img/blogs/Avatar2.svg"
+featuredBlog: false
+priority:
 thumbnailimage:
 ---
 <img src="/uploads/media/2020/7/elk-0-1600073593195.png" alt="ElasticSearch + Kibana" />

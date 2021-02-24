@@ -3,8 +3,9 @@ title: "All HPE Composable Ecosystem SDKs now support OneView 5.2 automation"
 date: 2020-06-17T18:50:49.146Z
 author: Christopher Pasek 
 tags: ["hpe-oneview"]
-authorimage: "/img/blogs/Avatar3.svg"
-featuredBlog:
+authorimage: "/img/blogs/Avatar6.svg"
+featuredBlog: false
+priority:
 thumbnailimage:
 ---
 [HPE OneView 5.2](https://www.hpe.com/us/en/integrated-systems/software.html) (REST API version 1600) automation features are now supported by all of the HPE OneView SDKs. HPE’s Composable Ecosystem actively supports [Ansible](https://github.com/HewlettPackard/oneview-ansible), [Python](https://github.com/HewlettPackard/oneview-python), [Golang](https://github.com/HewlettPackard/oneview-golang), [Terraform](https://github.com/HewlettPackard/terraform-provider-oneview/releases/tag/v1.3.0), [Chef](https://github.com/HewlettPackard/oneview-chef), [Puppet](https://github.com/HewlettPackard/oneview-puppet), [PowerShell](https://github.com/HewlettPackard/POSH-HPOneView) and [Ruby](https://github.com/HewlettPackard/oneview-sdk-ruby) SDKs. Using the unified HPE OneView API and these popular tools, IT administrators can deploy and update servers, storage, and networking simultaneously, using only a single line of code. Composing new infrastructure is now not only faster and more agile, but also more predictable.  

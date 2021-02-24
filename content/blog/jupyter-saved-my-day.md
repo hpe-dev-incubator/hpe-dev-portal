@@ -3,8 +3,9 @@ title: "Jupyter saved my day"
 date: 2020-03-10T20:48:19.809Z
 author: Frederic Passeron 
 tags: ["opensource","jupyter","notebook"]
-authorimage: "/img/blogs/Avatar4.svg"
-featuredBlog:
+authorimage: "/img/blogs/Avatar1.svg"
+featuredBlog: false
+priority:
 thumbnailimage:
 ---
 Prepping for an industry event always requires a lot of planning, and sometimes a lot of last minute juggling. Preparing for the Hack Shack activities for HPE’s Technology and Solutions Summit (TSS) event in Paris was no different. With the event only a few weeks away, everything appeared to be ready to go. We had lined up the subjects matter experts, reserved our space, attracted a registered audience, and arranged for a dedicated infrastructure to host the technical activities. Unfortunately, the Coronavirus situation escalated and, for the safety of everyone, HPE has decided to adjust the onsite event and turn parts of it into a virtual event.

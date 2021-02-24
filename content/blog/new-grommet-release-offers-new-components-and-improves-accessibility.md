@@ -3,8 +3,9 @@ title: "New Grommet release offers new components and improves accessibility"
 date: 2020-10-08T16:15:08.059Z
 author: Shimi Yacobi 
 tags: ["grommet","react","opensource"]
-authorimage: "/img/blogs/Avatar1.svg"
-featuredBlog:
+authorimage: "/img/blogs/Avatar3.svg"
+featuredBlog: false
+priority:
 thumbnailimage:
 ---
 With the help of our rock star community, the Grommet team has been able to continuously introduce new components and enhancements. As a matter of fact, at least 10 new components have been added over the last several months. The most recent release, Grommet 2.15.0, features two new components – Card and DateInput – along with enhancements to others, like DataChart and SkipLinks. 

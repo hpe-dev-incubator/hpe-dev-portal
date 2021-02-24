@@ -3,8 +3,8 @@ title: "Introducing an NFS Server Provisioner for the HPE CSI Driver for Kuberne
 date: 2020-06-20T21:04:47.133Z
 author: Michael Mattsson 
 tags: ["hpe-nimble-storage","hpe-3par-and-primera"]
-authorimage: "/img/blogs/Avatar4.svg"
-featuredBlog:
+authorimage: "/img/blogs/Avatar2.svg"
+featuredBlog: false
 priority:
 thumbnailimage:
 ---

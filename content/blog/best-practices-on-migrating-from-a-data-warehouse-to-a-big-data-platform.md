@@ -3,8 +3,8 @@ title: "Best Practices on Migrating from a Data Warehouse to a Big Data Platform
 date: 2020-12-16T07:00:29.349Z
 author: Michael Farnbach 
 tags: ["hpe-ezmeral-data-fabric","MapR","big-data"]
-authorimage: "/img/blogs/Avatar2.svg"
-featuredBlog:
+authorimage: "/img/blogs/Avatar3.svg"
+featuredBlog: false
 priority:
 thumbnailimage:
 ---

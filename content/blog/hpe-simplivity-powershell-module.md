@@ -3,8 +3,8 @@ title: "HPE SimpliVity PowerShell Module"
 date: 2019-05-16T01:37:52.554Z
 author: Roy Atkins 
 tags: ["hpe-simplivity"]
-authorimage: "/img/blogs/Avatar6.svg"
-featuredBlog:
+authorimage: "/img/blogs/Avatar2.svg"
+featuredBlog: false
 priority:
 thumbnailimage:
 ---

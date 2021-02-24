@@ -3,8 +3,8 @@ title: "Tutorial: Enabling Remote Copy using the HPE CSI Driver for Kubernetes o
 date: 2020-08-26T02:02:34.482Z
 author: Chris Snell 
 tags: ["hpe-3par-and-primera"]
-authorimage: "/img/blogs/Avatar3.svg"
-featuredBlog:
+authorimage: "/img/blogs/Avatar2.svg"
+featuredBlog: false
 priority:
 thumbnailimage:
 ---

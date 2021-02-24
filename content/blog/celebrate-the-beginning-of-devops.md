@@ -3,8 +3,9 @@ title: "Celebrate the beginning of DevOps"
 date: 2019-08-08T16:30:30.933Z
 author: Didier Lalli 
 tags: ["DevOps","DevOpsDays","devopsdays-ghent-2019"]
-authorimage: "/img/blogs/Avatar3.svg"
-featuredBlog:
+authorimage: "/img/blogs/Avatar4.svg"
+featuredBlog: false
+priority:
 thumbnailimage:
 ---
 ![gearhead banner](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2019/8/gearhead-banner-1565283401379.png)

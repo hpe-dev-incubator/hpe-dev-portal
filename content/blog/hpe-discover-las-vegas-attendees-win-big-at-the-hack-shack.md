@@ -4,7 +4,8 @@ date: 2019-07-10T15:34:34.939Z
 author: HPE DEV staff 
 tags: ["HPEDISCOVER"]
 authorimage: "/img/blogs/Avatar2.svg"
-featuredBlog:
+featuredBlog: false
+priority:
 thumbnailimage:
 ---
 ![5bf2e1a0cd93d0796238ae01-blog-content-1562772944972](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2019/5/picture1-1562772944968.png)

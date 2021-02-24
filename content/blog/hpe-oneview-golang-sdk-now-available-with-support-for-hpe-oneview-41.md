@@ -3,8 +3,9 @@ title: "HPE OneView Golang SDK now available with support for HPE OneView 4.1"
 date: 2019-07-30T21:05:42.743Z
 author: Bob Fraser 
 tags: ["HPE-OneView","OneView","Golang"]
-authorimage: "/img/blogs/Avatar6.svg"
-featuredBlog:
+authorimage: "/img/blogs/Avatar4.svg"
+featuredBlog: false
+priority:
 thumbnailimage:
 ---
 [HPE OneView](https://hpe.com/info/oneview) takes

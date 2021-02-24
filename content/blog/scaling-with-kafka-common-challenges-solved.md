@@ -4,7 +4,7 @@ date: 2021-01-29T05:13:45.899Z
 author: Will Ochandarena 
 tags: ["hpe-ezmeral-data-fabric","MapR","kafka"]
 authorimage: "/img/blogs/Avatar4.svg"
-featuredBlog:
+featuredBlog: false
 priority:
 thumbnailimage:
 ---

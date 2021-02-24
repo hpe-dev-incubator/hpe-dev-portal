@@ -3,8 +3,8 @@ title: "Better Complex Event Processing at Scale Using a Microservices-based Str
 date: 2020-11-03T16:05:36.547Z
 author: Mathieu Dumoulin 
 tags: ["hpe-ezmeral-data-fabric","CEP","MapR","opensource"]
-authorimage: "/img/blogs/Avatar2.svg"
-featuredBlog:
+authorimage: "/img/blogs/Avatar4.svg"
+featuredBlog: false
 priority:
 thumbnailimage:
 ---
