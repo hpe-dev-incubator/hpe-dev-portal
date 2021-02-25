@@ -3,7 +3,7 @@ title: "Scaling with Kafka – Common Challenges Solved"
 date: 2021-01-29T05:13:45.899Z
 author: Will Ochandarena 
 tags: ["hpe-ezmeral-data-fabric","MapR","kafka"]
-authorimage: "/img/blogs/Avatar4.svg"
+authorimage: "/img/blogs/Avatar6.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

@@ -3,7 +3,7 @@ title: "Introducing Nemo: HPE Nimble Storage Advanced Data Services Emulator for
 date: 2018-10-01T17:33:50.371Z
 author: Michael Mattsson 
 tags: ["kubernetes","hpe-nimble-storage","docker","nemo","dory","doryd"]
-authorimage: "/img/blogs/Avatar5.svg"
+authorimage: "/img/blogs/Avatar2.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

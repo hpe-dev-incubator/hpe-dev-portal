@@ -3,7 +3,7 @@ title: "PowerShell-Defined Infrastructure"
 date: 2017-09-11T17:07:33.172Z
 author: Didier Lalli 
 tags: ["HPE-OneView","OneView","RESTAPI","JAVA","PowerShell"]
-authorimage: "/img/blogs/Avatar3.svg"
+authorimage: "/img/blogs/Avatar4.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

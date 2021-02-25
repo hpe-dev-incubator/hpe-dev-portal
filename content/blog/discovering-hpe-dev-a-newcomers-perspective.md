@@ -3,7 +3,7 @@ title: " Discovering HPE DEV – A Newcomer’s perspective"
 date: 2019-03-28T21:03:14.662Z
 author: Dale Rensing, HPE DEV team member 
 tags: ["hpedev"]
-authorimage: "/img/blogs/Avatar4.svg"
+authorimage: "/img/blogs/Avatar2.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

@@ -3,7 +3,7 @@ title: "HPE InfoSight Northbound APIs: Bringing the Power of InfoSight Home"
 date: 2021-01-20T11:20:19.782Z
 author: Fatima Hassan 
 tags: ["hpe-infosight"]
-authorimage: "/img/blogs/Avatar4.svg"
+authorimage: "/img/blogs/Avatar3.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

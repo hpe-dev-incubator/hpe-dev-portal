@@ -3,7 +3,7 @@ title: "Performance Tuning of an Apache Kafka/Spark Streaming System"
 date: 2020-11-05T16:39:38.018Z
 author: Mathieu Dumoulin 
 tags: ["hpe-ezmeral-data-fabric","MapR","apache-hive"]
-authorimage: "/img/blogs/Avatar6.svg"
+authorimage: "/img/blogs/Avatar4.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

@@ -3,7 +3,7 @@ title: "HPE brings a little magic to KubeCon + CloudNativeCon, Europe"
 date: 2020-02-19T17:32:59.050Z
 author: Dale Rensing 
 tags: ["kubecon"]
-authorimage: "/img/blogs/Avatar1.svg"
+authorimage: "/img/blogs/Avatar2.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

@@ -3,7 +3,7 @@ title: "Kafka REST Proxy - Performance Tuning for MapR Event Store"
 date: 2021-02-05T06:32:34.390Z
 author: Mathieu Dumoulin 
 tags: ["hpe-ezmeral-data-fabric","MapR","kafka"]
-authorimage: "/img/blogs/Avatar2.svg"
+authorimage: "/img/blogs/Avatar3.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

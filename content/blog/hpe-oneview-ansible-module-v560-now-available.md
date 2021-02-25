@@ -3,7 +3,7 @@ title: "HPE OneView Ansible Module v5.6.0. Now Available"
 date: 2020-06-15T19:09:06.622Z
 author: Christopher Pasek 
 tags: ["hpe-oneview"]
-authorimage: "/img/blogs/Avatar3.svg"
+authorimage: "/img/blogs/Avatar1.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

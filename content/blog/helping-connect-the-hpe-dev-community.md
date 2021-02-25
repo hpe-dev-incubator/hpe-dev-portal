@@ -3,7 +3,7 @@ title: "Helping Connect the HPE DEV Community"
 date: 2019-07-10T15:26:11.433Z
 author: Dale Rensing 
 tags: []
-authorimage: "/img/blogs/Avatar3.svg"
+authorimage: "/img/blogs/Avatar2.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

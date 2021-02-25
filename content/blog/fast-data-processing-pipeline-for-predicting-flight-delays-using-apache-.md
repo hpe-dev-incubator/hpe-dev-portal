@@ -3,7 +3,7 @@ title: "Fast data processing pipeline for predicting flight delays using Apache 
 date: 2020-10-21T05:53:58.578Z
 author: Carol McDonald 
 tags: ["hpe-ezmeral-data-fabric","MapR","Machine-Learning","Spark","opensource"]
-authorimage: "/img/blogs/Avatar4.svg"
+authorimage: "/img/blogs/Avatar5.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

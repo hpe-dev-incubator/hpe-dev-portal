@@ -3,7 +3,7 @@ title: "Accessing the HPE OneView Global Dashboard API"
 date: 2018-10-11T15:14:06.880Z
 author: Brad Stanley 
 tags: ["hpe-oneview-global-dashboard"]
-authorimage: "/img/blogs/Avatar6.svg"
+authorimage: "/img/blogs/Avatar5.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

@@ -3,7 +3,7 @@ title: "Dockerizing your NodeJS based backend Applications "
 date: 2020-06-15T14:51:00.025Z
 author: Rahul Kumar 
 tags: ["Docker","Containers"]
-authorimage: "/img/blogs/Avatar1.svg"
+authorimage: "/img/blogs/Avatar5.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

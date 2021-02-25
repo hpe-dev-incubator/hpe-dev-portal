@@ -3,7 +3,7 @@ title: "Dark Mode Theming in Grommet: Theme color customization"
 date: 2020-10-28T13:39:20.480Z
 author: Matt Glissmann 
 tags: ["grommet","opensource"]
-authorimage: "/img/blogs/Avatar2.svg"
+authorimage: "/img/blogs/Avatar1.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

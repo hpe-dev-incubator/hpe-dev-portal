@@ -3,7 +3,7 @@ title: "Is continuous deployment of modern web applications in Microsoft Azure r
 date: 2019-09-26T16:24:18.739Z
 author: Denis Choukroun 
 tags: ["hpe-proliant-for-microsoft-azure-stack"]
-authorimage: "/img/blogs/Avatar2.svg"
+authorimage: "/img/blogs/Avatar5.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

@@ -3,7 +3,7 @@ title: "Chapel Technical Lead, Brad Chamberlain, Opens Up About Open Source"
 date: 2021-02-12T11:26:55.233Z
 author: Dale Rensing 
 tags: ["chapel","opensource"]
-authorimage: "/img/blogs/Avatar2.svg"
+authorimage: "/img/blogs/Avatar3.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

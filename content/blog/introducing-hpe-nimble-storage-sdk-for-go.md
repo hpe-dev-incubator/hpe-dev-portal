@@ -3,7 +3,7 @@ title: " Introducing HPE Nimble Storage SDK for Go"
 date: 2020-11-25T18:25:52.171Z
 author: Michael Mattsson 
 tags: []
-authorimage: "/img/blogs/Avatar3.svg"
+authorimage: "/img/blogs/Avatar2.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

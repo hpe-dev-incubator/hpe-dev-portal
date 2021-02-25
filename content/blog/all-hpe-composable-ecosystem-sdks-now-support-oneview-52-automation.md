@@ -3,7 +3,7 @@ title: "All HPE Composable Ecosystem SDKs now support OneView 5.2 automation"
 date: 2020-06-17T18:50:49.146Z
 author: Christopher Pasek 
 tags: ["hpe-oneview"]
-authorimage: "/img/blogs/Avatar6.svg"
+authorimage: "/img/blogs/Avatar5.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

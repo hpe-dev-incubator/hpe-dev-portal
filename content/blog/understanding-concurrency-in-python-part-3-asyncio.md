@@ -3,7 +3,7 @@ title: "Understanding Concurrency in Python Part 3 - Asyncio"
 date: 2020-02-19T17:32:20.225Z
 author: Samarth Deyagond 
 tags: []
-authorimage: "/img/blogs/Avatar5.svg"
+authorimage: "/img/blogs/Avatar4.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

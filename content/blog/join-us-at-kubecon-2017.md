@@ -3,7 +3,7 @@ title: "Join us at KubeCon 2017"
 date: 2017-11-29T19:10:21.860Z
 author: Amit 
 tags: ["kubecon-austin-2017"]
-authorimage: "/img/blogs/Avatar5.svg"
+authorimage: "/img/blogs/Avatar6.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

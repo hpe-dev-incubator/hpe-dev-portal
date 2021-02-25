@@ -3,7 +3,7 @@ title: "How to Log in Apache Spark"
 date: 2020-08-19T06:01:02.274Z
 author: Nicolas Perez 
 tags: ["hpe-ezmeral-data-fabric","Spark","opensource"]
-authorimage: "/img/blogs/Avatar5.svg"
+authorimage: "/img/blogs/Avatar4.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

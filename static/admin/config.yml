@@ -77,8 +77,8 @@ collections:
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Publish Date', name: 'date', widget: 'datetime' }
-      # - { label: 'Featured', name: 'featuredBlog', widget: 'boolean' }
-      - { label: 'Priority', name: 'priority', widget: 'number' }
+      - { label: 'Featured', name: 'featuredBlog', widget: 'boolean', required: false }
+      - { label: 'Priority', name: 'priority', widget: 'number', required: false}
       - { label: 'Author', name: 'author', widget: 'string' } 
       - { label: 'Author Image', name: 'authorimage', widget: 'image',default: "/img/blogs/Avatar1.svg", hint: 'author image shown next to content' }
       - { label: 'Thumbnail Image', name: 'thumbnailimage', widget: 'image', hint: 'thumbnail image shown next to content' }
@@ -86,7 +86,7 @@ collections:
       - { label: 'Tags', name: 'tags', widget: 'list', allow_add: true, required: false, field: {label: 'Tag', name: 'tag', widget: 'string'}  }
   # Event collectionel: 
   - name: 'event'
-    label: 'Event'
+    label: 'Events'
     folder: 'content/event'
     extension: 'md'
     create: true
@@ -122,7 +122,7 @@ collections:
       - { label: 'Body', name: 'body', widget: 'markdown' }
   # Platform collection - TODO: hierarchical content/platform/{name}/home.md 
   - name: 'platform'
-    label: 'Platform'
+    label: 'Platforms'
     folder: 'content/platform'
     path: '{{title}}/{{slug}}'
     preview_path: '/platform/{{title}}/home'

@@ -3,7 +3,7 @@ title: "HPE DEV Hack Shack expands for premier Kubernetes event"
 date: 2020-10-28T19:02:50.321Z
 author: Dale Rensing 
 tags: ["kubecon-na-2020"]
-authorimage: "/img/blogs/Avatar3.svg"
+authorimage: "/img/blogs/Avatar4.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

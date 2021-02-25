@@ -3,7 +3,7 @@ title: "Using Jitsi Meet to reach out to others"
 date: 2020-04-15T21:37:50.843Z
 author: Frederic Passeron 
 tags: ["opensource"]
-authorimage: "/img/blogs/Avatar2.svg"
+authorimage: "/img/blogs/Avatar1.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

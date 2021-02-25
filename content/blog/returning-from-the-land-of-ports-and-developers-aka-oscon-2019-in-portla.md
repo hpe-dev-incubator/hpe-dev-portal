@@ -3,7 +3,7 @@ title: "Returning from the land of ports and developers, AKA OSCON 2019 in Portl
 date: 2019-07-31T19:12:15.673Z
 author: Alex Mejias 
 tags: ["OSCON"]
-authorimage: "/img/blogs/Avatar2.svg"
+authorimage: "/img/blogs/Avatar5.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

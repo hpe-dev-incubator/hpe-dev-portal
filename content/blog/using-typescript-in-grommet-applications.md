@@ -3,7 +3,7 @@ title: "Using TypeScript in Grommet Applications"
 date: 2019-09-09T18:08:08.659Z
 author: Brittany Archibeque 
 tags: ["Grommet","opensource"]
-authorimage: "/img/blogs/Avatar6.svg"
+authorimage: "/img/blogs/Avatar4.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

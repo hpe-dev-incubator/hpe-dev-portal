@@ -3,7 +3,7 @@ title: "Solving Enterprise DevOps and Front End Challenges with Open Source at O
 date: 2019-06-13T21:11:32.054Z
 author: Dale Rensing 
 tags: []
-authorimage: "/img/blogs/Avatar1.svg"
+authorimage: "/img/blogs/Avatar3.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

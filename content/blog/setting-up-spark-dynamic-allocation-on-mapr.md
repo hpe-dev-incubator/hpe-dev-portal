@@ -3,7 +3,7 @@ title: "Setting Up Spark Dynamic Allocation on MapR"
 date: 2021-02-05T05:19:26.501Z
 author: Tugdual Grall 
 tags: ["hpe-ezmeral-data-fabric","MapR","apache-spark"]
-authorimage: "/img/blogs/Avatar1.svg"
+authorimage: "/img/blogs/Avatar6.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

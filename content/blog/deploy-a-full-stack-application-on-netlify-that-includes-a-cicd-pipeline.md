@@ -3,7 +3,7 @@ title: "Deploy a Full Stack Application on Netlify that Includes a CI/CD Pipelin
 date: 2019-07-12T15:44:24.898Z
 author: Madhu Rebbana 
 tags: []
-authorimage: "/img/blogs/Avatar5.svg"
+authorimage: "/img/blogs/Avatar2.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

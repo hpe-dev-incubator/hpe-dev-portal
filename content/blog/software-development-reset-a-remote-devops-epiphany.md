@@ -3,7 +3,7 @@ title: "Software development reset – A remote DevOps epiphany"
 date: 2020-08-26T19:55:02.897Z
 author: Mario Devargas 
 tags: ["Software","devops","epiphany","reset"]
-authorimage: "/img/blogs/Avatar6.svg"
+authorimage: "/img/blogs/Avatar4.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

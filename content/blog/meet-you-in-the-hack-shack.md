@@ -3,7 +3,7 @@ title: "Meet you in the Hack Shack!"
 date: 2020-06-30T16:48:15.244Z
 author: Dale Rensing 
 tags: ["hpe-discover-us-2020","HPEDiscover"]
-authorimage: "/img/blogs/Avatar2.svg"
+authorimage: "/img/blogs/Avatar1.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

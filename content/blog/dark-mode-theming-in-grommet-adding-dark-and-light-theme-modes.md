@@ -3,7 +3,7 @@ title: "Dark Mode Theming in Grommet: Adding dark and light theme modes"
 date: 2020-10-21T12:49:17.679Z
 author: Matt Glissmann 
 tags: ["Grommet","theme","mode","opensource"]
-authorimage: "/img/blogs/Avatar2.svg"
+authorimage: "/img/blogs/Avatar4.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

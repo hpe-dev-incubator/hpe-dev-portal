@@ -3,7 +3,7 @@ title: "WOW - Part 2: Communicating with customers and constructors"
 date: 2020-05-08T16:40:10.080Z
 author: Parul Tyagi, Manager -  Experience Design 
 tags: []
-authorimage: "/img/blogs/Avatar3.svg"
+authorimage: "/img/blogs/Avatar6.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

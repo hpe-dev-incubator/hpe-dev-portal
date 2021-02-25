@@ -3,7 +3,7 @@ title: "Spark Streaming with HBase"
 date: 2021-02-19T07:00:12.189Z
 author: Carol McDonald 
 tags: ["hpe-ezmeral-data-fabric","MapR","apache-spark"]
-authorimage: "/img/blogs/Avatar2.svg"
+authorimage: "/img/blogs/Avatar5.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

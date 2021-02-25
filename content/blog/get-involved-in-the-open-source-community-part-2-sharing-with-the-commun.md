@@ -3,7 +3,7 @@ title: "Get involved in the open source community! Part 2: Sharing with the comm
 date: 2020-06-05T12:47:25.671Z
 author: Didier Lalli 
 tags: ["git","github","opensource"]
-authorimage: "/img/blogs/Avatar2.svg"
+authorimage: "/img/blogs/Avatar6.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

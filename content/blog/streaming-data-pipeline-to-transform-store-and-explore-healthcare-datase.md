@@ -3,7 +3,7 @@ title: "Streaming Data Pipeline to Transform, Store and Explore Healthcare Datas
 date: 2021-01-14T05:59:02.445Z
 author: Carol McDonald 
 tags: ["hpe-ezmeral-data-fabric","MapR","apache-spark"]
-authorimage: "/img/blogs/Avatar2.svg"
+authorimage: "/img/blogs/Avatar4.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

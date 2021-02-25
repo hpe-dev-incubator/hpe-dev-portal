@@ -3,7 +3,7 @@ title: "HPE firmware updates: Part 2 – Interaction in operating modes"
 date: 2020-08-20T11:38:44.224Z
 author: François Donzé 
 tags: ["ilo-restful-api","firmware","uefi","redfish"]
-authorimage: "/img/blogs/Avatar2.svg"
+authorimage: "/img/blogs/Avatar1.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

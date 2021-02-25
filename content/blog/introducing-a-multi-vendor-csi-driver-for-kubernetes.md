@@ -3,7 +3,7 @@ title: "Introducing a multi-vendor CSI driver for Kubernetes"
 date: 2019-08-30T17:57:28.031Z
 author: Michael Mattsson 
 tags: ["hpe-nimble-storage","hpe-3par-and-primera"]
-authorimage: "/img/blogs/Avatar5.svg"
+authorimage: "/img/blogs/Avatar1.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

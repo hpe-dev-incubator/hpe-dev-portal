@@ -3,7 +3,7 @@ title: "Coffee and Critical Alerts"
 date: 2019-02-20T22:40:05.439Z
 author: Brad Stanley 
 tags: ["hpe-oneview-global-dashboard"]
-authorimage: "/img/blogs/Avatar1.svg"
+authorimage: "/img/blogs/Avatar2.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

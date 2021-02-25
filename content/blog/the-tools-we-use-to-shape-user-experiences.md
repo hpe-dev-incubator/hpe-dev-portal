@@ -3,7 +3,7 @@ title: "The Tools We Use to Shape User Experiences"
 date: 2020-01-15T21:15:44.891Z
 author: Jonathan Weber 
 tags: []
-authorimage: "/img/blogs/Avatar5.svg"
+authorimage: "/img/blogs/Avatar4.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

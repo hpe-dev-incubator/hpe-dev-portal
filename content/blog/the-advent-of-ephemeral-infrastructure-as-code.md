@@ -3,7 +3,7 @@ title: "The Advent of Ephemeral Infrastructure as Code"
 date: 2019-01-02T15:40:59.636Z
 author: Katreena Mullican 
 tags: []
-authorimage: "/img/blogs/Avatar2.svg"
+authorimage: "/img/blogs/Avatar4.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
