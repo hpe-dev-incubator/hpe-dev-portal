@@ -1,7 +1,7 @@
 ---
 title: HPE DEV Munch & Learn series
-dateStart: 2021-01-27T00:00:00.000Z
-dateEnd: 2021-01-27T00:00:00.000Z
+dateStart: 2021-01-27T16:00:00.000Z
+dateEnd: 2021-01-27T17:00:00.000Z
 image: /img/events/MunchandLearn.svg
 link: /campaign/munch-and-learn/
 width: large

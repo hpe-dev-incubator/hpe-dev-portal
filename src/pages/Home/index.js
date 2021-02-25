@@ -53,7 +53,13 @@ const Project = ({ image, title, description, link }) => (
   <Box
     width="200px"
     height="308px"
-    onClick={link ? () => navigate(link) : undefined}
+    onClick={
+      link && link.match(/^\//g)
+        ? () => navigate(link)
+        : link
+        ? () => window.open(link)
+        : undefined
+    }
   >
     <Box fill="horizontal" height="96px" flex={false}>
       <Image height="96px" width="96px" src={image} />
@@ -64,7 +70,7 @@ const Project = ({ image, title, description, link }) => (
       </Text>
       <Paragraph truncate margin="none" size="large">
         {description && description.length > 110
-          ? description.substring(0, 111) + '...'
+          ? description.substring(0, 115) + '...'
           : description}
       </Paragraph>
     </Box>

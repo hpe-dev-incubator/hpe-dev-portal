@@ -1,11 +1,11 @@
 ---
 title: HPE DEV Munch & Learn series
-dateStart: 2021-02-24T00:00:00.000Z
-dateEnd: 2021-02-24T00:00:00.000Z
+dateStart: 2021-02-24T16:00:00.000Z
+dateEnd: 2021-02-24T17:00:00.000Z
 tags: ["hpedev"]
 category: Virtual Event
 image: /img/events/MunchandLearn.svg
-link: https://hpe.zoom.us/meeting/register/tJYkdequqTwsE9LuPAgPDbV-mf1V7jq23Mxj
+link: /campaign/munch-and-learn/
 width: large
 ---
 ## HPE DEV Munch & Learn series
