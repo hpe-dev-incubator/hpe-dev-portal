@@ -3,7 +3,7 @@ title: "Running Non-Cloud-Native Apps on Kubernetes with KubeDirector"
 date: 2019-11-18T17:16:18.520Z
 author: Tom Phelan 
 tags: ["hpe-ezmeral-container-platform","hpe-container-platform","bluedata","container","opensource","kubedirector"]
-authorimage: "/img/blogs/Avatar5.svg"
+authorimage: "/img/blogs/Avatar1.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

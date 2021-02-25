@@ -3,7 +3,7 @@ title: "Kubernetes, Kafka Event Sourcing Architecture Patterns and Use Case Exam
 date: 2020-11-11T07:02:01.953Z
 author: Carol McDonald 
 tags: ["hpe-ezmeral-data-fabric","MapR","Kafka","opensource","use-cases"]
-authorimage: "/img/blogs/Avatar3.svg"
+authorimage: "/img/blogs/Avatar4.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

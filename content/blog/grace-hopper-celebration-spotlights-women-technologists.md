@@ -3,7 +3,7 @@ title: "Grace Hopper Celebration spotlights women technologists"
 date: 2019-10-30T20:53:14.405Z
 author: Brittany Archibeque 
 tags: []
-authorimage: "/img/blogs/Avatar2.svg"
+authorimage: "/img/blogs/Avatar1.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

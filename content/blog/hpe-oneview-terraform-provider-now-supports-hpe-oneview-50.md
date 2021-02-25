@@ -3,7 +3,7 @@ title: "HPE OneView Terraform provider now supports HPE OneView 5.0"
 date: 2019-12-16T16:58:24.589Z
 author: Christopher Pasek 
 tags: ["HPE-OneView","OneView","Terraform"]
-authorimage: "/img/blogs/Avatar2.svg"
+authorimage: "/img/blogs/Avatar3.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

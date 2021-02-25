@@ -3,7 +3,7 @@ title: " Teaching Students to Code Reaps Rewards"
 date: 2020-01-15T20:01:10.958Z
 author: Dale Rensing 
 tags: []
-authorimage: "/img/blogs/Avatar2.svg"
+authorimage: "/img/blogs/Avatar6.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

@@ -3,7 +3,7 @@ title: "Calling all developers… Make your voices heard!"
 date: 2020-12-08T07:23:25.530Z
 author: Didier Lalli 
 tags: ["survey","opensource"]
-authorimage: "/img/blogs/Avatar3.svg"
+authorimage: "/img/blogs/Avatar2.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

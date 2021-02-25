@@ -3,7 +3,7 @@ title: "Using Python with Apache Spark"
 date: 2021-02-13T07:12:32.201Z
 author: Jim Scott 
 tags: ["hpe-ezmeral-data-fabric","MapR","apache-spark"]
-authorimage: "/img/blogs/Avatar2.svg"
+authorimage: "/img/blogs/Avatar6.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

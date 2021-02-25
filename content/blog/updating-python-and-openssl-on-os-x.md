@@ -3,7 +3,7 @@ title: "Updating Python and Openssl on OS X"
 date: 2017-12-18T18:53:11.946Z
 author: Matthew Kocurek- iLOREST Developer 
 tags: ["ilo-restful-api","redfish","openssl","python","ilo",""]
-authorimage: "/img/blogs/Avatar1.svg"
+authorimage: "/img/blogs/Avatar3.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

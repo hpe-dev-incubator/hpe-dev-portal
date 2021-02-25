@@ -3,7 +3,7 @@ title: "Redfish Workshop at the Open Source Summit NA 2019"
 date: 2019-08-05T16:14:11.909Z
 author: HPE DEV staff 
 tags: []
-authorimage: "/img/blogs/Avatar4.svg"
+authorimage: "/img/blogs/Avatar6.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

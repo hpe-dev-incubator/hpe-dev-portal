@@ -3,7 +3,7 @@ title: "HPE DEV at KubeCon + CloudNativeCon Europe 2019"
 date: 2019-06-11T17:40:44.444Z
 author: Didier Lalli 
 tags: []
-authorimage: "/img/blogs/Avatar6.svg"
+authorimage: "/img/blogs/Avatar5.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

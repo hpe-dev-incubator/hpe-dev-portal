@@ -3,7 +3,7 @@ title: "Announcing the Introduction of HPE OneView 4.1"
 date: 2018-08-21T22:50:40.813Z
 author: HPE DEV staff 
 tags: ["HPE-OneView","OneView"]
-authorimage: "/img/blogs/Avatar1.svg"
+authorimage: "/img/blogs/Avatar2.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

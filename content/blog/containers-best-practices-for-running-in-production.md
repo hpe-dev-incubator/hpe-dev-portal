@@ -3,7 +3,7 @@ title: "Containers: Best Practices for Running in Production"
 date: 2020-09-16T16:06:50.613Z
 author: Suzy Visvanathan 
 tags: ["hpe-ezmeral-data-fabric","MapR","containers","opensource"]
-authorimage: "/img/blogs/Avatar1.svg"
+authorimage: "/img/blogs/Avatar2.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

@@ -3,7 +3,7 @@ title: "Using HPE Cloud Volumes with Amazon EKS"
 date: 2019-11-29T17:05:55.757Z
 author: Michael Mattsson 
 tags: ["hpe-nimble-storage","hpe-cloud-volumes"]
-authorimage: "/img/blogs/Avatar2.svg"
+authorimage: "/img/blogs/Avatar6.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

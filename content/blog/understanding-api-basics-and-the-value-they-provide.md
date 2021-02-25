@@ -3,7 +3,7 @@ title: "Understanding API basics and the value they provide "
 date: 2019-12-03T16:58:32.501Z
 author: Didier Lalli 
 tags: []
-authorimage: "/img/blogs/Avatar5.svg"
+authorimage: "/img/blogs/Avatar2.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

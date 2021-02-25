@@ -3,7 +3,7 @@ title: "Big Data Opportunities for Telecommunications"
 date: 2020-11-05T16:27:29.955Z
 author: Carol McDonald 
 tags: ["hpe-ezmeral-data-fabric","MapR","apache-spark","opensource"]
-authorimage: "/img/blogs/Avatar4.svg"
+authorimage: "/img/blogs/Avatar6.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

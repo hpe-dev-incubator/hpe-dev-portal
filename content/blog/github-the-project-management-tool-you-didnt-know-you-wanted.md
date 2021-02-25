@@ -3,7 +3,7 @@ title: "GitHub – The Project Management Tool You Didn’t Know You Wanted "
 date: 2019-05-23T18:00:37.113Z
 author: Mike Walrath 
 tags: ["Github"]
-authorimage: "/img/blogs/Avatar3.svg"
+authorimage: "/img/blogs/Avatar4.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

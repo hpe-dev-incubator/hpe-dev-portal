@@ -3,7 +3,7 @@ title: "HPE CSI Driver for Kubernetes: Snapshots, Clones and Volume Expansion"
 date: 2020-03-19T03:36:56.909Z
 author: Michael Mattsson 
 tags: ["hpe-nimble-storage"]
-authorimage: "/img/blogs/Avatar3.svg"
+authorimage: "/img/blogs/Avatar2.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

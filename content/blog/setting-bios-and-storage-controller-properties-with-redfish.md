@@ -3,7 +3,7 @@ title: "Setting Bios and Storage Controller Properties with Redfish"
 date: 2018-07-19T15:11:44.185Z
 author: Francois Donze 
 tags: ["ilo-restful-api","Redfish","SmartArray","Bios","Postman"]
-authorimage: "/img/blogs/Avatar6.svg"
+authorimage: "/img/blogs/Avatar3.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

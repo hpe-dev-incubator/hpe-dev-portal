@@ -3,7 +3,7 @@ title: "Architecting the World’s Largest Biometric Identity System: The Aadhaa
 date: 2021-01-07T23:06:37.255Z
 author: Michele Nemschoff 
 tags: ["hpe-ezmeral-data-fabric","MapR"]
-authorimage: "/img/blogs/Avatar2.svg"
+authorimage: "/img/blogs/Avatar3.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

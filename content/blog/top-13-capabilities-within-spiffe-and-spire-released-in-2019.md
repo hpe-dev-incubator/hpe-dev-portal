@@ -3,7 +3,7 @@ title: "Top 13 Capabilities Within SPIFFE and SPIRE Released In 2019"
 date: 2020-04-21T00:42:07.062Z
 author: Umair Khan 
 tags: ["spiffe-and-spire-projects","opensource"]
-authorimage: "/img/blogs/Avatar3.svg"
+authorimage: "/img/blogs/Avatar2.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

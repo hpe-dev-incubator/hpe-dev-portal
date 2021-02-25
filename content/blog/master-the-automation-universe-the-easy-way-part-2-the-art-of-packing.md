@@ -3,7 +3,7 @@ title: "Master the automation universe the easy way!  Part 2: The Art of Packing
 date: 2020-07-28T13:46:21.282Z
 author: Rick Kauffman 
 tags: ["automation","StackStorm"]
-authorimage: "/img/blogs/Avatar1.svg"
+authorimage: "/img/blogs/Avatar2.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

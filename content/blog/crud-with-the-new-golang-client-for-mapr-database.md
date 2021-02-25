@@ -3,7 +3,7 @@ title: "CRUD with the New Golang Client for MapR Database"
 date: 2020-09-18T20:27:10.747Z
 author: Magnus Pierre 
 tags: ["hpe-ezmeral-data-fabric","MapR","Golang","opensource"]
-authorimage: "/img/blogs/Avatar2.svg"
+authorimage: "/img/blogs/Avatar1.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

@@ -3,7 +3,7 @@ title: "Cloud vs. On-Premises – What Are the Best Options for Deploying Micros
 date: 2020-12-16T06:55:47.622Z
 author: Jim Scott 
 tags: ["cloud-computing","microservices","hpe-ezmeral-data-fabric","MapR"]
-authorimage: "/img/blogs/Avatar4.svg"
+authorimage: "/img/blogs/Avatar6.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

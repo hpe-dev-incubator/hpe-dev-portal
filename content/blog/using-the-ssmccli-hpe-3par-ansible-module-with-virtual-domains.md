@@ -3,7 +3,7 @@ title: "Using the SSMC/CLI HPE 3PAR Ansible Module with Virtual Domains"
 date: 2018-10-01T18:49:29.287Z
 author: Chris Snell 
 tags: ["hpe-3par","hpe-3par-and-primera","ansible","virtualdomains","automation"]
-authorimage: "/img/blogs/Avatar1.svg"
+authorimage: "/img/blogs/Avatar3.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

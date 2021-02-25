@@ -3,7 +3,7 @@ title: "HPE Container Platform REST API – Part 2: Deploying containerized appl
 date: 2020-06-04T16:41:01.009Z
 author: Denis Choukroun 
 tags: ["hpe-ezmeral-container-platform","hpe-container-platform","kubedirector","opensource"]
-authorimage: "/img/blogs/Avatar3.svg"
+authorimage: "/img/blogs/Avatar6.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

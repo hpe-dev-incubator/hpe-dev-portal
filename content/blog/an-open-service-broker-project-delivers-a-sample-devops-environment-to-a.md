@@ -3,7 +3,7 @@ title: "An Open Service Broker Project Delivers a Sample DevOps Environment to A
 date: 2019-05-23T19:07:42.640Z
 author: Peng Liu 
 tags: []
-authorimage: "/img/blogs/Avatar5.svg"
+authorimage: "/img/blogs/Avatar3.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

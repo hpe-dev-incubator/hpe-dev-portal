@@ -3,7 +3,7 @@ title: "Automation is not testing"
 date: 2020-02-18T17:55:26.750Z
 author: Chris Young 
 tags: []
-authorimage: "/img/blogs/Avatar4.svg"
+authorimage: "/img/blogs/Avatar6.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

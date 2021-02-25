@@ -3,7 +3,7 @@ title: "Spark 101: What Is It, What It Does, and Why It Matters"
 date: 2020-07-03T06:19:21.554Z
 author: Carol McDonald 
 tags: ["MapR","AI","hpe-ezmeral-data-fabric","Spark","opensource"]
-authorimage: "/img/blogs/Avatar3.svg"
+authorimage: "/img/blogs/Avatar6.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

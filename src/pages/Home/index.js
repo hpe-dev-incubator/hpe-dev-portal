@@ -69,7 +69,7 @@ const Project = ({ image, title, description, link }) => (
         {title}
       </Text>
       <Paragraph truncate margin="none" size="large">
-        {description && description.length > 110
+        {description && description.length > 115
           ? description.substring(0, 115) + '...'
           : description}
       </Paragraph>

@@ -3,7 +3,7 @@ title: "PharML.Bind COVID-19 Compound Affinity Prediction "
 date: 2020-05-26T14:47:37.205Z
 author: Jacob Balma 
 tags: ["opensource"]
-authorimage: "/img/blogs/Avatar6.svg"
+authorimage: "/img/blogs/Avatar5.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

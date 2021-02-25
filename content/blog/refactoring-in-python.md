@@ -3,7 +3,7 @@ title: "Refactoring in Python"
 date: 2020-01-30T22:57:21.363Z
 author: Samarth Deyagond 
 tags: ["Python"]
-authorimage: "/img/blogs/Avatar1.svg"
+authorimage: "/img/blogs/Avatar6.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

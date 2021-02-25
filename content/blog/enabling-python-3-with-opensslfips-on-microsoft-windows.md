@@ -3,7 +3,7 @@ title: "Enabling Python 3 with OpenSSL/FIPS on Microsoft Windows"
 date: 2020-12-21T08:48:53.479Z
 author: Rajeev Kallur 
 tags: ["Python","OpenSSL","FIPS"]
-authorimage: "/img/blogs/Avatar5.svg"
+authorimage: "/img/blogs/Avatar4.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

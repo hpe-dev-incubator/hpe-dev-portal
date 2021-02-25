@@ -3,7 +3,7 @@ title: "Meet the HPE DEV Team – Blaine Southam and Michael Mattsson"
 date: 2019-11-06T18:16:14.467Z
 author: By Dale Rensing 
 tags: []
-authorimage: "/img/blogs/Avatar5.svg"
+authorimage: "/img/blogs/Avatar3.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

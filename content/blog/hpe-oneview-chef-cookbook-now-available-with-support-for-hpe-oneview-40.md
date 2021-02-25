@@ -3,7 +3,7 @@ title: "HPE OneView Chef cookbook now available with support for HPE OneView 4.0
 date: 2018-06-06T19:55:30.455Z
 author: HPE DEV staff 
 tags: ["HPE-OneView","OneView","chef"]
-authorimage: "/img/blogs/Avatar2.svg"
+authorimage: "/img/blogs/Avatar5.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

@@ -3,7 +3,7 @@ title: "Hacking away at the Paris Technology and Solutions Summit (TSS)"
 date: 2019-03-28T21:05:04.114Z
 author: Didier Lalli, Distinguished Technologist 
 tags: ["hackshack"]
-authorimage: "/img/blogs/Avatar4.svg"
+authorimage: "/img/blogs/Avatar6.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

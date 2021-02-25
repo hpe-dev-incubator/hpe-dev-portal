@@ -3,7 +3,7 @@ title: "Kafka Connect and Kafka REST API on MapR: Streaming Just Became a Whole 
 date: 2021-01-29T05:29:20.597Z
 author: Ankur Desai 
 tags: ["hpe-ezmeral-data-fabric","MapR","kafka","event-streaming"]
-authorimage: "/img/blogs/Avatar6.svg"
+authorimage: "/img/blogs/Avatar5.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

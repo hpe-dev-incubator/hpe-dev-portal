@@ -3,7 +3,7 @@ title: "DevOps D-Day speakers focus on real-world use cases"
 date: 2019-11-21T16:00:12.282Z
 author: Didier Lalli 
 tags: []
-authorimage: "/img/blogs/Avatar2.svg"
+authorimage: "/img/blogs/Avatar6.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

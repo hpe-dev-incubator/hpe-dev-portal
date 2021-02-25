@@ -3,7 +3,7 @@ title: "Designing, Installing, and Configuring a Failover Cluster with Hyper-V M
 date: 2019-08-05T15:40:49.039Z
 author: Patrick Francois 
 tags: []
-authorimage: "/img/blogs/Avatar5.svg"
+authorimage: "/img/blogs/Avatar1.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

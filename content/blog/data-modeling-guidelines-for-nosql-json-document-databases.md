@@ -3,7 +3,7 @@ title: "Data Modeling Guidelines for NoSQL JSON Document Databases"
 date: 2020-07-08T05:22:33.670Z
 author: Carol McDonald 
 tags: ["hpe-ezmeral-data-fabric","MapR","opensource"]
-authorimage: "/img/blogs/Avatar5.svg"
+authorimage: "/img/blogs/Avatar4.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

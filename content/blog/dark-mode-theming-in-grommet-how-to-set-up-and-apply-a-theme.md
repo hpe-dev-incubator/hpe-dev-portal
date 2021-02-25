@@ -3,7 +3,7 @@ title: "Dark Mode Theming in Grommet: How to set up and apply a theme"
 date: 2020-10-14T07:50:10.733Z
 author: Matt Glissmann 
 tags: ["grommet","opensource"]
-authorimage: "/img/blogs/Avatar5.svg"
+authorimage: "/img/blogs/Avatar4.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

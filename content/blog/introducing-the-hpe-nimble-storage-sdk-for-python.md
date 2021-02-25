@@ -3,7 +3,7 @@ title: "Introducing the HPE Nimble Storage SDK for Python"
 date: 2020-05-08T22:17:59.474Z
 author: Michael Mattsson 
 tags: ["hpe-nimble-storage"]
-authorimage: "/img/blogs/Avatar1.svg"
+authorimage: "/img/blogs/Avatar5.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
