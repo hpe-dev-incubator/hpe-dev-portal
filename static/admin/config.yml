@@ -67,6 +67,7 @@ collections:
   - name: 'blog'
     label: 'Blog'
     folder: 'content/blog'
+    preview_path: '/blog/{{slug}}'
     extension: 'md'
     create: true
     publish: false
@@ -124,7 +125,7 @@ collections:
     label: 'Platform'
     folder: 'content/platform'
     path: '{{title}}/{{slug}}'
-    preview_path: 'content/platform/{{title}}/{{slug}}'
+    preview_path: '/platform/{{title}}/home'
     extension: 'md'
     create: true
     publish: false
@@ -162,10 +163,11 @@ collections:
   - name: 'campaign'
     label: 'Campaign'
     folder: 'content/campaign'
+    preview_path: '/campaign/{{slug}}'
     extension: 'md'
     create: true
     publish: false
-    slug: 'campaign'
+    slug: '{{slug}}'
     editor:
       preview: true
     fields:
