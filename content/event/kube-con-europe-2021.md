@@ -1,7 +1,7 @@
 ---
 title: KubeCon Europe 2021
-dateStart: 2021-05-04T00:00:00.000Z
-dateEnd: 2021-05-07T00:00:00.000Z
+dateStart: 2021-05-04T10:00:00.000Z
+dateEnd: 2021-05-07T20:00:00.000Z
 tags: ["KubeCon"]
 category: Virtual Event
 image: /img/events/KubeConEurope2021.svg
