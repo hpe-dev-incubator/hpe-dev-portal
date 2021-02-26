@@ -3,7 +3,7 @@ title: HPE Cloud Volumes
 version: d.0.1
 description: Enterprise-based cloud storage service that provides block storage
   as a service for use with public cloud services.
-image: /static/img/platforms/hpe-cloud-volume.svg
+image: /img/platforms/hpe-cloud-volume.svg
 width: large
 priority: 4
 ---
