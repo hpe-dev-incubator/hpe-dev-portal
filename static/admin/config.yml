@@ -24,7 +24,7 @@ collections:
         fields:
           - { label: Title, name: title, widget: string }
           - { label: Author, name: author, widget: string }
-          - { label: Image, name: image, widget: image }
+          - { label: Image, name: image,media_folder: '/static/img/home', widget: image }
           - { label: Body, name: body, widget: 'markdown' }
   # Homepanels collection
   - name: 'homepanels'
@@ -43,7 +43,7 @@ collections:
       - { label: 'Priority', name: 'priority', widget: 'number', hint: 'controls the position on the page'}
       - { label: 'Width', name: 'width', widget: 'select', options: [ 'small', 'medium', 'large' ], default: 'medium'}
       - { label: 'Link', name: 'link', widget: 'string'}
-      - { label: 'Image', name: 'image', widget: 'image', hint 'image shown next to or above content' }
+      - { label: 'Image', name: 'image',media_folder: '/static/img/home', widget: 'image', hint: 'image shown next to or above content' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
   # Opensource collectionel: 
   - name: 'opensource'
@@ -61,7 +61,7 @@ collections:
       - { label: 'Link', name: 'link', widget: 'string'}
       - { label: 'Description', name: 'description', widget: 'string'}
       - { label: 'Priority', name: 'priority', widget: 'number' }
-      - { label: 'Thumbnail Image', name: 'image', widget: 'image', hint 'image to appear on opensource card' }
+      - { label: 'Thumbnail Image',media_folder: '/static/img/opensource', name: 'image', widget: 'image', hint: 'image to appear on opensource card' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
   # Blog collection
   - name: 'blog'
@@ -80,8 +80,8 @@ collections:
       - { label: 'Featured', name: 'featuredBlog', widget: 'boolean', required: false }
       - { label: 'Priority', name: 'priority', widget: 'number', required: false}
       - { label: 'Author', name: 'author', widget: 'string' } 
-      - { label: 'Author Image', name: 'authorimage', widget: 'image',default: "/img/blogs/Avatar1.svg", hint: 'author image shown next to content' }
-      - { label: 'Thumbnail Image', name: 'thumbnailimage', required: false, widget: 'image', hint: 'thumbnail image shown next to content' }
+      - { label: 'Author Image', name: 'authorimage', widget: 'image',default: "/img/blogs/Avatar1.svg", media_folder: '/static/img/blogs', hint: 'author image shown next to content' }
+      - { label: 'Thumbnail Image', name: 'thumbnailimage',media_folder: '/static/img/blogs', required: false, widget: 'image', hint: 'thumbnail image shown next to content' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
       - { label: 'Tags', name: 'tags', widget: 'list', allow_add: true, required: false, field: {label: 'Tag', name: 'tag', widget: 'string'}  }
   # Event collectionel: 
@@ -98,7 +98,7 @@ collections:
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Start Date', name: 'dateStart', widget: 'datetime' }
       - { label: 'End Date', name: 'dateEnd', widget: 'datetime' }
-      - { label: 'Thumbnail Image', name: 'image', widget: 'image', hint: 'thumbnail image shown next to content' }
+      - { label: 'Thumbnail Image', name: 'image', media_folder: '/static/img/events', widget: 'image', hint: 'thumbnail image shown next to content' }
       - { label: 'Link', name: 'link', widget: 'string'}
       - { label: 'Width', name: 'width', widget: 'select', options: [ 'small', 'medium', 'large' ], default: 'medium'}
       - { label: 'Tags', name: 'tags', widget: 'list', allow_add: true, required: false, field: {label: 'Tag', name: 'tag', widget: 'string'}  }
@@ -136,7 +136,7 @@ collections:
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Version', name: 'version', widget: 'string' }
       - { label: 'Description', name: 'description', widget: 'string' }
-      - { label: 'Image', name: 'image', widget: 'image', hint 'image to appear on Develop page' }
+      - { label: 'Image', name: 'image',media_folder: '/static/img/platforms', widget: 'image', hint: 'image to appear on platform page' }
       - { label: 'Width', name: 'width', widget: 'select', options: [ 'small', 'medium', 'large' ], default: 'large'}
       - { label: 'Priority', name: 'priority', widget: 'number', hint: 'controls the position on the platform page'}
       - { label: 'Tags', name: 'tags', widget: 'list', allow_add: true, required: false, field: {label: 'Tag', name: 'tag', widget: 'string'} }
@@ -157,7 +157,7 @@ collections:
       - { label: 'Link Name', name: 'linkname', widget: 'string'}
       - { label: 'Description', name: 'description', widget: 'string' }
       - { label: 'Priority', name: 'priority', widget: 'number', hint: 'controls the position on the community page'}
-      - { label: 'Image', name: 'image', widget: 'image', hint 'image to appear on community card' }
+      - { label: 'Image', name: 'image', media_folder: '/static/img/community', widget: 'image', hint 'image to appear on community card' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
 # Campaign collection
   - name: 'campaign'
@@ -172,7 +172,7 @@ collections:
       preview: true
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Author Image', name: 'authorimage', widget: 'image',default: "/img/blogs/Avatar1.svg", hint: 'author image shown next to content' }
+      - { label: 'Author Image', name: 'authorimage', widget: 'image',default: "/img/blogs/Avatar1.svg", media_folder: '/static/img/blogs', hint: 'author image shown next to content' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
 # Skillup collection
   - name: 'skillup'
@@ -189,6 +189,6 @@ collections:
       - { label: 'Link', name: 'link', widget: 'string'}
       - { label: 'Link Name', name: 'linkname', widget: 'string'}
       - { label: 'Description', name: 'description', widget: 'string' }
-      - { label: 'Priority', name: 'priority', widget: 'number', hint: 'controls the position on the community page'}
-      - { label: 'Image', name: 'image', widget: 'image', hint 'image to appear on community card' }
+      - { label: 'Priority', name: 'priority', widget: 'number', hint: 'controls the position on the skill up page'}
+      - { label: 'Image', name: 'image', media_folder: '/static/img/skillup', widget: 'image', hint 'image to appear on skill up card' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
