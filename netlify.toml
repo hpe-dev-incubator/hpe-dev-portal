@@ -6,10 +6,26 @@
 
   ## Uncomment to use this redirect for Single Page Applications like create-react-app. 
   ## Not needed for static site generators.
-  #[[redirects]]
-  #  from = "/*"
-  #  to = "/index.html"
-  #  status = 200
+[[redirects]]
+  from = "/blog/EEVLz2X9vmSmZg6k6Dqx/end-to-end-machine-learning-using-containerization"
+  to = "/blog/end-to-end-machine-learning-using-containerization"
+  status = 301
+  force = false
+[[redirects]]
+  from = "/blog/Oj0pNxBE3JsJB02E2KOj/kubernetized-machine-learning-and-ai-using-kubeflow"
+  to = "/blog/kubernetized-machine-learning-and-ai-using-kubeflow"
+  status = 301
+  force = false
+[[redirects]]
+  from = "/blog/0N796xBvYxcyGq8Yo35N/event-driven-microservices-architecture-patterns-and-examples"
+  to = "/blog/event-driven-microservices-architecture-patterns-and-examples"
+  status = 301
+  force = false
+[[redirects]]
+  from = "/events"
+  to = "/platform"
+  status = 301
+  force = false
   
   ## (optional) Settings for Netlify Dev
   ## https://github.com/netlify/netlify-dev-plugin#project-detection
