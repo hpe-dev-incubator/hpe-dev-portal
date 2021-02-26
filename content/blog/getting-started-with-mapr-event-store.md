@@ -1,12 +1,15 @@
 ---
-title: "Getting Started with MapR Event Store"
+title: Getting Started with MapR Event Store
 date: 2021-02-19T06:51:45.400Z
-author: Tugdual Grall 
-tags: ["hpe-ezmeral-data-fabric","MapR","kafka"]
-authorimage: "/img/blogs/Avatar6.svg"
 featuredBlog: false
-priority:
-thumbnailimage:
+priority: null
+author: Tugdual Grall
+authorimage: /img/blogs/Avatar6.svg
+thumbnailimage: null
+tags:
+  - hpe-ezmeral-data-fabric
+  - MapR
+  - kafka
 ---
 **Editor’s Note:** MapR products and solutions sold prior to the acquisition of such assets by Hewlett Packard Enterprise Company in 2019 may have older product names and model numbers that differ from current solutions. For information about current offerings, which are now part of HPE Ezmeral Data Fabric, please visit [https://www.hpe.com/us/en/software/data-fabric.html](https://www.hpe.com/us/en/software/data-fabric.html)
 
@@ -37,6 +40,7 @@ You can find a complete application on the <a target='\_blank'  href='https://gi
 
 ## Prerequisites
 You will need basic Java programming skills, as well as access to:
+
 *   A running MapR Cluster
 *   <a target='\_blank'  href='https://maven.apache.org/'>Apache Maven 3.0</a> or later
 *   Git to clone the <a target='\_blank'  href='https://github.com/mapr-demos/mapr-streams-sample-programs'>https://github.com/mapr-demos/mapr-streams-sample-programs</a> repository
