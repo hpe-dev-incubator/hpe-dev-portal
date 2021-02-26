@@ -2,9 +2,10 @@
 title: HPE InfoSight
 version: "1.0"
 description: AI-Driven Operations for Hybrid Cloud
-image: infosight.png
+image: /static/img/platforms/infosight.png
+width: medium
+priority: 3
 frontpage: false
-priority: 2
 tags:
   - hpe-infosight
 ---
