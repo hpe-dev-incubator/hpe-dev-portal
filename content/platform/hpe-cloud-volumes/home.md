@@ -3,7 +3,7 @@ title: HPE Cloud Volumes
 version: d.0.1
 description: Enterprise-based cloud storage service that provides block storage
   as a service for use with public cloud services.
-image: cv-platform-logo-cmsv2.svg
+image: cv-platform-logo.jpg
 width: large
 priority: 4
 ---
