@@ -39,12 +39,7 @@ const CommunityCard = ({ node, ...rest }) => (
     </Box>
     <CardFooter pad="none">
       <Box wrap align="start">
-        <Button
-          primary
-          label={node.frontmatter.linkname}
-          href={node.frontmatter.link}
-          target="_blank"
-        />
+        <Button primary label={node.frontmatter.linkname} />
       </Box>
     </CardFooter>
   </GrommetCard>
