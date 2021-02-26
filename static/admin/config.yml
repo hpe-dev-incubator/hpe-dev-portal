@@ -136,7 +136,7 @@ collections:
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Version', name: 'version', widget: 'string' }
       - { label: 'Description', name: 'description', widget: 'string' }
-      - { label: 'Image', name: 'image',media_folder: '/static/img/platforms', widget: 'image', hint: 'image to appear on platform page' }
+      - { label: 'Image', name: 'image',media_folder: '/img/platforms', widget: 'image', hint: 'image to appear on platform page' }
       - { label: 'Width', name: 'width', widget: 'select', options: [ 'small', 'medium', 'large' ], default: 'large'}
       - { label: 'Priority', name: 'priority', widget: 'number', hint: 'controls the position on the platform page'}
       - { label: 'Tags', name: 'tags', widget: 'list', allow_add: true, required: false, field: {label: 'Tag', name: 'tag', widget: 'string'} }
