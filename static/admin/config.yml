@@ -9,6 +9,12 @@ publish_mode: editorial_workflow
 
 media_folder: static/img
 public_folder: /img
+media_library: 
+  name: cloudinary
+  config: 
+    cloud_name: ${CLOUDINARY_CLOUD_NAME}
+    api_key: ${CLOUDINARY_API_KEY}
+    output_filename_only: true
 
 collections:
   - label: 'Home'
@@ -80,7 +86,7 @@ collections:
       - { label: 'Featured', name: 'featuredBlog', widget: 'boolean', required: false }
       - { label: 'Priority', name: 'priority', widget: 'number', required: false}
       - { label: 'Author', name: 'author', widget: 'string' } 
-      - { label: 'Author Image', name: 'authorimage', widget: 'image',default: "/img/blogs/Avatar1.svg", media_folder: '/static/img/blogs', hint: 'author image shown next to content' }
+      - { label: 'Author Image', name: 'authorimage', widget: 'image',default: "/img/blogs/Avatar1.svg", media_folder: '/static/img/blogs',public_folder: '/img/blogs', hint: 'author image shown next to content' }
       - { label: 'Thumbnail Image', name: 'thumbnailimage',media_folder: '/static/img/blogs', required: false, widget: 'image', hint: 'thumbnail image shown next to content' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
       - { label: 'Tags', name: 'tags', widget: 'list', allow_add: true, required: false, field: {label: 'Tag', name: 'tag', widget: 'string'}  }
@@ -152,13 +158,29 @@ collections:
     editor:
       preview: true
     fields:
-      - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Link', name: 'link', widget: 'string'}
-      - { label: 'Link Name', name: 'linkname', widget: 'string'}
-      - { label: 'Description', name: 'description', widget: 'string' }
-      - { label: 'Priority', name: 'priority', widget: 'number', hint: 'controls the position on the community page'}
-      - { label: 'Image', name: 'image', media_folder: '/static/img/community', widget: 'image', hint 'image to appear on community card' }
-      - { label: 'Body', name: 'body', widget: 'markdown' }
+      - label: 'Title'
+        name: 'title'
+        widget: 'string'
+      - label: 'Link'
+        name: 'link'
+        widget: 'string'
+      - label: 'Link Name'
+        name: 'linkname'
+        widget: 'string'
+      - label: 'Description'
+        name: 'description'
+        widget: 'string'
+      - label: 'Priority'
+        name: 'priority'
+        widget: 'number'
+        hint: 'controls the position on the community page'
+      - label: 'Image'
+        name: 'image'
+        widget: 'image'
+        hint: 'image to appear on community card'
+      - label: 'Body'
+        name: 'body'
+        widget: 'markdown'
 # Campaign collection
   - name: 'campaign'
     label: 'Campaign'
