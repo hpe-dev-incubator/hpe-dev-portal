@@ -19,6 +19,7 @@ const EventCard = ({ node, ...rest }) => (
     elevation="medium"
     flex="grow"
     {...rest}
+    /* eslint-disable */
     onClick={
       node.frontmatter.link && node.frontmatter.link.match(/^\//g)
         ? () => navigate(node.frontmatter.link)
