@@ -12,8 +12,8 @@ public_folder: /img
 media_library: 
   name: cloudinary
   config: 
-    cloud_name: ${CLOUDINARY_CLOUD_NAME}
-    api_key: ${CLOUDINARY_API_KEY}
+    cloud_name: 'hpe-dev-portal'
+    api_key: '985836654398919'
     output_filename_only: true
 
 collections:
@@ -158,31 +158,6 @@ collections:
     editor:
       preview: true
     fields:
-<<<<<<< HEAD
-      - label: 'Title'
-        name: 'title'
-        widget: 'string'
-      - label: 'Link'
-        name: 'link'
-        widget: 'string'
-      - label: 'Link Name'
-        name: 'linkname'
-        widget: 'string'
-      - label: 'Description'
-        name: 'description'
-        widget: 'string'
-      - label: 'Priority'
-        name: 'priority'
-        widget: 'number'
-        hint: 'controls the position on the community page'
-      - label: 'Image'
-        name: 'image'
-        widget: 'image'
-        hint: 'image to appear on community card'
-      - label: 'Body'
-        name: 'body'
-        widget: 'markdown'
-=======
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Link', name: 'link', widget: 'string'}
       - { label: 'Link Name', name: 'linkname', widget: 'string'}
@@ -190,7 +165,6 @@ collections:
       - { label: 'Priority', name: 'priority', widget: 'number', hint: 'controls the position on the community page'}
       - { label: 'Image', name: 'image', media_folder: '/static/img/community', public_folder: '/img/community', widget: 'image', hint 'image to appear on community card' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
->>>>>>> 89de1f108e20996e753f07278ab80850db28ee3e
 # Campaign collection
   - name: 'campaign'
     label: 'Campaign'
