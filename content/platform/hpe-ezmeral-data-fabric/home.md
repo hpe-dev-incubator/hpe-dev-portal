@@ -1,16 +1,15 @@
 ---
-priority: 1
-width: large
 title: HPE Ezmeral Data Fabric
 version: v 2.01.8964
 description: A sophisticated data fabric that enables you to run the right
   application at the right time in the right place on the right data.
 image: /img/platforms/EzmeralDataFabric.svg
+width: large
+priority: 1
 frontpage: true
 tags:
   - hpe-ezmeral-data-fabric
 ---
-
 You can store, manage and access your data from edge to core to cloud at any scale or speed that you need. You can build data structures that span your enterprise using the data fabric to handle data storage and motion. Your current systems can access data in the fabric, and the same bits can be processed by cloud native applications.
 
 * [HPE Ezmeral Data Fabric Documentation](https://docs.datafabric.hpe.com/)
@@ -115,6 +114,7 @@ The source code of the Customer 360 View application is available in this [GitH
 This project provides an engine for processing real time streams trading data from stock exchanges. The application consists of the following components:
 
 * A Producer microservice that streams trades using the NYSE TAQ format
+
   * The data source is the Daily Trades dataset described here
   * The schema for our data is detailed in Table 6, "Daily Trades File Data Fields", on page 26 of Daily TAQ Client Specification (from December 1st, 2013)
 * A multi-threaded Consumer microservice that indexes the trades by receiver and sender
@@ -137,25 +137,25 @@ The source code of the Application for Processing Stock Market Trade Data applic
 
 Educate yourself for free with online courses that teach you how to build applications and administer the HPE Ezmeral Data Fabric. These lecture and lab courses are part of HPE Ezmeral Learn On-Demand academy.
 
-- [Developer Series](https://learn.ezmeral.software.hpe.com/series/developer)
+* [Developer Series](https://learn.ezmeral.software.hpe.com/series/developer)
 
 The developer series of courses includes content on basic and advanced programming with Apache Spark as well as information about how to develop applications using some of the unique capabilities of the HPE Ezmeral Data Fabric such as the integrated JSON-oriented document database.
 
-- [Admin Series](https://learn.ezmeral.software.hpe.com/series/administratorv6)
+* [Admin Series](https://learn.ezmeral.software.hpe.com/series/administratorv6)
 
 This admin series covers a range of topics from preparing and testing a bare metal cluster to installing a data fabric to running it on a day to day basis. Hands-on labs help you make sure you have the necessary skills wired by the time you need to install a production system.
 
-- [Containers and Kubernetes Series](https://learn.ezmeral.software.hpe.com/series/container-platform)
+* [Containers and Kubernetes Series](https://learn.ezmeral.software.hpe.com/series/container-platform)
 
 This new and expanding series covers the basics of containers and Kubernetes through to up-to-date methods for building stateful applications to run in a containerized world using a data fabric.
 
----
+- - -
 
 ## Any questions on Ezmeral Data Fabric?
 
 Join the [HPEDEV Slack Workspace](https://slack.hpedev.io/) and start a discussion in our [\#ezmeral-data-fabric](https://hpedev.slack.com/archives/CU3JRBTB7) channel.
 
-Not a Slack user? You can also ask your questions in our [Ezmeral Forum](https://hpe.com/forum/ezmeral).
+TEST Not a Slack user? You can also ask your questions in our [Ezmeral Forum](https://hpe.com/forum/ezmeral).
 
 - - -
 
