@@ -113,13 +113,20 @@ export const Card = ({ category, content, width = 'medium', link, image }) => (
       >
         <CardHeader
           justify="end"
+          align="end"
           pad={{ vertical: 'small', horizontal: 'medium' }}
+          direction="column"
         >
           <Text color="text-weak">{category}</Text>
+          {size === 'small' && image && (
+            <Box gridArea="image" alignSelf="center">
+              {image && <Image src={image} />}
+            </Box>
+          )}
         </CardHeader>
         <BodyLayout width={width}>
-          {image && (
-            <Box gridArea="image" align="start" fill="horizontal">
+          {size !== 'small' && image && (
+            <Box gridArea="image" align="start">
               {image && <Image src={image} />}
             </Box>
           )}
