@@ -17,7 +17,7 @@
   status = 301
   force = false
 [[redirects]]
-  from = "https://developer.hpe.com/blog/0N796xBvYxcyGq8Yo35N/event-driven-microservices-architecture-patterns-and-examples"
+  from = "https://deploy-preview-238--hpe-dev-portal.netlify.app/blog/0N796xBvYxcyGq8Yo35N/event-driven-microservices-architecture-patterns-and-examples"
   to = "/blog/event-driven-microservices-architecture-patterns-and-examples"
   status = 301
   force = false
