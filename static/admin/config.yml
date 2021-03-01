@@ -9,6 +9,12 @@ publish_mode: editorial_workflow
 
 media_folder: static/img
 public_folder: /img
+media_library: 
+  name: cloudinary
+  config: 
+    cloud_name: 'hpe-dev-portal'
+    api_key: '985836654398919'
+    output_filename_only: true
 
 collections:
   - label: 'Home'
