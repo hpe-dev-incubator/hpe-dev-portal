@@ -102,6 +102,7 @@ export const Card = ({ category, content, width = 'medium', link, image }) => (
         margin="small"
         width={size === 'small' ? undefined : { min: widths[width] }}
         flex="grow"
+        /* eslint-disable */
         onClick={
           link && link.match(/^\//g)
             ? () => navigate(link)

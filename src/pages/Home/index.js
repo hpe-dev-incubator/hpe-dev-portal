@@ -53,6 +53,7 @@ const Project = ({ image, title, description, link }) => (
   <Box
     width="200px"
     height="308px"
+    /* eslint-disable */
     onClick={
       link && link.match(/^\//g)
         ? () => navigate(link)
