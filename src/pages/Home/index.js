@@ -21,7 +21,7 @@ import {
 } from '../../components';
 
 const OpenSourceCard = ({ children }) => (
-  <Box pad={{ horizontal: 'small' }}>
+  <Box pad={{ horizontal: 'small' }} margin={{ bottom: 'xlarge' }}>
     <GrommetCard elevation="medium" fill="horizontal">
       <CardHeader pad={{ horizontal: 'large', vertical: 'medium' }}>
         <Heading level={2} margin="none">

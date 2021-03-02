@@ -164,9 +164,9 @@ export const SectionHeader = ({ color, title, children }) => {
         border={{
           side: 'top',
           color,
-          size: 'small',
+          size: 'medium',
         }}
-        pad={{ top: 'small' }}
+        pad={{ top: 'medium' }}
       >
         {children}
       </Box>

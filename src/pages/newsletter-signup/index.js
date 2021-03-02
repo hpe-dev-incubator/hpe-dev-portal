@@ -55,7 +55,7 @@ function NewsletterSignup({ data }) {
             {newsletters.map((newsletter, i) => (
               <Tab key={i} title={newsletter.fieldValue}>
                 <ResponsiveGrid
-                  margin={{ top: 'small' }}
+                  margin={{ top: 'medium' }}
                   gap="large"
                   rows={rows}
                   columns={columns}
