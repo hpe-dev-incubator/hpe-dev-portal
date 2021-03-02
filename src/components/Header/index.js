@@ -1,38 +1,61 @@
-import React from 'react';
-import { Box } from 'grommet';
-import { Search } from 'grommet-icons';
+import React, { useContext } from 'react';
+import {
+  Box,
+  DropButton,
+  Header as GrommetHeader,
+  Nav,
+  ResponsiveContext,
+} from 'grommet';
+import { Menu, Search } from 'grommet-icons';
 import { ButtonLink, ExternalButtonLink } from '..';
 
 function Header() {
+  const size = useContext(ResponsiveContext);
+  const navLinks = [
+    <ExternalButtonLink
+      key="os"
+      label="Open Source"
+      to="https://www.hpe.com/us/en/open-source.html"
+    />,
+    <ButtonLink key="pl" label="Platforms" to="/platform" />,
+    <ButtonLink key="ev" label="Events" to="/events" />,
+    <ButtonLink key="su" label="Skill Up" to="/skillup" />,
+    <ButtonLink key="bl" label="Blog" to="/blog" />,
+    <ButtonLink key="nw" label="Newsletter" to="/newsletter-signup" />,
+    <ButtonLink key="cm" label="Community" to="/community" />,
+  ];
+
   return (
-    <Box
-      direction="row-responsive"
-      pad={{ horizontal: 'medium' }}
+    <GrommetHeader
       justify="between"
-      wrap
+      pad={{ horizontal: 'medium', vertical: 'small' }}
     >
-      <ButtonLink label="HPE Developer" to="/" />
-      <Box direction="row" gap="medium" wrap>
-        <ExternalButtonLink
-          label="Open Source"
-          to="https://www.hpe.com/us/en/open-source.html"
-        />
-        <ButtonLink label="Platforms" to="/platform" />
-        <ButtonLink label="Events" to="/events" />
-        <ButtonLink label="Skill Up" to="/skillup" />
-        <ButtonLink label="Blog" to="/blog" />
-        <ButtonLink label="Newsletter" to="/newsletter-signup" />
-        <ButtonLink label="Community" to="/community" />
+      <Box flex={false}>
+        <ButtonLink label="HPE Developer" to="/" />
       </Box>
+      {size === 'small' ? (
+        <DropButton
+          icon={<Menu />}
+          dropAlign={{ top: 'bottom' }}
+          dropContent={<Nav direction="column">{navLinks}</Nav>}
+        />
+      ) : (
+        <Box flex="shrink" overflow="hidden">
+          <Nav direction="row" gap="medium">
+            {navLinks.map((l) => (
+              <Box flex={false}>{l}</Box>
+            ))}
+          </Nav>
+        </Box>
+      )}
       <ButtonLink
         align="start"
-        alignSelf="start"
         to="/search"
         icon={<Search />}
         label="Search"
         reverse
       />
-    </Box>
+    </GrommetHeader>
   );
 }
 export default Header;
