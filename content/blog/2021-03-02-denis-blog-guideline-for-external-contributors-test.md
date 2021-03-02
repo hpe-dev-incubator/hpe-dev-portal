@@ -18,6 +18,7 @@ This is header 2
 
   * sub-bullet 1
   * sub-bullet 2
+* bullet 4
 
 <https://developer.hpe.com>
 
