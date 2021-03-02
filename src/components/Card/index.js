@@ -63,7 +63,7 @@ const gridProps = {
     gap: 'large',
     columns: [
       ['small', 'medium'],
-      ['small', 'medium'],
+      'auto',
     ],
     rows: ['auto'],
     areas: [
@@ -93,7 +93,12 @@ BodyLayout.propTypes = {
   children: PropTypes.node,
 };
 
-export const Card = ({ category, content, /* width = 'medium', */ link, image }) => (
+export const Card = ({
+  category,
+  content,
+  /* width = 'medium', */ link,
+  image,
+}) => (
   <ResponsiveContext.Consumer>
     {(size) => (
       <GrommetCard
