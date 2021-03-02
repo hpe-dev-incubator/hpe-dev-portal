@@ -6,10 +6,569 @@
 
   ## Uncomment to use this redirect for Single Page Applications like create-react-app. 
   ## Not needed for static site generators.
-  #[[redirects]]
-  #  from = "/*"
-  #  to = "/index.html"
-  #  status = 200
+[[redirects]]
+from = "/blog/kk0p3Y0r5Yh7JrqoqQ2Z/mapr-database-spark-connector-with-secondary-indexes-support"
+to = "/blog/mapr-database-spark-connector-with-secondary-indexes-support"
+status = 301
+force = false
+
+[[redirects]]
+from = "/blog/Oj0wMn3BY4uJB02E2K19/using-python-with-apache-spark"
+to = "/blog/using-python-with-apache-spark"
+status = 301
+force = false
+
+[[redirects]]
+from = "/blog/PkVBvojrpwSOLo5J5xzM/real-time-streaming-data-pipelines-with-apache-apis-kafka-spark-streamin"
+to = "/blog/real-time-streaming-data-pipelines-with-apache-apis-kafka-spark-streamin"
+status = 301
+force = false
+
+[[redirects]]
+from = "/blog/oogwLnyPqLuMyBK6KzV8/spark-streaming-with-hbase"
+to = "/blog/spark-streaming-with-hbase"
+status = 301
+force = false
+
+[[redirects]]
+from = "/blog/8nDR4EW79KclyzwBwR5z/getting-started-with-mapr-event-store"
+to = "/blog/getting-started-with-mapr-event-store"
+status = 301
+force = false
+
+[[redirects]]
+from = "/blog/EEVLz2X9vmSmZg6k6Dqx/end-to-end-machine-learning-using-containerization"
+to = "/blog/end-to-end-machine-learning-using-containerization"
+status = 301
+force = false
+
+[[redirects]]
+from = "/blog/EEVL3GvoovtmZg6k6Dqm/setting-up-spark-dynamic-allocation-on-mapr"
+to = "/blog/setting-up-spark-dynamic-allocation-on-mapr"
+status = 301
+force = false
+
+[[redirects]]
+from = "/blog/Oj0Ar5Qn7PsJB02E2K1q/how-to-get-started-with-spark-streaming-and-mapr-event-store-using-the-k"
+to = "/blog/how-to-get-started-with-spark-streaming-and-mapr-event-store-using-the-k"
+status = 301
+force = false
+
+[[redirects]]
+from = "/blog/LOV2B97WzAiAzmYlY17y/real-time-event-streaming-what-are-your-options"
+to = "/blog/real-time-event-streaming-what-are-your-options"
+status = 301
+force = false
+
+[[redirects]]
+from = "/blog/jj9WzR09EGh2x3yZyqOO/kafka-rest-proxy-performance-tuning-for-mapr-event-store"
+to = "/blog/kafka-rest-proxy-performance-tuning-for-mapr-event-store"
+status = 301
+force = false
+
+[[redirects]]
+from = "/blog/PkVW0wGm1LiRBAZD057J/an-inside-look-at-the-components-of-a-recommendation-engine"
+to = "/blog/an-inside-look-at-the-components-of-a-recommendation-engine"
+status = 301
+force = false
+
+[[redirects]]
+from = "/blog/VqVzX3gAzrT7p5PzPAZA/event-driven-microservices-on-the-mapr-data-platform"
+to = "/blog/event-driven-microservices-on-the-mapr-data-platform"
+status = 301
+force = false
+
+[[redirects]]
+from = "/blog/GJV9O1Y5NyU7lO4lkB7j/streaming-data-pipeline-to-transform-store-and-explore-healthcare-datase"
+to = "/blog/streaming-data-pipeline-to-transform-store-and-explore-healthcare-datase"
+status = 301
+force = false
+
+[[redirects]]
+from = "/blog/Oj0yrYJ2lWi8XZxXnNjn/architecting-the-worlds-largest-biometric-identity-system-the-aadhaar-ex"
+to = "/blog/architecting-the-worlds-largest-biometric-identity-system-the-aadhaar-ex"
+status = 301
+force = false
+
+[[redirects]]
+from = "/blog/qqk207PkpOfQrkNrZ13q/journey-science-in-telecom-take-customer-experience-to-the-next-level"
+to = "/blog/journey-science-in-telecom-take-customer-experience-to-the-next-level"
+status = 301
+force = false
+
+[[redirects]]
+from = "/blog/mm9NA7VZVvt3VL60pR9j/association-rule-mining-not-your-typical-data-science-algorithm"
+to = "/blog/association-rule-mining-not-your-typical-data-science-algorithm"
+status = 301
+force = false
+
+[[redirects]]
+from = "/blog/Oj0pNxBE3JsJB02E2KOj/kubernetized-machine-learning-and-ai-using-kubeflow"
+to = "/blog/kubernetized-machine-learning-and-ai-using-kubeflow"
+status = 301
+force = false
+
+[[redirects]]
+from = "/blog/GJVN37RWmoumz0L2LM8V/how-to-use-secondary-indexes-in-spark-with-open-json-application-interfa"
+to = "/blog/how-to-use-secondary-indexes-in-spark-with-open-json-application-interfa"
+status = 301
+force = false
+
+[[redirects]]
+from = "/blog/Ql8ynggpNmh8w3NJNWL2/getting-started-with-mapr-client-container"
+to = "/blog/getting-started-with-mapr-client-container"
+status = 301
+force = false
+
+[[redirects]]
+from = "/blog/xArWKWAxj0SyW9QPQAXz/a-functional-approach-to-logging-in-apache-spark"
+to = "/blog/a-functional-approach-to-logging-in-apache-spark"
+status = 301
+force = false
+
+[[redirects]]
+from = "/blog/JM9k0E924rtRj1QgQYnM/containers-kubernetes-and-mapr-the-time-is-now"
+to = "/blog/containers-kubernetes-and-mapr-the-time-is-now"
+status = 301
+force = false
+
+[[redirects]]
+from = "/blog/8nDxYxpX34FlyzwBwRER/how-to-integrate-custom-data-sources-into-apache-spark"
+to = "/blog/how-to-integrate-custom-data-sources-into-apache-spark"
+status = 301
+force = false
+
+[[redirects]]
+from = "/blog/Zx9oXpyYprIEWDoXoN0L/containers-vs-vms-a-5-minute-guide-to-understanding-their-differences"
+to = "/blog/containers-vs-vms-a-5-minute-guide-to-understanding-their-differences"
+status = 301
+force = false
+
+[[redirects]]
+from = "/blog/LOVkjn6AxWfAzmYlY12A/accessing-ilo-redfish-apis-and-hpe-oneview-apis-on-ansible-awx"
+to = "/blog/accessing-ilo-redfish-apis-and-hpe-oneview-apis-on-ansible-awx"
+status = 301
+force = false
+
+[[redirects]]
+from = "/blog/rrlVJWv4n1iYy36NrDWA/top-trends-machine-learning-microservices-containers-kubernetes-cloud-to"
+to = "/blog/top-trends-machine-learning-microservices-containers-kubernetes-cloud-to"
+status = 301
+force = false
+
+[[redirects]]
+from = "/blog/n09o6wVqq6hzRK6r6ok4/scaling-with-kafka-common-challenges-solved"
+to = "/blog/scaling-with-kafka-common-challenges-solved"
+status = 301
+force = false
+
+[[redirects]]
+from = "/blog/MPV2B14OVWcgnR6v6Z7X/kafka-connect-and-kafka-rest-api-on-mapr-streaming-just-became-a-whole-l"
+to = "/blog/kafka-connect-and-kafka-rest-api-on-mapr-streaming-just-became-a-whole-l"
+status = 301
+force = false
+
+[[redirects]]
+from = "/blog/AzlYzmRQrLuXQ0zLDw3Z/types-of-machine-learning-part-2-in-the-intro-to-aiml-series"
+to = "/blog/types-of-machine-learning-part-2-in-the-intro-to-aiml-series"
+status = 301
+force = false
+
+[[redirects]]
+from = "/blog/ool8lOg74Vtwrj46qznY/demystifying-ai-machine-learning-and-deep-learning"
+to = "/blog/demystifying-ai-machine-learning-and-deep-learning"
+status = 301
+force = false
+
+[[redirects]]
+from = "/blog/mmj9zzELM6s3xXrBQOQM/streaming-machine-learning-pipeline-for-sentiment-analysis-using-apache-"
+to = "/blog/streaming-machine-learning-pipeline-for-sentiment-analysis-using-apache-"
+status = 301
+force = false
+
+[[redirects]]
+from = "/blog/llgX954XZzhM2076nZGk/apache-spark-machine-learning-tutorial"
+to = "/blog/apache-spark-machine-learning-tutorial"
+status = 301
+force = false
+
+[[redirects]]
+from = "/blog/ookNnoXoJyhz7Jo1yzDj/data-fabric-the-future-of-data-management"
+to = "/blog/data-fabric-the-future-of-data-management"
+status = 301
+force = false
+
+[[redirects]]
+from = "/blog/XvlK6AnLW6cRQAzVL8XL/spark-data-source-api-extending-our-spark-sql-query-engine"
+to = "/blog/spark-data-source-api-extending-our-spark-sql-query-engine"
+status = 301
+force = false
+
+[[redirects]]
+from = "/blog/LOVPkllmY5hWOw9OKkWk/predicting-forest-fires-with-spark-machine-learning"
+to = "/blog/predicting-forest-fires-with-spark-machine-learning"
+status = 301
+force = false
+
+[[redirects]]
+from = "/blog/yBx0Lp1V8lFp90XWW38z/better-complex-event-processing-at-scale-using-a-microservices-based-str"
+to = "/blog/better-complex-event-processing-at-scale-using-a-microservices-based-str"
+status = 301
+force = false
+
+[[redirects]]
+from = "/blog/xArv3gJz67Tl0Rv0kLVn/apache-spark-as-a-distributed-sql-engine"
+to = "/blog/apache-spark-as-a-distributed-sql-engine"
+status = 301
+force = false
+
+[[redirects]]
+from = "/blog/9oN46q2JR0S0KNqKQzX2/enabling-python-3-with-opensslfips-on-microsoft-windows"
+to = "/blog/enabling-python-3-with-opensslfips-on-microsoft-windows"
+status = 301
+force = false
+
+[[redirects]]
+from = "/blog/wzwLj9V0X5hmj6WJwqGO/analyzing-flight-delays-with-apache-spark-graphframes-and-mapr-database"
+to = "/blog/analyzing-flight-delays-with-apache-spark-graphframes-and-mapr-database"
+status = 301
+force = false
+
+[[redirects]]
+from = "/blog/7mBn6Yj89Wcg6VN6lzMO/synchronized-volume-snapshots-for-distributed-workloads-on-kubernetes"
+to = "/blog/synchronized-volume-snapshots-for-distributed-workloads-on-kubernetes"
+status = 301
+force = false
+
+[[redirects]]
+from = "/blog/VqVNxl12VQcJKkyK32Jl/spark-custom-streaming-sources"
+to = "/blog/spark-custom-streaming-sources"
+status = 301
+force = false
+
+[[redirects]]
+from = "/blog/AzlLDvBQ1ohXQ0zLDw3W/apache-spark-packages-from-xml-to-json"
+to = "/blog/apache-spark-packages-from-xml-to-json"
+status = 301
+force = false
+
+[[redirects]]
+from = "/blog/EEmqQ91PLMTYRg9GGjyP/how-to-build-stanzas-using-mapr-installer-for-easy-and-efficient-provisi"
+to = "/blog/how-to-build-stanzas-using-mapr-installer-for-easy-and-efficient-provisi"
+status = 301
+force = false
+
+[[redirects]]
+from = "/blog/7m0A53NwZBTRA4qnpk0l/real-time-credit-card-fraud-detection-with-apache-spark-and-event-stream"
+to = "/blog/real-time-credit-card-fraud-detection-with-apache-spark-and-event-stream"
+status = 301
+force = false
+
+[[redirects]]
+from = "/blog/JMrqXY4vOyco7yypwjJX/containers-best-practices-for-running-in-production"
+to = "/blog/containers-best-practices-for-running-in-production"
+status = 301
+force = false
+
+[[redirects]]
+from = "/blog/n0jBwp4VMQIkMKOLLVPK/kubernetes-tutorial-how-to-install-and-deploy-applications-at-scale-on-k"
+to = "/blog/kubernetes-tutorial-how-to-install-and-deploy-applications-at-scale-on-k"
+status = 301
+force = false
+
+[[redirects]]
+from = "/blog/gONrmEVD1ZiDVm0WWJow/mapr-kubernetes-spark-and-drill-a-two-part-guide-to-accelerating-your-ai"
+to = "/blog/mapr-kubernetes-spark-and-drill-a-two-part-guide-to-accelerating-your-ai"
+status = 301
+force = false
+
+[[redirects]]
+from = "/blog/0N7VrMj4WKi3RlE9A3rG/performance-tuning-of-an-apache-kafkaspark-streaming-system-telecom-case"
+to = "/blog/performance-tuning-of-an-apache-kafkaspark-streaming-system-telecom-case"
+status = 301
+force = false
+
+[[redirects]]
+from = "/blog/ZxnvN3GPWLFj5rGX4N61/the-5-minute-guide-to-understanding-the-significance-of-apache-spark"
+to = "/blog/the-5-minute-guide-to-understanding-the-significance-of-apache-spark"
+status = 301
+force = false
+
+[[redirects]]
+from = "/blog/EEpljNvVN7uDQKAzZD1m/kubernetes-kafka-event-sourcing-architecture-patterns-and-use-case-examp"
+to = "/blog/kubernetes-kafka-event-sourcing-architecture-patterns-and-use-case-examp"
+status = 301
+force = false
+
+[[redirects]]
+from = "/blog/8nlLVWP1RKFROlvZJDo9/introducing-kubernetes-csi-sidecar-containers-from-hpe"
+to = "/blog/introducing-kubernetes-csi-sidecar-containers-from-hpe"
+status = 301
+force = false
+
+[[redirects]]
+from = "/blog/kkLZ0mNpXqhQMZLRJQqr/artificial-intelligence-and-machine-learning-what-are-they-and-why-are-t"
+to = "/blog/artificial-intelligence-and-machine-learning-what-are-they-and-why-are-t"
+status = 301
+force = false
+
+[[redirects]]
+from = "/blog/EE2QnZBXXwi4o7X0E4M0/using-raw-block-and-ephemeral-inline-volumes-on-kubernetes"
+to = "/blog/using-raw-block-and-ephemeral-inline-volumes-on-kubernetes"
+status = 301
+force = false
+
+[[redirects]]
+from = "/blog/YwRD5KOGyzHxkQ1J0ER8/resource-allocation-configuration-for-spark-on-yarn"
+to = "/blog/resource-allocation-configuration-for-spark-on-yarn"
+status = 301
+force = false
+
+[[redirects]]
+from = "/blog/OjzLpy7nZZhMq0RXXkyE/get-started-with-the-hpe-nimble-storage-content-collection-for-ansible"
+to = "/blog/get-started-with-the-hpe-nimble-storage-content-collection-for-ansible"
+status = 301
+force = false
+
+[[redirects]]
+from = "/blog/4jqBP6MO3rc1Yy0QjMOq/spark-101-what-is-it-what-it-does-and-why-it-matters"
+to = "/blog/spark-101-what-is-it-what-it-does-and-why-it-matters"
+status = 301
+force = false
+
+[[redirects]]
+from = "/blog/vyvg31gkBKH6DoBPk6Ov/kafka-vs-mapr-event-store-why-mapr"
+to = "/blog/kafka-vs-mapr-event-store-why-mapr"
+status = 301
+force = false
+
+[[redirects]]
+from = "/blog/LOzPo0yGWPH3Ryvlj1rw/how-spark-runs-your-applications"
+to = "/blog/how-spark-runs-your-applications"
+status = 301
+force = false
+
+[[redirects]]
+from = "/blog/mmgKxJX2wRC9EAJYYqOV/kubernetes-tutorial-how-to-install-and-deploy-applications-at-scale-on-k"
+to = "/blog/kubernetes-tutorial-how-to-install-and-deploy-applications-at-scale-on-k"
+status = 301
+force = false
+
+[[redirects]]
+from = "/blog/0NBjLpX5VAF3JKoDEqOo/how-to-log-in-apache-spark"
+to = "/blog/how-to-log-in-apache-spark"
+status = 301
+force = false
+
+[[redirects]]
+from = "/blog/QlBYzZkmKOIYz3AqqL0K/provisioning-secure-access-controls-in-mapr-database"
+to = "/blog/provisioning-secure-access-controls-in-mapr-database"
+status = 301
+force = false
+
+[[redirects]]
+from = "/blog/9o7zJkqlX5cErkrzgopL/tutorial-how-to-get-started-with-the-hpe-csi-driver-and-hpe-primera-and-"
+to = "/blog/tutorial-how-to-get-started-with-the-hpe-csi-driver-and-hpe-primera-and-"
+status = 301
+force = false
+
+[[redirects]]
+from = "/blog/mmgW4Yy7KnS9EAJYYqrz/how-to-use-a-table-load-tool-to-batch-puts-into-hbasemapr-database"
+to = "/blog/how-to-use-a-table-load-tool-to-batch-puts-into-hbasemapr-database"
+status = 301
+force = false
+
+[[redirects]]
+from = "/blog/Ql2DKq9m16cWB8AEDMQE/data-modeling-guidelines-for-nosql-json-document-databases"
+to = "/blog/data-modeling-guidelines-for-nosql-json-document-databases"
+status = 301
+force = false
+
+[[redirects]]
+from = "/blog/JM2009Z32ptYpRrm43Og/kubernetes-application-containers-managing-containers-and-cluster-resour"
+to = "/blog/kubernetes-application-containers-managing-containers-and-cluster-resour"
+status = 301
+force = false
+
+[[redirects]]
+from = "/blog/Ql2DXNL4rmhWB8AEDMQz/tips-and-best-practices-to-take-advantage-of-spark-2x"
+to = "/blog/tips-and-best-practices-to-take-advantage-of-spark-2x"
+status = 301
+force = false
+
+[[redirects]]
+from = "/blog/OjDx7jWGXPcj8YyzB7Ap/best-practices-on-migrating-from-a-data-warehouse-to-a-big-data-platform"
+to = "/blog/best-practices-on-migrating-from-a-data-warehouse-to-a-big-data-platform"
+status = 301
+force = false
+
+[[redirects]]
+from = "/blog/oolX2EM6grFz8X5lLZjQ/introducing-hpe-nimble-storage-sdk-for-go"
+to = "/blog/introducing-hpe-nimble-storage-sdk-for-go"
+status = 301
+force = false
+
+[[redirects]]
+from = "/blog/RmJAgD4rk4h16Yzj3Mrk/cloud-vs-on-premises-what-are-the-best-options-for-deploying-microservic"
+to = "/blog/cloud-vs-on-premises-what-are-the-best-options-for-deploying-microservic"
+status = 301
+force = false
+
+[[redirects]]
+from = "/blog/xABwJY56qEfNGMEo1lDj/introducing-an-nfs-server-provisioner-for-the-hpe-csi-driver-for-kuberne"
+to = "/blog/introducing-an-nfs-server-provisioner-for-the-hpe-csi-driver-for-kuberne"
+status = 301
+force = false
+
+[[redirects]]
+from = "/blog/Ojz1G6J7R9fK6oPgBKNj/configure-jupyter-notebook-for-spark-210-and-python"
+to = "/blog/configure-jupyter-notebook-for-spark-210-and-python"
+status = 301
+force = false
+
+[[redirects]]
+from = "/blog/RmJkJg4O5qFOvjVymL6Z/best-practices-for-migrating-your-apps-to-containers-and-kubernetes"
+to = "/blog/best-practices-for-migrating-your-apps-to-containers-and-kubernetes"
+status = 301
+force = false
+
+[[redirects]]
+from = "/blog/ZxNlGDX70kUN3ymwWN71/big-data-opportunities-for-telecommunications"
+to = "/blog/big-data-opportunities-for-telecommunications"
+status = 301
+force = false
+
+[[redirects]]
+from = "/blog/0N796xBvYxcyGq8Yo35N/event-driven-microservices-architecture-patterns-and-examples"
+to = "/blog/event-driven-microservices-architecture-patterns-and-examples"
+status = 301
+force = false
+
+[[redirects]]
+from = "/blog/pp66zJjr6YH3pnp9NXBN/introducing-hpe-storage-container-orchestrator-documentation"
+to = "/blog/introducing-hpe-storage-container-orchestrator-documentation"
+status = 301
+force = false
+
+[[redirects]]
+from = "/blog/MPxYKrwlr5SZQGoLnZ2X/performance-tuning-of-an-apache-kafkaspark-streaming-system"
+to = "/blog/performance-tuning-of-an-apache-kafkaspark-streaming-system"
+status = 301
+force = false
+
+[[redirects]]
+from = "/blog/n0J8kpk1DJf4y7xD2D4X/introducing-a-multi-vendor-csi-driver-for-kubernetes"
+to = "/blog/introducing-a-multi-vendor-csi-driver-for-kubernetes"
+status = 301
+force = false
+
+[[redirects]]
+from = "/blog/PklOy39w8NtX6M2RvAxW/hpe-csi-driver-for-kubernetes-snapshots-clones-and-volume-expansion"
+to = "/blog/hpe-csi-driver-for-kubernetes-snapshots-clones-and-volume-expansion"
+status = 301
+force = false
+
+[[redirects]]
+from = "/blog/8nOPjXylpmC5rDBjywWZ/creating-a-powershell-module-as-a-wrapper-for-the-hpe-global-dashboard-r"
+to = "/blog/creating-a-powershell-module-as-a-wrapper-for-the-hpe-global-dashboard-r"
+status = 301
+force = false
+
+[[redirects]]
+from = "/blog/QljXvVoYN6IY8ErW5Qm4/hpe-simplivity-powershell-module"
+to = "/blog/hpe-simplivity-powershell-module"
+status = 301
+force = false
+
+[[redirects]]
+from = "/blog/WrXPnLv3l8hVlP9YY83X/crud-with-the-new-golang-client-for-mapr-database"
+to = "/blog/crud-with-the-new-golang-client-for-mapr-database"
+status = 301
+force = false
+
+[[redirects]]
+from = "/blog/YwRD5k8BWLtxkQ1J0ER9/datasets-dataframes-and-spark-sql-for-processing-of-tabular-data"
+to = "/blog/datasets-dataframes-and-spark-sql-for-processing-of-tabular-data"
+status = 301
+force = false
+
+[[redirects]]
+from = "/blog/wzvL72MwQDI2YA8QQn1z/fast-data-processing-pipeline-for-predicting-flight-delays-using-apache-"
+to = "/blog/fast-data-processing-pipeline-for-predicting-flight-delays-using-apache-"
+status = 301
+force = false
+
+[[redirects]]
+from = "/blog/zDyqmpZP54c7JxgBBzD2/how-to-persist-kafka-data-as-json-in-nosql-storage-using-mapr-event-stor"
+to = "/blog/how-to-persist-kafka-data-as-json-in-nosql-storage-using-mapr-event-stor"
+status = 301
+force = false
+
+[[redirects]]
+from = "/blog/ppPAlQ807Ah8QGMNl1YE/tutorial-enabling-remote-copy-using-the-hpe-csi-driver-for-kubernetes-on"
+to = "/blog/tutorial-enabling-remote-copy-using-the-hpe-csi-driver-for-kubernetes-on"
+status = 301
+force = false
+
+[[redirects]]
+from = "/blog/jjOEmj8omJf4GrVVV0zq/coffee-and-critical-alerts"
+to = "/blog/coffee-and-critical-alerts"
+status = 301
+force = false
+
+[[redirects]]
+from = "/blog/Vq0ONJWvARFnkJYYY8nZ/the-advent-of-ephemeral-infrastructure-as-code"
+to = "/blog/the-advent-of-ephemeral-infrastructure-as-code"
+status = 301
+force = false
+
+[[redirects]]
+from = "/blog/JMERRLY5R8IzgylvQ9YW/configuring-threads-for-optimal-performance-in-hpe-powershell-cmdlets"
+to = "/blog/configuring-threads-for-optimal-performance-in-hpe-powershell-cmdlets"
+status = 301
+force = false
+
+[[redirects]]
+from = "/blog/VqJW05jnm5hKzXm6PqA2/building-hpes-new-design-portal-with-headless-wordpress-and-nextjs"
+to = "/blog/building-hpes-new-design-portal-with-headless-wordpress-and-nextjs"
+status = 301
+force = false
+
+[[redirects]]
+from = "/blog/wzvGV1qzj3c2YA8QQnMD/streaming-machine-learning-pipeline-for-sentiment-analysis-using-apache-"
+to = "/blog/streaming-machine-learning-pipeline-for-sentiment-analysis-using-apache-"
+status = 301
+force = false
+
+[[redirects]]
+from = "/blog/Xv0wJqKxO8UE7QrDwE0q/dockerizing-your-nodejs-based-backend-applications"
+to = "/blog/dockerizing-your-nodejs-based-backend-applications"
+status = 301
+force = false
+
+[[redirects]]
+from = "/blog/3g05VK3Aj7czWpWXJLQ2/introducing-the-hpe-nimble-storage-sdk-for-python"
+to = "/blog/introducing-the-hpe-nimble-storage-sdk-for-python"
+status = 301
+force = false
+
+[[redirects]]
+from = "/blog/munch-and-learn"
+to = "/campaign/munch-and-learn"
+status = 301
+force = false
+
+[[redirects]]
+from = "/blog/devtalks"
+to = "/campaign/devtalks"
+status = 301
+force = false
+
+[[redirects]]
+from = "/blog/links"
+to = "/campaign/links"
+status = 301
+force = false
   
   ## (optional) Settings for Netlify Dev
   ## https://github.com/netlify/netlify-dev-plugin#project-detection
