@@ -38,45 +38,42 @@ function NewsletterSignup({ data }) {
   return (
     <Layout title={siteTitle}>
       <SEO title="Newsletter-Signup" />
-      <Box flex overflow="auto" gap="large" pad="xlarge" wrap>
-        <PageDescription image="/img/newsletter/NewsletterPage.svg" title="">
-          <EmailCapture
-            heading="Newsletter"
-            bodyCopy1="Subscribe to our HPE Developer Newsletter 
-            to stay up-to-date on the 
-            newest HPE Dev Community activities, posts, and tutorials."
-          />
-        </PageDescription>
-        <Box margin={{ top: 'large' }}>
-          <Heading margin="none" level="2">
-            Newsletter Archive
-          </Heading>
-          <Tabs activeIndex={index} onActive={onActive} justify="start">
-            {newsletters.map((newsletter, i) => (
-              <Tab key={i} title={newsletter.fieldValue}>
-                <ResponsiveGrid
-                  margin={{ top: 'medium' }}
-                  gap="large"
-                  rows={rows}
-                  columns={columns}
-                >
-                  {newsletter.edges.map(({ node }) => (
-                    <OpenSourceCard
-                      key={node.id}
-                      title={node.frontmatter.title}
-                      description={node.frontmatter.description}
-                      link={node.frontmatter.link}
-                      stars={false}
-                      date={node.frontmatter.date}
-                      monthly={node.frontmatter.monthly}
-                      newsletter
-                    />
-                  ))}
-                </ResponsiveGrid>
-              </Tab>
-            ))}
-          </Tabs>
-        </Box>
+      <PageDescription image="/img/newsletter/NewsletterPage.svg" title="">
+        <EmailCapture
+          heading="Newsletter"
+          bodyCopy1="Subscribe to our HPE Developer Newsletter 
+          to stay up-to-date on the 
+          newest HPE Dev Community activities, posts, and tutorials."
+        />
+      </PageDescription>
+      <Box margin="large" gap="medium">
+        <Heading level="2" margin="none">
+          Newsletter Archive
+        </Heading>
+        <Tabs activeIndex={index} onActive={onActive} justify="start">
+          {newsletters.map((newsletter, i) => (
+            <Tab key={i} title={newsletter.fieldValue}>
+              <ResponsiveGrid
+                rows={rows}
+                columns={columns}
+                margin={{ top: 'large' }}
+              >
+                {newsletter.edges.map(({ node }) => (
+                  <OpenSourceCard
+                    key={node.id}
+                    title={node.frontmatter.title}
+                    description={node.frontmatter.description}
+                    link={node.frontmatter.link}
+                    stars={false}
+                    date={node.frontmatter.date}
+                    monthly={node.frontmatter.monthly}
+                    newsletter
+                  />
+                ))}
+              </ResponsiveGrid>
+            </Tab>
+          ))}
+        </Tabs>
       </Box>
     </Layout>
   );

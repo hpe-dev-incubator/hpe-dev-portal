@@ -6,7 +6,13 @@ const ResponsiveGrid = ({ children, columns, rows, ...props }) => (
   <ResponsiveContext.Consumer>
     {(size) => {
       return (
-        <Grid {...props} rows={rows[size]} columns={columns[size]}>
+        <Grid
+          margin="medium"
+          gap="large"
+          {...props}
+          rows={rows[size]}
+          columns={columns[size]}
+        >
           {children}
         </Grid>
       );

@@ -88,7 +88,6 @@ BlogCard.propTypes = {
 export const FeaturedBlogCard = ({ node, ...rest }) => (
   <GrommetCard
     elevation="medium"
-    flex="grow"
     {...rest}
     onClick={
       node.fields.slug && node.fields.sourceInstanceName
@@ -151,8 +150,8 @@ FeaturedBlogCard.propTypes = BlogCard.propTypes;
 
 export const SectionHeader = ({ color, title, children }) => {
   return (
-    <>
-      <Box pad="small" margin={{ top: 'large' }}>
+    <Box flex={false} margin="medium">
+      <Box pad={{ horizontal: 'medium', vertical: 'small' }}>
         {title && (
           <Heading margin="none" level="2">
             {title}
@@ -160,17 +159,12 @@ export const SectionHeader = ({ color, title, children }) => {
         )}
       </Box>
       <Box
-        gap="large"
-        border={{
-          side: 'top',
-          color,
-          size: 'medium',
-        }}
-        pad={{ top: 'medium' }}
+        border={{ side: 'top', color, size: 'small' }}
+        pad={{ top: 'small' }}
       >
         {children}
       </Box>
-    </>
+    </Box>
   );
 };
 

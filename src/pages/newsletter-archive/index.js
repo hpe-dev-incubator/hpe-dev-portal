@@ -37,47 +37,40 @@ function NewsletterArchive({ data }) {
   return (
     <Layout title={siteTitle}>
       <SEO title="Newsletter-Archive" />
-      <Box flex overflow="auto" gap="large" pad="xlarge" wrap>
-        <PageDescription
-          image="/img/newsletter/NewsletterPage.svg"
-          title="Newsletter Archive"
-        >
-          <Paragraph>
-            Each month we alert subscribers to what's new in the HPE DEV
-            Community through our newsletter. Find what you may have missed in
-            any of our previous editions by visiting our archive.
-          </Paragraph>
-        </PageDescription>
-        <Box margin={{ top: 'large' }}>
-          <Heading margin="none" level="2">
-            Newsletter Archive
-          </Heading>
-          <Tabs activeIndex={index} onActive={onActive} justify="start">
-            {newsletters.map((newsletter, i) => (
-              <Tab key={i} title={newsletter.fieldValue}>
-                <ResponsiveGrid
-                  margin={{ top: 'small' }}
-                  gap="large"
-                  rows={rows}
-                  columns={columns}
-                >
-                  {newsletter.edges.map(({ node }) => (
-                    <OpenSourceCard
-                      key={node.id}
-                      title={node.frontmatter.title}
-                      description={node.frontmatter.description}
-                      link={node.frontmatter.link}
-                      stars={false}
-                      date={node.frontmatter.date}
-                      monthly={node.frontmatter.monthly}
-                      newsletter
-                    />
-                  ))}
-                </ResponsiveGrid>
-              </Tab>
-            ))}
-          </Tabs>
-        </Box>
+      <PageDescription
+        image="/img/newsletter/NewsletterPage.svg"
+        title="Newsletter Archive"
+      >
+        <Paragraph>
+          Each month we alert subscribers to what's new in the HPE DEV Community
+          through our newsletter. Find what you may have missed in any of our
+          previous editions by visiting our archive.
+        </Paragraph>
+      </PageDescription>
+      <Box margin={{ top: 'large' }}>
+        <Heading margin="none" level="2">
+          Newsletter Archive
+        </Heading>
+        <Tabs activeIndex={index} onActive={onActive} justify="start">
+          {newsletters.map((newsletter, i) => (
+            <Tab key={i} title={newsletter.fieldValue}>
+              <ResponsiveGrid rows={rows} columns={columns}>
+                {newsletter.edges.map(({ node }) => (
+                  <OpenSourceCard
+                    key={node.id}
+                    title={node.frontmatter.title}
+                    description={node.frontmatter.description}
+                    link={node.frontmatter.link}
+                    stars={false}
+                    date={node.frontmatter.date}
+                    monthly={node.frontmatter.monthly}
+                    newsletter
+                  />
+                ))}
+              </ResponsiveGrid>
+            </Tab>
+          ))}
+        </Tabs>
       </Box>
     </Layout>
   );
