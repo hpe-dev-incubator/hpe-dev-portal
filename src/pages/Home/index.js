@@ -105,7 +105,7 @@ const Home = ({ data }) => {
           <Box align="center">{image && <Image src={image} />}</Box>
           <TitleMarkdown>{data.markdownRemark.rawMarkdownBody}</TitleMarkdown>
         </Box>
-        <Box flex={false} direction="row-responsive" wrap justify="stretch">
+        <Box flex={false}>
           {panels &&
             panels.map(({ node }) => (
               <Card

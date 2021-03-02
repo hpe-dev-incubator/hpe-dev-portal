@@ -61,12 +61,16 @@ const gridProps = {
   },
   large: {
     gap: 'large',
-    columns: ['auto', 'flex'],
+    columns: [
+      ['small', 'medium'],
+      ['small', 'medium'],
+    ],
     rows: ['auto'],
     areas: [
       { name: 'image', start: [1, 0], end: [1, 0] },
       { name: 'content', start: [0, 0], end: [0, 0] },
     ],
+    justifyContent: 'between',
   },
 };
 
@@ -76,6 +80,7 @@ const BodyLayout = ({ children }) => {
 
   return (
     <Grid
+      fill="horizontal"
       pad={{ horizontal: 'large', top: 'medium', bottom: 'large' }}
       {...layoutProps}
     >
@@ -88,13 +93,13 @@ BodyLayout.propTypes = {
   children: PropTypes.node,
 };
 
-export const Card = ({ category, content, width = 'medium', link, image }) => (
+export const Card = ({ category, content, /* width = 'medium', */ link, image }) => (
   <ResponsiveContext.Consumer>
     {(size) => (
       <GrommetCard
         elevation="medium"
         margin="medium"
-        width={size === 'small' ? undefined : { min: widths[width] }}
+        // width={size === 'small' ? undefined : { min: widths[width] }}
         flex="grow"
         /* eslint-disable */
         onClick={
