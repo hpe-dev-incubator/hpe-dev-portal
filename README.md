@@ -11,14 +11,13 @@ _Have another more specific idea? You may want to check out our vibrant collecti
 ## Commands
 1.  **Start developing.**
 
-    Navigate into your new site’s directory and start it up.
+    Navigate into your new site’s directory and start it up to run the gatsby project on development mode
 
     ```sh
     cd hpe-dev-portal/
     yarn install
-    yarn develop 
+    yarn start 
     ```
-    The latter will run the gatsby project on development mode.
 
 1.  **Open the source code and start editing!**
 
@@ -69,6 +68,17 @@ A quick look at the top-level files and directories you'll see in a Gatsby proje
 11. **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
 
 12. **`README.md`**: A text file containing useful reference information about your project.
+
+ **NOTE:** To run gatsby project on production mode run below commands.
+
+    ```sh
+    cd hpe-dev-portal/
+    yarn install
+    gatsby build
+    gatsby serve
+    ```
+
+    Your site is now running at `http://localhost:9000`!
 
 ## 🎓 Learning Gatsby
 
