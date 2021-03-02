@@ -145,7 +145,6 @@ BlogPostTemplate.propTypes = {
         author: PropTypes.string,
         date: PropTypes.string,
         description: PropTypes.string,
-        path: PropTypes.string,
         tags: PropTypes.arrayOf(PropTypes.string),
         authorimage: PropTypes.string.isRequired,
       }).isRequired,
@@ -159,7 +158,6 @@ BlogPostTemplate.propTypes = {
               title: PropTypes.string.isRequired,
               author: PropTypes.string.isRequired,
               date: PropTypes.string,
-              path: PropTypes.string,
               tags: PropTypes.array,
               authorimage: PropTypes.string.isRequired,
             }).isRequired,
@@ -196,7 +194,6 @@ export const pageQuery = graphql`
         author
         description
         tags
-        path
         authorimage
         thumbnailimage
       }
@@ -222,7 +219,6 @@ export const pageQuery = graphql`
             title
             date
             author
-            path
             tags
             authorimage
             thumbnailimage
