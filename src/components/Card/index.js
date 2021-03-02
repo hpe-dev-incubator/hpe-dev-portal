@@ -21,7 +21,6 @@ const MarkdownLayout = styled(Markdown)`
     margin-top: 0;
     padding-top: 0;
   }
-  width: 100%;
 `;
 
 // Remove padding or margin from first markdown element.
@@ -34,7 +33,6 @@ const MarkdownCenteredLayout = styled(Markdown)`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
 `;
 
 const widths = {
@@ -63,7 +61,7 @@ const gridProps = {
   },
   large: {
     gap: 'large',
-    columns: ['flex', 'auto'],
+    columns: ['auto', 'flex'],
     rows: ['auto'],
     areas: [
       { name: 'image', start: [1, 0], end: [1, 0] },
@@ -72,15 +70,12 @@ const gridProps = {
   },
 };
 
-const BodyLayout = ({ width, children }) => {
+const BodyLayout = ({ children }) => {
   const size = useContext(ResponsiveContext);
-  const layoutProps = gridProps[size === 'small' ? size : width];
+  const layoutProps = gridProps[size === 'small' ? size : 'large'];
 
   return (
     <Grid
-      fill
-      justify="start"
-      align="center"
       pad={{ horizontal: 'large', top: 'medium', bottom: 'large' }}
       {...layoutProps}
     >
@@ -90,7 +85,6 @@ const BodyLayout = ({ width, children }) => {
 };
 
 BodyLayout.propTypes = {
-  width: PropTypes.string,
   children: PropTypes.node,
 };
 
@@ -99,7 +93,7 @@ export const Card = ({ category, content, width = 'medium', link, image }) => (
     {(size) => (
       <GrommetCard
         elevation="medium"
-        margin="small"
+        margin="medium"
         width={size === 'small' ? undefined : { min: widths[width] }}
         flex="grow"
         /* eslint-disable */
@@ -124,16 +118,18 @@ export const Card = ({ category, content, width = 'medium', link, image }) => (
             </Box>
           )}
         </CardHeader>
-        <BodyLayout width={width}>
+        <BodyLayout>
           {size !== 'small' && image && (
-            <Box gridArea="image" align="start">
-              {image && <Image src={image} />}
+            <Box gridArea="image">
+              {image && <Image src={image} fit="contain" />}
             </Box>
           )}
           {content && (
-            <MarkdownLayout gridArea="content" components={cardComponents}>
-              {content}
-            </MarkdownLayout>
+            <Box gridArea="content">
+              <MarkdownLayout components={cardComponents}>
+                {content}
+              </MarkdownLayout>
+            </Box>
           )}
         </BodyLayout>
       </GrommetCard>

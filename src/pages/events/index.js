@@ -37,61 +37,59 @@ function Events({ data }) {
   return (
     <Layout title={siteTitle}>
       <SEO title="Events" />
-      <Box flex overflow="auto" pad="xlarge" wrap>
-        <PageDescription image="/img/events/EventsPage.svg" title="Events">
-          <Box gap="small">
-            <Box>
-              <Paragraph>
-                Technology moves fast. Participating in events helps you stay
-                ahead of the curve. Mark your calendar and connect with us at
-                any of these upcoming events.
-              </Paragraph>
-            </Box>
-            <Box>
-              <Link to="/newsletter-signup">
-                <Button primary label="Keep Me Posted" />
-              </Link>
-            </Box>
+      <PageDescription image="/img/events/EventsPage.svg" title="Events">
+        <Box gap="small">
+          <Box>
+            <Paragraph>
+              Technology moves fast. Participating in events helps you stay
+              ahead of the curve. Mark your calendar and connect with us at any
+              of these upcoming events.
+            </Paragraph>
           </Box>
-        </PageDescription>
-        {onGoingEvents && onGoingEvents.length > 0 && (
-          <SectionHeader title="Ongoing Events" color="blue">
-            {onGoingEvents.map(({ node }) => (
-              <Card
-                key={node.id}
-                category={node.frontmatter.category}
-                width={node.frontmatter.width}
-                content={node.rawMarkdownBody}
-                link={node.frontmatter.link}
-                image={node.frontmatter.image}
-              />
+          <Box>
+            <Link to="/newsletter-signup">
+              <Button primary label="Keep Me Posted" />
+            </Link>
+          </Box>
+        </Box>
+      </PageDescription>
+      {onGoingEvents && onGoingEvents.length > 0 && (
+        <SectionHeader title="Ongoing Events">
+          {onGoingEvents.map(({ node }) => (
+            <Card
+              key={node.id}
+              category={node.frontmatter.category}
+              width={node.frontmatter.width}
+              content={node.rawMarkdownBody}
+              link={node.frontmatter.link}
+              image={node.frontmatter.image}
+            />
+          ))}
+        </SectionHeader>
+      )}
+      {upcomingEvents && upcomingEvents.length > 0 && (
+        <SectionHeader title="Upcoming Events">
+          {upcomingEvents.map(({ node }) => (
+            <Card
+              key={node.id}
+              category={node.frontmatter.category}
+              width={node.frontmatter.width}
+              content={node.rawMarkdownBody}
+              link={node.frontmatter.link}
+              image={node.frontmatter.image}
+            />
+          ))}
+        </SectionHeader>
+      )}
+      {pastEvents && pastEvents.length > 0 && (
+        <SectionHeader title="Past Events">
+          <ResponsiveGrid rows={rows} columns={columns}>
+            {pastEvents.map(({ node }) => (
+              <EventCard key={node.id} node={node} />
             ))}
-          </SectionHeader>
-        )}
-        {upcomingEvents && upcomingEvents.length > 0 && (
-          <SectionHeader title="Upcoming Events" color="blue">
-            {upcomingEvents.map(({ node }) => (
-              <Card
-                key={node.id}
-                category={node.frontmatter.category}
-                width={node.frontmatter.width}
-                content={node.rawMarkdownBody}
-                link={node.frontmatter.link}
-                image={node.frontmatter.image}
-              />
-            ))}
-          </SectionHeader>
-        )}
-        {pastEvents && pastEvents.length > 0 && (
-          <SectionHeader title="Past Events" color="blue">
-            <ResponsiveGrid gap="large" rows={rows} columns={columns}>
-              {pastEvents.map(({ node }) => (
-                <EventCard key={node.id} node={node} />
-              ))}
-            </ResponsiveGrid>
-          </SectionHeader>
-        )}
-      </Box>
+          </ResponsiveGrid>
+        </SectionHeader>
+      )}
     </Layout>
   );
 }

@@ -5,6 +5,7 @@ import {
   Box,
   Card as GrommetCard,
   CardHeader,
+  Grid,
   Heading,
   Image,
   Paragraph,
@@ -21,7 +22,7 @@ import {
 } from '../../components';
 
 const OpenSourceCard = ({ children }) => (
-  <Box pad={{ horizontal: 'small' }}>
+  <Box pad={{ horizontal: 'medium', bottom: 'large' }}>
     <GrommetCard elevation="medium" fill="horizontal">
       <CardHeader pad={{ horizontal: 'large', vertical: 'medium' }}>
         <Heading level={2} margin="none">
@@ -32,15 +33,13 @@ const OpenSourceCard = ({ children }) => (
           to="https://www.hpe.com/us/en/open-source.html"
         />
       </CardHeader>
-      <Box
-        direction="row"
-        wrap
+      <Grid
+        columns="small"
         gap="large"
         pad={{ horizontal: 'large', bottom: 'large' }}
-        justify="between"
       >
         {children}
-      </Box>
+      </Grid>
     </GrommetCard>
   </Box>
 );
@@ -51,8 +50,8 @@ OpenSourceCard.propTypes = {
 
 const Project = ({ image, title, description, link }) => (
   <Box
-    width="200px"
-    height="308px"
+    align="start"
+    gap="medium"
     /* eslint-disable */
     onClick={
       link && link.match(/^\//g)
@@ -62,10 +61,10 @@ const Project = ({ image, title, description, link }) => (
         : undefined
     }
   >
-    <Box fill="horizontal" height="96px" flex={false}>
-      <Image height="96px" width="96px" src={image} />
+    <Box flex={false} height="xsmall" width="xsmall">
+      <Image src={image} fit="contain" />
     </Box>
-    <Box fill="vertical" overflow="hidden">
+    <Box>
       <Text size="large" weight="bold">
         {title}
       </Text>

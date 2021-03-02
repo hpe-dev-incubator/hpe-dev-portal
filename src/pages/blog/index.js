@@ -57,48 +57,47 @@ function Blog({ data }) {
   return (
     <Layout title={siteTitle}>
       <SEO title="Blog" />
-      <Box flex overflow="auto" pad="xlarge" wrap>
-        <PageDescription image="/img/blogs/blogs.svg" title="Blog">
-          <Paragraph>
-            Sharing expertise is a great way to move technology forward. Browse
-            through our library of tutorials and articles to learn new ways to
-            do things. Or write your own!
-          </Paragraph>
-        </PageDescription>
-        {featuredposts && featuredposts.length > 0 && (
-          <SectionHeader title="Featured Blogs" color="yellow">
-            <FeaturedBlogCard
-              key={featuredposts[0].node.id}
-              node={featuredposts[0].node}
-            />
-            <ResponsiveGrid gap="large" rows={rows} columns={columns}>
-              {featuredposts.map(
-                ({ node }, index) =>
-                  node.fields.slug !== '/' &&
-                  index > 0 && <BlogCard key={node.id} node={node} />,
-              )}
-            </ResponsiveGrid>
-          </SectionHeader>
-        )}
-        <SectionHeader title="All Blogs" color="yellow">
-          <ResponsiveGrid gap="large" rows={rows} columns={columns}>
-            {blogPosts.map(
-              (blogPost) =>
-                blogPost.url !== '/' && (
-                  <BlogCard key={blogPost.id} node={blogPost} />
-                ),
+      <PageDescription image="/img/blogs/blogs.svg" title="Blog">
+        <Paragraph>
+          Sharing expertise is a great way to move technology forward. Browse
+          through our library of tutorials and articles to learn new ways to do
+          things. Or write your own!
+        </Paragraph>
+      </PageDescription>
+      {featuredposts && featuredposts.length > 0 && (
+        <SectionHeader title="Featured Blogs">
+          <FeaturedBlogCard
+            key={featuredposts[0].node.id}
+            node={featuredposts[0].node}
+            margin="medium"
+          />
+          <ResponsiveGrid rows={rows} columns={columns}>
+            {featuredposts.map(
+              ({ node }, index) =>
+                node.fields.slug !== '/' &&
+                index > 0 && <BlogCard key={node.id} node={node} />,
             )}
           </ResponsiveGrid>
         </SectionHeader>
-        <Box align="center" pad="medium">
-          <Button
-            icon={<FormDown />}
-            hoverIndicator
-            reverse
-            onClick={loadNextPage}
-            label="Load More"
-          />
-        </Box>
+      )}
+      <SectionHeader title="All Blogs">
+        <ResponsiveGrid rows={rows} columns={columns}>
+          {blogPosts.map(
+            (blogPost) =>
+              blogPost.url !== '/' && (
+                <BlogCard key={blogPost.id} node={blogPost} />
+              ),
+          )}
+        </ResponsiveGrid>
+      </SectionHeader>
+      <Box align="center" pad="medium">
+        <Button
+          icon={<FormDown />}
+          hoverIndicator
+          reverse
+          onClick={loadNextPage}
+          label="Load More"
+        />
       </Box>
     </Layout>
   );

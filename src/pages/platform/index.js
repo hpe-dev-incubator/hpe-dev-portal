@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
-import { Box, Heading, Paragraph } from 'grommet';
+import { Heading, Paragraph } from 'grommet';
 
 import {
   PlatformCard,
@@ -39,32 +39,30 @@ function Platform({ data }) {
   return (
     <Layout title={siteTitle}>
       <SEO title="Platforms" />
-      <Box flex overflow="auto" gap="large" pad="xlarge" wrap>
-        <PageDescription
-          image="/img/platforms/PlatformsPage.svg"
-          title="Platforms"
-        >
-          <Paragraph>
-            Supporting developers, data scientists, and architects is what we
-            do. Find APIs, GitHub repositories and many of the other resources
-            you need here.
-          </Paragraph>
-        </PageDescription>
-        <SectionHeader color="orange">
-          <ResponsiveGrid gap="large" rows={rows} columns={columns}>
-            {platforms.map(({ node }) => (
-              <PlatformCard
-                key={node.id}
-                title={node.frontmatter.title}
-                description={node.frontmatter.description}
-                link={`/${node.fields.sourceInstanceName}${node.fields.slug}`}
-                image={node.frontmatter.image}
-                category={node.frontmatter.category}
-              />
-            ))}
-          </ResponsiveGrid>
-        </SectionHeader>
-      </Box>
+      <PageDescription
+        image="/img/platforms/PlatformsPage.svg"
+        title="Platforms"
+      >
+        <Paragraph>
+          Supporting developers, data scientists, and architects is what we do.
+          Find APIs, GitHub repositories and many of the other resources you
+          need here.
+        </Paragraph>
+      </PageDescription>
+      <SectionHeader>
+        <ResponsiveGrid rows={rows} columns={columns}>
+          {platforms.map(({ node }) => (
+            <PlatformCard
+              key={node.id}
+              title={node.frontmatter.title}
+              description={node.frontmatter.description}
+              link={`/${node.fields.sourceInstanceName}${node.fields.slug}`}
+              image={node.frontmatter.image}
+              category={node.frontmatter.category}
+            />
+          ))}
+        </ResponsiveGrid>
+      </SectionHeader>
     </Layout>
   );
 }

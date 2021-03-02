@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
-import { Box, Heading, Paragraph } from 'grommet';
+import { Heading, Paragraph } from 'grommet';
 
 import {
   PageDescription,
@@ -37,22 +37,20 @@ function Skillup({ data }) {
   return (
     <Layout title={siteTitle}>
       <SEO title="Skill Up" />
-      <Box gap="large" pad="xlarge">
-        <PageDescription image="/img/blogs/HPE-Dev-Staff.svg" title="Skill Up">
-          <Paragraph>
-            With technology constantly evolving, it can be challenging to keep
-            up. Bookmark this page to access a great set of free technical
-            training resources to expand your skill set.
-          </Paragraph>
-        </PageDescription>
-        <SectionHeader color="green">
-          <ResponsiveGrid gap="large" rows={rows} columns={columns}>
-            {communities.map((community) => (
-              <CommunityCard key={community.node.id} node={community.node} />
-            ))}
-          </ResponsiveGrid>
-        </SectionHeader>
-      </Box>
+      <PageDescription image="/img/blogs/HPE-Dev-Staff.svg" title="Skill Up">
+        <Paragraph>
+          With technology constantly evolving, it can be challenging to keep up.
+          Bookmark this page to access a great set of free technical training
+          resources to expand your skill set.
+        </Paragraph>
+      </PageDescription>
+      <SectionHeader>
+        <ResponsiveGrid rows={rows} columns={columns}>
+          {communities.map((community) => (
+            <CommunityCard key={community.node.id} node={community.node} />
+          ))}
+        </ResponsiveGrid>
+      </SectionHeader>
     </Layout>
   );
 }
