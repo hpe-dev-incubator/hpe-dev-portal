@@ -61,10 +61,7 @@ const gridProps = {
   },
   large: {
     gap: 'large',
-    columns: [
-      ['small', 'medium'],
-      'auto',
-    ],
+    columns: ['flex', 'auto'],
     rows: ['auto'],
     areas: [
       { name: 'image', start: [1, 0], end: [1, 0] },
