@@ -42,8 +42,10 @@ function Header() {
       ) : (
         <Box flex="shrink" overflow="hidden">
           <Nav direction="row" gap="medium">
-            {navLinks.map((l) => (
-              <Box flex={false}>{l}</Box>
+            {navLinks.map((l, index) => (
+              <Box key={index} flex={false}>
+                {l}
+              </Box>
             ))}
           </Nav>
         </Box>

@@ -115,7 +115,6 @@ Blog.propTypes = {
               author: PropTypes.string.isRequired,
               date: PropTypes.string,
               description: PropTypes.string,
-              path: PropTypes.string,
               authorimage: PropTypes.string,
               thumbnailimage: PropTypes.string,
               category: PropTypes.string,
