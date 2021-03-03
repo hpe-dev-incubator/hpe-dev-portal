@@ -4,7 +4,7 @@ dateStart: 2021-03-24T16:00:00.000Z
 dateEnd: 2021-03-24T17:00:00.000Z
 image: https://res.cloudinary.com/hpe-dev-portal/image/upload/v1614792337/Munch_n_Learn_March_24_512_yrueer.jpg
 link: https://hpe.zoom.us/meeting/register/tJYudO2uqD8iGddvDqH__n4v3lgzyAg42FrL
-width: medium
+width: large
 tags:
   - hpedev
 ---
