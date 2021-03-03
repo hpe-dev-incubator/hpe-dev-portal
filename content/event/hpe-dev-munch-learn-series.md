@@ -8,7 +8,7 @@ width: medium
 tags:
   - hpedev
 ---
-##
+## HPE DEV Munch & Learn series
 Data Science Unplugged - Part 1
 
 March 24, 2021
