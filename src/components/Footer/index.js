@@ -5,9 +5,10 @@ import { EmailCapture } from '../../containers';
 export const Footer = () => (
   <Box
     direction="row-responsive"
-    border="top"
+    border={{ side: 'top', size: 'small' }}
     justify="between"
-    pad={{ vertical: 'large', horizontal: 'large' }}
+    margin={{ horizontal: 'medium' }}
+    pad={{ vertical: 'large', horizontal: 'medium' }}
     flex={false}
     gap="xlarge"
   >

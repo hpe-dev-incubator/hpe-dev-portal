@@ -26,10 +26,7 @@ const OpenSourceCard = ({
     elevation="medium"
     onClick={link ? () => navigate(link) : undefined}
   >
-    <CardHeader
-      justify="between"
-      pad={{ top: 'none', bottom: 'medium', horizontal: 'small' }}
-    >
+    <CardHeader justify="between" pad={{ top: 'none', bottom: 'medium' }}>
       {date && (
         <Text weight="bold">{`${dateFormat.format(new Date(date))}`}</Text>
       )}

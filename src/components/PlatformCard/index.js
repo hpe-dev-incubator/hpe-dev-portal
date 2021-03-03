@@ -11,14 +11,12 @@ const PlatformCard = ({ description, link, image, title }) => (
     onClick={link ? () => navigate(link) : undefined}
   >
     <Box direction="row-responsive" gap="large" align="center">
-      <Box flex={false}>{image && <Image fit="contain" src={image} />}</Box>
-      <Box>
-        <Box>
-          <Heading margin="none" level="4">
-            {title}
-          </Heading>
-          <Text> {description}</Text>
-        </Box>
+      <Box flex>{image && <Image fit="contain" src={image} />}</Box>
+      <Box flex>
+        <Heading margin="none" level="3" size="small">
+          {title}
+        </Heading>
+        <Text>{description}</Text>
       </Box>
     </Box>
   </GrommetCard>

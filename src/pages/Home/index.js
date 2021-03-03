@@ -22,7 +22,7 @@ import {
 } from '../../components';
 
 const OpenSourceCard = ({ children }) => (
-  <Box pad={{ horizontal: 'medium', bottom: 'large' }}>
+  <Box pad={{ horizontal: 'large', bottom: 'large' }}>
     <GrommetCard elevation="medium" fill="horizontal">
       <CardHeader pad={{ horizontal: 'large', vertical: 'medium' }}>
         <Heading level={2} margin="none">
@@ -95,43 +95,36 @@ const Home = ({ data }) => {
   return (
     <Layout title={siteTitle}>
       <SEO title={title} />
-      <Box flex overflow="auto" gap="medium" pad="small">
-        <Box
-          direction="row-responsive"
-          pad="xlarge"
-          gap="xlarge"
-          align="center"
-        >
-          <Box align="center">{image && <Image src={image} />}</Box>
-          <TitleMarkdown>{data.markdownRemark.rawMarkdownBody}</TitleMarkdown>
-        </Box>
-        <Box flex={false}>
-          {panels &&
-            panels.map(({ node }) => (
-              <Card
-                key={node.id}
-                category={node.frontmatter.category}
-                width={node.frontmatter.width}
-                content={node.rawMarkdownBody}
-                link={node.frontmatter.link}
-                image={node.frontmatter.image}
-                reverse={node.frontmatter.reverse}
-              />
-            ))}
-        </Box>
-        <OpenSourceCard>
-          {projects &&
-            projects.map(({ node }) => (
-              <Project
-                key={node.id}
-                image={node.frontmatter.image}
-                title={node.frontmatter.title}
-                description={node.frontmatter.description}
-                link={node.frontmatter.link}
-              />
-            ))}
-        </OpenSourceCard>
+      <Box direction="row-responsive" pad="xlarge" gap="xlarge" align="center">
+        <Box align="center">{image && <Image src={image} />}</Box>
+        <TitleMarkdown>{data.markdownRemark.rawMarkdownBody}</TitleMarkdown>
       </Box>
+      <Box flex={false} direction="row-responsive" wrap margin="medium">
+        {panels &&
+          panels.map(({ node }) => (
+            <Card
+              key={node.id}
+              category={node.frontmatter.category}
+              width={node.frontmatter.width}
+              content={node.rawMarkdownBody}
+              link={node.frontmatter.link}
+              image={node.frontmatter.image}
+              reverse={node.frontmatter.reverse}
+            />
+          ))}
+      </Box>
+      <OpenSourceCard>
+        {projects &&
+          projects.map(({ node }) => (
+            <Project
+              key={node.id}
+              image={node.frontmatter.image}
+              title={node.frontmatter.title}
+              description={node.frontmatter.description}
+              link={node.frontmatter.link}
+            />
+          ))}
+      </OpenSourceCard>
     </Layout>
   );
 };

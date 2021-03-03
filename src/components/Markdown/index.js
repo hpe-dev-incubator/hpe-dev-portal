@@ -66,10 +66,8 @@ const components = {
   p: {
     component: Paragraph,
     props: {
+      fill: true,
       size: 'xlarge',
-      style: {
-        maxWidth: '100%',
-      },
     },
   },
   hr: {
@@ -77,15 +75,12 @@ const components = {
     props: {
       border: {
         top: 'small',
-        color: 'light-3',
+        color: 'border',
       },
     },
   },
   img: {
     component: Image,
-    props: {
-      style: {},
-    },
   },
   a: {
     component: Anchor,
@@ -108,7 +103,6 @@ export const cardComponents = {
     props: {
       margin: { top: 'none', bottom: 'xsmall' },
       level: 2,
-      style: { maxWidth: 'fit-content' },
     },
   },
   h3: {

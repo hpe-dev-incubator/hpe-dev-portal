@@ -1,9 +1,10 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import {
   Box,
   Card as GrommetCard,
+  CardBody,
   CardHeader,
   Grid,
   Image,
@@ -42,7 +43,9 @@ const widths = {
 };
 
 const gridProps = {
+  // image above text
   small: {
+    gap: 'medium',
     columns: ['auto'],
     rows: ['auto', 'flex'],
     areas: [
@@ -50,15 +53,22 @@ const gridProps = {
       { name: 'content', start: [0, 1], end: [0, 1] },
     ],
   },
+  // image to the left of text
   medium: {
     gap: 'large',
-    columns: ['flex', 'auto'],
+    columns: [
+      ['xsmall', 'auto'],
+      ['xsmall', 'flex'],
+    ],
     rows: ['auto'],
     areas: [
       { name: 'image', start: [0, 0], end: [0, 0] },
       { name: 'content', start: [1, 0], end: [1, 0] },
     ],
+    align: 'start',
+    justifyContent: 'start',
   },
+  // image to the right of text
   large: {
     gap: 'large',
     columns: ['flex', 'auto'],
@@ -71,38 +81,21 @@ const gridProps = {
   },
 };
 
-const BodyLayout = ({ children }) => {
-  const size = useContext(ResponsiveContext);
-  const layoutProps = gridProps[size === 'small' ? size : 'large'];
-
-  return (
-    <Grid
-      fill="horizontal"
-      pad={{ horizontal: 'large', top: 'medium', bottom: 'large' }}
-      {...layoutProps}
-    >
-      {children}
-    </Grid>
-  );
+// can't use the full amount due to the margins, so we approximate
+const bases = {
+  small: '1/4',
+  medium: '1/3',
+  large: '2/3',
 };
 
-BodyLayout.propTypes = {
-  children: PropTypes.node,
-};
-
-export const Card = ({
-  category,
-  content,
-  /* width = 'medium', */ link,
-  image,
-}) => (
+export const Card = ({ category, content, width = 'medium', link, image }) => (
   <ResponsiveContext.Consumer>
     {(size) => (
       <GrommetCard
         elevation="medium"
         margin="medium"
-        // width={size === 'small' ? undefined : { min: widths[width] }}
         flex="grow"
+        basis={size === 'small' ? 'auto' : bases[width]}
         /* eslint-disable */
         onClick={
           link && link.match(/^\//g)
@@ -114,31 +107,34 @@ export const Card = ({
       >
         <CardHeader
           justify="end"
-          align="end"
           pad={{ vertical: 'small', horizontal: 'medium' }}
-          direction="column"
         >
           <Text color="text-weak">{category}</Text>
-          {size === 'small' && image && (
-            <Box gridArea="image" alignSelf="center">
-              {image && <Image src={image} />}
-            </Box>
-          )}
         </CardHeader>
-        <BodyLayout>
-          {size !== 'small' && image && (
-            <Box gridArea="image">
-              {image && <Image src={image} fit="contain" />}
-            </Box>
-          )}
-          {content && (
-            <Box gridArea="content">
-              <MarkdownLayout components={cardComponents}>
-                {content}
-              </MarkdownLayout>
-            </Box>
-          )}
-        </BodyLayout>
+        <CardBody pad="none">
+          <Grid
+            fill="horizontal"
+            pad={{ horizontal: 'large', top: 'medium', bottom: 'large' }}
+            {...(gridProps[size === 'small' ? size : width] ||
+              gridProps.medium)}
+          >
+            {image && (
+              <Image
+                gridArea="image"
+                src={image}
+                fit="contain"
+                alignSelf="start"
+              />
+            )}
+            {content && (
+              <Box gridArea="content">
+                <MarkdownLayout components={cardComponents}>
+                  {content}
+                </MarkdownLayout>
+              </Box>
+            )}
+          </Grid>
+        </CardBody>
       </GrommetCard>
     )}
   </ResponsiveContext.Consumer>
