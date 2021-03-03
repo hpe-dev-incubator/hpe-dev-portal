@@ -164,7 +164,7 @@ EmailCapture.propTypes = {
   children: PropTypes.node,
   heading: PropTypes.string,
   bodyCopy1: PropTypes.string,
-  bodyCopy2: PropTypes.string,
+  bodyCopy2: PropTypes.bool,
 };
 
 export default EmailCapture;
