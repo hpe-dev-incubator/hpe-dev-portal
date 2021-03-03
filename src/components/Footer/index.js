@@ -13,7 +13,7 @@ export const Footer = () => (
     gap="xlarge"
   >
     <Box>
-      <EmailCapture bodyCopy2="" />
+      <EmailCapture bodyCopy2 />
     </Box>
     <Box flex={false} direction="row" justify="between" gap="large">
       <Box align="start" gap="medium">
