@@ -15,18 +15,12 @@ import {
 import { useSiteMetadata } from '../../hooks/use-site-metadata';
 
 const columns = {
-  small: ['auto'],
-  medium: ['auto', 'auto'],
-  large: ['auto', 'auto', 'auto', 'auto'],
-  xlarge: ['auto', 'auto', 'auto', 'auto'],
+  small: 'auto',
+  medium: ['flex', 'flex'],
+  large: ['flex', 'flex', 'flex', 'flex'],
+  xlarge: ['flex', 'flex', 'flex', 'flex'],
 };
 
-const rows = {
-  small: ['auto', 'auto', 'auto'],
-  medium: ['auto', 'auto'],
-  large: ['auto'],
-  xlarge: ['auto'],
-};
 function Blog({ data }) {
   const featuredposts = data.featuredblogs.edges;
   const siteMetadata = useSiteMetadata();
@@ -71,7 +65,7 @@ function Blog({ data }) {
             node={featuredposts[0].node}
             margin="medium"
           />
-          <ResponsiveGrid rows={rows} columns={columns}>
+          <ResponsiveGrid rows={{}} columns={columns}>
             {featuredposts.map(
               ({ node }, index) =>
                 node.fields.slug !== '/' &&
@@ -81,7 +75,7 @@ function Blog({ data }) {
         </SectionHeader>
       )}
       <SectionHeader title="All Blogs">
-        <ResponsiveGrid rows={rows} columns={columns}>
+        <ResponsiveGrid rows={{}} columns={columns}>
           {blogPosts.map(
             (blogPost) =>
               blogPost.url !== '/' && (
