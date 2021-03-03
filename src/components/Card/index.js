@@ -57,7 +57,7 @@ const gridProps = {
   medium: {
     gap: 'large',
     columns: [
-      ['xsmall', 'auto'],
+      ['xsmall', 'flex'],
       ['xsmall', 'flex'],
     ],
     rows: ['auto'],
@@ -71,7 +71,7 @@ const gridProps = {
   // image to the right of text
   large: {
     gap: 'large',
-    columns: ['flex', 'auto'],
+    columns: ['flex', 'flex'],
     rows: ['auto'],
     areas: [
       { name: 'image', start: [1, 0], end: [1, 0] },
