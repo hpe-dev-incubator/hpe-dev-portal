@@ -85,7 +85,7 @@ Tags.propTypes = {
               title: PropTypes.string.isRequired,
               author: PropTypes.string,
               date: PropTypes.string,
-              path: PropTypes.string,
+              authorimage: PropTypes.string,
             }),
             fields: PropTypes.shape({
               slug: PropTypes.string.isRequired,
@@ -126,7 +126,6 @@ export const pageQuery = graphql`
             author
             date
             authorimage
-            path
           }
           excerpt
         }
