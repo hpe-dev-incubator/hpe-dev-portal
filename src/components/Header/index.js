@@ -7,7 +7,7 @@ import {
   ResponsiveContext,
 } from 'grommet';
 import { Menu, Search } from 'grommet-icons';
-import { ButtonLink, ExternalButtonLink } from '..';
+import { ButtonLink, ExternalButtonLink, ThemeModeToggle } from '..';
 
 function Header() {
   const size = useContext(ResponsiveContext);
@@ -50,13 +50,16 @@ function Header() {
           </Nav>
         </Box>
       )}
-      <ButtonLink
-        align="start"
-        to="/search"
-        icon={<Search />}
-        label="Search"
-        reverse
-      />
+      <Box direction="row" flex="shrink" overflow="hidden">
+        <ButtonLink
+          align="start"
+          to="/search"
+          icon={<Search />}
+          label="Search"
+          reverse
+        />
+        <ThemeModeToggle />
+      </Box>
     </GrommetHeader>
   );
 }
