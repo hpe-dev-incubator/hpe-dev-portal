@@ -3,7 +3,7 @@ title: "Deploying Complex Stateful Applications on Kubernetes with KubeDirector"
 date: 2019-09-09T17:36:33.319Z
 author: Tom Phelan & Joel Baxter 
 tags: ["hpe-ezmeral-container-platform","hpe-container-platform","bluedata","container","opensource","kubedirector"]
-authorimage: "/img/blogs/Avatar4.svg"
+authorimage: "/img/blogs/Avatar3.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

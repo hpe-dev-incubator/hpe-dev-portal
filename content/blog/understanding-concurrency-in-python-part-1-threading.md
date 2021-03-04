@@ -3,7 +3,7 @@ title: "Understanding Concurrency in Python Part 1 - Threading"
 date: 2020-02-10T22:17:20.233Z
 author: Samarth Deyagond 
 tags: ["Python"]
-authorimage: "/img/blogs/Avatar4.svg"
+authorimage: "/img/blogs/Avatar2.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -35,7 +35,7 @@ Start by looking at an I/O bound function for fetching responses from several we
 Step 1: First, import the necessary libraries and modules.
 
 
-```
+```python
 
 import threading
 import time
@@ -46,7 +46,7 @@ import requests
 Step 2:  Define a function get_response() that accepts site as an input and fetches the response data from that site using requests.get() method.
 
 
-```
+```python
 
 def get_response(site):
     return requests.get(site)
@@ -56,7 +56,7 @@ def get_response(site):
 Step 3: Create a list of several websites. Append any site and as many sites as you want to the list.
 
 
-```
+```python
 
 sites = ["http://www.google.com", "http://www.linkedin.com",
          "http://www.quora.com", "http://www.facebook.com"]
@@ -67,7 +67,7 @@ sites = ["http://www.google.com", "http://www.linkedin.com",
 Step 4: Iterate through this list of sites and invoke the function get_response() for each site. Capture and print the time taken for this complete iteration using a time.time() method.
 
 
-```
+```python
 
 start_time = time.time()
 for site in sites:
@@ -80,7 +80,7 @@ print("Time taken for regular execution", time.time()-start_time)
 Step 5: Now, define threads using the threading library with target to get_response() function and arguments set to sites in the list.
 
 
-```
+```python
 
 threads = [threading.Thread(target=get_response, args=(site,))
           for site in sites]
@@ -90,7 +90,7 @@ threads = [threading.Thread(target=get_response, args=(site,))
 Step 6: Iterate over these threads and start these threads using the thread.start() method. Use the thread.join() method to wait till the thread execution completes. Also, capture the time using the time.time() method to see the time taken to complete the execution.
 
 
-```
+```python
 
 start_time = time.time()
 for thread in threads:
@@ -109,7 +109,7 @@ You can see that the multi-threaded execution of this I/O bound task is way fast
 The consolidated code would look like what’s shown below: 
 
 
-```
+```python
 import threading
 import time
 import requests
@@ -143,7 +143,7 @@ Now, let’s consider a CPU bound function and observe how a threading library i
 Step 1: Again, be sure to first import the necessary libraries and modules.
 
 
-```
+```python
 
 import threading
 import time
@@ -154,7 +154,7 @@ import requests
 Step 2: This time, define a CPU intensive function cpu_bound() that accepts a number, multiplies it by 10^6 and calculates the sum of all numbers in a range of 0 to that product.
 
 
-```
+```python
 def cpu_bound(num):
     return sum([i for i in range(num*1000000)])
 ```
@@ -162,7 +162,7 @@ def cpu_bound(num):
 Step 3: Create a list of random numbers.
 
 
-```
+```python
 
 numbers = [11, 23, 53, 34]
 
@@ -171,7 +171,7 @@ numbers = [11, 23, 53, 34]
 Step 4: Just like in the last example, iterate over these numbers and invoke the cpu intensive function cpu_bound(). Capture the time taken to complete the execution. Print out the time taken for regular execution.
 
 
-```
+```python
 
 start_time = time.time()
 for number in numbers:
@@ -184,7 +184,7 @@ print("Time taken for regular execution", time.time()-start_time)
 Step 5: As shown previously, define the variable threads using threading.Thread() method with target function set to cpu_bound and arguments set to the numbers in the list. 
 
 
-```
+```python
 
 threads = [threading.Thread(target=cpu_bound, args=(number,))
           for number in numbers]
@@ -194,7 +194,7 @@ threads = [threading.Thread(target=cpu_bound, args=(number,))
 Step 6: Iterate over these threads and start the execution of these threads using the thread.start() method. Use the thread.join() method to wait till the thread execution completes. Also, capture the time using the time.time() method to see the time taken to complete the execution and print it out.
 
 
-```
+```python
 
 start_time = time.time()
 for thread in threads:
@@ -216,7 +216,7 @@ You can see that employing the threading module did not help us much in achievin
 The consolidated code would look like this:
 
 
-```
+```python
 import threading
 import time
 import requests

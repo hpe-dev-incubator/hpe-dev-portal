@@ -3,7 +3,7 @@ title: "Setting Up Spark Dynamic Allocation on MapR"
 date: 2021-02-05T05:19:26.501Z
 author: Tugdual Grall 
 tags: ["hpe-ezmeral-data-fabric","MapR","apache-spark"]
-authorimage: "/img/blogs/Avatar6.svg"
+authorimage: "/img/blogs/Avatar1.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -17,7 +17,9 @@ thumbnailimage:
 "publish": "2016-11-03T07:00:00.000Z",
 "tags": "apache-spark"
 ```
+
 ---
+
 Apache Spark can use various cluster managers to execute applications (Standalone, YARN, Apache Mesos). When you install Apache Spark on MapR, you can submit an application in Standalone mode or by using YARN.
 
 This blog post focuses on YARN and dynamic allocation, a feature that lets Spark add or remove executors dynamically based on the workload. You can find more information about this feature in this presentation from Databricks:
@@ -37,13 +39,13 @@ The example below is for MapR 5.2 with Apache Spark 1.6.1; you just need to adap
 
 The first thing to do is to enable dynamic allocation in Spark. To do this, you need to edit the Spark configuration file on each Spark node
 
-```
+```bash
 /opt/mapr/spark/spark-1.6.1/conf/spark-defaults.conf
 ```
 
 and add the following entries:
 
-```
+```bash
 spark.dynamicAllocation.enabled = true
 spark.shuffle.service.enabled = true
 spark.dynamicAllocation.minExecutors = 5 
@@ -57,14 +59,14 @@ You can find additional configuration options in the <a target='\_blank'  href='
 
 Now you need to edit the YARN configuration to add information about Spark Shuffle Service. Edit the following file on each YARN node:
 
-```
+```bash
 /opt/mapr/hadoop/hadoop-2.7.0/etc/hadoop/yarn-site.xml
 
 ```
 
 and add these properties:
 
-```
+```bash
 <property>
     <name>yarn.nodemanager.aux-services</name>
     <value>mapreduce_shuffle,mapr_direct_shuffle,spark_shuffle</value>
@@ -80,20 +82,20 @@ and add these properties:
 
 Spark Shuffle service must be added to the YARN classpath. The jar is located in the Spark distribution:
 
-```
+```bash
 /opt/mapr/spark/spark-1.6.1/lib/spark-1.6.1-mapr-1605-yarn-shuffle.jar
 ```
 
 To do this, add the jar in the following folder on each node:
 
-```
+```bash
 /opt/mapr/hadoop/hadoop-2.7.0/share/hadoop/yarn/lib
 
 ```
 
 You can either copy the file or create a symlink:
 
-```
+```bash
 $ ln -s /opt/mapr/spark/spark-1.6.1/lib/spark-1.6.1-mapr-1605-yarn-shuffle.jar /opt/mapr/hadoop/hadoop-2.7.0/share/hadoop/yarn/lib
 
 ```
@@ -102,7 +104,7 @@ $ ln -s /opt/mapr/spark/spark-1.6.1/lib/spark-1.6.1-mapr-1605-yarn-shuffle.jar /
 
 Since you have changed the YARN configuration, you must restart your node managers using the following command:
 
-```
+```bash
 $ maprcli node services -name nodemanager -action restart -nodes [list of nodes]
 
 ```
@@ -111,7 +113,7 @@ $ maprcli node services -name nodemanager -action restart -nodes [list of nodes]
 
 Your MapR cluster is now ready to use Spark dynamic allocation. This means that when you submit a job, you do not need to specify any resource configuration. For example:
 
-```
+```bash
 /opt/mapr/spark/spark-1.6.1/bin/spark-submit \
   --class com.mapr.demo.WordCountSorted \
   --master yarn \
@@ -123,7 +125,7 @@ Your MapR cluster is now ready to use Spark dynamic allocation. This means that 
 
 Note that you can still specify the resources, but in this case, the dynamic allocation will not be used for this specific job. For example:
 
-```
+```bash
 /opt/mapr/spark/spark-1.6.1/bin/spark-submit \
   --class com.mapr.demo.WordCountSorted \
   --master yarn \

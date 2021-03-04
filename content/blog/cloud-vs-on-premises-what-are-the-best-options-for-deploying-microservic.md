@@ -3,7 +3,7 @@ title: "Cloud vs. On-Premises – What Are the Best Options for Deploying Micros
 date: 2020-12-16T06:55:47.622Z
 author: Jim Scott 
 tags: ["cloud-computing","microservices","hpe-ezmeral-data-fabric","MapR"]
-authorimage: "/img/blogs/Avatar6.svg"
+authorimage: "/img/blogs/Avatar3.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -17,6 +17,7 @@ thumbnailimage:
 "publish": "2018-04-18T11:00:00.000",
 "tags": "cloud-computing"
 ```
+
 ---
 
 Microservices are great. Don't just take my word for it: there are many sources saying the same thing, and the industry is transitioning to this model. Containers are a key piece of the success of microservices. Once a microservice is built and put into a container, the task of deploying the application comes next. For the sake of simplicity, I am going to focus on the type of infrastructure to deploy services. Deployment options fall into four basic models, which can be **mixed and matched** as needed.

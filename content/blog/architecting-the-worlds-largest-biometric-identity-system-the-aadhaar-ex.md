@@ -3,7 +3,7 @@ title: "Architecting the World’s Largest Biometric Identity System: The Aadhaa
 date: 2021-01-07T23:06:37.255Z
 author: Michele Nemschoff 
 tags: ["hpe-ezmeral-data-fabric","MapR"]
-authorimage: "/img/blogs/Avatar3.svg"
+authorimage: "/img/blogs/Avatar4.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -17,7 +17,9 @@ thumbnailimage:
 "publish": "2015-02-13T08:00:00.000Z",
 "tags": "use-case"
 ```
+
 ---
+
 Dr. Pramod Varma, Chief Architect and Technology Advisor to Unique Identification Authority of India (UIDAI), gave an informative talk titled “Architecting World's Largest Biometric Identity System - Aadhaar Experience” at the Strata + Hadoop World 2014 conference held in New York.
 
 Dr. Varma began his talk by talking about why the Aadhaar project was created. In India, the inability to prove one’s identity is one of the biggest barriers that prevents the poor from accessing benefits and subsidies. India is a country with 1.2 billion residents in over 640,000 villages. The Indian government spends $50 billion on direct subsidies (food coupons for rice, cooking gas, etc.) every year. Both public and private agencies in India require proof of identity before providing services or benefits to those living in India.

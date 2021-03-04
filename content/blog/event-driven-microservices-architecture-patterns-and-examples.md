@@ -3,7 +3,7 @@ title: "Event Driven Microservices Architecture Patterns and Examples"
 date: 2020-11-19T00:06:45.026Z
 author: Carol McDonald 
 tags: ["hpe-ezmeral-data-fabric","MapR","nosql","microservices","opensource"]
-authorimage: "/img/blogs/Avatar5.svg"
+authorimage: "/img/blogs/Avatar3.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -17,6 +17,7 @@ thumbnailimage:
 "publish": "2017-02-08T06:00:00.000Z",
 "tags": "nosql,microservices"
 ```
+
 ---
 
 In this blog we will discuss some patterns that are often used in microservices applications that need to scale:

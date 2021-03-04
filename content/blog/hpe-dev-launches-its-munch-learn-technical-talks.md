@@ -3,7 +3,7 @@ title: "HPE DEV launches its Munch & Learn technical talks"
 date: 2020-12-17T10:37:54.486Z
 author: Dale Rensing 
 tags: ["lunch","learn","munch","ezmeral-data-fabric"]
-authorimage: "/img/blogs/Avatar1.svg"
+authorimage: "/img/blogs/Avatar6.svg"
 featuredBlog: true
 priority: 2
 thumbnailimage:

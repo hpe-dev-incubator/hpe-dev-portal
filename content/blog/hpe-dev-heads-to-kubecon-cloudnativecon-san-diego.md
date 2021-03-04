@@ -3,7 +3,7 @@ title: "HPE DEV heads to KubeCon + CloudNativeCon, San Diego"
 date: 2019-10-09T15:45:53.752Z
 author: HPE DEV staff 
 tags: ["KubeCon","kubecon-san-diego-2019"]
-authorimage: "/img/blogs/Avatar4.svg"
+authorimage: "/img/blogs/Avatar2.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

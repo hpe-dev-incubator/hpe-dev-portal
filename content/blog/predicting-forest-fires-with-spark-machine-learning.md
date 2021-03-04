@@ -3,7 +3,7 @@ title: "Predicting Forest Fires with Spark Machine Learning"
 date: 2021-01-14T05:41:09.346Z
 author: Ian Downard 
 tags: ["hpe-ezmeral-data-fabric","MapR","k-means"]
-authorimage: "/img/blogs/Avatar2.svg"
+authorimage: "/img/blogs/Avatar4.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -17,7 +17,9 @@ thumbnailimage:
 "publish": "2018-07-26T10:45:00.000",
 "tags": "use-case"
 ```
+
 ---
+
 Anytime you have lat/long coordinates, you have an opportunity to do data science with k-means clustering and visualization on a map. This is a story about how I used geo data with k-means clustering on a topic that has affected me personally - wildfires!
 
 Every summer wildfires become front of mind for thousands of people who live in the West, Pacific Northwest, and Northern Rockies regions of the United States. Odds are, if you don't see the flames first hand, you will probably see smoke influenced the weather, road closures, and calls for caution by local authorities.

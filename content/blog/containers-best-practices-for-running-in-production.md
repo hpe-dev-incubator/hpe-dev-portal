@@ -3,7 +3,7 @@ title: "Containers: Best Practices for Running in Production"
 date: 2020-09-16T16:06:50.613Z
 author: Suzy Visvanathan 
 tags: ["hpe-ezmeral-data-fabric","MapR","containers","opensource"]
-authorimage: "/img/blogs/Avatar2.svg"
+authorimage: "/img/blogs/Avatar4.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -16,6 +16,7 @@ thumbnailimage:
 "publish": "2018-05-17T10:45:00.000",
 "tags": "hpe-ezmeral-data-fabric"
 ```
+
 ---
 
 Market shifts are propelling organizations to become digital. Companies feel pressure to find better ways to offer services, respond faster and proactively to their customers, and manage growth. In their quest for digital maturity, customers are looking for solutions that not only address the aspect of capacity growth, but also other aspects such as performance, handling of different types of data through different protocols, and ability to adopt newer technology trends that makes them more efficient.

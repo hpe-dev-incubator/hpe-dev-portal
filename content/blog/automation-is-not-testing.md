@@ -14,6 +14,7 @@ I recently attended a webinar where the speaker commented that "Automation is no
 We all know that we should be testing scripts, but you can fall into a lot of potential pit falls when starting this journey. In this article, I’m going to jump straight into the deep end and deal with one of the struggles that took me a while to deal with.
 
 Imagine the following:
+
 * You have a local device with a REST API.
 * You write a library that accesses that REST API.
 * You write tests for that library so it runs against the local devices REST API.
@@ -39,7 +40,7 @@ If you want to take a look at the library, feel free to check out the GITHUB rep
 If you don’t want to leave this page, I’ve included the library function below.
 
 
-```
+```python
 
 import requests
 import json
@@ -57,7 +58,7 @@ def get_new_quote():
 Now that we’ve got the new function built, let’s take a quick look at what we get. We will run the function and capture it in a python variable called x.
 
 
-```
+```python
 
 x = get_new_quote()
 New Kanye Quote coming up!
@@ -67,7 +68,7 @@ New Kanye Quote coming up!
 Now, let’s use the json library to take a look at what was returned.
 
 
-```
+```python
 
 json.dumps(x)
 '{"quote": "I’m nice at ping pong"}'
@@ -77,7 +78,7 @@ json.dumps(x)
 Now that we’ve got some working code, let’s run it again and capture this as the python variable y.
 
 
-```
+```python
 
 y = get_new_quote()
 New Kanye Quote coming up!
@@ -105,7 +106,7 @@ While you were imagining it, I wrote a quick test to help make sure that the API
 __If you don’t expect anything, you deserve what you get, right?__
 
 
-```
+```python
 
 from unittest import TestCase
 from pykanyerest.quotes import *
@@ -134,7 +135,7 @@ Now, we’ve already got a lot we can hang our tests on, but imagine we want to 
 The code to test would now look like this:
 
 
-```
+```python
 
 class TestGetNewQuote(TestCase):
     """
@@ -157,7 +158,7 @@ class TestGetNewQuote(TestCase):
 If you ran THIS code, you would now find it fails.
 
 
-```
+```python
 
 Traceback (most recent call last):
   File "/Users/christopheryoung/PycharmProjects/OpenTestingBlog/tests/test_quotes.py", line 18, in test_GetNewQuote
@@ -182,7 +183,7 @@ The first is the “import vcr” line at the top that makes the vcrpy library a
 2. Tells the script where to look for the results every subsequent time you run it.
 
 
-```
+```python
 
 import vcr
 from unittest import TestCase
@@ -211,7 +212,7 @@ class TestGetNewQuote(TestCase):
 Once you’ve run the test once, a new file will appear in the ./test_pykanyerest/fixtures/cassettes/test_GetNewQuote folder with the following contents:
 
 
-```
+```markdown
 
 interactions:
 - request:
@@ -270,7 +271,7 @@ If you look closely, you can see a lot of information in there, including the co
 Let’s change the test to look for the new quote that’s captured in the test_GetNewQuote file above.
 
 
-```
+```python
 
 import vcr
 from unittest import TestCase

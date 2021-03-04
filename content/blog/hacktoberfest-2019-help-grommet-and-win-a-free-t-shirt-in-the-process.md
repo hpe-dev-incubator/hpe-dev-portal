@@ -3,7 +3,7 @@ title: "Hacktoberfest 2019 - Help Grommet and win a free t-shirt in the process"
 date: 2019-09-30T16:06:29.981Z
 author: HPE DEV staff 
 tags: []
-authorimage: "/img/blogs/Avatar6.svg"
+authorimage: "/img/blogs/Avatar3.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

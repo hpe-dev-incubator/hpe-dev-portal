@@ -3,7 +3,7 @@ title: "Storage management with Redfish"
 date: 2018-10-30T17:05:18.375Z
 author: Francois Donze 
 tags: ["ilo-restful-api","Redfish","SmartStorage","SmartArray","Synergy","ProLiant","iLO5"]
-authorimage: "/img/blogs/Avatar2.svg"
+authorimage: "/img/blogs/Avatar3.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

@@ -3,7 +3,7 @@ title: "Tutorial: How to get started with the HPE CSI Driver and HPE Primera and
 date: 2020-04-30T16:12:11.635Z
 author: Chris Snell 
 tags: ["hpe-3par-and-primera"]
-authorimage: "/img/blogs/Avatar4.svg"
+authorimage: "/img/blogs/Avatar6.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -13,6 +13,7 @@ thumbnailimage:
  With the release of the HPE Container Storage Interface (CSI) driver for Kubernetes back in January, HPE has been hard at work  on integrating additional platforms into the CSI driver framework. Initially the HPE CSI Driver for Kubernetes only supported Nimble Storage now with the latest v1.1.1 comes [support for HPE Primera and 3PAR arrays](https://community.hpe.com/t5/hpe-storage-tech-insiders/hpe-csi-driver-for-kubernetes-1-1-1-and-hpe-3par-and-hpe-primera/ba-p/7086675). In this tutorial, I will walk you through the steps of deploying the CSI driver with HPE Primera and then we will deploy a Wordpress site using persistent storage. With that, let's get going!
 
 ## Assumptions
+
 I will be starting with an existing Kubernetes cluster. This can be a fresh install with [kubeadm](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/) or [kubespray](https://kubernetes.io/docs/setup/production-environment/tools/kubespray/). The deployment of Kubernetes is outside of the scope of this document. If you don't have a cluster up and running, I recommend that you get started there.
 
 Also I am assuming `kubectl` is installed and configured to communicate with the cluster and Helm 3 to deploy the HPE CSI Driver for Kubernetes. If not, here are some good resources to check out for assistance [Install and Set Up kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) and [https://helm.sh/docs/](https://helm.sh/docs/) to get setup. 
@@ -29,13 +30,13 @@ The first step of installing the HPE CSI Driver is creating the **values.yaml** 
 
 Please refer to this sample [values.yaml](https://github.com/hpe-storage/co-deployments/tree/master/helm/values/csi-driver) file.
 
-```
+```bash
 vi primera-values.yaml
 ```
 
 Copy the following into the file. Make sure to set the **backendType: primera3par** and the **backend** to the array IP along with the array username and password.
 
-```
+```bash
 # HPE backend storage type (nimble, primera3par)
 backendType: primera3par
 
@@ -51,6 +52,7 @@ secret:
 storageClass:
   create: false
 ```
+
 > **NOTE:** <br />
 > The user specified will need at a minimum the **edit** role on the array.
 
@@ -63,14 +65,14 @@ To install the chart with the name hpe-csi:
 
 Add the HPE CSI Driver for Kubernetes helm repo:
 
-```
+```bash
 helm repo add hpe https://hpe-storage.github.io/co-deployments
 helm repo update
 ```
 
 Install the latest chart:
 
-```
+```bash
 helm install hpe-csi hpe/hpe-csi-driver --namespace kube-system -f primera-values.yaml
 ```
 
@@ -78,7 +80,7 @@ Wait a few minutes as the deployment finishes.
 
 Verify that everything is up and running correctly with the listing out the pods.
 
-```
+```bash
 kubectl get pods --all-namespaces -l 'app in (primera3par-csp, hpe-csi-node, hpe-csi-controller)'
 NAMESPACE     NAME                                  READY     STATUS    RESTARTS   AGE
 kube-system   hpe-csi-controller-84d8569476-vt7xg   5/5       Running   0          13m
@@ -86,7 +88,7 @@ kube-system   hpe-csi-node-s4c8z                    2/2       Running   0       
 kube-system   primera3par-csp-66f775b555-2qclg      1/1       Running   0          13m
 ```
 
-```
+```bash
 kubectl get secret -n kube-system | grep primera3par
 primera3par-secret                Opaque                                5         13m
 ```
@@ -101,7 +103,7 @@ We need to create a `StorageClass` API object using the HPE CSI driver, along wi
 
 The below YAML declarations are meant to be created with `kubectl create`. Either copy the content to a file on the host where `kubectl` is being executed, or copy & paste into the terminal, like this:
 
-```
+```bash
 kubectl create -f-
 < paste the YAML >
 ^D (CTRL + D)
@@ -109,7 +111,7 @@ kubectl create -f-
 
 Create a `StorageClass` API object for a Primera Data Reduction volume.
 
-```markdown
+```yaml
 ---
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
@@ -136,7 +138,7 @@ parameters:
 
 Create a `PersistentVolumeClaim` for MariaDB for use by Wordpress. This object creates a `PersistentVolume` as defined. Make sure to reference the correct `.spec.storageClassName`.
 
-```markdown
+```yaml
 ---
 kind: PersistentVolumeClaim
 apiVersion: v1
@@ -153,7 +155,7 @@ spec:
 
 Next, let's make another for the Wordpress application.
 
-```markdown
+```yaml
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -183,7 +185,7 @@ Now, let's use Helm to deploy Wordpress using the `PVC` created previously. When
 
 The first step is to add the Wordpress chart.
 
-```
+```bash
 helm repo add bitnami https://charts.bitnami.com/bitnami
 helm repo update
 helm search repo bitnami/wordpress
@@ -193,13 +195,13 @@ bitnami/wordpress       9.2.1           5.4.0           Web publishing platform 
 
 Deploy Wordpress by setting `persistence.existingClaim=<existing_PVC>` to the `PVC` created in the previous step.
 
-```
+```bash
 helm install my-wordpress bitnami/wordpress --version 9.2.1 --set service.type=ClusterIP,wordpressUsername=admin,wordpressPassword=adminpassword,mariadb.mariadbRootPassword=secretpassword,persistence.existingClaim=my-wordpress,allowEmptyPassword=false
 ```
 
 Check to verify that Wordpress and MariaDB were deployed and are in the **Running** state. This may take a few minutes.
 
-```
+```bash
 kubectl get pods
 NAME                            READY     STATUS    RESTARTS   AGE
 my-wordpress-69b7976c85-9mfjv   1/1       Running   0          2m
@@ -208,7 +210,7 @@ my-wordpress-mariadb-0          1/1       Running   0          2m
 
 Finally lets take a look at the Wordpress site. You can use `kubectl port-forward` to access the Wordpress application from within the Kubernetes cluster to verify everything is working correctly.
 
-```
+```bash
 kubectl port-forward svc/my-wordpress 80:80
 Forwarding from 127.0.0.1:80 -> 8080
 Forwarding from [::1]:80 -> 8080

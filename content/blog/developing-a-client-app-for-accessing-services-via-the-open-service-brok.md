@@ -3,7 +3,7 @@ title: "Developing a Client App for Accessing Services via the Open Service Brok
 date: 2019-08-28T15:36:16.964Z
 author: Carson Stone and Kailash Ramakrishnan 
 tags: []
-authorimage: "/img/blogs/Avatar3.svg"
+authorimage: "/img/blogs/Avatar2.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

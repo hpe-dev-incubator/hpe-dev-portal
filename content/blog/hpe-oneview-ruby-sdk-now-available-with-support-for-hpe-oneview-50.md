@@ -15,6 +15,7 @@ This SDK allows Ruby developers to programmatically control HPE OneView managed 
 Ruby is a popular software language that supports multiple programming paradigms, including procedural, object-oriented, and functional programming. A number of widely used tools and frameworks, such as Puppet, are written in Ruby. In addition, it is a popular choice for building web and data analysis applications.
 
 For more information: 
+
 * [Release content](https://github.com/HewlettPackard/oneview-sdk-ruby/releases/tag/v5.10.0) 
 * [Code repository and examples](https://github.com/HewlettPackard/oneview-sdk-ruby) 
 * [Ruby Gem](https://rubygems.org/gems/oneview-sdk/versions/5.10.0)

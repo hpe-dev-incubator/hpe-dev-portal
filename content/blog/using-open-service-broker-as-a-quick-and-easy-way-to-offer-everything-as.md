@@ -3,7 +3,7 @@ title: "Using Open Service Broker as a Quick and Easy Way to Offer Everything as
 date: 2019-08-19T15:29:52.117Z
 author: Pramod Sareddy 
 tags: []
-authorimage: "/img/blogs/Avatar6.svg"
+authorimage: "/img/blogs/Avatar3.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

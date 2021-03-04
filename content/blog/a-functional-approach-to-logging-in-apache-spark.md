@@ -3,7 +3,7 @@ title: "A Functional Approach to Logging in Apache Spark"
 date: 2021-02-05T05:32:01.948Z
 author: Nicolas Perez 
 tags: ["hpe-ezmeral-data-fabric","MapR","apache-spark"]
-authorimage: "/img/blogs/Avatar6.svg"
+authorimage: "/img/blogs/Avatar4.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -17,7 +17,9 @@ thumbnailimage:
 "publish": "2016-07-28T07:00:00.000Z",
 "tags": "apache-spark"
 ```
+
 ---
+
 ## A Functional Approach to Logging in Apache Spark
 
 Logging in Apache Spark is very easy to do, since Spark offers access to a logobject out of the box; only some configuration setups need to be done. In a [previous post](https://developer.hpe.com/blog/0NBjLpX5VAF3JKoDEqOo/how-to-log-in-apache-spark), we looked at how to do this while identifying some problems that may arise. However, the solution presented might cause some problems when you are ready to collect the logs, since they are distributed across the entire cluster. Even if you utilize YARN log aggregation capabilities, there will be some contentions that might affect performance, or you could end up with log interleaves that corrupt the nature of the log itself.

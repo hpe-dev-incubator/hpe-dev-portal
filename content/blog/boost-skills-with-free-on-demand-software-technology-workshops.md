@@ -3,7 +3,7 @@ title: "Boost skills with FREE on-demand software technology workshops"
 date: 2020-09-16T12:46:52.445Z
 author: Dale Rensing 
 tags: ["workshops-on-demand","workshops","training","on-demand"]
-authorimage: "/img/blogs/Avatar2.svg"
+authorimage: "/img/blogs/Avatar3.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

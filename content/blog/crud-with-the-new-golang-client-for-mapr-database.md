@@ -3,7 +3,7 @@ title: "CRUD with the New Golang Client for MapR Database"
 date: 2020-09-18T20:27:10.747Z
 author: Magnus Pierre 
 tags: ["hpe-ezmeral-data-fabric","MapR","Golang","opensource"]
-authorimage: "/img/blogs/Avatar1.svg"
+authorimage: "/img/blogs/Avatar4.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -14,7 +14,9 @@ thumbnailimage:
 "publish": "2019-04-24T07:00:00.000Z",
 "tags": "hpe-ezmeral-data-fabric"
 ```
+
 ---
+
 **Editor’s Note:** MapR products referenced are now part of the [HPE Ezmeral Data Fabric](https://www.hpe.com/us/en/software/data-fabric.html).
 
 ![](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/9/image2-1600461098259.png)
@@ -209,6 +211,7 @@ These functions are:
 ![](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/9/code-7-1600461425614.png)
 
 Now we can send the `MapOrStructMutation` to the database using:
+
 * `Update`, `CheckAndUpdate`
 
 `CheckAndUpdate` is interesting, since it allows you to only do the update if a certain condition is validated to be true. This is where the OJAI API shows its true powers. By doing proper checking this way, you can avoid having to return the data to the client, do the manipulation, and then write it back to the database. All steps can happen in the database, where they belong, local to the data. This is a fundamental feature, important for everyone that deals with mutable structures with big data sizes.

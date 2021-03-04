@@ -3,7 +3,7 @@ title: "Multiple HPE efforts help fight COVID-19"
 date: 2020-04-28T15:22:08.451Z
 author:  Dale Rensing 
 tags: ["opensource"]
-authorimage: "/img/blogs/Avatar2.svg"
+authorimage: "/img/blogs/Avatar6.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

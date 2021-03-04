@@ -17,6 +17,7 @@ thumbnailimage:
 "publish": "2015-06-23T07:00:00.000Z",
 "tags": "apache-spark"
 ```
+
 ---
 
 In this blog, I’d like to talk about the differences between Apache Spark and MapReduce, why it’s easier to develop on Spark, and the top five use cases.

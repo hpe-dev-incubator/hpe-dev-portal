@@ -3,7 +3,7 @@ title: "WOW - Part 3 - Conveying the business value in a purposefully designed U
 date: 2020-06-04T16:59:57.062Z
 author: Parul Tyagi 
 tags: []
-authorimage: "/img/blogs/Avatar5.svg"
+authorimage: "/img/blogs/Avatar3.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

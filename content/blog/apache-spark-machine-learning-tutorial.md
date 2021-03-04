@@ -3,7 +3,7 @@ title: "Apache Spark Machine Learning Tutorial"
 date: 2020-11-25T03:08:41.724Z
 author: Carol McDonald 
 tags: ["hpe-ezmeral-data-fabric","MapR","apache-spark","machine-learning","opensource"]
-authorimage: "/img/blogs/Avatar6.svg"
+authorimage: "/img/blogs/Avatar5.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -18,6 +18,7 @@ thumbnailimage:
 "update": "2019-02-20T08:00:00.000Z",
 "tags": ["machine-learning","tutorial"]
 ```
+
 ---
 
 In this blog post, we will give an introduction to machine learning and deep learning,  and we will go over the main Spark machine learning algorithms and techniques with some real\-world use cases. The goal is to give you a better understanding of what you can do with machine learning. Machine learning is becoming more accessible to developers, and data scientists work with domain experts, architects, developers, and data engineers, so it is important for everyone to have a better understanding of the possibilities. Every piece of information that your business generates has potential to add value. This overview is meant to provoke a review of your own data to identify new opportunities.
@@ -214,14 +215,17 @@ Collaborative filtering algorithms recommend items (this is the filtering part) 
 ## Spark Unsupervised Algorithms Summary
 
 Clustering
+
 *   *k*-means
 *   Latent Dirichlet allocation (LDA)
 *   Gaussian mixture model (GMM)
 
 Collaborative Filtering
+
 *    Alternating least squares (ALS)
 
 Frequent Pattern Mining
+
 *   FP-Growth Algorithm
 
 ## Deep Learning

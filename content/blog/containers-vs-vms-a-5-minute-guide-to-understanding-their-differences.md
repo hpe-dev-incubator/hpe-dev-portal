@@ -3,7 +3,7 @@ title: "Containers vs. VMs: A 5-Minute Guide to Understanding Their Differences"
 date: 2021-01-29T05:33:44.878Z
 author: Suzy Visvanathan 
 tags: ["hpe-ezmeral-data-fabric","MapR","containers","virtual-machine"]
-authorimage: "/img/blogs/Avatar3.svg"
+authorimage: "/img/blogs/Avatar6.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -17,7 +17,9 @@ thumbnailimage:
 "publish": "2018-05-16T10:45:00.000",
 "tags": "mapr-platform"
 ```
+
 ---
+
 Almost every organization is investing in or thinking of investing in containers. Containers are transitioning from being a hype to becoming a tangible entity in which applications are deployed, but that doesn’t mean virtual machines are suddenly out of date or not needed. While there are many articles highlighting the technical comparisons between how a container and VM image differ, articulating the advantages of one over the other for one’s business needs, and when to use which, requires a closer look.
 
 ![Containers vs. VMs](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2021/1/containers-vs-vms-wide-1611898725434.jpg)

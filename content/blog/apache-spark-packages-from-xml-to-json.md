@@ -3,7 +3,7 @@ title: "Apache Spark Packages, from XML to JSON"
 date: 2020-12-11T03:26:34.663Z
 author: Nicolas Perez 
 tags: ["hpe-ezmeral-data-fabric","MapR","apache-spark","opensource"]
-authorimage: "/img/blogs/Avatar1.svg"
+authorimage: "/img/blogs/Avatar4.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -17,6 +17,7 @@ thumbnailimage:
 "publish": "2016-08-23T07:00:00.000Z",
 "tags": "apache-spark"
 ```
+
 ---
 
 The Apache Spark community has put a lot of effort into extending Spark. Recently, we wanted to transform an XML dataset into something that was easier to query. We were mainly interested in doing data exploration on top of the billions of transactions that we get every day. XML is a well-known format, but sometimes it can be complicated to work with. In Apache Hive, for instance, we could define the structure of the schema of our XML and then query it using SQL.

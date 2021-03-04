@@ -3,7 +3,7 @@ title: "Dark Mode Theming in Grommet: How to set up and apply a theme"
 date: 2020-10-14T07:50:10.733Z
 author: Matt Glissmann 
 tags: ["grommet","opensource"]
-authorimage: "/img/blogs/Avatar4.svg"
+authorimage: "/img/blogs/Avatar6.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -11,6 +11,7 @@ thumbnailimage:
 ![darkmode intro part1](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/9/darkmode-intro-part1-1603293464825.png)
 
 This post is Part 1 of a three-part series.
+
 - Part 1 - How to set up and apply a theme
 - Part 2 - Adding dark and light theme modes
 - Part 3 - Theme color customization
@@ -20,13 +21,14 @@ As a UI/UX developer at HPE, I use [Grommet](https://grommet.io) extensively. I 
 [Grommet](https://grommet.io) has robust support for light and dark themes. Due to the apparent interest in this topic, I thought I’d share my approach on how to get started with theme mode styling in [Grommet](https://grommet.io). 
 
 To illustrate the method I use, I’m going to create a simple application demonstrating the ability to toggle between light and dark modes. By the end of this 3-part blog series, I will have demonstrated how to:
+
 - Apply a theme in a Grommet application
 - Incorporate dark and light theme modes
 - Modify a theme to apply custom colors in dark and light modes
 
 The final product will be a simple application with a custom theme applied and the ability for a user to toggle between the app’s light and dark modes.
 
-<img src="/uploads/media/2020/9/themetutorialapp-1602698870239.gif" style="height:300px, width:300px" />
+<img src="https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/9/themetutorialapp-1602698870239.gif" style="height:300px, width:300px" />
 
 # Setup for the tutorial
 ## Prerequisites
@@ -35,17 +37,19 @@ This tutorial assumes familiarity with HTML, JavaScript, and React. However, eve
 ## Get the Starter Code
 Open this [starting code](https://codesandbox.io/s/grommet-theme-toggle-0starter-1k1cv?file=/src/App.js) in your browser. Create your own copy by clicking 'Fork' from the menu in the upper right corner. The starter app will look like this:
 
-<img src="/uploads/media/2020/9/picture-2-1602661773922.png"  />
+<img src="https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/9/picture-2-1602661773922.png"  />
 
 ## Starter Code Orientation
 ### Development Environment
 For this tutorial, I’m using [Codesandbox](https://codesandbox.io/) as the development environment. [Codesandbox](https://codesandbox.io/)  presents the user with: 
+
 - An interface for the project’s file and directory structure
 - A text editor for editing files
 - A browser window to view and interact with the application
 
 ### Project Structure and Dependencies
 The project structure mimics a minimal Create React App (CRA) structure and is organized like so:
+
 - /public
   - index.html (this gets loaded by the browser and is what renders src/index.js)
 - /src
@@ -59,11 +63,14 @@ For this tutorial, most of the development will happen in App.js. The App.js fil
 
 Import of React and Grommet components:
 
+
 ```javascript
 import React from "react";
 import { Grommet, Anchor, Box, List, Heading, Paragraph, Text } from "grommet";
 ```
+
 `projectTasks` array with the tasks to be implemented
+
 
 ```javascript
 const projectTasks = [
@@ -73,10 +80,13 @@ const projectTasks = [
  "Customize Theme - Add custom colors to theme"
 ];
 ````
+
 The `App` is composed of the following Grommet components:
+
 - `<Grommet>` is the top level Grommet container
 - `<Box>` for some basic page layout
 - For the page’s content, I have `<Heading>`,`< Paragraph>`, and `<List>` which iterates over the `projectTasks` array, returning a `<Text>` component for each task.
+
 
 ```javascript
 const App = () => {
@@ -103,6 +113,7 @@ const App = () => {
 
 export default App;
 ```
+
 # Applying a Theme
 To provide some initial styling, I’ll apply the `grommet` theme. In Part 3 of this series, I will show you how to customize and incorporate a custom theme.
 
@@ -110,10 +121,13 @@ In App.js, import and apply the Grommet theme:
 
 Import grommet theme
 
+
 ```javascript 
  import { grommet } from "grommet"; 
 ````
+
 Apply it by adding `theme={grommet}` to the Grommet component.
+
 
 ```javascript
  <Grommet full theme={grommet}>

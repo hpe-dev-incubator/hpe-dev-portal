@@ -3,7 +3,7 @@ title: "Don’t miss it! HPE Discover Hack Shack offers something for everyone a
 date: 2018-11-26T17:59:48.284Z
 author: HPE DEV staff 
 tags: ["hpe-discover-madrid-2018","discover"]
-authorimage: "/img/blogs/Avatar6.svg"
+authorimage: "/img/blogs/Avatar3.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

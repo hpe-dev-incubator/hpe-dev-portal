@@ -3,7 +3,7 @@ title: "Using the SimpliVity API with Java"
 date: 2018-08-03T16:27:34.727Z
 author: HPE DEV staff 
 tags: ["hpe-simplivity.java","api"]
-authorimage: "/img/blogs/Avatar4.svg"
+authorimage: "/img/blogs/Avatar1.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

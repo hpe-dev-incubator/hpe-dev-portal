@@ -3,7 +3,7 @@ title: "Scaling deep learning workloads"
 date: 2017-11-26T09:38:36.284Z
 author: Sergey Serebryakov 
 tags: ["deep-learning-cookbook"]
-authorimage: "/img/blogs/Avatar2.svg"
+authorimage: "/img/blogs/Avatar4.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

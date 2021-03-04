@@ -3,7 +3,7 @@ title: "How to Integrate Custom Data Sources Into Apache Spark"
 date: 2021-01-29T05:41:49.300Z
 author: Nicolas Perez 
 tags: ["hpe-ezmeral-data-fabric","MapR","apache-spark","opensource"]
-authorimage: "/img/blogs/Avatar1.svg"
+authorimage: "/img/blogs/Avatar4.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -17,7 +17,9 @@ thumbnailimage:
 "publish": "2016-05-10T07:00:00.000Z",
 "tags": "apache-spark"
 ```
+
 ---
+
 Streaming data is a hot topic these days, and Apache Spark is an excellent framework for streaming. In this blog post, I'll show you how to integrate custom data sources into Spark.
 
 Spark Streaming provides the ability to stream from a variety of sources while using the same concise API for accessing data streams, performing SQL queries, or creating machine learning algorithms. These abilities make Spark a preferable framework for streaming (or any type of workflow) applications, since we can use all aspects of the framework.

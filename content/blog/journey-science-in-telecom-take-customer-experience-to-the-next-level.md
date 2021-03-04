@@ -3,7 +3,7 @@ title: "Journey Science in Telecom: Take Customer Experience to the Next Level"
 date: 2021-01-14T05:27:21.177Z
 author: Ronald Van Loon 
 tags: ["hpe-ezmeral-data-fabric","MapR"]
-authorimage: "/img/blogs/Avatar3.svg"
+authorimage: "/img/blogs/Avatar6.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -17,7 +17,9 @@ thumbnailimage:
 "publish": "2017-06-03T12:00:00.000",
 "tags": "mapr"
 ```
+
 ---
+
 Journey Science, being derived from connected data from different customer activities, has become pivotal for the telecommunications industry, providing the means to drastically improve the customer experience and retention. It has the ability to link together scattered pieces of data and enhance a telco business’s objectives. Siloed approaches are becoming obsolete – take call centers as an example – there is only so much that you can do with data from only one system.
 
 By using insights from customer journey analytics, telco businesses can better measure the user experience, and make informed decisions for refining it. The data not only allows them to take a proactive approach towards customer satisfaction, but enables the prediction of future failures as well. With customer journey analytics, you can evaluate the touchpoints to journeys, and revamp your strategies to better cater to customers’ needs.

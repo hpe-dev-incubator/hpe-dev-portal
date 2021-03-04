@@ -3,7 +3,7 @@ title: "Understanding Concurrency in Python Part 3 - Asyncio"
 date: 2020-02-19T17:32:20.225Z
 author: Samarth Deyagond 
 tags: []
-authorimage: "/img/blogs/Avatar4.svg"
+authorimage: "/img/blogs/Avatar1.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -19,7 +19,7 @@ Let’s use the same I/O bound example we used in Part 1 and Part 2 of this seri
 Step 1: Import the necessary libraries and modules.
 
 
-```
+```python
 
 import asyncio
 import requests
@@ -30,7 +30,7 @@ import time
 Step 2: Define the co-routines. A co-routine can be defined by prefixing the keyword async before the function definition. An asyncio co-routine is a function that can pause and resume during execution. This means that it acts, more or less, like a [generator](https://wiki.python.org/moin/Generators) in Python.
 
 
-```
+```python
 
 async def get_response(site):
     return requests.get(site)
@@ -53,7 +53,7 @@ async def main():
 Now, create the event loop and call the co-routines to fetch responses. Capture the time taken for execution to see how asyncio performs.
 
 
-```
+```python
 
 start_time = time.time()
 loop = asyncio.get_event_loop()
@@ -75,7 +75,7 @@ You can see that the asyncio execution took relatively less time than a regular 
 The complete code we used to illustrate how the asyncio library helps would look like this:
 
 
-```
+```python
 
 import asyncio
 import requests

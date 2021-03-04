@@ -3,7 +3,7 @@ title: "My Journey from Student to HPE Full-stack Developer "
 date: 2019-05-23T18:08:07.481Z
 author: Brittany Archibeque 
 tags: ["Grommet"]
-authorimage: "/img/blogs/Avatar4.svg"
+authorimage: "/img/blogs/Avatar3.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

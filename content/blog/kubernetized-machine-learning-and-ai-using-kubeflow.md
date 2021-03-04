@@ -3,7 +3,7 @@ title: "Kubernetized Machine Learning and AI Using KubeFlow"
 date: 2021-02-05T07:00:42.136Z
 author: Rachel Silver 
 tags: ["hpe-ezmeral-data-fabric","MapR","machine-learning","AI","kubeflow"]
-authorimage: "/img/blogs/Avatar2.svg"
+authorimage: "/img/blogs/Avatar3.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -17,7 +17,9 @@ thumbnailimage:
 "publish": "2018-08-28T07:00:00.000",
 "tags": "nosql"
 ```
+
 ---
+
 In my previous blog, [End-to-End Machine Learning Using Containerization](https://developer.hpe.com/blog/EEVLz2X9vmSmZg6k6Dqx/end-to-end-machine-learning-using-containerization), I covered the advantages of doing machine learning using microservices and how containerization can improve every step of the workflow by providing:
 
 *   Personalized Development Environments

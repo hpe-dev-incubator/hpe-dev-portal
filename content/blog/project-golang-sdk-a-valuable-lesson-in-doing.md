@@ -3,7 +3,7 @@ title: "Project Golang SDK: A valuable lesson in doing"
 date: 2020-03-30T15:54:22.766Z
 author: Samarth Deyagond 
 tags: []
-authorimage: "/img/blogs/Avatar4.svg"
+authorimage: "/img/blogs/Avatar5.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

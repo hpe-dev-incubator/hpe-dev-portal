@@ -3,7 +3,7 @@ title: "Introducing Kubernetes CSI Sidecar Containers from HPE"
 date: 2020-08-25T01:45:01.828Z
 author: Michael Mattsson 
 tags: ["hpe-nimble-storage","hpe-3par-and-primera"]
-authorimage: "/img/blogs/Avatar3.svg"
+authorimage: "/img/blogs/Avatar1.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -38,7 +38,7 @@ For the purposes of this example, let’s assume we want to allow users to be in
 
 Create a default `StorageClass` with the `allowOverrides` and `allowMutations` set to allow certain performance tuning.
 
-```
+```yaml
 ---
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
@@ -66,7 +66,7 @@ parameters:
 
 Next, create a `PVC` with the following `.metadata.annotations`:
 
-```
+```yaml
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -86,7 +86,7 @@ spec:
 
 Switching over to the backend array, you can see that the volume was created with the desired overrides.
 
-```
+```markdown
 Nimble OS $ vol --info pvc-2d1795ec-7bce-4af8-b841-437a435f29e1 | egrep -iw 'description|iops|throughput|performance'
 Description: This is my volume description
 Performance policy: default
@@ -98,7 +98,7 @@ Throughput Limit (MiB/s): 200
 
 Let’s edit the object definition. This can be done with `kubectl edit` or you can create a YAML file and subsequently patch the `PVC`.
 
-```
+```yaml
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -119,13 +119,13 @@ spec:
 
 Patch the `PVC`.
 
-```
+```bash
 kubectl patch pvc/my-data --patch "$(cat my-data-boost.yaml)"
 ```
 
 Back on the array, you can see that the attributes have changed.
 
-```
+```markdown
 Nimble OS $ vol --info pvc-2d1795ec-7bce-4af8-b841-437a435f29e1 | egrep -iw 'description|iops|throughput|performance'
 Description: Need more oomph!
 Performance policy: double-down
@@ -135,7 +135,7 @@ Throughput Limit (MiB/s): 1000
 
 Since the `.spec.csi.volumeAttributes` of the `PV` that the backend volume was created with are immutable, the latest successful changes are annotated on the `PV`.
 
-```
+```yaml
 apiVersion: v1
 kind: PersistentVolume
 metadata:

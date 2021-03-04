@@ -3,7 +3,7 @@ title: "Use Grommet Face Detection and Microsoft Azure Cognitive Services to ide
 date: 2019-11-01T02:40:45.562Z
 author: Pramod Sareddy 
 tags: ["grommet","opensource"]
-authorimage: "/img/blogs/Avatar1.svg"
+authorimage: "/img/blogs/Avatar4.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -134,9 +134,11 @@ Once you’ve created a Person Group, the next step is to add people into that P
 
 Note that the request URL includes the personGroupId. This is how you tell the Face API which Person Group a Person belongs in. Also, you need to specify the name of the person you’re adding as a JSON object that looks like this:
 
+
 ```javascript
 	{ "name": personName}
 ```
+
 The name is the display name of the target person. The REST API call returns the personID created. You will need the personID to associate a face to the person in the next step.
 
 
@@ -174,6 +176,7 @@ As you can see from the URL, you’re posting to the /persistedFaces URL for the
 
 1. Either you can specify the content-type header to be application/json, and send the following JSON object in the body of the POST request:
 	{ url: ‘url_to_the_image’}
+
 2.	Or you can specify the content-type header to be application/octet-stream and send the contents of the image.
 
 
@@ -227,6 +230,7 @@ Also, you must include the following body:
 }
 
 ```
+
 
 ```javascript
 // adding face detect attributes

@@ -3,7 +3,7 @@ title: "Analyzing Flight Delays with Apache Spark GraphFrames and MapR Database"
 date: 2020-12-16T06:33:59.611Z
 author: Carol McDonald 
 tags: ["hpe-ezmeral-data-fabric","MapR","spark","nosql","graphframes"]
-authorimage: "/img/blogs/Avatar3.svg"
+authorimage: "/img/blogs/Avatar5.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -17,6 +17,7 @@ thumbnailimage:
 "publish": "2018-11-16T07:00:00.000Z",
 "tags": "nosql"
 ```
+
 ---
 
 Apache Spark GraphX made it possible to run graph algorithms within Spark. GraphFrames integrates GraphX and DataFrames and makes it possible to perform Graph pattern queries without moving data to a specialized graph database.
@@ -69,7 +70,7 @@ The messages are aggregated and calculated at each vertex with the sum of all of
 
 Graph motifs are recurrent patterns in a graph. Graph queries search a graph for all occurrences of a given motif or pattern. As an  example, to recommend who to follow on Twitter, you could search for patterns where A follows B and B follows C, but A does not follow C. Here is a  GraphFrames Motif Query for this pattern, to find the edges from a to b and b to c  for which there is no edge from a to c:
 
-```
+```markdown
 graph.find("(a)-[]->(b); (b)-[]->(c); !(a)-[]->(c)")
 ```
 
@@ -133,7 +134,7 @@ The edges have the Source ID, the Destination ID, and the distance as a propert
 
 Because GraphFrames is a separate package from Spark, start the Spark shell, specifying the GraphFrames package as shown below: 
 
-```
+```bash
 $SPARK_HOME/bin/spark-shell --packages
 graphframes:graphframes:0.6.0-spark2.3-s_2.11
 ```
@@ -142,7 +143,7 @@ graphframes:graphframes:0.6.0-spark2.3-s_2.11
 
 First, we will import the DataFrames, GraphX, and GraphFrames packages.
 
-```
+```scala
 import org.apache.spark._
 import org.apache.spark.graphx._
 import org.apache.spark.sql._
@@ -166,7 +167,7 @@ We define airports as vertices. A vertex DataFrame must have an ID column and ma
 
 We define a DataFrame with the above properties, which will be used for the vertices in the GraphFrame.
 
-```
+```scala
 // create  vertices  with ID and Name
 case class Airport(id: String, city: String) extends Serializable
 
@@ -204,7 +205,7 @@ Edges are the flights between airports. An edge DataFrame must have src and dst 
 
 We define a DataFrame with the above properties, which will be used for the edges in the GraphFrame.
 
-```
+```scala
 // create  flights with srcid, destid , distance
 case class Flight(id: String, src: String,dst: String, dist: Double, delay: Double)
 
@@ -227,7 +228,7 @@ edges.show
 
 Below, we create a GraphFrame by supplying a vertex DataFrame and an edge DataFrame. It is also possible to create a GraphFrame with just an edge DataFrame; then the vertices will be equal to the unique src and dst ids from the edge DataFrame.
 
-```
+```scala
 // define the graph
 val graph = GraphFrame(vertices, edges)
 
@@ -261,7 +262,7 @@ Now we can query the GraphFrame to answer the following questions:
 
 **How many airports are there?**
 
-```
+```scala
 // How many airports?
 graph.vertices.count
 
@@ -270,7 +271,7 @@ graph.vertices.count
 
 **How many flights are there between airports?**
 
-```
+```scala
 // How many flights?
 graph.edges.count
 
@@ -279,7 +280,7 @@ graph.edges.count
 
 **Which flight routes are greater than 1000 miles in distance?**
 
-```
+```scala
 // routes >  1000 miles distance?
 graph.edges.filter("dist > 800").show
 
@@ -293,7 +294,7 @@ graph.edges.filter("dist > 800").show
 
 The GraphFrames triplets put all of the edge, src, and dst columns together in a DataFrame.
 
-```
+```scala
 // triplets = src edge dst
 graph.triplets.show
 
@@ -309,7 +310,7 @@ graph.triplets.show
 
 **What are the longest distance routes?**
 
-```
+```scala
 // print out longest routes
 graph.edges
   .groupBy("src", "dst")
@@ -355,7 +356,7 @@ In our use case Edges are the flights between airports. An edge must have src an
 
 Below, we define the flight schema, corresponding to a row in the MapR Database JSON Flight Table .
 
-```
+```scala
 // define the Flight Schema
 case class Flight(id: String,fldate: String,month:Integer, dofW: Integer, carrier: String, src: String,dst: String, crsdephour: Integer, crsdeptime: Integer, depdelay: Double, crsarrtime: Integer, arrdelay: Double, crselapsedtime: Double, dist: Double)
 
@@ -379,7 +380,7 @@ val schema = StructType(Array(
 
 To [load data from a MapR Database JSON](https://docs.datafabric.hpe.com/62/Spark/LoadDataFromMapRDBasDataset.html) table into an Apache Spark Dataset, we invoke the loadFromMapRDB method on a SparkSession object, providing the tableName, schema, and case class. This returns a Dataset of Flight objects:
 
-```
+```scala
 import com.mapr.db._
 import com.mapr.db.spark._
 import com.mapr.db.spark.impl._
@@ -409,7 +410,7 @@ Note that our dataset contains only a subset of the airports in the USA; below a
 
 Below, we read the airports information into a DataFrame from a JSON file.
 
-```
+```scala
 // create  airports DataFrame
 
 val airports = spark.read.json("maprfs:///data/airports.json")
@@ -440,7 +441,7 @@ airports.show
 
 Again, in this scenario, we are going to represent the airports as vertices and flights as edges.  Below, we create a GraphFrame by supplying a vertex DataFrame and an edge DataFrame. The airports and flights Dataframes are available as the graph.edges and graph.vertices. Since GraphFrame vertices and edges are stored as DataFrames, many queries are just DataFrame (or SQL) queries.
 
-```
+```scala
 // define the graphframe
 val graph = GraphFrame(airports, df)
 
@@ -461,7 +462,7 @@ Now we can query the GraphFrame to answer the following questions:
 
 **How many airports are there?**
 
-```
+```scala
 // How many airports?
 val numairports = graph.vertices.count
 
@@ -471,7 +472,7 @@ val numairports = graph.vertices.count
 
 **How many flights are there?**
 
-```
+```scala
 // How many flights
 val numflights = graph.edges.count
 
@@ -481,7 +482,7 @@ val numflights = graph.edges.count
 
 **Which flight routes have the longest distance?**
 
-```
+```scala
 // show the longest distance routes
 graph.edges
 .groupBy("src", "dst")
@@ -501,7 +502,7 @@ graph.edges
 
 **Which flight routes have the highest average delays?**
 
-```
+```scala
 graph.edges
 .groupBy("src", "dst")
 .avg("depdelay")
@@ -522,7 +523,7 @@ graph.edges
 
 **Which flight hours have the highest average delays?**
 
-```
+```scala
 graph.edges
 .groupBy("crsdephour")
 .avg("depdelay")
@@ -543,7 +544,7 @@ graph.edges
 
 **What are the longest delays for flights that are greater than 1500 miles in distance?**
 
-```
+```scala
 // flights >  1500 miles distance ordered by delay
 
 graph.edges.filter("dist > 1500")
@@ -556,7 +557,7 @@ graph.edges.filter("dist > 1500")
 
 **What is the average delay  for delayed flights departing from Atlanta?**
 
-```
+```scala
 graph.edges.filter("src = 'ATL' and depdelay > 1")
 .groupBy("src", "dst")
 .avg("depdelay").sort(desc("avg(depdelay)")).show
@@ -579,7 +580,7 @@ graph.edges.filter("src = 'ATL' and depdelay > 1")
 
 You can see the physical plan for a DataFrame query by calling the explain method shown below. Here we see projection and filter push down, which means that the scanning of the src, dst and depdelay columns and the filter on the depdelay column are pushed down into MapR Database, which means that the scanning and filtering will take place in MapR Database before returning the data to Spark. Projection pushdown minimizes data transfer between MapR Database and the Spark engine by omitting unnecessary fields from table scans. It is especially beneficial when a table contains many columns. Filter pushdown improves performance by reducing the amount of data passed between MapR Database and the Spark engine when filtering data.
 
-```
+```scala
 graph.edges.filter("src = 'ATL' and depdelay > 1")
 .groupBy("src", "dst")
 .avg("depdelay").sort(desc("avg(depdelay)"))<span style="color: red;">.explain</span>
@@ -600,7 +601,7 @@ graph.edges.filter("src = 'ATL' and depdelay > 1")
 
 **What are the worst hours for delayed flights departing from Atlanta?**
 
-```
+```scala
 graph.edges.filter("src = 'ATL' and delay > 1")
  .groupBy("crsdephour")
  .avg("delay")
@@ -612,7 +613,7 @@ graph.edges.filter("src = 'ATL' and delay > 1")
 
 **What are the four most frequent flight routes in the data set? or What is the count of flights for all possible flight routes, sorted?** (Note: we will use the DataFrame returned later)
 
-```
+```scala
 val flightroutecount=graph.edges
  .groupBy("src", "dst")
  .count().orderBy(desc("count")).show(4)
@@ -638,7 +639,7 @@ The degree of a vertex is the number of edges that touch the vertex. GraphFrames
 
 **Which airports have the most incoming and outgoing flights?**
 
-```
+```scala
 graph.degrees.orderBy(desc("degree")).show(3)
 
 --- result: ---
@@ -663,7 +664,7 @@ PageRank measures the importance of each vertex in a graph, by determining which
 
 **What are the most important airports, according to PageRank?**
 
-```
+```scala
 // use pageRank
 val ranks = graph.pageRank.resetProbability(0.15).maxIter(10).run()
 
@@ -697,7 +698,7 @@ Many important graph algorithms are iterative algorithms, since properties of ve
 
 The code below shows how to use aggregateMessages to compute the average flight delay by the originating airport. The flight delay for each flight is sent to the src vertex, then the average is calculated at the vertices.
 
-```
+```scala
 import org.graphframes.lib.AggregateMessages
 
 val AM = AggregateMessages
@@ -729,7 +730,7 @@ Motif finding searches for structural patterns in a graph. In this example, we w
 
 ![](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/12/image8-1608101212457.png)
 
-```
+```scala
 val subGraph = GraphFrame(graph.vertices, flightroutecount)
 val res = subGraph
  .find("(a)-[]->(b); (b)-[]->(c); !(a)-[]->(c)")
@@ -742,7 +743,7 @@ val res = subGraph
 
 Shortest path computes the shortest paths from each vertex to the given sequence of landmark vertices. Here, we search for the shortest path from each airport to LGA. The results show that there are no direct flights from LAX, SFO, SEA, and EWR to LGA (the distances greater than 1).
 
-```
+```scala
 val results = graph.shortestPaths.landmarks(Seq("LGA")).run()
 +---+----------+
 | id| distances|
@@ -767,7 +768,7 @@ val results = graph.shortestPaths.landmarks(Seq("LGA")).run()
 
 Breadth-first search (BFS) finds the shortest path from beginning vertices to end vertices. The beginning and end vertices are specified as DataFrame expressions, maxPathLength specifies the limit on the length of paths. Here we see that there are no Direct flights between LAX and LGA.
 
-```
+```scala
 val paths = graph.bfs.fromExpr("id = 'LAX'")
  .toExpr("id = 'LGA'")
  .maxPathLength(1).run()
@@ -782,21 +783,23 @@ paths.show()
 
 Here we set the maxPathLength to 2. The results show some flights connecting through IAH for flights from LAX to LGA.
 
-```
+```scala
 val paths = graph.bfs.fromExpr("id = 'LAX'")
  .toExpr("id = 'LGA'")
  .maxPathLength(2).run().limit(4)
 paths.show()
 ```
+
 ![](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/12/image17-1608101229234.png)
 
 You can combine motif searching with DataFrames operations. Here we want to find connecting flights between LAX and LGA using a Motif find query. We use a Motif query to search for the pattern of a flying to b, connecting through c, then we use a DataFrame filter on the the results for A=LAX and C=LGA. The results show some flights connecting through IAH for flights from LAX to LGA.
 
-```
+```scala
 graph.find("(a)-[ab]->(b); (b)-[bc]->(c)")
 .filter("a.id = 'LAX'")
 .filter("c.id = 'LGA'").limit(4)
 ```
+
 ![](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/12/image6-1608101238194.png)
 
 Combining a Motif find with DataFrame operations, we can narrow these results down further, for example flights with the arrival flight time before the departure flight time, and/or with a specific carrier.

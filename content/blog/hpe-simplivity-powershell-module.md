@@ -3,7 +3,7 @@ title: "HPE SimpliVity PowerShell Module"
 date: 2019-05-16T01:37:52.554Z
 author: Roy Atkins 
 tags: ["hpe-simplivity"]
-authorimage: "/img/blogs/Avatar5.svg"
+authorimage: "/img/blogs/Avatar2.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -74,11 +74,13 @@ Get-SVTversion | Stop-SVTshutdown | Stop-SVTvm |
 Set-SVTtimezone |   |    |
 
 ## Requirements
+
 * Windows PowerShell V5.1 or PowerShell Core V7.x (PowerShell Core V6.x is not recommended)
 * The IP address and the credentials of an authorized OmniStack user account
 * The module has been tested with HPE SimpliVity V4.0.1 and should be compatible with older versions (but has not been tested).
 
 ## Installation
+
 * Install or update the HPESimplivity module from the PowerShell Galllery using the following respective commands:
 
 ```powershell

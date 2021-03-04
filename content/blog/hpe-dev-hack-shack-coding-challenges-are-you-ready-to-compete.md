@@ -3,7 +3,7 @@ title: "HPE DEV Hack Shack Coding Challenges: Are You Ready to Compete?"
 date: 2020-10-30T15:04:29.848Z
 author: Pramod Sareddy 
 tags: ["challenges","challenge","codingchallenge","on-demand"]
-authorimage: "/img/blogs/Avatar1.svg"
+authorimage: "/img/blogs/Avatar3.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

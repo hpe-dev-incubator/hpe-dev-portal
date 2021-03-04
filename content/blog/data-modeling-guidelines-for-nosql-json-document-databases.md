@@ -3,7 +3,7 @@ title: "Data Modeling Guidelines for NoSQL JSON Document Databases"
 date: 2020-07-08T05:22:33.670Z
 author: Carol McDonald 
 tags: ["hpe-ezmeral-data-fabric","MapR","opensource"]
-authorimage: "/img/blogs/Avatar4.svg"
+authorimage: "/img/blogs/Avatar5.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -14,7 +14,9 @@ thumbnailimage:
 "publish": "2017-10-26T12:00:00.000",
 "tags": "data modeling"
 ```
+
 ---
+
 In this blog post, I’ll discuss how NoSQL data modeling is different from traditional relational schema data modeling, and I’ll also provide you with some guidelines for document database data modeling.  
 Document databases, such as MapR Database (now part of [HPE Ezmeral Data Fabric](https://www.hpe.com/us/en/software/data-fabric.html)), are sometimes called "schema-less", but this is a misnomer. Document databases don't require the same predefined structure as a relational database, but you do have to define the facets of how you plan to organize your data.  Typically with a NoSQL data store you want to aggregate your data so that the data can quickly be read together, instead of using joins. A properly designed data model can make all the difference in how your application performs. One of our solution architects worked with a customer, and in a one-hour conversation about schema design, was able to improve access performance by a factor of 1,000x. These concepts matter.
 
@@ -89,7 +91,8 @@ In a denormalized datastore, you store in one table what would be multiple index
 ## **Parent-Child Relationship–Embedded Entity**
 
 Here is an example of denormalization of the SALES_ITEM schema in a Document database:
-```
+
+```json
 {
    "_id": "123",
    "date": "10/10/2017",
@@ -105,6 +108,7 @@ Here is an example of denormalization of the SALES_ITEM schema in a Document dat
        }]
 }
 ```
+
 If your tables exist in a one-to-many relationship, it’s possible to model it  as a single document. In this example, the order and related line items are stored together and can be read together with a find on the row key (\_id). This makes the reads a lot faster than joining tables together.
 Note: that the maximum default row size is 32MB, and optimal size is between 50-100KB. If the embedded entities are really long then they could be bucketed by row key, or you could just store the id to the embedded entity table (which would require your application to query that table also).
 
@@ -115,6 +119,7 @@ This is the document model for the example social application:
 <img src="/uploads/media/2020/6/document-model-social-app-1594186415200.png" alt="Document Model for Social Application" width="900">
 
 There are 2 tables in the document model compared to 4 in the relational:
+
 * User details are stored in the user table
 * Posted URLs are stored in the Post table
  * The row key is composed of the category and a reverse timestamp so that posts will be grouped by category with the most recent first.
@@ -131,11 +136,13 @@ Another option is to add a hash prefix to the row key in order to get good distr
 ## **Generic Data, Event Data, and Entity-Attribute-Value**
 
 Generic data is often expressed as name value or entity attribute value. In a relational database, this is complicated to represent because every row represents an instance of a **similar object**. JSON allows easy variation across records.  Here is an example of clinical patient event data:
-```
+
+```json
 patientid-timestamp, Temperature , "102"
 patientid-timestamp, Coughing, "True"
 patientid-timestamp, Heart Rate, "98"
 ```
+
 This is the document model for the clinical patient event data:
 
 <img src="/uploads/media/2020/6/document-model-event-data-1594186470650.png" alt="Document Model Event Data" width="900">
@@ -147,7 +154,8 @@ The Row Key is the patient ID plus a time stamp. The variable event type and mea
 Here is an example of a tree, or [adjacency list](https://en.wikipedia.org/wiki/Adjacency_list)
 ![Document Model Tree](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/6/document-model-tree-1594186489204.png)
 Here is a document model for the tree shown above (there are multiple ways to represent trees):
-```
+
+```json
 {
    "_id": "USA",
    “type”:”state”,
@@ -173,6 +181,7 @@ Here is a document model for the tree shown above (there are multiple ways to re
    "parent": "TN”
 }
 ```
+
 Each document is a tree node, with the row key equal to the node id. The parent field stores the parent node id. The children field stores an array of children node ids. A secondary index on the parent and children fields allows to quickly find the parent or children nodes.
 
 ## **Inheritance Mapping**

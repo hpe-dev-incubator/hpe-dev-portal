@@ -3,7 +3,7 @@ title: "Understanding API basics and the value they provide "
 date: 2019-12-03T16:58:32.501Z
 author: Didier Lalli 
 tags: []
-authorimage: "/img/blogs/Avatar2.svg"
+authorimage: "/img/blogs/Avatar4.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -23,6 +23,7 @@ Most of you are familiar with the terms HTTP (HyperText Transfer Protocol) and U
 HTTP defines how messages are formatted and transmitted, as well as what actions Web servers should take in response to various commands. In HTTP, one uses verbs to describe an action that will apply to a given URL. When you launch a web browser, the implicit verb is GET. However, there are other verbs in the HTTP specifications such as POST, PUT, PATCH, and DELETE. REST APIs use these verbs to describe possible actions. The URL in a REST API call is, like in a browser, the target to which the verb must be applied. For example, ` GET http://google.com ` means "retrieve the content of the main index page at google.com, and render it in my browser window". 
 
 Let’s review the most important HTTP verbs:
+
 * GET – Retrieve object instance properties
 * PUT/PATCH –Modify object instance properties (two different ways)
 * POST – Create a new object instance
@@ -70,7 +71,9 @@ An API might accept more than one format, and it may also provide responses in m
 * Content-Type: application/json (I’m handing out a payload in JSON)
 
 ## Putting it all together
+
 In summary, an API uses:
+
 * A URL. It also uses the term URI (Uniform Resource Identifier) to specify an object ID or a class of objects
 * A verb to specify what action to take on that URL/URI
 * One or more HTTP headers to attach certain properties on the API call, such as what format to accept for the response
@@ -91,14 +94,15 @@ __Note:__ Make sure you have access to the Internet for this next section.
 
 Millions of APIs are available on the Internet today. Most of them are fee-based and require proper authentication, but a few free APIs are still available, which you can use with or without authentication. I selected a very simple one about a weather report, which doesn’t require authentication to use. You can look up more in this list to find another API, if you prefer: https://github.com/public-apis/public-apis
 
-The API end-point is: https://www.metaweather.com/api/. According to the documentation, we first issue a call to find a location on Earth:
+The API end-point is: 
+https://www.metaweather.com/api/. According to the documentation, we first issue a call to find a location on Earth:
 
 1. Querying API for WOEID of a city, such as Paris
 
 In Postman, make sure the URL is set to https://www.metaweather.com/api/location/search/?query=Paris, and that GET is the selected verb before you hit Send to issue the API call. You can see in the response section that it is, indeed provided in JSON, which is somehow readable:
 
 
-```
+```json
 [{"title":"Paris","location_type":"City","woeid":615702,"latt_long":"48.856930,2.341200"}]
 ```
 
@@ -110,7 +114,7 @@ From the JSON response, we can extract the woeid (Where On Earth ID) for Paris (
 Still in Postman, make sure the URL is set to https://www.metaweather.com/api/location/615702/ and hit Send again:
 
 
-```
+```json
 
 {
     "consolidated_weather": [

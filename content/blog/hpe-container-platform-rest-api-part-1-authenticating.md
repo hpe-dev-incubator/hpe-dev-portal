@@ -23,12 +23,14 @@ In the first part of the series, you will interact with the HPE CP REST API usin
 If you are not already familiar with REST API calls and Postman, I encourage you to check out the [Understanding API basics and the value they provide](https://developer.hpe.com/blog/understanding-api-basics-and-the-value-they-provide) article. It explains REST API concepts such as HTTP verbs you call against a REST API service, the headers and payloads, and how to use Postman to make REST API calls.  
 
 ## The HPE Container Platform High-Level Architecture
+
 The diagram below depicts a simplified view of the physical architecture within the HPE Container Platform being deployed for this tutorial. It illustrates how you can interact programmatically with the HPE Container Platform. 
 
 
 ![picture2](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/3/picture2-1590462775163.png)
 
 The HPE Controller Platform deployment includes the following key components:
+
 * The **Controller host** manages all the hosts that comprise the HPE Container Platform deployment. 
 * The **Kubernetes (K8s) hosts** are under the direct control of the Controller host. These hosts can be grouped into one or more distinct Kubernetes clusters that run containerized applications.
 * The **Gateway host** acts as a proxy server that carries client requests, i.e. HPE CP UI, REST API, K8s API (kubectl commands) to the HPE Container Platform controller, to one of the Kubernetes clusters, or to one of the containerized application services running in one of the Kubernetes clusters. Containerized application service endpoints are exposed outside the Kubernetes cluster to users via the gateway re-mapped ports. 
@@ -108,7 +110,7 @@ You may ask yourself, how do these calls translate into code you can use in your
 ![picture11](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/3/picture11-1590464615471.png)
 
 
-```
+```bash
 curl –k –i –s --location --request POST 'http(s)://<Gateway-IP-Address-or-fqdn>:8080/api/v2/session' \
 --header 'Accept: application/json' \
 --header 'Content-Type: application/json' \
@@ -119,6 +121,7 @@ curl –k –i –s --location --request POST 'http(s)://<Gateway-IP-Address-or-
 }'
 
 ```
+
 An example of the response header received is shown below:
 
 
@@ -127,7 +130,7 @@ An example of the response header received is shown below:
 Extract the session location path value `/api/v2/session/<sessionId>` from the header response and use it in any subsequent REST API calls. As shown by the example below, you can use a *GET* REST API call for object **/api/v2/session** to fetch information about the session you have just established with the HPE Container Platform as a tenant user. You can combine *cURL* command with **jq** as the command line JSON processor to parse the JSON body responses and obtain a structured print of the output as shown here:
 
  
-``` 
+``` bash
 curl -k -s --location --request GET 'http(s)://<Gateway-IP-Address-or-fqdn>:8080/api/v2/session' \
 --header 'X-BDS-SESSION: /api/v2/session/<SessionId>' \
 --header 'Accept: application/json' \
@@ -140,7 +143,7 @@ curl -k -s --location --request GET 'http(s)://<Gateway-IP-Address-or-fqdn>:8080
 Although sessions have a time to live (TTL) of 24 hours, it is a best practice in REST API programming to cleanup and delete those sessions when done with your REST API calls. You can use a *DELETE* call to the target object **/api/v2/session/SessionId** to achieve this:
 
 
-```
+```bash
 curl -k -i -s --request DELETE 'http(s)://<Gateway-IP-Address-or-fqdn>:8080/api/v2/<SessionId>' \
 --header 'X-BDS-SESSION: /api/v2/session/<SessionId>' \
 --header 'Accept: application/json' \

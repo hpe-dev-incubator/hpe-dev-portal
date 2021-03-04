@@ -37,6 +37,7 @@ You can find a complete application on the <a target='\_blank'  href='https://gi
 
 ## Prerequisites
 You will need basic Java programming skills, as well as access to:
+
 *   A running MapR Cluster
 *   <a target='\_blank'  href='https://maven.apache.org/'>Apache Maven 3.0</a> or later
 *   Git to clone the <a target='\_blank'  href='https://github.com/mapr-demos/mapr-streams-sample-programs'>https://github.com/mapr-demos/mapr-streams-sample-programs</a> repository

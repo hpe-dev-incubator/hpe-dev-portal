@@ -3,7 +3,7 @@ title: "Get involved in the open source community! Part 3: Contributing back to 
 date: 2020-06-24T08:06:31.204Z
 author: Didier Lalli 
 tags: ["git","github","opensource"]
-authorimage: "/img/blogs/Avatar6.svg"
+authorimage: "/img/blogs/Avatar5.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

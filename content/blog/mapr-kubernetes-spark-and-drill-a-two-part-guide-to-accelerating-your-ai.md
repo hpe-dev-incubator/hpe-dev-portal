@@ -17,7 +17,9 @@ thumbnailimage:
 "publish": "2019-04-02T07:00:01.000Z",
 "tags": "mapr-platform"
 ```
+
 ---
+
 *Highly available, scalable, and elastic data platform for analytics and AI/ML*
 
 ![](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/9/image3-1604420243941.png)

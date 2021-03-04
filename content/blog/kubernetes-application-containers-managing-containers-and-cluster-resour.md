@@ -3,7 +3,7 @@ title: "Kubernetes Application Containers: Managing Containers and Cluster Resou
 date: 2020-07-10T02:52:44.848Z
 author: Suzanne Ferry 
 tags: ["hpe-ezmeral-data-fabric","MapR","Containers","Kubernetes","opensource"]
-authorimage: "/img/blogs/Avatar2.svg"
+authorimage: "/img/blogs/Avatar3.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -14,6 +14,7 @@ thumbnailimage:
 "publish": "2018-10-12T07:00:00.000Z",
 "tags": "containers, kubernetes"
 ```
+
 ---
 
 ## Application Containers – What They Are, What They Do, And Why They Matter

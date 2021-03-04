@@ -17,7 +17,9 @@ thumbnailimage:
 "publish": "2015-04-09T07:00:00.000Z",
 "tags": "machine-learning"
 ```
+
 ---
+
 Recommendation engines help narrow your choices to those that best meet your particular needs. In this post, we’re going to take a closer look at how all the different components of a recommendation engine work together. We’re going to use collaborative filtering on movie ratings data to recommend movies. The key components are a collaborative filtering algorithm in <a target='\_blank'  href='http://mahout.apache.org/'>Apache Mahout</a> to build and train a machine learning model and search technology from <a target='\_blank'  href='https://www.elastic.co/elasticsearch/'>Elasticsearch</a> to simplify deployment of the recommender.
 
 ![](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2021/1/recommendation-engine-video-1611295605722.png)
@@ -94,7 +96,7 @@ Elasticsearch stores documents, which are made up of different fields. Each fiel
 
 For our recommendation engine, we store movie meta data such as id, title, genre, and also movie recommendation indicators, in a JSON document:
 
-```
+```json
 {
 "id": "65006",
 "title": "Electric Horseman",

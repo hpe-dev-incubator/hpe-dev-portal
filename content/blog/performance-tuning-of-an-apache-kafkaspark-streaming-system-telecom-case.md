@@ -3,7 +3,7 @@ title: "Performance Tuning of an Apache Kafka/Spark Streaming System - Telecom C
 date: 2020-11-12T07:48:12.095Z
 author: Mathieu Dumoulin 
 tags: ["hpe-ezmeral-data-fabric","MapR","apache-spark","opensource"]
-authorimage: "/img/blogs/Avatar3.svg"
+authorimage: "/img/blogs/Avatar4.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -17,6 +17,7 @@ thumbnailimage:
 "publish": "2017-05-31T12:00:00.000",
 "tags": "apache-spark"
 ```
+
 ---
 
 ## *Real-world case study in the telecom industry*

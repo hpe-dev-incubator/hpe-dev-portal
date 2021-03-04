@@ -3,7 +3,7 @@ title: "HPE OneView Terraform provider now available with support for HPE OneVie
 date: 2019-08-02T20:57:51.233Z
 author: Bob Fraser 
 tags: ["HPE-OneView","OneView","Terraform"]
-authorimage: "/img/blogs/Avatar4.svg"
+authorimage: "/img/blogs/Avatar2.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

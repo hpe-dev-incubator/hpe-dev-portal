@@ -3,7 +3,7 @@ title: "Building HPE's new design portal with headless Wordpress and Next.JS"
 date: 2018-11-27T20:35:27.762Z
 author: Alex Mejias 
 tags: []
-authorimage: "/img/blogs/Avatar2.svg"
+authorimage: "/img/blogs/Avatar1.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -20,6 +20,7 @@ An application concept recently arrived at my desk regarding constructing a new 
 As we began building on this new stack I felt a huge weight being lifted off of my shoulders. I was no longer focusing on whether or not the tooling or build processes were working as expected and I could focus on what was important - the end user's experience. Not having to wrestle a webpack config or babel transpiling gave us the runway we needed to make sure this project was successful.
 
 Next's server-side rendering and bundling worked flawlessly out of the box and it integrated perfectly with Grommet. New stacks come with a learning curve, however, this one was quite low. Here's some items we needed to pick up to create a great Grommet based Next frontend:
+
 - Handling page [routing](https://github.com/zeit/next.js#routing)
 - The next/link component and nesting anchor tags within it
 - Handling route parameters, [here's a great example](https://github.com/zeit/next.js/tree/canary/examples/parameterized-routing) of the approach we took
@@ -27,6 +28,7 @@ Next's server-side rendering and bundling worked flawlessly out of the box and i
 - Extending Next's custom babel config to support styled components, here's a [great article](https://dev.to/aprietof/nextjs--styled-components-the-really-simple-guide----101c) explaining how to handle this
 
 While we had cleared up tooling and build complexities on the front end there was still the matter of handling dynamic content. I had kicked around headless Wordpress in a few projects but always walked away wondering if it was the right choice. As time has gone by the ecosystem has ironed out a lot of the complexities which made me question the solution, WP API has now become a staple in web application development. We started out by referencing [Postlight](https://github.com/postlight/headless-wp-starter) to get a better understanding of the current state of headless Wordpress. I ended up not using Postlight's approach to Wordpress but it did provide me with some keen insight into proper architecture. Ultimately, we chose to roll our own environment variable driven Docker compose setup which would handle Wordpress, MySQL, SSL, Nginx, backups, and obtain certificates on the fly from Let's Encrypt. Our final Wordpress build included the following plugins:
+
   - [ACF to WP API](https://wordpress.org/plugins/acf-to-wp-api/) to expose custom metadata in the Wordpress API
   - [Advanced Custom](https://www.advancedcustomfields.com/) Fields to allow for flexible content entry
   - [Custom Post Type UI](https://wordpress.org/plugins/custom-post-type-ui/) to quickly create and edit post types without requiring code changes or rebuilds
@@ -38,6 +40,7 @@ That's all it took to create a fully featured CMS in about a week.
 ![gotchas](https://media.giphy.com/media/XH6MU5zmqIpAA/giphy.gif)
 ## Headless Wordpress gotchas
 I've picked up a few things after building Wordpress APIs, here's what to look out for:
+
   - Your API will most likely live in its own sub-domain to avoid exposing non-traditional web ports like `8000` in your URLs
   - Keep [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS), cross-origin resource sharing, in mind. You may need to include a [plugin](https://github.com/ahmadawais/WP-REST-Allow-All-CORS) to allow cross-domain fetches
   - If you're running Wordpress in Docker consider state, be sure to mount and backup the media uploads volume and of course your MySQL database

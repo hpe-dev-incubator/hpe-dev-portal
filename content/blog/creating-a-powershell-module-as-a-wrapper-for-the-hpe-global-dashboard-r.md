@@ -3,7 +3,7 @@ title: "Creating a Powershell Module as a wrapper for the HPE Global Dashboard R
 date: 2019-04-23T16:59:48.878Z
 author: Rudi Martinsen 
 tags: []
-authorimage: "/img/blogs/Avatar6.svg"
+authorimage: "/img/blogs/Avatar5.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

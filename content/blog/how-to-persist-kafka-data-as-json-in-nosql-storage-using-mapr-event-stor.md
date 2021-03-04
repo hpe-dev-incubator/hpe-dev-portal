@@ -3,7 +3,7 @@ title: "How to Persist Kafka Data as JSON in NoSQL Storage Using MapR Event Stor
 date: 2020-09-25T06:11:31.778Z
 author: Ian Downard 
 tags: ["hpe-ezmeral-data-fabric","MapR","Kafka","noSQL","opensource"]
-authorimage: "/img/blogs/Avatar1.svg"
+authorimage: "/img/blogs/Avatar3.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -16,6 +16,7 @@ thumbnailimage:
 "publish": "2016-10-31T07:00:00.000Z",
 "tags": "nosql"
 ```
+
 ---
 
 ## Streaming data is like the phrase, “Now you see it. Now you don’t!”
@@ -45,7 +46,7 @@ With these options we're sacrificing speed for higher fault tolerance but we can
 
 So, here is what our database and consumer configurations look like:
 
-```
+```markdown
 Table table;
 String tableName = "/user/mapr/ticktable";
 if (MapRDB.tableExists(tableName)) {
@@ -70,7 +71,8 @@ consumer.subscribe(topics);
 ## Step 2: Consume records from the stream
 
 To consume records from a stream, you first poll the stream. This gives you a collection of `ConsumerRecords` which you then iterate through in order to access each individual stream record. This is standard Kafka API stuff, and it looks like this:
-```
+
+```markdown
 ConsumerRecords<String, byte[]> records = consumer.poll(TIMEOUT);
 Iterator<ConsumerRecord<String, byte[]>> iter = msg.iterator();
 while (iter.hasNext())
@@ -83,7 +85,7 @@ while (iter.hasNext())
 
 Before we write consumer records to the database, we need to put each record in a format that has columns. In our example we’re streaming byte arrays, which by themselves have no field related attributes, so we need to convert these byte arrays into a type containing attributes that will correspond to columns in our database. We’ll do this with a Java object, defined in <a target='\_blank'  href='https://gist.github.com/iandow/92d3276e50a7e77f41e69f5c69c8563b'>Tick.java</a>, which uses the @JsonProperty annotation to conveniently convert Tick objects encoded as byte arrays into a JSON document, like this:
 
-```
+```markdown
 Tick tick = new Tick(record.value());
 Document document = MapRDB.newDocument((Object)tick);
 ```
@@ -92,16 +94,17 @@ Document document = MapRDB.newDocument((Object)tick);
 
 This part is easy. We can insert each JSON document as a new row to a table in MapR Database with one line of code, like this:
 
-```
+```markdown
 table.insertOrReplace(tick.getTradeSequenceNumber(), document);
 ```
+
 The first parameter in the insertOrReplace method is Document ID (or rowkey). It’s a property of our dataset that the value returned by `tick.getTradeSequenceNumber()` is unique for each record, so we’re referencing that as the Document ID for our table insert in order to avoid persisting duplicate records even if duplicate messages are consumed from the stream. This guarantees idempotency in our stream consumer.
 
 ## Step 5: Update the stream cursor
 
 Finally, we’ll update the cursor in our stream topic. In the unlikely event that our stream consumer fails, this ensures that a new consumer will be able to continue working from where the last consumer left off.
 
-```
+```markdown
 consumer.commitSync();
 ```
 

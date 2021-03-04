@@ -3,7 +3,7 @@ title: "HPE OneView Puppet Module v2.4.0 now supports HPE OneView 5.0"
 date: 2020-03-19T19:56:04.411Z
 author: Christopher Pasek 
 tags: ["hpe-oneview"]
-authorimage: "/img/blogs/Avatar6.svg"
+authorimage: "/img/blogs/Avatar4.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -15,6 +15,7 @@ The Puppet Module for HPE OneView allows for management of HPE OneView appliance
 Puppet offers customers a mature configuration management solution. It is easy to install and features an excellent graphical user interface (GUI).  It runs on all major operating systems, such as Linux, Windows, Unix, and even Mac OS X.
 
 For more information:
+
 * [Release content](https://github.com/HewlettPackard/oneview-puppet/releases/tag/v2.4.0)
 * [Code repository and examples](https://github.com/HewlettPackard/oneview-puppet)
 * [Puppet Forge](https://forge.puppet.com/hewlettpackard/oneview)

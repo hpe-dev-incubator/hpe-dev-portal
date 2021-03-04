@@ -3,7 +3,7 @@ title: "Using Postman with HPE SimpliVity "
 date: 2018-11-09T17:39:07.394Z
 author: Ron Dharma 
 tags: ["hpe-simplivity"]
-authorimage: "/img/blogs/Avatar5.svg"
+authorimage: "/img/blogs/Avatar1.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

@@ -3,7 +3,7 @@ title: "Event-Driven Microservices on the MapR Data Platform"
 date: 2021-02-05T07:05:46.365Z
 author: Rachel Silver 
 tags: ["hpe-ezmeral-data-fabric","MapR"]
-authorimage: "/img/blogs/Avatar6.svg"
+authorimage: "/img/blogs/Avatar3.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -17,7 +17,9 @@ thumbnailimage:
 "publish": "2016-09-27T07:00:00.000Z",
 "tags": "use-cases"
 ```
+
 ---
+
 MapR is pleased to announce support for event-driven microservices on the MapR Data Platform. In this blog post, I’d like to explain what this means and how it fits into our bigger idea of “convergence.”
 
 ## What are event-driven microservices?

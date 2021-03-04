@@ -3,7 +3,7 @@ title: "Spark Data Source API: Extending Our Spark SQL Query Engine"
 date: 2020-12-16T06:52:16.163Z
 author: Nicolas Perez 
 tags: ["hpe-ezmeral-data-fabric","MapR","apache-spark","opensource"]
-authorimage: "/img/blogs/Avatar6.svg"
+authorimage: "/img/blogs/Avatar4.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -17,6 +17,7 @@ thumbnailimage:
 "publish": "2016-03-23T07:00:00.000Z",
 "tags": "apache-spark"
 ```
+
 ---
 
 In my last post, [Apache Spark as a Distributed SQL Engine](https://developer.hpe.com/blog/xArv3gJz67Tl0Rv0kLVn/apache-spark-as-a-distributed-sql-engine), we explained how we could use SQL to query our data stored within Hadoop. Our engine is capable of reading CSV files from a distributed file system, auto discovering the schema from the files and exposing them as tables through the Hive meta store. All this was done to be able to connect standard SQL clients to our engine and explore our dataset without manually define the schema of our files, avoiding ETL work.
@@ -37,7 +38,7 @@ Second, we want to share this library across all our applications that use our d
 
 Our data source consists in a collection of files where each file is an entity by itself. For the sake of this example, we have defined a simple format where each file is a text file containing the information of a user, each field by line. Let’s see an example of a file.
 
-```
+```markdown
 Pepe
 20
 Miami
@@ -59,7 +60,7 @@ Let’s start by creating a Spark application as the entry point to our example.
 
 The first thing we need to do once the app has been created is to link the correct Spark libraries. We are going to be running the examples on Spark 1.5.1 and our sbt file is defined as follow.
 
-```
+```markdown
 name := "spark-datasource"  
 version := "1.0"  
 scalaVersion := "2.11.7"  
@@ -77,7 +78,7 @@ We need to create a class named DefaultSource and Spark will look for it in a g
 
 Our code so far looks as follow:
 
-```
+```scala
 class DefaultSource extends RelationProvider with SchemaRelationProvider {  
   override def createRelation(sqlContext: SQLContext, parameters: Map[String, String])  
     : BaseRelation = {  
@@ -96,7 +97,7 @@ In the code, we are basically creating a LegacyRelation object, which defined t
 
 Let’s see how our Relation class is implemented.
 
-```
+```scala
 class LegacyRelation(location: String, userSchema: StructType)  
 (@transient val sqlContext: SQLContext)  
   extends BaseRelation  
@@ -119,7 +120,7 @@ Notice that we only want the name and age fields instead of the entire content
 
 The next step is to test that we are getting the correct schema and we can do this by adding the following code to our app.
 
-```
+```scala
 object app {  
   def main(args: Array[String]) {  
     val config = new SparkConf().setAppName("testing provider")  
@@ -138,13 +139,13 @@ object app {
 
 This code creates a SparkContext and an SQLContext from it. Using the SQLContext we set the format by passing the package name(Remember Spark will look at this package for the DefaultSource class). Then we load the data in the specified path using our provider into a DataFrame.
 
-```
+```scala
 df.printSchema()
 ```
 
 This will print the schema we defined and the output should look as follows.
 
-```
+```markdown
 root  
  |-- name: string (nullable = true)  
  |-- age: integer (nullable = true)
@@ -156,13 +157,13 @@ At this point, we only have created the schema we want, but there is nothing tha
 
 In order to read from our data source, our LegacyRelation class needs to mix the TableScan trait. TableScan has a method we need to implemented with the following signature:
 
-```
+```scala
 def buildScan(): RDD[Row]
 ```
 
 The method buildScan should return all rows from our data source. In our particular case, each row will be the selected content of each file. Let’s take a look at our implementation of the buildScan.
 
-```
+```scala
 override def buildScan(): RDD[Row] = {  
     val rdd = sqlContext  
                 .sparkContext  
@@ -181,7 +182,7 @@ Here we are using the wholeTextFiles method that reads the entire file (each fi
 
 This will be enough to modify our app so it prints out the content of our data source. The app now looks as follows.
 
-```
+```scala
 object app {  
   def main(args: Array[String]) {  
     val config = new SparkConf().setAppName("testing provider")  
@@ -202,7 +203,7 @@ Even though we are reading the desired format into a data frame, there is no inf
 
 Let’s modify our buildScan method so it infers the type information when creating each row.
 
-```
+```scala
 override def buildScan(): RDD[Row] = {  
     val schemaFields = schema.fields  
     val rdd = sqlContext  
@@ -235,7 +236,7 @@ Here, the only change is that we are casting each value read from our files into
 
 Now, our final LegacyRelation class will look as follows.
 
-```
+```scala
 class LegacyRelation(location: String, userSchema: StructType)  
   (@transient val sqlContext: SQLContext)  
   extends BaseRelation  
@@ -276,7 +277,7 @@ class LegacyRelation(location: String, userSchema: StructType)
 
 Now we can load our data into a DataFrame and register it to be used by SQL clients as we explain in our previous post. Our app is as simple as shown below.
 
-```
+```scala
 object app {  
   def main(args: Array[String]) {  
     val config = new SparkConf().setAppName("testing provider")  
@@ -303,7 +304,7 @@ Let’s suppose we want to save our data so it can be read from other standard s
 
 In order to support save calls from the API, our DefaultSource class has to mix with the CreatableRelationProvider trait. This trait has a method called createRelation we need to implement. Let’s take a look at it.
 
-```
+```scala
 override def createRelation(sqlContext: SQLContext, mode: SaveMode,   
     parameters: Map[String, String], data: DataFrame): BaseRelation = {  
 
@@ -326,7 +327,7 @@ The saveAsCsvFile method is creating a RDD\[String\] with our data formatted a
 
 The entire code of our DefaultSource class is the following.
 
-```
+```scala
 class DefaultSource extends RelationProvider   
     with SchemaRelationProvider   
     with CreatableRelationProvider {  
@@ -359,7 +360,7 @@ class DefaultSource extends RelationProvider 
 
 In order to save our original data as CSV-like format, we modify our app as follow.
 
-```
+```scala
 object app {  
   def main(args: Array[String]) {  
     val config = new SparkConf().setAppName("testing provider")  

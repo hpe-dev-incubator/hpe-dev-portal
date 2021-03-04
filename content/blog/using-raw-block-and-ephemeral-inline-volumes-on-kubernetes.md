@@ -3,7 +3,7 @@ title: "Using Raw Block and Ephemeral Inline Volumes on Kubernetes"
 date: 2020-06-11T21:18:38.870Z
 author: Michael Mattsson 
 tags: ["hpe-nimble-storage","hpe-3par-and-primera"]
-authorimage: "/img/blogs/Avatar3.svg"
+authorimage: "/img/blogs/Avatar2.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -20,7 +20,7 @@ The concept of presenting a raw block volume to a `Pod` on Kubernetes is very si
 
 Let’s compare the Kubernetes minutia needed to declare a regular volume versus a raw block volume.  
 
-``` 
+```yaml
 apiVersion: v1 
 kind: PersistentVolumeClaim 
 metadata: 
@@ -38,7 +38,7 @@ This is a conventional Persistent Volume Claim (PVC). The only thing that stands
 
 To be able to address the block device, there’s additional details that needs to be declared in the `Pod` specification. Let’s bring up a `Pod` as an example:
 
-``` 
+```bash
 --- 
 apiVersion: v1 
 kind: Pod 
@@ -61,7 +61,7 @@ spec:
 
 The `.spec.volumes` stanza is exactly the same as it would be for using a filesystem. It’s the `.spec.containers.volumeDevices` and `.spec.containers.volumeDevices.devicePath` that just got introduced. Creating the above PVC and `Pod` would result in the following log output:
 
-``` 
+```bash
 $ kubectl logs -f pod/ioping 
 4 KiB <<< /dev/xvda (block device 32 GiB): request=1 time=1.10 ms (warmup) 
 4 KiB <<< /dev/xvda (block device 32 GiB): request=2 time=1.01 ms 
@@ -83,7 +83,7 @@ It’s evident that we are indeed accessing a raw block device from inside the `
 
 Let’s assume we have deployed the Rook Operator on the Kubernetes cluster. Creating a new `CephCluster` is done as follows:
 
-``` 
+```bash
 --- 
 apiVersion: ceph.rook.io/v1 
 kind: CephCluster 
@@ -123,7 +123,7 @@ spec:
 
 Pay attention to the `volumeMode: Block` attribute in the specification. We can further inspect the PVC created by the `StatefulSet` that has been declared:
 
-``` 
+```bash
 kubectl get pvc -n rook-ceph -l ceph.rook.io/DeviceSetPVCId=set1-data-0 -o json | json items.0.spec 
 { 
   "accessModes": [ 
@@ -150,7 +150,7 @@ The term ephemeral inline volume is quite a mouthful for what it is – a tempor
 
 The term “inline” means the volume declaration resides inside the `Pod` specification. Each `Pod`, regardless of replica count, will be given a dedicated `ReadWriteOnce` volume as per the declaration. Let’s see what it looks like.
 
-``` 
+```bash
 --- 
 apiVersion: v1 
 kind: Pod 

@@ -3,7 +3,7 @@ title: "Contributors enhance Grommet during Hacktoberfest"
 date: 2019-10-28T22:31:02.165Z
 author: Shimrit Yacobi 
 tags: ["grommet","Hacktoberfest","opensource"]
-authorimage: "/img/blogs/Avatar4.svg"
+authorimage: "/img/blogs/Avatar2.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

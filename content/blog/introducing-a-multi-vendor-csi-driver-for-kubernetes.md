@@ -3,7 +3,7 @@ title: "Introducing a multi-vendor CSI driver for Kubernetes"
 date: 2019-08-30T17:57:28.031Z
 author: Michael Mattsson 
 tags: ["hpe-nimble-storage","hpe-3par-and-primera"]
-authorimage: "/img/blogs/Avatar1.svg"
+authorimage: "/img/blogs/Avatar5.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -71,6 +71,7 @@ The team has been hard at work bringing all this functionality together in this 
 
 ## Resources
 These are the various resources available around the HPE CSI Driver for Kubernetes
+
 * HPE CSI Driver for Kubernetes on [GitHub](https://github.com/hpe-storage/csi-driver)
 * HPE Nimble Storage CSP [StorageClass parameters](https://github.com/hpe-storage/csi-driver/blob/master/examples/kubernetes/hpe-nimble-storage/README.md)
 * Container Storage Interface [specification](https://github.com/container-storage-interface/spec)

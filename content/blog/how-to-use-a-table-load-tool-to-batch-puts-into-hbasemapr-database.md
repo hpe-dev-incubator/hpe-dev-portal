@@ -17,6 +17,7 @@ thumbnailimage:
 "publish": "2015-04-22T07:00:00.000Z",
 "tags": "nosql"
 ```
+
 ---
 
 Apache HBase is an in-Hadoop database that delivers wide-column schema flexibility with strongly consistent reads and writes. Clients can access HBase data through either a native Java API, a Thrift or REST gateway, or now through a C API, making it very easy to access data. MapR Database, yet another in-Hadoop database has the same HBase APIs, but provides enterprise-grade features for production deployments of HBase applications.

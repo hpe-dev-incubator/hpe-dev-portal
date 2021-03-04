@@ -3,7 +3,7 @@ title: "Understanding Concurrency in Python Part 2 - Multiprocessing"
 date: 2020-02-19T17:23:08.924Z
 author: Samarth Deyagond 
 tags: []
-authorimage: "/img/blogs/Avatar4.svg"
+authorimage: "/img/blogs/Avatar5.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -19,7 +19,7 @@ Let’s look at an example where multiprocessing helps us achieve concurrency an
 Step 1: Import the necessary libraries and modules.
 
 
-```
+```python
 
 import multiprocessing
 import time
@@ -29,7 +29,7 @@ import time
 Step 2: Define a CPU intensive function cpu_bound() that accepts a number, multiplies it by a million, and calculates the sum of all the numbers in a range of 0 to that product. For ease of reference, we’ll use the same example we used in Understanding Concurrency in Python Part 1 – Threading. As we did previously, remember to create an additional list of random numbers. The example we used before is shown below:
 
 
-```
+```python
 
 def cpu_bound(num):
     return sum([i for i in range(num*1000000)])
@@ -47,7 +47,7 @@ When we previously used this example as we looked at threading, we determined th
 Step 3: This time, let’s capture the time taken to execute this CPU intensive function using the Python Multiprocessing library to invoke multiple processes. Here, we use the Process method of the multiprocessing library, which takes two parameters. One parameter is target, which is set to *cpu_bound* function, and another is *args,* which is the arguments for the function *cpu_bound* function.
 
 
-```
+```python
 
 start_time = time.time()
 for number in numbers:
@@ -67,7 +67,7 @@ This is so awesome! You can see the drastic reduction in the time taken to execu
 The complete code that we used to illustrate how the multiprocessing library helps would look like this:
 
 
-```
+```python
 
 import multiprocessing
 import time

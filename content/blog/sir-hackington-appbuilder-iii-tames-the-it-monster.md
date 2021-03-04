@@ -3,7 +3,7 @@ title: "Sir Hackington Appbuilder III Tames the IT Monster"
 date: 2018-09-24T15:44:54.759Z
 author: Sir Hackington Appbuilder III 
 tags: ["VMWorld","VMWare"]
-authorimage: "/img/blogs/Avatar6.svg"
+authorimage: "/img/blogs/Avatar4.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

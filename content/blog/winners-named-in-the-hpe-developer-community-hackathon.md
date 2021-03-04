@@ -3,7 +3,7 @@ title: "Winners named in the HPE Developer Community Hackathon  "
 date: 2018-06-26T16:40:23.564Z
 author: Said Syed, Director Developer Experience and Product Incubation at HPE 
 tags: ["hackathon","hpe-onesphere","community"]
-authorimage: "/img/blogs/Avatar6.svg"
+authorimage: "/img/blogs/Avatar2.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

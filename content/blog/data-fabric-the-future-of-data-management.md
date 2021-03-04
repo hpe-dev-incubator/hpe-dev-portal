@@ -3,7 +3,7 @@ title: "Data Fabric: The Future of Data Management"
 date: 2020-11-05T16:35:05.355Z
 author: Karen Whipple 
 tags: ["hpe-ezmeral-data-fabric","MapR","data-fabric"]
-authorimage: "/img/blogs/Avatar2.svg"
+authorimage: "/img/blogs/Avatar5.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -17,7 +17,9 @@ thumbnailimage:
 "publish": "2018-08-08T07:00:00.000",
 "tags": ""
 ```
+
 ---
+
 "Data fabric" is a relatively new term, but its importance is not. For years, enterprises have struggled to integrate all their data into a single, scalable platform. A data fabric simply describes a comprehensive way to achieve that goal.
 
 And, with [data growing at a rate of 40 percent per year](https://www.emc.com/leadership/digital-universe/2014iview/executive-summary.htm) (and not showing any signs of slowing down), achieving that goal is more important than ever.
@@ -82,7 +84,7 @@ MapR's data fabric goes above and beyond by allowing you to:
 *   Search and explore data with Apache Drill
 *   Safely secure your data with a single security model with granular controls
 *   Easily move exabytes of data across edge, on-premises, and cloud deployments
-*   ●Extend IoT applications to remote locations
+*   Extend IoT applications to remote locations
 *   Increase your data transfer speed
 *   Make faster decisions
 *   Effortlessly access data.

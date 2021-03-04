@@ -3,7 +3,7 @@ title: "Best Practices for Migrating Your Apps to Containers and Kubernetes"
 date: 2020-11-25T02:26:04.249Z
 author: Suzy Visvanathan 
 tags: ["hpe-ezmeral-data-fabric","MapR","mapr-platform","containers","microservices","opensource"]
-authorimage: "/img/blogs/Avatar4.svg"
+authorimage: "/img/blogs/Avatar6.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -17,7 +17,9 @@ thumbnailimage:
 "publish": "2018-05-15T10:45:00.000",
 "tags": "mapr-platform"
 ```
+
 ---
+
 I was having a discussion with a potential customer.  As I listened, I realized that this was a company going through a massive digital transformation.  They were not doing it in bits and pieces but rather through a massive overhaul. The discussion inevitably centered around containers, managing container-based workloads, and the steps they are taking to make this transformation happen.
 
 That led me to ask: “What should an organization know, consider, and do in order to migrate to containers?” This response may not be specific to a digital transformation but, in general, applies to the considerations one must take in order to adopt containers.

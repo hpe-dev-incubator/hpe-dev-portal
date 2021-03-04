@@ -3,7 +3,7 @@ title: " Introducing HPE Nimble Storage SDK for Go"
 date: 2020-11-25T18:25:52.171Z
 author: Michael Mattsson 
 tags: []
-authorimage: "/img/blogs/Avatar2.svg"
+authorimage: "/img/blogs/Avatar1.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -80,13 +80,13 @@ func main() {
 
 Go is a compiled language, so, in order to run the example, it needs to be compiled:
 
-```
+```go
 go build createvolume.go
 ```
 
 Now, we have the ability to create volumes from a remote command-line:
 
-```
+```markdown
 ./createvolume -h
 Usage of ./createvolume:
   -g IP/hostname
@@ -103,7 +103,7 @@ Usage of ./createvolume:
 
 Let's create a new volume:
 
-```
+```markdown
 ./createvolume -g myarray1.example.com -u admin -p admin -v myvol1 -s 10240
 Volume "myvol1" created (06412618225c784ec900000000000000000000000b)
 ```
@@ -118,7 +118,7 @@ Each of the API endpoints available on the REST service is available to the SDK 
 
 These are the currently available services in the SDK.
 
-```
+```markdown
 AccessControlRecordService		MasterKeyService
 ActiveDirectoryMembershipService	NetworkConfigService
 AlarmService				NetworkInterfaceService

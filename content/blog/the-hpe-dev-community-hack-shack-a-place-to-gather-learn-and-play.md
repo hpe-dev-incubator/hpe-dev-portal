@@ -3,7 +3,7 @@ title: "The HPE DEV Community Hack Shack – A place to gather, learn, and play"
 date: 2020-07-31T07:39:28.479Z
 author: Dale Rensing 
 tags: ["kubecon-europe-2020","kubecon","cncf","containers","developer"]
-authorimage: "/img/blogs/Avatar2.svg"
+authorimage: "/img/blogs/Avatar3.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -34,6 +34,7 @@ Within the HPE DEV Hack Shack, you’ll find the following tabs where you’ll b
 ## Looking for more developer info?
 
 Visit the [HPE DEV Community Portal](https://developer.hpe.com) via the [Hack Shack Lobby](https://hackshack.hpedev.io). There, you can access a treasure trove of information, including:
+
 * [PLATFORMS](https://developer.hpe.com/platforms) – Access GitHub resources and software development kits (SDKs)
 * [BLOG](https://developer.hpe.com/blog) – Read blogs and tutorials 
 * [OPEN SOURCE](https://developer.hpe.com/projects) – Discover platforms, apps and contributions
@@ -49,6 +50,7 @@ At the [KubeCon | CloudNativeCon EU](https://events.linuxfoundation.org/kubecon-
 ## Sessions outside the booth at KubeCon | CloudNativeCon EU
 
 [KubeCon | CloudNativeCon EU](https://events.linuxfoundation.org/kubecon-cloudnativecon-europe/) will also offer two sessions highlighting HPE offerings:
+
 * **Predictable Performance Through Prometheus and Performance Aware Scheduling**, co-sponsored by HPE and Intel and delivered by Chief Technologist, Tom Golway (HPE), and Software Engineer, Killian Muldoon (Intel)
 * **Taming Data/State Challenges for ML Applications and Kubeflow**, presented by HPE Distinguished Technologist, Skyler Thomas
 

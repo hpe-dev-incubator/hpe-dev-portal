@@ -3,7 +3,7 @@ title: "The neuroscience behind a design system"
 date: 2020-05-13T14:53:52.695Z
 author: Taylor Seamans 
 tags: []
-authorimage: "/img/blogs/Avatar4.svg"
+authorimage: "/img/blogs/Avatar1.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

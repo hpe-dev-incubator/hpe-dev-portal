@@ -3,7 +3,7 @@ title: "Using Python with Apache Spark"
 date: 2021-02-13T07:12:32.201Z
 author: Jim Scott 
 tags: ["hpe-ezmeral-data-fabric","MapR","apache-spark"]
-authorimage: "/img/blogs/Avatar6.svg"
+authorimage: "/img/blogs/Avatar4.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -17,7 +17,9 @@ thumbnailimage:
 "publish": "2015-11-23T08:00:00.000Z",
 "tags": "apache-spark"
 ```
+
 ---
+
 Apache Spark is awesome. <a target='\_blank'  href='https://www.python.org/'>Python</a> is awesome. This post will show you how to use your favorite programming language to process large datasets quickly.
 
 ## Why Python?

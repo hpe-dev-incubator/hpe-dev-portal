@@ -3,7 +3,7 @@ title: "HPE OneView 5.4 Ecosystem SDKs introduce new methods for ILO configurati
 date: 2020-10-13T18:55:34.129Z
 author: Chris Pasek 
 tags: ["hpe-oneview","devops","automation"]
-authorimage: "/img/blogs/Avatar4.svg"
+authorimage: "/img/blogs/Avatar2.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

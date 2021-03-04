@@ -3,7 +3,7 @@ title: "Kafka vs. MapR Event Store: Why MapR?"
 date: 2020-11-11T06:51:11.635Z
 author: Ian Downard 
 tags: ["hpe-ezmeral-data-fabric","MapR","streaming","opensource"]
-authorimage: "/img/blogs/Avatar2.svg"
+authorimage: "/img/blogs/Avatar3.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -17,6 +17,7 @@ thumbnailimage:
 "publish": "2017-01-11T08:00:00.000Z",
 "tags": "streaming"
 ```
+
 ---
 
 A lot of people choose MapR as their core platform for processing and storing big data because of its advantages for speed and performance. MapR consistently performs faster than any other big data platform for all kinds of applications, including Hadoop, distributed file I/O, NoSQL data storage, and data streaming. In this post, I’m focusing on the latter to provide some perspective on how much better/faster/cheaper MapR Event Store can be compared to Apache Kafka as a data streaming technology.
@@ -31,7 +32,7 @@ In this study, I wanted to compare Kafka and MapR Event Store as to how they per
 
 I measured performance from both producer and consumer perspectives. However, consumers run faster than producers, so I focused primarily on the producer side since the throughput of a stream is bounded by the throughput of its producers. I used two threads in my producer clients so that message generation could happen in parallel with sending messages and waiting for acknowledgments. I used the following properties for producers and topics:
 
-```
+```markdown
 acks = all
 batch.size = 16384
 latency.ms = 0ms
@@ -80,7 +81,7 @@ On the server side, MapR Event Store inherits efficient I/O patterns from the co
 
 My JUnit tests for benchmarking Kafka and MapR Event Store is available at <a target='\_blank'  href='https://github.com/iandow/kafka_junit_tests'>https://github.com/iandow/kafka_junit_tests</a>. Here are the commands that I used to generate the data shown above:
 
-```
+```bash
 git clone https://github.com/iandow/kafka_junit_tests
 cd kafka_junit_tests
 # Create a Kafka topic...
@@ -125,7 +126,7 @@ On the other hand, Kafka represents each topic by at least one directory and sev
 
 This scenario can be run with another JUnit test from https://github.com/iandow/kafka_junit_tests, as follows:
 
-```
+```bash
 git clone https://github.com/iandow/kafka_junit_tests
 cd kafka_junit_tests
 # For MapR only, create the stream first:

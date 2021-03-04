@@ -3,7 +3,7 @@ title: "Dark Mode Theming in Grommet: Theme color customization"
 date: 2020-10-28T13:39:20.480Z
 author: Matt Glissmann 
 tags: ["grommet","opensource"]
-authorimage: "/img/blogs/Avatar1.svg"
+authorimage: "/img/blogs/Avatar4.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -34,9 +34,7 @@ Acme’s brand colors are Ruby, Gold, and Amethyst, with some warm greys for bac
 
 To begin the custom Acme, Inc. theme,  **create a theme file**, **define the color palette**, and then **map the color palette** to the Grommet components for which you want the colors to be applied.
    
- 
 ## Create Theme File
-   
 In the `src` directory, create a theme file called `acme-theme.js` with the theme object `acme` as an export:
 
 ![g2part 3 image](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/9/g2part-3-image-1603892563485.png)
@@ -45,7 +43,7 @@ In the `src` directory, create a theme file called `acme-theme.js` with the them
 Define the color palette by naming each color, plus their dark and light variants. Colors are defined in the theme object’s `global.colors` property. For each color, the following structure is used:
 
 
-```
+```markdown
 uniqueColorName: {
     dark: ‘hexidecimal value or reference a color name’,
     light: ‘hexidecimal value or reference a color name’,
@@ -188,6 +186,7 @@ const theme = deepMerge(grommet, acme);
 
 
 Finally, swap out the `grommet` theme with the newly created `theme`.
+
   
 ```javascript
   <Grommet full theme={theme} themeMode={darkMode ? "dark" : "light"}>
@@ -197,6 +196,7 @@ Finally, swap out the `grommet` theme with the newly created `theme`.
 That concludes this tutorial. Your final code and resulting app should resemble this [Codesandbox](https://codesandbox.io/s/grommet-theme-toggle-3customizeourtheme-9wqfb?file=/src/App.js). I hope you have enjoyed this three-part tutorial.
 
 As review, here’s how the app was modified:
+
 - Created a custom theme file.
 - Defined the color palette and its namespaces.
 - Mapped the color namespaces to Grommet namespaces and component definitions.
@@ -204,6 +204,7 @@ As review, here’s how the app was modified:
    
 ## Next Steps for Exploration
 Now that you have seen how easy it is to apply a theme to Grommet, set and toggle the theme’s light/dark modes, and even start applying custom colors to your own theme, here are some great next steps you can take:
+
 - Check out [Grommet’s Theme Designer (Beta)](https://theme-designer.grommet.io/) and other [Grommet Tools](https://tools.grommet.io/).
 - Explore Grommet’s other theme properties which can be customized.
 - Create and apply your own theme to your own project, then share it on Grommet’s [#i-made-this](https://grommet.slack.com/archives/CG25TE0KZ) Slack channel for community members to enjoy.

@@ -3,7 +3,7 @@ title: "How to Build Stanzas Using MapR Installer for Easy and Efficient Provisi
 date: 2020-09-19T05:31:19.092Z
 author: Prashant Rathi 
 tags: ["hpe-ezmeral-data-fabric","MapR","opensource"]
-authorimage: "/img/blogs/Avatar2.svg"
+authorimage: "/img/blogs/Avatar1.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -14,7 +14,9 @@ thumbnailimage:
 "publish": "2016-12-09T08:00:00.000Z",
 "tags": "streaming"
 ```
+
 ---
+
 **Editor’s Note:** MapR products referenced are now part of the [HPE Ezmeral Data Fabric](https://www.hpe.com/us/en/software/data-fabric.html).
 
 The MapR Installer provides cluster operators an intuitive way to set up a cluster using a step-by-step wizard. The wizard guides you through:
@@ -41,7 +43,7 @@ Read the detailed [“how-to” guide here](https://docs.datafabric.hpe.com/61/A
 
 Here’s an example structure for a 3-node cluster:
 
-```
+```markdown
 environment:
    mapr_core_version: 5.2.0
 config:
@@ -65,6 +67,7 @@ MapR Installer Stanzas come with the following set of commands that can be execu
 *   <u>List</u> – list nodes, services, and groups in a cluster
 
 **Quick set of steps to get started:**  
+
 1. [Download the Installer](https://docs.datafabric.hpe.com/61/MapRInstaller.html).  
 2.  [Review the detailed documentation here](https://docs.datafabric.hpe.com/61/AdvancedInstallation/Stanzas/SilentInstaller.html).  
 3.  Start building new clusters!  

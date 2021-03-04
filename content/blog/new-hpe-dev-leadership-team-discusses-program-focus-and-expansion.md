@@ -3,7 +3,7 @@ title: "New HPE DEV leadership team discusses program focus and expansion"
 date: 2019-12-09T16:10:49.721Z
 author: Dale Rensing 
 tags: []
-authorimage: "/img/blogs/Avatar1.svg"
+authorimage: "/img/blogs/Avatar5.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

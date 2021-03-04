@@ -3,7 +3,7 @@ title: "Scaling with Kafka – Common Challenges Solved"
 date: 2021-01-29T05:13:45.899Z
 author: Will Ochandarena 
 tags: ["hpe-ezmeral-data-fabric","MapR","kafka"]
-authorimage: "/img/blogs/Avatar6.svg"
+authorimage: "/img/blogs/Avatar1.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -17,7 +17,9 @@ thumbnailimage:
 "publish": "2016-05-05T07:00:00.000Z",
 "tags": "streaming"
 ```
+
 ---
+
 I attended several Kafka Summit sessions held in San Francisco given by Kafka users and talked to many more at the booth and in the hallway. The general consensus is the Kafka model and API is well suited to building horizontally-scalable, asynchronous data pipelines for data integration and stream processing. That said, the companies that are operating these systems at scale – billions of events per day or multiple data centers – described a consistent set of challenges.
 
 We launched MapR Event Store, a publish-subscribe event streaming system built on top of the MapR platform, exposing the Kafka API. By leveraging the strong MapR foundation that supports our distributed file and object store (MapR XD) and database (MapR Database), both of which effortlessly scale to petabytes of data and thousands of nodes across multiple data centers, MapR Event Store inherently avoids several of the challenges described by the companies operating it at scale. In this blog, I’d like to highlight a few of these challenges and how MapR Event Store overcomes them.
