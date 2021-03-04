@@ -4,8 +4,8 @@ category: Virtual Event
 priority: 7
 width: medium
 link: /campaign/munch-and-learn/
-image: /img/skillup/MunchandLearn.svg
+image: /img/home/munch-and-learn-216.svg
 ---
 ## Munch & Learn Technology Talks
 
-Monthly community meetups where you can interact with experts regarding popular new technologies and get your questions answered.
+Attend our monthly community meetups where you can interact with experts regarding popular new technologies and get your questions answered.
