@@ -1,13 +1,13 @@
 ---
-title: HPE DEV Munch & Learn series
+title: HPE DEV Munch & Learn series January 2021
 dateStart: 2021-01-27T16:00:00.000Z
 dateEnd: 2021-01-27T17:00:00.000Z
+category: Virtual Event
 image: /img/events/MunchandLearn.svg
 link: /campaign/munch-and-learn/
 width: large
 tags:
   - hpedev
-category: Virtual Event
 ---
 ## HPE DEV Munch & Learn series
 What's a data fabric and how does it work?
