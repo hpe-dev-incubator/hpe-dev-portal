@@ -2,7 +2,7 @@
 title: "From Pig to Spark: An Easy Journey to Spark for Apache Pig Developers"
 date: 2021-03-05T11:54:50.148Z
 author: Philippe de Cuzey
-authorimage: /img/blogs/Avatar1.svg
+authorimage: /img/blogs/Avatar6.svg
 tags:
   - hpe-ezmeral-data-fabric
   - MapR
