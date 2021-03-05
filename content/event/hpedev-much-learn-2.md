@@ -1,12 +1,13 @@
 ---
-title: HPE DEV Munch & Learn series
+title: HPE DEV Munch & Learn series February 2021
 dateStart: 2021-02-24T16:00:00.000Z
 dateEnd: 2021-02-24T17:00:00.000Z
-tags: ["hpedev"]
 category: Virtual Event
-image: /img/events/MunchandLearn.svg
+image: /img/munch-and-learn-216.svg
 link: /campaign/munch-and-learn/
 width: large
+tags:
+  - hpedev
 ---
 ## HPE DEV Munch & Learn series
 Explore Containerization and MLOps
