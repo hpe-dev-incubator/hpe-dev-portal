@@ -2,7 +2,7 @@
 title: How Big Data is Reducing Costs and Improving Outcomes in Health Care
 date: 2021-03-05T09:24:44.418Z
 author: Carol McDonald
-authorimage: /img/blogs/Avatar1.svg
+authorimage: /img/blogs/Avatar2.svg
 tags:
   - hpe-ezmeral-data-fabric
   - MapR
