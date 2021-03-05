@@ -49,9 +49,13 @@ Unstructured data forms about 80% of information in the healthcare industry and 
 Examples of healthcare data sources that will benefit from big data and analytics:
 
 * Claims: are the documents providers submit to insurance companies to get paid. A key component of the [Health Insurance Portability and Accountability Act (HIPAA)](http://www.edibasics.com/edi-resources/document-standards/hipaa/) is the establishment of national standards for electronic healthcare transactions in order to improve efficiency by encouraging the widespread use of Electronic Document Interchange (EDI) between healthcare providers and insurance companies. Claim transactions include International Classification of Diseases (ICD) diagnostic codes, medications, dates, provider IDs, the cost, etc.
+
 * Electronic Health/Medical Record data (EHR or EMR): Medicare and Medicaid EHR [incentive programs](https://www.cms.gov/Regulations-and-Guidance/Legislation/EHRIncentivePrograms/index.html?redirect=/EHRincentivePrograms/) were established to encourage professionals and hospitals to adopt and demonstrate meaningful use of certified EHR technology. EHRs facilitate a comprehensive sharing of data with other providers and medical applications. EHRs contain the data from the delivery of healthcare, which includes diagnosis, treatment, prescriptions, lab tests, and radiology. [Health Level Seven International (HL7)](http://www.hl7.org/implement/standards/index.cfm?ref=nav) provides standards for the exchange, integration, sharing, and retrieval of electronic health record data.
+
 * Pharmaceutical R&D: Clinical Trials Data, Genomic Data.
+
 * Patient behavior and sentiment data.
+
 * Medical Device Data: Patient sensor data from the home or hospital.
 
 ![](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2021/1/health-data-inputs-4-1611296501518.png)
@@ -149,6 +153,7 @@ With MapR Database, data is automatically distributed or partitioned across the 
 **MapR Database has 2 APIs:**
 
 * JSON API for storing document models.
+
 * HBase API for wide column data models (typical for time series data).
 
 ![](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2021/1/mapr-db-apis-17-1611296648222.png)
@@ -160,7 +165,9 @@ End applications like dashboards, business intelligence tools and other applicat
 Apache Drill enables self-service data exploration on big data with a schema-free SQL query engine. Drill offers the following benefits:
 
 * Drill can read from all kinds of data.
+
 * Drill is optimized for interactive applications, and thus is designed to process petabytes of data and trillions of records in seconds.
+
 * Drill can be used by data analysts, in conjunction with tools like Tableau, for fast visualizations.
 
 ![](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2021/1/big-data-architecture-components-18-1611296658517.png)
@@ -168,6 +175,7 @@ Apache Drill enables self-service data exploration on big data with a schema-fre
 All of the components of the architecture we just discussed can run on the same cluster with the MapR Data Platform. There are several advantages of integrating Hadoop, Spark, real-time database capabilities, global event streaming, and scalable enterprise storage:
 
 * Maintaining only one cluster means less infrastructure to provision, manage, and monitor for security, reliability, and performance, dramatically lowering both hardware and operational costs.
+
 * Having producers and consumers on the same cluster means fewer delays related to copying and moving data between clusters, and between applications.
 
 ![](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2021/1/mapr-health-care-architecture-19-1611296669267.png)
