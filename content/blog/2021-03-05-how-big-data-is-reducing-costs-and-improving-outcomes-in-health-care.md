@@ -184,7 +184,7 @@ Liaison Technologies provides cloud-based solutions to help organizations integr
 
 ![](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2021/1/streaming-system-of-record-health-care-21-1611296690735.png)
 
-To illustrate the latter challenge, a patient record may be consumed in different ways  -  a document representation, a graph representation, or search - by different users, such as pharmaceutical companies, hospitals, clinics, physicians, etc. By streaming data changes in real-time to the MapR Database HBase, MapR Database JSON document, graph, and search databases, users always have the most up-to-date view of data in the most appropriate format. Further, by implementing this service on the MapR Data Platform, Liaison is able to secure all of the data components together, avoiding data and security silos that alternate solutions require.
+To illustrate the latter challenge, a patient record may be consumed in different ways—a document representation, a graph representation, or search—by different users, such as pharmaceutical companies, hospitals, clinics, physicians, etc. By streaming data changes in real-time to the MapR Database HBase, MapR Database JSON document, graph, and search databases, users always have the most up-to-date view of data in the most appropriate format. Further, by implementing this service on the MapR Data Platform, Liaison is able to secure all of the data components together, avoiding data and security silos that alternate solutions require.
 
 ## Genome Processing
 
