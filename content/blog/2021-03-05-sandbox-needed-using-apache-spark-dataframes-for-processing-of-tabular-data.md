@@ -2,7 +2,7 @@
 title: SANDBOX NEEDED - Using Apache Spark DataFrames for Processing of Tabular Data
 date: 2021-03-05T12:29:32.043Z
 author: Carol McDonald
-authorimage: /img/blogs/Avatar1.svg
+authorimage: /img/blogs/Avatar4.svg
 tags:
   - hpe-ezmeral-data-fabric
   - opensource
