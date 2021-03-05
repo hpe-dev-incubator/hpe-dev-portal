@@ -30,11 +30,19 @@ tags:
 
 ## The Motivation for Big Data
 
+
+
 Health care costs are driving the demand for big-data driven Healthcare applications. U.S. health care spending has outpaced GDP growth for the past several decades and exceeds spending in any other developed country. Despite being more expensive, according to the Organisation for Economic Co-operation and Development (OECD), the US Health System ranks last among eleven countries on measures of access, equity, quality, efficiency, and healthy lives. Standards and incentives for the digitizing and sharing of healthcare data along with improvements and decreasing costs in storage and parallel processing on commodity hardware, are causing a [big data revolution in health care](http://www.mckinsey.com/industries/healthcare-systems-and-services/our-insights/the-big-data-revolution-in-us-health-care) with the goal of [better care at lower cost.](http://www.nationalacademies.org/hmd/Reports/2012/Best-Care-at-Lower-Cost-The-Path-to-Continuously-Learning-Health-Care-in-America.aspx)
+
+
 
 ![](/uploads/media/2021/1/life-expectancy-1-1611296455217.png)
 
+
+
 ## Value Based Care
+
+
 
 A goal of the Affordable Care Act is to improve health care through the meaningful use of health information technology in order to:
 
