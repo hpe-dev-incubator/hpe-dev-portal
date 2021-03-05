@@ -31,7 +31,9 @@ Health care costs are driving the demand for big-data driven Healthcare applicat
 A goal of the Affordable Care Act is to improve health care through the meaningful use of health information technology in order to:
 
 * Improve healthcare quality and coordination so that outcomes are consistent with current professional knowledge
+
 * Reduce healthcare costs, reduce avoidable overuse
+
 * Provide support for reformed payment structures
 
 ![](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2021/1/improved-health-care-2-1611296469408.png)
