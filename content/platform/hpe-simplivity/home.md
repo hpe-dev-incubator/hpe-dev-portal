@@ -14,7 +14,7 @@ tags:
 
 The HPE OmniStack REST API enables tool developers and integrators to manage HPE OmniStack assets efficiently, intuitively, and securely. Anyone can use the REST API to gather information about, analyze, configure, and troubleshoot HPE OmniStack hosts and federations. Moreover, tools developers can use the REST API to automate these tasks.
 
-## About the SimpliVity REST API
+## About the REST API
 
 [**What's New**](/platform/hpe-simplivity/whats-new/)  
 
@@ -32,7 +32,7 @@ The HPE OmniStack REST API enables tool developers and integrators to manage HPE
 
 [**Authorization-related REST API log messages and responses**](/platform/hpe-simplivity/authorization-related-rest-api-log-messages-and-responses)  
 
-## Use the SimpliVity REST API
+## Use the REST API
 
 [**Getting started**](/platform/hpe-simplivity/sample-code)  
 
