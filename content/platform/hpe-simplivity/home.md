@@ -37,10 +37,6 @@ The HPE OmniStack REST API enables tool developers and integrators to manage HPE
 
 ---
 
-### Explore the API
-
-[**HPEOmniStack REST API Reference**](https://developer.hpe.com/api/simplivity/)  
-
 ### Use the API
 
 [**Getting started**](/platform/hpe-simplivity/sample-code)  
