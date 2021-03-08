@@ -128,3 +128,22 @@ Learn how to host and administer any Citrix service on HPE SimpliVity
 ### [PowerShell certificate management cmdlets ![](Github)](https://github.com/HewlettPackard/hpe-simplivity-powershell)
 
 - [Download the cmdlets from the PowerShell Gallery](https://www.powershellgallery.com/packages/HPESvtCmdlets)
+
+### [PowerShell Module ![](Github)](https://github.com/atkinsroy/HPESimpliVity)
+
+- [Visit the priject website on GitHub](https://github.com/atkinsroy/HPESimpliVity)
+
+### [Python SDK ![](Github)](https://github.com/HewlettPackard/simplivity-python)
+
+- [Download the library from pypi](https://pypi.org/project/simplivity/)
+
+### [Go SDK ![](Github)](https://github.com/HewlettPackard/simplivity-go)
+
+### [Go SDK ![](Github)](https://github.com/HewlettPackard/simplivity-ansible)
+- [Download the library from GitHub](https://github.com/HewlettPackard/simplivity-ansible/releases/tag/v1.0.0)
+
+
+
+
+
+
