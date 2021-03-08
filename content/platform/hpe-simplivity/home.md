@@ -139,7 +139,7 @@ Learn how to host and administer any Citrix service on HPE SimpliVity
 
 ### [Go SDK ![](Github)](https://github.com/HewlettPackard/simplivity-go)
 
-### [Go SDK ![](Github)](https://github.com/HewlettPackard/simplivity-ansible)
+### [Ansible Library ![](Github)](https://github.com/HewlettPackard/simplivity-ansible)
 - [Download the library from GitHub](https://github.com/HewlettPackard/simplivity-ansible/releases/tag/v1.0.0)
 
 
