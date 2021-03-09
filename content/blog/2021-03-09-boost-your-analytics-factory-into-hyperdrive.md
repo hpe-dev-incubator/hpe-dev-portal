@@ -7,7 +7,7 @@ tags:
   - hpe-ezmeral-data-fabric
   - hpe-ezmeral-container-platform
 ---
-https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/12/ezmeral-day-picture-1615293804678.png
+![](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/12/ezmeral-day-picture-1615293804678.png)
 
 You know that there’s a treasure trove of value hidden in the data streaming all around you. But how do you capture it, analyze it, and extract that golden nugget of information that impacts your applications? More importantly, how do you do this when the data is constantly changing? Critical applications need to be able to make decisions in real-time or risk the possibility of failure.
 
