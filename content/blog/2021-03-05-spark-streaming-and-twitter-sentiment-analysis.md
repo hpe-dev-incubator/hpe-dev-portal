@@ -1,6 +1,6 @@
 ---
 title: Spark Streaming and Twitter Sentiment Analysis
-date: 2021-03-05T12:18:36.961Z
+date: 2021-03-09T09:59:08.195Z
 author: Nicolas Perez
 authorimage: /img/blogs/Avatar1.svg
 tags:
@@ -37,22 +37,25 @@ Using a subset of a Twitter stream was the perfect choice to use in this demonst
 
 ## Spark Streaming, Minimized
 
-
-
-Spark Streaming is very well explained [_here_](http://spark.apache.org/docs/latest/streaming-programming-guide.html), so we are going to skip some of the details about the Streaming API and move on to setting up our app.
+Spark Streaming is very well explained [_here_](http://spark.apache.org/docs/latest/streaming-programming-guide.html),  so we are going to skip some of the details about the Streaming API and move on to setting up our app.
 
 
 
 ## Setting Up Our App
-
-
 
 Let’s see how to prepare our app before doing anything else.
 
 
 
 ```scala
-val config = new SparkConf().setAppName("twitter-stream-sentiment") val sc = new SparkContext(config) sc.setLogLevel("WARN") val ssc = new StreamingContext(sc, Seconds(5))  System.setProperty("twitter4j.oauth.consumerKey", "consumerKey")  System.setProperty("twitter4j.oauth.consumerSecret", "consumerSecret")  System.setProperty("twitter4j.oauth.accessToken", accessToken)  System.setProperty("twitter4j.oauth.accessTokenSecret", "accessTokenSecret") val stream = TwitterUtils.createStream(ssc, None)
+val config = new SparkConf().setAppName("twitter-stream-sentiment")
+val sc = new SparkContext(config) sc.setLogLevel("WARN")
+val ssc = new StreamingContext(sc, Seconds(5))
+System.setProperty("twitter4j.oauth.consumerKey", "consumerKey")
+System.setProperty("twitter4j.oauth.consumerSecret", "consumerSecret")
+System.setProperty("twitter4j.oauth.accessToken", accessToken)
+System.setProperty("twitter4j.oauth.accessTokenSecret", "accessTokenSecret")
+val stream = TwitterUtils.createStream(ssc, None)
 ```
 
 
@@ -63,14 +66,17 @@ Here, we have created the Spark Context **_sc_** and set the log level to _WARN_
 
 ## What is Trending Right Now on Twitter?
 
-
-
 It is easy to find out what is trending on Twitter at any given moment; it is just a matter of counting the appearances of each tag on the stream. Let’s see how Spark allows us to do this operation.
 
 
 
 ```scala
-val tags = stream.flatMap {status => status.getHashtagEntities.map(_.getText)  } tags.countByValue() .foreachRDD {rdd => val now = org.joda.time.DateTime.now() rdd.sortBy(_._2) .map(x => (x, now)) .saveAsTextFile(s"~/twitter/$now") }
+val tags = stream.flatMap {
+  status => status.getHashtagEntities.map(_.getText)  
+}
+tags.countByValue() .foreachRDD {
+  rdd => val now = org.joda.time.DateTime.now() rdd.sortBy(_._2) .map(x => (x, now)) .saveAsTextFile(s"~/twitter/$now")
+}
 ```
 
 
@@ -80,8 +86,6 @@ First, we got the tags from the Tweets, counted how many times it (a tag) appear
 
 
 ## Analyzing Tweets
-
-
 
 Now we want to add functionality to get an overall opinion of what people think about a set of topics. For the sake of this example, let’s say that we want to know the **_sentiment_** of Tweets about **Big Data** and **Food**, two very unrelated topics.
 
@@ -110,7 +114,9 @@ Let’s see how.
 
 
 ```scala
-val tweets = stream.filter {t => val tags = t.getText.split(" ").filter(_.startsWith("#")).map(_.toLowerCase) tags.contains("#bigdata") && tags.contains("#food") }
+val tweets = stream.filter {
+  t => val tags = t.getText.split(" ").filter(_.startsWith("#")).map(_.toLowerCase) tags.contains("#bigdata") && tags.contains("#food")
+}
 ```
 
 
@@ -134,7 +140,21 @@ We are going to use this function, assuming it does what it should, and we will 
 
 
 ```scala
-it("should detect not understood sentiment") { detectSentiment("")should equal (NOT_UNDERSTOOD)  } it("should detect a negative sentiment") { detectSentiment("I am feeling very sad and frustrated.")should equal (NEGATIVE)  } it("should detect a neutral sentiment") { detectSentiment("I'm watching a movie")should equal (NEUTRAL)  } it("should detect a positive sentiment") { detectSentiment("It was a nice experience.")should equal (POSITIVE)  } it("should detect a very positive sentiment") { detectSentiment("It was a very nice experience.")should equal (VERY_POSITIVE) }
+it("should detect not understood sentiment") {
+  detectSentiment("")should equal (NOT_UNDERSTOOD) 
+}
+it("should detect a negative sentiment") {
+  detectSentiment("I am feeling very sad and frustrated.")should equal (NEGATIVE)
+}
+it("should detect a neutral sentiment") {
+  detectSentiment("I'm watching a movie")should equal (NEUTRAL)
+}
+it("should detect a positive sentiment") {
+  detectSentiment("It was a nice experience.")should equal (POSITIVE)
+}
+it("should detect a very positive sentiment") {
+  detectSentiment("It was a very nice experience.")should equal (VERY_POSITIVE)
+}
 ```
 
 
@@ -148,7 +168,10 @@ Let’s see an example.
 
 
 ```scala
-val data = tweets.map {status => val sentiment = SentimentAnalysisUtils.detectSentiment(status.getText) val tags = status.getHashtagEntities.map(_.getText.toLowerCase) (status.getText, sentiment.toString, tags) }
+val data = tweets.map {
+  status => val sentiment = SentimentAnalysisUtils.detectSentiment(status.getText)
+val tags = status.getHashtagEntities.map(_.getText.toLowerCase) (status.getText, sentiment.toString, tags)
+}
 ```
 
 
@@ -159,8 +182,6 @@ Here, **_data_** represents a _DStream_ of Tweets we want, the associated sentim
 
 ## SQL Interoperability
 
-
-
 Now we want to cross reference the sentiment data with an external dataset that we can query using SQL. For my coworker, it makes a lot of sense to be able to **_join_** the Twitter stream with his other dataset.
 
 
@@ -170,8 +191,11 @@ Let’s take a look at how we could achieve this.
 
 
 ```scala
-val sqlContext = new SQLContext(sc)  import sqlContext.implicits._ 
-data.foreachRDD {rdd => rdd.toDF().registerTempTable("sentiments") }
+val sqlContext = new SQLContext(sc)
+import sqlContext.implicits._ 
+data.foreachRDD {
+  rdd => rdd.toDF().registerTempTable("sentiments")
+}
 ```
 
 
@@ -200,8 +224,6 @@ sqlContext.sql("select * from sentiments").show()
 
 ## Windowed Operations
 
-
-
 Spark Streaming has the ability to look back in the stream, a functionality most streaming engines lack (if they do have this functionality, it's very hard to implement).
 
 
@@ -222,8 +244,6 @@ tags
 
 
 ## Conclusion
-
-
 
 Even though our examples are quite simple, we were able to solve a real life problem using Spark. We now have the ability to identify trending topics on Twitter, which helps us both target and increase our audience. At the same time, we are able to access different data sets using a single set of tools such as SQL.
 
