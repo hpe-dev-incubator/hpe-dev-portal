@@ -37,7 +37,7 @@ The Day in the Life Demo Showcase will focus on three scenarios:
 
 
 
-•	A Day in the Life of an IT Admin, where we’ll walk you through basic infrastructure set up so you can see how HPE Ezmeral simplifies the management of infrastructure for analytics.
+•	A Day in the Life of an IT Admin, where you’ll be walked through basic infrastructure set up so you can see how HPE Ezmeral simplifies the management of infrastructure for analytics.
 
 
 
