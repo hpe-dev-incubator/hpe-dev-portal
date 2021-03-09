@@ -1,6 +1,6 @@
 ---
 title: How Big Data is Reducing Costs and Improving Outcomes in Health Care
-date: 2021-03-05T09:24:44.418Z
+date: 2021-03-09T12:19:17.061Z
 author: Carol McDonald
 authorimage: /img/blogs/Avatar2.svg
 tags:
@@ -42,7 +42,7 @@ Health insurance companies, such as Medicare and Medicaid, are shifting from fee
 
 ![](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2021/1/improve-health0care-3-1611296489579.png)
 
-## **Health Care Data**
+## Health Care Data
 
 Unstructured data forms about 80% of information in the healthcare industry and is growing exponentially. Getting access to this unstructured data—such as output from medical devices, doctor’s notes, lab results, imaging reports, medical correspondence, clinical data, and financial data—is an invaluable resource for improving patient care and increasing efficiency.
 
@@ -60,15 +60,15 @@ Examples of healthcare data sources that will benefit from big data and analytic
 
 ![](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2021/1/health-data-inputs-4-1611296501518.png)
 
-## **Big Data Trends in Healthcare**
+## Big Data Trends in Healthcare
 
 There is a move toward evidence-based medicine, which involves making use of all clinical data available and factoring that into clinical and advanced analytics. Capturing and bringing all of the information about a patient together gives a more complete view for insight into care coordination and outcomes-based reimbursement, population health management, and patient engagement and outreach.
 
 ![](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2021/1/converged-data-platform-mapr-5-1611296512091.png)
 
-## **Example Healthcare Big Data Use Cases**
+## Example Healthcare Big Data Use Cases
 
-### **Reducing Fraud Waste and Abuse with Big Data Analytics**
+### Reducing Fraud Waste and Abuse with Big Data Analytics
 
 The cost of fraud, waste and abuse in the healthcare industry is a key contributor to spiraling health care costs in the United States, but big data analytics can be a game changer for health care fraud. The Centers for Medicare and Medicaid Services prevented more than $210.7 million in healthcare fraud in one year using predictive analytics. UnitedHealthcare transitioned to a predictive modeling environment based on a Hadoop big data platform, in order to identify inaccurate claims in a systematic, repeatable way and generated a 2200% return on their big data/advanced technology.
 
@@ -80,7 +80,7 @@ Healthcare organizations can analyze patient records and billing to detect anoma
 
 The Centers for Medicare and Medicaid Services uses predictive analytics to assign risk scores to specific claims and providers, to identify billing patterns, and claim aberrancies difficult to detect by previous methods. Rules-based models flag certain charges automatically. Anomaly models raise suspicion based on factors that seem improbable. Predictive models compare charges against a fraud profile and raise suspicion. Graph models raise suspicion based on the relations of a provider; fraudulent billers are often organized as tight networks.
 
-### **Predictive Analytics to Improve Outcomes**
+### Predictive Analytics to Improve Outcomes
 
 Initiatives such as meaningful use are accelerating the adoption of Electronic Health Records and the volume and detail of patient information is growing rapidly. Being able to combine and analyze a variety of structured and unstructured data across multiple data sources aids in the accuracy of diagnosing patient conditions, matching treatments with outcomes, and predicting patients at risk for disease or readmission.
 
@@ -98,13 +98,13 @@ Healthcare facilities are looking to provide more proactive care to their patien
 
 ![](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2021/1/medical-device-to-data-streaming-9-1611296558176.png)
 
-## **Big Data Architecture for Healthcare:** What do we need to do? And how do we do this at scale?\*\*\*\*
+## Big Data Architecture for Healthcare: What do we need to do? And how do we do this at scale?
 
 We need to collect the data, process the data, store the data, and finally serve the data for analysis, machine learning, and dashboards.
 
 ![](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2021/1/health-care-data-architecture-10-1611296569137.png)
 
-## **Data Ingestion with NFS**
+### Data Ingestion with NFS
 
 The Network File System (NFS) protocol provides remote access to shared disks across networks. An NFS-enabled server can share directories and files with clients, allowing users and programs to access files on remote systems as if they were stored locally.
 
@@ -114,7 +114,7 @@ Unlike other Hadoop distributions that only allow cluster data import or import 
 
 From your MapR Cluster, you can move data to and from more expensive storage using NFS. For example, you can move processed hot data to a relational database or Data Warehouse and you can also move off colder data into lower cost Hadoop storage.
 
-## **Streaming Data Ingestion with the Kafka API**
+### Streaming Data Ingestion with the Kafka API
 
 As more and more healthcare solutions require real-time analytics and fast moving data, ingesting data into the system using event streaming will become critical. MapR Event Store is a new distributed messaging system that enables producers and consumers to exchange events in real time via the Apache Kafka 0.9 API. Topics are logical collections of messages that organize events into categories.
 
@@ -124,7 +124,7 @@ Messages are not deleted from topics when read and topics can have multiple diff
 
 ![](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2021/1/kafka-api-producers-and-consumers-12-1611296593323.png)
 
-## **Batch Processing**
+### Batch Processing
 
 Batch processing is for processing bulk loads of data gathered over a period where a fast response time is not critical; for example, EDI claims gathered over a day and submitted together in a file for processing overnight.
 
@@ -134,13 +134,13 @@ Apache Spark is a next generation distributed parallel processing framework that
 
 ![](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2021/1/batch-processing-collect-to-processing-data-13-1611296604993.png)
 
-## Stream Processing
+### Stream Processing
 
 Spark Streaming brings Spark's APIs to stream processing, letting you write streaming jobs the same way you write batch jobs. Other popular options for Stream processing are Apache Flink and Apache Storm.
 
 ![](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2021/1/stream-processing-streaming-and-processing-14-1611296616672.png)
 
-## Storing in a NoSQL Database
+### Storing in a NoSQL Database
 
 For Storing lots of Data we need a data store that supports fast writes and scales. MapR Database was designed to scale due to the fact that data that is accessed together is stored together.
 
@@ -158,7 +158,7 @@ With MapR Database, data is automatically distributed or partitioned across the 
 
 ![](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2021/1/mapr-db-apis-17-1611296648222.png)
 
-## **Serving the Data**
+## Serving the Data
 
 End applications like dashboards, business intelligence tools and other applications use the processed data. The output can also be stored back in our database for further processing later.
 
@@ -180,7 +180,7 @@ All of the components of the architecture we just discussed can run on the same 
 
 ![](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2021/1/mapr-health-care-architecture-19-1611296669267.png)
 
-## **Use Case Example Architectures**
+## Use Case Example Architectures
 
 ![](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2021/1/data-lake-architecture-20-1611296679971.png)
 
@@ -188,7 +188,7 @@ The National Institutes for Health built a data lake to combine separate institu
 
 UnitedHealthcare IT used Hadoop as the basic data framework and built a single platform equipped with the tools needed to analyze information generated by claims, prescriptions, plan participants and contracted care providers, and associated claim review outcomes.
 
-## **Streaming System of Record for Healthcare**
+### Streaming System of Record for Healthcare
 
 Liaison Technologies provides cloud-based solutions to help organizations integrate, manage and secure data across the enterprise. One vertical solution they provide is for the healthcare and life sciences industry, which comes with two challenges–meeting HIPAA compliance requirements and the proliferation of data formats and representations. With MapR Event Store, the data lineage portion of the compliance challenge is solved because the stream becomes a system of record by being an infinite, immutable log of each data change.
 
@@ -196,7 +196,7 @@ Liaison Technologies provides cloud-based solutions to help organizations integr
 
 To illustrate the latter challenge, a patient record may be consumed in different ways—a document representation, a graph representation, or search—by different users, such as pharmaceutical companies, hospitals, clinics, physicians, etc. By streaming data changes in real-time to the MapR Database HBase, MapR Database JSON document, graph, and search databases, users always have the most up-to-date view of data in the most appropriate format. Further, by implementing this service on the MapR Data Platform, Liaison is able to secure all of the data components together, avoiding data and security silos that alternate solutions require.
 
-## Genome Processing
+### Genome Processing
 
 The Novartis team chose Hadoop and Apache Spark to build a workflow system that allows them to integrate, process and analyze diverse data for Next Generation Sequencing (NGS) research while being responsive to advances in the scientific literature.
 
