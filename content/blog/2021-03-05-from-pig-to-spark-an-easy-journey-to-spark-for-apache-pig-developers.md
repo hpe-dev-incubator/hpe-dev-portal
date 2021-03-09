@@ -1,6 +1,6 @@
 ---
 title: "From Pig to Spark: An Easy Journey to Spark for Apache Pig Developers"
-date: 2021-03-05T11:54:50.148Z
+date: 2021-03-09T11:42:12.305Z
 author: Philippe de Cuzey
 authorimage: /img/blogs/Avatar6.svg
 tags:
@@ -38,7 +38,6 @@ However, I'm not advocating that you move from Apache Pig to Spark in all cases.
 ## Apache Pig has great features, but …
 
 
-
 I like to think of Pig as a high-level Map/Reduce commands pipeline. As a former SQL programmer, I find it quite intuitive and, in my organization, our Hadoop jobs are still mostly developed in Pig.
 
 
@@ -51,7 +50,11 @@ But sometimes, Pig has some limitations that makes it a poor programming paradig
 
 
 
-Pig is a pipeline and doesn’t offer loops or code indirections (IF..THEN) which can sometimes be mandatory in your code. As beautifully stated in [an article by Jai Ranganathan and Matei Zaharia](https://databricks.com/blog/2014/03/20/apache-spark-a-delight-for-developers.html):
+1. Pig is a pipeline and doesn’t offer loops or code indirections (IF..THEN) which can sometimes be mandatory in your code.
+
+
+
+2. As beautifully stated in [an article by Jai Ranganathan and Matei Zaharia](https://databricks.com/blog/2014/03/20/apache-spark-a-delight-for-developers.html):
 
 
 
@@ -59,13 +62,11 @@ Pig is a pipeline and doesn’t offer loops or code indirections (IF..THEN) whic
 
 
 
-Finally, a third Pig limitation is related to input data formats: although Pig is good with CSV and HCatalog, it seems a bit less comfortable with reading and processing some other data formats like JSON (through JsonLoader), whereas Spark integrates them natively.
+3. Finally, a third Pig limitation is related to input data formats: although Pig is good with CSV and HCatalog, it seems a bit less comfortable with reading and processing some other data formats like JSON (through JsonLoader), whereas Spark integrates them natively.
 
 
 
 ## Give Apache Spark a try
-
-
 
 Time to take a dip in Spark! Pig and Spark share a common programming model that makes it easy to move from one to the other. Basically, you work through immutable transformations identified by an alias (Pig) or an RDD variable (Spark). Transformations are usually projections (maps), filters, or aggregations like GroupBy, sorts, etc.
 
@@ -80,8 +81,6 @@ PySpark is quite a natural choice for the data analyst who already has some Pyth
 
 
 ## A complete example
-
-
 
 As an illustration, let’s take an example of a Pig script that loads a log file, filters it for a specific day, calculates the number of log entries grouped by item, and adds the item description from another file:
 
@@ -111,6 +110,8 @@ STORE result INTO 'result_file' USING PigStorage('\t');
 
 
 The code is fairly simple, and each step performs one transformation.
+
+
 
 Now in Spark, we start with raw Spark using low-level RDDs to show similarities with Pig code. In the code, things are detailed one alias at a time, but obviously production code would be more compact.
 
@@ -147,6 +148,8 @@ result_to_store.saveAsTextFile('result_file')
 
 
 We can see here a similar code outline between Pig and Spark, which makes it easier for a Pig developer to start coding in Spark. One drawback, however, is that for relatively simple operations like this, Pig is still more productive than Spark, even if execution time is better (but not astoundingly better) with Spark.
+
+
 
 Now that we are getting familiar with this low-level RDD, code could be improved by using DataFrames and SparkSQL. The previous code could be rewritten in a more readable form:
 
@@ -224,8 +227,6 @@ The drawback is that each piece of SQL is now a black box that can be only teste
 
 ## Loading data from Hive metastore HCatalog
 
-
-
 If our data would have been stored in Hive HCatalog, all the DataFrame metadata would be inherited from the metastore and the Spark code would have been even simpler:
 
 
@@ -260,6 +261,8 @@ result_to_store.saveAsTextFile(outputFileName)
 
 
 Now, this is a more compact and readable piece of code :)
+
+
 
 Let's push the advantage a bit further in favor of Spark: user-defined functions.
 
@@ -304,15 +307,11 @@ log1 = log0.map (**lambda** field1: (field1, myFancyUdf(field1))
 
 ## More advanced topics
 
-
-
 In this section, let's take a look at more powerful features of Pig in Spark through two examples:
 
 
 
 ## Map-side joins
-
-
 
 One handy feature of Pig is map-side joins, where one of the tables to join is small enough to be sent to each worker to take part in the Map job (not requiring the more expensive Reduce job). This is conveniently performed by using the “replicated” hint on the `JOIN`.
 
@@ -443,6 +442,8 @@ f4 = f3.flatMapValues(**lambda** x:x) \
 
 It's not very elegant, but it does the job.
 
+
+
 Then the SparkSQL solution:
 
 
@@ -473,7 +474,5 @@ Much better!
 
 
 ## Conclusion
-
-
 
 I have voluntarily excluded from this blog post some interesting topics such as deploying, debugging, execution monitoring, dynamic resource allocation, partition and split size tuning, sampling, etc. The goal of this particular blog post is to show Pig developers how to start coding in Spark; I hope that from this perspective, you find it is helpful.
