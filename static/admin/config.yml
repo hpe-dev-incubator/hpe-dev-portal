@@ -9,7 +9,7 @@ publish_mode: editorial_workflow
 # display_url: https://developer.hpe.com/
 site_url: https://hpe-dev-portal.netlify.app/
 display_url: https://hpe-dev-portal.netlify.app/
-logo_url: /img/hpedev.png
+logo_url: /img/dev-thumb.png
 
 media_folder: static/img
 public_folder: /img
