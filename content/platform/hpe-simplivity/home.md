@@ -3,7 +3,7 @@ title: HPE SimpliVity
 version: v 6.01.8964
 description: An enterprise-grade hyperconverged platform uniting best-in-class
   data services with the world’s bestselling server.
-image: simplivity.jpg
+image: /img/simplivity.jpg
 width: medium
 priority: 6
 frontpage: true
