@@ -124,6 +124,7 @@ export const Card = ({ category, content, width = 'medium', link, image }) => (
                 src={image}
                 fit="contain"
                 alignSelf="start"
+                alt="card logo"
               />
             )}
             {content && (
@@ -179,7 +180,7 @@ export const Card2 = ({
     >
       {image && !reverse && (
         <Box align="center" fill="horizontal">
-          {image && <Image src={image} />}
+          {image && <Image src={image} alt="card logo" />}
         </Box>
       )}
       {content && align === 'center' && (
@@ -192,7 +193,7 @@ export const Card2 = ({
       )}
       {image && reverse && (
         <Box align="center" fill="horizontal">
-          {image && <Image src={image} />}
+          {image && <Image src={image} alt="card logo" />}
         </Box>
       )}
     </Box>

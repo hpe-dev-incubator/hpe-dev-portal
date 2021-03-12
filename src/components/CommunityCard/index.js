@@ -29,7 +29,12 @@ const CommunityCard = ({ node, ...rest }) => (
   >
     <CardBody pad="none" align="start">
       {node.frontmatter.image && (
-        <Image height="144" width="144" src={node.frontmatter.image} />
+        <Image
+          height="144"
+          width="144"
+          src={node.frontmatter.image}
+          alt="card body logo"
+        />
       )}
     </CardBody>
     <Box responsive={false}>

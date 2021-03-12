@@ -38,7 +38,11 @@ function NewsletterSignup({ data }) {
   return (
     <Layout title={siteTitle}>
       <SEO title="Newsletter-Signup" />
-      <PageDescription image="/img/newsletter/NewsletterPage.svg" title="">
+      <PageDescription
+        image="/img/newsletter/NewsletterPage.svg"
+        title=""
+        alt="newsletter logo"
+      >
         <EmailCapture
           heading="Newsletter"
           bodyCopy1="Subscribe to our HPE Developer Newsletter 

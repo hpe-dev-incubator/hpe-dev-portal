@@ -52,7 +52,12 @@ function PlatformTemplate({ data }) {
       <Box flex overflow="auto" gap="medium" pad="small">
         <Box flex={false} direction="row-responsive">
           <Box pad={{ vertical: 'large', horizontal: 'large' }}>
-            <Image width="216px" height="216px" src={image} />
+            <Image
+              width="216px"
+              height="216px"
+              src={image}
+              alt="platform logo"
+            />
           </Box>
           <Content gap="medium" margin={{ vertical: 'large' }}>
             <Heading margin="none">{title}</Heading>

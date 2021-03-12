@@ -43,7 +43,7 @@ const EventCard = ({ node, ...rest }) => (
       </Box>
       <Box>
         {node.frontmatter.image && (
-          <Image fit="contain" src={node.frontmatter.image} />
+          <Image fit="contain" src={node.frontmatter.image} alt="event logo" />
         )}
       </Box>
     </Box>

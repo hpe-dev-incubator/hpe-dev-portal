@@ -37,7 +37,11 @@ function Events({ data }) {
   return (
     <Layout title={siteTitle}>
       <SEO title="Events" />
-      <PageDescription image="/img/events/EventsPage.svg" title="Events">
+      <PageDescription
+        image="/img/events/EventsPage.svg"
+        title="Events"
+        alt="events page logo"
+      >
         <Box gap="small">
           <Box>
             <Paragraph>
