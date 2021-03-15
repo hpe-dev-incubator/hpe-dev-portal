@@ -41,7 +41,7 @@ function CampaignTemplate({ data }) {
             pad={{ vertical: 'large', horizontal: 'medium' }}
             direction="column"
           >
-            {authorimage && <Image src={authorimage} />}
+            {authorimage && <Image src={authorimage} alt="author logo" />}
           </Box>
           <Content gap="large" margin={{ vertical: 'large' }}>
             <Box gap="small">

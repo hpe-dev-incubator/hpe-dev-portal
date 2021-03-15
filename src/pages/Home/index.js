@@ -96,7 +96,9 @@ const Home = ({ data }) => {
     <Layout title={siteTitle}>
       <SEO title={title} />
       <Box direction="row-responsive" pad="xlarge" gap="xlarge" align="center">
-        <Box align="center">{image && <Image src={image} />}</Box>
+        <Box align="center">
+          {image && <Image src={image} alt="hpedev logo" />}
+        </Box>
         <TitleMarkdown>{data.markdownRemark.rawMarkdownBody}</TitleMarkdown>
       </Box>
       <Box flex={false} direction="row-responsive" wrap margin="medium">

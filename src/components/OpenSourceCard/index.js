@@ -39,7 +39,13 @@ const OpenSourceCard = ({
     <Box gap="small" direction="row-responsive" wrap>
       <Box alignSelf="center">
         {image && (
-          <Image width="216px" height="216px" fit="contain" src={image} />
+          <Image
+            width="216px"
+            height="216px"
+            fit="contain"
+            src={image}
+            alt="opensource logo"
+          />
         )}
         {stars && (
           <Box direction="row" gap="xsmall" pad={{ top: 'xsmall' }}>

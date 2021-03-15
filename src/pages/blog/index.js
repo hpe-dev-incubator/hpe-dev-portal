@@ -51,7 +51,11 @@ function Blog({ data }) {
   return (
     <Layout title={siteTitle}>
       <SEO title="Blog" />
-      <PageDescription image="/img/blogs/blogs.svg" title="Blog">
+      <PageDescription
+        image="/img/blogs/blogs.svg"
+        title="Blog"
+        alt="blog page logo"
+      >
         <Paragraph>
           Sharing expertise is a great way to move technology forward. Browse
           through our library of tutorials and articles to learn new ways to do

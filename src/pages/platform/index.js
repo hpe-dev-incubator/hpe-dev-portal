@@ -42,6 +42,7 @@ function Platform({ data }) {
       <PageDescription
         image="/img/platforms/PlatformsPage.svg"
         title="Platforms"
+        alt="platform page logo"
       >
         <Paragraph>
           Supporting developers, data scientists, and architects is what we do.

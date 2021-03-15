@@ -11,7 +11,9 @@ const PlatformCard = ({ description, link, image, title }) => (
     onClick={link ? () => navigate(link) : undefined}
   >
     <Box direction="row-responsive" gap="large" align="center">
-      <Box flex>{image && <Image fit="contain" src={image} />}</Box>
+      <Box flex>
+        {image && <Image fit="contain" src={image} alt="platform logo" />}
+      </Box>
       <Box flex>
         <Heading margin="none" level="3" size="small">
           {title}
