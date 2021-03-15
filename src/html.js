@@ -6,12 +6,30 @@ export default function HTML(props) {
   return (
     <html lang="en" {...props.htmlAttributes}>
       <head>
-        <meta charSet="utf-8" />
-        <meta httpEquiv="x-ua-compatible" content="ie=edge" />
+        <meta charSet="UTF-8" />
+        <meta content="text/html; charset=utf-8" httpEquiv="Content-Type" />
+        <meta
+          content="Find the resources you need to design and build the best possible software experiences that harness the most value from your data. Connect through the HPE Developer Community to build, communicate, and collaborate. We’re all developing something. Come join us in making the future."
+          name="description"
+        />
+        <meta content="hpexpnontridion" name="hp_design_version" />
+        <meta content="IE=edge" httpEquiv="X-UA-Compatible" />
+        <meta
+          content="HPE Developer Community Portal, HPE Dev Portal, Developers, Developer Community"
+          name="keywords"
+        />
+        <meta httpEquiv="Content-Language" content="en" />
+        <meta content="support" name="lifecycle" />
+        <meta name="robots" content="follow, index" />
+        <meta name="segment" content="corporate" />
+        <meta name="target_country" content="us" />
+        <meta name="web_section_id" content="R11852" />
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
+        <meta content="CORP" name="bu" />
+        <meta content="products" name="page_content" />
         {props.headComponents}
         <style
           dangerouslySetInnerHTML={{
