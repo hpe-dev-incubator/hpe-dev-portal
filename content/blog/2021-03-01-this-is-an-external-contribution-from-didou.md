@@ -1,7 +1,7 @@
 ---
 title: This is an external contribution from Didou
 date: 2021-03-01T21:55:31.256Z
-author: Didou
+author: Didou II
 authorimage: https://gravatar.com/avatar/7dd708edf1c50d4c45da80f60e3643e7?s=192
 ---
 ## What is Lorem Ipsum?
