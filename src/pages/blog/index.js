@@ -21,7 +21,7 @@ const columns = {
   xlarge: ['flex', 'flex', 'flex', 'flex'],
 };
 
-function Blog({ data }) {
+function Blog({ data, location }) {
   const featuredposts = data.featuredblogs.edges;
   const siteMetadata = useSiteMetadata();
   const siteTitle = siteMetadata.title;
@@ -34,6 +34,12 @@ function Blog({ data }) {
   useEffect(() => {
     setCollectionId(latestPage.collection.id);
   }, []);
+
+  useEffect(() => {
+    if (location.state.scrollTo) {
+      window.scrollTo(0, location.state.scrollTo);
+    }
+  }, [location.state.scrollTo]);
 
   const loadNextPage = useCallback(async () => {
     if (!latestPage.hasNextPage) return;
@@ -147,6 +153,21 @@ Blog.propTypes = {
       }),
     }).isRequired,
   }).isRequired,
+  location: PropTypes.shape({
+    hash: PropTypes.string,
+    host: PropTypes.string,
+    hostname: PropTypes.string,
+    href: PropTypes.string,
+    key: PropTypes.string,
+    origin: PropTypes.string,
+    pathname: PropTypes.string,
+    port: PropTypes.string,
+    protocol: PropTypes.string,
+    state: PropTypes.shape({
+      key: PropTypes.string,
+      scrollTo: PropTypes.number,
+    }),
+  }),
 };
 
 export default Blog;

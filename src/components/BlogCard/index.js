@@ -39,8 +39,10 @@ export const BlogCard = ({ node, ...rest }) => (
     wrap
     onClick={
       node.fields.slug && node.fields.sourceInstanceName
-        ? () =>
-            navigate(`/${node.fields.sourceInstanceName}${node.fields.slug}`)
+        ? (e) =>
+            navigate(`/${node.fields.sourceInstanceName}${node.fields.slug}`, {
+              state: { position: e.nativeEvent.pageY },
+            })
         : undefined
     }
   >
