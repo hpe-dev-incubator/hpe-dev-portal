@@ -21,7 +21,7 @@ const columns = {
   xlarge: ['flex', 'flex', 'flex', 'flex'],
 };
 
-function Blog({ data, location }) {
+function Blog({ data }) {
   const featuredposts = data.featuredblogs.edges;
   const siteMetadata = useSiteMetadata();
   const siteTitle = siteMetadata.title;
@@ -32,14 +32,29 @@ function Blog({ data, location }) {
   const [collectionId, setCollectionId] = useState(initialPage.collection.id);
 
   useEffect(() => {
-    setCollectionId(latestPage.collection.id);
+    setCollectionId(initialPage.collection.id);
+
+    const localStorageLatestPage = JSON.parse(
+      localStorage.getItem('latestPage'),
+    );
+    const localStorageLatestBlogPosts = JSON.parse(
+      localStorage.getItem('latestBlogPosts'),
+    );
+
+    if (localStorageLatestPage && localStorageLatestBlogPosts) {
+      setLatestPage(localStorageLatestPage);
+      setBlogPosts(localStorageLatestBlogPosts);
+    }
   }, []);
 
   useEffect(() => {
-    if (location.state.scrollTo) {
-      window.scrollTo(0, location.state.scrollTo);
+    const scrollPosition = JSON.parse(localStorage.getItem('position'));
+    if (scrollPosition) {
+      setTimeout(() => {
+        window.scrollTo({ top: scrollPosition, left: 0, behavior: 'smooth' });
+      }, 100);
     }
-  }, [location.state.scrollTo]);
+  }, []);
 
   const loadNextPage = useCallback(async () => {
     if (!latestPage.hasNextPage) return;
@@ -52,7 +67,13 @@ function Blog({ data, location }) {
 
     setBlogPosts((state) => [...state, ...json.nodes]);
     setLatestPage(json);
-  }, [latestPage, collectionId]);
+
+    localStorage.setItem(
+      'latestBlogPosts',
+      JSON.stringify([...blogPosts, ...json.nodes]),
+    );
+    localStorage.setItem('latestPage', JSON.stringify(json));
+  }, [latestPage, collectionId, blogPosts]);
 
   return (
     <Layout title={siteTitle}>
@@ -153,21 +174,6 @@ Blog.propTypes = {
       }),
     }).isRequired,
   }).isRequired,
-  location: PropTypes.shape({
-    hash: PropTypes.string,
-    host: PropTypes.string,
-    hostname: PropTypes.string,
-    href: PropTypes.string,
-    key: PropTypes.string,
-    origin: PropTypes.string,
-    pathname: PropTypes.string,
-    port: PropTypes.string,
-    protocol: PropTypes.string,
-    state: PropTypes.shape({
-      key: PropTypes.string,
-      scrollTo: PropTypes.number,
-    }),
-  }),
 };
 
 export default Blog;

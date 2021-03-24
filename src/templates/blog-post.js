@@ -44,7 +44,7 @@ const rows = {
   xlarge: ['auto'],
 };
 
-function BlogPostTemplate({ data, location: { state } }) {
+function BlogPostTemplate({ data }) {
   const { post } = data;
   const blogsByTags = data.blogsByTags.edges;
   const siteMetadata = useSiteMetadata();
@@ -127,7 +127,6 @@ function BlogPostTemplate({ data, location: { state } }) {
             icon={<FormPreviousLink />}
             label="Go to Blog Page"
             to="/blog"
-            scrollTo={state.position}
           />
         </Box>
       </Box>
@@ -177,21 +176,6 @@ BlogPostTemplate.propTypes = {
       ).isRequired,
     }).isRequired,
   }).isRequired,
-  location: PropTypes.shape({
-    hash: PropTypes.string,
-    host: PropTypes.string,
-    hostname: PropTypes.string,
-    href: PropTypes.string,
-    key: PropTypes.string,
-    origin: PropTypes.string,
-    pathname: PropTypes.string,
-    port: PropTypes.string,
-    protocol: PropTypes.string,
-    state: PropTypes.shape({
-      key: PropTypes.string,
-      position: PropTypes.number,
-    }),
-  }),
 };
 
 export default BlogPostTemplate;

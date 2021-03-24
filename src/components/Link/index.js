@@ -37,7 +37,7 @@ export const ButtonLink = ({ to, scrollTo, ...rest }) => (
   <Button
     href={to}
     onClick={(ev) => {
-      navigate(to, { state: { scrollTo } });
+      navigate(to);
       ev.preventDefault();
     }}
     {...rest}
