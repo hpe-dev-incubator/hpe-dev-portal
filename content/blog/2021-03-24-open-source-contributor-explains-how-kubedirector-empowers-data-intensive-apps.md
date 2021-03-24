@@ -64,4 +64,4 @@ The next big ticket item for me to work on is to tighten up the security. I’m 
 Robert Noyce, co-founder of Intel Corporation, once said “Knowledge shared is power multiplied.” I’m a huge fan of this quote. I feel as though open source projects are the biggest testament to the power of knowledge sharing. It gives me immense pleasure in being able to learn and collaborate with people worldwide, as being a part of the open source community helps me grow as an engineer and lift others as well.
  
 To learn more about the open source projects that HPE is involved with, please visit [our website](https://www.hpe.com/us/en/open-source.html). Interested in exploring what HPE offers for developers and data scientists? Check out our [HPE DEV site](https://developer.hpe.com/) for a ton of articles, workshops, tutorials, and other resources.
-
+
