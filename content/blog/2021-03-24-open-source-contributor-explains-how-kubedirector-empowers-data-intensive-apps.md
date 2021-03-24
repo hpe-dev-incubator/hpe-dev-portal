@@ -19,6 +19,7 @@ After having graduated with his MS in computer science from Indiana University B
 ## How did you get started with open source technologies?
 
 
+
 I first started contributing to open source for a project that lets you query Cassandra tables using sparkSQL. But honestly, almost any piece of software that I’ve written or consumed was based on open source projects or libraries in some capacity. In my role at BlueData, I first used KubeDirector to orchestrate Big Data and ML pipelines, but then I started contributing as well. I found it so engaging that I’m currently the leading contributor and maintainer for the KubeDirector project.
 
 
