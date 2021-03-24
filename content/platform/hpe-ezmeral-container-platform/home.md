@@ -1,11 +1,11 @@
 ---
-priority: 1
-width: large
 title: HPE Ezmeral Container Platform
 version: v 2.01.8964
 description: A turnkey enterprise-grade container platform for cloud-native and
   distributed non-cloud native applications with open source Kubernetes.
 image: /img/platforms/EzmeralContainerPatform.svg
+width: large
+priority: 1
 frontpage: true
 tags:
   - hpe-ezmeral-container-platform
@@ -75,6 +75,8 @@ Learn about how to perform many common tasks with the HPE Ezmeral Container Plat
 ### [KubeDirector ![](Github)](https://github.com/bluek8s/kubedirector) 
 
   Kubernetes Director (aka KubeDirector) for deploying and managing stateful applications on Kubernetes.
+
+- [Explore the KubeDirector Documentation](https://kubedirector.io/)
 
 # Workshops-on-Demand
 
