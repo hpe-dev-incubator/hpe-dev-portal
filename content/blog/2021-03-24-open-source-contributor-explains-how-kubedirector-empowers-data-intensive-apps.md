@@ -8,6 +8,8 @@ tags:
   - hpe-ezmeral-container-platform
   - opensource
 ---
+![Kartik Mathur](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2021/3/kartik-blog-small-1616160879068.jpg)
+
 As a leading global, **edge-to-cloud platform-as-a-service company**, Hewlett Packard Enterprise (HPE) prides itself in employing team members who share one common purpose: to advance the way people live and work. In this blog series, you’ll get to meet a number of them as I interview some of the [open source](https://www.hpe.com/us/en/open-source.html) experts who make up the HPE team.
  
 
