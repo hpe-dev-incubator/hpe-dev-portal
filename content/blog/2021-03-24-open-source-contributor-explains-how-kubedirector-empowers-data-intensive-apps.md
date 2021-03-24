@@ -13,7 +13,7 @@ tags:
 As a leading global, **edge-to-cloud platform-as-a-service company**, Hewlett Packard Enterprise (HPE) prides itself in employing team members who share one common purpose: to advance the way people live and work. In this blog series, you’ll get to meet a number of them as I interview some of the [open source](https://www.hpe.com/us/en/open-source.html) experts who make up the HPE team.
  
 
-After having graduated with his MS in computer science from Indiana University Bloomington with a research focus on parallel computing and distributed systems, Kartik Mathur started his professional career at AMD. He then worked at several technology startup companies, including Bluedata, which was acquired by HPE in 2019. Kartik is currently a Master Technologist at HPE and leads the MLOps initiatives on the HPE Ezmeral Software Platform. He has a keen interest in container orchestration for large scale data processing clusters and is a major contributor to the KubeDirector open source project.
+After having graduated with his MS in computer science from Indiana University Bloomington with a research focus on parallel computing and distributed systems, Kartik Mathur started his professional career at AMD. He then worked at several technology startup companies, including BlueData, which was acquired by HPE in 2019. Kartik is currently a Master Technologist at HPE and leads the MLOps initiatives on the HPE Ezmeral Software Platform. He has a keen interest in container orchestration for large scale data processing clusters and is a major contributor to the KubeDirector open source project.
   
 
 ## How did you get started with open source technologies?
