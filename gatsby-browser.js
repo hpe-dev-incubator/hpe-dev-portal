@@ -4,6 +4,7 @@ export const onRouteUpdate = ({ location, prevLocation }) => {
       state: {
         ...location.state,
         prevPath: prevLocation ? prevLocation.pathname : null,
-      }
-    })
+      },
+    });
+    return null;
 };
