@@ -33,7 +33,7 @@ ExternalButtonLink.propTypes = {
   to: PropTypes.string,
 };
 
-export const ButtonLink = ({ to, scrollTo, ...rest }) => (
+export const ButtonLink = ({ to, ...rest }) => (
   <Button
     href={to}
     onClick={(ev) => {
@@ -46,5 +46,4 @@ export const ButtonLink = ({ to, scrollTo, ...rest }) => (
 
 ButtonLink.propTypes = {
   to: PropTypes.string,
-  scrollTo: PropTypes.number,
 };

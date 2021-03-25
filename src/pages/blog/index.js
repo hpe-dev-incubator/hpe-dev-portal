@@ -21,7 +21,7 @@ const columns = {
   xlarge: ['flex', 'flex', 'flex', 'flex'],
 };
 
-function Blog({ data }) {
+function Blog({ data, location }) {
   const featuredposts = data.featuredblogs.edges;
   const siteMetadata = useSiteMetadata();
   const siteTitle = siteMetadata.title;
@@ -49,12 +49,18 @@ function Blog({ data }) {
 
   useEffect(() => {
     const scrollPosition = JSON.parse(localStorage.getItem('position'));
+
+    if (location.state.prevPath && !location.state.prevPath.includes('/blog')) {
+      window.scrollTo(0, 0);
+      return;
+    }
+
     if (scrollPosition) {
       setTimeout(() => {
         window.scrollTo({ top: scrollPosition, left: 0, behavior: 'smooth' });
       }, 100);
     }
-  }, []);
+  }, [location.state.prevPath]);
 
   const loadNextPage = useCallback(async () => {
     if (!latestPage.hasNextPage) return;
@@ -174,6 +180,11 @@ Blog.propTypes = {
       }),
     }).isRequired,
   }).isRequired,
+  location: PropTypes.shape({
+    state: PropTypes.shape({
+      prevPath: PropTypes.string,
+    }),
+  }),
 };
 
 export default Blog;
