@@ -60,7 +60,7 @@ function Blog({ data, location }) {
         window.scrollTo({ top: scrollPosition, left: 0, behavior: 'smooth' });
       }, 100);
     }
-  }, [location.state.prevPath]);
+  }, []);
 
   const loadNextPage = useCallback(async () => {
     if (!latestPage.hasNextPage) return;
