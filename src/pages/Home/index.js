@@ -62,7 +62,7 @@ const Project = ({ image, title, description, link }) => (
     }
   >
     <Box flex={false} height="xsmall" width="xsmall">
-      <Image src={image} fit="contain" />
+      <Image src={image} fit="contain" alt="opensource project logo" />
     </Box>
     <Box>
       <Text size="large" weight="bold">

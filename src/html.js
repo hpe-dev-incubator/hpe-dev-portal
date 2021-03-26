@@ -6,14 +6,10 @@ export default function HTML(props) {
   return (
     <html lang="en" {...props.htmlAttributes}>
       <head>
+        <meta content="IE=edge" httpEquiv="X-UA-Compatible" />
         <meta charSet="UTF-8" />
         <meta content="text/html; charset=utf-8" httpEquiv="Content-Type" />
-        <meta
-          content="Find the resources you need to design and build the best possible software experiences that harness the most value from your data. Connect through the HPE Developer Community to build, communicate, and collaborate. We’re all developing something. Come join us in making the future."
-          name="description"
-        />
-        <meta content="hpexpnontridion" name="hp_design_version" />
-        <meta content="IE=edge" httpEquiv="X-UA-Compatible" />
+        <meta content="hpe.1.0" name="hp_design_version" />
         <meta
           content="HPE Developer Community Portal, HPE Dev Portal, Developers, Developer Community"
           name="keywords"
@@ -22,7 +18,7 @@ export default function HTML(props) {
         <meta content="support" name="lifecycle" />
         <meta name="robots" content="follow, index" />
         <meta name="segment" content="corporate" />
-        <meta name="target_country" content="us" />
+        <meta name="target_country" content="ww" />
         <meta name="web_section_id" content="R11852" />
         <meta
           name="viewport"
@@ -62,6 +58,8 @@ export default function HTML(props) {
         <div
           dangerouslySetInnerHTML={{
             __html: `
+        <script type="text/javascript" src="https://www.hpe.com/global/metrics/easy/basic_measurement.js"></script>
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
         <script type="text/javascript">	
           function pageLoaded() {
             var header = document.getElementById('hpe_slim_header');	
@@ -79,7 +77,14 @@ export default function HTML(props) {
           }
 
           if (window.addEventListener) window.addEventListener('DOMContentLoaded', pageLoaded, false);	
-          else if (window.attachEvent) window.attachEvent('onload', pageLoaded);	
+          else if (window.attachEvent) window.attachEvent('onload', pageLoaded);
+          window.digitalData = {
+              page: {
+                  pageInfo: {
+                      breadCrumbs: ['v2.0', 'us', 'en', 'nonaem:developer', 'devhome']
+                  }
+              }
+          }
         </script>
         `,
           }}
