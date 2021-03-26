@@ -46,7 +46,7 @@ function Blog({ data, location }) {
       setBlogPosts(localStorageLatestBlogPosts);
     }
 
-    if (location.state.isBlogHeaderClicked) {
+    if (location.state && location.state.isBlogHeaderClicked) {
       setLatestPage(initialPage);
       setBlogPosts(initialPage.nodes);
       localStorage.clear();
