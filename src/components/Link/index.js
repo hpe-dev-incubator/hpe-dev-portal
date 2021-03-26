@@ -33,11 +33,11 @@ ExternalButtonLink.propTypes = {
   to: PropTypes.string,
 };
 
-export const ButtonLink = ({ to, ...rest }) => (
+export const ButtonLink = ({ to, state, ...rest }) => (
   <Button
     href={to}
     onClick={(ev) => {
-      navigate(to);
+      navigate(to, state);
       ev.preventDefault();
     }}
     {...rest}
@@ -46,4 +46,7 @@ export const ButtonLink = ({ to, ...rest }) => (
 
 ButtonLink.propTypes = {
   to: PropTypes.string,
+  state: PropTypes.shape({
+    isBlogHeaderClicked: PropTypes.bool,
+  }),
 };

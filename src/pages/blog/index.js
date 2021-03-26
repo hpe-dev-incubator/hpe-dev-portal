@@ -45,15 +45,16 @@ function Blog({ data, location }) {
       setLatestPage(localStorageLatestPage);
       setBlogPosts(localStorageLatestBlogPosts);
     }
-  }, []);
+
+    if (location.state.isBlogHeaderClicked) {
+      setLatestPage(initialPage);
+      setBlogPosts(initialPage.nodes);
+      localStorage.clear();
+    }
+  }, [initialPage, location]);
 
   useEffect(() => {
     const scrollPosition = JSON.parse(localStorage.getItem('position'));
-
-    if (location.state.prevPath && !location.state.prevPath.includes('/blog')) {
-      window.scrollTo(0, 0);
-      return;
-    }
 
     if (scrollPosition) {
       setTimeout(() => {
@@ -182,7 +183,7 @@ Blog.propTypes = {
   }).isRequired,
   location: PropTypes.shape({
     state: PropTypes.shape({
-      prevPath: PropTypes.string,
+      isBlogHeaderClicked: PropTypes.bool,
     }),
   }),
 };
