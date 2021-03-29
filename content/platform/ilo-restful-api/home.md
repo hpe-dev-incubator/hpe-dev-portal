@@ -1,10 +1,10 @@
 ---
-priority: 7
-width: medium
 title: iLO RESTful API
 version: v 6.01.8964
 description: Redfish® API conformant for simple and automate remote HPE Server management.
 image: /img/platforms/iLOrestfulAPI.svg
+width: medium
+priority: 7
 frontpage: true
 tags:
   - ilo-restful-api
@@ -20,6 +20,8 @@ A single API interface integrates server management components and full compute 
 Obtain simple, secure management of today’s scalable data center hardware with the Redfish API ecosystem. It’s an open industry-standard specification and schema that helps you integrate solutions within your existing tools. Published by the Distributed Management Task Force ([DMTF](http://www.dmtf.org/standards/redfish)), it’s ideal for cloud and web-based infrastructures, which typically have large quantities of servers in heterogeneous environments.
 
 * [Read about Redfish on iLO RESTful API](https://h20195.www2.hpe.com/V2/GetDocument.aspx?docname=4AA6-1727ENW)
+
+* [Redfish Client Tools](https://youtu.be/ur9UKRV_0S8)
 
 # GitHub Repositories
 
