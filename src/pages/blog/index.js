@@ -1,6 +1,6 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { graphql, withPrefix } from 'gatsby';
+import { graphql, withPrefix, navigate } from 'gatsby';
 import { Box, Button, Paragraph } from 'grommet';
 import { FormDown } from 'grommet-icons';
 import {
@@ -47,6 +47,7 @@ function Blog({ data, location }) {
     }
 
     if (location.state && location.state.isBlogHeaderClicked) {
+      navigate('/blog', { replace: true });
       setLatestPage(initialPage);
       setBlogPosts(initialPage.nodes);
       localStorage.clear();
