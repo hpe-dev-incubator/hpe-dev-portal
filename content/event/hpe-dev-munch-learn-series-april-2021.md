@@ -1,5 +1,5 @@
 ---
-title: HPE DEV Munch & Learn Series April 2021
+title: HPE DEV Munch & Learn series April 2021
 dateStart: 2021-04-21T16:00:51.279Z
 dateEnd: 2021-04-21T17:00:51.298Z
 category: Virtual Event
