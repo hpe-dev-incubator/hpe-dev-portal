@@ -117,17 +117,21 @@ export const EmailCapture = ({ children, heading, bodyCopy1, bodyCopy2 }) => {
             <TextInput placeholder="example@my.com" name="email" />
           </FormField>
           <Box margin={{ top: 'medium' }} gap="medium">
-            <Text>
-              By clicking on “Subscribe Now”, you confirm that you have read and
-              agreed to the Terms & Conditions of{' '}
+            <Paragraph margin="none">
+              By submitting this form you agree to HPE sending me personalized
+              email communications about HPE and select HPE-partner products,
+              services, offers and events. I understand that my email will be
+              used in accordance with{' '}
               <Anchor
-                label="HPE's Privacy Policy"
+                label="HPE Privacy Policy"
                 href="https://www.hpe.com/us/en/legal/privacy.html"
                 target="_blank"
                 rel="noreferrer noopener"
               />
-              .
-            </Text>
+              . You may unsubscribe from receiving HPE and HPE-partner news and
+              offers at any time by clicking on the Unsubscribe button at the
+              bottom of the newsletter.
+            </Paragraph>
             <Button
               alignSelf="start"
               label="Subscribe Now"
