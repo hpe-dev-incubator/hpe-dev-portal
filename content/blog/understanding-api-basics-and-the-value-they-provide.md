@@ -290,4 +290,4 @@ As you can see, a fair amount of information is provided by the API, including l
 
 Congratulations! You have placed your first API calls using Postman. This simple API only accepted GET calls, so one might argue everything could have been handled by a standard browser. The advantage of using Postman is that you can save your calls and start building collections of API calls that are useful in your job. We used a very limited API to get the weather report in Paris, but the exact same technique (using Postman) could be applied with other REST APIs, such as the ones from HPE OneView, HPE SimpliVity or HPE iLO. I plan on discussing these in future articles.
 
-If you have questions or want to connect, you can reach me on Twitter [@DidierLalli.](https://twitter.com/DidierLalli) In addition, don’t forget to keep an eye out on the [HPE DEV blog site](https://developer.hpe.com/blog) for future articles on this topic. 
+If you have questions or want to connect, you can reach me on Twitter [@DidierLalli.](https://twitter.com/DidierLalli) In addition, don’t forget to keep an eye out on the [HPE DEV blog site](/blog) for future articles on this topic. 

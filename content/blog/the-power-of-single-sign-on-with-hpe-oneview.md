@@ -49,4 +49,4 @@ From the response, we get a link to the iLO remote console of that server, but w
 
 ![5bf2e1a0cd93d0796238ae01-blog-content-1562874569156](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2019/5/picture7-1562874569155.png)
 
-As you can see, single sign-on is an easy, yet powerful, way to use different tools with minimum hassle. I hope you found this tutorial useful. Please continue to follow our [blog posts](https://developer.hpe.com/blog) for more ways to optimize your software development environment. I would be very interested to see how you are creating your own shortcuts. Feel free to connect with me and the team on [Slack](https://slack.hpedev.io/) to share your experiences and ask questions.
+As you can see, single sign-on is an easy, yet powerful, way to use different tools with minimum hassle. I hope you found this tutorial useful. Please continue to follow our [blog posts](/blog) for more ways to optimize your software development environment. I would be very interested to see how you are creating your own shortcuts. Feel free to connect with me and the team on [Slack](https://slack.hpedev.io/) to share your experiences and ask questions.

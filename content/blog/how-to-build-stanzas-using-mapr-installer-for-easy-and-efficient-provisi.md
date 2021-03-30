@@ -72,4 +72,4 @@ MapR Installer Stanzas come with the following set of commands that can be execu
 2.  [Review the detailed documentation here](https://docs.datafabric.hpe.com/61/AdvancedInstallation/Stanzas/SilentInstaller.html).  
 3.  Start building new clusters!  
 
-To view more articles on this topic, be sure to check back regularly on the [HPE DEV blog site](https://developer.hpe.com/blog).
+To view more articles on this topic, be sure to check back regularly on the [HPE DEV blog site](/blog).

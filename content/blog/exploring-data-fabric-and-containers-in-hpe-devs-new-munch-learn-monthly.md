@@ -42,4 +42,4 @@ During the next session, February 24th, Nigel Poulton hosted Tom Phelan, HPE Fel
 
 As part of the discussion, Tom described how containers require less system resources than traditional virtual machine environments, allowing applications to be deployed more easily and run on different operating systems and hardware platforms. Tom also explained how the HPE Ezmeral Machine Learning Operations package helps support collaboration between data scientists.
 
-To view what’s up for our next Munch & Learn session, check out our [schedule](https://developer.hpe.com/blog/munch-and-learn).
+To view what’s up for our next Munch & Learn session, check out our [schedule](/blog/munch-and-learn).

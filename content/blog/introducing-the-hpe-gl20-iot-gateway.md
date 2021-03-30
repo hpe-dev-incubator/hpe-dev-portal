@@ -90,9 +90,9 @@ In this tutorial, I have shown you two ways to write a simple Python script to a
     
 I just wanted to note that using `time.sleep(1)` as a delay is not always a wise option when it comes to writing an embedded application. During delay, Python does nothing but wait one second, which causes inefficiency in your code. Concurrency in Python like threading or multiprocessing is recommended. However, this really isn't today's topic. If you want to learn more about this, you might want to check out these blog posts on Python Concurrency.     
 
-•	[HPE Developer | Understanding Concurrency in Python Part 1 – Threading](https://developer.hpe.com/blog/understanding-concurrency-in-python-part-1-threading)    
-•	[HPE Developer | Understanding Concurrency in Python Part 2 – Multiprocessing](https://developer.hpe.com/blog/understanding-concurrency-in-python-part-2-multiprocessing)    
-•	[HPE Developer | Understanding Concurrency in Python Part 3 – Asyncio](https://developer.hpe.com/blog/understanding-concurrency-in-python-part-3-asyncio)    
+•	[HPE Developer | Understanding Concurrency in Python Part 1 – Threading](/blog/understanding-concurrency-in-python-part-1-threading)    
+•	[HPE Developer | Understanding Concurrency in Python Part 2 – Multiprocessing](/blog/understanding-concurrency-in-python-part-2-multiprocessing)    
+•	[HPE Developer | Understanding Concurrency in Python Part 3 – Asyncio](/blog/understanding-concurrency-in-python-part-3-asyncio)    
 •	[concurrent.futures — Launching parallel tasks](https://docs.python.org/3/library/concurrent.futures.html)     
 
 Another quick note for you: sometimes you might require serial/USART communications with other devices. A Python module called **_PySerial_** is handy for dealing with serial communications.     

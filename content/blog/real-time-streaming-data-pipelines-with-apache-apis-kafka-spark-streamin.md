@@ -291,5 +291,5 @@ In this blog post, you learned how the MapR Data Platform integrates Hadoop and 
 **References and More Information:**
 
 *   [Free Online training ](https://learn.ezmeral.software.hpe.com/)
-*   [Getting Started with MapR Event Store Blog](https://developer.hpe.com/blog/8nDR4EW79KclyzwBwR5z/getting-started-with-mapr-event-store)
+*   [Getting Started with MapR Event Store Blog](/blog/8nDR4EW79KclyzwBwR5z/getting-started-with-mapr-event-store)
 *   <a target='\_blank'  href='http://spark.apache.org/docs/latest/streaming-programming-guide.html'>Apache Spark Streaming Programming Guide</a>

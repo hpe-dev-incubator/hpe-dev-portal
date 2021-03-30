@@ -17,7 +17,7 @@ thumbnailimage:
 
 ---
 
-With Apache Spark 2.0 and later versions, big improvements were implemented to make Spark easier to program and execute faster. The Spark SQL and the Dataset/DataFrame APIs provide ease of use, space efficiency, and performance gains with Spark SQL's optimized execution engine. In this blog post we will give an introduction to Spark Datasets, DataFrames and Spark SQL. This is part 2 of a multi-blog series. You can read [part 1 here](https://developer.hpe.com/blog/4jqBP6MO3rc1Yy0QjMOq/spark-101-what-is-it-what-it-does-and-why-it-matters).
+With Apache Spark 2.0 and later versions, big improvements were implemented to make Spark easier to program and execute faster. The Spark SQL and the Dataset/DataFrame APIs provide ease of use, space efficiency, and performance gains with Spark SQL's optimized execution engine. In this blog post we will give an introduction to Spark Datasets, DataFrames and Spark SQL. This is part 2 of a multi-blog series. You can read [part 1 here](/blog/4jqBP6MO3rc1Yy0QjMOq/spark-101-what-is-it-what-it-does-and-why-it-matters).
 
 **Editor’s Note:** MapR products referenced are now part of the [HPE Ezmeral Data Fabric](https://www.hpe.com/us/en/software/data-fabric.html).
 

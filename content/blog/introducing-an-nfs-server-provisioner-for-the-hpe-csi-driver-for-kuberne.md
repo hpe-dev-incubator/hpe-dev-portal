@@ -192,7 +192,7 @@ persistentvolumeclaim/my-other-rwx-pvc
 service/hpe-nfs-053b6374-db9c-46c9-94d9-d3c3e59a55e4
 ```
 
-The user may now use the requesting claim as a `dataSource` in a new claim to clone it. For a comprehensive tutorial on how to use CSI snapshots and clones, check out this previous blog post: [HPE CSI Driver for Kubernetes: Snapshots, Clones and Volume Expansion](https://developer.hpe.com/blog/PklOy39w8NtX6M2RvAxW/hpe-csi-driver-for-kubernetes-snapshots-clones-and-volume-expansion)
+The user may now use the requesting claim as a `dataSource` in a new claim to clone it. For a comprehensive tutorial on how to use CSI snapshots and clones, check out this previous blog post: [HPE CSI Driver for Kubernetes: Snapshots, Clones and Volume Expansion](/blog/PklOy39w8NtX6M2RvAxW/hpe-csi-driver-for-kubernetes-snapshots-clones-and-volume-expansion)
 
 # Advanced configuration
 

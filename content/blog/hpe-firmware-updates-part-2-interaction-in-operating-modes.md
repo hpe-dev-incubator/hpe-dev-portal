@@ -9,7 +9,7 @@ priority:
 thumbnailimage:
 ---
 ## Introduction
-In [my first blog](https://developer.hpe.com/blog/hpe-firmware-updates-part-1-file-types-and-smart-components) post regarding how to deal with HPE firmware upgrades, I discussed the main objects involved:
+In [my first blog](/blog/hpe-firmware-updates-part-1-file-types-and-smart-components) post regarding how to deal with HPE firmware upgrades, I discussed the main objects involved:
 -	Firmware binary types
 -	Smart Components (SC)
 -	Update agents including Runtime Agents
@@ -120,4 +120,4 @@ Binary files `.bin, signed.bin, signed.flash, signed.vme` (CPLD), `.hex` (PIC) h
 ## Summary
 ILO 5 provides a very powerful and flexible firmware update architecture with its Repository, Installation Queue and associated Runtime Agents. However, due to the many objects involved, one must have a clear understanding of the different update paths one can use based on the different operating modes in order to build an efficient firmware update strategy. 
        
-If you remember nothing else, just remember that Smart Components requiring the presence of a Runtime Agents will stall the entire update process if none are found. This requirement can happen when OS dependent components (`.zip, .rpm`) are added to the iLO Installation Queue or when RuntimeAgents are the only update agent listed in the SC metadata file, no matter the type of SC (`.fwpkg, .exe`…). Don’t forget to check back on the [HPE DEV blog](https://developer.hpe.com/blog) for more blog posts related to this subject.
+If you remember nothing else, just remember that Smart Components requiring the presence of a Runtime Agents will stall the entire update process if none are found. This requirement can happen when OS dependent components (`.zip, .rpm`) are added to the iLO Installation Queue or when RuntimeAgents are the only update agent listed in the SC metadata file, no matter the type of SC (`.fwpkg, .exe`…). Don’t forget to check back on the [HPE DEV blog](/blog) for more blog posts related to this subject.

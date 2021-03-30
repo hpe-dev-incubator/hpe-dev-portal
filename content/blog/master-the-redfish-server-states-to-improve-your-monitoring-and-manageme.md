@@ -42,7 +42,7 @@ In the following screenshot we use [ilorest](http://hpe.com/info/resttool) to ch
 
 ![Boot Order cannot be changed when in POST](https://redfish-lab.sourceforge.io/media/redfish-wiki/Master-the-Redfish-Server-States/4-CannotChangeBootOrderWhenInPost.png)
 
-In a Bios and/or storage controller configuration process, the `PostState` property plays a crucial role. As explained in [Setting Bios and Storage Controller Properties with Redfish](https://developer.hpe.com/blog/setting-bios-and-storage-controller-properties-with-redfish) this process is performed in two phases: 1 - parameter setup into a Redfish pending area. 2 - Reset / Cold Boot of the server to trigger a POST during which the new settings will be verified and transferred, if validated, from  the pending area into the active area.
+In a Bios and/or storage controller configuration process, the `PostState` property plays a crucial role. As explained in [Setting Bios and Storage Controller Properties with Redfish](/blog/setting-bios-and-storage-controller-properties-with-redfish) this process is performed in two phases: 1 - parameter setup into a Redfish pending area. 2 - Reset / Cold Boot of the server to trigger a POST during which the new settings will be verified and transferred, if validated, from  the pending area into the active area.
 
 When the modifications are not validated during the second phase a message explaining the problem can be retrieved once the server is in the `InPostDiscoveryComplete` or `FinishedPost` states.
 

@@ -14,7 +14,7 @@ Recently, I spent time learning TypeScript, a typed superset of JavaScript that 
 
 ## Step 1
 
-To get started, you might want to check out another blog in which Ian Bovard does a great job going step-by-step in helping you install Grommet into your Create React application - [Using Your First Grommet Component with Create-React-App.](https://developer.hpe.com/blog/using-your-first-grommet-component-with-create-react-app) You can add TypeScript to any of your projects, at any point, if this is something you’d like to try. 
+To get started, you might want to check out another blog in which Ian Bovard does a great job going step-by-step in helping you install Grommet into your Create React application - [Using Your First Grommet Component with Create-React-App.](/blog/using-your-first-grommet-component-with-create-react-app) You can add TypeScript to any of your projects, at any point, if this is something you’d like to try. 
 
 ## Step 2 
 
@@ -43,7 +43,7 @@ As you go through your files, change the App.js to App.tsx. This will trigger th
 
 ![screen shot 2019 09 09 at 12.22.30 pm](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2019/8/screen-shot-2019-09-09-at-122230-pm-1568053417737.png)
 
-Following my own suggestion for this example, I will start with the Heading component that was used in [Ian’s blog:](https://developer.hpe.com/blog/using-your-first-grommet-component-with-create-react-app)
+Following my own suggestion for this example, I will start with the Heading component that was used in [Ian’s blog:](/blog/using-your-first-grommet-component-with-create-react-app)
 
 
 ```markdown

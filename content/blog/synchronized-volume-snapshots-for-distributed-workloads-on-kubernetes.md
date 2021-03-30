@@ -68,7 +68,7 @@ persistentvolumeclaim/data-my-wordpress-mariadb-secondary-0
 persistentvolumeclaim/my-wordpress
 ```
 
-Adding content to the WordPress site being deployed is completely optional as restore procedures are not covered in this tutorial. However, if you're interested in performing a restore from the `VolumeSnapshots` we're creating, please see the CSI snapshots tutorial in this [HPE DEV blog post](https://developer.hpe.com/blog/PklOy39w8NtX6M2RvAxW/hpe-csi-driver-for-kubernetes-snapshots-clones-and-volume-expansion).
+Adding content to the WordPress site being deployed is completely optional as restore procedures are not covered in this tutorial. However, if you're interested in performing a restore from the `VolumeSnapshots` we're creating, please see the CSI snapshots tutorial in this [HPE DEV blog post](/blog/PklOy39w8NtX6M2RvAxW/hpe-csi-driver-for-kubernetes-snapshots-clones-and-volume-expansion).
 
 # Volume Groups
 
