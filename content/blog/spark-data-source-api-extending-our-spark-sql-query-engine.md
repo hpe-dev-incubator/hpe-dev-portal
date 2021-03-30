@@ -20,7 +20,7 @@ thumbnailimage:
 
 ---
 
-In my last post, [Apache Spark as a Distributed SQL Engine](https://developer.hpe.com/blog/xArv3gJz67Tl0Rv0kLVn/apache-spark-as-a-distributed-sql-engine), we explained how we could use SQL to query our data stored within Hadoop. Our engine is capable of reading CSV files from a distributed file system, auto discovering the schema from the files and exposing them as tables through the Hive meta store. All this was done to be able to connect standard SQL clients to our engine and explore our dataset without manually define the schema of our files, avoiding ETL work.
+In my last post, [Apache Spark as a Distributed SQL Engine](/blog/xArv3gJz67Tl0Rv0kLVn/apache-spark-as-a-distributed-sql-engine), we explained how we could use SQL to query our data stored within Hadoop. Our engine is capable of reading CSV files from a distributed file system, auto discovering the schema from the files and exposing them as tables through the Hive meta store. All this was done to be able to connect standard SQL clients to our engine and explore our dataset without manually define the schema of our files, avoiding ETL work.
 
 Spark provides a framework that can be extended and we will push its capabilities even further by extending some of its functionalities.
 

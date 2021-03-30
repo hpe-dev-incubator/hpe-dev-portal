@@ -12,7 +12,7 @@ thumbnailimage:
 
 ## What is WOW?
 
-In my [previous post,](https://developer.hpe.com/blog/wow-a-practiced-and-perfected-design-process-part-1-uncovering-the-merit) I explained that many businesses struggle to understand the true value designers bring to a project. To help UX designers overcome this issue, I’m sharing a methodology our group developed called WOW (Why On What with customers and constructors). This workflow demonstrates how to quantify the value of the design process and provides enterprise UX designers with a practiced and perfected path to achieve success. 
+In my [previous post,](/blog/wow-a-practiced-and-perfected-design-process-part-1-uncovering-the-merit) I explained that many businesses struggle to understand the true value designers bring to a project. To help UX designers overcome this issue, I’m sharing a methodology our group developed called WOW (Why On What with customers and constructors). This workflow demonstrates how to quantify the value of the design process and provides enterprise UX designers with a practiced and perfected path to achieve success. 
 To briefly summarize, the WOW methodology helps creative teams focus on four important stages of a project:
 
 1. Uncover why the business (and this particular project) needs a UX
@@ -48,4 +48,4 @@ A strong designer–developer relationship based on mutual understanding is key 
 
 By this point in using a UX design process, the designer has already added value to the product. Potential functionality gaps have been identified and competitive features have been added. Relying on empathy, the customer has been heard and the developer has all the information required to achieve the desired result. What’s left is using the tools available to demonstrate the business value achieved through the UX. In Part 3, I’ll discuss more on wireframes and their use in addressing the final stage of WOW, conveying the overall business value of the design.
 
-Again, please feel free to reach out to me [@uxwithparul](https://twitter.com/uxwithparul) if you have any questions. You’ll be able to find subsequent posts in this series and view other informative blogs at [HPE DEV.](https://developer.hpe.com/blog)
+Again, please feel free to reach out to me [@uxwithparul](https://twitter.com/uxwithparul) if you have any questions. You’ll be able to find subsequent posts in this series and view other informative blogs at [HPE DEV.](/blog)

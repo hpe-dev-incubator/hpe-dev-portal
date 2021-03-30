@@ -50,7 +50,7 @@ By having an index on a field, we expect to use it so queries on that field are 
 
 Our team, MapR Professional Services, knows that filtering using MapR Database secondary indexes makes a huge difference in performance. Since many of our customers actually try to take advantages of this feature (secondary indexes), we have taken different approaches in order to force the use of the indexes when using Spark.
 
-In another blog post, "[_**How to Use Secondary Indexes in Spark with OJAI**_](https://developer.hpe.com/blog/GJVN37RWmoumz0L2LM8V/how-to-use-secondary-indexes-in-spark-with-open-json-application-interfa)," a fellow coworker explains some ways to overcome the issue on hand.
+In another blog post, "[_**How to Use Secondary Indexes in Spark with OJAI**_](/blog/GJVN37RWmoumz0L2LM8V/how-to-use-secondary-indexes-in-spark-with-open-json-application-interfa)," a fellow coworker explains some ways to overcome the issue on hand.
 
 Even when we take some shortcuts, we have to give up some of the nice constructs the default connector has, such as `.loadFromMapRDB(...)`. Even though this solution is not scalable, we can use some of these ideas, which aim generalizing the concept that can be used for general purpose computation with Spark in a generic approach.
 

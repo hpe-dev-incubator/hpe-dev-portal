@@ -24,9 +24,9 @@ thumbnailimage:
 
 This post will help you get started using Apache Spark Streaming for consuming and publishing messages with MapR Event Store and the Kafka API. Spark Streaming is an extension of the core Spark API that enables continuous data stream processing. MapR Event Store is a distributed messaging system for streaming event data at scale. MapR Event Store enables producers and consumers to exchange events in real time via the Apache Kafka 0.9 API. MapR Event Store integrates with Spark Streaming via the Kafka direct approach. This post is a simple "how to" example. If you are new to Spark Streaming and the Kafka API you might want to read these first:
 
-*   [<u>Real-Time Streaming Data Pipelines with Apache APIs: Kafka, Spark Streaming, and HBase</u>](https://developer.hpe.com/blog/PkVBvojrpwSOLo5J5xzM/real-time-streaming-data-pipelines-with-apache-apis-kafka-spark-streamin)
-*   [<u>Getting Started with MapR Event Store</u>](https://developer.hpe.com/blog/8nDR4EW79KclyzwBwR5z/getting-started-with-mapr-event-store)
-*   [<u>Spark Streaming with HBase</u>](https://developer.hpe.com/blog/oogwLnyPqLuMyBK6KzV8/spark-streaming-with-hbase)
+*   [<u>Real-Time Streaming Data Pipelines with Apache APIs: Kafka, Spark Streaming, and HBase</u>](/blog/PkVBvojrpwSOLo5J5xzM/real-time-streaming-data-pipelines-with-apache-apis-kafka-spark-streamin)
+*   [<u>Getting Started with MapR Event Store</u>](/blog/8nDR4EW79KclyzwBwR5z/getting-started-with-mapr-event-store)
+*   [<u>Spark Streaming with HBase</u>](/blog/oogwLnyPqLuMyBK6KzV8/spark-streaming-with-hbase)
 
 ## **Example Use Case Data Set**
 

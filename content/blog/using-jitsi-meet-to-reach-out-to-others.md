@@ -253,4 +253,4 @@ There are so many possible applications for this technology. Educators can use t
 
 For those who might find technology a little more daunting or less accessible, Jitsi Meet still can be easily used with a simple browser. Think how this could help the elderly keep in touch and interact with their families.
 
-Stay tuned to the [HPE DEV blog site](https://developer.hpe.com/blog) for more helpful tutorials.
+Stay tuned to the [HPE DEV blog site](/blog) for more helpful tutorials.

@@ -56,4 +56,4 @@ For more detailed information, check out the following:
 * [Installing System Center Virtual Machine Manager (SCVMM)](http://www.garethjones294.com/installing-system-center-virtual-machine-manager-2016-step-by-step-quick-start-deployment-guide/)  
 * [Event ID 1222](https://support.microsoft.com/en-gb/help/2770582/event-id-1222-when-you-create-a-windows-server-2012-failover-cluster)   
 	
-I hope you found this tutorial helpful in setting up System Center Virtual Machine Manager (SCVMM) in a Microsoft Windows Failover Cluster. Continue to monitor our [blog posts](https://developer.hpe.com/blog) for more hints that you can use to make your development environment more efficient.
+I hope you found this tutorial helpful in setting up System Center Virtual Machine Manager (SCVMM) in a Microsoft Windows Failover Cluster. Continue to monitor our [blog posts](/blog) for more hints that you can use to make your development environment more efficient.

@@ -10,7 +10,7 @@ thumbnailimage:
 ---
 ![didier1](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/7/didier1-1598625790616.jpg)
 
-In an earlier [blog post](https://developer.hpe.com/blog/jupyter-saved-my-day), one of our team members, [Frederic Passeron](https://twitter.com/FredPasseron), discussed how Jupyter Notebooks saved the day as we transitioned from traditional face-to-face events to virtual events. As a matter of fact, with the adoption of this open source technology, our team was able to deliver over 60 live, hands-on workshops to our developer audience since having to go virtual during this pandemic.   
+In an earlier [blog post](/blog/jupyter-saved-my-day), one of our team members, [Frederic Passeron](https://twitter.com/FredPasseron), discussed how Jupyter Notebooks saved the day as we transitioned from traditional face-to-face events to virtual events. As a matter of fact, with the adoption of this open source technology, our team was able to deliver over 60 live, hands-on workshops to our developer audience since having to go virtual during this pandemic.   
 
 We first offered this hands-on experience at technology events sponsored by Hewlett Packard Enterprise (HPE), such as the Technology and Solutions Summit (TSS), ASPIRE, and finally the HPE Discover Virtual Experience event this summer. Based on the feedback we’ve received from participants, these workshops were highly successful and proved to work well for remote, virtual environments.  
 <br/>

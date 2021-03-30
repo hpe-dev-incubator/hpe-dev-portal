@@ -35,14 +35,14 @@ To get a complete picture of what’s happening in the virtual Hack Shack, you c
 * [COMMUNITY:](https://hackshack.hpedev.io/community)  We invite you to join and contribute your expertise in our blog forum or deliver an on-demand workshop. Connect with others in the community via [Slack](https://slack.hpedev.io/) and [Twitter](https://twitter.com/HPE_DevCom) channels to start conversations and get answers to questions. And you can sign-up for our HPE DEV Newsletter to stay up-to-date on the newest blog posts and tutorials.
 
 ## Prizes? Did someone say prizes?
-Take our [HPE DEV Hack Shack coding challenge](https://hackshack.hpedev.io/challenges) and you could win a prize! Our coding challenges are timed events where developers are asked to create their own code to achieve a defined function while taking specific parameters into account. For KubeCon | CloudNativeCon NA, we will be challenging you to deploy a sample front-end application on a CNCF-certified Kubernetes cluster running on HPE Ezmeral Container Platform using the API calls. Submissions will be judged on technical achievement and completeness of the code and quiz answers. For details on how to participate, [please refer to this blog post](https://developer.hpe.com/blog/hpe-dev-hack-shack-coding-challenges-are-you-ready-to-compete).
+Take our [HPE DEV Hack Shack coding challenge](https://hackshack.hpedev.io/challenges) and you could win a prize! Our coding challenges are timed events where developers are asked to create their own code to achieve a defined function while taking specific parameters into account. For KubeCon | CloudNativeCon NA, we will be challenging you to deploy a sample front-end application on a CNCF-certified Kubernetes cluster running on HPE Ezmeral Container Platform using the API calls. Submissions will be judged on technical achievement and completeness of the code and quiz answers. For details on how to participate, [please refer to this blog post](/blog/hpe-dev-hack-shack-coding-challenges-are-you-ready-to-compete).
 
 ## But wait… there’s more!
 Visit the [HPE DEV Community Portal](https://developer.hpe.com/) via the [Hack Shack Lobby](https://hackshack.hpedev.io/). There, you can access a treasure trove of information, including:
 
 * [PLATFORMS](https://developer.hpe.com/platforms) – Access GitHub resources and software development kits (SDKs)
 
-* [BLOG](https://developer.hpe.com/blog) – Learn through blog posts and tutorials
+* [BLOG](/blog) – Learn through blog posts and tutorials
 
 * [OPEN SOURCE](https://developer.hpe.com/projects) – Discover platforms, apps and contributions
 

@@ -10,7 +10,7 @@ thumbnailimage:
 ---
 ![git101-part1-git icon 1788c](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/3/git-icon-1788c-1590702885345.png)
 
-In the [Part 1](https://developer.hpe.com/blog/get-involved-in-the-open-source-community-part-1-getting-started-with-gi) of my blog series, I discussed how to get started with Git and leverage some of the content provided by the open source community. We already covered use case 1 and use case 2 from the list below:
+In the [Part 1](/blog/get-involved-in-the-open-source-community-part-1-getting-started-with-gi) of my blog series, I discussed how to get started with Git and leverage some of the content provided by the open source community. We already covered use case 1 and use case 2 from the list below:
 
 - Use case 1: I’d like to use something from the community
 - Use case 2: I'd like to report an issue on a repository
@@ -227,4 +227,4 @@ If you want to discover more about Git, I recommend the following resources:
 - [The Git Handbook](https://guides.github.com/introduction/git-handbook/)
 - [Video Git Crash Course](https://www.youtube.com/watch?v=SWYqp7iY_Tc&feature=youtu.be)
 
-Stay tuned to [HPE DEV](https://developer.hpe.com/blog) for the last article where I will cover use case 4. In this use case, you will start contributing some code back to an existing project.
+Stay tuned to [HPE DEV](/blog) for the last article where I will cover use case 4. In this use case, you will start contributing some code back to an existing project.

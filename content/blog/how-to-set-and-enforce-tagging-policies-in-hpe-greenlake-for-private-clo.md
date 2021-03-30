@@ -83,5 +83,5 @@ If an Option List is associated with the Tag Policy, you will see a similar vali
 
 If you return to the policy and deselect the "STRICT ENFORCEMENT" option, you will no longer be prevented from provisioning it, even when the tags violate the policy. You will, however see a message on the instance details page with information on which tag policy is being violated by the given instance, as shown below:<img src="https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/7/b8-1596470828071.png" height="100" width="700" align="left">
 
-In a future blog entry, I’ll show how you can use tags to provide showback reporting and budgeting with business context in Consumption Analytics. Make sure you check the [HPE DEV blog](https://developer.hpe.com/blog) site often to find future posts related to this topic. If you have questions, please feel free to connect with me on the [HPE DEV Slack channel](https://slack.hpedev.io/).
+In a future blog entry, I’ll show how you can use tags to provide showback reporting and budgeting with business context in Consumption Analytics. Make sure you check the [HPE DEV blog](/blog) site often to find future posts related to this topic. If you have questions, please feel free to connect with me on the [HPE DEV Slack channel](https://slack.hpedev.io/).
                  

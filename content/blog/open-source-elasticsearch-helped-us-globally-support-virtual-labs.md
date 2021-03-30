@@ -30,7 +30,7 @@ Being tasked with building a dashboard meant I could finally get my hands dirty 
 
 ## There is an API? Then yes, we can do it
 
-There is only one way to interact with Elasticsearch and it’s using its API which by default, installs on port 9200. If this is a problem for you, please take a look at my article on [understanding the basic principles of REST API](https://developer.hpe.com/blog/understanding-api-basics-and-the-value-they-provide).
+There is only one way to interact with Elasticsearch and it’s using its API which by default, installs on port 9200. If this is a problem for you, please take a look at my article on [understanding the basic principles of REST API](/blog/understanding-api-basics-and-the-value-they-provide).
 
 My colleague Pramod, who had built the registration process application, was smart enough to provide a REST API to its backend application. This enabled me to retrieve from the database:
 
@@ -169,6 +169,6 @@ There were so many things we could have added to our dashboard; it seemed limitl
 
 ## Conclusion
 
-I’ve only scratched the surface of what you can do with the ELK Stack in this post. And this was a result of spending just a few hours on it only using the community part of the stack. There is a lot more to the ELK Stack, both in terms of data that we could feed in (complete system monitoring using Beats/Logstash for example) and Kibana widgets we can use to display data in various forms. Give it a try and, like me, you may get instantaneously hooked.  Don’t forget to check back on our [HPE DEV blog](https://developer.hpe.com/blog) for more tutorials on interesting open source topics.
+I’ve only scratched the surface of what you can do with the ELK Stack in this post. And this was a result of spending just a few hours on it only using the community part of the stack. There is a lot more to the ELK Stack, both in terms of data that we could feed in (complete system monitoring using Beats/Logstash for example) and Kibana widgets we can use to display data in various forms. Give it a try and, like me, you may get instantaneously hooked.  Don’t forget to check back on our [HPE DEV blog](/blog) for more tutorials on interesting open source topics.
 
 

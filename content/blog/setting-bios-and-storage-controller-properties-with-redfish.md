@@ -14,7 +14,7 @@ We assume that the reader is familiar with REST APIs in general and Redfish in p
 
 ## Foreword
 
-For didactic purposes, we use direct URIs to targets instead of crawling  the Redfish tree to discover the target URIs, as explained in the [Getting Started with the Redfish(c) API Part 2](https://developer.hpe.com/blog/getting-started-with-the-redfish-api-part-2) document.
+For didactic purposes, we use direct URIs to targets instead of crawling  the Redfish tree to discover the target URIs, as explained in the [Getting Started with the Redfish(c) API Part 2](/blog/getting-started-with-the-redfish-api-part-2) document.
 
 In the following paragraphs, `{{Subsystem-URI}}` refers to an URI like `https://<ilo-IP>/redfish/v1/<subsystem>/` where `<subsystem>` represents either `Bios` or `SmartStorageConfig`. These subsystems contains the currently used properties.
 

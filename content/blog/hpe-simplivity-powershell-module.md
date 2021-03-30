@@ -152,7 +152,7 @@ The API has some documented and undocumented issues:
 
 If you would like to keep up to date with the latest features, please visit the project website on [GitHub](https://github.com/atkinsroy/HPESimpliVity) and subscribe to receive notifications. Updates are published to the PowerShell Gallery at the same time.
 
-Refer to the [HPE SimpliVity platform page](https://developer.hpe.com/platform/hpe-simplivity/home) on HPE DEV for more information. Don't forget to check out our other posts on the [HPE DEV blog site](https://developer.hpe.com/blog) or join us on our #simplivity [Slack Channel](https://slack.hpedev.io/) to ask a question.
+Refer to the [HPE SimpliVity platform page](https://developer.hpe.com/platform/hpe-simplivity/home) on HPE DEV for more information. Don't forget to check out our other posts on the [HPE DEV blog site](/blog) or join us on our #simplivity [Slack Channel](https://slack.hpedev.io/) to ask a question.
 
 
 

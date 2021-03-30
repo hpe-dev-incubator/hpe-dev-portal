@@ -20,7 +20,7 @@ thumbnailimage:
 
 ---
 
-In my previous blog, [End-to-End Machine Learning Using Containerization](https://developer.hpe.com/blog/EEVLz2X9vmSmZg6k6Dqx/end-to-end-machine-learning-using-containerization), I covered the advantages of doing machine learning using microservices and how containerization can improve every step of the workflow by providing:
+In my previous blog, [End-to-End Machine Learning Using Containerization](/blog/EEVLz2X9vmSmZg6k6Dqx/end-to-end-machine-learning-using-containerization), I covered the advantages of doing machine learning using microservices and how containerization can improve every step of the workflow by providing:
 
 *   Personalized Development Environments
 *   Agile Training Capabilities
@@ -30,7 +30,7 @@ Today, I'd like to talk about an example open source framework called [KubeFlow]
 
 ## Introduction to KubeFlow
 
-As Suzy Visvanathan states in her blog, [Containers, Kubernetes, and MapR: The Time is Now](https://developer.hpe.com/blog/JM9k0E924rtRj1QgQYnM/containers-kubernetes-and-mapr-the-time-is-now),  "Kubernetes has won the container orchestration war."
+As Suzy Visvanathan states in her blog, [Containers, Kubernetes, and MapR: The Time is Now](/blog/JM9k0E924rtRj1QgQYnM/containers-kubernetes-and-mapr-the-time-is-now),  "Kubernetes has won the container orchestration war."
 
 While the early playing field was rife with competitors, like Mesosphere Marathon, Google Kubernetes, Docker Swarm, OpenStack Magnum, and VMware Photon, it's become clear that Kubernetes is now the industry's de facto standard. And, as a result, an ecosystem of tools has begun to emerge around Kubernetes, similarly to how it did when Hadoop first emerged from [Apache](https://www.apache.org/).
 

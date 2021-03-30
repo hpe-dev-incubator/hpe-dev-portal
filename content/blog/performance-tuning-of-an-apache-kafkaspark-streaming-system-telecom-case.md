@@ -22,7 +22,7 @@ thumbnailimage:
 
 ## *Real-world case study in the telecom industry*
 
-[In a previous post](https://developer.hpe.com/blog/MPxYKrwlr5SZQGoLnZ2X/performance-tuning-of-an-apache-kafkaspark-streaming-system), I pointed out how we were successfully able to accelerate an Apache Kafka/Spark Streaming/Apache Ignite application and turn a development prototype into a useful, stable streaming application – one that actually exceeded the performance goals set for the application. In this post, I’ll cover how we were able to tune a Kafka/Spark Streaming system and run it stably, without backing up under maximum production load.
+[In a previous post](/blog/MPxYKrwlr5SZQGoLnZ2X/performance-tuning-of-an-apache-kafkaspark-streaming-system), I pointed out how we were successfully able to accelerate an Apache Kafka/Spark Streaming/Apache Ignite application and turn a development prototype into a useful, stable streaming application – one that actually exceeded the performance goals set for the application. In this post, I’ll cover how we were able to tune a Kafka/Spark Streaming system and run it stably, without backing up under maximum production load.
 
 Many of the lessons learned during this project would also apply to a similar system implemented using the MapR Data Platform. However, as we’ll explain later, a lot of the issues could have been avoided entirely, or at least greatly mitigated by using a converged platform instead of a multi-cluster approach.
 

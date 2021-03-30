@@ -12,7 +12,7 @@ thumbnailimage:
 
 ## What is WOW?
 
-Previously in my last two posts ([Part 1](https://developer.hpe.com/blog/wow-a-practiced-and-perfected-design-process-part-1-uncovering-the-merit), [Part 2](https://developer.hpe.com/blog/wow-part-2-communicating-with-customers-and-constructors)), I covered the first three stages of a methodology our group developed called WOW (Why On What with customers and constructors). This workflow demonstrates how to quantify the value of the design process and provides enterprise UX designers with a practiced and perfected path to achieve success. 
+Previously in my last two posts ([Part 1](/blog/wow-a-practiced-and-perfected-design-process-part-1-uncovering-the-merit), [Part 2](/blog/wow-part-2-communicating-with-customers-and-constructors)), I covered the first three stages of a methodology our group developed called WOW (Why On What with customers and constructors). This workflow demonstrates how to quantify the value of the design process and provides enterprise UX designers with a practiced and perfected path to achieve success. 
 
 The WOW methodology helps creative teams focus on four important stages of a project:
 
@@ -52,4 +52,4 @@ As I’ve shown in these past three blog posts, there is a lot more to UX design
 
 ![picture6](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/3/picture6-1591290392865.png)
 
-I hope that, by using this WOW methodology, you will find it easier to convince others of the value of the UX design process and achieve greater success in your next project. I’m always interested in hearing about your experience. Feel free to reach out to me at [@uxwithparul](https://twitter.com/uxwithparul) if you have any questions. Don’t forget to check back at [HPE DEV](https://developer.hpe.com/blog) and see what other tutorials we have that can make your life easier.
+I hope that, by using this WOW methodology, you will find it easier to convince others of the value of the UX design process and achieve greater success in your next project. I’m always interested in hearing about your experience. Feel free to reach out to me at [@uxwithparul](https://twitter.com/uxwithparul) if you have any questions. Don’t forget to check back at [HPE DEV](/blog) and see what other tutorials we have that can make your life easier.
