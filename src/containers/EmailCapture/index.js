@@ -46,7 +46,7 @@ export const EmailCapture = ({ children, heading, bodyCopy1, bodyCopy2 }) => {
     // eslint-disable-line
     setErrorMsg('');
     const { email } = formData;
-    const listId = 13904898;
+    const listId = 14530343;
     return fetch(GATSBY_NEWSLETTER_API, {
       method: 'POST',
       headers: new Headers({
