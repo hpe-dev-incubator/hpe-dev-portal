@@ -10,7 +10,7 @@ tags:
   - Discover
 ---
 ## HPE Discover 2021
-Join the HPE DEV team in the Hack Shack
+### Join the HPE DEV team in the Hack Shack
 
 June 24, 2021 
 
