@@ -3,7 +3,7 @@ title: HPE Discover
 dateStart: 2021-06-22T06:00:01.558Z
 dateEnd: 2021-06-24T15:00:01.583Z
 category: Virtual Event
-image: /img/404 developer.svg
+image: /img/discover-event-logo.png
 link: https://www.hpe.com/us/en/discover.html
 width: large
 tags:
