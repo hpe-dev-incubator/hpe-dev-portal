@@ -20,7 +20,12 @@ function Header() {
     <ButtonLink key="pl" label="Platforms" to="/platform" />,
     <ButtonLink key="ev" label="Events" to="/events" />,
     <ButtonLink key="su" label="Skill Up" to="/skillup" />,
-    <ButtonLink key="bl" label="Blog" to="/blog" />,
+    <ButtonLink
+      key="bl"
+      label="Blog"
+      to="/blog"
+      state={{ state: { isBlogHeaderClicked: true } }}
+    />,
     <ButtonLink key="nw" label="Newsletter" to="/newsletter-signup" />,
     <ButtonLink key="cm" label="Community" to="/community" />,
   ];

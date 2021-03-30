@@ -39,8 +39,13 @@ export const BlogCard = ({ node, ...rest }) => (
     wrap
     onClick={
       node.fields.slug && node.fields.sourceInstanceName
-        ? () =>
-            navigate(`/${node.fields.sourceInstanceName}${node.fields.slug}`)
+        ? (e) => {
+            navigate(`/${node.fields.sourceInstanceName}${node.fields.slug}`);
+            localStorage.setItem(
+              'position',
+              JSON.stringify(e.nativeEvent.pageY - e.nativeEvent.clientY),
+            );
+          }
         : undefined
     }
   >
