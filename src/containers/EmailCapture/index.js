@@ -118,17 +118,17 @@ export const EmailCapture = ({ children, heading, bodyCopy1, bodyCopy2 }) => {
           </FormField>
           <Box margin={{ top: 'medium' }} gap="medium">
             <Paragraph margin="none">
-              By submitting this form you agree to HPE sending me personalized
-              email communications about HPE and select HPE-partner products,
-              services, offers and events. I understand that my email will be
-              used in accordance with{' '}
+              By clicking on “Subscribe Now”, you agree to HPE sending me
+              personalized email communication about HPE and select HPE-Partner
+              products, services, offers and events. I understand that my email
+              address will be used in accordance with{' '}
               <Anchor
-                label="HPE Privacy Policy"
+                label="HPE Privacy Statement"
                 href="https://www.hpe.com/us/en/legal/privacy.html"
                 target="_blank"
                 rel="noreferrer noopener"
               />
-              . You may unsubscribe from receiving HPE and HPE-partner news and
+              . You may unsubscribe from receiving HPE and HPE-Partner news and
               offers at any time by clicking on the Unsubscribe button at the
               bottom of the newsletter.
             </Paragraph>
@@ -138,6 +138,17 @@ export const EmailCapture = ({ children, heading, bodyCopy1, bodyCopy2 }) => {
               primary
               type="submit"
             />
+            <Paragraph margin="none">
+              For more information on how HPE manages, uses, and protects your
+              personal data please refer to{' '}
+              <Anchor
+                label="HPE Privacy Statement"
+                href="https://www.hpe.com/us/en/legal/privacy.html"
+                target="_blank"
+                rel="noreferrer noopener"
+              />
+              .
+            </Paragraph>
             {errorMsg && <Text color="status-critical">{errorMsg}</Text>}
           </Box>
         </Form>
