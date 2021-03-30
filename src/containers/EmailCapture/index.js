@@ -46,7 +46,7 @@ export const EmailCapture = ({ children, heading, bodyCopy1, bodyCopy2 }) => {
     // eslint-disable-line
     setErrorMsg('');
     const { email } = formData;
-    const listId = 13904898;
+    const listId = 14530343;
     return fetch(GATSBY_NEWSLETTER_API, {
       method: 'POST',
       headers: new Headers({
@@ -117,23 +117,38 @@ export const EmailCapture = ({ children, heading, bodyCopy1, bodyCopy2 }) => {
             <TextInput placeholder="example@my.com" name="email" />
           </FormField>
           <Box margin={{ top: 'medium' }} gap="medium">
-            <Text>
-              By clicking on “Subscribe Now”, you confirm that you have read and
-              agreed to the Terms & Conditions of{' '}
+            <Paragraph margin="none">
+              By clicking on “Subscribe Now”, you agree to HPE sending me
+              personalized email communication about HPE and select HPE-Partner
+              products, services, offers and events. I understand that my email
+              address will be used in accordance with{' '}
               <Anchor
-                label="HPE's Privacy Policy"
+                label="HPE Privacy Statement"
                 href="https://www.hpe.com/us/en/legal/privacy.html"
                 target="_blank"
                 rel="noreferrer noopener"
               />
-              .
-            </Text>
+              . You may unsubscribe from receiving HPE and HPE-Partner news and
+              offers at any time by clicking on the Unsubscribe button at the
+              bottom of the newsletter.
+            </Paragraph>
             <Button
               alignSelf="start"
               label="Subscribe Now"
               primary
               type="submit"
             />
+            <Paragraph margin="none">
+              For more information on how HPE manages, uses, and protects your
+              personal data please refer to{' '}
+              <Anchor
+                label="HPE Privacy Statement"
+                href="https://www.hpe.com/us/en/legal/privacy.html"
+                target="_blank"
+                rel="noreferrer noopener"
+              />
+              .
+            </Paragraph>
             {errorMsg && <Text color="status-critical">{errorMsg}</Text>}
           </Box>
         </Form>
