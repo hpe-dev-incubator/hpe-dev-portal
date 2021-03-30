@@ -11,6 +11,8 @@ frontpage: true
 tags:
   - hpe-greenlake
 ---
+<a id="top"></a>
+
 Powered by the HPE GreenLake Central platform, HPE GreenLake is an IT-as-a-Service (ITaaS) offering that brings the cloud experience to your on-premises infrastructure. By creating a single, consistent experience across your private and public clouds, it seamlessly integrates your entire IT estate and allows you to more rapidly deploy services, gain cost and compliance insights, and simplify management. 
 
 [Learn more about HPE GreenLake](https://www.hpe.com/us/en/services/it-consumption.html)
