@@ -45,7 +45,7 @@ function Header() {
           dropContent={<Nav direction="column">{navLinks}</Nav>}
         />
       ) : (
-        <Box flex="shrink" overflow="hidden">
+        <Box flex="shrink" overflow="hidden" pad="2px">
           <Nav direction="row" gap="medium">
             {navLinks.map((l, index) => (
               <Box key={index} flex={false}>
