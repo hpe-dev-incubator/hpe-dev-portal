@@ -17,7 +17,7 @@ function Header() {
       label="Open Source"
       to="https://www.hpe.com/us/en/open-source.html"
     />,
-    <ButtonLink key="pl" label="Platforms" to="/platform" />,
+    <ButtonLink key="pl" label="Platforms" to="/platforms" />,
     <ButtonLink key="ev" label="Events" to="/events" />,
     <ButtonLink key="su" label="Skill Up" to="/skillup" />,
     <ButtonLink
