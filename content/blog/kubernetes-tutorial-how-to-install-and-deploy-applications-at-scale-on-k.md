@@ -1,12 +1,18 @@
 ---
-title: "Kubernetes Tutorial: How to Install and Deploy Applications at Scale on K8s - Part 1 of 3"
+title: "Kubernetes Tutorial: How to Install and Deploy Applications at Scale on
+  K8s - Part 1 of 3"
 date: 2020-11-02T06:12:48.791Z
-author: Martijn Kieboom 
-tags: ["MapR","hpe-ezmeral-data-fabric","Kuberneter","Container","opensource"]
-authorimage: "/img/blogs/Avatar6.svg"
 featuredBlog: false
-priority:
-thumbnailimage:
+priority: null
+author: Martijn Kieboom
+authorimage: /img/blogs/Avatar6.svg
+thumbnailimage: null
+tags:
+  - MapR
+  - hpe-ezmeral-data-fabric
+  - Kuberneter
+  - Container
+  - opensource
 ---
 **Editor’s Note:** MapR products and solutions sold prior to the acquisition of such assets by Hewlett Packard Enterprise Company in 2019, may have older product names and model numbers that differ from current solutions. For information about current offerings, which are now part of HPE Ezmeral Data Fabric, please visit [https://www.hpe.com/us/en/software/data-fabric.html](https://www.hpe.com/us/en/software/data-fabric.html)
 
@@ -82,4 +88,4 @@ To summarize the business benefits of the powerful combination of Kubernetes wit
 
 Combining ongoing business operations with deploying new business innovations has never been easier. Scaling any application or service to accommodate ever-changing business and customer needs is simply a matter of scaling up or down the number of application container pods. Onboarding legacy services as part of mergers and acquisitions doesn’t have to stop you from innovating in parallel, rolling out new application and service results with quicker innovation and time to market. And finally, packaging and distributing applications and services to your customer allows you to adopt new technologies and innovation immediately.
 
-In the following blog post, we will start deploying a Kubernetes cluster and load the MapR Volume Driver Plugin for Kubernetes to allow enabling these business benefits.
+[In the following blog post](/blog/2021-03-31-kubernetes-tutorial-part-2-of-3-how-to-install-and-deploy-applications-at-scale-on-k8s), we will start deploying a Kubernetes cluster and load the MapR Volume Driver Plugin for Kubernetes to allow enabling these business benefits.
