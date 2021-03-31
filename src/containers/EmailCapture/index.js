@@ -118,7 +118,7 @@ export const EmailCapture = ({ children, heading, bodyCopy1, bodyCopy2 }) => {
           </FormField>
           <Box margin={{ top: 'medium' }} gap="medium">
             <Paragraph margin="none">
-              By clicking on “Subscribe Now”, you agree to HPE sending me
+              By clicking on “Subscribe Now”, I agree to HPE sending me
               personalized email communication about HPE and select HPE-Partner
               products, services, offers and events. I understand that my email
               address will be used in accordance with{' '}
