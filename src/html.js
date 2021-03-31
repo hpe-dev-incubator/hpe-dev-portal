@@ -81,7 +81,7 @@ export default function HTML(props) {
           window.digitalData = {
               page: {
                   pageInfo: {
-                      breadCrumbs: ['v2.0', 'us', 'en', 'nonaem:developer', 'devhome']
+                      breadCrumbs: ['v2.0', 'us', 'en', 'non-aem:developer', 'devhome']
                   }
               }
           }
