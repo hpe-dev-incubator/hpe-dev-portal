@@ -29,7 +29,7 @@ tags:
 ---
 
 
-_**Editor’s Note:**_ [Part 1 in this series](https://developer.hpe.com/blog/mmgKxJX2wRC9EAJYYqOV/kubernetes-tutorial-how-to-install-and-deploy-applications-at-scale-on-k).
+_**Editor’s Note:**_ [Part 1 in this series](/blog/kubernetes-tutorial-how-to-install-and-deploy-applications-at-scale-on-k)
 
 
 
@@ -604,7 +604,7 @@ kubectl delete -f kdf-namespace.yaml
 
 ## Additional Resources:
 
-*   [Part 1 in this series](https://developer.hpe.com/blog/mmgKxJX2wRC9EAJYYqOV/kubernetes-tutorial-how-to-install-and-deploy-applications-at-scale-on-k)
+*   [Part 1 in this series](/blog/kubernetes-tutorial-how-to-install-and-deploy-applications-at-scale-on-k)
 
 
 *   [https://kubernetes.io/docs/setup/independent/install-kubeadm/](https://kubernetes.io/docs/setup/independent/install-kubeadm/)
