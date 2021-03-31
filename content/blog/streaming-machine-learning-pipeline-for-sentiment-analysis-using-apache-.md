@@ -1,12 +1,18 @@
 ---
-title: "Streaming Machine learning pipeline for Sentiment Analysis using Apache APIs: Kafka, Spark and Drill - Part 1"
+title: "Streaming Machine learning pipeline for Sentiment Analysis using Apache
+  APIs: Kafka, Spark and Drill - Part 1"
 date: 2020-10-28T15:43:34.823Z
-author: Carol McDonald 
-tags: ["hpe-ezmeral-data-fabric","MapR","Machine-Learning","Spark","opensource"]
-authorimage: "/img/blogs/Avatar4.svg"
 featuredBlog: false
-priority:
-thumbnailimage:
+priority: null
+author: Carol McDonald
+authorimage: /img/blogs/Avatar4.svg
+thumbnailimage: null
+tags:
+  - hpe-ezmeral-data-fabric
+  - MapR
+  - Machine-Learning
+  - Spark
+  - opensource
 ---
 **Editor’s Note:** MapR products and solutions sold prior to the acquisition of such assets by Hewlett Packard Enterprise Company in 2019, may have older product names and model numbers that differ from current solutions. For information about current offerings, which are now part of HPE Ezmeral Data Fabric, please visit [https://www.hpe.com/us/en/software/data-fabric.html](https://www.hpe.com/us/en/software/data-fabric.html)
 
@@ -43,7 +49,7 @@ Sentiment analysis uses machine learning algorithms to determine how positive or
 
 Manually analyzing the abundance of text produced by customers or potential customers is time-consuming; machine learning is more efficient and with streaming analysis, insights can be provided in real time.
 
-This is the first in a series of blog posts, which discusses the architecture of a data pipeline that combines streaming data with machine learning and fast storage.  In this first part, we will explore sentiment analysis using Spark machine learning data pipelines. We will work with a dataset of Amazon product reviews and build a machine learning model to classify reviews as positive or negative.  In the [second part](/blog/mmj9zzELM6s3xXrBQOQM/streaming-machine-learning-pipeline-for-sentiment-analysis-using-apache-) of this tutorial, we will use this machine learning model with streaming data to classify documents in real time.  The second post will discuss using the saved model with streaming data to do real-time analysis of product sentiment, storing the  results in MapR Database, and making them rapidly available for Spark and Drill SQL.
+This is the first in a series of blog posts, which discusses the architecture of a data pipeline that combines streaming data with machine learning and fast storage.  In this first part, we will explore sentiment analysis using Spark machine learning data pipelines. We will work with a dataset of Amazon product reviews and build a machine learning model to classify reviews as positive or negative.  In the [second part](https://developer.hpe.com/blog/streaming-ml-pipeline-for-sentiment-analysis-using-apache-apis-kafka-spa) of this tutorial, we will use this machine learning model with streaming data to classify documents in real time.  The second post will discuss using the saved model with streaming data to do real-time analysis of product sentiment, storing the  results in MapR Database, and making them rapidly available for Spark and Drill SQL.
 
 ![](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/9/image7-1603902952832.png)
 
