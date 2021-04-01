@@ -30,7 +30,7 @@ Here you will find repositories, demos, guides and other technical resources fro
 * [Read the Accelerating DevOps White Paper](https://h20195.www2.hpe.com/v2/GetDocument.aspx?docname=4AA6-6229ENW)
 * [View Additional Resources](http://h17007.www1.hpe.com/us/en/enterprise/integrated-systems/info-library/index.aspx?cat=ci_mgmt&subcat=ansible#.XJVbZCdMEio)
 * [Watch the Demo](https://www.youtube.com/watch?v=PVJgUEH0Quw&feature=youtu.be)
-* [Ansible Docker Image](https://hub.docker.com/repository/docker/hewlettpackardenterprise/hpe-oneview-sdk-for-ansible)
+* [Ansible Docker Image](https://hub.docker.com/repository/docker/hewlettpackardenterprise/hpe-oneview-sdk-for-ansible-collection)
 * [Installation and user guide](https://psnow.ext.hpe.com/doc/a50003411enw?jumpid=in_lit-psnow-red)
 
 
@@ -45,8 +45,7 @@ Here you will find repositories, demos, guides and other technical resources fro
 * [Browse the Chef Marketplace](https://supermarket.chef.io/cookbooks/oneview)
 * [View Additional Resources](http://h17007.www1.hpe.com/us/en/enterprise/integrated-systems/info-library/index.aspx?cat=ci_mgmt&subcat=chef)
 * [Read the White Paper](https://www.hpe.com/us/en/pdfViewer.html?docId=a00047285&parentPage=/us/en/solutions/developers/composable&resourceTitle=HPE+Reference+Configuration+for+accelerating+DevOps+with+HPE+Synergy+and+Chef+Automate)
-* [Chef Docker Image](https://github.com/HewlettPackard/oneview-chef)
-
+* [Chef Docker Image](https://hub.docker.com/repository/docker/hewlettpackardenterprise/hpe-oneview-sdk-for-chef)
 - - -
 
 ### Docker
