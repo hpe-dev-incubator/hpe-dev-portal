@@ -31,10 +31,16 @@ const rows = {
   xlarge: ['auto'],
 };
 
-function Platform({ data }) {
+function Platform({ data, location }) {
   const platforms = data.allMarkdownRemark.edges;
   const siteMetadata = useSiteMetadata();
   const siteTitle = siteMetadata.title;
+
+  useEffect(() => {
+    if (location.state && location.state.isPlatformHeaderClicked) {
+      localStorage.removeItem('platformPosition');
+    }
+  }, [location]);
 
   useEffect(() => {
     const scrollPosition = JSON.parse(localStorage.getItem('platformPosition'));
@@ -103,6 +109,11 @@ Platform.propTypes = {
       ).isRequired,
     }).isRequired,
   }).isRequired,
+  location: PropTypes.shape({
+    state: PropTypes.shape({
+      isPlatformHeaderClicked: PropTypes.bool,
+    }),
+  }),
 };
 
 export default Platform;
