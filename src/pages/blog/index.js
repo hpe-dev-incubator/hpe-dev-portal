@@ -55,7 +55,7 @@ function Blog({ data, location }) {
   }, [initialPage, location]);
 
   useEffect(() => {
-    const scrollPosition = JSON.parse(localStorage.getItem('position'));
+    const scrollPosition = JSON.parse(localStorage.getItem('blogPosition'));
 
     if (scrollPosition) {
       setTimeout(() => {

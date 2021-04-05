@@ -42,7 +42,7 @@ export const BlogCard = ({ node, ...rest }) => (
         ? (e) => {
             navigate(`/${node.fields.sourceInstanceName}${node.fields.slug}`);
             localStorage.setItem(
-              'position',
+              'blogPosition',
               JSON.stringify(e.nativeEvent.pageY - e.nativeEvent.clientY),
             );
           }
