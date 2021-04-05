@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import { Heading, Paragraph } from 'grommet';
@@ -35,6 +35,16 @@ function Platform({ data }) {
   const platforms = data.allMarkdownRemark.edges;
   const siteMetadata = useSiteMetadata();
   const siteTitle = siteMetadata.title;
+
+  useEffect(() => {
+    const scrollPosition = JSON.parse(localStorage.getItem('platformPosition'));
+
+    if (scrollPosition) {
+      setTimeout(() => {
+        window.scrollTo({ top: scrollPosition, left: 0, behavior: 'smooth' });
+      }, 100);
+    }
+  }, []);
 
   return (
     <Layout title={siteTitle}>
