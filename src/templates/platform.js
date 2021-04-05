@@ -81,7 +81,7 @@ function PlatformTemplate({ data }) {
           <ButtonLink
             icon={<FormPreviousLink />}
             label="Go to Platforms Page"
-            to="/platform"
+            to="/platforms"
           />
         </Box>
       </Box>
