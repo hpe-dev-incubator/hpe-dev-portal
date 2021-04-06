@@ -1,7 +1,7 @@
 ---
 title: Managing Multiple Instances of Python in Microsoft Windows
 date: 2021-04-06T09:08:53.864Z
-author: Jean-Francois Larvoire
+author: Jean-François Larvoire
 authorimage: /img/Avatar1.svg
 tags:
   - python
@@ -76,7 +76,7 @@ First and foremost, py.exe is a front end to python.exe. By default, it runs the
 
 Example:
   
-```bash
+```markdown
 C:\Temp>py --version
 Python 3.9.2
 
@@ -100,7 +100,7 @@ You can also specify the minor version, like `-3.5`, or even the target processo
 
 The `-0` option tells py.exe to just list the available instances:
   
-```bash
+```markdown
 C:\Temp>py -0
 Installed Pythons found by py Launcher for Windows
  -3.9-64 *
@@ -118,7 +118,7 @@ C:\Temp>
 
 There's also a `-0p` option to list both the version and pathname of the python.exe instances it can use: 
  
-```bash
+```markdown
 C:\Temp>py -0p
 Installed Pythons found by py Launcher for Windows
  -3.9-64        C:\Program Files\Python39\python.exe *
@@ -170,7 +170,7 @@ In each of these keys, there are three values needed:
 For example, for my Python 2.7 installation, I had to add keys and values from this .reg file: 
  
 
-```bash
+```markdown
 Windows Registry Editor Version 5.00
 
 [HKEY_LOCAL_MACHINE\Software\Python\PythonCore\2.7]
@@ -209,7 +209,7 @@ Use the first generic shebang *only* if your scripts is compatible with both Pyt
 Example:
   
 
-```bash
+```markdown
 C:\Temp>type testpy2.py
 #!/usr/bin/env python2
 import platform;
@@ -249,7 +249,7 @@ One last important note about this: Unix shells choke on Python scripts created 
 
 Microsoft Windows can select interpreters based on the file extension. This should be setup correctly by recent versions of Python 3, but may not be so with old versions of Python 2! If you install an old Python 2.7 _after_ a recent Python 3, this may bite you! To check if the configuration is correct, run `assoc.exe`, then `ftype.exe`, as shown here:
  
-```bash
+```markdown
 C:\Temp>assoc .py
 .py=Python.File
 
@@ -264,7 +264,8 @@ The `assoc` command must show that extension .py is associated with class `Pytho
   
 The `"%L" %*` arguments tell the shell to append the script full pathname, and all its arguments if any. 
 
->Note that I've seen cases where this command was corrupt, with a long string of garbage characters instead. If it's incorrect or corrupt, correct it by running: `ftype Python.File=C:\Windows\py.exe "%L" %*`
+>Note that I've seen cases where this command was corrupt, with a long string of garbage characters instead. If it's incorrect or corrupt, correct it by running:
+ `ftype Python.File=C:\Windows\py.exe "%L" %*`
 
 
 
@@ -274,7 +275,7 @@ The `"%L" %*` arguments tell the shell to append the script full pathname, and a
 
 However this is not always sufficient. If you've installed a Python instance for yourself only, not for all users, the system-wide extension-to-class and class-to-command associations are overridden by user-specific HKCU registry keys:
   
-```bash
+```markdown
 C:\Temp>reg query "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.py\UserChoice" /v Progid
 
 HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.py\UserChoice
@@ -344,7 +345,7 @@ As the Microsoft Windows PATH is extremely long, it's often difficult to tell if
 to review, and optionally correct, your local or system PATH. By default, it displays all entries in your local PATH, one per line. This makes it much easier to review what's in there. This also allows filtering the output using command-line filtering tools. For example:
 
 
-```bash
+```markdown
 C:\Temp>paths | findstr /i python
 C:\Program Files\Python39
 C:\Program Files\Python39\scripts
@@ -405,7 +406,7 @@ Long term solution: Move the Python directories in the system PATH _before_ "%LO
 Below is an example of a system that has this problem: (Using the `paths` tool described in the previous section.)
 
 
-```bash
+```markdown
 C:\Temp>where python
 C:\Users\Larvoire\AppData\Local\Microsoft\WindowsApps\python.exe
 C:\Program Files\Python39\python.exe
@@ -422,7 +423,7 @@ C:\Temp>
 In this case, to move the above two directories before "%LOCALAPPDATA%\Microsoft\WindowsApps", run:
 
 
-```bash
+```markdown
 C:\Temp>paths -m "C:\Program Files\Python39" -b "%LOCALAPPDATA%\Microsoft\WindowsApps"
 [Outputs the updated PATH contents]
 C:\Temp>paths -m "C:\Program Files\Python39\scripts" -b "%LOCALAPPDATA%\Microsoft\WindowsApps"
@@ -446,7 +447,7 @@ C:\Temp>
 Microsoft Windows shells search for commands using a list of implicit extensions defined in the PATHEXT environment variable. This allows running a script by entering just its base name _without_ the extension. For example on my system, reusing the testpy2.py and testpy3.py scripts described above:
 
 
-```bash
+```markdown
 C:\Temp>set PATHEXT
 PATHEXT=.PY;.PY3;.PYC;.PYO;.PYW;.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
 
@@ -463,7 +464,7 @@ C:\Temp>
 If your PATHEXT does not contain .PY or .py (This is case-independant, so the two are equivalent), then add it into both the system PATHEXT and your local shell PATHEXT. Example for the cmd.exe shell:
 
 
-```bash
+```markdown
 setx PATHEXT ".PY;%PATHEXT%" -m
 set PATHEXT=.PY;%PATHEXT%
 ```
@@ -472,7 +473,7 @@ set PATHEXT=.PY;%PATHEXT%
 and for PowerShell:
 
 
-```bash
+```markdown
 $SystemPathExt = [Environment]::GetEnvironmentVariable('PATHEXT', 'Machine')
 [Environment]::SetEnvironmentVariable('PATH', ".PY;$SystemPathExt", 'Machine')
 $env:PATHEXT = ".PY;$env:PATHEXT"
@@ -494,10 +495,10 @@ First run `pysetup` without any option to check the current configuration. Then,
 
 
 
-When everything is correct, pysetup.bat outputs all green [OK] statuses:
+When everything is correct, pysetup.bat outputs all green <span style="color:green">[OK]</span> statuses:
   
 
-```bash
+```markdown
 C:\Temp>pysetup
 
 Testing the "C:\Program Files\Python39\python.exe" configuration
