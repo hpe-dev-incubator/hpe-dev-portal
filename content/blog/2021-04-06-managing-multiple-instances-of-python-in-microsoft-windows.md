@@ -3,6 +3,9 @@ title: Managing Multiple Instances of Python in Microsoft Windows
 date: 2021-04-06T09:08:53.864Z
 author: Jean-Francois Larvoire
 authorimage: /img/Avatar1.svg
+tags:
+  - python
+  - windows
 ---
 I use many Microsoft Windows systems for development and testing; both real systems and VMs. Most of them have one or more versions of Python installed. Several have many versions. And, over the years, I've experienced a lot of problems:
 
@@ -253,20 +256,19 @@ C:\Temp>
 ```
 
 
-The assoc command must show that extension .py is associated with class Python.File.  
-If it's not, run `assoc .py=Python.File` to correct it.
+The `assoc` command must show that extension .py is associated with class `Python.File`. If it's not, run `assoc .py=Python.File` to correct it. And the `ftype` command must show that the `Python.File` class is associated with the py.exe command, or if py.exe is not available on your (very old) system, to the latest python.exe command available.
+  
+The `"%L" %*` arguments tell the shell to append the script full pathname, and all its arguments if any. Note that I've seen cases where this command was corrupt, with a long string of garbage characters instead. If it's incorrect or corrupt, correct it by running: `ftype Python.File=C:\Windows\py.exe "%L" %*`
 
-And the ftype command must show that the Python.File class is associated with the py.exe command,
-or if py.exe is not available on your (very old) system, to the latest python.exe command available.  
-The `"%L" %*` arguments tell the shell to append the script full pathname, and all its arguments if any.  
-Note that I've seen cases where this command was corrupt, with a long string of garbage characters instead.  
-If it's incorrect or corrupt, correct it by running: `ftype Python.File=C:\Windows\py.exe "%L" %*`
+
 
 ### The current user configuration
 
-However this is not always sufficient. If you've installed a Python instance for yourself only, not for all users,
-the system-wide extension-to-class and class-to-command associations are overridden by user-specific HKCU registry keys:  
-```
+
+
+However this is not always sufficient. If you've installed a Python instance for yourself only, not for all users, the system-wide extension-to-class and class-to-command associations are overridden by user-specific HKCU registry keys:
+  
+```bash
 C:\Temp>reg query "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.py\UserChoice" /v Progid
 
 HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.py\UserChoice
@@ -278,94 +280,127 @@ ERROR: The system was unable to find the specified registry key or value.
 
 C:\Temp>
 ```
-In my case, the first key is defined with the same value as the global system-wide association, which is fine.  
-If they're not defined, as with my second key, this is also fine, as the system-wide version will be used.  
-But again, these two keys may be incorrect or corrupt. If they are, correct them with regedit.exe or delete them altogether.
+
+
+In my case, the first key is defined with the same value as the global system-wide association, which is fine. If they're not defined, as with my second key, this is also fine, as the system-wide version will be used. But again, these two keys may be incorrect or corrupt. If they are, correct them with regedit.exe or delete them altogether.
+
+
 
 ### Other failure causes
 
+
+
 * ftype.exe stores its data in the regitry in key `HKEY_LOCAL_MACHINE\Software\Classes\Python.File\shell\open\command`  
-  If that key contains sub-keys (I've seen this), then Microsoft Windows shells get confused. If that happens, remove the sub-keys.
+If that key contains sub-keys (I've seen this), then Microsoft Windows shells get confused. If that happens, remove the sub-keys.
+
+
 * There's also a python.exe association in `HKEY_LOCAL_MACHINE\Software\Classes\Applications\%EXE%\shell\open\command`.  
-  If defined, it should contain: `C:\Windows\py.exe "%1"` (The argument `"%L" %*` also works, not sure which is best.)
+ If defined, it should contain: `C:\Windows\py.exe "%1"` (The argument `"%L" %*` also works, not sure which is best.)
+
+
 * The above two have counterparts in `HKEY_CURRENT_USER\Software\Classes\...`. Same remarks.
-* File type associations can also be overridden by global policies, including some set by your Domain Controller.
-  I've never seen this, but be aware it's possible.
 
 
-Finding python.exe in the PATH
-------------------------------
+* File type associations can also be overridden by global policies, including some set by your Domain Controller. I've never seen this, but be aware it's possible.
 
-The Python setup optionally adds the Python and Python Scripts installation directories to the PATH.  
-This allows starting interactive Python sessions by typing `python` at the command prompt.  
-Likewise, this allows starting `pip`, or tools installed by pip into the Scripts directory just by typing their name.
 
-Note that this is optional, because as explained above, if you have the py.exe command available, you'll get the
-same result by typing `py`, or `py -n pip`, etc.
 
-Having the Python and Python Scripts directories in the PATH makes things a bit more intuituive and similar to how
-they work in Unix.  
-The drawback is that this makes the ridiculously long Microsoft Windows PATH even longer, and so potentially slows down
+
+## Finding python.exe in the PATH
+
+
+
+The Python setup optionally adds the Python and Python Scripts installation directories to the PATH. This allows starting interactive Python sessions by typing `python` at the command prompt. Likewise, this allows starting `pip`, or tools installed by pip into the Scripts directory just by typing their name.
+
+>Note that this is optional, because as explained above, if you have the py.exe command available, you'll get the same result by typing `py`, or `py -n pip`, etc.
+
+
+
+Having the Python and Python Scripts directories in the PATH makes things a bit more intuitive and similar to how they work in Unix. The drawback is that this makes the ridiculously long Microsoft Windows PATH even longer, and so potentially slows down
 your system a little bit.
 
-But a worse problem may occur when you have several versions of Python installed.  
-You may find situations where an old version was installed with the PATH updated and a newer version without.  
-The result is that the `py` and `python` commands do not start the same version of Python, which can lead to problems.
 
-If this happens, you must correct your local, user, and system PATH to make sure the latest version of Python runs in
+
+But a worse problem may occur when you have several versions of Python installed. You may find situations where an old version was installed with the PATH updated and a newer version without. The result is that the `py` and `python` commands do not start the same version of Python, which can lead to problems. If this happens, you must correct your local, user, and system PATH to make sure the latest version of Python runs in
 all cases.
+
+
 
 ### Tools for managing the Microsoft Windows PATH
 
+
+
 #### paths.bat
 
-As the Microsoft Windows PATH is extremely long, it's often difficult to tell if a given directory is in the list and where.
-The open source [paths.bat](https://github.com/JFLarvoire/SysToolsLib/blob/master/Batch/paths.bat) tool makes is easy
-to review, and optionally correct, your local or system PATH.  
-By default, it displays all entries in your local PATH, one per line. This makes it much easier to review what's in there.  
-This also allows filtering the output using command-line filtering tools. For example:
-```
+
+
+As the Microsoft Windows PATH is extremely long, it's often difficult to tell if a given directory is in the list and where. The open source [paths.bat](https://github.com/JFLarvoire/SysToolsLib/blob/master/Batch/paths.bat) tool makes is easy
+to review, and optionally correct, your local or system PATH. By default, it displays all entries in your local PATH, one per line. This makes it much easier to review what's in there. This also allows filtering the output using command-line filtering tools. For example:
+
+
+```bash
 C:\Temp>paths | findstr /i python
 C:\Program Files\Python39
 C:\Program Files\Python39\scripts
 
 C:\Temp>
 ```
-Run `paths -?` to display a help screen describing all available options.
-The following options will be particularly useful for fixing problems with your Python configuration:
+
+
+Run `paths -?` to display a help screen describing all available options. The following options will be particularly useful for fixing problems with your Python configuration:
+
+
  * `-s` tells it to manage the system PATH, instead of the local shell PATH by default.
+
+
  * `-u` tells it to manage the user PATH, instead of the local shell PATH by default.
+
+
  * `-r DIRECTORY` tells it to remove that DIRECTORY from the managed PATH.
+
+
  * `-m DIR1 -b DIR2` tells it to move a DIRECTORY 1 just before DIRECTORY 2.
+
+
 
 #### Other System Tools Library tools
 
-The [System Tools Library](https://github.com/JFLarvoire/SysToolsLib/releases/latest/download/SysTools.zip)
-contains paths.bat and other tools for managing the PATH:
+
+
+The [System Tools Library](https://github.com/JFLarvoire/SysToolsLib/releases/latest/download/SysTools.zip) contains paths.bat and other tools for managing the PATH:
+
+
 
  * which.exe includes the best of Unix which and Microsoft Windows where.exe and some more.  
    For a detailed description of which.exe features, see [this post](https://www.dostips.com/forum/viewtopic.php?f=3&t=9058).
- * [paths](https://github.com/JFLarvoire/SysToolsLib/blob/master/Bash/paths) is a simple Posix Shell script
-   for doing the same things in Unix shells as paths.bat does in Microsoft Windows shells.
+
+
+ * [paths](https://github.com/JFLarvoire/SysToolsLib/blob/master/Bash/paths) is a simple Posix Shell script for doing the same things in Unix shells as paths.bat does in Microsoft Windows shells.
+
+
 
 ### Interference with the Microsoft Store link
 
-In recent Microsoft Windows 10 versions, Microsoft installs a python.exe stub, that redirects you to the Microsoft Store,
-where you can download their distribution of Python.
-This stub is stored in `%LOCALAPPDATA%\Microsoft\WindowsApps` (cmd) or `$env:LOCALAPPDATA\Microsoft\WindowsApps` (PowerShell).
 
-Problem: If you install a non-Microsoft distribution and add its location in the Microsoft Windows PATH,
-it sometimes ends up in the PATH _behind_ the Microsoft stub!
+
+In recent Microsoft Windows 10 versions, Microsoft installs a python.exe stub, that redirects you to the Microsoft Store, where you can download their distribution of Python. This stub is stored in `%LOCALAPPDATA%\Microsoft\WindowsApps` (cmd) or `$env:LOCALAPPDATA\Microsoft\WindowsApps` (PowerShell).
+
+
+Problem: If you install a non-Microsoft distribution and add its location in the Microsoft Windows PATH, it sometimes ends up in the PATH _behind_ the Microsoft stub!
+
 Running `python` will open the Microsoft Store instead of the Python instance you just installed.
 
-Quick workaround: Use py.exe instead of python.exe.
-Py.exe does not use the PATH to locate instances, and will find your latest python.exe anyway.
 
-Long term solution: Move the Python directories in the system PATH _before_ "%LOCALAPPDATA%\Microsoft\WindowsApps".
-Then restart the open shells to get the modified PATH.
+Quick workaround: Use py.exe instead of python.exe. Py.exe does not use the PATH to locate instances, and will find your latest python.exe anyway.
+
+
+Long term solution: Move the Python directories in the system PATH _before_ "%LOCALAPPDATA%\Microsoft\WindowsApps". Then restart the open shells to get the modified PATH.
+
 
 Below is an example of a system that has this problem: (Using the `paths` tool described in the previous section.)
-```
+
+
+```bash
 C:\Temp>where python
 C:\Users\Larvoire\AppData\Local\Microsoft\WindowsApps\python.exe
 C:\Program Files\Python39\python.exe
@@ -377,8 +412,12 @@ C:\Program Files\Python39\scripts
 
 C:\Temp>
 ```
-In this case, to move the above two directories before "%LOCALAPPDATA%\Microsoft\WindowsApps", run:  
-```
+
+
+In this case, to move the above two directories before "%LOCALAPPDATA%\Microsoft\WindowsApps", run:
+
+
+```bash
 C:\Temp>paths -m "C:\Program Files\Python39" -b "%LOCALAPPDATA%\Microsoft\WindowsApps"
 [Outputs the updated PATH contents]
 C:\Temp>paths -m "C:\Program Files\Python39\scripts" -b "%LOCALAPPDATA%\Microsoft\WindowsApps"
@@ -392,13 +431,17 @@ C:\Temp>
 ```
 
 
-Finding Python scripts in the PATH without specifying their extension
----------------------------------------------------------------------
 
-Microsoft Windows shells search for commands using a list of implicit extensions defined in the PATHEXT environment variable.
-This allows running a script by entering just its base name _without_ the extension.
-For example on my system, reusing the testpy2.py and testpy3.py scripts described above:
-```
+
+## Finding Python scripts in the PATH without specifying their extension
+
+
+
+
+Microsoft Windows shells search for commands using a list of implicit extensions defined in the PATHEXT environment variable. This allows running a script by entering just its base name _without_ the extension. For example on my system, reusing the testpy2.py and testpy3.py scripts described above:
+
+
+```bash
 C:\Temp>set PATHEXT
 PATHEXT=.PY;.PY3;.PYC;.PYO;.PYW;.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
 
@@ -410,33 +453,46 @@ C:\Temp>testpy2
 
 C:\Temp>
 ```
-If your PATHEXT does not contain .PY or .py (This is case-independant, so the two are equivalent),
-then add it into both the system PATHEXT and your local shell PATHEXT. Example for the cmd.exe shell:
-```
+
+
+If your PATHEXT does not contain .PY or .py (This is case-independant, so the two are equivalent), then add it into both the system PATHEXT and your local shell PATHEXT. Example for the cmd.exe shell:
+
+
+```bash
 setx PATHEXT ".PY;%PATHEXT%" -m
 set PATHEXT=.PY;%PATHEXT%
 ```
+
+
 and for PowerShell:
-```
+
+
+```bash
 $SystemPathExt = [Environment]::GetEnvironmentVariable('PATHEXT', 'Machine')
 [Environment]::SetEnvironmentVariable('PATH', ".PY;$SystemPathExt", 'Machine')
 $env:PATHEXT = ".PY;$env:PATHEXT"
 ```
 
 
-Automating  all of this
------------------------
 
-If all the above gives you a headache (it definitely does for me!), there is a way to do everything automatically.  
-The Open Source [System Tools Library](https://github.com/JFLarvoire/SysToolsLib/releases/latest/download/SysTools.zip)
-contains a tool called [PySetup.bat](https://github.com/JFLarvoire/SysToolsLib/blob/master/Python/PySetup.bat).
-This tool checks all the information documented above and, optionally, fixes it.
 
-First run `pysetup` without any option to check the current configuration.  
-Then, if anything is wrong, and you agree with the proposed changes, run `pysetup -s`.
+## Automating all of this
 
-When everything is correct, pysetup.bat outputs all green [OK] statuses:  
-```
+
+
+
+If all the above gives you a headache (it definitely does for me!), there is a way to do everything automatically. The Open Source [System Tools Library](https://github.com/JFLarvoire/SysToolsLib/releases/latest/download/SysTools.zip)
+contains a tool called [PySetup.bat](https://github.com/JFLarvoire/SysToolsLib/blob/master/Python/PySetup.bat). This tool checks all the information documented above and, optionally, fixes it.
+
+
+First run `pysetup` without any option to check the current configuration. Then, if anything is wrong, and you agree with the proposed changes, run `pysetup -s`.
+
+
+
+When everything is correct, pysetup.bat outputs all green [OK] statuses:
+  
+
+```bash
 C:\Temp>pysetup
 
 Testing the "C:\Program Files\Python39\python.exe" configuration
@@ -482,12 +538,17 @@ The setup is good.
 C:\Temp>
 ```
 
+
+
 ### Fixing missing instances that py.exe does not see
 
-Another feature of pysetup.bat is that it can scan known places on the disk for Python instances,
-and optionally register missing entries so that py.exe knows about them.
 
-- First run `pysetup -l` to list instances. (This may take some time if you have a slow disk.)
+
+Another feature of pysetup.bat is that it can scan known places on the disk for Python instances, and optionally register missing entries so that py.exe knows about them.
+
+
+
+* First run `pysetup -l` to list instances. (This may take some time if you have a slow disk.)
 
        C:\Temp>pysetup -l
        #0   3.9.2    AMD64   C:\Windows\py.exe
@@ -501,7 +562,9 @@ and optionally register missing entries so that py.exe knows about them.
        
        C:\Temp>
 
-- Compare that to the output of the `py -0p` command.
+
+
+* Compare that to the output of the `py -0p` command.
 
        C:\Temp>py -0p
        Installed Pythons found by py Launcher for Windows
@@ -514,7 +577,11 @@ and optionally register missing entries so that py.exe knows about them.
        
        C:\Temp>
 
-- If any one is missing (As is the case here for Python 2.7.12), then run `python -r VERSION` to fix the issue. Ex:
+
+
+* If any one is missing (As is the case here for Python 2.7.12), then run `python -r VERSION` to fix the issue. Ex:
+
+
 
        C:\Temp>pysetup -r 2.7.12
        reg add "HKLM\Software\Python\PythonCore\2.7\InstallPath" /ve /d "C:\Program Files\Python27\\" /f
@@ -537,9 +604,11 @@ and optionally register missing entries so that py.exe knows about them.
        C:\Temp>
 
 
-Conclusion
-----------
 
-I hope you found this post helpful when dealing with some of the issues that can occur when you are configuring
-multiple instances of Python in Microsoft Windows environments.  
-For more informative tutorials, make sure you keep checking back on the [HPE DEV blog](https://developer.hpe.com/blog).
+
+## Conclusion
+
+
+
+
+I hope you found this post helpful when dealing with some of the issues that can occur when you are configuring multiple instances of Python in Microsoft Windows environments. For more informative tutorials, make sure you keep checking back on the [HPE DEV blog](https://developer.hpe.com/blog).
