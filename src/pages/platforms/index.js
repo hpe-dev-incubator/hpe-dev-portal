@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { graphql } from 'gatsby';
+import { graphql, navigate } from 'gatsby';
 import { Heading, Paragraph } from 'grommet';
 
 import {
@@ -38,6 +38,7 @@ function Platform({ data, location }) {
 
   useEffect(() => {
     if (location.state && location.state.isPlatformHeaderClicked) {
+      navigate('/platforms', { replace: true });
       localStorage.removeItem('platformPosition');
     }
   }, [location]);
