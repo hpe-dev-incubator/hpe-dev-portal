@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { graphql } from 'gatsby';
+import { graphql, navigate } from 'gatsby';
 import { Box, Tab, Tabs, Heading } from 'grommet';
 import {
   Layout,
@@ -25,8 +25,7 @@ const rows = {
   large: ['auto'],
   xlarge: ['auto'],
 };
-
-function NewsletterSignup({ data }) {
+function NewsletterSignup({ data, location }) {
   const newsletters = data.allMarkdownRemark.group.sort((a, b) =>
     a.fieldValue < b.fieldValue ? 1 : -1,
   );
@@ -34,6 +33,32 @@ function NewsletterSignup({ data }) {
   const onActive = (nextIndex) => setIndex(nextIndex);
   const siteMetadata = useSiteMetadata();
   const siteTitle = siteMetadata.title;
+
+  useEffect(() => {
+    if (location.state && location.state.isNewsletterHeaderClicked) {
+      navigate('/newsletter-signup', { replace: true });
+      localStorage.removeItem('newsletter');
+    }
+  }, [location]);
+
+  useEffect(() => {
+    const newsletterLocalStorage = JSON.parse(
+      localStorage.getItem('newsletter')
+    );
+
+    if (newsletterLocalStorage && newsletterLocalStorage.index) {
+      setIndex(newsletterLocalStorage.index);
+    }
+    if (newsletterLocalStorage && newsletterLocalStorage.position) {
+      setTimeout(() => {
+        window.scrollTo({
+          top: newsletterLocalStorage.position,
+          left: 0,
+          behavior: 'smooth',
+        });
+      }, 100);
+    }
+  }, []);
 
   return (
     <Layout title={siteTitle}>
@@ -72,6 +97,7 @@ function NewsletterSignup({ data }) {
                     date={node.frontmatter.date}
                     monthly={node.frontmatter.monthly}
                     newsletter
+                    index={index}
                   />
                 ))}
               </ResponsiveGrid>
@@ -108,6 +134,11 @@ NewsletterSignup.propTypes = {
       ).isRequired,
     }).isRequired,
   }).isRequired,
+  location: PropTypes.shape({
+    state: PropTypes.shape({
+      isNewsletterHeaderClicked: PropTypes.bool,
+    }),
+  }),
 };
 
 export default NewsletterSignup;
