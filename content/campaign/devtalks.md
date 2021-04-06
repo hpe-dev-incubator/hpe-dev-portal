@@ -17,7 +17,7 @@ Please note that these talks are internal/partners only for now.
 | 17-Feb-21 | How to start developing NLP applications                          | Rohit Rawat & Vineet Gundecha            | [Replay](https://vimeo.com/514054456)                                           |
 | 03-Mar-21 | Delivering the AI Stack for the Modern Enterprise                 | Vinod Iyengar (H2O.ai) &  Ellen Friedman | [Replay](https://vimeo.com/520629079/56fecc72f8)                                         |
 | 17-Mar-21 | No Session this week                                                      |                                          |                                                  |
-| 31-Mar-21 | Industrialising and transforming Data Science scope and scale     | Doug Cackett                             | [Register](https://hpe.zoom.us/meeting/register/tJMrdu-oqDgvHNeqGoNcdYmi6RNpns5_4ZJU)                                         |
-| 14-Apr-21 |  Delivering hands-on experience with Jupyter Notebooks   | Frédéric Passeron                        |                                       |
-| 28-Apr-21 |  Kubernetes 101   | Stephan Reimann & Dirk Derichsweiler  | |        
+| 31-Mar-21 | Industrialising and transforming Data Science scope and scale     | Doug Cackett                             | [Replay](https://vimeo.com/532641045/d498467501)                                         |
+| 14-Apr-21 |  Delivering hands-on experience with Jupyter Notebooks   | Frédéric Passeron                        | [Register](https://hpe.zoom.us/meeting/register/tJIqcOyrqzwqGNcFG_UpC9r8l5VJ6210_jkV)  |
+| 28-Apr-21 |  Kubernetes 101   | Stephan Reimann & Dirk Derichsweiler  |  [Register](https://hpe.zoom.us/meeting/register/tJ0ocOmspz0sHdDcsqZiWCfjW8JPjRSszuOE) |        
 | 12-May-21 |  Redfish programming made easy and secure with Ansible and HPE OneView  | François Donzé                   | |                            
