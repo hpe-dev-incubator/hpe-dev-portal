@@ -50,12 +50,12 @@ function Blog({ data, location }) {
       navigate('/blog', { replace: true });
       setLatestPage(initialPage);
       setBlogPosts(initialPage.nodes);
-      localStorage.clear();
+      localStorage.removeItem('blogPosition');
     }
   }, [initialPage, location]);
 
   useEffect(() => {
-    const scrollPosition = JSON.parse(localStorage.getItem('position'));
+    const scrollPosition = JSON.parse(localStorage.getItem('blogPosition'));
 
     if (scrollPosition) {
       setTimeout(() => {

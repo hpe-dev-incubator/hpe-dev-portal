@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { graphql } from 'gatsby';
+import { graphql, navigate } from 'gatsby';
 import { Heading, Paragraph } from 'grommet';
 
 import {
@@ -31,10 +31,27 @@ const rows = {
   xlarge: ['auto'],
 };
 
-function Platform({ data }) {
+function Platform({ data, location }) {
   const platforms = data.allMarkdownRemark.edges;
   const siteMetadata = useSiteMetadata();
   const siteTitle = siteMetadata.title;
+
+  useEffect(() => {
+    if (location.state && location.state.isPlatformHeaderClicked) {
+      navigate('/platforms', { replace: true });
+      localStorage.removeItem('platformPosition');
+    }
+  }, [location]);
+
+  useEffect(() => {
+    const scrollPosition = JSON.parse(localStorage.getItem('platformPosition'));
+
+    if (scrollPosition) {
+      setTimeout(() => {
+        window.scrollTo({ top: scrollPosition, left: 0, behavior: 'smooth' });
+      }, 100);
+    }
+  }, []);
 
   return (
     <Layout title={siteTitle}>
@@ -93,6 +110,11 @@ Platform.propTypes = {
       ).isRequired,
     }).isRequired,
   }).isRequired,
+  location: PropTypes.shape({
+    state: PropTypes.shape({
+      isPlatformHeaderClicked: PropTypes.bool,
+    }),
+  }),
 };
 
 export default Platform;
