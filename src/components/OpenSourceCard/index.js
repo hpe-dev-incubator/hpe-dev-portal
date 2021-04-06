@@ -30,7 +30,7 @@ const OpenSourceCard = ({
         ? (e) => {
             navigate(link);
             localStorage.setItem(
-              'newsletter',
+              'newsletterData',
               JSON.stringify({
                 index,
                 position: e.nativeEvent.pageY - e.nativeEvent.clientY,

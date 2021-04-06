@@ -37,13 +37,13 @@ function NewsletterSignup({ data, location }) {
   useEffect(() => {
     if (location.state && location.state.isNewsletterHeaderClicked) {
       navigate('/newsletter-signup', { replace: true });
-      localStorage.removeItem('newsletter');
+      localStorage.removeItem('newsletterData');
     }
   }, [location]);
 
   useEffect(() => {
     const newsletterLocalStorage = JSON.parse(
-      localStorage.getItem('newsletter'),
+      localStorage.getItem('newsletterData'),
     );
 
     if (newsletterLocalStorage && newsletterLocalStorage.index) {
