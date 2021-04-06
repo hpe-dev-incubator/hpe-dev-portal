@@ -37,15 +37,15 @@ Finally, I decided to get to the bottom of it. In this blog post, I'll share wit
 
 
 
-* Recent versions of Microsoft Windows 10 have a python.exe stub pre-installed that gets you directly to a Microsoft Store page. From there you can download a free version of Python officially supported by Microsoft. Just run `python` at the command prompt and follow the instructions on the Microsoft Store page.
+Recent versions of Microsoft Windows 10 have a python.exe stub pre-installed that gets you directly to a Microsoft Store page. From there you can download a free version of Python officially supported by Microsoft. Just run `python` at the command prompt and follow the instructions on the Microsoft Store page.
 
 
 
-* An alternative is to go to `https://www.python.org/downloads/`, and get the official Python releases for Microsoft Windows. Advantage: Their version is slightly more recent than the one supported by Microsoft.
+An alternative is to go to `https://www.python.org/downloads/`, and get the official Python releases for Microsoft Windows. Advantage: Their version is slightly more recent than the one supported by Microsoft.
 
 
 
-* Another possibility is to use a third party build for Microsoft Windows, like the [ActivePython](https://www.activestate.com/products/python/downloads/) distribution maintained by [ActiveState](https://www.activestate.com). If you still need Python 2.7, their ActivePython 2.7 is an all-batteries included distribution, with all modules that you can think of built-in.  
+Another possibility is to use a third party build for Microsoft Windows, like the [ActivePython](https://www.activestate.com/products/python/downloads/) distribution maintained by [ActiveState](https://www.activestate.com). If you still need Python 2.7, their ActivePython 2.7 is an all-batteries included distribution, with all modules that you can think of built-in.  
 
 
 >Caution: These ActivePython distributions are free for development use, but not for production use.
@@ -66,7 +66,7 @@ But this is also the source of many problems, as different versions make differe
 
 
 
-The py.exe launcher tool is a critically important tool that comes with Python 3 distributions for Microsoft Windows. Unfortunately its installation is optional and usually _not_ selected by default. If you ever install more that one Python version on your system (Python 2.7 and Python 3.x maybe), then it's a no-brainer: You **must** select it and install it.
+The _py.exe_ launcher tool is a critically important tool that comes with Python 3 distributions for Microsoft Windows. Unfortunately its installation is optional and usually _not_ selected by default. If you ever install more that one Python version on your system (Python 2.7 and Python 3.x maybe), then it's a no-brainer: You **must** select it and install it.
 
 
 
@@ -148,6 +148,8 @@ To fix that, you need to manually create one of these registry keys and values:
 
  * For user-specific instances (Installed in C:\Users\YOURNAME\AppData\Local\Programs\Python), the base key is:  
    `HKEY_CURRENT_USER\Software\Python\PythonCore\MAJOR.MINOR\InstallPath\...`
+
+
  * For system-wide instances (Installed in C:\Program Files\python*, or even in C:\Python*), the base key is:  
    `HKEY_LOCAL_MACHINE\Software\Python\PythonCore\MAJOR.MINOR\InstallPath\...`
 
@@ -229,7 +231,9 @@ C:\Temp>
 
 
 
-Note that this tip is good for Unix also. With the right shebang, the script will use the right Python version both in Unix and Microsoft Windows. One last important note about this: Unix shells choke on Python scripts created in Microsoft Windows with CRLF at the end of lines. If you want your Python script to be portable to Mac and Linux systems, use Unix LF line endings, even in Microsoft Windows.
+Note that this tip is good for Unix also. With the right shebang, the script will use the right Python version both in Unix and Microsoft Windows. 
+
+One last important note about this: Unix shells choke on Python scripts created in Microsoft Windows with CRLF at the end of lines. If you want your Python script to be portable to Mac and Linux systems, use Unix LF line endings, even in Microsoft Windows.
 
 
 
@@ -243,7 +247,7 @@ Note that this tip is good for Unix also. With the right shebang, the script wil
 
 
 
-Microsoft Windows can select interpreters based on the file extension. This should be setup correctly by recent versions of Python 3, but may not be so with old versions of Python 2! If you install an old Python 2.7 _after_ a recent Python 3, this may bite you! To check if the configuration is correct, run assoc.exe, then ftype.exe, as shown here:
+Microsoft Windows can select interpreters based on the file extension. This should be setup correctly by recent versions of Python 3, but may not be so with old versions of Python 2! If you install an old Python 2.7 _after_ a recent Python 3, this may bite you! To check if the configuration is correct, run `assoc.exe`, then `ftype.exe`, as shown here:
  
 ```bash
 C:\Temp>assoc .py
@@ -258,7 +262,9 @@ C:\Temp>
 
 The `assoc` command must show that extension .py is associated with class `Python.File`. If it's not, run `assoc .py=Python.File` to correct it. And the `ftype` command must show that the `Python.File` class is associated with the py.exe command, or if py.exe is not available on your (very old) system, to the latest python.exe command available.
   
-The `"%L" %*` arguments tell the shell to append the script full pathname, and all its arguments if any. Note that I've seen cases where this command was corrupt, with a long string of garbage characters instead. If it's incorrect or corrupt, correct it by running: `ftype Python.File=C:\Windows\py.exe "%L" %*`
+The `"%L" %*` arguments tell the shell to append the script full pathname, and all its arguments if any. 
+
+>Note that I've seen cases where this command was corrupt, with a long string of garbage characters instead. If it's incorrect or corrupt, correct it by running: `ftype Python.File=C:\Windows\py.exe "%L" %*`
 
 
 
@@ -371,8 +377,7 @@ The [System Tools Library](https://github.com/JFLarvoire/SysToolsLib/releases/la
 
 
 
- * which.exe includes the best of Unix which and Microsoft Windows where.exe and some more.  
-   For a detailed description of which.exe features, see [this post](https://www.dostips.com/forum/viewtopic.php?f=3&t=9058).
+ * `which.exe` includes the best of Unix which and Microsoft Windows where.exe and some more. For a detailed description of which.exe features, see [this post](https://www.dostips.com/forum/viewtopic.php?f=3&t=9058).
 
 
  * [paths](https://github.com/JFLarvoire/SysToolsLib/blob/master/Bash/paths) is a simple Posix Shell script for doing the same things in Unix shells as paths.bat does in Microsoft Windows shells.
@@ -573,8 +578,7 @@ Another feature of pysetup.bat is that it can scan known places on the disk for 
         -3.7-64        C:\Program Files (x86)\Microsoft Visual Studio\Shared\Python37_64\python.exe
         -3.6-64        C:\Program Files (x86)\Microsoft Visual Studio\Shared\Python36_64\python.exe
         -3.5-64        C:\Program Files\Python35\python.exe
-       
-       
+           
        C:\Temp>
 
 
@@ -599,8 +603,7 @@ Another feature of pysetup.bat is that it can scan known places on the disk for 
         -3.6-64        C:\Program Files (x86)\Microsoft Visual Studio\Shared\Python36_64\python.exe
         -3.5-64        C:\Program Files\Python35\python.exe
         -2.7-64        C:\Program Files\Python27\python.exe
-       
-       
+         
        C:\Temp>
 
 
