@@ -34,9 +34,13 @@ function Blog({ data, location }) {
   useEffect(() => {
     setCollectionId(initialPage.collection.id);
 
-    const blogLocalStorage = JSON.parse(localStorage.getItem('blogData'),);
+    const blogLocalStorage = JSON.parse(localStorage.getItem('blogData'));
 
-    if (blogLocalStorage && blogLocalStorage.latestPage && blogLocalStorage.latestBlogPosts) {
+    if (
+      blogLocalStorage &&
+      blogLocalStorage.latestPage &&
+      blogLocalStorage.latestBlogPosts
+    ) {
       setLatestPage(blogLocalStorage.latestPage);
       setBlogPosts(blogLocalStorage.latestBlogPosts);
     }
@@ -46,7 +50,7 @@ function Blog({ data, location }) {
       setLatestPage(initialPage);
       setBlogPosts(initialPage.nodes);
       localStorage.removeItem('blogPosition');
-      localStorage.removeItem('blogData')
+      localStorage.removeItem('blogData');
     }
   }, [initialPage, location]);
 
@@ -72,9 +76,11 @@ function Blog({ data, location }) {
     setBlogPosts((state) => [...state, ...json.nodes]);
     setLatestPage(json);
 
-    localStorage.setItem('blogData', JSON.stringify({
+    localStorage.setItem(
+      'blogData',
+      JSON.stringify({
         latestBlogPosts: [...blogPosts, ...json.nodes],
-        latestPage: (json),
+        latestPage: json,
       }),
     );
   }, [latestPage, collectionId, blogPosts]);
