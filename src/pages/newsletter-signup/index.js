@@ -43,7 +43,7 @@ function NewsletterSignup({ data, location }) {
 
   useEffect(() => {
     const newsletterLocalStorage = JSON.parse(
-      localStorage.getItem('newsletter')
+      localStorage.getItem('newsletter'),
     );
 
     if (newsletterLocalStorage && newsletterLocalStorage.index) {

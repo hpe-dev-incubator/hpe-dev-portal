@@ -31,7 +31,12 @@ function Header() {
       to="/blog"
       state={{ state: { isBlogHeaderClicked: true } }}
     />,
-    <ButtonLink key="nw" label="Newsletter" to="/newsletter-signup" />,
+    <ButtonLink
+      key="nw"
+      label="Newsletter"
+      to="/newsletter-signup"
+      state={{ state: { isNewsletterHeaderClicked: true } }}
+    />,
     <ButtonLink key="cm" label="Community" to="/community" />,
   ];
 

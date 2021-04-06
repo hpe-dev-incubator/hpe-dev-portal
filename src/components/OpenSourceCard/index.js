@@ -92,7 +92,7 @@ OpenSourceCard.propTypes = {
   stars: PropTypes.bool,
   monthly: PropTypes.number,
   newsletter: PropTypes.bool,
-  index: PropTypes.number
+  index: PropTypes.number,
 };
 
 export default OpenSourceCard;
