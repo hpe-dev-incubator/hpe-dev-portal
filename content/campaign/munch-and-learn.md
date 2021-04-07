@@ -4,7 +4,7 @@ authorimage: /img/blogs/HPE-Dev-Staff.svg
 ---
 <img src="/img/skillup/MunchandLearn.svg" width="400">
 
-Munch & Learn Technology Talks are free, one-hour meetups designed to provide developers and data scientists the opportunity to meet and engage with experts in popular HPE and open source technologies. Hosted by the HPE Developer Community, they are held on a monthly basis at 5PM CET. 
+Munch & Learn Technology Talks are free, one-hour meetups designed to provide developers and data scientists the opportunity to meet and engage with experts in popular HPE and open source technologies. Hosted by the HPE Developer Community, they are held on a monthly basis at 5PM CET. Read more about the Munch & Learn <a href="https://developer.hpe.com/blog/hpe-dev-launches-its-munch-learn-technical-talks" target="_blank">in this blog</a>.
 
 Join us to hear from renowned technologists on a variety of topics and get your questions answered while sharing a recipe or two.
 
