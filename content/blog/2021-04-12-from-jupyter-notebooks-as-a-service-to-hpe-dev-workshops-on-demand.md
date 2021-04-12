@@ -190,7 +190,7 @@ Our next steps include the following:
 -   Implement complete deployment scenario
     -   OS Bare metal deployment
 -    Provide a new backend on HPE GreenLake
-    - We have now a JupyterHub server running in HPE GreenLake
+     -     We have now a JupyterHub server running in HPE GreenLake
      -    We validated the relationship between this new backend and our registration application
      -   More testing to come
 -    Automate the student ID range booking using a YAML configuration file
@@ -199,6 +199,8 @@ Our next steps include the following:
     -    Only missing some automation layer again to sync different repositories
 
 Before leaving you with some final thoughts, let me show you a screenshot of our dashboard presenting:
+
+
 -    The number of Active Workshops
 -    The active workshops by type
 -    The total number of registrations from November 1st 2020 till today
