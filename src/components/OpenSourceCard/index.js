@@ -20,11 +20,25 @@ const OpenSourceCard = ({
   date,
   monthly,
   newsletter,
+  index,
 }) => (
   <GrommetCard
     pad="large"
     elevation="medium"
-    onClick={link ? () => navigate(link) : undefined}
+    onClick={
+      link
+        ? (e) => {
+            navigate(link);
+            localStorage.setItem(
+              'newsletterData',
+              JSON.stringify({
+                index,
+                position: e.nativeEvent.pageY - e.nativeEvent.clientY,
+              }),
+            );
+          }
+        : undefined
+    }
   >
     <CardHeader justify="between" pad={{ top: 'none', bottom: 'medium' }}>
       {date && (
@@ -78,6 +92,7 @@ OpenSourceCard.propTypes = {
   stars: PropTypes.bool,
   monthly: PropTypes.number,
   newsletter: PropTypes.bool,
+  index: PropTypes.number,
 };
 
 export default OpenSourceCard;
