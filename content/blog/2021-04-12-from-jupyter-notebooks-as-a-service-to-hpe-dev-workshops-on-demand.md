@@ -88,7 +88,11 @@ VCENTERPWD: "xxxxxxx"
 
 We standardized on Ubuntu 20.04 and Centos 7 for the operating systems and created a few Ansible playbooks to prepare the servers.
 
+
+
 The first playbook based on a location parameter would perform:
+
+
 - the JupyterHub installation
    - System Update
    - Repository Update
@@ -100,8 +104,114 @@ The first playbook based on a location parameter would perform:
    - Linux users creation
    - JupyterHub users creation
 
+
+
 The second playbook would take care of deploying the reference notebooks on the newly created JupyterHub server.
 
-A third playbook is run on demand and nightly to ensure that the configuration is consistent and up to date.
+
+
+A third playbook is run on demand and nightly to ensure that the configuration is consistent and up to date. 
+
+
 
 We created two Git repositories, one for the infrastructure management (and all the development we did to automate our deployments) and a second one for the reference notebooks’ content.
+
+
+## Running
+
+While we worked on automating the deployment/redeployment of a JupyterHub at will, we also focused on improving the notebooks’ deployment automation that we implemented earlier during HPE Discover.
+
+
+
+Let me first show you how the overall process works for our Workshops-on-Demand:
+
+![Workshops-on-Demand](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2021/4/hackshack2-1617960613898.png)
+
+If you’re looking for a live explanation of this automation, you can review [the following session](https://www.youtube.com/watch?v=D6Ss3T2p008&t=515s) Bruno Cornec and I delivered at Linuxconf in Australia in January 2021.
+
+
+
+**Step 1:** The customer registers for a workshop online at our virtual [Hack Shack](https://hackshack.hpedev.io/workshops). When clicking the register button for the selected workshop and after agreeing to the terms and conditions, the front-end triggers the first REST API calls to:
+
+-    Register the student in the Customers Database.
+-    Send a welcome email to the student
+-    Assign a student ID to him/her according to the student range allocated to the given workshop 
+
+**Step 2:** The registration App then orders (through a mail API call managed by procmail) the backend to:
+
+-    Generate a random password for the selected student
+-    Deploy the selected workshop
+
+**Step 3:** The backend Infrastructure calls back the registration application using its REST API to:
+
+-    Provide back the new student password
+-    Make the student’s database record active
+ -    Decrement Workshop capacity
+
+**Step 4:** The registration App sends:
+-    The credentials email to allow the student to connect to the workshop
+
+This infrastructure automation relies mainly on a few bash scripts and Ansible playbooks to: 
+
+ -    Generate random passwords
+     -    Update LDAP passwords accordingly when required
+ -    Deploy the given workshop to the proper student home directory through an Ansible playbook
+-    Update the notebook content through Ansible variables substitutions
+     -    Student ID
+     -    Student password
+     -    API Endpoints definition
+ -    Update student permissions
+-    Perform all necessary create or reset actions linked to a given workshop outside of the notebook customization
+
+
+
+The registration app actually sends an email to the backend with a dedicated format (an API!) that is then parsed by the Procmail process to retrieve the necessary information to perform the different tasks. We use 3 verbs: CREATE (to setup to the student environment as described upper), DELETE (to remove the user from tables), and RESET (to clean up the student content and reset the back-end infrastructure when needed).
+
+At the end of this automated process, the backend makes a series of API calls to the registration app to send back the required information, like a new password, workshop status, etc.
+
+
+
+More info on Procmail can be found [here](https://en.wikipedia.org/wiki/Procmail).
+
+
+
+## Flying
+
+In the fall, we started a pilot phase for a month. We opened the platform internally and gathered some feedback. We managed to discover a few bugs then that are now corrected. The platform went live in November 2020 and is used on a daily basis.
+
+Since then, we have added new workshops on a monthly basis.  We lately returned to TSS using the Workshops-on-Demand to deliver our content; this time without any manual process in the scheme.
+
+
+
+Our next steps include the following:
+
+
+
+-   Implement complete deployment scenario
+    -   OS Bare metal deployment
+-    Provide a new backend on HPE GreenLake
+    - We have now a JupyterHub server running in HPE GreenLake
+     -    We validated the relationship between this new backend and our registration application
+     -   More testing to come
+-    Automate the student ID range booking using a YAML configuration file
+-    Open source our Workshops-on-Demand Notebooks content:
+    -    This is work in progress. The repository is ready. Licensing is ok. 
+    -    Only missing some automation layer again to sync different repositories
+
+Before leaving you with some final thoughts, let me show you a screenshot of our dashboard presenting:
+-    The number of Active Workshops
+-    The active workshops by type
+-    The total number of registrations from November 1st 2020 till today
+-    The total number of Customer (student) registrations
+-    The total workshops split
+
+
+![Dashboard](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2021/4/hackshack3-1617960606167.png)
+
+
+
+Didier Lalli from our HPE DEV team created this informative dashboard and wrote a blog about it. If you are interested in learning more about ElasticSearch, read it out [here](https://developer.hpe.com/blog/open-source-elasticsearch-helped-us-globally-support-virtual-labs).
+
+
+
+As you can see, we have made significant progress over the past year, moving from a heavily manually oriented approach to now a fully automated one. If you are interested in seeing the result for yourself, [please register for one of our Workshops-on-Demand](https://hackshack.hpedev.io/workshops). Don’t forget to fill out the survey at the end of the workshop to provide us with feedback on your experience, as well as subjects you would like to see covered in the near future, as this really helps to improve the program.
