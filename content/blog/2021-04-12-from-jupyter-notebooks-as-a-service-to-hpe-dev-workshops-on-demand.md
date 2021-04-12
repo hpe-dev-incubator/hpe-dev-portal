@@ -53,3 +53,55 @@ As you can see, we have a few environments to deploy and manage. Without automat
 
 
 Each server is associated to a logical location and role (Production, Staging, Sandbox, and GreenLake): Jupyter1 is the production server. Jupyter2 is the sandbox server. It is used to perform some early testing and is located in a different datacenter from the production and staging servers. Jupyter3 is the staging server. Workshops are developed and validated on this server before moving to production. Finally, Jupyter4 is deployed in a dedicated HPE GreenLake tenant. It will serve over time as a second production site.
+
+Each location is defined through a set of yaml files to specify the different parameters linked to the location (IP Addresses, Hostnames, etc…)
+
+
+
+```yaml
+PBKDIR: staging
+JPHOST: jupyter3.example.com
+JPIP: xx.xx.xx.xx
+JPHOSTEXT: nb3.example.com
+JPHUBAPISRV: http://{{ JPHOST }}:8000
+JPHUBTOKEN: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+BASESTDID: 0
+APIENDPOINT: https://example.com/api
+APIUSER: user
+APIPWD: password
+LDAPDMN: dc=example,dc=com
+#
+KIBANAPWD: "zzzzzzzzzzzzzzzzzzzzzzzzzzzzz"
+KIBANAPORT: "xxxxxx"
+#
+STACKSTORMSRVNAME: "sta-stackstorm"
+STACKSTORMSRIP: "xx.xx.xx.xx"
+STACKSTORMWEBUIPORT: "yyyy"
+#
+VCENTERAPP: "vcenter.example.com"
+VCENTERADMIN: "user"
+VCENTERPWD: "xxxxxxx"
+#
+```
+
+
+
+We standardized on Ubuntu 20.04 and Centos 7 for the operating systems and created a few Ansible playbooks to prepare the servers.
+
+The first playbook based on a location parameter would perform:
+- the JupyterHub installation
+   - System Update
+   - Repository Update
+   - Apps Installation
+   - System Performance Tuning
+   - Security Setup
+   - JupyterHub application installation and configuration
+   - kernels setup & configuration 
+   - Linux users creation
+   - JupyterHub users creation
+
+The second playbook would take care of deploying the reference notebooks on the newly created JupyterHub server.
+
+A third playbook is run on demand and nightly to ensure that the configuration is consistent and up to date.
+
+We created two Git repositories, one for the infrastructure management (and all the development we did to automate our deployments) and a second one for the reference notebooks’ content.
