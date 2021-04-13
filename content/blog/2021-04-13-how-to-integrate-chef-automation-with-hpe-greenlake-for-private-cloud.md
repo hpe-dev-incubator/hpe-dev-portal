@@ -127,6 +127,8 @@ For this scenario, we need to integrate Chef automation with the HPE GreenLake f
    * Organization Validator: Validator key for the organization
    * DataBags: Optional. Add it if it is configured in the Chef Infra server
 
+
+
     Image3
 
 ### Create a new infrastructure group for Chef integration.
