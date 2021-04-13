@@ -8,10 +8,10 @@ featuredBlog: false
 priority:
 thumbnailimage:
 ---
-In my previous blog post, [HPE Container platform REST API – Part 1: Authenticating](https://developer.hpe.com/blog/hpe-container-platform-rest-api-part-1-authenticating), I introduced the HPE Container Platform (HPE CP) REST API. I showed you how to authenticate to the HPE Container Platform API endpoint and retrieve data from objects in a secure way using the command line cURL. Continuing with this series, my second article will walk you through the steps you need to take to deploy containerized applications programmatically on Kubernetes clusters that are managed by the HPE Container Platform. It will show you how to take the REST API authentication call you established while going through the first blog and apply it to a real life scenario focused on the following areas:
+In my previous blog post, [HPE Container platform REST API – Part 1: Authenticating](/blog/hpe-container-platform-rest-api-part-1-authenticating), I introduced the HPE Container Platform (HPE CP) REST API. I showed you how to authenticate to the HPE Container Platform API endpoint and retrieve data from objects in a secure way using the command line cURL. Continuing with this series, my second article will walk you through the steps you need to take to deploy containerized applications programmatically on Kubernetes clusters that are managed by the HPE Container Platform. It will show you how to take the REST API authentication call you established while going through the first blog and apply it to a real life scenario focused on the following areas:
 
 * Deployment of cloud native microservices based applications
-* Deployment of non-cloud native, stateful, distributed analytics workloads using pre-configured [KubeDirector applications](https://developer.hpe.com/blog/kubedirector-the-easy-way-to-run-complex-stateful-applications-on-kubern)
+* Deployment of non-cloud native, stateful, distributed analytics workloads using pre-configured [KubeDirector applications](/blog/kubedirector-the-easy-way-to-run-complex-stateful-applications-on-kubern)
 
 ## Deploying stateless and stateful containerized applications using a programmatic approach 
 
@@ -458,7 +458,7 @@ Now, you can connect to the Spark dashboard and the Jupyter Notebook from your b
 
 To increase or decrease the number of members in a role, you would just have to edit the configuration YAML file for your application and use the `kubectl apply -f file.yaml` command to implement the changes. The KubeDirector operator will manage the application cluster expansion or shrinkage for you.
 
-Hopefully, this blog has helped you learn how to programmatically interact with the HPE Container Platform to deploy both cloud native stateless, microservices based applications and non-cloud native distributed stateful [KubeDirector](https://developer.hpe.com/blog/running-non-cloud-native-apps-on-kubernetes-with-kubedirector) applications for various use cases. 
+Hopefully, this blog has helped you learn how to programmatically interact with the HPE Container Platform to deploy both cloud native stateless, microservices based applications and non-cloud native distributed stateful [KubeDirector](/blog/running-non-cloud-native-apps-on-kubernetes-with-kubedirector) applications for various use cases. 
 
 You can stay up to date with the latest news from HPE DEV by [signing up for our monthly newsletter.](https://developer.hpe.com/newsletter-signup) In it, you will find more awesome developers and data scientists focused posts about the HPE Container Platform. You can also follow our community on [Twitter](https://twitter.com/HPE_DevCom) and join the conversation on our [HPE DEV Slack Channel.](https://slack.hpedev.io/)
 

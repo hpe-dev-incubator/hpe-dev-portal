@@ -104,7 +104,7 @@ Once the event receiver program is in place and Apache restarted, it waits for s
 
 The exhaustive list of possible events to subscribe to is present at: `https://<ilo-IP>/redfish/v1/EventService/`
 
-For testing and prototyping, the subscription can be done manually using the **[POSTMAN](https://www.getpostman.com/)** API development platform , PowerShell, or curl. In a production environment, I would recommend to use `ilorest` (former `hprest`)  the [iLO RESTful Interface Tool](http://hpe.com/resttool/) or an application using the [best practices to crawl and parse remote managed nodes schemas](https://developer.hpe.com/blog/getting-started-with-ilo-restful-api-redfish-api-conformance).
+For testing and prototyping, the subscription can be done manually using the **[POSTMAN](https://www.getpostman.com/)** API development platform , PowerShell, or curl. In a production environment, I would recommend to use `ilorest` (former `hprest`)  the [iLO RESTful Interface Tool](http://hpe.com/resttool/) or an application using the [best practices to crawl and parse remote managed nodes schemas](/blog/getting-started-with-ilo-restful-api-redfish-api-conformance).
 
 Before posting the following payload toward your managed node at `https://<IP>/redfish/v1/EventService/EventSubscriptions/` you must edit and replace the `Destination` attribute with the `<IP>` address of the event receiver and its location. Optionally you can add or remove EventTypes:
 

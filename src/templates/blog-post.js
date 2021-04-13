@@ -70,7 +70,12 @@ function BlogPostTemplate({ data }) {
       <Box flex overflow="auto" gap="medium" pad="small">
         <Box direction="row-responsive">
           <Box pad={{ vertical: 'large', horizontal: 'medium' }} align="center">
-            <Image width="192px" height="192px" src={authorimage} />
+            <Image
+              width="192px"
+              height="192px"
+              src={authorimage}
+              alt="author logo"
+            />
           </Box>
           <Content gap="large" margin={{ vertical: 'large', right: '74px' }}>
             <Box gap="small">

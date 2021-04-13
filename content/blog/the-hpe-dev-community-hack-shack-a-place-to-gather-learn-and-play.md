@@ -36,7 +36,7 @@ Within the HPE DEV Hack Shack, you’ll find the following tabs where you’ll b
 Visit the [HPE DEV Community Portal](https://developer.hpe.com) via the [Hack Shack Lobby](https://hackshack.hpedev.io). There, you can access a treasure trove of information, including:
 
 * [PLATFORMS](https://developer.hpe.com/platforms) – Access GitHub resources and software development kits (SDKs)
-* [BLOG](https://developer.hpe.com/blog) – Read blogs and tutorials 
+* [BLOG](/blog) – Read blogs and tutorials 
 * [OPEN SOURCE](https://developer.hpe.com/projects) – Discover platforms, apps and contributions
 * [EVENTS](https://developer.hpe.com/events) – Plan on attending upcoming events
 * [COMMUNITY](https://developer.hpe.com/community) – Participate and contribute to the community

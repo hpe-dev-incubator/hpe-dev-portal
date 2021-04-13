@@ -22,6 +22,7 @@ function NotFoundPage() {
                 width: '50px',
               }}
               src="/img/404 developer.svg"
+              alt="404 developer logo"
             />
             <Heading margin="none">4</Heading>
           </Box>
@@ -33,6 +34,7 @@ function NotFoundPage() {
                 height: '450px',
                 width: '350px',
               }}
+              alt="dev it monster worried logo"
             />
           </Box>
         </Box>

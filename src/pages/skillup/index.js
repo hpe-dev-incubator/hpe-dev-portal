@@ -37,7 +37,11 @@ function Skillup({ data }) {
   return (
     <Layout title={siteTitle}>
       <SEO title="Skill Up" />
-      <PageDescription image="/img/blogs/HPE-Dev-Staff.svg" title="Skill Up">
+      <PageDescription
+        image="/img/blogs/HPE-Dev-Staff.svg"
+        title="Skill Up"
+        alt="skillup dev logo"
+      >
         <Paragraph>
           With technology constantly evolving, it can be challenging to keep up.
           Bookmark this page to access a great set of free technical training

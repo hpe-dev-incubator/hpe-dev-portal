@@ -246,5 +246,5 @@ In this blog, I have covered the following steps in regards to enabling Python 3
 - Copy the newly generated binaries to the installed Python location.
 - Test the version and check if FIPS is enabled.
 
-I hope this blog is useful to the entire developer community!! Make sure you check out other blog posts on [HPE DEV](https://developer.hpe.com/blog) for more useful tutorials. 
+I hope this blog is useful to the entire developer community!! Make sure you check out other blog posts on [HPE DEV](/blog) for more useful tutorials. 
 

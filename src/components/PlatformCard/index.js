@@ -8,10 +8,22 @@ const PlatformCard = ({ description, link, image, title }) => (
     elevation="medium"
     pad="large"
     gap="large"
-    onClick={link ? () => navigate(link) : undefined}
+    onClick={
+      link
+        ? (e) => {
+            navigate(link);
+            localStorage.setItem(
+              'platformPosition',
+              JSON.stringify(e.nativeEvent.pageY - e.nativeEvent.clientY),
+            );
+          }
+        : undefined
+    }
   >
     <Box direction="row-responsive" gap="large" align="center">
-      <Box flex>{image && <Image fit="contain" src={image} />}</Box>
+      <Box flex>
+        {image && <Image fit="contain" src={image} alt="platform logo" />}
+      </Box>
       <Box flex>
         <Heading margin="none" level="3" size="small">
           {title}

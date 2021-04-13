@@ -14,9 +14,9 @@ tags:
 ---
 ![f1lightdark2](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/9/f1lightdark2-1603286799167.png)
 
-In [Part 1](https://developer.hpe.com/blog/dark-mode-theming-in-grommet-how-to-set-up-and-apply-a-theme) of this 3-part series on Grommet’s support for light and dark modes, I covered setting up a simple Grommet app and applying a theme to that app. Here in Part 2, I’ll guide you through the steps required to implement dark/light theme modes. At the conclusion of this post, the app will have some basic UI components and a control to toggle the interface between light and dark modes.
+In [Part 1](/blog/dark-mode-theming-in-grommet-how-to-set-up-and-apply-a-theme) of this 3-part series on Grommet’s support for light and dark modes, I covered setting up a simple Grommet app and applying a theme to that app. Here in Part 2, I’ll guide you through the steps required to implement dark/light theme modes. At the conclusion of this post, the app will have some basic UI components and a control to toggle the interface between light and dark modes.
 
-- [Part 1 - How to set up and apply a Theme](https://developer.hpe.com/blog/dark-mode-theming-in-grommet-how-to-set-up-and-apply-a-theme)
+- [Part 1 - How to set up and apply a Theme](/blog/dark-mode-theming-in-grommet-how-to-set-up-and-apply-a-theme)
 - Part 2 - Adding dark and light theme modes
 - Part 3 - Theme color customizations
 

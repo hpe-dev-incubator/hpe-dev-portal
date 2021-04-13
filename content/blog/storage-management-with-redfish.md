@@ -25,7 +25,7 @@ I've used the [Postman](https://www.getpostman.com/) API development to illustra
 
 The reader should have the knowledge of HTTP [request methods](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Request_methods) like `GET`, `PUT` and `PATCH`.
 
-Moreover, it is assumed that the reader knows how to manage Redfish sessions as described in the [Redfish API Reference documentation](https://hewlettpackard.github.io/ilo-rest-api-docs/ilo5/#authentication-and-sessions). More hints for managing iLO sessions with Redfish can be found in this [article](https://developer.hpe.com/blog/managing-ilo-sessions-with-redfish).
+Moreover, it is assumed that the reader knows how to manage Redfish sessions as described in the [Redfish API Reference documentation](https://hewlettpackard.github.io/ilo-rest-api-docs/ilo5/#authentication-and-sessions). More hints for managing iLO sessions with Redfish can be found in this [article](/blog/managing-ilo-sessions-with-redfish).
 
 ## Storage information locations
 
@@ -48,9 +48,9 @@ If you only need the physical location of the disks to use for your logical driv
 
 ## Storage controller configuration process
 
-As described in my previous blog, [Master the Redfish Server States to improve your monitoring and management applications](https://developer.hpe.com/blog/master-the-redfish-server-states-to-improve-your-monitoring-and-manageme), and to be sure the configuration process happens smoothly,  you should first verify that your managed systems are not at the `UEFI/System Utilities` level. Being in the `Off` state is a good state to start.
+As described in my previous blog, [Master the Redfish Server States to improve your monitoring and management applications](/blog/master-the-redfish-server-states-to-improve-your-monitoring-and-manageme), and to be sure the configuration process happens smoothly,  you should first verify that your managed systems are not at the `UEFI/System Utilities` level. Being in the `Off` state is a good state to start.
 
-Modification of Bios and storage controller configurations are performed in two stages as explained in the [Setting Bios and Storage Controller Properties with Redfish](https://developer.hpe.com/blog/setting-bios-and-storage-controller-properties-with-redfish) article. The first stage consists of setting the required parameters in the "pending settings area" of the Redfish data model (`/redfish/v1/Systems/{item}/SmartStorageConfig/Settings/`). During the next server reboot, parameters in the "pending settings area", after validation, are transferred to the "current configuration" at `/redfish/v1/Systems/{item}/SmartStorageConfig/`.
+Modification of Bios and storage controller configurations are performed in two stages as explained in the [Setting Bios and Storage Controller Properties with Redfish](/blog/setting-bios-and-storage-controller-properties-with-redfish) article. The first stage consists of setting the required parameters in the "pending settings area" of the Redfish data model (`/redfish/v1/Systems/{item}/SmartStorageConfig/Settings/`). During the next server reboot, parameters in the "pending settings area", after validation, are transferred to the "current configuration" at `/redfish/v1/Systems/{item}/SmartStorageConfig/`.
 
 Upon reboot, and once the server has finished its Pre-OS Tasks (POST), you should check carefully whether the modifications have been accepted as the current configuration.
 

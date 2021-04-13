@@ -15,7 +15,7 @@ An efficient firmware update strategy requires the knowledge of several key comp
        
 In this first part, I will cover firmware file types and Smart Components (SC), including SC security and partner-specific considerations. It should be noted that I will not be covering the potential dependencies found with high-level management software like HPE OneView or the HPE iLO Amplifier Pack. For information on those topics, please refer to the specific product [documentation](http://hpe.com/info/EIL).
        
-The [second part](https://developer.hpe.com/blog/hpe-firmware-updates-part-2-interaction-in-operating-modes) concerns firmware operating modes on different network topologies. Finally, once the firmware concepts are well understood, you will be ready to read part three, which deals with the automation of firmware updates using the [Redfish®](https://redfish.dmtf.org/) standard.
+The [second part](/blog/hpe-firmware-updates-part-2-interaction-in-operating-modes) concerns firmware operating modes on different network topologies. Finally, once the firmware concepts are well understood, you will be ready to read part three, which deals with the automation of firmware updates using the [Redfish®](https://redfish.dmtf.org/) standard.
              
 
 ## Firmware binaries
@@ -94,4 +94,4 @@ In this article, I covered the following objects and concepts involved in HPE fi
 -	HPE and partner Smart Components
 -	Update agents
       
-This is important information you need to plan your firmware update strategy, but it is not sufficient. In my second article on this subject, I will describe different update operating modes as well as the interactions between different objects. Make sure you check the [HPE DEV blog](https://developer.hpe.com/blog) site often to view my next post as well as other interesting tutorials and articles.
+This is important information you need to plan your firmware update strategy, but it is not sufficient. In my second article on this subject, I will describe different update operating modes as well as the interactions between different objects. Make sure you check the [HPE DEV blog](/blog) site often to view my next post as well as other interesting tutorials and articles.

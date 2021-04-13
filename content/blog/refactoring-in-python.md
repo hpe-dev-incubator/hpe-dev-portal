@@ -190,4 +190,4 @@ Many refactoring tools are available as software packages or extensions for almo
 
 And guess what?! This blog, too, is refactored a couple of times to improve its readability. You see, fundamentals work everywhere! 
 
-I hope you found my post on refactoring useful. For more coding tips, keep checking the [HPE DEV blog.](https://developer.hpe.com/blog) And if you have any questions, feel free to reach out to me [@deyagondsamarth](https://twitter.com/deyagondsamarth) or connect with me on [Slack](https://hpedev.slack.com/?redir=%2Fteam%2FUQM0ZTE1F). Happy coding!
+I hope you found my post on refactoring useful. For more coding tips, keep checking the [HPE DEV blog.](/blog) And if you have any questions, feel free to reach out to me [@deyagondsamarth](https://twitter.com/deyagondsamarth) or connect with me on [Slack](https://hpedev.slack.com/?redir=%2Fteam%2FUQM0ZTE1F). Happy coding!

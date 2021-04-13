@@ -37,7 +37,11 @@ function Community({ data }) {
   return (
     <Layout title={siteTitle}>
       <SEO title="Community" />
-      <PageDescription image="/img/community/community.svg" title="Community">
+      <PageDescription
+        image="/img/community/community.svg"
+        title="Community"
+        alt="community page logo"
+      >
         <Paragraph>
           A community is all about connection. Discover the many different ways
           you can connect with members of the HPE DEV Community here.

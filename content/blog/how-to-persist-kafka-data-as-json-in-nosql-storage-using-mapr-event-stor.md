@@ -116,4 +116,4 @@ If you'd like to see a complete example application that uses the techniques des
 
 **Editor’s Note:** MapR products referenced are now part of the [HPE Ezmeral Data Fabric](https://www.hpe.com/us/en/software/data-fabric.html).
 
-To view more articles on this topic, be sure to check back regularly on the [HPE DEV blog site](https://developer.hpe.com/blog).
+To view more articles on this topic, be sure to check back regularly on the [HPE DEV blog site](/blog).

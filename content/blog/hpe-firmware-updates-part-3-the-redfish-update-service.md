@@ -9,11 +9,11 @@ priority:
 thumbnailimage:
 ---
 # Introduction
-In the first two blogs of this three part series regarding HPE firmware updates, I explained the[ different objects](https://developer.hpe.com/blog/hpe-firmware-updates-part-1-file-types-and-smart-components) involved in firmware updates and how they are packaged, as well as the interaction between these objects when used in different[ operating modes](https://developer.hpe.com/blog/hpe-firmware-updates-part-2-interaction-in-operating-modes).
+In the first two blogs of this three part series regarding HPE firmware updates, I explained the[ different objects](/blog/hpe-firmware-updates-part-1-file-types-and-smart-components) involved in firmware updates and how they are packaged, as well as the interaction between these objects when used in different[ operating modes](/blog/hpe-firmware-updates-part-2-interaction-in-operating-modes).
 
 This third article describes the standard Redfish® update service, including its simple update and Original Equipment Manufacturer (OEM) extension actions, and offers numerous examples and screenshots.
 
-For didactic reasons, cases described in this blog post have been performed with the[ Postman](https://www.postman.com/) platform for API development with hard-coded resource locations. Writing Redfish scripts with hard-coded locations is definitively a bad practice as explained in this[ article](https://developer.hpe.com/blog/getting-started-with-ilo-restful-api-redfish-api-conformance) and demonstrated in these[ Jupyter Notebooks](https://github.com/HewlettPackard/hpe-notebooks/tree/master/Redfish). “Well written” public examples in[ Python](https://github.com/HewlettPackard/python-ilorest-library/tree/master/examples/Redfish) and[ PowerShell](https://www.powershellgallery.com/packages/HPRESTCmdlets/1.2.0.0) can be found on the Internet.
+For didactic reasons, cases described in this blog post have been performed with the[ Postman](https://www.postman.com/) platform for API development with hard-coded resource locations. Writing Redfish scripts with hard-coded locations is definitively a bad practice as explained in this[ article](/blog/getting-started-with-ilo-restful-api-redfish-api-conformance) and demonstrated in these[ Jupyter Notebooks](https://github.com/HewlettPackard/hpe-notebooks/tree/master/Redfish). “Well written” public examples in[ Python](https://github.com/HewlettPackard/python-ilorest-library/tree/master/examples/Redfish) and[ PowerShell](https://www.powershellgallery.com/packages/HPRESTCmdlets/1.2.0.0) can be found on the Internet.
 
 # The Redfish update service
 The Redfish update service contains software and firmware information as well as methods for updating these resources. Located at `/redfish/v1/UpdateService`, this[ ServiceRoot](https://redfish.dmtf.org/schemas/v1/ServiceRoot.yaml) resource is populated with five endpoints, which are highlighted in the next screenshot. Note that this picture shows the output of a request performed against an iLO 5 (version 2.18) implementing[ schema version 1.1.1](https://redfish.dmtf.org/schemas/v1/UpdateService.v1_1_1.yaml) of the Redfish update service. Later schemas may have different content.
@@ -25,7 +25,7 @@ In this article, I will cover these five endpoints in the following order: `Soft
 # Software inventory
 From the `SoftwareInventory` endpoint, you can retrieve the collection of HPE software installed in the Operating System (OS). This collection contains the items listed in the iLO 5 Graphical User Interface (GUI), which are shown in the screenshot below.
 
-Since this list comes from the OS, it is mandatory to have the system booted. Moreover, the HPE[ Agentless Management Service](https://support.hpe.com/hpesc/public/km/search#q=Agentless%20Management%20Service&t=All&sort=relevancy&numberOfResults=25) (AMS) must be present and started in the OS in order to have a communication link with the iLO through the `chif` driver. Refer to[ Part 2](https://developer.hpe.com/blog/hpe-firmware-updates-part-2-interaction-in-operating-modes) of this series for more information about the `chif` driver.
+Since this list comes from the OS, it is mandatory to have the system booted. Moreover, the HPE[ Agentless Management Service](https://support.hpe.com/hpesc/public/km/search#q=Agentless%20Management%20Service&t=All&sort=relevancy&numberOfResults=25) (AMS) must be present and started in the OS in order to have a communication link with the iLO through the `chif` driver. Refer to[ Part 2](/blog/hpe-firmware-updates-part-2-interaction-in-operating-modes) of this series for more information about the `chif` driver.
 
 The following screenshot shows the list of HPE software displayed by the iLO Graphical User Interface (GUI) of a Linux server. You can see three applications (`amsd`, `ilorest` and `sut`) and two deployed firmware packages (`firmware-iegen10` and `firmware-ilo5`).
 
@@ -115,7 +115,7 @@ The payload of a POST request to the `HttpPushURI` (see first picture below) is 
 # The update service ` `Oem.Hpe extension
 The flexibility of the Redfish standard offers the possibility for computer makers to extend it with properties not present in the standard or proprietary added-value features. HPE has a unique way of managing firmware through the iLO Repository that can only be leveraged by Redfish in its `Oem.Hpe` extension.
 
-The iLO Repository is a persistent storage area for update components. To trigger the installation of a single component or a group of components (install set) already present in the iLO Repository, you just need to add its name to the Installation Queue. Components in this queue are processed according to their specificities and nature. Refer to[ Part 1](https://developer.hpe.com/blog/hpe-firmware-updates-part-1-file-types-and-smart-components) and[ Part 2](https://developer.hpe.com/blog/hpe-firmware-updates-part-2-interaction-in-operating-modes) of this blog series for component description and to the[ HPE API Reference document](https://hewlettpackard.github.io/ilo-rest-api-docs/ilo5/#software-and-firmware-management-flow) for a detailed flow of operations.
+The iLO Repository is a persistent storage area for update components. To trigger the installation of a single component or a group of components (install set) already present in the iLO Repository, you just need to add its name to the Installation Queue. Components in this queue are processed according to their specificities and nature. Refer to[ Part 1](/blog/hpe-firmware-updates-part-1-file-types-and-smart-components) and[ Part 2](/blog/hpe-firmware-updates-part-2-interaction-in-operating-modes) of this blog series for component description and to the[ HPE API Reference document](https://hewlettpackard.github.io/ilo-rest-api-docs/ilo5/#software-and-firmware-management-flow) for a detailed flow of operations.
 
 The update service `Oem.Hpe` extension is a pull update service like the `SimpleUpdate` service described earlier. However, it is not limited to instant flash of binary firmware files. It provides all the necessary operations to fully manage the iLO 5 update subsystem.
 
@@ -147,7 +147,7 @@ The following screenshot shows the body of a POST request for components smaller
 
 <img src="https://redfish-lab.sourceforge.io/media/redfish-wiki/FirmwareUpdates-Part3-TheRedfishUpdateService/21_PostWebComponentAndCompsig.png" alt="PostWebComponentAndCompsig" />
 
-Components larger than 32 MiB (33554432 bytes) cannot be sent as such and must be split into 32 MiB chunks before being uploaded. More information on these large Smart Components can be found in the security paragraph of the[ first part](https://developer.hpe.com/blog/hpe-firmware-updates-part-1-file-types-and-smart-components) of this blog series.
+Components larger than 32 MiB (33554432 bytes) cannot be sent as such and must be split into 32 MiB chunks before being uploaded. More information on these large Smart Components can be found in the security paragraph of the[ first part](/blog/hpe-firmware-updates-part-1-file-types-and-smart-components) of this blog series.
 
 On Linux, you can use the `dd` command to perform this split operation. The first command shown below takes component `cp040154.exe` as the input file, reads the first 32 MiB of its content, and writes this content to output file `cp040154.part1`.
 
@@ -182,7 +182,7 @@ You can add the name of a component present in the iLO Repository into the Insta
 The following screenshot shows the addition of component cp040154.exe in the Installation Queue with three properties: `Name`, `Filename` and `Command`. The `Name` property is not required, but it is interesting to provide as it appears as a description in the Installation Queue listing. The `Filename` property contains the component file name visible in the iLO Repository. Thus, this property is required. The `Command` property is required as well, as it describes the action to take by the Installation Queue subsystem.
 
 
-Smart Components embed all necessary[ meta-data](https://developer.hpe.com/blog/hpe-firmware-updates-part-1-file-types-and-smart-components) information to process their installation. Hence, no other property is required in the request to better qualify the deployment process.
+Smart Components embed all necessary[ meta-data](/blog/hpe-firmware-updates-part-1-file-types-and-smart-components) information to process their installation. Hence, no other property is required in the request to better qualify the deployment process.
 
 <img src="https://redfish-lab.sourceforge.io/media/redfish-wiki/FirmwareUpdates-Part3-TheRedfishUpdateService/26_AddScToQueue.png" alt="AddScToQueue" />
 
@@ -194,7 +194,7 @@ The body response of a component addition in the Installation Queue contains the
 
 <img src="https://redfish-lab.sourceforge.io/media/redfish-wiki/FirmwareUpdates-Part3-TheRedfishUpdateService/28_ResponseToAddScToQueue.png" alt="ResponseToAddScToQueue" />
 
-The following example adds a binary firmware file in the Installation queue. Since this component does not contain any meta-data describing how to process it, you can mention this information the `UpdatableBy` property. In this particular case, the component will be processed by the iLO update agent. Refer to the[ Part 1](https://developer.hpe.com/blog/hpe-firmware-updates-part-1-file-types-and-smart-components) of this article series to learn more about update agents.
+The following example adds a binary firmware file in the Installation queue. Since this component does not contain any meta-data describing how to process it, you can mention this information the `UpdatableBy` property. In this particular case, the component will be processed by the iLO update agent. Refer to the[ Part 1](/blog/hpe-firmware-updates-part-1-file-types-and-smart-components) of this article series to learn more about update agents.
 
 <img src="https://redfish-lab.sourceforge.io/media/redfish-wiki/FirmwareUpdates-Part3-TheRedfishUpdateService/29_AddBinaryToQueueAndFlash.png" alt="AddBinaryToQueueAndFlash" />
 
@@ -279,5 +279,5 @@ You can POST an invoke request to add all the components of the install set in t
 
 # Summary
 The HPE Redfish update service implementation described in this article explains two pull methods and one push method for updating firmware on HPE iLO 5 based servers: The simple update, the Oem.Hpe pull methods and the Http Push method.
-The Redfish data model is constantly changing and other update methods (i.e. the[ MultiPartHttpPushURI](http://redfish.dmtf.org/schemas/v1/UpdateService.v1_8_2.json)) have been published, but not yet implemented, in HPE iLO based servers. However, this lack of implementation does not mean that those servers are not compliant to the latest Redfish standard. Read the[ Getting Started with the Redfish](https://developer.hpe.com/blog/getting-started-with-the-redfish-api-part-2)[® API Part 2](https://developer.hpe.com/blog/getting-started-with-the-redfish-api-part-2) blog for a better understanding of the Redfish standard and its data model versioning mechanism.
-Don’t forget to check back the[ HPE DEV blog](https://developer.hpe.com/blog) site for more Redfish related articles and tutorials.
+The Redfish data model is constantly changing and other update methods (i.e. the[ MultiPartHttpPushURI](http://redfish.dmtf.org/schemas/v1/UpdateService.v1_8_2.json)) have been published, but not yet implemented, in HPE iLO based servers. However, this lack of implementation does not mean that those servers are not compliant to the latest Redfish standard. Read the[ Getting Started with the Redfish](/blog/getting-started-with-the-redfish-api-part-2)[® API Part 2](/blog/getting-started-with-the-redfish-api-part-2) blog for a better understanding of the Redfish standard and its data model versioning mechanism.
+Don’t forget to check back the[ HPE DEV blog](/blog) site for more Redfish related articles and tutorials.

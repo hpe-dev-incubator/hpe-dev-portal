@@ -28,7 +28,7 @@ Ted showed a variety of processes that are handled efficiently by the data platf
 * How data infrastructure handles massive scale of data mirrored from edge to core in the case of autonomous car manufacture
 * How a unifying data infrastructure supports true multitenancy for a large customer
 
-The data infrastructure used is the HPE Ezmeral Data Fabric, a software solution based on technology from the acquisition of MapR Technologies by HPE and now part of the HPE Ezmeral Software Portfolio. This ability to run very different applications – including AI and analytics, modern and legacy, containerized and non-containerized – together on the same data system is a central theme of their free, newly published O’Reilly ebook: *AI and Analytics at Scale: Lessons from Real-World Production Systems*.
+The data infrastructure used is the HPE Ezmeral Data Fabric, a software solution based on technology from the acquisition of MapR Technologies by HPE and now part of the HPE Ezmeral Software Portfolio. This ability to run very different applications – including AI and analytics, modern and legacy, containerized and non-containerized – together on the same data system is a central theme of their free, newly published O’Reilly ebook: *[AI and Analytics at Scale: Lessons from Real-World Production Systems](https://www.hpe.com/us/en/resources/software/ai-and-analytics-systems.html)*.
 
 During the talk, Ted acknowledged that people may be accepting certain trade-offs between scale, resilience, performance, flexibility, or cost that aren’t actually necessary. He pointed out that, when you release yourself from the limitations imposed by some data infrastructure technologies, you can avoid these tradeoffs, and then proceeded to dive into technical detail on how the HPE Ezmeral Data Fabric makes this possible.
 
@@ -42,4 +42,4 @@ During the next session, February 24th, Nigel Poulton hosted Tom Phelan, HPE Fel
 
 As part of the discussion, Tom described how containers require less system resources than traditional virtual machine environments, allowing applications to be deployed more easily and run on different operating systems and hardware platforms. Tom also explained how the HPE Ezmeral Machine Learning Operations package helps support collaboration between data scientists.
 
-To view what’s up for our next Munch & Learn session, check out our [schedule](https://developer.hpe.com/blog/munch-and-learn).
+To view what’s up for our next Munch & Learn session, check out our [schedule](/blog/munch-and-learn).

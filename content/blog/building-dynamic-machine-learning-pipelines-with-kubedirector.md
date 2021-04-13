@@ -10,7 +10,7 @@ thumbnailimage:
 ---
 Imagine that you’re a data scientist who’s been asked to create an application or service that can predict travel time for a proposed taxi ride. The application needs to have the ability to update the service with new data as it becomes available, so its predictions take recent patterns into account. In this tutorial, we’ll show you how to set up a Machine Learning (ML) pipeline using KubeDirector to train, register, and query your model.
 
-[KubeDirector](https://developer.hpe.com/blog/running-non-cloud-native-apps-on-kubernetes-with-kubedirector) was introduced to the open source community to address stateful application deployment in standard Kubernetes clusters.  In the latest release ([version 0.5](https://github.com/bluek8s/kubedirector/releases/tag/v0.5.0)),  KubeDirector now allows multiple clusters to share data very easily using a new feature called **_Connections_**.  The new feature helps users create large-scale dynamic, stateful containerized applications such as are found in Machine Learning (ML) pipelines and allow them to constantly evolve as models are improved and the data changes.
+[KubeDirector](/blog/running-non-cloud-native-apps-on-kubernetes-with-kubedirector) was introduced to the open source community to address stateful application deployment in standard Kubernetes clusters.  In the latest release ([version 0.5](https://github.com/bluek8s/kubedirector/releases/tag/v0.5.0)),  KubeDirector now allows multiple clusters to share data very easily using a new feature called **_Connections_**.  The new feature helps users create large-scale dynamic, stateful containerized applications such as are found in Machine Learning (ML) pipelines and allow them to constantly evolve as models are improved and the data changes.
 
 A basic ML pipeline consists of three stages:
 
@@ -187,7 +187,7 @@ Find out more about KubeDirector applications and KubeDirector clusters at the G
 
 And to see how we use KubeDirector in our HPE Ezmeral Container Platform, check out the interactive demo environment [here](http://www.hpe.com/engage/containerplatform).
 
-Look for more KubeDirector posts coming soon on the [HPE DEV blog site](https://developer.hpe.com/blog).
+Look for more KubeDirector posts coming soon on the [HPE DEV blog site](/blog).
 
 >This article was co-authored by: 
 

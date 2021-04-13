@@ -10,7 +10,7 @@ thumbnailimage:
 ---
 ![registering a broker](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2019/8/registering-a-broker-1566920379874.png)
 
-In my previous article, [Using Open Service Broker as a Quick and Easy Way to Offer Everything as-a-Service,](https://developer.hpe.com/blog/using-open-service-broker-as-a-quick-and-easy-way-to-offer-everything-as) we examined what a Open Service Broker (OSB) API is and how it can be used to expose the Grommet development environment as-a-Service. Now, I would like to show you how to register and consume services offered by the Grommet OSB Broker in a Kubernetes Service Catalog to provision, bind, unbind, and deprovision a Grommet Dev Instance. 
+In my previous article, [Using Open Service Broker as a Quick and Easy Way to Offer Everything as-a-Service,](/blog/using-open-service-broker-as-a-quick-and-easy-way-to-offer-everything-as) we examined what a Open Service Broker (OSB) API is and how it can be used to expose the Grommet development environment as-a-Service. Now, I would like to show you how to register and consume services offered by the Grommet OSB Broker in a Kubernetes Service Catalog to provision, bind, unbind, and deprovision a Grommet Dev Instance. 
 
 This tutorial will be helpful for developers in many companies who today deploy Kubernetes clusters to ensure scalability for their applications. Applications running inside Kubernetes clusters may need  access  to 3rd party services, like databases or additional storage, and you need to be able to provide that service to app developers as part of the Kubernetes Service Catalog. One way of exposing a service is to use OSB. Once you register your OSB inside the Kubernetes Service Catalog, you can see the service, and then you can provision and bind the service to your application. 
 
@@ -48,7 +48,7 @@ The service catalog provides a way to list, provision, and bind with externally 
 
 With that in mind, here is an overview of what the service catalog looks like. It’s a custom Kube API server and controller that maintains the state for five new resource types that correspond to their equivalents from the [OSB API.](https://www.openservicebrokerapi.org) The controller implements the client side of the OSB API, allowing it to query service brokers for their catalogs, and to manipulate them so it can provision and maintain services. It also makes use of a native Kubernetes resource, Secrets, to inject credentials for service bindings into running Pods, but more on that in a moment.
 
-Everything I mentioned about the OSB architecture in my [previous blog,](https://developer.hpe.com/blog/using-open-service-broker-as-a-quick-and-easy-way-to-offer-everything-as) is contained in this interface between the controller and the service brokers. App developers don’t have to be aware of it, and they can continue to use Kubernetes the same as before, issuing normal CRUD commands through the API service.
+Everything I mentioned about the OSB architecture in my [previous blog,](/blog/using-open-service-broker-as-a-quick-and-easy-way-to-offer-everything-as) is contained in this interface between the controller and the service brokers. App developers don’t have to be aware of it, and they can continue to use Kubernetes the same as before, issuing normal CRUD commands through the API service.
 
 
 ![picture5](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2019/8/picture5-1566414276654.png)
@@ -523,4 +523,4 @@ No resources found.
 
 ## Next Steps
 
-There are many ways to consume the services offered by an OSB broker such as the Grommet OSB broker. Using a Kubernetes Service Catalog is one option. In our next article, you’ll learn how to download a standalone Open Service broker client application built on Grommet, and how to register an OSB inside that application. You can also use it to test an OSB you already have. Keep an eye out on the [HPE DEV site](https://developer.hpe.com/blog) for more articles on OSB.
+There are many ways to consume the services offered by an OSB broker such as the Grommet OSB broker. Using a Kubernetes Service Catalog is one option. In our next article, you’ll learn how to download a standalone Open Service broker client application built on Grommet, and how to register an OSB inside that application. You can also use it to test an OSB you already have. Keep an eye out on the [HPE DEV site](/blog) for more articles on OSB.

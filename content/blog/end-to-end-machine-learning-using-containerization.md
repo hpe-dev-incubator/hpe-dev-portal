@@ -26,7 +26,7 @@ Earlier this year, we released the MapR Volume Driver for Kubernetes, which enab
 
 ![Kubernetes](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2021/1/kubernetes-1612507940753.jpg)
 
-While the [microservices approach](https://developer.hpe.com/blog/VqVzX3gAzrT7p5PzPAZA/event-driven-microservices-on-the-mapr-data-platform) is useful for all types of applications, it's particularly well-suited for the data science life cycle, starting with the exploration phase through to model deployment. Let's look at how it could benefit each phase:
+While the [microservices approach](/blog/VqVzX3gAzrT7p5PzPAZA/event-driven-microservices-on-the-mapr-data-platform) is useful for all types of applications, it's particularly well-suited for the data science life cycle, starting with the exploration phase through to model deployment. Let's look at how it could benefit each phase:
 
 ## Personalized Development Environments
 
@@ -52,10 +52,10 @@ This sort of flexibility can really make a difference in getting models out of t
 
 Microservices have been described as simple, single-purpose applications that work in unison via lightweight communications, such as data streams. They've traditionally enabled developers to more easily build, integrate, and manage their applications in an agile way that had typically been impossible with monolithic applications.
 
-Data science models are typically integrated into applications in order to generate insights, and containerization frameworks are fundamentally [microservices architectures](https://developer.hpe.com/blog/0N796xBvYxcyGq8Yo35N/event-driven-microservices-architecture-patterns-and-examples). In this capacity, model deployment architectures benefit greatly from microservices frameworks, because microservices frameworks are typically intended to accommodate functionally and logically isolated applications, running in parallel. This becomes very useful in model deployment scenarios when A/B testing is used, models need to be updated or replaced in place, or inter-model routing can benefit from a streaming data fabric or services mesh.
+Data science models are typically integrated into applications in order to generate insights, and containerization frameworks are fundamentally [microservices architectures](/blog/0N796xBvYxcyGq8Yo35N/event-driven-microservices-architecture-patterns-and-examples). In this capacity, model deployment architectures benefit greatly from microservices frameworks, because microservices frameworks are typically intended to accommodate functionally and logically isolated applications, running in parallel. This becomes very useful in model deployment scenarios when A/B testing is used, models need to be updated or replaced in place, or inter-model routing can benefit from a streaming data fabric or services mesh.
 
 ## In Conclusion
 
 Data science workflows benefit from containerization in every phase of the pipeline from exploration, training, and deploying models into production.
 
-Checkout the next iteration of this series, [Kubernetized Machine Learning and AI Using KubeFlow](https://developer.hpe.com/blog/Oj0pNxBE3JsJB02E2KOj/kubernetized-machine-learning-and-ai-using-kubeflow), where we'll dive deep into a new Kubernetes framework that supports end-to-end machine learning and data science.
+Checkout the next iteration of this series, [Kubernetized Machine Learning and AI Using KubeFlow](/blog/Oj0pNxBE3JsJB02E2KOj/kubernetized-machine-learning-and-ai-using-kubeflow), where we'll dive deep into a new Kubernetes framework that supports end-to-end machine learning and data science.

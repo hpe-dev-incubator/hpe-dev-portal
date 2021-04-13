@@ -112,4 +112,4 @@ Note that if <a target='\_blank'  href='https://spark.apache.org/docs/latest/job
 
 In this blog post, you’ve learned about resource allocation configurations for Spark on YARN. If you have any further questions, please [reach out to us via Slack](https://slack.hpedev.io/).
 
-Make sure you check the [HPE DEV blog](https://developer.hpe.com/blog) regularly to view more articles on this subject.
+Make sure you check the [HPE DEV blog](/blog) regularly to view more articles on this subject.
