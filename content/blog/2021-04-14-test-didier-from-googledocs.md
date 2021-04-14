@@ -90,7 +90,7 @@ pre-requisites are assumed:
     defines all the information necessary for Chef to configure a node
     into desired state.
 
-yaml
+```yaml
 #
 # Cookbook:: mydocker
 # Recipe:: default
@@ -152,7 +152,7 @@ template '/home/docker/html/index.html' do
   #notifies :restart, 'service[httpd]', :immediately
 end
 
-
+```
 
 ## Scenario 1: Add Chef automation integration and provision a new application instance Nginx bootstrapped to the integrated Chef Infra server using HPE GreenLake for private cloud self-service UI
 
