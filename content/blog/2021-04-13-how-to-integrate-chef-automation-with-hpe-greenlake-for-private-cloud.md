@@ -111,12 +111,13 @@ For this scenario, we need to integrate Chef automation with the HPE GreenLake f
 
 1. In the HPE GreenLake for private cloud main menu dashboard, navigate to **Administration > Integrations**
 
-  Image1.
+![](/img/glpc-chef-integration-image1.png)
 
 2. Click the green **NEW INTEGRATION** drop-down menu, and select integration type **Chef**
 
-   Image2.
-3. Populate the following fields and save changes.
+![](/img/glpc-chef-integration-image2.png)
+
+2. Populate the following fields and save changes.
 
    * Name: Name of the Chef integration; for example, Local_Chef_Server
    * Chef Endpoint: URL of Chef Infra server API endpoint in <https://api.example.com> format. Do not add /organization/xxxx here, which is populated in the Chef Organization field. In this example, **https://chefserver.localdomain** is used.
@@ -127,18 +128,21 @@ For this scenario, we need to integrate Chef automation with the HPE GreenLake f
    * Organization Validator: Validator key for the organization
    * DataBags: Optional. Add it if it is configured in the Chef Infra server
 
-
-
-    Image3
+![](/img/glpc-chef-integration-image3.png)
 
 ### Create a new infrastructure group for Chef integration.
 
 1. From HPE GreenLake for private cloud main menu dashboard, navigate to **Infrastructure > Groups**
 
-   Image4
+
+
+   ![](/img/glpc-chef-integration-image4.png)
+
 2. Click the green **CREATE** icon to add a new group with the name of **ManagedChef**. Expand the **Advanced Options** section in the **Config Management** field, and select the previously configured Chef Integration **Local_Chef_Server**.
 
-   Image 5
+
+
+   ![](/img/glpc-chef-integration-image5.png)
 
 Save changes. The added Chef integration is now available for use in HPE GreenLake for private cloud during instance provisioning. Please note that one infrastructure group can only associate with one Chef server.
 
