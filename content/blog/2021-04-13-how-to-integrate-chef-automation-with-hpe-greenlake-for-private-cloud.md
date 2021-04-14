@@ -115,9 +115,7 @@ For this scenario, we need to integrate Chef automation with the HPE GreenLake f
 
 2. Click the green **NEW INTEGRATION** drop-down menu, and select integration type **Chef**
 
- 
 ![](/img/glpc-chef-integration-image2.png "Image2")
-
 
 3. Populate the following fields and save changes
    * Name: Name of the Chef integration; for example, Local_Chef_Server
