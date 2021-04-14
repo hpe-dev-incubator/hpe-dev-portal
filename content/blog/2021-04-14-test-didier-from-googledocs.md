@@ -1,5 +1,5 @@
 ---
-title: Test Didier from GoogleDocs
+title: Test Didier using Pandoc converter
 date: 2021-04-14T13:18:30.838Z
 author: Didier
 authorimage: /img/Avatar1.svg
@@ -12,254 +12,383 @@ April 2021
 
 ## Introduction
 
-HPE GreenLake for private cloud is one of the cloud services powered by the HPE GreenLake Central platform. This service provides a cloud experience to manage virtual machines (VMs) in your on-premises, pay-per-use datacenter. It is an integrated solution comprised of HPE optimized hardware and software, fully managed by HPE. The solution provides rich application management capabilities for cloud-native and traditional applications along with a self-service portal and integrates with a lot of popular automation tools such as Ansible, Chef, Puppet, and others. This article explains how to integrate your existing Chef automation platform, Chef Infra, with HPE GreenLake for private cloud to help improve efficiency and minimize errors caused by manual configuration. And the tutorial walks you through the step-by-step process for two use case scenarios:
+HPE GreenLake for private cloud is one of the cloud services powered by
+the HPE GreenLake Central platform. This service provides a cloud
+experience to manage virtual machines (VMs) in your on-premises,
+pay-per-use datacenter. It is an integrated solution comprised of HPE
+optimized hardware and software, fully managed by HPE. The solution
+provides rich application management capabilities for cloud-native and
+traditional applications along with a self-service portal and integrates
+with a lot of popular automation tools such as Ansible, Chef, Puppet,
+and others. This article explains how to integrate your existing Chef
+automation platform, Chef Infra, with HPE GreenLake for private cloud to
+help improve efficiency and minimize errors caused by manual
+configuration. And the tutorial walks you through the step-by-step
+process for two use case scenarios:
 
-·       Scenario 1: Add Chef automation integration, and provision a new application instance (i.e. Ngnix) bootstrapped to an integrated Chef Infra server using HPE GreenLake for private cloud self-service user interface (UI).
+-   Scenario 1: Add Chef automation integration, and provision a new
+    application instance (i.e. Ngnix) bootstrapped to an integrated Chef
+    Infra server using HPE GreenLake for private cloud self-service user
+    interface (UI).
 
-·       Scenario 2: Bootstrap an existing VM instance to the integrated Chef infra server using the HPE GreenLake for private cloud automation feature Tasks.
+-   Scenario 2: Bootstrap an existing VM instance to the integrated Chef
+    infra server using the HPE GreenLake for private cloud automation
+    feature **Tasks**.
 
-Before we dive into the use cases, let me give you an overview of Chef and its prerequisites before any integration with HPE GreenLake for private cloud.
+Before we dive into the use cases, let me give you an overview of Chef
+and its prerequisites before any integration with HPE GreenLake for
+private cloud.
 
 ## Chef overview
 
-Chef is one of the most widely adopted open source automation solutions. Chef Infra is a powerful automation platform that transforms infrastructure into code. It provides for both infrastructure and application automation for physical or virtual machines, and helps in reducing manual and repetitive tasks. Chef Infra works on a three-tier client server model: Chef workstation, Chef Infra server, and Chef Infra client nodes.
+Chef is one of the most widely adopted open source automation solutions.
+Chef Infra is a powerful automation platform that transforms
+infrastructure into code. It provides for both infrastructure and
+application automation for physical or virtual machines, and helps in
+reducing manual and repetitive tasks. Chef Infra works on a three-tier
+client server model: Chef workstation, Chef Infra server, and Chef Infra
+client nodes.
 
-Chef workstation: This is where a user develops configuration files, such as Chef recipes and cookbooks, and uploads them to the Chef Infra server.
+**Chef workstation:** This is where a user develops configuration files,
+such as Chef recipes and cookbooks, and uploads them to the Chef Infra
+server.
 
-Chef Infra server: This acts a hub for the configuration data. It stores cookbooks, policies that are applied to Chef Infra client nodes, and metadata that describes each registered Chef node.
+**Chef Infra server:** This acts a hub for the configuration data. It
+stores cookbooks, policies that are applied to Chef Infra client nodes,
+and metadata that describes each registered Chef node.
 
-Chef Infra client nodes: Chef nodes are registered and managed by Chef Infra server. Chef client is installed on each node, which helps in setting up the communication between the Chef Infra server and Chef node. Nodes use Chef client to ask the Chef server for configuration details, such as recipes, templates, and file distributions. Chef client then does the configuration work on the nodes.
+**Chef Infra client nodes:** Chef nodes are registered and managed by
+Chef Infra server. Chef client is installed on each node, which helps in
+setting up the communication between the Chef Infra server and Chef
+node. Nodes use Chef client to ask the Chef server for configuration
+details, such as recipes, templates, and file distributions. Chef client
+then does the configuration work on the nodes.
 
-For more information on Chef architecture, see <https://www.tutorialspoint.com/chef/index.htm>.
-
- 
+For more information on Chef architecture, see
+<https://www.tutorialspoint.com/chef/index.htm>.
 
 ## Chef integration prerequisites with HPE GreenLake for private cloud
 
-To integrate Chef with HPE GreenLake for private cloud, the following pre-requisites are assumed:
+To integrate Chef with HPE GreenLake for private cloud, the following
+pre-requisites are assumed:
 
-·       You have a Chef Infra server:  It can be hosted on either a public or private network. For a Chef Infra server hosted in a private network, make sure it is reachable from the HPE GreenLake Central platform.
+-   You have a Chef Infra server: It can be hosted on either a public or
+    private network. For a Chef Infra server hosted in a private
+    network, make sure it is reachable from the HPE GreenLake Central
+    platform.
 
-·       You have configured the organization, organization validator key, users, and user key on a Chef Infra server.
+-   You have configured the organization, organization validator key,
+    users, and user key on a Chef Infra server.
 
-·       You have uploaded a sample cookbook mydocker to the Chef Infra server. Refer to this [blog post](https://medium.com/@pierangelo1982/cooking-docker-nginx-with-chef-server-95f179aa17ca) to create the sample cookbook. The cookbook has a single recipe default.rb that will be referred as recipe\[mydocker] in the Chef runlist.  The cookbook installs a docker environment on the VM, and then installs a Nginx docker container. A Chef runlist defines all the information necessary for Chef to configure a node into desired state.
+-   You have uploaded a sample cookbook **mydocker** to the Chef Infra
+    server. Refer to this [blog
+    post](https://medium.com/@pierangelo1982/cooking-docker-nginx-with-chef-server-95f179aa17ca)
+    to create the sample cookbook. The cookbook has a single recipe
+    **default.rb** that will be referred as **recipe\[mydocker\]** in
+    the Chef runlist. The cookbook installs a docker environment on the
+    VM, and then installs a Nginx docker container. A Chef runlist
+    defines all the information necessary for Chef to configure a node
+    into desired state.
 
-\#
+*\#*
 
-\# Cookbook:: mydocker
+*\# Cookbook:: mydocker*
 
-\# Recipe:: default
+*\# Recipe:: default*
 
-\#
+*\#*
 
-\# Copyright:: 2021, The Authors, All Rights Reserved.
+*\# Copyright:: 2021, The Authors, All Rights Reserved.*
 
-docker_service 'default' do
+docker_service \'default\' **do**
 
-  action \[:create, :start]
+action \[:create, :start\]
 
-end
+**end**
 
- 
+*\# Create Docker Service directory*
 
-\# Create Docker Service directory
+directory \'/etc/systemd/system/docker.service.d\' **do**
 
-directory '/etc/systemd/system/docker.service.d' do
+owner \'root\'
 
-  owner 'root'
+group \'root\'
 
-  group 'root'
+mode \'0755\'
 
-  mode '0755'
+action :create
 
-  action :create
+**end**
 
-end
+*\# Creating Doxker Proxy Configuration*
 
- 
+cookbook_file \'/etc/systemd/system/docker.service.d/proxy.conf\' **do**
 
-\# Creating Doxker Proxy Configuration
+source \'proxy.conf\'
 
-cookbook_file '/etc/systemd/system/docker.service.d/proxy.conf' do
+mode \"0644\"
 
-  source 'proxy.conf'
+action :create
 
-  mode "0644"
+**end**
 
-  action :create
+docker_service \'default\' **do**
 
-end
+action :restart
 
- 
+**end**
 
-docker_service 'default' do
+*\# Pull latest image*
 
-  action :restart
+docker_image \'nginx\' **do**
 
-end
+tag \'latest\'
 
- 
+action :pull
 
- 
+**end**
 
-\# Pull latest image
+*\# Run container exposing ports*
 
-docker_image 'nginx' do
+docker_container \'my_nginx\' **do**
 
-  tag 'latest'
+repo \'nginx\'
 
-  action :pull
+tag \'latest\'
 
-end
+port \'85:80\'
 
- 
+volumes \"/home/docker/default.conf:/etc/nginx/conf.d/default.conf:ro\"
 
- 
+volumes \"/home/docker/html:/usr/share/nginx/html\"
 
-\# Run container exposing ports
+**end**
 
-docker_container 'my_nginx' do
+*\# create file default.conf for volumes doccker*
 
-  repo 'nginx'
+template \"/home/docker/default.conf\" **do**
 
-  tag 'latest'
+source \"default.conf.erb\"
 
-  port '85:80'
+*\#notifies :reload, \"service\[default\]\"*
 
-  volumes "/home/docker/default.conf:/etc/nginx/conf.d/default.conf:ro"
+**end**
 
-  volumes "/home/docker/html:/usr/share/nginx/html"
+*\# create file index.html for volumes docker*
 
-end
+template \'/home/docker/html/index.html\' **do**
 
- 
+source \'index.html.erb\'
 
-\# create file default.conf for volumes doccker
+variables(
 
-template "/home/docker/default.conf" do
+:ambiente =\> node.chef_environment
 
-  source "default.conf.erb"
+)
 
-\#notifies :reload, "service\[default]"
+action :create
 
-end
+*\#notifies :restart, \'service\[httpd\]\', :immediately*
 
- 
-
-\# create file index.html for volumes docker
-
-template '/home/docker/html/index.html' do
-
-  source 'index.html.erb'
-
-  variables(
-
-    :ambiente => node.chef_environment
-
-  )
-
-  action :create
-
-\#notifies :restart, 'service\[httpd]', :immediately
-
-end
-
- 
+**end**
 
 ## Scenario 1: Add Chef automation integration and provision a new application instance Nginx bootstrapped to the integrated Chef Infra server using HPE GreenLake for private cloud self-service UI
 
-For this scenario, we need to integrate Chef automation with the HPE GreenLake for private cloud first, then we provision a new application instance (i.e. Nginx) bootstrapped to the integrated Chef Infra server.
+For this scenario, we need to integrate Chef automation with the HPE
+GreenLake for private cloud first, then we provision a new application
+instance (i.e. Nginx) bootstrapped to the integrated Chef Infra server.
 
-1.     Follow the below steps to add Chef automation integration in the HPE GreenLake for private cloud.
+1.  Follow the below steps to add Chef automation integration in the HPE
+    GreenLake for private cloud.
 
-1a)  In the HPE GreenLake for private cloud main menu dashboard, navigate to Administration > Integrations
+```{=html}
+<!-- -->
+```
+a.  In the HPE GreenLake for private cloud main menu dashboard, navigate
+    to **Administration** \> **Integrations**
 
-1b)  Click the green + NEW INTEGRATION drop-down menu, and select integration type Chef
+> ![](media/image1.png){width="3.7291666666666665in" height="5.28125in"}
 
-         
+b.  Click the green **+ NEW INTEGRATIO**N drop-down menu, and select
+    integration type **Chef**
 
-1c)  Populate the following fields and save changes.
+> ![](media/image2.png){width="3.2708333333333335in"
+> height="4.510416666666667in"}
 
-a.     Name: Name of the Chef integration; for example, Local_Chef_Server
+c.  Populate the following fields and save changes.
 
-b.     Chef Endpoint: URL of Chef Infra server API endpoint in [https://api.example.com](https://api.example.com/) format. Do not add /organization/xxxx here, which is populated in the Chef Organization field. In this example, <https://chefserver.localdomain> is used.
+    a.  Name: Name of the Chef integration; for example,
+        **Local_Chef_Server**
 
-c.      Chef Version: Chef client version, which needs to be installed in the nodes. Use 16.1.X or greater. Version can be changed to use a different/more recent version of Chef. 
+    b.  Chef Endpoint: URL of Chef Infra server API endpoint
+        in [https://api.example.com](https://api.example.com/) format.
+        Do not add /organization/xxxx here, which is populated in the
+        Chef Organization field. In this example,
+        [**https://chefserver.localdomain**](https://chefserver.localdomain)
+        is used.
 
-d.     Chef Organization: Chef server organization
+    c.  Chef Version: Chef client version, which needs to be installed
+        in the nodes. Use 16.1.X or greater. Version can be changed to
+        use a different/more recent version of Chef. 
 
-e.     Chef User: Chef Infra server user
+    d.  Chef Organization: Chef server organization
 
-f.      User Private Key: The private key of the user with access to this Chef Infra server
+    e.  Chef User: Chef Infra server user
 
-g.     Organization Validator: Validator key for the organization
+    f.  User Private Key: The private key of the user with access to
+        this Chef Infra server
 
-h.     DataBags: Optional. Add it if it is configured in the Chef Infra server
+    g.  Organization Validator: Validator key for the organization
+
+    h.  DataBags: Optional. Add it if it is configured in the Chef Infra
+        server
+
+> ![](media/image3.png){width="5.78125in" height="9.65625in"}
+
+2.  Create a new infrastructure group for Chef integration.
+
+```{=html}
+<!-- -->
+```
+a.  From HPE GreenLake for private cloud main menu dashboard, navigate
+    to **Infrastructure \> Groups**
+
+> ![](media/image4.png){width="1.8541666666666667in"
+> height="2.1770833333333335in"}
+
+b.  Click the green **+ CREATE** icon to add a new group with the name
+    of **ManagedChef**. Expand the **Advanced Options** section in
+    the **Config Management** field, and select the previously
+    configured Chef Integration **Local_Chef_Server**.
+
+> ![](media/image5.png){width="6.513659230096238in"
+> height="4.347222222222222in"}
+>
+> Save changes. The added Chef integration is now available for use in
+> HPE GreenLake for private cloud during instance provisioning. Please
+> note that one infrastructure group can only associate with one Chef
+> server.
+
+3.  With Chef integration added to an infrastructure group, when users
+    provision a new instance into the infrastructure group,
+    a **Chef **section will appear in the **Configure** section of the
+    provisioning wizard. By default, Chef is enabled, but it can be
+    disabled by expanding the **Chef **section and unchecking **Enable
+    Chef**. Follow the steps below to provision the new instance using
+    **CREATE INSTANCE** wizard.
+
+```{=html}
+<!-- -->
+```
+a.  In the wizard **GROUP** page, select the previous configured
+    **ManagedChef** infrastructure group, enter the instance name
+    **Demo2**, select environment, and click next.
+
+![](media/image6.png){width="6.5in" height="3.5746139545056868in"}
+
+b.  In the **CONFIGURE** menu, expand the **Chef** section and update
+    the required fields as shown in the screen capture below. In the
+    **CHEF RUNLIST** field, enter the Chef recipe **recipe\[mydocker\]**
+    from the cookbook you previously uploaded to your Chef Infra server
+    in the Prerequisite section. If the **CHEF RUNLIST** field is left
+    empty, the instance will be just bootstrapped to the Chef Infra
+    server.
+
+![](media/image7.png){width="6.5in" height="6.9829899387576555in"}
+
+c.  Review the instance configuration and complete the installation.
 
  
 
-2.     Create a new infrastructure group for Chef integration.
+![](media/image8.png){width="6.5in" height="4.27791447944007in"}
 
-2a)  From HPE GreenLake for private cloud main menu dashboard, navigate to Infrastructure > Groups
+d.  On successful completion of Instance provisioning, the instance
+    **Demo2** is bootstrapped to the Chef server integrated to the
+    selected Group. Expanding the instance **History** tab shows the
+    bootstrap task status.
 
-2b)  Click the green + CREATE icon to add a new group with the name of ManagedChef. Expand the Advanced Options section in the Config Management field, and select the previously configured Chef Integration Local_Chef_Server.
+![](media/image9.png){width="6.901797900262467in"
+height="2.5208333333333335in"}
 
-Save changes. The added Chef integration is now available for use in HPE GreenLake for private cloud during instance provisioning. Please note that one infrastructure group can only associate with one Chef server.
+e.  You can also confirm the instance **Demo2** from Chef-Manage
+    dashboard of the integrated Chef Infra server. Chef-Manage needs to
+    be installed explicitly on the Chef Infra server. The screen below
+    shows that instance **Demo2** is bootstrapped to the Chef server.
 
- 
+![](media/image10.png){width="6.5in" height="1.4336811023622047in"}
 
-3.     With Chef integration added to an infrastructure group, when users provision a new instance into the infrastructure group, a Chef section will appear in the Configure section of the provisioning wizard. By default, Chef is enabled, but it can be disabled by expanding the Chef section and unchecking Enable Chef. Follow the steps below to provision the new instance using CREATE INSTANCE wizard.
+Based on the recipe specified in the **CHEF RUNLIST** defined in the
+provisioning wizard, the Chef client on the newly created instance
+**demo2** pulled the recipe from the Chef server and configured an Nginx
+docker container on the instance.
 
-3a)  In the wizard GROUP page, select the previous configured ManagedChef infrastructure group, enter the instance name Demo2, select environment, and click next.
+![](media/image11.png){width="6.5in" height="1.7135706474190726in"}
 
- 
+## Scenario 2: Bootstrap an existing VM instance to the integrated Chef Infra server using the HPE GreenLake for private cloud automation feature **Tasks**
 
-3b)  In the CONFIGURE menu, expand the Chef section and update the required fields as shown in the screen capture below. In the CHEF RUNLIST field, enter the Chef recipe recipe\[mydocker] from the cookbook you previously uploaded to your Chef Infra server in the Prerequisite section.  If the CHEF RUNLIST field is left empty, the instance will be just bootstrapped to the Chef Infra server.
+HPE GreenLake for private cloud provides an option to bootstrap existing
+VM instances to Chef Infra server. This section describes a step-by-step
+process you can use to achieve that.
 
- 
+1.  The first step is to create a Chef bootstrap task. On the HPE
+    GreenLake for private cloud main menu screen, navigate to
+    **Provisioning \> Automation \> Tasks**, and create a Chef bootstrap
+    task. A task is an individual automation element; for example, a
+    script or a Chef cookbook. Select **TYPE** as **Chef bootstrap** and
+    choose the previously integrated Chef Infra server. In the **RUN
+    LIST** field, enter **recipe\[mydocker\]** to refer the recipe from
+    the cookbook you previously uploaded to your Chef Infra server.
 
- 
+> ![](media/image12.png){width="6.363113517060367in"
+> height="3.9479166666666665in"}
 
-3c)  Review the instance configuration and complete the installation.
+2.  To bootstrap any VM instances with this task, on the HPE GreenLake
+    for private cloud main menu, navigate to **Provisioning \>
+    Instances**, and select the VM instance that needs to be
+    bootstrapped. Select **Actions \> Run Task.** The screen below shows
+    the VM instance **Demo** detail page.
 
- 
+![](media/image13.png){width="6.910343394575678in"
+height="5.347222222222222in"}
 
- 
+3.  Select the **chef-bootstrap** task created previously and execute it
+    by clicking **EXECUTE**.
 
-3d)  On successful completion of Instance provisioning, the instance Demo2 is bootstrapped to the Chef server integrated to the selected Group. Expanding the instance History tab shows the bootstrap task status.
-
- 
-
-3e)  You can also confirm the instance Demo2 from Chef-Manage dashboard of the integrated Chef Infra server. Chef-Manage needs to be installed explicitly on the Chef Infra server. The screen below shows that instance Demo2 is bootstrapped to the Chef server.
-
- 
-
-Based on the recipe specified in the CHEF RUNLIST defined in the provisioning wizard, the Chef client on the newly created instance demo2 pulled the recipe from the Chef server and configured an Nginx docker container on the instance.
-
-## Scenario 2: Bootstrap an existing VM instance to the integrated Chef Infra server using the HPE GreenLake for private cloud automation feature Tasks
-
-HPE GreenLake for private cloud provides an option to bootstrap existing VM instances to Chef Infra server. This section describes a step-by-step process you can use to achieve that.
-
-1.     The first step is to create a Chef bootstrap task. On the HPE GreenLake for private cloud main menu screen, navigate to Provisioning > Automation > Tasks, and create a Chef bootstrap task. A task is an individual automation element; for example, a script or a Chef cookbook. Select TYPE as Chef bootstrap and choose the previously integrated Chef Infra server. In the RUN LIST field, enter recipe\[mydocker] to refer the recipe from the cookbook you previously uploaded to your Chef Infra server. 
-
-2.     To bootstrap any VM instances with this task, on the HPE GreenLake for private cloud main menu, navigate to Provisioning > Instances, and select the VM instance that needs to be bootstrapped. Select Actions > Run Task. The screen below shows the VM instance Demo detail page.
-
-3.     Select the chef-bootstrap task created previously and execute it by clicking EXECUTE.
+![](media/image14.png){width="6.639798775153106in" height="2.125in"}
 
 Task will start the execution on the instance.
 
-4.     On completion, the instance status is green and the task status can be seen in History tab.
+![](media/image15.png){width="6.552777777777778in"
+height="1.252159886264217in"}
 
-The instance is now bootstrapped as a Chef client registered in the Chef Infra server. The recipe is run as specified in the Run List from Chef-Manage dashboard of the integrated Chef Infra server, shown in screenshot below.
+4.  On completion, the instance status is green and the task status can
+    be seen in **History** tab.
+
+![](media/image16.png){width="6.7877318460192475in" height="2.6875in"}
+
+The instance is now bootstrapped as a Chef client registered in the Chef
+Infra server. The recipe is run as specified in the **Run List** from
+Chef-Manage dashboard of the integrated Chef Infra server, shown in
+screenshot below.
+
+![](media/image17.png){width="6.5in" height="3.5794706911636047in"}
 
 ## Summary
 
-Chef Infra is a powerful automation platform that transforms infrastructure into code. By integrating it with HPE GreenLake for private cloud, you can utilize your existing Chef Infra code to automate the VMs and applications provisioned in HPE GreenLake for private cloud. This will greatly reduce errors caused by manual configuration and improve efficiency and agility.
+Chef Infra is a powerful automation platform that transforms
+infrastructure into code. By integrating it with HPE GreenLake for
+private cloud, you can utilize your existing Chef Infra code to automate
+the VMs and applications provisioned in HPE GreenLake for private cloud.
+This will greatly reduce errors caused by manual configuration and
+improve efficiency and agility.
 
-To learn more about HPE GreenLake cloud services – the cloud that comes to wherever your apps and data live – visit the [HPE GreenLake homepage](https://www.hpe.com/greenlake).
+To learn more about HPE GreenLake cloud services -- the cloud that comes
+to wherever your apps and data live -- visit the [HPE GreenLake
+homepage](https://www.hpe.com/greenlake).
 
- 
+To learn more about Chef architecture, visit the [Chef
+Tutorial](https://www.tutorialspoint.com/chef/index.htm).
 
-To learn more about Chef architecture, visit the [Chef Tutorial](https://www.tutorialspoint.com/chef/index.htm).   
-
-More HPE GreenLake for private cloud white papers can be found on the [HPE Developer platform page](https://developer.hpe.com/platform/hpe-greenlake/home).
+More HPE GreenLake for private cloud white papers can be found on the
+[HPE Developer platform
+page](https://developer.hpe.com/platform/hpe-greenlake/home).
