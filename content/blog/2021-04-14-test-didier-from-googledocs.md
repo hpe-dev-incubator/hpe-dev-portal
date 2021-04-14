@@ -90,107 +90,69 @@ pre-requisites are assumed:
     defines all the information necessary for Chef to configure a node
     into desired state.
 
-*\#*
+yaml
+#
+# Cookbook:: mydocker
+# Recipe:: default
+#
+# Copyright:: 2021, The Authors, All Rights Reserved.
+docker_service 'default' do
+  action [:create, :start]
+end
 
-*\# Cookbook:: mydocker*
+# Create Docker Service directory
+directory '/etc/systemd/system/docker.service.d' do
+  owner 'root'
+  group 'root'
+  mode '0755'
+  action :create
+end
 
-*\# Recipe:: default*
+# Creating Doxker Proxy Configuration
+cookbook_file '/etc/systemd/system/docker.service.d/proxy.conf' do
+  source 'proxy.conf'
+  mode "0644"
+  action :create
+end
 
-*\#*
+docker_service 'default' do
+  action :restart
+end
 
-*\# Copyright:: 2021, The Authors, All Rights Reserved.*
 
-docker_service \'default\' **do**
+# Pull latest image
+docker_image 'nginx' do
+  tag 'latest'
+  action :pull
+end
 
-action \[:create, :start\]
 
-**end**
+# Run container exposing ports
+docker_container 'my_nginx' do
+  repo 'nginx'
+  tag 'latest'
+  port '85:80'
+  volumes "/home/docker/default.conf:/etc/nginx/conf.d/default.conf:ro"
+  volumes "/home/docker/html:/usr/share/nginx/html"
+end
 
-*\# Create Docker Service directory*
+# create file default.conf for volumes doccker
+template "/home/docker/default.conf" do
+  source "default.conf.erb"
+  #notifies :reload, "service[default]"
+end
 
-directory \'/etc/systemd/system/docker.service.d\' **do**
+# create file index.html for volumes docker
+template '/home/docker/html/index.html' do
+  source 'index.html.erb'
+  variables(
+    :ambiente => node.chef_environment
+  )
+  action :create
+  #notifies :restart, 'service[httpd]', :immediately
+end
 
-owner \'root\'
 
-group \'root\'
-
-mode \'0755\'
-
-action :create
-
-**end**
-
-*\# Creating Doxker Proxy Configuration*
-
-cookbook_file \'/etc/systemd/system/docker.service.d/proxy.conf\' **do**
-
-source \'proxy.conf\'
-
-mode \"0644\"
-
-action :create
-
-**end**
-
-docker_service \'default\' **do**
-
-action :restart
-
-**end**
-
-*\# Pull latest image*
-
-docker_image \'nginx\' **do**
-
-tag \'latest\'
-
-action :pull
-
-**end**
-
-*\# Run container exposing ports*
-
-docker_container \'my_nginx\' **do**
-
-repo \'nginx\'
-
-tag \'latest\'
-
-port \'85:80\'
-
-volumes \"/home/docker/default.conf:/etc/nginx/conf.d/default.conf:ro\"
-
-volumes \"/home/docker/html:/usr/share/nginx/html\"
-
-**end**
-
-*\# create file default.conf for volumes doccker*
-
-template \"/home/docker/default.conf\" **do**
-
-source \"default.conf.erb\"
-
-*\#notifies :reload, \"service\[default\]\"*
-
-**end**
-
-*\# create file index.html for volumes docker*
-
-template \'/home/docker/html/index.html\' **do**
-
-source \'index.html.erb\'
-
-variables(
-
-:ambiente =\> node.chef_environment
-
-)
-
-action :create
-
-*\#notifies :restart, \'service\[httpd\]\', :immediately*
-
-**end**
 
 ## Scenario 1: Add Chef automation integration and provision a new application instance Nginx bootstrapped to the integrated Chef Infra server using HPE GreenLake for private cloud self-service UI
 
