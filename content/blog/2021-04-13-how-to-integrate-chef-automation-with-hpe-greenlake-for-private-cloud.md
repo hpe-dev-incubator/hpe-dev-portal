@@ -6,7 +6,6 @@ authorimage: /img/Avatar1.svg
 tags:
   - hpe-greenlake
 ---
-
 ![](/img/gettyimages-521980823_16x9_1600_0_72_rgb.jpg)
 
 ## Introduction
@@ -116,10 +115,11 @@ For this scenario, we need to integrate Chef automation with the HPE GreenLake f
 
 2. Click the green **NEW INTEGRATION** drop-down menu, and select integration type **Chef**
 
+ 
 ![](/img/glpc-chef-integration-image2.png "Image2")
 
-3. Populate the following fields and save changes
 
+3. Populate the following fields and save changes
    * Name: Name of the Chef integration; for example, Local_Chef_Server
    * Chef Endpoint: URL of Chef Infra server API endpoint in <https://api.example.com> format. Do not add /organization/xxxx here, which is populated in the Chef Organization field. In this example, **https://chefserver.localdomain** is used.
    * Chef Version: Chef client version, which needs to be installed in the nodes. Use 16.1.X or greater. Version can be changed to use a different/more recent version of Chef.
