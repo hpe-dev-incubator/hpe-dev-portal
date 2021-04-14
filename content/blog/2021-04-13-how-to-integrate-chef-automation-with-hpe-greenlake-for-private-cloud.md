@@ -12,9 +12,10 @@ tags:
 
 HPE GreenLake for private cloud is one of the cloud services powered by the HPE GreenLake Central platform. This service provides a cloud experience to manage virtual machines (VMs) in your on-premises, pay-per-use datacenter. It is an integrated solution comprised of HPE optimized hardware and software, fully managed by HPE. The solution provides rich application management capabilities for cloud-native and traditional applications along with a self-service portal and integrates with a lot of popular automation tools such as Ansible, Chef, Puppet, and others. This article explains how to integrate your existing Chef automation platform, Chef Infra, with HPE GreenLake for private cloud to help improve efficiency and minimize errors caused by manual configuration. And the tutorial walks you through the step-by-step process for two use case scenarios: 
 
-• Scenario 1: Add Chef automation integration, and provision a new application instance (i.e. Nginx) bootstrapped to an integrated Chef Infra server using HPE GreenLake for private cloud self-service user interface (UI). 
+* Scenario 1: Add Chef automation integration, and provision a new application instance (i.e. Nginx) bootstrapped to an integrated Chef Infra server using HPE GreenLake for private cloud self-service user interface (UI). 
 
-• Scenario 2: Bootstrap an existing VM instance to the integrated Chef infra server using the HPE GreenLake for private cloud automation feature Tasks.
+* Scenario 2: Bootstrap an existing VM instance to the integrated Chef infra server using the HPE GreenLake for private cloud automation feature Tasks.
+
 
 Before we dive into the use cases, let me give you an overview of Chef and its prerequisites before any integration with HPE GreenLake for private cloud.
 
@@ -34,11 +35,11 @@ For more information on Chef architecture, see <https://www.tutorialspoint.com/c
 
 To integrate Chef with HPE GreenLake for private cloud, the following pre-requisites are assumed: 
 
-• You have a Chef Infra server:  It can be hosted on either a public or private network. For a Chef Infra server hosted in a private network, make sure it is reachable from the HPE GreenLake Central platform.
+* You have a Chef Infra server:  It can be hosted on either a public or private network. For a Chef Infra server hosted in a private network, make sure it is reachable from the HPE GreenLake Central platform.
 
-• You have configured the organization, organization validator key, users, and user key on a Chef Infra server.
+* You have configured the organization, organization validator key, users, and user key on a Chef Infra server.
 
-• You have uploaded a sample cookbook **mydocker** to the Chef Infra server. Refer to this [blog post](https://medium.com/@pierangelo1982/cooking-docker-nginx-with-chef-server-95f179aa17ca) to create the sample cookbook. The cookbook has a single recipe **default.rb** that will be referred as **recipe\[mydocker]** in the Chef runlist. The cookbook installs a docker environment on the VM, and then installs a Nginx docker container. A Chef runlist defines all the information necessary for Chef to configure a node into desired state.
+* You have uploaded a sample cookbook **mydocker** to the Chef Infra server. Refer to this [blog post](https://medium.com/@pierangelo1982/cooking-docker-nginx-with-chef-server-95f179aa17ca) to create the sample cookbook. The cookbook has a single recipe **default.rb** that will be referred as **recipe\[mydocker]** in the Chef runlist. The cookbook installs a docker environment on the VM, and then installs a Nginx docker container. A Chef runlist defines all the information necessary for Chef to configure a node into desired state.
 
 ```yaml
 #
