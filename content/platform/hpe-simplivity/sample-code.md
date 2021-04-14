@@ -2,7 +2,7 @@
 title: "Simplivity"
 version: v 6.01.8964
 description:
-image: 
+image: /img/simplivity.jpg 
 frontpage: false
 priority: 2
 tags: ["hpe-simplivity"]
