@@ -119,14 +119,15 @@ For this scenario, we need to integrate Chef automation with the HPE GreenLake f
 
 3. Populate the following fields and save changes
 
-* Name: Name of the Chef integration; for example, Local_Chef_Server
-* Chef Endpoint: URL of Chef Infra server API endpoint in <https://api.example.com> format. Do not add /organization/xxxx here, which is populated in the Chef Organization field. In this example, **https://chefserver.localdomain** is used.
-* Chef Version: Chef client version, which needs to be installed in the nodes. Use 16.1.X or greater. Version can be changed to use a different/more recent version of Chef. 
-* Chef Organization: Chef server organization
-* Chef User: Chef Infra server user
-* User Private Key: The private key of the user with access to this Chef Infra server
-* Organization Validator: Validator key for the organization
-* DataBags: Optional. Add it if it is configured in the Chef Infra server
+   * Name: Name of the Chef integration; for example, Local_Chef_Server
+   * Chef Endpoint: URL of Chef Infra server API endpoint in <https://api.example.com> format. Do not add /organization/xxxx here, which is populated in the Chef Organization field. In this example, **https://chefserver.localdomain** is used.
+   * Chef Version: Chef client version, which needs to be installed in the nodes. Use 16.1.X or greater. Version can be changed to use a different/more recent version of Chef.
+   * Chef Organization: Chef server organization
+   * Chef User: Chef Infra server user 
+   * User Private Key: The private key of the user with access to this Chef Infra server
+   * Organization Validator: Validator key for the organization
+   * DataBags: Optional. Add it if it is configured in the Chef Infra server
+
 
 ![](/img/glpc-chef-integration-image3.png "Image3")
 
