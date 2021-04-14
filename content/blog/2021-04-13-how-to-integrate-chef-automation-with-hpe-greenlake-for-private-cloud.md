@@ -104,7 +104,7 @@ template '/home/docker/html/index.html' do
 end
 ```
 
-## Scenario 1: Add Chef automation integration and provision a new application instance Nginx bootstrapped to the integrated Chef Infra server using HPE GreenLake for private cloud self-service UI
+## Scenario 1: Add Chef automation integration and provision a new application instance (Nginx) bootstrapped to the integrated Chef Infra server using HPE GreenLake for private cloud self-service UI
 
 For this scenario, we need to integrate Chef automation with the HPE GreenLake for private cloud first, then we provision a new application instance (i.e. Nginx) bootstrapped to the integrated Chef Infra server.
 
