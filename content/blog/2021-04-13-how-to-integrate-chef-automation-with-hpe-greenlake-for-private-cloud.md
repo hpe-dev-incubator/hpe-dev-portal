@@ -117,7 +117,7 @@ For this scenario, we need to integrate Chef automation with the HPE GreenLake f
 
 ![](/img/glpc-chef-integration-image2.png "Image2")
 
-3. Populate the following fields and save changes**.**
+3. Populate the following fields and save changes
 
 * Name: Name of the Chef integration; for example, Local_Chef_Server
 * Chef Endpoint: URL of Chef Infra server API endpoint in <https://api.example.com> format. Do not add /organization/xxxx here, which is populated in the Chef Organization field. In this example, **https://chefserver.localdomain** is used.
@@ -176,48 +176,27 @@ HPE GreenLake for private cloud provides an option to bootstrap existing VM inst
 
 1. The first step is to create a Chef bootstrap task. On the HPE GreenLake for private cloud main menu screen, navigate to **Provisioning > Automation > Tasks**, and create a Chef bootstrap task. A task is an individual automation element; for example, a script or a Chef cookbook. Select **TYPE** as **Chef bootstrap** and choose the previously integrated Chef Infra server. In the **RUN LIST** field, enter **recipe\[mydocker]** to refer the recipe from the cookbook you previously uploaded to your Chef Infra server. 
 
-
-
 ![](/img/glpc-chef-integration-image12.png "Image 12")
-
 
 2. To bootstrap any VM instances with this task, on the HPE GreenLake for private cloud main menu, navigate to **Provisioning > Instances**, and select the VM instance that needs to be bootstrapped. Select **Actions > Run** Task. The screen below shows the VM instance **Demo** detail page.
 
-
-
 ![](/img/glpc-chef-integration-image13.png "Image 13")
-
 
 3. Select the **chef-bootstrap** task created previously and execute it by clicking **EXECUTE**.
 
-
-
 ![](/img/glpc-chef-integration-image14.png "Image 14")
-
-
 
    Task will start the execution on the instance.
 
-
-
 ![](/img/glpc-chef-integration-image15.png "Image 15")
-
 
 4. On completion, the instance status is green and the task status can be seen in **History** tab.
 
-
-
 ![](/img/glpc-chef-integration-image16.png "Image 16")
-
-
 
 The instance is now bootstrapped as a Chef client registered in the Chef Infra server. The recipe is run as specified in the **Run List** from Chef-Manage dashboard of the integrated Chef Infra server, shown in screenshot below.
 
-   
-
 ![](/img/glpc-chef-integration-image17.png "Image 17")
-
-
 
 ## Summary
 
