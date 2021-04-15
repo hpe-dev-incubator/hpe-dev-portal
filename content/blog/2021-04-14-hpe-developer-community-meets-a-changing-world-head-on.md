@@ -38,6 +38,8 @@ As we added more and more to our online presence, we found that the existing HPE
 
 ![](/img/hpedev-world-is-changing-image2.png "World-is-changing-image2")
 
+<img src="/img/hpedev-world-is-changing-image2.png">
+
 So, we’ve updated the [HPE DEV Portal](https://developer.hpe.com) and given it a new, fresh and clean look. It’s a lot easier to navigate. Here, you’ll find all the resources you need to design and build the best possible software experiences that harness the most value from your data. Blog posts continue to be a staple of the portal, with many of the more recent posts covering topics like AI, machine learning, how to stream data and capture it, and how to efficiently manage your hybrid cloud environment. You’ll also be able to access the brand new [HPE Open Source project website](https://www.hpe.com/us/en/open-source.html) through our top navigation.
 
 ## Join Us in Moving Forward
