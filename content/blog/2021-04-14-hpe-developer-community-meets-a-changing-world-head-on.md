@@ -10,7 +10,7 @@ tags:
 
 When have those words never been true? The only real constant in life **is** change. **How** you deal with change is what defines how you will survive – and thrive. Consider the challenges posed by social distancing to any community of technologists. Take the HPE Developer Community, for example. We thrive on connecting with each other, discussing problems, and collaborating to build solutions. As much as we wish we could “get back to normal” and live in a post-COVID world where we can greet each other in the Hack Shack, there are things that will never go back… nor, perhaps, should they. 
 
-As I said, **how** you deal with change defines your future success. By learning to adapt to our current circumstances, we have found ways to reach out to others as never before; more efficiently, economically, and engagingly. By confronting the challenges posed by social distancing head on, the HPE DEV team that leads the Developer Community has come up with some very innovative ways to connect and continue our mission – to Build, Communicate, and Collaborate. This includes developing a virtual [Hack Shack](https://hackshack.hpedev.io/), creating [on-demand technical workshops](https://hackshack.hpedev.io/workshops), offering [online meetups](https://developer.hpe.com/campaign/munch-and-learn), and redesigning our [HPE Developer web portal](https://developer.hpe.com/?target=_blank).
+As I said, **how** you deal with change defines your future success. By learning to adapt to our current circumstances, we have found ways to reach out to others as never before; more efficiently, economically, and engagingly. By confronting the challenges posed by social distancing head on, the HPE DEV team that leads the Developer Community has come up with some very innovative ways to connect and continue our mission – to Build, Communicate, and Collaborate. This includes developing a virtual [Hack Shack](https://hackshack.hpedev.io/), creating [on-demand technical workshops](https://hackshack.hpedev.io/workshops), offering [online meetups](https://developer.hpe.com/campaign/munch-and-learn), and redesigning our [HPE Developer web portal](https://developer.hpe.com/).
 
 
 
@@ -41,7 +41,7 @@ As we added more and more to our online presence, we found that the existing HPE
 
 ![](/img/hpedev-world-is-changing-image2.png "World-is-changing-image2")
 
-<img src="/img/hpedev-world-is-changing-image2.png">
+<img src="/img/hpedev-world-is-changing-image2.png" height="359" width="600">
 
 So, we’ve updated the [HPE DEV Portal](https://developer.hpe.com) and given it a new, fresh and clean look. It’s a lot easier to navigate. Here, you’ll find all the resources you need to design and build the best possible software experiences that harness the most value from your data. Blog posts continue to be a staple of the portal, with many of the more recent posts covering topics like AI, machine learning, how to stream data and capture it, and how to efficiently manage your hybrid cloud environment. You’ll also be able to access the brand new [HPE Open Source project website](https://www.hpe.com/us/en/open-source.html) through our top navigation.
 
