@@ -2,7 +2,7 @@
 title: HPE Developer Community Meets a Changing World Head On
 date: 2021-04-14T10:17:45.703Z
 author: Dale Rensing
-authorimage: /img/Avatar1.svg
+authorimage: /img/small-162.jpg
 tags:
   - hpedev
   - munch-and-learn
