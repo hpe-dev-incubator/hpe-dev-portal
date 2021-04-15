@@ -1,12 +1,17 @@
 ---
-title: "The Challenges of Sharing GPUs and How to Solve Them"
+title: The Challenges of Sharing GPUs and How to Solve Them
 date: 2021-02-03T15:54:07.736Z
-author: Raz Haleva 
-tags: ["hpe-ezmeral-container-platform","run:ai","GPU","AI","ML"]
-authorimage: "/img/blogs/Avatar1.svg"
 featuredBlog: true
-priority: 1
-thumbnailimage: "https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/12/pinkish-image-4-run-ai-post-1612367610553.JPG"
+priority: ""
+author: Raz Haleva
+authorimage: /img/blogs/Avatar1.svg
+thumbnailimage: https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/12/pinkish-image-4-run-ai-post-1612367610553.JPG
+tags:
+  - hpe-ezmeral-container-platform
+  - run:ai
+  - GPU
+  - AI
+  - ML
 ---
 ![pinkish image 4 run ai post](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/12/pinkish-image-4-run-ai-post-1612367610553.JPG)
 
