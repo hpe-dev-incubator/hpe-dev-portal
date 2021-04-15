@@ -1,5 +1,5 @@
 ---
-title: The Challenges of Sharing GPUs and How to Solve Them
+title: '"The Challenges of Sharing GPUs and How to Solve Them"'
 date: 2021-02-03T15:54:07.736Z
 featuredBlog: false
 priority: ""
