@@ -20,7 +20,7 @@ One of the HPE DEV team’s first challenges was to figure out a way to deliver 
 
 As developers, designers, and owners of our own HPE DEV Portal, the most obvious answer to making the Hack Shack virtual was to actually create an on-line Hack Shack. Our resident ace designer, Chris Carlozzi, created one of the coolest sites you could imagine. One of the most popular attractions at the Hack Shack was our Hack Shack Attack game, which was already available online, so that was easily integrated. We made stickers available that people could download and offered prizes for high scores in the game.
 
-![](/img/hpedev-world-is-changing-image1.png "World-is-changing-image1")
+![](/img/hpedev-world-is-changing-image1-small.png "World-is-changing-image1")
 
 But what about the coding sessions? These had been tremendously popular during our live events. Didier Lalli, HPE DEV Technology lead, and Frederic Passeron, our resident education evangelist, came up with a way to deliver the workshops in a way where students could interact with the code online through the use of Jupyter Notebooks. This gave birth to a whole set of [Workshops-on-Demand](https://hackshack.hpedev.io/workshops). The workshops became so popular that people began asking for them even when there wasn’t an event. Students returned surveys giving the workshops glowing reviews, explaining how happy they were to be able to work with the technologies through such a hands-on approach. Now, the workshops are not only available in the Hack Shack, but you can also find them through the [HPE Demo Portal](https://hpedemoportal.ext.hpe.com/login) and through the [Skill Up](https://developer.hpe.com/skillup/) section of the HPE DEV Portal. 
 
@@ -40,11 +40,8 @@ As we added more and more to our online presence, we found that the existing HPE
 
 So, we’ve updated the [HPE DEV Portal](https://developer.hpe.com) and given it a new, fresh and clean look. It’s a lot easier to navigate. Here, you’ll find all the resources you need to design and build the best possible software experiences that harness the most value from your data. Blog posts continue to be a staple of the portal, with many of the more recent posts covering topics like AI, machine learning, how to stream data and capture it, and how to efficiently manage your hybrid cloud environment. You’ll also be able to access the brand new [HPE Open Source project website](https://www.hpe.com/us/en/open-source.html) through our top navigation.
 
-
 ## Join Us in Moving Forward
 
-
 One of my favorite Comcast Business commercials extols the virtue of moving forward. It acknowledges how businesses that were previously thriving are now challenged with figuring out how to deal with a disastrous situation. The commercial asks “How do you bounce back? You don’t. You bounce forward.” And, at the end, it points out that we need to do this together. The HPE DEV team is excited by the changes we’ve made as a team and as a community – and how these changes are helping us to move forward. 
-
 
 If you haven’t taken advantage of the HPE Developer Community yet, consider taking a closer look now and in the coming months. There’s a broad set of resources there that you can take advantage of. It costs you nothing to join. You just need to participate, which can be as simple as signing up for our [monthly newsletter](https://developer.hpe.com/newsletter-signup). Or, post a question on our [Slack Channel](https://slack.hpedev.io/) and find out how quickly you can get an answer. You might want to start a discussion on the [HPE Ezmeral Software Forum](https://community.hpe.com/t5/HPE-Ezmeral-Software-platform/bd-p/ezmeral-software-platform) or simply follow us on [Twitter](https://twitter.com/HPE_DevCom). I think you’ll find a lot of value in connecting and collaborating with us.
