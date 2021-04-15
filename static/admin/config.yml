@@ -5,11 +5,9 @@ backend:
  open_authoring: true
 
 publish_mode: editorial_workflow
-# site_url: https://developer.hpe.com/
-# display_url: https://developer.hpe.com/
-site_url: https://hpe-dev-portal.netlify.app/
-display_url: https://hpe-dev-portal.netlify.app/
-logo_url: /img/dev-thumb.png
+site_url: https://developer.hpe.com
+display_url: https://developer.hpe.com
+logo_url: /img/dev-thumb2.png
 
 media_folder: static/img
 public_folder: /img
