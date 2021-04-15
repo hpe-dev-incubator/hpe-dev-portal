@@ -14,9 +14,6 @@ When have those words never been true? The only real constant in life **is** cha
 
 As I said, **how** you deal with change defines your future success. By learning to adapt to our current circumstances, we have found ways to reach out to others as never before; more efficiently, economically, and engagingly. By confronting the challenges posed by social distancing head on, the HPE DEV team that leads the Developer Community has come up with some very innovative ways to connect and continue our mission – to Build, Communicate, and Collaborate. This includes developing a virtual [Hack Shack](https://hackshack.hpedev.io/), creating [on-demand technical workshops](https://hackshack.hpedev.io/workshops), offering [online meetups](https://developer.hpe.com/campaign/munch-and-learn), and redesigning our [HPE Developer web portal](https://developer.hpe.com/).
 
-
-
-
 ## Morphing the Hack Shack
 
 When COVID shut down the first tradeshows, it became obvious that going virtual was the only real option. Digital platforms were quickly made available. These helped companies show what they wanted to present, but from an event attendee’s perspective, they really weren’t all that engaging. Virtual platforms did make events easier to attend, as they could be streamed worldwide throughout the day. And they saved people a lot of money, since many events were free and no one had to travel. But the ability to connect and learn from each other was lacking.
@@ -41,7 +38,7 @@ Our newest offering, the [Munch & Learn Technology Talks](https://developer.hpe.
 
 As we added more and more to our online presence, we found that the existing HPE DEV Portal no longer served as a true representation of who the HPE DEV team is and what we do. We needed a better way for our community to find the things they were looking for, including the technology talks, the workshops, and other training resources we offer. We wanted to offer people easier ways to find us and connect through [Slack](https://slack.hpedev.io/), [Twitter](https://twitter.com/HPE_DevCom), and the [HPE Ezmeral Software Forum](https://community.hpe.com/t5/HPE-Ezmeral-Software-platform/bd-p/ezmeral-software-platform). Even finding older newsletters tended to be a chore, and that needed to be fixed.
 
-![](/img/hpedev-world-is-changing-image2.png "World-is-changing-image2")
+<center><img src="/img/hpedev-world-is-changing-v2-portal-reveal-982x639.jpg" width="982" height="639" ></center>
 
 So, we’ve updated the [HPE DEV Portal](https://developer.hpe.com) and given it a new, fresh and clean look. It’s a lot easier to navigate. Here, you’ll find all the resources you need to design and build the best possible software experiences that harness the most value from your data. Blog posts continue to be a staple of the portal, with many of the more recent posts covering topics like AI, machine learning, how to stream data and capture it, and how to efficiently manage your hybrid cloud environment. You’ll also be able to access the brand new [HPE Open Source project website](https://www.hpe.com/us/en/open-source.html) through our top navigation.
 
