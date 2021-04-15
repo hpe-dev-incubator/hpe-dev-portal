@@ -5,6 +5,8 @@ author: Dale Rensing
 authorimage: /img/Avatar1.svg
 tags:
   - hpedev
+  - munch-and-learn
+  - workshops-on-demand
 ---
 ## The world is changing
 
