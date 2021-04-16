@@ -58,7 +58,7 @@ HPE GreenLake for private cloud brings the cloud to you, modernizing your on-pre
 
 
 
-* _[HPE GreenLake for private cloud: Utilizing application blueprints to simplify deployment of a multinode application using HPE GreenLake for private cloud](https://developer.hpe.com/uploads/media/2020/6/gl4pc_eshop_bp_v1_35-1593186155592.pdf)_     
+* _[HPE GreenLake for private cloud: Utilizing application blueprints to simplify deployment of a multinode application using HPE GreenLake for private cloud](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/6/gl4pc_eshop_bp_v1_35-1593186155592.pdf)_     
 (Complete step-by-step examples of how to build an application blueprint using Ansible playbooks integration, automation workflows, instance types and layout).
 
 <br>
