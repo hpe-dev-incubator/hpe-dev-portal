@@ -9,6 +9,10 @@ tags:
   - github
   - opensource
 ---
+## Git
+
+![git101-part1-git icon 1788c](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/3/git-icon-1788c-1590702885345.png)
+
 Wikipedia cites: "Git is a distributed version-control system (VCS) for
 tracking changes in source code during software development. It is
 designed for coordinating work among programmers, but it can be used to
