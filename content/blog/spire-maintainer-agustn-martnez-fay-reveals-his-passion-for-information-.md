@@ -25,9 +25,9 @@ Agustín Martínez Fayó is a principal engineer for SPIRE, the [Cloud Native Co
 
 Both SPIFFE and SPIRE were [recently accepted into the CNCF Incubator](https://www.infoq.com/news/2020/06/spire-identity-framework/) to provide a standard and tooling for establishing trust between software services without necessarily using secrets or network-based security controls. The projects enable organizations to deploy consistent, fine-grained cross-service authentication via a “dial-tone” API across heterogeneous environments. Similar to being able to just pick up a phone and connect with anyone because the system just knows how to do it, the Workload API offers a standard way for authentication when connecting with other workloads, no matter where they are or the infrastructure on which they are running. This enables zero trust architectures by delivering continuously attested service identity across cloud, container, and on-premise enterprise IT infrastructures.
 
-
 ## How did you get involved with SPIFFE/SPIRE?
 I tend to be pretty passionate about information security. As I was off looking for new challenges, the SPIFFE project was just getting started. Being able to contribute to SPIFFE and SPIRE right from the start looked like the perfect opportunity to engage with a community of security experts and be able to contribute to the development of software that would really help improve the security posture across organizations.
+
 ## What are some of the things you’d like to work on in regards to this project?
 Continuing to maintain the SPIRE project is important to me. There are a lot of ongoing efforts and proposals to enhance and extend the SPIRE capabilities that will help make it a suitable solution in more environments and use cases. As a maintainer of the project, I would like to help drive those efforts. It's great to have the opportunity to contribute to the growth and adoption of these projects.
 
