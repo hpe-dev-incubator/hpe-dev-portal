@@ -1,8 +1,10 @@
 ---
 title: "KubeCon + CloudNativeCon, Europe: Be Involved via this Virtual Opportunity"
 date: 2021-04-15T14:50:34.270Z
+featuredBlog: true
+priority: 1
 author: Dale Rensing
-authorimage: /img/small-162.jpg
+authorimage: /img/blog-author-rensing-96.jpg
 thumbnailimage: /img/kubecon-eu-2021-1.jpg
 tags:
   - KubeCon
