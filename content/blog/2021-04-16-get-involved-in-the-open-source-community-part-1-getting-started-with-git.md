@@ -36,7 +36,7 @@ ClearCase. According to a survey from StackOverflow, Git was used by
 
 ## GitHub
 
-![git101-part1-github mark light 120px plus](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/3/github-mark-light-120px-plus-1590772191202.png)
+![git101-part1-github mark light 120px plus](/img/github-mark.png)
 
 Some commercial companies are providing Source Code Management (SCM)
 solutions based on Git. One of the most popular is GitHub
