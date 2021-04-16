@@ -18,6 +18,7 @@ We host numerous platforms here, including:
   * sub-item1
   * sub-item2
   * sub-item3
+
 * HPE Ezmeral Data Fabric, 
 
   1. numbered sub-item
@@ -53,12 +54,10 @@ We host numerous platforms here, including:
   * sub-item1
   * sub-item2
   * sub-item3
-
 * HPE Ezmeral Data Fabric, 
   1. numbered sub-item
   2. numbered sub-item
   3. numbered sub-item
-
 * HPE GreenLake, 
 * SPIFFE and SPIRE projects, 
 * Chapel, Grommet, 
