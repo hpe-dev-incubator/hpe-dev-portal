@@ -1,12 +1,14 @@
 ---
 title: "HPE Container Platform REST API – Part 1: Authenticating  "
 date: 2020-05-26T03:08:40.367Z
-author: Denis Choukroun 
-tags: ["hpe-ezmeral-container-platform","hpe-container-platform"]
-authorimage: "/img/blogs/Avatar1.svg"
 featuredBlog: false
-priority:
-thumbnailimage:
+priority: null
+author: Denis Choukroun
+authorimage: https://gravatar.com/avatar/f66dd9562c53567466149af06ae9d4f1?s=96
+thumbnailimage: null
+tags:
+  - hpe-ezmeral-container-platform
+  - hpe-container-platform
 ---
 ![image001](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/3/image001-1590504102737.png)
 
