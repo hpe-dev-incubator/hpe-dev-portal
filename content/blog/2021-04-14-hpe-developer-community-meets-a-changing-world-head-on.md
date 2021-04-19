@@ -2,7 +2,7 @@
 title: HPE Developer Community Meets a Changing World Head On
 date: 2021-04-14T10:17:45.703Z
 author: Dale Rensing
-authorimage: /img/small-162.jpg
+authorimage: /img/blog-author-rensing-96.jpg
 tags:
   - hpedev
   - munch-and-learn
@@ -38,7 +38,7 @@ Our newest offering, the [Munch & Learn Technology Talks](https://developer.hpe.
 
 As we added more and more to our online presence, we found that the existing HPE DEV Portal no longer served as a true representation of who the HPE DEV team is and what we do. We needed a better way for our community to find the things they were looking for, including the technology talks, the workshops, and other training resources we offer. We wanted to offer people easier ways to find us and connect through [Slack](https://slack.hpedev.io/), [Twitter](https://twitter.com/HPE_DevCom), and the [HPE Ezmeral Software Forum](https://community.hpe.com/t5/HPE-Ezmeral-Software-platform/bd-p/ezmeral-software-platform). Even finding older newsletters tended to be a chore, and that needed to be fixed.
 
-<center><img src="/img/hpedev-world-is-changing-v2-portal-reveal-982x639.jpg" width="982" height="639" ></center>
+<center><img src="/img/hpedev-world-is-changing-v2-portal-reveal-575-by-375.jpg" width="575" height="375" ></center>
 
 So, we’ve updated the [HPE DEV Portal](https://developer.hpe.com) and given it a new, fresh and clean look. It’s a lot easier to navigate. Here, you’ll find all the resources you need to design and build the best possible software experiences that harness the most value from your data. Blog posts continue to be a staple of the portal, with many of the more recent posts covering topics like AI, machine learning, how to stream data and capture it, and how to efficiently manage your hybrid cloud environment. You’ll also be able to access the brand new [HPE Open Source project website](https://www.hpe.com/us/en/open-source.html) through our top navigation.
 
