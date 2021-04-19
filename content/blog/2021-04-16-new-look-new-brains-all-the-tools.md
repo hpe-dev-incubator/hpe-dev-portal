@@ -8,6 +8,8 @@ tags:
   - munch-and-learn
   - workshops-on-demand
 ---
+
+
 <center><img src="/img/full-reveal-top-of-page-image1.jpg" width="800" height="453"></center> 
 
 The HPE DEV team is excited to present its revamped [HPE Developer Community web portal](https://developer.hpe.com/). Featuring a fresh look and feel with easier navigation, it provides the resources you need to design and build software experiences that harness the most value from your data. With a new backend system and new design, it’s easier to use and contribute to. In addition, we’re delighted to be able to share our new Twitter handle with you, @HPE_DEV, a simplification many of you have requested.
@@ -30,7 +32,9 @@ Blog posts continue to be a staple of the portal, with many of the more recent p
 
 Our new portal provides easy access to the [HPE DEV Hack Shack](https://hackshack.hpedev.io/), a place for fun and learning.  During events, the Hack Shack is a place where you can connect with experts in HPE and open source technologies and learn more from the teams behind these products.  It’s where attendees can come to participate in coding challenges, hands-on workshops, and entertaining games. Afterwards, it extends the event experience by allowing you to continue to revisit replays of workshops and explore the hands-on workshops at your own pace.
 
-<center><img src="/img/home-page-2-bis.jpg" width="627" height="720"></center> 
+
+<center><img src="/img/home-page-2-bis.png" width="627" height="720"></center> 
+
 
 From the home page, you can explore the HPE Design System, a set of resources for designing great apps and website that integrate seamlessly with HPE platforms. You can also jump from there to our [HPE DEV Workshops-on-Demand](https://hackshack.hpedev.io/workshops) and our monthly community meetups, the [Munch & Learn Technology Talks](https://developer.hpe.com/campaign/munch-and-learn/), where you can interact with experts regarding popular new technologies and get your questions answered. You can also directly access the [HPE Open Source portal](https://www.hpe.com/us/en/open-source.html) from our top page directory.
 
