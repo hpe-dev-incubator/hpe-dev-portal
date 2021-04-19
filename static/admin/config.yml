@@ -73,7 +73,7 @@ collections:
     extension: 'md'
     create: true
     publish: false
-    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+    slug: '{{slug}}'
     editor:
       preview: true
     fields:
