@@ -88,19 +88,30 @@ You can create a new blog directly from the **Contents** tab or by navigating to
     You can upload a picture or use your gravatar picture URL if you have one. For more information on how to get a gravatar URL, refer to section
     "***Tips and Tricks using the CMS Editor***" at the end of this document.
 
-4.  Start writing the content using RTF or Markdown
+4.  Start writing the content using either **Rich Text** mode or **Markdown** mode in the Body canvas   
 
-> ![Graphical user interface, text, application, email Description
-> automatically generated](media/image7.png){width="4.87in"
-> height="3.8398075240594927in"}
+<center><img src="media/guide-blog-body.png" width="700" height="410"></center>
 
-5.  Preview your blog on the right pane.
+* Use **Markdown** mode when your source file is in Markdown file. Simply use copy and paste the content in plain text (**CTRL+SHIFT+V**) in the body.
+* Use **Rich Text** mode when your source file is an MS-Word document or a RTF document: simply copy the content from your source file and paste the content in plain text (**CTRL+SHIFT+V**) in the body.
+
+ To get started with editorial content, refer to section "***Tips and Tricks using the CMS Editor***" at the end of this document.
+    
+5. Tag your blog post
+
+You can tag your post to tie it to one of the HPE DEV "Platform" pages on the HPE DEV portal. 
+You can also tag your article with popular keywords (1 to 4 keywords) that reflect your topic relevancy. Use tags as one way to optimize your blog post for results from search engines such as Google search engine.
+
+For more information on how to use tags refer to section "***Tips and Tricks using the CMS Editor***" at the end of this document.
+    
+
+6.  Preview your blog on the right pane.
 
 > ![Graphical user interface, text, application Description
 > automatically generated](media/image8.png){width="6.5in"
 > height="2.897222222222222in"}
 
-6.  You can add one or more tags from the official tags list located on
+7.  You can add one or more tags from the official tags list located on
     (<https://hpe-dev-portal.netlify.app/tags/> )
 
 7.  When ready **Save** your work. Or use UNSAVED CHANGES to exit
