@@ -118,25 +118,18 @@ Click **Save** to save your latest edits.
 
 8.  Wait until document is saved
 
-9.  When Saved, click on **Writing in Blog collection, CHANGES SAVED** to exit the CMS editor.
+9.  When Saved, click on **Writing in Blog collection, CHANGES SAVED** to exit the CMS editor and return to the Editorial Workflow section
 
 <center><img src="media/guide-blog-changes-saved.png" width="464" height="54"></center>
 
-10. Your blog is now visible in the **Drafts** column of the **Editorial
-    Workflow**.
+10. Your blog is now visible in the **Drafts** column of the **Editorial Workflow**.
 
-![Graphical user interface, application, Teams Description automatically
-generated](media/image11.png){width="5.055555555555555in"
-height="3.8333333333333335in"}
+<center><img src="media/guide-blog-workflow-in-draft.png" width="800" height="331"></center>
 
-11. Review/edit until ready. When you are satisfied with the edition of
-    the blog post, move it to the **In Review** column (drag & drop the
-    blog from the **Workflow** area) or using the **Set Status** button
-    at the top right of the screen.
+11. Review/edit until ready. When you are satisfied with the edition of the blog post, move it to the **In Review** column (drag & drop the
+    blog from the **Workflow** area) or using the **Set Status** button at the top right of the screen.
 
-> ![Graphical user interface, text, application, chat or text message
-> Description automatically generated](media/image12.png){width="2.81in"
-> height="1.0526345144356954in"}
+<center><img src="media/guide-blog-workflow-move-to-In-Review.png" width="800" height="321"></center>
 
 12. Select your article, now **In Review** and, in the editor, after a
     few minutes, notice the **Check for Preview** at the top right which
