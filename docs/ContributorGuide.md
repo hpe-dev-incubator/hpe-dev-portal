@@ -304,46 +304,38 @@ pandoc -f docx -t markdown mydoc.docx -o mymarkdown.md
 
 -   Insert an image:
 
-Small resolution image is recommended (width: 800px)
+    Small resolution image is recommended (width: 800px)
 
--   Use the "Rich text" toggle option
+    -   Toggle to **Rich Text** mode in the editor (Body area)
 
--   Select + to add an image component
+    -   Select **+** to add an image component
 
--   Upload the image, select image
+    -   Upload the image stored on your PC/laptop and select image you have just uploaded
 
--   Adjusting image size and its position
+-   Adjusting image size and its position:
 
-    -   Change image size using you preferred image editor (I.e.: Paint)
+    -   Using your PC/Laptop, change image size using you preferred image editor (I.e.: Paint)
 
-    -   Toggle to "***Rich Text***" option and upload/select the resized
-        image. This will also give you the relative path to the image in
+    -   Toggle to **Rich Text** mode and upload/select the resized image. This will also give you the relative path to the image in
         the editor.
 
-    -   **Another option** is to use HTML code to set the size (height,
-        width) for your image while you insert it into the post. Toggle
-        to ***"Markdown***" option, and insert the HTML syntax below:
+    -   **Another option** is to use HTML code to set the size (height, width) for your image while you insert it into the post. 
+        Toggle to **Markdown** mode, and insert the HTML syntax below:
 
-\<img src=\"\<relative path of your image in the form:
-/img/myimage.png\" width=\"600\" height=\"359\"\>
+"<img src=\"\<relative path of your image in the form:/img/myimage.png\" width=\"600\" height=\"359\"\>"
 
--   If you wish to center an image, take note of your preferred
-    resolution size, then you can use HTML code below:
+-   If you wish to center an image, take note of your preferred resolution size, then you can use HTML code below:
 
 > \<center\>\<img src=\"relative path of your image in the form
 > /img/myimage.png\" width=\"500\" height=\"542\"\>\</center\>
 >
-> **[Note:]{.ul}** In the preview canvas, you will see an empty frame
-> for your image. The frame corresponds to the size of the image (width
-> and height) in the blog post.
 
--   If using a horizontal separator, you can use the "Markdown" mode and
-    use the
+>**Note:** In the preview canvas, you will see an empty frame for your image. The frame corresponds to the size of the image (width
+and height) in the blog post.
 
-> "- - -" (without the quotation mark).
+-   If using a horizontal separator, you can use the "Markdown" mode and use the "- - -" (without the quotation mark).
 
-Make sure to insert a line break before and after the horizontal
-separator.
+    >**Note:** Make sure to insert a line break before and after the horizontal separator.
 
 -   Code block snippet:
 
