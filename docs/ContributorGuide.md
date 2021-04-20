@@ -64,9 +64,7 @@ more support.
 >Note: Please engage with the team before proposing changes to other
 sections.
 
-> ![Graphical user interface, application Description automatically
-> generated](media/image4.png){width="6.16in"
-> height="2.6384022309711286in"}
+<center><img src="media/guide-contents-blog-platform.png" width="800" height="356"></center>
 
 ## Contributing a new blog
 
