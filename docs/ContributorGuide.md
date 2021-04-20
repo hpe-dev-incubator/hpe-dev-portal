@@ -37,11 +37,13 @@ more support.
 1.  Make sure you are connected to your personal GitHub account. If you
     don't have an account, you can create one now [here](https://github.com/join).
 
+
 2.  Open the Netlifly Content Management System (CMS) at
     [https://developer.hpe.com/admin](https://developer.hpe.com/admin)
     and select login with GitHub. 
 
 <center><img src="media/guide-login-with-Github.png" width="600" height="300"></center>
+
 
 3.  Select **Fork the repo** to initiate a copy of the HPE DEV Web CMS
     into your own GitHub account. (In GitHub, this will appear as a new
@@ -51,10 +53,12 @@ more support.
 
 <center><img src="media/guide-fork-repo.png" width="600" height="363"></center>
 
+
 4.  You can view this forked repo in your repository list of your GitHub
     account
 
 <center><img src="media/guide-forked-repo-in-your-GitHub.png" width="800" height="185"></center>
+
 
 5.  In Netlify CMS, you are now working with your own copy of the HPE
     DEV CMS, and you get presented with a **Contents** menu which allows
@@ -73,10 +77,12 @@ You can create a new blog directly from the **Contents** tab or by navigating to
 
 <center><img src="media/guide-blog-Contents-new-post.png" width="800" height="497"></center>
 
+
 2.  In the blog editor, you can set properties (title, author name, author picture) in the left pane and see
     the effect in the preview pane on the right side of the screen
 
 <center><img src="media/guide-blog-new-post-properties.png" width="1100" height="500"></center>
+
 
 3.  Make sure you set:
 
@@ -85,6 +91,7 @@ You can create a new blog directly from the **Contents** tab or by navigating to
 -   Author Image (image size recommended is **96px X 96px**). 
     You can upload a picture or use your gravatar picture URL if you have one. 
     >Note: For more information on how to get a gravatar URL, refer to section "***Tips and Tricks using the CMS Editor***" at the end of this document.
+
 
 4.  Start writing the content using either **Rich Text** mode or **Markdown** mode in the Body canvas   
 
@@ -95,6 +102,7 @@ You can create a new blog directly from the **Contents** tab or by navigating to
 
  >Note: To get started using the CMS editor for common elements (headings, list, code blocks, bold, italics, image), refer to section "***Tips and Tricks using the CMS Editor***" at the end of this document.
     
+    
 5. Tag your blog post
 
 You can tag your post to tie it to one of the HPE DEV "Platform" pages on the HPE DEV portal. 
@@ -103,11 +111,13 @@ Use tags as one way to optimize your blog post for results from search engines s
 
 >Note: For more information on how to use tags refer to section "***Tips and Tricks using the CMS Editor***" at the end of this document.
     
+    
 6.  As you are adding content to the **Body** area, you can preview your blog on the right pane.
 
 >Note: The text font size in the preview area will be smaller similar to the final rendering of the blog post in HPE DEV portal. 
 
 <center><img src="media/guide-blog-preview-area.png" width="1000" height="458"></center>
+
 
 7.  When ready **Save** your work. 
 Click **Save** to save your latest edits.
@@ -116,15 +126,19 @@ Click **Save** to save your latest edits.
 
 >Note: Click **UNSAVED CHANGES** to exit the CMS editor without saving your changes. Click **Delete unpublished entry** to delete the post entry.
 
+
 8.  Wait until document is saved
+
 
 9.  When Saved, click on **Writing in Blog collection, CHANGES SAVED** to exit the CMS editor and return to the Editorial Workflow section
 
 <center><img src="media/guide-blog-changes-saved.png" width="464" height="54"></center>
 
+
 10. Your blog is now visible in the **Drafts** column of the **Editorial Workflow**.
 
 <center><img src="media/guide-blog-workflow-in-draft.png" width="800" height="331"></center>
+
 
 11. Review/edit until ready. When you are satisfied with the edition of the blog post, move it to the **In Review** column (drag & drop the
     blog from the **Workflow** area).
@@ -135,18 +149,24 @@ Or use the **Set Status** button at the top right of the screen as shown here:
 
 <center><img src="media/guide-blog-workflow-Set-Status-to-In-Review.png" width="336" height="126"></center>
 
+
 12. From the Editorial Workflow section, select your article, now **In Review** column. You will see its status **Check for Preview** in the editor at the top right.
 
 <center><img src="media/guide-blog-check-for-preview.png" width="301" height="60"></center>
+
 
 13. After a few minutes, notice the **Check for Preview** at the top right which turned into **View Preview**. Click **View Preview** to open a preview of the web site and validate your changes. If needed, click **Check for Preview** to refresh the status.
 
 <center><img src="media/guide-blog-status-View-Preview.png" width="435" height="56"></center>
 
-14. As soon as the blog was placed **In Review,** a Pull Request (PR)
-    was automatically opened on the HPE DEV team's GitHub repository,
-    with the changes you are proposing. We will review and get in touch
-    with you shortly.
+Clicking **View Preview** will open your blog post in a new browser tab for your review.
+
+<center><img src="media/guide-blog-View-Preview.png" width="600" height="620"></center>
+
+
+14. As soon as the blog was placed **In Review,** a Pull Request (PR) was automatically opened on the HPE DEV team's GitHub repository, with the changes you are proposing. 
+
+We will review and get in touch with you shortly.
 
     If you open the hpe-dev-portal repo you can see this new PR
 
