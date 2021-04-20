@@ -187,7 +187,6 @@ height="1.2118055555555556in"}
 
 
 ## Editing a platform page
-<a id="tutorials"></a>
 
 1.  From the CMS, select **Platforms** and locate the platform to edit
     (HPE Ezmeral Data Fabric in our example).
