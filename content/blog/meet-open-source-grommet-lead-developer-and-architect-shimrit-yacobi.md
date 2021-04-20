@@ -3,6 +3,9 @@ title: Meet Open Source Grommet Lead Developer and Architect, Shimrit Yacobi
 date: 2021-04-21T17:21:00.000Z
 author: Dale Rensing
 authorimage: /img/blog-author-rensing-96.jpg
+tags:
+  - opensource
+  - grommet
 ---
 ![](/img/shimi-yacobi-small.jpg)
 
