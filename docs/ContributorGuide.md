@@ -32,8 +32,7 @@ The process describe in this guide requires minimum familiarity with Git
 and an account on GitHub.com. You can find a tutorial on Git in this
 [3-part blog article](https://developer.hpe.com/blog/get-involved-in-the-open-source-community-part-1-getting-started-with-gi).
 
-Please contact [mailto://hpedev\@hpe.com](mailto://hpedev@hpe.com) for
-more support.
+Please contact [mailto://hpedev\@hpe.com](mailto://hpedev@hpe.com) for more support.
 
 ## Getting started
 
@@ -172,7 +171,7 @@ Clicking **View Preview** will open your blog post in a new browser tab for your
 <center><img src="media/guide-blog-pull-request.png" width="1000" height="337"></center>
 
 
-15. Once you are satisfy with your blog entry, notify HPE DEV Team (hpedev@hpe.com) about your new submission for review.
+15. Once you are satisfied with your blog entry, notify the HPE DEV team [mailto://hpedev\@hpe.com](mailto://hpedev@hpe.com) about your new post submission for review.
 HPE DEV team will then proceed with an editorial review and will get in touch with you shortly.
 
 >**Note:** *Moving the blog post back to the **Drafts** column of the CMS will withdraw the PR. You can also continue to make changes to your blog while the blog is **In Review**. This will be automatically synchronized in the PR (as additional Commits). This will be particularly helpful when receiving feedback from the HPE DEV Team.*
