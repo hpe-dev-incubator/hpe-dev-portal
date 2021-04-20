@@ -1,7 +1,7 @@
 # HPE DEV External Contributor Guide
 **Version 1.0**
 
-20-Apr-2021
+16-MAR-2021
 
 ## Table of Contents
 
@@ -11,14 +11,11 @@
 
 [Contributing a new blog](#contributing-a-new-blog)
 
-[Editing a blog post that is already published](#Editing-a-blog-post-that-is-already-published)
-
 [Editing a platform page](#editing-a-platform-page)
 
 [Adding an Event](#adding-an-event)
 
 [Tips and trick using the CMS Editor](#tips-and-trick-using-the-cms-editor)
-
 
 
 
@@ -30,22 +27,26 @@ contribute a new blog, or how to update a platform page.
 
 The process describe in this guide requires minimum familiarity with Git
 and an account on GitHub.com. You can find a tutorial on Git in this
-[3-part blog article](https://developer.hpe.com/blog/get-involved-in-the-open-source-community-part-1-getting-started-with-gi).
+3-part blog article:
+<https://developer.hpe.com/blog/get-involved-in-the-open-source-community-part-1-getting-started-with-gi>
 
-Please contact [mailto://hpedev\@hpe.com](mailto://hpedev@hpe.com) for more support.
+Please contact [mailto://hpedev\@hpe.com](mailto://hpedev@hpe.com) for
+more support.
 
 ## Getting started
 
 1.  Make sure you are connected to your personal GitHub account. If you
-    don't have an account, you can create one now [here](https://github.com/join).
-
+    don't have an account, you can create one now here
+    (https://github.com/join).
 
 2.  Open the Netlifly Content Management System (CMS) at
     [https://developer.hpe.com/admin](https://developer.hpe.com/admin)
-    and select login with GitHub. 
+    and select login with GitHub. You may be prompted to authorize to
+    enter your GiHub account password.
 
-<center><img src="media/guide-login-with-Github.png" width="600" height="300"></center>
-
+> ![Graphical user interface, text Description automatically
+> generated](media/image1.png){width="5.142445319335083in"
+> height="2.73in"}
 
 3.  Select **Fork the repo** to initiate a copy of the HPE DEV Web CMS
     into your own GitHub account. (In GitHub, this will appear as a new
@@ -53,14 +54,16 @@ Please contact [mailto://hpedev\@hpe.com](mailto://hpedev@hpe.com) for more supp
     the repository is going to be used to make your changes to the web
     site, before submitting them to the HPE DEV team.
 
-<center><img src="media/guide-fork-repo.png" width="600" height="363"></center>
-
+> ![Graphical user interface, text, application Description
+> automatically generated](media/image2.png){width="5.14in"
+> height="2.3662674978127733in"}
 
 4.  You can view this forked repo in your repository list of your GitHub
     account
 
-<center><img src="media/guide-forked-repo-in-your-GitHub.png" width="800" height="185"></center>
-
+![Graphical user interface Description automatically generated with
+medium confidence](media/image3.png){width="3.3891896325459316in"
+height="0.76in"}
 
 5.  In Netlify CMS, you are now working with your own copy of the HPE
     DEV CMS, and you get presented with a **Contents** menu which allows
@@ -70,116 +73,117 @@ Please contact [mailto://hpedev\@hpe.com](mailto://hpedev@hpe.com) for more supp
 >Note: Please engage with the team before proposing changes to other
 sections.
 
-<center><img src="media/guide-contents-blog-platform.png" width="800" height="356"></center>
+> ![Graphical user interface, application Description automatically
+> generated](media/image4.png){width="6.16in"
+> height="2.6384022309711286in"}
 
 ## Contributing a new blog
-You can create a new blog directly from the **Contents** tab or by navigating to the **Workflow** tab. Here you will create a new blog directly from the **Contents** tab.
 
-1.  From the **Contents** tab, select the **Blog** section, and click the **New Blog** button
+1.  Select the Blog section of the CMS, and use the **New Blog** button
 
-<center><img src="media/guide-blog-Contents-new-post.png" width="800" height="497"></center>
+> ![Graphical user interface, application, Teams Description
+> automatically generated](media/image5.png){width="6.5in"
+> height="3.9902777777777776in"}
 
-
-2.  In the blog editor, you can set properties (title, author name, author picture) in the left pane and see
+2.  In the blog editor, you can set properties in the left pane and see
     the effect in the preview pane on the right side of the screen
 
-<center><img src="media/guide-blog-new-post-properties.png" width="1100" height="500"></center>
-
+> ![Graphical user interface, text, application, chat or text message
+> Description automatically generated](media/image6.png){width="6.5in"
+> height="3.1680555555555556in"}
 
 3.  Make sure you set:
 
 -   Title
+
 -   Author
--   Author Image (image size recommended is **96px X 96px**). 
-    You can upload a picture or use your gravatar picture URL if you have one. 
-    >Note: For more information on how to get a gravatar URL, refer to section "***Tips and Tricks using the CMS Editor***" at the end of this document.
 
+-   Author Image (image size 96px X 96px). You can upload a picture or
+    use your gravatar picture URL if you have one. Refer to section
+    "***Tips and Tricks using the CMS Editor***" at the end of this
+    document.
 
-4.  Start writing the content using either **Rich Text** mode or **Markdown** mode in the Body canvas   
+4.  Start writing the content using RTF or Markdown
 
-<center><img src="media/guide-blog-body.png" width="700" height="410"></center>
+> ![Graphical user interface, text, application, email Description
+> automatically generated](media/image7.png){width="4.87in"
+> height="3.8398075240594927in"}
 
-* Use **Markdown** mode when your source file is in Markdown file or when you are familiar with Markdown syntax. If your content is already in Markdown, simply use copy (CTRL+C) and paste the content in **plain text** (**CTRL+SHIFT+V**) in the body.
-* Use **Rich Text** mode when your source file is an MS-Word document or a RTF document: simply copy the content from your source file and paste the content in **plain text** (**CTRL+SHIFT+V**) in the body.
+5.  Preview your blog on the right pane.
 
- >Note: To get started using the CMS editor for common elements (headings, list, code blocks, bold, italics, image), refer to section "***Tips and Tricks using the CMS Editor***" at the end of this document.
-    
-    
-5. Tag your blog post
+> ![Graphical user interface, text, application Description
+> automatically generated](media/image8.png){width="6.5in"
+> height="2.897222222222222in"}
 
-You can tag your post to tie it to one of the HPE DEV "Platform" pages on the HPE DEV portal. 
-Use tags as one way to optimize your blog post for results from search engines such as Google search engine. You do so by tagging your article with popular keywords (1 to 4 keywords) that reflect your topic relevancy. Visit the site here to look for existing tags in our HPE DEV site: https://hpe-dev-portal.netlify.app/tags/ 
+6.  You can add one or more tags from the official tags list located on
+    (<https://hpe-dev-portal.netlify.app/tags/> )
 
+7.  When ready **Save** your work. Or use UNSAVED CHANGES to exit
+    without saving changes.
 
->Note: For more information on how to use tags refer to section "***Tips and Tricks using the CMS Editor***" at the end of this document.
-    
-    
-6.  As you are adding content to the **Body** area, you can preview your blog on the right pane.
-
->Note: The text font size in the preview area will be smaller similar to the final rendering of the blog post in HPE DEV portal. 
-
-<center><img src="media/guide-blog-preview-area.png" width="1000" height="458"></center>
-
-
-7.  When ready **Save** your work. 
-Click **Save** to save your latest edits.
-
-<center><img src="media/guide-blog-save.png" width="513" height="65"></center>
-
->Note: Click **UNSAVED CHANGES** to exit the CMS editor without saving your changes. Click **Delete unpublished entry** to delete the post entry.
-
+> ![Text Description automatically generated with medium
+> confidence](media/image9.png){width="2.931428258967629in"
+> height="0.54in"}
 
 8.  Wait until document is saved
 
+9.  When Saved, click on "Writing in Blog collection, CHANGES SAVED" to
+    exit the editor.
 
-9.  When Saved, click on **Writing in Blog collection, CHANGES SAVED** to exit the CMS editor and return to the Editorial Workflow section
+> ![](media/image10.png){width="4.8051607611548555in" height="0.56in"}
 
-<center><img src="media/guide-blog-changes-saved.png" width="464" height="54"></center>
+10. Your blog is now visible in the **Drafts** column of the **Editorial
+    Workflow**.
 
+![Graphical user interface, application, Teams Description automatically
+generated](media/image11.png){width="5.055555555555555in"
+height="3.8333333333333335in"}
 
-10. Your blog is now visible in the **Drafts** column of the **Editorial Workflow**.
+11. Review/edit until ready. When you are satisfied with the edition of
+    the blog post, move it to the **In Review** column (drag & drop the
+    blog from the **Workflow** area) or using the **Set Status** button
+    at the top right of the screen.
 
-<center><img src="media/guide-blog-workflow-in-draft.png" width="800" height="331"></center>
+> ![Graphical user interface, text, application, chat or text message
+> Description automatically generated](media/image12.png){width="2.81in"
+> height="1.0526345144356954in"}
 
+12. Select your article, now **In Review** and, in the editor, after a
+    few minutes, notice the **Check for Preview** at the top right which
+    turned into **View Preview**. Click **View Preview** to open a
+    preview of the web site and validate your changes. Click **Check for
+    Preview** to refresh.
 
-11. Review/edit until ready. When you are satisfied with the edition of the blog post, move it to the **In Review** column (drag & drop the
-    blog from the **Workflow** area).
+> ![Text, icon Description automatically
+> generated](media/image13.png){width="3.188254593175853in"
+> height="0.6152777777777778in"}![Icon Description automatically
+> generated](media/image14.png){width="3.0456517935258094in"
+> height="0.5927777777777777in"}
+>
+> ![Graphical user interface, text, application, email Description
+> automatically generated](media/image15.png){width="5.61in"
+> height="2.5766437007874017in"}
 
-<center><img src="media/guide-blog-workflow-move-draft-to-In-Review.png" width="800" height="321"></center>
+13. As soon as the blog was placed **In Review,** a Pull Request (PR)
+    was automatically opened on the HPE DEV team's GitHub repository,
+    with the changes you are proposing. We will review and get in touch
+    with you shortly.
 
-Or use the **Set Status** button at the top right of the screen as shown here:
+    If you open the hpe-dev-portal repo you can see this new PR
 
-<center><img src="media/guide-blog-workflow-Set-Status-to-In-Review.png" width="336" height="126"></center>
+![Graphical user interface, text, application Description automatically
+generated](media/image16.png){width="6.5in"
+height="1.2118055555555556in"}
 
+14. Moving the blog post back to the **Drafts** column of the CMS will
+    withdraw the PR. You can also continue to make changes to your blog
+    while the blog is **In Review**, this will be automatically
+    synchronized in the PR (as additional Commits). This will be
+    particularly helpful when receiving feedback from the HPE DEV Team.
 
-12. From the Editorial Workflow section, select your article, now **In Review** column. You will see its status **Check for Preview** in the editor at the top right.
-
-<center><img src="media/guide-blog-check-for-preview.png" width="301" height="60"></center>
-
-
-13. After a few minutes, notice the **Check for Preview** at the top right which turned into **View Preview**. Click **View Preview** to open a preview of the web site and validate your changes. If needed, click **Check for Preview** to refresh the status.
-
-<center><img src="media/guide-blog-status-View-Preview.png" width="435" height="56"></center>
-
-Clicking **View Preview** will open your blog post in a new browser tab for your review.
-
-<center><img src="media/guide-blog-View-Preview.png" width="600" height="620"></center>
-
-
-14. As soon as the blog was placed **In Review,** a Pull Request (PR) was automatically opened on the HPE DEV team's GitHub repository, with the changes you are proposing.
-
-<center><img src="media/guide-blog-pull-request.png" width="1000" height="337"></center>
-
-
-15. Once you are satisfied with your blog entry, notify the HPE DEV team [mailto://hpedev\@hpe.com](mailto://hpedev@hpe.com) about your new post submission for review.
-HPE DEV team will then proceed with an editorial review and will get in touch with you shortly.
-
->**Note:** *Moving the blog post back to the **Drafts** column of the CMS will withdraw the PR. You can also continue to make changes to your blog while the blog is **In Review**. This will be automatically synchronized in the PR (as additional Commits). This will be particularly helpful when receiving feedback from the HPE DEV Team.*
-
->**Note:** *Once the team has agreed to accept your contribution, the PR will be merged, the blog post will be published to the HPE DEV portal and the blog entry will disappear from your Editorial Workflow.*
-
-
-## Editing a blog post that is already published
+15. Once the team has agreed to accept your contribution, the PR will be
+    merged, the blog post will be published to the HPE DEV portal and
+    the blog entry will disappear from your Editorial Workflow..
 
 
 ## Editing a platform page
@@ -253,7 +257,29 @@ height="2.9208333333333334in"}
 
 ## Adding an Event
 
-TBD
+It is possible to add a card to communicate about an important external event you are contributing to. This will be visible on https://developer.hpe.com/events.
+To do so:
+1. From the CMS select Content, then Events and press New event
+2. Make sure to set: 
+ - Name of the event
+ - Start and end date
+ - Type of event (Physical or virtual)
+ - A picture for the event (uploaded picture or URL)
+ - Leave card size to large
+ - A URL to navigate to register or find out more about the event
+ - A short description of the event 
+3.  When ready **Save** your changes.
+4.  In the editor, after a few minutes, notice the **Check for Preview**
+    at the top right which turned into **View Preview**. Click **View
+    Preview** to open a preview of the web site and validate your
+    changes. Click **Check for Preview** to refresh.
+5.  Leave the editor using the **Changes Saved** option.
+6.  Select the Editorial Workflow view using **Workflow** from the menu
+    bar. The platform page is now in the **Drafts** column. When ready
+    drag/drop entry to the **In Review** column.
+7.  A Pull Request (PR) was automatically opened on the HPE DEV team's
+    GitHub repository, with the changes you are proposing. We will
+    review and get in touch with you shortly.
 
 ## Tips and trick using the CMS Editor
 
@@ -304,41 +330,51 @@ pandoc -f docx -t markdown mydoc.docx -o mymarkdown.md
 
 -   Insert an image:
 
-    Small resolution image is recommended (width: 800px)
+Small resolution image is recommended (width: 800px)
 
-    -   Toggle to **Rich Text** mode in the editor (Body area)
+-   Use the "Rich text" toggle option
 
-    -   Select **+** to add an image component
+-   Select + to add an image component
 
-    -   Upload the image stored on your PC/laptop and select image you have just uploaded
+-   Upload the image, select image
 
--   Adjusting image size and its position:
+-   Adjusting image size and its position
 
-    -   Using your PC/Laptop, change image size using you preferred image editor (I.e.: Paint)
+    -   Change image size using you preferred image editor (I.e.: Paint)
 
-    -   Toggle to **Rich Text** mode and upload/select the resized image. This will also give you the relative path to the image in
+    -   Toggle to "***Rich Text***" option and upload/select the resized
+        image. This will also give you the relative path to the image in
         the editor.
 
-    -   **Another option** is to use HTML code to set the size (height, width) for your image while you insert it into the post. 
-        Toggle to **Markdown** mode, and insert the HTML syntax below:
+    -   **Another option** is to use HTML code to set the size (height,
+        width) for your image while you insert it into the post. Toggle
+        to ***"Markdown***" option, and insert the HTML syntax below:
 
-      \<img src=\"relative-path-of-your-image-in-the-form: /img/myimage.png\" width=\"600\" height=\"359\"\>
+\<img src=\"\<relative path of your image in the form:
+/img/myimage.png\" width=\"600\" height=\"359\"\>
 
--   If you wish to center an image, take note of your preferred resolution size, then you can use HTML code below:
+-   If you wish to center an image, take note of your preferred
+    resolution size, then you can use HTML code below:
 
-      \<center\>\<img src=\"relative-path-of-your-image-in-the-form: /img/myimage.png\" width=\"500\" height=\"542\"\>\</center\>
+> \<center\>\<img src=\"relative path of your image in the form
+> /img/myimage.png\" width=\"500\" height=\"542\"\>\</center\>
+>
+> **[Note:]{.ul}** In the preview canvas, you will see an empty frame
+> for your image. The frame corresponds to the size of the image (width
+> and height) in the blog post.
 
+-   If using a horizontal separator, you can use the "Markdown" mode and
+    use the
 
->**Note:** In the preview area (right side of the CMS editor), you will see an empty frame for your image. The frame corresponds to the size of the image (width
-and height) in the blog post.
+> "- - -" (without the quotation mark).
 
--   If using a horizontal separator, you can use the "Markdown" mode and use the "- - -" (without the quotation mark).
-
-    >**Note:** Make sure to insert a line break before and after the horizontal separator.
+Make sure to insert a line break before and after the horizontal
+separator.
 
 -   Code block snippet:
 
-    -   Make sure to always specified a syntax language (for example: ***\`\`\`yaml***)
+    -   Make sure to always specified a syntax language (for example:
+        ***\`\`\`yaml***)
 
     -   Make sure to insert a line break before a code block snippet
 
@@ -386,30 +422,33 @@ break** between sub-list items:
 
 -   **Tag:**
 
-If appropriate, use a tag to tie your blog post to a "platform" page on HPE DEV portal. List of "platforms" tag is in the table below.
+> If appropriate, use a tag to tie your blog post to a "platform" page
+> on HPE DEV portal. List of "platforms" tag is in the table below.
+>
+> You can also tag your article with popular keywords (1 to 4 keywords)
+> that reflect your topic relevancy. Use tags as one way to optimize
+> your blog post for results from search engines such as Google search
+> engine. Visit the site here to look for existing tags in our HPE DEV
+> site: <https://hpe-dev-portal.netlify.app/tags/>
 
-You can also tag your article with popular keywords (1 to 4 keywords) that reflect your topic relevancy. Use tags as one way to optimize your blog post for results from search engines such as Google search engine. Visit the site here to look for existing tags in our HPE DEV site: <https://hpe-dev-portal.netlify.app/tags/>
-
-
-
-  | **Platform name**                  |   **Associated tag**    |
-  | ---------------------------------- | ----------------------- |
-  | **HPE Ezmeral Container Platform** | hpe-ezmeral-container-platform |
-  | **HPE Ezmeral Data Fabric**        | hpe-ezmeral-data-fabric |
-  | **HPE GreenLake**                  | hpe-greenlake |
-  | **Spiffe and Spire**               | spiffe-and-spire-projects |
-  | **Chapel**                         | chapel |
-  | **Grommet**                        | grommet |
-  | **HPE Deep Learning Cookbook**     | hpe-deep-learning-cookbook |
-  | **Aruba Developer Hub**            | aruba |
-  | **HPE 3PAR and Primera**           | hpe-3par-and-primera |
-  | **HPE Nimble Storage**             | hpe-nimble-storage |
-  | **HPE OneView**                    | hpe-oneview |
-  | **HPE OneView Global Dashboard**   | hpe-oneview-global-dashboard |
-  |**HPE SimpliVity**                  | hpe-simplivity |
-  | **iLORESTful API**                 | ilo-restful-api |
-  
-                                      
+```
+  **Platform name**                    **Associated tag**
+  ------------------------------------ --------------------------------
+  **HPE Ezmeral Container Platform**   hpe-ezmeral-container-platform
+  **HPE Ezmeral Data Fabric**          hpe-ezmeral-data-fabric
+  **HPE GreenLake**                    hpe-greenlake
+  **Spiffe and Spire**                 spiffe-and-spire-projects
+  **Chapel**                           chapel
+  **Grommet**                          grommet
+  **HPE Deep Learning Cookbook**       hpe-deep-learning-cookbook
+  **Aruba Developer Hub**              aruba
+  **HPE 3PAR and Primera**             hpe-3par-and-primera
+  **HPE Nimble Storage**               hpe-nimble-storage
+  **HPE OneView**                      hpe-oneview
+  **HPE OneView Global Dashboard**     hpe-oneview-global-dashboard
+  **HPE SimpliVity**                   hpe-simplivity
+  **iLORESTful API**                   ilo-restful-api
+```                                       
 
 -   For hotlink, open in new tab links (not found a good solution yet)
     except using a HTML tag
