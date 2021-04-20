@@ -85,8 +85,8 @@ You can create a new blog directly from the **Contents** tab or by navigating to
 -   Author
 
 -   Author Image (image size recommended is **96px X 96px**). 
-    You can upload a picture or use your gravatar picture URL if you have one. For more information on how to get a gravatar URL, refer to section
-    "***Tips and Tricks using the CMS Editor***" at the end of this document.
+    You can upload a picture or use your gravatar picture URL if you have one. 
+    >Note: For more information on how to get a gravatar URL, refer to section "***Tips and Tricks using the CMS Editor***" at the end of this document.
 
 4.  Start writing the content using either **Rich Text** mode or **Markdown** mode in the Body canvas   
 
@@ -95,14 +95,14 @@ You can create a new blog directly from the **Contents** tab or by navigating to
 * Use **Markdown** mode when your source file is in Markdown file. Simply use copy and paste the content in plain text (**CTRL+SHIFT+V**) in the body.
 * Use **Rich Text** mode when your source file is an MS-Word document or a RTF document: simply copy the content from your source file and paste the content in plain text (**CTRL+SHIFT+V**) in the body.
 
- To get started with editorial content, refer to section "***Tips and Tricks using the CMS Editor***" at the end of this document.
+ >Note: To get started with editorial content, refer to section "***Tips and Tricks using the CMS Editor***" at the end of this document.
     
 5. Tag your blog post
 
 You can tag your post to tie it to one of the HPE DEV "Platform" pages on the HPE DEV portal. 
 You can also tag your article with popular keywords (1 to 4 keywords) that reflect your topic relevancy. Use tags as one way to optimize your blog post for results from search engines such as Google search engine.
 
-For more information on how to use tags refer to section "***Tips and Tricks using the CMS Editor***" at the end of this document.
+>Note: For more information on how to use tags refer to section "***Tips and Tricks using the CMS Editor***" at the end of this document.
     
 
 6.  Preview your blog on the right pane.
