@@ -84,10 +84,9 @@ You can create a new blog directly from the **Contents** tab or by navigating to
 
 -   Author
 
--   Author Image (image size recommended is **96px X 96px**). You can upload a picture or
-    use your gravatar picture URL if you have one. Refer to section
-    "***Tips and Tricks using the CMS Editor***" at the end of this
-    document.
+-   Author Image (image size recommended is **96px X 96px**). 
+    You can upload a picture or use your gravatar picture URL if you have one. For more information on how to get a gravatar URL, refer to section
+    "***Tips and Tricks using the CMS Editor***" at the end of this document.
 
 4.  Start writing the content using RTF or Markdown
 
