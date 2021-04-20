@@ -127,27 +127,23 @@ Click **Save** to save your latest edits.
 <center><img src="media/guide-blog-workflow-in-draft.png" width="800" height="331"></center>
 
 11. Review/edit until ready. When you are satisfied with the edition of the blog post, move it to the **In Review** column (drag & drop the
-    blog from the **Workflow** area) or using the **Set Status** button at the top right of the screen.
+    blog from the **Workflow** area).
 
-<center><img src="media/guide-blog-workflow-move-to-In-Review.png" width="800" height="321"></center>
+<center><img src="media/guide-blog-workflow-move-draft-to-In-Review.png" width="800" height="321"></center>
 
-12. Select your article, now **In Review** and, in the editor, after a
-    few minutes, notice the **Check for Preview** at the top right which
-    turned into **View Preview**. Click **View Preview** to open a
-    preview of the web site and validate your changes. Click **Check for
-    Preview** to refresh.
+Or use the **Set Status** button at the top right of the screen as shown here:
 
-> ![Text, icon Description automatically
-> generated](media/image13.png){width="3.188254593175853in"
-> height="0.6152777777777778in"}![Icon Description automatically
-> generated](media/image14.png){width="3.0456517935258094in"
-> height="0.5927777777777777in"}
->
-> ![Graphical user interface, text, application, email Description
-> automatically generated](media/image15.png){width="5.61in"
-> height="2.5766437007874017in"}
+<center><img src="media/guide-blog-workflow-Set-Status-to-In-Review.png" width="336" height="126"></center>
 
-13. As soon as the blog was placed **In Review,** a Pull Request (PR)
+12. From the Editorial Workflow section, select your article, now **In Review** column. You will see its status **Check for Preview** in the editor at the top right.
+
+<center><img src="media/guide-blog-check-for-preview.png" width="336" height="126"></center>
+
+13. After a few minutes, notice the **Check for Preview** at the top right which turned into **View Preview**. Click **View Preview** to open a preview of the web site and validate your changes. If needed, click **Check for Preview** to refresh the status.
+
+<center><img src="media/guide-blog-status-View-Preview.png" width="435" height="136"></center>
+
+14. As soon as the blog was placed **In Review,** a Pull Request (PR)
     was automatically opened on the HPE DEV team's GitHub repository,
     with the changes you are proposing. We will review and get in touch
     with you shortly.
