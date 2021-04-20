@@ -98,7 +98,8 @@ You can create a new blog directly from the **Contents** tab or by navigating to
 5. Tag your blog post
 
 You can tag your post to tie it to one of the HPE DEV "Platform" pages on the HPE DEV portal. 
-You can also tag your article with popular keywords (1 to 4 keywords) that reflect your topic relevancy. Use tags as one way to optimize your blog post for results from search engines such as Google search engine.
+Use tags as one way to optimize your blog post for results from search engines such as Google search engine. You do so by tagging your article with popular keywords (1 to 4 keywords) that reflect your topic relevancy. Visit the site here to look for existing tags in our HPE DEV site: https://hpe-dev-portal.netlify.app/tags/ 
+
 
 >Note: For more information on how to use tags refer to section "***Tips and Tricks using the CMS Editor***" at the end of this document.
     
@@ -108,11 +109,13 @@ You can also tag your article with popular keywords (1 to 4 keywords) that refle
 
 <center><img src="media/guide-blog-preview-area.png" width="1000" height="458"></center>
 
-7.  You can add one or more tags from the official tags list located on
-    (<https://hpe-dev-portal.netlify.app/tags/> )
+7.  When ready **Save** your work. 
+Click **Save** to save your latest edits.
 
-8.  When ready **Save** your work. Or use UNSAVED CHANGES to exit
-    without saving changes.
+<center><img src="media/guide-blog-save.png" width="513" height="65"></center>
+
+>Note: Click **UNSAVED CHANGES** to exit the CMS editor without saving your changes. Click **Delete unpublished entry** to delete the post entry.
+
 
 > ![Text Description automatically generated with medium
 > confidence](media/image9.png){width="2.931428258967629in"
