@@ -67,12 +67,11 @@ sections.
 <center><img src="media/guide-contents-blog-platform.png" width="800" height="356"></center>
 
 ## Contributing a new blog
+You can create a new blog directly from the **Contents** tab or by navigating to the **Workflow** tab. Here you will create a new blog directly from the **Contents** tab.
 
-1.  Select the Blog section of the CMS, and use the **New Blog** button
+1.  From the **Contents** tab, select the **Blog** section, and click the **New Blog** button
 
-> ![Graphical user interface, application, Teams Description
-> automatically generated](media/image5.png){width="6.5in"
-> height="3.9902777777777776in"}
+<center><img src="media/guide-blog-Contents-new-post.png" width="800" height="497"></center>
 
 2.  In the blog editor, you can set properties in the left pane and see
     the effect in the preview pane on the right side of the screen
