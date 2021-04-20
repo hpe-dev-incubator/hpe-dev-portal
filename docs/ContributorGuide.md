@@ -396,33 +396,30 @@ break** between sub-list items:
 
 -   **Tag:**
 
-> If appropriate, use a tag to tie your blog post to a "platform" page
-> on HPE DEV portal. List of "platforms" tag is in the table below.
->
-> You can also tag your article with popular keywords (1 to 4 keywords)
-> that reflect your topic relevancy. Use tags as one way to optimize
-> your blog post for results from search engines such as Google search
-> engine. Visit the site here to look for existing tags in our HPE DEV
-> site: <https://hpe-dev-portal.netlify.app/tags/>
+If appropriate, use a tag to tie your blog post to a "platform" page on HPE DEV portal. List of "platforms" tag is in the table below.
 
-```
-  **Platform name**                    **Associated tag**
-  ------------------------------------ --------------------------------
-  **HPE Ezmeral Container Platform**   hpe-ezmeral-container-platform
-  **HPE Ezmeral Data Fabric**          hpe-ezmeral-data-fabric
-  **HPE GreenLake**                    hpe-greenlake
-  **Spiffe and Spire**                 spiffe-and-spire-projects
-  **Chapel**                           chapel
-  **Grommet**                          grommet
-  **HPE Deep Learning Cookbook**       hpe-deep-learning-cookbook
-  **Aruba Developer Hub**              aruba
-  **HPE 3PAR and Primera**             hpe-3par-and-primera
-  **HPE Nimble Storage**               hpe-nimble-storage
-  **HPE OneView**                      hpe-oneview
-  **HPE OneView Global Dashboard**     hpe-oneview-global-dashboard
-  **HPE SimpliVity**                   hpe-simplivity
-  **iLORESTful API**                   ilo-restful-api
-```                                       
+You can also tag your article with popular keywords (1 to 4 keywords) that reflect your topic relevancy. Use tags as one way to optimize your blog post for results from search engines such as Google search engine. Visit the site here to look for existing tags in our HPE DEV site: <https://hpe-dev-portal.netlify.app/tags/>
+
+
+
+  | **Platform name**                  |   **Associated tag**    |
+  | ---------------------------------- | ----------------------- |
+  | **HPE Ezmeral Container Platform** | hpe-ezmeral-container-platform |
+  | **HPE Ezmeral Data Fabric**        | hpe-ezmeral-data-fabric |
+  | **HPE GreenLake**                  | hpe-greenlake |
+  | **Spiffe and Spire**               | spiffe-and-spire-projects |
+  | **Chapel**                         | chapel |
+  | **Grommet**                        | grommet |
+  | **HPE Deep Learning Cookbook**     | hpe-deep-learning-cookbook |
+  | **Aruba Developer Hub**            | aruba |
+  | **HPE 3PAR and Primera**           | hpe-3par-and-primera |
+  | **HPE Nimble Storage**             | hpe-nimble-storage |
+  | **HPE OneView**                    | hpe-oneview |
+  | **HPE OneView Global Dashboard**   | hpe-oneview-global-dashboard |
+  |**HPE SimpliVity**                  | hpe-simplivity |
+  | **iLORESTful API**                 | ilo-restful-api |
+  
+                                      
 
 -   For hotlink, open in new tab links (not found a good solution yet)
     except using a HTML tag
