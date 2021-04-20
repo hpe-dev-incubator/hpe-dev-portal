@@ -73,7 +73,7 @@ You can create a new blog directly from the **Contents** tab or by navigating to
 
 <center><img src="media/guide-blog-Contents-new-post.png" width="800" height="497"></center>
 
-2.  In the blog editor, you can set properties in the left pane and see
+2.  In the blog editor, you can set properties (title, author name, author picture) in the left pane and see
     the effect in the preview pane on the right side of the screen
 
 <center><img src="media/guide-blog-new-post-properties.png" width="1100" height="500"></center>
@@ -84,7 +84,7 @@ You can create a new blog directly from the **Contents** tab or by navigating to
 
 -   Author
 
--   Author Image (image size 96px X 96px). You can upload a picture or
+-   Author Image (image size recommended is **96px X 96px**). You can upload a picture or
     use your gravatar picture URL if you have one. Refer to section
     "***Tips and Tricks using the CMS Editor***" at the end of this
     document.
