@@ -52,6 +52,9 @@ more support.
 > ![Graphical user interface, text, application Description
 > automatically generated](media/image2.png){width="5.14in"
 > height="2.3662674978127733in"}
+>
+
+<center><img src="media/guide-fork-repo.png" width="600" height="363"></center>
 
 4.  You can view this forked repo in your repository list of your GitHub
     account
