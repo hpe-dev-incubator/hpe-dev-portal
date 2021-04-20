@@ -5,17 +5,17 @@
 
 ## Table of Contents
 
-[Introduction](###introduction)
+[Introduction](#introduction)
 
-[Getting started](###getting-started)
+[Getting started](#getting-started)
 
-[Contributing a new blog](###contributing-a-new-blog)
+[Contributing a new blog](#contributing-a-new-blog)
 
-[Editing a platform page](###editing-a-platform-page)
+[Editing a platform page](#editing-a-platform-page)
 
-[Adding an Event](###adding-an-event)
+[Adding an Event](#adding-an-event)
 
-[Tips and trick using the CMS Editor](###tips-and-trick-using-the-cms-editor)
+[Tips and trick using the CMS Editor](#tips-and-trick-using-the-cms-editor)
 
 
 
@@ -185,7 +185,9 @@ height="1.2118055555555556in"}
     merged, the blog post will be published to the HPE DEV portal and
     the blog entry will disappear from your Editorial Workflow..
 
+
 ## Editing a platform page
+<a id="tutorials"></a>
 
 1.  From the CMS, select **Platforms** and locate the platform to edit
     (HPE Ezmeral Data Fabric in our example).
