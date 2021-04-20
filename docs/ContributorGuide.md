@@ -1,7 +1,7 @@
 # HPE DEV External Contributor Guide
 **Version 1.0**
 
-16-MAR-2021
+20-Apr-2021
 
 ## Table of Contents
 
@@ -27,8 +27,7 @@ contribute a new blog, or how to update a platform page.
 
 The process describe in this guide requires minimum familiarity with Git
 and an account on GitHub.com. You can find a tutorial on Git in this
-3-part blog article:
-<https://developer.hpe.com/blog/get-involved-in-the-open-source-community-part-1-getting-started-with-gi>
+[3-part blog article](https://developer.hpe.com/blog/get-involved-in-the-open-source-community-part-1-getting-started-with-gi).
 
 Please contact [mailto://hpedev\@hpe.com](mailto://hpedev@hpe.com) for
 more support.
@@ -36,13 +35,11 @@ more support.
 ## Getting started
 
 1.  Make sure you are connected to your personal GitHub account. If you
-    don't have an account, you can create one now here
-    (https://github.com/join).
+    don't have an account, you can create one now [here](https://github.com/join).
 
 2.  Open the Netlifly Content Management System (CMS) at
     [https://developer.hpe.com/admin](https://developer.hpe.com/admin)
-    and select login with GitHub. You may be prompted to authorize to
-    enter your GiHub account password.
+    and select login with GitHub. 
 
 > ![Graphical user interface, text Description automatically
 > generated](media/image1.png){width="5.142445319335083in"
