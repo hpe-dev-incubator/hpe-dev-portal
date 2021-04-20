@@ -1,31 +1,25 @@
-**HPE DEV External Contributor Guide**
-
+# HPE DEV External Contributor Guide
 **Version 1.0**
 
 16-MAR-2021
 
-**\
-**
+## Table of Contents
 
-# Table of Contents {#table-of-contents .TOC-Heading}
+[Introduction](###introduction)
 
-[Introduction 3](#introduction)
+[Getting started](###getting-started)
 
-[Getting started 3](#getting-started)
+[Contributing a new blog](###contributing-a-new-blog)
 
-[Contributing a new blog 6](#contributing-a-new-blog)
+[Editing a platform page](###editing-a-platform-page)
 
-[Editing a platform page 11](#editing-a-platform-page)
+[Adding an Event](###adding-an-event)
 
-[Adding an Event 14](#adding-an-event)
+[Tips and trick using the CMS Editor](###tips-and-trick-using-the-cms-editor)
 
-[Tips and trick using the CMS Editor
-14](#tips-and-trick-using-the-cms-editor)
 
-**\
-**
 
-# Introduction
+## Introduction
 
 This guide is intended for anyone interested in contributing to the HPE
 Developer Community (https://hpedev.io). The document covers how to
@@ -39,7 +33,7 @@ and an account on GitHub.com. You can find a tutorial on Git in this
 Please contact [mailto://hpedev\@hpe.com](mailto://hpedev@hpe.com) for
 more support.
 
-# Getting started
+## Getting started
 
 1.  Make sure you are connected to your personal GitHub account. If you
     don't have an account, you can create one now here
@@ -83,7 +77,7 @@ sections.
 > generated](media/image4.png){width="6.16in"
 > height="2.6384022309711286in"}
 
-# Contributing a new blog
+## Contributing a new blog
 
 1.  Select the Blog section of the CMS, and use the **New Blog** button
 
@@ -191,7 +185,7 @@ height="1.2118055555555556in"}
     merged, the blog post will be published to the HPE DEV portal and
     the blog entry will disappear from your Editorial Workflow..
 
-# Editing a platform page
+## Editing a platform page
 
 1.  From the CMS, select **Platforms** and locate the platform to edit
     (HPE Ezmeral Data Fabric in our example).
@@ -260,11 +254,11 @@ height="2.9208333333333334in"}
     merged, the platform page will be updated in HPE DEV Portal and the
     platform page will disappear from your Editorial Workflow.
 
-# Adding an Event
+## Adding an Event
 
 TBD
 
-# Tips and trick using the CMS Editor
+## Tips and trick using the CMS Editor
 
 -   Unless you have your post already written in markdown, it is
     recommended to use the "***Rich Text***" toggle option when editing
