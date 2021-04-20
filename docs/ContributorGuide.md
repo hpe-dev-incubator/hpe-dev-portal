@@ -262,12 +262,16 @@ To do so:
 1. From the CMS select Content, then Events and press New event
 2. Make sure to set: 
  - Name of the event
- - Start and end date
+ - Start and end date (used by the platform to order and handle upcoming/past status)
  - Type of event (Physical or virtual)
  - A picture for the event (uploaded picture or URL)
  - Leave card size to large
  - A URL to navigate to register or find out more about the event
- - A short description of the event 
+ - The content of the card for the event using the following guidelines:
+   - Title
+   - Subtitle
+   - Date
+   - Description
 3.  When ready **Save** your changes.
 4.  In the editor, after a few minutes, notice the **Check for Preview**
     at the top right which turned into **View Preview**. Click **View
