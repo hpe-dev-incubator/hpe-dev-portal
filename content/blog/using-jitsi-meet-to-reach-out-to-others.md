@@ -1,12 +1,13 @@
 ---
-title: "Using Jitsi Meet to reach out to others"
+title: Using Jitsi Meet to reach out to others
 date: 2020-04-15T21:37:50.843Z
-author: Frederic Passeron 
-tags: ["opensource"]
-authorimage: "/img/blogs/Avatar6.svg"
 featuredBlog: false
-priority:
-thumbnailimage:
+priority: null
+author: Frederic Passeron
+authorimage: https://gravatar.com/avatar/3397fa0097e38d890aac69b996879a4e?s=96
+thumbnailimage: null
+tags:
+  - opensource
 ---
 ![picture11](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/3/picture11-1586988196990.png)
 
