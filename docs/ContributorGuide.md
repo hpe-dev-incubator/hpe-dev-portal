@@ -41,7 +41,7 @@ more support.
     [https://developer.hpe.com/admin](https://developer.hpe.com/admin)
     and select login with GitHub. 
 
-<center><img src="media/guide-login-with-Github.png" width="786" height="397"></center>
+<center><img src="media/guide-login-with-Github.png" width="600" height="300"></center>
 
 3.  Select **Fork the repo** to initiate a copy of the HPE DEV Web CMS
     into your own GitHub account. (In GitHub, this will appear as a new
