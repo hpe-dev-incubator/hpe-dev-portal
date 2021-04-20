@@ -49,19 +49,12 @@ more support.
     the repository is going to be used to make your changes to the web
     site, before submitting them to the HPE DEV team.
 
-> ![Graphical user interface, text, application Description
-> automatically generated](media/image2.png){width="5.14in"
-> height="2.3662674978127733in"}
->
-
 <center><img src="media/guide-fork-repo.png" width="600" height="363"></center>
 
 4.  You can view this forked repo in your repository list of your GitHub
     account
 
-![Graphical user interface Description automatically generated with
-medium confidence](media/image3.png){width="3.3891896325459316in"
-height="0.76in"}
+<center><img src="media/guide-forked-repo-in-your-GitHub.png" width="600" height="363"></center>
 
 5.  In Netlify CMS, you are now working with your own copy of the HPE
     DEV CMS, and you get presented with a **Contents** menu which allows
