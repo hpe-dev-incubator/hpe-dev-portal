@@ -8,6 +8,6 @@ image: /img/blog-author-rensing-96.jpg
 ---
 Dale Rensing
 
-## KubeCon + CloudNativeCon, Europe: Be Involved via this Virtual Opportunity
+## KubeCon + CloudNativeCon, Europe.
 
 #### Apr 15, 2021
