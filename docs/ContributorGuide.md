@@ -329,7 +329,7 @@ pandoc -f docx -t markdown mydoc.docx -o mymarkdown.md
       \<center\>\<img src=\"relative-path-of-your-image-in-the-form: /img/myimage.png\" width=\"500\" height=\"542\"\>\</center\>
 
 
->**Note:** In the preview canvas, you will see an empty frame for your image. The frame corresponds to the size of the image (width
+>**Note:** In the preview area (right side of the CMS editor), you will see an empty frame for your image. The frame corresponds to the size of the image (width
 and height) in the blog post.
 
 -   If using a horizontal separator, you can use the "Markdown" mode and use the "- - -" (without the quotation mark).
@@ -338,8 +338,7 @@ and height) in the blog post.
 
 -   Code block snippet:
 
-    -   Make sure to always specified a syntax language (for example:
-        ***\`\`\`yaml***)
+    -   Make sure to always specified a syntax language (for example: ***\`\`\`yaml***)
 
     -   Make sure to insert a line break before a code block snippet
 
