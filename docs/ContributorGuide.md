@@ -45,6 +45,8 @@ more support.
 > generated](media/image1.png){width="5.142445319335083in"
 > height="2.73in"}
 
+<center><img src="/media/training-image1.jpg" width="800" height="453"></center>
+
 3.  Select **Fork the repo** to initiate a copy of the HPE DEV Web CMS
     into your own GitHub account. (In GitHub, this will appear as a new
     repository: "yourAccountname/hpe-dev-portal"). This private copy of
