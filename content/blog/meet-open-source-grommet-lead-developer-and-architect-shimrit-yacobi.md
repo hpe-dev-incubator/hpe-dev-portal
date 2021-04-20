@@ -7,7 +7,7 @@ tags:
   - opensource
   - grommet
 ---
-![](/img/shimi-yacobi-small.jpg)
+![](/img/shimi-yacobi-375.jpg)
 
 As a leading global, edge-to-cloud platform-as-a-service company, Hewlett Packard Enterprise (HPE) prides itself in employing team members who share one common purpose: to advance the way people live and work. In this blog series, you’ll get to meet a number of them as I interview some of the [open source](https://www.hpe.com/us/en/open-source.html) experts on the HPE DEV team.
 
