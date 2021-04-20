@@ -11,11 +11,14 @@
 
 [Contributing a new blog](#contributing-a-new-blog)
 
+[Editing a blog post that is already published](#Editing-a-blog-post-that-is-already-published)
+
 [Editing a platform page](#editing-a-platform-page)
 
 [Adding an Event](#adding-an-event)
 
 [Tips and trick using the CMS Editor](#tips-and-trick-using-the-cms-editor)
+
 
 
 
@@ -164,25 +167,20 @@ Clicking **View Preview** will open your blog post in a new browser tab for your
 <center><img src="media/guide-blog-View-Preview.png" width="600" height="620"></center>
 
 
-14. As soon as the blog was placed **In Review,** a Pull Request (PR) was automatically opened on the HPE DEV team's GitHub repository, with the changes you are proposing. 
+14. As soon as the blog was placed **In Review,** a Pull Request (PR) was automatically opened on the HPE DEV team's GitHub repository, with the changes you are proposing.
 
-We will review and get in touch with you shortly.
+<center><img src="media/guide-blog-pull-request.png" width="1000" height="337"></center>
 
-    If you open the hpe-dev-portal repo you can see this new PR
 
-![Graphical user interface, text, application Description automatically
-generated](media/image16.png){width="6.5in"
-height="1.2118055555555556in"}
+15. Once you are satisfy with your blog entry, notify HPE DEV Team (hpedev@hpe.com) about your new submission for review.
+HPE DEV team will then proceed with an editorial review and will get in touch with you shortly.
 
-14. Moving the blog post back to the **Drafts** column of the CMS will
-    withdraw the PR. You can also continue to make changes to your blog
-    while the blog is **In Review**, this will be automatically
-    synchronized in the PR (as additional Commits). This will be
-    particularly helpful when receiving feedback from the HPE DEV Team.
+>**Note:** *Moving the blog post back to the **Drafts** column of the CMS will withdraw the PR. You can also continue to make changes to your blog while the blog is **In Review**. This will be automatically synchronized in the PR (as additional Commits). This will be particularly helpful when receiving feedback from the HPE DEV Team.*
 
-15. Once the team has agreed to accept your contribution, the PR will be
-    merged, the blog post will be published to the HPE DEV portal and
-    the blog entry will disappear from your Editorial Workflow..
+>**Note:** *Once the team has agreed to accept your contribution, the PR will be merged, the blog post will be published to the HPE DEV portal and the blog entry will disappear from your Editorial Workflow.*
+
+
+## Editing a blog post that is already published
 
 
 ## Editing a platform page
