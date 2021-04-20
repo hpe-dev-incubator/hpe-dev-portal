@@ -54,7 +54,7 @@ more support.
 4.  You can view this forked repo in your repository list of your GitHub
     account
 
-<center><img src="media/guide-forked-repo-in-your-GitHub.png" width="600" height="363"></center>
+<center><img src="media/guide-forked-repo-in-your-GitHub.png" width="800" height="185"></center>
 
 5.  In Netlify CMS, you are now working with your own copy of the HPE
     DEV CMS, and you get presented with a **Contents** menu which allows
