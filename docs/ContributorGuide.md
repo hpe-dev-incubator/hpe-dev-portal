@@ -326,7 +326,7 @@ pandoc -f docx -t markdown mydoc.docx -o mymarkdown.md
 
 -   If you wish to center an image, take note of your preferred resolution size, then you can use HTML code below:
 
-      \<center\>\<img src=\"relative path of your image in the form /img/myimage.png\" width=\"500\" height=\"542\"\>\</center\>
+      \<center\>\<img src=\"relative-path-of-your-image-in-the-form: /img/myimage.png\" width=\"500\" height=\"542\"\>\</center\>
 
 
 >**Note:** In the preview canvas, you will see an empty frame for your image. The frame corresponds to the size of the image (width
