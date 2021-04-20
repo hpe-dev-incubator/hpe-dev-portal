@@ -38,7 +38,7 @@ I am a lead developer and architect for the HPE Design System, an open source li
 
 One of the things that makes the HPE Design System so powerful is that it has what we refer to as a human-centered design, crafted upon user research and the real needs of customers. In addition, it’s a system designed so that all those working on it can collaborate really well. It provides a common language for designers, developers, and stakeholders, allowing everyone to really understand each other, allowing for more precise specification of UX requirements.
 
-## Is there anything else you’d like to share with our readers? 
+## Is there anything else you’d like to share with our readers?
 
 Advocating for women in tech and overall diversity are passions of mine. I sit as the HPE Employee Resources Group (ERG) Co-Chair of HPE Northern Colorado Women’s Network, a place where I can contribute to improve cultural agendas for the company and make HPE a better place to work. I am also an avid facilitator of the Culture Catalyst group for Diversity and inclusion.
 
