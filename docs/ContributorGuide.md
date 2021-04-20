@@ -322,13 +322,12 @@ pandoc -f docx -t markdown mydoc.docx -o mymarkdown.md
     -   **Another option** is to use HTML code to set the size (height, width) for your image while you insert it into the post. 
         Toggle to **Markdown** mode, and insert the HTML syntax below:
 
-"<img src=\"\<relative path of your image in the form:/img/myimage.png\" width=\"600\" height=\"359\"\>"
+      \<img src=\"\relative-path-of-your-image-in-the-form: /img/myimage.png\" width=\"600\" height=\"359\"\>
 
 -   If you wish to center an image, take note of your preferred resolution size, then you can use HTML code below:
 
-> \<center\>\<img src=\"relative path of your image in the form
-> /img/myimage.png\" width=\"500\" height=\"542\"\>\</center\>
->
+      \<center\>\<img src=\"relative path of your image in the form /img/myimage.png\" width=\"500\" height=\"542\"\>\</center\>
+
 
 >**Note:** In the preview canvas, you will see an empty frame for your image. The frame corresponds to the size of the image (width
 and height) in the blog post.
