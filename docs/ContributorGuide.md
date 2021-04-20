@@ -116,17 +116,11 @@ Click **Save** to save your latest edits.
 
 >Note: Click **UNSAVED CHANGES** to exit the CMS editor without saving your changes. Click **Delete unpublished entry** to delete the post entry.
 
-
-> ![Text Description automatically generated with medium
-> confidence](media/image9.png){width="2.931428258967629in"
-> height="0.54in"}
-
 8.  Wait until document is saved
 
-9.  When Saved, click on "Writing in Blog collection, CHANGES SAVED" to
-    exit the editor.
+9.  When Saved, click on **Writing in Blog collection, CHANGES SAVED** to exit the CMS editor.
 
-> ![](media/image10.png){width="4.8051607611548555in" height="0.56in"}
+<center><img src="media/guide-blog-changes-saved.png" width="464" height="54"></center>
 
 10. Your blog is now visible in the **Drafts** column of the **Editorial
     Workflow**.
