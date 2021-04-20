@@ -90,10 +90,10 @@ You can create a new blog directly from the **Contents** tab or by navigating to
 
 <center><img src="media/guide-blog-body.png" width="700" height="410"></center>
 
-* Use **Markdown** mode when your source file is in Markdown file. Simply use copy and paste the content in plain text (**CTRL+SHIFT+V**) in the body.
-* Use **Rich Text** mode when your source file is an MS-Word document or a RTF document: simply copy the content from your source file and paste the content in plain text (**CTRL+SHIFT+V**) in the body.
+* Use **Markdown** mode when your source file is in Markdown file or when you are familiar with Markdown syntax. If your content is already in Markdown, simply use copy (CTRL+C) and paste the content in **plain text** (**CTRL+SHIFT+V**) in the body.
+* Use **Rich Text** mode when your source file is an MS-Word document or a RTF document: simply copy the content from your source file and paste the content in **plain text** (**CTRL+SHIFT+V**) in the body.
 
- >Note: To get started with editorial content, refer to section "***Tips and Tricks using the CMS Editor***" at the end of this document.
+ >Note: To get started using the CMS editor for common elements (headings, list, code blocks, bold, italics, image), refer to section "***Tips and Tricks using the CMS Editor***" at the end of this document.
     
 5. Tag your blog post
 
@@ -102,17 +102,16 @@ You can also tag your article with popular keywords (1 to 4 keywords) that refle
 
 >Note: For more information on how to use tags refer to section "***Tips and Tricks using the CMS Editor***" at the end of this document.
     
+6.  As you are adding content to the **Body** area, you can preview your blog on the right pane.
 
-6.  Preview your blog on the right pane.
+>Note: The text font size in the preview area will be smaller similar to the final rendering of the blog post in HPE DEV portal. 
 
-> ![Graphical user interface, text, application Description
-> automatically generated](media/image8.png){width="6.5in"
-> height="2.897222222222222in"}
+<center><img src="media/guide-blog-preview-area.png" width="1000" height="458"></center>
 
 7.  You can add one or more tags from the official tags list located on
     (<https://hpe-dev-portal.netlify.app/tags/> )
 
-7.  When ready **Save** your work. Or use UNSAVED CHANGES to exit
+8.  When ready **Save** your work. Or use UNSAVED CHANGES to exit
     without saving changes.
 
 > ![Text Description automatically generated with medium
