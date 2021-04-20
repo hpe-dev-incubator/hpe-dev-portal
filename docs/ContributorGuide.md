@@ -76,9 +76,7 @@ You can create a new blog directly from the **Contents** tab or by navigating to
 2.  In the blog editor, you can set properties in the left pane and see
     the effect in the preview pane on the right side of the screen
 
-> ![Graphical user interface, text, application, chat or text message
-> Description automatically generated](media/image6.png){width="6.5in"
-> height="3.1680555555555556in"}
+<center><img src="media/guide-blog-new-post-properties.png" width="1100" height="500"></center>
 
 3.  Make sure you set:
 
