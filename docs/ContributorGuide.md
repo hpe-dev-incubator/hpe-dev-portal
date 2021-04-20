@@ -137,11 +137,11 @@ Or use the **Set Status** button at the top right of the screen as shown here:
 
 12. From the Editorial Workflow section, select your article, now **In Review** column. You will see its status **Check for Preview** in the editor at the top right.
 
-<center><img src="media/guide-blog-check-for-preview.png" width="336" height="126"></center>
+<center><img src="media/guide-blog-check-for-preview.png" width="301" height="60"></center>
 
 13. After a few minutes, notice the **Check for Preview** at the top right which turned into **View Preview**. Click **View Preview** to open a preview of the web site and validate your changes. If needed, click **Check for Preview** to refresh the status.
 
-<center><img src="media/guide-blog-status-View-Preview.png" width="435" height="136"></center>
+<center><img src="media/guide-blog-status-View-Preview.png" width="435" height="56"></center>
 
 14. As soon as the blog was placed **In Review,** a Pull Request (PR)
     was automatically opened on the HPE DEV team's GitHub repository,
