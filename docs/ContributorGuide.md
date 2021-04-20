@@ -46,7 +46,7 @@ more support.
     (https://github.com/join).
 
 2.  Open the Netlifly Content Management System (CMS) at
-    [https://hpe-dev-portal.netlify.app/admin](https://developer.hpe.com/admin)
+    [https://developer.hpe.com/admin](https://developer.hpe.com/admin)
     and select login with GitHub. You may be prompted to authorize to
     enter your GiHub account password.
 
@@ -76,14 +76,12 @@ height="0.76in"}
     to change all sections of the web site. This guide, however, covers
     only changes to the **Blog** and **Platforms** sections.
 
-**Note: Please engage with the team before proposing changes to other
-sections.**
+>Note: Please engage with the team before proposing changes to other
+sections.
 
 > ![Graphical user interface, application Description automatically
 > generated](media/image4.png){width="6.16in"
 > height="2.6384022309711286in"}
-
-# 
 
 # Contributing a new blog
 
@@ -177,7 +175,7 @@ height="3.8333333333333335in"}
     with the changes you are proposing. We will review and get in touch
     with you shortly.
 
-If you open the hpe-dev-portal repo you can see this new PR
+    If you open the hpe-dev-portal repo you can see this new PR
 
 ![Graphical user interface, text, application Description automatically
 generated](media/image16.png){width="6.5in"
@@ -264,6 +262,8 @@ height="2.9208333333333334in"}
 
 # Adding an Event
 
+TBD
+
 # Tips and trick using the CMS Editor
 
 -   Unless you have your post already written in markdown, it is
@@ -281,7 +281,9 @@ height="2.9208333333333334in"}
 -   You can use pandoc (<https://pandoc.org/>) to convert a complex DOCX
     to Markdown
 
-    -   pandoc -f docx -t markdown mydoc.docx -o mymarkdown.md
+```bash
+pandoc -f docx -t markdown mydoc.docx -o mymarkdown.md
+```
 
 -   Author image size: **96 x 96** or use Gravatar picture URL (see
     below for details)
@@ -319,9 +321,6 @@ Small resolution image is recommended (width: 800px)
 
 -   Upload the image, select image
 
-```{=html}
-<!-- -->
-```
 -   Adjusting image size and its position
 
     -   Change image size using you preferred image editor (I.e.: Paint)
@@ -415,6 +414,7 @@ break** between sub-list items:
 > engine. Visit the site here to look for existing tags in our HPE DEV
 > site: <https://hpe-dev-portal.netlify.app/tags/>
 
+```
   **Platform name**                    **Associated tag**
   ------------------------------------ --------------------------------
   **HPE Ezmeral Container Platform**   hpe-ezmeral-container-platform
@@ -431,7 +431,7 @@ break** between sub-list items:
   **HPE OneView Global Dashboard**     hpe-oneview-global-dashboard
   **HPE SimpliVity**                   hpe-simplivity
   **iLORESTful API**                   ilo-restful-api
-                                       
+```                                       
 
 -   For hotlink, open in new tab links (not found a good solution yet)
     except using a HTML tag
