@@ -28,7 +28,7 @@ I first encountered Grommet working as a developer in the HPE Hyperconverged sys
 
 ## I hear that Grommet is pretty popular. Just how popular is it and why do you think that is?
 
-Grommet has nearly 2 million downloads, over 200 contributors, and continues to be adopted as one of the premier ReactJS frameworks both within HPE and throughout the open source community. Another indication of its popularity is that we have more than 3,700 members on our [Grommet Slack Channel](http://slackin.grommet.io/). 
+Grommet has nearly 2 million downloads, over 200 contributors, and continues to be adopted as one of the premier ReactJS frameworks both within HPE and throughout the open source community. Another indication of its popularity is that we have more than 3,700 members on our [Grommet Slack Channel](https://slack-invite.grommet.io/). 
 
 I think one of the things that makes Grommet so popular is that it simplifies the way web applications are built. Grommet does this by providing a package of commonly used interface elements from which developers and designers can choose to use. It provides powerful themes and tools that allow web developers to customize the color, type, component elements and layout according to their needs. It also provides support for Web Content Accessibility Guidelines (WCAG), making it great for accessibility.
 
@@ -41,7 +41,5 @@ One of the things that makes the HPE Design System so powerful is that it has wh
 ## Is there anything else you’d like to share with our readers?
 
 Advocating for women in tech and overall diversity are passions of mine. I sit as the HPE Employee Resources Group (ERG) Co-Chair of HPE Northern Colorado Women’s Network, a place where I can contribute to improve cultural agendas for the company and make HPE a better place to work. I am also an avid facilitator of the Culture Catalyst group for Diversity and inclusion.
-
-
 
 To learn more about the open source projects that HPE is involved with, please visit our [website](https://www.hpe.com/us/en/open-source.html). Interested in exploring what HPE offers for developers and data scientists? Check out our [HPE DEV site](https://developer.hpe.com/) for a ton of articles, workshops, tutorials, and other resources.
