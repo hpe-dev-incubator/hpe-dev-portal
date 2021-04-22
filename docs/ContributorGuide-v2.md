@@ -318,42 +318,38 @@ HPE DEV team will then proceed with an editorial review and will get in touch wi
     The WYSINAWYG (not always)
 
 -   When doing copy/paste from a MS-Word (or RTF) document to the CMS
-    editor (Rich Text or Markdown toggle option) use the option
+    editor (*Rich Text* mode or *Markdown* mode) use the option
     "***Paste as plain text***" (**CTRL+SHIFT+V)** to not get unwanted
     XML fragment code syntaxes.
 
 -   You can use pandoc (<https://pandoc.org/>) to convert a complex DOCX
     to Markdown
 
-```bash
-pandoc -f docx -t markdown mydoc.docx -o mymarkdown.md
-```
+    ```bash
+    pandoc -f docx -t markdown mydoc.docx -o mymarkdown.md
+    ```
 
 -   Author image size: **96 x 96** or use Gravatar picture URL (see
     below for details)
 
--   Using your gravatar as an author picture
+    - Using your gravatar as an author picture
 
-    -   Use your email to setup your gravatar account
-        (<https://gravatar.com>)
+       - Use your email to setup your gravatar account (<https://gravatar.com>)
 
-    -   Compute your email MD5 hash by entering your email in
-        <https://www.md5hashgenerator.com/>
+      - Compute your email MD5 hash by entering your email in <https://www.md5hashgenerator.com/>
 
-    -   Check that your picture is reachable with:
+      - Check that your picture is reachable with:
         [https://gravatar.com/avatar/\<YourHash\>?s=96](https://gravatar.com/avatar/%3cYourHash%3e?s=96)
         for example:
         [https://gravatar.com/avatar/7dd708edf1c50d4c45da80f60e3643e7**?s=96**](https://gravatar.com/avatar/7dd708edf1c50d4c45da80f60e3643e7?s=96)
 
-    -   Use this URL from now on, as your picture in the CMS (and
-        elsewhere)
+      - Use this URL from now on, as your picture in the CMS (and elsewhere)
 
 -   Headings: Select **H** in the "Rich Text" menu bar and select the
     heading level. To clear a Heading, select the text, click **H** in
     the menu bar, and click the Heading level previously selected.
 
-    -   Use "**Header 2**" for primary heading, then Header3 for
-        subsequent heading, etc\...
+    >**Note:** We recommend to use "**Header 2**" for your primary heading, then Header3 for subsequent heading, etc.
 
 -   Insert an image:
 
@@ -363,26 +359,22 @@ pandoc -f docx -t markdown mydoc.docx -o mymarkdown.md
 
     -   Select **+** to add an image component
 
-    -   Upload the image stored on your PC/laptop and select image you have just uploaded
+    -   Upload the image stored on your PC/laptop and select image you have just uploaded. If you switch to **Markdow** mode, you will set the relative path to the image in
+        the editor in the form: */img/myimage.png*.
 
 -   Adjusting image size and its position:
 
-    -   Using your PC/Laptop, change image size using you preferred image editor (I.e.: Paint)
+    -   **Method 1:** Using your PC/Laptop, change image size using you preferred image editor (i.e.: Paint). Toggle to **Rich Text** mode and upload/select the resized image.                       Switching to **Markdown** mode, will give you the relative path to the image in the editor in the form: */img/myimage.png*.
 
-    -   Toggle to **Rich Text** mode and upload/select the resized image. This will also give you the relative path to the image in
-        the editor.
+    -   **Method 2:** Use HTML code to set the size (height, width) for your image. Toggle to **Rich Text** mode to insert your image. Then toggle to **Markdown** mode to obtain the relative path for your image (in the form: */img/myimage.png*) and and insert the HTML syntax below:
 
-    -   **Another option** is to use HTML code to set the size (height, width) for your image while you insert it into the post. 
-        Toggle to **Markdown** mode, and insert the HTML syntax below:
+        \<img src=\"relative-path-of-your-image-in-the-form: /img/myimage.png\" width=\"600\" height=\"359\"\>
 
-      \<img src=\"relative-path-of-your-image-in-the-form: /img/myimage.png\" width=\"600\" height=\"359\"\>
+        >**Note:** If you wish to center an image, then you can use HTML code below:
 
--   If you wish to center an image, take note of your preferred resolution size, then you can use HTML code below:
+         \<center\>\<img src=\"relative-path-of-your-image-in-the-form: /img/myimage.png\" width=\"500\" height=\"542\"\>\</center\>
 
-      \<center\>\<img src=\"relative-path-of-your-image-in-the-form: /img/myimage.png\" width=\"500\" height=\"542\"\>\</center\>
-
-
->**Note:** In the preview area (right side of the CMS editor), you will see an empty frame for your image. The frame corresponds to the size of the image (width
+        >**Note:** In the preview area (right side of the CMS editor), you will see an empty frame for your image. The frame corresponds to the size of the image (width
 and height) in the blog post.
 
 -   If using a horizontal separator, you can use the "Markdown" mode and use the "- - -" (without the quotation mark).
