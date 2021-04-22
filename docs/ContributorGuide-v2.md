@@ -259,7 +259,7 @@ To do so:
 
 <center><img src="media/guide-event-Contents-new-event.png" width="800" height="626"></center>
 
-3. Make sure to set: 
+3. Make sure to set the event properties: 
    - Event tile: name of the event or conference.
    - Start date and end date (used by the platform to order and handle upcoming/past status).
    - Category of the event. Select **Event** for in-person event and conference. Select **Virtual Event** for virtual event and conference.
@@ -267,14 +267,18 @@ To do so:
    - Navigation path: an URL to navigate to register or find out more about the event and conference. This is typically the URL to the event or conference.
    - Leave card size to **large**
    - Tag: specify a keyword for your event or conference. Typically this is the name of your event (for example: Discover, KubeCon).
-   - Body: The content of the card for the event using the following guidelines:
+
+      <center><img src="media/guide-event-new-event-properties.png" width="600" height="768"></center>
+      
+4. For the Body, the content of the card for the event using the following guidelines: 
       - Title
-      - Subtitle
+      - Subtitle (optional)
       - Date
       - Description
-      
-4.  When ready **Save** your changes.
-5.  In the editor, after a few minutes, notice the **Check for Preview**
+
+6.   When ready **Save** your changes.
+
+8.  In the editor, after a few minutes, notice the **Check for Preview**
     at the top right which turned into **View Preview**. Click **View
     Preview** to open a preview of the web site and validate your
     changes. Click **Check for Preview** to refresh.
