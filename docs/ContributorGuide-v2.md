@@ -414,18 +414,15 @@ HPE DEV team will then proceed with an editorial review and will get in touch wi
 
        \<space\>\<space\>\<space\>\*sub-item N
 
--   Always insert a line break between a standard paragraph and the first item of a list
+       >**Note:** Always insert a line break between a standard paragraph and the first item of a list
 
--   By default, the bullet list items will be rendered with smaller font size than a text in a "standard" paragraph. 
-    If you wish to keep same character font as a standard paragraph, it is recommended to insert a line break between list items.
+       >**Note:** By default, the bullet list items will be rendered with smaller font size than a text in a "standard" paragraph. If you wish to keep same character font as a standard paragraph, it is recommended to insert a line break between list items.
 
-    Example **with line break** between first level list items and **no line break** between sub-list items:
+       Example **with line break** between first level list items and **no line break** between sub-list items:
 
-> ![](media/image23.png){width="6.5in" height="2.6381944444444443in"}
->
-> Example with **no line break** between list items:
->
-> ![](media/image24.png){width="6.5in" height="2.00625in"}
+
+       Example with **no line break** between list items:
+
 
 -   **Tag:**
 
