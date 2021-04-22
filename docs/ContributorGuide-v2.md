@@ -420,7 +420,7 @@ HPE DEV team will then proceed with an editorial review and will get in touch wi
 
        Example **with line break** between first level list items and **no line break** between sub-list items:
 
-       <center><img src="media/Guide-tips-item-lists-1.png" width="1500" height="400"></center>
+       <center><img src="media/Guide-tips-item-lists-1.png" width="1537" height="799"></center>
 
        Example with **no line break** between list items:
 
