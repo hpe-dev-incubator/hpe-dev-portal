@@ -329,8 +329,7 @@ HPE DEV team will then proceed with an editorial review and will get in touch wi
     pandoc -f docx -t markdown mydoc.docx -o mymarkdown.md
     ```
 
--   Author image size: **96 x 96** or use Gravatar picture URL (see
-    below for details)
+-   Author image size: **96 x 96** or use Gravatar picture URL as explained here:
 
     - Using your gravatar as an author picture
 
@@ -374,8 +373,7 @@ HPE DEV team will then proceed with an editorial review and will get in touch wi
 
          \<center\>\<img src=\"relative-path-of-your-image-in-the-form: /img/myimage.png\" width=\"500\" height=\"542\"\>\</center\>
 
-        >**Note:** In the preview area (right side of the CMS editor), you will see an empty frame for your image. The frame corresponds to the size of the image (width
-and height) in the blog post.
+        >**Note:** When using HTML code to insert an image, you will see an empty frame for your image in the preview area (right side of the CMS editor). The frame corresponds to the size of the image (width and height) in the blog post.
 
 -   If using a horizontal separator, you can use the "Markdown" mode and use the "- - -" (without the quotation mark).
 
