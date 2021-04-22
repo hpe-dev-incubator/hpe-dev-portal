@@ -375,7 +375,7 @@ HPE DEV team will then proceed with an editorial review and will get in touch wi
 
         >**Note:** When using HTML code to insert an image, you will see an empty frame for your image in the preview area (right side of the CMS editor). The frame corresponds to the size of the image (width and height) in the blog post.
 
--   If using a horizontal separator, you can use the "Markdown" mode and use the "- - -" (without the quotation mark).
+-   Horizontal separator: toggle to **Markdown** mode and use the "- - -" (without the quotation mark).
 
     >**Note:** Make sure to insert a line break before and after the horizontal separator.
 
@@ -383,14 +383,12 @@ HPE DEV team will then proceed with an editorial review and will get in touch wi
 
     -   Make sure to always specified a syntax language (for example: ***\`\`\`yaml***)
 
-    -   Make sure to insert a line break before a code block snippet
+    -   Make sure to insert a line break before and after a code block snippet
 
 -   List items/sub-list items:
+    It might be easier for you to toggle to **Markdown** mode in the editor and use the syntax below for creating item lists and sub-item lists:
 
-> It might be easier for you to go to "Markdown" mode in the editor and
-> use the syntax below for creating item lists and sub-item lists:
->
-> \*\<space\>bullet list item 1
+\*\<space\>bullet list item 1
 
 \*\<space\>bullet list item 2
 
