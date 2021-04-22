@@ -20,4 +20,7 @@ Please note that these talks are internal/partners only for now.
 | 31-Mar-21 | Industrialising and transforming Data Science scope and scale     | Doug Cackett                             | [Replay](https://vimeo.com/532641045/d498467501)                                         |
 | 14-Apr-21 |  Delivering hands-on experience with Jupyter Notebooks   | Frédéric Passeron                        | [Register](https://hpe.zoom.us/meeting/register/tJIqcOyrqzwqGNcFG_UpC9r8l5VJ6210_jkV)  |
 | 28-Apr-21 |  Kubernetes 101   | Stephan Reimann & Dirk Derichsweiler  |  [Register](https://hpe.zoom.us/meeting/register/tJ0ocOmspz0sHdDcsqZiWCfjW8JPjRSszuOE) |        
-| 12-May-21 |  Redfish programming made easy and secure with Ansible and HPE OneView  | François Donzé                   | |                            
+| 12-May-21 |  Redfish programming made easy and secure with Ansible and HPE OneView  | François Donzé                   |[Register](https://hpe.zoom.us/meeting/register/tJ0kde6grTwvGdHO-HhWjtGYqXmAdeeM1ZYM)|                            
+| 26-May-21 |  Run.ai  |   Run.ai            | |   
+| 09-Jun-21 |  Deploying end-to-end machine learning workflows​ with HPE Ezmeral ML Ops  | Denis Choukroun                 | |  
+| 23-Jun-21 | No Session this week                                                      |                                          |                                                       
