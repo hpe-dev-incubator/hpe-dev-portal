@@ -350,22 +350,23 @@ HPE DEV team will then proceed with an editorial review and will get in touch wi
 
     >**Note:** We recommend to use "**Header 2**" for your primary heading, then Header3 for subsequent heading, etc.
 
--   Insert an image:
+-   Insert an image to a blog post:
 
-    Small resolution image is recommended (width: 800px)
+    Small resolution image is recommended (i.e.: width: 800px)
 
     -   Toggle to **Rich Text** mode in the editor (Body area)
 
     -   Select **+** to add an image component
+    
+    -  In the IMAGE wizard, click **Choose an image**  
 
-    -   Upload the image stored on your PC/laptop and select image you have just uploaded. If you switch to **Markdow** mode, you will set the relative path to the image in
-        the editor in the form: */img/myimage.png*.
+    -  Upload the image stored on your PC/laptop and select image you have just uploaded. 
 
 -   Adjusting image size and its position:
 
-    -   **Method 1:** Using your PC/Laptop, change image size using you preferred image editor (i.e.: Paint). Toggle to **Rich Text** mode and upload/select the resized image.                       Switching to **Markdown** mode, will give you the relative path to the image in the editor in the form: */img/myimage.png*.
+    -   **Method 1:** Using your PC/Laptop, change image size using you preferred image editor (i.e.: Paint). Toggle to **Rich Text** mode and upload/select the resized image. 
 
-    -   **Method 2:** Use HTML code to set the size (height, width) for your image. Toggle to **Rich Text** mode to insert your image. Then toggle to **Markdown** mode to obtain the relative path for your image (in the form: */img/myimage.png*) and and insert the HTML syntax below:
+    -   **Method 2 (recommended):** Use HTML code to set the size (height, width) for your image. First, toggle to **Rich Text** mode to insert your image. Then toggle to **Markdown** mode to obtain the relative path for your image (in the form: */img/myimage.png*) and and insert the HTML syntax below:
 
         \<img src=\"relative-path-of-your-image-in-the-form: /img/myimage.png\" width=\"600\" height=\"359\"\>
 
@@ -373,7 +374,7 @@ HPE DEV team will then proceed with an editorial review and will get in touch wi
 
          \<center\>\<img src=\"relative-path-of-your-image-in-the-form: /img/myimage.png\" width=\"500\" height=\"542\"\>\</center\>
 
-        >**Note:** When using HTML code to insert an image, you will see an empty frame for your image in the preview area (right side of the CMS editor). The frame corresponds to the size of the image (width and height) in the blog post.
+        >**Note:** When using HTML code to insert an image, you will see *an empty frame* for your image in the preview area (right side of the CMS editor). The frame corresponds to the size of the image (width and height) in the blog post. Adjust the width/height value as appropriate. Once satisfied, delete the line *![](/img/myimage.png)* from the body. 
 
 -   Horizontal separator: toggle to **Markdown** mode and use the "- - -" (without the quotation mark).
 
