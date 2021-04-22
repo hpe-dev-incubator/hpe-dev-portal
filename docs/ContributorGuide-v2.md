@@ -350,7 +350,7 @@ HPE DEV team will then proceed with an editorial review and will get in touch wi
 
     >**Note:** We recommend to use "**Header 2**" for your primary heading, then Header3 for subsequent heading, etc.
 
--   Insert an image to a blog post:
+-   Insert an image in a blog post:
 
     Small resolution image is recommended (i.e.: width: 800px)
 
@@ -360,7 +360,7 @@ HPE DEV team will then proceed with an editorial review and will get in touch wi
     
     -  In the IMAGE wizard, click **Choose an image**  
 
-    -  Upload the image stored on your PC/laptop and select image you have just uploaded. 
+    -  On the top right o fthe wizard, click **Upload** to upload the image stored on your PC/laptop and select image you have just uploaded by clicking **Choose selected**. 
 
 -   Adjusting image size and its position:
 
