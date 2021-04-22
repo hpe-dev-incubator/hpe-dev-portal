@@ -132,12 +132,12 @@ Click **Save** to save your latest edits.
 8.  Wait until document is saved
 
 
-9.  When Saved, click on **Writing in Blog collection, CHANGES SAVED** to exit the CMS editor and return to the Editorial Workflow section
+9.  When Saved, click on **Writing in Blog collection, CHANGES SAVED** to exit the CMS editor and return to the **Editorial Workflow** or **Contents** section
 
 <center><img src="media/guide-blog-changes-saved.png" width="464" height="54"></center>
 
 
-10. Your blog is now visible in the **Drafts** column of the **Editorial Workflow**.
+10. From the top menu bar, make sure **Workflow** is selected. Your blog is now visible in the **Drafts** column of the **Editorial Workflow**.
 
 <center><img src="media/guide-blog-workflow-in-draft.png" width="800" height="331"></center>
 
@@ -166,7 +166,7 @@ Clicking **View Preview** will open your blog post in a new browser tab for your
 <center><img src="media/guide-blog-View-Preview.png" width="600" height="620"></center>
 
 
-14. As soon as the blog was placed **In Review,** a Pull Request (PR) was automatically opened on the HPE DEV team's GitHub repository, with the changes you are proposing.
+14. As soon as the blog was placed **In Review,** a Pull Request (PR) is automatically opened on the HPE DEV team's GitHub repository, with the changes you are proposing.
 
 <center><img src="media/guide-blog-pull-request.png" width="1000" height="337"></center>
 
@@ -253,13 +253,15 @@ height="2.9208333333333334in"}
 
 ## Adding an Event
 
-It is possible to add a card to communicate about an important external event you are contributing to. This will be visible on https://developer.hpe.com/events.
+It is possible to add a card to communicate about an important external event or conference you are contributing to. This will be visible on https://developer.hpe.com/events.
+
 To do so:
+
 1. From the CMS, on top menu bar select **Contents**, then click **Events** and press **New event**. This will open the Event wizard.
 
 <center><img src="media/guide-event-Contents-new-event.png" width="800" height="626"></center>
 
-3. Make sure to set the event properties: 
+2. Make sure to set the event properties: 
    - Event tile: name of the event or conference.
    - Start date and end date (used by the platform to order and handle upcoming/past status).
    - Category of the event. Select **Event** for in-person event and conference. Select **Virtual Event** for virtual event and conference.
@@ -270,25 +272,41 @@ To do so:
 
       <center><img src="media/guide-event-new-event-properties.png" width="600" height="768"></center>
       
-4. For the Body, the content of the card for the event using the following guidelines: 
-      - Title
-      - Subtitle (optional)
-      - Date
+3. For the Body, the content of the card for the event using the following guidelines: 
+      - Title (use Heading level 2 for title)
+      - Subtitle (optional - use Heading level 3 for subtitle)
+      - Date (Month Date-Date, YYYY - for example: May 04-07, 2021)
       - Description
 
-6.   When ready **Save** your changes.
+   <center><img src="media/guide-event-body.png" width="700" height="330"></center>
 
-8.  In the editor, after a few minutes, notice the **Check for Preview**
-    at the top right which turned into **View Preview**. Click **View
-    Preview** to open a preview of the web site and validate your
-    changes. Click **Check for Preview** to refresh.
-5.  Leave the editor using the **Changes Saved** option.
-6.  Select the Editorial Workflow view using **Workflow** from the menu
-    bar. The platform page is now in the **Drafts** column. When ready
-    drag/drop entry to the **In Review** column.
-7.  A Pull Request (PR) was automatically opened on the HPE DEV team's
-    GitHub repository, with the changes you are proposing. We will
-    review and get in touch with you shortly.
+4.   When ready **Save** your changes. Wait until the document is saved.
+
+     >Note: Click **UNSAVED CHANGES** to exit the CMS editor without saving your changes. Click **Delete unpublished entry** to delete the event entry.
+
+5.  When Saved, click on **Writing in Blog collection, CHANGES SAVED** to exit the CMS editor and return to the **Contents** section.
+
+7.  From the top menu bar, select **Workflow** to navigate to the **Editorial Workflow** section.
+    Your new event entry is now visible in the **Drafts** column of the **Editorial Workflow**.
+
+6.  Review/edit your event entry until ready. When you are satisfied with the edition of the event entry, move it to the **In Review** column (drag & drop the
+    event entry from the **Drafts** column to the **In Review** column). Or while you are in the Editor canvas for your event entry, use the **Set Status** button at the top right of the screen to set status of your new event entry to **In Review**.
+    
+7. From the Editorial Workflow section, select your event entry, now **In Review** column. You will see its status **Check for Preview** in the editor at the top right.
+ 
+8. In the editor, after a few minutes, notice the **Check for Preview** at the top right which turned into **View Preview**. Click **View Preview** to open a preview of the web site and validate your changes. If needed, click **Check for Preview** to refresh the status.
+    
+9. Leave the editor using the **Changes Saved** option.
+    
+10. A Pull Request (PR) is automatically opened on the HPE DEV team's GitHub repository, with the changes you are proposing. 
+
+11. Once you are satisfied with your event entry, notify the HPE DEV team [mailto://hpedev\@hpe.com](mailto://hpedev@hpe.com) about your new event submission for review.
+HPE DEV team will then proceed with an editorial review and will get in touch with you shortly.
+
+>**Note:** *Moving the event entry back to the **Drafts** column of the CMS will withdraw the PR. You can also continue to make changes to your event entry while it is **In Review** column. This will be automatically synchronized in the PR (as additional Commits). This will be particularly helpful when receiving feedback from the HPE DEV Team.*
+
+>**Note:** *Once the team has agreed to accept your event entry, the PR will be merged, the event entry will be published to the HPE DEV portal and the event entry will disappear from your Editorial Workflow.*
+
 
 ## Tips and trick using the CMS Editor
 
