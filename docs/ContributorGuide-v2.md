@@ -387,37 +387,39 @@ HPE DEV team will then proceed with an editorial review and will get in touch wi
 
 -   List items/sub-list items:
     It might be easier for you to toggle to **Markdown** mode in the editor and use the syntax below for creating item lists and sub-item lists:
+    
+    **Bullet list:**
 
-\*\<space\>bullet list item 1
+        \*\<space\>bullet list item 1
 
-\*\<space\>bullet list item 2
+        \*\<space\>bullet list item 2
 
-\*\<space\>bullet list item N
+        \*\<space\>bullet list item N
+        
+    **Numbered list:**
 
-1.\<space\>numbered list item 1
+        1.\<space\>numbered list item 1
 
-2.\<space\>numbered list item 2
+        2.\<space\>numbered list item 2
 
-N.\<space\>numbered list item N
+        N.\<space\>numbered list item N
+        
+    **Item list with Sub-item list:**
 
-\*\<space\>bullet list item 1
+        \*\<space\>bullet list item 1
 
-\<space\>\<space\>\<space\>\*sub-item 1
+        \<space\>\<space\>\<space\>\*sub-item 1
 
-\<space\>\<space\>\<space\>\*sub-item 2
+        \<space\>\<space\>\<space\>\*sub-item 2
 
-\<space\>\<space\>\<space\>\*sub-item N
+        \<space\>\<space\>\<space\>\*sub-item N
 
--   Insert a line break between a paragraph and the first item of a list
+-   Always insert a line break between a standard paragraph and the first item of a list
 
--   By default, the bullet list items will be rendered with smaller font
-    size than a text in a "standard" paragraph.
+-   By default, the bullet list items will be rendered with smaller font size than a text in a "standard" paragraph. 
+    If you wish to keep same character font as a standard paragraph, it is recommended to insert a line break between list items.
 
--   If you wish to keep same character font as a standard paragraph, it
-    is recommended to insert a line break between list items.
-
-Example **with line break** between first level list items and **no line
-break** between sub-list items:
+    Example **with line break** between first level list items and **no line break** between sub-list items:
 
 > ![](media/image23.png){width="6.5in" height="2.6381944444444443in"}
 >
