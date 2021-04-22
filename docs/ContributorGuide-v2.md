@@ -260,13 +260,14 @@ To do so:
 <center><img src="media/guide-event-Contents-new-event.png" width="800" height="626"></center>
 
 3. Make sure to set: 
-   - Name of the event
-   - Start and end date (used by the platform to order and handle upcoming/past status)
-   - Type of event (Physical or virtual)
-   - A picture for the event (uploaded picture or URL)
-   - Leave card size to large
-   - A URL to navigate to register or find out more about the event
-   - The content of the card for the event using the following guidelines:
+   - Event tile: name of the event or conference.
+   - Start date and end date (used by the platform to order and handle upcoming/past status).
+   - Category of the event. Select **Event** for in-person event and conference. Select **Virtual Event** for virtual event and conference.
+   - Thumbnail Image: a picture for the event. Click **Choose an image** to upload and select a picture. Select **Insert from URL** to enter a link URL for your image.
+   - Navigation path: an URL to navigate to register or find out more about the event and conference. This is typically the URL to the event or conference.
+   - Leave card size to **large**
+   - Tag: specify a keyword for your event or conference. Typically this is the name of your event (for example: Discover, KubeCon).
+   - Body: The content of the card for the event using the following guidelines:
       - Title
       - Subtitle
       - Date
