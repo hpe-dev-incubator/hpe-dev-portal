@@ -65,10 +65,9 @@ Please contact [mailto://hpedev\@hpe.com](mailto://hpedev@hpe.com) for more supp
 5.  In Netlify CMS, you are now working with your own copy of the HPE
     DEV CMS, and you get presented with a **Contents** menu which allows
     to change all sections of the web site. This guide, however, covers
-    only changes to the **Blog** and **Platforms** sections.
+    only changes to the **Blog** and **Platforms** and **Events** sections.
 
->Note: Please engage with the team before proposing changes to other
-sections.
+>Note: Please engage with the team before proposing changes to other sections.
 
 <center><img src="media/guide-contents-blog-platform.png" width="800" height="356"></center>
 
@@ -147,7 +146,7 @@ Click **Save** to save your latest edits.
 
 <center><img src="media/guide-blog-workflow-move-draft-to-In-Review.png" width="800" height="321"></center>
 
-Or use the **Set Status** button at the top right of the screen as shown here:
+Or use the **Set Status** button at the top right of the screen while you are in the editor as shown here:
 
 <center><img src="media/guide-blog-workflow-Set-Status-to-In-Review.png" width="336" height="126"></center>
 
@@ -180,6 +179,38 @@ HPE DEV team will then proceed with an editorial review and will get in touch wi
 
 
 ## Editing a blog post that is already published
+You may want to edit an existing published blog post. For example when a referenced link is no longer valid and you want to update it.
+
+1.  From the **Contents** tab, select the **Blog** section, and use the **Sort by** function to sort the blog by title, author name or published date.
+
+<center><img src="media/guide-blog-edit-published-blog.png" width="800" height="361"></center>
+
+>**Note:** When sorted by Title, the blogs are listed in Alphabetic order. You can click "**^**" on the right side of Title to list them in reverse order. 
+
+>**Note:** When sorted by date, the blogs are listed in chronological order from the oldest to the most recent. You can click "**^**" on the right side of Publish date to list then in reverse order.
+
+2.  Select the blog you want to edit. This opens the editor.
+
+3. Edit the blog. And **Save** it when you have terminated your modification.
+
+4. When Saved, click on **Writing in Blog collection, CHANGES SAVED** to exit the CMS editor and return to the **Contents** section
+
+5. From the top menu bar, make sure **Workflow** is selected. Your blog is now visible in the **Drafts** column of the **Editorial Workflow**.
+
+6. Review/edit until ready. When you are satisfied with the edition of the blog post, move it to the **In Review** column (drag & drop the
+    blog from the **Workflow** area) or use the **Set Status** button at the top right of the screen while you are in the editor.
+
+7. From the Editorial Workflow section, select your article, now **In Review** column. You will see its status **Check for Preview** in the editor at the top right.
+
+8. After a few minutes, notice the **Check for Preview** at the top right which turned into **View Preview**. Click **View Preview** to open a preview of the web site and validate your changes. If needed, click **Check for Preview** to refresh the status. Clicking **View Preview** will open your blog post in a new browser tab for your review.
+
+9. As soon as the blog was placed **In Review,** a Pull Request (PR) is automatically opened on the HPE DEV team's GitHub repository, with the changes you are proposing.
+
+10. Once you are satisfied with your blog entry, notify the HPE DEV team [mailto://hpedev\@hpe.com](mailto://hpedev@hpe.com) about your post submission for review with a brief description of the changes you made. HPE DEV team will then proceed with an editorial review and will get in touch with you shortly.
+
+>**Note:** *Moving the blog post back to the **Drafts** column of the CMS will withdraw the PR. You can also continue to make changes to your blog while the blog is **In Review**. This will be automatically synchronized in the PR (as additional Commits).*
+
+>**Note:** *Once the team has agreed to accept your contribution, the PR will be merged, the blog post will be published with your recent changes to the HPE DEV portal and the blog entry will disappear from your Editorial Workflow.*
 
 
 ## Editing a platform page
