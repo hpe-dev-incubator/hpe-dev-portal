@@ -185,9 +185,9 @@ You may want to edit an existing published blog post. For example when a referen
 
 <center><img src="media/guide-blog-edit-published-blog.png" width="800" height="361"></center>
 
->**Note:** When sorted by Title, the blogs are listed in Alphabetic order. You can click "**^**" on the right side of Title to list them in reverse order. 
+>**Note:** When sorted by Title, the blogs are listed in Alphabetic order. You can click **^** on the right side of Title to list them in reverse order. 
 
->**Note:** When sorted by date, the blogs are listed in chronological order from the oldest to the most recent. You can click "**^**" on the right side of Publish date to list then in reverse order.
+>**Note:** When sorted by date, the blogs are listed in chronological order from the oldest to the most recent. You can click **^** on the right side of Publish date to list then in reverse order.
 
 2.  Select the blog you want to edit. This opens the editor.
 
