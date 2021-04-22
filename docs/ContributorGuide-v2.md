@@ -424,7 +424,7 @@ HPE DEV team will then proceed with an editorial review and will get in touch wi
 
        Example with **no line break** between list items:
 
-       <center><img src="media/Guide-tips-item-lists-2.png" width="1500" height="400"></center>
+       <center><img src="media/Guide-tips-item-lists-2.png" width="1585" height="483"></center>
 
 -   **Tag:**
 
