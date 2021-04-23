@@ -227,19 +227,24 @@ You may want to edit an existing blog post. For example, you may need to update 
 
 3.  When ready **Save** your changes.
 
+You can click on **Save** at any time to save your latest edits.
+
 <center><img src="media/guide-platform-save.png" width="513" height="65"></center>
 
-4.  In the editor, after a few minutes, notice the **Check for Preview**
+>Note: Click **UNSAVED CHANGES** to exit the CMS editor without saving your changes.
+
+4.  Wait until document is saved.
+
+5.  In the editor, after a few minutes, notice the **Check for Preview**
     at the top right has turned into **View Preview**. Click **View
     Preview** to open a preview of the web site and validate your
     changes. Click **Check for Preview** to refresh.
 
-
-5.  Leave the editor using the **Changes Saved** option.
+6.  Leave the editor using the **Changes Saved** option.
 
 > ![](media/image19.png){width="5.44in" height="0.5473173665791776in"}
 
-6.  Select the Editorial Workflow view using **Workflow** from the menu
+7.  Select the Editorial Workflow view using **Workflow** from the menu
     bar. The platform page is now in the **Drafts** column. When ready
     drag/drop entry to the **In Review** column.
 
@@ -247,7 +252,7 @@ You may want to edit an existing blog post. For example, you may need to update 
 > automatically generated](media/image21.png){width="6.5in"
 > height="3.154861111111111in"}
 
-7.  A Pull Request (PR) was automatically opened on the HPE DEV team's
+8.  A Pull Request (PR) was automatically opened on the HPE DEV team's
     GitHub repository, with the changes you are proposing. We will
     review and get in touch with you shortly.
 
@@ -257,14 +262,14 @@ You may want to edit an existing blog post. For example, you may need to update 
 > automatically generated](media/image22.png){width="6.5in"
 > height="1.2152777777777777in"}
 
-8.  Moving the platform back to the **Drafts** column of the CMS will
+9.  Moving the platform back to the **Drafts** column of the CMS will
     withdraw the PR. You can also continue to make changes to your
     platform page while the page is **In Review**, this will be
     automatically synchronized in the PR (as additional Commits). This
     will be particularly helpful when receiving feedback from the HPE
     DEV Team.
 
-9.  Once the team has agreed to accept your contribution, the PR will be
+10.  Once the team has agreed to accept your contribution, the PR will be
     merged, the platform page will be updated in HPE DEV Portal and the
     platform page will disappear from your Editorial Workflow.
 
