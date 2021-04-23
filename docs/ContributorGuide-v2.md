@@ -71,7 +71,7 @@ Please contact [HPE DEV Team](mailto:hpedev@hpe.com?subject=Support%20for%20cont
 ## Contributing a new blog
 You can create a new blog directly from the **Contents** tab or by navigating to the **Workflow** tab. Here's how you can create a new blog directly from the **Contents** tab.
 
-1.  From the **Contents** tab, select the **Blog** section in the Collections tab, and click the **New Blog** button.
+1.  From the **Contents** tab, select the **Blog** section in the Collections tab, and click the **New Blog** button. This opens the editor.
 
 <center><img src="media/guide-blog-Contents-new-post.png" width="800" height="497"></center>
 
@@ -216,7 +216,7 @@ You may want to edit an existing blog post. For example, you may need to update 
 ## Editing a platform page
 
 1.  In the CMS, from the **Contents** tab, select **Platforms** in the Collections tab and locate the platform to edit
-    (HPE Ezmeral Data Fabric in our example).
+    (HPE Ezmeral Data Fabric in our example). Select the Platform. This opens the editor.
 
     <center><img src="media/guide-platform-content-edit.png" width="800" height="773"></center>
 
