@@ -226,7 +226,7 @@ You may want to edit an existing blog post. For example, you may need to update 
     
     >**Important Note:** The text font size in the preview area will be smaller than what is rendered in the Platform page in HPE DEV portal. 
 
-    <center><img src="media/guide-platform-body.png" width="1771" height="799"></center>
+    <center><img src="media/guide-platform-body.png" width="1200" height="541"></center>
 
 3.  When ready **Save** your changes.
 
