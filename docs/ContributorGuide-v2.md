@@ -91,44 +91,45 @@ You can create a new blog directly from the **Contents** tab or by navigating to
     >Note: For more information on how to get a gravatar URL, refer to section "***Tips and Tricks using the CMS Editor***" at the end of this document.
 
 
-4.  Start writing the content using either **Rich Text** mode or **Markdown** mode in the Body canvas.   
+4.  Start writing the content using either **Rich Text** mode or **Markdown** mode in the *BODY* canvas.   
 
 <center><img src="media/guide-blog-body.png" width="700" height="410"></center>
 
-* Use **Markdown** mode when your source file is in Markdown file or when you are familiar with Markdown syntax. If your content is already in Markdown, simply use copy (CTRL+C) and paste the content in **plain text** (**CTRL+SHIFT+V**) in the body.
-* Use **Rich Text** mode when your source file is an MS-Word document or a RTF document: simply copy the content from your source file and paste the content in **plain text** (**CTRL+SHIFT+V**) in the body.
+* Use **Markdown** mode when your source file is in Markdown file or when you are familiar with Markdown syntax. If your content is already in Markdown, simply use copy (CTRL+C) and paste the content in **PLAIN TEXT** (**CTRL+SHIFT+V**) in the body. You might find easier to go and paste it a paragraph at a time and then format it.
+
+* Use **Rich Text** mode when your source file is an MS-Word document or a RTF document: simply copy the content from your source file and paste the content in **PLAIN TEXT** (**CTRL+SHIFT+V**) in the body. You might find easier to go and paste it a paragraph at a time and then format it.
 
  >Note: To get started using the CMS editor for common elements (headings, list, code blocks, bold, italics, image), refer to section "***Tips and Tricks using the CMS Editor***" at the end of this document.
     
     
-5. Tag your blog post
+5. Tag your blog post.
 
 You can tag your post to tie it to one of the HPE DEV "Platform" pages on the HPE DEV portal. 
-Use tags as one way to optimize your blog post for results from search engines such as Google search engine. You do so by tagging your article with popular keywords (1 to 4 keywords) that reflect your topic relevancy. Visit the site here to look for existing tags in our HPE DEV site: https://hpe-dev-portal.netlify.app/tags/ 
+Use tags as one way to optimize your blog post for results from search engines such as Google search engine. You do so by tagging your article with popular keywords (1 to 4 keywords) that reflect the relevancy of your topic. Visit the site [here](https://hpe-dev-portal.netlify.app/tags/) to look for existing tags in our HPE DEV web site.
 
-
->Note: For more information on how to use tags refer to section "***Tips and Tricks using the CMS Editor***" at the end of this document.
+>Note: For more information on how to use tags and tie your blog post to a "Platform" page refer to section "***Tips and Tricks using the CMS Editor***" at the end of this document.
     
     
-6.  As you are adding content to the **Body** area, you can preview your blog on the right pane.
+6.  As you are adding content to the **BODY** area, you can preview your blog on the right pane.
 
->Note: The text font size in the preview area will be smaller similar to the final rendering of the blog post in HPE DEV portal. 
+>**Important Note:** The text font size in the preview area will be smaller than what is rendered in the blog post in HPE DEV portal. 
 
 <center><img src="media/guide-blog-preview-area.png" width="1000" height="458"></center>
 
 
-7.  When ready **Save** your work. 
-Click **Save** to save your latest edits.
+7.  When ready, **Save** your work. 
+
+You can click on **Save** at any time to save your latest edits.
 
 <center><img src="media/guide-blog-save.png" width="513" height="65"></center>
 
 >Note: Click **UNSAVED CHANGES** to exit the CMS editor without saving your changes. Click **Delete unpublished entry** to delete the post entry.
 
 
-8.  Wait until document is saved
+8.  Wait until document is saved.
 
 
-9.  When Saved, click on **Writing in Blog collection, CHANGES SAVED** to exit the CMS editor and return to the **Editorial Workflow** or **Contents** section
+9.  When Saved, click on **Writing in Blog collection, CHANGES SAVED** to exit the CMS editor and return to the **Editorial Workflow** or **Contents** section.
 
 <center><img src="media/guide-blog-changes-saved.png" width="464" height="54"></center>
 
@@ -138,7 +139,7 @@ Click **Save** to save your latest edits.
 <center><img src="media/guide-blog-workflow-in-draft.png" width="800" height="331"></center>
 
 
-11. Review/edit until ready. When you are satisfied with the edition of the blog post, move it to the **In Review** column (drag & drop the
+11. Review/edit your post until you are satisfied. When you are ready to publish, move it to the **In Review** column (drag & drop the
     blog from the **Workflow** area).
 
 <center><img src="media/guide-blog-workflow-move-draft-to-In-Review.png" width="800" height="321"></center>
