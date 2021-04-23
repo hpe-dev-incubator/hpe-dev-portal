@@ -227,7 +227,7 @@ You may want to edit an existing blog post. For example, you may need to update 
 
 3.  When ready **Save** your changes.
 
-<center><img src="media/guide-platform-changes-saved.png" width="464" height="54"></center>
+<center><img src="media/guide-platform-save.png" width="513" height="65"></center>
 
 4.  In the editor, after a few minutes, notice the **Check for Preview**
     at the top right has turned into **View Preview**. Click **View
