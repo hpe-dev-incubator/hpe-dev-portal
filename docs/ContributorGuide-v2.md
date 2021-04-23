@@ -233,7 +233,11 @@ You can click on **Save** at any time to save your latest edits.
 
 >Note: Click **UNSAVED CHANGES** to exit the CMS editor without saving your changes.
 
-4.  Wait until document is saved.
+4. Wait until document is saved.
+
+5. When Saved, click on **Writing in Platforms collection, CHANGES SAVED** to exit the CMS editor and return to the **Editorial Workflow** or **Contents** section.
+
+<center><img src="media/guide-platform-changes-saved.png" width="497" height="52"></center>
 
 5.  In the editor, after a few minutes, notice the **Check for Preview**
     at the top right has turned into **View Preview**. Click **View
