@@ -71,7 +71,7 @@ Please contact [HPE DEV Team](mailto:hpedev@hpe.com?subject=Support%20for%20cont
 ## Contributing a new blog
 You can create a new blog directly from the **Contents** tab or by navigating to the **Workflow** tab. Here's how you can create a new blog directly from the **Contents** tab.
 
-1.  From the **Contents** tab, select the **Blog** section, and click the **New Blog** button.
+1.  From the **Contents** tab, select the **Blog** section in the Collections tab, and click the **New Blog** button.
 
 <center><img src="media/guide-blog-Contents-new-post.png" width="800" height="497"></center>
 
@@ -140,21 +140,21 @@ You can click on **Save** at any time to save your latest edits.
 
 
 11. Review/edit your post until you are satisfied. When you are ready to publish, move it to the **In Review** column (drag & drop the
-    blog from the **Workflow** area).
+    blog entry from the **Drafts** column to the **In Review** column in the **Workflow** area).
 
 <center><img src="media/guide-blog-workflow-move-draft-to-In-Review.png" width="800" height="321"></center>
 
-    Alternatively you can use the **Set Status** button at the top right of the screen in the editor menu as shown here:
+   Alternatively you can use the **Set Status** button at the top right of the screen in the editor menu and set the status to **In Review** as shown here:
 
 <center><img src="media/guide-blog-workflow-Set-Status-to-In-Review.png" width="336" height="126"></center>
 
 
-12. From the Editorial Workflow section, select your article, now **In Review** column. You will see its status **Check for Preview** in the editor at the top right.
+12. From the Editorial Workflow section, select your article, now **In Review** column. You will see its status **Check for Preview** at the top right of the screen in the editor menu.
 
 <center><img src="media/guide-blog-check-for-preview.png" width="301" height="60"></center>
 
 
-13. After a few minutes, notice the **Check for Preview** at the top right which turned into **View Preview**. Click **View Preview** to open a preview of the web site and validate your changes. If needed, click **Check for Preview** to refresh the status.
+13. In the editor, after about four (4) minutes, you'll notice the **Check for Preview** at the top right has turned into **View Preview**. Click **View Preview** to open a preview of your post and validate your changes. If needed, click **Check for Preview** to refresh the status.
 
 <center><img src="media/guide-blog-status-View-Preview.png" width="435" height="56"></center>
 
@@ -163,20 +163,21 @@ Clicking **View Preview** will open your blog post in a new browser tab for your
 <center><img src="media/guide-blog-View-Preview.png" width="600" height="620"></center>
 
 
-14. As soon as the blog was placed **In Review,** a Pull Request (PR) is automatically opened on the HPE DEV team's GitHub repository, with the changes you are proposing.
+14. As soon as the blog was placed **In Review,** a Pull Request (PR) is automatically opened on the HPE DEV team's GitHub repository, with the new content you are proposing.
 
 <center><img src="media/guide-blog-pull-request.png" width="1000" height="337"></center>
 
 
-15. Once you are satisfied with your blog entry, notify the [HPE DEV Team](mailto:hpedev@hpe.com?subject=New%20blog%20contribution%20for%20HPE%20DEV) about your new post submission for review. HPE DEV team will then proceed with an editorial review and will get in touch with you shortly.
+15. Once you have initiated the Pull Request by moving the post into the **In Review** column, and you are satisfied with your blog entry, it is also a good idea to follow up with the [HPE DEV Team](mailto:hpedev@hpe.com?subject=New%20blog%20contribution%20for%20HPE%20DEV) indicating that your new submission is ready for review. HPE DEV team will then proceed with an editorial review and will get in touch with you shortly.
 
 >**Note:** *Moving the blog post back to the **Drafts** column of the CMS will withdraw the PR. You can also continue to make changes to your blog while the blog is **In Review**. This will be automatically synchronized in the PR (as additional Commits). This will be particularly helpful when receiving feedback from the HPE DEV Team.*
 
 >**Note:** *Once the team has agreed to accept your contribution, the PR will be merged, the blog post will be published to the HPE DEV portal and the blog entry will disappear from your Editorial Workflow.*
 
+16. Leave the editor using the **Changes Saved** option.
 
 ## Editing a blog post that is already published
-You may want to edit an existing published blog post. For example when a referenced link is no longer valid and you want to update it.
+You may want to edit an existing blog post. For example, you may need to update a referenced link that is no longer valid.
 
 1.  From the **Contents** tab, select the **Blog** section, and use the **Sort by** function to sort the blog by title, author name or published date.
 
@@ -184,35 +185,36 @@ You may want to edit an existing published blog post. For example when a referen
 
 >**Note:** When sorted by Title, the blogs are listed in Alphabetic order. You can click **^** on the right side of Title to list them in reverse order. 
 
->**Note:** When sorted by date, the blogs are listed in chronological order from the oldest to the most recent. You can click **^** on the right side of Publish date to list then in reverse order.
+>**Note:** When sorted by Date, the blogs are listed in chronological order from the oldest to the most recent. You can click **^** on the right side of Publish Date to list them in reverse order.
 
 2.  Select the blog you want to edit. This opens the editor.
 
-3. Edit the blog. And **Save** it when you have terminated your modification.
+3. Edit the blog. **Save** it when you have finished making your edits.
 
-4. When Saved, click on **Writing in Blog collection, CHANGES SAVED** to exit the CMS editor and return to the **Contents** section
+4. When Saved, click on **Writing in Blog collection, CHANGES SAVED** to exit the CMS editor and return to the **Contents** section.
 
 5. From the top menu bar, make sure **Workflow** is selected. Your blog is now visible in the **Drafts** column of the **Editorial Workflow**.
 
-6. Review/edit until ready. When you are satisfied with the edition of the blog post, move it to the **In Review** column (drag & drop the
-    blog from the **Workflow** area) or use the **Set Status** button at the top right of the screen while you are in the editor.
+6. Review/edit until you are satisified with your copy. When ready, move it to the **In Review** column (drag & drop the
+    blog from the **Workflow** area) or use the **Set Status** button at the top right of the screen in the editor menu.
 
 7. From the Editorial Workflow section, select your article, now **In Review** column. You will see its status **Check for Preview** in the editor at the top right.
 
-8. After a few minutes, notice the **Check for Preview** at the top right which turned into **View Preview**. Click **View Preview** to open a preview of the web site and validate your changes. If needed, click **Check for Preview** to refresh the status. Clicking **View Preview** will open your blog post in a new browser tab for your review.
+8. In the editor, after about four (4) minutes, you'll notice the **Check for Preview** at the top right of the screen in the editor menu has turned into **View Preview**. Click **View Preview** to open a preview of your post in a new browser tab and validate your changes. If needed, click **Check for Preview** to refresh the status. 
 
-9. As soon as the blog was placed **In Review,** a Pull Request (PR) is automatically opened on the HPE DEV team's GitHub repository, with the changes you are proposing.
+9. As soon as the blog was placed **In Review,** a Pull Request (PR) is automatically opened on the HPE DEV team's GitHub repository, with the content you are proposing.
 
-10. Once you are satisfied with your blog entry, notify the HPE DEV team [mailto://hpedev\@hpe.com](mailto://hpedev@hpe.com) about your post submission for review with a brief description of the changes you made. HPE DEV team will then proceed with an editorial review and will get in touch with you shortly.
+10. Once you have initiated the Pull Request by moving the post into the **In Review** column, and you are satisfied with your changes, it is also a good idea to follow up with the [HPE DEV Team](mailto:hpedev@hpe.com?subject=Edition%20of%20blog%20contribution%20for%20HPE%20DEV) indicating that your submission is ready for review. Please provide a brief description of the changes you made. HPE DEV team will then proceed with an editorial review and will get in touch with you shortly.
 
 >**Note:** *Moving the blog post back to the **Drafts** column of the CMS will withdraw the PR. You can also continue to make changes to your blog while the blog is **In Review**. This will be automatically synchronized in the PR (as additional Commits).*
 
 >**Note:** *Once the team has agreed to accept your contribution, the PR will be merged, the blog post will be published with your recent changes to the HPE DEV portal and the blog entry will disappear from your Editorial Workflow.*
 
+11. Leave the editor using the **Changes Saved** option.
 
 ## Editing a platform page
 
-1.  From the CMS, select **Platforms** and locate the platform to edit
+1.  In the CMS, from the **Contents** tab, select **Platforms** in the Collections tab and locate the platform to edit
     (HPE Ezmeral Data Fabric in our example).
 
 > ![Graphical user interface, application Description automatically
@@ -283,13 +285,13 @@ height="2.9208333333333334in"}
 
 It is possible to add a card to communicate about an important external event or conference you are contributing to. This will be visible on https://developer.hpe.com/events.
 
-To do so:
+To do so, proceed as follows:
 
-1. From the CMS, on top menu bar select **Contents**, then click **Events** and press **New event**. This will open the Event wizard.
+1. From the CMS, on top menu bar select **Contents**, then click **Events** in Collections tab and press **New Events**. This will open the Event wizard.
 
 <center><img src="media/guide-event-Contents-new-event.png" width="800" height="626"></center>
 
-2. Make sure to set the event properties: 
+2. Make sure to set the event properties as follows: 
    - Event tile: name of the event or conference.
    - Start date and end date (used by the platform to order and handle upcoming/past status).
    - Category of the event. Select **Event** for in-person event and conference. Select **Virtual Event** for virtual event and conference.
@@ -300,7 +302,7 @@ To do so:
 
       <center><img src="media/guide-event-new-event-properties.png" width="600" height="768"></center>
       
-3. For the Body, the content of the card for the event using the following guidelines: 
+3. For the Body, set the content of the card for the event using the following guidelines: 
       - Title (use Heading level 2 for title)
       - Subtitle (optional - use Heading level 3 for subtitle)
       - Date (Month Date-Date, YYYY - for example: May 04-07, 2021)
@@ -308,50 +310,51 @@ To do so:
 
    <center><img src="media/guide-event-body.png" width="700" height="330"></center>
 
-4.   When ready **Save** your changes. Wait until the document is saved.
+4.   When ready, **Save** your changes. Wait until the document is saved.
 
      >Note: Click **UNSAVED CHANGES** to exit the CMS editor without saving your changes. Click **Delete unpublished entry** to delete the event entry.
 
 5.  When Saved, click on **Writing in Blog collection, CHANGES SAVED** to exit the CMS editor and return to the **Contents** section.
 
-7.  From the top menu bar, select **Workflow** to navigate to the **Editorial Workflow** section.
+6.  From the top menu bar, select **Workflow** to navigate to the **Editorial Workflow** section.
     Your new event entry is now visible in the **Drafts** column of the **Editorial Workflow**.
 
-6.  Review/edit your event entry until ready. When you are satisfied with the edition of the event entry, move it to the **In Review** column (drag & drop the
-    event entry from the **Drafts** column to the **In Review** column). Or while you are in the Editor canvas for your event entry, use the **Set Status** button at the top right of the screen to set status of your new event entry to **In Review**.
+7.  Review/edit your event entry until you are satisified. When you are ready to publish, move it to the **In Review** column (drag & drop the
+    event entry from the **Drafts** column to the **In Review** column in the **Workflow** area). 
     
-7. From the Editorial Workflow section, select your event entry, now **In Review** column. You will see its status **Check for Preview** in the editor at the top right.
+    Alternatively you can use the **Set Status** button at the top right of the screen in the editor menu and set the status to **In Review**.
+    
+8. From the Editorial Workflow section, select your event entry, now **In Review** column. You will see its status **Check for Preview** at the top right of the screen in the editor menu.
  
-8. In the editor, after a few minutes, notice the **Check for Preview** at the top right which turned into **View Preview**. Click **View Preview** to open a preview of the web site and validate your changes. If needed, click **Check for Preview** to refresh the status.
+9. In the editor, after about four (4) minutes, you'll notice the **Check for Preview** at the top right has turned into **View Preview**. Click **View Preview** to open a preview of your event entry and validate your changes. If needed, click **Check for Preview** to refresh the status.
     
-9. Leave the editor using the **Changes Saved** option.
-    
-10. A Pull Request (PR) is automatically opened on the HPE DEV team's GitHub repository, with the changes you are proposing. 
+10. As soon as the event entry is placed **In Review**, a Pull Request (PR) is automatically opened on the HPE DEV team's GitHub repository, with the new content you are proposing. 
 
-11. Once you are satisfied with your event entry, notify the HPE DEV team [mailto://hpedev\@hpe.com](mailto://hpedev@hpe.com) about your new event submission for review.
-HPE DEV team will then proceed with an editorial review and will get in touch with you shortly.
+12. Once you have initiated the Pull Request by moving the event entry into the **In Review** column, and you are satisfied with your event entry, it is also a good idea to follow up with [HPE DEV Team](mailto:hpedev@hpe.com?subject=New%20Event%20contribution%20for%20HPE%20DEV) indicating that your new submission is ready for review. HPE DEV team will then proceed with an editorial review and will get in touch with you shortly.
 
 >**Note:** *Moving the event entry back to the **Drafts** column of the CMS will withdraw the PR. You can also continue to make changes to your event entry while it is **In Review** column. This will be automatically synchronized in the PR (as additional Commits). This will be particularly helpful when receiving feedback from the HPE DEV Team.*
 
 >**Note:** *Once the team has agreed to accept your event entry, the PR will be merged, the event entry will be published to the HPE DEV portal and the event entry will disappear from your Editorial Workflow.*
 
+13. Leave the editor using the **Changes Saved** option.
+
 
 ## Tips and trick using the CMS Editor
 
--   Unless you have your post already written in markdown, it is
+-   Unless you have your post already written in Markdown, it is
     recommended to use the "***Rich Text***" toggle option when editing
     your contribution post.
 
 -   Always use the Preview to make sure the changes are what you wanted.
     The WYSINAWYG (not always)
 
--   When doing copy/paste from a MS-Word (or RTF) document to the CMS
+-   When doing copy/paste from an MS-Word (or RTF) document to the CMS
     editor (*Rich Text* mode or *Markdown* mode) use the option
-    "***Paste as plain text***" (**CTRL+SHIFT+V)** to not get unwanted
+    "***Paste as plain text***" or (**CTRL+SHIFT+V)** to not get unwanted
     XML fragment code syntaxes.
 
 -   You can use pandoc (<https://pandoc.org/>) to convert a complex DOCX
-    to Markdown
+    to Markdown.
 
     ```bash
     pandoc -f docx -t markdown mydoc.docx -o mymarkdown.md
@@ -361,7 +364,7 @@ HPE DEV team will then proceed with an editorial review and will get in touch wi
 
     - Using your gravatar as an author picture
 
-       - Use your email to setup your gravatar account (<https://gravatar.com>)
+       - Use your email to set up your gravatar account (<https://gravatar.com>)
 
       - Compute your email MD5 hash by entering your email in <https://www.md5hashgenerator.com/>
 
@@ -370,13 +373,13 @@ HPE DEV team will then proceed with an editorial review and will get in touch wi
         for example:
         [https://gravatar.com/avatar/7dd708edf1c50d4c45da80f60e3643e7**?s=96**](https://gravatar.com/avatar/7dd708edf1c50d4c45da80f60e3643e7?s=96)
 
-      - Use this URL from now on, as your picture in the CMS (and elsewhere)
+      - Use this URL from now on as your picture in the CMS (and elsewhere)
 
 -   Headings: Select **H** in the "Rich Text" menu bar and select the
     heading level. To clear a Heading, select the text, click **H** in
     the menu bar, and click the Heading level previously selected.
 
-    >**Note:** We recommend to use "**Header 2**" for your primary heading, then Header3 for subsequent heading, etc.
+    >**Note:** We recommend to use "**Header 2**" for your primary heading, then Header 3 for subsequent heading, etc.
 
 -   Insert an image in a blog post:
 
@@ -388,13 +391,11 @@ HPE DEV team will then proceed with an editorial review and will get in touch wi
     
     -  In the IMAGE wizard, click **Choose an image**  
 
-    -  On the top right o fthe wizard, click **Upload** to upload the image stored on your PC/laptop and select image you have just uploaded by clicking **Choose selected**. 
+    -  On the top right of the wizard, click **Upload** to upload the image stored on your PC/laptop and select image you have just uploaded by clicking **Choose selected**. 
 
 -   Adjusting image size and its position:
 
-    -   **Method 1:** Using your PC/Laptop, change image size using you preferred image editor (i.e.: Paint). Toggle to **Rich Text** mode and upload/select the resized image. 
-
-    -   **Method 2 (recommended):** Use HTML code to set the size (height, width) for your image. First, toggle to **Rich Text** mode to insert your image. Then toggle to **Markdown** mode to obtain the relative path for your image (in the form: */img/myimage.png*) and and insert the HTML syntax below:
+    -   **Method 1 (recommended):** Use HTML code to set the size (height, width) for your image. First, toggle to **Rich Text** mode to insert your image. Then toggle to **Markdown** mode to obtain the relative path for your image (in the form: */img/myimage.png*) and and insert the HTML syntax below:
 
         \<img src=\"relative-path-of-your-image-in-the-form: /img/myimage.png\" width=\"600\" height=\"359\"\>
 
@@ -404,6 +405,8 @@ HPE DEV team will then proceed with an editorial review and will get in touch wi
 
         >**Note:** When using HTML code to insert an image, you will see *an empty frame* for your image in the preview area (right side of the CMS editor). The frame corresponds to the size of the image (width and height) in the blog post. Adjust the width/height value as appropriate. Once satisfied, delete the line *![](/img/myimage.png)* from the body. 
 
+ -   **Method 2:** Using your PC/Laptop, change image size using you preferred image editor (i.e.: Paint). Toggle to **Rich Text** mode and upload/select the resized image.
+ 
 -   Horizontal separator: toggle to **Markdown** mode and use the "- - -" (without the quotation mark).
 
     >**Note:** Make sure to insert a line break before and after the horizontal separator.
@@ -415,7 +418,9 @@ HPE DEV team will then proceed with an editorial review and will get in touch wi
     -   Make sure to insert a line break before and after a code block snippet
 
 -   List items/sub-list items:
-    It might be easier for you to toggle to **Markdown** mode in the editor and use the syntax below for creating item lists and sub-item lists:
+    To deal with item list, it is recommended to toggle to **Markdown** mode in the editor and use the syntax below for creating item lists and sub-item lists:
+    
+    >**Note:** Only a certain level of bulleting is supported; i.e. you can't do 1a, 1b, etc.
     
     **Bullet list:**
 
@@ -455,12 +460,11 @@ HPE DEV team will then proceed with an editorial review and will get in touch wi
 
        <center><img src="media/Guide-tips-item-lists-2.png" width="1585" height="483"></center>
 
--   **Tag:**
+-   **Tagging:**
 
 If appropriate, use a tag to tie your blog post to a "platform" page on HPE DEV portal. List of "platforms" tag is in the table below.
 
-You can also tag your article with popular keywords (1 to 4 keywords) that reflect your topic relevancy. Use tags as one way to optimize your blog post for results from search engines such as Google search engine. Visit the site here to look for existing tags in our HPE DEV site: <https://hpe-dev-portal.netlify.app/tags/>
-
+>**Note:** You can also tag your article with popular keywords (1 to 4 keywords) that reflect the relevancy of your topic. Use tags as one way to optimize your blog post for results from search engines such as Google search engine. Visit the site [here](https://hpe-dev-portal.netlify.app/tags/) to look for existing tags in our HPE DEV site.
 
 
   | **Platform name**                  |   **Associated tag**    |
