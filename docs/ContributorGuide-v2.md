@@ -228,7 +228,7 @@ You may want to edit an existing blog post. For example, you may need to update 
 
     <center><img src="media/guide-platform-body.png" width="1200" height="541"></center>
 
-3.  When ready **Save** your changes.
+3.  When ready, **Save** your changes.
 
     You can click on **Save** at any time to save your latest edits.
 
