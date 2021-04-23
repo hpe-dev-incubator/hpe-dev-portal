@@ -88,6 +88,7 @@ You can create a new blog directly from the **Contents** tab or by navigating to
 -   Author
 -   Author Image (image size recommended is **96px X 96px**). 
     You can upload a picture or use your gravatar picture URL if you have one. 
+    
     >Note: For more information on how to get a gravatar URL, refer to section "***Tips and Tricks using the CMS Editor***" at the end of this document.
 
 
@@ -95,7 +96,7 @@ You can create a new blog directly from the **Contents** tab or by navigating to
 
 <center><img src="media/guide-blog-body.png" width="700" height="410"></center>
 
-* Use **Markdown** mode when your source file is in Markdown file or when you are familiar with Markdown syntax. If your content is already in Markdown, simply use copy (CTRL+C) and paste the content in **PLAIN TEXT** (**CTRL+SHIFT+V**) in the body. You might find easier to go and paste it a paragraph at a time and then format it.
+* Use **Markdown** mode when your source file is in Markdown file or when you are familiar with Markdown syntax. If your content is already in Markdown, simply use copy (CTRL+C) and paste the content in **PLAIN TEXT** (**CTRL+SHIFT+V**) in the body canvas. You might find easier to go and paste it a paragraph at a time and then format it.
 
 * Use **Rich Text** mode when your source file is an MS-Word document or a RTF document: simply copy the content from your source file and paste the content in **PLAIN TEXT** (**CTRL+SHIFT+V**) in the body. You might find easier to go and paste it a paragraph at a time and then format it.
 
@@ -217,52 +218,52 @@ You may want to edit an existing blog post. For example, you may need to update 
 1.  In the CMS, from the **Contents** tab, select **Platforms** in the Collections tab and locate the platform to edit
     (HPE Ezmeral Data Fabric in our example).
 
-<center><img src="media/guide-platform-content-edit.png" width="800" height="773"></center>
+    <center><img src="media/guide-platform-content-edit.png" width="800" height="773"></center>
 
 2.  In the editor, make the required changes using **Rich Text** mode or
     **Markdown** mode. Verify content in the preview pane on the right side of
     the screen.
+    
+    >**Important Note:** The text font size in the preview area will be smaller than what is rendered in the Platform page in HPE DEV portal. 
 
-<center><img src="media/guide-platform-body.png" width="1771" height="799"></center>
+    <center><img src="media/guide-platform-body.png" width="1771" height="799"></center>
 
 3.  When ready **Save** your changes.
 
-You can click on **Save** at any time to save your latest edits.
+    You can click on **Save** at any time to save your latest edits.
 
-<center><img src="media/guide-platform-save2.png" width="512" height="53"></center>
+    <center><img src="media/guide-platform-save2.png" width="512" height="53"></center>
 
->Note: Click **UNSAVED CHANGES** to exit the CMS editor without saving your changes.
+    >Note: Click **UNSAVED CHANGES** to exit the CMS editor without saving your changes.
 
 4. Wait until document is saved.
 
 5. When Saved, click on **Writing in Platforms collection, CHANGES SAVED** to exit the CMS editor and return to the **Editorial Workflow** or **Contents** section.
 
-<center><img src="media/guide-platform-changes-saved.png" width="497" height="52"></center>
+   <center><img src="media/guide-platform-changes-saved.png" width="497" height="52"></center>
 
 6. From the top menu bar, make sure **Workflow** is selected. Your Platform is now visible in the **Drafts** column of the **Editorial Workflow**.
 
 7. Review/edit your Platform until you are satisfied. When you are ready to publish, move it to the **In Review** column (drag & drop the
     Platform entry from the **Drafts** column to the **In Review** column in the **Workflow** area).
 
-<center><img src="media/guide-platform-workflow-move-draft-to-In-Review2.png" width="800" height="441"></center>
+   <center><img src="media/guide-platform-workflow-move-draft-to-In-Review2.png" width="800" height="441"></center>
 
    Alternatively you can use the **Set Status** button at the top right of the screen in the editor menu and set the status to **In Review**. 
 
-
 8.  From the Editorial Workflow section, select your article, now **In Review** column. You will see its status **Check for Preview** at the top right of the screen in the editor menu.
 
-<center><img src="media/guide-platform-check-for-preview.png" width="301" height="60"></center>
+   <center><img src="media/guide-platform-check-for-preview.png" width="301" height="60"></center>
 
 9. In the editor, after about four (4) minutes, you'll notice the **Check for Preview** at the top right has turned into **View Preview**. Click **View Preview** to open a preview of your platform and validate your changes. If needed, click **Check for Preview** to refresh the status.
 
-<center><img src="media/guide-platform-status-View-Preview.png" width="435" height="56"></center>
+   <center><img src="media/guide-platform-status-View-Preview.png" width="435" height="56"></center>
 
 Clicking **View Preview** will open your Platform page in a new browser tab for your review.
 
-
 10. As soon as the Platform entry is placed **In Review,** a Pull Request (PR) is automatically opened on the HPE DEV team's GitHub repository, with the new content you are proposing.
 
-<center><img src="media/guide-platform-pull-request.png" width="1000" height="269"></center>
+   <center><img src="media/guide-platform-pull-request.png" width="1000" height="269"></center>
 
 11. Once you have initiated the Pull Request by moving the Platform entry into the **In Review** column, and you are satisfied with your Platform entry, it is also a good idea to follow up with the [HPE DEV Team](mailto:hpedev@hpe.com?subject=Update%20Platform%20contribution%20for%20HPE%20DEV) indicating that your new submission is ready for review. Please provide a brief description of the changes you made. HPE DEV team will then proceed with an editorial review and will get in touch with you shortly.
 
