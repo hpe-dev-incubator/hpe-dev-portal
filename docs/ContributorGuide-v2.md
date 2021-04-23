@@ -1,7 +1,7 @@
 # HPE DEV External Contributor Guide
 **Version 2.0**
 
-22-Apr-2021
+23-Apr-2021
 
 ## Table of Contents
 
