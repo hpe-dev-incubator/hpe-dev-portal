@@ -405,7 +405,7 @@ To do so, proceed as follows:
 
         >**Note:** When using HTML code to insert an image, you will see *an empty frame* for your image in the preview area (right side of the CMS editor). The frame corresponds to the size of the image (width and height) in the blog post. Adjust the width/height value as appropriate. Once satisfied, delete the line *![](/img/myimage.png)* from the body. 
 
-   -   **Method 2:** Using your PC/Laptop, change image size using you preferred image editor (i.e.: Paint). Toggle to **Rich Text** mode and upload/select the resized image.
+    -   **Method 2:** Using your PC/Laptop, change image size using you preferred image editor (i.e.: Paint). Toggle to **Rich Text** mode and upload/select the resized image.
  
 -   Horizontal separator: toggle to **Markdown** mode and use the "- - -" (without the quotation mark).
 
