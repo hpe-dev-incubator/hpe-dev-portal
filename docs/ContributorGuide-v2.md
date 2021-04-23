@@ -144,7 +144,7 @@ You can click on **Save** at any time to save your latest edits.
 
 <center><img src="media/guide-blog-workflow-move-draft-to-In-Review.png" width="800" height="321"></center>
 
-Or use the **Set Status** button at the top right of the screen while you are in the editor as shown here:
+    Alternatively you can use the **Set Status** button at the top right of the screen in the editor menu as shown here:
 
 <center><img src="media/guide-blog-workflow-Set-Status-to-In-Review.png" width="336" height="126"></center>
 
