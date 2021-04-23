@@ -234,7 +234,7 @@ You may want to edit an existing blog post. For example, you may need to update 
 > ![](media/image19.png){width="5.44in" height="0.5473173665791776in"}
 
 4.  In the editor, after a few minutes, notice the **Check for Preview**
-    at the top right which turned into **View Preview**. Click **View
+    at the top right has turned into **View Preview**. Click **View
     Preview** to open a preview of the web site and validate your
     changes. Click **Check for Preview** to refresh.
 
