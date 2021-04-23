@@ -265,7 +265,7 @@ Clicking **View Preview** will open your Platform page in a new browser tab for 
 
    <center><img src="media/guide-platform-pull-request.png" width="1000" height="269"></center>
 
-11. Once you have initiated the Pull Request by moving the Platform entry into the **In Review** column, and you are satisfied with your Platform entry, it is also a good idea to follow up with the [HPE DEV Team](mailto:hpedev@hpe.com?subject=Update%20Platform%20contribution%20for%20HPE%20DEV) indicating that your new submission is ready for review. Please provide a brief description of the changes you made. HPE DEV team will then proceed with an editorial review and will get in touch with you shortly.
+11. Once you have initiated the Pull Request by moving the Platform entry into the **In Review** column, and you are satisfied with your Platform entry, it is also a good idea to follow up with the [HPE DEV Team](mailto:hpedev@hpe.com?subject=Update%20Platform%20contribution%20for%20HPE%20DEV) indicating that your Platform update submission is ready for review. Please provide a brief description of the changes you made on the platform page. HPE DEV team will then proceed with an editorial review and will get in touch with you shortly.
 
 >**Note:** *Moving the Platform entry back to the **Drafts** column of the CMS will withdraw the PR (the PR will actually be closed). You can also continue to make changes to your blog while the blog is **In Review**. This will be automatically synchronized in the PR (as additional Commits). This will be particularly helpful when receiving feedback from the HPE DEV Team.*
 
