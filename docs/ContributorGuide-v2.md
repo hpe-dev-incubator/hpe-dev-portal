@@ -486,5 +486,5 @@ If appropriate, use a tag to tie your blog post to a "platform" page on HPE DEV 
   
                                       
 
--   For hotlink, open in new tab links (not found a good solution yet)
-    except using a HTML tag
+-   For hotlink to be opened in a new tab in the reader's browser, we are still looking for a solution for the CMS editor)
+    
