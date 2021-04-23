@@ -249,21 +249,15 @@ You can click on **Save** at any time to save your latest edits.
    Alternatively you can use the **Set Status** button at the top right of the screen in the editor menu and set the status to **In Review**. 
 
 
-6.  In the editor, after a few minutes, notice the **Check for Preview**
-    at the top right has turned into **View Preview**. Click **View
-    Preview** to open a preview of the web site and validate your
-    changes. Click **Check for Preview** to refresh.
+8.  From the Editorial Workflow section, select your article, now **In Review** column. You will see its status **Check for Preview** at the top right of the screen in the editor menu.
 
+<center><img src="media/guide-platform-check-for-preview.png" width="301" height="60"></center>
 
+9. In the editor, after about four (4) minutes, you'll notice the **Check for Preview** at the top right has turned into **View Preview**. Click **View Preview** to open a preview of your platform and validate your changes. If needed, click **Check for Preview** to refresh the status.
 
-11. Review/edit your post until you are satisfied. When you are ready to publish, move it to the **In Review** column (drag & drop the
-    blog entry from the **Drafts** column to the **In Review** column in the **Workflow** area).
+<center><img src="media/guide-platform-status-View-Preview.png" width="435" height="56"></center>
 
-<center><img src="media/guide-blog-workflow-move-draft-to-In-Review.png" width="800" height="321"></center>
-
-   Alternatively you can use the **Set Status** button at the top right of the screen in the editor menu and set the status to **In Review** as shown here:
-
-<center><img src="media/guide-blog-workflow-Set-Status-to-In-Review.png" width="336" height="126"></center>
+Clicking **View Preview** will open your Platform page in a new browser tab for your review.
 
 
 
@@ -299,6 +293,24 @@ You can click on **Save** at any time to save your latest edits.
 10.  Once the team has agreed to accept your contribution, the PR will be
     merged, the platform page will be updated in HPE DEV Portal and the
     platform page will disappear from your Editorial Workflow.
+
+
+------
+
+
+14. As soon as the blog was placed **In Review,** a Pull Request (PR) is automatically opened on the HPE DEV team's GitHub repository, with the new content you are proposing.
+
+<center><img src="media/guide-blog-pull-request.png" width="1000" height="337"></center>
+
+
+15. Once you have initiated the Pull Request by moving the post into the **In Review** column, and you are satisfied with your blog entry, it is also a good idea to follow up with the [HPE DEV Team](mailto:hpedev@hpe.com?subject=New%20blog%20contribution%20for%20HPE%20DEV) indicating that your new submission is ready for review. HPE DEV team will then proceed with an editorial review and will get in touch with you shortly.
+
+>**Note:** *Moving the blog post back to the **Drafts** column of the CMS will withdraw the PR. You can also continue to make changes to your blog while the blog is **In Review**. This will be automatically synchronized in the PR (as additional Commits). This will be particularly helpful when receiving feedback from the HPE DEV Team.*
+
+>**Note:** *Once the team has agreed to accept your contribution, the PR will be merged, the blog post will be published to the HPE DEV portal and the blog entry will disappear from your Editorial Workflow.*
+
+16. Leave the editor using the **Changes Saved** option.
+-----
 
 ## Adding an Event
 
