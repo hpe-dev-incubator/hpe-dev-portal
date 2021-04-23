@@ -244,7 +244,7 @@ You can click on **Save** at any time to save your latest edits.
 7. Review/edit your Platform until you are satisfied. When you are ready to publish, move it to the **In Review** column (drag & drop the
     Platform entry from the **Drafts** column to the **In Review** column in the **Workflow** area).
 
-<center><img src="media/guide-platform-workflow-move-draft-to-In-Review.png" width="800" height="441"></center>
+<center><img src="media/guide-platform-workflow-move-draft-to-In-Review2.png" width="800" height="441"></center>
 
    Alternatively you can use the **Set Status** button at the top right of the screen in the editor menu and set the status to **In Review**. 
 
