@@ -223,7 +223,7 @@ You may want to edit an existing blog post. For example, you may need to update 
     **Markdown** mode. Verify content in the preview pane on the right side of
     the screen.
 
-<center><img src="media/guide-platform-body.png" width="1500" height="676"></center>
+<center><img src="media/guide-platform-body.png" width="1771" height="799"></center>
 
 3.  When ready **Save** your changes.
 
@@ -264,53 +264,14 @@ Clicking **View Preview** will open your Platform page in a new browser tab for 
 
 <center><img src="media/guide-platform-pull-request.png" width="1000" height="269"></center>
 
-11. Once you have initiated the Pull Request by moving the Platform entry into the **In Review** column, and you are satisfied with your Platform entry, it is also a good idea to follow up with the [HPE DEV Team](mailto:hpedev@hpe.com?subject=Update%20Platform%20contribution%20for%20HPE%20DEV) indicating that your new submission is ready for review. HPE DEV team will then proceed with an editorial review and will get in touch with you shortly.
+11. Once you have initiated the Pull Request by moving the Platform entry into the **In Review** column, and you are satisfied with your Platform entry, it is also a good idea to follow up with the [HPE DEV Team](mailto:hpedev@hpe.com?subject=Update%20Platform%20contribution%20for%20HPE%20DEV) indicating that your new submission is ready for review. Please provide a brief description of the changes you made. HPE DEV team will then proceed with an editorial review and will get in touch with you shortly.
 
->**Note:** *Moving the Platform entry back to the **Drafts** column of the CMS will withdraw the PR. You can also continue to make changes to your blog while the blog is **In Review**. This will be automatically synchronized in the PR (as additional Commits). This will be particularly helpful when receiving feedback from the HPE DEV Team.*
+>**Note:** *Moving the Platform entry back to the **Drafts** column of the CMS will withdraw the PR (the PR will actually be closed). You can also continue to make changes to your blog while the blog is **In Review**. This will be automatically synchronized in the PR (as additional Commits). This will be particularly helpful when receiving feedback from the HPE DEV Team.*
 
->**Note:** *Once the team has agreed to accept your contribution, the PR will be merged, the blog post will be published to the HPE DEV portal and the blog entry will disappear from your Editorial Workflow.*
+>**Note:** *Once the team has agreed to accept your contribution, the PR will be merged, the Platform page will be published with your recent changes to the HPE DEV portal and the Platform entry will disappear from your Editorial Workflow.*
 
 12.  Leave the editor using the **Changes Saved** option.
 
-
-8.  A Pull Request (PR) was automatically opened on the HPE DEV team's
-    GitHub repository, with the changes you are proposing. We will
-    review and get in touch with you shortly.
-
-> If you open the hpe-dev-portal repo you can see this new PR
->
-> ![Graphical user interface, text, application, Teams Description
-> automatically generated](media/image22.png){width="6.5in"
-> height="1.2152777777777777in"}
-
-9.  Moving the platform back to the **Drafts** column of the CMS will
-    withdraw the PR. You can also continue to make changes to your
-    platform page while the page is **In Review**, this will be
-    automatically synchronized in the PR (as additional Commits). This
-    will be particularly helpful when receiving feedback from the HPE
-    DEV Team.
-
-10.  Once the team has agreed to accept your contribution, the PR will be
-    merged, the platform page will be updated in HPE DEV Portal and the
-    platform page will disappear from your Editorial Workflow.
-
-
-------
-
-
-14. As soon as the blog was placed **In Review,** a Pull Request (PR) is automatically opened on the HPE DEV team's GitHub repository, with the new content you are proposing.
-
-<center><img src="media/guide-blog-pull-request.png" width="1000" height="337"></center>
-
-
-15. Once you have initiated the Pull Request by moving the post into the **In Review** column, and you are satisfied with your blog entry, it is also a good idea to follow up with the [HPE DEV Team](mailto:hpedev@hpe.com?subject=New%20blog%20contribution%20for%20HPE%20DEV) indicating that your new submission is ready for review. HPE DEV team will then proceed with an editorial review and will get in touch with you shortly.
-
->**Note:** *Moving the blog post back to the **Drafts** column of the CMS will withdraw the PR. You can also continue to make changes to your blog while the blog is **In Review**. This will be automatically synchronized in the PR (as additional Commits). This will be particularly helpful when receiving feedback from the HPE DEV Team.*
-
->**Note:** *Once the team has agreed to accept your contribution, the PR will be merged, the blog post will be published to the HPE DEV portal and the blog entry will disappear from your Editorial Workflow.*
-
-16. Leave the editor using the **Changes Saved** option.
------
 
 ## Adding an Event
 
