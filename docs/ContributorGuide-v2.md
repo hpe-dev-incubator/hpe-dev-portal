@@ -170,7 +170,7 @@ Clicking **View Preview** will open your blog post in a new browser tab for your
 
 15. Once you have initiated the Pull Request by moving the post into the **In Review** column, and you are satisfied with your blog entry, it is also a good idea to follow up with the [HPE DEV Team](mailto:hpedev@hpe.com?subject=New%20blog%20contribution%20for%20HPE%20DEV) indicating that your new submission is ready for review. HPE DEV team will then proceed with an editorial review and will get in touch with you shortly.
 
->**Note:** *Moving the blog post back to the **Drafts** column of the CMS will withdraw the PR. You can also continue to make changes to your blog while the blog is **In Review**. This will be automatically synchronized in the PR (as additional Commits). This will be particularly helpful when receiving feedback from the HPE DEV Team.*
+>**Note:** *Moving the blog post back to the **Drafts** column of the CMS will withdraw the PR (the PR will actually be closed). You can also continue to make changes to your blog while the blog is **In Review**. This will be automatically synchronized in the PR (as additional Commits). This will be particularly helpful when receiving feedback from the HPE DEV Team.*
 
 >**Note:** *Once the team has agreed to accept your contribution, the PR will be merged, the blog post will be published to the HPE DEV portal and the blog entry will disappear from your Editorial Workflow.*
 
@@ -324,7 +324,7 @@ To do so, proceed as follows:
 
 12. Once you have initiated the Pull Request by moving the event entry into the **In Review** column, and you are satisfied with your event entry, it is also a good idea to follow up with [HPE DEV Team](mailto:hpedev@hpe.com?subject=New%20Event%20contribution%20for%20HPE%20DEV) indicating that your new submission is ready for review. HPE DEV team will then proceed with an editorial review and will get in touch with you shortly.
 
->**Note:** *Moving the event entry back to the **Drafts** column of the CMS will withdraw the PR. You can also continue to make changes to your event entry while it is **In Review** column. This will be automatically synchronized in the PR (as additional Commits). This will be particularly helpful when receiving feedback from the HPE DEV Team.*
+>**Note:** *Moving the event entry back to the **Drafts** column of the CMS will withdraw the PR (the PR will actually be closed). You can also continue to make changes to your event entry while it is **In Review** column. This will be automatically synchronized in the PR (as additional Commits). This will be particularly helpful when receiving feedback from the HPE DEV Team.*
 
 >**Note:** *Once the team has agreed to accept your event entry, the PR will be merged, the event entry will be published to the HPE DEV portal and the event entry will disappear from your Editorial Workflow.*
 
