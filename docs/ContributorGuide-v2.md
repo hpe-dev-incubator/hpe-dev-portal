@@ -217,36 +217,23 @@ You may want to edit an existing blog post. For example, you may need to update 
 1.  In the CMS, from the **Contents** tab, select **Platforms** in the Collections tab and locate the platform to edit
     (HPE Ezmeral Data Fabric in our example).
 
-> ![Graphical user interface, application Description automatically
-> generated](media/image17.png){width="6.5in"
-> height="4.163194444444445in"}
+<center><img src="media/guide-platform-content-edit.png" width="800" height="773"></center>
 
-2.  In the editor, make the required changes using Rich Text or
-    Markdown. Verify content in the preview pane on the right side of
+2.  In the editor, make the required changes using **Rich Text** mode or
+    **Markdown** mode. Verify content in the preview pane on the right side of
     the screen.
 
-> ![Graphical user interface, website Description automatically
-> generated](media/image18.png){width="5.98in"
-> height="2.7088888888888887in"}
+<center><img src="media/guide-platform-body.png" width="1500" height="676"></center>
 
 3.  When ready **Save** your changes.
 
-> ![](media/image19.png){width="5.44in" height="0.5473173665791776in"}
+<center><img src="media/guide-platform-changes-saved.png" width="464" height="54"></center>
 
 4.  In the editor, after a few minutes, notice the **Check for Preview**
     at the top right has turned into **View Preview**. Click **View
     Preview** to open a preview of the web site and validate your
     changes. Click **Check for Preview** to refresh.
 
-> ![Text, icon Description automatically
-> generated](media/image13.png){width="3.188254593175853in"
-> height="0.6152777777777778in"}![Icon Description automatically
-> generated](media/image14.png){width="3.0456517935258094in"
-> height="0.5927777777777777in"}
-
-![Graphical user interface, text, application, email Description
-automatically generated](media/image20.png){width="6.5in"
-height="2.9208333333333334in"}
 
 5.  Leave the editor using the **Changes Saved** option.
 
