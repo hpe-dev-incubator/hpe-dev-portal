@@ -1,11 +1,11 @@
 ---
-priority: 2
-width: large
 title: HPE Deep Learning Cookbook
 version: v 2.01.8964
 description: A set of tools to guide the choice of the best hardware/software
   environment for a given deep learning workload.
 image: /img/platforms/HPEDeepLearningCookbook.svg
+width: large
+priority: 2
 frontpage: true
 tags:
   - hpe-deep-learning-cookbook
@@ -20,9 +20,8 @@ It is a common wisdom today, that to start a deep learning exploration one needs
 
 Recommendations with our Deep Learning Cookbook are based on a massive collection of performance results for various deep learning workloads on different HW/SW stacks, and analytical performance models. The combination of real measurements and analytical performance models enables us to estimate the performance of any workload and to recommend an optimal hardware/software stack for that workload. Additionally, we use the Cookbook internally to detect bottlenecks in existing hardware and to guide the design of future systems for artificial intelligence and deep learning.
 
-- [Read a blog post about the HPE Deep Learning Cookbook](https://community.hpe.com/t5/Behind-the-scenes-Labs/The-Deep-Learning-Cookbook/ba-p/6967323#.WhX-xVWnFhF)
-
-- [Watch a short video introducing the HPE Deep Learning Cookbook](https://youtu.be/ao_DeE9lxvk)
+* [Read a blog post about the HPE Deep Learning Cookbook](https://community.hpe.com/t5/Behind-the-scenes-Labs/The-Deep-Learning-Cookbook/ba-p/6967323#.WhX-xVWnFhF)
+* [Watch a short video introducing the HPE Deep Learning Cookbook](https://youtu.be/ao_DeE9lxvk)
 
 - - -
 
@@ -32,13 +31,13 @@ Recommendations with our Deep Learning Cookbook are based on a massive collectio
 
 An automated benchmarking tool, which makes it easy to run performance tests with most popular deep learning frameworks. It enables consistent and reproducible benchmark experiments on various hardware/software combinations.
 
-- [Read the documentation](https://hewlettpackard.github.io/dlcookbook-dlbs/#/index?id=deep-learning-benchmarking-suite)
+* [Read the documentation](https://hewlettpackard.github.io/dlcookbook-dlbs/#/index?id=deep-learning-benchmarking-suite)
 
 ### HPE Deep Learning Performance Guide
 
 A web-based tool which provides access to a knowledgebase of benchmarking results.
 
-- [Check the tool](https://dlpg.labs.hpe.com/)
+* [Check the tool](https://dlpg.labs.hpe.com/)
 
 - - -
 
@@ -48,8 +47,8 @@ Characterisation and Benchmarking of Deep Learning
 
 A talk at HPC User Forum introducing HPE Deep Learning Cookbook
 
-- [Watch the talk](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=0ahUKEwi_78-1tdPXAhUF4WMKHf8CCoQQtwIIKDAA&url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DlgK0BlXdOCw&usg=AOvVaw0osgSwEOQqZ4Gg9cVx3b-r)
+* [Watch the talk](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=0ahUKEwi_78-1tdPXAhUF4WMKHf8CCoQQtwIIKDAA&url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DlgK0BlXdOCw&usg=AOvVaw0osgSwEOQqZ4Gg9cVx3b-r)
 
 HPE Introduces New Set of Artificial Intelligence Offerings
 
-- [Read the press release](https://news.hpe.com/hpe-introduces-new-set-of-artificial-intelligence-platforms-and-services/)
+* [Read the press release](https://news.hpe.com/hpe-introduces-new-set-of-artificial-intelligence-platforms-and-services/)
