@@ -40,50 +40,49 @@ Please contact [HPE DEV Team](mailto:hpedev@hpe.com?subject=Support%20for%20cont
     don't have an account, you can create one now [here](https://github.com/join).
 
 
-2.  Open the [HPE DEV Content Management System (CMS)](https://developer.hpe.com/admin) and select **login** with GitHub. 
+2.  Open the [HPE DEV Content Management System (CMS)](https://developer.hpe.com/admin) and select **login with GitHub**. 
 
 <center><img src="media/guide-login-with-Github.png" width="600" height="300"></center>
 
 
 3.  Select **Fork the repo** to initiate a copy of the HPE DEV Web CMS
     into your own GitHub account. (In GitHub, this will appear as a new
-    repository: "yourAccountname/hpe-dev-portal"). This private copy of
+    repository: ***yourAccountname/hpe-dev-portal***). This private copy of
     the repository is going to be used to make your changes to the web
     site, before submitting them to the HPE DEV team.
 
 <center><img src="media/guide-fork-repo.png" width="600" height="363"></center>
 
 
-4.  You can view this forked repo in your repository list of your GitHub
-    account
+4.  You can view this forked repo in your repository list of your GitHub account.
 
 <center><img src="media/guide-forked-repo-in-your-GitHub.png" width="800" height="185"></center>
 
 
-5.  In Netlify CMS, you are now working with your own copy of the HPE
-    DEV CMS, and you get presented with a **Contents** menu which allows
-    to change all sections of the web site. This guide, however, covers
-    only changes to the **Blog** and **Platforms** and **Events** sections.
+5.  In CMS, you are now working with your own copy of the HPE
+    DEV CMS, and you get presented with a **Contents** menu that allows
+    to change all sections of the web site. This guide, however, only covers
+    changes to the **Blog**, **Platforms** and **Events** sections.
 
->Note: Please engage with the team before proposing changes to other sections.
+>Note: Please engage with the HPE DEV team before proposing changes to other sections.
 
 <center><img src="media/guide-contents-blog-platform.png" width="800" height="356"></center>
 
 ## Contributing a new blog
-You can create a new blog directly from the **Contents** tab or by navigating to the **Workflow** tab. Here you will create a new blog directly from the **Contents** tab.
+You can create a new blog directly from the **Contents** tab or by navigating to the **Workflow** tab. Here's how you can create a new blog directly from the **Contents** tab.
 
-1.  From the **Contents** tab, select the **Blog** section, and click the **New Blog** button
+1.  From the **Contents** tab, select the **Blog** section, and click the **New Blog** button.
 
 <center><img src="media/guide-blog-Contents-new-post.png" width="800" height="497"></center>
 
 
 2.  In the blog editor, you can set properties (title, author name, author picture) in the left pane and see
-    the effect in the preview pane on the right side of the screen
+    the effect in the preview pane on the right side of the screen.
 
 <center><img src="media/guide-blog-new-post-properties.png" width="1100" height="500"></center>
 
 
-3.  Make sure you set:
+3.  Make sure you set the following parameters:
 
 -   Title
 -   Author
@@ -92,7 +91,7 @@ You can create a new blog directly from the **Contents** tab or by navigating to
     >Note: For more information on how to get a gravatar URL, refer to section "***Tips and Tricks using the CMS Editor***" at the end of this document.
 
 
-4.  Start writing the content using either **Rich Text** mode or **Markdown** mode in the Body canvas   
+4.  Start writing the content using either **Rich Text** mode or **Markdown** mode in the Body canvas.   
 
 <center><img src="media/guide-blog-body.png" width="700" height="410"></center>
 
