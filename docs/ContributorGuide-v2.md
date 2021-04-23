@@ -260,18 +260,18 @@ You can click on **Save** at any time to save your latest edits.
 Clicking **View Preview** will open your Platform page in a new browser tab for your review.
 
 
+10. As soon as the Platform entry is placed **In Review,** a Pull Request (PR) is automatically opened on the HPE DEV team's GitHub repository, with the new content you are proposing.
 
-6.  Leave the editor using the **Changes Saved** option.
+<center><img src="media/guide-platform-pull-request.png" width="1000" height="269"></center>
 
-> ![](media/image19.png){width="5.44in" height="0.5473173665791776in"}
+11. Once you have initiated the Pull Request by moving the Platform entry into the **In Review** column, and you are satisfied with your Platform entry, it is also a good idea to follow up with the [HPE DEV Team](mailto:hpedev@hpe.com?subject=Update%20Platform%20contribution%20for%20HPE%20DEV) indicating that your new submission is ready for review. HPE DEV team will then proceed with an editorial review and will get in touch with you shortly.
 
-7.  Select the Editorial Workflow view using **Workflow** from the menu
-    bar. The platform page is now in the **Drafts** column. When ready
-    drag/drop entry to the **In Review** column.
+>**Note:** *Moving the Platform entry back to the **Drafts** column of the CMS will withdraw the PR. You can also continue to make changes to your blog while the blog is **In Review**. This will be automatically synchronized in the PR (as additional Commits). This will be particularly helpful when receiving feedback from the HPE DEV Team.*
 
-> ![Graphical user interface, application, Teams Description
-> automatically generated](media/image21.png){width="6.5in"
-> height="3.154861111111111in"}
+>**Note:** *Once the team has agreed to accept your contribution, the PR will be merged, the blog post will be published to the HPE DEV portal and the blog entry will disappear from your Editorial Workflow.*
+
+12.  Leave the editor using the **Changes Saved** option.
+
 
 8.  A Pull Request (PR) was automatically opened on the HPE DEV team's
     GitHub repository, with the changes you are proposing. We will
