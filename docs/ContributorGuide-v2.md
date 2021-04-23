@@ -229,7 +229,7 @@ You may want to edit an existing blog post. For example, you may need to update 
 
 You can click on **Save** at any time to save your latest edits.
 
-<center><img src="media/guide-platform-save2.png" width="513" height="65"></center>
+<center><img src="media/guide-platform-save2.png" width="512" height="53"></center>
 
 >Note: Click **UNSAVED CHANGES** to exit the CMS editor without saving your changes.
 
