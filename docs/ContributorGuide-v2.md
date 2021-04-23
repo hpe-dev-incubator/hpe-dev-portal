@@ -32,7 +32,7 @@ The process described in this guide requires minimum familiarity with Git
 and an account on GitHub.com. You can find a tutorial on Git in this
 [3-part blog article](https://developer.hpe.com/blog/get-involved-in-the-open-source-community-part-1-getting-started-with-gi).
 
-Please contact [HPE DEV Team](mailto:hpedev@hpe.com?subject=Support%20for%contribution%20to%20HPE%20DEV%20Community) for more support.
+Please contact [HPE DEV Team](mailto:hpedev@hpe.com?subject=Support%20for%20contribution%20to%20HPE%20DEV%20Community) for more support.
 
 ## Getting started
 
@@ -40,9 +40,7 @@ Please contact [HPE DEV Team](mailto:hpedev@hpe.com?subject=Support%20for%contri
     don't have an account, you can create one now [here](https://github.com/join).
 
 
-2.  Open the Netlifly Content Management System (CMS) at
-    [https://developer.hpe.com/admin](https://developer.hpe.com/admin)
-    and select login with GitHub. 
+2.  Open the [HPE DEV Content Management System (CMS)](https://developer.hpe.com/admin) and select **login** with GitHub. 
 
 <center><img src="media/guide-login-with-Github.png" width="600" height="300"></center>
 
