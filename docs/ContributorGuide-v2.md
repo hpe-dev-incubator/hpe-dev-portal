@@ -239,10 +239,33 @@ You can click on **Save** at any time to save your latest edits.
 
 <center><img src="media/guide-platform-changes-saved.png" width="497" height="52"></center>
 
-5.  In the editor, after a few minutes, notice the **Check for Preview**
+6. From the top menu bar, make sure **Workflow** is selected. Your Platform is now visible in the **Drafts** column of the **Editorial Workflow**.
+
+7. Review/edit your Platform until you are satisfied. When you are ready to publish, move it to the **In Review** column (drag & drop the
+    Platform entry from the **Drafts** column to the **In Review** column in the **Workflow** area).
+
+<center><img src="media/guide-platform-workflow-move-draft-to-In-Review.png" width="800" height="441"></center>
+
+   Alternatively you can use the **Set Status** button at the top right of the screen in the editor menu and set the status to **In Review**. 
+
+
+6.  In the editor, after a few minutes, notice the **Check for Preview**
     at the top right has turned into **View Preview**. Click **View
     Preview** to open a preview of the web site and validate your
     changes. Click **Check for Preview** to refresh.
+
+
+
+11. Review/edit your post until you are satisfied. When you are ready to publish, move it to the **In Review** column (drag & drop the
+    blog entry from the **Drafts** column to the **In Review** column in the **Workflow** area).
+
+<center><img src="media/guide-blog-workflow-move-draft-to-In-Review.png" width="800" height="321"></center>
+
+   Alternatively you can use the **Set Status** button at the top right of the screen in the editor menu and set the status to **In Review** as shown here:
+
+<center><img src="media/guide-blog-workflow-Set-Status-to-In-Review.png" width="336" height="126"></center>
+
+
 
 6.  Leave the editor using the **Changes Saved** option.
 
