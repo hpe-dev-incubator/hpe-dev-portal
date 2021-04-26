@@ -2,7 +2,7 @@
 title: "Making AI a Reality "
 date: 2021-01-15T07:48:29.685Z
 featuredBlog: false
-priority: ""
+priority:
 author: Ellen Friedman
 authorimage: /img/blogs/Avatar4.svg
 thumbnailimage: null
