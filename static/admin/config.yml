@@ -196,3 +196,7 @@ collections:
       - { label: 'Priority', name: 'priority', widget: 'number', hint: 'controls the card position on the skill up page'}
       - { label: 'Image', name: 'image', widget: 'image',media_folder: '/static/img', public_folder: '/img', hint: 'image to appear on skill up card' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
+      - name: Image
+        label: Image 
+        widget: ImageUpload
+        required: false
