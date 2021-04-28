@@ -1,13 +1,13 @@
 # HPE DEV External Contributor Guide
 **Version 2.0**
 
-23-Apr-2021
+28-Apr-2021
 
 ## Table of Contents
 
 [Introduction](#introduction)
 
-[Architecture](#architecture)
+[Architecture and Workflow](#architecture-and-workflow)
 
 [Getting started](#getting-started)
 
@@ -36,7 +36,7 @@ and an account on GitHub.com. You can find a tutorial on Git in this
 
 Please contact [HPE DEV Team](mailto:hpedev@hpe.com?subject=Support%20for%20contribution%20to%20HPE%20DEV%20Community) for more support.
 
-## Architecture
+## Architecture and Workflow
 
 <center><img src="media/HPEDEV-V2-Architecture-contributor.png" width="978" height="766"></center>
 
