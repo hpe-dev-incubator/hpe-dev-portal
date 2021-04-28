@@ -7,6 +7,8 @@
 
 [Introduction](#introduction)
 
+[Architecture](#architecture)
+
 [Getting started](#getting-started)
 
 [Contributing a new blog](#contributing-a-new-blog)
@@ -33,6 +35,10 @@ and an account on GitHub.com. You can find a tutorial on Git in this
 [3-part blog article](https://developer.hpe.com/blog/get-involved-in-the-open-source-community-part-1-getting-started-with-gi).
 
 Please contact [HPE DEV Team](mailto:hpedev@hpe.com?subject=Support%20for%20contribution%20to%20HPE%20DEV%20Community) for more support.
+
+## Architecture
+
+<center><img src="media/HPEDEV-V2-Architecture-contributor.png" width="978" height="766"></center>
 
 ## Getting started
 
