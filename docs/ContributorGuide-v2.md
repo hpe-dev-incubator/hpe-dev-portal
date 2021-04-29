@@ -7,7 +7,7 @@
 
 [Introduction](#introduction)
 
-[Contribution Workflow Process](#workflow-process)
+[Contribution Workflow Process](#contribution-workflow-process)
 
 [Getting started](#getting-started)
 
@@ -36,7 +36,7 @@ and an account on GitHub.com. You can find a tutorial on Git in this
 
 Please contact [HPE DEV Team](mailto:hpedev@hpe.com?subject=Support%20for%20contribution%20to%20HPE%20DEV%20Community) for more support.
 
-## Workflow Process
+## Contribution workflow process
 
 <center><img src="media/HPEDEV-V2-Architecture-contributor.png" width="978" height="766"></center>
 
