@@ -50,7 +50,7 @@ Netlify and AWS Amplify has been both configured to integrate with GitHub versio
 
 ## Getting started
 
-1.  Make sure you are connected to your personal GitHub account. If you
+1.  Make sure you are connected to **your personal GitHub account**. If you
     don't have an account, you can create one now [here](https://github.com/join).
 
 
