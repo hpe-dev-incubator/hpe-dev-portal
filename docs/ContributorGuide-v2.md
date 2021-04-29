@@ -1,13 +1,13 @@
 # HPE DEV External Contributor Guide
 **Version 2.0**
 
-28-Apr-2021
+29-Apr-2021
 
 ## Table of Contents
 
 [Introduction](#introduction)
 
-[Architecture and Workflow](#architecture-and-workflow)
+[Contribution Workflow Process](#workflow-process)
 
 [Getting started](#getting-started)
 
@@ -36,9 +36,15 @@ and an account on GitHub.com. You can find a tutorial on Git in this
 
 Please contact [HPE DEV Team](mailto:hpedev@hpe.com?subject=Support%20for%20contribution%20to%20HPE%20DEV%20Community) for more support.
 
-## Architecture and Workflow
+## Workflow Process
 
 <center><img src="media/HPEDEV-V2-Architecture-contributor.png" width="978" height="766"></center>
+
+HPE DEV portal is a static website built using an open-source frontend framework Gatsby JS and hosted on Netlify, AWS Amplify platforms with GitHub as a version control.
+   * AWS Amplify hosts the front end of the HPE DEV website. It provides the deploy previews for each commit to the GitHub repository.
+   * Netlify hosts the Content Management System (CMS) to edit the website content. It provides deploy previews for each Pull Request (PR) submitted by the external contributors that will be reviewed by the team.
+   * Netlify and AWS Amplify has been both configured to integrate with GitHub version control system to provide a continuous integration/continuous deployment (CI/CD) environment and deploy changes to the HPE DEV website whenever HPE DEV team merge a Pull Request submitted by a contributor.
+
 
 ## Getting started
 
