@@ -40,12 +40,12 @@ Please contact [HPE DEV Team](mailto:hpedev@hpe.com?subject=Support%20for%20cont
 
 <center><img src="media/HPEDEV-V2-Architecture-contributor.png" width="978" height="766"></center>
 
-HPE DEV portal is a static website built using an open-source frontend framework Gatsby JS and hosted on Netlify, AWS Amplify platforms with GitHub as a version control.
+HPE DEV portal is a static website built using an open-source frontend framework Gatsby JS and hosted on Netlify, AWS Amplify platforms with GitHub for version control and collaboration.
    * **[Gatsby](https://www.gatsbyjs.com/)** is an open source framework based on [ReactJS](https://reactjs.org/) that helps developers quickly build websites and apps.
    * **[AWS Amplify](https://aws.amazon.com/amplify/)** (_a web hosting infrastructure and a framework plaform for building secure and scalable web applications_) hosts the front end of the HPE DEV website. It provides the deploy previews for each commit to the GitHub repository.
    * **[Netlify](https://www.netlify.com/)** (_a web developer platform and web hosting infrastructure_) hosts the Content Management System (CMS) to edit the website content. It provides deploy previews for each Pull Request (PR) submitted by the external contributors that will be reviewed by the team.
 
-Netlify and AWS Amplify has been both configured to integrate with GitHub version control system to provide a continuous integration/continuous deployment (CI/CD) environment and deploy changes to the HPE DEV website whenever HPE DEV team merge a Pull Request submitted by a contributor.
+Netlify and AWS Amplify has been both configured to integrate with GitHub version control system to provide a continuous integration/continuous deployment (CI/CD) environment and deploy changes to the HPE DEV website whenever HPE DEV team merges a Pull Request submitted by a contributor.
 
 
 ## Getting started
