@@ -58,8 +58,9 @@ Netlify and AWS Amplify has been both configured to integrate with GitHub versio
 
 <center><img src="media/guide-login-with-Github.png" width="600" height="300"></center>
 
+3. If you are prompted to authorize the "HPE DEV Portal" from MikeLingdom, please "Authorize" 
 
-3.  Select **Fork the repo** to initiate a copy of the HPE DEV Web CMS
+4.  Select **Fork the repo** to initiate a copy of the HPE DEV Web CMS
     into your own GitHub account. (In GitHub, this will appear as a new
     repository: ***yourAccountname/hpe-dev-portal***). This private copy of
     the repository is going to be used to make your changes to the web
@@ -68,12 +69,12 @@ Netlify and AWS Amplify has been both configured to integrate with GitHub versio
 <center><img src="media/guide-fork-repo.png" width="600" height="363"></center>
 
 
-4.  You can view this forked repo in your repository list of your GitHub account.
+5.  You can view this forked repo in your repository list of your GitHub account.
 
 <center><img src="media/guide-forked-repo-in-your-GitHub.png" width="800" height="185"></center>
 
 
-5.  In CMS, you are now working with your own copy of the HPE
+6.  In CMS, you are now working with your own copy of the HPE
     DEV CMS, and you get presented with a **Contents** menu that allows
     to change all sections of the web site. This guide, however, only covers
     changes to the **Blog**, **Platforms** and **Events** sections.
