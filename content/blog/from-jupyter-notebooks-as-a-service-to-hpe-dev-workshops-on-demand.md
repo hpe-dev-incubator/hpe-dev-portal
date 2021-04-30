@@ -2,7 +2,8 @@
 title: From Jupyter Notebooks-as-a-Service to HPE DEV Workshops-on-Demand
 date: 2021-04-09T08:38:05.746Z
 author: Frederic Passeron
-authorimage: /img/Avatar1.svg
+authorimage: https://s.gravatar.com/avatar/3397fa0097e38d890aac69b996879a4e?s=80
+thumbnailimage: https://s.gravatar.com/avatar/3397fa0097e38d890aac69b996879a4e?s=80
 tags:
   - jupyter
   - notebooks
