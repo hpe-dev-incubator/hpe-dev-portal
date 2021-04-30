@@ -393,10 +393,11 @@ To do so, proceed as follows:
     >**Note:** We recommend to use "**Header 2**" for your primary heading, then Header 3 for subsequent heading, etc.
 
 -   **Hotlink:**
-    * To hotlink a piece of text, 
-    * you can also toggle to **Markdown** mode, and use a a combination of square and round brackets as shown below:
+    * To hotlink a piece of text, you can use the **Rich Text** mode, select the text you want to hotlink and click the `Link` icon on the editor menu (BODY section) and specify the URL.
     
-         \[Piece-of-text-to-hotlink](Link-URL)\
+    * You can also toggle to **Markdown** mode, and use a a combination of square and round brackets as shown below:
+    
+         \[Piece-of-text-to-hotlink](Link-URL)
           
     >**Note:** For hotlink to be opened in a new tab in the reader's browser, we are still looking for a solution for the CMS editor)
     
