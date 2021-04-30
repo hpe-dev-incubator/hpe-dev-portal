@@ -418,7 +418,7 @@ To do so, proceed as follows:
 
     >**Note:** Make sure to insert a line break before and after the horizontal separator.
 
--   Code block snippet:
+-   Code block snippet: You can use **Rich Text** mode (Select **+** to add an Code Block component) or **Markdown** mode to include code block snippets in your blog post.
 
     -   Make sure to always specified a syntax language (for example: ***\`\`\`yaml***)
 
@@ -493,5 +493,9 @@ If appropriate, use a tag to tie your blog post to a "platform" page on HPE DEV 
   
                                       
 
--   For hotlink to be opened in a new tab in the reader's browser, we are still looking for a solution for the CMS editor)
+-   **Hotlink**
+    * To hotlink a piece of text, you must toggle to **Markdown** mode, and use the syntax below:
+          [Piece-of-text-to-hotlink](Link-URL)
+          
+    * For hotlink to be opened in a new tab in the reader's browser, we are still looking for a solution for the CMS editor)
     
