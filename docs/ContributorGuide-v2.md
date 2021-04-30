@@ -393,10 +393,11 @@ To do so, proceed as follows:
     >**Note:** We recommend to use "**Header 2**" for your primary heading, then Header 3 for subsequent heading, etc.
 
 -   **Hotlink:**
-    * To hotlink a piece of text, you must toggle to **Markdown** mode, and use the syntax below:
+    * To hotlink a piece of text, 
+    * you can also toggle to **Markdown** mode, and use a a combination of square and round brackets as shown below:
           [Piece-of-text-to-hotlink](Link-URL)
           
-    * For hotlink to be opened in a new tab in the reader's browser, we are still looking for a solution for the CMS editor)
+    >**Note:** For hotlink to be opened in a new tab in the reader's browser, we are still looking for a solution for the CMS editor)
     
 -   **Insert an image in a blog post:**
 
