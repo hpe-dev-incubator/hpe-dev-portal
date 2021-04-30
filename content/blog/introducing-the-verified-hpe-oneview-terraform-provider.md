@@ -2,7 +2,7 @@
 title: Introducing the Verified HPE OneView Terraform Provider
 date: 2021-04-30T15:17:01.125Z
 featuredBlog: false
-author: Chrisyopher Pasek
+author: Christopher Pasek
 authorimage: /img/Avatar6.svg
 tags:
   - hpe-oneview
