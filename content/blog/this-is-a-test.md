@@ -4,7 +4,7 @@ date: 2021-04-30T15:18:22.448Z
 featuredBlog: true
 priority: 1
 author: Michael Mattsson
-authorimage: https://www.gravatar.com/avatar/43a7c5fd80200bfcd115e6bf6a58ec88.jpg?s=96
+authorimage: https://www.gravatar.com/avatar/43a7c5fd80200bfcd115e6bf6a58ec88.jpg?s=216
 thumbnailimage: /img/dunecase.png
 tags:
   - MyTag
