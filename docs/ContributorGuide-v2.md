@@ -424,11 +424,15 @@ To do so, proceed as follows:
 
     -   **Method 2:** Using your PC/Laptop, change image size using you preferred image editor (i.e.: Paint). Toggle to **Rich Text** mode and upload/select the resized image.
  
--   Horizontal separator: toggle to **Markdown** mode and use the "- - -" (without the quotation mark).
+-   **Inserting Horizontal separator:**
+
+    Toggle to **Markdown** mode and use the "- - -" (without the quotation mark).
 
     >**Note:** Make sure to insert a line break before and after the horizontal separator.
 
--   Code block snippet: You can use **Rich Text** mode (Select **+** to add an Code Block component) or **Markdown** mode to include code block snippets in your blog post.
+-   **Inserting Code block snippet:** 
+
+    You can use **Rich Text** mode (Select **+** to add an Code Block component) or **Markdown** mode to include code block snippets in your blog post.
 
     -   Make sure to always specified a syntax language (for example: ***\`\`\`yaml***)
 
