@@ -367,9 +367,9 @@ To do so, proceed as follows:
     pandoc -f docx -t markdown mydoc.docx -o mymarkdown.md
     ```
 
--   **Author image**
+-   **Author image:**
     
-    - Size: **96 x 96** or use Gravatar picture URL as explained here:
+    - When creating or editing a blog post, in AUTHOR IMAGE section, you can **Choose an image** and upload an image of size: **96 x 96** or you can insert a Gravatar picture URL (**Insert from URL**). To create a Gravatar URL proceed as follows:
 
         - Using your gravatar as an author picture
 
@@ -385,6 +385,7 @@ To do so, proceed as follows:
          - Use this URL from now on as your picture in the CMS (and elsewhere)
 
 -   **Headings:**
+
     Select **H** in the "Rich Text" menu bar and select the
     heading level. To clear a Heading, select the text, click **H** in
     the menu bar, and click the Heading level previously selected.
