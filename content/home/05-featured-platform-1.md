@@ -1,12 +1,12 @@
 ---
-title: HPE Ezmeral Data Fabric
-width: medium
+title: SPIFFE and SPIRE Projects
 category: Featured Platform
 priority: 5
-image: /img/platforms/EzmeralDataFabric.svg
-link: /platform/hpe-ezmeral-data-fabric/home/
+width: medium
+link: /platform/spiffe-and-spire-projects/home/
+image: /img/spiffeandspire.svg
 ---
-## HPE Ezmeral Data Fabric
+## SPIFFE and SPIRE Projects
 
-The HPE Ezmeral Data Fabric enables you to run the right application at the right time in the right place on the right data.
+Hewlett Packard Enterprise (HPE) is the leading contributor to Cloud Native Computing Foundation’s (CNCF) SPIFFE and SPIRE open source projects.
 

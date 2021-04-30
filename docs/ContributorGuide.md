@@ -257,7 +257,33 @@ height="2.9208333333333334in"}
 
 ## Adding an Event
 
-TBD
+It is possible to add a card to communicate about an important external event you are contributing to. This will be visible on https://developer.hpe.com/events.
+To do so:
+1. From the CMS select Content, then Events and press New event
+2. Make sure to set: 
+ - Name of the event
+ - Start and end date (used by the platform to order and handle upcoming/past status)
+ - Type of event (Physical or virtual)
+ - A picture for the event (uploaded picture or URL)
+ - Leave card size to large
+ - A URL to navigate to register or find out more about the event
+ - The content of the card for the event using the following guidelines:
+   - Title
+   - Subtitle
+   - Date
+   - Description
+3.  When ready **Save** your changes.
+4.  In the editor, after a few minutes, notice the **Check for Preview**
+    at the top right which turned into **View Preview**. Click **View
+    Preview** to open a preview of the web site and validate your
+    changes. Click **Check for Preview** to refresh.
+5.  Leave the editor using the **Changes Saved** option.
+6.  Select the Editorial Workflow view using **Workflow** from the menu
+    bar. The platform page is now in the **Drafts** column. When ready
+    drag/drop entry to the **In Review** column.
+7.  A Pull Request (PR) was automatically opened on the HPE DEV team's
+    GitHub repository, with the changes you are proposing. We will
+    review and get in touch with you shortly.
 
 ## Tips and trick using the CMS Editor
 
