@@ -367,28 +367,37 @@ To do so, proceed as follows:
     pandoc -f docx -t markdown mydoc.docx -o mymarkdown.md
     ```
 
--   Author image size: **96 x 96** or use Gravatar picture URL as explained here:
+-   **Author image**
+    
+    - Size: **96 x 96** or use Gravatar picture URL as explained here:
 
-    - Using your gravatar as an author picture
+        - Using your gravatar as an author picture
 
-       - Use your email to set up your gravatar account (<https://gravatar.com>)
+          - Use your email to set up your gravatar account (<https://gravatar.com>)
 
-      - Compute your email MD5 hash by entering your email in <https://www.md5hashgenerator.com/>
+          - Compute your email MD5 hash by entering your email in <https://www.md5hashgenerator.com/>
 
-      - Check that your picture is reachable with:
+          - Check that your picture is reachable with:
         [https://gravatar.com/avatar/\<YourHash\>?s=96](https://gravatar.com/avatar/%3cYourHash%3e?s=96)
         for example:
         [https://gravatar.com/avatar/7dd708edf1c50d4c45da80f60e3643e7**?s=96**](https://gravatar.com/avatar/7dd708edf1c50d4c45da80f60e3643e7?s=96)
 
-      - Use this URL from now on as your picture in the CMS (and elsewhere)
+         - Use this URL from now on as your picture in the CMS (and elsewhere)
 
--   Headings: Select **H** in the "Rich Text" menu bar and select the
+-   **Headings:**
+    Select **H** in the "Rich Text" menu bar and select the
     heading level. To clear a Heading, select the text, click **H** in
     the menu bar, and click the Heading level previously selected.
 
     >**Note:** We recommend to use "**Header 2**" for your primary heading, then Header 3 for subsequent heading, etc.
 
--   Insert an image in a blog post:
+-   **Hotlink:**
+    * To hotlink a piece of text, you must toggle to **Markdown** mode, and use the syntax below:
+          [Piece-of-text-to-hotlink](Link-URL)
+          
+    * For hotlink to be opened in a new tab in the reader's browser, we are still looking for a solution for the CMS editor)
+    
+-   **Insert an image in a blog post:**
 
     Small resolution image is recommended (i.e.: width: 800px)
 
@@ -400,7 +409,7 @@ To do so, proceed as follows:
 
     -  On the top right of the wizard, click **Upload** to upload the image stored on your PC/laptop and select image you have just uploaded by clicking **Choose selected**. 
 
--   Adjusting image size and its position:
+-   **Adjusting image size and its position:**
 
     -   **Method 1 (recommended):** Use HTML code to set the size (height, width) for your image. First, toggle to **Rich Text** mode to insert your image. Then toggle to **Markdown** mode to obtain the relative path for your image (in the form: */img/myimage.png*) and and insert the HTML syntax below:
 
@@ -424,7 +433,7 @@ To do so, proceed as follows:
 
     -   Make sure to insert a line break before and after a code block snippet
 
--   List items/sub-list items:
+-   **Inserting List items/sub-list items:**
     To deal with item list, it is recommended to toggle to **Markdown** mode in the editor and use the syntax below for creating item lists and sub-item lists:
     
     >**Note:** Only a certain level of bulleting is supported; i.e. you can't do 1a, 1b, etc.
@@ -491,11 +500,3 @@ If appropriate, use a tag to tie your blog post to a "platform" page on HPE DEV 
   |**HPE SimpliVity**                  | hpe-simplivity |
   | **iLORESTful API**                 | ilo-restful-api |
   
-                                      
-
--   **Hotlink**
-    * To hotlink a piece of text, you must toggle to **Markdown** mode, and use the syntax below:
-          [Piece-of-text-to-hotlink](Link-URL)
-          
-    * For hotlink to be opened in a new tab in the reader's browser, we are still looking for a solution for the CMS editor)
-    
