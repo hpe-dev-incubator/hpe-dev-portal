@@ -1,0 +1,44 @@
+.upload-container {
+  display: block;
+  width: 100%;
+  padding: 16px 20px;
+  margin: 0px;
+  border: 2px solid rgb(223, 223, 227);
+  border-radius: 0px 5px 5px;
+  outline: 0px;
+  box-shadow: none;
+  background-color: rgb(255, 255, 255);
+  color: rgb(68, 74, 87);
+  transition: border-color 0.2s ease 0s;
+  position: relative;
+  font-size: 15px;
+  line-height: 1.5;
+  margin: auto;
+  display: block;
+}
+
+.success {
+  color: #01A982;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  padding-top: 1rem;
+}
+
+.remove {
+  margin-right: .2rem;
+}
+
+.upload {
+  margin-left: .2rem;
+}
+
+.uploaded-image {
+  width:200px;
+  height: auto;
+  margin: auto;
+  display: block;
+  padding-top: 1rem;
+}

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import axios from 'axios';
 
 export default class ImageUploadControl extends Component {
@@ -6,59 +7,127 @@ export default class ImageUploadControl extends Component {
     super(props);
 
     this.state = {
-      selectedFile: null,
+      selectedImage: null,
+      uploadStatus: '',
     };
-    this.onFileChange = this.onFileChange.bind(this);
-    this.onFileUpload = this.onFileUpload.bind(this);
+
+    this.inputRef = React.createRef();
+    this.onImageChange = this.onImageChange.bind(this);
+    this.onImageUpload = this.onImageUpload.bind(this);
+    this.onImageRemove = this.onImageRemove.bind(this);
   }
 
-  onFileChange(event) {
-    const MAX_IMAGE_SIZE = 1000000;
-    const reader = new FileReader();
-    reader.onload = (e) => {
-      console.log('length: ', e.target.result.includes('data:image/jpeg'));
-      if (!e.target.result.includes('data:image/jpeg')) {
-        return alert('Wrong file type - JPG only.');
-      }
-      if (e.target.result.length > MAX_IMAGE_SIZE) {
-        return alert('Image is loo large - 1Mb maximum');
-      }
-      this.setState({ selectedFile: e.target.result });
-    };
-    reader.readAsDataURL(event.target.files[0]);
-  }
+  onImageChange(event) {
+    if (this.inputRef.current.value.length === 0) {
+      this.setState({ selectedImage: null });
+    } else {
+      const MAX_IMAGE_SIZE = 1000000;
+      const reader = new FileReader();
+      this.setState({ uploadStatus: '' });
+      reader.onload = (e) => {
+        if (e.target.result.length > MAX_IMAGE_SIZE) {
+          this.setState({ uploadStatus: 'Image is loo large - 1Mb maximum' });
+          return;
+        }
 
-  async onFileUpload() {
-    console.log('Upload clicked');
-    const response = await axios({
-      method: 'GET',
-      url:
-        'https://dbfqlf8cvh.execute-api.us-west-1.amazonaws.com/default/getPresignedURL',
-    });
-    console.log('Response: ', response.data);
-    const binary = atob(this.state.selectedFile.split(',')[1]);
-    const array = [];
-    for (let i = 0; i < binary.length; i++) {
-      array.push(binary.charCodeAt(i));
+        if (
+          !e.target.result.includes('data:image/jpeg') &&
+          !e.target.result.includes('data:image/png')
+        ) {
+          this.setState({
+            uploadStatus: 'Wrong file type - JPG and PNG only.',
+          });
+          return;
+        }
+
+        this.setState({ selectedImage: e.target.result });
+      };
+      reader.readAsDataURL(event.target.files[0]);
     }
-    const blobData = new Blob([new Uint8Array(array)], { type: 'image/jpeg' });
-    console.log('Uploading to: ', response.data.uploadURL);
-    const result = await fetch(response.data.uploadURL, {
-      method: 'PUT',
-      body: blobData,
+  }
+
+  onImageRemove() {
+    this.setState({
+      selectedImage: null,
+      uploadStatus: '',
     });
-    console.log('Result: ', result);
+    this.inputRef.current.value = null;
+    this.props.onChange('');
+  }
+
+  async onImageUpload() {
+    const { selectedImage } = this.state;
+    const API_ENDPOINT = process.env.GATSBY_PRESIGNED_API_ENDPOINT;
+    const contentType = selectedImage.substring(5, selectedImage.indexOf(';'));
+    try {
+      const response = await axios.post(API_ENDPOINT, {
+        contentType,
+      });
+
+      const binary = atob(selectedImage.split(',')[1]);
+      const array = [];
+      for (let i = 0; i < binary.length; i += 1) {
+        array.push(binary.charCodeAt(i));
+      }
+      const blobData = new Blob([new Uint8Array(array)], { type: contentType });
+
+      try {
+        await fetch(response.data.uploadURL, {
+          method: 'PUT',
+          body: blobData,
+        });
+        const responseUploadedImageURL = response.data.uploadURL.split('?')[0];
+        this.setState({ uploadStatus: 'Image successfully loaded!' });
+        this.props.onChange(responseUploadedImageURL);
+      } catch (err) {
+        this.setState({
+          uploadStatus: 'Error loading image. Please try again.',
+        });
+      }
+    } catch (err) {
+      console.log('err: ', err);
+    }
   }
 
   render() {
+    const { selectedImage, uploadStatus } = this.state;
     return (
-      <div>
-        <input type="file" onChange={this.onFileChange} />
-        <button onClick={this.onFileUpload} type="submit">
-          Upload
-        </button>
-        <img src={this.state.selectedFile} alt="uploaded" />
+      <div className="upload-container">
+        {uploadStatus && (
+          <h3 className={uploadStatus.includes('Error') ? 'error' : 'success'}>
+            {uploadStatus}
+          </h3>
+        )}
+        <input type="file" onChange={this.onImageChange} ref={this.inputRef} />
+        <img
+          className="uploaded-image"
+          src={selectedImage || this.props.value}
+          alt="selected-upload"
+        />
+        {selectedImage && (
+          <div className="btn-container">
+            <button
+              className="remove"
+              type="button"
+              onClick={this.onImageRemove}
+            >
+              Remove Image
+            </button>
+            <button
+              className="upload"
+              type="button"
+              onClick={this.onImageUpload}
+            >
+              Upload Image
+            </button>
+          </div>
+        )}
       </div>
     );
   }
 }
+
+ImageUploadControl.propTypes = {
+  onChange: PropTypes.string,
+  value: PropTypes.string,
+};
