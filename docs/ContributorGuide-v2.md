@@ -432,7 +432,7 @@ To do so, proceed as follows:
 
 -   **Inserting Code block snippet:** 
 
-    You can use **Rich Text** mode (Select **+** to add an Code Block component) or **Markdown** mode to include code block snippets in your blog post.
+    You can use **Rich Text** mode (Select **+** to add a Code Block component) or use **Markdown** mode by placing triple backticks **\`\`\`** before and after the code block to include code block snippets in your blog post.
 
     -   Make sure to always specified a syntax language (for example: ***\`\`\`yaml***)
 
