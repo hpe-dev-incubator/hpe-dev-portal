@@ -395,7 +395,8 @@ To do so, proceed as follows:
 -   **Hotlink:**
     * To hotlink a piece of text, 
     * you can also toggle to **Markdown** mode, and use a a combination of square and round brackets as shown below:
-          [Piece-of-text-to-hotlink](Link-URL)
+    
+         \[Piece-of-text-to-hotlink](Link-URL)\
           
     >**Note:** For hotlink to be opened in a new tab in the reader's browser, we are still looking for a solution for the CMS editor)
     
