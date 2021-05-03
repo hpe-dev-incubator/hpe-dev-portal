@@ -1,12 +1,17 @@
 ---
-title: "Introducing the HPE GL20 IoT Gateway"
+title: Introducing the HPE GL20 IoT Gateway
 date: 2021-01-12T10:36:54.822Z
-author: Cenz Wong 
-tags: ["gl20","iot","gateway","sensor","edge"]
-authorimage: "/img/blogs/Avatar4.svg"
 featuredBlog: false
-priority:
-thumbnailimage:
+priority: null
+author: Cenz Wong
+authorimage: /img/blogs/Avatar4.svg
+thumbnailimage: null
+tags:
+  - gl20
+  - iot
+  - gateway
+  - sensor
+  - edge
 ---
 <img src="https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/12/h4-1610447678726.jpg" width="80%" height="80%"/>  
    
@@ -19,6 +24,7 @@ In this post, I would like to focus on the DIO capability and demonstrate how to
 •	[GitHub - helloezmeral/HPE-GL20-gRPC](https://github.com/helloezmeral/HPE-GL20-gRPC)
      
 The first repository contains information used for controlling input/output pins using Python directly, and the second repository is about wrapping the code into a gRPC service and preparing a docker image for developers to access DIO on the HPE GL20 easily.
+
 >**Note:** gRPC is a high-performance, open source universal RPC framework. This open source remote procedure call system was initially developed at Google in 2015.  
 
 Here we go. Let’s have some fun! 
