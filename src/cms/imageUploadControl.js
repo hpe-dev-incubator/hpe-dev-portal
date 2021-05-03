@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
-
 export default class ImageUploadControl extends Component {
   constructor(props) {
     super(props);
@@ -92,29 +91,68 @@ export default class ImageUploadControl extends Component {
   render() {
     const { selectedImage, uploadStatus } = this.state;
     return (
-      <div className="upload-container">
+      <div
+        style={{
+          width: '100%',
+          padding: '16px 20px',
+          border: '2px solid rgb(223, 223, 227)',
+          borderRadius: '0px 5px 5px',
+          outline: '0px',
+          boxShadow: 'none',
+          backgroundColor: 'rgb(255, 255, 255)',
+          color: 'rgb(68, 74, 87)',
+          transition: 'border-color 0.2s ease 0s',
+          position: 'relative',
+          fontSize: '15px',
+          lineHeight: '1.5',
+          margin: 'auto',
+          display: 'block',
+        }}
+      >
         {uploadStatus && (
-          <h3 className={uploadStatus.includes('Error') ? 'error' : 'success'}>
+          <h3
+            style={
+              uploadStatus.includes('Error')
+                ? { color: '#C54E4B' }
+                : { color: '#01A982' }
+            }
+          >
             {uploadStatus}
           </h3>
         )}
         <input type="file" onChange={this.onImageChange} ref={this.inputRef} />
         <img
-          className="uploaded-image"
+          style={{
+            width: '200px',
+            height: 'auto',
+            margin: 'auto',
+            display: 'block',
+            paddingTop: '1rem',
+          }}
           src={selectedImage || this.props.value}
-          alt="selected-upload"
+          alt=""
         />
         {selectedImage && (
-          <div className="btn-container">
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              paddingTop: '1rem',
+            }}
+          >
             <button
-              className="remove"
+              style={{
+                marginRight: '.2rem',
+              }}
               type="button"
               onClick={this.onImageRemove}
             >
               Remove Image
             </button>
             <button
-              className="upload"
+              style={{
+                marginLeft: '.2rem',
+              }}
               type="button"
               onClick={this.onImageUpload}
             >
