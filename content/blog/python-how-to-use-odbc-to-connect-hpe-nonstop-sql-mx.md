@@ -36,13 +36,13 @@ C:\>
 
 Next, install pip (PIP is the python package manager that we will be using). Download [get-pip.py](https://bootstrap.pypa.io/get-pip.py) on your laptop. Navigate to the folder of the file and run the following command.
 
-```
+```markdown
 C:\Downloads> python get-pip.py
 ```
 
 Once it’s complete, check if pip has been installed by running the following command in Windows.
 
-```
+```markdown
 C:\> py -m pip --version
 pip 20.3.1 from C:\Miniconda3\lib\site-packages\pip (python 3.9)
 C:\> 
