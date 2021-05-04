@@ -28,7 +28,7 @@ Let’s get started!
 
 First, [download Python,](https://www.python.org/downloads/) if you have not done so. You can check if your machine already has python by running the command below in the command prompt on Windows. You should get Python with its version number if it has been installed properly.
 
-```
+```markdown
 C:\> python --version
 Python 3.9.0
 C:\>
