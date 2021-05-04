@@ -32,7 +32,7 @@ This guide is intended for anyone interested in contributing to the [HPE
 DEV Community](https://hpedev.io). The document covers how to
 contribute a new blog or how to update a platform page.
 
-A recording of the training session delivered on April 30, 2021 is available [here](https://vimeo.com/544486602). 
+**Note:** A recording of the training session delivered on April 30, 2021 is available [here](https://vimeo.com/544486602). 
 
 The process described in this guide requires minimum familiarity with Git
 and an account on GitHub.com. You can find a tutorial on Git in this
