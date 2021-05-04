@@ -4,6 +4,11 @@ date: 2021-05-04T06:27:49.069Z
 featuredBlog: true
 author: Shanice Abigail
 authorimage: /img/Avatar6.svg
+tags:
+  - python
+  - nonstop
+  - sqlmx
+  - odbc
 ---
 <!--StartFragment-->
 
@@ -24,19 +29,23 @@ Let’s get started!
 First, [download Python,](https://www.python.org/downloads/) if you have not done so. You can check if your machine already has python by running the command below in the command prompt on Windows. You should get Python with its version number if it has been installed properly.
 
 ```
-
+C:\> python --version
+Python 3.9.0
+C:\>
 ```
 
 Next, install pip (PIP is the python package manager that we will be using). Download [get-pip.py](https://bootstrap.pypa.io/get-pip.py) on your laptop. Navigate to the folder of the file and run the following command.
 
 ```
-
+C:\Downloads> python get-pip.py
 ```
 
 Once it’s complete, check if pip has been installed by running the following command in Windows.
 
 ```
-
+C:\> py -m pip --version
+pip 20.3.1 from C:\Miniconda3\lib\site-packages\pip (python 3.9)
+C:\> 
 ```
 
 ## Installing pyodbc
@@ -48,7 +57,7 @@ You can read more about pyodbc at its [Github wiki page](https://github.com/mkl
 You can install pyodbc using pip.
 
 ```
-
+C:\> pip install pyodbc
 ```
 
 ## Configuring your ODBC
@@ -58,55 +67,41 @@ In order for pyodbc to recognize ODBC driver and data source to use, it will che
 1. Search and open the ODBC Data Source Administrator on your machine.
 2. Select “Add” button to create a new data source.
 
-![](https://miro.medium.com/max/60/1*PWpQ3yfwfB08ITElY9IHRQ.png?q=20)
-
 ![](https://miro.medium.com/max/594/1*PWpQ3yfwfB08ITElY9IHRQ.png)
 
-ODBC Data Source Administrator
+### ODBC Data Source Administrator
 
 3. Select the NonStop(TM) ODBCMX 3.x Unicode driver, and click “Finish”.
 
-![](https://miro.medium.com/max/60/1*szndbmikgi2p78kw_gP8dA.png?q=20)
 
-![](https://miro.medium.com/max/464/1*szndbmikgi2p78kw_gP8dA.png)
 
-ODBC Data Source Administrator — Create New Data Source
+### ODBC Data Source Administrator — Create New Data Source
 
 4. A new window should pop up. Write a Data Source Name for this data source that you want to connect to — The data source names **must match** between those defined to MXCS on the database server, and the client PCs, otherwise the connection will **FAIL.**
 
-![](https://miro.medium.com/max/60/1*n48eArrYZ1moeC432v2gZg.png?q=20)
-
 ![](https://miro.medium.com/max/563/1*n48eArrYZ1moeC432v2gZg.png)
 
-Data Source Name and Description
+### Data Source Name and Description
 
 5. Insert the IP address of the NonStop SQL/MX, as well as the port number that has been opened up for connections.
 
-![](https://miro.medium.com/max/60/1*4FWFtcvDezDej8zjf90jhg.png?q=20)
-
 ![](https://miro.medium.com/max/564/1*4FWFtcvDezDej8zjf90jhg.png)
 
-IP address and Port number
+### IP address and Port number
 
 6. Insert the catalog and schema that you’re intending to connect to.
 
-![](https://miro.medium.com/max/60/1*EPl5NDJsUHZJd6PI-U4eRA.png?q=20)
-
 ![](https://miro.medium.com/max/564/1*EPl5NDJsUHZJd6PI-U4eRA.png)
 
-Catalog and Schema
+### Catalog and Schema
 
 7. Leave the “Translate DLL” portion (DLL Name and Option), and the Localization (Replacement Character) blank for now.
 
-![](https://miro.medium.com/max/60/1*7BZPU6fI38qaTcXR6IrIag.png?q=20)
-
 ![](https://miro.medium.com/max/564/1*7BZPU6fI38qaTcXR6IrIag.png)
 
-Leave blank
+### Leave blank
 
 8. We will not be doing any tracing in this data source so leave the settings as the default, and click finish.
-
-![](https://miro.medium.com/max/60/1*DtYFoVsOh4fTpAHwG1n01w.png?q=20)
 
 ![](https://miro.medium.com/max/564/1*DtYFoVsOh4fTpAHwG1n01w.png)
 
@@ -128,8 +123,12 @@ Finally, set the decoding and encoding parameters for the connection which are d
 
 This is what you should have so far.
 
-```
-
+```python
+import pyodbc 
+conn = pyodbc.connect('DSN=[DATA SOURCE NAME];UID=[USER];PWD=[PASSWORD]') 
+conn.setdecoding(pyodbc.SQL_CHAR, encoding='iso-8859-1')
+conn.setdecoding(pyodbc.SQL_WCHAR, encoding='iso-8859-1')
+conn.setencoding(encoding='iso-8859-1') 
 ```
 
 ## Now onto executing an SQL query in the database.
