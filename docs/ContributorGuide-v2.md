@@ -3,7 +3,9 @@
 
 >**Note:** A recording of the training session delivered on April 30, 2021 is available [here](https://vimeo.com/544486602). 
 
-29-Apr-2021
+>**IMPORTANT Note:** We are currently working on determining the best way to provide review feedback to blog post authors. Please bear with us as we try to figure this out.
+
+6-May-2021
 
 ## Table of Contents
 
@@ -57,14 +59,15 @@ Netlify and AWS Amplify has been both configured to integrate with GitHub versio
 1.  Make sure you are connected to **your personal GitHub account**. If you
     don't have an account, you can create one now [here](https://github.com/join).
 
+2. A Google account to use Google Docs is recommended. Google Docs seems to be a good way to provide review feedback to authors.  
 
-2.  Open the [HPE DEV Content Management System (CMS)](https://developer.hpe.com/admin) and select **login with GitHub**. 
+3.  Open the [HPE DEV Content Management System (CMS)](https://developer.hpe.com/admin) and select **login with GitHub**. 
 
 <center><img src="media/guide-login-with-Github.png" width="600" height="300"></center>
 
-3. If you are prompted to authorize the "HPE DEV Portal" from MikeKingdom, please "Authorize" 
+4. If you are prompted to authorize the "HPE DEV Portal" from MikeKingdom, please "Authorize" 
 
-4.  Select **Fork the repo** to initiate a copy of the HPE DEV Web CMS
+5.  Select **Fork the repo** to initiate a copy of the HPE DEV Web CMS
     into your own GitHub account. (In GitHub, this will appear as a new
     repository: ***yourAccountname/hpe-dev-portal***). This private copy of
     the repository is going to be used to make your changes to the web
@@ -73,12 +76,12 @@ Netlify and AWS Amplify has been both configured to integrate with GitHub versio
 <center><img src="media/guide-fork-repo.png" width="600" height="363"></center>
 
 
-5.  You can view this forked repo in your repository list of your GitHub account.
+6.  You can view this forked repo in your repository list of your GitHub account.
 
 <center><img src="media/guide-forked-repo-in-your-GitHub.png" width="800" height="185"></center>
 
 
-6.  In CMS, you are now working with your own copy of the HPE
+7.  In CMS, you are now working with your own copy of the HPE
     DEV CMS, and you get presented with a **Contents** menu that allows
     to change all sections of the web site. This guide, however, only covers
     changes to the **Blog**, **Platforms** and **Events** sections.
