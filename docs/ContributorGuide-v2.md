@@ -1,11 +1,9 @@
 # HPE DEV External Contributor Guide
-**Version 2.0**
+**Version 2.0** - 6-May-2021
 
 >**Note:** A recording of the training session delivered on April 30, 2021 is available [here](https://vimeo.com/544486602). 
 
 >**IMPORTANT Note:** We are currently working on determining the best way to provide review feedback to blog post authors. Please bear with us as we try to figure this out.
-
-6-May-2021
 
 ## Table of Contents
 
