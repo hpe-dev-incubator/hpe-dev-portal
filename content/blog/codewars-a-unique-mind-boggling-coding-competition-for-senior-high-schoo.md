@@ -3,7 +3,7 @@ title: "CodeWars, A Unique, Mind Boggling Coding Competition for Senior High Sch
 date: 2019-08-21T22:29:46.519Z
 author: Uzma Syeda 
 tags: ["HPECodeWars","CodeWars2019","Hackathon"]
-authorimage: "/img/blogs/Avatar2.svg"
+authorimage: "/img/blogs/Avatar3.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

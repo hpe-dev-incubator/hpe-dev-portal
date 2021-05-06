@@ -2,15 +2,39 @@
 title: "Simplivity"
 version: v 6.01.8964
 description:
-image: 
+image: /img/simplivity.jpg
 frontpage: false
 priority: 2
 tags: ["hpe-simplivity"]
 ---
+
 What's new in each version
 ==========================
 
 The following sections list the features added in each version of the HPE OmniStack REST API.
+
+Version 1.16 (released with HPE OmniStack 4.1.0)
+------------------------------------------------
+
+Version 1.16 of the REST API added the following new features:
+
++ The `connected_clusters` field for `GET omnistack_clusters` has been deprecated. Use the REST call  `GET  /api/omnistack_clusters/{clusterid}/connected_clusters` instead. 
++ You can now set the IWO status for an HPE OmniStack cluster.
++ You can now create and identify single_replica datastores.
+
+Version 1.15 (released with HPE OmniStack 4.0.1)
+------------------------------------------------
+
+Version 1.15 of the REST API added the following new features:
++ You can now update credentials for external stores and unregister external stores from a cluster.
++ The `availability_zone_effective` and `availability_zone_planned` properties were added to the `omnistack_hosts` object. 
++ The REST call `GET  /api/omnistack_clusters/throughput` has been deprecated. Use the replacement REST call `GET  /api/omnistack_clusters/{clusterId}/throughput` instead.
+
+Version 1.14 (released with HPE OmniStack 4.0.0)
+------------------------------------------------
+Version 1.14 of the REST API added the following new features:
++ You can now backup to an external store and restore a backup from an external store by creating a new virtual machine.   
++ The `arbiter_required` and `arbiter_configured` properties were added to the `omnistack_clusters` object.
 
 Version 1.13 (released with HPE OmniStack 3.7.10)
 -------------------------------------------------

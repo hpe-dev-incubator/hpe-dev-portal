@@ -3,7 +3,7 @@ title: "Celebrate the beginning of DevOps"
 date: 2019-08-08T16:30:30.933Z
 author: Didier Lalli 
 tags: ["DevOps","DevOpsDays","devopsdays-ghent-2019"]
-authorimage: "/img/blogs/Avatar6.svg"
+authorimage: "/img/blogs/Avatar3.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

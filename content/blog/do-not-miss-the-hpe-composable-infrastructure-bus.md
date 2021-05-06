@@ -3,7 +3,7 @@ title: "Do not miss the HPE Composable Infrastructure Bus"
 date: 2017-09-07T18:09:49.496Z
 author: Didier Lalli 
 tags: ["HPE-OneView","OneView"]
-authorimage: "/img/blogs/Avatar6.svg"
+authorimage: "/img/blogs/Avatar4.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

@@ -3,7 +3,7 @@ title: "Enabling Python 3 with OpenSSL/FIPS on Microsoft Windows"
 date: 2020-12-21T08:48:53.479Z
 author: Rajeev Kallur 
 tags: ["Python","OpenSSL","FIPS"]
-authorimage: "/img/blogs/Avatar4.svg"
+authorimage: "/img/blogs/Avatar2.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -38,7 +38,7 @@ Convert all symlinks in the archive to regular files.  This is done in  Linux, C
 
    Untar
 
-   ```
+   ```bash
    $ tar -zxvf openssl-fips-2.0.16.tar.gz
    $ tar -zxvf openssl-1.0.2u.tar.gz
    $ tar -zxvf Python-3.8.6.tgz
@@ -46,7 +46,7 @@ Convert all symlinks in the archive to regular files.  This is done in  Linux, C
 
    Zip -9 
 
-   ```
+   ```bash
    $ zip -9 -r openssl-fips-2.0.16.zip openssl-fips-2.0.16
    $ zip -9 -r openssl-1.0.2u.zip openssl-1.0.2u
    $ zip -9 -r Python-3.8.6.zip Python-3.8.6
@@ -62,7 +62,7 @@ Note: NASM is a netwide assembler program and can be downloaded from   [https://
 __Step 4__
 Build the FIPS module using the VS 2015 Native Tools Command prompt.
 
-   ```
+   ```bash
    > cd openssl-fips-2.0.16
    > ms\do_fips
    ```
@@ -78,7 +78,7 @@ Build the FIPS module using the VS 2015 Native Tools Command prompt.
 __Step 5__
 Build OpenSSL module using the VS 2015 Native Tools Command prompt.
 
-   ```
+   ```bash
    cd openssl-1.0.2u
    perl Configure VC-WIN64A no-zlib no-idea no-mdc2 no-rc5 no-ssl2 no-ssl3 fips --with-fipslibdir=C:\usr\local\ssl\fips-2.0
    ms\do_win64a
@@ -107,7 +107,7 @@ Patch/Add/Modify these codes to files as shown below under Python-3.8.6 source (
 
    Lib\ssl.py:
 
-   ```py
+   ```python
    try:
        from _ssl import FIPS_mode, FIPS_mode_set
        print('successful import')
@@ -118,7 +118,7 @@ Patch/Add/Modify these codes to files as shown below under Python-3.8.6 source (
 
    Modules/_ssl.c:
 
-   ```py
+   ```python
    static PyObject *
    _ssl_FIPS_mode_impl(PyObject *module) {
        return PyLong_FromLong(FIPS_mode());
@@ -153,7 +153,7 @@ Patch/Add/Modify these codes to files as shown below under Python-3.8.6 source (
 
    Modules/clinic/_ssl.c.h:
 
-   ```py
+   ```python
    PyDoc_STRVAR(_ssl_FIPS_mode__doc__,
    "FIPS Mode");
    
@@ -246,5 +246,5 @@ In this blog, I have covered the following steps in regards to enabling Python 3
 - Copy the newly generated binaries to the installed Python location.
 - Test the version and check if FIPS is enabled.
 
-I hope this blog is useful to the entire developer community!! Make sure you check out other blog posts on [HPE DEV](https://developer.hpe.com/blog) for more useful tutorials. 
+I hope this blog is useful to the entire developer community!! Make sure you check out other blog posts on [HPE DEV](/blog) for more useful tutorials. 
 

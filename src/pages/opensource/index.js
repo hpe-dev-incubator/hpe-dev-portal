@@ -72,6 +72,7 @@ function Opensource({ data }) {
           image="/img/opensource/opensource.svg"
           title="Open Source"
           alignSelf="start"
+          alt="opensource logo"
         >
           <Box gap="small">
             <Paragraph>

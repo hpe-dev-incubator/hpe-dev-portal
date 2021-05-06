@@ -3,7 +3,7 @@ title: "Using Open Service Broker as a Quick and Easy Way to Offer Everything as
 date: 2019-08-19T15:29:52.117Z
 author: Pramod Sareddy 
 tags: []
-authorimage: "/img/blogs/Avatar6.svg"
+authorimage: "/img/blogs/Avatar3.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -259,4 +259,4 @@ Now, I have shown you the sample Python code of the Grommet OSB broker that will
 
 ## Next Steps
 
-There are many ways to write an OSB broker, like the Grommet OSB Broker, following the OSB API specification. Using Python is one option. In future articles, I will explore other approaches. Keep a look out on the [HPE DEV blog site](https://developer.hpe.com/blog) for my next article, __How to Register a Grommet OSB broker in Kubernetes Service Catalog,__ where I will show how to register and consume the services offered by Grommet OSB Broker in the Kubernetes Service Catalog and show you how to provision, bind, unbind, and deprovision a Grommet Dev instance.
+There are many ways to write an OSB broker, like the Grommet OSB Broker, following the OSB API specification. Using Python is one option. In future articles, I will explore other approaches. Keep a look out on the [HPE DEV blog site](/blog) for my next article, __How to Register a Grommet OSB broker in Kubernetes Service Catalog,__ where I will show how to register and consume the services offered by Grommet OSB Broker in the Kubernetes Service Catalog and show you how to provision, bind, unbind, and deprovision a Grommet Dev instance.

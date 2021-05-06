@@ -3,7 +3,7 @@ title: "Sir Hackington Appbuilder III Tells You What Happened at OSCON"
 date: 2018-08-10T01:00:29.215Z
 author: Sir Hackington Appbuilder III 
 tags: ["open-source","community","OSCON"]
-authorimage: "/img/blogs/Avatar4.svg"
+authorimage: "/img/blogs/Avatar2.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

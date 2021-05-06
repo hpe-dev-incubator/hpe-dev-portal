@@ -1,12 +1,14 @@
 ---
-title: "Synchronized Volume Snapshots for Distributed Workloads on Kubernetes"
+title: Synchronized Volume Snapshots for Distributed Workloads on Kubernetes
 date: 2021-01-14T18:10:48.848Z
-author: Michael Mattsson 
-tags: ["hpe-nimble-storage","hpe-3par-and-primera"]
-authorimage: "/img/blogs/Avatar6.svg"
 featuredBlog: true
 priority: 3
-thumbnailimage:
+author: Michael Mattsson
+authorimage: /img/blogs/Avatar3.svg
+thumbnailimage: null
+tags:
+  - hpe-nimble-storage
+  - hpe-3par-and-primera
 ---
 Typically, Persistent Volume Claims on Kubernetes are treated as a singular entity completely decoupled from your workload. The actual physical location doesn't really matter. But what if you wanted an atomic operation where all Persistent Volume Claims that make up an application in a microservice architecture need to be atomically protected to ensure referential integrity? Would you stop the application, sequence the operation or take a shotgun approach and hope for the best? 
 
@@ -20,8 +22,9 @@ A variant of the demonstrative steps below has been captured in a screencast tha
 
 Just don’t forget to come back to read the "Learn more" section at the end of this article for important information.
 
-[![Synchronize Volume Snapshots for Distributed Workloads using the HPE CSI Driver for Kubernetes](https://developer.hpe.com/uploads/media/2020/12/untitled-1610648109128.png)](https://youtu.be/zUj-bJ_KqHU "Synchronize Volume Snapshots for Distributed Workloads using the HPE CSI Driver for Kubernetes")
+[![Synchronize Volume Snapshots for Distributed Workloads using the HPE CSI Driver for Kubernetes](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/12/untitled-1610648109128.png)](https://youtu.be/zUj-bJ_KqHU "Synchronize Volume Snapshots for Distributed Workloads using the HPE CSI Driver for Kubernetes")
 Watch on [YouTube](https://youtu.be/zUj-bJ_KqHU)!
+
 
 # Prerequisites
 
@@ -68,7 +71,7 @@ persistentvolumeclaim/data-my-wordpress-mariadb-secondary-0
 persistentvolumeclaim/my-wordpress
 ```
 
-Adding content to the WordPress site being deployed is completely optional as restore procedures are not covered in this tutorial. However, if you're interested in performing a restore from the `VolumeSnapshots` we're creating, please see the CSI snapshots tutorial in this [HPE DEV blog post](https://developer.hpe.com/blog/PklOy39w8NtX6M2RvAxW/hpe-csi-driver-for-kubernetes-snapshots-clones-and-volume-expansion).
+Adding content to the WordPress site being deployed is completely optional as restore procedures are not covered in this tutorial. However, if you're interested in performing a restore from the `VolumeSnapshots` we're creating, please see the CSI snapshots tutorial in this [HPE DEV blog post](/blog/PklOy39w8NtX6M2RvAxW/hpe-csi-driver-for-kubernetes-snapshots-clones-and-volume-expansion).
 
 # Volume Groups
 
@@ -76,7 +79,7 @@ The `CustomResourceDefinition` (CRD) that users interact with is called a `Volum
 
 The Volume Group Provisioner (depicted below) is a Kubernetes CSI sidecar container that performs a number of duties to facilitate volume grouping.
 
-<img src="https://developer.hpe.com/uploads/media/2020/12/groups-1610651079691.png" />
+![picture3](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/12/groups-1610651079691.png)
 
 The `VolumeGroupContent` `CRD` is managed solely by the Volume Group Provisioner. 
 
@@ -180,7 +183,7 @@ Next, let's create some atomic `VolumeSnapshots`.
 
 The `SnapshotGroup` `CRD` is primarily what users interact with. The Snapshot Group Snapshotter depicted below carries out all the backend work and populates Kubernetes with the necessary `CRDs`.
 
-<img src="https://developer.hpe.com/uploads/media/2020/12/snaps-1610647869530.png"/>
+![picture4](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/12/snaps-1610647869530.png)
 
 In a similar fashion to `VolumeGroupClasses` a `SnapshotGroupClass` needs to be created by an administrator.
 

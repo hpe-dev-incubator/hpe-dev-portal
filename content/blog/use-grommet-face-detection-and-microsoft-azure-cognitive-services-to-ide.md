@@ -3,7 +3,7 @@ title: "Use Grommet Face Detection and Microsoft Azure Cognitive Services to ide
 date: 2019-11-01T02:40:45.562Z
 author: Pramod Sareddy 
 tags: ["grommet","opensource"]
-authorimage: "/img/blogs/Avatar1.svg"
+authorimage: "/img/blogs/Avatar4.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -18,7 +18,7 @@ The front-end face detection application is used to fetch the image from the net
 
 I built this face detection/recognition application to show how quickly you can build a responsive web app using HPE Open Source UI development and a design framework called Grommet that interacts with Microsoft Azure Cognitive Services. The face-detection scenario leverages the Azure Face API in conjunction with Node.js to extract and recognize the facial expressions and emotions of various people. 
 
-You can use this same methodology to build your own personalized application. For instance, you can design it so that when you walk into the room, the computer recognizes you and automatically sets the lights and music per your preference. There are other use cases as well. Imagine building a natural language interactive robot. You could design it so that it looks at someone’s face and recognizes them when they walk into a store. It could determine that person’s emotions by the way he or she looks. If angry, the robot knows and reacts accordingly. If happy, perhaps it might try to sell that person more items. To show you how this all works, instead of building a complex robot, I built a simple Face Detection Web Application using HPE Grommet that interacts with Microsoft Cognitive Services. You can learn more about Grommet by reading  a previous HPE DEV blog - [Grommet – the Glue that Binds Development and Design.](https://developer.hpe.com/blog/grommet-the-glue-that-binds-development-and-design)
+You can use this same methodology to build your own personalized application. For instance, you can design it so that when you walk into the room, the computer recognizes you and automatically sets the lights and music per your preference. There are other use cases as well. Imagine building a natural language interactive robot. You could design it so that it looks at someone’s face and recognizes them when they walk into a store. It could determine that person’s emotions by the way he or she looks. If angry, the robot knows and reacts accordingly. If happy, perhaps it might try to sell that person more items. To show you how this all works, instead of building a complex robot, I built a simple Face Detection Web Application using HPE Grommet that interacts with Microsoft Cognitive Services. You can learn more about Grommet by reading  a previous HPE DEV blog - [Grommet – the Glue that Binds Development and Design.](/blog/grommet-the-glue-that-binds-development-and-design)
 
 ## What exactly are Microsoft Cognitive Services?
 
@@ -134,9 +134,11 @@ Once you’ve created a Person Group, the next step is to add people into that P
 
 Note that the request URL includes the personGroupId. This is how you tell the Face API which Person Group a Person belongs in. Also, you need to specify the name of the person you’re adding as a JSON object that looks like this:
 
+
 ```javascript
 	{ "name": personName}
 ```
+
 The name is the display name of the target person. The REST API call returns the personID created. You will need the personID to associate a face to the person in the next step.
 
 
@@ -174,6 +176,7 @@ As you can see from the URL, you’re posting to the /persistedFaces URL for the
 
 1. Either you can specify the content-type header to be application/json, and send the following JSON object in the body of the POST request:
 	{ url: ‘url_to_the_image’}
+
 2.	Or you can specify the content-type header to be application/octet-stream and send the contents of the image.
 
 
@@ -227,6 +230,7 @@ Also, you must include the following body:
 }
 
 ```
+
 
 ```javascript
 // adding face detect attributes
@@ -341,4 +345,4 @@ As you can see, there are a lot of steps, and I wasn’t able to explain every s
 
 ## Next steps
 
-There are many use cases where face detection is helpful. It can help in retail environments. For instance, imagine that you walk into a store, and a camera instantly recognizes you and sends you discount codes on your phone that you must use in the next 20 minutes. The possibilities are really endless, and this is only one of the many capabilities of Microsoft Cognitive Services. I hope to cover some of these other features in future articles. Keep a lookout on the [HPE DEV blog site](https://developer.hpe.com/blog) for more articles on this subject.
+There are many use cases where face detection is helpful. It can help in retail environments. For instance, imagine that you walk into a store, and a camera instantly recognizes you and sends you discount codes on your phone that you must use in the next 20 minutes. The possibilities are really endless, and this is only one of the many capabilities of Microsoft Cognitive Services. I hope to cover some of these other features in future articles. Keep a lookout on the [HPE DEV blog site](/blog) for more articles on this subject.

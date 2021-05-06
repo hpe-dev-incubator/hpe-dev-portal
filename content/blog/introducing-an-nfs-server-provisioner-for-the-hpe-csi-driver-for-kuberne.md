@@ -3,7 +3,7 @@ title: "Introducing an NFS Server Provisioner for the HPE CSI Driver for Kuberne
 date: 2020-06-20T21:04:47.133Z
 author: Michael Mattsson 
 tags: ["hpe-nimble-storage","hpe-3par-and-primera"]
-authorimage: "/img/blogs/Avatar3.svg"
+authorimage: "/img/blogs/Avatar1.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -28,7 +28,7 @@ Enabling the NFS Server Provisioner for PVCs is straightforward, as it’s contr
 
 This is the shipping default `StorageClass` with `nfsResources` enabled.
 
-```
+```yaml
 ---
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
@@ -58,7 +58,7 @@ allowVolumeExpansion: true
 
 Creating an RWX claim is as simple as it can be. 
 
-```
+```yaml
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -74,7 +74,7 @@ spec:
 
 It’s now possible to create a `Deployment` with multiple replicas to access the claim.
 
-```
+```yaml
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -106,7 +106,7 @@ spec:
 
 Once deployed and scaled, it should look like what you see below.
 
-```
+```bash
 $ kubectl get pods -o wide
 NAME                      READY   STATUS    RESTARTS   AGE   IP          NODE  
 my-app-6bfbb6f87f-5gr8k   1/1     Running   0          37s   10.45.0.2   tme-lnx-worker4 
@@ -134,7 +134,7 @@ Sometimes it’s desired to have a single default `StorageClass` on the cluster 
 
 Another important detail is that the NFS server needs to be deployed in the same Namespace as the requesting claim to allow users to create CSI snapshots and clones.
 
-```
+```yaml
 ---
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
@@ -164,7 +164,7 @@ allowVolumeExpansion: true
 
 By annotating the PVC, a user can request the NFS Server Provisioner to serve the claim. The user can also deploy the server in the `Namespace` requesting the claim.
 
-```
+```yaml
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -183,7 +183,7 @@ spec:
 
 Inspecting the `Namespace` where the claim was created, we may observe the API objects that were created.
 
-```
+```bash
 $ kubectl get configmap,deploy,pvc,service -o name
 configmap/hpe-nfs-config
 deployment.apps/hpe-nfs-053b6374-db9c-46c9-94d9-d3c3e59a55e4
@@ -192,7 +192,7 @@ persistentvolumeclaim/my-other-rwx-pvc
 service/hpe-nfs-053b6374-db9c-46c9-94d9-d3c3e59a55e4
 ```
 
-The user may now use the requesting claim as a `dataSource` in a new claim to clone it. For a comprehensive tutorial on how to use CSI snapshots and clones, check out this previous blog post: [HPE CSI Driver for Kubernetes: Snapshots, Clones and Volume Expansion](https://developer.hpe.com/blog/PklOy39w8NtX6M2RvAxW/hpe-csi-driver-for-kubernetes-snapshots-clones-and-volume-expansion)
+The user may now use the requesting claim as a `dataSource` in a new claim to clone it. For a comprehensive tutorial on how to use CSI snapshots and clones, check out this previous blog post: [HPE CSI Driver for Kubernetes: Snapshots, Clones and Volume Expansion](/blog/PklOy39w8NtX6M2RvAxW/hpe-csi-driver-for-kubernetes-snapshots-clones-and-volume-expansion)
 
 # Advanced configuration
 

@@ -1,17 +1,22 @@
 ---
-title: "HPE Container Platform REST API – Part 2: Deploying containerized applications"
+title: "HPE Container Platform REST API – Part 2: Deploying containerized
+  applications"
 date: 2020-06-04T16:41:01.009Z
-author: Denis Choukroun 
-tags: ["hpe-ezmeral-container-platform","hpe-container-platform","kubedirector","opensource"]
-authorimage: "/img/blogs/Avatar6.svg"
 featuredBlog: false
-priority:
-thumbnailimage:
+priority: null
+author: Denis Choukroun
+authorimage: https://gravatar.com/avatar/f66dd9562c53567466149af06ae9d4f1?s=96
+thumbnailimage: null
+tags:
+  - hpe-ezmeral-container-platform
+  - hpe-container-platform
+  - kubedirector
+  - opensource
 ---
-In my previous blog post, [HPE Container platform REST API – Part 1: Authenticating](https://developer.hpe.com/blog/hpe-container-platform-rest-api-part-1-authenticating), I introduced the HPE Container Platform (HPE CP) REST API. I showed you how to authenticate to the HPE Container Platform API endpoint and retrieve data from objects in a secure way using the command line cURL. Continuing with this series, my second article will walk you through the steps you need to take to deploy containerized applications programmatically on Kubernetes clusters that are managed by the HPE Container Platform. It will show you how to take the REST API authentication call you established while going through the first blog and apply it to a real life scenario focused on the following areas:
+In my previous blog post, [HPE Container platform REST API – Part 1: Authenticating](/blog/hpe-container-platform-rest-api-part-1-authenticating), I introduced the HPE Container Platform (HPE CP) REST API. I showed you how to authenticate to the HPE Container Platform API endpoint and retrieve data from objects in a secure way using the command line cURL. Continuing with this series, my second article will walk you through the steps you need to take to deploy containerized applications programmatically on Kubernetes clusters that are managed by the HPE Container Platform. It will show you how to take the REST API authentication call you established while going through the first blog and apply it to a real life scenario focused on the following areas:
 
 * Deployment of cloud native microservices based applications
-* Deployment of non-cloud native, stateful, distributed analytics workloads using pre-configured [KubeDirector applications](https://developer.hpe.com/blog/kubedirector-the-easy-way-to-run-complex-stateful-applications-on-kubern)
+* Deployment of non-cloud native, stateful, distributed analytics workloads using pre-configured [KubeDirector applications](/blog/kubedirector-the-easy-way-to-run-complex-stateful-applications-on-kubern)
 
 ## Deploying stateless and stateful containerized applications using a programmatic approach 
 
@@ -24,7 +29,7 @@ The HPE CP REST API call below allows you to obtain the kubeconfig file used to 
 The REST API call is a **GET** request for the target URL **/api/v2/k8skubeconfig** authenticated for your working tenant context (X-BDS-SESSION). Here, the kubeconfig file is saved as *config* in your $HOME/.kube directory. The call retrieves a configuration file suitable for use by K8s API client such as *kubectl*, which includes a valid session location (token) for your current session. 
 
 
-```
+```markdown
 
 curl -k -s --request GET "https://<Gateway-IP-Address-or-fqdn>:8080/api/v2/k8skubeconfig" \
 --header "X-BDS-SESSION: $sessionlocation" \
@@ -44,7 +49,7 @@ Let's see how this works by deploying a simple hello-world stateless, microservi
 The hello-world application is a **stateless** application because it does not require persistence of data nor an application state. The hello-world application is a very simple application that will return `Hello Kubernetes!` when accessed. The YAML file below describes the application resources involved, such as the deployment, the Pod, the Docker container image and port, and the NodePort service used to expose the application outside of the Kubernetes cluster.
 
 
-```
+```yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -85,7 +90,7 @@ spec:
 The next step is to save the file, for example as *hello-world-app.yaml*, and deploy the application using the K8s API call `kubectl apply -f hello-world-app.yaml`. As shown by the command `kubectl get` below, this simple hello-world application will be represented by standard Kubernetes resource elements (Deployment, Pods and Service) that compose your containerized application.
 
 
-```
+```markdown
 kubectl get deploy,pod,service 
 
  
@@ -105,7 +110,7 @@ service/hello-world-service-demouser   NodePort  10.96.113.175  <none>  8080:322
 For this tutorial, the HPE Container Platform has been configured to automatically map the NodePort service endpoint to the HPE Container Platform gateway host. In this setup, access to application services running in containers in the HPE Container Platform is proxied via the gateway host and a port number greater than 10000. The following `kubectl` command can be used to obtain the application service endpoint from the annotations:
 
 
-```
+```markdown
 kubectl describe service hello-world-service-demouser
 
 Name:                     hello-world-service-demouser
@@ -134,7 +139,7 @@ Events:
 In this example, the application service endpoint is *gateway1.hpedevlab.net:10012*. You can connect to the application using the cURL command below or connect through your favorite browser:
 
 
-```
+```markdown
 curl –k –s --request GET https://gateway1.hpedevlab.net:10012
 Hello Kubernetes!
 
@@ -151,7 +156,7 @@ A **stateful** application may require persistence of network identity (i.e.: ho
 In our HPE CP deployment, three pre-configured KubeDirector Application types have been installed on the Kubernetes cluster managed by HPE Controller Platform. As tenant user, you can get the list of KubeDirector applications that are visible to your tenant using the `kubectl` command below:  
 
 
-```
+```markdown
 kubectl get kubedirectorapp
 NAME                  AGE
 centos7x              37d
@@ -166,7 +171,7 @@ Now, let’s inspect the definition of the Spark application type using kubectl 
 Spark is a non-cloud native multi-tier application with tightly coupled and interdependent services. As shown in the output of command below, the Spark221e2 KubeDirector Application describes the application metadata: the service roles, the service endpoints port and port name prefix (that comes from the URL Scheme), the Docker images, the configuration packages, the cardinality (minimum number of members in a role), and the root file system directories (e.g.: /etc, /bin, /opt, /var, /usr) of the containers to persist beyond the life span of the containers. This means stateful applications that require writing data to their root file systems can now successfully run on Kubernetes.
 
 
-```
+```markdown
 kubectl describe kubedirectorapp spark221e2
 Name:         spark221e2
 Namespace:    k8shacktenant
@@ -286,7 +291,7 @@ A configuration manifest YAML file is then used to create an application virtual
 >Note: The Spark KubeDirector Application variant used in this tutorial is a distributed implementation of the data-processing Spark cluster where the master (Spark driver) and worker (Spark executors) services run on different cluster nodes (1 controller node and 2 worker nodes). A separate Jupyter node is used as an interactive client to execute programs on the Spark cluster.
 
 
-```
+```yaml
 apiVersion: "kubedirector.hpe.com/v1beta1"
 kind: "KubeDirectorCluster"
 metadata: 
@@ -343,7 +348,7 @@ As shown in the output of the kubectl commands below, the instance of the KubeDi
 Some lines have been deleted from the output of the kubectl command to display the essential information.
 
 
-```
+```markdown
 kubectl describe kubedirectorcluster spark221e2-demouser
 Name:         spark221e2-demouser
 Namespace:    k8shacktenant
@@ -407,7 +412,7 @@ Events:
 ```
 
 
-```
+```markdown
 kubectl get all -l kubedirector.hpe.com/kdcluster= spark221e2-demouser
 NAME               READY   STATUS    RESTARTS   AGE
 pod/kdss-7dtqk-0   1/1     Running   0          31m
@@ -431,7 +436,7 @@ statefulset.apps/kdss-mwkh4   1/1     31m
 
 
 
-```
+```markdown
 kubectl get pvc -l kubedirector.hpe.com/kdcluster= spark221e2-demouser
 
 NAME             STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   AGE
@@ -458,7 +463,7 @@ Now, you can connect to the Spark dashboard and the Jupyter Notebook from your b
 
 To increase or decrease the number of members in a role, you would just have to edit the configuration YAML file for your application and use the `kubectl apply -f file.yaml` command to implement the changes. The KubeDirector operator will manage the application cluster expansion or shrinkage for you.
 
-Hopefully, this blog has helped you learn how to programmatically interact with the HPE Container Platform to deploy both cloud native stateless, microservices based applications and non-cloud native distributed stateful [KubeDirector](https://developer.hpe.com/blog/running-non-cloud-native-apps-on-kubernetes-with-kubedirector) applications for various use cases. 
+Hopefully, this blog has helped you learn how to programmatically interact with the HPE Container Platform to deploy both cloud native stateless, microservices based applications and non-cloud native distributed stateful [KubeDirector](/blog/running-non-cloud-native-apps-on-kubernetes-with-kubedirector) applications for various use cases. 
 
 You can stay up to date with the latest news from HPE DEV by [signing up for our monthly newsletter.](https://developer.hpe.com/newsletter-signup) In it, you will find more awesome developers and data scientists focused posts about the HPE Container Platform. You can also follow our community on [Twitter](https://twitter.com/HPE_DevCom) and join the conversation on our [HPE DEV Slack Channel.](https://slack.hpedev.io/)
 

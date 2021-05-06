@@ -3,7 +3,7 @@ title: "HPE CSI Driver for Kubernetes: Snapshots, Clones and Volume Expansion"
 date: 2020-03-19T03:36:56.909Z
 author: Michael Mattsson 
 tags: ["hpe-nimble-storage"]
-authorimage: "/img/blogs/Avatar2.svg"
+authorimage: "/img/blogs/Avatar4.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -13,14 +13,14 @@ The Container Storage Interface (CSI) introduces enterprise data management, suc
 # Deploy the CSI driver with Helm
 In this tutorial, upstream Kubernetes 1.17.4 is being used along with Helm 3. Let’s add in the HPE storage container orchestrator deployments Helm repository.
 
-```
+```bash
 helm repo add hpe-storage https://hpe-storage.github.io/co-deployments/
 "hpe-storage" has been added to your repositories
 ```
 
 Before installing the Helm chart, a values file needs to be created to instruct the driver on how to find and authenticate to the backend storage system. For this exercise, the `StorageClass` that will be installed is also marked as the default `StorageClass`.
 
-```
+```bash
 # Contents of a file named values.yaml
 secret:
   backend: 192.168.1.1
@@ -32,7 +32,7 @@ storageClass:
 
 Install the CSI driver into the "kube-system" namespace.
 
-```
+```bash
 helm install hpe-csi-driver hpe-storage/hpe-csi-driver --version 1.1.0 --namespace kube-system -f values.yaml
 NAME: hpe-csi-driver
 LAST DEPLOYED: Tue Mar 17 09:21:12 2020
@@ -44,7 +44,7 @@ TEST SUITE: None
 
 The required components should come online fairly quickly. The following `kubectl` command may be used to monitor the driver workloads.
 
-```
+```bash
 kubectl get pods --all-namespaces -l 'app in (nimble-csp, hpe-csi-node, hpe-csi-controller)'
 NAMESPACE     NAME                                  READY   STATUS    RESTARTS   AGE
 kube-system   hpe-csi-controller-7d9cd6b855-zzmd9   5/5     Running   0          15s
@@ -55,7 +55,7 @@ kube-system   nimble-csp-546c9c4dd4-5lsdt           1/1     Running   0         
 
 As described above, a default `StorageClass` is also deployed on the cluster.
 
-```
+```bash
 kubectl get storageclass
 NAME                     PROVISIONER   RECLAIMPOLICY   VOLUMEBINDINGMODE   ALLOWVOLUMEEXPANSION   AGE
 hpe-standard (default)   csi.hpe.com   Delete          Immediate           true                   20s
@@ -64,7 +64,7 @@ hpe-standard (default)   csi.hpe.com   Delete          Immediate           true 
 # Kubernetes distribution specific details
 As per the Kubernetes Special Interest Group (SIG) Storage, the snapshot controllers, custom resource definitions and RBAC resources should be deployed on the cluster by the vendor of the Kubernetes distribution, not the CSI driver vendor. These resources are not deployed on upstream Kubernetes 1.17.4, which is being used in this tutorial. Now, let’s deploy the necessary resources.
 
-```
+```bash
 kubectl create -f https://raw.githubusercontent.com/kubernetes-csi/external-snapshotter/master/config/crd/snapshot.storage.k8s.io_volumesnapshotclasses.yaml
 kubectl create -f https://raw.githubusercontent.com/kubernetes-csi/external-snapshotter/master/config/crd/snapshot.storage.k8s.io_volumesnapshotcontents.yaml
 kubectl create -f https://raw.githubusercontent.com/kubernetes-csi/external-snapshotter/master/config/crd/snapshot.storage.k8s.io_volumesnapshots.yaml
@@ -76,7 +76,7 @@ kubectl create -f https://raw.githubusercontent.com/kubernetes-csi/external-snap
 
 For each CSI driver that supports snapshots, at least one `VolumeSnapshotClass` object needs to be created. There’s only one backend that supports snapshots on this cluster and the  `VolumeSnapshotClass` is therefore marked as default, which makes it easy for users to not care about implementation details.
 
-```
+```bash
 apiVersion: snapshot.storage.k8s.io/v1beta1
 kind: VolumeSnapshotClass
 metadata:
@@ -90,6 +90,7 @@ parameters:
   csi.storage.k8s.io/snapshotter-secret-name: nimble-secret
   csi.storage.k8s.io/snapshotter-secret-namespace: kube-system
 ```
+
 **Note:** All YAML presented in this blog post should be created with `kubectl create -f- <hit ENTER, then paste the content and hit CTRL-D on a new line>` unless otherwise specified.
 
 # Get started!
@@ -99,7 +100,7 @@ For this tutorial, a dual replica Redis deployment is being used as an example a
 
 Ensure the upstream Helm stable repo is accessible.
 
-```
+```bash
 helm repo add stable https://kubernetes-charts.storage.googleapis.com
 "stable" has been added to your repositories
 helm repo update
@@ -111,7 +112,7 @@ Update Complete. ⎈ Happy Helming!⎈
 
 In subsequent examples, some output has been truncated to enhance readability. Now, let’s install Redis and insert some data.
 
-```
+```bash
 helm install prod stable/redis-ha --version 4.4.1 --set-string replicas=2
 kubectl exec -it prod-redis-ha-server-0 sh -n default
 Defaulting container name to redis.
@@ -122,8 +123,10 @@ OK
 
 There’s a key in the Redis database named "hpedev" with the value "testing". Imagine this as state of the application that needs to be preserved. Now, let’s create a snapshot of the Persistent Volume Claims (PVC) that the Redis application requested.
 
-```
+```yaml
+
 ---
+
 apiVersion: snapshot.storage.k8s.io/v1beta1
 kind: VolumeSnapshot
 metadata:
@@ -131,7 +134,9 @@ metadata:
 spec:
   source:
     persistentVolumeClaimName: data-prod-redis-ha-server-0
+
 ---
+
 apiVersion: snapshot.storage.k8s.io/v1beta1
 kind: VolumeSnapshot
 metadata:
@@ -143,7 +148,7 @@ spec:
 
 If everything went well, the snapshots may be enumerated.
 
-```
+```bash
 kubectl get volumesnapshots
 NAME         READYTOUSE   SOURCEPVC                     SOURCESNAPSHOTCONTENT   RESTORESIZE   SNAPSHOTCLASS   SNAPSHOTCONTENT                                    CREATIONTIME   AGE
 snapshot-0   true         data-prod-redis-ha-server-0                           10Gi          hpe-snapshot    snapcontent-abc0c69c-a22e-499e-8353-b6a6611cd283   16s            17s
@@ -152,8 +157,10 @@ snapshot-1   true         data-prod-redis-ha-server-1                           
 
 We now have the opportunity to instantiate another Redis instance using these snapshots as the source for a new deployment. The key here is that the PVCs need to be created before we bring the new deployment online. Since naming is deterministic for Helm charts, this is quite simple. Create the following PVCs.
 
-```
+```bash
+
 ---
+
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
@@ -168,7 +175,9 @@ spec:
   resources:
     requests:
       storage: 10Gi
+
 ---
+
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
@@ -187,7 +196,7 @@ spec:
 
 Next, bring up a "test" deployment and read the key we inserted prior and insert another key we want to use for a subsequent test.
 
-```
+```bash
 helm install test stable/redis-ha --version 4.4.1 --set-string replicas=2
 kubectl exec -it test-redis-ha-server-0 sh -n default
 Defaulting container name to redis.
@@ -202,8 +211,10 @@ It’s now possible to transform the data of the "test" deployment without distu
 
 The "upgrade" key inserted above will now be used in the next workflow. Clone directly from an existing PVC without creating a snapshot. Let’s now create a set of new PVCs.
 
-```
+```yaml
+
 ---
+
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
@@ -217,7 +228,9 @@ spec:
   resources:
     requests:
       storage: 10Gi
+
 ---
+
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
@@ -235,7 +248,7 @@ spec:
 
 Create a new "clone" Redis instance and retrieve the key from the previous workflow.
 
-```
+```bash
 helm install clone stable/redis-ha --version 4.4.1 --set-string replicas=2
 $ kubectl exec -it clone-redis-ha-server-0 sh -n default
 Defaulting container name to redis.
@@ -251,8 +264,10 @@ One of the most common “Day 2” operations in storage and data management is 
 
 Let’s expand the storage requests for the Redis production instance (this can be done with `kubectl edit` or `kubectl patch` as well). Run `kubectl apply` with the following specification.
 
-```
+```yaml
+
 ---
+
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
@@ -263,7 +278,9 @@ spec:
   resources:
     requests:
       storage: 32Gi
+
 ---
+
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
@@ -278,7 +295,7 @@ spec:
 
 The original size of the PVC was 10Gi. In a few moments, the new size should be been picked up by the `Pod` running Redis.
 
-```
+```bash
 kubectl exec -it prod-redis-ha-server-0 sh -n default
 Defaulting container name to redis.
 /data $ df -h .

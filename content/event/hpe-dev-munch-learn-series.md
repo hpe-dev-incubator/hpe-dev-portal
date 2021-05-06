@@ -1,8 +1,9 @@
 ---
-title: HPE DEV Munch & Learn series
+title: HPE DEV Munch & Learn series March 2021
 dateStart: 2021-03-24T16:00:00.000Z
 dateEnd: 2021-03-24T17:00:00.000Z
-image: https://res.cloudinary.com/hpe-dev-portal/image/upload/v1614792337/Munch_n_Learn_March_24_512_yrueer.jpg
+category: Virtual Event
+image: /img/munch-and-learn-216.svg
 link: https://hpe.zoom.us/meeting/register/tJYudO2uqD8iGddvDqH__n4v3lgzyAg42FrL
 width: large
 tags:

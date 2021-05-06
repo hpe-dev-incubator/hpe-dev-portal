@@ -3,7 +3,7 @@ title: "Apache Spark as a Distributed SQL Engine"
 date: 2021-01-07T22:53:50.203Z
 author: Nicolas Perez 
 tags: ["hpe-ezmeral-data-fabric","MapR","apache-spark","opensource"]
-authorimage: "/img/blogs/Avatar4.svg"
+authorimage: "/img/blogs/Avatar2.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -17,7 +17,9 @@ thumbnailimage:
 "publish": "2016-03-17T07:00:00.000Z",
 "tags": "apache-spark"
 ```
+
 ---
+
 SQL has been here for awhile and people like it. However, the engines that power SQL have changed with time in order to solve new problems and keep up with demands from consumers.
 
 Traditional engines such as Microsoft SQL Server had some problems with scalability that they have solved with time and cloud-based solutions. On the other hand, others have been built from the ground up to work in a distributed environment so they can put performance at the top of their priority list.
@@ -52,7 +54,7 @@ Because we are using MapR, copying files to the cluster is quite easy, since we 
 
 In order to mount the MapR volume, we run this command:
 
-```
+```bash
 sudo mount_nfs -o "hard,nolock" 10.21.112.209:/mapr/mapr.domain.com/datalake /Users/anicolaspp/mapr/
 ```
 
@@ -119,7 +121,7 @@ val sql = new HiveContext(sc)
 
 Then, we set the thrift port to avoid conflicts with other components such as Hive.
 
-```
+```scala
 sql.setConf("hive.server2.thrift.port", "10001")
 ```
 
@@ -160,7 +162,7 @@ Now we need to submit our application in the cluster, and we do that by using th
 
 In our cluster, we run:
 
-```
+```bash
 /spark-submit --master yarn /mapr/mapr.domain.com/datalake/testing/testing_2.10-1.0.jar
 ```
 
@@ -176,13 +178,13 @@ We can find beeline in the Spark bin folder. To start it, we type ./beeline.
 
 Within beeline, we need connect to the end point we have defined in our application, so we run:
 
-```
+```bash
 !connect jdbc:hive2://localhost:10001
 ```
 
 We should be ready to run SQL statements, but let’s verify we can see the table we registered.
 
-```
+```bash
 show tables;
 ```
 

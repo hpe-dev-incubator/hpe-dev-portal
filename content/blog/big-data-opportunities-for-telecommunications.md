@@ -3,7 +3,7 @@ title: "Big Data Opportunities for Telecommunications"
 date: 2020-11-05T16:27:29.955Z
 author: Carol McDonald 
 tags: ["hpe-ezmeral-data-fabric","MapR","apache-spark","opensource"]
-authorimage: "/img/blogs/Avatar6.svg"
+authorimage: "/img/blogs/Avatar1.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -17,6 +17,7 @@ thumbnailimage:
 "publish": "2017-05-09T00:00:00.000Z",
 "tags": "apache-spark"
 ```
+
 ---
 
 *The telecommunications industry is on the verge of a major transformation through the use of advanced analytics and big data technologies like the MapR Data Platform.*

@@ -3,7 +3,7 @@ title: "Master the automation universe the easy way! Part 1: Introduction to Sta
 date: 2020-06-22T07:20:59.673Z
 author: Rick Kauffman 
 tags: ["automation","StackStorm","opensource"]
-authorimage: "/img/blogs/Avatar2.svg"
+authorimage: "/img/blogs/Avatar6.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -28,4 +28,4 @@ StackStorm sensors, actions, trigger, rules, and workflows are all provided toge
 
 If you point your web browser to [exchange.stackstorm.com](https://exchange.stackstorm.com), you will discover over 170 StackStorm automation packs just waiting for you to consume. Azure, AWS, VMware… hundreds of actions just waiting for you to install and use to automate just about anything.
 
-I have been deep into StackStorm for over a year and a half now. I’ve developed st2 packs for HPE OneView, iLoAmplifier, HPE Composable Fabric, Aruba CX and Qumulo and I am just getting started. Want to learn more? Head on over to my [StackStorm tutorial](https://github.com/xod442/stackstorm-tutorial) and you, too, can master the automation universe, if you’re into that sort of thing. Keep an eye out on the [HPE DEV blog](https://developer.hpe.com/blog) site for more interesting articles and tutorials on automation.
+I have been deep into StackStorm for over a year and a half now. I’ve developed st2 packs for HPE OneView, iLoAmplifier, HPE Composable Fabric, Aruba CX and Qumulo and I am just getting started. Want to learn more? Head on over to my [StackStorm tutorial](https://github.com/xod442/stackstorm-tutorial) and you, too, can master the automation universe, if you’re into that sort of thing. Keep an eye out on the [HPE DEV blog](/blog) site for more interesting articles and tutorials on automation.

@@ -3,12 +3,12 @@ title: "Open source Elasticsearch helped us globally support virtual labs"
 date: 2020-09-10T14:39:09.439Z
 author: Didier Lalli 
 tags: ["opensource","elasticsearch","elk"]
-authorimage: "/img/blogs/Avatar4.svg"
+authorimage: "/img/blogs/Avatar1.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
 ---
-<img src="/uploads/media/2020/7/elk-0-1600073593195.png" alt="ElasticSearch + Kibana" />
+<img src="https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/7/elk-0-1600073593195.png" alt="ElasticSearch + Kibana" />
 
 Even if you are not a hard-core developer, you may have heard about the open source search and analytics engine ELK. The acronym ELK stands for [Elasticsearch + Logstash + Kibana](https://www.elastic.co/home). Though many have heard the term ELK, some have never really had any hands-on experience with it. This was the case with me until it was decided the HPE DEV team would offer software code challenges during our recent HPE Discover Virtual Experience. 
 
@@ -30,7 +30,7 @@ Being tasked with building a dashboard meant I could finally get my hands dirty 
 
 ## There is an API? Then yes, we can do it
 
-There is only one way to interact with Elasticsearch and it’s using its API which by default, installs on port 9200. If this is a problem for you, please take a look at my article on [understanding the basic principles of REST API](https://developer.hpe.com/blog/understanding-api-basics-and-the-value-they-provide).
+There is only one way to interact with Elasticsearch and it’s using its API which by default, installs on port 9200. If this is a problem for you, please take a look at my article on [understanding the basic principles of REST API](/blog/understanding-api-basics-and-the-value-they-provide).
 
 My colleague Pramod, who had built the registration process application, was smart enough to provide a REST API to its backend application. This enabled me to retrieve from the database:
 
@@ -61,12 +61,14 @@ I experimented with the Elasticsearch REST API for a few hours in order to creat
 ```bash
 curl -H "Content-Type:application/x-ndjson" -X POST "http://localhost:9200/customers/_bulk" --data-binary @customers.json 
 ```
+
 When things went wrong with the format of my NDJSON file, I deleted my index and restarted fresh using:
 
 
 ```bash
 curl -H "Content-Type:application/x-ndjson" -X DELETE "http://localhost:9200/customers”
 ```
+
 There are a lot of great articles available to help with formatting the data for bulk import, but [this particular one](https://www.elastic.co/guide/en/elasticsearch/reference/7.9/docs-bulk.html) was of great help to me. 
 
 I found that calling our own application to retrieve customer details was easy enough. I finally had all the individual pieces nailed down. All I needed next was to write a script to orchestrate all of this.
@@ -92,7 +94,7 @@ The steps involve manipulating nginx configuration files under /etc/nginx/sites-
 Our config file looked like this:
 
 
-```
+```markdown
 server {
 
   listen [::]:8080 ssl ipv6only=on; # managed by Certbot
@@ -117,16 +119,16 @@ server {
     }
 }
 ````
+
 After restarting nginx, the team could log into our Kibana web interface from anywhere and start building shiny dashboards.## It’s dashboard time! 
 
 Kibana dashboards are made of individual tiles called virtualizations and Kibana offers lots of different virtualization widgets.
 
-<img src="/uploads/media/2020/7/elk-1-1600073613043.png" alt="Kibana virtualization options" />
+<img src="https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/7/elk-1-1600073613043.png" alt="Kibana virtualization options" />
 
 As you can see, there are many types of visualization tools you can use and configure using the fields found in your index. In our case, we had the following data available in our customers’ index:
 
-<img src="/uploads/media/2020/7/	
-elk-2-1600073620575.png" alt="ElasticSearch fields showing up in Kibana" />
+<img src="https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/7/elk-2-1600073620575.png" alt="ElasticSearch fields showing up in Kibana" />
 
 I decided to keep it simple and visualise the following data points:
 
@@ -137,11 +139,11 @@ I decided to keep it simple and visualise the following data points:
 
 In no time, I was able to get my first version of a challenge dashboard.
 
-<img src="/uploads/media/2020/7/elk-3-1600114029770.png" alt="Kibana dashboard" />
+<img src="https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/7/elk-3-1600114029770.png" alt="Kibana dashboard" />
 
 It was a good start, but I also wanted to know when the active challenges had started. So, I decided to add another visualisation to show the start time in a Date Histogram, as shown below.
 
-<img src="/uploads/media/2020/7/elk-4-1600114050511.png" alt="Kibana dashboard" />
+<img src="https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/7/elk-4-1600114050511.png" alt="Kibana dashboard" />
 
 This looked really nice because, not only could we immediately see if there were challenges in flight, but we could also check what happened during the previous night, for example.
 
@@ -157,17 +159,16 @@ Absolutely! So, I went back to the data collection script, and now that I knew a
 I created a new index in Elasticsearch for Github data and updated my script to load the Github data like I had done previously (more sed and regex). Finally, I created a new tile to visualize the GitHub data. 
 
 Et voilà:
-<img src="/uploads/media/2020/7/	
-elk-5-1600114070320.png" alt="Kibana dashboard" />
+<img src="https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/7/elk-5-1600114070320.png" alt="Kibana dashboard" />
 
 ## Ready to drill down?
 
 There were so many things we could have added to our dashboard; it seemed limitless. But I discovered that you could actually drill down by right-clicking on certain tiles. So, I decided to implement drill down to display the emails of our participants. That was a nice enhancement as it allowed us to immediately know who was participating and be in a position to provide support. Again, even that was pretty easy and smooth, even for a newbie in Kibana.
 
-<img src="/uploads/media/2020/7/elk-6-1600073644276.png" alt="Kibana drill down" />
+<img src="https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/7/elk-6-1600073644276.png" alt="Kibana drill down" />
 
 ## Conclusion
 
-I’ve only scratched the surface of what you can do with the ELK Stack in this post. And this was a result of spending just a few hours on it only using the community part of the stack. There is a lot more to the ELK Stack, both in terms of data that we could feed in (complete system monitoring using Beats/Logstash for example) and Kibana widgets we can use to display data in various forms. Give it a try and, like me, you may get instantaneously hooked.  Don’t forget to check back on our [HPE DEV blog](https://developer.hpe.com/blog) for more tutorials on interesting open source topics.
+I’ve only scratched the surface of what you can do with the ELK Stack in this post. And this was a result of spending just a few hours on it only using the community part of the stack. There is a lot more to the ELK Stack, both in terms of data that we could feed in (complete system monitoring using Beats/Logstash for example) and Kibana widgets we can use to display data in various forms. Give it a try and, like me, you may get instantaneously hooked.  Don’t forget to check back on our [HPE DEV blog](/blog) for more tutorials on interesting open source topics.
 
 

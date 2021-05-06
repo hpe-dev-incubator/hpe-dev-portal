@@ -3,7 +3,7 @@ title: "Managing iLO sessions with Redfish"
 date: 2018-08-27T13:44:46.463Z
 author: François Donzé 
 tags: ["ilo-restful-api","Redfish","iLO5","iLOsessionmanagement"]
-authorimage: "/img/blogs/Avatar3.svg"
+authorimage: "/img/blogs/Avatar4.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -110,7 +110,7 @@ Upon successful deletion, you receive a `200 Ok` return code as well as a succes
 
 It is now time to switch from out-of-band to in-band management. As said previously, in-band management uses an internal path between the Redfish client sitting in the operating system and the Redfish server in the iLO. HPE embeds the Channel Interface (CHIF) driver in every software requiring this communication path: `ilorest`, `iSUT`, the `Agentless Management Service`...
 
-In this paragraph we analyze the behavior of `ilorest` when included in a WinPE or LinuxPE .ISO file (as explained in a previous [article](https://developer.hpe.com/blog/in-band-management-with-ilorest-and-a-livecd)), or in any other general purpose operating system.
+In this paragraph we analyze the behavior of `ilorest` when included in a WinPE or LinuxPE .ISO file (as explained in a previous [article](/blog/in-band-management-with-ilorest-and-a-livecd)), or in any other general purpose operating system.
 
 The first command of the following screenshot asks for the list of the storage controllers in the underlying server. Before displaying this list, `ilorest` automatically initiates a `login` command into the local iLO through the CHIF driver to create an iLO session. Then, it retrieves the entire Redfish tree and caches it in `/root/.iLOrest/cache` in Linux and `%USERPROFILE%\AppData\Roaming\.iLOrest` in Windows. Finally it displays the requested list.
 

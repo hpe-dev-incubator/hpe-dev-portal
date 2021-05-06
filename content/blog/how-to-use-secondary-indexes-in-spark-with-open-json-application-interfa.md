@@ -3,7 +3,7 @@ title: "How to Use Secondary Indexes in Spark With Open JSON Application Interfa
 date: 2021-02-05T05:25:49.558Z
 author: Ranjit Lingaiah 
 tags: ["hpe-ezmeral-data-fabric","MapR","apache-spark"]
-authorimage: "/img/blogs/Avatar2.svg"
+authorimage: "/img/blogs/Avatar3.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -17,7 +17,9 @@ thumbnailimage:
 "publish": "2019-02-12T07:00:00.000Z",
 "tags": "apache-spark"
 ```
+
 ---
+
 ## Introduction
 
 Starting with MapR 6.0, MapR Database supports secondary indexes on fields in JSON tables.  
@@ -36,7 +38,7 @@ OJAI is the API to interface with MapR Database JSON. Most applications build us
 
 1.  Create a JSON table (user-info) with some JSON documents. One of the fields from this table will be used to look up fields from another table. The sample program, below, ingests the data into the table.
 
-```
+```bash
 // Create JSON table
 $ maprcli table create -path /tmp/user-info -tabletype json
 
@@ -57,7 +59,7 @@ maprdb mapr:> find /tmp/user-info
 
 2.  Create another JSON table (data-table) with JSON documents, with one of the fields (uid) in this table matching the field in the table created in step #1, and ingest sample data.
 
-```
+```bash
 // Create JSON table
 $ maprcli table create -path /tmp/data-table -tabletype json
 
@@ -83,7 +85,7 @@ $ mapr importJSON -idfield '_id' -mapreduce true -src /tmp/data-table.json -dst 
 
 3.  Create a secondary index on data-table field uid.
 
-```
+```bash
 $ maprcli table index add -path /tmp/data-table -index uid_idx -indexedfields uid
 ```
 
@@ -91,7 +93,7 @@ $ maprcli table index add -path /tmp/data-table -index uid_idx -indexedfields ui
 
 5.  The complete sample program is listed below. In this sample program, the `getDocuments()` method invokes the OJAI API to leverage the secondary index and returns an RDD.
 
-```
+```scala
 /* Copyright (c) 2009 & onwards. MapR Tech, Inc., All rights reserved */
 
 package com.mapr.demo.spark.ojai.secondaryindex
@@ -177,7 +179,7 @@ case class Person (@JsonProperty("_id") id: String, @JsonProperty("dob") dob: OD
 
 6.  To build the sample program, clone the Git repo and use Maven to build the program.
 
-```
+```bash
 $ git clone https://github.com/ranjitreddy2013/spark-using-ojai-secondary-index-example
 $ cd spark-using-ojai-secondary-index-example
 $ mvn clean install
@@ -185,13 +187,13 @@ $ mvn clean install
 
 7.  To run, copy spark-ojai-secondaryindex-1.0-SNAPSHOT.jar from target folder to an edge node or cluster node and submit to the cluster using `spark-submit`.
 
-```
+```bash
 /opt/mapr/spark/spark-2.2.1/bin/spark-submit --class com.mapr.demo.spark.ojai.secondaryindex.SparkOjaiApplication --master yarn --deploy-mode client --driver-java-options "-Dlog4j.configuration=file:///opt/mapr/conf/log4j.properties" --conf "spark.yarn.executor.memoryOverhead=1G"  --executor-memory 2G --num-executors 1 --executor-cores 1 /home/mapr/spark-ojai-secondaryindex-1.0-SNAPSHOT.jar
 ```
 
 8.  The sample output is shown below. In addition to this output, there will be DEBUG and TRACE logs.
 
-```
+```scala
 Finding  documents for qs:{"$eq": {"uid":"101"}}
 Finding  documents for qs:{"$eq": {"uid":"102"}}
 {"_id":"1","first_name":"tom","uid":"101"}
@@ -202,7 +204,7 @@ Number of documents extracted:2
 
 9.  Verify the logs if the secondary index is used by the OJAI query plan. Note the `indexName` used by the OJAI query plan.
 
-```
+```bash
 2019-01-11 10:49:35,876 TRACE com.mapr.ojai.store.impl.OjaiDocumentStore logQueryPlan Executor task launch worker for task 204: Ojai Query Plan: '[{"streamName":"DBDocumentStream","parameters":{"queryConditionPath":true,"indexName":"uid_idx","projectionPath":["_id"],"primaryTable":"/tmp/data-table"}},{"streamName":"RowkeyLookup","parameters":{"condition":"(uid = "88d800cf-39c9-482f-856c-486090c3de2c")","primaryTable":"/tmp/data-table"}}]'
 
 2019-01-28 12:04:33,087 TRACE com.mapr.ojai.store.impl.OjaiDocumentStore logQueryPlan Executor task launch worker for task 201: Ojai Query Plan: '[{"streamName":"DBDocumentStream","parameters":{"queryConditionPath":true,"indexName":"uid_idx","projectionPath":["_id"],"primaryTable":"/tmp/data-table"}}]'

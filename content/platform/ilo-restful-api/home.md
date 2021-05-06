@@ -1,10 +1,10 @@
 ---
-priority: 7
-width: medium
 title: iLO RESTful API
 version: v 6.01.8964
 description: Redfish® API conformant for simple and automate remote HPE Server management.
 image: /img/platforms/iLOrestfulAPI.svg
+width: medium
+priority: 7
 frontpage: true
 tags:
   - ilo-restful-api
@@ -20,6 +20,8 @@ A single API interface integrates server management components and full compute 
 Obtain simple, secure management of today’s scalable data center hardware with the Redfish API ecosystem. It’s an open industry-standard specification and schema that helps you integrate solutions within your existing tools. Published by the Distributed Management Task Force ([DMTF](http://www.dmtf.org/standards/redfish)), it’s ideal for cloud and web-based infrastructures, which typically have large quantities of servers in heterogeneous environments.
 
 * [Read about Redfish on iLO RESTful API](https://h20195.www2.hpe.com/V2/GetDocument.aspx?docname=4AA6-1727ENW)
+
+* [Redfish Client Tools](https://youtu.be/ur9UKRV_0S8)
 
 # GitHub Repositories
 
@@ -97,8 +99,9 @@ Nagios- Plug-in for Industry Standard in IT infrastructure monitoring.
 Take advantage of our free, Jupyter-Notebook based Workshops-on-Demand available in the [Hack Shack](https://hackshack.hpedev.io). These technical workshops provide you with an in-depth, hands-on learning experience where you can interact with and learn from the experts. Designed to fit your schedule, these workshops are available 24/7 – any time, from anywhere. iLO/Redfish workshops are available today.
 
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<a href="https://hackshack.hpedev.io/workshops"><button type="button" class="w3-btn w3-teal">Try now!</button></a>
-
+<div class="w3-container w3-center w3-margin-bottom">
+  <a href="https://hackshack.hpedev.io/workshops"><button type="button" class="w3-btn w3-teal">Try now!</button></a>
+</div>
 - - -
 
 ## Any questions on iLO or Redfish?

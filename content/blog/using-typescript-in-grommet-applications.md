@@ -3,7 +3,7 @@ title: "Using TypeScript in Grommet Applications"
 date: 2019-09-09T18:08:08.659Z
 author: Brittany Archibeque 
 tags: ["Grommet","opensource"]
-authorimage: "/img/blogs/Avatar4.svg"
+authorimage: "/img/blogs/Avatar6.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -14,25 +14,26 @@ Recently, I spent time learning TypeScript, a typed superset of JavaScript that 
 
 ## Step 1
 
-To get started, you might want to check out another blog in which Ian Bovard does a great job going step-by-step in helping you install Grommet into your Create React application - [Using Your First Grommet Component with Create-React-App.](https://developer.hpe.com/blog/using-your-first-grommet-component-with-create-react-app) You can add TypeScript to any of your projects, at any point, if this is something you’d like to try. 
+To get started, you might want to check out another blog in which Ian Bovard does a great job going step-by-step in helping you install Grommet into your Create React application - [Using Your First Grommet Component with Create-React-App.](/blog/using-your-first-grommet-component-with-create-react-app) You can add TypeScript to any of your projects, at any point, if this is something you’d like to try. 
 
 ## Step 2 
 
 Assuming you already have a Grommet app, to add TypeScript to your Grommet application, all you need to do is cd into that project and run the following command. 
 
 
-```
+```markdown
 yarn add typescript @types/node @types/react @types/react-dom @types/jest
 
 ``` 
+
 Or, if you are using npm, then use this instead:
 
 
-```
-
+```markdown
 npm install –save typescript @types/node @types/react @types/react-dom @types/jest
 
 ```
+
 ## Step 3 
 
 Once you’ve added TypeScript to the Grommet application, you can pick up where Ian talks about the App.js in regards to the Heading component. 
@@ -42,11 +43,10 @@ As you go through your files, change the App.js to App.tsx. This will trigger th
 
 ![screen shot 2019 09 09 at 12.22.30 pm](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2019/8/screen-shot-2019-09-09-at-122230-pm-1568053417737.png)
 
-Following my own suggestion for this example, I will start with the Heading component that was used in [Ian’s blog:](https://developer.hpe.com/blog/using-your-first-grommet-component-with-create-react-app)
+Following my own suggestion for this example, I will start with the Heading component that was used in [Ian’s blog:](/blog/using-your-first-grommet-component-with-create-react-app)
 
 
-```
-
+```markdown
 import React from "react";
 import { Grommet, grommet, Heading } from "grommet";
 function App() {

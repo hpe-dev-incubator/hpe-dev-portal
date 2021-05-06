@@ -3,7 +3,7 @@ title: "HPE OneView Chef Cookbook now supports HPE OneView 5.0"
 date: 2020-04-06T16:38:30.754Z
 author: Chris Pasek 
 tags: ["hpe-oneview"]
-authorimage: "/img/blogs/Avatar6.svg"
+authorimage: "/img/blogs/Avatar4.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

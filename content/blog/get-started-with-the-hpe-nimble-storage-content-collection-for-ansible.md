@@ -1,16 +1,18 @@
 ---
 title: " Get started with the HPE Nimble Storage Content Collection for Ansible "
 date: 2020-09-29T18:33:30.419Z
-author: Michael Mattsson 
-tags: ["hpe-nimble-storage","ansible"]
-authorimage: "/img/blogs/Avatar4.svg"
 featuredBlog: false
-priority:
-thumbnailimage:
+priority: null
+author: Michael Mattsson
+authorimage: /img/blogs/Avatar3.svg
+thumbnailimage: null
+tags:
+  - hpe-nimble-storage
+  - ansible
 ---
 With the initial release of the [HPE Nimble Storage Content Collection for Ansible](https://community.hpe.com/t5/around-the-storage-block/introducing-hpe-nimble-storage-content-collection-for-ansible/ba-p/7103452), it’s now possible to manage many aspects of a Nimble array using either Red Hat Ansible Tower or open source Ansible. Ansible is an IT automation platform that embraces an idempotent resource model, which is essential in declarative infrastructure management paradigms. In this blog post, we’ll go through a few examples on how to kickstart your Ansible automation projects with the newly released HPE Nimble Storage modules.
 
-<img src="https://developer.hpe.com/uploads/media/2020/9/screen-shot-2020-10-01-at-15454-pm-1601594378015.png">
+![picture1](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/9/screen-shot-2020-10-01-at-15454-pm-1601594378015.png)
 
 All the functionality is embedded in the content collection as modules. For the initial release, these are the available modules.
 
@@ -45,7 +47,7 @@ All modules are documented per Ansible community standards. The modules have not
 
 In the following examples there is one node acting as the Ansible management host (node21) and there are two nodes (node22 and node23) acting as iSCSI SAN hosts. There’s one HPE Nimble Storage array (nva) in the environment. Since an Ansible collection is a fairly new construct in the Ansible universe, version 2.9 is required, along with Python 3.6 or newer for the HPE Nimble Storage SDK for Python (which the Ansible modules rely on). We’ll also assume that iSCSI, multipathing and SAN connectivity is established between the SAN hosts and the HPE Nimble Storage array. NimbleOS 5.0 or newer is required on the array. These requirements are also listed with [the modules' documentation](https://hpe-storage.github.io/nimble-ansible-modules/).
 
-<img src="https://developer.hpe.com/uploads/media/2020/9/hpedev-alster-for-blog-reva-1601597390641.png">
+![picture2](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/9/hpedev-alster-for-blog-reva-1601597390641.png)
 
 Since the collection contains more than a whopping twenty two modules, one blog post won’t be able to cover the entire suite. Expect a series of blog posts over the coming months to cover more use cases. In this first installment, we’ll cover basic volume provisioning, snapshotting, cloning, inspecting, mutations and ultimately decommissioning volumes. Host attachment included!
 
@@ -55,13 +57,13 @@ Since the collection contains more than a whopping twenty two modules, one blog 
 
 No special privileges are needed on the Ansible host. Privileges are needed on managed hosts where we want to attach storage. Let’s begin with installing Ansible and the required HPE Nimble Storage SDK for Python using `pip`.
 
-```
+```bash
 $ pip3 install ansible nimble-sdk --user
 ```
 
 Next, use `ansible-galaxy` to install the HPE Nimble Storage Content Collection for Ansible.
 
-```
+```bash
 $ ansible-galaxy collection install hpe.nimble
 ```
 
@@ -71,7 +73,7 @@ We’re now ready to create an inventory and start writing playbooks to manage s
 
 There are many different ways to write inventory files (classic .ini or YAML) and store variables. In this series of playbooks the variables will be stored with the nodes in the inventory groups. Playbooks will use the `-e` flag to provide "extra" variables to make the playbooks reusable for different nodes and storage resources. In a scenario where the infrastructure is managed via source code management (SCM), resources and nodes would be stored in separate variable files.
 
-```
+```markdown
 [nodes]
 node22 ansible_host=192.168.159.22
 node23 ansible_host=192.168.159.23
@@ -93,6 +95,7 @@ ansible_python_interpreter=/usr/bin/python3
 ```
 
 Let’s break these sections down:
+
 - **[nodes]** A group of my SAN connected nodes, name resolution is not working in my sandbox so I need to address nodes by IP address
 - **[nodes:vars]** All nodes will share these variables
 - **[arrays]** A group of arrays I have available in my environment, each with my custom variables to access the REST API and iSCSI discovery IP address
@@ -103,7 +106,7 @@ Let’s break these sections down:
 
 Also, an `ansible.cfg` is put in place to pickup the `inventory` file in the current directory.
 
-```
+```markdown
 [defaults]
 inventory = inventory
 ```
@@ -112,7 +115,7 @@ inventory = inventory
 
 A pattern I usually employ before doing anything is to check if my inventory is reachable. 
 
-```
+```bash
 $ ansible -m ping all
 nva | SUCCESS => {
     "changed": false,
@@ -130,8 +133,9 @@ node23 | SUCCESS => {
 
 I created a playbook that would simplify future playbooks by creating the initiator groups for all nodes on all arrays. Initiator groups are required for assigning access control records (ACRs) to volumes so they could also be incorporated in a task just before assigning the ACR.
 
-```
+```markdown
 ---
+
 - name: Retrieve node facts
   hosts: nodes
 
@@ -163,13 +167,13 @@ Pay attention to the `collections` stanza. That allows the modules to be discove
 
 That said, the fully qualified module name is good to know about. If you need to look up any of the module options or examples, it’s available right at your fingertips. For example, to look up the documentation for the `hpe_nimble_initiator_group` module, simply use the `ansible-doc` command.
 
-```
+```bash
 $ ansible-doc hpe.nimble.hpe_nimble_initiator_group
 ```
 
 Next, run the playbook.
 
-```
+```bash
 $ ansible-playbook connect.yaml
 
 PLAY [Retrieve node facts] *****************************************************
@@ -206,8 +210,10 @@ There’s also an optional parameter, `volume_size`. It falls back to `1000` (Mi
 
 By parameterizing the playbook, it becomes very flexible to reuse. It could also quite easily be turned into an Ansible role to make it even more reusable between projects.
 
-``` 
+``` markdown
+
 ---
+
 - name: Provision a Nimble Volume to a SAN host 
   gather_facts: false
   connection: local
@@ -310,7 +316,7 @@ By parameterizing the playbook, it becomes very flexible to reuse. It could also
 
 There are a few opinionated decisions made here, like mounting the filesystem under `/mnt/volume_name`, but other than that, the example is quite comprehensive. Let’s run it!
 
-```
+```markdown
 $ ansible-playbook provision.yaml -e nimble_array=nva \
     -e volume_name=myvol1 -e volume_igroup=node22
     
@@ -362,7 +368,7 @@ nva                        : ok=3    changed=2    unreachable=0    failed=0    s
 
 Bliss! A new volume was created and correctly mapped to the node. On the node, the LUN was discovered, attached, formatted and mounted (including adding an entry to `/etc/fstab`) and is ready for use. This can be inspected by calling the `command` or `shell` module ad hoc.
 
-``` 
+``` bash
 $ ansible -m command node22 -a 'df -h /mnt/myvol1'
 node22 | CHANGED | rc=0 >>
 Filesystem                                     Size  Used Avail Use% Mounted on
@@ -375,8 +381,10 @@ Among the list of modules there’s a module not specifically mapped to a resour
 
 Let’s grab some attributes from the volume we just created. 
 
-```
+```markdown
+
 ---
+
 - name: Query a Nimble array volume
   gather_facts: false
   connection: local
@@ -406,7 +414,7 @@ Let’s grab some attributes from the volume we just created.
 
 Here we’re gathering the IOPS limit of the volume along with the iSCSI sessions and description. Let’s see what we get.
 
-```
+```bash
 $ ansible-playbook query.yaml -e nimble_array=nva -e volume_name=myvol1
 
 PLAY [Query a Nimble array volume] *********************************************************************************************
@@ -456,8 +464,10 @@ Many attributes of a resource can be mutated during runtime. In this example, I 
 
 Let’s create a playbook to mutate these fields.
 
-```
+```markdown
+
 ---
+
 - name: Mutate a Nimble array volume
   gather_facts: false
   connection: local
@@ -478,7 +488,7 @@ Let’s create a playbook to mutate these fields.
 
 Run the playbook with a few extra variables.
 
-```
+```bash
 $ ansible-playbook tune.yaml -e nimble_array=nva \
     -e volume_name=myvol1 -e volume_iops=1000 \
     -e "volume_description='Mutated by Ansible'"
@@ -495,7 +505,7 @@ nva                        : ok=1    changed=1    unreachable=0    failed=0    s
 
 If we re-run the query, we should be able to see the IOPS has been capped and the description updated.
 
-```
+```bash
 $ ansible-playbook query.yaml -e nimble_array=nva -e volume_name=myvol1
 
 PLAY [Query a Nimble array volume] *********************************************************************************************
@@ -547,15 +557,17 @@ Very advanced workflows can be put together using the snapshot capabilities of t
 
 First, create some content and flush the buffers. This way we’ll have something to look at once our clone comes up on the target host.
 
-```
+```bash
 $ ansible -m shell node22 -a 'date > /mnt/myvol1/date.txt && sync'
 node22 | CHANGED | rc=0 >>
 ```
 
 Next, create a snapshot with the `snapshot.yaml` playbook.
 
-```
+```markdown
+
 ---
+
 - name: Create a Snapshot of a Nimble Volume
   gather_facts: false
   connection: local
@@ -576,7 +588,7 @@ Next, create a snapshot with the `snapshot.yaml` playbook.
 
 Snapshot!
 
-```
+```bash
 $ ansible-playbook snapshot.yaml -e nimble_array=nva \
     -e volume_name=myvol1 -e snapshot_name=mysnap1
 
@@ -592,7 +604,7 @@ nva                        : ok=1    changed=1    unreachable=0    failed=0    s
 
 There’s now a snapshot named “mysnap1” on “myvol1”. We want to create a clone from that snapshot for our new volume that we’re attaching to the second host in the inventory. We’ll reuse the `provision.yaml` playbook by simply adding a few more variables: `snapshot_name`, `volume_clone` and `clone_from`.
 
-```
+```bash
 $ ansible-playbook provision.yaml -e nimble_array=nva \
     -e volume_name=myvol1-clone -e snapshot_name=mysnap1 \
     -e volume_clone=yes -e clone_from=myvol1 \
@@ -646,7 +658,7 @@ nva                        : ok=3    changed=2    unreachable=0    failed=0    s
 
 We should now be able to do a visual inspect of the content from our two nodes. Let’s check the file we just created before the snapshot got created.
 
-```
+```bash
 $ ansible -m command node22 -a 'cat /mnt/myvol1/date.txt'
 node22 | CHANGED | rc=0 >>
 Tue Sep 29 02:17:11 UTC 2020
@@ -665,8 +677,10 @@ Housekeeping is important. What’s being provisioned should also be able to get
 
 For completeness, here’s how to unmount and detach a volume from a host and subsequently offline and delete the volume from the Nimble array.
 
-```
+```markdown
+
 ---
+
 - name: Prepare to delete Nimble Volume
   gather_facts: false
   connection: local
@@ -745,7 +759,7 @@ For completeness, here’s how to unmount and detach a volume from a host and su
 
 Let’s run it! Beware — this operation is irreversible. Make sure volume names and nodes are correct. We'll start with the clone, as the parent can't be removed unless all dependent volumes have been destroyed.
 
-```
+```bash
 $ ansible-playbook decommission.yaml -e nimble_array=nva \
     -e volume_name=myvol1-clone -e volume_igroup=node23
 
@@ -786,7 +800,7 @@ nva                        : ok=4    changed=2    unreachable=0    failed=0    s
 
 Go ahead and destroy the parent volume.
 
-```
+```bash
 $ ansible-playbook decommission.yaml -e nimble_array=nva \
     -e volume_name=myvol1 -e volume_igroup=node22
 

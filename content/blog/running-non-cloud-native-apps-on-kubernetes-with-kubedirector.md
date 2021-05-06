@@ -3,7 +3,7 @@ title: "Running Non-Cloud-Native Apps on Kubernetes with KubeDirector"
 date: 2019-11-18T17:16:18.520Z
 author: Tom Phelan 
 tags: ["hpe-ezmeral-container-platform","hpe-container-platform","bluedata","container","opensource","kubedirector"]
-authorimage: "/img/blogs/Avatar1.svg"
+authorimage: "/img/blogs/Avatar5.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -19,7 +19,7 @@ Prior to the acquisition, the BlueData team initiated an Apache open source proj
 
 ## KubeDirector and Non-Cloud-Native Applications
 
-Non-cloud-native, monolithic applications (e.g. stateful applications with persistent storage) have a number of specific requirements. For example, they typically require fixed network configuration (i.e. static IP addresses). Kubernetes provides a construct, known as [StatefulSets,](https://developer.hpe.com/blog/kubedirector-the-easy-way-to-run-complex-stateful-applications-on-kubern) which permits an application to be deployed with stable, unique network identifiers. This means that the IP address of a container will be preserved across pod rescheduling.  
+Non-cloud-native, monolithic applications (e.g. stateful applications with persistent storage) have a number of specific requirements. For example, they typically require fixed network configuration (i.e. static IP addresses). Kubernetes provides a construct, known as [StatefulSets,](/blog/kubedirector-the-easy-way-to-run-complex-stateful-applications-on-kubern) which permits an application to be deployed with stable, unique network identifiers. This means that the IP address of a container will be preserved across pod rescheduling.  
 
 However, another attribute of non-cloud-native applications is that they may store data in /etc or other directories typically located on the root (“/”) file system of the container. When Kubernetes restarts a crashed container, the storage associated with the original instance of the container is lost. This means that any data stored by the stateful application in the /etc directory will be lost. 
 

@@ -17,11 +17,26 @@ function Header() {
       label="Open Source"
       to="https://www.hpe.com/us/en/open-source.html"
     />,
-    <ButtonLink key="pl" label="Platforms" to="/platform" />,
+    <ButtonLink
+      key="pl"
+      label="Platforms"
+      to="/platforms"
+      state={{ state: { isPlatformHeaderClicked: true } }}
+    />,
     <ButtonLink key="ev" label="Events" to="/events" />,
     <ButtonLink key="su" label="Skill Up" to="/skillup" />,
-    <ButtonLink key="bl" label="Blog" to="/blog" />,
-    <ButtonLink key="nw" label="Newsletter" to="/newsletter-signup" />,
+    <ButtonLink
+      key="bl"
+      label="Blog"
+      to="/blog"
+      state={{ state: { isBlogHeaderClicked: true } }}
+    />,
+    <ButtonLink
+      key="nw"
+      label="Newsletter"
+      to="/newsletter-signup"
+      state={{ state: { isNewsletterHeaderClicked: true } }}
+    />,
     <ButtonLink key="cm" label="Community" to="/community" />,
   ];
 
@@ -40,7 +55,7 @@ function Header() {
           dropContent={<Nav direction="column">{navLinks}</Nav>}
         />
       ) : (
-        <Box flex="shrink" overflow="hidden">
+        <Box flex="shrink" overflow="hidden" pad="2px">
           <Nav direction="row" gap="medium">
             {navLinks.map((l, index) => (
               <Box key={index} flex={false}>

@@ -3,7 +3,7 @@ title: "Deploy a Full Stack Application on Netlify that Includes a CI/CD Pipelin
 date: 2019-07-12T15:44:24.898Z
 author: Madhu Rebbana 
 tags: []
-authorimage: "/img/blogs/Avatar2.svg"
+authorimage: "/img/blogs/Avatar4.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -211,7 +211,7 @@ CI/CD is integral in the building and deployment of software today, what with ou
 
 The CI/CD methodology facilitates the building and improvement of great apps with faster time to market. Improved automation also allows for a more streamlined app development cycle, enabling developers to receive feedback quicker to help them build better, more consistent apps.
 
-I hope this blog helps you to set up the CI/CD pipeline using Netlify for any of your personal projects or a project setup for an entire team. Please continue to follow our [blogs](https://developer.hpe.com/blog) for more hints and tutorials designed to help you optimize your development environment.
+I hope this blog helps you to set up the CI/CD pipeline using Netlify for any of your personal projects or a project setup for an entire team. Please continue to follow our [blogs](/blog) for more hints and tutorials designed to help you optimize your development environment.
 
 
 

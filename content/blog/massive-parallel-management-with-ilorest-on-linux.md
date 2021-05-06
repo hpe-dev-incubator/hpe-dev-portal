@@ -3,7 +3,7 @@ title: "Massive parallel management with ilorest on Linux"
 date: 2018-03-27T09:38:05.684Z
 author: François Donzé - Technical consultant 
 tags: ["ilo-restful-api","Redfish","iLO"]
-authorimage: "/img/blogs/Avatar2.svg"
+authorimage: "/img/blogs/Avatar6.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -14,7 +14,7 @@ Thanks to HPE for providing the [ilorest python API](http://hpe.com/info/restful
 
 But what if you are not a python geek? What if you prefer managing your servers the old way with `bash` / `grep` / `awk` / `curl` / `wget`? In that case, you can loop over the list of your iLO IP addresses and use `curl` / `wget` for getting and setting Redfish parameters. 
 
-However, this approach brings out two fundamental problems: 1- Using `curl` and `wget` in management scripts implies the creation of smart crawling functions as explained in this [article](https://developer.hpe.com/blog/getting-started-with-ilo-restful-api-redfish-api-conformance). 2- A sequential management with loops is fine for taking care of five or ten servers. Furthermore, loops are not efficient anymore. A parallel approach should be considered.
+However, this approach brings out two fundamental problems: 1- Using `curl` and `wget` in management scripts implies the creation of smart crawling functions as explained in this [article](/blog/getting-started-with-ilo-restful-api-redfish-api-conformance). 2- A sequential management with loops is fine for taking care of five or ten servers. Furthermore, loops are not efficient anymore. A parallel approach should be considered.
 
 This blog explains how to manage many servers in parallel using bash scripts without the need of implementing schema crawlers and thus allowing a long term stability to the scripts.
 
@@ -71,7 +71,7 @@ clush –R exec –w $(nodeset -f @ilo-sales,@ilo-marketing -x ilo-test) ping �
 
 ## Out-of-band or in-band: that is the question
 
-As discussed in a previous [blog](https://developer.hpe.com/blog/in-band-management-with-ilorest-and-a-livecd), `ilorest` offers both out-of-band and in-band management. In the first form you need to log into a remote iLO with the credentials of an iLO user. The following sequence of commands retrieves the Bios version of a remote server using an out-of-band management:
+As discussed in a previous [blog](/blog/in-band-management-with-ilorest-and-a-livecd), `ilorest` offers both out-of-band and in-band management. In the first form you need to log into a remote iLO with the credentials of an iLO user. The following sequence of commands retrieves the Bios version of a remote server using an out-of-band management:
 
 ~~~
 ilorest login ilo-IP –u ilo-user –p ilo-password
@@ -148,7 +148,7 @@ Let’s investigate the in-band method and see if we have the same or other limi
 
 Offloading `ilorest` processing onto remote servers reduces drastically the time to perform this Bios configuration example: from several minutes with out-of-band management, much less than one minute to is needed with the in-band method. Moreover, the management server CPU consumption is null since `ilorest` is running on the managed servers. Authentications time is extremely short because the ssh module of clush uses fast binary optimized libraries for key exchanges and `ilorest` has a fast direct connection link to the iLO when used in-band.
 
-The only downside with `ilorest` in-band management is that it requires an operating environment up and running with `sshd` and `ilorest` installed and configured on all the managed nodes. However, this operating environment could be a customized LiveCD booted via the iLO virtual Drive facility as explained in a [previous article](https://developer.hpe.com/blog/in-band-management-with-ilorest-and-a-livecd).
+The only downside with `ilorest` in-band management is that it requires an operating environment up and running with `sshd` and `ilorest` installed and configured on all the managed nodes. However, this operating environment could be a customized LiveCD booted via the iLO virtual Drive facility as explained in a [previous article](/blog/in-band-management-with-ilorest-and-a-livecd).
 
 The in-band version of our Bios configuration requires one more step compared to the out-of-band method: the copy of the JSON configuration file onto all the managed nodes. This operation is simple to perform with the `--copy` and `--dest` clush options dedicated to that purpose. Moreover, this copy will not impact the overall process time because the JSON configuration file to transfer is a small ASCII file:
 

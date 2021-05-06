@@ -3,7 +3,7 @@ title: "Accessing iLO Redfish APIs and HPE OneView APIs on Ansible AWX"
 date: 2021-02-09T03:40:59.966Z
 author: Nathan Lin 
 tags: ["ilo-restful-api","hpe-oneview"]
-authorimage: "/img/blogs/Avatar3.svg"
+authorimage: "/img/blogs/Avatar6.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -15,7 +15,8 @@ Both the [HPE Python iLO REST Library](https://github.com/HewlettPackard/python-
 
 # Ansible and AWX setup on localhost
 Ansible and AWX setup instructions can be found  [here](https://github.com/ansible/awx/blob/devel/INSTALL.md#installing-awx) on GitHub. If running behind proxies, make sure the proxy parameters, such as _http_proxy_, _https_proxy_, and _no_proxy_ are configured accordingly in the installation inventory file. Once installation completes, the Ansible command becomes available on the localhost, and AWX runs as a containerized application, as shown here:
-```
+
+```bash
 bash-4.4# ansible --help
 usage: ansible [-h] [--version] [-v] [-b] [--become-method BECOME_METHOD]
                [--become-user BECOME_USER] [-K] [-i INVENTORY] [--list-hosts]
@@ -32,7 +33,8 @@ usage: ansible [-h] [--version] [-v] [-b] [--become-method BECOME_METHOD]
                [-a MODULE_ARGS] [-m MODULE_NAME]
                pattern
 ```
-```
+
+```bash
 [root@localhost ~]# docker ps
 CONTAINER ID   IMAGE                COMMAND                  CREATED      STATUS      PORTS                  NAMES
 79248db66699   ansible/awx:17.0.1   "/usr/bin/tini -- /u…"   5 days ago   Up 5 days   8052/tcp               awx_task
@@ -54,26 +56,32 @@ Keep in mind to create the virtual environments first in _awx_web_ and _awx_task
 
 ## Create new custom virtual environments on _awx_task_ and _awx_web_
 First, access the container BASH shell with the command _Docker exec -it_  . For example, accessing the _awx task_ shell :
-```
+
+```bash
 [root@localhost ~]# docker exec -it awx_task /bin/bash
 bash-4.4#
 ```
+
 Within the container, create a new Python virtual environment. For this example, the virtual environment is created at _/opt/hpeAutomation/venv_:  
-```
+
+```bash
 bash-4.4# mkdir -p /opt/hpeAutomation/
 bash-4.4# chmod 0755 /opt/hpeAutomation/
 bash-4.4# python3 -m venv /opt/hpeAutomation/venv
 ```
+
 ## Install the HPE libraries on  _awx_task_ and _awx_web_
 On each of the AWX containers, proceed as follows:
 
 1. YUM install the pre-requisites gcc:
-```
+
+```bash
 bash-4.4# yum install gcc -y
 ```
 
 2. Install the psutil Python module and the HPE libraries:
-```
+
+```bash
 bash-4.4# /opt/hpeAutomation/venv/bin/pip3 install psutil
 bash-4.4# /opt/hpeAutomation/venv/bin/pip3 install ansible hpOneView hpICsp python-ilorest-library
 bash-4.4# git clone https://github.com/HewlettPackard/oneview-ansible.git
@@ -81,16 +89,19 @@ bash-4.4# cd oneview-ansible
 bash-4.4# cp library/*.py  /opt/hpeAutomation/venv/lib/python3.6/site-packages/ansible/modules/remote_management/oneview/
 bash-4.4# cp library/module_utils/oneview.py  /opt/hpeAutomation/venv/lib/python3.6/site-packages/ansible/module_utils 
 ```
+
 ## Configure the _custom_virtualenvs_ in AWX
 Once finished installing the Python modules to _awx_task_ and _awx_web_ , the last step is to add the newly created virtual environment to _custom_virtualenvs_  in AWX. This can be done with a HTTP PATCH to the AWX:
-```
+
+```bash
 [root@localhost ~]# curl -X PATCH http://AWX_admin_username:AWX_adminpassword@AWX_ip_address/api/v2/settings/system/ \
 -d '{"CUSTOM_VENV_PATHS": ["/var/lib/awx/venv/ansible", "/opt/hpeAutomation/"]}' \
 -H 'Content-Type:application/json'
 ```
 
 You can verify the _custom_virtualenvs_ in AWX with a HTTP GET request to _/api/v2/config/_ , as shown below:
-```
+
+```bash
 [root@localhost ~]# curl -u AWX_admin_username:AWX_admin_password http://AWX_IP_address/api/v2/config/
 {
   "time_zone": "UTC",
@@ -109,6 +120,7 @@ You can verify the _custom_virtualenvs_ in AWX with a HTTP GET request to _/api/
   ]
 }
 ```
+
 Once completed, the custom virtual environment becomes available as an _Ansible Environment_ in the _AWX Projects_ and the Python libraries become accessible by the Job Templates in the project.
 ![project](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2021/1/pic1-1612842533941.png)
 ![template](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2021/1/pic2-1612842545279.png)

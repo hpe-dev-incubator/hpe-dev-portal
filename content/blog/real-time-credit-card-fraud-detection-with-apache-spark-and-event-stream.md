@@ -3,7 +3,7 @@ title: "Real Time Credit Card Fraud Detection with Apache Spark and Event Stream
 date: 2020-11-18T23:37:40.398Z
 author: Carol McDonald 
 tags: ["hpe-ezmeral-data-fabric","MapR","apache-spark","opensource"]
-authorimage: "/img/blogs/Avatar1.svg"
+authorimage: "/img/blogs/Avatar4.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -17,7 +17,9 @@ thumbnailimage:
 "publish": "2016-05-03T07:00:00.000Z",
 "tags": "apache-spark, "
 ```
+
 ---
+
 In this post we are going to discuss building a real time solution for credit card fraud detection.
 
 There are 2 phases to Real Time Fraud detection:

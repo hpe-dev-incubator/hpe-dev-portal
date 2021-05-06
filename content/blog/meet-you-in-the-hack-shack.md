@@ -3,7 +3,7 @@ title: "Meet you in the Hack Shack!"
 date: 2020-06-30T16:48:15.244Z
 author: Dale Rensing 
 tags: ["hpe-discover-us-2020","HPEDiscover"]
-authorimage: "/img/blogs/Avatar1.svg"
+authorimage: "/img/blogs/Avatar5.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -45,7 +45,10 @@ While the workshops are great, there’s a whole lot more you can do at the [HPE
 For those of you who are looking for the Hack Shack through the HPE Discover Virtual Event catalog, the way one views what sessions and workshops are available at the HPE Discover Virtual Event has changed since the days leading up to the event. In order to see the catalog and determine what sessions you wish to attend, you must first register. Don’t worry… it doesn’t cost anything. It’s just that, now that the event is running, things other than the catalog take center stage.   
 
 When you [register](https://www.hpe.com/us/en/discover.html), make sure that the password you choose is **ALPHA-NUMBERIC ONLY!** Don’t try putting in any fancy or special characters. If you run into problems with the registration, there is online chat and the opportunity to email folks who can help.
-If you haven’t already signed up for them, there are a couple of ways to find the Hack Shack Workshops and Challenges. I’ve found two easy methods you can use to navigate to them.  
+If you haven’t already signed up for them, there are a couple of ways to find the Hack Shack Workshops and Challenges. I’ve found two easy methods you can use to navigate to them.
+    
+    
+
 **Option 1**    
 1.	Click on this [link](https://content.attend.hpe.com/go/agendabuilder.sessions/?l=1043&locale=en_US)  
 2.	This should bring you to a screen that looks like what’s shown below. This is where you log in:

@@ -3,14 +3,14 @@ title: "Understanding Concurrency in Python Part 2 - Multiprocessing"
 date: 2020-02-19T17:23:08.924Z
 author: Samarth Deyagond 
 tags: []
-authorimage: "/img/blogs/Avatar4.svg"
+authorimage: "/img/blogs/Avatar5.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
 ---
 ![picture2](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/1/picture2-1582133413956.png)
 
-In Part 1 of this series, [Understanding Concurrency in Python](https://developer.hpe.com/blog/understanding-concurrency-in-python-part-1-threading), I covered the timing of multi-threaded executions. Through specific examples, I showed you that, no matter how many cores you have on your computer, the Python threading library does not really help you fully exploit the abilities of multi-threading. But a resolution is available, which I promised to show you. I am covering that resolution here in Part 2. Thanks to the Python multiprocessing library, you can take complete advantage of all the cores in your computer and more efficiently handle CPU bound functions.
+In Part 1 of this series, [Understanding Concurrency in Python](/blog/understanding-concurrency-in-python-part-1-threading), I covered the timing of multi-threaded executions. Through specific examples, I showed you that, no matter how many cores you have on your computer, the Python threading library does not really help you fully exploit the abilities of multi-threading. But a resolution is available, which I promised to show you. I am covering that resolution here in Part 2. Thanks to the Python multiprocessing library, you can take complete advantage of all the cores in your computer and more efficiently handle CPU bound functions.
 
 Multiprocessing allows you to run functions as independent Python processes on different cores. Even though these processes run independently, they can still communicate with each other when needed. 
 
@@ -19,7 +19,7 @@ Let’s look at an example where multiprocessing helps us achieve concurrency an
 Step 1: Import the necessary libraries and modules.
 
 
-```
+```python
 
 import multiprocessing
 import time
@@ -29,7 +29,7 @@ import time
 Step 2: Define a CPU intensive function cpu_bound() that accepts a number, multiplies it by a million, and calculates the sum of all the numbers in a range of 0 to that product. For ease of reference, we’ll use the same example we used in Understanding Concurrency in Python Part 1 – Threading. As we did previously, remember to create an additional list of random numbers. The example we used before is shown below:
 
 
-```
+```python
 
 def cpu_bound(num):
     return sum([i for i in range(num*1000000)])
@@ -47,7 +47,7 @@ When we previously used this example as we looked at threading, we determined th
 Step 3: This time, let’s capture the time taken to execute this CPU intensive function using the Python Multiprocessing library to invoke multiple processes. Here, we use the Process method of the multiprocessing library, which takes two parameters. One parameter is target, which is set to *cpu_bound* function, and another is *args,* which is the arguments for the function *cpu_bound* function.
 
 
-```
+```python
 
 start_time = time.time()
 for number in numbers:
@@ -67,7 +67,7 @@ This is so awesome! You can see the drastic reduction in the time taken to execu
 The complete code that we used to illustrate how the multiprocessing library helps would look like this:
 
 
-```
+```python
 
 import multiprocessing
 import time
@@ -101,4 +101,4 @@ If you are working on a Microsoft Windows-based system, you can open your Task M
 
 ## Summary
 
-As promised, I’ve shown you how to achieve efficient concurrency in Python for CPU bound functions using the Multiprocessing library. This method executes the target method as independent processes for every input, thus utilizing the CPU resources to the maximum extent. However, the control over context switching between the processes is still with the operating system. This might be a concern at times. Is there an alternative for this? Yes, there is! So, make sure you check out my next post, *Understanding Concurrency in Python Part 3 – Asyncio*, to learn more about how this library can let an application have control over context switching and execute multiple functions simultaneously. You can read all my blog posts on [HPE DEV.](https://developer.hpe.com/blog) Feel free to reach out to me with any questions on [Slack](https://hpedev.slack.com/?redir=%2Fteam%2FUQM0ZTE1F) or connect with me on Twitter [@deyagondsamarth.](https://twitter.com/deyagondsamarth)
+As promised, I’ve shown you how to achieve efficient concurrency in Python for CPU bound functions using the Multiprocessing library. This method executes the target method as independent processes for every input, thus utilizing the CPU resources to the maximum extent. However, the control over context switching between the processes is still with the operating system. This might be a concern at times. Is there an alternative for this? Yes, there is! So, make sure you check out my next post, *Understanding Concurrency in Python Part 3 – Asyncio*, to learn more about how this library can let an application have control over context switching and execute multiple functions simultaneously. You can read all my blog posts on [HPE DEV.](/blog) Feel free to reach out to me with any questions on [Slack](https://hpedev.slack.com/?redir=%2Fteam%2FUQM0ZTE1F) or connect with me on Twitter [@deyagondsamarth.](https://twitter.com/deyagondsamarth)

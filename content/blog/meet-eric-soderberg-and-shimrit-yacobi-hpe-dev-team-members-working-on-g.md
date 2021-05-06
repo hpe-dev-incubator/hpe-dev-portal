@@ -3,7 +3,7 @@ title: "Meet Eric Soderberg and Shimrit Yacobi - HPE DEV Team Members working on
 date: 2020-02-07T18:33:36.735Z
 author: Dale Rensing 
 tags: ["grommet"]
-authorimage: "/img/blogs/Avatar5.svg"
+authorimage: "/img/blogs/Avatar6.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

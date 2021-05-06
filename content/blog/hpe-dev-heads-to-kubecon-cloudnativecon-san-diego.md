@@ -3,7 +3,7 @@ title: "HPE DEV heads to KubeCon + CloudNativeCon, San Diego"
 date: 2019-10-09T15:45:53.752Z
 author: HPE DEV staff 
 tags: ["KubeCon","kubecon-san-diego-2019"]
-authorimage: "/img/blogs/Avatar4.svg"
+authorimage: "/img/blogs/Avatar2.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -14,6 +14,6 @@ HPE DEV is gearing up for [KubeCon | CloudNativeCon North America,](https://even
 
 A cross-organizational team from Hewlett Packard Enterprise (HPE) will staff the booth (P28) aimed at promoting and educating attendees on what HPE offers in the areas of containers and Kubernetes (k8s). Attendees will get the opportunity to talk with representatives from HPE DEV, HPE Storage and other HPE business areas. 
 
-BlueData, a leading provider of container-based software solutions that HPE recently acquired to accelerate AI and data-driven innovation in the enterprise, will also be there. Tom Phelan, Chief Architect and co-founder of BlueData, [recently expressed his excitement](https://twitter.com/tapbluedata/status/1169810013851795456?s=20) in being selected, along with his colleague, Joel Baxter, to talk about the [KubeDirector](https://developer.hpe.com/blog/complex-stateful-applications-on-kubernetes-kubedirector-version-02) open source project at the event.
+BlueData, a leading provider of container-based software solutions that HPE recently acquired to accelerate AI and data-driven innovation in the enterprise, will also be there. Tom Phelan, Chief Architect and co-founder of BlueData, [recently expressed his excitement](https://twitter.com/tapbluedata/status/1169810013851795456?s=20) in being selected, along with his colleague, Joel Baxter, to talk about the [KubeDirector](/blog/complex-stateful-applications-on-kubernetes-kubedirector-version-02) open source project at the event.
 
 Make sure you stop by the HPE booth (P28) to learn more about what HPE is doing in this exciting area, as well as other key DevOps contributions and value offered through the [HPE DEV community.](https://developer.hpe.com/community) Looking forward to seeing you at the event!

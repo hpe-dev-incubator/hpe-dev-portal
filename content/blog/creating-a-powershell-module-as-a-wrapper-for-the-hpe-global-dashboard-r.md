@@ -3,7 +3,7 @@ title: "Creating a Powershell Module as a wrapper for the HPE Global Dashboard R
 date: 2019-04-23T16:59:48.878Z
 author: Rudi Martinsen 
 tags: []
-authorimage: "/img/blogs/Avatar6.svg"
+authorimage: "/img/blogs/Avatar5.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -13,7 +13,7 @@ With the release of HPE Global Dashboard [version 1.60](https://support.hpe.com/
 
 The documentation for the API is available through the Help section of the appliance itself, and there's a version of the API published on [swaggerhub](https://app.swaggerhub.com/apis-docs/hpe-global-dashboard/hpe-one_view_global_dashboard_rest_api/2).
 
-You can also head over to [HPE Dev](https://developer.hpe.com/platform/hpe-oneview-global-dashboard/home) to get more information about the API and there's also a ["getting started" post](https://developer.hpe.com/blog/accessing-the-hpe-oneview-global-dashboard-api)
+You can also head over to [HPE Dev](https://developer.hpe.com/platform/hpe-oneview-global-dashboard/home) to get more information about the API and there's also a ["getting started" post](/blog/accessing-the-hpe-oneview-global-dashboard-api)
 
 Currently there's no official Powershell module from HPE that let's you work with HPE Global Dashboard, and I haven't heard of any plans to create one either so I decided to create one my self.
  

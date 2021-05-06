@@ -1,18 +1,20 @@
 ---
-title: "Introducing Kubernetes CSI Sidecar Containers from HPE"
+title: Introducing Kubernetes CSI Sidecar Containers from HPE
 date: 2020-08-25T01:45:01.828Z
-author: Michael Mattsson 
-tags: ["hpe-nimble-storage","hpe-3par-and-primera"]
-authorimage: "/img/blogs/Avatar3.svg"
 featuredBlog: false
-priority:
-thumbnailimage:
+priority: null
+author: Michael Mattsson
+authorimage: /img/blogs/Avatar1.svg
+thumbnailimage: null
+tags:
+  - hpe-nimble-storage
+  - hpe-3par-and-primera
 ---
 With the release of the upcoming HPE CSI Driver for Kubernetes version 1.3.0, Hewlett Packard Enterprise (HPE) introduces the concept of Container Storage Interface (CSI) extensions to the CSI driver using Kubernetes CSI sidecar containers. This concept is not foreign to anyone familiar with the CSI architecture as most new major features get implemented as a sidecar in a true microservice architecture. Services are tightly coupled and communicate over a UNIX socket using a high-speed Remote Procedure Call (RPC) interface, gRPC, for secure and reliable communication.
 
 The interface allows third parties to write extensions to their drivers to expose a particular storage platform’s differentiating feature where it’s difficult to conceive a broad stroke feature in a vendor neutral manner. It’s also possible to leapfrog SIG Storage (the Kubernetes working group for storage) for features currently in the discovery or design phase if customer demand is being prioritized over standardization.
 
-<img src="/uploads/media/2020/6/csi-130-slate-1598320004312.png">
+![picture1](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/6/csi-130-slate-1598320004312.png)
 
 The first (yes, there’s quite a few in the works) CSI sidecar is a volume mutator. It will allow end-users to alter their `PersistentVolumeClaims` (PVCs) during runtime, even while the `PersistentVolume` (PV) is mounted and serving a workload. What attributes are mutable depends on the backend Container Storage Provider (CSP) being used. Also, what attributes are allowed to be altered by an end-user is controlled by the Kubernetes cluster administrator through the `StorageClass`.
 
@@ -38,7 +40,7 @@ For the purposes of this example, let’s assume we want to allow users to be in
 
 Create a default `StorageClass` with the `allowOverrides` and `allowMutations` set to allow certain performance tuning.
 
-```
+```yaml
 ---
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
@@ -66,7 +68,7 @@ parameters:
 
 Next, create a `PVC` with the following `.metadata.annotations`:
 
-```
+```yaml
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -86,7 +88,7 @@ spec:
 
 Switching over to the backend array, you can see that the volume was created with the desired overrides.
 
-```
+```markdown
 Nimble OS $ vol --info pvc-2d1795ec-7bce-4af8-b841-437a435f29e1 | egrep -iw 'description|iops|throughput|performance'
 Description: This is my volume description
 Performance policy: default
@@ -98,7 +100,7 @@ Throughput Limit (MiB/s): 200
 
 Let’s edit the object definition. This can be done with `kubectl edit` or you can create a YAML file and subsequently patch the `PVC`.
 
-```
+```yaml
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -119,13 +121,13 @@ spec:
 
 Patch the `PVC`.
 
-```
+```bash
 kubectl patch pvc/my-data --patch "$(cat my-data-boost.yaml)"
 ```
 
 Back on the array, you can see that the attributes have changed.
 
-```
+```markdown
 Nimble OS $ vol --info pvc-2d1795ec-7bce-4af8-b841-437a435f29e1 | egrep -iw 'description|iops|throughput|performance'
 Description: Need more oomph!
 Performance policy: double-down
@@ -135,7 +137,7 @@ Throughput Limit (MiB/s): 1000
 
 Since the `.spec.csi.volumeAttributes` of the `PV` that the backend volume was created with are immutable, the latest successful changes are annotated on the `PV`.
 
-```
+```yaml
 apiVersion: v1
 kind: PersistentVolume
 metadata:

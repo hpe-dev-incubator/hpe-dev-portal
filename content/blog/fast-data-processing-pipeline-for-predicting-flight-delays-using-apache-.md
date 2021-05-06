@@ -17,6 +17,7 @@ thumbnailimage:
 "publish": "2018-01-10T10:30:00.000Z",
 "tags": "use-cases"
 ```
+
 ---
 
 According to [Thomas Davenport in the HBR](https://hbr.org/2017/06/how-analytics-has-changed-in-the-last-10-years-and-how-its-stayed-the-same), analytical technology has changed dramatically over the last decade, with more powerful and less expensive distributed computing across commodity servers, streaming analytics, and improved machine learning technologies, enabling companies to store and analyze both far more data and many different types of it. Werner Vogel stated in his recent [keynote at AWS re:invent](https://www.infoq.com/news/2017/12/vogels-21st-century-architecture) that key technology drivers of today are data, the Internet of Things (IoT), and machine learning.
@@ -34,6 +35,7 @@ Machine learning uses algorithms to find patterns in data, and then uses a model
 ![](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/9/predictions-1603259860781.png)
 
 There are typically two phases in machine learning with real-time data:
+
 * Data Discovery: The first phase involves analysis on historical data to build the machine learning model.
 * Analytics Using the Model: The second phase uses the model in production on live events. (Note that Spark does provide some streaming machine learning algorithms, but you still often need to do an analysis of historical data.)
 
@@ -70,6 +72,7 @@ Classification is a family of supervised machine learning algorithms that identi
 ![](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/9/duck-1603259924086.png)
 
 Let’s go through an example for flight delays:
+
 * What are we trying to predict?
   * Whether a flight will be delayed or not.
   * Delayed is the Label: True or False
@@ -124,7 +127,7 @@ Our data is from [http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&
 
 I have already cleaned up, limited the number of airports and carriers, and transformed the data into 2 JSON files, one for training and one for testing. (you can see the code for the cleanup in the github repository). The JSON file has the following format:
 
-```
+```json
 {
     "_id": "AA_2017-01-01_ATL_LGA_1678",
     "dofW": 7,

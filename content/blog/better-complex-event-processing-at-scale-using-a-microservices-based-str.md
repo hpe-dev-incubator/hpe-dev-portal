@@ -3,7 +3,7 @@ title: "Better Complex Event Processing at Scale Using a Microservices-based Str
 date: 2020-11-03T16:05:36.547Z
 author: Mathieu Dumoulin 
 tags: ["hpe-ezmeral-data-fabric","CEP","MapR","opensource"]
-authorimage: "/img/blogs/Avatar6.svg"
+authorimage: "/img/blogs/Avatar1.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -17,6 +17,7 @@ thumbnailimage:
 "publish": "2017-01-09T06:00:00.000Z",
 "tags": "machine-learning"
 ```
+
 ---
 
 _A microservice-based streaming architecture combined with an open source rule engine makes real-time business rules easy_

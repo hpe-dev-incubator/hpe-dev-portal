@@ -3,14 +3,14 @@ title: "A behind the scenes look into the projects of the HPE Hackathon"
 date: 2018-05-24T20:29:14.193Z
 author: HPE DEV staff 
 tags: ["hackathon","hpe-onesphere","community"]
-authorimage: "/img/blogs/Avatar6.svg"
+authorimage: "/img/blogs/Avatar2.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
 ---
 ![HPE Hackathon](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2018/5/hpe-hackathon-3d-v1-1-1526997723888.jpg)
 
-On May 24, HPE developers from around the world began participating in the HPE Hackathon. A hackathon is a coding contest where developers, programmers, and other creative experts come together to collaborate on a range of software development topics. In the [HPE Hackathon](https://developer.hpe.com/blog/psssst-ive-got-the-inside-scoop-on-the-upcoming-hpe-hackathon), developers will focus on [HPE OneSphere](https://www.hpe.com/us/en/solutions/cloud/hybrid-it-management.html), HPE’s new hybrid-cloud management platform.
+On May 24, HPE developers from around the world began participating in the HPE Hackathon. A hackathon is a coding contest where developers, programmers, and other creative experts come together to collaborate on a range of software development topics. In the [HPE Hackathon](/blog/psssst-ive-got-the-inside-scoop-on-the-upcoming-hpe-hackathon), developers will focus on [HPE OneSphere](https://www.hpe.com/us/en/solutions/cloud/hybrid-it-management.html), HPE’s new hybrid-cloud management platform.
 
 The HPE Hackaton has 19 different teams of up to 5 people each located all over the world. Each team is focusing on a unique aspect of the HPE OneSphere API for their project. Below is a sampling of the different types of projects the teams will be working on during the event:
 

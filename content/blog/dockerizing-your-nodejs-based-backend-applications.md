@@ -3,7 +3,7 @@ title: "Dockerizing your NodeJS based backend Applications "
 date: 2020-06-15T14:51:00.025Z
 author: Rahul Kumar 
 tags: ["Docker","Containers"]
-authorimage: "/img/blogs/Avatar5.svg"
+authorimage: "/img/blogs/Avatar6.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -32,7 +32,7 @@ __STEP 1: Create and initialize a sample NodeJS based application__
 Create sample project directory as below:
          
 
-```
+```bash
 mkdir sample_node_app
 ```
 
@@ -40,14 +40,14 @@ mkdir sample_node_app
 Initialize the NodeJS project using node package manager (npm). It will generate a project skeleton with a package.json file (also called project descriptor) which carries all the meta data and dependencies information for your application.
        
 
-```
+```bash
 cd sample_node_app && npm init
 ```
 
   
 Once the project skeleton is ready, edit the "scripts" section of the package.json file as shown below:
 
-```
+```bash
 cat package.json
      {
          "name": "sampleapp",
@@ -66,7 +66,7 @@ In order to build a web server using NodeJS, install the express package using n
 
        
 
-```
+```bash
 npm install express --save
 ```
 
@@ -75,7 +75,7 @@ By this time, your package.json should look as what’s shown below:
 
 
 
-```
+```bash
 cat package.json
     {
        "name": "sampleapp",
@@ -95,7 +95,7 @@ cat package.json
   
 Once we have the project skeleton ready, let’s add express code to build a simple web server that listens on a certain port, for example, port 4000.
 
-```
+```bash
 cat index.js
 const express = require('express');
 const application=new express();
@@ -111,7 +111,7 @@ application.listen(PORT,()=>{
   
 Now that we have the Node express server ready, let’s run it!
 
-```
+```bash
  npm start
 ```
 
@@ -133,7 +133,7 @@ __STEP 2: Dockerize the application__
   
 Now, let’s create a Dockerfile in the project directory.
 
-```
+```bash
 cat Dockerfile
 # Base image used 
 FROM ALPINE
@@ -151,7 +151,7 @@ __STEP 3: Building the docker image__
 Navigate to the directory where your Dockerfile is present, also known as the “build context” for your Dockerfile. Note that you can change the name of the docker file to what you desire. If you do, you need to use the –f option in the docker CLI while building the docker image. By default, the docker CLI looks for a file named Dockerfile in the build context.
 
 
-```
+```bash
 docker build .
 Sending build context to Docker daemon   2.01MB
 Step 1/3 : FROM alpine
@@ -176,7 +176,7 @@ One way to overcome this problem is to use some other base image that has node a
   
 Let’s try to modify our Dockerfile to fix this.
 
-```
+```bash
 cat Dockerfile
 # Base image used 
 FROM node:alpine
@@ -189,7 +189,7 @@ CMD ["npm", "start"]
   
 Now, build it again with the alpine tag of the official node base image:
 
-```
+```bash
 docker build .
 Sending build context to Docker daemon   2.01MB
 Step 1/3 : FROM node:alpine
@@ -215,7 +215,7 @@ Problem resolution: When you see this warning or error, it is because the node p
 
 Here is the syntax:
 
-```
+```bash
 # COPY docker instruction syntax
 COPY <PATH to folder to copy from> <destination inside container>
 ```
@@ -224,7 +224,7 @@ COPY <PATH to folder to copy from> <destination inside container>
 Notice that there are various ways in which you can make your source code available to the container. The preferred ways are docker volumes and bind mounts. But in this example, we will directly copy the whole source code into the container file system. 
 Here is the updated docker file :
 
-```
+```bash
 cat Dockerfile
 # Base image used  
 FROM node:alpine 
@@ -239,7 +239,7 @@ CMD ["npm", "start"]
   
 Let’s build and tag it in order to push it to Docker Hub.
 
-```
+```bash
 docker build -t rajput/sample_node_app .
 Sending build context to Docker daemon   2.01MB
 Step 1/4 : FROM node:alpine
@@ -268,7 +268,7 @@ Successfully tagged rajput/sample_node_app:latest
 We have now successfully built a docker image for our project. Let’s verify it using the following:
 
 
-```
+```bash
 docker images 
 REPOSITORY               TAG                 IMAGE ID            CREATED              SIZE
 rajput/sample_node_app   latest              14119783c338        About a minute ago   119MB
@@ -283,7 +283,7 @@ __STEP 4: Running the Docker container__
 Run the docker image that we built in the previous step and see what happens.
 
 
-```
+```bash
 docker run rajput/sample_node_app
 > sampleapp@1.0.0 start /
 > node index.js
@@ -306,7 +306,7 @@ Let’s see if the NodeJS container is running to find the root cause.
 
 
 
-```
+```bash
 docker ps
 CONTAINER ID        IMAGE                    COMMAND                  CREATED             STATUS              PORTS                    NAMES
 c2408a62350e        rajput/sample_node_app   "docker-entrypoint.s…"   14 seconds ago      Up 13 seconds                                practical_tharp
@@ -320,7 +320,7 @@ Although we have successfully built our docker image and the container is runnin
 Here’s how it looks:
 
 
-```
+```bash
 # syntax for port mapping
 docker run -p <PORT on HOST>: <PORT in container> <Image name or ID>
 docker run -p 8080:4000 rajput/sample_node_app
@@ -336,7 +336,7 @@ And now we can access our Node application which is running in container!
  
 
 
-```
+```bash
 docker run -it rajput/sample_node_app sh
 / # ls
 Dockerfile         etc                lib                node_modules       package.json       run                sys                var
@@ -356,7 +356,7 @@ We will use this to optimize our Dockerfile:
 
 
 
-```
+```bash
 cat Dockerfile
 # Base image used  
 FROM node:alpine 
@@ -370,20 +370,20 @@ CMD ["npm", "start"]
 
  Build and tag the docker file
 
-```
+```bash
 docker build -t rajput/sample_node_app  .
 ```
 
 Run the container out of the successfully built image:
 
-```
+```bash
 docker run -p 8080:4000 rajput/sample_node_app
 ```
 
 Notice that you might get an error here saying:
  
 
-```
+```bash
 Error response from daemon: driver failed programming external connectivity on endpoint bold_germain (22e41c9ded62fe9f7347d0bbe116e4b23ad7c33890f5ec7401c0566441210616): Bind for 0.0.0.0:8080 failed: port is already allocated.
 ```
 
@@ -391,19 +391,19 @@ In order to resolve this, you need to ensure that the port on your host machine 
 One common way to solve this is by stopping the running container on that conflicted port or choose a different port on your host machine.
 You can stop running the container using the below command:
 
-```
+```bash
 docker container stop <container ID>
 ```
 
 Let's list the running containers
 
-```
+```bash
 docker ps
 ```
 
 Examine the file system for NodeJS container
 
-```
+```bash
 docker exec -it 13940468222f sh
 /usr/mynodeapp # ls
 Dockerfile         index.js           node_modules       package-lock.json  package.json
@@ -415,7 +415,7 @@ Dockerfile         index.js           node_modules       package-lock.json  pack
   
 You can see that all of our project source code is not in the root file system anymore and instead, it is in /usr/mynodeapp/.
 
-```
+```bash
 /usr/mynodeapp # ls
 Dockerfile         index.js           node_modules       package-lock.json  package.json
 ```
@@ -430,7 +430,7 @@ If you have done all this, the new Dockerfile should look like what’s shown be
 
 
 
-```
+```bash
 cat Dockerfile
 MAINTAINER geeks@hpe.com
 # Base image 
@@ -446,7 +446,7 @@ COPY ./  ./
   
 Let’s build and tag the image again . Ensure tag name for your image is unique at any point of time.
 
-```
+```bash
 docker build -t  rajput/sample_node_app .
 ```
 
@@ -454,7 +454,7 @@ docker build -t  rajput/sample_node_app .
 Once the finalized image is successfully built, we can run the NodeJS container out of it:
  
 
-```
+```bash
 docker run -p 8080:4000 rajput/sample_node_app
 ```
 
@@ -474,7 +474,7 @@ Docker hub is a public registry for your docker images ! You need to have docker
 
 
 
-```
+```bash
 docker login
 Username: rajput
 Password:
@@ -483,7 +483,7 @@ Login Succeeded
 
 
 
-```
+```bash
 docker push rajput/sample_node_app
 The push refers to repository [docker.io/rajput/sample_node_app]
 312072b77e32: Pushed                                                                                                                                                                         5a3885fb97b9: Pushed                                                                                                                                                                         latest: digest: sha256:707eae883285a5209283aea94950fee5c9f9357a36b1d6f53c60cb659fd950ec size: 1782
@@ -497,7 +497,7 @@ Once you have pushed your image, this is what it will look like on the Docker Hu
 Even though we have made great progress, we are still left with the problem that for any change in the application source code still requires rebuilding the docker image. Any time we want to modify project source code, we need to rebuild the image again. This is because the source code is still on our local hard disk and it is nowhere referenced in the container and it is copied into the container only when the docker image is built. One way to solve this problem is to use docker volumes or bind mounts, which let you change your source code from local hard disk and have the change reflected in the running container without even rebuilding the image. I plan on writing a follow-on article that will address this. 
 
 Along with addressing this issue, I plan on showing you the same application built with multiple containers. We will add some No-SQL backend DB, like Redis or Mongo to the NodeJS application service layer. It will be a multi-tier app with a proper service and database layer. We will leverage docker compose to run both containers; one for database and one for express server and see how they interact with each other.
-As a full-stack developer with a sincere passion for the latest software technologies, I like to help others by writing tutorials like this. I hope you enjoyed my post. You might want to check out another post I wrote [here](https://developers.redhat.com/blog/author/rkumar/ ). Keep checking back on the [HPE DEV blog site]( https://developer.hpe.com/blog ) for new and interesting articles on containers!
+As a full-stack developer with a sincere passion for the latest software technologies, I like to help others by writing tutorials like this. I hope you enjoyed my post. You might want to check out another post I wrote [here](https://developers.redhat.com/blog/author/rkumar/ ). Keep checking back on the [HPE DEV blog site]( /blog ) for new and interesting articles on containers!
 
 
 

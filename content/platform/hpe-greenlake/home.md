@@ -11,6 +11,8 @@ frontpage: true
 tags:
   - hpe-greenlake
 ---
+<a id="top"></a>
+
 Powered by the HPE GreenLake Central platform, HPE GreenLake is an IT-as-a-Service (ITaaS) offering that brings the cloud experience to your on-premises infrastructure. By creating a single, consistent experience across your private and public clouds, it seamlessly integrates your entire IT estate and allows you to more rapidly deploy services, gain cost and compliance insights, and simplify management. 
 
 [Learn more about HPE GreenLake](https://www.hpe.com/us/en/services/it-consumption.html)
@@ -56,7 +58,7 @@ HPE GreenLake for private cloud brings the cloud to you, modernizing your on-pre
 
 
 
-* _[HPE GreenLake for private cloud: Utilizing application blueprints to simplify deployment of a multinode application using HPE GreenLake for private cloud](https://developer.hpe.com/uploads/media/2020/6/gl4pc_eshop_bp_v1_35-1593186155592.pdf)_     
+* _[HPE GreenLake for private cloud: Utilizing application blueprints to simplify deployment of a multinode application using HPE GreenLake for private cloud](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/6/gl4pc_eshop_bp_v1_35-1593186155592.pdf)_     
 (Complete step-by-step examples of how to build an application blueprint using Ansible playbooks integration, automation workflows, instance types and layout).
 
 <br>

@@ -40,6 +40,7 @@ function NewsletterArchive({ data }) {
       <PageDescription
         image="/img/newsletter/NewsletterPage.svg"
         title="Newsletter Archive"
+        alt="newsletter page logo"
       >
         <Paragraph>
           Each month we alert subscribers to what's new in the HPE DEV Community

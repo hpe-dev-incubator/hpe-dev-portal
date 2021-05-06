@@ -3,7 +3,7 @@ title: "Performance Tuning of an Apache Kafka/Spark Streaming System"
 date: 2020-11-05T16:39:38.018Z
 author: Mathieu Dumoulin 
 tags: ["hpe-ezmeral-data-fabric","MapR","apache-hive"]
-authorimage: "/img/blogs/Avatar4.svg"
+authorimage: "/img/blogs/Avatar6.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -17,7 +17,9 @@ thumbnailimage:
 "publish": "2017-01-17T06:00:00.000Z",
 "tags": "apache-hive"
 ```
+
 ---
+
 _Real-world case study in the telecom industry_
 
 Debugging a real-life distributed application can be a pretty daunting task. Most common Google searches don't turn out to be very useful, at least at first. In this blog post, I will give a fairly detailed account of how we managed to accelerate by almost 10x an Apache Kafka/Spark Streaming/Apache Ignite application and turn a development prototype into a useful, stable streaming application that eventually exceeded the performance goals set for the application.

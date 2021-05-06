@@ -1,12 +1,14 @@
 ---
 title: "HPE Container Platform REST API – Part 1: Authenticating  "
 date: 2020-05-26T03:08:40.367Z
-author: Denis Choukroun 
-tags: ["hpe-ezmeral-container-platform","hpe-container-platform"]
-authorimage: "/img/blogs/Avatar1.svg"
 featuredBlog: false
-priority:
-thumbnailimage:
+priority: null
+author: Denis Choukroun
+authorimage: https://gravatar.com/avatar/f66dd9562c53567466149af06ae9d4f1?s=96
+thumbnailimage: null
+tags:
+  - hpe-ezmeral-container-platform
+  - hpe-container-platform
 ---
 ![image001](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/3/image001-1590504102737.png)
 
@@ -20,15 +22,17 @@ These blog posts are targeted at developers who want to get started with the RES
 
 In the first part of the series, you will interact with the HPE CP REST API using a handy graphical tool called [Postman.](https://www.postman.com/) You will also have the opportunity to use cURL [(Command-line URL),](https://curl.haxx.se/) the universal and well-appreciated command-line utility from the Linux community. In the second part, I will go a step further to explain how you can use this REST API to deploy containerized applications using a programmatic approach.  
 
-If you are not already familiar with REST API calls and Postman, I encourage you to check out the [Understanding API basics and the value they provide](https://developer.hpe.com/blog/understanding-api-basics-and-the-value-they-provide) article. It explains REST API concepts such as HTTP verbs you call against a REST API service, the headers and payloads, and how to use Postman to make REST API calls.  
+If you are not already familiar with REST API calls and Postman, I encourage you to check out the [Understanding API basics and the value they provide](/blog/understanding-api-basics-and-the-value-they-provide) article. It explains REST API concepts such as HTTP verbs you call against a REST API service, the headers and payloads, and how to use Postman to make REST API calls.  
 
 ## The HPE Container Platform High-Level Architecture
+
 The diagram below depicts a simplified view of the physical architecture within the HPE Container Platform being deployed for this tutorial. It illustrates how you can interact programmatically with the HPE Container Platform. 
 
 
 ![picture2](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/3/picture2-1590462775163.png)
 
 The HPE Controller Platform deployment includes the following key components:
+
 * The **Controller host** manages all the hosts that comprise the HPE Container Platform deployment. 
 * The **Kubernetes (K8s) hosts** are under the direct control of the Controller host. These hosts can be grouped into one or more distinct Kubernetes clusters that run containerized applications.
 * The **Gateway host** acts as a proxy server that carries client requests, i.e. HPE CP UI, REST API, K8s API (kubectl commands) to the HPE Container Platform controller, to one of the Kubernetes clusters, or to one of the containerized application services running in one of the Kubernetes clusters. Containerized application service endpoints are exposed outside the Kubernetes cluster to users via the gateway re-mapped ports. 
@@ -108,7 +112,7 @@ You may ask yourself, how do these calls translate into code you can use in your
 ![picture11](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/3/picture11-1590464615471.png)
 
 
-```
+```bash
 curl –k –i –s --location --request POST 'http(s)://<Gateway-IP-Address-or-fqdn>:8080/api/v2/session' \
 --header 'Accept: application/json' \
 --header 'Content-Type: application/json' \
@@ -119,6 +123,7 @@ curl –k –i –s --location --request POST 'http(s)://<Gateway-IP-Address-or-
 }'
 
 ```
+
 An example of the response header received is shown below:
 
 
@@ -127,7 +132,7 @@ An example of the response header received is shown below:
 Extract the session location path value `/api/v2/session/<sessionId>` from the header response and use it in any subsequent REST API calls. As shown by the example below, you can use a *GET* REST API call for object **/api/v2/session** to fetch information about the session you have just established with the HPE Container Platform as a tenant user. You can combine *cURL* command with **jq** as the command line JSON processor to parse the JSON body responses and obtain a structured print of the output as shown here:
 
  
-``` 
+``` bash
 curl -k -s --location --request GET 'http(s)://<Gateway-IP-Address-or-fqdn>:8080/api/v2/session' \
 --header 'X-BDS-SESSION: /api/v2/session/<SessionId>' \
 --header 'Accept: application/json' \
@@ -140,12 +145,12 @@ curl -k -s --location --request GET 'http(s)://<Gateway-IP-Address-or-fqdn>:8080
 Although sessions have a time to live (TTL) of 24 hours, it is a best practice in REST API programming to cleanup and delete those sessions when done with your REST API calls. You can use a *DELETE* call to the target object **/api/v2/session/SessionId** to achieve this:
 
 
-```
+```bash
 curl -k -i -s --request DELETE 'http(s)://<Gateway-IP-Address-or-fqdn>:8080/api/v2/<SessionId>' \
 --header 'X-BDS-SESSION: /api/v2/session/<SessionId>' \
 --header 'Accept: application/json' \
 --header 'Content-Type: application/json'
 ```
 
-You have now learned the basics of programmatic access to the HPE Container Platform through its REST API. In [the next article](https://developer.hpe.com/blog/hpe-container-platform-rest-api-part-2-deploying-containerized-applicati) in this series, I will discuss how you can deploy programmatically cloud native stateless, microservices-based applications and non-cloud native distributed, stateful applications within the context of Kubernetes clusters managed by the HPE Container Platform. 	
+You have now learned the basics of programmatic access to the HPE Container Platform through its REST API. In [the next article](/blog/hpe-container-platform-rest-api-part-2-deploying-containerized-applicati) in this series, I will discuss how you can deploy programmatically cloud native stateless, microservices-based applications and non-cloud native distributed, stateful applications within the context of Kubernetes clusters managed by the HPE Container Platform. 	
 You can stay up to date with the latest news from HPE DEV by [signing up for our monthly newsletter.](https://developer.hpe.com/newsletter-signup) In it, you will receive more awesome developer and data scientist focused posts about the HPE Container Platform. You can also follow our community on [Twitter](https://twitter.com/HPE_DevCom) and join the conversation on our [HPE DEV Slack Channel.](https://slack.hpedev.io/)

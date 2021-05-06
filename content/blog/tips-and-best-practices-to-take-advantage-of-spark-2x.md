@@ -3,7 +3,7 @@ title: "Tips and Best Practices to Take Advantage of Spark 2.x"
 date: 2020-07-08T05:54:32.934Z
 author: Carol McDonald 
 tags: ["hpe-ezmeral-data-fabric","MapR","Spark","AI","opensource"]
-authorimage: "/img/blogs/Avatar1.svg"
+authorimage: "/img/blogs/Avatar4.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -15,7 +15,9 @@ thumbnailimage:
 "publish": "2019-02-05T07:00:00.000Z",
 "tags": "spark"
 ```
+
 ---
+
 **Editor’s Note:** MapR products referenced are now part of the [HPE Ezmeral Data Fabric](https://www.hpe.com/us/en/software/data-fabric.html).
 
 ![](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/6/image1-1594188264230.png)
@@ -97,7 +99,7 @@ DataFrames can be saved as persistent tables into a Hive metastore, using the [s
 
 As an example with the flight dataset, a lot of queries about departure delays are organized around the originating airport (the src column), so this could make a good partitioning column.  Here is a JSON row from this Dataset:
 
-```
+```json
 {    
 "id": "ATL_LGA_2017-01-01_AA_1678",
 "dofW": 7,
@@ -116,7 +118,7 @@ As an example with the flight dataset, a lot of queries about departure delays a
 
 Here is the code to persist a flights DataFrame as a table consisting of Parquet files partitioned by the src column:
 
-```
+```markdown
 df.write.format("parquet")
 .partitionBy("src")
 .option("path", "/user/mapr/data/flights")
@@ -125,7 +127,7 @@ df.write.format("parquet")
 
 Below is the resulting directory structure as shown by a Hadoop list files command:
 
-```
+```markdown
 hadoop fs -ls /user/mapr/data/flights
   /user/mapr/data/flights/src=ATL
   /user/mapr/data/flights/src=BOS
@@ -144,7 +146,7 @@ hadoop fs -ls /user/mapr/data/flights
 
 Below, we see that the src=DEN subdirectory contains two Parquet files:
 
-```
+```markdown
 hadoop fs -ls /user/mapr/data/flights/src=DEN
 
 /user/mapr/data/flights/src=DEN/part-00000-deb4a3d4-d8c3-4983-8756-ad7e0b29e780.c000.snappy.parquet
@@ -155,7 +157,7 @@ hadoop fs -ls /user/mapr/data/flights/src=DEN
 
 Partition pruning is a performance optimization that limits the number of files and partitions that Spark reads when querying.  After partitioning the data, queries that match certain partition filter criteria improve performance by allowing Spark to only read a subset of the directories and files.  When partition filters are present, the catalyst optimizer pushes down the partition filters. The scan reads only the directories that match the partition filters, thus reducing disk I/O. For example, the following query reads only the files in the src=DEN partition directory in order to query the average departure delay for flights originating from Denver.
 
-```
+```markdown
 df.filter("src = 'DEN' and depdelay > 1")
 .groupBy("src", "dst").avg("depdelay")
 .sort(desc("avg(depdelay)")).show()
@@ -181,7 +183,7 @@ result:
 
 Or in SQL:
 
-```
+```sql
 %sql
 select src, dst, avg(depdelay)
 from flights where src='DEN' and depdelay > 1
@@ -191,7 +193,8 @@ ORDER BY src
 
 You can see the physical plan for a DataFrame query in the Spark web UI SQL tab (discussed in chapter 3) or by calling the explain method shown below. Here in red, we see partition filter push down, which means that the src=DEN filter is pushed down into the Parquet file scan. This minimizes the files and data scanned and reduces the amount of data passed back to the Spark engine for the aggregation average on the departure delay.
 
-```df.filter("src = 'DEN' and depdelay > 1")
+```markdown
+df.filter("src = 'DEN' and depdelay > 1")
 .groupBy("src", "dst").avg("depdelay")
 .sort(desc("avg(depdelay)")).explain
 
@@ -227,7 +230,7 @@ The partition columns should be used frequently in queries for filtering and sho
 
 Before or when writing a DataFrame, you can use dataframe.coalesce(N) to reduce the number of partitions in a DataFrame, without shuffling, or df.repartition(N) to reorder and either increase or decrease the number of partitions with shuffling data across the network to achieve even load balancing.
 
-```
+```markdown
 df.write.format("parquet")
 .repartition(13)
 .partitionBy("src")
@@ -245,7 +248,7 @@ Bucketing is similar to partitioning, but partitioning creates a directory for e
 
 As an example with the flight dataset, here is the code to persist a flights DataFrame as a table, consisting of Parquet files partitioned by the src column and bucketed by the dst and carrier columns (sorting by the id will sort by the src, dst, flightdate, and carrier, since that is what the id is made up of):
 
-```
+```markdown
 df.write.format("parquet")
 .sortBy("id")
 .partitionBy("src")
@@ -256,14 +259,15 @@ df.write.format("parquet")
 
 The resulting directory structure is the same as before, with the files in the src directories bucketed by dst and carrier.  The code below computes statistics on the table, which can then be used by the Catalyst optimizer.  Next, the partitioned and bucketed table is read into a new DataFrame df2.
 
-```
+```markdown
 spark.sql("ANALYZE TABLE flightsbkdc COMPUTE STATISTICS")
 val df2  = spark.table("flightsbkdc")
 ```
 
 Next, let’s look at the optimizations for the following query:
 
-```df2.filter("src = 'DEN' and depdelay > 1")
+```markdown
+df2.filter("src = 'DEN' and depdelay > 1")
 .groupBy("src", "dst","carrier")
 .avg("depdelay")
 .sort(desc("avg(depdelay)")).show()
@@ -280,7 +284,8 @@ result:
 
 Here again, we see partition filter and filter pushdown, but we also see that there is no “Exchange” like there was before bucketing, which means there was no shuffle to aggregate by src, dst, and carrier.
 
-```== Physical Plan ==
+```markdown
+== Physical Plan ==
 TakeOrderedAndProject(limit=1001, orderBy=[avg(depdelay)#491 DESC NULLS LAST], output=[src#460,dst#452,carrier#451,avg(depdelay)#504])
 
 +- \*(1) HashAggregate(keys=[src#460, dst#452, carrier#451], functions=[avg(depdelay#455)], output=[src#460, dst#452, carrier#451, avg(depdelay)#491])
@@ -331,7 +336,7 @@ If your tables exist in a one-to-many relationship, it’s possible to model it 
 
 Here is a nested entity example of this one-to-many relationship in a document database.  In this example, the order and related line items are stored together and can be read together with a find on the row key (\_id). This makes the reads a lot faster than joining tables together.
 
-```
+```markdown
 {
      “id”: “123”,
      “date”: “10/10/2017”,
@@ -352,7 +357,8 @@ Here is a nested entity example of this one-to-many relationship in a document d
 
 Below, we see the physical plan for a DataFrame query, with projection and filter pushdown highlighted in red. This means that the scanning of the src, dst, and depdelay columns and the filter on the depdelay column are pushed down into MapR Database, meaning that the scanning and filtering will take place in MapR Database before returning the data to Spark. Projection pushdown minimizes data transfer between MapR Database and the Spark engine by omitting unnecessary fields from table scans. It is especially beneficial when a table contains many columns. Filter pushdown improves performance by reducing the amount of data passed between MapR Database and the Spark engine when filtering data.
 
-```df.filter("src = 'ATL' and depdelay > 1")
+```markdown
+df.filter("src = 'ATL' and depdelay > 1")
 .groupBy("src", "dst")
 .avg("depdelay").sort(desc("avg(depdelay)")).explain
 

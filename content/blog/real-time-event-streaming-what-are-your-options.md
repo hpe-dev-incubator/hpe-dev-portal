@@ -3,7 +3,7 @@ title: "Real-Time Event Streaming: What Are Your Options?"
 date: 2021-01-29T05:22:57.331Z
 author: Ankur Desai 
 tags: ["hpe-ezmeral-data-fabric","MapR","apache-spark","event-streaming"]
-authorimage: "/img/blogs/Avatar2.svg"
+authorimage: "/img/blogs/Avatar4.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -17,7 +17,9 @@ thumbnailimage:
 "publish": "2016-04-14T07:00:00.000Z",
 "tags": "open-source"
 ```
+
 ---
+
 With the Internet of Things expected to bring billions of devices online, a lot of people are excited about the potential value of event streaming, that is, ingesting and analyzing lots of real-time data for immediate decision-making. But streaming also introduces new concepts and components that need a closer look. This blog post is intended to provide an introduction to the components of a typical streaming architecture and various options available at each stage.
 
 ## Three Components of a Streaming Architecture

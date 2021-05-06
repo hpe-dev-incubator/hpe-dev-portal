@@ -3,7 +3,7 @@ title: "COVID-19 limits accessibility – Free offer for HPE iLO Advanced opens 
 date: 2020-04-23T15:56:14.053Z
 author: HPE DEV staff 
 tags: ["ilo-restful-api"]
-authorimage: "/img/blogs/Avatar6.svg"
+authorimage: "/img/blogs/Avatar5.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

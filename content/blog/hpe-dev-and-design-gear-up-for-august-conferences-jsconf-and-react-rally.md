@@ -3,7 +3,7 @@ title: "HPE DEV and Design Gear Up for August Conferences: JSConf and React Rall
 date: 2019-07-30T16:25:53.840Z
 author: HPE DEV staff 
 tags: []
-authorimage: "/img/blogs/Avatar5.svg"
+authorimage: "/img/blogs/Avatar2.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

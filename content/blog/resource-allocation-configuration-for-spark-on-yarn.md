@@ -3,7 +3,7 @@ title: "Resource Allocation Configuration for Spark on YARN"
 date: 2020-08-19T06:14:55.424Z
 author: Hao Zhu 
 tags: ["Spark","Yarn","opensource"]
-authorimage: "/img/blogs/Avatar5.svg"
+authorimage: "/img/blogs/Avatar1.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -14,13 +14,14 @@ thumbnailimage:
 "publish": "2015-09-11T07:00:00.000Z",
 "tags": "spark"
 ```
+
 ---
 
 In this blog post, I will explain the resource allocation configurations for Spark on YARN, describe the yarn-client and yarn-cluster modes, and include examples.
 
 Spark can request two resources in YARN; CPU and memory. Note that Spark configurations for resource allocation are set in spark-defaults.conf, with a name like spark.xx.xx. Some of them have a corresponding flag for client tools such as spark-submit/spark-shell/pyspark, with a name like --xx-xx. If the configuration has a corresponding flag for client tools, you need to put the flag after the configurations in parenthesis"()". For example:
 
-```
+```scala
 spark.driver.cores 
 (--driver-cores)
 ```
@@ -40,7 +41,7 @@ There are two deploy modes that can be used to launch Spark applications on YARN
 
 Let’s look at the settings below as an example:
 
-```
+```scala
 [root@h1 conf]# cat spark-defaults.conf |grep am
 **spark.yarn.am.cores     4
 spark.yarn.am.memory 777m**
@@ -50,7 +51,7 @@ By default, `spark.yarn.am.memoryOverhead` is AM memory \* 0.07, with a minimum 
 
 Assigned container container_1432752481069_0129_01_000001 of capacity
 
-```
+```scala
 <memory:2048, vCores:4, disks:0.0>
 
 ```
@@ -63,7 +64,7 @@ In yarn-cluster mode, the Spark driver is inside the YARN AM. The driver-related
 
 Take a look at the settings below as an example:
 
-```
+```scala
 MASTER=yarn-cluster /opt/mapr/spark/spark-1.3.1/bin/spark-submit --class org.apache.spark.examples.SparkPi  \
 --driver-memory 1665m \
 --driver-cores 2 \
@@ -74,7 +75,7 @@ MASTER=yarn-cluster /opt/mapr/spark/spark-1.3.1/bin/spark-submit --class org.apa
 Since 1665+Max(384,1665*0.07)=1665+384=2049 > 2048(2G), a 3G container will be allocated to AM. As a result, a (3G, 2 Cores) AM container with Java heap size -Xmx1665M is allocated:  
 Assigned container container_1432752481069_0135_02_000001 of capacity
 
-```
+```scala
 <**memory:3072, vCores:2**, disks:0.0>
 
 ```
@@ -89,11 +90,13 @@ In `spark-defaults.conf`, `spark.executor.memory` is set to 2g.
 
 Spark will start 2 (3G, 1 core) executor containers with Java heap size -Xmx2048M: Assigned container container_1432752481069_0140_01_000002 of capacity
 
-```
+```scala
 <**memory:3072, vCores:1**, disks:0.0>
 ```
+
 Assigned container container_1432752481069_0140_01_000003 of capacity
-```
+
+```scala
 <**memory:3072, vCores:1**, disks:0.0>
 ```
 
@@ -109,4 +112,4 @@ Note that if <a target='\_blank'  href='https://spark.apache.org/docs/latest/job
 
 In this blog post, you’ve learned about resource allocation configurations for Spark on YARN. If you have any further questions, please [reach out to us via Slack](https://slack.hpedev.io/).
 
-Make sure you check the [HPE DEV blog](https://developer.hpe.com/blog) regularly to view more articles on this subject.
+Make sure you check the [HPE DEV blog](/blog) regularly to view more articles on this subject.

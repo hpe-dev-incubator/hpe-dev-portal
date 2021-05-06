@@ -16,6 +16,7 @@ thumbnailimage:
 "publish": "2016-03-01T08:00:00.000Z",
 "tags": "spark"
 ```
+
 ---
 
 An important part of any application is the underlying log system we incorporate into it. Logs are not only for debugging and traceability, but also for business intelligence. Building a robust logging system within our apps can provide significant insights into the business problems we are trying to solve.
@@ -32,7 +33,7 @@ Based on this file, we created the `log4j.properties` file and put it under th
 
 `log4j.properties` looks like follows:
 
-```
+```markdown
 log4j.appender.myConsoleAppender=org.apache.log4j.ConsoleAppender  
 log4j.appender.myConsoleAppender.layout=org.apache.log4j.PatternLayout  
 log4j.appender.myConsoleAppender.layout.ConversionPattern=%d [%t] %-5p %c - %m%n  
@@ -51,17 +52,20 @@ log4j.appender.RollingAppenderU.layout.ConversionPattern=[%p] %d %c %M - %m
 ```
 
 **By default, everything goes to console and file**
-```
+
+```markdown
 log4j.rootLogger=INFO, RollingAppender, myConsoleAppender  
 ```
 
 **My custom logging goes to another file**
-```
+
+```markdown
 log4j.logger.myLogger=INFO, RollingAppenderU  
 ```
 
 **The noisier spark logs go to file only**
-```
+
+```markdown
 log4j.logger.spark.storage=INFO, RollingAppender  
 log4j.additivity.spark.storage=false  
 log4j.logger.spark.scheduler=INFO, RollingAppender  
@@ -88,7 +92,7 @@ In order to show how this is done, let’s write a small app that helps us in th
 
 Our app:
 
-```
+```scala
 object app {  
  def main(args: Array[String]) {  
    val log = LogManager.getRootLogger  
@@ -114,7 +118,7 @@ The class `org.apache.log4j.Logger` is not `serializable`, which implies we 
 
 For example, if we do the following in our app:
 
-```
+```scala
 val log = LogManager.getRootLogger  
 val data = sc.parallelize(1 to 100000)  
 
@@ -128,7 +132,7 @@ This will fail when running on Spark. Spark complains that the `log` object is 
 
 This problem is actually easy to solve. Let’s create a class that does something to our data set while doing a lot of logging.
 
-```
+```scala
 class Mapper(n: Int) extends Serializable{  
  @transient lazy val log = org.apache.log4j.LogManager.getLogger("myLogger")  
 
@@ -146,7 +150,7 @@ Another solution is to wrap the `log` object into a `object` construct and u
 
 At this point, our entire app looks like the following:
 
-```
+```scala
 import org.apache.log4j.{Level, LogManager, PropertyConfigurator}  
 import org.apache.spark.`  
 import org.apache.spark.rdd.RDD  

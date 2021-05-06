@@ -1,13 +1,13 @@
 ---
-title: The Challenges of Sharing GPUs and How to Solve Them
-width: small
+title: "KubeCon + CloudNativeCon, Europe: Be Involved via this Virtual Opportunity"
 category: Featured Blog
 priority: 2
-link: /blog/the-challenges-of-sharing-gpus-and-how-to-solve-them
-image: /img/blogs/Avatar1.svg
+width: small
+link: /blog/2021-04-15-kubecon-cloudnativecon-europe-be-involved-via-this-virtual-opportunity
+image: /img/blog-author-rensing-96.jpg
 ---
-Raz Haleva
+Dale Rensing
 
-## The Challenges of Sharing GPUs and How to Solve Them
+## KubeCon + CloudNativeCon, Europe.
 
-#### Feb 3, 2021
+#### Apr 15, 2021

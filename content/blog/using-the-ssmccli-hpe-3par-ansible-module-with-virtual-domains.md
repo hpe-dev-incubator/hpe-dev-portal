@@ -3,7 +3,7 @@ title: "Using the SSMC/CLI HPE 3PAR Ansible Module with Virtual Domains"
 date: 2018-10-01T18:49:29.287Z
 author: Chris Snell 
 tags: ["hpe-3par","hpe-3par-and-primera","ansible","virtualdomains","automation"]
-authorimage: "/img/blogs/Avatar3.svg"
+authorimage: "/img/blogs/Avatar5.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -395,7 +395,7 @@ This sample playbook demonstrates how a Storage Admin can quickly and programmat
 
 Now that we have finished configuring a Domain, Users, created CPGs and added hosts into the Domain, lets cover how a user can consume the 3PAR using Ansible playbooks while still being bound to the limits placed on the domain by the Storage Admin.
 
-This section follows closely to my other blog post about using the Ansible modules to provision storage on an HPE 3PAR. [Storage Provisioning using Ansible with HPE 3PAR Storage](https://developer.hpe.com/blog/storage-provisioning-using-ansible-with-hpe-3par-storage)
+This section follows closely to my other blog post about using the Ansible modules to provision storage on an HPE 3PAR. [Storage Provisioning using Ansible with HPE 3PAR Storage](/blog/storage-provisioning-using-ansible-with-hpe-3par-storage)
 
 ### Assumptions<a name="user_assumptions"></a>
   * Domains/users have been created

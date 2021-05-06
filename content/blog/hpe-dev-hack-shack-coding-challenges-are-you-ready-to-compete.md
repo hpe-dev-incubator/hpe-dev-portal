@@ -3,7 +3,7 @@ title: "HPE DEV Hack Shack Coding Challenges: Are You Ready to Compete?"
 date: 2020-10-30T15:04:29.848Z
 author: Pramod Sareddy 
 tags: ["challenges","challenge","codingchallenge","on-demand"]
-authorimage: "/img/blogs/Avatar1.svg"
+authorimage: "/img/blogs/Avatar3.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -80,4 +80,4 @@ At the end of the challenge, you will receive a final email indicating that the 
 
 You’ll have access to SME assistance through our challenges Slack channel. We staff the channel to answer questions between 4 am and 4 pm EST Monday through Friday. You may wish to ensure you schedule the timing of your challenge between those hours if you think you’ll have questions or need additional help.
 
-There will be a limited number of seats available for each challenge. These seats will be filled on a first-come/first-serve basis. We look forward to the opportunity of offering these challenges to you and you can win cool prizes. Remember to check back on the [HPE DEV blog](https://developer.hpe.com/blog) for any further updates.
+There will be a limited number of seats available for each challenge. These seats will be filled on a first-come/first-serve basis. We look forward to the opportunity of offering these challenges to you and you can win cool prizes. Remember to check back on the [HPE DEV blog](/blog) for any further updates.

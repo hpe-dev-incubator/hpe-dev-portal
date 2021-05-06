@@ -3,7 +3,7 @@ title: "WOW – A practiced and perfected design process  Part 1 – Uncovering 
 date: 2020-04-13T17:45:00.133Z
 author: Parul Tyagi 
 tags: []
-authorimage: "/img/blogs/Avatar3.svg"
+authorimage: "/img/blogs/Avatar2.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -58,4 +58,4 @@ By measuring the product’s system usability with SUS, the UX design process ad
 
 There is a lot more to UX design than what is often considered. UX design processes aren’t intended to just make an application look pretty. The benefits of using a thoughtfully developed UX design process extend way beyond the resulting user interface (UI). Benefits can be obtained immediately by involving UX designers at the very beginning of a project. As I’ve pointed out, in the first part of our WOW workflow, designers use tools that really help uncover the business value of UX design. In Part 2, I will cover steps 2 and 3 of WOW; the importance of involving the customer early in the design phase, and ensuring that the constructor (developer) has the right information during design implementation. 
 
-Feel free to reach out to me [@uxwithparul](https://twitter.com/uxwithparul) if you have any questions. Follow subsequent posts in this series and view other informative blogs at [HPE DEV.](https://developer.hpe.com/blog)
+Feel free to reach out to me [@uxwithparul](https://twitter.com/uxwithparul) if you have any questions. Follow subsequent posts in this series and view other informative blogs at [HPE DEV.](/blog)

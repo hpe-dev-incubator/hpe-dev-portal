@@ -3,7 +3,7 @@ title: "Kubernetes, Kafka Event Sourcing Architecture Patterns and Use Case Exam
 date: 2020-11-11T07:02:01.953Z
 author: Carol McDonald 
 tags: ["hpe-ezmeral-data-fabric","MapR","Kafka","opensource","use-cases"]
-authorimage: "/img/blogs/Avatar4.svg"
+authorimage: "/img/blogs/Avatar1.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -17,7 +17,9 @@ thumbnailimage:
 "publish": "2018-05-01T11:00:00.000",
 "tags": "use-cases"
 ```
+
 ---
+
 With the rapidly changing business and technology landscape of today, developers, data scientists, and IT operations are working together to build intelligent  applications with new technologies and dynamic architectures because of the flexibility, speed of delivery, and maintainability that they make possible.  This post will go over the technologies that are facilitating evolutionary architectures: containers, Kubernetes, and the Kafka API. Then we will look at some Kafka event sourcing architecture patterns and use case examples.
 
 ![Containers](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/11/containers-1605078458080.png)

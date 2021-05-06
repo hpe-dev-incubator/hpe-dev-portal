@@ -3,7 +3,7 @@ title: "Spark Custom Streaming Sources"
 date: 2021-01-14T05:34:57.546Z
 author: Nicolas Perez 
 tags: ["hpe-ezmeral-data-fabric","MapR","apache-spark"]
-authorimage: "/img/blogs/Avatar2.svg"
+authorimage: "/img/blogs/Avatar6.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -17,10 +17,12 @@ thumbnailimage:
 "publish": "2019-03-14T07:00:00.000Z",
 "tags": "apache-spark"
 ```
+
 ---
+
 Apache Spark is one of the most versatile big data frameworks out there. The ability to mix different kinds of workloads, in memory processing and functional style, makes it desirable for anyone coming to code in the data processing world.
 
-One important aspect of Spark is that it has been built for extensibility. Writing new connectors for the **RDD** API or extending the **DataFrame/Dataset** API allows third parties to integrate with Spark with ease. Most people will use one of the built-in APIs, such as Kafka for streams processing or JSON/CVS for file processing. However, there are times where we need more specific implementations, closer to us. For example, we might have a proprietary database we use in our company, and there will not be a connector for it. We can simply write one, as we explained in this previous post [_**Spark Data Source API. Extending Our Spark SQL Query Engine**_](https://developer.hpe.com/blog/XvlK6AnLW6cRQAzVL8XL/spark-data-source-api-extending-our-spark-sql-query-engine).
+One important aspect of Spark is that it has been built for extensibility. Writing new connectors for the **RDD** API or extending the **DataFrame/Dataset** API allows third parties to integrate with Spark with ease. Most people will use one of the built-in APIs, such as Kafka for streams processing or JSON/CVS for file processing. However, there are times where we need more specific implementations, closer to us. For example, we might have a proprietary database we use in our company, and there will not be a connector for it. We can simply write one, as we explained in this previous post [_**Spark Data Source API. Extending Our Spark SQL Query Engine**_](/blog/XvlK6AnLW6cRQAzVL8XL/spark-data-source-api-extending-our-spark-sql-query-engine).
 
 Starting with Spark 2.0, we could create sources from streams, which gave life to the *Spark Structured Streaming API*. As we would imagine, there are some built-in streaming sources, Kafka being one of them, alongside **FileStreamSource, TextSocketSource**, etc.
 
@@ -352,7 +354,7 @@ r.createTempView("w")
 
 The output will look similar to this:
 
-```
+```markdown
 -------------------------------------------
 Batch: 3
 -------------------------------------------

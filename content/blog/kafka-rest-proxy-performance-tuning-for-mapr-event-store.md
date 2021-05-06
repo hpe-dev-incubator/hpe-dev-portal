@@ -3,7 +3,7 @@ title: "Kafka REST Proxy - Performance Tuning for MapR Event Store"
 date: 2021-02-05T06:32:34.390Z
 author: Mathieu Dumoulin 
 tags: ["hpe-ezmeral-data-fabric","MapR","kafka"]
-authorimage: "/img/blogs/Avatar3.svg"
+authorimage: "/img/blogs/Avatar5.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -17,7 +17,9 @@ thumbnailimage:
 "publish": "2017-04-04T12:00:00.000Z",
 "tags": "nosql"
 ```
+
 ---
+
 MapR Event Store is a “Kafka-esque” message streaming system which, similarly to Apache Kafka, provides very high throughput performance combined with low message latency and high reliability. Unique to MapR Event Store, however, is a broker-less design that vastly simplifies configuration and increases reliability, in addition to providing replication capabilities that enable some pretty cool use cases.
 
 With MEP 2.0, the MapR Data Platform adds a Kafka REST Proxy server. This upgrade opens MapR Event Store to use any language that supports REST API calls over HTTP, which is to say, virtually all modern languages. For example, Python and the requests module work really well.
@@ -34,7 +36,7 @@ We should start with some good news. MapR Event Store is very fast and is shippe
 
 You have a shiny new MapR 5.2 cluster installed with all the bells and whistles. Everything works great, and you get around to wanting to give MapR Event Store a try. With the REST Proxy, this is a piece of cake.
 
-```
+```bash
 curl -X POST -H "Content-Type:application/vnd.kafka.json.v1+json" --data '{"records":[{"value":{"foo":"bar"}}]}' "http://demo1:8082/topics/%2Fstreams%2Ftest%3Atopic1"
 ```
 
@@ -42,7 +44,7 @@ And the response takes about 3 seconds to come back. This very high latency is b
 
 To fix, add the following to the kafka-rest.properties file (in /opt/mapr/kafka-rest/kafka-rest-<version>/config):
 
-```
+```bash
 consumer.request.timeout.ms=125
 streams.buffer.max.time.ms=125
 ```
@@ -59,7 +61,7 @@ Lowering the value of this property seems to correlate to much higher CPU utiliz
 
 It’s possible to avoid this by setting a default stream, adding the following property to kafka-rest.properties:
 
-```
+```bash
 streams.default.streams=/streams/test
 ```
 
@@ -118,12 +120,15 @@ To get the highest throughput, it’s going to be important to reduce overhead t
 Instead of producing a single record on each API call, push an array of records.
 
 **Bad:**
-```
+
+```python
 {"value":{"foo":"bar"}}
 
 ```
+
 **Good:**
-```
+
+```python
 {"records":[ {"value":{"foo1":"bar1"}},{"value":{"foo2":"bar2"}} ,… ]}
 ```
 
@@ -140,12 +145,15 @@ We’ve found significant gains from switching from single, isolated POST calls 
 Here is an example with Python and the excellent requests module:
 
 **Bad:**
+
 ```python
 def produce(payload):  
     headers = {'Content-Type':'application/vnd.kafka.binary.v1+json'}
     r = requests.post('http://gw1:8082/topics/test', headers=headers, json=payload)
 ```
+
 **Good:**
+
 ```python
 def send_messages(url, payload):
     session = requests.Session()
@@ -159,6 +167,7 @@ response = session.post(url, headers=headers, data=payload)
 One of the resources that limits the throughput performance of the Kafka REST Proxy is CPU resource. Well, it turns out that the Proxy is running the Jetty 9 server in embedded mode. It is possible to do some tuning at that level.
 
 There is a good article about tuning the operating system (of both load generator and server) and load generators and jetty for high load in Jetty server. For sure, we cannot tune Jetty as it's embedded. But have a look at the following link. You can certainly tune the following meetings for high load:
+
 -	TCP buffer sizes
 -	Queue sizes for connection listening queue
 -	Port range at the load generator side, so it won’t starve on parts during high load

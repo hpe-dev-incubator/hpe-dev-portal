@@ -3,16 +3,17 @@ title: "Building Dynamic Machine Learning Pipelines with KubeDirector"
 date: 2020-08-14T10:58:54.949Z
 author: Joel Baxter & Kartik Mathur & Don Wake 
 tags: ["hpe-ezmeral-container-platform","MLOps","pipeline","kubedirector","opensource"]
-authorimage: "/img/blogs/Avatar2.svg"
+authorimage: "/img/blogs/Avatar5.svg"
 featuredBlog: true
 priority: 5
 thumbnailimage:
 ---
 Imagine that you’re a data scientist who’s been asked to create an application or service that can predict travel time for a proposed taxi ride. The application needs to have the ability to update the service with new data as it becomes available, so its predictions take recent patterns into account. In this tutorial, we’ll show you how to set up a Machine Learning (ML) pipeline using KubeDirector to train, register, and query your model.
 
-[KubeDirector](https://developer.hpe.com/blog/running-non-cloud-native-apps-on-kubernetes-with-kubedirector) was introduced to the open source community to address stateful application deployment in standard Kubernetes clusters.  In the latest release ([version 0.5](https://github.com/bluek8s/kubedirector/releases/tag/v0.5.0)),  KubeDirector now allows multiple clusters to share data very easily using a new feature called **_Connections_**.  The new feature helps users create large-scale dynamic, stateful containerized applications such as are found in Machine Learning (ML) pipelines and allow them to constantly evolve as models are improved and the data changes.
+[KubeDirector](/blog/running-non-cloud-native-apps-on-kubernetes-with-kubedirector) was introduced to the open source community to address stateful application deployment in standard Kubernetes clusters.  In the latest release ([version 0.5](https://github.com/bluek8s/kubedirector/releases/tag/v0.5.0)),  KubeDirector now allows multiple clusters to share data very easily using a new feature called **_Connections_**.  The new feature helps users create large-scale dynamic, stateful containerized applications such as are found in Machine Learning (ML) pipelines and allow them to constantly evolve as models are improved and the data changes.
 
 A basic ML pipeline consists of three stages:
+
 * Training, where the input datasets are processed to create ML models
 * Model registration, where the models to be used are identified and characterized
 * Inferencing, where selected models are made available for answering queries
@@ -23,9 +24,11 @@ Our solution uses three KubeDirector Applications (kdapps): A training deploymen
 
 A kdapp is a custom resource (CR) that can be created in any Kubernetes cluster. The kdapp instructs KubeDirector on how a particular kind of virtual application cluster should be deployed and managed. The three kdapps used in this solution are examples that can be found online in the [KubeDirector github example catalog](https://github.com/bluek8s/kubedirector/tree/master/deploy/example_catalog). 
 ### Register Your KubeDirector Applications with Kubernetes
+
 Assuming that KubeDirector is already deployed and running in the Kubernetes cluster, these kdapp CRs can be created to register apps with KubeDirector, e.g. by using kubectl:
 
-```
+
+```markdown
 kubectl create –f cr-app-training-engine.json
 kubectl create –f cr-app-jupyter-notebook.json
 kubectl create –f cr-app-deployment-engine.json
@@ -50,11 +53,13 @@ These components come together to build the pipeline like so:
 A project repository is used to store the key data components needed in any ML pipeline, such as source data, the model itself and the scoring script.
 
 In this example, the project repository is maintained within the HPE Ezmeral Data Fabric, since KubeDirector was itself deployed using the HPE Ezmeral Container Platform (which includes our data fabric by default); KubeDirector is a key component of the HPE Ezmeral Container Platform. However, KubeDirector is an open-source project and it can be used with any Kubernetes cluster and corresponding project repository.
+
 ## Training 
+
 Once you have registered the ML training kdapp and the Jupyter Notebook kdapp for Model Building, you’ll need to launch instances of those applications as KubeDirector clusters (kdclusters) to put the ML pipeline to work. First, launch an instance of the ML training kdapp:
 
 
-```
+```markdown
 kubectl create –f cr-cluster-training-engine.yaml
 ```
 
@@ -63,7 +68,7 @@ kubectl create –f cr-cluster-training-engine.yaml
 Next you’ll need to launch an instance of your Jupyter Notebook kdcluster. Before you do that, you need to modify the example kdcluster yaml file and include a new Connection stanza into the top level “spec” section.  This modification would look similar to the following code:
 
 
-```
+```yaml
 spec:
   app: “jupyter-notebook”
   appCatalog: “local”
@@ -75,7 +80,7 @@ spec:
 Now, use the modified yaml file to launch an instance of your Jupyter Notebook kdcluster:
 
 
-```
+```markdown
 kubectl create –f cr-cluster-jupyter-notebook.yaml
 ```
 
@@ -91,6 +96,7 @@ Those familiar with Jupyter Notebooks know that they include support for predefi
 Jupyter Notebook also includes hooks that allow defining custom magics. The kdapps in our solution utilize these custom commands (magics) to seamlessly integrate with KubeDirector Connections. This includes custom magics to handle remotely submitting training code and retrieving results and logs. These magic functions make REST API calls to the API server that runs as part of a training environment.
 
 For example the following magic functions are included:
+
 * _%attachments_: Returns a list of connected training environments 
 * _%logs --url_: URL of the training server load balancer
 * _%%<<training_cluster_name>>_: Submits training code to the training environment
@@ -113,7 +119,7 @@ Below is a snapshot from the HPE Ezmeral Container Platform Web User Interface. 
 Next, you’ll need to create a _ConfigMap_ resource to store metadata about the model to be used in deployments. Here's an example ConfigMap for the model data generated above:
  
 
-```
+```yaml
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -127,6 +133,7 @@ data:
  ```
 
 The two crucial parameters that will be used by the deployment-engine kdcluster are the **_path_** and the **_scoring-path_**, each of which identifies a location within the project repository as seen within an app container. The path is the location of the serialized model data.  This path can be retrieved from the job log when the model was trained. The scoring-path locates a script that will be used by the deployment engine to deserialize and process the model.
+
 ## Create inference deployment
 This is what you’ve been waiting for! How long will my taxi ride take? You’ve trained a model from a data set, and now it’s time to extract value from your model.  To do this, you need to create a deployment-engine.
 
@@ -135,10 +142,11 @@ A deployment-engine kdcluster is used to stand up services that will allow clien
 A deployment engine will serve inferences for one or more models. To specify models to a deployment-engine kdcluster, the Connections feature once again comes in handy. Instead of naming other kdclusters of interest, this time it will be used to name ConfigMap resources, one for each model that the deployment should use. In this case, just use the one example model that was given.
  
 ### KubeDirector Connection creation: Inference server kdcluster -> Model ConfigMap
+
 For this deployment, the example **_cr-cluster-endpoint-wrapper.yaml_** file can be used. Similar to how the Jupyter Notebook kdcluster yaml file was modified, this kdcluster yaml file will be edited to include the Connection stanza.  A new property in the top-level spec section is added, similar to the following:
 
  
-```
+```yaml
  spec:
   app: deployment-engine
   appCatalog: “local”
@@ -179,9 +187,10 @@ Find out more about KubeDirector applications and KubeDirector clusters at the G
 
 And to see how we use KubeDirector in our HPE Ezmeral Container Platform, check out the interactive demo environment [here](http://www.hpe.com/engage/containerplatform).
 
-Look for more KubeDirector posts coming soon on the [HPE DEV blog site](https://developer.hpe.com/blog).
+Look for more KubeDirector posts coming soon on the [HPE DEV blog site](/blog).
 
 >This article was co-authored by: 
+
 *  Joel Baxter, Distinguished Technologist
 *  Kartik Mathur, Master Technologist
 *  Don Wake, Technical Marketing Engineer

@@ -1,12 +1,13 @@
 ---
-title: "Using Jitsi Meet to reach out to others"
+title: Using Jitsi Meet to reach out to others
 date: 2020-04-15T21:37:50.843Z
-author: Frederic Passeron 
-tags: ["opensource"]
-authorimage: "/img/blogs/Avatar1.svg"
 featuredBlog: false
-priority:
-thumbnailimage:
+priority: null
+author: Frederic Passeron
+authorimage: https://gravatar.com/avatar/3397fa0097e38d890aac69b996879a4e?s=96
+thumbnailimage: null
+tags:
+  - opensource
 ---
 ![picture11](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/3/picture11-1586988196990.png)
 
@@ -69,7 +70,7 @@ A non-root user with sudo privileges
 Before starting, update your operating system with the latest version with the following command:
 
 
-```
+```bash
 
 sudo apt-get update -y
 sudo apt-get upgrade -y
@@ -102,7 +103,7 @@ Save and close the file. Then, verify the hostname with the following command:
 With a limited set of resources, I needed to adapt and adjust the swap file.
 
 
-```
+```bash
 
 sudo dd if=/dev/zero of=/swapfile count=2048 bs=1M
 sudo chmod600 /swapfile
@@ -125,7 +126,7 @@ Once Java is installed, verify the Java version with the following command:
 Output:
 
 
-```
+```markdown
 
 openjdk version "10.0.2" 2018-07-17
 OpenJDK Runtime Environment (build 10.0.2+13-Ubuntu-1ubuntu0.18.04.3)
@@ -146,7 +147,7 @@ Once Nginx is installed, you can check the Nginx service with the following comm
 Output:
 
 
-```
+```markdown
 
 ? nginx.service - A high performance web server and a reverse proxy server
    Loaded: loaded (/lib/systemd/system/nginx.service; enabled; vendor preset: enabled)
@@ -169,7 +170,7 @@ By default, Jitsi Meet is not available in the Ubuntu 18.04 default program repo
 You can do this by running the following command:
 
 
-```
+```bash
 wget -qO - https://download.jitsi.org/jitsi-key.gpg.key | sudo apt-key add -
 sudo sh -c "echo 'deb https://download.jitsi.org stable/' > /etc/apt/sources.list.d/jitsi.list"
 
@@ -178,7 +179,7 @@ sudo sh -c "echo 'deb https://download.jitsi.org stable/' > /etc/apt/sources.lis
 Next, update the repository and install Jitsi Meet with the following command:
 
 
-```
+```bash
 
 sudo apt-get update -y
 sudo apt-get install jitsi-meet -y
@@ -205,7 +206,7 @@ Allow SSH for remote access:
 Allow Ports 80, 443, and range from 10000 to 20000 for Jitsi Meet.
 
 
-```
+```bash
 
 sudo ufw allow http
 sudo ufw allow https
@@ -253,4 +254,4 @@ There are so many possible applications for this technology. Educators can use t
 
 For those who might find technology a little more daunting or less accessible, Jitsi Meet still can be easily used with a simple browser. Think how this could help the elderly keep in touch and interact with their families.
 
-Stay tuned to the [HPE DEV blog site](https://developer.hpe.com/blog) for more helpful tutorials.
+Stay tuned to the [HPE DEV blog site](/blog) for more helpful tutorials.

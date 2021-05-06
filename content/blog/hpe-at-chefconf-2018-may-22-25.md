@@ -3,7 +3,7 @@ title: "HPE at ChefConf 2018: May 22-25"
 date: 2018-05-18T16:10:21.739Z
 author: HPE DEV staff 
 tags: ["chef","chefconf","devops","chefconf-chicago-2018"]
-authorimage: "/img/blogs/Avatar3.svg"
+authorimage: "/img/blogs/Avatar5.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

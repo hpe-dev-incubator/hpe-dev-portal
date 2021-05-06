@@ -3,7 +3,7 @@ title: "Contributors enhance Grommet during Hacktoberfest"
 date: 2019-10-28T22:31:02.165Z
 author: Shimrit Yacobi 
 tags: ["grommet","Hacktoberfest","opensource"]
-authorimage: "/img/blogs/Avatar4.svg"
+authorimage: "/img/blogs/Avatar2.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -14,6 +14,6 @@ Because of Hacktoberfest, the [Grommet GitHub repository](https://github.com/gro
 
 The issue that had the most traffic was Refactoring components and stories to use hooks. The ability to use hooks has recently been added to React and is proving to be very popular because it solves a number of issues. Hooks are functions that let you “hook into” React state and lifecycle features from function components. Hooks don’t work inside classes — they let you use React without classes. This issue alone attracted more than 50 pull requests (PRs) and helps make Grommet a React framework that is super edgy.
 
-Developers also tackled issues of [TypeScript,](https://developer.hpe.com/blog/using-typescript-in-grommet-applications) layout, and the implementation of best practices and standards. Some were bug fixes, but many more were enhancements to the code. You can find all the issues on the [Grommet Hacktoberfest repository.](https://github.com/grommet/grommet/issues?utf8=%E2%9C%93&q=+label%3Ahacktoberfest) As the HPE Experience Studio senior engineer and open source developer, I couldn’t be happier with the engagement we received around this October event run by [DigitalOcean](https://www.digitalocean.com/) and [DEV design.](https://dev.to/)
+Developers also tackled issues of [TypeScript,](/blog/using-typescript-in-grommet-applications) layout, and the implementation of best practices and standards. Some were bug fixes, but many more were enhancements to the code. You can find all the issues on the [Grommet Hacktoberfest repository.](https://github.com/grommet/grommet/issues?utf8=%E2%9C%93&q=+label%3Ahacktoberfest) As the HPE Experience Studio senior engineer and open source developer, I couldn’t be happier with the engagement we received around this October event run by [DigitalOcean](https://www.digitalocean.com/) and [DEV design.](https://dev.to/)
  
 For those of you unfamiliar with [Grommet,](https://v2.grommet.io/) it is a React-based library of reusable UI components that help developers and designers create web applications. This open source UI development and design tool simplifies the way web applications are built by providing a package of commonly used interface elements from which developers and designers can choose to use. To keep up to date with everything that’s going on with Grommet, make sure you connect with us on [Slack.](https://grommet.slack.com/)  Or, check out the HPE DEV portal to learn more about the [Grommet platform.](https://developer.hpe.com/platform/grommet/home)

@@ -3,14 +3,14 @@ title: "Get involved in the open source community! Part 3: Contributing back to 
 date: 2020-06-24T08:06:31.204Z
 author: Didier Lalli 
 tags: ["git","github","opensource"]
-authorimage: "/img/blogs/Avatar6.svg"
+authorimage: "/img/blogs/Avatar5.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
 ---
 ![git101-part1-git icon 1788c](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/3/git-icon-1788c-1590702885345.png)
 
-In the [Part 1](https://developer.hpe.com/blog/get-involved-in-the-open-source-community-part-1-getting-started-with-gi) of my blog series, I discussed how to get started with Git and leverage some of the content provided by the open source community. In [Part 2](https://developer.hpe.com/blog/get-involved-in-the-open-source-community-part-2-sharing-with-the-commun) of the series, I covered how to create and populate your first repo on GitHub. So far, we have covered use cases 1, 2 and 3 from the list below:
+In the [Part 1](/blog/get-involved-in-the-open-source-community-part-1-getting-started-with-gi) of my blog series, I discussed how to get started with Git and leverage some of the content provided by the open source community. In [Part 2](/blog/get-involved-in-the-open-source-community-part-2-sharing-with-the-commun) of the series, I covered how to create and populate your first repo on GitHub. So far, we have covered use cases 1, 2 and 3 from the list below:
 
 - Use case 1: I’d like to use something from the community
 - Use case 2: I'd like to report an issue on a repository
@@ -40,7 +40,7 @@ In this lab, we would like to fork the https://github.com/Didier-Lalli/WelcomeGi
 
 ## Step 2: Cloning the forked repo
 
-In order to start making changes to this repo, we need to clone it locally like we did in [Part1](https://developer.hpe.com/blog/get-involved-in-the-open-source-community-part-1-getting-started-with-gi).
+In order to start making changes to this repo, we need to clone it locally like we did in [Part1](/blog/get-involved-in-the-open-source-community-part-1-getting-started-with-gi).
 
 Open a terminal session (terminal on Mac, PowerShell on Windows).
 
@@ -124,7 +124,7 @@ Hello world !
 Hello Didou06, many thanks for the contribution
 ```
 
-Now that we are happy about this new version of the code, let's add the file and commit the changes like we did in [Part 2](https://developer.hpe.com/blog/get-involved-in-the-open-source-community-part-2-sharing-with-the-commun) blog:
+Now that we are happy about this new version of the code, let's add the file and commit the changes like we did in [Part 2](/blog/get-involved-in-the-open-source-community-part-2-sharing-with-the-commun) blog:
 
 4/ Commit changes locally using `git add` and `git commit` and verify that Git has picked up the change using `git status`
 
@@ -270,9 +270,9 @@ This terminates use case 4: You should now be able to open a Pull Request to enh
 
 We only touched the surface of Git in these three blog posts. We showed you some typical use cases in order to illustate the most important Git actions:
 
-1. Cloning an existing public repo (covered in [Part 1](https://developer.hpe.com/blog/get-involved-in-the-open-source-community-part-1-getting-started-with-gi))
-2. Opening an issue on a public repo (covered in [Part 1](https://developer.hpe.com/blog/get-involved-in-the-open-source-community-part-1-getting-started-with-gi))
-3. Creating your GitHub account and populating a first public repo (covered in [Part 2](https://developer.hpe.com/blog/get-involved-in-the-open-source-community-part-2-sharing-with-the-commun))
+1. Cloning an existing public repo (covered in [Part 1](/blog/get-involved-in-the-open-source-community-part-1-getting-started-with-gi))
+2. Opening an issue on a public repo (covered in [Part 1](/blog/get-involved-in-the-open-source-community-part-1-getting-started-with-gi))
+3. Creating your GitHub account and populating a first public repo (covered in [Part 2](/blog/get-involved-in-the-open-source-community-part-2-sharing-with-the-commun))
 4. Forking a public repo and opening a pull request (covered here)
 
 If you want to discover more about Git, I recommend the following resources:
@@ -281,6 +281,6 @@ If you want to discover more about Git, I recommend the following resources:
 - [The Git Handbook](https://guides.github.com/introduction/git-handbook/)
 - [Video Git Crash Course](https://www.youtube.com/watch?v=SWYqp7iY_Tc&feature=youtu.be)
 
-Stay tuned to [HPE DEV](https://developer.hpe.com/blog) for the last article where I will cover use case 4. In this use case, you will start contributing some code back to an existing project.
+Stay tuned to [HPE DEV](/blog) for the last article where I will cover use case 4. In this use case, you will start contributing some code back to an existing project.
 
 

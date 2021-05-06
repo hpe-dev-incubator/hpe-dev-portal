@@ -19,6 +19,7 @@ Developers can programmatically control HPE OneView managed resources using infr
 The HPE OneView SDKs also provide API language support for Python, Ruby, Golang and PowerShell languages, enabling developers to easily build integrations and scalable solutions with HPE OneView. With language support, you can integrate popular automation tools based on these languages with HPE OneView. 
 
 For more information:
+
 * [HPE DEV OneView] (https://developer.hpe.com/platform/hpe-oneview/home)
 * [Ansible GitHub release](https://github.com/HewlettPackard/oneview-ansible)
 * [Terraform GitHub Release] (https://github.com/HewlettPackard/terraform-provider-oneview)

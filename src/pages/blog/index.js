@@ -1,6 +1,6 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { graphql, withPrefix } from 'gatsby';
+import { graphql, withPrefix, navigate } from 'gatsby';
 import { Box, Button, Paragraph } from 'grommet';
 import { FormDown } from 'grommet-icons';
 import {
@@ -21,7 +21,7 @@ const columns = {
   xlarge: ['flex', 'flex', 'flex', 'flex'],
 };
 
-function Blog({ data }) {
+function Blog({ data, location }) {
   const featuredposts = data.featuredblogs.edges;
   const siteMetadata = useSiteMetadata();
   const siteTitle = siteMetadata.title;
@@ -32,7 +32,36 @@ function Blog({ data }) {
   const [collectionId, setCollectionId] = useState(initialPage.collection.id);
 
   useEffect(() => {
-    setCollectionId(latestPage.collection.id);
+    setCollectionId(initialPage.collection.id);
+
+    const blogLocalStorage = JSON.parse(localStorage.getItem('blogData'));
+
+    if (
+      blogLocalStorage &&
+      blogLocalStorage.latestPage &&
+      blogLocalStorage.latestBlogPosts
+    ) {
+      setLatestPage(blogLocalStorage.latestPage);
+      setBlogPosts(blogLocalStorage.latestBlogPosts);
+    }
+
+    if (location.state && location.state.isBlogHeaderClicked) {
+      navigate('/blog', { replace: true });
+      setLatestPage(initialPage);
+      setBlogPosts(initialPage.nodes);
+      localStorage.removeItem('blogPosition');
+      localStorage.removeItem('blogData');
+    }
+  }, [initialPage, location]);
+
+  useEffect(() => {
+    const scrollPosition = JSON.parse(localStorage.getItem('blogPosition'));
+
+    if (scrollPosition) {
+      setTimeout(() => {
+        window.scrollTo({ top: scrollPosition, left: 0, behavior: 'smooth' });
+      }, 100);
+    }
   }, []);
 
   const loadNextPage = useCallback(async () => {
@@ -46,12 +75,24 @@ function Blog({ data }) {
 
     setBlogPosts((state) => [...state, ...json.nodes]);
     setLatestPage(json);
-  }, [latestPage, collectionId]);
+
+    localStorage.setItem(
+      'blogData',
+      JSON.stringify({
+        latestBlogPosts: [...blogPosts, ...json.nodes],
+        latestPage: json,
+      }),
+    );
+  }, [latestPage, collectionId, blogPosts]);
 
   return (
     <Layout title={siteTitle}>
       <SEO title="Blog" />
-      <PageDescription image="/img/blogs/blogs.svg" title="Blog">
+      <PageDescription
+        image="/img/blogs/blogs.svg"
+        title="Blog"
+        alt="blog page logo"
+      >
         <Paragraph>
           Sharing expertise is a great way to move technology forward. Browse
           through our library of tutorials and articles to learn new ways to do
@@ -143,6 +184,11 @@ Blog.propTypes = {
       }),
     }).isRequired,
   }).isRequired,
+  location: PropTypes.shape({
+    state: PropTypes.shape({
+      isBlogHeaderClicked: PropTypes.bool,
+    }),
+  }),
 };
 
 export default Blog;

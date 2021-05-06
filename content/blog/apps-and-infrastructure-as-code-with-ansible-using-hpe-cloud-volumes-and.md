@@ -3,7 +3,7 @@ title: "Apps and Infrastructure as Code with Ansible using HPE Cloud Volumes and
 date: 2017-11-29T09:18:49.512Z
 author: Michael Mattsson 
 tags: ["devops","hpe-cloud-volumes","ansible","docker","hpe-nimble-storage"]
-authorimage: "/img/blogs/Avatar3.svg"
+authorimage: "/img/blogs/Avatar5.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

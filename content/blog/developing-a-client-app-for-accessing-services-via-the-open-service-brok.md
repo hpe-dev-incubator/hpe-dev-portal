@@ -3,7 +3,7 @@ title: "Developing a Client App for Accessing Services via the Open Service Brok
 date: 2019-08-28T15:36:16.964Z
 author: Carson Stone and Kailash Ramakrishnan 
 tags: []
-authorimage: "/img/blogs/Avatar3.svg"
+authorimage: "/img/blogs/Avatar2.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -12,7 +12,7 @@ thumbnailimage:
 
 The Open Service Broker (OSB) API gives customers a uniform and less complicated way to access services offered by providers. The service broker acts as the middleman that links the two parties, transfering and implementing services between the two. It is the missing link, allowing for better service consumption and various kinds of client applications to reach services from any provider. The OSB API is the language specification that provides this communication. In this tutorial, we will show you how to develop a client app for accessing services using OSB. For the purposes of this post, we will be using Grommet OSB Broker, a broker we deployed in AWS cloud.
 
-Note: For more information regarding service brokers, please see Pramod Sareddy’s blog post [Using Open Service Broker as a Quick and Easy Way to Offer Everything as-a-Service.](https://developer.hpe.com/blog/using-open-service-broker-as-a-quick-and-easy-way-to-offer-everything-as) You can also view another example walkthrough in Peng Liu’s post about [An Open Service Broker Project Delivers a Sample DevOps Environment to AWS.](https://developer.hpe.com/blog/an-open-service-broker-project-delivers-a-sample-devops-environment-to-a) To access API documentation, access the [Open Service Broker website](https://www.openservicebrokerapi.org/) and the [OSB documentation repository.](https://github.com/openservicebrokerapi/servicebroker/blob/master/spec.md) 
+Note: For more information regarding service brokers, please see Pramod Sareddy’s blog post [Using Open Service Broker as a Quick and Easy Way to Offer Everything as-a-Service.](/blog/using-open-service-broker-as-a-quick-and-easy-way-to-offer-everything-as) You can also view another example walkthrough in Peng Liu’s post about [An Open Service Broker Project Delivers a Sample DevOps Environment to AWS.](/blog/an-open-service-broker-project-delivers-a-sample-devops-environment-to-a) To access API documentation, access the [Open Service Broker website](https://www.openservicebrokerapi.org/) and the [OSB documentation repository.](https://github.com/openservicebrokerapi/servicebroker/blob/master/spec.md) 
 
 The stand-alone client application we developed is an example of an OSB client with a graphical user interface (GUI). Its purpose is to communicate with service brokers and deploy and manage services for the user. The service broker we use in this example is one that provisions an ec2 instance on AWS and installs a Grommet environment for a developer. 
 
@@ -87,4 +87,4 @@ Access the Open Service Broker Client App [here on GitHub.](https://github.com/H
 Click [here to view a video](https://www.youtube.com/watch?v=ERwrlvc1KdU&feature=youtu.be) that steps you through the process.
 
 ## Summary
-We had a great time developing this client example and hope you will find it helpful in testing and implementing your service brokers. Please remember to follow our [HPE DEV blog](https://developer.hpe.com/blog) posts for more information on this and other topics designed to streamline your application development environment.
+We had a great time developing this client example and hope you will find it helpful in testing and implementing your service brokers. Please remember to follow our [HPE DEV blog](/blog) posts for more information on this and other topics designed to streamline your application development environment.

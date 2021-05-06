@@ -3,7 +3,7 @@ title: "Elaborate the Monitoring of KVM-based Private Clouds Using Open Source T
 date: 2019-05-29T21:28:19.523Z
 author: Denis Choukroun  
 tags: []
-authorimage: "/img/blogs/Avatar2.svg"
+authorimage: "/img/blogs/Avatar3.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

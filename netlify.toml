@@ -4,6 +4,16 @@
   functions = "functions"
   publish = "public"
 
+# Secure website with browser security headers
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Strict-Transport-Security = "max-age=63072000; includeSubDomains; preload"
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "no-referrer"
+    Feature-Policy = "microphone 'none'; geolocation 'none'"
+
   ## Uncomment to use this redirect for Single Page Applications like create-react-app. 
   ## Not needed for static site generators.
 [[redirects]]

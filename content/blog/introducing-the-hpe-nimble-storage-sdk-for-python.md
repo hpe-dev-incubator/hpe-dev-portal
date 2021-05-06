@@ -19,7 +19,7 @@ Like all Python libraries, the HPE Nimble Storage SDK for Python is hosted on Py
 
 From the CLI, install the SDK. 
 
-```
+```bash
 pip install nimble-sdk 
 ``` 
 
@@ -27,7 +27,7 @@ pip install nimble-sdk
 
 Let’s run an interactive example against a Nimble array and pull out a list of drives in the array. 
 
-``` 
+```python
 python3 
 Python 3.7.7 (default, Mar 10 2020, 15:43:03) 
 [Clang 11.0.0 (clang-1100.0.33.17)] on darwin 
@@ -56,7 +56,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 
 Let’s pull out more info about a particular drive, in the same session. 
 
-```
+```python
 >>> pprint.pprint(client.disks.get("2c49686580b78e0b160001000000000a0000000c00").attrs)
 {'array_id': '0949686580b78e0b16000000000000000000000001',
  'array_name': 'nva-test',
@@ -91,7 +91,7 @@ Let’s pull out more info about a particular drive, in the same session.
 
 To get an idea of what APIs are available, hitting `<TAB>` in an interactive session, just before entering which resource to manipulate will list the available APIs. 
 
-``` 
+```python
 >>> client.<TAB> 
 client.access_control_records           client.folders                          client.snapshot_collections 
 client.active_directory_memberships     client.groups                           client.snapshots 
@@ -116,7 +116,7 @@ How to interact with each of these resources is available in the [documentation]
 # Hello World 
 Running Python interactively is practical to use as a sidekick when developing a new script to find attributes and other syntax minutia. Let’s write a real “Hello World” Python program that extracts some array meta data that is used to track inventory.  
 
-``` 
+```bash
 #!/usr/bin/env python3
 
 # Import the required modules
@@ -173,7 +173,7 @@ if __name__ == '__main__':
 
 Running the program against a set of arrays will produce something like the following (includes the syntax): 
 
-``` 
+```bash
 ./nimble_inventory.py --username admin --password admin --array nimble-array1 nimble-array2 nimble-array3 nimble-array4 
 nimble-array1    5.1.3.100-668356-opt    Virtual-6G-12T-320F    cs-XXXXX 
 nimble-array2    5.1.4.0-683149-opt    AF3000-2P-11T    AF-XXXXX 

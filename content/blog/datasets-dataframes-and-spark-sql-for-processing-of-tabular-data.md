@@ -3,7 +3,7 @@ title: "Datasets, DataFrames, and Spark SQL for Processing of Tabular Data"
 date: 2020-08-19T06:24:20.022Z
 author: Carol McDonald 
 tags: ["hpe-ezmeral-data-fabric","MapR","Spark","opensource"]
-authorimage: "/img/blogs/Avatar6.svg"
+authorimage: "/img/blogs/Avatar5.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -14,9 +14,10 @@ thumbnailimage:
 "publish": "2018-10-24T07:00:00.000Z",
 "tags": "spark"
 ```
+
 ---
 
-With Apache Spark 2.0 and later versions, big improvements were implemented to make Spark easier to program and execute faster. The Spark SQL and the Dataset/DataFrame APIs provide ease of use, space efficiency, and performance gains with Spark SQL's optimized execution engine. In this blog post we will give an introduction to Spark Datasets, DataFrames and Spark SQL. This is part 2 of a multi-blog series. You can read [part 1 here](https://developer.hpe.com/blog/4jqBP6MO3rc1Yy0QjMOq/spark-101-what-is-it-what-it-does-and-why-it-matters).
+With Apache Spark 2.0 and later versions, big improvements were implemented to make Spark easier to program and execute faster. The Spark SQL and the Dataset/DataFrame APIs provide ease of use, space efficiency, and performance gains with Spark SQL's optimized execution engine. In this blog post we will give an introduction to Spark Datasets, DataFrames and Spark SQL. This is part 2 of a multi-blog series. You can read [part 1 here](/blog/4jqBP6MO3rc1Yy0QjMOq/spark-101-what-is-it-what-it-does-and-why-it-matters).
 
 **Editor’s Note:** MapR products referenced are now part of the [HPE Ezmeral Data Fabric](https://www.hpe.com/us/en/software/data-fabric.html).
 
@@ -28,7 +29,7 @@ A Spark Dataset is a distributed collection of typed objects, which are partitio
 
 As discussed before, a Spark application runs as independent processes, coordinated by the SparkSession object in the driver program. The entry point to programming in Spark is the org.apache.spark.sql.SparkSession class, which you use to create a SparkSession object as shown below:
 
-```
+```scala
 val spark =
 SparkSession.builder().appName("example").master("local[*]".getOrCreate()
 ```
@@ -39,7 +40,7 @@ If you are using the spark-shell or a notebook, the SparkSession object is alrea
 
 The Spark shell provides an easy way to learn Spark interactively. You can start the shell with the following command:
 
-```
+```bash
 $ /[installation path]/bin/spark-shell --master local[2]
 ```
 
@@ -66,7 +67,7 @@ The flight data is in JSON files, with each flight having the following informat
 
 It appears in the following format:
 
-```
+```markdown
 {    
 "_id": "AA_2017-01-01_ATL_LGA_1678",
 "dofW": 7,
@@ -91,7 +92,7 @@ It appears in the following format:
 
 With the SparkSession `read` method, we can read data from a file into a DataFrame, specifying the file type, file path, and input options for the schema. The schema can optionally be inferred from the contents of the JSON file, but you will get better performance and accuracy by specifying the schema.
 
-```
+```scala
 import org.apache.spark.sql.types._
 import org.apache.spark.sql._
 import org.apache.spark.sql.functions._
@@ -119,7 +120,7 @@ df: org.apache.spark.sql.DataFrame = [_id: string, dofW: int ... 10 more fields]
 
 The take method returns an array with objects from this Dataset, which we see is of type Row.
 
-```
+```markdown
 df.take(1)
 
 ---result:---
@@ -129,7 +130,7 @@ Array([ATL_LGA_2017-01-01_17_AA_1678, 7, AA, ATL, LGA, 17, 1700.0, 0.0, 1912.0, 
 
 If we supply a case class with the `as` method when loading the data, then the data is read into a Dataset of typed objects corresponding to the case class.
 
-```
+```scala
 case class Flight(_id: String, dofW: Integer, carrier: String, origin: String, dest: String, crsdephour: Integer, crsdeptime: Double, depdelay: Double,crsarrtime: Double, arrdelay: Double, crselapsedtime: Double, dist: Double) extends Serializable
 
 val df = spark.read.format("json").option("inferSchema", "false").schema(schema).load(file).as[Flight]
@@ -140,7 +141,7 @@ df: org.apache.spark.sql.Dataset[Flight] = [_id: string, dofW: int ... 10 more f
 
 Now the take method returns an array of Flight objects.
 
-```
+```scala
 df.take(1)
 
 ---result:---
@@ -177,7 +178,7 @@ Here is a list of some commonly used typed transformations, which can be used on
 
 This example filter transformation on the flight Dataset returns a Dataset with flights that departed at 10 AM. The take action returns an array of flight objects to the driver program.
 
-```
+```scala
 df.filter(flight => flight.crsdephour == 10).take(3)
 
 ---result:---
@@ -196,7 +197,7 @@ Here is a list of some commonly used untyped transformations, which can be used 
 
 This `groupBy` transformation example groups the flight Dataset by carrier, then the count action counts the number of flights for each carrier. The show action prints out the resulting DataFrame rows in tabular format.
 
-```
+```scala
 df.groupBy("carrier").count().show()
 
 ---result:---
@@ -220,7 +221,7 @@ Here is a list of some commonly used Dataset actions.
 
 Here is an example using typed and untyped transformations and actions to get the destinations with the highest number of departure delays, where a delay is greater than 40 minutes. We count the departure delays greater than 40 minutes by destination and sort them with the highest first.
 
-```
+```scala
 df.filter($"depdelay" > 40).groupBy("dest").count()
 .orderBy(desc("count")).show(3)
 
@@ -238,7 +239,7 @@ df.filter($"depdelay" > 40).groupBy("dest").count()
 
 Now let’s explore the flight Dataset using Spark SQL and DataFrame transformations. After we register the DataFrame as a SQL temporary view, we can use SQL functions on the SparkSession to run SQL queries, which will return the results as a DataFrame. We cache the DataFrame, since we will reuse it and because Spark can cache DataFrames or Tables in columnar format in memory, which can improve memory usage and performance.
 
-```
+```scala
 // cache DataFrame in columnar format in memory
 df.cache
 
@@ -251,7 +252,7 @@ spark.catalog.cacheTable("flights")
 
 Below, we display information for the top five longest departure delays with Spark SQL and with DataFrame transformations (where a delay is considered greater than 40 minutes):
 
-```
+```scala
 // Spark SQL
 spark.sql("select carrier,origin, dest, depdelay,crsdephour, dist, dofW from flights where depdelay > 40 order by depdelay desc limit 5").show
 
@@ -273,7 +274,7 @@ df.select($"carrier",$"origin",$"dest",$"depdelay", $"crsdephour").filter($"depd
 
 Below, we display the average departure delay by carrier:
 
-```
+```scala
 // DataFrame transformations
 
 df.groupBy("carrier").agg(avg("depdelay")).show
@@ -291,7 +292,7 @@ df.groupBy("carrier").agg(avg("depdelay")).show
 
 With a notebook like Zeppelin or Jupyter, you can also display the SQL results in graph formats.
 
-```
+```scala
 // Spark SQL
 %sql select carrier, avg(depdelay)
  from flights
@@ -302,7 +303,7 @@ With a notebook like Zeppelin or Jupyter, you can also display the SQL results i
 
 Let’s explore this data for flight delays, when the departure delay is greater than 40 minutes. Below, we see that United Airlines and Delta have the highest count of flight delays for January and February 2017 (the training set).
 
-```
+```scala
 // __Count of Departure Delays by Carrier (where delay=40 minutes)__
 
 df.filter($"depdelay" > 40)
@@ -319,7 +320,7 @@ df.filter($"depdelay" > 40)
 +-------+-----+
 ```
 
-```
+```sql
 // Count of Departure Delays by Carrier (where delay=40 minutes)
 
 %sql
@@ -332,7 +333,7 @@ group by carrier
 
 In the query below, we see that Monday (1), Tuesday (2), and Sunday (7) have the highest count of flight delays.
 
-```
+```sql
 // Count of Departure Delays by Day of the Week
 
 %sql
@@ -345,7 +346,7 @@ group by dofW
 
 In the query below, we see that the hours between 13:00-19:00 have the highest count of flight delays.
 
-```
+```sql
 %sql
 select crsdephour, count(depdelay)
 from flights where depdelay > 40
@@ -356,7 +357,7 @@ group by crsdephour order by crsdephour
 
 In the query below, we see that the originating airports, Chicago and Atlanta, have the highest count of flight delays.
 
-```
+```sql
 %sql
 select origin, count(depdelay)
 from flights where depdelay > 40
@@ -368,7 +369,7 @@ ORDER BY count(depdelay) desc
 
 In the query below, we see the count of departure delays by origin and destination. The routes ORD->SFO and DEN->SFO have the highest delays, maybe because of weather in January and February. Adding weather to this Dataset would give better results.
 
-```
+```sql
 %sql
 select origin, dest, count(depdelay)
 from flights where depdelay > 40

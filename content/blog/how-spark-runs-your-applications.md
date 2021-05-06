@@ -17,6 +17,7 @@ thumbnailimage:
 "publish": "2018-10-31T07:00:00.000Z",
 "tags": "apache-spark"
 ```
+
 ---
 
 Recall that your Spark application runs as a set of parallel tasks. In this blog post, we will go over how Spark translates Dataset transformations and actions into an execution model.  
@@ -31,7 +32,7 @@ In order to understand how your application runs on a cluster, an important thin
 
 As a review, transformations create a new Dataset from an existing one.  Narrow transformations do not have to move data between partitions when creating a new dataset from an existing one. Some example narrow transformations are `filter` and `select`, which are used in the example below to retrieve flight information for the carrier "AA":
 
-```
+```scala
 // select and filter are narrow transformations
 df.select($"carrier",$"origin",  $"dest", $"depdelay", $"crsdephour").filter($"carrier" === "AA" ).show(2)
 
@@ -48,7 +49,7 @@ Multiple narrow transformations can be performed on a Dataset in memory, in a pr
 
 Wide transformations cause data to be moved between partitions when creating a new Dataset, in a process called the shuffle.  With wide transformation shuffles, data is sent across the network to other nodes and written to disk, causing network and disk I/O, and making the shuffle a costly operation. Some example wide transformations are `groupBy`, `agg`, `sortBy`, and `orderBy`. Below is a wide transformation to count the number of flights by carrier.
 
-```
+```scala
 df.groupBy("carrier").count.show
 result:
 
@@ -88,7 +89,7 @@ The physical plan identifies resources, such as memory partitions and compute ta
 
 You can see the logical and physical plan for a Dataset by calling the `explain(true)` method. In the code below, we see that the DAG for df2 consists of a `FileScan`, a `Filter` on `depdelay`, and a `Project` (selecting columns).
 
-```
+```scala
 import org.apache.spark.sql.types._
 import org.apache.spark.sql._
 import org.apache.spark.sql.functions._
@@ -136,7 +137,7 @@ You can see more details about the plan produced by Catalyst on the web UI SQL t
 
 In the code below, after the `explain`, we see that the physical plan for df3 consists of a `FileScan`, `Filter`, `Project`, `HashAggregate`, `Exchange`, and `HashAggregate`. The **Exchange** is the shuffle caused by the `groupBy` transformation. Spark performs a hash aggregation for each partition before shuffling the data in the Exchange. After the exchange, there is a hash aggregation of the previous sub-aggregations. Note that we would have an in-memory scan instead of a file scan in this DAG, if df2 were cached.  
 
-```
+```scala
 val df3 = df2.groupBy("carrier").count
 
 df3.collect
@@ -196,7 +197,7 @@ Clicking the link in the Description column on the Jobs page takes you to the Jo
 
 The number of tasks correspond to the partitions: after reading the file in the first stage, there are 2 partitions; after a `shuffle`, the default number of partitions is 200. You can see the number of partitions on a Dataset with the `rdd.partitions.size` method shown below.
 
-```
+```scala
 df3.rdd.partitions.size
 result: Int = 200
 
@@ -216,7 +217,7 @@ The Storage tab provides information about persisted Datasets. The Dataset is pe
 
 Try caching df2, performing an action, then seeing how this gets persisted on the storage tab and how it changes the plan and execution time for df3 on the job details page. Notice how the execution time is faster after caching.
 
-```
+```scala
 df2.cache
 df2.count
 df3.collect

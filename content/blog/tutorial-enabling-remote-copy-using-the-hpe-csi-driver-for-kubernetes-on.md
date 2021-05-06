@@ -3,7 +3,7 @@ title: "Tutorial: Enabling Remote Copy using the HPE CSI Driver for Kubernetes o
 date: 2020-08-26T02:02:34.482Z
 author: Chris Snell 
 tags: ["hpe-3par-and-primera"]
-authorimage: "/img/blogs/Avatar5.svg"
+authorimage: "/img/blogs/Avatar4.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -224,4 +224,4 @@ This verifies the replication status of the volumes created within your Kubernet
 By adding Remote Copy support within the HPE CSI Driver along with the ability to perform volume snapshots and cloning capabilities, HPE gives many options within your Disaster Recovery strategy and gives you the peace of mind that your mission-critical application data is protected.
 
 # Next Steps
-Stay tuned to the [HPE DEV blog](https://developer.hpe.com/blog) for future posts regarding the HPE CSI Driver for Kubernetes. In the meantime, check out the blog about the new [Volume Mutator capabilities of the HPE CSI Driver](https://developer.hpe.com/blog/8nlLVWP1RKFROlvZJDo9/introducing-kubernetes-csi-sidecar-containers-from-hpe). Also, if you want to learn more about Kubernetes, CSI, and the integration with HPE storage products, you can find a ton of resources out on [SCOD](https://scod.hpedev.io)! If you are already on Slack or an HPE employee, connect with us on Slack. If you are a new user, signup at [slack.hpedev.io](https://slack.hpedev.io). We hang out in #kubernetes, #nimblestorage and #3par-primera.
+Stay tuned to the [HPE DEV blog](/blog) for future posts regarding the HPE CSI Driver for Kubernetes. In the meantime, check out the blog about the new [Volume Mutator capabilities of the HPE CSI Driver](/blog/8nlLVWP1RKFROlvZJDo9/introducing-kubernetes-csi-sidecar-containers-from-hpe). Also, if you want to learn more about Kubernetes, CSI, and the integration with HPE storage products, you can find a ton of resources out on [SCOD](https://scod.hpedev.io)! If you are already on Slack or an HPE employee, connect with us on Slack. If you are a new user, signup at [slack.hpedev.io](https://slack.hpedev.io). We hang out in #kubernetes, #nimblestorage and #3par-primera.

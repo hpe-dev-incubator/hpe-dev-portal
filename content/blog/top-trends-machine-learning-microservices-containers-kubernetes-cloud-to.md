@@ -3,7 +3,7 @@ title: "Top Trends: Machine Learning, Microservices, Containers, Kubernetes, Clo
 date: 2021-01-22T06:42:26.928Z
 author: Carol McDonald 
 tags: ["hpe-ezmeral-data-fabric","MapR","machine-learning","microservices"]
-authorimage: "/img/blogs/Avatar1.svg"
+authorimage: "/img/blogs/Avatar2.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -17,7 +17,9 @@ thumbnailimage:
 "publish": "2018-02-28T12:00:00.000",
 "tags": "use-cases"
 ```
+
 ---
+
 Developers, data scientists, and IT operations are working together to build intelligent apps with new technologies and architectures because of the flexibility, speed of delivery, and maintainability that they make possible. This post will go over some top trending technologies, such as machine learning, containers, Kubernetes, event streams (Kafka API), DataOps, and cloud to edge computing, which are driving this revolution.
 
 ![](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2021/1/industries-1611298009552.png)

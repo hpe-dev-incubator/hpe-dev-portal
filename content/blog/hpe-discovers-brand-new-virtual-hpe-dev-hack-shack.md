@@ -3,7 +3,7 @@ title: "HPE Discover’s brand-new, virtual HPE DEV Hack Shack!"
 date: 2020-05-27T14:17:00.994Z
 author: Jeff Krenek 
 tags: ["hpe-discover-us-2020","HPEDiscover"]
-authorimage: "/img/blogs/Avatar1.svg"
+authorimage: "/img/blogs/Avatar5.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

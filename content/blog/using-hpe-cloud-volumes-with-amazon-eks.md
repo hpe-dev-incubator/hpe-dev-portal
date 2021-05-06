@@ -3,7 +3,7 @@ title: "Using HPE Cloud Volumes with Amazon EKS"
 date: 2019-11-29T17:05:55.757Z
 author: Michael Mattsson 
 tags: ["hpe-nimble-storage","hpe-cloud-volumes"]
-authorimage: "/img/blogs/Avatar6.svg"
+authorimage: "/img/blogs/Avatar4.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -34,7 +34,7 @@ This tutorial assumes a certain familiarity with AWS and HPE Cloud Volumes, as w
 By default, `eksctl` creates new VPCs and subnets for the cluster it provisions. This is impractical when using HPE Cloud Volumes, as you want to use an existing VPC with subnets already accessible from HPE Cloud Volumes. In this tutorial, I’ll tag two subnets for the internal load-balancer and two subnets for the external load-balancer. These subnets will be referenced in the EKS setup later.
 
 
-```
+```markdown
 aws ec2 create-tags --resources subnet-AA000000 subnet-BB000000 --tags Key=kubernetes.io/role/elb,Value=1 
 aws ec2 create-tags --resources subnet-CC000000 subnet-DD000000 --tags Key=kubernetes.io/role/internal-elb,Value=1 
 ``` 
@@ -47,7 +47,7 @@ aws ec2 create-tags --resources subnet-CC000000 subnet-DD000000 --tags Key=kuber
 Review and edit the `eksctl` command below to fit the target environment. Ensure there’s a public SSH key in place, environment variables set and the subnets have been tagged.  
 
 
-``` 
+``` markdown
 eksctl create cluster \ 
 --name HPEDEV \ 
 --version 1.13 \ 
@@ -68,7 +68,7 @@ eksctl create cluster \
 This command takes a few minutes to execute. Here’s an example output from a successful run: 
 
 
-``` 
+```markdown 
 [ℹ]  eksctl version 0.8.0 
 [ℹ]  using region us-west-2 
 [✔]  using existing VPC (vpc-00000000) and subnets (private:[subnet-CC000000 subnet-DD000000] public:[subnet-AA000000 subnet-AA000000]) 
@@ -104,7 +104,7 @@ f2:46"
 At this point, you should have connectivity to the cluster using `kubectl`, as shown below:
  
 
-``` 
+```markdown
 $ kubectl get nodes 
 NAME                                          STATUS   ROLES    AGE   VERSION 
 ip-172-31-1-186.us-west-2.compute.internal    Ready    <none>   2m    v1.13.11-eks-5876d6 
@@ -122,7 +122,7 @@ The easiest way to install the HPE Volume Driver for Kubernetes FlexVolume Plugi
 Use this `values.yaml` file as a starting point:
 
 
-``` 
+```yaml 
 --- 
 backend: cloudvolumes.hpe.com 
 username: < HPE Cloud Volumes API Access Key > 
@@ -153,7 +153,7 @@ cv:
 Next you need to install Tiller on your cluster. Helm 3 does not require Tiller, however, the Helm chart has not been tested with Helm 3.  So I'm using Helm 2 for this exercise.
 
 
-``` 
+```markdown 
 kubectl -n kube-system create serviceaccount tiller 
 kubectl create clusterrolebinding tiller \ 
   --clusterrole=cluster-admin \ 
@@ -165,7 +165,7 @@ kubectl -n kube-system  rollout status deploy/tiller-deploy
 Tiller should now be installed on the cluster. Now install the chart: 
 
 
-``` 
+```markdown
 helm repo add hpe-storage https://hpe-storage.github.io/co-deployments/ 
 helm install hpe-storage/hpe-flexvolume-driver --version 3.1.0 --namespace kube-system --name hpe-flexvolume-driver -f values.yaml 
 ``` 
@@ -173,14 +173,14 @@ helm install hpe-storage/hpe-flexvolume-driver --version 3.1.0 --namespace kube-
 It should take less than a minute or so to install the required components. Run the below `kubectl` command to verify that all components are running: 
 
 
-``` 
+```markdown
 kubectl -n kube-system get deploy/hpe-dynamic-provisioner deploy/cv-cp deploy/hpe-flexvolume-driver 
 ``` 
 
 It should output something similar to this: 
 
 
-``` 
+```markdown
 NAME                                            READY   UP-TO-DATE   AVAILABLE   AGE 
 deployment.extensions/hpe-dynamic-provisioner   1/1     1            1           30s 
 deployment.extensions/cv-cp                     1/1     1            1           30s 
@@ -191,7 +191,7 @@ daemonset.extensions/hpe-flexvolume-driver   3         3      
 **Note:** Incidentally, the cluster will end up with two default storage classes, which will block provisioning from a default storage class. Annotate the built-in “gp2” storage class to become non-default: 
 
 
-``` 
+```markdown
 kubectl annotate sc/gp2 storageclass.kubernetes.io/is-default-class=false --overwrite 
 ``` 
 
@@ -203,7 +203,7 @@ In the current incarnation of HPE Cloud Volumes it may take some time for the fi
 Here’s a an example PVC that creates a 64GiB volume: 
 
 
-``` 
+```yaml 
 --- 
 apiVersion: v1 
 kind: PersistentVolumeClaim 
@@ -220,7 +220,7 @@ spec:
 Either create a file with the PVC stanza above or paste to `stdin` with `kubectl create -f <file>`. Once the PVC is declared, a PV will be created. Inspect it with the following: 
 
 
-``` 
+```yaml 
 kubectl get pvc 
 NAME    STATUS   VOLUME                                              CAPACITY   ACCESS MODES   STORAGECLASS   AGE 
 mypvc   Bound    hpe-standard-5b75aaa8-10a7-11ea-8232-0a210d2b9ace   64Gi       RWO            hpe-standard   18s 
@@ -229,7 +229,7 @@ mypvc   Bound    hpe-standard-5b75aaa8-10a7-11ea-8232-0a210d2b9ace   6
 Volume creation does not attach the device to any host. The attachment is being done once a workload requests the claim. So, you must declare a simple Pod to attach the claim: 
 
 
-``` 
+```yaml 
 --- 
 apiVersion: v1 
 kind: Pod 
@@ -253,7 +253,7 @@ spec:
 Depending on the environment, this initial deployment could take up to 10 minutes. I’ve been bouncing clusters up and down all day, hence my pod was up in less than a minute: 
 
 
-``` 
+```markdown 
 kubectl get pod 
 NAME     READY   STATUS    RESTARTS   AGE 
 ioping   1/1     Running   0          53s 
@@ -262,7 +262,7 @@ ioping   1/1     Running   0          53s
 Logs from the Pod indicate a XFS filesystem mount on /data served by a multipath device: 
 
 
-``` 
+```markdown 
 kubectl logs pod/ioping 
 4 KiB <<< /data (xfs /dev/mapper/mpatha): request=1 time=8.26 ms (warmup) 
 4 KiB <<< /data (xfs /dev/mapper/mpatha): request=2 time=7.05 ms 

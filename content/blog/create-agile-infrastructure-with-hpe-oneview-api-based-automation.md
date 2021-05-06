@@ -3,7 +3,7 @@ title: "Create agile infrastructure with HPE OneView API based automation "
 date: 2020-06-15T19:23:25.749Z
 author: Christopher Pasek 
 tags: ["hpe-oneview"]
-authorimage: "/img/blogs/Avatar4.svg"
+authorimage: "/img/blogs/Avatar3.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

@@ -39,15 +39,23 @@ export const BlogCard = ({ node, ...rest }) => (
     wrap
     onClick={
       node.fields.slug && node.fields.sourceInstanceName
-        ? () =>
-            navigate(`/${node.fields.sourceInstanceName}${node.fields.slug}`)
+        ? (e) => {
+            navigate(`/${node.fields.sourceInstanceName}${node.fields.slug}`);
+            localStorage.setItem(
+              'blogPosition',
+              JSON.stringify(e.nativeEvent.pageY - e.nativeEvent.clientY),
+            );
+          }
         : undefined
     }
   >
     <Box gap="small">
       <Box align="start">
         {(node.authorimage || node.frontmatter.authorimage) && (
-          <Image src={node.authorimage || node.frontmatter.authorimage} />
+          <Image
+            src={node.authorimage || node.frontmatter.authorimage}
+            alt="author logo"
+          />
         )}
       </Box>
       <Box align="start">
@@ -115,7 +123,11 @@ export const FeaturedBlogCard = ({ node, ...rest }) => (
         gap="medium"
       >
         <Box align="start" direction="row" gap="small">
-          <Image fit="contain" src={node.frontmatter.authorimage} />
+          <Image
+            fit="contain"
+            src={node.frontmatter.authorimage}
+            alt="author logo"
+          />
           <Box align="start" alignSelf="center">
             <Text weight="bold">{node.frontmatter.author}</Text>
             <Text color="text-weak">
@@ -139,6 +151,7 @@ export const FeaturedBlogCard = ({ node, ...rest }) => (
             width="300"
             fit="contain"
             src={node.frontmatter.thumbnailimage}
+            alt="thumbnail logo"
           />
         </Box>
       )}

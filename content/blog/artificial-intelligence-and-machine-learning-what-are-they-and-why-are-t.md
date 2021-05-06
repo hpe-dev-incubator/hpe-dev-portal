@@ -3,7 +3,7 @@ title: "Artificial Intelligence and Machine Learning: What Are They and Why Are 
 date: 2020-11-12T08:03:23.804Z
 author: Saira Kennedy 
 tags: ["hpe-ezmeral-data-fabric","MapR","machine-learning","AI"]
-authorimage: "/img/blogs/Avatar3.svg"
+authorimage: "/img/blogs/Avatar5.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -17,7 +17,9 @@ thumbnailimage:
 "publish": "2018-09-21T07:00:00.000Z",
 "tags": "machine-learning"
 ```
+
 ---
+
 Editor's Note: This post is based on the MapR Academy course, [_Introduction to Artificial Intelligence and Machine Learning_](https://learn.ezmeral.software.hpe.com/bus-introduction-to-artificial-intelligence-and-machine-learning).
 
 <div style="padding:75% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/279683304?title=0&byline=0&portrait=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>

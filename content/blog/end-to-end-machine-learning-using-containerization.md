@@ -17,14 +17,16 @@ thumbnailimage:
 "publish": "2018-06-28T10:00:00.000",
 "tags": "mapr-platform"
 ```
+
 ---
+
 Lately, we've been talking a lot about containerization and how Kubernetes and MapR can pair up to enhance the productivity of your data science teams and decrease the time to insights. In this multi-part blog series, I will start with a high-level overview of why Kubernetes and containerization are appealing for data science environments. In a later iteration, I will provide an example of a framework that enables Kubernetized data science on your MapR cluster.
 
 Earlier this year, we released the MapR Volume Driver for Kubernetes, which enabled MapR customers to use Kubernetes clusters as extensions of their MapR computing space. This volume plugin provides the ability to mount directories from the MapR global namespace easily to Kubernetes pods, enabling stateful applications to run using your data in place.
 
 ![Kubernetes](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2021/1/kubernetes-1612507940753.jpg)
 
-While the [microservices approach](https://developer.hpe.com/blog/VqVzX3gAzrT7p5PzPAZA/event-driven-microservices-on-the-mapr-data-platform) is useful for all types of applications, it's particularly well-suited for the data science life cycle, starting with the exploration phase through to model deployment. Let's look at how it could benefit each phase:
+While the [microservices approach](/blog/VqVzX3gAzrT7p5PzPAZA/event-driven-microservices-on-the-mapr-data-platform) is useful for all types of applications, it's particularly well-suited for the data science life cycle, starting with the exploration phase through to model deployment. Let's look at how it could benefit each phase:
 
 ## Personalized Development Environments
 
@@ -50,7 +52,7 @@ This sort of flexibility can really make a difference in getting models out of t
 
 Microservices have been described as simple, single-purpose applications that work in unison via lightweight communications, such as data streams. They've traditionally enabled developers to more easily build, integrate, and manage their applications in an agile way that had typically been impossible with monolithic applications.
 
-Data science models are typically integrated into applications in order to generate insights, and containerization frameworks are fundamentally [microservices architectures](https://deploy-preview-238--hpe-dev-portal.netlify.app/blog/0N796xBvYxcyGq8Yo35N/event-driven-microservices-architecture-patterns-and-examples). In this capacity, model deployment architectures benefit greatly from microservices frameworks, because microservices frameworks are typically intended to accommodate functionally and logically isolated applications, running in parallel. This becomes very useful in model deployment scenarios when A/B testing is used, models need to be updated or replaced in place, or inter-model routing can benefit from a streaming data fabric or services mesh.
+Data science models are typically integrated into applications in order to generate insights, and containerization frameworks are fundamentally [microservices architectures](/blog/0N796xBvYxcyGq8Yo35N/event-driven-microservices-architecture-patterns-and-examples). In this capacity, model deployment architectures benefit greatly from microservices frameworks, because microservices frameworks are typically intended to accommodate functionally and logically isolated applications, running in parallel. This becomes very useful in model deployment scenarios when A/B testing is used, models need to be updated or replaced in place, or inter-model routing can benefit from a streaming data fabric or services mesh.
 
 ## In Conclusion
 

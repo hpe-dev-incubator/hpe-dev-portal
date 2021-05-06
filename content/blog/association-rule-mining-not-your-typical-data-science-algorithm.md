@@ -3,7 +3,7 @@ title: "Association Rule Mining – Not Your Typical Data Science Algorithm"
 date: 2021-01-22T06:28:06.806Z
 author: Kirk Borne 
 tags: ["hpe-ezmeral-data-fabric","MapR","machine-learning","data-mining"]
-authorimage: "/img/blogs/Avatar2.svg"
+authorimage: "/img/blogs/Avatar1.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -17,7 +17,9 @@ thumbnailimage:
 "publish": "2014-04-28T07:00:00.000Z",
 "tags": "machine-learning"
 ```
+
 ---
+
 Many machine learning algorithms that are used for data mining and data science work with numeric data. And many algorithms tend to be very mathematical (such as Support Vector Machines). But, association rule mining is perfect for categorical (non-numeric) data and it involves little more than simple counting! That’s the kind of algorithm that [MapReduce is really good at](http://codecapsule.com/2010/04/15/efficient-counting-mapreduce/), and it can also lead to some really interesting discoveries.
 
 Association rule mining is primarily focused on finding frequent co-occurring associations among a collection of items. It is sometimes referred to as “Market Basket Analysis”, since that was the original application area of association mining. The goal is to find associations of items that occur together more often than you would expect from a random sampling of all possibilities. The classic example of this is the famous Beer and Diapers association that is often mentioned in data mining books. The story goes like this: men who go to the store to buy diapers will also tend to buy beer at the same time. Let us illustrate this with a simple example.   

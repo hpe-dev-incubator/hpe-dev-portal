@@ -3,7 +3,7 @@ title: "Containers, Kubernetes, and MapR: The Time is Now"
 date: 2021-02-05T06:41:32.999Z
 author: Suzy Visvanathan 
 tags: ["hpe-ezmeral-data-fabric","MapR","kubernetes","container"]
-authorimage: "/img/blogs/Avatar6.svg"
+authorimage: "/img/blogs/Avatar5.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -17,7 +17,9 @@ thumbnailimage:
 "publish": "2018-03-06T10:45:00.000",
 "tags": "mapr-platform"
 ```
+
 ---
+
 If you have been following the world of containers, you already know that Kubernetes has won the container orchestration war. Docker was instrumental in commercializing the use of containers as a method to deploy applications. However, Docker and Kubernetes only address a minor percentage of total applications. They struggle to support stateful applications that require persisted data. With the announcement today, MapR changes all that by enabling Kubernetes to support the containerization of all applications.
 
 Containers allow an application to be packaged with a skeleton of its dependencies, giving it lightweight attributes, which ensures that the application can remain independent of the environment, infrastructure, and configuration. Containers, by nature, are stateless, which is a term to indicate that containers retain knowledge of data only during their lifecycle. Containers quickly became a developer's preferred platform, but it wasn't long before customers started thinking of deploying applications in production.

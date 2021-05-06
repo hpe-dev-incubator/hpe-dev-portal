@@ -3,7 +3,7 @@ title: "Storage Provisioning using Ansible with HPE 3PAR Storage"
 date: 2018-05-30T22:22:15.634Z
 author: Chris Snell 
 tags: ["3PAR","Ansible","Automation","REST","Storage","hpe-3PAR","hpe-3par-and-primera"]
-authorimage: "/img/blogs/Avatar6.svg"
+authorimage: "/img/blogs/Avatar1.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

@@ -3,7 +3,7 @@ title: "Demystifying AI, Machine Learning and Deep Learning"
 date: 2020-11-25T02:31:24.462Z
 author: Carol McDonald 
 tags: ["hpe-ezmeral-data-fabric","MapR","machine-learning","AI","deep-learning"]
-authorimage: "/img/blogs/Avatar6.svg"
+authorimage: "/img/blogs/Avatar5.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -17,7 +17,9 @@ thumbnailimage:
 "publish": "2017-08-16T12:00:00.000",
 "tags": ["machine-learning","deep learning"]
 ```
+
 ---
+
 Deep learning, machine learning, artificial intelligence - all buzzwords and representative of the future of analytics. In this post we will explain what is machine learning and deep learning at a high level with some real world examples. In future posts we will explore vertical use cases. The goal of this is not to turn you into a data scientist, but to give you a better understanding of what you can do with machine learning. Machine learning is becoming more accessible to developers, and Data scientists work with domain experts, architects, developers and data engineers, so it is important for everyone to have a better understanding of the possibilities. Every piece of information that your business generates has potential to add value. This and future posts are meant to provoke a review of your own data to identify new opportunities.
 
 ![](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/11/mlexamples-1606272628062.png)
@@ -79,6 +81,7 @@ Supervised Learning is also called predictive modeling or predictive analytics, 
 ![Fraud](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/11/fraud-1606272770701.png)
 
 Some examples of Classification include:
+
 * credit card fraud detection (fraud, not fraud)
 * credit card application   (good credit, bad credit)
 * email spam detection (spam, not spam)
@@ -87,6 +90,7 @@ Some examples of Classification include:
 * classifying a tumor as malignant or not
 
 Some examples of logistic regression (or other algorithms)  include:
+
 * given historical car insurance fraudulent claims and features of the claims such as age of the claimant, claimed amount, severity of the accident,  predict the probability of fraud.
 * given patient characteristics predict the probability of congestive heart failure.
 
@@ -107,6 +111,7 @@ Classification takes a set of data with known labels and pre-determined features
 ![Duck](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/11/duck-1606272802082.png)
 
 Let’s go through an example of Debit Card Fraud:
+
 * What are we trying to predict?
   * Whether a debit card transaction is fraud or not
   * Fraud is the Label:  True or False
@@ -144,6 +149,7 @@ Unsupervised learning, also sometimes called descriptive analytics,  does not ha
 ## Clustering
 
 In clustering, an algorithm classifies inputs into categories by analyzing similarities between input examples.  Some clustering use cases include:
+
 * search results grouping
 * grouping similar customers
 * grouping similar patients

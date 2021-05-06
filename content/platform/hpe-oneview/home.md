@@ -22,15 +22,17 @@ Here you will find repositories, demos, guides and other technical resources fro
 
 ## HPE OneView Integrations
 
-### [Ansible ![](Github)](https://github.com/HewlettPackard/oneview-ansible)
+### [Ansible ![](Github)](https://github.com/HewlettPackard/oneview-ansible-collection)
 
 [Ansible](https://www.ansible.com/home) by Red Hat automates the provisioning of physical infrastructure on-demand using software-defined templates from HPE OneView.
 
-* [Watch the Demo](https://youtu.be/cslhoLM4HVk)
 * [Read the Deployment Guide](https://www.redhat.com/en/resources/automate-container-deployment-with-hpe-datasheet)
 * [Read the Accelerating DevOps White Paper](https://h20195.www2.hpe.com/v2/GetDocument.aspx?docname=4AA6-6229ENW)
 * [View Additional Resources](http://h17007.www1.hpe.com/us/en/enterprise/integrated-systems/info-library/index.aspx?cat=ci_mgmt&subcat=ansible#.XJVbZCdMEio)
-* [Ansible Docker Image](https://hub.docker.com/repository/docker/hewlettpackardenterprise/hpe-oneview-sdk-for-ansible)
+* [Watch the Demo](https://www.youtube.com/watch?v=PVJgUEH0Quw&feature=youtu.be)
+* [Ansible Docker Image](https://hub.docker.com/repository/docker/hewlettpackardenterprise/hpe-oneview-sdk-for-ansible-collection)
+* [Installation and user guide](https://psnow.ext.hpe.com/doc/a50003411enw?jumpid=in_lit-psnow-red)
+
 
 
 - - -
@@ -40,11 +42,10 @@ Here you will find repositories, demos, guides and other technical resources fro
 [Chef](https://www.chef.io/) automates the spin up and updates of fluid resource pools in HPE OneView using software-defined templates.
 
 * [Watch the Demo](https://youtu.be/QCAmzIjMHZM)
-* [Read the White Paper](https://h20195.www2.hpe.com/V2/GetDocument.aspx?docname=4AA6-1024ENW)
 * [Browse the Chef Marketplace](https://supermarket.chef.io/cookbooks/oneview)
 * [View Additional Resources](http://h17007.www1.hpe.com/us/en/enterprise/integrated-systems/info-library/index.aspx?cat=ci_mgmt&subcat=chef)
-* [Chef Docker Image](https://github.com/HewlettPackard/oneview-chef)
-
+* [Read the White Paper](https://www.hpe.com/us/en/pdfViewer.html?docId=a00047285&parentPage=/us/en/solutions/developers/composable&resourceTitle=HPE+Reference+Configuration+for+accelerating+DevOps+with+HPE+Synergy+and+Chef+Automate)
+* [Chef Docker Image](https://hub.docker.com/repository/docker/hewlettpackardenterprise/hpe-oneview-sdk-for-chef)
 - - -
 
 ### Docker
@@ -59,7 +60,6 @@ Here you will find repositories, demos, guides and other technical resources fro
 
 [HashiCorp Terraform](https://www.hashicorp.com/) provides a common workflow to provision hybrid infrastructure and applications so users can seamlessly and efficiently deploy HPE infrastructure.
 
-* [Terraform 0.11.x](https://releases.hashicorp.com/terraform/)
 * [Terraform Overview](https://www.terraform.io/intro/index.html)
 * [Getting started with Terraform](https://learn.hashicorp.com/terraform/getting-started/install.html)
 * [Terraform Docker Image](https://hub.docker.com/repository/docker/hewlettpackardenterprise/hpe-oneview-sdk-for-terraform)
@@ -129,7 +129,7 @@ This library provides a pure Windows PowerShell interface to the HPE OneView RES
 
 - - -
 
-### [Python ![](Github)](https://github.com/HewlettPackard/python-hpOneView)
+### [Python ![](Github)](https://github.com/HewlettPackard/oneview-python)
 
 This library provides a pure Python interface to the HPE OneView REST APIs.
 
@@ -184,8 +184,9 @@ Plan scripts and sample artifact bundles for personalizing and deploying SUSE Li
 Take advantage of our free, Jupyter-Notebook based Workshops-on-Demand available in the [Hack Shack](https://hackshack.hpedev.io/). These technical workshops provide you with an in-depth, hands-on learning experience where you can interact with and learn from the experts. Designed to fit your schedule, these workshops are available 24/7 – any time, from anywhere. HPE OneView workshops are available today.
 
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-
-<a href="https://hackshack.hpedev.io/workshops"><button type="button" class="w3-btn w3-teal">Try now!</button></a>
+<div class="w3-container w3-center w3-margin-bottom">
+  <a href="https://hackshack.hpedev.io/workshops"><button type="button" class="w3-btn w3-teal">Try now!</button></a>
+</div>
 - - -
 
 ## Any questions on HPE OneView?

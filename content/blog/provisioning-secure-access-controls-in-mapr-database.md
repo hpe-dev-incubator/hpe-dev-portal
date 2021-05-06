@@ -3,7 +3,7 @@ title: "Provisioning Secure Access Controls in MapR Database"
 date: 2020-11-02T06:21:10.782Z
 author: Jimit Shah 
 tags: ["hpe-ezmeral-data-fabric","MapR","JSON","opensource"]
-authorimage: "/img/blogs/Avatar2.svg"
+authorimage: "/img/blogs/Avatar5.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -17,6 +17,7 @@ thumbnailimage:
 "publish": "2016-05-27T07:00:00.000Z",
 "tags": "nosql"
 ```
+
 ---
 
 The ability to store and retrieve JSON documents using the OJAI standard has introduced a very powerful way to work with data in your MapR cluster. MapR Boolean Access Control Expressions (ACEs) provide a powerful, easy way to enforce authorization for providing secure access to data across the MapR Data Platform including MapR XD, MapR Event Store, and MapR Database.
@@ -69,7 +70,7 @@ Another example is a simplified version of a ‘Personnel Record’ that may be 
 
 <u>‘Personnel Record’ JSON Document</u>
 
-```
+```json
 {
     _id: "ENG12345",
     address: {
@@ -149,7 +150,7 @@ Let’s take the example of a taxi trip database. The following is a simplified 
 
 <u>Taxi Trip Record</u>
 
-```
+```json
 {
     trip_id: "SFO12345",
     trip_info: {

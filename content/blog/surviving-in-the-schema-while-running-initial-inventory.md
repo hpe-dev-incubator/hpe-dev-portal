@@ -3,7 +3,7 @@ title: "Surviving in the Schema while running initial inventory"
 date: 2017-09-11T18:45:18.180Z
 author: Didier Lalli 
 tags: ["HPE-OneView","OneView","RESTAPI"]
-authorimage: "/img/blogs/Avatar6.svg"
+authorimage: "/img/blogs/Avatar3.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

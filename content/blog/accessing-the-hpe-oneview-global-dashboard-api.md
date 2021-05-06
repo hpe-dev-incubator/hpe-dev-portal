@@ -3,7 +3,7 @@ title: "Accessing the HPE OneView Global Dashboard API"
 date: 2018-10-11T15:14:06.880Z
 author: Brad Stanley 
 tags: ["hpe-oneview-global-dashboard"]
-authorimage: "/img/blogs/Avatar5.svg"
+authorimage: "/img/blogs/Avatar3.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -15,7 +15,7 @@ With OneView Global Dashboard 1.6, we are happy to introduce its REST API! This 
 
 First, HPE OneView has some great blogs about their REST API, and some overhead information about how to use that. 
 
-Check out [this blog](https://developer.hpe.com/blog/first-step-with-programming-the-hpe-composable-api) for a quick introduction to REST APIs, which includes information about tools like POSTman. And [here](https://developer.hpe.com/blog/curling-through-the-oneview-api) you could read a blog about cURL syntax. 
+Check out [this blog](/blog/first-step-with-programming-the-hpe-composable-api) for a quick introduction to REST APIs, which includes information about tools like POSTman. And [here](/blog/curling-through-the-oneview-api) you could read a blog about cURL syntax. 
 ### Hackathon
 Recently, we had a hackathon at work. This gave a few developers a chance to play with our REST API.  It is possible that offers of free doughnuts and pizza also enticed the developers, but hopefully, it was primarily the opportunity to create something new.
 

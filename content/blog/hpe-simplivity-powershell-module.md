@@ -3,7 +3,7 @@ title: "HPE SimpliVity PowerShell Module"
 date: 2019-05-16T01:37:52.554Z
 author: Roy Atkins 
 tags: ["hpe-simplivity"]
-authorimage: "/img/blogs/Avatar5.svg"
+authorimage: "/img/blogs/Avatar2.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -74,11 +74,13 @@ Get-SVTversion | Stop-SVTshutdown | Stop-SVTvm |
 Set-SVTtimezone |   |    |
 
 ## Requirements
+
 * Windows PowerShell V5.1 or PowerShell Core V7.x (PowerShell Core V6.x is not recommended)
 * The IP address and the credentials of an authorized OmniStack user account
 * The module has been tested with HPE SimpliVity V4.0.1 and should be compatible with older versions (but has not been tested).
 
 ## Installation
+
 * Install or update the HPESimplivity module from the PowerShell Galllery using the following respective commands:
 
 ```powershell
@@ -150,7 +152,7 @@ The API has some documented and undocumented issues:
 
 If you would like to keep up to date with the latest features, please visit the project website on [GitHub](https://github.com/atkinsroy/HPESimpliVity) and subscribe to receive notifications. Updates are published to the PowerShell Gallery at the same time.
 
-Refer to the [HPE SimpliVity platform page](https://developer.hpe.com/platform/hpe-simplivity/home) on HPE DEV for more information. Don't forget to check out our other posts on the [HPE DEV blog site](https://developer.hpe.com/blog) or join us on our #simplivity [Slack Channel](https://slack.hpedev.io/) to ask a question.
+Refer to the [HPE SimpliVity platform page](https://developer.hpe.com/platform/hpe-simplivity/home) on HPE DEV for more information. Don't forget to check out our other posts on the [HPE DEV blog site](/blog) or join us on our #simplivity [Slack Channel](https://slack.hpedev.io/) to ask a question.
 
 
 

@@ -3,7 +3,7 @@ title: "Streaming Data Pipeline to Transform, Store and Explore Healthcare Datas
 date: 2021-01-14T05:59:02.445Z
 author: Carol McDonald 
 tags: ["hpe-ezmeral-data-fabric","MapR","apache-spark"]
-authorimage: "/img/blogs/Avatar4.svg"
+authorimage: "/img/blogs/Avatar3.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -17,7 +17,9 @@ thumbnailimage:
 "publish": "2018-02-27T12:00:00.000",
 "tags": "use-cases"
 ```
+
 ---
+
 In the past, big data was interacted with in batch on a once-a-day basis. Now data is dynamic and data driven businesses need instant results from continuously changing data. Data Pipelines, which combine real-time Stream processing with the collection, analysis and storage of large amounts of data, enable modern, real-time applications, analytics and reporting.
 
 This post is based on a recent workshop I helped develop and deliver at a large health services and innovation company's analytics conference. This company is combining streaming data pipelines with data science on top of the MapR Data Platform to improve healthcare outcomes, improve access to appropriate care, better manage cost, and reduce fraud, waste and abuse.
@@ -59,15 +61,18 @@ MapR Event Streams integrates with Spark Streaming via the Kafka direct approach
 ![Application](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/12/application-1610604303183.png)
 
 The incoming data is in CSV format, an example is shown below:
-```
+
+```markdown
 "NEW","Covered Recipient Physician",,,,"132655","GREGG","D","ALZATE",,"8745 AERO DRIVE","STE 200","SAN DIEGO","CA","92123","United States",,,"Medical Doctor","Allopathic & Osteopathic Physicians|Radiology|Diagnostic Radiology","CA",,,,,"DFINE, Inc","100000000326","DFINE, Inc","CA","United States",90.87,"02/12/2016","1","In-kind items and services","Food and Beverage",,,,"No","No Third Party Payment",,,,,"No","346039438","No","Yes","Covered","Device","Radiology","StabiliT",,"Covered","Device","Radiology","STAR Tumor Ablation System",,,,,,,,,,,,,,,,,"2016","06/30/2017"
 ```
+
 There are a lot of fields in this data that we will not use; we will parse the following fields:
 
 ![Parse Fields](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/12/parse-fields-1610604316662.png)
 
 And transform them into the following JSON document for storing in MapR Database:
-```
+
+```json
 {
 
     "_id" :"317150_08/26/2016_346122858",
@@ -80,6 +85,7 @@ And transform them into the following JSON document for storing in MapR Database
     "Nature_of_payment" :"Food and Beverage"
 }
 ```
+
 ![Transform](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/12/transform-1610604333567.png)
 
 Spark Kafka Consumer Producer Code

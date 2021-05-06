@@ -3,7 +3,7 @@ title: "Sir Hackington Appbuilder III Tames the IT Monster"
 date: 2018-09-24T15:44:54.759Z
 author: Sir Hackington Appbuilder III 
 tags: ["VMWorld","VMWare"]
-authorimage: "/img/blogs/Avatar6.svg"
+authorimage: "/img/blogs/Avatar4.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -23,7 +23,7 @@ HPE DEV is always excited to talk to people at conferences – especially VMworl
 Not everyone who stopped by the booth knew about these VMware integrations, but the HPE DEV team made sure that everyone they met with came away fully informed about the specific integrations and the HPE DEV portal more broadly. Even folks from the operations side of their businesses were excited to get signed up for the HPE DEV newsletter so they can forward it to their teams’ developers and engineers.  
 
 
-In addition to getting folks to sign up for a newsletter, HPE DEV team members worked to spread the word about the community by participating in collaborative activities at VMworld. Pramod Sareddy, HPE DEV’s representative at VMworld, was invited to attend two VMworld VBlogger sessions, where VMware experts, developers and industry bloggers met up to compare notes and share VMware knowledge with each other. This was a great opportunity for Pramod to promote what HPE DEV is doing and get direct feedback from this group. One of the items he promoted was the contributions made to the community by [HudsonAlpha](https://developer.hpe.com/blog/the-advent-of-ephemeral-infrastructure-as-code), which got the attendees excited to contribute in a similar way.
+In addition to getting folks to sign up for a newsletter, HPE DEV team members worked to spread the word about the community by participating in collaborative activities at VMworld. Pramod Sareddy, HPE DEV’s representative at VMworld, was invited to attend two VMworld VBlogger sessions, where VMware experts, developers and industry bloggers met up to compare notes and share VMware knowledge with each other. This was a great opportunity for Pramod to promote what HPE DEV is doing and get direct feedback from this group. One of the items he promoted was the contributions made to the community by [HudsonAlpha](/blog/the-advent-of-ephemeral-infrastructure-as-code), which got the attendees excited to contribute in a similar way.
 
 
 

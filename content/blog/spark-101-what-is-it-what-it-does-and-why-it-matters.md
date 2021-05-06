@@ -34,10 +34,12 @@ In order to understand Spark, it helps to understand its history. Before Spark, 
 There were 3 core concepts to the Google strategy:
 
 1. **Distribute data:** when a data file is uploaded into the cluster, it is split into chunks, called data blocks, and distributed amongst the data nodes and replicated across the cluster.
+
 2. **Distribute computation:** users specify a map function that processes a key/value pair to generate a set of intermediate key/value pairs and a reduce function that merges all intermediate values associated with the same intermediate key. Programs written in this functional style are automatically parallelized and executed on a large cluster of commodity machines in the following way:
     * The mapping process runs on each assigned data node, working only on its block of data from a distributed file.
     * The results from the mapping processes are sent to the reducers in a process called "shuffle and sort": key/value pairs from the mappers are sorted by key, partitioned by the number of reducers, and then sent across the network and written to key sorted "sequence files" on the reducer nodes.
     * The reducer process executes on its assigned node and works only on its subset of the data (its sequence file). The output from the reducer process is written to an output file.
+
 3. **Tolerate faults:** both data and computation can tolerate failures by failing over to another node for data or processing.
 
 ### MapReduce word count execution example:

@@ -3,7 +3,7 @@ title: "CPUs for GPU-enabled deep learning"
 date: 2017-11-26T09:48:58.426Z
 author: Sergey Serebryakov 
 tags: ["deep-learning-cookbook"]
-authorimage: "/img/blogs/Avatar5.svg"
+authorimage: "/img/blogs/Avatar6.svg"
 featuredBlog: false
 priority:
 thumbnailimage:

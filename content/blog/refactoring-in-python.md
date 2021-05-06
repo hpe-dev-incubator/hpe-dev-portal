@@ -3,7 +3,7 @@ title: "Refactoring in Python"
 date: 2020-01-30T22:57:21.363Z
 author: Samarth Deyagond 
 tags: ["Python"]
-authorimage: "/img/blogs/Avatar6.svg"
+authorimage: "/img/blogs/Avatar1.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -25,7 +25,7 @@ When given a *while* *loop* driven by a condition whose iterations check the tru
 Below is an example code snippet before refactoring:
 
 
-```
+```python
 def _upheap(self, index):
 
     parent_index = (index-1)//2
@@ -39,7 +39,7 @@ def _upheap(self, index):
 The refactored code snippet is shown below:	
 
 
-```
+```python
 def _upheap(self, index):
 
     parent_index = (index-1)//2
@@ -61,7 +61,7 @@ To avoid changing variables that shouldn’t be changed, it is always a good ide
 Consider the below snippet that uses a global variable.
 
 
-```
+```python
 x = 10
 
 
@@ -84,6 +84,7 @@ print(increment_x_by_two())
 ```
 
 The output will be as shown below:
+
 `11`
 `13`
 
@@ -92,7 +93,7 @@ We wanted the second output to be 12, but earlier, the `function increment_x_by_
 Now, let’s refactor the code, avoiding the use of a global variable.
 
 
-```
+```python
 def increment_x_by_one(x):
     x += 1
     return x
@@ -110,6 +111,7 @@ print(increment_x_by_two(x))
 ```
 
 The output now will be accurate, as shown below:
+
 `11`
 `12`
 
@@ -122,7 +124,7 @@ Many times, string literals and numeric values are used directly, as opposed to 
 Consider the below snippet before refactoring: 
 
 
-```
+```python
 if age > 21:
     return True
 
@@ -132,7 +134,7 @@ if age > 21:
 Now, consider the refactored code:
 
 
-```
+```python
 age_limit = 21
 if age > age_limit:
     return True
@@ -152,7 +154,7 @@ If two blocks of code are doing the same logic or same set of instructions, then
 Consider the below example before refactoring:
 
 
-```
+```python
 x = 10
 
 if x % 2 == 0:
@@ -167,7 +169,7 @@ else:
 Now, let’s refactor it:
 
 
-```
+```python
 x = 10
 
 if x % 2 == 0:
@@ -188,4 +190,4 @@ Many refactoring tools are available as software packages or extensions for almo
 
 And guess what?! This blog, too, is refactored a couple of times to improve its readability. You see, fundamentals work everywhere! 
 
-I hope you found my post on refactoring useful. For more coding tips, keep checking the [HPE DEV blog.](https://developer.hpe.com/blog) And if you have any questions, feel free to reach out to me [@deyagondsamarth](https://twitter.com/deyagondsamarth) or connect with me on [Slack](https://hpedev.slack.com/?redir=%2Fteam%2FUQM0ZTE1F). Happy coding!
+I hope you found my post on refactoring useful. For more coding tips, keep checking the [HPE DEV blog.](/blog) And if you have any questions, feel free to reach out to me [@deyagondsamarth](https://twitter.com/deyagondsamarth) or connect with me on [Slack](https://hpedev.slack.com/?redir=%2Fteam%2FUQM0ZTE1F). Happy coding!

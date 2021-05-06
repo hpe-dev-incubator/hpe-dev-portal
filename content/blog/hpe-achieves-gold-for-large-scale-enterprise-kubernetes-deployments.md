@@ -3,7 +3,7 @@ title: "HPE achieves gold for large-scale enterprise Kubernetes deployments"
 date: 2020-06-17T15:29:22.939Z
 author: Prashant Sachdeva 
 tags: ["hpe-ezmeral-container-platform","spiffe-and-spire-projects","hpe-ezmeral-data-fabric","spiffe","spire","opensource","kubedirector"]
-authorimage: "/img/blogs/Avatar1.svg"
+authorimage: "/img/blogs/Avatar5.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -18,7 +18,7 @@ At HPE, our focus is on more than just next generation cloud-native applications
 
 HPE has actively collaborated with the open source community for many years, providing expertise and deep contributions to numerous open source projects. Our commitment to fostering innovation with open source Kubernetes and the container ecosystem has been accelerated through our acquisitions of [BlueData](https://www.hpe.com/us/en/newsroom/press-release/2019/05/hewlett-packard-enterprise-integrates-bluedata-to-accelerate-ai-and-data-driven-innovation-in-the-enterprise.html) and [MapR](https://www.hpe.com/us/en/newsroom/press-release/2019/08/hpe-advances-its-intelligent-data-platform-with-acquisition-of-mapr-business-assets.html). Building on these recent software acquisitions, HPE recently introduced our ground-breaking new container management solution: [the HPE Ezmeral Container Platform](https://www.hpe.com/us/en/solutions/container-platform.html).
 
-<img src="/uploads/media/2020/6/hpe-kubernetescertified-1592924398917.png" style="float: left; margin-right: 10px;">
+<img src="https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/6/hpe-kubernetescertified-1592924398917.png" style="float: left; margin-right: 10px;">
 
 The HPE Ezmeral Container Platform is an integrated turnkey solution with BlueData software as the multi-cluster container management control plane and the MapR distributed file system as the unified [data fabric](https://www.hpe.com/info/data-fabric) for persistent storage. HPE Ezmeral Container Platform provides the ability to deploy and manage multiple versions of 100% open source Kubernetes and was recently certified by CNCF as a [Kubernetes Certified Distribution](https://landscape.cncf.io/selected=hpe-container-platform) — ensuring conformance, interoperability, consistency, and access to the latest open source Kubernetes features.
 
@@ -30,5 +30,5 @@ The open source SPIFFE and SPIRE projects enable organizations to deliver secure
 
 HPE looks forward to taking on new responsibilities and doubling down on our contributions within the CNCF as a Gold member. Working with CNCF, our goal is to accelerate the creation and adoption of open, standards-based data access; advance new capabilities for cloud-native applications and environments; and promote new technologies and solutions that support them.
 
-[Read the CNFC press release announcing HPE as a Gold member](https://www.cncf.io/announcement/2020/06/22/cloud-native-computing-foundation-announces-hewlett-packard-enterprise-as-gold-member/). You can also check out more information on [HPE Container Platform](https://www.hpe.com/info/container-platform) and HPE’s [open source](https://developer.hpe.com/projects) initiatives. We also recommend you keep an eye out on the [HPE DEV blog](https://developer.hpe.com/blog) site for more interesting articles on containers, Kubernetes, and other open source offerings.
+[Read the CNFC press release announcing HPE as a Gold member](https://www.cncf.io/announcement/2020/06/22/cloud-native-computing-foundation-announces-hewlett-packard-enterprise-as-gold-member/). You can also check out more information on [HPE Container Platform](https://www.hpe.com/info/container-platform) and HPE’s [open source](https://developer.hpe.com/projects) initiatives. We also recommend you keep an eye out on the [HPE DEV blog](/blog) site for more interesting articles on containers, Kubernetes, and other open source offerings.
 

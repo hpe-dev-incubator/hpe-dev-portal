@@ -3,7 +3,7 @@ title: "DevOps D-Day speakers focus on real-world use cases"
 date: 2019-11-21T16:00:12.282Z
 author: Didier Lalli 
 tags: []
-authorimage: "/img/blogs/Avatar6.svg"
+authorimage: "/img/blogs/Avatar4.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -28,4 +28,4 @@ The second talk I attended was given by an IT Manager from CMA CGM, one of the w
 
 ![picture1](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2019/10/picture1-1574352210141.png)
 
-Don’t we know it! DevOps requires many enterprises to change a lot of deeply entrenched processes. These changes can be challenging for some, as evidenced in our recent blog [DevOps and its impact on project management.](https://developer.hpe.com/blog/devops-and-its-impact-on-project-management) Don’t forget to check back and see what new blogs are up on the [HPE Dev site](https://developer.hpe.com/blog) on this and other interesting topics. 
+Don’t we know it! DevOps requires many enterprises to change a lot of deeply entrenched processes. These changes can be challenging for some, as evidenced in our recent blog [DevOps and its impact on project management.](/blog/devops-and-its-impact-on-project-management) Don’t forget to check back and see what new blogs are up on the [HPE Dev site](/blog) on this and other interesting topics. 

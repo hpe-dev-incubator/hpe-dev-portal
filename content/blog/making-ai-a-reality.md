@@ -1,12 +1,16 @@
 ---
 title: "Making AI a Reality "
 date: 2021-01-15T07:48:29.685Z
-author: Ellen Friedman    
-tags: ["ai","h2o.ai","hpe-ezmeral-container-platform","hpe-ezmeral-data-fabric"]
-authorimage: "/img/blogs/Avatar4.svg"
-featuredBlog: true
-priority: 4
-thumbnailimage:
+featuredBlog: false
+priority:
+author: Ellen Friedman
+authorimage: /img/blogs/Avatar4.svg
+thumbnailimage: null
+tags:
+  - ai
+  - h2o.ai
+  - hpe-ezmeral-container-platform
+  - hpe-ezmeral-data-fabric
 ---
 ![data drive ai](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/12/data-drive-ai-1610724616865.JPG)
 

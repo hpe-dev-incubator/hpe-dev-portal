@@ -3,12 +3,12 @@ title: "Introducing the HPE GL20 IoT Gateway"
 date: 2021-01-12T10:36:54.822Z
 author: Cenz Wong 
 tags: ["gl20","iot","gateway","sensor","edge"]
-authorimage: "/img/blogs/Avatar1.svg"
+authorimage: "/img/blogs/Avatar4.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
 ---
-<img src="/uploads/media/2020/12/h4-1610447678726.jpg" width="80%" height="80%"/>  
+<img src="https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/12/h4-1610447678726.jpg" width="80%" height="80%"/>  
    
 HPE IoT Gateways enable organizations to rapidly acquire, analyze and take action on real-time data as it’s being collected for additional analysis at a later stage. Bringing computing and analytics close to the edge accelerates the speed of your decision-making and reduces the chance of lost opportunities or a missed red flag. In this post, I’ll be discussing the HPE GL20 IoT Gateway, a fun device for the edge. The HPE GL20 has an 8-bit digital input/output (DIO) capability designed specifically to address IoT needs. For detailed product information, check out the [Quick Spec](https://h20195.www2.hpe.com/v2/GetDocument.aspx?docname=c04884769).
     
@@ -88,11 +88,13 @@ You can read the example code in gRPC folder of the GitHub repository [here](htt
 ## Summary   
 In this tutorial, I have shown you two ways to write a simple Python script to access HPE GL20 DIO. The first way utilizes Bash utility named **_i2c-tools_**  and Python module called **_smbus2_** to access the DIO directly. This is suitable for those who want to take all control of your code. I have also prepared a second way for you with an easy-to-use gRPC service docker image exposing DIO over network. You can control DIO within the same device or in the cloud remotely.   
     
-I just wanted to note that using `time.sleep(1)` as a delay is not always a wise option when it comes to writing an embedded application. During delay, Python does nothing but wait one second, which causes inefficiency in your code. Concurrency in Python like threading or multiprocessing is recommended. However, this really isn't today's topic. If you want to learn more about this, you might want to check out these blog posts on Python Concurrency.    
-•	[HPE Developer | Understanding Concurrency in Python Part 1 – Threading](https://developer.hpe.com/blog/understanding-concurrency-in-python-part-1-threading)    
-•	[HPE Developer | Understanding Concurrency in Python Part 2 – Multiprocessing](https://developer.hpe.com/blog/understanding-concurrency-in-python-part-2-multiprocessing)    
-•	[HPE Developer | Understanding Concurrency in Python Part 3 – Asyncio](https://developer.hpe.com/blog/understanding-concurrency-in-python-part-3-asyncio)    
-•	[concurrent.futures — Launching parallel tasks](https://docs.python.org/3/library/concurrent.futures.html)   
+I just wanted to note that using `time.sleep(1)` as a delay is not always a wise option when it comes to writing an embedded application. During delay, Python does nothing but wait one second, which causes inefficiency in your code. Concurrency in Python like threading or multiprocessing is recommended. However, this really isn't today's topic. If you want to learn more about this, you might want to check out these blog posts on Python Concurrency.     
+
+•	[HPE Developer | Understanding Concurrency in Python Part 1 – Threading](/blog/understanding-concurrency-in-python-part-1-threading)    
+•	[HPE Developer | Understanding Concurrency in Python Part 2 – Multiprocessing](/blog/understanding-concurrency-in-python-part-2-multiprocessing)    
+•	[HPE Developer | Understanding Concurrency in Python Part 3 – Asyncio](/blog/understanding-concurrency-in-python-part-3-asyncio)    
+•	[concurrent.futures — Launching parallel tasks](https://docs.python.org/3/library/concurrent.futures.html)     
+
 Another quick note for you: sometimes you might require serial/USART communications with other devices. A Python module called **_PySerial_** is handy for dealing with serial communications.     
     
 There are numerous features on HPE GL20. I'll just stop here in my discussion of the digital input/output capability of HPE GL20. I hope you enjoyed my tutorial on how to use DIO with the HPE GL20 and find many great ways to apply this feature. If you have any questions regarding this blog post, you can drop a message to me. My email is: <cenz@hpe.com> . Or reach me via [HPE DEV slack workspace](https://hpedev.slack.com/): **_@hpe.cenz_**. Happy hacking.

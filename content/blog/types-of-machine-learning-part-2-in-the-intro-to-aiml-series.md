@@ -3,7 +3,7 @@ title: "Types of Machine Learning – Part #2 in the Intro to AI/ML Series"
 date: 2020-12-09T07:38:36.968Z
 author: Saira Kennedy 
 tags: ["hpe-ezmeral-data-fabric","MapR","machine-learning","AI"]
-authorimage: "/img/blogs/Avatar4.svg"
+authorimage: "/img/blogs/Avatar5.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -17,11 +17,12 @@ thumbnailimage:
 "publish": "2018-09-28T07:00:00.000Z",
 "tags": "machine-learning"
 ```
+
 ---
 
 Based on MapR Academy course, [Introduction to Artificial Intelligence and Machine Learning](https://learn.ezmeral.software.hpe.com/bus-introduction-to-artificial-intelligence-and-machine-learning)
 
-In this post – second in the Intro to AI/ML Series – we discuss the different methods of machine learning and some of the most common algorithms available for your projects. [Read the first blog in this series here](https://developer.hpe.com/blog/kkLZ0mNpXqhQMZLRJQqr/artificial-intelligence-and-machine-learning-what-are-they-and-why-are-t).
+In this post – second in the Intro to AI/ML Series – we discuss the different methods of machine learning and some of the most common algorithms available for your projects. [Read the first blog in this series here](/blog/kkLZ0mNpXqhQMZLRJQqr/artificial-intelligence-and-machine-learning-what-are-they-and-why-are-t).
 
 ![](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/12/image12-1607499687612.jpg)
 

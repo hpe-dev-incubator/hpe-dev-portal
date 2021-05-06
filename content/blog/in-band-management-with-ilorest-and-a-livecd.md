@@ -3,14 +3,14 @@ title: "In-band management with ilorest and a LiveCD"
 date: 2018-03-30T11:19:26.056Z
 author: François Donzé 
 tags: ["iLO","ilorest","ProLiant"]
-authorimage: "/img/blogs/Avatar6.svg"
+authorimage: "/img/blogs/Avatar4.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
 ---
 # In-band management with `ilorest` and a LiveCD
 
-In a [previous blog](https://developer.hpe.com/blog/how-to-change-the-factory-generated-ilo-administrator-password), I explained how the RESTful interface tool ([iLOREST](http://www.hpe.com/info/resttool)) (former `hprest`) is able to communicate securely with the underlying iLO and perform in band management of the lower layers of the server. This blog provides a method to create a custom bootable LiveCD that embeds the `ilorest` utility and potentially other management tools.
+In a [previous blog](/blog/how-to-change-the-factory-generated-ilo-administrator-password), I explained how the RESTful interface tool ([iLOREST](http://www.hpe.com/info/resttool)) (former `hprest`) is able to communicate securely with the underlying iLO and perform in band management of the lower layers of the server. This blog provides a method to create a custom bootable LiveCD that embeds the `ilorest` utility and potentially other management tools.
 
 After booting the server on the LiveCD, it is possible, locally or from a remote location, to perform in-band management operations.
 

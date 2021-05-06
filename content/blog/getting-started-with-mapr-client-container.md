@@ -3,7 +3,7 @@ title: "Getting Started with MapR Client Container"
 date: 2021-02-13T06:58:44.317Z
 author: Tugdual Grall 
 tags: ["hpe-ezmeral-data-fabric","MapR"]
-authorimage: "/img/blogs/Avatar4.svg"
+authorimage: "/img/blogs/Avatar2.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -17,7 +17,9 @@ thumbnailimage:
 "publish": "2017-02-07T06:00:00.000Z",
 "tags": "streaming"
 ```
+
 ---
+
 ## Introduction
 
 The MapR Persistent Application Client Container (PACC) is a Docker-based container image that includes a container-optimized MapR client. The PACC provides secure access to MapR Data Platform services, including MapR XD, MapR Database, and MapR Event Store. The PACC makes it fast and easy to run containerized applications that access data in MapR. 

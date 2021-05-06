@@ -3,7 +3,7 @@ title: "Kafka Connect and Kafka REST API on MapR: Streaming Just Became a Whole 
 date: 2021-01-29T05:29:20.597Z
 author: Ankur Desai 
 tags: ["hpe-ezmeral-data-fabric","MapR","kafka","event-streaming"]
-authorimage: "/img/blogs/Avatar5.svg"
+authorimage: "/img/blogs/Avatar2.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -17,8 +17,10 @@ thumbnailimage:
 "publish": "2016-12-09T06:00:00.000Z",
 "tags": "nosql"
 ```
+
 ---
-In my previous blog post [Real-Time Event Streaming: What Are Your Options?](https://developer.hpe.com/blog/LOV2B97WzAiAzmYlY17y/real-time-event-streaming-what-are-your-options), I explained the three major components of a streaming architecture. Most streaming architectures have three major components – producers, a streaming system, and consumers. Producers (such as Apache Flume) publish event data into a streaming system after collecting it from the data source, transforming it into the desired format, and optionally filtering, aggregating, and enriching it. The streaming or messaging system (such as Apache Kafka or MapR Event Store) takes the data published by the producers, persists it, and reliably delivers it to consumers. Consumers are typically stream processing engines (such as Apache Spark) that subscribe to data from streams and manipulate or analyze that data to look for alerts and insights. Furthermore, once the data is processed, it may need to be persisted in a database or a file for future use by downstream applications.
+
+In my previous blog post [Real-Time Event Streaming: What Are Your Options?](/blog/LOV2B97WzAiAzmYlY17y/real-time-event-streaming-what-are-your-options), I explained the three major components of a streaming architecture. Most streaming architectures have three major components – producers, a streaming system, and consumers. Producers (such as Apache Flume) publish event data into a streaming system after collecting it from the data source, transforming it into the desired format, and optionally filtering, aggregating, and enriching it. The streaming or messaging system (such as Apache Kafka or MapR Event Store) takes the data published by the producers, persists it, and reliably delivers it to consumers. Consumers are typically stream processing engines (such as Apache Spark) that subscribe to data from streams and manipulate or analyze that data to look for alerts and insights. Furthermore, once the data is processed, it may need to be persisted in a database or a file for future use by downstream applications.
 
 The following diagram illustrates the typical streaming architecture:
 

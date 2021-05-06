@@ -3,7 +3,7 @@ title: "A Functional Approach to Logging in Apache Spark"
 date: 2021-02-05T05:32:01.948Z
 author: Nicolas Perez 
 tags: ["hpe-ezmeral-data-fabric","MapR","apache-spark"]
-authorimage: "/img/blogs/Avatar6.svg"
+authorimage: "/img/blogs/Avatar4.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
@@ -17,10 +17,12 @@ thumbnailimage:
 "publish": "2016-07-28T07:00:00.000Z",
 "tags": "apache-spark"
 ```
+
 ---
+
 ## A Functional Approach to Logging in Apache Spark
 
-Logging in Apache Spark is very easy to do, since Spark offers access to a logobject out of the box; only some configuration setups need to be done. In a [previous post](https://developer.hpe.com/blog/0NBjLpX5VAF3JKoDEqOo/how-to-log-in-apache-spark), we looked at how to do this while identifying some problems that may arise. However, the solution presented might cause some problems when you are ready to collect the logs, since they are distributed across the entire cluster. Even if you utilize YARN log aggregation capabilities, there will be some contentions that might affect performance, or you could end up with log interleaves that corrupt the nature of the log itself.
+Logging in Apache Spark is very easy to do, since Spark offers access to a logobject out of the box; only some configuration setups need to be done. In a [previous post](/blog/0NBjLpX5VAF3JKoDEqOo/how-to-log-in-apache-spark), we looked at how to do this while identifying some problems that may arise. However, the solution presented might cause some problems when you are ready to collect the logs, since they are distributed across the entire cluster. Even if you utilize YARN log aggregation capabilities, there will be some contentions that might affect performance, or you could end up with log interleaves that corrupt the nature of the log itself.
 
 In this blog post, I will demonstrate how to solve these problems by taking a different, more functional approach.
 
@@ -57,7 +59,7 @@ object app {
 
 The only thing to note is that logging is actually happening on the Spark driver, so we don’t have synchronization or contention problems. However, everything starts to get complicated once we start distributing our computations.
 
-The following code won’t work (read this [_previous post_](https://developer.hpe.com/blog/0NBjLpX5VAF3JKoDEqOo/how-to-log-in-apache-spark) to know why)
+The following code won’t work (read this [_previous post_](/blog/0NBjLpX5VAF3JKoDEqOo/how-to-log-in-apache-spark) to know why)
 
 ```scala
 val log = LogManager.getRootLogger
@@ -70,7 +72,7 @@ data.map { value =>
 
 ```
 
-A solution to this was also presented in the [previous post](https://developer.hpe.com/blog/0NBjLpX5VAF3JKoDEqOo/how-to-log-in-apache-spark), but it requires extra work to manage the logs.
+A solution to this was also presented in the [previous post](/blog/0NBjLpX5VAF3JKoDEqOo/how-to-log-in-apache-spark), but it requires extra work to manage the logs.
 
 Once we start logging on each node of the cluster, we need to go to each node and collect each log file in order to make sense of whatever is in the logs. Hopefully, you are using some kind of tool to help you with this task, such as Splunk, Datalog, etc. However, you still need to know how to get those logs into your system.
 
