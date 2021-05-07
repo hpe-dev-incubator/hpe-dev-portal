@@ -1,6 +1,6 @@
 ---
 title: Ways to Interact K8s with Ezmeral
-date: 2021-05-07T09:32:42.694Z
+date: 2021-05-07T14:39:32.411Z
 author: Cenz Wong
 authorimage: /img/Avatar1.svg
 thumbnailimage: https://github.com/helloezmeral/cdn/blob/main/HelloWorld%20with%20EPIC%20MLOps.png?raw=true
