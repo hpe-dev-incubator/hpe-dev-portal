@@ -53,6 +53,8 @@ export const BlogCard = ({ node, ...rest }) => (
       <Box align="start">
         {(node.authorimage || node.frontmatter.authorimage) && (
           <Image
+            width='96px'
+            height='96px'
             src={node.authorimage || node.frontmatter.authorimage}
             alt="author logo"
           />
@@ -124,7 +126,8 @@ export const FeaturedBlogCard = ({ node, ...rest }) => (
       >
         <Box align="start" direction="row" gap="small">
           <Image
-            fit="contain"
+            width='96px'
+            height='96px'
             src={node.frontmatter.authorimage}
             alt="author logo"
           />
