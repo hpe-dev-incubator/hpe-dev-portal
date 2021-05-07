@@ -138,6 +138,13 @@ module.exports = {
     },
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
+    {
+      resolve: 'gatsby-plugin-google-analytics',
+      options: {
+        trackingId: 'UA-108944070-6',
+        head: true,
+      },
+    },
     'gatsby-plugin-feed',
     {
       resolve: 'gatsby-plugin-manifest',
