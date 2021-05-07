@@ -110,7 +110,9 @@ export KUBECONFIG="/the/path/of/your/kubeconfig"
 
 #### 3.2.3 Using REST API
 HPE Ezmeral Container Platform provides REST API for you to interact. Here is the command that downloads the Kubeconfig file.
+
 - Authenticate as a tenant user in the specified tenant, getting the session ID: 
+
 ```bash
 curl -k -i -s --request POST "http://ez53-gateway.hpeilab.com:8080/api/v2/session" \
 --header 'Accept: application/json' \
