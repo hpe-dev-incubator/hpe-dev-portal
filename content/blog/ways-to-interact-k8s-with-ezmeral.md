@@ -134,7 +134,9 @@ Server: HPE Ezmeral Container Platform 5.3
 
 201 Created
 ```
+
 - Get the Kubeconfig file for your tenant working context: 
+
 ```bash
 curl -k -s --request GET "http://ez53-gateway.hpeilab.com:8080/api/v2/k8skubeconfig" \
 --header "X-BDS-SESSION: /api/v2/session/__thisisthesessionid__" \
@@ -144,7 +146,9 @@ curl -k -s --request GET "http://ez53-gateway.hpeilab.com:8080/api/v2/k8skubecon
 # Define the Kubeconfig file as a shell environment variable
 export KUBECONFIG=kubeconfig
 ```
+
 - Combining two commands into one command
+
 ```bash
 curl -k -s --request GET "http://<you-ez-gateway>:8080/api/v2/k8skubeconfig" \
 --header "X-BDS-SESSION: $(curl -k -i -s --request POST "http://<you-ez-gateway>:8080/api/v2/session" \
