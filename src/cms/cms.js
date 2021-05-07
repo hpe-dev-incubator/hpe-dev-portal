@@ -7,7 +7,7 @@ init({
     media_library: {
       config: {
         signature:
-          'c8cbf1fd4353ff060aa4190008209b07ad8a6f2c3d7b09e4b7238363761d8cdd',
+          'c0a3c681bfe5e6970644a3502c87fe68027533d66b235f4254b77bb31fb14535',
       },
     },
   },
