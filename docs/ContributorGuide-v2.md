@@ -1,5 +1,5 @@
 # HPE DEV External Contributor Guide
-**Version 2.0** - 6-May-2021
+**Version 2.0** - 9-May-2021
 
 >**Note:** A recording of the training session delivered on April 30, 2021 is available [here](https://vimeo.com/544486602). 
 
@@ -106,7 +106,7 @@ You can create a new blog directly from the **Contents** tab or by navigating to
 
     -   Title
     -   Author
-    -   Author Image (image size recommended is **96px X 96px**). 
+    -   Author Image (image size recommended is **192px X 192px**). 
         You can upload a picture or use your gravatar picture URL if you have one. 
     
         >Note: For more information on how to get a gravatar URL, refer to section "***Tips and Tricks using the CMS Editor***" at the end of this document.
@@ -375,7 +375,7 @@ To do so, proceed as follows:
 
 -   **Author image:**
     
-    - When creating or editing a blog post, in AUTHOR IMAGE section, you can **Choose an image** and upload an image of size: **96 x 96** or you can insert a Gravatar picture URL (**Insert from URL**). To create a Gravatar URL proceed as follows:
+    - When creating or editing a blog post, in AUTHOR IMAGE section, you can **Choose an image** and upload an image of size: **192px x 192px** or you can insert a Gravatar picture URL (**Insert from URL**). To create a Gravatar URL proceed as follows:
 
         - Using your gravatar as an author picture
 
