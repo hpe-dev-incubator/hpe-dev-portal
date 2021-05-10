@@ -39,7 +39,8 @@ There are different approaches one can use to migrate legacy applications into m
 
 There are several different paths organizations take in their attempt to modernize their applications: 
 
-PICTURE
+
+<img src="static/img/1-gunna.png" width="600" height="359">
 
 - **Rehost** – This simply means that a legacy application is moved to a modern compute and storage platform, either on premise or in the cloud, without altering the original code. In this case, the application does not magically acquire modern features. Going back to our car analogy, it would be like giving a 1967 Mustang new tires. You can’t expect that it would now also have all the features found in a 2021 Mustang. Rehosting an application does not modernize it.
 - **Refactor**, **Redesign** and **Rebuild** – These options involve rewriting portions of the applications from scratch, while preserving the original scope and specifications. Using these methods will modernize an application by updating the source code to a newer programing language, the underlying data to modern formats, and the compute and storage infrastructure to support the newly modernized application.
@@ -57,7 +58,7 @@ Finally, for those who prefer to **Replace** their application, HPE Ezmeral soft
 
 HPE Ezmeral Application Workbench is a free, stand-alone, Python-based software development kit (SDK) that allows for the quick development of applications for Kubernetes, AI/ML, and other use cases, either from scratch or from existing container images. The HPE Ezmeral Application Workbench takes advantage of KubeDirector, an open-source project from HPE, which acts as a custom controller that allows you to easily bring your app into a standard K8s cluster. Kubedirector makes it easy to run complex stateful scale-out application clusters on Kubernetes.
 
-PICTURE
+<img src="static/img/2-gunna.png" width="600" height="359">
 
 HPE Ezmeral Application Workbench features a simple to use, workflow-based, web-based graphical user interface (WebUI) to help you build modern applications visually. Use it to update legacy source code to build a new, custom docker image, and convert your legacy application into a microservice-based, modern app. After installing the App Workbench on your workstation, you can build your application using just a few simple steps.
 
