@@ -28,11 +28,11 @@ This same idea applies to modernizing software applications. You cannot simply u
 
 Enterprises face a variety of challenges as they address application modernization, such as: 
 
-* Isolating applications from their infrastructure is often a very time consuming and manual process.
-* Legacy, monolithic systems are not designed with distributed hardware in mind and are difficult to break apart.
-* Legacy apps lack security integrations.
-* They also lack tight DevOps integration.
-* Lastly, budget and cost control are difficult to estimate, as well as difficult to test and consolidate amongst legacy applications.
+- Isolating applications from their infrastructure is often a very time consuming and manual process.
+- Legacy, monolithic systems are not designed with distributed hardware in mind and are difficult to break apart.
+- Legacy apps lack security integrations.
+- They also lack tight DevOps integration.
+- Lastly, budget and cost control are difficult to estimate, as well as difficult to test and consolidate amongst legacy applications.
 
 There are different approaches one can use to migrate legacy applications into modern architectures. Most of these solutions are offered in the [HPE Ezmeral Container Platform](https://www.hpe.com/us/en/solutions/container-platform.html) along with the [HPE Ezmeral Data Fabric](https://www.hpe.com/us/en/software/data-fabric.html). Depending on the customer use case, application, cost, and time requirements, HPE can help to smooth the way in this journey. 
 
