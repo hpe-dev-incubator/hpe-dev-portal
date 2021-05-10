@@ -63,12 +63,10 @@ HPE Ezmeral Application Workbench is a free, stand-alone, Python-based software 
 HPE Ezmeral Application Workbench features a simple to use, workflow-based, web-based graphical user interface (WebUI) to help you build modern applications visually. Use it to update legacy source code to build a new, custom docker image, and convert your legacy application into a microservice-based, modern app. After installing the App Workbench on your workstation, you can [build your application](https://docs.containerplatform.hpe.com/53/app-workbench-5-1/getting-started/AWB51_Overview.html) using just a few simple steps.
 
 Key features of the HPE Ezmeral Application Workbench include:
-
 * KubeDirector Application support
 * Public and private Docker registry support
 * Source-to-Image capabilities, allowing users to transform monolithic application source code to executable Docker images
 * A feature rich application development workspace, including the ability to:
-
   * Edit Dockerfiles, HTML, JSON, Markdown, Python, SH, XML, YAML files in one place.
   * Organize configuration scripts and application specific startup scripts in one place.
   * Output a fully formatted JSON or YAML file to apply to your K8s cluster with [KubeDirector operator](https://kubedirector.io/) installed.
