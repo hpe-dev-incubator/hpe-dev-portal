@@ -14,4 +14,4 @@ tags:
 
 June 24, 2021 
 
-In the Hack Shack, you’ll find experts offering talks on a wide variety of topics, from Kubernetes and MLOps to data fabric and security. Hack Shack Workshops will be available on June 24th to all levels with some aimed specifically at beginners. The team will be available throughout the week to answer any questions you may have. You’ll also have opportunities to win prizes by participating in fun and informative games!  A list of planned sessions, workshops and times will be coming soon.
+HPE DEV will offer five Hack Shack Workshops on Day 3 at Discover 2021. In each session, experts will cover topics from Kubernetes and MLOps to data fabric and security, followed by hands-on workshops. These workshops will be available to all levels with some aimed specifically at beginners. The team will be available throughout the week to answer any questions you may have. To view available sessions, click <a href="https://content.attend.hpe.com/go/virtualplatform.catalogue/?l=1045&locale=en_US">here</a> to view the HPE Discover 2021 catalog under Technical Sessions and Training and enter HPE DEV in the keyword search.
