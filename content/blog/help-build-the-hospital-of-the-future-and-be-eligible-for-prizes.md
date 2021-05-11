@@ -4,6 +4,8 @@ date: 2021-05-11T14:58:32.788Z
 author: Dale Rensing
 authorimage: /img/blog-author-rensing-96.jpg
 thumbnailimage: /img/ff53e152ae-texas_cover_image-01.png
+tags:
+  - hackathon
 ---
 Hewlett Packard Enterprise (HPE), the multinational enterprise information technology company based in Houston, Texas,  is proud to partner with [Texas Children’s Hospital](https://www.texaschildrens.org/departments/us-news-world-report), one of the top-ranked children’s hospitals in the US, in its [inaugural innovation-focused hackathon](https://www.hackerearth.com/challenges/hackathon/texas-childrens-hospital-healthcare-hackathon/). To celebrate the groundbreaking of its new hospital, Texas Children’s is hosting a two-week long [virtual Healthcare Hackathon](https://www.hackerearth.com/challenges/hackathon/texas-childrens-hospital-healthcare-hackathon/) from May 14th through May 24th, 2021. This virtual event is designed to inspire and draw attention to the need for new ways of thinking and the use of technology in healthcare in treatments for women and children.
 
