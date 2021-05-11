@@ -57,15 +57,17 @@ const findImageURL = (body) => {
   }
 
   // Find image url by tag
-  const element = document.createElement('div');
-  element.innerHTML = body;
-  const foundByImageTag = element.querySelector('img');
-  if (foundByImageTag) {
-    console.log('foundByImageTag: ', foundByImageTag.src);
-    const imageURL = foundByImageTag.src.includes('https://')
-      ? foundByImageTag
-      : `https://developer.hpe.com${foundByImageTag.getAttribute('src')}`;
-    return imageURL;
+  if (typeof document !== 'undefined') {
+    const element = document.createElement('div');
+    element.innerHTML = body;
+    const foundByImageTag = element.querySelector('img');
+    if (foundByImageTag) {
+      console.log('foundByImageTag: ', foundByImageTag.src);
+      const imageURL = foundByImageTag.src.includes('https://')
+        ? foundByImageTag
+        : `https://developer.hpe.com${foundByImageTag.getAttribute('src')}`;
+      return imageURL;
+    }
   }
 
   return null;
