@@ -2,9 +2,7 @@ backend:
  name: github
  repo: hpe-dev-incubator/hpe-dev-portal
  branch: master
- open_authoring: true
 
-publish_mode: editorial_workflow
 site_url: https://developer.hpe.com
 display_url: https://developer.hpe.com
 logo_url: /img/dev-thumb2.png
