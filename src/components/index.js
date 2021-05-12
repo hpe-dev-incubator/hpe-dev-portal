@@ -19,6 +19,7 @@ export * from './Card';
 export * from './Link';
 export * from './Markdown';
 export * from './BlogCard';
+export * from './ThemeModeToggle';
 
 export {
   Aside,
