@@ -44,6 +44,35 @@ const rows = {
   xlarge: ['auto'],
 };
 
+const findImageURL = (body) => {
+  // Find image url by Regex
+  const foundByRegex = /!\[[^\]]*\]\((?<filename>.*?)(?="|\))(?<optionalpart>".*")?\)/gi.exec(
+    body,
+  );
+  if (foundByRegex) {
+    const imageURL = foundByRegex[1].includes('https://')
+      ? foundByRegex[1]
+      : `https://developer.hpe.com${foundByRegex[1]}`;
+    return imageURL;
+  }
+
+  // Find image url by tag
+  if (typeof document !== 'undefined') {
+    const element = document.createElement('div');
+    element.innerHTML = body;
+    const foundByImageTag = element.querySelector('img');
+    if (foundByImageTag) {
+      console.log('foundByImageTag: ', foundByImageTag.src);
+      const imageURL = foundByImageTag.src.includes('https://')
+        ? foundByImageTag
+        : `https://developer.hpe.com${foundByImageTag.getAttribute('src')}`;
+      return imageURL;
+    }
+  }
+
+  return null;
+};
+
 function BlogPostTemplate({ data }) {
   const { post } = data;
   const blogsByTags = data.blogsByTags.edges;
@@ -66,7 +95,11 @@ function BlogPostTemplate({ data }) {
 
   return (
     <Layout title={siteTitle}>
-      <SEO title={title} description={description || excerpt} />
+      <SEO
+        title={title}
+        description={description || excerpt}
+        image={findImageURL(rawMarkdownBody)}
+      />
       <Box flex overflow="auto" gap="medium" pad="small">
         <Box direction="row-responsive">
           <Box pad={{ vertical: 'large', horizontal: 'medium' }} align="center">
