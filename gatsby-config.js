@@ -172,28 +172,28 @@ module.exports = {
         name: 'blog-posts',
         pageSize: 12,
         query: `
-          {
-            allMarkdownRemark( filter: { fields: 
-              { sourceInstanceName: { eq: "blog" } } }
-            sort: { fields: [frontmatter___date], order: DESC }) {
-              nodes {
-                id
-                fields {
-                  slug
-                  sourceInstanceName
-                }
-                frontmatter {
-                  title
-                  date
-                  description
-                  author
-                  tags
-                  authorimage
-                }
-                excerpt
+        {
+          allMarkdownRemark(filter: {fields: {sourceInstanceName: {eq: "blog"}
+        }, frontmatter: {featuredBlog: {ne: true}}},
+         sort: {fields: [frontmatter___date], order: DESC}) {
+            nodes {
+              id
+              fields {
+                slug
+                sourceInstanceName
               }
+              frontmatter {
+                title
+                date
+                description
+                author
+                tags
+                authorimage
+              }
+              excerpt
             }
           }
+        }
         `,
         normalizer: ({ data }) =>
           data.allMarkdownRemark.nodes.map((node) => ({
