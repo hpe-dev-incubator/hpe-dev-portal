@@ -40,7 +40,7 @@ There are different approaches one can use to migrate legacy applications into m
 
 There are several different paths organizations take in their attempt to modernize their applications: 
 
-<img src="/img/1-gunna.png" width="600" height="359">
+<img src="/img/1-gunna.png" width="600" height="359" class="center">
 
 * **Rehost** – This simply means that a legacy application is moved to a modern compute and storage platform, either on premise or in the cloud, without altering the original code. In this case, the application does not magically acquire modern features. Going back to our car analogy, it would be like giving a 1967 Mustang new tires. You can’t expect that it would now also have all the features found in a 2021 Mustang. Rehosting an application does not modernize it.
 * **Refactor**, **Redesign** and **Rebuild** – These options involve rewriting portions of the applications from scratch, while preserving the original scope and specifications. Using these methods will modernize an application by updating the source code to a newer programing language, the underlying data to modern formats, and the compute and storage infrastructure to support the newly modernized application.
@@ -72,7 +72,7 @@ Key features of the HPE Ezmeral Application Workbench include:
  - Organize configuration scripts and application specific startup scripts in one place.
  - Output a fully formatted JSON or YAML file to apply to your K8s cluster with [KubeDirector operator](https://kubedirector.io/) installed.
 
-The HPE Ezmeral Application Workbench allows you to point to a repository, bring in a Docker image, modify config scripts, and create your own startup script. With the help of the Workspace editor in the App Workbench tool set, users can create Dockerfiles by splitting the monolithic application components into a microservice or distributed model. This feature also helps in containerization refactoring where monolithic apps are moved into containers with minimal modifications, enabling users to incorporate cloud-native features and improve portability. Once you’re done, all you need to do is to use a standard kubectl command: `kubectl apply –f <yourapp.json/yaml>` of the JSON or YAML file that’s been outputted. The HPE Ezmeral Application Workbench delivers your app right into your HPE Ezmeral Container Platform App catalog.
+The HPE Ezmeral Application Workbench allows you to point to a repository, bring in a Docker image, modify config scripts, and create your own startup script. With the help of the Workspace editor in the App Workbench tool set, users can create Dockerfiles by splitting the monolithic application components into a microservice or distributed model. This feature also helps in containerization refactoring where monolithic apps are moved into containers with minimal modifications, enabling users to incorporate cloud-native features and improve portability. Once you’re done, all you need to do is to use a standard kubectl command: **kubectl apply –f <yourapp.json/yaml>** of the JSON or YAML file that’s been outputted. The HPE Ezmeral Application Workbench delivers your app right into your HPE Ezmeral Container Platform App catalog.
 
 ## Advantages of using the HPE Ezmeral Application Workbench
 
