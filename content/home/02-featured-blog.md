@@ -8,6 +8,6 @@ image: /img/blog-author-rensing-96.jpg
 ---
 Dale Rensing
 
-## Help Build the Hospital of the Future and Be Eligible for Prizes!
+## Help Build the Hospital of the Future
 
 #### May 14, 2021 - May 24th, 2021
