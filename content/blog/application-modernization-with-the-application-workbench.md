@@ -16,7 +16,7 @@ In this post, I’ll discuss the different approaches one can take to modernize 
 
 ## What is Application Modernization?
 
-Application modernization is the process of taking legacy applications and the platforms they run on and making them new again by replacing or updating each with modern features and capabilities.  It includes changing the underlying application architecture from a monolithic to a distributed model by taking the advantage of the integration and automation implicit in DevOps practices. It also often means that the architecture and source code are updated through the use of modern programming languages in order to support containers and microservices and can take advantage of built-in security and storage features.
+Application modernization is the process of taking legacy applications and the platforms they run on and making them new again by replacing or updating each with modern features and capabilities. It includes changing the underlying application architecture from a monolithic to a distributed model by taking the advantage of the integration and automation implicit in DevOps practices. It also often means that the architecture and source code are updated through the use of modern programming languages in order to support containers and microservices and can take advantage of built-in security and storage features.
 
 One could equate application modernization to updating the design of a car. For instance, if you were to compare a vintage 1967 Ford Mustang to a modern 2021 version, the 1967 would not have disk brakes, ABS, fuel injection, air bags, shoulder belts, crush zones and all the other things that make it a modern, safe, reliable, and economical car. 
 
@@ -40,7 +40,7 @@ There are different approaches one can use to migrate legacy applications into m
 
 There are several different paths organizations take in their attempt to modernize their applications: 
 
-<img src=/img/1-gunna.png width="600" height="359">
+<img src="/img/1-gunna.png" width="600" height="359">
 
 * **Rehost** – This simply means that a legacy application is moved to a modern compute and storage platform, either on premise or in the cloud, without altering the original code. In this case, the application does not magically acquire modern features. Going back to our car analogy, it would be like giving a 1967 Mustang new tires. You can’t expect that it would now also have all the features found in a 2021 Mustang. Rehosting an application does not modernize it.
 * **Refactor**, **Redesign** and **Rebuild** – These options involve rewriting portions of the applications from scratch, while preserving the original scope and specifications. Using these methods will modernize an application by updating the source code to a newer programing language, the underlying data to modern formats, and the compute and storage infrastructure to support the newly modernized application.
@@ -63,23 +63,26 @@ HPE Ezmeral Application Workbench is a free, stand-alone, Python-based software 
 HPE Ezmeral Application Workbench features a simple to use, workflow-based, web-based graphical user interface (WebUI) to help you build modern applications visually. Use it to update legacy source code to build a new, custom docker image, and convert your legacy application into a microservice-based, modern app. After installing the App Workbench on your workstation, you can [build your application](https://docs.containerplatform.hpe.com/53/app-workbench-5-1/getting-started/AWB51_Overview.html) using just a few simple steps.
 
 Key features of the HPE Ezmeral Application Workbench include:
-* KubeDirector Application support
-* Public and private Docker registry support
-* Source-to-Image capabilities, allowing users to transform monolithic application source code to executable Docker images
-* A feature rich application development workspace, including the ability to:
-  * Edit Dockerfiles, HTML, JSON, Markdown, Python, SH, XML, YAML files in one place.
-  * Organize configuration scripts and application specific startup scripts in one place.
-  * Output a fully formatted JSON or YAML file to apply to your K8s cluster with [KubeDirector operator](https://kubedirector.io/) installed.
 
-The HPE Ezmeral Application Workbench allows you to point to a repository, bring in a Docker image, modify config scripts, and create your own startup script. With the help of the Workspace editor in the App Workbench tool set, users can create Dockerfiles by splitting the monolithic application components into a microservice or distributed model. This feature also helps in containerization refactoring where monolithic apps are moved into containers with minimal modifications, enabling users to incorporate cloud-native features and improve portability. Once you’re done, all you need to do is to use a standard kubectl command: “kubectl apply –f <yourapp.json/yaml>” of the JSON or YAML file that’s been outputted. The HPE Ezmeral Application Workbench delivers your app right into your HPE Ezmeral Container Platform App catalog.
+- KubeDirector Application support
+- Public and private Docker registry support
+- Source-to-Image capabilities, allowing users to transform monolithic application source code to executable Docker images
+- A feature rich application development workspace, including the ability to:
+ - Edit Dockerfiles, HTML, JSON, Markdown, Python, SH, XML, YAML files in one place.
+ - Organize configuration scripts and application specific startup scripts in one place.
+ - Output a fully formatted JSON or YAML file to apply to your K8s cluster with [KubeDirector operator](https://kubedirector.io/) installed.
+
+The HPE Ezmeral Application Workbench allows you to point to a repository, bring in a Docker image, modify config scripts, and create your own startup script. With the help of the Workspace editor in the App Workbench tool set, users can create Dockerfiles by splitting the monolithic application components into a microservice or distributed model. This feature also helps in containerization refactoring where monolithic apps are moved into containers with minimal modifications, enabling users to incorporate cloud-native features and improve portability. Once you’re done, all you need to do is to use a standard kubectl command: `kubectl apply –f <yourapp.json/yaml>` of the JSON or YAML file that’s been outputted. The HPE Ezmeral Application Workbench delivers your app right into your HPE Ezmeral Container Platform App catalog.
 
 ## Advantages of using the HPE Ezmeral Application Workbench
 
 The HPE Ezmeral Application Workbench offers support to build KubeDirector applications that can be deployed on a CNCF-certified K8s cluster with the KubeDirector operator add-on. KubeDirector is an open-source project that uses the Kubernetes Custom Resource Definition (CRD) framework to enable transparent integration with Kubernetes user/resource management, allowing you to deploy stateful applications on Kubernetes. It leverages native Kubernetes API extensions and acts as a scheduler and launcher of applications on top of the Kubernetes platform. 
+
 KubeDirector empowers the application, doing a lot of stuff in the background for you. You don’t have to write “go code” or an operator for it; it will use what you have. And if you don’t have an operator, and you have a legacy application that needs statefulness and persistent directories, KubeDirector can assist. You can think of it as a custom operator. Using KubeDirector is a lot easier than using YAML, requiring less files and manual definition, and more powerful than using Helm charts, which don’t track the state of a node.
+
 Because of KubeDirector, applications built using the HPE Ezmeral Application Workbench can be easily deployed on the HPE Ezmeral Container Platform, which allows it to leverage the HPE Ezmeral Data Fabric, for a full end-to-end Kubernetes application experience. Using the HPE Ezmeral Application Workbench accelerates time to value for all your application modernization projects, including big data, artificial intelligence / machine learning (AI/ML), developer operations (DevOps), and continuous integration / continuous deployment (CI/CD). 
 
-## Conclusion:
+## Conclusion
 
 Legacy applications can hold you back in your digital transformation because it is software developed on outdated hardware and design principles. The success of your digital transformation depends on your ability to innovate and accelerate developer productivity at scale through newer, cloud native technologies.
 
