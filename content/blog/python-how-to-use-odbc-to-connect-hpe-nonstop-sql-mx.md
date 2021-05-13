@@ -69,7 +69,7 @@ In order for pyodbc to recognize the ODBC driver and data source to use, it will
 
 ### ODBC Data Source Administrator
 
-3. Select the HPE NonStop<sup>TM<sup> ODBCMX 3.x Unicode driver, and click “Finish”.
+3. Select the HPE NonStop™  ODBCMX 3.x Unicode driver, and click “Finish”.
 
 ### ODBC Data Source Administrator — Create New Data Source
 
