@@ -1,5 +1,5 @@
 ---
-title: "[Python] How to use ODBC to connect HPE NonStop SQL/MX"
+title: Using Python and ODBC to connect HPE NonStop SQL/MX
 date: 2021-05-04T06:27:49.069Z
 featuredBlog: true
 author: Shanice Abigail
@@ -10,23 +10,21 @@ tags:
   - sqlmx
   - odbc
 ---
-<!--StartFragment-->
-
-Hello World! In this tutorial, we will be programming in python to execute queries on the HPE NonStop SQL/MX Database, using pyodbc and the NonStop SQL/MX ODBC driver.
+Hello World! In this tutorial, I will show you how Python can execute queries on the HPE NonStop SQL/MX Database using pyodbc and the NonStop SQL/MX ODBC driver.
 
 This tutorial assumes that NonStop ODBC 3.x Unicode driver has already been installed. Check out the [NonStop ODBC/MX Client Drivers User Guide](https://support.hpe.com/hpesc/public/docDisplay?docId=a00045523en_us&docLocale=en_US) for more information on the driver.
 
-This tutorial also assumes that on your host, NonStop SQL/MX has been installed, MXCS is running, and a MXCS data source has been added and started. Check with your administrator for the IP address, port number etc. (If you’re the administrator uhh check this [manual](https://support.hpe.com/hpesc/public/docDisplay?docLocale=en_US&docId=emr_na-a00090054en_us))
+This tutorial also assumes that on your host, NonStop SQL/MX has been installed, MXCS is running, and a MXCS data source has been added and started. Check with your administrator for the IP address, port number etc. (If you’re the administrator check out this [manual](https://support.hpe.com/hpesc/public/docDisplay?docLocale=en_US&docId=emr_na-a00090054en_us).)
 
-Link to source code: <https://github.com/shaniceabigail/python-odbc-nonstop-sqlmx>
+[Link to source code.](https://github.com/shaniceabigail/python-odbc-nonstop-sqlmx) [](https://github.com/shaniceabigail/python-odbc-nonstop-sqlmx)
 
 Let’s get started!
 
-# Getting the prerequisites
+# Getting Started
 
 ## Python and pip
 
-First, [download Python,](https://www.python.org/downloads/) if you have not done so. You can check if your machine already has python by running the command below in the command prompt on Windows. You should get Python with its version number if it has been installed properly.
+First, [download Python,](https://www.python.org/downloads/) if you have not already done so. You can check to see if your machine already has Python installed by running the command below in the Windows command prompt. It should return Python with its version number, if it has been installed properly.
 
 ```markdown
 C:\> python --version
@@ -34,13 +32,13 @@ Python 3.9.0
 C:\>
 ```
 
-Next, install pip (PIP is the python package manager that we will be using). Download [get-pip.py](https://bootstrap.pypa.io/get-pip.py) on your laptop. Navigate to the folder of the file and run the following command.
+Next, install pip (pip is the Python package manager that we will be using). Download [get-pip.py](https://bootstrap.pypa.io/get-pip.py) on your laptop. Navigate to the folder containing the file and run the following command.
 
 ```markdown
 C:\Downloads> python get-pip.py
 ```
 
-Once it’s complete, check if pip has been installed by running the following command in Windows.
+Once it’s complete, double check to see if pip has been installed by running the following command in Windows.
 
 ```markdown
 C:\> py -m pip --version
@@ -50,11 +48,11 @@ C:\>
 
 ## Installing pyodbc
 
-pyodbc is an open source Python module that makes accessing ODBC databases simple. It implements the [DB API 2.0](https://www.python.org/dev/peps/pep-0249) specification but is packed with even more Pythonic convenience. tldr; it helps you to access the databases that use ODBC drivers.
+pyodbc is an open source Python module that makes it simple to access ODBC databases. It implements the [DB API 2.0](https://www.python.org/dev/peps/pep-0249) specification (the standard interfaces for Python to access a database), but is packed with even more Pythonic convenience. TLDR; it helps you to access the databases that use ODBC drivers.
 
-You can read more about pyodbc at its [Github wiki page](https://github.com/mkleehammer/pyodbc/wiki).
+You can read more about pyodbc on its [Github wiki page](https://github.com/mkleehammer/pyodbc/wiki).
 
-You can install pyodbc using pip.
+Use pip to install pyodbc.
 
 ```
 C:\> pip install pyodbc
@@ -62,10 +60,10 @@ C:\> pip install pyodbc
 
 ## Configuring your ODBC
 
-In order for pyodbc to recognize ODBC driver and data source to use, it will check with the ODBC Data Source Administrator on your Windows machine. Here’s how you can configure a new data source that will use the NonStop SQL/MX ODBC driver.
+In order for pyodbc to recognize the ODBC driver and data source to use, it will check with the ODBC Data Source Administrator on your Windows machine. Here’s how you can configure a new data source that will use the NonStop SQL/MX ODBC driver.
 
 1. Search and open the ODBC Data Source Administrator on your machine.
-2. Select “Add” button to create a new data source.
+2. Select the “Add” button to create a new data source.
 
 ![](https://miro.medium.com/max/594/1*PWpQ3yfwfB08ITElY9IHRQ.png)
 
@@ -73,11 +71,9 @@ In order for pyodbc to recognize ODBC driver and data source to use, it will che
 
 3. Select the NonStop(TM) ODBCMX 3.x Unicode driver, and click “Finish”.
 
-
-
 ### ODBC Data Source Administrator — Create New Data Source
 
-4. A new window should pop up. Write a Data Source Name for this data source that you want to connect to — The data source names **must match** between those defined to MXCS on the database server, and the client PCs, otherwise the connection will **FAIL.**
+4. A new window should pop up. Write a Data Source Name for this data source that you want to connect to. Note: The data source names **must match** between those defined to MXCS on the database server and the client PCs; otherwise the connection will **FAIL.**
 
 ![](https://miro.medium.com/max/563/1*n48eArrYZ1moeC432v2gZg.png)
 
