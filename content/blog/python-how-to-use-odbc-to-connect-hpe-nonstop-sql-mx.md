@@ -60,7 +60,7 @@ C:\> pip install pyodbc
 
 ## Configuring your ODBC
 
-In order for pyodbc to recognize the ODBC driver and data source to use, it will check with the ODBC Data Source Administrator on your Windows machine. Here’s how you can configure a new data source that will use the NonStop SQL/MX ODBC driver.
+In order for pyodbc to recognize the ODBC driver and data source to use, it will check with the ODBC Data Source Administrator on your Windows machine. Here’s how you can configure a new data source that will use the HPE NonStop SQL/MX ODBC driver.
 
 1. Search and open the ODBC Data Source Administrator on your machine.
 2. Select the “Add” button to create a new data source.
@@ -69,7 +69,7 @@ In order for pyodbc to recognize the ODBC driver and data source to use, it will
 
 ### ODBC Data Source Administrator
 
-3. Select the NonStop(TM) ODBCMX 3.x Unicode driver, and click “Finish”.
+3. Select the HPE NonStop<sup>TM<sup> ODBCMX 3.x Unicode driver, and click “Finish”.
 
 ### ODBC Data Source Administrator — Create New Data Source
 
