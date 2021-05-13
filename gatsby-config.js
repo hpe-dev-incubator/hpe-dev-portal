@@ -138,6 +138,13 @@ module.exports = {
     },
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
+    {
+      resolve: 'gatsby-plugin-google-analytics',
+      options: {
+        trackingId: 'UA-108944070-6',
+        head: true,
+      },
+    },
     'gatsby-plugin-feed',
     {
       resolve: 'gatsby-plugin-manifest',
@@ -165,28 +172,28 @@ module.exports = {
         name: 'blog-posts',
         pageSize: 12,
         query: `
-          {
-            allMarkdownRemark( filter: { fields: 
-              { sourceInstanceName: { eq: "blog" } } }
-            sort: { fields: [frontmatter___date], order: DESC }) {
-              nodes {
-                id
-                fields {
-                  slug
-                  sourceInstanceName
-                }
-                frontmatter {
-                  title
-                  date
-                  description
-                  author
-                  tags
-                  authorimage
-                }
-                excerpt
+        {
+          allMarkdownRemark(filter: {fields: {sourceInstanceName: {eq: "blog"}
+        }, frontmatter: {featuredBlog: {ne: true}}},
+         sort: {fields: [frontmatter___date], order: DESC}) {
+            nodes {
+              id
+              fields {
+                slug
+                sourceInstanceName
               }
+              frontmatter {
+                title
+                date
+                description
+                author
+                tags
+                authorimage
+              }
+              excerpt
             }
           }
+        }
         `,
         normalizer: ({ data }) =>
           data.allMarkdownRemark.nodes.map((node) => ({

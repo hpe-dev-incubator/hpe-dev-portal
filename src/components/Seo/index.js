@@ -11,7 +11,7 @@ import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import { useSiteMetadata } from '../../hooks/use-site-metadata';
 
-function SEO({ description, lang, meta, title }) {
+function SEO({ description, lang, meta, title, image }) {
   const siteMetadata = useSiteMetadata();
   const metaDescription = description || siteMetadata.description;
 
@@ -34,6 +34,10 @@ function SEO({ description, lang, meta, title }) {
         {
           property: 'og:description',
           content: metaDescription,
+        },
+        {
+          property: 'og:image',
+          content: image,
         },
         {
           property: 'og:type',
@@ -74,6 +78,7 @@ SEO.propTypes = {
   lang: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
   title: PropTypes.string.isRequired,
+  image: PropTypes.string,
 };
 
 export default SEO;
