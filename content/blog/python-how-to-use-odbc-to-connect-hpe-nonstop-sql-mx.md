@@ -79,13 +79,13 @@ In order for pyodbc to recognize the ODBC driver and data source to use, it will
 
 ### Data Source Name and Description
 
-5. Insert the IP address of the NonStop SQL/MX, as well as the port number that has been opened up for connections.
+5. Insert the IP address of the NonStop SQL/MX database, as well as the port number that has been opened up for connections.
 
 ![](https://miro.medium.com/max/564/1*4FWFtcvDezDej8zjf90jhg.png)
 
 ### IP address and Port number
 
-6. Insert the catalog and schema that you’re intending to connect to.
+6. Insert the catalog and schema that you want to connect to.
 
 ![](https://miro.medium.com/max/564/1*EPl5NDJsUHZJd6PI-U4eRA.png)
 
@@ -97,11 +97,11 @@ In order for pyodbc to recognize the ODBC driver and data source to use, it will
 
 ### Leave blank
 
-8. We will not be doing any tracing in this data source so leave the settings as the default, and click finish.
+8. We will not be doing any tracing in this data source, so leave the settings as the default, and click finish.
 
 ![](https://miro.medium.com/max/564/1*DtYFoVsOh4fTpAHwG1n01w.png)
 
-You can test the connection, and click “OK”. You should be able to see that the data source has been added to the list.
+Test the connection, and click “OK”. You should see that the data source has been added to the list.
 
 Alright, now it’s time to code!
 
@@ -109,13 +109,13 @@ Alright, now it’s time to code!
 
 ## The setup
 
-Create a new .py file in any of your favourite text editor — mine is VSCode.
+Create a new .py file in any of your favourite text editors — mine is VSCode.
 
-Import the python package into the script.
+Import the Python package into the script.
 
 Add your Data Source Name, UID (User ID) and Password (PWD) in the fields.
 
-Finally, set the decoding and encoding parameters for the connection which are database specific. NonStop SQL/MX supports “iso-8859–1”, but this varies with the database you’re using. (We set this for good measure — so copy paste the parameters from the code below for **NonStop SQL/MX**)
+Finally, set the decoding and encoding parameters for the connection. These are database specific. NonStop SQL/MX supports “iso-8859–1”, but this varies with the database you’re using. (We set this up for good measure — so copy/paste the parameters from the code below for **NonStop SQL/MX.**)
 
 This is what you should have so far.
 
@@ -131,9 +131,9 @@ conn.setencoding(encoding='iso-8859-1')
 
 Create a cursor variable and execute the SQL statement that you would like to have in your database.
 
-Do note that YOU HAVE TO COMMIT THE TRANSACTION if you make an insert or update table statement in the python script. You can insert the commit at the end of the set of updates or inserts.
+Note that **YOU HAVE TO COMMIT THE TRANSACTION** if you make an insert or update a table statement in the Python script. You can insert the commit at the end of the set of updates or inserts.
 
-The act of committing the transactions is how we make sure that the set of transactions / executions are properly executed, and data integrity maintained.
+The act of committing the transactions is how we make sure that the set of transactions / executions are properly executed, and data integrity is maintained.
 
 ```python
 cursor = conn.cursor()
@@ -155,6 +155,6 @@ for row in cursor:
 
 And there you have it!
 
-The python script should be able to insert, update, create and select. Alright, that’s it for now, and hope you’ll have fun coding with the NonStop SQL/MX database!
+The Python script should be able to insert, update, create, and select. Alright, that’s it for now. I hope you’ll have fun coding with the NonStop SQL/MX database using information you learned in this tutorial!
 
-<!--EndFragment-->
+For more interesting posts and tutorials, keep checking back on the [HPE DEV blog](https://developer.hpe.com/blog).
