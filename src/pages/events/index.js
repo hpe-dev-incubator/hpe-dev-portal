@@ -81,6 +81,7 @@ function Events({ data }) {
               content={node.rawMarkdownBody}
               link={node.frontmatter.link}
               image={node.frontmatter.image}
+              basis="auto"
             />
           ))}
         </SectionHeader>
