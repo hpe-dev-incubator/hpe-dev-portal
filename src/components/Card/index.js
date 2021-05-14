@@ -94,7 +94,7 @@ export const Card = ({
   width = 'medium',
   link,
   image,
-  source,
+  ...rest
 }) => (
   <ResponsiveContext.Consumer>
     {(size) => (
@@ -102,7 +102,8 @@ export const Card = ({
         elevation="medium"
         margin="medium"
         flex="grow"
-        basis={size === 'small' || source === 'event' ? 'auto' : bases[width]}
+        basis={size === 'small' ? 'auto' : bases[width]}
+        {...rest}
         /* eslint-disable */
         onClick={
           link && link.match(/^\//g)

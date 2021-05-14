@@ -82,6 +82,7 @@ function Events({ data }) {
               link={node.frontmatter.link}
               image={node.frontmatter.image}
               source={node.fields.sourceInstanceName}
+              basis="auto"
             />
           ))}
         </SectionHeader>
