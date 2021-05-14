@@ -81,7 +81,6 @@ function Events({ data }) {
               content={node.rawMarkdownBody}
               link={node.frontmatter.link}
               image={node.frontmatter.image}
-              source={node.fields.sourceInstanceName}
               basis="auto"
             />
           ))}
