@@ -88,14 +88,14 @@ const bases = {
   large: '2/3',
 };
 
-export const Card = ({ category, content, width = 'medium', link, image }) => (
+export const Card = ({ category, content, width = 'medium', link, image, source }) => (
   <ResponsiveContext.Consumer>
     {(size) => (
       <GrommetCard
         elevation="medium"
         margin="medium"
         flex="grow"
-        basis={size === 'small' ? 'auto' : bases[width]}
+        basis={size === 'small' || source === 'event' ? 'auto' : bases[width]}
         /* eslint-disable */
         onClick={
           link && link.match(/^\//g)
