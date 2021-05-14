@@ -88,7 +88,14 @@ const bases = {
   large: '2/3',
 };
 
-export const Card = ({ category, content, width = 'medium', link, image, source }) => (
+export const Card = ({
+  category,
+  content,
+  width = 'medium',
+  link,
+  image,
+  source,
+}) => (
   <ResponsiveContext.Consumer>
     {(size) => (
       <GrommetCard

@@ -73,7 +73,7 @@ function Events({ data }) {
       )}
       {upcomingEvents && upcomingEvents.length > 0 && (
         <SectionHeader title="Upcoming Events">
-          {upcomingEvents.map(({ node }) =>  (
+          {upcomingEvents.map(({ node }) => (
             <Card
               key={node.id}
               category={node.frontmatter.category}
