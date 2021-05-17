@@ -30,12 +30,11 @@ const MarkdownLayout = styled(Markdown)`
   }
 
   & > p > code {
-    color: rgb(248, 248, 242);
-    background: rgb(43, 43, 43);
-    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
-    text-align: left;
-    white-space: pre;
-    font-size: 20px;
+    color: #f8f8f2;
+    background: #2b2b2b;
+    padding: 0.1em;
+    border-radius: 0.3em;
+    white-space: normal;
   }
 `;
 
