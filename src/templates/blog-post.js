@@ -28,14 +28,6 @@ const MarkdownLayout = styled(Markdown)`
     margin-top: 0;
     padding-top: 0;
   }
-
-  & > p > code {
-    color: #f8f8f2;
-    background: #2b2b2b;
-    padding: 0.1em;
-    border-radius: 0.3em;
-    white-space: normal;
-  }
 `;
 
 const columns = {
