@@ -4,7 +4,7 @@ date: 2021-05-04T06:27:49.069Z
 featuredBlog: true
 priority: 5
 author: Shanice Abigail
-authorimage: /img/Avatar6.svg
+authorimage: /img/profile_pic-formatted-copy-2-.jpg
 tags:
   - python
   - nonstop
