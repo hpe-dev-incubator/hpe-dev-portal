@@ -28,11 +28,11 @@ const MarkdownLayout = styled(Markdown)`
     margin-top: 0;
     padding-top: 0;
   }
-  
+
   & > p > code {
     color: rgb(248, 248, 242);
     background: rgb(43, 43, 43);
-    font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
     text-align: left;
     white-space: pre;
     font-size: 20px;
