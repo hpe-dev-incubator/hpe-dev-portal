@@ -5,24 +5,24 @@ import cloudinary from 'netlify-cms-media-library-cloudinary';
 let myJson;
 const userAction = async () => {
   try {
-    const response = await fetch(
-      'https://hackshack.hpedev.io/.netlify/functions/cloudinary',
-    );
+    console.log('just before call');
+    const url = '/.netlify/functions/cloudinary';
+    const response = await fetch(url);
     myJson = await response.json();
     console.log('netlify function response', myJson);
   } catch (err) {
-    console.log('netlify function call error', err);
+    console.log('error', err);
   }
 };
-
 userAction();
+console.log('after making a function call to cloudinary api');
 
 init({
   config: {
     media_library: {
       config: {
         signature:
-          '7e1bd971329791e8348f729680a66ca171fc2024c395f26ec4e82b14ff2c289e',
+          'e70ca0031407e281c0e0ead8d6c73791a2eda402267273a20b8ca9451adbb09b',
       },
     },
   },
