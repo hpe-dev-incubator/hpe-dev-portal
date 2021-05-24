@@ -13,8 +13,8 @@ import {
 import { Download, Github } from 'grommet-icons';
 import PropTypes from 'prop-types';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { a11yDark as codestyle } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { deepMerge } from 'grommet/utils';
+import codestyle from './markdownTheme';
 
 class Image extends React.Component {
   render() {
@@ -45,7 +45,7 @@ class Code extends React.Component {
         </SyntaxHighlighter>
       );
     }
-    return <code {...this.props} />;
+    return <code style={codestyle.code} {...this.props} />;
   }
 }
 
