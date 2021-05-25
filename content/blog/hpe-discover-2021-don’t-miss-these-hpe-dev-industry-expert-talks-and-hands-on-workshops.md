@@ -13,11 +13,11 @@ HPE Discover 2021 is where the next wave of digital transformation begins, power
 
 ## Calling all Coders!
 
-This year, HPE DEV, the team that supports HPE’s developer community, will be offering a virtual Hack Shack technology session and four hands-on coding workshops. In the technology session, HPE customers, Sysdig and ORock will discuss how they take advantage of the HPE Ezmeral software platform to provide secure utility-based As-a-Service offerings. This 30-minute roundtable is be moderated by key HPE CTO Office executive, Robert Christiansen, who works with HPE global clients and partners to deepen relationships and align joint technology efforts that improve the way people live and work.
+This year, HPE DEV, the team that supports HPE’s developer community, will be offering a virtual Hack Shack technology session and four hands-on coding workshops. [In the technology session](https://content.attend.hpe.com/go/virtualplatform.details/?l=1045&SID=24350&schid=9807&locale=en_US&from=virtualplatform.catalogue_session&sf=2967), HPE customers, Sysdig and ORock will discuss how they take advantage of the HPE Ezmeral software platform to provide secure utility-based As-a-Service offerings. This 30-minute roundtable is be moderated by key HPE CTO Office executive, Robert Christiansen, who works with HPE global clients and partners to deepen relationships and align joint technology efforts that improve the way people live and work.
 
-The four hands-on workshops will be similar in style to those offered last year, but this time with a twist. In the first 30 minutes, you’ll be introduced to industry experts who’ll give an overview of a specific technology. For the remaining 60 minutes, you’ll be invited to stay to experience a unique hands-on workshop where you’ll actually get to play with the technology by employing Jupyter Notebooks to facilitate your coding experience.
+The four hands-on workshops will be similar in style to those offered last year, but this time with a twist. In the first 30 minutes, you’ll be introduced to industry experts who’ll give an overview of a specific technology. For the remaining 60 minutes, you’ll be invited to stay to experience a unique, hands-on workshop where you’ll actually get to play with the technology by employing Jupyter Notebooks to facilitate your coding experience.
 
-Most of the HPE DEV Hack Shack sessions will take place on Day 3. You can find them in one of two ways:
+Most of the HPE DEV Hack Shack sessions will take place on Day 3. You can find them in the session catalog in one of two ways:
 
 * Access the [HPE DEV courses here](https://content.attend.hpe.com/go/virtualplatform.catalogue_session/?l=1045&sf=2879&locale=en_US).
 * Go to the [Discover 2021 session catalog here](https://content.attend.hpe.com/go/virtualplatform.catalogue_session/?l=1045&locale=en_US) and enter HPE DEV in the Keyword Search. The Hack Shack sessions and workshops will appear below.
