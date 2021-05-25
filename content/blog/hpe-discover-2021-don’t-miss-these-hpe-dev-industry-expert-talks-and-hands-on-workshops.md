@@ -30,22 +30,22 @@ Make sure you put these recommended sessions on your calendar:
 
    Dates/Times: June 23, 11:30am-12:00pm PST / June 24, 11:00am-12:30pm CEST
 
-   Industry luminary Robert Christiansen talks with two industry insiders from Sysdig and ORock on how they provide secure container platforms. Alexander Lawrence, Principal Solutions Engineer with Sysdig, describes how they extend security and monitoring on HPE Ezmeral through their SaaS platform, while Matt Plummer, Chief Cloud Architect at ORock Technology, discusses their open-source IaaS and PaaS with FedRAMP security built on the HPE Ezmeral platform. 
+   Industry luminary Robert Christiansen ([@rbchristiansen](https://twitter.com/rbchristiansen)) talks with two industry insiders from Sysdig and ORock on how they provide secure container platforms. Alexander Lawrence, Principal Solutions Engineer with Sysdig, describes how they extend security and monitoring on HPE Ezmeral through their SaaS platform, while Matt Plummer, Chief Cloud Architect at ORock Technology, discusses their open-source IaaS and PaaS with FedRAMP security built on the HPE Ezmeral platform. 
 2. **HPE Ezmeral Data Fabric 101 – Get to Know the Basics Around the Data Fabric [HSW4349](https://content.attend.hpe.com/go/virtualplatform.details/?l=1045&SID=24349&schid=0&locale=en_US&sf=547)**
 
    Dates/Times: June 24, 9:00am-10:30am PST / June 25, 11:00am-12:30pm CEST
 
-   Join industry experts—Ted Dunning and Ellen Friedman—for a 30-minute talk on how workflows and data management change when systems are built on a unified data layer with data fabric. A hands-on workshop will follow, where you’ll learn how to create/delete/update volumes, set up disaster recovery mechanisms, and apply security policies.
+   Join industry experts—Ted Dunning ([@ted_dunning](https://twitter.com/ted_dunning)) and Ellen Friedman ([@ellen_friedman](https://twitter.com/Ellen_Friedman))—for a 30-minute talk on how workflows and data management change when systems are built on a unified data layer with data fabric. A hands-on workshop will follow, where you’ll learn how to create/delete/update volumes, set up disaster recovery mechanisms, and apply security policies.
 3. **Kubernetes 101 – Intro to the Kubernetes Concepts Managed by HPE Ezmeral Container Platform [HSW4347](https://content.attend.hpe.com/go/virtualplatform.details/?l=1045&SID=24347&schid=0&locale=en_US&sf=548)**
 
    Dates/Times: June 24, 11:00am-12:30pm PST / June 25, 1:00pm-2:30pm CEST
 
-   Walk through the basics of the Kubernetes cluster orchestration system with industry expert, Nigel Poulton, Chief Technologist at Kubetrainer.com, and Thomas Phelan, HPE Ezmeral Container Platform CTO. During a following 60-min hands-on workshop, you’ll deploy a containerized application on a cluster, scale its deployment, update the application, and debug it, using info you learned on Kubernetes features and an interactive online tutorial.
+   Walk through the basics of the Kubernetes cluster orchestration system with industry expert, Nigel Poulton ([@nigelpoulton](https://twitter.com/nigelpoulton)), Chief Technologist at Kubetrainer.com, and Thomas Phelan, HPE Ezmeral Container Platform CTO. During a following 60-min hands-on workshop, you’ll deploy a containerized application on a cluster, scale its deployment, update the application, and debug it, using info you learned on Kubernetes features and an interactive online tutorial.
 4. **SPIFFE and SPIRE Fundamentals [HSW4392](https://content.attend.hpe.com/go/virtualplatform.details/?l=1045&SID=24392&schid=0&locale=en_US&sf=549)**
 
    Dates/Times: June 24, 12:00pm-1:30pm PST / June 25, 2:00pm-3:30pm CEST
 
-   Join this workshop to better understand SPIFFE as a set of open-source standards for securely authenticating software services in dynamic and heterogeneous environments through the use of platform-agnostic, cryptographic identities. Explore SPIRE as an open-source system that implements the SPIFFE specification in a wide variety of environments. Featuring Sunil James of HPE (@sunubunu) and Phil Vachon, Security leader at Bloomberg (@pvachonnyc).
+   Join this workshop to better understand SPIFFE as a set of open-source standards for securely authenticating software services in dynamic and heterogeneous environments through the use of platform-agnostic, cryptographic identities. Explore SPIRE as an open-source system that implements the SPIFFE specification in a wide variety of environments. Featuring Sunil James of HPE ([@sunubunu](https://twitter.com/sunubunu)) and Phil Vachon, Security leader at Bloomberg ([@pvachonnyc](https://twitter.com/pvachonnyc)).
 5. **Redfish Programming Made Easy and Secure with Ansible and HPE OneView [HSW4345](https://content.attend.hpe.com/go/virtualplatform.details/?l=1045&SID=24345&schid=0&locale=en_US&sf=553)**
 
    Dates/Times: June 24, 10:00am-11:30am PST / June 25, 12:00pm-1:30pm CEST
