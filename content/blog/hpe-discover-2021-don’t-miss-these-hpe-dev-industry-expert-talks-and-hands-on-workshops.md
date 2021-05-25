@@ -42,7 +42,7 @@ Make sure you put these recommended sessions on your calendar:
    Dates/Times: June 24, 10:00am-11:30am PST / June 25, 12:00pm-1:30pm CEST
    Learn to securely automate management, monitoring, and configuration of compute nodes. After a 30-min intro by Jeff Hilland, DMTF president, stay for a hands-on workshop using Redfish and Ansible, leveraging HPE OneView Single Sign On. You will learn multiple ways for writing Redfish Ansible playbooks using built-in modules, DMTF, and HPE examples. 
 
-   In addition to these HPE DEV Hack Shack sessions, there’s so much more to explore at Discover 2021 for those interested in software; from the HPE Ezmeral Container Platform and Data Fabric to open source projects sponsored by HPE. Learn more here:
+   In addition to these HPE DEV Hack Shack sessions, there’s so much more to explore at Discover 2021 for those interested in software; from the HPE Ezmeral Container Platform and Data Fabric to open source projects sponsored by HPE. 
 
    ## Live Demos 
 
