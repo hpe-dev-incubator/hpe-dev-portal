@@ -401,6 +401,7 @@ To do so, proceed as follows:
     >**Note:** We recommend to use "**Header 2**" for your primary heading, then Header 3 for subsequent heading, etc.
 
 -   **Undo function:**
+    
     The CMS editor does not provide an "Undo" button. Use the shortcut **CTRL + Z** for Undo action.
 
 -   **Hotlink:**
