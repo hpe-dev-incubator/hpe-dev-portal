@@ -30,7 +30,7 @@ Make sure you put these recommended sessions on your calendar:
 
    Dates/Times: June 23, 11:30am-12:00pm PST / June 24, 11:00am-12:30pm CEST
 
-   Industry luminary Robert Christiansen ([@rbchristiansen](https://twitter.com/rbchristiansen)) talks with two industry insiders from Sysdig and ORock on how they provide secure container platforms. Alexander Lawrence, Principal Solutions Engineer with Sysdig, describes how they extend security and monitoring on HPE Ezmeral through their SaaS platform, while Matt Plummer, Chief Cloud Architect at ORock Technology, discusses their open-source IaaS and PaaS with FedRAMP security built on the HPE Ezmeral platform. 
+   Industry luminary Robert Christiansen ([@rbchristiansen](https://twitter.com/rbchristiansen)) talks with two industry insiders from Sysdig and ORock on how they provide secure container platforms. Alexander Lawrence ([@alaw_sd](https://twitter.com/alaw_sd)), Principal Solutions Engineer with Sysdig, describes how they extend security and monitoring on HPE Ezmeral through their SaaS platform, while Matt Plummer, Chief Cloud Architect at ORock Technology ([@ORock_Tech](https://twitter.com/ORock_Tech)), discusses their open-source IaaS and PaaS with FedRAMP security built on the HPE Ezmeral platform. 
 2. **HPE Ezmeral Data Fabric 101 – Get to Know the Basics Around the Data Fabric [HSW4349](https://content.attend.hpe.com/go/virtualplatform.details/?l=1045&SID=24349&schid=0&locale=en_US&sf=547)**
 
    Dates/Times: June 24, 9:00am-10:30am PST / June 25, 11:00am-12:30pm CEST
