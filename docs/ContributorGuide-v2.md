@@ -395,10 +395,13 @@ To do so, proceed as follows:
 -   **Headings:**
 
     Select **H** in the "Rich Text" menu bar and select the
-    heading level. To clear a Heading, select the text, click **H** in
-    the menu bar, and click the Heading level previously selected.
+    heading level. To clear a Heading, put your cursor in front of the text, click **H** in
+    the menu bar, and click the Heading level previously selected. Another option is to use the ***Undo*** function **CTRL + Z**
 
     >**Note:** We recommend to use "**Header 2**" for your primary heading, then Header 3 for subsequent heading, etc.
+
+-   **Undo function:**
+    The CMS editor does not provide an "Undo" button. Use the shortcut **CTRL + Z** for Undo action.
 
 -   **Hotlink:**
     * To hotlink a piece of text, you can use the **Rich Text** mode, select the text you want to hotlink and click the `Link` icon on the editor menu (BODY section) and specify the URL.
