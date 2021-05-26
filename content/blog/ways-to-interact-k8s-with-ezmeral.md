@@ -49,7 +49,6 @@ The following steps are for Linux users.
 curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
 # And place it anywhere in your PATH:
 sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
-
 ```
 
 > Reference:
@@ -65,7 +64,6 @@ wget https://bluedata-releases.s3.amazonaws.com/kubectl-epic/3.4/14/linux/kubect
 tar xf kubectl-hpecp.star
 # And place it anywhere in your PATH:
 sudo mv ./kubectl-hpecp /usr/local/bin
-
 ```
 
 Check `kubectl-hpecp` is installed correctly.
@@ -91,7 +89,6 @@ The `kubectl hpecp refresh` command gets the user a new Kubeconfig, which authen
 curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
 # And place it anywhere in your PATH:
 sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
-
 ```
 
 Running the hpecp refresh command, will prompt some messages. Follow the instructions to define the Kubeconfig file as a shell environment variable.
@@ -99,8 +96,11 @@ Running the hpecp refresh command, will prompt some messages. Follow the instruc
 ![image](https://user-images.githubusercontent.com/72959956/117413580-bab71980-af48-11eb-808e-1f46f074451c.png)
 
 ```shell
+kubectl hpecp refresh <ip_address, host alias, or hostname> --insecure --hpecp-user=<new_username> --hpecp-pass=<new_password>
 # Example
-export KUBECONFIG="/home/hpeadmin/.kube/.hpecp/ez53-gateway.hpeilab.com/config"
+kubectl hpecp refresh 172.16.10.41 --insecure --hpecp-user=your-username --hpecp-pass=your-pass
+kubectl hpecp refresh ez53-gateway.hpeilab.com --insecure --hpecp-user=your-username --hpecp-pass=your-pass
+kubectl hpecp refresh ez53-gateway.hpeilab.com --insecure
 
 ```
 
@@ -113,7 +113,6 @@ export KUBECONFIG="/home/hpeadmin/.kube/.hpecp/ez53-gateway.hpeilab.com/config"
 ```bash
 # Example
 export KUBECONFIG="/the/path/of/your/kubeconfig"
-
 ```
 
 #### Using REST API
@@ -142,7 +141,6 @@ Location: /api/v2/session/__thisisthesessionid__
 Server: HPE Ezmeral Container Platform 5.3
 
 201 Created
-
 ```
 
 Get the Kubeconfig file for your tenant working context: 
@@ -155,7 +153,6 @@ curl -k -s --request GET "http://ez53-gateway.hpeilab.com:8080/api/v2/k8skubecon
 
 # Define the Kubeconfig file as a shell environment variable
 export KUBECONFIG=kubeconfig
-
 ```
 
 The screenshot below shows you how you can combine two commands into a single command.
@@ -176,7 +173,6 @@ curl -k -s --request GET "http://<you-ez-gateway>:8080/api/v2/k8skubeconfig" \
 export KUBECONFIG="./kubeconfig"
 
 kubectl get pods
-
 ```
 
 > Resources:
