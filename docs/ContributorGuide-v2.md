@@ -1,5 +1,5 @@
 # HPE DEV External Contributor Guide
-**Version 2.0** - 25-May-2021
+**Version 2.0** - 26-May-2021
 
 >**Note:** A recording of the training session delivered on April 30, 2021 is available [here](https://vimeo.com/544486602). 
 
@@ -65,7 +65,7 @@ Netlify and AWS Amplify has been both configured to integrate with GitHub versio
 
 4. If you are prompted to authorize the "HPE Dev Web Portal CMS" by HPEDevCom, please "Authorize HPEDevCom" 
 
-<center><img src="media/Github-Authorize-application-v2.png" width="880" height="589"></center>
+<center><img src="media/Github-Authorize-application-v2.png" width="800" height="600"></center>
 
 5.  Select **Fork the repo** to initiate a copy of the HPE DEV Web CMS
     into your own GitHub account. (In GitHub, this will appear as a new
