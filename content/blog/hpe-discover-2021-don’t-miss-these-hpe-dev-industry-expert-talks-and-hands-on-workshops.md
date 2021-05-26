@@ -54,19 +54,20 @@ Make sure you put these recommended sessions on your calendar:
 
    In addition to these HPE DEV Hack Shack sessions, there’s so much more to explore at Discover 2021 for those interested in software; from the HPE Ezmeral Container Platform and Data Fabric to open source projects sponsored by HPE. 
 
-   ## Live Demos 
+## Live Demos 
 
-   We will also be featuring live, on-location, demos at Chase Center and the Mercedes Formula 1 Factory, scheduled to take place on June 22 or 23 (depending on which region you’re joining from). During the times specified below, HPE will have experts available to help answer your questions.
+We will also be featuring live, on-location, demos at Chase Center and the Mercedes Formula 1 Factory, scheduled to take place on June 22 or 23 (depending on which region you’re joining from). During the times specified below, HPE will have experts available to help answer your questions.
 
    * AMS: 11:00 AM – 11:45 PM PDT and 11:45AM – 12:30PM PDT on Tuesday (Day 1)
    * APJ: 2:30 PM – 3:15PM JST and 3:15PM – 4:30 PM JST on Wednesday (Day 1)
    * EMEA: 12:30 PM – 1:15 PM CET and 1:15PM – 2:00PM on Wednesday (Day 1)
 
-   Interested in other sessions? We invite you to explore the full line-up of sessions on [our content catalog](https://content.attend.hpe.com/go/virtualplatform.catalogue/?l=1045&locale=en_US) and build your own agenda. You can also view the [agenda for each region here](https://content.attend.hpe.com/go/virtualplatform.agenda/?l=1045&locale=en_US). 
 
-   ## Build Your Playlist 
+Interested in other sessions? We invite you to explore the full line-up of sessions on [our content catalog](https://content.attend.hpe.com/go/virtualplatform.catalogue/?l=1045&locale=en_US) and build your own agenda. You can also view the [agenda for each region here](https://content.attend.hpe.com/go/virtualplatform.agenda/?l=1045&locale=en_US). 
 
-   Want to build your own Playlist? Here’s how. Once registered for HPE Discover, [log in](https://content.attend.hpe.com/go/virtualplatform.landing/?l=1045&locale=en_US) to the virtual platform to view each of the keynotes, sessions, demos, etc. You can filter based on content type, areas of interest, or keyword search, etc. Then simply click on the “+” icon to add the item to your My Playlist.  You can also download your Playlist into your preferred personal calendar.
+## Build Your Playlist 
+
+Want to build your own Playlist? Here’s how. Once registered for HPE Discover, [log in](https://content.attend.hpe.com/go/virtualplatform.landing/?l=1045&locale=en_US) to the virtual platform to view each of the keynotes, sessions, demos, etc. You can filter based on content type, areas of interest, or keyword search, etc. Then simply click on the “+” icon to add the item to your My Playlist.  You can also download your Playlist into your preferred personal calendar.
 
    *[Register now.](https://attend.hpe.com/discover2021/email?l=15AC66757307&EID=78EF62707200)*
 
