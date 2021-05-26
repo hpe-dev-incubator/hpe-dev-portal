@@ -63,7 +63,7 @@ Netlify and AWS Amplify has been both configured to integrate with GitHub versio
 
 <center><img src="media/guide-login-with-Github.png" width="600" height="300"></center>
 
-4. If you are prompted to authorize the "HPE Dev Web Portal CMS" by HPEDevCom, please "Authorize HPEDevCom" 
+4. If you are prompted to authorize the "HPE Dev Web Portal CMS" by HPEDevCom, please click "Authorize HPEDevCom" 
 
 <center><img src="media/Github-Authorize-application-v2.png" width="800" height="600"></center>
 
