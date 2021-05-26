@@ -45,6 +45,10 @@ The following steps are for Linux users.
 #### Step 1: Make sure you have Kubectl installed.
 
 ```shell
+# Download the latest version of kubectl
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+# And place it anywhere in your PATH:
+sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
 
 ```
 
@@ -55,6 +59,12 @@ The following steps are for Linux users.
 #### Step 2: Install hpe kubectl plugin
 
 ```bash
+# This link might subject to be changed, renew this link on HPE Ezmeral
+# Download kubectl-hpecp binary and untar the file
+wget https://bluedata-releases.s3.amazonaws.com/kubectl-epic/3.4/14/linux/kubectl-hpecp.star
+tar xf kubectl-hpecp.star
+# And place it anywhere in your PATH:
+sudo mv ./kubectl-hpecp /usr/local/bin
 
 ```
 
@@ -77,6 +87,10 @@ Check `kubectl-hpecp` is installed correctly.
 The `kubectl hpecp refresh` command gets the user a new Kubeconfig, which authenticate you to interact with Kubernetes though the HPE Ezmeral Container Platform.
 
 ```shell
+# Download the latest version of kubectl
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+# And place it anywhere in your PATH:
+sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
 
 ```
 
@@ -85,6 +99,8 @@ Running the hpecp refresh command, will prompt some messages. Follow the instruc
 ![image](https://user-images.githubusercontent.com/72959956/117413580-bab71980-af48-11eb-808e-1f46f074451c.png)
 
 ```shell
+# Example
+export KUBECONFIG="/home/hpeadmin/.kube/.hpecp/ez53-gateway.hpeilab.com/config"
 
 ```
 
@@ -95,6 +111,8 @@ Running the hpecp refresh command, will prompt some messages. Follow the instruc
 * Download your `kubeconfig` file, and define the Kubeconfig file as a shell environment variable
 
 ```bash
+# Example
+export KUBECONFIG="/the/path/of/your/kubeconfig"
 
 ```
 
@@ -105,18 +123,59 @@ HPE Ezmeral Container Platform provides REST API for you to interact with. Here 
 Authenticate as a tenant user in the specified tenant, getting the session ID: 
 
 ```shell
+curl -k -i -s --request POST "http://ez53-gateway.hpeilab.com:8080/api/v2/session" \
+--header 'Accept: application/json' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+"name": "username",
+"password": "password",
+"tenant_name": "test-tenant"
+}'
+
+# output
+HTTP/1.1 201 Created
+Access-Control-Allow-Origin: *
+Content-Length: 13
+Content-Type: text/plain
+Date: Fri, 30 Apr 2021 13:18:38 GMT
+Location: /api/v2/session/__thisisthesessionid__
+Server: HPE Ezmeral Container Platform 5.3
+
+201 Created
 
 ```
 
 Get the Kubeconfig file for your tenant working context: 
 
 ```shell
+curl -k -s --request GET "http://ez53-gateway.hpeilab.com:8080/api/v2/k8skubeconfig" \
+--header "X-BDS-SESSION: /api/v2/session/__thisisthesessionid__" \
+--header 'Accept: application/json' \
+--header 'Content-Type: application/json' > ./kubeconfig
+
+# Define the Kubeconfig file as a shell environment variable
+export KUBECONFIG=kubeconfig
 
 ```
 
 The screenshot below shows you how you can combine two commands into a single command.
 
 ```shell
+curl -k -s --request GET "http://<you-ez-gateway>:8080/api/v2/k8skubeconfig" \
+--header "X-BDS-SESSION: $(curl -k -i -s --request POST "http://<you-ez-gateway>:8080/api/v2/session" \
+--header 'Accept: application/json' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+"name": "<change-your-user-name>",
+"password": "<change-your-user-password>",
+"tenant_name": "<change-the-tenant-you-want>"
+}' | grep Location | awk '{print $2}' | tr -d '\r')" \
+--header 'Accept: application/json' \
+--header 'Content-Type: application/json' > ./kubeconfig
+
+export KUBECONFIG="./kubeconfig"
+
+kubectl get pods
 
 ```
 
