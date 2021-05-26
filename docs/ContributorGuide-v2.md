@@ -65,7 +65,7 @@ Netlify and AWS Amplify has been both configured to integrate with GitHub versio
 
 4. If you are prompted to authorize the "HPE DEV Portal" from reddypramod85, please "Authorize" 
 
-<center><img src="media/Github-Authorize-application.png" width="880" height="589"></center>
+<center><img src="media/Github-Authorize-application-v2.png" width="880" height="589"></center>
 
 5.  Select **Fork the repo** to initiate a copy of the HPE DEV Web CMS
     into your own GitHub account. (In GitHub, this will appear as a new
