@@ -4,7 +4,7 @@ date: 2020-12-08T07:23:25.530Z
 featuredBlog: false
 priority: null
 author: Didier Lalli
-authorimage: https://gravatar.com/avatar/7dd708edf1c50d4c45da80f60e3643e7?s=96
+authorimage: https://gravatar.com/avatar/7dd708edf1c50d4c45da80f60e3643e7?s=192
 thumbnailimage: null
 tags:
   - survey
