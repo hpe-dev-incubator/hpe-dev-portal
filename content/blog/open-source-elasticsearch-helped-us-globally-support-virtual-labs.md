@@ -1,12 +1,15 @@
 ---
-title: "Open source Elasticsearch helped us globally support virtual labs"
+title: Open source Elasticsearch helped us globally support virtual labs
 date: 2020-09-10T14:39:09.439Z
-author: Didier Lalli 
-tags: ["opensource","elasticsearch","elk"]
-authorimage: "/img/blogs/Avatar1.svg"
 featuredBlog: false
-priority:
-thumbnailimage:
+priority: null
+author: Didier Lalli
+authorimage: https://gravatar.com/avatar/7dd708edf1c50d4c45da80f60e3643e7?s=192
+thumbnailimage: null
+tags:
+  - opensource
+  - elasticsearch
+  - elk
 ---
 <img src="https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/7/elk-0-1600073593195.png" alt="ElasticSearch + Kibana" />
 
