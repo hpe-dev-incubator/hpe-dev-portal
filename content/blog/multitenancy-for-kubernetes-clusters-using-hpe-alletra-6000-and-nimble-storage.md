@@ -22,7 +22,7 @@ HPE Alletra 6000 and NimbleOS 6.0 includes a new command-line interface (CLI) ca
 
 The synopsis of the `--help` help flag gives an overview of the supported workflows.
 
-```
+```markdown
 HPE Alletra $ tenantadmin --help
 Usage: tenantadmin [options]
 Manage Tenants.
@@ -62,7 +62,7 @@ Assume a new Kubernetes environment is being deployed within an Enterprise. Each
 
 First step, create a new restricted folder in the pool of your choice.
 
-```
+```markdown
 folder --create k8s-prod \
   --iops_limit 75000 --usage_limit 2500000 \
   --description="Kubernetes Production Cluster"
@@ -70,7 +70,7 @@ folder --create k8s-prod \
 
 Next, create a new tenant. 
 
-```
+```markdown
 tenantadmin --add K8sAdminProd --folders default:/k8s-prod
 Enter new password: ********
 Retype new password: ********
@@ -89,7 +89,7 @@ Applying the tenant configuration to the Kubernetes cluster is not more difficul
 
 YAML declarations below are created with:
 
-```bash
+```markdown
 kubectl create -f-
 < Paste the YAML content >
 Hit CTRL-D on a new line.
@@ -228,8 +228,8 @@ With multitenancy, CSPs and MSPs are now enabled to create new tenants on the ar
 
 Expect more content that elaborates deeper on how multitenancy can be used with Kubernetes using HPE Alletra 6000 and Nimble Storage. Consider this blog post a teaser of the cornerstone capability of multitenancy.
 
-* Visit SCOD to learn more about the [HPE Alletra 6000 CSP](https://scod.hpedev.io/container_storage_provider/hpe_nimble_storage/index.html)
-* Explore the all-new [HPE Alletra](https://hpe.com/storage/alletra) 6000
-* Check out the release blog of [HPE CSI Driver for Kubernetes 2.0](https://community.hpe.com/t5/Around-the-Storage-Block/HPE-CSI-Driver-for-Kubernetes-now-available-for-HPE-Alletra/ba-p/7136280)
+- Visit SCOD to learn more about the [HPE Alletra 6000 CSP](https://scod.hpedev.io/container_storage_provider/hpe_nimble_storage/index.html)
+- Explore the all-new [HPE Alletra](https://hpe.com/storage/alletra) 6000
+- Check out the release blog of [HPE CSI Driver for Kubernetes 2.0](https://community.hpe.com/t5/Around-the-Storage-Block/HPE-CSI-Driver-for-Kubernetes-now-available-for-HPE-Alletra/ba-p/7136280)
 
 The team hangs out in #kubernetes and #nimblestorage (Alletra channels pending) on Slack. Join at [slack.hpedev.io](https://slack.hpedev.io) and sign in at [hpedev.slack.com](https://hpedev.slack.com) and we're eager to learn about how you'll put multitenancy to use!
