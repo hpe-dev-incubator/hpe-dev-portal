@@ -2,7 +2,7 @@
 title: Multitenancy for Kubernetes clusters using HPE Alletra 6000 and Nimble Storage
 date: 2021-06-15T15:00:00.000Z
 author: Michael Mattsson
-authorimage: /img/portrait-2020-smaller.jpg
+authorimage: /img/portrait-2020-192px.png
 tags:
   - Kubernetes
   - HPE Alletra
