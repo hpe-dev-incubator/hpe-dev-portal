@@ -2,7 +2,7 @@
 title: Synchronized Volume Snapshots for Distributed Workloads on Kubernetes
 date: 2021-01-14T18:10:48.848Z
 featuredBlog: true
-priority: 3
+priority: 6
 author: Michael Mattsson
 authorimage: /img/blogs/Avatar3.svg
 thumbnailimage: null
