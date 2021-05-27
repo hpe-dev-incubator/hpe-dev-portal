@@ -211,7 +211,10 @@ export const pageQuery = graphql`
     featuredblogs: allMarkdownRemark(
       filter: {
         fields: { sourceInstanceName: { eq: "blog" } }
-        frontmatter: { featuredBlog: { eq: true } }
+        frontmatter: {
+          featuredBlog: { eq: true }
+          priority: { lte: 5, gte: 1 }
+        }
       }
       sort: { fields: [frontmatter___priority], order: ASC }
     ) {
