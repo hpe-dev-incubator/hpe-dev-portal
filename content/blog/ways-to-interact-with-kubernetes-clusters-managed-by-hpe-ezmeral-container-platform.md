@@ -3,7 +3,7 @@ title: Ways to interact with Kubernetes Clusters managed by HPE Ezmeral
   Container Platform
 date: 2021-05-28T08:40:17.101Z
 author: Cenz Wong
-authorimage: https://user-images.githubusercontent.com/72959956/119960940-128cf180-bfd8-11eb-9018-8411eda59a91.png
+authorimage: /img/Avatar5.svg
 thumbnailimage: https://user-images.githubusercontent.com/72959956/119960940-128cf180-bfd8-11eb-9018-8411eda59a91.png
 ---
 
