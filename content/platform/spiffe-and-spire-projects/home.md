@@ -17,8 +17,8 @@ Together, the projects deliver a foundational capability, *service identity*, f
 
 These projects recently moved into the CNCF incubator and have received contributions from Bloomberg, Google, Pinterest, Square, Uber, and others. SPIFFE and SPIRE have grown to become a foundational layer within the cloud native ecosystem. These projects integrate with multiple cloud native technologies and projects, such as Istio, Envoy, gPRC, and OPA (Open Policy Agent).
 
-* [For more information](https://spiffe.io/)
-* [Join us on Github ![](Github)](https://github.com/spiffe/spire)
+* [Project web site](https://spiffe.io/)
+
 
 - - -
 
@@ -38,6 +38,14 @@ These projects recently moved into the CNCF incubator and have received contribu
 * [java-spiffe](https://github.com/spiffe/java-spiffe): Java client libraries
 * [py-spiffe](https://github.com/HewlettPackard/py-spiffe): Python client libraries
 * [c-spiffe](https://github.com/HewlettPackard/c-spiffe): C client libraries
+
+- - -
+
+# Documentation and tutorials
+
+[Tutorial on how to configure the Envoy proxy with SPIFFE and SPIRE](https://spiffe.io/docs/latest/microservices/envoy/)
+
+[Download the eBook: Solving the Bottom Turtle](https://spiffe.io/book/)
 
 - - -
 
