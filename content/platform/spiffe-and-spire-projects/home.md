@@ -30,7 +30,7 @@ These projects recently moved into the CNCF incubator and have received contribu
 
 - - -
 
-# GitHub repositories
+# GitHub repositories ![](Github)
 
 * [spiffe](https://github.com/spiffe/spiffe): This repository includes the SPIFFE ID, SVID and Workload API specifications, example code, and tests, as well as project governance, policies, and processes.
 * [spire](https://github.com/spiffe/spire): This is a reference implementation of SPIFFE and the SPIFFE Workload API that can be run on and across varying hosting environments.
@@ -38,8 +38,6 @@ These projects recently moved into the CNCF incubator and have received contribu
 * [java-spiffe](https://github.com/spiffe/java-spiffe): Java client libraries
 * [py-spiffe](https://github.com/HewlettPackard/py-spiffe): Python client libraries
 * [c-spiffe](https://github.com/HewlettPackard/c-spiffe): C client libraries
-
-
 
 - - -
 
