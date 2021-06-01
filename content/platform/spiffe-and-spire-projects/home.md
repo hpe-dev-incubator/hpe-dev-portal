@@ -19,7 +19,6 @@ These projects recently moved into the CNCF incubator and have received contribu
 
 * [Project web site](https://spiffe.io/)
 
-
 - - -
 
 # Introduction to SPIFFE and SPIRE
@@ -46,6 +45,8 @@ These projects recently moved into the CNCF incubator and have received contribu
 [Tutorial on how to configure the Envoy proxy with SPIFFE and SPIRE](https://spiffe.io/docs/latest/microservices/envoy/)
 
 [Download the eBook: Solving the Bottom Turtle](https://spiffe.io/book/)
+
+[SPIFFE/SPIRE on Katacoda](https://www.katacoda.com/spiffe)
 
 - - -
 
