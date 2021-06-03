@@ -1,8 +1,8 @@
 ---
 title: Help Build the Hospital of the Future and Be Eligible for Prizes!
 date: 2021-05-11T14:58:32.788Z
-featuredBlog: true
-priority: 1
+featuredBlog: false
+priority: 
 author: Dale Rensing
 authorimage: /img/blog-author-rensing-96.jpg
 thumbnailimage: /img/ff53e152ae-texas_cover_image-01.png

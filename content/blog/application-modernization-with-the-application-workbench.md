@@ -2,6 +2,8 @@
 title: Application Modernization with the Application Workbench
 date: 2021-05-10T08:22:34.902Z
 author: Sahithi Gunna
+featuredBlog: true
+priority: 2
 authorimage: /img/Avatar1.svg
 tags:
   - modernization
