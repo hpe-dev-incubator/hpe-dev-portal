@@ -9,6 +9,6 @@ image: /img/blog-author-rensing-96.jpg
 ---
 Dale Rensing
 
-## HPE Discover 2021: Don’t Miss these HPE DEV Industry Expert Talks and Hands-on Workshops
+## HPE Discover 2021: Don’t Miss it!
 
 #### June 22, 2021 - June 25th, 2021
