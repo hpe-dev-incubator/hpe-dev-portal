@@ -11,4 +11,4 @@ Dale Rensing
 
 ## Don’t Miss these HPE DEV Discover Sessions!
 
-#### June 22, 2021 - June 25th, 2021
+#### June 22 - 25, 2021
