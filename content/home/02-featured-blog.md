@@ -1,13 +1,14 @@
 ---
-title: Help Build the Hospital of the Future and Be Eligible for Prizes!
+title: "HPE Discover 2021: Don’t Miss these HPE DEV Industry Expert Talks and
+  Hands-on Workshops"
 category: Featured Blog
 priority: 2
 width: small
-link: /blog/help-build-the-hospital-of-the-future-and-be-eligible-for-prizes/
+link: /blog/hpe-discover-2021-don%E2%80%99t-miss-these-hpe-dev-industry-expert-talks-and-hands-on-workshops/
 image: /img/blog-author-rensing-96.jpg
 ---
 Dale Rensing
 
-## Help Build the Hospital of the Future
+## Don’t Miss these HPE DEV Discover Sessions!
 
-#### May 14, 2021 - May 24th, 2021
+#### June 22, 2021 - June 25th, 2021
