@@ -71,8 +71,14 @@ Check that ```kubectl-hpecp``` is installed correctly.
 | ``` kubectl hpecp -h ``` | ![](https://github.com/helloezmeral/cdn/raw/main/kubectl-hpecp-h.png)       |
 
 > References:
+
+
 > - [Using the HPE Kubectl Plugin](https://docs.containerplatform.hpe.com/53/reference/kubernetes/using-kubernetes/Using_the_HPE_Kubectl_Plugin.html)
+
+
 > - [Extend kubectl with plugins](https://kubernetes.io/docs/tasks/extend-kubectl/kubectl-plugins/)
+
+
 
 ### Getting the ```kubeconfig``` file
 #### Using ```kubectl hpecp refresh``` command
