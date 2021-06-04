@@ -50,9 +50,13 @@ curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stabl
 # And place it anywhere in your PATH:
 sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
 ```
-> Reference:
+> References:
+
+
 > - [How to install and set up kubectl on Linux](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/)
 > 
+
+
 
 #### Step 2: Install hpe kubectl plugin
 ```bash
@@ -71,8 +75,14 @@ Check that ```kubectl-hpecp``` is installed correctly.
 | ``` kubectl hpecp -h ``` | ![](https://github.com/helloezmeral/cdn/raw/main/kubectl-hpecp-h.png)       |
 
 > References:
+
+
 > - [Using the HPE Kubectl Plugin](https://docs.containerplatform.hpe.com/53/reference/kubernetes/using-kubernetes/Using_the_HPE_Kubectl_Plugin.html)
+
+
 > - [Extend kubectl with plugins](https://kubernetes.io/docs/tasks/extend-kubectl/kubectl-plugins/)
+
+
 
 ### Getting the ```kubeconfig``` file
 #### Using ```kubectl hpecp refresh``` command
@@ -99,7 +109,10 @@ export KUBECONFIG="/home/hpeadmin/.kube/.hpecp/ez53-gateway.hpeilab.com/config"
 #### Download the ```Kubeconfig``` file manually
 ![image](https://user-images.githubusercontent.com/72959956/119962105-4b799600-bfd9-11eb-985d-2c867162902e.png)
 
-- Download your ```kubeconfig``` file, and define the ```Kubeconfig``` file as a shell environment variable
+
+Download your ```kubeconfig``` file, and define the ```Kubeconfig``` file as a shell environment variable:
+
+
 
 ```bash
 # Example
@@ -166,19 +179,39 @@ kubectl get pods
 
 
 > Resources:
+
+
 > - [API_Access](https://docs.containerplatform.hpe.com/53/reference/accessing-the-applications/API_Access.html)
+
+
 > - [Jupyter Notebook: Introduction to the HPE Ezmeral Container Platform REST API](https://github.com/HewlettPackard/hpe-notebooks/tree/master/HPECPAPI)
+
+
 > - [API documents](https://github.com/bluedatainc/solutions/tree/master/APIs)
+
+
 > - [HPE Container Platform REST API](https://developer.hpe.com/blog/hpe-container-platform-rest-api-part-1-authenticating/)
 
-## 4. hpecp python library (pre-alpha)
+
+
+## hpecp python library (pre-alpha)
 If you are looking for a way to interact with HPE Ezmeral programmatically, you can keep an eye on the hpecp python library from HPE Container Platform Community. Note that it is still a prototype, it may be unstable and subject to change until this library reaches beta.
 
+
+
 > References:
+
+
 > - [Github: HPECP Python Library](https://github.com/hpe-container-platform-community/hpecp-python-library)
+
+
 > - [HPE Container Platform Python Library Documentation](https://hpe-container-platform-community.github.io/hpecp-python-library/index.html)
+
+
 > - [HPECP Python Pypi](https://pypi.org/project/hpecp/)
-> 
+
+
+
 
 ## Conclusion
 As you can see, HPE Ezmeral Container Platform provides a number of different ways for you to interact with Kubernetes clusters so you can take advantage of the benefits it provides. Just pick your favorite way for your favorite environment. Happy Kubectl!
