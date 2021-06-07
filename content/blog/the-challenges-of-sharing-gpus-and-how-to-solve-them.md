@@ -2,7 +2,7 @@
 title: The Challenges of Sharing GPUs and How to Solve Them
 date: 2021-02-03T15:54:07.736Z
 featuredBlog: false
-priority:
+priority: null
 author: Raz Haleva
 authorimage: /img/blogs/Avatar1.svg
 thumbnailimage: https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/12/pinkish-image-4-run-ai-post-1612367610553.JPG
@@ -18,11 +18,17 @@ tags:
 Whether purchasing GPUs for on-premise machines or renting them in the cloud, GPUs for AI can be expensive. Organizations want to get the most out of their on-premise GPUs and use GPUs in the cloud as efficiently as possible. The HPE Ezmeral team and [Run:AI](http://www.run.ai/) recently worked together in a number of customer engagements to help researchers take better advantage of their GPU resources. This post offers some of our takeaways and includes resources that can help you get started in doing the same. 
 
 Though many [articles](https://www.zdnet.com/article/facebooks-latest-giant-language-ai-hits-computing-wall-at-500-nvidia-gpus/) cite examples of the [insatiable demand](https://syncedreview.com/2018/05/17/ai-doubling-its-compute-every-3-5-months/) for compute resources, in practice, GPUs are often underutilized. When Run:AI starts work with a new customer, we typically see a GPU utilization rate of between 25 and 30 percent. IT is typically surprised by this – they assume that resources are being fully utilized. But, if you think about it, it’s actually quite logical:
+
 * GPUs tend to be idle during non-work hours (e.g. nights, weekends).
+
 * They can also be idle during work breaks (e.g. coffee breaks, lunch).
+
 * They can be idle when a researcher is building a model (e.g. developing a model in a Jupyter notebook).
+
 >Note: A Jupyter Notebook is a classic example. A user working with a Jupyter Notebook usually alternates between writing code, executing it on the GPU, and examining the results. The GPU is kept idle for long periods of time during this process.
+
 * They can even be idle during the execution of a GPU-consuming application, e.g. training workloads. This is because the application has some work to do on the CPU as well and wait for I/O.
+
 >Note: Most applications have CPU and I/O work in between launching GPU kernels. The GPU utilization of a deep-learning model running solely on a GPU can be much less than 100%.
 
 Increasing GPU utilization and minimizing idle times can drastically reduce costs and help achieve model accuracy faster. To do this, one needs to improve the sharing of GPU resources. 
