@@ -4,21 +4,20 @@ date: 2021-06-15T15:00:00.000Z
 author: Michael Mattsson
 authorimage: /img/portrait-2020-192px.png
 tags:
-  - Kubernetes
-  - HPE Alletra
-  - HPE Nimble Storage
-  - HPE Primera
-  - CSI
+  - hpe-nimble-storage
+  - hpe-3par-and-primera
 ---
 In a storage infrastructure economy where IT is under constant pressure to deliver more with less, yet still provide a high standard in data services directly to end users without compromising system or data security.
 
 With the introduction of [HPE CSI Driver for Kubernetes 2.0](https://community.hpe.com/t5/Around-the-Storage-Block/HPE-CSI-Driver-for-Kubernetes-now-available-for-HPE-Alletra/ba-p/7136280) and the software powering HPE Alletra 6000 and Nimble Storage, Hewlett Packard Enterprise introduces multitenancy for Kubernetes clusters accessing persistent volumes on the aforementioned storage arrays.
 
+The term "tenant" is ambigous within the industry. For HPE Alletra 6000 and Nimble Storage, a tenant is a storage appliance user account with confined privileges to volumes existing within one or many "folders" on the array defined by a storage administrator. In turn, a folder is a logical construct to losely group volumes together which allows capacity and performance accounting to be limited on per folder level. The tenant may manage any aspect of the volume within the folder and may not exceed the boundaries set on the folder.
+
 In this blog post we'll step through some of the basic elements to enable storage administrators to safely hand over credentials to Kubernetes administrators.
 
 # The enabling primitives
 
-HPE Alletra 6000 and NimbleOS 6.0 includes a new command-line interface (CLI) called `tenantadmin`. This new CLI enables storage administrators to confine a tenant user account into specific folders. Folders need to exist on the array prior creating a new tenant.
+HPE Alletra 6000 and NimbleOS 6.0 includes a new command-line interface (CLI) called `tenantadmin`. This new CLI enables storage administrators to confine a user account into specific folders. Folders need to exist on the array prior creating a new tenant.
 
 The synopsis of the `--help` help flag gives an overview of the supported workflows.
 
@@ -112,7 +111,7 @@ stringData:
   password: qweqwe123
 ```
 
-Next, create a new `StorageClass`.
+Next, create a new default `StorageClass`.
 
 ```yaml
 ---
@@ -176,7 +175,7 @@ There are plenty of different use cases that multitenancy enables for IT Ops loo
 
 ## Ephemeral Inline Volumes
 
-End users that deploy applications on Kubernetes that require ephemeral storage at a capacity beyond of what a worker node is capable of providing, may use Ephemeral Inline Volumes. Before multitenancy, Kubernetes administrators had to share the `Secret` with the end user to allow provisioning of the Ephemeral Inline Volume. That is not very practical for a lot of reasons. Now, the end user may request a separate tenant to allow management of Ephemeral Inline Volumes securely for their application.
+End users that deploy applications on Kubernetes that require ephemeral storage at a capacity beyond of what a worker node is capable of providing, may use Ephemeral Inline Volumes. Before multitenancy, Kubernetes administrators had to share the `Secret` with the end user to allow provisioning of the Ephemeral Inline Volume. That is not very practical from a security standpoint as application administrators would have privileges on the storage array. Now, the end user may request a separate tenant to allow management of Ephemeral Inline Volumes securely for their application.
 
 Example.
 
