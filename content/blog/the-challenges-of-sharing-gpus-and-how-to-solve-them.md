@@ -27,7 +27,9 @@ Though many [articles](https://www.zdnet.com/article/facebooks-latest-giant-lang
 
 >Note: A Jupyter Notebook is a classic example. A user working with a Jupyter Notebook usually alternates between writing code, executing it on the GPU, and examining the results. The GPU is kept idle for long periods of time during this process.
 
+
 * They can even be idle during the execution of a GPU-consuming application, e.g. training workloads. This is because the application has some work to do on the CPU as well and wait for I/O.
+
 
 >Note: Most applications have CPU and I/O work in between launching GPU kernels. The GPU utilization of a deep-learning model running solely on a GPU can be much less than 100%.
 
