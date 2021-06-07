@@ -23,15 +23,9 @@ Though many [articles](https://www.zdnet.com/article/facebooks-latest-giant-lang
 
 * They can also be idle during work breaks (e.g. coffee breaks, lunch).
 
-* They can be idle when a researcher is building a model (e.g. developing a model in a Jupyter notebook).
+* They can be idle when a researcher is building a model (e.g. developing a model in a Jupyter notebook). Note: A Jupyter Notebook is a classic example. A user working with a Jupyter Notebook usually alternates between writing code, executing it on the GPU, and examining the results. The GPU is kept idle for long periods of time during this process.
 
->Note: A Jupyter Notebook is a classic example. A user working with a Jupyter Notebook usually alternates between writing code, executing it on the GPU, and examining the results. The GPU is kept idle for long periods of time during this process.
-
-
-* They can even be idle during the execution of a GPU-consuming application, e.g. training workloads. This is because the application has some work to do on the CPU as well and wait for I/O.
-
-
->Note: Most applications have CPU and I/O work in between launching GPU kernels. The GPU utilization of a deep-learning model running solely on a GPU can be much less than 100%.
+* They can even be idle during the execution of a GPU-consuming application, e.g. training workloads. This is because the application has some work to do on the CPU as well and wait for I/O. Note: Most applications have CPU and I/O work in between launching GPU kernels. The GPU utilization of a deep-learning model running solely on a GPU can be much less than 100%.
 
 Increasing GPU utilization and minimizing idle times can drastically reduce costs and help achieve model accuracy faster. To do this, one needs to improve the sharing of GPU resources. 
 
