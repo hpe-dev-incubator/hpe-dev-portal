@@ -3,22 +3,25 @@ title: Host-based Volume Encryption with HPE CSI Driver for Kubernetes
 date: 2021-06-15T15:00:55.232Z
 author: Michael Mattsson
 authorimage: /img/portrait-2020-192px.png
+tags:
+  - hpe-3par-and-primera
+  - " hpe-nimble-storage"
 ---
-Security should be on everyone's mind today and storage is of course of the outmost importance. In highly dynamic and agile environments where many hosts and applications share the same wire for consolidation purposes it has become important to not only secure communication between endpoints but also store data fully encrypted where only the designated reader and writer is capable of unlocking the data with a private key.
+Security is on everyone's mind today, and storage should be considered of the utmost importance. In highly dynamic and agile environments where many hosts and applications share the same wire for consolidation purposes, it has become important to not only secure communication between endpoints, but also store data fully encrypted where only the designated reader and writer is capable of unlocking the data through the use of a private key.
 
-In this blog post we'll discuss how to use the host encryption feature of the HPE CSI Driver for Kubernetes that was introduced in version 2.0. This functionality is available to use with all supported backend Container Storage Providers ("CSP").
+In this blog post, we'll discuss how to use the host encryption feature of the HPE Container Storage Interface ("CSI") Driver for Kubernetes that was introduced in version 2.0. This functionality is available to use with all supported backend Container Storage Providers ("CSP").
 
-# In-flight encryption VS data at rest encryption
+# In-flight encryption VS data-at-rest encryption
 
-Many of the supported HPE CSI Driver backends support encryption one way or another. Let's examine the different modes and understand a little bit better where host encryption comes in.
+Many of the supported HPE CSI Driver backends support encryption in one way or another. Let's examine the different modes to understand a little bit better where host encryption comes in.
 
 ## Full disk encryption
 
-FDE (Full Disk encryption) and SED (Self-Encrypting Drives) are two technologies available to users on certain drives that encrypts the entire drive, wether it's a SSD or HDD. Software may be used to manage the keys to read and write data and access is established during power on of the drive and once the drive is powered off, the decryption key or passphrase is needed to read and write content to the drive. This method will protect data if a drive is stolen or lost. The downside is that FDE drives are usually more expensive and key/passphrase management can be impractical.
+FDE (Full Disk encryption) and SED (Self-Encrypting Drives) are two technologies available to users on certain storage devices that encrypts the entire drive, whether it's a SSD or HDD. Software may be used to manage the keys to read and write data. Access is established during power on of the drive, and once the drive is powered off, the decryption key, or passphrase, is needed to read and write content to the drive. This method will protect data if a drive is stolen or lost. The downside is that FDE drives are usually more expensive and key/passphrase management can be impractical due to the key is needed close to the data it protects, unless an external key manager is being used.
 
 ## Storage appliance software encryption
 
-A more sensible approach for a storage appliance is to have a proprietary software component to allow administrators to selectively choose logical volumes to be encrypted. Keys can be stored on the appliance, either password protected or automatically put the keys in place at boot. Drives taken out of the appliance will have encrypted data on them and if concerns the whole appliance might be stolen or tampered with, an optional passphrase could be used.
+A more sensible approach for a storage appliance is to have a proprietary software component to allow administrators to selectively choose logical volumes to be encrypted. Keys can be stored on the appliance, either password protected or automatically put the keys in place at boot. Drives taken out of the appliance will have encrypted data on them and if concerns of the whole appliance might be stolen or tampered with, an optional passphrase could be used.
 
 Neither FDE or appliance-based encryption secures data coming off the data fabric serving client workloads, such as iSCSI, FC or NVMe-oF. If a host is compromised or spoofed on the fabric, full access to the volume content is granted. This is better known as data-at-rest encryption.
 
@@ -223,20 +226,20 @@ Volume compression: 0.97X
 
 It's advised to consult with the storage administrator to ensure data-at-rest encryption on the array is turned off along with deduplication and compression to spare CPU cycles.
 
-Naturally, there will be a performance impact on the host and it's advised to study empirical data from benchmarks conducted with a production-like workload to understand the amount of CPU overhead is needed to ensure the application meets its performance criteria.
+Naturally, there will be a performance impact on the host, and it's advised to study empirical data from benchmarks conducted with a production-like workload to understand the amount of CPU headroom that's needed to ensure the application meets its performance criteria.
 
 # Maliciously trying to retrieve data
 
-In the event of a rogue host gain access to a volume without having the key, assume the LUN gets connected and discovered.
+In the event of a rogue host gaining access to a volume without having the key, assume the LUN gets connected and discovered.
 
 ```bash
 # mount /dev/mapper/mpatha /mnt
 mount: unknown filesystem type 'crypto_LUKS'
 ```
 
-The encrypted volume may in this state be brute forced or maliciously deleted, it's advisable to use a strong non-dictionary passphrase to encrypt and decrypt with. The passphrase can be up to 512 characters long. The passphrase length does not affect performance or the cipher strength, it's only used to open the device to the host.
+The encrypted volume may, in this state, be brute forced or maliciously deleted. Therefore, it's advisable to use a strong, non-dictionary passphrase for encryption and decryption. The passphrase can be up to 512 characters long. The passphrase length does not affect performance or the cipher strength. It's only used to open the device to the host.
 
-As an extra layer of security when using the iSCSI protocol is to use the Challenge-Handshake Authentication Protocol (CHAP) facility available to the HPE CSI Driver, that ensures a mutual (between initiator and target) shared secret is needed to perform a discovery in the first place.
+As an extra layer of security when using the iSCSI protocol, you can use the Challenge-Handshake Authentication Protocol (CHAP) facility available to the HPE CSI Driver. This ensures a mutual (between initiator and target) shared secret is needed to perform a discovery in the first place.
 
 # Summary
 
@@ -246,4 +249,4 @@ Being able to confidently store sensitive data on storage systems out of your co
 * Read the documentation on HPE Storage Container Orchestrator Documentation (SCOD) around the [host-based Volume Encryption](https://scod.hpedev.io/csi_driver/using.html#volume_encryption) feature
 * Learn about the [new multitenancy feature on HPE Alletra 6000 and Nimble Storage](https://scod.hpedev.io/container_storage_provider/hpe_alletra_6000/index.html#multitenant_deployment) to further improve security of your storage infrastructure
 
-The team hang out on Slack and eager to learn about your security challenges. Sign up at [slack.hpedev.io](http://slack.hpedev.io) and login to the community at [hpedev.slack.com](https://hpedev.slack.com), check out #kubernetes #nimblestorage and #3par-primera.
+The team hangs out on Slack and is eager to learn about your security challenges. Sign up at [slack.hpedev.io](http://slack.hpedev.io) and login to the community at [hpedev.slack.com](https://hpedev.slack.com), to check out #kubernetes #nimblestorage and #3par-primera.
