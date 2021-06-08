@@ -5,4 +5,7 @@ featuredBlog: false
 author: François Donzé
 authorimage: /img/fdz-photoprofile.png
 ---
-Work in progress
+## Introduction
+
+Learning  [Redfish client tools](https://youtu.be/ur9UKRV_0S8)
+
