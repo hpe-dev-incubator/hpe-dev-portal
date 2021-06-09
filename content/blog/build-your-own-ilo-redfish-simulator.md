@@ -62,6 +62,7 @@ TBD
 TBD
 
 ## Conclusion
+
 In addition to a good quality, and from my personal experience, I found the DMTF maintainers of this project very responsive to address quality issues and proposed enhancements. 
 
 
