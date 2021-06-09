@@ -18,6 +18,8 @@ This article presents the [Distributed Management Task Force (DMTF)](https://red
 
 ## The Redfish Mockup Creator
 
+### Basic description
+
 To create your own Redfish simulator, you need to have access in read mode to a live Redfish service. Then, using the [DMTF Redfish Mockup Creator](https://github.com/DMTF/Redfish-Mockup-Creator) deployed in a place with network connectivity to the live Redfish service, you will be able to retrieve the entire Redfish resources in "index.json" text files under a specified directory.
 
 The Redfish Mockup Creator is a single, simple and very easy to deploy [python 3](https://www.python.org/downloads/) script with a very small number of parameters and options that makes it easy to launch. The associated documentation is up to date and provides several deployment methods and invocation examples in its GitHub [`README.md`](https://github.com/DMTF/Redfish-Mockup-Creator#readme) file. Moreover, I personally found DMTF very responsive to potential quality issues and proposed enhancements. 
@@ -28,7 +30,7 @@ The following command launches the `redfishMockupCreate.py` script against a rem
 
 The `--Secure` argument specifies the use of the `HTTPS` secure protocol. The `--Auth` parameter allows three modes of authentication of the entire mockup creation: None, Basic and Session. 
 
-The `--Headers` options stores the response headers of each `GET` requests in a `headers.json` (see below screenshot).
+The `--Headers` options stores the response headers of each `GET` requests in a `headers.json`. More details are present in the in the next paragraph.
 
 Lastly, the `--Dir` option provides the folder entry point for the mockup. 
 
