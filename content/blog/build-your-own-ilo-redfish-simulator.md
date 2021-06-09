@@ -16,11 +16,15 @@ For the other two [workshops](https://hackshack.hpedev.io/workshops) (iLOrest an
 
 This article presents the [Distributed Management Task Force (DMTF)](https://redfish.dmtf.org/) [Redfish Mockup Creator](https://github.com/DMTF/Redfish-Mockup-Creator) and [Redfish Mockup Server](https://github.com/DMTF/Redfish-Mockup-Server) and how they can be used to learn and test the Redfish API.
 
-## Redfish Mockup Creator
+## The Redfish Mockup Creator
 
-To create your own Redfish simulator, including an iLO simulator, you need to have access in read mode to a physical Redfish service. Then, using the [DMTF Redfish Mockup Creator](https://github.com/DMTF/Redfish-Mockup-Creator) deployed in a place with network connectivity to the live Redfish service, you will be able to retrieve the entire Redfish tree in local text files.
+To create your own Redfish simulator, you need to have access in read mode to a live Redfish service. Then, using the [DMTF Redfish Mockup Creator](https://github.com/DMTF/Redfish-Mockup-Creator) deployed in a place with network connectivity to the live Redfish service, you will be able to retrieve the entire Redfish resources in "index.json" text files under a specified directory.
 
+The Redfish Mockup Creator is a very easy to deploy python script with a small number of options that makes it easy to launch. The associated documentation is up to date and provides several deployment methods and invocation examples in the GitHub [`README.md`](https://github.com/DMTF/Redfish-Mockup-Creator#readme) file.
 
+```shell
+python redfishMockupCreate.py -u <RedfishUser> -p <Password> -r 192.168.1.100 -S -D /home/user/redfish-mockup
+```
 
 ## Redfish Mockup Server
 
