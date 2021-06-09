@@ -24,8 +24,6 @@ To create your own Redfish simulator, you need to have access in read mode to a 
 
 The Redfish Mockup Creator is a single, simple and very easy to deploy [python 3](https://www.python.org/downloads/) script with a very small number of parameters and options that makes it easy to use. The associated documentation is up to date and provides several deployment methods and invocation examples in its GitHub [`README.md`](https://github.com/DMTF/Redfish-Mockup-Creator#readme) file. 
 
-In addition to a good quality, and from my personal experience, I found the DMTF maintainers of this project very responsive to address quality issues and proposed enhancements. 
-
 You can download the latest version from the [release location](https://github.com/DMTF/Redfish-Mockup-Creator/releases/tag/1.1.1).
 
 
@@ -57,5 +55,7 @@ TBD
 TBD
 
 ## Conclusion
+In addition to a good quality, and from my personal experience, I found the DMTF maintainers of this project very responsive to address quality issues and proposed enhancements. 
+
 
 TBD + pointer to [Redfish client video](https://youtu.be/ur9UKRV_0S8)
