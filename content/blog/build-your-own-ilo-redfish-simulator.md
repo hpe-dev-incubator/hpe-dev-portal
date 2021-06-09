@@ -20,7 +20,9 @@ This article presents the [Distributed Management Task Force (DMTF)](https://red
 
 To create your own Redfish simulator, you need to have access in read mode to a live Redfish service. Then, using the [DMTF Redfish Mockup Creator](https://github.com/DMTF/Redfish-Mockup-Creator) deployed in a place with network connectivity to the live Redfish service, you will be able to retrieve the entire Redfish resources in "index.json" text files under a specified directory.
 
-The Redfish Mockup Creator is a very easy to deploy python script with a small number of options that makes it easy to launch. The associated documentation is up to date and provides several deployment methods and invocation examples in the GitHub [`README.md`](https://github.com/DMTF/Redfish-Mockup-Creator#readme) file. Moreover, the DMTF is very responsive to potential quality issues or proposed enhancements. 
+The Redfish Mockup Creator is a very easy to deploy [python 3](https://www.python.org/downloads/) script with a small number of options that makes it easy to launch. The associated documentation is up to date and provides several deployment methods and invocation examples in its GitHub [`README.md`](https://github.com/DMTF/Redfish-Mockup-Creator#readme) file. Moreover, I personally found DMTF very responsive to potential quality issues and proposed enhancements. 
+
+You can download the latest version from the [release location](https://github.com/DMTF/Redfish-Mockup-Creator/releases/tag/1.1.1).
 
 The following command launches the `redfishMockupCreate.py` script against a Redfish service at `192.168.1.100` with credentials (`-u`, `-p`) and a directory output (`-D`). The optional `-S` argument specifies to use the `HTTPS` secure protocol to communicate with the remote Redfish service.
 
