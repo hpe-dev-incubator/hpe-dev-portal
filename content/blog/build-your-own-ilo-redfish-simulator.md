@@ -24,6 +24,10 @@ TBD
 
 TBD
 
-## iLOrest and the Redfish Mockup Server
+## Using iLOrest againt a Mockup Server
 
 TBD
+
+## Conclusion
+
+TBD + pointer to [Redfish client video](https://youtu.be/ur9UKRV_0S8)
