@@ -46,7 +46,9 @@ python3.4 redfishMockupCreate.py -r ilo5 -u ilouser -p ilopassword \
 
 ### Mockup structure
 
-Once authentified, the Mockup Creator crawls recursively the remote Redfish service tree, starting at `/redfish`. For each and every resource found 
+Once authenticated, the Mockup Creator crawls recursively the remote Redfish service tree, starting at `/redfish`, then `/redfish/v1`, ...etc.  For each and every resource it creates an `index.json` file containing the GET response body and creates a folder for each resouce present in the `index.json` file. If the `--Headers` was present on the 
+
+
 
 ## Redfish Mockup Server
 
