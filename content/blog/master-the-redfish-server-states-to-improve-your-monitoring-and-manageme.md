@@ -1,16 +1,24 @@
 ---
-title: "Master the Redfish Server States to improve your monitoring and management applications"
+title: Master the Redfish Server States to improve your monitoring and
+  management applications
 date: 2018-08-06T14:07:07.818Z
-author: François Donzé 
-tags: ["Redfish","PostState","PowerState","ServerState","iLO5","ProLiant","Synergy"]
-authorimage: "/img/blogs/Avatar2.svg"
 featuredBlog: false
-priority:
-thumbnailimage:
+priority: null
+author: François Donzé
+authorimage: /img/blogs/Avatar2.svg
+thumbnailimage: null
+tags:
+  - Redfish
+  - PostState
+  - PowerState
+  - ServerState
+  - iLO5
+  - ProLiant
+  - Synergy
 ---
 ## Introduction
 
-Server management and monitoring often require the knowledge of the state of the managed servers (On, Off....). The [Redfish&reg;](https://www.dmtf.org/standards/redfish) standard defines the [`PowerState`](https://redfish.dmtf.org/schemas/v1/ComputerSystem.v1_5_0.json) property with 0 (`Off`) and 1 (`On`) as possible values. However, when the system is in the `On` state, we'd like to know in which sub-state the server is: Pre-OS Tasks (POST), UEFI, OS...
+Server management and monitoring often require the knowledge of the state of the managed servers (On, Off....). The [Redfish®](https://www.dmtf.org/standards/redfish) standard defines the [`PowerState`](https://redfish.dmtf.org/schemas/v1/ComputerSystem.v1_5_0.json) property with 0 (`Off`) and 1 (`On`) as possible values. However, when the system is in the `On` state, we'd like to know in which sub-state the server is: Pre-OS Tasks (POST), UEFI, OS...
 
 This blog presents the [`PostState`](https://hewlettpackard.github.io/ilo-rest-api-docs/ilo5/#oem-hpe-poststate) property available in an `Oem.Hpe` Redfish sub-tree of HPE servers (Gen9 and Gen10) and providing a fine grained server state.
 
@@ -80,8 +88,7 @@ Note that this resource can only be modified when the system is `Off` or in `Fin
 
 In summary, the deployment process of a bare-metal server could be written as:
 
-
-```Pseudo Code
+```cwl
 Set server in `Off` state
 set `HostName` to a null or a well-known string different from the final OS hostname
 Configure other needed parameters including OS deployment bootstraps
@@ -102,8 +109,7 @@ It may happen during startup that a system returns `InPostDiscoveryComplete` whi
 
 The following script polls every other second the `PostState` and the `DeviceDiscoveryComplete` properties:
 
-
-```bash
+```shell
 let i=1
 while [ 1 ] ; do
     echo $i
@@ -125,7 +131,6 @@ Two seconds later the next iteration returns the `InPostDiscoveryComplete` state
 In iteration 62 we are still in `InPostDiscoveryComplete` but both `DeviceDiscovery` and `SmartArrayDiscovery` have reached their final `Complete` state. Hence the the corresponding devices can be queried safely.
 
 ![The `DeviceDiscoveryComplete` collection](https://redfish-lab.sourceforge.io/media/redfish-wiki/Master-the-Redfish-Server-States/6-DeviceDiscoveryComplete.png)
-
 
 ## Conclusion
 
