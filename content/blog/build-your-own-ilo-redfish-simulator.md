@@ -36,6 +36,8 @@ The `--Headers` options stores the response headers of each `GET` requests in a 
 
 Lastly, the `--Dir` option provides the folder entry point for the mockup. 
 
+> NOTE: The mockup target directory will be created if necessary. If it exists, it must be empty before the launch of the Mockup Creator.
+
 ```shell
 python3.4 redfishMockupCreate.py -r ilo5 -u ilouser -p ilopassword \
      --Secure --Auth Session  --Headers \
