@@ -28,8 +28,6 @@ You can download the latest sources from the [release location](https://github.c
 
 > **IMPORTANT NOTE:** As mentioned in the [`requirements.txt`](https://github.com/DMTF/Redfish-Mockup-Creator/blob/1.1.1/requirements.txt) file, the DMTF `redfish` Python module. This module is not compatible with the HPE `python-redfish-library` module
 
-
-
 The following command launches the `redfishMockupCreate.py` script against a remote Redfish service (`-r ilo5`) accessible with credentials (`-u`, `-p`).
 
 The `--Secure` argument specifies the use of the `HTTPS` secure protocol. The `--Auth` parameter allows three modes of authentication of the entire mockup creation: None, Basic and Session. 
@@ -43,6 +41,7 @@ python3.4 redfishMockupCreate.py -r ilo5 -u ilouser -p ilopassword \
      --Secure --Auth Session  --Headers \
      --Dir ./ilo5
 ```
+
 ### Mockup structure
 
 TBD
