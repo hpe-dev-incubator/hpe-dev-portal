@@ -10,6 +10,8 @@ authorimage: /img/fdz-photoprofile.png
 
 When I started the development of Redfish [Workshops-on-Demand](https://hackshack.hpedev.io/workshops), I rapidly realized that I would not be able to provision more than one or two physical servers with an embedded Redfish service allowing students to perform concurrent write operations.
 
-I started to look for Redfish simulators and found the [qemu](https://www.qemu.org/) based [OpenBmc](https://github.com/openbmc/openbmc) simulator that I used for the [Redfish API 101](https://hackshack.hpedev.io/workshops). This simulator is perfect for this workshop as its Redfish implementation is very light with no Original Equipment Manufacturer (OEM) [Extensions](https://redfish.dmtf.org/redfish/mockups/v1/1060).
+I started to look for Redfish simulators and found the [qemu](https://www.qemu.org/) based [OpenBmc](https://github.com/openbmc/openbmc) simulator that I used for the [Redfish API 101](https://hackshack.hpedev.io/workshops) workshop. This simulator is perfect for this introductory lab as its Redfish implementation is simple with no Original Equipment Manufacturer (OEM) [Extensions](https://redfish.dmtf.org/redfish/mockups/v1/1060).
 
-Learning  [Redfish client tools](https://youtu.be/ur9UKRV_0S8)
+For the other two [workshops](https://hackshack.hpedev.io/workshops) (iLOrest and Ansible/OneView), I had to look for something different.
+
+This article presents the [DMTF](https://redfish.dmtf.org/)'s [Redfish Mockup Creator](https://github.com/DMTF/Redfish-Mockup-Creator) and the [Redfsh Mockup Server](https://github.com/DMTF/Redfish-Mockup-Server) used to 
