@@ -7,13 +7,13 @@ tags:
   - hpe-nimble-storage
   - hpe-3par-and-primera
 ---
-In a storage infrastructure economy where IT is under constant pressure to deliver more with less, yet still provide a high standard in data services directly to end users without compromising system or data security.
+We live in a storage infrastructure economy, where IT is under constant pressure to deliver more with less, yet still provide a high standard in data services directly to end users without compromising system or data security.
 
-With the introduction of [HPE CSI Driver for Kubernetes 2.0](https://community.hpe.com/t5/Around-the-Storage-Block/HPE-CSI-Driver-for-Kubernetes-now-available-for-HPE-Alletra/ba-p/7136280) and the software powering HPE Alletra 6000 and Nimble Storage, Hewlett Packard Enterprise introduces multitenancy for Kubernetes clusters accessing persistent volumes on the aforementioned storage arrays.
+With the introduction of [HPE CSI Driver for Kubernetes 2.0](https://community.hpe.com/t5/Around-the-Storage-Block/HPE-CSI-Driver-for-Kubernetes-now-available-for-HPE-Alletra/ba-p/7136280) and the software powering HPE Alletra 6000 and Nimble Storage, Hewlett Packard Enterprise ("HPE") introduces multitenancy for Kubernetes clusters accessing persistent volumes on the aforementioned storage arrays.
 
-The term "tenant" is ambigous within the industry. For HPE Alletra 6000 and Nimble Storage, a tenant is a storage appliance user account with confined privileges to volumes existing within one or many "folders" on the array defined by a storage administrator. In turn, a folder is a logical construct to losely group volumes together which allows capacity and performance accounting to be limited on per folder level. The tenant may manage any aspect of the volume within the folder and may not exceed the boundaries set on the folder.
+The term *tenant* is ambiguous within the industry. For HPE Alletra 6000 and Nimble Storage, a tenant is a storage appliance user account with confined privileges to volumes existing within one or many *folders* on the array defined by a storage administrator. In turn, a folder is a logical construct to loosely group volumes together, which allows capacity and performance accounting to be limited on per folder level. The tenant may manage any aspect of the volume within the folder and may not exceed the boundaries set on the folder.
 
-In this blog post we'll step through some of the basic elements to enable storage administrators to safely hand over credentials to Kubernetes administrators.
+In this blog post, I'll step through some of the basic elements to enable storage administrators to safely hand over credentials to Kubernetes administrators.
 
 # The enabling primitives
 
@@ -53,7 +53,7 @@ Available options are:
                                    (mandatory).
 ```
 
-With these basic create, read, update and delete (CRUD) elements, the storage administrator is now empowered to delegate and confine all the storage resource management to a folder for a Kubernetes administrator to household with.
+With these basic *create*, *read*, *update* and *delete* ("CRUD") elements, the storage administrator is now empowered to delegate and confine all the storage resource management to a folder for a Kubernetes administrator to use.
 
 # The storage administrator's workflow
 
@@ -80,7 +80,7 @@ Created User K8sAdminProd
 
 At this point, the storage administrator hands over the credentials to the Kubernetes administrator.
 
-It's important to understand that giving the folder name to the Kubernetes administrator is completely optional. This could be useful in situations where it has been determined that a tenant need different performance characteristics for the folders. Like a "gold", "silver" and "bronze" scheme. The Container Storage Provider (CSP) will, by default, pick the folder with the most available capacity for the tenant. The upside by omitting the folder information to the Kubernetes administrator is that the storage administrator has all the power and flexibility to grow storage to new pools for a tenant without the tenant knowing about it. A very popular cloud operational model.
+It's important to understand that giving the folder name to the Kubernetes administrator is completely optional. This could be useful in situations where it has been determined that a tenant need different performance characteristics for the folders. Like a *gold*, *silver* and *bronze* scheme. The Container Storage Provider ("CSP") will, by default, pick the folder with the most available capacity for the tenant. The upside by omitting the folder information to the Kubernetes administrator is that the storage administrator has all the power and flexibility to grow storage to new pools for a tenant without the tenant knowing about it. A very popular cloud operational model.
 
 # Apply Kubernetes configuration
 
@@ -213,22 +213,22 @@ Deploying Kubernetes on a virtualization platform such as VMware vSphere, OpenSt
 
 Allowing Kubernetes clusters "administrator" or "poweruser" access to the array served by the virtualization platform the cluster is running on might be feasible in a single tenant and single application type scenario. Once weaving in the Ephemeral Inline Volumes use case into the mix and we've basically given application administrators way too many privileges on the array.
 
-In many cases the virtualization and storage administrator is combined into the same role, moving forward, this administrative function would be able to securely hand over credentials to Kubernetes administrators that needs a first class persistent storage solution.
+In many cases the virtualization and storage administrator is combined into the same role. Moving forward, this administrative function would be able to securely hand over credentials to Kubernetes administrators that need a first class persistent storage solution.
 
 ## Kubernetes-as-a-Service
 
-Cloud and Managed Service Providers (CSPs and MSPs) monetizing their infrastructure are in a constant battle to safely and securely share infrastructure resources between their tenants and at the same time provide a differentiating portfolio. In the case of dispensing Kubernetes clusters to their tenants they would have to resort to either using the virtualization platform CSI driver (such as the vSphere CSI driver) which is incredibly limited in functionality or running a Container Attached Storage (CAS) solution on the Kubernetes cluster itself which in turn would result in storage and performance inefficiencies.
+Cloud and Managed Service Providers (CSPs and MSPs) monetizing their infrastructure are in a constant battle to safely and securely share infrastructure resources between their tenants and at the same time provide a differentiating portfolio. In the case of dispensing Kubernetes clusters to their tenants, they would have to resort to either using the virtualization platform CSI driver (such as the vSphere CSI driver), which is incredibly limited in functionality, or running a Container Attached Storage ("CAS") solution on the Kubernetes cluster itself, which in turn would result in storage and performance inefficiencies.
 
-With multitenancy, CSPs and MSPs are now enabled to create new tenants on the array as part of the their catalog workflows and provide an entirely new set of rich data services enabled by HPE Alletra 6000 and HPE Nimble Storage.
+With multitenancy, CSPs and MSPs are now enabled to create new tenants on the array as part of their catalog workflows and provide an entirely new set of rich data services enabled by HPE Alletra 6000 and HPE Nimble Storage.
 
 ![Kubernetes as a Service](/img/kaas.png "Kubernetes as a Service")
 
 # Summary
 
-Expect more content that elaborates deeper on how multitenancy can be used with Kubernetes using HPE Alletra 6000 and Nimble Storage. Consider this blog post a teaser of the cornerstone capability of multitenancy.
+Expect more content that elaborates on how multitenancy can be used with Kubernetes using HPE Alletra 6000 and Nimble Storage. Consider this blog post a teaser regarding the cornerstone capability of multitenancy.
 
 - Visit SCOD to learn more about the [HPE Alletra 6000 CSP](https://scod.hpedev.io/container_storage_provider/hpe_nimble_storage/index.html)
 - Explore the all-new [HPE Alletra](https://hpe.com/storage/alletra) 6000
 - Check out the release blog of [HPE CSI Driver for Kubernetes 2.0](https://community.hpe.com/t5/Around-the-Storage-Block/HPE-CSI-Driver-for-Kubernetes-now-available-for-HPE-Alletra/ba-p/7136280)
 
-The team hangs out in #kubernetes and #nimblestorage (Alletra channels pending) on Slack. Join at [slack.hpedev.io](https://slack.hpedev.io) and sign in at [hpedev.slack.com](https://hpedev.slack.com) and we're eager to learn about how you'll put multitenancy to use!
+The team hangs out in #kubernetes and #nimblestorage (Alletra channels pending) on Slack. Join at [slack.hpedev.io](https://slack.hpedev.io) and sign in at [hpedev.slack.com](https://hpedev.slack.com). We're eager to learn about how you'll put multitenancy to use!
