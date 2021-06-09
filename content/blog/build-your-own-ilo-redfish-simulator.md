@@ -14,4 +14,4 @@ I started to look for Redfish simulators and found the [qemu](https://www.qemu.o
 
 For the other two [workshops](https://hackshack.hpedev.io/workshops) (iLOrest and Ansible/OneView), I had to look for something different.
 
-This article presents the [DMTF](https://redfish.dmtf.org/)'s [Redfish Mockup Creator](https://github.com/DMTF/Redfish-Mockup-Creator) and the [Redfsh Mockup Server](https://github.com/DMTF/Redfish-Mockup-Server) used to 
+This article presents the [Distributed Management Task Force (DMTF)](https://redfish.dmtf.org/)'s [Redfish Mockup Creator](https://github.com/DMTF/Redfish-Mockup-Creator) and [Redfish Mockup Server](https://github.com/DMTF/Redfish-Mockup-Server) used to 
