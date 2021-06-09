@@ -18,7 +18,9 @@ This article presents the [Distributed Management Task Force (DMTF)](https://red
 
 ## Redfish Mockup Creator
 
-TBD
+To create your own Redfish simulator, including an iLO simulator, you need to have access in read mode to a physical Redfish service. Then, using the [DMTF Redfish Mockup Creator](https://github.com/DMTF/Redfish-Mockup-Creator) deployed in a place with network connectivity to the live Redfish service, you will be able to retrieve the entire Redfish tree in local text files.
+
+
 
 ## Redfish Mockup Server
 
