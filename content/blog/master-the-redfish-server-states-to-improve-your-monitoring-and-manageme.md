@@ -88,8 +88,7 @@ Note that this resource can only be modified when the system is `Off` or in `Fin
 
 In summary, the deployment process of a bare-metal server could be written as:
 
-
-```bash
+```cwl
 Set server in `Off` state
 set `HostName` to a null or a well-known string different from the final OS hostname
 Configure other needed parameters including OS deployment bootstraps
@@ -110,8 +109,7 @@ It may happen during startup that a system returns `InPostDiscoveryComplete` whi
 
 The following script polls every other second the `PostState` and the `DeviceDiscoveryComplete` properties:
 
-
-```bash
+```shell
 let i=1
 while [ 1 ] ; do
     echo $i
@@ -133,7 +131,6 @@ Two seconds later the next iteration returns the `InPostDiscoveryComplete` state
 In iteration 62 we are still in `InPostDiscoveryComplete` but both `DeviceDiscovery` and `SmartArrayDiscovery` have reached their final `Complete` state. Hence the the corresponding devices can be queried safely.
 
 ![The `DeviceDiscoveryComplete` collection](https://redfish-lab.sourceforge.io/media/redfish-wiki/Master-the-Redfish-Server-States/6-DeviceDiscoveryComplete.png)
-
 
 ## Conclusion
 
