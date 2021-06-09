@@ -46,13 +46,13 @@ python3.4 redfishMockupCreate.py -r ilo5 -u ilouser -p ilopassword \
 
 ### Mockup structure
 
-Once command crawls the remote Redfish service tree
+Once authentified, the Mockup Creator crawls recursively the remote Redfish service tree, starting at `/redfish`. For each and every resource found 
 
 ## Redfish Mockup Server
 
 TBD
 
-## Using iLOrest againt a Mockup Server
+## Using iLOrest against a Mockup Server
 
 TBD
 
