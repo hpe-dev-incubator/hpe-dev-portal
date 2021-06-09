@@ -26,9 +26,6 @@ The Redfish Mockup Creator is a single, simple and very easy to deploy [python 3
 
 You can download the latest version from the [release location](https://github.com/DMTF/Redfish-Mockup-Creator/releases/tag/1.1.1).
 
-
-
-
 The following command launches the `redfishMockupCreate.py` script against a remote Redfish service (`-r ilo5`) accessible with credentials (`-u`, `-p`).
 
 The `--Secure` argument specifies the use of the `HTTPS` secure protocol. The `--Auth` parameter allows three modes of authentication of the entire mockup creation: None, Basic and Session. 
