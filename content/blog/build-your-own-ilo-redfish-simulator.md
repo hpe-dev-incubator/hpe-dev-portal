@@ -89,7 +89,11 @@ The last option (`-D`) provides the location of the mockup created previously.
 
 ### How does the simulator works ?
 
-When a Redfish client sends a GET request to an endpoint to the Redfish Mockup Server (aka simulator), it responds with the `index.json` file located in the directory corresponding of 
+The DMTF Redfish Mockup Server is does not implement any 
+
+When a Redfish client sends a GET request to the Redfish Mockup Server (aka simulator), it responds with the `index.json` file located in the directory of the requested endpoint. 
+
+ 
 
 ### Using iLOrest against a Mockup Server
 
