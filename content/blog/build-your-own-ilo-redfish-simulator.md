@@ -79,7 +79,12 @@ python3 redfishMockupServer.py                                 \
    --port 45675                                                \
    -D /usr/kits/VMs/RedfishMockups/ilo5
 ```
-In the above command, the `--ssl` paramter specifies that the Redfish service simulator will be accessible via HTTPS/SSL and 
+In the above command, the `--ssl` paramter specifies that the Redfish service simulator will be accessible via HTTPS/SSL. The private and public keys used by this server are located in a single file (`FdzSelfSigned.pem`). 
+
+The `--host` and `--port` parameters specify the IP address and TCP port to listen on. Of course, the IP/Port tuple must be accessible to Redfish clients willing to send requests to the simulator.
+
+The last option (`-D`) provides the location of the mockup created in previously.
+
 
 
 ## Using iLOrest against a Mockup Server
