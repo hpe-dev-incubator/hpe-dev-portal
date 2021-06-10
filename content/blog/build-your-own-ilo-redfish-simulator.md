@@ -73,13 +73,13 @@ Deployment and usage is well documented in the [GitHub](https://github.com/DMTF/
 ```Shell
 python3 redfishMockupServer.py                                 \
    --ssl                                                       \
-   --cert /usr/kits/VMs/RedfishMockups/FdzSelfSigned.pem       \
    --key /usr/kits/VMs/RedfishMockups/FdzSelfSigned.pem        \
+   --cert /usr/kits/VMs/RedfishMockups/FdzSelfSigned.pem       \
    --host 10.31.86.81                                          \
    --port 45675                                                \
    -D /usr/kits/VMs/RedfishMockups/ilo5
 ```
-
+In the above command, the `--ssl` paramter specifies that the Redfish service simulator will be accessible via HTTPS/SSL and 
 
 
 ## Using iLOrest against a Mockup Server
