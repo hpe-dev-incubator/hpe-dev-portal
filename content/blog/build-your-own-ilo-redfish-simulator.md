@@ -58,10 +58,7 @@ The following screenshot lists the content of the output directory of the  of th
 
 The following picture displays the first lines of the `redfish/v1/index.json` file. 
 
-![index.json partial content](/img/RedfishV1IndexJson.png "index.json partial content")
-
-
-
+![index.json partial content](/img/redfishv1indexjson.png "index.json partial content")
 
 ## Redfish Mockup Server
 
