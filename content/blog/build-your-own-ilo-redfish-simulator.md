@@ -56,9 +56,10 @@ The following screenshot lists the content of the output directory of the  of th
 
 ![Mockup structure](/img/mockupdirstructure.png "Redfish mockup structure")
 
-The following picture displays the first lines of the `redfish/v1/index.json` file. 
+The following picture displays the first lines of the `redfish/v1/index.json` file. Note that the endpoints location reflects the mockup directory structure.
 
 ![index.json partial content](/img/redfishv1indexjson.png "index.json partial content")
+
 
 ## Redfish Mockup Server
 
