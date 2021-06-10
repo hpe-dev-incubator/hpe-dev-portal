@@ -50,8 +50,11 @@ Once authenticated, the Mockup Creator crawls recursively the remote Redfish ser
 
 If the `--Headers` is present on the command line, a 'headers.json` file is created with the content of the GET response headers. This file holds interesting informations like the HTTP requests allowed TBD
 
+The following screenshot lists first the content of the output directory of the  of the TBD. This folder contains a \`README\` file and a \`redfish\` directory. The \`redfish\` folder contains two files (\`headers.json\`, \`index.json\`) and the \`v1\` folder. Lastly, the \`v1\` directory contains the same two files as well as a folder for each endpoint contained in the \`index.json\` file (AccountService, Managers, ....). 
 
 
+
+![Mockup structure](/img/mockupdirstructure.png "Redfish mockup structure")
 
 ## Redfish Mockup Server
 
@@ -64,6 +67,5 @@ TBD
 ## Conclusion
 
 In addition to a good quality, and from my personal experience, I found the DMTF maintainers of this project very responsive to address quality issues and proposed enhancements. 
-
 
 TBD + pointer to [Redfish client video](https://youtu.be/ur9UKRV_0S8)
