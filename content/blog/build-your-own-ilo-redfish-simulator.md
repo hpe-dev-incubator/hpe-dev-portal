@@ -66,7 +66,7 @@ The following image shows the content of the `/redfish/v1/Systems/1/headers.json
 
 ## Redfish Mockup Server
 
-TBD
+Once the Redfish mockup has been retrieved, you can make it available to Redfish clients with the DMTF Mockup Server. 
 
 ## Using iLOrest against a Mockup Server
 
