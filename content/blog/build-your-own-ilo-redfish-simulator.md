@@ -66,7 +66,15 @@ The following image shows the content of the `/redfish/v1/Systems/1/headers.json
 
 ## Redfish Mockup Server
 
-Once the Redfish mockup has been retrieved, you can make it available to Redfish clients with the DMTF Mockup Server. 
+Once the Redfish mockup is created, you can make it available to Redfish clients with the [DMTF Mockup Server](https://github.com/DMTF/Redfish-Mockup-Server/releases/latest). This Python 3 application is web server taking the location of a Redfish mockup as input, as well as some other parameters.
+
+Deployment and usage is well documented in the [GitHub](https://github.com/DMTF/Redfish-Mockup-Server) repository. The following code block shows how I launch it in my Workshops-on-Demand:
+
+```Shell
+
+```
+
+
 
 ## Using iLOrest against a Mockup Server
 
