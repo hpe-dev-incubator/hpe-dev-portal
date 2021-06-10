@@ -62,9 +62,7 @@ The following picture displays the first lines of the `redfish/v1/index.json` fi
 
 TBD
 
-![](/img/headersjson.png)
-
-
+![headers.json example](/img/headersjson.png "Headers.json example")
 
 ## Redfish Mockup Server
 
