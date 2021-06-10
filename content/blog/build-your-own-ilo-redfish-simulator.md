@@ -57,7 +57,8 @@ The following screenshot lists the content of the output directory of the  of th
 ![Mockup structure](/img/mockupdirstructure.png "Redfish mockup structure")
 
 The following picture displays the first lines of the `redfish/v1/index.json` file. 
-![redfish/v1/index.json](/img/RedfishV1IndexJson.png). 
+
+![TBD](/img/RedfishV1IndexJson.png "index.json partial content")
 
 
 
