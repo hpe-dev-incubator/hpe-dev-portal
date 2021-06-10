@@ -48,13 +48,19 @@ python3.4 redfishMockupCreate.py -r ilo5 -u ilouser -p ilopassword \
 
 ### Mockup structure
 
-Once authenticated in the remote Redfish service, the Mockup Creator crawls recursively the service. For each endpoint, starting at `/redfish` it sends an HTTP(s) GET request and creates an `index.json` file containing the response body as well as a folder for each sub-endpoint present in the `index.json` file. The first three endopoint levels are shown in the next picture.
+Once authenticated in the remote Redfish service, the Mockup Creator crawls recursively the service. For each endpoint, starting at `/redfish` it sends an HTTP(s) GET request and creates an `index.json` file containing the response body as well as a folder for each sub-endpoint present in the `index.json` file. The first three endpoint levels are shown in the next picture.
 
 If the `--Headers` is present on the command line, a 'headers.json` file is created with the content of the GET response headers. This file holds potentially interesting information like the HTTP requests allowed against the current endpoint.
 
 The following screenshot lists the content of the output directory of the  of the above invocation of the Mockup Creator. The "root" folder (`ilo5`) contains a `README` file and a `redfish\` directory. The `README` file contains the command line invocation. The `redfish` sub-folder contains two files (`headers.json`, `index.json`) and a directory (`v1`). Lastly, the `v1` directory contains the same two files as well as a sub-folder for each endpoint contained in the `index.json` file (AccountService, Managers, ....).
 
 ![Mockup structure](/img/mockupdirstructure.png "Redfish mockup structure")
+
+The following picture displays the first lines of the `redfish/v1/index.json` file. 
+
+
+
+
 
 ## Redfish Mockup Server
 
