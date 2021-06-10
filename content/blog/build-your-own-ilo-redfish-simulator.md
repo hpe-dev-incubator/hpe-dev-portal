@@ -52,9 +52,7 @@ Once authenticated in the remote Redfish service, the Mockup Creator crawls recu
 
 If the `--Headers` is present on the command line, a 'headers.json` file is created with the content of the GET response headers. This file holds potentially interesting information like the HTTP requests allowed against the current endpoint.
 
-The following screenshot lists the content of the output directory of the  of the above invocation of the Mockup Creato. The "root" folder (`ilo5`) contains a `README` file and a `redfish\` directory. The `README` file contains the command line invocation. The `redfish` sub-folder contains two files (`headers.json`, `index.json`) and a directory `v1` folder. Lastly, the `v1` directory contains the same two files as well as a folder for each endpoint contained in the `index.json` file (AccountService, Managers, ....). 
-
-
+The following screenshot lists the content of the output directory of the  of the above invocation of the Mockup Creator. The "root" folder (`ilo5`) contains a `README` file and a `redfish\` directory. The `README` file contains the command line invocation. The `redfish` sub-folder contains two files (`headers.json`, `index.json`) and a directory (`v1`). Lastly, the `v1` directory contains the same two files as well as a sub-folder for each endpoint contained in the `index.json` file (AccountService, Managers, ....).
 
 ![Mockup structure](/img/mockupdirstructure.png "Redfish mockup structure")
 
