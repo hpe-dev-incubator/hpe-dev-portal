@@ -60,7 +60,7 @@ The following picture displays the first lines of the `redfish/v1/index.json` fi
 
 ![index.json partial content](/img/redfishv1indexjson.png "index.json partial content")
 
-TBD
+The following image shows the content of the `/redfish/v1/Systems/1/headers.json` file with the list of possible requests: GET, HEAD, POST, PATCH. 
 
 ![headers.json example](/img/headersjson.png "Headers.json example")
 
