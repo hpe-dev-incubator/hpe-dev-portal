@@ -20,11 +20,11 @@ This article presents the [Distributed Management Task Force (DMTF)](https://red
 
 ### Basic presentation, installation and invocation
 
-To create your own Redfish simulator, you need to have access in read mode to a live Redfish service (i.e. iLO 5). Then, using the [DMTF Redfish Mockup Creator](https://github.com/DMTF/Redfish-Mockup-Creator) deployed in a place with network connectivity to the live Redfish service, you will be able to retrieve the entire Redfish resources in "index.json" text files under a specified directory.
+To create your own Redfish simulator, you need to have access in read mode to a live Redfish service (i.e. iLO 5). Then, using the [DMTF Redfish Mockup Creator](https://github.com/DMTF/Redfish-Mockup-Creator) deployed in a place with network connectivity to the live Redfish service, you will be able to retrieve the entire Redfish resources in "index.json" files under a specified directory.
 
-The Redfish Mockup Creator is a single, simple and very easy to deploy [python 3](https://www.python.org/downloads/) script with a very small number of parameters and options that makes it easy to use. The associated documentation is up to date and provides several deployment methods and invocation examples in its GitHub [`README.md`](https://github.com/DMTF/Redfish-Mockup-Creator#readme) file. 
+The Redfish Mockup Creator is a single, simple and easy to deploy [python 3](https://www.python.org/downloads/) script with a very small number of parameters and options that makes it easy to use. The associated documentation is up to date and provides several deployment methods and invocation examples in its GitHub [`README.md`](https://github.com/DMTF/Redfish-Mockup-Creator#readme) file. 
 
-You can download the latest sources from the [release location](https://github.com/DMTF/Redfish-Mockup-Creator/releases/tag/1.1.1) in `.zip` or `.tar.gz` format. From there, you just need to unzip or untar the sources into a location from which Python 3 and companion modules is accessible.
+You can download the latest sources from this [release location](https://github.com/DMTF/Redfish-Mockup-Creator/releases/tag/1.1.1) in `.zip` or `.tar.gz` format. Once downloaded, extract the sources into a location reachable by Python 3 and companion modules.
 
 > **IMPORTANT NOTE:** As mentioned in the [`requirements.txt`](https://github.com/DMTF/Redfish-Mockup-Creator/blob/1.1.1/requirements.txt) file, the DMTF `redfish` Python module is required to run the Mockup Creator. However, this module is not compatible with the HPE `python-redfish-library` because both of them contain a class called `redfish` but with different content. Use `pip uninstall python-redfish-library` before installing the DMTF `redfish` Python module with `pip install redfish`. 
 
