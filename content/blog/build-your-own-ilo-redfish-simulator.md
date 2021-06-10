@@ -48,11 +48,11 @@ python3.4 redfishMockupCreate.py -r ilo5 -u ilouser -p ilopassword \
 
 ### Mockup structure
 
-Once authenticated, the Mockup Creator crawls recursively the remote Redfish service, starting at the `/redfish` root endpoint, then `/redfish/v1` and so forth. For each endpoint it sends an HTTP(s) GET request and creates an `index.json` file containing the response body as well as a folder with the name of endpoints present in the `index.json` file.
+Once authenticated in the remote Redfish service, the Mockup Creator crawls recursively the service. For each endpoint, starting at `/redfish` it sends an HTTP(s) GET request and creates an `index.json` file containing the response body as well as a folder for each sub-endpoint present in the `index.json` file. The first three endopoint levels are shown in the next picture.
 
-If the `--Headers` is present on the command line, a 'headers.json` file is created with the content of the GET response headers. This file holds interesting informations like the HTTP requests allowed TBD
+If the `--Headers` is present on the command line, a 'headers.json` file is created with the content of the GET response headers. This file holds potentially interesting information like the HTTP requests allowed against the current endpoint.
 
-The following screenshot lists first the content of the output directory of the  of the TBD. This folder contains a \`README\` file and a \`redfish\` directory. The \`redfish\` folder contains two files (\`headers.json\`, \`index.json\`) and the \`v1\` folder. Lastly, the \`v1\` directory contains the same two files as well as a folder for each endpoint contained in the \`index.json\` file (AccountService, Managers, ....). 
+The following screenshot lists the content of the output directory of the  of the above invocation of the Mockup Creato. The "root" folder (`ilo5`) contains a `README` file and a `redfish\` directory. The `README` file contains the command line invocation. The `redfish` sub-folder contains two files (`headers.json`, `index.json`) and a directory `v1` folder. Lastly, the `v1` directory contains the same two files as well as a folder for each endpoint contained in the `index.json` file (AccountService, Managers, ....). 
 
 
 
