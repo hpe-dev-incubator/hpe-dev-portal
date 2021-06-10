@@ -60,6 +60,11 @@ The following picture displays the first lines of the `redfish/v1/index.json` fi
 
 ![index.json partial content](/img/redfishv1indexjson.png "index.json partial content")
 
+TBD
+
+![](/img/headersjson.png)
+
+
 
 ## Redfish Mockup Server
 
