@@ -68,7 +68,7 @@ The following image shows the content of the `/redfish/v1/Systems/1/headers.json
 
 Once the Redfish mockup is created, you can make it available to Redfish clients with the [DMTF Mockup Server](https://github.com/DMTF/Redfish-Mockup-Server/releases/latest). This Python 3 application is a web server taking the location of a Redfish mockup as input, as well as some other parameters explained below.
 
-Deployment and usage of this program is well documented in the [GitHub](https://github.com/DMTF/Redfish-Mockup-Server) repository. The following code block shows how I launch it in my Redfish Workshops-on-Demand:
+Deployment and usage of this program is well documented in the [GitHub](https://github.com/DMTF/Redfish-Mockup-Server) repository. The following code block shows how I launch it in my Redfish [Workshops-on-Demand](https://hackshack.hpedev.io/workshops):
 
 ```Shell
 python3 redfishMockupServer.py                                 \
