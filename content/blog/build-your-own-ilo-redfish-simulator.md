@@ -74,7 +74,7 @@ Deployment and usage is well documented in the [GitHub](https://github.com/DMTF/
 python3 redfishMockupServer.py                                 \
    --ssl --cert /usr/kits/VMs/RedfishMockups/FdzSelfSigned.pem \
    --key /usr/kits/VMs/RedfishMockups/FdzSelfSigned.pem        \
-   --host 16.31.86.81                                          \
+   --host 10.31.86.81                                          \
    --port 45675                                                \
    -D /usr/kits/VMs/RedfishMockups/ilo5
 ```
