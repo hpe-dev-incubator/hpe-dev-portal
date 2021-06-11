@@ -88,15 +88,19 @@ The `--host` and `--port` parameters specify the IP address and TCP port to list
 
 The last option (`-D`) provides the location of the Redfish mockup created previously.
 
-### How does the simulator work ? 
+### How does the simulator work ?
 
-Upon startup, the simulator loads first the Redfish mockup in memory. It will use this volatile copy for GET and set requests (POST, PUT, PATCH). The original mockup files are never modified. Hence, a restart of the simulator places the simulator back in a fresh and known state.
+Upon startup, the simulator copies the Redfish mockup in a private location and use this copy for GET and set requests. The original mockup files are never modified. Hence, a restart of the simulator places the simulator back in a fresh and known state.
 
-Authentication: Test
+As of the writing of this article the DMTF Redfish Mockup Server does not implement any authentication mechanism. Hence, you don't have to authenticate before sending your client requests.
 
-When a Redfish client sends a valid GET request to the Redfish Mockup Server, it responds with the `index.json` file located in the folder of the requested endpoint and a \`200 OK\` 
+When a Redfish client sends a GET request to the Redfish Mockup Server, it responds with the `index.json` file located in the folder of the requested endpoint as well as \`200 OK\` response code. If the target endpoint is not valid, the usual response codes \`40X\`  will be sent back.
 
-For POST, PUT and PATCH requests, the simulator validates the request against the target endpoint schema. If the request is valid, the simulator 
+For POST, PUT and PATCH requests, the simulator performs limited verification, modifies the requested enpoint and sends back a \`204 No Content\` status code with no associated body. For the same request, a real Redfish service performs additional verifications and sends back a non-empty response with a \`20X\` status code. 
+
+As an 
+
+
 
 ### Querying the Mockup Server with iLOrest
 
