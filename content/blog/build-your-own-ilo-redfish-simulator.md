@@ -90,9 +90,11 @@ The last option (`-D`) provides the location of the Redfish mockup created previ
 
 ### How does the simulator work ? 
 
+Upon startup, the simulator loads first the Redfish mockup directory tree in memory. It will use this memory copy for both GET and set requests (POST, PUT, PATCH) without modifying the orifinal mockup \`index.json\` files. Hence, a restart of the simulator will put it in a fresh and know state. 
+
 When a Redfish client sends a GET request to the Redfish Mockup Server, it responds with the `index.json` file located in the directory of the requested endpoint.
 
-For POST, PUT and PATCH requests, the simulator validates the target endpoint and its allowable op
+For POST, PUT and PATCH requests, the simulator validates the target endpoint location as well as the request body against the associated endpoint schema. If this minimal verification is successfull, it modifies sends back a \`204 OK\` response code with no associated body.  
 
 ### Querying the Mockup Server with iLOrest
 
