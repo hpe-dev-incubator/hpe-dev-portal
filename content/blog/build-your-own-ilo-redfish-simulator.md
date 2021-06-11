@@ -102,13 +102,13 @@ The different behavior of the simulator, compared to a real iLO 5 Redfish servic
 
 The code of this picture sends a \`PATCH\` request with and invalid value (\`Foo\`) toward an iLO 5 simulator. The simulator performs the patch action and responds with status code \`204\`. The last command of shows that the action has been successfully performed.
 
-![Setting an invalid value in the DMTF Redfish Mockup Server](/img/fooindicatorled.png "Setting an invalid value in the DMTF Redfish Mockup Server")
+![PATCH an invalid property in the DMTF Redfish Mockup Server](/img/fooindicatorled.png "PATCH an invalid property in the DMTF Redfish Mockup Server")
 
 The same query against a physical iLO 5 
 
 
 
-
+![PATCH of an invalid property in a physical iLO 5](/img/fooindicatorledagainstilo5.png "PATCH of an invalid property in a physical iLO 5")
 
 
 
