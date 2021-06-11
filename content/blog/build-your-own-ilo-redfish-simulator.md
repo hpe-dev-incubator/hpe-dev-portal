@@ -46,6 +46,13 @@ python3.4 redfishMockupCreate.py -r ilo5 -u ilouser -p ilopassword \
      --Dir ./ilo5
 ```
 
+### Preparing the use of iLOrest agains the DMTF Mockup Server
+
+If you intend to use [ilOrest](http://hpe.com/info/resttool) against the mockup you are creating with the above command, you should, just after the mockup creation, login with iLOrest and capture its cache. Details on the reasons for this are provided at the end of this document.
+
+To perform this action, 
+
+
 ### Mockup structure
 
 Once authenticated in the remote Redfish service, the Mockup Creator crawls recursively the service. For each endpoint, starting at `/redfish` it sends an HTTP(s) GET request and creates an `index.json` file containing the response body as well as a folder for each sub-endpoint present in the `index.json` file. The first three endpoint levels are shown in the next picture.
