@@ -52,7 +52,7 @@ If you intend to use [ilOrest](http://hpe.com/info/resttool) against the mockup 
 
 To perform this action, install [iLOrest](https://github.com/HewlettPackard/python-redfish-utility/releases/latest) on your favorite operating system and identify the default location of the cache directory with `help` command.
 
-![](/img/ilorestcachelocation.png)
+![iLOrest default cache directory location](/img/ilorestcachelocation.png "iLOrest default cache directory location")
 
 
 
