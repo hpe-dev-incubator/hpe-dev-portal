@@ -1,10 +1,16 @@
 ---
 title: Build your own iLO Redfish simulator
-date: 2021-06-10T12:53:49.753Z
+date: 2021-06-11T16:21:33.555Z
 featuredBlog: false
 priority: 0
 author: François Donzé
 authorimage: /img/fdz-photoprofile.png
+tags:
+  - Redfish
+  - DMTF
+  - Server management
+  - ilorest
+  - iLOrest
 ---
 ## Introduction
 
