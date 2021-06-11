@@ -120,8 +120,17 @@ The same query against a physical iLO 5 returns a `400 Bad Request` status and a
 
 ### Querying the Mockup Server with iLOrest
 
-If you want to query your iLO simulator with [iLOrest](http://hpe.com/info/resttool) you have to extract the cache directory you saved during the mockup creation (see the "Preparing the use of iLOrest against your Mockup Server" paragraph above) and edit its two text files: `index.json` and `<longUniqIdenfier>.TBD`
+If you want to query your iLO simulator with [iLOrest](http://hpe.com/info/resttool) you have to extract the cache directory you saved during the mockup creation (see the "Preparing the use of iLOrest against your Mockup Server" paragraph above) and edit the `url` property of its two files: `index` and `<longUniqIdenfier>` to make them point to the simulator.
 
+On a Linux system, this operation can be done with the following commands:
+
+```Shell
+cd $iloCacheDir/cache/
+sed -i 's?\("url": "https://\)ilo-IP-physical"?\1ilo-IP-simulator"?' *
+```
+Once the iLOrest cache points to your mockup server, you can use this Refish client tool to query the mockup. 
+
+> **NOTE** If you use the `login` iLOrest commands, the cache will be overwritten. If you use the `logout` command, the cache will be erased.
 
 ## Conclusion
 
