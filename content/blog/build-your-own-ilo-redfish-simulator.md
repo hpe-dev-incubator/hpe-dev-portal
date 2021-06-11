@@ -134,9 +134,6 @@ Once the iLOrest cache points to your mockup server, you can use this Refish cli
 
 ## Conclusion
 
-The DMTF provides two very useful tools to simulate a Redfish service, when you don't have any physical spare ones to learn this API or to test it.
+To learn and test the Redfih API, The DMTF provides two very useful tools to create Redfish mockups and simulate a live service. They are easy to install and use and their quality is a good. In addition, from my personal experience, I found the maintainers of these active GithHub projects very responsive to address quality issues and proposed enhancements. 
 
-In addition to a good quality, and from my personal experience, I found the maintainers of this project very responsive to address quality issues and proposed enhancements. 
-
-
-Other pointer to [Redfish client video](https://youtu.be/ur9UKRV_0S8)
+I presented only iLOrest to query this Redfish simulator, but many other Redfish clients can be used, like the ones mentioned in this [video](https://youtu.be/ur9UKRV_0S8)
