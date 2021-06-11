@@ -96,7 +96,7 @@ As of the writing of this article the DMTF Redfish Mockup Server does not implem
 
 When a Redfish client sends a GET request to the Redfish Mockup Server, it responds with the `index.json` file located in the folder of the requested endpoint as well as \`200 OK\` response code. If the target endpoint is not valid, the usual response codes \`40X\`  will be sent back.
 
-For POST, PUT and PATCH requests, the simulator performs limited verification of the query, modifies the requested enpoint and sends back a \`204 No Content\` status code with no associated body. For the same request, a real Redfish service performs additional verification and sends back a non-empty response body with a \`20X\` status code. 
+For POST, PUT and PATCH requests, the simulator performs limited verification of the query, modifies the requested endpoint and sends back a \`204 No Content\` status code with no associated body. For the same request, a real Redfish service performs additional verification and sends back a non-empty response body with a \`20X\` status code. 
 
 The different behavior of the simulator, compared to a real iLO 5 Redfish service can be illustrated with a PATCH request for modifying the \`IndicatorLED\` resource of a computer chassis. The authorized values for this parameter are defined by the DMTF in the Chassis Redfish schema. For an iLO 5 with firmware version 2.30, the [implemented schema](http://redfish.dmtf.org/schemas/v1/Chassis.v1_10_2.json#/definitions/IndicatorLED) specifies the following possible values: \`unknown\`, \`Lit\`, \`Blinking\`, \`Off\`. A physical iLO 5 complains if you supply a value different from what the schema proposes. However, the DMTF Redfish Mockup Server accepts any string as shown in the following screenshot
 
