@@ -66,11 +66,11 @@ The following image shows the content of the `/redfish/v1/Systems/1/headers.json
 
 ## Redfish Mockup Server
 
-### Basic presentation, installation and invocation
+### Basic presentation and invocation
 
-Once the Redfish mockup is created, you can make it available to Redfish clients with the [DMTF Mockup Server](https://github.com/DMTF/Redfish-Mockup-Server/releases/latest). This Python 3 application is a web server taking the location of a Redfish mockup as input, as well as some other parameters explained below.
+Once the Redfish mockup is created, you can make it available to Redfish clients with the [DMTF Mockup Server](https://github.com/DMTF/Redfish-Mockup-Server/releases/latest). This Python 3 application is a web server taking the location of a Redfish mockup as input.
 
-Deployment and usage of this program is well documented in the [GitHub](https://github.com/DMTF/Redfish-Mockup-Server) repository. The following code block shows how I launch it in my Redfish [Workshops-on-Demand](https://hackshack.hpedev.io/workshops):
+Deployment and usage of this program is easy and well documented in its [GitHub](https://github.com/DMTF/Redfish-Mockup-Server) repository. The following code block shows how I launch it in the [Workshops-on-Demand](https://hackshack.hpedev.io/workshops) infrastructure.
 
 ```Shell
 python3 redfishMockupServer.py                                 \
@@ -81,6 +81,7 @@ python3 redfishMockupServer.py                                 \
    --port 45675                                                \
    -D /usr/kits/VMs/RedfishMockups/ilo5
 ```
+
 In the above command, the `--ssl` paramter specifies that the Redfish service simulator will be accessible via HTTPS/SSL. The private and public keys used by this server are located in a single file (`FdzSelfSigned.pem`). 
 
 The `--host` and `--port` parameters specify the IP address and TCP port to listen on. Of course, the IP/Port tuple must be accessible to Redfish clients willing to send requests to the simulator.
@@ -93,9 +94,7 @@ The DMTF Redfish Mockup Server is does not implement any
 
 When a Redfish client sends a GET request to the Redfish Mockup Server (aka simulator), it responds with the `index.json` file located in the directory of the requested endpoint. 
 
- 
-
-### Using iLOrest against a Mockup Server
+### Querying the Mockup Server with iLOrest
 
 TBD
 
