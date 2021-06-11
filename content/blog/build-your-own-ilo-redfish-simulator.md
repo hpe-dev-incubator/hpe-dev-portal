@@ -120,7 +120,7 @@ The same query against a physical iLO 5 returns a `400 Bad Request` status and a
 
 ### Querying the Mockup Server with iLOrest
 
-Using [iLOrest](http://hpe.com/info/resttool) against the DMTF Redfish Mockup Simulator is possible but requires some preparation 
+If you want to query your iLO simulatoer with [iLOrest](http://hpe.com/info/resttool) you have to extract the cache directory you saved during the mockup creation (see the TBD paragraph above)
 
 
 ## Conclusion
