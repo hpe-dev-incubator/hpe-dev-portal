@@ -75,20 +75,20 @@ Deployment and usage of this program is easy and well documented in its [GitHub]
 ```Shell
 python3 redfishMockupServer.py                                 \
    --ssl                                                       \
-   --key /usr/kits/VMs/RedfishMockups/FdzSelfSigned.pem        \
-   --cert /usr/kits/VMs/RedfishMockups/FdzSelfSigned.pem       \
+   --key  /SecureLocation/FdzSelfSigned.pem       \
+   --cert /SecureLocation/FdzSelfSigned.pem       \
    --host 10.31.86.81                                          \
    --port 45675                                                \
    -D /usr/kits/VMs/RedfishMockups/ilo5
 ```
 
-In the above command, the `--ssl` paramter specifies that the Redfish service simulator will be accessible via HTTPS/SSL. The private and public keys used by this server are located in a single file (`FdzSelfSigned.pem`). 
+In the above command, the `--ssl` parameter specifies that the Redfish service simulator will be accessible via HTTPS/SSL. The required private and public keys are located in a single file (`FdzSelfSigned.pem`). 
 
-The `--host` and `--port` parameters specify the IP address and TCP port to listen on. Of course, the IP/Port tuple must be accessible to Redfish clients willing to send requests to the simulator.
+The `--host` and `--port` parameters specify the IP address and TCP port to listen to. Of course, the IP/Port tuple must be accessible to Redfish clients willing to send requests to the simulator.
 
-The last option (`-D`) provides the location of the mockup created previously.
+The last option (`-D`) provides the location of the Redfish mockup created previously.
 
-### How does the simulator works ?
+### How does the simulator work ?
 
 The DMTF Redfish Mockup Server is does not implement any 
 
