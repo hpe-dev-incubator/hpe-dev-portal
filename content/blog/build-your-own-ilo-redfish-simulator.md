@@ -48,13 +48,13 @@ python3.4 redfishMockupCreate.py -r ilo5 -u ilouser -p ilopassword \
 
 ### Preparing the use of iLOrest against your Mockup Server
 
-If you intend to use [ilOrest](http://hpe.com/info/resttool) against the mockup you created with the above command, you should, just after the mockup creation, open an iLOrest session and capture its cache. Details on the reasons for this are provided at the end of this document.
+If you intend to use [ilOrest](http://hpe.com/info/resttool) against the mockup you created with the above command, you should, just after the mockup creation, open an iLOrest session and capture its cache. This cache directory is created during the authentication process in a default location unless a specific location is specified on the command line. 
 
-To perform this action, install [iLOrest](https://github.com/HewlettPackard/python-redfish-utility/releases/latest) on your favorite operating system and identify the default cache location with the `help` command.
+The easiest to perform this action is to install [iLOrest](https://github.com/HewlettPackard/python-redfish-utility/releases/latest) on your favorite operating system and identify the default cache location with the `help` command.
 
 ![iLOrest default cache directory location](/img/ilorestcachelocation.png "iLOrest default cache directory location")
 
-Then, open an iLOrest session (`ilorest login <ilo-ip> -u <user> -p <password>`) and save the content of the cache directory in a `.zip` or `.tgz`file. Once the cache is saved, you can logout safely (`ilorest logout`). 
+Then, open an iLOrest session (`ilorest login <ilo-ip> -u <user> -p <password>`) and save the content of the cache directory in a `.zip` or `.tgz`file. Once the cache is saved, you can logout safely (`ilorest logout`). You will use it later when the mockup server is up and running.
 
 ### Mockup structure
 
