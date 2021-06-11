@@ -54,7 +54,7 @@ To perform this action, install [iLOrest](https://github.com/HewlettPackard/pyth
 
 ![iLOrest default cache directory location](/img/ilorestcachelocation.png "iLOrest default cache directory location")
 
-
+Then, login to your Redfish service (`ilorest login <ilo-ip> -u <user> -p <password>`) and save the content of the cache directory in a `.zip` or `.tgz`file. Once the cache is saved, you can logout safely (`ilorest logout`). 
 
 ### Mockup structure
 
