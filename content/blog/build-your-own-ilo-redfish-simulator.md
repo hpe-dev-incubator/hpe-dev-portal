@@ -73,12 +73,12 @@ Once the Redfish mockup is created, you can make it available to Redfish clients
 Deployment and usage of this program is easy and well documented in its [GitHub](https://github.com/DMTF/Redfish-Mockup-Server) repository. The following code block shows how I launch it in the [Workshops-on-Demand](https://hackshack.hpedev.io/workshops) infrastructure.
 
 ```Shell
-python3 redfishMockupServer.py                                 \
-   --ssl                                                       \
-   --key  /SecureLocation/FdzSelfSigned.pem       \
-   --cert /SecureLocation/FdzSelfSigned.pem       \
-   --host 10.31.86.81                                          \
-   --port 45675                                                \
+python3 redfishMockupServer.py                 \
+   --ssl                                       \
+   --key  /SecureLocation/FdzSelfSigned.pem    \
+   --cert /SecureLocation/FdzSelfSigned.pem    \
+   --host 10.31.86.81                          \
+   --port 45675                                \
    -D /usr/kits/VMs/RedfishMockups/ilo5
 ```
 
@@ -88,11 +88,11 @@ The `--host` and `--port` parameters specify the IP address and TCP port to list
 
 The last option (`-D`) provides the location of the Redfish mockup created previously.
 
-### How does the simulator work ?
+### How does the simulator work ? 
 
-The DMTF Redfish Mockup Server is does not implement any 
+When a Redfish client sends a GET request to the Redfish Mockup Server, it responds with the `index.json` file located in the directory of the requested endpoint.
 
-When a Redfish client sends a GET request to the Redfish Mockup Server (aka simulator), it responds with the `index.json` file located in the directory of the requested endpoint. 
+For POST, PUT and PATCH requests, the simulator validates the target endpoint and its allowable op
 
 ### Querying the Mockup Server with iLOrest
 
