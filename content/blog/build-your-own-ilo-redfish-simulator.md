@@ -90,7 +90,7 @@ The last option (`-D`) provides the location of the Redfish mockup created previ
 
 ### How does the simulator work ? 
 
-Upon startup, the simulator loads first the Redfish mockup directory tree in memory. It will use this memory copy for both GET and set requests (POST, PUT, PATCH) without modifying the orifinal mockup \`index.json\` files. Hence, a restart of the simulator will discard all modifications and place the simulator back in a fresh and known state. 
+Upon startup, the simulator loads first the Redfish mockup directory tree in memory. It will use this volatile copy for both GET and set requests (POST, PUT, PATCH). The orifinal mockup \`index.json\` files are never modified. Hence, a restart of the simulator discards all modifications and place the simulator back in a fresh and known state. 
 
 When a Redfish client sends a GET request to the Redfish Mockup Server, it responds with the `index.json` file located in the directory of the requested endpoint.
 
