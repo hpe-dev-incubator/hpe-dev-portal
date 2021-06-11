@@ -50,7 +50,7 @@ python3.4 redfishMockupCreate.py -r ilo5 -u ilouser -p ilopassword \
 
 If you intend to use [ilOrest](http://hpe.com/info/resttool) against the mockup you created with the above command, you should, just after the mockup creation, open an iLOrest session and capture its cache. Details on the reasons for this are provided at the end of this document.
 
-To perform this action, install [iLOrest](https://github.com/HewlettPackard/python-redfish-utility/releases/latest) on your favorite operating system and identify the default location of the cache directory with `help` command.
+To perform this action, install [iLOrest](https://github.com/HewlettPackard/python-redfish-utility/releases/latest) on your favorite operating system and identify the default cache location with the `help` command.
 
 ![iLOrest default cache directory location](/img/ilorestcachelocation.png "iLOrest default cache directory location")
 
