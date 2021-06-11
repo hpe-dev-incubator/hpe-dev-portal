@@ -96,9 +96,9 @@ As of the writing of this article the DMTF Redfish Mockup Server does not implem
 
 When a Redfish client sends a GET request to the Redfish Mockup Server, it responds with the `index.json` file located in the folder of the requested endpoint as well as \`200 OK\` response code. If the target endpoint is not valid, the usual response codes \`40X\`  will be sent back.
 
-For POST, PUT and PATCH requests, the simulator performs limited verification, modifies the requested enpoint and sends back a \`204 No Content\` status code with no associated body. For the same request, a real Redfish service performs additional verifications and sends back a non-empty response with a \`20X\` status code. 
+For POST, PUT and PATCH requests, the simulator performs limited verification of the query, modifies the requested enpoint and sends back a \`204 No Content\` status code with no associated body. For the same request, a real Redfish service performs additional verifications and sends back a non-empty response body with a \`20X\` status code. 
 
-As an 
+The different behavior of the simulator, compared to a real iLO 5 Redfish service can be illustrated with a PATCH request for modifying the \`IndicatorLED\` of a computer chassis. 
 
 
 
