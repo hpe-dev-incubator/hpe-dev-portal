@@ -100,7 +100,7 @@ For POST, PUT and PATCH requests, the simulator performs limited verification of
 
 The different behavior of the simulator, compared to a real iLO 5 Redfish service can be illustrated with a PATCH request for modifying the \`IndicatorLED\` resource of a computer chassis. The authorized values for this parameter are defined by the DMTF in the Chassis Redfish schema. For an iLO 5 with firmware version 2.30, the [implemented schema](http://redfish.dmtf.org/schemas/v1/Chassis.v1_10_2.json#/definitions/IndicatorLED) specifies the following possible values: \`unknown\`, \`Lit\`, \`Blinking\`, \`Off\`. A physical iLO 5 complains if you supply a value different from what the schema proposes. However, the DMTF Redfish Mockup Server accepts any string as shown in the following screenshot
 
-![Setting an invalid value in the DMT Redfish Mockup Server](/img/fooindicatorled.png "Setting an invalid value in the DMT Redfish Mockup Server")
+![Setting an invalid value in the DMTF Redfish Mockup Server](/img/fooindicatorled.png "Setting an invalid value in the DMTF Redfish Mockup Server")
 
 
 
