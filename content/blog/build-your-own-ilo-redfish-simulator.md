@@ -120,7 +120,7 @@ The same query against a physical iLO 5 returns a `400 Bad Request` status and a
 
 ### Querying the Mockup Server with iLOrest
 
-If you want to query your iLO simulatoer with [iLOrest](http://hpe.com/info/resttool) you have to extract the cache directory you saved during the mockup creation (see the TBD paragraph above)
+If you want to query your iLO simulator with [iLOrest](http://hpe.com/info/resttool) you have to extract the cache directory you saved during the mockup creation (see the "Preparing the use of iLOrest against your Mockup Server" paragraph above) and edit its two text files: `index.json` and `<longUniqIdenfier>.TBD`
 
 
 ## Conclusion
