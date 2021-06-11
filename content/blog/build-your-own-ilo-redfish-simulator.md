@@ -104,13 +104,9 @@ The code of this picture sends a \`PATCH\` request with and invalid value (\`Foo
 
 ![PATCH an invalid property in the DMTF Redfish Mockup Server](/img/fooindicatorled.png "PATCH an invalid property in the DMTF Redfish Mockup Server")
 
-The same query against a physical iLO 5 
-
-
+The same query against a physical iLO 5 returns a `400 Bad Request` status and a `@Message.ExtendedInfo` mentioning the faulty argument.
 
 ![PATCH of an invalid property in a physical iLO 5](/img/fooindicatorledagainstilo5.png "PATCH of an invalid property in a physical iLO 5")
-
-
 
 ### Querying the Mockup Server with iLOrest
 
