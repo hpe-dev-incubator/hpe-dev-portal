@@ -98,7 +98,7 @@ When a Redfish client sends a GET request to the Redfish Mockup Server, it respo
 
 For POST, PUT and PATCH requests, the simulator performs limited verification of the query, modifies the requested enpoint and sends back a \`204 No Content\` status code with no associated body. For the same request, a real Redfish service performs additional verifications and sends back a non-empty response body with a \`20X\` status code. 
 
-The different behavior of the simulator, compared to a real iLO 5 Redfish service can be illustrated with a PATCH request for modifying the \`IndicatorLED\` of a computer chassis. 
+The different behavior of the simulator, compared to a real iLO 5 Redfish service can be illustrated with a PATCH request for modifying the \`IndicatorLED\` resource of a computer chassis. The authorized values for this parameter are defined by the DMTF in the Chassis Redfish schema. 
 
 
 
