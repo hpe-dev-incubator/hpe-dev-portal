@@ -94,13 +94,13 @@ Upon startup, the simulator copies the Redfish mockup in a private location and 
 
 As of the writing of this article the DMTF Redfish Mockup Server does not implement any authentication mechanism. Hence, you don't have to authenticate before sending your client requests.
 
-When a Redfish client sends a GET request to the Redfish Mockup Server, it responds with the `index.json` file located in the folder of the requested endpoint as well as \`200 OK\` response code. If the target endpoint is not valid, the usual response codes \`40X\`  will be sent back.
+When a Redfish client sends a GET request to the Redfish Mockup Server, it responds with the `index.json` file located in the folder of the requested endpoint as well as `200 OK` response code. If the target endpoint is not valid, the usual response codes `40X`  will be sent back.
 
-For POST, PUT and PATCH requests, the simulator performs limited verification of the query, modifies the requested endpoint and sends back a \`204 No Content\` status code with no associated body. For the same request, a real Redfish service performs additional verification and sends back a non-empty response body with a \`20X\` status code. 
+For POST, PUT and PATCH requests, the simulator performs limited verification of the query, modifies the requested endpoint and sends back a `204 No Content` status code with no associated body. For the same request, a real Redfish service performs additional verification and sends back a non-empty response body with a \`20X\` status code. 
 
-The different behavior of the simulator, compared to a real iLO 5 Redfish service can be illustrated with a PATCH request for modifying the \`IndicatorLED\` resource of a computer chassis. The authorized values for this parameter are defined by the DMTF in the Chassis Redfish schema. For an iLO 5 with firmware version 2.30, the [implemented schema](http://redfish.dmtf.org/schemas/v1/Chassis.v1_10_2.json#/definitions/IndicatorLED) specifies the following possible values: \`unknown\`, \`Lit\`, \`Blinking\`, \`Off\`. A physical iLO 5 complains if you supply a value different from what the schema proposes. However, the DMTF Redfish Mockup Server accepts any string as shown in the following screenshot. 
+The different behavior of the simulator, compared to a real iLO 5 Redfish service can be illustrated with a PATCH request for modifying the `IndicatorLED` resource of a computer chassis. The authorized values for this parameter are defined by the DMTF in the Chassis Redfish schema. For an iLO 5 with firmware version 2.30, the [implemented schema](http://redfish.dmtf.org/schemas/v1/Chassis.v1_10_2.json#/definitions/IndicatorLED) specifies the following possible values: `unknown`, `Lit`, `Blinking`, `Off`. A physical iLO 5 complains if you supply a value different from what the schema proposes. However, the DMTF Redfish Mockup Server accepts any string as shown in the following screenshot. 
 
-The code of this picture sends a \`PATCH\` request with and invalid value (\`Foo\`) toward an iLO 5 simulator. The simulator performs the patch action and responds with status code \`204\`. The last command of shows that the action has been successfully performed.
+The code of this picture sends a `PATCH` request with and invalid value (`Foo`) toward an iLO 5 simulator. The simulator performs the patch action and responds with status code `204`. The last command of shows that the action has been successfully performed.
 
 ![PATCH an invalid property in the DMTF Redfish Mockup Server](/img/fooindicatorled.png "PATCH an invalid property in the DMTF Redfish Mockup Server")
 
@@ -110,7 +110,8 @@ The same query against a physical iLO 5 returns a `400 Bad Request` status and a
 
 ### Querying the Mockup Server with iLOrest
 
-TBD
+Using [iLOrest](http://hpe.com/info/resttool) against the DMTF Redfish Mockup Simulator is possible but requires some preparation 
+
 
 ## Conclusion
 
