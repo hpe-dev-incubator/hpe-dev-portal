@@ -1,6 +1,6 @@
 ---
 title: Build your own iLO Redfish simulator
-date: 2021-06-11T16:21:33.555Z
+date: 2021-06-11T16:36:54.410Z
 featuredBlog: false
 priority: 0
 author: François Donzé
