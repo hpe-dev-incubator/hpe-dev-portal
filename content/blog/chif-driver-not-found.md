@@ -16,4 +16,9 @@ The Channel Interface (CHIF) driver is an HPE proprietary driver allowing  in-ba
 
 This driver is packaged with the HPE applications that require it and should never been imported or manipulated manually.
 
-## When 
+## When does this error occurs
+
+Here is a non-exhaustive list of the typical situations when CHIF driver related errors occurs. 
+
+### VMware / ESXi infrastructures
+
