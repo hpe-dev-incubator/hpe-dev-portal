@@ -22,3 +22,15 @@ Here is a non-exhaustive list of the typical situations when CHIF driver related
 
 ### VMware / ESXi infrastructures
 
+TBD
+
+### iLOrest
+
+TBD
+
+### Python / PowerShell scripts
+
+TBD
+
+## Conclusion
+
