@@ -20,13 +20,13 @@ This driver is packaged with the HPE applications that require it and should nev
 
 Here is a non-exhaustive list of the typical situations when CHIF driver related errors occurs. 
 
-### VMware / ESXi infrastructures
+### In VMware / ESXi infrastructures
 
 TBD
 
-### iLOrest
+### iLOrest scripts or interactive sessions
 
-TBD
+Getting this error message is very common and here are typical cases 
 
 ### Python / PowerShell scripts
 
