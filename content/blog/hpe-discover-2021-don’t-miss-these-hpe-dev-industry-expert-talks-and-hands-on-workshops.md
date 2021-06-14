@@ -41,7 +41,7 @@ Make sure you put these recommended sessions on your calendar:
 
    Dates/Times: June 24, 11:00am-12:30pm PST / June 25, 1:00pm-2:30pm CEST
 
-   Walk through the basics of the Kubernetes cluster orchestration system with industry expert, Nigel Poulton ([@nigelpoulton](https://twitter.com/nigelpoulton)), Chief Technologist at Kubetrainer.com, and Thomas Phelan, HPE Ezmeral Container Platform CTO. During a following 60-min hands-on workshop, you’ll deploy a containerized application on a cluster, scale its deployment, update the application, and debug it, using info you learned on Kubernetes features and an interactive online tutorial.
+   Walk through the basics of the Kubernetes cluster orchestration system with industry expert, Nigel Poulton ([@nigelpoulton](https://twitter.com/nigelpoulton)), Chief Technologist at Kubetrainer.com, and Thomas Phelan, HPE Ezmeral Container Platform CTO. During a following 60-min hands-on workshop, you’ll deploy a containerized application on a cluster, scale its deployment, update the application, and debug it, using info you learned on Kubernetes features and an interactive online tutorial. 
 4. **SPIFFE and SPIRE Fundamentals [HSW4392](https://content.attend.hpe.com/go/virtualplatform.details/?l=1045&SID=24392&schid=0&locale=en_US&sf=549)**
 
    Dates/Times: June 24, 12:00pm-1:30pm PST / June 25, 2:00pm-3:30pm CEST
@@ -55,18 +55,17 @@ Make sure you put these recommended sessions on your calendar:
 
    In addition to these HPE DEV Hack Shack sessions, there’s so much more to explore at Discover 2021 for those interested in software; from the HPE Ezmeral Container Platform and Data Fabric to open source projects sponsored by HPE.  For details on AI, ML, and Data Analytics sessions you don’t want to miss, check out this [blog post](https://community.hpe.com/t5/Advancing-Life-Work/HPE-Discover-2021-AI-ML-and-Data-Analytics-sessions-you-don-t/ba-p/7138437#.YMdnm5NKiMK).
 
-## Live Demos 
+## Live Demos
 
 We will also be featuring live, on-location, demos at Chase Center and the Mercedes Formula 1 Factory, scheduled to take place on June 22 or 23 (depending on which region you’re joining from). During the times specified below, HPE will have experts available to help answer your questions.
 
-   * AMS: 11:00 AM – 11:45 PM PDT and 11:45AM – 12:30PM PDT on Tuesday (Day 1)
-   * APJ: 2:30 PM – 3:15PM JST and 3:15PM – 4:30 PM JST on Wednesday (Day 1)
-   * EMEA: 12:30 PM – 1:15 PM CET and 1:15PM – 2:00PM on Wednesday (Day 1)
-
+* AMS: 11:00 AM – 11:45 PM PDT and 11:45AM – 12:30PM PDT on Tuesday (Day 1)
+* APJ: 2:30 PM – 3:15PM JST and 3:15PM – 4:30 PM JST on Wednesday (Day 1)
+* EMEA: 12:30 PM – 1:15 PM CET and 1:15PM – 2:00PM on Wednesday (Day 1)
 
 Interested in other sessions? We invite you to explore the full line-up of sessions on [our content catalog](https://content.attend.hpe.com/go/virtualplatform.catalogue/?l=1045&locale=en_US) and build your own agenda. You can also view the [agenda for each region here](https://content.attend.hpe.com/go/virtualplatform.agenda/?l=1045&locale=en_US). 
 
-## Build Your Playlist 
+## Build Your Playlist
 
 Want to build your own Playlist? Here’s how. Once registered for HPE Discover, [log in](https://content.attend.hpe.com/go/virtualplatform.landing/?l=1045&locale=en_US) to the virtual platform to view each of the keynotes, sessions, demos, etc. You can filter based on content type, areas of interest, or keyword search, etc. Then simply click on the “+” icon to add the item to your My Playlist.  You can also download your Playlist into your preferred personal calendar.
 
