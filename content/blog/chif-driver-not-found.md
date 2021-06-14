@@ -14,4 +14,6 @@ The Channel Interface (CHIF) driver is an HPE proprietary driver allowing  in-ba
 
 ![The CHIF driver](/img/chifdriver.png "The CHIF driver")
 
-This driver is packaged with the HPE applications that require it and should never been imported or manipulated manually. The following screenshot
+This driver is packaged with the HPE applications that require it and should never been imported or manipulated manually.
+
+## When 
