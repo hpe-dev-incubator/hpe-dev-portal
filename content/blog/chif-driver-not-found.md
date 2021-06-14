@@ -10,6 +10,8 @@ When using the [HPE RESTful Interface Tool](http://hpe.com/info/resttool) (iLOre
 
 ## What is the CHIF driver ?
 
-The Channel Interface (CHIF) driver is an HPE proprietary driver allowing  in-band communication between a applications and the Insight Lights Out (iLO) chip within HPE ilO based servers.
+The Channel Interface (CHIF) driver is an HPE proprietary driver allowing  in-band communication between applications and the Insight Lights Out (iLO) chip within HPE ilO based servers.
 
 ![CHIF driver](/img/chifdriver.png "CHIF driver")
+
+This driver is packaged with the HPE applications that require it and should never been imported or manipulated manually. The following screenshot 
