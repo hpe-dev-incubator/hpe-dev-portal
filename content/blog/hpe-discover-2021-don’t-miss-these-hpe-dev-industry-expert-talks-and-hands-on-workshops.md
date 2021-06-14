@@ -53,7 +53,7 @@ Make sure you put these recommended sessions on your calendar:
 
    Learn to securely automate management, monitoring, and configuration of compute nodes. After a 30-min intro by Jeff Hilland, DMTF president, stay for a hands-on workshop using Redfish and Ansible, leveraging HPE OneView Single Sign On. You will learn multiple ways for writing Redfish Ansible playbooks using built-in modules, DMTF, and HPE examples. 
 
-   In addition to these HPE DEV Hack Shack sessions, there’s so much more to explore at Discover 2021 for those interested in software; from the HPE Ezmeral Container Platform and Data Fabric to open source projects sponsored by HPE. 
+   In addition to these HPE DEV Hack Shack sessions, there’s so much more to explore at Discover 2021 for those interested in software; from the HPE Ezmeral Container Platform and Data Fabric to open source projects sponsored by HPE.  For details on AI, ML, and Data Analytics sessions you don’t want to miss, check out this [blog post](https://community.hpe.com/t5/Advancing-Life-Work/HPE-Discover-2021-AI-ML-and-Data-Analytics-sessions-you-don-t/ba-p/7138437#.YMdnm5NKiMK).
 
 ## Live Demos 
 
