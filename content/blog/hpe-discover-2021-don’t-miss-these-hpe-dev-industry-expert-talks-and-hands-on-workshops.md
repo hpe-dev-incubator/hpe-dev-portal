@@ -49,7 +49,7 @@ Make sure you put these recommended sessions on your calendar:
    Join this workshop to better understand SPIFFE as a set of open-source standards for securely authenticating software services in dynamic and heterogeneous environments through the use of platform-agnostic, cryptographic identities. Explore SPIRE as an open-source system that implements the SPIFFE specification in a wide variety of environments. Featuring Sunil James of HPE ([@sunubunu](https://twitter.com/sunubunu)) and Phil Vachon, Security leader at Bloomberg ([@pvachonnyc](https://twitter.com/pvachonnyc)).
 5. **Redfish Programming Made Easy and Secure with Ansible and HPE OneView [HSW4345](https://content.attend.hpe.com/go/virtualplatform.details/?l=1045&SID=24345&schid=0&locale=en_US&sf=553)**
 
-   Dates/Times: June 24, 10:00am-11:30am PST / June 25, 12:00pm-1:30pm CEST
+   Dates/Times: June 24, 10:00am-11:30am PST / June 25, 12:00pm-1:30pm CEST.
 
    Learn to securely automate management, monitoring, and configuration of compute nodes. After a 30-min intro by Jeff Hilland, DMTF president, stay for a hands-on workshop using Redfish and Ansible, leveraging HPE OneView Single Sign On. You will learn multiple ways for writing Redfish Ansible playbooks using built-in modules, DMTF, and HPE examples. 
 
