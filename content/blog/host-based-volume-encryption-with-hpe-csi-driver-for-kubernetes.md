@@ -2,7 +2,7 @@
 title: Host-based Volume Encryption with HPE CSI Driver for Kubernetes
 date: 2021-06-15T15:00:55.232Z
 author: Michael Mattsson
-authorimage: /img/portrait-2020-192px.png
+authorimage: /img/portrait-192.jpg
 tags:
   - hpe-3par-and-primera
   - " hpe-nimble-storage"
