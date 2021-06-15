@@ -20,9 +20,11 @@ This driver is packaged with the HPE applications that require it and should nev
 
 The most typical situation for this error to occur is with the iLOrest tool. This tool allows in-band and out-of-band Redfish management as explained in [this article](https://developer.hpe.com/blog/managing-ilo-sessions-with-redfish/).
 
-If you are logged in an HPE iLO based server as a privileged user (root or Administrator), you can perform in-band management tasks with iLOrest without providing any credentials. Read this [article](https://developer.hpe.com/blog/in-band-management-with-ilorest-and-a-livecd/) for a use case of this feature.
+If you are logged in an HPE iLO 4 or iLO 5 based server as a privileged user (root or Administrator), you can perform in-band management tasks with iLOrest without providing any credentials or use the `login` command. You just have to issue GET or SET command in a straight forward manner. 
 
- 
+The following picture shows a root SSH session creation toward an HPE DL360 Gen10 and the execution of an `ilorest get` command without any login process. The  
+
+
 
 ### In VMware / ESXi infrastructures
 
