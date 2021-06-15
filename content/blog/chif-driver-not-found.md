@@ -18,7 +18,9 @@ This driver is packaged with the HPE applications that require it and should nev
 
 ## When does this error occurs ?
 
-The most typical situations for this error to occur is with the iLOrest tool. This tool allows in-band and out-of-band Redfish management as explained in [this article](https://developer.hpe.com/blog/managing-ilo-sessions-with-redfish/). 
+The most typical situation for this error to occur is with the iLOrest tool. This tool allows in-band and out-of-band Redfish management as explained in [this article](https://developer.hpe.com/blog/managing-ilo-sessions-with-redfish/).
+
+If you are logged in an HPE iLO based server as a privileged user (root or Administrator), you can perform in-band management tasks with iLOrest without providing any credentials. Read this [article](https://developer.hpe.com/blog/in-band-management-with-ilorest-and-a-livecd/) for a use case of this feature.
 
  
 
