@@ -28,9 +28,11 @@ The following picture shows an SSH root session creation, toward an HPE DL360 Ge
 
 ## TBD
 
-But what will happen if you SSH into a non HPE server or into a virtual machine ?
+But what happens if you SSH into a non HPE server or into a virtual machine ?
 
 ![Unsuccessful in-band GET from Virtual Machine](/img/unsuccessfulinbandgetinvm.png "Unsuccessful in-band GET from Virtual Machine")
+
+In the next screeshot TBD
 
 
 
