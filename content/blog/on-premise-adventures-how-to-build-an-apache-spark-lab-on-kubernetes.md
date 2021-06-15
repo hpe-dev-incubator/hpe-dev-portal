@@ -36,7 +36,7 @@ The code running inside the Jupyter Notebook will make an API call to the Apache
 
 ## Let’s Build it!
 
-If you are a data scientist or data engineer and you really don’t want to know how all these back-end system administrator tasks are done, then I highly recommend you skip to the **Now we get to run our Apache Spark jobs!** section. I’d definitely put this section firmly in the infrastructure person category.
+If you are a data scientist or data engineer and you really don’t want to know how all these back-end system administrator tasks are done, then I highly recommend you skip to the [**Now we get to run our Apache Spark jobs!**](#runourapachesparkjob) section. I’d definitely put this section firmly in the infrastructure person category.
 
 First, I log into my HPE Ezmeral Container Platform WebUI. My organization has already setup Active Directory integration to use with the HPE Ezmeral Container Platform WebUI.
 
@@ -73,6 +73,8 @@ To put my Data Scientists to work, I can just click on the **Notebook Endpoints*
 You may now remove your *infrastructure person* hat and proceed to doing some really cool Apache Spark Analytics!
 
 ![](/img/spark-on-ezmeral-image9.png)
+
+<a id="#runourapachesparkjob"></a>
 
 ## Now we get to run our Apache Spark jobs!
 
