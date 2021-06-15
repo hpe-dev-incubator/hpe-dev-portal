@@ -11,6 +11,7 @@ tags:
   - Server management
   - ilorest
   - iLOrest
+  - ilo-restful-api
 ---
 ## Introduction
 
