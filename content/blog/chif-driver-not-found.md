@@ -18,7 +18,7 @@ This driver is packaged with the HPE applications that require it and should nev
 
 ## When does this error occurs ?
 
-The most typical situations for this error to occur is with the iLOrest tool. This tool allows allows in-band and out-of-band Redfish management as explained in [this article](https://developer.hpe.com/blog/managing-ilo-sessions-with-redfish/). 
+The most typical situations for this error to occur is with the iLOrest tool. This tool allows in-band and out-of-band Redfish management as explained in [this article](https://developer.hpe.com/blog/managing-ilo-sessions-with-redfish/). 
 
  
 
