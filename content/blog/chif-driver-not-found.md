@@ -22,7 +22,7 @@ The most typical situation for this error to occur is with the iLOrest tool. Thi
 
 If you are logged in an HPE iLO 4 or iLO 5 based server as a privileged user (root or Administrator), you can perform in-band management tasks with iLOrest without providing any credentials or use the `login` command. You just have to issue GET or SET command in a straight forward manner. 
 
-The following picture shows a root SSH session creation toward an HPE DL360 Gen10 and the execution of an `ilorest get` command without any login process. The  TBD
+The following picture shows an SSH root session creation, toward an HPE DL360 Gen10 with the execution of an iLOrest GET command without any formal login process. The `Discovering data...Done` message means that iLOrest could effectively log into the local iLO 5 and save data in its cache. Then, it displays the output of the GET command (`Model=iLO 5 `).
 
 ![Successful in-band GET command](/img/successfulinbandget.png "Successful in-band GET command")
 
