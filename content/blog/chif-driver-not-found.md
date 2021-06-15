@@ -34,6 +34,10 @@ But what happens if you SSH into a non HPE server or into a virtual machine ?
 
 In the next screeshot TBD
 
+![Unsuccessful in-band GET from a Windows laptop](/img/unsuccessfulinbandgetinwinlaptop.png "Unsuccessful in-band GET from a Windows laptop")
+
+TBD
+
 
 
 ### In VMware / ESXi infrastructures
