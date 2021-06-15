@@ -6,7 +6,7 @@ authorimage: /img/Avatar1.svg
 ---
 ## Introduction
 
-When using the HPE RESTful Interface Tool ([iLOrest](http://hpe.com/info/resttool)) or other applications like the Smart Update Manager ([SUM](https://www.hpe.com/us/en/servers/smart-update.html)) or the integrated Smart Update Tool ([iSUT](https://support.hpe.com/hpesc/public/docDisplay?docLocale=en_US&docId=emr_na-a00068223en_us)) you may get the error `Chif driver not found, please check that the chif driver is installed` without any other tip to identify the origin of the problem or to fix it. This article attempts to explain when this error occurs and why.
+When using the HPE RESTful Interface Tool ([iLOrest](http://hpe.com/info/resttool)) or other applications like the Smart Update Manager ([SUM](https://www.hpe.com/us/en/servers/smart-update.html)) or the integrated Smart Update Tool ([iSUT](https://support.hpe.com/hpesc/public/docDisplay?docLocale=en_US&docId=emr_na-a00068223en_us)) you may get an error similar to: `Chif driver not found, please check that the chif driver is installed` without any other tip to identify the origin of the problem or to fix it. This article attempts to explain when this error occurs and why.
 
 ## What is the CHIF driver ?
 
@@ -16,9 +16,11 @@ The Channel Interface (CHIF) driver is an HPE proprietary driver allowing  in-ba
 
 This driver is packaged with the HPE applications that require it and should never been imported or manipulated manually.
 
-## When does this error occurs
+## When does this error occurs ?
 
-Here is a non-exhaustive list of the typical situations when CHIF driver related errors occurs. 
+The most typical situations for this error to occur is with the iLOrest tool. This tool allows allows in-band and out-of-band Redfish management as explained in [this article](https://developer.hpe.com/blog/managing-ilo-sessions-with-redfish/). 
+
+ 
 
 ### In VMware / ESXi infrastructures
 
