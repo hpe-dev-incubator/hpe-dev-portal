@@ -18,7 +18,9 @@ Suppose your story is similar to mine: I am a data scientist and I work for ACME
 ACME handed me the ultimate toolbox to set me on my Apache Spark journey, a toolbox called the [HPE Ezmeral Software Platform](https://www.hpe.com/us/en/ezmeral.html). HPE Ezmeral software provides me with an “all of the above” approach to deployment and management of my data, apps, and the compute & storage resources that run it all - from anywhere. I find that I can use this toolbox to:
 
 * modernize legacy apps, and manage those apps alongside cloud-native apps
+
 * use existing data lakes alongside HPE Ezmeral Data Fabric 
+
 
 And, I can even get all this from HPE as a service!
 
@@ -74,7 +76,7 @@ You may now remove your *infrastructure person* hat and proceed to doing some re
 
 ![](/img/spark-on-ezmeral-image9.png)
 
-<a id="#runourapachesparkjob"></a>
+<a id="runourapachesparkjob"></a>
 
 ## Now we get to run our Apache Spark jobs!
 
