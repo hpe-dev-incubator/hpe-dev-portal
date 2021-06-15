@@ -15,8 +15,6 @@ authorimage: /img/maikel-pereira.jpg
 ```
 ---
 
-![](assets/image1.png)
-
 ## Background
 
 As a professional services group, we were tasked with providing a solution to automatically find messages in the archives that are similar to new messages and send them to the person asking the question.
@@ -131,7 +129,7 @@ udf[Double,SparseVector,SparseVector,Double,Double](cosineSimilarity)
 val similarsDF = cosine.sort(desc("similarity")).select("similarity","_id").limit(5)
 ```
 
-![](assets/image2.png)
+![](static/img/image2.png)
 
 ## Conclusions
 
