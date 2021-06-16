@@ -43,9 +43,9 @@ python3 redfishMockupCreate.py -r ilo5 -u ilouser -p ilopassword \
      --Dir ./ilo5
 ```
 
-The `--Secure` argument specifies the use of the `HTTPS` secure protocol. The `--Auth` parameter allows two modes of authentication in the remote Redfish service: `Basic` and `Session`. With the `Basic` authentication, the username/password credentials will be used for each GET requests. You can use the `Session` authentication mechanism if it is supported by the remote Redfish service. In this case, the Mockup Creator will create a Redfish session using the supplied credentials and retrieve a session token from the response headers. This token will be used for all the GET requests needed to create the mockup.
+The `--Secure` argument specifies the use of the `HTTPS` secure protocol. The `--Auth` parameter allows two modes of authentication in the remote Redfish service: `Basic` and `Session`. With the `Basic` authentication, the username/password credentials will be used for each GET request. You can use the `Session` authentication mechanism, if it is supported by the remote Redfish service. In this case, the Mockup Creator will create a Redfish session using the supplied credentials and retrieve a session token from the response headers. This token will be used for all the GET requests needed to create the mockup.
 
-The `None` authenticated mode displayed in the help message of the Mockup Creator is synonym of `Basic`. See the [Python code](https://github.com/DMTF/Redfish-Mockup-Creator/blob/1.1.1/redfishMockupCreate.py).
+The `None` authenticated mode displayed in the help message of the Mockup Creator is a synonym of `Basic`. See the [Python code](https://github.com/DMTF/Redfish-Mockup-Creator/blob/1.1.1/redfishMockupCreate.py).
 
 The `--Headers` options stores the response headers of each `GET` requests in a `headers.json`. More details are present in the in the next paragraph.
 
