@@ -15,11 +15,11 @@ tags:
 ---
 ## Introduction
 
-When I started the development of Redfish [Workshops-on-Demand](https://hackshack.hpedev.io/workshops), I rapidly realized that I would not be able to provision more than one or two physical servers with an embedded Redfish service allowing students to perform concurrent write operations. This was a problem since the infrastructure has been designed to host many more students.
+When I first began developing Redfish [Workshops-on-Demand](https://hackshack.hpedev.io/workshops), I quickly realized that I would not be able to provision more than one or two physical servers with an embedded Redfish service allowing students to perform concurrent write operations. This was a problem since the infrastructure had been designed to host many more students.
 
-I started to look for Redfish simulators and found the [qemu](https://www.qemu.org/) based [OpenBmc](https://github.com/openbmc/openbmc) simulator that I used for the [Redfish API 101](https://hackshack.hpedev.io/workshops) workshop. This simulator is perfect for this introductory lab as its Redfish implementation is simple without Original Equipment Manufacturer (OEM) [Extensions](https://redfish.dmtf.org/redfish/mockups/v1/1060).
+So, I started to look for Redfish simulators and found the [qemu](https://www.qemu.org/) based [OpenBmc](https://github.com/openbmc/openbmc) simulator that I used for the [Redfish API 101](https://hackshack.hpedev.io/workshops) workshop. This simulator is perfect for this introductory lab as its Redfish implementation is simple and without Original Equipment Manufacturer (OEM) [extensions](https://redfish.dmtf.org/redfish/mockups/v1/1060).
 
-For the other two [workshops](https://hackshack.hpedev.io/workshops) ([iLOrest](http://hpe.com/info/resttool) and Ansible/OneView), I had to look for a more featured Redfish implementation in order to propose a wider range of exercises.
+For the other two [workshops](https://hackshack.hpedev.io/workshops) ([iLOrest](http://hpe.com/info/resttool) and Ansible/OneView), I had to look for a more fully featured Redfish implementation in order to propose a wider range of exercises.
 
 This article presents the [Distributed Management Task Force (DMTF)](https://redfish.dmtf.org/) [Redfish Mockup Creator](https://github.com/DMTF/Redfish-Mockup-Creator) and [Redfish Mockup Server](https://github.com/DMTF/Redfish-Mockup-Server) and how they can be used to learn and test the Redfish API.
 
@@ -55,7 +55,7 @@ python3.4 redfishMockupCreate.py -r ilo5 -u ilouser -p ilopassword \
 
 ### Preparing the use of iLOrest against your Mockup Server
 
-If you intend to use [ilOrest](http://hpe.com/info/resttool) against the mockup you created with the above command, you should, just after the mockup creation, open an iLOrest session and capture its cache. This cache directory is created during the authentication process in a default location unless a specific location is specified on the command line. 
+If you intend to use [ilOrest](http://hpe.com/info/resttool) against the mockup you created with the above command, you should, right after the mockup creation, open an iLOrest session and capture its cache. This cache directory is created during the authentication process in a default location unless a specific location is specified on the command line. 
 
 The easiest way to perform this action is to install [iLOrest](https://github.com/HewlettPackard/python-redfish-utility/releases/latest) on your favorite operating system and identify the default cache location with the `help` command.
 
