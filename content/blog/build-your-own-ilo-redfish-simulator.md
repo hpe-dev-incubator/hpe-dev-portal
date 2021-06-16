@@ -35,7 +35,7 @@ You can download the latest sources from this [release location](https://github.
 
 > **IMPORTANT NOTE:** As mentioned in the [`requirements.txt`](https://github.com/DMTF/Redfish-Mockup-Creator/blob/1.1.1/requirements.txt) file, the DMTF `redfish` Python module is required to run the Mockup Creator. However, this module is not compatible with the HPE `python-redfish-library` because both of them contain a class called `redfish` but with different content. Use `pip uninstall python-redfish-library` before installing the DMTF `redfish` Python module with `pip install redfish`. 
 
-The following command launches the `redfishMockupCreate.py` script against a remote Redfish service (`-r ilo5`) accessible with the `-u` and `-p` credentials.
+The `python3` command below, launches the `redfishMockupCreate.py` script against a remote Redfish service (`-r ilo5`) accessible with the `-u` and `-p` credentials.
 
 The `--Secure` argument specifies the use of the `HTTPS` secure protocol. The `--Auth` parameter allows two modes of authentication in the remote Redfish service: `Basic` and `Session`. With the `Basic` authentication, the username/password credentials will be used for each GET requests. You can use the `Session` authentication mechanism if it is supported by the remote Redfish service. In this case, the Mockup Creator will create a Redfish session using the supplied credentials and retrieve a session token from the response headers. This token will be used for all the GET requests needed to create the mockup.
 
@@ -48,7 +48,7 @@ Lastly, the `--Dir` option provides the folder entry point for the mockup.
 > NOTE: The mockup target directory will be created if necessary. If it exists, it must be empty before the launch of the Mockup Creator.
 
 ```shell
-python3.4 redfishMockupCreate.py -r ilo5 -u ilouser -p ilopassword \
+python3 redfishMockupCreate.py -r ilo5 -u ilouser -p ilopassword \
      --Secure --Auth Session  --Headers \
      --Dir ./ilo5
 ```
