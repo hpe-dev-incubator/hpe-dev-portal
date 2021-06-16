@@ -127,7 +127,7 @@ The same query against a physical iLO 5 returns a `400 Bad Request` status and a
 
 ### Querying the Mockup Server with iLOrest
 
-If you want to query your iLO simulator with [iLOrest](http://hpe.com/info/resttool) you have to extract the cache directory you saved during the mockup creation (see the "Preparing the use of iLOrest against your Mockup Server" paragraph above) and edit the `url` property of its two files: `index` and `<longUniqIdenfier>` to make them point to the simulator.
+If you want to query your iLO simulator with [iLOrest](http://hpe.com/info/resttool), you have to extract the cache directory you saved during the mockup creation (see the "Preparing the use of iLOrest against your Mockup Server" paragraph above) and edit the `url` property of its two files `index` and, `<longUniqIdenfier>`, to make them point to the simulator.
 
 On a Linux system, this operation can be done with the following commands:
 
@@ -137,10 +137,10 @@ sed -i 's?\("url": "https://\)ilo-IP-physical"?\1ilo-IP-simulator"?' *
 ```
 Once the iLOrest cache points to your mockup server, you can use this Redfish client tool to query the mockup. 
 
-> **NOTE** If you use the `login` iLOrest commands, the cache will be overwritten. If you use the `logout` command, the cache will be erased.
+> NOTE: If you use the `login` iLOrest commands, the cache will be overwritten. If you use the `logout` command, the cache will be erased.
 
 ## Conclusion
 
-To learn and test the Redfish API, The DMTF provides two very useful tools to create Redfish mockups and simulate a live service. They are easy to install and use and their quality is a good. In addition, from my personal experience, I found the maintainers of these active GithHub projects very responsive to address quality issues and proposed enhancements. 
+To learn and test the Redfish API, the DMTF provides two very useful tools to create Redfish mockups and simulate a live service. They are easy to install and use, and their quality is good. In addition, from my personal experience, I found the maintainers of these active GitHub projects very responsive to address quality issues and proposed enhancements. 
 
 I presented only iLOrest to query this Redfish simulator, but many other Redfish clients can be used, like the ones mentioned in this [video](https://youtu.be/ur9UKRV_0S8).
