@@ -37,6 +37,12 @@ You can download the latest sources from this [release location](https://github.
 
 The `python3` command below, launches the `redfishMockupCreate.py` script against a remote Redfish service (`-r ilo5`) accessible with the `-u` and `-p` credentials.
 
+```shell
+python3 redfishMockupCreate.py -r ilo5 -u ilouser -p ilopassword \
+     --Secure --Auth Session  --Headers \
+     --Dir ./ilo5
+```
+
 The `--Secure` argument specifies the use of the `HTTPS` secure protocol. The `--Auth` parameter allows two modes of authentication in the remote Redfish service: `Basic` and `Session`. With the `Basic` authentication, the username/password credentials will be used for each GET requests. You can use the `Session` authentication mechanism if it is supported by the remote Redfish service. In this case, the Mockup Creator will create a Redfish session using the supplied credentials and retrieve a session token from the response headers. This token will be used for all the GET requests needed to create the mockup.
 
 The `None` authenticated mode displayed in the help message of the Mockup Creator is synonym of `Basic`. See the [Python code](https://github.com/DMTF/Redfish-Mockup-Creator/blob/1.1.1/redfishMockupCreate.py).
@@ -46,12 +52,6 @@ The `--Headers` options stores the response headers of each `GET` requests in a 
 Lastly, the `--Dir` option provides the folder entry point for the mockup. 
 
 > NOTE: The mockup target directory will be created if necessary. If it exists, it must be empty before the launch of the Mockup Creator.
-
-```shell
-python3 redfishMockupCreate.py -r ilo5 -u ilouser -p ilopassword \
-     --Secure --Auth Session  --Headers \
-     --Dir ./ilo5
-```
 
 ### Preparing the use of iLOrest against your Mockup Server
 
