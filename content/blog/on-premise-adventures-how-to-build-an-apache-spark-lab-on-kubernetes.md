@@ -2,7 +2,7 @@
 title: "On-Premise Adventures: How to build an Apache Spark lab on Kubernetes"
 date: 2021-06-15T16:51:59.069Z
 author: Don Wake
-authorimage: /img/Avatar1.svg
+authorimage: https://gravatar.com/avatar/e5e1a9dd49e6e07ee55d4532e25c08e5?s=96
 tags:
   - hpe-ezmeral-container-platform
   - hpe-ezmeral-data-fabric
@@ -15,30 +15,28 @@ Suppose your story is similar to mine: I am a data scientist and I work for ACME
 
 ### What tools do I have at my disposal?
 
-ACME handed me the ultimate toolbox to set me on my Apache Spark journey, a toolbox called the [HPE Ezmeral Software Platform](https://www.hpe.com/us/en/ezmeral.html). HPE Ezmeral software provides me with an “all of the above” approach to deployment and management of my data, apps, and the compute & storage resources that run it all - from anywhere. I find that I can use this toolbox to:
+Our infrastructure team runs all of the hardware and software for the Data Science team. They provides me access to things like a Jupyter Notebook where I will do my Data Science work. The infrastructure team of DevOps engineers and system administrators has the ultimate toolbox to work with, a toolbox called the [HPE Ezmeral Software Platform](https://www.hpe.com/us/en/ezmeral.html). HPE Ezmeral software provides me with an “all of the above” approach to deployment and management of my data, apps, and the compute & storage resources that run it all - from anywhere. The infrastructure team can use this toolbox to:
 
 * modernize legacy apps, and manage those apps alongside cloud-native apps
-
 * use existing data lakes alongside HPE Ezmeral Data Fabric 
 
+and all of the hardware and software can be consumed as-a-service from HPE!
 
-And, I can even get all this from HPE as a service!
+For this particular job, the infrastructure team pulled out the [HPE Ezmeral Container Platform](http://www.hpe.com/containerplatform) from the toolbox for application and cluster management. This will provide the data science teams with a wealth of ML Ops tools such as an Apache Spark cluster configured to run a customized Jupyter Notebook with connections to ACME’s [HPE Ezmeral Data Fabric](https://assets.ext.hpe.com/is/content/hpedam/a00110846enw).  I can’t wait to get access to my environment and get to coding!
 
-I’ve decided I want to make this an Apache Spark job, because it will use machine learning to help me make the predictions. For this particular job, I pulled out the [HPE Ezmeral Container Platform](http://www.hpe.com/containerplatform) from my toolbox for application management – it allows me to specifically run my machine learning (ML) jobs, including Apache Spark, on Kubernetes. It also gave me the ability to easily connect ACME’s [HPE Ezmeral Data Fabric](https://assets.ext.hpe.com/is/content/hpedam/a00110846enw) to my Apache Spark jobs. I have been given an awesome set of tools!
+### What is the infrastructure team building for me?
 
-### What exactly am I going to build?
-
-As mentioned above, ACME needs to predict power output from their windmills, so they can make intelligent decisions about where to add more windmills and how to optimize the windmills they already have. This is a job for Apache Spark on Kubernetes on HPE Ezmeral! My overall architecture will look like this:
+As mentioned above, ACME needs to predict power output from their windmills, so they can make intelligent decisions about where to add more windmills and how to optimize the windmills they already have. This is a job for Apache Spark on Kubernetes on HPE Ezmeral! The infrastructure team, amazingly built the following workspace for me in the blink of an eye! This used to take them weeks before they got their hands on the HPE Ezmeral software.
 
 ![](/img/spark-on-ezmeral-architecture-image1.png "Spark on HPE Ezmeral Architecture")
 
-As the figure above indicates, I am first going to build a Kubernetes Cluster. In that cluster, I will deploy an Apache Spark Operator. The Apache Spark Operator is the glue that allows you to run Apache Spark within a containerized environment, such as a Kubernetes Cluster. Once I have the Kubernetes Cluster, I can then carve out a Kubernetes Namespace and deploy some machine learning applications, such as a containerized Jupyter Hub server running a Jupyter Notebook. I will use that Jupyter Notebook to run my Apache Spark jobs.
+As the figure above indicates, the infrastructure team built a Kubernetes cluster and deployed the Apache Spark Operator onto it. The Apache Spark Operator is the glue that allows you to run Apache Spark within a containerized environment, such as a Kubernetes Cluster. The infrastructure team then carved out a Kubernetes Namespace and deployed the ML Ops applications I will need like that custom Jupyter Notebook I mentioned previously. I will use that Jupyter Notebook to run my Apache Spark jobs.
 
 The code running inside the Jupyter Notebook will make an API call to the Apache Spark Operator using an API server called “Livy”. Livy will ask Apache Spark to create an Apache Spark session so I can retrieve value from the data. Apache Spark will be able to ingest data from the Australia core deployment of HPE Ezmeral Data Fabric using an HPE Ezmeral Container Platform feature called a DataTap (more on that below).
 
-## Let’s Build it!
+## What the infrastructure team built for me
 
-If you are a data scientist or data engineer and you really don’t want to know how all these back-end system administrator tasks are done, then I highly recommend you skip to the [**Now we get to run our Apache Spark jobs!**](#runourapachesparkjob) section. I’d definitely put this section firmly in the infrastructure person category.
+If you are a data scientist or data engineer and you really don’t want to know how all these back-end system administrator tasks are done, then I highly recommend you skip to the **[Now we get to run our Apache Spark jobs!](#runourapachesparkjob)** section. I’d definitely put this section firmly in the infrastructure person category.
 
 First, I log into my HPE Ezmeral Container Platform WebUI. My organization has already setup Active Directory integration to use with the HPE Ezmeral Container Platform WebUI.
 
