@@ -15,10 +15,9 @@ Suppose your story is similar to mine: I am a data scientist and I work for ACME
 
 ### What tools do I have at my disposal?
 
-Our infrastructure team runs all of the hardware and software for the Data Science team. They provides me access to things like a Jupyter Notebook where I will do my Data Science work. The infrastructure team of DevOps engineers and system administrators has the ultimate toolbox to work with, a toolbox called the [HPE Ezmeral Software Platform](https://www.hpe.com/us/en/ezmeral.html). HPE Ezmeral software provides me with an “all of the above” approach to deployment and management of my data, apps, and the compute & storage resources that run it all - from anywhere. The infrastructure team can use this toolbox to:
+Our infrastructure team runs all of the hardware and software for the Data Science team. They provide me access to things like a Jupyter Notebook where I will do my Data Science work. The infrastructure team of DevOps engineers and system administrators have the ultimate toolbox to work with, a toolbox called the [HPE Ezmeral Software Platform](https://www.hpe.com/us/en/ezmeral.html). HPE Ezmeral software enables an “all of the above” approach to deployment and management of ACME's data, apps, and the compute & storage resources that run it all - from anywhere. The infrastructure team can use this toolbox to:
 
 * modernize legacy apps, and manage those apps alongside cloud-native apps
-
 * use existing data lakes alongside HPE Ezmeral Data Fabric 
 
 and all of the hardware and software can be consumed as-a-service from HPE!
@@ -33,7 +32,7 @@ As mentioned above, ACME needs to predict power output from their windmills, so 
 
 As the figure above indicates, the infrastructure team built a Kubernetes cluster and deployed the Apache Spark Operator onto it. The Apache Spark Operator is the glue that allows you to run Apache Spark within a containerized environment, such as a Kubernetes Cluster. The infrastructure team then carved out a Kubernetes Namespace and deployed the ML Ops applications I will need like that custom Jupyter Notebook I mentioned previously. I will use that Jupyter Notebook to run my Apache Spark jobs.
 
-The code running inside the Jupyter Notebook will make an API call to the Apache Spark Operator using an API server called “Livy”. Livy will ask Apache Spark to create an Apache Spark session so I can retrieve value from the data. Apache Spark will be able to ingest data from the Australia core deployment of HPE Ezmeral Data Fabric using an HPE Ezmeral Container Platform feature called a DataTap (more on that below).
+The code running inside the Jupyter Notebook will make an API call to the Apache Spark Operator using an API server called “Livy”. Livy will ask Apache Spark to create an Apache Spark session so I can perform analytics on the data. Apache Spark will be able to ingest data from the Australia core deployment of HPE Ezmeral Data Fabric using an HPE Ezmeral Container Platform feature called a DataTap (more on that below).
 
 ## What the infrastructure team built for me
 
