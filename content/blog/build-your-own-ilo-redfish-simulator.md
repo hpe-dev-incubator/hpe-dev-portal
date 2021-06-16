@@ -27,7 +27,7 @@ This article presents the [Distributed Management Task Force (DMTF)](https://red
 
 ### Basic presentation, installation and invocation
 
-To create your own Redfish simulator, you need to have access in read mode to a live Redfish service (i.e. iLO 5). Then, using the [DMTF Redfish Mockup Creator](https://github.com/DMTF/Redfish-Mockup-Creator) deployed in a place with network connectivity to the live Redfish service, you will be able to retrieve the entire Redfish resources in "index.json" files under a specified directory.
+To create your own Redfish simulator, you need to have read mode access to a live Redfish service (i.e. iLO 5). Then, using the [DMTF Redfish Mockup Creator](https://github.com/DMTF/Redfish-Mockup-Creator) deployed in a place with network connectivity to the live Redfish service, you will be able to retrieve the entire Redfish resources in `index.json` files under a specified directory.
 
 The Redfish Mockup Creator is a single, simple and easy to deploy [python 3](https://www.python.org/downloads/) script with a very small number of parameters and options that makes it easy to use. The associated documentation is up to date and provides several deployment methods and invocation examples in its GitHub [`README.md`](https://github.com/DMTF/Redfish-Mockup-Creator#readme) file. 
 
@@ -115,9 +115,9 @@ When a Redfish client sends a GET request to the Redfish Mockup Server, it respo
 
 For POST, PUT and PATCH requests, the simulator performs limited verification of the query, modifies the requested endpoint and sends back a `204 No Content` status code with no associated body. For the same request, a real Redfish service performs additional verification and sends back a non-empty response body with a `20X` status code. 
 
-The different behavior of the simulator, compared to a real iLO 5 Redfish service can be illustrated with a PATCH request for modifying the `IndicatorLED` resource of a computer chassis. The authorized values for this parameter are defined by the DMTF in the Chassis Redfish schema. For an iLO 5 with firmware version 2.30, the [implemented schema](http://redfish.dmtf.org/schemas/v1/Chassis.v1_10_2.json#/definitions/IndicatorLED) specifies the following possible values: `unknown`, `Lit`, `Blinking`, `Off`. A physical iLO 5 complains if you supply a value different from what the schema proposes. However, the DMTF Redfish Mockup Server accepts any string as shown in the following screenshot. 
+The different behavior of the simulator, compared to a real iLO 5 Redfish service, can be illustrated with a PATCH request for modifying the `IndicatorLED` resource of a computer chassis. The authorized values for this parameter are defined by the DMTF in the Chassis Redfish schema. For an iLO 5 with firmware version 2.30, the [implemented schema](http://redfish.dmtf.org/schemas/v1/Chassis.v1_10_2.json#/definitions/IndicatorLED) specifies the following possible values: `unknown`, `Lit`, `Blinking`, `Off`. A physical iLO 5 complains if you supply a value different from what the schema proposes. However, the DMTF Redfish Mockup Server accepts any string, as shown in the following screenshot. 
 
-The code of this picture sends a `PATCH` request with and invalid value (`Foo`) toward an iLO 5 simulator. The simulator performs the patch action and responds with status code `204`. The last command of shows that the action has been successfully performed.
+The command shown in the screen shot below show the sending of a `PATCH` request with an invalid value (`Foo`) toward an iLO 5 simulator. The simulator performs the patch action and responds with status code `204`. The last command of shows that the action has been successfully performed.
 
 ![PATCH an invalid property in the DMTF Redfish Mockup Server](/img/fooindicatorled.png "PATCH an invalid property in the DMTF Redfish Mockup Server")
 
