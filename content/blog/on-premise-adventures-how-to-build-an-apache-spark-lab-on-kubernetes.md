@@ -18,6 +18,7 @@ Suppose your story is similar to mine: I am a data scientist and I work for ACME
 Our infrastructure team runs all of the hardware and software for the Data Science team. They provide me access to things like a Jupyter Notebook where I will do my Data Science work. The infrastructure team of DevOps engineers and system administrators have the ultimate toolbox to work with, a toolbox called the [HPE Ezmeral Software Platform](https://www.hpe.com/us/en/ezmeral.html). HPE Ezmeral software enables an “all of the above” approach to deployment and management of ACME's data, apps, and the compute & storage resources that run it all - from anywhere. The infrastructure team can use this toolbox to:
 
 * modernize legacy apps, and manage those apps alongside cloud-native apps
+
 * use existing data lakes alongside HPE Ezmeral Data Fabric 
 
 and all of the hardware and software can be consumed as-a-service from HPE!
