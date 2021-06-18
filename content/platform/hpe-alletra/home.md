@@ -1,8 +1,8 @@
 ---
 title: HPE Alletra
 version: v0.1
-description: A paradigm shift in data infrastructure
-image: /img/storage-192.png
+description: A paradigm shift in data infrastructure.
+image: /img/alletra-element-small.png
 width: large
 priority: 2
 tags:
@@ -53,5 +53,5 @@ Take advantage of our free, Jupyter-Notebook based Workshops-on-Demand available
 
 ## Any questions on HPE Alletra?
 
-Join the [HPEDEV Slack Workspace](https://slack.hpedev.io/) and start a discussion in the [\#alletra](https://hpedev.slack.com/) channel.
+Join the [HPEDEV Slack Workspace](https://slack.hpedev.io/) and start a discussion in the [\#alletra](https://hpedev.slack.com/archives/C025D75HHGC) channel.
 
