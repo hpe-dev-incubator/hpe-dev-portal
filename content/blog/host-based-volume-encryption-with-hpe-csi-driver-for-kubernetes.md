@@ -6,6 +6,7 @@ authorimage: /img/portrait-192.jpg
 tags:
   - hpe-3par-and-primera
   - " hpe-nimble-storage"
+  - hpe-alletra
 ---
 Security is on everyone's mind today, and storage should be considered of the utmost importance. In highly dynamic and agile environments where many hosts and applications share the same wire for consolidation purposes, it has become important to not only secure communication between endpoints, but also store data fully encrypted where only the designated reader and writer is capable of unlocking the data through the use of a private key.
 
