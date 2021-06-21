@@ -6,6 +6,7 @@ authorimage: /img/portrait-192.jpg
 tags:
   - hpe-nimble-storage
   - hpe-3par-and-primera
+  - hpe-alletra
 ---
 We live in a storage infrastructure economy, where IT is under constant pressure to deliver more with less, yet still provide a high standard in data services directly to end users without compromising system or data security.
 
