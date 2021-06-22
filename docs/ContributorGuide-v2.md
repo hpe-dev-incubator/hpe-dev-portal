@@ -453,6 +453,9 @@ To do so, proceed as follows:
 
     -   Make sure to insert a line break before and after a code block snippet
 
+-   **Inserting EM-dash" character:**
+    The CMS editor does not correctly interpret the em-dash (&mdash;) markdown syntax. Using the Rich text or Markdown mode of the CMS editor, shoudl you need to use an em-dash character, you can do a copy/paste of the em-dash character here: — 
+    
 -   **Inserting List items/sub-list items:**
     To deal with item list, it is recommended to toggle to **Markdown** mode in the editor and use the syntax below for creating item lists and sub-item lists:
     
@@ -519,4 +522,5 @@ If appropriate, use a tag to tie your blog post to a "platform" page on HPE DEV 
   | **HPE OneView Global Dashboard**   | hpe-oneview-global-dashboard |
   |**HPE SimpliVity**                  | hpe-simplivity |
   | **iLORESTful API**                 | ilo-restful-api |
+  | **HPE Alletra**                    | hpe-alletra |
   
