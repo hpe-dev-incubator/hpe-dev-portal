@@ -454,6 +454,7 @@ To do so, proceed as follows:
     -   Make sure to insert a line break before and after a code block snippet
 
 -   **Inserting EM-dash" character:**
+
     The CMS editor does not correctly interpret the em-dash (&mdash;) markdown syntax. Using the Rich text or Markdown mode of the CMS editor, shoudl you need to use an em-dash character, you can do a copy/paste of the em-dash character here: — 
     
 -   **Inserting List items/sub-list items:**
