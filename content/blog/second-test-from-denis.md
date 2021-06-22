@@ -18,12 +18,15 @@ val rawEmaiData=spark.loadFromMapRDB("/googlegroups/messages")
 val rawEmaiDataDF=rawEmaiData.select("_id","bodyWithHistory","threadId","emailDate")
 ```
 
-
 ```
 val rawEmaiData=spark.loadFromMapRDB("/googlegroups/messages")
 val rawEmaiDataDF=rawEmaiData.select("_id","bodyWithHistory","threadId","emailDate")
 ```
-----
 
+term frequency &mdash; inverse document frequency
+
+term frequency &#151; inverse document frequency
+
+term frequency — inverse document frequency
 
 ![](/img/image-test2.png)
