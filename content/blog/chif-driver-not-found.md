@@ -32,7 +32,7 @@ The following picture shows an SSH login into a VMware virtual machine and an il
 
 ![Unsuccessful in-band GET from Virtual Machine](/img/unsuccessfulinbandgetinvm.png "Unsuccessful in-band GET from Virtual Machine")
 
-The next screenshot shows the same iLOret command launched from a Microsoft Windows based comnputer, which does not embed any iLO chip.
+The next screenshot shows the same iLOrest command launched from a Microsoft Windows computer, with no embeded iLO chip.
 
 ![Unsuccessful in-band GET from a Windows laptop](/img/unsuccessfulinbandgetinwinlaptop.png "Unsuccessful in-band GET from a Windows laptop")
 
@@ -49,5 +49,15 @@ You don't notice that credentials are bad or you are not a privileged user.
 Blobstore
 
 ### VMware infra: you don't notice you supplied the wrong credentials
+
+## Other related problematic situations
+
+The main purpose of this article is to explain the source and the reasons of the `Chif driver not found` error. However you can face situations where your iLOrest commands return a valid output, but from the wrong system. 
+
+In the following picture, privileged user `roor` launches iLOrest from an iLO 4 based server toward an iLO5. The login credentials are wrong and the script does not test the login return code. Moreover, it even discards the login process output to keep the screen cleaner or for some other reasons.
+
+Following the `login` command, the script perform a GET 
+
+
 
 ## Conclusion
