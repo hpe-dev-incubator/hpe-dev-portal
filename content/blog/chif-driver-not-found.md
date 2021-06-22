@@ -1,12 +1,12 @@
 ---
 title: CHIF driver not found
-date: 2021-06-14T07:29:21.829Z
+date: 2021-06-22T12:06:33.680Z
 author: François Donzé
 authorimage: https://gravatar.com/avatar/6f3982d1461459da475f47e3a6c89d1d?s=192
 ---
 ## Introduction
 
-When using the HPE RESTful Interface Tool ([iLOrest](http://hpe.com/info/resttool)) or other applications like the Smart Update Manager ([SUM](https://www.hpe.com/us/en/servers/smart-update.html)) or the integrated Smart Update Tool ([iSUT](https://support.hpe.com/hpesc/public/docDisplay?docLocale=en_US&docId=emr_na-a00068223en_us)) you may get an error similar to: `Chif driver not found, please check that the chif driver is installed` without any other tip to identify the origin of the problem or to fix it. This article attempts to explain when this error occurs and why.
+When using the HPE RESTful Interface Tool ([iLOrest](http://hpe.com/info/resttool)) or other applications like the Smart Update Manager ([SUM](https://www.hpe.com/us/en/servers/smart-update.html)) or the integrated Smart Update Tool ([iSUT](https://support.hpe.com/hpesc/public/docDisplay?docLocale=en_US&docId=emr_na-a00068223en_us)) you may get errors similar to: `Chif driver not found, please check that the chif driver is installed` without any other tip to identify the origin of the problem or to fix it. This article attempts to explain when this error occurs and why.
 
 ## What is the CHIF driver ?
 
