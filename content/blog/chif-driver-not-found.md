@@ -36,14 +36,18 @@ The next screenshot shows the same iLOret command launched from a Microsoft Wind
 
 ![Unsuccessful in-band GET from a Windows laptop](/img/unsuccessfulinbandgetinwinlaptop.png "Unsuccessful in-band GET from a Windows laptop")
 
+## Common situations where you get this error
 
+Getting this error message is very common and here are typical cases
 
 ### iLOrest scripts or interactive sessions
 
-Getting this error message is very common and here are typical cases 
+You don't notice that credentials are bad or you are not a privileged user. 
 
 ### Python / PowerShell scripts
 
-TBD
+Blobstore
+
+### VMware infra: you don't notice you supplied the wrong credentials
 
 ## Conclusion
