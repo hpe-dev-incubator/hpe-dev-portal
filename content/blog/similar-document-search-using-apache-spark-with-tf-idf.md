@@ -8,7 +8,7 @@ tags:
   - HPE Ezmeral Data Fabric
   - Machine learning
 ---
-**Editor’s Note:** MapR products and solutions sold prior to the acquisition of such assets by Hewlett Packard Enterprise Company in 2019 may have older product names and model numbers that differ from current solutions. For information about current offerings, which are now part of HPE Ezmeral Data Fabric, please visit [https://www.hpe.com/us/en/software/data-fabric.html](https://www.hpe.com/us/en/software/data-fabric.html)
+**Editor’s Note:** MapR products and solutions sold prior to the acquisition of such assets by Hewlett Packard Enterprise Company in 2019 may have older product names and model numbers that differ from current solutions. For information about current offerings, which are now part of HPE Ezmeral Data Fabric, please visit <https://www.hpe.com/us/en/software/data-fabric.html>
 
 ## Original Post Information:
 
@@ -17,7 +17,8 @@ tags:
 "publish": "2019-06-18T07:00:00.000Z",
 "category": ["machine-learning"],
 ```
----
+
+- - -
 
 ## Background
 
@@ -33,23 +34,30 @@ The desired solution was built using two Apache Spark applications running in a 
 
 This application was developed using Spark and Scala, and it can run on a schedule, depending on the needs. **Here is what it does, step by step:**
 
-1.  Loads all messages from MapR Database. For the sake of brevity, we omit preprocessing steps like tokenization, stop words removal, punctuation removal, and other types of cleanup.
+1. Loads all messages from MapR Database. For the sake of brevity, we omit preprocessing steps like tokenization, stop words removal, punctuation removal, and other types of cleanup.
+
 ```
 val rawEmaiData=spark.loadFromMapRDB("/googlegroups/messages")
 val rawEmaiDataDF=rawEmaiData.select("_id","bodyWithHistory","threadId","emailDate")
 ```
-2.  Creates hashingTF, using HashingTF class available in Spark, and sets fixed-length feature vectors of 1000. It applies the hashing transformation to the document, resulting in the featurizedData.
+
+2. Creates hashingTF, using HashingTF class available in Spark, and sets fixed-length feature vectors of 1000. It applies the hashing transformation to the document, resulting in the featurizedData.
+
 ```
 val hashingTF = new HashingTF().setInputCol("words").setOutputCol("rawFeatures").setNumFeatures(1000)
 val featurizedData = hashingTF.transform(wordsData)
 ```
-3.  Creates the IDF, and from the TF and the IDF, it creates the TF-IDF.
+
+3. Creates the IDF, and from the TF and the IDF, it creates the TF-IDF.
+
 ```
 val idf = new IDF().setInputCol("rawFeatures").setOutputCol("features")
 val idfModel = idf.fit(featurizedData)
 val rescaledData = idfModel.transform(featurizedData)
 ```
-4.  A UDF is necessary for pre-calculating sparse vector norm.
+
+4. A UDF is necessary for pre-calculating sparse vector norm.
+
 ```
 def calcNorm(vectorA: SparseVector): Double = {
       var norm = 0.0
@@ -58,15 +66,21 @@ def calcNorm(vectorA: SparseVector): Double = {
     }
 val calcNormDF = udf[Double,SparseVector](calcNorm)
 ```
-5.  Creates a TF-IDF corpus.
+
+5. Creates a TF-IDF corpus.
+
 ```
 val normalized = rescaledData.withColumn("norm",calcNormDF(col("features")))
 ```
-6.  Saves IDF model to MapR XD Distributed File and Object Store.
+
+6. Saves IDF model to MapR XD Distributed File and Object Store.
+
 ```
 idfModel.write.overwrite().save("/googlegroups/save_model_idf")
 ```
-7.  To save features vector to the MapR Database table, we have to convert the features vector to JSON format; for this, we create and register a UDF.
+
+7. To save features vector to the MapR Database table, we have to convert the features vector to JSON format; for this, we create and register a UDF.
+
 ```
 def toJson(v: Vector): String = {
    v match {
@@ -84,7 +98,9 @@ def toJson(v: Vector): String = {
 }
 val asJsonUDF = udf[String,Vector](toJson)
 ```
-8.  Finally, saves features vector to the MapR Database table.
+
+8. Finally, saves features vector to the MapR Database table.
+
 ```
 val dfToSave = normalized.withColumn("rawFeaturesJson", asJsonUDF(col("rawFeatures"))).withColumn("featuresJson", asJsonUDF(col("features"))).drop("rawFeatures").drop("features")
 dfToSave.saveToMapRDB("/googlegroups/trained_model", createTable = false)
@@ -94,17 +110,22 @@ dfToSave.saveToMapRDB("/googlegroups/trained_model", createTable = false)
 
 The second application is a [Spark Stream Consumer application](https://developer.hpe.com/blog/streaming-machine-learning-pipeline-for-sentiment-analysis-using-apache-/) that **will execute the following steps:**
 
-1.  Loads the previously saved `idfModel` and initializes a new `HashingTF` model.
+1. Loads the previously saved `idfModel` and initializes a new `HashingTF` model.
+
 ```
 val idfModel = IDFModel.load("path/to/serialized/model")
 val hashingTF = new HashingTF().setInputCol("words").setOutputCol("rawFeatures").setNumFeatures(1000)
 ```
-2.  Loads in memory and caches the data with the features, saved previously.
+
+2. Loads in memory and caches the data with the features, saved previously.
+
 ```
 val all = contextFuntions.loadFromMapRDB(argsConfiguration.trained).toDF
 all.cache()
 ```
-3.  Creates a DataFrame with current message.
+
+3. Creates a DataFrame with current message.
+
 ```
 val one = Seq((x._id,x.body)).toDF("_id", "contents")
 val newWords = prepareWords(one, "words")
@@ -112,12 +133,16 @@ val newFeature = hashingTF.transform(newWords)
 val newRescale = idfModel.transform(newFeature)
 val normalized = newRescale.withColumn("norm2", UDF.calcNormUDF(col("features2")))
 ```
-4.  Then it finds the crossjoin DataFrame between the one element and all existing messages in the database and calculates the similarity.
+
+4. Then it finds the crossjoin DataFrame between the one element and all existing messages in the database and calculates the similarity.
+
 ```
 val cross = normalized.crossJoin(all).drop(normalized.col("_id"))
 val cosine = cross.withColumn("similarity", UDF.calcCosineUDF(col("features"), col("features2"), col("norm"), col("norm2")))
 ```
-5.  For this, it uses the cosine function implemented as follows and registered as a UDF.
+
+5. For this, it uses the cosine function implemented as follows and registered as a UDF.
+
 ```
 def cosineSimilarity(vectorA: SparseVector, vectorB:SparseVector,normASqrt:Double,normBSqrt:Double) :(Double) = {
  var dotProduct = 0.0
@@ -128,12 +153,14 @@ def cosineSimilarity(vectorA: SparseVector, vectorB:SparseVector,normASqrt:Doubl
 }
 udf[Double,SparseVector,SparseVector,Double,Double](cosineSimilarity)
 ```
-6.  The result can then be ordered by similarity, in descending order, taking the top five elements.
+
+6. The result can then be ordered by similarity, in descending order, taking the top five elements.
+
 ```
 val similarsDF = cosine.sort(desc("similarity")).select("similarity","_id").limit(5)
 ```
 
-![](static/img/image2.png)
+![](/img/image2.png)
 
 ## Conclusions
 
