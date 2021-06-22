@@ -22,27 +22,21 @@ The iLOrest tool allows in-band and out-of-band Redfish management as explained 
 
 If you are logged in an HPE iLO 4 or iLO 5 based server as a privileged user (root or Administrator), you can perform in-band management tasks with iLOrest without providing any credentials or use the `login` command. You just have to issue GET or SET command in a straight forward manner. 
 
-The following picture shows an SSH root session creation, toward an HPE DL360 Gen10 with the execution of an iLOrest GET command without any formal login process. The `Discovering data...Done` message means that iLOrest could effectively log into the local iLO 5 and save data in its cache. Then, it displays the output of the GET command (`Model=iLO 5`).
+The following picture shows an SSH root session creation, toward an HPE DL360 Gen10 with the execution of an iLOrest GET command without any formal login process. The `Discovering data...Done` message means that iLOrest could effectively log into the local iLO 5 and save metadata in its cache. Then, it displays the output of the GET command (`Model=iLO 5`).
 
 ![Successful in-band GET command](/img/successfulinbandget.png "Successful in-band GET command")
 
-## TBD
+But what happens if you SSH into a non HPE server or into a virtual machine ? In both cases, there is no iLO under the operating system. Hence the CHIF driver, although present somewhere on disk, could not be be loaded in the kernel and the application returns an error because it cannot connect to it.
 
-But what happens if you SSH into a non HPE server or into a virtual machine ?
+The following picture shows an SSH login into a VMware virtual machine and an ilorest in-band management command returning the error. 
 
 ![Unsuccessful in-band GET from Virtual Machine](/img/unsuccessfulinbandgetinvm.png "Unsuccessful in-band GET from Virtual Machine")
 
-In the next screeshot TBD
+The next screenshot shows the same iLOret command launched from a Microsoft Windows based comnputer, which does not embed any iLO chip.
 
 ![Unsuccessful in-band GET from a Windows laptop](/img/unsuccessfulinbandgetinwinlaptop.png "Unsuccessful in-band GET from a Windows laptop")
 
-TBD
 
-
-
-### In VMware / ESXi infrastructures
-
-TBD
 
 ### iLOrest scripts or interactive sessions
 
