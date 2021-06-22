@@ -455,7 +455,7 @@ To do so, proceed as follows:
 
 -   **Inserting "em-dash" character:**
 
-    The CMS editor does not correctly interpret the em-dash (&mdash;) markdown syntax. Using the Rich text or Markdown mode of the CMS editor, shoudl you need to use an em-dash character, you can do a copy/paste of the em-dash character here: — 
+    The CMS editor does not correctly interpret the em-dash (\&mdash;\) markdown syntax. Using the Rich text or Markdown mode of the CMS editor, shoudl you need to use an em-dash character, you can do a copy/paste of the em-dash character here: — 
     
 -   **Inserting List items/sub-list items:**
     To deal with item list, it is recommended to toggle to **Markdown** mode in the editor and use the syntax below for creating item lists and sub-item lists:
