@@ -4,13 +4,13 @@ date: 2021-06-22T19:32:31.547Z
 author: Dale Rensing
 authorimage: /img/small-162.jpg
 ---
-<center><img src="/img/15_workshops_legend_no_bg-img1.png" width="500" height="549"></center>
+<center><img src="/img/15_workshops_legend_no_bg-img1.png" width="400" height="439"></center>
 
 The [HPE DEV Workshops-on-Demand](https://hackshack.hpedev.io/workshops) are a great way to get hands-on experience with the newest and most popular technologies. These free workshops are easy to take and really give you a good feel for how to interact with things like containers, data fabric, Kubernetes, etc. We understand that you put in time and effort whenever you take one of our HPE DEV Workshops-on-Demand and we now offer badges in recognition of your achievement.
 
 Now, every time you finish one of our Workshops-on-Demand, you will receive a badge commemorating having completed that specific workshop. You’ll receive the badge in your final, congratulatory email. Share your badge with friends and colleagues on Twitter or LinkedIn directly from the email to show them what new skills you’ve recently acquired.
 
-<center><img src="/img/data_fabric_no_bg-img2.png" width="500" height="508"></center>
+<center><img src="/img/data_fabric_no_bg-img2.png" width="400" height="407"></center>
 
 ### More opportunities to collect badges!
 
