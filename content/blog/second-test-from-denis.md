@@ -18,6 +18,11 @@ val rawEmaiData=spark.loadFromMapRDB("/googlegroups/messages")
 val rawEmaiDataDF=rawEmaiData.select("_id","bodyWithHistory","threadId","emailDate")
 ```
 
+
+```
+val rawEmaiData=spark.loadFromMapRDB("/googlegroups/messages")
+val rawEmaiDataDF=rawEmaiData.select("_id","bodyWithHistory","threadId","emailDate")
+```
 ----
 
 
