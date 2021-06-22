@@ -2,7 +2,7 @@
 title: CHIF driver not found
 date: 2021-06-14T07:29:21.829Z
 author: François Donzé
-authorimage: /img/Avatar1.svg
+authorimage: https://gravatar.com/avatar/6f3982d1461459da475f47e3a6c89d1d?s=192
 ---
 ## Introduction
 
