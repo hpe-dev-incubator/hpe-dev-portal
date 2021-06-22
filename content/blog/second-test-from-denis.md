@@ -7,4 +7,4 @@ authorimage: /img/Avatar1.svg
 Thsi is a new test.
 Denis
 
-![](/img/image2.png)
+![](/img/image-test2.png)
