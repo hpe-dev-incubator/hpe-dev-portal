@@ -41,7 +41,10 @@ The next screenshot shows the same iLOrest command launched from a Microsoft Win
 ### Issuing in-band commands on a non-iLO based server
 The most typical situation is when you are logged as a privileged user in a non-iLO based server, a virtual machine or a laptop, and issue an iLOrest command or launch a Python or PowerShell script performing in-band Redfish commands.
 
-As said previously, if you don't issue formerly an `iLOrest login` command, iLOrest `blobstore://.` target URL and connects to the local iLO via the CHIF driver. You can as well, write Redfish client programs or scripts with this special target and perform in-band management operations. Such programs will have the same behavior as iLOrest ... TD
+As said previously, if you don't issue formerly an `iLOrest login` command, iLOrest `blobstore://.` target URL and connects to the local iLO via the CHIF driver. You can as well, write Redfish client programs or scripts with this special target and perform in-band management operations. Such programs will have the same behavior as iLOrest ... TBD
+
+
+
 
 
 The previous paragraph illustrates this situation with an iLOrest get command. TBD See 
@@ -49,7 +52,7 @@ The previous paragraph illustrates this situation with an iLOrest get command. T
 TBD
  
 ### VMware infra TBD
-I've seen as well cases where VMware system managers installed manually a`.rpm` iLOrest package in their ESXi hypervisor instead of getting it installed with a [supported HPE custom image](https://vibsdepot.hpe.com/). It is important to remember that HPE bundles and tesst specific application packages of iLOrest, SUM, SUT and the Agentless Management Service (AMS) for the ESXi hypervisor. Manual installation of those applications will generate problems like the `Chif driver not found` error.
+I've seen as well cases where VMware system managers installed manually a`.rpm` iLOrest package in their ESXi hypervisor instead of getting it installed with a [supported HPE custom image](https://vibsdepot.hpe.com/). It is important to remember that HPE bundles and tests specific application packages of iLOrest, SUM, SUT and the Agentless Management Service (AMS) for the ESXi hypervisor. Manual installation of those applications will generate problems like the `Chif driver not found` error.
 
 
 
