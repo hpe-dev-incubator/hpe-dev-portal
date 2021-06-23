@@ -36,29 +36,34 @@ The next screenshot shows the same iLOrest command launched from a Microsoft Win
 
 ![Unsuccessful in-band GET from a Windows laptop](/img/unsuccessfulinbandgetinwinlaptop.png "Unsuccessful in-band GET from a Windows laptop")
 
-## Common situations where you get this error
+## When can you get this error ?
 
-TBD Here are typical situations during which you get this error 
+The most typical situation is TBD/above case.
 
-### TBDiLOrest scripts or interactive sessions
+## VMware infra: Did not install correctly the HPE custom VMware packages !
 
-You don't notice that credentials are bad or you are not a privileged user. 
-
-The following picture displays a script launched from an iLO 4 based computer 
-
-![iLOrest accessing wrong iLO](/img/wrongchif.png "iLOrest accessing wrong iLO")
-
-
-
-### Python / PowerShell scripts
+## Python / PowerShell scripts
 
 Blobstore
+ 
 
-### VMware infra: you don't notice you supplied the wrong credentials
+
+
 
 ## Other related problematic situations
 
 The main purpose of this article is to explain the source and the reasons of the `Chif driver not found` error. However you can face situations where your iLOrest commands return a valid output, but from the wrong system. 
+
+
+### iLOrest scripts accessing the wrong iLO
+
+In this situation, you are a privileged user launching an iLOrest script from a iLO based server, targeting a remote iLO based server. However, the script supplies wrong credentials to the remote iLO. In that case, iLOrest returns an error code, but sadly enough, the script does not test the return code of the login process and continues its execution. 
+
+As you are privileged, on 
+
+The following picture displays a script launched from an iLO 4 based computer 
+
+![iLOrest accessing wrong iLO](/img/wrongchif.png "iLOrest accessing wrong iLO")
 
 In the following picture, privileged user `roor` launches iLOrest from an iLO 4 based server toward an iLO5. The login credentials are wrong and the script does not test the login return code. Moreover, it even discards the login process output to keep the screen cleaner or for some other reasons.
 
