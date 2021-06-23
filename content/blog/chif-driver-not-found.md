@@ -16,8 +16,6 @@ It is packaged with HPE applications requiring it and should never be imported o
 
 ![The CHIF driver allows communication between applications and iLO](/img/chifdriver.png "The CHIF driver allows communication between applications and iLO")
 
-
-
 ## Quick reminder of iLOrest in-band management
 
 The [iLOrest](http://hpe.com/info/resttool) tool allows in-band and out-of-band Redfish management as explained in [this article](https://developer.hpe.com/blog/managing-ilo-sessions-with-redfish/).
@@ -47,6 +45,8 @@ TBD Here are typical situations during which you get this error
 You don't notice that credentials are bad or you are not a privileged user. 
 
 The following picture displays a script launched from an iLO 4 based computer 
+
+![iLOrest accessing wrong iLO](/img/wrongchif.png "iLOrest accessing wrong iLO")
 
 
 
