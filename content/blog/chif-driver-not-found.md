@@ -10,7 +10,7 @@ When using the HPE RESTful Interface Tool ([iLOrest](http://hpe.com/info/resttoo
 
 ## What is the CHIF driver ?
 
-The Channel Interface (CHIF) driver is an HPE proprietary driver allowing  in-band communication between applications and the Insight Lights Out (iLO) within HPE iLO based servers.
+The Channel Interface (CHIF) driver is an HPE proprietary driver allowing  in-band communication between applications and the Insight Lights Out (iLO) within HPE iLO based servers. This driver can only be loaded by the operating system kernel when an iLO chipset is embeded in the computer.
 
 ![The CHIF driver](/img/chifdriver.png "The CHIF driver")
 
@@ -57,7 +57,5 @@ The main purpose of this article is to explain the source and the reasons of the
 In the following picture, privileged user `roor` launches iLOrest from an iLO 4 based server toward an iLO5. The login credentials are wrong and the script does not test the login return code. Moreover, it even discards the login process output to keep the screen cleaner or for some other reasons.
 
 Following the `login` command, the script perform a GET 
-
-
 
 ## Conclusion
