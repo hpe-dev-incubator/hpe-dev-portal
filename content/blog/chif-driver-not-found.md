@@ -42,9 +42,13 @@ The next screenshot shows the same iLOrest command launched from a Microsoft Win
 
 TBD Here are typical situations during which you get this error 
 
-### iLOrest scripts or interactive sessions
+### TBDiLOrest scripts or interactive sessions
 
 You don't notice that credentials are bad or you are not a privileged user. 
+
+The following picture displays a script launched from an iLO 4 based computer 
+
+
 
 ### Python / PowerShell scripts
 
