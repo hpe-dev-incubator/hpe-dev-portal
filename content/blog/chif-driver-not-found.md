@@ -38,9 +38,10 @@ The next screenshot shows the same iLOrest command launched from a Microsoft Win
 
 ## When can you get this error ?
 
-The most typical situation is TBD/above case.
+The most typical situation is when you are logged in as a privileged user a non iLO based server, a virtual machine or a laptop, as explained above.
 
-## VMware infra: Did not install correctly the HPE custom VMware packages !
+I've seen as well case where VMware system managers installed manually an rpm iLOrest package in their ESXi hypervisor instead of getting it installed with the supported HPE custom images.
+
 
 ## Python / PowerShell scripts
 
