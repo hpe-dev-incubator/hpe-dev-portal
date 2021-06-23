@@ -38,9 +38,9 @@ The next screenshot shows the same iLOrest command launched from a Microsoft Win
 
 ## When can you get this error ?
 
-The most typical situation is when you are logged in as a privileged user a non iLO based server, a virtual machine or a laptop, as explained above.
+The most typical situation is when you are logged as a privileged user in a non-iLO based server, a virtual machine or a laptop, as explained in the above paragraph.
 
-I've seen as well case where VMware system managers installed manually an rpm iLOrest package in their ESXi hypervisor instead of getting it installed with the supported HPE custom images.
+I've seen as well cases where VMware system managers installed manually a`.rpm` iLOrest package in their ESXi hypervisor instead of getting it installed with a [supported HPE custom image](https://vibsdepot.hpe.com/). It is important to remember that HPE bundles and tesst specific application packages of iLOrest, SUM, SUT and the Agentless Management Service (AMS) for the ESXi hypervisor. Manual installation of those applications will generate problems like the `Chif driver not found` error.
 
 
 ## Python / PowerShell scripts
