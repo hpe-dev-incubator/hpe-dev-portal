@@ -39,31 +39,26 @@ The next screenshot shows the same iLOrest command launched from a Microsoft Win
 ## When can you get this error ?
 
 ### Issuing in-band commands on a non-iLO based server
+
 The most typical situation is when you are logged as a privileged user in a non-iLO based server, a virtual machine or a laptop, and issue an iLOrest command or launch a Python or PowerShell script performing in-band Redfish commands.
 
 As said previously, if you don't issue formerly an `iLOrest login` command, iLOrest `blobstore://.` target URL and connects to the local iLO via the CHIF driver. You can as well, write Redfish client programs or scripts with this special target and perform in-band management operations. Such programs will have the same behavior as iLOrest ... TBD
 
-
-
-
-
 The previous paragraph illustrates this situation with an iLOrest get command. TBD See 
 
+![blobstore target URL](/img/blobstoretarget.png "blobstore target URL")
+
+
+
 TBD
- 
+
 ### VMware infra TBD
+
 I've seen as well cases where VMware system managers installed manually a`.rpm` iLOrest package in their ESXi hypervisor instead of getting it installed with a [supported HPE custom image](https://vibsdepot.hpe.com/). It is important to remember that HPE bundles and tests specific application packages of iLOrest, SUM, SUT and the Agentless Management Service (AMS) for the ESXi hypervisor. Manual installation of those applications will generate problems like the `Chif driver not found` error.
-
-
-
-
-
-
 
 ## Other related problematic situations
 
 The main purpose of this article is to explain the source and the reasons of the `Chif driver not found` error. However you can face situations where your iLOrest commands return a valid output, but from the wrong system. 
-
 
 ### iLOrest scripts accessing the wrong iLO
 
