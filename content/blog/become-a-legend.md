@@ -2,7 +2,7 @@
 title: Become a Legend!
 date: 2021-06-22T19:32:31.547Z
 author: Dale Rensing
-authorimage: /img/dev-thumb2.png
+authorimage: /img/hpe-dev-logo.png
 ---
 <center><img src="/img/15_workshops_legend_no_bg-img1.png" width="400" height="439"></center>
 
