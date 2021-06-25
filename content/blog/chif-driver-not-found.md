@@ -43,7 +43,7 @@ The next screenshot shows the same iLOrest command launched from a Microsoft Win
 
 ![Unsuccessful in-band GET from a Windows laptop](/img/unsuccessfulinbandgetinwinlaptop.png "Unsuccessful in-band GET from a Windows laptop")
 
-As said previously, if you don't provide formerly a target iLO IP address to an `iLOrest login` command, iLOrest uses the `blobstore://.` target URL to connect to the local iLO via the CHIF driver.
+If you don't provide formerly a target iLO IP address to an `iLOrest login` command, iLOrest uses the `blobstore://.` target URL to connect to the local iLO via the CHIF driver.
 
 The `blobstore://.` URL can be used as well in Redfish client Python or PowerShell scripts  perform in-band management operations. Such programs will have the same behavior as iLOrest ... TBD 
 
@@ -51,9 +51,9 @@ The `blobstore://.` URL can be used as well in Redfish client Python or PowerShe
 
 In the following picture you can see the execution in a virtual machine, of the `get_ilo_ip.py` python example from the [HPE Python iLOrest library](https://github.com/HewlettPackard/python-ilorest-library/blob/master/examples/Redfish/get_ilo_ip.py).
 
-The `grep` command, following the `dmidecode` command returns all the lines in the `get_ilo_ip.py` file, containing strings `SYSTEM_URL` or `LOGIN_ACCOUNT` or `LOGIN_PASSWORD`. Lines starting with `#` are commented lines, thus, not executed.
+The `grep` command, following the `dmidecode` command returns all the lines of the `get_ilo_ip.py` file, containing strings `SYSTEM_URL` or `LOGIN_ACCOUNT` or `LOGIN_PASSWORD`. Lines starting with a `#` sign are commented lines, thus, not executed.
 
-The target URL (`SYSTEM_URL`) points to `blobstore://.` and the `LOGIN_ACCOUNT` and `LOGIN_PASSWORD` variables are empty. 
+The target URL (`SYSTEM_URL`) points to `blobstore://.` and the `LOGIN_ACCOUNT` and `LOGIN_PASSWORD` variables are empty. With this configuration, the `RedfishClient` method will try to connect to the CHIF driver to access the local iLO. However, it fails because 
 
 The result of this in-band configuration is a `ChifDriverMissingOrNotFound` (only the last two lines of stack dump are displayed).
 
@@ -63,7 +63,7 @@ The result of this in-band configuration is a `ChifDriverMissingOrNotFound` (onl
 
 TBD
 
-### VMware infra TBD
+### Miss configured HPE/VMware infra TBD
 
 I've seen as well cases where VMware system managers installed manually a`.rpm` iLOrest package in their ESXi hypervisor instead of getting it installed with a [supported HPE custom image](https://vibsdepot.hpe.com/). It is important to remember that HPE bundles and tests specific application packages of iLOrest, SUM, SUT and the Agentless Management Service (AMS) for the ESXi hypervisor. Manual installation of those applications will generate problems like the `Chif driver not found` error.
 
