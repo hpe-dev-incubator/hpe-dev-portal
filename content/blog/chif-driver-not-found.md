@@ -43,13 +43,13 @@ The next screenshot shows the same iLOrest command launched from a Microsoft Win
 
 ![Unsuccessful in-band GET from a Windows laptop](/img/unsuccessfulinbandgetinwinlaptop.png "Unsuccessful in-band GET from a Windows laptop")
 
-TBDTBDTBD
-
 As said previously, if you don't provide formerly a target iLO IP address to an `iLOrest login` command, iLOrest uses the `blobstore://.` target URL to connect to the local iLO via the CHIF driver.
 
-You can as well, write Redfish client programs or scripts with this special target and perform in-band management operations. Such programs will have the same behavior as iLOrest ... TBD
+The `blobstore://.` URL can be used as well in Redfish client Python or PowerShell scripts  perform in-band management operations. Such programs will have the same behavior as iLOrest ... TBD 
 
-The previous paragraph illustrates this situation with an iLOrest get command. TBD See 
+> NOTE: TBD can we use the `blobstore://.` target URL with tackle box ? or non HPE PowerShell cmdlets ? TBD
+
+In the following picture we can see the execution of the `get_ilo_ip.py` python example TBD
 
 ![blobstore target URL](/img/blobstoretarget.png "blobstore target URL")
 
