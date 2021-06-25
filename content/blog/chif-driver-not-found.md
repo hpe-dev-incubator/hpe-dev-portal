@@ -10,7 +10,7 @@ When using the HPE RESTful Interface Tool ([iLOrest](http://hpe.com/info/resttoo
 
 ## What is the CHIF driver ?
 
-The Channel Interface (CHIF) driver is an HPE proprietary driver allowing  in-band communication between applications and the Insight Lights Out (iLO) within HPE iLO based servers. This driver can only be loaded by the operating system kernel when an iLO chip set is embedded in the computer.
+The Channel Interface (CHIF) driver is an HPE proprietary driver allowing  in-band communication between applications and the Insight Lights Out (iLO) within HPE iLO based servers. This driver can only be loaded by the operating system (OS) kernel when an iLO chip set is embedded in the computer.
 
 It is packaged with HPE applications requiring it and should never be imported or manipulated manually.
 
@@ -20,15 +20,15 @@ It is packaged with HPE applications requiring it and should never be imported o
 
 The [iLOrest](http://hpe.com/info/resttool) tool allows in-band and out-of-band Redfish management as explained in [this article](https://developer.hpe.com/blog/managing-ilo-sessions-with-redfish/).
 
-If you are logged in an HPE iLO 4 or iLO 5 based server as a privileged user (root or Administrator), you can perform in-band management tasks with iLOrest without providing any credentials or use the `login` command. You just have to issue GET or SET command in a straight forward manner to query the local iLO Redfish service. 
+If you are logged in an HPE iLO 4 or iLO 5 based server as a privileged user (root or Administrator), you can perform in-band management tasks with iLOrest without providing any credentials. You just have to issue GET or SET commands in a straight forward manner to query the local iLO Redfish service.
 
 The following picture shows an SSH root session creation, toward an HPE DL360 Gen10 with the execution of an iLOrest GET command without any formal login process. The `Discovering data...Done` message means that iLOrest could effectively log into the local iLO 5 and save metadata in its cache. Then, it displays the output of the GET command (`Model=iLO 5`).
 
 ![Successful in-band GET command](/img/successfulinbandget.png "Successful in-band GET command")
 
-But what happens if you SSH into a non iLO based server or into a virtual machine ? In both cases, there is no iLO right underneath the operating system. Hence the CHIF driver, although present somewhere on disk, cannot not be be loaded in the kernel and the application returns an error because it cannot connect to it.
+But what happens if you SSH into a non iLO based server or into a virtual machine ? In both cases, there is no iLO right underneath the operating system. Hence the CHIF driver, although present somewhere on disk, cannot not be be loaded in the OS kernel and the application (iLOrest, SUM, iSUT) returns an error because it cannot connect to it.
 
-The following picture shows an SSH privileged session into a VMware virtual machine and an ilorest in-band management command returning the error. 
+The following picture shows an SSH privileged session into a VMware virtual machine and an iLOrest in-band management command returning the error. 
 
 ![Unsuccessful in-band GET from Virtual Machine](/img/unsuccessfulinbandgetinvm.png "Unsuccessful in-band GET from Virtual Machine")
 
@@ -36,7 +36,7 @@ The next screenshot shows the same iLOrest command launched from a Microsoft Win
 
 ![Unsuccessful in-band GET from a Windows laptop](/img/unsuccessfulinbandgetinwinlaptop.png "Unsuccessful in-band GET from a Windows laptop")
 
-## When can you get this error ?
+## When do you get this error ?
 
 ### Issuing in-band commands on a non-iLO based server
 
