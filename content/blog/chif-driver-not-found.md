@@ -26,7 +26,14 @@ The following picture shows an SSH root session creation, toward an HPE DL360 Ge
 
 ![Successful in-band GET command](/img/successfulinbandget.png "Successful in-band GET command")
 
-But what happens if you SSH into a non iLO based server or into a virtual machine ? In both cases, there is no iLO right underneath the operating system. Hence the CHIF driver, although present somewhere on disk, cannot not be be loaded in the OS kernel and the application (iLOrest, SUM, iSUT) returns an error because it cannot connect to it.
+
+## When do you get the Chif Driver not found error ?
+
+### Issuing in-band commands on a non-iLO based server
+
+The most typical situation is when you are logged as a privileged user in a non-iLO based server, a virtual machine or a laptop, and you issue an iLOrest command or launch a Python or PowerShell script performing in-band Redfish commands.
+
+In those cases, there is no iLO underneath the operating system. Hence the CHIF driver, although present as a file somewhere on disk, cannot not be be loaded in the OS kernel and the application (iLOrest, SUM, iSUT) returns the error because it cannot connect to it.
 
 The following picture shows an SSH privileged session into a VMware virtual machine and an iLOrest in-band management command returning the error. 
 
@@ -36,13 +43,11 @@ The next screenshot shows the same iLOrest command launched from a Microsoft Win
 
 ![Unsuccessful in-band GET from a Windows laptop](/img/unsuccessfulinbandgetinwinlaptop.png "Unsuccessful in-band GET from a Windows laptop")
 
-## When do you get this error ?
+TBDTBDTBD
 
-### Issuing in-band commands on a non-iLO based server
+As said previously, if you don't provide formerly a target iLO IP address to an `iLOrest login` command, iLOrest uses the `blobstore://.` target URL to connect to the local iLO via the CHIF driver.
 
-The most typical situation is when you are logged as a privileged user in a non-iLO based server, a virtual machine or a laptop, and issue an iLOrest command or launch a Python or PowerShell script performing in-band Redfish commands.
-
-As said previously, if you don't issue formerly an `iLOrest login` command, iLOrest `blobstore://.` target URL and connects to the local iLO via the CHIF driver. You can as well, write Redfish client programs or scripts with this special target and perform in-band management operations. Such programs will have the same behavior as iLOrest ... TBD
+You can as well, write Redfish client programs or scripts with this special target and perform in-band management operations. Such programs will have the same behavior as iLOrest ... TBD
 
 The previous paragraph illustrates this situation with an iLOrest get command. TBD See 
 
