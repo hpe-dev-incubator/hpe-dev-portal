@@ -49,7 +49,13 @@ The `blobstore://.` URL can be used as well in Redfish client Python or PowerShe
 
 > NOTE: TBD can we use the `blobstore://.` target URL with tackle box ? or non HPE PowerShell cmdlets ? TBD
 
-In the following picture you can see the execution in a virtual machine, of the `get_ilo_ip.py` python example from the [HPE Python iLOrest library](https://github.com/HewlettPackard/python-ilorest-library/blob/master/examples/Redfish/get_ilo_ip.py). The target URL (`SYSTEM_URL`) points to `blobstore://.` and the script returns a `ChifDriverMissingOrNotFound` error.
+In the following picture you can see the execution in a virtual machine, of the `get_ilo_ip.py` python example from the [HPE Python iLOrest library](https://github.com/HewlettPackard/python-ilorest-library/blob/master/examples/Redfish/get_ilo_ip.py).
+
+The `grep` command, following the `dmidecode` command returns all the lines in the `get_ilo_ip.py` file, containing strings `SYSTEM_URL` or `LOGIN_ACCOUNT` or `LOGIN_PASSWORD`. Lines starting with `#` are commented lines, thus, not executed.
+
+The target URL (`SYSTEM_URL`) points to `blobstore://.` and the `LOGIN_ACCOUNT` and `LOGIN_PASSWORD` variables are empty. 
+
+The result of this in-band configuration is a `ChifDriverMissingOrNotFound` (only the last two lines of stack dump are displayed).
 
 ![blobstore target URL](/img/blobstoretarget.png "blobstore target URL")
 
