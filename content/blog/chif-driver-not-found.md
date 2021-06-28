@@ -46,7 +46,7 @@ ilorest logout
 
 If you don't provide any `<RedfishService-IP-address>` to the `iLOrest login` command, or if you omit completely this command, iLOrest uses the `blobstore://.` target URL and tries to connect to the local iLO via the CHIF driver.
 
-If your Redfish client uses another library (i.e. [DMTF Python Redfish Library](https://github.com/DMTF/python-redfish-library)), you will not be able to perform in-band management through the CHIF driver. The alternative is to enable the [iLO Virtual NIC](https://www.youtube.com/watch?v=KM1FZ-AlctA) and use its IP address as target URL.
+If your Redfish client uses another library like the [DMTF Python Redfish Library](https://github.com/DMTF/python-redfish-library), you will not be able to perform in-band management through the CHIF driver. An alternative is to enable the [iLO Virtual NIC](https://www.youtube.com/watch?v=KM1FZ-AlctA) and use its IP address as target URL.
 
 The following picture shows an SSH privileged session into a VMware virtual machine and an iLOrest in-band GET command returning the error. 
 
@@ -66,15 +66,19 @@ The `grep` command, following the `dmidecode` command returns all the lines of t
 
 The target URL (`SYSTEM_URL`) points to `blobstore://.` and, the `LOGIN_ACCOUNT` and `LOGIN_PASSWORD` variables are empty. With this configuration, the `RedfishClient` method will try to connect to the CHIF driver to access the local iLO. However, it fails because it the script is executed on a virtual machine.
 
-The result of this in-band configuration is a `ChifDriverMissingOrNotFound` error. Only the last two lines of stack dump are displayed for clarity.
+The result of this in-band configuration is a `ChifDriverMissingOrNotFound` error. 
+
+> NOTE: Only the last two lines of stack dump are displayed for clarity.
 
 ![blobstore target URL](/img/blobstoretarget.png "blobstore target URL")
 
-> NOTE: As of the writing of this article, only the [HPESysinfoCmdlets](https://www.powershellgallery.com/packages?q=HPESysinfoCmdlets) uses the CHIF driver for in-band management. Other PowerShell Cmdlets like the [HPEiLOCmdlets](https://www.powershellgallery.com/packages/HPEiLOCmdlets/) or the [HPERedfishCmdlets](https://www.powershellgallery.com/packages/HPERedfishCmdlets/) cannot be configured for in-band management through the CHIF driver.
+### Note concerning HPE PowerShell Cmdlets
 
-### Miss configured HPE/VMware infra TBD
+ As of the writing of this article, only the [HPESysinfoCmdlets](https://www.powershellgallery.com/packages?q=HPESysinfoCmdlets) uses the CHIF driver for in-band management. Other PowerShell Cmdlets like the [HPEiLOCmdlets](https://www.powershellgallery.com/packages/HPEiLOCmdlets/) or the [HPERedfishCmdlets](https://www.powershellgallery.com/packages/HPERedfishCmdlets/) cannot be configured for in-band management through the CHIF driver.
 
-I've seen as well cases where VMware system managers installed manually a`.rpm` iLOrest package in their ESXi hypervisor instead of getting it installed with a [supported HPE custom image](https://vibsdepot.hpe.com/). It is important to remember that HPE bundles and tests specific application packages of iLOrest, SUM, SUT and the Agentless Management Service (AMS) for the ESXi hypervisor. Manual installation of those applications will generate problems like the `Chif driver not found` error.
+### Miss configured HPE/VMware infrastructures
+
+I've seen cases where VMware system managers installed manually a `.rpm` iLOrest package in their ESXi hypervisor instead of getting it installed prpoerly with a [supported HPE custom image](https://vibsdepot.hpe.com/). It is important to remember that HPE bundles and tests specific application packages of iLOrest, SUM, SUT and the Agentless Management Service (AMS) for the ESXi hypervisor. Manual installation of those applications will generate problems like the `Chif driver not found` error.
 
 ## Other related problematic situations
 
