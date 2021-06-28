@@ -26,7 +26,6 @@ The following picture shows an SSH root session creation, toward an HPE DL360 Ge
 
 ![Successful in-band GET command](/img/successfulinbandget.png "Successful in-band GET command")
 
-
 ## When do you get the Chif Driver not found error ?
 
 The most typical situation is when you are logged in, as a privileged user in a non-iLO based server, a virtual machine or a laptop, and you issue an iLOrest command or launch a Python or PowerShell script performing in-band Redfish commands.
@@ -37,7 +36,7 @@ In those cases, there is no iLO underneath the operating system. Hence the CHIF 
 
 The most typical iLOrest invocation is:
 
-```Shell
+```shell
 ilorest login <RedfishService-IP-address>
 ilorest cmd1
 ilorest cmd2
@@ -51,9 +50,11 @@ The following picture shows an SSH privileged session into a VMware virtual mach
 
 ![Unsuccessful in-band GET from Virtual Machine](/img/unsuccessfulinbandgetinvm.png "Unsuccessful in-band GET from Virtual Machine")
 
-The next screenshot shows the same iLOrest command launched from a Microsoft Windows computer, with no embedded iLO chip.
+The next screenshot shows the same iLOrest command launched from a Microsoft Windows laptop.
 
-![Unsuccessful in-band GET from a Windows laptop](/img/unsuccessfulinbandgetinwinlaptop.png "Unsuccessful in-band GET from a Windows laptop").
+![](/img/unsuccessfulinbandgetinwinlaptop.png)
+
+![Unsuccessful in-band GET from a Windows laptop](/img/unsuccessfullinbandgetinwinlaptop.png "Unsuccessful in-band GET from a Windows laptop").
 
 ### TBD python or PowerShell script
 
@@ -70,8 +71,6 @@ The target URL (`SYSTEM_URL`) points to `blobstore://.` and the `LOGIN_ACCOUNT` 
 The result of this in-band configuration is a `ChifDriverMissingOrNotFound` (only the last two lines of stack dump are displayed).
 
 ![blobstore target URL](/img/blobstoretarget.png "blobstore target URL")
-
-
 
 TBD
 
