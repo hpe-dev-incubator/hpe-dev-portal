@@ -1,7 +1,7 @@
 ---
 title: Calling all developers… Make your voices heard!
 date: 2021-05-28T06:23:25.530Z
-featuredBlog: false
+featuredBlog: true
 priority: 1
 author: Didier Lalli
 authorimage: https://gravatar.com/avatar/7dd708edf1c50d4c45da80f60e3643e7?s=192
