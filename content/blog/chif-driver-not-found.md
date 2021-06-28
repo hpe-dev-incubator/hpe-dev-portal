@@ -33,7 +33,7 @@ The following picture shows an SSH root session creation, toward an HPE DL360 Ge
 
 The most typical situation is when you are logged as a privileged user in a non-iLO based server, a virtual machine or a laptop, and you issue an iLOrest command or launch a Python or PowerShell script performing in-band Redfish commands.
 
-In those cases, there is no iLO underneath the operating system. Hence the CHIF driver, although present as a file somewhere on disk, cannot not be loaded in the OS kernel and the application (iLOrest, SUM, iSUT) returns the error because it cannot connect to it.
+In those cases, there is no iLO underneath the operating system. Hence the CHIF driver, although present as a file somewhere on disk, cannot not be loaded in the OS kernel and the application (iLOrest, SUM, iSUT, AMSD) returns the error because it cannot connect to it.
 
 The following picture shows an SSH privileged session into a VMware virtual machine and an iLOrest in-band management command returning the error. 
 
@@ -43,7 +43,9 @@ The next screenshot shows the same iLOrest command launched from a Microsoft Win
 
 ![Unsuccessful in-band GET from a Windows laptop](/img/unsuccessfulinbandgetinwinlaptop.png "Unsuccessful in-band GET from a Windows laptop")
 
-If you don't provide formerly a target iLO IP address to an `iLOrest login` command, iLOrest uses the `blobstore://.` target URL to connect to the local iLO via the CHIF driver.
+If you don't provide formerly an URL of the form `https://<iLO-IP-address>` to an `iLOrest login` command, iLOrest uses the `blobstore://.` target URL to connect to the local iLO via the CHIF driver.
+
+
 
 The `blobstore://.` URL can be used as well in Redfish client Python or PowerShell scripts  perform in-band management operations. Such programs will have the same behavior as iLOrest ... TBD 
 
