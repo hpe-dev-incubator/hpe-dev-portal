@@ -46,6 +46,8 @@ ilorest logout
 
 If you don't provide any `<RedfishService-IP-address>` to the `iLOrest login` command, or if you omit completely this command, iLOrest uses the `blobstore://.` target URL and tries to connect to the local iLO via the CHIF driver.
 
+If your Redfish client uses another library (i.e. [DMTF Python Redfish Library](https://github.com/DMTF/python-redfish-library)), you will not be able to perform in-band management through the CHIF driver. The alternative is to enable the [iLO Virtual NIC](https://www.youtube.com/watch?v=KM1FZ-AlctA) and use its IP address as target URL.
+
 The following picture shows an SSH privileged session into a VMware virtual machine and an iLOrest in-band GET command returning the error. 
 
 ![Unsuccessful in-band GET from Virtual Machine](/img/unsuccessfulinbandgetinvm.png "Unsuccessful in-band GET from Virtual Machine")
@@ -54,9 +56,9 @@ The next screenshot shows the same iLOrest command launched from a Microsoft Win
 
 ![Unsuccessful in-band GET from laptop](/img/unsuccessfulinbandgetinwinlaptop.png "Unsuccessful in-band GET from laptop")
 
-### In-band Python script
+### In-band Python scripts
 
-The `blobstore://.` URL can be used as well in Redfish client Python scripts based upon the [HPE python-ilorest-library](https://github.com/HewlettPackard/python-ilorest-library) to perform in-band management operations. Such programs will have the same behavior as iLOrest since iLOrest uses as well this HPE Python Redfish library. 
+The `blobstore://.` URL can be used as well in Redfish Python scripts based upon the [HPE python-ilorest-library](https://github.com/HewlettPackard/python-ilorest-library) to perform in-band management operations. Such programs will have the same behavior as iLOrest since iLOrest uses as well this HPE Python Redfish library. 
 
 In the following picture you can see the execution in a virtual machine, of the [get_ilo_ip.py](https://github.com/HewlettPackard/python-ilorest-library/blob/master/examples/Redfish/get_ilo_ip.py) python example from this HPE library configured for in-band management.
 
