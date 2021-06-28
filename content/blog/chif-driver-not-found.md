@@ -29,23 +29,33 @@ The following picture shows an SSH root session creation, toward an HPE DL360 Ge
 
 ## When do you get the Chif Driver not found error ?
 
-### Issuing in-band commands on a non-iLO based server
-
-The most typical situation is when you are logged as a privileged user in a non-iLO based server, a virtual machine or a laptop, and you issue an iLOrest command or launch a Python or PowerShell script performing in-band Redfish commands.
+The most typical situation is when you are logged in, as a privileged user in a non-iLO based server, a virtual machine or a laptop, and you issue an iLOrest command or launch a Python or PowerShell script performing in-band Redfish commands.
 
 In those cases, there is no iLO underneath the operating system. Hence the CHIF driver, although present as a file somewhere on disk, cannot not be loaded in the OS kernel and the application (iLOrest, SUM, iSUT, AMSD) returns the error because it cannot connect to it.
 
-The following picture shows an SSH privileged session into a VMware virtual machine and an iLOrest in-band management command returning the error. 
+### Issuing iLOrest in-band commands on a non-iLO based server
+
+The most typical iLOrest invocation is:
+
+```Shell
+ilorest login <RedfishService-IP-address>
+ilorest cmd1
+ilorest cmd2
+...
+ilorest logout
+```
+
+If you don't provide any `<RedfishService-IP-address>` to the `iLOrest login` command, or if you omit completely this command, iLOrest uses the `blobstore://.` target URL and tries to connect to the local iLO via the CHIF driver.
+
+The following picture shows an SSH privileged session into a VMware virtual machine and an iLOrest in-band GET command returning the error. 
 
 ![Unsuccessful in-band GET from Virtual Machine](/img/unsuccessfulinbandgetinvm.png "Unsuccessful in-band GET from Virtual Machine")
 
 The next screenshot shows the same iLOrest command launched from a Microsoft Windows computer, with no embedded iLO chip.
 
-![Unsuccessful in-band GET from a Windows laptop](/img/unsuccessfulinbandgetinwinlaptop.png "Unsuccessful in-band GET from a Windows laptop")
+![Unsuccessful in-band GET from a Windows laptop](/img/unsuccessfulinbandgetinwinlaptop.png "Unsuccessful in-band GET from a Windows laptop").
 
-If you don't provide formerly an URL of the form `https://<iLO-IP-address>` to an `iLOrest login` command, iLOrest uses the `blobstore://.` target URL to connect to the local iLO via the CHIF driver.
-
-
+### TBD python or PowerShell script
 
 The `blobstore://.` URL can be used as well in Redfish client Python or PowerShell scripts  perform in-band management operations. Such programs will have the same behavior as iLOrest ... TBD 
 
