@@ -52,9 +52,7 @@ The following picture shows an SSH privileged session into a VMware virtual mach
 
 The next screenshot shows the same iLOrest command launched from a Microsoft Windows laptop.
 
-![](/img/unsuccessfulinbandgetinwinlaptop.png)
-
-![Unsuccessful in-band GET from a Windows laptop](/img/unsuccessfullinbandgetinwinlaptop.png "Unsuccessful in-band GET from a Windows laptop").
+![Unsuccessful in-band GET from laptop](/img/unsuccessfulinbandgetinwinlaptop.png "Unsuccessful in-band GET from laptop")
 
 ### TBD python or PowerShell script
 
