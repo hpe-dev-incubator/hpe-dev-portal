@@ -1,14 +1,17 @@
 ---
-title: "HPE Discover 2021: Don’t Miss these HPE DEV Industry Expert Talks and
-  Hands-on Workshops"
+title: Calling all developers… Make your voices heard!
 category: Featured Blog
 priority: 2
 width: small
-link: /blog/hpe-discover-2021-don%E2%80%99t-miss-these-hpe-dev-industry-expert-talks-and-hands-on-workshops/
-image: /img/blog-author-rensing-96.jpg
+link: /blog/calling-all-developers-make-your-voices-heard/
+image: https://gravatar.com/avatar/7dd708edf1c50d4c45da80f60e3643e7?s=96
 ---
-Dale Rensing
+Didier Lalli
 
-## Don’t Miss these HPE DEV Discover Sessions!
 
-#### June 22 - 25, 2021
+
+## Calling all developers… Make your voices heard!
+
+
+
+#### June 9 - August 4, 2021
