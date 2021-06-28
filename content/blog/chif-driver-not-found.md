@@ -3,6 +3,12 @@ title: CHIF driver not found
 date: 2021-06-22T12:06:33.680Z
 author: François Donzé
 authorimage: https://gravatar.com/avatar/6f3982d1461459da475f47e3a6c89d1d?s=192
+tags:
+  - ilo-restful-api
+  - redfish
+  - chif driver
+  - ilorest
+  - ilo 5
 ---
 ## Introduction
 
@@ -96,6 +102,13 @@ As a consequence, the following iLOrest command retrieves the local iLO 4 firmwa
 
 ![iLOrest accessing wrong iLO](/img/wrongchif.png "iLOrest accessing wrong iLO") 
 
-## Conclusion
+## Take aways
 
-TBD
+The most important things you should remember concerning the `Chif driver not found` error are:
+
+  * The CHIF driver is a proprietary kernel driver allowing communications between applications and iLO
+
+  * The error occurs when the CHIF driver is not loaded in the kernel
+
+  * TBD
+
