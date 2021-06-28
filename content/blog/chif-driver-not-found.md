@@ -88,14 +88,12 @@ The main purpose of this article is to explain the root causes and the reasons o
 
 In this situation, you are a privileged user launching an iLOrest script from a iLO based server, targeting a remote iLO based server. However, the script supplies wrong credentials to the remote iLO. In that case, iLOrest returns an error code, but sadly enough, the script does not test the return code of the login process and continues its execution. 
 
-As you are privileged, on a physical iLO based system with the CHIF driver up and running, iLOrest performs subsecquent requests on your system in place of the remote server. 
+As you are privileged, on a physical iLO based system with the CHIF driver up and running, iLOrest performs subsequent requests on your system in place of the remote server. 
 
-The following picture displays a script launched from an iLO 4 based computer. 
+The following picture displays a script launched from an iLO 4 based computer, targeting an ilO 5, but supplying faulty username and password in the login command and discarding errors (`&> /dev/null`).
 
-![iLOrest accessing wrong iLO](/img/wrongchif.png "iLOrest accessing wrong iLO")
+As a consequence, the following iLOrest command retrieves the local iLO 4 firmware version, instead of the remote ilO 5 firmware version ! 
 
-In the following picture, privileged user `roor` launches iLOrest from an iLO 4 based server toward an iLO5. The login credentials are wrong and the script does not test the login return code. Moreover, it even discards the login process output to keep the screen cleaner or for some other reasons.
-
-Following the `login` command, the script perform a GET 
+![iLOrest accessing wrong iLO](/img/wrongchif.png "iLOrest accessing wrong iLO") 
 
 ## Conclusion
