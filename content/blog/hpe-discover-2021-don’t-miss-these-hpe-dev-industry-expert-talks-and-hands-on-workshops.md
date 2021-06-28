@@ -2,8 +2,8 @@
 title: "HPE Discover 2021: Don’t Miss these HPE DEV Industry Expert Talks and
   Hands-on Workshops"
 date: 2021-05-25T17:06:00.197Z
-featuredBlog: true
-priority: 1
+featuredBlog: false
+priority: 6
 author: Dale Rensing
 authorimage: /img/blog-author-rensing-96.jpg
 thumbnailimage: /img/discover-event-logo.png
