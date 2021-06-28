@@ -82,15 +82,15 @@ I've seen cases where VMware system managers installed manually a `.rpm` iLOrest
 
 ## Other related problematic situations
 
-The main purpose of this article is to explain the source and the reasons of the `Chif driver not found` error. However you can face situations where your iLOrest commands return a valid output, but from the wrong system. 
+The main purpose of this article is to explain the root causes and the reasons of the `Chif driver not found` error. However you can face situations where your iLOrest commands return a valid output, but from the wrong system !
 
-### iLOrest scripts accessing the wrong iLO
+### iLOrest scripts accessing a wrong iLO
 
 In this situation, you are a privileged user launching an iLOrest script from a iLO based server, targeting a remote iLO based server. However, the script supplies wrong credentials to the remote iLO. In that case, iLOrest returns an error code, but sadly enough, the script does not test the return code of the login process and continues its execution. 
 
-As you are privileged, on 
+As you are privileged, on a physical iLO based system with the CHIF driver up and running, iLOrest performs subsecquent requests on your system in place of the remote server. 
 
-The following picture displays a script launched from an iLO 4 based computer 
+The following picture displays a script launched from an iLO 4 based computer. 
 
 ![iLOrest accessing wrong iLO](/img/wrongchif.png "iLOrest accessing wrong iLO")
 
