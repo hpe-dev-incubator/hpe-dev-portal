@@ -68,7 +68,7 @@ The result of this in-band configuration is a `ChifDriverMissingOrNotFound` erro
 
 ![blobstore target URL](/img/blobstoretarget.png "blobstore target URL")
 
-TBD
+> NOTE: As of the writing of this article, only the [HPESysinfoCmdlets](https://www.powershellgallery.com/packages?q=HPESysinfoCmdlets) uses the CHIF driver for in-band management. Other PowerShell Cmdlets like the [HPEiLOCmdlets](https://www.powershellgallery.com/packages/HPEiLOCmdlets/) or the [HPERedfishCmdlets](https://www.powershellgallery.com/packages/HPERedfishCmdlets/) cannot be configured for in-band management through the CHIF driver.
 
 ### Miss configured HPE/VMware infra TBD
 
