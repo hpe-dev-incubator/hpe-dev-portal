@@ -54,19 +54,17 @@ The next screenshot shows the same iLOrest command launched from a Microsoft Win
 
 ![Unsuccessful in-band GET from laptop](/img/unsuccessfulinbandgetinwinlaptop.png "Unsuccessful in-band GET from laptop")
 
-### TBD python or PowerShell script
+### In-band Python script
 
-The `blobstore://.` URL can be used as well in Redfish client Python or PowerShell scripts  perform in-band management operations. Such programs will have the same behavior as iLOrest ... TBD 
+The `blobstore://.` URL can be used as well in Redfish client Python scripts based upon the [HPE python-ilorest-library](https://github.com/HewlettPackard/python-ilorest-library) to perform in-band management operations. Such programs will have the same behavior as iLOrest since iLOrest uses as well this HPE Python Redfish library. 
 
-> NOTE: TBD can we use the `blobstore://.` target URL with tackle box ? or non HPE PowerShell cmdlets ? TBD
-
-In the following picture you can see the execution in a virtual machine, of the `get_ilo_ip.py` python example from the [HPE Python iLOrest library](https://github.com/HewlettPackard/python-ilorest-library/blob/master/examples/Redfish/get_ilo_ip.py).
+In the following picture you can see the execution in a virtual machine, of the [get_ilo_ip.py](https://github.com/HewlettPackard/python-ilorest-library/blob/master/examples/Redfish/get_ilo_ip.py) python example from this HPE library configured for in-band management.
 
 The `grep` command, following the `dmidecode` command returns all the lines of the `get_ilo_ip.py` file, containing strings `SYSTEM_URL` or `LOGIN_ACCOUNT` or `LOGIN_PASSWORD`. Lines starting with a `#` sign are commented lines, thus, not executed.
 
-The target URL (`SYSTEM_URL`) points to `blobstore://.` and the `LOGIN_ACCOUNT` and `LOGIN_PASSWORD` variables are empty. With this configuration, the `RedfishClient` method will try to connect to the CHIF driver to access the local iLO. However, it fails because 
+The target URL (`SYSTEM_URL`) points to `blobstore://.` and, the `LOGIN_ACCOUNT` and `LOGIN_PASSWORD` variables are empty. With this configuration, the `RedfishClient` method will try to connect to the CHIF driver to access the local iLO. However, it fails because it the script is executed on a virtual machine.
 
-The result of this in-band configuration is a `ChifDriverMissingOrNotFound` (only the last two lines of stack dump are displayed).
+The result of this in-band configuration is a `ChifDriverMissingOrNotFound` error. Only the last two lines of stack dump are displayed for clarity.
 
 ![blobstore target URL](/img/blobstoretarget.png "blobstore target URL")
 
