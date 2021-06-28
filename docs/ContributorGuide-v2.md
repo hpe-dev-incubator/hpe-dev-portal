@@ -387,8 +387,10 @@ To do so, proceed as follows:
 
           - Check that your picture is reachable with:
         [https://gravatar.com/avatar/\<YourHash\>?s=96](https://gravatar.com/avatar/%3cYourHash%3e?s=96)
-        for example:
-        [https://gravatar.com/avatar/7dd708edf1c50d4c45da80f60e3643e7**?s=96**](https://gravatar.com/avatar/7dd708edf1c50d4c45da80f60e3643e7?s=96)
+        for example for an image 96x96 pixel:
+        [https://gravatar.com/avatar/7dd708edf1c50d4c45da80f60e3643e7?s=96](https://gravatar.com/avatar/7dd708edf1c50d4c45da80f60e3643e7?s=96)
+        for example for an image 192x192 pixel:
+        [https://gravatar.com/avatar/7dd708edf1c50d4c45da80f60e3643e7?s=192](https://gravatar.com/avatar/7dd708edf1c50d4c45da80f60e3643e7?s=192)
 
          - Use this URL from now on as your picture in the CMS (and elsewhere)
 
