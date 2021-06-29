@@ -100,15 +100,12 @@ The following picture displays a script launched from an iLO 4 based computer, t
 
 As a consequence, the following iLOrest command retrieves the local iLO 4 firmware version, instead of the remote iLO 5 firmware version ! 
 
-![iLOrest accessing wrong iLO](/img/wrongchif.png "iLOrest accessing wrong iLO") 
+![iLOrest accessing wrong iLO](/img/wrongchif.png "iLOrest accessing wrong iLO")
 
 ## Take aways
 
 The most important things you should remember concerning the `Chif driver not found` error are:
 
-  * The CHIF driver is a proprietary kernel driver allowing communications between applications and iLO
-
-  * The error occurs when the CHIF driver is not loaded in the kernel
-
-  * TBD
-
+* The CHIF driver is a proprietary kernel driver allowing communications between applications and iLO
+* Most of the time, the error occurs when the CHIF driver is not loaded in the operating system kernel
+* TBD
