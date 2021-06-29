@@ -16,9 +16,9 @@ When using the HPE RESTful Interface Tool ([iLOrest](http://hpe.com/info/resttoo
 
 ## What is the CHIF driver ?
 
-The Channel Interface (CHIF) driver is an HPE proprietary driver allowing  in-band communication between applications and the Insight Lights Out (iLO) within HPE iLO based servers. This driver can only be loaded by the operating system (OS) kernel when an iLO chipset is embedded in the computer.
+The Channel Interface (CHIF) driver is an HPE proprietary driver allowing  in-band communication between applications and the Insight Lights Out (iLO) within HPE iLO based servers. This driver can only be loaded by the operating system (OS) kernel when an iLO chip set is embedded in the computer.
 
-It is packaged with HPE applications requiring it and should never be imported or manipulated manually.
+It is packaged with HPE applications requiring it and should never be imported or manipulated manually. However, for home grown Python or PowerShell applications using HPE libraries or PowerShell Cmdlets, you can download it from 
 
 ![The CHIF driver allows communication between applications and iLO](/img/chifdriver.png "The CHIF driver allows communication between applications and iLO")
 
@@ -102,7 +102,7 @@ As a consequence, the following iLOrest command retrieves the local iLO 4 firmwa
 
 ![iLOrest accessing wrong iLO](/img/wrongchif.png "iLOrest accessing wrong iLO")
 
-## Take aways
+## Take away
 
 The most important things you should remember concerning the `Chif driver not found` error are:
 
