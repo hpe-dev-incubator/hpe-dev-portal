@@ -15,3 +15,4 @@ How to make data consumable for real world data science
 
 July 28, 2021
 
+The HPE DEV monthly Munch & Learn technology talks are free, 60-minute sessions where you can listen to and engage with leading technology experts who offer valuable insights into today’s most popular technologies. A different topic is presented each month. For our July 28, 2021 session, Iveta Lohovska and Ellen Friedman from HPE will explore challenges and solutions for data gathering and methods for cross-normalization of diverse data sets, including socio-economic plus temporal data.
