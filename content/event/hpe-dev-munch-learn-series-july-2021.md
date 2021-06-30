@@ -11,7 +11,7 @@ tags:
 ---
 ## HPE DEV Munch & Learn series
 
-How to make data consumable for real world data science
+**How to make data consumable for real world data science**
 
 July 28, 2021
 
