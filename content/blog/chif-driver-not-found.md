@@ -16,9 +16,11 @@ When using the HPE RESTful Interface Tool ([iLOrest](http://hpe.com/info/resttoo
 
 ## What is the CHIF driver ?
 
-The Channel Interface (CHIF) driver is an HPE proprietary driver allowing  in-band communication between applications and the Insight Lights Out (iLO) within HPE iLO based servers. This driver can only be loaded by the operating system (OS) kernel when an iLO chip set is embedded in the computer.
+The Channel Interface (CHIF) driver is an HPE proprietary driver allowing  in-band communication between applications and the Insight Lights Out (iLO) within HPE iLO based servers. In the details, it is a dynamic loadable library (`.dll`) on Windows and a shared object (`.so`) on Linux.
 
-It is packaged with HPE applications requiring and you don't need to import it. However, for home grown applications using the HPE Redfish library or PowerShell Cmdlets, you can install it from HPE Software ProLiant Pack (SPP) or download it from the [HPE Support Center](https://internal.support.hpe.com/hpesc/public/km/search#q=ilo%205%20channel%20interface%20driver&t=DriversandSoftware&sort=relevancy&numberOfResults=25). 
+This driver can only be loaded by applications when an iLO chip set is embedded in the computer.
+
+It is packaged with HPE applications requiring it and you don't need to import it manually. However, for home grown applications using the HPE Redfish library or PowerShell Cmdlets, you will have to  install it from HPE Software ProLiant Pack (SPP) or download it from the [HPE Support Center](https://internal.support.hpe.com/hpesc/public/km/search#q=ilo%205%20channel%20interface%20driver&t=DriversandSoftware&sort=relevancy&numberOfResults=25) before a manual installation. 
 
 ![The CHIF driver allows communication between applications and iLO](/img/chifdriver.png "The CHIF driver allows communication between applications and iLO")
 
