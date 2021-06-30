@@ -4,7 +4,7 @@ dateStart: 2021-04-21T16:00:51.279Z
 dateEnd: 2021-04-21T17:00:51.298Z
 category: Virtual Event
 image: /img/MunchandLearn.svg
-link: https://hpe.zoom.us/meeting/register/tJwpd-2srzMuHNPUfW-adASIVpSxCoqat7AV
+link: /campaign/munch-and-learn/
 width: large
 tags:
   - hpedev
