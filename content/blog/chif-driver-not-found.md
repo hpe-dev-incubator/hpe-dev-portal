@@ -20,9 +20,9 @@ The Channel Interface (CHIF) driver is an HPE proprietary driver allowing  in-ba
 
 This driver can only be loaded by applications when an iLO chip set is embedded in the computer.
 
-It is packaged with HPE applications requiring it and you don't need to import it manually. However, for home grown applications using the HPE Redfish library or PowerShell Cmdlets, you will have to  install it from HPE Software ProLiant Pack (SPP) or download it from the [HPE Support Center](https://internal.support.hpe.com/hpesc/public/km/search#q=ilo%205%20channel%20interface%20driver&t=DriversandSoftware&sort=relevancy&numberOfResults=25) before a manual installation. 
-
 ![The CHIF driver allows communication between applications and iLO](/img/chifdriver.png "The CHIF driver allows communication between applications and iLO")
+
+The CHIF driver is packaged with HPE applications requiring it and you don't need to import it manually. However, for home grown applications using the HPE Redfish library or PowerShell Cmdlets (i.e. [HPESysinfoCmdlets](https://www.powershellgallery.com/packages?q=HPESysinfoCmdlets)), you will have to  install it from HPE Software ProLiant Pack (SPP) or download it from the [HPE Support Center](https://internal.support.hpe.com/hpesc/public/km/search#q=ilo%205%20channel%20interface%20driver&t=DriversandSoftware&sort=relevancy&numberOfResults=25) before a manual installation if not already installed by an application requiring it. 
 
 ## Quick reminder of iLOrest in-band management
 
@@ -38,7 +38,7 @@ The following picture shows an SSH root session creation, toward an HPE DL360 Ge
 
 The most typical situation is when you are logged in, as a privileged user in a non-iLO based server, a virtual machine or a laptop, and you issue an iLOrest command or launch a Python or PowerShell script performing in-band Redfish commands.
 
-In those cases, there is no iLO underneath the operating system. Hence the CHIF driver, although present as a file somewhere on disk, cannot not be loaded in the OS kernel and the application (iLOrest, SUM, iSUT, AMSD) returns the error because it cannot connect to it.
+In those cases, there is no iLO underneath the operating system. Hence the CHIF driver, although present as a file somewhere on disk, cannot not be properly loaded by the application.
 
 ### Issuing iLOrest in-band commands on a non-iLO based server
 
@@ -108,6 +108,8 @@ As a consequence, the following iLOrest command retrieves the local iLO 4 firmwa
 
 The most important things you should remember concerning the `Chif driver not found` error are:
 
-* The CHIF driver is a proprietary kernel driver allowing communications between applications and iLO
-* Most of the time, the error occurs when the CHIF driver is not loaded in the operating system kernel
+* The CHIF driver is an HPE proprietary driver allowing communications between applications and iLO
+
+* The error occurs when the CHIF driver cannot be loaded by applications calling it.
+
 * TBD
