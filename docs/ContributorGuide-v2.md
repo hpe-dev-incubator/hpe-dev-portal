@@ -463,7 +463,7 @@ To do so, proceed as follows:
     
 - **Inserting Special characters:**
 
-    Some characters (underscore, hash) have special meanings in the Markdown syntax. If you want to use these special characters in a text, you have to _escape_ them. The way to escape a special charcater is to add a backslach before it, for example: I do not want \_italic text\_ here. 
+    Some characters (underscore, hash) have special meanings in the Markdown syntax. If you want to use these special characters in a text, you have to _escape_ them. The way to escape a special charcater is to add a backslash (\\) before it, for example: I do not want \\\_italic text\\\_ here. 
 
 -   **Inserting List items/sub-list items:**
     To deal with item list, it is recommended to toggle to **Markdown** mode in the editor and use the syntax below for creating item lists and sub-item lists:
