@@ -14,3 +14,5 @@ Third update.
 "publish": "2019-06-18T07:00:00.000Z",
 "category": ["machine-learning"],
 ```
+
+[get\_ilo\_py.py](https://github.com/HewlettPackard/python-ilorest-library/blob/master/examples/Redfish/get_ilo_ip.py)
