@@ -22,7 +22,7 @@ The first open source project in this initiative is Kubernetes Director or KubeD
 
 - [HPE Ezmeral Container Platform Documentation](http://docs.bluedata.com/home)
 
-- [HPE Ezmeral Learn On-Demand academy](https://learn.ezmeral.software.hpe.com/)
+- [HPE Ezmeral Learn On-Demand](https://learn.ezmeral.software.hpe.com/)
 
 - [Request your own demo](https://hpedemoportal.ext.hpe.com/home)
 
@@ -38,7 +38,7 @@ The first open source project in this initiative is Kubernetes Director or KubeD
 
 # Interactive Demo Series
 
-Learn about how to perform many common tasks with the HPE Ezmeral Container Platform related to building your stateful, containerized applications in the 7 part video series. The video series is part of [HPE Ezmeral Learn On-Demand academy](https://learn.ezmeral.software.hpe.com/). Click on the below link for the first episode titled “Create a Kubernetes Cluster”. Also in the series you will find the following demos:
+Learn about how to perform many common tasks with the HPE Ezmeral Container Platform related to building your stateful, containerized applications in the 7 part video series. The video series is part of [HPE Ezmeral Learn On-Demand](https://learn.ezmeral.software.hpe.com/). Click on the below link for the first episode titled “Create a Kubernetes Cluster”. Also in the series you will find the following demos:
 
 * Create a Kubernetes Cluster
 
