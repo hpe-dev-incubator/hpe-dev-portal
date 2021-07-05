@@ -1,11 +1,11 @@
 ---
-priority: 1
-width: large
 title: HPE Ezmeral Data Fabric
 version: v 2.01.8964
 description: A sophisticated data fabric that enables you to run the right
   application at the right time in the right place on the right data.
 image: /img/platforms/EzmeralDataFabric.svg
+width: large
+priority: 1
 frontpage: true
 tags:
   - hpe-ezmeral-data-fabric
@@ -135,19 +135,15 @@ The source code of the Application for Processing Stock Market Trade Data applic
 
 # Free On-Demand Training
 
-Educate yourself for free with online courses that teach you how to build applications and administer the HPE Ezmeral Data Fabric. These lecture and lab courses are part of HPE Ezmeral Learn On-Demand academy.
+Learn for free with online courses that teach you how to build applications and administer the HPE Ezmeral Data Fabric. Visit HPE Ezmeral Learn On-Demand [https://learn.ezmeral.software.hpe.com/](https://learn.ezmeral.software.hpe.com/) to enroll. 
 
-- [Developer Series](https://learn.ezmeral.software.hpe.com/series/developer)
+- Artificial Intelligence and Machine Learning [https://learn.ezmeral.software.hpe.com/page/artificial-intelligence-machine-learning](https://learn.ezmeral.software.hpe.com/page/artificial-intelligence-machine-learning). Newer course series covering the basics of data science, machine learning, and AI, with step-by-step instructions on managing successful machine learning projects.
 
-The developer series of courses includes content on basic and advanced programming with Apache Spark as well as information about how to develop applications using some of the unique capabilities of the HPE Ezmeral Data Fabric such as the integrated JSON-oriented document database.
-
-- [Admin Series](https://learn.ezmeral.software.hpe.com/series/administratorv6)
-
-This admin series covers a range of topics from preparing and testing a bare metal cluster to installing a data fabric to running it on a day to day basis. Hands-on labs help you make sure you have the necessary skills wired by the time you need to install a production system.
-
-- [Containers and Kubernetes Series](https://learn.ezmeral.software.hpe.com/series/container-platform)
-
-This new and expanding series covers the basics of containers and Kubernetes through to up-to-date methods for building stateful applications to run in a containerized world using a data fabric.
+- Apache Spark [https://learn.ezmeral.software.hpe.com/page/apache-spark](https://learn.ezmeral.software.hpe.com/page/apache-spark). This course series offers an overview of Apache Spark 2.x, the Spark execution model, and some advanced topics on developing data pipeline apps using Spark streaming, Spark SQL, GraphFrame, and MLlib.
+ 
+- Data Fabric Cluster Administration [https://learn.ezmeral.software.hpe.com/page/data-fabric](https://learn.ezmeral.software.hpe.com/page/data-fabric). Learn about preparing and testing a bare metal cluster to installing a data fabric, to running it on a day to day basis. 
+ 
+- Kubernetes and Stateful Applications  [https://learn.ezmeral.software.hpe.com/page/kubernetes-stateful-applications](https://learn.ezmeral.software.hpe.com/page/kubernetes-stateful-applications). Covers the basics of containers and Kubernetes, and methods for building stateful applications to run in a containerized world using a data fabric.
 
 ---
 
