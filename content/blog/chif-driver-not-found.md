@@ -54,7 +54,7 @@ ilorest logout
 
 If you don't provide any `<RedfishService-IP-address>` to the `iLOrest login` command, or if you omit completely this command, iLOrest uses the `blobstore://.` target URL and tries to connect to the local iLO via the CHIF driver.
 
-If you use a Redfish client different from iLOrest that uses another library like the [DMTF Python Redfish Library](https://github.com/DMTF/python-redfish-library), you will not be able to perform in-band management through the CHIF driver. An alternative is to enable the [iLO Virtual NIC](https://www.youtube.com/watch?v=KM1FZ-AlctA) and use its IP address as target URL.
+If you use a [Redfish client](https://youtu.be/ur9UKRV_0S8) different from iLOrest that uses another library like the [DMTF Python Redfish Library](https://github.com/DMTF/python-redfish-library), you will not be able to perform in-band management through the CHIF driver. An alternative is to enable the [iLO Virtual NIC](https://www.youtube.com/watch?v=KM1FZ-AlctA) and use its IP address as target URL.
 
 The following picture shows an SSH privileged session into a VMware virtual machine and an iLOrest in-band GET command returning the error. 
 
@@ -64,11 +64,13 @@ The next screenshot shows the same iLOrest command launched from a Microsoft Win
 
 ![Unsuccessful in-band GET from laptop](/img/unsuccessfulinbandgetinwinlaptop.png "Unsuccessful in-band GET from laptop")
 
+The following paragraphs address In-band Python scripts, PowerShell Cmdlets and VMware infrastructures with respect to the CHIF driver. 
+
 ### In-band Python scripts
 
-The `blobstore://.` URL can be used as well in Redfish Python scripts based upon the [HPE python-ilorest-library](https://github.com/HewlettPackard/python-ilorest-library) to perform in-band management operations. Such programs will have the same behavior as iLOrest since iLOrest uses as well this HPE Python Redfish library. 
+The `blobstore://.` URL mentioned above, can be used as well, in Redfish Python scripts based upon the [HPE python-ilorest-library](https://github.com/HewlettPackard/python-ilorest-library) to perform in-band management operations. Such programs will have the same behavior as iLOrest since iLOrest uses as well the HPE Python Redfish library. 
 
-In the following picture you can see the execution in a virtual machine, of the [get_ilo_ip.py](https://github.com/HewlettPackard/python-ilorest-library/blob/master/examples/Redfish/get_ilo_ip.py) python example from this HPE library configured for in-band management.
+In the following picture you can see the execution in a virtual machine, of the [get_ilo_ip.py](https://github.com/HewlettPackard/python-ilorest-library/blob/master/examples/Redfish/get_ilo_ip.py) python example configured for in-band management.
 
 The `grep` command, following the `dmidecode` command returns all the lines of the `get_ilo_ip.py` file, containing strings `SYSTEM_URL` or `LOGIN_ACCOUNT` or `LOGIN_PASSWORD`. Lines starting with a `#` sign are commented lines, thus, not executed.
 
@@ -90,17 +92,17 @@ I've seen cases where VMware system managers installed manually a `.rpm` iLOrest
 
 ## Other related problematic situations
 
-The main purpose of this article is to explain the root causes and the reasons of the `Chif driver not found` error. However you can face situations where your iLOrest commands return a valid output, but from the wrong system !
+The previous sections of this article tried to explain the root causes of the `Chif driver not found` error. However you can face situations involving the CHIF driver where iLOrest commands return a valid output, but from the wrong system !
 
 ### iLOrest scripts accessing a wrong iLO
 
-In this situation, you are a privileged user launching an iLOrest script from a iLO based server, targeting a remote iLO. However, the script supplies wrong credentials to the remote iLO. In that case, iLOrest returns an error code, but sadly enough, the script does not test the return code of the login process and continues its execution. 
+In this context, you are a privileged user launching an iLOrest script from a iLO based server, targeting a remote iLO. However, the script supplies wrong credentials to the remote iLO. In that case, iLOrest returns an error code, but sadly enough, the script does not test the return code of the login process and continues its execution. 
 
-As you are privileged, on a physical iLO based system with the CHIF driver up and running, iLOrest performs following requests successfully on your system via the CHIF driver in place of the remote server. This situation can be embarrassing....
+As you are privileged on a physical iLO based system with the CHIF driver up and running, iLOrest performs following requests successfully on your system via the CHIF driver in place of the remote server. This situation is embarrassing because you perform management actions on the wrong system.
 
-The following picture displays a script launched from an iLO 4 based computer, targeting an ilO 5, but supplying faulty username and password in the login command and discarding errors (`&> /dev/null`).
+The following picture displays a script launched from an iLO 4 based computer, targeting an iLO 5, but supplying faulty username and password in the login command and discarding errors (`&> /dev/null`).
 
-As a consequence, the following iLOrest command retrieves the local iLO 4 firmware version, instead of the remote iLO 5 firmware version ! 
+As a consequence, the next iLOrest command retrieves the local iLO 4 firmware version, instead of the remote iLO 5 firmware version ! 
 
 ![iLOrest accessing wrong iLO](/img/wrongchif.png "iLOrest accessing wrong iLO")
 
@@ -112,4 +114,4 @@ The most important things you should remember concerning the `Chif driver not fo
 
 * The error occurs when the CHIF driver cannot be loaded by applications calling it.
 
-* TBD
+* Avoid performing remote management tasks as an OS privileged user.
