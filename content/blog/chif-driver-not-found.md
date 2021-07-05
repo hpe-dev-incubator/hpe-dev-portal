@@ -54,7 +54,7 @@ ilorest logout
 
 If you don't provide any `<RedfishService-IP-address>` to the `iLOrest login` command, or if you omit completely this command, iLOrest uses the `blobstore://.` target URL and tries to connect to the local iLO via the CHIF driver.
 
-If your Redfish client uses another library like the [DMTF Python Redfish Library](https://github.com/DMTF/python-redfish-library), you will not be able to perform in-band management through the CHIF driver. An alternative is to enable the [iLO Virtual NIC](https://www.youtube.com/watch?v=KM1FZ-AlctA) and use its IP address as target URL.
+If you use a Redfish client different from iLOrest that uses another library like the [DMTF Python Redfish Library](https://github.com/DMTF/python-redfish-library), you will not be able to perform in-band management through the CHIF driver. An alternative is to enable the [iLO Virtual NIC](https://www.youtube.com/watch?v=KM1FZ-AlctA) and use its IP address as target URL.
 
 The following picture shows an SSH privileged session into a VMware virtual machine and an iLOrest in-band GET command returning the error. 
 
