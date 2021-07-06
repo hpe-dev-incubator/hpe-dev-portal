@@ -110,6 +110,8 @@ As a consequence, the next iLOrest command retrieves the local iLO 4 firmware ve
 
 ![iLOrest accessing wrong iLO](/img/wrongchif.png "iLOrest accessing wrong iLO")
 
+In order to avoid embarrassing situations like this, it's always good to double-check that your script tests iLOrest return codes.
+
 ## Take away
 
 I hope you found this tutorial helpful. You can find many articles regarding iLO here in the [HPE DEV blog](https://developer.hpe.com/blog/). In this post, I've tried to point out situations where you may come across the Chif driver not found error and offer suggestions on how to avoid this. The most important things you should remember concerning this error are: 
