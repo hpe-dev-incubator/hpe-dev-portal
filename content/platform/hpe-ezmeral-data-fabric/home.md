@@ -156,6 +156,7 @@ Take advantage of our free, Jupyter-Notebook based Workshops-on-Demand available
   <a href="https://hackshack.hpedev.io/workshops"><button type="button" class="w3-btn w3-teal">Try now!</button></a>
 </div>
 
+- - -
 
 ## Any questions on Ezmeral Data Fabric?
 
