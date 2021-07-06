@@ -38,7 +38,7 @@ The following picture shows an SSH root session creation, toward an HPE DL360 Ge
 
 The most typical situation is when you are logged in, as a privileged user in a non-iLO based server, a virtual machine or a laptop, and you issue an iLOrest command or launch a Python or PowerShell script performing in-band Redfish commands.
 
-In those cases, there is no iLO underneath the operating system. Hence the CHIF driver, although present as a file somewhere on disk, cannot not be properly loaded by the application.
+In those cases, there is no iLO underneath the operating system. Hence the CHIF driver, although present as a file somewhere on disk, cannot be properly loaded by the application.
 
 ### Issuing iLOrest in-band commands on a non-iLO based server
 
@@ -111,7 +111,5 @@ As a consequence, the next iLOrest command retrieves the local iLO 4 firmware ve
 The most important things you should remember concerning the `Chif driver not found` error are:
 
 * The CHIF driver is an HPE proprietary driver allowing communications between applications and iLO
-
 * The error occurs when the CHIF driver cannot be loaded by applications calling it.
-
 * Avoid performing remote management tasks as an OS privileged user.
