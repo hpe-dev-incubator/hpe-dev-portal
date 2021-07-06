@@ -237,6 +237,8 @@ You may want to edit an existing blog post. For example, you may need to update 
 
 ## Editing a platform page
 
+>Note: if you want to change the image logo for the platform, make sure you first work with HPE DEV team to determine the best image logo for your platform page. The recommended image size 216px x 216px and format is SVG file. HPE DEV team can work with you to design an appropriate image logo for your platform. 
+
 1.  In the CMS, from the **Contents** tab, select **Platforms** in the Collections tab and locate the platform to edit
     (HPE Ezmeral Data Fabric in our example). Select the Platform. This opens the editor.
 
