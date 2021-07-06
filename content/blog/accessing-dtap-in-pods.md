@@ -12,10 +12,7 @@ Handling different protocols of file systems is always a pain for a data analyst
 
 In this blog, I will introduce two ways to access DataTaps in Kubernetes. The first method will be accessing the DataTaps using HDFS Commands and the second method will be directly reading data from Apache Spark (using pyspark). Here we go.
 
-1. [Hadoop FS Shell](#1-access-dtap-using-hadoop-fs-shell)
-2. [Pyspark](#2-access-dtap-using-pyspark)
-
-## **Enable dtap when creating the pod**
+## **Enable DataTap when creating the pod**
 First and foremost, we have to enable DataTaps of the application. This can be done by ticking the "Enable DataTap" box when creating the application.
 
 ![image](https://user-images.githubusercontent.com/72959956/119443704-9cc92180-bd5c-11eb-8fce-b6b53823336c.png)
@@ -25,7 +22,7 @@ This will result in mounting a lot of files at ```/opt/bdfs/``` of your pod. If 
 ![image](https://user-images.githubusercontent.com/72959956/120776952-58593500-c557-11eb-9dcd-4146d581a761.png)
 
 
-The generic approach can be concluded into this two steps:
+The generic approach can be concluded into these two steps:
 1. Add ```/opt/bdfs/bluedata-dtap.jar``` to the classpath.
 2. Configure Hadoop with the following values.
 
@@ -41,14 +38,21 @@ The generic approach can be concluded into this two steps:
 > - [Accessing DataTaps in Kubernetes Pods](https://docs.containerplatform.hpe.com/53/reference/kubernetes/tenant-project-administration/datataps/Accessing_DataTaps_in_Kubernetes_Pods.html)
 
 ## Uniform Resource Identifier
-![image](https://user-images.githubusercontent.com/72959956/121467168-35150680-c9eb-11eb-901c-77e83097cdf9.png)
-![image](https://user-images.githubusercontent.com/72959956/121467262-5f66c400-c9eb-11eb-958d-911f18281a27.png)
+In HPE Ezmeral Container Platform, you can see different types of file system used by the shared storage resources. You can manage different data source through a GUI and representing files with same URI. The URI will be in the format of 
+```
+dtap://datatap_name/some_subdirectory/another_subdirectory/some_file
+```
 
-# Access dtap using HDFS commands
+|Screenshot|Description|
+|---|---|
+|![image](https://user-images.githubusercontent.com/72959956/121467168-35150680-c9eb-11eb-901c-77e83097cdf9.png)| You can manage different data source whether they are in MapR filesystem or HDFS|
+|![image](https://user-images.githubusercontent.com/72959956/121467262-5f66c400-c9eb-11eb-958d-911f18281a27.png)| You can upload, delete or rename files using GUI|
+
+# Access DataTaps using HDFS commands
 ## Introduction
-The Hadoop distributed file system (HDFS) is the key component of the Hadoop ecosystem. HDFS commands, of course, is the commands which responsible for manipulate files for HDFS. 
+The Hadoop distributed file system (HDFS) is the key component of the Hadoop ecosystem. HDFS commands, of course, are the commands which responsible for manipulate files for HDFS. 
 
-storing large data sets of structured or unstructured data across various nodes and thereby maintaining the metadata in the form of log files. To use the HDFS commands, first you need to start the Hadoop services using the following command:
+To use the HDFS commands, first you need to start the Hadoop services using the following command:
 
 ## Prepare Hadoop
 Some of the Kubedirector App provided by HPE is pre-installed a well-configured Hadoop for you. Hence, the following installation steps can be skipped.
@@ -71,7 +75,7 @@ cd $HOME/hadoop                                                                 
 ### Configure the required environment
 In ```$HADOOP_HOME/etc/hadoop/hadoop-env.sh``` file, assign the following environment variables (```$JAVA_HOME```, ```$HADOOP_HOME```, ```$HADOOP_CLASSPATH```):
 ```bash
-# These two variables is needed for HDFS command running successfully. Located at line 54, 58.
+# These two variables is needed for HDFS command. Located at line 54, 58.
 export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64/
 export HADOOP_HOME=$HOME/hadoop
 
@@ -100,9 +104,9 @@ In ```$HADOOP_HOME/etc/hadoop/core-site.xml``` file, configure Hadoop with the f
 ### Alternative
 I have prepared an example configuration file on [Github](https://github.com/helloezmeral/hpe-binary/tree/main/hadoop-dtap-config). If your Hadoop does not have a special configuration, you can simply download and replace your existing configuration file.
 ## Test your HDFS command
-Here are some common commands used to interact with datatap.
+Here are some common commands used to interact with DataTap.
 ```bash
-# bash, Current working directory -> $HADOOP_HOME
+# bash: Current working directory -> $HADOOP_HOME
 
 # Check the version of the hadoop
 bin/hadoop version
@@ -134,7 +138,7 @@ bin/hdfs dfs -rm dtap://TenantStorage/cenz/helloworld.txt
 > Reference: 
 > [Hadoop File System Shell Document](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html)
 
-# 2. Access dtap using pyspark
+# Access DataTaps using pyspark
 ## Introduction
 
 ## Install ```pyspark```
@@ -146,9 +150,10 @@ apt-get install python3-pip -y
 DEBIAN_FRONTEND=noninteractive apt-get install openjdk-11-jdk-headless -y
 pip install pyspark
 ```
-There are two ways to interact with pyspark. The first one is to execute the ```pyspark``` command in bash to initiate the pyspark session. The second way is that to treat pyspark as the module which ```python``` kernel can import to. (```import pyspark```)
+There are two ways to interact with pyspark. The first one is to execute the ```pyspark``` command in bash to initiate the pyspark session. The second way is that to treat pyspark as a module which ```python``` kernel can import to. (```import pyspark```)
+
 ### Method one: initiate ```pyspark``` session with jars
-Initiate Spark's interactive shell in python using the following command. In order to use datatap with pyspark, you have to add an external jar as arguments to pyspark.
+In order to use datatap with pyspark, you have to add an external jar file as argument to pyspark. Initiate Spark's interactive shell in python using the following command. 
 ```bash
 # bash
 
@@ -158,7 +163,7 @@ pyspark --jars /opt/bdfs/bluedata-dtap.jar
 After starting the interactive shell, ```Spark Context``` and ```Spark Session``` are automatically initiate for you.
 ![image](https://user-images.githubusercontent.com/72959956/120170783-e8d00680-c233-11eb-9fe8-136da9996fdc.png)
 
-Similarly, we have to specify the Hadoop configurations. 
+We have to specify the Hadoop configurations. After that, you can read files from DataTap just like normally what you did with HDFS.
 ```py
 # pyspark
 
@@ -180,7 +185,7 @@ Run the Python Shell first:
 python3
 ```
 
-Add the path to jar file using Spark configuration command at runtime:
+At the Python runtime, add the path of the jar file using Spark configuration command:
 ```py
 # python
 from pyspark import SparkConf, SparkContext
@@ -202,4 +207,5 @@ text.take(5)
 > [Spark Document: Runtime Environment](https://spark.apache.org/docs/latest/configuration.html#runtime-environment)
 > [Related GitHub Issues](https://github.com/delta-io/delta/issues/346)
 
-## Takeaway
+# Conclusion
+Distributed file system is fundamental for handling large amount of data. Managing those file systems are always pain for developer. DataTaps unify different storage resources into path that different clusters can use. This helps you to get rid of time-consuming copies or transfers of data. More time on extracting business insight from your data, less time on handling tedious stuff. That's what DataTap can provide you and that's what HPE Ezmeral can provide you.
