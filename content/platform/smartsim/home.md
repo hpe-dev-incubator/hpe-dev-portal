@@ -19,10 +19,9 @@ SmartSim is a software framework that facilitates the convergence of numerical s
 
 SmartSim is comprised of two libraries, a single light weight client library, the SmartRedis, that is compiled into end-users simulation and an Infrastructure Library (IL) that facilitates workflow around simulations. SmartSim users are able to run their ML models written in Python in either TensorFlow, TensorFlow-Lite, Keras, Pytorch, or any framework that can serialize to ONNX(e.g. scikit learn). In addition to online inference, SmartSim also facilitates online analysis, visualization, learning, and computational steering. Because simulation data can be held in co-located DRAM, scientists can interact with and perturb model data manually or programmatically during the course of a simulation. SmartSim enables users to execute nearly any simulation from a Jupyter notebook on HPC systems that support PBSPro, Slurm, Cobalt, as well as laptops and workstations.
 
-
-
 Interested to learn more? Check out these resources:
 
+* [Watch a recent presentation to Pangeo](https://www.youtube.com/watch?v=JsSgq-fq44w)
 * [Read the SmartSim documentation](https://www.craylabs.org/docs/overview.html)
 * [SmartSim Github open-source repository](https://github.com/CrayLabs/SmartSim)[](https://arxiv.org/abs/2104.09355)
 * [Read our recent paper](https://arxiv.org/abs/2104.09355)
