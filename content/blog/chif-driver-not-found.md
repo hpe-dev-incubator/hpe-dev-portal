@@ -88,7 +88,7 @@ The result of this in-band configuration is a `ChifDriverMissingOrNotFound` erro
 
 ### Miss configured HPE/VMware infrastructures
 
-I've seen cases where VMware system managers installed manually a `.rpm` iLOrest package in their ESXi hypervisor instead of getting it installed prpoerly with a [supported HPE custom image](https://vibsdepot.hpe.com/). It is important to remember that HPE bundles and tests specific application packages of iLOrest, SUM, SUT and the Agentless Management Service (AMS) for the ESXi hypervisor. Manual installation of those applications will generate problems like the `Chif driver not found` error.
+I've seen cases where VMware system managers installed manually a `.rpm` iLOrest package in their ESXi hypervisor instead of getting it installed properly with a [supported HPE custom image](https://vibsdepot.hpe.com/). It is important to remember that HPE bundles and tests specific application packages of iLOrest, SUM, SUT and the Agentless Management Service (AMS) for the ESXi hypervisor. Manual installation of those applications will generate problems like the `Chif driver not found` error.
 
 ## Other related problematic situations
 
