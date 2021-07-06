@@ -1,5 +1,5 @@
 ---
-title: Accessing dtap in pods
+title: Getting Started with DataTaps in Kubernetes Pods
 date: 2021-07-06T06:44:24.016Z
 author: Cenz Wong
 authorimage: https://avatars.githubusercontent.com/u/44856918?v=4
