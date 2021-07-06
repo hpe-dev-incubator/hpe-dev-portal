@@ -12,21 +12,25 @@ tags:
 ---
 ## Introduction
 
-When using the HPE RESTful Interface Tool ([iLOrest](http://hpe.com/info/resttool)) or other applications like the Smart Update Manager ([SUM](https://www.hpe.com/us/en/servers/smart-update.html)) or the integrated Smart Update Tool ([iSUT](https://support.hpe.com/hpesc/public/docDisplay?docLocale=en_US&docId=emr_na-a00068223en_us)) you may get errors similar to: `Chif driver not found, please check that the chif driver is installed`, without any other information to identify the origin of the problem or to fix it. This article attempts to explain when this error occurs and why.
+When using the HPE RESTful Interface Tool ([iLOrest](http://hpe.com/info/resttool)) or other applications, like the Smart Update Manager ([SUM](https://www.hpe.com/us/en/servers/smart-update.html)) or the integrated Smart Update Tool ([iSUT](https://support.hpe.com/hpesc/public/docDisplay?docLocale=en_US&docId=emr_na-a00068223en_us)), you may get errors similar to the one shown below without any other information to identify the origin of the problem or how to fix it.
+
+Chif driver not found, please check that the chif driver is installed
+
+This article attempts to explain what causes this error and why.
 
 ## What is the CHIF driver ?
 
-The Channel Interface (CHIF) driver is an HPE proprietary driver allowing  in-band communication between applications and the Insight Lights Out (iLO) within HPE iLO based servers. In the details, it is a dynamic loadable library (`.dll`) on Windows and a shared object (`.so`) on Linux.
+The Channel Interface (CHIF) driver is an HPE proprietary driver allowing  in-band communication between applications and the Insight Lights Out (iLO) within HPE iLO based servers. It is stored as a dynamic loadable library file (`.dll`) on Microsoft Windows and a shared object (`.so`) on Linux.
 
 This driver can only be loaded by applications when an iLO chip set is embedded in the computer.
 
 ![The CHIF driver allows communication between applications and iLO](/img/chifdriver.png "The CHIF driver allows communication between applications and iLO")
 
-The CHIF driver is packaged with HPE applications requiring it and you don't need to import it manually. However, for home grown applications using the HPE Redfish library or PowerShell Cmdlets (i.e. [HPESysinfoCmdlets](https://www.powershellgallery.com/packages?q=HPESysinfoCmdlets)), you will have to  install it from HPE Software ProLiant Pack (SPP) or download it from the [HPE Support Center](https://internal.support.hpe.com/hpesc/public/km/search#q=ilo%205%20channel%20interface%20driver&t=DriversandSoftware&sort=relevancy&numberOfResults=25) before a manual installation if not already installed by an application requiring it. 
+The CHIF driver comes packaged with HPE applications requiring it. You don't need to import it manually. However, for home grown applications using the HPE Redfish library or PowerShell Cmdlets (i.e. [HPESysinfoCmdlets](https://www.powershellgallery.com/packages?q=HPESysinfoCmdlets)), you will have to  install it from the HPE Software ProLiant Pack (SPP) or download it from the [HPE Support Center](https://internal.support.hpe.com/hpesc/public/km/search#q=ilo%205%20channel%20interface%20driver&t=DriversandSoftware&sort=relevancy&numberOfResults=25) before manual installation if it has not already been installed by an application that required it. 
 
 ## Quick reminder of iLOrest in-band management
 
-The [iLOrest](http://hpe.com/info/resttool) tool allows in-band and out-of-band Redfish management as explained in [this article](https://developer.hpe.com/blog/managing-ilo-sessions-with-redfish/).
+The [iLOrest](http://hpe.com/info/resttool) tool allows in-band and out-of-band Redfish management, as explained in [this article](https://developer.hpe.com/blog/managing-ilo-sessions-with-redfish/).
 
 If you are logged in an HPE iLO 4 or iLO 5 based server as a privileged user (`root` or `Administrator`), you can perform in-band management tasks with iLOrest without providing any credentials. You just have to issue GET or SET commands in a straight forward manner to query the local iLO Redfish service.
 
@@ -96,11 +100,11 @@ The previous sections of this article tried to explain the root causes of the `C
 
 ### iLOrest scripts accessing a wrong iLO
 
-In this context, you are a privileged user launching an iLOrest script from a iLO based server, targeting a remote iLO. However, the script supplies wrong credentials to the remote iLO. In that case, iLOrest returns an error code, but sadly enough, the script does not test the return code of the login process and continues its execution. 
+You may come across this error if you are a privileged user launching an iLOrest script from an iLO-based server targeting a remote iLO, but the script supplies the wrong credentials. In that case, iLOrest returns an error code, but sadly enough, the script does not test the return code of the login process and continues its execution. 
 
-As you are privileged on a physical iLO based system with the CHIF driver up and running, iLOrest performs following requests successfully on your system via the CHIF driver in place of the remote server. This situation is embarrassing because you perform management actions on the wrong system.
+As you are privileged on a physical iLO based system with the CHIF driver up and running, iLOrest performs the following requests successfully on your system via the CHIF driver in place of the remote server. This situation is embarrassing because you are performing management actions on the wrong system.
 
-The following picture displays a script launched from an iLO 4 based computer, targeting an iLO 5, but supplying faulty username and password in the login command and discarding errors (`&> /dev/null`).
+The following picture displays a script launched from an iLO 4 based computer, targeting an iLO 5, but supplying a faulty username and password in the login command and discarding errors (`&> /dev/null`).
 
 As a consequence, the next iLOrest command retrieves the local iLO 4 firmware version, instead of the remote iLO 5 firmware version ! 
 
@@ -108,7 +112,7 @@ As a consequence, the next iLOrest command retrieves the local iLO 4 firmware ve
 
 ## Take away
 
-The most important things you should remember concerning the `Chif driver not found` error are:
+I hope you found this tutorial helpful. You can find many articles regarding iLO here in the [HPE DEV blog](https://developer.hpe.com/blog/). In this post, I've tried to point out situations where you may come across the Chif driver not found error and offer suggestions on how to avoid this. The most important things you should remember concerning this error are: 
 
 * The CHIF driver is an HPE proprietary driver allowing communications between applications and iLO
 * The error occurs when the CHIF driver cannot be loaded by applications calling it.
