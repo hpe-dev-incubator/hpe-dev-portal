@@ -4,7 +4,7 @@ date: 2021-01-12T10:36:54.822Z
 featuredBlog: false
 priority: null
 author: Cenz Wong
-authorimage: /img/blogs/Avatar4.svg
+authorimage: https://avatars.githubusercontent.com/u/44856918?v=4
 thumbnailimage: null
 tags:
   - gl20
