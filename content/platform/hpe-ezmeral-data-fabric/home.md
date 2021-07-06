@@ -17,11 +17,10 @@ You can store, manage and access your data from edge to core to cloud at any sca
 * [HPE Ezmeral Data Fabric API Documentation](https://docs.datafabric.hpe.com/62/APIdocs.html)
 * [README](https://community.hpe.com/t5/hpe-ezmeral-uncut/if-hpe-ezmeral-data-fabric-is-the-answer-what-is-the-question/ba-p/7092812#.X1saqWdKhE4)
 
+
 - - -
 
-
 ### [Tutorials](#tutorials)           [Data Fabric Blogs](#blogs)           [Free Training](#training)
-
 
 - - -
 
@@ -43,11 +42,10 @@ You can store, manage and access your data from edge to core to cloud at any sca
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/-6IBKLiOb_Q" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+
 - - -
 
-
 ### [Tutorials](#tutorials)           [Data Fabric Blogs](#blogs)           [Free Training](#training)
-
 
 - - -
 
@@ -76,6 +74,7 @@ The Music Catalog application explain the key Ezmeral Data Fabric Database featu
 
 The source code of the Music Catalog application is available in this [GitHub Repository](https://github.com/mapr-demos/mapr-music). Music Catalog application is also implemented with a [GraphQL](https://graphql.org/) endpoint instead of REST, the application code is available in this [GitHub Repository](https://github.com/mapr-demos/mapr-db-graphql-sample). You can find informations about this implementation in the [project readme file](https://github.com/mapr-demos/mapr-db-graphql-sample/blob/master/README.md).
 
+
 - - -
 
 ### ["Smart Home" IoT Tutorial ![](Github)](https://github.com/mapr-demos/mapr-smart-home)
@@ -97,6 +96,7 @@ The following Tutorial will drive you through the steps to build the application
 7. [Run the application in a Docker Container](https://github.com/mapr-demos/mapr-smart-home/blob/master/docs/tutorial/007-dockerization.md)
 
 The source code of the Smart Home application is available in this [GitHub Repository](https://github.com/mapr-demos/mapr-smart-home).
+
 
 - - -
 
@@ -129,11 +129,10 @@ This project provides an engine for processing real time streams trading data fr
 
 The source code of the Application for Processing Stock Market Trade Data application is available in this [GitHub Repository](https://github.com/mapr-demos/finserv-application-blueprint).
 
+
 - - -
 
-
 ### [Tutorials](#tutorials)           [Data Fabric Blogs](#blogs)           [Free Training](#training)
-
 
 - - -
 
@@ -151,6 +150,8 @@ Learn for free with online courses that teach you how to build applications and 
  
 - Kubernetes and Stateful Applications  [https://learn.ezmeral.software.hpe.com/page/kubernetes-stateful-applications](https://learn.ezmeral.software.hpe.com/page/kubernetes-stateful-applications). Covers the basics of containers and Kubernetes, and methods for building stateful applications to run in a containerized world using a data fabric.
 
+
+
 ---
 
 # Workshops-on-Demand
@@ -164,17 +165,17 @@ Take advantage of our free, Jupyter-Notebook based Workshops-on-Demand available
 
 - - -
 
+
 ## Any questions on Ezmeral Data Fabric?
 
 Join the [HPEDEV Slack Workspace](https://slack.hpedev.io/) and start a discussion in our [\#ezmeral-data-fabric](https://hpedev.slack.com/archives/CU3JRBTB7) channel.
 
 Not a Slack user? You can also ask your questions in our [Ezmeral Forum](https://hpe.com/forum/ezmeral).
 
+
 - - -
 
-
 ### [Tutorials](#tutorials)           [Data Fabric Blogs](#blogs)           [Free Training](#training)
-
 
 - - -
 
