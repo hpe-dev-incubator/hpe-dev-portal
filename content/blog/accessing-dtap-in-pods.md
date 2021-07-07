@@ -175,7 +175,10 @@ bin/hdfs dfs -rm dtap://TenantStorage/cenz/helloworld.txt
 
 ## Introduction
 
+PySpark is an interface for Apache Spark in Python. Apache Spark is a unified analytics engine for big data processing, with built-in modules for streaming, SQL, machine learning and graph processing. Apache Spark can access data from HDFS and, with extension, file systems managed by DataTap. 
+
 ## Install ```pyspark```
+
 There are lots of way to install Spark. The simplest way is to install pyspark package directly using ```pip install pyspark```. Run the following to install the prerequisite packages and pyspark.
 
 ```bash
