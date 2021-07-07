@@ -150,7 +150,7 @@ Learn for free with online courses that teach you how to build applications and 
  
 - [Kubernetes and Stateful Applications](https://learn.ezmeral.software.hpe.com/page/kubernetes-stateful-applications). Covers the basics of containers and Kubernetes, and methods for building stateful applications to run in a containerized world using a data fabric.
 
-\
+
 
 ---
 
@@ -163,7 +163,7 @@ Take advantage of our free, Jupyter-Notebook based Workshops-on-Demand available
   <a href="https://hackshack.hpedev.io/workshops"><button type="button" class="w3-btn w3-teal">Try now!</button></a>
 </div>
 
-\ 
+
 - - -
 
 
@@ -173,7 +173,7 @@ Join the [HPEDEV Slack Workspace](https://slack.hpedev.io/) and start a discus
 
 Not a Slack user? You can also ask your questions in our [Ezmeral Forum](https://hpe.com/forum/ezmeral).
 
-\ 
+
 - - -
 
 ### [Tutorials](#tutorials)           [Data Fabric Blogs](#blogs)           [Free Training](#training)
