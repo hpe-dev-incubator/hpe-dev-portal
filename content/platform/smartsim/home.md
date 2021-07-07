@@ -3,7 +3,7 @@ title: SmartSim
 version: v 0.3.1
 description: Enabling Machine Learning and AI for traditional high performance
   computing (HPC) simulations.
-image: /img/smartsim_large.png
+image: /img/platforms/smartsim_large.png
 width: large
 priority: 2
 tags:
@@ -17,7 +17,7 @@ How does one connect the two programming paradigms of numerical model developmen
 
 SmartSim is a software framework that facilitates the convergence of numerical simulations and AI workloads on heterogeneous architectures. SmartSim enables simulations in Fortran,C, C++ and Python to execute ML models hosted within in-memory storage (DRAM) facilitating online inference at simulation runtime. In addition, SmartSim’s API orchestrates the movement of data between simulation and learning components with single-line put/get semantics. SmartSim can host ML models on CPU-only or GPU-enabled compute nodes adjacent to or co-located with the simulation. SmartSim is portable and can be run on laptops and scales to thousands of processors.
 
-![](/static/img/screen-shot-2021-07-07-at-7.09.23-am.png "SmartSim Architecture")
+![](/img/screen-shot-2021-07-07-at-7.09.23-am.png "SmartSim Architecture")
 
 SmartSim is comprised of two libraries, a single light weight client library, the SmartRedis, that is compiled into end-users simulation and an Infrastructure Library (IL) that facilitates workflow around simulations. SmartSim users are able to run their ML models written in Python in either TensorFlow, TensorFlow-Lite, Keras, Pytorch, or any framework that can serialize to ONNX(e.g. scikit learn). In addition to online inference, SmartSim also facilitates online analysis, visualization, learning, and computational steering. Because simulation data can be held in co-located DRAM, scientists can interact with and perturb model data manually or programmatically during the course of a simulation. SmartSim enables users to execute nearly any simulation from a Jupyter notebook on HPC systems that support PBSPro, Slurm, Cobalt, as well as laptops and workstations.
 

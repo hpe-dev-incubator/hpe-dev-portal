@@ -130,6 +130,7 @@ collections:
     path: '{{title}}/{{slug}}'
     preview_path: '/platform/{{title}}/home'
     media_folder: /static/img
+    public_folder: /img
     extension: 'md'
     create: true
     publish: false
@@ -140,7 +141,7 @@ collections:
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Version', name: 'version', widget: 'string' }
       - { label: 'Description', name: 'description', widget: 'string' }
-      - { label: 'Image', name: 'image', widget: 'image',media_folder: '/static/img/platforms', public_folder: '/img', hint: 'image to appear on platform page' }
+      - { label: 'Image', name: 'image', widget: 'image',media_folder: '/static/img/platforms', public_folder: '/img/platforms', hint: 'image to appear on platform page' }
       - { label: 'Card Size', name: 'width', widget: 'select', options: [ 'large' ], default: 'large'}
       - { label: 'Priority', name: 'priority', widget: 'number', hint: 'controls the card position on the platform page'}
       - { label: 'Featured', name: 'frontpage', widget: 'boolean', required: false, hint: 'selecting true displays the card on the dashboard/home page'  }
