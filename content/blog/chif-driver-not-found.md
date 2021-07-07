@@ -38,7 +38,7 @@ The following picture shows an SSH root session creation toward an HPE DL360 Gen
 
 ![Successful in-band GET command](/img/successfulinbandget.png "Successful in-band GET command")
 
-## When do you get the Chif Driver not found error ?
+## What causes the Chif Driver not found error?
 
 The most typical situation is when you are logged in, as a privileged user in a non-iLO based server, a virtual machine or a laptop, and you issue an iLOrest command or launch a Python or PowerShell script performing in-band Redfish commands.
 
