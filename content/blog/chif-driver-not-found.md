@@ -88,17 +88,17 @@ The result of this in-band configuration is a `ChifDriverMissingOrNotFound` erro
 
 ### HPE PowerShell Cmdlets and in-band management
 
- As of the writing of this article, only the [HPESysinfoCmdlets](https://www.powershellgallery.com/packages?q=HPESysinfoCmdlets) uses the CHIF driver for in-band management. Other PowerShell Cmdlets like the [HPEiLOCmdlets](https://www.powershellgallery.com/packages/HPEiLOCmdlets/) or the [HPERedfishCmdlets](https://www.powershellgallery.com/packages/HPERedfishCmdlets/) cannot be configured for in-band management through the CHIF driver.
+ As of the writing of this article, only the [HPESysinfoCmdlets](https://www.powershellgallery.com/packages?q=HPESysinfoCmdlets) uses the CHIF driver for in-band management. Other PowerShell Cmdlets, like the [HPEiLOCmdlets](https://www.powershellgallery.com/packages/HPEiLOCmdlets/) or the [HPERedfishCmdlets](https://www.powershellgallery.com/packages/HPERedfishCmdlets/), cannot be configured for in-band management through the CHIF driver.
 
-### Miss configured HPE/VMware infrastructures
+### Misconfigured HPE/VMware infrastructures
 
-I've seen cases where VMware system managers installed manually a `.rpm` iLOrest package in their ESXi hypervisor instead of getting it installed properly with a [supported HPE custom image](https://vibsdepot.hpe.com/). It is important to remember that HPE bundles and tests specific application packages of iLOrest, SUM, SUT and the Agentless Management Service (AMS) for the ESXi hypervisor. Manual installation of those applications will generate problems like the `Chif driver not found` error.
+I've seen cases where VMware system managers manually installed a `.rpm` iLOrest package in their ESXi hypervisor instead of getting it installed properly with a [supported HPE custom image](https://vibsdepot.hpe.com/). It is important to remember that HPE bundles and tests specific application packages of iLOrest, SUM, SUT and the Agentless Management Service (AMS) for the ESXi hypervisor. Manual installation of those applications will generate problems like the `Chif driver not found` error.
 
 ## Other related problematic situations
 
-The previous sections of this article tried to explain the root causes of the `Chif driver not found` error. However you can face situations involving the CHIF driver where iLOrest commands return a valid output, but from the wrong system !
+Up to this point in this article, I've focused on the root causes of the `Chif driver not found` error. However, you can face situations involving the CHIF driver where iLOrest commands return a valid output, but from the wrong system !
 
-### iLOrest scripts accessing a wrong iLO
+### iLOrest scripts accessing the wrong iLO
 
 You may come across this error if you are a privileged user launching an iLOrest script from an iLO-based server targeting a remote iLO, but the script supplies the wrong credentials. In that case, iLOrest returns an error code, but sadly enough, the script does not test the return code of the login process and continues its execution. 
 
