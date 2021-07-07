@@ -4,7 +4,7 @@ date: 2018-10-30T17:05:18.375Z
 featuredBlog: false
 priority: null
 author: Francois Donze
-authorimage: /img/Avatar6.svg
+authorimage: https://gravatar.com/avatar/6f3982d1461459da475f47e3a6c89d1d?s=192
 thumbnailimage: null
 tags:
   - ilo-restful-api
@@ -16,7 +16,7 @@ tags:
   - iLO5
 ---
 # Storage management with Redfish®
-Updated: October 2019  
+Updated: July 2021  
     
 ## Introduction
 
