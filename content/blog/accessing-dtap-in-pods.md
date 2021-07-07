@@ -159,11 +159,14 @@ bin/hdfs dfs -rm dtap://TenantStorage/cenz/helloworld.txt
 ```
 
 > Tips:
+> 
 > - to get rid of the file path ```bin/```, we can add the Hadoop ```bin``` and ```sbin``` file to ```$PATH```
+> 
 > ```
 > export HADOOP_HOME=$HOME/hadoop
 > export PATH=$PATH:$HADOOP_HOME:$HADOOP_HOME/sbin:$HADOOP_HOME/bin
 > ```
+
 
 > Reference: 
 > [Hadoop File System Shell Document](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html)
