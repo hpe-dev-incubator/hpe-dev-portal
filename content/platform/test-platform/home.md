@@ -2,7 +2,7 @@
 title: Test Platform
 version: "1"
 description: Test platform description
-image: /img/platforms/smartsim_large.png
+image: /img/platforms/555-536x354.jpeg
 width: large
 priority: 1
 ---
