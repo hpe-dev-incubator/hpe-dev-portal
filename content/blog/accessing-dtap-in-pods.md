@@ -54,8 +54,8 @@ dtap://datatap_name/some_subdirectory/another_subdirectory/some_file
 
 |Screenshot|Description|
 |---|---|
-|![image](https://user-images.githubusercontent.com/72959956/121467168-35150680-c9eb-11eb-901c-77e83097cdf9.png)| You can manage different data source whether they are in MapR filesystem or HDFS|
-|![image](https://user-images.githubusercontent.com/72959956/121467262-5f66c400-c9eb-11eb-958d-911f18281a27.png)| You can upload, delete or rename files using GUI|
+|![image](https://user-images.githubusercontent.com/72959956/121467168-35150680-c9eb-11eb-901c-77e83097cdf9.png)| You can manage different data source whether they are in MapR filesystem or HDFS. |
+|![image](https://user-images.githubusercontent.com/72959956/121467262-5f66c400-c9eb-11eb-958d-911f18281a27.png)| You can upload, delete or rename files using GUI. |
 
 
 # Access DataTaps using HDFS commands
@@ -202,6 +202,7 @@ pyspark --jars /opt/bdfs/bluedata-dtap.jar
 ```
 
 After starting the interactive shell, ```Spark Context``` and ```Spark Session``` are automatically initiate for you.
+
 ![image](https://user-images.githubusercontent.com/72959956/120170783-e8d00680-c233-11eb-9fe8-136da9996fdc.png)
 
 We have to specify the Hadoop configurations. After that, you can read files from DataTap just like normally what you did with HDFS.
