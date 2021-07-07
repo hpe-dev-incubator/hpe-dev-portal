@@ -74,19 +74,19 @@ The following paragraphs address In-band Python scripts, PowerShell Cmdlets and 
 
 The `blobstore://.` URL mentioned above, can be used as well, in Redfish Python scripts based upon the [HPE python-ilorest-library](https://github.com/HewlettPackard/python-ilorest-library) to perform in-band management operations. Such programs will have the same behavior as iLOrest since iLOrest uses as well the HPE Python Redfish library. 
 
-In the following picture you can see the execution in a virtual machine, of the [get_ilo_ip.py](https://github.com/HewlettPackard/python-ilorest-library/blob/master/examples/Redfish/get_ilo_ip.py) python example configured for in-band management.
+In picture below, you can see the Python example [get_ilo_ip.py](https://github.com/HewlettPackard/python-ilorest-library/blob/master/examples/Redfish/get_ilo_ip.py) configured for in-band management.
 
-The `grep` command, following the `dmidecode` command returns all the lines of the `get_ilo_ip.py` file, containing strings `SYSTEM_URL` or `LOGIN_ACCOUNT` or `LOGIN_PASSWORD`. Lines starting with a `#` sign are commented lines, thus, not executed.
+The `grep` command, following the `dmidecode` command, returns all the lines of the `get_ilo_ip.py` file, containing strings `SYSTEM_URL` or `LOGIN_ACCOUNT` or `LOGIN_PASSWORD`. Lines starting with a `#` sign are commented lines, and are thus not executed.
 
-The target URL (`SYSTEM_URL`) points to `blobstore://.` and, the `LOGIN_ACCOUNT` and `LOGIN_PASSWORD` variables are empty. With this configuration, the `RedfishClient` method will try to connect to the CHIF driver to access the local iLO. However, it fails because it the script is executed on a virtual machine.
+The target URL (`SYSTEM_URL`) points to `blobstore://.` and the `LOGIN_ACCOUNT` and `LOGIN_PASSWORD` variables are empty. With this configuration, the `RedfishClient` method will try to connect to the CHIF driver to access the local iLO. However, it fails because the script is executed on a virtual machine.
 
 The result of this in-band configuration is a `ChifDriverMissingOrNotFound` error. 
 
-> NOTE: Only the last two lines of stack dump are displayed for clarity.
+> **NOTE**: Only the last two lines of the stack dump are displayed.
 
 ![blobstore target URL](/img/blobstoretarget.png "blobstore target URL")
 
-### Note concerning HPE PowerShell Cmdlets
+### HPE PowerShell Cmdlets and in-band management
 
  As of the writing of this article, only the [HPESysinfoCmdlets](https://www.powershellgallery.com/packages?q=HPESysinfoCmdlets) uses the CHIF driver for in-band management. Other PowerShell Cmdlets like the [HPEiLOCmdlets](https://www.powershellgallery.com/packages/HPEiLOCmdlets/) or the [HPERedfishCmdlets](https://www.powershellgallery.com/packages/HPERedfishCmdlets/) cannot be configured for in-band management through the CHIF driver.
 
