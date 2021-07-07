@@ -1,11 +1,11 @@
 ---
-priority: 1
-width: large
 title: HPE Ezmeral Data Fabric
 version: v 2.01.8964
 description: A sophisticated data fabric that enables you to run the right
   application at the right time in the right place on the right data.
 image: /img/platforms/EzmeralDataFabric.svg
+width: large
+priority: 1
 frontpage: true
 tags:
   - hpe-ezmeral-data-fabric
@@ -16,6 +16,7 @@ You can store, manage and access your data from edge to core to cloud at any sca
 * [HPE Ezmeral Data Fabric Documentation](https://docs.datafabric.hpe.com/)
 * [HPE Ezmeral Data Fabric API Documentation](https://docs.datafabric.hpe.com/62/APIdocs.html)
 * [README](https://community.hpe.com/t5/hpe-ezmeral-uncut/if-hpe-ezmeral-data-fabric-is-the-answer-what-is-the-question/ba-p/7092812#.X1saqWdKhE4)
+
 
 - - -
 
@@ -40,6 +41,7 @@ You can store, manage and access your data from edge to core to cloud at any sca
 ## Practical Erasure Coding in a Data Fabric
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/-6IBKLiOb_Q" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 
 - - -
 
@@ -72,6 +74,7 @@ The Music Catalog application explain the key Ezmeral Data Fabric Database featu
 
 The source code of the Music Catalog application is available in this [GitHub Repository](https://github.com/mapr-demos/mapr-music). Music Catalog application is also implemented with a [GraphQL](https://graphql.org/) endpoint instead of REST, the application code is available in this [GitHub Repository](https://github.com/mapr-demos/mapr-db-graphql-sample). You can find informations about this implementation in the [project readme file](https://github.com/mapr-demos/mapr-db-graphql-sample/blob/master/README.md).
 
+
 - - -
 
 ### ["Smart Home" IoT Tutorial ![](Github)](https://github.com/mapr-demos/mapr-smart-home)
@@ -93,6 +96,7 @@ The following Tutorial will drive you through the steps to build the application
 7. [Run the application in a Docker Container](https://github.com/mapr-demos/mapr-smart-home/blob/master/docs/tutorial/007-dockerization.md)
 
 The source code of the Smart Home application is available in this [GitHub Repository](https://github.com/mapr-demos/mapr-smart-home).
+
 
 - - -
 
@@ -125,6 +129,7 @@ This project provides an engine for processing real time streams trading data fr
 
 The source code of the Application for Processing Stock Market Trade Data application is available in this [GitHub Repository](https://github.com/mapr-demos/finserv-application-blueprint).
 
+
 - - -
 
 ### [Tutorials](#tutorials)           [Data Fabric Blogs](#blogs)           [Free Training](#training)
@@ -135,27 +140,39 @@ The source code of the Application for Processing Stock Market Trade Data applic
 
 # Free On-Demand Training
 
-Educate yourself for free with online courses that teach you how to build applications and administer the HPE Ezmeral Data Fabric. These lecture and lab courses are part of HPE Ezmeral Learn On-Demand academy.
+Learn for free with online courses that teach you how to build applications and administer the HPE Ezmeral Data Fabric. Visit [HPE Ezmeral Learn On-Demand](https://learn.ezmeral.software.hpe.com/) to enroll. 
 
-- [Developer Series](https://learn.ezmeral.software.hpe.com/series/developer)
+- [Artificial Intelligence and Machine Learning](https://learn.ezmeral.software.hpe.com/page/artificial-intelligence-machine-learning). Newer course series covering the basics of data science, machine learning, and AI, with step-by-step instructions on managing successful machine learning projects.
 
-The developer series of courses includes content on basic and advanced programming with Apache Spark as well as information about how to develop applications using some of the unique capabilities of the HPE Ezmeral Data Fabric such as the integrated JSON-oriented document database.
+- [Apache Spark](https://learn.ezmeral.software.hpe.com/page/apache-spark). This course series offers an overview of Apache Spark 2.x, the Spark execution model, and some advanced topics on developing data pipeline apps using Spark streaming, Spark SQL, GraphFrame, and MLlib.
+ 
+- [Data Fabric Cluster Administration](https://learn.ezmeral.software.hpe.com/page/data-fabric). Learn about preparing and testing a bare metal cluster to installing a data fabric, to running it on a day to day basis. 
+ 
+- [Kubernetes and Stateful Applications](https://learn.ezmeral.software.hpe.com/page/kubernetes-stateful-applications). Covers the basics of containers and Kubernetes, and methods for building stateful applications to run in a containerized world using a data fabric.
 
-- [Admin Series](https://learn.ezmeral.software.hpe.com/series/administratorv6)
 
-This admin series covers a range of topics from preparing and testing a bare metal cluster to installing a data fabric to running it on a day to day basis. Hands-on labs help you make sure you have the necessary skills wired by the time you need to install a production system.
-
-- [Containers and Kubernetes Series](https://learn.ezmeral.software.hpe.com/series/container-platform)
-
-This new and expanding series covers the basics of containers and Kubernetes through to up-to-date methods for building stateful applications to run in a containerized world using a data fabric.
 
 ---
+
+# Workshops-on-Demand
+
+Take advantage of our free, Jupyter-Notebook based Workshops-on-Demand available in the [Hack Shack](https://hackshack.hpedev.io/). These technical workshops provide you with an in-depth, hands-on learning experience where you can interact with and learn from the experts. Designed to fit your schedule, these workshops are available 24/7 – any time, from anywhere. HPE Ezmeral Data Fabric workshops are available today.
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<div class="w3-container w3-center w3-margin-bottom">
+  <a href="https://hackshack.hpedev.io/workshops"><button type="button" class="w3-btn w3-teal">Try now!</button></a>
+</div>
+
+
+- - -
+
 
 ## Any questions on Ezmeral Data Fabric?
 
 Join the [HPEDEV Slack Workspace](https://slack.hpedev.io/) and start a discussion in our [\#ezmeral-data-fabric](https://hpedev.slack.com/archives/CU3JRBTB7) channel.
 
 Not a Slack user? You can also ask your questions in our [Ezmeral Forum](https://hpe.com/forum/ezmeral).
+
 
 - - -
 
