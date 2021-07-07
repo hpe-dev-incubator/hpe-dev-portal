@@ -23,8 +23,8 @@ Interested to learn more? Check out these resources:
 
 * [Watch a recent presentation to Pangeo](https://www.youtube.com/watch?v=JsSgq-fq44w)
 * [Read the SmartSim documentation](https://www.craylabs.org/docs/overview.html)
-* [SmartSim Github open-source repository](https://github.com/CrayLabs/SmartSim)[](https://arxiv.org/abs/2104.09355)
+* [SmartSim Github open-source repository](https://github.com/CrayLabs/SmartSim)
 * [Read our recent paper](https://arxiv.org/abs/2104.09355)
 * [Join our Slack community](https://join.slack.com/t/craylabs/shared_invite/zt-nw3ag5z5-5PS4tIXBfufu1bIvvr71UA)
 
-  [](https://www.craylabs.org/docs/overview.html)
+  
