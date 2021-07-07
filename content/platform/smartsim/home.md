@@ -11,7 +11,7 @@ tags:
 ---
 # What is SmartSim?
 
-Recently, there is growing interest in applying machine-learning (ML) algorithms to improve scientific simulation efficiency and accuracy. New software approaches are needed to couple existing scientific applications, traditionally written in Fortran/C/C++ and MPI, to rapidly evolving ML and data analytics libraries, typically written in Python. Currently, the diversity of programming languages, dependence on file input/output (I/O), and large variance in compute resource requirements for scientific applications makes it difficult to perform online analysis, training, and inference with most ML and data analytics packages at the scale needed for numerical simulations.
+Recently, there is growing interest in applying machine learning (ML) algorithms to improve scientific simulation efficiency and accuracy. New software approaches are needed to couple existing scientific applications, traditionally written in Fortran/C/C++ and MPI, to rapidly evolving ML and data analytics libraries, typically written in Python. Currently, the diversity of programming languages, dependence on file input/output (I/O), and large variance in compute resource requirements for scientific applications makes it difficult to perform online analysis, training, and inference with most ML and data analytics packages at the scale needed for numerical simulations.
 
 How does one connect the two programming paradigms of numerical model development and machine learning? While on the surface, this question seems to approach the problem, we believe the true difficulty (and opportunity) in bridging these workloads needs to be reformulated in terms of data exchange: How to pass data between a simulation and ML model at scale? SmartSim provides the answer to this challenge.
 
@@ -23,8 +23,8 @@ Interested to learn more? Check out these resources:
 
 * [Watch a recent presentation to Pangeo](https://www.youtube.com/watch?v=JsSgq-fq44w)
 * [Read the SmartSim documentation](https://www.craylabs.org/docs/overview.html)
-* [SmartSim Github open-source repository](https://github.com/CrayLabs/SmartSim)[](https://arxiv.org/abs/2104.09355)
+* [SmartSim Github open-source repository](https://github.com/CrayLabs/SmartSim)
 * [Read our recent paper](https://arxiv.org/abs/2104.09355)
 * [Join our Slack community](https://join.slack.com/t/craylabs/shared_invite/zt-nw3ag5z5-5PS4tIXBfufu1bIvvr71UA)
 
-  [](https://www.craylabs.org/docs/overview.html)
+  
