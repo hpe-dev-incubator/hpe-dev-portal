@@ -74,7 +74,7 @@ The following paragraphs address In-band Python scripts, PowerShell Cmdlets and 
 
 The `blobstore://.` URL mentioned above, can be used as well, in Redfish Python scripts based upon the [HPE python-ilorest-library](https://github.com/HewlettPackard/python-ilorest-library) to perform in-band management operations. Such programs will have the same behavior as iLOrest since iLOrest uses as well the HPE Python Redfish library. 
 
-In the following picture you can see the execution in a virtual machine, of the [get\_ilo\_ip.py](https://github.com/HewlettPackard/python-ilorest-library/blob/master/examples/Redfish/get_ilo_ip.py) python example configured for in-band management.
+In the following picture you can see the execution in a virtual machine, of the [get_ilo_ip.py](https://github.com/HewlettPackard/python-ilorest-library/blob/master/examples/Redfish/get_ilo_ip.py) python example configured for in-band management.
 
 The `grep` command, following the `dmidecode` command returns all the lines of the `get_ilo_ip.py` file, containing strings `SYSTEM_URL` or `LOGIN_ACCOUNT` or `LOGIN_PASSWORD`. Lines starting with a `#` sign are commented lines, thus, not executed.
 
