@@ -1,5 +1,5 @@
 ---
-title: Storage management with Redfish
+title: Storage management with Redfish®
 date: 2018-10-30T17:05:18.375Z
 featuredBlog: false
 priority: null
@@ -15,7 +15,6 @@ tags:
   - ProLiant
   - iLO5
 ---
-# Storage management with Redfish®
 Updated: July 2021  
     
 ## Introduction
