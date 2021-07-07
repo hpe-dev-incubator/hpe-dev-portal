@@ -72,7 +72,7 @@ The following paragraphs address In-band Python scripts, PowerShell Cmdlets and 
 
 ### In-band Python scripts
 
-In this section, I will address in-band Python scripts, PowerShell CMdlets and VMware infrastructures with respect to the CHIF driver.
+In this section, I will address in-band Python scripts, PowerShell Cmdlets and VMware infrastructures with respect to the CHIF driver.
 
 The `blobstore://.` URL mentioned above, can also be used in Redfish Python scripts based on the [HPE python-ilorest-library](https://github.com/HewlettPackard/python-ilorest-library) to perform in-band management operations. Such programs will have the same behavior as iLOrest since iLOrest also uses the HPE Python Redfish library. 
 
