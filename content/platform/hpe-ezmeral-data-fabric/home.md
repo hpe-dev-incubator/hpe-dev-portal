@@ -140,7 +140,7 @@ The source code of the Application for Processing Stock Market Trade Data applic
 
 # Free On-Demand Training
 
-Learn for free with online courses that teach you how to build applications and administer the HPE Ezmeral Data Fabric. Visit HPE Ezmeral Learn On-Demand [https://learn.ezmeral.software.hpe.com/](https://learn.ezmeral.software.hpe.com/) to enroll. 
+Learn for free with online courses that teach you how to build applications and administer the HPE Ezmeral Data Fabric. Visit [HPE Ezmeral Learn On-Demand](https://learn.ezmeral.software.hpe.com/) to enroll. 
 
 - [Artificial Intelligence and Machine Learning](https://learn.ezmeral.software.hpe.com/page/artificial-intelligence-machine-learning). Newer course series covering the basics of data science, machine learning, and AI, with step-by-step instructions on managing successful machine learning projects.
 
