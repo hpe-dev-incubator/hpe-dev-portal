@@ -17,7 +17,7 @@ Handling different protocols of file systems is always a pain for a data analyst
 In this blog, I will introduce two ways to access DataTaps in Kubernetes clusters managed by HPE Ezmeral Container Platform deployed with a pre-integrated HPE Ezmeral Data Fabric. The first method covers how to access the DataTaps using HDFS Commands and the second focuses on directly reading data from Apache Spark (using pyspark). Here we go!
 
 
-## **Enable DataTap when creating the pod**
+## **Enable DataTap when creating KubeDirector App**
 
 First and foremost, we have to enable DataTaps while the creation for a KubeDirector app. This can be done by ticking the "Enable DataTap" box.
 
