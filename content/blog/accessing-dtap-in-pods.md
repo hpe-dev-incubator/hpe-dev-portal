@@ -4,10 +4,8 @@ date: 2021-07-06T06:44:24.016Z
 author: Cenz Wong
 authorimage: https://avatars.githubusercontent.com/u/44856918?v=4
 tags:
-  - Ezmeral
-  - HDFS
-  - Hadoop
-  - Data Fabric
+  - hpe-ezmeral-container-platform
+  - hpe-ezmeral-data-fabric
 ---
 ## What is DataTap?
 (I want to find a better version of this graph showing Kubernetes instead of EPIC, will you guys have that picture? if not, I will create my own.)
