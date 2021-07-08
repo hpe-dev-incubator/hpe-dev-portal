@@ -8,15 +8,17 @@ tags:
   - hpe-ezmeral-data-fabric
 ---
 ## What is DataTap?
+
 (I want to find a better version of this graph showing Kubernetes instead of EPIC, will you guys have that picture? if not, I will create my own.)
 ![image](https://user-images.githubusercontent.com/72959956/120766016-62296b00-c54c-11eb-9a2e-6d2ec90e0871.png)
 
-Handling different protocols of file systems is always a pain for a data analyst. DataTap is a file system connector that aims to alleviate this pain. DataTap provides HDFS protocol abstraction that allows big data applications like Spark to run unmodified with fast access to data sources other than HDFS, i.e. HPE Ezmeral Data Fabric XD (formerly named MapR-FS/XD) and NFS. Using DataTap, you can unify your code while the underlying data sources can be swapped from HDFS, MapR-FS, or NFS. This flexibility allows developers like you to focus more on coding rather than the underlying infrastructure. More information on DataTap can be found [here](https://docs.containerplatform.hpe.com/53/reference/kubernetes/tenant-project-administration/copy_About_DataTaps.html).
+Handling different protocols of file systems is always a pain for a data analyst. DataTap is a file system connector that aims to alleviate this pain. DataTap provides HDFS protocol abstraction that allows big data applications like Spark to run unmodified with fast access to data sources other than HDFS, i.e. HPE Ezmeral Data Fabric XD (formerly named MapR-FS/XD) and GCS (Google Cloud Storage). Using DataTap, you can unify your code while the underlying data sources can be swapped from HDFS, MapR-FS. This flexibility allows developers like you to focus more on coding rather than the underlying infrastructure. More information on DataTap can be found [here](https://docs.containerplatform.hpe.com/53/reference/kubernetes/tenant-project-administration/copy_About_DataTaps.html).
 
 In this blog, I will introduce two ways to access DataTaps in Kubernetes clusters managed by HPE Ezmeral Container Platform deployed with a pre-integrated HPE Ezmeral Data Fabric. The first method covers how to access the DataTaps using HDFS Commands and the second focuses on directly reading data from Apache Spark (using pyspark). Here we go!
 
 
 ## **Enable DataTap when creating the pod**
+
 First and foremost, we have to enable DataTaps while the creation for a KubeDirector app. This can be done by ticking the "Enable DataTap" box.
 
 ![image](https://user-images.githubusercontent.com/72959956/119443704-9cc92180-bd5c-11eb-8fce-b6b53823336c.png)
@@ -44,6 +46,7 @@ The generic approach can be concluded into these two steps:
 
 
 ## Uniform Resource Identifier
+
 In HPE Ezmeral Container Platform, you can see different types of file system used by the shared storage resources. You can manage different data source through a GUI and representing files with same URI. The URI will be in the format of 
 
 ```
@@ -57,7 +60,9 @@ dtap://datatap_name/some_subdirectory/another_subdirectory/some_file
 
 
 # Access DataTaps using HDFS commands
+
 ## Introduction
+
 The Hadoop distributed file system (HDFS) is the key component of the Hadoop ecosystem. HDFS commands, of course, are the commands which responsible for manipulate files for HDFS. 
 
 To use the HDFS commands, first you need to start the Hadoop services using the following command:
@@ -65,7 +70,8 @@ To use the HDFS commands, first you need to start the Hadoop services using the 
 
 
 ## Prepare Hadoop
-Some of the Kubedirector App provided by HPE is pre-installed a well-configured Hadoop for you. Hence, the following installation steps can be skipped.
+
+Some of the KubeDirector App provided by HPE is pre-installed a well-configured Hadoop for you. Hence, the following installation steps can be skipped.
 
 
 ### Install OpenJDK and the dependency
@@ -80,6 +86,7 @@ DEBIAN_FRONTEND=noninteractive apt-get install openjdk-11-jdk-headless -y
 ```
 
 ### Download Hadoop and untar Hadoop
+
 You can always find the latest version of Hadoop on [Apache Hadoop Releases](https://hadoop.apache.org/releases.html).
 
 
@@ -93,6 +100,7 @@ cd $HOME/hadoop                                                                 
 
 
 ### Configure the required environment
+
 In ```$HADOOP_HOME/etc/hadoop/hadoop-env.sh``` file, assign the following environment variables (```$JAVA_HOME```, ```$HADOOP_HOME```, ```$HADOOP_CLASSPATH```):
 
 ```bash
