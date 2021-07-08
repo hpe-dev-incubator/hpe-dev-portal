@@ -3,7 +3,7 @@
 
 >**Note:** A recording of the training session delivered on April 30, 2021 is available [here](https://vimeo.com/544486602). 
 
->**IMPORTANT Note:** The recommended way for submitting your contribution is through the HPE DEV CMS editor as explained in this document. HPE DEV team provides review feedback to blog post authors, event card, platform page owner through GitHub. 
+>**IMPORTANT Note:** The recommended way for submitting your contribution is through the HPE DEV CMS editor as explained in this document. HPE DEV team provides review feedback to blog post authors, event card and platform page owners through GitHub. 
 
 >Note: You may prefer to use MS-Word or Google doc (a Google account is needed. Google Docs seems to be a good way to provide review feedback to authors.) to submit your contributions (blog post, new platform page, new event card). In this case, the document here does not apply.   
 
