@@ -3,7 +3,9 @@
 
 >**Note:** A recording of the training session delivered on April 30, 2021 is available [here](https://vimeo.com/544486602). 
 
->**IMPORTANT Note:** We are currently working on determining the best way to provide review feedback to blog post authors. Please bear with us as we try to figure this out.
+>**IMPORTANT Note:** The recommended way for submitting your contribution is through the HPE DEV CMS editor as explained in this document. HPE DEV team provides review feedback to blog post authors, event card, platform page owner through GitHub. 
+
+>Note: You may prefer to use MS-Word or Google doc (a Google account is needed. Google Docs seems to be a good way to provide review feedback to authors.) to submit your contributions (blog post, new platform page, new event card). In this case, the document here does not apply.   
 
 ## Table of Contents
 
@@ -56,8 +58,6 @@ Netlify and AWS Amplify has been both configured to integrate with GitHub versio
 
 1.  Make sure you are connected to **your personal GitHub account**. If you
     don't have an account, you can create one now [here](https://github.com/join).
-
->Note: A Google account to use Google Docs or a MS-Word document can be used to submit your contributions (blog post, new platform page, new event card) if you prefer to submit your contribution through a word document rather than through CMS editor. Google Docs seems to be a good way to provide review feedback to authors.  
 
 2.  Open the [HPE DEV Content Management System (CMS)](https://developer.hpe.com/admin) and select **login with GitHub**. 
 
