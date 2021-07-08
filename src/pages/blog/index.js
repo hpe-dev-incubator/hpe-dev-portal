@@ -28,11 +28,13 @@ function Blog({ data, location }) {
   const siteTitle = siteMetadata.title;
   const [index, setIndex] = React.useState(0);
   const onActive = (nextIndex) => setIndex(nextIndex);
+  const totalAllBlogsCount = data.allBlogsCount.totalCount;
+  const totalOpenSourceBlogsCount = data.openSourceBlogsCount.totalCount;
   // const initialPage = data.allBlogs;
   // const [latestPage, setLatestPage] = useState(initialPage);
   // const [blogPosts, setBlogPosts] = useState(initialPage.nodes);
   // const [collectionId, setCollectionId] = 
-    // useState(initialPage.collection.id);
+  // useState(initialPage.collection.id);
 
   // useEffect(() => {
   //   setCollectionId(initialPage.collection.id);
@@ -119,12 +121,12 @@ function Blog({ data, location }) {
         </SectionHeader>
       )}
       {/* <SectionHeader title="All Blogs"> */}
-      <Tabs 
-        activeIndex={index} 
-        onActive={onActive} 
-        justify="start" 
+      <Tabs
+        activeIndex={index}
+        onActive={onActive}
+        justify="start"
         alignControls="start">
-        <Tab title="All">
+        <Tab title={`All (${totalAllBlogsCount})`}>
           <Box fill pad="large" align="center">
             <OpenSourceTab
               key={index}
@@ -139,7 +141,7 @@ function Blog({ data, location }) {
             Platforms
           </Box>
         </Tab>
-        <Tab title="Open Source">
+        <Tab title={`Open Source (${totalOpenSourceBlogsCount})`}>
           <Box fill pad="large" align="center">
             <OpenSourceTab
               key={index}
@@ -234,6 +236,8 @@ Blog.propTypes = {
         id: PropTypes.string.isRequired,
       }),
     }).isRequired,
+    allBlogsCount: PropTypes.objectOf(PropTypes.string),
+    openSourceBlogsCount: PropTypes.objectOf(PropTypes.string),
   }).isRequired,
   location: PropTypes.shape({
     state: PropTypes.shape({
@@ -246,19 +250,6 @@ export default Blog;
 
 export const pageQuery = graphql`
   query {
-    allBlogs: paginatedCollectionPage(
-      collection: { name: { eq: "blog-posts" } }
-      index: { eq: 0 }
-    ) {
-      nodes
-      hasNextPage
-      nextPage {
-        id
-      }
-      collection {
-        id
-      }
-    }
     featuredblogs: allMarkdownRemark(
       filter: {
         fields: { sourceInstanceName: { eq: "blog" } }
@@ -288,6 +279,39 @@ export const pageQuery = graphql`
             category
           }
         }
+      }
+    }
+    allBlogsCount: allMarkdownRemark(
+      filter: {
+        fields: {sourceInstanceName: {eq: "blog"}}, 
+        frontmatter: {
+          featuredBlog: {ne: true}
+        }
+      }, 
+      sort: {fields: [frontmatter___date], order: DESC}) {
+    totalCount
+    }
+    openSourceBlogsCount: allMarkdownRemark(
+      filter: {
+        fields: {sourceInstanceName: {eq: "blog"}}, 
+        frontmatter: {
+          tags: {eq: "opensource"}
+        }
+      }, 
+      sort: {fields: [frontmatter___date], order: DESC}) {
+    totalCount
+    }
+    allBlogs: paginatedCollectionPage(
+      collection: { name: { eq: "blog-posts" } }
+      index: { eq: 0 }
+    ) {
+      nodes
+      hasNextPage
+      nextPage {
+        id
+      }
+      collection {
+        id
       }
     }
     openSourceBlogs: paginatedCollectionPage(
