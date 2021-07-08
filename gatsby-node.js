@@ -9,6 +9,18 @@ const escapeRegExp = (string) => string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 const arrayToRE = (a) =>
   a ? '/^' + a.map((str) => `(${escapeRegExp(str)})`).join('|') + '$/i' : ''; // eslint-disable-line
 
+const setPagination = (queryResult) => {
+  const collection = queryResult.data.paginatedCollection;
+  const dir = path.join(__dirname, 'public', 'paginated-data', collection.id);
+  fs.mkdirSync(dir, { recursive: true });
+  collection.pages.forEach((page) =>
+    fs.writeFileSync(
+      path.resolve(dir, `${page.id}.json`),
+      JSON.stringify(page),
+    ),
+  );
+};
+
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
 
@@ -19,7 +31,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const tagTemplate = path.resolve('./src/templates/tags.js');
   const campaignTemplate = path.resolve('./src/templates/campaign.js');
 
-  const queryResult = await graphql(`
+  const allQueryResult = await graphql(`
     {
       paginatedCollection(name: { eq: "blog-posts" }) {
         id
@@ -35,15 +47,24 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `);
 
-  const collection = queryResult.data.paginatedCollection;
-  const dir = path.join(__dirname, 'public', 'paginated-data', collection.id);
-  fs.mkdirSync(dir, { recursive: true });
-  collection.pages.forEach((page) =>
-    fs.writeFileSync(
-      path.resolve(dir, `${page.id}.json`),
-      JSON.stringify(page),
-    ),
-  );
+  const openSourceQueryResult = await graphql(`
+  {
+    paginatedCollection(name: { eq: "opensource-blog-posts" }) {
+      id
+      pages {
+        id
+        nodes
+        hasNextPage
+        nextPage {
+          id
+        }
+      }
+    }
+  }
+`);
+
+  setPagination(allQueryResult);
+  setPagination(openSourceQueryResult);
 
   return graphql(
     `

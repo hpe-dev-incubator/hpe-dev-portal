@@ -1,8 +1,7 @@
-import React, { useState, useCallback, useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { graphql, withPrefix, navigate } from 'gatsby';
-import { Box, Button, Paragraph } from 'grommet';
-import { FormDown } from 'grommet-icons';
+import { graphql } from 'gatsby';
+import { Box, Paragraph, Tab, Tabs } from 'grommet';
 import {
   BlogCard,
   Layout,
@@ -11,6 +10,7 @@ import {
   FeaturedBlogCard,
   SectionHeader,
   ResponsiveGrid,
+  OpenSourceTab,
 } from '../../components';
 import { useSiteMetadata } from '../../hooks/use-site-metadata';
 
@@ -22,68 +22,71 @@ const columns = {
 };
 
 function Blog({ data, location }) {
+  console.log('data: ', data);
   const featuredposts = data.featuredblogs.edges;
   const siteMetadata = useSiteMetadata();
   const siteTitle = siteMetadata.title;
+  const [index, setIndex] = React.useState(0);
+  const onActive = (nextIndex) => setIndex(nextIndex);
+  // const initialPage = data.allBlogs;
+  // const [latestPage, setLatestPage] = useState(initialPage);
+  // const [blogPosts, setBlogPosts] = useState(initialPage.nodes);
+  // const [collectionId, setCollectionId] = 
+    // useState(initialPage.collection.id);
 
-  const initialPage = data.paginatedCollectionPage;
-  const [latestPage, setLatestPage] = useState(initialPage);
-  const [blogPosts, setBlogPosts] = useState(initialPage.nodes);
-  const [collectionId, setCollectionId] = useState(initialPage.collection.id);
+  // useEffect(() => {
+  //   setCollectionId(initialPage.collection.id);
 
-  useEffect(() => {
-    setCollectionId(initialPage.collection.id);
+  //   const blogLocalStorage = JSON.parse(localStorage.getItem('blogData'));
 
-    const blogLocalStorage = JSON.parse(localStorage.getItem('blogData'));
+  //   if (
+  //     blogLocalStorage &&
+  //     blogLocalStorage.latestPage &&
+  //     blogLocalStorage.latestBlogPosts
+  //   ) {
+  //     setLatestPage(blogLocalStorage.latestPage);
+  //     setBlogPosts(blogLocalStorage.latestBlogPosts);
+  //   }
 
-    if (
-      blogLocalStorage &&
-      blogLocalStorage.latestPage &&
-      blogLocalStorage.latestBlogPosts
-    ) {
-      setLatestPage(blogLocalStorage.latestPage);
-      setBlogPosts(blogLocalStorage.latestBlogPosts);
-    }
+  //   if (location.state && location.state.isBlogHeaderClicked) {
+  //     navigate('/blog', { replace: true });
+  //     setLatestPage(initialPage);
+  //     setBlogPosts(initialPage.nodes);
+  //     localStorage.removeItem('blogPosition');
+  //     localStorage.removeItem('blogData');
+  //   }
+  // }, [initialPage, location]);
 
-    if (location.state && location.state.isBlogHeaderClicked) {
-      navigate('/blog', { replace: true });
-      setLatestPage(initialPage);
-      setBlogPosts(initialPage.nodes);
-      localStorage.removeItem('blogPosition');
-      localStorage.removeItem('blogData');
-    }
-  }, [initialPage, location]);
+  // useEffect(() => {
+  //   const scrollPosition = JSON.parse(localStorage.getItem('blogPosition'));
 
-  useEffect(() => {
-    const scrollPosition = JSON.parse(localStorage.getItem('blogPosition'));
+  //   if (scrollPosition) {
+  //     setTimeout(() => {
+  //       window.scrollTo
+  // ({ top: scrollPosition, left: 0, behavior: 'smooth' });
+  //     }, 100);
+  //   }
+  // }, []);
 
-    if (scrollPosition) {
-      setTimeout(() => {
-        window.scrollTo({ top: scrollPosition, left: 0, behavior: 'smooth' });
-      }, 100);
-    }
-  }, []);
+  // const loadNextPage = useCallback(async (latestPage, collectionId) => {
+  //   if (!latestPage.hasNextPage) return;
+  //   const nextPageId = latestPage.nextPage.id;
+  //   console.log('collectionId: ', collectionId);
+  //   console.log('nextPageId: ', nextPageId);
+  //   const path = withPrefix(
+  //     `/paginated-data/${collectionId}/${nextPageId}.json`,
+  //   );
+  //   console.log('path: ', path);
+  //   const res = await fetch(path);
+  //   const json = await res.json();
+  //   console.log('res: ', res);
+  //   console.log('json: ', json);
 
-  const loadNextPage = useCallback(async () => {
-    if (!latestPage.hasNextPage) return;
-    const nextPageId = latestPage.nextPage.id;
-    const path = withPrefix(
-      `/paginated-data/${collectionId}/${nextPageId}.json`,
-    );
-    const res = await fetch(path);
-    const json = await res.json();
+  //   setBlogPosts((state) => [...state, ...json.nodes]);
+  //   setLatestPage(json);
 
-    setBlogPosts((state) => [...state, ...json.nodes]);
-    setLatestPage(json);
 
-    localStorage.setItem(
-      'blogData',
-      JSON.stringify({
-        latestBlogPosts: [...blogPosts, ...json.nodes],
-        latestPage: json,
-      }),
-    );
-  }, [latestPage, collectionId, blogPosts]);
+  // }, [latestPage, collectionId ]);
 
   return (
     <Layout title={siteTitle}>
@@ -108,24 +111,52 @@ function Blog({ data, location }) {
           />
           <ResponsiveGrid rows={{}} columns={columns}>
             {featuredposts.map(
-              ({ node }, index) =>
+              ({ node }, i) =>
                 node.fields.slug !== '/' &&
-                index > 0 && <BlogCard key={node.id} node={node} />,
+                i > 0 && <BlogCard key={node.id} node={node} />,
             )}
           </ResponsiveGrid>
         </SectionHeader>
       )}
-      <SectionHeader title="All Blogs">
-        <ResponsiveGrid rows={{}} columns={columns}>
-          {blogPosts.map(
-            (blogPost) =>
-              blogPost.url !== '/' && (
-                <BlogCard key={blogPost.id} node={blogPost} />
-              ),
-          )}
-        </ResponsiveGrid>
-      </SectionHeader>
-      <Box align="center" pad="medium">
+      {/* <SectionHeader title="All Blogs"> */}
+      <Tabs 
+        activeIndex={index} 
+        onActive={onActive} 
+        justify="start" 
+        alignControls="start">
+        <Tab title="All">
+          <Box fill pad="large" align="center">
+            <OpenSourceTab
+              key={index}
+              initialPage={data.allBlogs}
+              columns={columns}
+              location={location}
+            />
+          </Box>
+        </Tab>
+        <Tab title="Platforms">
+          <Box fill pad="large" align="center">
+            Platforms
+          </Box>
+        </Tab>
+        <Tab title="Open Source">
+          <Box fill pad="large" align="center">
+            <OpenSourceTab
+              key={index}
+              initialPage={data.openSourceBlogs}
+              columns={columns}
+              location={location}
+            />
+          </Box>
+        </Tab>
+        <Tab title="Others">
+          <Box fill pad="large" align="center">
+            Open Source
+          </Box>
+        </Tab>
+      </Tabs>
+      {/* </SectionHeader> */}
+      {/* <Box align="center" pad="medium">
         <Button
           icon={<FormDown />}
           hoverIndicator
@@ -133,7 +164,7 @@ function Blog({ data, location }) {
           onClick={loadNextPage}
           label="Load More"
         />
-      </Box>
+      </Box> */}
     </Layout>
   );
 }
@@ -163,7 +194,27 @@ Blog.propTypes = {
         }).isRequired,
       ).isRequired,
     }).isRequired,
-    paginatedCollectionPage: PropTypes.shape({
+    allBlogs: PropTypes.shape({
+      nodes: PropTypes.arrayOf(
+        PropTypes.shape({
+          node: PropTypes.shape({
+            title: PropTypes.string.isRequired,
+            author: PropTypes.string.isRequired,
+            date: PropTypes.string,
+            description: PropTypes.string,
+            authorimage: PropTypes.string,
+          }),
+        }).isRequired,
+      ).isRequired,
+      hasNextPage: PropTypes.bool.isRequired,
+      nextPage: PropTypes.shape({
+        id: PropTypes.string.isRequired,
+      }),
+      collection: PropTypes.shape({
+        id: PropTypes.string.isRequired,
+      }),
+    }).isRequired,
+    openSourceBlogs: PropTypes.shape({
       nodes: PropTypes.arrayOf(
         PropTypes.shape({
           node: PropTypes.shape({
@@ -195,7 +246,7 @@ export default Blog;
 
 export const pageQuery = graphql`
   query {
-    paginatedCollectionPage(
+    allBlogs: paginatedCollectionPage(
       collection: { name: { eq: "blog-posts" } }
       index: { eq: 0 }
     ) {
@@ -237,6 +288,19 @@ export const pageQuery = graphql`
             category
           }
         }
+      }
+    }
+    openSourceBlogs: paginatedCollectionPage(
+      collection: { name: { eq: "opensource-blog-posts" } }
+      index: { eq: 0 }
+    ) {
+      nodes
+      hasNextPage
+      nextPage {
+        id
+      }
+      collection {
+        id
       }
     }
   }

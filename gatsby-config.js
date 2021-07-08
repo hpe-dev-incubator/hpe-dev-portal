@@ -175,7 +175,52 @@ module.exports = {
         {
           allMarkdownRemark(filter: {fields: {sourceInstanceName: {eq: "blog"}
         }, frontmatter: {featuredBlog: {ne: true}}},
-         sort: {fields: [frontmatter___date], order: DESC}) {
+          sort: {fields: [frontmatter___date], order: DESC}) {
+            nodes {
+              id
+              fields {
+                slug
+                sourceInstanceName
+              }
+              frontmatter {
+                title
+                date
+                description
+                author
+                tags
+                authorimage
+              }
+              excerpt
+            }
+          }
+        }
+        `,
+        normalizer: ({ data }) =>
+          data.allMarkdownRemark.nodes.map((node) => ({
+            id: node.id,
+            title: node.frontmatter.title,
+            date: node.frontmatter.date,
+            description: node.excerpt,
+            author: node.frontmatter.author,
+            tags: node.frontmatter.tags,
+            authorimage: node.frontmatter.authorimage,
+            fields: {
+              slug: node.fields.slug,
+              sourceInstanceName: node.fields.sourceInstanceName,
+            },
+          })),
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-paginated-collection',
+      options: {
+        name: 'opensource-blog-posts',
+        pageSize: 12,
+        query: `
+        {
+          allMarkdownRemark(filter: {fields: {sourceInstanceName: {eq: "blog"}
+        }, frontmatter: {tags: {eq: "opensource"}}},
+          sort: {fields: [frontmatter___date], order: DESC}) {
             nodes {
               id
               fields {
@@ -239,9 +284,9 @@ module.exports = {
               node.fields.sourceInstanceName === 'homepanels'
                 ? '/'
                 : `${node.fields.sourceInstanceName}${node.fields.slug.replace(
-                    /\/aside[/]?$/,
-                    '/home',
-                  )}`,
+                  /\/aside[/]?$/,
+                  '/home',
+                )}`,
             sourceInstanceName: (node) => node.fields.sourceInstanceName,
           },
         },
@@ -249,3 +294,7 @@ module.exports = {
     },
   ],
 };
+
+
+
+
