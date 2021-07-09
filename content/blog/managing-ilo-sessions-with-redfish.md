@@ -4,7 +4,7 @@ date: 2018-08-27T13:44:46.463Z
 featuredBlog: false
 priority: null
 author: François Donzé
-authorimage: /img/blogs/Avatar4.svg
+authorimage: https://gravatar.com/avatar/6f3982d1461459da475f47e3a6c89d1d?s=192
 thumbnailimage: null
 tags:
   - ilo-restful-api
