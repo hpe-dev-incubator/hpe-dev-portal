@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
-import { Box, Paragraph, Tab, Tabs } from 'grommet';
+import { Box, Paragraph, Tab, Tabs, DropButton } from 'grommet';
+import { FormDown } from 'grommet-icons';
 import {
   BlogCard,
   Layout,
@@ -33,7 +34,7 @@ function Blog({ data, location }) {
   // const initialPage = data.allBlogs;
   // const [latestPage, setLatestPage] = useState(initialPage);
   // const [blogPosts, setBlogPosts] = useState(initialPage.nodes);
-  // const [collectionId, setCollectionId] = 
+  // const [collectionId, setCollectionId] =
   // useState(initialPage.collection.id);
 
   // useEffect(() => {
@@ -87,7 +88,6 @@ function Blog({ data, location }) {
   //   setBlogPosts((state) => [...state, ...json.nodes]);
   //   setLatestPage(json);
 
-
   // }, [latestPage, collectionId ]);
 
   return (
@@ -125,7 +125,8 @@ function Blog({ data, location }) {
         activeIndex={index}
         onActive={onActive}
         justify="start"
-        alignControls="start">
+        alignControls="start"
+      >
         <Tab title={`All (${totalAllBlogsCount})`}>
           <Box fill pad="large" align="center">
             <OpenSourceTab
@@ -136,11 +137,36 @@ function Blog({ data, location }) {
             />
           </Box>
         </Tab>
-        <Tab title="Platforms">
-          <Box fill pad="large" align="center">
-            Platforms
-          </Box>
-        </Tab>
+
+        <DropButton
+          dropAlign={{ top: 'bottom', right: 'right' }}
+          dropContent={
+            <Box pad="small">
+              <Tab
+                title={`HPE Ezmeral Container Platform (${totalAllBlogsCount})`}
+                plain="false"
+              >
+                <Box fill pad="large" align="center">
+                  <OpenSourceTab
+                    key={index}
+                    initialPage={data.allBlogs}
+                    columns={columns}
+                    location={location}
+                  />
+                </Box>
+              </Tab>
+            </Box>
+          }
+          pad={{ vertical: 'small' }}
+          icon={<FormDown />}
+          reverse="true"
+          gap="xsmall"
+          label="Platforms"
+          dropProps={{
+            align: { top: 'bottom', left: 'left' },
+          }}
+        />
+
         <Tab title={`Open Source (${totalOpenSourceBlogsCount})`}>
           <Box fill pad="large" align="center">
             <OpenSourceTab
@@ -283,23 +309,21 @@ export const pageQuery = graphql`
     }
     allBlogsCount: allMarkdownRemark(
       filter: {
-        fields: {sourceInstanceName: {eq: "blog"}}, 
-        frontmatter: {
-          featuredBlog: {ne: true}
-        }
-      }, 
-      sort: {fields: [frontmatter___date], order: DESC}) {
-    totalCount
+        fields: { sourceInstanceName: { eq: "blog" } }
+        frontmatter: { featuredBlog: { ne: true } }
+      }
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
+      totalCount
     }
     openSourceBlogsCount: allMarkdownRemark(
       filter: {
-        fields: {sourceInstanceName: {eq: "blog"}}, 
-        frontmatter: {
-          tags: {eq: "opensource"}
-        }
-      }, 
-      sort: {fields: [frontmatter___date], order: DESC}) {
-    totalCount
+        fields: { sourceInstanceName: { eq: "blog" } }
+        frontmatter: { tags: { eq: "opensource" } }
+      }
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
+      totalCount
     }
     allBlogs: paginatedCollectionPage(
       collection: { name: { eq: "blog-posts" } }

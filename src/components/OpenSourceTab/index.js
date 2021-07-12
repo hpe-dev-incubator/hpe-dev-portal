@@ -43,9 +43,9 @@ const OpenSourceTab = ({
 
   //   if (scrollPosition) {
   //     setTimeout(() => {
-  //       window.scrollTo({ 
-  // top: scrollPosition, 
-  // left: 0, 
+  //       window.scrollTo({
+  // top: scrollPosition,
+  // left: 0,
   // behavior: 'smooth' });
   //     }, 100);
   //   }
@@ -78,17 +78,14 @@ const OpenSourceTab = ({
 
   return (
     <>
-      <ResponsiveGrid rows={{}} columns={columns} >
-        {
-          blogPosts.map(
-            (blogPost) =>
-              blogPost.url !== '/' && (
-                <BlogCard key={blogPost.id} node={blogPost} />
-              ),
-          )
-        }
-
-      </ResponsiveGrid >
+      <ResponsiveGrid rows={{}} columns={columns}>
+        {blogPosts.map(
+          (blogPost) =>
+            blogPost.url !== '/' && (
+              <BlogCard key={blogPost.id} node={blogPost} />
+            ),
+        )}
+      </ResponsiveGrid>
       <Box align="center" pad="medium">
         <Button
           icon={<FormDown />}
