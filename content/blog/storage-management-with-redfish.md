@@ -1,15 +1,21 @@
 ---
-title: "Storage management with Redfish"
+title: Storage management with Redfish®
 date: 2018-10-30T17:05:18.375Z
-author: Francois Donze 
-tags: ["ilo-restful-api","Redfish","SmartStorage","SmartArray","Synergy","ProLiant","iLO5"]
-authorimage: "/img/blogs/Avatar3.svg"
 featuredBlog: false
-priority:
-thumbnailimage:
+priority: null
+author: Francois Donze
+authorimage: https://gravatar.com/avatar/6f3982d1461459da475f47e3a6c89d1d?s=192
+thumbnailimage: null
+tags:
+  - ilo-restful-api
+  - Redfish
+  - SmartStorage
+  - SmartArray
+  - Synergy
+  - ProLiant
+  - iLO5
 ---
-# Storage management with Redfish&reg;
-Updated: October 2019  
+Updated: July 2021  
     
 ## Introduction
 
@@ -200,4 +206,4 @@ Redfish is a powerful, open source method of being able to manage systems. With 
 
 Make sure you continue to follow my blog posts on HPE DEV for more hints on working with Redfish in HPE environments. You can connect with me in [the Redfish channel on Slack](https://hpedev.slack.com/) for specific questions.
 
-### Document last update: October 2019
+### Document last update: July 2021
