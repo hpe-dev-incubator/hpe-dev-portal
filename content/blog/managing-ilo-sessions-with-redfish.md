@@ -1,18 +1,24 @@
 ---
-title: "Managing iLO sessions with Redfish"
+title: Managing iLO sessions with Redfish®
 date: 2018-08-27T13:44:46.463Z
-author: François Donzé 
-tags: ["ilo-restful-api","Redfish","iLO5","iLOsessionmanagement"]
-authorimage: "/img/blogs/Avatar4.svg"
 featuredBlog: false
-priority:
-thumbnailimage:
+priority: null
+author: François Donzé
+authorimage: https://gravatar.com/avatar/6f3982d1461459da475f47e3a6c89d1d?s=192
+thumbnailimage: null
+tags:
+  - ilo-restful-api
+  - Redfish
+  - iLO5
+  - iLOsessionmanagement
 ---
+Updated: July 2021
+
 ## Introduction
 
 HPE Integrated Lights-Out (iLO) accepts a limited number of HTTP sessions. Reaching the maximum number of sessions can lead to embarrassing situations where server management operations are impossible until active connections are automatically disconnected after the pre-defined timeout or a manual / physical [iLO reset](https://support.hpe.com/hpsc/doc/public/display?docId=a00048134en_us) is performed.
 
-As a companion document to a [Customer Advisory](https://support.hpe.com/hpsc/doc/public/display?docId=emr_na-a00041654en_us&docLocale=en_US) notification published earlier this year, we'd like to explain the typical contexts generating this problem as well as best practices to prevent it using the [Redfish&reg;](http://www.dmtf.org/redfish) RESTful API.
+As a companion document to a [Customer Advisory](https://support.hpe.com/hpsc/doc/public/display?docId=emr_na-a00041654en_us&docLocale=en_US) notification published earlier this year, we'd like to explain the typical contexts generating this problem as well as best practices to prevent it using the [Redfish](http://www.dmtf.org/redfish) RESTful API.
 
 For reaching this goal, we need first to explain the two common management techniques as well as the session management object in Redfish.
 
@@ -20,9 +26,9 @@ For reaching this goal, we need first to explain the two common management techn
 
 Out-of-band (OOB) management consists of starting a management application on a system different from the managed server. Using the IP address of the managed server (or its iLO) and privileged credentials, the remote application is able to connect and perform management tasks. Server management and deployment using [Ansible](https://www.ansible.com/) scripts is a typical use case of OOB.
 
-With the in-band management technic, you start the management application in the operating system of the managed server. The application reaches the iLO through an internal path in the server (i.e. PCIe bus). This method suits perfectly in [Chef](https://www.chef.io/) or [Puppet](https://puppet.com/) management infrastructures.
+With the in-band management technique, you start the management application in the operating system of the managed server. The application reaches the iLO through an internal path in the server (i.e. PCIe bus). This method suits perfectly in [Chef](https://www.chef.io/) or [Puppet](https://puppet.com/) management infrastructures.
 
-## Redfish&reg; session management basics
+## Redfish session management basics
 
 Session management using the Redfish RESTful API is performed with the `/redfish/v1/SessionService` Redfish object. When this service is enabled, iLO active sessions are listed below the `Sessions` sub-tree of the service. Each and every iLO successful login creates an entry at this URI.
 
@@ -34,7 +40,7 @@ Each invocation of the script returns a list composed of a single but different 
 
 ![Get session members with curl](https://redfish-lab.sourceforge.io/media/redfish-wiki/Managing-iLO-Sessions-With-Redfish/1-GetSessionMembersWithCurl.png)
 
-As a conclusion, the basic authentication mechanism, no matter the used tool, has the advantage of self-cleaning the session list. Said differently, the risk of reaching the maximum number of iLO sessions with this technic is very low. However, basic authentication does not suite all the needs of server management.
+As a conclusion, the basic authentication mechanism, no matter the used tool, has the advantage of self-cleaning the session list. Said differently, the risk of reaching the maximum number of iLO sessions with this technique is very low. However, basic authentication does not suite all the needs of server management.
 
 ## OOB management with OAuth 2.0 authentication
 
