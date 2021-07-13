@@ -28,6 +28,7 @@ After a brief description of the KubeDirector architecture used for this solutio
 Our solution uses three KubeDirector Applications (kdapps): A training deployment kdapp named **_training-engine_**, a Jupyter Notebook kdapp named **_jupyter-notebook_**, and an inferencing deployment kdapp named **_deployment-engine_**.  
 
 A kdapp is a custom resource (CR) that can be created in any Kubernetes cluster. The kdapp instructs KubeDirector on how a particular kind of virtual application cluster should be deployed and managed. The three kdapps used in this solution are examples that can be found online in the [KubeDirector github example catalog](https://github.com/bluek8s/kubedirector/tree/master/deploy/example_catalog). 
+
 ### Register Your KubeDirector Applications with Kubernetes
 
 Assuming that KubeDirector is already deployed and running in the Kubernetes cluster, these kdapp CRs can be created to register apps with KubeDirector, e.g. by using kubectl:
