@@ -8,7 +8,7 @@ authorimage: /img/Avatar1.svg
 
 ## Original Post Information:
 
-```
+```markdown
 "authorDisplayName": "John Omernik",
 "publish": "2018-06-07T13:00:00.000",
 "category": "use-case",
