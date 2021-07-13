@@ -117,7 +117,7 @@ val idfModel = IDFModel.load("path/to/serialized/model")
 val hashingTF = new HashingTF().setInputCol("words").setOutputCol("rawFeatures").setNumFeatures(1000)
 ```
 
-2. Loads in memory and caches the data with the features, saved previously.
+2. Loads in memory and caches the data with the features saved previously.
 
 ```scala
 val all = contextFuntions.loadFromMapRDB(argsConfiguration.trained).toDF
