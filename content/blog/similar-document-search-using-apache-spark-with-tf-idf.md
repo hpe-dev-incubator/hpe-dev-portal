@@ -12,7 +12,7 @@ tags:
 
 ## Original Post Information:
 
-```
+```markdown
 "authorDisplayName": ["Prasad Singathi","Maikel Pereira"],
 "publish": "2019-06-18T07:00:00.000Z",
 "category": ["machine-learning"],
