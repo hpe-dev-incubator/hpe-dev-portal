@@ -124,7 +124,7 @@ val all = contextFuntions.loadFromMapRDB(argsConfiguration.trained).toDF
 all.cache()
 ```
 
-3. Creates a DataFrame with current message.
+3. Creates a DataFrame with the current message.
 
 ```scala
 val one = Seq((x._id,x.body)).toDF("_id", "contents")
@@ -134,7 +134,7 @@ val newRescale = idfModel.transform(newFeature)
 val normalized = newRescale.withColumn("norm2", UDF.calcNormUDF(col("features2")))
 ```
 
-4. Then it finds the crossjoin DataFrame between the one element and all existing messages in the database and calculates the similarity.
+4. Then, it finds the crossjoin DataFrame between the one element and all existing messages in the database and calculates the similarity.
 
 ```scala
 val cross = normalized.crossJoin(all).drop(normalized.col("_id"))
