@@ -3,7 +3,7 @@ title: SmartSim
 version: v 0.3.1
 description: Enabling Machine Learning and AI for traditional high performance
   computing (HPC) simulations.
-image: /img/platforms/smartsim_large.png
+image: /img/platforms/smartsim.svg
 width: large
 priority: 2
 tags:
