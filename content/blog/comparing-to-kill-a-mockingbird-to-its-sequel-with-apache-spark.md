@@ -8,7 +8,7 @@ authorimage: /img/Avatar1.svg
 
 ## Original Post Information:
 
-```
+```markdown
 "authorDisplayName": "Joseph Blue",
 "publish": "2015-08-05T07:00:00.000Z",
 "category": "apache-spark",
