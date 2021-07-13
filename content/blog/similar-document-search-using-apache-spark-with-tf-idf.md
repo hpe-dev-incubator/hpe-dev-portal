@@ -79,7 +79,7 @@ val normalized = rescaledData.withColumn("norm",calcNormDF(col("features")))
 idfModel.write.overwrite().save("/googlegroups/save_model_idf")
 ```
 
-7. To save features vector to the MapR Database table, we have to convert the features vector to JSON format; for this, we create and register a UDF.
+7. To save features vector to the MapR Database table, we have to convert the features vector to JSON format. For this, we create and register a UDF.
 
 ```scala
 def toJson(v: Vector): String = {
