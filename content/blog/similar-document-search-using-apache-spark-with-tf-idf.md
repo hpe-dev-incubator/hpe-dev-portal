@@ -36,21 +36,21 @@ This application was developed using Spark and Scala, and it can run on a schedu
 
 1. Loads all messages from MapR Database. For the sake of brevity, we omit preprocessing steps like tokenization, stop words removal, punctuation removal, and other types of cleanup.
 
-```
+```scala
 val rawEmaiData=spark.loadFromMapRDB("/googlegroups/messages")
 val rawEmaiDataDF=rawEmaiData.select("_id","bodyWithHistory","threadId","emailDate")
 ```
 
 2. Creates hashingTF, using HashingTF class available in Spark, and sets fixed-length feature vectors of 1000. It applies the hashing transformation to the document, resulting in the featurizedData.
 
-```
+```scala
 val hashingTF = new HashingTF().setInputCol("words").setOutputCol("rawFeatures").setNumFeatures(1000)
 val featurizedData = hashingTF.transform(wordsData)
 ```
 
 3. Creates the IDF, and from the TF and the IDF, it creates the TF-IDF.
 
-```
+```scala
 val idf = new IDF().setInputCol("rawFeatures").setOutputCol("features")
 val idfModel = idf.fit(featurizedData)
 val rescaledData = idfModel.transform(featurizedData)
@@ -58,7 +58,7 @@ val rescaledData = idfModel.transform(featurizedData)
 
 4. A UDF is necessary for pre-calculating sparse vector norm.
 
-```
+```scala
 def calcNorm(vectorA: SparseVector): Double = {
       var norm = 0.0
       for (i <-  vectorA.indices){ norm += vectorA(i)*vectorA(i) }
@@ -69,19 +69,19 @@ val calcNormDF = udf[Double,SparseVector](calcNorm)
 
 5. Creates a TF-IDF corpus.
 
-```
+```scala
 val normalized = rescaledData.withColumn("norm",calcNormDF(col("features")))
 ```
 
 6. Saves IDF model to MapR XD Distributed File and Object Store.
 
-```
+```scala
 idfModel.write.overwrite().save("/googlegroups/save_model_idf")
 ```
 
 7. To save features vector to the MapR Database table, we have to convert the features vector to JSON format; for this, we create and register a UDF.
 
-```
+```scala
 def toJson(v: Vector): String = {
    v match {
      case SparseVector(size, indices, values) =>
@@ -101,7 +101,7 @@ val asJsonUDF = udf[String,Vector](toJson)
 
 8. Finally, saves features vector to the MapR Database table.
 
-```
+```scala
 val dfToSave = normalized.withColumn("rawFeaturesJson", asJsonUDF(col("rawFeatures"))).withColumn("featuresJson", asJsonUDF(col("features"))).drop("rawFeatures").drop("features")
 dfToSave.saveToMapRDB("/googlegroups/trained_model", createTable = false)
 ```
@@ -112,21 +112,21 @@ The second application is a [Spark Stream Consumer application](https://develope
 
 1. Loads the previously saved `idfModel` and initializes a new `HashingTF` model.
 
-```
+```scala
 val idfModel = IDFModel.load("path/to/serialized/model")
 val hashingTF = new HashingTF().setInputCol("words").setOutputCol("rawFeatures").setNumFeatures(1000)
 ```
 
 2. Loads in memory and caches the data with the features, saved previously.
 
-```
+```scala
 val all = contextFuntions.loadFromMapRDB(argsConfiguration.trained).toDF
 all.cache()
 ```
 
 3. Creates a DataFrame with current message.
 
-```
+```scala
 val one = Seq((x._id,x.body)).toDF("_id", "contents")
 val newWords = prepareWords(one, "words")
 val newFeature = hashingTF.transform(newWords)
@@ -136,14 +136,14 @@ val normalized = newRescale.withColumn("norm2", UDF.calcNormUDF(col("features2")
 
 4. Then it finds the crossjoin DataFrame between the one element and all existing messages in the database and calculates the similarity.
 
-```
+```scala
 val cross = normalized.crossJoin(all).drop(normalized.col("_id"))
 val cosine = cross.withColumn("similarity", UDF.calcCosineUDF(col("features"), col("features2"), col("norm"), col("norm2")))
 ```
 
 5. For this, it uses the cosine function implemented as follows and registered as a UDF.
 
-```
+```scala
 def cosineSimilarity(vectorA: SparseVector, vectorB:SparseVector,normASqrt:Double,normBSqrt:Double) :(Double) = {
  var dotProduct = 0.0
  for (i <-  vectorA.indices){ dotProduct += vectorA(i) * vectorB(i) }
@@ -156,7 +156,7 @@ udf[Double,SparseVector,SparseVector,Double,Double](cosineSimilarity)
 
 6. The result can then be ordered by similarity, in descending order, taking the top five elements.
 
-```
+```scala
 val similarsDF = cosine.sort(desc("similarity")).select("similarity","_id").limit(5)
 ```
 
