@@ -160,7 +160,7 @@ udf[Double,SparseVector,SparseVector,Double,Double](cosineSimilarity)
 val similarsDF = cosine.sort(desc("similarity")).select("similarity","_id").limit(5)
 ```
 
-![](/img/image2.png)
+![](/img/image2_.png)
 
 ## Conclusions
 
