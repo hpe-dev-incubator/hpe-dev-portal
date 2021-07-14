@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { graphql } from 'gatsby';
+import { graphql, navigate } from 'gatsby';
 import { Box, Paragraph, Tab, Tabs, DropButton } from 'grommet';
 import { FormDown } from 'grommet-icons';
 import {
@@ -27,68 +27,41 @@ function Blog({ data, location }) {
   const featuredposts = data.featuredblogs.edges;
   const siteMetadata = useSiteMetadata();
   const siteTitle = siteMetadata.title;
-  const [index, setIndex] = React.useState(0);
+  const [index, setIndex] = useState(0);
   const onActive = (nextIndex) => setIndex(nextIndex);
+  const [openDropButton, setOpenDropButton] = useState(false);
   const totalAllBlogsCount = data.allBlogsCount.totalCount;
+  const totalEzmeralBlogsCount = data.ezmeralBlogsCount.totalCount;
   const totalOpenSourceBlogsCount = data.openSourceBlogsCount.totalCount;
-  // const initialPage = data.allBlogs;
-  // const [latestPage, setLatestPage] = useState(initialPage);
-  // const [blogPosts, setBlogPosts] = useState(initialPage.nodes);
-  // const [collectionId, setCollectionId] =
-  // useState(initialPage.collection.id);
 
-  // useEffect(() => {
-  //   setCollectionId(initialPage.collection.id);
+  useEffect(() => {
+    const blogTab = JSON.parse(localStorage.getItem('blogTab'));
+    const openDropButtonLocalStorage = JSON.parse(
+      localStorage.getItem('openDropButton'),
+    );
+    setIndex(blogTab);
+    setOpenDropButton(openDropButtonLocalStorage);
 
-  //   const blogLocalStorage = JSON.parse(localStorage.getItem('blogData'));
+    if (location.state && location.state.isBlogHeaderClicked) {
+      navigate('/blog', { replace: true });
+      localStorage.removeItem('blogPosition');
+      localStorage.removeItem('blogData');
+    }
+  }, [location]);
 
-  //   if (
-  //     blogLocalStorage &&
-  //     blogLocalStorage.latestPage &&
-  //     blogLocalStorage.latestBlogPosts
-  //   ) {
-  //     setLatestPage(blogLocalStorage.latestPage);
-  //     setBlogPosts(blogLocalStorage.latestBlogPosts);
-  //   }
+  useEffect(() => {
+    const scrollPosition = JSON.parse(localStorage.getItem('blogPosition'));
 
-  //   if (location.state && location.state.isBlogHeaderClicked) {
-  //     navigate('/blog', { replace: true });
-  //     setLatestPage(initialPage);
-  //     setBlogPosts(initialPage.nodes);
-  //     localStorage.removeItem('blogPosition');
-  //     localStorage.removeItem('blogData');
-  //   }
-  // }, [initialPage, location]);
-
-  // useEffect(() => {
-  //   const scrollPosition = JSON.parse(localStorage.getItem('blogPosition'));
-
-  //   if (scrollPosition) {
-  //     setTimeout(() => {
-  //       window.scrollTo
-  // ({ top: scrollPosition, left: 0, behavior: 'smooth' });
-  //     }, 100);
-  //   }
-  // }, []);
-
-  // const loadNextPage = useCallback(async (latestPage, collectionId) => {
-  //   if (!latestPage.hasNextPage) return;
-  //   const nextPageId = latestPage.nextPage.id;
-  //   console.log('collectionId: ', collectionId);
-  //   console.log('nextPageId: ', nextPageId);
-  //   const path = withPrefix(
-  //     `/paginated-data/${collectionId}/${nextPageId}.json`,
-  //   );
-  //   console.log('path: ', path);
-  //   const res = await fetch(path);
-  //   const json = await res.json();
-  //   console.log('res: ', res);
-  //   console.log('json: ', json);
-
-  //   setBlogPosts((state) => [...state, ...json.nodes]);
-  //   setLatestPage(json);
-
-  // }, [latestPage, collectionId ]);
+    if (scrollPosition) {
+      setTimeout(() => {
+        window.scrollTo({
+          top: scrollPosition,
+          left: 0,
+          behavior: 'smooth',
+        });
+      }, 100);
+    }
+  }, []);
 
   return (
     <Layout title={siteTitle}>
@@ -120,7 +93,6 @@ function Blog({ data, location }) {
           </ResponsiveGrid>
         </SectionHeader>
       )}
-      {/* <SectionHeader title="All Blogs"> */}
       <Tabs
         activeIndex={index}
         onActive={onActive}
@@ -133,25 +105,30 @@ function Blog({ data, location }) {
               key={index}
               initialPage={data.allBlogs}
               columns={columns}
-              location={location}
+              activeTab={index}
             />
           </Box>
         </Tab>
-
         <DropButton
           dropAlign={{ top: 'bottom', right: 'right' }}
+          open={openDropButton}
+          onOpen={() => setOpenDropButton(true)}
+          onClose={() => setOpenDropButton(false)}
           dropContent={
             <Box pad="small">
               <Tab
-                title={`HPE Ezmeral Container Platform (${totalAllBlogsCount})`}
+                title={`
+                  HPE Ezmeral Container Platform (${totalEzmeralBlogsCount})
+                  `}
                 plain="false"
               >
                 <Box fill pad="large" align="center">
                   <OpenSourceTab
                     key={index}
-                    initialPage={data.allBlogs}
+                    initialPage={data.ezmeralBlogs}
                     columns={columns}
-                    location={location}
+                    activeTab={index}
+                    platform="true"
                   />
                 </Box>
               </Tab>
@@ -166,14 +143,13 @@ function Blog({ data, location }) {
             align: { top: 'bottom', left: 'left' },
           }}
         />
-
         <Tab title={`Open Source (${totalOpenSourceBlogsCount})`}>
           <Box fill pad="large" align="center">
             <OpenSourceTab
               key={index}
               initialPage={data.openSourceBlogs}
               columns={columns}
-              location={location}
+              activeTab={index}
             />
           </Box>
         </Tab>
@@ -183,16 +159,6 @@ function Blog({ data, location }) {
           </Box>
         </Tab>
       </Tabs>
-      {/* </SectionHeader> */}
-      {/* <Box align="center" pad="medium">
-        <Button
-          icon={<FormDown />}
-          hoverIndicator
-          reverse
-          onClick={loadNextPage}
-          label="Load More"
-        />
-      </Box> */}
     </Layout>
   );
 }
@@ -262,8 +228,29 @@ Blog.propTypes = {
         id: PropTypes.string.isRequired,
       }),
     }).isRequired,
-    allBlogsCount: PropTypes.objectOf(PropTypes.string),
-    openSourceBlogsCount: PropTypes.objectOf(PropTypes.string),
+    ezmeralBlogs: PropTypes.shape({
+      nodes: PropTypes.arrayOf(
+        PropTypes.shape({
+          node: PropTypes.shape({
+            title: PropTypes.string.isRequired,
+            author: PropTypes.string.isRequired,
+            date: PropTypes.string,
+            description: PropTypes.string,
+            authorimage: PropTypes.string,
+          }),
+        }).isRequired,
+      ).isRequired,
+      hasNextPage: PropTypes.bool.isRequired,
+      nextPage: PropTypes.shape({
+        id: PropTypes.string.isRequired,
+      }),
+      collection: PropTypes.shape({
+        id: PropTypes.string.isRequired,
+      }),
+    }).isRequired,
+    allBlogsCount: PropTypes.objectOf(PropTypes.number),
+    openSourceBlogsCount: PropTypes.objectOf(PropTypes.number),
+    ezmeralBlogsCount: PropTypes.objectOf(PropTypes.number),
   }).isRequired,
   location: PropTypes.shape({
     state: PropTypes.shape({
@@ -316,15 +303,6 @@ export const pageQuery = graphql`
     ) {
       totalCount
     }
-    openSourceBlogsCount: allMarkdownRemark(
-      filter: {
-        fields: { sourceInstanceName: { eq: "blog" } }
-        frontmatter: { tags: { eq: "opensource" } }
-      }
-      sort: { fields: [frontmatter___date], order: DESC }
-    ) {
-      totalCount
-    }
     allBlogs: paginatedCollectionPage(
       collection: { name: { eq: "blog-posts" } }
       index: { eq: 0 }
@@ -337,6 +315,37 @@ export const pageQuery = graphql`
       collection {
         id
       }
+    }
+    ezmeralBlogsCount: allMarkdownRemark(
+      filter: {
+        fields: { sourceInstanceName: { eq: "blog" } }
+        frontmatter: { tags: { eq: "hpe-ezmeral-container-platform" } }
+      }
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
+      totalCount
+    }
+    ezmeralBlogs: paginatedCollectionPage(
+      collection: { name: { eq: "ezmeral-blog-posts" } }
+      index: { eq: 0 }
+    ) {
+      nodes
+      hasNextPage
+      nextPage {
+        id
+      }
+      collection {
+        id
+      }
+    }
+    openSourceBlogsCount: allMarkdownRemark(
+      filter: {
+        fields: { sourceInstanceName: { eq: "blog" } }
+        frontmatter: { tags: { eq: "opensource" } }
+      }
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
+      totalCount
     }
     openSourceBlogs: paginatedCollectionPage(
       collection: { name: { eq: "opensource-blog-posts" } }

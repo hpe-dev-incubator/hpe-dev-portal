@@ -257,6 +257,51 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-plugin-paginated-collection',
+      options: {
+        name: 'ezmeral-blog-posts',
+        pageSize: 12,
+        query: `
+        {
+          allMarkdownRemark(filter: {fields: {sourceInstanceName: {eq: "blog"}
+        }, frontmatter: {tags: {eq: "hpe-ezmeral-container-platform"}}},
+          sort: {fields: [frontmatter___date], order: DESC}) {
+            nodes {
+              id
+              fields {
+                slug
+                sourceInstanceName
+              }
+              frontmatter {
+                title
+                date
+                description
+                author
+                tags
+                authorimage
+              }
+              excerpt
+            }
+          }
+        }
+        `,
+        normalizer: ({ data }) =>
+          data.allMarkdownRemark.nodes.map((node) => ({
+            id: node.id,
+            title: node.frontmatter.title,
+            date: node.frontmatter.date,
+            description: node.excerpt,
+            author: node.frontmatter.author,
+            tags: node.frontmatter.tags,
+            authorimage: node.frontmatter.authorimage,
+            fields: {
+              slug: node.fields.slug,
+              sourceInstanceName: node.fields.sourceInstanceName,
+            },
+          })),
+      },
+    },
+    {
       resolve: 'gatsby-plugin-lunr',
       options: {
         languages: [{ name: 'en', plugins: [lunrHighlightPlugin] }],

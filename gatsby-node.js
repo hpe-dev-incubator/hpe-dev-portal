@@ -63,8 +63,25 @@ exports.createPages = async ({ graphql, actions }) => {
   }
 `);
 
+  const ezmeralQueryResult = await graphql(`
+{
+  paginatedCollection(name: { eq: "ezmeral-blog-posts" }) {
+    id
+    pages {
+      id
+      nodes
+      hasNextPage
+      nextPage {
+        id
+      }
+    }
+  }
+}
+`);
+
   setPagination(allQueryResult);
   setPagination(openSourceQueryResult);
+  setPagination(ezmeralQueryResult);
 
   return graphql(
     `
