@@ -17,9 +17,9 @@ Handling different protocols of file systems is always a pain for a data analyst
 In this blog, I will introduce two ways to access DataTaps in Kubernetes clusters managed by HPE Ezmeral Container Platform deployed with a pre-integrated HPE Ezmeral Data Fabric. The first method covers how to access the DataTaps using HDFS Commands and the second focuses on directly reading data from Apache Spark (using pyspark). Here we go!
 
 
-## **Enable DataTap when creating KubeDirector App**
+## Enable DataTap when creating KubeDirector App
 
-First and foremost, we have to enable DataTaps while creating a KubeDirector app. This can be done by ticking the "Enable DataTap" box.
+First and foremost, you have to enable DataTaps while creating a KubeDirector app. This can be done by ticking the "Enable DataTap" box.
 
 ![image](https://user-images.githubusercontent.com/72959956/119443704-9cc92180-bd5c-11eb-8fce-b6b53823336c.png)
 
@@ -37,9 +37,9 @@ The generic approach can be summarized into these two steps:
 |---|---|
 | fs.dtap.impl | com.bluedata.hadoop.bdfs.Bdfs |
 | fs.AbstractFileSystem.dtap.impl | com.bluedata.hadoop.bdfs.BdAbstractFS |
-| fs.dtap.impl.disable.cache* | false |
+| fs.dtap.impl.disable.cache | false |
 
-*optional
+Note: fs.dtap.impl.disable.cache can be designated as an option.
 
 > Reference:
 > [Accessing DataTaps in Kubernetes Pods](https://docs.containerplatform.hpe.com/53/reference/kubernetes/tenant-project-administration/datataps/Accessing_DataTaps_in_Kubernetes_Pods.html)
@@ -47,7 +47,7 @@ The generic approach can be summarized into these two steps:
 
 ## Uniform Resource Identifier
 
-In HPE Ezmeral Container Platform, you can see different types of file system used by the shared storage resources. You can manage different data source through a GUI and representing files with same URI. The URI will be in the format of 
+In HPE Ezmeral Container Platform, you can see different types of file systems used by the shared storage resources. You can manage different data sources through a GUI while representing files with the same URI. The URI will be in the format of 
 
 ```
 dtap://datatap_name/some_subdirectory/another_subdirectory/some_file
@@ -63,7 +63,7 @@ dtap://datatap_name/some_subdirectory/another_subdirectory/some_file
 
 ## Introduction
 
-The Hadoop distributed file system (HDFS) is the key component of the Hadoop ecosystem. HDFS commands, of course, are the commands which responsible for manipulate files for HDFS. 
+The Hadoop distributed file system (HDFS) is the key component of the Hadoop ecosystem. HDFS commands, of course, are the commands which are responsible for manipulating files for HDFS. 
 
 To use the HDFS commands, first you need to start the Hadoop services using the following steps:
 
@@ -185,7 +185,7 @@ PySpark is an interface for Apache Spark in Python. Apache Spark is a unified an
 
 ## Install pyspark
 
-There are lots of way to install Spark. The simplest way is to install pyspark package directly using ```pip install pyspark```. Run the following to install the prerequisite packages and pyspark.
+There are lots of way to install Spark. The simplest way is to install the pyspark package directly using ```pip install pyspark```. Run the following to install the prerequisite packages and pyspark.
 
 ```bash
 # install pyspark & Java
@@ -197,7 +197,8 @@ pip install pyspark
 
 There are two ways to interact with pyspark. The first one is to execute the ```pyspark``` command in bash to initiate the pyspark session. The second way is that to treat pyspark as a module that the python kernel can import to. (```import pyspark```) 
 
-### Method one: initiate ```pyspark``` session with jars
+### Method one
+#### Initiate _pyspark_ session with jars
 In order to use datatap with pyspark, you have to add an external jar file as an argument to pyspark. Initiate Spark's interactive shell in python using the following command. 
 
 ```bash
@@ -211,7 +212,7 @@ After starting the interactive shell, ```Spark Context``` and ```Spark Session``
 
 ![image](https://user-images.githubusercontent.com/72959956/120170783-e8d00680-c233-11eb-9fe8-136da9996fdc.png)
 
-We have to specify the Hadoop configurations. After that, you can read files from DataTap just like normally what you did with HDFS.
+After specifying the Hadoop configurations, you can read files from DataTap just like you normally did with HDFS.
 
 ```py
 # pyspark
@@ -227,7 +228,8 @@ text.take(5)
 
 ![image](https://user-images.githubusercontent.com/72959956/120171213-61cf5e00-c234-11eb-8928-2514e8b867a8.png)
 
-### Method two: initiate ```python``` and initiate ```pyspark``` with jars at runtime
+### Method two
+#### Initiate _python_ and initiate _pyspark_ with _jars_ at runtime
 
 Run the Python Shell first:
 
