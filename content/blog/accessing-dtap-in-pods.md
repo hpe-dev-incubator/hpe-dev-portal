@@ -252,7 +252,7 @@ sc = SparkContext( conf=conf)
 sc._jsc.hadoopConfiguration().set('fs.dtap.impl', 'com.bluedata.hadoop.bdfs.Bdfs')
 sc._jsc.hadoopConfiguration().set('fs.AbstractFileSystem.dtap.impl', 'com.bluedata.hadoop.bdfs.BdAbstractFS')
 
-# Commands for reading DataTap file.
+# Commands for reading DataTap file
 text = sc.textFile("dtap://TenantStorage/HPE.txt")
 text.take(5)
 ```
