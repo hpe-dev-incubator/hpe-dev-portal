@@ -19,7 +19,7 @@ In this blog, I will introduce two ways to access DataTaps in Kubernetes cluster
 
 ## **Enable DataTap when creating KubeDirector App**
 
-First and foremost, we have to enable DataTaps while the creation for a KubeDirector app. This can be done by ticking the "Enable DataTap" box.
+First and foremost, we have to enable DataTaps while creating a KubeDirector app. This can be done by ticking the "Enable DataTap" box.
 
 ![image](https://user-images.githubusercontent.com/72959956/119443704-9cc92180-bd5c-11eb-8fce-b6b53823336c.png)
 
@@ -28,7 +28,7 @@ This will result in mounting a lot of files to ```/opt/bdfs/``` of your pod. If 
 ![image](https://user-images.githubusercontent.com/72959956/120776952-58593500-c557-11eb-9dcd-4146d581a761.png)
 
 
-The generic approach can be concluded into these two steps:
+The generic approach can be summarized into these two steps:
 
 1. Add ```/opt/bdfs/bluedata-dtap.jar``` to the classpath.
 2. Configure Hadoop with the following values.
@@ -42,7 +42,7 @@ The generic approach can be concluded into these two steps:
 *optional
 
 > Reference:
-> - [Accessing DataTaps in Kubernetes Pods](https://docs.containerplatform.hpe.com/53/reference/kubernetes/tenant-project-administration/datataps/Accessing_DataTaps_in_Kubernetes_Pods.html)
+> [Accessing DataTaps in Kubernetes Pods](https://docs.containerplatform.hpe.com/53/reference/kubernetes/tenant-project-administration/datataps/Accessing_DataTaps_in_Kubernetes_Pods.html)
 
 
 ## Uniform Resource Identifier
@@ -65,7 +65,7 @@ dtap://datatap_name/some_subdirectory/another_subdirectory/some_file
 
 The Hadoop distributed file system (HDFS) is the key component of the Hadoop ecosystem. HDFS commands, of course, are the commands which responsible for manipulate files for HDFS. 
 
-To use the HDFS commands, first you need to start the Hadoop services using the following command:
+To use the HDFS commands, first you need to start the Hadoop services using the following steps:
 
 
 
@@ -164,9 +164,9 @@ bin/hdfs dfs -cat dtap://TenantStorage/cenz/helloworld.txt
 bin/hdfs dfs -rm dtap://TenantStorage/cenz/helloworld.txt
 ```
 
-> Tips:
+> Tip:
 > 
-> - to get rid of the file path ```bin/```, we can add the Hadoop ```bin``` and ```sbin``` file to ```$PATH```
+> To get rid of the file path ```bin/```, we can add the Hadoop's ```bin``` and ```sbin``` file to ```$PATH```
 > 
 > ```
 > export HADOOP_HOME=$HOME/hadoop
@@ -181,9 +181,9 @@ bin/hdfs dfs -rm dtap://TenantStorage/cenz/helloworld.txt
 
 ## Introduction
 
-PySpark is an interface for Apache Spark in Python. Apache Spark is a unified analytics engine for big data processing, with built-in modules for streaming, SQL, machine learning and graph processing. Apache Spark can access data from HDFS and, with extension, file systems managed by DataTap. 
+PySpark is an interface for Apache Spark in Python. Apache Spark is a unified analytics engine for big data processing, with built-in modules for streaming, SQL, machine learning and graph processing. Apache Spark can access data from HDFS and, with the extension, file systems managed by DataTap. 
 
-## Install ```pyspark```
+## Install pyspark
 
 There are lots of way to install Spark. The simplest way is to install pyspark package directly using ```pip install pyspark```. Run the following to install the prerequisite packages and pyspark.
 
@@ -195,10 +195,10 @@ DEBIAN_FRONTEND=noninteractive apt-get install openjdk-11-jdk-headless -y
 pip install pyspark
 ```
 
-There are two ways to interact with pyspark. The first one is to execute the ```pyspark``` command in bash to initiate the pyspark session. The second way is that to treat pyspark as a module which ```python``` kernel can import to. (```import pyspark```)
+There are two ways to interact with pyspark. The first one is to execute the ```pyspark``` command in bash to initiate the pyspark session. The second way is that to treat pyspark as a module that the python kernel can import to. (```import pyspark```) 
 
 ### Method one: initiate ```pyspark``` session with jars
-In order to use datatap with pyspark, you have to add an external jar file as argument to pyspark. Initiate Spark's interactive shell in python using the following command. 
+In order to use datatap with pyspark, you have to add an external jar file as an argument to pyspark. Initiate Spark's interactive shell in python using the following command. 
 
 ```bash
 # bash
@@ -207,7 +207,7 @@ In order to use datatap with pyspark, you have to add an external jar file as ar
 pyspark --jars /opt/bdfs/bluedata-dtap.jar
 ```
 
-After starting the interactive shell, ```Spark Context``` and ```Spark Session``` are automatically initiate for you.
+After starting the interactive shell, ```Spark Context``` and ```Spark Session``` are automatically initiated for you.
 
 ![image](https://user-images.githubusercontent.com/72959956/120170783-e8d00680-c233-11eb-9fe8-136da9996fdc.png)
 
@@ -236,7 +236,7 @@ Run the Python Shell first:
 python3
 ```
 
-At the Python runtime, add the path of the jar file using Spark configuration command:
+At the Python runtime, add the path of the jar file using the Spark configuration command:
 
 ```py
 # python
@@ -256,8 +256,8 @@ text.take(5)
 ```
 
 > References: 
-> [Spark Document: Runtime Environment](https://spark.apache.org/docs/latest/configuration.html#runtime-environment)
-> [Related GitHub Issues](https://github.com/delta-io/delta/issues/346)
+> - [Spark Document: Runtime Environment](https://spark.apache.org/docs/latest/configuration.html#runtime-environment)
+> - [Related GitHub Issues](https://github.com/delta-io/delta/issues/346)
 
 # Conclusion
 
