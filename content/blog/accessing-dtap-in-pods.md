@@ -221,7 +221,7 @@ After specifying the Hadoop configurations, you can read files from DataTap just
 sc._jsc.hadoopConfiguration().set('fs.dtap.impl', 'com.bluedata.hadoop.bdfs.Bdfs')
 sc._jsc.hadoopConfiguration().set('fs.AbstractFileSystem.dtap.impl', 'com.bluedata.hadoop.bdfs.BdAbstractFS')
 
-# Commands for reading DataTap file.
+# Commands for reading DataTap file
 text = sc.textFile("dtap://TenantStorage/HPE.txt")
 text.take(5)
 ```
@@ -244,7 +244,7 @@ At the Python runtime, add the path of the jar file using the Spark configuratio
 # python
 from pyspark import SparkConf, SparkContext
 
-# Specify the path of the jars files
+# Specify the path of the jars files.
 conf = SparkConf().set("spark.jars", "/opt/bdfs/bluedata-dtap.jar")
 sc = SparkContext( conf=conf)
 
