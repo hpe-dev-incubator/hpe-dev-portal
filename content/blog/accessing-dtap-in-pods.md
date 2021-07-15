@@ -63,7 +63,7 @@ dtap://datatap_name/some_subdirectory/another_subdirectory/some_file
 
 ## Introduction
 
-The Hadoop distributed file system (HDFS) is the key component of the Hadoop ecosystem. HDFS commands, of course, are the commands which are responsible for manipulating files for HDFS. 
+The Hadoop distributed file system (HDFS) is the key component of the Hadoop ecosystem. HDFS commands, of course, are the commands that are responsible for manipulating files for HDFS. 
 
 To use the HDFS commands, first you need to start the Hadoop services using the following steps:
 
@@ -185,7 +185,7 @@ PySpark is an interface for Apache Spark in Python. Apache Spark is a unified an
 
 ## Install pyspark
 
-There are lots of way to install Spark. The simplest way is to install the pyspark package directly using ```pip install pyspark```. Run the following to install the prerequisite packages and pyspark.
+There are lots of ways to install Spark. The simplest way is to install the pyspark package directly using ```pip install pyspark```. Run the following to install the prerequisite packages and pyspark.
 
 ```bash
 # install pyspark & Java
