@@ -258,7 +258,9 @@ text.take(5)
 ```
 
 > References: 
+>
 > - [Spark Document: Runtime Environment](https://spark.apache.org/docs/latest/configuration.html#runtime-environment)
+>
 > - [Related GitHub Issues](https://github.com/delta-io/delta/issues/346)
 
 # Conclusion
