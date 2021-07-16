@@ -17,9 +17,9 @@
 
 [Contributing a new blog](#contributing-a-new-blog)
 
-[Editing a blog post that is already published](#Editing-a-blog-post-that-is-already-published)
+[Editing a blog post that is already published](#editing-a-blog-post-that-is-already-published)
 
-[Editing a platform page](#editing-a-platform-page)
+[Creating and editing a platform page](#creating-and-editing-a-platform-page)
 
 [Adding an Event](#adding-an-event)
 
@@ -235,18 +235,16 @@ You may want to edit an existing blog post. For example, you may need to update 
 
 11. Leave the editor using the **Changes Saved** option.
 
-## Editing a platform page
+## Creating and editing a platform page
 
->**Important Note:** if you want to change the image logo for the platform, make sure you first work with HPE DEV team to determine the best image logo for your platform page. The recommended image size 216px x 216px and format is **SVG** file (an SVG image will not lose quality/resolution when scaled up or down). Furthermore, HPE DEV team can work with you to design an appropriate image logo for your platform. 
+>**Important Note:** For the image logo for the platform, make sure you first work with HPE DEV team to determine the best image logo for your platform page. The recommended image size 216px x 216px and format is **SVG** file (an SVG image will not lose quality/resolution when scaled up or down). if needed, HPE DEV team can work with you to design an appropriate image logo for your platform. 
 
-1.  In the CMS, from the **Contents** tab, select **Platforms** in the Collections tab and locate the platform to edit
-    (HPE Ezmeral Data Fabric in our example). Select the Platform. This opens the editor.
+1.  In the CMS, from the **Contents** tab, select **Platforms** in the Collections tab. Click on **New Platforms** button to create a new platform. To edit an existing platform, locate the platform to edit (HPE Ezmeral Data Fabric in our example) and select the Platform. This opens the editor.
 
     <center><img src="media/guide-platform-content-edit.png" width="800" height="773"></center>
 
-2.  In the editor, make the required changes using **Rich Text** mode or
-    **Markdown** mode. Verify content in the preview pane on the right side of
-    the screen.
+2.  In the editor, for a new platform page, specify a title, description, logo image and content in the Body area. Make the required changes using **Rich Text** mode or
+    **Markdown** mode. Verify content in the preview pane on the right side of the screen.
     
     >**Important Note:** The text font size in the preview area will be smaller than what is rendered in the Platform page in HPE DEV portal. 
 
