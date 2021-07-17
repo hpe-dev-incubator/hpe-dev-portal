@@ -532,4 +532,5 @@ If appropriate, use a tag to tie your blog post to a "platform" page on HPE DEV 
   |**HPE SimpliVity**                  | hpe-simplivity |
   | **iLORESTful API**                 | ilo-restful-api |
   | **HPE Alletra**                    | hpe-alletra |
+  | **SmartSim**                       | smartsim    |
   
