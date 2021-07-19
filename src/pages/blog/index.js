@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { graphql, navigate } from 'gatsby';
-import { Box, Paragraph, Tab, Tabs, DropButton } from 'grommet';
-import { FormDown } from 'grommet-icons';
+import { Paragraph, Tab, Tabs, Menu } from 'grommet';
 import {
   BlogCard,
   Layout,
@@ -33,8 +32,16 @@ function Blog({ data, location }) {
   const totalAllBlogsCount = data.allBlogsCount.totalCount;
   const totalEzmeralBlogsCount = data.ezmeralBlogsCount.totalCount;
   const totalOpenSourceBlogsCount = data.openSourceBlogsCount.totalCount;
+  const [content, setContent] = useState({ key: 0, data: data.allBlogs });
+
+  console.log('content: ', content);
 
   useEffect(() => {
+    const dropDownData = JSON.parse(localStorage.getItem('dropDownData'));
+    console.log('dropDownData: ', dropDownData);
+    if (dropDownData && dropDownData.nodes) {
+      setContent({ data: dropDownData });
+    }
     const blogTab = JSON.parse(localStorage.getItem('blogTab'));
     const openDropButtonLocalStorage = JSON.parse(
       localStorage.getItem('openDropButton'),
@@ -98,65 +105,67 @@ function Blog({ data, location }) {
         onActive={onActive}
         justify="start"
         alignControls="start"
+        pad='20px'
       >
         <Tab title={`All (${totalAllBlogsCount})`}>
-          <Box fill pad="large" align="center">
-            <OpenSourceTab
-              key={index}
-              initialPage={data.allBlogs}
-              columns={columns}
-              activeTab={index}
-            />
-          </Box>
+          <OpenSourceTab
+            key={index}
+            initialPage={data.allBlogs}
+            columns={columns}
+            activeTab={index}
+          />
         </Tab>
-        <DropButton
-          dropAlign={{ top: 'bottom', right: 'right' }}
-          open={openDropButton}
-          onOpen={() => setOpenDropButton(true)}
-          onClose={() => setOpenDropButton(false)}
-          dropContent={
-            <Box pad="small">
-              <Tab
-                title={`
-                  HPE Ezmeral Container Platform (${totalEzmeralBlogsCount})
-                  `}
-                plain="false"
-              >
-                <Box fill pad="large" align="center">
-                  <OpenSourceTab
-                    key={index}
-                    initialPage={data.ezmeralBlogs}
-                    columns={columns}
-                    activeTab={index}
-                    platform="true"
-                  />
-                </Box>
-              </Tab>
-            </Box>
-          }
-          pad={{ vertical: 'small' }}
-          icon={<FormDown />}
-          reverse="true"
-          gap="xsmall"
-          label="Platforms"
-          dropProps={{
-            align: { top: 'bottom', left: 'left' },
-          }}
-        />
-        <Tab title={`Open Source (${totalOpenSourceBlogsCount})`}>
-          <Box fill pad="large" align="center">
-            <OpenSourceTab
-              key={index}
-              initialPage={data.openSourceBlogs}
-              columns={columns}
-              activeTab={index}
+        <Tab
+          plain="false"
+          title={
+            <Menu
+              label="Platforms"
+              open={openDropButton}
+              onOpen={() => setOpenDropButton(true)}
+              onClose={() => setOpenDropButton(false)}
+              dropProps={{
+                align: { top: 'bottom', left: 'left' },
+              }}
+              items={[
+                { 
+                  label: `HPE Ezmeral Container Platform 
+                    (${totalEzmeralBlogsCount})`,
+                  onClick: () => {
+                    localStorage.setItem('dropDownData', 
+                    JSON.stringify(data.ezmeralBlogs));
+                    setContent({ key: 1, data: data.ezmeralBlogs });
+                  },
+                },
+                {
+                  label: 'Spiffee and Spire Projects',
+                  onClick: () => {
+                    localStorage.setItem('dropDownData', 
+                    JSON.stringify(data.spiffeBlogs));
+                    setContent({ key: 2, data: data.spiffeBlogs });
+                  },
+                },
+              ]}
             />
-          </Box>
+          }
+        >
+          <OpenSourceTab
+            key={content.key}
+            initialPage={content.data}
+            columns={columns}
+            activeTab={index}
+            platform="true"
+          />
+        </Tab>
+        <Tab title={`Open Source (${totalOpenSourceBlogsCount})`}>
+          <OpenSourceTab
+            key={index}
+            initialPage={data.openSourceBlogs}
+            columns={columns}
+            activeTab={index}
+          />
         </Tab>
         <Tab title="Others">
-          <Box fill pad="large" align="center">
-            Open Source
-          </Box>
+          Open Source
         </Tab>
       </Tabs>
     </Layout>
@@ -248,6 +257,26 @@ Blog.propTypes = {
         id: PropTypes.string.isRequired,
       }),
     }).isRequired,
+    spiffeBlogs: PropTypes.shape({
+      nodes: PropTypes.arrayOf(
+        PropTypes.shape({
+          node: PropTypes.shape({
+            title: PropTypes.string.isRequired,
+            author: PropTypes.string.isRequired,
+            date: PropTypes.string,
+            description: PropTypes.string,
+            authorimage: PropTypes.string,
+          }),
+        }).isRequired,
+      ).isRequired,
+      hasNextPage: PropTypes.bool.isRequired,
+      nextPage: PropTypes.shape({
+        id: PropTypes.string.isRequired,
+      }),
+      collection: PropTypes.shape({
+        id: PropTypes.string.isRequired,
+      }),
+    }).isRequired,
     allBlogsCount: PropTypes.objectOf(PropTypes.number),
     openSourceBlogsCount: PropTypes.objectOf(PropTypes.number),
     ezmeralBlogsCount: PropTypes.objectOf(PropTypes.number),
@@ -305,6 +334,19 @@ export const pageQuery = graphql`
     }
     allBlogs: paginatedCollectionPage(
       collection: { name: { eq: "blog-posts" } }
+      index: { eq: 0 }
+    ) {
+      nodes
+      hasNextPage
+      nextPage {
+        id
+      }
+      collection {
+        id
+      }
+    }
+    spiffeBlogs: paginatedCollectionPage(
+      collection: { name: { eq: "spiffe-blog-posts" } }
       index: { eq: 0 }
     ) {
       nodes

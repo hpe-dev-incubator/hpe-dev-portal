@@ -21,35 +21,9 @@ const setPagination = (queryResult) => {
   );
 };
 
-exports.createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions;
-
-  const blogPost = path.resolve('./src/templates/blog-post.js');
-  const platform = path.resolve('./src/templates/platform.js');
-  const event = path.resolve('./src/templates/event.js');
-  const newsletter = path.resolve('./src/templates/newsletter.js');
-  const tagTemplate = path.resolve('./src/templates/tags.js');
-  const campaignTemplate = path.resolve('./src/templates/campaign.js');
-
-  const allQueryResult = await graphql(`
-    {
-      paginatedCollection(name: { eq: "blog-posts" }) {
-        id
-        pages {
-          id
-          nodes
-          hasNextPage
-          nextPage {
-            id
-          }
-        }
-      }
-    }
-  `);
-
-  const openSourceQueryResult = await graphql(`
-  {
-    paginatedCollection(name: { eq: "opensource-blog-posts" }) {
+const paginatedCollectionQuery = (paginatedName) => {
+  return `{
+    paginatedCollection(name: { eq: "${paginatedName}" }) {
       id
       pages {
         id
@@ -60,28 +34,31 @@ exports.createPages = async ({ graphql, actions }) => {
         }
       }
     }
-  }
-`);
+  }`;
+};
 
-  const ezmeralQueryResult = await graphql(`
-{
-  paginatedCollection(name: { eq: "ezmeral-blog-posts" }) {
-    id
-    pages {
-      id
-      nodes
-      hasNextPage
-      nextPage {
-        id
-      }
-    }
-  }
-}
-`);
+exports.createPages = async ({ graphql, actions }) => {
+  const { createPage } = actions;
 
+  const blogPost = path.resolve('./src/templates/blog-post.js');
+  const platform = path.resolve('./src/templates/platform.js');
+  const event = path.resolve('./src/templates/event.js');
+  const newsletter = path.resolve('./src/templates/newsletter.js');
+  const tagTemplate = path.resolve('./src/templates/tags.js');
+  const campaignTemplate = path.resolve('./src/templates/campaign.js');
+
+  const allQueryResult = await graphql(paginatedCollectionQuery('blog-posts'));
+  const openSourceQueryResult = 
+    await graphql(paginatedCollectionQuery('opensource-blog-posts'));
+  const ezmeralQueryResult = 
+    await graphql(paginatedCollectionQuery('ezmeral-blog-posts'));
+  const spiffeQueryResult = 
+    await graphql(paginatedCollectionQuery('spiffe-blog-posts'));
+  
   setPagination(allQueryResult);
   setPagination(openSourceQueryResult);
   setPagination(ezmeralQueryResult);
+  setPagination(spiffeQueryResult);
 
   return graphql(
     `
