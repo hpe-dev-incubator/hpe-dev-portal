@@ -5,46 +5,46 @@ import { Box, Button } from 'grommet';
 import { FormDown } from 'grommet-icons';
 import { BlogCard } from '../BlogCard';
 import ResponsiveGrid from '../ResponsiveGrid';
+import { useLocalStorage } from '../../hooks/use-local-storage';
 
-const OpenSourceTab = ({
+const BlogTabContent = ({
   initialPage,
-  location,
   columns,
   activeTab,
-  platform,
 }) => {
   const [latestPage, setLatestPage] = useState(initialPage);
   const [blogPosts, setBlogPosts] = useState(initialPage.nodes);
   const [collectionId, setCollectionId] = useState(initialPage.collection.id);
+  // eslint-disable-next-line no-unused-vars
+  const [activeBlogTab, setActiveBlogTab] = useLocalStorage('activeBlogTab');
+  const [loadMoreBlogData, setLoadMoreBlogData] = 
+    useLocalStorage('loadMoreBlogData');
 
   useEffect(() => {
     setCollectionId(initialPage.collection.id);
 
     // persist active tab for when user goes back to blog page
-    localStorage.setItem('blogTab', JSON.stringify(activeTab));
-
-    // platform tab needs to be opened for when user goes back
-    // to blog page platform tab
-    if (platform) {
-      localStorage.setItem('openDropButton', JSON.stringify(true));
-    } else {
-      localStorage.setItem('openDropButton', JSON.stringify(false));
-    }
+    // localStorage.setItem('blogTab', JSON.stringify(activeTab));
+    setActiveBlogTab(activeTab);
 
     // loads blogs from user clicks 'Load More'
     // for when user goes back to blog page
-    const blogData = JSON.parse(localStorage.getItem('blogData'));
-
     if (
-      blogData &&
-      blogData.latestPage &&
-      blogData.latestBlogPosts &&
-      blogData.collectionId === collectionId
+      loadMoreBlogData &&
+      loadMoreBlogData.latestPage &&
+      loadMoreBlogData.latestBlogPosts &&
+      loadMoreBlogData.collectionId === collectionId
     ) {
-      setLatestPage(blogData.latestPage);
-      setBlogPosts(blogData.latestBlogPosts);
+      setLatestPage(loadMoreBlogData.latestPage);
+      setBlogPosts(loadMoreBlogData.latestBlogPosts);
     }
-  }, [initialPage, location, activeTab, platform, collectionId]);
+  }, [
+      initialPage, 
+      setActiveBlogTab,
+      activeTab,
+      collectionId,
+      loadMoreBlogData,
+    ]);
 
   const loadNextPage = useCallback(async () => {
     if (!latestPage.hasNextPage) return;
@@ -57,15 +57,12 @@ const OpenSourceTab = ({
     setBlogPosts((state) => [...state, ...json.nodes]);
     setLatestPage(json);
 
-    localStorage.setItem(
-      'blogData',
-      JSON.stringify({
-        latestBlogPosts: [...blogPosts, ...json.nodes],
-        latestPage: json,
-        collectionId,
-      }),
-    );
-  }, [latestPage, collectionId, blogPosts]);
+    setLoadMoreBlogData({
+      latestBlogPosts: [...blogPosts, ...json.nodes],
+      latestPage: json,
+      collectionId,
+    });
+  }, [latestPage, collectionId, blogPosts, setLoadMoreBlogData]);
 
   return (
     <>
@@ -90,7 +87,7 @@ const OpenSourceTab = ({
   );
 };
 
-OpenSourceTab.propTypes = {
+BlogTabContent.propTypes = {
   initialPage: PropTypes.shape({
     nodes: PropTypes.arrayOf(
       PropTypes.shape({
@@ -117,9 +114,7 @@ OpenSourceTab.propTypes = {
     large: PropTypes.arrayOf(PropTypes.string),
     xlarge: PropTypes.arrayOf(PropTypes.string),
   }),
-  location: PropTypes.objectOf(PropTypes.string),
   activeTab: PropTypes.number,
-  platform: PropTypes.bool,
 };
 
-export default OpenSourceTab;
+export default BlogTabContent;

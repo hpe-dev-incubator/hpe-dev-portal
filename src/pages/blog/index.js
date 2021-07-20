@@ -10,9 +10,10 @@ import {
   FeaturedBlogCard,
   SectionHeader,
   ResponsiveGrid,
-  OpenSourceTab,
+  BlogTabContent,
 } from '../../components';
 import { useSiteMetadata } from '../../hooks/use-site-metadata';
+import { useLocalStorage } from '../../hooks/use-local-storage';
 
 const columns = {
   small: 'auto',
@@ -22,42 +23,65 @@ const columns = {
 };
 
 function Blog({ data, location }) {
-  console.log('data: ', data);
   const featuredposts = data.featuredblogs.edges;
   const siteMetadata = useSiteMetadata();
   const siteTitle = siteMetadata.title;
   const [index, setIndex] = useState(0);
   const onActive = (nextIndex) => setIndex(nextIndex);
-  const [openDropButton, setOpenDropButton] = useState(false);
   const totalAllBlogsCount = data.allBlogsCount.totalCount;
-  const totalEzmeralBlogsCount = data.ezmeralBlogsCount.totalCount;
   const totalOpenSourceBlogsCount = data.openSourceBlogsCount.totalCount;
-  const [content, setContent] = useState({ key: 0, data: data.allBlogs });
+  const [platformContent, setPlatformContent] = 
+    useState({ key: 0, data: data.allBlogs });
+  /* eslint-disable-next-line no-unused-vars */
+  const [blogPosition, setBlogPosition] = useLocalStorage('blogPosition');
+  const [activeBlogTab, setActiveBlogTab] = useLocalStorage('activeBlogTab');
+  const [dropDownData, setDropDownData] = useLocalStorage('dropDownData');
 
-  console.log('content: ', content);
+  const platforms = {
+    ezmeralBlogs: {
+      label: 'HPE Ezmeral Container Platform',
+      count: data.ezmeralBlogsCount.totalCount,
+    },
+    spiffeBlogs: {
+      label: 'Spiffee and Spire Projects',
+      count: data.spiffeBlogsCount.totalCount,
+    },
+  };
+
+  const platformsData = Object.entries(data)
+    .filter(item => Object.prototype.hasOwnProperty.call(platforms, (item[0])))
+    .map((item, i) => {
+      return {
+        label: `${platforms[item[0]].label} (${platforms[item[0]].count})`,
+        onClick: () => {
+          setActiveBlogTab(index);
+          setDropDownData(item[1]);
+          setPlatformContent({ key: i, data: item[1] });
+        },
+      };
+    });
 
   useEffect(() => {
-    const dropDownData = JSON.parse(localStorage.getItem('dropDownData'));
-    console.log('dropDownData: ', dropDownData);
     if (dropDownData && dropDownData.nodes) {
-      setContent({ data: dropDownData });
+      setPlatformContent({ data: dropDownData });
     }
-    const blogTab = JSON.parse(localStorage.getItem('blogTab'));
-    const openDropButtonLocalStorage = JSON.parse(
-      localStorage.getItem('openDropButton'),
-    );
-    setIndex(blogTab);
-    setOpenDropButton(openDropButtonLocalStorage);
+
+    if (activeBlogTab) {
+      setIndex(activeBlogTab);
+    }
 
     if (location.state && location.state.isBlogHeaderClicked) {
       navigate('/blog', { replace: true });
+      setIndex(0);
       localStorage.removeItem('blogPosition');
       localStorage.removeItem('blogData');
+      localStorage.removeItem('activeBlogTab');
+
     }
-  }, [location]);
+  }, [dropDownData, activeBlogTab, location]);
 
   useEffect(() => {
-    const scrollPosition = JSON.parse(localStorage.getItem('blogPosition'));
+    const scrollPosition = blogPosition;
 
     if (scrollPosition) {
       setTimeout(() => {
@@ -68,7 +92,7 @@ function Blog({ data, location }) {
         });
       }, 100);
     }
-  }, []);
+  }, [blogPosition]);
 
   return (
     <Layout title={siteTitle}>
@@ -105,10 +129,10 @@ function Blog({ data, location }) {
         onActive={onActive}
         justify="start"
         alignControls="start"
-        pad='20px'
+        pad="20px"
       >
         <Tab title={`All (${totalAllBlogsCount})`}>
-          <OpenSourceTab
+          <BlogTabContent
             key={index}
             initialPage={data.allBlogs}
             columns={columns}
@@ -120,57 +144,55 @@ function Blog({ data, location }) {
           title={
             <Menu
               label="Platforms"
-              open={openDropButton}
-              onOpen={() => setOpenDropButton(true)}
-              onClose={() => setOpenDropButton(false)}
               dropProps={{
                 align: { top: 'bottom', left: 'left' },
               }}
-              items={[
-                { 
-                  label: `HPE Ezmeral Container Platform 
-                    (${totalEzmeralBlogsCount})`,
-                  onClick: () => {
-                    localStorage.setItem('dropDownData', 
-                    JSON.stringify(data.ezmeralBlogs));
-                    setContent({ key: 1, data: data.ezmeralBlogs });
-                  },
-                },
-                {
-                  label: 'Spiffee and Spire Projects',
-                  onClick: () => {
-                    localStorage.setItem('dropDownData', 
-                    JSON.stringify(data.spiffeBlogs));
-                    setContent({ key: 2, data: data.spiffeBlogs });
-                  },
-                },
-              ]}
+              items={platformsData}
             />
           }
         >
-          <OpenSourceTab
-            key={content.key}
-            initialPage={content.data}
+          <BlogTabContent
+            key={platformContent.key}
+            initialPage={platformContent.data}
             columns={columns}
             activeTab={index}
-            platform="true"
+            platform
           />
         </Tab>
         <Tab title={`Open Source (${totalOpenSourceBlogsCount})`}>
-          <OpenSourceTab
+          <BlogTabContent
             key={index}
             initialPage={data.openSourceBlogs}
             columns={columns}
             activeTab={index}
           />
         </Tab>
-        <Tab title="Others">
-          Open Source
-        </Tab>
+        <Tab title="Others" key={index}>Others</Tab>
       </Tabs>
     </Layout>
   );
 }
+
+const blogsPropType = PropTypes.shape({
+  nodes: PropTypes.arrayOf(
+    PropTypes.shape({
+      node: PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        author: PropTypes.string.isRequired,
+        date: PropTypes.string,
+        description: PropTypes.string,
+        authorimage: PropTypes.string,
+      }),
+    }).isRequired,
+  ).isRequired,
+  hasNextPage: PropTypes.bool.isRequired,
+  nextPage: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+  }),
+  collection: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+  }),
+}).isRequired;
 
 Blog.propTypes = {
   data: PropTypes.shape({
@@ -197,89 +219,14 @@ Blog.propTypes = {
         }).isRequired,
       ).isRequired,
     }).isRequired,
-    allBlogs: PropTypes.shape({
-      nodes: PropTypes.arrayOf(
-        PropTypes.shape({
-          node: PropTypes.shape({
-            title: PropTypes.string.isRequired,
-            author: PropTypes.string.isRequired,
-            date: PropTypes.string,
-            description: PropTypes.string,
-            authorimage: PropTypes.string,
-          }),
-        }).isRequired,
-      ).isRequired,
-      hasNextPage: PropTypes.bool.isRequired,
-      nextPage: PropTypes.shape({
-        id: PropTypes.string.isRequired,
-      }),
-      collection: PropTypes.shape({
-        id: PropTypes.string.isRequired,
-      }),
-    }).isRequired,
-    openSourceBlogs: PropTypes.shape({
-      nodes: PropTypes.arrayOf(
-        PropTypes.shape({
-          node: PropTypes.shape({
-            title: PropTypes.string.isRequired,
-            author: PropTypes.string.isRequired,
-            date: PropTypes.string,
-            description: PropTypes.string,
-            authorimage: PropTypes.string,
-          }),
-        }).isRequired,
-      ).isRequired,
-      hasNextPage: PropTypes.bool.isRequired,
-      nextPage: PropTypes.shape({
-        id: PropTypes.string.isRequired,
-      }),
-      collection: PropTypes.shape({
-        id: PropTypes.string.isRequired,
-      }),
-    }).isRequired,
-    ezmeralBlogs: PropTypes.shape({
-      nodes: PropTypes.arrayOf(
-        PropTypes.shape({
-          node: PropTypes.shape({
-            title: PropTypes.string.isRequired,
-            author: PropTypes.string.isRequired,
-            date: PropTypes.string,
-            description: PropTypes.string,
-            authorimage: PropTypes.string,
-          }),
-        }).isRequired,
-      ).isRequired,
-      hasNextPage: PropTypes.bool.isRequired,
-      nextPage: PropTypes.shape({
-        id: PropTypes.string.isRequired,
-      }),
-      collection: PropTypes.shape({
-        id: PropTypes.string.isRequired,
-      }),
-    }).isRequired,
-    spiffeBlogs: PropTypes.shape({
-      nodes: PropTypes.arrayOf(
-        PropTypes.shape({
-          node: PropTypes.shape({
-            title: PropTypes.string.isRequired,
-            author: PropTypes.string.isRequired,
-            date: PropTypes.string,
-            description: PropTypes.string,
-            authorimage: PropTypes.string,
-          }),
-        }).isRequired,
-      ).isRequired,
-      hasNextPage: PropTypes.bool.isRequired,
-      nextPage: PropTypes.shape({
-        id: PropTypes.string.isRequired,
-      }),
-      collection: PropTypes.shape({
-        id: PropTypes.string.isRequired,
-      }),
-    }).isRequired,
+    allBlogs: blogsPropType,
+    openSourceBlogs: blogsPropType,
+    ezmeralBlogs: blogsPropType,
+    spiffeBlogs: blogsPropType,
     allBlogsCount: PropTypes.objectOf(PropTypes.number),
     openSourceBlogsCount: PropTypes.objectOf(PropTypes.number),
     ezmeralBlogsCount: PropTypes.objectOf(PropTypes.number),
+    spiffeBlogsCount: PropTypes.objectOf(PropTypes.number),
   }).isRequired,
   location: PropTypes.shape({
     state: PropTypes.shape({
@@ -344,6 +291,15 @@ export const pageQuery = graphql`
       collection {
         id
       }
+    }
+    spiffeBlogsCount: allMarkdownRemark(
+      filter: {
+        fields: { sourceInstanceName: { eq: "blog" } }
+        frontmatter: { tags: { eq: "spiffe-and-spire-projects" } }
+      }
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
+      totalCount
     }
     spiffeBlogs: paginatedCollectionPage(
       collection: { name: { eq: "spiffe-blog-posts" } }
