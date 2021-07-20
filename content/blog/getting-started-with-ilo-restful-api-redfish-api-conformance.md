@@ -34,7 +34,9 @@ For example, iLO on an HPE ProLiant DL360 server has one compute node, and we ha
 ## Traversing the Resource Model
 
 Because objects link together, there are some best practices you should be aware of as you create new client code. If you create a generic “crawler” app that simply GETs every resource and follows its links, your crawl will never terminate because the various object interlinks mean that the data model is not strictly a tree, but a graph.  A generic crawler must keep track of visited URIs and not re-crawl them.  Additionally, as best practice you should treat the visited resource URIs set as case insensitive (iLO does). Most use cases are not generic crawls so this won’t be an issue. Typically you know what you want to find in the data model and you should make sure you correctly find and iterate the collections needed to get to the specific resource you are interested in. To explore a data model demo visit our [iLO RESTful API Demo](https://ilorestfulapiexplorer.ext.hpe.com/).
-Interoperability
-The good news is that our internal tools at HPE required very little tweaking to work correctly on another industry implementation of Redfish.  If you read the specification and understand the principles behind the design choices you have a very good chance of writing durable client code that is widely interoperable.
 
-HPE Developers have additional resources that can help you understand and integrate more effectively with the iLO RESTful API.  To get the latest libraries and sample code available visit the iLO RESTful API platform page.
+## Interoperability
+
+The good news is that our internal tools at HPE required very little tweaking to work correctly on another industry implementation of Redfish. If you read the specification and understand the principles behind the design choices you have a very good chance of writing durable client code that is widely interoperable.
+
+HPE Developers have additional resources that can help you understand and integrate more effectively with the iLO RESTful API. To get the latest libraries and sample code available visit the iLO RESTful API platform page.
