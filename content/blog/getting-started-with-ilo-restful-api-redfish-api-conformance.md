@@ -15,8 +15,11 @@ tags:
 ## Introduction
 
 With the introduction of iLO 4 2.00 on ProLiant Gen9 servers, we introduced our next generation programmatic interface for server management. HPE iLO has a rich history of remote management capabilities including IPMI, SNMP and the XML scripting language used with HPQONCFG. The need for a new API was so obvious to us that we also began an effort with the DMTF to create a standard around it, which eventually emerged in August 2015 as the “Redfish API”. The fundamental features of the API were quickly agreed upon by the participants, but as always happens in standards bodies, what emerged had some details changed.  The iLO 2.30 release in September 2015 was the beginning of convergence with the Redfish standard. The release included Redfish properties (including the newly introduced `@odata` meta-properties) as well as the compatible pre-Redfish data model. As we move forward with our HPE Gen10 Servers, iLO 4 and iLO 5 will follow Redfish mode and we encourage our customers to code to the Redfish standard and move away from any pre-Redfish implementation. If you are just now beginning to look at leveraging the Redfish API, you should make sure your client code is interacting with iLO using Redfish API standards:
-- Read the [Redfish specification](http://www.dmtf.org/standards/redfish).  Make sure your assumptions about service URIs, including the starting URI, do not exceed the specification’s guarantees.
+
+- Read the [Redfish specification](http://www.dmtf.org/standards/redfish). Make sure your assumptions about service URIs, including the starting URI, do not exceed the specification’s guarantees.
+
 - Include the HTTP header `"OData-Version": "4.0"' in all HTTP requests. This causes iLO 4 2.30 to hide pre-Redfish properties, decreasing your chance of inadvertently creating a dependency on something that will be removed in the future.
+
 - For iLO 5, we updated the HPE branding on the OEM extension properties, so some updates might be needed from your iLO 4 scripts if you have already integrated with the API. For detailed information of the differences between iLO 4 and iLO 5 visit our [documentation](https://hewlettpackard.github.io/ilo-rest-api-docs/ilo5/#adapting-from-ilo-4).
 
 ## Redfish Versioning
