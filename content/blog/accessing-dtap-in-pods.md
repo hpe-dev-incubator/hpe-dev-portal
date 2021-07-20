@@ -52,7 +52,7 @@ dtap://datatap_name/some_subdirectory/another_subdirectory/some_file
 | Screenshot                                                                                                      | Description                                                                       |
 | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
 | ![image](https://user-images.githubusercontent.com/72959956/121467168-35150680-c9eb-11eb-901c-77e83097cdf9.png) | You can manage different data source whether they are in MapR filesystem or HDFS. |
-| ![image](https://user-images.githubusercontent.com/72959956/126249359-0a192c2e-6dbf-4c22-b923-94b230cc1215.png) | You can add new DataTap with this screen |
+| ![image](https://user-images.githubusercontent.com/72959956/126249359-0a192c2e-6dbf-4c22-b923-94b230cc1215.png) | You can add new DataTap with this screen. |
 | ![image](https://user-images.githubusercontent.com/72959956/121467262-5f66c400-c9eb-11eb-958d-911f18281a27.png) | You can upload, delete or rename files using GUI.                                 |
 
 # Access DataTaps using HDFS commands
