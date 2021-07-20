@@ -12,15 +12,15 @@ tags:
 ---
 # **A primer for coders**
 
-In my last blog [post](/blog/getting-started-with-ilo-restful-api-redfish-api-conformance) I began a discussion about best practices for writing Redfish API client code.  Last time we talked about resource versioning and resource inter-linking.  I explained that client code should discover the data model and avoid making incorrect assumptions.  In this post I will continue discussing some issues you should be aware of in order to create durable clients that interoperate across different implementations of the Redfish API.
+In my last blog [post](/blog/getting-started-with-ilo-restful-api-redfish-api-conformance) I began a discussion about best practices for writing Redfish API client code. Last time we talked about resource versioning and resource inter-linking. I explained that client code should discover the data model and avoid making incorrect assumptions. In this post I will continue discussing some issues you should be aware of in order to create durable clients that interoperate across different implementations of the Redfish API.
 
 ## HTTP Status Codes and Redirect
 
-HTTP requests to any REST API return an HTTP status code as part of the response.  When writing Redfish client code you should encounter and handle any status codes defined in the Redfish specification.  In addition, iLO uses 308 Redirect on some URIs to redirect the client from an older version of the API to the newer version.  For instance, iLO 4 responded to GET /rest/v1.  If you try this with iLO 5, you will receive an HTTP 308 Redirect to /redfish/v1/.
+HTTP requests to any REST API return an HTTP status code as part of the response. When writing Redfish client code you should encounter and handle any status codes defined in the Redfish specification. In addition, iLO uses `308 Redirect` on some URIs to redirect the client from an older version of the API to the newer version. For instance, iLO 4 responded to GET `/rest/v1`. If you try this with iLO 5, you will receive an HTTP `308 Redirect` to `/redfish/v1/`.
 
 ## Unimplemented Properties
 
-Redfish is designed to be extremely flexible in implementation which is why so much emphasis is placed upon a self-describing data model (@odata meta-data and links to related resources). Part of this flexibility is that properties within a resource may be omitted if not supported by an implementation.  For instance, a server that does not implement an indicator LED may completely omit the “IndicatorLED” property in the data model.  Likewise, entire resources and the links to them may vary between implementations.  Good client code should handle missing properties and links in whatever way is appropriate for your application.
+Redfish is designed to be extremely flexible in implementation which is why so much emphasis is placed upon a self-describing data model (`@odata` meta-data and links to related resources). Part of this flexibility is that properties within a resource may be omitted if not supported by an implementation. For instance, a server that does not implement an indicator LED may completely omit the `IndicatorLED` property in the data model.  Likewise, entire resources and the links to them may vary between implementations. Good client code should handle missing properties and links in whatever way is appropriate for your application.
 
 ## Null values for Properties
 
