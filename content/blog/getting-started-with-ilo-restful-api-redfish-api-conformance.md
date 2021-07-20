@@ -39,4 +39,4 @@ Because objects link together, there are some best practices you should be aware
 
 The good news is that our internal tools at HPE required very little tweaking to work correctly on another industry implementation of Redfish. If you read the specification and understand the principles behind the design choices you have a very good chance of writing durable client code that is widely interoperable.
 
-HPE Developers have additional resources that can help you understand and integrate more effectively with the iLO RESTful API. To get the latest libraries and sample code available visit the iLO RESTful API platform page.
+HPE Developers have additional resources that can help you understand and integrate more effectively with the iLO RESTful API. To get the latest libraries and sample code available visit the [iLO RESTful API](https://developer.hpe.com/platform/ilo-restful-api/home/) platform page.
