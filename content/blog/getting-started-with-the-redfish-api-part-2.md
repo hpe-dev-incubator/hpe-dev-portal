@@ -9,6 +9,7 @@ thumbnailimage: null
 tags:
   - ilo-restful-api
   - redfish
+  - iLO 5
 ---
 # **A primer for coders**
 
@@ -24,12 +25,12 @@ Redfish is designed to be extremely flexible in implementation which is why so m
 
 ## Null values for Properties
 
-If you examine the Redfish schema documents, you may notice that many properties are allowed to return a JSON null value.  As an implementer of the API, returning null is not ideal but because of various relationships between open-architecture server components, the value of a property may not be available at all times.  The iLO RESTful API  uses null as a return value when, due to system state, the value is either not yet available or too stale to be of use.  Again, good client code should test the value.
+If you examine the [Redfish schema](http://redfish.dmtf.org/schemas/v1/) documents, you may notice that many properties are allowed to return a JSON null value. As an implementer of the API, returning null is not ideal but because of various relationships between open-architecture server components, the value of a property may not be available at all times. The iLO RESTful API  uses null as a return value when, due to system state, the value is either not yet available or too stale to be of use. Again, good client code should test the value.
 
 ## What Version of Redfish does iLO support?
 
-We are often asked the question:  “What version of Redfish does iLO support.”  Due to the flexibility of the API, the question is not straightforward to answer.  Recall from part 1 that the “Protocol” is versioned separately from the “Data Model”.  iLO 5 implements the latest protocol version 1.3 at the time of writing.  However, the individual resources in the data model each implement a specific schema and version.  Some resources may report the latest version while some may report older versions.  Since the versions are cumulative, if we need to report a newly defined property we will update the version to the schema that defines the new property.  However, if we do not need to update a resource, we may choose to leave the versions information unchanged as well.  Since schema updates are likely to occur on each iLO firmware update, the best answer is to inspect the API dynamically.
+We are often asked the question:  “What version of Redfish does iLO support?” Due to the flexibility of the API, the question is not straightforward to answer. Recall from [part 1](/blog/getting-started-with-ilo-restful-api-redfish-api-conformance) that the “Protocol” is versioned separately from the “Data Model”. iLO 5 implements the latest protocol version 1.3 at the time of writing. However, the individual resources in the data model each implement a specific schema and version. Some resources may report the latest version while some may report older versions. Since the versions are cumulative, if we need to report a newly defined property we will update the version to the schema that defines the new property. However, if we do not need to update a resource, we may choose to leave the versions information unchanged as well. Since schema updates are likely to occur on each iLO firmware update, the best answer is to inspect the API dynamically.
 
 ## What is next?
 
-We hope we have given you enough information to get started with the iLO RESTful API and see the benefits of server automation from a single API. As we continue to improve and update our Redfish interface, please refer to our documentation 
+We hope we have given you enough information to get started with the iLO RESTful API and see the benefits of server automation from a single API. As we continue to improve and update our Redfish interface, please refer to our [documentation](https://hewlettpackard.github.io/ilo-rest-api-docs/ilo5/). 
