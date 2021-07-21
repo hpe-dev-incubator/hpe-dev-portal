@@ -7,10 +7,8 @@ image: /img/platforms/image-1-dscc.svg
 width: large
 priority: 1
 tags:
-  - Data Services Cloud Console
-  - GreenLake Common Cloud
-  - Alletra 6000
-  - Alletra 9000
+  - data-services-cloud-console
+  - greenlake-common-cloud
 ---
 The resources for developers that are looking to enhance their DataOPs management using the programmatical extensions from Data Services Cloud Console. Data Services Cloud Console brings the cloud experience wherever data lives and streamlines data management across your hybrid cloud. It provides a suite of cloud services across your edge, core, and cloud to accelerate data, agility, and innovation for everyone, from data managers to data innovators.
 
