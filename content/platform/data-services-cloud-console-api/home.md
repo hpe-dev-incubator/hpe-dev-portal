@@ -10,7 +10,7 @@ tags:
   - data-services-cloud-console
   - greenlake-common-cloud
 ---
-The resources for developers that are looking to enhance their DataOPs using the programmatical extensions from Data Services Cloud Console. Data Services Cloud Console brings the cloud experience wherever data lives and streamlines data management across your hybrid cloud. It provides a suite of cloud services across your edge, core, and cloud to accelerate data, agility, and innovation for everyone, from data managers to data innovators.
+The resources for any customers that are looking to enhance their DataOPs using the programmatical extensions from Data Services Cloud Console. Data Services Cloud Console brings the cloud experience wherever data lives and streamlines data management across your hybrid cloud. It provides a suite of cloud services across your edge, core, and cloud to accelerate data, agility, and innovation for everyone, from data managers to data innovators.
 
 ![DSCC Automation](/img/dscc-api-value.png "API for Automation at Scale")
 
