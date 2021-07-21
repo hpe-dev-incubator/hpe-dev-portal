@@ -15,4 +15,4 @@ tags:
 
 July 28, 2021
 
-The HPE DEV monthly Munch & Learn technology talks are free, 60-minute sessions where you can listen to and engage with leading technology experts on today’s most popular technologies. For our July 28, 2021 session HPE data science experts, Iveta Lohovska and Ellen Friedman, will explore challenges of data gathering and putting it to practical use. They’ll discuss methods for cross-normalization of diverse data sets, including socio-economic plus temporal data. Join us to learn some helpful tips for real world applications.
+The HPE DEV monthly Munch & Learn technology talks are free, 60-minute sessions where you can listen to and engage with leading technology experts on today’s most popular technologies. For our July 28, 2021 session HPE data science experts, Ellen Friedman and Ted Dunning, will explore challenges of data gathering and putting it to practical use. They’ll discuss methods for cross-normalization of diverse data sets, including socio-economic plus temporal data. Join us to learn some helpful tips for real world applications.
