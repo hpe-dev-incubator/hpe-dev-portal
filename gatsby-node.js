@@ -54,11 +54,47 @@ exports.createPages = async ({ graphql, actions }) => {
     await graphql(paginatedCollectionQuery('ezmeral-blog-posts'));
   const spiffeQueryResult = 
     await graphql(paginatedCollectionQuery('spiffe-blog-posts'));
-  
+  const dataFabricQueryResult = 
+    await graphql(paginatedCollectionQuery('data-fabric-posts'));
+  const greenLakeQueryResult = 
+    await graphql(paginatedCollectionQuery('greenlake-posts'));
+  const chapelQueryResult = 
+    await graphql(paginatedCollectionQuery('chapel-posts'));
+  const grommetQueryResult = 
+    await graphql(paginatedCollectionQuery('grommet-posts'));
+  const alletraQueryResult = 
+    await graphql(paginatedCollectionQuery('alletra-posts'));
+  const deepLearningQueryResult = 
+    await graphql(paginatedCollectionQuery('deep-learning-posts'));
+  const threeParQueryResult = 
+    await graphql(paginatedCollectionQuery('3par-posts'));
+  const nimbleQueryResult = 
+    await graphql(paginatedCollectionQuery('nimble-posts'));
+  const oneviewQueryResult = 
+    await graphql(paginatedCollectionQuery('oneview-posts'));
+  const oneviewDashboardQueryResult = 
+    await graphql(paginatedCollectionQuery('oneview-dashboard-posts'));
+  const iloQueryResult = 
+    await graphql(paginatedCollectionQuery('ilo-posts'));
+  const othersQueryResult = 
+    await graphql(paginatedCollectionQuery('ilo-posts'));
+
   setPagination(allQueryResult);
   setPagination(openSourceQueryResult);
   setPagination(ezmeralQueryResult);
   setPagination(spiffeQueryResult);
+  setPagination(dataFabricQueryResult);
+  setPagination(greenLakeQueryResult);
+  setPagination(chapelQueryResult);
+  setPagination(grommetQueryResult);
+  setPagination(alletraQueryResult);
+  setPagination(deepLearningQueryResult);
+  setPagination(threeParQueryResult);
+  setPagination(nimbleQueryResult);
+  setPagination(oneviewQueryResult);
+  setPagination(oneviewDashboardQueryResult);
+  setPagination(iloQueryResult);
+  setPagination(othersQueryResult);
 
   return graphql(
     `

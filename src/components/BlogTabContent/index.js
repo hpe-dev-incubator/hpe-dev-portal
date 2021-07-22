@@ -7,18 +7,15 @@ import { BlogCard } from '../BlogCard';
 import ResponsiveGrid from '../ResponsiveGrid';
 import { useLocalStorage } from '../../hooks/use-local-storage';
 
-const BlogTabContent = ({
-  initialPage,
-  columns,
-  activeTab,
-}) => {
+const BlogTabContent = ({ initialPage, columns, activeTab }) => {
   const [latestPage, setLatestPage] = useState(initialPage);
   const [blogPosts, setBlogPosts] = useState(initialPage.nodes);
   const [collectionId, setCollectionId] = useState(initialPage.collection.id);
   // eslint-disable-next-line no-unused-vars
   const [activeBlogTab, setActiveBlogTab] = useLocalStorage('activeBlogTab');
-  const [loadMoreBlogData, setLoadMoreBlogData] = 
-    useLocalStorage('loadMoreBlogData');
+  const [loadMoreBlogData, setLoadMoreBlogData] = useLocalStorage(
+    'loadMoreBlogData',
+  );
 
   useEffect(() => {
     setCollectionId(initialPage.collection.id);
@@ -39,12 +36,12 @@ const BlogTabContent = ({
       setBlogPosts(loadMoreBlogData.latestBlogPosts);
     }
   }, [
-      initialPage, 
-      setActiveBlogTab,
-      activeTab,
-      collectionId,
-      loadMoreBlogData,
-    ]);
+    initialPage,
+    setActiveBlogTab,
+    activeTab,
+    collectionId,
+    loadMoreBlogData,
+  ]);
 
   const loadNextPage = useCallback(async () => {
     if (!latestPage.hasNextPage) return;
