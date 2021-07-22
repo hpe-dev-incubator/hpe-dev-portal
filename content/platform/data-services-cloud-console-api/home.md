@@ -1,8 +1,8 @@
 ---
 title: Data Services Cloud Console API
 version: 0.1.1
-description: API Information, introduction, samples and collaboration for Data
-  Console Cloud Console
+description: Easy to read guides, tips and documentation to rapidly help you to
+  start working with Data Services Cloud Console APIs.
 image: /img/platforms/image-1-dscc.svg
 width: large
 priority: 1
