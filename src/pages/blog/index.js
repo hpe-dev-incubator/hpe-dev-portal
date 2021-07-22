@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { graphql, navigate } from 'gatsby';
-import { Paragraph, Tab, Tabs, Menu } from 'grommet';
+import { Paragraph, Tab, Tabs, Menu, Text } from 'grommet';
+import { FormDown } from 'grommet-icons';
 import {
   BlogCard,
   Layout,
@@ -182,16 +183,22 @@ function Blog({ data, location }) {
           />
         </Tab>
         <Tab
-          plain="true"
           title={
             <Menu
               open={activePlatform}
-              label="Platforms"
               dropProps={{
                 align: { top: 'bottom', left: 'left' },
               }}
               items={platformsData}
-            />
+            >
+              <Text
+                color="black"
+                margin={{ right: 'xsmall' }}
+              >
+                Platforms
+              </Text>
+              <FormDown />
+            </Menu>
           }
         >
           <BlogTabContent
