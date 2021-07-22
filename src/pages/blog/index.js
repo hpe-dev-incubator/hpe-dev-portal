@@ -38,6 +38,7 @@ function Blog({ data, location }) {
   const [blogPosition, setBlogPosition] = useLocalStorage('blogPosition');
   const [activeBlogTab, setActiveBlogTab] = useLocalStorage('activeBlogTab');
   const [dropDownData, setDropDownData] = useLocalStorage('dropDownData');
+  const [activePlatform, setActivePlatform] = useLocalStorage('activePlatform');
 
   const platforms = {
     ezmeralBlogs: {
@@ -99,10 +100,12 @@ function Blog({ data, location }) {
     .map((item, i) => {
       return {
         label: `${platforms[item[0]].label} (${platforms[item[0]].count})`,
+        active: platforms[item[0]].label === activePlatform,
         onClick: () => {
           setActiveBlogTab(index);
           setDropDownData(item[1]);
           setPlatformContent({ key: i, data: item[1] });
+          setActivePlatform(platforms[item[0]].label);
         },
       };
     });
@@ -182,6 +185,7 @@ function Blog({ data, location }) {
           plain="false"
           title={
             <Menu
+              open={activePlatform}
               label="Platforms"
               dropProps={{
                 align: { top: 'bottom', left: 'left' },

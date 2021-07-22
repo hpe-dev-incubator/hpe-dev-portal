@@ -7,12 +7,14 @@ import { BlogCard } from '../BlogCard';
 import ResponsiveGrid from '../ResponsiveGrid';
 import { useLocalStorage } from '../../hooks/use-local-storage';
 
-const BlogTabContent = ({ initialPage, columns, activeTab }) => {
+const BlogTabContent = ({ initialPage, columns, activeTab, platform }) => {
   const [latestPage, setLatestPage] = useState(initialPage);
   const [blogPosts, setBlogPosts] = useState(initialPage.nodes);
   const [collectionId, setCollectionId] = useState(initialPage.collection.id);
-  // eslint-disable-next-line no-unused-vars
+  /* eslint-disable no-unused-vars */
   const [activeBlogTab, setActiveBlogTab] = useLocalStorage('activeBlogTab');
+  const [activePlatform, setActivePlatform] = useLocalStorage('activePlatform');
+  /* eslint-disable no-unused-vars */
   const [loadMoreBlogData, setLoadMoreBlogData] = useLocalStorage(
     'loadMoreBlogData',
   );
@@ -23,6 +25,11 @@ const BlogTabContent = ({ initialPage, columns, activeTab }) => {
     // persist active tab for when user goes back to blog page
     // localStorage.setItem('blogTab', JSON.stringify(activeTab));
     setActiveBlogTab(activeTab);
+
+    // persist if platform dropdown is selected and saves active dropdown item
+    if (!platform) {
+      setActivePlatform('');
+    }
 
     // loads blogs from user clicks 'Load More'
     // for when user goes back to blog page
@@ -41,6 +48,8 @@ const BlogTabContent = ({ initialPage, columns, activeTab }) => {
     activeTab,
     collectionId,
     loadMoreBlogData,
+    platform,
+    setActivePlatform,
   ]);
 
   const loadNextPage = useCallback(async () => {
@@ -112,6 +121,7 @@ BlogTabContent.propTypes = {
     xlarge: PropTypes.arrayOf(PropTypes.string),
   }),
   activeTab: PropTypes.number,
+  platform: PropTypes.string,
 };
 
 export default BlogTabContent;
