@@ -1,6 +1,6 @@
 ---
 title: "Getting started with iLO RESTful API- Redfish® API Conformance "
-date: 2017-10-30T20:24:46.680Z
+date: 2021-07-20T18:09:08.553Z
 featuredBlog: false
 priority: null
 author: Mike Garrett – Architect iLO RESTful API
