@@ -16,6 +16,8 @@ This API provides resources for any customers that are looking to enhance their 
 
 ![DSCC Automation](/img/dscc-api-value.png "API for Automation at Scale")
 
+## REST API
+
 [Link to the API repository](https://docs.ccs.arubathena.com/)
 
 ### Documentation and Tutorials
