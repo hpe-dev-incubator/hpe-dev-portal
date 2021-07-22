@@ -182,7 +182,7 @@ function Blog({ data, location }) {
           />
         </Tab>
         <Tab
-          plain="false"
+          plain="true"
           title={
             <Menu
               open={activePlatform}
@@ -210,7 +210,7 @@ function Blog({ data, location }) {
             activeTab={index}
           />
         </Tab>
-        <Tab title="Others" key={index}>
+        <Tab title="Others">
           <BlogTabContent
             key={index}
             initialPage={data.othersBlogs}
