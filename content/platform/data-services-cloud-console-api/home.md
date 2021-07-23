@@ -18,7 +18,7 @@ Today, every organization are required to unleash the power of data to drive dig
 
 
 
-This API provides resources for any customers that are looking to enhance their infrastructure and data-ops management using the programmatical extensions from Data Services Cloud Console. Data Services Cloud Console brings the cloud experience wherever data lives and streamlines data management across your hybrid cloud. It provides a suite of cloud services across your edge, core, and cloud to accelerate data, agility, and innovation for everyone, from data managers to data innovators.
+This API provides resources for any customers that are looking to enhance their infrastructure management and data-ops using the programmatical extensions from Data Services Cloud Console. Data Services Cloud Console brings the cloud experience wherever data lives and streamlines data management across your hybrid cloud. It provides a suite of cloud services across your edge, core, and cloud to accelerate data, agility, and innovation for everyone, from data managers to data innovators.
 
 
 
