@@ -33,6 +33,14 @@ The Data Services Cloud console public API is specified based on the OpenAPI for
 
 The overview of the Data Services Cloud Console is at [this link](https://www.hpe.com/us/en/storage/data-services-cloud-console.html#overview). There will be more blogs that will provide more information to help customer adopting this API.
 
+### Supported Entity (Services)
+
+1. DataOps Manager
+2. Event Audit
+3. Task tracking
+4. Search
+5. Helps, Issues and announcements
+
 ### Any Questions on Data Services Cloud Console API?
 
 Please join [HPEDEV Slack Workspace](https://slack.hpedev.io/) and start a discussion in our #DSCC channel
