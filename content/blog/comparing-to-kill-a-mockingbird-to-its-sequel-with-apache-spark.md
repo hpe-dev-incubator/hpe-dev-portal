@@ -78,7 +78,7 @@ Having been transformed into TF-IDF vectors, passages from both books are now re
 
 The secret to getting value from business problems is not the classification; it is primarily about ranking objects based on the confidence of our decision and then leveraging the value of a good decision minus the cost of a misidentification. Spark has several machine learning algorithms that are appropriate for this task.
 
-During examination of the text it was noted that a few modifications should be made to the novels to make the comparison more “fair”. *To Kill a Mockingbird* was written in the first person and includes many pronouns that would be giveaways (e.g. “I”,”our”,”my”,”we”, etc.). These were removed from both books. Due to the inevitability of variable sentence length in novels, passages were created as series of ten consecutive words.
+During examination of the text it was noted that a few modifications should be made to the novels to make the comparison more “fair”. *To Kill a Mockingbird* was written in the first person and includes many pronouns that would be giveaways (e.g. “I”,”our”,”my”,”we”, etc.). These were removed from both books. Due to the inevitability of variable sentence length in novels, passages were created as a series of ten consecutive words.
 
 The parsed passages were combined, split into training and testing sets, and then transformed with the idfModel built on the training data using the code below:
 
@@ -95,9 +95,9 @@ val test = splits(1).map{ point=> LabeledPoint(point.label,idfModel.transform(po
 train.cache()
 ```
 
-Using randomly split data files for training and testing a model is standard procedure for insuring performance is not a result of over-training (i.e. memorizing the specific examples instead of abstracting the true patterns). It is critical that the idfModel is built only on the training data. Failure to do so may result in over-stating your performance on the test data.
+Using randomly split data files for training and testing a model is standard procedure for insuring that performance is not a result of over-training (i.e. memorizing the specific examples instead of abstracting the true patterns). It is critical that the idfModel is built only on the training data. Failure to do so may result in over-stating your performance on the test data.
 
-The data are prepared for machine learning algorithms in Spark. Naïve Bayes is a reasonable first choice for document classification. The code below shows the training and evaluation of a Naïve Bayes model on the passages.
+The data is prepared for machine learning algorithms in Spark. Naïve Bayes is a reasonable first choice for document classification. The code below shows the training and evaluation of a Naïve Bayes model on the passages.
 
 ```scala
 import org.apache.spark.mllib.classification.{NaiveBayes, NaiveBayesModel}
@@ -118,7 +118,7 @@ Applying the Naïve Bayes algorithm in Spark gives a classification from which a
 
 The diagonal elements of the confusion matrix represent correct classifications and the off-diagonal counts are classification errors. It is informative to look at a confusion matrix (especially when there are more than two classes) – the better the classification rate on the test set, the more separable the populations. However, when data scientists are looking to apply classification to a business problem, they prefer to examine how well the algorithm rank-orders the results.
 
-Currently, Spark does not support a user-supplied threshold for Naïve Bayes. Only the best classification rate in the training data is reported. But in real business problems there is an overhead associated with a misclassification so that the *“best” rate may not be the optimal rate*. It is of keen interest to the business to find the point at which maximum value of correct classifications is realized when accounting for incorrect answers. To do this via Spark, we need to use methods that allow for analysis of the threshold.
+Currently, Spark does not support a user-supplied threshold for Naïve Bayes. Only the best classification rate in the training data is reported. But in real business problems, there is an overhead associated with a misclassification so that the *“best” rate may not be the optimal rate*. It is of keen interest to the business to find the point at which maximum value of correct classifications is realized when accounting for incorrect answers. To do this via Spark, we need to use methods that allow for analysis of the threshold.
 
 Given the number of features (a TF-IDF vector of size 10,000) and the nature of the data, Spark’s tree-based ensemble methods are appropriate. Both Random Forest and Gradient Boosted Trees are available.
 
@@ -149,10 +149,10 @@ val modelGB = GradientBoostedTrees.train(train, boostingStrategy)
 
 The regression model options (estimating vs. classifying) will produce continuous outputs that can be used to find the right threshold. Both of these methods can be configured with tree depth and number of trees– read the Spark <a target='\_blank'  href='http://spark.apache.org/docs/1.3.0/mllib-ensembles.html'>documentation</a> for details, but general rules of thumb are the following:
 
-* Random Forest – trees are built in parallel and overtraining decreases with more trees so setting this number to be large is a great way to leverage a Hadoop environment. The max depth should be larger than GBT.
+* Random Forest – trees are built in parallel and overtraining decreases with more trees, so setting this number to be large is a great way to leverage a Hadoop environment. The max depth should be larger than Gradient Boosted Trees (GBT).
 * Gradient Boosted Trees – the number of trees is directly related to overtraining and the trees are not built in parallel. This method can produce some extremely high classification rates on the training data, but set the max depth of trees to be smaller than random forest.
 
-The table below shows the commands to calculate the ROC (Receiver Operating Characteristic) for the Random Forest model – the ROC will tell the real story on the model performance.
+The table below shows the commands to calculate the Receiver Operating Characteristic (ROC) for the Random Forest model – the ROC will tell the real story on the model performance.
 
 ```scala
 //// Random forest model metrics on training data
