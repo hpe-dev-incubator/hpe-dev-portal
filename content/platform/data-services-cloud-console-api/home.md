@@ -39,7 +39,13 @@ The overview of the Data Services Cloud Console is at [this link](https://www.hp
 2. Event Audit
 3. Task tracking
 4. Search
-5. Helps, Issues and announcements
+5. Helps, Issues and announcement
+
+### HTTP Request Methods
+
+| HTTP verbs | Description |
+| ---------- | ----------- |
+| GET        | Retrieves Target Resource
 
 ### Any Questions on Data Services Cloud Console API?
 
