@@ -5,7 +5,7 @@ author: Prasad Singathi, Maikel Pereira
 authorimage: /img/maikel-pereira.jpg
 tags:
   - MapR
-  - HPE Ezmeral Data Fabric
+  - hpe-ezmeral-data-fabric
   - Machine learning
 ---
 **Editor’s Note:** MapR products and solutions sold prior to the acquisition of such assets by Hewlett Packard Enterprise Company in 2019 may have older product names and model numbers that differ from current solutions. For information about current offerings, which are now part of HPE Ezmeral Data Fabric, please visit <https://www.hpe.com/us/en/software/data-fabric.html>
