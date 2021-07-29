@@ -3,9 +3,11 @@ title: KubeCon NA 2021
 dateStart: 2021-10-13T07:00:30.081Z
 dateEnd: 2021-10-15T15:00:17.270Z
 category: Event
-image: /img/kubeconna-event-card-image.png
+image: /img/kubeconna2021-event-card-image.png
 link: https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/
 width: large
+tags:
+  - KubeCon
 ---
 ## KubeCon NA 2021
 
