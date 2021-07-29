@@ -43,12 +43,12 @@ The overview of the Data Services Cloud Console is at [this link](https://www.hp
 
 ### HTTP Request Methods
 
-| HTTP Verbs   | Description                                                         |
-| ------------ | ------------------------------------------------------------------- |
-| GET          | Retrieves target resource                                           |
-| POST         | Creates an entity or changes state                                  |
-| PUT          | Replaces target resource with data part of the HTTP Request payload |
-| \----------- | \-------------------------                                          |
+| HTTP Verbs | Description                                                         |
+| ---------- | ------------------------------------------------------------------- |
+| GET        | Retrieves target resource                                           |
+| POST       | Creates an entity or changes state                                  |
+| PUT        | Replaces target resource with data part of the HTTP Request payload |
+| DELETE     | Remove the target source                                            |
 
 ### Any Questions on Data Services Cloud Console API?
 
