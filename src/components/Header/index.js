@@ -7,18 +7,13 @@ import {
   ResponsiveContext,
 } from 'grommet';
 import { Menu, Search } from 'grommet-icons';
-import { ButtonLink, ExternalButtonLink } from '..';
+import { ButtonLink } from '..';
 
 function Header() {
   const size = useContext(ResponsiveContext);
   const navLinks = [
-    <ExternalButtonLink
-      key="os"
-      label="Open Source"
-      to="https://www.hpe.com/us/en/open-source.html"
-    />,
     <DropButton
-      label="Platforms"
+      label="Our Platforms"
       dropAlign={{ top: 'bottom', left: 'left' }}
       dropContent={
         <>
@@ -136,12 +131,6 @@ function Header() {
       to="/blog"
       state={{ state: { isBlogHeaderClicked: true } }}
     />,
-    <ButtonLink
-      key="nw"
-      label="Newsletter"
-      to="/newsletter-signup"
-      state={{ state: { isNewsletterHeaderClicked: true } }}
-    />,
     <ButtonLink key="cm" label="Community" to="/community" />,
   ];
 
@@ -151,7 +140,7 @@ function Header() {
       pad={{ horizontal: 'medium', vertical: 'small' }}
     >
       <Box flex={false}>
-        <ButtonLink label="HPE Developer" to="/" />
+        <ButtonLink label="Home" to="/" />
       </Box>
       {size === 'small' ? (
         <DropButton
