@@ -102,7 +102,7 @@ function Header() {
             alignSelf="start"
           />
           <ButtonLink
-            key="pl-hov"
+            key="pl-ho"
             label="HPE OneView"
             to="/platform/hpe-oneview/home/"
             alignSelf="start"
