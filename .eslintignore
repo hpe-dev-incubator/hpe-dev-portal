@@ -10,3 +10,4 @@ out/
 public/
 yarn.lock
 package-lock.json
+plugins/
