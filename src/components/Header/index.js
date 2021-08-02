@@ -18,7 +18,7 @@ function Header() {
       to="https://www.hpe.com/us/en/open-source.html"
     />,
     <DropButton
-      label="Platforms"
+      label="Our Platforms"
       dropAlign={{ top: 'bottom', left: 'left' }}
       dropContent={
         <>
@@ -151,7 +151,7 @@ function Header() {
       pad={{ horizontal: 'medium', vertical: 'small' }}
     >
       <Box flex={false}>
-        <ButtonLink label="HPE Developer" to="/" />
+        <ButtonLink label="Home" to="/" />
       </Box>
       {size === 'small' ? (
         <DropButton
