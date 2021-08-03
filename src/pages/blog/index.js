@@ -31,6 +31,7 @@ function Blog({ data, location }) {
   const onActive = (nextIndex) => setIndex(nextIndex);
   const totalAllBlogsCount = data.allBlogsCount.totalCount;
   const totalOpenSourceBlogsCount = data.openSourceBlogsCount.totalCount;
+  const totalOthersBlogsCount = data.othersBlogsCount.totalCount;
   const [platformContent, setPlatformContent] = useState({
     key: 0,
     data: data.allBlogs,
@@ -95,6 +96,15 @@ function Blog({ data, location }) {
       count: data.iloBlogsCount.totalCount,
     },
   };
+  /* eslint-disable no-param-reassign */
+  const totalAllPlatformsBlogsCount = Object.entries(platforms).reduce(
+    (accum, item) => {
+      accum += item[1].count;
+      return accum;
+    },
+    0,
+  );
+  /* eslint-disable no-param-reassign */
 
   const platformsData = Object.entries(data)
     .filter((item) => Object.prototype.hasOwnProperty.call(platforms, item[0]))
@@ -191,11 +201,8 @@ function Blog({ data, location }) {
               }}
               items={platformsData}
             >
-              <Text
-                color="black"
-                margin={{ right: 'xsmall' }}
-              >
-                Platforms
+              <Text color="black" margin={{ right: 'xsmall' }}>
+                Platforms ({totalAllPlatformsBlogsCount})
               </Text>
               <FormDown />
             </Menu>
@@ -217,7 +224,7 @@ function Blog({ data, location }) {
             activeTab={index}
           />
         </Tab>
-        <Tab title="Others">
+        <Tab title={`Others (${totalOthersBlogsCount})`}>
           <BlogTabContent
             key={index}
             initialPage={data.othersBlogs}
@@ -294,6 +301,7 @@ Blog.propTypes = {
     oneviewBlogsCount: PropTypes.objectOf(PropTypes.number),
     oneviewDashboardBlogsCount: PropTypes.objectOf(PropTypes.number),
     iloBlogsCount: PropTypes.objectOf(PropTypes.number),
+    othersBlogsCount: PropTypes.objectOf(PropTypes.number),
   }).isRequired,
   location: PropTypes.shape({
     state: PropTypes.shape({
@@ -679,6 +687,61 @@ export const pageQuery = graphql`
       collection {
         id
       }
+    }
+    allPlatformsBlogsCount: allMarkdownRemark(
+      filter: {
+        fields: { sourceInstanceName: { eq: "blog" } }
+        frontmatter: {
+          tags: {
+            in: [
+              "hpe-ezmeral-container-platform"
+              "spiffe-and-spire-projects"
+              "hpe-ezmeral-data-fabric"
+              "hpe-greenlake"
+              "chapel"
+              "grommet"
+              "hpe-alletra"
+              "deep-learning-cookbook"
+              "hpe-3par-and-primera"
+              "hpe-nimble-storage"
+              "hpe-oneview"
+              "hpe-oneview-global-dashboard"
+              "ilo"
+            ]
+          }
+        }
+      }
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
+      totalCount
+    }
+    othersBlogsCount: allMarkdownRemark(
+      filter: {
+        fields: { sourceInstanceName: { eq: "blog" } }
+        frontmatter: {
+          tags: {
+            nin: [
+              "opensource"
+              "hpe-ezmeral-container-platform"
+              "spiffe-and-spire-projects"
+              "hpe-ezmeral-data-fabric"
+              "hpe-greenlake"
+              "chapel"
+              "grommet"
+              "hpe-alletra"
+              "deep-learning-cookbook"
+              "hpe-3par-and-primera"
+              "hpe-nimble-storage"
+              "hpe-oneview"
+              "hpe-oneview-global-dashboard"
+              "ilo"
+            ]
+          }
+        }
+      }
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
+      totalCount
     }
   }
 `;
