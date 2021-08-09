@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { graphql, navigate } from 'gatsby';
-import { Paragraph, Tab, Tabs, Menu, Text } from 'grommet';
+import { Paragraph, Tab, Tabs, Menu, Text, Grommet, Box } from 'grommet';
 import { FormDown } from 'grommet-icons';
+import { hpe } from 'grommet-theme-hpe';
+import { deepMerge } from 'grommet/utils';
 import {
   BlogCard,
   Layout,
@@ -15,6 +17,15 @@ import {
 } from '../../components';
 import { useSiteMetadata } from '../../hooks/use-site-metadata';
 import { useLocalStorage } from '../../hooks/use-local-storage';
+
+const customTheme = deepMerge(hpe, {
+  tab: {
+    pad: {
+      vertical: '0',
+      horizontal: '0',
+    },
+  },
+});
 
 const columns = {
   small: 'auto',
@@ -182,33 +193,41 @@ function Blog({ data, location }) {
             activeTab={index}
           />
         </Tab>
-        <Tab
-          title={
-            <Menu
-              open={activePlatform}
-              dropProps={{
-                align: { top: 'bottom', left: 'left' },
-              }}
-              items={platformsData}
-            >
-              <Text
-                color="black"
-                margin={{ right: 'xsmall' }}
+        <Grommet theme={customTheme}>
+          <Tab
+            pad="none"
+            title={
+              <Menu
+                open={activePlatform}
+                dropProps={{
+                  align: { top: 'bottom', left: 'left' },
+                }}
+                items={platformsData}
               >
-                Platforms
-              </Text>
-              <FormDown />
-            </Menu>
-          }
-        >
-          <BlogTabContent
-            key={platformContent.key}
-            initialPage={platformContent.data}
-            columns={columns}
-            activeTab={index}
-            platform
-          />
-        </Tab>
+                <Box
+                  width="115px"
+                  height="48px"
+                  justify="center"
+                  align="center"
+                  direction="row"
+                >
+                  <Text color="black" margin={{ right: 'xsmall' }}>
+                    Platforms
+                  </Text>
+                  <FormDown />
+                </Box>
+              </Menu>
+            }
+          >
+            <BlogTabContent
+              key={platformContent.key}
+              initialPage={platformContent.data}
+              columns={columns}
+              activeTab={index}
+              platform
+            />
+          </Tab>
+        </Grommet>
         <Tab title={`Open Source (${totalOpenSourceBlogsCount})`}>
           <BlogTabContent
             key={index}
