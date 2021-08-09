@@ -43,7 +43,7 @@ The major difference between the two methods is that there is a greater amount o
 
 You’ll find complete instructions for entering your content into the Netlify CMS and submitting your post for review in the [HPE DEV External Contributor Guide](https://github.com/hpe-dev-incubator/hpe-dev-portal/blob/master/docs/ContributorGuide-v2.md). Once you have created a new blog entry, entered your content, added your tags and saved your work, your post becomes visible in the Editorial Workflow in the Drafts section. Make sure you move your post entry from the **Drafts** column to the **In Review** column in the **Editorial Workflow**. This will automatically open a Pull Request (PR) in the GitHub repository associated with the Netlify CMS. This indicates to the HPE DEV team that the post is ready, initiating the review process. 
 
-> Note: If you need to make edits after you’ve placed it in the **In Review** column, there is no need to move it back into the **Drafts** column. In fact, if you do so, it will delete the history, so please just keep it in the **In Review** column while you make your edits.
+>Note: If you need to make edits after you’ve placed it in the **In Review** column, there is no need to move it back into the **Drafts** column. In fact, if you do so, it will delete the history, so please just keep it in the **In Review** column while you make your edits.
 
 ![](/img/blogger-workflow.jpg)
 
@@ -58,7 +58,7 @@ To use the Microsoft Word templates, click on the link. It will automatically do
 
 ### Google Docs Templates:
 
-To use the Google Docs templates, click on the link. It will bring you to the Google account where the document is stored. Go to **File** and pull down to **Make a Copy**. Save it to your drive and rename the file. Once you have filled in the sections, *share the document* with the \[technical review team](mailto:denis.choukroun@hpe.com) and the \[content editor](mailto:dale.rensing@hpe.com).
+To use the Google Docs templates, click on the link. It will bring you to the Google account where the document is stored. Go to **File** and pull down to **Make a Copy**. Save it to your drive and rename the file. Once you have filled in the sections, *share the document* with the [technical review team](mailto:denis.choukroun@hpe.com) and the [content editor](mailto:dale.rensing@hpe.com).
 
 * [Google Docs Basic Blog template](https://docs.google.com/document/d/1uAHcsJxavfmC0oRoccjBFI_WmuALDWhOINATiCEoDIw/edit?usp=sharing)
 
