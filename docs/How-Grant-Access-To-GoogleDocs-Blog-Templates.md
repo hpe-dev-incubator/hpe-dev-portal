@@ -1,6 +1,6 @@
 Contributors may prefer to submit their blog post contribution using MS-Word or Google Docs. Blog post templates are available in MS-Word format (the templates are available in AWS S3 bucket) and in Google Docs format in hpedev.hackshack@hpe.com Google account.
 
-Refer to the blog post here for further information.
+Refer to the blog post [here](https://developer.hpe.com/blog/be-an-hpe-dev-blogger/) for further information.
 
 This guide describes how to grant access to blog post templates that are available in Google Docs in hpedev.hackshack@hpe.com google account.
 
