@@ -97,7 +97,7 @@ Please note that the length of the review cycle depends on the technical depth o
 
 The review process is covered in detail in the [HPE DEV External Contributor Guide](https://github.com/hpe-dev-incubator/hpe-dev-portal/blob/master/docs/ContributorGuide-v2.md). But to quickly summarize:
 
-* The HPE DEV team will review your markdown copy on the Netlify CMS
+* The HPE DEV team will review your markdown copy on the Netlify CMS.
 
 * They’ll offer technical and editorial suggestions, commenting on each line directly on GitHub Pull Request.
 
