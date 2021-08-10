@@ -1,7 +1,7 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { graphql, withPrefix, navigate } from 'gatsby';
-import { Box, Button, Paragraph } from 'grommet';
+import { Box, Button, Paragraph, Text } from 'grommet';
 import { FormDown } from 'grommet-icons';
 import {
   BlogCard,
@@ -98,6 +98,13 @@ function Blog({ data, location }) {
           through our library of tutorials and articles to learn new ways to do
           things. Or write your own!
         </Paragraph>
+        <Box wrap align="start">
+          <Paragraph>
+            <Text size="large" weight="bold">Be a Blogger </Text>
+            Contribute to the HPE Developer blog.
+          </Paragraph>
+          <Button primary label="Get Started" />
+        </Box>
       </PageDescription>
       {featuredposts && featuredposts.length > 0 && (
         <SectionHeader title="Featured Blogs">
