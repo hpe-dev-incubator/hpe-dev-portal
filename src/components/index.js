@@ -14,6 +14,7 @@ import ResponsiveGrid from './ResponsiveGrid';
 import PlatformCard from './PlatformCard';
 import OpenSourceCard from './OpenSourceCard';
 import CommunityCard from './CommunityCard';
+import BlogTabs from './BlogTabs';
 import BlogTabContent from './BlogTabContent';
 
 export * from './Card';
@@ -38,5 +39,6 @@ export {
   PlatformCard,
   OpenSourceCard,
   CommunityCard,
+  BlogTabs,
   BlogTabContent,
 };
