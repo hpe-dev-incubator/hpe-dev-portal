@@ -501,33 +501,6 @@ export const pageQuery = graphql`
         id
       }
     }
-    allPlatformsBlogsCount: allMarkdownRemark(
-      filter: {
-        fields: { sourceInstanceName: { eq: "blog" } }
-        frontmatter: {
-          tags: {
-            in: [
-              "hpe-ezmeral-container-platform"
-              "spiffe-and-spire-projects"
-              "hpe-ezmeral-data-fabric"
-              "hpe-greenlake"
-              "chapel"
-              "grommet"
-              "hpe-alletra"
-              "deep-learning-cookbook"
-              "hpe-3par-and-primera"
-              "hpe-nimble-storage"
-              "hpe-oneview"
-              "hpe-oneview-global-dashboard"
-              "ilo"
-            ]
-          }
-        }
-      }
-      sort: { fields: [frontmatter___date], order: DESC }
-    ) {
-      totalCount
-    }
     othersBlogsCount: allMarkdownRemark(
       filter: {
         fields: { sourceInstanceName: { eq: "blog" } }

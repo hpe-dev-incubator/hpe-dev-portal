@@ -29,6 +29,7 @@ function BlogTabs({ data, columns }) {
   const onActive = (nextIndex) => setIndex(nextIndex);
   const totalAllBlogsCount = data.allBlogsCount.totalCount;
   const totalOpenSourceBlogsCount = data.openSourceBlogsCount.totalCount;
+  const totalOthersBlogsCount = data.othersBlogsCount.totalCount;
   const [platformContent, setPlatformContent] = useState({
     key: 0,
     data: data.allBlogs,
@@ -118,6 +119,16 @@ function BlogTabs({ data, columns }) {
       };
     });
 
+  /* eslint-disable no-param-reassign */
+  const totalAllPlatformsBlogsCount = Object.entries(platforms).reduce(
+    (accum, item) => {
+      accum += item[1].count;
+      return accum;
+    },
+    0,
+  );
+  /* eslint-disable no-param-reassign */
+
   return (
     <Tabs activeIndex={index} onActive={onActive} justify="start" pad="20px">
       <Tab title={`All (${totalAllBlogsCount})`}>
@@ -141,14 +152,14 @@ function BlogTabs({ data, columns }) {
               items={platformsData}
             >
               <Box
-                width="116px"
+                width="160px"
                 height={size === 'small' ? '36px' : '48px'}
                 justify="center"
                 align="center"
                 direction="row"
               >
                 <Text color="black" margin={{ right: 'xsmall' }}>
-                  Platforms
+                  Platforms ({totalAllPlatformsBlogsCount})
                 </Text>
                 <FormDown />
               </Box>
@@ -172,7 +183,7 @@ function BlogTabs({ data, columns }) {
           activeTab={index}
         />
       </Tab>
-      <Tab title="Others">
+      <Tab title={`Others (${totalOthersBlogsCount})`}>
         <BlogTabContent
           key={index}
           initialPage={data.othersBlogs}
@@ -248,6 +259,7 @@ BlogTabs.propTypes = {
     oneviewBlogsCount: PropTypes.objectOf(PropTypes.number),
     oneviewDashboardBlogsCount: PropTypes.objectOf(PropTypes.number),
     iloBlogsCount: PropTypes.objectOf(PropTypes.number),
+    othersBlogsCount: PropTypes.objectOf(PropTypes.number),
   }).isRequired,
   columns: PropTypes.shape({
     small: PropTypes.string,
