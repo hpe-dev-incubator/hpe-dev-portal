@@ -4,7 +4,7 @@ date: 2021-08-09T12:03:49.852Z
 featuredBlog: true
 priority: 1
 author: HPE DEV
-authorimage: /img/dev-thumb2.png
+authorimage: /img/hpe-dev-logo-large.png
 tags:
   - hpedev
 ---
