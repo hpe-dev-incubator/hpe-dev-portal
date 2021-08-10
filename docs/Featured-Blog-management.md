@@ -5,14 +5,14 @@ Author: HPE DEV Team
 
 ## Feature blog in the HPE DEV portal Home page
 * From CMS v2 editor (as Administrator), go to [Home panels](https://hpe-dev-portal.netlify.app/admin/#/collections/homepanels)
-* Edit the existing Featured blog card to set the Title, Navigation Path (relative path in the form of: /blog/<blog-title>), author image, and body.
+* Edit the existing Feature blog card to set the Title, Navigation Path (relative path in the form of: /blog/<blog-title>), author image, and body.
 * In the Body area, enter the Author name, Title of the blog as Header level 2, and Date (if appropriate) as header level 4. An example is here:
   
  Author Name
  
  ## Title of the blog
  
- ### June 9 - August 4, 2021 (or June 22 - 25, 2021)
+ ### June 9 - August 4, 2021 (or June 22 - 25, 2021) (only needed for a time bound blog post -for example for the Dev Nation Survey)
  
  Save the changes in the CMS editor and wait 4 or 5 minutes for the check process to execute.
  
