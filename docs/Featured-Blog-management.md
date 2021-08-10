@@ -12,7 +12,7 @@ Author: HPE DEV Team
  
  ## Title of the blog
  
- ### June 9 - August 4, 2021 (or June 22 - 25, 2021)
+ ### June 9 - August 4, 2021 (or June 22 - 25, 2021) (the date here was valid for a Blog post about the Dev Nation Survey which was time bounded).
  
  Save the changes in the CMS editor and wait 4 or 5 minutes for the check process to execute.
  
