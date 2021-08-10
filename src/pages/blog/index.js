@@ -85,10 +85,7 @@ function Blog({ data, location }) {
           </ResponsiveGrid>
         </SectionHeader>
       )}
-      <BlogTabs 
-        data={data} 
-        columns={columns}
-      />
+      <BlogTabs data={data} columns={columns} />
     </Layout>
   );
 }

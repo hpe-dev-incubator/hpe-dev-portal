@@ -1,12 +1,12 @@
 import React, { useEffect, useState, useContext } from 'react';
 import PropTypes from 'prop-types';
-import { 
-  Tab, 
-  Tabs, 
-  Menu, 
-  Text, 
-  Grommet, 
-  Box, 
+import {
+  Tab,
+  Tabs,
+  Menu,
+  Text,
+  Grommet,
+  Box,
   ResponsiveContext,
 } from 'grommet';
 import { FormDown } from 'grommet-icons';
@@ -142,7 +142,7 @@ function BlogTabs({ data, columns }) {
             >
               <Box
                 width="116px"
-                height={size === 'small' ? '36px': '48px'}
+                height={size === 'small' ? '36px' : '48px'}
                 justify="center"
                 align="center"
                 direction="row"
