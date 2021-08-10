@@ -281,7 +281,12 @@ module.exports = {
           "hpe-nimble-storage", 
           "hpe-oneview", 
           "hpe-oneview-global-dashboard", 
-          "ilo"]}}}, sort: {fields: [frontmatter___date], order: DESC}) {
+          "ilo", 
+          "ilorest",
+          "iLOrest",
+          "ilo-restful-api",
+          "Redfish",
+          ]}}}, sort: {fields: [frontmatter___date], order: DESC}) {
             nodes {
               id
               fields {
@@ -329,9 +334,60 @@ module.exports = {
     paginatedCollection('3par-posts', 'hpe-3par-and-primera'),
     paginatedCollection('nimble-posts', 'hpe-nimble-storage'),
     paginatedCollection('oneview-posts', 'hpe-oneview'),
-    paginatedCollection('oneview-dashboard-posts', 
-      'hpe-oneview-global-dashboard'),
-    paginatedCollection('ilo-posts', 'ilo'),
+    paginatedCollection(
+      'oneview-dashboard-posts',
+      'hpe-oneview-global-dashboard',
+    ),
+    {
+      resolve: 'gatsby-plugin-paginated-collection',
+      options: {
+        name: 'ilo-posts',
+        pageSize: 12,
+        query: `
+          {
+            allMarkdownRemark(filter: {fields: {sourceInstanceName: {eq: "blog"}
+            }, frontmatter: {tags: {in: [
+              "ilo",
+              "Redfish",
+              "ilorest",
+              "iLOrest",
+              "ilo-restful-api" 
+              ]}}}, sort: {fields: [frontmatter___date], order: DESC}) {
+              nodes {
+                id
+                fields {
+                  slug
+                  sourceInstanceName
+                }
+                frontmatter {
+                  title
+                  date
+                  description
+                  author
+                  tags
+                  authorimage
+                }
+                excerpt
+              }
+            }
+          }
+          `,
+        normalizer: ({ data }) =>
+          data.allMarkdownRemark.nodes.map((node) => ({
+            id: node.id,
+            title: node.frontmatter.title,
+            date: node.frontmatter.date,
+            description: node.excerpt,
+            author: node.frontmatter.author,
+            tags: node.frontmatter.tags,
+            authorimage: node.frontmatter.authorimage,
+            fields: {
+              slug: node.fields.slug,
+              sourceInstanceName: node.fields.sourceInstanceName,
+            },
+          })),
+      },
+    },
     {
       resolve: 'gatsby-plugin-lunr',
       options: {
@@ -360,9 +416,9 @@ module.exports = {
               node.fields.sourceInstanceName === 'homepanels'
                 ? '/'
                 : `${node.fields.sourceInstanceName}${node.fields.slug.replace(
-                  /\/aside[/]?$/,
-                  '/home',
-                )}`,
+                    /\/aside[/]?$/,
+                    '/home',
+                  )}`,
             sourceInstanceName: (node) => node.fields.sourceInstanceName,
           },
         },
@@ -370,7 +426,3 @@ module.exports = {
     },
   ],
 };
-
-
-
-
