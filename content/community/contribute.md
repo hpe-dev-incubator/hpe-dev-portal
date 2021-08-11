@@ -1,6 +1,6 @@
 ---
           title: "Be a Blogger"
-          link: https://github.com/hpe-dev-incubator/hpe-dev-portal/fork
+          link: /contribute
           linkname: Get Started
           description: Contribute to the HPE Developer blog.
           priority: 7
