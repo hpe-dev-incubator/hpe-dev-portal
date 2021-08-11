@@ -18,6 +18,54 @@ const stripMarkdown = (markdown) => {
   return text;
 };
 
+const paginatedCollection = (name, tag) => {
+  return {
+    resolve: 'gatsby-plugin-paginated-collection',
+    options: {
+      name,
+      pageSize: 12,
+      query: `
+      {
+        allMarkdownRemark(filter: {fields: {sourceInstanceName: {eq: "blog"}
+      }, frontmatter: {tags: {eq: "${tag}"}}},
+        sort: {fields: [frontmatter___date], order: DESC}) {
+          nodes {
+            id
+            fields {
+              slug
+              sourceInstanceName
+            }
+            frontmatter {
+              title
+              date
+              description
+              author
+              tags
+              authorimage
+            }
+            excerpt
+          }
+        }
+      }
+      `,
+      normalizer: ({ data }) =>
+        data.allMarkdownRemark.nodes.map((node) => ({
+          id: node.id,
+          title: node.frontmatter.title,
+          date: node.frontmatter.date,
+          description: node.excerpt,
+          author: node.frontmatter.author,
+          tags: node.frontmatter.tags,
+          authorimage: node.frontmatter.authorimage,
+          fields: {
+            slug: node.fields.slug,
+            sourceInstanceName: node.fields.sourceInstanceName,
+          },
+        })),
+    },
+  };
+};
+
 module.exports = {
   siteMetadata: {
     title: 'HPE Developer Portal',
@@ -193,7 +241,7 @@ module.exports = {
         {
           allMarkdownRemark(filter: {fields: {sourceInstanceName: {eq: "blog"}
         }, frontmatter: {featuredBlog: {ne: true}}},
-         sort: {fields: [frontmatter___date], order: DESC}) {
+          sort: {fields: [frontmatter___date], order: DESC}) {
             nodes {
               id
               fields {
@@ -213,6 +261,135 @@ module.exports = {
           }
         }
         `,
+        normalizer: ({ data }) =>
+          data.allMarkdownRemark.nodes.map((node) => ({
+            id: node.id,
+            title: node.frontmatter.title,
+            date: node.frontmatter.date,
+            description: node.excerpt,
+            author: node.frontmatter.author,
+            tags: node.frontmatter.tags,
+            authorimage: node.frontmatter.authorimage,
+            fields: {
+              slug: node.fields.slug,
+              sourceInstanceName: node.fields.sourceInstanceName,
+            },
+          })),
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-paginated-collection',
+      options: {
+        name: 'others-posts',
+        pageSize: 12,
+        query: `
+        {
+          allMarkdownRemark(filter: {fields: {sourceInstanceName: {eq: "blog"}
+          }, frontmatter: {tags: {nin: [
+          "opensource", 
+          "hpe-ezmeral-container-platform", 
+          "spiffe-and-spire-projects", 
+          "hpe-ezmeral-data-fabric", 
+          "hpe-greenlake", 
+          "chapel", 
+          "grommet", 
+          "hpe-alletra", 
+          "deep-learning-cookbook", 
+          "hpe-3par-and-primera", 
+          "hpe-nimble-storage", 
+          "hpe-oneview", 
+          "hpe-oneview-global-dashboard", 
+          "ilo", 
+          "ilorest",
+          "iLOrest",
+          "ilo-restful-api",
+          "Redfish",
+          ]}}}, sort: {fields: [frontmatter___date], order: DESC}) {
+            nodes {
+              id
+              fields {
+                slug
+                sourceInstanceName
+              }
+              frontmatter {
+                title
+                date
+                description
+                author
+                tags
+                authorimage
+              }
+              excerpt
+            }
+          }
+        }
+        `,
+        normalizer: ({ data }) =>
+          data.allMarkdownRemark.nodes.map((node) => ({
+            id: node.id,
+            title: node.frontmatter.title,
+            date: node.frontmatter.date,
+            description: node.excerpt,
+            author: node.frontmatter.author,
+            tags: node.frontmatter.tags,
+            authorimage: node.frontmatter.authorimage,
+            fields: {
+              slug: node.fields.slug,
+              sourceInstanceName: node.fields.sourceInstanceName,
+            },
+          })),
+      },
+    },
+    paginatedCollection('opensource-blog-posts', 'opensource'),
+    paginatedCollection('ezmeral-blog-posts', 'hpe-ezmeral-container-platform'),
+    paginatedCollection('spiffe-blog-posts', 'spiffe-and-spire-projects'),
+    paginatedCollection('data-fabric-posts', 'hpe-ezmeral-data-fabric'),
+    paginatedCollection('greenlake-posts', 'hpe-greenlake'),
+    paginatedCollection('chapel-posts', 'chapel'),
+    paginatedCollection('grommet-posts', 'grommet'),
+    paginatedCollection('alletra-posts', 'hpe-alletra'),
+    paginatedCollection('deep-learning-posts', 'deep-learning-cookbook'),
+    paginatedCollection('3par-posts', 'hpe-3par-and-primera'),
+    paginatedCollection('nimble-posts', 'hpe-nimble-storage'),
+    paginatedCollection('oneview-posts', 'hpe-oneview'),
+    paginatedCollection(
+      'oneview-dashboard-posts',
+      'hpe-oneview-global-dashboard',
+    ),
+    {
+      resolve: 'gatsby-plugin-paginated-collection',
+      options: {
+        name: 'ilo-posts',
+        pageSize: 12,
+        query: `
+          {
+            allMarkdownRemark(filter: {fields: {sourceInstanceName: {eq: "blog"}
+            }, frontmatter: {tags: {in: [
+              "ilo",
+              "Redfish",
+              "ilorest",
+              "iLOrest",
+              "ilo-restful-api" 
+              ]}}}, sort: {fields: [frontmatter___date], order: DESC}) {
+              nodes {
+                id
+                fields {
+                  slug
+                  sourceInstanceName
+                }
+                frontmatter {
+                  title
+                  date
+                  description
+                  author
+                  tags
+                  authorimage
+                }
+                excerpt
+              }
+            }
+          }
+          `,
         normalizer: ({ data }) =>
           data.allMarkdownRemark.nodes.map((node) => ({
             id: node.id,
