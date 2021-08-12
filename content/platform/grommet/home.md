@@ -38,11 +38,11 @@ HPE product designer at grommet.io, Chris Carlozzi, explains how Grommet is evol
 
 - - -
 
-## Introducing Design System
+## Introducing HPE Design System
 
 <iframe width="560" height="315" src="https://youtu.be/FiekQmPElsA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-* [Go to the Design System Homepage](https://design-system.hpe.design/)
+* [Go to the HPE Design System Homepage](https://design-system.hpe.design/)
 
 - - -
 
