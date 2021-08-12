@@ -26,14 +26,15 @@ const customTheme = deepMerge(hpe, {
 
 function BlogTabs({ data, columns }) {
   const [index, setIndex] = useState(0);
+  const [platform, setPlatform] = useState(false);
+  const [previousTab, setPreviousTab] = useState(0);
   const onActive = (nextIndex) => setIndex(nextIndex);
   const totalAllBlogsCount = data.allBlogsCount.totalCount;
   const totalOpenSourceBlogsCount = data.openSourceBlogsCount.totalCount;
   const totalOthersBlogsCount = data.othersBlogsCount.totalCount;
-  const [platformContent, setPlatformContent] = useState({
-    key: 0,
-    data: data.allBlogs,
-  });
+  const [platformContent, setPlatformContent] = useState(
+    { data: data.allBlogs },
+    );
   const [activeBlogTab, setActiveBlogTab] = useLocalStorage('activeBlogTab');
   const [dropDownData, setDropDownData] = useLocalStorage('dropDownData');
   const [activePlatform, setActivePlatform] = useLocalStorage('activePlatform');
@@ -46,6 +47,7 @@ function BlogTabs({ data, columns }) {
 
     if (activeBlogTab) {
       setIndex(activeBlogTab);
+      setPlatform(true);
     }
   }, [dropDownData, activeBlogTab]);
 
@@ -111,6 +113,7 @@ function BlogTabs({ data, columns }) {
         label: `${platforms[item[0]].label} (${platforms[item[0]].count})`,
         active: platforms[item[0]].label === activePlatform,
         onClick: () => {
+          setPlatform(true);
           setActiveBlogTab(index);
           setDropDownData(item[1]);
           setPlatformContent({ key: i, data: item[1] });
@@ -118,6 +121,20 @@ function BlogTabs({ data, columns }) {
         },
       };
     });
+
+  const previousContent = (previousIndex) => {
+    const { allBlogs, openSourceBlogs, othersBlogs } = data;
+    switch (previousIndex) {
+      case 0:
+        return allBlogs;
+      case 2:
+        return openSourceBlogs;
+      case 3:
+        return othersBlogs;
+      default:
+        return allBlogs;
+    }
+  };
 
   /* eslint-disable no-param-reassign */
   const totalAllPlatformsBlogsCount = Object.entries(platforms).reduce(
@@ -137,6 +154,8 @@ function BlogTabs({ data, columns }) {
           initialPage={data.allBlogs}
           columns={columns}
           activeTab={index}
+          setPlatform={setPlatform}
+          setPreviousTab={setPreviousTab}
         />
       </Tab>
       <Grommet theme={customTheme}>
@@ -168,10 +187,14 @@ function BlogTabs({ data, columns }) {
         >
           <BlogTabContent
             key={platformContent.key}
-            initialPage={platformContent.data}
+            initialPage={
+              platform ? platformContent.data : previousContent(previousTab)
+            }
             columns={columns}
             activeTab={index}
             platform="true"
+            setPlatform={setPlatform}
+            setPreviousTab={setPreviousTab}
           />
         </Tab>
       </Grommet>
@@ -181,6 +204,8 @@ function BlogTabs({ data, columns }) {
           initialPage={data.openSourceBlogs}
           columns={columns}
           activeTab={index}
+          setPlatform={setPlatform}
+          setPreviousTab={setPreviousTab}
         />
       </Tab>
       <Tab title={`Others (${totalOthersBlogsCount})`}>
@@ -189,6 +214,8 @@ function BlogTabs({ data, columns }) {
           initialPage={data.othersBlogs}
           columns={columns}
           activeTab={index}
+          setPlatform={setPlatform}
+          setPreviousTab={setPreviousTab}
         />
       </Tab>
     </Tabs>
