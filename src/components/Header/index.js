@@ -123,6 +123,43 @@ function Header() {
         </>
       }
     />,
+    <DropButton
+      label="Use Cases"
+      dropAlign={{ top: 'bottom', left: 'left' }}
+      dropContent={
+        <>
+          <ButtonLink key="li-0" label="Use Case #1" to="#" alignSelf="start" />
+          <ButtonLink key="li-1" label="Use Case #2" to="#" alignSelf="start" />
+          <ButtonLink key="li-2" label="Use Case #3" to="#" alignSelf="start" />
+        </>
+      }
+    />,
+    <DropButton
+      label="What's in it for me?"
+      dropAlign={{ top: 'bottom', left: 'left' }}
+      dropContent={
+        <>
+          <ButtonLink
+            key="it-ops"
+            label="I'm a ITOps"
+            to="/whatsinitforme/itops"
+            alignSelf="start"
+          />
+          <ButtonLink
+            key="dev"
+            label="I'm a Developer"
+            to="/whatsinitforme/developer"
+            alignSelf="start"
+          />
+          <ButtonLink
+            key="data-s"
+            label="I'm a Data Scientist"
+            to="/whatsinitforme/data-scientist"
+            alignSelf="start"
+          />
+        </>
+      }
+    />,
     <ButtonLink key="ev" label="Events" to="/events" />,
     <ButtonLink key="su" label="Skill Up" to="/skillup" />,
     <ButtonLink

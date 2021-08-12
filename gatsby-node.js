@@ -46,37 +46,39 @@ exports.createPages = async ({ graphql, actions }) => {
   const newsletter = path.resolve('./src/templates/newsletter.js');
   const tagTemplate = path.resolve('./src/templates/tags.js');
   const campaignTemplate = path.resolve('./src/templates/campaign.js');
+  const whatsInItForMeTemplate = 
+    path.resolve('./src/templates/whatsInItForMe.js');
 
   const allQueryResult = await graphql(paginatedCollectionQuery('blog-posts'));
-  const openSourceQueryResult = 
+  const openSourceQueryResult =
     await graphql(paginatedCollectionQuery('opensource-blog-posts'));
-  const ezmeralQueryResult = 
+  const ezmeralQueryResult =
     await graphql(paginatedCollectionQuery('ezmeral-blog-posts'));
-  const spiffeQueryResult = 
+  const spiffeQueryResult =
     await graphql(paginatedCollectionQuery('spiffe-blog-posts'));
-  const dataFabricQueryResult = 
+  const dataFabricQueryResult =
     await graphql(paginatedCollectionQuery('data-fabric-posts'));
-  const greenLakeQueryResult = 
+  const greenLakeQueryResult =
     await graphql(paginatedCollectionQuery('greenlake-posts'));
-  const chapelQueryResult = 
+  const chapelQueryResult =
     await graphql(paginatedCollectionQuery('chapel-posts'));
-  const grommetQueryResult = 
+  const grommetQueryResult =
     await graphql(paginatedCollectionQuery('grommet-posts'));
-  const alletraQueryResult = 
+  const alletraQueryResult =
     await graphql(paginatedCollectionQuery('alletra-posts'));
-  const deepLearningQueryResult = 
+  const deepLearningQueryResult =
     await graphql(paginatedCollectionQuery('deep-learning-posts'));
-  const threeParQueryResult = 
+  const threeParQueryResult =
     await graphql(paginatedCollectionQuery('3par-posts'));
-  const nimbleQueryResult = 
+  const nimbleQueryResult =
     await graphql(paginatedCollectionQuery('nimble-posts'));
-  const oneviewQueryResult = 
+  const oneviewQueryResult =
     await graphql(paginatedCollectionQuery('oneview-posts'));
-  const oneviewDashboardQueryResult = 
+  const oneviewDashboardQueryResult =
     await graphql(paginatedCollectionQuery('oneview-dashboard-posts'));
-  const iloQueryResult = 
+  const iloQueryResult =
     await graphql(paginatedCollectionQuery('ilo-posts'));
-  const othersQueryResult = 
+  const othersQueryResult =
     await graphql(paginatedCollectionQuery('ilo-posts'));
 
   setPagination(allQueryResult);
@@ -205,6 +207,20 @@ exports.createPages = async ({ graphql, actions }) => {
           createPage({
             path: `/${sourceInstanceName}${slug}`,
             component: campaignTemplate,
+            context: {
+              slug: post.node.fields.slug,
+              tags: post.node.frontmatter.tags || [],
+            },
+          });
+        } else if (post.node.fields.sourceInstanceName === 'whatsinitforme') {
+          const { sourceInstanceName, slug } = post.node.fields;
+          console.log(
+            `Create pages /${sourceInstanceName}${slug} from ${slug}`,
+          );
+          console.log('------------------------------');
+          createPage({
+            path: `/${sourceInstanceName}${slug}`,
+            component: whatsInItForMeTemplate,
             context: {
               slug: post.node.fields.slug,
               tags: post.node.frontmatter.tags || [],
