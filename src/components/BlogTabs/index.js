@@ -32,9 +32,9 @@ function BlogTabs({ data, columns }) {
   const totalAllBlogsCount = data.allBlogsCount.totalCount;
   const totalOpenSourceBlogsCount = data.openSourceBlogsCount.totalCount;
   const totalOthersBlogsCount = data.othersBlogsCount.totalCount;
-  const [platformContent, setPlatformContent] = useState(
-    { data: data.allBlogs },
-    );
+  const [platformContent, setPlatformContent] = useState({
+    data: data.allBlogs,
+  });
   const [activeBlogTab, setActiveBlogTab] = useLocalStorage('activeBlogTab');
   const [dropDownData, setDropDownData] = useLocalStorage('dropDownData');
   const [activePlatform, setActivePlatform] = useLocalStorage('activePlatform');

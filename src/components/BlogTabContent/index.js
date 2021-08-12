@@ -7,13 +7,14 @@ import { BlogCard } from '../BlogCard';
 import ResponsiveGrid from '../ResponsiveGrid';
 import { useLocalStorage } from '../../hooks/use-local-storage';
 
-const BlogTabContent = ({ 
-  initialPage, 
-  columns, 
-  activeTab, 
-  platform, 
-  setPlatform, 
-  setPreviousTab }) => {
+const BlogTabContent = ({
+  initialPage,
+  columns,
+  activeTab,
+  platform,
+  setPlatform,
+  setPreviousTab,
+}) => {
   const [latestPage, setLatestPage] = useState(initialPage);
   const [blogPosts, setBlogPosts] = useState(initialPage.nodes);
   const [collectionId, setCollectionId] = useState(initialPage.collection.id);
