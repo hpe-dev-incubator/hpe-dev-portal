@@ -443,6 +443,15 @@ To do so, proceed as follows:
 
     -   **Method 2:** Using your PC/Laptop, change image size using you preferred image editor (i.e.: Paint). Toggle to **Rich Text** mode and upload/select the resized image.
  
+- **Embed a YouTube video (HPE Appoved video) in a blog or in Platform page:**
+
+    To insert a YouTube video — that has gone through the legal Marketing Asset Publishing (MAP) process — in a blog post or a "platform" page proceed as follows:
+    * Go to your YoutTube video URL
+    * Select ***"Share"*** option just underneath the video frame
+    * Select ***"Embed"*** option
+    * Copy the HTML code that is displayed, starting with <iframe width...> and ending with </iframe>
+    * in the CMS editor, toggle to **Markdown** mode, and paste (CTRL+SHIFT+V) the embedded HTML code. 
+
 -   **Inserting Horizontal separator:**
 
     Toggle to **Markdown** mode and use the "- - -" (without the quotation mark).
@@ -459,7 +468,7 @@ To do so, proceed as follows:
 
 -   **Inserting "em-dash" character:**
 
-    The CMS editor does not correctly interpret the em-dash (\&mdash;\) markdown syntax. Using the Rich text or Markdown mode of the CMS editor, shoudl you need to use an em-dash character, you can do a copy/paste of the em-dash character here: — 
+    The CMS editor does not correctly interpret the em-dash (\&mdash;\) markdown syntax. Using the Rich text or Markdown mode of the CMS editor, should you need to use an em-dash character, you can do a copy/paste of the em-dash character here: — 
     
 - **Inserting Special characters:**
 
