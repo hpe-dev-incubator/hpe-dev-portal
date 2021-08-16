@@ -38,10 +38,8 @@ We were really excited to have Owen Garrett of Deepfence.io join us on June 30th
 
 For the July 28th Munch & Learn session, Ellen Friedman and Ted Dunning once again joined us to explore more about how to make data consumable for real world data science. With as much data being gathered today, businesses are eager to make the most of it, but it can be challenging when you work with diverse and mismatched data sets and teams. Ted shared some interesting issues he's come across as well as how those situations were handled. They pointed out how data might often be initially collected for one purpose but hoped to be applied by a different team and how a little advance planning can make this possible. If you missed the talk, you can still take advantage of the replay [here.](https://youtu.be/4WKjRqflF7M)
 
-
-
 ## Coming Up Next
 
-For the August 25th HPE DEV Munch & Learn, Nigel Poulton will be reprising the talk he gave at the HPE Discover 2021 Edge-to-Cloud Conference on Kubernetes 101. Join us as he walks us through the basics of Kubernetes.  Reserve your seat today!
+For the August 25th HPE DEV Munch & Learn, Nigel Poulton will be reprising the talk he gave at the HPE Discover 2021 Edge-to-Cloud Conference on Kubernetes 101. Join us as he walks us through the basics of Kubernetes.  [Reserve your seat today](https://hpe.zoom.us/meeting/register/tJcrduuuqzgsHNEC-u8l_Y86YeZLMxEDF5fP)!
 
 Keep checking back to see what’s new on [our schedule](https://developer.hpe.com/campaign/munch-and-learn) so you don’t miss any of these fun and engaging discussions. Better yet, subscribe to our [HPE DEV Newsletter](https://developer.hpe.com/newsletter-signup). In it, you’ll find information on our upcoming Munch & Learn sessions as well as learn about everything else that’s new.
