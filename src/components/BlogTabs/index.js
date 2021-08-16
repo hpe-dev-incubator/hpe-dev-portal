@@ -188,7 +188,8 @@ function BlogTabs({ data, columns }) {
           <BlogTabContent
             key={platformContent.key}
             initialPage={
-              platform ? platformContent.data : previousContent(previousTab)
+              platform || (previousTab === 0 && activePlatform == null) ? 
+                platformContent.data : previousContent(previousTab)
             }
             columns={columns}
             activeTab={index}
