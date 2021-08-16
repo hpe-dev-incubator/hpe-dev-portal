@@ -1,6 +1,6 @@
 ---
 title: HPE DEV launches its Munch & Learn technical talks
-date: 2021-07-02T14:56:57.924Z
+date: 2021-08-16T15:44:13.655Z
 featuredBlog: true
 priority: 3
 author: Dale Rensing
@@ -36,8 +36,12 @@ On May 19th, Doug Cackett, HPE EMEA Field CTO, an expert on the HPE Ezmeral Cont
 
 We were really excited to have Owen Garrett of Deepfence.io join us on June 30th to discuss the fundamentals of production microservices. This session was one of our most highly attended sessions so far, and understandably so. Owen ran us through a very interesting presentation on why microservices are important for architecting and deploying modern applications; pointing out their unique characteristics, what opportunities they offer, and the challenges they introduce. He provided a high-level introduction to some of the technologies encountered when deploying a microservices application (i.e. Containers, Kuberetes, CI/CD), and then proceeded to get into a bit more detail on Ingress Controllers and Service Meshes as they pertain to microservices apps. He finished off by discussing some of the technologies you might want to keep in mind to secure your microservices application. Listen to the replay of this fascinating session [here](https://vimeo.com/569884713).
 
+For the July 28th Munch & Learn session, Ellen Friedman and Ted Dunning once again joined us to explore more about how to make data consumable for real world data science. With as much data being gathered today, businesses are eager to make the most of it, but it can be challenging when you work with diverse and mismatched data sets and teams. Ted shared some interesting issues he's come across as well as how those situations were handled. They pointed out how data might often be initially collected for one purpose but hoped to be applied by a different team and how a little advance planning can make this possible. If you missed the talk, you can still take advantage of the replay [here.](https://youtu.be/4WKjRqflF7M)
+
+
+
 ## Coming Up Next
 
-We’ve invited two of HPE’s data science experts, Iveta Lohovska and Ellen Friedman, to [join us on July 28th](https://hpe.zoom.us/meeting/register/tJwudeuorzosG9ctDE4IcuBhiNRk3L-z_Z1B) to discuss how to make data consumable for real world data science. They’ll explore the challenges of data gathering, especially when it comes to mismatched data sets and teams, and discuss ways to put the data being gathered to practical use. Listen in to get their insights and hints on how to avoid potential pitfalls. 
+For the August 25th HPE DEV Munch & Learn, Nigel Poulton will be reprising the talk he gave at the HPE Discover 2021 Edge-to-Cloud Conference on Kubernetes 101. Join us as he walks us through the basics of Kubernetes.  Reserve your seat today!
 
-Keep checking back to see what’s new on [our schedule](https://developer.hpe.com/campaign/munch-and-learn) so you don’t miss any of these fun and engaging discussions. Better yet, subscribe to our [HPE DEV Newsletter](https://developer.hpe.com/newsletter-signup). In it, you’ll find information on our upcoming Munch & Learn sessions as well as everything else that’s new.
+Keep checking back to see what’s new on [our schedule](https://developer.hpe.com/campaign/munch-and-learn) so you don’t miss any of these fun and engaging discussions. Better yet, subscribe to our [HPE DEV Newsletter](https://developer.hpe.com/newsletter-signup). In it, you’ll find information on our upcoming Munch & Learn sessions as well as learn about everything else that’s new.
