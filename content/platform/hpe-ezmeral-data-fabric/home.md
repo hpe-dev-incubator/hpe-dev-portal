@@ -18,7 +18,7 @@ You can store, manage and access your data from edge to core to cloud at any sca
 
 - - -
 
-##### [Tutorials](#tutorials)           [Data Fabric Blogs](#blogs)           [Free Training](#training)
+#### [Tutorials](#tutorials)           [Data Fabric Blogs](#blogs)           [Free Training](#training)
 
 - - -
 
@@ -42,7 +42,7 @@ You can store, manage and access your data from edge to core to cloud at any sca
 
 - - -
 
-### [Tutorials](#tutorials)           [Data Fabric Blogs](#blogs)           [Free Training](#training)
+#### [Tutorials](#tutorials)           [Data Fabric Blogs](#blogs)           [Free Training](#training)
 
 - - -
 
@@ -127,7 +127,7 @@ The source code of the Application for Processing Stock Market Trade Data applic
 
 - - -
 
-### [Tutorials](#tutorials)           [Data Fabric Blogs](#blogs)           [Free Training](#training)
+#### [Tutorials](#tutorials)           [Data Fabric Blogs](#blogs)           [Free Training](#training)
 
 - - -
 
@@ -163,7 +163,7 @@ Not a Slack user? You can also ask your questions in our [Ezmeral Forum](https:
 
 - - -
 
-### [Tutorials](#tutorials)           [Data Fabric Blogs](#blogs)           [Free Training](#training)
+#### [Tutorials](#tutorials)           [Data Fabric Blogs](#blogs)           [Free Training](#training)
 
 - - -
 
