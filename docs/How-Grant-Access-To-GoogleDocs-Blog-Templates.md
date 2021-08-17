@@ -13,3 +13,5 @@ This guide describes how to grant access to blog post templates that are availab
 4- From the request access email, click "Open" button, enter a short message and click Send button to notify the requestor that access to the requested file has been granted.
 
 5- The requestor will then receive an email in his/her mailbox. Clicking on Open button will allow the contributor to access to the requested blog post template in his/her Google docs account, where he/she can go to "File" and "Pull Down" to make a copy of the template.
+
+>Note: Once contributor's post is published on the hpedev.io blog, it will be okay to delete draft copies from Google Docs. Google doc is used as an intermediary, submission and review step.
