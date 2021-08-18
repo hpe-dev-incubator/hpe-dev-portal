@@ -3,6 +3,8 @@ title: Meet Linux Distinguished Technologist and Open Source evangelist, Bruno C
 date: 2021-08-18T16:39:18.068Z
 author: Dale Rensing
 authorimage: /img/blog-author-rensing-96.jpg
+tags:
+  - EVANGELIST
 ---
 As a leading global, edge-to-cloud platform-as-a-service company, Hewlett Packard Enterprise (HPE) prides itself in employing team members who share one common purpose: to advance the way people live and work. In this blog series, you’ll get to meet a number of them as I interview some of the open source experts working with the HPE DEV team.
 
