@@ -27,18 +27,17 @@ const BlogTabContent = ({
   );
 
   useEffect(() => {
-    setCollectionId(initialPage.collection.id);
     if (!platform) {
+      setCollectionId(initialPage.collection.id);
       setPlatform(false);
       setPreviousTab(activeTab);
       setActivePlatform('');
     }
-    // persist active tab for when user goes back to blog page
-    // localStorage.setItem('blogTab', JSON.stringify(activeTab));
+
     setActiveBlogTab(activeTab);
 
-    // loads blogs from user clicks 'Load More'
-    // for when user goes back to blog page
+    // loads persisted data if the load more btn was
+    // clicked when the user goes back to blog page
     if (
       loadMoreBlogData &&
       loadMoreBlogData.latestPage &&
@@ -49,15 +48,15 @@ const BlogTabContent = ({
       setBlogPosts(loadMoreBlogData.latestBlogPosts);
     }
   }, [
-    initialPage,
-    setActiveBlogTab,
-    activeTab,
-    collectionId,
-    loadMoreBlogData,
     platform,
+    initialPage,
     setPlatform,
     setPreviousTab,
     setActivePlatform,
+    setActiveBlogTab,
+    activeTab,
+    loadMoreBlogData,
+    collectionId,
   ]);
 
   const loadNextPage = useCallback(async () => {

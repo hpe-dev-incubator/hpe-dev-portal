@@ -28,28 +28,33 @@ function BlogTabs({ data, columns }) {
   const [index, setIndex] = useState(0);
   const [platform, setPlatform] = useState(false);
   const [previousTab, setPreviousTab] = useState(0);
-  const onActive = (nextIndex) => setIndex(nextIndex);
-  const totalAllBlogsCount = data.allBlogsCount.totalCount;
-  const totalOpenSourceBlogsCount = data.openSourceBlogsCount.totalCount;
-  const totalOthersBlogsCount = data.othersBlogsCount.totalCount;
   const [platformContent, setPlatformContent] = useState({
     data: data.allBlogs,
   });
-  const [activeBlogTab, setActiveBlogTab] = useLocalStorage('activeBlogTab');
-  const [dropDownData, setDropDownData] = useLocalStorage('dropDownData');
-  const [activePlatform, setActivePlatform] = useLocalStorage('activePlatform');
+
+  const onActive = (nextIndex) => setIndex(nextIndex);
   const size = useContext(ResponsiveContext);
 
+  const [activeBlogTab, setActiveBlogTab] = useLocalStorage('activeBlogTab');
+  const [platformData, setPlatformData] = useLocalStorage('platformData');
+  const [activePlatform, setActivePlatform] = useLocalStorage('activePlatform');
+
+  const totalAllBlogsCount = data.allBlogsCount.totalCount;
+  const totalOpenSourceBlogsCount = data.openSourceBlogsCount.totalCount;
+  const totalOthersBlogsCount = data.othersBlogsCount.totalCount;
+
   useEffect(() => {
-    if (dropDownData && dropDownData.nodes) {
-      setPlatformContent({ data: dropDownData });
+    // loads persisted platform data when the user goes back to the blog page
+    if (platformData && platformData.nodes) {
+      setPlatformContent({ data: platformData });
     }
 
+    // loads persisted blog tab index # when user goes back to the blog page
     if (activeBlogTab) {
       setIndex(activeBlogTab);
       setPlatform(true);
     }
-  }, [dropDownData, activeBlogTab]);
+  }, [platformData, activeBlogTab]);
 
   const platforms = {
     ezmeralBlogs: {
@@ -106,25 +111,24 @@ function BlogTabs({ data, columns }) {
     },
   };
 
-  const platformsData = Object.entries(data)
+  const platformsMenuItems = Object.entries(data)
     .filter((item) => Object.prototype.hasOwnProperty.call(platforms, item[0]))
     .map((item, i) => {
       return {
         label: `${platforms[item[0]].label} (${platforms[item[0]].count})`,
         active: platforms[item[0]].label === activePlatform,
         onClick: () => {
-          setPlatform(true);
           setActiveBlogTab(index);
-          setDropDownData(item[1]);
+          setPlatformData(item[1]);
           setPlatformContent({ key: i, data: item[1] });
           setActivePlatform(platforms[item[0]].label);
         },
       };
     });
 
-  const previousContent = (previousIndex) => {
+  const previousTabContent = (previousTabIndex) => {
     const { allBlogs, openSourceBlogs, othersBlogs } = data;
-    switch (previousIndex) {
+    switch (previousTabIndex) {
       case 0:
         return allBlogs;
       case 2:
@@ -168,7 +172,7 @@ function BlogTabs({ data, columns }) {
               dropProps={{
                 align: { top: 'bottom', left: 'left' },
               }}
-              items={platformsData}
+              items={platformsMenuItems}
             >
               <Box
                 width="160px"
@@ -188,12 +192,11 @@ function BlogTabs({ data, columns }) {
           <BlogTabContent
             key={platformContent.key}
             initialPage={
-              platform || (previousTab === 0 && activePlatform == null) ? 
-                platformContent.data : previousContent(previousTab)
+              platform ? platformContent.data : previousTabContent(previousTab)
             }
             columns={columns}
             activeTab={index}
-            platform="true"
+            platform
             setPlatform={setPlatform}
             setPreviousTab={setPreviousTab}
           />
