@@ -5,6 +5,7 @@ author: Dale Rensing
 authorimage: /img/blog-author-rensing-96.jpg
 tags:
   - EVANGELIST
+  - opensource
 ---
 As a leading global, edge-to-cloud platform-as-a-service company, Hewlett Packard Enterprise (HPE) prides itself in employing team members who share one common purpose: to advance the way people live and work. In this blog series, you’ll get to meet a number of them as I interview some of the open source experts working with the HPE DEV team.
 
