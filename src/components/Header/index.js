@@ -25,6 +25,12 @@ function Header() {
             alignSelf="start"
           />
           <ButtonLink
+            key="pl-hgl"
+            label="HPE GreenLake"
+            to="/platform/hpe-greenlake/home/"
+            alignSelf="start"
+          />
+          <ButtonLink
             key="pl-hecp"
             label="HPE Ezmeral Container Platform"
             to="/platform/hpe-ezmeral-container-platform/home/"
@@ -34,12 +40,6 @@ function Header() {
             key="pl-hedf"
             label="HPE Ezmeral Data Fabric"
             to="/platform/hpe-ezmeral-data-fabric/home/"
-            alignSelf="start"
-          />
-          <ButtonLink
-            key="pl-hgl"
-            label="HPE GreenLake"
-            to="/platform/hpe-greenlake/home/"
             alignSelf="start"
           />
           <ButtonLink
@@ -67,21 +67,9 @@ function Header() {
             alignSelf="start"
           />
           <ButtonLink
-            key="pl-hdlc"
-            label="HPE Deep Learning Cookbook"
-            to="/platform/hpe-deep-learning-cookbook/home/"
-            alignSelf="start"
-          />
-          <ButtonLink
             key="pl-ss"
             label="SmartSim"
             to="/platform/smartsim/home/"
-            alignSelf="start"
-          />
-          <ButtonLink
-            key="pl-adh"
-            label="Aruba Developer Hub"
-            to="/platform/aruba/home/"
             alignSelf="start"
           />
           <ButtonLink
@@ -100,12 +88,6 @@ function Header() {
             key="pl-hov"
             label="HPE OneView"
             to="/platform/hpe-oneview/home/"
-            alignSelf="start"
-          />
-          <ButtonLink
-            key="pl-hogd"
-            label="HPE OneView Global Dashboard"
-            to="/platform/hpe-oneview-global-dashboard/home/"
             alignSelf="start"
           />
           <ButtonLink
