@@ -81,16 +81,12 @@ function Contribute({ data }) {
                   direction="row"
                   align="center"
                   elevation="medium"
-                  onClick={() =>
-                    navigate(
-                      `${card.link}`,
-                    )
-                  }
+                  onClick={() => navigate(`${card.link}`)}
                 >
                   <Box height="75px" width="75px">
                     <Image src="/img/community/microsoft-word-icon.svg" />
                   </Box>
-                  <Box pad={{ left: 'medium' }}>
+                  <Box pad={{ left: 'medium' }} width="medium">
                     <Text size="large" weight="bold">
                       {card.templateType}
                     </Text>
@@ -106,9 +102,13 @@ function Contribute({ data }) {
         <Heading level="3">Questions?</Heading>
         <Text size="27px" margin={{ bottom: 'medium' }}>
           Feel free to reach out to us via{' '}
-          <Anchor href="mailto:hpedev@hpe.com" target="_blank" >email</Anchor>
-          {' '}or through our{' '}
-          <Anchor href="https://slack.hpedev.io/" target="_blank" >HPE DEV Slack channel</Anchor>
+          <Anchor href="mailto:hpedev@hpe.com" target="_blank">
+            email
+          </Anchor>{' '}
+          or through our{' '}
+          <Anchor href="https://slack.hpedev.io/" target="_blank">
+            HPE DEV Slack channel
+          </Anchor>
           .
         </Text>
       </PageDescription>
