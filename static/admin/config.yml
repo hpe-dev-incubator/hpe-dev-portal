@@ -211,3 +211,10 @@ collections:
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Body', name: 'body', widget: 'markdown'}
+      - label: "Template Card"
+        name: "templateCards"
+        widget: "list"
+        fields:
+          - {label: Template Type, name: templateType, widget: string }
+          - {label: Template Name, name: templateName, widget: string }
+          - {label: Template Link, name: link, widget: string }

@@ -43,7 +43,7 @@ function Contribute({ data }) {
   const siteMetadata = useSiteMetadata();
   const siteTitle = siteMetadata.title;
   const { rawMarkdownBody } = post;
-  const { title } = post.frontmatter;
+  const { title, templateCards } = post.frontmatter;
 
   return (
     <Layout title={siteTitle}>
@@ -74,107 +74,41 @@ function Contribute({ data }) {
           </Heading>
           <Box width="850px">
             <ResponsiveGrid rows={rows} columns={columns} margin="0">
-              <Card
-                pad="medium"
-                direction="row"
-                align="center"
-                elevation="medium"
-                onClick={() =>
-                  navigate(
-                    'https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2021/8/HPE-DEV-TECHNICAL-TUTORIAL-TEMPLATE-FINAL.docx',
-                  )
-                }
-              >
-                <Box height="75px" width="75px">
-                  <Image src="/img/community/microsoft-word-icon.svg" />
-                </Box>
-                <Box pad={{ left: 'medium' }}>
-                  <Text size="large" weight="bold">
-                    Microsoft Word
-                  </Text>
-                  <Text size="large" weight="bold">
-                    Technical tutorial template
-                  </Text>
-                </Box>
-              </Card>
-              <Card
-                pad="medium"
-                direction="row"
-                align="center"
-                elevation="medium"
-                onClick={() =>
-                  navigate(
-                    'https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2021/8/HPE-DEV-BASIC-BLOG-TEMPLATE-FINAL.docx',
-                  )
-                }
-              >
-                <Box height="75px" width="75px">
-                  <Image src="/img/community/microsoft-word-icon.svg" />
-                </Box>
-                <Box pad={{ left: 'medium' }}>
-                  <Text size="large" weight="bold">
-                    Microsoft Word
-                  </Text>
-                  <Text size="large" weight="bold">
-                    Basic Blog Template
-                  </Text>
-                </Box>
-              </Card>
-              <Card
-                pad="medium"
-                direction="row"
-                align="center"
-                elevation="medium"
-                onClick={() =>
-                  navigate(
-                    'https://docs.google.com/document/d/1bY0QL0TYgQtzjCF4JpsLbDMvPUMarIwQoVZFjQYej1Y/edit',
-                  )
-                }
-              >
-                <Box height="75px" width="75px">
-                  <Image src="/img/community/google-docs-icon.svg" />
-                </Box>
-                <Box pad={{ left: 'medium' }}>
-                  <Text size="large" weight="bold">
-                    Google Docs
-                  </Text>
-                  <Text size="large" weight="bold">
-                    Technical tutorial template
-                  </Text>
-                </Box>
-              </Card>
-              <Card
-                pad="medium"
-                direction="row"
-                align="center"
-                elevation="medium"
-                onClick={() =>
-                  navigate(
-                    'https://docs.google.com/document/d/1uAHcsJxavfmC0oRoccjBFI_WmuALDWhOINATiCEoDIw/edit',
-                  )
-                }
-              >
-                <Box height="75px" width="75px">
-                  <Image src="/img/community/google-docs-icon.svg" />
-                </Box>
-                <Box pad={{ left: 'medium' }}>
-                  <Text size="large" weight="bold">
-                    Google Docs
-                  </Text>
-                  <Text size="large" weight="bold">
-                    Basic Blog Template
-                  </Text>
-                </Box>
-              </Card>
+              {templateCards.map((card, i) => (
+                <Card
+                  key={i}
+                  pad="medium"
+                  direction="row"
+                  align="center"
+                  elevation="medium"
+                  onClick={() =>
+                    navigate(
+                      `${card.link}`,
+                    )
+                  }
+                >
+                  <Box height="75px" width="75px">
+                    <Image src="/img/community/microsoft-word-icon.svg" />
+                  </Box>
+                  <Box pad={{ left: 'medium' }}>
+                    <Text size="large" weight="bold">
+                      {card.templateType}
+                    </Text>
+                    <Text size="large" weight="bold">
+                      {card.templateName}
+                    </Text>
+                  </Box>
+                </Card>
+              ))}
             </ResponsiveGrid>
           </Box>
         </Box>
         <Heading level="3">Questions?</Heading>
         <Text size="27px" margin={{ bottom: 'medium' }}>
           Feel free to reach out to us via{' '}
-          <Anchor href="mailto:hpedev@hpe.com">email</Anchor>
-          or through our{' '}
-          <Anchor href="https://slack.hpedev.io/">HPE DEV Slack channel</Anchor>
+          <Anchor href="mailto:hpedev@hpe.com" target="_blank" >email</Anchor>
+          {' '}or through our{' '}
+          <Anchor href="https://slack.hpedev.io/" target="_blank" >HPE DEV Slack channel</Anchor>
           .
         </Text>
       </PageDescription>
@@ -200,6 +134,13 @@ Contribute.propTypes = {
       rawMarkdownBody: PropTypes.string.isRequired,
       frontmatter: PropTypes.shape({
         title: PropTypes.string,
+        templateCards: PropTypes.arrayOf(
+          PropTypes.shape({
+            templateType: PropTypes.string,
+            templateName: PropTypes.string,
+            link: PropTypes.string,
+          }),
+        ),
       }).isRequired,
     }).isRequired,
   }).isRequired,
@@ -218,6 +159,11 @@ export const pageQuery = graphql`
       id
       frontmatter {
         title
+        templateCards {
+          link
+          templateName
+          templateType
+        }
       }
       rawMarkdownBody
     }
