@@ -72,14 +72,14 @@ const components = {
   h1: {
     component: Heading,
     props: {
-      margin: { vertical: 'medium' },
+      margin: { vertical: 'large' },
       level: 1,
     },
   },
   h2: {
     component: Heading,
     props: {
-      margin: { vertical: 'medium' },
+      margin: { vertical: 'large' },
       level: 2,
     },
   },
@@ -104,7 +104,7 @@ const components = {
         side: 'top',
         color: 'border',
       },
-      margin: { vertical: 'medium' },
+      margin: { vertical: 'large' },
     },
   },
   img: {
