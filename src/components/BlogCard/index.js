@@ -7,6 +7,7 @@ import {
   Box,
   Heading,
   Text,
+  Avatar,
   Image,
   Card as GrommetCard,
   CardHeader,
@@ -54,9 +55,8 @@ export const BlogCard = ({ node, ...rest }) => {
       <Box gap="small">
         <Box align="start">
           {(node.authorimage || node.frontmatter.authorimage) && (
-            <Image
-              width="96px"
-              height="96px"
+            <Avatar
+              size="96px"
               src={node.authorimage || node.frontmatter.authorimage}
               alt="author logo"
             />
@@ -130,9 +130,8 @@ export const FeaturedBlogCard = ({ node, ...rest }) => (
         gap="medium"
       >
         <Box align="start" direction="row" gap="small">
-          <Image
-            width="96px"
-            height="96px"
+          <Avatar
+            size="96px"
             src={node.frontmatter.authorimage}
             alt="author logo"
           />

@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import {
+  Avatar,
   Box,
   Card as GrommetCard,
   CardBody,
@@ -126,7 +127,9 @@ export const Card = ({
             {...(gridProps[size === 'small' ? size : width] ||
               gridProps.medium)}
           >
-            {image && (
+            {image && category === 'Featured Blog' ? (
+              <Avatar size="96px" src={image} alt="author logo" />
+            ) : (
               <Image
                 gridArea="image"
                 src={image}

@@ -1,8 +1,8 @@
 ---
-          title: "I Want to Contribute"
-          link: https://github.com/hpe-dev-incubator/hpe-dev-portal/fork
+          title: "Be a Blogger"
+          link: /contribute
           linkname: Get Started
-          description: Contribute to HPE Developer blogs. 
+          description: Contribute to the HPE Developer blog.
           priority: 7
-          image: '/img/blogs/blogs.svg'
+          image: '/img/community/contribute.svg'
 ---
