@@ -167,15 +167,8 @@ FeaturedBlogCard.propTypes = BlogCard.propTypes;
 export const SectionHeader = ({ color, title, children }) => {
   return (
     <Box flex={false} margin={{ vertical: 'medium' }}>
-      {title && (
-        <Heading level="2">
-          {title}
-        </Heading>
-      )}
-      <Box
-        border={{ side: 'top', color }}
-        pad={{ top: 'small' }}
-      >
+      {title && <Heading level="2">{title}</Heading>}
+      <Box border={{ side: 'top', color }} pad={{ top: 'small' }}>
         {children}
       </Box>
     </Box>
