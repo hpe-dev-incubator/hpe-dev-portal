@@ -77,7 +77,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const iloQueryResult = 
     await graphql(paginatedCollectionQuery('ilo-posts'));
   const othersQueryResult = 
-    await graphql(paginatedCollectionQuery('ilo-posts'));
+    await graphql(paginatedCollectionQuery('others-posts'));
 
   setPagination(allQueryResult);
   setPagination(openSourceQueryResult);

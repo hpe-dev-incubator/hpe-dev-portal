@@ -451,7 +451,11 @@ export const pageQuery = graphql`
     iloBlogsCount: allMarkdownRemark(
       filter: {
         fields: { sourceInstanceName: { eq: "blog" } }
-        frontmatter: { tags: { eq: "ilo" } }
+        frontmatter: {
+          tags: {
+            in: ["ilo", "Redfish", "ilorest", "iLOrest", "ilo-restful-api"]
+          }
+        }
       }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {

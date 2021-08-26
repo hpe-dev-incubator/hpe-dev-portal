@@ -16,6 +16,8 @@ _Have another more specific idea? You may want to check out our vibrant collecti
     ```sh
     cd hpe-dev-portal/
     yarn install
+    git submodule init
+    git submodule update
     yarn start 
     ```
 
