@@ -7,7 +7,7 @@ import {
   ResponsiveContext,
 } from 'grommet';
 import styled from 'styled-components';
-import { Menu, Search } from 'grommet-icons';
+import { Menu, Search, FormDown } from 'grommet-icons';
 import { ButtonLink } from '..';
 
 const ScrollabeBox = styled(Box)`
@@ -22,6 +22,8 @@ function Header() {
     <DropButton
       label="Our Platforms"
       dropAlign={{ top: 'bottom', left: 'left' }}
+      icon={ <FormDown />}
+      reverse="true"
       dropContent={
         <>
           <ScrollabeBox>
