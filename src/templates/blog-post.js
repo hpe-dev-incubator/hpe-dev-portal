@@ -3,7 +3,7 @@ import { Location } from '@reach/router';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
-import { Box, Heading, Text, Image } from 'grommet';
+import { Box, Heading, Text, Avatar } from 'grommet';
 import { FormPreviousLink } from 'grommet-icons';
 
 import {
@@ -103,12 +103,9 @@ function BlogPostTemplate({ data }) {
       <Box flex overflow="auto" gap="medium" pad="small">
         <Box direction="row-responsive">
           <Box pad={{ vertical: 'large', horizontal: 'medium' }} align="center">
-            <Image
-              width="192px"
-              height="192px"
-              src={authorimage}
-              alt="author logo"
-            />
+            <Box height="192px" width="192px">
+              <Avatar size="120px" src={authorimage} alt="author logo" />
+            </Box>
           </Box>
           <Content gap="large" margin={{ vertical: 'large', right: '74px' }}>
             <Box gap="small">

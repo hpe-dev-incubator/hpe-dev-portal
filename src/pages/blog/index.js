@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { graphql, navigate } from 'gatsby';
-import { Paragraph } from 'grommet';
+import { Paragraph, Box } from 'grommet';
 import {
   BlogCard,
   Layout,
@@ -10,6 +10,7 @@ import {
   FeaturedBlogCard,
   SectionHeader,
   ResponsiveGrid,
+  ButtonLink,
   BlogTabs,
 } from '../../components';
 import { useSiteMetadata } from '../../hooks/use-site-metadata';
@@ -68,6 +69,9 @@ function Blog({ data, location }) {
           through our library of tutorials and articles to learn new ways to do
           things. Or write your own!
         </Paragraph>
+        <Box wrap align="start">
+          <ButtonLink primary label="Get Started" to="/contribute" />
+        </Box>
       </PageDescription>
       {featuredposts && featuredposts.length > 0 && (
         <SectionHeader title="Featured Blogs">

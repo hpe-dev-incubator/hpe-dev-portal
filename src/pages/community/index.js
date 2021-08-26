@@ -20,8 +20,8 @@ Heading.propTypes = {
 const columns = {
   small: ['auto'],
   medium: ['auto', 'auto'],
-  large: ['auto', 'auto', 'auto', 'auto'],
-  xlarge: ['auto', 'auto', 'auto', 'auto'],
+  large: ['auto', 'auto', 'auto'],
+  xlarge: ['auto', 'auto', 'auto'],
 };
 
 const rows = {
