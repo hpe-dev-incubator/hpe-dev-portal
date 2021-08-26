@@ -22,7 +22,7 @@ function Header() {
     <DropButton
       label="Our Platforms"
       dropAlign={{ top: 'bottom', left: 'left' }}
-      icon={ <FormDown />}
+      icon={<FormDown />}
       reverse="true"
       dropContent={
         <>
