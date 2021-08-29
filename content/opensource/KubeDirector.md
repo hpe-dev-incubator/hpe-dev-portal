@@ -1,8 +1,8 @@
 ---
           title: "KubeDirector"
-          category: CLOUDNATIVE
-          link: https://github.com/bluek8s/kubedirector
-          description: Kubernetes Director (aka KubeDirector) helps deploying and managing stateful applications on Kubernetes.
+          category: Cloud Native
+          link: /platform/hpe-ezmeral-container-platform/home/
+          description: Helps deploy and manage stateful applications on Kubernetes.
           priority: 16
           image: '/img/opensource/Kubedirector.svg'
           Featured: true
