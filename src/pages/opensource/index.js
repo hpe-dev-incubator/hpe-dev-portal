@@ -66,31 +66,31 @@ function Opensource({ data }) {
   // }, []);
   return (
     <Layout title={siteTitle}>
-      <SEO title="Open SOurce" />
-      <Box flex overflow="auto" gap="large" pad="xlarge" wrap>
-        <PageDescription
-          image="/img/opensource/opensource.svg"
-          title="Open Source"
-          alignSelf="start"
-          alt="opensource logo"
-        >
-          <Box gap="small">
-            <Paragraph>
-              Dedicated to innovation through collaboration, HPE is proud to
-              lead and contribute to many open source projects. Learn more about
-              these projects here.
-            </Paragraph>
-            <Button
-              primary
-              href="https://www.hpe.com/us/en/software/spiffe-spire-open-source.html"
-              target="_blank"
-              rel="noreferrer noopener"
-              alignSelf="start"
-              label="Visit HPE Open Source"
-            />
-          </Box>
-        </PageDescription>
-        {/* <Box gap="medium" pad="medium">
+      <SEO title="Open Source" />
+      {/* <Box flex overflow="auto" gap="large" pad="xlarge" wrap> */}
+      <PageDescription
+        image="/img/opensource/opensource.svg"
+        title="Open Source"
+        alignSelf="start"
+        alt="opensource logo"
+      >
+        <Box gap="small">
+          <Paragraph>
+            Dedicated to innovation through collaboration, HPE is proud to
+            lead and contribute to many open source projects. Learn more about
+            these projects here.
+          </Paragraph>
+          <Button
+            primary
+            href="https://www.hpe.com/us/en/open-source.html"
+            target="_blank"
+            rel="noreferrer noopener"
+            alignSelf="start"
+            label="Visit HPE Open Source"
+          />
+        </Box>
+      </PageDescription>
+      {/* <Box gap="medium" pad="medium">
           <Tabs
             // height="medium"
             // flex="grow"
@@ -107,21 +107,21 @@ function Opensource({ data }) {
             ))}
           </Tabs>
         </Box> */}
-        <SectionHeader color="green">
-          <ResponsiveGrid gap="large" rows={rows} columns={columns}>
-            {projects.map(({ node }) => (
-              <OpenSourceCard
-                key={node.id}
-                title={node.frontmatter.title}
-                description={node.frontmatter.description}
-                link={node.frontmatter.link}
-                image={node.frontmatter.image}
-                category={node.frontmatter.category}
-              />
-            ))}
-          </ResponsiveGrid>
-        </SectionHeader>
-      </Box>
+      <SectionHeader color="green">
+        <ResponsiveGrid gap="large" rows={rows} columns={columns}>
+          {projects.map(({ node }) => (
+            <OpenSourceCard
+              key={node.id}
+              title={node.frontmatter.title}
+              description={node.frontmatter.description}
+              link={node.frontmatter.link}
+              image={node.frontmatter.image}
+              category={node.frontmatter.category}
+            />
+          ))}
+        </ResponsiveGrid>
+      </SectionHeader>
+      {/* </Box> */}
     </Layout>
   );
 }
@@ -153,29 +153,34 @@ Opensource.propTypes = {
 export default Opensource;
 export const pageQuery = graphql`
   query {
-    allMarkdownRemark(
-      filter: { fields: { sourceInstanceName: { eq: "opensource" } } }
-      sort: { fields: [frontmatter___title] }
-    ) {
-      edges {
-        node {
-          id
-          rawMarkdownBody
-          fields {
-            slug
-            sourceInstanceName
-          }
-          excerpt
-          frontmatter {
-            title
-            category
-            description
-            link
-            image
-            priority
-          }
+    allMarkdownRemark(filter: {fields: {sourceInstanceName: 
+      {eq: "opensource"}}, frontmatter: {title: {in: [
+        "Grommet", 
+        "Chapel", 
+        "SmartSim", 
+        "SPIFFE/SPIRE",
+        "KubeDirector", 
+        "Spark"
+      ]}}}, sort: {fields: [frontmatter___title]}) {
+    edges {
+      node {
+        id
+        rawMarkdownBody
+        fields {
+          slug
+          sourceInstanceName
+        }
+        excerpt
+        frontmatter {
+          title
+          category
+          description
+          link
+          image
+          priority
         }
       }
     }
+  }
   }
 `;

@@ -31,7 +31,6 @@ function BlogTabs({ data, columns }) {
   const [platformContent, setPlatformContent] = useState({
     data: data.allBlogs,
   });
-
   const onActive = (nextIndex) => setIndex(nextIndex);
   const size = useContext(ResponsiveContext);
 

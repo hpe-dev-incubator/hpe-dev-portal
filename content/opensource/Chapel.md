@@ -1,8 +1,8 @@
 ---
           title: "Chapel"
           category: HPC
-          link: https://github.com/chapel-lang/chapel
-          description: Chapel is a general-purpose programming language that makes large-scale parallel and distributed computing far more productive than conventional approaches while matching or beating them in terms of performance.
+          link: /platform/chapel/home/
+          description: Productive parallel computing from laptops to supercomputers.
           priority: 22
           image: '/img/platforms/Chapel.svg'
           Featured: true
