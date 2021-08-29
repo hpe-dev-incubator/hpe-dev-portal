@@ -10,13 +10,7 @@ import {
 } from 'grommet';
 import { navigate } from 'gatsby';
 
-const OpenSourceCard = ({
-  image,
-  title,
-  link,
-  description,
-  category,
-}) => {
+const OpenSourceCard = ({ image, title, link, description, category }) => {
   const size = useContext(ResponsiveContext);
   return (
     <GrommetCard
@@ -26,25 +20,19 @@ const OpenSourceCard = ({
       onClick={
         link
           ? (e) => {
-            navigate(link);
-            localStorage.setItem(
-              'platformPosition',
-              JSON.stringify(e.nativeEvent.pageY - e.nativeEvent.clientY),
-            );
-          }
+              navigate(link);
+              localStorage.setItem(
+                'platformPosition',
+                JSON.stringify(e.nativeEvent.pageY - e.nativeEvent.clientY),
+              );
+            }
           : undefined
       }
     >
       <Box alignSelf="end" margin={{ top: '-10px', right: '-10px' }}>
-        <Text color="text-weak">
-          {category}
-        </Text>
+        <Text color="text-weak">{category}</Text>
       </Box>
-      <Box
-        direction="row"
-        gap="large"
-        align="center"
-      >
+      <Box direction="row" gap="large" align="center">
         <Box basis="1/3">
           {image && <Image fit="contain" src={image} alt="platform logo" />}
         </Box>
@@ -55,9 +43,8 @@ const OpenSourceCard = ({
           <Text>{description}</Text>
         </Box>
       </Box>
-    </GrommetCard >
+    </GrommetCard>
   );
-
 };
 
 OpenSourceCard.propTypes = {

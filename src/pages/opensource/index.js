@@ -76,9 +76,9 @@ function Opensource({ data }) {
       >
         <Box gap="small">
           <Paragraph>
-            Dedicated to innovation through collaboration, HPE is proud to
-            lead and contribute to many open source projects. Learn more about
-            these projects here.
+            Dedicated to innovation through collaboration, HPE is proud to lead
+            and contribute to many open source projects. Learn more about these
+            projects here.
           </Paragraph>
           <Button
             primary
@@ -153,34 +153,43 @@ Opensource.propTypes = {
 export default Opensource;
 export const pageQuery = graphql`
   query {
-    allMarkdownRemark(filter: {fields: {sourceInstanceName: 
-      {eq: "opensource"}}, frontmatter: {title: {in: [
-        "Grommet", 
-        "Chapel", 
-        "SmartSim", 
-        "SPIFFE/SPIRE",
-        "KubeDirector", 
-        "Spark"
-      ]}}}, sort: {fields: [frontmatter___title]}) {
-    edges {
-      node {
-        id
-        rawMarkdownBody
-        fields {
-          slug
-          sourceInstanceName
+    allMarkdownRemark(
+      filter: {
+        fields: { sourceInstanceName: { eq: "opensource" } }
+        frontmatter: {
+          title: {
+            in: [
+              "Grommet"
+              "Chapel"
+              "SmartSim"
+              "SPIFFE/SPIRE"
+              "KubeDirector"
+              "Spark"
+            ]
+          }
         }
-        excerpt
-        frontmatter {
-          title
-          category
-          description
-          link
-          image
-          priority
+      }
+      sort: { fields: [frontmatter___title] }
+    ) {
+      edges {
+        node {
+          id
+          rawMarkdownBody
+          fields {
+            slug
+            sourceInstanceName
+          }
+          excerpt
+          frontmatter {
+            title
+            category
+            description
+            link
+            image
+            priority
+          }
         }
       }
     }
-  }
   }
 `;
