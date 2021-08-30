@@ -1,5 +1,5 @@
 ---
-title: Data Services Cloud Console API
+title: Data Services Cloud Console NorthBound API
 version: 0.1.1
 description: Easy to read guides, tips and documentation to rapidly help any
   developer working with Data Services Cloud Console APIs.
