@@ -14,6 +14,11 @@ const ScrollabeBox = styled(Box)`
   height: auto;
   max-height: 180px;
   overflow-x: hidden;
+
+  // Keeps platform dropdown menu item aligned to the left
+  & > div > a {
+    text-align: left;
+  }
 `;
 
 function Header() {
