@@ -17,7 +17,7 @@ function Header() {
       label="Our Platforms"
       dropAlign={{ top: 'bottom', left: 'left' }}
       icon={<FormDown />}
-      reverse="true"
+      reverse
       dropContent={
         <>
           <OnHoverScroll>
