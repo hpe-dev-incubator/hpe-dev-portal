@@ -16,6 +16,7 @@ import OpenSourceCard from './OpenSourceCard';
 import CommunityCard from './CommunityCard';
 import BlogTabs from './BlogTabs';
 import BlogTabContent from './BlogTabContent';
+import OnHoverScroll from './OnHoverScroll';
 
 export * from './Card';
 export * from './Link';
@@ -41,4 +42,5 @@ export {
   CommunityCard,
   BlogTabs,
   BlogTabContent,
+  OnHoverScroll,
 };

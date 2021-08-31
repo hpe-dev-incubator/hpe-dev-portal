@@ -6,20 +6,8 @@ import {
   Nav,
   ResponsiveContext,
 } from 'grommet';
-import styled from 'styled-components';
 import { Menu, Search, FormDown } from 'grommet-icons';
-import { ButtonLink } from '..';
-
-const ScrollabeBox = styled(Box)`
-  height: auto;
-  max-height: 180px;
-  overflow-x: hidden;
-
-  // Keeps platform dropdown menu item aligned to the left
-  & > div > a {
-    text-align: left;
-  }
-`;
+import { ButtonLink, OnHoverScroll } from '..';
 
 function Header() {
   const size = useContext(ResponsiveContext);
@@ -32,7 +20,7 @@ function Header() {
       reverse="true"
       dropContent={
         <>
-          <ScrollabeBox>
+          <OnHoverScroll>
             <Box height={{ max: '180px' }}>
               <ButtonLink
                 key="pl-hecp"
@@ -131,7 +119,7 @@ function Header() {
                 alignSelf="start"
               />
             </Box>
-          </ScrollabeBox>
+          </OnHoverScroll>
           <Box>
             <ButtonLink
               key="pl"
