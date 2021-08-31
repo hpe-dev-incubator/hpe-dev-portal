@@ -6,7 +6,7 @@ import {
   Layout,
   SEO,
   PageDescription,
-  OpenSourceCard,
+  NewsletterCard,
   ResponsiveGrid,
 } from '../../components';
 import { EmailCapture } from '../../containers';
@@ -88,7 +88,7 @@ function NewsletterSignup({ data, location }) {
                 margin={{ top: 'large' }}
               >
                 {newsletter.edges.map(({ node }) => (
-                  <OpenSourceCard
+                  <NewsletterCard
                     key={node.id}
                     title={node.frontmatter.title}
                     description={node.frontmatter.description}
