@@ -62,8 +62,6 @@ Clients will be able to adopt the backward compatibility from the higher major v
 /api/v2/<resource group>/...
 ```
 
-
-
 ### HTTP Request Methods
 
 | HTTP Verbs | Description                                                         |
@@ -72,6 +70,21 @@ Clients will be able to adopt the backward compatibility from the higher major v
 | POST       | Creates an entity or changes state                                  |
 | PUT        | Replaces target resource with data part of the HTTP Request payload |
 | DELETE     | Remove the target source                                            |
+
+### Relationship Authorization
+
+The client can only receive the properties that are authorized based on the Role Base Access Control for the user who created the access token. 
+
+### Asynchronous Response
+
+All of the REST API operations are stateless in nature, such as POST, in that scenario the task resource will return a response with HTTP code 202 "Accepted" and the reference to the task as follows:
+
+```
+Response: 202 Accepted
+{
+   "taskURi": "/api/v1/tasks/123e4567-e89b-12d3-a456-4266141741230"
+}
+```
 
 ### Any Questions on Data Services Cloud Console API?
 
