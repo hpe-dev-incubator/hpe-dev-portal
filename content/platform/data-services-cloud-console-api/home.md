@@ -51,9 +51,19 @@ The overview of the Data Services Cloud Console is at [this link](https://www.hp
 
 The major version number will be provided in the resource path as follows:
 
+
+
+
+
+
+
 ```
 /api/v1/<resource group>/...
 ```
+
+
+
+
 
 ### HTTP Request Methods
 
