@@ -44,7 +44,7 @@ function Events({ data }) {
       >
         <Box gap="small">
           <Box>
-            <Paragraph>
+            <Paragraph size="large">
               Technology moves fast. Participating in events helps you stay
               ahead of the curve. Mark your calendar and connect with us at any
               of these upcoming events.

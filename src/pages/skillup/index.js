@@ -42,7 +42,7 @@ function Skillup({ data }) {
         title="Skill Up"
         alt="skillup dev logo"
       >
-        <Paragraph>
+        <Paragraph size="large">
           With technology constantly evolving, it can be challenging to keep up.
           Bookmark this page to access a great set of free technical training
           resources to expand your skill set.
