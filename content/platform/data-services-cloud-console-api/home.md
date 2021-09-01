@@ -49,19 +49,18 @@ The overview of the Data Services Cloud Console is at [this link](https://www.hp
 
 ### Versioning
 
-The major version number will be provided in the resource path as follows:
-
-
-
-
-
-
+The major version number will be provided in the resource path as v1 in this example:
 
 ```
 /api/v1/<resource group>/...
 ```
 
+Clients will be able to adopt the backward compatibility from the higher major version incremental.  However, both the new and old version of API will be supported until the announcement of the deprecation. Nonetheless, the older major version will always be frozen with exception of bug fixes. There will also be announcement of deprecation in the header and sunset header. 
 
+```
+/api/v1/<resource group>/...
+/api/v2/<resource group>/...
+```
 
 
 
