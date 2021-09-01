@@ -4,7 +4,7 @@ dateStart: 2021-08-25T15:00:00.000Z
 dateEnd: 2021-08-25T16:30:00.000Z
 category: Virtual Event
 image: /img/nigel-twitter-1024.jpg
-link: https://hpe.zoom.us/meeting/register/tJcrduuuqzgsHNEC-u8l_Y86YeZLMxEDF5fP
+link: https://developer.hpe.com/campaign/munch-and-learn/
 width: large
 ---
 ## HPE DEV Munch & Learn series
