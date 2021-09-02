@@ -1,5 +1,5 @@
 ---
-title: Data Services Cloud Console NorthBound API
+title: Data Services Cloud Console
 version: 0.1.1
 description: Easy to read guides, tips and documentation to rapidly help any
   developer working with Data Services Cloud Console APIs.
@@ -10,8 +10,6 @@ tags:
   - data-services-cloud-console
   - greenlake-common-cloud
 ---
-## Intro
-
 Today, every organization are required to unleash the power of data to drive digital transformation. But fragmented data management tools, manual processes, and infrastructure silos spanning edge to cloud are getting in the way. Customers across industries are struggling with the complexity of managing data and infrastructure, because it  creates a roadblock to innovation and agility, but also drives business risk. And it’s only getting harder as data continues to grow, apps continue to evolve, and infrastructure continues to spread edge-to-cloud.
 
 ![Intelligent Data Platform](/img/dscc-high-level-diagram.jpg "DSCC Diagram")
@@ -32,8 +30,6 @@ The REST API is designed for customers, partners or any other external clients t
 Any customer can download this OpenAPI Specification (OAS) v3 definition of the DSCC from the following link:
 
 [Link to the API repository](https://docs.ccs.arubathena.com/)
-
-
 
 ### Documentation and Tutorials
 
