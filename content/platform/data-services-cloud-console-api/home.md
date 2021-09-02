@@ -20,7 +20,9 @@ This API provides resources for any customers that are looking to enhance their 
 
 ## REST API
 
-The REST API is designed for customers, partners or any other external clients to consume these interface to achieve the prior objective mentioned above. The Data Services Cloud console public API is specified based on the OpenAPI format version 3 ([OpenAPI 3.0 information](https://swagger.io/blog/news/whats-new-in-openapi-3-0/)). The API definition is available for download in OpenAPI 3 yaml format at this link. Some of the advantages to distribution in OpenAPI 3.0 format:
+The REST API is designed for customers, partners or any other external clients to consume these interface to achieve the objectives mentioned above. The Data Services Cloud console public API is specified based on the OpenAPI format version 3 ([OpenAPI 3.0 information](https://swagger.io/blog/news/whats-new-in-openapi-3-0/)).  The specification defines standard, language agnostic interface to RESTful API allowing the clients (both human and computer) to consume capabilities of DSCC services efficiently. The API definition is available for download in OpenAPI 3 yaml format at this link. 
+
+Some of the advantages to distribution in OpenAPI 3.0 format:
 
 1. Updates to the API can be generated in more agile manner where documentation are embedded as description to any endpoints, parameters, and many more such as contact information, license, terms of use.
 2. Consumer of this API can also consume this API in an agile manner using the converter from this openAPI format to any language that were used as part of the their automation or CI/CD workflow. (Please check <https://openapi.tools> for more information for the API tools to generate client code)
@@ -33,9 +35,11 @@ Any customer can download this OpenAPI Specification (OAS) v3 definition of the 
 
 ### Documentation and Tutorials
 
-The overview of the Data Services Cloud Console is at [this link](https://www.hpe.com/us/en/storage/data-services-cloud-console.html#overview). There will be more blogs that will provide more information to help customer adopting this API.
+The overview of the Data Services Cloud Console is available at [this link](https://www.hpe.com/us/en/storage/data-services-cloud-console.html#overview). There will be more blogs that will provide more information to help customer adopting this API with examples, code snippets and many other helpful information.
 
 ### Supported API Categories (Services)
+
+The API categories for DSCC grows in accordance to the expansion of the DSCC services that are going to released in future. Current services that are available as recorded today is:
 
 1. DataOps Manager
 2. Event Audit
@@ -55,6 +59,7 @@ Clients will be able to adopt the backward compatibility from the higher major v
 
 ```
 /api/v1/<resource group>/...
+
 /api/v2/<resource group>/...
 ```
 
