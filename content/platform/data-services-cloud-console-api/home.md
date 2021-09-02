@@ -74,7 +74,7 @@ Clients will be able to adopt the backward compatibility from the higher major v
 
 ### Relationship Authorization
 
-The client can only receive the properties that are authorized based on the Role Base Access Control for the user who created the access token. 
+The client can only receive the properties that are authorized based on the Role Base Access Control for the user who created the access token. The authorization for the client will inherit the user's permission who created register the Client Application. Note that subsequent change to the user's permission after the Client Application registered will impact the response returned based on current authority.
 
 ### Asynchronous Response
 
