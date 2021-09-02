@@ -91,14 +91,29 @@ All of the REST API operations are stateless in nature, such as POST, in that sc
 ```
 Response: 202 Accepted
 {
-   "taskURi": "/api/v1/tasks/123e4567-e89b-12d3-a456-4266141741230"
+   "taskURi": "/api/v1/tasks/{task id}"
 }
 ```
 
 In order to ensure the completion of this remote procedural call through POST, user will use the task resource to query the status of this asynchronous task.
 
 ```
-/api/v1/tasks
+/api/v1/tasks/{task id}
+
+GET responses
+{
+  state: {state ENUM}
+}
+
+state ENUM:
+- UNSPECIFIED
+- INITIALIZED
+- RUNNING
+- FAILED
+- SUCCEEDED
+- TIMEDOUT
+- PAUSED
+
 ```
 
 ### Any Questions on Data Services Cloud Console API?
