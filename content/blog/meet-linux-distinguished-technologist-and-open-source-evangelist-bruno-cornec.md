@@ -2,7 +2,7 @@
 title: Meet Linux Distinguished Technologist and Open Source evangelist, Bruno Cornec
 date: 2021-08-18T16:39:18.068Z
 author: Dale Rensing
-authorimage: /img/blog-author-rensing-96.jpg
+authorimage: /img/Avatar4.svg
 tags:
   - EVANGELIST
   - opensource
