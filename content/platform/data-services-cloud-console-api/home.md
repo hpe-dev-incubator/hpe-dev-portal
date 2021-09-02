@@ -119,5 +119,3 @@ state ENUM:
 ### Any Questions on Data Services Cloud Console API?
 
 Please join [HPEDEV Slack Workspace](https://slack.hpedev.io/) and start a discussion in our #DSCC channel
-
-### Related Blogs
