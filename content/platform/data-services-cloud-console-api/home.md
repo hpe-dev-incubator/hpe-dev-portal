@@ -90,6 +90,8 @@ All of the REST API operations are stateless in nature, such as POST, in that sc
 
 ```
 Response: 202 Accepted
+```
+```
 {
    "taskURi": "/api/v1/tasks/{task id}"
 }
