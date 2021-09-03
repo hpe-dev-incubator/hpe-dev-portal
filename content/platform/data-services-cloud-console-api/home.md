@@ -51,15 +51,15 @@ The API categories for DSCC grows in accordance to the expansion of the DSCC ser
 
 The major version number will be provided in the resource path as v1 in this example:
 
-```md
+```markdown
 /api/v1/<resource group>/...
 
 ```
 Some examples of these resource paths:
-```
-/api/v1/storage-systems/...
+```markdown
+/api/v1/storage-systems/... <br />
 
-/api/v1/controllers/...
+/api/v1/controllers/... <br />
 
 /api/v1/volumes/...
 ```
