@@ -84,7 +84,14 @@ function Contribute({ data }) {
                   onClick={() => navigate(`${card.link}`)}
                 >
                   <Box height="75px" width="75px">
-                    <Image src="/img/community/microsoft-word-icon.svg" />
+                    <Image
+                      s
+                      src={
+                        card.templateType === 'Microsoft Word'
+                          ? '/img/community/microsoft-word-icon.svg'
+                          : '/img/community/google-docs-icon.svg'
+                      }
+                    />
                   </Box>
                   <Box pad={{ left: 'medium' }} width="medium">
                     <Text size="large" weight="bold">
