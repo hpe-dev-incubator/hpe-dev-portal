@@ -1,8 +1,7 @@
-import React, { useState, useCallback, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { graphql, withPrefix, navigate } from 'gatsby';
-import { Box, Button, Paragraph } from 'grommet';
-import { FormDown } from 'grommet-icons';
+import { graphql, navigate } from 'gatsby';
+import { Paragraph, Box } from 'grommet';
 import {
   BlogCard,
   Layout,
@@ -11,8 +10,11 @@ import {
   FeaturedBlogCard,
   SectionHeader,
   ResponsiveGrid,
+  ButtonLink,
+  BlogTabs,
 } from '../../components';
 import { useSiteMetadata } from '../../hooks/use-site-metadata';
+import { useLocalStorage } from '../../hooks/use-local-storage';
 
 const columns = {
   small: 'auto',
@@ -25,65 +27,34 @@ function Blog({ data, location }) {
   const featuredposts = data.featuredblogs.edges;
   const siteMetadata = useSiteMetadata();
   const siteTitle = siteMetadata.title;
-
-  const initialPage = data.paginatedCollectionPage;
-  const [latestPage, setLatestPage] = useState(initialPage);
-  const [blogPosts, setBlogPosts] = useState(initialPage.nodes);
-  const [collectionId, setCollectionId] = useState(initialPage.collection.id);
+  /* eslint-disable no-unused-vars */
+  const [index, setIndex] = useState(0);
+  const [blogPosition, setBlogPosition] = useLocalStorage('blogPosition');
+  /* eslint-disable no-unused-vars */
 
   useEffect(() => {
-    setCollectionId(initialPage.collection.id);
-
-    const blogLocalStorage = JSON.parse(localStorage.getItem('blogData'));
-
-    if (
-      blogLocalStorage &&
-      blogLocalStorage.latestPage &&
-      blogLocalStorage.latestBlogPosts
-    ) {
-      setLatestPage(blogLocalStorage.latestPage);
-      setBlogPosts(blogLocalStorage.latestBlogPosts);
-    }
-
     if (location.state && location.state.isBlogHeaderClicked) {
       navigate('/blog', { replace: true });
-      setLatestPage(initialPage);
-      setBlogPosts(initialPage.nodes);
+      setIndex(0);
       localStorage.removeItem('blogPosition');
       localStorage.removeItem('blogData');
+      localStorage.removeItem('activeBlogTab');
     }
-  }, [initialPage, location]);
+  }, [location]);
 
   useEffect(() => {
-    const scrollPosition = JSON.parse(localStorage.getItem('blogPosition'));
+    const scrollPosition = blogPosition;
 
     if (scrollPosition) {
       setTimeout(() => {
-        window.scrollTo({ top: scrollPosition, left: 0, behavior: 'smooth' });
+        window.scrollTo({
+          top: scrollPosition,
+          left: 0,
+          behavior: 'smooth',
+        });
       }, 100);
     }
-  }, []);
-
-  const loadNextPage = useCallback(async () => {
-    if (!latestPage.hasNextPage) return;
-    const nextPageId = latestPage.nextPage.id;
-    const path = withPrefix(
-      `/paginated-data/${collectionId}/${nextPageId}.json`,
-    );
-    const res = await fetch(path);
-    const json = await res.json();
-
-    setBlogPosts((state) => [...state, ...json.nodes]);
-    setLatestPage(json);
-
-    localStorage.setItem(
-      'blogData',
-      JSON.stringify({
-        latestBlogPosts: [...blogPosts, ...json.nodes],
-        latestPage: json,
-      }),
-    );
-  }, [latestPage, collectionId, blogPosts]);
+  }, [blogPosition]);
 
   return (
     <Layout title={siteTitle}>
@@ -93,11 +64,14 @@ function Blog({ data, location }) {
         title="Blog"
         alt="blog page logo"
       >
-        <Paragraph>
+        <Paragraph size="large">
           Sharing expertise is a great way to move technology forward. Browse
           through our library of tutorials and articles to learn new ways to do
-          things. Or write your own!
+          things. Or, click on the Get Started button to write your own!
         </Paragraph>
+        <Box wrap align="start">
+          <ButtonLink primary label="Get Started" to="/contribute" />
+        </Box>
       </PageDescription>
       {featuredposts && featuredposts.length > 0 && (
         <SectionHeader title="Featured Blogs">
@@ -108,32 +82,14 @@ function Blog({ data, location }) {
           />
           <ResponsiveGrid rows={{}} columns={columns}>
             {featuredposts.map(
-              ({ node }, index) =>
+              ({ node }, i) =>
                 node.fields.slug !== '/' &&
-                index > 0 && <BlogCard key={node.id} node={node} />,
+                i > 0 && <BlogCard key={node.id} node={node} />,
             )}
           </ResponsiveGrid>
         </SectionHeader>
       )}
-      <SectionHeader title="All Blogs">
-        <ResponsiveGrid rows={{}} columns={columns}>
-          {blogPosts.map(
-            (blogPost) =>
-              blogPost.url !== '/' && (
-                <BlogCard key={blogPost.id} node={blogPost} />
-              ),
-          )}
-        </ResponsiveGrid>
-      </SectionHeader>
-      <Box align="center" pad="medium">
-        <Button
-          icon={<FormDown />}
-          hoverIndicator
-          reverse
-          onClick={loadNextPage}
-          label="Load More"
-        />
-      </Box>
+      <BlogTabs data={data} columns={columns} />
     </Layout>
   );
 }
@@ -163,26 +119,6 @@ Blog.propTypes = {
         }).isRequired,
       ).isRequired,
     }).isRequired,
-    paginatedCollectionPage: PropTypes.shape({
-      nodes: PropTypes.arrayOf(
-        PropTypes.shape({
-          node: PropTypes.shape({
-            title: PropTypes.string.isRequired,
-            author: PropTypes.string.isRequired,
-            date: PropTypes.string,
-            description: PropTypes.string,
-            authorimage: PropTypes.string,
-          }),
-        }).isRequired,
-      ).isRequired,
-      hasNextPage: PropTypes.bool.isRequired,
-      nextPage: PropTypes.shape({
-        id: PropTypes.string.isRequired,
-      }),
-      collection: PropTypes.shape({
-        id: PropTypes.string.isRequired,
-      }),
-    }).isRequired,
   }).isRequired,
   location: PropTypes.shape({
     state: PropTypes.shape({
@@ -195,19 +131,6 @@ export default Blog;
 
 export const pageQuery = graphql`
   query {
-    paginatedCollectionPage(
-      collection: { name: { eq: "blog-posts" } }
-      index: { eq: 0 }
-    ) {
-      nodes
-      hasNextPage
-      nextPage {
-        id
-      }
-      collection {
-        id
-      }
-    }
     featuredblogs: allMarkdownRemark(
       filter: {
         fields: { sourceInstanceName: { eq: "blog" } }
@@ -238,6 +161,381 @@ export const pageQuery = graphql`
           }
         }
       }
+    }
+    allBlogsCount: allMarkdownRemark(
+      filter: {
+        fields: { sourceInstanceName: { eq: "blog" } }
+        frontmatter: { featuredBlog: { ne: true } }
+      }
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
+      totalCount
+    }
+    allBlogs: paginatedCollectionPage(
+      collection: { name: { eq: "blog-posts" } }
+      index: { eq: 0 }
+    ) {
+      nodes
+      hasNextPage
+      nextPage {
+        id
+      }
+      collection {
+        id
+      }
+    }
+    dataFabricBlogsCount: allMarkdownRemark(
+      filter: {
+        fields: { sourceInstanceName: { eq: "blog" } }
+        frontmatter: { tags: { eq: "hpe-ezmeral-data-fabric" } }
+      }
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
+      totalCount
+    }
+    dataFabricBlogs: paginatedCollectionPage(
+      collection: { name: { eq: "data-fabric-posts" } }
+      index: { eq: 0 }
+    ) {
+      nodes
+      hasNextPage
+      nextPage {
+        id
+      }
+      collection {
+        id
+      }
+    }
+    ezmeralBlogsCount: allMarkdownRemark(
+      filter: {
+        fields: { sourceInstanceName: { eq: "blog" } }
+        frontmatter: { tags: { eq: "hpe-ezmeral-container-platform" } }
+      }
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
+      totalCount
+    }
+    ezmeralBlogs: paginatedCollectionPage(
+      collection: { name: { eq: "ezmeral-blog-posts" } }
+      index: { eq: 0 }
+    ) {
+      nodes
+      hasNextPage
+      nextPage {
+        id
+      }
+      collection {
+        id
+      }
+    }
+    greenlakeBlogsCount: allMarkdownRemark(
+      filter: {
+        fields: { sourceInstanceName: { eq: "blog" } }
+        frontmatter: { tags: { eq: "hpe-greenlake" } }
+      }
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
+      totalCount
+    }
+    greenlakeBlogs: paginatedCollectionPage(
+      collection: { name: { eq: "greenlake-posts" } }
+      index: { eq: 0 }
+    ) {
+      nodes
+      hasNextPage
+      nextPage {
+        id
+      }
+      collection {
+        id
+      }
+    }
+    spiffeBlogsCount: allMarkdownRemark(
+      filter: {
+        fields: { sourceInstanceName: { eq: "blog" } }
+        frontmatter: { tags: { eq: "spiffe-and-spire-projects" } }
+      }
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
+      totalCount
+    }
+    spiffeBlogs: paginatedCollectionPage(
+      collection: { name: { eq: "spiffe-blog-posts" } }
+      index: { eq: 0 }
+    ) {
+      nodes
+      hasNextPage
+      nextPage {
+        id
+      }
+      collection {
+        id
+      }
+    }
+    chapelBlogsCount: allMarkdownRemark(
+      filter: {
+        fields: { sourceInstanceName: { eq: "blog" } }
+        frontmatter: { tags: { eq: "chapel" } }
+      }
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
+      totalCount
+    }
+    chapelBlogs: paginatedCollectionPage(
+      collection: { name: { eq: "chapel-posts" } }
+      index: { eq: 0 }
+    ) {
+      nodes
+      hasNextPage
+      nextPage {
+        id
+      }
+      collection {
+        id
+      }
+    }
+    grommetBlogsCount: allMarkdownRemark(
+      filter: {
+        fields: { sourceInstanceName: { eq: "blog" } }
+        frontmatter: { tags: { eq: "grommet" } }
+      }
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
+      totalCount
+    }
+    grommetBlogs: paginatedCollectionPage(
+      collection: { name: { eq: "grommet-posts" } }
+      index: { eq: 0 }
+    ) {
+      nodes
+      hasNextPage
+      nextPage {
+        id
+      }
+      collection {
+        id
+      }
+    }
+    alletraBlogsCount: allMarkdownRemark(
+      filter: {
+        fields: { sourceInstanceName: { eq: "blog" } }
+        frontmatter: { tags: { eq: "hpe-alletra" } }
+      }
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
+      totalCount
+    }
+    alletraBlogs: paginatedCollectionPage(
+      collection: { name: { eq: "alletra-posts" } }
+      index: { eq: 0 }
+    ) {
+      nodes
+      hasNextPage
+      nextPage {
+        id
+      }
+      collection {
+        id
+      }
+    }
+    deepLearningBlogsCount: allMarkdownRemark(
+      filter: {
+        fields: { sourceInstanceName: { eq: "blog" } }
+        frontmatter: { tags: { eq: "deep-learning-cookbook" } }
+      }
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
+      totalCount
+    }
+    deepLearningBlogs: paginatedCollectionPage(
+      collection: { name: { eq: "deep-learning-posts" } }
+      index: { eq: 0 }
+    ) {
+      nodes
+      hasNextPage
+      nextPage {
+        id
+      }
+      collection {
+        id
+      }
+    }
+    threeParBlogsCount: allMarkdownRemark(
+      filter: {
+        fields: { sourceInstanceName: { eq: "blog" } }
+        frontmatter: { tags: { eq: "hpe-3par-and-primera" } }
+      }
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
+      totalCount
+    }
+    threeParBlogs: paginatedCollectionPage(
+      collection: { name: { eq: "3par-posts" } }
+      index: { eq: 0 }
+    ) {
+      nodes
+      hasNextPage
+      nextPage {
+        id
+      }
+      collection {
+        id
+      }
+    }
+    nimbleBlogsCount: allMarkdownRemark(
+      filter: {
+        fields: { sourceInstanceName: { eq: "blog" } }
+        frontmatter: { tags: { eq: "hpe-nimble-storage" } }
+      }
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
+      totalCount
+    }
+    nimbleBlogs: paginatedCollectionPage(
+      collection: { name: { eq: "nimble-posts" } }
+      index: { eq: 0 }
+    ) {
+      nodes
+      hasNextPage
+      nextPage {
+        id
+      }
+      collection {
+        id
+      }
+    }
+    oneviewBlogsCount: allMarkdownRemark(
+      filter: {
+        fields: { sourceInstanceName: { eq: "blog" } }
+        frontmatter: { tags: { eq: "hpe-oneview" } }
+      }
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
+      totalCount
+    }
+    oneviewBlogs: paginatedCollectionPage(
+      collection: { name: { eq: "oneview-posts" } }
+      index: { eq: 0 }
+    ) {
+      nodes
+      hasNextPage
+      nextPage {
+        id
+      }
+      collection {
+        id
+      }
+    }
+    oneviewDashboardBlogsCount: allMarkdownRemark(
+      filter: {
+        fields: { sourceInstanceName: { eq: "blog" } }
+        frontmatter: { tags: { eq: "hpe-oneview-global-dashboard" } }
+      }
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
+      totalCount
+    }
+    oneviewDashboardBlogs: paginatedCollectionPage(
+      collection: { name: { eq: "oneview-dashboard-posts" } }
+      index: { eq: 0 }
+    ) {
+      nodes
+      hasNextPage
+      nextPage {
+        id
+      }
+      collection {
+        id
+      }
+    }
+    iloBlogsCount: allMarkdownRemark(
+      filter: {
+        fields: { sourceInstanceName: { eq: "blog" } }
+        frontmatter: {
+          tags: {
+            in: ["ilo", "Redfish", "ilorest", "iLOrest", "ilo-restful-api"]
+          }
+        }
+      }
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
+      totalCount
+    }
+    iloBlogs: paginatedCollectionPage(
+      collection: { name: { eq: "ilo-posts" } }
+      index: { eq: 0 }
+    ) {
+      nodes
+      hasNextPage
+      nextPage {
+        id
+      }
+      collection {
+        id
+      }
+    }
+    openSourceBlogsCount: allMarkdownRemark(
+      filter: {
+        fields: { sourceInstanceName: { eq: "blog" } }
+        frontmatter: { tags: { eq: "opensource" } }
+      }
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
+      totalCount
+    }
+    openSourceBlogs: paginatedCollectionPage(
+      collection: { name: { eq: "opensource-blog-posts" } }
+      index: { eq: 0 }
+    ) {
+      nodes
+      hasNextPage
+      nextPage {
+        id
+      }
+      collection {
+        id
+      }
+    }
+    othersBlogs: paginatedCollectionPage(
+      collection: { name: { eq: "others-posts" } }
+      index: { eq: 0 }
+    ) {
+      nodes
+      hasNextPage
+      nextPage {
+        id
+      }
+      collection {
+        id
+      }
+    }
+    othersBlogsCount: allMarkdownRemark(
+      filter: {
+        fields: { sourceInstanceName: { eq: "blog" } }
+        frontmatter: {
+          tags: {
+            nin: [
+              "opensource"
+              "hpe-ezmeral-container-platform"
+              "spiffe-and-spire-projects"
+              "hpe-ezmeral-data-fabric"
+              "hpe-greenlake"
+              "chapel"
+              "grommet"
+              "hpe-alletra"
+              "deep-learning-cookbook"
+              "hpe-3par-and-primera"
+              "hpe-nimble-storage"
+              "hpe-oneview"
+              "hpe-oneview-global-dashboard"
+              "ilo"
+            ]
+          }
+        }
+      }
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
+      totalCount
     }
   }
 `;

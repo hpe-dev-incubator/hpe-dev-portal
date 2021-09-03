@@ -1,7 +1,7 @@
 ---
           title: "Grommet"
           category: UI
-          link: https://grommet.github.io/
+          link: /platform/grommet/home/
           description: Open source tools for building essential user experiences.
           priority: 25
           image: '/img/platforms/Grommet.svg'

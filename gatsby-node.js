@@ -9,6 +9,34 @@ const escapeRegExp = (string) => string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 const arrayToRE = (a) =>
   a ? '/^' + a.map((str) => `(${escapeRegExp(str)})`).join('|') + '$/i' : ''; // eslint-disable-line
 
+const setPagination = (queryResult) => {
+  const collection = queryResult.data.paginatedCollection;
+  const dir = path.join(__dirname, 'public', 'paginated-data', collection.id);
+  fs.mkdirSync(dir, { recursive: true });
+  collection.pages.forEach((page) =>
+    fs.writeFileSync(
+      path.resolve(dir, `${page.id}.json`),
+      JSON.stringify(page),
+    ),
+  );
+};
+
+const paginatedCollectionQuery = (paginatedName) => {
+  return `{
+    paginatedCollection(name: { eq: "${paginatedName}" }) {
+      id
+      pages {
+        id
+        nodes
+        hasNextPage
+        nextPage {
+          id
+        }
+      }
+    }
+  }`;
+};
+
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
 
@@ -19,31 +47,54 @@ exports.createPages = async ({ graphql, actions }) => {
   const tagTemplate = path.resolve('./src/templates/tags.js');
   const campaignTemplate = path.resolve('./src/templates/campaign.js');
 
-  const queryResult = await graphql(`
-    {
-      paginatedCollection(name: { eq: "blog-posts" }) {
-        id
-        pages {
-          id
-          nodes
-          hasNextPage
-          nextPage {
-            id
-          }
-        }
-      }
-    }
-  `);
+  const allQueryResult = await graphql(paginatedCollectionQuery('blog-posts'));
+  const openSourceQueryResult = 
+    await graphql(paginatedCollectionQuery('opensource-blog-posts'));
+  const ezmeralQueryResult = 
+    await graphql(paginatedCollectionQuery('ezmeral-blog-posts'));
+  const spiffeQueryResult = 
+    await graphql(paginatedCollectionQuery('spiffe-blog-posts'));
+  const dataFabricQueryResult = 
+    await graphql(paginatedCollectionQuery('data-fabric-posts'));
+  const greenLakeQueryResult = 
+    await graphql(paginatedCollectionQuery('greenlake-posts'));
+  const chapelQueryResult = 
+    await graphql(paginatedCollectionQuery('chapel-posts'));
+  const grommetQueryResult = 
+    await graphql(paginatedCollectionQuery('grommet-posts'));
+  const alletraQueryResult = 
+    await graphql(paginatedCollectionQuery('alletra-posts'));
+  const deepLearningQueryResult = 
+    await graphql(paginatedCollectionQuery('deep-learning-posts'));
+  const threeParQueryResult = 
+    await graphql(paginatedCollectionQuery('3par-posts'));
+  const nimbleQueryResult = 
+    await graphql(paginatedCollectionQuery('nimble-posts'));
+  const oneviewQueryResult = 
+    await graphql(paginatedCollectionQuery('oneview-posts'));
+  const oneviewDashboardQueryResult = 
+    await graphql(paginatedCollectionQuery('oneview-dashboard-posts'));
+  const iloQueryResult = 
+    await graphql(paginatedCollectionQuery('ilo-posts'));
+  const othersQueryResult = 
+    await graphql(paginatedCollectionQuery('others-posts'));
 
-  const collection = queryResult.data.paginatedCollection;
-  const dir = path.join(__dirname, 'public', 'paginated-data', collection.id);
-  fs.mkdirSync(dir, { recursive: true });
-  collection.pages.forEach((page) =>
-    fs.writeFileSync(
-      path.resolve(dir, `${page.id}.json`),
-      JSON.stringify(page),
-    ),
-  );
+  setPagination(allQueryResult);
+  setPagination(openSourceQueryResult);
+  setPagination(ezmeralQueryResult);
+  setPagination(spiffeQueryResult);
+  setPagination(dataFabricQueryResult);
+  setPagination(greenLakeQueryResult);
+  setPagination(chapelQueryResult);
+  setPagination(grommetQueryResult);
+  setPagination(alletraQueryResult);
+  setPagination(deepLearningQueryResult);
+  setPagination(threeParQueryResult);
+  setPagination(nimbleQueryResult);
+  setPagination(oneviewQueryResult);
+  setPagination(oneviewDashboardQueryResult);
+  setPagination(iloQueryResult);
+  setPagination(othersQueryResult);
 
   return graphql(
     `

@@ -27,7 +27,7 @@ const CommunityCard = ({ node, ...rest }) => (
         : undefined
     }
   >
-    <CardBody pad="none" align="start">
+    <CardBody pad={{ bottom: 'small' }} align="start" flex={false}>
       {node.frontmatter.image && (
         <Image
           height="144"
@@ -37,7 +37,7 @@ const CommunityCard = ({ node, ...rest }) => (
         />
       )}
     </CardBody>
-    <Box responsive={false}>
+    <Box responsive={false} gap="none" flex={true}>
       <Heading margin="none" level="4">
         {node.frontmatter.title}
       </Heading>

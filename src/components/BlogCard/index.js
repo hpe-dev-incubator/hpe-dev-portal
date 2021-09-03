@@ -7,11 +7,13 @@ import {
   Box,
   Heading,
   Text,
+  Avatar,
   Image,
   Card as GrommetCard,
   CardHeader,
   Paragraph,
 } from 'grommet';
+import { useLocalStorage } from '../../hooks/use-local-storage';
 
 const dateFormat = Intl.DateTimeFormat('default', {
   year: 'numeric',
@@ -29,51 +31,54 @@ const stripMarkdown = (markdown) => {
   return text;
 };
 
-export const BlogCard = ({ node, ...rest }) => (
-  <GrommetCard
-    pad="large"
-    direction="row"
-    justify="between"
-    {...rest}
-    elevation="medium"
-    wrap
-    onClick={
-      node.fields.slug && node.fields.sourceInstanceName
-        ? (e) => {
-            navigate(`/${node.fields.sourceInstanceName}${node.fields.slug}`);
-            localStorage.setItem(
-              'blogPosition',
-              JSON.stringify(e.nativeEvent.pageY - e.nativeEvent.clientY),
-            );
-          }
-        : undefined
-    }
-  >
-    <Box gap="small">
-      <Box align="start">
-        {(node.authorimage || node.frontmatter.authorimage) && (
-          <Image
-            width="96px"
-            height="96px"
-            src={node.authorimage || node.frontmatter.authorimage}
-            alt="author logo"
-          />
+export const BlogCard = ({ node, ...rest }) => {
+  // eslint-disable-next-line no-unused-vars
+  const [blogPosition, setBlogPosition] = useLocalStorage('blogPosition');
+
+  return (
+    <GrommetCard
+      pad="large"
+      direction="row"
+      justify="between"
+      {...rest}
+      elevation="medium"
+      wrap
+      onClick={
+        node.fields.slug && node.fields.sourceInstanceName
+          ? (e) => {
+              navigate(`/${node.fields.sourceInstanceName}${node.fields.slug}`);
+              setBlogPosition(e.nativeEvent.pageY - e.nativeEvent.clientY);
+            }
+          : undefined
+      }
+    >
+      <Box gap="small">
+        <Box align="start">
+          {(node.authorimage || node.frontmatter.authorimage) && (
+            <Avatar
+              size="96px"
+              src={node.authorimage || node.frontmatter.authorimage}
+              alt="author logo"
+            />
+          )}
+        </Box>
+        <Box align="start">
+          <Text>{node.author || node.frontmatter.author}</Text>
+        </Box>
+        <Heading level={4} margin="none">
+          {node.title || node.frontmatter.title}
+        </Heading>
+        {(node.date || node.frontmatter.date) && (
+          <Text color="text-weak">
+            {`${dateFormat.format(
+              new Date(node.date || node.frontmatter.date),
+            )}`}
+          </Text>
         )}
       </Box>
-      <Box align="start">
-        <Text>{node.author || node.frontmatter.author}</Text>
-      </Box>
-      <Heading level={4} margin="none">
-        {node.title || node.frontmatter.title}
-      </Heading>
-      {(node.date || node.frontmatter.date) && (
-        <Text color="text-weak">
-          {`${dateFormat.format(new Date(node.date || node.frontmatter.date))}`}
-        </Text>
-      )}
-    </Box>
-  </GrommetCard>
-);
+    </GrommetCard>
+  );
+};
 
 BlogCard.propTypes = {
   node: PropTypes.shape({
@@ -125,9 +130,8 @@ export const FeaturedBlogCard = ({ node, ...rest }) => (
         gap="medium"
       >
         <Box align="start" direction="row" gap="small">
-          <Image
-            width="96px"
-            height="96px"
+          <Avatar
+            size="96px"
             src={node.frontmatter.authorimage}
             alt="author logo"
           />
