@@ -6,7 +6,7 @@ import {
   Layout,
   SEO,
   PageDescription,
-  OpenSourceCard,
+  NewsletterCard,
   ResponsiveGrid,
 } from '../../components';
 import { useSiteMetadata } from '../../hooks/use-site-metadata';
@@ -57,7 +57,7 @@ function NewsletterArchive({ data }) {
             <Tab key={i} title={newsletter.fieldValue}>
               <ResponsiveGrid rows={rows} columns={columns}>
                 {newsletter.edges.map(({ node }) => (
-                  <OpenSourceCard
+                  <NewsletterCard
                     key={node.id}
                     title={node.frontmatter.title}
                     description={node.frontmatter.description}

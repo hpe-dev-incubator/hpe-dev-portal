@@ -75,7 +75,7 @@ function Opensource({ data }) {
         alt="opensource logo"
       >
         <Box gap="small">
-          <Paragraph>
+          <Paragraph size="large">
             Dedicated to innovation through collaboration, HPE is proud to lead
             and contribute to many open source projects. Learn more about these
             projects here.

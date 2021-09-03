@@ -13,6 +13,7 @@ import EventCard from './EventCard';
 import ResponsiveGrid from './ResponsiveGrid';
 import PlatformCard from './PlatformCard';
 import OpenSourceCard from './OpenSourceCard';
+import NewsletterCard from './NewsletterCard';
 import CommunityCard from './CommunityCard';
 import BlogTabs from './BlogTabs';
 import BlogTabContent from './BlogTabContent';
@@ -38,6 +39,7 @@ export {
   ResponsiveGrid,
   PlatformCard,
   OpenSourceCard,
+  NewsletterCard,
   CommunityCard,
   BlogTabs,
   BlogTabContent,
