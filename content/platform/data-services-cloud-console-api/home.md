@@ -51,17 +51,20 @@ The API categories for DSCC grows in accordance to the expansion of the DSCC ser
 
 The major version number will be provided in the resource path as v1 in this example:
 
-```
+```md
 /api/v1/<resource group>/...
 
-Some examples of the resource groups under the same root:
-
+```
+Some examples of these resource paths:
+```
 /api/v1/storage-systems/...
 
 /api/v1/controllers/...
 
 /api/v1/volumes/...
 ```
+
+Some examples of the resource groups under the same root:
 
 Clients will be able to adopt the backward compatibility from the higher major version incremental.  However, both the new and old version of API will be supported until the announcement of the deprecation. Nonetheless, the older major version will always be frozen with exception of bug fixes. There will also be announcement of deprecation in the header and sunset header. 
 
@@ -91,6 +94,7 @@ All of the REST API operations are stateless in nature, such as POST, in that sc
 ```
 Response: 202 Accepted
 ```
+
 ```
 {
    "taskURi": "/api/v1/tasks/{task id}"
@@ -115,7 +119,6 @@ state ENUM:
 - SUCCEEDED
 - TIMEDOUT
 - PAUSED
-
 ```
 
 ### Any Questions on Data Services Cloud Console API?
