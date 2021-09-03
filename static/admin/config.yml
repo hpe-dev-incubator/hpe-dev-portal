@@ -203,7 +203,7 @@ collections:
     label: 'Be a Blogger'
     folder: 'content/contribute'
     extension: 'md'
-    create: true
+    create: false
     publish: false
     slug: 'contribute'
     editor:
