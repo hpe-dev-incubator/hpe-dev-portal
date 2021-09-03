@@ -37,6 +37,12 @@ Any customer can download this OpenAPI Specification (OAS) v3 definition of the 
 
 The overview of the Data Services Cloud Console is available at [this link](https://www.hpe.com/us/en/storage/data-services-cloud-console.html#overview). There will be more blogs that will provide more information to help customer adopting this API with examples, code snippets and many other helpful information.
 
+### Documented Attributes
+
+* **API Name & Description** - Provide short description of the goal for this API with the supported HTTP request method (POST, GET, etc)
+* **API Path** - Provide detail URL path as the end-point to issue the API call
+* **API Parameter**s - 
+
 ### Supported API Categories (Services)
 
 The API categories for DSCC grows in accordance to the expansion of the DSCC services that are going to released in future. Current services that are available as recorded today is:
@@ -54,6 +60,7 @@ The major version number will be provided in the resource path as v1 in this exa
 ```md
 /api/v1/<resource group>/...
 ```
+
 Some examples of these resource paths:
 
 ```markdown
