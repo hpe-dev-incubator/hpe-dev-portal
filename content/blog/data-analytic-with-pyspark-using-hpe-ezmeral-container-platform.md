@@ -40,7 +40,7 @@ Switching to the Notebook Endpoints tab, the access points are prepared for you.
 
 
 
-Different kernels are already installed for you. No matter which languages you are using, there will be one which suit you with your ML project. Notice that pySpark Kernel is used for Spark with Livy and Spark Operator. To run simple spark job, just use Python3 kernel and import pySpark module manually.
+Different kernels are already installed for you. No matter which languages you are using, there will be one which suit you with your ML project. Notice that pySpark Kernel is used for Spark with Livy and Spark Operator. To run a simple spark job, just use Python3 kernel and import pySpark module manually.
 
 
 ![image](https://user-images.githubusercontent.com/72959956/120460537-cc66d200-c3cb-11eb-8410-3b7ec95051d5.png)
@@ -58,7 +58,7 @@ Imagine we had a very large CSV file ready for analysis. We have to put the file
 
 
 
-The other way would be do that within the Jupyter environment. Just drag the file to the left panel of the Jupyter Lab and run the following commands to put the file to the "TenantStorage" through DataTap.
+The other way would be dragging the file to the left panel of the Jupyter Lab and run the following commands to put the file to the "TenantStorage" through DataTap.
 
 
 
@@ -104,7 +104,7 @@ sc._jsc.hadoopConfiguration().set('fs.AbstractFileSystem.dtap.impl', 'com.blueda
 
 
 
-After some configuration, your spark engine is connected to the platform and you can now reading files from HPE Ezmeral Data Fabric through Data Tap.
+After some configuration, your spark engine is connected to the platform and you can now read files from HPE Ezmeral Data Fabric through Data Tap.
 
 
 
@@ -147,7 +147,7 @@ df.take(3)
 | Screenshot | Description |
 | --- | ----------- |
 | ![image](https://user-images.githubusercontent.com/72959956/122021467-45b4ea80-cdf8-11eb-8ca4-ffc11c03f1ad.png) | You can run ```df.printSchema()``` to view the schema of your dataframe. |
-| ![image](https://user-images.githubusercontent.com/72959956/122021502-4baacb80-cdf8-11eb-87d3-b29ef643b373.png) | This is the commands for selecting columns of data and filter according to the criteria.   |
+| ![image](https://user-images.githubusercontent.com/72959956/122021502-4baacb80-cdf8-11eb-87d3-b29ef643b373.png) | This is the commands for selecting columns of data and filtering according to the criteria.   |
 | ![image](https://user-images.githubusercontent.com/72959956/122021550-56fdf700-cdf8-11eb-9c31-e0d171c7406e.png) | Some common commands to interact with your datasets.   |
 | ![image](https://user-images.githubusercontent.com/72959956/122021576-5ebd9b80-cdf8-11eb-9810-36d744560327.png) | Commands for data aggregation.   |
 | ![image](https://user-images.githubusercontent.com/72959956/122021616-667d4000-cdf8-11eb-8400-2dc03f4290f3.png) | Example for visualizing your datasets.  |
@@ -160,7 +160,7 @@ To view the entire notebook, click [this](https://github.com/helloezmeral/HPE-Ez
 
 
 
-You may encounter the error, "permission denied", when running hdfs commands. To solve this error, you have to "exec" into the pod and change the access mode for the core-site.xml .
+You may encounter the error, "permission denied", when running HDFS commands. To solve this error, you have to "exec" into the pod and change the access mode for the core-site.xml.
 
 
 
@@ -168,7 +168,7 @@ You may encounter the error, "permission denied", when running hdfs commands. To
 
 
 
-You can exec it through the Jupyter notebook or using the WebTerminal comes along with HPE ECP. To grap the Kubectl credential from HPE ECP, run the following: 
+You can "exec" into it through the Jupyter notebook or using the WebTerminal comes along with HPE ECP. To grap the Kubectl credential from HPE ECP, run the following: 
 
 
 ```bash
