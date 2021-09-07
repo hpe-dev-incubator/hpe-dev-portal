@@ -24,7 +24,7 @@ First, we have to prepare our favorite Jupyter environment. Inside a MLOps tenan
 
 
 
-As you can see below, you have to specify the name of the notebook. In order to  by specifying a named path to a specified storage resource, Click 'Enable DataTap' to expand access to shared data, by specifying a named path to a specified storage resource.
+As you can see below, you have to specify the name of the notebook. Click 'Enable DataTap' to expand access to shared data, by specifying a named path to a specified storage resource.
 
 
 
