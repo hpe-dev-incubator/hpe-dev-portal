@@ -39,9 +39,11 @@ The overview of the Data Services Cloud Console is available at [this link](http
 
 ### Documented Attributes
 
-* **API Name & Description** - Provide short description of the goal for this API with the supported HTTP request method (POST, GET, etc)
-* **API Path** - Provide detail URL path as the end-point to issue the API call
-* **API Parameter**s - 
+* **API Name & Description** - Provide short description of the goal for this API with the supported HTTP request method (POST, GET, etc).
+* **API Path** - Provide detail URL path as the end-point to issue the API call.
+* **API Parameters** - Provide the client to input information such as the object for the manipulation, select a filter to limit the returned objects, and other purposes.
+
+
 
 ### Supported API Categories (Services)
 
