@@ -40,7 +40,7 @@ Switching to the Notebook Endpoints tab, the access points are prepared for you.
 
 
 
-Different kernels are already installed for you. No matter which languages you are using, there will be one which suit you with your ML project. Notices that pySpark Kernel is for using Spark with Livy and Spark Operator. To run simple spark job, just use Python3 kernel and import pySpark module manually.
+Different kernels are already installed for you. No matter which languages you are using, there will be one which suit you with your ML project. Notice that pySpark Kernel is used for Spark with Livy and Spark Operator. To run simple spark job, just use Python3 kernel and import pySpark module manually.
 
 
 ![image](https://user-images.githubusercontent.com/72959956/120460537-cc66d200-c3cb-11eb-8410-3b7ec95051d5.png)
