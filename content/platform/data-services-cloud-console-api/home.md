@@ -93,6 +93,8 @@ Clients will be able to adopt the backward compatibility from the higher major v
 | PUT        | Replaces target resource with data part of the HTTP Request payload |
 | DELETE     | Remove the target source                                            |
 
+### Authentication
+
 ### Relationship Authorization
 
 The client will receive only the properties that are authorized based on the Role Base Access Control for the user who created the access token. The authorization for the client will inherit the user's permission who created the Client Application registration under the API Gateway. Note that subsequent change to the user's permission after the Client Application registered will impact the response returned based on current authority.
