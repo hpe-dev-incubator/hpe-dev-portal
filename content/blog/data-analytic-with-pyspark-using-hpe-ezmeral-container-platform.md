@@ -1,5 +1,5 @@
 ---
-title: Data Analytic with pySpark Using HPE Ezmeral Container Platform
+title: Data Analytics with PySpark using HPE Ezmeral Container Platform
 date: 2021-09-07T02:12:15.242Z
 author: Cenz Wong
 authorimage: https://avatars.githubusercontent.com/u/44856918?v=4
@@ -8,9 +8,7 @@ tags:
   - hpe-ezmeral-container-platform
   - hpe-ezmeral-data-fabric
 ---
-
-
-PySpark is an interface for Apache Spark in Python. [Apache Spark](https://spark.apache.org/) is a unified analytics engine for big data processing. It allows developers to perform data processing on files in distributed filesystem, like Hadoop distributed filesystem or HPE Ezmeral Data Fabric (formerly known as MapR-XD). Setting up Spark environment is always a pain for data scientists. HPE Ezmeral Container Platorm is here for making your life easier. You can run Spark with Apache Livy and Spark operator or directly run Spark job with pySpark module. In this blog, I will be focusing on running Spark jobs using pySpark module. For those who want to squeeze the best performance of Spark, visit this [blog](https://developer.hpe.com/blog/on-premise-adventures-how-to-build-an-apache-spark-lab-on-kubernetes/).
+PySpark is an interface for Apache Spark in Python. [Apache Spark](https://spark.apache.org/) is a unified analytics engine for big data processing. It allows developers to perform data processing on files in a distributed filesystem, like the Hadoop distributed filesystem or HPE Ezmeral Data Fabric (formerly known as MapR-XD). Setting up a Spark environment is always a pain for data scientists. HPE Ezmeral Container Platform can make this much easier. You can run Spark with Apache Livy and Spark operator, or you can directly run a Spark job with the PySpark module. "In this post, I will focus on running Spark jobs using the PySpark module. For those who want to squeeze the best performance out of Spark, visit this [post](https://developer.hpe.com/blog/on-premise-adventures-how-to-build-an-apache-spark-lab-on-kubernetes/).
 
 
 
@@ -24,7 +22,7 @@ First, we have to prepare our favorite Jupyter environment. Inside a MLOps tenan
 
 
 
-As you can see below, you have to specify the name of the notebook. Click 'Enable DataTap' to expand access to shared data, by specifying a named path to a specified storage resource.
+As you can see below, you must specify the name of the notebook. Click 'Enable DataTap' to expand access to shared data by specifying a named path to a specified storage resource.
 
 
 
@@ -32,15 +30,13 @@ As you can see below, you have to specify the name of the notebook. Click 'Enabl
 
 
 
-Switching to the Notebook Endpoints tab, the access points are prepared for you. Just click the link and, after logging in with your LDAP/AD account, your favorite Jupyter environment is ready for you.
+Switching to the Notebook Endpoints tab, you can see that the access points are prepared for you. Just click the link and, after logging in with your LDAP/AD account, your favorite Jupyter environment is ready for you.
 
 
 
 ![image](https://user-images.githubusercontent.com/72959956/120460678-ea343700-c3cb-11eb-9aef-8afc9252d471.png)
 
-
-
-Different kernels are already installed for you. No matter which languages you are using, there will be one which suit you with your ML project. Notice that pySpark Kernel is used for Spark with Livy and Spark Operator. To run a simple spark job, just use Python3 kernel and import pySpark module manually.
+Different kernels are already installed for you. No matter which languages you are using, there will be one that suits your ML project. Notice that PySpark kernel is used for Spark with Livy and Spark Operator. To run a simple Spakr job, just use the Python3 kernel and import the PySpark module manually.
 
 
 ![image](https://user-images.githubusercontent.com/72959956/120460537-cc66d200-c3cb-11eb-8410-3b7ec95051d5.png)
@@ -50,15 +46,14 @@ Different kernels are already installed for you. No matter which languages you a
 
 ## Preparing the datasets
 
-
-Imagine we had a very large CSV file ready for analysis. We have to put the file to the distributed filesystem. Of course, you can do that with the graphic user interface HPE ECP provided.
+Imagine that you have a very large CSV file ready for analysis. You need to put the file to the distributed filesystem. Of course, you can do that with the graphic user interface provided through HPE Ezmeral Container Platform.
 
 
 ![image](https://user-images.githubusercontent.com/72959956/120461217-67f84280-c3cc-11eb-9126-e69cacef4432.png)
 
 
 
-The other way would be dragging the file to the left panel of the Jupyter Lab and run the following commands to put the file to the "TenantStorage" through DataTap.
+The other way to do this would be to drag the file to the left panel of the Jupyter Lab and run the following commands to put the file to the "TenantStorage" through DataTap.
 
 
 
@@ -82,13 +77,13 @@ hdfs dfs -tail dtap://TenantStorage/enhanced_sur_covid_19_eng_.csv
 
 
 
-The pySpark module is already installed it for you. No extra installation is needed. So convenient, isn't it. Some configurations for the pySpark runtime is needed in order to read files from DataTap.
+The PySpark module is already installed for you. No extra installation is needed. So convenient, isn't it? Some configurations for the PySpark runtime are needed in order to read files from DataTap.
 
 
 
 ```py
 # python3 kernel
-from pyspark import SparkConf, SparkContext
+from PySpark import SparkConf, SparkContext
 
 # Specify the path of the jars files
 conf = SparkConf().set("spark.jars", "/opt/bdfs/bluedata-dtap.jar")
@@ -104,7 +99,7 @@ sc._jsc.hadoopConfiguration().set('fs.AbstractFileSystem.dtap.impl', 'com.blueda
 
 
 
-After some configuration, your spark engine is connected to the platform and you can now read files from HPE Ezmeral Data Fabric through Data Tap.
+After some configuration, your Spark engine is connected to the platform and you can now read files from HPE Ezmeral Data Fabric through Data Tap.
 
 
 
@@ -116,12 +111,12 @@ text.take(5)
 
 
 
-For reading CSV files as Spark dataframe, run the following commands.
+For reading CSV files as a Spark dataframe, run the following commands:
 
 
 
 ```py
-# Commands for importing pyspark SQL module.
+# Commands for importing PySpark SQL module.
 from pyspark.sql import SparkSession
 
 spark = SparkSession.builder.getOrCreate()
@@ -140,25 +135,24 @@ df.take(3)
 
 
 
-## Data Analytics with pySpark
+## Data analytics with PySpark
+
+With PySpark, you can easily read data from files, cleanse data and do analytics within a Jupyter notebook. To view the entire notebook, click [here](https://github.com/helloezmeral/HPE-Ezmeral-HelloWorld/blob/main/pyspark/pyspark_covidhk.ipynb).
 
 
 
 | Screenshot | Description |
 | --- | ----------- |
 | ![image](https://user-images.githubusercontent.com/72959956/122021467-45b4ea80-cdf8-11eb-8ca4-ffc11c03f1ad.png) | You can run ```df.printSchema()``` to view the schema of your dataframe. |
-| ![image](https://user-images.githubusercontent.com/72959956/122021502-4baacb80-cdf8-11eb-87d3-b29ef643b373.png) | This is the commands for selecting columns of data and filtering according to the criteria.   |
+| ![image](https://user-images.githubusercontent.com/72959956/122021502-4baacb80-cdf8-11eb-87d3-b29ef643b373.png) | These are the commands for selecting columns of data and filtering according to the criteria.   |
 | ![image](https://user-images.githubusercontent.com/72959956/122021550-56fdf700-cdf8-11eb-9c31-e0d171c7406e.png) | Some common commands to interact with your datasets.   |
 | ![image](https://user-images.githubusercontent.com/72959956/122021576-5ebd9b80-cdf8-11eb-9810-36d744560327.png) | Commands for data aggregation.   |
 | ![image](https://user-images.githubusercontent.com/72959956/122021616-667d4000-cdf8-11eb-8400-2dc03f4290f3.png) | Example for visualizing your datasets.  |
 
-To view the entire notebook, click [this](https://github.com/helloezmeral/HPE-Ezmeral-HelloWorld/blob/main/pyspark/pyspark_covidhk.ipynb).
 
 
 
-## Possible Error 
-
-
+## Possible error 
 
 You may encounter the error, "permission denied", when running HDFS commands. To solve this error, you have to "exec" into the pod and change the access mode for the core-site.xml.
 
@@ -168,7 +162,7 @@ You may encounter the error, "permission denied", when running HDFS commands. To
 
 
 
-You can "exec" into it through the Jupyter notebook or using the WebTerminal comes along with HPE ECP. To grap the Kubectl credential from HPE ECP, run the following: 
+You can "exec" into it through the Jupyter notebook or using the WebTerminal that comes along with HPE Ezmeral Container Platform. To grab the Kubectl credential from HPE Ezmeral Container Platform, run the following command:
 
 
 ```bash
@@ -181,7 +175,7 @@ kubectl get pods --namespace=poc-tenant
 
 
 
-Run the following command for accessing the bash of pod.
+Run the following command for accessing the bash of pod:
 
 
 ```bash
@@ -193,7 +187,7 @@ kubectl exec -it testnotebook-controller-6kq7r-0 --namespace=poc-tenant -- /bin/
 
 
 
-Run the following command for changing the access mode.
+Run the following command for changing the access mode:
 
 
 
@@ -204,3 +198,9 @@ chmod 666 /opt/bluedata/hadoop-2.8.5/etc/hadoop/core-site.xml
 
 
 And now you can run the HDFS commands without error.
+
+# Key takeaway
+[TO-DO]
+
+
+[It would be nice if you could add a summary to this post. Perhaps you could say something about "I hope this post offered you some tips on how to make such-and-such easier for you. Keep this notebook handy so you can refer back to it often. Keep an eye out on the HPE DEV blog to make sure you catch future articles on this subject. (hotlink HPE DEV blog site)]
