@@ -247,7 +247,9 @@ As an extra layer of security when using the iSCSI protocol, you can use the Cha
 Being able to confidently store sensitive data on storage systems out of your control over insecure networks is becoming more important in the era of data being the digital oil. With this solution, you can take your keys and walk away without any concern of your volumes (or replicas of them) being stolen, manipulated or sold to third parties.
 
 * Check out the release announcement of [HPE CSI Driver for Kubernetes 2.0.0](https://community.hpe.com/t5/Around-the-Storage-Block/HPE-CSI-Driver-for-Kubernetes-now-available-for-HPE-Alletra/ba-p/7136280)
+
 * Read the documentation on HPE Storage Container Orchestrator Documentation (SCOD) around the [host-based Volume Encryption](https://scod.hpedev.io/csi_driver/using.html#volume_encryption) feature
+
 * Learn about the [new multitenancy feature on HPE Alletra 6000 and Nimble Storage](https://scod.hpedev.io/container_storage_provider/hpe_alletra_6000/index.html#multitenant_deployment) to further improve security of your storage infrastructure
 
 The team hangs out on Slack and is eager to learn about your security challenges. Sign up at [slack.hpedev.io](http://slack.hpedev.io) and login to the community at [hpedev.slack.com](https://hpedev.slack.com), to check out #kubernetes #nimblestorage and #3par-primera.
