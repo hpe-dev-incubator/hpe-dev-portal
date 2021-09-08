@@ -39,11 +39,12 @@ The overview of the Data Services Cloud Console is available at [this link](http
 
 ### Documented Attributes
 
-* **API Name & Description** - Provide short description of the goal for this API with the supported HTTP request method (POST, GET, etc).
-* **API Path** - Provide detail URL path as the end-point to issue the API call.
-* **API Parameters** - Provide the client to input information such as the object for the manipulation, select a filter to limit the returned objects, and other purposes.
-
-
+* **API Name & Description** - Provides short description of the objective for this API with the supported HTTP request method (POST, GET, etc).
+* **API Path** - Provides detail URL path as the end-point to issue the API call.
+* **API Parameter** - Provides the client to input information such as the object for the manipulation, select a filter to limit the returned objects, and other purposes.
+* **API Data/Body/Payload** - This the data passed along in different part of the REST API usually associated with operation such as POST/PATCH/PUT
+* **API Response** - Provides detail response information on the result of the particular API and may include more data in JSON format. 
+* **API Error Codes** - Provide result of the execution of the API, will return either good or error along with the error message due to incorrect, or unauthorized API call.
 
 ### Supported API Categories (Services)
 
