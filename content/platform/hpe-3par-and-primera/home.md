@@ -42,11 +42,12 @@ Puppet module and examples for HPE 3PAR StoreServ.
 
 - [Go to Puppet Forge](https://forge.puppet.com/modules/hewlettpackardenterprise/hpe3par)
 
-### [Prometheus Array Exporter![](Github)](https://github.com/hpe-storage/array-exporter)
+### [Prometheus Array Exporter ![](Github)](https://github.com/hpe-storage/array-exporter)
 
-A Prometheus array exporter that may be deployed as a standalone binary or directly on Kubernetes for automatic discovery of targets.
+A Prometheus array exporter that may be deployed as a standalone binary or directly on Kubernetes. There's also an exporter for the CSI driver that may be deployed separately.
 
-- [Documentation](https://hpe-storage.github.io/array-exporter)
+- [Read the documentation](https://hpe-storage.github.io/array-exporter)
+- [Learn about the CSI info metrics provider on SCOD](https://scod.hpedev.io/csi_driver/metrics.html)
 
 ### [Docker ![](Github)](https://github.com/hpe-storage/python-hpedockerplugin) 
 
