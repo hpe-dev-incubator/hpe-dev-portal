@@ -24,8 +24,8 @@ This REST API is designed for those who wish to achieve the above objectives. Th
 
 Some of the advantages to distributing in OpenAPI 3.0 format:
 
-1. Updates to the API can be generated in more agile manner where documentation are embedded as description to any endpoints, parameters, and many more such as contact information, license, terms of use.
-2. Consumer of this API can also consume this API in an agile manner using the converter from this openAPI format to any language that were used as part of the their automation or CI/CD workflow. (Please check <https://openapi.tools> for more information for the API tools to generate client code)
+1. Updates to the API can be generated in a more agile manner where documentation is embedded, describing any endpoints, parameters, and more; such as contact information, license, terms of use. 
+2. Consumers of this API also gain the benefits the agility, using the converter from openAPI format to any language that were used as part of the their automation or CI/CD workflow. (Please check <https://openapi.tools> for more information for the API tools to generate client code)
 
 ## REST API Details
 
