@@ -22,7 +22,7 @@ Data Services Cloud Console public REST API provides resources for any customers
 
 This REST API is designed for those who wish to achieve the above objectives. The DSCC public API is specified based on the OpenAPI format version 3 ([OpenAPI 3.0 information](https://swagger.io/blog/news/whats-new-in-openapi-3-0/)).  The specification defines a standard, language-agnostic interface to the RESTful API allowing the clients (both human and computer) to consume capabilities of DSCC services efficiently. The API definition is available for download in OpenAPI 3 YAML format at the link mentioned in the next paragraph.
 
-Some of the advantages to distribution in OpenAPI 3.0 format:
+Some of the advantages to distributing in OpenAPI 3.0 format:
 
 1. Updates to the API can be generated in more agile manner where documentation are embedded as description to any endpoints, parameters, and many more such as contact information, license, terms of use.
 2. Consumer of this API can also consume this API in an agile manner using the converter from this openAPI format to any language that were used as part of the their automation or CI/CD workflow. (Please check <https://openapi.tools> for more information for the API tools to generate client code)
