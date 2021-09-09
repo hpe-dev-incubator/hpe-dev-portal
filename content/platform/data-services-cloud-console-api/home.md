@@ -64,7 +64,7 @@ The major version number will be provided in the resource path as "v1" in this e
 /api/v1/<resource group>/...
 ```
 
-Some examples of these resource paths that contain the resource groups under the same root:
+Some examples of these resource paths that contain several resource groups under the same root:
 
 ```markdown
 /api/v1/storage-systems/...
