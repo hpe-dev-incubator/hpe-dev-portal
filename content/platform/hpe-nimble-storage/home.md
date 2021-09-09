@@ -43,17 +43,18 @@ The definitive source for end-user documentation for HPE storage integration wit
 
 - [Explore the SCOD portal](https://scod.hpedev.io/)
 
-### [Prometheus Array Exporter![](Github)](https://github.com/hpe-storage/array-exporter)
+### [Prometheus Array Exporter ![](Github)](https://github.com/hpe-storage/array-exporter)
 
-A Prometheus array exporter that may be deployed as a standalone binary or directly on Kubernetes for automatic discovery of targets.
+A Prometheus array exporter that may be deployed as a standalone binary or directly on Kubernetes. There's also an exporter for the CSI driver that may be deployed separately.
 
-- [Documentation](https://hpe-storage.github.io/array-exporter)
+- [Read the documentation](https://hpe-storage.github.io/array-exporter)
+- [Learn about the CSI info metrics provider on SCOD](https://scod.hpedev.io/csi_driver/metrics.html)
 
 ### [Volume Driver for Kubernetes FlexVolume Plugin ![](Github)](https://github.com/hpe-storage/flexvolume-driver)
 
 Legacy FlexVolume driver for Container Provider-based storage systems, Nimble Storage and Cloud Volumes, for integration with Kubernetes FlexVolume Plugin.
 
-- [View documenation on SCOD](https://scod.hpedev.io/flexvolume_driver/container_provider/index.html)
+- [View documentation on SCOD](https://scod.hpedev.io/flexvolume_driver/container_provider/index.html)
 
 ### [Docker Volume plugin ![](Github)](https://github.com/hpe-storage/common-host-utils/tree/master/cmd/dockervolumed/managedplugin)
 
