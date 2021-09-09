@@ -21,6 +21,7 @@ const TextAlignLeft = styled(Box)`
 function Header() {
   const size = useContext(ResponsiveContext);
   const navLinks = [
+    <ButtonLink key="api" label="Our APIs" to="/api" />,
     <ButtonLink key="os" label="Open Source" to="/opensource" />,
     <DropButton
       label="Our Platforms"
