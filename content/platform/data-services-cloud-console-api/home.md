@@ -93,11 +93,11 @@ Clients will be able to adopt the backward compatibility from the higher major v
 
 ### Authentication
 
-The application for a client can only access this API using the access token obtained from API Gateway after the client successfully authenticate through an associated customer's credential. Once the client register into the API Gateway, the client application will be associated with specific client ID, Client Secret, Access Token, and several other parameters. The Access Token contains the Refresh Token that can be used to refresh the Access Token that has expired. This Access token has expiration time that is defaulted at 7200 seconds (2 hours).
+The client's application can access this API using the access token obtained from API Gateway after the client successfully authenticate through an associated customer's credential. Once the client register into the API Gateway, the client's application will be associated with specific Client ID, Client Secret, Access Token, and several other parameters. The Access Token contains the Refresh Token that can be used to refresh the Access Token that has expired. This Access Token's expiration time is defaulted at 7200 seconds (2 hours).
 
 ### Authorization Policies
 
-The client will receive only the properties that are authorized based on the Role Base Access Control for the user who created the access token. This authorization are derived from the organization and the roles that the user is assigned. The authorization for the client will inherit the user's permission who created the Client Application registration under the API Gateway. Note that subsequent change to the user's permission after the Client Application registered will impact the response returned based on current authority.
+The client can only receive properties from the authorized API Resource based on the Role Base Access Control for the user who created the access token. This authorization are derived from the organization, the capability and the scope (roles) that the user is assigned. The authorization for the client will inherit the user's permission who created the Client Application registration under the API Gateway. Note that subsequent change to the user's permission after the Client Application registered will impact the response returned based on current authority.
 
 ### Asynchronous Response
 
