@@ -1,12 +1,12 @@
 ---
-priority: 3
-width: large
 title: HPE Nimble Storage
 version: v 6.01.8964
 description: The Cloud Ready storage platform with Predictive Analytics that
   provides robust APIs for service providers and tinkerers alike for the next
   generation data center.
 image: /img/platforms/NimbleStorage.svg
+width: large
+priority: 3
 frontpage: true
 tags:
   - hpe-nimble-storage
@@ -40,6 +40,12 @@ A Container Storage Interface (CSI) Driver for Kubernetes. The HPE CSI Driver fo
 The definitive source for end-user documentation for HPE storage integration with Kubernetes, Docker and neighboring partner ecosystems, including the HPE Container Platform.
 
 - [Explore the SCOD portal](https://scod.hpedev.io/)
+
+### [Array Exporter![](Github)](https://github.com/hpe-storage/array-exporter)
+
+A Prometheus scrape target that may be deployed as a standalone binary or directly on Kubernetes for automatic discovery of targets.
+
+- [Documentation](https://hpe-storage.github.io/array-exporter)
 
 ### [Volume Driver for Kubernetes FlexVolume Plugin ![](Github)](https://github.com/hpe-storage/flexvolume-driver)
 
