@@ -14,13 +14,13 @@ Today, every organization are required to unleash the power of data to drive dig
 
 ![Intelligent Data Platform](/img/dscc-high-level-diagram.jpg "DSCC Diagram")
 
-Data Services Cloud Console REST API provides resources for any customers that are looking to enhance their infrastructure management and data-ops using the programmatical extensions from Data Services Cloud Console. Data Services Cloud Console brings the cloud experience wherever data lives and streamlines data management across your hybrid cloud. It provides a suite of cloud services across your edge, core, and cloud to accelerate data, agility, and innovation for everyone, from data managers to data innovators.
+Data Services Cloud Console public REST API provides resources for any customers that are looking to enhance their infrastructure management and data-ops using the programmatical extensions from Data Services Cloud Console. Data Services Cloud Console (DSCC) brings the cloud experience wherever data lives and streamlines data management across your hybrid cloud. It provides a suite of cloud services across your edge, core, and cloud to accelerate data, agility, and innovation for everyone, from data managers to data innovators.
 
 ![DSCC Automation](/img/dscc-api-value.png "API for Automation at Scale")
 
 ## REST API
 
-The REST API is designed for customers, partners or any other external clients to consume these interface to achieve the objectives mentioned above. The Data Services Cloud console public API is specified based on the OpenAPI format version 3 ([OpenAPI 3.0 information](https://swagger.io/blog/news/whats-new-in-openapi-3-0/)).  The specification defines standard, language agnostic interface to RESTful API allowing the clients (both human and computer) to consume capabilities of DSCC services efficiently. The API definition is available for download in OpenAPI 3 yaml format at this link. 
+This REST API is designed for those who wish to achieve the above objectives. The DSCC public API is specified based on the OpenAPI format version 3 ([OpenAPI 3.0 information](https://swagger.io/blog/news/whats-new-in-openapi-3-0/)).  The specification defines a standard, language-agnostic interface to the RESTful API allowing the clients (both human and computer) to consume capabilities of DSCC services efficiently. The API definition is available for download in OpenAPI 3 YAML format at the link mentioned in the next paragraph.
 
 Some of the advantages to distribution in OpenAPI 3.0 format:
 
