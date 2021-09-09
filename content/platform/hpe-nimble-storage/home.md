@@ -41,9 +41,9 @@ The definitive source for end-user documentation for HPE storage integration wit
 
 - [Explore the SCOD portal](https://scod.hpedev.io/)
 
-### [Array Exporter![](Github)](https://github.com/hpe-storage/array-exporter)
+### [Prometheus![](Github)](https://github.com/hpe-storage/array-exporter)
 
-A Prometheus scrape target that may be deployed as a standalone binary or directly on Kubernetes for automatic discovery of targets.
+A Prometheus array exporter that may be deployed as a standalone binary or directly on Kubernetes for automatic discovery of targets.
 
 - [Documentation](https://hpe-storage.github.io/array-exporter)
 
