@@ -48,7 +48,7 @@ The overview of the Data Services Cloud Console is available at [this link](http
 
 ### Supported API Categories (Services)
 
-The API categories for DSCC grows in accordance to the expansion of the DSCC services that are going to released in future. Current services that are available as recorded today is:
+The API categories for DSCC grows in accordance to the expansion of the DSCC services that are going to released in future. Current services that are available, as recorded today:
 
 1. DataOps Manager
 2. Event Audit
@@ -58,13 +58,13 @@ The API categories for DSCC grows in accordance to the expansion of the DSCC ser
 
 ### Versioning
 
-The major version number will be provided in the resource path as v1 in this example:
+The major version number will be provided in the resource path as "v1" in this example:
 
 ```md
 /api/v1/<resource group>/...
 ```
 
-Some examples of these resource paths:
+Some examples of these resource paths that contain the resource groups under the same root:
 
 ```markdown
 /api/v1/storage-systems/...
@@ -73,8 +73,6 @@ Some examples of these resource paths:
 
 /api/v1/volumes/...
 ```
-
-Some examples of the resource groups under the same root:
 
 Clients will be able to adopt the backward compatibility from the higher major version incremental.  However, both the new and old version of API will be supported until the announcement of the deprecation. Nonetheless, the older major version will always be frozen with exception of bug fixes. There will also be announcement of deprecation in the header and sunset header. 
 
