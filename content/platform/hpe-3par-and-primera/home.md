@@ -1,12 +1,12 @@
 ---
-priority: 3
-width: large
 title: HPE 3PAR and Primera
 version: v 2.01.8964
 description: The world's most intelligent storage for mission-critical apps that
   provides an on-demand experience for instant access to data and is consumable
   as a service.
 image: /img/platforms/3PAR -Primera.svg
+width: large
+priority: 3
 frontpage: true
 tags:
   - hpe-3par-and-primera
@@ -17,7 +17,6 @@ Power your mission-critical apps with extreme resiliency and unprecedented simpl
 * Predictive acceleration safely consolidates every mission-critical app onto the same platform with extreme low-latency performance
 
 ## Projects
-
 
 SDKs, Plugins and Language Bindings
 
@@ -42,6 +41,12 @@ The HPE 3PAR and Primera modules for Ansible to enable automation of storage pro
 Puppet module and examples for HPE 3PAR StoreServ.
 
 - [Go to Puppet Forge](https://forge.puppet.com/modules/hewlettpackardenterprise/hpe3par)
+
+### [Prometheus![](Github)](https://github.com/hpe-storage/array-exporter)
+
+A Prometheus array exporter that may be deployed as a standalone binary or directly on Kubernetes for automatic discovery of targets.
+
+- [Documentation](https://hpe-storage.github.io/array-exporter)
 
 ### [Docker ![](Github)](https://github.com/hpe-storage/python-hpedockerplugin) 
 
