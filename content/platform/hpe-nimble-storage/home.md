@@ -21,6 +21,8 @@ HPE Nimble Storage customers and partners have full access to the REST API of th
 
 # Projects
 
+Plugins, SDKs and documentation.
+
 ### [CSI Driver ![](Github)](https://github.com/hpe-storage/csi-driver)
 
 A Container Storage Interface (CSI) Driver for Kubernetes. The HPE CSI Driver for Kubernetes allows you to use a Container Storage Provider to perform data management operations on storage resources.
