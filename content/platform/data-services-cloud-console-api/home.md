@@ -95,11 +95,11 @@ Clients will be able to adopt the backward compatibility from the higher major v
 
 ### Authentication
 
-Client can only access this API after the client successfully authenticate through the customer's credential 
+Client can only access this API after the client successfully authenticate through the customer's credential. Authentication for DSCC is based on the Auth0  
 
-### Relationship Authorization
+### Authorization Policies
 
-The client will receive only the properties that are authorized based on the Role Base Access Control for the user who created the access token. The authorization for the client will inherit the user's permission who created the Client Application registration under the API Gateway. Note that subsequent change to the user's permission after the Client Application registered will impact the response returned based on current authority.
+The client will receive only the properties that are authorized based on the Role Base Access Control for the user who created the access token. This authorization are derived from the organization and the roles that the user is assigned. The authorization for the client will inherit the user's permission who created the Client Application registration under the API Gateway. Note that subsequent change to the user's permission after the Client Application registered will impact the response returned based on current authority.
 
 ### Asynchronous Response
 
