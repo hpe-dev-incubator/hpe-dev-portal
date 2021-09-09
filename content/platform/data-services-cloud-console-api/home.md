@@ -95,7 +95,7 @@ Clients will be able to adopt the backward compatibility from the higher major v
 
 ### Authentication
 
-Client can only access this API using the access token obtained from API Gateway after the client successfully authenticate through the customer's credential. Once the client register into the API Gateway, the client application will be associated with specific client ID, Client Secret, Access Token, and several other parameters. The Access Token contains the Refresh Token that can be used to refresh the Access Token that has expired. This Access token has expiration time that is defaulted at 7200 seconds (2 hours).
+The application for a client can only access this API using the access token obtained from API Gateway after the client successfully authenticate through an associated customer's credential. Once the client register into the API Gateway, the client application will be associated with specific client ID, Client Secret, Access Token, and several other parameters. The Access Token contains the Refresh Token that can be used to refresh the Access Token that has expired. This Access token has expiration time that is defaulted at 7200 seconds (2 hours).
 
 ### Authorization Policies
 
