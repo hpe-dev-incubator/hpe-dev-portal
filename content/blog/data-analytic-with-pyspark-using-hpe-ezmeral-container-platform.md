@@ -8,7 +8,7 @@ tags:
   - hpe-ezmeral-container-platform
   - hpe-ezmeral-data-fabric
 ---
-PySpark is an interface for Apache Spark in Python. [Apache Spark](https://spark.apache.org/) is a unified analytics engine for big data processing. It allows developers to perform data processing on files in a distributed filesystem, like the Hadoop distributed filesystem or HPE Ezmeral Data Fabric (formerly known as MapR-XD). Setting up a Spark environment is always a pain for data scientists. HPE Ezmeral Container Platform can make this much easier. You can run Spark with Apache Livy and Spark operator, or you can directly run a Spark job with the PySpark module. "In this post, I will focus on running Spark jobs using the PySpark module. For those who want to squeeze the best performance out of Spark, visit this [post](https://developer.hpe.com/blog/on-premise-adventures-how-to-build-an-apache-spark-lab-on-kubernetes/).
+PySpark is an interface for Apache Spark in Python. [Apache Spark](https://spark.apache.org/) is a unified analytics engine for big data processing. It allows developers to perform data processing on files in a distributed filesystem, like the Hadoop distributed filesystem or HPE Ezmeral Data Fabric (formerly known as MapR-XD). Setting up a Spark environment is always a pain for data scientists. Hopefully, HPE Ezmeral Container Platform can make this much easier. You can run Apache Spark Jobs on Kubernetes managed clusters in the HPE Ezmeral Container Platform. The HPE Ezmeral Container Platform provides you access to a wealth of MLOps tools such as Apache Spark Operator and things like a [Kubedirector](https://kubedirector.io/) Jupyter Notebook where you will do your Data Science work and interact with the Apache Spark Operator to run your Apache Spark jobs. Once logged in as an MLOps tenant member, you can deploy an instance of Jupyter Notebook. From the Jupyter Notebook, you can run Spark jobs with either Apache Livy to make REST API calls to Spark Operator and Spark operator, or you can directly run a Spark job against the Spark Operator with the PySpark module. In this post, I will focus on running simple Spark jobs using the PySpark module on a Jupyter Notebook cluster instance deployed on HPE Ezmeral Container Platform. For those who want to squeeze the best performance out of Spark and run Spark Jobs with Apache Livy, visit this [post](https://developer.hpe.com/blog/on-premise-adventures-how-to-build-an-apache-spark-lab-on-kubernetes/).
 
 
 
@@ -36,7 +36,7 @@ Switching to the Notebook Endpoints tab, you can see that the access points are 
 
 ![image](https://user-images.githubusercontent.com/72959956/120460678-ea343700-c3cb-11eb-9aef-8afc9252d471.png)
 
-Different kernels are already installed for you. No matter which languages you are using, there will be one that suits your ML project. Notice that PySpark kernel is used for Spark with Livy and Spark Operator. To run a simple Spakr job, just use the Python3 kernel and import the PySpark module manually.
+Different kernels are already installed for you. No matter which languages you are using, there will be one that suits your ML project. Notice that PySpark kernel is used for Spark with Livy and Spark Operator. To run a simple Spark job, just use the Python3 kernel and import the PySpark module manually.
 
 
 ![image](https://user-images.githubusercontent.com/72959956/120460537-cc66d200-c3cb-11eb-8410-3b7ec95051d5.png)
@@ -197,7 +197,7 @@ chmod 666 /opt/bluedata/hadoop-2.8.5/etc/hadoop/core-site.xml
 ```
 
 
-And now you can run the HDFS commands without error.
+And now you can run the HDFS command without error.
 
 # Key takeaway
 [TO-DO]
