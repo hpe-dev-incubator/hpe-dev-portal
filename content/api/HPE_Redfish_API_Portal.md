@@ -1,7 +1,7 @@
 ---
           title: "HPE Redfish API Portal"
-          link: /platform/hpe-ezmeral-container-platform/home/
-          description: Helps deploy and manage stateful applications on Kubernetes.
+          link: https://redfishdocsproto.redoc.ly/
+          description: Manage your datacenter with Redfish® today!
           priority: 2
           image: '/img/platforms/iLOrestfulAPI.svg'
           Featured: true

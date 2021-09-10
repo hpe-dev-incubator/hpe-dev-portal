@@ -32,10 +32,10 @@ function ApiPage({ data }) {
   const siteTitle = siteMetadata.title;
   return (
     <Layout title={siteTitle}>
-      <SEO title="Open Source" />
+      <SEO title="Browse APIs" />
       <PageDescription
         image="/img/opensource/opensource.svg"
-        title="API Portal"
+        title="Browse APIs"
         alignSelf="start"
         alt="api logo"
       >
@@ -89,7 +89,7 @@ export const pageQuery = graphql`
   query {
     allMarkdownRemark(
       filter: { fields: { sourceInstanceName: { eq: "api" } } }
-      sort: { fields: [frontmatter___title] }
+      sort: { order: ASC, fields: [frontmatter___priority] }
     ) {
       edges {
         node {
