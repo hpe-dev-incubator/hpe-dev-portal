@@ -9,6 +9,27 @@ frontpage: true
 tags:
   - hpe-oneview
 ---
+<style>
+  .button {
+    background-color: rgba(23,235,160,1);
+    box-sizing: border-box;
+    color: #000000; 
+    font-size: 18px; 
+    display: inline-block;
+    padding: 6px 12px;
+    vertical-align: middle;
+    overflow: hidden;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    white-space: nowrap;
+    border-radius: 4px;
+    border: none;
+    margin: 0;
+    line-height: 24px;
+    font-weight: 700;
+  } 
+</style>
 ## HPE OneView Developers Hub
 
 [HPE OneView](https://hpe.com/info/oneview) takes a software-defined, programmatic approach to managing infrastructure with efficient workflow automation, a modern RESTful API, and a comprehensive partner ecosystem.
@@ -185,7 +206,7 @@ Take advantage of our free, Jupyter-Notebook based Workshops-on-Demand available
 
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <div class="w3-container w3-center w3-margin-bottom">
-  <a href="https://hackshack.hpedev.io/workshops"><button type="button" class="w3-btn w3-teal">Try now!</button></a>
+  <a href="https://hackshack.hpedev.io/workshops"><button type="button" class="button">Try now!</button></a>
 </div>
 - - -
 

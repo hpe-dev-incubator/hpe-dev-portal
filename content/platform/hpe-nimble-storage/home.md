@@ -11,6 +11,27 @@ frontpage: true
 tags:
   - hpe-nimble-storage
 ---
+<style>
+  .button {
+    background-color: rgba(23,235,160,1);
+    box-sizing: border-box;
+    color: #000000; 
+    font-size: 18px; 
+    display: inline-block;
+    padding: 6px 12px;
+    vertical-align: middle;
+    overflow: hidden;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    white-space: nowrap;
+    border-radius: 4px;
+    border: none;
+    margin: 0;
+    line-height: 24px;
+    font-weight: 700;
+  } 
+</style>
 HPE Nimble Storage customers and partners have full access to the REST API of the arrays. We also provide open source projects for various automation platforms, language SDKs and container ecosystems.
 
 * [HPE Nimble Storage REST API hosted on HPE InfoSight](https://infosight.hpe.com/InfoSight/media/cms/active/public/pubs_REST_API_Reference_NOS_53x.whz)
@@ -128,7 +149,7 @@ Take advantage of our free, Jupyter-Notebook based Workshops-on-Demand available
 
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <div class="w3-container w3-center w3-margin-bottom">
-  <a href="https://hackshack.hpedev.io/workshops"><button type="button" class="w3-btn w3-teal">Try now!</button></a>
+  <a href="https://hackshack.hpedev.io/workshops" style="box-shadow: none;"><button type="button" class="button"><b>Try Now!</b></button></a>
 </div>
 - - -
 
