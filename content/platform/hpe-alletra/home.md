@@ -40,6 +40,13 @@ The definitive source for end-user documentation using Kubernetes and neighborin
 
 - [Explore the SCOD portal](https://scod.hpedev.io/)
 
+## [Prometheus Array Exporter ![](Github)](https://github.com/hpe-storage/array-exporter)
+
+A Prometheus array exporter that may be deployed as a standalone binary or directly on Kubernetes. There's also an exporter for the CSI driver that may be deployed separately.
+
+- [Read the documentation](https://hpe-storage.github.io/array-exporter)
+- [Learn about the CSI info metrics provider on SCOD](https://scod.hpedev.io/csi_driver/metrics.html)
+
 # Workshops-on-Demand
 
 Take advantage of our free, Jupyter-Notebook based Workshops-on-Demand available in the [Hack Shack](https://hackshack.hpedev.io/). These technical workshops provide you with an in-depth, hands-on learning experience where you can interact with and learn from the experts. Designed to fit your schedule, these workshops are available 24/7 – any time, from anywhere. A CSI workshop for HPE Alletra is available today.
