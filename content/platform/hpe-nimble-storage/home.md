@@ -1,12 +1,12 @@
 ---
-priority: 3
-width: large
 title: HPE Nimble Storage
 version: v 6.01.8964
 description: The Cloud Ready storage platform with Predictive Analytics that
   provides robust APIs for service providers and tinkerers alike for the next
   generation data center.
 image: /img/platforms/NimbleStorage.svg
+width: large
+priority: 3
 frontpage: true
 tags:
   - hpe-nimble-storage
@@ -20,6 +20,8 @@ HPE Nimble Storage customers and partners have full access to the REST API of th
 * [Explore the HPE Cloud Volumes REST API](https://docs.cloudvolumes.hpe.com/help/rest/api-overview/)
 
 # Projects
+
+Plugins, SDKs and documentation.
 
 ### [CSI Driver ![](Github)](https://github.com/hpe-storage/csi-driver)
 
@@ -41,11 +43,18 @@ The definitive source for end-user documentation for HPE storage integration wit
 
 - [Explore the SCOD portal](https://scod.hpedev.io/)
 
+### [Prometheus Array Exporter ![](Github)](https://github.com/hpe-storage/array-exporter)
+
+A Prometheus array exporter that may be deployed as a standalone binary or directly on Kubernetes. There's also an exporter for the CSI driver that may be deployed separately.
+
+- [Read the documentation](https://hpe-storage.github.io/array-exporter)
+- [Learn about the CSI info metrics provider on SCOD](https://scod.hpedev.io/csi_driver/metrics.html)
+
 ### [Volume Driver for Kubernetes FlexVolume Plugin ![](Github)](https://github.com/hpe-storage/flexvolume-driver)
 
 Legacy FlexVolume driver for Container Provider-based storage systems, Nimble Storage and Cloud Volumes, for integration with Kubernetes FlexVolume Plugin.
 
-- [View documenation on SCOD](https://scod.hpedev.io/flexvolume_driver/container_provider/index.html)
+- [View documentation on SCOD](https://scod.hpedev.io/flexvolume_driver/container_provider/index.html)
 
 ### [Docker Volume plugin ![](Github)](https://github.com/hpe-storage/common-host-utils/tree/master/cmd/dockervolumed/managedplugin)
 
