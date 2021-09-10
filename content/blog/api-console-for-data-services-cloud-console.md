@@ -19,7 +19,7 @@ The access token have a limited lifetime (about 720 seconds or 2 hours). Once it
 
 ## Accessing the API Gateway Console
 
-To access the API console, user must login into the [GreenLake Common Cloud](https:\common.cloud.hpe.com), and deployed the Data Services Common Cloud Console Application into the organization that is associated with the user account. The **APIs** Gateway console will be available in the **Manage Account** menu.
+To access the API console, user must login into the [GreenLake Common Cloud](https:\common.cloud.hpe.com), and deployed the Data Services Common Cloud Console Application into the organization that is associated with the user account. The **API** **Gateway** menu is available inside **Manage Account** menu.
 
 ![CCS Menu](/img/how-to-get-to-api-gateway.png "GreenLake Common Cloud Menu")
 
