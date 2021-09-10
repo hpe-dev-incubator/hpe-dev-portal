@@ -26,7 +26,7 @@ As you can see below, you must specify the name of the Jupyter Notebook cluster.
 
 
 
-![image](https://user-images.githubusercontent.com/72959956/120460214-801b9200-c3cb-11eb-94c0-e86bb70dad57.png)
+![image](https://user-images.githubusercontent.com/72959956/132812471-d1ce5ce8-0d47-41ae-bd96-879262018f84.png)
 
 
 
@@ -200,7 +200,5 @@ chmod 666 /opt/bluedata/hadoop-2.8.5/etc/hadoop/core-site.xml
 And now you can run the HDFS command without error.
 
 # Key takeaway
-[TO-DO]
-
-
-[It would be nice if you could add a summary to this post. Perhaps you could say something about "I hope this post offered you some tips on how to make such-and-such easier for you. Keep this notebook handy so you can refer back to it often. Keep an eye out on the HPE DEV blog to make sure you catch future articles on this subject. (hotlink HPE DEV blog site)]
+I hope this post offered you some tips on how to do big data analytics using Apache Spark Python API. Less time spending on setting up environment, more time on digging business insight from data. Keep this notebook handy so you can refer back to it often. Keep an eye out on [HPE DEV blog](https://developer.hpe.com/blog) to make sure you catch future articles on this subject.
+
