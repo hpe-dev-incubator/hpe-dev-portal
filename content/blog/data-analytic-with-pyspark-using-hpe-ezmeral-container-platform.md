@@ -12,17 +12,17 @@ PySpark is an interface for Apache Spark in Python. [Apache Spark](https://spark
 
 
 
-## Preparing the Notebook Cluster
+## Preparing the Jupyter Notebook Cluster
 
 
-First, we have to prepare our favorite Jupyter environment. Inside a MLOps tenant, navigate to Notebooks tab. You will see a Jupyter KubeDirector app prepared for you. After clicking the "Launch" button, you will need to configure the compute resource needed.
+First, we have to prepare our favorite Jupyter Notebook environment. Inside a MLOps tenant, navigate to Notebooks tab. You will see a Jupyter Notebook KubeDirector app prepared for you. After clicking the "Launch" button, you will need to configure the compute resource needed.
 
 
 ![image](https://user-images.githubusercontent.com/72959956/120459929-39c63300-c3cb-11eb-9e7a-65189f4367d3.png)
 
 
 
-As you can see below, you must specify the name of the notebook. Click 'Enable DataTap' to expand access to shared data by specifying a named path to a specified storage resource.
+As you can see below, you must specify the name of the Jupyter Notebook cluster. Click 'Enable DataTap' to expand access to shared data by specifying a named path to a specified storage resource.
 
 
 
@@ -36,7 +36,7 @@ Switching to the Notebook Endpoints tab, you can see that the access points are 
 
 ![image](https://user-images.githubusercontent.com/72959956/120460678-ea343700-c3cb-11eb-9aef-8afc9252d471.png)
 
-Different kernels are already installed for you. No matter which languages you are using, there will be one that suits your ML project. Notice that PySpark kernel is used for Spark with Livy and Spark Operator. To run a simple Spark job, just use the Python3 kernel and import the PySpark module manually.
+Different kernels are already installed for you. No matter which languages you are using, there will be one that suits your ML project. There are two kernels which are Python related, i.e. Python3 and PySpark kernel. Python3 kernel is the kernel for you to run single node workloads while PySpark kernel, connected with Spark Operator and Livy, is the kernel for you to run distributed workloads. In this post, I am running a simple Spark job. So I will pick the Python3 kernel and import the PySpark module in the runtime.
 
 
 ![image](https://user-images.githubusercontent.com/72959956/120460537-cc66d200-c3cb-11eb-8410-3b7ec95051d5.png)
@@ -53,7 +53,7 @@ Imagine that you have a very large CSV file ready for analysis. You need to put 
 
 
 
-The other way to do this would be to drag the file to the left panel of the Jupyter Lab and run the following commands to put the file to the "TenantStorage" through DataTap.
+The other way to do this would be to drag the file to the left panel of the local Jupyter Notebook cluster and run the following HDFS commands to put the file to the "TenantStorage" through DataTap.
 
 
 
