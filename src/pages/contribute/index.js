@@ -1,28 +1,26 @@
 import React from 'react';
-import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { graphql, navigate } from 'gatsby';
-import { Box, Text, Heading, Card, Image, Anchor } from 'grommet';
+import {
+  Box,
+  Text,
+  Heading,
+  Card,
+  Image,
+  Anchor,
+  Markdown,
+  Paragraph,
+} from 'grommet';
 import { FormPreviousLink } from 'grommet-icons';
 import {
   Content,
   Layout,
-  Markdown,
   SEO,
   ButtonLink,
   PageDescription,
   ResponsiveGrid,
 } from '../../components';
 import { useSiteMetadata } from '../../hooks/use-site-metadata';
-
-// Remove padding or margin from first markdown element.
-// This allows the heading and content to have the same gap.
-const MarkdownLayout = styled(Markdown)`
-  & > *:first-child {
-    margin-top: 0;
-    padding-top: 0;
-  }
-`;
 
 const columns = {
   small: ['auto'],
@@ -45,6 +43,17 @@ function Contribute({ data }) {
   const { rawMarkdownBody } = post;
   const { title, templateCards } = post.frontmatter;
 
+  const components = {
+    p: {
+      component: Paragraph,
+      props: {
+        style: {
+          maxWidth: '100%',
+        },
+      },
+    },
+  };
+
   return (
     <Layout title={siteTitle}>
       <SEO title={title} />
@@ -53,17 +62,17 @@ function Contribute({ data }) {
         title={title}
         alt="blog page logo"
       >
-        <Text size="xxlarge" margin={{ top: 'small' }}>
+        <Text size="large" margin={{ top: 'small' }}>
           Sharing expertise is a great way to move technology forward.
         </Text>
-        <Text size="xxlarge" margin={{ bottom: 'medium' }}>
+        <Text size="large" margin={{ bottom: 'medium' }}>
           We want to hear from you.
         </Text>
-        <Text size="xxlarge" margin={{ top: 'small', bottom: 'medium' }}>
+        <Text size="large" weight="bold" margin={{ bottom: '-15px' }}>
           Follow the simple steps below to contribute to the HPE Developer blog.
         </Text>
-        <Content gap="large" margin={{ vertical: 'medium' }} width="large">
-          <MarkdownLayout>{rawMarkdownBody}</MarkdownLayout>
+        <Content width="large">
+          <Markdown components={components}>{rawMarkdownBody}</Markdown>
         </Content>
         <Box
           border={{ side: 'horizontal', size: 'small' }}
