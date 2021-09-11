@@ -14,7 +14,7 @@ import {
   Text,
 } from 'grommet';
 import { navigate } from 'gatsby';
-import { cardComponents } from '..';
+import { cardComponents, eventComponents } from '..';
 
 // Remove padding or margin from first markdown element.
 // This allows the heading and content to have the same gap.
@@ -89,6 +89,8 @@ const bases = {
   large: '2/3',
 };
 
+const pathname = typeof window !== 'undefined' ? window.location.pathname : '';
+
 export const Card = ({
   category,
   content,
@@ -140,7 +142,11 @@ export const Card = ({
             )}
             {content && (
               <Box gridArea="content">
-                <MarkdownLayout components={cardComponents}>
+                <MarkdownLayout
+                  components={
+                    pathname === '/events/' ? eventComponents : cardComponents
+                  }
+                >
                   {content}
                 </MarkdownLayout>
               </Box>

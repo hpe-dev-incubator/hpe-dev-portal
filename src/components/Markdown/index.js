@@ -153,6 +153,12 @@ export const titleComponents = deepMerge(cardComponents, {
   },
 });
 
+export const eventComponents = deepMerge(cardComponents, {
+  a: {
+    component: Anchor,
+  },
+});
+
 export const Markdown = (props) => (
   <GrommetMarkdown components={components} {...props} />
 );
