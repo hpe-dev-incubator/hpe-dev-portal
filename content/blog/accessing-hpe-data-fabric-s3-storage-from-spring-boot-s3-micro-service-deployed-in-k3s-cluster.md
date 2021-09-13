@@ -100,10 +100,8 @@ Note: Alternatively , we can use podman instead of docker to create images. More
 
 Accessing the Swagger UI from the pod
 
-1.    <!--\\\\\\\[endif]-->Connect to the pod http://pod-ip:8000/swagger-ui.html
+1.       Connect to the pod http://pod-ip:8000/swagger-ui.html
 
-<!--\\\\\\\[if !supportLists]-->
-
-2.    <!--\\\\\\\[endif]-->Verify the services exposed in the Swagger-UI
+2.      Verify the services exposed in the Swagger-UI
 
 ![Swagger UI](/img/swagger-ui.png)
