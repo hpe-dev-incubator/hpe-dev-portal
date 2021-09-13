@@ -122,4 +122,4 @@ Accessing the Swagger UI from the pod
 
 2.    <!--\\\\\\[endif]-->Verify the services exposed in the Swagger-UI
 
-![](/img/swagger-ui.png)
+![Swagger UI](/img/swagger-ui.png)
