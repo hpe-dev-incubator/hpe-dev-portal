@@ -25,11 +25,11 @@ The brief description of technology stack used is described below sections :
 
 **Data Fabric Object Storage**
 
-The Object Store with S3-Compatible API stores data generated through multiple data protocols, such as NFS, POSIX, S3, and HDFS. Data in the Object Store is accessible through S3 API requests. The Object Store manages all inbound S3 API requests to store data in or retrieve data from an HPE Ezmeral Data Fabric cluster. More details can be found at <https://docs.datafabric.hpe.com/62/MapRObjectStore/MapRObjectStorewithS3-compatibleAPI.html>
+The Object Store with S3-Compatible API stores data generated through multiple data protocols, such as NFS, POSIX, S3, and HDFS. Data in the Object Store is accessible through S3 API requests. The Object Store manages all inbound S3 API requests to store data in or retrieve data from an HPE Ezmeral Data Fabric cluster. More details can be found [here.](<https://docs.datafabric.hpe.com/62/MapRObjectStore/MapRObjectStorewithS3-compatibleAPI.html>)
 
 **K3S**
 
-K3S is Lightweight Kubernetes. Easy to install, half the memory, all in a binary of less than 100 MB. Its Great for Edge and IOT use cases. More information on K3S can be found at <https://rancher.com/docs/k3s/latest/en/> . Follow the steps as mentioned in <https://rancher.com/docs/k3s/latest/en/quick-start/> for installation of K3S cluster. 
+K3S is Lightweight Kubernetes. Easy to install, half the memory, all in a binary of less than 100 MB. Its Great for Edge and IOT use cases. More information on K3S can be found at <https://rancher.com/docs/k3s/latest/en/> . Follow the steps as mentioned in [quick start guide](https://rancher.com/docs/k3s/latest/en/quick-start/) [](https://rancher.com/docs/k3s/latest/en/quick-start/) for installation of K3S cluster. 
 
 **Spring Boot**
 
