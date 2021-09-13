@@ -90,23 +90,17 @@ Note: Alternatively , we can use podman instead of docker to create images. More
 
 **Deploying in K3S cluster**
 
-<!--\\\\\\\[if !supportLists]-->1.    <!--\\\\\\\[endif]-->Login to control plane node of K3S cluster. Create/Copy the df-s3-springboot-k3s-demo.yaml  to the node.
+1.      Login to control plane node of K3S cluster. Create/Copy the df-s3-springboot-k3s-demo.yaml  to the node.
 
-<!--\\\\\\\[if !supportLists]-->
+2.      Execute “kubectl apply -f df-s3-springboot-k3s-demo.yaml”. if required we can specify the namespace option.
 
-2.    <!--\\\\\\\[endif]-->Execute “kubectl apply -f df-s3-springboot-k3s-demo.yaml”. if required we can specify the namespace option.
+3.      Check the pod creation status by using command “kubectl get pods -l app=df-s3-springboot-k3s-demo -o wide”
 
-<!--\\\\\\\[if !supportLists]-->
-
-3.    <!--\\\\\\\[endif]-->Check the pod creation status by using command “kubectl get pods -l app=df-s3-springboot-k3s-demo -o wide”
-
-<!--\\\\\\\[if !supportLists]-->
-
-4.    <!--\\\\\\\[endif]-->Verify if the services are properly deployed by using command “kubectl get service df-s3-springboot-k3s-demo-service”
+4.      Verify if the services are properly deployed by using command “kubectl get service df-s3-springboot-k3s-demo-service”
 
 Accessing the Swagger UI from the pod
 
-<!--\\\\\\\[if !supportLists]-->1.    <!--\\\\\\\[endif]-->Connect to the pod http://pod-ip:8000/swagger-ui.html
+1.    <!--\\\\\\\[endif]-->Connect to the pod http://pod-ip:8000/swagger-ui.html
 
 <!--\\\\\\\[if !supportLists]-->
 
