@@ -50,7 +50,7 @@ In this blog, we will checkout Spring Boot application from Git , customise it a
 
 **Build and Install Steps**
 
-<!--\\\\\[if !supportLists]-->1.    <!--\\\\\[endif]-->Check out the code from git <https://github.hpe.com/kiran-mavatoor/df-s3-springboot-k3s-demo>  and go the project directory.
+<!--\\\\\[if !supportLists]-->1.    <!--\\\\\[endif]-->Check out  an existing Spring Boot application from [github](<https://github.hpe.com/kiran-mavatoor/df-s3-springboot-k3s-demo>).
 
 <!--\\\\\[if !supportLists]-->
 
@@ -76,7 +76,7 @@ Note:- This value can be configured using config-map.yaml in K3S cluster.
 
 <!--\\\\\[if !supportLists]-->7.    <!--\\\\\[endif]-->Execute below docker commands to build docker image and push it to docker hub. 
 
-Note:- We can use podman instead of docker to create images. More information on podman can be obtained from [here](https://developers.redhat.com/blog/2020/11/19/transitioning-from-docker-to-podman#transition_to_the_podman_cli) [](https://developers.redhat.com/blog/2020/11/19/transitioning-from-docker-to-podman#transition_to_the_podman_cli)
+Note: Alternatively , we can use podman instead of docker to create images. More information on podman can be obtained from [here](https://developers.redhat.com/blog/2020/11/19/transitioning-from-docker-to-podman#transition_to_the_podman_cli) [](https://developers.redhat.com/blog/2020/11/19/transitioning-from-docker-to-podman#transition_to_the_podman_cli)
 
 |     |
 | --- |
@@ -88,7 +88,7 @@ Note:- We can use podman instead of docker to create images. More information on
 | --- |
 |     |
 
-<!--\\\\\[if !supportLists]-->9.    <!--\\\\\[endif]-->Before deploying it in Kubernetes cluster, we can validate the docker or podman image by running the image. 
+<!--\\\\\[if !supportLists]-->9.    <!--\\\\\[endif]-->Before deploying it in Kubernetes cluster, validate the docker or podman image by running the image. 
 
 ```
 
