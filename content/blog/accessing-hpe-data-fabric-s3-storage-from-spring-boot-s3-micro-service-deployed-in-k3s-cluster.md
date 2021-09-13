@@ -28,7 +28,7 @@ The Object Store with S3-Compatible API stores data generated through multiple
 
 **K3S**
 
-K3S is Lightweight Kubernetes. Easy to install, half the memory, all in a binary of less than 100 MB. Its Great for Edge and IOT use cases. More information on K3S can be found at <https://rancher.com/docs/k3s/latest/en/> . Follow the steps as mentioned in [quick start guide](https://rancher.com/docs/k3s/latest/en/quick-start/) [](https://rancher.com/docs/k3s/latest/en/quick-start/) for installation of K3S cluster. 
+K3S is Lightweight Kubernetes. Easy to install, half the memory, all in a binary of less than 100 MB. Its Great for Edge and IOT use cases. More information on K3S can be found at [Rancher](<https://rancher.com/docs/k3s/latest/en/>) site[](https://rancher.com/docs/k3s/latest/en/) . Follow the steps as mentioned in [QuickStart Guide](https://rancher.com/docs/k3s/latest/en/quick-start/) [](https://rancher.com/docs/k3s/latest/en/quick-start/) for installation of K3S cluster. 
 
 **Spring Boot**
 
@@ -98,7 +98,7 @@ Note: Alternatively , we can use podman instead of docker to create images. More
 
 4.      Verify if the services are properly deployed by using command “kubectl get service df-s3-springboot-k3s-demo-service”
 
-Accessing the Swagger UI from the pod
+**Accessing the Swagger UI from the pod**
 
 1.       Connect to the pod http://pod-ip:8000/swagger-ui.html
 
