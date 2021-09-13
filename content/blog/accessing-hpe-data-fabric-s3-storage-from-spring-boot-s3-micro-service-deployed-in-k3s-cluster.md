@@ -16,9 +16,9 @@ tags:
 ---
 Object Store is a S3 storage service offered by HPE Ezmeral Data Fabric Platform that offers scalable, secure, and well performing object storage. In this article, we will discuss as how to access HPE Ezmeral Data Fabric Object Store (S3) using Spring Boot S3 Micro Service application deployed in [K3S cluster](https://k3s.io/) and perform basic S3 operations like upload, list, delete etc. Below diagram gives the architecture overview 
 
-![Timeline
 
-Description automatically generated](blob:https://hpe-dev-portal.netlify.app/48945ed2-01ab-482a-b7f7-fd955b0b51bd)
+
+![](/img/hpe-ezmeral-data-fabric-s3-springboot-k3s.png)
 
 Figure 1:  Architecture overview of Spring Boot S3 Micro Service on K3S with HPE Data Fabric S3 Storage as back end.
 
@@ -78,7 +78,9 @@ Note:- This value can be configured using config-map.yaml in K3S cluster.
 
 <!--\\\\[if !supportLists]-->7.    <!--\\\\[endif]-->Execute below docker commands to build docker image and push it to docker hub. 
 
-Note:- We can use podman instead of docker to create images. More information on podman can be obtained from <https://developers.redhat.com/blog/2020/11/19/transitioning-from-docker-to-podman#transition_to_the_podman_cli>
+Note:- We can use podman instead of docker to create images. More information on podman can be obtained from [here](<https://developers.redhat.com/blog/2020/11/19/transitioning-from-docker-to-podman#transition_to_the_podman_cli>) [](https://developers.redhat.com/blog/2020/11/19/transitioning-from-docker-to-podman#transition_to_the_podman_cli)
+
+![]()
 
 |     |
 | --- |
