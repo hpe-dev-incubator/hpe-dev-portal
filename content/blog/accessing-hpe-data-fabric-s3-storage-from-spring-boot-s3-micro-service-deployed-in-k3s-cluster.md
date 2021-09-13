@@ -80,8 +80,6 @@ Note:- This value can be configured using config-map.yaml in K3S cluster.
 
 Note:- We can use podman instead of docker to create images. More information on podman can be obtained from [here](<https://developers.redhat.com/blog/2020/11/19/transitioning-from-docker-to-podman#transition_to_the_podman_cli>) [](https://developers.redhat.com/blog/2020/11/19/transitioning-from-docker-to-podman#transition_to_the_podman_cli)
 
-![]()
-
 |     |
 | --- |
 |     |
@@ -125,3 +123,7 @@ Accessing the Swagger UI from the pod
 <!--\\\\[if !supportLists]-->
 
 2.    <!--\\\\[endif]-->Verify the services exposed in the Swagger-UI
+
+
+
+![](/img/swagger-ui.png)
