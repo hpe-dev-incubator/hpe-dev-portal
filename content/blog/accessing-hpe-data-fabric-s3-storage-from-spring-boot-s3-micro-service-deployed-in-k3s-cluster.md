@@ -5,7 +5,7 @@ date: 2021-09-13T08:13:40.734Z
 featuredBlog: true
 priority: 0
 author: Kiran Kumar Mavatoor
-authorimage: /img/hpe-dev-grommet-gremlin-rockin.svg
+authorimage: https://gravatar.com/avatar/dddba13c1f3712cb7d1ae9a1111d86d6?s=96
 tags:
   - K3S
   - Spring Boot
