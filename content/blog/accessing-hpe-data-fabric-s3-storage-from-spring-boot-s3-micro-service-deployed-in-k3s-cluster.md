@@ -79,7 +79,7 @@ docker push <Dockerhub user id>/df-s3-springboot-k3s-demo:latest
 
 8.      Create below df-s3-springboot-k3s-demo.yaml file for deploying the executable in K3S cluster. Sample yaml file is given in project directory. Please replace <dockerhub userid> with valid id.
 
-```yaml
+```Yaml
 apiVersion: v1
 kind: Service
 metadata:
