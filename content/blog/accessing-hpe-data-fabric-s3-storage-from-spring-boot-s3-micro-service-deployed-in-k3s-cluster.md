@@ -2,7 +2,7 @@
 title: Accessing HPE Ezmeral Data Fabric S3 Storage from Spring Boot S3 Micro
   Service deployed in K3S cluster
 date: 2021-09-13T08:13:40.734Z
-featuredBlog: true
+featuredBlog: false
 priority: 0
 author: Kiran Kumar Mavatoor
 authorimage: https://gravatar.com/avatar/dddba13c1f3712cb7d1ae9a1111d86d6?s=96
