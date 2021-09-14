@@ -140,7 +140,7 @@ http://localhost:8000/swagger-ui.hmtl
 
 **Accessing the Swagger UI from the pod**
 
-1.       Connect to the pod http://pod-ip:8000/swagger-ui.html
+1.      Connect to the pod http://pod-ip:8000/swagger-ui.html
 
 2.      Verify the services exposed in the Swagger-UI
 
