@@ -10,8 +10,8 @@ tags:
   - K3S
   - Spring Boot
   - HPE Ezmeral Data Fabric S3 Storage
-  - hpe-ezmeral-data-fabric
-  - mapr
+  - Hpe-Ezmeral-Data-Fabric
+  - MapR
   - Quarkus
   - Kubernetes
   - S3
