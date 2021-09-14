@@ -68,7 +68,7 @@ Note: This value can be configured using config-map.yaml in K3S cluster.
 
 Note: Alternatively , we can use podman instead of docker to create images. More information on podman can be obtained from [here](https://developers.redhat.com/blog/2020/11/19/transitioning-from-docker-to-podman#transition_to_the_podman_cli) [](https://developers.redhat.com/blog/2020/11/19/transitioning-from-docker-to-podman#transition_to_the_podman_cli)
 
-```
+```Dockerfile
 docker build -f Dockerfile -t <Dockerhub user id>/df-s3-springboot-k3s-demo:latest .
 docker image ls
 docker login -u <Dockerhub user id>
@@ -79,7 +79,7 @@ docker push <Dockerhub user id>/df-s3-springboot-k3s-demo:latest
 
 8.      Create below df-s3-springboot-k3s-demo.yaml file for deploying the executable in K3S cluster. Sample yaml file is given in project directory. Please replace <dockerhub userid> with valid id.
 
-```
+```yaml
 apiVersion: v1
 kind: Service
 metadata:
@@ -120,11 +120,11 @@ spec:
 
 9.      Before deploying it in Kubernetes cluster, validate the docker or podman image by running the image. 
 
-```
+```bash
 docker run -p 8000:8000 <Dockerhub userid>/df-s3-springboot-k3s-demo
 ```
 
-```
+```UI
 http://localhost:8000/swagger-ui.hmtl
 ```
 
