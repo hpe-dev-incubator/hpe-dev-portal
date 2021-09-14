@@ -1,6 +1,6 @@
 ---
-title: Accessing HPE Ezmeral Data Fabric S3 Storage from Spring Boot S3 Micro
-  Service deployed in K3S cluster
+title: Accessing HPE Ezmeral Data Fabric Object Storage from Spring Boot S3
+  Micro Service deployed in K3S cluster
 date: 2021-09-13T08:13:40.734Z
 featuredBlog: false
 priority: 0
@@ -22,7 +22,7 @@ Object Store is a S3 storage service offered by HPE Ezmeral Data Fabric Platform
 
 ![](/img/hpe-ezmeral-data-fabric-s3-springboot-k3s.png)
 
-Figure 1:  Architecture overview of Spring Boot S3 Micro Service on K3S with HPE Data Fabric S3 Storage as back end.
+Figure 1:  Architecture overview of Spring Boot S3 Micro Service on K3S with HPE Data Fabric Object Storage as back end.
 
 The brief description of technology stack used is described below sections :
 
@@ -46,7 +46,7 @@ In this blog, checkout existing Spring Boot application from [GitHub](https://gi
 
 1.      K3S cluster must be accessible. Note down the control plan node details. This information is required to deploy the Spring Boot application.
 
-2.      Access the HPE Data Fabric Object Store service UI running on port 9000. For example URL  - https://FQDN:9000/ .  Note down the access key and secret key. Default access key and secret key is “minioadmin” and “minioadmin” respectively. It is advised to change the default values.
+2.      Access the HPE Data Fabric Object Store service UI running on port 9000. For example URL  - https://<Fully Qualified Domain Name>:9000/ .  Note down the access key and secret key. It is advised to change the default values.
 
 3.      Java 11 , Apache Maven 3.8+ , Docker Client.
 
