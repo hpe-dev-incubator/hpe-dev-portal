@@ -68,7 +68,7 @@ Note: This value can be configured using config-map.yaml in K3S cluster.
 
 Note: Alternatively , we can use podman instead of docker to create images. More information on podman can be obtained from [here](https://developers.redhat.com/blog/2020/11/19/transitioning-from-docker-to-podman#transition_to_the_podman_cli) [](https://developers.redhat.com/blog/2020/11/19/transitioning-from-docker-to-podman#transition_to_the_podman_cli)
 
-```Dockerfile
+```bash
 docker build -f Dockerfile -t <Dockerhub user id>/df-s3-springboot-k3s-demo:latest .
 docker image ls
 docker login -u <Dockerhub user id>
