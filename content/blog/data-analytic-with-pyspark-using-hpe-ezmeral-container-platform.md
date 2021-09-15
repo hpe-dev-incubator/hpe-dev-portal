@@ -8,7 +8,11 @@ tags:
   - hpe-ezmeral-container-platform
   - hpe-ezmeral-data-fabric
 ---
-PySpark is an interface for Apache Spark in Python. [Apache Spark](https://spark.apache.org/) is a unified analytics engine for big data processing. It allows developers to perform data processing on files in a distributed filesystem, like the Hadoop distributed filesystem or HPE Ezmeral Data Fabric (formerly known as MapR-XD). Setting up a Spark environment is always a pain for data scientists. Hopefully, HPE Ezmeral Container Platform can make this much easier. You can run Apache Spark Jobs on Kubernetes managed clusters in the HPE Ezmeral Container Platform. The HPE Ezmeral Container Platform provides you access to a wealth of MLOps tools such as Apache Spark Operator and things like a [Kubedirector](https://kubedirector.io/) Jupyter Notebook where you will do your Data Science work and interact with the Apache Spark Operator to run your Apache Spark jobs. Once logged in as an MLOps tenant member, you can deploy an instance of Jupyter Notebook. From the Jupyter Notebook, you can run Spark jobs with either Apache Livy to make REST API calls to Spark Operator, or you can directly run a Spark job against the Spark Operator with the PySpark module. 
+PySpark is an interface for Apache Spark in Python. [Apache Spark](https://spark.apache.org/) is a unified analytics engine for big data processing. It allows developers to perform data processing on files in a distributed filesystem, like the Hadoop distributed filesystem or HPE Ezmeral Data Fabric (formerly known as MapR-XD). Due to its complexity, setting up a Spark environment is always a pain for data scientists. Hopefully, HPE Ezmeral Container Platform can make this much easier. 
+
+You can run Apache Spark jobs on Kubernetes-managed clusters on the HPE Ezmeral Container Platform. The HPE Ezmeral Container Platform provides you with access to a wealth of MLOps tools such as Apache Spark Operator, and things like a [Kubedirector](https://kubedirector.io/) Jupyter Notebook where you will do your Data Science work and interact with the Apache Spark Operator to run your Apache Spark jobs. 
+
+Once logged in as an MLOps tenant member, you can deploy an instance of Jupyter Notebook. From the Jupyter Notebook, you can either run Spark jobs with Apache Livy to make REST API calls to Spark Operator, or you can directly run a Spark job against the Spark Operator with the PySpark module. 
 
 In this post, I will focus on running simple Spark jobs using the PySpark module on a Jupyter Notebook cluster instance deployed on HPE Ezmeral Container Platform. For those who want to squeeze the best performance out of Spark and run Spark Jobs with Apache Livy, visit this [post](https://developer.hpe.com/blog/on-premise-adventures-how-to-build-an-apache-spark-lab-on-kubernetes/).
 
@@ -17,14 +21,14 @@ In this post, I will focus on running simple Spark jobs using the PySpark module
 ## Preparing the Jupyter Notebook Cluster
 
 
-First, we have to prepare our favorite Jupyter Notebook environment. Inside a MLOps tenant, navigate to Notebooks tab. You will see a Jupyter Notebook KubeDirector app prepared for you. After clicking the "Launch" button, you will need to configure the compute resource needed.
+First, we have to prepare our favorite Jupyter Notebook environment. Inside a MLOps tenant, navigate to **Notebooks** tab. You will see a Jupyter Notebook KubeDirector app prepared for you. After clicking the **Launch** button, you will need to configure the compute resource needed.
 
 
 ![image](https://user-images.githubusercontent.com/72959956/120459929-39c63300-c3cb-11eb-9e7a-65189f4367d3.png)
 
 
 
-As you can see below, you must specify the name of the Jupyter Notebook cluster. Click 'Enable DataTap' to expand access to shared data by specifying a named path to a specified storage resource.
+As you can see below, you must specify the name of the Jupyter Notebook cluster. Click **Enable DataTap** to expand access to shared data by specifying a named path to a specified storage resource.
 
 
 
@@ -32,7 +36,7 @@ As you can see below, you must specify the name of the Jupyter Notebook cluster.
 
 
 
-Switching to the Notebook Endpoints tab, you can see that the access points are prepared for you. Just click the link and, after logging in with your LDAP/AD account, your favorite Jupyter environment is ready for you.
+Switching to the **Notebook Endpoints** tab, you can see that the access points are prepared for you. Just click the link and, after logging in with your LDAP/AD account, your favorite Jupyter environment is ready for you.
 
 
 
@@ -202,5 +206,5 @@ chmod 666 /opt/bluedata/hadoop-2.8.5/etc/hadoop/core-site.xml
 And now you can run the HDFS command without error.
 
 # Key takeaway
-I hope this post offered you some tips on how to do big data analytics using Apache Spark Python API. Less time spending on setting up environment, more time on digging business insight from data. Keep this notebook handy so you can refer back to it often. Keep an eye out on [HPE DEV blog](https://developer.hpe.com/blog) to make sure you catch future articles on this subject.
+I hope this post offered you some tips on how to do big data analytics using the Apache Spark Python API with less time spent on setting up the environment and more time on digging out business insight from your data. Keep this notebook handy so you can refer back to it often. Also, keep an eye out on the [HPE DEV blog](https://developer.hpe.com/blog) to make sure you catch future articles on this subject.
 
