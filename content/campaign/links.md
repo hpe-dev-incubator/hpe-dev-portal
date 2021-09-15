@@ -16,6 +16,8 @@ We are glad you followed that QR Code link. Now please join the HPE Developer Co
 
 <br />
 
+Wed love to count you as one of our blog contributors, so check how to become one, [here](https://developer.hpe.com/contribute).
+
 Thank you!
 
 <img src="https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2019/5/rsz_1rsz_stack-waving-1557501164196.png" width="400">
