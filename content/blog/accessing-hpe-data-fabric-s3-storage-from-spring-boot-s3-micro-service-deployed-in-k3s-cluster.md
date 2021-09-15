@@ -22,7 +22,7 @@ Object Store is an S3 storage service offered by HPE Ezmeral Data Fabric Platfor
 
 ![](/img/hpe-ezmeral-data-fabric-s3-springboot-k3s.png)
 
-Figure 1:  Architecture overview of Spring Boot S3 Micro Service on K3s with HPE Data Fabric Object Storage as back end.
+Figure 1:  Architecture overview of Spring Boot S3 Micro Service on K3s with HPE Data Fabric Object Storage as the back end.
 
 The brief description of technology stack used is described below sections :
 
