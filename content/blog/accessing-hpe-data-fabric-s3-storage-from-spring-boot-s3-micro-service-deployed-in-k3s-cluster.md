@@ -134,7 +134,7 @@ http://localhost:8000/swagger-ui.hmtl
 
 **Deploying in K3s cluster**
 
-1.      Login to control plane node of K3s cluster. Create/Copy the df-s3-springboot-k3s-demo.yaml  to the node.
+1.      Log into the control plane node of the K3s cluster. Create/Copy the df-s3-springboot-k3s-demo.yaml  to the node.
 
 2.      Execute “kubectl apply -f df-s3-springboot-k3s-demo.yaml”. If required, you can specify the namespace option.
 
