@@ -11,12 +11,16 @@ We are glad you followed that QR Code link. Now please join the HPE Developer Co
 * On [Twitter](https://twitter.com/HPE_DevCom)
 * On the [Web](https://developer.hpe.com)
 * By [email](mailto:hpedev@hpe.com) 
-* Subscribe to our monthly [Newsletter](https://developer.hpe.com/newsletter-signup) 
+* Subscribe to our monthly [Newsletter](https://developer.hpe.com/newsletter-signup)
+* Register to one of our [Munch & Learn Technology Talk](https://developer.hpe.com/campaign/munch-and-learn/)
 * Register to one of our [Workshops-on-Demand](https://hackshack.hpedev.io/workshops)
+
+
+
 
 <br />
 
-Wed love to count you as one of our blog contributors, so check how to become one, [here](https://developer.hpe.com/contribute).
+We would love to count you as one of our blog contributors, so check how to become one, [here](https://developer.hpe.com/contribute).
 
 Thank you!
 
