@@ -1,6 +1,6 @@
 ---
 title: Accessing HPE Ezmeral Data Fabric Object Storage from Spring Boot S3
-  Micro Service deployed in K3S cluster
+  Micro Service deployed in K3s cluster
 date: 2021-09-13T08:13:40.734Z
 featuredBlog: false
 priority: 0
@@ -22,7 +22,7 @@ Object Store is a S3 storage service offered by HPE Ezmeral Data Fabric Platform
 
 ![](/img/hpe-ezmeral-data-fabric-s3-springboot-k3s.png)
 
-Figure 1:  Architecture overview of Spring Boot S3 Micro Service on K3S with HPE Data Fabric Object Storage as back end.
+Figure 1:  Architecture overview of Spring Boot S3 Micro Service on K3s with HPE Data Fabric Object Storage as back end.
 
 The brief description of technology stack used is described below sections :
 
@@ -30,9 +30,9 @@ The brief description of technology stack used is described below sections :
 
 The Object Store with S3-Compatible API stores data generated through multiple data protocols, such as NFS, POSIX, S3, and HDFS. Data in the Object Store is accessible through S3 API requests. The Object Store manages all inbound S3 API requests to store data in or retrieve data from an HPE Ezmeral Data Fabric cluster. More details can be found [here.](https://docs.datafabric.hpe.com/62/MapRObjectStore/MapRObjectStorewithS3-compatibleAPI.html)
 
-**K3S**
+**K3s**
 
-K3S is Lightweight Kubernetes. Easy to install, half the memory, all in a binary of less than 100 MB. Its Great for Edge and IOT use cases. More information on K3S can be found at [Rancher](<https://rancher.com/docs/k3s/latest/en/>) site[](https://rancher.com/docs/k3s/latest/en/) . Follow the steps as mentioned in [QuickStart Guide](https://rancher.com/docs/k3s/latest/en/quick-start/) [](https://rancher.com/docs/k3s/latest/en/quick-start/) for installation of K3S cluster. 
+K3s is Lightweight Kubernetes. Easy to install, half the memory, all in a binary of less than 100 MB. Its Great for Edge and IOT use cases. More information on K3s can be found at [Rancher](<https://rancher.com/docs/k3s/latest/en/>) site[](https://rancher.com/docs/k3s/latest/en/) . Follow the steps as mentioned in [QuickStart Guide](https://rancher.com/docs/k3s/latest/en/quick-start/) [](https://rancher.com/docs/k3s/latest/en/quick-start/) for installation of K3s cluster. 
 
 **Spring Boot**
 
@@ -44,7 +44,7 @@ In this blog, checkout existing Spring Boot application from [GitHub](https://gi
 
 **Application Prerequisites**
 
-1.      K3S cluster must be accessible. Note down the control plan node details. This information is required to deploy the Spring Boot application.
+1.      K3s cluster must be accessible. Note down the control plan node details. This information is required to deploy the Spring Boot application.
 
 2.      Access the HPE Data Fabric Object Store service UI running on port 9000. For example URL  - https://<Fully Qualified Domain Name>:9000/ .  Note down the access key and secret key. It is advised to change the default values.
 
@@ -66,7 +66,7 @@ In this blog, checkout existing Spring Boot application from [GitHub](https://gi
 
 “-Djavax.net.ssl.trustStorePassword”  must be same as the value of  “ssl.client.truststore.password” obtained from step 2. 
 
-Note: This value can be configured using config-map.yaml in K3S cluster.
+Note: This value can be configured using config-map.yaml in K3s cluster.
 
 7.      Execute below docker commands to build docker image and push it to docker hub. 
 
@@ -134,7 +134,7 @@ http://localhost:8000/swagger-ui.hmtl
 
 **Deploying in K3S cluster**
 
-1.      Login to control plane node of K3S cluster. Create/Copy the df-s3-springboot-k3s-demo.yaml  to the node.
+1.      Login to control plane node of K3s cluster. Create/Copy the df-s3-springboot-k3s-demo.yaml  to the node.
 
 2.      Execute “kubectl apply -f df-s3-springboot-k3s-demo.yaml”. if required we can specify the namespace option.
 
