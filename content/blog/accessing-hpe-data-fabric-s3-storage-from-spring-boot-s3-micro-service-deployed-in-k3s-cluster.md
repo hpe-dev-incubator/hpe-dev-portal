@@ -138,9 +138,9 @@ http://localhost:8000/swagger-ui.hmtl
 
 2.      Execute “kubectl apply -f df-s3-springboot-k3s-demo.yaml”. If required, you can specify the namespace option.
 
-3.      Check the pod creation status by using command “kubectl get pods -l app=df-s3-springboot-k3s-demo -o wide”
+3.      Check the pod creation status by using the command “kubectl get pods -l app=df-s3-springboot-k3s-demo -o wide”
 
-4.      Verify if the services are properly deployed by using command “kubectl get service df-s3-springboot-k3s-demo-service”
+4.      Verify if the services are properly deployed by using the command “kubectl get service df-s3-springboot-k3s-demo-service”
 
 **Accessing the Swagger UI from the pod**
 
