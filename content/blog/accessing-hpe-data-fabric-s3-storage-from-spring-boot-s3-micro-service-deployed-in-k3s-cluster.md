@@ -18,7 +18,7 @@ tags:
   - Object Storage
   - IOT
 ---
-Object Store is an S3 storage service offered by HPE Ezmeral Data Fabric Platform that offers scalable, secure, and well-performing Object Storage. In this article, I will discuss how to access HPE Ezmeral Data Fabric Object Store (S3) using Spring Boot S3 Micro Service application deployed in a [K3s cluster](https://k3s.io/) and perform basic S3 operations like upload, list, delete etc. The below diagram gives an overview of the architecture.
+Object Store is an S3-compatible API storage service offered by HPE Ezmeral Data Fabric Platform that offers scalable, secure, and well-performing Object Storage. In this article, I will discuss how to access HPE Ezmeral Data Fabric Object Store (S3) using Spring Boot S3 Micro Service application deployed in a [K3s cluster](https://k3s.io/) and perform basic S3 operations like upload, list, delete etc. The below diagram gives an overview of the architecture.
 
 ![](/img/hpe-ezmeral-data-fabric-s3-springboot-k3s.png)
 
