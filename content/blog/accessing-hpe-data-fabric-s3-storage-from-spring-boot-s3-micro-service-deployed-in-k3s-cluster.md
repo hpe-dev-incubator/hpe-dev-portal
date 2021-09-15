@@ -136,7 +136,7 @@ http://localhost:8000/swagger-ui.hmtl
 
 1.      Login to control plane node of K3s cluster. Create/Copy the df-s3-springboot-k3s-demo.yaml  to the node.
 
-2.      Execute “kubectl apply -f df-s3-springboot-k3s-demo.yaml”. if required we can specify the namespace option.
+2.      Execute “kubectl apply -f df-s3-springboot-k3s-demo.yaml”. If required, you can specify the namespace option.
 
 3.      Check the pod creation status by using command “kubectl get pods -l app=df-s3-springboot-k3s-demo -o wide”
 
