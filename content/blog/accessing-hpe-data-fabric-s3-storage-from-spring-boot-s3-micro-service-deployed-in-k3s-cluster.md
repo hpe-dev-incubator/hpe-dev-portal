@@ -81,7 +81,7 @@ docker push <Dockerhub user id>/df-s3-springboot-k3s-demo:latest
 
 ```
 
-8.      Create below df-s3-springboot-k3s-demo.yaml file for deploying the executable in K3S cluster. Sample yaml file is given in project directory. Please replace <dockerhub userid> with valid id.
+8.      Create below df-s3-springboot-k3s-demo.yaml file for deploying the executable in K3s cluster. Sample yaml file is given in project directory. Please replace <dockerhub userid> with valid id.
 
 ```Yaml
 apiVersion: v1
@@ -132,7 +132,7 @@ docker run -p 8000:8000 <Dockerhub userid>/df-s3-springboot-k3s-demo
 http://localhost:8000/swagger-ui.hmtl
 ```
 
-**Deploying in K3S cluster**
+**Deploying in K3s cluster**
 
 1.      Login to control plane node of K3s cluster. Create/Copy the df-s3-springboot-k3s-demo.yaml  to the node.
 
