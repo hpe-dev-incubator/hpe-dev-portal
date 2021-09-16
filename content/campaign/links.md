@@ -1,8 +1,8 @@
 ---
-title: Welcome to the HPE Developer Community (Links)
+title: Welcome to the HPE Developer Community
 authorimage: /img/blogs/HPE-Dev-Staff.svg
 ---
-<img src="https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/1/hpedevprogram-qrcode-1584535759606.png" width="400">
+<img src="https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/1/hpedevprogram-qrcode-1584535759606.png" width="200">
 
 We are glad you followed that QR Code link. Now please join the HPE Developer Community using your favourite communication channel:
 <br />
@@ -14,9 +14,6 @@ We are glad you followed that QR Code link. Now please join the HPE Developer Co
 * Subscribe to our monthly [Newsletter](https://developer.hpe.com/newsletter-signup)
 * Register to one of our [Munch & Learn Technology Talk](https://developer.hpe.com/campaign/munch-and-learn/)
 * Register to one of our [Workshops-on-Demand](https://hackshack.hpedev.io/workshops)
-
-
-
 
 <br />
 
