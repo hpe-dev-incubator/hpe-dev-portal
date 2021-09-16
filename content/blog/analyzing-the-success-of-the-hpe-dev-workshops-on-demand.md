@@ -11,7 +11,7 @@ In October of 2020, the HPE DEV team introduced a **very easy** way for users to
 
 ![](/img/wodanalysisblog2.png)
 
-These hands-on workshops cover a variety of [topics](https://hackshack.hpedev.io/workshops), including open source technologies (i.e. Kubernetes, SPIFFE/SPIRE, Grommet, Stackstorm), popular programming languages (i.e. Python, RUST), coding tools (i.e. APIs, Git), and market-leading HPE technologies (i.e. HPE Ezmeral Container Platform and Data Fabric, HPE OneView, HPE iLO). Whether it’s due to the popularity of these topics, the workshop’s unique, easy-to-follow methodology, the associated badge recognition program, or the fact that they’re free – these workshops have certainly gained quite a lot of interest!
+These hands-on workshops cover a variety of [topics](https://hackshack.hpedev.io/workshops), including open source technologies (i.e. Kubernetes, SPIFFE/SPIRE, Grommet, StackStorm), popular programming languages (i.e. Python, RUST), coding tools (i.e. APIs, Git), and market-leading HPE technologies (i.e. HPE Ezmeral Container Platform and Data Fabric, HPE OneView, HPE iLO). Whether it’s due to the popularity of these topics, the workshop’s unique, easy-to-follow methodology, the associated badge recognition program, or the fact that they’re free – these workshops have certainly gained quite a lot of interest!
 
 **Measuring success**
 
