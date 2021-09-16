@@ -64,13 +64,13 @@ They help us define new topics and give us insight into the user’s experience.
 
 Aligning with the HPE DEV charter, the workshops span topics that interest our audience, which tend to be related to:
 
-* IT OPS and DevOPs in terms of API interaction, Automation, or Programming
+* IT OPS and DevOPs in terms of API interaction, Automation
 * Open source
-* Coding languages
+* Programming languages
 * Data analytics
-* AI /MLOPS
+* AI / MLOPS
 
-The workshops range from simple 101-level sessions to more advanced labs. We try to keep a balance of courses available for participants who are just starting to courses for those community members who are looking for more technical depth.
+The workshops range from simple 101-level sessions to more advanced labs. We try to keep a balance of courses available for participants who are just starting, to courses for those community members who are looking for more technical depth.
 
 As mentioned earlier, we started small and have continued to build out a wide selection of workshops over this past year. We plan to continue to expand this program, always taking your feedback on which new topics should be offered.
 
@@ -80,13 +80,15 @@ Some topics tend to be more popular than others. You can see that the HPE Ezmera
 
 **Infrastructure**
 
-We started the program with a single JupyterHub server to support the very first workshops. Each of the workshops are using different types of API endpoints. When reaching a public weather forecasting API, nothing much is required on the backend side apart from the JupyterHub server itself.
+From a backend perspective, we started the program with a single JupyterHub server to support the very first workshops. Each of the workshops are using different types of API endpoints. When reaching a public weather forecasting API, nothing much is required on the backend side apart from the JupyterHub server itself.
 
-When targeting an HPE Ezmeral Container Platform API, however, the requirements are completely different. To face an ever growing number of workshops and participants, we decided to implement additional Jupyter servers. In addition to the first JupyterHub server sitting in an HPE site in France, we created a second Jupyter server in another HPE location. We also leverage HPE GreenLake cloud services to offload some workshops. We now have three production sites, which allow us improve our workshop’s resiliency. We can now easily redirect an existing workshop from one site to another.
+When targeting an HPE Ezmeral Container Platform API, however, the requirements are completely different. To face an ever growing number of workshops and participants, we decided to implement additional JupyterHub servers. In addition to the first JupyterHub server sitting in an HPE site in France, we created a second JupyterHub server in another HPE location. We also leverage HPE GreenLake cloud services to offload some workshops. We now have three production sites, which allow us to improve our workshop’s resiliency. We can now easily redirect an existing workshop from one site to another.
 
 Although this is all transparent to the participant, this is key to the success of the program, as it allows our workshops to run 24/7, all year long, and still for free!
 
 Our Ansible-based automation allows us to replicate content easily when combined with the right set of Git commands. We can build or rebuild a complete working and production-ready JupyterHub server in just a few hours and monitor the stability of the environment to ensure our workshops are always ready to go.
+
+From a frontend perspective, we also improved several aspects. Our developer did a great work in redesigning the tiles layout providing a better presentation of the Workshops-on-Demand's catalog. We added a dedicated registration page per workshop too. We also integrated our platform to the [HPE Demo Portal](https://hpedemoportal.ext.hpe.com/).
 
 **Looking forward**
 
