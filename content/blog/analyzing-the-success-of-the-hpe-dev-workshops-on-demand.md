@@ -88,7 +88,9 @@ Although this is all transparent to the participant, this is key to the success 
 
 Our Ansible-based automation allows us to replicate content easily when combined with the right set of Git commands. We can build or rebuild a complete working and production-ready JupyterHub server in just a few hours and monitor the stability of the environment to ensure our workshops are always ready to go.
 
-From a frontend perspective, we also improved several aspects. Our developer did a great work in redesigning the tiles layout providing a better presentation of the Workshops-on-Demand's catalog. We added a dedicated registration page per workshop too. Finally, we also performed a REST API integration of our frontend with the [HPE Demonstration Portal](https://hpedemoportal.ext.hpe.com/).
+From a frontend perspective, we also improved several aspects. Our developer did a great work in redesigning the tiles layout providing a better presentation of the Workshops-on-Demand's catalog. We added a dedicated registration page per workshop too. Finally, we also performed a REST API integration of our frontend with the [HPE Demonstration Portal](https://hpedemoportal.ext.hpe.com/) allowing an HPE Demonstration Portal user to book workshops while remaining in the context of HPE Demonstration Portal
+
+
 
 **Looking forward**
 
