@@ -1,6 +1,6 @@
 ---
 title: Welcome to the HPE Developer Community
-authorimage: /img/blogs/HPE-Dev-Staff.svg
+authorimage: /img/dev-thumb2.png
 ---
 <img src="https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/1/hpedevprogram-qrcode-1584535759606.png" width="200">
 
