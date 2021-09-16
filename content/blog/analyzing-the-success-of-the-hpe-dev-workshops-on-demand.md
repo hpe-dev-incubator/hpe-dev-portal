@@ -11,7 +11,7 @@ In October of 2020, the HPE DEV team introduced a **very easy** way for users to
 
 ![](/img/wodanalysisblog2.png)
 
-These hands-on workshops cover a variety of [topics](https://hackshack.hpedev.io/workshops), including open source technologies (i.e. Kubernetes, SPIFFE/SPIRE, Grommet), popular programming languages (i.e. Python, RUST, StackStorm), coding tools (i.e. APIs, Git), and market-leading HPE technologies (i.e. HPE Ezmeral Container Platform and Data Fabric). Whether it’s due to the popularity of these topics, the workshop’s unique, easy-to-follow methodology, the associated badge recognition program, or the fact that they’re free – these workshops have certainly gained quite a lot of interest!
+These hands-on workshops cover a variety of [topics](https://hackshack.hpedev.io/workshops), including open source technologies (i.e. Kubernetes, SPIFFE/SPIRE, Grommet), popular programming languages (i.e. Python, RUST, StackStorm), coding tools (i.e. APIs, Git), and market-leading HPE technologies (i.e. HPE Ezmeral Container Platform and Data Fabric, HPE OneView, HPE iLO). Whether it’s due to the popularity of these topics, the workshop’s unique, easy-to-follow methodology, the associated badge recognition program, or the fact that they’re free – these workshops have certainly gained quite a lot of interest!
 
 **Measuring success**
 
@@ -60,8 +60,6 @@ They allow us to see if the delivery method is correct. The surveys indicated th
 
 They help us define new topics and give us insight into the user’s experience. Comments such as “*Great initiative, the more technical format is the way to go for us engineers and developers, just try to go deeper (using more time if required)*.”and “*Great idea and a very suitable form of delivery.*” provide feedback that we can use to modify content and add additional, appropriate courses.
 
- 
-
 **Content**
 
 Aligning with the HPE DEV charter, the workshops span topics that interest our audience, which tend to be related to:
@@ -80,8 +78,6 @@ As mentioned earlier, we started small and have continued to build out a wide se
 
 Some topics tend to be more popular than others. You can see that the HPE Ezmeral workshops are very well attended. AI /MLOPS and HPE iLO/Redfish workshops are also quite popular. Open Source and Programming workshops follow close behind.
 
- 
-
 **Infrastructure**
 
 We started the program with a single JupyterHub server to support the very first workshops. Each of the workshops are using different types of API endpoints. When reaching a public weather forecasting API, nothing much is required on the backend side apart from the JupyterHub server itself.
@@ -91,8 +87,6 @@ When targeting an HPE Ezmeral Container Platform API, however, the requirements 
 Although this is all transparent to the participant, this is key to the success of the program, as it allows our workshops to run 24/7, all year long, and still for free!
 
 Our Ansible-based automation allows us to replicate content easily when combined with the right set of Git commands. We can build or rebuild a complete working and production-ready JupyterHub server in just a few hours and monitor the stability of the environment to ensure our workshops are always ready to go.
-
- 
 
 **Looking forward**
 
