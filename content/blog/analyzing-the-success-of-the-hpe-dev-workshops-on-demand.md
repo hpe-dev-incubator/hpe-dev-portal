@@ -34,3 +34,68 @@ I decided to analyze a few data points from different categories that appeared t
 
   * Resiliency of the platform
   * Accessibility
+
+![](/img/wodanalysisblog3.png "Total Number of participants per month")
+
+As you can see on the chart above, the increase in the number of people using the workshops has been growing steadily month over month. The times where you see noticeable jumps in attendance are due to events where the team would make use of the HPE DEV Workshops-on-Demand platform to deliver technical sessions; i.e. HPE Technology and Solutions Summit in March or HPE Discover in June. These events help promote the HPE DEV Workshops-on-Demand, as many event participants come back later to register for additional workshops. In my mind, having a participant show up to a workshop is good, but having him to come back for more sessions, knowing that they could take up to 4 hours, is impressive. I consider this as a good mark of success.
+
+Analyzing the types of attendees helps us gauge whether the content being provided is appropriate. It helps us answer questions like “Is the technical level too deep?”, “Is more time required?”, and “Are we hitting the appropriate target audience?”
+
+Another important measurement is the number of surveys filled out at the end of each workshop. These surveys are very important to us for several reasons:
+
+**Reason #1**
+
+They allow us to see if our content is relevant to the participant. In the completed surveys, participants gave the workshops an average rating of
+
+* **4.64 stars out of 5 for technical level**
+* **4.63 stars out of 5 for the overall value of the workshop**
+
+**Reason #2**
+
+They allow us to see if the delivery method is correct. The surveys indicated that the Jupyter Notebooks format has been very well accepted, with an average rating of
+
+* **4.60 stars out of 5**
+
+**Reason #3**
+
+They help us define new topics and give us insight into the user’s experience. Comments such as “*Great initiative, the more technical format is the way to go for us engineers and developers, just try to go deeper (using more time if required)*.”and “*Great idea and a very suitable form of delivery.*” provide feedback that we can use to modify content and add additional, appropriate courses.
+
+ 
+
+**Content**
+
+Aligning with the HPE DEV charter, the workshops span topics that interest our audience, which tend to be related to:
+
+* IT OPS and DevOPs in terms of API interaction, Automation, or Programming
+* Open source
+* Coding languages
+* Data analytics
+* AI /MLOPS
+
+The workshops range from simple 101-level sessions to more advanced labs. We try to keep a balance of courses available for participants who are just starting to courses for those community members who are looking for more technical depth.
+
+As mentioned earlier, we started small and have continued to build out a wide selection of workshops over this past year. We plan to continue to expand this program, always taking your feedback on which new topics should be offered.
+
+![](/img/wodanalysisblog4.png)
+
+Some topics tend to be more popular than others. You can see that the HPE Ezmeral workshops are very well attended. AI /MLOPS and HPE iLO/Redfish workshops are also quite popular. Open Source and Programming workshops follow close behind.
+
+ 
+
+**Infrastructure**
+
+We started the program with a single JupyterHub server to support the very first workshops. Each of the workshops are using different types of API endpoints. When reaching a public weather forecasting API, nothing much is required on the backend side apart from the JupyterHub server itself.
+
+When targeting an HPE Ezmeral Container Platform API, however, the requirements are completely different. To face an ever growing number of workshops and participants, we decided to implement additional Jupyter servers. In addition to the first JupyterHub server sitting in an HPE site in France, we created a second Jupyter server in another HPE location. We also leverage HPE GreenLake cloud services to offload some workshops. We now have three production sites, which allow us improve our workshop’s resiliency. We can now easily redirect an existing workshop from one site to another.
+
+Although this is all transparent to the participant, this is key to the success of the program, as it allows our workshops to run 24/7, all year long, and still for free!
+
+Our Ansible-based automation allows us to replicate content easily when combined with the right set of Git commands. We can build or rebuild a complete working and production-ready JupyterHub server in just a few hours and monitor the stability of the environment to ensure our workshops are always ready to go.
+
+ 
+
+**Looking forward**
+
+I plan to come back next year and summarize the achievements of the team regarding Phase 2 of the program. Planned upgrades include an even nicer portal for our workshops, a broader range of 101 workshops covering artificial intelligence (AI), MLOPS, Spark, Concourse and more.
+
+If you haven’t taken one of our workshops yet, please [register for one of our Workshops-on-Demand](https://hackshack.hpedev.io/workshops), and see why they have attracted so many users. It’s really important to fill out the survey at the end of the workshop to provide us with feedback on your experience, as well as inform us about new subjects you would like to see offered. As always, it’s your feedback that really helps to improve this program within the HPE DEV Community.
