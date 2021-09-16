@@ -76,7 +76,7 @@ As mentioned earlier, we started small and have continued to build out a wide se
 
 ![](/img/wodanalysisblog4.png)
 
-Some topics tend to be more popular than others. You can see that the HPE Ezmeral workshops are very well attended. AI /MLOPS and HPE iLO/Redfish workshops are also quite popular. Open Source and Programming workshops follow close behind.
+Some topics tend to be more popular than others. You can see that the HPE Ezmeral workshops are very well attended. AI / MLOPS and HPE iLO/Redfish workshops are also quite popular. Open Source and Programming workshops follow close behind.
 
 **Infrastructure**
 
