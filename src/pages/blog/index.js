@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { graphql, navigate } from 'gatsby';
-import { Paragraph } from 'grommet';
+import { Paragraph, Box } from 'grommet';
 import {
   BlogCard,
   Layout,
@@ -10,6 +10,7 @@ import {
   FeaturedBlogCard,
   SectionHeader,
   ResponsiveGrid,
+  ButtonLink,
   BlogTabs,
 } from '../../components';
 import { useSiteMetadata } from '../../hooks/use-site-metadata';
@@ -63,11 +64,14 @@ function Blog({ data, location }) {
         title="Blog"
         alt="blog page logo"
       >
-        <Paragraph>
+        <Paragraph size="large">
           Sharing expertise is a great way to move technology forward. Browse
           through our library of tutorials and articles to learn new ways to do
-          things. Or write your own!
+          things. Or, click on the Get Started button to write your own!
         </Paragraph>
+        <Box wrap align="start">
+          <ButtonLink primary label="Get Started" to="/contribute" />
+        </Box>
       </PageDescription>
       {featuredposts && featuredposts.length > 0 && (
         <SectionHeader title="Featured Blogs">
@@ -447,7 +451,11 @@ export const pageQuery = graphql`
     iloBlogsCount: allMarkdownRemark(
       filter: {
         fields: { sourceInstanceName: { eq: "blog" } }
-        frontmatter: { tags: { eq: "ilo" } }
+        frontmatter: {
+          tags: {
+            in: ["ilo", "Redfish", "ilorest", "iLOrest", "ilo-restful-api"]
+          }
+        }
       }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {

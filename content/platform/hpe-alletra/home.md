@@ -10,6 +10,27 @@ tags:
   - hpe-alletra-6000
   - hpe-alletra-9000
 ---
+<style>
+  .button {
+    background-color: rgba(23,235,160,1);
+    box-sizing: border-box;
+    color: #000000; 
+    font-size: 18px; 
+    display: inline-block;
+    padding: 6px 12px;
+    vertical-align: middle;
+    overflow: hidden;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    white-space: nowrap;
+    border-radius: 4px;
+    border: none;
+    margin: 0;
+    line-height: 24px;
+    font-weight: 700;
+  } 
+</style>
 Shed the complexity and silos inherent in conventional hybrid cloud environments with category-defining cloud-native data infrastructure that delivers a cloud operating and consumption experience wherever data lives. Stop managing infrastructure — and start simply accessing and utilizing it, as a service and on demand.
 
 - Get the agility of cloud — everywhere
@@ -40,13 +61,20 @@ The definitive source for end-user documentation using Kubernetes and neighborin
 
 - [Explore the SCOD portal](https://scod.hpedev.io/)
 
+## [Prometheus Array Exporter ![](Github)](https://github.com/hpe-storage/array-exporter)
+
+A Prometheus array exporter that may be deployed as a standalone binary or directly on Kubernetes. There's also an exporter for the CSI driver that may be deployed separately.
+
+- [Read the documentation](https://hpe-storage.github.io/array-exporter)
+- [Learn about the CSI info metrics provider on SCOD](https://scod.hpedev.io/csi_driver/metrics.html)
+
 # Workshops-on-Demand
 
 Take advantage of our free, Jupyter-Notebook based Workshops-on-Demand available in the [Hack Shack](https://hackshack.hpedev.io/). These technical workshops provide you with an in-depth, hands-on learning experience where you can interact with and learn from the experts. Designed to fit your schedule, these workshops are available 24/7 – any time, from anywhere. A CSI workshop for HPE Alletra is available today.
 
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <div class="w3-container w3-center w3-margin-bottom">
-  <a href="https://hackshack.hpedev.io/workshops"><button type="button" class="w3-btn w3-teal">Try now!</button></a>
+  <a href="https://hackshack.hpedev.io/workshops"><button type="button" class="button">Try now!</button></a>
 </div>
 
 ---

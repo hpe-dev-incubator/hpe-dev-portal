@@ -26,28 +26,34 @@ const customTheme = deepMerge(hpe, {
 
 function BlogTabs({ data, columns }) {
   const [index, setIndex] = useState(0);
+  const [platform, setPlatform] = useState(false);
+  const [previousTab, setPreviousTab] = useState(0);
+  const [platformContent, setPlatformContent] = useState({
+    data: data.allBlogs,
+  });
   const onActive = (nextIndex) => setIndex(nextIndex);
+  const size = useContext(ResponsiveContext);
+
+  const [activeBlogTab, setActiveBlogTab] = useLocalStorage('activeBlogTab');
+  const [platformData, setPlatformData] = useLocalStorage('platformData');
+  const [activePlatform, setActivePlatform] = useLocalStorage('activePlatform');
+
   const totalAllBlogsCount = data.allBlogsCount.totalCount;
   const totalOpenSourceBlogsCount = data.openSourceBlogsCount.totalCount;
   const totalOthersBlogsCount = data.othersBlogsCount.totalCount;
-  const [platformContent, setPlatformContent] = useState({
-    key: 0,
-    data: data.allBlogs,
-  });
-  const [activeBlogTab, setActiveBlogTab] = useLocalStorage('activeBlogTab');
-  const [dropDownData, setDropDownData] = useLocalStorage('dropDownData');
-  const [activePlatform, setActivePlatform] = useLocalStorage('activePlatform');
-  const size = useContext(ResponsiveContext);
 
   useEffect(() => {
-    if (dropDownData && dropDownData.nodes) {
-      setPlatformContent({ data: dropDownData });
+    // loads persisted platform data when the user goes back to the blog page
+    if (platformData && platformData.nodes) {
+      setPlatformContent({ data: platformData });
     }
 
+    // loads persisted blog tab index # when user goes back to the blog page
     if (activeBlogTab) {
       setIndex(activeBlogTab);
+      setPlatform(true);
     }
-  }, [dropDownData, activeBlogTab]);
+  }, [platformData, activeBlogTab]);
 
   const platforms = {
     ezmeralBlogs: {
@@ -104,7 +110,7 @@ function BlogTabs({ data, columns }) {
     },
   };
 
-  const platformsData = Object.entries(data)
+  const platformsMenuItems = Object.entries(data)
     .filter((item) => Object.prototype.hasOwnProperty.call(platforms, item[0]))
     .map((item, i) => {
       return {
@@ -112,12 +118,26 @@ function BlogTabs({ data, columns }) {
         active: platforms[item[0]].label === activePlatform,
         onClick: () => {
           setActiveBlogTab(index);
-          setDropDownData(item[1]);
+          setPlatformData(item[1]);
           setPlatformContent({ key: i, data: item[1] });
           setActivePlatform(platforms[item[0]].label);
         },
       };
     });
+
+  const previousTabContent = (previousTabIndex) => {
+    const { allBlogs, openSourceBlogs, othersBlogs } = data;
+    switch (previousTabIndex) {
+      case 0:
+        return allBlogs;
+      case 2:
+        return openSourceBlogs;
+      case 3:
+        return othersBlogs;
+      default:
+        return allBlogs;
+    }
+  };
 
   /* eslint-disable no-param-reassign */
   const totalAllPlatformsBlogsCount = Object.entries(platforms).reduce(
@@ -137,6 +157,8 @@ function BlogTabs({ data, columns }) {
           initialPage={data.allBlogs}
           columns={columns}
           activeTab={index}
+          setPlatform={setPlatform}
+          setPreviousTab={setPreviousTab}
         />
       </Tab>
       <Grommet theme={customTheme}>
@@ -149,7 +171,7 @@ function BlogTabs({ data, columns }) {
               dropProps={{
                 align: { top: 'bottom', left: 'left' },
               }}
-              items={platformsData}
+              items={platformsMenuItems}
             >
               <Box
                 width="160px"
@@ -168,10 +190,14 @@ function BlogTabs({ data, columns }) {
         >
           <BlogTabContent
             key={platformContent.key}
-            initialPage={platformContent.data}
+            initialPage={
+              platform ? platformContent.data : previousTabContent(previousTab)
+            }
             columns={columns}
             activeTab={index}
-            platform="true"
+            platform
+            setPlatform={setPlatform}
+            setPreviousTab={setPreviousTab}
           />
         </Tab>
       </Grommet>
@@ -181,6 +207,8 @@ function BlogTabs({ data, columns }) {
           initialPage={data.openSourceBlogs}
           columns={columns}
           activeTab={index}
+          setPlatform={setPlatform}
+          setPreviousTab={setPreviousTab}
         />
       </Tab>
       <Tab title={`Others (${totalOthersBlogsCount})`}>
@@ -189,6 +217,8 @@ function BlogTabs({ data, columns }) {
           initialPage={data.othersBlogs}
           columns={columns}
           activeTab={index}
+          setPlatform={setPlatform}
+          setPreviousTab={setPreviousTab}
         />
       </Tab>
     </Tabs>

@@ -78,8 +78,8 @@ exports.createPages = async ({ graphql, actions }) => {
     await graphql(paginatedCollectionQuery('oneview-dashboard-posts'));
   const iloQueryResult =
     await graphql(paginatedCollectionQuery('ilo-posts'));
-  const othersQueryResult =
-    await graphql(paginatedCollectionQuery('ilo-posts'));
+  const othersQueryResult = 
+    await graphql(paginatedCollectionQuery('others-posts'));
 
   setPagination(allQueryResult);
   setPagination(openSourceQueryResult);

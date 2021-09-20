@@ -178,6 +178,13 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/content/contribute`,
+        name: 'contribute',
+      },
+    },
+    {
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
@@ -448,9 +455,9 @@ module.exports = {
               node.fields.sourceInstanceName === 'homepanels'
                 ? '/'
                 : `${node.fields.sourceInstanceName}${node.fields.slug.replace(
-                    /\/aside[/]?$/,
-                    '/home',
-                  )}`,
+                  /\/aside[/]?$/,
+                  '/home',
+                )}`,
             sourceInstanceName: (node) => node.fields.sourceInstanceName,
           },
         },

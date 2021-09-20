@@ -61,7 +61,7 @@ function Platform({ data, location }) {
         title="Platforms"
         alt="platform page logo"
       >
-        <Paragraph>
+        <Paragraph size="large">
           Supporting developers, data scientists, and architects is what we do.
           Find APIs, GitHub repositories and many of the other resources you
           need here.

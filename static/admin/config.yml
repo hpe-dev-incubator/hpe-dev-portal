@@ -198,6 +198,26 @@ collections:
       - { label: 'Priority', name: 'priority', widget: 'number', hint: 'controls the card position on the skill up page'}
       - { label: 'Image', name: 'image', widget: 'image',media_folder: '/static/img', public_folder: '/img', hint: 'image to appear on skill up card' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
+# Contribute collection
+  - name: 'contribute'
+    label: 'Be a Blogger'
+    folder: 'content/contribute'
+    extension: 'md'
+    create: false
+    publish: false
+    slug: 'contribute'
+    editor:
+      preview: true
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Body', name: 'body', widget: 'markdown'}
+      - label: "Template Card"
+        name: "templateCards"
+        widget: "list"
+        fields:
+          - {label: Template Type, name: templateType, widget: string }
+          - {label: Template Name, name: templateName, widget: string }
+          - {label: Template Link, name: link, widget: string }
 # What's your role collection
   - name: 'role'
     label: 'What's Your Role'
@@ -208,10 +228,6 @@ collections:
     create: true
     publish: false
     slug: 'home'
-    editor:
-      preview: true
-    fields:
-      - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Description', name: 'description', widget: 'string' }
       - { label: 'Image', name: 'image', widget: 'image',media_folder: '/static/img/role', public_folder: '/img/role', hint: 'image to appear on platform page' }
       - { label: 'Card Size', name: 'width', widget: 'select', options: [ 'large' ], default: 'large'}

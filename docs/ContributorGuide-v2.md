@@ -1,11 +1,11 @@
 # HPE DEV External Contributor Guide
-**Version 2.0** - 16-July-2021
+**Version 2.0** - 9-Aug-2021
 
 >**Note:** A recording of the training session delivered on April 30, 2021 is available [here](https://vimeo.com/544486602). 
 
 >**IMPORTANT Note:** The recommended way for submitting your contribution is through the HPE DEV CMS editor as explained in this document. HPE DEV team provides review feedback to blog post authors, event card and platform page owners through GitHub. 
 
->Note: You may prefer to use MS-Word or Google doc (a Google account is needed. Google Docs seems to be a good way to provide review feedback to authors.) to submit your contributions (blog post, new platform page, new event card). In this case, the document here does not apply.   
+>Note: You may prefer to use MS-Word or Google doc (a Google account is needed) to submit your contributions such as a blog post. In this case, we recommend you check out the blog post [here](https://developer.hpe.com/blog/be-an-hpe-dev-blogger/) 
 
 ## Table of Contents
 
@@ -443,6 +443,15 @@ To do so, proceed as follows:
 
     -   **Method 2:** Using your PC/Laptop, change image size using you preferred image editor (i.e.: Paint). Toggle to **Rich Text** mode and upload/select the resized image.
  
+- **Embed a YouTube video (HPE Appoved video) in a blog or in Platform page:**
+
+    To insert a YouTube video — that has gone through the legal Marketing Asset Publishing (MAP) process — in a blog post or a "platform" page proceed as follows:
+    * Go to your YoutTube video URL
+    * Select ***"Share"*** option just underneath the video frame
+    * Select ***"Embed"*** option
+    * Copy the HTML code that is displayed, starting with <iframe width...> and ending with </iframe>
+    * in the CMS editor, toggle to **Markdown** mode, and paste (CTRL+SHIFT+V) the embedded HTML code. 
+
 -   **Inserting Horizontal separator:**
 
     Toggle to **Markdown** mode and use the "- - -" (without the quotation mark).
@@ -453,13 +462,13 @@ To do so, proceed as follows:
 
     You can use **Rich Text** mode (Select **+** to add a Code Block component) or use **Markdown** mode by placing triple backticks ***\`\`\`*** before and after the code block to include code block snippets in your blog post.
 
-    -   Make sure to always specified a syntax language (for example: ***\`\`\`yaml***). While in **Rich Text** mode, you can select the syntax language. If you do not find an apprpriate language for your code snippet, we recommend you to use the syntax language ***Markdown***.
+    -   Make sure to always specified a syntax language (for example: ***\`\`\`yaml***). While in **Rich Text** mode, you can select the syntax language. If you do not find an appropriate language for your code snippet, we recommend you to use the syntax language ***Markdown***.
 
     -   Make sure to insert a line break before and after a code block snippet
 
 -   **Inserting "em-dash" character:**
 
-    The CMS editor does not correctly interpret the em-dash (\&mdash;\) markdown syntax. Using the Rich text or Markdown mode of the CMS editor, shoudl you need to use an em-dash character, you can do a copy/paste of the em-dash character here: — 
+    The CMS editor does not correctly interpret the em-dash (\&mdash;\) markdown syntax. Using the Rich text or Markdown mode of the CMS editor, should you need to use an em-dash character, you can do a copy/paste of the em-dash character here: — 
     
 - **Inserting Special characters:**
 

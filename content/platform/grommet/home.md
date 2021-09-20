@@ -9,6 +9,27 @@ frontpage: true
 tags:
   - Grommet
 ---
+<style>
+  .button {
+    background-color: rgba(23,235,160,1);
+    box-sizing: border-box;
+    color: #000000; 
+    font-size: 18px; 
+    display: inline-block;
+    padding: 6px 12px;
+    vertical-align: middle;
+    overflow: hidden;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    white-space: nowrap;
+    border-radius: 4px;
+    border: none;
+    margin: 0;
+    line-height: 24px;
+    font-weight: 700;
+  } 
+</style>
 ## Build awesome apps with Grommet
 
 [Grommet](https://v2.grommet.io/) helps you create responsive and accessible mobile-first projects for the web with an [easy-to-use](https://v2.grommet.io/components), [react](https://reactjs.org/)-based component library that is part design system and part development framework.
@@ -38,13 +59,23 @@ HPE product designer at grommet.io, Chris Carlozzi, explains how Grommet is evol
 
 - - -
 
+## HPE Design System
+
+The HPE Design System demonstrates how grommet can be themed and used to build user interfaces with your own brand. The HPE Design System is used within HPE to guide the design of the user interfaces that HPE creates
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/FiekQmPElsA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+* [Go to the HPE Design System Homepage](https://design-system.hpe.design/)
+
+- - -
+
 # Workshops-on-Demand
 
 Take advantage of our free, Jupyter-Notebook based Workshops-on-Demand available in the [Hack Shack](https://hackshack.hpedev.io). These technical workshops provide you with an in-depth, hands-on learning experience where you can interact with and learn from the experts. Designed to fit your schedule, these workshops are available 24/7 – any time, from anywhere. Grommet workshops are available today.
 
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <div class="w3-container w3-center w3-margin-bottom">
-  <a href="https://hackshack.hpedev.io/workshops"><button type="button" class="w3-btn w3-teal">Try now!</button></a>
+  <a href="https://hackshack.hpedev.io/workshops"><button type="button" class="button">Try now!</button></a>
 </div>
 - - -
 

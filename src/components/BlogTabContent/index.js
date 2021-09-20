@@ -7,7 +7,14 @@ import { BlogCard } from '../BlogCard';
 import ResponsiveGrid from '../ResponsiveGrid';
 import { useLocalStorage } from '../../hooks/use-local-storage';
 
-const BlogTabContent = ({ initialPage, columns, activeTab, platform }) => {
+const BlogTabContent = ({
+  initialPage,
+  columns,
+  activeTab,
+  platform,
+  setPlatform,
+  setPreviousTab,
+}) => {
   const [latestPage, setLatestPage] = useState(initialPage);
   const [blogPosts, setBlogPosts] = useState(initialPage.nodes);
   const [collectionId, setCollectionId] = useState(initialPage.collection.id);
@@ -20,19 +27,17 @@ const BlogTabContent = ({ initialPage, columns, activeTab, platform }) => {
   );
 
   useEffect(() => {
-    setCollectionId(initialPage.collection.id);
-
-    // persist active tab for when user goes back to blog page
-    // localStorage.setItem('blogTab', JSON.stringify(activeTab));
-    setActiveBlogTab(activeTab);
-
-    // persist if platform dropdown is selected and saves active dropdown item
     if (!platform) {
+      setCollectionId(initialPage.collection.id);
+      setPlatform(false);
+      setPreviousTab(activeTab);
       setActivePlatform('');
     }
 
-    // loads blogs from user clicks 'Load More'
-    // for when user goes back to blog page
+    setActiveBlogTab(activeTab);
+
+    // loads persisted data if the load more btn was
+    // clicked when the user goes back to blog page
     if (
       loadMoreBlogData &&
       loadMoreBlogData.latestPage &&
@@ -43,13 +48,15 @@ const BlogTabContent = ({ initialPage, columns, activeTab, platform }) => {
       setBlogPosts(loadMoreBlogData.latestBlogPosts);
     }
   }, [
+    platform,
     initialPage,
+    setPlatform,
+    setPreviousTab,
+    setActivePlatform,
     setActiveBlogTab,
     activeTab,
-    collectionId,
     loadMoreBlogData,
-    platform,
-    setActivePlatform,
+    collectionId,
   ]);
 
   const loadNextPage = useCallback(async () => {
@@ -122,6 +129,8 @@ BlogTabContent.propTypes = {
   }),
   activeTab: PropTypes.number,
   platform: PropTypes.string,
+  setPlatform: PropTypes.func,
+  setPreviousTab: PropTypes.func,
 };
 
 export default BlogTabContent;

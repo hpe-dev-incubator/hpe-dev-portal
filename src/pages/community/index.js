@@ -20,8 +20,8 @@ Heading.propTypes = {
 const columns = {
   small: ['auto'],
   medium: ['auto', 'auto'],
-  large: ['auto', 'auto', 'auto', 'auto'],
-  xlarge: ['auto', 'auto', 'auto', 'auto'],
+  large: ['auto', 'auto', 'auto'],
+  xlarge: ['auto', 'auto', 'auto'],
 };
 
 const rows = {
@@ -42,7 +42,7 @@ function Community({ data }) {
         title="Community"
         alt="community page logo"
       >
-        <Paragraph>
+        <Paragraph size="large">
           A community is all about connection. Discover the many different ways
           you can connect with members of the HPE DEV Community here.
         </Paragraph>

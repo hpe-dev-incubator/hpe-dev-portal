@@ -6,121 +6,156 @@ import {
   Nav,
   ResponsiveContext,
 } from 'grommet';
-import { Menu, Search } from 'grommet-icons';
+import { Menu, Search, FormDown } from 'grommet-icons';
+import styled from 'styled-components';
 import { ButtonLink } from '..';
+
+const TextAlignLeft = styled(Box)`
+  & > a {
+    text-align: left;
+    font-weight: 400;
+    padding-right: 30px;
+  }
+`;
 
 function Header() {
   const size = useContext(ResponsiveContext);
   const navLinks = [
+    <ButtonLink key="os" label="Open Source" to="/opensource" />,
     <DropButton
       label="Our Platforms"
       dropAlign={{ top: 'bottom', left: 'left' }}
+      icon={<FormDown />}
+      reverse
       dropContent={
-        <>
+        <TextAlignLeft>
           <ButtonLink
             key="pl"
             label="All Platforms"
             to="/platforms"
             state={{ state: { isPlatformHeaderClicked: true } }}
             alignSelf="start"
+            fill="horizontal"
           />
-          <ButtonLink
-            key="pl-hecp"
-            label="HPE Ezmeral Container Platform"
-            to="/platform/hpe-ezmeral-container-platform/home/"
-            alignSelf="start"
-          />
-          <ButtonLink
-            key="pl-hedf"
-            label="HPE Ezmeral Data Fabric"
-            to="/platform/hpe-ezmeral-data-fabric/home/"
-            alignSelf="start"
-          />
-          <ButtonLink
-            key="pl-hgl"
-            label="HPE GreenLake"
-            to="/platform/hpe-greenlake/home/"
-            alignSelf="start"
-          />
-          <ButtonLink
-            key="pl-ssp"
-            label="SPIFFE and SPIRE Projects"
-            to="/platform/spiffe-and-spire-projects/home/"
-            alignSelf="start"
-          />
-          <ButtonLink
-            key="pl-c"
-            label="Chapel"
-            to="/platform/chapel/home/"
-            alignSelf="start"
-          />
-          <ButtonLink
-            key="pl-g"
-            label="Grommet"
-            to="/platform/grommet/home/"
-            alignSelf="start"
-          />
-          <ButtonLink
-            key="pl-ha"
-            label="HPE Alletra"
-            to="/platform/hpe-alletra/home/"
-            alignSelf="start"
-          />
-          <ButtonLink
-            key="pl-hdlc"
-            label="HPE Deep Learning Cookbook"
-            to="/platform/hpe-deep-learning-cookbook/home/"
-            alignSelf="start"
-          />
-          <ButtonLink
-            key="pl-ss"
-            label="SmartSim"
-            to="/platform/smartsim/home/"
-            alignSelf="start"
-          />
-          <ButtonLink
-            key="pl-adh"
-            label="Aruba Developer Hub"
-            to="/platform/aruba/home/"
-            alignSelf="start"
-          />
-          <ButtonLink
-            key="pl-h3p"
-            label="HPE 3PAR and Primera"
-            to="/platform/hpe-3par-and-primera/home/"
-            alignSelf="start"
-          />
-          <ButtonLink
-            key="pl-hns"
-            label="HPE Nimble Storage"
-            to="/platform/hpe-nimble-storage/home/"
-            alignSelf="start"
-          />
-          <ButtonLink
-            key="pl-hov"
-            label="HPE OneView"
-            to="/platform/hpe-oneview/home/"
-            alignSelf="start"
-          />
-          <ButtonLink
-            key="pl-hogd"
-            label="HPE OneView Global Dashboard"
-            to="/platform/hpe-oneview-global-dashboard/home/"
-            alignSelf="start"
-          />
-          <ButtonLink
-            key="pl-hs"
-            label="HPE SimpliVity"
-            to="/platform/hpe-simplivity/home/"
-            alignSelf="start"
-          />
-          <ButtonLink
-            key="pl-ira"
-            label="iLO RESTful API"
-            to="/platform/ilo-restful-api/home/"
-            alignSelf="start"
-          />
-        </>
+          <Box direction="row">
+            <TextAlignLeft>
+              <ButtonLink
+                key="pl-hecp"
+                label="HPE Ezmeral Container Platform"
+                to="/platform/hpe-ezmeral-container-platform/home/"
+                alignSelf="start"
+                fill="horizontal"
+              />
+              <ButtonLink
+                key="pl-hedf"
+                label="HPE Ezmeral Data Fabric"
+                to="/platform/hpe-ezmeral-data-fabric/home/"
+                alignSelf="start"
+                fill="horizontal"
+              />
+              <ButtonLink
+                key="pl-hgl"
+                label="HPE GreenLake"
+                to="/platform/hpe-greenlake/home/"
+                alignSelf="start"
+                fill="horizontal"
+              />
+              <ButtonLink
+                key="pl-ssp"
+                label="SPIFFE and SPIRE Projects"
+                to="/platform/spiffe-and-spire-projects/home/"
+                alignSelf="start"
+                fill="horizontal"
+              />
+              <ButtonLink
+                key="pl-c"
+                label="Chapel"
+                to="/platform/chapel/home/"
+                alignSelf="start"
+                fill="horizontal"
+              />
+              <ButtonLink
+                key="pl-g"
+                label="Grommet"
+                to="/platform/grommet/home/"
+                alignSelf="start"
+                fill="horizontal"
+              />
+              <ButtonLink
+                key="pl-ha"
+                label="HPE Alletra"
+                to="/platform/hpe-alletra/home/"
+                alignSelf="start"
+                fill="horizontal"
+              />
+              <ButtonLink
+                key="pl-hdlc"
+                label="HPE Deep Learning Cookbook"
+                to="/platform/hpe-deep-learning-cookbook/home/"
+                alignSelf="start"
+                fill="horizontal"
+              />
+            </TextAlignLeft>
+            <TextAlignLeft>
+              <ButtonLink
+                key="pl-ss"
+                label="SmartSim"
+                to="/platform/smartsim/home/"
+                alignSelf="start"
+                fill="horizontal"
+              />
+              <ButtonLink
+                key="pl-adh"
+                label="Aruba Developer Hub"
+                to="/platform/aruba/home/"
+                alignSelf="start"
+                fill="horizontal"
+              />
+              <ButtonLink
+                key="pl-h3p"
+                label="HPE 3PAR and Primera"
+                to="/platform/hpe-3par-and-primera/home/"
+                alignSelf="start"
+                fill="horizontal"
+              />
+              <ButtonLink
+                key="pl-hns"
+                label="HPE Nimble Storage"
+                to="/platform/hpe-nimble-storage/home/"
+                alignSelf="start"
+                fill="horizontal"
+              />
+              <ButtonLink
+                key="pl-hov"
+                label="HPE OneView"
+                to="/platform/hpe-oneview/home/"
+                alignSelf="start"
+                fill="horizontal"
+              />
+              <ButtonLink
+                key="pl-hogd"
+                label="HPE OneView Global Dashboard"
+                to="/platform/hpe-oneview-global-dashboard/home/"
+                alignSelf="start"
+                fill="horizontal"
+              />
+              <ButtonLink
+                key="pl-hs"
+                label="HPE SimpliVity"
+                to="/platform/hpe-simplivity/home/"
+                alignSelf="start"
+                fill="horizontal"
+              />
+              <ButtonLink
+                key="pl-ira"
+                label="iLO RESTful API"
+                to="/platform/ilo-restful-api/home/"
+                alignSelf="start"
+                fill="horizontal"
+              />
+            </TextAlignLeft>
+          </Box>
+        </TextAlignLeft>
       }
     />,
     <ButtonLink
@@ -152,7 +187,7 @@ function Header() {
       pad={{ horizontal: 'medium', vertical: 'small' }}
     >
       <Box flex={false}>
-        <ButtonLink label="Home" to="/" />
+        <ButtonLink label="HPE Developer" to="/" />
       </Box>
       {size === 'small' ? (
         <DropButton
