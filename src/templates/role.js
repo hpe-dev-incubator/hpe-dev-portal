@@ -2,8 +2,18 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
-import { Box, Paragraph } from 'grommet';
-import { Content, Layout, Markdown, SEO, PageDescription } from '../components';
+import { Box, Heading, Image } from 'grommet';
+import { FormPreviousLink } from 'grommet-icons';
+import {
+  Content,
+  Layout,
+  Markdown,
+  SEO,
+  ButtonLink,
+  SectionHeader,
+  ResponsiveGrid,
+  BlogCard,
+} from '../components';
 import { useSiteMetadata } from '../hooks/use-site-metadata';
 
 // Remove padding or margin from first markdown element.
@@ -15,34 +25,64 @@ const MarkdownLayout = styled(Markdown)`
   }
 `;
 
+const columns = {
+  small: ['auto'],
+  medium: ['auto', 'auto'],
+  large: ['auto', 'auto', 'auto', 'auto'],
+  xlarge: ['auto', 'auto', 'auto', 'auto'],
+};
+const rows = {
+  small: ['auto', 'auto', 'auto'],
+  medium: ['auto', 'auto'],
+  large: ['auto'],
+  xlarge: ['auto'],
+};
+
 function RoleTemplate({ data }) {
   const post = data.markdownRemark;
+  const { edges: blogs } = data.blogs;
   const siteMetadata = useSiteMetadata();
   const siteTitle = siteMetadata.title;
   const { rawMarkdownBody } = post;
-  const { title } = post.frontmatter;
+  const { title, image } = post.frontmatter;
 
   return (
     <Layout title={siteTitle}>
       <SEO title={title} />
-      <PageDescription
-        image="/img/dev-thumb2.png"
-        title={title}
-        alt="blog page logo"
-      >
-        <Paragraph>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec
-          scelerisque velit. Phasellus et felis massa. Lorem ipsum dolor sit
-          amet, consectetur adipiscing elit. Nam nulla elit, bibendum non nibh
-          quis, posuere accumsan sem. Ut gravida commodo dictum.
-        </Paragraph>
-      </PageDescription>
       <Box flex overflow="auto" gap="medium" pad="small">
         <Box flex={false} direction="row-responsive">
-          <Box pad={{ vertical: 'large', horizontal: 'medium' }} />
-          <Content gap="large" margin={{ vertical: 'large' }}>
+          <Box pad={{ vertical: 'large', horizontal: 'large' }}>
+            <Image
+              width="216px"
+              height="216px"
+              src={image}
+              alt="platform logo"
+            />
+          </Box>
+          <Content gap="medium" margin={{ vertical: 'large' }}>
+            <Heading margin="none">{title}</Heading>
             <MarkdownLayout>{rawMarkdownBody}</MarkdownLayout>
+            {blogs.length > 0 && (
+              <SectionHeader title="Related Blogs" color="border">
+                <ResponsiveGrid gap="large" rows={rows} columns={columns}>
+                  {blogs.map(({ node }, i) => {
+                    return node &&
+                      (node.frontmatter.authorimage ||
+                        node.frontmatter.author) ? (
+                      <BlogCard node={node} key={i} margin="none" />
+                    ) : undefined;
+                  })}
+                </ResponsiveGrid>
+              </SectionHeader>
+            )}
           </Content>
+        </Box>
+        <Box alignSelf="start">
+          <ButtonLink
+            icon={<FormPreviousLink />}
+            label="Go to What's Your Role Page"
+            to="/role"
+          />
         </Box>
       </Box>
     </Layout>
@@ -60,25 +100,103 @@ RoleTemplate.propTypes = {
       rawMarkdownBody: PropTypes.string.isRequired,
       frontmatter: PropTypes.shape({
         title: PropTypes.string,
+        image: PropTypes.string,
       }).isRequired,
     }).isRequired,
+    blogs: PropTypes.shape({
+      edges: PropTypes.arrayOf(
+        PropTypes.shape({
+          node: PropTypes.shape({
+            frontmatter: PropTypes.shape({
+              title: PropTypes.string.isRequired,
+              author: PropTypes.string,
+              date: PropTypes.string,
+              authorimage: PropTypes.string,
+            }).isRequired,
+            excerpt: PropTypes.string.isRequired,
+            fields: PropTypes.shape({
+              slug: PropTypes.string.isRequired,
+              sourceInstanceName: PropTypes.string.isRequired,
+            }),
+          }).isRequired,
+        }),
+      ),
+    }),
   }).isRequired,
 };
 
 export default RoleTemplate;
 
+// export const pageQuery = graphql`
+//   query RoleBySlug($slug: String!) {
+//     site {
+//       siteMetadata {
+//         title
+//       }
+//     }
+//     markdownRemark(fields: { slug: { eq: $slug } }) {
+//       id
+//       frontmatter {
+//         title,
+//         image
+//       }
+//       rawMarkdownBody
+//     }
+//   }
+// `;
+
 export const pageQuery = graphql`
-  query RoleBySlug($slug: String!) {
+  query RoleBySlug($slug: String!, $tagRE: String!) {
     site {
       siteMetadata {
         title
+        author
       }
     }
     markdownRemark(fields: { slug: { eq: $slug } }) {
       id
+      excerpt(pruneLength: 160)
+      rawMarkdownBody
       frontmatter {
         title
+        version
+        description
+        image
       }
+      fields {
+        slug
+      }
+    }
+    blogs: allMarkdownRemark(
+      limit: 2000
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: {
+        frontmatter: { tags: { regex: $tagRE } }
+        fields: { sourceInstanceName: { eq: "blog" } }
+      }
+    ) {
+      totalCount
+      edges {
+        node {
+          fields {
+            slug
+            sourceInstanceName
+          }
+          frontmatter {
+            title
+            author
+            date
+            authorimage
+          }
+          excerpt(format: MARKDOWN)
+        }
+      }
+    }
+    aside: markdownRemark(
+      frontmatter: { tags: { regex: $tagRE }, isAside: { eq: true } }
+    ) {
+      id
+      excerpt
       rawMarkdownBody
     }
   }

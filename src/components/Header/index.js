@@ -134,31 +134,11 @@ function Header() {
         </>
       }
     />,
-    <DropButton
+    <ButtonLink 
+      key="wyr"
       label="What's Your Role"
-      dropAlign={{ top: 'bottom', left: 'left' }}
-      dropContent={
-        <>
-          <ButtonLink
-            key="it-ops"
-            label="I'm a ITOps"
-            to="/role/itops"
-            alignSelf="start"
-          />
-          <ButtonLink
-            key="dev"
-            label="I'm a Developer"
-            to="/role/developer"
-            alignSelf="start"
-          />
-          <ButtonLink
-            key="data-s"
-            label="I'm a Data Scientist"
-            to="/role/data-scientist"
-            alignSelf="start"
-          />
-        </>
-      }
+      to="/role" 
+      alignSelf="start"
     />,
     <ButtonLink key="ev" label="Events" to="/events" />,
     <ButtonLink key="su" label="Skill Up" to="/skillup" />,

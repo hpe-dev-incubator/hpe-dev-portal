@@ -2,7 +2,7 @@
 title: "Datasets, DataFrames, and Spark SQL for Processing of Tabular Data"
 date: 2020-08-19T06:24:20.022Z
 author: Carol McDonald 
-tags: ["hpe-ezmeral-data-fabric","MapR","Spark","opensource"]
+tags: ["hpe-ezmeral-data-fabric","MapR","Spark","opensource","data-scientist"]
 authorimage: "/img/blogs/Avatar5.svg"
 featuredBlog: false
 priority:
