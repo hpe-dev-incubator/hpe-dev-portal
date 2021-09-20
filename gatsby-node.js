@@ -46,8 +46,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const newsletter = path.resolve('./src/templates/newsletter.js');
   const tagTemplate = path.resolve('./src/templates/tags.js');
   const campaignTemplate = path.resolve('./src/templates/campaign.js');
-  const whatsInItForMeTemplate = 
-    path.resolve('./src/templates/whatsInItForMe.js');
+  const roleTemplate = path.resolve('./src/templates/role.js');
 
   const allQueryResult = await graphql(paginatedCollectionQuery('blog-posts'));
   const openSourceQueryResult =
@@ -212,15 +211,16 @@ exports.createPages = async ({ graphql, actions }) => {
               tags: post.node.frontmatter.tags || [],
             },
           });
-        } else if (post.node.fields.sourceInstanceName === 'whatsinitforme') {
+        } else if (post.node.fields.sourceInstanceName === 'role') {
           const { sourceInstanceName, slug } = post.node.fields;
+          console.log('post.node.fields: ', post.node.fields);
           console.log(
             `Create pages /${sourceInstanceName}${slug} from ${slug}`,
           );
           console.log('------------------------------');
           createPage({
             path: `/${sourceInstanceName}${slug}`,
-            component: whatsInItForMeTemplate,
+            component: roleTemplate,
             context: {
               slug: post.node.fields.slug,
               tags: post.node.frontmatter.tags || [],

@@ -166,8 +166,8 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        path: `${__dirname}/content/whatsInItForMe`,
-        name: 'whatsinitforme',
+        path: `${__dirname}/content/role`,
+        name: 'role',
       },
     },
     {

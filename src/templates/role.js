@@ -15,7 +15,7 @@ const MarkdownLayout = styled(Markdown)`
   }
 `;
 
-function WhatsInItForMe({ data }) {
+function RoleTemplate({ data }) {
   const post = data.markdownRemark;
   const siteMetadata = useSiteMetadata();
   const siteTitle = siteMetadata.title;
@@ -49,7 +49,7 @@ function WhatsInItForMe({ data }) {
   );
 }
 
-WhatsInItForMe.propTypes = {
+RoleTemplate.propTypes = {
   data: PropTypes.shape({
     site: PropTypes.shape({
       siteMetadata: PropTypes.shape({
@@ -65,10 +65,10 @@ WhatsInItForMe.propTypes = {
   }).isRequired,
 };
 
-export default WhatsInItForMe;
+export default RoleTemplate;
 
 export const pageQuery = graphql`
-  query WhatsInItForMeBySlug($slug: String!) {
+  query RoleBySlug($slug: String!) {
     site {
       siteMetadata {
         title

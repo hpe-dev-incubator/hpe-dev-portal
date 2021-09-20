@@ -135,26 +135,26 @@ function Header() {
       }
     />,
     <DropButton
-      label="What's in it for me?"
+      label="What's Your Role"
       dropAlign={{ top: 'bottom', left: 'left' }}
       dropContent={
         <>
           <ButtonLink
             key="it-ops"
             label="I'm a ITOps"
-            to="/whatsinitforme/itops"
+            to="/role/itops"
             alignSelf="start"
           />
           <ButtonLink
             key="dev"
             label="I'm a Developer"
-            to="/whatsinitforme/developer"
+            to="/role/developer"
             alignSelf="start"
           />
           <ButtonLink
             key="data-s"
             label="I'm a Data Scientist"
-            to="/whatsinitforme/data-scientist"
+            to="/role/data-scientist"
             alignSelf="start"
           />
         </>
