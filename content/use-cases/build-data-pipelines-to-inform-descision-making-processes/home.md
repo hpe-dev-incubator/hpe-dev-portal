@@ -3,13 +3,14 @@ title: Build data pipelines to inform decision-making processes
 description: Data is growing in all dimensions, including its importance to business. Discover how data fabric powerfully helps you connect the dots more easily.
 image: /img/use-cases/build-data.png
 width: large
-priority: 1
+priority: 3
 frontpage: true
 tags:
   - build-data
 ---
 Data is growing in all dimensions, including its importance to a business. Building an end-to-end data analytics pipeline is the only way to connect the dots. Now that data is distributed over multiple sites in different locations with data processing taking place outside the traditional data center environment, you need to find new ways to make information available from the edge to the cloud quickly, securely, and reliably.
- 
+
+
 Today’s advanced data fabric can help you build the data pipelines you need to inform your real-time decision-making processes. When you use [HPE Ezmeral Data Fabric](https://community.hpe.com/t5/HPE-Ezmeral-Uncut/If-HPE-Ezmeral-Data-Fabric-is-the-answer-what-is-the-question/ba-p/7092812#.YUjRDmZKj0q), you can build data pipelines that support modern workloads that demand data to be handled wherever it is – from edge-to-core and edge-to-cloud, in any direction, at any speed, and in any format. Check out the resources found here on the HPE DEV portal to get started. Ping us on [Slack](https://slack.hpedev.io/) if you have any questions or need more information.
 
 ## Documentation and tutorials
@@ -35,4 +36,5 @@ The [HPE DEV Workshops-on-Demand](https://hackshack.hpedev.io/workshops) are fre
 ## Documentation and tutorials
 
 The HPE DEV blog offers many articles and tutorials to help you learn about data fabric and build data pipelines that deliver you the data you need, where and when you need it. Explore our rich library of articles:
+
 (Blog feed)

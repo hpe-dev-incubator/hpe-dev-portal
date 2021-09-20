@@ -1,9 +1,9 @@
 ---
 title: Data Scientist / Engineer
-description: Find all the APIs, SDKs, and documentation you need to build games, websites, and secure enterprise apps that span edge to cloud.
+description: Build the data pipelines you need to inform real-time decision-making processes across public, private, and hybrid clouds. 
 image: /img/role/data-scientist.png
 width: large
-priority: 1
+priority: 3
 frontpage: true
 tags:
   - data-scientist
@@ -29,18 +29,22 @@ How do I ensure I get the right data for a project, find it and gain access?
 * Enterprise.nxt paper: [How swarm learning provides data insights while protecting data sovereignty](https://www.hpe.com/us/en/insights/articles/how-swarm-learning-enables-data-sharing-while-protecting-data-so-2106.html)
 
 How do I control data movement?
+
 * HPE Ezmeral UnCut blog: [To the edge and back again: Meeting the challenges of edge computing](https://community.hpe.com/t5/HPE-Ezmeral-Uncut/To-the-edge-and-back-again-Meeting-the-challenges-of-edge/ba-p/7132609#.YUi1c2ZKj0q)
-* World Watch Webinar: [Data Motion at Scale: the Untold Story](https://www.hpe.com/h22228/video-gallery/us/en/5a1ff1b7-faf8-43f2-98a3-d5b7331616b6/video?jumpid=em_4pbhacrk27_aid-520049397&utm_source=RE
+* World Watch Webinar: [Data Motion at Scale: the Untold Story](https://www.hpe.com/h22228/video-gallery/us/en/5a1ff1b7-faf8-43f2-98a3-d5b7331616b6/video?jumpid=em_4pbhacrk27_aid-520049397&utm_source=RE)
 
 How do I ensure trust for the data?
-Placeholder: SPIFFE/SPIRE info
+
+* Placeholder: SPIFFE/SPIRE info
 
 Who is already using HPE Ezmeral Data Fabric today?
-[Accelerating Autonomous Car Development with Ready Access to Global Data Fabric](https://www.hpe.com/psnow/doc/a50003176enw?jumpid=in_lit-psnow-red)
+
+* [Accelerating Autonomous Car Development with Ready Access to Global Data Fabric](https://www.hpe.com/psnow/doc/a50003176enw?jumpid=in_lit-psnow-red)
 
 ## Documentation
 
 The [HPE Ezmeral Data Fabric platform page](https://developer.hpe.com/platform/hpe-ezmeral-data-fabric/home/#tutorials) on the HPE DEV portal offers documentation and API information along with informative videos and tutorials. Additional documentation can be found here:
+
 * [HPE Ezmeral Data Fabric: Modern infrastructure for data storage and management](https://www.hpe.com/psnow/doc/a00110846enw)
 
 ## Munch & Learn
