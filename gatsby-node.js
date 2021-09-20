@@ -47,6 +47,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const tagTemplate = path.resolve('./src/templates/tags.js');
   const campaignTemplate = path.resolve('./src/templates/campaign.js');
   const roleTemplate = path.resolve('./src/templates/role.js');
+  const useCasesTemplate = path.resolve('./src/templates/use-cases.js');
 
   const allQueryResult = await graphql(paginatedCollectionQuery('blog-posts'));
   const openSourceQueryResult =
@@ -213,7 +214,6 @@ exports.createPages = async ({ graphql, actions }) => {
           });
         } else if (post.node.fields.sourceInstanceName === 'role') {
           const { sourceInstanceName, slug } = post.node.fields;
-          console.log('post.node.fields: ', post.node.fields);
           console.log(
             `Create pages /${sourceInstanceName}${slug} from ${slug}`,
           );
@@ -221,6 +221,20 @@ exports.createPages = async ({ graphql, actions }) => {
           createPage({
             path: `/${sourceInstanceName}${slug}`,
             component: roleTemplate,
+            context: {
+              slug: post.node.fields.slug,
+              tagRE: arrayToRE(post.node.frontmatter.tags),
+            },
+          });
+        } else if (post.node.fields.sourceInstanceName === 'use-cases') {
+          const { sourceInstanceName, slug } = post.node.fields;
+          console.log(
+            `Create pages /${sourceInstanceName}${slug} from ${slug}`,
+          );
+          console.log('------------------------------');
+          createPage({
+            path: `/${sourceInstanceName}${slug}`,
+            component: useCasesTemplate,
             context: {
               slug: post.node.fields.slug,
               tagRE: arrayToRE(post.node.frontmatter.tags),

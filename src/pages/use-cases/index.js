@@ -31,20 +31,20 @@ const rows = {
   xlarge: ['auto'],
 };
 
-function Role({ data, location }) {
-  const roles = data.allMarkdownRemark.edges;
+function UseCase({ data, location }) {
+  const useCases = data.allMarkdownRemark.edges;
   const siteMetadata = useSiteMetadata();
   const siteTitle = siteMetadata.title;
 
   useEffect(() => {
     if (location.state && location.state.isPlatformHeaderClicked) {
-      navigate('/roles', { replace: true });
-      localStorage.removeItem('rolePosition');
+      navigate('/use-cases', { replace: true });
+      localStorage.removeItem('useCasesPosition');
     }
   }, [location]);
 
   useEffect(() => {
-    const scrollPosition = JSON.parse(localStorage.getItem('rolePosition'));
+    const scrollPosition = JSON.parse(localStorage.getItem('useCasesPosition'));
 
     if (scrollPosition) {
       setTimeout(() => {
@@ -55,21 +55,21 @@ function Role({ data, location }) {
 
   return (
     <Layout title={siteTitle}>
-      <SEO title="What's Your Role" />
+      <SEO title="Explore Use Cases" />
       <PageDescription
-        image="/img/role/whatsYourRole.png"
-        title="What's Your Role?"
-        alt="What's Your Role page logo"
+        image="/img/use-cases/use-cases.png"
+        title="Explore Use Cases"
+        alt="Explore Use Cases logo"
       >
         <Paragraph>
-          Software is at the heart of everything we do. No matter your role,
-          you’ll find resources and tools to assist you in building the best
-          possible experience for your customers – from edge to cloud.
+          Advances in technology offer opportunities to expand and grow. Learn
+          how to harness the power of today’s innovation by exploring how it can
+          be put to use.
         </Paragraph>
       </PageDescription>
       <SectionHeader>
         <ResponsiveGrid rows={rows} columns={columns}>
-          {roles.map(({ node }) => (
+          {useCases.map(({ node }) => (
             <PlatformCard
               key={node.id}
               title={node.frontmatter.title}
@@ -85,7 +85,7 @@ function Role({ data, location }) {
   );
 }
 
-Role.propTypes = {
+UseCase.propTypes = {
   data: PropTypes.shape({
     allMarkdownRemark: PropTypes.shape({
       edges: PropTypes.arrayOf(
@@ -117,14 +117,14 @@ Role.propTypes = {
   }),
 };
 
-export default Role;
+export default UseCase;
 
 export const pageQuery = graphql`
   query {
     allMarkdownRemark(
       filter: {
         fields: {
-          sourceInstanceName: { eq: "role" }
+          sourceInstanceName: { eq: "use-cases" }
           slug: { regex: "//home/$/" }
         }
         frontmatter: { isAside: { ne: true } }

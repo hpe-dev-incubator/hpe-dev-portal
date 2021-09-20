@@ -38,7 +38,7 @@ const rows = {
   xlarge: ['auto'],
 };
 
-function RoleTemplate({ data }) {
+function UseCasesTemplate({ data }) {
   const post = data.markdownRemark;
   const { edges: blogs } = data.blogs;
   const siteMetadata = useSiteMetadata();
@@ -56,7 +56,7 @@ function RoleTemplate({ data }) {
               width="216px"
               height="216px"
               src={image}
-              alt="what's your role logo"
+              alt="use cases logo"
             />
           </Box>
           <Content gap="medium" margin={{ vertical: 'large' }}>
@@ -80,8 +80,8 @@ function RoleTemplate({ data }) {
         <Box alignSelf="start">
           <ButtonLink
             icon={<FormPreviousLink />}
-            label="Go to What's Your Role Page"
-            to="/role"
+            label="Go to Explore Use Cases Page"
+            to="/use-cases"
           />
         </Box>
       </Box>
@@ -89,7 +89,7 @@ function RoleTemplate({ data }) {
   );
 }
 
-RoleTemplate.propTypes = {
+UseCasesTemplate.propTypes = {
   data: PropTypes.shape({
     site: PropTypes.shape({
       siteMetadata: PropTypes.shape({
@@ -125,10 +125,10 @@ RoleTemplate.propTypes = {
   }).isRequired,
 };
 
-export default RoleTemplate;
+export default UseCasesTemplate;
 
 export const pageQuery = graphql`
-  query RoleBySlug($slug: String!, $tagRE: String!) {
+  query UseCasesBySlug($slug: String!, $tagRE: String!) {
     site {
       siteMetadata {
         title

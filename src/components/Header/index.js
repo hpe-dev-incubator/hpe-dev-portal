@@ -123,21 +123,16 @@ function Header() {
         </>
       }
     />,
-    <DropButton
-      label="Use Cases"
-      dropAlign={{ top: 'bottom', left: 'left' }}
-      dropContent={
-        <>
-          <ButtonLink key="li-0" label="Use Case #1" to="#" alignSelf="start" />
-          <ButtonLink key="li-1" label="Use Case #2" to="#" alignSelf="start" />
-          <ButtonLink key="li-2" label="Use Case #3" to="#" alignSelf="start" />
-        </>
-      }
+    <ButtonLink
+      key="euc"
+      label="Explore Use Cases"
+      to="/use-cases"
+      alignSelf="start"
     />,
-    <ButtonLink 
+    <ButtonLink
       key="wyr"
       label="What's Your Role"
-      to="/role" 
+      to="/role"
       alignSelf="start"
     />,
     <ButtonLink key="ev" label="Events" to="/events" />,

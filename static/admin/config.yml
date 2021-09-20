@@ -219,3 +219,24 @@ collections:
       - { label: 'Featured', name: 'frontpage', widget: 'boolean', required: false, hint: 'selecting true displays the card on the dashboard/home page'  }
       - { label: 'Tags', name: 'tags', widget: 'list', allow_add: true, required: false, field: {label: 'Tag', name: 'tag', widget: 'string'} }
       - { label: 'Body', name: 'body', widget: 'markdown' }
+# Explore Use Cases collection
+  - name: 'use-cases'
+    label: 'Explore Use Cases'
+    folder: 'content/use-cases'
+    path: '{{title}}/{{slug}}'
+    preview_path: '/use-cases/{{title}}/home'
+    extension: 'md'
+    create: true
+    publish: false
+    slug: 'home'
+    editor:
+      preview: true
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Description', name: 'description', widget: 'string' }
+      - { label: 'Image', name: 'image', widget: 'image',media_folder: '/static/img/use-case', public_folder: '/img/use-case', hint: 'image to appear on platform page' }
+      - { label: 'Card Size', name: 'width', widget: 'select', options: [ 'large' ], default: 'large'}
+      - { label: 'Priority', name: 'priority', widget: 'number', hint: 'controls the card position on the platform page'}
+      - { label: 'Featured', name: 'frontpage', widget: 'boolean', required: false, hint: 'selecting true displays the card on the dashboard/home page'  }
+      - { label: 'Tags', name: 'tags', widget: 'list', allow_add: true, required: false, field: {label: 'Tag', name: 'tag', widget: 'string'} }
+      - { label: 'Body', name: 'body', widget: 'markdown' }
