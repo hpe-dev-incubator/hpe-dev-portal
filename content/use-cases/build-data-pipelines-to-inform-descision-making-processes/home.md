@@ -22,8 +22,8 @@ The [HPE Ezmeral Data Fabric platform page](https://developer.hpe.com/platform/h
 The HPE DEV Munch & Learn Technology Talks are monthly community meetups where you can hear from experts on the newest technologies. Catch up on any you may have missed and register for upcoming talks [here](https://developer.hpe.com/campaign/munch-and-learn/). For those interested in data science, you’ll find a number of interesting sessions:
 
 * [What’s a data fabric and how does it work?](https://www.youtube.com/watch?v=qi6sTvu8osk)
-* Data Science Unplugged: Part 1
-* Data Science Unplugged: Part 2
+* [Data Science Unplugged: Part 1](https://www.youtube.com/watch?v=Inh6eXM0EbA)
+* [Data Science Unplugged: Part 2](https://www.youtube.com/watch?v=Va4tSr__Yok)
 * [How to make data consumable for real-world data science](https://www.youtube.com/watch?v=4WKjRqflF7M)
 
 ## Workshops-on-Demand
