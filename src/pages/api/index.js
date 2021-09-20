@@ -34,7 +34,7 @@ function ApiPage({ data }) {
     <Layout title={siteTitle}>
       <SEO title="Browse APIs" />
       <PageDescription
-        image="/img/opensource/opensource.svg"
+        image="/img/api/ourapis.svg"
         title="Browse APIs"
         alignSelf="start"
         alt="api logo"
