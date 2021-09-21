@@ -58,7 +58,7 @@ In this blog post, you'll checkout the existing Spring Boot application from [Gi
 
 2.      Copy the ssl_usertruststore.p12 from the HPE Data Fabric cluster into certs folder under project directory. The ssl_usertruststore.p12 file is located at /opt/mapr/conf directory in cluster node. The password for p12 can be copied from “ssl.client.truststore.password” property value in /opt/mapr/conf/ssl-client.xml .
 
-3.      From project directory, open resources/application.properties. Change the key values as per your environment. 
+3.      From the project directory, open resources/application.properties. Change the key values as per your environment. 
 
 4.      Execute “mvn clean install” .
 
