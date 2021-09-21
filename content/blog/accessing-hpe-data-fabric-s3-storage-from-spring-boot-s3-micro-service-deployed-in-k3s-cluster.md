@@ -124,7 +124,7 @@ spec:
         - containerPort: 8000
 ```
 
-9.      Before deploying it in Kubernetes cluster, validate the docker or podman image by running the image. 
+9.      Before deploying it in the Kubernetes cluster, validate the docker or podman image by running the image. 
 
 ```bash
 docker run -p 8000:8000 <Dockerhub userid>/df-s3-springboot-k3s-demo
