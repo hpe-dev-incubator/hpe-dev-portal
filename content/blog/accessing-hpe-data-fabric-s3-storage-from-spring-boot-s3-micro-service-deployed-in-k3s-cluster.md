@@ -152,4 +152,4 @@ http://localhost:8000/swagger-ui.hmtl
 
 ![Swagger UI](/img/swagger-ui.png)
 
-In this blog , you learnt how data can be processed from edge to persistence store by creating data pipeline using different technology stack. The mentioned data pipeline is not limited to current use case but can be used in diversified microservice use cases. 
+In this blog post, you learned how data can be processed from edge to a persistence store by creating a data pipeline using a different technology stack. The aforementioned data pipeline is not limited to this current use case but can be used in many diversified microservice use cases.
