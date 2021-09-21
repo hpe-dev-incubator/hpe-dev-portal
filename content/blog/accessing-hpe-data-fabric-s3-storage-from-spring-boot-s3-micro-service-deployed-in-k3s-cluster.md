@@ -42,7 +42,7 @@ Spring Boot is an open source Java-based framework used to create a micro Servi
 
 Note: We can move the Spring Boot application to Quarkus with no change in code. Moving code to Quarkus will reduce the footprint of Spring Boot application. More information can be found at [Quarkus site.](https://quarkus.io/blog/quarkus-for-spring-developers/)
 
-In this blog, checkout existing Spring Boot application from [GitHub](https://github.hpe.com/kiran-mavatoor/df-s3-springboot-k3s-demo) , customise it and execute. 
+In this blog, checkout existing Spring Boot application from [GitHub](https://github.hpe.com/kiran-mavatoor/df-s3-springboot-k3s-demo), customise it and execute. 
 
 **Application Prerequisites**
 
