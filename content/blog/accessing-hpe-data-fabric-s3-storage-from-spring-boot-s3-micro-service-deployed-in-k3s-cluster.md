@@ -34,7 +34,7 @@ The Object Store with an S3-compatible API stores data generated through multi
 
 **K3s**
 
-Lightweight Kubernetes, aka K3s, is easy to install and consumes half the memory, all in a binary of less than 100MB. It's great for edge and IoT use cases. More information on K3s can be found at [Rancher](<https://rancher.com/docs/k3s/latest/en/>) site[](https://rancher.com/docs/k3s/latest/en/) . Follow the steps as mentioned in [QuickStart Guide](https://rancher.com/docs/k3s/latest/en/quick-start/) [](https://rancher.com/docs/k3s/latest/en/quick-start/) for installation of K3s cluster. 
+Lightweight Kubernetes, aka K3s, is easy to install and consumes half the memory, all in a binary of less than 100MB. It's great for edge and IoT use cases. More information on K3s can be found at [Rancher](<https://rancher.com/docs/k3s/latest/en/>) site[](https://rancher.com/docs/k3s/latest/en/) . Follow the steps as mentioned in [QuickStart Guide](https://rancher.com/docs/k3s/latest/en/quick-start/) [](https://rancher.com/docs/k3s/latest/en/quick-start/) for installation of the K3s cluster. 
 
 **Spring Boot**
 
