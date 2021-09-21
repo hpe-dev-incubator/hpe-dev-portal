@@ -54,7 +54,7 @@ In this blog post, you'll checkout the existing Spring Boot application from [Gi
 
 **Build and Install Steps**
 
-1.      Check out  an existing Spring Boot application from [GitHub](https://github.hpe.com/kiran-mavatoor/df-s3-springboot-k3s-demo).
+1.      Check out an existing Spring Boot application from [GitHub](https://github.hpe.com/kiran-mavatoor/df-s3-springboot-k3s-demo).
 
 2.      Copy the ssl_usertruststore.p12 from the HPE Data Fabric cluster into certs folder under project directory. The ssl_usertruststore.p12 file is located at /opt/mapr/conf directory in cluster node. The password for p12 can be copied from “ssl.client.truststore.password” property value in /opt/mapr/conf/ssl-client.xml .
 
