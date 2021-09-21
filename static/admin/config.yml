@@ -218,3 +218,20 @@ collections:
           - {label: Template Type, name: templateType, widget: string }
           - {label: Template Name, name: templateName, widget: string }
           - {label: Template Link, name: link, widget: string }
+# API collection: 
+  - name: 'api'
+    label: 'API'
+    folder: 'content/api'
+    extension: 'md'
+    create: true
+    publish: false
+    slug: '{{slug}}'
+    editor:
+      preview: true
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Category', name: 'category', widget: 'string' }
+      - { label: 'Navigation Path', name: 'link', widget: 'string'}
+      - { label: 'Description', name: 'description', widget: 'string'}
+      - { label: 'Priority', name: 'priority', widget: 'number' }
+      - { label: 'Thumbnail Image', name: 'image', widget: 'image', media_folder: '/static/img', public_folder: '/img', hint: 'image to appear on opensource card' }
