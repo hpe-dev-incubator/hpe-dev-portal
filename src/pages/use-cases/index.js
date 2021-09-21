@@ -61,7 +61,7 @@ function UseCase({ data, location }) {
         title="Explore Use Cases"
         alt="Explore Use Cases logo"
       >
-        <Paragraph>
+        <Paragraph size="large">
           Advances in technology offer opportunities to expand and grow. Learn
           how to harness the power of today’s innovation by exploring how it can
           be put to use.
