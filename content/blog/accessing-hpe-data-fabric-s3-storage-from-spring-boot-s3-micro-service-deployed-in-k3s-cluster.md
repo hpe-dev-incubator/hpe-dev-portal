@@ -46,7 +46,7 @@ In this blog post, you'll checkout the existing Spring Boot application from [Gi
 
 **Application Prerequisites**
 
-1.      K3s cluster must be accessible. Note down the control plan node details. This information is required to deploy the Spring Boot application.
+1.      The K3s cluster must be accessible. Note down the control plan node details. This information is required to deploy the Spring Boot application.
 
 2.      Access the HPE Data Fabric Object Store service UI running on port 9000. For example URL  - https://FQDN:9000/.  Note down the access key and secret key. It is advised to change the default values.
 
