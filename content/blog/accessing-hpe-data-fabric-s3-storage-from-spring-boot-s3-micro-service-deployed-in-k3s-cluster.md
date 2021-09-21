@@ -30,7 +30,7 @@ A brief description of the technology stack used is described in the sections be
 
 **Data Fabric Object Storage**
 
-The Object Store with an S3-compatible API stores data generated through multiple data protocols, such as NFS, POSIX, S3, and HDFS. Data in the Object Store is accessible through S3 API requests. The Object Store manages all inbound S3 API requests to store data in or retrieve data from an HPE Ezmeral Data Fabric cluster. More details can be found [here.](https://docs.datafabric.hpe.com/62/MapRObjectStore/MapRObjectStorewithS3-compatibleAPI.html)
+The Object Store with an S3-compatible API stores data generated through multiple data protocols, such as NFS, POSIX, S3, and HDFS. Data in the Object Store is accessible through S3 API requests. The Object Store manages all inbound S3 API requests to store data in or retrieve data from an HPE Ezmeral Data Fabric cluster. More details can be found** [here.](https://docs.datafabric.hpe.com/62/MapRObjectStore/MapRObjectStorewithS3-compatibleAPI.html)**
 
 **K3s**
 
