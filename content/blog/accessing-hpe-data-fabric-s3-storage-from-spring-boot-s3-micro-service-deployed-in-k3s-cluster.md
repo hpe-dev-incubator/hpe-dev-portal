@@ -24,7 +24,7 @@ In this article, I will discuss how to access HPE Ezmeral Data Fabric Object Sto
 
 ![](/img/hpe-ezmeral-data-fabric-s3-springboot-k3s.png)
 
-Figure 1:  Architecture overview of Spring Boot S3 Micro Service on K3s with HPE Data Fabric Object Storage as the back end.
+###### Figure 1:  Architecture overview of Spring Boot S3 Micro Service on K3s with HPE Data Fabric Object Storage as the back end.
 
 A brief description of the technology stack used is described in the sections below:
 
@@ -34,7 +34,7 @@ The Object Store with an S3-compatible API stores data generated through multi
 
 **K3s**
 
-Lightweight Kubernetes, aka K3s, is easy to install and consumes half the memory, all in a binary of less than 100MB. It's great for edge and IoT use cases. More information on K3s can be found at [Rancher](<https://rancher.com/docs/k3s/latest/en/>) site[](https://rancher.com/docs/k3s/latest/en/). Follow the steps as mentioned in [QuickStart Guide](https://rancher.com/docs/k3s/latest/en/quick-start/) [](https://rancher.com/docs/k3s/latest/en/quick-start/) for installation of the K3s cluster. 
+Lightweight Kubernetes, aka K3s, is easy to install and consumes half the memory, all in a binary of less than 100MB. It's great for edge and IoT use cases. More information on K3s can be found at [Rancher](https://rancher.com/docs/k3s/latest/en/) site[](https://rancher.com/docs/k3s/latest/en/). Follow the steps as mentioned in [QuickStart Guide](https://rancher.com/docs/k3s/latest/en/quick-start/) [](https://rancher.com/docs/k3s/latest/en/quick-start/) for installation of the K3s cluster. 
 
 **Spring Boot**
 
@@ -54,7 +54,7 @@ In this blog, checkout existing Spring Boot application from [GitHub](https://gi
 
 **Build and Install Steps**
 
-1.      Check out  an existing Spring Boot application from [GitHub](<https://github.hpe.com/kiran-mavatoor/df-s3-springboot-k3s-demo>).
+1.      Check out  an existing Spring Boot application from [GitHub](https://github.hpe.com/kiran-mavatoor/df-s3-springboot-k3s-demo).
 
 2.      Copy the ssl_usertruststore.p12 from the HPE Data Fabric cluster into certs folder under project directory. The ssl_usertruststore.p12 file is located at /opt/mapr/conf directory in cluster node. The password for p12 can be copied from “ssl.client.truststore.password” property value in /opt/mapr/conf/ssl-client.xml .
 
@@ -80,7 +80,6 @@ docker image ls
 docker login -u <Dockerhub user id>
 > enter password:  <Dockerhub password>
 docker push <Dockerhub user id>/df-s3-springboot-k3s-demo:latest
-
 ```
 
 8.      Create below df-s3-springboot-k3s-demo.yaml file for deploying the executable in K3s cluster. Sample yaml file is given in project directory. Please replace <dockerhub userid> with valid id.
