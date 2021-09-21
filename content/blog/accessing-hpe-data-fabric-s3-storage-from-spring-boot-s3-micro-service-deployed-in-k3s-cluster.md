@@ -30,7 +30,7 @@ A brief description of the technology stack used is described in the sections be
 
 **Data Fabric Object Storage**
 
-The Object Store with an S3-compatible API stores data generated through multiple data protocols, such as NFS, POSIX, S3, and HDFS. Data in the Object Store is accessible through S3 API requests. The Object Store manages all inbound S3 API requests to store data in or retrieve data from an HPE Ezmeral Data Fabric cluster. More details can be found** [here.](https://docs.datafabric.hpe.com/62/MapRObjectStore/MapRObjectStorewithS3-compatibleAPI.html)**
+The Object Store with an S3-compatible API stores data generated through multiple data protocols, such as NFS, POSIX, S3, and HDFS. Data in the Object Store is accessible through S3 API requests. The Object Store manages all inbound S3 API requests to store data in or retrieve data from an HPE Ezmeral Data Fabric cluster. More details can be found [here.](https://docs.datafabric.hpe.com/62/MapRObjectStore/MapRObjectStorewithS3-compatibleAPI.html)
 
 **K3s**
 
@@ -38,9 +38,9 @@ Lightweight Kubernetes, aka K3s, is easy to install and consumes half the memory
 
 **Spring Boot**
 
-Spring Boot is an open source Java-based framework used to create a micro Service. Many real world applications are written in Spring Boot for faster development and better maintainability. More information can be found at** [spring.io](https://spring.io/projects/spring-boot)**
+Spring Boot is an open source Java-based framework used to create a micro Service. Many real world applications are written in Spring Boot for faster development and better maintainability. More information can be found at [spring.io](https://spring.io/projects/spring-boot)
 
-Note: We can move the Spring Boot application to Quarkus with no change in code. Moving code to Quarkus will reduce the footprint of Spring Boot application. More information can be found at [Quarkus site.](https://quarkus.io/blog/quarkus-for-spring-developers/)
+Note: We can move the Spring Boot application to Quarkus with no change in code. Moving code to Quarkus will reduce the footprint of Spring Boot application. More information can be found at [Quarkus site](https://quarkus.io/blog/quarkus-for-spring-developers/)
 
 In this blog, checkout existing Spring Boot application from [GitHub](https://github.hpe.com/kiran-mavatoor/df-s3-springboot-k3s-demo), customise it and execute. 
 
@@ -48,9 +48,9 @@ In this blog, checkout existing Spring Boot application from [GitHub](https://gi
 
 1.      K3s cluster must be accessible. Note down the control plan node details. This information is required to deploy the Spring Boot application.
 
-2.      Access the HPE Data Fabric Object Store service UI running on port 9000. For example URL  - https://<Fully Qualified Domain Name>:9000/ .  Note down the access key and secret key. It is advised to change the default values.
+2.      Access the HPE Data Fabric Object Store service UI running on port 9000. For example URL  - https://FQDN:9000/.  Note down the access key and secret key. It is advised to change the default values.
 
-3.      Java 11 , Apache Maven 3.8+ , Docker Client.
+3.      Java 11, Apache Maven 3.8+, Docker Client.
 
 **Build and Install Steps**
 
