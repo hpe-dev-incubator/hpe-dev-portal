@@ -24,7 +24,7 @@ In this article, I will discuss how to access HPE Ezmeral Data Fabric Object Sto
 
 ![](/img/hpe-ezmeral-data-fabric-s3-springboot-k3s.png)
 
-###### Figure 1:  Architecture overview of Spring Boot S3 Micro Service on K3s with HPE Data Fabric Object Storage as the back end.
+##### Figure 1:  Architecture overview of Spring Boot S3 Micro Service on K3s with HPE Data Fabric Object Storage as the back end.
 
 A brief description of the technology stack used is described in the sections below:
 
