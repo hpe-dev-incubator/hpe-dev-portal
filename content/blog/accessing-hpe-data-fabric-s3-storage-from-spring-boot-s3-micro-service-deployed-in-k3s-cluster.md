@@ -18,7 +18,7 @@ tags:
   - Object Storage
   - IOT
 ---
-Containers and Microservices are transforming Edge and IoT platform use cases which can be deployed in Kubernetes clusters on edge nodes with small footprint and fast processing by persisting data at central location. This data pipeline can be easily accessed by downstream complex analytics applications for further processing. 
+Containers and microservices are transforming Edge and IoT platform use cases that can be deployed in small footprint Kubernetes clusters on edge nodes and persisting data at a central location. This data pipeline can be easily accessed by downstream complex analytics applications for further processing. 
 
 In this article, I will discuss how to access HPE Ezmeral Data Fabric Object Store (S3) using Spring Boot S3 Micro Service application deployed in a [K3s cluster](https://k3s.io/) and perform basic S3 operations like upload, list, delete etc. The below diagram gives an overview of the architecture.
 
