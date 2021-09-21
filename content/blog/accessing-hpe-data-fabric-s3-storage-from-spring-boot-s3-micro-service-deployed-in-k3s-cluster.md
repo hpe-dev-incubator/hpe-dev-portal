@@ -66,7 +66,7 @@ In this blog post, you'll checkout the existing Spring Boot application from [Gi
 
 6.      Edit the DockerFile located in project directory. The value of 
 
-“-Djavax.net.ssl.trustStorePassword”  must be same as the value of  “ssl.client.truststore.password” obtained from step 2. 
+“-Djavax.net.ssl.trustStorePassword”  must be same as the value of  “ssl.client.truststore.password” obtained from Step 2. 
 
 Note: This value can be configured using config-map.yaml in K3s cluster.
 
