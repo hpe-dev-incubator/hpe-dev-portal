@@ -18,7 +18,9 @@ tags:
   - Object Storage
   - IOT
 ---
-Object Store is an S3-compatible API storage service offered by HPE Ezmeral Data Fabric Platform that offers scalable, secure, and well-performing Object Storage. In this article, I will discuss how to access HPE Ezmeral Data Fabric Object Store (S3) using Spring Boot S3 Micro Service application deployed in a [K3s cluster](https://k3s.io/) and perform basic S3 operations like upload, list, delete etc. The below diagram gives an overview of the architecture.
+Containers and Microservices are transforming Edge and IoT platform use cases which can be deployed in Kubernetes clusters on edge nodes with small footprint and fast processing by persisting data at central location. This data pipeline can be easily accessed by downstream complex analytics applications for further processing. 
+
+In this article, I will discuss how to access HPE Ezmeral Data Fabric Object Store (S3) using Spring Boot S3 Micro Service application deployed in a [K3s cluster](https://k3s.io/) and perform basic S3 operations like upload, list, delete etc. The below diagram gives an overview of the architecture.
 
 ![](/img/hpe-ezmeral-data-fabric-s3-springboot-k3s.png)
 
@@ -149,3 +151,5 @@ http://localhost:8000/swagger-ui.hmtl
 2.      Verify the services exposed in the Swagger-UI
 
 ![Swagger UI](/img/swagger-ui.png)
+
+In this blog , you learnt how data can be processed from edge to persistence store by creating data pipeline using different technology stack. The mentioned data pipeline is not limited to current use case but can be used in diversified microservice use cases. 
