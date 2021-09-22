@@ -215,12 +215,12 @@ collections:
         name: "templateCards"
         widget: "list"
         fields:
-          - {label: Template Type, name: templateType, widget: string }
-          - {label: Template Name, name: templateName, widget: string }
-          - {label: Template Link, name: link, widget: string }
+          - {label: 'Template Type', name: 'templateType', widget: 'string' }
+          - {label: 'Template Name', name: 'templateName', widget: 'string' }
+          - {label: 'Template Link', name: 'link', widget: 'string' }
 # What's your role collection
   - name: 'role'
-    label: 'What's Your Role'
+    label: "What's Your Role"
     folder: 'content/role'
     path: '{{title}}/{{slug}}'
     preview_path: '/role/{{title}}/home'
@@ -228,6 +228,9 @@ collections:
     create: true
     publish: false
     slug: 'home'
+    editor:
+      preview: true
+    fields:
       - { label: 'Description', name: 'description', widget: 'string' }
       - { label: 'Image', name: 'image', widget: 'image',media_folder: '/static/img/role', public_folder: '/img/role', hint: 'image to appear on platform page' }
       - { label: 'Card Size', name: 'width', widget: 'select', options: [ 'large' ], default: 'large'}
