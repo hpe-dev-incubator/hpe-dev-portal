@@ -231,6 +231,7 @@ collections:
     editor:
       preview: true
     fields:
+      - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Description', name: 'description', widget: 'string' }
       - { label: 'Image', name: 'image', widget: 'image',media_folder: '/static/img/role', public_folder: '/img/role', hint: 'image to appear on platform page' }
       - { label: 'Card Size', name: 'width', widget: 'select', options: [ 'large' ], default: 'large'}
