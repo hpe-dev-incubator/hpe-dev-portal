@@ -11,7 +11,7 @@ tags:
 ---
 ## Authentication Process to obtain the Access Token
 
-Data Services Cloud Console public API relies on OAuth 2.0 third party authorization framework on behalf of the resource owner (DSCC user) for security. User starts by authenticating into HPE GreenLake which is accommodated by the Identity Provider (validated by username, password, MFA or SSO). Using the API Gateway menu in HPE GreenLake customer registers their application to obtain the OAuth 2.0 API client credentials. This association allows user to obtain the Access Token.
+The Data Services Cloud Console public API relies on a OAuth 2.0 third party authorization framework on behalf of the resource owner (DSCC user) for security. User starts by authenticating into HPE GreenLake which is accommodated by the Identity Provider (validated by username, password, MFA or SSO). Using the API Gateway menu in HPE GreenLake customer registers their application to obtain the OAuth 2.0 API client credentials. This association allows user to obtain the Access Token.
 
 The access token have a limited lifetime (about 720 seconds or 2 hours). Once it expires, the application must use the refresh API token and the refresh API to obtain the valid access tokens
 
