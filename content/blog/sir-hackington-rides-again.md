@@ -8,7 +8,7 @@ If you’re like me, you’re probably itching to get out and about after months
 
 Who am I, you ask? Could it be? Has it been so long that you’ve been to an event that you’ve forgotten your dear, little friend, Sir Hackington? Or perhaps you have only recently joined our HPE Developer Community and we haven’t yet been properly introduced. Permit me to introduce myself. My name is Sir Hackington Appbuilder III. I’m the cute little canine that travels with the HPE DEV team to different events as Guardian of the Swag. Here’s a picture of me in my glory days:
 
-
+![Sir Hackington at Discover](/img/vmworld_collage-1538516807872-2-.jpg "Sir Hackington at Discover")
 
 A lot has happened since then. HPE acquired several companies, along with important technologies, that boosted its position in the market by offering [**the** enterprise-ready container platform for a hybrid world](https://siliconangle.com/2021/03/17/hpe-ezmeral-proving-enterprise-ready-container-platform-hybrid-world-hpeezmeral/). Recognizing the critical need of companies today to manage data pipelines across hybrid computing environments from edge to cloud, HPE invested heavily in a 100% open source Kubernetes-based container environment from BlueData. It blended it with groundbreaking data fabric technology from MapR and added hooks for important open source projects; SPIFFE and SPIRE for security, and Apache Spark for data analytics. The final result is the HPE Ezmeral software platform, which ensures those who need access to data have easy and secure access to what they need regardless where they are. And customers can even consume this as a service through HPE GreenLake.
 
@@ -55,7 +55,7 @@ On Friday, October 15th, from 3:25-4:00pm, catch HPE Chief Technologist Tom Golw
 
 As I mentioned earlier, this is a hybrid event, with people being able to attend the conference virtually as well as in person. While I admit to missing the physical aspect of conferences like this, some of the best activities are found [online](https://kubecon-cloudnativecon-na.com/virtual-exhibitor/?v0326b739525aaf6a5900c153ea6485e67109462e8db159b156161fc07c7e3d8016769932b4c0398e64b5ea52edb3d1c5=98D89AED6140001531DE1D5095DD75E0A2A33735543DD0787B548CBAEAA423B2F93B8EABF8C08225934CAB9C3C342DEF&fromHall). 
 
-
+![HPE Virtual Booth](/img/virtual-booth-image.jpg "HPE Virtual Booth")
 
 As part of our online presence, the HPE DEV team will be delivering several live office hour sessions. Speak with HPE DEV team members to learn more about the HPE Developer Community and how you can benefit from joining it. Whether it’s information found on the web portal, technical blogs and tutorials, GitHub repos, free hands-on technical workshops, interactive technology talks, or online collaboration **There’s Treasure to be Found** when you’re an HPE DEV member! And it’s all free!
 
