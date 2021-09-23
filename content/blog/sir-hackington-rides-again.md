@@ -42,7 +42,7 @@ In the booth, there’s a presentation theater and three dedicated demo stations
 * Celebrate the milestones reached: The release of SPIRE V1.0 and the successful completion of a detailed CNCF security audit
 * Familiarize yourself with new feature development, like support for serverless functions, hardware attestation using TPM devices, and integration with Istio, that are in progress
 
-Check out these links to find out more information about what will be shown regarding [HPE Ezmeral ](https://community.hpe.com/t5/HPE-Ezmeral-Uncut/Don-t-Miss-HPE-at-KubeCon-CloudNativeCon-North-America-2021/ba-p/7149736)and the [HPE CSI Driver for Kubernetes](<-	https://community.hpe.com/t5/Around-the-Storage-Block/Visit-HPE-Storage-at-KubeCon-North-America-Virtual-and-in-person/ba-p/7149757>).
+Check out these links to find out more information about what will be shown regarding [HPE Ezmeral ](https://community.hpe.com/t5/HPE-Ezmeral-Uncut/Don-t-Miss-HPE-at-KubeCon-CloudNativeCon-North-America-2021/ba-p/7149736)and the [HPE CSI Driver for Kubernetes](https://community.hpe.com/t5/Around-the-Storage-Block/Visit-HPE-Storage-at-KubeCon-North-America-Virtual-and-in-person/ba-p/7149757).
 
 In the booth’s HPE DEV Community Center, take a tour of the [HPE DEV portal](https://developer.hpe.com/) – a door into the online dimension where developers and data scientists alike can find the resources they need to build innovative solutions on HPE products and solutions. This is where you’ll find me and all the HPE DEV swag. 
 
@@ -68,4 +68,4 @@ One of my fondest memories of pre-pandemic events was when folks used to stop by
 
 I’ve only scratched the surface of everything that will be going on at the event. I hear there’s going to be a couple of really cool surprises in the booth as well (did someone mention hoodies?), so come on by and check things out.
 
-It feels like such a long time since we’ve had the opportunity to meet in person. I’m really excited about this opportunity. For those of you attending in person, remember to wear your mask. If you need an extra, we’ll have some over in the HPE booth. And for those of you attending online, don’t forget to visit the [HPE DEV Hack Shack](https://hackshack.hpedev.io/) and check out what’s being offered there as well.
+It feels like such a long time since we’ve had the chance to meet in person. I’m really excited about this opportunity. For those of you attending in person, remember to wear your mask. If you need an extra, we’ll have some over in the HPE booth. And for those of you attending online, don’t forget to visit the [HPE DEV Hack Shack](https://hackshack.hpedev.io/) and check out what’s being offered there as well.
