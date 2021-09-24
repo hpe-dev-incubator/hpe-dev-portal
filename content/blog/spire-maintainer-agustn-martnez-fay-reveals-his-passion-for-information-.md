@@ -12,6 +12,7 @@ tags:
   - opensource
   - SPIRE
   - SPIFFE
+  - spiffe-and-spire-projects
 ---
 ![agustin martinez fayo](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/12/agustin-martinez-fayo-1614696396460.PNG)
 
