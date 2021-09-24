@@ -32,7 +32,7 @@ In the booth, there’s a presentation theater and three dedicated demo stations
 * Hear about multitenancy involving HPE storage for Kubernetes clusters with private cloud
 * See how the HPE CSI Driver’s advanced security features encrypt volumes regardless of the storage backend, both in-flight and at-rest
 * Learn about opportunities with Prometheus monitoring and alerting for cloud-native apps and infrastructure
-* Become familiar with HPE partnerships in data protection and data management, including Veeam, CommVault, Cohesity, and Zerto, HPE’s latest acquisition
+* Become familiar with HPE partnerships in data protection and data management, including Veeam, Commvault, Cohesity, and Zerto, HPE’s latest acquisition
 * Explore enhanced developer efficiency with file and block for K8apps and data management for stateful apps
 * Get to know more about operational agility and data protection
 
@@ -56,7 +56,7 @@ On Friday, October 15th, from 3:25-4:00pm, catch HPE Chief Technologist Tom Golw
 
 As I mentioned earlier, this is a hybrid event, with people being able to attend the conference virtually as well as in person. While I admit to missing the physical aspect of conferences like this, some of the best activities are found [online](https://kubecon-cloudnativecon-na.com/virtual-exhibitor/?v0326b739525aaf6a5900c153ea6485e67109462e8db159b156161fc07c7e3d8016769932b4c0398e64b5ea52edb3d1c5=98D89AED6140001531DE1D5095DD75E0A2A33735543DD0787B548CBAEAA423B2F93B8EABF8C08225934CAB9C3C342DEF&fromHall). 
 
-![HPE Virtual Booth](/img/virtual-booth-update-2.jpg "HPE Virtual Booth")
+![HPE Virtual Booth](/img/virtual-booth-update-3.jpg "HPE Virtual Booth")
 
 As part of our online presence, the HPE DEV team will be delivering several live office hour sessions. Speak with HPE DEV team members to learn more about the [HPE Developer Community ](https://developer.hpe.com/community)and how you can benefit from joining it. Whether it’s information found on the web portal, technical blogs and tutorials, GitHub repos, free hands-on technical workshops, interactive technology talks, or online collaboration *there’s treasure to be found* when you’re an HPE DEV member! And it’s all free!
 
