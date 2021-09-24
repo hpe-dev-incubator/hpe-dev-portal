@@ -18,7 +18,7 @@ import {
   SEO,
   Card,
   TitleMarkdown,
-  ExternalButtonLink,
+  ButtonLink,
 } from '../../components';
 
 const OpenSourceCard = ({ children }) => (
@@ -28,9 +28,9 @@ const OpenSourceCard = ({ children }) => (
         <Heading level={2} margin="none">
           Featured Open Source Projects
         </Heading>
-        <ExternalButtonLink
+        <ButtonLink
           icon={<LinkNext color="green" />}
-          to="https://www.hpe.com/us/en/open-source.html"
+          to="/opensource"
         />
       </CardHeader>
       <Grid
