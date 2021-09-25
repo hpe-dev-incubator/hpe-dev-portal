@@ -48,13 +48,13 @@ The overview of the Data Services Cloud Console is available at [this link](http
 
 ### Supported API Categories (Services)
 
-The API categories for DSCC grows in accordance to the expansion of the DSCC services that are going to released in future. Current services that are available, as recorded today:
+The API categories for DSCC will grow in accordance to the expansion of the DSCC services that are going to released in future. Current services that are available, as recorded today:
 
 1. DataOps Manager
 2. Event Audit
 3. Task tracking
 4. Search
-5. Helps, Issues and announcement
+5. Helps, issues and announcement
 
 ### Versioning
 
@@ -74,7 +74,7 @@ Some examples of these resource paths that contain several resource groups under
 /api/v1/volumes/...
 ```
 
-Existing clients will be able to adopt the backward compatibility from the higher major version incremental.  However, both the new and old version of API will be supported until the announcement of the deprecation. Nonetheless, the older major version will always be frozen with exception of bug fixes. There will also be an announcement of deprecation in the header and sunset header. 
+Existing clients will be able to maintain the backward compatibility from the higher major version incremental, and adopt newly introduced API.  However, both the new and old version of API will be supported until the announcement of the deprecation for the old version of API. Nonetheless, the older major version will always be frozen with exception of bug fixes. There will also be an announcement of deprecation in the header and sunset header. 
 
 ```md
 /api/v1/<resource group>/...
@@ -93,7 +93,7 @@ Existing clients will be able to adopt the backward compatibility from the highe
 
 ### Authentication
 
-The client's application can access this API using the access token obtained from API Gateway after the client successfully authenticate through an associated customer's credential. Once the client register into the API Gateway, the client's application will be associated with specific Client ID, Client Secret, Access Token, and several other parameters. The Access Token contains the Refresh Token that can be used to refresh the Access Token that has expired. This Access Token's expiration time is defaulted at 7200 seconds (2 hours). Any operation against the resources made available in this REST API will require client to embed the this Access Token in the header. 
+The client's application can access this API using the Access Token obtained from API Gateway after the client successfully authenticate through an associated customer's credential. Once the client register into the API Gateway, the client's application will be associated with specific Client ID, Client Secret, Access Token, and several other parameters. The Access Token contains the Refresh Token that can be used to refresh the Access Token that has expired. This Access Token's expiration time is defaulted at 7200 seconds (2 hours). Any operation against the resources made available in this REST API will require client to embed the this Access Token in the header (bearer). 
 
 ### Authorization Policies
 
@@ -101,7 +101,7 @@ The client can only receive properties from the authorized API Resource based on
 
 ### Asynchronous Response
 
-All of the REST API operations are stateless in nature, such as POST, in that scenario the task resource will return a response with HTTP code 202 "Accepted" and the reference to the task as follows:
+All of the REST API operations are stateless in nature. One example is such as POST, in that scenario the task resource will return a response with HTTP code 202 "Accepted" and the reference to the task as follows:
 
 ```md
 Response: 202 Accepted
@@ -113,7 +113,7 @@ Response: 202 Accepted
 }
 ```
 
-In order to ensure the completion of this remote procedural call through POST, user will use the task resource to query the status of this asynchronous task.
+In order to ensure the completion of this remote procedural call through POST, the users will use the task resource to query the status of this asynchronous task.
 
 ```md
 /api/v1/tasks/{task id}
