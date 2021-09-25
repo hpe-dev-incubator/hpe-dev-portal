@@ -25,7 +25,7 @@ This REST API is designed for those who wish to achieve the above objectives. Th
 Some of the advantages of distributing in OpenAPI 3.0 format:
 
 1. Updates to the API can be generated in a more agile manner where documentation is embedded, describing any endpoints, parameters, and more; such as contact information, license, terms of use. 
-2. Consumers of this API also gain the benefits the agility, using the converter from openAPI format to any language that were used as part of the their automation or CI/CD workflow. (Please check <https://openapi.tools> for more information for the API tools to generate client code)
+2. Consumers of this API also gain the benefits the agility, using the converter from openAPI yaml, or json to any programming language that were used as part of the their automation or CI/CD workflow. (Please check <https://openapi.tools> for more information for the API tools to generate client code)
 
 ## REST API Details
 
@@ -35,7 +35,7 @@ Any customer can download this OpenAPI Specification (OAS) v3 definition of the 
 
 ### Documentation and Tutorials
 
-The overview of the Data Services Cloud Console is available at [this link](https://www.hpe.com/us/en/storage/data-services-cloud-console.html#overview). There will be more blogs that will provide more information to help customer adopting this API with examples, code snippets and many other helpful information.
+The overview of the Data Services Cloud Console is available at [this link](https://www.hpe.com/us/en/storage/data-services-cloud-console.html#overview). There will be more blogs that will provide more information to help customers adopting this API with examples, code snippets and many other helpful information.
 
 ### Documented Attributes
 
@@ -74,7 +74,7 @@ Some examples of these resource paths that contain several resource groups under
 /api/v1/volumes/...
 ```
 
-Clients will be able to adopt the backward compatibility from the higher major version incremental.  However, both the new and old version of API will be supported until the announcement of the deprecation. Nonetheless, the older major version will always be frozen with exception of bug fixes. There will also be announcement of deprecation in the header and sunset header. 
+Existing clients will be able to adopt the backward compatibility from the higher major version incremental.  However, both the new and old version of API will be supported until the announcement of the deprecation. Nonetheless, the older major version will always be frozen with exception of bug fixes. There will also be an announcement of deprecation in the header and sunset header. 
 
 ```md
 /api/v1/<resource group>/...
