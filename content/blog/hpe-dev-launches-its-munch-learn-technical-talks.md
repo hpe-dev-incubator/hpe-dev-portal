@@ -38,10 +38,10 @@ We were really excited to have Owen Garrett of Deepfence.io join us on June 30th
 
 For the July 28th Munch & Learn session, Ellen Friedman and Ted Dunning once again joined us to explore more about how to make data consumable for real world data science. With as much data being gathered today, businesses are eager to make the most of it, but it can be challenging when you work with diverse and mismatched data sets and teams. Ted shared some interesting issues he's come across as well as how those situations were handled. They pointed out how data might often be initially collected for one purpose but hoped to be applied by a different team and how a little advance planning can make this possible. If you missed the talk, you can still take advantage of the replay [here.](https://youtu.be/4WKjRqflF7M)
 
-## Coming Up Next
+## Schooling on Kubernetes and Data Analytics
 
-Heading into the fall, the HPE DEV team invited Nigel Poulton, reknowned author and K8s expert, to come back on August 25th to reprise his Kubernetes 101 session that he gave at the HPE Discover 2021 Edge-to-Cloud Conference. Nigel walked us through the basics of Kubernetes in one of our most highly attended sessions yet.
+Heading into the fall, the HPE DEV team invited Nigel Poulton, reknowned author and K8s expert, to come back on August 25th to reprise his Kubernetes 101 session that he gave at the HPE Discover 2021 Edge-to-Cloud Conference. Nigel walked us through the basics of Kubernetes in one of our most highly attended sessions yet, which you can catch in this [replay](https://www.youtube.com/watch?v=PWVJKK1obKQ).
 
-[](https://hpe.zoom.us/meeting/register/tJcrduuuqzgsHNEC-u8l_Y86YeZLMxEDF5fP)
+For our September 22nd session, we focused on how organizations that have progressed along their digital transformation journey are now looking at the next set of workloads and processes to modernize. For many, this includes Data and Analytics.  HPE Ezmeral data science experts, Matt Maccaux and Randy Thomasson, joined us to give their insights, discussing strategic best practices and offering helpful tips for real-world applications.[](https://hpe.zoom.us/meeting/register/tJcrduuuqzgsHNEC-u8l_Y86YeZLMxEDF5fP)
 
 Keep checking back to see what’s new on [our schedule](https://developer.hpe.com/campaign/munch-and-learn) so you don’t miss any of these fun and engaging discussions. Better yet, subscribe to our [HPE DEV Newsletter](https://developer.hpe.com/newsletter-signup). In it, you’ll find information on our upcoming Munch & Learn sessions as well as learn about everything else that’s new.
