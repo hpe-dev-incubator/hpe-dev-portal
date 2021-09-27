@@ -166,6 +166,20 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
+        path: `${__dirname}/content/role`,
+        name: 'role',
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/content/use-cases`,
+        name: 'use-cases',
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
         path: `${__dirname}/content/contribute`,
         name: 'contribute',
       },
@@ -441,9 +455,9 @@ module.exports = {
               node.fields.sourceInstanceName === 'homepanels'
                 ? '/'
                 : `${node.fields.sourceInstanceName}${node.fields.slug.replace(
-                    /\/aside[/]?$/,
-                    '/home',
-                  )}`,
+                  /\/aside[/]?$/,
+                  '/home',
+                )}`,
             sourceInstanceName: (node) => node.fields.sourceInstanceName,
           },
         },
