@@ -40,6 +40,8 @@ For the July 28th Munch & Learn session, Ellen Friedman and Ted Dunning once aga
 
 ## Coming Up Next
 
-For the August 25th HPE DEV Munch & Learn, Nigel Poulton will be reprising the talk he gave at the HPE Discover 2021 Edge-to-Cloud Conference on Kubernetes 101. Join us as he walks us through the basics of Kubernetes.  [Reserve your seat today](https://hpe.zoom.us/meeting/register/tJcrduuuqzgsHNEC-u8l_Y86YeZLMxEDF5fP)!
+Heading into the fall, the HPE DEV team invited Nigel Poulton, reknowned author and K8s expert, to come back on August 25th to reprise his Kubernetes 101 session that he gave at the HPE Discover 2021 Edge-to-Cloud Conference. Nigel walked us through the basics of Kubernetes in one of our most highly attended sessions yet.
+
+[](https://hpe.zoom.us/meeting/register/tJcrduuuqzgsHNEC-u8l_Y86YeZLMxEDF5fP)
 
 Keep checking back to see what’s new on [our schedule](https://developer.hpe.com/campaign/munch-and-learn) so you don’t miss any of these fun and engaging discussions. Better yet, subscribe to our [HPE DEV Newsletter](https://developer.hpe.com/newsletter-signup). In it, you’ll find information on our upcoming Munch & Learn sessions as well as learn about everything else that’s new.
