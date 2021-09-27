@@ -158,18 +158,18 @@ function Header() {
         </TextAlignLeft>
       }
     />,
-    <ButtonLink
-      key="euc"
-      label="Explore Use Cases"
-      to="/use-cases"
-      alignSelf="start"
-    />,
-    <ButtonLink
-      key="wyr"
-      label="What's Your Role"
-      to="/role"
-      alignSelf="start"
-    />,
+    // <ButtonLink
+    //   key="euc"
+    //   label="Explore Use Cases"
+    //   to="/use-cases"
+    //   alignSelf="start"
+    // />,
+    // <ButtonLink
+    //   key="wyr"
+    //   label="What's Your Role"
+    //   to="/role"
+    //   alignSelf="start"
+    // />,
     <ButtonLink key="ev" label="Events" to="/events" />,
     <ButtonLink key="su" label="Skill Up" to="/skillup" />,
     <ButtonLink

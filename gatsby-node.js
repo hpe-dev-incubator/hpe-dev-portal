@@ -47,7 +47,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const tagTemplate = path.resolve('./src/templates/tags.js');
   const campaignTemplate = path.resolve('./src/templates/campaign.js');
   const roleTemplate = path.resolve('./src/templates/role.js');
-  const useCasesTemplate = path.resolve('./src/templates/use-cases.js');
+  const useCasesTemplate = path.resolve('./src/templates/use-case.js');
 
   const allQueryResult = await graphql(paginatedCollectionQuery('blog-posts'));
   const openSourceQueryResult =
