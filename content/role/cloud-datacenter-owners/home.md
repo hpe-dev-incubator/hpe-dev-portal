@@ -6,4 +6,4 @@ image: /img/role/cloud-data-center-owner.png
 width: large
 priority: 2
 ---
-This is where body text goes
+Deliver modern, scalable and secure on-prem and cloud infrastructures managed through centralized dashboards that monitor multiple vendors and services.
