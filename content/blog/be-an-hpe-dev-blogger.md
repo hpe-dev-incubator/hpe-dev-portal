@@ -1,7 +1,7 @@
 ---
 title: Be an HPE DEV blogger!
 date: 2021-08-09T12:03:49.852Z
-featuredBlog: true
+featuredBlog: false
 priority: 1
 author: HPE DEV
 authorimage: /img/hpe-dev-logo-large.png
