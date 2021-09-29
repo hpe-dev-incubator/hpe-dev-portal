@@ -1,7 +1,8 @@
 ---
 title: Cloud/Datacenter Owners
-description: Say something here
-image: /img/role/open-source.png
+description: Manage and modernize your infrastructure to support your digital
+  transformation.
+image: /img/role/cloud-data-center-owner.png
 width: large
 priority: 2
 ---
