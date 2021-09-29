@@ -1,7 +1,6 @@
 ---
 title: DevOps Engineer
-description: Transform manual processes with DevOps and automation to manage
-  efficiently, control risk and optimize for innovation.
+description: Pave the way for rapid software development.
 image: /img/role/it-system.png
 width: large
 priority: 3
@@ -9,4 +8,4 @@ frontpage: true
 tags:
   - it-system
 ---
-This is where body text goes
+Leverage automation and machine learning to sreamline development processes and enable innovation through DevOps processes.
