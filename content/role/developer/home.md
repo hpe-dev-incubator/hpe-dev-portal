@@ -1,6 +1,6 @@
 ---
 title: Developer
-description: Develop games, websites, and secure enterprise apps that span edge to cloud.
+description: Define the future with automated and secure apps that span from edge to cloud.
 image: /img/role/developer.png
 width: large
 priority: 5
@@ -8,4 +8,4 @@ frontpage: true
 tags:
   - developer
 ---
-Body text will go here
+Stay ahead of the innovation curve, taking advantage of automation and scalable on-demand resources to deliver applications that customers value, use and adopt.
