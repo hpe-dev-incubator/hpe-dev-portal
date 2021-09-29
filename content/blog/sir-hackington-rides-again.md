@@ -1,6 +1,7 @@
 ---
 title: Sir Hackington Rides Again!
 date: 2021-09-22T17:20:11.042Z
+featuredBlog: true
 author: HPE DEV
 authorimage: /img/Avatar1.svg
 ---
