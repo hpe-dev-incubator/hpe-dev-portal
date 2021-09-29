@@ -1,9 +1,10 @@
 ---
-title: Data Scientist / Engineer
-description: Build the data pipelines you need to inform real-time decision-making processes across public, private, and hybrid clouds. 
+title: Data/ML Engineer
+description: Build the data pipelines you need to inform real-time
+  decision-making processes across public, private, and hybrid clouds.
 image: /img/role/data-scientist.png
 width: large
-priority: 3
+priority: 1
 frontpage: true
 tags:
   - data-scientist
