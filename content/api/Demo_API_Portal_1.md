@@ -1,9 +1,9 @@
 ---
-          title: "Demo API Portal 1"
-          link: /platform/hpe-ezmeral-container-platform/home/
-          description: Helps deploy and manage stateful applications on Kubernetes.
+          title: "Quote to Cache API Portal"
+          link: https://annieplayground.redoc.ly/ 
+          description: Quote to Cache, for Subscriptions and Traditional Sales
           priority: 3
-          image: '/img/platforms/Aruba.svg'
+          image: '/img/api/quote_to_cache.svg'
           Featured: true
 ---
           
