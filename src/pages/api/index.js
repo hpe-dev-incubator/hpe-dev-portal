@@ -40,7 +40,11 @@ function ApiPage({ data }) {
         alt="api logo"
       >
         <Box gap="small">
-          <Paragraph size="large">API Portal through redocly</Paragraph>
+          <Paragraph size="large">
+            Application programming interfaces simplify development by
+            facilitating communications between apps. Use our APIs to develop
+            innovative solutions that run on HPE Platforms.
+          </Paragraph>
         </Box>
       </PageDescription>
       <SectionHeader color="green">
