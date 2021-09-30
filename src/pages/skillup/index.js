@@ -38,7 +38,7 @@ function Skillup({ data }) {
     <Layout title={siteTitle}>
       <SEO title="Skill Up" />
       <PageDescription
-        image="/img/blogs/HPE-Dev-Staff.svg"
+        image="/img/skillup/skill_up.svg"
         title="Skill Up"
         alt="skillup dev logo"
       >
