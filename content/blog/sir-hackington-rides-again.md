@@ -2,7 +2,7 @@
 title: Sir Hackington Rides Again!
 date: 2021-09-22T17:20:11.042Z
 author: HPE DEV
-authorimage: /img/Avatar1.svg
+authorimage: /img/sirhackington.png
 ---
 If you’re like me, you’re probably itching to get out and about after months and months of virtual meetings and events. When I heard that [KubeCon|CloudNativeCon NA](https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/) was going to be a hybrid live/virtual event, I could hardly contain myself! From October 13th to 15th, this Cloud Native Computing Foundation’s flagship conference will take place both in Los Angeles, California and online where vendors will be showcasing a full range of technologies that support the cloud native ecosystem. And I’m going to proudly be there myself in the Platinum Sponsor Hewlett Packard Enterprise (HPE) booth!
 
