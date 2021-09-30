@@ -38,6 +38,10 @@ const BlogTabContent = ({
 
     // loads persisted data if the load more btn was
     // clicked when the user goes back to blog page
+    console.log('loadMoreBlogData.latestBlogPosts[0]: ', loadMoreBlogData && loadMoreBlogData.latestBlogPosts[0]);
+    if (loadMoreBlogData && loadMoreBlogData.latestBlogPosts[0].id !== blogPosts[0].id){
+      localStorage.removeItem('loadMoreBlogData');
+    } else 
     if (
       loadMoreBlogData &&
       loadMoreBlogData.latestPage &&
@@ -48,6 +52,7 @@ const BlogTabContent = ({
       setBlogPosts(loadMoreBlogData.latestBlogPosts);
     }
   }, [
+    blogPosts,
     platform,
     initialPage,
     setPlatform,
