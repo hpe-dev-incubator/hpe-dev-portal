@@ -11,15 +11,15 @@ HPE OneView is a powerful infrastructure automation/management platform used wit
 
 HPE Oneview has a powerful Restful API and it can be used to get the information in and out of OneView. ServiceNow has a powerful Restful API as well. All that is needed is some middleware and a couple of python bindings (python code that abstracts the API). Turns out the python bindings are already written for both! Seems easy enough, write a couple of python scripts, and we should be good to go, or GTG if you're hip and cool.
 
-This would involve writing the code for **both systems**. What if we leveraged Stackstorm? A quick check of the Stackstorm exchange [exchange.stackstorm.com](exchange.stackstorm.com) and we find that there is Stackstorm integration pack available for ServiceNow. If we use Stackstorm, we only have to write **half** the code. All that needs done is to write the code for a Stackstorm integration pack. 
+This would involve writing the code for **both systems**. What if we leveraged Stackstorm? A quick check of the Stackstorm exchange [exchange.stackstorm.com](exchange.stackstorm.com) and we find that there is Stackstorm integration pack available for ServiceNow. If we use Stackstorm, we only have to write **half** the code. All that needs done is to write the code for a HPE OneView Stackstorm integration pack. 
 
 I have written a couple of other blogs on Stackstorm and if you are interested in trying this approach, I suggest you go to <https://developer.hpe.com/blog/tag/stackstorm> and read my other posts.
 
-Developing the **stackstorm-hpe-oneview** integration pack, which is available here: <https://github.com/HewlettPackard/stackstorm-hpe-oneview>, is fairly straightforward. We are going to need a couple of actions, a couple of rules and some triggers to get the process running based on specific events. Actions are the workhorse of Stackstorm. They are basically the same thing you would write to accomplish this task. All that needs done is to  add just a few lines of code to turn them into Stackstorm actions. 
+Developing the **stackstorm-hpe-oneview** integration pack, which is available here: <https://github.com/HewlettPackard/stackstorm-hpe-oneview>, is fairly straightforward. For this integration to function we will have to write five very short actions and a couple of simple rules. You can see in the chart at the top that two of the actions will be used with the first workflow and three will be need for the second workflow. Actions are the workhorse of Stackstorm. They are basically the same thing you would write to accomplish this task. All that needs done is to  add just a few lines of code to turn them into Stackstorm actions. Let's have a look!
 
 ![](http://www.techworldwookie.com/blogpost/action.png)
 
-The flow of the code is simple. We are going to use two Stackstorm workflows (just a collection of actions). The first will be responsible for getting the alarms from HPE OneView every five minutes. Once the alarms are collected, we will save them in a mongo database. We need a mechanism to determine if we have processed the mongo documents. We will add a field to the mongo record to indicate the the record by default has not been processed. So, process='no' will work just fine. 
+The flow of the code is simple. This is a very simple script that gets the alarms from HPE OneView
 
 ![]( "Workflow example")
 
