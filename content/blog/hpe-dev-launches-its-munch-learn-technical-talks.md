@@ -1,8 +1,8 @@
 ---
 title: HPE DEV launches its Munch & Learn technical talks
 date: 2021-08-16T15:44:13.655Z
-featuredBlog: true
-priority: 3
+featuredBlog: false
+priority:
 author: Dale Rensing
 authorimage: /img/blog-author-rensing-96.jpg
 thumbnailimage: null

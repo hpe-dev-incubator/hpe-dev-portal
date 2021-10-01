@@ -1,8 +1,8 @@
 ---
 title: Using Python and ODBC to connect HPE NonStop SQL/MX
 date: 2021-05-04T06:27:49.069Z
-featuredBlog: true
-priority: 4
+featuredBlog: false
+priority:
 author: Shanice Abigail
 authorimage: /img/profile_pic-formatted-copy-2-.jpg
 tags:
