@@ -6,5 +6,6 @@
           priority: 16
           image: '/img/opensource/Kubedirector.svg'
           Featured: true
+          active: true
 ---
           

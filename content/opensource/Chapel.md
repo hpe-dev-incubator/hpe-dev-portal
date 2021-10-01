@@ -6,5 +6,6 @@
           priority: 22
           image: '/img/platforms/Chapel.svg'
           Featured: true
+          active: true
 ---
           

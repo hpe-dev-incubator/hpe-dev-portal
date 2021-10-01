@@ -5,5 +5,6 @@
           description: Open-source standards for securely authenticating software services.
           priority: 22
           image: '/img/platforms/SPIFFEandSpire.svg'
+          active: true
 ---
           
