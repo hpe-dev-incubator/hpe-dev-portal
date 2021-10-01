@@ -59,7 +59,7 @@ collections:
       preview: true
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Active', name: 'activeCard', widget: 'boolean', required: false, hint: 'selecting true adds the card in the OpenSource page'  }
+      - { label: 'Active', name: 'active', widget: 'boolean', required: false, hint: 'selecting true adds the card in the OpenSource page'  }
       - { label: 'Category', name: 'category', widget: 'string' }
       - { label: 'Navigation Path', name: 'link', widget: 'string'}
       - { label: 'Description', name: 'description', widget: 'string'}
