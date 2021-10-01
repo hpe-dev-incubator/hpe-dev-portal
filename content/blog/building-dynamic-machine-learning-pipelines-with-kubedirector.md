@@ -1,8 +1,8 @@
 ---
 title: Building Dynamic Machine Learning Pipelines with KubeDirector
 date: 2020-08-14T10:58:54.949Z
-featuredBlog: false
-priority: 5
+featuredBlog: true
+priority: 4
 author: Joel Baxter & Kartik Mathur & Don Wake
 authorimage: /img/blogs/Avatar5.svg
 thumbnailimage: null

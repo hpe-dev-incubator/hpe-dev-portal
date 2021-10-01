@@ -1,8 +1,8 @@
 ---
 title: HPE Developer Community Meets a Changing World Head On
 date: 2021-04-14T10:17:45.703Z
-featuredBlog: true
-priority: 5
+featuredBlog: false
+priority:
 author: Dale Rensing
 authorimage: /img/blog-author-rensing-96.jpg
 tags:
