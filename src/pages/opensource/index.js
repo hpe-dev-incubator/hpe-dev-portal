@@ -156,18 +156,7 @@ export const pageQuery = graphql`
     allMarkdownRemark(
       filter: {
         fields: { sourceInstanceName: { eq: "opensource" } }
-        frontmatter: {
-          title: {
-            in: [
-              "Grommet"
-              "Chapel"
-              "SmartSim"
-              "SPIFFE/SPIRE"
-              "KubeDirector"
-              "Spark"
-            ]
-          }
-        }
+        frontmatter: { active: { eq: true } }
       }
       sort: { fields: [frontmatter___title] }
     ) {

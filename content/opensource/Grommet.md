@@ -6,5 +6,6 @@
           priority: 25
           image: '/img/platforms/Grommet.svg'
           Featured: true
+          active: true
 ---
           
