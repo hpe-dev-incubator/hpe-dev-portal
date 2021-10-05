@@ -30,12 +30,12 @@ tags:
     font-weight: 700;
   } 
 </style>
+
 ## HPE OneView Developers Hub
 
 [HPE OneView](https://hpe.com/info/oneview) takes a software-defined, programmatic approach to managing infrastructure with efficient workflow automation, a modern RESTful API, and a comprehensive partner ecosystem.
 
 Here you will find repositories, demos, guides and other technical resources from HPE and the Composable Ecosystem Partners to automate infrastructure management and eliminate complex manual processes.
-
 
 * [Develop together: Visit the HPE GitHub organization](https://github.com/hewlettpackard/)
 * [Looking for solutions: Visit the Composable Ecosystem Partners](https://hpe.com/info/composableprogram)
@@ -54,19 +54,10 @@ Here you will find repositories, demos, guides and other technical resources fro
 * [Ansible Docker Image](https://hub.docker.com/repository/docker/hewlettpackardenterprise/hpe-oneview-sdk-for-ansible-collection)
 * [Installation and user guide](https://psnow.ext.hpe.com/doc/a50003411enw?jumpid=in_lit-psnow-red)
 
-
-
 - - -
 
-### [Chef Infrastructure ![](Github)](https://github.com/HewlettPackard/oneview-chef)
 
-[Chef](https://www.chef.io/) automates the spin up and updates of fluid resource pools in HPE OneView using software-defined templates.
 
-* [Watch the Demo](https://youtu.be/QCAmzIjMHZM)
-* [Browse the Chef Marketplace](https://supermarket.chef.io/cookbooks/oneview)
-* [View Additional Resources](http://h17007.www1.hpe.com/us/en/enterprise/integrated-systems/info-library/index.aspx?cat=ci_mgmt&subcat=chef)
-* [Read the White Paper](https://www.hpe.com/us/en/pdfViewer.html?docId=a00047285&parentPage=/us/en/solutions/developers/composable&resourceTitle=HPE+Reference+Configuration+for+accelerating+DevOps+with+HPE+Synergy+and+Chef+Automate)
-* [Chef Docker Image](https://hub.docker.com/repository/docker/hewlettpackardenterprise/hpe-oneview-sdk-for-chef)
 - - -
 
 ### Docker
@@ -95,15 +86,7 @@ Here you will find repositories, demos, guides and other technical resources fro
 
 - - -
 
-### [Promotheus - Grafana ![](Github)](https://github.com/HewlettPackard/oneview-prometheus-grafana-connector)
-
-The [Prometheus]( https://prometheus.io/) and [Grafana]( https://grafana.com/) connector enables  monitoring of hardware, virtualizations, applications and containers in a unified dashboard. Supporting the mapping of application, virtual machine and container alters to underlying hardware infrastructure.
-
 - - -
-
-### [Puppet ![](Github)](https://github.com/HewlettPackard/oneview-puppet)
-
-The [Puppet](https://puppet.com/) module for HPE OneView automates the configuring and provisioning of bare-metal infrastructure so customers can deliver apps and services faster and easier.
 
 - - -
 
@@ -143,7 +126,6 @@ Interface with HPE OneView using Hubot, an automation tool that can sync with ot
 
 - - -
 
-
 ### [PowerShell ![](Github)](https://github.com/HewlettPackard/POSH-HPOneView)
 
 This library provides a pure Windows PowerShell interface to the HPE OneView REST APIs.
@@ -163,12 +145,6 @@ This library provides a pure Python interface to the HPE OneView REST APIs.
 The Redfish toolkit allows customers to take automations that use the Redfish specification and apply them to HPE OneView without need for extensive scripting.
 
 - - -
-
-### [Ruby ![](Github)](https://github.com/HewlettPackard/oneview-sdk-ruby)
-
-The Ruby SDK provides a Ruby library to easily interact with the HPE OneView API, enabling developers to easily build integrations and scalable solutions with HPE OneView.
-
-* [OneView Ruby SDK Docker Image](https://hub.docker.com/r/hewlettpackardenterprise/hpe-oneview-sdk-for-ruby)
 
 - - -
 
@@ -198,7 +174,7 @@ Plan scripts and sample artifact bundles for personalizing and deploying Red Hat
 
 Plan scripts and sample artifact bundles for personalizing and deploying SUSE Linux Enterprise Server.
 
----
+- - -
 
 # Workshops-on-Demand
 
