@@ -1,5 +1,5 @@
 ---
-title: Determined
+title: Determined AI
 active: true
 category: Machine Learning
 link: https://www.determined.ai/
