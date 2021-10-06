@@ -3,7 +3,7 @@ title: Determined AI
 version: v1.0
 description: "Determined AI accelerates innovation with open source AI solutions
   to build and train models faster and easier. "
-image: /img/platforms/logo-determined-ai.svg
+image: /img/platforms/logo-determine-ai-216px.svg
 width: large
 priority: 1
 ---
