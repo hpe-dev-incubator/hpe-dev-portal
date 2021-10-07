@@ -2,7 +2,7 @@
 title: Celebrate Hacktoberfest 2021 with Grommet
 date: 2021-10-07T18:02:43.028Z
 author: Jessica Filben
-authorimage: /img/Avatar1.svg
+authorimage: /img/jessica-filben.png
 thumbnailimage: /img/hacktoberfest-1-2-.jpg
 ---
 
