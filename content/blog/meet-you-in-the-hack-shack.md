@@ -1,12 +1,14 @@
 ---
-title: "Meet you in the Hack Shack!"
+title: Meet you in the Hack Shack!
 date: 2020-06-30T16:48:15.244Z
-author: Dale Rensing 
-tags: ["hpe-discover-us-2020","HPEDiscover"]
-authorimage: "/img/blogs/Avatar5.svg"
 featuredBlog: false
-priority:
-thumbnailimage:
+priority: null
+author: Dale Rensing
+authorimage: /img/blogs/Avatar5.svg
+thumbnailimage: null
+tags:
+  - hpe-discover-us-2020
+  - HPEDiscover
 ---
 Prior to the pandemic, developers looked forward to connecting with one another at the HPE DEV Hack Shack at events like HPE Technology and Solutions Summit (TSS) and HPE Discover. Out of necessity for the health and safety of everyone, these events have gone virtual. While there’s some concern that this detracts from the personal touch offered at physical events, the option of going virtual has significant benefits. One major advantage is being able to reach a broader audience than just those folks who can afford to fly into town for an event.  
 
@@ -16,12 +18,12 @@ This was the challenge posed to our group of talented developers and designers. 
 
 During the first week of the HPE Discover Virtual Event, we hosted 10 sessions/workshops at the Hack Shack:
 
-* [Hack Shack Workshop W479: Introduction to the HPE Container Platform REST API](https://vimeo.com/433632590)
-* [Hack Shack Workshop W480: API 101 - API basics and the value they provide](https://vimeo.com/433621126) 
-* [Hack Shack Workshop W481: Aruba API yourself!](https://vimeo.com/433637026) 
-* [Hack Shack Workshop W482: Redfish API use with PowerShell, Python, & Bash/cURL](https://vimeo.com/433618069) 
-* [Hack Shack Workshop W485: AI 101 - Convolutional neural network (CNN) for MNIST](https://vimeo.com/433612904) 
-* [Hack Shack Workshop W486: Automate apps with the HPE Container Platform](https://vimeo.com/433625058) 
+* Hack Shack Workshop W479: Introduction to the HPE Container Platform REST API
+* Hack Shack Workshop W480: API 101 - API basics and the value they provide 
+* Hack Shack Workshop W481: Aruba API yourself! 
+* Hack Shack Workshop W482: Redfish API use with PowerShell, Python, & Bash/cURL 
+* Hack Shack Workshop W485: AI 101 - Convolutional neural network (CNN) for MNIST 
+* Hack Shack Workshop W486: Automate apps with the HPE Container Platform 
 * Hack Shack Session T491: What data scientists can learn from software developers
 * Hack Shack Session T492: Accelerate innovation with DevOps for machine learning
 * Making AI Real B329: A View From a Practitioner
@@ -35,7 +37,6 @@ Because the workshops are done virtually and you’re not physically in the room
 
 It was heartening to hear some of the feedback that the students provided:
 
-
 ![hs blog figure1](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/6/hs-blog-figure1-1593537773963.jpg)
 
 While the workshops are great, there’s a whole lot more you can do at the [HPE Discover Virtual Event Hack Shack](https://hackshack.hpedev.io/). Starting Week 2, we will be offering coding challenges where you can show off your coding chops and compete with others for prizes. And we’ll have the Arcade open for those of you who just want a chance to go after the IT Monster in the Hack Shack Attack! game. You can even download stickers! One of the best ways to find out what’s happening in the Hack Shack is to scroll down on our new page and check out our little video tour **This Week in the Hack Shack**.
@@ -46,31 +47,26 @@ For those of you who are looking for the Hack Shack through the HPE Discover Vir
 
 When you [register](https://www.hpe.com/us/en/discover.html), make sure that the password you choose is **ALPHA-NUMBERIC ONLY!** Don’t try putting in any fancy or special characters. If you run into problems with the registration, there is online chat and the opportunity to email folks who can help.
 If you haven’t already signed up for them, there are a couple of ways to find the Hack Shack Workshops and Challenges. I’ve found two easy methods you can use to navigate to them.
-    
-    
 
 **Option 1**    
-1.	Click on this [link](https://content.attend.hpe.com/go/agendabuilder.sessions/?l=1043&locale=en_US)  
-2.	This should bring you to a screen that looks like what’s shown below. This is where you log in:
+
+1. Click on this [link](https://content.attend.hpe.com/go/agendabuilder.sessions/?l=1043&locale=en_US)  
+2. This should bring you to a screen that looks like what’s shown below. This is where you log in:
 
 ![hs blog figure3](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/6/hs-blog-figure3-1593537844172.jpg)
 
-   
 3. Once logged in, you will be brought to a page where you can navigate to the session catalog (Content Catalog). Click on this link.
 
 ![hs blog figure4](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/6/hs-blog-figure4-1593537855197.jpg)
 
-  
-4.	Once you are in the catalog, search for **Hack Shack** to find Workshops and Challenges.
+4. Once you are in the catalog, search for **Hack Shack** to find Workshops and Challenges.
 
 ![hs blog figure5](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/6/hs-blog-figure5-1593537864210.jpg)
 
-  
-5.	You can also use filters looking for Content Type to find the Hack Shack Workshops and Challenges.
+5. You can also use filters looking for Content Type to find the Hack Shack Workshops and Challenges.
 
 ![hs blog figure6](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/6/hs-blog-figure6-1593537873734.jpg)
 
-  
 **Option2**
 
 You can also find what Hack Shack Workshops and Challenges are available by navigating through the Hack Shack Lobby. Each week, the lobby schedule will be updated to show what sessions are available for registration. Simply click on the [Hack Shack Lobby link](https://hackshack.hpedev.io) to follow the highlighted Steps 1, 2, and 3.
