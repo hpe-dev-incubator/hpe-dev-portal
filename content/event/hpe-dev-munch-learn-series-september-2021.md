@@ -4,7 +4,7 @@ dateStart: 2021-09-22T07:07:16.885Z
 dateEnd: 2021-09-22T09:07:16.919Z
 category: Virtual Event
 image: /img/image003.jpg
-link: https://hpe.zoom.us/meeting/register/tJEtde-hrDMpE9MLHnqxZ7gWZCgjWyDMz_gM
+link: https://developer.hpe.com/campaign/munch-and-learn
 width: large
 ---
 ## HPE DEV Munch & Learn series
