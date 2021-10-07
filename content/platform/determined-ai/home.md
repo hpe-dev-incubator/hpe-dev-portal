@@ -13,10 +13,14 @@ Determined AI closes this gap to help researchers and scientists to focus on inn
 
 Determined enables you to: 
 
-* **Train models faster** using state-of-the-art distributed training without changing your model code 
-* **Automatically find high-quality models** with advanced hyperparameter tuning from the creators of Hyperband 
-* **Get more from your GPUs** with smart scheduling and cut cloud GPU costs by seamlessly using preemptible instances 
-* **Track and reproduce your work** with experiment tracking that works out-of-the-box, covering code versions, metrics, checkpoints, and hyperparameters 
+* **Train models faster** using state-of-the-art distributed training without changing your model code. 
+
+* **Automatically find high-quality models** with advanced hyperparameter tuning from the creators of Hyperband. 
+
+* **Get more from your GPUs** with smart scheduling and cut cloud GPU costs by seamlessly using preemptible instances. 
+
+* **Track and reproduce your work** with experiment tracking that works out-of-the-box, covering code versions, metrics, checkpoints, and hyperparameters. 
+
 
 Determined integrates these features into an easy-to-use, high-performance machine learning environment — which means you can spend your time building models instead of managing infrastructure. 
 
