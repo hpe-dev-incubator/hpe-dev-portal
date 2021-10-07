@@ -1,12 +1,13 @@
 ---
-title: "HPE DEV Hack Shack expands for premier Kubernetes event"
+title: HPE DEV Hack Shack expands for premier Kubernetes event
 date: 2020-10-28T19:02:50.321Z
-author: Dale Rensing 
-tags: ["kubecon-na-2020"]
-authorimage: "/img/blogs/Avatar4.svg"
 featuredBlog: false
-priority:
-thumbnailimage:
+priority: null
+author: Dale Rensing
+authorimage: /img/blogs/Avatar4.svg
+thumbnailimage: null
+tags:
+  - kubecon-na-2020
 ---
 ![kubecon na image](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/9/kubecon-na-image-1603912007661.png)
 
@@ -20,55 +21,46 @@ The HPE DEV team is pleased to now offer Workshops-on-Demand through the Hack Sh
 
 ![hack shack home page](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/10/hack-shack-home-page-1604432949140.png)
 
-To get a complete picture of what’s happening in the virtual Hack Shack, you can take a [tour now.](https://vimeo.com/444872340). Here’s a snapshot of what you will find:
+Here’s a snapshot of what you will find in the virtual Hack Shack:
 
 * [WORKSHOPS:](https://hackshack.hpedev.io/workshops) Check out our Workshops-on-Demand. These are free, hands-on training sessions you can access at any time, from anywhere. Using a Jupyter Notebook environment, you’ll have the opportunity to gain hands-on experience across different technologies, like Grommet and the HPE Ezmeral Container Platform REST API.
-
 * [CHALLENGES:](https://hackshack.hpedev.io/challenges) Our coding challenge offers an exciting opportunity to put what you’ve learned to the test and compete with others for prizes. This challenge will task you with deploying a sample front-end application on a CNCF-certified Kubernetes cluster running on HPE Ezmeral Container Platform using the API calls.
-
 * [REPLAYS:](https://hackshack.hpedev.io/replays) Augmenting our Workshops-on-Demand, we’ve posted replays of many of the technical workshops we’ve offered live in the past. View them to learn more about the [HPE Ezmeral Container Platform](https://hackshack.hpedev.io/replays/1), [SPIFFE and SPIRE authentication](https://hackshack.hpedev.io/replays/5), and the [HPE Container Storage Interface](https://hackshack.hpedev.io/replays/2) for Kubernetes.
-
 * [HPE EZMERAL:](https://hackshack.hpedev.io/ezmeral) We’ve made it easy for you to find detailed information on the [HPE Ezmeral Container Platform](https://developer.hpe.com/platform/hpe-ezmeral-container-platform/home), [HPE Ezmeral Data Fabric](https://developer.hpe.com/platform/hpe-ezmeral-data-fabric/home), [HPE Ezmeral ML Ops](https://www.hpe.com/us/en/solutions/machine-learning-operations.html), along with other products in this innovative set of software that can be deployed on any cloud, on any hardware, and is 100% open source Kubernetes.
-
 * [ARCADE:](https://hackshack.hpedev.io/arcade)  In our arcade, along with a bunch of cool stickers, you’ll find Hack Shack Attack! Give our popular retro-style video game a try and compete with your friends for the highest score.
-
 * [COMMUNITY:](https://hackshack.hpedev.io/community)  We invite you to join and contribute your expertise in our blog forum or deliver an on-demand workshop. Connect with others in the community via [Slack](https://slack.hpedev.io/) and [Twitter](https://twitter.com/HPE_DevCom) channels to start conversations and get answers to questions. And you can sign-up for our HPE DEV Newsletter to stay up-to-date on the newest blog posts and tutorials.
 
 ## Prizes? Did someone say prizes?
+
 Take our [HPE DEV Hack Shack coding challenge](https://hackshack.hpedev.io/challenges) and you could win a prize! Our coding challenges are timed events where developers are asked to create their own code to achieve a defined function while taking specific parameters into account. For KubeCon | CloudNativeCon NA, we will be challenging you to deploy a sample front-end application on a CNCF-certified Kubernetes cluster running on HPE Ezmeral Container Platform using the API calls. Submissions will be judged on technical achievement and completeness of the code and quiz answers. For details on how to participate, [please refer to this blog post](/blog/hpe-dev-hack-shack-coding-challenges-are-you-ready-to-compete).
 
 ## But wait… there’s more!
+
 Visit the [HPE DEV Community Portal](https://developer.hpe.com/) via the [Hack Shack Lobby](https://hackshack.hpedev.io/). There, you can access a treasure trove of information, including:
 
 * [PLATFORMS](https://developer.hpe.com/platforms) – Access GitHub resources and software development kits (SDKs)
-
 * [BLOG](/blog) – Learn through blog posts and tutorials
-
 * [OPEN SOURCE](https://developer.hpe.com/projects) – Discover platforms, apps and contributions
-
 * [EVENTS](https://developer.hpe.com/events) – Learn about upcoming events
-
 * [COMMUNITY](https://developer.hpe.com/community) – Participate in and contribute to the community
 
 In other sections of the KubeCon | CloudNativeCon North America HPE virtual booth, you’ll explore HPE’s different software-enabling and application development technologies, including:
 
 * [The SPIFFE and SPIRE Projects](https://spiffe.io/). With the recent acquisition of Scytale, HPE is the leading contributor for CNCF’s SPIFFE and SPIRE projects. These projects help organizations build a foundation for zero trust through the use of platform agnostic, cryptographic service identity.
-
 * [The HPE Ezmeral Software Portfolio](https://www.hpe.com/us/en/ezmeral.html), including the industry’s first enterprise-grade container platform for cloud-native and distributed non cloud-native applications. Built on open source Kubernetes, this unified container platform runs on any infrastructure; either on-premises, in multiple public clouds, in a hybrid model, or at the edge.
-
 * The [intelligent data platform](https://www.hpe.com/us/en/storage/intelligent-storage.html?chatsrc=ot-en&jumpid=ps_8r5mdg32xs_aid-520023673&gclid=Cj0KCQiAs67yBRC7ARIsAF49CdU6O6Hbaj1lwT8tcrU702BzRnZboWNQILTShb0cCk-eEk7nUjQ-yhMaAv4fEALw_wcB&gclsrc=aw.ds%22%20\t%20%22_blank) from HPE, focused on persistent and ephemeral storage use cases for Kubernetes and cloud-native workloads in private, public and hybrid clouds. Visit the respective platform pages for an overview:
-    * [HPE Nimble Storage and HPE Cloud Volumes](https://developer.hpe.com/platform/hpe-nimble-storage/home)
-    * [HPE Primera](https://developer.hpe.com/platform/hpe-3par-and-primera/home)
+
+  * [HPE Nimble Storage and HPE Cloud Volumes](https://developer.hpe.com/platform/hpe-nimble-storage/home)
+  * [HPE Primera](https://developer.hpe.com/platform/hpe-3par-and-primera/home)
 
 For details on HPE’s overall presence at KubeCon | CloudNativeCon North America, please [refer to our community blog post here](https://community.hpe.com/t5/hpe-ezmeral-uncut/hpe-showcasing-enterprise-edge-to-cloud-solutions-at-kubecon/ba-p/7107337).
 
 ## Don't miss these other interesting HPE sessions
+
 You can also find a number of other sessions highlighting HPE offerings at KubeCon | CloudNativeCon North America, including:
 
-* **[Scaling machine learning without compromising privacy]( https://sched.co/eoDy)**, a Keynote session presented by lead data scientist and Distinguished Technologist, Nanda Vijaydev of HPE, Thursday, November 19, 1:18pm - 1:23pm
-
+* **[Scaling machine learning without compromising privacy](https://sched.co/eoDy)**, a Keynote session presented by lead data scientist and Distinguished Technologist, Nanda Vijaydev of HPE, Thursday, November 19, 1:18pm - 1:23pm
 * **[No More Moats: Protecting Your Cloud Native Infrastructure with Zero Trust](https://kccncna20.sched.com/event/f6jb?iframe=no)**, presented by HPE software engineer, Daniel Feldman, Tuesday, November 17, 1:00pm - 1:30pm
-
 * **[Introduction to using the CSI Primitives](https://kccncna20.sched.com/type/Tutorials/101+%28sessions+for+those+new+to+the+conference+overall+and%2For+beginners+to+the+conference+content)**, presented by Tech Marketing Engineer and Master Technologist, Michael Mattsson of HPE, Friday, November 20, 5:05pm - 6:30pm
 
 Refer to the [program schedule](https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/program/schedule/) for updates on times and locations.
