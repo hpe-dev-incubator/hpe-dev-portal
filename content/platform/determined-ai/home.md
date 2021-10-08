@@ -6,6 +6,9 @@ description: "Determined AI accelerates innovation with open source AI solutions
 image: /img/platforms/logo-determine-ai-216px.svg
 width: large
 priority: 1
+tags:
+  - determined
+  - determined-AI
 ---
 Building and training optimized deep learning (DL) models at scale is considered the most demanding and critical stage of ML development. Determined AI accelerates time-to-production with an open-source platform to build and train models faster and easier. 
 
