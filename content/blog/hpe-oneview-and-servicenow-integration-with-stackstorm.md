@@ -31,8 +31,6 @@ class networks(HpeOVBaseAction):
 
 The second action in workflow "A" will format the information into a MongoDB record, add a process field and save the MongoDb BSON document. Again, this is very simple to code and test. The class is passed the alarms and iterates through each one, a query to check if the document exists and if not, formats a Python dictionary and writes the MongoDb BSON document via pymongo. This is all it takes to collect the alarms and save them in the database. A StackStorm workflow that calls two actions every five minutes. 
 
-The second workflow, workflow "B" will call another action every five minutes that reads the documents from the MongoDB database, looks for the processed flag set to no, collects the results into a Python list and returns it. 
-
 ```
 import pymongo
 from lib.actions import MongoBaseAction
@@ -62,15 +60,69 @@ class loadDb(MongoBaseAction):
         return (records)
 ```
 
-![](http://www.techworldwookie.com/blogpost/get-records.png "Get documents from mongo")
+The second workflow, workflow "B" will call another action every five minutes that reads the documents from the MongoDB database, looks for the processed flag set to no, collects the results into a Python list and returns it. 
 
-The next task is to send the list of alarms that have not been processed to ServiceNow. Here is where the power of integration packs comes into view. All I need to do is issue a command on my Stackstorm server **"st2 pack install servicenow"**. By issuing this command I gain access to the automation scripts (actions) that are pre-written for ServiceNow. Now that I am using StackStorm and have access to all the automation on the StackStorm exchange. I can communicate with many other systems. without writing any code to do so. 
+```
+import pymongo
+from lib.actions import MongoBaseAction
+
+
+class loadDb(MongoBaseAction):
+    def run(self):
+
+        mydb = self.dbclient["app_db"]
+        known = mydb["dwralarms"]
+
+        list_to_process = []
+
+        myquery = { "u_process" : 'no' }
+        records = known.find(myquery)
+
+        for r in records:
+            # Do not update. Keep the code for reference
+            # known.update_one({"_id":r['_id']},{"$set":{"u_process":"yes"}})
+            # known.delete_one("_id" : r['_id'])
+            list_to_process.append(r)
+
+
+        return (list_to_process)
+```
+
+The next task is to send the list of alarms that have not been processed to ServiceNow. Here is where the power of integration packs comes into view. All I need to do is issue a command on my Stackstorm server **"st2 pack install servicenow"**. By issuing this command I gain access to the automation scripts (actions) that are pre-written for ServiceNow. Now that I am using StackStorm and have access to all the automation on the StackStorm exchange. I can communicate with many other systems. without writing any code to do so. The following example is the ServiceNow action that creates records in a ServiceNow table.
+
+```
+from lib.actions import BaseAction
+
+
+class CreateRecordAction(BaseAction):
+    def run(self, table, payload):
+        s = self.client
+
+        path = '/table/{0}'.format(table)
+        response = s.resource(api_path=path).create(payload=payload)
+        return response
+```
 
 What if I wanted to integrate Twitter into my automation flow? Easy, **st2 pack install twitter**.  I won't show you the ServiceNow action script here but you can look at if on the exchange if you like here: [(fix-link) https://github.com/StackStorm-Exchange/stackstorm-servicenow/blob/master/actions/create_record.py](https://github.com/StackStorm-Exchange/stackstorm-servicenow/blob/master/actions/create_record.py)
 
 To finish this up, you want to set the process flag to "Yes" so you do not duplicate records into ServiceNow. It looks like the example below:
 
-![](http://www.techworldwookie.com/blogpost/process.png "Process flag")
+```
+import pymongo
+from lib.actions import MongoBaseAction
+
+
+class loadDb(MongoBaseAction):
+    def run(self, alarms):
+
+        mydb = self.dbclient["app_db"]
+        known = mydb["dwralarms"]
+
+        for a in alarms:
+            known.update_one({"_id":a['_id']},{"$set":{"u_process":"yes"}})
+
+        return ()
+```
 
 That's it! Once both integration packs are installed on a Stackstorm server and authorized, the rules will 'fire' every five minutes and the workflows will do the heavy lifting so you don't have to. 
 
