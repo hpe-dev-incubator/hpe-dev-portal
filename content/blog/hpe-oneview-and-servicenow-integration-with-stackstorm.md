@@ -29,13 +29,38 @@ class networks(HpeOVBaseAction):
         return (False)
 ```
 
-![](http://www.techworldwookie.com/blogpost/action.png)
-
 The second action in workflow "A" will format the information into a MongoDB record, add a process field and save the MongoDb BSON document. Again, this is very simple to code and test. The class is passed the alarms and iterates through each one, a query to check if the document exists and if not, formats a Python dictionary and writes the MongoDb BSON document via pymongo. This is all it takes to collect the alarms and save them in the database. A StackStorm workflow that calls two actions every five minutes. 
 
-![](http://www.techworldwookie.com/blogpost/load.png "Load database example")
-
 The second workflow, workflow "B" will call another action every five minutes that reads the documents from the MongoDB database, looks for the processed flag set to no, collects the results into a Python list and returns it. 
+
+```
+import pymongo
+from lib.actions import MongoBaseAction
+
+
+class loadDb(MongoBaseAction):
+    def run(self, alarms):
+
+        mydb = self.dbclient["app_db"]
+        known = mydb["dwralarms"]
+
+        new_alarm={}
+
+        for alarm in alarms:
+            myquery = { "_id" : alarm['created'] }
+            records = known.find(myquery).count()
+            if records == 0:
+                new_alarm['u_vendor']='hpe-oneview'
+                new_alarm['u_sev']=alarm['severity']
+                new_alarm['u_desc']=alarm['description']
+                new_alarm['u_uuid']=alarm['resourceUri']
+                new_alarm['_id']=alarm['created']
+                new_alarm['u_created']=alarm['created']
+                new_alarm['u_process']='no'
+                write_record = known.insert_one(new_alarm)
+                # write_record = process.insert_one(alarm)
+        return (records)
+```
 
 ![](http://www.techworldwookie.com/blogpost/get-records.png "Get documents from mongo")
 
