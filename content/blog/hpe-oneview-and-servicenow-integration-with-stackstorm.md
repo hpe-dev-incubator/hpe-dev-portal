@@ -20,23 +20,25 @@ In the code example below I am using the alerts.get_all() function to retrieve t
 
 ![](http://www.techworldwookie.com/blogpost/action.png)
 
-The flow of the above code is simple. This is a script that gets the alarms from HPE OneView, checks to see if it is a list and if so, returns it. Super simple. The second action in workflow "A" will format the information into a mongo record, add a process field and save the mongo document. Again, this is very simple to code and test. The class is passed the alarms and iterates through each one, a query to check if the document exists and if not, formats a dictionary and writes the document via pymongo. This is all it takes to collect the alarms and save them in the database. 
+The second action in workflow "A" will format the information into a MongoDB record, add a process field and save the MongoDb BSON document. Again, this is very simple to code and test. The class is passed the alarms and iterates through each one, a query to check if the document exists and if not, formats a Python dictionary and writes the MongoDb BSON document via pymongo. This is all it takes to collect the alarms and save them in the database. A StackStorm workflow that calls two actions every five minutes. 
 
 ![](http://www.techworldwookie.com/blogpost/load.png "Load database example")
 
-The second workflow, workflow "B" will call another action every five minutes that reads the documents from the mongo database, looks for the processed flag set to no, collects the results into a python list and returns it. 
+The second workflow, workflow "B" will call another action every five minutes that reads the documents from the MongoDB database, looks for the processed flag set to no, collects the results into a Python list and returns it. 
 
 ![](http://www.techworldwookie.com/blogpost/get-records.png "Get documents from mongo")
 
-The next task is to send the list of alarms to ServiceNow. Here is where the power of integration packs comes into view. All we need to do is issue a command on the Stackstorm server **"st2 pack install servicenow"**. By issuing this command we gain access to the automation scripts (actions) that are pre-written. This makes the job much easier. What if I wanted to integrate Twitter into my automation flow? Easy, **st2 pack install twitter**.  I won't show you the ServiceNow action script here but you can look at if on the exchange if you like here: <https://github.com/StackStorm-Exchange/stackstorm-servicenow/blob/master/actions/create_record.py>
+The next task is to send the list of alarms that have not been processed to ServiceNow. Here is where the power of integration packs comes into view. All I need to do is issue a command on my Stackstorm server **"st2 pack install servicenow"**. By issuing this command I gain access to the automation scripts (actions) that are pre-written for ServiceNow. Now that I am using StackStorm and have access to all the automation on the StackStorm exchange. I can communicate with many other systems. without writing any code to do so. 
 
-To finish this up we want to set the process flag to "Yes" so we do not put duplicate records into ServiceNow. It looks like this:
+What if I wanted to integrate Twitter into my automation flow? Easy, **st2 pack install twitter**.  I won't show you the ServiceNow action script here but you can look at if on the exchange if you like here: [(fix-link) https://github.com/StackStorm-Exchange/stackstorm-servicenow/blob/master/actions/create_record.py](https://github.com/StackStorm-Exchange/stackstorm-servicenow/blob/master/actions/create_record.py)
+
+To finish this up, you want to set the process flag to "Yes" so you do not duplicate records into ServiceNow. It looks like the example below:
 
 ![](http://www.techworldwookie.com/blogpost/process.png "Process flag")
 
-That's it! Once both integration packs are installed on a Stackstorm server and authorized, the rules will 'fire' every five minutes and the workflows will do the heavy lifting so we don't have to. 
+That's it! Once both integration packs are installed on a Stackstorm server and authorized, the rules will 'fire' every five minutes and the workflows will do the heavy lifting so you don't have to. 
 
-Finally, a diagram that shows all the moving parts of workflow "A". The rule that runs on the interval timer, call an action that in turn calls a workflow that calls a couple other actions. Notice that actions can be python scripts or YAML files. It just depends on their function. 
+Finally, a diagram that shows all the moving parts of workflow "A". The rule that runs on the interval timer calls an action that, in turn, calls a workflow that calls a couple other actions. Notice that actions can be Python scripts or YAML files. It just depends on their function. 
 
 ![](http://www.techworldwookie.com/blogpost/full-workflow.png "Workflow \\\"A\\\"")
 
