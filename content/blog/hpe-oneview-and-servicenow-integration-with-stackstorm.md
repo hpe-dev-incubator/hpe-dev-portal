@@ -31,7 +31,7 @@ class networks(HpeOVBaseAction):
 
 The second action in workflow "A" will format the information into a MongoDB record, add a process field and save the MongoDb BSON document. Again, this is very simple to code and test. The class is passed the alarms and iterates through each one, a query to check if the document exists and if not, formats a Python dictionary and writes the MongoDb BSON document via pymongo. This is all it takes to collect the alarms and save them in the database. 
 
-```
+```python
 import pymongo
 from lib.actions import MongoBaseAction
 
@@ -62,7 +62,7 @@ class loadDb(MongoBaseAction):
 
 Here is an example of the StackStorm workflow that calls two actions every five minutes. 
 
-```
+```yaml
 version: 1.0
 
 description: A workflow to copy HPE OneView alarms into a mongo database.
@@ -82,7 +82,7 @@ tasks:
 
 The second workflow, workflow "B" will call another action every five minutes that reads the documents from the MongoDB database, looks for the processed flag set to no, collects the results into a Python list and returns it. 
 
-```
+```python
 import pymongo
 from lib.actions import MongoBaseAction
 
@@ -110,7 +110,7 @@ class loadDb(MongoBaseAction):
 
 The next task is to send the list of alarms that have not been processed to ServiceNow. Here is where the power of integration packs comes into view. All I need to do is issue a command on my Stackstorm server **"st2 pack install servicenow"**. By issuing this command I gain access to the automation scripts (actions) that are pre-written for ServiceNow. Now that I am using StackStorm and have access to all the automation on the StackStorm exchange. I can communicate with many other systems. without writing any code to do so. The following example is the ServiceNow action that creates records in a ServiceNow table.
 
-```
+```python
 from lib.actions import BaseAction
 
 
@@ -125,7 +125,7 @@ class CreateRecordAction(BaseAction):
 
 Here is what the workflow looks like for the collection of alarms and sending them to ServiceNow.
 
-```
+```yaml
 version: 1.0
 
 description: A workflow to copy HPE OneView alarms from mongo and into snow.
@@ -154,7 +154,7 @@ What if I wanted to integrate Twitter into my automation flow? Easy, **st2 pack 
 
 To finish this up, you want to set the process flag to "Yes" so you do not duplicate records into ServiceNow. It looks like the example below:
 
-```
+```python
 import pymongo
 from lib.actions import MongoBaseAction
 
