@@ -128,7 +128,7 @@ Here is what the workflow looks like for the collection of alarms and sending th
 ```
 version: 1.0
 
-description: A workflow to copy hpe OneView alarms ifrom mongo and into snow.
+description: A workflow to copy HPE OneView alarms from mongo and into snow.
 
 tasks:
   getalerts:
