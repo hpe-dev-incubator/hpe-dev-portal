@@ -14,7 +14,7 @@ I quickly realized that, in order to do what I wanted to do, it would involve wr
 
 Note: I have written a couple of other blog posts on StackStorm. If you are interested in trying this approach, I suggest you go to the HPE DEV blog and read my other posts.
 
-Developing the **stackstorm-hpe-oneview** integration pack, which is available here: <https://github.com/HewlettPackard/stackstorm-hpe-oneview>, is fairly straightforward. For this integration to function we will have to write five very short actions and a couple of simple rules. You can see in the chart at the top that two of the actions will be used with the first workflow and three will be need for the second workflow. Actions are the workhorse of Stackstorm. They are basically the same thing you would write to accomplish this task. All that needs done is to  add just a few lines of code to turn them into Stackstorm actions. Let's have a look!
+Developing the stackstorm-hpe-oneview integration pack (which is available here) is fairly straightforward. For this integration to function we will have to write five very short actions and a couple of simple rules. You can see in the chart at the top that two of the actions will be used with the first workflow and three will be need for the second workflow. Actions are the workhorse of Stackstorm. They are basically the same thing you would write to accomplish this task. All that needs done is to  add just a few lines of code to turn them into Stackstorm actions. Let's have a look!
 
 ![](http://www.techworldwookie.com/blogpost/action.png)
 
