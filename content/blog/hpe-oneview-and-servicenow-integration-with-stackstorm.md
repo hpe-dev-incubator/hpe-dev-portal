@@ -14,11 +14,9 @@ I quickly realized that, in order to do what I wanted to do, it would involve wr
 
 Note: I have written a couple of other blog posts on StackStorm. If you are interested in trying this approach, I suggest you go to the HPE DEV blog and read my other posts.
 
-Developing the stackstorm-hpe-oneview integration pack (which is available here) is fairly straightforward. For this interaction to function, you will have to write five very short actions and a couple of simple rules. You can see in the chart at the top that two of the actions will be used with the first workflow and three will be need for the second workflow. Actions are the workhorse of Stackstorm. They are basically recycled scripts that you might of used in the past and easily refactored to work with the StackStorm framework. 
+Developing the stackstorm-hpe-oneview integration pack (which is available here) is fairly straightforward. For this interaction to function, you will have to write five very short actions and a couple of simple rules. You can see in the chart at the top that two of the actions will be used with the first workflow and three will be need for the second workflow. Actions are the workhorse of Stackstorm. They are basically recycled scripts that you might of used in the past and easily refactored to work with the StackStorm framework. For instance, I could use a single action to connect to HPE OneView and request all of the current alarms and another to format and store the alarms in a mongo database for further processing.
 
-For instance, I could use a single action to connect to HPE OneView and request all of the current alarms.
-
-you would write to accomplish this task. All that needs done is to  add just a few lines of code to turn them into Stackstorm actions. Let's have a look!
+In the code example below I am using the alerts.get_all() function to retrieve the alarms from HPE OneView. A quick check to see if the object is a list and return it.
 
 ![](http://www.techworldwookie.com/blogpost/action.png)
 
