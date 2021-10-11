@@ -6,8 +6,7 @@ authorimage: /img/Avatar2.svg
 ---
 ![](http://www.techworldwookie.com/blogpost/flowchart.png)
 
-
-HPE OneView is a powerful infrastructure automation/management platform used with HPE DL servers and HPE Synergy products. I started thinking, how would I get all the alarms and 'automatically' save them as records in a ServiceNow table. Naturally, my second thought was how can I tweet some vlan information into OneView! 
+HPE OneView is a powerful infrastructure automation/management platform from Hewlett Packard Enterprise (HPE) used to manage and monitor HPE DL servers and HPE Synergy products. Recently, I wanted to get all the alarms from HPE OneView and automatically save them as records in a ServiceNow table. ServiceNow is a software as a service (SaS) used by many large corporations for automating critical business workflows and information.  I wanted to make a event based automation that would leverage HPE OneView and ServiceNow's Restful APIs. Having developed solutions for this same task in StackStorm (HPE Nimble Storage to ServiceNow), it was super easy to dust off the StackStorm integration pack I created for HPE Nimble and refactor it for HPE OneView. Creating such an integration pack would give users a way to transfer these alarms into a ServiceNow table, with very little human intervention. Naturally, my second thought was how can I use the Twitter platform to 'tweet' some VLAN information into HPE OneView! 
 
 HPE Oneview has a powerful Restful API and it can be used to get the information in and out of OneView. ServiceNow has a powerful Restful API as well. All that is needed is some middleware and a couple of python bindings (python code that abstracts the API). Turns out the python bindings are already written for both! Seems easy enough, write a couple of python scripts, and we should be good to go, or GTG if you're hip and cool.
 
@@ -37,9 +36,7 @@ That's it! Once both integration packs are installed on a Stackstorm server and 
 
 Finally, a diagram that shows all the moving parts of workflow "A". The rule that runs on the interval timer, call an action that in turn calls a workflow that calls a couple other actions. Notice that actions can be python scripts or YAML files. It just depends on their function. 
 
-![](http://www.techworldwookie.com/blogpost/full-workflow.png "Workflow \"A\"")
-
- 
+![](http://www.techworldwookie.com/blogpost/full-workflow.png "Workflow \\"A\\"")
 
 To make this a truly automated process the ServiceNow account needs to exist and the tables need to be created. In conclusion, this may seem complicated at first. In reality, it a group of small simple scripts that are linked together inside the Stackstorm framework. It also provides for the integration of many different integration packs and allows for the event based automation of many different systems. To learn more about stackstorm, you can take my tutorial and join the automation revolution!
 
