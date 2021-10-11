@@ -18,6 +18,17 @@ Developing the stackstorm-hpe-oneview integration pack (which is available here)
 
 In the code example below I am using the alerts.get_all() function to retrieve the alarms from HPE OneView. A quick check to see if the object is a list and return it.
 
+```python
+from lib.actions import HpeOVBaseAction
+
+class networks(HpeOVBaseAction):
+    def run(self):
+        ov_alerts = self.client.alerts.get_all()
+        if isinstance(ov_alerts, list):
+            return (True, ov_alerts)
+        return (False)
+```
+
 ![](http://www.techworldwookie.com/blogpost/action.png)
 
 The second action in workflow "A" will format the information into a MongoDB record, add a process field and save the MongoDb BSON document. Again, this is very simple to code and test. The class is passed the alarms and iterates through each one, a query to check if the document exists and if not, formats a Python dictionary and writes the MongoDb BSON document via pymongo. This is all it takes to collect the alarms and save them in the database. A StackStorm workflow that calls two actions every five minutes. 
@@ -40,6 +51,6 @@ That's it! Once both integration packs are installed on a Stackstorm server and 
 
 Finally, a diagram that shows all the moving parts of workflow "A". The rule that runs on the interval timer calls an action that, in turn, calls a workflow that calls a couple other actions. Notice that actions can be Python scripts or YAML files. It just depends on their function. 
 
-![](http://www.techworldwookie.com/blogpost/full-workflow.png "Workflow \\\"A\\\"")
+![](http://www.techworldwookie.com/blogpost/full-workflow.png "Workflow \\\\"A\\\\"")
 
 To make this a truly automated process the ServiceNow account needs to exist and the tables need to be created. In conclusion, this may seem complicated at first. In reality, its a group of small simple scripts that are linked together inside the Stackstorm framework. It also provides for the integration of many different integration packs and allows for the event based automation of many different systems. To learn more about stackstorm, you can take my tutorial https://github.com/xod442/stackstorm-tutorial and attend the StackStorm workshop on demand available here <https://hackshack.hpedev.io/workshop/21> and join the automation revolution!
