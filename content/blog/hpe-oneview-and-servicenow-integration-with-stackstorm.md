@@ -42,6 +42,4 @@ Finally, a diagram that shows all the moving parts of workflow "A". The rule tha
 
 ![](http://www.techworldwookie.com/blogpost/full-workflow.png "Workflow \\\"A\\\"")
 
-To make this a truly automated process the ServiceNow account needs to exist and the tables need to be created. In conclusion, this may seem complicated at first. In reality, it a group of small simple scripts that are linked together inside the Stackstorm framework. It also provides for the integration of many different integration packs and allows for the event based automation of many different systems. To learn more about stackstorm, you can take my tutorial and join the automation revolution!
-
-``
+To make this a truly automated process the ServiceNow account needs to exist and the tables need to be created. In conclusion, this may seem complicated at first. In reality, its a group of small simple scripts that are linked together inside the Stackstorm framework. It also provides for the integration of many different integration packs and allows for the event based automation of many different systems. To learn more about stackstorm, you can take my tutorial https://github.com/xod442/stackstorm-tutorial and attend the StackStorm workshop on demand available here <https://hackshack.hpedev.io/workshop/21> and join the automation revolution!
