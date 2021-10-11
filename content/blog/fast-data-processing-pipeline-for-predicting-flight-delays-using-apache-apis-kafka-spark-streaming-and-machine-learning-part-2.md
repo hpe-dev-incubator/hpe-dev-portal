@@ -134,21 +134,11 @@ The Spark [CrossValidatorModel](https://spark.apache.org/docs/latest/api/scala/i
 
 These are the basic steps for the Spark Streaming Consumer Producer code:
 
-1. ```
-      Configure Kafka Consumer and Producer properties.
-   ```
-2. ```
-      Initialize a Spark StreamingContext object. Using this context, create a DStream which reads message from a Topic.
-   ```
-3. ```
-      Apply transformations (which create new DStreams).
-   ```
-4. ```
-      Write messages from the transformed DStream to a Topic.
-   ```
-5. ```
-      Start receiving data and processing. Wait for the processing to be stopped.
-   ```
+1. Configure Kafka Consumer and Producer properties.
+2. Initialize a Spark StreamingContext object. Using this context, create a DStream that reads a message from a Topic.
+3. Apply transformations (which create new DStreams).
+4. Write messages from the transformed DStream to a Topic.
+5. Start receiving data and processing. Wait for the processing to be stopped.
 
 **We will go through each of these steps with the example application code.**
 
