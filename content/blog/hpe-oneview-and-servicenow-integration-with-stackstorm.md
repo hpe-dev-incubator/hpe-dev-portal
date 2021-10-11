@@ -65,7 +65,7 @@ Here is an example of the StackStorm workflow that calls two actions every five 
 ```
 version: 1.0
 
-description: A workflow to copy hpe OneView alarms into a mongo database.
+description: A workflow to copy HPE OneView alarms into a mongo database.
 
 tasks:
   getalarms:
