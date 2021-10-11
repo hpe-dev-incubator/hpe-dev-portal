@@ -6,15 +6,15 @@ authorimage: /img/Avatar2.svg
 ---
 ![](http://www.techworldwookie.com/blogpost/flowchart.png)
 
-HPE OneView is a powerful infrastructure automation/management platform from Hewlett Packard Enterprise (HPE) used to manage and monitor HPE DL servers and HPE Synergy products. Recently, I wanted to get all the alarms from HPE OneView and automatically save them as records in a ServiceNow table. ServiceNow is a software as a service (SaS) used by many large corporations for automating critical business workflows and information.  I wanted to make a event based automation that would leverage HPE OneView and ServiceNow's Restful APIs. Having developed solutions for this same task in StackStorm (HPE Nimble Storage to ServiceNow), it was super easy to dust off the StackStorm integration pack I created for HPE Nimble and refactor it for HPE OneView. Creating such an integration pack would give users a way to transfer these alarms into a ServiceNow table, with very little human intervention. Naturally, my second thought was how can I use the Twitter platform to 'tweet' some VLAN (or any other) information into HPE OneView! 
+HPE OneView is a powerful infrastructure automation/management platform from Hewlett Packard Enterprise (HPE) used to manage and monitor HPE DL servers and HPE Synergy products. Recently, I wanted to get all the alarms from HPE OneView and automatically save them as records in a ServiceNow table. ServiceNow is a software as a service (SaS) used by many large corporations for automating critical business workflows and information.  I wanted to make an event based automation that would leverage HPE OneView and ServiceNow's Restful APIs. Having developed solutions for this same task in StackStorm (HPE Nimble Storage to ServiceNow), it was super easy to dust off the StackStorm integration pack I created for HPE Nimble and refactor it for HPE OneView. Creating such an integration pack would give users a way to transfer these alarms into a ServiceNow table, with very little human intervention. Naturally, my second thought was how can I use the Twitter platform to 'tweet' some VLAN (or any other) information into HPE OneView! 
 
-HPE OneView has a powerful RESTful API that can be used to get information in and out of HPE OneView. ServiceNow has a powerful RESTful API as well. All that I need to do is some middleware and leverage a couple of Python bindings (Python code that abstracts the API). Turns out the python bindings are already written for both systems and available on GitHub! Seems easy enough, To solve this problem I can write a handful of Python scripts and I should be good to go (or GTG if you're hip and cool).
+HPE OneView has a powerful RESTful API that can be used to get information in and out of HPE OneView. ServiceNow has a powerful RESTful API as well. All that I need to write is some middleware and leverage a couple of Python bindings (Python code that abstracts the API). Turns out the python bindings are already written for both systems and available on GitHub! Seems easy enough, To solve this problem I can write a handful of Python scripts and I should be good to go (or GTG if you're hip and cool).
 
 I quickly realized that, in order to do what I wanted to do, it would involve writing the code for both systems. But what if I were to leverage StackStorm? StackStorm is an event based automation platform with over one hundred and seventy 3rd party integrations just waiting to be consumed! A quick check of the StackStorm Exchange indicates that there's a StackStorm integration pack available for ServiceNow. Using StackStorm, I'd only have to write half the code, as I would only have to write the code for an HPE OneView StackStorm integration pack. The other benefits of using StackStorm is I can take advantage of the programmable rules and triggers. Something I like to call "Real automation".
 
 Note: I have written a couple of other blog posts on StackStorm. If you are interested in trying this approach, I suggest you go to the HPE DEV blog and read my other posts.
 
-Developing the stackstorm-hpe-oneview integration pack (which is available here) is fairly straightforward. For this interaction to function, you will have to write five very short actions and a couple of simple rules. You can see in the chart at the top that two of the actions will be used with the first workflow and three will be need for the second workflow. Actions are the workhorse of Stackstorm. They are basically recycled scripts that you might of used in the past and easily refactored to work with the StackStorm framework. For instance, I could use a single action to connect to HPE OneView and request all of the current alarms and another to format and store the alarms in a mongo database for further processing.
+Developing the stackstorm-hpe-oneview integration pack (which is available here) is fairly straightforward. For this interaction to function, you will have to write five very short actions and a couple of simple rules. You can see in the chart at the top that two of the actions will be used with the first workflow and three will be need for the second workflow. Actions are the workhorse of Stackstorm. They are basically recycled scripts that you might of used in the past and easily refactored to work with the StackStorm framework. For instance, I could use a single action to connect to HPE OneView and request all of the current alarms and another to format and store the alarms in a MongoDB database for further processing.
 
 In the code example below I am using the alerts.get_all() function to retrieve the alarms from HPE OneView. A quick check to see if the object is a list and return it.
 
@@ -29,7 +29,7 @@ class networks(HpeOVBaseAction):
         return (False)
 ```
 
-The second action in workflow "A" will format the information into a MongoDB record, add a process field and save the MongoDb BSON document. Again, this is very simple to code and test. The class is passed the alarms and iterates through each one, a query to check if the document exists and if not, formats a Python dictionary and writes the MongoDb BSON document via pymongo. This is all it takes to collect the alarms and save them in the database. A StackStorm workflow that calls two actions every five minutes. 
+The second action in workflow "A" will format the information into a MongoDB record, add a process field and save the MongoDb BSON document. Again, this is very simple to code and test. The class is passed the alarms and iterates through each one, a query to check if the document exists and if not, formats a Python dictionary and writes the MongoDb BSON document via pymongo. This is all it takes to collect the alarms and save them in the database. 
 
 ```
 import pymongo
@@ -58,6 +58,26 @@ class loadDb(MongoBaseAction):
                 write_record = known.insert_one(new_alarm)
                 # write_record = process.insert_one(alarm)
         return (records)
+```
+
+Here is an example of the StackStorm workflow that calls two actions every five minutes. 
+
+```
+version: 1.0
+
+description: A workflow to copy hpe OneView alarms into a mongo database.
+
+tasks:
+  getalarms:
+    action: hpeoneview.get_alerts
+    next:
+      - when: <% succeeded() %>
+        publish:
+          - alarms: <% result().result %>
+        do: sendmongo
+
+  sendmongo:
+    action: hpeoneview.load-hpeov-alarms alarms=<% ctx().alarms %>
 ```
 
 The second workflow, workflow "B" will call another action every five minutes that reads the documents from the MongoDB database, looks for the processed flag set to no, collects the results into a Python list and returns it. 
@@ -101,6 +121,33 @@ class CreateRecordAction(BaseAction):
         path = '/table/{0}'.format(table)
         response = s.resource(api_path=path).create(payload=payload)
         return response
+```
+
+Here is what the workflow looks like for the collection of alarms and sending them to ServiceNow.
+
+```
+version: 1.0
+
+description: A workflow to copy hpe OneView alarms ifrom mongo and into snow.
+
+tasks:
+  getalerts:
+    action: hpeoneview.get_mongo_alarms
+    next:
+      - when: <% succeeded() %>
+        publish:
+          - alarms: <% result().result %>
+        do: snowalerts
+
+  snowalerts:
+    with: <% ctx().alarms %>
+    action: servicenow.create_record table="u_hpeov_alarms" payload='<% item() %>'
+    next:
+      - when: <% succeeded() %>
+        do: processalarms
+
+  processalarms:
+    action: hpeoneview.process_alarms alarms=<% ctx().alarms %>
 ```
 
 What if I wanted to integrate Twitter into my automation flow? Easy, **st2 pack install twitter**.  I won't show you the ServiceNow action script here but you can look at if on the exchange if you like here: [(fix-link) https://github.com/StackStorm-Exchange/stackstorm-servicenow/blob/master/actions/create_record.py](https://github.com/StackStorm-Exchange/stackstorm-servicenow/blob/master/actions/create_record.py)
