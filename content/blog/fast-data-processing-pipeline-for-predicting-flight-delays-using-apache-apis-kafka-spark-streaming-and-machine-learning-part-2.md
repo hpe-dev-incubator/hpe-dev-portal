@@ -194,7 +194,7 @@ The Dataset result of the query is converted to JSON RDD Strings, then the RDD s
 
 ![Write messages from the transformed DStream 2](/img/write-messages-from-dstream-2.png)
 
-Example message values (the output for temp.take(2) ) are shown below:
+Example message values (the output for `temp.take(2)` ) are shown below:
 
 ```json
 {"_id":"DL_2017-01-01_MIA_LGA_1489","dofW":7,"carrier":"DL","origin":"MIA","dest":"LGA","crsdephour":13,"crsdeptime":1315.0,"crsarrtime":1618.0,"crselapsedtime":183.0,"label":0.0,"pred_dtree":0.0}
