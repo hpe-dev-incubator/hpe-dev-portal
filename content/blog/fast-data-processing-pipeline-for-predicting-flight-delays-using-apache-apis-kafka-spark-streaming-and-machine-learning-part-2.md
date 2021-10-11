@@ -20,13 +20,13 @@ tags:
 
 According to Bob Renner, CEO of [Liaison Technologies](https://www.liaison.com/), the possibility to blend machine learning with real-time transactional data flowing through a single platform is opening a world of new possibilities, such as enabling organizations to take advantage of opportunities as they arise. Leveraging these opportunities requires fast, scalable data processing pipelines that process, analyze, and store events as they arrive.
 
-This is the second in a series of blogs, which discusses the architecture of a data pipeline that combines streaming data with machine learning and fast storage. \[The first post](https://www.hpe.com/us/en/software/data-fabric.html](https://www.hpe.com/us/en/software/data-fabric.html) discussed creating a machine learning model to predict flight delays. This second post will discuss using the saved model with streaming data to do real-time analysis of flight delays. The third post will discuss fast storage with MapR Database.
+This is the second in a series of blogs, which discusses the architecture of a data pipeline that combines streaming data with machine learning and fast storage. [The first post](https://www.hpe.com/us/en/software/data-fabric.html) discussed creating a machine learning model to predict flight delays. This second post will discuss using the saved model with streaming data to do real-time analysis of flight delays. The third post will discuss fast storage with MapR Database.
 
 ![Saved model with streaming data](/img/saved-model-with-streaming-data.png)
 
 ## Microservices, Data Pipelines, and Machine Learning Logistics
 
-The [microservice architectural style](https://martinfowler.com/articles/microservices.html) is an approach to developing an application as a suite of small independently deployable services. A common architecture pattern combined with microservices is event sourcing using an append only publish subscribe event stream such as MapR Event Streams (which provides a Kafka API).
+The [microservice architectural style](https://martinfowler.com/articles/microservices.html) is an approach to developing an application as a suite of small independently deployable services. A common architecture pattern combined with microservices is event sourcing using an append-only publish-subscribe event stream such as MapR Event Streams (which provides a Kafka API).
 
 ![Immediate access to operational and analytical data in MapR](/img/immediate-access-to-operational-analytical-data.png)
 
