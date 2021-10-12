@@ -251,7 +251,7 @@ Below are some example OJAI queries using the MapR Database shell.
 
 **What are the SFO to DEN flights that were predicted late ?**
 
-```bash
+```json
 maprdb> find /apps/flights -where '{"$and":[{"$eq":{"pred_dtree":1.0}},{ "$like" : {"_id":"%SFO_DEN%"} }]}' --f _id,pred_dtree
 ``cccccckvnhifiugllulcturrerfrdlbfciiluvjvibgn
 `
