@@ -52,7 +52,7 @@ The following figure depicts the (simplified) data pipeline for this tutorial:
 
 **How to Store the Data**
 
-One of the challenges when you are processing lots of streaming data is where do you want to store it? With a relational database and a normalized schema, related data is stored in different tables. Queries joining this data together can cause bottlenecks with lots of data. For this application, [MapR Database JSON](https://docs.datafabric.hpe.com/62/MapR-DB/developing_client_applications_for_mapr_db.html), a high performance NoSQL database, was chosen for its scalability and flexible ease of use with JSON. MapR Database and a denormalized schema scale, because data that is read together is stored together.
+One of the challenges, when you are processing lots of streaming data, is where do you want to store it? With a relational database and a normalized schema, related data is stored in different tables. Queries joining this data together can cause bottlenecks with lots of data. For this application, [MapR Database JSON](https://docs.datafabric.hpe.com/62/MapR-DB/developing_client_applications_for_mapr_db.html), a high-performance NoSQL database, was chosen for its scalability and flexible ease of use with JSON. MapR Database and a denormalized schema scale, because data that is read together is stored together.
 
 ![Storage Model](/img/storage-model.png)
 
@@ -279,7 +279,7 @@ You can also look at the following examples:
 * [MapR Database 60-getting-started](https://github.com/mapr-demos/mapr-db-60-getting-started) to learn Discover how to use DB Shell, Drill and OJAI to query and update documents, but also how to use indexes.
 * [MapR Event Store getting started on MapR 6.0 developer container](https://github.com/mapr-demos/mapr-streams-60-getting-started)
 * [Ojai 2.0 Examples](https://github.com/mapr-demos/ojai-2-examples) to learn more about OJAI 2.0 features
-* [MapR Database Change Data Capture](https://github.com/mapr-demos/mapr-db-cdc-sample) to capture database events such as insert, update, delete and react to this events.
+* [MapR Database Change Data Capture](https://github.com/mapr-demos/mapr-db-cdc-sample) to capture database events such as insert, update, delete and react to these events.
 
 **WANT TO LEARN MORE?**
 
