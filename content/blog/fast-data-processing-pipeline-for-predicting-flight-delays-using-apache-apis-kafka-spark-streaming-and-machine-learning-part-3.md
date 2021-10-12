@@ -253,8 +253,8 @@ Below are some example OJAI queries using the MapR Database shell.
 
 ```json
 maprdb> find /apps/flights -where '{"$and":[{"$eq":{"pred_dtree":1.0}},{ "$like" : {"_id":"%SFO_DEN%"} }]}' --f _id,pred_dtree
-``cccccckvnhifiugllulcturrerfrdlbfciiluvjvibgn
-`
+```
+
 
 ![MapR Database find /apps/flights](/img/mapr-db-find.png)
 
@@ -270,7 +270,7 @@ maprdb> find /apps/flights -where '{"$and":[{"$eq":{"pred_dtree":1.0}},{ "$like"
 
 All of the components of the use case architecture we just discussed can run on the same cluster with the MapR Data Platform. The MapR Data Platform integrates global event streaming, real-time database capabilities, and scalable enterprise storage with a collection of data processing and analytical engines to power data processing pipelines and intelligent applications.
 
-![MapR Data Platform](assets/mapr-cdp.png)
+![MapR Data Platform](/img/mapr-cdp.png)
 
 This example was developed using the [MapR 6.0 container for developers](https://docs.datafabric.hpe.com/62/MapRContainerDevelopers/MapRContainerDevelopersOverview.html), a docker container that enables you to create a single node MapR cluster. The container is lightweight and designed to run on your laptop. (refer to the code README for instructions on running the code).
 
