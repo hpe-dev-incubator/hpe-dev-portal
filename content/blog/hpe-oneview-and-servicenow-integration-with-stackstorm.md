@@ -121,7 +121,7 @@ class CreateRecordAction(BaseAction):
         return response
 ```
 
-Here is what the workflow looks like for the collection of alarms and sending them to ServiceNow.The first action pulls the unprocessed alarms from the MongoDB database and publishes the array to the 'context', a place to stash variables that can be accessed by other actions. Next it iterates through the array by using the 'with' statement and sends the contents to ServiceNow. 
+Here is what the workflow looks like for the collection of alarms and sending them to ServiceNow. The first action pulls the unprocessed alarms from the MongoDB database and publishes the array to the 'context', a place to stash variables that can be accessed by other actions. Next it iterates through the array by using the 'with' statement and sends the contents to ServiceNow. 
 
 ```yaml
 version: 1.0
@@ -167,15 +167,15 @@ class loadDb(MongoBaseAction):
         return ()
 ```
 
-That's it! Once both integration packs are installed on a Stackstorm server and authorized, the rules will 'fire' every five minutes and the workflows will do the heavy lifting so you don't have to. 
+That's it! Once both integration packs are installed on a StackStorm server and authorized, the rules will 'fire' every five minutes and the workflows will do the heavy lifting so you don't have to. 
 
 Finally, a diagram that shows all the moving parts of workflow "A". The rule that runs on the interval timer calls an action that, in turn, calls a workflow that calls a couple other actions. Notice that actions can be Python scripts or YAML files. It just depends on their function. 
 
 ![](https://techworldwookie.com/blogpost/full-workflow.png "Workflow ")
 
-To make this a truly automated process the ServiceNow account needs to exist and the tables need to be created in advance. 
+To make this a truly automated process, the ServiceNow account needs to exist and the tables need to be created in advance. 
 
-**Let's breakdown the steps to get this going.** 
+**Let's break down the steps to get this going.** 
 
 1. Create the tables in ServiceNow, you will need your instance ID from ServiceNow to authorize the StackStorm server.
 2. Install the HPE OneView StackStorm integration pack and authorize it. 
