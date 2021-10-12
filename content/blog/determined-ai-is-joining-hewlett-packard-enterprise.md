@@ -3,6 +3,8 @@ title: Determined AI is Joining Hewlett Packard Enterprise
 date: 2021-10-12T17:24:39.433Z
 author: Neil Conway, Evan Sparks, Ameet Talwalkar
 authorimage: /img/Avatar1.svg
+tags:
+  - determined-AI
 ---
 
 
