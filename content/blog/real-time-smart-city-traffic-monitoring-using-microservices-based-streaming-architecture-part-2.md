@@ -27,7 +27,7 @@ We made a working demo for which the code will be released on the MapR GitHub. I
 
 For this example, we’ll use a very simple “smart city” use case for traffic monitoring. In this case, we’ll model a single sensor that can measure the speed of cars that pass on it. Using such sensor data, it would be fairly easy to detect traffic jams in real time, and thus notify the police to take action much more quickly than they otherwise could.
 
-![](assets/otherpageimages/11017blog/picture1.png)
+![](/img/picture1.png)
 
 Some other types of use cases are easy to envision. We can add data from a public, real-time weather feed and connect to information panels along the roads and show an advisory to drivers without any human intervention. By combining road condition sensors with the weather data, we can provide advisory feedback to drivers about road conditions and warn the public very quickly. Furthermore, by adding historical accident data and using predictive analytics, we can imagine road safety measures that can be deployed in real time to areas with a higher probability of accidents.
 
@@ -46,7 +46,7 @@ Finally, it should be noted that an Apache Kafka cluster could be used as well w
 
 *High-Level Architecture View*
 
-![](assets/otherpageimages/11017blog/picture2.png)
+![](/img/picture2.png)
 
 As shown in the diagram above, the flow is to have sensor data get aggregated to a producer gateway, which will forward the data to the stream with a topic named “data.” The data will be in JSON format so it is easy to manipulate, human readable, and easily sent to Elasticsearch as-is for monitoring with a Kibana dashboard.
 
@@ -75,7 +75,7 @@ The technology we’re going to use is as follows:
 
 *Traffic Monitoring Prototype Architecture*
 
-![](assets/otherpageimages/11017blog/picture3.png)
+![](/img/picture3.png)
 
 As I built this demo to run on the MapR Sandbox, I’m using instructions for CentOS 6.X, an open-source version of RHEL 6.X. Instructions for CentOS 7 are almost identical, and finding similar instructions for Ubuntu would be pretty straightforward and left up to the reader.
 
@@ -141,7 +141,7 @@ A reading has a sensor ID, a speed in meters per second, and a time delta from t
 
 My producer code simply translates the readings into a list of sensor readings ordered by time, and I transform the speed into km/s and the time into a timestamp as milliseconds from epoch.
 
-![](assets/otherpageimages/11017blog/picture4.png)
+![](/img/picture4.png)
 
 Sending to the code onto the stream can be done one line at a time using standard producer code. The [code in the sample Java producer](https://docs.datafabric.hpe.com/61/MapR_Streams/code_for_the_sample_java_producer.html) works just fine.
 
@@ -153,13 +153,13 @@ We can login to the Workbench and login with an admin user (a user with the role
 
 Using the Workbench is beyond the scope of the article, but the general idea is to create an Organizational Unit and a Repository, and then create a project.
 
-![](assets/otherpageimages/11017blog/picture5.png)
+![](/img/picture5.png)
 
 **Data Objects**
 
 We will need to create facts for the rule engine to work with. The best practice for Drools is to use a separate Maven project for your data model. For the sake of simplicity, I created them right from the workbench.
 
-![](assets/otherpageimages/11017blog/picture6.png)
+![](/img/picture6.png)
 
 The Measurement is a super generic bean that models the sensor speed measurements. For the prototype, I kept it as simple as the raw data with a timestamp, a sensor ID, and a speed.
 
