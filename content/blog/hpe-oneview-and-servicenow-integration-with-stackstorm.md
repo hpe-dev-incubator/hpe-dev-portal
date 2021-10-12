@@ -171,4 +171,16 @@ Finally, a diagram that shows all the moving parts of workflow "A". The rule tha
 
 ![](https://techworldwookie.com/blogpost/full-workflow.png "Workflow ")
 
-To make this a truly automated process the ServiceNow account needs to exist and the tables need to be created. In conclusion, this may seem complicated at first. In reality, its a group of small simple scripts that are linked together inside the Stackstorm framework. It also provides for the integration of many different integration packs and allows for the event based automation of many different systems. To learn more about stackstorm, you can take my tutorial https://github.com/xod442/stackstorm-tutorial and attend the StackStorm workshop on demand available [here](<https://hackshack.hpedev.io/workshop/21>) [](https://hackshack.hpedev.io/workshop/21)and join the automation revolution!
+To make this a truly automated process the ServiceNow account needs to exist and the tables need to be created in advance. 
+
+**Let's breakdown the steps to get this going.** 
+
+1. Create the tables in ServiceNow, You will need your instance ID from ServiceNow to authorize the StackStorm server.
+
+2. Install the HPE OneView StackStorm integration pack and authorize it. 
+
+3. Install the ServiceNow StackStorm integration pack and authorize it.
+
+4. Wait five minutes.
+
+In conclusion, this may seem complicated at first. In reality, its a group of small simple scripts that are linked together inside the Stackstorm framework. It also provides for the integration of many different integration packs and allows for the event based automation of many different systems. To learn more about stackstorm, you can take my [tutorial](https://github.com/xod442/stackstorm-tutorial) and attend the StackStorm workshop on demand available [here](https://hackshack.hpedev.io/workshop/21) [](https://hackshack.hpedev.io/workshop/21)and join the automation revolution!
