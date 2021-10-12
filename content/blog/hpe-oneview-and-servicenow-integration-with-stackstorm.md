@@ -1,5 +1,5 @@
 ---
-title: HPE OneView and ServiceNow integration with Stackstorm
+title: HPE OneView and ServiceNow integration with StackStorm
 date: 2021-09-29T17:53:58.637Z
 author: Rick Kauffman
 authorimage: /img/Avatar2.svg
