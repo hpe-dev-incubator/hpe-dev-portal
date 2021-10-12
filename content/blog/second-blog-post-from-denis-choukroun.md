@@ -29,6 +29,8 @@ term frequency &#151; inverse document frequency
 
 term frequency — inverse document frequency
 
-![](/img/image-test2.png)
+![](/img/1-gunna.png)
 
-Thsi is an update.
+<center><img src="/img/1-gunna.png" width="400" height="159"></center>
+
+This is an update.
