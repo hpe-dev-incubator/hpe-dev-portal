@@ -16,7 +16,7 @@ Note: I have written a couple of other blog posts on StackStorm. If you are inte
 
 ![](https://techworldwookie.com/blogpost/flowchart.png)
 
-Developing the stackstorm-hpe-oneview integration pack (which is available [here](https://github.com/HewlettPackard/stackstorm-hpe-oneview)) is fairly straightforward. For this interaction to function, I wrote five very short actions and a couple of simple rules. You can see in the chart at the top of this blog that two of the actions will be used with the first workflow and three will be need for the second workflow. Actions are the workhorse of Stackstorm. Actions have a 'runner-type' and there are [12 different ones](https://docs.stackstorm.com/actions.html) to choose from. They can be shell scripts, Python scripts, or Orquesta for creating workflows. I could use a single action to connect to HPE OneView and request all of the current alarms and another to format and store the alarms in a MongoDB database for further processing.
+Developing the stackstorm-hpe-oneview integration pack (which is available [here](https://github.com/HewlettPackard/stackstorm-hpe-oneview)) is fairly straightforward. For this interaction to function, I wrote five very short actions and a couple of simple rules. You can see in the chart at the top of this blog that two of the actions will be used with the first workflow and three will be need for the second workflow. Actions are the workhorse of StackStorm. Actions have a 'runner-type' and there are [12 different ones](https://docs.stackstorm.com/actions.html) to choose from. They can be shell scripts, Python scripts, or Orquesta for creating workflows. I could use a single action to connect to HPE OneView and request all of the current alarms and another to format and store the alarms in a MongoDB database for further processing.
 
 In the code example below I am using the alerts.get_all() function to retrieve the alarms from HPE OneView. A quick check to see if the object is a list and return it.
 
@@ -106,7 +106,7 @@ class loadDb(MongoBaseAction):
         return (list_to_process)
 ```
 
-The next task is to send the list of alarms that have not been processed to ServiceNow. Here is where the power of integration packs comes into view. All I need to do is issue a command on my Stackstorm server **"st2 pack install servicenow"**. By issuing this command I gain access to the automation scripts (actions) that are pre-written for ServiceNow. Now that I am using StackStorm and have access to all the automation on the StackStorm exchange. I can communicate with many other systems. without writing any vendor specific code to do so. The following example is the ServiceNow action that creates records in a ServiceNow table.
+The next task is to send the list of alarms that have not been processed to ServiceNow. Here is where the power of integration packs comes into view. All I need to do is issue a command on my StackStorm server **"st2 pack install servicenow"**. By issuing this command, I gain access to the automation scripts (actions) that are pre-written for ServiceNow. Now that I am using StackStorm and have access to all the automation on the StackStorm exchange. I can communicate with many other systems without writing any vendor specific code to do so. The following example is the ServiceNow action that creates records in a ServiceNow table.
 
 ```python
 from lib.actions import BaseAction
