@@ -5,13 +5,13 @@ date: 2021-10-12T02:21:16.357Z
 author: Mathieu Dumoulin
 authorimage: /img/Avatar1.svg
 ---
-```
+```json
 "authorDisplayName": "Mathieu Dumoulin",
 "category": "machine-learning",
 "publish": "2017-01-10T06:00:00.000Z"
 ```
 
-**Editor’s Note:** MapR products and solutions sold prior to the acquisition of such assets by Hewlett Packard Enterprise Company in 2019 may have older product names and model numbers that differ from current solutions. For information about current offerings, which are now part of HPE Ezmeral Data Fabric, please visit <https://www.hpe.com/us/en/software/data-fabric.html>
+**Editor’s Note:** MapR products and solutions sold prior to the acquisition of such assets by Hewlett Packard Enterprise Company in 2019 may have older product names and model numbers that differ from current solutions. For information about current offerings, which are now part of HPE Ezmeral Data Fabric, please visit <https://www.hpe.com/us/en/software/ezmeral-data-fabric.html>
 
 ***Modern Open Source Complex Event Processing For IoT***
 
@@ -40,6 +40,7 @@ So we now have a proper, concrete target in mind. It turns out that if we decide
 The important point here is not to show how to build a super complicated enterprise architecture, but rather that by making some simple technology choices and building our demo in a reasonable way, we **naturally end up with** this elegant, modern, and **simple architecture**.
 
 For simplicity’s sake, I have decided to implement my prototype on a MapR Sandbox<sup>*</sup>. This is because it will include the stream messaging system, MapR Event Store, which I can use through the Kafka 0.9 API with very little configuration and know it will work the same on a production MapR 5.1+ cluster.
+
 _<sup>*</sup>Use [The Development Environment for HPE Ezmeral Data Fabric](https://docs.datafabric.hpe.com/62/MapRContainerDevelopers/MapRContainerDevelopersOverview.html)._
 
 Finally, it should be noted that an Apache Kafka cluster could be used as well with the same design and code, just with some additional work to get it up and running.
@@ -88,7 +89,7 @@ To edit the rules, we deploy the Workbench on Wildfly 10, which is a fairly stra
 
 We made a single configuration change to Wildfly. We changed the port to 28080 instead of 8080, as it is already used by the sandbox. Wildfly runs in standalone mode, so the configuration file is in WILDFLY_HOME/standalone/configuration/standalone.xml.
 
-For monitoring, we let the streaming architecture work for us. We use the open source <a target='\_blank'  href='https://github.com/streamsets/datacollector'>Streamset Data collector</a> to easily redirect the sensor data to Elasticsearch so that we can actually monitor the system with a nice dashboard with Kibana. To set up Streamsets with MapR Event Store requires some work with version 1.6, or from the <a target='\_blank'  href='https://streamsets.com/documentation/datacollector/latest/help/#Install_Config/MapR-Prerequisites.html'>official Streamsets documentation</a>).
+For monitoring, we let the streaming architecture work for us. We use the <a target='\_blank'  href='https://streamsets.com/products/dataops-platform/data-collector-engine/'>Streamset Data collector</a> to easily redirect the sensor data to Elasticsearch so that we can actually monitor the system with a nice dashboard with Kibana. To set up Streamsets with MapR Event Store requires some work with version 1.6, or from the <a target='\_blank'  href='https://streamsets.com/documentation/datacollector/latest/help/#Install_Config/MapR-Prerequisites.html'>official Streamsets documentation</a>).
 
 Finally, installation and setup of Elasticsearch and Kibana is <a target='\_blank'  href='https://www.digitalocean.com/community/tutorials/how-to-install-elasticsearch-logstash-and-kibana-elk-stack-on-centos-7'>well documented on Centos/RHEL</a>.
 
