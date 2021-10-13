@@ -11,9 +11,11 @@ tags:
 ---
 ## Authentication Process to Obtain the Access Token
 
-The Data Services Cloud Console public API relies on an OAuth 2.0 third party authorization framework on behalf of the resource owner (DSCC user) for security. The user starts by logging and authenticating into HPE GreenLake Cloud Console, which is validated by the Identity Provider (validated by username, password, MFA or SSO). Using the API Gateway menu in HPE GreenLake, customer registers their application to obtain the OAuth 2.0 API Client Credentials (Client ID and Client Secret). This association allows user to obtain the Access Token; afterward, user can copy the Access Token into the DSCC API Authorization field. Once authorized, user then can select the particular HTTP method (GET,POST,PUT,DELETE,PATCH) and use the appropriate resource to obtain the desired response. 
+The Data Services Cloud Console public API relies on an OAuth 2.0 third party authorization framework on behalf of the resource owner (DSCC user) for security. The user starts by logging and authenticating into HPE GreenLake Cloud Console, which is validated by the Identity Provider (validated by username, password, MFA or SSO). Using the API Gateway menu in HPE GreenLake, customer registers their application to obtain the OAuth 2.0 API Client Credentials (Client ID and Client Secret). This association allows user to obtain the Access Token; afterward, user can copy the Access Token into the DSCC API Authorization field in the DSCC Swagger page. Once authorized, user then can select the particular HTTP method (GET,POST,PUT,DELETE,PATCH) and use the appropriate resource to obtain the desired response. 
 
-The Access Token have a limited lifetime (about 720 seconds or 2 hours). Once it expires, the application must use the Client ID and Client Secret to obtain a new Access Token.
+The Access Token have a limited lifetime (about 720 seconds or 2 hours). Once it expires, the application must use the Client ID and Client Secret to obtain a new Access Token. One indication of the expiration of Access Token, the API will return response Error: '401 Unauthorized HTTP.'  If the user generate new Access Token prior to it expires, then the current Access Token will be invalidated or treated as not Authorized. 
+
+Additionally, user can also change the Client Secret to update the authorization when authorized user lost the Client Secret or the secret is compromised. And lastly, when access to the API must be disabled, user can delete the application association in the API Gateway. 
 
 ![Access API process](/img/api-access-token-complete-path.png "Process to authenticate and to obtain secure access ")
 
