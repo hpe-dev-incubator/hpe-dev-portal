@@ -23,9 +23,9 @@ Additionally, user can also change the Client Secret to update the authorization
 
 To access the API console, user must login into the [GreenLake Common Cloud](https:\common.cloud.hpe.com), deployed the Data Services Common Cloud Console Application, and onboarded a Storage Array (Alletra, Nimble and Primera) into the organization that is associated with the user account. The user must have the role that is required to perform the intended operation at the instance of DSCC where the storage is deployed. e.g. User must have volume management capability in the Data Ops Management to create a storage volume in US West. 
 
-The **API** **Gateway** menu is available inside **Manage Account** menu.
+The **API** **Gateway** menu is available inside **Manage** menu. Use the Menu to access this Manage Menu
 
-![CCS Menu](/img/how-to-get-to-api-gateway.png "GreenLake Common Cloud Menu")
+![CCS Menu](/img/accesing-api-gateway-from-manage-menu.png "GreenLake Common Cloud Menu")
 
 The API Gateway provides the following operations:
 
