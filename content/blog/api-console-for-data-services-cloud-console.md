@@ -21,15 +21,23 @@ Additionally, user can also change the Client Secret to update the authorization
 
 ## Accessing the API Gateway Console
 
-To access the API console, user must login into the [GreenLake Common Cloud](https:\common.cloud.hpe.com), and deployed the Data Services Common Cloud Console Application into the organization that is associated with the user account. The **API** **Gateway** menu is available inside **Manage Account** menu.
+To access the API console, user must login into the [GreenLake Common Cloud](https:\common.cloud.hpe.com), deployed the Data Services Common Cloud Console Application, and onboarded a Storage Array (Alletra, Nimble and Primera) into the organization that is associated with the user account. The user must have the role that is required to perform the intended operation at the instance of DSCC where the storage is deployed. e.g. User must have volume management capability in the Data Ops Management to create a storage volume in US West. 
+
+The **API** **Gateway** menu is available inside **Manage Account** menu.
 
 ![CCS Menu](/img/how-to-get-to-api-gateway.png "GreenLake Common Cloud Menu")
 
 The API Gateway provides the following operations:
 
-1. Manage API client applications.
-2. Manage access tokens for applications.
-3. Link to API documentation. 
+1. Create and manage API client applications association to obtain:
+
+   1. Instance ID of the DSCC at the particular region (Hexadecimals)
+   2. Client ID (Hexadecimals)
+   3. Client Secret (Hexadecimals)
+   4. URL to the HPE GreenLake Cloud Console end-point (string)
+   5. URL to the HPE DSCC end-point (string)
+2. Generate Access Token, change Client Secret, and delete Access Token.
+3. Link to API documentation for HPE DSCC and HPE GreenLake Cloud Console 
 
 ![API Gateway](/img/dscc-api-gateway.png "DSCC API Gateway")
 
