@@ -45,11 +45,13 @@ The API Gateway provides the following operations:
 
 ### Manage API Client Applications
 
-Each of the API client Applications Connection creates the relationship between the client and server (application).
+Each of the API client Applications Connection creates the relationship between the client and server (application). Click on the **Create Credentials** button to generate a client credential to generate the Access Token.
 
 ![](/img/create-credentials-button.png)
 
-Click on the Create Credentials button to generate a client credential to generate the Access Token.
+Inside the Create Credentials menu, click on the V button to show the pull down list and use the mouse to click on the desired application. i.e. For storage select the Data Services Cloud Console. The list also show region where the applications is deployed.
+
+![select the application](/img/select-the-desired-application.png "Choose application (DSCC)")
 
 ![Create Credential no input yet](/img/create-credentials-menu.png "Generate Client Credentials 1st time")
 
