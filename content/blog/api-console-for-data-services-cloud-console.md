@@ -17,7 +17,7 @@ The Access Token have a limited lifetime (about 720 seconds or 2 hours). Once it
 
 Additionally, user can also change the Client Secret to update the authorization when authorized user lost the Client Secret or the secret is compromised. And lastly, when access to the API must be disabled, user can delete the application association in the API Gateway. 
 
-![Access API process](/img/api-access-token-complete-path.png "Process to authenticate and to obtain secure access ")
+![Access API process](/img/user-guide-for-authorization.png "Process to authenticate and to obtain secure access ")
 
 ## Accessing the API Gateway Console
 
