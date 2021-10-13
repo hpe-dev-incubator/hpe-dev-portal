@@ -71,11 +71,7 @@ Clicking on the down arrow, user can generate the access token required to use t
 
 ![](/img/api-client-credential-get-access-token.png "Time to obtain the Access Token")
 
-Access token will then can be obtained
-
-![](/img/create-credential-prior.png "New Menu to Generate Access Token")
-
-New menu
+After clicking on the Generate Access Tokens button, the menu requires user to enter the Client Secret obtained from the API Client Credentials 
 
 ![](/img/generate-access-token-with-secret.png "Use the client secret to generate Access Token")
 
