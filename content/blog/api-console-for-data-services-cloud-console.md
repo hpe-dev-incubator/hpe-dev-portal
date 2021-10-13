@@ -53,6 +53,8 @@ Inside the Create Credentials menu, click on the V button to show the pull down 
 
 ![select the application](/img/select-the-desired-application.png "Choose application (DSCC)")
 
+After selecting the correct application enter the Credential Name (Please see HPE GreenLake Cloud Console user guide for supported characters.) Click the Create Credentials button to proceed with Client Credentials creation.
+
 ![Create Credential no input yet](/img/create-credentials-menu.png "Generate Client Credentials 1st time")
 
 Note that to create the credentials for the OAuth, you have to provide the application and the name of this credential. Select the Data Services Cloud Console Application on the appropriate region where the console are deployed for this organization.
