@@ -3,6 +3,10 @@ title: HPE OneView and ServiceNow integration with StackStorm
 date: 2021-09-29T17:53:58.637Z
 author: Rick Kauffman
 authorimage: /img/Avatar2.svg
+tags:
+  - hpe-oneview
+  - StackStorm
+  - ServiceNow
 ---
 HPE OneView is a powerful infrastructure automation/management platform from Hewlett Packard Enterprise (HPE) used to manage and monitor HPE DL servers and HPE Synergy products. Recently, I wanted to get all the alarms from HPE OneView and automatically save them as records in a ServiceNow table. 
 
