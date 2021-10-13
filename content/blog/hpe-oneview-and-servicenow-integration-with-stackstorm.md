@@ -6,7 +6,7 @@ authorimage: /img/Avatar2.svg
 tags:
   - hpe-oneview
   - StackStorm
-  - opensource
+  - ServiceNow
 ---
 HPE OneView is a powerful infrastructure automation/management platform from Hewlett Packard Enterprise (HPE) used to manage and monitor HPE DL servers and HPE Synergy products. Recently, I wanted to get all the alarms from HPE OneView and automatically save them as records in a ServiceNow table. 
 
