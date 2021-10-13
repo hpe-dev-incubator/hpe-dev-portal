@@ -43,15 +43,15 @@ The API Gateway provides the following operations:
 
 ![API Gateway](/img/api-gateway-block.png "DSCC API Gateway")
 
-### Manage API client Applications
+### Manage API Client Applications
 
 Each of the API client Applications Connection creates the relationship between the client and server (application).
 
-![](/img/generate-apis-pairs.png)
+![](/img/create-credentials-button.png)
 
-Given that there is no client applications created, user will press the generate the client credentials for 1st time.
+Click on the Create Credentials button to generate a client credential to generate the Access Token.
 
-![Create Credential no input yet](/img/create-credential-prior.png "Generate Client Credentials 1st time")
+![Create Credential no input yet](/img/create-credentials-menu.png "Generate Client Credentials 1st time")
 
 Note that to create the credentials for the OAuth, you have to provide the application and the name of this credential. Select the Data Services Cloud Console Application on the appropriate region where the console are deployed for this organization.
 
