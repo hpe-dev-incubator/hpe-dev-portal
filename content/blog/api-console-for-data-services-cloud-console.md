@@ -59,8 +59,6 @@ After selecting the correct application enter the Credential Name (Please see HP
 
 Note that to create the credentials for the OAuth, you have to provide the application and the name of this credential. Select the Data Services Cloud Console Application on the appropriate region where the console are deployed for this organization.
 
-![Select Application and Enter the name of this credentials](/img/create-credential-filled.png "Complete Credential and applications")
-
 Once the Create Credential is selected, the following information about the OAuth will be shown.
 
 ![](/img/api-client-credential-created.png "Credentials Created Close")
