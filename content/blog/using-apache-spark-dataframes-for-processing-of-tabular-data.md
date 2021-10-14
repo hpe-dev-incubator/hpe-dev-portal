@@ -28,7 +28,7 @@ In this post, you’ll learn how to:
 * Load data into Spark DataFrames
 * Explore data with Spark SQL
 
-This post assumes a basic understanding of Spark concepts. If you have not already read the tutorial on [Getting Started with Spark on MapR Sandbox](/products/mapr-sandbox-hadoop/tutorials/spark-tutorial), it would be good to read that first.
+This post assumes a basic understanding of Spark concepts. If you have not already read the tutorial on [Getting Started with Spark on MapR Sandbox](https://developer.hpe.com/blog/using-apache-spark-dataframes-for-processing-of-tabular-data-1/), it would be good to read that first.
 
 ## Software
 
@@ -38,7 +38,7 @@ This tutorial will run on the MapR v5.0 Sandbox, which includes Spark 1.3
 
   * <a target='\_blank'  href='https://github.com/caroljmcdonald/sparkdataframeexample'>https://github.com/caroljmcdonald/sparkdataframeexample</a>
 * The examples in this post can be run in the spark-shell, after launching with the spark-shell command.
-* You can also run the code as a standalone application as described in the tutorial on [Getting Started with Spark on MapR Sandbox](/products/mapr-sandbox-hadoop/tutorials/spark-tutorial).
+* You can also run the code as a standalone application as described in the tutorial on [Getting Started with Spark on MapR Sandbox](https://developer.hpe.com/blog/using-apache-spark-dataframes-for-processing-of-tabular-data-1/).
 
 **The sample data sets**
 
@@ -77,7 +77,7 @@ Using Spark DataFrames, we will explore the SFPD data with questions like:
 
 ## Loading data into Spark DataFrames
 
-Log into the MapR Sandbox, as explained in [Getting Started with Spark on MapR Sandbox](/products/mapr-sandbox-hadoop/tutorials/spark-tutorial), using userid user01, password mapr. Copy the sample data files to your sandbox home directory /user/user01 using scp. Start the spark shell with:\
+Log into the MapR Sandbox, as explained in [Getting Started with Spark on MapR Sandbox](https://developer.hpe.com/blog/using-apache-spark-dataframes-for-processing-of-tabular-data-1/), using userid user01, password mapr. Copy the sample data files to your sandbox home directory /user/user01 using scp. Start the spark shell with:\
 `$ spark-shell`
 
 First, we will import some packages and instantiate a sqlContext, which is the entry point for working with structured data (rows and columns) in Spark and allows the creation of DataFrame objects.\
