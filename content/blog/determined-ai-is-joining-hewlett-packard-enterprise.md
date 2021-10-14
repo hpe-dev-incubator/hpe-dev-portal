@@ -20,4 +20,4 @@ Relatedly, [we are actively hiring!](https://www.determined.ai/contact) We are t
 
 Today is a big day for Determined AI, and we’re immensely grateful to the customers and community members we have had the privilege of working with for the past 4 years. The next phase in our journey promises to be even more exciting, and we’re thrilled to continue to work with the ML community to build the future of AI infrastructure.
 
-For more information on using Determined AI to build and train deep learning (DL) models at scale, please check out our HPE DEV platform page.
+For more information on using Determined AI to build and train deep learning (DL) models at scale, please check out the [Determined AI platform page](https://developer.hpe.com/platform/determined-ai/home/) on HPE DEV.
