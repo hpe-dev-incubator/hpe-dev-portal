@@ -4,7 +4,8 @@ date: 2021-10-12T17:24:39.433Z
 author: Neil Conway, Evan Sparks, Ameet Talwalkar
 authorimage: /img/Avatar1.svg
 tags:
-  - determined-AI
+  - determined-ai
+  - Determined
 ---
 **Editor’s Note:** Determined AI products and solutions sold prior to the acquisition of such assets by Hewlett Packard Enterprise Company in 2021 may have older product names that differ from current solutions. 
 
