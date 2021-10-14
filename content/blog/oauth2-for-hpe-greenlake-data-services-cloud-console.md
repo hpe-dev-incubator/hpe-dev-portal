@@ -5,4 +5,4 @@ author: Ron Dharma
 authorimage: /img/face-portrait-small.jpg
 thumbnailimage: /img/dscc-icon-transparent.png
 ---
-The top principle for public (Northbound) API to HPE GreenLake and Data Services Cloud Console is *secured interface that support authentication and authorization of the resource owner.* To support the aforementioned principle, the HPE GreenLake implements the Oauth2 authorization that represent the resource owner authorization rights without embedding the resource owner's user credential.
+The top principle for public (Northbound) API to HPE GreenLake and Data Services Cloud Console is *secured interface that support authentication and authorization of the resource owner.* To support the aforementioned principle, the HPE GreenLake implements the Oauth2 authorization that represent the resource owner authorization rights without embedding the resource owner's user credential as in the API streams.
