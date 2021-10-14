@@ -1,16 +1,18 @@
 ---
-title: Oauth2 for HPE GreenLake Data Services Cloud Console
+title: Oauth2 for Client Application of HPE DSCC
 date: 2021-10-14T12:46:19.488Z
 author: Ron Dharma
 authorimage: /img/face-portrait-small.jpg
 thumbnailimage: /img/dscc-icon-transparent.png
 ---
+### HPE GreenLake API Security
+
 The top principle for public (Northbound) API to HPE GreenLake and Data Services Cloud Console is *secure interface that support authentication and authorization of the resource owner.* To support the previously mentioned principle, the HPE GreenLake implements the Oauth2 authorization granting the resource owner authorization rights without embedding the resource owner's user credential as in the API streams. This goal is achieved using the Oauth2 authorization and REST API, where every API call will embed the Access Token as part of the HTTP REST API URL stream using the keyword: *bearer*.
 
 At the introduction of this public API, HPE GreenLake supports the **Client Credential authentication grant** type (a.k.a OAuth 2 authentication workflow.) This particular grant type allows the client application to authenticate using separate credentials (Client ID and Client Password) that is authorized using the Resource Owner's credential (User's Email and Password). 
 
-The impact of this method of OAuth authentication workflow:
+**The impact of Client Credential OAuth authentication grant:**
 
-1. The authentication for Client does not involve the transmission of the Username and Password.
-2. Changing the Client Password or deleting the Client ID will not impact HPE GreenLake user credentials.
-3. According to OAuth 2.0 [tools.ietf.org/html/rfc6749#section-4.4](tools.ietf.org/html/rfc6749#section-4.4) Client Credential grant type allows the client Application to authenticate by itself independent of user (no user intervention) which makes this grant type appropriate for machine to machine
+1. The authentication for Client does not involve the transmission of the HPE GreenLake user credentials.
+2. Changing the *Client Password* or deleting the *Client ID* will not impact HPE GreenLake user credentials.
+3. According to OAuth 2.0 [tools.ietf.org/html/rfc6749#section-4.4](tools.ietf.org/html/rfc6749#section-4.4) Client Credential grant type allows the client Application to authenticate by itself independent of user (no user intervention) which makes this grant type appropriate for machine-to-machine (M2M) application that can safely protect the registered client credentials (Confidential Clients) such as scripts, daemon, or services contained in a host. Please refer to this [](https://tools.ietf.org/html/rfc6749#section-2.1)<https://tools.ietf.org/html/rfc6749#section-2.1> for more information.
