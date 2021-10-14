@@ -13,4 +13,4 @@ The impact of this method of OAuth authentication workflow:
 
 1. The authentication for Client does not involve the transmission of the Username and Password.
 2. Changing the Client Password or deleting the Client ID will not impact the user credentials of HPE GreenLake User.
-3. According to OAuth 2.0
+3. According to OAuth 2.0 [tools.ietf.org/html/rfc6749#section-4.4](tools.ietf.org/html/rfc6749#section-4.4)
