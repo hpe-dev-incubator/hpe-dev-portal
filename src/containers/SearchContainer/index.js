@@ -143,15 +143,19 @@ const SearchContainer = ({ location }) => {
   const [value, setValue] = useState(term);
   const [results, setResults] = useState(initialSearch.searchResults);
   const [categories, setCategories] = useState(initialSearch.searchCategories);
-  const [activeCategoryIndex, setActiveCategoryIndex] = React.useState(0);
+  const [activeCategoryIndex, setActiveCategoryIndex] = useState(0);
 
   useEffect(() => {
-    const getData = async () => {
-      const { searchResults, searchCategories } = await getSearchResults(value);
-      setResults(searchResults);
-      setCategories(searchCategories);
-    };
-    getData();
+    if (value) {
+      const getResults = async () => {
+        const { searchResults, searchCategories } = await getSearchResults(
+          value,
+        );
+        setResults(searchResults);
+        setCategories(searchCategories);
+      };
+      getResults();
+    }
   }, [value]);
 
   const onChange = (event) => {
@@ -160,7 +164,7 @@ const SearchContainer = ({ location }) => {
 
     // update the URL
     const query = newValue ? `?term=${encodeURIComponent(newValue)}` : '';
-    navigate(`/search${query}`, { replace: true });
+    navigate(`/search/${query}`, { replace: true });
 
     const { searchResults, searchCategories } = getSearchResults(newValue);
     setResults(searchResults);
@@ -208,8 +212,8 @@ const SearchContainer = ({ location }) => {
                 activeIndex={activeCategoryIndex}
                 onActive={onCategoryChange}
               >
-                {categories.map((category) => (
-                  <Tab title={categoryLabel(category)} />
+                {categories.map((category, index) => (
+                  <Tab key={index} title={categoryLabel(category)} />
                 ))}
               </Tabs>
               <Results
