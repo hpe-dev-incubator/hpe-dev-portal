@@ -7,7 +7,7 @@ thumbnailimage: /img/dscc-icon-transparent.png
 ---
 ## HPE GreenLake API Security
 
-The top principle for public (Northbound) API to HPE GreenLake and Data Services Cloud Console is *secure interface that support authentication and authorization of the resource owner.* To support the previously mentioned principle, the HPE GreenLake implements the Oauth2 authorization granting the resource owner authorization rights without embedding the resource owner's user credential as in the API streams. This goal is achieved using the Oauth2 authorization and REST API, where every API call will embed the Access Token as part of the HTTP REST API URL stream using the keyword: *bearer*.
+The major principle for public (Northbound) API to HPE GreenLake and Data Services Cloud Console is *secure interface that support authentication and authorization of the resource owner.* To support the previously mentioned principle, the HPE GreenLake implements the Oauth2 authorization granting the resource owner authorization rights without embedding the resource owner's user credential as in the API streams. This goal is achieved using the Oauth2 authorization and REST API, where every API call will embed the Access Token as part of the HTTP REST API URL stream using the keyword: *bearer*.
 
 At the introduction of this public API, HPE GreenLake supports the **Client Credential authentication grant** **type** (a.k.a. OAuth 2 client credential authentication workflow.) This particular grant type allows the client application to authenticate using separate credentials (Client ID and Client Password) that is authorized inside the API Gateway menu using the HPE GreenLake User's Email and Password.
 
