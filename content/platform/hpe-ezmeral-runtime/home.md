@@ -14,8 +14,14 @@ tags:
 The [BlueK8s open source](https://github.com/bluek8s) initiative will include a number of projects to help bring enterprise-level capabilities for distributed stateful applications to Kubernetes. The first open source project in this initiative is Kubernetes Director or [KubeDirector](https://kubedirector.io) for short.
 
 * [HPE Ezmeral Runtime Main Site](https://www.hpe.com/us/en/software/ezmeral-runtime.html)
+
+
 * [HPE Ezmeral Runtime Documentation](https://docs.containerplatform.hpe.com/home)
+
+
 * [HPE Ezmeral Learn On-Demand](https://learn.ezmeral.software.hpe.com/)
+
+
 * [Request your own demo](https://hpedemoportal.ext.hpe.com/home)
 
 
@@ -31,33 +37,48 @@ The [BlueK8s open source](https://github.com/bluek8s) initiative will include a 
 
 Learn about how to perform many common tasks with the HPE Ezmeral Runtime related to building your stateful, containerized applications in the 7-part video series. The video series is part of [HPE Ezmeral Learn On-Demand](https://learn.ezmeral.software.hpe.com/). Click on the below link for the first episode titled “Create a Kubernetes Cluster”. Also in the series you will find the following demos:
 
+
 * Create a Kubernetes Cluster
+
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/OLuQC2yAsCM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+
 * Create a Kubernetes Tenant
+
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/IuagZpLZeRE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+
 * Create a Kubernetes User
+
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ypKLGGoEGcU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+
 * Deploy a Kubernetes App
+
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/GOabxoGJtNA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+
 * Setup Project Repository
+
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/iV2AAf3xvnA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+
 * Build and Train a Model
+
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ZBsq9quncpw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+
 * Deploy the Model
 
+
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Z6qSrYH0tUQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 
 - - -
 
@@ -67,7 +88,9 @@ Learn about how to perform many common tasks with the HPE Ezmeral Runtime relate
 
   Kubernetes Director (aka KubeDirector) for deploying and managing stateful applications on Kubernetes.
 
-- [Explore the KubeDirector Documentation](https://kubedirector.io/)
+
+* [Explore the KubeDirector Documentation](https://kubedirector.io/)
+
 
 # Workshops-on-Demand
 
