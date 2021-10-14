@@ -19,4 +19,4 @@ At the introduction of this public API, HPE GreenLake supports the **Client Cred
 
 ### Hmmm, how do I implement the above information in my application?
 
-After you obtained the Client ID and Client Password from the
+After you obtained the Client ID and Client Password which is detailed in my article titled
