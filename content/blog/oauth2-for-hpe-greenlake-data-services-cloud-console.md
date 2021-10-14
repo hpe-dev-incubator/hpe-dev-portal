@@ -11,4 +11,6 @@ At the introduction of this public API, HPE GreenLake supports the **Client Cred
 
 The impact of this method of OAuth authentication workflow:
 
-1. No
+1. The authentication for Client does not involve the transmission of the Username and Password.
+2. Changing the Client Password or deleting the Client ID will not impact the user credentials of HPE GreenLake User.
+3. According to OAuth 2.0
