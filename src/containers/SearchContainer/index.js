@@ -1,5 +1,5 @@
 /* eslint-disable no-underscore-dangle */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { navigate } from '@reach/router';
 import { Box, Heading, Tabs, Tab, Text, TextInput } from 'grommet';
@@ -109,13 +109,15 @@ const getPositions = (searchResult, field) => {
   return positions;
 };
 
-const getSearchResults = (query) => {
+const getSearchResults = async (query) => {
   let searchResults = [];
   const categoryMap = { 'All Results': true };
 
-  if (query && window.__LUNR__ && window.__LUNR__.en) {
+  if (query && window.__LUNR__) {
     try {
-      const queryResults = window.__LUNR__.en.index.search(query);
+      const queryResults =
+        (await window.__LUNR__.__loaded) &&
+        window.__LUNR__.en.index.search(query);
 
       searchResults = queryResults.map((searchResult) => {
         const doc = window.__LUNR__.en.store[searchResult.ref];
@@ -142,6 +144,15 @@ const SearchContainer = ({ location }) => {
   const [results, setResults] = useState(initialSearch.searchResults);
   const [categories, setCategories] = useState(initialSearch.searchCategories);
   const [activeCategoryIndex, setActiveCategoryIndex] = React.useState(0);
+
+  useEffect(() => {
+    const getData = async () => {
+      const { searchResults, searchCategories } = await getSearchResults(value);
+      setResults(searchResults);
+      setCategories(searchCategories);
+    };
+    getData();
+  }, [value]);
 
   const onChange = (event) => {
     const { value: newValue } = event.target;
@@ -191,7 +202,7 @@ const SearchContainer = ({ location }) => {
               value={value}
             />
           </Box>
-          {value && (
+          {results && categories && (
             <Box>
               <Tabs
                 activeIndex={activeCategoryIndex}
