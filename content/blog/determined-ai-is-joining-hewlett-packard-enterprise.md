@@ -6,8 +6,6 @@ authorimage: /img/Avatar1.svg
 tags:
   - determined-AI
 ---
-
-
 **Editor’s Note:** Determined AI products and solutions sold prior to the acquisition of such assets by Hewlett Packard Enterprise Company in 2021 may have older product names that differ from current solutions. 
 
 Today is a big day for Determined AI, our customers, and our open source community. We are thrilled to announce that [Determined AI is joining one of Silicon Valley’s most iconic companies: Hewlett Packard Enterprise (HPE)](https://www.hpe.com/us/en/newsroom/press-release/2021/06/hewlett-packard-enterprise-acquires-determined-ai-to-accelerate-artificial-intelligence-innovation-with-fast-and-simple-machine-learning-modeling.html), working under the umbrella of the High Performance Computing (HPC) and Mission Critical Solutions (MCS) business unit.
@@ -18,6 +16,8 @@ This is a ***massive*** accelerant for our mission to empower users to efficient
 
 HPE shares our vision that driving an open standard for AI software infrastructure is the fastest way for the industry to realize the potential of AI. Consequently, **HPE is committed to investing in and rapidly growing the Determined Training Platform as an open source project.** Our customers and open source community members will continue to receive the same high level of service and support that they always have, from a team of experts who are intimately familiar with the challenges they’re facing. Moving forward, we’ll be in a position to serve a much more global network of users, both large and small – we’re excited to continue building new features to both our customers and our open-source community.
 
-Relatedly, [we are actively hiring!](https://www.determined.ai/careers) We are truly humbled by the amazing team we have had the good fortune to work with over the past 4 years. Building infrastructure for AI is fundamentally an interdisciplinary endeavor, and from the day we started the company, we have been committed to fostering an environment that encourages diversity of thought. At HPE we’ll be rapidly expanding the team’s headcount and continuing to build on our culture of collaboration.
+Relatedly, [we are actively hiring!](https://www.determined.ai/contact) We are truly humbled by the amazing team we have had the good fortune to work with over the past 4 years. Building infrastructure for AI is fundamentally an interdisciplinary endeavor, and from the day we started the company, we have been committed to fostering an environment that encourages diversity of thought. At HPE we’ll be rapidly expanding the team’s headcount and continuing to build on our culture of collaboration.
 
 Today is a big day for Determined AI, and we’re immensely grateful to the customers and community members we have had the privilege of working with for the past 4 years. The next phase in our journey promises to be even more exciting, and we’re thrilled to continue to work with the ML community to build the future of AI infrastructure.
+
+For more information on using Determined AI to build and train deep learning (DL) models at scale, please check out our HPE DEV platform page.
