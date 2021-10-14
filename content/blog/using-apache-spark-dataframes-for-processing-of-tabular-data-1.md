@@ -1,5 +1,5 @@
 ---
-title: Using Apache Spark DataFrames for Processing of Tabular Data
+title: Getting Started with Spark on MapR Sandbox
 date: 2021-10-14T06:01:09.050Z
 author: MapR
 authorimage: /img/Avatar1.svg
