@@ -18,3 +18,5 @@ At the introduction of this public API, HPE GreenLake supports the **Client Cred
 3. According to OAuth 2.0 [tools.ietf.org/html/rfc6749#section-4.4](tools.ietf.org/html/rfc6749#section-4.4) Client Credential grant type allows the client Application to authenticate by itself independent of user (no user intervention) which makes this grant type appropriate for machine-to-machine (M2M) application that can safely protect the registered client credentials (Confidential Clients) such as scripts, daemon, or services contained in a host. Please refer to this [](https://tools.ietf.org/html/rfc6749#section-2.1)<https://tools.ietf.org/html/rfc6749#section-2.1> for more information.
 
 ### Hmmm, how do I implement the above information in my application?
+
+After you obtained the Client ID and Client Password from the
