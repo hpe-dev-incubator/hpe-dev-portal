@@ -4,6 +4,8 @@ date: 2021-10-14T12:46:19.488Z
 author: Ron Dharma
 authorimage: /img/face-portrait-small.jpg
 thumbnailimage: /img/dscc-icon-transparent.png
+tags:
+  - data-services-cloud-console
 ---
 ## HPE GreenLake API Security
 
