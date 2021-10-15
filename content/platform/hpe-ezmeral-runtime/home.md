@@ -9,6 +9,27 @@ priority: 2
 tags:
   - hpe-ezmeral-runtime
 ---
+<style>
+  .button {
+    background-color: rgba(23,235,160,1);
+    box-sizing: border-box;
+    color: #000000; 
+    font-size: 18px; 
+    display: inline-block;
+    padding: 6px 12px;
+    vertical-align: middle;
+    overflow: hidden;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    white-space: nowrap;
+    border-radius: 4px;
+    border: none;
+    margin: 0;
+    line-height: 24px;
+    font-weight: 700;
+  } 
+</style>
 **HPE Ezmeral Runtime** (previously called HPE Ezmeral Container Platform) is the industry’s first enterprise-grade container orchestration platform that is designed to run modern applications (both cloud-native and non-cloud-native) with persistent data. It deploys 100% Kubernetes for orchestration, provides a state-of-the-art file system and data fabric for persistent container storage, and provides an enterprise with the ability to deploy non-cloud-native AI and Analytics workloads in containers. Enterprises can now easily extend the agility and efficiency benefits of containers to more of their enterprise applications running on either bare-metal or virtualized infrastructure, on-premises, in hybrid- and multi-cloud environments, or at the edge.
 
 The associated [BlueK8s open source initiative](https://github.com/bluek8s) will include a number of projects to help bring enterprise-level capabilities for distributed stateful applications to Kubernetes. The first open source project in this initiative is Kubernetes Director, or [KubeDirector](https://kubedirector.io) for short.
