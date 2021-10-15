@@ -5,6 +5,7 @@ author: Cenz Wong
 authorimage: https://avatars.githubusercontent.com/u/44856918?v=4
 thumbnailimage: ""
 tags:
+  - hpe-ezmeral-runtime
   - hpe-ezmeral-container-platform
   - hpe-ezmeral-data-fabric
 ---
@@ -207,4 +208,4 @@ And now you can run the HDFS command without error.
 
 # Key takeaway
 I hope this post offered you some tips on how to do big data analytics using the Apache Spark Python API with less time spent on setting up the environment and more time on digging out business insight from your data. Keep this notebook handy so you can refer back to it often. Also, keep an eye out on the [HPE DEV blog](https://developer.hpe.com/blog) to make sure you catch future articles on this subject.
-
+

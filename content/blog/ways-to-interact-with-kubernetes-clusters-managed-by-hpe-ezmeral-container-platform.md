@@ -6,6 +6,7 @@ author: Cenz Wong
 authorimage: https://avatars.githubusercontent.com/u/44856918?v=4
 thumbnailimage: https://user-images.githubusercontent.com/72959956/119960940-128cf180-bfd8-11eb-9018-8411eda59a91.png
 tags:
+  - hpe-ezmeral-runtime
   - hpe-ezmeral-container-platform
 ---
 

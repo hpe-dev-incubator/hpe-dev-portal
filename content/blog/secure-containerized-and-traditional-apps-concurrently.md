@@ -4,6 +4,7 @@ date: 2021-09-30T08:48:31.534Z
 author: Ka Wai Leung & Jason Mashak
 authorimage: /img/Avatar1.svg
 tags:
+  - hpe-ezmeral-runtime
   - hpe-ezmeral-container-platform
 ---
 IT Ops teams have run and managed Windows and Linux deployments for years. They are greatly experienced at dealing with the storage, networking, virtual machines and firewalls required for these environments. But container use, and the modern apps with which they are built, continues to gain ground as businesses move from small, proof-of-concept implementations to broader deployments. These modern applications require a whole new set of skills, which many administrative teams are just learning as new technologies, like Kubernetes, come into play.

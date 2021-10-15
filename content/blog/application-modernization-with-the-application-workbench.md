@@ -10,6 +10,7 @@ tags:
   - application
   - ezmeral
   - container
+  - hpe-ezmeral-runtime
   - hpe-ezmeral-container-platform
 ---
 One of the most significant issues facing enterprises in their journey towards digital transformation is the challenge of application modernization. Did you know that 70% of the Global IT budget is spent on legacy application maintenance?  In fact, 7 in 10 companies today struggle with legacy application maintenance while they tackle their digital transformation. Consider how counterproductive it is to spend that much time, energy, and money on something that doesn’t really help them move forward.

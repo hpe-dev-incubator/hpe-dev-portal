@@ -8,6 +8,7 @@ width: large
 priority: 1
 frontpage: true
 tags:
+  - hpe-ezmeral-runtime
   - hpe-ezmeral-container-platform
 ---
 <style>

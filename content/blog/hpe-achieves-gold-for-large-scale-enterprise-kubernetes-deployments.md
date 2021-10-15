@@ -2,7 +2,7 @@
 title: "HPE achieves gold for large-scale enterprise Kubernetes deployments"
 date: 2020-06-17T15:29:22.939Z
 author: Prashant Sachdeva 
-tags: ["hpe-ezmeral-container-platform","spiffe-and-spire-projects","hpe-ezmeral-data-fabric","spiffe","spire","opensource","kubedirector"]
+tags: ["hpe-ezmeral-runtime","hpe-ezmeral-container-platform","spiffe-and-spire-projects","hpe-ezmeral-data-fabric","spiffe","spire","opensource","kubedirector"]
 authorimage: "/img/blogs/Avatar5.svg"
 featuredBlog: false
 priority:
