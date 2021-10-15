@@ -526,11 +526,12 @@ If appropriate, use a tag to tie your blog post to a "platform" page on HPE DEV 
 
   | **Platform name**                  |   **Associated tag**    |
   | ---------------------------------- | ----------------------- |
-  | **HPE Ezmeral Container Platform** | hpe-ezmeral-container-platform |
+  | **HPE Ezmeral Runtime**            | hpe-ezmeral-runtime |
   | **HPE Ezmeral Data Fabric**        | hpe-ezmeral-data-fabric |
   | **HPE GreenLake**                  | hpe-greenlake |
   | **Spiffe and Spire**               | spiffe-and-spire-projects |
   | **Chapel**                         | chapel |
+  | **Determined AI**                  | determined-ai |
   | **Grommet**                        | grommet |
   | **HPE Deep Learning Cookbook**     | hpe-deep-learning-cookbook |
   | **Aruba Developer Hub**            | aruba |
