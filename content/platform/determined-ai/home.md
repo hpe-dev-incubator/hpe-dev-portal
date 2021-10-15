@@ -10,9 +10,9 @@ tags:
   - determined
   - determined-AI
 ---
-Building and training optimized deep learning (DL) models at scale is considered the most demanding and critical stage of ML development. [Determined AI](https://www.determined.ai/) accelerates time-to-production with an open-source platform to build and train models faster and easier. 
+Building and training optimized models at scale is considered the most demanding and critical stage of machine learning (ML) development. [Determined AI](https://www.determined.ai/) accelerates time-to-production with an open-source platform to build and train models faster and easier. 
 
-Determined AI closes this gap to help researchers and scientists to focus on innovation and accelerate their time-to-delivery by removing the complexity and cost associated with machine learning development. This includes making it easy to set-up, configure, manage and share workstations or AI clusters that run on-premise or in the cloud. 
+Determined AI helps researchers and scientists focus on innovation and accelerate their time-to-delivery by removing the complexity and cost associated with machine learning development. This includes making it easy to set-up, configure, manage and share workstations or AI clusters that run on-premise or in the cloud. 
 
 Determined enables you to: 
 
@@ -20,7 +20,7 @@ Determined enables you to:
 
 * **Automatically find high-quality models** with advanced hyperparameter tuning from the creators of Hyperband. 
 
-* **Get more from your GPUs** with smart scheduling and cut cloud GPU costs by seamlessly using preemptible instances. 
+* **Get more from your GPUs** with smart scheduling and cut cloud GPU costs by seamlessly using spot instances. 
 
 * **Track and reproduce your work** with experiment tracking that works out-of-the-box, covering code versions, metrics, checkpoints, and hyperparameters. 
 
@@ -41,4 +41,4 @@ Determined is an open-source deep learning training platform that makes building
 
 ## Any questions on Determined AI or about the Determined open-source project?
 
-Join the [Determined AI Slack Workspace](https://determined-community.slack.com/) and start a discussion.
+Join the [Determined AI Slack Workspace](https://join.slack.com/t/determined-community/shared_invite/zt-cnj7802v-KcVbaUrIzQOwmkmY7gP0Ew) and start a discussion.
