@@ -2,7 +2,7 @@
 title: Determined AI
 active: true
 category: Machine Learning
-link: https://www.determined.ai/
+link: /platform/determined-ai/home/
 description: Determined is an open-source deep learning training platform that
   makes building models fast and easy
 priority: 25
