@@ -95,6 +95,13 @@ function Header() {
                 alignSelf="start"
                 fill="horizontal"
               />
+              <ButtonLink
+                key="pl-dai"
+                label="Determined AI"
+                to="/platform/determined-ai/home/"
+                alignSelf="start"
+                fill="horizontal"
+              />
             </TextAlignLeft>
             <TextAlignLeft>
               <ButtonLink
