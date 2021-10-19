@@ -13,13 +13,7 @@ import {
 } from 'grommet';
 import { LinkNext } from 'grommet-icons';
 
-import {
-  Layout,
-  SEO,
-  Card,
-  TitleMarkdown,
-  ButtonLink,
-} from '../../components';
+import { Layout, SEO, Card, TitleMarkdown, ButtonLink } from '../../components';
 
 const OpenSourceCard = ({ children }) => (
   <Box pad={{ horizontal: 'large', bottom: 'large' }}>
@@ -28,10 +22,7 @@ const OpenSourceCard = ({ children }) => (
         <Heading level={2} margin="none">
           Featured Open Source Projects
         </Heading>
-        <ButtonLink
-          icon={<LinkNext color="green" />}
-          to="/opensource"
-        />
+        <ButtonLink icon={<LinkNext color="green" />} to="/opensource" />
       </CardHeader>
       <Grid
         columns="small"
