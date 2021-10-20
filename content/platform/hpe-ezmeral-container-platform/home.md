@@ -5,7 +5,7 @@ description: A turnkey enterprise-grade container platform for cloud-native and
   distributed non-cloud native applications with open source Kubernetes.
 image: /img/platforms/EzmeralContainerPatform.svg
 width: large
-priority: 1
+priority: 8
 frontpage: true
 tags:
   - hpe-ezmeral-runtime
