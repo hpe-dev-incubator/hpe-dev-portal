@@ -52,8 +52,8 @@ exports.createPages = async ({ graphql, actions }) => {
   const allQueryResult = await graphql(paginatedCollectionQuery('blog-posts'));
   const openSourceQueryResult =
     await graphql(paginatedCollectionQuery('opensource-blog-posts'));
-  const ezmeralQueryResult =
-    await graphql(paginatedCollectionQuery('ezmeral-blog-posts'));
+  const ezmeralRuntimeQueryResult =
+    await graphql(paginatedCollectionQuery('ezmeral-runtime-blog-posts'));
   const spiffeQueryResult =
     await graphql(paginatedCollectionQuery('spiffe-blog-posts'));
   const dataFabricQueryResult =
@@ -78,12 +78,14 @@ exports.createPages = async ({ graphql, actions }) => {
     await graphql(paginatedCollectionQuery('oneview-dashboard-posts'));
   const iloQueryResult =
     await graphql(paginatedCollectionQuery('ilo-posts'));
+  const determinedQueryResult =
+    await graphql(paginatedCollectionQuery('determined-ai-posts'));
   const othersQueryResult = 
     await graphql(paginatedCollectionQuery('others-posts'));
 
   setPagination(allQueryResult);
   setPagination(openSourceQueryResult);
-  setPagination(ezmeralQueryResult);
+  setPagination(ezmeralRuntimeQueryResult);
   setPagination(spiffeQueryResult);
   setPagination(dataFabricQueryResult);
   setPagination(greenLakeQueryResult);
@@ -96,6 +98,7 @@ exports.createPages = async ({ graphql, actions }) => {
   setPagination(oneviewQueryResult);
   setPagination(oneviewDashboardQueryResult);
   setPagination(iloQueryResult);
+  setPagination(determinedQueryResult);
   setPagination(othersQueryResult);
 
   return graphql(

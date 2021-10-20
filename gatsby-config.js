@@ -362,7 +362,7 @@ module.exports = {
       },
     },
     paginatedCollection('opensource-blog-posts', 'opensource'),
-    paginatedCollection('ezmeral-blog-posts', 'hpe-ezmeral-container-platform'),
+    paginatedCollection('ezmeral-runtime-blog-posts', 'hpe-ezmeral-runtime'),
     paginatedCollection('spiffe-blog-posts', 'spiffe-and-spire-projects'),
     paginatedCollection('data-fabric-posts', 'hpe-ezmeral-data-fabric'),
     paginatedCollection('greenlake-posts', 'hpe-greenlake'),
@@ -377,6 +377,7 @@ module.exports = {
       'oneview-dashboard-posts',
       'hpe-oneview-global-dashboard',
     ),
+    paginatedCollection('determined-ai-posts', 'determined-ai'),
     {
       resolve: 'gatsby-plugin-paginated-collection',
       options: {
@@ -455,9 +456,9 @@ module.exports = {
               node.fields.sourceInstanceName === 'homepanels'
                 ? '/'
                 : `${node.fields.sourceInstanceName}${node.fields.slug.replace(
-                  /\/aside[/]?$/,
-                  '/home',
-                )}`,
+                    /\/aside[/]?$/,
+                    '/home',
+                  )}`,
             sourceInstanceName: (node) => node.fields.sourceInstanceName,
           },
         },
