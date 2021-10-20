@@ -41,8 +41,8 @@ function Header() {
             <TextAlignLeft>
               <ButtonLink
                 key="pl-hecp"
-                label="HPE Ezmeral Container Platform"
-                to="/platform/hpe-ezmeral-container-platform/home/"
+                label="HPE Ezmeral Runtime"
+                to="/platform/hpe-ezmeral-runtime/home/"
                 alignSelf="start"
                 fill="horizontal"
               />

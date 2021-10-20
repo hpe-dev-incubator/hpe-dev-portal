@@ -209,14 +209,14 @@ export const pageQuery = graphql`
     ezmeralBlogsCount: allMarkdownRemark(
       filter: {
         fields: { sourceInstanceName: { eq: "blog" } }
-        frontmatter: { tags: { eq: "hpe-ezmeral-container-platform" } }
+        frontmatter: { tags: { eq: "hpe-ezmeral-runtime" } }
       }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
       totalCount
     }
     ezmeralBlogs: paginatedCollectionPage(
-      collection: { name: { eq: "ezmeral-blog-posts" } }
+      collection: { name: { eq: "ezmeral-runtime-blog-posts" } }
       index: { eq: 0 }
     ) {
       nodes
@@ -463,6 +463,28 @@ export const pageQuery = graphql`
     }
     iloBlogs: paginatedCollectionPage(
       collection: { name: { eq: "ilo-posts" } }
+      index: { eq: 0 }
+    ) {
+      nodes
+      hasNextPage
+      nextPage {
+        id
+      }
+      collection {
+        id
+      }
+    }
+    determinedBlogsCount: allMarkdownRemark(
+      filter: {
+        fields: { sourceInstanceName: { eq: "blog" } }
+        frontmatter: { tags: { eq: "determined-ai" } }
+      }
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
+      totalCount
+    }
+    determinedBlogs: paginatedCollectionPage(
+      collection: { name: { eq: "determined-ai-posts" } }
       index: { eq: 0 }
     ) {
       nodes
