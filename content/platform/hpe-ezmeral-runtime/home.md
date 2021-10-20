@@ -6,6 +6,7 @@ description: An  enterprise-grade software orchestration platform designed to
 image: /img/platforms/EzmeralContainerPatform.svg
 width: large
 priority: 1
+frontpage: true
 tags:
   - hpe-ezmeral-runtime
 ---
