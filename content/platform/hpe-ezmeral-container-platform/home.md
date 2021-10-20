@@ -6,7 +6,7 @@ description: A turnkey enterprise-grade container platform for cloud-native and
 image: /img/platforms/EzmeralContainerPatform.svg
 width: large
 priority: 8
-frontpage: true
+frontpage: false
 tags:
   - hpe-ezmeral-runtime
   - hpe-ezmeral-container-platform
