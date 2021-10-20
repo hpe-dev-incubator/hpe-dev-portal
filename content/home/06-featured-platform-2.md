@@ -1,11 +1,11 @@
 ---
-title: HPE Ezmeral Container Platform
-width: medium
-category: Featured Platform
+title: HPE Ezmeral Runtime
+category: Feature Platform
 priority: 6
+width: medium
+link: /platform/hpe-ezmeral-runtime/home/
 image: /img/home/ezmeral.svg
-link: /platform/hpe-ezmeral-container-platform/home/
 ---
-## HPE Ezmeral Container Platform
+## HPE Ezmeral Runtime
 
-A turnkey enterprise-grade container platform for cloud-native and distributed non-cloud native applications with open source Kubernetes.
+An  enterprise-grade software orchestration platform designed to deploy modern applications using open-source Kubernetes, from edge to cloud.
