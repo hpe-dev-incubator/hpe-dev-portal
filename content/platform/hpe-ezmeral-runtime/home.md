@@ -5,7 +5,7 @@ description: An  enterprise-grade software orchestration platform designed to
   deploy modern applications using open-source Kubernetes, from edge to cloud.
 image: /img/platforms/EzmeralContainerPatform.svg
 width: large
-priority: 2
+priority: 1
 tags:
   - hpe-ezmeral-runtime
 ---
