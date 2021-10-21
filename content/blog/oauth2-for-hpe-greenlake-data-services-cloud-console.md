@@ -19,10 +19,10 @@ At the introduction of this public API, HPE GreenLake supports the **Client Cred
 2. Changing the *Client Password* or deleting the *Client ID* will not impact HPE GreenLake user credentials.
 3. According to OAuth 2.0 [tools.ietf.org/html/rfc6749#section-4.4](tools.ietf.org/html/rfc6749#section-4.4) Client Credential grant type allows the client Application to authenticate by itself independent of user (no user intervention) which makes this grant type appropriate for machine-to-machine (M2M) application that can safely protect the registered client credentials (Confidential Clients) such as scripts, daemon, or services contained in a host. Please refer to this [](https://tools.ietf.org/html/rfc6749#section-2.1)<https://tools.ietf.org/html/rfc6749#section-2.1> for more information.
 
-### Hmmm, how do I implement the above information in client application?
+### Hmmm, how do I implement the API in client application?
 
 After user obtains the Client ID and Client Password which is detailed in my article titled **Using API Gateway to Data Services Cloud Console** as shown in this picture:
 
-![image of the client id and client secret](/img/api-client-credential-created.png "Client Credentials")
+![image of the client id and client secret](/img/credentials-created-client.png "Client Credentials")
 
-The User Owner who generate this Client-ID and Client-Secret Pair must store them and transfer them securely to the Client of an application that consume the resources in the GreenLake Cloud Console.
+The User Owner who generate this Client-ID and Client-Secret Pair must store them and transfer them securely to the designated client (application or scripts) to consume the resources in the GreenLake Cloud Console in order to achieve the customer's outcome.
