@@ -27,4 +27,6 @@ After user obtains the Client ID and Client Password which is detailed in my art
 
 The User Owner who generate this Client-ID and Client-Secret Pair must store them and transfer them securely to the designated client (application or scripts) to consume the resources in the GreenLake Cloud Console in order to achieve the customer's outcome. 
 
-For the client to perform the API to the HPE DSCC, the application must obtain the access token from HPE GreenLake Console as described in below diagram:
+For the client to perform the API to the HPE DSCC, the application must obtain the access token from HPE GreenLake Console as described in below diagram. 
+
+![Diagram for client credential ](/img/client-credential-access-token.png "Client Credential")
