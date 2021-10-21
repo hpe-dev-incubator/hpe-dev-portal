@@ -9,27 +9,6 @@ frontpage: true
 tags:
   - Grommet
 ---
-<style>
-  .button {
-    background-color: rgba(23,235,160,1);
-    box-sizing: border-box;
-    color: #000000; 
-    font-size: 18px; 
-    display: inline-block;
-    padding: 6px 12px;
-    vertical-align: middle;
-    overflow: hidden;
-    text-decoration: none;
-    text-align: center;
-    cursor: pointer;
-    white-space: nowrap;
-    border-radius: 4px;
-    border: none;
-    margin: 0;
-    line-height: 24px;
-    font-weight: 700;
-  } 
-</style>
 ## Build awesome apps with Grommet
 
 [Grommet](https://v2.grommet.io/) helps you create responsive and accessible mobile-first projects for the web with an [easy-to-use](https://v2.grommet.io/components), [react](https://reactjs.org/)-based component library that is part design system and part development framework.

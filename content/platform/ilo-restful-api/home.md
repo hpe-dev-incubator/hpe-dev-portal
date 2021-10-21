@@ -9,27 +9,6 @@ frontpage: true
 tags:
   - ilo-restful-api
 ---
-<style>
-  .button {
-    background-color: rgba(23,235,160,1);
-    box-sizing: border-box;
-    color: #000000; 
-    font-size: 18px; 
-    display: inline-block;
-    padding: 6px 12px;
-    vertical-align: middle;
-    overflow: hidden;
-    text-decoration: none;
-    text-align: center;
-    cursor: pointer;
-    white-space: nowrap;
-    border-radius: 4px;
-    border: none;
-    margin: 0;
-    line-height: 24px;
-    font-weight: 700;
-  } 
-</style>
 # One Interface for Server Management Automation
 
 HPE Server management provides intelligent remote control automation through HPE iLO and the iLO RESTful API. Gain even more capabilities that go beyond scripting by leveraging one API to manage your complete lifecycle of HPE Gen9 and Gen10 servers.

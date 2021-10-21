@@ -10,27 +10,6 @@ frontpage: true
 tags:
   - hpe-ezmeral-data-fabric
 ---
-<style>
-  .button {
-    background-color: rgba(23,235,160,1);
-    box-sizing: border-box;
-    color: #000000; 
-    font-size: 18px; 
-    display: inline-block;
-    padding: 6px 12px;
-    vertical-align: middle;
-    overflow: hidden;
-    text-decoration: none;
-    text-align: center;
-    cursor: pointer;
-    white-space: nowrap;
-    border-radius: 4px;
-    border: none;
-    margin: 0;
-    line-height: 24px;
-    font-weight: 700;
-  } 
-</style>
 You can store, manage and access your data from edge to core to cloud at any scale or speed that you need. You can build data structures that span your enterprise using the data fabric to handle data storage and motion. Your current systems can access data in the fabric, and the same bits can be processed by cloud native applications.
 
 * [HPE Ezmeral Data Fabric Documentation](https://docs.datafabric.hpe.com/)
