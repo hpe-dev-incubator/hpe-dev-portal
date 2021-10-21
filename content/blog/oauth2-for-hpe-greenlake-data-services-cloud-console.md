@@ -24,3 +24,5 @@ At the introduction of this public API, HPE GreenLake supports the **Client Cred
 After user obtains the Client ID and Client Password which is detailed in my article titled **Using API Gateway to Data Services Cloud Console** as shown in this picture:
 
 ![image of the client id and client secret](/img/api-client-credential-created.png "Client Credentials")
+
+The User Owner who generate this Client-ID and Client-Secret Pair must store them and transfer them securely to the Client of an application that consume the resources in the GreenLake Cloud Console.
