@@ -24,6 +24,26 @@ const MarkdownLayout = styled(Markdown)`
     margin-top: 0;
     padding-top: 0;
   }
+
+  .button {
+    background-color: rgba(23, 235, 160, 1);
+    box-sizing: border-box;
+    color: #000000;
+    font-size: 18px;
+    display: inline-block;
+    padding: 6px 12px;
+    vertical-align: middle;
+    overflow: hidden;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    white-space: nowrap;
+    border-radius: 4px;
+    border: none;
+    margin: 0;
+    line-height: 24px;
+    font-weight: 700;
+  }
 `;
 
 const columns = {

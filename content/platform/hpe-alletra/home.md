@@ -10,27 +10,6 @@ tags:
   - hpe-alletra-6000
   - hpe-alletra-9000
 ---
-<style>
-  .button {
-    background-color: rgba(23,235,160,1);
-    box-sizing: border-box;
-    color: #000000; 
-    font-size: 18px; 
-    display: inline-block;
-    padding: 6px 12px;
-    vertical-align: middle;
-    overflow: hidden;
-    text-decoration: none;
-    text-align: center;
-    cursor: pointer;
-    white-space: nowrap;
-    border-radius: 4px;
-    border: none;
-    margin: 0;
-    line-height: 24px;
-    font-weight: 700;
-  } 
-</style>
 Shed the complexity and silos inherent in conventional hybrid cloud environments with category-defining cloud-native data infrastructure that delivers a cloud operating and consumption experience wherever data lives. Stop managing infrastructure — and start simply accessing and utilizing it, as a service and on demand.
 
 - Get the agility of cloud — everywhere
