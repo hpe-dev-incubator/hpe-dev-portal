@@ -6,6 +6,7 @@ import {
   Nav,
   ResponsiveContext,
 } from 'grommet';
+import { useStaticQuery, graphql } from 'gatsby';
 import { Menu, Search, FormDown } from 'grommet-icons';
 import styled from 'styled-components';
 import { ButtonLink } from '..';
@@ -19,6 +20,57 @@ const TextAlignLeft = styled(Box)`
 `;
 
 function Header() {
+
+  const data = useStaticQuery(graphql`
+    query NonPageQuery {
+      allMarkdownRemark(
+        filter: {
+          fields: {
+            sourceInstanceName: { eq: "platform" }
+            slug: { regex: "//home/$/" }
+          }
+        }
+        sort: { fields: [frontmatter___priority] }
+      ) {
+        edges {
+          node {
+            id
+            fields {
+              slug
+              sourceInstanceName
+            }
+            frontmatter {
+              title
+            }
+          }
+        }
+      }
+    }
+  `);
+
+  const platforms = data.allMarkdownRemark.edges;
+
+  const PlatformButtonLinks = ({ column }) => {
+    const leftColumn = platforms.filter((platform, index) => index % 2 === 0);
+    const rightColumn = platforms.filter((platform, index) => index % 2);
+    const platformsColumn = column === 'left' ? leftColumn : rightColumn;
+
+    return platformsColumn.map((platform, index) => {
+      const { slug } = platform.node.fields;
+      const { title } = platform.node.frontmatter;
+
+      return (
+        <ButtonLink
+          key={index}
+          label={title}
+          to={`/platform${slug}`}
+          alignSelf="start"
+          fill="horizontal"
+        />
+      );
+    });
+  };
+
   const size = useContext(ResponsiveContext);
   const navLinks = [
     <ButtonLink key="os" label="Open Source" to="/opensource" />,
@@ -39,127 +91,10 @@ function Header() {
           />
           <Box direction="row">
             <TextAlignLeft>
-              <ButtonLink
-                key="pl-hecp"
-                label="HPE Ezmeral Runtime"
-                to="/platform/hpe-ezmeral-runtime/home/"
-                alignSelf="start"
-                fill="horizontal"
-              />
-              <ButtonLink
-                key="pl-hedf"
-                label="HPE Ezmeral Data Fabric"
-                to="/platform/hpe-ezmeral-data-fabric/home/"
-                alignSelf="start"
-                fill="horizontal"
-              />
-              <ButtonLink
-                key="pl-hgl"
-                label="HPE GreenLake"
-                to="/platform/hpe-greenlake/home/"
-                alignSelf="start"
-                fill="horizontal"
-              />
-              <ButtonLink
-                key="pl-ssp"
-                label="SPIFFE and SPIRE Projects"
-                to="/platform/spiffe-and-spire-projects/home/"
-                alignSelf="start"
-                fill="horizontal"
-              />
-              <ButtonLink
-                key="pl-c"
-                label="Chapel"
-                to="/platform/chapel/home/"
-                alignSelf="start"
-                fill="horizontal"
-              />
-              <ButtonLink
-                key="pl-g"
-                label="Grommet"
-                to="/platform/grommet/home/"
-                alignSelf="start"
-                fill="horizontal"
-              />
-              <ButtonLink
-                key="pl-ha"
-                label="HPE Alletra"
-                to="/platform/hpe-alletra/home/"
-                alignSelf="start"
-                fill="horizontal"
-              />
-              <ButtonLink
-                key="pl-hdlc"
-                label="HPE Deep Learning Cookbook"
-                to="/platform/hpe-deep-learning-cookbook/home/"
-                alignSelf="start"
-                fill="horizontal"
-              />
-              <ButtonLink
-                key="pl-dai"
-                label="Determined AI"
-                to="/platform/determined-ai/home/"
-                alignSelf="start"
-                fill="horizontal"
-              />
+              <PlatformButtonLinks column='left' />
             </TextAlignLeft>
             <TextAlignLeft>
-              <ButtonLink
-                key="pl-ss"
-                label="SmartSim"
-                to="/platform/smartsim/home/"
-                alignSelf="start"
-                fill="horizontal"
-              />
-              <ButtonLink
-                key="pl-adh"
-                label="Aruba Developer Hub"
-                to="/platform/aruba/home/"
-                alignSelf="start"
-                fill="horizontal"
-              />
-              <ButtonLink
-                key="pl-h3p"
-                label="HPE 3PAR and Primera"
-                to="/platform/hpe-3par-and-primera/home/"
-                alignSelf="start"
-                fill="horizontal"
-              />
-              <ButtonLink
-                key="pl-hns"
-                label="HPE Nimble Storage"
-                to="/platform/hpe-nimble-storage/home/"
-                alignSelf="start"
-                fill="horizontal"
-              />
-              <ButtonLink
-                key="pl-hov"
-                label="HPE OneView"
-                to="/platform/hpe-oneview/home/"
-                alignSelf="start"
-                fill="horizontal"
-              />
-              <ButtonLink
-                key="pl-hogd"
-                label="HPE OneView Global Dashboard"
-                to="/platform/hpe-oneview-global-dashboard/home/"
-                alignSelf="start"
-                fill="horizontal"
-              />
-              <ButtonLink
-                key="pl-hs"
-                label="HPE SimpliVity"
-                to="/platform/hpe-simplivity/home/"
-                alignSelf="start"
-                fill="horizontal"
-              />
-              <ButtonLink
-                key="pl-ira"
-                label="iLO RESTful API"
-                to="/platform/ilo-restful-api/home/"
-                alignSelf="start"
-                fill="horizontal"
-              />
+              <PlatformButtonLinks column='right'/>
             </TextAlignLeft>
           </Box>
         </TextAlignLeft>
