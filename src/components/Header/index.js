@@ -20,7 +20,6 @@ const TextAlignLeft = styled(Box)`
 `;
 
 function Header() {
-
   const data = useStaticQuery(graphql`
     query NonPageQuery {
       allMarkdownRemark(
@@ -91,10 +90,10 @@ function Header() {
           />
           <Box direction="row">
             <TextAlignLeft>
-              <PlatformButtonLinks column='left' />
+              <PlatformButtonLinks column="left" />
             </TextAlignLeft>
             <TextAlignLeft>
-              <PlatformButtonLinks column='right'/>
+              <PlatformButtonLinks column="right" />
             </TextAlignLeft>
           </Box>
         </TextAlignLeft>
