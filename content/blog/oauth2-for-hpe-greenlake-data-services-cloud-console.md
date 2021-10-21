@@ -21,4 +21,6 @@ At the introduction of this public API, HPE GreenLake supports the **Client Cred
 
 ### Hmmm, how do I implement the above information in client application?
 
-After user obtains the Client ID and Client Password which is detailed in my article titled **Using API Gateway to Data Services Cloud Console**
+After user obtains the Client ID and Client Password which is detailed in my article titled **Using API Gateway to Data Services Cloud Console** as shown in this picture:
+
+![image of the client id and client secret](/img/api-client-credential-created.png "Client Credentials")
