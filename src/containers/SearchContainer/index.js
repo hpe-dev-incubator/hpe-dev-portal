@@ -1,5 +1,5 @@
 /* eslint-disable no-underscore-dangle */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { navigate } from '@reach/router';
 import { Box, Heading, Tabs, Tab, Text, TextInput } from 'grommet';
@@ -109,13 +109,15 @@ const getPositions = (searchResult, field) => {
   return positions;
 };
 
-const getSearchResults = (query) => {
+const getSearchResults = async (query) => {
   let searchResults = [];
   const categoryMap = { 'All Results': true };
 
-  if (query && window.__LUNR__ && window.__LUNR__.en) {
+  if (query && window.__LUNR__) {
     try {
-      const queryResults = window.__LUNR__.en.index.search(query);
+      const queryResults =
+        (await window.__LUNR__.__loaded) &&
+        window.__LUNR__.en.index.search(query);
 
       searchResults = queryResults.map((searchResult) => {
         const doc = window.__LUNR__.en.store[searchResult.ref];
@@ -141,7 +143,20 @@ const SearchContainer = ({ location }) => {
   const [value, setValue] = useState(term);
   const [results, setResults] = useState(initialSearch.searchResults);
   const [categories, setCategories] = useState(initialSearch.searchCategories);
-  const [activeCategoryIndex, setActiveCategoryIndex] = React.useState(0);
+  const [activeCategoryIndex, setActiveCategoryIndex] = useState(0);
+
+  useEffect(() => {
+    if (value) {
+      const getResults = async () => {
+        const { searchResults, searchCategories } = await getSearchResults(
+          value,
+        );
+        setResults(searchResults);
+        setCategories(searchCategories);
+      };
+      getResults();
+    }
+  }, [value]);
 
   const onChange = (event) => {
     const { value: newValue } = event.target;
@@ -149,7 +164,7 @@ const SearchContainer = ({ location }) => {
 
     // update the URL
     const query = newValue ? `?term=${encodeURIComponent(newValue)}` : '';
-    navigate(`/search${query}`, { replace: true });
+    navigate(`/search/${query}`, { replace: true });
 
     const { searchResults, searchCategories } = getSearchResults(newValue);
     setResults(searchResults);
@@ -191,14 +206,14 @@ const SearchContainer = ({ location }) => {
               value={value}
             />
           </Box>
-          {value && (
+          {results && categories && (
             <Box>
               <Tabs
                 activeIndex={activeCategoryIndex}
                 onActive={onCategoryChange}
               >
-                {categories.map((category) => (
-                  <Tab title={categoryLabel(category)} />
+                {categories.map((category, index) => (
+                  <Tab key={index} title={categoryLabel(category)} />
                 ))}
               </Tabs>
               <Results
