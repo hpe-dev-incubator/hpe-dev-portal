@@ -30,3 +30,5 @@ The User Owner who generate this Client-ID and Client-Secret Pair must store the
 For the client to perform the API to the HPE DSCC, the application must obtain the access token from HPE GreenLake Console as described in below diagram. 
 
 ![Diagram for client credential ](/img/client-credential-access-token.png "Client Credential")
+
+The method required to obtain the access token is described in the following HTTPs request.
