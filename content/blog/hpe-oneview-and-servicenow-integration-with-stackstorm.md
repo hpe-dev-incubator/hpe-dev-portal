@@ -18,7 +18,7 @@ HPE OneView has a powerful RESTful API that can be used to get information in an
 
 I quickly realized that, in order to do what I wanted to do, it would involve writing the code for both systems. But what if I were to leverage [StackStorm](https://stackstorm.com/)? StackStorm is an event based automation platform with over one hundred and seventy 3rd party integrations just waiting to be consumed! A quick check of the [StackStorm Exchange](https://exchange.stackstorm.org/) indicates that there's a StackStorm integration pack available for ServiceNow. Using StackStorm, I'd only have to write half the code, as I would only have to write the code for an HPE OneView StackStorm integration pack. The other benefit of using StackStorm is I can take advantage of the programmable rules and triggers. Something I like to call 'Real automation'.
 
-Note: I have written a couple of other blog posts on StackStorm. If you are interested in trying this approach, I suggest you go to the HPE DEV blog and [read my other posts](https://developer.hpe.com/search?term=stackstorm).
+Note: I have written a couple of other blog posts on StackStorm. If you are interested in trying this approach, I suggest you go to the HPE DEV blog and [read my other posts](https://developer.hpe.com/search/?term=stackstorm).
 
 ![](https://techworldwookie.com/blogpost/flowchart.png)
 
