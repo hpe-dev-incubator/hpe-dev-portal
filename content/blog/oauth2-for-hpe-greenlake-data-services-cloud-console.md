@@ -50,8 +50,6 @@ grant_type=client_credentials
 &client_secret=xxxxxxxxxx
 ```
 
-![](/img/https-url-client-credential.png "Obtaining access token using the client id and client secret")
-
 The following show the example of code snippet using curl to obtain the access token. The variables of the $YOUR_CLIENT_ID and $YOUR_CLIENT_SECRET will be substituted with the client id and client secret from the above menu.
 
 ```bash
