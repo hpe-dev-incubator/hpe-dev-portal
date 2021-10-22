@@ -32,7 +32,7 @@ For the client application to perform the API to the HPE DSCC, the application m
 
 ![Diagram for client credential ](/img/client-credential-access-token.png "Client Credential")
 
-The method required to obtain the access token is described in the following HTTPs request as shown in this snippet of code. 
+The method required to obtain the access token is described in the following HTTPs request as shown in this snippet of HTTP strings. 
 
 ```md
 HTTP method: 
