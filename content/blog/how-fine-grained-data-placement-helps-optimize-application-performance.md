@@ -6,6 +6,8 @@ authorimage: /img/Avatar3.svg
 tags:
   - hpe-ezmeral-data-fabric
 ---
+![]()
+
 Does data locality matter? In an ideal world, after all the work you put into developing an analytics or AI application, you would have unlimited access to resources to run the application to get top performance when it’s deployed in production. But the world is not perfect.
 
 Access may be hampered through latency caused by distance, limitations on compute power, transmission mediums, or poorly optimized databases. What can you do about these issues and how does fine-grained control of data locality help?
@@ -28,7 +30,8 @@ The key to optimizing application performance and resource usage is to be able t
 
 In large systems, this optimization is accomplished by giving dedicated HPC machines high performance storage, such as solid-state disks (SSDs) or nVME drives and provisioning regular machines with slower, spinning media (HDDs), capable of handling large amounts of data storage at lower cost. This type of large-scale cluster is depicted in Figure 1. 
 
-![Figure 1. Large cluster containing a combination of dedicated, fast-compute/fast storage nodes (orange) and regular nodes/slower storage devices (green)](/img/figure-1.png "Figure 1. Large cluster containing a combination of dedicated, fast-compute/fast storage nodes (orange) and regular nodes/slower storage devices (green)")
+<center><img src="/img/datastorage-fig1.png" width="1200" height="459"></center>
+\\*Figure 1. Large cluster containing a combination of dedicated, fast-compute/fast storage nodes (orange) and regular nodes/slower storage devices (green)\\*
 
 In the figure above, the orange squares represent SSDs and orange lines represent machines with computational accelerators (such as GPUs). Green cylinders stand for slower spinning storage media (HDDs) and servers with green lines indicate traditional CPUs. In a typical machine learning/AI scenario, raw data is ingested on the non-HPC machines, where data exploration and feature extraction would take place on very large amounts of raw data. In a scale-efficient system, bulk analytic workloads, such as monthly billing, would also take place on the non-HPC (green) machines. 
 
@@ -36,7 +39,8 @@ Once feature extraction is complete, training data is written to fast storage ma
 
 Smaller systems (clusters with less than 20 machines) often cannot afford dedicated HPC machines with high performance storage. Instead, the need for high performance computing is met by employing some heterogeneous mix -- nodes with fast-compute capabilities but with a mix of different kinds of data storage devices rather than just SSDs. This arrangement is shown in Figure 2.
 
-Figure-2
+<center><img src="/img/datstorage-fig2.png" width="883" height="331"></center>
+\_Figure 2. Small cluster containing fast-compute nodes (orange) having a mixture of SSDs (orange squares) plus slower HDDs (green cylinders) and regular nodes with HDDs only.\_
 
 Similar to the earlier example, you need a way to assign what data will be placed on which machines. Fortunately, [HPE Ezmeral Data Fabric](https://www.hpe.com/us/en/software/ezmeral-data-fabric.html) lets you use [storage labels](https://docs.datafabric.hpe.com/62/AdministratorGuide/LBS.html) to do just that.
 
@@ -46,13 +50,15 @@ Similar to the earlier example, you need a way to assign what data will be place
 
 Figure 3 below shows how easy it is to create a data fabric volume, assign topology and apply data placement policies via storage labels. (A data fabric volume is a data management unit holding files, directories, NoSQL tables, and event streams all together that act like directories with [superpowers for data management](https://community.hpe.com/t5/HPE-Ezmeral-Uncut/What-s-your-superpower-for-data-management/ba-p/7100920#.YThGGOlKhE4). Many policies, including data placement, are assigned to volumes.)
 
-Figure-3
+<center><img src="/img/datafabric-volume-fig3.png" width="1382" height="749"></center>
+_Figure 3. Screenshot of the control plane for HPE Ezmeral Data Fabric._
 
 What happens if you need cross-cutting requirements for data placement? Data fabric lets you define data locality to address multiple goals, such as placement across multiple racks within topologies designated for different failure domains plus additional requirements for particular storage media imposed by assigning storage labels. Locality of the data fabric volume would have to meet both requirements.
 
 Figure 4 illustrates an example of fine-grained data placement accomplished using storage labels in a cluster with heterogeneous machines.
 
-Figure-4
+<center><img src="/img/storagelabels-fig4.jpg" width="800" height="577"></center>
+_Figure 4. Using the storage labels feature of HPE Ezmeral Data Fabric for differential data placement on particular types of storage devices at the sub-machine level._
 
 ## Benefits of high performance metadata with HPE Ezmeral Data Fabric
 
