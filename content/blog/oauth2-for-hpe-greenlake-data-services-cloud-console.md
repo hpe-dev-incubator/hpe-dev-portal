@@ -42,7 +42,7 @@ The following show the example of code snippet using curl to obtain the access t
 curl -X POST https://sso.common.cloud.hpe.com/as/token.oauth2 -H         
 "Content-Type: application/x-www-form-urlencoded"         
 -d "grant_type=client_credentials&client_id=$YOUR_CLIENT_ID&client_secret=$YOUR_CLIENT_SECRET"
-```
+```Bash
 
 The following show the example of code snipped using python to obtain the access token. The same as previous code snippet, the variables must be substituted accordingly.
 
@@ -52,12 +52,10 @@ from requests.auth import HTTPBasicAuth
 from requests_oauthlib import OAuth2Session       
 
 client = BackendApplicationClient(YOUR_CLIENT_ID)       
-
-      
+     
 oauth = OAuth2Session(client=client)       
 auth = HTTPBasicAuth(YOUR_CLIENT_ID, YOUR_CLIENT_SECRET)       
-
       
 token = oauth.fetch_token(token_url='https://sso.common.cloud.hpe.com/as/token.oauth2', auth=auth)       
 print(token["access_token"])
-```
+```Python
