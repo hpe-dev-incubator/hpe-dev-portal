@@ -1,8 +1,8 @@
-Platform name change has come implications on the HPE DEV tools and assets (HPE DEV portal, Blog post, Slack channel, Hack Shack WOD, videos).
+Platform name change has some implications on the HPE DEV tools and assets such as the HPE DEV portal, Blog posts, Slack channel, Hack Shack WODs, videos.
 
 1.	HPE DEV portal (create a new platform page with new product name, phase out of old Platform page)
 2.	HPE DEV home page (Featured platform)
-3.	Hack Shack (product tile(s), WOD) 
+3.	Hack Shack (product tile(s), WODs) 
 4.	Slack channel on HPE DEV Workspace
 5.	HPE DEV Blog posts (tag, editor's note)
 6.	YT videos (Devtalk, M&L, WOD)
