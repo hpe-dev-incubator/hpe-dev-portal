@@ -90,3 +90,4 @@ The access token contains the information in JWT form that is self-contained and
   "exp": 1634786406
 }
 ```
+In the next blog, we will use this access token to perform the API request from the client application to the HPE GreenLake Cloud Console
