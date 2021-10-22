@@ -76,7 +76,7 @@ print(token["access_token"])
 
 The access token contains the information in JWT form that is self-contained and securely signed using RSA256. Some of the information inside the JWT details the client, time of expiration.
 
-```jwt
+```java
 {
   "client_id": "00cfff70-86ab-4f66-8245-1eb054639c38",
   "iss": "https://sso.common.cloud.hpe.com",
