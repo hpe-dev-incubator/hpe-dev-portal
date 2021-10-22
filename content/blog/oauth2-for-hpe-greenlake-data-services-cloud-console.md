@@ -74,4 +74,19 @@ token = oauth.fetch_token(token_url='https://sso.common.cloud.hpe.com/as/token.o
 print(token["access_token"])
 ```
 
-The access token contains the information in JWT form; however it's already encrypted using the SSL certificate from well-known certificate.
+The access token contains the information in JWT form that is self-contained and securely signed using RSA256. Some of the information inside the JWT details the client, time of expiration.
+
+```jwt
+{
+  "client_id": "00cfff70-86ab-4f66-8245-1eb054639c38",
+  "iss": "https://sso.common.cloud.hpe.com",
+  "aud": "external_api",
+  "sub": "ronald.dharma@hpe.com",
+  "user_ctx": "e8a4da2eefc311eba02cb603422bc0a0",
+  "auth_source": "ccs_token_management",
+  "platform_customer_id": "234d76c6e9d011ebb73082b212ad6fea",
+  "iat": 1634779206,
+  "application_instance_id": "3c18bd03-8306-4c7c-942e-c704a4b8744c",
+  "exp": 1634786406
+}
+```
