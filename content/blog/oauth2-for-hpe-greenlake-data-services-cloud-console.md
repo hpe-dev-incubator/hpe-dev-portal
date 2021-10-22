@@ -31,4 +31,32 @@ For the client to perform the API to the HPE DSCC, the application must obtain t
 
 ![Diagram for client credential ](/img/client-credential-access-token.png "Client Credential")
 
-The method required to obtain the access token is described in the following HTTPs request.
+The method required to obtain the access token is described in the following HTTPs request as shown in this snippet of code. 
+
+![](/img/https-url-client-credential.png "Obtaining access token using the client id and client secret")
+
+The following show the example of code snippet using curl to obtain the access token. The variables of the $YOUR_CLIENT_ID and $YOUR_CLIENT_SECRET will be substituted with the client id and client secret from the above menu.
+
+```
+curl -X POST https://sso.common.cloud.hpe.com/as/token.oauth2 -H         
+"Content-Type: application/x-www-form-urlencoded"         
+-d "grant_type=client_credentials&client_id=$YOUR_CLIENT_ID&client_secret=$YOUR_CLIENT_SECRET"
+```
+
+The following show the example of code snipped using python to obtain the access token. The same as previous code snippet, the variables must be substituted accordingly.
+
+```
+from oauthlib.oauth2 import BackendApplicationClient       
+from requests.auth import HTTPBasicAuth       
+from requests_oauthlib import OAuth2Session       
+
+client = BackendApplicationClient(YOUR_CLIENT_ID)       
+
+      
+oauth = OAuth2Session(client=client)       
+auth = HTTPBasicAuth(YOUR_CLIENT_ID, YOUR_CLIENT_SECRET)       
+
+      
+token = oauth.fetch_token(token_url='https://sso.common.cloud.hpe.com/as/token.oauth2', auth=auth)       
+print(token["access_token"])
+```
