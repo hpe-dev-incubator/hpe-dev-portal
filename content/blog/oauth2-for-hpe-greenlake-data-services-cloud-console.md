@@ -16,9 +16,9 @@ At the introduction of this public API, HPE GreenLake supports the **Client Cred
 **Some of the benefits of DSCC Client Credential OAuth authentication grant:**
 
 1. The authentication for Client does not involve the transmission of the HPE GreenLake user credentials.
-2. Changing the *Client Password* or deleting the *Client ID* will not impact HPE GreenLake user credentials.
+2. Changing the *Client Secret* or deleting the *Client ID* will not impact HPE GreenLake user credentials.
 3. According to OAuth 2.0 [https://tools.ietf.org/html/rfc6749#section-4.4](https://datatracker.ietf.org/doc/html/rfc6749#section-4.4), Client Credential grant type allows the client Application to authenticate by itself independent of user (no user intervention) which makes this grant type appropriate for machine-to-machine (M2M) application that can safely protect the registered client credentials (Confidential Clients) such as scripts, daemon, or services contained in a host. Please refer to this [](https://tools.ietf.org/html/rfc6749#section-2.1)<https://tools.ietf.org/html/rfc6749#section-2.1> for more information.
-4. Each client application uses different set of client ID and client password to ensure secrecy and independency of each applications.
+4. Each client application uses different set of client ID and client secret to ensure secrecy and independency of each applications.
 
 ### Hmmm, how do I implement the API in client application?
 
@@ -26,7 +26,7 @@ After an user obtains the Client ID and Client Password as shown in below pictur
 
 ![image of the client id and client secret](/img/credentials-created-client.png "Client Credentials")
 
-The user owner who generate this Client-ID and Client-Secret Pair must store them and transfer them securely to the designated client (application or scripts) to consume the resources in the GreenLake Cloud Console in order to achieve the customer's outcome. The client application access to the DSCC resources depends on the authorization or RBAC of the user owner.
+The user owner who generate this Client ID and Client Secret Pair must store them and transfer them securely to the designated client (application or scripts) to consume the resources in the GreenLake Cloud Console in order to achieve the customer's outcome. The client application access to the DSCC resources depends on the authorization or RBAC of the user owner.
 
 For the client application to perform the API to the HPE DSCC, the application must obtain the access token from HPE GreenLake Console as described in below diagram. The end-point https://sso.common.cloud.hpe.com/as/token.oauth2 provides access token in the response of the authentication request from any client application.
 
