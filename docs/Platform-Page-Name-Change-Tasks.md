@@ -10,6 +10,6 @@ Platform name change has some implications on the HPE DEV tools and assets such 
 
 * Use the Excel spreadsheet [here](https://hpe.sharepoint.com/:x:/t/dcic/Ebfv3xvMNAZOrE4RFmZCzZoBWOIrbvQtUwuCGufCzK0faA?e=UtzYaV) as template.
 * Copy the template into a new Excel file for your project and save it in the Sharepoint folder [here](https://hpe.sharepoint.com/:f:/t/dcic/Etx0UuvT9y9Ikz0XAFbLCb0BxtOMhJ971FWOLq_YtOEKvA?e=hysqeR)
-* Substitute "<Platform-A> and <Platform-B> as appropriate
+* Substitute "Platform-A" and "Platform-B" as appropriate
 * Use your Excel spreadsheet for tracking progress status of the platform name change project
   
