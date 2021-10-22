@@ -73,3 +73,5 @@ auth = HTTPBasicAuth(YOUR_CLIENT_ID, YOUR_CLIENT_SECRET)
 token = oauth.fetch_token(token_url='https://sso.common.cloud.hpe.com/as/token.oauth2', auth=auth)       
 print(token["access_token"])
 ```
+
+The access token contains the information in JWT form; however it's already encrypted using the SSL certificate from well-known certificate.
