@@ -58,7 +58,7 @@ curl -X POST https://sso.common.cloud.hpe.com/as/token.oauth2 -H
 -d "grant_type=client_credentials&client_id=$YOUR_CLIENT_ID&client_secret=$YOUR_CLIENT_SECRET"
 ```
 
-The following show the example of code snipped using python to obtain the access token. The same as previous code snippet, the variables must be substituted accordingly.
+The following snippet show the example of code using python to obtain the access token. The same as previous code snippet, the variables must be substituted accordingly.
 
 ```py
 from oauthlib.oauth2 import BackendApplicationClient       
