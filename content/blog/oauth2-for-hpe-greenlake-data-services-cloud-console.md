@@ -34,6 +34,18 @@ For the client application to perform the API to the HPE DSCC, the application m
 
 The method required to obtain the access token is described in the following HTTPs request as shown in this snippet of code. 
 
+```md
+URL: POST https://sso.common.cloud.hpe.com/as/token.oauth2 
+
+Headers:
+Content-Type: application/x-www-form-urlencoded
+
+Body:
+grant_type=client_credentials
+&client_id=xxxxxxxxxx
+&client_secret=xxxxxxxxxx
+```
+
 ![](/img/https-url-client-credential.png "Obtaining access token using the client id and client secret")
 
 The following show the example of code snippet using curl to obtain the access token. The variables of the $YOUR_CLIENT_ID and $YOUR_CLIENT_SECRET will be substituted with the client id and client secret from the above menu.
