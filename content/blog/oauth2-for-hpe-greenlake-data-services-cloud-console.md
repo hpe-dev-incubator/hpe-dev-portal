@@ -35,7 +35,11 @@ For the client application to perform the API to the HPE DSCC, the application m
 The method required to obtain the access token is described in the following HTTPs request as shown in this snippet of code. 
 
 ```md
-URL: POST https://sso.common.cloud.hpe.com/as/token.oauth2 
+HTTP method: 
+POST
+
+URL: 
+https://sso.common.cloud.hpe.com/as/token.oauth2 
 
 Headers:
 Content-Type: application/x-www-form-urlencoded
