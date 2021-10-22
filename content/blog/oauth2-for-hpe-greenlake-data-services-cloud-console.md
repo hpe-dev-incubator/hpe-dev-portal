@@ -81,7 +81,7 @@ The access token contains the information in JWT form that is self-contained and
   "client_id": "00cfff70-86ab-4f66-8245-1eb054639c38",
   "iss": "https://sso.common.cloud.hpe.com",
   "aud": "external_api",
-  "sub": "ronald.dharma@hpe.com",
+  "sub": "xxxxxxxxxxxxxx@hpe.com",
   "user_ctx": "e8a4da2eefc311eba02cb603422bc0a0",
   "auth_source": "ccs_token_management",
   "platform_customer_id": "234d76c6e9d011ebb73082b212ad6fea",
