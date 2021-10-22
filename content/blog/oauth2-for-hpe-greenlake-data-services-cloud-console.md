@@ -1,5 +1,5 @@
 ---
-title: Oauth2 for Client Application of HPE DSCC
+title: "Implementing Oauth2 Flow for HPE Data Services Cloud Console "
 date: 2021-10-14T12:46:19.488Z
 author: Ron Dharma
 authorimage: /img/face-portrait-small.jpg
