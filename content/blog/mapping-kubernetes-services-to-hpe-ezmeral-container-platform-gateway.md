@@ -7,11 +7,7 @@ authorimage: https://avatars.githubusercontent.com/u/44856918?s=400&u=37bb095377
 # Mapping Kubernetes Services to HPE Ezmeral Container Platform Gateway
 
 
-HPE Ezmeral Container Platform comes with Gateway hosts to do the job of Kubernetes orchestrator. The Gateway hosts map both the IP address of the Controller host and the private IP endpoints of services running on the Kubernetes node inside the Kubernetes clusters to publicly-accessible IP addresses/ports. To know more
-
-
-https://docs.containerplatform.hpe.com/53/reference/universal-concepts/Gateway_Hosts.html#v52_gateway-hosts__logical
-
+HPE Ezmeral Container Platform comes with Gateway hosts to do the job of Kubernetes orchestrator. The Gateway hosts map both the IP address of the Controller host and the private IP endpoints of services running on the Kubernetes node inside the Kubernetes clusters to publicly-accessible IP addresses/ports. To know more about the Kubernetes Host, check [this](https://docs.containerplatform.hpe.com/53/reference/universal-concepts/Gateway_Hosts.html#v52_gateway-hosts__logical).
 
 
 
