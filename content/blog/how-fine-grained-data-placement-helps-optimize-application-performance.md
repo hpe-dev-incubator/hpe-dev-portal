@@ -1,5 +1,5 @@
 ---
-title: How Fine-grained Data Placement helps optimize application performance
+title: How fine-grained data placement helps optimize application performance
 date: 2021-10-22T17:49:57.712Z
 author: Ellen Friedman
 authorimage: /img/Avatar3.svg
@@ -37,7 +37,7 @@ Once feature extraction is complete, training data is written to fast storage ma
 
 Smaller systems (clusters with less than 20 machines) often cannot afford dedicated HPC machines with high performance storage. Instead, the need for high performance computing is met by employing some heterogeneous mix -- nodes with fast-compute capabilities but with a mix of different kinds of data storage devices rather than just SSDs. This arrangement is shown in Figure 2.
 
-<center><img src="/img/datstorage-fig2.png" width="883" height="331"></center>
+<center><img src="/img/datstorage-fig2.png" width="600" height="224"></center>
 _Figure 2. Small cluster containing fast-compute nodes (orange) having a mixture of SSDs (orange squares) plus slower HDDs (green cylinders) and regular nodes with HDDs only._
 
 Similar to the earlier example, you need a way to assign what data will be placed on which machines. Fortunately, [HPE Ezmeral Data Fabric](https://www.hpe.com/us/en/software/ezmeral-data-fabric.html) lets you use [storage labels](https://docs.datafabric.hpe.com/62/AdministratorGuide/LBS.html) to do just that.
@@ -55,7 +55,7 @@ What happens if you need cross-cutting requirements for data placement? Data fab
 
 Figure 4 illustrates an example of fine-grained data placement accomplished using storage labels in a cluster with heterogeneous machines.
 
-<center><img src="/img/storagelabels-fig4.jpg" width="800" height="577"></center>
+<center><img src="/img/storagelabels-fig4.jpg" width="515" height="372"></center>
 _Figure 4. Using the storage labels feature of HPE Ezmeral Data Fabric for differential data placement on particular types of storage devices at the sub-machine level._
 
 ## Benefits of high performance metadata with HPE Ezmeral Data Fabric
