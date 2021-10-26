@@ -7,8 +7,11 @@ authorimage: https://avatars.githubusercontent.com/u/44856918?s=400&u=37bb095377
 # Mapping Kubernetes Services to HPE Ezmeral Container Platform Gateway
 
 
-(Talks more on the benefit on using the HPE Ezmeral Container Platform Gateway?)
-The Gateway hosts map both the IP address of the Controller host and the private IP endpoints of services running on the virtual nodes/containers inside the virtual clusters to publicly-accessible IP addresses/ports. 
+HPE Ezmeral Container Platform comes with Gateway hosts to do the job of Kubernetes orchestrator. The Gateway hosts map both the IP address of the Controller host and the private IP endpoints of services running on the Kubernetes node inside the Kubernetes clusters to publicly-accessible IP addresses/ports. To know more
+
+
+https://docs.containerplatform.hpe.com/53/reference/universal-concepts/Gateway_Hosts.html#v52_gateway-hosts__logical
+
 
 
 
@@ -45,8 +48,12 @@ The deployment will spin up some pods. To view which pods is running, you can ru
 
 
 ```bash
+# Get the information of pods labeled with k8s-helloworld
 kubectl get pods -l app=k8s-helloworld # copy your pod id
 kubectl describe pods k8s-helloworld-5f84bb5d68-l9vch 
+
+# exec curl command inside the pod
+
 kubectl exec k8s-helloworld-5f84bb5d68-l9vch -- curl -s http://localhost:8080
 ```
 
@@ -67,8 +74,11 @@ To expose your deployment, just run the command `expose deployment` with the nam
 
 
 ```
+# Expose the deployment with Port number 8080
 kubectl expose deployment/k8s-helloworld --type="NodePort" --port 8080
+# Get the information on Services labeled with k8s-helloworld
 kubectl get svc -l app=k8s-helloworld
+# Check if the application can be accessed from Kubernetes Cluster
 
 curl ez-vm01.hpeilab.com:31856
 ```
@@ -98,6 +108,7 @@ One more step is needed to map your application with the HPE Ezmeral Container P
 ```bash
 # Label the service named k8s-helloworld with hpecp.hpe.com/hpecp-internal-gateway=true
 kubectl label service k8s-helloworld hpecp.hpe.com/hpecp-internal-gateway=true
+
 
 # check your port number on the GUI
 curl http://ez-gateway.hpeilab.com:10022/
