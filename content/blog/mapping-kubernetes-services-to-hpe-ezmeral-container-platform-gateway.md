@@ -20,7 +20,7 @@ The Gateway hosts map both the IP address of the Controller host and the private
 
 
 
-Let's create a hello-world application for Kubernetes. This is a simple webpage showing which pod are you using. To begin with, we have to create a deployment called `k8s-helloworld` with the hello-world image. After deploying, we can run `get deployment` and `describe deployment` to view the detail of the deployment. If you see `1/1` under the `READY` column. It is good to go.
+Let's create a hello-world application for Kubernetes. This is a simple webpage showing which pod are you using. To begin with, create a deployment called `k8s-helloworld` with the hello-world image. After that, run `get deployment` and `describe deployment` to view the detail of the deployment. If you see `1/1` under the `READY` column. It is good to go.
 
 
 
