@@ -19,6 +19,8 @@ This has been on my mind a lot lately. For instance, during a code review, I oft
 
 Or perhaps I should leave it alone, thinking to myself — *Don’t be picky, it’s just their preference, it’s not a matter of right or wrong.*
 
+# Identifying a programmer's fingerprint
+
 We could say a developer has a coding identity or ‘fingerprint’, similar to what happens with regular writing. When writing, there is often a pattern with which someone writes — the terms, vocabulary, structure. A linguistic expert, for instance, can identify the author of some anonymous material simply by analyzing these patterns.
 
 Analizing these patterns can even tell things such as the age and place of birth of the author. This technique is called: *Stylometry.* It’s even used in criminal investigations. Machine learning algorithms are used for [Stylometry ](http://www.scielo.org.mx/scielo.php?script=sci_arttext&pid=S1405-55462018000100047)as well — as they can process many texts/books and identify patterns.
@@ -29,13 +31,13 @@ In this post, I’ll list a number of different ways of writing code I’ve enco
 
 I’ll also offer my perspective on whether it is just a coding preference that we shouldn’t care about, or if perhaps there is a right (and wrong) way of doing it.
 
-# Multiple or single “return”
+# Multiple or single “returns”
 
 ![](https://miro.medium.com/max/700/1*NNP98veaLxsykgqKP876Ig.png)
 
-I used to prefer a single ‘return’ at the end of the method, and I still do this sometimes.
+One coding practice that tends to reflect a developer's preference is the use of a single or multiple 'returns'. 
 
-But more recently, I prefer to return right where the condition satisfies — I think it’s easier to maintain (I find it uglier, though). You’re more sure of when the method returns a particular value, and you know any code after the return won’t be executed.
+I used to prefer a single ‘return’ at the end of the method, and I still do this sometimes. But more recently, I find that I tend to return where the condition satisfies — I think it’s easier to maintain (I find it uglier, though). You’re more sure of when the method returns a particular value, and you know any code after the return won’t be executed.
 
 Otherwise, you need to read every if-else or break inside a loop, for example. Often the logic is not as simple as the one presented above.
 
