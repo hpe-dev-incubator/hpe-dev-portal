@@ -1,5 +1,5 @@
 ---
-title: Using API Gateway for Data Services Cloud Console
+title: Using HPE GreenLake Console's API Gateway for Data Services Cloud Console
 date: 2021-07-29T14:28:17.779Z
 featuredBlog: false
 priority: 1
