@@ -146,7 +146,7 @@ I would probably try to change in a code review if one of my peers uses the seco
 
 This one is just cosmetics. It’s silly. It’s like preferring a toast cut diagonally versus horizontally or vertically (You’re probably wondering — How can someone** *not*** choose diagonally?! Anyway…).
 
-I find it funny that even at things like that, people have preferences.
+I find it funny that even in things like this, people have preferences.
 
 I prefer the first one, with curly braces in the same line as if condition or loop. I don’t see any considerable benefit of one or the other. I would not ask another programmer to change it.
 
