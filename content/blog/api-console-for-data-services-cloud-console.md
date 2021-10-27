@@ -82,3 +82,7 @@ After clicking on the Generate Access Tokens button, the menu requires user to e
 Copy the Access Token for the API usage.
 
 ![](/img/access-token-created-and-close.png "Access Token Generated and Consumed")
+
+User then can embed the access token to the REST API request in order to perform the HTTP method against the desired resource in order to obtain the response.  
+
+### Nice! Can you give me an example of using the access token?
