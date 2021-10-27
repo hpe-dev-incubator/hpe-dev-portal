@@ -41,7 +41,7 @@ I used to prefer a single ‘return’ at the end of the method, and I still do 
 
 Otherwise, you need to read every if-else or break inside a loop. Often the logic is not as simple as the one presented above.
 
-If I see some complex logic with multiple if-else conditions chained together, mixed with ‘break’ inside loops, etc., and one single return at the end, when a particular value could’ve been returned before — I’d explain my perspective and see if the person agrees with doing the change. However, I wouldn’t push it too much and be picky about it. It’s a subtle benefit that may be hard to convince.
+If I see some complex logic with multiple if-else conditions chained together, mixed with ‘break’ inside loops, etc., and one single return at the end, when a particular value could’ve been returned before — I’d explain my perspective and see if the person agrees with doing the change. However, I wouldn’t push it too much and be picky about it. It’s a subtle benefit that may be hard to convey.
 
 # Is else statement necessary?
 
