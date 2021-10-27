@@ -94,9 +94,9 @@ else
 return 3;
 ```
 
-The else is aligned with the first if condition, but it’s instead part of the if condition just before. The program returns 2 as the count is less than 20.
+The else is aligned with the first if condition, but it’s instead part of the if condition just before. The program returns two as the count is less than twenty.
 
-In a code review, I would probably ask to change it (very politely and diplomatically, of course). The other team member may prefer without curly braces and depending on my position, that’s fine — I wouldn’t push it too much. There is not much you can do if the person is not convinced. There is no reason to fight over this (hm, or is there..?)
+In a code review, I would probably ask to change it (very politely and diplomatically, of course). The other team member may prefer without curly braces and depending on my position, that’s fine — I wouldn’t push it too much.
 
 # Checked versus unchecked exception
 
