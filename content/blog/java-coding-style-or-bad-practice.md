@@ -49,11 +49,11 @@ If I see some complex logic with multiple if-else conditions chained together, m
 
 Another variation I tend to see is whether the coder uses the Else statement. Is it really necessary? I commonly do the version on the left — “Default value with no else” when it’s a simple variable assignment case. It just feels cleaner to me.
 
-A counter-argument could be that the first one uses fewer resources. Because you start with null, and only one value (A or B) is assigned at max. On the other hand, a maximum of two variable assignments could happen (if booleanFlag is true). I’d agree with that, and for sure, not for all cases. Setting a default first would be fine. It depends on what is being executed as the ‘default’.
+A counter-argument could be that the first example uses fewer resources, because you start with null, and only one value (A or B) is assigned at max. On the other hand, a maximum of two variable assignments could happen (if booleanFlag is true). I’d agree with that, but not for all cases. Setting a default first would be fine. It depends on what is being executed as the ‘default’.
 
 This example was one ‘challenge’ that my Bachelor course coordinator threw at us newbies in the first semester during a programming class — “How could you rewrite the first version in fewer lines?!”
 
-No one in the class could answer it. Everyone was still coming to terms that the course wasn’t really about learning Microsoft Office.
+No one in the class could answer it. Everyone was still coming to terms with the fact that the course wasn’t really about learning Microsoft Office.
 
 Although I prefer the second version (for a simple variable assignment), I’d probably not bring it to discuss or ask to change in a code review.
 
