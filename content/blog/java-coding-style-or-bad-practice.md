@@ -98,7 +98,7 @@ The else is aligned with the first if condition, but it’s instead part of the 
 
 In a code review, I would probably ask to change it (very politely and diplomatically, of course). The other team member may prefer without curly braces and depending on my position, that’s fine — I wouldn’t push it too much.
 
-# Checked versus unchecked exception
+# Checked or unchecked exception
 
 Exceptions are events that happen outside of the normal flow. It allows programmers to separate the code that deals with the success path from those that deal with errors.
 
