@@ -11,7 +11,7 @@ tags:
 ---
 ## Secure yet Agile
 
-One of the major principle of API for the HPE Data Services Cloud Console is secured; but flexible for consumption of multiple applications or tools that extend their function using the DSCC. One of many features for the delegated authorization below includes the ability to provide access to the API resources inside the DSCC (such as volumes, arrays, etc.) without embedding the user's credential (username, and password) in the API communication stream.
+One of the major principle of Application Programming Interface (API) for the HPE Data Services Cloud Console (DSCC) is secured; but flexible for consumption of multiple applications or tools that use this API to extend their function using the DSCC. One of many features for the delegated authorization below includes the ability to provide access to the API resources inside the DSCC (such as volumes, arrays, etc.) without embedding the user's credential (username, and password) in the API communication stream.
 
 ### Authentication Process to Obtain the Access Token
 
