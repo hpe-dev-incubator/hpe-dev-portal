@@ -61,7 +61,7 @@ Although I prefer the second version (for a simple variable assignment), I’d p
 
 ![](https://miro.medium.com/max/700/1*rHOOuQTYZtI66rephlNgZg.png)
 
-Curly braces are used to delimit the start and end of a block of code. They become ‘optional’ when only one statement is inside an IF condition, a While or For loop.
+Curly braces are used to delimit the start and end of a block of code. Curly braces become ‘optional’ when only one statement is inside an IF condition, a While or For loop.
 
 Both code snippets do the same thing; there is no difference functionality wise. Which one do you prefer?
 
