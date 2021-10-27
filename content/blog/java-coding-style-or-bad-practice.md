@@ -21,9 +21,9 @@ Or perhaps I should leave it alone, thinking to myself — *Don’t be picky, i
 
 We could say a developer has a coding identity or ‘fingerprint’, similar to what happens with regular writing. When writing, there is often a pattern with which someone writes — the terms, vocabulary, structure. A linguistic expert, for instance, can identify the author of some anonymous material simply by analyzing these patterns.
 
-It might even tell things such as the age and place of birth of the author. This technique is called: *Stylometry—* It’s used in criminal investigations, for example. Machine learning algorithms are used for [Stylometry ](http://www.scielo.org.mx/scielo.php?script=sci_arttext&pid=S1405-55462018000100047)as well — they can process many texts/books and identify patterns.
+Analizing these patterns can even tell things such as the age and place of birth of the author. This technique is called: *Stylometry.* It’s even used in criminal investigations. Machine learning algorithms are used for [Stylometry ](http://www.scielo.org.mx/scielo.php?script=sci_arttext&pid=S1405-55462018000100047)as well — as they can process many texts/books and identify patterns.
 
-We probably can’t tell who committed a crime based on the coding style (*can we?*). But let’s say in a team of ten developers, if there are no strict standards to follow, I believe it’s possible to identify who wrote a code block without looking at the author information.
+We probably can’t tell who committed a crime based on the coding style (*can we?*). But, let’s say in a team of ten developers, if there are no strict standards to follow, I believe it’s possible to identify who wrote a code block without looking at the author information.
 
 In this post, I’ll list down different ways of writing code I’ve encountered and remember throughout my career as a Software Engineer. I’ll focus on Java, but some are applicable in general.
 
