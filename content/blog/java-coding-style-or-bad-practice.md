@@ -130,7 +130,7 @@ With unchecked exceptions, only the method that generates the error and the one 
 
 If I see that one of the team members chose to create and use an Unchecked exception, I would probably want to know the thought process and make sure they know the pros and cons.
 
-# When to throw the exception
+# Using an If then versus an Else exception
 
 ![](https://miro.medium.com/max/700/1*i9wP8lt_G0auF6VFncfKYg.png)
 
