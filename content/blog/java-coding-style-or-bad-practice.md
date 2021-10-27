@@ -65,17 +65,13 @@ Precisely when there is only one statement to be executed.
 
 This one pertains more to Java or similar languages. The curly braces become ‘optional’ when only one statement is part of an if condition (also applicable to while and for loops).
 
-Both snippets do the same; there is no difference functionality wise. Which one do you prefer? :)
+Both snippets do the same thing; there is no difference functionality wise. Which one do you prefer? :)
 
-For me, I’m totally in favour of using curly braces, always. It shouldn’t be optional.
-
-I think that mainly because, in languages like Java, the indentation doesn’t drive what will be executed as part of the if condition or loop (for Python, it does, for example).
-
-Indentation only, without curly braces, cannot be relied on — it may trick you into thinking that something will be executed (or won’t be executed) when it won’t (or when it will).
+For me, I’m totally in favour of using curly braces, always. It shouldn’t be optional. I think that mainly because, in languages like Java, the indentation doesn’t drive what will be executed as part of the if condition or loop (for Python, it does, for example). Indentation only, without curly braces, cannot be relied on — it may trick you into thinking that something will be executed (or won’t be executed) when it won’t (or when it will).
 
 So NOT using curly braces may lead to hidden bugs and bad readability in general. In contrast, using it leaves no room for doubt on which line will run or not. It becomes easier to maintain, in my view.
 
-Here are some examples to explain better:
+Here are some examples to help illustrate what I mean:
 
 ```
 if (count > 10)
