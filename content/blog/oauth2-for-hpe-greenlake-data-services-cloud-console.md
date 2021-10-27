@@ -1,5 +1,6 @@
 ---
-title: "Implementing OAuth 2 Flow for HPE Data Services Cloud Console "
+title: "Implementing OAuth 2 Flow for Data Services Cloud Console's Client
+  Application "
 date: 2021-10-14T12:46:19.488Z
 author: Ron Dharma
 authorimage: /img/face-portrait-small.jpg
