@@ -150,7 +150,7 @@ I find it funny that, even in things like this, people have preferences.
 
 I prefer the first one, with curly braces in the same line as if condition or loop. I don’t see any considerable benefit of one or the other. I would not ask another programmer to change it.
 
-# Final Thoughts
+# Final thoughts
 
 Certain coding style choices are personal, with no benefit or cons over others. It’s like preferring blue to red, orange to apple.
 
