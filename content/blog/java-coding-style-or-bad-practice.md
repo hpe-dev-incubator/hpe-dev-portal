@@ -47,7 +47,7 @@ If I see some complex logic with multiple if-else conditions chained together, m
 
 ![](https://miro.medium.com/max/700/1*-_0Gs6GdptRNMA1Efh5KAg.png)
 
-Another variation I tend to see is whether the coder uses the Else statement. Is it really necessary? I commonly do the version on the left — “Default value with no else” when it’s a simple variable assignment case, like in the example. It just feels cleaner to me.
+Another variation I tend to see is whether the coder uses the Else statement. Is it really necessary? I commonly do the version on the left — “Default value with no else” when it’s a simple variable assignment case. It just feels cleaner to me.
 
 A counter-argument could be that the first one uses fewer resources. Because you start with null, and only one value (A or B) is assigned at max. On the other hand, a maximum of two variable assignments could happen (if booleanFlag is true). I’d agree with that, and for sure, not for all cases. Setting a default first would be fine. It depends on what is being executed as the ‘default’.
 
