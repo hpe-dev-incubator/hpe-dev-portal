@@ -110,7 +110,7 @@ Another characteristic of how exceptions in Java work is that there are two type
 
 Unchecked exceptions are used for unrecoverable errors. Such errors are not to be handled. Instead, programmers should tackle the root cause that triggers them. Example: [NullpointerException](https://javarevisited.blogspot.com/2012/06/common-cause-of-javalangnullpointerexce.html).
 
-These exceptions extend RuntimeException, and different from Checked ones, the caller method is not enforced to handle it by catching or throwing it.
+These exceptions extend RuntimeException, and are different from Checked ones. The caller method is not enforced to handle it by catching or throwing it.
 
 Despite being used for unrecoverable errors, one could create an Unchecked exception. It’s just a matter of extending RuntimeException.
 
