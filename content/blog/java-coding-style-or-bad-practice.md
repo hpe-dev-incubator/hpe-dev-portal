@@ -140,7 +140,7 @@ I’ve experimented with both ways throughout my career as a developer. Today I 
 
 I would probably try to change in a code review if one of my peers uses the second version. Unless the code is as simple as the example in this section — then I’d leave it (maybe).
 
-# Curly Braces Position
+# Positioning the curly braces
 
 ![](https://miro.medium.com/max/700/1*w0PHfP8XQZejoWbIJRKRuw.png)
 
