@@ -126,7 +126,7 @@ I admit that despite Oracle’s recommendation and being a good practice to use 
 
 But, no one creates a method that receives a parameter and does nothing with it. I find that throwing it, and re-throwing it upstream without doing any meaningful handling (log, return message to the user), creates a bit of clutter. It’s unnecessary.
 
-With unchecked exceptions, only the method that generates the error and the one that handles it needs to deal with it. It’s a calculated risk I choose to take sometimes. It’s a calculated risk in the sense that an error that is supposed to be handled may not be — another developer that calls your method won’t be alerted by the compiler to handle the exception that your method raises — It’s a drawback from making it Unchecked, that’s why is considered a bad practice in general.
+With unchecked exceptions, only the method that generates the error and the one that handles it needs to deal with it. It’s a calculated risk I choose to take sometimes. It’s a calculated risk in the sense that an error that is supposed to be handled may not be — another developer that calls your method won’t be alerted by the compiler to handle the exception that your method raises. It’s a drawback from making it Unchecked, that’s why is considered a bad practice in general.
 
 If I see that one of the team members chose to create and use an Unchecked exception, I would probably want to know the thought process and make sure they know the pros and cons.
 
