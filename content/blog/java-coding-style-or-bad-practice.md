@@ -156,8 +156,6 @@ Certain coding style choices are personal, with no benefit or cons over others. 
 
 However, some other preferences are more arguable — does it make the code less readable or error-prone? Out of the stylistic differences I covered, the no use of curly braces and checked versus unchecked exception examples stand out. These are the ones with the most impact.
 
-It’s common for companies/teams to have coding standards in place, which eliminates many differences between developers. I agree with defining standards and templates. It helps with readability and hence maintenance.
-
 Even if there are coding standards set in place, it's probably best if they aren't too rigid. One still needs to allow the developer a certain amount of leeway to make their own personal mark. If it were up to me, I would set a rule to always use curly braces and, possibly, to use checked exceptions (because it tends to be safer), but that's about it. In the end, it should be discussed and agreed upon as a team.
 
 <!--EndFragment-->
