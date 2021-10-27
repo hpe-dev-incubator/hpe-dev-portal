@@ -1,11 +1,11 @@
 ---
-title: Sir Hackington Rides Again!
+title: Be an HPE DEV blogger!
 category: Feature Blog
 priority: 2
 width: small
-link: /blog/sir-hackington-rides-again/
+link: /blog/be-an-hpe-dev-blogger/
 image: /img/Avatar1.svg
 ---
 HPE DEV
 
-## Sir Hackington Rides Again!
+## Be an HPE DEV blogger!
