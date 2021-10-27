@@ -43,7 +43,7 @@ Otherwise, you need to read every if-else or break inside a loop. Often the logi
 
 If I see some complex logic with multiple if-else conditions chained together, mixed with ‘break’ inside loops, etc., and one single return at the end, when a particular value could’ve been returned before — I’d explain my perspective and see if the person agrees with doing the change. However, I wouldn’t push it too much and be picky about it. It’s a subtle benefit that may be hard to convey.
 
-# Is else statement necessary?
+# To Else or not?
 
 ![](https://miro.medium.com/max/700/1*-_0Gs6GdptRNMA1Efh5KAg.png)
 
