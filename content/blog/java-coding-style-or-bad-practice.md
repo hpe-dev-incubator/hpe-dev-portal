@@ -63,7 +63,7 @@ Although I prefer the second version (for a simple variable assignment), I’d p
 
 Curly braces are used to delimit the start and end of a block of code. They become ‘optional’ when only one statement is inside an IF condition, a While or For loop.
 
-Both code snippets do the same thing; there is no difference functionality wise. Which one do you prefer? :)
+Both code snippets do the same thing; there is no difference functionality wise. Which one do you prefer?
 
 For me, I’m totally in favour of using curly braces, always. It shouldn’t be optional. I think that mainly because, in languages like Java, the indentation doesn’t drive what will be executed as part of the if condition or loop (for Python, it does, for example). Indentation only, without curly braces, cannot be relied on — it may trick you into thinking that something will be executed (or won’t be executed) when it won’t (or when it will).
 
