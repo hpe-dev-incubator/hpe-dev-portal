@@ -37,7 +37,7 @@ I’ll also offer my perspective on whether it is just a coding preference that 
 
 One coding practice that tends to reflect a developer's preference is the use of a single or multiple 'returns'. 
 
-I used to prefer a single ‘return’ at the end of the method, and I still do this sometimes. But more recently, I find that I tend to return where the condition satisfies — I think it’s easier to maintain (I find it uglier, though). You’re more sure of when the method returns a particular value, and you know any code after the return won’t be executed.
+I used to prefer a single ‘return’ at the end of the method, and I still do this sometimes. But more recently, I find that I tend to return where the condition satisfies — I think it’s easier to maintain (it looks uglier, though). You’re more sure of when the method returns a particular value, and you know any code after the return won’t be executed.
 
 Otherwise, you need to read every if-else or break inside a loop, for example. Often the logic is not as simple as the one presented above.
 
