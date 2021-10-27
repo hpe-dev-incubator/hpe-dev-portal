@@ -13,9 +13,9 @@ tags:
 
 We all have different styles and preferences in everything in life, including how we write code.
 
-Imprinting your personality in the code brings originality and a sense of [ownership and responsibility](https://books.google.co.uk/books/about/Patterns_of_Software.html?id=0-i3QgAACAAJ&redir_esc=y) for it — It’s essential to keep us motivated; it makes us feel good (at least I do). However, is the coding style always just a harmless style? Or does it impact readability and hence maintenance?
+Imprinting your personality in the code brings originality and a sense of [ownership and responsibility](https://books.google.co.uk/books/about/Patterns_of_Software.html?id=0-i3QgAACAAJ&redir_esc=y) It’s essential to keep us motivated, and it makes us feel good (at least I do). However, is one's coding style always just a harmless style? Or does it impact readability and hence maintenance?
 
-For instance, during a code review, I often question whether I should bring specific ways of [coding ](https://medium.com/javarevisited/5-coding-interview-books-to-prepare-for-programming-job-interviews-d8f63348afaf)to discussion or not — is it readable, is it easy to maintain?
+This has been on my mind a lot lately. For instance, during a code review, I often question whether I should bring specific ways of [coding ](https://medium.com/javarevisited/5-coding-interview-books-to-prepare-for-programming-job-interviews-d8f63348afaf)into the discussion or not. How does it affect the application; Is it readable, is it easy to maintain?
 
 Or perhaps I should leave it alone, thinking to myself — *Don’t be picky, it’s just their preference, it’s not a matter of right or wrong.*
 
