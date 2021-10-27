@@ -108,7 +108,7 @@ Let’s say there is some particular error validation related to your business. 
 
 Another characteristic of how exceptions in Java work is that there are two types of exceptions: Checked and Unchecked.
 
-[Checked exceptions](https://javarevisited.blogspot.com/2011/12/checked-vs-unchecked-exception-in-java.html) are exceptions that extend the Exception class. Their behaviour is: If a code inside a method A throws a checked exception, any method that calls method A must handle the checked exception by either catching or throwing (or perhaps both). The code will not compile otherwise. Extending a [Checked exception](https://docs.oracle.com/javase/tutorial/essential/exceptions/definition.html) is a way to force programmers to handle a specific error.
+[Checked exceptions](https://javarevisited.blogspot.com/2011/12/checked-vs-unchecked-exception-in-java.html) are exceptions that extend the Exception class. Their behaviour is: If a code inside method A throws a checked exception, any method that calls method A must handle the checked exception by either catching or throwing (or perhaps both). The code will not compile otherwise. Extending a [Checked exception](https://docs.oracle.com/javase/tutorial/essential/exceptions/definition.html) is a way to force programmers to handle a specific error.
 
 Unchecked exceptions are used for unrecoverable errors. Such errors are not to be handled. Instead, programmers should tackle the root cause that triggers them. Example: [NullpointerException](https://javarevisited.blogspot.com/2012/06/common-cause-of-javalangnullpointerexce.html).
 
