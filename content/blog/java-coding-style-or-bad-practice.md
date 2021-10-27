@@ -134,6 +134,8 @@ If I see that one of the team members chose to create and use an Unchecked excep
 
 ![](https://miro.medium.com/max/700/1*i9wP8lt_G0auF6VFncfKYg.png)
 
+Another thing programmers tend to differ on is the use of an If then exception when an Else exception would also work.
+
 I’ve experimented with both ways throughout my career as a developer. Today I prefer the version on the right — “If then exception”. I see it as clearer — easier to read where errors are generated. And I usually have it aside from the main logic in a private ‘validate’ method.
 
 I would probably try to change in a code review if one of my peers uses the second version. Unless the code is as simple as the example in this section — then I’d leave it (maybe).
