@@ -55,7 +55,7 @@ This example was one ‘challenge’ that my Bachelor course coordinator threw a
 
 No one in the class could answer it. Everyone was still coming to terms with the fact that the course wasn’t really about learning Microsoft Office.
 
-Although I prefer the second version (for a simple variable assignment), I’d probably not bring it to discuss or ask to change in a code review.
+Although I prefer the second version (for a simple variable assignment), I’d probably not bring it up to discuss or ask to change in a code review.
 
 # Curly braces or no curly braces
 
