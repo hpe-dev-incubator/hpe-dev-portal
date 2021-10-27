@@ -19,9 +19,7 @@ This has been on my mind a lot lately. For instance, during a code review, I oft
 
 Or perhaps I should leave it alone, thinking to myself — *Don’t be picky, it’s just their preference, it’s not a matter of right or wrong.*
 
-We could say a developer has a coding identity or ‘fingerprint’.
-
-Similar to what happens with regular writing. For traditional writing, there is often a pattern with which someone writes — the terms, vocabulary, structure — a linguistic expert, for instance, can analyse and identify the author of some anonymous material.
+We could say a developer has a coding identity or ‘fingerprint’, similar to what happens with regular writing. When writing, there is often a pattern with which someone writes — the terms, vocabulary, structure. A linguistic expert, for instance, can identify the author of some anonymous material simply by analyzing these patterns.
 
 It might even tell things such as the age and place of birth of the author. This technique is called: *Stylometry—* It’s used in criminal investigations, for example. Machine learning algorithms are used for [Stylometry ](http://www.scielo.org.mx/scielo.php?script=sci_arttext&pid=S1405-55462018000100047)as well — they can process many texts/books and identify patterns.
 
