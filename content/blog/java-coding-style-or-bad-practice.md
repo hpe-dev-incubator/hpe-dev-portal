@@ -7,6 +7,7 @@ authorimage: /img/screenshot_20201002-084521_instagram.jpg
 thumbnailimage: /img/programming-g9e688906d_1920.jpg
 tags:
   - JAVA
+  - opensource
 ---
 <!--StartFragment-->
 
