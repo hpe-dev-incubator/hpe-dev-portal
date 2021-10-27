@@ -80,7 +80,7 @@ if (count > 10)
     System.out.println(3);
 ```
 
-When you read the code above, you think all three lines will be executed if the condition satisfies. But it’s not true. There are no curly braces; hence only 1 will be printed if, let’s say, the count is equal to 11. 2 and 3 will be printed in any case, even if, for example, the count is 5.
+When you read the code above, you think all three lines will be executed if the condition satisfies. But it’s not true. There are no curly braces; hence only one will be printed if, let’s say, the count is equal to eleven. Two and three will be printed in any case, even if, for example, the count is five.
 
 Another example:
 
