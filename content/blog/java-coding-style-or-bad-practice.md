@@ -1,5 +1,5 @@
 ---
-title: "Java: Coding Style or Bad Practice?"
+title: "Coding styles: A personal preference or bad practice?"
 date: 2021-10-22T11:32:06.448Z
 featuredBlog: false
 author: Vinicius Monteiro
@@ -25,11 +25,11 @@ Analizing these patterns can even tell things such as the age and place of birth
 
 We probably can’t tell who committed a crime based on the coding style (*can we?*). But, let’s say in a team of ten developers, if there are no strict standards to follow, I believe it’s possible to identify who wrote a code block without looking at the author information.
 
-In this post, I’ll list down different ways of writing code I’ve encountered and remember throughout my career as a Software Engineer. I’ll focus on Java, but some are applicable in general.
+In this post, I’ll list a number of different ways of writing code I’ve encountered throughout my career as a Software Engineer. I’ll focus mostly on Java, but some things are applicable in general.
 
-I’ll also take a stab and give my perspective on whether it is just a coding preference that we shouldn’t care about, or perhaps there is a right (and wrong) way of doing it.
+I’ll also offer my perspective on whether it is just a coding preference that we shouldn’t care about, or if perhaps there is a right (and wrong) way of doing it.
 
-# Multiple “return” Or Single “return”
+# Multiple or single “return”
 
 ![](https://miro.medium.com/max/700/1*NNP98veaLxsykgqKP876Ig.png)
 
@@ -41,7 +41,7 @@ Otherwise, you need to read every if-else or break inside a loop, for example. O
 
 If I see some complex logic with multiple if-else conditions chained together, mixed with ‘break’ inside loops, etc., and one single return at the end, when a particular value could’ve been returned before — I’d explain my perspective and see if the person agrees with doing the change. However, I wouldn’t push it too much and be picky about it. It’s a subtle benefit that may be hard to convince.
 
-# Is Else Statement Necessary?
+# Is else statement necessary?
 
 ![](https://miro.medium.com/max/700/1*-_0Gs6GdptRNMA1Efh5KAg.png)
 
@@ -55,7 +55,7 @@ No one in the class could answer it. Everyone was still coming to terms that the
 
 Although I prefer the second version (for a simple variable assignment), I’d probably not bring it to discuss or ask to change in a code review.
 
-# Curly Braces or No Curly Braces
+# Curly braces or no curly braces
 
 ![](https://miro.medium.com/max/700/1*rHOOuQTYZtI66rephlNgZg.png)
 
@@ -100,7 +100,7 @@ The else is aligned with the first if condition, but it’s instead part of the 
 
 In a code review, I would probably ask to change it (very politely and diplomatically, of course). The other team member may prefer without curly braces and depending on my position, that’s fine — I wouldn’t push it too much. There is not much you can do if the person is not convinced. There is no reason to fight over this (hm, or is there..?)
 
-# Checked versus Unchecked Exception
+# Checked versus unchecked exception
 
 Exceptions are events that happen outside of the normal flow. It allows programmers to separate the code that deals with the success path from those that deal with errors.
 
@@ -134,7 +134,7 @@ With unchecked exceptions, only the method that generates the error and the one 
 
 If I see that one of the team members chose to create and use an Unchecked exception, I would probably want to know the thought process and make sure they know the pros and cons.
 
-# When to Throw The Exception
+# When to throw the exception
 
 ![](https://miro.medium.com/max/700/1*i9wP8lt_G0auF6VFncfKYg.png)
 
