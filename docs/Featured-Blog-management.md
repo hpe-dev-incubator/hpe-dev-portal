@@ -24,6 +24,6 @@ Author: HPE DEV Team
  
  ## Featured blog list management
  * From the CMS v2 editor (as Administrator), go to [Blog](https://hpe-dev-portal.netlify.app/admin/#/collections/blog)
- * First, **toggle off** the FEATURED attribute of one of the Featured Blog and give the priority highe than 5. Review and merge the PR (delete the PR when prompted to do so).
+ * First, **toggle off** the FEATURED attribute of one of the Featured Blog and give the priority higher than 5. Review and merge the PR (delete the PR when prompted to do so).
  * Next, **toggle on** the FEATURED attribute for the blog you want to add to the Featured blog list, give appropriate priority (between 1 and 5), save, review and merge the PR (Delete the PR when prompted to do so)
 
