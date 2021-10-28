@@ -1,7 +1,8 @@
 ---
 title: "Coding styles: A personal preference or bad practice?"
 date: 2021-10-22T11:32:06.448Z
-featuredBlog: false
+featuredBlog: true
+priority: 4
 author: Vinicius Monteiro
 authorimage: /img/screenshot_20201002-084521_instagram.jpg
 thumbnailimage: /img/programming-g9e688906d_1920.jpg
