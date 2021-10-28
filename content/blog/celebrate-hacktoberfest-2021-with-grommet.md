@@ -3,13 +3,11 @@ title: Celebrate Hacktoberfest 2021 with Grommet
 date: 2021-10-07T18:02:43.028Z
 author: Jessica Filben
 authorimage: /img/jessica-filben.png
-thumbnailimage: /img/hacktoberfest-1-2-.jpg
+thumbnailimage: ""
 ---
 
 
 It’s that time of the year again… the leaves are falling, the pumpkins are ripe, and developers once again get to participate in Hacktoberfest – a month-long celebration run by Digital Ocean that encourages contributions to open source projects. Coders are rewarded for their participation. This year, if you make 4 contributions during the month of October to open source projects you can earn a limited edition T-shirt or opt to help save the planet by having a tree planted in your name.
-
-![](/img/hacktoberfest-1-2-.jpg)
 
 Grommet contributors have traditionally participated heavily in this event and it looks like it’s going to be another great event. In just the first week of Hacktoberfest, the Grommet team saw 22 Pull Requests come in, including a number of pull requests coming from first time contributors. Congratulations, and welcome to the Grommet community!
 
