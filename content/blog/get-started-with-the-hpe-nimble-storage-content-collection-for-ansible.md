@@ -57,13 +57,13 @@ Since the collection contains more than a whopping twenty two modules, one blog 
 
 No special privileges are needed on the Ansible host. Privileges are needed on managed hosts where we want to attach storage. Let’s begin with installing Ansible and the required HPE Nimble Storage SDK for Python using `pip`.
 
-```
+```markdown
 $ pip3 install ansible nimble-sdk --user
 ```
 
 Next, use `ansible-galaxy` to install the HPE Nimble Storage Content Collection for Ansible.
 
-```
+```markdown
 $ ansible-galaxy collection install hpe.nimble
 ```
 
@@ -115,7 +115,7 @@ inventory = inventory
 
 A pattern I usually employ before doing anything is to check if my inventory is reachable. 
 
-```
+```markdown
 $ ansible -m ping all
 nva | SUCCESS => {
     "changed": false,
@@ -167,13 +167,13 @@ Pay attention to the `collections` stanza. That allows the modules to be discove
 
 That said, the fully qualified module name is good to know about. If you need to look up any of the module options or examples, it’s available right at your fingertips. For example, to look up the documentation for the `hpe_nimble_initiator_group` module, simply use the `ansible-doc` command.
 
-```
+```markdown
 $ ansible-doc hpe.nimble.hpe_nimble_initiator_group
 ```
 
 Next, run the playbook.
 
-```
+```markdown
 $ ansible-playbook connect.yaml
 
 PLAY [Retrieve node facts] *****************************************************
@@ -315,7 +315,7 @@ By parameterizing the playbook, it becomes very flexible to reuse. It could also
 
 There are a few opinionated decisions made here, like mounting the filesystem under `/mnt/volume_name`, but other than that, the example is quite comprehensive. Let’s run it!
 
-```
+```markdown
 $ ansible-playbook provision.yaml -e nimble_array=nva \
     -e volume_name=myvol1 -e volume_igroup=node22
     
@@ -366,7 +366,7 @@ nva                        : ok=3    changed=2    unreachable=0    failed=0    s
 
 Bliss! A new volume was created and correctly mapped to the node. On the node, the LUN was discovered, attached, formatted and mounted (including adding an entry to `/etc/fstab`) and is ready for use. This can be inspected by calling the `command` or `shell` module ad hoc.
 
-```
+```markdown
 $ ansible -m command node22 -a 'df -h /mnt/myvol1'
 node22 | CHANGED | rc=0 >>
 Filesystem                                     Size  Used Avail Use% Mounted on
@@ -411,7 +411,7 @@ Let’s grab some attributes from the volume we just created.
 
 Here we’re gathering the IOPS limit of the volume along with the iSCSI sessions and description. Let’s see what we get.
 
-```
+```markdown
 $ ansible-playbook query.yaml -e nimble_array=nva -e volume_name=myvol1
 
 PLAY [Query a Nimble array volume] *********************************************************************************************
@@ -483,7 +483,7 @@ Let’s create a playbook to mutate these fields.
 
 Run the playbook with a few extra variables.
 
-```
+```markdown
 $ ansible-playbook tune.yaml -e nimble_array=nva \
     -e volume_name=myvol1 -e volume_iops=1000 \
     -e "volume_description='Mutated by Ansible'"
@@ -550,7 +550,7 @@ Very advanced workflows can be put together using the snapshot capabilities of t
 
 First, create some content and flush the buffers. This way we’ll have something to look at once our clone comes up on the target host.
 
-```
+```markdown
 $ ansible -m shell node22 -a 'date > /mnt/myvol1/date.txt && sync'
 node22 | CHANGED | rc=0 >>
 ```
@@ -580,7 +580,7 @@ Next, create a snapshot with the `snapshot.yaml` playbook.
 
 Snapshot!
 
-```
+```markdown
 $ ansible-playbook snapshot.yaml -e nimble_array=nva \
     -e volume_name=myvol1 -e snapshot_name=mysnap1
 
@@ -595,7 +595,7 @@ nva                        : ok=1    changed=1    unreachable=0    failed=0    s
 
 There’s now a snapshot named “mysnap1” on “myvol1”. We want to create a clone from that snapshot for our new volume that we’re attaching to the second host in the inventory. We’ll reuse the `provision.yaml` playbook by simply adding a few more variables: `snapshot_name`, `volume_clone` and `clone_from`.
 
-```
+```markdown
 $ ansible-playbook provision.yaml -e nimble_array=nva \
     -e volume_name=myvol1-clone -e snapshot_name=mysnap1 \
     -e volume_clone=yes -e clone_from=myvol1 \
@@ -648,7 +648,7 @@ nva                        : ok=3    changed=2    unreachable=0    failed=0    s
 
 We should now be able to do a visual inspect of the content from our two nodes. Let’s check the file we just created before the snapshot got created.
 
-```
+```markdown
 $ ansible -m command node22 -a 'cat /mnt/myvol1/date.txt'
 node22 | CHANGED | rc=0 >>
 Tue Sep 29 02:17:11 UTC 2020
@@ -748,7 +748,7 @@ For completeness, here’s how to unmount and detach a volume from a host and su
 
 Let’s run it! Beware — this operation is irreversible. Make sure volume names and nodes are correct. We'll start with the clone, as the parent can't be removed unless all dependent volumes have been destroyed.
 
-```
+```markdown
 $ ansible-playbook decommission.yaml -e nimble_array=nva \
     -e volume_name=myvol1-clone -e volume_igroup=node23
 
@@ -789,7 +789,7 @@ nva                        : ok=4    changed=2    unreachable=0    failed=0    s
 
 Go ahead and destroy the parent volume.
 
-```
+```markdown
 $ ansible-playbook decommission.yaml -e nimble_array=nva \
     -e volume_name=myvol1 -e volume_igroup=node22
 
