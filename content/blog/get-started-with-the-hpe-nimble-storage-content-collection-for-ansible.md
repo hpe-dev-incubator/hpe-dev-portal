@@ -4,7 +4,7 @@ date: 2020-09-29T18:33:30.419Z
 featuredBlog: false
 priority: null
 author: Michael Mattsson
-authorimage: /img/blogs/Avatar3.svg
+authorimage: /img/portrait-192.jpg
 thumbnailimage: null
 tags:
   - hpe-nimble-storage
