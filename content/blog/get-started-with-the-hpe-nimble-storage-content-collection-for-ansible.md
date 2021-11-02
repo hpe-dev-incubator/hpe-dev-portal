@@ -4,7 +4,7 @@ date: 2020-09-29T18:33:30.419Z
 featuredBlog: false
 priority: null
 author: Michael Mattsson
-authorimage: /img/portrait-192.jpg
+authorimage: /img/Avatar2.svg
 thumbnailimage: null
 tags:
   - hpe-nimble-storage
@@ -499,7 +499,7 @@ nva                        : ok=1    changed=1    unreachable=0    failed=0    s
 
 If we re-run the query, we should be able to see the IOPS has been capped and the description updated.
 
-```
+```markdown
 $ ansible-playbook query.yaml -e nimble_array=nva -e volume_name=myvol1
 
 PLAY [Query a Nimble array volume] *********************************************************************************************
