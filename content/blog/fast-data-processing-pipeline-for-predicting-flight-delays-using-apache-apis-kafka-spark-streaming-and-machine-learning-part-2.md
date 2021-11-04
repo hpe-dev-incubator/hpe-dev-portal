@@ -20,7 +20,7 @@ tags:
 
 According to Bob Renner, former CEO of Liaison Technologies, the possibility to blend machine learning with real-time transactional data flowing through a single platform is opening a world of new possibilities, such as enabling organizations to take advantage of opportunities as they arise. Leveraging these opportunities requires fast, scalable data processing pipelines that process, analyze, and store events as they arrive.
 
-This is the second in a series of blog posts that discusses the architecture of a data pipeline that combines streaming data with machine learning and fast storage. [The first post](https://www.hpe.com/us/en/software/data-fabric.html) discussed creating a machine learning model to predict flight delays. This second post will discuss using the saved model with streaming data to do a real-time analysis of flight delays. The third post will discuss fast storage with MapR Database.
+This is the second in a series of blog posts that discusses the architecture of a data pipeline that combines streaming data with machine learning and fast storage. [The first post](https://developer.hpe.com/blog/fast-data-processing-pipeline-for-predicting-flight-delays-using-apache-/) discussed creating a machine learning model to predict flight delays. This second post will discuss using the saved model with streaming data to do a real-time analysis of flight delays. The third post will discuss fast storage with MapR Database.
 
 <center><img alt="Saved model with streaming data" src="/img/saved-model-with-streaming-data.png" width="700"></center>
 
