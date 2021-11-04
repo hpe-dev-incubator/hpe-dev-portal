@@ -5,7 +5,7 @@ date: 2021-10-11T19:54:43.627Z
 author: Carol McDonald
 authorimage: /img/Avatar1.svg
 tags:
-  - HPE Ezmeral Data Fabric
+  - hpe-ezmeral-data-fabric
   - MapR
 ---
 ```
@@ -144,7 +144,7 @@ These are the basic steps for the Spark Streaming Consumer Producer code:
 
 ## **1) Configure Kafka Consumer Producer properties**
 
-The first step is to set the KafkaConsumer and KafkaProducer configuration properties, which will be used later to create a DStream for receiving/sending messages to topics. You need to set the following paramters:
+The first step is to set the KafkaConsumer and KafkaProducer configuration properties, which will be used later to create a DStream for receiving/sending messages to topics. You need to set the following parameters:
 
 * Key and value deserializers: for deserializing the message.
 * Auto offset reset: to start reading from the earliest or latest message.
