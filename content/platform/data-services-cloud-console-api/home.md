@@ -31,7 +31,7 @@ Some of the advantages of distributing in OpenAPI 3.0 format:
 
 Any customer can download this OpenAPI Specification (OAS) v3 definition of the DSCC from the following link:
 
-[Link to the API repository](https://docs.ccs.arubathena.com/)
+[Link to the API repository](https://console-us1.data.cloud.hpe.com/doc/api/v1/)
 
 ### Documentation and Tutorials
 
