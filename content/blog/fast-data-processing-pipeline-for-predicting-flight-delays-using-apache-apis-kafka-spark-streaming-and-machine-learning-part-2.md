@@ -8,7 +8,7 @@ tags:
   - hpe-ezmeral-data-fabric
   - MapR
 ---
-```
+```json
 "authorDisplayName": "Carol McDonald",
 "tags": "use-cases",
 "publish": "2018-01-10T10:00:00.000Z"
@@ -81,27 +81,11 @@ The following figure depicts the architecture for the part of the use case data 
 
 <center><img alt="architecture data pipeline" src="/img/architechture-data-pipeline.png" width="700"></center>
 
-1. ```
-      Flight data is published to a MapR Event Store topic using the Kafka API.
-   ```
-2. ```
-      A Spark streaming application, subscribed to the first topic:
-   ```
-3. ```
-      Ingests a stream of flight data
-   ```
-4. ```
-      Uses a deployed machine learning model to enrich the flight data with a delayed/not delayed prediction
-   ```
-5. ```
-      publishes the results in JSON format to another topic.
-   ```
-6. ```
-      (In the 3rd blog) A Spark streaming application subscribed to the second topic:
-   ```
-7. ```
-      Stores the input data and predictions in MapR Database
-   ```
+1. Flight data is published to a MapR Event Store topic using the Kafka API.
+2. A Spark streaming application, subscribed to the first topic: Ingests a stream of flight data
+3. Uses a deployed machine learning model to enrich the flight data with a delayed/not delayed prediction
+4. publishes the results in JSON format to another topic.
+5. (In the 3rd blog) A Spark streaming application subscribed to the second topic: Stores the input data and predictions in MapR Database
 
 ## Example Use Case Data
 
