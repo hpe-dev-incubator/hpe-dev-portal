@@ -9,7 +9,7 @@ tags:
   - HPC
   - hpe-cray-ai-development-environment
 ---
-Building and training machine learning (ML) models at scale is considered the most critical and demanding stage of model development. Doing it well requires researchers and data scientists to overcome many challenges typically encountered in High Performance Computing (HPC) environments.
+Building and training optimized machine learning (ML) models at scale is considered the most demanding and critical stage of ML development. Doing it well requires researchers and data scientists to overcome many challenges typically encountered in High Performance Computing (HPC) environments.
 
 
 These challenges often include properly setting up and managing a fast-moving ML software ecosystem and infrastructure spanning specialized compute, storage, network fabric, and tensor processors (e.g., GPUs). Additionally, users need to program, schedule, and train their models to maximize the use of the highly specialized infrastructure they have set up, which can create complexity and impede productivity.
