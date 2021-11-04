@@ -23,16 +23,21 @@ Built upon the widely popular open-source [Determined Training Platform](https:/
 By adopting HPE Cray AI Development Environment, model developers can: 
 
 
+
 * Train models faster using state-of-the-art distributed training without changing the model code.
+
 
 
 * Automatically find high-quality models with advanced hyperparameter tuning from the creators of Hyperband.
 
 
+
 * Maximize GPU performance with smart scheduling and cut cloud GPU costs by seamlessly using spot/preemptible instances.
 
 
+
 * Track and reproduce work with experiment tracking that runs out-of-the-box, covering code versions, metrics, checkpoints, and hyperparameters.
+
 
 
 HPE Cray AI Development Environment integrates these features into an easy-to-use, high-performance machine learning environment — which means you can spend your time building models instead of managing infrastructure. 
