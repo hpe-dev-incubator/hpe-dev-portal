@@ -69,7 +69,7 @@ Combining data pipelines with machine learning can handle the logistics of machi
 
 <center><img alt="Machine Learning Logistics and Data Pipelines" src="/img/machine-learning-logistics.png" width="700"></center>
 
-Architectures for these types of applications are discussed in more detail in the ebooks Machine Learning logistics, Streaming Architecture, and Microservices and Containers.
+Architectures for these types of applications are discussed in more detail in the ebooks [Machine Learning logistics](https://www.oreilly.com/library/view/machine-learning-logistics/9781491997628/), [Streaming Architecture](https://www.oreilly.com/library/view/streaming-architecture/9781491953914/), and [Microservices and Containers](https://www.academia.edu/41522528/A_Practical_Guide_to_Microservices_and_Containers_Mastering_the_Cloud_Data_and_Digital_Transformation).
 
 Below is the data processing pipeline for this use case of predicting flight delays. This pipeline could be augmented to be part of the rendezvous architecture discussed in the Oreilly [Machine Learning Logistics ebook](https://www.oreilly.com/library/view/machine-learning-logistics/9781491997628/).
 
@@ -105,7 +105,7 @@ The following figure depicts the architecture for the part of the use case data 
 
 ## Example Use Case Data
 
-You can read more about the data set in part 1 of this series. The incoming and outgoing data is in JSON format, an example is shown below:
+You can read more about the data set [in part 1 of this series](https://developer.hpe.com/blog/fast-data-processing-pipeline-for-predicting-flight-delays-using-apache-/). The incoming and outgoing data is in JSON format, an example is shown below:
 
 ```json
 {"_id":"AA_2017-02-16_EWR_ORD_1124”,
