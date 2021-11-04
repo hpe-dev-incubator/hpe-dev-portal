@@ -38,7 +38,7 @@ A central principle of publish/subscribe systems is decoupled communications, wh
 
 You can think of a partition like a queue; new messages are appended to the end, and messages are delivered in the order they are received.
 
-![MapR Cluster](/img/mapr-cluster.png)
+<center><img src="/img/mapr-cluster.png" width="800" height="100%"></center>
 
 ![Messages](/img/messages.png)
 
