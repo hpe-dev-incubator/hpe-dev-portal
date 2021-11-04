@@ -402,7 +402,7 @@ To do so, proceed as follows:
     heading level. To clear a Heading, put your cursor in front of the text, click **H** in
     the menu bar, and click the Heading level previously selected. Another option is to use the ***Undo*** function **CTRL + Z**
 
-    >**Note:** We recommend to use "**Header 2**" for your primary heading, then Header 3 for subsequent heading, etc.
+    >**Note:** We recommend to use "**Header 2**" for your primary heading, and "**Header 3**" for subsequent heading, etc.
 
 -   **Undo function:**
     
@@ -431,7 +431,7 @@ To do so, proceed as follows:
 
 -   **Adjusting image size and its position:**
 
-    -   **Method 1 (recommended):** Use HTML code to set the size (height, width) for your image. First, toggle to **Rich Text** mode to insert your image. Then toggle to **Markdown** mode to obtain the relative path for your image (in the form: */img/myimage.png*) and and insert the HTML syntax below:
+    -   **Method 1 (recommended):** Use HTML code to set the size (height, width) for your image. First, toggle to **Rich Text** mode to insert your image. Then toggle to **Markdown** mode to obtain the relative path for your image (in the form: */img/myimage.png*) and **substitute: \!\[\](/img/myimage.png)** with the HTML syntax below:
 
         \<img src=\"relative-path-of-your-image-in-the-form: /img/myimage.png\" width=\"600\" height=\"359\"\>
 
@@ -439,7 +439,7 @@ To do so, proceed as follows:
 
          \<center\>\<img src=\"relative-path-of-your-image-in-the-form: /img/myimage.png\" width=\"500\" height=\"542\"\>\</center\>
 
-        >**Note:** When using HTML code to insert an image, you will see *an empty frame* for your image in the preview area (right side of the CMS editor). The frame corresponds to the size of the image (width and height) in the blog post. Adjust the width/height value as appropriate. Once satisfied, delete the line *![](/img/myimage.png)* from the body. 
+        >**Note:** When using HTML code to insert an image, you will see *an empty frame* for your image in the preview area (right side of the CMS editor). The frame corresponds to the size of the image (width and height) in the blog post. Adjust the width/height value as appropriate. 
 
     -   **Method 2:** Using your PC/Laptop, change image size using you preferred image editor (i.e.: Paint). Toggle to **Rich Text** mode and upload/select the resized image.
  
