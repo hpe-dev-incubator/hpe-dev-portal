@@ -221,7 +221,7 @@ In this blog post, you learned how to use a Spark machine learning model in a Sp
 
 ## Code
 
-* You can download the code and data to run these examples from here: <https://github.com/caroljmcdonald/spark-ml-flightdelay>
+* You can download the code and data to run these examples from [here](https://github.com/caroljmcdonald/spark-ml-flightdelay)
 * [Zeppelin Notebook for the code](https://github.com/caroljmcdonald/spark-ml-flightdelay/blob/master/notebooks/sparkmlpipelineflightdelays.json)
 
 ## Running the Code
