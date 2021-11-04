@@ -22,39 +22,39 @@ According to Bob Renner, CEO of [Liaison Technologies](https://www.liaison.com/)
 
 This is the second in a series of blog posts that discusses the architecture of a data pipeline that combines streaming data with machine learning and fast storage. [The first post](https://www.hpe.com/us/en/software/data-fabric.html) discussed creating a machine learning model to predict flight delays. This second post will discuss using the saved model with streaming data to do a real-time analysis of flight delays. The third post will discuss fast storage with MapR Database.
 
-![Saved model with streaming data](/img/saved-model-with-streaming-data.png)
+<center><img alt="Saved model with streaming data" src="/img/saved-model-with-streaming-data.png" width="700"></center>
 
 ## Microservices, Data Pipelines, and Machine Learning Logistics
 
 The [microservice architectural style](https://martinfowler.com/articles/microservices.html) is an approach to developing an application as a suite of small independently deployable services. A common architecture pattern combined with microservices is event sourcing using an append-only publish-subscribe event stream such as MapR Event Streams (which provides a Kafka API).
 
-![Immediate access to operational and analytical data in MapR](/img/immediate-access-to-operational-analytical-data.png)
+<center><img alt="Immediate access to operational and analytical data in MapR" src="/img/immediate-access-to-operational-analytical-data.png" width="700"></center>
 
 ## Publish Subscribe Event Streams with MapR Event Store
 
 A central principle of publish/subscribe systems is decoupled communications, wherein producers don’t know who subscribes, and consumers don’t know who publishes; this system makes it easy to add new listeners or new publishers without disrupting existing processes. MapR Event Store allows any number of information producers (potentially millions of them) to publish information to a specified topic. MapR Event Store will reliably persist those messages and make them accessible to any number of subscribers (again, potentially millions). Topics are partitioned for throughput and scalability, producers are load balanced, and consumers can be grouped to read in parallel. MapR Event Store can scale to very high throughput levels, easily delivering millions of messages per second using very modest hardware.
 
-![Kafka API](/img/kafka-api.png)
+<center><img alt="Kafka API" src="/img/kafka-api.png" width="700"></center>
 
 You can think of a partition like a queue; new messages are appended to the end, and messages are delivered in the order they are received.
 
-<center><img src="/img/mapr-cluster.png" width="800" height="100%"></center>
+<center><img src="/img/mapr-cluster.png" width="700"></center>
 
-![Messages](/img/messages.png)
+<center><img alt="Messages" src="/img/messages.png" width="700"></center>
 
 Unlike a queue, messages are not deleted when read; they remain on the partition, available to other consumers. Messages, once published, are immutable, and can be retained forever. 
 
-![Not deleting messages](/img/not-deleting-messages.png)
+<center><img alt="Not deleting messages" src="/img/not-deleting-messages.png" width="700"></center>
 
 Not deleting messages when they are read allows for high performance at scale and also for processing of the same messages by different consumers for different purposes such as multiple views with polyglot persistence.
 
-![New subscribers of information](/img/new-subscribers-information.png)
+<center><img alt="New subscribers of information" src="/img/new-subscribers-information.png" width="700"></center>
 
 New subscribers of information can replay the data stream, specifying a starting point as far back as the data retention policy enables.
 
-![Create new view, index, cache](/img/create-new.png)
+<center><img alt="Create new view, index, cache" src="/img/create-new.png" width="700"></center>
 
-![Read From new View](/img/read-from-new-view.png)
+<center><img alt="Read From new View" src="/img/read-from-new-view.png" width="700"></center>
 
 ## Data Pipelines
 
@@ -67,19 +67,19 @@ Combining data pipelines with machine learning can handle the logistics of machi
 * Making input and output data available to independent consumers
 * Managing and evaluating multiple models and easily deploying new models
 
-![Machine Learning Logistics and Data Pipelines](/img/machine-learning-logistics.png)
+<center><img alt="Machine Learning Logistics and Data Pipelines" src="/img/machine-learning-logistics.png" width="700"></center>
 
 Architectures for these types of applications are discussed in more detail in the ebooks Machine Learning logistics, Streaming Architecture, and Microservices and Containers.
 
 Below is the data processing pipeline for this use case of predicting flight delays. This pipeline could be augmented to be part of the rendezvous architecture discussed in the Oreilly [Machine Learning Logistics ebook](https://www.oreilly.com/library/view/machine-learning-logistics/9781491997628/).
 
-![Data Processing Pipeline](/img/data-processing-pipeline.png)
+<center><img alt="Data Processing Pipeline" src="/img/data-processing-pipeline.png" width="700"></center>
 
 ## Spark Streaming Use Case Example Code
 
 The following figure depicts the architecture for the part of the use case data pipeline discussed in this post:
 
-![architecture data pipeline](/img/architechture-data-pipeline.png)
+<center><img alt="architecture data pipeline" src="/img/architechture-data-pipeline.png" width="700"></center>
 
 1. ```
       Flight data is published to a MapR Event Store topic using the Kafka API.
@@ -114,7 +114,7 @@ You can read more about the data set in part 1 of this series. The incoming and 
 "crsarrtime”:851, "crselapsedtime":166.0,"dist":719.0}
 ```
 
-![Example Use Case Data](/img/example-use-case-data.png)
+<center><img alt="Example Use Case Data" src="/img/example-use-case-data.png" width="700"></center>
 
 ## Spark Kafka Consumer Producer Code
 
@@ -122,13 +122,13 @@ You can read more about the data set in part 1 of this series. The incoming and 
 
 We use a Scala case class and [Structype](https://spark.apache.org/docs/latest/sql-programming-guide.html#programmatically-specifying-the-schema) to define the schema, corresponding to the input data.
 
-![Structype](/img/structype.png)
+<center><img alt="Structype" src="/img/structype.png" width="700"></center>
 
 **Loading the Model**
 
 The Spark [CrossValidatorModel](https://spark.apache.org/docs/latest/api/scala/index.html#org.apache.spark.ml.tuning.CrossValidatorModel) class is used to load the saved model fitted on the historical flight data.
 
-![Loading the Model](/img/loading-model.png)
+<center><img alt="Loading the Model" src="/img/loading-model.png" width="700"></center>
 
 **Spark Streaming Code**
 
@@ -152,37 +152,37 @@ The first step is to set the KafkaConsumer and KafkaProducer configuration prope
 
 For more information on the configuration parameters, [see the MapR Event Store documentation.](https://docs.datafabric.hpe.com/62/MapR_Streams/differences_in_configuration_parameters_for_producers_and_consumers.html)
 
-![Configure Kafka](/img/configure-kafka-cosumer.png)
+<center><img alt="Configure Kafka" src="/img/configure-kafka-cosumer.png" width="700"></center>
 
 ## **2) Initialize a Spark StreamingContext object.**
 
 ConsumerStrategies.Subscribe, as shown below, is used to set the topics and Kafka configuration parameters. We use the [KafkaUtils createDirectStream](https://spark.apache.org/docs/latest/streaming-kafka-0-10-integration.html) method with a StreamingContext, the consumer and location strategies, to create an input stream from a MapR Event Store topic. This creates a DStream that represents the stream of incoming data, where each message is a key value pair. We use the DStream map transformation to create a DStream with the message values.
 
-![Initialize a Spark StreamingContext Object 1](/img/initialize-spark-streamingcontext.png)
+<center><img alt="Initialize a Spark StreamingContext Object 1" src="/img/initialize-spark-streamingcontext.png" width="700"></center>
 
-![Initialize a Spark StreamingContext Object 2](/img/initialize-spark-streamingcontext-2.png)
+<center><img alt="Initialize a Spark StreamingContext Object 2" src="/img/initialize-spark-streamingcontext-2.png" width="700"></center>
 
 ## **3) Apply transformations (which create new DStreams)**
 
 We use the DStream foreachRDD method to apply processing to each RDD in this DStream. We read the RDD of JSON strings into a Flight Dataset. Then we display 20 rows with the Dataset show method. We also create a temporary view of the Dataset in order to execute SQL queries.
 
-![Apply transformations](/img/apply-transformation.png)
+<center><img alt="Apply transformations" src="/img/apply-transformation.png" width="700"></center>
 
 **Here is example output from the df.show :**
 
-![Example output from the df.show](/img/example-df-show.png)
+<center><img alt="Example output from the df.show" src="/img/example-df-show.png" width="700"></center>
 
 We transform the Dataset with the model pipeline, which will transform the features according to the pipeline, estimate and then return the predictions in a column of a new Dateset. We also create a temporary view of the new Dataset in order to execute SQL queries.
 
-![Temporary view](/img/temporary-view.png)
+<center><img alt="Temporary view" src="/img/temporary-view.png" width="700"></center>
 
 ## **4) Write messages from the transformed DStream to a Topic**
 
 The Dataset result of the query is converted to JSON RDD Strings, then the RDD sendToKafka method is used to send the JSON key-value messages to a topic (the key is null in this case).
 
-![Write messages from the transformed DStream](/img/write-messages-from-dstream.png)
+<center><img alt="Write messages from the transformed DStream" src="/img/write-messages-from-dstream.png" width="700"></center>
 
-![Write messages from the transformed DStream 2](/img/write-messages-from-dstream-2.png)
+<center><img alt="Write messages from the transformed DStream 2" src="/img/write-messages-from-dstream-2.png" width="700"></center>
 
 Example message values (the output for `temp.take(2)` ) are shown below:
 
@@ -195,25 +195,25 @@ Example message values (the output for `temp.take(2)` ) are shown below:
 
 To start receiving data, we must explicitly call start() on the StreamingContext, then call `awaitTermination` to wait for the streaming computation to finish. We use `ssc.remember` to cache data for queries.
 
-![Receive and process data](/img/receive-process-data.png)
+<center><img alt="Receive and process data" src="/img/receive-process-data.png" width="700"></center>
 
 ## Streaming Data Exploration
 
 Now we can query the cached streaming data in the input temporary view flights, and the predictions temporary view `flightsp`. Below we display a few rows from the flights view:
 
-![Flights view](/img/flights-view.png)
+<center><img alt="Flights view" src="/img/flights-view.png" width="700"></center>
 
 Below we display the count of predicted delayed/not delayed departures by Origin:
 
-![Predicted Departures](/img/predicted-departures.png)
+<center><img alt="Predicted Departures" src="/img/predicted-departures.png" width="700"></center>
 
 Below we display the count of predicted delayed/not delayed departures by Destination:
 
-![Predicted Delayed](/img/predicted-delayed.png)
+<center><img alt="Predicted Delayed" src="/img/predicted-delayed.png" width="700"></center>
 
 Below we display the count of predicted delayed/not delayed departures by Origin,Destination:
 
-![Count predicted delayed](/img/count-predicted-delayed.png)
+<center><img alt="Count predicted delayed" src="/img/count-predicted-delayed.png" width="700"></center>
 
 ## Summary
 
@@ -228,4 +228,4 @@ In this blog post, you learned how to use a Spark machine learning model in a Sp
 
 All of the components of the use case architecture we just discussed can run on the same cluster with the MapR Data Platform.
 
-![MapR Data Platform](/img/mapr-cdp.png)
+<center><img alt="MapR Data Platform" src="/img/mapr-cdp.png" width="700"></center>
