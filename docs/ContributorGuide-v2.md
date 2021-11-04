@@ -431,7 +431,7 @@ To do so, proceed as follows:
 
 -   **Adjusting image size and its position:**
 
-    -   **Method 1 (recommended):** Use HTML code to set the size (height, width) for your image. First, toggle to **Rich Text** mode to insert your image. Then toggle to **Markdown** mode to obtain the relative path for your image (in the form: */img/myimage.png*) and **substitute: \!\[\](/img/myimage.png)** with the HTML syntax below:
+    -   **Method 1 (recommended):** Use HTML code to set the size (height, width) for your image. First, toggle to **Rich Text** mode to insert your image. Then toggle to **Markdown** mode to obtain the relative path for your image (in the form: */img/myimage.png*) and **substitute the line "\!\[\](/img/myimage.png)"** with the HTML syntax below:
 
         \<img src=\"relative-path-of-your-image-in-the-form: /img/myimage.png\" width=\"600\" height=\"359\"\>
 
