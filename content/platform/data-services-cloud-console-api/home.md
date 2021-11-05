@@ -50,11 +50,15 @@ The overview of the Data Services Cloud Console is available at [this link](http
 
 The API categories for DSCC will grow in accordance to the expansion of the DSCC services that are going to released in future. Current services that are available, as recorded today:
 
-1. DataOps Manager
-2. Event Audit
-3. Task tracking
-4. Search
-5. Helps, issues and announcement
+1. Authentication
+2. Tasks
+3. Event Audit
+4. AuthZ (User RBAC permissions)
+5. Issues
+
+
+
+
 
 ### Versioning
 
