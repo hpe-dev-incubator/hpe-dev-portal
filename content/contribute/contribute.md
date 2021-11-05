@@ -16,6 +16,6 @@ templateCards:
 ---
 - Read instructions found in [Be an HPE DEV Blogger](https://developer.hpe.com/blog/be-an-hpe-dev-blogger/). 
 
-- Create an account or sign into <a target='\_blank' href='https://github.com/hpe-dev-incubator/hpe-dev-portal'>GitHub</a>.
+- Create an account or sign into <a target='\_blank' rel="noopener noreferrer" href='https://github.com/hpe-dev-incubator/hpe-dev-portal'>GitHub</a>.
 
-- Review tips offered in the <a target='\_blank' href='https://github.com/hpe-dev-incubator/hpe-dev-portal/blob/master/docs/ContributorGuide-v2.md'>HPE DEV External Contributor Guide</a> regarding the Netlify CMS. 
+- Review tips offered in the <a target='\_blank'rel="noopener noreferrer" href='https://github.com/hpe-dev-incubator/hpe-dev-portal/blob/master/docs/ContributorGuide-v2.md'>HPE DEV External Contributor Guide</a> regarding the Netlify CMS. 
