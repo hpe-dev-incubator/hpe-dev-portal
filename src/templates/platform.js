@@ -60,7 +60,7 @@ const rows = {
 };
 
 function PlatformTemplate({ data }) {
-  const post = data.markdownRemark;;
+  const post = data.markdownRemark;
   const { edges: blogs } = data.blogs;
   const siteMetadata = useSiteMetadata();
   const siteTitle = siteMetadata.title;
@@ -124,9 +124,7 @@ PlatformTemplate.propTypes = {
         version: PropTypes.string,
         description: PropTypes.string,
         image: PropTypes.string,
-        tags: PropTypes.arrayOf(
-          PropTypes.string,
-        ),
+        tags: PropTypes.arrayOf(PropTypes.string),
       }).isRequired,
       fields: PropTypes.shape({
         slug: PropTypes.string.isRequired,
