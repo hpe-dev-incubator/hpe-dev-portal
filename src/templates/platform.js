@@ -60,12 +60,12 @@ const rows = {
 };
 
 function PlatformTemplate({ data }) {
-  const post = data.markdownRemark;
+  const post = data.markdownRemark;;
   const { edges: blogs } = data.blogs;
   const siteMetadata = useSiteMetadata();
   const siteTitle = siteMetadata.title;
   const { rawMarkdownBody, excerpt } = post;
-  const { title, description, image } = post.frontmatter;
+  const { title, description, image, tags } = post.frontmatter;
   return (
     <Layout title={siteTitle}>
       <SEO title={title} description={description || excerpt} />
@@ -82,7 +82,7 @@ function PlatformTemplate({ data }) {
           <Content gap="medium" margin={{ vertical: 'large' }}>
             <Heading margin="none">{title}</Heading>
             <MarkdownLayout>{rawMarkdownBody}</MarkdownLayout>
-            {blogs.length > 0 && (
+            {blogs.length > 0 && tags && (
               <SectionHeader title="Related Blogs" color="border">
                 <ResponsiveGrid gap="large" rows={rows} columns={columns}>
                   {blogs.map(({ node }, i) => {
@@ -124,6 +124,9 @@ PlatformTemplate.propTypes = {
         version: PropTypes.string,
         description: PropTypes.string,
         image: PropTypes.string,
+        tags: PropTypes.arrayOf(
+          PropTypes.string,
+        ),
       }).isRequired,
       fields: PropTypes.shape({
         slug: PropTypes.string.isRequired,
@@ -177,6 +180,7 @@ export const pageQuery = graphql`
         version
         description
         image
+        tags
       }
       fields {
         slug
