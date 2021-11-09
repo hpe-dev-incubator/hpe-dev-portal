@@ -5,7 +5,11 @@ author: Frederic Passeron
 authorimage: /img/fp-hpewod.jpg
 thumbnailimage: /img/fp-hpewod.jpg
 ---
+
 ![](/img/wodanalysisblog1.png "HPE DEV Hackshack")
+
+
+
 
 In October of 2020, the HPE DEV team introduced a **very easy** way for users to learn about a variety of different software topics by interacting with code virtually – in the form of **free** HPE DEV Workshops-on-Demand. Starting with just three workshops, the program has continued to grow and now offers over 20 courses, ranging from basic coding 101 to sophisticated infrastructure automation.
 
