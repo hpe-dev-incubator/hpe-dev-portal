@@ -12,7 +12,7 @@ tags:
 ---
 ## HPE DEV Munch & Learn series
 
-The Great Unification: Building Analytic pipelines with Apache Spark
+### The Great Unification: Building Analytic pipelines with Apache Spark
 
 November 17, 2021
 
