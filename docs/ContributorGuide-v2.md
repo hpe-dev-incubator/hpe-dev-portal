@@ -528,7 +528,7 @@ If appropriate, use a tag to tie your blog post to a "platform" page on HPE DEV 
 
   | **Platform name**                  |   **Associated tag**    |
   | ---------------------------------- | ----------------------- |
-  | **HPE Ezmeral Runtime**            | hpe-ezmeral-runtime |
+  | **HPE Ezmeral Runtime Enterprise** | hpe-ezmeral-runtime |
   | **HPE Ezmeral Data Fabric**        | hpe-ezmeral-data-fabric |
   | **HPE GreenLake**                  | hpe-greenlake |
   | **Spiffe and Spire**               | spiffe-and-spire-projects |
