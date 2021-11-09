@@ -50,11 +50,28 @@ The overview of the Data Services Cloud Console is available at [this link](http
 
 The API categories for DSCC will grow in accordance to the expansion of the DSCC services that are going to released in future. Current services that are available, as recorded today:
 
+#### Common
+
 1. Authentication
 2. Tasks
 3. Event Audit
 4. AuthZ (User RBAC permissions)
 5. Issues
+6. controllers
+7. host-initiator-groups
+8. Host-initiators
+9. ports
+10. disks
+11. shelves
+12. storage-pools
+13. storage-systems
+14. system-settings
+15. volume-sets
+16. volumes
+
+#### Alletra 6K or Nimble
+
+1. protection-templates
 
 ### Versioning
 
