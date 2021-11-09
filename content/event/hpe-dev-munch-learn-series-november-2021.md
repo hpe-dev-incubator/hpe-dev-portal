@@ -4,7 +4,7 @@ dateStart: 2021-11-17T16:00:37.917Z
 dateEnd: 2021-11-17T18:00:37.946Z
 category: Virtual Event
 image: /img/munch-and-learn-event-card-white.jpg
-link: https://developer.hpe.com/campaign/munch-and-learn
+link: https://hpe.zoom.us/meeting/register/tJUvdO2qpjsrHN2ldd8PF9xaRQwvoIHP9U2Y
 width: large
 tags:
   - hpe-ezmeral-runtime
