@@ -43,7 +43,6 @@ The API Gateway provides the following operations:
    4. URL to the HPE GreenLake Cloud Console end-point (string)
    5. URL to the HPE DSCC end-point (string)
 2. Generate Access Token, change Client Secret, and delete Access Token.
-3. Link to API documentation for HPE DSCC and HPE GreenLake Cloud Console 
 
 ![API Gateway](/img/api-gateway-block.png "DSCC API Gateway")
 
