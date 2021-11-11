@@ -108,9 +108,9 @@ Existing clients will be able to maintain the backward compatibility from the hi
 | PUT        | Replaces target resource with data part of the HTTP Request payload |
 | DELETE     | Remove the target source                                            |
 
-### Authentication
+### Authorization through Client-Credential
 
-The client's application can access this API using the Access Token obtained from API Gateway after the client successfully authenticate through an associated customer's credential. Once the client register into the API Gateway, the client's application will be associated with specific Client ID, Client Secret, Access Token, and several other parameters. The Access Token contains the Refresh Token that can be used to refresh the Access Token that has expired. This Access Token's expiration time is defaulted at 7200 seconds (2 hours). Any operation against the resources made available in this REST API will require client to embed the this Access Token in the header (bearer). 
+The client's application can issue REST API request using the access-token as the bearer of the token.  The client obtains this access-token from the after the client successfully authenticate through an associated customer's application credential (client-id and client-secret). This application credential is created by the DSCC user who has the permission to access the resources under the DSCC instances. Once the client register into the API Gateway, the client's application will be associated with specific Client ID, Client Secret, Access Token, and several other parameters. This Access Token's expiration time is defaulted at 7200 seconds (2 hours). Any operation against the resources made available in this REST API will require client to embed the this Access Token in the header (bearer). 
 
 ### Authorization Policies
 
