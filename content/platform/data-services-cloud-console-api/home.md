@@ -116,6 +116,8 @@ The client's application can issue REST API request using the access-token as th
 
 The client can only receive properties from the authorized API Resource based on the Role Base Access Control for the user who created the access token. This authorization derives from the organization, the capability and the scope (roles) that the associated user is assigned. The authorization for the client will inherit the user's permission who created the Client Application registration under the API Gateway. Note that subsequent change to the user's permission after the Client Application registered will impact the response returned based on current authority.
 
+### API end-points
+
 ### Asynchronous Response
 
 All of the REST API operations are stateless in nature. One example is such as POST, in that scenario the task resource will return a response with HTTP code 202 "Accepted" and the reference to the task as follows:
