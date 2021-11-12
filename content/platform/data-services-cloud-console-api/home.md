@@ -108,8 +108,6 @@ Existing clients will be able to maintain the backward compatibility from the hi
 | PUT        | Replaces target resource with data part of the HTTP Request payload |
 | DELETE     | Remove the target source                                            |
 
-
-
 ### Authorization through OAuth2 Client-Credential work-flow
 
 The client's application can issue REST API request using the access-token as the bearer of the token.  The client obtains this access-token from the after the client successfully authenticate through an associated customer's application credential (client-id and client-secret). This application credential is created by the DSCC user who has the permission to access resources (such as controllers, volumes etc.) under the DSCC instances. This access-token expiration time, by default, is set for 7200 seconds (2 hours). When the the resource server see this expired access token, and return 0x401 response (not authorized).  The client must then reauthenticate using the associated client-id and client-secret to obtain the next access-token.
@@ -120,14 +118,13 @@ The client can only receive properties from the authorized API Resource based on
 
 ### API end-points (baseURL) for each Region
 
-The REST API for DSCC requires client application to issue the REST API request to the URL that is associated with the DSCC instanced deployed at the associated region. As of November 2021, here is the list of the Domain URLs where client application must use as the base-URL to access to the REST API.
+The REST API for DSCC requires client application to issue the REST API request to the URL that is associated with the DSCC instance deployed at the associated region. As of November 2021, here is the list of the Domain URLs where client application must use as the base-URL to the resource path of REST API.
 
-|  DSCC Region         |       baseURL                   |
-|----------------------|---------------------------------|
-| EU Central           | https://eu1.data.cloud.hpe.com  |
-| AP Northeast         | https://jp1.data.cloud.hpe.com  |
-| US West              | https://us1.data.cloud.hpe.com  |
-
+| DSCC Region  | baseURL                        |
+| ------------ | ------------------------------ |
+| EU Central   | https://eu1.data.cloud.hpe.com |
+| AP Northeast | https://jp1.data.cloud.hpe.com |
+| US West      | https://us1.data.cloud.hpe.com |
 
 ### Asynchronous Response
 
