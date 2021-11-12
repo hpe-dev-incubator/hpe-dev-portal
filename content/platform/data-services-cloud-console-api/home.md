@@ -33,6 +33,8 @@ Any customer can download this OpenAPI Specification (OAS) v3 definition of the 
 
 [Link to the API repository](https://console-us1.data.cloud.hpe.com/doc/api/v1/)
 
+![](/img/api-documentation-display.png)
+
 ### Documentation and Tutorials
 
 The overview of the Data Services Cloud Console is available at [this link](https://www.hpe.com/us/en/storage/data-services-cloud-console.html#overview). There will be more blogs that will provide more information to help customers adopting this API with examples, code snippets and many other helpful information.
