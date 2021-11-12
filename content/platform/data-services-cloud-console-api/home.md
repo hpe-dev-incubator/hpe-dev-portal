@@ -29,11 +29,16 @@ Some of the advantages of distributing in OpenAPI 3.0 format:
 
 ## REST API Details
 
-Any customer can download this OpenAPI Specification (OAS) v3 definition of the DSCC from the following link:
+Any customer can download this OpenAPI Specification (OAS) v3 definition of the DSCC from the following: [Link to the API repository](https://console-us1.data.cloud.hpe.com/doc/api/v1/)
 
-[Link to the API repository](https://console-us1.data.cloud.hpe.com/doc/api/v1/)
+![DSCC_API_Doc](/img/api-documentation-display.png "DSCC API Documentation")
 
-![](/img/api-documentation-display.png)
+The hosting of the documentation also provides the links to download the DSCC open-API definitions in either json or yaml format. The website also provides several other information:
+
+1. The list of the REST API resources that are supported as of the release. 
+2. The information about the HTTP method, parameters and the responses that are expected out for this resource
+3. The syntax for the HTTP method and path to this resource. Note that this path is relative path, for the complete path, please add the base-URL documented below to provide the full path.
+4. The body of response in JSON format for each response that can be returned.
 
 ### Documentation and Tutorials
 
