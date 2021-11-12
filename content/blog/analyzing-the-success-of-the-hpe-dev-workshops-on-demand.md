@@ -5,15 +5,11 @@ author: Frederic Passeron
 authorimage: /img/fp-hpewod.jpg
 thumbnailimage: /img/fp-hpewod.jpg
 ---
-
-![](/img/wodanalysisblog1.png "HPE DEV Hackshack")
-
-
-
+![HPE DEV Hack Shack](/img/wodanalysisblog1.png "HPE DEV Hackshack")
 
 In October of 2020, the HPE DEV team introduced a **very easy** way for users to learn about a variety of different software topics by interacting with code virtually – in the form of **free** HPE DEV Workshops-on-Demand. Starting with just three workshops, the program has continued to grow and now offers over 20 courses, ranging from basic coding 101 to sophisticated infrastructure automation.
 
-![](/img/wodanalysisblog2.png)
+![HPE DEV Hack Shack Workshops-on-demand catalog](/img/wodanalysisblog2.png "HPE DEV Hack Shack Workshops-on-demand catalog")
 
 These hands-on workshops cover a variety of [topics](https://hackshack.hpedev.io/workshops), including open source technologies (i.e. Kubernetes, SPIFFE/SPIRE, Grommet, StackStorm), popular programming languages (i.e. Python, RUST), coding tools (i.e. APIs, Git), and market-leading HPE technologies (i.e. HPE Ezmeral Container Platform and Data Fabric, HPE OneView, HPE iLO). Whether it’s due to the popularity of these topics, the workshop’s unique, easy-to-follow methodology, the associated badge recognition program, or the fact that they’re free – these workshops have certainly gained quite a lot of interest!
 
