@@ -108,6 +108,8 @@ Existing clients will be able to maintain the backward compatibility from the hi
 | PUT        | Replaces target resource with data part of the HTTP Request payload |
 | DELETE     | Remove the target source                                            |
 
+
+
 ### Authorization through OAuth2 Client-Credential work-flow
 
 The client's application can issue REST API request using the access-token as the bearer of the token.  The client obtains this access-token from the after the client successfully authenticate through an associated customer's application credential (client-id and client-secret). This application credential is created by the DSCC user who has the permission to access resources (such as controllers, volumes etc.) under the DSCC instances. This access-token expiration time, by default, is set for 7200 seconds (2 hours). When the the resource server see this expired access token, and return 0x401 response (not authorized).  The client must then reauthenticate using the associated client-id and client-secret to obtain the next access-token.
@@ -117,6 +119,14 @@ The client's application can issue REST API request using the access-token as th
 The client can only receive properties from the authorized API Resource based on the Role Base Access Control for the user who created the access token. This authorization derives from the organization, the capability and the scope (roles) that the associated user is assigned. The authorization for the client will inherit the user's permission who created the Client Application registration under the API Gateway. Note that subsequent change to the user's permission after the Client Application registered will impact the response returned based on current authority.
 
 ### API end-points
+
+The REST API for DSCC requires client application to issue the REST API request to the URL that is associated with the DSCC instanced deployed at the associated region. As of November 2021, here is the list of the Domain URLs where client application must use as the base-URL to access to the REST API.
+
+
+
+
+
+
 
 ### Asynchronous Response
 
