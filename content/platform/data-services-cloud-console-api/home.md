@@ -68,17 +68,17 @@ The API categories for DSCC will grow in accordance to the expansion of the DSCC
 7. host-initiator-groups
 8. Host-initiators
 9. ports
-10. disks
-11. shelves
-12. storage-pools
-13. storage-systems
-14. system-settings
-15. volume-sets
-16. volumes
+10. shelves
+11. storage-pools
+12. storage-systems
+13. system-settings
+14. volume-sets
+15. volumes
 
 #### Alletra 6K or Nimble
 
 1. protection-templates
+2. disks
 
 ### Versioning
 
