@@ -94,13 +94,103 @@ User then can embed the access token to the REST API request in order to perform
 | AP Northeast | https://jp1.data.cloud.hpe.com |
 | US West      | https://us1.data.cloud.hpe.com |
 
-### Nice! Can you give me an example of using the access token?
+#### Nice! Can you give me an example of using the access token?
+
+The access token is a long string of JSON Web Token that is signed using RS256 algorithm. Note that the access-token must be added into the header of with key-word "Authorization: Bearer <access-token in JWT>". This following example based on **curl** uses "scalpha-app.qa.cds.hpe.com" as base-URL. Note that this is DSCC testing-site only, please use one of the base-URL noted in the above table. The example uses GET REST API method for this resource **/api/v1/audit-events** to obtain lists of the audit-events available.
 
 ```powershell
->curl https://scalpha-app.qa.cds.hpe.com/api/v1/audit-events 
+>curl -X GET https://scalpha-app.qa.cds.hpe.com/api/v1/audit-events 
 -H "Accept: application/json" 
 -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IllUMU9MZWRYeDFCbHZ2and6OU1FNm8ya1BQayIsInBpLmF0bSI6ImRlejAifQ.eyJjbGllbnRfaWQiOiIwMGNmZmY3MC04NmFiLTRmNjYtODI0NS0xZWIwNTQ2MzljMzgiLCJpc3MiOiJodHRwczovL3Nzby5jb21tb24uY2xvdWQuaHBlLmNvbSIsImF1ZCI6ImV4dGVybmFsX2FwaSIsInN1YiI6InJvbmFsZC5kaGFybWFAaHBlLmNvbSIsInVzZXJfY3R4IjoiZThhNGRhMmVlZmMzMTFlYmEwMmNiNjAzNDIyYmMwYTAiLCJhdXRoX3NvdXJjZSI6ImNjc190b2tlbl9tYW5hZ2VtZW50IiwicGxhdGZvcm1fY3VzdG9tZXJfaWQiOiIyMzRkNzZjNmU5ZDAxMWViYjczMDgyYjIxMmFkNmZlYSIsImlhdCI6MTYzNzAwNjk0NSwiYXBwbGljYXRpb25faW5zdGFuY2VfaWQiOiIzYzE4YmQwMy04MzA2LTRjN2MtOTQyZS1jNzA0YTRiODc0NGMiLCJleHAiOjE2MzcwMTQxNDV9.gHcBzl0n2wwrMRR2tSbT6jHN68d1TSNT743GED3LuF2B08ABYh9ePKQjhqYW6mjY-oSfEW2BTfG7TfTzZj9MtQ2kJGmq3DvLBl6fAaN6MEkSIz54hu0PdmDW8His6oET2txq_0kp5XJ7T6n_QJzZY0xvSoquE-48gCxwGFPWIRwefIpdw_1URFXYgfdKCxCIDTdPfYKs8kD8hzwyF9uvgLgVPWZJD6b1UHJK5OpNnBOpAxrs1xfFBz688b0vheZdARCJsl5E3Qxjyg68hw2cjavZZOX-_RWpd6JWPrQnqxyxQeYQ5yYy7giVCViM5SUZkv6j0Ts3TVguapE2kvahkQ"
+
 ```
+
+The responses are returned as JSON strings as shown in below example:
+
+```javascript
+{
+  "items": [
+    {
+      "associatedResource": {
+        "id": "/api/v1/host-initiators?filter=editStatus%20in%20(Update_In_Progress,Update_Success,Update_Failed,Not_Applicable,Delete_Failed)",
+        "name": "",
+        "type": ""
+      },
+      "code": "Unauthorized privilege",
+      "contextId": "",
+      "customerId": "e8a4da2eefc311eba02cb603422bc0a0",
+      "id": "9bafe7ae-84bf-42a2-9b82-2592ce62715e",
+      "loggedAt": "2021-11-10T04:09:07Z",
+      "message": "Unauthorized user access",
+      "occurredAt": "2021-11-10T04:09:07Z",
+      "permission": "data-services.host-initiator.read",
+      "scope": "",
+      "source": "/api/v1/host-initiators?filter=editStatus%20in%20(Update_In_Progress,Update_Success,Update_Failed,Not_Applicable,Delete_Failed)",
+      "sourceIpAddress": "fleet-gql-data-graph:4000",
+      "state": "PermissionDenied",
+      "taskId": "",
+      "uniqueId": "audit.events+0+3936",
+      "userEmail": "mandy.shen@hpe.com",
+      "version": 1
+    },
+    {
+      "associatedResource": {
+        "id": "/api/v1/host-initiators?filter=editStatus%20in%20(Update_In_Progress,Update_Success,Update_Failed,Not_Applicable,Delete_Failed)",
+        "name": "",
+        "type": ""
+      },
+      "code": "Unauthorized privilege",
+      "contextId": "",
+      "customerId": "e8a4da2eefc311eba02cb603422bc0a0",
+      "id": "f0d2c4c6-d859-42f3-ae4b-60f8d3d2d89d",
+      "loggedAt": "2021-11-10T04:09:03Z",
+      "message": "Unauthorized user access",
+      "occurredAt": "2021-11-10T04:09:03Z",
+      "permission": "data-services.host-initiator.read",
+      "scope": "",
+      "source": "/api/v1/host-initiators?filter=editStatus%20in%20(Update_In_Progress,Update_Success,Update_Failed,Not_Applicable,Delete_Failed)",
+      "sourceIpAddress": "fleet-gql-data-graph:4000",
+      "state": "PermissionDenied",
+      "taskId": "",
+      "uniqueId": "audit.events+2+3975",
+      "userEmail": "mandy.shen@hpe.com",
+      "version": 1
+    },
+    
+    .... snippet ....
+    
+        {
+      "associatedResource": {
+        "id": "/api/v1/storage-systems/volumes?filter=isSystemVolume%20eq%20false\u0026limit=1\u0026offset=0",
+        "name": "",
+        "type": ""
+      },
+      "code": "Unauthorized privilege",
+      "contextId": "",
+      "customerId": "e8a4da2eefc311eba02cb603422bc0a0",
+      "id": "86988487-f7f4-403e-b33e-e15abfcd568a",
+      "loggedAt": "2021-08-19T15:38:49Z",
+      "message": "Unauthorized user access",
+      "occurredAt": "2021-08-19T15:38:49Z",
+      "permission": "data-services.volume.read",
+      "scope": "",
+      "source": "/api/v1/storage-systems/volumes?filter=isSystemVolume%20eq%20false\u0026limit=1\u0026offset=0",
+      "sourceIpAddress": "scalpha-app.qa.cds.hpe.com",
+      "state": "PermissionDenied",
+      "taskId": "",
+      "uniqueId": "audit.events+6+3057",
+      "userEmail": "matt.haron@hpe.com",
+      "version": ""
+    }
+  ],
+  "total": 123,
+  "numItems": 123,
+  "pageLimit": 500,
+  "pageOffset": 0
+}
+```
+
+
 
 The recommended tool at this moment of time to experiment with the REST API for DSCC is the Postman which is downloadable from the [Postman website](https://www.postman.com/downloads/). The postman is a versatile tool, where we can copy the access token that we obtained and issue a REST API request in simple and format the response beautifully. 
 
