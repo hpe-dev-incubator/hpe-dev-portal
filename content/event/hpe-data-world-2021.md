@@ -13,6 +13,6 @@ width: large
 
 December 7, 2021
 
-**Let us help you solve your data challenges**
+**Let us help you solve your data challenges!**
 
 In this virtual event, we will show how HPE can help you to unify, modernize, analyze and protect all of your data, from edge-to-cloud, in any and every place it's stored, so that you get a sustainable competitive advantage.
