@@ -75,7 +75,7 @@ function BlogPostTemplate({ data }) {
   const { post } = data;
   const blogsByTags = data.blogsByTags.edges;
   const siteMetadata = useSiteMetadata();
-  const siteTitle = siteMetadata.title;
+  const { siteTitle, siteUrl } = siteMetadata;
   const dateFormat = Intl.DateTimeFormat('default', {
     year: 'numeric',
     month: 'long',
@@ -114,7 +114,12 @@ function BlogPostTemplate({ data }) {
               <Text size="xlarge">{dateFormat.format(new Date(date))}</Text>
               <Location>
                 {({ location }) => {
-                  return <Share url={location.href} text={title} />;
+                  return (
+                    <Share
+                      url={`${siteUrl}${location.pathname}`}
+                      text={title}
+                    />
+                  );
                 }}
               </Location>
             </Box>
