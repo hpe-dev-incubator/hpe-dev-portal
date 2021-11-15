@@ -44,8 +44,8 @@ The API Gateway provides the following operations:
    1. Instance ID of the DSCC at the particular region (Hexadecimals)
    2. Client ID (Hexadecimals)
    3. Client Secret (Hexadecimals)
-   4. URL to the HPE GreenLake Cloud Console end-point (string)
-   5. URL to the HPE DSCC end-point (string)
+   4. URL to the HPE GreenLake Console API end-point (string)
+   5. URL to the HPE DSCC API end-point (string)
 2. Generate Access Token, change Client Secret, and delete Access Token.
 
 ![API Gateway](/img/api-gateway-block.png "DSCC API Gateway")
@@ -88,9 +88,11 @@ Copy the Access Token for the API usage.
 
 User then can embed the access token to the REST API request in order to perform the HTTP method against the desired resource in order to obtain the response.  Note that you will need to use the correct base-URL according to the region where the DSCC is deployed. Currently these are the base-URL and the corresponding region where the DSCC is deployed (November 2021)
 
-
-
-
+| DSCC Region  | base-URL                       |
+| ------------ | ------------------------------ |
+| EU Central   | https://eu1.data.cloud.hpe.com |
+| AP Northeast | https://jp1.data.cloud.hpe.com |
+| US West      | https://us1.data.cloud.hpe.com |
 
 ### Nice! Can you give me an example of using the access token?
 
