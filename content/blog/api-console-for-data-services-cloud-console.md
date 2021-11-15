@@ -15,9 +15,9 @@ One major principle of Application Programming Interface (API) for the HPE Data 
 
 ### Authentication Process to Obtain the Access Token
 
-The DSCC public API relies on an OAuth 2.0 third party authorization framework on behalf of the resource owner (HPE GreenLake Console's user) for security. The user starts by logging and authenticating into HPE GreenLake Console, which is authenticated by the Identity Provider (validated through username, password, or MFA). Using the API Gateway menu in GreenLake Console, customer registers their client application to obtain the OAuth 2.0 API Client Credentials (Client ID and Client Secret). This association allows user to obtain the access-token from the menu, and user can then use the access-token into any REST API call inside the token bearer field. This action allows any client application or script to perform any HTTPS method to 
+The DSCC public API relies on an OAuth 2.0 third party authorization framework on behalf of the resource owner (HPE GreenLake Console's user) for security. The user starts by logging and authenticating into HPE GreenLake Console, which is authenticated by the Identity Provider (validated through username, password, or MFA). Using the API Gateway menu in GreenLake Console, customer registers their client application to obtain the OAuth 2.0 API Client Credentials (Client ID and Client Secret). This association allows user to obtain the access-token from the menu, and user can then use the access-token into any REST API call inside the token bearer field. This action allows any client application or script to perform any HTTPS method to the correct instance of DSCC.
 
-![](/img/greenlake-api-access-flow.png)
+![client-credential application flow](/img/greenlake-api-access-flow.png "obtain client-id and client-secret")
 
 The Access Token have a limited lifetime (about 720 seconds or 2 hours). Once it expires, the client application must use the obtained Client ID and Client Secret to obtain a new Access Token. One indication of the expiration of Access Token, the API will return response Error: '401 Unauthorized HTTP.'  If the user generate new Access Token prior to it expires, then the current Access Token will be invalidated or treated as not Authorized. 
 
