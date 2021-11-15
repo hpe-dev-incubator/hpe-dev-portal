@@ -161,7 +161,7 @@ The responses are returned as JSON strings as shown in below example. Note that 
     
     .... snippet ....
     
-        {
+      {
       "associatedResource": {
         "id": "/api/v1/storage-systems/volumes?filter=isSystemVolume%20eq%20false\u0026limit=1\u0026offset=0",
         "name": "",
