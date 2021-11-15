@@ -17,6 +17,8 @@ One major principle of Application Programming Interface (API) for the HPE Data 
 
 The DSCC public API relies on an OAuth 2.0 third party authorization framework on behalf of the resource owner (HPE GreenLake Console's user) for security. The user starts by logging and authenticating into HPE GreenLake Console, which is authenticated by the Identity Provider (validated through username, password, or MFA). Using the API Gateway menu in GreenLake Console, customer registers their client application to obtain the OAuth 2.0 API Client Credentials (Client ID and Client Secret). This association allows user to obtain the access-token from the menu, and user can then use the access-token into any REST API call inside the token bearer field. This action allows any client application or script to perform any HTTPS method to 
 
+![](/img/greenlake-api-access-flow.png)
+
 The Access Token have a limited lifetime (about 720 seconds or 2 hours). Once it expires, the client application must use the obtained Client ID and Client Secret to obtain a new Access Token. One indication of the expiration of Access Token, the API will return response Error: '401 Unauthorized HTTP.'  If the user generate new Access Token prior to it expires, then the current Access Token will be invalidated or treated as not Authorized. 
 
 Additionally, user can also change the Client Secret to update the authorization when authorized user lost the Client Secret or the secret is compromised. And lastly, when access to the API must be disabled, user can delete the application association in the API Gateway.
