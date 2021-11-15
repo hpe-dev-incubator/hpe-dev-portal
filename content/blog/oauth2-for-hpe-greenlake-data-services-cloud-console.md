@@ -23,7 +23,7 @@ At the introduction of this public API, HPE GreenLake Console supports the **Cli
 
 ### So, how do I implement HPE DSCC API in my client application?
 
-After an user obtains the Client ID and Client Password as shown in below picture. The flow to get the Client ID and Client Secret from this menu is detailed in my blog titled **Using API Gateway to Data Services Cloud Console.**
+After an user obtains the client-id and client-secret as shown in below picture. The flow to get the Client ID and Client Secret from this menu is detailed in my blog titled **Using API Gateway to Data Services Cloud Console.**
 
 ![image of the client id and client secret](/img/credentials-created-client.png "Client Credentials")
 
