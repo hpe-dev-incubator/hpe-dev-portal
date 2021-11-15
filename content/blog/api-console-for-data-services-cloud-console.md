@@ -29,7 +29,7 @@ And lastly, when access to the API must be disabled, user can delete the API cli
 
 ## Accessing the API Gateway Console
 
-To access the API console, user must login into the [GreenLake Console,](https://common.cloud.hpe.com) deployed the DSCC to the intended region, and onboarded a storage array (Alletra, Nimble and Primera) into the organization that is associated with the user account. The user must have the role that is required to perform the intended operation at the instance of DSCC where the storage is deployed. e.g. User must have volume management capability in the Data Ops Management to create a storage volume in US West. For more information about the role based access control, please take a look at the [HPE GreenLake User Guide](https://support.hpe.com/hpesc/public/docDisplay?docId=ccs-help_en_us)
+To access the API console, user must login into the [GreenLake Console,](https://common.cloud.hpe.com) deployed the DSCC to the intended region, and onboarded a storage array (Alletra, Nimble, or Primera) into the organization that is associated with the user account. The user must have the role that is required to perform the intended operation at the instance of DSCC where the storage is deployed. e.g. User must have volume management capability in the Data Ops Management to create a storage volume in US West. For more information about the role based access control, please take a look at the [HPE GreenLake User Guide](https://support.hpe.com/hpesc/public/docDisplay?docId=ccs-help_en_us)
 
 The **API** **Gateway** menu is available inside **Manage** menu. From **Greenlake Console** click on **Menu** to access this **Manage** Menu.
 
@@ -87,6 +87,8 @@ Copy the Access Token for the API usage.
 ![](/img/access-token-created-and-close.png "Access Token Generated and Consumed")
 
 User then can embed the access token to the REST API request in order to perform the HTTP method against the desired resource in order to obtain the response.  
+
+
 
 ### Nice! Can you give me an example of using the access token?
 
