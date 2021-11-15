@@ -45,25 +45,17 @@ const rows = {
 };
 
 const findImageURL = (body) => {
-  // Find image url by Regex
-  const foundByRegex = /!\[[^\]]*\]\((?<filename>.*?)(?="|\))(?<optionalpart>".*")?\)/gi.exec(
-    body,
-  );
-  if (foundByRegex) {
-    const imageURL = foundByRegex[1].includes('https://')
-      ? foundByRegex[1]
-      : `https://developer.hpe.com${foundByRegex[1]}`;
+  const foundImageByRegex =
+    /!\[[^\]]*\]\((?<filename>.*?)(?="|\))(?<optionalpart>".*")?\)/gi.exec(
+      body,
+    ) || /src\s*=\s*"(.+?)"/gi.exec(body);
+  if (foundImageByRegex) {
+    const imageURL = foundImageByRegex[1].includes('https://')
+      ? foundImageByRegex[1]
+      : `https://developer.hpe.com${foundImageByRegex[1]}`;
+
     return imageURL;
   }
-
-  // Find image url by tag
-  if (typeof document !== 'undefined') {
-    const element = document.createElement('div');
-    element.innerHTML = body;
-    const foundByImageTag = element.querySelector('img');
-    return foundByImageTag.src;
-  }
-
   return null;
 };
 
