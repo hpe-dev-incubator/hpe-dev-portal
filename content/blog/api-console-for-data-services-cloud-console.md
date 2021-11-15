@@ -19,17 +19,19 @@ The DSCC public API relies on an OAuth 2.0 third party authorization framework o
 
 ![client-credential application flow](/img/greenlake-api-access-flow.png "obtain client-id and client-secret")
 
-The Access Token have a limited lifetime (about 720 seconds or 2 hours). Once it expires, the client application must use the obtained Client ID and Client Secret to obtain a new Access Token. One indication of the expiration of Access Token, the API will return response Error: '401 Unauthorized HTTP.'  If the user generate new Access Token prior to it expires, then the current Access Token will be invalidated or treated as not Authorized. 
+The access-token have a limited lifetime (about 720 seconds or 2 hours). Once it expires, the client application must use the obtained Client-ID and Client-Secret to generate a new access-token. One indication of the expiration of access-token, the request to DSCC API will return response error: '401 Unauthorized HTTP.'  If the client application generates new access token prior to it expires, then the current access-token will be invalidated or treated as not authorized. 
 
-Additionally, user can also change the Client Secret to update the authorization when authorized user lost the Client Secret or the secret is compromised. And lastly, when access to the API must be disabled, user can delete the application association in the API Gateway.
+Additionally, user can also change the client-secret to update the authorization when authorized user lost the client-secret or the secret is compromised. 
+
+And lastly, when access to the API must be disabled, user can delete the API client credential associated with client-id and client-secret in the API Gateway.
 
 ![Access API process](/img/user-guide-for-authorization.png "Process to authenticate and to obtain secure access ")
 
 ## Accessing the API Gateway Console
 
-To access the API console, user must login into the [GreenLake Common Cloud](https:\common.cloud.hpe.com), deployed the Data Services Common Cloud Console Application, and onboarded a Storage Array (Alletra, Nimble and Primera) into the organization that is associated with the user account. The user must have the role that is required to perform the intended operation at the instance of DSCC where the storage is deployed. e.g. User must have volume management capability in the Data Ops Management to create a storage volume in US West. 
+To access the API console, user must login into the [GreenLake Console,](https://common.cloud.hpe.com) deployed the DSCC to the intended region, and onboarded a storage array (Alletra, Nimble and Primera) into the organization that is associated with the user account. The user must have the role that is required to perform the intended operation at the instance of DSCC where the storage is deployed. e.g. User must have volume management capability in the Data Ops Management to create a storage volume in US West. For more information about the role based access control, please take a look at the [HPE GreenLake User Guide](https://support.hpe.com/hpesc/public/docDisplay?docId=ccs-help_en_us)
 
-The **API** **Gateway** menu is available inside **Manage** menu. From **Cloud Console** click on **Menu** to access this **Manage** Menu.
+The **API** **Gateway** menu is available inside **Manage** menu. From **Greenlake Console** click on **Menu** to access this **Manage** Menu.
 
 ![Access Menu ](/img/accesing-manage-menu-from-console.png "Menu in Cloud Console")
 
