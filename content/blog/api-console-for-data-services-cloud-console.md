@@ -105,7 +105,7 @@ The access token is a long string of JSON Web Token that is signed using RS256 a
 
 ```
 
-The responses are returned as JSON strings as shown in below example:
+The responses are returned as JSON strings as shown in below example. Note that we can use more parameters to return particular events through some filtering. Please take a look at the [DSCC API documentation](https://console-us1.data.cloud.hpe.com/doc/api/v1/) for more information.
 
 ```javascript
 {
@@ -190,8 +190,6 @@ The responses are returned as JSON strings as shown in below example:
 }
 ```
 
-
-
 The recommended tool at this moment of time to experiment with the REST API for DSCC is the Postman which is downloadable from the [Postman website](https://www.postman.com/downloads/). The postman is a versatile tool, where we can copy the access token that we obtained and issue a REST API request in simple and format the response beautifully. 
 
-In this particular exercise, we will be using the standard REST API request mode with authority of token bearer
+So this is a great example on how to obtain the access-token and experiment with the DSCC API. Please take a look at the next blog on getting the access token programmatically to enable any client-application using any familiar programming or scripting language.
