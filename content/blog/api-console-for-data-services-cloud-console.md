@@ -96,6 +96,10 @@ User then can embed the access token to the REST API request in order to perform
 
 ### Nice! Can you give me an example of using the access token?
 
+```powershell
+>curl https://scalpha-app.qa.cds.hpe.com/api/v1/audit-events -H "Accept: application/json" -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IllUMU9MZWRYeDFCbHZ2and6OU1FNm8ya1BQayIsInBpLmF0bSI6ImRlejAifQ.eyJjbGllbnRfaWQiOiIwMGNmZmY3MC04NmFiLTRmNjYtODI0NS0xZWIwNTQ2MzljMzgiLCJpc3MiOiJodHRwczovL3Nzby5jb21tb24uY2xvdWQuaHBlLmNvbSIsImF1ZCI6ImV4dGVybmFsX2FwaSIsInN1YiI6InJvbmFsZC5kaGFybWFAaHBlLmNvbSIsInVzZXJfY3R4IjoiZThhNGRhMmVlZmMzMTFlYmEwMmNiNjAzNDIyYmMwYTAiLCJhdXRoX3NvdXJjZSI6ImNjc190b2tlbl9tYW5hZ2VtZW50IiwicGxhdGZvcm1fY3VzdG9tZXJfaWQiOiIyMzRkNzZjNmU5ZDAxMWViYjczMDgyYjIxMmFkNmZlYSIsImlhdCI6MTYzNzAwNjk0NSwiYXBwbGljYXRpb25faW5zdGFuY2VfaWQiOiIzYzE4YmQwMy04MzA2LTRjN2MtOTQyZS1jNzA0YTRiODc0NGMiLCJleHAiOjE2MzcwMTQxNDV9.gHcBzl0n2wwrMRR2tSbT6jHN68d1TSNT743GED3LuF2B08ABYh9ePKQjhqYW6mjY-oSfEW2BTfG7TfTzZj9MtQ2kJGmq3DvLBl6fAaN6MEkSIz54hu0PdmDW8His6oET2txq_0kp5XJ7T6n_QJzZY0xvSoquE-48gCxwGFPWIRwefIpdw_1URFXYgfdKCxCIDTdPfYKs8kD8hzwyF9uvgLgVPWZJD6b1UHJK5OpNnBOpAxrs1xfFBz688b0vheZdARCJsl5E3Qxjyg68hw2cjavZZOX-_RWpd6JWPrQnqxyxQeYQ5yYy7giVCViM5SUZkv6j0Ts3TVguapE2kvahkQ"
+```
+
 The recommended tool at this moment of time to experiment with the REST API for DSCC is the Postman which is downloadable from the [Postman website](https://www.postman.com/downloads/). The postman is a versatile tool, where we can copy the access token that we obtained and issue a REST API request in simple and format the response beautifully. 
 
 In this particular exercise, we will be using the standard REST API request mode with authority of token bearer
