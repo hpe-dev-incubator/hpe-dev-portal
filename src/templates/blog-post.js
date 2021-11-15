@@ -1,4 +1,5 @@
 import React from 'react';
+import { Location } from '@reach/router';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
@@ -70,7 +71,7 @@ const stripDescription = (markdown) => {
   return text.trim();
 };
 
-function BlogPostTemplate({ data, location }) {
+function BlogPostTemplate({ data }) {
   const { post } = data;
   const blogsByTags = data.blogsByTags.edges;
   const siteMetadata = useSiteMetadata();
@@ -111,7 +112,11 @@ function BlogPostTemplate({ data, location }) {
               </Text>
               <Heading margin="none">{title}</Heading>
               <Text size="xlarge">{dateFormat.format(new Date(date))}</Text>
-              <Share url={location.href} text={title} />;
+              <Location>
+                {({ location }) => {
+                  return <Share url={location.href} text={title} />;
+                }}
+              </Location>
             </Box>
             <MarkdownLayout>{rawMarkdownBody}</MarkdownLayout>
             {tags && (
@@ -199,7 +204,6 @@ BlogPostTemplate.propTypes = {
       ).isRequired,
     }).isRequired,
   }).isRequired,
-  location: PropTypes.object,
 };
 
 export default BlogPostTemplate;
