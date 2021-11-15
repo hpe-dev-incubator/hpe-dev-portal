@@ -5,6 +5,8 @@ import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import { Box, Heading, Text, Avatar } from 'grommet';
 import { FormPreviousLink } from 'grommet-icons';
+import remark from 'remark';
+import strip from 'strip-markdown';
 
 import {
   Content,
@@ -59,6 +61,16 @@ const findImageURL = (body) => {
   return null;
 };
 
+const stripDescription = (markdown) => {
+  let text = markdown;
+  remark()
+    .use(strip)
+    .process(markdown, (err, file) => {
+      text = file.contents;
+    });
+  return text.trim();
+};
+
 function BlogPostTemplate({ data }) {
   const { post } = data;
   const blogsByTags = data.blogsByTags.edges;
@@ -83,7 +95,7 @@ function BlogPostTemplate({ data }) {
     <Layout title={siteTitle}>
       <SEO
         title={title}
-        description={description || excerpt}
+        description={stripDescription(description || excerpt)}
         image={findImageURL(rawMarkdownBody)}
       />
       <Box flex overflow="auto" gap="medium" pad="small">
