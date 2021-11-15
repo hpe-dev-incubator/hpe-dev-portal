@@ -61,13 +61,7 @@ const findImageURL = (body) => {
     const element = document.createElement('div');
     element.innerHTML = body;
     const foundByImageTag = element.querySelector('img');
-    if (foundByImageTag) {
-      console.log('foundByImageTag: ', foundByImageTag.src);
-      const imageURL = foundByImageTag.src.includes('https://')
-        ? foundByImageTag
-        : `https://developer.hpe.com${foundByImageTag.getAttribute('src')}`;
-      return imageURL;
-    }
+    return foundByImageTag.src;
   }
 
   return null;
