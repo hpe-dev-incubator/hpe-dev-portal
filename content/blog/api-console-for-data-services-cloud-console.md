@@ -86,7 +86,9 @@ Copy the Access Token for the API usage.
 
 ![](/img/access-token-created-and-close.png "Access Token Generated and Consumed")
 
-User then can embed the access token to the REST API request in order to perform the HTTP method against the desired resource in order to obtain the response.  
+User then can embed the access token to the REST API request in order to perform the HTTP method against the desired resource in order to obtain the response.  Note that you will need to use the correct base-URL according to the region where the DSCC is deployed. Currently these are the base-URL and the corresponding region where the DSCC is deployed (November 2021)
+
+
 
 
 
