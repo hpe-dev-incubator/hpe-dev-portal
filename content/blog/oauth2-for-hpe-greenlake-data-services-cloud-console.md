@@ -101,3 +101,5 @@ Some of the information inside the JWT details the client-id, auth-source, and m
 
 
 #### Well, I am not a developer. but how can I  explore this DSCC API?
+
+Postman is the well known tool to explore REST API that provides flexibility to import the API, automate the access-token retrieval and experiment with the parameters.
