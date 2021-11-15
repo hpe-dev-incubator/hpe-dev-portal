@@ -61,7 +61,7 @@ The overview of the Data Services Cloud Console is available at [this link](http
 
 The API categories for DSCC will grow in accordance to the expansion of the DSCC services that are going to released in future. Current services that are available, as recorded today:
 
-#### Common
+#### Common (Alletra-6K, Alletra-9K, Primera, Nimble)
 
 1. Authentication
 2. Tasks
@@ -79,7 +79,7 @@ The API categories for DSCC will grow in accordance to the expansion of the DSCC
 14. volume-sets
 15. volumes
 
-#### Alletra 6K or Nimble
+#### Alletra-6K or Nimble
 
 1. protection-templates
 2. disks
@@ -121,7 +121,7 @@ Existing clients will be able to maintain the backward compatibility from the hi
 
 ### Authorization through OAuth2 Client-Credential work-flow
 
-The client's application can issue REST API request using the access-token as the bearer of the token.  The client obtains this access-token from the after the client successfully authenticate through an associated customer's application credential (client-id and client-secret). This application credential is created by the DSCC user who has the permission to access resources (such as controllers, volumes etc.) under the DSCC instances. This access-token expiration time, by default, is set for 7200 seconds (2 hours). When the the resource server see this expired access token, and return 0x401 response (not authorized).  The client must then reauthenticate using the associated client-id and client-secret to obtain the next access-token.
+The client's application can issue REST API request using the access-token as the bearer of the token.  The client obtains this access-token from the after the client successfully authenticate through an associated customer's application credential (client-id and client-secret). This application credential is created by the DSCC user who has the permission to access resources (such as controllers, volumes etc.) under the DSCC instances. This access-token expiration time, by default, is set for 7200 seconds (2 hours). When the the resource server see this expired access token, and return 0x401 response (not authorized).  The client must then reauthenticate using the associated client-id and client-secret to obtain the next access-token to use for the next REST API request.
 
 ### Authorization Policies
 
