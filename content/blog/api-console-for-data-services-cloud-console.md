@@ -192,6 +192,6 @@ The responses are returned as JSON strings as shown in below example. Note that 
 }
 ```
 
-The recommended tool at this moment of time to experiment with the REST API for DSCC is the Postman which is downloadable from the [Postman website](https://www.postman.com/downloads/). The postman is a versatile tool, where we can copy the access token that we obtained and issue a REST API request in simple and format the response beautifully. 
+The recommended tool at this moment of time to experiment with the REST API for DSCC is the Postman which is downloadable from the [Postman website](https://www.postman.com/downloads/). The postman is a versatile tool, where anyone can use copy the access token (or better to use the client-id and client-secret) from the API Gateway and issue a REST API request without typing a lot of code, test the parameters and format the responses.
 
-So this is a great example on how to obtain the access-token and experiment with the DSCC API. Please take a look at the next blog on getting the access token programmatically to enable any client-application using any familiar programming or scripting language.
+So this blog is a great example on how to obtain the access-token and experiment with the DSCC API. Please take a look at the next blog on getting the access token programmatically to enable any client-application using any familiar programming or scripting language.
