@@ -11,7 +11,7 @@ tags:
 ---
 ## Secured Yet Agile
 
-One major principle of Application Programming Interface (API) for the HPE Data Services Cloud Console (DSCC) is secured. However, the API must also be flexible for the consumption of applications or tools that use this API to extend their features using DSCC. To accommodate the flexibility, DSCC REST API is using the OAuth 2.0 authentication flow based on the client-credential which generates the limited lifetime access token. This access token will then be embedded in the header of each REST API call as the authorization bearer.
+One major principle of Application Programming Interface (API) for the HPE Data Services Cloud Console (DSCC) is secured. However, the API must also be flexible for the consumption of applications or tools that use this API to extend their features using DSCC. To accommodate the flexibility, DSCC REST API is using the OAuth 2.0 authentication flow based on the client-credential which generates the limited lifetime access token. This access token will then be embedded in the header of each REST API request as the authorization bearer.
 
 This blog will walk through the essential steps required to exercise or experiment with the DSCC REST API.
 
