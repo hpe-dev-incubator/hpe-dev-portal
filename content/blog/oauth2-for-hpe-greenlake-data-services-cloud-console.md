@@ -99,3 +99,5 @@ Some of the information inside the JWT details the client-id, auth-source, and m
 #### I am not a developer; nevertheless, how can I explore this DSCC API?
 
 Postman is the well known tool to explore REST API that provides flexibility to import the API, automate the access-token retrieval and experiment with the parameters. The Postman provides this capability with a lot less of typing and knowledge of programming language. To start experiment with Postman, the recommendation is to download the application based rather than web based. This is the **[download link](https://www.postman.com/downloads/)** for the Postman app  which is available in either Microsoft Windows and Macintosh MacOS version. Install the application on the workstation that has access to internet via website browser (HTTPS) and allowed to connect to https://*.cloud.hpe.com
+
+Start by downloading the storage-api.yaml OpenAPI definition into the workstation. Anyone can go the DSCC API documentation website through this link: <https://console-us1.data.cloud.hpe.com/doc/api/v1/>
