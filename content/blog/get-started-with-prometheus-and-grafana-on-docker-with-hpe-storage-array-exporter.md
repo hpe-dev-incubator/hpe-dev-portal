@@ -5,16 +5,17 @@ date: 2022-01-24T16:00:00.000Z
 author: Michael Mattsson
 authorimage: /img/portrait-192.png
 tags:
-  - HPE Alletra
-  - HPE Nimble Storage
-  - Kubernetes
-  - Prometheus
+  - hpe-alletra
+  - hpe-nimble-storage
+  - hpe-3par-and-primera
+  - kubernetes
+  - prometheus
 ---
 With the recently released HPE Storage Array Exporter for Prometheus and HPE CSI Info Metrics Provider for Prometheus, it's a good time to familiarize ourselves with the cloud native technologies involved and get some first-hand experience.
 
 Prometheus is a time-series database that also provides monitoring and alerting. It's a [CNCF graduated project](https://www.cncf.io/projects/). Grafana is a web-based visualization tool that uses time-series data to create beautiful graphs and elements to present data in views referred to as dashboards. Prometheus scrapes an HTTP endpoint of a target periodically to consume an assortment of metric types and and metadata. The target is usually referred to as an exporter and the data being scraped is the current state of one or many exporter data points.
 
-![Prometheus Overview](/img/prometheus-1.0.0-beta-revwip.png)
+![Prometheus Overview](/img/prometheus-1.0.0-reva.png)
 
 In this tutorial we'll learn how to deploy Prometheus, Grafana and the HPE Storage Array Exporter for Prometheus using nothing but Docker. A supported storage backend, such as a HPE Alletra, Nimble Storage, Primera or 3PAR is needed to gather metrics for visualization. These prerequisites are assumed along with basic docker and container knowledge. While this is a highly opinionated tutorial, the different components may be run standalone on Windows or Linux and may also be deployed directly on Kubernetes with Helm.
 
@@ -56,7 +57,7 @@ docker run -d --rm --name my-array-1 \
      /etc/config/storage-system.yaml
 ```
 
-By running the above command with the `--accept-eula` parameter, the end-user accepts the HPE End User License Agreement at [https://www.hpe.com/us/en/software/licensing.html](https://www.hpe.com/us/en/software/licensing.html).
+By running the above command with the `--accept-eula` parameter, the end-user accepts the HPE End User License Agreement at <https://www.hpe.com/us/en/software/licensing.html>.
 
 The exporter is now up and running listening on port 8080. To ensure we can reach the metrics endpoint, run the following `docker` command:
 
