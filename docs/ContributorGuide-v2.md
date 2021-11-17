@@ -313,7 +313,7 @@ To do so, proceed as follows:
    - Thumbnail Image: a picture for the event. Click **Choose an image** to upload and select a picture. Select **Insert from URL** to enter a link URL for your image.
    - Navigation path: an URL to navigate to register or find out more about the event and conference. This is typically the URL to the event or conference.
    - Leave card size to **large**
-   - Tag: specify a keyword for your event or conference. Typically this is the name of your event (for example: Discover, KubeCon).
+   - Tag: specify a keyword for your event or conference. Typically this is the name of your event (for example: Discover, KubeCon). You can also add a "platform" page tag for you revent if it is an event related to an HPE product & solution (see Tags table at the end of this document)
 
       <center><img src="media/guide-event-new-event-properties.png" width="600" height="768"></center>
       
@@ -429,7 +429,11 @@ To do so, proceed as follows:
 
     -  On the top right of the wizard, click **Upload** to upload the image stored on your PC/laptop and select image you have just uploaded by clicking **Choose selected**.
      
-    -  Optionally, you can spacify a "**Title**" for your image in the _TITLE_ section of the _IMAGE_ block. The title will appear when the reader hovers or pauses the mouse over the image.   
+    -  Specify a "**Title**" for your image in the _TITLE_ section of the _IMAGE_ block. The title will appear when the reader hovers or pauses the mouse over the image.
+    
+    -  Make sure to specify a description for your image in the _ALT TEXT_ section of the _IMAGE_ block. 
+    
+    >**IMPORTANT NOTE:** Adding a _ALT Text_ will help promote online content in Search Engine such as Google.      
 
 -   **Adjusting image size and its position:**
 
