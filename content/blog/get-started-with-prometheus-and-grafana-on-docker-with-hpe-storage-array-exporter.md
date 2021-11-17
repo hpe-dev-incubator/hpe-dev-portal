@@ -17,13 +17,13 @@ Prometheus is a time-series database that also provides monitoring and alerting.
 
 ![Prometheus Overview](/img/prometheus-1.0.0-reva.png)
 
-In this tutorial we'll learn how to deploy Prometheus, Grafana and the HPE Storage Array Exporter for Prometheus using nothing but Docker. A supported storage backend, such as a HPE Alletra, Nimble Storage, Primera or 3PAR is needed to gather metrics for visualization. These prerequisites are assumed along with basic docker and container knowledge. While this is a highly opinionated tutorial, the different components may be run standalone on Windows or Linux and may also be deployed directly on Kubernetes with Helm.
+In this tutorial we'll learn how to deploy Prometheus, Grafana and the HPE Storage Array Exporter for Prometheus using nothing but Docker. A supported storage backend, such as a HPE Alletra, Nimble Storage, Primera or 3PAR is needed to gather metrics for visualization. These prerequisites are assumed along with basic Docker and container knowledge. While this is a highly opinionated tutorial, the different components may be run standalone on Windows or Linux and may also be deployed directly on Kubernetes with Helm.
 
 **Note:** This tutorial is purely for educational purposes and not intended for production deployments.
 
 # Get started
 
-This tutorial assumes `docker` is installed and functional. Credentials are also needed for a backend system. HPE Nimble Storage is being used in the examples and metrics may be named differently when using something else. Still, the principles remain the same.
+This tutorial assumes Docker is installed and functional. Credentials are also needed for a backend system. HPE Nimble Storage is being used in the examples and metrics may be named differently when using something else. Still, the principles remain the same.
 
 To allow the containers to communicate with each other by name, a separate bridge network is created.
 
@@ -101,7 +101,7 @@ docker run -d --rm --name prometheus-server \
     prom/prometheus:v2.30.3
 ```
 
-In a few moments, the Prometheus server should be up and listening on the docker host and accessible from http://your.docker.host.example.com/ or http://localhost. 
+In a few moments, the Prometheus server should be up and listening on the Docker host and accessible from http://your.docker.host.example.com/ or http://localhost. 
 
 To inspect if metrics are being collected properly, access the web interface and start typing *hpe* in the query bar.
 
