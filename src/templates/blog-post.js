@@ -5,6 +5,8 @@ import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import { Box, Heading, Text, Avatar } from 'grommet';
 import { FormPreviousLink } from 'grommet-icons';
+import remark from 'remark';
+import strip from 'strip-markdown';
 
 import {
   Content,
@@ -45,39 +47,35 @@ const rows = {
 };
 
 const findImageURL = (body) => {
-  // Find image url by Regex
-  const foundByRegex = /!\[[^\]]*\]\((?<filename>.*?)(?="|\))(?<optionalpart>".*")?\)/gi.exec(
-    body,
-  );
-  if (foundByRegex) {
-    const imageURL = foundByRegex[1].includes('https://')
-      ? foundByRegex[1]
-      : `https://developer.hpe.com${foundByRegex[1]}`;
+  const foundImageByRegex =
+    /!\[[^\]]*\]\((?<filename>.*?)(?="|\))(?<optionalpart>".*")?\)/gi.exec(
+      body,
+    ) || /src\s*=\s*"(.+?)"/gi.exec(body);
+  if (foundImageByRegex) {
+    const imageURL = foundImageByRegex[1].includes('https://')
+      ? foundImageByRegex[1]
+      : `https://developer.hpe.com${foundImageByRegex[1]}`;
+
     return imageURL;
   }
-
-  // Find image url by tag
-  if (typeof document !== 'undefined') {
-    const element = document.createElement('div');
-    element.innerHTML = body;
-    const foundByImageTag = element.querySelector('img');
-    if (foundByImageTag) {
-      console.log('foundByImageTag: ', foundByImageTag.src);
-      const imageURL = foundByImageTag.src.includes('https://')
-        ? foundByImageTag
-        : `https://developer.hpe.com${foundByImageTag.getAttribute('src')}`;
-      return imageURL;
-    }
-  }
-
   return null;
+};
+
+const stripDescription = (markdown) => {
+  let text = markdown;
+  remark()
+    .use(strip)
+    .process(markdown, (err, file) => {
+      text = file.contents;
+    });
+  return text.trim();
 };
 
 function BlogPostTemplate({ data }) {
   const { post } = data;
   const blogsByTags = data.blogsByTags.edges;
   const siteMetadata = useSiteMetadata();
-  const siteTitle = siteMetadata.title;
+  const { siteTitle, siteUrl } = siteMetadata;
   const dateFormat = Intl.DateTimeFormat('default', {
     year: 'numeric',
     month: 'long',
@@ -97,7 +95,7 @@ function BlogPostTemplate({ data }) {
     <Layout title={siteTitle}>
       <SEO
         title={title}
-        description={description || excerpt}
+        description={stripDescription(description || excerpt)}
         image={findImageURL(rawMarkdownBody)}
       />
       <Box flex overflow="auto" gap="medium" pad="small">
@@ -116,7 +114,12 @@ function BlogPostTemplate({ data }) {
               <Text size="xlarge">{dateFormat.format(new Date(date))}</Text>
               <Location>
                 {({ location }) => {
-                  return <Share url={location.href} text={title} />;
+                  return (
+                    <Share
+                      url={`${siteUrl}${location.pathname}`}
+                      text={title}
+                    />
+                  );
                 }}
               </Location>
             </Box>
