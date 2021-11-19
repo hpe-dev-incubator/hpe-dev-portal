@@ -145,3 +145,5 @@ Once the API definition completes the import, Postman recognize the fact that it
 As the result of the upload of the DSCC API, Postman can then the API definition under the Postment API menu as shown in below picture. Note that Postman validate that DSCC API definition doesn't have any issues as shown in the bottom of the picture.
 
 ![DSCC API loaded](/img/postman-api-loaded.png "DSCC API definition loaded")
+
+After the API is loaded, we can then use the automation for obtaining that access token that is facilitated by Postman. To start the OAuth2 automation, select the Collections menu and display the rest of the API listing under the tree. At top of the tree we will initialize it with the client-id and client-secret
