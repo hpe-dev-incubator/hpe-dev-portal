@@ -134,7 +134,7 @@ Afterward, the time comes for importing the API definition into this workspace. 
 
 ![Select upload files to import API](/img/postman-import-api.png "Upload API definition")
 
-Select the API definition that was downloaded from the [HPE DSCC API documentation](<https://console-us1.data.cloud.hpe.com/doc/api/v1/>) like shown below
+Select the DSCC API definition in yaml format, that was downloaded from the [HPE DSCC API documentation](<https://console-us1.data.cloud.hpe.com/doc/api/v1/>) by clicking on the "Download YAML" button as shown below
 
 ![Download the API definition](/img/download-dscc-api-definition.png "Save the API definition")
 
