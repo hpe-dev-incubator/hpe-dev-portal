@@ -73,13 +73,17 @@ token = oauth.fetch_token(token_url='https://sso.common.cloud.hpe.com/as/token.o
 print(token["access_token"])
 ```
 
+Another snippet below shows the PowerShell code to obtain the access token accordingly.
+
+
+
 The access token contains the information in JWT format that is self-contained, securely encoded, and signed using RS256. The access-token is designed to enable secure transmission between the client application and the REST API server with limited lifetime (2 hours).
 
 ```http
 eyJhbGciOiJSUzI1NiIsImtpZCI6IjFvVEFmay1UOTZ1ZDd5cDBZTGlYM1ROSWdDWSIsInBpLmF0bSI6ImRlejAifQ.eyJjbGllbnRfaWQiOiIwMGNmZmY3MC04NmFiLTRmNjYtODI0NS0xZWIwNTQ2MzljMzgiLCJpc3MiOiJodHRwczovL3Nzby5jb21tb24uY2xvdWQuaHBlLmNvbSIsImF1ZCI6ImV4dGVybmFsX2FwaSIsInN1YiI6InJvbmFsZC5kaGFybWFAaHBlLmNvbSIsInVzZXJfY3R4IjoiZThhNGRhMmVlZmMzMTFlYmEwMmNiNjAzNDIyYmMwYTAiLCJhdXRoX3NvdXJjZSI6ImNjc190b2tlbl9tYW5hZ2VtZW50IiwicGxhdGZvcm1fY3VzdG9tZXJfaWQiOiIyMzRkNzZjNmU5ZDAxMWViYjczMDgyYjIxMmFkNmZlYSIsImlhdCI6MTYzNDc3OTIwNiwiYXBwbGljYXRpb25faW5zdGFuY2VfaWQiOiIzYzE4YmQwMy04MzA2LTRjN2MtOTQyZS1jNzA0YTRiODc0NGMiLCJleHAiOjE2MzQ3ODY0MDZ9.sz7GHvCdO_NjPgVt5rz7JHRSegZWD0pimNqiw7s_SC9vB2XsQnSEP71Kh1y3SqQxkKF8AgbJ02iEZYsk-GO-JmufGfeIUbl2idrFlfXPiKsKftn35dHO-uHW8s4KwL7mUF_HiPxUPIsixQ1zS_88-qdUGzAWDjcR0JO2gKnkaWeQ_AUGzdDw09ZSYZG3sxIoqU_HNjLF1c8hJmVV9Q6IN1ItKAspECc_UYTnjUBrZz5mpupDxuLIMJytTFUFwCriphi9cXQCTyQ3TXW_EALtRq_KdLEe311WFMX9mAL87zXP2JNc8bf8CTiiAty5eCjM2wxrPK9-ep0i5J5v6kJW_Q
 ```
 
-Some of the information inside the JWT details the client-id, auth-source, and many others including time of expiration. 
+Some of the information inside the JWT details the client-id, source of authentication, and many others including time of expiration. 
 
 ```json
 {
@@ -100,7 +104,7 @@ Some of the information inside the JWT details the client-id, auth-source, and m
 
 Postman is the well known tool to explore REST API that provides flexibility to import the API, automate the access-token retrieval and experiment with the parameters. The Postman provides this capability with a lot less of typing and knowledge of programming language. To start experiment with Postman, the recommendation is to download the application based rather than web based. This is the **[download link](https://www.postman.com/downloads/)** for the Postman app  which is available in either Microsoft Windows and Macintosh MacOS version. Install the application on the workstation that has access to internet via website browser (HTTPS) and allowed to connect to https://*.cloud.hpe.com
 
-Start by downloading the storage-api.yaml OpenAPI definition into the workstation. Anyone can go the DSCC API documentation website through this link: <https://console-us1.data.cloud.hpe.com/doc/api/v1/>
+Start by downloading the storage-api.yaml OpenAPI 3.0 definition into the workstation. Anyone can go the DSCC API documentation website through this link: <https://console-us1.data.cloud.hpe.com/doc/api/v1/>
 
 Postman provides the ability to create a workspace where one can experiment with the HPE DSCC OpenAPI by importing the storage-api.yaml into the API library. The process started by selecting the Workspaces menu, click on Create Workspace button and type in the desired workspace name. In this example, it's called HPE DSCC API
 
