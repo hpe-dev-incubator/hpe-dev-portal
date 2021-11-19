@@ -134,7 +134,7 @@ Afterward, the time comes for importing the API definition into this workspace. 
 
 ![Select upload files to import API](/img/postman-import-api.png "Upload API definition")
 
-Select the DSCC API definition in yaml format, that was downloaded from the [HPE DSCC API documentation](<https://console-us1.data.cloud.hpe.com/doc/api/v1/>) by clicking on the "Download YAML" button as shown below
+Select the DSCC API definition in yaml format, that was downloaded from the [HPE DSCC API documentation](https://console-us1.data.cloud.hpe.com/doc/api/v1/) by clicking on the "Download YAML" button as shown below
 
 ![Download the API definition](/img/download-dscc-api-definition.png "Save the API definition")
 
@@ -148,6 +148,16 @@ As the result of the upload of the DSCC API, Postman can then the API definition
 
 After the API is loaded, we can then use the automation for obtaining that access token that is facilitated by Postman. To start the OAuth2 automation, select the Collections menu and display the rest of the API listing under the tree. At top of the tree we will initialize the authorization with correct parameters such as the client-id, client-secret, DSCC OAuth2 end-point, and other required parameters. With this setup, any API that inherit the authorization from the top of tree will be able to populate their header for REST API request with access token as the token bearer. Below display the configuration that is populated with the required parameters.
 
- 
+![]()
+
+
+
+
+
+![]()
+
+
+
+
 
 ![]()
