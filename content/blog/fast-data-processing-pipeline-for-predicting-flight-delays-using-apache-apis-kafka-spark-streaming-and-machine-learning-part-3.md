@@ -135,9 +135,9 @@ You can read about the MapR Event Streams Spark Streaming code in [part 2 of thi
 
 Below, we use a Scala case class and [Structype](https://spark.apache.org/docs/latest/sql-programming-guide.html#programmatically-specifying-the-schema) to define the schema, corresponding to the input data.
 
-<center><img alt="Scala case class 1" src="/img/scala-case-class.png" width="700"></center>
+<center><img alt="Scala case class 1" src="/img/scala-case-class.png" width="500"></center>
 
-<center><img alt="Scala case class 2" src="/img/scala-case-class-2.png" width="700"></center>
+<center><img alt="Scala case class 2" src="/img/scala-case-class-2.png" width="500"></center>
 
 We use the KafkaUtils createDirectStream method with Kafka configuration parameters to create an input stream from a MapR Event Store topic. This creates a DStream that represents the stream of incoming data, where each message is a key value pair. We use the DStream map transformation to create a DStream with the message values.
 
@@ -163,7 +163,7 @@ A Spark Dataset is a distributed collection of data. Dataset is a newer interfac
 
 A DataFrame is a Dataset organized into named columns Dataset\[Row]. (In Spark 2.0, the DataFrame APIs merged with Datasets APIs.)
 
-<center><img alt="Unified Apache Spark 2.0 API" src="/img/unified-apache-spark.png" width="700"></center>
+<center><img alt="Unified Apache Spark 2.0 API" src="/img/unified-apache-spark.png" width="500"></center>
 
 **Loading data from MapR Database into a Spark Dataset**
 
@@ -183,7 +183,7 @@ In the code below, a filter is used to count the predicted delays, actual delays
 
 The output is shown below.
 
-<center><img alt="Output of predicted delays, actual delays and total" src="/img/delays-actual-delays-total-output.png" width="700"></center>
+<center><img alt="Output of predicted delays, actual delays and total" src="/img/delays-actual-delays-total-output.png" width="500"></center>
 
 **What is the count of predicted delay/notdelay for this dstream dataset?**
 
@@ -197,7 +197,7 @@ You can register a Dataset as a temporary table using a given name, and then run
 scala> spark.sql("select dofW, pred_dtree, count(pred_dtree) from flight group by dofW, pred_dtree order by dofW").show
 ```
 
-<center><img alt="Spark SQL queries on the Dataset of FlightwPred objects" src="/img/queries-dataset-flightwpred-objects.png" width="700"></center>
+<center><img alt="Spark SQL queries on the Dataset of FlightwPred objects" src="/img/queries-dataset-flightwpred-objects.png" width="500"></center>
 
 **What is the count of predicted delay/notdelay by destination?**
 
@@ -205,7 +205,7 @@ scala> spark.sql("select dofW, pred_dtree, count(pred_dtree) from flight group b
 scala> spark.sql("select dest, pred_dtree, count(pred_dtree) from flight group by dest, pred_dtree order by dest").show
 ```
 
-<center><img alt="Delay/NotDelay destination" src="/img/delay-notdelay-destination.png" width="700"></center>
+<center><img alt="Delay/NotDelay destination" src="/img/delay-notdelay-destination.png" width="500"></center>
 
 (The complete code, instructions and more example queries are in the github code link at the end.)
 
@@ -221,7 +221,7 @@ With Drill, you can use SQL to interactively query and join data from files in J
 
 The output for this query **"What is the count of predicted delay/notdelay by origin?"** is shown below:
 
-<center><img alt="output of predicted delay/notdelay by origin" src="/img/output-delay-notdelay-origin.png" width="700"></center>
+<center><img alt="output of predicted delay/notdelay by origin" src="/img/output-delay-notdelay-origin.png" width="500"></center>
 
 Below are some example SQL queries using the Drill shell.
 
@@ -254,7 +254,7 @@ Below are some example OJAI queries using the MapR Database shell.
 maprdb> find /apps/flights -where '{"$and":[{"$eq":{"pred_dtree":1.0}},{ "$like" : {"_id":"%SFO_DEN%"} }]}' --f _id,pred_dtree
 ```
 
-<center><img alt="MapR Database find /apps/flights" src="/img/mapr-db-find.png" width="700"></center>
+<center><img alt="MapR Database find /apps/flights" src="/img/mapr-db-find.png" width="500"></center>
 
 **Summary**
 
