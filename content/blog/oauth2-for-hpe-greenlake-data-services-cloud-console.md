@@ -51,7 +51,7 @@ grant_type=client_credentials
 
 The following show the example of code snippet using curl to obtain the access token. The variables of the $YOUR_CLIENT_ID and $YOUR_CLIENT_SECRET will be substituted with the client id and client secret from the above menu.
 
-```bash
+```shell
 curl -X POST https://sso.common.cloud.hpe.com/as/token.oauth2 -H         
 "Content-Type: application/x-www-form-urlencoded"         
 -d "grant_type=client_credentials&client_id=$YOUR_CLIENT_ID&client_secret=$YOUR_CLIENT_SECRET"
@@ -59,7 +59,7 @@ curl -X POST https://sso.common.cloud.hpe.com/as/token.oauth2 -H
 
 The following snippet show the example of code using python to obtain the access token. The same as previous code snippet, YOUR_CLIENT_ID and YOUR_CLIENT_SECRET variables must be substituted accordingly.
 
-```py
+```python
 from oauthlib.oauth2 import BackendApplicationClient       
 from requests.auth import HTTPBasicAuth       
 from requests_oauthlib import OAuth2Session       
@@ -73,9 +73,17 @@ token = oauth.fetch_token(token_url='https://sso.common.cloud.hpe.com/as/token.o
 print(token["access_token"])
 ```
 
-Another snippet below shows the PowerShell code to obtain the access token accordingly.
+Another snippet below shows the PowerShell code to obtain the access token accordingly. In this snippet, client application will need to replace the client_id and client_secret.
 
-
+```powershell
+$AuthUri = "https://sso.common.cloud.hpe.com/as/token.oauth2"
+ [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+ $AuthHeaders = @{ 'Content-Type' = 'application/x-www-form-urlencoded' }
+ $AuthBody    = [ordered]@{  'grant_type' = 'client_credentials',
+                             'client_id' = {Insert Client ID Here},
+                             'client_secret' = {Insert Client Secret Here } }   
+ (invoke-restmethod -uri "$AuthURI" -Method Post -headers $AuthHeaders -body $MyBody).access_token
+```
 
 The access token contains the information in JWT format that is self-contained, securely encoded, and signed using RS256. The access-token is designed to enable secure transmission between the client application and the REST API server with limited lifetime (2 hours).
 
