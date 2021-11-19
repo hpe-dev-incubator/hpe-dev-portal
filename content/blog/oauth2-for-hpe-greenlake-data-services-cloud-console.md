@@ -107,8 +107,10 @@ Postman provides the ability to create a workspace where one can experiment with
 ![Create Workspace](/img/postman-create-workspace.png "Create the workspace in the Postman")
 
 Inside this new workspace we will need to create environment variable called baseUrl that represents the URL toward the DSCC API that depends on region. This is the current list of the URL based on the region as of November 2021:
+
 | DSCC Region  | base-URL                       |
 | ------------ | ------------------------------ |
 | EU Central   | https://eu1.data.cloud.hpe.com |
 | AP Northeast | https://jp1.data.cloud.hpe.com |
 | US West      | https://us1.data.cloud.hpe.com |
+
