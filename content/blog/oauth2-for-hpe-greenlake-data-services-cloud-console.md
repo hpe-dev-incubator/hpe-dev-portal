@@ -124,4 +124,8 @@ Afterward, the time comes for importing the API definition into this workspace. 
 
 Select the API definition that was downloaded from the HPE DSCC API documentation like shown below
 
+![Download the API definition](/img/download-dscc-api-definition.png "Save the API definition")
+
+Once the API definition loaded, Postman recognize the fact that it's an OpenAPI 3.0 definition and build the API library automatically.
+
 ![]()
