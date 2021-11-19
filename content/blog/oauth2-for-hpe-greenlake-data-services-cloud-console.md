@@ -175,9 +175,9 @@ After the access-token is sync-ed, we can then issue any REST API by selecting t
 
 ![Use the correct environment](/img/postman-set-correct-environment.png "Correct Environment Variable")
 
-* Set the Authorization to inherit from the parent's authorization to allow this REST API request to use the access token acquired in the top of the tree.
+* Set the Authorization to inherit from the parent's authorization to allow this REST API request to use the access token acquired previously. Note that this inheritance requires the sync of the access-token.
 
-![]()
+![](/img/postman-set-inherit-auth.png)
 
 ![](/img/postman-get-storage-system-sort-select-id-only.png)
 
