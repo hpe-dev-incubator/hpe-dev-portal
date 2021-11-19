@@ -161,6 +161,8 @@ Click on the "Get New Access Token" button to obtain the valid access-token
 
 ![]()
 
+As the result of the getting new access token, a new menu will be shown that shows the content of the access-token. Click the "Use Token" button to select this new access-token. If there is an existing access-token, it will be invalid and that name of that invalid access-token will have a strike-through as shown in below image.
+
 ![]()
 
 ![]()
