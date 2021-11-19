@@ -138,10 +138,10 @@ Select the API definition that was downloaded from the [HPE DSCC API documentati
 
 ![Download the API definition](/img/download-dscc-api-definition.png "Save the API definition")
 
-Once the API definition loaded, Postman recognize the fact that it's an OpenAPI 3.0 definition and build the API library automatically.
+Once the API definition completes the import, Postman recognize the fact that it's an OpenAPI 3.0 definition and build the API library automatically.
 
 ![Confirmation of the API Definition Import](/img/postman-import-load.png "OpenAPI 3.0 Confirmation")
 
-Once the API is uploaded, Postman will list the API definition under the API menu as shown in this picture
+As the result of the upload of the DSCC API, Postman can then the API definition under the Postment API menu as shown in below picture. Note that Postman validate that DSCC API definition doesn't have any issues as shown in the bottom of the picture.
 
 ![DSCC API loaded](/img/postman-api-loaded.png "DSCC API definition loaded")
