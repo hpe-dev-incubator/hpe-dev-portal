@@ -21,11 +21,11 @@ At the introduction of this public API in this [blog](https://deploy-preview-707
 
 ### How do I implement HPE DSCC API in my client application or my script?
 
-This blog will go through example of client-application using the client-id, client-secret, DSCC API definition in yaml, and the Postman tool. The flow to get the Client ID and Client Secret from this menu is detailed in my blog titled **Using HPE GreenLake Console's API Gateway to Data Services Cloud Console.** Note that client-id and client secret are shown only one time during the API credential creation.
+This blog will go through example of setting up the client-application using the client-id, client-secret, DSCC API definition in yaml, and the Postman tool. The flow to get the client-id and client-secret from this menu is detailed in my blog titled **Using HPE GreenLake Console's API Gateway to Data Services Cloud Console.** Note that client-id and client secret are shown only one time during the API credential creation; hence it need to be securely recorded.
 
 ![image of the client id and client secret](/img/credentials-created-client.png "Client Credentials")
 
-The user owner who generate this client-id and client-secret pair must store them and transfer them securely to the designated client (application or scripts) to issue the REST API request to the resources in the DSCC in order to achieve the customer's outcome. The client application access to the DSCC resources depends on the authorization or RBAC of the user owner.
+The user owner who generate this client-id and client-secret pair must store them and transfer them securely to the designated client (application or scripts) to issue the REST API request to the resources in the DSCC to achieve the customer's outcome. The client application access to the DSCC resources depends on the authorization or RBAC of the user owner.
 
 For the client application to perform the API to the HPE DSCC, the application must obtain the access token from HPE GreenLake Console as described in below diagram. The end-point **https://sso.common.cloud.hpe.com/as/token.oauth2** provides access token in the response of the authentication request from any client application.
 
