@@ -8,7 +8,7 @@ tags:
   - hpe-ezmeral-data-fabric
   - MapR
 ---
-```
+```bash
 "authorDisplayName": "Carol McDonald",
 "tags": "use-cases",
 "publish": "2018-02-08T12:00:00.000Z"
@@ -23,7 +23,7 @@ tags:
 
 According to Bob Renner, previous CEO of Liaison Technologies, the possibility to blend machine learning with real-time transactional data flowing through a single platform is opening a world of new possibilities, such as enabling organizations to take advantage of opportunities as they arise. According to [Gartner](https://www.gartner.com/newsroom/id/3812063) over the next few years, virtually every app, application and service will incorporate some level of machine learning. Leveraging these opportunities requires fast and scalable data processing pipelines.
 
-![MapR Platform](/img/mapr-platform.png)
+<center><img alt="MapR Platform" src="/img/mapr-platform.png" width="700"></center>
 
 This is the third in a series of blog posts, that discuss the architecture of a data pipeline that combines streaming data with machine learning and fast storage. [The first post](https://developer.hpe.com/blog/fast-data-processing-pipeline-for-predicting-flight-delays-using-apache-/) discussed creating a machine learning model to predict flight delays. The [second post](https://developer.hpe.com/blog/fast-data-processing-pipeline-for-predicting-flight-delays-using-apache-apis-kafka-spark-streaming-and-machine-learning-part-2/) discussed using the saved model with streaming data to do a real-time analysis of flight delays. This third post will discuss fast storage and analysis with MapR Database, Apache Spark, Apache Drill and OJAI.
 
