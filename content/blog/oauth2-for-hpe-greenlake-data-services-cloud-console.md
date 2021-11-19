@@ -177,7 +177,14 @@ After the access-token is sync-ed, we can then issue any REST API by selecting t
 
 * Set the Authorization to inherit from the parent's authorization to allow this REST API request to use the access token acquired previously. Note that this inheritance requires the sync of the access-token.
 
-![](/img/postman-set-inherit-auth.png)
+![Inherit Authorization](/img/postman-set-inherit-auth.png "Parent's Authorization")
+
+For the first REST API request for this example, you can select the Get all storage systems. This can return a huge amount of data depends on the arrays that were registered in this instance of the HPE DSCC. To enable concise information returned from this REST API request, we can check on the following parameters and uncheck every other parameters.
+
+* sort = id asc, name dscc
+* select = id
+
+Click on the "Send" button to issue the GET all storage system, within seconds, the body section on bottom of this menu was filled with the list of the available arrays. It's very easy to use, simple, no programming required and minimal typing. Isn't it awesome?
 
 ![](/img/postman-get-storage-system-sort-select-id-only.png)
 
