@@ -165,7 +165,7 @@ As the result of the getting new access token, a new menu will be shown that sho
 
 ![Obtain New Access Token](/img/postman-use-access-token.png "Valid Access Token")
 
-Afterward, this valid access-token can be made available for all of next API Request. To achieve it, click on the Sync Access Token until it's sync-up (Color change to Green).  To enable this, please select delete expired tokens and select available tokens. Lastly ensure that this header prefix is set to Bearer
+Afterward, this valid access-token can be made available for all of next API Request. To achieve it, click on the Sync Access Token until it's sync-up (Icon color changed to Green).  To enable this, please select delete expired tokens and select available tokens. Lastly ensure that this header prefix is set to Bearer
 
 ![Access Token is sync-ed](/img/postman-setup-sync-token-at-top-folder.png "Sync access token")
 
