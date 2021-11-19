@@ -169,7 +169,7 @@ Afterward, this valid access-token can be made available for all of next API Req
 
 ![Access Token is sync-ed](/img/postman-setup-sync-token-at-top-folder.png "Sync access token")
 
-
+After the access-token is sync-ed, we can then issue any REST API by selecting the appropriate REST API request. For this example, we are going to issue the REST API to show all of the storage systems connected to the DSCC.
 
 ![]()
 
