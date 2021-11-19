@@ -163,6 +163,8 @@ Click on the "Get New Access Token" button to obtain the valid access-token
 
 As the result of the getting new access token, a new menu will be shown that shows the content of the access-token. Click the "Use Token" button to select this new access-token. If there is an existing access-token, it will be invalid and that name of that invalid access-token will have a strike-through as shown in below image.
 
-![]()
+![Obtain New Access Token](/img/postman-use-access-token.png "Valid Access Token")
 
-![]()
+Afterward, this valid access-token can be made available for all of next API Request. To achieve it, click on the Sync Access Token until it's sync-up (Color change to Green).  To enable this, please select delete expired tokens and select available tokens. Lastly ensure that this header prefix is set to Bearer
+
+![](/img/postman-setup-sync-token-at-top-folder.png)
