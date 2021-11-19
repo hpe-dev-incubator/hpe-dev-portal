@@ -118,7 +118,7 @@ Postman provides the ability to create a workspace where one can experiment with
 
 ![Create Workspace](/img/postman-create-workspace.png "Create the workspace in the Postman")
 
-Inside this new workspace we will need to create environment variable called baseUrl that represents the URL toward the DSCC API that depends on region. This is the current list of the URL based on the region as of November 2021:
+Inside this new workspace we will need to create environment variable called {baseUrl} that represents the URL toward the DSCC API that depends on region. This is the current list of the URL based on the region as of November 2021:
 
 | DSCC Region  | base-URL                       |
 | ------------ | ------------------------------ |
@@ -126,15 +126,15 @@ Inside this new workspace we will need to create environment variable called bas
 | AP Northeast | https://jp1.data.cloud.hpe.com |
 | US West      | https://us1.data.cloud.hpe.com |
 
-In this example, baseURL points to a developer's instance of DSCC which must be replaced with any of the base-Url that match the region where it's deployed based on the above table.  For any activities to issue the API request,  configure an environment called "DSCC testing" under the HPE DSCC API workspace that contains the expanded value of the variable of {baseUrl}.
+In this example, baseURL points to a developer's instance of DSCC which must be replaced with any of the base-Url that match the region where it's deployed based on the above table.  For any activities to issue the DSCC API request,  configure the environment context to "DSCC testing" under the HPE DSCC API workspace, and this environment contains the expanded value of the variable of {baseUrl}.
 
 ![Set Enviroment](/img/postman-create-environment-variable.png "Set baseUrl under this environment under the workspace")
 
-Afterward, the time comes for importing the API definition into this workspace. Note that we are importing the storage-api.yaml rather than JSON; nevertheless, Postman can recognize the DSCC API in either format. Note, to save the time for importing, you can un-check create documentation button. The documentation can be created after the importing.
+Afterward, the time comes for importing the API definition into this workspace. Note that we are importing the storage-api.yaml rather than JSON; nevertheless, Postman can recognize the DSCC API in either format. To save the time for importing, you can un-check create documentation button. If need be, the documentation can be created after the importing.
 
 ![Select upload files to import API](/img/postman-import-api.png "Upload API definition")
 
-Select the API definition that was downloaded from the HPE DSCC API documentation like shown below
+Select the API definition that was downloaded from the [HPE DSCC API documentation](<https://console-us1.data.cloud.hpe.com/doc/api/v1/>) like shown below
 
 ![Download the API definition](/img/download-dscc-api-definition.png "Save the API definition")
 
