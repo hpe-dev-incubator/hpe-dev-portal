@@ -123,3 +123,5 @@ Afterward, the time comes for importing the API definition into this workspace. 
 ![Select upload files to import API](/img/postman-import-api.png "Upload API definition")
 
 Select the API definition that was downloaded from the HPE DSCC API documentation like shown below
+
+![]()
