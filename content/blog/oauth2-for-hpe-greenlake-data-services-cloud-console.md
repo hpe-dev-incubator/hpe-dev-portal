@@ -102,6 +102,8 @@ Postman is the well known tool to explore REST API that provides flexibility to 
 
 Start by downloading the storage-api.yaml OpenAPI definition into the workstation. Anyone can go the DSCC API documentation website through this link: <https://console-us1.data.cloud.hpe.com/doc/api/v1/>
 
-Postman provides the ability to create a workspace where one can experiment with the HPE DSCC OpenAPI by importing the storage-api.yaml into the API library. The process started by selecting the Workspaces menu, click on Create Workspace button and type in the desired workspace name. In this example, it's called HPE DSCC
+Postman provides the ability to create a workspace where one can experiment with the HPE DSCC OpenAPI by importing the storage-api.yaml into the API library. The process started by selecting the Workspaces menu, click on Create Workspace button and type in the desired workspace name. In this example, it's called HPE DSCC API
 
 ![Create Workspace](/img/postman-create-workspace.png "Create the workspace in the Postman")
+
+Inside this new workspace we will need to create environment variable called baseUrl that represents the URL toward the DSCC API that depends on region. This is the current list of the URL based on the region as of November 2021:
