@@ -16,22 +16,20 @@ tags:
 
 **Editor’s Note:** MapR products and solutions sold prior to the acquisition of such assets by Hewlett Packard Enterprise Company in 2019 may have older product names and model numbers that differ from current solutions. For information about current offerings, which are now part of HPE Ezmeral Data Fabric, please visit <https://www.hpe.com/us/en/software/data-fabric.html>
 
-**\*Editor's Note:** This is a 3-Part Series, see the previously published posts below:*
+**Editor's Note:** This is a 3-part Series, see the previously published posts below:
 
 * [Part 1 - Spark Machine Learning](https://developer.hpe.com/blog/fast-data-processing-pipeline-for-predicting-flight-delays-using-apache-/)
 * [Part 2 - Kafka and Spark Streaming](https://developer.hpe.com/blog/fast-data-processing-pipeline-for-predicting-flight-delays-using-apache-apis-kafka-spark-streaming-and-machine-learning-part-2/)
 
-Fast Data Processing Pipeline for Predicting Flight Delays Using Apache APIs: Kafka, Spark Machine Learning, Drill, with MapR Event Store and MapR Database JSON (Part 3)
-
-According to Bob Renner, CEO of [Liaison Technologies](https://www.liaison.com/), the possibility to blend machine learning with real-time transactional data flowing through a single platform is opening a world of new possibilities, such as enabling organizations to take advantage of opportunities as they arise. According to [Gartner](https://www.gartner.com/newsroom/id/3812063) Over the next few years, virtually every app, application and service will incorporate some level of machine learning. Leveraging these opportunities requires fast and scalable data processing pipelines.
+According to Bob Renner, previous CEO of Liaison Technologies, the possibility to blend machine learning with real-time transactional data flowing through a single platform is opening a world of new possibilities, such as enabling organizations to take advantage of opportunities as they arise. According to [Gartner](https://www.gartner.com/newsroom/id/3812063) over the next few years, virtually every app, application and service will incorporate some level of machine learning. Leveraging these opportunities requires fast and scalable data processing pipelines.
 
 ![MapR Platform](/img/mapr-platform.png)
 
-This is the third in a series of blogs, which discusses the architecture of a data pipeline that combines streaming data with machine learning and fast storage. [The first post](https://developer.hpe.com/blog/fast-data-processing-pipeline-for-predicting-flight-delays-using-apache-/) discussed creating a machine learning model to predict flight delays. The [second post](https://developer.hpe.com/blog/fast-data-processing-pipeline-for-predicting-flight-delays-using-apache-apis-kafka-spark-streaming-and-machine-learning-part-2/) discussed using the saved model with streaming data to do real-time analysis of flight delays. This third post will discuss fast storage and analysis with MapR Database, Apache Spark, Apache Drill and OJAI.
+This is the third in a series of blog posts, that discuss the architecture of a data pipeline that combines streaming data with machine learning and fast storage. [The first post](https://developer.hpe.com/blog/fast-data-processing-pipeline-for-predicting-flight-delays-using-apache-/) discussed creating a machine learning model to predict flight delays. The [second post](https://developer.hpe.com/blog/fast-data-processing-pipeline-for-predicting-flight-delays-using-apache-apis-kafka-spark-streaming-and-machine-learning-part-2/) discussed using the saved model with streaming data to do a real-time analysis of flight delays. This third post will discuss fast storage and analysis with MapR Database, Apache Spark, Apache Drill and OJAI.
 
 **Machine Learning Logistics and Data Pipelines**
 
-Machine Learning usually refers to the model training piece of an ML workflow. But, as Ted Dunning says, 90% of the effort around Machine Learning is data logistics which includes all of the aspects that occur before and after this training.  When you combine event streams with microservices, you can greatly enhance the agility with which you build, deploy, and maintain complex data pipelines. Pipelines are constructed by chaining together microservices, each of which listens for the arrival of some data, performs its designated task, and optionally publishes its own messages to another topic.  Combining event-driven data pipelines with machine learning can handle the logistics of machine learning in a flexible way by:
+Machine Learning usually refers to the model training piece of an ML workflow. But, as data fabric expert Ted Dunning says, 90% of the effort around Machine Learning is data logistics which includes all of the aspects that occur before and after this training.  When you combine event streams with microservices, you can greatly enhance the agility with which you build, deploy, and maintain complex data pipelines. Pipelines are constructed by chaining together microservices, each of which listens for the arrival of some data, performs its designated task, and optionally publishes its own messages to another topic.  Combining event-driven data pipelines with machine learning can handle the logistics of machine learning in a flexible way by:
 
 * Making input and output data available to independent consumers
 * Managing and evaluating multiple models and easily deploying new models
@@ -39,12 +37,12 @@ Machine Learning usually refers to the model training piece of an ML workflow. B
 
 ![MapR Architectures](/img/mapr-architectures.png)
 
-Architectures for these types of applications are discussed in more detail in the eBooks: Machine Learning Logistics, Streaming Architecture, and Microservices and Containers.
+Architectures for these types of applications are discussed in more detail in the eBooks: [Machine Learning Logistics](https://www.oreilly.com/library/view/machine-learning-logistics/9781491997628/), [Streaming Architecture](https://www.oreilly.com/library/view/streaming-architecture/9781491953914/), and [Microservices and Containers](https://www.academia.edu/41522528/A_Practical_Guide_to_Microservices_and_Containers_Mastering_the_Cloud_Data_and_Digital_Transformation).
 
 The following figure depicts the (simplified) data pipeline for this tutorial:
 
-* Flight trip data is published to a MapR Event Streams (ES) topic using the Kafka API. (Note this data contains the actual delay label, in the real world architecture the actual delay label would come later in a different topic, but to keep the tutorial code simple it is combined with the input data).
-* A Spark Streaming application subscribed to the first topic enriches the event with the flight predictions and publishes the results in JSON format to another topic. ( In the real world architecture there would be multiple consumers publishing model predictions, but to keep the tutorial code simple there is only one here).
+* Flight trip data is published to a MapR Event Streams (ES) topic using the Kafka API. (Note this data contains the actual delay label. In the real-world architecture, the actual delay label would come later in a different topic, but to keep the tutorial code simple it is combined with the input data).
+* A Spark Streaming application subscribed to the first topic enriches the event with the flight predictions and publishes the results in JSON format to another topic. ( In the real-world architecture, there would be multiple consumers publishing model predictions, but to keep the tutorial code simple there is only one here).
 * A Spark Streaming application subscribed to the second topic stores the flight trip data and predictions in MapR Database using the Spark MapR Database Connector.
 * Apache Spark SQL, Apache Drill SQL, and Open JSON applications query MapR Database to analyze flight data and prediction performance.
 
@@ -56,7 +54,7 @@ One of the challenges, when you are processing lots of streaming data, is where 
 
 ![Storage Model](/img/storage-model.png)
 
-With MapR Database (HBase API or JSON API, a table is automatically partitioned into tablets across a cluster by key range, providing for scalable and fast reads and writes by row key.
+With MapR Database (HBase API or JSON API), a table is automatically partitioned into tablets across a cluster by key range, providing for scalable and fast reads and writes by row key.
 
 ![MapR Database Connector](/img/mapr-db-connector.png)
 
@@ -117,7 +115,7 @@ The MapR Database OJAI Connector for Apache Spark enables you to use [MapR Datab
 
 ![Spark Streaming writing to MapR Database](/img/spark-streaming-writing-to-mapr-db.png)
 
-You can read about the MapR Event Streams Spark Streaming code in [part 2 of this series](https://developer.hpe.com/blog/fast-data-processing-pipeline-for-predicting-flight-delays-using-apache-apis-kafka-spark-streaming-and-machine-learning-part-2/); here, we will focus on Spark streaming writing to MapR Database. The messages from the MapR Database topic are in JSON format and contain the following for each flight: the flight id, day of the week, carrier, origin, destination, scheduled departure hour, scheduled departure time, scheduled arrival time, scheduled travel time, delay prediction, and actual delay label (Note in the real world architecture the actual delay label would come later in a different topic, but to keep the tutorial code simple it is combined here). An example is shown below:
+You can read about the MapR Event Streams Spark Streaming code in [part 2 of this series](https://developer.hpe.com/blog/fast-data-processing-pipeline-for-predicting-flight-delays-using-apache-apis-kafka-spark-streaming-and-machine-learning-part-2/); here, we will focus on Spark streaming writing to MapR Database. The messages from the MapR Database topic are in JSON format and contain the following for each flight: the flight id, day of the week, carrier, origin, destination, scheduled departure hour, scheduled departure time, scheduled arrival time, scheduled travel time, delay prediction, and actual delay label (Note in the real-world architecture, the actual delay label would come later in a different topic, but to keep the tutorial code simple, it is combined here). An example is shown below:
 
 ```json
 {
@@ -135,7 +133,7 @@ You can read about the MapR Event Streams Spark Streaming code in [part 2 of thi
 }
 ```
 
-Below we use a Scala case class and [Structype](https://spark.apache.org/docs/latest/sql-programming-guide.html#programmatically-specifying-the-schema) to define the schema, corresponding to the input data.
+Below, we use a Scala case class and [Structype](https://spark.apache.org/docs/latest/sql-programming-guide.html#programmatically-specifying-the-schema) to define the schema, corresponding to the input data.
 
 ![Scala case class 1](/img/scala-case-class.png)
 
@@ -147,7 +145,7 @@ We use the KafkaUtils createDirectStream method with Kafka configuration paramet
 
 ![DStream](/img/dstream.png)
 
-In the code below each RDD in the valuesDStream is transformed into a Spark Dataset. Then the MapR Database Spark Connector DStream saveToMapRDB method performs a parallel partitioned bulk insert of JSON FlightwPred objects into MapR Database.
+In the code below, each RDD in the valuesDStream is transformed into a Spark Dataset. Then, the MapR Database Spark Connector DStream saveToMapRDB method performs a parallel partitioned bulk insert of JSON FlightwPred objects into MapR Database.
 
 ![RDD in the valuesDStream](/img/rdd-in-valuesdstream.png)
 
@@ -169,7 +167,7 @@ A DataFrame is a Dataset organized into named columns Dataset\[Row]. (In Spark 2
 
 **Loading data from MapR Database into a Spark Dataset**
 
-To [load data from a MapR Database JSON](https://docs.datafabric.hpe.com/62/Spark/LoadDataFromMapRDBasDataset.html) table into an Apache Spark Dataset we invoke the loadFromMapRDB method on a SparkSession object, providing the tableName, schema and case class. This will return a Dataset of FlightwPred objects:
+To [load data from a MapR Database JSON](https://docs.datafabric.hpe.com/62/Spark/LoadDataFromMapRDBasDataset.html) table into an Apache Spark Dataset, we invoke the loadFromMapRDB method on a SparkSession object, providing the tableName, schema and case class. This will return a Dataset of FlightwPred objects:
 
 ![load data from a MapR Database JSON](/img/load-data-from-mapr-db-json.png)
 
@@ -179,7 +177,7 @@ Datasets provide a domain-specific language for structured data manipulation in 
 
 ![top 20 rows in a tabular form](/img/top-20-rows-tabular-form.png)
 
-In the code below a filter is used to count the predicted delays, actual delays and total. This is then used to calculate the ratio wrong, correct, false positive. These type of calculations would be useful for continued analysis of models in production.
+In the code below, a filter is used to count the predicted delays, actual delays and total. This is then used to calculate the ratio wrong, correct, false positive. These type of calculations would be useful for continued analysis of models in production.
 
 ![delays, actual delays and total](/img/filter-count-predicted-delays.png)
 
@@ -255,16 +253,15 @@ Below are some example OJAI queries using the MapR Database shell.
 maprdb> find /apps/flights -where '{"$and":[{"$eq":{"pred_dtree":1.0}},{ "$like" : {"_id":"%SFO_DEN%"} }]}' --f _id,pred_dtree
 ```
 
-
 ![MapR Database find /apps/flights](/img/mapr-db-find.png)
 
 **Summary**
 
-* In this blog post, you've learned how to consume streaming JSON events, store in a document database, and explore with SQL using Apache Spark, Apache Kafka API, Apache Drill, MapR Event Store, MapR Database, and OJAI.
+In this blog post, you've learned how to consume streaming JSON events, store in a document database, and explore with SQL using Apache Spark, Apache Kafka API, Apache Drill, MapR Event Store, MapR Database, and OJAI.
 
 **Code**
 
-* You can download the code and data to run these examples from here (refer to the README for complete instructions to run): https://github.com/mapr-demos/mapr-es-db-60-spark-flight
+You can download the code and data to run these examples from here (refer to the README for complete instructions to run): https://github.com/mapr-demos/mapr-es-db-60-spark-flight
 
 **Running the Code**
 
@@ -276,7 +273,7 @@ This example was developed using the [MapR 6.0 container for developers](https:/
 
 You can also look at the following examples:
 
-* [MapR Database 60-getting-started](https://github.com/mapr-demos/mapr-db-60-getting-started) to learn Discover how to use DB Shell, Drill and OJAI to query and update documents, but also how to use indexes.
+* [MapR Database 60-getting-started](https://github.com/mapr-demos/mapr-db-60-getting-started) to discover how to use DB Shell, Drill and OJAI to query and update documents, but also how to use indexes.
 * [MapR Event Store getting started on MapR 6.0 developer container](https://github.com/mapr-demos/mapr-streams-60-getting-started)
 * [Ojai 2.0 Examples](https://github.com/mapr-demos/ojai-2-examples) to learn more about OJAI 2.0 features
 * [MapR Database Change Data Capture](https://github.com/mapr-demos/mapr-db-cdc-sample) to capture database events such as insert, update, delete and react to these events.
