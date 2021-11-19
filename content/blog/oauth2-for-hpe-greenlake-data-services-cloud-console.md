@@ -171,11 +171,13 @@ Afterward, this valid access-token can be made available for all of next API Req
 
 After the access-token is sync-ed, we can then issue any REST API by selecting the appropriate REST API request. For this example, we are going to issue the REST API to show all of the storage systems connected to the DSCC. Some of the parameters that will be recommended to be set:
 
-1. The environment must set to the above mentioned environment (i.e. DSCC Testing for this article)
+* The environment must set to the above mentioned environment (i.e. DSCC Testing for this article)
 
 ![Use the correct environment](/img/postman-set-correct-environment.png "Correct Environment Variable")
 
-2. Set the Authorization to 
+* Set the Authorization to inherit from the parent's authorization to allow this REST API request to use the access token acquired in the top of the tree.
+
+![]()
 
 ![](/img/postman-get-storage-system-sort-select-id-only.png)
 
