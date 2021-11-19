@@ -146,18 +146,21 @@ As the result of the upload of the DSCC API, Postman can then the API definition
 
 ![DSCC API loaded](/img/postman-api-loaded.png "DSCC API definition loaded")
 
-After the API is loaded, we can then use the automation for obtaining that access token that is facilitated by Postman. To start the OAuth2 automation, select the Collections menu and display the rest of the API listing under the tree. At top of the tree we will initialize the authorization with correct parameters such as the client-id, client-secret, DSCC OAuth2 end-point, and other required parameters. With this setup, any API that inherit the authorization from the top of tree will be able to populate their header for REST API request with access token as the token bearer. Below display the configuration that is populated with the required parameters.
+After the API is loaded, we can then use the automation for obtaining that access token that is facilitated by Postman. To start the OAuth2 automation, select the Collections menu and display the rest of the API listing under the tree. At top of the tree we will initialize the authorization with correct parameters such as the client-id, client-secret, DSCC OAuth2 end-point, and other required parameters. With this setup, any API that inherit the authorization from the top of tree will be able to populate their header for REST API request with access token as the token bearer. Below display the configuration that is populated with the required parameters under the authorization menu.
+
+1. **Type** = OAuth 2.0
+2. **Add auth data to** = Request Headers
+3. **Token Name** = <Strings>
+4. **Grant Type** = Client Credentials
+5. **Access Token URL** = https://sso.common.cloud.hpe.com/as/token.oauth2
+6. **Client ID** = obtained from the client credential creation in API Gateway
+7. **Client Secret** = obtained from the client credentil creation in API Gateway (The pair to the Client ID)
+8. **Client Authentication** = Send client credentials in body
+
+Click on the "Get New Access Token" button to obtain the valid access-token 
 
 ![]()
 
-
-
-
-
 ![]()
-
-
-
-
 
 ![]()
