@@ -14,6 +14,11 @@ tags:
   - kubedirector
   - opensource
 ---
+**Editor’s Note – HPE Ezmeral Container Platform is now HPE Ezmeral Runtime Enterprise**. For more information on why the name was changed, please [click here](https://community.hpe.com/t5/HPE-Ezmeral-Uncut/HPE-Ezmeral-Container-Platform-is-now-HPE-Ezmeral-Runtime/ba-p/7151720#.YW7nOxrMKM8).
+ 
+- - -
+
+
 Imagine that you’re a data scientist who’s been asked to create an application or service that can predict travel time for a proposed taxi ride. The application needs to have the ability to update the service with new data as it becomes available, so its predictions take recent patterns into account. In this tutorial, we’ll show you how to set up a Machine Learning (ML) pipeline using KubeDirector to train, register, and query your model.
 
 [KubeDirector](/blog/running-non-cloud-native-apps-on-kubernetes-with-kubedirector) was introduced to the open source community to address stateful application deployment in standard Kubernetes clusters.  In the latest release ([version 0.5](https://github.com/bluek8s/kubedirector/releases/tag/v0.5.0)),  KubeDirector now allows multiple clusters to share data very easily using a new feature called **_Connections_**.  The new feature helps users create large-scale dynamic, stateful containerized applications such as are found in Machine Learning (ML) pipelines and allow them to constantly evolve as models are improved and the data changes.
