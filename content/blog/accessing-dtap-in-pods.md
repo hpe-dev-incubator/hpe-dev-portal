@@ -10,6 +10,10 @@ tags:
   - hpe-ezmeral-container-platform
   - hpe-ezmeral-data-fabric
 ---
+**Editor’s Note – HPE Ezmeral Container Platform is now HPE Ezmeral Runtime Enterprise**. For more information on why the name was changed, please [click here](https://community.hpe.com/t5/HPE-Ezmeral-Uncut/HPE-Ezmeral-Container-Platform-is-now-HPE-Ezmeral-Runtime/ba-p/7151720#.YW7nOxrMKM8).
+ 
+- - -
+
 ## What is DataTap?
 
 ![image](https://user-images.githubusercontent.com/72959956/126251305-e100faf1-aac5-410b-8c67-cb7cdd01a50b.png)
