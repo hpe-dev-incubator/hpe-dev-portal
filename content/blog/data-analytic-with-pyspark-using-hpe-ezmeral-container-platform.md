@@ -9,7 +9,7 @@ tags:
   - hpe-ezmeral-container-platform
   - hpe-ezmeral-data-fabric
 ---
-**Editor’s Note – NAME CHANGE: HPE Ezmeral Container Platform is now HPE Ezmeral Runtime Enterprise.** HPE Ezmeral Runtime Enterprise is a software platform designed to deploy cloud-native and non-cloud-native applications using 100% open source Kubernetes – running on bare-metal or virtualized infrastructure – on-premises, on any cloud, and at the edge. For more information on why the name was changed, please [click here](https://community.hpe.com/t5/HPE-Ezmeral-Uncut/HPE-Ezmeral-Container-Platform-is-now-HPE-Ezmeral-Runtime/ba-p/7151720#.YW7nOxrMKM8).
+**Editor’s Note – HPE Ezmeral Container Platform is now HPE Ezmeral Runtime Enterprise**. For more information on why the name was changed, please [click here](https://community.hpe.com/t5/HPE-Ezmeral-Uncut/HPE-Ezmeral-Container-Platform-is-now-HPE-Ezmeral-Runtime/ba-p/7151720#.YW7nOxrMKM8).
 
 ---
 
