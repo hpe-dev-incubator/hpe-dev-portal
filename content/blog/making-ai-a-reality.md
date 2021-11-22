@@ -2,7 +2,7 @@
 title: "Making AI a Reality "
 date: 2021-01-15T07:48:29.685Z
 featuredBlog: false
-priority:
+priority: null
 author: Ellen Friedman
 authorimage: /img/blogs/Avatar4.svg
 thumbnailimage: null
@@ -73,7 +73,7 @@ Technology can help with this team approach as well. Tools that improve [machine
 
 ## Next Steps
 
-Building effective AI systems also requires efficient access to data. AI is only as good as the data used to train its models, and [HPE Ezmeral Data Fabric](https://www.hpe.com/us/en/software/data-fabric.html) provides multi-API direct global access to data. H2O Driverless AI, for example, can access data stored in the HPE Ezmeral Data Fabric *directly,* without having to copy it out to another system. Furthermore, HPE Ezmeral Data Fabric is the core data layer in the [HPE Ezmeral Container Platform](https://www.hpe.com/us/en/solutions/container-platform.html) for cloud-native and distributed non-cloud native applications. Containerization of AI applications is a big advantage in being able to train, deploy and run AI models in predictable environments that you can easily control. H2O Driverless AI has been tested and [validated for compatibility](https://www.hpe.com/us/en/software/marketplace/h2o.html) with the HPE Ezmeral Container platform.
+Building effective AI systems also requires efficient access to data. AI is only as good as the data used to train its models, and [HPE Ezmeral Data Fabric](https://www.hpe.com/us/en/software/data-fabric.html) provides multi-API direct global access to data. H2O Driverless AI, for example, can access data stored in the HPE Ezmeral Data Fabric *directly,* without having to copy it out to another system. Furthermore, HPE Ezmeral Data Fabric is the core data layer in the [HPE Ezmeral Runtime Enterprise](https://www.hpe.com/us/en/software/ezmeral-runtime.html) for cloud-native and distributed non-cloud native applications. Containerization of AI applications is a big advantage in being able to train, deploy and run AI models in predictable environments that you can easily control. H2O Driverless AI has been tested and [validated for compatibility](https://www.hpe.com/us/en/software/marketplace/h2o.html) with the HPE Ezmeral Container platform.
 
  
 
