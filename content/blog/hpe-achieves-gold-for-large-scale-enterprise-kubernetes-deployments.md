@@ -1,14 +1,27 @@
 ---
-title: "HPE achieves gold for large-scale enterprise Kubernetes deployments"
+title: HPE achieves gold for large-scale enterprise Kubernetes deployments
 date: 2020-06-17T15:29:22.939Z
-author: Prashant Sachdeva 
-tags: ["hpe-ezmeral-runtime","hpe-ezmeral-container-platform","spiffe-and-spire-projects","hpe-ezmeral-data-fabric","spiffe","spire","opensource","kubedirector"]
-authorimage: "/img/blogs/Avatar5.svg"
 featuredBlog: false
-priority:
-thumbnailimage:
+priority: null
+author: Prashant Sachdeva
+authorimage: /img/blogs/Avatar5.svg
+thumbnailimage: null
+tags:
+  - hpe-ezmeral-runtime
+  - hpe-ezmeral-container-platform
+  - spiffe-and-spire-projects
+  - hpe-ezmeral-data-fabric
+  - spiffe
+  - spire
+  - opensource
+  - kubedirector
 ---
 ![cloudnativelogo](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/6/cloudnativelogo-1593006822299.png)
+
+**Editor’s Note – HPE Ezmeral Container Platform is now HPE Ezmeral Runtime Enterprise**. For more information on why the name was changed, please [click here](https://community.hpe.com/t5/HPE-Ezmeral-Uncut/HPE-Ezmeral-Container-Platform-is-now-HPE-Ezmeral-Runtime/ba-p/7151720#.YW7nOxrMKM8).
+ 
+- - -
+
 
 Hewlett Packard Enterprise (HPE) is now a Gold member of the [Cloud Native Computing Foundation](https://www.cncf.io/) (CNCF). Over the past several months, HPE has made significant contributions to the open source community. These contributions are instrumental in helping enterprises modernize their applications across hybrid cloud, multi-cloud, and edge environments. As a Gold member, HPE emphasizes its continued dedication to promote open source projects.
 
