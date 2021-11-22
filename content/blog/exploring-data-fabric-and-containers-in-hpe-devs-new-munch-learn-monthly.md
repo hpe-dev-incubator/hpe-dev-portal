@@ -39,7 +39,7 @@ While listening to the session, attendees participated in polls, had the opportu
 
 ### February talk on containers with Tom Phelan and Nigel Poulton
 
-During the next session, February 24th, Nigel Poulton hosted Tom Phelan, HPE Fellow and CTO of the Ezmeral Container Platform, who discussed container architectures and how they can leverage the Kubernetes Container orchestrator to deploy and manage stateful, as well as microservice-based, applications.
+During the next session, February 24th, Nigel Poulton hosted Tom Phelan, HPE Fellow and CTO of the HPE Ezmeral Runtime Enterprise, who discussed container architectures and how they can leverage the Kubernetes Container orchestrator to deploy and manage stateful, as well as microservice-based, applications.
 
 As part of the discussion, Tom described how containers require less system resources than traditional virtual machine environments, allowing applications to be deployed more easily and run on different operating systems and hardware platforms. Tom also explained how the HPE Ezmeral Machine Learning Operations package helps support collaboration between data scientists.
 
