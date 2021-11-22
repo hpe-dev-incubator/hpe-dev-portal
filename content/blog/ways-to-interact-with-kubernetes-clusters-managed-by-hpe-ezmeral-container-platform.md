@@ -12,6 +12,10 @@ tags:
 
 
 
+**Editor’s Note – HPE Ezmeral Container Platform is now HPE Ezmeral Runtime Enterprise**. For more information on why the name was changed, please [click here](https://community.hpe.com/t5/HPE-Ezmeral-Uncut/HPE-Ezmeral-Container-Platform-is-now-HPE-Ezmeral-Runtime/ba-p/7151720#.YW7nOxrMKM8).
+ 
+- - -
+
 HPE Ezmeral Software Platform consists of a bundle of software that helps you run, manage, control, and secure the apps, data, and IT that run your business. A major component is the HPE Ezmeral Container Platform (HPE ECP),a unified cloud container software platform built on Kubernetes (K8s). You can use it to deploy a new Kubernetes cluster with a few clicks. But how exactly do you connect through HPE ECP to interact with K8s? Don't panic! This blog post will introduce to you most, if not all, of the ways to connect with a Kubernetes cluster using HPE ECP.
 
 
