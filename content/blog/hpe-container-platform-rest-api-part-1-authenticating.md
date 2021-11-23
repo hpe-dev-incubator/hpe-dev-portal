@@ -13,6 +13,11 @@ tags:
 ---
 ![image001](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/3/image001-1590504102737.png)
 
+
+**Editor’s Note – HPE Ezmeral Container Platform is now HPE Ezmeral Runtime Enterprise**. For more information on why the name was changed, please [click here](https://community.hpe.com/t5/HPE-Ezmeral-Uncut/HPE-Ezmeral-Container-Platform-is-now-HPE-Ezmeral-Runtime/ba-p/7151720#.YW7nOxrMKM8).
+ 
+- - -
+
 Businesses are challenged today with being able to run their existing monolithic applications alongside their cloud-native apps in hybrid cloud environments. The [HPE Container Platform](https://developer.hpe.com/platform/hpe-container-platform/home) (HPE CP) uses container technology to make it simpler and more cost-effective to deploy, run and manage both cloud native microservices enterprise workloads and non-cloud native monolithic applications with containers. Businesses can take advantage of the HPE Container Platform for a variety of use cases, including machine learning (ML), data analytics, and DevOps workloads. Its abilities make the HPE Container Platform ideal for helping IT accelerate their application development and deployment on containers on-demand through a self-service portal. 
 
 In this two-part blog series, I am going to discuss how the HPE Container Platform exposes a RESTful API that provides programmable access to capabilities via a self-service portal. I will then share some recent learnings and experience doing this.

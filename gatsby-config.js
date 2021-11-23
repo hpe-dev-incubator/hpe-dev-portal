@@ -71,7 +71,7 @@ module.exports = {
     title: 'HPE Developer Portal',
     author: 'Hewlett Packard Enterprise',
     description: 'The HPE Developer portal',
-    siteUrl: 'https://hpe-dev-portal.netlify.com/',
+    siteUrl: 'https://developer.hpe.com/',
     social: {
       twitter: 'hpe',
     },

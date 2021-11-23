@@ -313,7 +313,7 @@ To do so, proceed as follows:
    - Thumbnail Image: a picture for the event. Click **Choose an image** to upload and select a picture. Select **Insert from URL** to enter a link URL for your image.
    - Navigation path: an URL to navigate to register or find out more about the event and conference. This is typically the URL to the event or conference.
    - Leave card size to **large**
-   - Tag: specify a keyword for your event or conference. Typically this is the name of your event (for example: Discover, KubeCon).
+   - Tag: specify a keyword for your event or conference. Typically this is the name of your event (for example: Discover, KubeCon). You can also add a "platform" page tag for you revent if it is an event related to an HPE product & solution (see Tags table at the end of this document)
 
       <center><img src="media/guide-event-new-event-properties.png" width="600" height="768"></center>
       
@@ -429,17 +429,21 @@ To do so, proceed as follows:
 
     -  On the top right of the wizard, click **Upload** to upload the image stored on your PC/laptop and select image you have just uploaded by clicking **Choose selected**.
      
-    -  Optionally, you can spacify a "**Title**" for your image in the _TITLE_ section of the _IMAGE_ block. The title will appear when the reader hovers or pauses the mouse over the image.   
+    -  Specify a "**Title**" for your image in the _TITLE_ section of the _IMAGE_ block. The title will appear when the reader hovers or pauses the mouse over the image.
+    
+    -  Make sure to specify a description for your image in the _ALT TEXT_ section of the _IMAGE_ block. 
+    
+    >**IMPORTANT NOTE:** Adding a _ALT Text_ will help promote online content in Search Engine such as Google.      
 
 -   **Adjusting image size and its position:**
 
     -   **Method 1 (recommended):** Use HTML code to set the size (height, width) for your image. First, toggle to **Rich Text** mode to insert your image. Then toggle to **Markdown** mode to obtain the relative path for your image (in the form: */img/myimage.png*) and **substitute the line "\!\[\](/img/myimage.png)"** with the HTML syntax below:
 
-        \<img src=\"relative-path-of-your-image-in-the-form: /img/myimage.png\" width=\"600\" height=\"359\"\>
+        \<img src=\"relative-path-of-your-image-in-the-form: /img/myimage.png\" width=\"600\" height=\"359\" alt=\"brief description for the image\"\>
 
         >**Note:** If you wish to center an image, then you can use HTML code below:
 
-         \<center\>\<img src=\"relative-path-of-your-image-in-the-form: /img/myimage.png\" width=\"500\" height=\"542\"\>\</center\>
+         \<center\>\<img src=\"relative-path-of-your-image-in-the-form: /img/myimage.png\" width=\"500\" height=\"542\" alt=\"brief description for the image\"\>\</center\>
 
         >**Note:** When using HTML code to insert an image, you will see *an empty frame* for your image in the preview area (right side of the CMS editor). The frame corresponds to the size of the image (width and height) in the blog post. Adjust the width/height value as appropriate. You will also lose the description (title specified while in Rich Text mode) of the image.
 
@@ -528,7 +532,7 @@ If appropriate, use a tag to tie your blog post to a "platform" page on HPE DEV 
 
   | **Platform name**                  |   **Associated tag**    |
   | ---------------------------------- | ----------------------- |
-  | **HPE Ezmeral Runtime**            | hpe-ezmeral-runtime |
+  | **HPE Ezmeral Runtime Enterprise** | hpe-ezmeral-runtime |
   | **HPE Ezmeral Data Fabric**        | hpe-ezmeral-data-fabric |
   | **HPE GreenLake**                  | hpe-greenlake |
   | **Spiffe and Spire**               | spiffe-and-spire-projects |

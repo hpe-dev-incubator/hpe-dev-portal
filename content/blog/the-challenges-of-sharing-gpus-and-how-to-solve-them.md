@@ -16,6 +16,11 @@ tags:
 ---
 ![pinkish image 4 run ai post](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/12/pinkish-image-4-run-ai-post-1612367610553.JPG)
 
+
+**Editor’s Note – HPE Ezmeral Container Platform is now HPE Ezmeral Runtime Enterprise**. For more information on why the name was changed, please [click here](https://community.hpe.com/t5/HPE-Ezmeral-Uncut/HPE-Ezmeral-Container-Platform-is-now-HPE-Ezmeral-Runtime/ba-p/7151720#.YW7nOxrMKM8).
+ 
+- - -
+
 Whether purchasing GPUs for on-premise machines or renting them in the cloud, GPUs for AI can be expensive. Organizations want to get the most out of their on-premise GPUs and use GPUs in the cloud as efficiently as possible. The HPE Ezmeral team and [Run:AI](http://www.run.ai/) recently worked together in a number of customer engagements to help researchers take better advantage of their GPU resources. This post offers some of our takeaways and includes resources that can help you get started in doing the same. 
 
 Though many [articles](https://www.zdnet.com/article/facebooks-latest-giant-language-ai-hits-computing-wall-at-500-nvidia-gpus/) cite examples of the [insatiable demand](https://syncedreview.com/2018/05/17/ai-doubling-its-compute-every-3-5-months/) for compute resources, in practice, GPUs are often underutilized. When Run:AI starts work with a new customer, we typically see a GPU utilization rate of between 25 and 30 percent. IT is typically surprised by this – they assume that resources are being fully utilized. But, if you think about it, it’s actually quite logical:

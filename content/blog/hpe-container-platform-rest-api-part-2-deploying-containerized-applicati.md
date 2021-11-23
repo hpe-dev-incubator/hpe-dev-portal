@@ -14,6 +14,10 @@ tags:
   - kubedirector
   - opensource
 ---
+**Editor’s Note – HPE Ezmeral Container Platform is now HPE Ezmeral Runtime Enterprise**. For more information on why the name was changed, please [click here](https://community.hpe.com/t5/HPE-Ezmeral-Uncut/HPE-Ezmeral-Container-Platform-is-now-HPE-Ezmeral-Runtime/ba-p/7151720#.YW7nOxrMKM8).
+ 
+- - -
+
 In my previous blog post, [HPE Container platform REST API – Part 1: Authenticating](/blog/hpe-container-platform-rest-api-part-1-authenticating), I introduced the HPE Container Platform (HPE CP) REST API. I showed you how to authenticate to the HPE Container Platform API endpoint and retrieve data from objects in a secure way using the command line cURL. Continuing with this series, my second article will walk you through the steps you need to take to deploy containerized applications programmatically on Kubernetes clusters that are managed by the HPE Container Platform. It will show you how to take the REST API authentication call you established while going through the first blog and apply it to a real life scenario focused on the following areas:
 
 * Deployment of cloud native microservices based applications

@@ -7,6 +7,10 @@ tags:
   - hpe-ezmeral-runtime
   - hpe-ezmeral-container-platform
 ---
+**Editor’s Note – HPE Ezmeral Container Platform is now HPE Ezmeral Runtime Enterprise**. For more information on why the name was changed, please [click here](https://community.hpe.com/t5/HPE-Ezmeral-Uncut/HPE-Ezmeral-Container-Platform-is-now-HPE-Ezmeral-Runtime/ba-p/7151720#.YW7nOxrMKM8).
+ 
+- - -
+
 IT Ops teams have run and managed Windows and Linux deployments for years. They are greatly experienced at dealing with the storage, networking, virtual machines and firewalls required for these environments. But container use, and the modern apps with which they are built, continues to gain ground as businesses move from small, proof-of-concept implementations to broader deployments. These modern applications require a whole new set of skills, which many administrative teams are just learning as new technologies, like Kubernetes, come into play.
 
 The best practices used to monitor and guide these implementations continue to evolve, taking these newer technologies into account. One area that continues to crop up as an area of concern is security. Just how does one ensure the security of containerized workloads, especially during a time when they most probably need to co-exist with traditional applications?

@@ -11,6 +11,10 @@ tags:
   - hpe-ezmeral-data-fabric
   - data-scientist
 ---
+**Editor’s Note – HPE Ezmeral Container Platform is now HPE Ezmeral Runtime Enterprise**. For more information on why the name was changed, please [click here](https://community.hpe.com/t5/HPE-Ezmeral-Uncut/HPE-Ezmeral-Container-Platform-is-now-HPE-Ezmeral-Runtime/ba-p/7151720#.YW7nOxrMKM8).
+ 
+- - -
+
 Apache Spark™ is an awesomely powerful developer tool for finding the value in your data.  I highly recommend you check out this Hewlett Packard Enterprise (HPE) white paper for some background – [Apache Spark 3 on HPE Ezmeral](https://www.hpe.com/psnow/doc/a50004177enw). In this post, I’m going to explain how I deployed Apache Spark in my own on-premises HPE Ezmeral Container Platform-managed lab so that I could try Apache Spark out for myself. 
 
 ### We need a story first, right?

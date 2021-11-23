@@ -1,13 +1,22 @@
 ---
-title: "Think container first"
+title: Think container first
 date: 2019-12-05T17:13:30.366Z
-author: Dale Rensing 
-tags: ["hpe-ezmeral-runtime","hpe-ezmeral-container-platform","hpe-container-platform","bluedata"]
-authorimage: "/img/blogs/Avatar5.svg"
 featuredBlog: false
-priority:
-thumbnailimage:
+priority: null
+author: Dale Rensing
+authorimage: /img/blogs/Avatar5.svg
+thumbnailimage: null
+tags:
+  - hpe-ezmeral-runtime
+  - hpe-ezmeral-container-platform
+  - hpe-container-platform
+  - bluedata
 ---
+**Editor’s Note – HPE Ezmeral Container Platform is now HPE Ezmeral Runtime Enterprise**. For more information on why the name was changed, please [click here](https://community.hpe.com/t5/HPE-Ezmeral-Uncut/HPE-Ezmeral-Container-Platform-is-now-HPE-Ezmeral-Runtime/ba-p/7151720#.YW7nOxrMKM8).
+ 
+- - -
+
+
 Attendees at KubeCon + CloudNativeCon 2019 were on hand to see the new HPE Container Platform that Hewlett Packard Enterprise (HPE) announced at the event. The HPE Container Platform is the industry’s first enterprise-grade Kubernetes-based container platform designed for both cloud-native applications and monolithic applications with persistent storage. With the HPE Container Platform, enterprise customers can accelerate application development for new and existing apps – running on bare-metal or virtualized infrastructure, on any public cloud, and at the edge. You may be asking yourself, what does this have to do with HPE, a leading infrastructure company?
 
 __Everything.__

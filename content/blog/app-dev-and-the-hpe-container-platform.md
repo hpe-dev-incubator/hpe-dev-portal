@@ -1,14 +1,24 @@
 ---
-title: "App DEV and the HPE Container Platform"
+title: App DEV and the HPE Container Platform
 date: 2020-04-09T15:41:06.174Z
-author: Dale Rensing 
-tags: ["hpe-ezmeral-runtime","hpe-ezmeral-container-platform","hpe-container-platform","opensource","kubedirector"]
-authorimage: "/img/blogs/Avatar5.svg"
 featuredBlog: false
-priority:
-thumbnailimage:
+priority: null
+author: Dale Rensing
+authorimage: /img/blogs/Avatar5.svg
+thumbnailimage: null
+tags:
+  - hpe-ezmeral-runtime
+  - hpe-ezmeral-container-platform
+  - hpe-container-platform
+  - opensource
+  - kubedirector
 ---
 ![hpecpimage2](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/3/hpecpimage2-1586446910822.jpg)
+
+**Editor’s Note – HPE Ezmeral Container Platform is now HPE Ezmeral Runtime Enterprise**. For more information on why the name was changed, please [click here](https://community.hpe.com/t5/HPE-Ezmeral-Uncut/HPE-Ezmeral-Container-Platform-is-now-HPE-Ezmeral-Runtime/ba-p/7151720#.YW7nOxrMKM8).
+ 
+- - -
+
 
 The HPE Container Platform offers enterprise IT and software development teams an agile application development and delivery platform. It can be used for both cloud-native microservices-based applications, as well as non-cloud-native monolithic applications. In addition to providing IT Operations teams with a unified control plane based on 100% open source Kubernetes, the HPE Container Platform gives data scientists and application developers a broad set of tools. They can use these tools to build a variety of use cases – including application modernization, CI/CD pipelines, machine learning, and edge analytics.
 
