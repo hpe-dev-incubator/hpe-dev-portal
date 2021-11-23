@@ -119,17 +119,17 @@ Existing clients will be able to maintain the backward compatibility from the hi
 | PUT        | Replaces target resource with data part of the HTTP request payload |
 | DELETE     | Removes the target source                                           |
 
-### Authorization through OAuth2 Client-Credential work-flow
+### Authorization through OAuth2 Client Credential Workflow
 
-The client's application can issue a REST API request using the access-token as the bearer of the token.  The client can obtain this access token from the authorization API end point, after the client successfully authenticate through an associated customer's application credential (client-id and client-secret). This application credential is created by the DSCC user who has the permission to access resources (such as controllers, volumes etc.) under the DSCC instances. This access token expiration time, by default, is set for 7200 seconds (2 hours). When the the resource server see this expired access token, it returns 0x401 response (not authorized).  The client must then reauthenticate using the associated client-id and client-secret to obtain the next access-token to use for the next REST API request.
+The client's application can issue a REST API request using the access token as the bearer of the token.  The client can obtain this access token from the authorization API end point, after the client successfully authenticate through an associated customer's application credential (client-id and client-secret). This application credential is created by the DSCC user who has the permission to access resources (such as controllers, volumes etc.) under the DSCC instances. This access token expiration time, by default, is set for 7200 seconds (2 hours). When the the resource server see this expired access token, it returns 0x401 response (not authorized).  The client must then reauthenticate using the associated client-id and client-secret to obtain the next access-token to use for the next REST API request.
 
 ### Authorization Policies
 
-The client can only receive properties from the authorized API resources based on the Role Base Access Control for the user who created the client-credential pair (client-id and client-secret). This authorization derives from the organization, capability and scope (roles) that the associated user is assigned. As the result, the authorization for the client application will inherit the user's permission who created the client-application registration under the API Gateway. Note that subsequent change to the user's permission after the Client Application registered will impact the response returned based on current authority.
+The client can only receive properties from the authorized API resources based on the Role Base Access Control for the user who created the client-credential pair (client-id and client-secret). This authorization derives from the organization, capability and scope (roles) that the associated user is assigned. As the result, the authorization for the client application will inherit the user's permission who created the client-application registration under the API Gateway. Note that subsequent changes to the user's permission after the client application registered will impact the response returned based on current authority.
 
-### The API End-Points (baseURL) for Each DSCC Region
+### The API End Points (baseURL) for each DSCC Region
 
-The REST API for DSCC requires client application to issue the REST API request to the URL that is associated with the DSCC instance deployed at the associated region of the storage array. As of November 2021, here are the list of the Domain URLs where client application must use as the base-URL to the resource path of REST API.
+The REST API for DSCC requires the client application to issue the REST API request to the URL that is associated with the DSCC instance deployed at the associated region of the storage array. As of November 2021, here are the  Domain URLs where client application must use as the base-URL to the resource path of REST API.
 
 | DSCC Region  | base-URL                       |
 | ------------ | ------------------------------ |
@@ -139,7 +139,7 @@ The REST API for DSCC requires client application to issue the REST API request 
 
 ### Asynchronous Response
 
-All of the REST API operations are stateless in nature. One example is such as POST, in that scenario the task resource will return a response with HTTP code 202 "Accepted" and the reference to the task as follows:
+All of the REST API operations are stateless in nature. One example is such as POST. In that scenario the task resource will return a response with HTTP code 202 "Accepted" and the reference to the task as follows:
 
 ```md
 Response: 202 Accepted
@@ -151,7 +151,9 @@ Response: 202 Accepted
 }
 ```
 
-In order to ensure the completion of this remote procedural call through POST, the users will use the task resource to query the status of this asynchronous task.
+In order to ensure the completion of this remote procedural call through POST, the users will use the task resource to query the status of this asynchronous task. 
+
+For more information about Data Services Cloud Console, please see this [website](https://www.hpe.com/us/en/storage/data-services-cloud-console.html?jumpid=ps_7niqt41kbx_aid-520042862&ef_id=EAIaIQobChMI9ZfRzLev9AIVx97ICh3b_QC0EAAYASAAEgKpxPD_BwE:G:s&s_kwcid=AL!13472!3!518496504236!e!!g!!data%20services%20cloud%20console!12802096712!120307197503&).
 
 ```md
 /api/v1/tasks/{task id}
@@ -173,4 +175,4 @@ state ENUM:
 
 ### Any Questions on Data Services Cloud Console API?
 
-Please join [HPEDEV Slack Workspace](https://slack.hpedev.io/) and start a discussion in our #DSCC channel
+Please join [HPEDEV Slack Workspace](https://slack.hpedev.io/) and start a discussion in our #data-services-cloud-console channel
