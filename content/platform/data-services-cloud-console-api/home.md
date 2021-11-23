@@ -18,14 +18,14 @@ Data Services Cloud Console public REST API provides a resource for customers wh
 
 ![DSCC Automation](/img/dscc-api-value.png "API for Automation at Scale")
 
-## A Public REST API which is based on OpenAPI
+## A Public REST API which is based on the OpenAPI 3.0
 
-This REST API is designed to provide the agility as previously mentioned . The DSCC public API is specified based on the OpenAPI format version 3 ([OpenAPI 3.0 information](https://swagger.io/blog/news/whats-new-in-openapi-3-0/)).  The specification defines a standard, language-agnostic interface to the RESTful API allowing the clients (both human and computer) to consume capabilities of DSCC services efficiently. The API definition is available for download in OpenAPI 3 YAML or JSON format at the link mentioned in the next paragraph.
+Hewlett Packard Enterprise (HPE) offers the DSCC public REST API to provide the agility as previously mentioned . It is specified based on the OpenAPI format version 3 ([OpenAPI 3.0 information](https://swagger.io/blog/news/whats-new-in-openapi-3-0/)).  The specification defines a standard, language-agnostic interface to the RESTful API allowing the clients (both human and computer) to consume capabilities of DSCC services efficiently. The API definition is available for download in OpenAPI 3 YAML or JSON format at the link mentioned in the next paragraph.
 
 Some of the advantages of distributing in OpenAPI 3.0 format:
 
 1. Updates to the API can be generated in a more agile manner where documentation is embedded, describing any endpoints, parameters, and more; such as contact information, license, terms of use. 
-2. Consumers of this API also gain the benefits the agility, using the converter from openAPI yaml, or json to any programming language that were used as part of the their automation or CI/CD workflow. (Please check <https://openapi.tools> for more information for the API tools to generate client code)
+2. Consumers of this API also gain the benefits of agility, by using the converter from openAPI yaml, or json to any programming language that is used as part of the their automation or CI/CD workflow. (Please check <https://openapi.tools> for more information for the API tools to generate client code)
 
 ## REST API Details
 
