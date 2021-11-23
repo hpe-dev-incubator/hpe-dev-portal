@@ -4,8 +4,8 @@ date: 2021-07-29T14:28:17.779Z
 featuredBlog: false
 priority: 1
 author: Ron Dharma
-authorimage: /img/dscc-icon.png
-thumbnailimage: ""
+authorimage: https://gravatar.com/avatar/8102f2adeef249065ccb9c43b8866d17?s=192
+thumbnailimage: /img/dscc-icon.png
 tags:
   - data-services-cloud-console
 ---
