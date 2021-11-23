@@ -40,13 +40,13 @@ The website also provides additional information:
 3. The syntax for the HTTP method and path to this resource. Note that this path is a relative path. For the complete path, please add the base-URL documented below.
 4. The body of response is returned in JSON format according to the response status of the REST API.
 
-The website also provides the links to download the DSCC open-API definitions in either json or yaml format. Below is an example of the downloaded yaml definition file from the DSCC REST API documentation website.
+The website also provides the links to download the DSCC OpenAPI definitions in either json or yaml format. Below is an example of the downloaded yaml definition file from the DSCC REST API documentation website.
 
 ![DSCC API definition ](/img/open-api-yaml.png "Yaml format of DSCC API")
 
 ### Documentation and Tutorials
 
-The overview of the Data Services Cloud Console is available at [this link](https://www.hpe.com/us/en/storage/data-services-cloud-console.html#overview). There will be more blogs that will provide more information to help customers adopting this API with examples, code snippets and many other helpful information.
+The overview of the Data Services Cloud Console is available at [this link](https://www.hpe.com/us/en/storage/data-services-cloud-console.html#overview). More blog posts will be coming that will provide more information to help customers adopting this API, providing examples, code snippets and other helpful information.
 
 ### Documented Attributes
 
