@@ -92,7 +92,7 @@ Using gopaddle’s alerts and notification channels, the Jenkins pipeline can be
 
 ![gopaddle enables Continuous Integration](/img/fig9-enable-ci-gopaddle.png "gopaddle enables Continuous Integration")
 
-### 5. HPE Ezmeral Runtime Enterprise for Stateful Applications
+### 6. HPE Ezmeral Runtime Enterprise for Stateful Applications
 
 gopaddle integrates with HPE Ezmeral Runtime Enterprise seamlessly to manage stateful workloads. HPE Ezmeral Runtime Enterprise provides a pre-integrated Data Fabric (formerly known as MapR Data Platform) for persistent volumes for stateful applications that require persistence of data The below screenshot gives an overview of the Data Fabric volumes and the applications/services using those volumes.
 
