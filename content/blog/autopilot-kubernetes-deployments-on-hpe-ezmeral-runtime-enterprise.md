@@ -7,8 +7,6 @@ tags:
   - gopaddle
   - hpe-ezmeral-runtime
 ---
-![]()
-
 ‘Autopilot’ is a concept that is familiar to many in the aviation and automobile industries. As it pertains to airplanes, autopilot systems aid pilots in focusing on crucial tasks by automating and controlling every aspect of the flight, from take-off to landing. Modern-day autopilot systems can be customized and pilots can decide on which features are to be manually controlled. Drawing parallels, in the context of Kubernetes, an autopilot system can manage the end-to-end automation of deployments as well as the maintenance of applications, relieving developers from the pain of manual intervention.  A system like this incorporates the necessary checks and balances to ensure the health of the applications and the CI/CD (continuous integration/continuous delivery) pipelines.
 
 It’s important to note that the success of such an autopilot system relies on the extent to which developers can fine-tune and intervene in the autopilot capabilities. Just like a pilot warming up the aircraft during take-off, developers need to prepare their applications for an autopilot system to kick in. This largely depends on how the applications are structured/architected. 
