@@ -88,7 +88,7 @@ The API categories for DSCC will grow in accordance to the expansion of the DSCC
 
 The major version number will be provided in the resource path as "v1" in this example:
 
-```md
+```markdown
 /api/v1/<resource group>/...
 ```
 
