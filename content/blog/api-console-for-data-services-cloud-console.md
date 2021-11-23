@@ -25,7 +25,7 @@ The access token have a limited lifetime (about 720 seconds or 2 hours). Once it
 
 Additionally, a user can also change the client-secret to update the authorization when the authorized user has lost the client-secret or the secret has been compromised. 
 
-And lastly, when access to the API must be disabled, user can delete the API client credential associated with client-id and client-secret in the API Gateway.
+And lastly, when access to the API must be disabled, a user can delete the API client credential associated with client-id and client-secret in the API Gateway.
 
 ![Access API process](/img/user-guide-for-authorization.png "Process to authenticate and to obtain secure access ")
 
