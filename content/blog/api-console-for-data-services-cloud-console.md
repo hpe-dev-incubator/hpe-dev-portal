@@ -9,15 +9,15 @@ thumbnailimage: /img/dscc-icon.png
 tags:
   - data-services-cloud-console
 ---
-## Secured Yet Agile
+## Secured, Yet Agile
 
-One major principle of Application Programming Interface (API) for the HPE Data Services Cloud Console (DSCC) is secured. However, the API must also be flexible for the consumption of applications or tools that use this API to extend their features using DSCC. To accommodate the flexibility, DSCC REST API is using the OAuth 2.0 authentication flow based on the client-credential which generates the limited lifetime access token. This access token will then be embedded in the header of each REST API request as the authorization bearer.
+A major guiding principle in the creation of the Application Programming Interface (API) for Data Services Cloud Console (DSCC) from Hewlett Packard Enterprise (HPE) is security. However, to be able to be used by applications or tools that rely on the API to extend their features using DSCC, the API must also be flexible. To provide both security and flexibility, the DSCC REST API uses the 0Auth 2.0 authentication flow based on the client credential, which generates a limited lifetime access token. This access token is then embedded in the header of each REST API request as the authorization bearer.
 
 This blog will walk through the essential steps required to exercise or experiment with the DSCC REST API.
 
 ### Authentication Process to Obtain the Access Token
 
-The DSCC public API relies on an OAuth 2.0 third party authorization framework on behalf of the resource owner (HPE GreenLake Console's user) for security. The user starts by logging and authenticating into HPE GreenLake Console, which is authenticated by the Identity Provider (validated through username, password, or MFA). Using the API Gateway menu in GreenLake Console, customer registers their client application to obtain the OAuth 2.0 API Client Credentials (Client ID and Client Secret). This association allows user to obtain the access-token from the menu, and user can then use the access-token into any REST API call inside the token bearer field. This action allows any client application or script to perform any HTTPS method to the correct instance of DSCC.
+The DSCC public API relies on an OAuth 2.0 third party authorization framework on behalf of the resource owner (HPE GreenLake Console's user) for security. The user starts by logging and authenticating into HPE GreenLake Console, which is authenticated by the Identity Provider (validated through username, password, or MFA). Using the API gateway menu in GreenLake Console, a customer registers their client application to obtain the OAuth 2.0 API client credentials (client-id and client-secret). This association allows the user to obtain the access token from the menu, and user can then use the access token inside the token bearer field (header) with any REST API request. This action allows any client application or script to perform any API request to the correct instance of DSCC.
 
 ![client-credential application flow](/img/greenlake-api-access-flow.png "obtain client-id and client-secret")
 
