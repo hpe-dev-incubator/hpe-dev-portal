@@ -36,13 +36,13 @@ Any one can download this OpenAPI Specification (OAS) v3 definition of the DSCC 
 The website also provides additional information:
 
 1. The list of the REST API resources that are supported as of the release. 
-2. The information about the HTTP method, parameters and the responses that are expected out for this resource
-3. The syntax for the HTTP method and path to this resource. Note that this path is relative path, for the complete path, please add the base-URL documented below to provide the full path.
+2. The information about the HTTP method, parameters and the responses that are expected from each resource.
+3. The syntax for the HTTP method and path to this resource. Note that this path is a relative path. For the complete path, please add the base-URL documented below.
 4. The body of response is returned in JSON format according to the response status of the REST API.
 
-The website also provides the links to download the DSCC open-API definitions in either json or yaml format. Below is an example of the downloaded json file from the DSCC REST API documentation website.
+The website also provides the links to download the DSCC open-API definitions in either json or yaml format. Below is an example of the downloaded yaml definition file from the DSCC REST API documentation website.
 
-![](/img/open-api-yaml.png)
+![DSCC API definition ](/img/open-api-yaml.png "Yaml format of DSCC API")
 
 ### Documentation and Tutorials
 
