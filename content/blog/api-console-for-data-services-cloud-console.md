@@ -21,7 +21,7 @@ The DSCC public API relies on an OAuth 2.0 third party authorization framework o
 
 ![client-credential application flow](/img/greenlake-api-access-flow.png "obtain client-id and client-secret")
 
-The access-token have a limited lifetime (about 720 seconds or 2 hours). Once it expires, the client application must use the obtained Client-ID and Client-Secret to generate a new access-token. One indication of the expiration of access-token, the request to DSCC API will return response error: '401 Unauthorized HTTP.'  If the client application generates new access token prior to it expires, then the current access-token will be invalidated or treated as not authorized. 
+The access token have a limited lifetime (about 720 seconds or 2 hours). Once it expires, the client application must use the obtained client-id and client-secret to generate a new access token. One indication of the expiration of access-token, the request to DSCC API will return response error: '401 Unauthorized HTTP.'  If the client application generates new access token prior to it expires, then the current access-token will be invalidated or treated as not authorized. 
 
 Additionally, user can also change the client-secret to update the authorization when authorized user lost the client-secret or the secret is compromised. 
 
