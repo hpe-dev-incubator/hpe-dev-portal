@@ -173,6 +173,6 @@ state ENUM:
 - PAUSED
 ```
 
-### Any Questions on Data Services Cloud Console API?
+### Any Questions on Data Services Cloud Console?
 
-Please join [HPEDEV Slack Workspace](https://slack.hpedev.io/) and start a discussion in our #data-services-cloud-console channel
+Please join [HPEDEV Slack Workspace](https://slack.hpedev.io/) and start a discussion in our [\#Data-Services-Cloud-Console channel](https://hpedev.slack.com/archives/C02D6H623JP)
