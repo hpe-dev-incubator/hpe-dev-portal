@@ -59,7 +59,7 @@ The overview of the Data Services Cloud Console is available at [this link](http
 
 ### Supported API Categories (Services)
 
-The API categories for DSCC will grow in accordance to the expansion of the DSCC services that are going to released in future. Current services that are available, as recorded today:
+The API categories for DSCC will grow in accordance to the expansion of the DSCC services that are going to be released in the future. As recorded today, the current services that are available include:
 
 #### Common (Alletra-6K, Alletra-9K, Primera, Nimble)
 
