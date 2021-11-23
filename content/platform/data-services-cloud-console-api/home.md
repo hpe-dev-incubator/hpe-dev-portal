@@ -102,7 +102,7 @@ Here are some examples of these resource paths that contain several resource gro
 /api/v1/volumes/...
 ```
 
-Existing clients will be able to maintain the backward compatibility from the higher major version incremental, and adopt newly introduced API.  However, both the new and old version of API will be supported until the announcement of the deprecation for the old version of API. Nonetheless, the older major version will always be frozen with exception of bug fixes. There will also be an announcement of deprecation in the header and sunset header. 
+Existing clients will be able to maintain the backward compatibility from the higher major version incremental, and adopt any newly introduced API.  However, both the new and old version of the API will be supported until the announcement of the deprecation for the old version of the API. Nonetheless, the older major version will always be frozen with the exception of bug fixes. There will also be an announcement of deprecation in the header and sunset header. 
 
 ```md
 /api/v1/<resource group>/...
