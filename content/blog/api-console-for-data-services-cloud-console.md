@@ -39,22 +39,22 @@ The API Gateway menu is available inside the Manage menu. From HPE Greenlake Con
 
 ![CCS Menu](/img/accesing-api-gateway-from-manage-menu.png "GreenLake Common Cloud Menu")
 
-The API Gateway provides the following operations:
+The API Gateway menu provides the following operations:
 
-1. Create and manage API client applications association to obtain:
+1. Create and manage API client credential association in order to obtain:
 
-   1. Instance ID of the DSCC at the particular region (Hexadecimals)
-   2. Client ID (Hexadecimals)
-   3. Client Secret (Hexadecimals)
-   4. URL to the HPE GreenLake Console API end-point (string)
-   5. URL to the HPE DSCC API end-point (string)
+   1. Instance ID of the DSCC at the particular region (Hexadecimals).
+   2. Client ID (Hexadecimals).
+   3. Client Secret (Hexadecimals).
+   4. URL to the HPE GreenLake Console API end-point (string).
+   5. URL to the HPE DSCC API end-point (string).
 2. Generate Access Token, change Client Secret, and delete Access Token.
 
 ![API Gateway](/img/api-gateway-block.png "DSCC API Gateway")
 
 ### Manage API Client Applications
 
-Each of the API client Applications Connection creates the relationship between the client and server (application). Click on the **Create Credentials** button to generate a client credential to generate the Access Token.
+Each instance of the API client credential represents the authorization relationship between the client application to the DSCC REST API end point. Click on the Create Credentials button to generate a client credential. Afterward the user can obtain the client secret and client secret, and used them to generate the access token.
 
 ![](/img/create-credentials-button.png)
 
