@@ -27,13 +27,13 @@ Some of the advantages of distributing in OpenAPI 3.0 format:
 1. Updates to the API can be generated in a more agile manner where documentation is embedded, describing any endpoints, parameters, and more; such as contact information, license, terms of use. 
 2. Consumers of this API also gain the benefits of agility, by using the converter from openAPI yaml, or json to any programming language that is used as part of the their automation or CI/CD workflow. (Please check <https://openapi.tools> for more information for the API tools to generate client code)
 
-## REST API Details
+## DSCC REST API Details
 
 Any one can download this OpenAPI Specification (OAS) v3 definition of the DSCC from the following: [Link to the API repository](https://console-us1.data.cloud.hpe.com/doc/api/v1/)
 
 ![DSCC_API_Doc](/img/api-documentation-display.png "DSCC API Documentation")
 
-The website also provides several other information:
+The website also provides additional information:
 
 1. The list of the REST API resources that are supported as of the release. 
 2. The information about the HTTP method, parameters and the responses that are expected out for this resource
