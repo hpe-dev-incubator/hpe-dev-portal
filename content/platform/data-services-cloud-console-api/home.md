@@ -63,14 +63,14 @@ The API categories for DSCC will grow in accordance to the expansion of the DSCC
 
 #### Common (Alletra-6K, Alletra-9K, Primera, Nimble)
 
-1. Authentication
-2. Tasks
-3. Event Audit
-4. AuthZ (User RBAC permissions)
-5. Issues
+1. authentication
+2. tasks
+3. event Audit
+4. authZ (User RBAC permissions)
+5. issues
 6. controllers
 7. host-initiator-groups
-8. Host-initiators
+8. host-initiators
 9. ports
 10. shelves
 11. storage-pools
@@ -92,7 +92,7 @@ The major version number will be provided in the resource path as "v1" in this e
 /api/v1/<resource group>/...
 ```
 
-Some examples of these resource paths that contain several resource groups under the same root:
+Here are some examples of these resource paths that contain several resource groups under the same root:
 
 ```markdown
 /api/v1/storage-systems/...
