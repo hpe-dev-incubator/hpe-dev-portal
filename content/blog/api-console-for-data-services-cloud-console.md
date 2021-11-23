@@ -58,7 +58,7 @@ Each instance of the API client credential represents the authorization relation
 
 ![](/img/create-credentials-button.png)
 
-Inside the Create Credentials menu, click on the V button to show the pull down list and use the mouse to click on the desired application. i.e. For storage select the Data Services Cloud Console. The list also show region where the applications is deployed.
+Inside the Create Credentials menu, click on the V button to show the pull down list and use the mouse to click on the desired application. For the purpose of using the DSCC REST API, please select Data Services Cloud Console instance in the correct region where the array has been deployed. The list shows all instances with the region where the applications are deployed.
 
 ![select the application](/img/select-the-desired-application.png "Choose application (DSCC)")
 
