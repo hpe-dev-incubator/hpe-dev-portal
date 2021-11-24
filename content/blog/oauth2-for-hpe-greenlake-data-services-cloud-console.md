@@ -171,19 +171,19 @@ Once done, this valid access-token can be made available for all of following AP
 
 ![Access Token is sync-ed](/img/postman-setup-sync-token-at-top-folder.png "Sync access token")
 
-After the access-token is sync-ed, we can then issue any REST API by selecting the appropriate REST API request. For this example, we are going to issue the REST API to show all of the storage systems connected to the DSCC. Some of the parameters that will be recommended to be set:
+After the access-token is synced, you can then issue any REST API request by selecting the appropriate REST API request. For this example, you are going to issue the REST API to show all of the storage systems connected to the DSCC. Here are some of the parameters that will be recommended to be set:
 
 * The environment must set to the above mentioned environment (i.e. DSCC Testing for this article)
 
 ![Use the correct environment](/img/postman-set-correct-environment.png "Correct Environment Variable")
 
-* Set the Authorization to inherit from the parent's authorization to allow this REST API request to use the access token acquired previously. Note that this inheritance requires the sync of the access-token.
+* Set the Authorization to inherit from the parent's authorization to allow this REST API request to use the access token acquired previously. Note that this inheritance requires the sync of the valid access token obtained at the top of the tree.
 
 ![Inherit Authorization](/img/postman-set-inherit-auth.png "Parent's Authorization")
 
-For the first REST API request for this example, you can select the Get all storage systems. This can return a huge amount of data depends on the arrays that were registered in this instance of the HPE DSCC. To enable concise information returned from this REST API request, we can check on the following parameters and uncheck every other parameters.
+For the first REST API request in this example, you can select the **Get all storage systems**. This can return a huge amount of data depending on the arrays that were registered in this instance of the DSCC instance. To enable concise information returned from this REST API request, we can check on the following parameters and uncheck every other parameters:
 
-* sort = id asc, name dscc
+* **sort** = id asc, name dscc
 * select = id
 
 Click on the "Send" button to issue the GET all storage system, within seconds, the body section on bottom of this menu was filled with the list of the available arrays. It's very easy to use, simple, no programming required and minimal typing. Isn't it awesome?
