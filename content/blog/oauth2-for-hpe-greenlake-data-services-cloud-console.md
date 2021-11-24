@@ -33,7 +33,7 @@ For the client application to perform the API to the HPE DSCC, the application m
 
 The method required to obtain the access token is described in the following HTTPs request as shown in this snippet of HTTP strings. 
 
-```md
+```markdown
 HTTP method: 
 POST
 
