@@ -57,7 +57,7 @@ curl -X POST https://sso.common.cloud.hpe.com/as/token.oauth2 -H
 -d "grant_type=client_credentials&client_id=$YOUR_CLIENT_ID&client_secret=$YOUR_CLIENT_SECRET"
 ```
 
-The following snippet show the example of code using python to obtain the access token. The same as previous code snippet, YOUR_CLIENT_ID and YOUR_CLIENT_SECRET variables must be substituted accordingly.
+The following snippet shows the example of the code using Python to obtain the access token. The same as previous code snippet, YOUR_CLIENT_ID and YOUR_CLIENT_SECRET variables must be substituted accordingly.
 
 ```python
 from oauthlib.oauth2 import BackendApplicationClient       
@@ -73,7 +73,7 @@ token = oauth.fetch_token(token_url='https://sso.common.cloud.hpe.com/as/token.o
 print(token["access_token"])
 ```
 
-Another snippet below shows the PowerShell code to obtain the access token accordingly. In this snippet, client application will need to replace the client_id and client_secret.
+Another snippet below shows the example of the PowerShell code to obtain the access token. In this snippet, the user of the client application will need to replace the client id and client secret variables accordingly
 
 ```powershell
 $AuthUri = "https://sso.common.cloud.hpe.com/as/token.oauth2"
@@ -91,7 +91,7 @@ The access token contains the information in JWT format that is self-contained, 
 eyJhbGciOiJSUzI1NiIsImtpZCI6IjFvVEFmay1UOTZ1ZDd5cDBZTGlYM1ROSWdDWSIsInBpLmF0bSI6ImRlejAifQ.eyJjbGllbnRfaWQiOiIwMGNmZmY3MC04NmFiLTRmNjYtODI0NS0xZWIwNTQ2MzljMzgiLCJpc3MiOiJodHRwczovL3Nzby5jb21tb24uY2xvdWQuaHBlLmNvbSIsImF1ZCI6ImV4dGVybmFsX2FwaSIsInN1YiI6InJvbmFsZC5kaGFybWFAaHBlLmNvbSIsInVzZXJfY3R4IjoiZThhNGRhMmVlZmMzMTFlYmEwMmNiNjAzNDIyYmMwYTAiLCJhdXRoX3NvdXJjZSI6ImNjc190b2tlbl9tYW5hZ2VtZW50IiwicGxhdGZvcm1fY3VzdG9tZXJfaWQiOiIyMzRkNzZjNmU5ZDAxMWViYjczMDgyYjIxMmFkNmZlYSIsImlhdCI6MTYzNDc3OTIwNiwiYXBwbGljYXRpb25faW5zdGFuY2VfaWQiOiIzYzE4YmQwMy04MzA2LTRjN2MtOTQyZS1jNzA0YTRiODc0NGMiLCJleHAiOjE2MzQ3ODY0MDZ9.sz7GHvCdO_NjPgVt5rz7JHRSegZWD0pimNqiw7s_SC9vB2XsQnSEP71Kh1y3SqQxkKF8AgbJ02iEZYsk-GO-JmufGfeIUbl2idrFlfXPiKsKftn35dHO-uHW8s4KwL7mUF_HiPxUPIsixQ1zS_88-qdUGzAWDjcR0JO2gKnkaWeQ_AUGzdDw09ZSYZG3sxIoqU_HNjLF1c8hJmVV9Q6IN1ItKAspECc_UYTnjUBrZz5mpupDxuLIMJytTFUFwCriphi9cXQCTyQ3TXW_EALtRq_KdLEe311WFMX9mAL87zXP2JNc8bf8CTiiAty5eCjM2wxrPK9-ep0i5J5v6kJW_Q
 ```
 
-Some of the information inside the JWT details the client-id, source of authentication, and many others including time of expiration. 
+Some of the information inside the JWT details the client id, source of authentication, and many others including time of expiration. 
 
 ```json
 {
