@@ -86,7 +86,7 @@ Copy the access token using using the "sheets" icon and store this access token 
 
 ![](/img/access-token-created-and-close.png "Access Token Generated and Consumed")
 
-User then can embed the access token to the REST API request in order to perform the HTTP method against the desired resource in order to obtain the response.  Note that you will need to use the correct base-URL according to the region where the DSCC is deployed. Currently these are the base-URL and the corresponding region where the DSCC is deployed (November 2021)
+Afterward, the user can embed the access token to the REST API request in order to perform the HTTP method against the desired resource in order to obtain the response.  Note that the user must use the correct base-URL according to the region where the DSCC is deployed. Currently these are the base-URL and the corresponding region where the DSCC is deployed (November 2021)
 
 | DSCC Region  | base-URL                       |
 | ------------ | ------------------------------ |
@@ -95,6 +95,8 @@ User then can embed the access token to the REST API request in order to perform
 | US West      | https://us1.data.cloud.hpe.com |
 
 #### Oops! What if I missed to copy the client secret for this instance of client credential?
+
+The client secret can be recreated inside the instance of create credentials by clicking on the three dots at the bottom menu. Select 
 
 #### Nice! Can you give me an example of using the access token?
 
