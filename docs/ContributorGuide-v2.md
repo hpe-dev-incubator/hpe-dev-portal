@@ -549,5 +549,5 @@ If appropriate, use a tag to tie your blog post to a "platform" page on HPE DEV 
   | **iLORESTful API**                 | ilo-restful-api |
   | **HPE Alletra**                    | hpe-alletra |
   | **SmartSim**                       | smartsim    |
-  | **HPE Data Sevices Cloud Console** | data-services-cloud-console |
+  | **Data Sevices Cloud Console**     | data-services-cloud-console |
   
