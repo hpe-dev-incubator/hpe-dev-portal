@@ -10,14 +10,14 @@ tags:
 ---
 ## HPE GreenLake API Security
 
-At the introduction of this public API in this [blog](https://deploy-preview-707--hpe-dev-portal.netlify.app/blog/api-console-for-data-services-cloud-console/) **(Using HPE GreenLake Console's API Gateway for Data Services Cloud Console)**, I introduce the process for HPE GreenLake supports the Client-Credential authentication grant type (a.k.a. OAuth 2 client-credential authentication workflow.) This particular grant type allows the client application to authenticate using separate credentials (client-ID and client-secret) that is authorized inside the API Gateway menu using the HPE GreenLake User account (Resource Owner)
+At the introduction of Data Services Cloud Console public REST API in this [blog](https://deploy-preview-707--hpe-dev-portal.netlify.app/blog/api-console-for-data-services-cloud-console/) **(Using HPE GreenLake Console's API Gateway for Data Services Cloud Console)**, I introduce the concept and the process for the user to obtain the client credential authorization. This concept is known as OAuth 2 client-credential authorization workflow. This particular grant type allows the client application to authenticate using separate credentials (client id and client secret) that is authorized inside the API Gateway menu using the HPE GreenLake user account (Resource Owner)
 
-**Some of the benefits of DSCC Client Credential OAuth authentication grant:**
+**Some of the benefits of the DSCC Client Credential OAuth authentication grant:**
 
-1. The authentication for Client does not involve the transmission of the HPE GreenLake user credentials.
-2. Changing the Client Secret or deleting the Client ID will not impact HPE GreenLake user credentials.
-3. According to OAuth 2.0 [https://tools.ietf.org/html/rfc6749#section-4.4](https://datatracker.ietf.org/doc/html/rfc6749#section-4.4), Client Credential grant type allows the client Application to authenticate by itself independent of user (no user intervention) which makes this grant type appropriate for machine-to-machine (M2M) application that can safely protect the registered client credentials (confidential clients) such as scripts, daemon, or services contained in a host. Please refer to this [](https://tools.ietf.org/html/rfc6749#section-2.1)<https://tools.ietf.org/html/rfc6749#section-2.1> for more information.
-4. Each client application uses different set of client ID and client secret to ensure secrecy and independency of each client applications.
+1. The authorization for client does not involve the transmission of the HPE GreenLake user credentials.
+2. Changing the client secret or deleting the client credentials will not impact HPE GreenLake user credentials.
+3. According to OAuth 2.0 [https://tools.ietf.org/html/rfc6749#section-4.4](https://datatracker.ietf.org/doc/html/rfc6749#section-4.4), Client Credential grant type allows the client application to authenticate by itself independent of user (no user intervention) which makes this grant type appropriate for machine-to-machine (M2M) application that can safely protect the registered client credentials (confidential clients) such as scripts, daemon, or services contained in a host. Please refer to this [](https://tools.ietf.org/html/rfc6749#section-2.1)<https://tools.ietf.org/html/rfc6749#section-2.1> for more information.
+4. Each client application uses different set of client id and client secret to ensure the secrecy and the independency of each client application.
 
 ### How do I implement HPE DSCC API in my client application or my script?
 
