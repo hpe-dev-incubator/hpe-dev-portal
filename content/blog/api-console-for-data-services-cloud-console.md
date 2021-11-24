@@ -66,9 +66,7 @@ After selecting the correct application, enter the Credential Name (Please see H
 
 ![Create Credential no input yet](/img/create-credentials-menu.png "Generate Client Credentials 1st time")
 
-Note that to create the credentials for the OAuth, you have to provide the application and the name of this credential. Select the Data Services Cloud Console Application on the appropriate region where the console are deployed for this organization.
-
-Once the Create Credential is selected, the following information about the OAuth will be shown.
+Once the Create Credential button is clicked, the following information about the OAuth (Open Authorization) will be shown. These are the Client ID and Client Secret information menu that is going to be shown only once. Please copy both Client ID and Client Secret to a safely recorded location. In the case that the user missed to copy these information, then the user can only regenerate the Client Secret at later time using the Client-Secret Reset menu.
 
 ![](/img/api-client-credential-created.png "Credentials Created Close")
 
