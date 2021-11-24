@@ -75,7 +75,7 @@ token = oauth.fetch_token(token_url='https://sso.common.cloud.hpe.com/as/token.o
 print(token["access_token"])
 ```
 
-Another snippet below shows the example of the PowerShell code to obtain the access token. As in the previous code snippet, the user of the client application will need to replace the client id and client secret variables accordingly
+Another snippet below shows the example of the PowerShell code used to obtain the access token. As in the previous code snippet, the client id and the client secret variables must be substituted accordingly.
 
 ```powershell
 $AuthUri = "https://sso.common.cloud.hpe.com/as/token.oauth2"
