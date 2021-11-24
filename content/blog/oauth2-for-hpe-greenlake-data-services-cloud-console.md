@@ -87,7 +87,7 @@ $AuthUri = "https://sso.common.cloud.hpe.com/as/token.oauth2"
  (invoke-restmethod -uri "$AuthURI" -Method Post -headers $AuthHeaders -body $MyBody).access_token
 ```
 
-The access token contains the information in JWT format that is self-contained, securely encoded, and signed using RS256. The access-token is designed to enable secure transmission between the client application and the REST API server with limited lifetime (2 hours).
+The access token contains the information in JWT format that is self-contained, securely encoded, and signed using RS256. The access token is designed to enable secure transmission between the client application and the REST API server with limited lifetime (2 hours).
 
 ```http
 eyJhbGciOiJSUzI1NiIsImtpZCI6IjFvVEFmay1UOTZ1ZDd5cDBZTGlYM1ROSWdDWSIsInBpLmF0bSI6ImRlejAifQ.eyJjbGllbnRfaWQiOiIwMGNmZmY3MC04NmFiLTRmNjYtODI0NS0xZWIwNTQ2MzljMzgiLCJpc3MiOiJodHRwczovL3Nzby5jb21tb24uY2xvdWQuaHBlLmNvbSIsImF1ZCI6ImV4dGVybmFsX2FwaSIsInN1YiI6InJvbmFsZC5kaGFybWFAaHBlLmNvbSIsInVzZXJfY3R4IjoiZThhNGRhMmVlZmMzMTFlYmEwMmNiNjAzNDIyYmMwYTAiLCJhdXRoX3NvdXJjZSI6ImNjc190b2tlbl9tYW5hZ2VtZW50IiwicGxhdGZvcm1fY3VzdG9tZXJfaWQiOiIyMzRkNzZjNmU5ZDAxMWViYjczMDgyYjIxMmFkNmZlYSIsImlhdCI6MTYzNDc3OTIwNiwiYXBwbGljYXRpb25faW5zdGFuY2VfaWQiOiIzYzE4YmQwMy04MzA2LTRjN2MtOTQyZS1jNzA0YTRiODc0NGMiLCJleHAiOjE2MzQ3ODY0MDZ9.sz7GHvCdO_NjPgVt5rz7JHRSegZWD0pimNqiw7s_SC9vB2XsQnSEP71Kh1y3SqQxkKF8AgbJ02iEZYsk-GO-JmufGfeIUbl2idrFlfXPiKsKftn35dHO-uHW8s4KwL7mUF_HiPxUPIsixQ1zS_88-qdUGzAWDjcR0JO2gKnkaWeQ_AUGzdDw09ZSYZG3sxIoqU_HNjLF1c8hJmVV9Q6IN1ItKAspECc_UYTnjUBrZz5mpupDxuLIMJytTFUFwCriphi9cXQCTyQ3TXW_EALtRq_KdLEe311WFMX9mAL87zXP2JNc8bf8CTiiAty5eCjM2wxrPK9-ep0i5J5v6kJW_Q
@@ -112,7 +112,7 @@ Some of the information inside the JWT details the client id, source of authenti
 
 #### I don't know any programming language. How can I explore this DSCC REST API?
 
-Postman is the well-known tool used to explore REST API that provides enough flexibility to import the API definition, automate the access-token retrieval and experiment with the parameters. The Postman provides this capability with a lot less of typing and knowledge of programming language. To experiment with Postman, I recommend you download the application-based (rather than web-based version) option. This is the **[download link](https://www.postman.com/downloads/)** for the Postman app  which is available in either Microsoft Windows and Macintosh MacOS version. Install the application on the workstation that has access to internet via website browser (HTTPS) and is capable to connect to https://*.cloud.hpe.com
+Postman is the well-known tool used to explore REST API that provides enough flexibility to import the API definition, automate the access token retrieval and experiment with the parameters. The Postman provides this capability with a lot less of typing and knowledge of programming language. To experiment with Postman, I recommend you download the application-based (rather than web-based version) option. This is the **[download link](https://www.postman.com/downloads/)** for the Postman app  which is available in either Microsoft Windows and Macintosh MacOS version. Install the application on the workstation that has access to internet via website browser (HTTPS) and is capable to connect to https://*.cloud.hpe.com
 
 Start by downloading the storage-api.yaml OpenAPI 3.0 definition into the workstation. Anyone can go the DSCC API documentation website through this link: <https://console-us1.data.cloud.hpe.com/doc/api/v1/> and click on the download button for either Yaml or JSON definition file.
 
@@ -159,19 +159,19 @@ After the API is loaded, you can then use the automation for obtaining that acce
 7. **Client Secret** = obtained from the client credential creation in API Gateway (The pair to the Client ID)
 8. **Client Authentication** = Send client credentials in body
 
-Click on the "Get New Access Token" button to obtain the valid access-token 
+Click on the "Get New Access Token" button to obtain the valid access token 
 
 ![Setting Up Authorization](/img/postman-setup-access-token-at-top-folder.png "Automation for OAuth 2.0")
 
-As a result of getting the new access token, a new menu will be shown that shows the content of the access-token. Click the "Use Token" button to select this new access-token. If there is an existing access-token, it will be invalidated and the name of that invalid access token will have a strike-through as shown in below image.
+As a result of getting the new access token, a new menu will be shown that shows the content of the access token. Click the "Use Token" button to select this new access token. If there is an existing access token, it will be invalidated and the name of that invalid access token will have a strike-through as shown in below image.
 
 ![Obtain New Access Token](/img/postman-use-access-token.png "Valid Access Token")
 
-Once done, this valid access-token can be made available for all of following API Request under the same tree. To make this happen, click on the Sync Access Token until it's synced-up (the icon color changes to Green). To enable this, please select Delete Expired Tokens and select Available Tokens. Lastly, ensure that this header prefix is set to Bearer.
+Once done, this valid access token can be made available for all of following API Request under the same tree. To make this happen, click on the Sync Access Token until it's synced-up (the icon color changes to Green). To enable this, please select Delete Expired Tokens and select Available Tokens. Lastly, ensure that this header prefix is set to Bearer.
 
 ![Access Token is sync-ed](/img/postman-setup-sync-token-at-top-folder.png "Sync access token")
 
-After the access-token is synced, you can then issue any REST API request by selecting the appropriate REST API request. For this example, you are going to issue the REST API to show all of the storage systems connected to the DSCC. Here are some of the parameters that will be recommended to be set:
+After the access token is synced, you can then issue any REST API request by selecting the appropriate REST API request. For this example, you are going to issue the REST API to show all of the storage systems connected to the DSCC. Here are some of the parameters that will be recommended to be set:
 
 * The environment must set to the above mentioned environment (i.e. DSCC Testing for this article)
 
