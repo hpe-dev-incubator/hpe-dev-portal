@@ -78,7 +78,7 @@ Clicking on the down arrow, user can generate the access token required to use t
 
 ![](/img/api-client-credential-get-access-token.png "Time to obtain the Access Token")
 
-After clicking on the Generate Access Tokens button, the menu requires user to enter the Client Secret obtained from the API Client Credentials 
+After clicking on the Generate Access Tokens button, the menu requires user to enter the Client Secret obtained from the API Client Credentials. This is the time to copy and paste the client secret from Credential Created menu so that the user can obtain the access token.
 
 ![](/img/generate-access-token-with-secret.png "Use the client secret to generate Access Token")
 
@@ -96,7 +96,7 @@ User then can embed the access token to the REST API request in order to perform
 
 #### Nice! Can you give me an example of using the access token?
 
-The access token is a long string of JSON Web Token that is signed using RS256 algorithm. Note that the access-token must be added into the header of with key-word "Authorization: Bearer <access-token in JWT>". This following example based on **curl** uses "scalpha-app.qa.cds.hpe.com" as base-URL. Note that this is DSCC testing-site only, please use one of the base-URL noted in the above table. The example uses GET REST API method for this resource **/api/v1/audit-events** to obtain lists of the audit-events available.
+The access token is a long string of JSON Web Token that is signed using RS256 algorithm. Note that the access-token must be added into the header of with keyword "Authorization: Bearer <access-token in JWT>". This following example is based on curl tool, and it uses "https://scalpha-app.qa.cds.hpe.com" as base-URL. Note that this base-URL is DSCC testing-site only, please use one of the base-URL noted in the above table. The following example of the DSCC REST API request uses GET method for this resource /api/v1/audit-events to obtain lists of the audit-events available. Note the additional parameter with keyword "Authorization: Bearer" is added into the header of this REST API request.
 
 ```powershell
 >curl -X GET https://scalpha-app.qa.cds.hpe.com/api/v1/audit-events 
@@ -104,7 +104,7 @@ The access token is a long string of JSON Web Token that is signed using RS256 a
 -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IllUMU9MZWRYeDFCbHZ2and6OU1FNm8ya1BQayIsInBpLmF0bSI6ImRlejAifQ.eyJjbGllbnRfaWQiOiIwMGNmZmY3MC04NmFiLTRmNjYtODI0NS0xZWIwNTQ2MzljMzgiLCJpc3MiOiJodHRwczovL3Nzby5jb21tb24uY2xvdWQuaHBlLmNvbSIsImF1ZCI6ImV4dGVybmFsX2FwaSIsInN1YiI6InJvbmFsZC5kaGFybWFAaHBlLmNvbSIsInVzZXJfY3R4IjoiZThhNGRhMmVlZmMzMTFlYmEwMmNiNjAzNDIyYmMwYTAiLCJhdXRoX3NvdXJjZSI6ImNjc190b2tlbl9tYW5hZ2VtZW50IiwicGxhdGZvcm1fY3VzdG9tZXJfaWQiOiIyMzRkNzZjNmU5ZDAxMWViYjczMDgyYjIxMmFkNmZlYSIsImlhdCI6MTYzNzAwNjk0NSwiYXBwbGljYXRpb25faW5zdGFuY2VfaWQiOiIzYzE4YmQwMy04MzA2LTRjN2MtOTQyZS1jNzA0YTRiODc0NGMiLCJleHAiOjE2MzcwMTQxNDV9.gHcBzl0n2wwrMRR2tSbT6jHN68d1TSNT743GED3LuF2B08ABYh9ePKQjhqYW6mjY-oSfEW2BTfG7TfTzZj9MtQ2kJGmq3DvLBl6fAaN6MEkSIz54hu0PdmDW8His6oET2txq_0kp5XJ7T6n_QJzZY0xvSoquE-48gCxwGFPWIRwefIpdw_1URFXYgfdKCxCIDTdPfYKs8kD8hzwyF9uvgLgVPWZJD6b1UHJK5OpNnBOpAxrs1xfFBz688b0vheZdARCJsl5E3Qxjyg68hw2cjavZZOX-_RWpd6JWPrQnqxyxQeYQ5yYy7giVCViM5SUZkv6j0Ts3TVguapE2kvahkQ"
 ```
 
-The responses are returned as JSON strings as shown in below example. Note that we can use more parameters to return particular events through some filtering. Please take a look at the [DSCC API documentation](https://console-us1.data.cloud.hpe.com/doc/api/v1/) for more information.
+The responses are returned as JSON strings as shown in the below example. Note that the user can use additional parameters to filter particular events. Please take a look at the [DSCC API documentation](https://console-us1.data.cloud.hpe.com/doc/api/v1/) for more information on additional parameters that are available for /api/v1/audit-events resource.
 
 ```javascript
 {
