@@ -181,10 +181,10 @@ After the access-token is synced, you can then issue any REST API request by sel
 
 ![Inherit Authorization](/img/postman-set-inherit-auth.png "Parent's Authorization")
 
-For the first REST API request in this example, you can select the **Get all storage systems**. This can return a huge amount of data depending on the arrays that were registered in this instance of the DSCC instance. To enable concise information returned from this REST API request, we can check on the following parameters and uncheck every other parameters:
+For the first REST API request in this example, you can select the **Get all storage systems**. This can return a huge amount of data depending on the arrays that were registered in this instance of the DSCC instance. To enable concise information returned from this REST API request, we can check on the following parameters and uncheck all others:
 
 * **sort** = id asc, name dscc
-* select = id
+* **select** = id
 
 Click on the "Send" button to issue the GET all storage system, within seconds, the body section on bottom of this menu was filled with the list of the available arrays. It's very easy to use, simple, no programming required and minimal typing. Isn't it awesome?
 
