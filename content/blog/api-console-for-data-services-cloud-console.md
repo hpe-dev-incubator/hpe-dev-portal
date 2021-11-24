@@ -23,9 +23,9 @@ The DSCC public API relies on an OAuth 2.0 third party authorization framework o
 
 The access token have a limited lifetime (about 720 seconds or 2 hours). Once it expires, the client application must use the obtained client id and client secret to generate a new access token. One indication of the expiration of access-token, the request to DSCC API will return response error: '401 Unauthorized HTTP.'  If the client application generates new access token prior to it expires, then the current access-token will be invalidated or treated as not authorized. 
 
-Additionally, a user can also change the client-secret to update the authorization when the authorized user has lost the client-secret or the secret has been compromised. 
+Additionally, a user can also change the client secret to update the authorization when the authorized user has lost the client secret or the secret has been compromised. 
 
-And lastly, when access to the API must be disabled, a user can delete the API client credential associated with client-id and client-secret in the API Gateway.
+And lastly, when access to the API must be disabled, a user can delete the API client credential associated with client id and client secret in the API Gateway.
 
 ![Access API process](/img/user-guide-for-authorization.png "Process to authenticate and to obtain secure access ")
 
