@@ -18,8 +18,8 @@ At the introduction of Data Services Cloud Console public REST API in this [blog
 
 1. The authorization for client does not involve the transmission of the HPE GreenLake user credentials.
 2. Changing the client secret or deleting the client credentials will not impact HPE GreenLake user credentials.
-3. According to OAuth 2.0 [https://tools.ietf.org/html/rfc6749#section-4.4](https://datatracker.ietf.org/doc/html/rfc6749#section-4.4), Client Credential grant type allows the client application to authenticate by itself independent of user (no user intervention) which makes this grant type appropriate for machine-to-machine (M2M) application that can safely protect the registered client credentials (confidential clients) such as scripts, daemon, or services contained in a host. Please refer to this [](https://tools.ietf.org/html/rfc6749#section-2.1)<https://tools.ietf.org/html/rfc6749#section-2.1> for more information.
-4. Each client application uses different set of client id and client secret to ensure the secrecy and the independency of each client application.
+3. According to OAuth 2.0 [https://tools.ietf.org/html/rfc6749#section-4.4](https://datatracker.ietf.org/doc/html/rfc6749#section-4.4), Client Credential grant type allows the client application to authenticate itself independent of user (no user intervention) which makes this grant type appropriate for machine-to-machine (M2M) application that can safely protect the registered client credentials (confidential clients) such as scripts, daemon, or services contained in a host. Please refer to this [](https://tools.ietf.org/html/rfc6749#section-2.1)<https://tools.ietf.org/html/rfc6749#section-2.1> for more information.
+4. Each client application uses different set of client ids and client secrets to ensure the secrecy and the independence of each client application.
 
 ### How do I implement HPE DSCC API in my client application or my script?
 
