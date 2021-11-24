@@ -132,7 +132,7 @@ In this example, the baseURL points to a developer's instance of DSCC which must
 
 ![Set Enviroment](/img/postman-create-environment-variable.png "Set baseUrl under this environment under the workspace")
 
-Next, import the API definition into this workspace. Note that we are importing the storage-api.yaml rather than JSON; nevertheless, Postman can recognize the DSCC API in either format. To save the time for importing, you can un-check create documentation button. If need be, the documentation can be created after the importing.
+Next, import the DSCC API definition into this workspace. Note that you will be importing the storage-api.yaml rather than JSON; nevertheless, Postman can recognize the DSCC API in either format. To save the time for importing, you can uncheck create documentation button. If need be, the documentation can be created after the importing.
 
 ![Select upload files to import API](/img/postman-import-api.png "Upload API definition")
 
