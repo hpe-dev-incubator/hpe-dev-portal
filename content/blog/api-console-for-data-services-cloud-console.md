@@ -70,7 +70,7 @@ Once the Create Credential button is clicked, the following information about th
 
 ![](/img/api-client-credential-created.png "Credentials Created Close")
 
-After closing the credential creation menu, user can observe the created API Client Credentials
+After closing the credential creation menu, the user can observe the prior created API Client Credentials by identifying the Credential Name.
 
 ![](/img/application-credential-created-prior-shown.png "API Client Credentials are created")
 
@@ -82,7 +82,7 @@ After clicking on the Generate Access Tokens button, the menu requires user to e
 
 ![](/img/generate-access-token-with-secret.png "Use the client secret to generate Access Token")
 
-Copy the Access Token for the API usage.
+Copy the access token using using the "sheets" icon and store this access token to a safely recorded location.
 
 ![](/img/access-token-created-and-close.png "Access Token Generated and Consumed")
 
