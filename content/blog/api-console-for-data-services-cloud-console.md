@@ -96,7 +96,9 @@ Afterward, the user can embed the access token to the REST API request in order 
 
 #### Oops! What if I missed to copy the client secret for this instance of client credential?
 
-The client secret can be recreated inside the instance of create credentials by clicking on the three dots at the bottom menu. Select 
+The client secret can be recreated inside the create credentials menu by clicking on the three dots at the bottom menu. Once the three dot menu opened, the user must click on the Reset Client Secret menu. This prior action will open the Credentials Created menu to show the new client secret for one time only. 
+
+![Reset the client secret](/img/reset-the-client-secret-in-client-credential-menu.png "resetting the client secret")
 
 #### Nice! Can you give me an example of using the access token?
 
