@@ -10,7 +10,7 @@ tags:
 ---
 ## HPE GreenLake API Security
 
-At the introduction of Data Services Cloud Console public REST API in this [blog](https://deploy-preview-707--hpe-dev-portal.netlify.app/blog/api-console-for-data-services-cloud-console/) **(Using HPE GreenLake Console's API Gateway for Data Services Cloud Console)**, I introduce the concept and the process for the user to obtain the client credential authorization. This concept is known as OAuth 2 client credential authorization workflow. This particular grant type allows the client application to authenticate using separate credentials (client id and client secret) that is authorized inside the API Gateway menu using the HPE GreenLake user account (Resource Owner)
+In my [blog](https://deploy-preview-707--hpe-dev-portal.netlify.app/blog/api-console-for-data-services-cloud-console/) post **(Using HPE GreenLake Console's API Gateway for Data Services Cloud Console)**, I explained that the HPE GreenLake console support the Client Credential authentication grant type (This concept is known as OAuth 2 client credential authorization workflow). This particular grant type allows the client application to authenticate using separate credentials (client id and client secret) that are authorized inside the API Gateway menu using the HPE GreenLake user account (Resource Owner). 
 
 ![Rehash the flow of the GreenLake access token acquisition](/img/greenlake-api-access-flow.png "Client Credentials process")
 
