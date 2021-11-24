@@ -437,17 +437,22 @@ To do so, proceed as follows:
 
 -   **Adjusting image size and its position:**
 
-    -   **Method 1 (recommended):** Use HTML code to set the size (height, width) for your image. First, toggle to **Rich Text** mode to insert your image. Then toggle to **Markdown** mode to obtain the relative path for your image (in the form: */img/myimage.png*) and **substitute the line "\!\[\](/img/myimage.png)"** with the HTML syntax below:
+    -   **Method 1 (recommended):** Use HTML code to set the size (height, width) for your image. First, toggle to **Rich Text** mode to insert your image. Then toggle to **Markdown** mode to obtain the relative path for your image (in the form: */img/myimage.png*) and **substitute** the line **"\!\[\](/img/myimage.png)"** with the HTML syntax below:
 
         \<img src=\"relative-path-of-your-image-in-the-form: /img/myimage.png\" width=\"600\" height=\"359\" alt=\"brief description for the image\"\>
 
+        >**Note:** To get appropriate Horizontal and Vertical pixel values, you may want to use the "Resize" fonction of your "Paint" (or equivalent) application. 
+        
         >**Note:** If you wish to center an image, then you can use HTML code below:
 
          \<center\>\<img src=\"relative-path-of-your-image-in-the-form: /img/myimage.png\" width=\"500\" height=\"542\" alt=\"brief description for the image\"\>\</center\>
 
         >**Note:** When using HTML code to insert an image, you will see *an empty frame* for your image in the preview area (right side of the CMS editor). The frame corresponds to the size of the image (width and height) in the blog post. Adjust the width/height value as appropriate. You will also lose the description (title specified while in Rich Text mode) of the image.
 
+        >**IMPORTANT NOTE:** Adding a _ALT Text_ will help promote online content in Search Engine such as Google.  
+
     -   **Method 2:** Using your PC/Laptop, change image size using you preferred image editor (i.e.: Paint). Toggle to **Rich Text** mode and upload/select the resized image.
+ 
  
 - **Embed a YouTube video (HPE Appoved video) in a blog or in Platform page:**
 
