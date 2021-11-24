@@ -10,7 +10,7 @@ tags:
 ---
 ## HPE GreenLake API Security
 
-At the introduction of this public API in this [blog](https://deploy-preview-707--hpe-dev-portal.netlify.app/blog/api-console-for-data-services-cloud-console/) **(Using HPE GreenLake Console's API Gateway for Data Services Cloud Console)**, I introduce that HPE GreenLake Console supports the Client-Credential authentication grant type (a.k.a. OAuth 2 client-credential authentication workflow.) This particular grant type allows the client application to authenticate using separate credentials (client-ID and client-secret) that is authorized inside the API Gateway menu using the HPE GreenLake User account (Resource Owner)
+At the introduction of this public API in this [blog](https://deploy-preview-707--hpe-dev-portal.netlify.app/blog/api-console-for-data-services-cloud-console/) **(Using HPE GreenLake Console's API Gateway for Data Services Cloud Console)**, I introduce the process for HPE GreenLake supports the Client-Credential authentication grant type (a.k.a. OAuth 2 client-credential authentication workflow.) This particular grant type allows the client application to authenticate using separate credentials (client-ID and client-secret) that is authorized inside the API Gateway menu using the HPE GreenLake User account (Resource Owner)
 
 **Some of the benefits of DSCC Client Credential OAuth authentication grant:**
 
@@ -49,7 +49,7 @@ grant_type=client_credentials
 &client_secret=xxxxxxxxxx
 ```
 
-The following show the example of code snippet using curl to obtain the access token. The variables of the $YOUR_CLIENT_ID and $YOUR_CLIENT_SECRET will be substituted with the client id and client secret from the above menu.
+The following show the example of code snippet using cURL to obtain the access token. The variables of the $YOUR_CLIENT_ID and $YOUR_CLIENT_SECRET will be substituted with the client id and client secret from the above menu.
 
 ```shell
 curl -X POST https://sso.common.cloud.hpe.com/as/token.oauth2 -H         
