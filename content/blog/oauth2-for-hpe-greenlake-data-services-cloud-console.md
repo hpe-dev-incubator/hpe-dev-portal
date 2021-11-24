@@ -128,7 +128,7 @@ Inside this new workspace we will need to create an environment variable called 
 | AP Northeast | https://jp1.data.cloud.hpe.com |
 | US West      | https://us1.data.cloud.hpe.com |
 
-In this example, baseURL points to a developer's instance of DSCC which must be replaced with any of the base-Url that match the region where it's deployed based on the above table.  For any activities to issue the DSCC API request,  configure the environment context to "DSCC testing" under the HPE DSCC API workspace, and this environment contains the expanded value of the variable of {baseUrl}.
+In this example, the baseURL points to a developer's instance of DSCC which must be replaced with any of the baseUrl that match the region where it's deployed based on the above table.  For any activities used to issue the DSCC API request,  configure the environment context to "DSCC testing" under the HPE DSCC API workspace, and ensure this environment contains the expanded value of the variable of {baseUrl}.
 
 ![Set Enviroment](/img/postman-create-environment-variable.png "Set baseUrl under this environment under the workspace")
 
