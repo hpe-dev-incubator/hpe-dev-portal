@@ -186,8 +186,8 @@ For the first REST API request in this example, you can select the **Get all sto
 * **sort** = id asc, name dscc
 * **select** = id
 
-Click on the "Send" button to issue the GET all storage system, within seconds, the body section on bottom of this menu was filled with the list of the available arrays. It's very easy to use, simple, no programming required and minimal typing. Isn't it awesome?
+Click on the "**Send**" button to issue the GET all storage system API request. Within seconds, the body section on bottom of this menu was filled with the list of the available arrays. It's very easy to use, simple, no programming required and minimal typing. Isn't it awesome?
 
 ![](/img/postman-get-storage-system-sort-select-id-only.png)
 
-![]()
+I hope you found this blog post helpful in using the Data Services Cloud Console public REST API. More blog posts will be coming to help you take further advantage of its capabilities. Stay tuned to the [HPE DEV blog](https://developer.hpe.com/blog) for more.
