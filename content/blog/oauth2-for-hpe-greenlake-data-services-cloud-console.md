@@ -3,7 +3,7 @@ title: "Implementing OAuth 2 Flow for Data Services Cloud Console's Client
   Application "
 date: 2021-10-14T12:46:19.488Z
 author: Ron Dharma
-authorimage: /img/face-portrait-small.jpg
+authorimage: https://gravatar.com/avatar/8102f2adeef249065ccb9c43b8866d17?s=192
 thumbnailimage: /img/dscc-icon-transparent.png
 tags:
   - data-services-cloud-console
