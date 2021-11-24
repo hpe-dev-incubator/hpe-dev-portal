@@ -21,7 +21,7 @@ The DSCC public API relies on an OAuth 2.0 third party authorization framework o
 
 ![client-credential application flow](/img/greenlake-api-access-flow.png "obtain client-id and client-secret")
 
-The access token have a limited lifetime (about 720 seconds or 2 hours). Once it expires, the client application must use the obtained client id and client secret to generate a new access token. One indication of the expiration of access-token, the request to DSCC API will return response error: '401 Unauthorized HTTP.'  If the client application generates new access token prior to it expires, then the current access-token will be invalidated or treated as not authorized. 
+The access token have a limited lifetime (about 720 seconds or 2 hours). Once it expires, the client application must use the obtained client id and client secret to generate a new access token. One indication of the expiration of access token, the request to DSCC API will return response error: '401 Unauthorized HTTP.'  If the client application generates new access token prior to it expires, then the current access token will be invalidated or treated as not authorized. 
 
 Additionally, a user can also change the client secret to update the authorization when the authorized user has lost the client secret or the secret has been compromised. 
 
@@ -102,7 +102,7 @@ The client secret can be recreated inside the create credentials menu by clickin
 
 #### Nice! Can you give me an example of using the access token?
 
-The access token is a long string of JSON Web Token that is signed using RS256 algorithm. Note that the access-token must be added into the header of with keyword "Authorization: Bearer <access-token in JWT>". This following example is based on curl tool, and it uses "https://scalpha-app.qa.cds.hpe.com" as base-URL. Note that this base-URL is DSCC testing-site only, please use one of the base-URL noted in the above table. The following example of the DSCC REST API request uses GET method for this resource /api/v1/audit-events to obtain lists of the audit-events available. Note the additional parameter with keyword "Authorization: Bearer" is added into the header of this REST API request.
+The access token is a long string of JSON Web Token that is signed using RS256 algorithm. Note that the access token must be added into the header of with keyword "Authorization: Bearer <access token in JWT>". This following example is based on curl tool, and it uses "https://scalpha-app.qa.cds.hpe.com" as base-URL. Note that this base-URL is DSCC testing-site only, please use one of the base-URL noted in the above table. The following example of the DSCC REST API request uses GET method for this resource /api/v1/audit-events to obtain lists of the audit-events available. Note the additional parameter with keyword "Authorization: Bearer" is added into the header of this REST API request.
 
 ```powershell
 >curl -X GET https://scalpha-app.qa.cds.hpe.com/api/v1/audit-events 
@@ -197,4 +197,4 @@ The responses are returned as JSON strings as shown in the below example. Note t
 
 The recommended tool at this moment of time to experiment with the REST API for DSCC is the Postman which is downloadable from the [Postman website](https://www.postman.com/downloads/). The postman is a versatile tool, where anyone can use copy the access token (or better to use the client id and client secret) from the API Gateway and issue a REST API request without typing a lot of code, test the parameters and format the responses.
 
-So this blog is a great example on how to obtain the access-token and experiment with the DSCC API. Please take a look at the next blog on getting the access token programmatically to enable any client application using any familiar programming or scripting language.
+So this blog is a great example on how to obtain the access token and experiment with the DSCC API. Please take a look at the next blog on getting the access token programmatically to enable any client application using any familiar programming or scripting language.
