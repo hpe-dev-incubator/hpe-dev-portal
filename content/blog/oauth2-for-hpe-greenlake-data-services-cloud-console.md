@@ -12,6 +12,8 @@ tags:
 
 At the introduction of Data Services Cloud Console public REST API in this [blog](https://deploy-preview-707--hpe-dev-portal.netlify.app/blog/api-console-for-data-services-cloud-console/) **(Using HPE GreenLake Console's API Gateway for Data Services Cloud Console)**, I introduce the concept and the process for the user to obtain the client credential authorization. This concept is known as OAuth 2 client-credential authorization workflow. This particular grant type allows the client application to authenticate using separate credentials (client id and client secret) that is authorized inside the API Gateway menu using the HPE GreenLake user account (Resource Owner)
 
+![Rehash the flow of the GreenLake access token acquisition](/img/greenlake-api-access-flow.png "Client-Credentials process")
+
 **Some of the benefits of the DSCC Client Credential OAuth authentication grant:**
 
 1. The authorization for client does not involve the transmission of the HPE GreenLake user credentials.
