@@ -10,9 +10,9 @@ tags:
 ---
 ## HPE GreenLake API Security
 
-At the introduction of Data Services Cloud Console public REST API in this [blog](https://deploy-preview-707--hpe-dev-portal.netlify.app/blog/api-console-for-data-services-cloud-console/) **(Using HPE GreenLake Console's API Gateway for Data Services Cloud Console)**, I introduce the concept and the process for the user to obtain the client credential authorization. This concept is known as OAuth 2 client-credential authorization workflow. This particular grant type allows the client application to authenticate using separate credentials (client id and client secret) that is authorized inside the API Gateway menu using the HPE GreenLake user account (Resource Owner)
+At the introduction of Data Services Cloud Console public REST API in this [blog](https://deploy-preview-707--hpe-dev-portal.netlify.app/blog/api-console-for-data-services-cloud-console/) **(Using HPE GreenLake Console's API Gateway for Data Services Cloud Console)**, I introduce the concept and the process for the user to obtain the client credential authorization. This concept is known as OAuth 2 client credential authorization workflow. This particular grant type allows the client application to authenticate using separate credentials (client id and client secret) that is authorized inside the API Gateway menu using the HPE GreenLake user account (Resource Owner)
 
-![Rehash the flow of the GreenLake access token acquisition](/img/greenlake-api-access-flow.png "Client-Credentials process")
+![Rehash the flow of the GreenLake access token acquisition](/img/greenlake-api-access-flow.png "Client Credentials process")
 
 **Some of the benefits of the DSCC Client Credential OAuth authentication grant:**
 
@@ -23,7 +23,7 @@ At the introduction of Data Services Cloud Console public REST API in this [blog
 
 ### How do I implement HPE DSCC API in my client application or my script?
 
-This blog post will go through an example of setting up the client-application using the client id, client secret, DSCC API definition in yaml, and the Postman tool. The flow to get the client id and client secret from this menu is detailed in my [blog ](https://deploy-preview-707--hpe-dev-portal.netlify.app/blog/api-console-for-data-services-cloud-console/)titled **Using HPE GreenLake Console's API Gateway to Data Services Cloud Console.** Note that client id and client secret are shown only once during the API credential creation; hence it need to be securely recorded.
+This blog post will go through an example of setting up the client application using the client id, client secret, DSCC API definition in yaml, and the Postman tool. The flow to get the client id and client secret from this menu is detailed in my [blog ](https://deploy-preview-707--hpe-dev-portal.netlify.app/blog/api-console-for-data-services-cloud-console/)titled **Using HPE GreenLake Console's API Gateway to Data Services Cloud Console.** Note that client id and client secret are shown only once during the API credential creation; hence it need to be securely recorded.
 
 ![image of the client id and client secret](/img/credentials-created-client.png "Client Credentials")
 
