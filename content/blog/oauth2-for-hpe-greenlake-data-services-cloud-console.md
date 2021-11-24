@@ -51,7 +51,7 @@ grant_type=client_credentials
 &client_secret=xxxxxxxxxx
 ```
 
-The following show the example of code snippet using cURL to obtain the access token. The variables of the $YOUR_CLIENT_ID and $YOUR_CLIENT_SECRET will be substituted with the client id and client secret from the above menu.
+The following show an example of code snippet using cURL to obtain the access token. The variables of the $YOUR_CLIENT_ID and $YOUR_CLIENT_SECRET will be substituted with the client id and client secret from the above menu.
 
 ```shell
 curl -X POST https://sso.common.cloud.hpe.com/as/token.oauth2 -H         
@@ -59,7 +59,7 @@ curl -X POST https://sso.common.cloud.hpe.com/as/token.oauth2 -H
 -d "grant_type=client_credentials&client_id=$YOUR_CLIENT_ID&client_secret=$YOUR_CLIENT_SECRET"
 ```
 
-The following snippet shows the example of the code using Python to obtain the access token. The same as previous code snippet, YOUR_CLIENT_ID and YOUR_CLIENT_SECRET variables must be substituted accordingly.
+The following snippet shows an example of the code using Python to obtain the access token. As in the previous code snippet, YOUR_CLIENT_ID and YOUR_CLIENT_SECRET variables must be substituted accordingly.
 
 ```python
 from oauthlib.oauth2 import BackendApplicationClient       
@@ -75,7 +75,7 @@ token = oauth.fetch_token(token_url='https://sso.common.cloud.hpe.com/as/token.o
 print(token["access_token"])
 ```
 
-Another snippet below shows the example of the PowerShell code to obtain the access token. In this snippet, the user of the client application will need to replace the client id and client secret variables accordingly
+Another snippet below shows the example of the PowerShell code to obtain the access token. As in the previous code snippet, the user of the client application will need to replace the client id and client secret variables accordingly
 
 ```powershell
 $AuthUri = "https://sso.common.cloud.hpe.com/as/token.oauth2"
