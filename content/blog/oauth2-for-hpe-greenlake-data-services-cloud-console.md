@@ -140,7 +140,7 @@ Select the DSCC API definition in yaml format that was downloaded from the [HPE 
 
 ![Download the API definition](/img/download-dscc-api-definition.png "Save the API definition")
 
-Once the API definition completes the import, Postman recognize the fact that it's an OpenAPI 3.0 definition and build the API library automatically.
+Once the API definition completes the import, Postman recognizes the fact that it's an OpenAPI 3.0 definition and builds the API library automatically.
 
 ![Confirmation of the API Definition Import](/img/postman-import-load.png "OpenAPI 3.0 Confirmation")
 
