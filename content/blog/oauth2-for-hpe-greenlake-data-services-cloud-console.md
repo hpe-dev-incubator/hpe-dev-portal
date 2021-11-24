@@ -27,7 +27,7 @@ This blog post will go through an example of setting up the client-application u
 
 ![image of the client id and client secret](/img/credentials-created-client.png "Client Credentials")
 
-The user who generates this client id and client secret pair must store them and transfer them securely to the designated client application. Using the client id and the client secret the client application can generate the access token that in order to issue the REST API request to resources in the DSCC. The client application access to the permitted DSCC resources depends on the role base access control (RBAC) of the user.
+The user who generates this client id and client secret pair must store them and transfer them securely to the designated client application. Using the client id and the client secret the client application can generate the access token that in order to issue the REST API request to resources in the DSCC. The client application access to the permitted DSCC resources depends on the role base access control (RBAC) of the user. If the user does not have the correct authority for a resource such as the volumes of an array, then the REST API request will receive "unauthorized request" response.
 
 For the client application to perform the REST API request, the application must obtain the access token from HPE GreenLake as described in below diagram. This special [end-point](https://sso.common.cloud.hpe.com/as/token.oauth2) (https://sso.common.cloud.hpe.com/as/token.oauth2) provides the access token in the response of the authorization request from any client application.
 
