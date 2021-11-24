@@ -114,9 +114,9 @@ Some of the information inside the JWT details the client id, source of authenti
 
 Postman is the well-known tool used to explore REST API that provides enough flexibility to import the API definition, automate the access-token retrieval and experiment with the parameters. The Postman provides this capability with a lot less of typing and knowledge of programming language. To experiment with Postman, I recommend you download the application-based (rather than web-based version) option. This is the **[download link](https://www.postman.com/downloads/)** for the Postman app  which is available in either Microsoft Windows and Macintosh MacOS version. Install the application on the workstation that has access to internet via website browser (HTTPS) and is capable to connect to https://*.cloud.hpe.com
 
-Start by downloading the storage-api.yaml OpenAPI 3.0 definition into the workstation. Anyone can go the DSCC API documentation website through this link: <https://console-us1.data.cloud.hpe.com/doc/api/v1/>
+Start by downloading the storage-api.yaml OpenAPI 3.0 definition into the workstation. Anyone can go the DSCC API documentation website through this link: <https://console-us1.data.cloud.hpe.com/doc/api/v1/> and click on the download button for either Yaml or JSON definition file.
 
-Postman provides the ability to create a workspace where one can experiment with the HPE DSCC OpenAPI by importing the storage-api.yaml into the API library. The process started by selecting the Workspaces menu, click on Create Workspace button and type in the desired workspace name. In this example, it's called HPE DSCC API
+Postman provides the ability to create a workspace where one can experiment with the DSCC OpenAPI by importing the DSCC OpenAPI definition (storage-api.yaml) into the API library. Start the process by selecting the Workspaces menu, then click on the Create Workspace button and type in the desired workspace name. In this example, it's called HPE DSCC API.
 
 ![Create Workspace](/img/postman-create-workspace.png "Create the workspace in the Postman")
 
