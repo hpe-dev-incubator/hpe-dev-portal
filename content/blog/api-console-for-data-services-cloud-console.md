@@ -27,6 +27,8 @@ Additionally, a user can also change the client secret to update the authorizati
 
 And lastly, when access to the DSCC REST API must be disabled, a user can delete the API client credential associated with client id and client secret in the API Gateway menu.
 
+The following flow chart describes steps required to perform the DSCC REST API request. The flow starts from the authorized user creating the client id and client secret to be used to obtain the access token. The access token will be used in the authorization bearer to ensure the secure REST API request. 
+
 ![Access API process](/img/user-guide-for-authorization.png "Process to authenticate and to obtain secure access ")
 
 ## Accessing the API Gateway Menu
