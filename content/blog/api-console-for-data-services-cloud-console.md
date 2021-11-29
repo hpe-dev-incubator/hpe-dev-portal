@@ -29,9 +29,9 @@ And lastly, when access to the DSCC REST API must be disabled, a user can delete
 
 ![Access API process](/img/user-guide-for-authorization.png "Process to authenticate and to obtain secure access ")
 
-## Accessing the API Gateway Console
+## Accessing the API Gateway Menu
 
-To access the API console, the user must log into the [HPE GreenLake Console,](https://common.cloud.hpe.com) have deployed the DSCC to the intended region, and onboarded a storage array (HPE Alletra, HPE Nimble, or HPE Primera) into the organization that is associated with the user account. The user must have the role that is required to perform the intended operation at the instance of DSCC where the storage is deployed. For instance, the user must have volume management capability in the Data Ops Management to create a storage volume in US region. For more information about the role based access control, please take a look at the [HPE GreenLake User Guide](https://support.hpe.com/hpesc/public/docDisplay?docId=ccs-help_en_us)
+To access the API gateway menu, the user must log into the [HPE GreenLake Console,](https://common.cloud.hpe.com) deployed the DSCC to the intended region, and onboarded a storage array (HPE Alletra, HPE Nimble, or HPE Primera) into the organization that is associated with the user account. The user must have the role that is required to perform the intended operation at the instance of DSCC where the storage has been deployed. For instance, the user must have volume management capability in the Data Ops Management to create a storage volume in US region. For more information about the role based access control, please take a look at the [HPE GreenLake User Guide](https://support.hpe.com/hpesc/public/docDisplay?docId=ccs-help_en_us)
 
 The API Gateway menu is available inside the Manage menu. From HPE Greenlake Console click on Menu to access this Manage Menu.
 
