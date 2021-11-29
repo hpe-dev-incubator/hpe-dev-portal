@@ -33,7 +33,7 @@ And lastly, when access to the DSCC REST API must be disabled, a user can delete
 
 To access the API gateway menu, the user must log into the [HPE GreenLake Console,](https://common.cloud.hpe.com) deployed the DSCC to the intended region, and onboarded a storage array (HPE Alletra, HPE Nimble, or HPE Primera) into the organization that is associated with the user account. The user must have the role that is required to perform the intended operation at the instance of DSCC where the storage has been deployed. For instance, the user must have volume management capability in the Data Ops Management to create a storage volume in US region. For more information about the role based access control, please take a look at the [HPE GreenLake User Guide](https://support.hpe.com/hpesc/public/docDisplay?docId=ccs-help_en_us)
 
-The API Gateway menu is available inside the Manage menu. From HPE Greenlake Console click on Menu to access this Manage Menu.
+The API Gateway menu is available inside the HPE GreenLake's Manage menu. From HPE Greenlake Console click on Menu to access this Manage Menu.
 
 ![Access Menu ](/img/accesing-manage-menu-from-console.png "Menu in Cloud Console")
 
@@ -41,16 +41,16 @@ The API Gateway menu is available inside the Manage menu. From HPE Greenlake Con
 
 The API Gateway menu provides the following operations:
 
-1. Create and manage API client credential association in order to obtain:
+1. Creates and manages API client credential association in order to obtain:
 
    1. Instance ID of the DSCC at the particular region (Hexadecimals).
    2. Client ID (Hexadecimals).
    3. Client Secret (Hexadecimals).
    4. URL to the HPE GreenLake Console API end-point (string).
    5. URL to the HPE DSCC API end-point (string).
-2. Generate Access Token, change Client Secret, and delete Access Token.
+2. Generates access token, changes client secret, and deletes client credential.
 
-![API Gateway](/img/api-gateway-block.png "DSCC API Gateway")
+![API Gateway Menu](/img/api-gateway-block.png "DSCC API Gateway Menu")
 
 ### Manage API Client Applications
 
