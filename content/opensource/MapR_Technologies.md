@@ -3,7 +3,7 @@ active: true
 priority: 18
 Featured: true
 title: MapR Demonstration Projects
-category: DATAMANAGEMENT
+category: Data Analytics
 link: https://developer.hpe.com/platform/hpe-ezmeral-data-fabric/home/
 description: Repositories presenting various contributions of MapR to Apache
   Open Source projects and proper developments.
