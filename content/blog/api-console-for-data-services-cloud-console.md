@@ -52,13 +52,13 @@ The API Gateway menu provides the following operations:
 
 ![API Gateway Menu](/img/api-gateway-block.png "DSCC API Gateway Menu")
 
-### Manage API Client Applications
+### Manages API client application
 
-Each instance of the API client credential represents the authorization relationship between the client application and the DSCC REST API end point. Click on the Create Credentials button to generate a client credential. Afterward the user can obtain the client secret and client secret, and used them to generate the access token.
+Each instance of API client credential represents the authorization relationship between the client application and the DSCC REST API resources. Click on the Create Credentials button to generate a client credential. Afterward, the user can obtain the client secret and client secret, and used them to generate the access token.
 
-![](/img/create-credentials-button.png)
+![API client credentials](/img/create-credentials-button.png "Create API Client Credentials")
 
-Inside the Create Credentials menu, click on the V button to show the pull down list and use the mouse to click on the desired application. For the purpose of using the DSCC REST API, please select Data Services Cloud Console instance in the correct region where the array has been deployed. The list shows all instances with the region where the applications are deployed.
+Inside the Create Credentials menu, click on the V button to show the pull down list and use the mouse to click on the desired application. For the purpose of using the DSCC REST API, please select Data Services Cloud Console instance in the region where the array has been deployed. The list shows all instances with the regions where the applications are deployed.
 
 ![select the application](/img/select-the-desired-application.png "Choose application (DSCC)")
 
