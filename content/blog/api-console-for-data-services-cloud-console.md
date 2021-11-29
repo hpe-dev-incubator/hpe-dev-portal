@@ -78,15 +78,15 @@ After licking on the down arrow button, user can see the Generate Access Token b
 
 ![](/img/api-client-credential-get-access-token.png "Time to obtain the Access Token")
 
-After clicking on the Generate Access Token button, the Generate Access Token menu will appear. The menu requires user to enter the client secret obtained from the associated API client credential. User must copy and paste the recorded client secret from Credential Created menu so that the user can obtain the access token.
+After clicking on the Generate Access Token button, the Generate Access Token menu will appear. The menu requires user to enter the client secret obtained from the associated API client credential. User must copy and paste the recorded client secret from Credential Created menu (in the previous image in this blog) so that the user can obtain the access token. Click on the Create Access Token button to generate the access token.
 
-![](/img/generate-access-token-with-secret.png "Use the client secret to generate Access Token")
+![obtained from client credential.](/img/generate-access-token-with-secret.png "Use the client secret to generate Access Token")
 
-Copy the access token using using the "sheets" icon and store this access token to a safely recorded location.
+The Access Token Created menu will appear and shows the generated access token. Copy the access token using using the "sheets" icon and store this access token to a safely recorded location. Click Close button to continue.
 
 ![](/img/access-token-created-and-close.png "Access Token Generated and Consumed")
 
-Afterward, the user can embed the access token to the REST API request in order to perform the HTTP method against the desired resource in order to obtain the response.  Note that the user must use the correct base-URL according to the region where the DSCC is deployed. Currently these are the base-URL and the corresponding region where the DSCC is deployed (November 2021)
+Afterward, the user can embed the access token to the REST API request in order to perform the HTTP method against the desired resource in order to obtain the response.  Note that the user must use the correct base-URL according to the region where the DSCC is deployed. Currently these are the base-URL and the corresponding region where the DSCC is deployed (November 2021).
 
 | DSCC Region  | base-URL                       |
 | ------------ | ------------------------------ |
@@ -96,13 +96,13 @@ Afterward, the user can embed the access token to the REST API request in order 
 
 #### Oops! What if I missed to copy the client secret for this instance of client credential?
 
-The client secret can be recreated inside the create credentials menu by clicking on the three dots at the bottom menu. Once the three dot menu opened, the user must click on the Reset Client Secret menu. This prior action will open the Credentials Created menu to show the new client secret for one time only. 
+The client secret can be recreated inside the create credentials menu by clicking on the three dots at the bottom menu. Once the three dot menu opened, the user must click on the Reset Client Secret button to display the newly created client secret. This prior action will open the Credentials Created menu to show the new client secret for one time only. Note that user must copy this newly created secret to a secured location so that it can be used to generate new access token.
 
 ![Reset the client secret](/img/reset-the-client-secret-in-client-credential-menu.png "resetting the client secret")
 
 #### Nice! Can you give me an example of using the access token?
 
-The access token is a long string of JSON Web Token that is signed using RS256 algorithm. Note that the access token must be added into the header of with keyword "Authorization: Bearer <access token in JWT>". This following example is based on curl tool, and it uses "https://scalpha-app.qa.cds.hpe.com" as base-URL. Note that this base-URL is DSCC testing-site only, please use one of the base-URL noted in the above table. The following example of the DSCC REST API request uses GET method for this resource /api/v1/audit-events to obtain lists of the audit-events available. Note the additional parameter with keyword "Authorization: Bearer" is added into the header of this REST API request.
+The access token is a long string of JSON Web Token that is signed using RS256 algorithm. Note that the access token must be added into the header of with keyword "Authorization: Bearer <access token in JWT>" for any DSCC REST API request. This following example is based on curl tool, and it uses "https://scalpha-app.qa.cds.hpe.com" as the base-URL. Note that this base-URL is DSCC testing-site only. For your exercise, please use one of the base-URL noted in the above table. The following example of the DSCC REST API request uses GET method for this resource /api/v1/audit-events to obtain a list of the available audit-events. Note the additional parameter with keyword "Authorization: Bearer" is added into the header of this REST API request.
 
 ```powershell
 >curl -X GET https://scalpha-app.qa.cds.hpe.com/api/v1/audit-events 
