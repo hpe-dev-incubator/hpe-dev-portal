@@ -78,7 +78,7 @@ After licking on the down arrow button, user can see the Generate Access Token b
 
 ![](/img/api-client-credential-get-access-token.png "Time to obtain the Access Token")
 
-After clicking on the Generate Access Tokens button, the menu requires user to enter the Client Secret obtained from the API Client Credentials. This is the time to copy and paste the client secret from Credential Created menu so that the user can obtain the access token.
+After clicking on the Generate Access Token button, the Generate Access Token menu will appear. The menu requires user to enter the client secret obtained from the associated API client credential. User must copy and paste the recorded client secret from Credential Created menu so that the user can obtain the access token.
 
 ![](/img/generate-access-token-with-secret.png "Use the client secret to generate Access Token")
 
