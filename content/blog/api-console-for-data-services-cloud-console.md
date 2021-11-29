@@ -66,15 +66,15 @@ After selecting the correct application, enter the Credential Name (Please see H
 
 ![Create Credential no input yet](/img/create-credentials-menu.png "Generate Client Credentials 1st time")
 
-Once the Create Credential button is clicked, the following information about the OAuth (Open Authorization) will be shown. These are the Client ID and Client Secret information menu that is going to be shown only once. Please copy both Client ID and Client Secret to a safely recorded location. In the case that the user missed to copy these information, then the user can only regenerate the Client Secret at later time using the Reset Client Secret menu.
+Once the Create Credential button is clicked, the following information about the OAuth (Open Authorization) will be shown. These are the Client ID and Client Secret information menu that is going to be shown only once. Please copy both client id and client secret to a safely recorded location. In the case that the user misses to copy these client credential information, then the user can only regenerate the client secret at later time using the Reset Client Secret menu.
 
 ![](/img/api-client-credential-created.png "Credentials Created Close")
 
-After closing the credential creation menu, the user can observe the prior created API Client Credentials by identifying the Credential Name.
+After closing the credential creation menu, the user can observe the prior created API client credential by identifying the credential name on the menu.
 
 ![](/img/application-credential-created-prior-shown.png "API Client Credentials are created")
 
-Clicking on the down arrow, user can generate the access token required to use the API.
+After licking on the down arrow button, user can see the Generate Access Token button in order to generate the access token required to be used for the DSCC REST API request
 
 ![](/img/api-client-credential-get-access-token.png "Time to obtain the Access Token")
 
