@@ -190,4 +190,4 @@ Click on the **Send** button to issue the GET all storage system API request. Wi
 
 ![](/img/postman-get-storage-system-sort-select-id-only.png)
 
-I hope you found this blog post helpful in using the Data Services Cloud Console public REST API. More blog posts will be coming to help you take further advantage of its capabilities. Stay tuned to the [HPE DEV blog](https://developer.hpe.com/blog) for more.
+I hope that you find that this blog post is helpful for you in using the Data Services Cloud Console public REST API. More blog posts will be coming to help you take further advantage of its capabilities. Stay tuned to the [HPE DEV blog](https://developer.hpe.com/blog) for more blog posts about HPE DSCC REST API.
