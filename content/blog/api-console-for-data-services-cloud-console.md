@@ -17,7 +17,7 @@ This blog will walk through the essential steps required to exercise or experime
 
 ### Authentication Process to Obtain the Access Token
 
-The DSCC public API relies on an OAuth 2.0 third party authorization framework on behalf of the resource owner (HPE GreenLake Console's user) for security. The user starts by logging and authenticating into HPE GreenLake Console, which is authenticated by the Identity Provider (validated through username, password, or Multi Factor Authentication). Using the API gateway menu in GreenLake Console, a customer registers their client application (REST API client) to obtain the OAuth 2.0 API client credentials (client id and client secret). This association allows the user to obtain the access token from the menu, and user can then use the access token inside the token bearer field (header) with any REST API request. This action allows any client application or script to perform any API request to the correct instance of DSCC.
+The DSCC public API relies on an OAuth 2.0 third party authorization framework on behalf of the resource owner (HPE GreenLake Console's user) for security. The user starts by logging and authenticating into HPE GreenLake Console, which is authenticated by the Identity Provider (validated through username, password, or Multi Factor Authentication). Using the API gateway menu in the HPE GreenLake Console, a customer registers their client application (REST API client) to obtain the OAuth 2.0 API client credentials (client id and client secret). This association allows the user to obtain the access token from the menu, and the user can then use the access token inside the token bearer field (header) with any REST API request. This action allows any client application or script to perform any API request to the correct instance of DSCC.
 
 ![client-credential application flow](/img/greenlake-api-access-flow.png "obtain client-id and client-secret")
 
@@ -56,7 +56,7 @@ The API Gateway menu provides the following operations:
 
 ### Manages API client application
 
-Each instance of API client credential represents the authorization relationship between the client application and the DSCC REST API resources. Click on the Create Credentials button to generate a client credential. Afterward, the user can obtain the client secret and client secret, and used them to generate the access token.
+Each instance of API client credential represents the authorization relationship between the client application and the DSCC REST API resources. Please click on the Create Credentials button to generate a client credential. Afterward, the user can obtain the client secret and client secret, and used them to generate the access token.
 
 ![API client credentials](/img/create-credentials-button.png "Create API Client Credentials")
 
