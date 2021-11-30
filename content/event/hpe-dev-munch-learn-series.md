@@ -1,14 +1,13 @@
 ---
 title: HPE DEV Munch & Learn series March 2021
-dateStart: 2021-11-24T16:00:00.000Z
-dateEnd: 2021-11-25T17:00:00.000Z
+dateStart: 2021-03-24T16:00:00.000Z
+dateEnd: 2021-03-24T17:00:00.000Z
 category: Virtual Event
 image: /img/munch-and-learn-216.svg
 link: /campaign/munch-and-learn/
 width: large
 tags:
   - hpedev
-  - spiffe-and-spire-projects
 ---
 ## HPE DEV Munch & Learn series
 Data Science Unplugged - Part 1
