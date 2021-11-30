@@ -148,7 +148,7 @@ As a result of the upload of the DSCC API definition file, the Postman will show
 
 ![DSCC API loaded](/img/postman-api-loaded.png "DSCC API definition loaded")
 
-After the API is loaded, you can then use the automation for obtaining that access token that is facilitated by Postman. To start the OAuth2 automation, select the Collections menu and display the rest of the API listing under the tree. At the top of the tree, you will initialize the authorization with correct parameters such as the client id, client secret, DSCC OAuth2 end point, and other required parameters. With this setup, any API request that inherit the authorization from the top of tree will be able to populate their header for REST API request with access token as the token bearer. Below, you can see a display of the configuration that is populated with the required parameters under the authorization menu.
+After the DSCC API definition is loaded, you can then use the automation for obtaining that access token that is facilitated by Postman. To start the OAuth2 automation, select the Collections menu and display the rest of the API listing under the tree. At the top of the tree, you will initialize the authorization with correct parameters such as the client id, client secret, DSCC OAuth2 end point, and other required parameters. With this setup, any API request that inherit the authorization from the top of tree will be able to populate their header for REST API request with access token as the token bearer. Below, you can see a display of the configuration that is populated with the required parameters under the authorization menu.
 
 1. **Type** = OAuth 2.0
 2. **Add auth data to** = Request Headers
