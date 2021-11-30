@@ -76,11 +76,11 @@ After closing the credential creation menu, the user can observe the prior creat
 
 ![](/img/application-credential-created-prior-shown.png "API Client Credentials are created")
 
-After licking on the down arrow button, user can see the Generate Access Token button in order to generate the access token required to be used for the DSCC REST API request. Please click on the Generate Access Token to generate an access token.
+After licking on the down arrow button, the user can see the Generate Access Token button in order to generate the access token required to be used for the DSCC REST API request. Please click on the Generate Access Token to generate an access token.
 
 ![](/img/api-client-credential-get-access-token.png "Time to obtain the Access Token")
 
-After clicking on the Generate Access Token button, the Generate Access Token menu will appear. The menu requires user to enter the client secret obtained from the associated API client credential. User must copy and paste the recorded client secret from Credential Created menu (in the previous image in this blog) so that the user can obtain the access token. Click on the Create Access Token button to generate the access token.
+After clicking on the Generate Access Token button, the Generate Access Token menu will appear. The menu requires the user to enter the client secret obtained from the associated API client credential. The user must copy and paste the recorded client secret from Credential Created menu (in the previous image in this blog) so that the user can obtain the access token. Click on the Create Access Token button to generate the access token.
 
 ![obtained from client credential.](/img/generate-access-token-with-secret.png "Use the client secret to generate Access Token")
 
