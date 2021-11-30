@@ -68,7 +68,7 @@ After selecting the correct application, enter the Credential Name (Please see [
 
 ![Create Credential no input yet](/img/create-credentials-menu.png "Generate Client Credentials 1st time")
 
-Once the Create Credential button is clicked, the following information about the OAuth (Open Authorization) will be shown. These are the Client ID and Client Secret information menu that is going to be shown only once. Please copy both client id and client secret to a safely recorded location. In the case that the user misses to copy these client credential information, then the user can only regenerate the client secret at later time using the Reset Client Secret menu.
+Once the Create Credential button is clicked, the following information about the OAuth (Open Authorization) will be shown. These are the Client ID and Client Secret information menus that are going to be shown only once. Please copy both client id and client secret to a safely recorded location. In the case that the user missed copying this information, then the user can only regenerate the client secret at a later time using the Reset Client Secret menu.
 
 ![](/img/api-client-credential-created.png "Credentials Created Close")
 
