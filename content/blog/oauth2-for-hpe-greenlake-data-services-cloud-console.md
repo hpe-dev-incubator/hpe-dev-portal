@@ -18,18 +18,18 @@ In my [blog](https://developer.hpe.com/blog/api-console-for-data-services-cloud-
 
 1. The authorization for the client does not involve the transmission of the HPE GreenLake user credentials.
 2. Changing the client secret or deleting the client credentials will not impact HPE GreenLake user credentials.
-3. According to OAuth 2.0 [https://tools.ietf.org/html/rfc6749#section-4.4](https://datatracker.ietf.org/doc/html/rfc6749#section-4.4), the Client Credential grant type allows the client application to authenticate itself independent of the user (no user intervention), which makes this grant type appropriate for machine-to-machine (M2M) applications that can safely protect the registered client credentials (confidential clients), such as scripts, daemon, or services contained in a host. Please refer to this [](https://tools.ietf.org/html/rfc6749#section-2.1)<https://tools.ietf.org/html/rfc6749#section-2.1> for more information.
+3. According to OAuth 2.0 Authorization Framework, [the Client Credential Grant type](https://datatracker.ietf.org/doc/html/rfc6749#section-4.4) allows the client application to authenticate itself independent of the user (no user intervention), which makes this grant type appropriate for machine-to-machine (M2M) applications that can safely protect the registered client credentials (confidential clients), such as scripts, daemon, or services contained in a host. Please refer to the [OAuth 2.0 Authorization Framework](https://tools.ietf.org/html/rfc6749#section-2.1) for more information.
 4. Each client application uses a different set of client ids and client secrets to ensure the secrecy and the independence of each client application.
 
 ### How do I implement HPE DSCC API in my client application or my script?
 
-This blog post will go through an example of setting up the client application using the client id, client secret, DSCC API definition in yaml, and the Postman tool. The flow to get the client id and client secret from this menu is detailed in my [blog ](https://developer.hpe.com/blog/api-console-for-data-services-cloud-console/) entitled **Using HPE GreenLake Console's API Gateway to Data Services Cloud Console.** Note that the client id and client secret are shown only once during the API credential creation; hence they need to be securely recorded.
+This blog post will go through an example of setting up the client application using the client id, client secret, DSCC API definition in yaml, and the Postman tool. The flow to get the client id and client secret from this menu is detailed in my [blog](https://developer.hpe.com/blog/api-console-for-data-services-cloud-console/) entitled **Using HPE GreenLake Console's API Gateway to Data Services Cloud Console.** Note that the client id and client secret are shown only once during the API credential creation; hence they need to be securely recorded.
 
 ![image of the client id and client secret](/img/credentials-created-client.png "Client Credentials")
 
 The user who generates this client id and client secret pair must store them and transfer them securely to the designated client application. Using the client id and the client secret, the client application can generate the access token in order to issue the REST API request to resources in the DSCC. The client application access to the permitted DSCC resources depends on the role-based access control (RBAC) of the user. If the user does not have the correct authority for a resource, such as the volumes of an array, then the REST API request will receive an "unauthorized request" response.
 
-For the client application to perform the REST API request, the application must obtain the access token from HPE GreenLake as described in below diagram. This special [end-point](https://sso.common.cloud.hpe.com/as/token.oauth2) (https://sso.common.cloud.hpe.com/as/token.oauth2) provides the access token in the response of the authorization request from any client application.
+For the client application to perform the REST API request, the application must obtain the access token from HPE GreenLake as described in below diagram. This special [end-point](https://sso.common.cloud.hpe.com/as/token.oauth2) provides the access token in the response of the authorization request from any client application.
 
 ![Diagram for client credential ](/img/client-credential-access-token.png "Client Credential")
 
@@ -114,7 +114,7 @@ Some of the information inside the JWT details the client id, source of authenti
 
 Postman is the well-known tool used to explore a REST API that provides enough flexibility to import the API definition, automate the access token retrieval and experiment with the parameters. Postman provides this capability with a lot less of typing and knowledge of any programming language. To experiment with Postman, I recommend you download the application-based (rather than web-based) version. This is the **[download link](https://www.postman.com/downloads/)** for the Postman app, which is available in either a Microsoft Windows or Apple MacOS version. Install the application on a workstation that has access to the internet via website browser (HTTPS) and is capable of connecting to https://*.cloud.hpe.com.
 
-Start by downloading the storage-api.yaml OpenAPI 3.0 definition into the workstation. Anyone can go to the DSCC API documentation website through this link: <https://console-us1.data.cloud.hpe.com/doc/api/v1/> and click on the download button for either the Yaml or JSON definition file.
+Start by downloading the storage-api.yaml OpenAPI 3.0 definition into the workstation. Anyone can go to the [DSCC API documentation website](https://console-us1.data.cloud.hpe.com/doc/api/v1/) and click on the download button for either the Yaml or JSON definition file.
 
 Postman provides the ability to create a workspace where one can experiment with the DSCC OpenAPI by importing the DSCC OpenAPI definition (storage-api.yaml) into the API library. Start the process by selecting the Workspaces menu, then click on the **Create Workspace** button and type in the desired workspace name. In this example, it's called HPE DSCC API.
 
