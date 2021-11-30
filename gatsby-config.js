@@ -325,6 +325,9 @@ module.exports = {
           "iLOrest",
           "ilo-restful-api",
           "Redfish",
+          "hpe-ezmeral-runtime"
+          "data-services-cloud-console"
+          "determined-ai"
           ]}}}, sort: {fields: [frontmatter___date], order: DESC}) {
             nodes {
               id

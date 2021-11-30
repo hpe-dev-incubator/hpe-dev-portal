@@ -561,6 +561,7 @@ export const pageQuery = graphql`
             nin: [
               "opensource"
               "hpe-ezmeral-container-platform"
+              "hpe-ezmeral-runtime"
               "spiffe-and-spire-projects"
               "hpe-ezmeral-data-fabric"
               "hpe-greenlake"
@@ -573,6 +574,8 @@ export const pageQuery = graphql`
               "hpe-oneview"
               "hpe-oneview-global-dashboard"
               "ilo"
+              "data-services-cloud-console"
+              "determined-ai"
             ]
           }
         }
