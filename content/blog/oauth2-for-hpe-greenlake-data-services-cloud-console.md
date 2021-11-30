@@ -144,7 +144,7 @@ Once the API definition completes the import, Postman recognizes the fact that i
 
 ![Confirmation of the API Definition Import](/img/postman-import-load.png "OpenAPI 3.0 Confirmation")
 
-As a result of the upload of the DSCC API, Postman can then place the API definition under the Postman API menu as shown in the below picture. Note that Postman validates that DSCC API definition doesn't have any issues as shown at the very bottom of the picture.
+As a result of the upload of the DSCC API definition file, the Postman will show the API definition tree under the Postman API menu as shown in the below picture. Note that Postman validates that DSCC API definition doesn't contain any issues as shown by the message at the very bottom of the following picture.
 
 ![DSCC API loaded](/img/postman-api-loaded.png "DSCC API definition loaded")
 
