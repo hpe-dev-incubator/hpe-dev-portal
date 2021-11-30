@@ -112,11 +112,11 @@ Some of the information inside the JWT details the client id, source of authenti
 
 #### I don't know any programming language. How can I explore this DSCC REST API?
 
-Postman is the well-known tool used to explore a REST API that provides enough flexibility to import the API definition, automate the access token retrieval and experiment with the parameters. Postman provides this capability with a lot less of typing and knowledge of any programming language. To experiment with Postman, I recommend you download the application-based (rather than web-based) version. This is the **[download link](https://www.postman.com/downloads/)** for the Postman app, which is available in either Microsoft Windows or Apple MacOS version. Install the application on the workstation that has access to the internet via website browser (HTTPS) and is capable of connecting to https://*.cloud.hpe.com.
+Postman is the well-known tool used to explore a REST API that provides enough flexibility to import the API definition, automate the access token retrieval and experiment with the parameters. Postman provides this capability with a lot less of typing and knowledge of any programming language. To experiment with Postman, I recommend you download the application-based (rather than web-based) version. This is the **[download link](https://www.postman.com/downloads/)** for the Postman app, which is available in either a Microsoft Windows or Apple MacOS version. Install the application on a workstation that has access to the internet via website browser (HTTPS) and is capable of connecting to https://*.cloud.hpe.com.
 
 Start by downloading the storage-api.yaml OpenAPI 3.0 definition into the workstation. Anyone can go to the DSCC API documentation website through this link: <https://console-us1.data.cloud.hpe.com/doc/api/v1/> and click on the download button for either the Yaml or JSON definition file.
 
-Postman provides the ability to create a workspace where one can experiment with the DSCC OpenAPI by importing the DSCC OpenAPI definition (storage-api.yaml) into the API library. Start the process by selecting the Workspaces menu, then click on the Create Workspace button and type in the desired workspace name. In this example, it's called HPE DSCC API.
+Postman provides the ability to create a workspace where one can experiment with the DSCC OpenAPI by importing the DSCC OpenAPI definition (storage-api.yaml) into the API library. Start the process by selecting the Workspaces menu, then click on the **Create Workspace** button and type in the desired workspace name. In this example, it's called HPE DSCC API.
 
 ![Create Workspace](/img/postman-create-workspace.png "Create the workspace in the Postman")
 
@@ -132,11 +132,11 @@ In this example, the baseURL points to a testing instance of DSCC (https://scint
 
 ![Set Enviroment](/img/postman-create-environment-variable.png "Set baseUrl under this environment under the workspace")
 
-Next, import the DSCC API definition into this workspace. Note that you will be importing the storage-api.yaml rather than JSON; nevertheless, Postman can recognize the DSCC API in either format. To save the time required for importing, you can uncheck the Create Documentation button. If need be, the documentation can be created after the importing.
+Next, import the DSCC API definition into this workspace. Note that you will be importing the storage-api.yaml rather than JSON; nevertheless, Postman can recognize the DSCC API in either format. To save the time required for importing, you can uncheck the **Create Documentation** button. If need be, the documentation can be created after the importing.
 
 ![Select upload files to import API](/img/postman-import-api.png "Upload API definition")
 
-Select the DSCC API definition in yaml format that was downloaded from the [HPE DSCC API documentation](https://console-us1.data.cloud.hpe.com/doc/api/v1/) by clicking on the "Download YAML" button as shown below.
+Select the DSCC API definition in yaml format that was downloaded from the [HPE DSCC API documentation](https://console-us1.data.cloud.hpe.com/doc/api/v1/) by clicking on the **Download YAML** button as shown below.
 
 ![Download the API definition](/img/download-dscc-api-definition.png "Save the API definition")
 
