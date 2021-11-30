@@ -496,6 +496,28 @@ export const pageQuery = graphql`
         id
       }
     }
+    dsccBlogsCount: allMarkdownRemark(
+      filter: {
+        fields: { sourceInstanceName: { eq: "blog" } }
+        frontmatter: { tags: { eq: "data-services-cloud-console" } }
+      }
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
+      totalCount
+    }
+    dsccBlogs: paginatedCollectionPage(
+      collection: { name: { eq: "dscc-posts" } }
+      index: { eq: 0 }
+    ) {
+      nodes
+      hasNextPage
+      nextPage {
+        id
+      }
+      collection {
+        id
+      }
+    }
     openSourceBlogsCount: allMarkdownRemark(
       filter: {
         fields: { sourceInstanceName: { eq: "blog" } }
@@ -539,6 +561,7 @@ export const pageQuery = graphql`
             nin: [
               "opensource"
               "hpe-ezmeral-container-platform"
+              "hpe-ezmeral-runtime"
               "spiffe-and-spire-projects"
               "hpe-ezmeral-data-fabric"
               "hpe-greenlake"
@@ -551,6 +574,8 @@ export const pageQuery = graphql`
               "hpe-oneview"
               "hpe-oneview-global-dashboard"
               "ilo"
+              "data-services-cloud-console"
+              "determined-ai"
             ]
           }
         }
