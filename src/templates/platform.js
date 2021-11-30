@@ -13,6 +13,7 @@ import {
   SectionHeader,
   ResponsiveGrid,
   ButtonLink,
+  Card,
 } from '../components';
 import { useSiteMetadata } from '../hooks/use-site-metadata';
 
@@ -62,6 +63,7 @@ const rows = {
 function PlatformTemplate({ data }) {
   const post = data.markdownRemark;
   const { edges: blogs } = data.blogs;
+  const { edges: events } = data.events;
   const siteMetadata = useSiteMetadata();
   const siteTitle = siteMetadata.title;
   const { rawMarkdownBody, excerpt } = post;
@@ -93,6 +95,25 @@ function PlatformTemplate({ data }) {
                     ) : undefined;
                   })}
                 </ResponsiveGrid>
+              </SectionHeader>
+            )}
+            {events.length > 0 && tags && (
+              <SectionHeader title="Related Events" color="border">
+                {events.map(({ node }) => {
+                  return (
+                    node && (
+                      <Card
+                        key={node.id}
+                        category={node.frontmatter.category}
+                        width={node.frontmatter.width}
+                        content={node.rawMarkdownBody}
+                        link={node.frontmatter.link}
+                        image={node.frontmatter.image}
+                        basis="auto"
+                      />
+                    )
+                  );
+                })}
               </SectionHeader>
             )}
           </Content>
@@ -149,6 +170,25 @@ PlatformTemplate.propTypes = {
         }),
       ),
     }),
+    events: PropTypes.shape({
+      edges: PropTypes.arrayOf(
+        PropTypes.shape({
+          node: PropTypes.shape({
+            frontmatter: PropTypes.shape({
+              title: PropTypes.string.isRequired,
+              link: PropTypes.string.isRequired,
+              image: PropTypes.string,
+              category: PropTypes.string,
+            }).isRequired,
+            excerpt: PropTypes.string.isRequired,
+            fields: PropTypes.shape({
+              slug: PropTypes.string.isRequired,
+              sourceInstanceName: PropTypes.string.isRequired,
+            }),
+          }).isRequired,
+        }).isRequired,
+      ).isRequired,
+    }).isRequired,
     aside: PropTypes.shape({
       rawMarkdownBody: PropTypes.string.isRequired,
       excerpt: PropTypes.string,
@@ -206,6 +246,36 @@ export const pageQuery = graphql`
             authorimage
           }
           excerpt(format: MARKDOWN)
+        }
+      }
+    }
+    events: allMarkdownRemark(
+      limit: 2000
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: {
+        frontmatter: { tags: { regex: $tagRE } }
+        fields: { sourceInstanceName: { eq: "event" } }
+        isUpcoming: { eq: true }
+      }
+    ) {
+      totalCount
+      edges {
+        node {
+          id
+          rawMarkdownBody
+          fields {
+            slug
+            sourceInstanceName
+          }
+          excerpt
+          frontmatter {
+            title
+            image
+            category
+            dateEnd
+            link
+            width
+          }
         }
       }
     }
