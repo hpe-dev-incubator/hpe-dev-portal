@@ -120,7 +120,7 @@ Postman provides the ability to create a workspace where one can experiment with
 
 ![Create Workspace](/img/postman-create-workspace.png "Create the workspace in the Postman")
 
-Inside this new workspace we will need to create an environment variable called {baseUrl} that represents the baseURL toward the DSCC API path for that specified region. This is the current list of the URL based on the region as of November 2021:
+Inside this new workspace we will need to create an environment variable called {baseUrl} that represents the baseURL toward the DSCC API path for that specified region. This is the current list of the URL based on the region where the DSCC are allowed to be deployed as of November 2021:
 
 | DSCC Region  | base-URL                       |
 | ------------ | ------------------------------ |
@@ -128,7 +128,7 @@ Inside this new workspace we will need to create an environment variable called 
 | AP Northeast | https://jp1.data.cloud.hpe.com |
 | US West      | https://us1.data.cloud.hpe.com |
 
-In this example, the baseURL points to a developer's instance of DSCC which must be replaced with any of the baseUrl that match the region where it's deployed based on the above table.  For any activities used to issue the DSCC API request,  configure the environment context to "DSCC testing" under the HPE DSCC API workspace, and ensure this environment contains the expanded value of the variable of {baseUrl}.
+In this example, the baseURL points to a testing instance of DSCC (https://scint-app.qa.cds.hpe.com). For your exercise,  you must be replace this value with any of the baseUrl value that match the region where the DSCC deployed based on the above table.  For any activities issuing the DSCC API request, configure the environment context to "DSCC testing" under the HPE DSCC API workspace, and ensure that this environment contains the current value of the variable of {baseUrl}.
 
 ![Set Enviroment](/img/postman-create-environment-variable.png "Set baseUrl under this environment under the workspace")
 
