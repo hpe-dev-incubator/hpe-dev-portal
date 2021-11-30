@@ -104,7 +104,7 @@ The client secret can be recreated inside the create credentials menu by clickin
 
 #### Nice! Can you give me an example of using the access token?
 
-The access token is a long string of JSON Web Token that is signed using RS256 algorithm. Note that the access token must be added into the header of with keyword "Authorization: Bearer <access token in JWT>" for any DSCC REST API request. This following example is based on ubiquitous Curl tool, and it uses "https://scalpha-app.qa.cds.hpe.com" as the base-URL. Note that this base-URL is DSCC testing-site only. For your exercise, please use one of the base-URL noted in the above table. The following example of the DSCC REST API request uses GET method for this resource /api/v1/audit-events to obtain a list of the available audit-events. Note the additional parameter with keyword "Authorization: Bearer" is added into the header of this REST API request.
+The access token is a long string of JSON Web Token that is signed using RS256 algorithm. Note that the access token must be added into the header of with keyword "Authorization: Bearer <access token in JWT>" for any DSCC REST API request. This following example is based on ubiquitous Curl tool, and it uses "https://scalpha-app.qa.cds.hpe.com" as the base URL. Note that this base URL is the DSCC testing-site only. For your exercise, please use one of the base-URL noted in the above table. The following example of the DSCC REST API request uses GET method for this resource /api/v1/audit-events to obtain a list of the available audit-events. Note the additional parameter with keyword "Authorization: Bearer" is added into the header of this REST API request.
 
 ```shell
 >curl -X GET https://scalpha-app.qa.cds.hpe.com/api/v1/audit-events 
