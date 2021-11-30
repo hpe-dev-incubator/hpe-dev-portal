@@ -163,17 +163,17 @@ Click on the "Get New Access Token" button to obtain the valid access token
 
 ![Setting Up Authorization](/img/postman-setup-access-token-at-top-folder.png "Automation for OAuth 2.0")
 
-As a result of getting the new access token, a new menu will be shown that shows the content of the access token. Click the "Use Token" button to select this new access token. If there is an existing access token, it will be invalidated and the name of that invalid access token will have a strike-through as shown in below image.
+As a result of getting the new access token, a new menu will be shown that shows the content of the access token. Click the **Use Token** button to select this new access token. If there is an existing access token, it will be invalidated and the name of that invalid access token will have a strike-through as shown in below image.
 
 ![Obtain New Access Token](/img/postman-use-access-token.png "Valid Access Token")
 
-Once done, this valid access token can be made available for all of following API Request under the same tree. To make this happen, click on the Sync Access Token until it's synced-up (the icon color changes to Green). To enable this, please select Delete Expired Tokens and select Available Tokens. Lastly, ensure that this header prefix is set to Bearer.
+Once done, this valid access token can be made available for all of following API Request under the same tree. To make this happen, click on the **Sync Access Token** button until it's synced-up (the icon color changes to Green). To enable this, please select **Delete Expired Tokens** and select **Available Tokens**. Lastly, ensure that this header prefix is set to Bearer.
 
 ![Access Token is sync-ed](/img/postman-setup-sync-token-at-top-folder.png "Sync access token")
 
 After the access token is synced, you can then issue any REST API request by selecting the appropriate REST API request. For this example, you are going to issue the REST API to show all of the storage systems connected to the DSCC. Here are some of the parameters that will be recommended to be set:
 
-* The environment must set to the above mentioned environment (i.e. DSCC Testing for this article)
+* The environment must set to the above mentioned environment (i.e. **DSCC Testing** based on the current example)
 
 ![Use the correct environment](/img/postman-set-correct-environment.png "Correct Environment Variable")
 
@@ -186,7 +186,7 @@ For the first REST API request in this example, you can select the **Get all sto
 * **sort** = id asc, name dscc
 * **select** = id
 
-Click on the "**Send**" button to issue the GET all storage system API request. Within seconds, the body section on bottom of this menu was filled with the list of the available arrays. It's very easy to use, simple, no programming required and minimal typing. Isn't it awesome?
+Click on the **Send** button to issue the GET all storage system API request. Within seconds, the body section on bottom of this menu was filled with the list of the available arrays. It's very easy to use, simple, no programming required and minimal typing. Isn't it awesome?
 
 ![](/img/postman-get-storage-system-sort-select-id-only.png)
 
