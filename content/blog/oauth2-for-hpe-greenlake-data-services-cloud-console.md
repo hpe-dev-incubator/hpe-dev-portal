@@ -177,16 +177,18 @@ After the access token is synced-up, you can then issue any REST API request by 
 
 ![Use the correct environment](/img/postman-set-correct-environment.png "Correct Environment Variable")
 
-* Set the Authorization to inherit from the parent's authorization to allow this REST API request to use the access token acquired previously. Note that this inheritance requires the sync of the valid access token obtained at the top of the tree.
+* Select the **Authorization** tab, and set the **Type** to **inherit auth from the parent's** authorization to allow this REST API request to use the access token acquired at the top of the DSCC API tree. Note that this inheritance requires the sync of the valid access token obtained at the top of the tree.
 
 ![Inherit Authorization](/img/postman-set-inherit-auth.png "Parent's Authorization")
 
-For the first REST API request in this example, you can select the **Get all storage systems**. This can return a huge amount of data depending on the arrays that were registered in this instance of the DSCC instance. To enable concise information returned from this REST API request, we can check on the following parameters and uncheck all others:
+For the first REST API request in this example, you will issue the **Get all storage systems** API request. This request can return a huge amount of data depending on the arrays that were registered in this instance of the DSCC. To enable concise information returned from this REST API request, we can check on the following parameters and uncheck all others:
 
 * **sort** = id asc, name dscc
 * **select** = id
 
-Click on the **Send** button to issue the GET all storage system API request. Within seconds, the body section on bottom of this menu was filled with the list of the available arrays. It's very easy to use, simple, no programming required and minimal typing. Isn't it awesome?
+Click on the **Send** button to issue the GET all storage system API request. Within seconds, the body section on bottom of this menu was filled with the list of the available arrays. It's very easy to use, simple, no programming required and minimal typing. 
+
+Isn't it awesome?
 
 ![](/img/postman-get-storage-system-sort-select-id-only.png)
 
