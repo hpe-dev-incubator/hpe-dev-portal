@@ -56,7 +56,7 @@ The API Gateway menu provides the following operations:
 
 ### Manages API client application
 
-Each instance of API client credential represents the authorization relationship between the client application and the DSCC REST API resources. Please click on the Create Credentials button to generate a client credential. Afterward, the user can obtain the client secret and client secret, and used them to generate the access token.
+Each instance of API client credential represents the authorization relationship between the client application and the DSCC REST API resources. Please click on the Create Credentials button to generate a client credential. Afterwards, the user can obtain the client secret and client secret, and use them to generate the access token.
 
 ![API client credentials](/img/create-credentials-button.png "Create API Client Credentials")
 
