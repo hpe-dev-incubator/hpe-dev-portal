@@ -64,7 +64,7 @@ Inside the Create Credentials menu, click on the V button to show the pull down 
 
 ![select the application](/img/select-the-desired-application.png "Choose application (DSCC)")
 
-After selecting the correct application, enter the Credential Name (Please see HPE GreenLake Cloud Console User Guide for supported characters).  Click the Create Credentials button to proceed with Client Credentials creation.
+After selecting the correct application, enter the Credential Name (Please see [HPE GreenLake Cloud Console User Guide](https://support.hpe.com/hpesc/public/docDisplay?docId=ccs-help_en_us) for supported characters).  Click the Create Credentials button to proceed with Client Credentials creation.
 
 ![Create Credential no input yet](/img/create-credentials-menu.png "Generate Client Credentials 1st time")
 
