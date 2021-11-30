@@ -173,7 +173,7 @@ Once selection to use the valid access token is done, this token can be made ava
 
 After the access token is synced-up, you can then issue any REST API request by selecting the appropriate REST API request. For this example, you are going to issue the REST API to show all of the storage systems connected to the DSCC (**Get all Storage systems**).  Select the **Headers (7)** to display the parameters of the REST API header and note that the Authorization parameter contains the valid access token.
 
-* Note that, the environment selection (at top right menu) must be set to the above mentioned environment (DSCC testing) using the **V** button for this current exercise.
+* Note that, the environment selection (the menu at top right) must be set to the above mentioned environment (DSCC testing for the current exercise) using the **V** button.
 
 ![Use the correct environment](/img/postman-set-correct-environment.png "Correct Environment Variable")
 
