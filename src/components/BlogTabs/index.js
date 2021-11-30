@@ -57,7 +57,7 @@ function BlogTabs({ data, columns }) {
 
   const platforms = {
     ezmeralBlogs: {
-      label: 'HPE Ezmeral Runtime',
+      label: 'HPE Ezmeral Runtime Enterprise',
       count: data.ezmeralBlogsCount.totalCount,
     },
     spiffeBlogs: {
@@ -111,6 +111,10 @@ function BlogTabs({ data, columns }) {
     iloBlogs: {
       label: 'iLO RESTful API',
       count: data.iloBlogsCount.totalCount,
+    },
+    dsccBlogs: {
+      label: 'Data Service Cloud Console',
+      count: data.dsccBlogsCount.totalCount,
     },
   };
 
@@ -294,6 +298,7 @@ BlogTabs.propTypes = {
     oneviewDashboardBlogsCount: PropTypes.objectOf(PropTypes.number),
     iloBlogsCount: PropTypes.objectOf(PropTypes.number),
     determinedBlogsCount: PropTypes.objectOf(PropTypes.number),
+    dsccBlogsCount: PropTypes.objectOf(PropTypes.number),
     othersBlogsCount: PropTypes.objectOf(PropTypes.number),
   }).isRequired,
   columns: PropTypes.shape({

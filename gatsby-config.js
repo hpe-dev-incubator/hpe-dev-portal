@@ -378,6 +378,7 @@ module.exports = {
       'hpe-oneview-global-dashboard',
     ),
     paginatedCollection('determined-ai-posts', 'determined-ai'),
+    paginatedCollection('dscc-posts', 'data-services-cloud-console'),
     {
       resolve: 'gatsby-plugin-paginated-collection',
       options: {

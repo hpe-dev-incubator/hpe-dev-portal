@@ -496,6 +496,28 @@ export const pageQuery = graphql`
         id
       }
     }
+    dsccBlogsCount: allMarkdownRemark(
+      filter: {
+        fields: { sourceInstanceName: { eq: "blog" } }
+        frontmatter: { tags: { eq: "data-services-cloud-console" } }
+      }
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
+      totalCount
+    }
+    dsccBlogs: paginatedCollectionPage(
+      collection: { name: { eq: "dscc-posts" } }
+      index: { eq: 0 }
+    ) {
+      nodes
+      hasNextPage
+      nextPage {
+        id
+      }
+      collection {
+        id
+      }
+    }
     openSourceBlogsCount: allMarkdownRemark(
       filter: {
         fields: { sourceInstanceName: { eq: "blog" } }

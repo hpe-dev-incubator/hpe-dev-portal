@@ -80,6 +80,8 @@ exports.createPages = async ({ graphql, actions }) => {
     await graphql(paginatedCollectionQuery('ilo-posts'));
   const determinedQueryResult =
     await graphql(paginatedCollectionQuery('determined-ai-posts'));
+  const dsccQueryResult =
+    await graphql(paginatedCollectionQuery('dscc-posts'));
   const othersQueryResult = 
     await graphql(paginatedCollectionQuery('others-posts'));
 
@@ -99,6 +101,7 @@ exports.createPages = async ({ graphql, actions }) => {
   setPagination(oneviewDashboardQueryResult);
   setPagination(iloQueryResult);
   setPagination(determinedQueryResult);
+  setPagination(dsccQueryResult);
   setPagination(othersQueryResult);
 
   return graphql(
