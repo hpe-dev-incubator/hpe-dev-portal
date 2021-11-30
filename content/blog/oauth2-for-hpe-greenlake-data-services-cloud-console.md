@@ -51,7 +51,7 @@ grant_type=client_credentials
 &client_secret=xxxxxxxxxx
 ```
 
-The following show an example of code snippet using cURL to obtain the access token. The variables of the $YOUR_CLIENT_ID and $YOUR_CLIENT_SECRET will be substituted with the client id and client secret from the above menu.
+The following code snippet shows an example using cURL to obtain the access token. The variables of the $YOUR_CLIENT_ID and $YOUR_CLIENT_SECRET will be substituted with the client id and client secret from the above menu.
 
 ```shell
 curl -X POST https://sso.common.cloud.hpe.com/as/token.oauth2 -H         
