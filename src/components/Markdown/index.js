@@ -84,6 +84,10 @@ const components = {
   },
   a: {
     component: Anchor,
+    props: {
+      target: '_blank',
+      rel: 'noopener noreferrer',
+    },
   },
   code: {
     component: Code,
