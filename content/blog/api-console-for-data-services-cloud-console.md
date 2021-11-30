@@ -76,7 +76,7 @@ After closing the credential creation menu, the user can observe the prior creat
 
 ![](/img/application-credential-created-prior-shown.png "API Client Credentials are created")
 
-After licking on the down arrow button, the user can see the Generate Access Token button in order to generate the access token required to be used for the DSCC REST API request. Please click on the Generate Access Token to generate an access token.
+After clicking on the down arrow button, the user can see the Generate Access Token button in order to generate the access token required to be used for the DSCC REST API request. Please click on the Generate Access Token to generate an access token.
 
 ![](/img/api-client-credential-get-access-token.png "Time to obtain the Access Token")
 
