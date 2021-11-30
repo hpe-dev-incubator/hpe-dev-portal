@@ -59,7 +59,7 @@ curl -X POST https://sso.common.cloud.hpe.com/as/token.oauth2 -H
 -d "grant_type=client_credentials&client_id=$YOUR_CLIENT_ID&client_secret=$YOUR_CLIENT_SECRET"
 ```
 
-The following snippet shows an example of the code using Python to obtain the access token. As in the previous code snippet, YOUR_CLIENT_ID and YOUR_CLIENT_SECRET variables must be substituted accordingly.
+The following code snippet shows an example using Python to obtain the access token. As in the previous code snippet, YOUR_CLIENT_ID and YOUR_CLIENT_SECRET variables must be substituted accordingly.
 
 ```python
 from oauthlib.oauth2 import BackendApplicationClient       
@@ -75,7 +75,7 @@ token = oauth.fetch_token(token_url='https://sso.common.cloud.hpe.com/as/token.o
 print(token["access_token"])
 ```
 
-Another snippet below shows the example of the PowerShell code used to obtain the access token. As in the previous code snippet, the client id and the client secret variables must be substituted accordingly.
+Another code snippet below shows an example using the PowerShell to obtain the access token. As in the previous code snippet, the client id and the client secret variables must be substituted accordingly.
 
 ```powershell
 $AuthUri = "https://sso.common.cloud.hpe.com/as/token.oauth2"
