@@ -10,7 +10,7 @@ tags:
 ---
 ## HPE GreenLake API Security
 
-In my [blog](https://developer.hpe.com/blog/api-console-for-data-services-cloud-console/) post, **Using HPE GreenLake Console's API Gateway for Data Services Cloud Console**, I explained that the HPE GreenLake console supports the Client Credential authentication grant type (This concept is known as OAuth 2 client credential authorization workflow). This particular grant type allows the client application to authenticate using separate credentials (client id and client secret) that are authorized inside the API Gateway menu using the HPE GreenLake user account (resource owner). 
+In my [blog](https://developer.hpe.com/blog/api-console-for-data-services-cloud-console/) post, **Using HPE GreenLake Console's API Gateway for Data Services Cloud Console (DSCC)**, I explained that the HPE GreenLake console supports the Client Credential authentication grant type (This concept is known as OAuth 2 client credential authorization workflow). This particular grant type allows the client application (scripts, applications, programs that leverage DSCC features via the API) to authenticate using separate credentials (client id and client secret) that are authorized inside the API Gateway menu using the HPE GreenLake user account (resource owner). 
 
 ![Rehash the flow of the GreenLake access token acquisition](/img/greenlake-api-access-flow.png "Client Credentials process")
 
@@ -29,7 +29,7 @@ This blog post will go through an example of setting up the client application u
 
 The user who generates this client id and client secret pair must store them and transfer them securely to the designated client application. Using the client id and the client secret, the client application can generate the access token in order to issue the REST API request to resources in the DSCC. The client application access to the permitted DSCC resources depends on the role-based access control (RBAC) of the user. If the user does not have the correct authority for a resource, such as the volumes of an array, then the REST API request will receive an "unauthorized request" response.
 
-For the client application to perform the REST API request, the application must obtain the access token from HPE GreenLake as described in below diagram. This special [end-point](https://sso.common.cloud.hpe.com/as/token.oauth2) provides the access token in the response of the authorization request from any client application.
+For the client application to perform the REST API request, the application must obtain the access token from HPE GreenLake as described in below diagram. This special end-point `https://sso.common.cloud.hpe.com/as/token.oauth2` provides the access token in the response of the authorization request from any client application.
 
 ![Diagram for client credential ](/img/client-credential-access-token.png "Client Credential")
 
@@ -112,7 +112,7 @@ Some of the information inside the JWT details the client id, source of authenti
 
 #### I don't know any programming language. How can I explore this DSCC REST API?
 
-Postman is the well-known tool used to explore a REST API that provides enough flexibility to import the API definition, automate the access token retrieval and experiment with the parameters. Postman provides this capability with a lot less of typing and knowledge of any programming language. To experiment with Postman, I recommend you download the application-based (rather than web-based) version. This is the **[download link](https://www.postman.com/downloads/)** for the Postman app, which is available in either a Microsoft Windows or Apple MacOS version. Install the application on a workstation that has access to the internet via website browser (HTTPS) and is capable of connecting to https://*.cloud.hpe.com.
+Postman is the well-known tool used to explore a REST API that provides enough flexibility to import the API definition, automate the access token retrieval and experiment with the parameters. Postman provides this capability with a lot less of typing and knowledge of any programming language. To experiment with Postman, I recommend you download the application-based (rather than web-based) version. This is the **[download link](https://www.postman.com/downloads/)** for the Postman app, which is available in either a Microsoft Windows or Apple MacOS version. Install the application on a workstation that has access to the internet via website browser (HTTPS) and is capable of connecting to ***cloud.hpe.com*** such as https://common.cloud.hpe.com or https://us-west.data.cloud.hpe.com.
 
 Start by downloading the storage-api.yaml OpenAPI 3.0 definition into the workstation. Anyone can go to the [DSCC API documentation website](https://console-us1.data.cloud.hpe.com/doc/api/v1/) and click on the download button for either the Yaml or JSON definition file.
 
