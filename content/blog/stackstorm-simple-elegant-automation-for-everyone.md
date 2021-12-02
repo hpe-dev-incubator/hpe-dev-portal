@@ -26,7 +26,7 @@ Before I go too far, let me give you a quick recap of what [StackStorm](https://
 
 ![](https://www.techworldwookie.com/images/process.png)
 
-What if I told you there was a place called the StackStorm Exchange that already had 170 of these modules you can plug into your projects? [Look at this link](https://exchange.stackstorm.org/),  It is quite an impressive stockpile of automation just waiting for you just waiting for you to take advantage of it. I recently finished developing a StackStorm integration pack for HPE Primera Storage. Before that, I developed a pack to integrate HPE Nimble Storage. What communication can we develop?
+What if I told you there was a place called the StackStorm Exchange that already had 170 of these modules you can plug into your projects? [Look at this link](https://exchange.stackstorm.org/),  It is quite an impressive stockpile of automation just waiting for you to take advantage of it. I recently finished developing a StackStorm integration pack for HPE Primera Storage. Before that, I developed a pack to integrate HPE Nimble Storage. What communication can we develop?
 
 Using these packs, I went about trying to determine what sort of communication could be developed between the two storage systems, I settled on volumes. I wanted to be able to create a volume on the HPE Primera and have it **automatically** appear on a HPE Nimble storage array. Maybe this is something cool, maybe not, but it was just going to demonstrate the power of HPE devices talking to one another and have the capability to talk to the StackStorm integration packs out on the exchange. The process would look something like this:
 
