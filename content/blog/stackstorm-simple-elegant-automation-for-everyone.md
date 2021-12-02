@@ -3,6 +3,10 @@ title: "StackStorm: simple, elegant automation for everyone!"
 date: 2021-11-18T15:16:44.594Z
 author: Rick Kauffman
 authorimage: /img/me-art-2.jpg
+tags:
+  - StackStorm
+  - opensource
+  - automation
 ---
 There is so much information speeding through a data center from one resource to another - vCenter, storage arrays, network controllers, switches, routers, power systems, cooling systems, etc. Yet, oddly enough, these resources don't all speak the same language, hindering communications and their ability to react to one another. But, what if routers could could gain some insightful knowledge from a storage array? Or, maybe HPE OneView could automatically exchange vlan information with an Aruba Cx switch?
 
