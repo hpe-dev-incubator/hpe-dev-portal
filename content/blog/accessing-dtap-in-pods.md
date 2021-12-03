@@ -11,14 +11,14 @@ tags:
   - hpe-ezmeral-data-fabric
 ---
 **Editor’s Note – HPE Ezmeral Container Platform is now HPE Ezmeral Runtime Enterprise**. For more information on why the name was changed, please [click here](https://community.hpe.com/t5/HPE-Ezmeral-Uncut/HPE-Ezmeral-Container-Platform-is-now-HPE-Ezmeral-Runtime/ba-p/7151720#.YW7nOxrMKM8).
- 
+
 - - -
 
 ## What is DataTap?
 
 ![image](https://user-images.githubusercontent.com/72959956/126251305-e100faf1-aac5-410b-8c67-cb7cdd01a50b.png)
 
-Handling different protocols of file systems is always a pain for a data analyst. DataTap is a file system connector that aims to alleviate this pain. DataTap provides HDFS protocol abstraction that allows big data applications like Spark to run unmodified with fast access to data sources other than HDFS, i.e. HPE Ezmeral Data Fabric XD (formerly named MapR-FS/XD) and GCS (Google Cloud Storage). Using DataTap, you can unify your code while the underlying data sources can be swapped from HDFS, MapR-FS. This flexibility allows developers like you to focus more on coding rather than the underlying infrastructure. More information on DataTap can be found [here](https://docs.containerplatform.hpe.com/53/reference/kubernetes/tenant-project-administration/copy_About_DataTaps.html).
+Handling different protocols of file systems is always a pain for a data analyst. DataTap is a file system connector that aims to alleviate this pain. DataTap provides HDFS protocol abstraction that allows big data applications like Spark to run unmodified with fast access to data sources other than HDFS, i.e. HPE Ezmeral Data Fabric XD (formerly named MapR-FS/XD) and GCS (Google Cloud Storage). Using DataTap, you can unify your code while the underlying data sources can be swapped from HDFS, MapR-FS. This flexibility allows developers like you to focus more on coding rather than the underlying infrastructure. More information on DataTap can be found [here](https://docs.containerplatform.hpe.com/53/reference/universal-concepts/About_DataTaps.html).
 
 In this blog, I will introduce two ways to access DataTaps in Kubernetes clusters managed by HPE Ezmeral Container Platform deployed with a pre-integrated HPE Ezmeral Data Fabric. The first method covers how to access the DataTaps using HDFS Commands and the second focuses on directly reading data from Apache Spark (using pyspark). Here we go!
 
@@ -59,7 +59,7 @@ dtap://datatap_name/some_subdirectory/another_subdirectory/some_file
 | Screenshot                                                                                                      | Description                                                                       |
 | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
 | ![image](https://user-images.githubusercontent.com/72959956/121467168-35150680-c9eb-11eb-901c-77e83097cdf9.png) | You can manage different data source whether they are in MapR filesystem or HDFS. |
-| ![image](https://user-images.githubusercontent.com/72959956/126249359-0a192c2e-6dbf-4c22-b923-94b230cc1215.png) | You can add new DataTap with this screen. |
+| ![image](https://user-images.githubusercontent.com/72959956/126249359-0a192c2e-6dbf-4c22-b923-94b230cc1215.png) | You can add new DataTap with this screen.                                         |
 | ![image](https://user-images.githubusercontent.com/72959956/121467262-5f66c400-c9eb-11eb-958d-911f18281a27.png) | You can upload, delete or rename files using GUI.                                 |
 
 # Access DataTaps using HDFS commands
@@ -210,10 +210,6 @@ After starting the interactive shell, `Spark Context` and `Spark Session` are au
 ![image](https://user-images.githubusercontent.com/72959956/120170783-e8d00680-c233-11eb-9fe8-136da9996fdc.png)
 
 After specifying the Hadoop configurations, you can read files from DataTap just like you normally did with HDFS.
-
-
-
-
 
 ```py
 # pyspark
