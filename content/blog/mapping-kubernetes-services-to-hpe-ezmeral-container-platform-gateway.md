@@ -138,23 +138,24 @@ kubectl label service k8s-helloworld hpecp.hpe.com/hpecp-internal-gateway=true
 
 
 
-Go back to the Kubernetes tenant management GUI. Now, in the `Service endpoints` tab, you can see the access point is mapped to HPE Ezmeral Runtime Gateway. You can also find the port by running the command `describe services`. The access point will be shown under the key annotations.
-
-
+Go back to the Kubernetes tenant management GUI. Now, in the `Service endpoints` tab, you can see the access point is mapped to HPE Ezmeral Runtime Gateway. 
 
 
 
 ![image](https://user-images.githubusercontent.com/72959956/138668836-0313c1c5-e720-4575-a759-842c85d5502c.png)
 
+You can also find the port by running the command `kubectl describe services`. The access point will be shown under the key annotations.
+
 
 
 ![image](https://user-images.githubusercontent.com/72959956/138810536-f1255048-2d91-44eb-ba33-ccc4bc52ca1e.png)
+
+Now, the services has mapped to the gateway and you can now access it though the gateway. A hello world message will appear when you `curl` a the URL.
 
 ```bash
 # check your port number on the GUI
 curl http://ez-gateway.hpeilab.com:10022/
 ```
-[explain of the code]
 
 
 
@@ -174,11 +175,6 @@ After playing around with Kubernetes, if you would like to clean up the applicat
 kubectl delete services/k8s-helloworld
 kubectl delete deployment/k8s-helloworld
 ```
-
-[TODO: Summary]
-(will do that later)
-- Benefit of deploy with Kubernetes
-- Benefit of deploy with Ezmeral
 
 # Take away
 
