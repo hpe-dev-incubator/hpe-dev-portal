@@ -9,11 +9,19 @@ tags:
 
 **Editor’s Note – NAME CHANGE: HPE Ezmeral Container Platform is now HPE Ezmeral Runtime.** HPE Ezmeral Runtime is a software platform designed to deploy cloud-native and non-cloud-native applications using 100% open source Kubernetes – running on bare-metal or virtualized infrastructure – on-premises, on any cloud, and at the edge. For more information on why the name was changed, please click [here](https://community.hpe.com/t5/HPE-Ezmeral-Uncut/HPE-Ezmeral-Container-Platform-is-now-HPE-Ezmeral-Runtime/ba-p/7151720#.YW7nOxrMKM8).
 
-[Introduction]
+Imagine you have different Kubernetes services and different services come with different IP addresses. Does it have some tools to unify different services into single domain name? A gateway will be the answer of the question. There are several benefit of using a gateway. First, the gateway can act a load-balancer on different services. Second, only a gateway host IP address is exposed to the public while the rest of the host are still behind the firewall. Follow this blog if you would like to learn more about how to map Kubernetes Services to HPE Ezmeral Runtime Gateway.
+
+![](https://docs.containerplatform.hpe.com/53/images/5.2/01_unversal_concepts/gateway_hosts_logical_kubernetes.jpg)
 
 HPE Ezmeral Runtime (formerly known as HPE Ezmeral Container Platform) comes with one or more gateway hosts. A gateway host acts as a proxy server that carries client requests like HPE Ezmeral Runtime UI, REST API calls, Kubernetes API and containerized application service endpoints. The Gateway host maps both the IP address of the Controller host and the private IP endpoints of services running on the Kubernetes nodes inside the Kubernetes clusters to publicly-accessible IP addresses/ports.
 
-To know more about the gateway Host, check out the [HPE Ezmeral Runtime documentation](https://docs.containerplatform.hpe.com/53/reference/universal-concepts/Gateway_Hosts.html#v52_gateway-hosts__logical).
+
+
+(Note: To learn more about the the Gateway Host, check [this](https://docs.containerplatform.hpe.com/53/reference/universal-concepts/Gateway_Hosts.html#v52_gateway-hosts__logical).)
+
+
+
+To set up this architecture properly, you'll want to first set up a new Kubernetes (K8s) tenant, as shown in the image below, just check the box next to "Map Services To Gateway":
 
 
 
@@ -71,7 +79,7 @@ kubectl exec k8s-helloworld-5f84bb5d68-l9vch -- curl -s http://localhost:8080
 
 So now you got a website running on Kubernetes, and you want to share this website to your friends. It turns out that your friends cannot open the website. The reason behind is that in order to get a deployment expose to the public, a service object is needed to tell Kubernetes which services port is mapped to the deployment.
 
-To expose your deployment, just run the command `expose deployment` with the name of the deployment and the port number the pod used to create a service object. In this case, it will be port 8080. Run `get services` to view the services and the mapped services port. Now you can access the website externally using the Kubernetes cluster IP together with the services port.
+To expose your deployment, just run the command `expose deployment` with the name of the deployment and the port number the pod used to create a service object. In this case, it will be port 8080. Run `get services` to view the services and the mapped services port. Now you can access the website externally using the Kubernetes nodes IP address together with the services port.
 
 
 
@@ -103,6 +111,7 @@ At this point, you are half way done. Now, move to the Kubernetes tenant managem
 
 
 One more step is needed to expose your containerized application to users outside your HPE Ezmeral Runtime infrastructure. You can expose the Kubernetes NodePort service of your application via the HPE Ezmeral Runtime gateway by setting up a port mapping. You have to apply a label `hpecp.hpe.com/hpecp-internal-gateway: "true"` on your NodePort Service object. You can do that by adding one line in your YAML files or run `label` command. The label generates a service port on the gateway host.
+
 
 
 
@@ -157,7 +166,7 @@ curl http://ez-gateway.hpeilab.com:10022/
 
 
 
-After playing around with Kubernetes, if you would like to clean up the application. Remember to delete both services and the deployment.
+After playing around with Kubernetes, if you would like to clean up the application, remember to delete both services and the deployment.
 
 
 
@@ -172,12 +181,9 @@ kubectl delete deployment/k8s-helloworld
 - Benefit of deploy with Kubernetes
 - Benefit of deploy with Ezmeral
 
-"Mapping Kubernetes se5rvices to HPE Ezmeral Runtime Gateway gives you x, y, z. As you can see from what we just went through, it really isn't that hard. And it gives you the benefit of a, b, c. Try it for yourself. After playing around with this, if you would like to clean up the application, remember to delete both the services and the deployment. Stay tuned to the HPE DEV blog to learn more on other HPE Ezmeral Runtime related topics." (and then link to the DEV blog)
+# Take away
 
-"Mapping Kubernetes services to HPE Ezmeral Runtime gateway gives you x, y, z. As you can see from what we just went through, it really isn't that hard. And it gives you the benefit of a, b, c. Try it for yourself. After playing around with this, if you would like to clean up the application, remember to delete both the services and the deployment. Stay tuned to the HPE DEV blog to learn more on other HPE Ezmeral Runtime related topics." (and then link to the DEV blog)
-
-"Mapping Kubernetes services to HPE Ezmeral Runtime gateway gives you x, y, z. As you can see from what we just went through, it really isn't that hard. And it gives you the benefit of a, b, c. Try it for yourself. After playing around with this, if you would like to clean up the application, remember to delete both the services and the deployment. Stay tuned to the HPE DEV blog to learn more on other HPE Ezmeral Runtime related topics." (and then link to the DEV blog)
-
+Mapping Kubernetes services to HPE Ezmeral Runtime gateway gives you a single point of secure access to the platform, which also provides load-balancing. As you can see from what we just went through, it really isn't that hard. Try it for yourself. After playing around with this, if you would like to clean up the application, remember to delete both the services and the deployment. Stay tuned to the [HPE DEV blog](https://developer.hpe.com/blog) to learn more on other [HPE Ezmeral Runtime](https://developer.hpe.com/platform/hpe-ezmeral-runtime/home/) related topics.
 
 
 
