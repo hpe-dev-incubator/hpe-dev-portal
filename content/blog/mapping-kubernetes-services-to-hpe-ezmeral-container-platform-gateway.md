@@ -3,6 +3,7 @@ title: Mapping Kubernetes Services to HPE Ezmeral Runtime Gateway
 date: 2021-10-26T05:44:07.981Z
 author: Cenz Wong
 authorimage: https://avatars.githubusercontent.com/u/44856918?s=400&u=37bb095377cd6b4ad21c3a7ab8b5afe185a46941&v=4
+thumbnailimage: https://docs.containerplatform.hpe.com/53/images/5.2/01_unversal_concepts/gateway_hosts_logical_kubernetes.jpg
 tags:
   - hpe-ezmeral-runtime
 ---
@@ -10,8 +11,6 @@ tags:
 **Editor’s Note – NAME CHANGE: HPE Ezmeral Container Platform is now HPE Ezmeral Runtime.** HPE Ezmeral Runtime is a software platform designed to deploy cloud-native and non-cloud-native applications using 100% open source Kubernetes – running on bare-metal or virtualized infrastructure – on-premises, on any cloud, and at the edge. For more information on why the name was changed, please click [here](https://community.hpe.com/t5/HPE-Ezmeral-Uncut/HPE-Ezmeral-Container-Platform-is-now-HPE-Ezmeral-Runtime/ba-p/7151720#.YW7nOxrMKM8).
 
 Imagine you have different Kubernetes services and different services come with different IP addresses. Does it have some tools to unify different services into single domain name? A gateway will be the answer of the question. There are several benefit of using a gateway. First, the gateway can act a load-balancer on different services. Second, only a gateway host IP address is exposed to the public while the rest of the host are still behind the firewall. Follow this blog if you would like to learn more about how to map Kubernetes Services to HPE Ezmeral Runtime Gateway.
-
-![](https://docs.containerplatform.hpe.com/53/images/5.2/01_unversal_concepts/gateway_hosts_logical_kubernetes.jpg)
 
 HPE Ezmeral Runtime (formerly known as HPE Ezmeral Container Platform) comes with one or more gateway hosts. A gateway host acts as a proxy server that carries client requests like HPE Ezmeral Runtime UI, REST API calls, Kubernetes API and containerized application service endpoints. The Gateway host maps both the IP address of the Controller host and the private IP endpoints of services running on the Kubernetes nodes inside the Kubernetes clusters to publicly-accessible IP addresses/ports.
 
