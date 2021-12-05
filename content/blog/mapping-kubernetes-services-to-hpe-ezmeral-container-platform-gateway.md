@@ -178,7 +178,7 @@ kubectl delete deployment/k8s-helloworld
 
 # Take away
 
-Mapping Kubernetes services to HPE Ezmeral Runtime gateway gives you a single point of secure access to the platform, which also provides load-balancing. As you can see from what we just went through, it really isn't that hard. Try it for yourself. After playing around with this, if you would like to clean up the application, remember to delete both the services and the deployment. Stay tuned to the [HPE DEV blog](https://developer.hpe.com/blog) to learn more on other [HPE Ezmeral Runtime](https://developer.hpe.com/platform/hpe-ezmeral-runtime/home/) related topics.
+Mapping Kubernetes services to HPE Ezmeral Runtime gateway gives you a single point of secure access to the platform, which also provides load-balancing. As you can see from what we just went through, it really isn't that hard. Feel free to ;Try it for yourself. After playing around with this, if you would like to clean up the application, remember to delete both the services and the deployment. Stay tuned to the [HPE DEV blog](https://developer.hpe.com/blog) to learn more on other [HPE Ezmeral Runtime](https://developer.hpe.com/platform/hpe-ezmeral-runtime/home/) related topics.
 
 
 
