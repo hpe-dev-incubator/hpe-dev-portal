@@ -1,7 +1,7 @@
 ---
-title: Data/ML Engineer
-description: Data-pipeline builders supporting analytics and automated decision processes
-image: /img/role/Data-ML-Engineer.png
+title: Data Scientist
+description: Extractors of knowledge from data to deliver actionable insights 
+image: /img/role/data-scientist.png
 width: large
 priority: 1
 frontpage: true
@@ -24,13 +24,11 @@ tags:
 }
 </style>
 
-It’s your job to ensure the right data powers the right applications at the right time and in the right place.
+Data science is an intriguing field, and recognition of its potential is rapidly expanding. But there are challenges. You need access to the right data and the flexibility to use a variety of tools of your own choice. The pipeline for data preparation and for model and application deployment needs to be reliable and efficient. And you need to increase the likelihood that stakeholders and IT managers will green-light new projects.
 
-With an increased number and variety of workloads, how can you address all aspects of data logistics and processing that can make or break the success of any data-intensive project, including analytics and AI/machine learning? And do it easily and reliably?
+On this page, we provide a range of content – for advanced data scientists to those just getting started – to help you meet these challenges. You will find a rotating selection of foundational material, ideas to help you get inspired, as well as practical tips on key issues that help make your data science projects easier to build and more likely to be successful. You’ll also learn what Hewlett Packard Enterprise (HPE) offers. 
 
-On this page, we provide content to help you meet these challenges. You will find a rotating selection of foundational material, ideas to help you get inspired, as well as practical tips on key issues to improve efficiency and performance. You’ll also learn what Hewlett Packard Enterprise (HPE) offers.
-
-The roles of the Data/ML Engineer and Data Scientist can overlap. You may also find content of interest to you on the Data Scientist page. Content on this page changes as new material becomes available or new topics arise, so check back regularly. Feel free to ping us on [Slack](https://slack.hpedev.io/) with your comments, questions, and requests for information.
+The roles of the Data/ML Engineer and Data Scientist can overlap. You may also find content of interest to you on the Data/ML Engineer page. Content on this page changes as new material becomes available or new topics arise, so check back regularly. Feel free to ping us on [Slack](https://slack.hpedev.io/) with your comments, questions, and requests for information.
 
 <div class="row">
   <div class="column">
@@ -41,21 +39,23 @@ The roles of the Data/ML Engineer and Data Scientist can overlap. You may also f
 
     - Unit testing isn’t just for code: you need to unit test your data. [Watch Deequ: Unit Tests for Data](https://www.youtube.com/watch?v=2f_JewK79GI)
 
-    - Data locality helps support GPUs and other accelerators from a data point of view. Read [How fine-grained data placement helps optimize application performance](https://developer.hpe.com/blog/how-fine-grained-data-placement-helps-optimize-application-performance/)
+    - Innovative architectures help in geo-distributed systems where it’s better to distribute learning rather than moving data. Read this technical paper from HPE AI Labs [Swarm Learning: Turn Your Distributed Data into Competitive Edge](https://www.hpe.com/us/en/pdfViewer.html?docId=a50000344&parentPage=/us/en/products/compute/hpc/deep-learning&resourceTitle=Swarm+Learning:+Turn+Your+Distributed+Data+into+Competitive+Edge+technical+white+paper)
+
+    *Domain expertise, including expert knowledge of business or technical fields, is essential to building data science projects that actually deliver value. It is needed to frame questions, identify what data is useful and plan what actions will be taken to put insights to work.*
     
-    - Better connections between data producers and data consumers make data science more successful. Read [Getting value from your data shouldn’t be this hard](https://www.hpe.com/us/en/insights/articles/getting-value-from-your-data-shouldn-t-be-this-hard-2106.html)
+    - Combining diverse data sets leads to advances in fighting disease. Watch the on-demand presentation [Data Saves Lives](https://www.hpe.com/us/en/discover-more-network/events/discover-2021/results.html/types/sessions/search/b4372?media-id=/us/en/resources/discover/las-vegas-2021/B4372/_jcr_content.details.json)
+
+    - Combined stakeholder expertise – from data scientists to small-holding farmers – can put advanced agricultural knowledge to work in the field - literally. Watch the on-demand presentation [Data Feeds People](https://www.hpe.com/us/en/discover-more-network/events/discover-2021/results.html/types/sessions/search/b4373).
   </div>
   <div class="column">
     ### Building a Foundation 
-    **A unifying data infrastructure is key to handling logistics for data science projects.**
+    **Get maximum flexibility for your choice of tools**
 
-    *The right data fabric can actually change the way you work, immensely simplifying operations and workflows.*
+    *The right data infrastructure should give you direct access to data via a wide range of APIs for flexibility in your choice of tools.*
 
     - Study the technical paper [HPE Ezmeral Data Fabric: Modern infrastructure for data storage and management](https://www.hpe.com/psnow/doc/a00110846enw)
 
-    - Read [What’s your superpower for data management?](https://community.hpe.com/t5/HPE-Ezmeral-Uncut/What-s-your-superpower-for-data-management/ba-p/7100920#.Ya5RTb3ML0p)
-
-    - View the [HPE Ezmeral Data Fabric platform page](https://developer.hpe.com/platform/hpe-ezmeral-data-fabric/home/)
+    - View the [HPE Ezmeral Data Fabric platform ](https://developer.hpe.com/platform/hpe-ezmeral-data-fabric/home/) page
 
     **Containerization of applications**
 
@@ -69,17 +69,23 @@ The roles of the Data/ML Engineer and Data Scientist can overlap. You may also f
 
 ### Addressing Key Concerns
 
+## How do I find and get access to the right data?
+
+- Read [Avoiding pitfalls: Tips for better data science](https://community.hpe.com/t5/HPE-Ezmeral-Uncut/Avoiding-pitfalls-Tips-for-better-data-science/ba-p/7144228)
+
+- Better connections between data producers and data consumers make data science more successful. Check out [Getting value from your data shouldn’t be this hard](https://www.hpe.com/us/en/insights/articles/getting-value-from-your-data-shouldn-t-be-this-hard-2106.html)
+
 **What can I do to lower the entry barriers to developing new AI/ML/data science projects?**
 
 - AI/ML projects can and should be run on the same system as analytics projects: Read “Chap 3: AI and Analytics Together” in the free eBook [AI and Analytics at Scale: Lessons from Real-World Production Systems](https://www.hpe.com/us/en/resources/software/ai-and-analytics-systems.html)
 
- 
+- Read [2nd project advantage: lowering barriers to AI and machine learning](https://community.hpe.com/t5/HPE-Ezmeral-Uncut/Second-project-advantage-Lowering-barriers-to-AI-and-machine/ba-p/7154034#.YZYX2elKhE4)
 
-**How do I handle data movement?**
+**How do I optimize data logistics and preparation efforts to keep them from overwhelming the data science project?**
 
-- Read [A better approach to major data motion: built-in data mirroring](https://community.hpe.com/t5/HPE-Ezmeral-Uncut/A-better-approach-to-major-data-motion-Efficient-built-in/ba-p/7135056#.Ya5Xqb3ML0p)
+- Read [Budgeting time for AI/ML projects](https://community.hpe.com/t5/HPE-Ezmeral-Uncut/Budgeting-time-for-AI-ML-projects/ba-p/7090807#.YZYZVelKhE4)
 
-- Watch the webinar [Data Motion at Scale: the Untold Story](https://www.hpe.com/h22228/video-gallery/us/en/5a1ff1b7-faf8-43f2-98a3-d5b7331616b6/video?jumpid=em_4pbhacrk27_aid-520049397&utm_source=RE)
+- See content for the [Data/ML Engineer role](#)
 
 **What makes it easier to deal with edge computing in large-scale systems?**
 
@@ -89,9 +95,9 @@ The roles of the Data/ML Engineer and Data Scientist can overlap. You may also f
 
 **How do I ensure data trust and security?**
 
-- New approaches are improving the connection between data producers and data consumers. See how in the video [Dataspaces: connecting to data you can trust](https://www.youtube.com/watch?v=9VTLA1nxpoo)
-
 - Learn about the [SPIFFE and SPIRE projects](https://developer.hpe.com/platform/spiffe-and-spire-projects/home/) that are hosted by the CNCF Foundation
+
+ 
 
 **How are others doing this?**
 
@@ -100,6 +106,8 @@ Check out these real-world case studies
 - [Accelerating Autonomous Car Development with Ready Access to Global Data Fabric](https://www.hpe.com/psnow/doc/a50003176enw?jumpid=in_lit-psnow-red)
 
 - [Accelerating Data Insight for a Better Work Life](https://www.hpe.com/psnow/doc/a50003827enw)
+
+- [Architecting the World’s Largest Biometric Identity System: The Aadhaar Experience](https://developer.hpe.com/blog/architecting-the-worlds-largest-biometric-identity-system-the-aadhaar-ex/)
 
 ### Skill Up
 
@@ -154,40 +162,12 @@ Check out these real-world case studies
 
 The HPE DEV blog offers many articles and tutorials to help you learn about data fabric and build data pipelines that deliver you the data you need, where and when you need it. Explore our rich library of articles:
 
-- [Best Practices on Migrating from a Data Warehouse to a Big Data Platform](https://developer.hpe.com/blog/best-practices-on-migrating-from-a-data-warehouse-to-a-big-data-platform/) 
-
-- [Datasets, DataFrames, and Spark SQL for Processing of Tabular Data](https://developer.hpe.com/blog/datasets-dataframes-and-spark-sql-for-processing-of-tabular-data/) 
-
-- [Spark Data Source API: Extending Our Spark SQL Query Engine](https://developer.hpe.com/blog/spark-data-source-api-extending-our-spark-sql-query-engine/) 
+- [Association Rule Mining – Not Your Typical Data Science Algorithm](https://developer.hpe.com/blog/association-rule-mining-not-your-typical-data-science-algorithm/)
 
 - [Streaming Data Pipeline to Transform, Store and Explore Healthcare Dataset With Apache Kafka API, Apache Spark, Apache Drill, JSON and MapR Database](https://developer.hpe.com/blog/spark-data-source-api-extending-our-spark-sql-query-engine/) 
 
-- [On-Premise Adventures: How to build an Apache Spark lab on Kubernetes](https://developer.hpe.com/blog/spark-data-source-api-extending-our-spark-sql-query-engine/) 
-
 - [Fast data processing pipeline for predicting flight delays using Apache APIs: Kafka, Spark Streaming and Machine Learning (part 1)](https://developer.hpe.com/blog/spark-data-source-api-extending-our-spark-sql-query-engine/) 
-
-- [HPE DEV launches its Munch & Learn technical talks](https://developer.hpe.com/blog/hpe-dev-launches-its-munch-learn-technical-talks/)
-
-- [Data Modeling Guidelines for NoSQL JSON Document Databases](https://developer.hpe.com/blog/data-modeling-guidelines-for-nosql-json-document-databases/)
-
-- [How to Integrate Custom Data Sources Into Apache Spark](https://developer.hpe.com/blog/how-to-integrate-custom-data-sources-into-apache-spark/)
-
-- [How to Persist Kafka Data as JSON in NoSQL Storage Using MapR Event Store and MapR Database](https://developer.hpe.com/blog/how-to-persist-kafka-data-as-json-in-nosql-storage-using-mapr-event-stor/)
-
-- [Spark Data Source API: Extending Our Spark SQL Query Engine](https://developer.hpe.com/blog/spark-data-source-api-extending-our-spark-sql-query-engine/)
-
-- [Real-Time Streaming Data Pipelines with Apache APIs: Kafka, Spark Streaming, and HBase](https://developer.hpe.com/blog/real-time-streaming-data-pipelines-with-apache-apis-kafka-spark-streamin/)
-
-- [CRUD with the New Golang Client for MapR Database](https://developer.hpe.com/blog/crud-with-the-new-golang-client-for-mapr-database/)
-
-- [How to Use a Table Load Tool to Batch Puts into HBase/MapR Database](https://developer.hpe.com/blog/how-to-use-a-table-load-tool-to-batch-puts-into-hbasemapr-database/)
 
 - [Tips and Best Practices to Take Advantage of Spark 2.x](https://developer.hpe.com/blog/tips-and-best-practices-to-take-advantage-of-spark-2x/)
 
-- [Getting Started with DataTaps in Kubernetes Pods](https://developer.hpe.com/blog/accessing-dtap-in-pods/)
-
-- [Scaling with Kafka – Common Challenges Solved](https://developer.hpe.com/blog/scaling-with-kafka-common-challenges-solved/)
-
-- [How to Use Secondary Indexes in Spark With Open JSON Application Interface (OJAI)](https://developer.hpe.com/blog/how-to-use-secondary-indexes-in-spark-with-open-json-application-interfa/)
-
-- [Setting Up Spark Dynamic Allocation on MapR](https://developer.hpe.com/blog/setting-up-spark-dynamic-allocation-on-mapr/)
+- [Exploring Data Fabric and Containers in HPE DEVs new Munch & Learn monthly gatherings](https://developer.hpe.com/blog/exploring-data-fabric-and-containers-in-hpe-devs-new-munch-learn-monthly/)

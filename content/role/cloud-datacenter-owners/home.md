@@ -1,7 +1,6 @@
 ---
 title: Cloud/Datacenter Owners
-description: Manage and modernize your infrastructure to support your digital
-  transformation.
+description: Technical managers modernizing infrastructure
 image: /img/role/cloud-data-center-owner.png
 width: large
 priority: 2
