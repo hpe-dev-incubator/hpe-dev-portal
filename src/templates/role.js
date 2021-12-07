@@ -129,7 +129,7 @@ RoleTemplate.propTypes = {
 export default RoleTemplate;
 
 export const pageQuery = graphql`
-  query RoleBySlug($slug: String!, $relatedBlogRE: String!) {
+  query RoleBySlug($slug: String!, $tagRE: String!) {
     site {
       siteMetadata {
         title
@@ -151,12 +151,11 @@ export const pageQuery = graphql`
       }
     }
     blogs: allMarkdownRemark(
+      limit: 2000
       sort: { fields: [frontmatter___date], order: DESC }
       filter: {
-        fields: {
-          sourceInstanceName: { eq: "blog" }
-          slug: { regex: $relatedBlogRE }
-        }
+        frontmatter: { tags: { regex: $tagRE } }
+        fields: { sourceInstanceName: { eq: "blog" } }
       }
     ) {
       totalCount
@@ -177,7 +176,7 @@ export const pageQuery = graphql`
       }
     }
     aside: markdownRemark(
-      frontmatter: { tags: { regex: $relatedBlogRE }, isAside: { eq: true } }
+      frontmatter: { tags: { regex: $tagRE }, isAside: { eq: true } }
     ) {
       id
       excerpt

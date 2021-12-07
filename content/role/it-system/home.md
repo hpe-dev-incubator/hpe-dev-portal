@@ -1,6 +1,6 @@
 ---
 title: DevOps Engineer
-description: Pave the way for rapid software development.
+description: Frontline-fixers paving the way for rapid development
 image: /img/role/devops-engineer.png
 width: large
 priority: 3

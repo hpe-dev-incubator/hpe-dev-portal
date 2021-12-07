@@ -7,40 +7,12 @@ priority: 1
 frontpage: true
 tags:
   - data-ml-engineer
-relatedblogs: 
-  - /best-practices-on-migrating-from-a-data-warehouse-to-a-big-data-platform/
-  - /datasets-dataframes-and-spark-sql-for-processing-of-tabular-data/
-  - /spark-data-source-api-extending-our-spark-sql-query-engine/
-  - /streaming-data-pipeline-to-transform-store-and-explore-healthcare-datase/
-  - /on-premise-adventures-how-to-build-an-apache-spark-lab-on-kubernetes/
-  - /fast-data-processing-pipeline-for-predicting-flight-delays-using-apache-/
-  - /hpe-dev-launches-its-munch-learn-technical-talks/
-  - /data-modeling-guidelines-for-nosql-json-document-databases/
-  - /how-to-integrate-custom-data-sources-into-apache-spark/
-  - /how-to-persist-kafka-data-as-json-in-nosql-storage-using-mapr-event-stor/
-  - /spark-data-source-api-extending-our-spark-sql-query-engine/
-  - real-time-streaming-data-pipelines-with-apache-apis-kafka-spark-streamin/
-  - crud-with-the-new-golang-client-for-mapr-database/
-  - /how-to-use-a-table-load-tool-to-batch-puts-into-hbasemapr-database/
-  - /tips-and-best-practices-to-take-advantage-of-spark-2x/
-  - /accessing-dtap-in-pods/
-  - /scaling-with-kafka-common-challenges-solved/
-  - /how-to-use-secondary-indexes-in-spark-with-open-json-application-interfa/
-  - /setting-up-spark-dynamic-allocation-on-mapr/
 ---
 <style>
 .row {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  width: 100%;
-}
-.column {
-  display: flex;
-  flex-direction: column;
-  flex-basis: 100%;
-  flex: 1;
-  margin-left: 20px;
+  display: grid;
+	grid-template-columns: 1fr 1fr;
+  column-gap: 50px;
 }
 </style>
 
@@ -50,7 +22,7 @@ With an increased number and variety of workloads, how can you address all aspec
 
 On this page, we provide content to help you meet these challenges. You will find a rotating selection of foundational material, ideas to help you get inspired, as well as practical tips on key issues to improve efficiency and performance. You’ll also learn what Hewlett Packard Enterprise (HPE) offers.
 
-The roles of the Data/ML Engineer and Data Scientist can overlap. You may also find content of interest to you on the Data Scientist page. Content on this page changes as new material becomes available or new topics arise, so check back regularly. Feel free to ping us on [Slack](https://slack.hpedev.io/) with your comments, questions, and requests for information.
+The roles of the Data/ML Engineer and Data Scientist can overlap. You may also find content of interest to you on the [Data Scientist](https://deploy-preview-896--hpe-dev-portal.netlify.app/role/data-scientist/home/) page. Content on this page changes as new material becomes available or new topics arise, so check back regularly. Feel free to ping us on [Slack](https://slack.hpedev.io/) with your comments, questions, and requests for information.
 
 <div class="row">
   <div class="column">
@@ -59,11 +31,6 @@ The roles of the Data/ML Engineer and Data Scientist can overlap. You may also f
 
     *Learn how industry innovation may affect your job.*
 
-    - Unit testing isn’t just for code: you need to unit test your data. [Watch Deequ: Unit Tests for Data](https://www.youtube.com/watch?v=2f_JewK79GI)
-
-    - Data locality helps support GPUs and other accelerators from a data point of view. Read [How fine-grained data placement helps optimize application performance](https://developer.hpe.com/blog/how-fine-grained-data-placement-helps-optimize-application-performance/)
-    
-    - Better connections between data producers and data consumers make data science more successful. Read [Getting value from your data shouldn’t be this hard](https://www.hpe.com/us/en/insights/articles/getting-value-from-your-data-shouldn-t-be-this-hard-2106.html)
   </div>
   <div class="column">
     ### Building a Foundation 
@@ -71,19 +38,39 @@ The roles of the Data/ML Engineer and Data Scientist can overlap. You may also f
 
     *The right data fabric can actually change the way you work, immensely simplifying operations and workflows.*
 
+  </div>
+</div>
+
+<div class="row">
+  <div class="column">
+    - Unit testing isn’t just for code: you need to unit test your data. [Watch Deequ: Unit Tests for Data](https://www.youtube.com/watch?v=2f_JewK79GI)
+
+    - Data locality helps support GPUs and other accelerators from a data point of view. Read [How fine-grained data placement helps optimize application performance](https://developer.hpe.com/blog/how-fine-grained-data-placement-helps-optimize-application-performance/)
+    
+    - Better connections between data producers and data consumers make data science more successful. Read [Getting value from your data shouldn’t be this hard](https://www.hpe.com/us/en/insights/articles/getting-value-from-your-data-shouldn-t-be-this-hard-2106.html)
+  </div>
+  <div class="column">
     - Study the technical paper [HPE Ezmeral Data Fabric: Modern infrastructure for data storage and management](https://www.hpe.com/psnow/doc/a00110846enw)
 
     - Read [What’s your superpower for data management?](https://community.hpe.com/t5/HPE-Ezmeral-Uncut/What-s-your-superpower-for-data-management/ba-p/7100920#.Ya5RTb3ML0p)
 
     - View the [HPE Ezmeral Data Fabric platform page](https://developer.hpe.com/platform/hpe-ezmeral-data-fabric/home/)
+ 
+  </div>
+</div>
 
+<div class="row">
+  <div lass="column"> 
+  </div>
+  <div lass="column">
     **Containerization of applications**
 
     *Containerized applications can be orchestrated with the open source Kubernetes framework.*
 
     - Read [Kuberneticized machine learning and AI using Kubeflow](https://developer.hpe.com/blog/kubernetized-machine-learning-and-ai-using-kubeflow/)
 
-    - Learn how management of large scale Kubernetes clusters is made easier with [HPE Ezmeral Runtime Enterprise](https://developer.hpe.com/platform/hpe-ezmeral-runtime/home/)
+    - Learn how management of large scale Kubernetes clusters is made easier with [HPE Ezmeral Runtime Enterprise](https://developer.hpe.com/platform/hpe-ezmeral-runtime/home/) 
+
   </div>
 </div>
 
@@ -91,7 +78,7 @@ The roles of the Data/ML Engineer and Data Scientist can overlap. You may also f
 
 **What can I do to lower the entry barriers to developing new AI/ML/data science projects?**
 
-- AI/ML projects can and should be run on the same system as analytics projects: Read “Chap 3: AI and Analytics Together” in the free eBook [AI and Analytics at Scale: Lessons from Real-World Production Systems](https://www.hpe.com/us/en/resources/software/ai-and-analytics-systems.html)
+- AI/ML projects can and should be run on the same system as analytics projects: Read “Chapter 3: AI and Analytics Together” in the free eBook [AI and Analytics at Scale: Lessons from Real-World Production Systems](https://www.hpe.com/us/en/resources/software/ai-and-analytics-systems.html)
 
  
 
@@ -121,13 +108,16 @@ Check out these real-world case studies
 
 - [Accelerating Data Insight for a Better Work Life](https://www.hpe.com/psnow/doc/a50003827enw)
 
+<br>
+
 ### Skill Up
+
+[HPE DEV Munch & Learn technology talk](https://developer.hpe.com/campaign/munch-and-learn/)
 
 <div class="row">
   <div class="column">
-    **[HPE DEV Munch & Learn technology talk](https://developer.hpe.com/campaign/munch-and-learn/)**
-    
     Monthly meetups where you can hear from experts on the newest technologies. Catch up on any you may have missed and register for upcoming talks.
+
   </div>
   <div class="column">
     - [What’s a data fabric and how does it work?](https://www.youtube.com/watch?v=qi6sTvu8osk)
@@ -142,14 +132,15 @@ Check out these real-world case studies
 
 ---
 
+[HPE DEV Workshops-on-Demand](https://hackshack.hpedev.io/workshops)
+
 <div class="row">
   <div class="column">
-    **[HPE DEV Workshops-on-Demand](https://hackshack.hpedev.io/workshops)**
-    
     Free, in-depth, hands-on workshops that allow you to explore details of a technology by interacting with it. Designed to fit your schedule, these workshops are available 24/7 – from anywhere at any time.
+    
   </div>
   <div class="column">
-    - [WHPE Ezmeral Data Fabric 101 – Get to know the basics around the data fabric](https://hackshack.hpedev.io/workshop/26)
+    - [HPE Ezmeral Data Fabric 101 – Get to know the basics around the data fabric](https://hackshack.hpedev.io/workshop/26)
 
      
   </div>
@@ -157,14 +148,17 @@ Check out these real-world case studies
 
 ---
 
+**Documentation**
+
 <div class="row">
   <div class="column">
-    **Documentation**
     
     The [HPE Ezmeral Data Fabric platform page](https://developer.hpe.com/platform/hpe-ezmeral-data-fabric/home/) offers documentation and API information along with informative videos and tutorials. Additional documentation can be found here.
+
+    
   </div>
   <div class="column">
-    - [WHPE Ezmeral Data Fabric 6.2 documentation](https://docs.datafabric.hpe.com/62/index.html)
+    - [HPE Ezmeral Data Fabric 6.2 documentation](https://docs.datafabric.hpe.com/62/index.html)
 
      
   </div>

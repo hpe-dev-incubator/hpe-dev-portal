@@ -1,5 +1,5 @@
 ---
-title: Cloud/Datacenter Owners
+title: Cloud/Datacenter Owner
 description: Technical managers modernizing infrastructure
 image: /img/role/cloud-data-center-owner.png
 width: large

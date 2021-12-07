@@ -1,6 +1,6 @@
 ---
 title: Developer
-description: Define the future with automated and secure apps that span from edge to cloud.
+description: Technologists defining the future through automation
 image: /img/role/developer.png
 width: large
 priority: 5
