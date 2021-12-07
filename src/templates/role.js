@@ -81,7 +81,7 @@ function RoleTemplate({ data }) {
         <Box alignSelf="start">
           <ButtonLink
             icon={<FormPreviousLink />}
-            label="Go to What's Your Role Page"
+            label="Your Role Page"
             to="/role"
           />
         </Box>
