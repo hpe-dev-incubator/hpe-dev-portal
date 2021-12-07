@@ -7,6 +7,12 @@ priority: 1
 frontpage: true
 tags:
   - data-scientist
+relatedblogs: 
+  - /association-rule-mining-not-your-typical-data-science-algorithm/
+  - /streaming-data-pipeline-to-transform-store-and-explore-healthcare-datase/
+  - /fast-data-processing-pipeline-for-predicting-flight-delays-using-apache-/
+  - /tips-and-best-practices-to-take-advantage-of-spark-2x/
+  - /exploring-data-fabric-and-containers-in-hpe-devs-new-munch-learn-monthly/
 ---
 <style>
 .row {
@@ -157,17 +163,3 @@ Check out these real-world case studies
      
   </div>
 </div>
-
-### Blog articles and tutorials
-
-The HPE DEV blog offers many articles and tutorials to help you learn about data fabric and build data pipelines that deliver you the data you need, where and when you need it. Explore our rich library of articles:
-
-- [Association Rule Mining – Not Your Typical Data Science Algorithm](https://developer.hpe.com/blog/association-rule-mining-not-your-typical-data-science-algorithm/)
-
-- [Streaming Data Pipeline to Transform, Store and Explore Healthcare Dataset With Apache Kafka API, Apache Spark, Apache Drill, JSON and MapR Database](https://developer.hpe.com/blog/spark-data-source-api-extending-our-spark-sql-query-engine/) 
-
-- [Fast data processing pipeline for predicting flight delays using Apache APIs: Kafka, Spark Streaming and Machine Learning (part 1)](https://developer.hpe.com/blog/spark-data-source-api-extending-our-spark-sql-query-engine/) 
-
-- [Tips and Best Practices to Take Advantage of Spark 2.x](https://developer.hpe.com/blog/tips-and-best-practices-to-take-advantage-of-spark-2x/)
-
-- [Exploring Data Fabric and Containers in HPE DEVs new Munch & Learn monthly gatherings](https://developer.hpe.com/blog/exploring-data-fabric-and-containers-in-hpe-devs-new-munch-learn-monthly/)

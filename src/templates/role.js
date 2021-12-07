@@ -64,7 +64,7 @@ function RoleTemplate({ data }) {
             <Heading margin="none">{title}</Heading>
             <MarkdownLayout>{rawMarkdownBody}</MarkdownLayout>
             {blogs.length > 0 && (
-              <SectionHeader title="Related Blogs" color="border">
+              <SectionHeader title="Blog articles and tutorials" color="border">
                 <ResponsiveGrid gap="large" rows={rows} columns={columns}>
                   {blogs.map(({ node }, i) => {
                     return node &&
@@ -129,7 +129,7 @@ RoleTemplate.propTypes = {
 export default RoleTemplate;
 
 export const pageQuery = graphql`
-  query RoleBySlug($slug: String!, $tagRE: String!) {
+  query RoleBySlug($slug: String!, $relatedBlogRE: String!) {
     site {
       siteMetadata {
         title
@@ -151,11 +151,12 @@ export const pageQuery = graphql`
       }
     }
     blogs: allMarkdownRemark(
-      limit: 2000
       sort: { fields: [frontmatter___date], order: DESC }
       filter: {
-        frontmatter: { tags: { regex: $tagRE } }
-        fields: { sourceInstanceName: { eq: "blog" } }
+        fields: {
+          sourceInstanceName: { eq: "blog" }
+          slug: { regex: $relatedBlogRE }
+        }
       }
     ) {
       totalCount
@@ -176,7 +177,7 @@ export const pageQuery = graphql`
       }
     }
     aside: markdownRemark(
-      frontmatter: { tags: { regex: $tagRE }, isAside: { eq: true } }
+      frontmatter: { tags: { regex: $relatedBlogRE }, isAside: { eq: true } }
     ) {
       id
       excerpt

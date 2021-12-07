@@ -6,7 +6,27 @@ width: large
 priority: 1
 frontpage: true
 tags:
-  - data-scientist
+  - data-ml-engineer
+relatedblogs: 
+  - /best-practices-on-migrating-from-a-data-warehouse-to-a-big-data-platform/
+  - /datasets-dataframes-and-spark-sql-for-processing-of-tabular-data/
+  - /spark-data-source-api-extending-our-spark-sql-query-engine/
+  - /streaming-data-pipeline-to-transform-store-and-explore-healthcare-datase/
+  - /on-premise-adventures-how-to-build-an-apache-spark-lab-on-kubernetes/
+  - /fast-data-processing-pipeline-for-predicting-flight-delays-using-apache-/
+  - /hpe-dev-launches-its-munch-learn-technical-talks/
+  - /data-modeling-guidelines-for-nosql-json-document-databases/
+  - /how-to-integrate-custom-data-sources-into-apache-spark/
+  - /how-to-persist-kafka-data-as-json-in-nosql-storage-using-mapr-event-stor/
+  - /spark-data-source-api-extending-our-spark-sql-query-engine/
+  - real-time-streaming-data-pipelines-with-apache-apis-kafka-spark-streamin/
+  - crud-with-the-new-golang-client-for-mapr-database/
+  - /how-to-use-a-table-load-tool-to-batch-puts-into-hbasemapr-database/
+  - /tips-and-best-practices-to-take-advantage-of-spark-2x/
+  - /accessing-dtap-in-pods/
+  - /scaling-with-kafka-common-challenges-solved/
+  - /how-to-use-secondary-indexes-in-spark-with-open-json-application-interfa/
+  - /setting-up-spark-dynamic-allocation-on-mapr/
 ---
 <style>
 .row {
@@ -149,45 +169,3 @@ Check out these real-world case studies
      
   </div>
 </div>
-
-### Blog articles and tutorials
-
-The HPE DEV blog offers many articles and tutorials to help you learn about data fabric and build data pipelines that deliver you the data you need, where and when you need it. Explore our rich library of articles:
-
-- [Best Practices on Migrating from a Data Warehouse to a Big Data Platform](https://developer.hpe.com/blog/best-practices-on-migrating-from-a-data-warehouse-to-a-big-data-platform/) 
-
-- [Datasets, DataFrames, and Spark SQL for Processing of Tabular Data](https://developer.hpe.com/blog/datasets-dataframes-and-spark-sql-for-processing-of-tabular-data/) 
-
-- [Spark Data Source API: Extending Our Spark SQL Query Engine](https://developer.hpe.com/blog/spark-data-source-api-extending-our-spark-sql-query-engine/) 
-
-- [Streaming Data Pipeline to Transform, Store and Explore Healthcare Dataset With Apache Kafka API, Apache Spark, Apache Drill, JSON and MapR Database](https://developer.hpe.com/blog/spark-data-source-api-extending-our-spark-sql-query-engine/) 
-
-- [On-Premise Adventures: How to build an Apache Spark lab on Kubernetes](https://developer.hpe.com/blog/spark-data-source-api-extending-our-spark-sql-query-engine/) 
-
-- [Fast data processing pipeline for predicting flight delays using Apache APIs: Kafka, Spark Streaming and Machine Learning (part 1)](https://developer.hpe.com/blog/spark-data-source-api-extending-our-spark-sql-query-engine/) 
-
-- [HPE DEV launches its Munch & Learn technical talks](https://developer.hpe.com/blog/hpe-dev-launches-its-munch-learn-technical-talks/)
-
-- [Data Modeling Guidelines for NoSQL JSON Document Databases](https://developer.hpe.com/blog/data-modeling-guidelines-for-nosql-json-document-databases/)
-
-- [How to Integrate Custom Data Sources Into Apache Spark](https://developer.hpe.com/blog/how-to-integrate-custom-data-sources-into-apache-spark/)
-
-- [How to Persist Kafka Data as JSON in NoSQL Storage Using MapR Event Store and MapR Database](https://developer.hpe.com/blog/how-to-persist-kafka-data-as-json-in-nosql-storage-using-mapr-event-stor/)
-
-- [Spark Data Source API: Extending Our Spark SQL Query Engine](https://developer.hpe.com/blog/spark-data-source-api-extending-our-spark-sql-query-engine/)
-
-- [Real-Time Streaming Data Pipelines with Apache APIs: Kafka, Spark Streaming, and HBase](https://developer.hpe.com/blog/real-time-streaming-data-pipelines-with-apache-apis-kafka-spark-streamin/)
-
-- [CRUD with the New Golang Client for MapR Database](https://developer.hpe.com/blog/crud-with-the-new-golang-client-for-mapr-database/)
-
-- [How to Use a Table Load Tool to Batch Puts into HBase/MapR Database](https://developer.hpe.com/blog/how-to-use-a-table-load-tool-to-batch-puts-into-hbasemapr-database/)
-
-- [Tips and Best Practices to Take Advantage of Spark 2.x](https://developer.hpe.com/blog/tips-and-best-practices-to-take-advantage-of-spark-2x/)
-
-- [Getting Started with DataTaps in Kubernetes Pods](https://developer.hpe.com/blog/accessing-dtap-in-pods/)
-
-- [Scaling with Kafka – Common Challenges Solved](https://developer.hpe.com/blog/scaling-with-kafka-common-challenges-solved/)
-
-- [How to Use Secondary Indexes in Spark With Open JSON Application Interface (OJAI)](https://developer.hpe.com/blog/how-to-use-secondary-indexes-in-spark-with-open-json-application-interfa/)
-
-- [Setting Up Spark Dynamic Allocation on MapR](https://developer.hpe.com/blog/setting-up-spark-dynamic-allocation-on-mapr/)

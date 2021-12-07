@@ -121,6 +121,7 @@ exports.createPages = async ({ graphql, actions }) => {
                 title
                 tags
                 isAside
+                relatedblogs
               }
             }
           }
@@ -230,6 +231,7 @@ exports.createPages = async ({ graphql, actions }) => {
             context: {
               slug: post.node.fields.slug,
               tagRE: arrayToRE(post.node.frontmatter.tags),
+              relatedBlogRE: arrayToRE(post.node.frontmatter.relatedblogs),
             },
           });
         } else if (post.node.fields.sourceInstanceName === 'use-cases') {
