@@ -77,6 +77,7 @@ function Role({ data, location }) {
               link={`/${node.fields.sourceInstanceName}${node.fields.slug}`}
               image={node.frontmatter.image}
               category={node.frontmatter.category}
+              flex
             />
           ))}
         </ResponsiveGrid>
