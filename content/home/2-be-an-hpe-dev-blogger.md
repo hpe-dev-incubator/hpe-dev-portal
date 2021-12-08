@@ -1,11 +1,11 @@
 ---
-title: Be an HPE DEV blogger!
+title: Mapping Kubernetes Services to HPE Ezmeral Runtime Enterprise Gateway
 category: Feature Blog
 priority: 2
 width: small
-link: /blog/be-an-hpe-dev-blogger/
-image: /img/Avatar1.svg
+link: /blog/mapping-kubernetes-services-to-hpe-ezmeral-container-platform-gateway/
+image: https://avatars.githubusercontent.com/u/44856918?s=400&u=37bb095377cd6b4ad21c3a7ab8b5afe185a46941&v=4
 ---
-HPE DEV
+Cenz Wong
 
-## Be an HPE DEV blogger!
+## Mapping Kubernetes Services to HPE Ezmeral Runtime Enterprise Gateway
