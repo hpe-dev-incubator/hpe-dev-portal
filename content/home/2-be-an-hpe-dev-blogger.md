@@ -8,4 +8,4 @@ image: https://avatars.githubusercontent.com/u/44856918?s=96&u=37bb095377cd6b4ad
 ---
 Cenz Wong
 
-## Mapping K8s Services to HPE Ezmeral Runtime Gateway
+## Mapping K8s Services to HPE Ezmeral Runtime Enterprise Gateway
