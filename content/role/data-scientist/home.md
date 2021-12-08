@@ -23,7 +23,9 @@ On this page, we provide a range of content – for advanced data scientists to 
 
 The roles of the Data/ML Engineer and Data Scientist can overlap. You may also find content of interest to you on the [Data/ML Engineer](https://deploy-preview-896--hpe-dev-portal.netlify.app/role/data-ml-engineer/home/) page. Content on this page changes as new material becomes available or new topics arise, so check back regularly. Feel free to ping us on [Slack](https://slack.hpedev.io/) with your comments, questions, and requests for information.
 
+<br>
 <hr style="background: #7630EA; height: 5px; border: none">
+<br>
 
 <div class="row">
   <div class="column">
@@ -53,6 +55,8 @@ The roles of the Data/ML Engineer and Data Scientist can overlap. You may also f
   </div>
 </div>
 
+---
+
 <div class="row">
   <div class="column">
     *Essential to building projects that deliver value, domain expertise helps frame questions, identify useful data, and take action on insights.*
@@ -78,7 +82,9 @@ The roles of the Data/ML Engineer and Data Scientist can overlap. You may also f
   </div>
 </div>
 
+<br>
 <hr style="background: #33DAC8; height: 5px; border: none">
+<br>
 
 ### Addressing Key Concerns
 
@@ -123,12 +129,12 @@ Check out these real-world case studies
 - [Architecting the World’s Largest Biometric Identity System: The Aadhaar Experience](https://developer.hpe.com/blog/architecting-the-worlds-largest-biometric-identity-system-the-aadhaar-ex/)
 
 <br>
-
 <hr style="background: #FF8300; height: 5px; border: none">
+<br>
 
 ### Skill Up
 
-[HPE DEV Munch & Learn technology talk](https://developer.hpe.com/campaign/munch-and-learn/)
+<a href="https://developer.hpe.com/campaign/munch-and-learn/" style="font-weight: 700; font-size: 27px">HPE DEV Munch & Learn technology talk</a>
 
 <div class="row">
   <div class="column">
@@ -148,7 +154,8 @@ Check out these real-world case studies
 
 ---
 
-[HPE DEV Workshops-on-Demand](https://hackshack.hpedev.io/workshops)
+<br><br>
+<a href="https://hackshack.hpedev.io/workshops" style="font-weight: 700; font-size: 27px">HPE DEV Workshops-on-Demand</a>
 
 <div class="row">
   <div class="column">
@@ -164,7 +171,8 @@ Check out these real-world case studies
 
 ---
 
-**Documentation**
+<br><br>
+<div style="font-weight: 700; font-size: 27px">Documentation</div>
 
 <div class="row">
   <div class="column">    

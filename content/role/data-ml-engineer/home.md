@@ -24,7 +24,9 @@ On this page, we provide content to help you meet these challenges. You will fin
 
 The roles of the Data/ML Engineer and Data Scientist can overlap. You may also find content of interest to you on the [Data Scientist](https://deploy-preview-896--hpe-dev-portal.netlify.app/role/data-scientist/home/) page. Content on this page changes as new material becomes available or new topics arise, so check back regularly. Feel free to ping us on [Slack](https://slack.hpedev.io/) with your comments, questions, and requests for information.
 
+<br>
 <hr style="background: #7630EA; height: 5px; border: none">
+<br>
 
 <div class="row">
   <div class="column">
@@ -36,9 +38,9 @@ The roles of the Data/ML Engineer and Data Scientist can overlap. You may also f
   </div>
   <div class="column">
     ### Building a Foundation 
-    **A unifying data infrastructure is key to handling logistics for data science projects.**
+    **Key to data science projects is a unifying data infrastructure to handle logistics and the containerization of applications**
 
-    *The right data fabric can actually change the way you work, immensely simplifying operations and workflows.*
+    *Simplify operations and workflows with the right data fabric and orchestrate containerized applications with open source Kubernetes.*
 
   </div>
 </div>
@@ -57,26 +59,17 @@ The roles of the Data/ML Engineer and Data Scientist can overlap. You may also f
     - Read [What’s your superpower for data management?](https://community.hpe.com/t5/HPE-Ezmeral-Uncut/What-s-your-superpower-for-data-management/ba-p/7100920#.Ya5RTb3ML0p)
 
     - View the [HPE Ezmeral Data Fabric platform page](https://developer.hpe.com/platform/hpe-ezmeral-data-fabric/home/)
- 
-  </div>
-</div>
-
-<div class="row">
-  <div lass="column"> 
-  </div>
-  <div lass="column">
-    **Containerization of applications**
-
-    *Containerized applications can be orchestrated with the open source Kubernetes framework.*
 
     - Read [Kuberneticized machine learning and AI using Kubeflow](https://developer.hpe.com/blog/kubernetized-machine-learning-and-ai-using-kubeflow/)
 
     - Learn how management of large scale Kubernetes clusters is made easier with [HPE Ezmeral Runtime Enterprise](https://developer.hpe.com/platform/hpe-ezmeral-runtime/home/) 
-
+ 
   </div>
 </div>
 
+<br>
 <hr style="background: #33DAC8; height: 5px; border: none">
+<br>
 
 ### Addressing Key Concerns
 
@@ -113,12 +106,12 @@ Check out these real-world case studies
 - [Accelerating Data Insight for a Better Work Life](https://www.hpe.com/psnow/doc/a50003827enw)
 
 <br>
-
 <hr style="background: #FF8300; height: 5px; border: none">
+<br>
 
 ### Skill Up
 
-[HPE DEV Munch & Learn technology talk](https://developer.hpe.com/campaign/munch-and-learn/)
+<a href="https://developer.hpe.com/campaign/munch-and-learn/" style="font-weight: 700; font-size: 27px">HPE DEV Munch & Learn technology talk</a>
 
 <div class="row">
   <div class="column">
@@ -138,7 +131,8 @@ Check out these real-world case studies
 
 ---
 
-[HPE DEV Workshops-on-Demand](https://hackshack.hpedev.io/workshops)
+<br><br>
+<a href="https://hackshack.hpedev.io/workshops" style="font-weight: 700; font-size: 27px">HPE DEV Workshops-on-Demand</a>
 
 <div class="row">
   <div class="column">
@@ -154,7 +148,8 @@ Check out these real-world case studies
 
 ---
 
-**Documentation**
+<br><br>
+<div style="font-weight: 700; font-size: 27px">Documentation</div>
 
 <div class="row">
   <div class="column">
