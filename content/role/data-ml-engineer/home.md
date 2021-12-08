@@ -24,6 +24,8 @@ On this page, we provide content to help you meet these challenges. You will fin
 
 The roles of the Data/ML Engineer and Data Scientist can overlap. You may also find content of interest to you on the [Data Scientist](https://deploy-preview-896--hpe-dev-portal.netlify.app/role/data-scientist/home/) page. Content on this page changes as new material becomes available or new topics arise, so check back regularly. Feel free to ping us on [Slack](https://slack.hpedev.io/) with your comments, questions, and requests for information.
 
+<hr style="background: #7630EA; height: 5px; border: none">
+
 <div class="row">
   <div class="column">
     ### Get Inspired
@@ -74,6 +76,8 @@ The roles of the Data/ML Engineer and Data Scientist can overlap. You may also f
   </div>
 </div>
 
+<hr style="background: #33DAC8; height: 5px; border: none">
+
 ### Addressing Key Concerns
 
 **What can I do to lower the entry barriers to developing new AI/ML/data science projects?**
@@ -109,6 +113,8 @@ Check out these real-world case studies
 - [Accelerating Data Insight for a Better Work Life](https://www.hpe.com/psnow/doc/a50003827enw)
 
 <br>
+
+<hr style="background: #FF8300; height: 5px; border: none">
 
 ### Skill Up
 

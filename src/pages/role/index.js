@@ -57,7 +57,7 @@ function Role({ data, location }) {
     <Layout title={siteTitle}>
       <SEO title="What's Your Role" />
       <PageDescription
-        image="/img/role/whatsYourRole.png"
+        image="/img/role/roles-main-teal.png"
         title="What's Your Role?"
         alt="What's Your Role page logo"
       >
