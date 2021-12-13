@@ -481,9 +481,9 @@ To do so, proceed as follows:
 
     The CMS editor does not correctly interpret the em-dash (\&mdash;\) markdown syntax. Using the Rich text or Markdown mode of the CMS editor, should you need to use an em-dash character, you can do a copy/paste of the em-dash character here: — 
     
-- **Inserting a Line Break:**
+- **Inserting a Line Break in a paragraph:**
 
-  To insert a line break in a paragraph, while in **Markdown** mode, you can use the HTML syntax \<br \/\>.
+  To insert a line break in a paragraph, while in **Markdown** mode, you can use the HTML syntax \<br \/\> at the end of the sentence. 
   
 - **Inserting Special characters:**
 
