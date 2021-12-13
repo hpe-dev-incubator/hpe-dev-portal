@@ -481,6 +481,10 @@ To do so, proceed as follows:
 
     The CMS editor does not correctly interpret the em-dash (\&mdash;\) markdown syntax. Using the Rich text or Markdown mode of the CMS editor, should you need to use an em-dash character, you can do a copy/paste of the em-dash character here: — 
     
+- **Inserting a Line Break:**
+
+  To insert a line break in a paragraph, while in **Markdown** mode, you can use the HTML syntax \<br \/\>.
+  
 - **Inserting Special characters:**
 
     Some characters (underscore, hash, backslash) have special meanings in the Markdown syntax. If you want to use these special characters in a text, you have to _escape_ them. The way to escape a special charcater is to add a backslash (\\) before it, for example: I do not want \\\_italic text\\\_ here. 
