@@ -5,7 +5,7 @@ priority: 4
 author: Carol McDonald
 authorimage: /img/Avatar1.svg
 tags:
-  - HPE Ezmeral Data Fabric
+  - hpe-ezmeral-data-fabric
   - MapR
   - Apache Spark
 ---
@@ -17,7 +17,7 @@ tags:
 
 **Editor’s Note:** MapR products and solutions sold prior to the acquisition of such assets by Hewlett Packard Enterprise Company in 2019 may have older product names and model numbers that differ from current solutions. For information about current offerings, which are now part of HPE Ezmeral Data Fabric, please visit <https://www.hpe.com/us/en/software/ezmeral-data-fabric.html>
 
-This post will help you get started using Apache Spark DataFrames with Scala on the MapR Sandbox. The <a target='\_blank'  href='http://spark.apache.org/docs/latest/sql-programming-guide.html#datasets-and-dataframes'>new Spark DataFrames API</a> is designed to make big data processing on tabular data easier.
+This post will help you get started using Apache Spark DataFrames with Scala on the MapR Sandbox (now known as the [Development Environment for HPE Ezmeral Data Fabric](https://docs.datafabric.hpe.com/62/MapRContainerDevelopers/MapRContainerDevelopersOverview.html)). The <a target='\_blank'  href='http://spark.apache.org/docs/latest/sql-programming-guide.html#datasets-and-dataframes'>new Spark DataFrames API</a> is designed to make big data processing on tabular data easier.
 
 ## What is a Spark DataFrame?
 
@@ -31,14 +31,6 @@ In this post, you’ll learn how to:
 This post assumes a basic understanding of Spark concepts. If you have not already read the tutorial on [Getting Started with Spark on MapR Sandbox](https://developer.hpe.com/blog/getting-started-with-spark-on-mapr-sandbox/), it would be good to read that first.
 
 ## Software
-
-This tutorial will run on the MapR v5.0 Sandbox, which includes Spark 1.3
-
-* You can download the code and data to run these examples from here:
-
-  * <a target='\_blank'  href='https://github.com/caroljmcdonald/sparkdataframeexample'>https://github.com/caroljmcdonald/sparkdataframeexample</a>
-* The examples in this post can be run in the spark-shell, after launching with the spark-shell command.
-* You can also run the code as a standalone application as described in the tutorial on [Getting Started with Spark on MapR Sandbox](https://developer.hpe.com/blog/getting-started-with-spark-on-mapr-sandbox/).
 
 **The sample data sets**
 
@@ -58,7 +50,7 @@ The table below shows the data fields with some sample data:
 
 ![](/img/blog_sparkdataframes_table1.png)
 
-Using Spark DataFrames we will explore the data with questions like:
+Using Spark DataFrames, we will explore the data with questions like:
 
 * How many auctions were held?
 * How many bids were made per item?
@@ -92,7 +84,7 @@ import sqlContext.implicits._
 import org.apache.spark.sql._
 </pre>
 
-Below we load the data from the ebay.csv file into a Resilient Distributed Dataset (RDD). RDDs can have transformations and actions; the first() action returns the first element in the RDD, which is the String `“8213034705,95,2.927373,jake7870,0,95,117.5,xbox,3”`
+Below, we load the data from the ebay.csv file into a Resilient Distributed Dataset (RDD). RDDs can have transformations and actions; the first() action returns the first element in the RDD, which is the String `“8213034705,95,2.927373,jake7870,0,95,117.5,xbox,3”`
 
 <pre>
 <font color="green">// load the data into a  new RDD</font>
@@ -104,7 +96,7 @@ ebayText.first()
 <font color="#005CB9">// res6: String = 8213034705,95,2.927373,jake7870,0,95,117.5,xbox,3</font>
 </pre>
 
-Below we use a Scala case class to define the Auction schema corresponding to the ebay.csv file. Then map() transformations are applied to each element of ebayText to create the ebay RDD of Auction objects.
+Below, we use a Scala case class to define the Auction schema corresponding to the ebay.csv file. Then, map() transformations are applied to each element of ebayText to create the ebay RDD of Auction objects.
 
 <pre>
 <font color="green">//define the schema using a case class</font>
@@ -349,14 +341,14 @@ auction.select("auctionid").distinct.**explain**()
 // Exchange (HashPartitioning [auctionid#0], 200)
 //  Distinct true
 //   Project [auctionid#0]
- //   PhysicalRDD   //[auctionid#0,bid#1,bidtime#2,bidder#3,bidderrate#4,openbid#5,price#6,item#7,daystolive#8], MapPartitionsRDD[11] at mapPartitions at ExistingRDD.scala:37</font>
+//   PhysicalRDD   //[auctionid#0,bid#1,bidtime#2,bidder#3,bidderrate#4,openbid#5,price#6,item#7,daystolive#8], MapPartitionsRDD[11] at mapPartitions at ExistingRDD.scala:37</font>
 </pre>
 
 ## Summary
 
-In this blog post, you’ve learned how to load data into Spark DataFrames, and explore data with Spark SQL. If you have any further questions, or want to share how you are using Spark DataFrames, please add your comments in the section below.
+In this blog post, you’ve learned how to load data into Spark DataFrames, and explore data with Spark SQL.
 
 **Want to learn more?**
 
-* <a target='\_blank'  href='https://spark.apache.org/docs/1.3.0/sql-programming-guide.html#dataframes'>Spark SQL and DataFrame Guide</a>
-* <a target='\_blank'  href='http://shop.oreilly.com/product/0636920028512.do'>Learning Spark - O'Reilly Book</a>
+* [Spark SQL and DataFrame Guide](https://spark.apache.org/docs/1.3.0/sql-programming-guide.html#dataframes)
+* [Learning Spark - O'Reilly Book](https://www.oreilly.com/library/view/learning-spark-2nd/9781492050032/)
