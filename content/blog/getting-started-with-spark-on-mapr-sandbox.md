@@ -3,12 +3,16 @@ title: Getting Started with Spark on MapR Sandbox
 date: 2021-10-14T06:01:00.000Z
 author: MapR Tutorials
 authorimage: /img/Avatar1.svg
+tags:
+  - hpe-ezmeral-data-fabric
 ---
 
 
 **Editor’s Note:** MapR products and solutions sold prior to the acquisition of such assets by Hewlett Packard Enterprise Company in 2019 may have older product names and model numbers that differ from current solutions. For information about current offerings, which are now part of HPE Ezmeral Data Fabric, please visit <https://www.hpe.com/us/en/software/ezmeral-data-fabric.html>
 
 At MapR, we distribute and support Apache Spark as part of the MapR Converged Data Platform. This tutorial will help you get started with running Spark applications on the MapR Sandbox.
+
+This tutorial will help you get started with running Spark application on the MapR Sandbox (now known as the [Development Environment for HPE Ezmeral Data Fabric](https://docs.datafabric.hpe.com/62/MapRContainerDevelopers/RunMapRContainerDevelopers.html)).
 
 ## Prerequisites
 
@@ -23,15 +27,15 @@ At MapR, we distribute and support Apache Spark as part of the MapR Converged Da
 * A hypervisor. This example uses VMware Fusion 6.0.2 on OSX; however, other VMware products could be used instead. Additionally, [VirtualBox](https://www.virtualbox.org/) can be used
 * A virtual machine image for the MapR Sandbox. Spark comes pre-loaded with version 5.0 and later of the MapR Sandbox.
 
-**Starting up and Logging into the Sandbox**\
-Install and fire up the Sandbox using the instructions here: <https://docs.datafabric.hpe.com/62/MapRContainerDevelopers/RunMapRContainerDevelopers.html>. Once you are able to login to the web interface for the Sandbox, you are ready to start setting up Spark.
+**Starting up and Logging into the Sandbox**<br />
+Install and fire up the Sandbox using the instructions [here](https://docs.datafabric.hpe.com/62/MapRContainerDevelopers/RunMapRContainerDevelopers.html). Once you are able to log in to the web interface for the Sandbox, you are ready to start setting up Spark.
 
 **Logging in to the Command Line**
 
 * Before you get started, you'll want to have the IP address handy for your Sandbox VM. See the screenshot below for an example of where to find that.  
 
   ![](/img/tutorial_spark1.png)
-* Next, use an SSH client such as Putty (Windows) or Terminal (Mac) to login. See below for an example:\
+* Next, use an SSH client such as Putty (Windows) or Terminal (Mac) to login. See below for an example:<br />
   use userid: user01 and password: mapr.  
 
   ![](/img/tutorial_spark2.png)
@@ -42,17 +46,17 @@ Install and fire up the Sandbox using the instructions here: <https://docs.dataf
 
 ## “How to” for a Spark Application
 
-Next, we will look at how to write, compile, and run a Spark word count application on the MapR Sandbox. First we will walk step by step through the following word count application in Java.
+Next, we will look at how to write, compile, and run a Spark word count application on the MapR Sandbox. First, we will walk step by step through the following word count application in Java.
 
 **Example Word Count App in Java**
 
 ![](/img/tutorial_spark3.png)
 
-You can download the complete Maven project Java and Scala code here: <https://github.com/caroljmcdonald/sparkwordcountapp>
+You can download the complete Maven project Java and Scala code [here](https://github.com/caroljmcdonald/sparkwordcountapp).
 
 **Get a text-based dataset**
 
-First, let's grab a text-based dataset that will be used for counting the words. Today, we'll be using the freely available Alice In Wonderland text. Create a new folder:\
+First, let's grab a text-based dataset that will be used for counting the words. Today, we'll be using the freely available Alice In Wonderland text. Create a new folder:<br />
 `mkdir -p /mapr/demo.mapr.com/input`
 
 Pull down the text file:
@@ -153,8 +157,7 @@ Here is the same example in Scala:
 
 **Building a Simple Application**
 
-Spark can be linked into applications in either Java, Scala, or Python.\
-Maven is a popular package management tool for Java-based languages that lets you link to libraries in public repositories. In Java and Scala, you give your application a Maven dependency on the spark-core artifact. The current Spark version is 1.6.1 and the Maven coordinates are:
+Spark can be linked into applications in either Java, Scala, or Python. Maven is a popular package management tool for Java-based languages that lets you link to libraries in public repositories. In Java and Scala, you give your application a Maven dependency on the spark-core artifact. The current Spark version is 1.6.1 and the Maven coordinates are:
 
 ```xml
         <dependency>
@@ -173,8 +176,8 @@ You can use scp to copy your JAR file to the MapR Sandbox:
 
 ![](/img/tutorial_spark10.png)
 
-* See below for an example of using scp from the command line:\
-  use userid: user01 and password: mapr.
+See below for an example of using scp from the command line:<br />
+  `use userid: user01 and password: mapr.`
 
   For VMWare use: `$ scp nameoffile.jar user01@ipaddress:/user/user01/.`
 
@@ -182,7 +185,7 @@ You can use scp to copy your JAR file to the MapR Sandbox:
 
 **Running Your Application**
 
-First find the version of Spark on the sandbox with `ls /opt/mapr/spark/` Then you can use the spark commands in the /opt/mapr/spark/spark-version/bin directory.
+First, find the version of Spark on the sandbox with `ls /opt/mapr/spark/`, Then you can use the spark commands in the /opt/mapr/spark/spark-version/bin directory.
 
 You use the `bin/spark-submit` script to launch your application. This script takes care of setting up the classpath with Spark and its dependencies. Here is the spark-submit format:
 
@@ -208,7 +211,7 @@ Here is the spark-submit command to run the `scala SparkWordCount`:
   sparkwordcount-1.0.jar /user/user01/input/alice.txt /user/user01/output
 ```
 
-This concludes the Getting Started with Spark on the MapR Sandbox tutorial. You can download the example Maven project code here: <https://github.com/caroljmcdonald/sparkwordcountapp>
+This concludes the Getting Started with Spark on the MapR Sandbox tutorial. You can download the example Maven project code [here](https://github.com/caroljmcdonald/sparkwordcountapp).
 
 For more information:  
 
