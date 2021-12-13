@@ -1,6 +1,6 @@
 ---
 title: Using Apache Spark DataFrames for Processing of Tabular Data
-date: 2021-10-14T05:35:43.497Z
+date: 2021-12-13T10:27:46.925Z
 priority: 4
 author: Carol McDonald
 authorimage: /img/Avatar1.svg
@@ -38,13 +38,13 @@ We will use two example datasets - one from <a target='\_blank'  href='http://ww
 
 The eBay online auction dataset has the following data fields:
 
-***auctionid*** - unique identifier of an auction\
-***bid*** - the proxy bid placed by a bidder\
-***bidtime*** - the time (in days) that the bid was placed, from the start of the auction\
-***bidder*** - eBay username of the bidder\
-***bidderrate*** - eBay feedback rating of the bidder\
-***openbid*** - the opening bid set by the seller\
-***price*** - the closing price that the item sold for (equivalent to the second highest bid + an increment)
+***auctionid*** - unique identifier of an auction <br />
+***bid*** - the proxy bid placed by a bidder <br />
+***bidtime*** - the time (in days) that the bid was placed, from the start of the auction <br />
+***bidder*** - eBay username of the bidder <br />
+***bidderrate*** - eBay feedback rating of the bidder <br />
+***openbid*** - the opening bid set by the seller <br />
+***price*** - the closing price that the item sold for (equivalent to the second highest bid + an increment) <br />
 
 The table below shows the data fields with some sample data:
 
@@ -69,10 +69,10 @@ Using Spark DataFrames, we will explore the SFPD data with questions like:
 
 ## Loading data into Spark DataFrames
 
-Log into the MapR Sandbox, as explained in [Getting Started with Spark on MapR Sandbox](https://developer.hpe.com/blog/getting-started-with-spark-on-mapr-sandbox/), using userid user01, password mapr. Copy the sample data files to your sandbox home directory /user/user01 using scp. Start the spark shell with:\
+Log into the MapR Sandbox, as explained in [Getting Started with Spark on MapR Sandbox](https://developer.hpe.com/blog/getting-started-with-spark-on-mapr-sandbox/), using userid user01, password mapr. Copy the sample data files to your sandbox home directory /user/user01 using scp. Start the spark shell with: <br />
 `$ spark-shell`
 
-First, we will import some packages and instantiate a sqlContext, which is the entry point for working with structured data (rows and columns) in Spark and allows the creation of DataFrame objects.\
+First, we will import some packages and instantiate a sqlContext, which is the entry point for working with structured data (rows and columns) in Spark and allows the creation of DataFrame objects. <br />
 (In the code boxes, <font color="green">comments are in Green</font> and <font color="#005CB9">output is in Blue</font>)
 
 <pre>
@@ -224,7 +224,7 @@ results.show()
 
 ## Loading the SFPD data into Spark dataframes using a csv parsing library
 
-Now we will load the SFPD dataset into a Spark dataframe using the <a target='\_blank'  href='https://github.com/databricks/spark-csv'>spark-csv parsing library</a> from Databricks. You can use this library at the Spark shell by specifying --packages com.databricks:spark-csv_2.10:1.0.3 when starting the shell as shown below:
+Now we will load the SFPD dataset into a Spark dataframe using the <a target='\_blank'  href='https://github.com/databricks/spark-csv'>spark-csv parsing library</a> from Databricks. You can use this library at the Spark shell by specifying _--packages com.databricks:spark-csv_2.10:1.0.3_ when starting the shell as shown below:
 
 `$ spark-shell --packages com.databricks:spark-csv_2.10:1.0.3`
 
