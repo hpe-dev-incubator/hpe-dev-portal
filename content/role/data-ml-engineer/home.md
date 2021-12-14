@@ -78,7 +78,11 @@ The roles of the Data/ML Engineer and Data Scientist can overlap. You may also f
 - AI/ML projects can and should be run on the same system as analytics projects: Read “Chapter 3: AI and Analytics Together” in the free eBook [AI and Analytics at Scale: Lessons from Real-World Production Systems](https://www.hpe.com/us/en/resources/software/ai-and-analytics-systems.html)
 
  
+**Who should be included on the team to ensure the success of the project?**
 
+- Read [The New Data Science Team: Who’s on First?](https://community.hpe.com/t5/HPE-Ezmeral-Uncut/The-New-Data-Science-Team-Who-s-on-First/ba-p/7154783#.Ybi1pb3MI2y)
+
+ 
 **How do I handle data movement?**
 
 - Read [A better approach to major data motion: built-in data mirroring](https://community.hpe.com/t5/HPE-Ezmeral-Uncut/A-better-approach-to-major-data-motion-Efficient-built-in/ba-p/7135056#.Ya5Xqb3ML0p)

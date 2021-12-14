@@ -59,6 +59,8 @@ The roles of the Data/ML Engineer and Data Scientist can overlap. You may also f
 
 <div class="row">
   <div class="column">
+    **Working together**
+
     *Essential to building projects that deliver value, domain expertise helps frame questions, identify useful data, and take action on insights.*
     
   </div>
@@ -71,6 +73,8 @@ The roles of the Data/ML Engineer and Data Scientist can overlap. You may also f
 
 <div class="row">
   <div class="column">
+    - Multiple roles contribute to a successful data science project. Discover [The New Data Science Team: Who’s on First?](https://community.hpe.com/t5/HPE-Ezmeral-Uncut/The-New-Data-Science-Team-Who-s-on-First/ba-p/7154783#.Ybi1pb3MI2y)
+
     - Combining diverse data sets leads to advances in fighting disease. Watch  [Data Saves Lives](https://www.hpe.com/us/en/discover-more-network/events/discover-2021/results.html/types/sessions/search/b4372?media-id=/us/en/resources/discover/las-vegas-2021/B4372/_jcr_content.details.json)
 
     - Combined stakeholder expertise puts advanced agricultural knowledge to work in the field – literally. Watch  [Data Feeds People](https://www.hpe.com/us/en/discover-more-network/events/discover-2021/results.html/types/sessions/search/b4373).
