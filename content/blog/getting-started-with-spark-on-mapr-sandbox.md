@@ -1,18 +1,18 @@
 ---
 title: Getting Started with Spark on MapR Sandbox
-date: 2021-10-14T06:01:00.000Z
+date: 2021-12-14T09:35:31.756Z
 author: MapR Tutorials
 authorimage: /img/Avatar1.svg
 tags:
   - hpe-ezmeral-data-fabric
+  - MapR
+  - Sandbox
 ---
 
 
 **Editor’s Note:** MapR products and solutions sold prior to the acquisition of such assets by Hewlett Packard Enterprise Company in 2019 may have older product names and model numbers that differ from current solutions. For information about current offerings, which are now part of HPE Ezmeral Data Fabric, please visit <https://www.hpe.com/us/en/software/ezmeral-data-fabric.html>
 
-At MapR, we distribute and support Apache Spark as part of the MapR Converged Data Platform. This tutorial will help you get started with running Spark applications on the MapR Sandbox.
-
-This tutorial will help you get started with running Spark application on the MapR Sandbox (now known as the [Development Environment for HPE Ezmeral Data Fabric](https://docs.datafabric.hpe.com/62/MapRContainerDevelopers/RunMapRContainerDevelopers.html)).
+At MapR, we distribute and support Apache Spark as part of the MapR Converged Data Platform. This tutorial will help you get started with running Spark application on the MapR Sandbox (now known as the [Development Environment for HPE Ezmeral Data Fabric](https://docs.datafabric.hpe.com/62/MapRContainerDevelopers/RunMapRContainerDevelopers.html)).
 
 ## Prerequisites
 
@@ -185,7 +185,7 @@ See below for an example of using scp from the command line:<br />
 
 **Running Your Application**
 
-First, find the version of Spark on the sandbox with `ls /opt/mapr/spark/`, Then you can use the spark commands in the /opt/mapr/spark/spark-version/bin directory.
+First, find the version of Spark on the sandbox with `ls /opt/mapr/spark/`. Then you can use the spark commands in the /opt/mapr/spark/spark-version/bin directory.
 
 You use the `bin/spark-submit` script to launch your application. This script takes care of setting up the classpath with Spark and its dependencies. Here is the spark-submit format:
 
