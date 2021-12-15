@@ -16,9 +16,9 @@ To eliminate the silos and complexity of data management and infrastructure, HPE
 
 Data Services Cloud Console (DSCC) brings the cloud experience to wherever data lives and streamlines data management across your hybrid cloud. It provides a suite of cloud services across your edge, core, and cloud to accelerate data, agility, and innovation for everyone, from data managers to data innovators. Delivered as a SaaS based cloud console, DSCC moved customer’s innovation faster because there is nothing to deploy, always updated to the latest software features, and reduce risk of ownership by subscription. The console is a single destination for any data and infrastructure-services, that comprises of both the cloud data services and cloud infrastructure services.  
 
+### Introduction to Data Services Cloud Console
 
-
-
+<iframe width="560" height="315" src="https://www.youtube.com/embed/AxUE89X3Sy0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ### Any Questions on Data Services Cloud Console?
 
