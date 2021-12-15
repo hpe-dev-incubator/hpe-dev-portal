@@ -8,7 +8,7 @@ width: large
 priority: 1
 tags:
   - data-services-cloud-console
-  - greenlake-common-cloud
+  - greenlake-cloud-console
 ---
 To eliminate the silos and complexity of data management and infrastructure, HPE provides the Data Services Cloud Console (DSCC), a SaaS based cloud console that delivers cloud operational agility and unified data operations as a service. Data Services Cloud Console also offers a unified API that gives developers access to infrastructure and data as code. 
 
