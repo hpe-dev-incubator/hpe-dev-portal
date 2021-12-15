@@ -126,6 +126,7 @@ The client can only receive properties from the authorized API resources based o
 ### The API End Points (baseURL) for each DSCC Region
 The REST API for DSCC requires the client application to issue the REST API request to the URL that is associated with the DSCC instance deployed at the associated region of the storage array. As of November 2021, here are the Domain URLs where client application must use as the base-URL to the resource path of REST API.
 
+| :- | :-: |
 | DSCC Region | base-URL |
 | :- | :- |
 | EU Central | https://eu1.data.cloud.hpe.com |
