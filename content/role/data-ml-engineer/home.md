@@ -22,7 +22,7 @@ With an increased number and variety of workloads, how can you address all aspec
 
 On this page, we provide content to help you meet these challenges. You will find a rotating selection of foundational material, ideas to help you get inspired, as well as practical tips on key issues to improve efficiency and performance. You’ll also learn what Hewlett Packard Enterprise (HPE) offers.
 
-The roles of the Data/ML Engineer and Data Scientist can overlap. You may also find content of interest to you on the [Data Scientist](https://deploy-preview-896--hpe-dev-portal.netlify.app/role/data-scientist/home/) page. Content on this page changes as new material becomes available or new topics arise, so check back regularly. Feel free to ping us on [Slack](https://slack.hpedev.io/) with your comments, questions, and requests for information.
+The roles of the Data/ML Engineer and Data Scientist can overlap. You may also find content of interest to you on the [Data Scientist](https://deploy-preview-896--hpe-dev-portal.netlify.app/role/data-scientist/home/) page. Content on this page changes as new material becomes available or new topics arise, so check back regularly.
 
 <br>
 <hr style="background: #7630EA; height: 5px; border: none">
@@ -78,11 +78,13 @@ The roles of the Data/ML Engineer and Data Scientist can overlap. You may also f
 - AI/ML projects can and should be run on the same system as analytics projects: Read “Chapter 3: AI and Analytics Together” in the free eBook [AI and Analytics at Scale: Lessons from Real-World Production Systems](https://www.hpe.com/us/en/resources/software/ai-and-analytics-systems.html)
 
  
+
 **Who should be included on the team to ensure the success of the project?**
 
 - Read [The New Data Science Team: Who’s on First?](https://community.hpe.com/t5/HPE-Ezmeral-Uncut/The-New-Data-Science-Team-Who-s-on-First/ba-p/7154783#.Ybi1pb3MI2y)
 
  
+
 **How do I handle data movement?**
 
 - Read [A better approach to major data motion: built-in data mirroring](https://community.hpe.com/t5/HPE-Ezmeral-Uncut/A-better-approach-to-major-data-motion-Efficient-built-in/ba-p/7135056#.Ya5Xqb3ML0p)
@@ -167,4 +169,23 @@ Check out these real-world case studies
 
      
   </div>
+</div>
+
+---
+
+<br><br>
+<div style="font-weight: 700; font-size: 27px">Engage</div>
+
+<div class="row">
+  <div class="column">
+
+    Ping us with your comments, questions, and requests for information.
+
+     
+  </div>
+  <div class="column">
+    - [HPE Dev Slack]( https://slack.hpedev.io/)
+
+     
+  </div>  
 </div>

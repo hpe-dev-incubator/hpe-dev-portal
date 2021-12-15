@@ -21,7 +21,7 @@ Data science is an intriguing field, and recognition of its potential is rapidly
 
 On this page, we provide a range of content – for advanced data scientists to those just getting started – to help you meet these challenges. You will find a rotating selection of foundational material, ideas to help you get inspired, as well as practical tips on key issues that help make your data science projects easier to build and more likely to be successful. You’ll also learn what Hewlett Packard Enterprise (HPE) offers. 
 
-The roles of the Data/ML Engineer and Data Scientist can overlap. You may also find content of interest to you on the [Data/ML Engineer](https://deploy-preview-896--hpe-dev-portal.netlify.app/role/data-ml-engineer/home/) page. Content on this page changes as new material becomes available or new topics arise, so check back regularly. Feel free to ping us on [Slack](https://slack.hpedev.io/) with your comments, questions, and requests for information.
+The roles of the Data/ML Engineer and Data Scientist can overlap. You may also find content of interest to you on the [Data/ML Engineer](https://deploy-preview-896--hpe-dev-portal.netlify.app/role/data-ml-engineer/home/) page. Content on this page changes as new material becomes available or new topics arise, so check back regularly.
 
 <br>
 <hr style="background: #7630EA; height: 5px; border: none">
@@ -188,4 +188,23 @@ Check out these real-world case studies
 
      
   </div>
+</div>
+
+---
+
+<br><br>
+<div style="font-weight: 700; font-size: 27px">Engage</div>
+
+<div class="row">
+  <div class="column">
+
+    Ping us with your comments, questions, and requests for information.
+
+     
+  </div>
+  <div class="column">
+    - [HPE Dev Slack]( https://slack.hpedev.io/)
+
+     
+  </div>  
 </div>
