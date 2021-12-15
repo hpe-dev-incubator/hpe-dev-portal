@@ -62,3 +62,28 @@ User can download the API definition from the API documentation website, and the
 * API Error Codes
 
   * Provides the result of the execution of the API, returning either good or error, along with the error message due to incorrect or unauthorized API call.
+
+### Supported API Categories (Services)
+
+The API categories for DSCC will grow in accordance to the expansion of the DSCC services that are going to be released in the future. As recorded today, the current services that are available include:
+
+**Common (Alletra-6K, Alletra-9K, Primera, Nimble)**
+
+1. authentication
+2. tasks
+3. event Audit
+4. authZ (User RBAC permissions)
+5. issues
+6. controllers
+7. host-initiator-groups
+8. host-initiators
+9. ports
+10. shelves
+11. storage-pools
+12. storage-systems
+13. system-settings
+14. volume-sets
+15. volumes
+    Alletra-6K or Nimble
+16. protection-templates
+17. disks
