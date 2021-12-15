@@ -39,3 +39,26 @@ The website also provides additional information:
    The website also provides the links to download the DSCC OpenAPI definitions in either json or yaml format. Below is an example of the downloaded yaml definition file from the DSCC REST API documentation website.
 
 ![API definition yaml](/img/open-api-yaml.png "yaml")
+
+User can download the API definition from the API documentation website, and the API definition is available in both YAML and JSON version. It can be downloaded by clicking on the download button on the top left of the documentation website.
+
+### Documented Attributes
+
+* API Name & Description
+
+  * Provides short description of the objective for this API with the supported HTTP request method (POST, GET, DELETE, PATCH, PUT etc).
+* API Path
+
+  * Provides the detailed URL path as the end-point to issue the API call. Note that the user must add the base path URL to extend this path to the correct resource end-point.
+* API Parameter
+
+  * Allows the client to input information such as the object for manipulation, select a filter to limit the returned objects, and other purposes.
+* API Data/Body/Payload
+
+  * This is the data passed along in a different part of the REST API request, usually associated with HTTP method such as POST/PATCH/PUT.
+* API Response
+
+  * Provides detail response information on the result of the particular API and may include more data in JSON format.
+* API Error Codes
+
+  * Provides the result of the execution of the API, returning either good or error, along with the error message due to incorrect or unauthorized API call.
