@@ -131,3 +131,6 @@ The REST API for DSCC requires the client application to issue the REST API requ
 | EU Central | https://eu1.data.cloud.hpe.com |
 | AP Northeast | https://jp1.data.cloud.hpe.com |
 | US West | https://us1.data.cloud.hpe.com |
+
+###Asynchronous Response
+All of the REST API operations are stateless in nature. One example is such as POST. In that scenario the task resource will return a response with HTTP code 202 "Accepted" and the reference to the task as follows:
