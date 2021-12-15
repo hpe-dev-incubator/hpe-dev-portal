@@ -121,16 +121,32 @@ Existing clients will be able to maintain the backward compatibility from the hi
 The client's application can issue a REST API request using the access token as the bearer of the token. The client can obtain this access token from the authorization API end point, after the client successfully authenticate through an associated customer's application credential (client-id and client-secret). This application credential is created by the DSCC user who has the permission to access resources (such as controllers, volumes etc.) under the DSCC instances. This access token expiration time, by default, is set for 7200 seconds (2 hours). When the resource server sees this expired access token, it returns 0x401 response (not authorized). The client must then reauthenticate using the associated client-id and client-secret to obtain the next access-token to use for the next REST API request.
 
 ### Authorization Policies
+
 The client can only receive properties from the authorized API resources based on the Role Base Access Control for the user who created the client-credential pair (client-id and client-secret). This authorization derives from the organization, capability, and scope (roles) that the associated user is assigned. As the result, the authorization for the client application will inherit the user's permission who created the client-application registration under the API Gateway. Note that subsequent changes to the user's permission after the client application registered will impact the response returned based on current authority.
 
 ### The API End Points (baseURL) for each DSCC Region
+
 The REST API for DSCC requires the client application to issue the REST API request to the URL that is associated with the DSCC instance deployed at the associated region of the storage array. As of November 2021, here are the Domain URLs where client application must use as the base-URL to the resource path of REST API.
 
-| DSCC Region | Base-URL |
-| :- | :- |
-| EU Central | https://eu1.data.cloud.hpe.com |
+| DSCC Region  | Base-URL                       |
+| ------------ | ------------------------------ |
+| EU Central   | https://eu1.data.cloud.hpe.com |
 | AP Northeast | https://jp1.data.cloud.hpe.com |
-| US West | https://us1.data.cloud.hpe.com |
+| US West      | https://us1.data.cloud.hpe.com |
 
-###Asynchronous Response
+
+
+### Asynchronous Response
+
+
 All of the REST API operations are stateless in nature. One example is such as POST. In that scenario the task resource will return a response with HTTP code 202 "Accepted" and the reference to the task as follows:
+
+```
+Response: 202 (Accepted)
+
+{
+  "taskURI":"/api/v1/tasks/{task id}
+}
+```
+
+In order to ensure the completion of this remote procedural call through POST, the users will use the task resource to query the status of this asynchronous task.
