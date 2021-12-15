@@ -98,6 +98,7 @@ The major version number will be provided in the resource path as "v1" in this e
 ```jsoniq
 /api/v1/<resource group>/...
 ```
+
 Here are some examples of these resource paths that contain several resource groups under the same root:
 
 ```jsoniq
@@ -175,7 +176,7 @@ state ENUM:
 - PAUSED
 ```
 
-For more in depth discussion on the topic about API Gateway and OAuth 2.0 (Open Authorization) please take a look at these blogs in HPE DEV:
+For more in depth discussion on the topics about API Gateway and OAuth 2.0 (Open Authorization) please take a look at these blogs in HPE DEV:
 
 * [Using HPE GreenLake Console's API Gateway for Data Services Cloud Console](https://developer.hpe.com/blog/api-console-for-data-services-cloud-console/)
 * [Implementing OAuth 2 Flow for Data Services Cloud Console's Client Application](https://developer.hpe.com/blog/oauth2-for-hpe-greenlake-data-services-cloud-console/)
