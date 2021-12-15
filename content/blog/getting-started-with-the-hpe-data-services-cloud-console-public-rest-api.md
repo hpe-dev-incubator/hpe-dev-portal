@@ -37,3 +37,5 @@ The website also provides additional information:
 3. The syntax for the HTTP method and path to this resource. Note that this path is a relative path. For the complete path, please add the base-URL documented below.
 4. The body of response is returned in JSON format according to the response status of the REST API.
    The website also provides the links to download the DSCC OpenAPI definitions in either json or yaml format. Below is an example of the downloaded yaml definition file from the DSCC REST API documentation website.
+
+![API definition yaml](/img/open-api-yaml.png "yaml")
