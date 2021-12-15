@@ -12,14 +12,11 @@ tags:
 ---
 To eliminate the silos and complexity of data management and infrastructure, HPE provides the Data Services Cloud Console (DSCC), a SaaS based cloud console that delivers cloud operational agility and unified data operations as a service. Data Services Cloud Console also offers a unified API that gives developers access to infrastructure and data as code. 
 
-<img src="/img/a-single-destination-for-data-and-infra-services.png" alt="DSCC UI" width="1024" height="768"/>
+![DSCC UI](/img/a-single-destination-for-data-and-infra-services.png "DSCC UI diagram")
 
+Data Services Cloud Console (DSCC) brings the cloud experience to wherever data lives and streamlines data management across your hybrid cloud. It provides a suite of cloud services across your edge, core, and cloud to accelerate data, agility, and innovation for everyone, from data managers to data innovators. Delivered as a SaaS based cloud console, DSCC moved customer’s innovation faster because there is nothing to deploy, always updated to the latest software features, and reduce risk of ownership by subscription. The console is a single destination for any data and infrastructure-services, that comprises of both the cloud data services and cloud infrastructure services.  
 
-
-Data Services Cloud Console public REST API provides a resource for customers who are looking to enhance their infrastructure management and data-ops using the programmatical extensions from Data Services Cloud Console. Data Services Cloud Console (DSCC) brings the cloud experience to wherever data lives and streamlines data management across your hybrid cloud. It provides a suite of cloud services across your edge, core, and cloud to accelerate data, agility, and innovation for everyone, from data managers to data innovators.
-
-![DSCC Automation](/img/dscc-api-value.png "API for Automation at Scale"){: width=1024
-height=768 style="float:left; padding:16px}
+![DSCC Automation](/img/dscc-api-value.png "API for Automation at Scale"){: 
 
 ## A Public REST API which is based on the OpenAPI 3.0
 
