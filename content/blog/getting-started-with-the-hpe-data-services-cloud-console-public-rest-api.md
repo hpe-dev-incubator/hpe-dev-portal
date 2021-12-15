@@ -5,6 +5,8 @@ priority: 2
 author: Ron Dharma
 authorimage: https://gravatar.com/avatar/8102f2adeef249065ccb9c43b8866d17?s=192
 thumbnailimage: /img/dscc-icon.png
+tags:
+  - data-services-cloud-console
 ---
 ![Unified DataOps ](/img/dscc-idp-core-architect.png "Unified DataOps")
 
@@ -134,13 +136,11 @@ The REST API for DSCC requires the client application to issue the REST API requ
 | AP Northeast | https://jp1.data.cloud.hpe.com |
 | US West      | https://us1.data.cloud.hpe.com |
 
-
-
 ### Asynchronous Response
 
-
 All of the REST API operations are stateless in nature. One example is such as POST. In that scenario the task resource will return a response with HTTP code 0x202 "Accepted" and the reference to the task as follows:
-```
+
+```jsoniq
 Response: 202 (Accepted)
 
 {
@@ -149,7 +149,8 @@ Response: 202 (Accepted)
 ```
 
 In order to ensure the completion of this remote procedural call through POST, the users will use the task resource to query the status of this asynchronous task.
-```
+
+```jsoniq
 /api/v1/tasks/{task id}
 
 GET responses
@@ -166,3 +167,5 @@ state ENUM:
 - TIMEDOUT
 - PAUSED
 ```
+
+For more in depth discussion on the topic about API Gateway and OAuth 2.0 (Open Authorization) please take a look at these blogs in HPE DEV:
