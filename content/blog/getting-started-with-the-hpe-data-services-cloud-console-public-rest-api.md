@@ -94,11 +94,19 @@ The API categories for DSCC will grow in accordance to the expansion of the DSCC
 
 The major version number will be provided in the resource path as "v1" in this example:
 /api/v1/<resource group>/...
+
+
 Here are some examples of these resource paths that contain several resource groups under the same root:
 /api/v1/storage-systems/...
 
 /api/v1/controllers/...
 
 /api/v1/volumes/...
+
+
 Existing clients will be able to maintain the backward compatibility from the higher major version incremental, and adopt any newly introduced API. However, both the new and old version of the API will be supported until the announcement of the deprecation for the old version of the API. Nonetheless, the older major version will always be frozen with the exception of bug fixes. There will also be an announcement of deprecation in the header and sunset header.
+
+
 /api/v1/<resource group>/...
+
+/api/v2/<resource group>/...
