@@ -139,8 +139,7 @@ The REST API for DSCC requires the client application to issue the REST API requ
 ### Asynchronous Response
 
 
-All of the REST API operations are stateless in nature. One example is such as POST. In that scenario the task resource will return a response with HTTP code 202 "Accepted" and the reference to the task as follows:
-
+All of the REST API operations are stateless in nature. One example is such as POST. In that scenario the task resource will return a response with HTTP code 0x202 "Accepted" and the reference to the task as follows:
 ```
 Response: 202 (Accepted)
 
@@ -150,3 +149,20 @@ Response: 202 (Accepted)
 ```
 
 In order to ensure the completion of this remote procedural call through POST, the users will use the task resource to query the status of this asynchronous task.
+```
+/api/v1/tasks/{task id}
+
+GET responses
+{
+  state: {state ENUM}
+}
+
+state ENUM:
+- UNSPECIFIED
+- INITIALIZED
+- RUNNING
+- FAILED
+- SUCCEEDED
+- TIMEDOUT
+- PAUSED
+```
