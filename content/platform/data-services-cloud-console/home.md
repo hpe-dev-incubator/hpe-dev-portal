@@ -26,6 +26,16 @@ For an  overview of the Data Services Cloud Console and to get started with the 
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/lzOWapX0m5U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+### Data Services Cloud Console Public REST API
+
+Data Services Cloud Console public REST API provides a resource for customers who are looking to enhance their infrastructure management and data-ops using the programmatical extensions from Data Services Cloud Console.  More blog posts will be coming that will provide more information to help customers adopting this API, providing examples, code snippets and other helpful information
+
+Blog: Getting Started with Data Services Cloud Console API
+
+Blog: Using HPE GreenLake Console's API Gateway for DSCC
+
+Blog: Implementing OAuth 2.0 Flow for DSCC's Client Application
+
 ### Any Questions on Data Services Cloud Console?
 
 Please join [HPEDEV Slack Workspace](https://slack.hpedev.io/) and start a discussion in our [\#Data-Services-Cloud-Console channel](https://hpedev.slack.com/archives/C02D6H623JP)
