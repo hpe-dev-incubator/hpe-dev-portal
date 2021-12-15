@@ -18,7 +18,6 @@ Data Services Cloud Console public REST API provides a resource for customers wh
 
 Hewlett Packard Enterprise (HPE) offers the DSCC public REST API to provide the agility previously mentioned. It is specified based on the OpenAPI format version 3 (OpenAPI 3.0 information). The specification defines a standard, language-agnostic interface to the RESTful API allowing clients (both human and computer) to consume capabilities of DSCC services efficiently. The API definition is available for download in either OpenAPI 3 YAML or JSON format at the link mentioned in at the next chapter.
 
-
 Some of the advantages of distributing the API in OpenAPI 3.0 format:
 
 1. Updates to the API can be generated in a more agile manner where documentation is embedded, describing any endpoints, parameters, and more; such as contact information, license, terms of use.
@@ -95,7 +94,6 @@ The API categories for DSCC will grow in accordance to the expansion of the DSCC
 The major version number will be provided in the resource path as "v1" in this example:
 /api/v1/<resource group>/...
 
-
 Here are some examples of these resource paths that contain several resource groups under the same root:
 /api/v1/storage-systems/...
 
@@ -103,9 +101,7 @@ Here are some examples of these resource paths that contain several resource gro
 
 /api/v1/volumes/...
 
-
 Existing clients will be able to maintain the backward compatibility from the higher major version incremental, and adopt any newly introduced API. However, both the new and old version of the API will be supported until the announcement of the deprecation for the old version of the API. Nonetheless, the older major version will always be frozen with the exception of bug fixes. There will also be an announcement of deprecation in the header and sunset header.
-
 
 /api/v1/<resource group>/...
 
@@ -113,17 +109,15 @@ Existing clients will be able to maintain the backward compatibility from the hi
 
 ### HTTP Request Methods
 
-| HTTP Verbs | Description |
-| :- | :- |
-| GET | Retrieves target resource |
-| POST | Creates an entity or changes state |
-| PUT | Replaces target resource with data part of the HTTP request payload |
-| DELETE | Removes the resource |
+| HTTP Verbs | Description                                                         |
+| ---------- | ------------------------------------------------------------------- |
+| GET        | Retrieves target resource                                           |
+| POST       | Creates an entity or changes state                                  |
+| PUT        | Replaces target resource with data part of the HTTP request payload |
+| DELETE     | Removes the resource                                                |
 
 ### Authorization through OAuth2 Client Credential Workflow
+
 The client's application can issue a REST API request using the access token as the bearer of the token. The client can obtain this access token from the authorization API end point, after the client successfully authenticate through an associated customer's application credential (client-id and client-secret). This application credential is created by the DSCC user who has the permission to access resources (such as controllers, volumes etc.) under the DSCC instances. This access token expiration time, by default, is set for 7200 seconds (2 hours). When the resource server sees this expired access token, it returns 0x401 response (not authorized). The client must then reauthenticate using the associated client-id and client-secret to obtain the next access-token to use for the next REST API request.
 
-
-
-
-
+### Authorization Policies
