@@ -67,7 +67,7 @@ User can download the API definition from the API documentation website, and the
 
 The API categories for DSCC will grow in accordance to the expansion of the DSCC services that are going to be released in the future. As recorded today, the current services that are available include:
 
-**Common (Alletra-6K, Alletra-9K, Primera, Nimble)**
+#### **Common (Alletra-6K, Alletra-9K, Primera, Nimble)**
 
 1. authentication
 2. tasks
@@ -84,6 +84,21 @@ The API categories for DSCC will grow in accordance to the expansion of the DSCC
 13. system-settings
 14. volume-sets
 15. volumes
-    Alletra-6K or Nimble
-16. protection-templates
-17. disks
+
+#### **Alletra-6K or Nimble**
+
+1. protection-templates
+2. disks
+
+### Versioning
+
+The major version number will be provided in the resource path as "v1" in this example:
+/api/v1/<resource group>/...
+Here are some examples of these resource paths that contain several resource groups under the same root:
+/api/v1/storage-systems/...
+
+/api/v1/controllers/...
+
+/api/v1/volumes/...
+Existing clients will be able to maintain the backward compatibility from the higher major version incremental, and adopt any newly introduced API. However, both the new and old version of the API will be supported until the announcement of the deprecation for the old version of the API. Nonetheless, the older major version will always be frozen with the exception of bug fixes. There will also be an announcement of deprecation in the header and sunset header.
+/api/v1/<resource group>/...
