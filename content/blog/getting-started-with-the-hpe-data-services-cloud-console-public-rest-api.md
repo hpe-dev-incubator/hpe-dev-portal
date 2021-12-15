@@ -114,6 +114,7 @@ Existing clients will be able to maintain the backward compatibility from the hi
 ### HTTP Request Methods
 
 
-|------|-------|------------------|
-| HTTP | Verbs | Description      |
-|------|-------|------------------|
+|------------|------------------|
+| HTTP Verbs | Description      |
+|------------|------------------|
+| GET        | Retrieves target resource |
