@@ -120,6 +120,8 @@ Existing clients will be able to maintain the backward compatibility from the hi
 | PUT | Replaces target resource with data part of the HTTP request payload |
 | DELETE | Removes the resource |
 
+### Authorization through OAuth2 Client Credential Workflow
+The client's application can issue a REST API request using the access token as the bearer of the token. The client can obtain this access token from the authorization API end point, after the client successfully authenticate through an associated customer's application credential (client-id and client-secret). This application credential is created by the DSCC user who has the permission to access resources (such as controllers, volumes etc.) under the DSCC instances. This access token expiration time, by default, is set for 7200 seconds (2 hours). When the resource server sees this expired access token, it returns 0x401 response (not authorized). The client must then reauthenticate using the associated client-id and client-secret to obtain the next access-token to use for the next REST API request.
 
 
 
