@@ -110,3 +110,8 @@ Existing clients will be able to maintain the backward compatibility from the hi
 /api/v1/<resource group>/...
 
 /api/v2/<resource group>/...
+
+### HTTP Request Methods
+
+
+
