@@ -122,3 +122,12 @@ The client's application can issue a REST API request using the access token as 
 
 ### Authorization Policies
 The client can only receive properties from the authorized API resources based on the Role Base Access Control for the user who created the client-credential pair (client-id and client-secret). This authorization derives from the organization, capability, and scope (roles) that the associated user is assigned. As the result, the authorization for the client application will inherit the user's permission who created the client-application registration under the API Gateway. Note that subsequent changes to the user's permission after the client application registered will impact the response returned based on current authority.
+
+### The API End Points (baseURL) for each DSCC Region
+The REST API for DSCC requires the client application to issue the REST API request to the URL that is associated with the DSCC instance deployed at the associated region of the storage array. As of November 2021, here are the Domain URLs where client application must use as the base-URL to the resource path of REST API.
+
+| DSCC Region | base-URL |
+| :- | :- |
+| EU Central | https://eu1.data.cloud.hpe.com |
+| AP Northeast | https://jp1.data.cloud.hpe.com |
+| US West | https://us1.data.cloud.hpe.com |
