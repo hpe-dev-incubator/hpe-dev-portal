@@ -14,7 +14,7 @@ To eliminate the silos and complexity of data management and infrastructure, HPE
 
 ![](/img/a-single-destination-for-data-and-infra-services.png)
 
-< img src="/img/a-single-destination-for-data-and-infra-services.png" width="1024" height="768" alt="DSCC UI" />
+<img src="/img/a-single-destination-for-data-and-infra-services.png" alt="DSCC" width="1024" height="768"/>
 
 img src="/img/a-single-destination-for-data-and-infra-services.png" width="1024" height="768" alt="DSCC UI"
 
