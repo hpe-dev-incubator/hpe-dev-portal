@@ -120,6 +120,7 @@ Existing clients will be able to maintain the backward compatibility from the hi
 | POST | Creates an entity or changes state |
 | PUT | Replaces target resource with data part of the HTTP request payload |
 | DELETE | Removes the resource |
-| :- | :- |
+
+
 
 
