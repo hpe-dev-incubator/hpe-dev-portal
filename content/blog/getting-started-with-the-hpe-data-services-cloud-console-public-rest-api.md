@@ -113,12 +113,13 @@ Existing clients will be able to maintain the backward compatibility from the hi
 
 ### HTTP Request Methods
 
-
-|------------|:-------------------------:|
+| ------------ |:-------------------------:|
 | HTTP Verbs | Description               |
-|------------|:-------------------------:|
-| GET        | Retrieves target resource |
-| POST       | Creates an entity or changes state |
-| PUT        | Replaces target resource with data part of the HTTP request payload |
-| DELETE     | Removes the resource |
-|------------|:-------------------------:|
+| ------------ |:-------------------------:|
+| GET | Retrieves target resource |
+| POST  Creates an entity or changes state |
+| PUT | Replaces target resource with data part of the HTTP request payload |
+| DELETE | Removes the resource |
+| ------------ |:-------------------------:|
+
+
