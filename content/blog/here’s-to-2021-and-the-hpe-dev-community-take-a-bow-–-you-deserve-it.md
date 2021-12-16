@@ -20,7 +20,7 @@ The new portal now offers great ways to [engage](https://developer.hpe.com/commu
 
 
 
-<center><img src="/img/hpedev-website.png" width="1412" height=804" alt="portal benefits"></center>
+<center><img src="/img/hpedev-website.png" width="1000" height=569" alt="portal benefits"></center>
 
 One of the newest additions to the site is the link to our new [YouTube video channel](https://www.youtube.com/playlist?list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF) where you can now find over 50 videos, including many in-depth interviews with industry experts explaining new technologies and offering tips and tricks on how to work with them.
 
