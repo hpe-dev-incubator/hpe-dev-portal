@@ -128,7 +128,7 @@ Existing clients will be able to maintain the backward compatibility from the hi
 
 ### Authorization through OAuth2 Client Credential Workflow
 
-New keywords that are mentioned below:
+Glossary of the terms:
 
 **[Resources](https://developer.hpe.com/blog/api-console-for-data-services-cloud-console/)**:  Components inside the DSCC such as storage array, volumes, and many other objects that are consumable, related to each others, and provides methods to operate on it. Usually is represented by path that is appended to Endpoint e.g. /api/v1/storage-array.
 
@@ -140,8 +140,7 @@ New keywords that are mentioned below:
 
 **[API Gateway](https://developer.hpe.com/blog/api-console-for-data-services-cloud-console/)**: The API Gateway is the menu in the HPE GreenLake console that is used to register a client application and obtain the API client credentials (client-id and client-secret) for that client application. These credentials are required to generate short-lived access token that is used to make secure REST API calls to the DSCC application instance.
 
-**Endpoint**: Location where service can be accessed, usually is represented by URL (Uniform Resource Locator) e.g. https://eu1.data.cloud.hpe.com
-
+**[Endpoint](https://developer.hpe.com/blog/oauth2-for-hpe-greenlake-data-services-cloud-console/)**: Location where service can be accessed, usually is represented by URL (Uniform Resource Locator) e.g. https://eu1.data.cloud.hpe.com
 
 ![OAuth 2.0 flow](/img/greenlake-api-access-flow.png "authentication and authorization flow")
 
