@@ -6,8 +6,6 @@ authorimage: /img/blog-author-rensing-96.jpg
 tags:
   - hpedev, munch-and-learn, workshops-on-demand
 ---
-
-
 The rolling in of a new year often brings with it a sense of nostalgia, offering a time for reflection to take stock of what we’ve accomplished. It’s also a time when we resolve to do even better and try new things in the time ahead.
 
 When I look back on 2021, I can’t help but to feel a certain amount of pride in being a part of HPE DEV and all that our Community has accomplished. I specifically use the term Community here, because, without you, these things would not have happened. Without you lending your expertise and sharing your skill sets and talents, we could not have delivered all of this. So, let’s take a look back on our achievements and take a moment to appreciate all the hard work that it took to get here.
@@ -42,15 +40,13 @@ This year we delivered 11 Munch & Learn sessions on some really great topics. Th
 
 For a quick look at the topics delivered and to access their replays, check out the list below:
 
-
-
 In addition to our monthly Munch & Learn meetups, HPE DEV facilitated 19 different meetups to share technology information and collaborate between HPE engineering groups. The effects of these meetings are expected to result in some interesting new meetup opportunities for the Community at large in 2022, so keep an eye out for announcements soon in this area.
 
 **Events**
 
 As we continue to struggle worldwide with the pandemic, in-person event opportunities were limited, however we did have HPE DEV Community representation at KubeCon 2021 NA in Los Angeles where Sir Hackington once again stood watch over HPE DEV swag. 
 
-![](/img/sir-hackington-2021.png)
+<center><img src="/img/sir-hackington-2021-small.png"><center>
 
 We were still able to come together for a number of virtual events, including KubeCon Europe, 3D Data World 2021 (a really cool event where we participated as avatars!), and Discover 2021 where we achieved the highest technology session participation with 672 attendees!
 
