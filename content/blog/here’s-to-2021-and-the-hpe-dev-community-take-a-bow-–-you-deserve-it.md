@@ -40,10 +40,19 @@ This year we delivered 11 Munch & Learn sessions on some really great topics. Th
 
 For a quick look at the topics delivered and to access their replays, check out the list below:
 
-  | **Date**                  |   **Title**             |  **Link**       |
+  | &nbsp;**Date**                  |   **Title**             |  **Link**       |
   | ------------------------- | ----------------------- | ------------------|
   | January | What’s a data fabric and how does it work? | [Replay](https://youtu.be/qi6sTvu8osk) |
   | February |  Explore Containerization and MLOps  | [Replay](https://youtu.be/9PvKpe7yMpI) |
+| March | Data Science Unplugged: Part 1 | [Replay](https://youtu.be/Inh6eXM0EbA) |
+| April | Building a foundation for zero trust with SPIFFE | [Replay](https://youtu.be/G1ceKr16nn8) |
+| May | Data Science Unplugged: Part 2 | [Replay](https://www.youtube.com/watch?v=Va4tSr__Yok) |
+| June | Microservices Architecture 101 | [Replay](https://youtu.be/qyyxQU37ZyQ) |
+| July | How to make data consumable for real-world data science | [Replay](https://youtu.be/4WKjRqflF7M) |
+| August | Kubernetes 101 | [Replay](https://youtu.be/PWVJKK1obKQ) |
+| September | Digital Transformation.Next: Data & Analytics Workloads | [Replay](https://youtu.be/Q4kJKCS7rbo) |
+| November| The Great Unification: Building Analytic pipelines with Apache Spark Workloads | [Replay](https://youtu.be/TxZP_T9CC5Y) |
+| December | Redfish: Past, Present and Future| [Replay](https://youtu.be/PWVJKK1obKQ) |
 
 In addition to our monthly Munch & Learn meetups, HPE DEV facilitated 19 different meetups to share technology information and collaborate between HPE engineering groups. The effects of these meetings are expected to result in some interesting new meetup opportunities for the Community at large in 2022, so keep an eye out for announcements soon in this area.
 
