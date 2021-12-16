@@ -18,6 +18,10 @@ The new portal now offers great ways to [engage](https://developer.hpe.com/commu
 
 <center><img src="/img/new-portal-benefits.png" width="600" height=359" alt="portal benefits"></center>
 
+
+
+<center><img src="/img/hpedev-website.png" width="1412" height=804" alt="portal benefits"></center>
+
 One of the newest additions to the site is the link to our new [YouTube video channel](https://www.youtube.com/playlist?list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF) where you can now find over 50 videos, including many in-depth interviews with industry experts explaining new technologies and offering tips and tricks on how to work with them.
 
 Another reason for the site revamp was to implement a better back-end content management system. From the outside, you might not notice this much, but if you’ve written blog posts for us this year, you’ve undoubtedly noticed the improved method for submitting your posts and the ability to manage them through GitHub.
@@ -40,19 +44,19 @@ This year we delivered 11 Munch & Learn sessions on some really great topics. Th
 
 For a quick look at the topics delivered and to access their replays, check out the list below:
 
-  | **Date**                  |   **Title**             |  **Link**       |
-  | ------------------------- | ----------------------- | ------------------|
-  | January | What’s a data fabric and how does it work? | [Replay](https://youtu.be/qi6sTvu8osk) |
-  | February |  Explore Containerization and MLOps  | [Replay](https://youtu.be/9PvKpe7yMpI) |
-| March | Data Science Unplugged: Part 1 | [Replay](https://youtu.be/Inh6eXM0EbA) |
-| April | Building a foundation for zero trust with SPIFFE | [Replay](https://youtu.be/G1ceKr16nn8) |
-| May | Data Science Unplugged: Part 2 | [Replay](https://www.youtube.com/watch?v=Va4tSr__Yok) |
-| June | Microservices Architecture 101 | [Replay](https://youtu.be/qyyxQU37ZyQ) |
-| July | How to make data consumable for real-world data science | [Replay](https://youtu.be/4WKjRqflF7M) |
-| August | Kubernetes 101 | [Replay](https://youtu.be/PWVJKK1obKQ) |
-| September | Digital Transformation.Next: Data & Analytics Workloads | [Replay](https://youtu.be/Q4kJKCS7rbo) |
-| November| The Great Unification: Building Analytic pipelines with Apache Spark Workloads | [Replay](https://youtu.be/TxZP_T9CC5Y) |
-| December | Redfish: Past, Present and Future| [Replay](https://youtu.be/PWVJKK1obKQ) |
+| **Date**  | **Title**                                                                      | **Link**                                              |
+| --------- | ------------------------------------------------------------------------------ | ----------------------------------------------------- |
+| January   | What’s a data fabric and how does it work?                                     | [Replay](https://youtu.be/qi6sTvu8osk)                |
+| February  | Explore Containerization and MLOps                                             | [Replay](https://youtu.be/9PvKpe7yMpI)                |
+| March     | Data Science Unplugged: Part 1                                                 | [Replay](https://youtu.be/Inh6eXM0EbA)                |
+| April     | Building a foundation for zero trust with SPIFFE                               | [Replay](https://youtu.be/G1ceKr16nn8)                |
+| May       | Data Science Unplugged: Part 2                                                 | [Replay](https://www.youtube.com/watch?v=Va4tSr__Yok) |
+| June      | Microservices Architecture 101                                                 | [Replay](https://youtu.be/qyyxQU37ZyQ)                |
+| July      | How to make data consumable for real-world data science                        | [Replay](https://youtu.be/4WKjRqflF7M)                |
+| August    | Kubernetes 101                                                                 | [Replay](https://youtu.be/PWVJKK1obKQ)                |
+| September | Digital Transformation.Next: Data & Analytics Workloads                        | [Replay](https://youtu.be/Q4kJKCS7rbo)                |
+| November  | The Great Unification: Building Analytic pipelines with Apache Spark Workloads | [Replay](https://youtu.be/TxZP_T9CC5Y)                |
+| December  | Redfish: Past, Present and Future                                              | [Replay](https://youtu.be/PWVJKK1obKQ)                |
 
 In addition to our monthly Munch & Learn meetups, HPE DEV facilitated 19 different meetups to share technology information and collaborate between HPE engineering groups. The effects of these meetings are expected to result in some interesting new meetup opportunities for the Community at large in 2022, so keep an eye out for announcements soon in this area.
 
