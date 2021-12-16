@@ -18,7 +18,7 @@ One of the biggest undertakings was the refurbishment of the HPE DEV Portal earl
 
 The new portal now offers great ways to [engage](https://developer.hpe.com/community), new [Skill Up](https://developer.hpe.com/skillup) opportunities, and drop down menus to quickly find what you need.
 
-![](/img/new-portal-benefits.png)
+<center><img src="/img/new-portal-benefits.png" width="600" height=359" alt="portal benefits"><center>
 
 One of the newest additions to the site is the link to our new [YouTube video channel](https://www.youtube.com/playlist?list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF) where you can now find over 50 videos, including many in-depth interviews with industry experts explaining new technologies and offering tips and tricks on how to work with them.
 
