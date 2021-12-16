@@ -16,7 +16,7 @@ One of the biggest undertakings was the refurbishment of the HPE DEV Portal earl
 
 The new portal now offers great ways to [engage](https://developer.hpe.com/community), new [Skill Up](https://developer.hpe.com/skillup) opportunities, and drop down menus to quickly find what you need.
 
-<center><img src="/img/new-portal-benefits.png" width="600" height=359" alt="portal benefits"><center>
+<center><img src="/img/new-portal-benefits.png" width="600" height=359" alt="portal benefits"></center>
 
 One of the newest additions to the site is the link to our new [YouTube video channel](https://www.youtube.com/playlist?list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF) where you can now find over 50 videos, including many in-depth interviews with industry experts explaining new technologies and offering tips and tricks on how to work with them.
 
@@ -40,13 +40,15 @@ This year we delivered 11 Munch & Learn sessions on some really great topics. Th
 
 For a quick look at the topics delivered and to access their replays, check out the list below:
 
+
+
 In addition to our monthly Munch & Learn meetups, HPE DEV facilitated 19 different meetups to share technology information and collaborate between HPE engineering groups. The effects of these meetings are expected to result in some interesting new meetup opportunities for the Community at large in 2022, so keep an eye out for announcements soon in this area.
 
 **Events**
 
 As we continue to struggle worldwide with the pandemic, in-person event opportunities were limited, however we did have HPE DEV Community representation at KubeCon 2021 NA in Los Angeles where Sir Hackington once again stood watch over HPE DEV swag. 
 
-<center><img src="/img/sir-hackington-2021-small.png"><center>
+<center><img src="/img/sir-hackington-2021-small.png"></center>
 
 We were still able to come together for a number of virtual events, including KubeCon Europe, 3D Data World 2021 (a really cool event where we participated as avatars!), and Discover 2021 where we achieved the highest technology session participation with 672 attendees!
 
