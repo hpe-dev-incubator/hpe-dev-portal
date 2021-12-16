@@ -128,16 +128,19 @@ Existing clients will be able to maintain the backward compatibility from the hi
 
 ### Authorization through OAuth2 Client Credential Workflow
 
-New components mentioned below:
+New keywords that are mentioned below:
 
-**[Resources](https://developer.hpe.com/blog/api-console-for-data-services-cloud-console/)**:  Components inside the DSCC such as storage array, volumes, and many other objects that are consumable, related to each others, and provides methods to operate on it.
+**[Resources](https://developer.hpe.com/blog/api-console-for-data-services-cloud-console/)**:  Components inside the DSCC such as storage array, volumes, and many other objects that are consumable, related to each others, and provides methods to operate on it. Usually is represented by path that is appended to Endpoint e.g. /api/v1/storage-array.
 
 **[Resource Owner](https://developer.hpe.com/blog/api-console-for-data-services-cloud-console/):**  The user that is registered inside the HPE GreenLake console that has capability to authorize the client application access to the DSCC resources.
 
 **[Client Application](https://developer.hpe.com/blog/api-console-for-data-services-cloud-console/):**  The stand-alone application that runs on the client machine, and usually are representing the customer's business application for automation, ticketing, monitoring and many other business processes.
 
+**[Access Token:](https://developer.hpe.com/blog/api-console-for-data-services-cloud-console/)** This is the object that describes the permission and the security context of which the client application was delegated. This token contains the identity and privileges of the DSCC user which create this token.
+
 **[API Gateway](https://developer.hpe.com/blog/api-console-for-data-services-cloud-console/)**: The API Gateway is the menu in the HPE GreenLake console that is used to register a client application and obtain the API client credentials (client-id and client-secret) for that client application. These credentials are required to generate short-lived access token that is used to make secure REST API calls to the DSCC application instance.
 
+**Endpoint**: Location where service can be accessed, usually is represented by URL (Uniform Resource Locator) e.g. https://eu1.data.cloud.hpe.com
 
 
 ![OAuth 2.0 flow](/img/greenlake-api-access-flow.png "authentication and authorization flow")
@@ -148,7 +151,7 @@ The client's application can issue a REST API request using the access token as 
 
 The client can only receive properties from the authorized API resources based on the Role Base Access Control for the user who created the client-credential pair (client-id and client-secret). This authorization derives from the organization, capability, and scope (roles) that the associated user is assigned. As the result, the authorization for the client application will inherit the user's permission who created the client-application registration under the API Gateway. Note that subsequent changes to the user's permission after the client application registered will impact the response returned based on current authority.
 
-### The API End Points (baseURL) for each DSCC Region
+### The API Endpoints (baseURL) for each DSCC Region
 
 The REST API for DSCC requires the client application to issue the REST API request to the URL that is associated with the DSCC instance deployed at the associated region of the storage array. As of November 2021, here are the Domain URLs where client application must use as the base-URL to the resource path of REST API.
 
