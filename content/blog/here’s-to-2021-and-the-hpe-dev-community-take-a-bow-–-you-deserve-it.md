@@ -40,7 +40,10 @@ This year we delivered 11 Munch & Learn sessions on some really great topics. Th
 
 For a quick look at the topics delivered and to access their replays, check out the list below:
 
-
+  | **Date**                  |   **Title**             |  **Link**       |
+  | ------------------------- | ----------------------- | ------------------|
+  | January | What’s a data fabric and how does it work? | [Replay](https://youtu.be/qi6sTvu8osk) |
+  | February |  Explore Containerization and MLOps  | [Replay](https://youtu.be/9PvKpe7yMpI) |
 
 In addition to our monthly Munch & Learn meetups, HPE DEV facilitated 19 different meetups to share technology information and collaborate between HPE engineering groups. The effects of these meetings are expected to result in some interesting new meetup opportunities for the Community at large in 2022, so keep an eye out for announcements soon in this area.
 
