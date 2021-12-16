@@ -40,7 +40,7 @@ This year we delivered 11 Munch & Learn sessions on some really great topics. Th
 
 For a quick look at the topics delivered and to access their replays, check out the list below:
 
-  | &nbsp;**Date**                  |   **Title**             |  **Link**       |
+  | **Date**                  |   **Title**             |  **Link**       |
   | ------------------------- | ----------------------- | ------------------|
   | January | What’s a data fabric and how does it work? | [Replay](https://youtu.be/qi6sTvu8osk) |
   | February |  Explore Containerization and MLOps  | [Replay](https://youtu.be/9PvKpe7yMpI) |
