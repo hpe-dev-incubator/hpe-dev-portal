@@ -128,6 +128,18 @@ Existing clients will be able to maintain the backward compatibility from the hi
 
 ### Authorization through OAuth2 Client Credential Workflow
 
+New components mentioned below:
+
+**[Resources](https://developer.hpe.com/blog/api-console-for-data-services-cloud-console/)**:  Components inside the DSCC such as storage array, volumes, and many other objects that are consumable, related to each others, and provides methods to operate on it.
+
+**[Resource Owner](https://developer.hpe.com/blog/api-console-for-data-services-cloud-console/):**  The user that is registered inside the HPE GreenLake console that has capability to authorize the client application access to the DSCC resources.
+
+**[Client Application](https://developer.hpe.com/blog/api-console-for-data-services-cloud-console/):**  The stand-alone application that runs on the client machine, and usually are representing the customer's business application for automation, ticketing, monitoring and many other business processes.
+
+**[API Gateway](https://developer.hpe.com/blog/api-console-for-data-services-cloud-console/)**: The API Gateway is the menu in the HPE GreenLake console that is used to register a client application and obtain the API client credentials (client-id and client-secret) for that client application. These credentials are required to generate short-lived access token that is used to make secure REST API calls to the DSCC application instance.
+
+
+
 ![OAuth 2.0 flow](/img/greenlake-api-access-flow.png "authentication and authorization flow")
 
 The client's application can issue a REST API request using the access token as the bearer of the token. The client can obtain this access token from the authorization API end point, after the client successfully authenticate through an associated customer's application credential (client-id and client-secret). This application credential is created by the DSCC user who has the permission to access resources (such as controllers, volumes etc.) under the DSCC instances. This access token expiration time, by default, is set for 7200 seconds (2 hours). When the resource server sees this expired access token, it returns 0x401 response (not authorized). The client must then reauthenticate using the associated client-id and client-secret to obtain the next access-token to use for the next REST API request.
