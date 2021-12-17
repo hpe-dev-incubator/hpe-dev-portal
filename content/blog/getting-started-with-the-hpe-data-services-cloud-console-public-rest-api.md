@@ -192,11 +192,12 @@ state ENUM:
 - PAUSED
 ```
 
-For more in depth discussion on the topics about API Gateway and OAuth 2.0 (Open Authorization), please take a look at these blogs in HPE DEV, tektalk on point at On24 website, and also the demo in Youtube:
+For more in depth discussion on the topics about API Gateway and OAuth 2.0 (Open Authorization), please take a look at these blogs in HPE DEV, tektalk on point at On24 website, and also the demo in Youtube.
+
+<iframe title="Introduction to HPE Data Services Cloud Console public API" width="560" height="315" src="https://www.youtube.com/embed/g3UO0S-4r6I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 * Blog: [Using HPE GreenLake Console's API Gateway for Data Services Cloud Console](https://developer.hpe.com/blog/api-console-for-data-services-cloud-console/)
 * Blog: [Implementing OAuth 2 Flow for Data Services Cloud Console's Client Application](https://developer.hpe.com/blog/oauth2-for-hpe-greenlake-data-services-cloud-console/)
 * TEKTALK ON POINT: [Introduction to Data Services Cloud Console public API](https://vshow.on24.com/vshow/HPETekTalks/content/3571890/)
-* Youtube: [Introduction to Data Services Cloud Console public API](https://youtu.be/g3UO0S-4r6I)
 
 More blog posts will be coming to help you take further advantage of its capabilities. Stay tuned to the [HPE DEV blog](https://developer.hpe.com/blog) for more blog posts about HPE DSCC REST API.
