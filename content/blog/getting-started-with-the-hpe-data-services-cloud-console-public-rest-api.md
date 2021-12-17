@@ -18,7 +18,7 @@ Data Services Cloud Console public REST API provides a resource for customers wh
 
 ![API diagram](/img/universal-public-api.png "API ")
 
-Hewlett Packard Enterprise (HPE) offers the DSCC public REST API to provide the agility previously mentioned. It is specified based on the OpenAPI format version 3 (OpenAPI 3.0 information). The specification defines a standard, language-agnostic interface to the RESTful API allowing clients (both human and computer) to consume capabilities of DSCC services efficiently. The API definition is available for download in either OpenAPI 3 YAML or JSON format at the link mentioned in at the next chapter.
+Hewlett Packard Enterprise (HPE) offers the DSCC public REST API to provide the agility previously mentioned. It is specified based on the OpenAPI format version 3 (OpenAPI 3.0 information). The specification defines a standard, language-agnostic interface to the RESTful API allowing clients (both human and computer) to consume capabilities of DSCC services efficiently. The API definition is available for download in either OpenAPI 3 YAML or JSON format at the link mentioned in the next chapter.
 
 Some of the advantages of distributing the API in OpenAPI 3.0 format:
 
@@ -47,19 +47,19 @@ User can download the API definition from the API documentation website, and the
 
 * API Name & Description
 
-  * Provides short description of the objective for this API with the supported HTTP request method (POST, GET, DELETE, PATCH, PUT etc).
+  * Provides a short description of the objective for this API with the supported HTTP request method (POST, GET, DELETE, PATCH, PUT etc).
 * API Path
 
-  * Provides the detailed URL path as the end-point to issue the API call. Note that the user must add the base path URL to extend this path to the correct resource end-point.
+  * Provides the detailed URL path as the end-point to issue the API call. Note that the user must add the base path URL to extend this path to the correct resource.
 * API Parameter
 
-  * Allows the client to input information such as the object for manipulation, select a filter to limit the returned objects, and other purposes.
+  * Allows the client to input information, such as the object for manipulation, select a filter to limit the returned objects, and other purposes.
 * API Data/Body/Payload
 
   * This is the data passed along in a different part of the REST API request, usually associated with HTTP method such as POST/PATCH/PUT.
 * API Response
 
-  * Provides detail response information on the result of the particular API and may include more data in JSON format.
+  * Provides detailed response information on the result of the particular API and may include more data in JSON format.
 * API Error Codes
 
   * Provides the result of the execution of the API, returning either good or error, along with the error message due to incorrect or unauthorized API call.
@@ -144,7 +144,7 @@ Glossary of the terms:
 
 ![OAuth 2.0 flow](/img/greenlake-api-access-flow.png "authentication and authorization flow")
 
-The client's application can issue a REST API request using the access token as the bearer of the token. The client can obtain this access token from the authorization API end point, after the client successfully authenticate through an associated customer's application credential (client-id and client-secret). This application credential is created by the DSCC user who has the permission to access resources (such as controllers, volumes etc.) under the DSCC instances. This access token expiration time, by default, is set for 7200 seconds (2 hours). When the resource server sees this expired access token, it returns 0x401 response (not authorized). The client must then reauthenticate using the associated client-id and client-secret to obtain the next access-token to use for the next REST API request.
+The client's application can issue a REST API request using the access token as the bearer of the token. The client can obtain this access token from the authorization API end point, after the client successfully authenticate through an associated customer's application credential (client-id and client-secret). This application credential is created by the DSCC user who has the permission to access resources (such as controllers, volumes etc.) under the DSCC instances. This access token expiration time, by default, is set for 7200 seconds (2 hours). When the resource server sees this expired access token, it returns 0x401 response (not authorized). The client must then authenticates using the associated client-id and client-secret to obtain the next access-token to use for the next REST API request.
 
 ### Authorization Policies
 
