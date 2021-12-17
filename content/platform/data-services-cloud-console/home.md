@@ -18,11 +18,11 @@ Data Services Cloud Console (DSCC) brings the cloud experience to wherever data 
 
 ### Introduction to Data Services Cloud Console
 
-To access the Data Service Cloud Console,  click on this URL [](https://common.cloud.hpe.com)<https://common.cloud.hpe.com> and sign-in using your HPE GreenLake Console's account. [](https://common.cloud.hpe.com)
+To access the Data Services Cloud Console,  click on this URL [](https://common.cloud.hpe.com)<https://common.cloud.hpe.com> and sign-in using your HPE GreenLake Console's account. [](https://common.cloud.hpe.com)
 
 For an  overview of the Data Services Cloud Console and to get started with the Data services Cloud Console please click on this link <https://hpe.com/storage/dscc>. 
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/AxUE89X3Sy0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe title="HPE Data Services Cloud Console Chalk Talk" width="560" height="315" src="https://www.youtube.com/embed/AxUE89X3Sy0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/lzOWapX0m5U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
