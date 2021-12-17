@@ -192,7 +192,7 @@ state ENUM:
 - PAUSED
 ```
 
-For more in depth discussion on the topics about API Gateway and OAuth 2.0 (Open Authorization) please take a look at these blogs in HPE DEV, tektalk on point and also the demo in Youtube:
+For more in depth discussion on the topics about API Gateway and OAuth 2.0 (Open Authorization), please take a look at these blogs in HPE DEV, tektalk on point at On24 website, and also the demo in Youtube:
 
 * [Using HPE GreenLake Console's API Gateway for Data Services Cloud Console](https://developer.hpe.com/blog/api-console-for-data-services-cloud-console/)
 * [Implementing OAuth 2 Flow for Data Services Cloud Console's Client Application](https://developer.hpe.com/blog/oauth2-for-hpe-greenlake-data-services-cloud-console/)
