@@ -32,6 +32,8 @@ Furthermore, below are a couple of videos that explains the DSCC for folks who a
 
 Data Services Cloud Console public REST API provides a resource for customers who are looking to enhance their infrastructure management and data-ops using the programmatical extensions from Data Services Cloud Console.  More blog posts will be coming that will provide more information to help customers adopting this API, providing examples, code snippets and other helpful information
 
+To [](https://console-us1.data.cloud.hpe.com/doc/api/v1/)explore the DSCC public REST API, please take a look at the following blogs, and the demo in the Youtube:
+
 Blog: Getting Started with Data Services Cloud Console API
 
 Blog: [Using HPE GreenLake Console's API Gateway for DSCC](https://developer.hpe.com/blog/api-console-for-data-services-cloud-console/)
