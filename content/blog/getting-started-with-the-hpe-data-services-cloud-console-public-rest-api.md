@@ -8,7 +8,7 @@ thumbnailimage: /img/dscc-icon.png
 tags:
   - data-services-cloud-console
 ---
-![Unified DataOps ](/img/dscc-idp-core-architect.png "Unified DataOps")
+<center><img src="/img/dscc-idp-core-architect.png" width="500" height="501" alt="Unified DataOps"></center>
 
 Customers across industries are struggling with the complexity of managing data and infrastructure, because it creates a roadblock to innovation and agility. Today, every organization is required to unleash the power of data to drive digital transformation, but fragmented data management tools, manual processes, and infrastructure silos - spanning edge to cloud - are getting in the way. This complexity also amplifies business risk, and it's only getting harder as data continues to grow, apps evolve, and infrastructure continues its spread from edge to cloud. 
 
@@ -41,7 +41,7 @@ The website also provides additional information:
 
 ![API definition yaml](/img/open-api-yaml.png "yaml")
 
-User can download the API definition from the API documentation website, and the API definition is available in both YAML and JSON version. It can be downloaded by clicking on the download button on the top left of the documentation website.
+Users can download the API definition from the API documentation website, and the API definition is available in both YAML and JSON version. It can be downloaded by clicking on the download button on the top left of the documentation website.
 
 ### Documented Attributes
 
@@ -172,7 +172,7 @@ Response: 202 (Accepted)
 }
 ```
 
-In order to ensure the completion of this remote procedural call through POST, the users will use the task resource to query the status of this asynchronous task.
+In order to ensure the completion of this remote procedural call through POST, the user will use the task resource to query the status of this asynchronous task.
 
 ```jsoniq
 /api/v1/tasks/{task id}
