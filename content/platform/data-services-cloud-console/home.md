@@ -24,7 +24,7 @@ For an  overview of the Data Services Cloud Console and to get started with the 
 
 <iframe title="HPE Data Services Cloud Console Chalk Talk" width="560" height="315" src="https://www.youtube.com/embed/AxUE89X3Sy0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/lzOWapX0m5U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe title="A Closer Look at HPE Data Services Cloud Console" width="560" height="315" src="https://www.youtube.com/embed/lzOWapX0m5U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ### Data Services Cloud Console Public REST API
 
@@ -36,7 +36,7 @@ Blog: [Using HPE GreenLake Console's API Gateway for DSCC](https://developer.hpe
 
 Blog: [Implementing OAuth 2.0 Flow for DSCC's Client Application](https://developer.hpe.com/blog/oauth2-for-hpe-greenlake-data-services-cloud-console/)
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/g3UO0S-4r6I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe title="Introduction to HPE Data Services Cloud Console public API" width="560" height="315" src="https://www.youtube.com/embed/g3UO0S-4r6I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ### Any Questions on Data Services Cloud Console?
 
