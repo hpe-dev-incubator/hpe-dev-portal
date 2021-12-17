@@ -36,13 +36,9 @@ To [](https://console-us1.data.cloud.hpe.com/doc/api/v1/)explore the DSCC public
 
 <iframe title="Introduction to HPE Data Services Cloud Console public API" width="560" height="315" src="https://www.youtube.com/embed/g3UO0S-4r6I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-Blog: Getting Started with Data Services Cloud Console API
-
-Blog: [Using HPE GreenLake Console's API Gateway for DSCC](https://developer.hpe.com/blog/api-console-for-data-services-cloud-console/)
-
-Blog: [Implementing OAuth 2.0 Flow for DSCC's Client Application](https://developer.hpe.com/blog/oauth2-for-hpe-greenlake-data-services-cloud-console/)
-
-
+* Blog: Getting Started with Data Services Cloud Console API
+* Blog: [Using HPE GreenLake Console's API Gateway for DSCC](https://developer.hpe.com/blog/api-console-for-data-services-cloud-console/)
+* Blog: [Implementing OAuth 2.0 Flow for DSCC's Client Application](https://developer.hpe.com/blog/oauth2-for-hpe-greenlake-data-services-cloud-console/)
 
 ### Any Questions on Data Services Cloud Console?
 
