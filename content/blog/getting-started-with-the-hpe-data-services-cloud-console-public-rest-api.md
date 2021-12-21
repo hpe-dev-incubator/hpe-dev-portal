@@ -23,7 +23,7 @@ Hewlett Packard Enterprise (HPE) offers the DSCC public REST API to provide the 
 Some of the advantages of distributing the API in OpenAPI 3.0 format:
 
 1. Updates to the API can be generated in a more agile manner where documentation is embedded, describing any endpoints, parameters, and more; such as contact information, license, terms of use.
-2. Consumers of this API also gain the benefits of agility, by using the converter from openAPI yaml, or json to any programming language that is used as part of their automation or CI/CD workflow. (Please check https://openapi.tools for more information for the API tools to generate client code)
+2. Consumers of this API also gain the benefits of agility by using the converter from openAPI yaml, or json to any programming language that is used as part of their automation or CI/CD workflow. (Please check https://openapi.tools for more information for the API tools to generate client code)
 
 ### DSCC REST API Details
 
@@ -62,7 +62,7 @@ Users can download the API definition from the API documentation website, and th
   * Provides detailed response information on the result of the particular API and may include more data in JSON format.
 * API Error Codes
 
-  * Provides the result of the execution of the API, returning either good or error, along with the error message due to incorrect or unauthorized API call.
+  * Provides the result of the execution of the API, returning either good or error, along with the error message due to an incorrect or unauthorized API call.
 
 ### Supported API Categories (Services)
 
@@ -109,7 +109,7 @@ Here are some examples of these resource paths that contain several resource gro
 /api/v1/volumes/...
 ```
 
-Existing clients will be able to maintain the backward compatibility from the higher major version incremental, and adopt any newly introduced API. However, both the new and old version of the API will be supported until the announcement of the deprecation for the old version of the API. Nonetheless, the older major version will always be frozen with the exception of bug fixes. There will also be an announcement of deprecation in the header and sunset header.
+Existing clients will be able to maintain the backward compatibility from the higher major version incremental and adopt any newly introduced API. However, both the new and old version of the API will be supported until the announcement of the deprecation for the old version of the API. Nonetheless, the older major version will always be frozen, with the exception of bug fixes. There will also be an announcement of deprecation in the header and sunset header.
 
 ```jsoniq
 /api/v1/<resource group>/...
@@ -130,29 +130,29 @@ Existing clients will be able to maintain the backward compatibility from the hi
 
 Glossary of the terms:
 
-**[Resources](https://developer.hpe.com/blog/api-console-for-data-services-cloud-console/)**:  Components inside the DSCC such as storage array, volumes, and many other objects that are consumable, related to each others, and provides methods to operate on it. Usually is represented by path that is appended to Endpoint e.g. /api/v1/storage-array.
+**[Resources](https://developer.hpe.com/blog/api-console-for-data-services-cloud-console/)**:  Components inside the DSCC, such as storage array, volumes, and many other objects that are consumable and related to each other, and provides methods to operate on it. Usually is represented by path that is appended to Endpoint e.g. /api/v1/storage-array.
 
-**[Resource Owner](https://developer.hpe.com/blog/api-console-for-data-services-cloud-console/):**  The user that is registered inside the HPE GreenLake console that has capability to authorize the client application access to the DSCC resources.
+**[Resource Owner](https://developer.hpe.com/blog/api-console-for-data-services-cloud-console/):**  The user that is registered inside the HPE GreenLake console that has the capability to authorize the client application access to the DSCC resources.
 
-**[Client Application](https://developer.hpe.com/blog/api-console-for-data-services-cloud-console/):**  The stand-alone application that runs on the client machine, and usually are representing the customer's business application for automation, ticketing, monitoring and many other business processes.
+**[Client Application](https://developer.hpe.com/blog/api-console-for-data-services-cloud-console/):**  The stand-alone application that runs on the client machine, and usually represent the customer's business application for automation, ticketing, monitoring and many other business processes.
 
 **[Access Token:](https://developer.hpe.com/blog/api-console-for-data-services-cloud-console/)** This is the object that describes the permission and the security context of which the client application was delegated. This token contains the identity and privileges of the DSCC user which create this token.
 
-**[API Gateway](https://developer.hpe.com/blog/api-console-for-data-services-cloud-console/)**: The API Gateway is the menu in the HPE GreenLake console that is used to register a client application and obtain the API client credentials (client-id and client-secret) for that client application. These credentials are required to generate short-lived access token that is used to make secure REST API calls to the DSCC application instance.
+**[API Gateway](https://developer.hpe.com/blog/api-console-for-data-services-cloud-console/)**: The API Gateway is the menu in the HPE GreenLake console that is used to register a client application and obtain the API client credentials (client-id and client-secret) for that client application. These credentials are required to generate a short-lived access token that is used to make secure REST API calls to the DSCC application instance.
 
 **[Endpoint](https://developer.hpe.com/blog/oauth2-for-hpe-greenlake-data-services-cloud-console/)**: Location where service can be accessed, usually is represented by URL (Uniform Resource Locator) e.g. https://eu1.data.cloud.hpe.com
 
 ![OAuth 2.0 flow](/img/greenlake-api-access-flow.png "authentication and authorization flow")
 
-The client's application can issue a REST API request using the access token as the bearer of the token. The client can obtain this access token from the authorization API end point, after the client successfully authenticate through an associated customer's application credential (client-id and client-secret). This application credential is created by the DSCC user who has the permission to access resources (such as controllers, volumes etc.) under the DSCC instances. This access token expiration time, by default, is set for 7200 seconds (2 hours). When the resource server sees this expired access token, it returns 0x401 response (not authorized). The client must then authenticates using the associated client-id and client-secret to obtain the next access-token to use for the next REST API request.
+The client's application can issue a REST API request using the access token as the bearer of the token. The client can obtain this access token from the authorization API end point, after the client successfully authenticates through an associated customer's application credential (client-id and client-secret). This application credential is created by the DSCC user who has the permission to access resources (such as controllers, volumes etc.) under the DSCC instances. This access token expiration time, by default, is set for 7200 seconds (2 hours). When the resource server sees this expired access token, it returns a 0x401 response (not authorized). The client must then authenticate using the associated client-id and client-secret to obtain the next access-token to use for the next REST API request.
 
 ### Authorization Policies
 
-The client can only receive properties from the authorized API resources based on the Role Base Access Control for the user who created the client-credential pair (client-id and client-secret). This authorization derives from the organization, capability, and scope (roles) that the associated user is assigned. As the result, the authorization for the client application will inherit the user's permission who created the client-application registration under the API Gateway. Note that subsequent changes to the user's permission after the client application registered will impact the response returned based on current authority.
+The client can only receive properties from the authorized API resources based on the Role Base Access Control for the user who created the client-credential pair (client-id and client-secret). This authorization derives from the organization, capability, and scope (roles) that the associated user is assigned. As a result, the authorization for the client application will inherit the user's permission who created the client-application registration under the API Gateway. Note that subsequent changes to the user's permission after the client application registered will impact the response returned based on current authority.
 
 ### The API Endpoints (base-URL) for each DSCC Region
 
-The REST API for DSCC requires the client application to issue the REST API request to the URL that is associated with the DSCC instance deployed at the associated region of the storage array. As of November 2021, here are the Domain URLs where client application must use as the base-URL to the resource path of REST API.
+The REST API for DSCC requires the client application to issue the REST API request to the URL that is associated with the DSCC instance deployed at the associated region of the storage array. As of November 2021, here are the Domain URLs which the client application must use as the base-URL to the resource path of REST API.
 
 | DSCC Region  | Base-URL                       |
 | ------------ | ------------------------------ |
@@ -162,7 +162,7 @@ The REST API for DSCC requires the client application to issue the REST API requ
 
 ### Asynchronous Response
 
-All of the REST API operations are stateless in nature. One example is such as POST. In that scenario the task resource will return a response with HTTP code 0x202 "Accepted" and the reference to the task as follows:
+All of the REST API operations are stateless in nature. One example of such is POST. In that scenario, the task resource will return a response with HTTP code 0x202 "Accepted" and the reference to the task as follows:
 
 ```jsoniq
 Response: 202 (Accepted)
