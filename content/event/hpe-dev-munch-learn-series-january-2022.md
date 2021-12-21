@@ -12,7 +12,7 @@ tags:
 ---
 ## HPE DEV Munch & Learn series
 
-### Location, location, location! With data everywhere, location matters more than ever. Learn how succeed at the Edge with HPE Ezmeral and NVIDIA 
+### Location, location, location! With data everywhere, location matters more than ever. Learn how to succeed at the Edge with HPE Ezmeral and NVIDIA 
 
 January 19, 2022
 
