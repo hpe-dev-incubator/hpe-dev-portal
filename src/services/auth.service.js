@@ -1,0 +1,39 @@
+import axios from 'axios';
+
+const API_URL = `${process.env.GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}api/login`;
+const data = {
+  username: process.env.GATSBY_USERNAME,
+  password: process.env.GATSBY_PASSWORD,
+};
+const options = {
+  headers: {
+    'Content-Type': 'application/json',
+  },
+};
+
+class AuthService {
+  login() {
+    return axios({
+      method: 'POST',
+      url: API_URL,
+      data,
+      headers: options,
+    }).then((response) => {
+      if (response.data.accessToken) {
+        localStorage.setItem('user', JSON.stringify(response.data));
+      }
+
+      return response.data;
+    });
+  }
+
+  logout() {
+    localStorage.removeItem('user');
+  }
+
+  getCurrentUser() {
+    return JSON.parse(localStorage.getItem('user'));
+  }
+}
+
+export default new AuthService();
