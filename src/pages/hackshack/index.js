@@ -13,9 +13,7 @@ import {
 } from 'grommet';
 import { Close } from 'grommet-icons';
 import styled, { keyframes } from 'styled-components';
-import Layout from '../../components/hackshack/Layout';
-import ButtonSplit from '../../components/hackshack/ButtonSplit';
-import Card from '../../components/hackshack/Card/Card';
+import { Layout, ButtonSplit, Card } from '../../components/hackshack';
 
 const slideUp = keyframes`
   0% {
@@ -174,34 +172,34 @@ const Content = () => {
   const size = useContext(ResponsiveContext);
   const fontSize = size === 'small' ? '4vw' : '2.2vw';
   return (
-    // <TextWrapper>
-    //   <Text size={fontSize} color="#FFFFFF">
-    //     Welcome to the Hack Shack. We offer many
-    //   </Text>
-    //   <Text size={fontSize} color="#FFFFFF">
-    //     ways to collaborate and expand your skills.
-    //   </Text>
-    //   <Text size={fontSize} color="#FFFFFF">
-    //     Try our technology Workshops-on-Demand,
-    //   </Text>
-    //   <Text size={fontSize} color="#FFFFFF">
-    //     for a unique, hands-on learning experience.
-    //   </Text>
-    // </TextWrapper>
     <TextWrapper>
       <Text size={fontSize} color="#FFFFFF">
-        Welcome to the Hack Shack, a place to collaborate
+        Welcome to the Hack Shack. We offer many
       </Text>
       <Text size={fontSize} color="#FFFFFF">
-        and expand technology skills. Try our unique on-demand
+        ways to collaborate and expand your skills.
       </Text>
       <Text size={fontSize} color="#FFFFFF">
-        workshops or go on a virtual treasure hunt to discover
+        Try our technology Workshops-on-Demand,
       </Text>
       <Text size={fontSize} color="#FFFFFF">
-        a wealth of other resources and perhaps win a prize.
+        for a unique, hands-on learning experience.
       </Text>
     </TextWrapper>
+    // <TextWrapper>
+    //   <Text size={fontSize} color="#FFFFFF">
+    //     Welcome to the Hack Shack, a place to collaborate
+    //   </Text>
+    //   <Text size={fontSize} color="#FFFFFF">
+    //     and expand technology skills. Try our unique on-demand
+    //   </Text>
+    //   <Text size={fontSize} color="#FFFFFF">
+    //     workshops or go on a virtual treasure hunt to discover
+    //   </Text>
+    //   <Text size={fontSize} color="#FFFFFF">
+    //     a wealth of other resources and perhaps win a prize.
+    //   </Text>
+    // </TextWrapper>
   );
 };
 const GrommetMascot = ({ setOpen }) => (
@@ -259,7 +257,7 @@ const Cards = ({ size }) => (
   <CardWrapper gap="large">
     {size === 'small' && (
       <Card
-        logo="/img/StickerPage/gremlin.png"
+        logo="/img/hackshack/StickerPage/gremlin.png"
         title="New to the HPE DEV Hack Shack?"
         desc="Watch this video!"
         background="rgba(0, 86, 122, 0.8);"
@@ -282,19 +280,27 @@ const Cards = ({ size }) => (
       }
     />
     <Card
-      image="/img/munch-and-learn-3.jpg"
-      title="Introducing HPE DEV Munch & Learn series"
-      desc="Session 6: Microservices architecture 101."
-      link="https://hpe.zoom.us/meeting/register/tJIlf-isqjgjH9bv-oJW2dv_5DMM6i2FV-WA"
+      image="/img/hackshack/MunchAndLearn/munch-learn-generic.jpg"
+      title="Location, location, location! With data everywhere, location 
+      matters more than ever.Learn how succeed at the Edge with HPE Ezmeral 
+      and NVIDIA"
+      desc="Join HPE and NVIDIA to learn how best accelerate your success 
+      at the Edge."
+      link=" https://hpe.zoom.us/webinar/register/WN_JLPveMmYSOWd1Mn-7bU62Q"
+      date="January 19, 2022"
       background="rgba(0, 86, 122, 0.8);"
       label="Register Now!"
-      margin={size === 'small' ? { bottom: 'none' } : { bottom: 'xlarge' }}
+      margin={
+        size === 'small'
+          ? { top: '0px', right: '0px' }
+          : { top: 'xlarge', right: 'large' }
+      }
     />
     {/* <Card
       image="/img/Arcade/TreasureMap.png"
       title="WIN IN THE HPE DEV TREASURE HUNT"
       desc="Discover ways to collaborate and where to find resources."
-      link="https://forms.office.com/r/SDRAJVxEAd"
+      link="https://bit.ly/kubecon-na-2021-hpedev-treasure-hunt"
       background="rgba(0, 86, 122, 0.8);"
       label="Hunt for Treasure!"
       margin={size === 'small' ? { bottom: 'none' } : { bottom: 'xlarge' }}
@@ -302,8 +308,8 @@ const Cards = ({ size }) => (
     {/* <Card
       logo="/img/Community/dev-thumb.png"
       title="GET THE HPE DEVELOPER NEWSLETTER"
-      desc="Want to read more about industry trends for 
-      developers? Sign up here."
+      desc="Want to read more about industry 
+        trends for developers? Sign up here."
       link="https://developer.hpe.com/newsletter-signup"
       background="background"
       label="Get the Newsletter"

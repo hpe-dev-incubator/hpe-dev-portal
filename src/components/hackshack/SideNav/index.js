@@ -51,7 +51,7 @@ const SideNav = ({ size }) => {
   const location = useLocation();
   return (
     <SideNavContainer align="start" gap="xsmall" width={{ min: '250px' }}>
-      <NavButton active={location.pathname === '/'} to="/" size={size}>
+      <NavButton active={location.pathname === '/hackshack'} to="/" size={size}>
         HACK SHACK
       </NavButton>
       <NavButton
