@@ -90,7 +90,7 @@ The  `ilo-sales` group contains ten iLO names and ilo-marketing group contains t
 nodeset --fold @ilo-sales,@ilo-marketing  --exclude ilo-test
 ```
 
-![nodeset exclude example](https://redfish-lab.sourceforge.io/media/redfish-wiki/parallel-management/1-nodeset-exclude.png)
+![nodeset exclude example](/img/1-nodeset-exclude.png)
 
 I can now combine the `nodeset` command with `clush` to issue a parallel `ping` toward this list with:
 
