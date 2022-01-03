@@ -23,7 +23,7 @@ This blog explains how to manage many servers in parallel using bash scripts wit
 
 To achieve this goal, we will combine a parallel task launcher (namely the [ClusterShell](https://clustershell.readthedocs.io/en/latest/index.html) and/or the Parallel Distributed Shell) with [iLOrest](https://www.hpe.com/info/resttool) (former `hprest`) the HPE RESTful Interface Tool in a more detailed and slightly different manner than what you can read already in the [user guide](https://hewlettpackard.github.io/python-redfish-utility/#overview).
 
-## `clush` and `pdsh`: Quick (and dirty) overview
+## Clush and pdsh: Quick (and dirty) overview
 
 The Parallel Distributed Shell (`pdsh`) and the ClusterShell (`clush`) are both part of the Extra Package for Enterprise Linux ([EPEL](https://fedoraproject.org/wiki/EPEL)) repository and they give the ability to perform local or remote commands in parallel. `Pdsh` came first as a replacement of an IBM utility (DSH) with Google being the main contributor. However, Google pulled out from this project in 2013.
 
