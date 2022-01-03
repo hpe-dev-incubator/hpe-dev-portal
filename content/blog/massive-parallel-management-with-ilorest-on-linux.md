@@ -130,7 +130,7 @@ The sequence in this picture is: we first log into ilo-lab1 (1). Then, we select
 
 As a consequence and to be safe, you should always specify a specific cache directory location for your iLOrest sessions to avoid such contention. One possible solution is to generate a random string of ASCII characters and use it as a location for the iLOrest cache.
 
-With a random string of 16 characters (lowcase, uppercase, digits) for a cache directory name, the out-of-band example becomes:
+With a random string of 16 characters (lowercase, uppercase, digits) for a cache directory name, the out-of-band example becomes:
 
 ```bash
 UUID=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | head -c 16)
@@ -156,7 +156,7 @@ ssh root@server $iLOrest logout
 
 We are now ready to send iLOrest commands in parallel toward a set of iLOs sharing common administrator credentials.
 
-This example applies a Bios configuration file to a list of servers. The Bios configuration has been created and customized in an ascii/json file called `BiosConfig.json` using the `ilorest save` command. The list of target servers to configure is represented by a group of iLOs defined in the nodeset configuration file as explained earlier. Note that for a performance reason, I grouped the type selection (`Bios.`) with the login process:
+This example applies a Bios configuration file to a list of servers. The Bios configuration has been created and customized in an ASCII/json file called `BiosConfig.json` using the `ilorest save` command. The list of target servers to configure is represented by a group of iLOs defined in the nodeset configuration file as explained earlier. Note that for a performance reason, I grouped the type selection (`Bios.`) with the login process:
 
 ```bash
 CLUSH="clush -R exec" 
@@ -173,7 +173,7 @@ I personally tested successfully this example against 24 servers. I am pretty op
 
 Offloading iLOrest processing onto remote servers may be required in secure environments where iLOs are physically disconnected from the network.
 
-In this case, in-band management requires an operating environment up and running with `sshd` and `ilorest` installed and configured on all the managed nodes. This operating environment could be a customized LiveCD booted via the iLO virtual Drive facility as explained in a [previous article](https://developer.hpe.com/blog/in-band-management-with-ilorest-and-a-livecd/).
+In this case, in-band management requires an operating environment up and running with `sshd` and `ilorest` installed and configured on all the managed nodes. This operating environment could be a customized Live-CD booted via the iLO virtual Drive facility as explained in a [previous article](https://developer.hpe.com/blog/in-band-management-with-ilorest-and-a-livecd/).
 
 The in-band version of our Bios configuration requires one more step compared to the out-of-band method: the copy of the JSON configuration file onto all the managed nodes. This operation is simple to perform with the `--copy` and `--dest` clush options dedicated to that purpose. Moreover, this copy will not impact the overall process time because the JSON configuration file to transfer is a small ASCII file:
 
@@ -192,6 +192,6 @@ $CLUSH -w $SRV_LIST $iLOrest logout
 
 ## Conclusion
 
-In Linux infrastructures, iLOrest combined to the ClusterShell offers easy out-of-band and in-band management scripting possibilities to system administrators preferring Bash to pure Python. Of course, there are pros and cons to both methods: out-of-band iLOrest management does not require a customized operating environment running on the managed servers. In-band management offers the possibility to physically disconect iLOs to decrease the network footprint.
+In Linux infrastructures, iLOrest combined to the ClusterShell offers easy out-of-band and in-band management scripting possibilities to system administrators preferring Bash to pure Python. Of course, there are pros and cons to both methods: out-of-band iLOrest management does not require a customized operating environment running on the managed servers. In-band management offers the possibility to physically disconnect iLOs to decrease the network footprint.
 
 In Windows environments, system managers should be able to perform similar efficient parallel configuration of their servers using [PowerShell](https://devblogs.microsoft.com/scripting/parallel-processing-with-jobs-in-powershell/).
