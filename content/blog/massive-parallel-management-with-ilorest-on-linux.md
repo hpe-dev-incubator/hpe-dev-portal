@@ -126,7 +126,7 @@ All of this is awesome except that in both examples (out-of-band and in-band) we
 
 The sequence in this picture is: we first log into ilo-lab1 (1). Then, we select the `Bios.` type (2) (select `HpBios.` on Gen9 servers) and verify it has been selected (3). In the other terminal session and from the same server, we log into ilo-lab2 (4) without selecting any type. This second session clears off the iLOrest cache including the selection we performed in the first terminal. As a result, the asking for the resource type selection returns an error (5).
 
-![ilorest session example](https://redfish-lab.sourceforge.io/media/redfish-wiki/parallel-management/2-kicked-out.png)
+![ilorest session example](/img/2-kicked-out.png)
 
 As a consequence and to be safe, you should always specify a specific cache directory location for your iLOrest sessions to avoid such contention. One possible solution is to generate a random string of ASCII characters and use it as a location for the iLOrest cache.
 
