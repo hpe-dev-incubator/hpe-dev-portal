@@ -90,7 +90,7 @@ The  `ilo-sales` group contains ten iLO names and ilo-marketing group contains t
 nodeset --fold @ilo-sales,@ilo-marketing  --exclude ilo-test
 ```
 
-![nodeset exclude example](/img/1-nodeset-exclude.png)
+![nodeset exclude example](/img/1-nodeset-exclude.png "nodeset exclude example")
 
 I can now combine the `nodeset` command with `clush` to issue a parallel `ping` toward this list with:
 
@@ -126,7 +126,7 @@ All of this is awesome except that in both examples (out-of-band and in-band) we
 
 The sequence in this picture is: we first log into ilo-lab1 (1). Then, we select the `Bios.` type (2) (select `HpBios.` on Gen9 servers) and verify it has been selected (3). In the other terminal session and from the same server, we log into ilo-lab2 (4) without selecting any type. This second session clears off the iLOrest cache including the selection we performed in the first terminal. As a result, the asking for the resource type selection returns an error (5).
 
-![ilorest session example](/img/2-kicked-out.png)
+![Demonstrating iLOrest local cache](/img/2-kicked-out.png "Demonstrating iLOrest local cache")
 
 As a consequence and to be safe, you should always specify a specific cache directory location for your iLOrest sessions to avoid such contention. One possible solution is to generate a random string of ASCII characters and use it as a location for the iLOrest cache.
 
