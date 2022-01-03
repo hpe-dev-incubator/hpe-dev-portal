@@ -1,12 +1,15 @@
 ---
-title: "Massive parallel management with ilorest on Linux"
+title: Massive parallel management with iLOrest on Linux
 date: 2018-03-27T09:38:05.684Z
-author: François Donzé - Technical consultant 
-tags: ["ilo-restful-api","Redfish","iLO"]
-authorimage: "/img/blogs/Avatar6.svg"
 featuredBlog: false
-priority:
-thumbnailimage:
+priority: null
+author: François Donzé - Technical consultant
+authorimage: https://gravatar.com/avatar/6f3982d1461459da475f47e3a6c89d1d?s=192
+thumbnailimage: null
+tags:
+  - ilo-restful-api
+  - Redfish
+  - iLO
 ---
 **NOTE**: `ilorest` is the former `hprest` tool. Since this article has been written before that name change, you may see screenshots still mentionning `hprest`.
 
