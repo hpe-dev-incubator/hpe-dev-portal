@@ -326,11 +326,11 @@ const ScheduleCard = ({
   switch (sessionType) {
     case 'Workshops-on-Demand':
       backgroundColor = '#00567acc';
-      uri = `${GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}api/workshops/`;
+      uri = `${GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/workshops/`;
       break;
     case 'Coding Challenge':
       backgroundColor = 'rgba(155, 99, 16, 0.8)';
-      uri = `${GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}api/workshops/`;
+      uri = `${GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/workshops/`;
       break;
     default:
       backgroundColor = 'background';
