@@ -38,4 +38,10 @@ const StyledGrid = styled(Grid)`
   }
 `;
 
-export { CardWrapper, StyledGrid };
+const ContrastLayer = styled(Box)`
+  position: absolute;
+  top: 10px;
+  left: 10px;
+`;
+
+export { CardWrapper, StyledGrid, ContrastLayer };

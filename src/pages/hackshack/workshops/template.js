@@ -119,7 +119,7 @@ const Workshop = (props) => {
         });
     };
     getToken();
-  // eslint-disable-next-line
+    // eslint-disable-next-line
   }, []);
 
   const { specialBadgeId } = props.pathContext;
