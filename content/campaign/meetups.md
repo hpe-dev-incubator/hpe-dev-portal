@@ -1,14 +1,14 @@
 ---
 title: Meetups
-authorimage: /img/Avatar3.svg
+authorimage: /img/microscope_01_rgb.png
 ---
-<img src="/img/skillup/MunchandLearn.svg" width="400">
+Connect with the experts to dive deep and learn more about some of today’s most exciting technologies. In these meetups, speakers will discuss specific products in detail and collaborate with you to determine how it may help in your particular situation.
 
-The HPE DEV team is happy to announce another series of technology talks for 2022 called HPE DEV Meetups. These sessions will complement the HPE DEV [Munch & Learn series](https://developer.hpe.com/campaign/munch-and-learn) started in 2021, which will continue in 2022.
+Hosted by the HPE DEV Community, these meetups are held on a monthly basis at 5PM CET (8AM PST).  Read more about HPE DEV Meetups in this blog post.
 
-Join us to hear from renowned technologists on a variety of topics and get your questions answered while sharing a recipe or two.
 
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Date&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;Title                                          | &nbsp;&nbsp;&nbsp;Speaker(s) | Organization | &nbsp;&nbsp;&nbsp;Link&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                           |
-| ---------------------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------- | ------------ | ------------------------------------------------------------------------------ |
-| **26-Jan-22**                                                                | **Quarkus - Supersonic Subatomic Java**                          | **Dimitris Andreadis**       | **RedHat**   | **[Register](https://hpe.zoom.us/webinar/register/WN_JLPveMmYSOWd1Mn-7bU62Q)** |
-| 23-Feb-22                                                                    | Streamlit - the fastest way to build and share data science apps | Arnaud Miribel               | Streamlit.io |                                                                                |
+
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Date&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;Title                                          | &nbsp;&nbsp;&nbsp;Speaker(s) | Organization | &nbsp;&nbsp;&nbsp;Link&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |
+| ---------------------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------- | ------------ | ---------------------------------------------------- |
+| **26-Jan-22**                                                                | **Quarkus - Supersonic Subatomic Java**                          | **Dimitris Andreadis**       | **RedHat**   | **Register**                                         |
+| 23-Feb-22                                                                    | Streamlit - the fastest way to build and share data science apps | Arnaud Miribel               | Streamlit.io | Register                                             |
