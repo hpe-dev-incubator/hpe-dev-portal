@@ -84,7 +84,7 @@ const Replays = (props) => {
         replays[current].workshop.workshopImg;
   const replayTitle = replays.length > 0 && replays[current].title;
   return (
-    <Layout background="/img/BackgroundImages/generic-background.jpg">
+    <Layout background="/img/hackshack/BackgroundImages/generic-background.svg">
       <PageHeader title={replayTitle}>
         {replays.length > 0 ? (
           <>

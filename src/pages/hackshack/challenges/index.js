@@ -76,7 +76,8 @@ const Challenge = () => {
     // eslint-disable-next-line
   }, []);
   return (
-    <Layout background="/img/BackgroundImages/schedule-background.png">
+    // eslint-disable-next-line max-len
+    <Layout background="/img/hackshack/BackgroundImages/schedule-background.png">
       <MainTitle>
         <Heading color="text-strong" margin={{ top: 'none', bottom: 'small' }}>
           CHALLENGES
