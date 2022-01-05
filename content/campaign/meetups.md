@@ -1,6 +1,6 @@
 ---
 title: HPE DEV Meetups
-authorimage: /img/microscope_01_rgb.png
+authorimage: /img/microscope_01_rgb-copy.png
 ---
 Connect with the experts to dive deep and learn more about some of today’s most exciting technologies. In these meetups, speakers will discuss specific products in detail and collaborate with you to determine how it may help in your particular situation.
 
