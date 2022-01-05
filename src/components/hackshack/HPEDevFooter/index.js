@@ -29,7 +29,7 @@ export const HPEDevFooter = ({ size }) => {
       >
         <Box direction="row" gap="small" align="center">
           <Box width={iconSize} height={iconSize}>
-            <Image fit="contain" src="./img/hackshack/hpeDevLogo.svg" />
+            <Image fit="contain" src="/img/hackshack/hpeDevLogo.svg" />
           </Box>
           <Text size={fontSize} color="#FFFFFF">
             <Text weight="bold" size={fontSize}>

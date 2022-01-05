@@ -51,51 +51,55 @@ const SideNav = ({ size }) => {
   const location = useLocation();
   return (
     <SideNavContainer align="start" gap="xsmall" width={{ min: '250px' }}>
-      <NavButton active={location.pathname === '/hackshack'} to="/" size={size}>
+      <NavButton
+        active={location.pathname === '/hackshack'}
+        to="/hackshack"
+        size={size}
+      >
         HACK SHACK
       </NavButton>
       <NavButton
-        active={location.pathname === '/workshops'}
-        to="/workshops"
+        active={location.pathname === '/hackshack/workshops'}
+        to="/hackshack/workshops"
         size={size}
       >
         WORKSHOPS
       </NavButton>
       <NavButton
-        active={location.pathname === '/challenges'}
-        to="/challenges"
+        active={location.pathname === '/hackshack/challenges'}
+        to="/hackshack/challenges"
         size={size}
       >
         CHALLENGES
       </NavButton>
       <NavButton
-        active={location.pathname === '/ezmeral'}
-        to="/ezmeral"
+        active={location.pathname === '/hackshack/ezmeral'}
+        to="/hackshack/ezmeral"
         size={size}
       >
         HPE EZMERAL
       </NavButton>
       <NavButton
-        active={location.pathname === '/replays/:replayId'}
-        to="/replays/0"
+        active={location.pathname === '/hackshack/replays/:replayId'}
+        to="/hackshack/replays/0"
         size={size}
       >
         REPLAYS
       </NavButton>
       <NavButton
-        active={location.pathname === '/community'}
-        to="/community"
+        active={location.pathname === '/hackshack/community'}
+        to="/hackshack/community"
         size={size}
       >
         COMMUNITY
       </NavButton>
       <NavButton
         active={
-          location.pathname === '/arcade' ||
-          location.pathname === '/sticker-wall' ||
-          location.pathname === '/competiton'
+          location.pathname === '/hackshack/arcade' ||
+          location.pathname === '/hackshack/sticker-wall' ||
+          location.pathname === '/hackshack/competiton'
         }
-        to="/arcade"
+        to="/hackshack/arcade"
         size={size}
       >
         ARCADE

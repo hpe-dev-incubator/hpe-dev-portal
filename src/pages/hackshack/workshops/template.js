@@ -122,7 +122,7 @@ const Workshop = (props) => {
     // eslint-disable-next-line
   }, []);
 
-  const { specialBadgeId } = props.pathContext;
+  const { specialBadgeId } = props.pageContext;
   let specialBadgeIndex = 0;
   if (specialBadgeId) {
     specialBadgeIndex = parseInt(specialBadgeId, 10) - 1;
@@ -133,7 +133,8 @@ const Workshop = (props) => {
     : 'https://us-central1-grommet-designer.cloudfunctions.net/images/jay-giang-hpe-com/hpe-dev.jpg?size=400';
 
   return (
-    <Layout background="/img/BackgroundImages/schedule-background.png">
+    // eslint-disable-next-line max-len
+    <Layout background="/img/hackshack/BackgroundImages/schedule-background.png">
       {specialBadges.length > 0 && (
         <Helmet>
           <meta name="fragment" content="!" />
@@ -304,7 +305,7 @@ const Workshop = (props) => {
 };
 
 Workshop.propTypes = {
-  pathContext: PropTypes.shape({
+  pageContext: PropTypes.shape({
     specialBadgeId: PropTypes.number,
   }),
 };

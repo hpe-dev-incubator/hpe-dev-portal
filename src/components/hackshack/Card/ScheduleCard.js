@@ -265,7 +265,7 @@ export const SignupLayer = ({
       const postCustomer = () => {
         axios({
           method: 'POST',
-          url: `${GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}api/customer`,
+          url: `${GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/customer`,
           headers: {
             'x-access-token': AuthService.getCurrentUser().accessToken,
           },
@@ -307,7 +307,7 @@ export const SignupLayer = ({
       background={
         size === 'large'
           ? {
-              image: 'url(/img/gremlin-signup.png)',
+              image: 'url(/img/hackshack/gremlin-signup.png)',
               size: 'cover',
               position: 'center',
               repeat: 'no-repeat',
@@ -376,7 +376,7 @@ export const SignupLayer = ({
                       <Anchor
                         target="_blank"
                         label="Terms and Conditions"
-                        href="/challengetermsconditions"
+                        href="/hackshack/challenge-terms-conditions"
                       />{' '}
                       and{' '}
                       <Anchor
@@ -403,7 +403,7 @@ export const SignupLayer = ({
                       <Anchor
                         target="_blank"
                         label="Terms and Conditions"
-                        href="/workshoptermsconditions"
+                        href="/hackshack/workshop-terms-conditions"
                       />{' '}
                       and{' '}
                       <Anchor
