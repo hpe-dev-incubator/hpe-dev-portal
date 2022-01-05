@@ -41,25 +41,17 @@ const paginatedCollectionQuery = (paginatedName) => {
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
+  const { GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT } = process.env;
 
   try {
-    const { GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT } = process.env;
     // eslint-disable-next-line
-    const getSpecialBadgesApi = `${GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/special-badges`;
+    const specialBadgesApi = `${GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/special-badges`;
     const getSpecialBadges = await axios({
       method: 'GET',
-      url: getSpecialBadgesApi,
+      url: specialBadgesApi,
     });
 
     getSpecialBadges.data.forEach(({ id }) => {
-      // createPage({
-      //   path: `/replays/${id}/`,
-      //   component: require.resolve('./src/pages/replays/index.js'),
-      //   context: {
-      //     replayId: id,
-      //   },
-      // });
-
       createPage({
         path: `/hackshack/workshops/${id - 1}/special-badge`,
         component: require.resolve(
@@ -69,6 +61,51 @@ exports.createPages = async ({ graphql, actions }) => {
           specialBadgeId: id,
         },
       });
+    });
+  } catch (error) {
+    console.log('error: ', error);
+  }
+
+  try {
+    // eslint-disable-next-line max-len
+    const replaysApi = `${GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/replays?active=true`;
+    const getReplays = await axios({
+      method: 'GET',
+      url: replaysApi,
+    });
+
+    getReplays.data.forEach(({ id }) => {
+
+      createPage({
+        path: `/hackshack/replays/${id}`,
+        component: require.resolve(
+          './src/pages/hackshack/replays/template.js',
+        ),
+        context: {
+          replayId: id,
+        },
+      });
+
+      createPage({
+        path: `/hackshack/workshop/${id}`,
+        component: require.resolve(
+          './src/pages/hackshack/replays/template.js',
+        ),
+        context: {
+          replayId: id,
+        },
+      });
+
+      createPage({
+        path: `/hackshack/workshop/${id}/finisher-badge`,
+        component: require.resolve(
+          './src/pages/hackshack/replays/template.js',
+        ),
+        context: {
+          replayId: id,
+        },
+      });
+
     });
   } catch (error) {
     console.log('error: ', error);

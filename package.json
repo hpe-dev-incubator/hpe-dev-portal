@@ -45,6 +45,7 @@
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "react-helmet": "^6.1.0",
+    "react-player": "^2.9.0",
     "react-syntax-highlighter": "^15.4.3",
     "redux": "^4.0.5",
     "remark": "^11.0.2",
