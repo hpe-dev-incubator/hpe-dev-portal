@@ -28,7 +28,7 @@ const ChallengeTC = () => {
     <Layout background="/img/generic-background.svg">
       <Box align="start" width="xlarge" direction="column">
         <Box align="start">
-          <Link to='/hackshack/challenges'>
+          <Link to="/hackshack/challenges">
             <Button
               color="white"
               icon={<Previous size="small" />}

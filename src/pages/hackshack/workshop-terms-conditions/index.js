@@ -28,7 +28,7 @@ const WorkshopTC = () => {
     <Layout background="/img/hackshack/BackgroundImages/generic-background.svg">
       <Box align="start" width="xlarge" direction="column">
         <Box align="start">
-          <Link to='/hackshack/workshops'>
+          <Link to="/hackshack/workshops">
             <Button
               color="white"
               icon={<Previous size="small" />}
