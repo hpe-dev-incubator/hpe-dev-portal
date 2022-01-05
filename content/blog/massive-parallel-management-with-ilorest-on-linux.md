@@ -11,11 +11,11 @@ tags:
   - Redfish
   - iLO
 ---
-Thanks to HPE for providing the [iLOrest Python API](http://hpe.com/info/restfulapi), an entirely new avenue has been opened to developers for managing their servers, allowing them to combine it with their favorite deployment tools (i.e. [Ansible](https://hackshack.hpedev.io/workshop/23)) or other management tools, like [OneView](http://hpe.com/info/oneview) as described in several articles found here in the [HPE DEV Blog](https://developer.hpe.com/blog/).
+Thanks to HPE for providing the [iLOrest Python API](http://hpe.com/info/restfulapi), an entirely new avenue has been opened to developers for managing their servers, allowing them to combine it with their favorite deployment tools (i.e. [Ansible](https://hackshack.hpedev.io/workshop/23)) or other management tools, like [OneView](http://hpe.com/info/oneview) as described in several articles found here, in the [HPE DEV Blog](https://developer.hpe.com/blog/).
 
 But what if you are not a Python geek? What if you prefer managing your servers the old way with `bash` / `grep` / `awk` / `jq` / `curl` / `wget`? In that case, you can loop over the list of your iLO IP addresses and use `curl` / `wget` for getting and setting Redfish parameters.
 
-However, this loop approach brings out two fundamental problems: 1) Using `curl` and `wget` in management scripts implies the creation of smart crawling functions (as explained in this [article](https://developer.hpe.com/blog/getting-started-with-ilo-restful-api-redfish-api-conformance)), 2) a sequential management with loops is fine for taking care of five or ten servers, but not more. Hence, a parallel approach should be considered for an important number of managed servers.
+However, this loop approach brings out two fundamental problems: 1) Using `curl` and `wget` in management scripts implies the creation of smart crawling functions (as explained in this [article](https://developer.hpe.com/blog/getting-started-with-ilo-restful-api-redfish-api-conformance)), 2) a sequential management with loops is fine for taking care of five or ten servers, but not more.  A parallel approach should be considered for an important number of managed servers.
 
 This blog explains how to manage many servers in parallel using bash scripts without the need of implementing schema crawlers, thus allowing a long-term stability to the scripts.
 
