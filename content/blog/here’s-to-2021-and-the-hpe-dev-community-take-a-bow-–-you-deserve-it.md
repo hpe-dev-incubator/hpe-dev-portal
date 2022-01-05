@@ -12,7 +12,7 @@ When I look back on 2021, I can’t help but to feel a certain amount of pride i
 
 **The HPE DEV Portal**
 
-One of the biggest undertakings was the refurbishment of the HPE DEV Portal early in the year. With more and more platform pages being added, including, SmartSim, Determined AI, HPE Alletra , and Data Services Cloud Console, as well as new learning opportunities, it was evident that the site needed to be revamped to facilitate navigation for portal users.
+One of the biggest undertakings was the refurbishment of the HPE DEV portal early in the year. With more and more platform pages being added, including, SmartSim, Determined AI, HPE Alletra , and Data Services Cloud Console, as well as new learning opportunities, it was evident that the site needed to be revamped to facilitate navigation for portal users.
 
 The new portal now offers great ways to [engage](https://developer.hpe.com/community), new [Skill Up](https://developer.hpe.com/skillup) opportunities, and drop down menus to quickly find what you need.
 
@@ -34,9 +34,9 @@ The hottest workshops for 2021 were the two focused on Kubernetes, quickly follo
 
 **HPE DEV Munch & Learn Technology Talks**
 
-Another place the Community shined this year is in the area of collaborating with one another in the [HPE DEV Munch & Learn](https://developer.hpe.com/campaign/munch-and-learn) sessions. These free, one-hour monthly meetups provide an opportunity for industry experts to share their knowledge with and answer questions from the Community. Many of these talks introduce topics that eventually make their way into blog posts or Jupyter Notebooks for new HPE DEV Workshops-on-Demand.
+Another place the Community shined this year is in the area of collaborating with one another in the [HPE DEV Munch & Learn](https://developer.hpe.com/campaign/munch-and-learn) sessions. These free, one-hour monthly webinars provide an opportunity for industry experts to share their knowledge with and answer questions from the Community. Many of these talks introduce topics that eventually make their way into blog posts or Jupyter Notebooks for new HPE DEV Workshops-on-Demand.
 
-This year we delivered 11 Munch & Learn sessions on some really great topics. The most recent meetup had a record-breaking number of registrants – over 350 – who all came to hear about Redfish: Past, Present and Future. 
+This year we delivered 11 Munch & Learn sessions on some really great topics. The most recent session had a record-breaking number of registrants – over 350 – who all came to hear about Redfish: Past, Present and Future. 
 
 For a quick look at the topics delivered and to access their replays, check out the list below:
 
@@ -52,13 +52,13 @@ For a quick look at the topics delivered and to access their replays, check out 
 | August    | Kubernetes 101                                                                 | [Replay](https://youtu.be/PWVJKK1obKQ)                |
 | September | Digital Transformation.Next: Data & Analytics Workloads                        | [Replay](https://youtu.be/Q4kJKCS7rbo)                |
 | November  | The Great Unification: Building Analytic pipelines with Apache Spark Workloads | [Replay](https://youtu.be/TxZP_T9CC5Y)                |
-| December  | Redfish: Past, Present and Future                                              | [Replay](https://youtu.be/PWVJKK1obKQ)                |
+| December  | Redfish: Past, Present and Future                                              | [Replay](https://youtu.be/Q1Qeb24lpKg)                |
 
-In addition to our monthly Munch & Learn meetups, HPE DEV facilitated 19 different meetups to share technology information and collaborate between HPE engineering groups. The effects of these meetings are expected to result in some interesting new meetup opportunities for the Community at large in 2022, so keep an eye out for announcements soon in this area.
+In addition to our monthly Munch & Learn Technology Talks, HPE DEV facilitated 19 different online gatherings to share technology information and collaborate between HPE engineering groups. The effects of these meetings are expected to result in some interesting new meetup opportunities for the Community at large in 2022, so keep an eye out for announcements soon in this area.
 
 **Events**
 
-As we continue to struggle worldwide with the pandemic, in-person event opportunities were limited, however we did have HPE DEV Community representation at KubeCon 2021 NA in Los Angeles where Sir Hackington once again stood watch over HPE DEV swag. 
+As we continued to struggle worldwide with the pandemic, in-person event opportunities were limited, however we did have HPE DEV Community representation at KubeCon 2021 NA in Los Angeles where Sir Hackington once again stood watch over HPE DEV swag. 
 
 <center><img src="/img/sir-hackington-2021-small.png"></center>
 
