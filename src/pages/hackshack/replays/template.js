@@ -3,8 +3,12 @@ import { Heading, Text, Box, Image } from 'grommet';
 import axios from 'axios';
 import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
-import { Layout, VideoList, Video } from '../../../components/hackshack';
-import { PageHeader } from '../../../components/hackshack/PageHeading';
+import {
+  Layout,
+  PageHeader,
+  VideoList,
+  Video,
+} from '../../../components/hackshack';
 import AuthService from '../../../services/auth.service';
 
 const sortReplays = (replayData, current) => {

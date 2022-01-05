@@ -67,7 +67,7 @@ export const arcadeContent = [
     title: 'HACK SHACK ATTACK!',
     desc:
       'Think SmashTV and Robotron, but much more awesome! Compete for top scores and bragging rights!',
-    path: '/hackshackattack',
+    path: '/hackshack/hackshackattack',
     label: 'Play the Game',
     background: 'background',
   },
@@ -87,7 +87,7 @@ export const arcadeContent = [
     title: 'COOL DEV ART AND STICKERWARE',
     desc:
       'Grab an avatar, wallpaper, or emoji to throw on your computer or share with others.',
-    path: '/stickerwall',
+    path: '/hackshack/stickerwall',
     label: 'Grab some Art',
     background: 'background',
   },

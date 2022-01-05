@@ -5,24 +5,24 @@ import {
   Card,
   CardGrid,
 } from '../../../components/hackshack';
-import { communityContent } from '../../../data/CardData/PageContent';
+import { arcadeContent } from '../../../data/CardData/PageContent';
 
-const Community = () => {
+const Arcade = () => {
   return (
-    // eslint-disable-next-line max-len
-    <Layout background="/img/hackshack/BackgroundImages/community-background.png">
-      <PageHeader title="Community">
+    <Layout background="/img/hackshack/BackgroundImages/arcade-background.jpg">
+      <PageHeader title="ARCADE">
         <CardGrid>
-          {communityContent.map((content) => (
+          {arcadeContent.map((content) => (
             <Card
               key={content.title}
+              title={content.title}
               alt={content.alt}
               background={content.background}
-              title={content.title}
-              logo={content.logo}
+              image={content.image}
               desc={content.desc}
               label={content.label}
               link={content.link}
+              path={content.path}
             />
           ))}
         </CardGrid>
@@ -31,4 +31,4 @@ const Community = () => {
   );
 };
 
-export default Community;
+export default Arcade;
