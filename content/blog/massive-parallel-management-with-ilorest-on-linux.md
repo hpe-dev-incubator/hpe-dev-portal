@@ -11,7 +11,7 @@ tags:
   - Redfish
   - iLO
 ---
-Thanks to HPE for providing the [iLOrest Python API](http://hpe.com/info/restfulapi), an entirely new avenue has been opened to developers for managing their servers, allowing them to combine it with their favorite deployment tools (i.e. [Ansible](https://hackshack.hpedev.io/workshop/23)) or other management tools, like [OneView](http://hpe.com/info/oneview) as described in several articles found here, in the [HPE DEV Blog](https://developer.hpe.com/blog/).
+Thanks to HPE having provided the [iLOrest Python API](http://hpe.com/info/restfulapi), an entirely new avenue has been opened to developers for managing their servers. It allows them to add in their favorite deployment tools (i.e. [Ansible](https://hackshack.hpedev.io/workshop/23)) or other management tools, like [HPE OneView](http://hpe.com/info/oneview) (as described in several articles found here, in the [HPE DEV Blog](https://developer.hpe.com/blog/)).
 
 But what if you are not a Python geek? What if you prefer managing your servers the old way with `bash` / `grep` / `awk` / `jq` / `curl` / `wget`? In that case, you can loop over the list of your iLO IP addresses and use `curl` / `wget` for getting and setting Redfish parameters.
 
