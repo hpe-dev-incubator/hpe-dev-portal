@@ -2,7 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, Heading } from 'grommet';
-import { MainTitle } from './styles';
+import { MainTitle } from '../StyledComponents';
 
 export const PageHeader = ({ children, title, ...rest }) => {
   return (

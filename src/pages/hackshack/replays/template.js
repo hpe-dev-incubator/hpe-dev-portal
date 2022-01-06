@@ -32,13 +32,6 @@ const Replays = (props) => {
   const getReplaysApi = `${GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/replays?active=true`;
   const [replays, setReplays] = useState([]);
   const [error, setError] = useState('');
-  window.prerenderReady = false;
-
-  useEffect(() => {
-    setTimeout(() => {
-      window.prerenderReady = true;
-    }, 5000);
-  });
 
   useEffect(() => {
     const getReplays = () => {

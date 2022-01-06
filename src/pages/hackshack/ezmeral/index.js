@@ -2,8 +2,7 @@ import React from 'react';
 import { Heading, Button, Text, Image as GrommetImage, Box } from 'grommet';
 import { Layout, ScheduleCard, CardGrid } from '../../../components/hackshack';
 import ezmeralContent from '../../../data/EzmeralData/ezmeral.json';
-
-import { MainTitle } from './styles';
+import { MainTitle } from '../../../components/hackshack/StyledComponents';
 
 const Ezmeral = () => {
   return (

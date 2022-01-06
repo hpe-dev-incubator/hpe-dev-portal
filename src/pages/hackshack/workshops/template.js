@@ -4,7 +4,7 @@ import axios from 'axios';
 import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
 import { Layout, ScheduleCard, CardGrid } from '../../../components/hackshack';
-import { MainTitle } from './styles';
+import { MainTitle } from '../../../components/hackshack/StyledComponents';
 import AuthService from '../../../services/auth.service';
 
 const renderScheduleCard = (workshop, i) => (
