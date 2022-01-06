@@ -9,7 +9,7 @@ tags:
 ---
 ![](/img/gettyimages-1213470242_v2_1600_0_72_rgb.jpg)
 
-The HPE DEV team is happy to announce another series of technology talks for 2022 called HPE DEV Meetups. These sessions will complement the continuing HPE DEV [Munch & Learn Technology Talks](https://developer.hpe.com/campaign/munch-and-learn) that started in 2021.
+The HPE DEV team is happy to announce another opportunity to come and learn with us in 2022 called HPE DEV Meetups. These sessions will complement the continuing HPE DEV [Munch & Learn Technology Talks](https://developer.hpe.com/campaign/munch-and-learn) that started in 2021.
 
 The HPE DEV Munch & Learn Technology Talks were designed to provide industry thought-leadership insights on today's newest technologies. They proved quite successful with a grand total of 1,415 participants attending the 11 sessions that were held this past year. Participants of these sessions indicated that, while they enjoyed and wished to continue attending Munch & Learn sessions, they also needed an opportunity to dive in deep and more fully explore specific projects or products. The new HPE DEV Meetups are designed to fill that gap, covering topics that sit at the intersection of development and open source. The cadence for these meetups will be monthly, occurring the last week of every month.
 
