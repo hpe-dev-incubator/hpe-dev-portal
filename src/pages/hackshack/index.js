@@ -13,6 +13,7 @@ import {
 } from 'grommet';
 import { Close } from 'grommet-icons';
 import styled, { keyframes } from 'styled-components';
+import Helmet from 'react-helmet';
 import { Layout, ButtonSplit, Card } from '../../components/hackshack';
 
 const slideUp = keyframes`
@@ -343,6 +344,9 @@ const Home = () => {
   return (
     // eslint-disable-next-line
     <Layout background="/img/hackshack/BackgroundImages/hack-shack-home-background.png">
+      <Helmet>
+        <body margin="0" />
+      </Helmet>
       <Box height="100%" width="100%">
         {open && (
           <StyledLayer
