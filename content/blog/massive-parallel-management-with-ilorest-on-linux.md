@@ -17,7 +17,7 @@ But what if you are not a Python geek? What if you prefer managing your servers 
 
 However, this loop approach brings out two fundamental problems: 1) Using `curl` and `wget` in management scripts implies the creation of smart crawling functions (as explained in this [article](https://developer.hpe.com/blog/getting-started-with-ilo-restful-api-redfish-api-conformance)), 2) a sequential management with loops is fine for taking care of five or ten servers, but not more.  A parallel approach should be considered for an important number of managed servers.
 
-This blog explains how to manage many servers in parallel using bash scripts without the need of implementing schema crawlers, thus allowing a long-term stability to the scripts.
+This blog post explains how to manage many servers in parallel using bash scripts without the need of implementing schema crawlers, thus allowing a long-term stability to the scripts.
 
 To achieve this goal, you will combine a parallel task launcher (namely the [ClusterShell](https://clustershell.readthedocs.io/en/latest/index.html) and/or the Parallel Distributed Shell) with [iLOrest](https://www.hpe.com/info/resttool) (former `hprest`) the HPE RESTful Interface Tool in a more detailed and slightly different manner than what you can read already in the [user guide](https://hewlettpackard.github.io/python-redfish-utility/#overview).
 
@@ -41,7 +41,9 @@ On Ubuntu systems, just mention the `clustershell` parameter on the command line
 sudo apt install clustershell
 ```
 
-Here are basic examples to illustrate the launch of several commands in parallel on the local node and then one command on several remote nodes: if you want to perform a parallel `ping` toward `node1`, `node2` and `node3` type:
+Here are basic examples to illustrate the launch of several commands in parallel on the local node and then one command on several remote nodes.
+
+If you want to perform a parallel `ping` toward `node1`, `node2` and `node3` type:
 
 ```bash
 clush -R exec -w node[1-3] ping %h
@@ -120,7 +122,7 @@ ssh root@server ilorest logout
 
 ## Who kicked me out?
 
-All of this is awesome except that in both examples (out-of-band and in-band), a cache directory location is not explicitely specified. Hence, you will be kicked out if a concurrent iLOrest session is opened using the default cache directory as shown in the following picture.
+All of this is awesome except that in both examples (out-of-band and in-band), a cache directory location is not explicitly specified. Hence, you will be kicked out if a concurrent iLOrest session is opened using the default cache directory as shown in the following picture.
 
 The picture below shows the following sequence of events: (1) you first log into ilo-lab1. (2) Then you select the `Bios.` type (select `HpBios.` on Gen9 servers) and (3) verify that it has been selected. 
 
@@ -167,7 +169,7 @@ $CLUSH -w $ILO_LIST $iLOrest load -f BiosConfig.json
 $CLUSH  -w $ILO_LIST $iLOrest logout
 ```
 
-I personally successfully tested this example against 24 servers. I am pretty optimistic that it works as well for larger number of servers, although a risk of bumping into iLOrest timeouts exists.
+I personally successfully tested this example against 24 servers. I am pretty optimistic that it works as well for a larger number of servers, although a risk of bumping into iLOrest timeouts exists.
 
 ## Parallel in-band management
 
