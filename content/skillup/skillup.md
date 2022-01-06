@@ -1,5 +1,5 @@
 ---
-title: Browse our Video channel
+title: Browse our YouTube Channel
 link: https://www.youtube.com/playlist?list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF
 linkname: Watch now
 description: Browse replays of our most successful technology talks.
