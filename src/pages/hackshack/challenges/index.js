@@ -27,7 +27,7 @@ const MainTitle = styled(Box)`
 const Challenge = () => {
   const { GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT } = process.env;
   // eslint-disable-next-line max-len
-  const getChallengesApi = `${GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}api/workshops?active=true`;
+  const getChallengesApi = `${GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/workshops?active=true`;
   const [challenges, setchallenges] = useState([]);
   const [error, setError] = useState('');
   const arr = [];

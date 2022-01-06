@@ -222,7 +222,7 @@ const Replays = (props) => {
                 <Text size="large" color="status-critical" alignSelf="center">
                   {error}
                 </Text>
-                <Image src="/img/gremlin-rockin.svg" />
+                <Image src="/img/hackshack/gremlin-rockin.svg" />
               </>
             ) : (
               <Box height="medium" />

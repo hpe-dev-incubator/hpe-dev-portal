@@ -36,7 +36,7 @@ export default function HTML(props) {
           }}
         />
       </head>
-      <body {...props.bodyAttributes}>
+      <body style={{ margin: 0 }} {...props.bodyAttributes}>
         {props.preBodyComponents}
         <noscript key="noscript" id="gatsby-noscript">
           This app works best with JavaScript enabled.
