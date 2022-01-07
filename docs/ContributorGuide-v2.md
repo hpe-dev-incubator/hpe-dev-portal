@@ -185,19 +185,18 @@ Clicking **View Preview** will open your blog post in a new browser tab for your
 
 <center><img src="media/guide-blog-View-Preview.png" width="600" height="620"></center>
 
+14. Leave the editor using the **Changes Saved** option.
 
-14. As soon as the blog was placed **In Review,** a Pull Request (PR) is automatically opened on the HPE DEV team's GitHub repository, with the new content you are proposing.
+15. As soon as the blog was placed **In Review,** a Pull Request (PR) is automatically opened on the HPE DEV team's GitHub repository, with the new content you are proposing.
 
 <center><img src="media/guide-blog-pull-request.png" width="1000" height="337"></center>
 
 
-15. Once you have initiated the Pull Request by moving the post into the **In Review** column, and you are satisfied with your blog entry, it is also a good idea to follow up with the [HPE DEV Team](mailto:hpedev@hpe.com?subject=New%20blog%20contribution%20for%20HPE%20DEV) indicating that your new submission is ready for review. HPE DEV team will then proceed with an editorial review and will get in touch with you shortly.
+16. Once you have initiated the Pull Request by moving the post into the **In Review** column, and you are satisfied with your blog entry, it is also a good idea to follow up with the [HPE DEV Team](mailto:hpedev@hpe.com?subject=New%20blog%20contribution%20for%20HPE%20DEV) indicating that your new submission is ready for review. HPE DEV team will then proceed with an editorial review and will get in touch with you shortly.
 
->**Note:** *Moving the blog post back to the **Drafts** column of the CMS will withdraw the PR (the PR will actually be closed). You can also continue to make changes to your blog while the blog is **In Review**. This will be automatically synchronized in the PR (as additional Commits). This will be particularly helpful when receiving feedback from the HPE DEV Team.*
+>**Note:** *Moving the blog post back to the **Drafts** column of the CMS will withdraw the PR (the PR will actually be closed). It is recommended you continue to make changes to your blog while the blog is **In Review**. This will be automatically synchronized in the PR (as additional Commits). This will be particularly helpful when receiving feedback from the HPE DEV Team.*
 
 >**Note:** *Once the team has agreed to accept your contribution, the PR will be merged, the blog post will be published to the HPE DEV portal and the blog entry will disappear from your Editorial Workflow.*
-
-16. Leave the editor using the **Changes Saved** option.
 
 ## Editing a blog post that is already published
 You may want to edit an existing blog post. For example, you may need to update a referenced link that is no longer valid.
@@ -415,11 +414,13 @@ To do so, proceed as follows:
     
          \[Piece-of-text-to-hotlink](Link-URL)
           
-    >**Note:** For hotlink to be opened in a new tab in the reader's browser, we are still looking for a solution for the CMS editor)
     
 -   **Insert an image in a blog post:**
 
+     >**IMPORTANT NOTE:** If your images are stored in a personal website you owned, it is recommended to proceed as explained below to get you images uploaded and stored to the HPE DEV CMS rather than using a link URL to your image on your web site. Security filter such as Zscaler may filter your images and make your images unrendered by the CMS. 
+     
     Small resolution image is recommended (i.e.: width: 800px)
+    
 
     -   Toggle to **Rich Text** mode in the editor (Body area)
 
