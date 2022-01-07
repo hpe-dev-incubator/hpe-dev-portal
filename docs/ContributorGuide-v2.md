@@ -417,7 +417,7 @@ To do so, proceed as follows:
     
 -   **Insert an image in a blog post:**
 
-     >**IMPORTANT NOTE:** If your images are stored in a personal website you owned, it is recommended to proceed as explained below to get you images uploaded and stored to the HPE DEV CMS rather than using a link URL to your image on your web site. Security filter such as Zscaler may filter your images and make your images unrendered by the CMS. 
+     >**IMPORTANT NOTE:** If your images are stored in **a personal website** you owned, it is recommended to proceed as explained below to get you images uploaded and stored to the HPE DEV CMS rather than using a link URL to your image on your web site. Security filter such as Zscaler may filter your images and make your images unrendered by the CMS. 
      
     Small resolution image is recommended (i.e.: width: 800px)
     
