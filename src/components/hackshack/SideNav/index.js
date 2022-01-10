@@ -88,7 +88,7 @@ const SideNav = ({ size }) => {
       </NavButton>
       <NavButton
         active={location.pathname === '/hackshack/community'}
-        to="/hackshack/community"
+        to="https://developer.hpe.com/community"
         size={size}
       >
         COMMUNITY
