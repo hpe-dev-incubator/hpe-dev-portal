@@ -13,6 +13,6 @@ tags:
 
 ### Quarkus - Supersonic Subatomic Java
 
-January 26, 2022 5.00 pm Central European Time
+January 26, 2022
 
 Java based software development has been a winning proposition for the past 20+ years. Come to this technology talk to get an introduction to **Quarkus**, a Kubernetes native Java stack, as we explain what makes it special. 
