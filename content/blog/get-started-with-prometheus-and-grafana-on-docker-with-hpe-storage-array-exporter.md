@@ -1,7 +1,7 @@
 ---
 title: Get started with Prometheus and Grafana on Docker with HPE Storage Array
   Exporter
-date: 2022-01-24T16:00:00.000Z
+date: 2022-01-26T16:00:00.000Z
 author: Michael Mattsson
 authorimage: /img/portrait-192.png
 tags:
@@ -11,7 +11,7 @@ tags:
   - kubernetes
   - prometheus
 ---
-With the recently released HPE Storage Array Exporter for Prometheus and HPE CSI Info Metrics Provider for Prometheus, it's a good time to familiarize ourselves with the cloud native technologies involved and get some first-hand experience.
+With the recently released [HPE Storage Array Exporter for Prometheus and HPE CSI Info Metrics Provider for Prometheus](https://community.hpe.com/t5/Around-the-Storage-Block/HPE-CSI-Driver-for-Kubernetes-Enhancements-with-Monitoring-and/ba-p/7158137), it's a good time to familiarize ourselves with the cloud native technologies involved and get some first-hand experience.
 
 Prometheus is a time-series database that also provides monitoring and alerting. It's a [CNCF graduated project](https://www.cncf.io/projects/). Grafana is a web-based visualization tool that uses time-series data to create beautiful graphs and elements to present data in views referred to as dashboards. Prometheus scrapes an HTTP endpoint of a target periodically to consume an assortment of metric types and and metadata. The target is usually referred to as an exporter and the data being scraped is the current state of one or many exporter data points.
 
