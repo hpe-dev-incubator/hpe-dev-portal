@@ -115,23 +115,26 @@ const HackShackAttack = () => {
   const [accepted, setAccepted] = useState(false);
   const windowGlobal = typeof window !== 'undefined' && window;
   const { Phaser } = windowGlobal;
+  let BootScene;
+  let PreloaderScene;
+  let TitleScene;
+  let BootSceneStart;
 
-  const BootScene = new Phaser.Scene('Boot');
-  bootSceneMethods(BootScene);
+  if (Phaser) {
+    BootScene = new Phaser.Scene('Boot');
+    bootSceneMethods(BootScene);
 
-  const PreloaderScene = new Phaser.Scene('Preloader');
-  preloaderSceneMethods(PreloaderScene);
+    PreloaderScene = new Phaser.Scene('Preloader');
+    preloaderSceneMethods(PreloaderScene);
 
-  const TitleScene = new Phaser.Scene('Title');
-  TitleScene.init = function init() {
-    this.cursor = new Phaser.Math.Vector2();
-  };
-  titleSceneMethods(TitleScene);
+    TitleScene = new Phaser.Scene('Title');
+    titleSceneMethods(TitleScene, Phaser);
 
-  const BootSceneStart = new Phaser.Scene('BootStart');
-  BootSceneStart.create = function create() {
-    this.scene.start('Boot');
-  };
+    BootSceneStart = new Phaser.Scene('BootStart');
+    BootSceneStart.create = function create() {
+      this.scene.start('Boot');
+    };
+  }
 
   useEffect(() => {
     setGameConfig({

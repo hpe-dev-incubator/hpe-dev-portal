@@ -1,10 +1,11 @@
 /* eslint-disable no-param-reassign */
-function titleSceneMethods(TitleScene) {
+function titleSceneMethods(TitleScene, Phaser) {
   TitleScene.init = function init() {
     this.gamepad = undefined;
     this.buttonPressed = false;
     this.stickPressed = false;
     this.startScene = false;
+    this.cursor = new Phaser.Math.Vector2();
     this.selection = ['start', 'controls', 'leaderboard'];
   };
 
@@ -248,6 +249,7 @@ function titleSceneMethods(TitleScene) {
     gameObject.x = width / 2 - offsetX * 100;
     gameObject.y = height / 2 - offsetY * 100;
   };
+  return null;
 }
 
 export default titleSceneMethods;

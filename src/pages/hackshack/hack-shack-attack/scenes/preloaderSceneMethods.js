@@ -284,6 +284,7 @@ function preloaderSceneMethods(PreloaderScene) {
       this.scene.start('Title');
     }
   };
+  return null;
 }
 
 export default preloaderSceneMethods;

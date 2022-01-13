@@ -3,6 +3,7 @@ function boostSceneMethods(BootScene) {
   BootScene.create = function create() {
     this.scene.start('Preloader');
   };
+  return null;
 }
 
 export default boostSceneMethods;
