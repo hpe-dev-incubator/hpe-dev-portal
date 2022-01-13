@@ -6,9 +6,12 @@ import styled from 'styled-components';
 import { Box, Button, Layer, Image, Text, Anchor, CheckBox } from 'grommet';
 import { Link } from 'gatsby';
 import { Previous } from 'grommet-icons';
-import bootSceneMethods from './scenes/bootSceneMethods';
-import preloaderSceneMethods from './scenes/preloaderSceneMethods';
-import titleSceneMethods from './scenes/titleSceneMethods';
+import {
+  bootSceneMethods,
+  preloaderSceneMethods,
+  titleSceneMethods,
+  gameSceneMethods,
+} from '../../../hack-shack-attack/scenes';
 
 const GameContainer = styled(Box)`
   position: relative;
@@ -119,6 +122,7 @@ const HackShackAttack = () => {
   let PreloaderScene;
   let TitleScene;
   let BootSceneStart;
+  let GameScene;
 
   if (Phaser) {
     BootScene = new Phaser.Scene('Boot');
@@ -129,6 +133,9 @@ const HackShackAttack = () => {
 
     TitleScene = new Phaser.Scene('Title');
     titleSceneMethods(TitleScene, Phaser);
+
+    GameScene = new Phaser.Scene('Game');
+    gameSceneMethods(GameScene, Phaser);
 
     BootSceneStart = new Phaser.Scene('BootStart');
     BootSceneStart.create = function create() {
@@ -160,7 +167,13 @@ const HackShackAttack = () => {
             gravity: { y: 0 },
           },
         },
-        scene: [BootScene, PreloaderScene, BootSceneStart, TitleScene],
+        scene: [
+          BootScene,
+          PreloaderScene,
+          TitleScene,
+          GameScene,
+          BootSceneStart,
+        ],
       },
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
