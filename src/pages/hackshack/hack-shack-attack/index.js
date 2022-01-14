@@ -11,6 +11,10 @@ import {
   preloaderSceneMethods,
   titleSceneMethods,
   gameSceneMethods,
+  howToPlayMethods,
+  leaderboardSceneMethods,
+  gameOverSceneMethods,
+  highScoreSceneMethods,
 } from '../../../hack-shack-attack/scenes';
 
 const GameContainer = styled(Box)`
@@ -121,8 +125,12 @@ const HackShackAttack = () => {
   let BootScene;
   let PreloaderScene;
   let TitleScene;
-  let BootSceneStart;
   let GameScene;
+  let HowToPlayScene;
+  let LeaderBoardScene;
+  let GameOverScene;
+  let HighScoreScene;
+  let BootSceneStart;
 
   if (Phaser) {
     BootScene = new Phaser.Scene('Boot');
@@ -136,6 +144,18 @@ const HackShackAttack = () => {
 
     GameScene = new Phaser.Scene('Game');
     gameSceneMethods(GameScene, Phaser);
+
+    HowToPlayScene = new Phaser.Scene('HowToPlay');
+    howToPlayMethods(HowToPlayScene);
+
+    LeaderBoardScene = new Phaser.Scene('LeaderBoard');
+    leaderboardSceneMethods(LeaderBoardScene, Phaser);
+
+    GameOverScene = new Phaser.Scene('GameOver');
+    gameOverSceneMethods(GameOverScene);
+
+    HighScoreScene = new Phaser.Scene('HighScore');
+    highScoreSceneMethods(HighScoreScene, Phaser);
 
     BootSceneStart = new Phaser.Scene('BootStart');
     BootSceneStart.create = function create() {
@@ -172,6 +192,10 @@ const HackShackAttack = () => {
           PreloaderScene,
           TitleScene,
           GameScene,
+          HowToPlayScene,
+          LeaderBoardScene,
+          GameOverScene,
+          HighScoreScene,
           BootSceneStart,
         ],
       },

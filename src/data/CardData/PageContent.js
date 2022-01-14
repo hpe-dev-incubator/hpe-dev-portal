@@ -67,7 +67,7 @@ export const arcadeContent = [
     title: 'HACK SHACK ATTACK!',
     desc:
       'Think SmashTV and Robotron, but much more awesome! Compete for top scores and bragging rights!',
-    path: '/hackshack/hackshackattack',
+    path: '/hackshack/hack-shack-attack',
     label: 'Play the Game',
     background: 'background',
   },

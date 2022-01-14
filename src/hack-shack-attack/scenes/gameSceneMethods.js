@@ -35,7 +35,7 @@ function gameSceneMethods(GameScene, Phaser) {
     this.loading = false;
   };
 
-  GameScene.create = function init() {
+  GameScene.create = function create() {
     this.map = this.add
       .sprite(this.width / 2, this.height / 2 - 90, 'map')
       .setScale(0.55);

@@ -1,3 +1,4 @@
+/* (C) Copyright 2019 Hewlett Packard Enterprise Development LP. */
 /* eslint-disable no-param-reassign */
 const map = '/assets/playfield.png';
 
