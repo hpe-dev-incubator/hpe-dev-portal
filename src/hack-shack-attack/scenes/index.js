@@ -6,6 +6,11 @@ import howToPlayMethods from './howToPlayMethods';
 import leaderboardSceneMethods from './leaderBoardSceneMethods';
 import gameOverSceneMethods from './gameOverMethods';
 import highScoreSceneMethods from './highScoreSceneMethods';
+import backToTitleSceneMethods from './backToTitleSceneMethods';
+import errorSceneMethods from './errorSceneMethods';
+import profanityErrorSceneMethods from './profanityErrorSceneMethods';
+import thankYouSceneMethods from './thankYouSceneMethods';
+import splashSceneMethods from './splashSceneMethods';
 
 export {
   bootSceneMethods,
@@ -16,4 +21,9 @@ export {
   leaderboardSceneMethods,
   gameOverSceneMethods,
   highScoreSceneMethods,
+  backToTitleSceneMethods,
+  errorSceneMethods,
+  profanityErrorSceneMethods,
+  thankYouSceneMethods,
+  splashSceneMethods,
 };

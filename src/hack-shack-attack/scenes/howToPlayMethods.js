@@ -65,7 +65,7 @@ function howToPlayMethods(HowToPlayScene) {
     this.enterInput = this.input.keyboard.on('keyup_A', this.onSelect, this);
   };
 
-  HowToPlayScene.countdown = function countdown () {
+  HowToPlayScene.countdown = function countdown() {
     if (!this.startScene) {
       const startTimer = this.time.addEvent({
         delay: 500,
