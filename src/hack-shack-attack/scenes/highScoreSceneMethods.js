@@ -307,8 +307,8 @@ function highScoreSceneMethods(HighScoreScene, Phaser) {
   ) {
     this.loading = true;
     const data = { initials, name, score };
-    const { REACT_APP_NETLIFY_ENDPOINT } = process.env;
-    return fetch(`${REACT_APP_NETLIFY_ENDPOINT}/postLeaderboard`, {
+    const { GATSBY_NETLIFY_ENDPOINT } = process.env;
+    return fetch(`${GATSBY_NETLIFY_ENDPOINT}/postLeaderboard`, {
       method: 'POST',
       body: JSON.stringify(data),
     })

@@ -158,7 +158,7 @@ const HackShackAttack = () => {
     HowToPlayScene = new Phaser.Scene('HowToPlay');
     howToPlayMethods(HowToPlayScene);
 
-    LeaderBoardScene = new Phaser.Scene('LeaderBoard');
+    LeaderBoardScene = new Phaser.Scene('Leaderboard');
     leaderboardSceneMethods(LeaderBoardScene, Phaser);
 
     GameOverScene = new Phaser.Scene('GameOver');

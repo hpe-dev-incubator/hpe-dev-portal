@@ -229,8 +229,8 @@ function titleSceneMethods(TitleScene, Phaser) {
   };
 
   TitleScene.getLeaderboard = function getLeaderboard() {
-    const { REACT_APP_NETLIFY_ENDPOINT } = process.env;
-    return fetch(`${REACT_APP_NETLIFY_ENDPOINT}/getLeaderboard`, {
+    const { GATSBY_NETLIFY_ENDPOINT } = process.env;
+    return fetch(`${GATSBY_NETLIFY_ENDPOINT}/getLeaderboard`, {
       method: 'GET',
     })
       .then((res) => res.json())
