@@ -2,7 +2,6 @@
 /* eslint-disable no-param-reassign */
 
 function howToPlayMethods(HowToPlayScene) {
-  console.log('HowToPlayScene: ', HowToPlayScene);
   HowToPlayScene.init = function init() {
     this.gamepad = undefined;
     this.frame = 'keyboard';

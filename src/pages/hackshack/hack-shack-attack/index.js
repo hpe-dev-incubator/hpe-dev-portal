@@ -3,9 +3,19 @@
 import React, { useEffect, useState } from 'react';
 import { IonPhaser } from '@ion-phaser/react';
 import styled from 'styled-components';
-import { Box, Button, Layer, Image, Text, Anchor, CheckBox } from 'grommet';
+import {
+  Grommet,
+  Box,
+  Button,
+  Layer,
+  Image,
+  Text,
+  Anchor,
+  CheckBox,
+} from 'grommet';
 import { Link } from 'gatsby';
 import { Previous } from 'grommet-icons';
+import { hpe } from 'grommet-theme-hpe';
 import {
   bootSceneMethods,
   preloaderSceneMethods,
@@ -247,30 +257,37 @@ const HackShackAttack = () => {
   }, []);
 
   return (
-    <GameContainer fill>
-      <BackgroundWrapper
-        fill
-        background={{
-          image:
-            // eslint-disable-next-line max-len
-            'url(/img/hackshack/BackgroundImages/hackshack-attack-background.png)',
-          size: 'cover',
-          position: 'top center',
-        }}
-      >
-        <Box margin="48px" alignSelf="start">
-          <Link to="/hackshack/arcade">
-            <Button icon={<Previous />} label="Back to Arcade" />
-          </Link>
-        </Box>
-      </BackgroundWrapper>
-      {accepted && (
-        <Box fill id="phaser-game">
-          <IonPhaser game={game} initialize={initialize} />
-        </Box>
-      )}
-      {!accepted && <TermsLayer setAccepted={setAccepted} />}
-    </GameContainer>
+    <Grommet
+      theme={hpe}
+      themeMode="dark"
+      background="#151d29"
+      style={{ overflowX: 'hidden' }}
+    >
+      <GameContainer fill>
+        <BackgroundWrapper
+          fill
+          background={{
+            image:
+              // eslint-disable-next-line max-len
+              'url(/img/hackshack/BackgroundImages/hackshack-attack-background.png)',
+            size: 'cover',
+            position: 'top center',
+          }}
+        >
+          <Box margin="48px" alignSelf="start">
+            <Link to="/hackshack/arcade">
+              <Button icon={<Previous />} label="Back to Arcade" />
+            </Link>
+          </Box>
+        </BackgroundWrapper>
+        {accepted && (
+          <Box fill id="phaser-game">
+            <IonPhaser game={game} initialize={initialize} />
+          </Box>
+        )}
+        {!accepted && <TermsLayer setAccepted={setAccepted} />}
+      </GameContainer>
+    </Grommet>
   );
 };
 

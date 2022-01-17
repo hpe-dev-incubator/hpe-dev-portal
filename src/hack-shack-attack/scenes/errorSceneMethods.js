@@ -115,7 +115,6 @@ function errorSceneMethods(ErrorScene) {
   };
 
   ErrorScene.enter = function enter() {
-    console.log('hit: ');
     this.startScene = false;
     this.background.play('closeMouth');
     this.background.on('animationcomplete', () => {

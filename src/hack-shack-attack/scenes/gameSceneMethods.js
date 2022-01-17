@@ -318,7 +318,6 @@ function gameSceneMethods(GameScene, Phaser) {
     if (time > this.spawnTimerBug) {
       let itBug = this.itBugs.getFirstDead(false);
       if (!itBug) {
-        console.log('ItBug: ', ItBug);
         itBug = new ItBug(this, 0, 0);
         this.itBugs.add(itBug);
       }

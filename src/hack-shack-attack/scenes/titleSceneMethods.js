@@ -1,4 +1,7 @@
+/* (C) Copyright 2019 Hewlett Packard Enterprise Development LP. */
 /* eslint-disable no-param-reassign */
+import '../../css/typography.css';
+
 function titleSceneMethods(TitleScene, Phaser) {
   TitleScene.init = function init() {
     this.gamepad = undefined;
