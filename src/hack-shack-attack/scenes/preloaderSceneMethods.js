@@ -1,29 +1,29 @@
 /* (C) Copyright 2019 Hewlett Packard Enterprise Development LP. */
 /* eslint-disable no-param-reassign */
-const map = '/assets/playfield.png';
+const map = '/img/assets/playfield.png';
 
 // logos
-const gameLogo = '/assets/attack-marquee.png';
-const hpeDevLogo = '/assets/hpe-dev-logo.png';
+const gameLogo = '/img/assets/attack-marquee.png';
+const hpeDevLogo = '/img/assets/hpe-dev-logo.png';
 
 // sprites
-const playerAvatar = '/assets/player1-avatar.png';
-const player = '/assets/player1-dev.png';
-const devPowerUp = '/assets/dev-powerup.png';
-const bullet = '/assets/bullets-pellets.png';
-const itBug = '/assets/it-bug.png';
-const itMonster = '/assets/it-monster.png';
-const devGameOver = '/assets/dev-gameover.png';
-const dizzyAnim = '/assets/dizzyanim.png';
-const highscoreBG = '/assets/highscorebg.png';
-const itMonsterPoof = '/assets/it-monsterPoof.png';
-const bugDeath = '/assets/bugDeath.png';
-const explosion = '/assets/explosion.png';
-const highscoreEyes = '/assets/highscoreeyes.png';
-const powerUpCollect = '/assets/powerUpCollect.png';
-const winners = '/assets/winners.png';
-const keyboardControls = '/assets/keyboard.png';
-const padControls = '/assets/controller.png';
+const playerAvatar = '/img/assets/player1-avatar.png';
+const player = '/img/assets/player1-dev.png';
+const devPowerUp = '/img/assets/dev-powerup.png';
+const bullet = '/img/assets/bullets-pellets.png';
+const itBug = '/img/assets/it-bug.png';
+const itMonster = '/img/assets/it-monster.png';
+const devGameOver = '/img/assets/dev-gameover.png';
+const dizzyAnim = '/img/assets/dizzyanim.png';
+const highscoreBG = '/img/assets/highscorebg.png';
+const itMonsterPoof = '/img/assets/it-monsterPoof.png';
+const bugDeath = '/img/assets/bugDeath.png';
+const explosion = '/img/assets/explosion.png';
+const highscoreEyes = '/img/assets/highscoreeyes.png';
+const powerUpCollect = '/img/assets/powerUpCollect.png';
+const winners = '/img/assets/winners.png';
+const keyboardControls = '/img/assets/keyboard.png';
+const padControls = '/img/assets/controller.png';
 
 function preloaderSceneMethods(PreloaderScene) {
   PreloaderScene.init = function init() {

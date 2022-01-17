@@ -380,7 +380,7 @@ const Home = () => {
                   label="English"
                   kind="subtitles"
                   srcLang="en"
-                  src="/assets/small-en.vtt"
+                  src="/img/assets/small-en.vtt"
                   default
                 />
               </Video>

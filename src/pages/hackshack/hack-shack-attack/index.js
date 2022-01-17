@@ -71,7 +71,7 @@ const TermsLayer = ({ setAccepted }) => {
           width="100%"
           fit="cover"
           alt="attack marquee"
-          src="/assets/attack-marquee.png"
+          src="/img/assets/attack-marquee.png"
         />
         <Text style={{ fontFamily: 'Kemco' }} size="small" color="#ffffff">
           HPE may invite you to enter your initials and name if you are a high
