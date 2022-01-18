@@ -20,7 +20,7 @@ I quickly realized that, in order to do what I wanted to do, it would involve wr
 
 Note: I have written a couple of other blog posts on StackStorm. If you are interested in trying this approach, I suggest you go to the HPE DEV blog and [read my other posts](https://developer.hpe.com/search/?term=stackstorm).
 
-![](https://techworldwookie.com/blogpost/flowchart.png)
+![](/img/flowchart.png)
 
 Developing the stackstorm-hpe-oneview integration pack (which is available [here](https://github.com/HewlettPackard/stackstorm-hpe-oneview)) is fairly straightforward. For this interaction to function, I wrote five very short actions and a couple of simple rules. You can see in the chart at the top of this blog that two of the actions will be used with the first workflow and three will be need for the second workflow. Actions are the workhorse of StackStorm. Actions have a 'runner-type' and there are [12 different ones](https://docs.stackstorm.com/actions.html) to choose from. They can be shell scripts, Python scripts, or Orquesta for creating workflows. I could use a single action to connect to HPE OneView and request all of the current alarms and another to format and store the alarms in a MongoDB database for further processing.
 
@@ -177,7 +177,7 @@ That's it! Once both integration packs are installed on a StackStorm server and 
 
 Finally, a diagram that shows all the moving parts of workflow "A". The rule that runs on the interval timer calls an action that, in turn, calls a workflow that calls a couple other actions. Notice that actions can be Python scripts or YAML files. It just depends on their function. 
 
-![](https://techworldwookie.com/blogpost/full-workflow.png "Workflow ")
+![](/img/full-workflow.png "Workflow ")
 
 To make this a truly automated process, the ServiceNow account needs to exist and the tables need to be created in advance. 
 
