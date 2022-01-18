@@ -135,7 +135,7 @@ BlogTabContent.propTypes = {
     xlarge: PropTypes.arrayOf(PropTypes.string),
   }),
   activeTab: PropTypes.number,
-  platform: PropTypes.string,
+  platform: PropTypes.bool,
   setPlatform: PropTypes.func,
   setPreviousTab: PropTypes.func,
 };
