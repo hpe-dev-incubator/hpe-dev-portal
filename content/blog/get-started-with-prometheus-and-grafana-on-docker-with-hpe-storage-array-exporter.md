@@ -11,7 +11,7 @@ tags:
   - kubernetes
   - prometheus
 ---
-With the recently released [HPE Storage Array Exporter for Prometheus and HPE CSI Info Metrics Provider for Prometheus](https://community.hpe.com/t5/Around-the-Storage-Block/HPE-CSI-Driver-for-Kubernetes-Enhancements-with-Monitoring-and/ba-p/7158137), it's a good time to familiarize ourselves with the cloud native technologies involved and get some first-hand experience.
+With the recently released [HPE Storage Array Exporter for Prometheus and HPE CSI Info Metrics Provider for Prometheus](https://community.hpe.com/t5/Around-the-Storage-Block/HPE-CSI-Driver-for-Kubernetes-enhancements-with-monitoring-and/ba-p/7158137), it's a good time to familiarize ourselves with the cloud native technologies involved and get some first-hand experience.
 
 Prometheus is a time-series database that also provides monitoring and alerting. It's a [CNCF graduated project](https://www.cncf.io/projects/). Grafana is a web-based visualization tool that uses time-series data to create beautiful graphs and elements to present data in views referred to as dashboards. Prometheus scrapes an HTTP endpoint of a target periodically to consume an assortment of metric types and and metadata. The target is usually referred to as an exporter and the data being scraped is the current state of one or many exporter data points.
 
@@ -51,7 +51,7 @@ The `address` value can be an IP address or hostname resolvable in DNS. Then, ru
 docker run -d --rm --name my-array-1 \
      -v $(pwd)/my-array-1.yaml:/etc/config/storage-system.yaml \
      --network prometheus \
-     quay.io/hpestorage/array-exporter:v1.0.0-beta \
+     quay.io/hpestorage/array-exporter:v1.0.0 \
      --log.path /var/log/hpe-array-exporter.log \
      --accept-eula \
      /etc/config/storage-system.yaml
