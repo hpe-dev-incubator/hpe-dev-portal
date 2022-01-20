@@ -3,7 +3,7 @@ title: Data/ML Engineer
 description: Data-pipeline builders supporting analytics and automated decision processes
 image: /img/role/Data-ML-Engineer.png
 width: large
-priority: 1
+priority: 3
 frontpage: true
 tags:
   - data-ml-engineer

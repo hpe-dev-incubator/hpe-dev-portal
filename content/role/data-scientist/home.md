@@ -3,7 +3,7 @@ title: Data Scientist
 description: Extractors of knowledge from data to deliver actionable insights 
 image: /img/role/data-scientist.png
 width: large
-priority: 1
+priority: 2
 frontpage: true
 tags:
   - data-scientist

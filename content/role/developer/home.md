@@ -3,7 +3,7 @@ title: Developer
 description: Technologists defining the future through automation
 image: /img/role/developer.png
 width: large
-priority: 5
+priority: 1
 frontpage: true
 tags:
   - developer
