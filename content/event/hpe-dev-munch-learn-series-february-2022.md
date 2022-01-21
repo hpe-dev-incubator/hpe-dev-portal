@@ -15,4 +15,4 @@ tags:
 
 February 16, 2022
 
-Join us for a free, 60-minutes session where you can connect with experts who offer valuable insights into today's most popular technologies. This month, 
+Join us for a free, 60-minutes session where you can connect with experts who offer valuable insights into today's most popular technologies. This month, meet with Neil Conway, senior director of engineering Determined AI at HPE and learn why practical use of deep learning (DL) remains difficult, what problems DL infrastructure tools solve today, where they fall short, and how they can improve. This talk draws on academic work done at Carnegie Mellon, UC Berkeley, and UCLA, as well as our experiences at Determined AI, a startup recently acquired by HPE and that builds open-source software to make deep learning engineers dramatically more productive.
