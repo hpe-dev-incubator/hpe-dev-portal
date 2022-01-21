@@ -95,11 +95,13 @@ export const Card = ({
   width = 'medium',
   link,
   image,
+  title,
   ...rest
 }) => (
   <ResponsiveContext.Consumer>
     {(size) => (
       <GrommetCard
+        background={title === 'HPE DEV Hack Shack' ? '#263040' : null}
         elevation="medium"
         margin="medium"
         flex="grow"
