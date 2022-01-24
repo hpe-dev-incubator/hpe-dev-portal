@@ -12,7 +12,7 @@ The DSCC architecture is built on an API-driven abstraction layer. The REST API 
 
 ## The cloud advantage
 
-HPE GreenLake and DSCC allows you to manage across multiple storage platforms and across multiple sites, providing the advantage of using a single UI to span across ervers and storage. It also offers optmizations not possible when managing devices as single management endpoints. A fully functional REST API helps accomplish all standard management tasks, like deploying volumes to servers or configuring snapshots - all designed to enable Management-at-scale.
+HPE GreenLake and DSCC allows you to manage across multiple storage platforms and across multiple sites, providing the advantage of using a single UI to span across servers and storage. It also offers optmizations not possible when managing devices as single management endpoints. A fully functional REST API helps accomplish all standard management tasks, like deploying volumes to servers or configuring snapshots - all designed to enable Management-at-scale.
 
 But what about the administrator who simply wants to either use a CLI or write very simple scripts to deploy and configure resources? This is where the DSCC PowerShell Toolkit comes in, helping you manage your cloud storage like a pro with PowerShell.
 
