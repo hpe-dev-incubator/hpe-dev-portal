@@ -18,7 +18,7 @@ import { hpe } from 'grommet-theme-hpe';
 import styled, { keyframes } from 'styled-components';
 import Helmet from 'react-helmet';
 import { SEO } from '../../components';
-import { Layout, ButtonSplit, Card } from '../../components/hackshack';
+import { Layout, Card } from '../../components/hackshack';
 
 const slideUp = keyframes`
   0% {
@@ -76,17 +76,17 @@ const TextWrapper = styled(Box)`
   }
 `;
 
-const ButtonWrapper = styled(Box)`
-  padding-top: 31px;
-  margin-left: 0px;
-  opacity: 0;
-  animation: ${slideIn} 0.3s ease-out;
-  animation-fill-mode: forwards;
-  animation-delay: 0.7s;
-  @media (min-width: 900px) {
-    margin-left: -170px;
-  }
-`;
+// const ButtonWrapper = styled(Box)`
+//   padding-top: 31px;
+//   margin-left: 0px;
+//   opacity: 0;
+//   animation: ${slideIn} 0.3s ease-out;
+//   animation-fill-mode: forwards;
+//   animation-delay: 0.7s;
+//   @media (min-width: 900px) {
+//     margin-left: -170px;
+//   }
+// `;
 
 const StyledLayer = styled(Layer)`
   background-color: rgba(38, 48, 64, 0.8);
@@ -420,11 +420,11 @@ const Home = () => {
               />
             </LogoWrapper>
             <Content />
-            <ButtonWrapper>
+            {/* <ButtonWrapper>
               <ButtonSplit to="https://developer.hpe.com">
                 Visit HPE DEV Community Portal
               </ButtonSplit>
-            </ButtonWrapper>
+            </ButtonWrapper> */}
           </MainWrapper>
         </ResponsiveContextWrapper>
       </Layout>
