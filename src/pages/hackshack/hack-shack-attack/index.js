@@ -31,6 +31,7 @@ import {
   thankYouSceneMethods,
   splashSceneMethods,
 } from '../../../hack-shack-attack/scenes';
+import { SEO } from '../../../components';
 
 const GameContainer = styled(Box)`
   position: relative;
@@ -263,6 +264,7 @@ const HackShackAttack = () => {
       background="#151d29"
       style={{ overflowX: 'hidden' }}
     >
+      <SEO title="Hack Shack Arcade" />
       <GameContainer fill>
         <BackgroundWrapper
           fill

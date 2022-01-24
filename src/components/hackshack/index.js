@@ -1,9 +1,7 @@
 import ButtonSplit from './ButtonSplit';
 // import DevLogo from './DevLogo';
-import Footer from './Footer';
 import Header from './Header';
 import PageHeader from './PageHeading';
-import HPEDevFooter from './HPEDevFooter';
 import Layout from './Layout';
 // import Leaderboard from './Leaderboard';
 import SideNav from './SideNav';
@@ -18,10 +16,8 @@ export {
   Card,
   CardGrid,
   // DevLogo,
-  Footer,
   Header,
   PageHeader,
-  HPEDevFooter,
   Layout,
   // Leaderboard,
   ScheduleCard,

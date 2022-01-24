@@ -17,6 +17,7 @@ import { Close } from 'grommet-icons';
 import { hpe } from 'grommet-theme-hpe';
 import styled, { keyframes } from 'styled-components';
 import Helmet from 'react-helmet';
+import { SEO } from '../../components';
 import { Layout, ButtonSplit, Card } from '../../components/hackshack';
 
 const slideUp = keyframes`
@@ -365,6 +366,7 @@ const Home = () => {
   return (
     <Grommet theme={hpe}>
       <Layout background="/img/hackshack/BackgroundImages/hack-shack-home-background.png">
+      <SEO title="Hack Shack" />
         <Helmet>
           <body margin="0" />
         </Helmet>

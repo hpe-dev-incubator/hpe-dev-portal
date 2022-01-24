@@ -14,6 +14,7 @@ import {
   Row9,
 } from '../../../data/StickerData/stickers';
 import { Layout, SubPageHeader } from '../../../components/hackshack';
+import { SEO } from '../../../components';
 
 const StyledSmallAnchor = styled.a`
   max-width: 180px;
@@ -189,6 +190,7 @@ const StickerWall = () => {
   return (
     // eslint-disable-next-line max-len
     <Layout background="/img/hackshack/BackgroundImages/stickers-background.jpg">
+      <SEO title="Hack Shack Sticker Wall" />
       <SubPageHeader title="STICKERS AND ART">
         <Box
           background={{ color: '#263040' }}

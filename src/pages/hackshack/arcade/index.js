@@ -5,11 +5,13 @@ import {
   Card,
   CardGrid,
 } from '../../../components/hackshack';
+import { SEO } from '../../../components';
 import { arcadeContent } from '../../../data/CardData/PageContent';
 
 const Arcade = () => {
   return (
     <Layout background="/img/hackshack/BackgroundImages/arcade-background.jpg">
+      <SEO title="Hack Shack Arcade"/>
       <PageHeader title="ARCADE">
         <CardGrid>
           {arcadeContent.map((content) => (

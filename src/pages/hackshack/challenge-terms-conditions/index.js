@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Box, Button, Heading, Text, Anchor } from 'grommet';
 import { Previous } from 'grommet-icons';
 import { Link } from 'gatsby';
+import { SEO } from '../../../components';
 import { Layout } from '../../../components/hackshack';
 
 const TableColumns = ({ Row1, Row2 }) => {
@@ -26,6 +27,7 @@ TableColumns.propTypes = {
 const ChallengeTC = () => {
   return (
     <Layout background="/img/generic-background.svg">
+      <SEO title="Hack Shack Challenge Terms" />
       <Box align="start" width="xlarge" direction="column">
         <Box align="start">
           <Link to="/hackshack/challenges">

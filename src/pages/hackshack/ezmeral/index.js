@@ -3,10 +3,12 @@ import { Heading, Button, Text, Image as GrommetImage, Box } from 'grommet';
 import { Layout, ScheduleCard, CardGrid } from '../../../components/hackshack';
 import ezmeralContent from '../../../data/EzmeralData/ezmeral.json';
 import { MainTitle } from '../../../components/hackshack/StyledComponents';
+import { SEO } from '../../../components';
 
 const Ezmeral = () => {
   return (
     <Layout background="/img/hackshack/BackgroundImages/ezmeral-background.png">
+      <SEO title="Hack Shack Ezmeral"/>
       <Box align="center" justify="between" direction="row" fill="horizontal">
         <Box>
           <GrommetImage

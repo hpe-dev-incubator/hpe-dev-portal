@@ -4,6 +4,7 @@ import axios from 'axios';
 import styled, { keyframes } from 'styled-components';
 import { Layout, ScheduleCard, CardGrid } from '../../../components/hackshack';
 import AuthService from '../../../services/auth.service';
+import { SEO } from '../../../components';
 
 const slideUp = keyframes`
   0% {
@@ -78,6 +79,7 @@ const Challenge = () => {
   return (
     // eslint-disable-next-line max-len
     <Layout background="/img/hackshack/BackgroundImages/schedule-background.png">
+      <SEO title="Hack Shack Challenges"/>
       <MainTitle>
         <Heading color="text-strong" margin={{ top: 'none', bottom: 'small' }}>
           CHALLENGES

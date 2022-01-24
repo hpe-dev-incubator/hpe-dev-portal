@@ -4,6 +4,7 @@ import { Box, Button, Heading, Text, Anchor } from 'grommet';
 import { Previous } from 'grommet-icons';
 import { Link } from 'gatsby';
 import { Layout } from '../../../components/hackshack';
+import { SEO } from '../../../components';
 
 const TableColumns = ({ Row1, Row2 }) => {
   return (
@@ -26,6 +27,7 @@ TableColumns.propTypes = {
 const WorkshopTC = () => {
   return (
     <Layout background="/img/hackshack/BackgroundImages/generic-background.svg">
+      <SEO title="Hack Shack Workshop Terms" />
       <Box align="start" width="xlarge" direction="column">
         <Box align="start">
           <Link to="/hackshack/workshops">
