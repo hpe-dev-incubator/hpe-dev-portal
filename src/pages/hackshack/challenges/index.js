@@ -79,7 +79,7 @@ const Challenge = () => {
   return (
     // eslint-disable-next-line max-len
     <Layout background="/img/hackshack/BackgroundImages/schedule-background.png">
-      <SEO title="Hack Shack Challenges"/>
+      <SEO title="Hack Shack Challenges" />
       <MainTitle>
         <Heading color="text-strong" margin={{ top: 'none', bottom: 'small' }}>
           CHALLENGES

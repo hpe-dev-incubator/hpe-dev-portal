@@ -8,7 +8,7 @@ import { SEO } from '../../../components';
 const Ezmeral = () => {
   return (
     <Layout background="/img/hackshack/BackgroundImages/ezmeral-background.png">
-      <SEO title="Hack Shack Ezmeral"/>
+      <SEO title="Hack Shack Ezmeral" />
       <Box align="center" justify="between" direction="row" fill="horizontal">
         <Box>
           <GrommetImage

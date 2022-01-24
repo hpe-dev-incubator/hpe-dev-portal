@@ -83,7 +83,7 @@ const Replays = (props) => {
   const replayTitle = replays.length > 0 && replays[current].title;
   return (
     <Layout background="/img/hackshack/BackgroundImages/generic-background.svg">
-      <SEO title="Hack Shack Replays"/>
+      <SEO title="Hack Shack Replays" />
       <PageHeader title={replayTitle}>
         {replays.length > 0 ? (
           <>

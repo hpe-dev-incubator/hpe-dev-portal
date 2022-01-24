@@ -366,7 +366,7 @@ const Home = () => {
   return (
     <Grommet theme={hpe}>
       <Layout background="/img/hackshack/BackgroundImages/hack-shack-home-background.png">
-      <SEO title="Hack Shack" />
+        <SEO title="Hack Shack" />
         <Helmet>
           <body margin="0" />
         </Helmet>
