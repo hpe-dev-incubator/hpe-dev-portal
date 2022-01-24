@@ -345,7 +345,7 @@ const ResponsiveContextWrapper = ({ children }, setOpen) => {
     <Box
       height="100%"
       width="100%"
-      margin={size === 'small' ? null : { top: '100px' }}
+      margin={size === 'small' ? null : { top: '50px' }}
     >
       {children}
       {size !== 'small' && <GrommetMascot setOpen={setOpen} />}
