@@ -11,7 +11,8 @@ import { Close } from 'grommet-icons';
 import { hpe } from 'grommet-theme-hpe';
 import { deepMerge } from 'grommet/utils';
 import { ResponsiveLayout, StyledLayer } from './styles';
-import { Footer, Header, SideNav } from '../index';
+import { Footer, Header as HackShackHeader, SideNav } from '../index';
+import { Header as HPEDevHeader } from '../../index';
 
 const customHpe = deepMerge(hpe, {
   global: {
@@ -52,7 +53,8 @@ const Layout = ({ children, background }) => {
         layer={layer}
       >
         <Box>
-          <Header setLayer={setLayer} size={size} />
+          <HPEDevHeader />
+          <HackShackHeader setLayer={setLayer} size={size} />
           <Box direction="row">
             {size !== 'small' && (
               <Box margin={{ top: 'xlarge', left: 'large' }}>

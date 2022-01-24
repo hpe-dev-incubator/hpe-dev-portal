@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import React, { useContext, useState } from 'react';
 import PropTypes from 'prop-types';
 import {
@@ -10,8 +11,10 @@ import {
   Stack,
   Video,
   Layer,
+  Grommet,
 } from 'grommet';
 import { Close } from 'grommet-icons';
+import { hpe } from 'grommet-theme-hpe';
 import styled, { keyframes } from 'styled-components';
 import Helmet from 'react-helmet';
 import { Layout, ButtonSplit, Card } from '../../components/hackshack';
@@ -336,77 +339,94 @@ Cards.propTypes = {
   size: PropTypes.string,
 };
 
-const Home = () => {
+const ResponsiveContextWrapper = ({ children }, setOpen) => {
   const size = useContext(ResponsiveContext);
+  return (
+    <Box
+      height="100%"
+      width="100%"
+      margin={size === 'small' ? null : { top: '100px' }}
+    >
+      {children}
+      {size !== 'small' && <GrommetMascot setOpen={setOpen} />}
+      <Cards size={size} />
+    </Box>
+  );
+};
+
+ResponsiveContextWrapper.propTypes = {
+  children: PropTypes.node.isRequired,
+};
+
+const Home = () => {
   const [open, setOpen] = useState();
   const onClose = () => setOpen(undefined);
 
   return (
-    // eslint-disable-next-line
-    <Layout background="/img/hackshack/BackgroundImages/hack-shack-home-background.png">
-      <Helmet>
-        <body margin="0" />
-      </Helmet>
-      <Box height="100%" width="100%">
-        {open && (
-          <StyledLayer
-            full
-            animation="fadeIn"
-            onClickOutside={onClose}
-            onEsc={onClose}
-          >
-            <Box alignSelf="end" pad={{ top: 'large', bottom: 'xsmall' }}>
-              <Button
-                alignSelf="end"
-                label={
-                  <Text weight="normal" color="white" size="xlarge">
-                    Close
-                  </Text>
-                }
-                reverse
-                icon={<Close size="medium" />}
-                onClick={onClose}
+    <Grommet theme={hpe}>
+      <Layout background="/img/hackshack/BackgroundImages/hack-shack-home-background.png">
+        <Helmet>
+          <body margin="0" />
+        </Helmet>
+        <ResponsiveContextWrapper setOpen={setOpen}>
+          {open && (
+            <StyledLayer
+              full
+              animation="fadeIn"
+              onClickOutside={onClose}
+              onEsc={onClose}
+            >
+              <Box alignSelf="end" pad={{ top: 'large', bottom: 'xsmall' }}>
+                <Button
+                  alignSelf="end"
+                  label={
+                    <Text weight="normal" color="white" size="xlarge">
+                      Close
+                    </Text>
+                  }
+                  reverse
+                  icon={<Close size="medium" />}
+                  onClick={onClose}
+                />
+              </Box>
+              <Box alignSelf="center">
+                <Video controls="over" autoPlay fit="cover">
+                  <source
+                    key="video"
+                    src="https://player.vimeo.com/external/539879968.hd.mp4?s=1ff575d7f35468a09a8ad9ac86361989b4cb33e5&profile_id=174"
+                    type="video/mp4"
+                  />
+                  <track
+                    key="cc"
+                    label="English"
+                    kind="subtitles"
+                    srcLang="en"
+                    src="/img/assets/small-en.vtt"
+                    default
+                  />
+                </Video>
+              </Box>
+            </StyledLayer>
+          )}
+          <MainWrapper align="center">
+            <LogoWrapper>
+              <Image
+                width="100%"
+                fit="cover"
+                src="/img/hackshack/hack-shack-dve-logo.png"
+                alt="Hack Shack"
               />
-            </Box>
-            <Box alignSelf="center">
-              <Video controls="over" autoPlay fit="cover">
-                <source
-                  key="video"
-                  src="https://player.vimeo.com/external/539879968.hd.mp4?s=1ff575d7f35468a09a8ad9ac86361989b4cb33e5&profile_id=174"
-                  type="video/mp4"
-                />
-                <track
-                  key="cc"
-                  label="English"
-                  kind="subtitles"
-                  srcLang="en"
-                  src="/img/assets/small-en.vtt"
-                  default
-                />
-              </Video>
-            </Box>
-          </StyledLayer>
-        )}
-        <MainWrapper align="center">
-          <LogoWrapper>
-            <Image
-              width="100%"
-              fit="cover"
-              src="/img/hackshack/hack-shack-dve-logo.png"
-              alt="Hack Shack"
-            />
-          </LogoWrapper>
-          <Content />
-          <ButtonWrapper>
-            <ButtonSplit to="https://developer.hpe.com">
-              Visit HPE DEV Community Portal
-            </ButtonSplit>
-          </ButtonWrapper>
-        </MainWrapper>
-        {size !== 'small' && <GrommetMascot setOpen={setOpen} />}
-        <Cards size={size} />
-      </Box>
-    </Layout>
+            </LogoWrapper>
+            <Content />
+            <ButtonWrapper>
+              <ButtonSplit to="https://developer.hpe.com">
+                Visit HPE DEV Community Portal
+              </ButtonSplit>
+            </ButtonWrapper>
+          </MainWrapper>
+        </ResponsiveContextWrapper>
+      </Layout>
+    </Grommet>
   );
 };
 
