@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import {
@@ -99,31 +99,7 @@ export const Card = ({
   ...rest
 }) => {
   const [hover, setHover] = useState(false);
-  const cardRef = useRef(null);
   const isHackShackCard = title === 'HPE DEV Hack Shack';
-
-  const checkHover = (e) => {
-    if (cardRef.current) {
-      const mouseOver = cardRef.current.contains(e.target);
-
-      if (!hover && mouseOver) {
-        setHover(true);
-      }
-
-      if (hover && !mouseOver) {
-        setHover(false);
-      }
-    }
-  };
-
-  useEffect(() => {
-    window.addEventListener('mousemove', checkHover, true);
-
-    return () => {
-      window.removeEventListener('mousemove', checkHover, true);
-    };
-  });
-
   return (
     <ResponsiveContext.Consumer>
       {(size) => (
@@ -134,7 +110,7 @@ export const Card = ({
           flex="grow"
           basis={size === 'small' ? 'auto' : bases[width]}
           onMouseOver={() => isHackShackCard && setHover(true)}
-          onMouseOut={() => isHackShackCard && setHover(false)}
+          onMouseLeave={() => isHackShackCard && setHover(false)}
           {...rest}
           /* eslint-disable */
           onClick={
