@@ -18,7 +18,7 @@ But what about the administrator who simply wants to either use a CLI or write v
 
 ## How to implement the use of the REST API
 
-In this post, I've outlined the steps required. First, you'll need to log into your [HPE GreenLake Portal](https://common.cloud.hpe.com/). Under the *Manage Account* option, you will see an option to configure API access.
+In this post, I've outlined the steps required. To learn more about the DSCC REST API, check out the post [here](https://developer.hpe.com/blog/api-console-for-data-services-cloud-console/). First, you'll need to log into your [HPE GreenLake Portal](https://common.cloud.hpe.com/). Under the *Manage Account* option, you will see an option to configure API access.
 
 ![](/img/hpe-powershell-blog1.png)
 
@@ -45,7 +45,7 @@ Once this has been created you will see a new screen that will show the Client_I
 Next, you need to download and install the DSCC PowerShell Toolkit. From any Microsoft Windows machine, open a PowerShell window, and type in the following commands:
 
 
-
+```powershell
 PS:> $PSTK = ‘[https://codeload.github.com/HPEDSCC-PowerShell-Toolkit-main.zip](https://codeload.github.com/HPEDSCC-PowerShell-Toolkit-main.zip%E2%80%99)’
 
 PS:> $FOLDER = 'C:\Windows\System32\WindowsPowerShell\v1.0\Modules'
@@ -53,14 +53,17 @@ PS:> $FOLDER = 'C:\Windows\System32\WindowsPowerShell\v1.0\Modules'
 PS:> invoke-webrequest -uri $PSTK -outfile “MyFile.zip" 
 
 PS:> expand-archive -path “MyFile.zip" -DestinationPath $FOLDER
+```
 
 As you can see, this little set of lines downloads the PowerShell Toolkit, which can also be found [here](https://github.com/HewlettPackard/HPEDSCC-PowerShell-Toolkit). It also unzips that folder into the Windows Modules folder so that it can later be found.
 
 Once this download and install is complete, you can Import the Module into your current session, and then connect to your HPE GreenLake DSCC service using the following commands:
 
+```powershell
 PS:> Import-Module HPEDSCC
 
 PS:> Connect-DSCC –Client_id ‘IdHere’ –Client_secret ‘Sercrethere’ –GreenLakeType Dev –AutoRenew
+```
 
 ![](/img/hpe-powershell-blog5.png)
 
@@ -70,9 +73,11 @@ The Connection command above is fairly straightforward, however there are a few 
 
 Once you have connected, you will notice that the returned data from each PowerShell Call is a true PowerShell Object, which can be explored. To get a list of all of the available commands, and then to get detailed help from any command, use the following commands.
 
+```powershell
 PS:> Get-Command – module DSCC
 
 PS:> Get-Help –Command New-DSCCInitiator – detailed
+```
 
 ![](/img/hpe-powershell-blog6.png)
 
@@ -90,7 +95,9 @@ Let's talk about Objects. When a PowerShell command returns data, you are presen
 
 The value here is, that to extract the value of any of these fields, you need not write any parser or process any data, you simply need to know the object layout. If you want to see the entire object in long form, you can use the following command to list out all of the fields instead of just the most common. Additionally, if you would rather read the details of an object in the same format as it comes from the REST API call, you can use the PowerShell built-in function to convert it to raw JSON format.
 
+```powershell
 PS:> $DATA | format-list
+```
 
 ![](/img/hpe-powershell-blog8.png)
 
@@ -98,11 +105,13 @@ PS:> $DATA | format-list
 
 Here, the objects are rather deep and you can get significantly more information than a GUI would present to you. You can dig into each object deeper and deeper using standard ‘DOT’ notation as shown below
 
+```powershell
 PS:> $DATA\[3].SystemWWN
 
 PS:> ( $DATA\[3].SoftwareVersions ).fullVersion
 
 PS:> ( $DATA\[3].SoftwareVersions ).Components
+```
 
 ![](/img/hpe-powershell-blog9.png)
 
@@ -124,7 +133,9 @@ You can also limit the results to only those with values such as all Volumes wit
 
 There may also exist the case where you may wish to see the raw JSON return that each call returns. The good news is that PowerShell Objects and JSON Objects are the same thing, and with slight formatting changes, you can use the following pipeline operation to convert any PowerShell Object to native JSON formatting.
 
+```powershell
 PS:> $DATA | ConvertTo-JSON
+```
 
 ![](/img/hpe-powershell-blog12.png)
 
@@ -160,4 +171,4 @@ With this information, you can replicate any call in either Python, CURL, or oth
 
 ## Get the free toolkit today to manage your storage like a pro
 
-The new HPE Data Services Cloud Console PowerShell Toolkit is a valuable innovation for managing the HPE Data Services Cloud Console. It leverages your familiarity with PowerShell to speed the management of HPE storage resources programmatically and at scale. You can download the toolkit for free [here ](https://github.com/HewlettPackard/HPEDSCC-PowerShell-Toolkit)on GitHub.
+The new HPE Data Services Cloud Console PowerShell Toolkit is a valuable innovation for managing the HPE Data Services Cloud Console. It leverages your familiarity with PowerShell to speed the management of HPE storage resources programmatically and at scale. You can download the toolkit for free [here](https://github.com/HewlettPackard/HPEDSCC-PowerShell-Toolkit) on GitHub.
