@@ -18,7 +18,7 @@ But what about the administrator who simply wants to either use a CLI or write v
 
 In this post, I've outlined the steps required. To learn more about the DSCC REST API, check out the post [here](https://developer.hpe.com/blog/api-console-for-data-services-cloud-console/). First, you'll need to log into your [HPE GreenLake Portal](https://common.cloud.hpe.com/). Under the *Manage Account* option, you will see an option to configure API access.
 
-![](/img/hpe-powershell-blog1.png)
+![](/img/powershell-manage-account-img.png)
 
 You can then create your new API account which allows you to granularly control your scripting environment. You are allowed up to 5 API Client credentials per GreenLake user account, and each API Client credential can be separately managed. A Client credential is made up of the combination of a Client_ID and a Client_Secret, which can be used to communicate with the Authentication server to obtain a valid session token. To generate these credentials, click on the appropriate button:
 
@@ -26,11 +26,11 @@ You can then create your new API account which allows you to granularly control 
 
 You will need to identify which Cloud you want to generate these credentials for, as well as a common name for the Credential for later identification.
 
-![](/img/hpe-powershell-blog3.png)
+![](/img/powershell-create-credentials-img.png)
 
 Once this has been created you will see a new screen that will show the Client_Id and Client_Secret. These will need to be recorded as once they are created and displayed to the user, there is no other way to retrieve them from the Cloud Console.
 
-![](/img/hpe-powershell-blog4.png)
+![](/img/powershell-credentials-created-img.png)
 
 Next, you need to download and install the DSCC PowerShell Toolkit. From any Microsoft Windows machine, open a PowerShell window, and type in the following commands:
 
