@@ -5,14 +5,13 @@ featuredBlog: false
 priority: null
 author: Dale Rensing
 authorimage: /img/blog-author-rensing-96.jpg
-thumbnailimage: null
+thumbnailimage: /img/munch-learn-2-at-224.png
 tags:
   - lunch
   - learn
   - munch
   - ezmeral-data-fabric
 ---
-![munch and learn](/img/munch-learn-2-at-224.png)
 
 ## HPE DEV launches its Munch & Learn technical talks
 
