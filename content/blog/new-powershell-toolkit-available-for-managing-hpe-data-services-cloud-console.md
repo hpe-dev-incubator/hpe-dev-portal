@@ -28,6 +28,9 @@ You will need to identify which Cloud you want to generate these credentials for
 
 ![](/img/powershell-create-credentials-img.png)
 
+>Note: In the above example image, the application selected is FLEETSCALE(US West). Please take a look at the article [here](https://developer.hpe.com/blog/api-console-for-data-services-cloud-console) for the supported DSCC Application instance and the end-points for each DSCC regions.
+
+
 Once this has been created you will see a new screen that will show the Client_Id and Client_Secret. These will need to be recorded as once they are created and displayed to the user, there is no other way to retrieve them from the Cloud Console.
 
 ![](/img/powershell-credentials-created-img.png)
