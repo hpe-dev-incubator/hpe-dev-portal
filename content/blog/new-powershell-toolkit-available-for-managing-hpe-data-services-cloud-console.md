@@ -22,7 +22,7 @@ In this post, I've outlined the steps required. To learn more about the DSCC RES
 
 You can then create your new API account which allows you to granularly control your scripting environment. You are allowed up to 5 API Client credentials per GreenLake user account, and each API Client credential can be separately managed. A Client credential is made up of the combination of a Client_ID and a Client_Secret, which can be used to communicate with the Authentication server to obtain a valid session token. To generate these credentials, click on the appropriate button:
 
-![](/img/hpe-powershell-blog2.png)
+![](/img/powershell-api-client-credentials-img.png)
 
 You will need to identify which Cloud you want to generate these credentials for, as well as a common name for the Credential for later identification.
 
