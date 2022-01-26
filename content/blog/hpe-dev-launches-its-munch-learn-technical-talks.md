@@ -12,7 +12,7 @@ tags:
   - munch
   - ezmeral-data-fabric
 ---
-![munch and learn](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/12/munch-and-learn-1608201560403.jpg)
+![munch and learn](/img/munch-learn-2-at-224.png)
 
 ## HPE DEV launches its Munch & Learn technical talks
 
