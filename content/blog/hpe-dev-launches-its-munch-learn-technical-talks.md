@@ -13,7 +13,6 @@ tags:
   - ezmeral-data-fabric
 ---
 
-## HPE DEV launches its Munch & Learn technical talks
 
 Here’s your opportunity to learn more about today’s most popular technologies and connect with some of the industry’s leading technical specialists. Held monthly by the HPE DEV community, the Munch & Learn technology talks are free, 60-minute sessions where subject matter experts (SMEs)  offer valuable insights and take your questions. Each month we will present a different topic, ranging from using containers to develop code to how to deploy data fabrics in AI and machine learning applications. We’ll cover a variety of technologies, including open source, Kubernetes, and <a href="https://www.hpe.com/us/en/ezmeral.html" target="_blank">HPE Ezmeral software</a>. To view each month’s topic and catch replays of previous sessions, check out our <a href="/blog/munch-and-learn" target="_blank">Munch & Learn calendar</a>.
 
