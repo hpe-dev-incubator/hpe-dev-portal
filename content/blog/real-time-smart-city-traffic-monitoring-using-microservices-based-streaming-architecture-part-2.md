@@ -1,7 +1,7 @@
 ---
 title: Real-time Smart City Traffic Monitoring Using Microservices-based
   Streaming Architecture (Part 2)
-date: 2021-10-12T02:21:16.357Z
+date: 2022-01-27T09:56:33.182Z
 author: Mathieu Dumoulin
 authorimage: /img/Avatar1.svg
 tags:
