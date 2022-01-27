@@ -4,7 +4,7 @@ dateStart: 2021-12-08T16:00:00.000Z
 dateEnd: 2021-12-08T18:00:00.000Z
 category: Virtual Event
 image: /img/munch-and-learn-event-card-white.jpg
-link: https://hpe.zoom.us/meeting/register/tJclcuugqD8rEtH4bVJeCI72Vn_6wnz9_g1z
+link: https://developer.hpe.com/campaign/munch-and-learn
 width: large
 tags:
   - ilo-restful-api
