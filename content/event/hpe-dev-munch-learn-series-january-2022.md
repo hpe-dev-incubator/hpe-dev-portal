@@ -4,7 +4,7 @@ dateStart: 2022-01-19T16:00:05.628Z
 dateEnd: 2022-01-19T17:15:05.665Z
 category: Virtual Event
 image: /img/munch-and-learn-event-card-white.jpg
-link: https://hpe.zoom.us/webinar/register/WN_JLPveMmYSOWd1Mn-7bU62Q
+link: https://developer.hpe.com/campaign/munch-and-learn
 width: large
 tags:
   - hpe-ezmeral-data-fabric
