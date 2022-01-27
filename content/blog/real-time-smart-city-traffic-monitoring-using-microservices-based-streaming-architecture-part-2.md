@@ -4,6 +4,8 @@ title: Real-time Smart City Traffic Monitoring Using Microservices-based
 date: 2021-10-12T02:21:16.357Z
 author: Mathieu Dumoulin
 authorimage: /img/Avatar1.svg
+tags:
+  - hpe-ezmeral-data-fabric
 ---
 ```json
 "authorDisplayName": "Mathieu Dumoulin",
@@ -15,7 +17,7 @@ authorimage: /img/Avatar1.svg
 
 ***Modern Open Source Complex Event Processing For IoT***
 
-This series of blog posts details my findings as I bring to production a fully modern take on Complex Event Processing, or CEP for short. In many applications, ranging from financials to retail and IoT applications, there is tremendous value in automating tasks that require to take action in real time. Putting aside the IT system and frameworks that would support this capability, this is clearly a useful capability.
+This series of blog posts details my findings as I bring to production a fully modern take on Complex Event Processing, or CEP for short. In many applications, ranging from financials to retail and IoT applications, there is tremendous value in automating tasks that require one to take action in real time. Putting aside the IT system and frameworks that would support this capability, this is clearly a useful capability.
 
 In the [first post of the series](https://developer.hpe.com/blog/better-complex-event-processing-at-scale-using-a-microservices-based-str/), I explain how CEP has evolved to meet this requirement and how the requirements for CEP can be met in a modern big data context. In short, I present an approach based on the best practices of modern architecture, microservices, and Kafka-style stream messaging, with an up-to-date open source business rule engine.
 
@@ -23,11 +25,11 @@ In this second part, I’ll get more concrete and work through a working example
 
 ## Smart City Traffic Monitoring
 
-We made a working demo for which the code will be released on the MapR GitHub. It is made to work on either the MapR Sandbox or using a real MapR cluster.
+We made a working demo for which the code will be released on the MapR GitHub. It is made to work on either the [MapR Sandbox](https://developer.hpe.com/blog/getting-started-with-spark-on-mapr-sandbox/) or using a real MapR cluster.
 
 For this example, we’ll use a very simple “smart city” use case for traffic monitoring. In this case, we’ll model a single sensor that can measure the speed of cars that pass on it. Using such sensor data, it would be fairly easy to detect traffic jams in real time, and thus notify the police to take action much more quickly than they otherwise could.
 
-![](/img/picture1.png)
+<img src="/img/picture1.png" width="900">
 
 Some other types of use cases are easy to envision. We can add data from a public, real-time weather feed and connect to information panels along the roads and show an advisory to drivers without any human intervention. By combining road condition sensors with the weather data, we can provide advisory feedback to drivers about road conditions and warn the public very quickly. Furthermore, by adding historical accident data and using predictive analytics, we can imagine road safety measures that can be deployed in real time to areas with a higher probability of accidents.
 
@@ -37,7 +39,7 @@ To be honest, I’m only scratching the surface of what this kind of smart road 
 
 So we now have a proper, concrete target in mind. It turns out that if we decide to base our system around reading our data from a Kafka-style stream (i.e., persistent, scalable, and high performance), then we will naturally end up with a pretty cool, modern CEP microservice.
 
-The important point here is not to show how to build a super complicated enterprise architecture, but rather that by making some simple technology choices and building our demo in a reasonable way, we **naturally end up with** this elegant, modern, and **simple architecture**.
+The important point here is not to show how to build a super complicated enterprise architecture, but rather that, by making some simple technology choices and building our demo in a reasonable way, we **naturally end up with** this elegant, modern, and **simple architecture**.
 
 For simplicity’s sake, I have decided to implement my prototype on a MapR Sandbox<sup>*</sup>. This is because it will include the stream messaging system, MapR Event Store, which I can use through the Kafka 0.9 API with very little configuration and know it will work the same on a production MapR 5.1+ cluster.
 
@@ -53,7 +55,7 @@ As shown in the diagram above, the flow is to have sensor data get aggregated to
 
 The consumer side will have two tasks: to read the data from the stream and host an instance of a KieSession where the rule engine can apply rules on the facts as they are added to it.
 
-Rules are edited in the Workbench GUI, a Java webapp which can be run on a Java application server such as <a target='\_blank'  href='http://wildfly.org/'>WildFly</a> or <a target='\_blank'  href='http://tomcat.apache.org/'>Tomcat</a>.
+Rules are edited in the Workbench GUI, a Java webapp that can be run on a Java application server such as <a target='\_blank'  href='http://wildfly.org/'>WildFly</a> or <a target='\_blank'  href='http://tomcat.apache.org/'>Tomcat</a>.
 
 Rules are fetched from the workbench by the consumer application using the appropriate methods provided by the Drools framework, which are entirely based on Maven Repository.
 
@@ -65,8 +67,7 @@ The technology we’re going to use is as follows:
 
 * MapR Sandbox 5.2
 * The Java programming language (any JVM language is fine)
-
-  * The Jackson 2 library to convert to and from JSON
+* The Jackson 2 library to convert to and from JSON
 * MapR Event Store or Apache Kafka stream messaging system
 * Wildfly 10 application server to host the Workbench
 * <a target='\_blank'  href='https://www.drools.org/'>JBoss Drools</a> as our choice of OSS business rule engine
@@ -85,7 +86,7 @@ To build the core of the traffic monitoring system, we’re going to need two ba
 * A program to feed sensor data into MapR Event Store/Kafka. This part will be using fake data modeled by a vehicle simulation coded with Log Synth. We’ll use the MapR <a target='\_blank'  href='http://docs.confluent.io/2.0.0/kafka-rest/docs/index.html'>Kafka-rest</a> proxy implementation (just introduced with MEP 2.0)  to add the data with Python.
 * A JVM-language application that will read data from the stream and pass it to a KieSession. The minimal code to get this working is surprisingly small.
 
-To edit the rules, we deploy the Workbench on Wildfly 10, which is a fairly straightforward process. <a target='\_blank'  href='http://betzelblog.blogspot.jp/2015/02/setting-up-drools-workbench-and.html'>Check this blog post</a> for instructions, or read the Drools Documentation. Installing Wildfly is pretty simple; <a target='\_blank'  href='http://developer-should-know.com/post/112230363742/how-to-install-wildfly-as-a-service-on-linux'>see this blog</a> for great instructions on how to install it as a service on Centos/RHEL (it’s for Wildfly, but the same instructions work for 9 and 10).
+To edit the rules, we deploy the Workbench on Wildfly 10, which is a fairly straightforward process. <a target='\_blank'  href='http://betzelblog.blogspot.jp/2015/02/setting-up-drools-workbench-and.html'>Check this blog post</a> for instructions, or read the Drools Documentation. Installing Wildfly is pretty simple; <a target='\_blank'  href='https://docs.wildfly.org/22/Installation_Guide.html'>see this article</a> for great instructions on how to install it as a service on Centos/RHEL (it’s for Wildfly, but the same instructions work for 9 and 10).
 
 We made a single configuration change to Wildfly. We changed the port to 28080 instead of 8080, as it is already used by the sandbox. Wildfly runs in standalone mode, so the configuration file is in WILDFLY_HOME/standalone/configuration/standalone.xml.
 
@@ -99,7 +100,7 @@ For production, all those parts can be readily separated to run on separate serv
 
 **Creating the Streams with maprcli**
 
-The first task is to create streams and topics for our application. To do this, it’s a best practice to create a volume for streams first. As user mapr, type from the command line:
+The first task is to create streams and topics for our application. To do this, it’s a best practice to create a volume for streams first. Acting as the user: `mapr`, type from the command line:
 
 ```python
 maprcli volume create -name streams -path /streams
@@ -109,7 +110,7 @@ maprcli stream topic create -path /streams/traffic -topic agenda
 maprcli stream topic create -path /streams/traffic -topic rule-runtime
 ```
 
-Note: MapR Event Store is more of a superset of Kafka than simply a clone. In addition to being faster, MapR Event Store can use all the advantages of the MapR Distributed File and Object Store, such as volumes (with permissions and quotas and so on) and replication. A cluster is not limited to just defining topics, but can define several streams which each can have several topics. Therefore, instead of a topic name, a MapR Stream has a `path:topic` notation. Here, our data stream’s full name is `“/streams/traffic:data”`.
+Note: MapR Event Store is more of a superset of Kafka than simply a clone. In addition to being faster, MapR Event Store can use all the advantages of the MapR Distributed File and Object Store, such as volumes (with permissions and quotas and so on) and replication. A cluster is not limited to just defining topics, but can define several streams that each can have several topics. Therefore, instead of a topic name, a MapR Stream has a `path:topic` notation. Here, our data stream’s full name is `“/streams/traffic:data”`.
 
 **Generating Fake Data**
 
@@ -186,7 +187,7 @@ The detect heavy traffic is the key rule we want to use to send an alarm to the 
 
 So when the average speed reaches 20 km/h or less, and the sensor isn’t already in the HEAVY traffic level, set the level to HEAVY and send an alert.
 
-Which means we need to know the average speed. Here is the rule to compute it using the Drools rule DSL (domain-specific language):
+This means we need to know the average speed. Here is the rule to compute it using the Drools rule DSL (domain-specific language):
 
 ![](/img/picture10.png)
 
@@ -256,7 +257,7 @@ The answer is with the `~/.m2/settings.xml` file, where you add this information
 </settings>
 ```
 
-The key information is in bold, which corresponds to the URL of the maven2 repository of the Drools workbench. This information can be copied and pasted from the pom.xml which can be seen by using the repository view:
+The key information is in bold, which corresponds to the URL of the maven2 repository of the Drools workbench. This information can be copied and pasted from the pom.xml, which can be seen by using the repository view:
 
 ![](/img/picture12.png)
 
