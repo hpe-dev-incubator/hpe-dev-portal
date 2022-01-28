@@ -1,6 +1,6 @@
 ---
 title: New PowerShell toolkit available for managing HPE Data Services Cloud Console
-date: 2022-01-24T17:28:23.581Z
+date: 2022-01-28T10:27:53.943Z
 author: Chris Lionetti
 authorimage: /img/Avatar5.svg
 ---
@@ -60,8 +60,8 @@ The Connection command above is fairly straightforward, however there are a few 
 Once you have connected, you will notice that the returned data from each PowerShell Call is a true PowerShell Object, which can be explored. To get a list of all of the available commands, and then to get detailed help from any command, use the following commands.
 
 ```powershell
-PS:> Get-Command – module DSCC
-PS:> Get-Help –Command New-DSCCInitiator – detailed
+PS:> get-command –module HPEDSCC
+PS:> get-help New-DSCCInitiator –Detailed
 ```
 
 ![](/img/powershell-codeblock-dscc-img2.png)
