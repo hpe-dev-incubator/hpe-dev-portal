@@ -39,11 +39,8 @@ Next, you need to download and install the DSCC PowerShell Toolkit. From any Mic
 
 ```powershell
 PS:> $PSTK = ‘[https://codeload.github.com/HPEDSCC-PowerShell-Toolkit-main.zip](https://codeload.github.com/HPEDSCC-PowerShell-Toolkit-main.zip%E2%80%99)’
-
 PS:> $FOLDER = 'C:\Windows\System32\WindowsPowerShell\v1.0\Modules'
-
 PS:> invoke-webrequest -uri $PSTK -outfile “MyFile.zip" 
-
 PS:> expand-archive -path “MyFile.zip" -DestinationPath $FOLDER
 ```
 
@@ -53,7 +50,6 @@ Once this download and install is complete, you can Import the Module into your 
 
 ```powershell
 PS:> Import-Module HPEDSCC
-
 PS:> Connect-DSCC –Client_id ‘IdHere’ –Client_secret ‘Sercrethere’ –GreenLakeType Dev –AutoRenew
 ```
 
@@ -65,7 +61,6 @@ Once you have connected, you will notice that the returned data from each PowerS
 
 ```powershell
 PS:> Get-Command – module DSCC
-
 PS:> Get-Help –Command New-DSCCInitiator – detailed
 ```
 
@@ -76,6 +71,12 @@ As you can see, each command has complete *Help* defined for it that includes th
 ## Objects are deeper than they may appear
 
 Let's talk about Objects. When a PowerShell command returns data, you are presented with a table of the many values that are most likely to be useful at a glance. However, most understand that PowerShell Objects are far deeper than they appear to be on the surface. To explore this, first you can cast the value of any returned object to a variable. You can initially only return one item instead of all items. But you can then dig into the value of any part of that object using a ‘dot’ notation. In many cases you will find that as you go deeper and deeper into the object, even more details emerge. Using the PowerShell Count feature, you can determine, as in the following example, that 8 records exist in the object, and you can walk through each object using square brackets as shown below:
+
+```powershell
+PS:> $DATA = Get-DSCCStorageSystem –DeviceType device-type1
+PS:> $DATA.Count
+PS:> $DATA
+```
 
 ![](/img/powershell-codeblock-dscc-img3.png)
 
@@ -91,9 +92,7 @@ Here, the objects are rather deep and you can get significantly more information
 
 ```powershell
 PS:> $DATA\[3].SystemWWN
-
 PS:> ( $DATA\[3].SoftwareVersions ).fullVersion
-
 PS:> ( $DATA\[3].SoftwareVersions ).Components
 ```
 
@@ -103,16 +102,29 @@ In addition to this object manipulation, you can also filter your results to see
 
 You can also work directly from the original command instead of casting the data to a variable. In the following example, you can limit the returned data to a single record using a search term such as an InitiatorID, or an IP Address, or you can limit the results to a sub-collection of results that that match a specific criteria such as iSCSI vs FC initiators. In the below example, you can see how using the ‘.count’ feature that the Get-DSCCInitiator command returns 202 results, however by filtering the results to only return those with Protocol type ‘ISCSI’ it decreases this count to 22. Running the same command without the ‘.count’ option returns the actual object collection.
 
+```powershell
+PS:> ( Get-DSCCInitiator ).count
+PS:> ( Get-DSCCInitiator ) | where { $_.protocol –like ‘ISCSI’ } ).count
+PS:> ( Get-DSCCInitiator ) | where { $_.protocol –like ‘ISCSI’ } )
+```
+
 ![](/img/powershell-codeblock-dscc-img6.png)
 
 You can also limit the results to only those with values such as all Volumes with a Free Space greater than a specific value. You may also chain these pipelines to add additional filters as well. In this case, you may want to filter a Volume list by size, but then filter that list again by additional criteria. In the example below, you can see it's been filtered again to limit the results to a single Storage System ID.
+
+```powershell
+PS:> ( Get-DSCCStorageSystem –DeviceType device-type1 | Get-DSCCVolume ).count
+PS:> ( Get-DSCCStorageSystem –DeviceType device-type1 | Get-DSCCVolume | where { $_.sizeMiB –gt 524000 } ).count
+PS:>   Get-DSCCStorageSystem –DeviceType device-type1 | Get-DSCCVolume | where { $_.sizeMiB –gt 524000 } 
+```
 
 ![](/img/powershell-codeblock-dscc-img7.png)
 
 There may also exist the case where you may wish to see the raw JSON return that each call returns. The good news is that PowerShell Objects and JSON Objects are the same thing, and with slight formatting changes, you can use the following pipeline operation to convert any PowerShell Object to native JSON formatting.
 
 ```powershell
-PS:> $DATA | ConvertTo-JSON
+PS:> ( Get-DSCCStorageSystem –DeviceType device-type1 )[1]
+PS:> ( Get-DSCCStorageSystem –DeviceType device-type1 )[1] | ConvertTo-JSON
 ```
 
 ![](/img/powershell-codeblock-dscc-img8.png)
@@ -123,9 +135,20 @@ You may have noticed in the example that, when I make calls to Storage Systems I
 
 Another interesting trick of the toolkit is that many of the commands support discovery mode. For example, if you want to get the details of a specific storage system, you would run the command shown below.  But how do you find the required Storage System ID? That’s easy – you run the command without the System ID specified, in which case it will discover all of the Storage Systems and return that data.
 
+```powershell
+PS:> Get-DSCCStorageSystem –DeviceType device-type1
+PS:> Get-DSCCStorageSystem –DeviceType device-type1 –SystemId ‘2M2042059T’
+```
+
 ![](/img/powershell-codeblock-dscc-img9.png)
 
 Another very useful tip is to accept pipeline input for some variables; i.e. the command to obtain a Storage Systems Controller Nodes require the System ID to query against; but If I want ALL of the Controller Nodes, I can discover them by using the first command to feed the system ID to the second command. Optionally you could request the Controller if you know the Storage System ID.
+
+```powershell
+PS:> Get-DSCCStorageSystem –DeviceType device-type1 –SystemId ‘2M2042059T’ 
+PS:> Get-DSCCStorageSystem –DeviceType device-type1 –SystemId ‘2M2042059T’ | Get-DSCCController
+PS:> Get-DSCCStorageSystem –DeviceType device-type1 | Get-DSCCController
+```
 
 ![](/img/powershell-codeblock-dscc-img10.png)
 
@@ -134,6 +157,10 @@ Another very useful tip is to accept pipeline input for some variables; i.e. the
 Now that you are an expert at using the Toolkit, let’s see how you can use it to help you better understand the RestAPI model, in addition to the embedded help, Examples, and JSON conversion.
 
 This would include a feature of all commands implemented as a switch called ‘-WHATIF’. By adding a ‘-whatif’ option to any command, you can see all the details of what is going to be sent to the RestAPI endpoint, including the URI, the Header, the method, connection type, and Body if one exists. Below is the example of this type of data.
+
+```powershell
+PS:> New-DSCCInitiator –address ‘deadbeefdeadbeeddeadbeef’ –hbaModel ‘LPe12002 –hostSpeed 10000 –ipAddress ’10.10.10.1’ –name    ‘MyInit’ –protocol iSCSI –vendor ‘Emulex’ -whatif
+```
 
 ![](/img/powershell-codeblock-dscc-img11.png)
 
