@@ -64,7 +64,8 @@ function Role({ data, location }) {
         <Paragraph size="large">
           Software is at the heart of everything we do. No matter your role,
           you’ll find resources and tools to assist you in building the best
-          possible experience for your customers – from edge to cloud.
+          possible experience for your customers – from edge to cloud. Click on
+          the cards below to learn more.
         </Paragraph>
       </PageDescription>
       <SectionHeader>

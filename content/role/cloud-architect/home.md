@@ -1,6 +1,6 @@
 ---
 title: Cloud Architect
-description:
+description: Innovators leveraging new tech for what comes next
 image: /img/role/cloud-architect.png
 width: large
 priority: 7
