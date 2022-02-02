@@ -415,7 +415,7 @@ const Home = () => {
               <Image
                 width="100%"
                 fit="cover"
-                src="/img/hackshack/hack-shack-dve-logo.png"
+                src="/img/hackshack/hack-shack-logo.png"
                 alt="Hack Shack"
               />
             </LogoWrapper>

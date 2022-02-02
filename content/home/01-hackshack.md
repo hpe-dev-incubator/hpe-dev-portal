@@ -3,7 +3,7 @@ title: HPE DEV Hack Shack
 width: large
 category: Event
 priority: 1
-image: /img/home/hack-shack-dve-logo.svg
+image: /img/home/hack-shack-logo-sm.png
 link: /hackshack/
 ---
 ## HPE DEV Hack Shack
