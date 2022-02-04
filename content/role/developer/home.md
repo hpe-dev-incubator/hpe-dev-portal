@@ -20,7 +20,7 @@ Every software developer, computer programmer, software engineer, and coder shar
 
 Here, we cover the latest software trends, new programming languages, and new techniques and methodologies to help you improve the way you build software for your customers – whether it’s through open source projects or commercial offerings. 
 
-The role of the Developer may overlap with other roles like the Data-driven Developer or even the Data Scientist. On this page, we focus on developers who build the applications that generate data, which Data Scientists can use to support business outcomes.
+The role of the Developer may overlap with other roles like the [Data-driven Developer](https://developer.hpe.com/role/data-driven-developer/home/) or even the [Data Scientist](https://developer.hpe.com/role/data-scientist/home/). On this page, we focus on developers who build the applications that generate data, which Data Scientists can use to support business outcomes.
 
 <br>
 <hr style="background: #7630EA; height: 5px; border: none">
@@ -43,14 +43,14 @@ The role of the Developer may overlap with other roles like the Data-driven Deve
 
 <div class="row">
   <div class="column">
-    - Bringing UX designers into a project early can significantly improve your chances of success. Read [Read Wow – A practiced and perfected design process.](https://developer.hpe.com/blog/wow-a-practiced-and-perfected-design-process-part-1-uncovering-the-merit/)
+    - Bringing UX designers into a project early can significantly improve your chances of success. Read [Wow – A practiced and perfected design process.](https://developer.hpe.com/blog/wow-a-practiced-and-perfected-design-process-part-1-uncovering-the-merit/)
 
-    - Implementing validated designs isn’t always easy. See how [HPE DesignSystem](https://design-system.hpe.design/), based on open source grommet, can help you get there faster and easier.
+    - Implementing validated designs isn’t always easy. See how [HPE DesignSystem](https://design-system.hpe.design/), based on open source Grommet, can help you get there faster and easier.
   </div>
   <div class="column">
     - Learn how to migrate an existing application by reading [Deploying Complex Stateful Applications on Kubernetes with KubeDirector](https://developer.hpe.com/blog/deploying-complex-stateful-applications-on-kubernetes-with-kubedirector/) or [Best Practices for Migrating Your Apps to Containers and Kubernetes](https://developer.hpe.com/blog/best-practices-for-migrating-your-apps-to-containers-and-kubernetes/)
 
-    - Read [Introducing a multi-vendor CSI driver for Kubernetes](https://developer.hpe.com/blog/introducing-a-multi-vendor-csi-driver-for-kubernetes/) and [Using Raw Block and Ephemeral Inline Volumes on Kubernetes](https://developer.hpe.com/blog/using-raw-block-and-ephemeral-inline-volumes-on-kubernetes/) to learn how to leverage the CSI driver for persistent storage for your applications.
+    - Read [Introducing a multi-vendor CSI driver for Kubernetes](https://developer.hpe.com/blog/introducing-a-multi-vendor-csi-driver-for-kubernetes/) and [Using Raw Block and Ephemeral Inline Volumes on Kubernetes](https://developer.hpe.com/blog/using-raw-block-and-ephemeral-inline-volumes-on-kubernetes/) to learn how to leverage the CSI driver for persistent storage for your applications
   </div>
 </div>
 
@@ -81,7 +81,6 @@ The role of the Developer may overlap with other roles like the Data-driven Deve
 
     - [Discover some of the more recently added SPIFFE/SPIRE capabilities](https://developer.hpe.com/blog/top-13-capabilities-within-spiffe-and-spire-released-in-2019/)
 
-    - [Learn more about this open source project](https://developer.hpe.com/platform/spiffe-and-spire-projects/home/)
   </div>
 </div>
 
@@ -109,8 +108,6 @@ The role of the Developer may overlap with other roles like the Data-driven Deve
 
 - Learn about the CNCF project, [SPIFFE/SPIRE](https://developer.hpe.com/platform/spiffe-and-spire-projects/home/), and how to achieve zero-trust security for your application
 
-- [Read about the top capabilities SPIFFE/SPIRE project provides](https://developer.hpe.com/blog/top-13-capabilities-within-spiffe-and-spire-released-in-2019/)
-
 - [Join the SPIFFE/SPIRE community](https://slack.spiffe.io/)
 
 **How can I deploy my stateful application on my modern Kubernetes platform?**
@@ -121,15 +118,13 @@ The role of the Developer may overlap with other roles like the Data-driven Deve
 
 **How can I focus more about the application, and less about the data?**
 
-- Simplify using and sharing your data with a common infrastructure
-
-- [Read the eBook](https://www.hpe.com/us/en/resources/software/ai-and-analytics-systems.html)
+- [Read the eBook](https://www.hpe.com/us/en/resources/software/ai-and-analytics-systems.html) to learn how to Simplify using and sharing your data with a common infrastructure
 
 - Make sure you check our [HPE Ezmeral Data Fabric platform](https://developer.hpe.com/platform/hpe-ezmeral-data-fabric/home/) pages.
 
 **How do you handle collaboration and sharing of code in your organization?**
 
-Mastering Git (and GitHub, GitLab, …) is a key element of the modern developer toolkit and mandatory for being a contributor or consumer of open source projects. We have designed this series of blog which help with Git wizardry: 
+Mastering Git (including GitHub, GitLab, etc.) is a key element of the modern developer toolkit and mandatory for being a contributor or consumer of open source projects. We have designed this series of blog posts which help with Git wizardry: 
 
 - [Get started with Git and get involved in the open source community](https://developer.hpe.com/blog/get-involved-in-the-open-source-community-part-1-getting-started-with-git/)
 
@@ -218,9 +213,16 @@ Mastering Git (and GitHub, GitLab, …) is a key element of the modern developer
 
 <div class="row">
   <div class="column">
+    Ping us with your comments, questions, and requests for information. We recommend starting with the HPE DEV Slack workspace.
 
-    Ping us with your comments, questions, and requests for information. We recommend starting with the HPE DEV Slack workspace: [HPE Dev Slack](https://slack.hpedev.io/). But you can also join project specific Slack workspace and meet other subject matter experts on the [Grommet Slack](https://grommet.slack.com/)or on the [Chapel Discourse Forum](https://chapel.discourse.group/latest).
+  </div>
+  <div class="column">
 
-     
-  </div> 
+    - [HPE Dev Slack](https://slack.hpedev.io/)
+
+    - [Grommet Slack](https://grommet.slack.com/)
+
+    - [Chapel Discourse Forum](https://chapel.discourse.group/latest)
+
+  </div>
 </div>
