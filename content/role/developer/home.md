@@ -118,13 +118,13 @@ The role of the Developer may overlap with other roles like the [Data-driven Dev
 
 **How can I focus more about the application, and less about the data?**
 
-- [Read the eBook](https://www.hpe.com/us/en/resources/software/ai-and-analytics-systems.html) to learn how to Simplify using and sharing your data with a common infrastructure
+- [Read the eBook](https://www.hpe.com/us/en/resources/software/ai-and-analytics-systems.html) to learn how to simplify using and sharing your data with a common infrastructure
 
-- Make sure you check our [HPE Ezmeral Data Fabric platform](https://developer.hpe.com/platform/hpe-ezmeral-data-fabric/home/) pages.
+- Make sure you check our [HPE Ezmeral Data Fabric platform](https://developer.hpe.com/platform/hpe-ezmeral-data-fabric/home/) pages
 
 **How do you handle collaboration and sharing of code in your organization?**
 
-Mastering Git (including GitHub, GitLab, etc.) is a key element of the modern developer toolkit and mandatory for being a contributor or consumer of open source projects. We have designed this series of blog posts which help with Git wizardry: 
+Mastering Git (including GitHub, GitLab, etc.) is a key element of the modern developer toolkit and mandatory for being a contributor or consumer of open source projects. We have designed this series of blog posts to help with Git wizardry: 
 
 - [Get started with Git and get involved in the open source community](https://developer.hpe.com/blog/get-involved-in-the-open-source-community-part-1-getting-started-with-git/)
 
@@ -218,7 +218,7 @@ Mastering Git (including GitHub, GitLab, etc.) is a key element of the modern de
   </div>
   <div class="column">
 
-    - [HPE Dev Slack](https://slack.hpedev.io/)
+    - [HPE DEV Slack](https://slack.hpedev.io/)
 
     - [Grommet Slack](https://grommet.slack.com/)
 
