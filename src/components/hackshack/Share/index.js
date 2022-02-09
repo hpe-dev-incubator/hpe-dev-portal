@@ -33,7 +33,9 @@ const Share = ({ replayId, workshop }) => {
         onClick={() => {
           /* eslint-disable no-unused-expressions */
           workshop
-            ? navigator.clipboard.writeText(`${origin}/workshop/${replayId}`)
+            ? navigator.clipboard.writeText(
+                `${origin}/hackshack/workshop/${replayId}`,
+              )
             : navigator.clipboard.writeText(window.location.href);
           /* eslint-enable no-unused-expressions */
           setToolTip('Copied!');
