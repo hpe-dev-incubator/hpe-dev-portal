@@ -11,7 +11,7 @@ Machine learning (ML) is exploding in popularity, and, as it does, ML tooling is
 Kubernetes is one of the most important pieces of software produced in the last decade and one of the most influential open source projects ever. It was built by software engineers specifically for software engineers to orchestrate containers in the new cloud-native/DevOps paradigm and has completely revolutionized how applications are developed and how infrastructure is deployed and managed. Given the ease of being able to spin up and down a service, developers now have easier access to more GPU time, resulting in an increased popularity of computationally-demanding applications like deep learning (DL).
 As a result, however, the tools that have been developed to train DL models require data scientists to use and understand Kubernetes. If you look at the knowledge base of a data scientist versus a software engineer, you’ll understand why there are two different titles. The few whose skills overlap are considered unicorns… those that can be found are few and far between.
 
-![](/img/updated-unicorns-picture.png)
+<center><img src="/img/updated-unicorns-picture-smaller.png"><center>
 
 If you happen to be a Unicorn, congratulations! You can use your magic to wield Kubernetes and Deep Learning together and build something beautiful. The rest of us, though, get pretty annoyed when we need to dive deep into computer systems engineering before we can make progress developing new ML models. The crazy thing is, this hassle is completely avoidable! We just need to start developing **ML tools built for data scientists, not software engineers**.
 
