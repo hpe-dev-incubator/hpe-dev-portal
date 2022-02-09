@@ -8,7 +8,7 @@ Machine learning (ML) is exploding in popularity, and, as it does, ML tooling is
 
 ## Here’s the problem – Kubernetes
 
-Kubernetes is one of the most important pieces of software produced in the last decade and one of the most influential open source projects ever. It was built by software engineers specifically for software engineers to orchestrate containers in the new cloud-native/DevOps paradigm and has completely revolutionized how applications are developed and how infrastructure is deployed and managed. Given the ease of being able to spin up and down a service, developers now have easier access to more GPU time, resulting in an increased popularity of computationally-demanding applications like deep learning (DL).
+Kubernetes is one of the most important pieces of software produced in the last decade and one of the most influential open source projects ever. It was ***built by software engineers specifically for software engineers*** to orchestrate containers in the new cloud-native/DevOps paradigm and has completely revolutionized how applications are developed and how infrastructure is deployed and managed. Given the ease of being able to spin up and down a service, developers now have easier access to more GPU time, resulting in an increased popularity of computationally-demanding applications like deep learning (DL).
 
 As a result, however, the tools that have been developed to train DL models require data scientists to use and understand Kubernetes. If you look at the knowledge base of a data scientist versus a software engineer, you’ll understand why there are two different titles. The few whose skills overlap are considered unicorns… those that can be found are few and far between.
 
