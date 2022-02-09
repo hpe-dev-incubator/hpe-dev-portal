@@ -3,6 +3,10 @@ title: Writing Deep Learning tools for all Data Scientists, Not Just Unicorns
 date: 2022-02-11T15:45:26.028Z
 author: By Neil Conway and Alex Putnam
 authorimage: /img/Avatar1.svg
+thumbnailimage: /img/updated-unicorns-picture-smaller.png
+tags:
+  - determined-ai
+  - HPC
 ---
 Machine learning (ML) is exploding in popularity, and, as it does, ML tooling is frantically trying to keep up. Tools for everything you can imagine are popping up: data versioning, experiment tracking, model serving, and, yes, even tools to help ML run on Kubernetes. Although some projects are more popular than others, given the newness of this space, there are no clear winners yet and no one has yet established the perfect set of software to enable and accelerate ML.
 
@@ -26,6 +30,7 @@ That initial version of Kubeflow is now the Kubeflow component called [TFJob](ht
 
 ***Write a Kubernetes TFJob manifest.*** This might not sound that intimidating, but for a data scientist not fluent in Kubernetes it can be a daunting task. To do this well, you’ll need to learn a lot about Kubernetes — a far cry from the Python that these scientists are used to. Let’s look at the *most simple version of this, from the Kubeflow docs*:
 
+```yaml
 apiVersion: kubeflow.org/v1
 kind: TFJob
 metadata:
@@ -67,6 +72,7 @@ spec:
               - trainer.task
               - --batch_size=32
               - --training_steps=1000
+```
 
 This configuration file is **full** of concepts that are foreign to most data scientists. Pods, replicas, sidecars, restart policies, Kubernetes APIs — all of this is confusing, complex, and detracts from our ability to focus on data science.
 
@@ -92,6 +98,7 @@ Abstractions here can help. Abstractions make it possible to perform high-perfor
 
 Compare a Determined configuration file to the TFJob configuration above:
 
+```yaml
 description: cifar10_pytorch
 hyperparameters:
   learning_rate: 1e-4
@@ -107,6 +114,7 @@ searcher:
   max_length:
     epochs: 32
 entrypoint: model_def:CIFARTrial
+```
 
 This configuration accomplishes essentially the same goal — describing an ML training workflow. The big difference is that this configuration is *written in the language of data scientists*, with complicated infrastructure concepts abstracted away using terms they are comfortable with, like hyperparameters, epochs, metrics, etc.
 
