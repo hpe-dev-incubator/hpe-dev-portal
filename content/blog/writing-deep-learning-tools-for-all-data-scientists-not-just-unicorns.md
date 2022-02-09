@@ -79,7 +79,7 @@ If you look at some of the other components of Kubeflow, you’ll find similar p
 
 One fascinating thing about Kubeflow is that some of the components of Kubeflow have clearly figured this out and realized that we can do better! The best example is **Kubeflow Pipelines** (KFP). The core underlying technology of Kubeflow Pipelines is [Argo Workflows](https://github.com/argoproj/argo), which are very similar to TFJob, providing a way to declare workflows in Kubernetes. **Kubeflow Pipelines** goes the crucial extra step of providing a Domain Specific Language that allows data scientists to write pipelines *in Python*! The builders of KFP realized that building containers and writing Kubernetes manifests wasn’t how data scientists wanted to interact with their work, so they ***abstracted away the k8s*** and made a tool that data scientists love.
 
-## Where do we go from here? 
+## Where do we go from here?
 
 The key to providing ML practitioners with tools they’ll actually use is to truly understand them – what they like and dislike about their workflows – and then enhancing what they like and slicing out what they don’t. ML tools should allow data scientists to accomplish more with less work. When developing tools for data scientists, it’s important to avoid thinking about them as software engineers, and instead build tools that allow ML people to build, train, and deploy ML models without needing to become DevOps experts. 
 
@@ -90,3 +90,27 @@ Abstractions here can help. Abstractions make it possible to perform high-perfor
 [Determined AI](https://developer.hpe.com/platform/determined-ai/home/) accomplishes many of the same goals as a tool like Kubeflow — allowing scientists to build and train deep learning models on Kubernetes (or any hardware, really), but without expecting data scientists to master countless new technologies along the way.
 
 Compare a Determined configuration file to the TFJob configuration above:
+
+description: cifar10_pytorch
+hyperparameters:
+  learning_rate: 1e-4
+  learning_rate_decay: 1e-6
+  layer1_dropout: 0.25
+  layer2_dropout: 0.25
+  layer3_dropout: 0.5
+  global_batch_size: 32
+records_per_epoch: 50000
+searcher:
+  name: single
+  metric: validation_error
+  max_length:
+    epochs: 32
+entrypoint: model_def:CIFARTrial
+
+This configuration accomplishes essentially the same goal — describing an ML training workflow. The big difference is that this configuration is *written in the language of data scientists*, with complicated infrastructure concepts abstracted away using terms they are comfortable with, like hyperparameters, epochs, metrics, etc.
+
+This means that users can do more with less. Instead of having to learn Kubernetes or configure a cluster of machines to work with Horovod, they simply need to install Determined and describe experiments with their own terms. Determined unlocks incredibly powerful tools like [distributed training](https://www.determined.ai/blog/faster-nlp-with-deep-learning-distributed-training/), [hyperparameter search](https://www.determined.ai/blog/why-does-no-one-use-advanced-hp-tuning/), and experiment tracking, without placing extra burden on the user to understand what is happening behind the scenes. Determined has carefully built [powerful abstractions that allow data scientists to focus on science](https://www.determined.ai/blog/standardized-models-with-determined/), and not engineering, systems, and infrastructure.
+
+To see it in action, [start with our quick start guide](https://docs.determined.ai/latest/tutorials/quick-start.html)! Determined is open source, so you can see how we do it in our [GitHub repository](https://github.com/determined-ai/determined).
+
+If you have any questions along the way, [hop on our community Slack](https://join.slack.com/t/determined-community/shared_invite/zt-cnj7802v-KcVbaUrIzQOwmkmY7gP0Ew); we’re happy to help!
