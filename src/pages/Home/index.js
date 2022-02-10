@@ -103,6 +103,7 @@ const Home = ({ data }) => {
               link={node.frontmatter.link}
               image={node.frontmatter.image}
               reverse={node.frontmatter.reverse}
+              title={node.frontmatter.title}
             />
           ))}
       </Box>
@@ -201,6 +202,7 @@ export const pageQuery = graphql`
             category
             link
             image
+            title
           }
           rawMarkdownBody
         }

@@ -60,7 +60,7 @@ Their teaching practice is based on experimentation first and introducing theory
 
 
 
-Before working on a concrete example of code contribution, I had the students refresh their Git knowledge of using Git as a base tool for project contribution using the [Git 101 Workshop-on-Demand](https://hackshack.hpedev.io/workshop/17). I also used the [API 101 Workshop-on-Demand](https://hackshack.hpedev.io/workshop/9) to teach them what an API is and how they could interact with a tool providing one. As the [Hack Shack portal](https://hackshack.hpedev.io/) is easily accessible to everybody, I used it to support my training sessions.
+Before working on a concrete example of code contribution, I had the students refresh their Git knowledge of using Git as a base tool for project contribution using the [Git 101 Workshop-on-Demand](/hackshack/workshop/17). I also used the [API 101 Workshop-on-Demand](/hackshack/workshop/9) to teach them what an API is and how they could interact with a tool providing one. As the [Hack Shack portal](/hackshack/) is easily accessible to everybody, I used it to support my training sessions.
 
 
 

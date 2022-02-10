@@ -4,6 +4,13 @@
   functions = "functions"
   publish = "public"
 
+[context.deploy-preview.environment]
+  GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT = "https://hackshackondemand.hpedev.io"
+[context.staging.environment] # 'staging' is a branch name
+  GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT = "https://hackshackondemand.hpedev.io"
+[context.testing.environment]
+  GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT = "https://hackshackdevtest.hpedev.io"
+
 # Secure website with browser security headers
 [[headers]]
   for = "/*"
