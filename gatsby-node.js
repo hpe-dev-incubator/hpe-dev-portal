@@ -2,6 +2,7 @@
 const fs = require('fs');
 const path = require('path');
 const axios = require('axios');
+const fetch = require('node-fetch');
 require('dotenv').config();
 
 const { createFilePath } = require('gatsby-source-filesystem');
@@ -416,7 +417,6 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
   ]);
 };
 
-const fetch = require('node-fetch');
 const { GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT } = process.env;
 exports.sourceNodes = async ({
   actions: { createNode },

@@ -25,8 +25,8 @@ const sortReplays = (replayData, current) => {
 };
 
 const Replays = (props) => {
-// eslint-disable-next-line react/prop-types
-const metaData = props.data && props.data.example.data;
+  // eslint-disable-next-line react/prop-types
+  const metaData = props.data && props.data.example.data;
   const { GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT } = process.env;
   // eslint-disable-next-line max-len
   const getReplaysApi = `${GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/replays?active=true`;
@@ -174,17 +174,16 @@ Replays.propTypes = {
 
 export default Replays;
 
-
 export const pageQuery = graphql`
   query {
     example {
-    data {
-      title
-      desc
-      workshop {
-        workshopImg
+      data {
+        title
+        desc
+        workshop {
+          workshopImg
+        }
       }
     }
-  }
   }
 `;
