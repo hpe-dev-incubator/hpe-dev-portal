@@ -16,12 +16,12 @@ We first offered this hands-on experience at technology events sponsored by Hewl
 <br/>
 Their success indicates that Jupyter Notebook-based workshops should have a life that extends beyond the individual events for which they were created. As such, we have made a number of decisions relative to these workshops and how they’ll continue to be made available to the HPE Developer Community going forward. Here's what we have decided to do:
 
-* Keep the virtual, online [Hack Shack](https://hackshack.hpedev.io) open between events
+* Keep the virtual, online [Hack Shack](/hackshack) open between events
 * Create workshops that can be deployed on-demand
 * Maintain a library of Jupyter Notebooks that have been developed for these workshops
 <br/>
     
-Because people were only just starting to learn about our virtual workshops, we saw that there was an important need to keep [the HPE Hack Shack](https://hackshack.hpedev.io) open between events we support. We will continue to customise and roll it out at upcoming venues, like we just did for KubeCon EMEA and we plan to do for KubeCon NA, but between events the experience will remain in place online, offering workshop replays, code challenges, an arcade section, and more.    
+Because people were only just starting to learn about our virtual workshops, we saw that there was an important need to keep [the HPE Hack Shack](/hackshack) open between events we support. We will continue to customise and roll it out at upcoming venues, like we just did for KubeCon EMEA and we plan to do for KubeCon NA, but between events the experience will remain in place online, offering workshop replays, code challenges, an arcade section, and more.    
 
 We also determined that it would be important to make our workshops available on-demand. On-demand versions will start to be rolled out this fall.  Stay tuned for an announcement of the pilot program.    
 

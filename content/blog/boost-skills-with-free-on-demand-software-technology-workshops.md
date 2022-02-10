@@ -16,11 +16,11 @@ It is in this spirit that the HPE DEV team is making their highly popular Jupyte
 
 These on-demand workshops offer students an understanding of specific technologies through a hands-on experience guided by a subject matter expert (SME) and detailed instructions provided in a Jupyter Notebook format. Students will have access to other SMEs through Slack should any questions arise during their session. In this blog post, I’ll cover the details of this learning-on-demand program.
 
-Unlike the video [replays](https://hackshack.hpedev.io/replays/0) found on the [HPE DEV Hack Shack](https://hackshack.hpedev.io/), these on-demand workshops will allow students to interact with the Jupyter Notebook and get hands-on experience with coding practices. Students will have 4 hours to go through the course, which includes time to review the video replay, follow the Jupyter Notebook instructions, and save their work to their local laptop should they want to do more work in their own environment or retake the workshop. They’ll also be able to connect with SMEs through off-line support. For those who are new to the topic being covered, it is recommended you watch the corresponding [video replay](https://hackshack.hpedev.io/replays/0) first and then sign up for the course.
+Unlike the video [replays](/hackshack/replays/0) found on the [HPE DEV Hack Shack](/hackshack/), these on-demand workshops will allow students to interact with the Jupyter Notebook and get hands-on experience with coding practices. Students will have 4 hours to go through the course, which includes time to review the video replay, follow the Jupyter Notebook instructions, and save their work to their local laptop should they want to do more work in their own environment or retake the workshop. They’ll also be able to connect with SMEs through off-line support. For those who are new to the topic being covered, it is recommended you watch the corresponding [video replay](/hackshack/replays/0) first and then sign up for the course.
 
 ## How it works
 
-Those who wish to enroll in the workshop should go to the [Hack Shack](https://hackshack.hpedev.io/) and navigate to the **Workshops** page. From there, select which on-demand workshop you want to take and click on the **Register** button:
+Those who wish to enroll in the workshop should go to the [Hack Shack](/hackshack/) and navigate to the **Workshops** page. From there, select which on-demand workshop you want to take and click on the **Register** button:
 
 
 ![navigate register button](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/7/navigate-register-button-1600260600088.png)
@@ -79,4 +79,4 @@ At the end of the workshop, you will receive a final email indicating that the w
 
 To receive SME assistance through our [workshop Slack channel](https://hpedev.slack.com/archives/C01B60X8SSD), make sure you join the [workspace](https://slack.hpedev.io/). We staff the channel to answer questions between 4 am and 4 pm EST Monday through Friday. You may wish to ensure you schedule the timing of your course between those hours if you think you’ll have questions or need additional help.
 
-There will be a limited number of seats available. These seats will be filled on a first-come/first-serve basis. We look forward to the opportunity of offering these workshops to you. Remember to [check the Hack Shack workshops library](https://hackshack.hpedev.io/workshops) regularly for any further updates.
+There will be a limited number of seats available. These seats will be filled on a first-come/first-serve basis. We look forward to the opportunity of offering these workshops to you. Remember to [check the Hack Shack workshops library](/hackshack/workshops) regularly for any further updates.

@@ -57,9 +57,9 @@ The HPE DEV Munch & Learn Technology Talks are monthly community meetups where y
 * [How to make data consumable for real-world data science](https://www.youtube.com/watch?v=4WKjRqflF7M)
 
 ## Workshops-on-Demand
-The [HPE DEV Workshops-on-Demand](https://hackshack.hpedev.io/workshops) are free, Jupyter Notebook-based workshops that offer an in-depth, hands-on learning experience. Explore details of a technology by interacting with it. Designed to fit your schedule, these workshops are available 24/7 – from anywhere at any time. Check out these interesting HPE Ezmeral Data Fabric workshops:
+The [HPE DEV Workshops-on-Demand](/hackshack/workshops) are free, Jupyter Notebook-based workshops that offer an in-depth, hands-on learning experience. Explore details of a technology by interacting with it. Designed to fit your schedule, these workshops are available 24/7 – from anywhere at any time. Check out these interesting HPE Ezmeral Data Fabric workshops:
 
-* [HPE Ezmeral Data Fabric 101 – Get to know the basics around the data fabric](https://hackshack.hpedev.io/workshop/26)
+* [HPE Ezmeral Data Fabric 101 – Get to know the basics around the data fabric](/hackshack/workshop/26)
 
 ## Blog articles and tutorials
 The HPE DEV blog offers many articles and tutorials to help you learn about data fabric and build data pipelines that deliver you the data you need, where and when you need it. Explore our rich library of articles:

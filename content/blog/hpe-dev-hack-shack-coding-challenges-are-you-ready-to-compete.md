@@ -10,7 +10,7 @@ thumbnailimage:
 ---
 ![coding challenge](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/10/coding-challenge-1604080946671.png)
 
-I am really excited to announce that we have created a new community activity for you – the HPE DEV Hack Shack Coding Challenges. Typically we ran these challenges and physical events, but, because they became so popular, we are now providing them virtually. HPE DEV will post a coding challenge in the [Hack Shack](https://hackshack.hpedev.io/) for the community to solve, offering cool prizes to those whose solution is chosen as the winner of the challenge.   Submissions will be judged on technical achievement and completeness of the code and quiz answers. Winners will be notified and will be able to choose a prize from a given catalog. 
+I am really excited to announce that we have created a new community activity for you – the HPE DEV Hack Shack Coding Challenges. Typically we ran these challenges and physical events, but, because they became so popular, we are now providing them virtually. HPE DEV will post a coding challenge in the [Hack Shack](/hackshack/) for the community to solve, offering cool prizes to those whose solution is chosen as the winner of the challenge.   Submissions will be judged on technical achievement and completeness of the code and quiz answers. Winners will be notified and will be able to choose a prize from a given catalog. 
 
 The idea is to offer a fun event to the community that shares knowledge. The challenges have been designed to be simple enough that most data scientists, developers, and DevOps engineers can work on them.  In this blog post, I’ll cover the details of the coding challenges program, including instructions for participants.
 
@@ -18,7 +18,7 @@ These challenges are being designed to offer students a hands-on method of under
 
 ## One challenge to get started, with more coming shortly 
 
-Many of these challenges will be extensions to technical workshops we’ve hosted in the past. You can find the video [replays of these workshops](https://hackshack.hpedev.io/replays/0) on the [HPE DEV Hack Shack](https://hackshack.hpedev.io/). Through the workshops, students received hands-on experience with coding practices through an associated Jupyter Notebook. The HPE DEV Hack Shack challenges will utilize much of the same material, including the Jupyter Notebook. For those of you who are new to the topic being covered, it is recommended you watch the corresponding [video replay](https://hackshack.hpedev.io/replays/0) first and then sign up for the challenge.
+Many of these challenges will be extensions to technical workshops we’ve hosted in the past. You can find the video [replays of these workshops](/hackshack/replays/0) on the [HPE DEV Hack Shack](/hackshack/). Through the workshops, students received hands-on experience with coding practices through an associated Jupyter Notebook. The HPE DEV Hack Shack challenges will utilize much of the same material, including the Jupyter Notebook. For those of you who are new to the topic being covered, it is recommended you watch the corresponding [video replay](/hackshack/replays/0) first and then sign up for the challenge.
 
 During the mid-month of November, we will start with a single challenge:
 
@@ -28,7 +28,7 @@ Students will have 4 hours in which to go through the challenge, which includes 
 
 ## How it works
 
-To take the challenge, go to the  [Hack Shack](https://hackshack.hpedev.io/) and navigate to the **Challenges** page. From there, select which challenge you want to take and click on the **Challenge me** button:
+To take the challenge, go to the  [Hack Shack](/hackshack/) and navigate to the **Challenges** page. From there, select which challenge you want to take and click on the **Challenge me** button:
 
 
 ![coding challenge](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/10/coding-challenge-1-1604071470980.png)
