@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import {
@@ -95,62 +95,70 @@ export const Card = ({
   width = 'medium',
   link,
   image,
+  title,
   ...rest
-}) => (
-  <ResponsiveContext.Consumer>
-    {(size) => (
-      <GrommetCard
-        elevation="medium"
-        margin="medium"
-        flex="grow"
-        basis={size === 'small' ? 'auto' : bases[width]}
-        {...rest}
-        /* eslint-disable */
-        onClick={
-          link && link.match(/^\//g)
-            ? () => navigate(link)
-            : link
-            ? () => window.open(link)
-            : undefined
-        }
-      >
-        <CardHeader
-          justify="end"
-          pad={{ vertical: 'small', horizontal: 'medium' }}
+}) => {
+  const [hover, setHover] = useState(false);
+  const isHackShackCard = title === 'HPE DEV Hack Shack';
+  return (
+    <ResponsiveContext.Consumer>
+      {(size) => (
+        <GrommetCard
+          background={isHackShackCard && hover ? '#263040' : null}
+          elevation="medium"
+          margin="medium"
+          flex="grow"
+          basis={size === 'small' ? 'auto' : bases[width]}
+          onMouseOver={() => isHackShackCard && setHover(true)}
+          onMouseLeave={() => isHackShackCard && setHover(false)}
+          {...rest}
+          /* eslint-disable */
+          onClick={
+            link && link.match(/^\//g)
+              ? () => navigate(link)
+              : link
+              ? () => window.open(link)
+              : undefined
+          }
         >
-          <Text color="text-weak">{category}</Text>
-        </CardHeader>
-        <CardBody pad="none">
-          <Grid
-            fill="horizontal"
-            pad={{ horizontal: 'large', top: 'medium', bottom: 'large' }}
-            {...(gridProps[size === 'small' ? size : width] ||
-              gridProps.medium)}
+          <CardHeader
+            justify="end"
+            pad={{ vertical: 'small', horizontal: 'medium' }}
           >
-            {image && category === 'Featured Blog' ? (
-              <Avatar size="96px" src={image} alt="author logo" />
-            ) : (
-              <Image
-                gridArea="image"
-                src={image}
-                fit="contain"
-                alignSelf="start"
-                alt="card logo"
-              />
-            )}
-            {content && (
-              <Box gridArea="content">
-                <MarkdownLayout components={cardComponents}>
-                  {content}
-                </MarkdownLayout>
-              </Box>
-            )}
-          </Grid>
-        </CardBody>
-      </GrommetCard>
-    )}
-  </ResponsiveContext.Consumer>
-);
+            <Text color="text-weak">{category}</Text>
+          </CardHeader>
+          <CardBody pad="none">
+            <Grid
+              fill="horizontal"
+              pad={{ horizontal: 'large', top: 'medium', bottom: 'large' }}
+              {...(gridProps[size === 'small' ? size : width] ||
+                gridProps.medium)}
+            >
+              {image && category === 'Featured Blog' ? (
+                <Avatar size="96px" src={image} alt="author logo" />
+              ) : (
+                <Image
+                  gridArea="image"
+                  src={image}
+                  fit="contain"
+                  alignSelf="start"
+                  alt="card logo"
+                />
+              )}
+              {content && (
+                <Box gridArea="content">
+                  <MarkdownLayout components={cardComponents}>
+                    {content}
+                  </MarkdownLayout>
+                </Box>
+              )}
+            </Grid>
+          </CardBody>
+        </GrommetCard>
+      )}
+    </ResponsiveContext.Consumer>
+  );
+};
 
 Card.propTypes = {
   content: PropTypes.string,

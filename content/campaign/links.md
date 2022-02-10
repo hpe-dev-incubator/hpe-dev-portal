@@ -15,7 +15,7 @@ We are glad you followed that QR Code link. Now please join the HPE Developer Co
 - On the [Web](https://developer.hpe.com)
 - By [email](mailto:hpedev@hpe.com) 
 - Subscribe to our monthly [Newsletter](https://developer.hpe.com/newsletter-signup) 
-- Register to one of our [Workshops-on-Demand](https://hackshack.hpedev.io/workshops)
+- Register to one of our [Workshops-on-Demand](/hackshack/workshops)
 
 
 <br />

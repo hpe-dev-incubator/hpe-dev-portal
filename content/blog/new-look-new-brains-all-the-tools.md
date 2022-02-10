@@ -18,7 +18,7 @@ A key area of the portal is our [Platforms section](https://developer.hpe.com/pl
 
 <center><img src="/img/platforms-3-image2.jpg" width="800" height="225"></center> 
 
-Make sure you check out the new [Skill Up](https://developer.hpe.com/skillup) section. It provides you with easy access to our popular [Munch & Learn Technology Talks](https://developer.hpe.com/blog/munch-and-learn), [Workshops-on-Demand](https://hackshack.hpedev.io/workshops), and other learning opportunities.
+Make sure you check out the new [Skill Up](https://developer.hpe.com/skillup) section. It provides you with easy access to our popular [Munch & Learn Technology Talks](https://developer.hpe.com/blog/munch-and-learn), [Workshops-on-Demand](/hackshack/workshops), and other learning opportunities.
 
 <center><img src="/img/skill-up-v2-image3.jpg" width="800" height="427"></center> 
 
@@ -28,11 +28,11 @@ Blog posts continue to be a staple of the portal, with many of the more recent p
 
 ## Easy access
 
-Our new portal provides easy access to the [HPE DEV Hack Shack](https://hackshack.hpedev.io/), a place for fun and learning.  During events, the Hack Shack is a place where you can connect with experts in HPE and open source technologies and learn more from the teams behind these products.  It’s where attendees can come to participate in coding challenges, hands-on workshops, and entertaining games. Afterwards, it extends the event experience by allowing you to continue to revisit replays of workshops and explore the hands-on workshops at your own pace.
+Our new portal provides easy access to the [HPE DEV Hack Shack](/hackshack/), a place for fun and learning.  During events, the Hack Shack is a place where you can connect with experts in HPE and open source technologies and learn more from the teams behind these products.  It’s where attendees can come to participate in coding challenges, hands-on workshops, and entertaining games. Afterwards, it extends the event experience by allowing you to continue to revisit replays of workshops and explore the hands-on workshops at your own pace.
 
 <center><img src="/img/home-page-2-bis.png" width="627" height="720"></center> 
 
-From the home page, you can explore the HPE Design System, a set of resources for designing great apps and websites that integrate seamlessly with HPE platforms. You can also jump from there to our [HPE DEV Workshops-on-Demand](https://hackshack.hpedev.io/workshops) and our monthly community meetups, the [Munch & Learn Technology Talks](https://developer.hpe.com/campaign/munch-and-learn/), where you can interact with experts regarding popular new technologies and get your questions answered. You can also directly access the [HPE Open Source portal](https://www.hpe.com/us/en/open-source.html) from our top page directory.
+From the home page, you can explore the HPE Design System, a set of resources for designing great apps and websites that integrate seamlessly with HPE platforms. You can also jump from there to our [HPE DEV Workshops-on-Demand](/hackshack/workshops) and our monthly community meetups, the [Munch & Learn Technology Talks](https://developer.hpe.com/campaign/munch-and-learn/), where you can interact with experts regarding popular new technologies and get your questions answered. You can also directly access the [HPE Open Source portal](https://www.hpe.com/us/en/open-source.html) from our top page directory.
 
 Easily access past issues of our HPE DEV Community Newsletter in our [Newsletter Archive](https://developer.hpe.com/newsletter-signup). Make sure you’re signed up to get any subsequent issues we send out. From the[ Community](https://developer.hpe.com/community) page you’ll be able to connect with us on our [HPE DEV](https://slack.hpedev.io/) Slack channel and follow us on Twitter. You can start and participate in discussions on the [HPE Ezmeral Software Forum](https://community.hpe.com/t5/HPE-Ezmeral-Software-platform/bd-p/ezmeral-software-platform) as well.
 

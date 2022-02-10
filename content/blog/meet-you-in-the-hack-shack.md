@@ -39,7 +39,7 @@ It was heartening to hear some of the feedback that the students provided:
 
 ![hs blog figure1](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/6/hs-blog-figure1-1593537773963.jpg)
 
-While the workshops are great, there’s a whole lot more you can do at the [HPE Discover Virtual Event Hack Shack](https://hackshack.hpedev.io/). Starting Week 2, we will be offering coding challenges where you can show off your coding chops and compete with others for prizes. And we’ll have the Arcade open for those of you who just want a chance to go after the IT Monster in the Hack Shack Attack! game. You can even download stickers! One of the best ways to find out what’s happening in the Hack Shack is to scroll down on our new page and check out our little video tour **This Week in the Hack Shack**.
+While the workshops are great, there’s a whole lot more you can do at the [HPE Discover Virtual Event Hack Shack](/hackshack/). Starting Week 2, we will be offering coding challenges where you can show off your coding chops and compete with others for prizes. And we’ll have the Arcade open for those of you who just want a chance to go after the IT Monster in the Hack Shack Attack! game. You can even download stickers! One of the best ways to find out what’s happening in the Hack Shack is to scroll down on our new page and check out our little video tour **This Week in the Hack Shack**.
 
 ![hs blog figure2](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/6/hs-blog-figure2-1593537838340.jpg)
 
@@ -69,7 +69,7 @@ If you haven’t already signed up for them, there are a couple of ways to find 
 
 **Option2**
 
-You can also find what Hack Shack Workshops and Challenges are available by navigating through the Hack Shack Lobby. Each week, the lobby schedule will be updated to show what sessions are available for registration. Simply click on the [Hack Shack Lobby link](https://hackshack.hpedev.io) to follow the highlighted Steps 1, 2, and 3.
+You can also find what Hack Shack Workshops and Challenges are available by navigating through the Hack Shack Lobby. Each week, the lobby schedule will be updated to show what sessions are available for registration. Simply click on the [Hack Shack Lobby link](/hackshack) to follow the highlighted Steps 1, 2, and 3.
 
 ![hs blog figure7](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/6/hs-blog-figure7-1593537881565.jpg)
 

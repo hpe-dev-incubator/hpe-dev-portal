@@ -11,7 +11,7 @@ tags:
   - on-demand
   - workshop
 ---
-[![HackShack]( https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2021/4/hackshack-1617960622993.png)]( https://hackshack.hpedev.io/workshops)
+[![HackShack]( https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2021/4/hackshack-1617960622993.png)]( /hackshack/workshops)
 
 
 
@@ -21,7 +21,7 @@ At the end of a [blog post](https://developer.hpe.com/blog/jupyter-saved-my-day)
 In our Workshops-on-Demand, users can actually interact and play with code to learn about a variety of different subjects. From infrastructure automation, coding 101 or API-related content, the Workshops-on-Demand catalog covers a broad range of subjects where you can learn about new technologies for free.
 
 
-Check out all the different topics we offer [here](https://hackshack.hpedev.io/workshops).
+Check out all the different topics we offer [here](/hackshack/workshops).
 
 
 Now, let me explain how we made this possible…
@@ -132,7 +132,7 @@ If you’re looking for a live explanation of this automation, you can review [t
 
 
 
-**Step 1:** The customer registers for a workshop online at our virtual [Hack Shack](https://hackshack.hpedev.io/workshops). When clicking the register button for the selected workshop and after agreeing to the terms and conditions, the front-end triggers the first REST API calls to:
+**Step 1:** The customer registers for a workshop online at our virtual [Hack Shack](/hackshack/workshops). When clicking the register button for the selected workshop and after agreeing to the terms and conditions, the front-end triggers the first REST API calls to:
 
 -    Register the student in the Customers Database.
 -    Send a welcome email to the student
@@ -217,4 +217,4 @@ Didier Lalli from our HPE DEV team created this informative dashboard and wrote 
 
 
 
-As you can see, we have made significant progress over the past year, moving from a heavily manually oriented approach to now a fully automated one. If you are interested in seeing the result for yourself, [please register for one of our Workshops-on-Demand](https://hackshack.hpedev.io/workshops). Don’t forget to fill out the survey at the end of the workshop to provide us with feedback on your experience, as well as subjects you would like to see covered in the near future, as this really helps to improve the program.
+As you can see, we have made significant progress over the past year, moving from a heavily manually oriented approach to now a fully automated one. If you are interested in seeing the result for yourself, [please register for one of our Workshops-on-Demand](/hackshack/workshops). Don’t forget to fill out the survey at the end of the workshop to provide us with feedback on your experience, as well as subjects you would like to see covered in the near future, as this really helps to improve the program.
