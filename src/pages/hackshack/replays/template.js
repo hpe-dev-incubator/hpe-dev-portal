@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from 'react';
 import { Heading, Text, Box, Image } from 'grommet';
 import axios from 'axios';
-import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
 import {
   Layout,
@@ -11,6 +10,7 @@ import {
   Video,
 } from '../../../components/hackshack';
 import AuthService from '../../../services/auth.service';
+import { SEO } from '../../../components';
 
 const sortReplays = (replayData, current) => {
   const beggining = [];
@@ -69,12 +69,10 @@ const Replays = (props) => {
   const [current, setCurrent] = useState(replayIndex);
   const [autoplay, setAutoPlay] = useState(false);
   const sortedReplays = sortReplays(replays, current);
-  // eslint-disable-next-line max-len
   const openGraphImg =
     replays.length > 0 && props.path.includes('finisher-badge')
       ? replays.length > 0 && replays[current].workshop.badgeImg
-      : // eslint-disable-next-line max-len
-        replays.length > 0 &&
+      : replays.length > 0 &&
         replays[current].workshop &&
         replays[current].workshop.workshopImg;
   const replayTitle = replays.length > 0 && replays[current].title;
@@ -83,95 +81,11 @@ const Replays = (props) => {
       <PageHeader title={replayTitle}>
         {replays.length > 0 ? (
           <>
-            <Helmet>
-              <meta name="fragment" content="!" />
-              <meta
-                property="og:title"
-                content={replays[current].title}
-                data-react-helmet="true"
-              />
-              <meta
-                property="og:description"
-                content={replays[current].desc}
-                data-react-helmet="true"
-              />
-              <meta
-                property="og:image"
-                content={openGraphImg}
-                data-react-helmet="true"
-              />
-              <meta
-                property="og:image:width"
-                content="200"
-                data-react-helmet="true"
-              />
-              <meta
-                property="og:image:height"
-                content="200"
-                data-react-helmet="true"
-              />
-
-              {/* <!-- Google / Search Engine Tags --> */}
-              <meta
-                itemProp="name"
-                content={replays[current].title}
-                data-react-helmet="true"
-              />
-              <meta
-                itemProp="description"
-                content={replays[current].desc}
-                data-react-helmet="true"
-              />
-              <meta
-                itemProp="image"
-                content={openGraphImg}
-                data-react-helmet="true"
-              />
-
-              {/* <!-- Facebook Meta Tags --> */}
-              <meta
-                property="og:type"
-                content="website"
-                data-react-helmet="true"
-              />
-              <meta
-                property="og:title"
-                content={replays[current].title}
-                data-react-helmet="true"
-              />
-              <meta
-                property="og:description"
-                content={replays[current].desc}
-                data-react-helmet="true"
-              />
-              <meta
-                property="og:image"
-                content={openGraphImg}
-                data-react-helmet="true"
-              />
-
-              {/* <!-- Twitter Meta Tags --> */}
-              <meta
-                name="twitter:card"
-                content="summary_large_image"
-                data-react-helmet="true"
-              />
-              <meta
-                name="twitter:title"
-                content={replays[current].title}
-                data-react-helmet="true"
-              />
-              <meta
-                name="twitter:description"
-                content={replays[current].desc}
-                data-react-helmet="true"
-              />
-              <meta
-                name="twitter:image"
-                content={openGraphImg}
-                data-react-helmet="true"
-              />
-            </Helmet>
+            <SEO
+              title={replays[current].title}
+              description={replays[current].desc}
+              image={openGraphImg}
+            />
             <Video
               videolink={replays[current].videoLink}
               id={replays[current].id}
