@@ -6,7 +6,6 @@ import PropTypes from 'prop-types';
 import { Layout, ScheduleCard, CardGrid } from '../../../components/hackshack';
 import { MainTitle } from '../../../components/hackshack/StyledComponents';
 import AuthService from '../../../services/auth.service';
-import { SEO } from '../../../components';
 
 const renderScheduleCard = (workshop, i) => (
   <ScheduleCard
@@ -136,7 +135,6 @@ const Workshop = (props) => {
   return (
     // eslint-disable-next-line max-len
     <Layout background="/img/hackshack/BackgroundImages/schedule-background.png">
-      <SEO title="Hack Shack Workshops" />
       {specialBadges.length > 0 && (
         <Helmet>
           <meta name="fragment" content="!" />
