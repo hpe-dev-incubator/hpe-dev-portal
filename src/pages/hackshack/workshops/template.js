@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import React, { useEffect, useState } from 'react';
 import { Heading, Text, Box, Image, Tab, Tabs } from 'grommet';
 import axios from 'axios';
@@ -6,7 +7,6 @@ import PropTypes from 'prop-types';
 import { Layout, ScheduleCard, CardGrid } from '../../../components/hackshack';
 import { MainTitle } from '../../../components/hackshack/StyledComponents';
 import AuthService from '../../../services/auth.service';
-import { SEO } from '../../../components';
 
 const renderScheduleCard = (workshop, i) => (
   <ScheduleCard
@@ -34,10 +34,8 @@ const renderScheduleCard = (workshop, i) => (
 
 const Workshop = (props) => {
   const { GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT } = process.env;
-  /* eslint-disable max-len */
   const getWorkshopsApi = `${GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/workshops?active=true`;
   const getSpecialBadgesApi = `${GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/special-badges`;
-  /* eslint-enable max-len */
   const [workshops, setworkshops] = useState([]);
   const [specialBadges, setSpecialBadges] = useState([]);
   const [error, setError] = useState('');
@@ -64,7 +62,6 @@ const Workshop = (props) => {
         (err) => {
           console.log('Error: ', err);
           setError(
-            // eslint-disable-next-line max-len
             'Oops..something went wrong. The HPE DEV team is addressing the problem. Please try again later!',
           );
         },
@@ -91,7 +88,6 @@ const Workshop = (props) => {
           } else {
             console.log('catch error', err);
             setError(
-              // eslint-disable-next-line max-len
               'Oops..something went wrong. The HPE DEV team is addressing the problem. Please try again later!',
             );
           }
@@ -113,7 +109,6 @@ const Workshop = (props) => {
           } else {
             console.log('catch error', err);
             setError(
-              // eslint-disable-next-line max-len
               'Oops..something went wrong. The HPE DEV team is addressing the problem. Please try again later!',
             );
           }
@@ -134,9 +129,11 @@ const Workshop = (props) => {
     : 'https://us-central1-grommet-designer.cloudfunctions.net/images/jay-giang-hpe-com/hpe-dev.jpg?size=400';
 
   return (
-    // eslint-disable-next-line max-len
     <Layout background="/img/hackshack/BackgroundImages/schedule-background.png">
-      <SEO title="Hack Shack Workshops" />
+      <Helmet>
+        <script src="//h50007.www5.hpe.com/hfws-static/js/framework/jquery/v-2-2-0/jquery.js" />
+        <script src="//h50007.www5.hpe.com/hfws/us/en/hpe/slim/root?contentType=js&hide_head_text=true" />
+      </Helmet>
       {specialBadges.length > 0 && (
         <Helmet>
           <meta name="fragment" content="!" />

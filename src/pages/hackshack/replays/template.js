@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import React, { useEffect, useState } from 'react';
 import { Heading, Text, Box, Image } from 'grommet';
 import axios from 'axios';
@@ -10,7 +11,6 @@ import {
   Video,
 } from '../../../components/hackshack';
 import AuthService from '../../../services/auth.service';
-import { SEO } from '../../../components';
 
 const sortReplays = (replayData, current) => {
   const beggining = [];
@@ -29,7 +29,6 @@ const sortReplays = (replayData, current) => {
 
 const Replays = (props) => {
   const { GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT } = process.env;
-  // eslint-disable-next-line max-len
   const getReplaysApi = `${GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/replays?active=true`;
   const [replays, setReplays] = useState([]);
   const [error, setError] = useState('');
@@ -45,7 +44,6 @@ const Replays = (props) => {
         })
         .catch(() => {
           setError(
-            // eslint-disable-next-line max-len
             'Oops..something went wrong. The HPE DEV team is addressing the problem. Please try again later!',
           );
           console.log(error);
@@ -58,7 +56,6 @@ const Replays = (props) => {
         },
         () => {
           setError(
-            // eslint-disable-next-line max-len
             'Oops..something went wrong. The HPE DEV team is addressing the problem. Please try again later!',
           );
         },
@@ -83,7 +80,10 @@ const Replays = (props) => {
   const replayTitle = replays.length > 0 && replays[current].title;
   return (
     <Layout background="/img/hackshack/BackgroundImages/generic-background.svg">
-      <SEO title="Hack Shack Replays" />
+      <Helmet>
+        <script src="//h50007.www5.hpe.com/hfws-static/js/framework/jquery/v-2-2-0/jquery.js" />
+        <script src="//h50007.www5.hpe.com/hfws/us/en/hpe/slim/root?contentType=js&hide_head_text=true" />
+      </Helmet>
       <PageHeader title={replayTitle}>
         {replays.length > 0 ? (
           <>
