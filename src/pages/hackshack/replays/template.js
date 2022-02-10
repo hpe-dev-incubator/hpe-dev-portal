@@ -1,16 +1,13 @@
-/* eslint-disable max-len */
+/* eslint-disable react/prop-types */
 import React, { useEffect, useState } from 'react';
 import { Heading, Text, Box, Image } from 'grommet';
 import axios from 'axios';
 import PropTypes from 'prop-types';
-import {
-  Layout,
-  PageHeader,
-  VideoList,
-  Video,
-} from '../../../components/hackshack';
+import { graphql } from 'gatsby';
+import { Layout, VideoList, Video } from '../../../components/hackshack';
+import { PageHeader } from '../../../components/hackshack/PageHeading';
 import AuthService from '../../../services/auth.service';
-import { SEO } from '../../../components';
+import SEO from '../../../components/Seo';
 
 const sortReplays = (replayData, current) => {
   const beggining = [];
@@ -28,7 +25,10 @@ const sortReplays = (replayData, current) => {
 };
 
 const Replays = (props) => {
+// eslint-disable-next-line react/prop-types
+const metaData = props.data && props.data.example.data;
   const { GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT } = process.env;
+  // eslint-disable-next-line max-len
   const getReplaysApi = `${GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/replays?active=true`;
   const [replays, setReplays] = useState([]);
   const [error, setError] = useState('');
@@ -44,6 +44,7 @@ const Replays = (props) => {
         })
         .catch(() => {
           setError(
+            // eslint-disable-next-line max-len
             'Oops..something went wrong. The HPE DEV team is addressing the problem. Please try again later!',
           );
           console.log(error);
@@ -56,6 +57,7 @@ const Replays = (props) => {
         },
         () => {
           setError(
+            // eslint-disable-next-line max-len
             'Oops..something went wrong. The HPE DEV team is addressing the problem. Please try again later!',
           );
         },
@@ -69,22 +71,24 @@ const Replays = (props) => {
   const [current, setCurrent] = useState(replayIndex);
   const [autoplay, setAutoPlay] = useState(false);
   const sortedReplays = sortReplays(replays, current);
-  const openGraphImg =
-    replays.length > 0 && props.path.includes('finisher-badge')
-      ? replays.length > 0 && replays[current].workshop.badgeImg
-      : replays.length > 0 &&
-        replays[current].workshop &&
-        replays[current].workshop.workshopImg;
+  // eslint-disable-next-line max-len
+  // const openGraphImg =
+  //   replays.length > 0 && props.path.includes('finisher-badge')
+  //     ? replays.length > 0 && replays[current].workshop.badgeImg
+  //     : // eslint-disable-next-line max-len
+  //       replays.length > 0 &&
+  //       replays[current].workshop &&
+  //       replays[current].workshop.workshopImg;
   const replayTitle = replays.length > 0 && replays[current].title;
   return (
-    <Layout background="/img/hackshack/BackgroundImages/generic-background.svg">
+    <Layout background="/img/BackgroundImages/generic-background.jpg">
       <PageHeader title={replayTitle}>
         {replays.length > 0 ? (
           <>
             <SEO
-              title={replays[current].title}
-              description={replays[current].desc}
-              image={openGraphImg}
+              title={metaData[current].title}
+              description={metaData[current].desc}
+              image={metaData[current].workshop.workshopImg}
             />
             <Video
               videolink={replays[current].videoLink}
@@ -134,7 +138,7 @@ const Replays = (props) => {
                 <Text size="large" color="status-critical" alignSelf="center">
                   {error}
                 </Text>
-                <Image src="/img/hackshack/gremlin-rockin.svg" />
+                <Image src="/img/gremlin-rockin.svg" />
               </>
             ) : (
               <Box height="medium" />
@@ -164,7 +168,23 @@ const Replays = (props) => {
 
 Replays.propTypes = {
   pageContext: PropTypes.number,
+  // eslint-disable-next-line react/no-unused-prop-types
   path: PropTypes.string,
 };
 
 export default Replays;
+
+
+export const pageQuery = graphql`
+  query {
+    example {
+    data {
+      title
+      desc
+      workshop {
+        workshopImg
+      }
+    }
+  }
+  }
+`;

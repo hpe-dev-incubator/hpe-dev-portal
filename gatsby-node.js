@@ -75,12 +75,9 @@ exports.createPages = async ({ graphql, actions }) => {
     });
 
     getReplays.data.forEach(({ id }) => {
-
       createPage({
         path: `/hackshack/replays/${id}`,
-        component: require.resolve(
-          './src/pages/hackshack/replays/template.js',
-        ),
+        component: require.resolve('./src/pages/hackshack/replays/template.js'),
         context: {
           replayId: id,
         },
@@ -88,9 +85,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
       createPage({
         path: `/hackshack/workshop/${id}`,
-        component: require.resolve(
-          './src/pages/hackshack/replays/template.js',
-        ),
+        component: require.resolve('./src/pages/hackshack/replays/template.js'),
         context: {
           replayId: id,
         },
@@ -98,14 +93,11 @@ exports.createPages = async ({ graphql, actions }) => {
 
       createPage({
         path: `/hackshack/workshop/${id}/finisher-badge`,
-        component: require.resolve(
-          './src/pages/hackshack/replays/template.js',
-        ),
+        component: require.resolve('./src/pages/hackshack/replays/template.js'),
         context: {
           replayId: id,
         },
       });
-
     });
   } catch (error) {
     console.log('error: ', error);
@@ -422,4 +414,28 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
       },
     }),
   ]);
+};
+
+const fetch = require('node-fetch');
+const { GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT } = process.env;
+exports.sourceNodes = async ({
+  actions: { createNode },
+  createContentDigest,
+}) => {
+  // get data from GitHub API at build time
+  const result = await fetch(
+    `${GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/replays?active=true`,
+  );
+  const resultData = await result.json();
+  // create node for build time data example in the docs
+  createNode({
+    data: resultData,
+    id: 'example-build-time-data',
+    parent: null,
+    children: [],
+    internal: {
+      type: 'Example',
+      contentDigest: createContentDigest(resultData),
+    },
+  });
 };
