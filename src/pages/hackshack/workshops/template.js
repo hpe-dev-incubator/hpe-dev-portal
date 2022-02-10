@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { Heading, Text, Box, Image, Tab, Tabs } from 'grommet';
+import { Text, Box, Image, Tab, Tabs } from 'grommet';
 import axios from 'axios';
 import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
 import { Layout, ScheduleCard, CardGrid } from '../../../components/hackshack';
-import { MainTitle } from './styles';
 import AuthService from '../../../services/auth.service';
 
 const renderScheduleCard = (workshop, i) => (
@@ -222,11 +221,6 @@ const Workshop = (props) => {
           />
         </Helmet>
       )}
-      <MainTitle>
-        <Heading color="text-strong" margin={{ top: 'none', bottom: 'small' }}>
-          Workshops-on-Demand
-        </Heading>
-      </MainTitle>
       {workshops.length > 0 ? (
         <Tabs activeIndex={index} onActive={onActive} justify="start">
           <Tab title="All">

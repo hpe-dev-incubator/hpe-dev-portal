@@ -1,9 +1,7 @@
 import React from 'react';
-import { Heading, Button, Text, Image as GrommetImage, Box } from 'grommet';
+import { Button, Text, Image as GrommetImage, Box } from 'grommet';
 import { Layout, ScheduleCard, CardGrid } from '../../../components/hackshack';
 import ezmeralContent from '../../../data/EzmeralData/ezmeral.json';
-
-import { MainTitle } from './styles';
 
 const Ezmeral = () => {
   return (
@@ -30,14 +28,6 @@ const Ezmeral = () => {
           />
         </Box>
       </Box>
-      <MainTitle>
-        <Heading
-          color="text-strong"
-          margin={{ top: 'medium', bottom: 'medium' }}
-        >
-          HPE EZMERAL
-        </Heading>
-      </MainTitle>
       <CardGrid>
         {ezmeralContent.map(
           ({
