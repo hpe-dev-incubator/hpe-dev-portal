@@ -80,10 +80,6 @@ const Replays = (props) => {
   const replayTitle = replays.length > 0 && replays[current].title;
   return (
     <Layout background="/img/hackshack/BackgroundImages/generic-background.svg">
-      <Helmet>
-        <script src="//h50007.www5.hpe.com/hfws-static/js/framework/jquery/v-2-2-0/jquery.js" />
-        <script src="//h50007.www5.hpe.com/hfws/us/en/hpe/slim/root?contentType=js&hide_head_text=true" />
-      </Helmet>
       <PageHeader title={replayTitle}>
         {replays.length > 0 ? (
           <>

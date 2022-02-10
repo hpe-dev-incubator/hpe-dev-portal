@@ -130,10 +130,6 @@ const Workshop = (props) => {
 
   return (
     <Layout background="/img/hackshack/BackgroundImages/schedule-background.png">
-      <Helmet>
-        <script src="//h50007.www5.hpe.com/hfws-static/js/framework/jquery/v-2-2-0/jquery.js" />
-        <script src="//h50007.www5.hpe.com/hfws/us/en/hpe/slim/root?contentType=js&hide_head_text=true" />
-      </Helmet>
       {specialBadges.length > 0 && (
         <Helmet>
           <meta name="fragment" content="!" />
