@@ -2,6 +2,7 @@
 const fs = require('fs');
 const path = require('path');
 const axios = require('axios');
+const fetch = require('node-fetch');
 require('dotenv').config();
 
 const { createFilePath } = require('gatsby-source-filesystem');
@@ -51,7 +52,7 @@ exports.createPages = async ({ graphql, actions }) => {
       url: specialBadgesApi,
     });
 
-    getSpecialBadges.data.forEach(({ id }) => {
+    getSpecialBadges.data.forEach(({ id, title, description, badgeImg }) => {
       createPage({
         path: `/hackshack/workshops/${id - 1}/special-badge`,
         component: require.resolve(
@@ -59,6 +60,9 @@ exports.createPages = async ({ graphql, actions }) => {
         ),
         context: {
           specialBadgeId: id,
+          title,
+          description,
+          badgeImg,
         },
       });
     });
@@ -75,12 +79,9 @@ exports.createPages = async ({ graphql, actions }) => {
     });
 
     getReplays.data.forEach(({ id }) => {
-
       createPage({
         path: `/hackshack/replays/${id}`,
-        component: require.resolve(
-          './src/pages/hackshack/replays/template.js',
-        ),
+        component: require.resolve('./src/pages/hackshack/replays/template.js'),
         context: {
           replayId: id,
         },
@@ -88,9 +89,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
       createPage({
         path: `/hackshack/workshop/${id}`,
-        component: require.resolve(
-          './src/pages/hackshack/replays/template.js',
-        ),
+        component: require.resolve('./src/pages/hackshack/replays/template.js'),
         context: {
           replayId: id,
         },
@@ -98,14 +97,11 @@ exports.createPages = async ({ graphql, actions }) => {
 
       createPage({
         path: `/hackshack/workshop/${id}/finisher-badge`,
-        component: require.resolve(
-          './src/pages/hackshack/replays/template.js',
-        ),
+        component: require.resolve('./src/templates/finisher-badge.js'),
         context: {
           replayId: id,
         },
       });
-
     });
   } catch (error) {
     console.log('error: ', error);
@@ -422,4 +418,27 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
       },
     }),
   ]);
+};
+
+const { GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT } = process.env;
+exports.sourceNodes = async ({
+  actions: { createNode },
+  createContentDigest,
+}) => {
+  const replays = await fetch(
+    `${GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/replays?active=true`,
+  );
+  const replayData = await replays.json();
+
+  createNode({
+    replayData,
+    id: 'replay',
+    parent: null,
+    children: [],
+    internal: {
+      type: 'Metadata',
+      contentDigest: createContentDigest(replayData),
+    },
+  });
+
 };

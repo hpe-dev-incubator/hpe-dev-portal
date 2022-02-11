@@ -1,7 +1,7 @@
+/* eslint-disable max-len */
 import React, { useEffect, useState } from 'react';
 import { Heading, Text, Box, Image, Tab, Tabs } from 'grommet';
 import axios from 'axios';
-import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
 import { Layout, ScheduleCard, CardGrid } from '../../../components/hackshack';
 import { MainTitle } from '../../../components/hackshack/StyledComponents';
@@ -34,12 +34,8 @@ const renderScheduleCard = (workshop, i) => (
 
 const Workshop = (props) => {
   const { GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT } = process.env;
-  /* eslint-disable max-len */
   const getWorkshopsApi = `${GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/workshops?active=true`;
-  const getSpecialBadgesApi = `${GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/special-badges`;
-  /* eslint-enable max-len */
   const [workshops, setworkshops] = useState([]);
-  const [specialBadges, setSpecialBadges] = useState([]);
   const [error, setError] = useState('');
   const arr = [];
   const [index, setIndex] = useState(0);
@@ -58,13 +54,11 @@ const Workshop = (props) => {
         () => {
           /* eslint-disable no-use-before-define */
           getWorkshops(AuthService.getCurrentUser().accessToken);
-          getSpecialBadges(AuthService.getCurrentUser().accessToken);
           /* eslint-enable no-use-before-define */
         },
         (err) => {
           console.log('Error: ', err);
           setError(
-            // eslint-disable-next-line max-len
             'Oops..something went wrong. The HPE DEV team is addressing the problem. Please try again later!',
           );
         },
@@ -91,29 +85,6 @@ const Workshop = (props) => {
           } else {
             console.log('catch error', err);
             setError(
-              // eslint-disable-next-line max-len
-              'Oops..something went wrong. The HPE DEV team is addressing the problem. Please try again later!',
-            );
-          }
-        });
-    };
-
-    const getSpecialBadges = (token) => {
-      axios({
-        method: 'GET',
-        url: getSpecialBadgesApi,
-        headers: { 'x-access-token': token },
-      })
-        .then((response) => {
-          setSpecialBadges(response.data);
-        })
-        .catch((err) => {
-          if (err.response.status === 401) {
-            AuthService.login().then(() => getToken());
-          } else {
-            console.log('catch error', err);
-            setError(
-              // eslint-disable-next-line max-len
               'Oops..something went wrong. The HPE DEV team is addressing the problem. Please try again later!',
             );
           }
@@ -123,107 +94,11 @@ const Workshop = (props) => {
     // eslint-disable-next-line
   }, []);
 
-  const { specialBadgeId } = props.pageContext;
-  let specialBadgeIndex = 0;
-  if (specialBadgeId) {
-    specialBadgeIndex = parseInt(specialBadgeId, 10) - 1;
-  }
-
-  const openGraphImg = specialBadgeId
-    ? specialBadges.length > 0 && specialBadges[specialBadgeIndex].badgeImg
-    : 'https://us-central1-grommet-designer.cloudfunctions.net/images/jay-giang-hpe-com/hpe-dev.jpg?size=400';
+  const { title, description, badgeImg } = props.pageContext;
 
   return (
-    // eslint-disable-next-line max-len
     <Layout background="/img/hackshack/BackgroundImages/schedule-background.png">
-      <SEO title="Hack Shack Workshops" />
-      {specialBadges.length > 0 && (
-        <Helmet>
-          <meta name="fragment" content="!" />
-          <meta
-            property="og:title"
-            content={specialBadges[specialBadgeIndex].title}
-            data-react-helmet="true"
-          />
-          <meta
-            property="og:description"
-            content={specialBadges[specialBadgeIndex].description}
-            data-react-helmet="true"
-          />
-          <meta
-            property="og:image"
-            content={openGraphImg}
-            data-react-helmet="true"
-          />
-          <meta
-            property="og:image:width"
-            content="200"
-            data-react-helmet="true"
-          />
-          <meta
-            property="og:image:height"
-            content="200"
-            data-react-helmet="true"
-          />
-
-          {/* <!-- Google / Search Engine Tags --> */}
-          <meta
-            itemProp="name"
-            content={specialBadges[specialBadgeIndex].title}
-            data-react-helmet="true"
-          />
-          <meta
-            itemProp="description"
-            content={specialBadges[specialBadgeIndex].description}
-            data-react-helmet="true"
-          />
-          <meta
-            itemProp="image"
-            content={openGraphImg}
-            data-react-helmet="true"
-          />
-
-          {/* <!-- Facebook Meta Tags --> */}
-          <meta property="og:type" content="website" data-react-helmet="true" />
-          <meta
-            property="og:title"
-            content={specialBadges[specialBadgeIndex].title}
-            data-react-helmet="true"
-          />
-          <meta
-            property="og:description"
-            content={specialBadges[specialBadgeIndex].description}
-            data-react-helmet="true"
-          />
-          <meta
-            property="og:image"
-            content={openGraphImg}
-            data-react-helmet="true"
-          />
-
-          {/* <!-- Twitter Meta Tags --> */}
-          <meta
-            name="twitter:card"
-            content="summary_large_image"
-            data-react-helmet="true"
-          />
-          <meta
-            name="twitter:title"
-            content={specialBadges[specialBadgeIndex].title}
-            data-react-helmet="true"
-          />
-          <meta
-            name="twitter:description"
-            content={specialBadges[specialBadgeIndex].description}
-            data-react-helmet="true"
-          />
-          <meta
-            name="twitter:image"
-            content={openGraphImg}
-            data-react-helmet="true"
-          />
-        </Helmet>
-      )}
+      <SEO title={title} description={description} image={badgeImg} />
       <MainTitle>
         <Heading color="text-strong" margin={{ top: 'none', bottom: 'small' }}>
           Workshops-on-Demand
@@ -308,7 +183,9 @@ const Workshop = (props) => {
 
 Workshop.propTypes = {
   pageContext: PropTypes.shape({
-    specialBadgeId: PropTypes.number,
+    title: PropTypes.string,
+    description: PropTypes.string,
+    badgeImg: PropTypes.string,
   }),
 };
 

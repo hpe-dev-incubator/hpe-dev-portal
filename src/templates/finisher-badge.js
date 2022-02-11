@@ -5,14 +5,9 @@ import { Heading, Text, Box, Image } from 'grommet';
 import { graphql, useStaticQuery } from 'gatsby';
 import axios from 'axios';
 import PropTypes from 'prop-types';
-import {
-  Layout,
-  VideoList,
-  Video,
-  PageHeader,
-} from '../../../components/hackshack';
-import AuthService from '../../../services/auth.service';
-import { SEO } from '../../../components';
+import { Layout, VideoList, Video, PageHeader } from '../components/hackshack';
+import AuthService from '../services/auth.service';
+import { SEO } from '../components';
 
 const sortReplays = (replayData, current) => {
   const beggining = [];
@@ -29,24 +24,25 @@ const sortReplays = (replayData, current) => {
   return beggining.concat(end);
 };
 
-const ReplayTemplate = (props) => {
+const ReplaysFinisherTemplate = (props) => {
   const data = useStaticQuery(graphql`
-    query ReplayQuery {
+    query ReplayFinisherQuery {
       metadata {
         replayData {
           title
           desc
           workshop {
             workshopImg
-            badgeImg
           }
         }
       }
     }
   `);
+
   const metadata = data.metadata.replayData;
 
   const { GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT } = process.env;
+
   const getReplaysApi = `${GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/replays?active=true`;
   const [replays, setReplays] = useState([]);
   const [error, setError] = useState('');
@@ -94,7 +90,7 @@ const ReplayTemplate = (props) => {
           title={metadata[current].title}
           description={metadata[current].desc}
           image={
-            metadata[current].workshop && metadata[current].workshop.workshopImg
+            metadata[current].workshop && metadata[current].workshop.badgeImg
           }
         />
         {replays.length > 0 ? (
@@ -175,10 +171,10 @@ const ReplayTemplate = (props) => {
   );
 };
 
-ReplayTemplate.propTypes = {
+ReplaysFinisherTemplate.propTypes = {
   pageContext: PropTypes.number,
   // eslint-disable-next-line react/no-unused-prop-types
   path: PropTypes.string,
 };
 
-export default ReplayTemplate;
+export default ReplaysFinisherTemplate;
