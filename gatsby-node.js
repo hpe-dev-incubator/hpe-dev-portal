@@ -431,7 +431,6 @@ exports.sourceNodes = async ({
   const replayData = await replays.json();
   const specialBadgesData = await specialBadges.json();
 
-
   createNode({
     replayData,
     specialBadgesData,
@@ -440,7 +439,7 @@ exports.sourceNodes = async ({
     children: [],
     internal: {
       type: 'Metadata',
-      contentDigest: createContentDigest(replayData),
+      contentDigest: createContentDigest(replayData, specialBadgesData),
     },
   });
 
