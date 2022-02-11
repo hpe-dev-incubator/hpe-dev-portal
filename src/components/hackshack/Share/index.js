@@ -3,7 +3,7 @@ import { Linkedin, Twitter, Link as GrommetLink } from 'grommet-icons';
 import { Button } from 'grommet';
 import PropTypes from 'prop-types';
 
-const Share = ({ replayId, workshop }) => {
+const Share = ({ workshopId, workshop }) => {
   const [toolTip, setToolTip] = useState('Click to copy the URL to clipboard');
   const { origin } = window.location;
 
@@ -16,7 +16,7 @@ const Share = ({ replayId, workshop }) => {
         a11yTitle="Share on LinkedIn"
         label={workshop && 'LinkedIn'}
         reverse
-        href={`https://www.linkedin.com/sharing/share-offsite/?url=${origin}/workshop/${replayId}`}
+        href={`https://www.linkedin.com/sharing/share-offsite/?url=${origin}/hackshack/workshop/${workshopId}`}
       />
       <Button
         margin={{ horizontal: '20px' }}
@@ -26,7 +26,7 @@ const Share = ({ replayId, workshop }) => {
         a11yTitle="Share on Twitter"
         label={workshop && 'Twitter'}
         reverse
-        href={`https://twitter.com/intent/tweet?url=${origin}/workshop/${replayId}`}
+        href={`https://twitter.com/intent/tweet?url=${origin}/hackshack/workshop/${workshopId}`}
       />
       <Button
         icon={<GrommetLink size="medium" />}
@@ -34,7 +34,7 @@ const Share = ({ replayId, workshop }) => {
           /* eslint-disable no-unused-expressions */
           workshop
             ? navigator.clipboard.writeText(
-                `${origin}/hackshack/workshop/${replayId}`,
+                `${origin}/hackshack/workshop/${workshopId}`,
               )
             : navigator.clipboard.writeText(window.location.href);
           /* eslint-enable no-unused-expressions */
@@ -52,7 +52,7 @@ const Share = ({ replayId, workshop }) => {
 };
 
 Share.propTypes = {
-  replayId: PropTypes.number,
+  workshopId: PropTypes.number,
   workshop: PropTypes.bool,
 };
 

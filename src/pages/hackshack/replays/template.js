@@ -29,7 +29,6 @@ const sortReplays = (replayData, current) => {
 };
 
 const ReplayTemplate = (props) => {
-
   const { GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT } = process.env;
   const getReplaysApi = `${GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/replays?active=true`;
   const [replays, setReplays] = useState([]);
@@ -66,8 +65,15 @@ const ReplayTemplate = (props) => {
     getToken();
     // eslint-disable-next-line
   }, [error, getReplaysApi]);
-  const { workshopId, workshopTitle, workshopDesc, workshopImg } = props.pageContext;
-  const workshopIndex = workshopId ? parseInt(props.pageContext.workshopId, 10) : 0;
+  const {
+    workshopId,
+    workshopTitle,
+    workshopDesc,
+    workshopImg,
+  } = props.pageContext;
+  const workshopIndex = workshopId
+    ? parseInt(props.pageContext.workshopId, 10)
+    : 0;
   const [current, setCurrent] = useState(workshopIndex);
   const [autoplay, setAutoPlay] = useState(false);
   const sortedReplays = sortReplays(replays, current);
