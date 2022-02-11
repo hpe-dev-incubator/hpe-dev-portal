@@ -2,6 +2,7 @@
 const fs = require('fs');
 const path = require('path');
 const axios = require('axios');
+const fetch = require('node-fetch');
 require('dotenv').config();
 
 const { createFilePath } = require('gatsby-source-filesystem');
@@ -68,13 +69,11 @@ exports.createPages = async ({ graphql, actions }) => {
 
   try {
     // eslint-disable-next-line max-len
-    const replaysApi = `${GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/replays?active=true`;
-    const getReplays = await axios({
-      method: 'GET',
-      url: replaysApi,
-    });
-
-    getReplays.data.forEach(({ id, title, desc, workshop }) => {
+    const result = await fetch(
+      `${GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/replays?active=true`,
+    );
+    const resultData = await result.json();
+    resultData.forEach(({ id, title, desc, workshop }) => {
       createPage({
         path: `/hackshack/replays/${id}`,
         component: require.resolve('./src/pages/hackshack/replays/template.js'),
@@ -82,10 +81,10 @@ exports.createPages = async ({ graphql, actions }) => {
           replayId: id,
           replayTitle: title,
           replayDescription: desc,
-          replayImage: workshop.workshopImg,
+          replayImage: workshop && workshop.workshopImg,
         },
       });
-
+      
       createPage({
         path: `/hackshack/workshop/${id}`,
         component: require.resolve('./src/pages/hackshack/replays/template.js'),
@@ -93,7 +92,7 @@ exports.createPages = async ({ graphql, actions }) => {
           replayId: id,
           replayTitle: title,
           replayDescription: desc,
-          replayImage: workshop.workshopImg,
+          replayImage: workshop && workshop.workshopImg,
         },
       });
 
