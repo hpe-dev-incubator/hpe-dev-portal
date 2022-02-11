@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react';
 import { Heading, Text, Box, Image } from 'grommet';
 import axios from 'axios';
 import PropTypes from 'prop-types';
-import { graphql, useStaticQuery } from 'gatsby';
 import { Layout, VideoList, Video } from '../../../components/hackshack';
 import { PageHeader } from '../../../components/hackshack/PageHeading';
 import AuthService from '../../../services/auth.service';
@@ -25,21 +24,8 @@ const sortReplays = (replayData, current) => {
 };
 
 const Replays = (props) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      example {
-        data {
-          title
-          desc
-          workshop {
-            workshopImg
-          }
-        }
-      }
-    }
-  `);
   // eslint-disable-next-line react/prop-types
-  const metaData = data.example.data;
+
   const { GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT } = process.env;
   // eslint-disable-next-line max-len
   const getReplaysApi = `${GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/replays?active=true`;
@@ -79,7 +65,12 @@ const Replays = (props) => {
     getToken();
     // eslint-disable-next-line
   }, [error, getReplaysApi]);
-  const { replayId } = props.pageContext;
+  const {
+    replayId,
+    replayTitle,
+    replayDescription,
+    replayImage,
+  } = props.pageContext;
   const replayIndex = replayId ? parseInt(props.pageContext.replayId, 10) : 0;
   const [current, setCurrent] = useState(replayIndex);
   const [autoplay, setAutoPlay] = useState(false);
@@ -92,16 +83,16 @@ const Replays = (props) => {
   //       replays.length > 0 &&
   //       replays[current].workshop &&
   //       replays[current].workshop.workshopImg;
-  const replayTitle = replays.length > 0 && replays[current].title;
+  // const replayTitle = replays.length > 0 && replays[current].title;
   return (
     <Layout background="/img/BackgroundImages/generic-background.jpg">
       <PageHeader title={replayTitle}>
         {replays.length > 0 ? (
           <>
             <SEO
-              title={metaData[current].title}
-              description={metaData[current].desc}
-              image={metaData[current].workshop.workshopImg}
+              title={replayTitle}
+              description={replayDescription}
+              image={replayImage}
             />
             <Video
               videolink={replays[current].videoLink}
