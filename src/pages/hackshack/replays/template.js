@@ -2,7 +2,6 @@
 /* eslint-disable react/prop-types */
 import React, { useEffect, useState } from 'react';
 import { Heading, Text, Box, Image } from 'grommet';
-import { graphql, useStaticQuery } from 'gatsby';
 import axios from 'axios';
 import PropTypes from 'prop-types';
 import {
@@ -30,22 +29,6 @@ const sortReplays = (replayData, current) => {
 };
 
 const ReplayTemplate = (props) => {
-  const data = useStaticQuery(graphql`
-    query ReplayQuery {
-      metadata {
-        replayData {
-          title
-          desc
-          workshop {
-            workshopImg
-            badgeImg
-          }
-        }
-      }
-    }
-  `);
-  const metadata = data.metadata.replayData;
-
   const { GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT } = process.env;
   const getReplaysApi = `${GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/replays?active=true`;
   const [replays, setReplays] = useState([]);
@@ -82,20 +65,25 @@ const ReplayTemplate = (props) => {
     getToken();
     // eslint-disable-next-line
   }, [error, getReplaysApi]);
-  const { replayId } = props.pageContext;
-  const replayIndex = replayId ? parseInt(props.pageContext.replayId, 10) : 0;
-  const [current, setCurrent] = useState(replayIndex);
+  const {
+    workshopId,
+    workshopTitle,
+    workshopDesc,
+    workshopImg,
+  } = props.pageContext;
+  const workshopIndex = workshopId
+    ? parseInt(props.pageContext.workshopId, 10)
+    : 0;
+  const [current, setCurrent] = useState(workshopIndex);
   const [autoplay, setAutoPlay] = useState(false);
   const sortedReplays = sortReplays(replays, current);
   return (
     <Layout background="/img/BackgroundImages/generic-background.jpg">
-      <PageHeader title={metadata[current].title}>
+      <PageHeader title={workshopTitle}>
         <SEO
-          title={metadata[current].title}
-          description={metadata[current].desc}
-          image={
-            metadata[current].workshop && metadata[current].workshop.workshopImg
-          }
+          title={workshopTitle}
+          description={workshopDesc}
+          image={workshopImg}
         />
         {replays.length > 0 ? (
           <>
@@ -128,7 +116,7 @@ const ReplayTemplate = (props) => {
               workshopTitle={
                 replays[current].workshop && replays[current].workshop.name
               }
-              replayId={replayId}
+              workshopId={workshopId}
             />
             <Heading color="text" style={{ fontWeight: '500' }} level={2}>
               UP NEXT

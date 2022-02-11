@@ -917,7 +917,7 @@ const ScheduleCard = ({
                 dropAlign={{ top: 'bottom', right: 'right' }}
                 dropContent={
                   <Box pad="small">
-                    <Share replayId={replayId} workshop />
+                    <Share workshopId={replayId} workshop />
                   </Box>
                 }
                 alignSelf="start"

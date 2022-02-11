@@ -23,7 +23,7 @@ const Video = ({
   location,
   capacity,
   workshopTitle,
-  replayId,
+  workshopId,
 }) => {
   const [signupLayer, setSignupLayer] = useState(false);
   const [successLayer, setSuccessLayer] = useState(false);
@@ -103,7 +103,7 @@ const Video = ({
                 </Box>
               )}
               <Box direction="row" alignSelf="start" justify="evenly">
-                <Share replayId={replayId} />
+                <Share workshopId={workshopId} />
               </Box>
             </Box>
             <Box direction="row" justify="between" margin={{ bottom: 'small' }}>
@@ -192,7 +192,7 @@ Video.propTypes = {
   location: PropTypes.string,
   capacity: PropTypes.number,
   workshopTitle: PropTypes.string,
-  replayId: PropTypes.number,
+  workshopId: PropTypes.number,
 };
 
 export default Video;

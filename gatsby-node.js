@@ -2,7 +2,6 @@
 const fs = require('fs');
 const path = require('path');
 const axios = require('axios');
-const fetch = require('node-fetch');
 require('dotenv').config();
 
 const { createFilePath } = require('gatsby-source-filesystem');
@@ -65,6 +64,10 @@ exports.createPages = async ({ graphql, actions }) => {
           badgeImg,
         },
       });
+      console.log(
+        `Create pages /hackshack/workshops/${id - 1}/special-badge from ${id}`,
+      );
+      console.log('------------------------------');
     });
   } catch (error) {
     console.log('error: ', error);
@@ -78,30 +81,50 @@ exports.createPages = async ({ graphql, actions }) => {
       url: replaysApi,
     });
 
-    getReplays.data.forEach(({ id }) => {
+    getReplays.data.forEach(({ id, title, desc, workshop }) => {
       createPage({
         path: `/hackshack/replays/${id}`,
         component: require.resolve('./src/pages/hackshack/replays/template.js'),
         context: {
-          replayId: id,
+          workshopId: id,
+          workshopTitle: title,
+          workshopDesc: desc,
+          workshopImg: workshop && workshop.workshopImg,
         },
       });
+
+      console.log(`Create pages /hackshack/replays/${id} from ${id}`);
+      console.log('------------------------------');
 
       createPage({
         path: `/hackshack/workshop/${id}`,
         component: require.resolve('./src/pages/hackshack/replays/template.js'),
         context: {
-          replayId: id,
+          workshopId: id,
+          workshopTitle: title,
+          workshopDesc: desc,
+          workshopImg: workshop && workshop.workshopImg,
         },
       });
 
+      console.log(`Create pages /hackshack/workshop/${id} from ${id}`);
+      console.log('------------------------------');
+
       createPage({
         path: `/hackshack/workshop/${id}/finisher-badge`,
-        component: require.resolve('./src/templates/finisher-badge.js'),
+        component: require.resolve('./src/pages/hackshack/replays/template.js'),
         context: {
-          replayId: id,
+          workshopId: id,
+          workshopTitle: title,
+          workshopDesc: desc,
+          workshopImg: workshop && workshop.badgeImg,
         },
       });
+
+      console.log(
+        `Create pages /hackshack/workshop/${id}/finisher-badge from ${id}`,
+      );
+      console.log('------------------------------');
     });
   } catch (error) {
     console.log('error: ', error);
@@ -418,27 +441,4 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
       },
     }),
   ]);
-};
-
-const { GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT } = process.env;
-exports.sourceNodes = async ({
-  actions: { createNode },
-  createContentDigest,
-}) => {
-  const replays = await fetch(
-    `${GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/replays?active=true`,
-  );
-  const replayData = await replays.json();
-
-  createNode({
-    replayData,
-    id: 'replay',
-    parent: null,
-    children: [],
-    internal: {
-      type: 'Metadata',
-      contentDigest: createContentDigest(replayData),
-    },
-  });
-
 };
