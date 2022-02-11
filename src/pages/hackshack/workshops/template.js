@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react';
 import { Heading, Text, Box, Image, Tab, Tabs } from 'grommet';
 import axios from 'axios';
 import PropTypes from 'prop-types';
-import { graphql, useStaticQuery } from 'gatsby';
 import { Layout, ScheduleCard, CardGrid } from '../../../components/hackshack';
 import { MainTitle } from '../../../components/hackshack/StyledComponents';
 import AuthService from '../../../services/auth.service';
@@ -41,20 +40,6 @@ const Workshop = (props) => {
   const arr = [];
   const [index, setIndex] = useState(0);
   const onActive = (nextIndex) => setIndex(nextIndex);
-
-  const data = useStaticQuery(graphql`
-    query SpecialBadgeQuery {
-      metadata {
-        specialBadgesData {
-          badgeImg
-          title
-          description
-        }
-      }
-    }
-  `);
-
-  const metadata = data.metadata.specialBadgesData;
 
   const latestWorkshops = workshops
     .slice()
@@ -109,19 +94,11 @@ const Workshop = (props) => {
     // eslint-disable-next-line
   }, []);
 
-  const { specialBadgeId } = props.pageContext;
-  let specialBadgeIndex = 0;
-  if (specialBadgeId) {
-    specialBadgeIndex = parseInt(specialBadgeId, 10) - 1;
-  }
+  const { title, description, badgeImg } = props.pageContext;
 
   return (
     <Layout background="/img/hackshack/BackgroundImages/schedule-background.png">
-      <SEO
-        title={metadata[specialBadgeIndex].title}
-        description={metadata[specialBadgeIndex].description}
-        image={metadata[specialBadgeIndex].badgeImg}
-      />
+      <SEO title={title} description={description} image={badgeImg} />
       <MainTitle>
         <Heading color="text-strong" margin={{ top: 'none', bottom: 'small' }}>
           Workshops-on-Demand
@@ -206,7 +183,9 @@ const Workshop = (props) => {
 
 Workshop.propTypes = {
   pageContext: PropTypes.shape({
-    specialBadgeId: PropTypes.number,
+    title: PropTypes.string,
+    description: PropTypes.string,
+    badgeImg: PropTypes.string,
   }),
 };
 

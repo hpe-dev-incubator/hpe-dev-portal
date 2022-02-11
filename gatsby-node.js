@@ -52,7 +52,7 @@ exports.createPages = async ({ graphql, actions }) => {
       url: specialBadgesApi,
     });
 
-    getSpecialBadges.data.forEach(({ id }) => {
+    getSpecialBadges.data.forEach(({ id, title, description, badgeImg }) => {
       createPage({
         path: `/hackshack/workshops/${id - 1}/special-badge`,
         component: require.resolve(
@@ -60,6 +60,9 @@ exports.createPages = async ({ graphql, actions }) => {
         ),
         context: {
           specialBadgeId: id,
+          title,
+          description,
+          badgeImg,
         },
       });
     });
@@ -425,21 +428,16 @@ exports.sourceNodes = async ({
   const replays = await fetch(
     `${GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/replays?active=true`,
   );
-  const specialBadges = await fetch(
-    `${GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/special-badges`,
-  );
   const replayData = await replays.json();
-  const specialBadgesData = await specialBadges.json();
 
   createNode({
     replayData,
-    specialBadgesData,
     id: 'replay',
     parent: null,
     children: [],
     internal: {
       type: 'Metadata',
-      contentDigest: createContentDigest(replayData, specialBadgesData),
+      contentDigest: createContentDigest(replayData),
     },
   });
 
