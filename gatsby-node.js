@@ -69,30 +69,26 @@ exports.createPages = async ({ graphql, actions }) => {
 
   try {
     // eslint-disable-next-line max-len
-    const result = await fetch(
-      `${GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/replays?active=true`,
-    );
-    const resultData = await result.json();
-    resultData.forEach(({ id, title, desc, workshop }) => {
+    const replaysApi = `${GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/replays?active=true`;
+    const getReplays = await axios({
+      method: 'GET',
+      url: replaysApi,
+    });
+
+    getReplays.data.forEach(({ id }) => {
       createPage({
         path: `/hackshack/replays/${id}`,
         component: require.resolve('./src/pages/hackshack/replays/template.js'),
         context: {
           replayId: id,
-          replayTitle: title,
-          replayDescription: desc,
-          replayImage: workshop && workshop.workshopImg,
         },
       });
-      
+
       createPage({
         path: `/hackshack/workshop/${id}`,
         component: require.resolve('./src/pages/hackshack/replays/template.js'),
         context: {
           replayId: id,
-          replayTitle: title,
-          replayDescription: desc,
-          replayImage: workshop && workshop.workshopImg,
         },
       });
 
@@ -419,4 +415,27 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
       },
     }),
   ]);
+};
+
+const { GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT } = process.env;
+exports.sourceNodes = async ({
+  actions: { createNode },
+  createContentDigest,
+}) => {
+  // get data from GitHub API at build time
+  const result = await fetch(
+    `${GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/replays?active=true`,
+  );
+  const resultData = await result.json();
+  // create node for build time data example in the docs
+  createNode({
+    data: resultData,
+    id: 'example-build-time-data',
+    parent: null,
+    children: [],
+    internal: {
+      type: 'Example',
+      contentDigest: createContentDigest(resultData),
+    },
+  });
 };

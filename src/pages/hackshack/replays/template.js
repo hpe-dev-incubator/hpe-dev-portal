@@ -1,12 +1,17 @@
 /* eslint-disable react/prop-types */
 import React, { useEffect, useState } from 'react';
 import { Heading, Text, Box, Image } from 'grommet';
+import { graphql, useStaticQuery } from 'gatsby';
 import axios from 'axios';
 import PropTypes from 'prop-types';
-import { Layout, VideoList, Video } from '../../../components/hackshack';
-import { PageHeader } from '../../../components/hackshack/PageHeading';
+import {
+  Layout,
+  VideoList,
+  Video,
+  PageHeader,
+} from '../../../components/hackshack';
 import AuthService from '../../../services/auth.service';
-import SEO from '../../../components/Seo';
+import { SEO } from '../../../components';
 
 const sortReplays = (replayData, current) => {
   const beggining = [];
@@ -24,7 +29,21 @@ const sortReplays = (replayData, current) => {
 };
 
 const Replays = (props) => {
-  // eslint-disable-next-line react/prop-types
+  const data = useStaticQuery(graphql`
+    query SiteTitleQuery {
+      example {
+        data {
+          title
+          desc
+          workshop {
+            workshopImg
+          }
+        }
+      }
+    }
+  `);
+
+  const metadata = data.example.data;
 
   const { GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT } = process.env;
   // eslint-disable-next-line max-len
@@ -65,12 +84,7 @@ const Replays = (props) => {
     getToken();
     // eslint-disable-next-line
   }, [error, getReplaysApi]);
-  const {
-    replayId,
-    replayTitle,
-    replayDescription,
-    replayImage,
-  } = props.pageContext;
+  const { replayId } = props.pageContext;
   const replayIndex = replayId ? parseInt(props.pageContext.replayId, 10) : 0;
   const [current, setCurrent] = useState(replayIndex);
   const [autoplay, setAutoPlay] = useState(false);
@@ -86,14 +100,16 @@ const Replays = (props) => {
   // const replayTitle = replays.length > 0 && replays[current].title;
   return (
     <Layout background="/img/BackgroundImages/generic-background.jpg">
-      <PageHeader title={replayTitle}>
+      <PageHeader title={metadata[current].title}>
+        <SEO
+          title={metadata[current].title}
+          description={metadata[current].desc}
+          image={
+            metadata[current].workshop && metadata[current].workshop.workshopImg
+          }
+        />
         {replays.length > 0 ? (
           <>
-            <SEO
-              title={replayTitle}
-              description={replayDescription}
-              image={replayImage}
-            />
             <Video
               videolink={replays[current].videoLink}
               id={replays[current].id}
