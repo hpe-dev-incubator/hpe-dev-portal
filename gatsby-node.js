@@ -422,20 +422,35 @@ exports.sourceNodes = async ({
   actions: { createNode },
   createContentDigest,
 }) => {
-  // get data from GitHub API at build time
-  const result = await fetch(
+  const replays = await fetch(
     `${GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/replays?active=true`,
   );
-  const resultData = await result.json();
-  // create node for build time data example in the docs
+  const replayData = await replays.json();
+
   createNode({
-    data: resultData,
-    id: 'example-build-time-data',
+    data: replayData,
+    id: 'replay',
     parent: null,
     children: [],
     internal: {
-      type: 'replayMeta',
-      contentDigest: createContentDigest(resultData),
+      type: 'ReplayMeta',
+      contentDigest: createContentDigest(replayData),
+    },
+  });
+
+  const specialBadges = await fetch(
+    `${GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/special-badges`,
+  );
+  const specialBadgesData = await specialBadges.json();
+
+  createNode({
+    data: specialBadgesData,
+    id: 'special',
+    parent: null,
+    children: [],
+    internal: {
+      type: 'SpecialMeta',
+      contentDigest: createContentDigest(specialBadgesData),
     },
   });
 };

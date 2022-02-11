@@ -5,12 +5,7 @@ import { Heading, Text, Box, Image } from 'grommet';
 import { graphql, useStaticQuery } from 'gatsby';
 import axios from 'axios';
 import PropTypes from 'prop-types';
-import {
-  Layout,
-  VideoList,
-  Video,
-  PageHeader,
-} from '../components/hackshack';
+import { Layout, VideoList, Video, PageHeader } from '../components/hackshack';
 import AuthService from '../services/auth.service';
 import { SEO } from '../components';
 

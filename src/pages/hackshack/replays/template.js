@@ -48,7 +48,6 @@ const ReplayTemplate = (props) => {
   const metadata = data.replayMeta.data;
 
   const { GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT } = process.env;
-
   const getReplaysApi = `${GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/replays?active=true`;
   const [replays, setReplays] = useState([]);
   const [error, setError] = useState('');
