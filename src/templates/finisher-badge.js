@@ -10,9 +10,9 @@ import {
   VideoList,
   Video,
   PageHeader,
-} from '../../../components/hackshack';
-import AuthService from '../../../services/auth.service';
-import { SEO } from '../../../components';
+} from '../components/hackshack';
+import AuthService from '../services/auth.service';
+import { SEO } from '../components';
 
 const sortReplays = (replayData, current) => {
   const beggining = [];
@@ -29,9 +29,9 @@ const sortReplays = (replayData, current) => {
   return beggining.concat(end);
 };
 
-const ReplayTemplate = (props) => {
+const ReplaysFinisherTemplate = (props) => {
   const data = useStaticQuery(graphql`
-    query ReplayQuery {
+    query ReplayFinisherQuery {
       replayMeta {
         data {
           title
@@ -96,7 +96,7 @@ const ReplayTemplate = (props) => {
           title={metadata[current].title}
           description={metadata[current].desc}
           image={
-            metadata[current].workshop && metadata[current].workshop.workshopImg
+            metadata[current].workshop && metadata[current].workshop.badgeImg
           }
         />
         {replays.length > 0 ? (
@@ -177,10 +177,10 @@ const ReplayTemplate = (props) => {
   );
 };
 
-ReplayTemplate.propTypes = {
+ReplaysFinisherTemplate.propTypes = {
   pageContext: PropTypes.number,
   // eslint-disable-next-line react/no-unused-prop-types
   path: PropTypes.string,
 };
 
-export default ReplayTemplate;
+export default ReplaysFinisherTemplate;

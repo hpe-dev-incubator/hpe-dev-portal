@@ -94,7 +94,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
       createPage({
         path: `/hackshack/workshop/${id}/finisher-badge`,
-        component: require.resolve('./src/pages/hackshack/replays/template.js'),
+        component: require.resolve('./src/templates/finisher-badge.js'),
         context: {
           replayId: id,
         },
@@ -434,7 +434,7 @@ exports.sourceNodes = async ({
     parent: null,
     children: [],
     internal: {
-      type: 'Example',
+      type: 'replayMeta',
       contentDigest: createContentDigest(resultData),
     },
   });
