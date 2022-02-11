@@ -425,32 +425,23 @@ exports.sourceNodes = async ({
   const replays = await fetch(
     `${GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/replays?active=true`,
   );
+  const specialBadges = await fetch(
+    `${GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/special-badges`,
+  );
   const replayData = await replays.json();
+  const specialBadgesData = await specialBadges.json();
+
 
   createNode({
-    data: replayData,
+    replayData,
+    specialBadgesData,
     id: 'replay',
     parent: null,
     children: [],
     internal: {
-      type: 'ReplayMeta',
+      type: 'Metadata',
       contentDigest: createContentDigest(replayData),
     },
   });
 
-  const specialBadges = await fetch(
-    `${GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/special-badges`,
-  );
-  const specialBadgesData = await specialBadges.json();
-
-  createNode({
-    data: specialBadgesData,
-    id: 'special',
-    parent: null,
-    children: [],
-    internal: {
-      type: 'SpecialMeta',
-      contentDigest: createContentDigest(specialBadgesData),
-    },
-  });
 };

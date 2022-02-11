@@ -32,8 +32,8 @@ const sortReplays = (replayData, current) => {
 const ReplayTemplate = (props) => {
   const data = useStaticQuery(graphql`
     query ReplayQuery {
-      replayMeta {
-        data {
+      metadata {
+        replayData {
           title
           desc
           workshop {
@@ -44,8 +44,7 @@ const ReplayTemplate = (props) => {
       }
     }
   `);
-
-  const metadata = data.replayMeta.data;
+  const metadata = data.metadata.replayData;
 
   const { GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT } = process.env;
   const getReplaysApi = `${GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/replays?active=true`;

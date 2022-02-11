@@ -44,17 +44,17 @@ const Workshop = (props) => {
 
   const data = useStaticQuery(graphql`
     query SpecialBadgeQuery {
-      specialMeta {
-        data {
+      metadata {
+        specialBadgesData {
+          badgeImg
           title
           description
-          badgeImg
         }
       }
     }
   `);
 
-  const metadata = data.specialMeta.data;
+  const metadata = data.metadata.specialBadgesData;
 
   const latestWorkshops = workshops
     .slice()

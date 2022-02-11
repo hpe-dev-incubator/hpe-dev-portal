@@ -40,6 +40,14 @@ function SEO({ description, lang, meta, title, image }) {
           content: image,
         },
         {
+          property: 'og:image:width',
+          content: '200',
+        },
+        {
+          property: 'og:image:height',
+          content: '200',
+        },
+        {
           property: 'og:type',
           content: 'website',
         },
