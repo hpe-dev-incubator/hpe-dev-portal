@@ -28,10 +28,10 @@ The HPE DEV Munch & Learn Technology Talks are monthly community meetups where y
 
 ## Workshops-on-Demand
 
-The [HPE DEV Workshops-on-Demand](https://hackshack.hpedev.io/workshops) are free, Jupyter Notebook-based workshops that offer an in-depth, hands-on learning experience. Explore details of a technology by interacting with it. Designed to fit your schedule, these workshops are available 24/7 – from anywhere at any time. Check out these interesting HPE Ezmeral Data Fabric workshops:
+The [HPE DEV Workshops-on-Demand](/hackshack/workshops) are free, Jupyter Notebook-based workshops that offer an in-depth, hands-on learning experience. Explore details of a technology by interacting with it. Designed to fit your schedule, these workshops are available 24/7 – from anywhere at any time. Check out these interesting HPE Ezmeral Data Fabric workshops:
 
-* [Building a dynamic Machine Learning pipeline with KubeDirector](https://hackshack.hpedev.io/workshop/28)
-* [Deploying end-to-end machine learning workflows with HPE Ezmeral MLOps](https://hackshack.hpedev.io/workshop/29)
+* [Building a dynamic Machine Learning pipeline with KubeDirector](/hackshack/workshop/28)
+* [Deploying end-to-end machine learning workflows with HPE Ezmeral MLOps](/hackshack/workshop/29)
 
 ## Documentation and tutorials
 

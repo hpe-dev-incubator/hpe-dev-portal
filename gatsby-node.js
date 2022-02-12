@@ -1,6 +1,8 @@
 /* eslint-disable no-console */
 const fs = require('fs');
 const path = require('path');
+const axios = require('axios');
+require('dotenv').config();
 
 const { createFilePath } = require('gatsby-source-filesystem');
 
@@ -39,6 +41,94 @@ const paginatedCollectionQuery = (paginatedName) => {
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
+  const { GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT } = process.env;
+
+  try {
+    // eslint-disable-next-line
+    const specialBadgesApi = `${GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/special-badges`;
+    const getSpecialBadges = await axios({
+      method: 'GET',
+      url: specialBadgesApi,
+    });
+
+    getSpecialBadges.data.forEach(({ id, title, description, badgeImg }) => {
+      createPage({
+        path: `/hackshack/workshops/${id - 1}/special-badge`,
+        component: require.resolve(
+          './src/pages/hackshack/workshops/template.js',
+        ),
+        context: {
+          specialBadgeId: id,
+          title,
+          description,
+          badgeImg,
+        },
+      });
+      console.log(
+        `Create pages /hackshack/workshops/${id - 1}/special-badge from ${id}`,
+      );
+      console.log('------------------------------');
+    });
+  } catch (error) {
+    console.log('error: ', error);
+  }
+
+  try {
+    // eslint-disable-next-line max-len
+    const replaysApi = `${GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/replays?active=true`;
+    const getReplays = await axios({
+      method: 'GET',
+      url: replaysApi,
+    });
+
+    getReplays.data.forEach(({ id, title, desc, workshop }) => {
+      createPage({
+        path: `/hackshack/replays/${id}`,
+        component: require.resolve('./src/pages/hackshack/replays/template.js'),
+        context: {
+          workshopId: id,
+          workshopTitle: title,
+          workshopDesc: desc,
+          workshopImg: workshop && workshop.workshopImg,
+        },
+      });
+
+      console.log(`Create pages /hackshack/replays/${id} from ${id}`);
+      console.log('------------------------------');
+
+      createPage({
+        path: `/hackshack/workshop/${id}`,
+        component: require.resolve('./src/pages/hackshack/replays/template.js'),
+        context: {
+          workshopId: id,
+          workshopTitle: title,
+          workshopDesc: desc,
+          workshopImg: workshop && workshop.workshopImg,
+        },
+      });
+
+      console.log(`Create pages /hackshack/workshop/${id} from ${id}`);
+      console.log('------------------------------');
+
+      createPage({
+        path: `/hackshack/workshop/${id}/finisher-badge`,
+        component: require.resolve('./src/pages/hackshack/replays/template.js'),
+        context: {
+          workshopId: id,
+          workshopTitle: title,
+          workshopDesc: desc,
+          workshopImg: workshop && workshop.badgeImg,
+        },
+      });
+
+      console.log(
+        `Create pages /hackshack/workshop/${id}/finisher-badge from ${id}`,
+      );
+      console.log('------------------------------');
+    });
+  } catch (error) {
+    console.log('error: ', error);
+  }
 
   const blogPost = path.resolve('./src/templates/blog-post.js');
   const platform = path.resolve('./src/templates/platform.js');
@@ -50,40 +140,53 @@ exports.createPages = async ({ graphql, actions }) => {
   const useCasesTemplate = path.resolve('./src/templates/use-case.js');
 
   const allQueryResult = await graphql(paginatedCollectionQuery('blog-posts'));
-  const openSourceQueryResult =
-    await graphql(paginatedCollectionQuery('opensource-blog-posts'));
-  const ezmeralRuntimeQueryResult =
-    await graphql(paginatedCollectionQuery('ezmeral-runtime-blog-posts'));
-  const spiffeQueryResult =
-    await graphql(paginatedCollectionQuery('spiffe-blog-posts'));
-  const dataFabricQueryResult =
-    await graphql(paginatedCollectionQuery('data-fabric-posts'));
-  const greenLakeQueryResult =
-    await graphql(paginatedCollectionQuery('greenlake-posts'));
-  const chapelQueryResult =
-    await graphql(paginatedCollectionQuery('chapel-posts'));
-  const grommetQueryResult =
-    await graphql(paginatedCollectionQuery('grommet-posts'));
-  const alletraQueryResult =
-    await graphql(paginatedCollectionQuery('alletra-posts'));
-  const deepLearningQueryResult =
-    await graphql(paginatedCollectionQuery('deep-learning-posts'));
-  const threeParQueryResult =
-    await graphql(paginatedCollectionQuery('3par-posts'));
-  const nimbleQueryResult =
-    await graphql(paginatedCollectionQuery('nimble-posts'));
-  const oneviewQueryResult =
-    await graphql(paginatedCollectionQuery('oneview-posts'));
-  const oneviewDashboardQueryResult =
-    await graphql(paginatedCollectionQuery('oneview-dashboard-posts'));
-  const iloQueryResult =
-    await graphql(paginatedCollectionQuery('ilo-posts'));
-  const determinedQueryResult =
-    await graphql(paginatedCollectionQuery('determined-ai-posts'));
-  const dsccQueryResult =
-    await graphql(paginatedCollectionQuery('dscc-posts'));
-  const othersQueryResult = 
-    await graphql(paginatedCollectionQuery('others-posts'));
+  const openSourceQueryResult = await graphql(
+    paginatedCollectionQuery('opensource-blog-posts'),
+  );
+  const ezmeralRuntimeQueryResult = await graphql(
+    paginatedCollectionQuery('ezmeral-runtime-blog-posts'),
+  );
+  const spiffeQueryResult = await graphql(
+    paginatedCollectionQuery('spiffe-blog-posts'),
+  );
+  const dataFabricQueryResult = await graphql(
+    paginatedCollectionQuery('data-fabric-posts'),
+  );
+  const greenLakeQueryResult = await graphql(
+    paginatedCollectionQuery('greenlake-posts'),
+  );
+  const chapelQueryResult = await graphql(
+    paginatedCollectionQuery('chapel-posts'),
+  );
+  const grommetQueryResult = await graphql(
+    paginatedCollectionQuery('grommet-posts'),
+  );
+  const alletraQueryResult = await graphql(
+    paginatedCollectionQuery('alletra-posts'),
+  );
+  const deepLearningQueryResult = await graphql(
+    paginatedCollectionQuery('deep-learning-posts'),
+  );
+  const threeParQueryResult = await graphql(
+    paginatedCollectionQuery('3par-posts'),
+  );
+  const nimbleQueryResult = await graphql(
+    paginatedCollectionQuery('nimble-posts'),
+  );
+  const oneviewQueryResult = await graphql(
+    paginatedCollectionQuery('oneview-posts'),
+  );
+  const oneviewDashboardQueryResult = await graphql(
+    paginatedCollectionQuery('oneview-dashboard-posts'),
+  );
+  const iloQueryResult = await graphql(paginatedCollectionQuery('ilo-posts'));
+  const determinedQueryResult = await graphql(
+    paginatedCollectionQuery('determined-ai-posts'),
+  );
+  const dsccQueryResult = await graphql(paginatedCollectionQuery('dscc-posts'));
+  const othersQueryResult = await graphql(
+    paginatedCollectionQuery('others-posts'),
+  );
 
   setPagination(allQueryResult);
   setPagination(openSourceQueryResult);

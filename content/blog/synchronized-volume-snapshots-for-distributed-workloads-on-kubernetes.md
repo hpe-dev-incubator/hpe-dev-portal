@@ -250,6 +250,6 @@ This is just the tip of the iceberg when it comes to data management innovation 
 - Check out the release announcement on [Around The Storage Block](https://community.hpe.com/t5/Around-the-Storage-Block/HPE-CSI-Driver-for-Kubernetes-v1-4-0-with-expanded-ecosystem-and/ba-p/7118180)
 - Install the latest HPE CSI Driver using the [Helm Chart from ArtifactHub.io](https://artifacthub.io/packages/helm/hpe-storage/hpe-csi-driver)
 - Visit the [HPE Storage Container Orchestration Documentation](https://scod.hpedev.io) (SCOD) portal for everything pertaining to the HPE CSI Driver
-- Sign up for a [HPE DEV Hack Shack Workshop](https://hackshack.hpedev.io/workshops) to learn about CSI on the HPE Ezmeral Container Platform
+- Sign up for a [HPE DEV Hack Shack Workshop](/hackshack/workshops) to learn about CSI on the HPE Ezmeral Container Platform
 
 HPE is eager to learn what our customers and partners are doing with Kubernetes and data management. Join the HPE DEV Slack community to share your thoughts and engage with the team. Sign up at [slack.hpedev.io](http://slack.hpedev.io) and sign in at [hpedev.slack.com](http://hpedev.slack.com), we hang out in #nimblestorage, #3par-primera and #kubernetes.
