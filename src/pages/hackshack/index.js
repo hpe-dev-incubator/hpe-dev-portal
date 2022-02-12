@@ -285,14 +285,11 @@ const Cards = ({ size }) => (
       }
     />
     <Card
-      image="/img/hackshack/MunchAndLearn/munch-learn-generic.jpg"
-      title="Location, location, location! With data everywhere, location 
-      matters more than ever.Learn how succeed at the Edge with HPE Ezmeral 
-      and NVIDIA"
-      desc="Join HPE and NVIDIA to learn how best accelerate your success 
-      at the Edge."
-      link=" https://hpe.zoom.us/webinar/register/WN_JLPveMmYSOWd1Mn-7bU62Q"
-      date="January 19, 2022"
+      image="/img/hackshack/cap_ML.png"
+      title="Golden Age of AI, Dark Ages of AI Infrastructure"
+      desc="Neil Conway, senior director of Determined AI engineering at HPE, joins us to talk about why practical use of deep learning (DL) remains difficult. He’ll explore what problems DL infrastructure tools solve today, where they fall short, and how they can improve."
+      link="https://hpe.zoom.us/webinar/register/2316433878218/WN_aU4wfaGQSzCZrnsoQctsFw"
+      date="February 16, 2022"
       background="rgba(0, 86, 122, 0.8);"
       label="Register Now!"
       margin={
