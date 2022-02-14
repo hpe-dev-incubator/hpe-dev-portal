@@ -275,7 +275,7 @@ const Cards = ({ size }) => (
       image="/img/hackshack/workshops-on-demand.png"
       title="INTRODUCING HPE DEV WORKSHOPS-ON-DEMAND"
       desc="Learn more about our technologies through hands-on experience."
-      path="/workshops"
+      path="/hackshack/workshops"
       background="background"
       label="Register Now!"
       margin={
