@@ -337,7 +337,7 @@ Cards.propTypes = {
   size: PropTypes.string,
 };
 
-const ResponsiveContextWrapper = ({ children }, setOpen) => {
+const ResponsiveContextWrapper = ({ children, setOpen }) => {
   const size = useContext(ResponsiveContext);
   return (
     <Box
@@ -354,12 +354,12 @@ const ResponsiveContextWrapper = ({ children }, setOpen) => {
 
 ResponsiveContextWrapper.propTypes = {
   children: PropTypes.node.isRequired,
+  setOpen: PropTypes.func.isRequired,
 };
 
 const Home = () => {
   const [open, setOpen] = useState();
   const onClose = () => setOpen(undefined);
-
   return (
     <Grommet theme={hpe}>
       <Layout background="/img/hackshack/BackgroundImages/hack-shack-home-background.png">
