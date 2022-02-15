@@ -30,15 +30,15 @@ There are two objectives relating to predictive maintenance implemented in this 
 
 1. The first flow, located on the top half of the image below, is intended to persist IoT data and label training data for sequence prediction and anomaly detection of time-series data in Tensorflow. 
 
-<img src="https://raw.githubusercontent.com/mapr-demos/predictive-maintenance/master/images/bi_pipeline.png" width="50%">
+<img src="https://raw.githubusercontent.com/mapr-demos/predictive-maintenance/master/images/bi_pipeline.png" width="100%">
 
 2. The second flow, located on the bottom half, is intended to persist time-series IoT data in OpenTSDB for visualization in a Grafana dashboard. 
 
-<img src="https://raw.githubusercontent.com/mapr-demos/predictive-maintenance/master/images/ml_pipeline.png" width="50%">
+<img src="https://raw.githubusercontent.com/mapr-demos/predictive-maintenance/master/images/ml_pipeline.png" width="100%">
 
 Put together, these data pipelines look like this. The APIs used for reading and writing data are shown in red.
 
-<img src="https://raw.githubusercontent.com/mapr-demos/predictive-maintenance/master/images/dataflow.png" width="50%">
+<img src="https://raw.githubusercontent.com/mapr-demos/predictive-maintenance/master/images/dataflow.png" width="100%">
 
 
 ## Preliminary Steps
@@ -49,7 +49,7 @@ These steps explain how to setup this tutorial using the [MapR Container for Dev
 
 This tutorial requires a lot of memory. We recommend allocating 12GB RAM, 4GB swap, and 2 CPUs to the Docker Community Edition for MacOS.
 
-<img src="https://raw.githubusercontent.com/mapr-demos/predictive-maintenance/master/images/docker_config.png" width="40%">
+<img src="https://raw.githubusercontent.com/mapr-demos/predictive-maintenance/master/images/docker_config.png" width="100%">
 
 
 ## Start the MapR sandbox
@@ -84,7 +84,7 @@ Open Grafana data sources, with a URL like [http://maprdemo:3000/datasources/edi
 
 Load the `Grafana/IoT_dashboard.json` file using Grafana's dashboard import functionality, and specify "MaprMonitoringOpenTSDB" as the data source, as shown below:
 
-<img src="https://raw.githubusercontent.com/mapr-demos/predictive-maintenance/master/images/grafana_import.png" width="50%">
+<img src="https://raw.githubusercontent.com/mapr-demos/predictive-maintenance/master/images/grafana_import.png" width="100%">
 
 <hr>
 
@@ -129,7 +129,7 @@ Update `localhost:4242` with the hostname and port of your OpenTSDB server befor
 
 After you have run that command you should be able to visualize the streaming IoT data in Grafana.  Depending on where you have installed Grafana, this can be opened with a URL like [http://maprdemo:3000](http://maprdemo:3000):
 
-<img src="https://raw.githubusercontent.com/mapr-demos/predictive-maintenance/master/images/grafana_screenshot_2.png" width="50%" align="center">
+<img src="https://raw.githubusercontent.com/mapr-demos/predictive-maintenance/master/images/grafana_screenshot_2.png" width="100%" align="center">
 
 ## Step 4 - Update lagging features in MapR-DB for each failure event:
 
@@ -138,7 +138,7 @@ This process will listen for failure events on a MapR Streams topic and retroact
 ```bash
 /opt/mapr/spark/spark-*/bin/spark-submit --class com.mapr.examples.UpdateLaggingFeatures ~/predictive-maintenance/target/predictive-maintenance-1.0-jar-with-dependencies.jar /apps/factory:failures /apps/mqtt_records http://localhost:3000
 ```
-<img src="https://raw.githubusercontent.com/mapr-demos/predictive-maintenance/master/images/lagging_features_explanation.png" width="70%" align="center">
+<img src="https://raw.githubusercontent.com/mapr-demos/predictive-maintenance/master/images/lagging_features_explanation.png" width="100%" align="center">
 
 This particular step probably says the most about the value of MapR, because consider this: if you have a factory, instrumented by IoT devices reporting hundreds of metrics, per machine, per second, and you're tasked with the challenge of saving all that data until one day, often months into the future, you finally have a machine fail. At that point, you have to retroactively go back and update all those records as being "about to fail" or "x days to failure"  so that you can use that data for training models to predict those lagging features.  That's one heck of a DB update, right? The only way to store all that data is with a distributed database. This is what makes Spark and MapR-DB such a great fit. Spark - the distributed processing engine for big data, and MapR-DB - the distributed data store for big data, working together to process and store lots of data with speed and scalability. 
 
@@ -152,7 +152,7 @@ echo "{\"timestamp\":"$(date +%s -d '60 sec ago')",\"deviceName\":\"Chiller1\"}"
 
 This will trigger the Spark process you ran in the previous step to update lagging features in the MapR-DB table "/apps/mqtt_records". Once it sees the event you simulated, you should see it output information about the lagging features it labeled, like this:
 
-![Update Lagging Features screenshot](/images/UpdateLagging_screenshot.png?raw=true "Update Lagging Features screenshot")
+<img src="https://raw.githubusercontent.com/mapr-demos/predictive-maintenance/master/images/UpdateLagging_screenshot.png?raw=true" width="100%" align="center" alt="Update Lagging Features screenshot">
 
 
 ## Step 6 - Validate that lagging features have been updated:
@@ -192,7 +192,7 @@ java -cp ~/predictive-maintenance/target/predictive-maintenance-1.0-jar-with-dep
 
 Degradation in machines often manifests itself as a low rumble or a small shake. These unusual vibrations give you the first clue that a machine is nearing the end of its useful life, so it's very important to detect those anomalies. Vibration sensors measure the displacement or velocity of motion thousands of times per second. Analyzing those signals is typically done in the frequency domain. An algorithm called "fast Fourier transform" (FFT) can sample time-series vibration data and identify its component frequencies. In the next step you will run a command the converts the simulated vibration data to the frequency domain with an FFT and raises alarms when vibration frequencies vary more than a predefined threshold.
 
-![vibration analysis](/images/vibration_analysis.png?raw=true "Vibration Analysis")
+<img src="https://raw.githubusercontent.com/mapr-demos/predictive-maintenance/master/images/vibration_analysis.png?raw=true" width="100%" align="center" alt="vibration analysis">
 
 This demonstrates the capacity of MapR to ingest and process high speed streaming data. Depending on hardware, you will probably see MapR Streams processing more than 40,000 messages per second in this step.
 
@@ -208,7 +208,7 @@ This will calculate FFTs on-the-fly for the high speed streaming data, and rende
 
 By now you should be able to see streaming IoT data, vibration faults, and device failures in the Grafana dashboard.
 
-<img src="https://raw.githubusercontent.com/mapr-demos/predictive-maintenance/master/images/grafana_screenshot.png" width="70%" align="center">
+<img src="https://raw.githubusercontent.com/mapr-demos/predictive-maintenance/master/images/grafana_screenshot.png" width="100%" align="center">
 
 ## Step 10 - Explore IoT data with Apache Drill
 
@@ -221,8 +221,8 @@ Open the Drill web interface. If you're running MapR on your laptop then that's 
 ```sql
 SELECT _day_of_week_long, count(_day_of_week_long) FROM dfs.`/apps/mqtt_records` group by _day_of_week_long;
 ```
-<img src="https://raw.githubusercontent.com/mapr-demos/predictive-maintenance/master/images/drill_query_1.png" width="50%">
-<img src="https://raw.githubusercontent.com/mapr-demos/predictive-maintenance/master/images/drill_result_1.png" width="50%">
+<img src="https://raw.githubusercontent.com/mapr-demos/predictive-maintenance/master/images/drill_query_1.png" width="100%">
+<img src="https://raw.githubusercontent.com/mapr-demos/predictive-maintenance/master/images/drill_result_1.png" width="100%">
 
 ## Count how many faults have been detected:
 
@@ -233,8 +233,8 @@ SELECT _id, _day_of_week_long, _Chiller1AboutToFail, ROW_NUMBER() OVER (PARTITIO
 )
 SELECT * from x WHERE _Chiller1AboutToFail = 'true' and fault = 1;
 ```
-<img src="https://raw.githubusercontent.com/mapr-demos/predictive-maintenance/master/images/drill_query_2.png" width="50%">
-<img src="https://raw.githubusercontent.com/mapr-demos/predictive-maintenance/master/images/drill_result_2.png" width="50%">
+<img src="https://raw.githubusercontent.com/mapr-demos/predictive-maintenance/master/images/drill_query_2.png" width="100%">
+<img src="https://raw.githubusercontent.com/mapr-demos/predictive-maintenance/master/images/drill_result_2.png" width="100%">
 
 
 Drill can also be used to load data from MapR-DB into data science notebooks. Examples of this are shown in the following section.
@@ -243,7 +243,7 @@ Drill can also be used to load data from MapR-DB into data science notebooks. Ex
 
 This tutorial focuses on data engineering - i.e. getting data in the right format and in the right place in order to take advantage of machine learning (ML) for predictive maintenance applications. The details of ML are beyond the scope of this tutorial but to better understand ML techniques commonly used for predictive maintenance, check out the provided Jupyter notebook for [LSTM predictions for About To Fail](https://github.com/mapr-demos/predictive-maintenance/blob/master/notebooks/jupyter/LSTM%20For%20Predictive%20Maintenance-ian01.ipynb). This notebook not only talks about how to use LSTM but also how to generate a sample dataset with [logsynth](https://github.com/tdunning/log-synth) that resembles what you might see in a real factory. This notebook is great because it explains how to experiment with LSTMs entirely on your laptop.
 
-![lstm-about_to_fail](/images/lstm-about_to_fail-50.png?raw=true "LSTM About To Fail prediction")
+<img src="https://raw.githubusercontent.com/mapr-demos/predictive-maintenance/master/images/lstm-about_to_fail-50.png?raw=true" width="100%" alt="LSTM About To Fail prediction">
 
 Here are some of the other notebooks included in this repo that demonstrate ML concepts for predictive maintenance:
 
@@ -275,7 +275,7 @@ Open Grafana at http://localhost:3000 and login with admin / admin
 
 Add http://hbase:4242 as an OpenTSDB datasource to Grafana. If you don’t know how to add a data source, refer to Grafana docs. Your datasource definition should look like this:
 
-<img src="https://raw.githubusercontent.com/mapr-demos/predictive-maintenance/master/images/grafana_opentsdb_config.png" width="50%" align="center">
+<img src="https://raw.githubusercontent.com/mapr-demos/predictive-maintenance/master/images/grafana_opentsdb_config.png" width="100%" align="center">
 
 Download the following Grafana dashboard file:
 ```bash
@@ -284,7 +284,7 @@ wget https://raw.githubusercontent.com/mapr-demos/predictive-maintenance/master/
 
 Import that file into Grafana. If you don’t know how to import a dashboard, see Grafana docs. The Grafana import dialog should look like this:
 
-<img src="https://raw.githubusercontent.com/mapr-demos/predictive-maintenance/master/images/grafana_dashboard_config.png" width="50%" align="center">
+<img src="https://raw.githubusercontent.com/mapr-demos/predictive-maintenance/master/images/grafana_dashboard_config.png" width="100%" align="center">
 
 Download, unzip, and copy the MQTT dataset to the StreamSets container:
 
@@ -304,10 +304,10 @@ wget https://raw.githubusercontent.com/mapr-demos/predictive-maintenance/master/
 
 You will see a warning about a missing library in the “Parse MQTT JSON” stage. Click that stage and follow the instructions to install the Jython library.
 
-<img src="https://raw.githubusercontent.com/mapr-demos/predictive-maintenance/master/images/streamSets_warning.png" width="50%" align="center">
+<img src="https://raw.githubusercontent.com/mapr-demos/predictive-maintenance/master/images/streamSets_warning.png" width="100%" align="center">
 
 Finally, run the StreamSets pipeline.
 
-<img src="https://raw.githubusercontent.com/mapr-demos/predictive-maintenance/master/images/grafana_streamset_animation.gif" width="90%" align="center">
+<img src="https://raw.githubusercontent.com/mapr-demos/predictive-maintenance/master/images/grafana_streamset_animation.gif" width="100%" align="center">
 
 Hopefully, by setting up this pipeline and exploring StreamSets you’ll get the gist of what dataflow management tools can do.
