@@ -1,5 +1,5 @@
 ---
-title: Writing Deep Learning tools for all Data Scientists, Not Just Unicorns
+title: Writing Deep Learning Tools for all Data Scientists, Not Just Unicorns
 date: 2022-02-11T15:45:26.028Z
 author: By Neil Conway and Alex Putnam
 authorimage: /img/Avatar1.svg
@@ -7,6 +7,8 @@ thumbnailimage: /img/updated-unicorns-picture-smaller.png
 tags:
   - determined-ai
   - HPC
+  - AI
+  - Deep Learning
 ---
 Machine learning (ML) is exploding in popularity, and, as it does, ML tooling is frantically trying to keep up. Tools for everything you can imagine are popping up: data versioning, experiment tracking, model serving, and, yes, even tools to help ML run on Kubernetes. Although some projects are more popular than others, given the newness of this space, there are no clear winners yet and no one has yet established the perfect set of software to enable and accelerate ML.
 
@@ -78,7 +80,7 @@ This configuration file is **full** of concepts that are foreign to most data sc
 
 ***Learn the Kubernetes CLI.*** This is minor, but again navigating Kubernetes is not a trivial thing to figure out. Submitting jobs may be relatively straightforward, but seeing results, artifacts, and logs of experiments is unintuitive and clunky.
 
-If you think about where this all came from, it makes sense that it evolved as it did. As this is an adaptation of the technology that Google used to train DL models, and Google (unlike the rest of the world) tends to have a lot of unicorns, running Deep Learning on Kubernetes for them wasn’t a big deal. 
+If you think about where this all came from, it makes sense that it evolved as it did. As this is an adaptation of the technology that Google uses to train DL models, and Google (unlike the rest of the world) tends to have a lot of unicorns, running Deep Learning on Kubernetes for them wasn’t a big deal. 
 
 But not everyone is a Google unicorn – many other highly-skilled data scientists simply bounce off of Kubeflow because Kubernetes is too far outside of their comfort zone.
 
