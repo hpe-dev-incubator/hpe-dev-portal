@@ -46,7 +46,7 @@ Put together, these data pipelines look like this. The APIs used for reading and
 
 ## Preliminary Steps
 
-These steps explain how to set up this tutorial using the [MapR Container for Developers](https://maprdocs.mapr.com/home/MapRContainerDevelopers/MapRContainerDevelopersOverview.html) on macOS.
+These steps explain how to set up this tutorial using the [MapR Container for Developers](https://docs.datafabric.hpe.com/62/MapRContainerDevelopers/MapRContainerDevelopersOverview.html) on macOS.
 
 ## Allocate 12GB to Docker
 
