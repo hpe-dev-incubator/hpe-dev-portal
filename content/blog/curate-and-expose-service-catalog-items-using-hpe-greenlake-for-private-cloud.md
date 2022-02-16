@@ -6,7 +6,7 @@ authorimage: /img/Avatar1.svg
 tags:
   - hpe-greenlake
 ---
-![Curate and expose catalog items using the HPE GreenLake Service Catalog persona view](/img/intro-greenlake-512-pixels-rgb-image.jpg "Curate and expose catalog items using the HPE GreenLake Service Catalog persona view")
+<center><img src="/img/intro-greenlake-512-pixels-rgb-image.jpg" width="512" height="384" alt="Curate and expose catalog items using the HPE GreenLake Service Catalog persona view"></center>
 
 ## How to curate and expose catalog items using the HPE GreenLake Service Catalog persona view
 
