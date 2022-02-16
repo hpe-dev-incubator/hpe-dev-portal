@@ -45,7 +45,7 @@ Configuring global access:
 
 A Tenant Admin user can add catalog items (instance types, blueprints, and workflows) and allow some configurable options using the **Option Types**.
 
->Note: A Tenant Admin user should have full permission for **Tools: Self Service**. 
+> Note: A Tenant Admin user should have full permission for **Tools: Self Service**. 
 
 ## Adding an instance catalog item
 
@@ -64,16 +64,16 @@ This example shows how to create an Apache instance catalog item with the assump
   * ENABLED - Select to enable the catalog item, making it available for provisioning (default). Clear to disable.
   * FEATURED - Select to enable special visibility of this catalog item in the Service Catalog persona view. Clear to disable. Special visibility means that an item can be featured (a tag is added in the item) and given priority in the Service Catalog and Dashboard views.
   * LOGO - From the drop-down list, do one of the following:
+
     * Select an existing logo
     * Select custom and click Browse to locate and upload a logo
   * CONFIG - Enter, view, or edit the instance configuration
+
     * To build this catalog item using the CREATE INSTANCE wizard, click CONFIGURATION WIZARD. For more details, see [Instance creation configuration parameters](https://support.hpe.com/hpesc/public/docDisplay?docId=a00092451en_us&page=GUID-3C344C62-EA07-4263-A540-29B5B92E3CE2.html)
   * CONTENT - Enter a more detailed description about the instance, which will display in the order screen
   * Option Types - (Optional) Enter the Option Types to present users with mandatory or optional selections during provisioning. Option Types can then be used in the CONFIG section. Below is the sample usage of Options Types in the CONFIG section.
 
-
 ![](/img/catalog-image4.png)
-
 
 ![](/img/catalog-image5.png)
 
@@ -100,6 +100,7 @@ This example shows the steps to create blueprint catalog item, which can be used
   * ENABLED - Select to enable the catalog item, making it available for provisioning (default). Clear to disable.
   * FEATURED - Select to enable special visibility of this catalog item in the Service Catalog persona view. Clear to disable. Special visibility means that an item can be featured (a tag is added in the item) and given priority in the Service Catalog and Dashboard views.
   * LOGO - From the drop-down list, do one of the following:
+
     * Select an existing logo
     * Select custom and click **Browse** to locate and upload a logo
   * CONFIGURE - Click CONFIGURE to build this catalog item. The NEW APP wizard opens. For information about using the wizard, refer to Creating an app from a blueprint.
@@ -109,6 +110,96 @@ This example shows the steps to create blueprint catalog item, which can be used
 
 ![](/img/catalog-image7.png)
 
-
 * Click SAVE CHANGES.
 * Optionally, a Tenant Admin can provide  access to the catalog items to a specific user or role (see Configuring Service Catalog item access earlier in this article)
+
+## Adding a workflow catalog item
+
+Workflows are groups of Tasks and can be run on-demand against an existing instance. You can preconfigure operational workflows and expose them to the Service Catalog persona for a click-to-deploy use case. 
+
+* Click on your name in the upper-right corner and ensure that the Standard persona is selected (For more details, refer to the Accessing the Service Catalog persona section of this post)
+* Navigate to Tools > Self Service
+* From the ADD drop-down list, select WORKFLOW
+* The ADD CATALOG ITEM dialog box opens
+
+![](/img/catalog-image8.png)
+
+* Configure the catalog items as follows
+
+  * NAME - Enter the catalog item name
+  * DESCRIPTION - (Optional) Enter the catalog item description
+  * ENABLED - Select to enable the catalog item, making it available for provisioning (default). Clear to disable.
+  * FEATURED - Select to enable special visibility of this catalog item in the Service Catalog persona view. Clear to disable. Special visibility means that an item can be featured (a tag is added in the item) and given priority in the Service Catalog and Dashboard views.
+  * LOGO - From the drop-down list, do one of the following:
+
+    * Select an existing logo
+    * Select custom and click Browse to locate and upload a logo
+  * WORKFLOW - From the drop-down list, select the desired workflow
+  * CONTEXT TYPE - (Optional) From the drop-down list, select the context type: none,server or instance.
+  * CONTENT - Enter a more detailed description about the instance, which will display in the order screen
+
+![](/img/catalog-image9.png)
+
+## Accessing the Service Catalog persona
+
+If your role’s default persona is set as “Service Catalog”, the link launching HPE GreenLake for private cloud dashboard card will open the Service Catalog persona dashboard.
+
+Otherwise, switch personas by clicking on your name in the upper-right corner of the application window. If your role gives you access to any additional personas, they will be listed here.
+
+The catalog shows the complete list of pre-defined catalog items available to the user for provisioning. 
+
+![](/img/catalog-image10.png)
+
+## Ordering a Service catalog item
+
+From the Service Catalog page, select the tile for your chosen item to see any custom options that need to be set prior to provisioning.
+
+This example shows the ordering for the “Apache” catalog item created in the previous steps.
+
+![](/img/catalog-image11.png)
+
+Based on the option types specified in the catalog item definition, custom options are displayed on the ordering page.
+
+Click **Order Now** to place the order immediately or click **Add to Order** and proceed to the cart.
+
+Click the cart to review and place the order.
+
+![](/img/catalog-image12.png)
+
+![](/img/catalog-image13.png)
+
+Click **PLACE ORDER** after reviewing the order.
+
+![](/img/catalog-image14.png)
+
+The state of the order can be seen from the **INVENTORY** page.
+
+![](/img/catalog-image15.png)
+
+Upon clicking the inventory item **Demo_VM**, the instance details page is opened.
+
+![](/img/catalog-image16.png)
+
+The order is now complete. In this case, the instance has been deployed in just a few steps as compared to how it is done with the Standard persona.
+
+![](/img/catalog-image17.png)
+
+## Ordering a Service catalog item for multiple resources
+
+The example below shows the ordering process for a catalog item created for a workflow that will deploy Docker on multiple resources. On the Resource box, specify the list of instances to deploy the sample Docker install workflow and click on **ORDER NOW**.
+
+![](/img/catalog-image18.png)
+
+The order is now complete.
+
+![](/img/catalog-image19.png)
+
+Clicking on the order in the inventory list shows the detail of the execution.
+
+![](/img/catalog-image20.png)
+
+## Summary
+
+
+Use of the HPE GreenLake for private cloud Service Catalog persona improves the user experience with a simplified catalog where users can select and deploy instances or blueprints with a pre-defined configuration using just a few clicks and without presenting an overwhelming list of options. Hopefully, you found this tutorial helpful. Stay tuned to the [HPE DEV blog](https://developer.hpe.com/blog) for more posts on topics like this.
+
