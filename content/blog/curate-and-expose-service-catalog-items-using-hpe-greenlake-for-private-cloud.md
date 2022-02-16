@@ -64,11 +64,9 @@ This example shows how to create an Apache instance catalog item with the assump
   * ENABLED - Select to enable the catalog item, making it available for provisioning (default). Clear to disable.
   * FEATURED - Select to enable special visibility of this catalog item in the Service Catalog persona view. Clear to disable. Special visibility means that an item can be featured (a tag is added in the item) and given priority in the Service Catalog and Dashboard views.
   * LOGO - From the drop-down list, do one of the following:
-
     * Select an existing logo
     * Select custom and click Browse to locate and upload a logo
   * CONFIG - Enter, view, or edit the instance configuration
-
     * To build this catalog item using the CREATE INSTANCE wizard, click CONFIGURATION WIZARD. For more details, see [Instance creation configuration parameters](https://support.hpe.com/hpesc/public/docDisplay?docId=a00092451en_us&page=GUID-3C344C62-EA07-4263-A540-29B5B92E3CE2.html)
   * CONTENT - Enter a more detailed description about the instance, which will display in the order screen
   * Option Types - (Optional) Enter the Option Types to present users with mandatory or optional selections during provisioning. Option Types can then be used in the CONFIG section. Below is the sample usage of Options Types in the CONFIG section.
@@ -100,7 +98,6 @@ This example shows the steps to create blueprint catalog item, which can be used
   * ENABLED - Select to enable the catalog item, making it available for provisioning (default). Clear to disable.
   * FEATURED - Select to enable special visibility of this catalog item in the Service Catalog persona view. Clear to disable. Special visibility means that an item can be featured (a tag is added in the item) and given priority in the Service Catalog and Dashboard views.
   * LOGO - From the drop-down list, do one of the following:
-
     * Select an existing logo
     * Select custom and click **Browse** to locate and upload a logo
   * CONFIGURE - Click CONFIGURE to build this catalog item. The NEW APP wizard opens. For information about using the wizard, refer to Creating an app from a blueprint.
@@ -124,14 +121,13 @@ Workflows are groups of Tasks and can be run on-demand against an existing insta
 
 ![](/img/catalog-image8.png)
 
-* Configure the catalog items as follows
+* Configure the catalog items as follows:
 
   * NAME - Enter the catalog item name
   * DESCRIPTION - (Optional) Enter the catalog item description
   * ENABLED - Select to enable the catalog item, making it available for provisioning (default). Clear to disable.
   * FEATURED - Select to enable special visibility of this catalog item in the Service Catalog persona view. Clear to disable. Special visibility means that an item can be featured (a tag is added in the item) and given priority in the Service Catalog and Dashboard views.
   * LOGO - From the drop-down list, do one of the following:
-
     * Select an existing logo
     * Select custom and click Browse to locate and upload a logo
   * WORKFLOW - From the drop-down list, select the desired workflow
@@ -186,7 +182,7 @@ The order is now complete. In this case, the instance has been deployed in just 
 
 ## Ordering a Service catalog item for multiple resources
 
-The example below shows the ordering process for a catalog item created for a workflow that will deploy Docker on multiple resources. On the Resource box, specify the list of instances to deploy the sample Docker install workflow and click on **ORDER NOW**.
+The example below shows the ordering process for a catalog item created for a workflow that will deploy Docker on multiple resources. On the **Resource** box, specify the list of instances to deploy the sample Docker install workflow and click on **ORDER NOW**.
 
 ![](/img/catalog-image18.png)
 
