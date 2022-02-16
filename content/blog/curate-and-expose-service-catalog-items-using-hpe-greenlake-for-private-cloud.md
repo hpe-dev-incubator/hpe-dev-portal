@@ -86,7 +86,8 @@ Blueprints enable full multi-tier application deployment. In the self-service ca
 * Click on your name in the upper-right corner and ensure that the STANDARD persona is selected (For more details, refer to the ***Accessing the Service Catalog persona*** section later in this tutorial)
 * Navigate to **Tools > Self Service**
 * From the ADD drop-down list, select **Blueprint**
-* The ADD CATALOG ITEM dialog box opens
+
+The ADD CATALOG ITEM dialog box opens
 
 ![](/img/catalog-image6.png)
 
@@ -118,7 +119,8 @@ Workflows are groups of Tasks and can be run on-demand against an existing insta
 * Click on your name in the upper-right corner and ensure that the Standard persona is selected (For more details, refer to the Accessing the Service Catalog persona section of this post)
 * Navigate to Tools > Self Service
 * From the ADD drop-down list, select WORKFLOW
-* The ADD CATALOG ITEM dialog box opens
+
+The ADD CATALOG ITEM dialog box opens
 
 ![](/img/catalog-image8.png)
 
