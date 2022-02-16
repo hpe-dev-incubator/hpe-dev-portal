@@ -45,7 +45,7 @@ Configuring global access:
 
 A Tenant Admin user can add catalog items (instance types, blueprints, and workflows) and allow some configurable options using the **Option Types**.
 
-> Note: A Tenant Admin user should have full permission for **Tools: Self Service**. 
+>Note: A Tenant Admin user should have full permission for **Tools: Self Service**. 
 
 ## Adding an instance catalog item
 
@@ -64,17 +64,16 @@ This example shows how to create an Apache instance catalog item with the assump
   * ENABLED - Select to enable the catalog item, making it available for provisioning (default). Clear to disable.
   * FEATURED - Select to enable special visibility of this catalog item in the Service Catalog persona view. Clear to disable. Special visibility means that an item can be featured (a tag is added in the item) and given priority in the Service Catalog and Dashboard views.
   * LOGO - From the drop-down list, do one of the following:
-
     * Select an existing logo
     * Select custom and click Browse to locate and upload a logo
   * CONFIG - Enter, view, or edit the instance configuration
-
     * To build this catalog item using the CREATE INSTANCE wizard, click CONFIGURATION WIZARD. For more details, see [Instance creation configuration parameters](https://support.hpe.com/hpesc/public/docDisplay?docId=a00092451en_us&page=GUID-3C344C62-EA07-4263-A540-29B5B92E3CE2.html)
+  * CONTENT - Enter a more detailed description about the instance, which will display in the order screen
+  * Option Types - (Optional) Enter the Option Types to present users with mandatory or optional selections during provisioning. Option Types can then be used in the CONFIG section. Below is the sample usage of Options Types in the CONFIG section.
+
 
 ![](/img/catalog-image4.png)
 
-* CONTENT - Enter a more detailed description about the instance, which will display in the order screen
-* Option Types - (Optional) Enter the Option Types to present users with mandatory or optional selections during provisioning. Option Types can then be used in the CONFIG section. Below is the sample usage of Options Types in the CONFIG section.
 
 ![](/img/catalog-image5.png)
 
@@ -101,15 +100,15 @@ This example shows the steps to create blueprint catalog item, which can be used
   * ENABLED - Select to enable the catalog item, making it available for provisioning (default). Clear to disable.
   * FEATURED - Select to enable special visibility of this catalog item in the Service Catalog persona view. Clear to disable. Special visibility means that an item can be featured (a tag is added in the item) and given priority in the Service Catalog and Dashboard views.
   * LOGO - From the drop-down list, do one of the following:
-
     * Select an existing logo
-    * Select custom  and click **Browse** to locate and upload a logo
+    * Select custom and click **Browse** to locate and upload a logo
+  * CONFIGURE - Click CONFIGURE to build this catalog item. The NEW APP wizard opens. For information about using the wizard, refer to Creating an app from a blueprint.
+  * APP SPEC - (Optional) Inject an override blueprint spec in yaml format
+  * CONTENT - Enter a more detailed description about the app, which will display in the order screen
+  * Option Types - (Optional) Enter the option types to present to users with mandatory or optional selections prior to provisioning
 
 ![](/img/catalog-image7.png)
 
-* CONFIGURE - Click CONFIGURE to build this catalog item. The NEW APP wizard opens. For information about using the wizard, refer to Creating an app from a blueprint.
-* APP SPEC - (Optional) Inject an override blueprint spec in yaml format
-* CONTENT - Enter a more detailed description about the app, which will display in the order screen
-* Option Types - (Optional) Enter the option types to present to users with mandatory or optional selections prior to provisioning
+
 * Click SAVE CHANGES.
 * Optionally, a Tenant Admin can provide  access to the catalog items to a specific user or role (see Configuring Service Catalog item access earlier in this article)
