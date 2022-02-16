@@ -55,6 +55,8 @@ This example shows how to create an Apache instance catalog item with the assump
 * Navigate to **Tools > Self Service**
 * From the ADD drop-down list, select **Instance**
 
+The ADD CATALOG ITEM dialog box opens
+
 ![](/img/catalog-image3.png)
 
 * Configure the catalog items as follows:
@@ -71,7 +73,6 @@ This example shows how to create an Apache instance catalog item with the assump
   * CONTENT - Enter a more detailed description about the instance, which will display in the order screen
   * Option Types - (Optional) Enter the Option Types to present users with mandatory or optional selections during provisioning. Option Types can then be used in the CONFIG section. Below is the sample usage of Options Types in the CONFIG section.
 
-![](/img/catalog-image4.png)
 
 ![](/img/catalog-image5.png)
 
