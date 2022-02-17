@@ -46,7 +46,17 @@ const rows = {
   xlarge: ['auto'],
 };
 
-const findImageURL = (body) => {
+const findThumbnailImage = (thumbnailimage) => {
+  if (thumbnailimage) {
+    const imageURL = thumbnailimage.includes('https://')
+      ? thumbnailimage
+      : `https://developer.hpe.com${thumbnailimage}`;
+    return imageURL;
+  }
+  return null;
+};
+
+const findFirstImgInBody = (body) => {
   const foundImageByRegex =
     /!\[[^\]]*\]\((?<filename>.*?)(?="|\))(?<optionalpart>".*")?\)/gi.exec(
       body,
@@ -55,7 +65,6 @@ const findImageURL = (body) => {
     const imageURL = foundImageByRegex[1].includes('https://')
       ? foundImageByRegex[1]
       : `https://developer.hpe.com${foundImageByRegex[1]}`;
-
     return imageURL;
   }
   return null;
@@ -89,6 +98,7 @@ function BlogPostTemplate({ data }) {
     author,
     tags,
     authorimage,
+    thumbnailimage,
   } = post.frontmatter;
 
   return (
@@ -96,7 +106,10 @@ function BlogPostTemplate({ data }) {
       <SEO
         title={title}
         description={stripDescription(description || excerpt)}
-        image={findImageURL(rawMarkdownBody)}
+        image={
+          findThumbnailImage(thumbnailimage) ||
+          findFirstImgInBody(rawMarkdownBody)
+        }
       />
       <Box flex overflow="auto" gap="medium" pad="small">
         <Box direction="row-responsive">
@@ -185,6 +198,7 @@ BlogPostTemplate.propTypes = {
         description: PropTypes.string,
         tags: PropTypes.arrayOf(PropTypes.string),
         authorimage: PropTypes.string.isRequired,
+        thumbnailimage: PropTypes.string,
       }).isRequired,
     }).isRequired,
     blogsByTags: PropTypes.shape({

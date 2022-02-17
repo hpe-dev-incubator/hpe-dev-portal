@@ -1,5 +1,5 @@
 # HPE DEV External Contributor Guide
-**Version 2.0** - 13-Dec-2021
+**Version 2.0** - 26-Jan-2022
 
 >**Note:** A recording of the training session delivered on April 30, 2021 is available [here](https://vimeo.com/544486602). 
 
@@ -93,6 +93,8 @@ Netlify and AWS Amplify has been both configured to integrate with GitHub versio
 ## Contributing a new blog
 You can create a new blog directly from the **Contents** tab or by navigating to the **Workflow** tab. Here's how you can create a new blog directly from the **Contents** tab.
 
+>**IMPORTANT NOTE about Social Card creation for the promotion of your blog post:** _Every blog post *should* (if at all possible) have an image associated with it that can be used to promote the post on social media placed as either as **Thumbnail image** or as the **first image** in the post. Therefore, the image which tells the best story about what the blog post is about should either be inserted as a Thumbnail image or be the first in the post. Twitter and LinkedIn will automatically pulls the Thumbnail image if it exists, or the first image of the post (if a Thunmbnail image is not added to the post) and the first sentence from the post when creating social card for the blog post._
+
 1.  From the **Contents** tab, select the **Blog** section in the Collections tab, and click the **New Blog** button. This opens the editor.
 
 <center><img src="media/guide-blog-Contents-new-post.png" width="800" height="497"></center>
@@ -106,14 +108,16 @@ You can create a new blog directly from the **Contents** tab or by navigating to
 
 3.  Make sure you set the following parameters:
 
-    -   Title
-    -   Author
-    -   Author Image (image size recommended is **192px X 192px**). 
+    -   **Title**
+    -   **Author name**
+    -   **Author Image** (image size recommended is **192px X 192px**). 
         You can upload a picture or use your gravatar picture URL if you have one. 
-    
+        
         >Note: For more information on how to get a gravatar URL, refer to section "***Tips and Tricks using the CMS Editor***" at the end of this document.
 
-
+    - **Thumbnail image** for Social Media card: although a Thumbnail image is an optional element of the post, it is **highly recommended** to add a Thumbnail image to your blog post that you want to use to promote the post on Social Media such as Twitter and LinkedIn. If you do not add a Thumbnail image, the first image in your post will be used. The thumbnail image or the first image of the post should tell the best story about what the blog post is about.
+    
+    
 4.  Start writing the content using either **Rich Text** mode or **Markdown** mode in the *BODY* canvas.   
 
 <center><img src="media/guide-blog-body.png" width="700" height="410"></center>
