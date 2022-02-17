@@ -4,7 +4,7 @@ dateStart: 2022-02-15T23:01:50.831Z
 dateEnd: 2022-02-16T23:00:50.880Z
 category: Virtual Event
 image: /img/cap_02_rgb.png
-link: https://hpe.zoom.us/webinar/register/4416426715163/WN_aU4wfaGQSzCZrnsoQctsFw
+link: https://developer.hpe.com/campaign/munch-and-learn
 width: large
 tags:
   - determined-ai
