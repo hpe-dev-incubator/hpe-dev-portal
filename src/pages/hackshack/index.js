@@ -286,10 +286,10 @@ const Cards = ({ size }) => (
     />
     <Card
       image="/img/hackshack/cap_ML.png"
-      title="Golden Age of AI, Dark Ages of AI Infrastructure"
-      desc="Neil Conway, senior director of Determined AI engineering at HPE, joins us to talk about why practical use of deep learning (DL) remains difficult. He’ll explore what problems DL infrastructure tools solve today, where they fall short, and how they can improve."
-      link="https://hpe.zoom.us/webinar/register/2316433878218/WN_aU4wfaGQSzCZrnsoQctsFw"
-      date="February 16, 2022"
+      title="Mithril: Introducing Robust Identities into Istio by integrating with SPIRE"
+      desc="Join us for a free, 60-minute session where you can connect with experts who offer valuable insights into today’s most popular technologies. This month, meet with Mithril engineering team at HPE who will discuss the fundamentals of zero trust, workload identities, and introduce the concept of Service Mesh. They will then explain how the new open source solution, Mithril, leverages the widely adopted Service Mesh solution Istio, and the secure identities framework of SPIRE to secure the Istio Service Mesh."
+      link="https://hpe.zoom.us/webinar/register/5816450193815/WN_wwXxcdVDRfG20gaHnq-dTQ"
+      date="March 23, 2022"
       background="rgba(0, 86, 122, 0.8);"
       label="Register Now!"
       margin={
