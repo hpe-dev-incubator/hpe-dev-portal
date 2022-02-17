@@ -10,11 +10,13 @@ tags:
 
 ## How to curate and expose catalog items using the HPE GreenLake Service Catalog persona view
 
-The HPE GreenLake Edge-to-Cloud platform has a very useful interface for managing the HPE GreenLake for private cloud service called HPE GreenLake Central. It provides a cloud experience to manage VMs in your on-premises, pay-per-use datacenter. Personas are alternate views in the HPE GreenLake for private cloud user interface (UI). A user’s access to the various personas is controlled by role permissions. At present, there are two persona types: Standard and Service Catalog. The Standard persona is the typical default view. The Service Catalog persona is a simplified view where users are presented with different pre-configured instance types, blueprints, and workflows to choose from based upon their role. This improves the deployment experience with just a few clicks and without presenting an overwhelming list of options.
+The HPE GreenLake Edge-to-Cloud platform has a very useful interface for managing the HPE GreenLake for private cloud service called HPE GreenLake Central. It provides a cloud experience to manage VMs in your on-premises, pay-per-use datacenter. Personas are alternate views in the HPE GreenLake for private cloud user interface (UI). A user’s access to the various personas is controlled by role permissions. 
+
+At present, there are two persona types: Standard and Service Catalog. The Standard persona is the typical default view. The Service Catalog persona is a simplified view where users are presented with different pre-configured instance types, blueprints, and workflows to choose from based upon their role. This improves the deployment experience with just a few clicks and without presenting an overwhelming list of options.
 
 The goal of this article is to discuss the Service Catalog persona in greater detail, including how administrators can curate the catalog and how users can use the Service Catalog to deploy their services. For readers needing a good introduction to HPE GreenLake for private cloud concepts, check out [this technical paper](https://www.hpe.com/psnow/doc/a50003040enw?jumpid=in_lit-psnow-red) that will help you better understand the different concepts leveraged in this blog.
 
-## Configuring the Service Catalog persona
+## Using the Service Catalog persona view
 
 Access to a persona view is controlled by a user’s role. By default, new roles and roles that existed prior to the creation of the personas will only have access to the Standard persona.
 
