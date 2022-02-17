@@ -1,12 +1,17 @@
 ---
-title: "Better Complex Event Processing at Scale Using a Microservices-based Streaming Architecture (Part 1)"
+title: Better Complex Event Processing at Scale Using a Microservices-based
+  Streaming Architecture (Part 1)
 date: 2020-11-03T16:05:36.547Z
-author: Mathieu Dumoulin 
-tags: ["hpe-ezmeral-data-fabric","CEP","MapR","opensource"]
-authorimage: "/img/blogs/Avatar1.svg"
 featuredBlog: false
-priority:
-thumbnailimage:
+priority: null
+author: Mathieu Dumoulin
+authorimage: /img/blogs/Avatar1.svg
+thumbnailimage: null
+tags:
+  - hpe-ezmeral-data-fabric
+  - CEP
+  - MapR
+  - opensource
 ---
 **Editor’s Note:** MapR products and solutions sold prior to the acquisition of such assets by Hewlett Packard Enterprise Company in 2019, may have older product names and model numbers that differ from current solutions. For information about current offerings, which are now part of HPE Ezmeral Data Fabric, please visit [https://www.hpe.com/us/en/software/data-fabric.html](https://www.hpe.com/us/en/software/data-fabric.html)
 
@@ -26,7 +31,7 @@ This post is intended as a detailed account of a project I have made to integrat
 
 After much writing, I’ve decided to split the post into two parts. In the first part, I’ll focus on explaining what is CEP, why it is useful, and explain the architectural solution and why we feel this is a good idea for a lot of useful production use cases.
 
-In the second post, I’ll show a concrete example based on a road traffic monitoring system and give as much detail as possible about how it was made.
+In [the second post](https://developer.hpe.com/blog/real-time-smart-city-traffic-monitoring-using-microservices-based-streaming-architecture-part-2/), I’ll show a concrete example based on a road traffic monitoring system and give as much detail as possible about how it was made.
 
 So without further ado, on to part 1!
 
@@ -127,4 +132,4 @@ Complex Event Processing has been around for quite a while, but is now finally c
 
 Combining a Kafka-style stream messaging system with Drools provides an organization with much needed agility in separating the very different tasks for creating and maintaining an enterprise streaming application and defining and editing business logic for real-time decisions.
 
-In the next blog post, we will cover a concrete use case that puts all this into practice and will show how such a system can be implemented using nothing more than Java, a MapR cluster, and the Drools Workbench running on a Wildfly application server.
+In [the next blog post](https://developer.hpe.com/blog/real-time-smart-city-traffic-monitoring-using-microservices-based-streaming-architecture-part-2/), we will cover a concrete use case that puts all this into practice and will show how such a system can be implemented using nothing more than Java, a MapR cluster, and the Drools Workbench running on a Wildfly application server.
