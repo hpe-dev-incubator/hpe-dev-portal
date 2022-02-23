@@ -1,7 +1,7 @@
 ---
 title: HPE DEV Meetups
 dateStart: 2022-03-29T22:01:40.934Z
-dateEnd: 2022-03-30T22:01:40.954Z
+dateEnd: 2022-03-30T21:59:40.954Z
 category: Virtual Event
 image: /img/microscope_01_rgb-copy.png
 link: https://hpe.zoom.us/webinar/register/8216432918970/WN_h-SgJ0_kRmiUIm-A3GEPiA
