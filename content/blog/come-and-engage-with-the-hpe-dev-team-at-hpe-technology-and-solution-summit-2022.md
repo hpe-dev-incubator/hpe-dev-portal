@@ -68,3 +68,4 @@ Several workshops will be offered during a given time slot, with each track desi
   * Stackstorm 101
 
 If you are going to TSS 2022, make sure to sign up for the HPE DEV sessions. As you know, we value the importance of this technical event. We expect you do as well and appreciate that you have regularly rated our sessions highly. We look forward to reconnecting with you there.
+
