@@ -1,5 +1,5 @@
 ---
-title: Come And Engage with the HPE DEV Team at HPE Technology and Solution
+title: Come and Engage with the HPE DEV Team at HPE Technology and Solution
   Summit 2022!
 date: 2022-02-23T15:16:18.677Z
 author: Frederic Passeron
