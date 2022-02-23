@@ -5,8 +5,8 @@ date: 2022-02-23T15:16:18.677Z
 author: Frederic Passeron
 authorimage: /img/fp-hpewod.jpg
 tags:
-  - "#HPETSS"
-  - "#HPE DEV"
+  - HPETSS
+  - HPE DEV
 ---
 ![](/img/tss-fred-blog-1.png)
 
