@@ -10,7 +10,7 @@ tags:
 ---
 ![](/img/tss-fred-blog-1.png)
 
-**Come And Engage with the HPE DEV Team at HPE Technology and Solution Summit 2022!**
+**Come and Engage with the HPE DEV Team at HPE Technology and Solution Summit 2022!**
 
 By Frederic Passeron
 
