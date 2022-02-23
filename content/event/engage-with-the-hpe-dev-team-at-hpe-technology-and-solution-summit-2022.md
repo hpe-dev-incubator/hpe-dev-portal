@@ -7,7 +7,7 @@ image: /img/tss-fred-blog-1.png
 link: https://h41382.www4.hpe.com/tss/
 width: large
 ---
-## HPE Technology and Solution Summit 2022
+## HPE Technology and Solutions Summit 2022
 
 March 28-31, 2022
 
