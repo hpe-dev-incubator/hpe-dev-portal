@@ -495,6 +495,7 @@ export const SuccessLayer = ({
   setLayer,
   size,
   title,
+  email,
   reset,
   sessionType,
 }) => (
@@ -505,7 +506,7 @@ export const SuccessLayer = ({
     background={
       size === 'large'
         ? {
-            image: 'url(/img/gremlin-signup.png)',
+            image: 'url(/img/hackshack/gremlin-signup.png)',
             size: 'cover',
             position: 'center',
             repeat: 'no-repeat',
@@ -539,7 +540,7 @@ export const SuccessLayer = ({
         <Text color="#ffffff">
           You have been signed up for this{' '}
           {sessionType === 'Coding Challenge' ? 'Challenge' : 'workshop'}. Head
-          over to your email to learn what happens next.
+          over to your email ({email}) to learn what happens next.
         </Text>
       </Box>
       <Box>
@@ -576,6 +577,7 @@ SuccessLayer.propTypes = {
   reset: PropTypes.func,
   size: PropTypes.string,
   title: PropTypes.string,
+  email: PropTypes.string,
   sessionType: PropTypes.string,
 };
 
@@ -953,6 +955,7 @@ const ScheduleCard = ({
                 name={formData.name}
                 size={size}
                 title={title}
+                email={formData.email}
                 reset={resetFormData}
                 sessionType={sessionType}
               />
