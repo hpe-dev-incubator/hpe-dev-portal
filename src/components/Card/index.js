@@ -108,18 +108,19 @@ export const Card = ({
           elevation="medium"
           margin="medium"
           flex="grow"
+          style={{ cursor: 'pointer' }}
           basis={size === 'small' ? 'auto' : bases[width]}
           onMouseOver={() => isHackShackCard && setHover(true)}
           onMouseLeave={() => isHackShackCard && setHover(false)}
           {...rest}
           /* eslint-disable */
-          onClick={
+          onMouseUp={() => {
             link && link.match(/^\//g)
-              ? () => navigate(link)
+              ? navigate(link)
               : link
-              ? () => window.open(link)
-              : undefined
-          }
+              ? window.open(link)
+              : undefined;
+          }}
         >
           <CardHeader
             justify="end"
