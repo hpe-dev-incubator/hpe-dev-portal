@@ -4,7 +4,7 @@ dateStart: 2022-02-22T23:01:56.135Z
 dateEnd: 2022-02-23T22:59:09.025Z
 category: Virtual Event
 image: /img/microscope_01_rgb-copy.png
-link: https://hpe.zoom.us/webinar/register/2016414625150/WN_FzzTDsTjQBSw-UFwD6UTdw
+link: https://developer.hpe.com/campaign/meetups
 width: large
 tags:
   - Meetups
