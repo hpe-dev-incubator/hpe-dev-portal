@@ -16,6 +16,7 @@ tags:
 ### Live Webinar
 
 March 17, 2022
+10am PT/ 1pm ET/ 6pm GT 
 
 In this 30-minute interactive webinar, you’ll be introduced to Kubernetes storage fundamentals, key Kubernetes storage terminology, real-world use cases and best practices.
 
