@@ -8,8 +8,6 @@ tags:
 ---
 <center><img src="/img/intro-greenlake-512-pixels-rgb-image.jpg" width="512" height="384" alt="Curate and expose catalog items using the HPE GreenLake Service Catalog persona view"></center>
 
-## Using the HPE GreenLake Service Catalog persona view
-
 The HPE GreenLake Edge-to-Cloud platform has a very useful interface for managing the HPE GreenLake for private cloud service called HPE GreenLake Central. It provides a cloud experience to manage VMs in your on-premises, pay-per-use datacenter. Personas are alternate views in the HPE GreenLake for private cloud user interface (UI). A user’s access to the various personas is controlled by role permissions. 
 
 At present, there are two persona types: Standard and Service Catalog. The Standard persona is the typical default view. The Service Catalog persona is a simplified view where users are presented with different pre-configured instance types, blueprints, and workflows to choose from based upon their role. This improves the deployment experience with just a few clicks and without presenting an overwhelming list of options.
