@@ -1,4 +1,6 @@
 import React from 'react';
+import { Grommet } from 'grommet';
+import { hpe } from 'grommet-theme-hpe';
 import {
   Layout,
   PageHeader,
@@ -10,26 +12,28 @@ import { arcadeContent } from '../../../data/CardData/PageContent';
 
 const Arcade = () => {
   return (
-    <Layout background="/img/hackshack/BackgroundImages/arcade-background.jpg">
-      <SEO title="Hack Shack Arcade" />
-      <PageHeader title="ARCADE">
-        <CardGrid>
-          {arcadeContent.map((content) => (
-            <Card
-              key={content.title}
-              title={content.title}
-              alt={content.alt}
-              background={content.background}
-              image={content.image}
-              desc={content.desc}
-              label={content.label}
-              link={content.link}
-              path={content.path}
-            />
-          ))}
-        </CardGrid>
-      </PageHeader>
-    </Layout>
+    <Grommet theme={hpe}>
+      <Layout background="/img/hackshack/BackgroundImages/arcade-background.jpg">
+        <SEO title="Hack Shack Arcade" />
+        <PageHeader title="ARCADE">
+          <CardGrid>
+            {arcadeContent.map((content) => (
+              <Card
+                key={content.title}
+                title={content.title}
+                alt={content.alt}
+                background={content.background}
+                image={content.image}
+                desc={content.desc}
+                label={content.label}
+                link={content.link}
+                path={content.path}
+              />
+            ))}
+          </CardGrid>
+        </PageHeader>
+      </Layout>
+    </Grommet>
   );
 };
 

@@ -1,7 +1,8 @@
 /* eslint-disable max-len */
 /* eslint-disable react/prop-types */
 import React, { useEffect, useState } from 'react';
-import { Heading, Text, Box, Image } from 'grommet';
+import { Heading, Text, Box, Image, Grommet } from 'grommet';
+import { hpe } from 'grommet-theme-hpe';
 import axios from 'axios';
 import PropTypes from 'prop-types';
 import {
@@ -78,88 +79,93 @@ const ReplayTemplate = (props) => {
   const [autoplay, setAutoPlay] = useState(false);
   const sortedReplays = sortReplays(replays, current);
   return (
-    <Layout background="/img/BackgroundImages/generic-background.jpg">
-      <PageHeader title={workshopTitle}>
-        <SEO
-          title={workshopTitle}
-          description={workshopDesc}
-          image={workshopImg}
-        />
-        {replays.length > 0 ? (
-          <>
-            <Video
-              videolink={replays[current].videoLink}
-              id={replays[current].id}
-              avatar={replays[current].avatar}
-              desc={replays[current].desc}
-              key={replays[current].title}
-              presenter={replays[current].presenter}
-              role={replays[current].role}
-              title={replays[current].title}
-              setCurrent={setCurrent}
-              current={current}
-              replaysLength={replays.length}
-              autoplay={autoplay}
-              notebook={
-                replays[current].workshop && replays[current].workshop.notebook
-              }
-              sessionType={
-                replays[current].workshop &&
-                replays[current].workshop.sessionType
-              }
-              location={
-                replays[current].workshop && replays[current].workshop.location
-              }
-              capacity={
-                replays[current].workshop && replays[current].workshop.capacity
-              }
-              workshopTitle={
-                replays[current].workshop && replays[current].workshop.name
-              }
-              workshopId={workshopId}
-            />
-            <Heading color="text" style={{ fontWeight: '500' }} level={2}>
-              UP NEXT
-            </Heading>
-          </>
-        ) : (
-          <Box
-            pad="small"
-            justify="center"
-            margin={{ top: 'medium' }}
-            direction="column"
-            // background="status-critical"
-          >
-            {error ? (
-              <>
-                <Text size="large" color="status-critical" alignSelf="center">
-                  {error}
-                </Text>
-                <Image src="/img/gremlin-rockin.svg" />
-              </>
-            ) : (
-              <Box height="medium" />
-            )}
-          </Box>
-        )}
-        {sortedReplays.map(
-          ({ desc, presenter, role, title, videoLink, id }) =>
-            id !== current && (
-              <VideoList
-                key={title}
-                id={id}
-                desc={`${desc.slice(0, 150)}...`}
-                title={title}
-                presenter={presenter}
-                videoLink={videoLink}
-                role={role}
+    <Grommet theme={hpe}>
+      <Layout background="/img/BackgroundImages/generic-background.jpg">
+        <PageHeader title={workshopTitle}>
+          <SEO
+            title={workshopTitle}
+            description={workshopDesc}
+            image={workshopImg}
+          />
+          {replays.length > 0 ? (
+            <>
+              <Video
+                videolink={replays[current].videoLink}
+                id={replays[current].id}
+                avatar={replays[current].avatar}
+                desc={replays[current].desc}
+                key={replays[current].title}
+                presenter={replays[current].presenter}
+                role={replays[current].role}
+                title={replays[current].title}
                 setCurrent={setCurrent}
-                setAutoPlay={setAutoPlay}
+                current={current}
+                replaysLength={replays.length}
+                autoplay={autoplay}
+                notebook={
+                  replays[current].workshop &&
+                  replays[current].workshop.notebook
+                }
+                sessionType={
+                  replays[current].workshop &&
+                  replays[current].workshop.sessionType
+                }
+                location={
+                  replays[current].workshop &&
+                  replays[current].workshop.location
+                }
+                capacity={
+                  replays[current].workshop &&
+                  replays[current].workshop.capacity
+                }
+                workshopTitle={
+                  replays[current].workshop && replays[current].workshop.name
+                }
+                workshopId={workshopId}
               />
-            ),
-        )}
-      </PageHeader>
-    </Layout>
+              <Heading color="text" style={{ fontWeight: '500' }} level={2}>
+                UP NEXT
+              </Heading>
+            </>
+          ) : (
+            <Box
+              pad="small"
+              justify="center"
+              margin={{ top: 'medium' }}
+              direction="column"
+              // background="status-critical"
+            >
+              {error ? (
+                <>
+                  <Text size="large" color="status-critical" alignSelf="center">
+                    {error}
+                  </Text>
+                  <Image src="/img/gremlin-rockin.svg" />
+                </>
+              ) : (
+                <Box height="medium" />
+              )}
+            </Box>
+          )}
+          {sortedReplays.map(
+            ({ desc, presenter, role, title, videoLink, id }) =>
+              id !== current && (
+                <VideoList
+                  key={title}
+                  id={id}
+                  desc={`${desc.slice(0, 150)}...`}
+                  title={title}
+                  presenter={presenter}
+                  videoLink={videoLink}
+                  role={role}
+                  setCurrent={setCurrent}
+                  setAutoPlay={setAutoPlay}
+                />
+              ),
+          )}
+        </PageHeader>
+      </Layout>
+    </Grommet>
   );
 };
 

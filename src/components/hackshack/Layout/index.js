@@ -5,6 +5,7 @@ import React, {
   useContext,
   useState,
 } from 'react';
+import { useLocation } from '@reach/router';
 import PropTypes from 'prop-types';
 import { Grommet, Box, ResponsiveContext, Text, Button } from 'grommet';
 import { Close } from 'grommet-icons';
@@ -13,6 +14,7 @@ import { deepMerge } from 'grommet/utils';
 import { ResponsiveLayout, StyledLayer } from './styles';
 import { Header as HackShackHeader, SideNav } from '../index';
 import { Header as HPEDevHeader } from '../../index';
+import { AppContext } from '../../../providers/AppProvider';
 
 const customHpe = deepMerge(hpe, {
   global: {
@@ -25,8 +27,10 @@ const customHpe = deepMerge(hpe, {
 });
 
 const Layout = ({ children, background }) => {
-  const [layer, setLayer] = useState(false);
   const size = useContext(ResponsiveContext);
+  const location = useLocation();
+  const { data } = useContext(AppContext);
+  const [layer, setLayer] = useState(false);
 
   const childrenWithProps = Children.map(children, (child) => {
     if (isValidElement(child)) {
@@ -53,12 +57,16 @@ const Layout = ({ children, background }) => {
         layer={layer}
       >
         <Box>
-          <HPEDevHeader />
-          <HackShackHeader setLayer={setLayer} size={size} />
+          {location.pathname.includes('/hackshack') && size !== 'small' ? (
+            <HPEDevHeader data={data} />
+          ) : (
+            <HackShackHeader setLayer={setLayer} />
+          )}
+
           <Box direction="row">
-            {size !== 'small' && (
+            {location.pathname.includes('/hackshack') && size !== 'small' && (
               <Box margin={{ top: 'xlarge', left: 'large' }}>
-                <SideNav size={size} />
+                <SideNav data={data} />
               </Box>
             )}
             <Box
@@ -84,7 +92,7 @@ const Layout = ({ children, background }) => {
                 <Button icon={<Close />} onClick={() => setLayer(false)} />
               </Box>
               <Box align="start" gap="large" pad="xlarge">
-                <SideNav size={size} />
+                <SideNav data={data} />
               </Box>
             </Box>
           </StyledLayer>
