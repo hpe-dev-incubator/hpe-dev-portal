@@ -12,62 +12,47 @@ tags:
 
 A key strength of HPE GreenLake for private cloud is self-service
 orchestration and automation, which you do from the HPE GreenLake for
-private cloud dashboard and can be consumed using API and IaC. However,
+private cloud dashboard and can be consumed using API and Infrastructure-as-Code(IaC). However,
 some ServiceNow users prefer to provision resources from the ServiceNow
 Service Catalog. For these users, HPE GreenLake for private cloud offers
-a free Morpheus plugin for ServiceNow, which they can install from the
-ServiceNow Store. After you install and configure the plugin, HPE
-GreenLake for private cloud catalog items (In the previous
-[blog](https://developer.hpe.com/blog/curate-and-expose-service-catalog-items-using-hpe-greenlake-for-private-cloud/),
-we discussed how to curate and expose service catalog items using
-HPE GreenLake for private cloud) can be presented in the ServiceNow
-Service Catalog for ordering. You turn on this integration by installing
-the Morpheus plugin on ServiceNow and sharing the wanted resources
-from HPE GreenLake for private cloud. This article walks through the
+a free Morpheus plugin for ServiceNow, which can be installed from the
+ServiceNow Store. Once the plugin is installed and configured, HPE
+GreenLake for private cloud [catalog items] (https://developer.hpe.com/blog/curate-and-expose-service-catalog-items-using-hpe-greenlake-for-private-cloud/),
+can be presented in the ServiceNow
+Service Catalog for ordering. 
+
+This article walks through the
 process of integrating ServiceNow with HPE GreenLake for private cloud
 and exposing Service Catalog Items to ServiceNow.
 
 ## Prerequisites
 
-The process of integrating HPE GreenLake for private cloud on ServiceNow
-needs the following:
+<!--StartFragment-->
 
-* Morpheus plugin on ServiceNow: To obtain and install the Morpheus
-  plugin, you must have your HI credentials.
+The process of integrating HPE GreenLake for private cloud on ServiceNow needs the following:
 
-  * Using HI account, search for Morpheus and install the Morpheus
-    plugin
-* HPE GreenLake for private cloud service user account in the
-  sub-tenant: Before you begin the integration process, raise a HPE
-  GreenLake support ticket to ensure that support is able to create
-  the user in your HPE GreenLake for private cloud environment and
-  then share it with you. For details, see [Request for sub-tenant
-  service user for ServiceNow
-  integration](https://support.hpe.com/hpesc/public/docDisplay?docId=a00092451en_us&page=request-for-subtenant-service-user-for-servicenow-integration.html).
+* Morpheus plugin on ServiceNow: To obtain and install the Morpheus plugin, you must have your HI credentials
+  * Using HI account, search for Morpheus and install the Morpheus plugin
 
-* Private cloud user in ServiceNow: Follow the below procedure to
-  create a private cloud user in ServiceNow
-
-  * Log in to ServiceNow as admin user.
-  * Create a HPE GreenLake for private cloud user by doing the
-    following:
-
-    * Open the Users table and click New
+* HPE GreenLake for private cloud service user account in the sub-tenant: Before you begin the integration process, raise a HPE GreenLake support ticket to ensure that support is able to create the user in your HPE GreenLake for private cloud environment and then share it with you. For details, see [Request for sub-tenant
+    service user for ServiceNow integration](https://support.hpe.com/hpesc/public/docDisplay?docId=a00092451en_us&page=request-for-subtenant-service-user-for-servicenow-integration.html).
+* Private cloud user in ServiceNow: Follow the below procedure to create a private cloud user in ServiceNow
+  * Log in to ServiceNow as admin user
+  * Create a HPE GreenLake for private cloud user by doing the following:
+    * Open the Users table and click New
     * Assign the user the following roles:
-
       * catalog_admin
       * import_transformer
       * itil
       * rest_service
-      * x_moda_morpheus_ca.integration (NOTE: You can only
-        assign this role after installing the Morpheus plugin.
-        If you are creating this user before that, you must go
-        back and add this role after installing the plugin.)
+      * xmodamorpheus_ca.integration (NOTE: You can only assign this role after installing the Morpheus plugin. If you are creating this user before that, you must go back and add this role after installing the plugin.)
+
+<!--EndFragment-->
 
 ## Integrating private cloud on ServiceNow
 
-* From ServiceNow, go to **Morpheus Catalog** and select
-  **Properties**
+ From ServiceNow, go to **Morpheus Catalog** and select
+  **Properties**<br>
 * Configure the following properties:
 
   * The Morpheus Appliance endpoint: Enter the full URL to your HPE
@@ -82,34 +67,32 @@ needs the following:
 
 ## Integrating ServiceNow with HPE GreenLake for private cloud
 
-* From HPE GreenLake Central, locate the HPE GreenLake for private
-  cloud service card and click the Launch icon to open the HPE
-  GreenLake for private cloud dashboard
-* Navigate to Administration > Integrations
-* From the NEW INTEGRATION drop-down list, select ITSM ServiceNow
+<!--StartFragment-->
+
+* From HPE GreenLake Central, locate the HPE GreenLake for private cloud service card and click the Launch icon to open the HPE GreenLake for private cloud dashboard
+* Navigate to Administration > Integrations
+* From the NEW INTEGRATION drop-down list, select ITSM ServiceNow
 * The NEW SERVICENOW INTEGRATION dialog box opens
 * From the dialog box, configure the ServiceNow integration parameters
 
   * Name - Enter the integration name
-  * ENABLED - Select to enable consumption of this ServiceNow
-    integration in HPE GreenLake for private cloud. The integration
-    is enabled by default
-  * SERVICE NOW HOST-Enter the ServiceNow instance host URL
-    (example: https://your.instance.service-now.com).
+  * ENABLED - Select to enable consumption of this ServiceNow integration in HPE GreenLake for private cloud. The integration is enabled by default
+  * SERVICE NOW HOST-Enter the ServiceNow instance host URL (example: [https://your.instance.service-now.com](https://your.instance.service-now.com/)).
   * USER - Enter a ServiceNow user that has below roles
 
     * catalog_admin
     * itil
     * rest_service
     * import_transformer
-    * x_moda_morpheus_ca.integration
+    * xmodamorpheus_ca.integration
   * PASSWORD -- Password of above-mentioned user
-  * Optional variables (CMDB CUSTOM MAPPING, CMDB CLASS MAPPING
-    DEFAULT CMDB BUSINESS CLASS) not required for this use case
-* Click **SAVE CHANGES**
+  * Optional variables (CMDB CUSTOM MAPPING, CMDB CLASS MAPPING DEFAULT CMDB BUSINESS CLASS) not required for this use case
+* Click SAVE CHANGES
 
-The ServiceNow integration is now displayed in the list of integrations.
-Sample integration summary
+The ServiceNow integration is now displayed in the list of integrations. Sample integration summary
+
+<!--EndFragment-->
+
 
 ![](/img/figure2.png)
 
@@ -141,12 +124,10 @@ follows:
 
 ![](/img/figure5.png)
 
-
 * Exposed  HPE GreenLake private cloud resources are now available in
   ServiceNow as Service Catalog
 
 ![](/img/figure6.png)
-
 
 ## Provision private cloud resources from ServiceNow
 
