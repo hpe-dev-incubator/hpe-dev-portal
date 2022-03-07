@@ -51,17 +51,18 @@ The process of integrating HPE GreenLake for private cloud on ServiceNow needs t
 
 ## Integrating private cloud on ServiceNow
 
- From ServiceNow, go to **Morpheus Catalog** and select
-  **Properties**<br>
+* From ServiceNow, go to **Morpheus Catalog** and select
+  **Properties**
+
 * Configure the following properties:
 
   * The Morpheus Appliance endpoint: Enter the full URL to your HPE
-    GreenLake for private cloud appliance.
+    GreenLake for private cloud appliance
   * Username: Enter the name of the HPE GreenLake for private cloud
     Service user(Received from HPE Support) that the Morpheus plugin
     use to connect to the HPE GreenLake Private Cloud API
   * Password: Enter the HPE GreenLake for private cloud Service user
-    password (Received from HPE Support).
+    password (Received from HPE Support)
 
 ![](/img/figure1.png)
 
