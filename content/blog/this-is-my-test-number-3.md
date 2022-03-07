@@ -42,17 +42,19 @@ The process of integrating HPE GreenLake for private cloud on ServiceNow needs t
 
 * Morpheus plugin on ServiceNow: To obtain and install the Morpheus plugin, you must have your HI credentials.
    * Using HI account, search for Morpheus and install the Morpheus plugin
+
 * HPE GreenLake for private cloud service user account in the sub-tenant: Before you begin the integration process, raise a HPE GreenLake support ticket to ensure that support is able to create the user in your HPE GreenLake for private cloud environment and then share it with you. For details, see Request for sub-tenant service user for ServiceNow integration.
+
 * Private cloud user in ServiceNow: Follow the below procedure to create a private cloud user in ServiceNow
-    * Log in to ServiceNow as admin user.
-    * Create a HPE GreenLake for private cloud user by doing the following:
-      * Open the Users table and click New
-      * Assign the user the following roles:
-        * catalog_admin
-         * import_transformer
-         * itil
-         * rest_service
-         * xmodamorpheus_ca.integration (NOTE: You can only assign this role after installing the Morpheus plugin. If you are creating this user before that, you must go back and add this role after installing the plugin.)
+   * Log in to ServiceNow as admin user.
+   * Create a HPE GreenLake for private cloud user by doing the following:
+     * Open the Users table and click New
+     * Assign the user the following roles:
+       * catalog_admin
+       * import_transformer
+       * itil
+       * rest_service
+       * xmodamorpheus_ca.integration (NOTE: You can only assign this role after installing the Morpheus plugin. If you are creating this user before that, you must go back and add this role after installing the plugin.)
 
 ## Integrating private cloud on ServiceNow
 
