@@ -61,10 +61,15 @@ The process of integrating HPE GreenLake for private cloud on ServiceNow needs t
 ## Integrating ServiceNow with HPE GreenLake for private cloud
 
 * From HPE GreenLake Central, locate the HPE GreenLake for private cloud service card and click the Launch icon to open the HPE GreenLake for private cloud dashboard
+
 * Navigate to Administration > Integrations
+
 * From the NEW INTEGRATION drop-down list, select ITSM ServiceNow
+
 * The NEW SERVICENOW INTEGRATION dialog box opens
+
 * From the dialog box, configure the ServiceNow integration parameters
+
   * Name - Enter the integration name
   * ENABLED - Select to enable consumption of this ServiceNow integration in HPE GreenLake for private cloud. The integration is enabled by default
   * SERVICE NOW HOST-Enter the ServiceNow instance host URL (example: https://your.instance.service-now.com).
@@ -76,6 +81,7 @@ The process of integrating HPE GreenLake for private cloud on ServiceNow needs t
      * xmodamorpheus_ca.integration
   * PASSWORD -- Password of above-mentioned user
   * Optional variables (CMDB CUSTOM MAPPING, CMDB CLASS MAPPING DEFAULT CMDB BUSINESS CLASS) not required for this use case
+
 * Click SAVE CHANGES
 
 The ServiceNow integration is now displayed in the list of integrations. Sample integration summary
