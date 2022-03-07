@@ -4,6 +4,7 @@ title: How to provision HPE GreenLake private cloud resources from ServiceNow
 date: 2022-03-08T06:13:00.000Z
 author: Vinnarasu Ganesan, Thavamaniraja S
 authorimage: /img/Avatar1.svg
+thumbnailimage: /img/thumbnail.jpg
 tags:
   - hpe-greenlake
 ---
