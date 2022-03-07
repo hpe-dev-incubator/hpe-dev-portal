@@ -75,12 +75,10 @@ The process of integrating HPE GreenLake for private cloud on ServiceNow needs t
 * From the NEW INTEGRATION drop-down list, select ITSM ServiceNow
 * The NEW SERVICENOW INTEGRATION dialog box opens
 * From the dialog box, configure the ServiceNow integration parameters
-
   * Name - Enter the integration name
   * ENABLED - Select to enable consumption of this ServiceNow integration in HPE GreenLake for private cloud. The integration is enabled by default
   * SERVICE NOW HOST-Enter the ServiceNow instance host URL (example: [https://your.instance.service-now.com](https://your.instance.service-now.com/)).
   * USER - Enter a ServiceNow user that has below roles
-
     * catalog_admin
     * itil
     * rest_service
