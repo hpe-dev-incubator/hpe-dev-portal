@@ -9,4 +9,4 @@ thumbnailimage: /img/dscc-icon-transparent.png
 tags:
   - data-services-cloud-console
 ---
-# Getting started to generate DSCC API Client Libraries for Python using OpenAPI-Generator painlessly
+# Getting started to generate DSCC API Client Libraries for Python using OpenAPI-Generator (painlessly!)
