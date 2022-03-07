@@ -1,7 +1,7 @@
 ---
 title: How to provision HPE GreenLake private cloud resources from ServiceNow
   Service Catalog
-date: 2022-03-07T06:13:06.093Z
+date: 2022-03-08T06:13:00.000Z
 author: Vinnarasu Ganesan, Thavamaniraja S
 authorimage: /img/Avatar1.svg
 tags:
@@ -43,10 +43,6 @@ needs the following:
   then share it with you. For details, see [Request for sub-tenant
   service user for ServiceNow
   integration](https://support.hpe.com/hpesc/public/docDisplay?docId=a00092451en_us&page=request-for-subtenant-service-user-for-servicenow-integration.html).
-
-```{=html}
-
-```
 
 * Private cloud user in ServiceNow: Follow the below procedure to
   create a private cloud user in ServiceNow
