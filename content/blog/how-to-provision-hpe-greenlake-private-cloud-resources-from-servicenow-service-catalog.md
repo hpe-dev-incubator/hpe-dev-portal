@@ -53,7 +53,7 @@ Using ServiceNow admin user, create a HPE GreenLake for private cloud user in Se
 
 ## Integrating private cloud on ServiceNow
 
-Configure the Morpheus Catalog in ServiceNow with the properties followed
+Configure Morpheus properties in ServiceNow with the following parameters:
 
 * The Morpheus Appliance endpoint: Enter the full URL to your HPE
   GreenLake for private cloud appliance
