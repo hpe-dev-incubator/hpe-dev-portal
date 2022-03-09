@@ -14,10 +14,10 @@ One of the superpowers of IaC is its repeatability, the fact that you can set so
 
 HPE GreenLake is HPE’s edge-to-cloud platform. The HPE GreenLake platform provides a unified experience wherever your applications and its data are located on the edge, in colocations or in your own datacenter. This cloud experience everywhere includes the following capabilities:
 
-* ### Self-service
-* ### Infinite scalability
-* ### Pay-as-you-go
-* ### Managed for you
+* Self-service
+* Infinite scalability
+* Pay-as-you-go
+* Managed for you
 
 ## HPE GreenLake Cloud Services
 
@@ -37,9 +37,9 @@ One of the options provided by HPE GreenLake is to make it easy for customers to
 
 Your first step is to get your system ready to run Terraform. In case this has not been done yet, this will include:
 
-1. ### Installing Terraform: follow [these steps](https://learn.hashicorp.com/tutorials/terraform/install-cli)
-2. ### Verifying installation: **terraform --help**
-3. ### Initializing Terraform in a new empty folder: **terraform init**
+1. Installing Terraform: follow [these steps](https://learn.hashicorp.com/tutorials/terraform/install-cli)
+2. Verifying installation: **terraform --help**
+3. Initializing Terraform in a new empty folder: **terraform init**
 
 At this point, you are ready to start building your infrastructure description file.  
 
@@ -128,15 +128,15 @@ And execute it on your machine to set these environment variables.
 
 Your next step with the TF file is to query the HPE GreenLake provider to collect information needed to create your first VM instance. From the [documentation](https://github.com/HewlettPackard/terraform-provider-hpegl/blob/main/docs/resources/vmaas_instance.md), you can see that you need to gather the following information:
 
-* ### Cloud ID
-* ### Group ID
-* ### Layout ID
-* ### Plan ID
-* ### Instance type code
-* ### Network ID
-* ### Resource Pool ID
-* ### Template ID
-* ### Folder Code
+* Cloud ID
+* Group ID
+* Layout ID
+* Plan ID
+* Instance type code
+* Network ID
+* Resource Pool ID
+* Template ID
+* Folder Code
 
 For this, you will use the Terraform data statements. For example, the following statement retrieves the Cloud ID and stores it (called cloud), which we can later use with: **data.hpegl_vmaas_cloud.cloud.id**
 
