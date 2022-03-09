@@ -4,14 +4,6 @@ date: 2022-03-08T15:17:41.884Z
 author: Didier Lalli
 authorimage: /img/didier-lalli.png
 ---
-```
-
-```
-
-```
-
-```
-
 The process of managing and provisioning computer data centers through machine-readable definition files, otherwise known as Infrastructure-as-Code (IaC), offers many significant benefits. It helps to increase operational agility, simplify management, reduce errors, and save cost. In this post, I’ll explore some of the benefits of using IaC on HPE GreenLake through the use of Terraform.
 
 ## Let’s harness some of the benefits of Infrastructure as Code
@@ -22,10 +14,10 @@ One of the superpowers of IaC is its repeatability, the fact that you can set so
 
 HPE GreenLake is HPE’s edge-to-cloud platform. The HPE GreenLake platform provides a unified experience wherever your applications and its data are located on the edge, in colocations or in your own datacenter. This cloud experience everywhere includes the following capabilities:
 
-* Self-service
-* Infinite scalability
-* Pay-as-you-go
-* Managed for you
+* ### Self-service
+* ### Infinite scalability
+* ### Pay-as-you-go
+* ### Managed for you
 
 ## HPE GreenLake Cloud Services
 
@@ -37,17 +29,17 @@ One of the options provided by HPE GreenLake is to make it easy for customers to
 
 ## Terraform
 
-Terraform is an open source Infrastructure-as-Code framework originally created by HashiCorp that is written in Go. It uses a declarative language (HashiCorp Configuration Language HCL or JSON more recently) to describe the desired state of the infrastructure in terms of cloud, virtual machines, networks, storage, and many other components. Terraform uses the concept of “providers” to integrate with all major public clouds. Terraform is a so-called idempotent system in the sense that it doesn’t generate any side effects if applied multiple times on an infrastructure already in its desired state. Terraform has gained quite the momentum in the last few years. Its main competition is Ansible, Amazon Cloud Formation, Puppet and Chef.
+[Terraform](https://terraform.io) is an open source Infrastructure-as-Code framework originally created by HashiCorp that is written in Go. It uses a declarative language (HashiCorp Configuration Language HCL or JSON more recently) to describe the desired state of the infrastructure in terms of cloud, virtual machines, networks, storage, and many other components. Terraform uses the concept of “providers” to integrate with all major public clouds. Terraform is a so-called idempotent system in the sense that it doesn’t generate any side effects if applied multiple times on an infrastructure already in its desired state. Terraform has gained quite the momentum in the last few years. Its main competition is Ansible, Amazon Cloud Formation, Puppet and Chef.
 
 ## Readying for your Infrastructure-as-Code implementation
 
-Terraform installation
+### Terraform installation
 
 Your first step is to get your system ready to run Terraform. In case this has not been done yet, this will include:
 
-1. Installing Terraform: follow [these steps](https://learn.hashicorp.com/tutorials/terraform/install-cli)
-2. Verifying installation: terraform --help
-3. Initializing Terraform in a new empty folder: terraform init
+1. ### Installing Terraform: follow [these steps](https://learn.hashicorp.com/tutorials/terraform/install-cli)
+2. ### Verifying installation: **terraform --help**
+3. ### Initializing Terraform in a new empty folder: **terraform init**
 
 At this point, you are ready to start building your infrastructure description file.  
 
@@ -57,7 +49,7 @@ Let’s start building this TF file using your favorite editor.
 
 #### Selecting a Terraform provider
 
-The first section of the file will enumerate the “providers” you rely upon for building your infrastructure, and they could be multiple providers in a single TF file. In this case here, you will only have the HPE GreenLake provider referenced as hewlettpackard/hpeg in the official Terraform registry: <https://registry.terraform.io/> 
+The first section of the file will enumerate the “providers” you rely upon for building your infrastructure, and they could be multiple providers in a single TF file. In this case here, you will only have the HPE GreenLake provider referenced as hewlettpackard/hpeg in the official \[Terraform registry](<https://registry.terraform.io/).
 
 The first lines of your Terraform configuration file should look like this:
 
@@ -103,15 +95,11 @@ You can find your location and your space name from the HPE GreenLake user inter
 
 And in the capture below, **Terraform Space** is the space we have created for our work with Terraform. You can check your available Spaces from the GreenLake console under your profile icon, Change space.
 
-![GreenLake change space](/img/greenlakeprofilemenu.png "GreenLake change space")
-
 ![GreenLake select new space](/img/greenlakeselectingspace.png "GreenLake select new space")
 
 #### Setting up a API Client access
 
 Next, you need to create a new API Client access dedicated to Terraform. You can do this from the HPE GreenLake console under your settings icon, identity & Access and then the API Clients tab.
-
-![GreenLake Settings](/img/greenlakesettings.png "GreenLake Settings")
 
 ![GreenLake API Clients](/img/greenlakeapiclients.png "GreenLake API Clients")
 
@@ -140,15 +128,15 @@ And execute it on your machine to set these environment variables.
 
 Your next step with the TF file is to query the HPE GreenLake provider to collect information needed to create your first VM instance. From the [documentation](https://github.com/HewlettPackard/terraform-provider-hpegl/blob/main/docs/resources/vmaas_instance.md), you can see that you need to gather the following information:
 
-* Cloud ID
-* Group ID
-* Layout ID
-* Plan ID
-* Instance type code
-* Network ID
-* Resource Pool ID
-* Template ID
-* Folder Code
+* ### Cloud ID
+* ### Group ID
+* ### Layout ID
+* ### Plan ID
+* ### Instance type code
+* ### Network ID
+* ### Resource Pool ID
+* ### Template ID
+* ### Folder Code
 
 For this, you will use the Terraform data statements. For example, the following statement retrieves the Cloud ID and stores it (called cloud), which we can later use with: **data.hpegl_vmaas_cloud.cloud.id**
 
@@ -297,7 +285,6 @@ Terraform will perform the following actions:
 	}
  
 Plan: 1 to add, 0 to change, 0 to destroy.
-
 ```
 
 If you agree with the plan, and what is going to be created, you can move to the last step, i.e. applying the configuration.
@@ -329,7 +316,6 @@ hpegl_vmaas_instance.DidierTest1: Still creating... [2m0s elapsed]
 hpegl_vmaas_instance.DidierTest1: Creation complete after 2m9s [id=145]
  
 Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
-
 ```
 
 If you open your HPE GreenLake console to monitor the VM resources, you will see the effect of the terraform apply command:
@@ -339,8 +325,6 @@ If you open your HPE GreenLake console to monitor the VM resources, you will see
 #### Cleaning it all up
 
 In Terraform, clean-up can be done using the destroy command. This will automatically use the HPE GreenLake provider to clean the infrastructure in HPE GreenLake.
-
-##  
 
 ```markdown
 Didiers-MacBook-Pro:Terraform lalli$ terraform destroy
@@ -492,7 +476,6 @@ hpegl_vmaas_instance.DidierTest1: Still destroying... [id=145, 1m0s elapsed]
 hpegl_vmaas_instance.DidierTest1: Destruction complete after 1m7s
  
 Destroy complete! Resources: 1 destroyed.
-
 ```
 
 ### What’s next?
