@@ -1,6 +1,6 @@
 ---
 title: Storage & Applications in Kubernetes
-dateStart: 2022-02-28T23:01:00.000Z
+dateStart: 2022-03-16T23:01:00.000Z
 dateEnd: 2022-03-17T22:59:59.268Z
 category: Virtual Event
 image: /img/k8s-storage-apps-512.jpg
@@ -15,8 +15,8 @@ tags:
 
 ### Live Webinar
 
-March 17, 2022
-10am PT/ 1pm ET/ 6pm GT 
+March 17, 2022       
+10am PT / 1pm ET / 6pm GT 
 
 
 In this 30-minute interactive webinar, you’ll be introduced to Kubernetes storage fundamentals, key Kubernetes storage terminology, real-world use cases and best practices.

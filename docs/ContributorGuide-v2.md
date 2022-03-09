@@ -519,11 +519,11 @@ To do so, proceed as follows:
 
        \*\<space\>bullet list item 1
 
-       \<space\>\<space\>\<space\>\*sub-item 1
+       \<space\>\<space\>\<space\>\* sub-item 1
 
-       \<space\>\<space\>\<space\>\*sub-item 2
+       \<space\>\<space\>\<space\>\* sub-item 2
 
-       \<space\>\<space\>\<space\>\*sub-item N
+       \<space\>\<space\>\<space\>\* sub-item N
 
        >**Note:** Always insert a line break between a standard paragraph and the first item of a list
 
