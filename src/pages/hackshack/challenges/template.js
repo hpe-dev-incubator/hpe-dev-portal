@@ -70,6 +70,10 @@ const Challenge = (props) => {
             if (workshop.sessionType === 'Coding Challenge')
               arr.push({ ...workshop });
           });
+          if (arr.length <= 0)
+            setError(
+              'There are currently no challenges in progress. Stay tuned!',
+            );
           setworkshops(arr);
         })
         .catch((err) => {
