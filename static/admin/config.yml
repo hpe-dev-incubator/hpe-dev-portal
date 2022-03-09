@@ -54,7 +54,7 @@ collections:
     extension: 'md'
     create: true
     publish: false
-    slug: '{{slug}}'
+    slug: 'hackshackhome'
     editor:
       preview: true
     fields:
