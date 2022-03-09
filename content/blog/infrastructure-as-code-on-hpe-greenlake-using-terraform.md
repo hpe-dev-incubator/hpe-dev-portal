@@ -103,11 +103,11 @@ Next, you need to create a new API Client access dedicated to Terraform. You can
 
 ![GreenLake API Clients](/img/greenlakeapiclients.png "GreenLake API Clients")
 
-> Note: You need to remember the API Client secret key, as it’s not displayed anymore after creation.
-
 Create a new API Client (hpedev-hackshack-terraform in the screen capture above), and make sure the Tenant Contributor and Tenant Owner roles are assigned on your space. Make note of the client id and the Issuer URL as shown in capture below.
 
 ![GreenLake Terraform API Client](/img/greenlaketerraformapiclient.png "GreenLake Terraform API Client")
+
+> Note: You need to remember the API Client secret key, as it’s not displayed anymore after creation.
 
 Finally, you’ll need your Tenand ID as shown from the HPE GreenLake console under your profile icon, API Access
 
