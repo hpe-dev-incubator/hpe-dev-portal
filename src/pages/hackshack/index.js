@@ -399,6 +399,7 @@ const Home = ({ data }) => {
                   controls
                   width="932px"
                   height="528px"
+                  playing
                 />
               </Box>
             </StyledLayer>
