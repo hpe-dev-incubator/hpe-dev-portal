@@ -113,7 +113,7 @@ Create a new API Client (hpedev-hackshack-terraform in the screen capture above)
 
 > Note: You need to remember the API Client secret key, as it’s not displayed anymore after creation.
 
-Finally, you’ll need your Tenand ID as shown from the HPE GreenLake console under your profile icon, API Access
+Finally, you’ll need your Tenant ID as shown from the HPE GreenLake console under your profile icon, API Access
 
 ![GreenLake Tenant ID](/img/greenlaketenantid.png "GreenLake Tenant ID")
 
@@ -142,7 +142,7 @@ Your next step with the TF file is to query the HPE GreenLake provider to collec
 * Template ID
 * Folder Code
 
-For this, you will use the **Terraform data** statements. For example, the following statement retrieves the Cloud ID and stores it (in variable called **cloud**), which we can later use with: **data.hpegl_vmaas_cloud.cloud.id**
+For this, you will use the **Terraform data** statements. For example, the following statement retrieves the Cloud ID and stores it (in variable called **cloud**), which we can later use with: **data.hpegl\_vmaas\_cloud.cloud.id**
 
 ```json
 # Retrieve cloud id
