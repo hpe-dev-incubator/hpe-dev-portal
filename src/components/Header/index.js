@@ -6,9 +6,9 @@ import {
   Nav,
   ResponsiveContext,
 } from 'grommet';
-import PropTypes from 'prop-types';
 import { Menu, Search, FormDown } from 'grommet-icons';
 import styled from 'styled-components';
+import { AppContext } from '../../providers/AppProvider';
 import { ButtonLink } from '..';
 
 const TextAlignLeft = styled(Box)`
@@ -19,7 +19,8 @@ const TextAlignLeft = styled(Box)`
   }
 `;
 
-function Header({ data }) {
+function Header() {
+  const { data } = useContext(AppContext);
   const platforms = data.allMarkdownRemark.edges;
 
   const PlatformButtonLinks = ({ column }) => {
@@ -145,7 +146,4 @@ function Header({ data }) {
   );
 }
 
-Header.propTypes = {
-  data: PropTypes.any,
-};
 export default Header;
