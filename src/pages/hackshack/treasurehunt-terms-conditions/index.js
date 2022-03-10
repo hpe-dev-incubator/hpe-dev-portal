@@ -31,8 +31,8 @@ const TreasureHuntTC = () => {
         </Box>
         <Text size="xlarge">
           1. <strong>SPONSOR:</strong> The sponsor of this giveaway is Hewlett
-          Packard Enterprise Company (“HPE”), 11445 Compaq Center West Drive,
-          Houston, Texas 77070.
+          Packard Enterprise Company (“HPE”), 1701 E Mossy Oaks Road, Spring, TX
+          77389.
         </Text>
         <br />
         <Text size="xlarge">
