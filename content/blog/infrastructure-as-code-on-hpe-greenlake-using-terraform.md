@@ -27,9 +27,9 @@ HPE GreenLake is HPE’s edge-to-cloud platform. The HPE GreenLake platform prov
 
 The HPE GreenLake ecosystem provides solutions for several top workloads such as containers, Machine Learning, private cloud, virtual machines, SAP HANA, HPC, VDI and many more. This page on [HPE GreenLake cloud services and ecosystem](https://www.hpe.com/us/en/greenlake/services.html) provides a complete list. The ecosystem also leverages many technologies from HPE partners such as Microsoft, VMware, SAP, Nutanix, Veeam and others. 
 
-## HPE GreenLake for Private Cloud Service
+## HPE GreenLake for private cloud
 
-One of the options provided by HPE GreenLake is to make it easy for customers to order and operate a private cloud with a mix of virtual machines, containers, and physical servers. This is exactly what the Private Cloud Service is all about. This service allows customers to point and click to create resources such as virtual machines. It also provides access via a public API, allowing developers to use  an Infrastructure-as-Code type of tool to automate provisioning, for example using Terraform.
+One of the options provided by HPE GreenLake is to make it easy for customers to order and operate a private cloud with a mix of virtual machines, containers, and physical servers. This is exactly what the private cloud Service is all about. This service allows customers to point and click to create resources such as virtual machines. It also provides access via a public API, allowing developers to use  an Infrastructure-as-Code type of tool to automate provisioning, for example using Terraform.
 
 ## Terraform
 
@@ -75,7 +75,7 @@ You can find out more about the HPE GreenLake Terraform provider from its [Terra
 
 This page also provides a link to the GitHub repository corresponding to this provider. The [doc](https://github.com/HewlettPackard/terraform-provider-hpegl/tree/main/docs) folder is your best source of information for using the different data sources and resources provided by the provider. If you navigate to the resources section, you will see that one resource you can manipulate with this provider is a [VM instance](https://github.com/HewlettPackard/terraform-provider-hpegl/blob/main/docs/resources/vmaas_instance.md). Let’s focus on this resource in this article.
 
-> Note: Because this is open source, don’t hesitate to open issues, or even a pull request if you identify an issue.
+> Note: Because this is open source, don’t hesitate to open issues, or even a pull request, if you identify an issue.
 
 #### Setting up the Terraform provider
 
@@ -95,7 +95,7 @@ And the rest (such as tenant id, user id and user secret key) can be placed in 
 
 You can find your location and your space name from the HPE GreenLake user interface. In our example shown below, HPE is our location:
 
-![GreenLake for Private Cloud](/img/greenlakeforprivatecloud.png "GreenLake for Private Cloud")
+![GreenLake for private cloud](/img/greenlakeforprivatecloud.png "GreenLake for private cloud")
 
 And in the capture below, **Terraform Space** is the space we have created for our work with Terraform. You can check your available Spaces from the GreenLake console under your profile icon, Change space.
 
@@ -484,7 +484,7 @@ Destroy complete! Resources: 1 destroyed.
 
 ### What’s next?
 
-In this blog post, I covered how to get started with the Terraform provider for HPE GreenLake, I explained how to collect data from the platform and request the creation of a VM instance. In my next article, I will apply changes to the configuration of the infrastructure configuration file and see how the desired state is automatically tracked by Terraform and applied to HPE GreenLake.
+In this blog post, I covered how to get started with the Terraform provider for HPE GreenLake, explained how to collect data from the platform, and showed how to request the creation of a VM instance. In my next article, I will apply changes to the configuration of the infrastructure configuration file and demonstrate how the desired state is automatically tracked by Terraform and applied to HPE GreenLake.
 
 * [Learn more about Terraform](https://www.terraform.io/)
 * [Learn more about HPE GreenLake](https://www.hpe.com/us/en/greenlake.html)
