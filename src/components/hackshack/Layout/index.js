@@ -42,6 +42,7 @@ const Layout = ({ children, background }) => {
       themeMode="dark"
       background="#151d29"
       style={{ overflowX: 'hidden' }}
+      full
     >
       <ResponsiveLayout
         background={{
