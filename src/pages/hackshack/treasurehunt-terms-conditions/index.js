@@ -108,14 +108,12 @@ const TreasureHuntTC = () => {
           Winners of any previous HPE DEV Virtual Treasure Hunt Giveaway are not
           eligible for a Prize for this Program. Odds of winning depend on the
           total number of eligible entries received during the Program Period.
-          If there are tied scores, then the participant(s) who submitted an
-          eligible entry first in time shall be the winner. Should you be
-          awarded a Prize, you will be contacted via the email address used in
-          your entry method and asked to provide a mailing address. It shall be
-          your responsibility to claim the Prize within fifteen (15) days of
-          notification from HPE. Failure to do so will result in forfeiture of
-          the Prize, and an alternate winner may be selected from among the
-          remaining eligible entries.
+          Should you be awarded a Prize, you will be contacted via the email
+          address used in your entry method and asked to provide a mailing
+          address. It shall be your responsibility to claim the Prize within
+          fifteen (15) days of notification from HPE. Failure to do so will
+          result in forfeiture of the Prize, and an alternate winner may be
+          selected from among the remaining eligible entries.
         </Text>
         <br />
         <Text size="xlarge">
@@ -130,9 +128,7 @@ const TreasureHuntTC = () => {
           certified in your country. Due to abuse, we cannot provide Prizes to
           individuals who submitted their entry with Yahoo, Gmail, Hotmail, and
           other email domains not registered to your company. Please speak
-          directly to your HPE representative if you have any questions. KubeCon
-          is not affiliated with HPE and is not a sponsor of this Program. All
-          third party trademarks are the property of their respective owners.
+          directly to your HPE representative if you have any questions.
         </Text>
         <br />
         <Text size="xlarge">
@@ -178,7 +174,17 @@ const TreasureHuntTC = () => {
         </Text>
         <br />
         <Text size="xlarge">
-          9. <strong>PRIVACY:</strong> By participating in the Program and
+          9. <strong>THIRD PARTIES:</strong> By For the purposes of this
+          Program, HPE cannot guarantee the performance of any third party and
+          to the extent permitted by applicable law shall not be liable for any
+          act or default by a third party. All third party trademarks are the
+          property of their respective owners. KubeCon is not affiliated with
+          HPE and is not a sponsor of, has not endorsed, and is not
+          participating in the Program.
+        </Text>
+        <br />
+        <Text size="xlarge">
+          10. <strong>PRIVACY:</strong> By participating in the Program and
           providing HPE with your personal data, you consent to the use of your
           data by HPE for purposes of conducting this Program in accordance with
           these Terms and Conditions and subject to HPE’s Privacy Statement,
@@ -194,7 +200,7 @@ const TreasureHuntTC = () => {
         </Text>
         <br />
         <Text size="xlarge">
-          10. <strong>ENGLISH LANGUAGE:</strong> HPE and the Program
+          11. <strong>ENGLISH LANGUAGE:</strong> HPE and the Program
           participants confirm that it is their wish that the Terms and
           Conditions, as well as any other documents relating to the Terms and
           Conditions or the Program, including notices, schedules, exhibits and
@@ -207,15 +213,15 @@ const TreasureHuntTC = () => {
         </Text>
         <br />
         <Text size="xlarge">
-          11. <strong>GOVERNING LAW:</strong> The Terms and Conditions shall be
-          governed by and construed under the laws of the State of California
+          12. <strong>GOVERNING LAW:</strong> The Terms and Conditions shall be
+          governed by and construed under the laws of the State of New York
           without regard to conflict of laws principles. Any dispute under the
           Terms and Conditions shall be subject to the non-exclusive
-          jurisdiction of the courts of the State of California. You irrevocably
+          jurisdiction of the courts of the State of New York. You irrevocably
           waive any objection on the grounds of venue, forum non-conveniens or
           any similar grounds and irrevocably consent to service of process by
           mail or in any other manner permitted by applicable law and consent to
-          the jurisdiction of the courts of the State of California. You further
+          the jurisdiction of the courts of the State of New York. You further
           hereby waive any right to a trial by jury with respect to any lawsuit
           or judicial proceeding arising or relating to the Terms and
           Conditions.
