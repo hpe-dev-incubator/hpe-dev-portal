@@ -77,6 +77,8 @@ const ReplayTemplate = (props) => {
   const [current, setCurrent] = useState(workshopIndex);
   const [autoplay, setAutoPlay] = useState(false);
   const sortedReplays = sortReplays(replays, current);
+  const selectedReplay = replays.find(({ id }) => id === current);
+
   return (
     <Layout background="/img/BackgroundImages/generic-background.jpg">
       <PageHeader title={workshopTitle}>
@@ -85,36 +87,35 @@ const ReplayTemplate = (props) => {
           description={workshopDesc}
           image={workshopImg}
         />
-        {replays.length > 0 ? (
+        {selectedReplay ? (
           <>
             <Video
-              videolink={replays[current].videoLink}
-              id={replays[current].id}
-              avatar={replays[current].avatar}
-              desc={replays[current].desc}
-              key={replays[current].title}
-              presenter={replays[current].presenter}
-              role={replays[current].role}
-              title={replays[current].title}
+              videolink={selectedReplay.videoLink}
+              id={selectedReplay.id}
+              avatar={selectedReplay.avatar}
+              desc={selectedReplay.desc}
+              key={selectedReplay.title}
+              presenter={selectedReplay.presenter}
+              role={selectedReplay.role}
+              title={selectedReplay.title}
               setCurrent={setCurrent}
               current={current}
               replaysLength={replays.length}
               autoplay={autoplay}
               notebook={
-                replays[current].workshop && replays[current].workshop.notebook
+                selectedReplay.workshop && selectedReplay.workshop.notebook
               }
               sessionType={
-                replays[current].workshop &&
-                replays[current].workshop.sessionType
+                selectedReplay.workshop && selectedReplay.workshop.sessionType
               }
               location={
-                replays[current].workshop && replays[current].workshop.location
+                selectedReplay.workshop && selectedReplay.workshop.location
               }
               capacity={
-                replays[current].workshop && replays[current].workshop.capacity
+                selectedReplay.workshop && selectedReplay.workshop.capacity
               }
               workshopTitle={
-                replays[current].workshop && replays[current].workshop.name
+                selectedReplay.workshop && selectedReplay.workshop.name
               }
               workshopId={workshopId}
             />
