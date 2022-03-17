@@ -96,7 +96,7 @@ You can find your location and your space name from the HPE GreenLake user inter
 
 ![GreenLake for private cloud](/img/greenlakeforprivatecloud.png "GreenLake for private cloud")
 
-And in the capture below, **Terraform Space** is the space we have created for our work with Terraform. You can check your available Spaces from the HPE GreenLake console under your profile icon, Change space.
+And in the capture below, **Terraform Space** is the space we have created for our work with Terraform. You can check your available Spaces from the HPE GreenLake console under your profile icon, **Change space**.
 
 ![GreenLake select new space](/img/greenlakeselectingspace.png "GreenLake select new space")
 
