@@ -15,7 +15,24 @@ Data Services Cloud Console public REST API provides the interface for customers
 
 ![DSCC API download](/img/dscc-api-spec.png "DSCC API specification download")
 
+The definition file contains information about the following:
+
+* All the endpoints of DSCC resources along with their HTTP headers, parameters, and the responses for each endpoint.
+* Syntax of the HTTP methods (GET, POST, UPDATE, DELETE) and path (relative path)
+* Description of each endpoint
+
+  With this definition file (YAML or JSON), users can generate client libraries and use them to consume the capabilities of the DSCC programmatically. Currently, there are many tools in the market which does this job, some of the well-known tools are:
+
+  * [OpenAPI generator](https://openapi-generator.tech/)
+  * [Swagger Codegen](https://swagger.io/tools/swagger-codegen/)
+  * [Azure AutoRest](https://github.com/Azure/autorest)
+  * REST API Client Code generator (Found within [Visual Studio MarketPlace](https://marketplace.visualstudio.com/items?itemName=ChristianResmaHelle.ApiClientCodeGenerator))
+
+
+
 ![]()
+
+
 
 ```javascript
 java -jar openapi-generator-cli.jar generate -i storage-api.yaml -g python -o sdks/dscc-python-sdk
