@@ -72,7 +72,7 @@ You can find out more about the HPE GreenLake Terraform provider from its [Terra
 
 ![Terraform HPE GreenLake Provider](/img/terraformprovider.png "Terraform HPE GreenLake Provider")
 
-This page also provides a link to the GitHub repository corresponding to this provider. The [doc](https://github.com/HewlettPackard/terraform-provider-hpegl/tree/main/docs) folder is your best source of information for using the different data sources and resources provided by the provider. If you navigate to the resources section, you will see that one resource you can manipulate with this provider is a [VM instance](https://github.com/HewlettPackard/terraform-provider-hpegl/blob/main/docs/resources/vmaas_instance.md). Let’s focus on this resource in this article.
+This page also provides a link to the GitHub repository corresponding to this provider. The [docs](https://github.com/HewlettPackard/terraform-provider-hpegl/tree/main/docs) folder is your best source of information for using the different data sources and resources provided by the provider. If you navigate to the resources section, you will see that one resource you can manipulate with this provider is a [VM instance](https://github.com/HewlettPackard/terraform-provider-hpegl/blob/main/docs/resources/vmaas_instance.md). Let’s focus on this resource in this article.
 
 > Note: Because this is open source, don’t hesitate to open issues, or even a pull request, if you identify an issue.
 
@@ -96,13 +96,13 @@ You can find your location and your space name from the HPE GreenLake user inter
 
 ![GreenLake for private cloud](/img/greenlakeforprivatecloud.png "GreenLake for private cloud")
 
-And in the capture below, **Terraform Space** is the space we have created for our work with Terraform. You can check your available Spaces from the GreenLake console under your profile icon, Change space.
+And in the capture below, **Terraform Space** is the space we have created for our work with Terraform. You can check your available Spaces from the HPE GreenLake console under your profile icon, Change space.
 
 ![GreenLake select new space](/img/greenlakeselectingspace.png "GreenLake select new space")
 
 #### Setting up a API Client access
 
-Next, you need to create a new API Client access dedicated to Terraform. You can do this from the HPE GreenLake console under your settings icon, identity & Access and then the API Clients tab.
+Next, you need to create a new API Client access dedicated to Terraform. You can do this from the HPE GreenLake console under your settings icon, **Identity & Access** and then the **API Clients** tab.
 
 ![GreenLake API Clients](/img/greenlakeapiclients.png "GreenLake API Clients")
 
@@ -114,7 +114,7 @@ Create a new API Client (hpedev-hackshack-terraform in the screen capture above)
 
 > Note: You need to remember the API Client secret key, as it’s not displayed anymore after creation.
 
-Finally, you’ll need your Tenant ID as shown from the HPE GreenLake console under your profile icon, API Access
+Finally, you’ll need your Tenant ID as shown from the HPE GreenLake console under your profile icon, **API Access**.
 
 ![GreenLake Tenant ID](/img/greenlaketenantid.png "GreenLake Tenant ID")
 
@@ -143,7 +143,7 @@ Your next step with the TF file is to query the HPE GreenLake provider to collec
 * Template ID
 * Folder Code
 
-For this, you will use the **Terraform data** statements. For example, the following statement retrieves the Cloud ID and stores it (in variable called **cloud**), which we can later use with: **data.hpegl_vmaas_cloud.cloud.id**
+For this, you will use the Terraform **data** statements. For example, the following statement retrieves the Cloud ID and stores it (in variable called **cloud**), which we can later retrieve using: **data.hpegl_vmaas_cloud.cloud.id**
 
 ```json
 # Retrieve cloud id
@@ -200,7 +200,7 @@ data "hpegl_vmaas_template" "vanilla" {
 
 #### Creating a VM resource
 
-The last step is to use a Terraform resource statement to request the creation of a new VM instance:
+The last step is to use a Terraform **resource** statement to request the creation of a new VM instance:
 
 ```json
 resource "hpegl_vmaas_instance" "DidierTest1" {
@@ -357,13 +357,13 @@ hpegl_vmaas_instance.DidierTest1: Creation complete after 2m9s [id=145]
 Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
 ```
 
-If you open your HPE GreenLake console to monitor the VM resources, you will see the effect of the terraform apply command:
+If you open your HPE GreenLake console to monitor the VM resources, you will see the effect of the **terraform apply** command:
 
 ![GreenLake instance created](/img/greenlakeinstancecomplete.png "GreenLake instance created")
 
 #### Cleaning it all up
 
-In Terraform, clean-up can be done using the destroy command. This will automatically use the HPE GreenLake provider to clean the infrastructure in HPE GreenLake.
+In Terraform, clean-up can be done using the **destroy** command. This will automatically use the HPE GreenLake provider to clean the infrastructure in HPE GreenLake.
 
 ```markdown
 $ terraform destroy
@@ -519,7 +519,7 @@ Destroy complete! Resources: 1 destroyed.
 
 ### What’s next?
 
-In this blog post, I covered how to get started with the Terraform provider for HPE GreenLake, explained how to collect data from the platform, and showed how to request the creation of a VM instance. In my next article, I will apply changes to the configuration of the infrastructure configuration file and demonstrate how the desired state is automatically tracked by Terraform and applied to HPE GreenLake.
+In this blog post, I covered how to get started with the Terraform provider for HPE GreenLake, explained how to collect data from the platform, and showed how to request the creation of a VM instance. In my next article, I will apply changes to infrastructure configuration file and demonstrate how the desired state is automatically tracked by Terraform and applied to HPE GreenLake.
 
 * [Learn more about Terraform](https://www.terraform.io/)
 * [Learn more about HPE GreenLake](https://www.hpe.com/us/en/greenlake.html)
