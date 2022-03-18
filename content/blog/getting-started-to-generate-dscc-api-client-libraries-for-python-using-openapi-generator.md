@@ -32,7 +32,7 @@ The definition file contains information about the following:
 
 ### Generating Client Libraries using OpenAPI Generator:
 
-OpenAPI generator allows generation of API client libraries (SDK Generation), server stubs, documentation, and configuration automatically given an [OpenAPI spec](https://github.com/OAI/OpenAPI-Specification) (both 2.0 and 3.0 are supported). This tool supports more than 50 programming languages and Devops tools.
+OpenAPI generator allows generation of API client libraries (SDK Generation), server stubs, documentation, and configuration automatically given an [OpenAPI spec](https://github.com/OAI/OpenAPI-Specification) (both 2.0 and 3.0 are supported). This tool supports more than 50 programming languages and Dev ops tools.
 
 This tool is available in various forms for usage:
 
@@ -86,11 +86,11 @@ A client library can be generated in a few minutes. Here is a snippet of generat
 
 ![](/img/client-generation.jpg "Generating Python SDK using OpenAPI generator")
 
-The generated client library can be used in the local system or else it can be uploaded to a Github library and can be made available for others to use. The Github repository of a sample Python client library looks like this: 
+The generated client library can be used in the local system or else it can be uploaded to a GitHub library and can be made available for others to use. The GitHub repository of a sample Python client library looks like this: 
 
 ![](/img/repo.jpg "GitHub repository of Python Client library generated using OpenAPI generator")
 
-The client library comes with teh following:
+The client library comes with the following:
 
 * Source code making API calls
 * Documentation
