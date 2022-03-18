@@ -1,10 +1,9 @@
 ---
 title: Open Source Enthusiast
-description: Learn how HPE uses, contributes to, and promotes the use of open
-  source projects. Join in the fun and find where you can contribute!
+description: Evangelists encouraging freedom and collaboration
 image: /img/role/open-source.png
 width: large
-priority: 7
+priority: 5
 frontpage: true
 tags:
   - open-source
