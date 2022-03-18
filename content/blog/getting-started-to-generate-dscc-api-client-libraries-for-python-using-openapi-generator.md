@@ -31,12 +31,14 @@ The definition file contains the following information:
 
 ![](/img/examples-of-the-api-definition-end-points.png "Detail of a resource - host-initiator group")
 
-With this definition file (YAML or JSON), users can generate client libraries and use them to programmatically consume the capabilities of DSCC. Currently, there are many tools in the market which are capable to perform the conversion. The list of some of the well-known open-API convertor tools are:
+With this definition file (YAML or JSON), any one can generate client libraries into a selected programming language or scripts.  With the client libraries, a user can use them to programmatically consume the capabilities of DSCC. Currently, there are many tools in the market which are capable to perform the conversion. The list of some of the well-known open-API convertor tools are:
 
 * [OpenAPI generator](https://openapi-generator.tech/)
 * [Swagger Codegen](https://swagger.io/tools/swagger-codegen/)
 * [Azure AutoRest](https://github.com/Azure/autorest)
 * REST API Client Code generator (Found within [Visual Studio MarketPlace](https://marketplace.visualstudio.com/items?itemName=ChristianResmaHelle.ApiClientCodeGenerator))
+
+In this blog, we are going to cover the popular and simple OpenAPI generator from this website: [OpenAPI generator](https://openapi-generator.tech/)
 
 ### Generating Client Libraries using OpenAPI Generator:
 
