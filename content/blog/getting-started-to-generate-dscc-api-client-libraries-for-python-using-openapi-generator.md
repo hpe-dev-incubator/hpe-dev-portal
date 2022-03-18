@@ -38,7 +38,7 @@ With this definition file (YAML or JSON), any one can generate client libraries 
 * [Azure AutoRest](https://github.com/Azure/autorest)
 * REST API Client Code generator (Found within [Visual Studio MarketPlace](https://marketplace.visualstudio.com/items?itemName=ChristianResmaHelle.ApiClientCodeGenerator))
 
-In this blog, we are going to cover the popular and simple OpenAPI generator from [OpenAPI generator](https://openapi-generator.tech/) from soup to nuts.
+In this blog, we are going to cover the popular and simple OpenAPI generator from [OpenAPI generator](https://openapi-generator.tech/) from soup to nuts. Let's get on with it!
 
 ### Generating Client Libraries using OpenAPI Generator:
 
