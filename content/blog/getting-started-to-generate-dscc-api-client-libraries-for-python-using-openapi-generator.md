@@ -9,15 +9,17 @@ thumbnailimage: /img/dscc-icon-transparent.png
 tags:
   - data-services-cloud-console
 ---
-# Getting started to generate DSCC API Client Libraries for Python using OpenAPI-Generator (painlessly!)
+# Getting Started to Generate DSCC API Client Libraries for Python using OpenAPI-Generator(painlessly!)
 
-Data Services Cloud Console public REST API provides the interface for customers who are looking to enhance their data-ops using the programmatic extensions from Data Services Cloud Console (DSCC). The [Data Services Cloud Console Platform page](https://developer.hpe.com/platform/data-services-cloud-console/home/) details information about the DSCC benefits to customer.  Please see [Getting Started with DSCC API](https://developer.hpe.com/blog/getting-started-with-the-hpe-data-services-cloud-console-public-rest-api/) blog for the detail information to access the [DSCC API specification](https://console-us1.data.cloud.hpe.com/doc/api/v1/) that is created using [OpenAPI 3.X specification](https://swagger.io/docs/specification/about/). The API definition is available for download in either YAML or JSON format.
+HPE Data Services Cloud Console (DSCC) public REST API provides the interface for customers who are looking to enhance their data-ops using the programmatic extensions from Data Services Cloud Console (DSCC). The [Data Services Cloud Console Platform page](https://developer.hpe.com/platform/data-services-cloud-console/home/) details information about the DSCC benefits to customer.  Please see [Getting Started with DSCC API](https://developer.hpe.com/blog/getting-started-with-the-hpe-data-services-cloud-console-public-rest-api/) blog for the detail information to access the [DSCC API specification](https://console-us1.data.cloud.hpe.com/doc/api/v1/) that is created using [OpenAPI 3.X specification](https://swagger.io/docs/specification/about/). 
+
+This DSCC API definition is available for download in either YAML or JSON format from the DSCC API website (US region:  <https://console-us1.data.cloud.hpe.com/doc/api/v1/>) as shown below:
 
 ![DSCC API download](/img/dscc-api-spec.png "DSCC API specification download")
 
-The definition file contains information about the following:
+The definition file contains the following information:
 
-* All the endpoints of DSCC resources along with their HTTP headers, parameters, and the responses for each endpoint.
+* All endpoints of DSCC resources along with their HTTP headers, parameters, and the responses for each endpoint.
 * Syntax of the HTTP methods (GET, POST, UPDATE, DELETE) and path (relative path)
 * Description of each endpoint
 
@@ -117,9 +119,9 @@ Lets run a sample code which displays the access types in DSCC. The usage of eac
 1. Provide an authorized token which is generated from the HPE GreenLake as mentioned in the [blog](https://developer.hpe.com/blog/oauth2-for-hpe-greenlake-data-services-cloud-console/)
 2. Install the Python dependencies using the following command.
 
-~~~bash
+```bash
 pip install requirements.txt 
-~~~
+```
 
 Below is the sample of the code to get the information about the associated user's RBAC association. This code will provide list of the capabilities (port.read, volume.create) of that related user who provided the authorization can exercise. To execute this code, please substitute the YOUR_BEARER_TOKEN with the access token generated in your example.
 
