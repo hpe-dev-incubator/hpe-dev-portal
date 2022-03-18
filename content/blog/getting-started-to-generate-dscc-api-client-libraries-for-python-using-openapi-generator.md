@@ -18,12 +18,12 @@ This DSCC API definition is available for download in either YAML or JSON format
 ![DSCC API download](/img/dscc-api-spec.png "DSCC API specification download")
 
 The definition file contains the following information:
+* Brief description of the API definition along with the version of the definitions in this file.
+* All available endpoints of the DSCC resources, along with their HTTP headers, parameters, and the responses for each endpoint.
+* The Syntax of the HTTP methods (GET, POST, UPDATE, DELETE) and path (relative path)
+* A brief description of each endpoint
 
-* All endpoints of DSCC resources along with their HTTP headers, parameters, and the responses for each endpoint.
-* Syntax of the HTTP methods (GET, POST, UPDATE, DELETE) and path (relative path)
-* Description of each endpoint
-
-  ![](/img/yamlfile.png "DSCC Open API specification (YAML)")
+![](/img/yamlfile.png "DSCC Open API specification (YAML)")
 
   With this definition file (YAML or JSON), users can generate client libraries and use them to consume the capabilities of the DSCC programmatically. Currently, there are many tools in the market which does this job, some of the well-known tools are:
 
