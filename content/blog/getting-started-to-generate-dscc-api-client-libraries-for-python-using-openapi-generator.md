@@ -30,6 +30,37 @@ The definition file contains information about the following:
   * [Azure AutoRest](https://github.com/Azure/autorest)
   * REST API Client Code generator (Found within [Visual Studio MarketPlace](https://marketplace.visualstudio.com/items?itemName=ChristianResmaHelle.ApiClientCodeGenerator))
 
+### Generating Client Libraries using OpenAPI Generator:
+
+OpenAPI generator allows generation of API client libraries (SDK Generation), server stubs, documentation, and configuration automatically given an OpenAPI spec (both 2.0 and 3.0 are supported). This tool supports more than 50 programming languages and Devops tools.
+
+This tool is available in various forms for usage:
+
+* A downloadable and executable JAR file
+* Docker image
+* Dependencies in Maven and  Gradle projects
+* Node package manager (npm) package wrapper
+
+![](/img/openapi-generator.png "OpenAPI Generator GitHub Page")
+
+
+
+Lets look at the simple installation of openAPI generator, that is a JAR file. Actually using JAR file doesn't need installation at all, just download the JAR file and use it directly. The prerequisite to use the JAR file is to have Java runtime 8 (JRE) at a minimum.
+
+The JAR file is available at Maven.org and its location is <https://repo1.maven.org/maven2/org/openapitools/openapi-generator-cli/5.4.0/openapi-generator-cli-5.4.0.jar>
+
+For Mac/Linux users:
+
+```
+wget https://repo1.maven.org/maven2/org/openapitools/openapi-generator-cli/5.4.0/openapi-generator-cli-5.4.0.jar -O openapi-generator-cli.jar
+```
+
+For Windows users:
+
+```
+Invoke-WebRequest -OutFile openapi-generator-cli.jar https://repo1.maven.org/maven2/org/openapitools/openapi-generator-cli/5.4.0/openapi-generator-cli-5.4.0.jar
+```
+
 ![]()
 
 ```javascript
