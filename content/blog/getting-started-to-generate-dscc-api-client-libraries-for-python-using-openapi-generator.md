@@ -117,9 +117,9 @@ Lets run a sample code which displays the access types in DSCC. The usage of eac
 1. Provide an authorized token which is generated from the HPE GreenLake as mentioned in the [blog](https://developer.hpe.com/blog/oauth2-for-hpe-greenlake-data-services-cloud-console/)
 2. Install the Python dependencies using the following command.
 
-```bash
+~~~bash
 pip install requirements.txt 
-```
+~~~
 
 Below is the sample of the code to get the information about the associated user's RBAC association. This code will provide list of the capabilities (port.read, volume.create) of that related user who provided the authorization can exercise. To execute this code, please substitute the YOUR_BEARER_TOKEN with the access token generated in your example.
 
