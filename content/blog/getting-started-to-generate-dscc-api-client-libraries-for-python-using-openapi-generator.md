@@ -38,18 +38,20 @@ With this definition file (YAML or JSON), any one can generate client libraries 
 * [Azure AutoRest](https://github.com/Azure/autorest)
 * REST API Client Code generator (Found within [Visual Studio MarketPlace](https://marketplace.visualstudio.com/items?itemName=ChristianResmaHelle.ApiClientCodeGenerator))
 
-In this blog, we are going to cover the popular and simple OpenAPI generator from [OpenAPI generator](https://openapi-generator.tech/) from soup to nuts. Let's get on with it!
+In this blog, we are going to cover the popular and simple OpenAPI generator from [OpenAPI generator](https://openapi-generator.tech/) from soup to nuts. 
+
+Let's get on with it!
 
 ### Generating Client Libraries using OpenAPI Generator:
 
-OpenAPI generator allows generation of API client libraries (SDK Generation), server stubs, documentation, and configuration automatically given an [OpenAPI spec](https://github.com/OAI/OpenAPI-Specification) (both 2.0 and 3.0 are supported). This tool supports more than 50 programming languages and Dev ops tools.
+OpenAPI Generator tools allow generation of API client libraries (SDK Generation), server stubs, documentation, and configuration automatically, given an input of [OpenAPI spec](https://github.com/OAI/OpenAPI-Specification) (support both 2.0 and 3.0 OpenAPI formats). This tool can generate more than 50 programming languages which can be consumed by various DevOps tools.
 
-This tool is available in various forms for usage:
+This tool is available in various forms based on the user's familiarity:
 
-* A downloadable and executable JAR file
-* Docker image
-* Dependencies in Maven and  Gradle projects
-* Node package manager (npm) package wrapper
+* A downloadable and executable JAR file that can be executed using Java Run Time tool.
+* Docker image that can be executed inside a docker container.
+* Dependencies in Maven and  Gradle projects.
+* Node package manager (npm) package wrapper.
 
 ![](/img/openapi-generator.png "OpenAPI Generator GitHub Page")
 
