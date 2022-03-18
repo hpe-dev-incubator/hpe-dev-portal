@@ -31,9 +31,7 @@ The definition file contains the following information:
 
 ![](/img/examples-of-the-api-definition-end-points.png "Detail of a resource - host-initiator group")
 
-
-
-With this definition file (YAML or JSON), users can generate client libraries and use them to consume the capabilities of the DSCC programmatically. Currently, there are many tools in the market which does this job, some of the well-known tools are:
+With this definition file (YAML or JSON), users can generate client libraries and use them to programmatically consume the capabilities of DSCC. Currently, there are many tools in the market which are capable to perform the conversion. The list of some of the well-known open-API convertor tools are:
 
 * [OpenAPI generator](https://openapi-generator.tech/)
 * [Swagger Codegen](https://swagger.io/tools/swagger-codegen/)
