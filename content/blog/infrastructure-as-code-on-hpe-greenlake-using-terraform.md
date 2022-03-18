@@ -43,7 +43,6 @@ Your first step is to get your system ready to run Terraform. In case this has n
 
 1. Installing Terraform: follow [these steps](https://learn.hashicorp.com/tutorials/terraform/install-cli)
 2. Verifying installation: **terraform --help**
-3. Initializing Terraform in a new empty folder: **terraform init**
 
 At this point, you are ready to start building your infrastructure description file.  
 
@@ -73,7 +72,7 @@ You can find out more about the HPE GreenLake Terraform provider from its [Terra
 
 ![Terraform HPE GreenLake Provider](/img/terraformprovider.png "Terraform HPE GreenLake Provider")
 
-This page also provides a link to the GitHub repository corresponding to this provider. The [doc](https://github.com/HewlettPackard/terraform-provider-hpegl/tree/main/docs) folder is your best source of information for using the different data sources and resources provided by the provider. If you navigate to the resources section, you will see that one resource you can manipulate with this provider is a [VM instance](https://github.com/HewlettPackard/terraform-provider-hpegl/blob/main/docs/resources/vmaas_instance.md). Let’s focus on this resource in this article.
+This page also provides a link to the GitHub repository corresponding to this provider. The [docs](https://github.com/HewlettPackard/terraform-provider-hpegl/tree/main/docs) folder is your best source of information for using the different data sources and resources provided by the provider. If you navigate to the resources section, you will see that one resource you can manipulate with this provider is a [VM instance](https://github.com/HewlettPackard/terraform-provider-hpegl/blob/main/docs/resources/vmaas_instance.md). Let’s focus on this resource in this article.
 
 > Note: Because this is open source, don’t hesitate to open issues, or even a pull request, if you identify an issue.
 
@@ -97,23 +96,25 @@ You can find your location and your space name from the HPE GreenLake user inter
 
 ![GreenLake for private cloud](/img/greenlakeforprivatecloud.png "GreenLake for private cloud")
 
-And in the capture below, **Terraform Space** is the space we have created for our work with Terraform. You can check your available Spaces from the GreenLake console under your profile icon, Change space.
+And in the capture below, **Terraform Space** is the space we have created for our work with Terraform. You can check your available Spaces from the HPE GreenLake console under your profile icon, **Change space**.
 
 ![GreenLake select new space](/img/greenlakeselectingspace.png "GreenLake select new space")
 
 #### Setting up a API Client access
 
-Next, you need to create a new API Client access dedicated to Terraform. You can do this from the HPE GreenLake console under your settings icon, identity & Access and then the API Clients tab.
+Next, you need to create a new API Client access dedicated to Terraform. You can do this from the HPE GreenLake console under your settings icon, **Identity & Access** and then the **API Clients** tab.
 
 ![GreenLake API Clients](/img/greenlakeapiclients.png "GreenLake API Clients")
 
-Create a new API Client (hpedev-hackshack-terraform in the screen capture above), and make sure the Tenant Contributor and Tenant Owner roles are assigned on your space. Make note of the client id and the Issuer URL as shown in capture below.
+Create a new API Client (hpedev-hackshack-terraform in the screen capture above), and make sure the Tenant Contributor role is assigned on your space, better yet, create a new role from the default Tenant Contributor role for this API client access. Also take note of the client id and the Issuer URL as shown in capture below. 
+
+> Notes: More details on GreenLake user roles can be found in the [GreenLake documentation](https://support.hpe.com/hpesc/public/docDisplay?docId=a00092451en_us&page=GUID-328019F3-4305-4153-BD1A-B5E43D66FB1B.html).
 
 ![GreenLake Terraform API Client](/img/greenlaketerraformapiclient.png "GreenLake Terraform API Client")
 
 > Note: You need to remember the API Client secret key, as it’s not displayed anymore after creation.
 
-Finally, you’ll need your Tenant ID as shown from the HPE GreenLake console under your profile icon, API Access
+Finally, you’ll need your Tenant ID as shown from the HPE GreenLake console under your profile icon, **API Access**.
 
 ![GreenLake Tenant ID](/img/greenlaketenantid.png "GreenLake Tenant ID")
 
@@ -142,7 +143,7 @@ Your next step with the TF file is to query the HPE GreenLake provider to collec
 * Template ID
 * Folder Code
 
-For this, you will use the **Terraform data** statements. For example, the following statement retrieves the Cloud ID and stores it (in variable called **cloud**), which we can later use with: **data.hpegl\_vmaas\_cloud.cloud.id**
+For this, you will use the Terraform **data** statements. For example, the following statement retrieves the Cloud ID and stores it (in variable called **cloud**), which we can later retrieve using: **data.hpegl_vmaas_cloud.cloud.id**
 
 ```json
 # Retrieve cloud id
@@ -199,7 +200,7 @@ data "hpegl_vmaas_template" "vanilla" {
 
 #### Creating a VM resource
 
-The last step is to use a Terraform resource statement to request the creation of a new VM instance:
+The last step is to use a Terraform **resource** statement to request the creation of a new VM instance:
 
 ```json
 resource "hpegl_vmaas_instance" "DidierTest1" {
@@ -235,12 +236,46 @@ resource "hpegl_vmaas_instance" "DidierTest1" {
 
 > Note: You can get information about each of the resource statements supported by the hpegl provider from [GitHub](https://github.com/HewlettPackard/terraform-provider-hpegl/tree/main/docs/resources).
 
+#### Terraform init
+
+Before you can use Terraform, you will have to initialize it from the configuration file we have created. This is done with the following step: **terraform init**
+
+```
+$ terraform init
+
+Initializing the backend...
+
+Initializing provider plugins...
+- Finding hewlettpackard/hpegl versions matching "0.1.0-beta7"...
+- Installing hewlettpackard/hpegl v0.1.0-beta7...
+- Installed hewlettpackard/hpegl v0.1.0-beta7 (signed by a HashiCorp partner, key ID D1F277A1AC66CE3D)
+
+Partner and community providers are signed by their developers.
+If you'd like to know more about provider signing, you can read about it here:
+https://www.terraform.io/docs/cli/plugins/signing.html
+
+Terraform has created a lock file .terraform.lock.hcl to record the provider
+selections it made above. Include this file in your version control repository
+so that Terraform can guarantee to make the same selections by default when
+you run "terraform init" in the future.
+
+Terraform has been successfully initialized!
+
+You may now begin working with Terraform. Try running "terraform plan" to see
+any changes that are required for your infrastructure. All Terraform commands
+should now work.
+
+If you ever set or change modules or backend configuration for Terraform,
+rerun this command to reinitialize your working directory. If you forget, other
+commands will detect it and remind you to do so if necessary.
+```
+
 #### Terraform ready to plan
 
 To validate your configuration file, I recommend running the plan command as you add sections to your file. The **terraform plan** command will check for syntax errors and provide information about what will be created when the **terraform apply** method is used.
 
 ```markdown
-Didiers-MacBook-Pro:Terraform lalli$ terraform plan
+$ terraform plan
  
 Terraform used the selected providers to generate the following execution plan. Resource actions are
 indicated with the following symbols:
@@ -322,16 +357,16 @@ hpegl_vmaas_instance.DidierTest1: Creation complete after 2m9s [id=145]
 Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
 ```
 
-If you open your HPE GreenLake console to monitor the VM resources, you will see the effect of the terraform apply command:
+If you open your HPE GreenLake console to monitor the VM resources, you will see the effect of the **terraform apply** command:
 
 ![GreenLake instance created](/img/greenlakeinstancecomplete.png "GreenLake instance created")
 
 #### Cleaning it all up
 
-In Terraform, clean-up can be done using the destroy command. This will automatically use the HPE GreenLake provider to clean the infrastructure in HPE GreenLake.
+In Terraform, clean-up can be done using the **destroy** command. This will automatically use the HPE GreenLake provider to clean the infrastructure in HPE GreenLake.
 
 ```markdown
-Didiers-MacBook-Pro:Terraform lalli$ terraform destroy
+$ terraform destroy
 hpegl_vmaas_instance.DidierTest1: Refreshing state... [id=145]
  
 Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
@@ -484,7 +519,7 @@ Destroy complete! Resources: 1 destroyed.
 
 ### What’s next?
 
-In this blog post, I covered how to get started with the Terraform provider for HPE GreenLake, explained how to collect data from the platform, and showed how to request the creation of a VM instance. In my next article, I will apply changes to the configuration of the infrastructure configuration file and demonstrate how the desired state is automatically tracked by Terraform and applied to HPE GreenLake.
+In this blog post, I covered how to get started with the Terraform provider for HPE GreenLake, explained how to collect data from the platform, and showed how to request the creation of a VM instance. In my next article, I will apply changes to infrastructure configuration file and demonstrate how the desired state is automatically tracked by Terraform and applied to HPE GreenLake.
 
 * [Learn more about Terraform](https://www.terraform.io/)
 * [Learn more about HPE GreenLake](https://www.hpe.com/us/en/greenlake.html)
