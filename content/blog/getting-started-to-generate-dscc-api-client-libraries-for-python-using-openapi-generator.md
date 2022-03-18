@@ -43,8 +43,6 @@ This tool is available in various forms for usage:
 
 ![](/img/openapi-generator.png "OpenAPI Generator GitHub Page")
 
-
-
 Lets look at the simple installation of openAPI generator, that is a JAR file. Actually using JAR file doesn't need installation at all, just download the JAR file and use it directly. The prerequisite to use the JAR file is to have Java runtime 8 (JRE) at a minimum.
 
 The JAR file is available at Maven.org and its location is <https://repo1.maven.org/maven2/org/openapitools/openapi-generator-cli/5.4.0/openapi-generator-cli-5.4.0.jar>
@@ -60,8 +58,6 @@ wget https://repo1.maven.org/maven2/org/openapitools/openapi-generator-cli/5.4.0
 ```
 Invoke-WebRequest -OutFile openapi-generator-cli.jar https://repo1.maven.org/maven2/org/openapitools/openapi-generator-cli/5.4.0/openapi-generator-cli-5.4.0.jar
 ```
-
-
 
 Note: Current version of OpenAPI generator is 5.4.0, and in future the location of the jar file may change as per its new version number, so please visit this page and confirm the version number.
 
@@ -114,8 +110,6 @@ For instance, take a look at the README file of this repository which has the fo
    ![](/img/models.png "List of models")
 5. Documentation about authorization
 
-    
-
    ![](/img/auth.png "Authorization of API calls")
 
 Lets run a sample code which displays the access types in DSCC. The usage of each endpoint is given under documentation of each endpoint in the form of a sample code. To execute the operations on the DSCC, all that is needed for a user to do is:
@@ -127,7 +121,7 @@ Lets run a sample code which displays the access types in DSCC. The usage of eac
    pip install requirements.txt 
    ```
 
-Below is the sampel code given to get access controls, substitute the YOUR_BEARER_TOKEN with the access token generated.
+Below is the sample of the code to get the information about the associated user's RBAC association. This code will provide list of the capabilities (port.read, volume.create) of that related user who provided the authorization can exercise. To execute this code, please substitute the YOUR_BEARER_TOKEN with the access token generated in your example.
 
 ```python
 import time
@@ -165,7 +159,6 @@ with openapi_client.ApiClient(configuration) as api_client:
         pprint(api_response)
     except openapi_client.ApiException as e:
         print("Exception when calling AuthzApi->get_access_controls: %s\n" % e)
-
 ```
 
 The output looks like:
@@ -173,11 +166,8 @@ The output looks like:
 ```
 $ python .\GetAudits.py
 {'items': ['port.read', 'volume.create']}
-
 ```
 
 Using these client generator tools, client libraries for DSCC can be generated faster and can be pushed to a GitHub repository and be made ready to use. One good advantage is that, automation of this process can be done by using CI/CD pipelines which require no manual intervention in updating any latest released APIs. 
-
-
 
 Hope this blog on generating Python client library of DSCC is hepful. More blog posts will be coming to help you take further advantage of its capabilities. Stay tuned to the [HPE DEV](https://developer.hpe.com/blog) blog for more blog posts about HPE DSCC REST API.
