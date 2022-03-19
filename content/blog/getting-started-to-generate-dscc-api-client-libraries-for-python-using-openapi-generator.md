@@ -76,7 +76,7 @@ The JAR file for this openAPI generator is available at Maven.org. You can downl
 **For Windows users:**
 
 ```PowerShell
-Invoke-WebRequest -OutFile openapi-generator-cli.jar https://repo1.maven.org/maven2/org/openapitools/openapi-generator-cli/5.4.0/openapi-generator-cli-5.4.0.jar
+> Invoke-WebRequest -OutFile openapi-generator-cli.jar https://repo1.maven.org/maven2/org/openapitools/openapi-generator-cli/5.4.0/openapi-generator-cli-5.4.0.jar
 ```
 
 **Note:** The version of OpenAPI generator which is shown above is 5.4.0 (current version as of March 2022). Please keep in mind that in future, the location of the JAR file will change based on a new code version.  Please take a look at the figure above to obtain the latest version number, and modify the path to download the latest open-api-generator-cli JAR file.
@@ -84,13 +84,13 @@ Invoke-WebRequest -OutFile openapi-generator-cli.jar https://repo1.maven.org/mav
 Once the JAR file is downloaded, you can execute the following CLI at the folder where the JAR file is downloaded to display the brief information on how to use this JAR file.
 
 ```Shell
-java -jar openapi-generator-cli.jar help  
+~$ java -jar openapi-generator-cli.jar help  
 ```
 
 Now that the JAR file is downloaded and ready to use, lets create a Python SDK using the openAPI generator JAR file. The following command line is used for generating a Python client library using the openapi-generator.jar file.
 
 ```Shell
-java -jar openapi-generator-cli.jar generate -i storage-api.yaml -g python -o sdks/dscc-python-sdk
+~$ java -jar openapi-generator-cli.jar generate -i storage-api.yaml -g python -o sdks/dscc-python-sdk
 ```
 
 * 'i' represents the input file, that is the OpenAPI spec which can be in the form of JSON or YAML.
