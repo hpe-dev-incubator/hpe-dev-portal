@@ -102,7 +102,7 @@ This Python DSCC client library can be generated in a few minutes. Below is a sn
 
 ![](/img/client-generation.jpg "Generating Python SDK using OpenAPI generator")
 
-The generated client library can be made available in your workstation, or it can also be uploaded to a GitHub library so that it can be made available for others to use. An example of the GitHub repository of a sample Python client library looks like this: 
+The generated client-library can be made available in your workstation, or it can also be uploaded to a GitHub library so that it can be made available for others to use. An example of the GitHub repository of a sample Python client library looks like this: 
 
 ![](/img/repo.jpg "GitHub repository of Python Client library generated using OpenAPI generator")
 
