@@ -53,11 +53,15 @@ OpenAPI Generator tool is available in various form of applications that meet th
 * Dependencies in Maven and **Gradle** projects that can be used for build automation.
 * Node package manager (**npm**) package wrapper.
 
+Those applications and the information about the OpenAPI generator is available at the github URL: <https://github.com/OpenAPITools/openapi-generator>
+
+
+
 ![](/img/openapi-generator.png "OpenAPI Generator GitHub Page")
 
 In this blog, let's look at the painless and simplest application of the openAPI generator, that is using the JAR file. Actually using JAR file doesn't need installation at all, just download the JAR file and execute it directly from the command lines. The requirement for using the JAR file is that your workstation must be deployed with JAVA runtime 8 (JRE) at a minimum. For more information about the deployment of JAVA runtime executables based on the operating system of your workstation, please take a look at the installation page from the JAVA website: <https://www.java.com/en/download/help/download_options.html>
 
-The JAR file is available at Maven.org and its location is <https://repo1.maven.org/maven2/org/openapitools/openapi-generator-cli/5.4.0/openapi-generator-cli-5.4.0.jar>
+The JAR file for this openAPI generator is available at Maven.org. You can download it from the following location: <https://repo1.maven.org/maven2/org/openapitools/openapi-generator-cli/5.4.0/openapi-generator-cli-5.4.0.jar>. Below , you will find the syntax required to download the openAPI generator JAR files from the corresponding workstation:
 
 **For Mac/Linux users:**
 
@@ -71,7 +75,7 @@ wget https://repo1.maven.org/maven2/org/openapitools/openapi-generator-cli/5.4.0
 Invoke-WebRequest -OutFile openapi-generator-cli.jar https://repo1.maven.org/maven2/org/openapitools/openapi-generator-cli/5.4.0/openapi-generator-cli-5.4.0.jar
 ```
 
-Note: Current version of OpenAPI generator is 5.4.0, and in future the location of the jar file may change as per its new version number, so please visit this page and confirm the version number.
+**Note:** The version of OpenAPI generator which is shown above is 5.4.0 (current version as of March 2022). Please keep in mind that in future, the location of the JAR file will change based on a new code version.  and confirm the version number.
 
 Once the JAR is downloaded, execute the following command from the directory, where the JAR file is downloaded, that shows the usage
 
