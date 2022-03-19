@@ -108,11 +108,11 @@ The generated client library can be made available in your workstation, or it ca
 
 The client library comes with the following:
 
-* Source code making API calls
-* Documentation
-* Tests
-* Examples of every endpoint
-* Required python dependencies (requirements.txt and test-requirements.txt) to be installed to make use of this SDK
+* The code for assisting the  DSCC API calls.
+* Documentation for this DSCC client library that derived from the API spec.
+* Tests codes that can be used to validate the operation of this client library.
+* Examples of every endpoint.
+* Required python dependencies (requirements.txt and test-requirements.txt) that are required for using this SDK
 
 For instance, take a look at the README file of this repository which has the following info.
 
