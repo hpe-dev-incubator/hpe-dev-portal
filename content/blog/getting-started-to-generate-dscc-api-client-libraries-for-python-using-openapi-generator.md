@@ -9,7 +9,7 @@ thumbnailimage: /img/dscc-icon-transparent.png
 tags:
   - data-services-cloud-console
 ---
-# Getting Started to Generate DSCC API Client Libraries for Python using OpenAPI-Generator(painlessly!)
+## Getting Started to Generate DSCC API Client Libraries for Python using OpenAPI-Generator painlessly!
 
 HPE Data Services Cloud Console (DSCC) public REST API provides the interface for customers who are looking to enhance their data-ops using the programmatic extensions from Data Services Cloud Console. The [Data Services Cloud Console Platform page](https://developer.hpe.com/platform/data-services-cloud-console/home/) details information about the DSCC benefits to customer.  Please see [Getting Started with DSCC API](https://developer.hpe.com/blog/getting-started-with-the-hpe-data-services-cloud-console-public-rest-api/) blog for the detail information about the [DSCC API specification](https://console-us1.data.cloud.hpe.com/doc/api/v1/) and the authentication mechanism to access the DSCC API. This DSCC API specification is created based on the [OpenAPI 3.X specification](https://swagger.io/docs/specification/about/). 
 
