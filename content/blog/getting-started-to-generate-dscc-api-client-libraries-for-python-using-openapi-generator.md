@@ -117,18 +117,23 @@ The client library comes with the following:
 For instance, take a look at the README file of this repository which has the following info.
 
 1. Installation instructions
+
 ![](/img/readme.png "Python SDK installation instructions")
 
 2. A sample code to get started with 
+
 ![](/img/sample.png "Sample code")
 
 3. Documentation list for all endpoints
+
 ![](/img/api-endpoints.png "List of endpoints")
 
 4. Documentation list for all models
+
 ![](/img/models.png "List of models")
 
 5. Documentation about authorization
+
 ![](/img/auth.png "Authorization of API calls")
 
 Lets run a sample code which displays the access types in DSCC. The usage of each endpoint is given under documentation of each endpoint in the form of a sample code. To execute the operations on the DSCC, all that is needed for a user to do is:
