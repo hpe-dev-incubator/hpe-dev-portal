@@ -61,13 +61,13 @@ The JAR file is available at Maven.org and its location is <https://repo1.maven.
 
 **For Mac/Linux users:**
 
-```
+```Shell
 wget https://repo1.maven.org/maven2/org/openapitools/openapi-generator-cli/5.4.0/openapi-generator-cli-5.4.0.jar -O openapi-generator-cli.jar
 ```
 
 **For Windows users:**
 
-```
+```PowerShell
 Invoke-WebRequest -OutFile openapi-generator-cli.jar https://repo1.maven.org/maven2/org/openapitools/openapi-generator-cli/5.4.0/openapi-generator-cli-5.4.0.jar
 ```
 
@@ -75,13 +75,13 @@ Note: Current version of OpenAPI generator is 5.4.0, and in future the location 
 
 Once the JAR is downloaded, execute the following command from the directory, where the JAR file is downloaded, that shows the usage
 
-```
+```Shell
 java -jar openapi-generator-cli.jar help  
 ```
 
 Now that the JAR file is downloaded and ready to use, lets create a Python SDK using the openAPI generator JAR file. The following command is used for generating a Python client library uisng openapi-generator.jar file.
 
-```
+```Shell
 java -jar openapi-generator-cli.jar generate -i storage-api.yaml -g python -o sdks/dscc-python-sdk
 ```
 
