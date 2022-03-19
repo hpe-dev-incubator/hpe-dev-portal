@@ -44,18 +44,18 @@ Let's get on with it!
 
 ### Generating Client Libraries using OpenAPI Generator:
 
-OpenAPI Generator tools allow generation of API client libraries (SDK Generation), server stubs, documentation, and configuration automatically, given an input of [OpenAPI spec](https://github.com/OAI/OpenAPI-Specification) (support both 2.0 and 3.0 OpenAPI formats). This tool can generate more than 50 programming languages which can be consumed by various DevOps tools.
+OpenAPI Generator tool allows the generation of API client libraries (SDK), server stubs, documentation, and configuration automatically with a given input of [OpenAPI spec](https://github.com/OAI/OpenAPI-Specification) (support both 2.0 and 3.0 OpenAPI formats). This tool can generate more than 50 programming languages which can be consumed by various DevOps tools.
 
-This tool is available in various forms based on the user's familiarity:
+OpenAPI Generator tool is available in various form of applications that meet the user's familiarity. The OpenAPI Generator website provides 4 different set of applications:
 
-* A downloadable and executable JAR file that can be executed using Java Run Time tool.
-* Docker image that can be executed inside a docker container.
-* Dependencies in Maven and  Gradle projects.
-* Node package manager (npm) package wrapper.
+* A downloadable and executable **JAR** file that can be executed using **Java Run Time tool**.
+* **Docker** image that can be executed using the docker engine.
+* Dependencies in Maven and **Gradle** projects that can be used for build automation.
+* Node package manager (**npm**) package wrapper.
 
 ![](/img/openapi-generator.png "OpenAPI Generator GitHub Page")
 
-Lets look at the simple installation of openAPI generator, that is a JAR file. Actually using JAR file doesn't need installation at all, just download the JAR file and use it directly. The prerequisite to use the JAR file is to have Java runtime 8 (JRE) at a minimum.
+In this blog, let's look at the painless and simplest application of the openAPI generator, that is using the JAR file. Actually using JAR file doesn't need installation at all, just download the JAR file and execute it directly from the command lines. The requirement for using the JAR file is that the workstation must be deployed with JaVA runtime 8 (JRE) at a minimum. For more information about the deployment of JAVA runtime executables, please take a look at the installation page from the JAVA website: <https://www.java.com/en/download/help/download_options.html>
 
 The JAR file is available at Maven.org and its location is <https://repo1.maven.org/maven2/org/openapitools/openapi-generator-cli/5.4.0/openapi-generator-cli-5.4.0.jar>
 
