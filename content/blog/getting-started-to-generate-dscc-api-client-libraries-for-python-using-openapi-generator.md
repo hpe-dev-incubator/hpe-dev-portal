@@ -69,13 +69,13 @@ The JAR file for this openAPI generator is available at Maven.org. You can downl
 
 **For Mac/Linux users:**
 
-```Shell
+```shell
 ~$ wget https://repo1.maven.org/maven2/org/openapitools/openapi-generator-cli/5.4.0/openapi-generator-cli-5.4.0.jar -O openapi-generator-cli.jar
 ```
 
 **For Windows users:**
 
-```PowerShell
+```powershell
 > Invoke-WebRequest -OutFile openapi-generator-cli.jar https://repo1.maven.org/maven2/org/openapitools/openapi-generator-cli/5.4.0/openapi-generator-cli-5.4.0.jar
 ```
 
@@ -83,13 +83,13 @@ The JAR file for this openAPI generator is available at Maven.org. You can downl
 
 Once the JAR file is downloaded, you can execute the following CLI at the folder where the JAR file is downloaded to display the brief information on how to use this JAR file.
 
-```Shell
+```shell
 ~$ java -jar openapi-generator-cli.jar help  
 ```
 
 Now that the JAR file is downloaded and ready to use, lets create a Python SDK using the openAPI generator JAR file. The following command line is used for generating a Python client library using the openapi-generator.jar file.
 
-```Shell
+```shell
 ~$ java -jar openapi-generator-cli.jar generate -i storage-api.yaml -g python -o sdks/dscc-python-sdk
 ```
 
@@ -141,8 +141,8 @@ Lets run a sample code which displays the access types in DSCC. The usage of eac
 1. Provide an authorized token which is generated from the HPE GreenLake as mentioned in the [blog](https://developer.hpe.com/blog/oauth2-for-hpe-greenlake-data-services-cloud-console/)
 2. Install the Python dependencies using the following command.
 
-```Shell
-pip install requirements.txt 
+```shell
+~$ pip install requirements.txt 
 ```
 
 Below is the sample of the code to get the information about the associated user's RBAC association. This code will provide list of the capabilities (port.read, volume.create) of that related user who provided the authorization can exercise. To execute this code, please substitute the YOUR_BEARER_TOKEN with the access token generated in your example.
