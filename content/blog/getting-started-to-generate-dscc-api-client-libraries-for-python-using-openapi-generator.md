@@ -79,7 +79,7 @@ Invoke-WebRequest -OutFile openapi-generator-cli.jar https://repo1.maven.org/mav
 
 **Note:** The version of OpenAPI generator which is shown above is 5.4.0 (current version as of March 2022). Please keep in mind that in future, the location of the JAR file will change based on a new code version.  and confirm the version number.
 
-Once the JAR is downloaded, execute the following command from the directory, where the JAR file is downloaded, that shows the usage
+Once the JAR file is downloaded, you can execute the following CLI at the folder where the JAR file is downloaded to display the brief informationon how to use this JAR file.
 
 ```Shell
 java -jar openapi-generator-cli.jar help  
