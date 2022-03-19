@@ -135,7 +135,7 @@ Lets run a sample code which displays the access types in DSCC. The usage of eac
 1. Provide an authorized token which is generated from the HPE GreenLake as mentioned in the [blog](https://developer.hpe.com/blog/oauth2-for-hpe-greenlake-data-services-cloud-console/)
 2. Install the Python dependencies using the following command.
 
-```bash
+```Shell
 pip install requirements.txt 
 ```
 
@@ -179,9 +179,9 @@ with openapi_client.ApiClient(configuration) as api_client:
         print("Exception when calling AuthzApi->get_access_controls: %s\n" % e)
 ```
 
-The output looks like:
+The output from the execution of the above code is shown below:
 
-```
+```Shell
 $ python .\GetAudits.py
 {'items': ['port.read', 'volume.create']}
 ```
