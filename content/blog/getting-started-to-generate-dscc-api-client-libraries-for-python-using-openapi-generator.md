@@ -53,11 +53,13 @@ OpenAPI Generator tool is available in various form of applications that meet th
 * Dependencies in Maven and **Gradle** projects that can be used for build automation.
 * Node package manager (**npm**) package wrapper.
 
-Those applications and the information about the OpenAPI generator is available at the github URL: <https://github.com/OpenAPITools/openapi-generator>
-
-
+Those applications and the information about using the OpenAPI generator is available at the github page from the following URL: <https://github.com/OpenAPITools/openapi-generator> as shown below:
 
 ![](/img/openapi-generator.png "OpenAPI Generator GitHub Page")
+
+The key information that will be useful and important is the latest stable version number that can be used for the conversion. This version is available at the right column of this webpage as shown below:
+
+![](/img/openapi-generator-version-locatoin.png "Stable version for the openAPI generator project")
 
 In this blog, let's look at the painless and simplest application of the openAPI generator, that is using the JAR file. Actually using JAR file doesn't need installation at all, just download the JAR file and execute it directly from the command lines. The requirement for using the JAR file is that your workstation must be deployed with JAVA runtime 8 (JRE) at a minimum. For more information about the deployment of JAVA runtime executables based on the operating system of your workstation, please take a look at the installation page from the JAVA website: <https://www.java.com/en/download/help/download_options.html>
 
