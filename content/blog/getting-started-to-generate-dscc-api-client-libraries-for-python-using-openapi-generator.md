@@ -111,7 +111,7 @@ The client library comes with the following:
 * The code for assisting the  DSCC API calls.
 * Documentation for this DSCC client library that derived from the API spec.
 * Tests codes that can be used to validate the operation of this client library.
-* Examples of every endpoint.
+* Examples of every endpoint available in the README.md
 * Required python dependencies (requirements.txt and test-requirements.txt) that are required for using this SDK
 
 For instance, take a look at the README file of this repository which has the following info.
