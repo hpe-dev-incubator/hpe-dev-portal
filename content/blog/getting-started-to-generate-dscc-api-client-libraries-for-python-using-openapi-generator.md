@@ -55,7 +55,7 @@ OpenAPI Generator tool is available in various form of applications that meet th
 
 ![](/img/openapi-generator.png "OpenAPI Generator GitHub Page")
 
-In this blog, let's look at the painless and simplest application of the openAPI generator, that is using the JAR file. Actually using JAR file doesn't need installation at all, just download the JAR file and execute it directly from the command lines. The requirement for using the JAR file is that the workstation must be deployed with JaVA runtime 8 (JRE) at a minimum. For more information about the deployment of JAVA runtime executables, please take a look at the installation page from the JAVA website: <https://www.java.com/en/download/help/download_options.html>
+In this blog, let's look at the painless and simplest application of the openAPI generator, that is using the JAR file. Actually using JAR file doesn't need installation at all, just download the JAR file and execute it directly from the command lines. The requirement for using the JAR file is that your workstation must be deployed with JAVA runtime 8 (JRE) at a minimum. For more information about the deployment of JAVA runtime executables based on the operating system of your workstation, please take a look at the installation page from the JAVA website: <https://www.java.com/en/download/help/download_options.html>
 
 The JAR file is available at Maven.org and its location is <https://repo1.maven.org/maven2/org/openapitools/openapi-generator-cli/5.4.0/openapi-generator-cli-5.4.0.jar>
 
