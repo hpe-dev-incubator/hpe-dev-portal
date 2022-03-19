@@ -40,7 +40,7 @@ With this definition file (YAML or JSON), any one can generate client libraries 
 
 In this blog, we are going to cover the popular and simple OpenAPI generator from [OpenAPI generator](https://openapi-generator.tech/) from soup to nuts. 
 
-Let's get on with it!
+*Let's get on with it!*
 
 ### Generating Client Libraries using OpenAPI Generator:
 
@@ -50,14 +50,14 @@ OpenAPI Generator tool is available in various form of applications that meet th
 
 * A downloadable and executable **JAR** file that can be executed using **Java Run Time tool**.
 * **Docker** image that can be executed using the docker engine.
-* Dependencies in Maven and **Gradle** projects that can be used for build automation.
+* Dependencies in **Maven** and **Gradle** projects that can be used for building automation.
 * Node package manager (**npm**) package wrapper.
 
-Those applications and the information about using the OpenAPI generator is available as the Readme section in the github page from the following URL: <https://github.com/OpenAPITools/openapi-generator> as shown below:
+Those applications and the information about using the OpenAPI generator is available as the Readme section in the GitHub page from the following URL: <https://github.com/OpenAPITools/openapi-generator> as shown below:
 
 ![](/img/openapi-generator.png "OpenAPI Generator GitHub Page")
 
-The key information that will be useful and important is the latest stable version number that can be used for the conversion. This version is available at the right column of this webpage as shown below:
+The key information in this GitHub website that will be useful and important is the latest stable version number that can be used for the conversion. This version is available at the right column of this webpage as shown below:
 
 ![](/img/openapi-generator-version-locatoin.png "Stable version for the openAPI generator project")
 
