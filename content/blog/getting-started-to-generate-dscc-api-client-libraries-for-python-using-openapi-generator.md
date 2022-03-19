@@ -81,13 +81,13 @@ Invoke-WebRequest -OutFile openapi-generator-cli.jar https://repo1.maven.org/mav
 
 **Note:** The version of OpenAPI generator which is shown above is 5.4.0 (current version as of March 2022). Please keep in mind that in future, the location of the JAR file will change based on a new code version.  and confirm the version number.
 
-Once the JAR file is downloaded, you can execute the following CLI at the folder where the JAR file is downloaded to display the brief informationon how to use this JAR file.
+Once the JAR file is downloaded, you can execute the following CLI at the folder where the JAR file is downloaded to display the brief information on how to use this JAR file.
 
 ```Shell
 java -jar openapi-generator-cli.jar help  
 ```
 
-Now that the JAR file is downloaded and ready to use, lets create a Python SDK using the openAPI generator JAR file. The following command is used for generating a Python client library uisng openapi-generator.jar file.
+Now that the JAR file is downloaded and ready to use, lets create a Python SDK using the openAPI generator JAR file. The following command line is used for generating a Python client library using the openapi-generator.jar file.
 
 ```Shell
 java -jar openapi-generator-cli.jar generate -i storage-api.yaml -g python -o sdks/dscc-python-sdk
@@ -98,7 +98,7 @@ java -jar openapi-generator-cli.jar generate -i storage-api.yaml -g python -o sd
 * 'g' represents the generator/language name like Java, Go.
 * 'o' represents output directory where the client library will be generated.
 
-A client library can be generated in a few minutes. Here is a snippet of generating a Python client library using the openapi-generator.jar file.
+This Python DSCC client library can be generated in a few minutes. Below is a snippet of screen output during the generation a Python client library using the openapi-generator.jar file.
 
 ![](/img/client-generation.jpg "Generating Python SDK using OpenAPI generator")
 
