@@ -84,7 +84,23 @@ The JAR file for this openAPI generator is available at Maven.org. You can downl
 Once the JAR file is downloaded, you can execute the following CLI at the folder where the JAR file is downloaded to display the brief information on how to use this JAR file.
 
 ```shell
-~$ java -jar openapi-generator-cli.jar help  
+~$ java -jar openapi-generator-cli.jar help
+
+usage: openapi-generator-cli <command> [<args>]
+
+The most commonly used openapi-generator-cli commands are:
+    author        Utilities for authoring generators or customizing templates.
+    batch         Generate code in batch via external configs.
+    config-help   Config help for chosen lang
+    generate      Generate code with the specified generator.
+    help          Display help information about openapi-generator
+    list          Lists the available generators
+    meta          MetaGenerator. Generator for creating a new template set and configuration for Codegen.  The output will be based on the language you specify, and includes default templates to include.
+    validate      Validate specification
+    version       Show version information used in tooling
+
+See 'openapi-generator-cli help <command>' for more information on a specific
+command.
 ```
 
 Now that the JAR file is downloaded and ready to use, lets create a Python SDK using the openAPI generator JAR file. The following command line is used for generating a Python client library using the openapi-generator.jar file.
