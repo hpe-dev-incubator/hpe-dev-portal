@@ -85,7 +85,8 @@ Once the JAR file is downloaded, you can execute the following CLI at the folder
 
 ```shell
 ~$ java -jar openapi-generator-cli.jar help
-
+```
+```html
 usage: openapi-generator-cli <command> [<args>]
 
 The most commonly used openapi-generator-cli commands are:
