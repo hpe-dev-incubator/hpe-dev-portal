@@ -86,7 +86,10 @@ Once the JAR file is downloaded, you can execute the following CLI at the folder
 ```shell
 ~$ java -jar openapi-generator-cli.jar help
 ```
-```html
+
+The output will be something like this:
+
+```typescript
 usage: openapi-generator-cli <command> [<args>]
 
 The most commonly used openapi-generator-cli commands are:
@@ -158,9 +161,9 @@ Lets run a sample code which displays the access types in DSCC. The usage of eac
 1. Provide an authorized token which is generated from the HPE GreenLake as mentioned in the [blog](https://developer.hpe.com/blog/oauth2-for-hpe-greenlake-data-services-cloud-console/)
 2. Install the Python dependencies using the following command.
 
-```shell
+~~~shell
 ~$ pip install requirements.txt 
-```
+~~~
 
 Below is the sample of the code to get the information about the associated user's RBAC association. This code will provide list of the capabilities (port.read, volume.create) of that related user who provided the authorization can exercise. To execute this code, please substitute the YOUR_BEARER_TOKEN with the access token generated in your example.
 
