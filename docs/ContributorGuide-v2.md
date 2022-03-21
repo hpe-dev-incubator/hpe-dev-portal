@@ -1,5 +1,5 @@
 # HPE DEV External Contributor Guide
-**Version 2.0** - 9-Aug-2021
+**Version 2.0** - 26-Jan-2022
 
 >**Note:** A recording of the training session delivered on April 30, 2021 is available [here](https://vimeo.com/544486602). 
 
@@ -93,6 +93,8 @@ Netlify and AWS Amplify has been both configured to integrate with GitHub versio
 ## Contributing a new blog
 You can create a new blog directly from the **Contents** tab or by navigating to the **Workflow** tab. Here's how you can create a new blog directly from the **Contents** tab.
 
+>**IMPORTANT NOTE about Social Card creation for the promotion of your blog post:** _Every blog post *should* (if at all possible) have an image associated with it that can be used to promote the post on social media placed as either as **Thumbnail image** or as the **first image** in the post. Therefore, the image which tells the best story about what the blog post is about should either be inserted as a Thumbnail image or be the first in the post. Twitter and LinkedIn will automatically pulls the Thumbnail image if it exists, or the first image of the post (if a Thunmbnail image is not added to the post) and the first sentence from the post when creating social card for the blog post._
+
 1.  From the **Contents** tab, select the **Blog** section in the Collections tab, and click the **New Blog** button. This opens the editor.
 
 <center><img src="media/guide-blog-Contents-new-post.png" width="800" height="497"></center>
@@ -106,14 +108,16 @@ You can create a new blog directly from the **Contents** tab or by navigating to
 
 3.  Make sure you set the following parameters:
 
-    -   Title
-    -   Author
-    -   Author Image (image size recommended is **192px X 192px**). 
+    -   **Title**
+    -   **Author name**
+    -   **Author Image** (image size recommended is **192px X 192px**). 
         You can upload a picture or use your gravatar picture URL if you have one. 
-    
+        
         >Note: For more information on how to get a gravatar URL, refer to section "***Tips and Tricks using the CMS Editor***" at the end of this document.
 
-
+    - **Thumbnail image** for Social Media card: although a Thumbnail image is an optional element of the post, it is **highly recommended** to add a Thumbnail image to your blog post that you want to use to promote the post on Social Media such as Twitter and LinkedIn. If you do not add a Thumbnail image, the first image in your post will be used. The thumbnail image or the first image of the post should tell the best story about what the blog post is about.
+    
+    
 4.  Start writing the content using either **Rich Text** mode or **Markdown** mode in the *BODY* canvas.   
 
 <center><img src="media/guide-blog-body.png" width="700" height="410"></center>
@@ -185,19 +189,18 @@ Clicking **View Preview** will open your blog post in a new browser tab for your
 
 <center><img src="media/guide-blog-View-Preview.png" width="600" height="620"></center>
 
+14. Leave the editor using the **Changes Saved** option.
 
-14. As soon as the blog was placed **In Review,** a Pull Request (PR) is automatically opened on the HPE DEV team's GitHub repository, with the new content you are proposing.
+15. As soon as the blog was placed **In Review,** a Pull Request (PR) is automatically opened on the HPE DEV team's GitHub repository, with the new content you are proposing.
 
 <center><img src="media/guide-blog-pull-request.png" width="1000" height="337"></center>
 
 
-15. Once you have initiated the Pull Request by moving the post into the **In Review** column, and you are satisfied with your blog entry, it is also a good idea to follow up with the [HPE DEV Team](mailto:hpedev@hpe.com?subject=New%20blog%20contribution%20for%20HPE%20DEV) indicating that your new submission is ready for review. HPE DEV team will then proceed with an editorial review and will get in touch with you shortly.
+16. Once you have initiated the Pull Request by moving the post into the **In Review** column, and you are satisfied with your blog entry, it is also a good idea to follow up with the [HPE DEV Team](mailto:hpedev@hpe.com?subject=New%20blog%20contribution%20for%20HPE%20DEV) indicating that your new submission is ready for review. HPE DEV team will then proceed with an editorial review and will get in touch with you shortly.
 
->**Note:** *Moving the blog post back to the **Drafts** column of the CMS will withdraw the PR (the PR will actually be closed). You can also continue to make changes to your blog while the blog is **In Review**. This will be automatically synchronized in the PR (as additional Commits). This will be particularly helpful when receiving feedback from the HPE DEV Team.*
+>**Note:** *Moving the blog post back to the **Drafts** column of the CMS will withdraw the PR (the PR will actually be closed). It is recommended you continue to make changes to your blog while the blog is **In Review**. This will be automatically synchronized in the PR (as additional Commits). This will be particularly helpful when receiving feedback from the HPE DEV Team.*
 
 >**Note:** *Once the team has agreed to accept your contribution, the PR will be merged, the blog post will be published to the HPE DEV portal and the blog entry will disappear from your Editorial Workflow.*
-
-16. Leave the editor using the **Changes Saved** option.
 
 ## Editing a blog post that is already published
 You may want to edit an existing blog post. For example, you may need to update a referenced link that is no longer valid.
@@ -415,11 +418,13 @@ To do so, proceed as follows:
     
          \[Piece-of-text-to-hotlink](Link-URL)
           
-    >**Note:** For hotlink to be opened in a new tab in the reader's browser, we are still looking for a solution for the CMS editor)
     
 -   **Insert an image in a blog post:**
 
+     >**IMPORTANT NOTE:** If your images are stored in **a personal website** you owned, it is recommended to proceed as explained below to get you images uploaded and stored to the HPE DEV CMS rather than using a link URL to your image on your web site. Security filter such as Zscaler may filter your images and make your images unrendered by the CMS. 
+     
     Small resolution image is recommended (i.e.: width: 800px)
+    
 
     -   Toggle to **Rich Text** mode in the editor (Body area)
 
@@ -481,6 +486,10 @@ To do so, proceed as follows:
 
     The CMS editor does not correctly interpret the em-dash (\&mdash;\) markdown syntax. Using the Rich text or Markdown mode of the CMS editor, should you need to use an em-dash character, you can do a copy/paste of the em-dash character here: — 
     
+- **Inserting a Line Break in a paragraph:**
+
+  To insert a line break in a paragraph, while in **Markdown** mode, you can use the HTML syntax \<br \/\> at the end of the sentence. 
+  
 - **Inserting Special characters:**
 
     Some characters (underscore, hash, backslash) have special meanings in the Markdown syntax. If you want to use these special characters in a text, you have to _escape_ them. The way to escape a special charcater is to add a backslash (\\) before it, for example: I do not want \\\_italic text\\\_ here. 
@@ -510,11 +519,11 @@ To do so, proceed as follows:
 
        \*\<space\>bullet list item 1
 
-       \<space\>\<space\>\<space\>\*sub-item 1
+       \<space\>\<space\>\<space\>\* sub-item 1
 
-       \<space\>\<space\>\<space\>\*sub-item 2
+       \<space\>\<space\>\<space\>\* sub-item 2
 
-       \<space\>\<space\>\<space\>\*sub-item N
+       \<space\>\<space\>\<space\>\* sub-item N
 
        >**Note:** Always insert a line break between a standard paragraph and the first item of a list
 

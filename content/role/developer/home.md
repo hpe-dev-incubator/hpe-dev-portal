@@ -5,6 +5,7 @@ image: /img/role/developer.png
 width: large
 priority: 1
 frontpage: true
+active: true
 tags:
   - developer
 ---

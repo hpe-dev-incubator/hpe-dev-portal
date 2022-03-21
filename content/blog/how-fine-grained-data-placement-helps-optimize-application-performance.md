@@ -2,7 +2,7 @@
 title: How fine-grained data placement helps optimize application performance
 date: 2021-10-22T17:49:57.712Z
 featuredBlog: true
-priority: 1
+priority: 2
 author: Ellen Friedman
 authorimage: /img/Avatar3.svg
 tags:
@@ -78,6 +78,6 @@ Turns out you don’t need unlimited resources to get excellent performance for 
 
 To find out more about the capabilities provided by HPE Ezmeral Data Fabric visit the [data fabric platform page](https://developer.hpe.com/platform/hpe-ezmeral-data-fabric/home/) in the HPE Developer Community.
 
-For a hands-on workshop highlighting data fabric volumes, go to [HPE Ezmeral Data Fabric 101 – Get to know the basics around the data fabric](https://hackshack.hpedev.io/workshop/26).
+For a hands-on workshop highlighting data fabric volumes, go to [HPE Ezmeral Data Fabric 101 – Get to know the basics around the data fabric](/hackshack/workshop/26).
 
 To learn about data access management using HPE Ezmeral Data Fabric, read the New Stack article [Data Access Control via ACEs vs ACLs: The power of “AND” and “NOT”](https://thenewstack.io/data-access-management-with-aces-vs-acls-the-power-of-and-and-not/).

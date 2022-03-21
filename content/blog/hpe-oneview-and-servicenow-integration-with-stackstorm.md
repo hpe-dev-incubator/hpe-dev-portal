@@ -20,7 +20,7 @@ I quickly realized that, in order to do what I wanted to do, it would involve wr
 
 Note: I have written a couple of other blog posts on StackStorm. If you are interested in trying this approach, I suggest you go to the HPE DEV blog and [read my other posts](https://developer.hpe.com/search/?term=stackstorm).
 
-![](https://techworldwookie.com/blogpost/flowchart.png)
+![](/img/flowchart.png)
 
 Developing the stackstorm-hpe-oneview integration pack (which is available [here](https://github.com/HewlettPackard/stackstorm-hpe-oneview)) is fairly straightforward. For this interaction to function, I wrote five very short actions and a couple of simple rules. You can see in the chart at the top of this blog that two of the actions will be used with the first workflow and three will be need for the second workflow. Actions are the workhorse of StackStorm. Actions have a 'runner-type' and there are [12 different ones](https://docs.stackstorm.com/actions.html) to choose from. They can be shell scripts, Python scripts, or Orquesta for creating workflows. I could use a single action to connect to HPE OneView and request all of the current alarms and another to format and store the alarms in a MongoDB database for further processing.
 
@@ -177,7 +177,7 @@ That's it! Once both integration packs are installed on a StackStorm server and 
 
 Finally, a diagram that shows all the moving parts of workflow "A". The rule that runs on the interval timer calls an action that, in turn, calls a workflow that calls a couple other actions. Notice that actions can be Python scripts or YAML files. It just depends on their function. 
 
-![](https://techworldwookie.com/blogpost/full-workflow.png "Workflow ")
+![](/img/full-workflow.png "Workflow ")
 
 To make this a truly automated process, the ServiceNow account needs to exist and the tables need to be created in advance. 
 
@@ -190,4 +190,4 @@ To make this a truly automated process, the ServiceNow account needs to exist an
 
 In the beginning of this blog I mentioned tweeting information into HPE OneView. I don't know why you would want to do this but yes, with StackStorm it is possible. StackStorm exchange has a Twitter integration pack and it can be installed on the StackStorm server by issuing the command 'st2 pack install twitter'. I can use the twitter StackStorm sensor to 'watch' the twittersphere for any tweets containing a certain word or phrase contained in the tweet-body. If the sensor reacts, it will cause a StackStorm trigger to fire and I can call an action to pull the tweet and collect the information from the tweet-body and send that information to the HPE OneView Stackstorm actions. This can be done with ANYTHING on the StackStorm exchange.
 
-In conclusion, this may seem complicated at first. In reality, its a group of small simple scripts that are linked together inside the StackStorm framework. It also provides for the adoption of many different integration packs and allows for the event-based automation of many different systems. To learn more about StackStorm, you can take my [tutorial](https://github.com/xod442/stackstorm-tutorial), attend the StackStorm Workshop-on-Demand available [here](https://hackshack.hpedev.io/workshop/21) [](https://hackshack.hpedev.io/workshop/21)and join the automation revolution!
+In conclusion, this may seem complicated at first. In reality, its a group of small simple scripts that are linked together inside the StackStorm framework. It also provides for the adoption of many different integration packs and allows for the event-based automation of many different systems. To learn more about StackStorm, you can take my [tutorial](https://github.com/xod442/stackstorm-tutorial), attend the StackStorm Workshop-on-Demand available [here](/hackshack/workshop/21) [](/hackshack/workshop/21)and join the automation revolution!

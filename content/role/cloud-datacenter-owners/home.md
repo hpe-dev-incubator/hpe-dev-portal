@@ -4,6 +4,7 @@ description: Technical managers modernizing infrastructure
 image: /img/role/cloud-data-center-owner.png
 width: large
 priority: 6
+active: false
 tags: 
   - cloud-datacenter-owner
 ---

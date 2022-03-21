@@ -1,0 +1,38 @@
+[
+  {
+  "title": "HPE Ezmeral Runtime Enterprise",
+  "desc": "An  enterprise-grade software orchestration platform designed to deploy modern applications using open-source Kubernetes, from edge to cloud.",
+  "link": "https://www.hpe.com/us/en/software/ezmeral-runtime.html"
+  },
+  {
+  "title": "HPE Ezmeral Unified Analytics",
+  "desc": "Industry’s first unified, modern analytics and data lakehouse platform optimized for on-premises, edge and cloud deployments.",
+  "link": "https://www.hpe.com/us/en/software/ezmeral-unified-analytics.html"
+  },
+  {
+  "title": "HPE Ezmeral ML Ops",
+  "desc": "An ML Ops solution that delivers DevOps-like speed and agility, combined with a cloud-like experience to operationalize the machine learning lifecycle, accelerating your workload",
+  "link": "https://www.hpe.com/us/en/solutions/machine-learning-operations.html"
+  },
+  {
+  "title": "HPE Ezmeral Data Fabric File & Object Store",
+  "desc": "Industry’s first data fabric to combine S3-native objects, files, streams and databases into a single scalable data platform.",
+  "link": "https://www.hpe.com/us/en/software/data-fabric.html"
+  },
+  {
+  "title": "HPE Ezmeral IT Ops & Automation",
+  "desc": "HPE OneView and HPE InfoSight introduce automation and AI into IT Ops—improving productivity and mitigating risk of service disruption.",
+  "link": "https://www.hpe.com/us/en/solutions/it-automation-aiops.html"
+  },
+  {
+  "title": "HPE Managed Cloud Controls",
+  "desc": "HPE Managed Cloud Controls ensures cost control and compliance across clouds to achieve the full promise of your cloud investments.",
+  "link": "https://www.hpe.com/us/en/pdfViewer.html?docId=a50000431&parentPage=/us/en/ezmeral&resourceTitle=HPE+Managed+Cloud+Controls+%E2%80%93+Continuous+Cost+Control+solution+brief"
+  },
+  {
+  "title": "Security Software",
+  "desc": "Security software from HPE helps teams standardize and accelerate service authentication across cloud, container and on-premises infrastructures.",
+  "link": "https://www.hpe.com/us/en/newsroom/blog-post/2020/02/hpe-acquires-scytale-to-advance-open-secure-edge-to-cloud-strategy.html"
+  }
+]
+  

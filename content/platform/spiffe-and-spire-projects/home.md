@@ -52,11 +52,11 @@ These projects recently moved into the CNCF incubator and have received contribu
 
 # Workshops-on-Demand
 
-Take advantage of our free, Jupyter-Notebook based Workshops-on-Demand available in the [Hack Shack](https://hackshack.hpedev.io/). These technical workshops provide you with an in-depth, hands-on learning experience where you can interact with and learn from the experts. Designed to fit your schedule, these workshops are available 24/7 – any time, from anywhere. SPIFFE and SPIRE workshops are available today.
+Take advantage of our free, Jupyter-Notebook based Workshops-on-Demand available in the [Hack Shack](/hackshack/). These technical workshops provide you with an in-depth, hands-on learning experience where you can interact with and learn from the experts. Designed to fit your schedule, these workshops are available 24/7 – any time, from anywhere. SPIFFE and SPIRE workshops are available today.
 
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <div class="w3-container w3-center w3-margin-bottom">
-  <a href="https://hackshack.hpedev.io/workshops"><button type="button" class="button">Try now!</button></a>
+  <a href="/hackshack/workshops"><button type="button" class="button">Try now!</button></a>
 </div>
 
 - - -

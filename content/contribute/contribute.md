@@ -9,10 +9,10 @@ templateCards:
     link: https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2021/8/HPE-DEV-BASIC-BLOG-TEMPLATE-FINAL.docx
   - templateType: Google Docs
     templateName: Technical Tutorial Template
-    link: https://docs.google.com/document/d/1bY0QL0TYgQtzjCF4JpsLbDMvPUMarIwQoVZFjQYej1Y/edit
+    link: https://docs.google.com/document/d/1bY0QL0TYgQtzjCF4JpsLbDMvPUMarIwQoVZFjQYej1Y/edit?usp=sharing
   - templateType: Google Docs
     templateName: Basic Blog Template
-    link: https://docs.google.com/document/d/1uAHcsJxavfmC0oRoccjBFI_WmuALDWhOINATiCEoDIw/edit
+    link: https://docs.google.com/document/d/1uAHcsJxavfmC0oRoccjBFI_WmuALDWhOINATiCEoDIw/edit?usp=sharing
 ---
 - Read instructions found in [Be an HPE DEV Blogger](https://developer.hpe.com/blog/be-an-hpe-dev-blogger/). 
 

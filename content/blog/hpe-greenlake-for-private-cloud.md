@@ -1,12 +1,13 @@
 ---
-title: "HPE GreenLake for private cloud"
+title: HPE GreenLake for private cloud
 date: 2020-06-16T10:51:11.005Z
-author: Steve Showalter & Thavamaniraja S 
-tags: ["hpe-greenlake"]
-authorimage: "/img/blogs/Avatar4.svg"
 featuredBlog: false
-priority:
-thumbnailimage:
+priority: null
+author: Steve Showalter & Thavamaniraja S
+authorimage: /img/blogs/Avatar4.svg
+thumbnailimage: null
+tags:
+  - hpe-greenlake
 ---
 ![blog greenlake intro 1200p](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/6/blog-greenlake-intro-1200p-1592501708480.jpg)
 
@@ -27,4 +28,4 @@ With complete automation across the cloud environment, an organization eliminate
 
 ![greenlake central blueprint image](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/6/greenlake-central-blueprint-image-1592499731966.png)
 
-This HPE GreenLake for private cloud technical whitepaper describes the application blueprint capabilities inherent with HPE GreenLake that provides this automation for private clouds. The solution enables savings in both time and money, elimination of errors, and construction of more predictable and reliable services beyond bare virtual machines.
+The [HPE GreenLake for private cloud technical whitepaper](https://www.hpe.com/psnow/doc/a50003040enw?jumpid=in_lit-psnow-red) describes the application blueprint capabilities inherent with HPE GreenLake that provides this automation for private clouds. The solution enables savings in both time and money, elimination of errors, and construction of more predictable and reliable services beyond bare virtual machines.
