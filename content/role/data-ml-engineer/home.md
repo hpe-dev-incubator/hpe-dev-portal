@@ -5,6 +5,7 @@ image: /img/role/Data-ML-Engineer.png
 width: large
 priority: 3
 frontpage: true
+active: true
 tags:
   - data-ml-engineer
 ---

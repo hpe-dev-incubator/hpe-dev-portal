@@ -101,6 +101,7 @@ Role.propTypes = {
               image: PropTypes.string,
               frontpage: PropTypes.bool,
               priority: PropTypes.number,
+              active: PropTypes.bool,
             }).isRequired,
             excerpt: PropTypes.string.isRequired,
             fields: PropTypes.shape({
@@ -129,7 +130,7 @@ export const pageQuery = graphql`
           sourceInstanceName: { eq: "role" }
           slug: { regex: "//home/$/" }
         }
-        frontmatter: { isAside: { ne: true } }
+        frontmatter: { isAside: { ne: true }, active: { eq: true } }
       }
       sort: { fields: [frontmatter___priority] }
     ) {
@@ -148,6 +149,7 @@ export const pageQuery = graphql`
             description
             image
             frontpage
+            active
             priority
           }
         }
