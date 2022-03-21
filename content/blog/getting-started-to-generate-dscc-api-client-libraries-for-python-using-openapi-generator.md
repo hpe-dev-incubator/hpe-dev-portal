@@ -124,11 +124,11 @@ This Python DSCC client library can be generated in a few minutes. Below is a sn
 
 The generated client library can be made available in your workstation, or it can also be uploaded to a GitHub library so that it can be made available for others to use. An example of the GitHub repository of a sample Python client library looks like this: 
 
-![](/img/repo.jpg "GitHub repository of Python Client library generated using OpenAPI generator")
+![](/img/python-open-api-sdk-repo.jpg "GitHub repository of Python Client library generated using OpenAPI generator")
 
 The client library comes with the following:
 
-* The code for assisting the  DSCC API calls.
+* The code for assisting the DSCC API calls.
 * Documentation for this DSCC client library that derived from the API spec.
 * Tests codes that can be used to validate the operation of this client library.
 * Examples of every endpoint available in the README.md
@@ -161,9 +161,9 @@ Lets run a sample code which displays the access types in DSCC. The usage of eac
 1. Provide an authorized token which is generated from the HPE GreenLake as mentioned in the [blog](https://developer.hpe.com/blog/oauth2-for-hpe-greenlake-data-services-cloud-console/)
 2. Install the Python dependencies using the following command.
 
-~~~shell
+```shell
 ~$ pip install requirements.txt 
-~~~
+```
 
 Below is the sample of the code to get the information about the associated user's RBAC association. This code will provide list of the capabilities (port.read, volume.create) of that related user who provided the authorization can exercise. To execute this code, please substitute the YOUR_BEARER_TOKEN with the access token generated in your example.
 
