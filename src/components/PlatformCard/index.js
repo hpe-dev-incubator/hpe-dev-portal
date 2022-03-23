@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Box, Text, Heading, Image, Card as GrommetCard } from 'grommet';
 import { navigate } from 'gatsby';
 
-const PlatformCard = ({ description, link, image, title }) => (
+const PlatformCard = ({ description, link, image, title, flex }) => (
   <GrommetCard
     elevation="medium"
     pad="large"
@@ -21,7 +21,7 @@ const PlatformCard = ({ description, link, image, title }) => (
     }
   >
     <Box direction="row-responsive" gap="large" align="center">
-      <Box flex>
+      <Box flex={flex}>
         {image && <Image fit="contain" src={image} alt="platform logo" />}
       </Box>
       <Box flex>
@@ -39,6 +39,7 @@ PlatformCard.propTypes = {
   link: PropTypes.string,
   image: PropTypes.string,
   title: PropTypes.string,
+  flex: PropTypes.bool,
 };
 
 export default PlatformCard;
