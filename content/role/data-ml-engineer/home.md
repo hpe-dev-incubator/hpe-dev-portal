@@ -23,7 +23,7 @@ With an increased number and variety of workloads, how can you address all aspec
 
 On this page, we provide content to help you meet these challenges. You will find a rotating selection of foundational material, ideas to help you get inspired, as well as practical tips on key issues to improve efficiency and performance. You’ll also learn what Hewlett Packard Enterprise (HPE) offers.
 
-The roles of the Data/ML Engineer and Data Scientist can overlap. You may also find content of interest to you on the [Data Scientist](https://deploy-preview-896--hpe-dev-portal.netlify.app/role/data-scientist/home/) page. Content on this page changes as new material becomes available or new topics arise, so check back regularly.
+The roles of the Data/ML Engineer and Data Scientist can overlap. You may also find content of interest to you on the [Data Scientist](/role/data-scientist/home/) page. Content on this page changes as new material becomes available or new topics arise, so check back regularly.
 
 <br>
 <hr style="background: #7630EA; height: 5px; border: none">

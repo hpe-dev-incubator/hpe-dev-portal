@@ -22,7 +22,7 @@ Data science is an intriguing field, and recognition of its potential is rapidly
 
 On this page, we provide a range of content – for advanced data scientists to those just getting started – to help you meet these challenges. You will find a rotating selection of foundational material, ideas to help you get inspired, as well as practical tips on key issues that help make your data science projects easier to build and more likely to be successful. You’ll also learn what Hewlett Packard Enterprise (HPE) offers. 
 
-The roles of the Data/ML Engineer and Data Scientist can overlap. You may also find content of interest to you on the [Data/ML Engineer](https://deploy-preview-896--hpe-dev-portal.netlify.app/role/data-ml-engineer/home/) page. Content on this page changes as new material becomes available or new topics arise, so check back regularly.
+The roles of the Data/ML Engineer and Data Scientist can overlap. You may also find content of interest to you on the [Data/ML Engineer](/role/data-ml-engineer/home/) page. Content on this page changes as new material becomes available or new topics arise, so check back regularly.
 
 <br>
 <hr style="background: #7630EA; height: 5px; border: none">
@@ -109,7 +109,7 @@ The roles of the Data/ML Engineer and Data Scientist can overlap. You may also f
 
 - Read [Budgeting time for AI/ML projects](https://community.hpe.com/t5/HPE-Ezmeral-Uncut/Budgeting-time-for-AI-ML-projects/ba-p/7090807#.YZYZVelKhE4)
 
-- See content for the [Data/ML Engineer role](https://deploy-preview-896--hpe-dev-portal.netlify.app/role/data-ml-engineer/home/)
+- See content for the [Data/ML Engineer role](/role/data-ml-engineer/home/)
 
 **What makes it easier to deal with edge computing in large-scale systems?**
 

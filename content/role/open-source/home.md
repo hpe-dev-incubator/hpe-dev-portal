@@ -173,7 +173,7 @@ Explore community-powered innovation here as we highlight a few of the latest op
 
 **Where can I find open source design system and development framework tools to create responsive, accessible mobile-first apps?**
 
-- Build awesome apps with the HPE-sponsored open source project, [Grommet](https://deploy-preview-896--hpe-dev-portal.netlify.app/platform/grommet/home/)
+- Build awesome apps with the HPE-sponsored open source project, [Grommet](/platform/grommet/home/)
  
 
 <br>
@@ -272,22 +272,22 @@ Explore community-powered innovation here as we highlight a few of the latest op
 
 <div class="row">
   <div class="column">
-    Find documentation, API information, videos and tutorials on our [open source platform pages](https://deploy-preview-896--hpe-dev-portal.netlify.app/opensource/).
+    Find documentation, API information, videos and tutorials on our [open source platform pages](/opensource/).
 
   </div>
   <div class="column">
 
     - [Chapel](https://chapel-lang.org/)
 
-    - [Determined AI](https://deploy-preview-896--hpe-dev-portal.netlify.app/platform/determined-ai/home/)
+    - [Determined AI](/platform/determined-ai/home/)
 
-    - [Grommet](https://deploy-preview-896--hpe-dev-portal.netlify.app/platform/grommet/home/)
+    - [Grommet](/platform/grommet/home/)
 
-    - [KubeDirector](https://deploy-preview-896--hpe-dev-portal.netlify.app/platform/hpe-ezmeral-runtime/home/)
+    - [KubeDirector](/platform/hpe-ezmeral-runtime/home/)
 
-    - [SmartSim](https://deploy-preview-896--hpe-dev-portal.netlify.app/platform/smartsim/home/)
+    - [SmartSim](/platform/smartsim/home/)
 
-    - [SPIFFE/SPIRE](https://deploy-preview-896--hpe-dev-portal.netlify.app/platform/spiffe-and-spire-projects/home/)
+    - [SPIFFE/SPIRE](/platform/spiffe-and-spire-projects/home/)
 
   </div>
 </div>
