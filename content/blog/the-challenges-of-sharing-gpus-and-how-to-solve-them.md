@@ -7,7 +7,7 @@ author: Raz Haleva
 authorimage: /img/blogs/Avatar1.svg
 thumbnailimage: https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/12/pinkish-image-4-run-ai-post-1612367610553.JPG
 tags:
-  - hpe-ezmeral-runtime
+  - hpe-ezmeral
   - hpe-ezmeral-container-platform
   - run:ai
   - GPU

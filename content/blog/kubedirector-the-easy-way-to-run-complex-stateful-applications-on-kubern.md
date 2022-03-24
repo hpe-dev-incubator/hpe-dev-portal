@@ -2,7 +2,7 @@
 title: "KubeDirector: The easy way to run complex stateful applications on Kubernetes"
 date: 2019-09-09T17:42:49.847Z
 author: Tom Phelan 
-tags: ["hpe-ezmeral-runtime","hpe-ezmeral-container-platform","hpe-container-platform","bluedata","container","opensource","kubedirector"]
+tags: ["hpe-ezmeral","hpe-ezmeral-container-platform","hpe-container-platform","bluedata","container","opensource","kubedirector"]
 authorimage: "/img/blogs/Avatar1.svg"
 featuredBlog: false
 priority:

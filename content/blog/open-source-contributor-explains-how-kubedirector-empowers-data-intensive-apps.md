@@ -5,7 +5,7 @@ author: Dale Rensing
 authorimage: /img/Avatar1.svg
 tags:
   - kubedirector
-  - hpe-ezmeral-runtime
+  - hpe-ezmeral
   - hpe-ezmeral-container-platform
   - opensource
 ---

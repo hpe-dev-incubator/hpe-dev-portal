@@ -7,7 +7,7 @@ author: Joel Baxter & Kartik Mathur & Don Wake
 authorimage: /img/blogs/Avatar5.svg
 thumbnailimage: null
 tags:
-  - hpe-ezmeral-runtime
+  - hpe-ezmeral
   - hpe-ezmeral-container-platform
   - MLOps
   - pipeline

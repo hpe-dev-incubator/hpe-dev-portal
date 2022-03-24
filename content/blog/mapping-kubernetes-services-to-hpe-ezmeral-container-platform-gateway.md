@@ -7,7 +7,7 @@ author: Cenz Wong
 authorimage: https://avatars.githubusercontent.com/u/44856918?s=400&u=37bb095377cd6b4ad21c3a7ab8b5afe185a46941&v=4
 thumbnailimage: https://docs.containerplatform.hpe.com/53/images/5.2/01_unversal_concepts/gateway_hosts_logical_kubernetes.jpg
 tags:
-  - hpe-ezmeral-runtime
+  - hpe-ezmeral
 ---
 **Editor’s Note – NAME CHANGE: HPE Ezmeral Container Platform is now HPE Ezmeral Runtime Enterprise.** For more information on why the name was changed, please click [here](https://community.hpe.com/t5/HPE-Ezmeral-Uncut/HPE-Ezmeral-Container-Platform-is-now-HPE-Ezmeral-Runtime/ba-p/7151720#.YW7nOxrMKM8).
 

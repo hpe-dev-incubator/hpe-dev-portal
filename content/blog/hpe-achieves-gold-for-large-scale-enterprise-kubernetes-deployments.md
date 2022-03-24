@@ -7,7 +7,7 @@ author: Prashant Sachdeva
 authorimage: /img/blogs/Avatar5.svg
 thumbnailimage: null
 tags:
-  - hpe-ezmeral-runtime
+  - hpe-ezmeral
   - hpe-ezmeral-container-platform
   - spiffe-and-spire-projects
   - hpe-ezmeral-data-fabric
