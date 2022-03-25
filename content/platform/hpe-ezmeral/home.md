@@ -3,7 +3,7 @@ title: HPE Ezmeral
 version: "1.0"
 description: Accelerate modern data analytics initiatives at scale with this
   Kubernetes orchestrated container platform that helps you unify data and
-  modernize apps
+  modernize apps.
 image: /img/platforms/EzmeralContainerPatform.svg
 width: large
 priority: 1
