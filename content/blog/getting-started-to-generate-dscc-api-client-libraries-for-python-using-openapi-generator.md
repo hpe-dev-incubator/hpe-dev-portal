@@ -59,7 +59,7 @@ The OpenAPI Generator tool is available for the variety of applications that mee
 * Some dependencies in **Maven** and **Gradle** projects that can be used for building the automation tool.
 * A node package manager (**npm**) package wrapper.
 
-Those applications and the information about using the OpenAPI generator is available as the Readme section found on this GitHub page from the following URL: <https://github.com/OpenAPITools/openapi-generator> as shown below:
+Those applications and the information about using the OpenAPI generator is available as the Readme section found on this GitHub page [here](https://github.com/OpenAPITools/openapi-generator) as shown below:
 
 ![](/img/openapi-generator.png "OpenAPI Generator GitHub Page")
 
@@ -69,9 +69,9 @@ The key information found in this GitHub website that will be useful and importa
 
 In this tutorial, let's take a look at the painless and simplest application of the OpenAPI Generator, which is using the JAR file. Actually, using the JAR file doesn't require any application installation at all. The JAR file can be downloaded and executed directly from the command line window in your workstation. The minimum requirement for executing the JAR file is that your workstation must be deployed with JAVA Run Time Environment (JRE) version 8. 
 
-**Note:** For more information about the deployment of JAVA Run Time executables based on the operating system of your workstation, please take a look at the installation page from the JAVA website: <https://www.java.com/en/download/help/download_options.html>
+**Note:** For more information about the deployment of JAVA Run Time executables based on the operating system of your workstation, please take a look at the installation page from the JAVA website [here](https://www.java.com/en/download/help/download_options.html).
 
-The JAR file for this OpenAPI generator is available at Maven.org. You can download it from the following location: <https://repo1.maven.org/maven2/org/openapitools/openapi-generator-cli/5.4.0/openapi-generator-cli-5.4.0.jar>. Below , you will find the syntax required to download the OpenAPI generator JAR files from each corresponding workstation:
+The JAR file for this OpenAPI generator is available at Maven.org. You can download it from the following [location](https://repo1.maven.org/maven2/org/openapitools/openapi-generator-cli/5.4.0/openapi-generator-cli-5.4.0.jar). Below , you will find the syntax required to download the OpenAPI generator JAR files from each corresponding workstation:
 
 **For Mac/Linux users:**
 
