@@ -9,7 +9,7 @@ thumbnailimage: /img/dscc-icon-transparent.png
 tags:
   - data-services-cloud-console
 ---
-In this blog, you will be introduced with the process that is required to convert the HPE Data Services Cloud Console (DSCC) public API specification in the OpenAPI 3.X definition to any client libraries from several popular programming language. The goal of this conversion process is to achieve the agility of cloud-like operation where update to DSCC API client libraries is automatic and painless.
+In this tutorial, you will be introduced with the process that is required to convert the HPE Data Services Cloud Console (DSCC) public API specification in the OpenAPI 3.X definition to any client libraries from several popular programming language. The goal of this conversion process is to achieve the agility of cloud-like operation where update to DSCC API client libraries is automatic and painless.
 
 HPE DSCC public REST API is for customers looking to enhance their data-ops using the programmatic extensions from Data Services Cloud Console. Please see the [Data Services Cloud Console Platform page](https://developer.hpe.com/platform/data-services-cloud-console/home/) for detailed information about the DSCC benefits to customer's Data-Ops operation. Please see the [Getting Started with the HPE Data Services Cloud Console Public REST API](https://developer.hpe.com/blog/getting-started-with-the-hpe-data-services-cloud-console-public-rest-api/) for the authentication mechanism used to access the DSCC API.
 
@@ -38,7 +38,7 @@ With this definition file (YAML or JSON), anyone can generate client libraries i
 * [Azure AutoRest](https://github.com/Azure/autorest)
 * REST API Client Code generator (Found within [Visual Studio MarketPlace](https://marketplace.visualstudio.com/items?itemName=ChristianResmaHelle.ApiClientCodeGenerator))
 
-In this blog, we are going to cover the popular and simple OpenAPI generator from [OpenAPI generator](https://openapi-generator.tech/) from soup to nuts. 
+In this tutorial, I am going to cover the popular and simple OpenAPI generator from [OpenAPI generator](https://openapi-generator.tech/) from soup to nuts. 
 
 *Let's get on with it!*
 
