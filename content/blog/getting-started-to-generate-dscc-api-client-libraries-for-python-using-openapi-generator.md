@@ -57,7 +57,7 @@ Those applications and the information about using the OpenAPI generator is avai
 
 ![](/img/openapi-generator.png "OpenAPI Generator GitHub Page")
 
-The key information in this GitHub website that will be useful and important is the latest stable version number that can be used for the conversion. This version is available at the right column of this webpage as shown below:
+The key information found in this GitHub website that will be useful and important is the latest stable version number that can be used for the conversion. This version is available at the right column of this webpage as shown below:
 
 ![](/img/openapi-generator-version-locatoin.png "Stable version for the openAPI generator project")
 
