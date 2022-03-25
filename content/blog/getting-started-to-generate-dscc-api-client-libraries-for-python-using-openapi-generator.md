@@ -128,7 +128,7 @@ This Python DSCC client library can be generated in a few minutes. Below, you ca
 
 ![](/img/client-generation.jpg "Generating Python SDK using OpenAPI generator")
 
-The results from the conversion are available under the following folder
+The results from the conversion are available under the following folder:
 
 ```shell
 ~/sdks/dscc-python-sdk$ ls -al
@@ -153,14 +153,14 @@ drwxrwxr-x 2 ronald ronald 36864 Mar 25 16:44 test
 ~/sdks/dscc-python-sdk$
 ```
 
-The generated client library can be made available in your workstation, or it can also be uploaded to a GitHub library so that it can be made available for others to use. An example of the GitHub repository of a sample Python client library looks like this: 
+The generated client library can be made available on your workstation, or it can also be uploaded to a GitHub Repo so that it can be made available for others to use. An example of the GitHub repository of a sample Python client library looks like this: 
 
 ![](/img/python-open-api-sdk-repo.jpg "GitHub repository of Python Client library generated using OpenAPI generator")
 
 The client library comes with the following:
 
 * The code for assisting the DSCC API calls.
-* Documentation for this DSCC client library that derived from the API spec.
+* Documentation for this DSCC client library derived from the API spec.
 * Tests codes that can be used to validate the operation of this client library.
 * Examples of every endpoint available in the README.md
 * Required python dependencies (requirements.txt and test-requirements.txt) that are required for using this SDK
