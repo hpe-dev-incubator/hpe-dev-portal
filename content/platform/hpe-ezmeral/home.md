@@ -37,9 +37,16 @@ The associated [BlueK8s open source initiative](https://github.com/bluek8s) will
 ## Resources
 
  * [HPE Ezmeral Home Page](https://www.hpe.com/us/en/software.html)
+
+
  * [HPE Ezmeral Documentation](https://docs.containerplatform.hpe.com/home/)
+
+
  * [HPE Ezmeral Learn On-Demand](https://learn.ezmeral.software.hpe.com/)
+
+
  * [Request your own demo from the HPE Demo Portal](https://hpedemoportal.ext.hpe.com/home)
+
 
 
 [HPE Ezmeral demo](https://github.com/HewlettPackard/ezdemo)
