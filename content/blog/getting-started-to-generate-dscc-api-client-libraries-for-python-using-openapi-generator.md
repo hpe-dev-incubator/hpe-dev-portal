@@ -53,7 +53,7 @@ The OpenAPI Generator tool is available for the variety of applications that mee
 * Some dependencies in **Maven** and **Gradle** projects that can be used for building the automation tool.
 * A node package manager (**npm**) package wrapper.
 
-Those applications and the information about using the OpenAPI generator is available as the Readme section in the GitHub page from the following URL: <https://github.com/OpenAPITools/openapi-generator> as shown below:
+Those applications and the information about using the OpenAPI generator is available as the Readme section found on this GitHub page from the following URL: <https://github.com/OpenAPITools/openapi-generator> as shown below:
 
 ![](/img/openapi-generator.png "OpenAPI Generator GitHub Page")
 
