@@ -88,6 +88,8 @@ Kubernetes Director (aka KubeDirector) for deploying and managing stateful appli
 
 HPE Ezmeral software provides the option of leveraging the power of Apache Spark, which is an open-source unified analytics engine for large-scale data processing that is maintained by the Apache Software Foundation. If your organization has a need to run Apache Spark jobs in a Containerized environment, such as within a Kubernetes cluster using a Spark Operator or Livy API server to manage Apache Spark jobs, then HPE offers the HPE Ezmeral Unified Analytics license for the [HPE Ezmeral Runtime Enterprise platform](https://docs.containerplatform.hpe.com/home/).  
 
+_Apache® and Apache Spark™ are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by the Apache Software Foundation is implied by the use of these marks._
+
 --- 
 
 ## HPE DEV Workshops-on-Demand
@@ -108,7 +110,3 @@ Join the [HPEDEV Slack Workspace](https://slack.hpedev.io/) and start a discussi
 
 
 Not a Slack user? You can also ask your questions in our [HPE Ezmeral Forum](https://hpe.com/forum/ezmeral).
-
---- 
-
-_Apache® and Apache Spark™ are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by the Apache Software Foundation is implied by the use of these marks._
