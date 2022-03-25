@@ -11,7 +11,7 @@ tags:
 ---
 In this blog, you will be introduced with the process that is required to convert the HPE Data Services Cloud Console (DSCC) public API specification in the OpenAPI 3.X definition to any client libraries from several popular programming language. The goal of this conversion process is to achieve the agility of cloud-like operation where update to DSCC API client libraries is automatic and painless.
 
-HPE DSCC public REST API is for customers looking to enhance their data-ops using the programmatic extensions from Data Services Cloud Console. The [Data Services Cloud Console Platform page](https://developer.hpe.com/platform/data-services-cloud-console/home/) details information about the DSCC benefits to customer's dataOps operation. This DSCC API definition is available for download in either YAML or JSON format from the DSCC API website (US region:  <https://console-us1.data.cloud.hpe.com/doc/api/v1/>) as shown below:
+HPE DSCC public REST API is for customers looking to enhance their data-ops using the programmatic extensions from Data Services Cloud Console. Please see [Data Services Cloud Console Platform page](https://developer.hpe.com/platform/data-services-cloud-console/home/) for detailed information about the DSCC benefits to customer's dataOps operation. This DSCC API definition is available for download in either YAML or JSON format from the DSCC API website (US region:  <https://console-us1.data.cloud.hpe.com/doc/api/v1/>) as shown below:
 
 ![DSCC API download](/img/dscc-api-spec.png "DSCC API specification download")
 
