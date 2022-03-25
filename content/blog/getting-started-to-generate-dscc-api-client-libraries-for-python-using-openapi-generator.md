@@ -19,9 +19,9 @@ The DSCC API definition is available for download in either YAML or JSON format 
 
 You can also download the DSCC API YAML file using the following Unix command line:
 
-~~~shell
+```shell
 $ wget https://console-us1.data.cloud.hpe.com/doc/api/v1/storage-api.yaml
-~~~
+```
 
 The definition file contains the following information:
 
@@ -122,11 +122,36 @@ Now that the JAR file is downloaded and ready to be used, let's create a Python 
 * '-i' represents the input file, that is the downloaded DSCC OpenAPI spec which can be in the form of JSON or YAML.
 * 'generate' represents generating the code based on the specified generator
 * 'g' represents the generator/language name like Java, Go.
-* 'o' represents output directory where the client library will be generated.
+* 'o' represents output directory where the client library will be generated. In the above example, the generated files are going to be in the ~/sdks/dscc-python-sdk
 
 This Python DSCC client library can be generated in a few minutes. Below, you can see the screen output generated from the Python client library using the *openapi-generator.jar* file.
 
 ![](/img/client-generation.jpg "Generating Python SDK using OpenAPI generator")
+
+The results from the conversion are available under the following folder
+
+```shell
+~/sdks/dscc-python-sdk$ ls -al
+total 232
+drwxrwxr-x 6 ronald ronald  4096 Mar 25 16:44 .
+drwxrwxr-x 3 ronald ronald  4096 Mar 25 16:44 ..
+drwxrwxr-x 2 ronald ronald 32768 Mar 25 16:44 docs
+-rw-rw-r-- 1 ronald ronald   807 Mar 25 16:44 .gitignore
+-rw-rw-r-- 1 ronald ronald   433 Mar 25 16:44 .gitlab-ci.yml
+-rw-rw-r-- 1 ronald ronald  1830 Mar 25 16:44 git_push.sh
+drwxrwxr-x 6 ronald ronald  4096 Mar 25 16:44 openapi_client
+drwxrwxr-x 2 ronald ronald  4096 Mar 25 16:44 .openapi-generator
+-rw-rw-r-- 1 ronald ronald  1040 Mar 25 16:44 .openapi-generator-ignore
+-rw-rw-r-- 1 ronald ronald 98525 Mar 25 16:44 README.md
+-rw-rw-r-- 1 ronald ronald    64 Mar 25 16:44 requirements.txt
+-rw-rw-r-- 1 ronald ronald    28 Mar 25 16:44 setup.cfg
+-rw-rw-r-- 1 ronald ronald  1002 Mar 25 16:44 setup.py
+drwxrwxr-x 2 ronald ronald 36864 Mar 25 16:44 test
+-rw-rw-r-- 1 ronald ronald    18 Mar 25 16:44 test-requirements.txt
+-rw-rw-r-- 1 ronald ronald   150 Mar 25 16:44 tox.ini
+-rw-rw-r-- 1 ronald ronald   304 Mar 25 16:44 .travis.yml
+~/sdks/dscc-python-sdk$
+```
 
 The generated client library can be made available in your workstation, or it can also be uploaded to a GitHub library so that it can be made available for others to use. An example of the GitHub repository of a sample Python client library looks like this: 
 
