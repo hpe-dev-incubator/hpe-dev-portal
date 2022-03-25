@@ -27,11 +27,11 @@ The definition file contains the following information:
 
 * All available endpoints of the DSCC resources, along with their HTTP headers, parameters, and the responses for each endpoint.
 * The syntax of the HTTP methods (GET, POST, UPDATE, DELETE) and path (relative path).
-* A more detail description of the content of each responses.
+* A more detailed description of the content of each response.
 
 ![](/img/examples-of-the-api-definition-end-points.png "Detail of a resource - host-initiator group")
 
-With this definition file (YAML or JSON), any one can generate client libraries into a selected programming language or scripts.  With the client libraries, a user can use them to programmatically consume the capabilities of DSCC. Currently, there are many tools in the market which are capable to perform the conversion. The list of some of the well-known open-API converter tools are:
+With this definition file (YAML or JSON), anyone can generate client libraries into a selected programming language or scripts.  With the client libraries, a user can use them to programmatically consume the capabilities of DSCC. Currently, there are many tools on the market that are capable to perform the conversion. The list of some of the well-known open-API converter tools are:
 
 * [OpenAPI generator](https://openapi-generator.tech/)
 * [Swagger Codegen](https://swagger.io/tools/swagger-codegen/)
