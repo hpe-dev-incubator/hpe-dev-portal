@@ -10,6 +10,8 @@ priority: 1
 tags:
   - hpe-ezmeral
 ---
+<a id="top"></a>
+
 HPE Ezmeral is a hybrid analytics and data science platform designed to drive data-first modernizations, enabling enterprises to unlock the value of their data wherever it lives. HPE Ezmeral powers HPE GreenLake analytic services to help customers unify, modernize, and analyze all their data across edge-to-cloud.
 
 The complete HPE Ezmeral portfolio offers integrated workflows from analytics to ML/AI, spanning hybrid clouds and edge locations. **HPE Ezmeral Runtime Enterprise** provides a software orchestration platform designed to deploy modern applications using open source Kubernetes from edge to cloud. With **HPE Ezmeral ML Ops**, you can operationalize end-to-end processes and speed up data modeling timelines. **HPE Ezmeral Data Fabric** enables you to securely access data wherever it is located, from edge to cloud. And **HPE Ezmeral Unified Analytics** integrates security-hardened enterprise-grade open source Spark to ensure as-needed data portability. This offers you a unified, modern analytics and data lakehouse platform optimized for on-premises, edge and cloud analytic deployments. 
@@ -31,9 +33,10 @@ The complete HPE Ezmeral portfolio offers integrated workflows from analytics to
 
 HPE Ezmeral supports the most popular open-source ML Ops, Airflow, MLflow, and Kubeflow projects while integrating with an ever-growing ecosystem of certified HPE ISV partners.
 
-The associated [BlueK8s open source initiative](https://github.com/bluek8s) will include a number of projects to help bring enterprise-level capabilities for distributed stateful applications to Kubernetes. The first open source project in this initiative is Kubernetes Director, or [KubeDirector](https://kubedirector.io/) for short. (See **Projects** for specifics).
+The associated [BlueK8s open source initiative](https://github.com/bluek8s) will include a number of projects to help bring enterprise-level capabilities for distributed stateful applications to Kubernetes. The first open source project in this initiative is Kubernetes Director, or [KubeDirector](https://kubedirector.io/) for short. (See [Projects](#projects) for specifics).
 
 --- 
+
 ## Resources
 
  * [HPE Ezmeral Home Page](https://www.hpe.com/us/en/software.html)
@@ -66,6 +69,7 @@ Python library and Command Line Interface (CLI) for HPE Ezmeral Runtime Enterpri
 Use the [HPE Ezmeral interactive demo experience](https://www.hpe.com/us/en/resources/solutions/hpe-ezmeral-demo.html) to learn how to perform common tasks related to building and deploying stateful, containerized applications with HPE Ezmeral Runtime Enterprise, building an Apache Spark ML model, and protecting container data using data fabric.
 
 --- 
+<a id="projects"></a>
 
 ## Projects
 
