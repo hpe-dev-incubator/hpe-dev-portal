@@ -17,6 +17,12 @@ The DSCC API definition is available for download in either YAML or JSON format 
 
 ![DSCC API download](/img/dscc-api-spec.png "DSCC API specification download")
 
+You can also download the DSCC API YAML file using the following Unix command line:
+
+```shell
+$ wget https://console-us1.data.cloud.hpe.com/doc/api/v1/storage-api.yaml
+```
+
 The definition file contains the following information:
 
 * A brief description of the API definition along with the version of the API in this file.
