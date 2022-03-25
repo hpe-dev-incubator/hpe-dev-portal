@@ -38,7 +38,7 @@ With this definition file (YAML or JSON), anyone can generate client libraries i
 * [Azure AutoRest](https://github.com/Azure/autorest)
 * REST API Client Code generator (Found within [Visual Studio MarketPlace](https://marketplace.visualstudio.com/items?itemName=ChristianResmaHelle.ApiClientCodeGenerator))
 
-In this tutorial, I am going to cover the popular and simple OpenAPI generator from [OpenAPI generator](https://openapi-generator.tech/) from soup to nuts. 
+In this tutorial, I am going to cover the popular and simple OpenAPI generator from the [OpenAPI generator](https://openapi-generator.tech/) from soup to nuts. 
 
 *Let's get on with it!*
 
@@ -46,7 +46,7 @@ In this tutorial, I am going to cover the popular and simple OpenAPI generator f
 
 The OpenAPI Generator tool allows the automatic generation of API client libraries (SDKs), server stubs, documentation, and configuration automatically with a given input of [OpenAPI spec](https://github.com/OAI/OpenAPI-Specification) (support both 2.0 and 3.0 OpenAPI formats). This tool can generate more than 50 programming languages that can be consumed by various DevOps tools.
 
-OpenAPI Generator tool is available in various form of applications that meet the user's familiarity. The OpenAPI Generator website provides 4 different set of applications:
+The OpenAPI Generator tool is available for the variety of applications that meet the user's familiarity. The OpenAPI Generator website provides 4 different set of applications:
 
 * A downloadable and executable **JAR** file that can be executed using **Java Run Time tool**.
 * **Docker** image that can be executed using the docker engine.
