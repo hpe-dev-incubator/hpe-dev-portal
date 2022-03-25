@@ -32,10 +32,11 @@ HPE Ezmeral supports the most popular open-source ML Ops, Airflow, MLflow, and K
 
 The associated [BlueK8s open source initiative](https://github.com/bluek8s) will include a number of projects to help bring enterprise-level capabilities for distributed stateful applications to Kubernetes. The first open source project in this initiative is Kubernetes Director, or [KubeDirector](https://kubedirector.io/) for short. (See **Projects** for specifics).
 
+--- 
 ## Resources
 
  * [HPE Ezmeral Home Page](https://www.hpe.com/us/en/software.html)
- * [HPE Ezmeral Documentation](https://docs.containerplatform.hpe.com/54/home/about-hpe-ezmeral-container-pl/Welcome.html)
+ * [HPE Ezmeral Documentation](https://docs.containerplatform.hpe.com/home/)
  * [HPE Ezmeral Learn On-Demand](https://learn.ezmeral.software.hpe.com/)
  * [Request your own demo from the HPE Demo Portal](https://hpedemoportal.ext.hpe.com/home)
 
@@ -63,6 +64,8 @@ Python library and Command Line Interface (CLI) for HPE Ezmeral Runtime Enterpri
 
 Use the [HPE Ezmeral interactive demo experience](https://www.hpe.com/us/en/resources/solutions/hpe-ezmeral-demo.html) to learn how to perform common tasks related to building and deploying stateful, containerized applications with HPE Ezmeral Runtime Enterprise, building an Apache Spark ML model, and protecting container data using data fabric.
 
+--- 
+
 ## Projects
 
 [KubeDirector](https://github.com/bluek8s/kubedirector)
@@ -79,6 +82,7 @@ Kubernetes Director (aka KubeDirector) for deploying and managing stateful appli
 
 HPE Ezmeral software provides the option of leveraging the power of Apache Spark, which is an open-source unified analytics engine for large-scale data processing that is maintained by the Apache Software Foundation. If your organization has a need to run Apache Spark jobs in a Containerized environment, such as within a Kubernetes cluster using a Spark Operator or Livy API server to manage Apache Spark jobs, then HPE offers the HPE Ezmeral Unified Analytics license for the [HPE Ezmeral Runtime Enterprise platform](https://docs.containerplatform.hpe.com/).  
 
+--- 
 
 ## HPE DEV Workshops-on-Demand
 
@@ -90,7 +94,7 @@ Take advantage of our free, Jupyter-Notebook based workshops available in the HP
   <a href="/hackshack/workshops"><button type="button" class="button">Try now!</button></a>
 </div>
 
-
+--- 
 
 
 ## Any questions on HPE Ezmeral Runtime Enterprise?
@@ -99,5 +103,6 @@ Join the [HPEDEV Slack Workspace](https://slack.hpedev.io/) and start a discussi
 
 Not a Slack user? You can also ask your questions in our [HPE Ezmeral Forum](https://hpe.com/forum/ezmeral).
 
+--- 
 
 _Apache® and Apache Spark™ are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by the Apache Software Foundation is implied by the use of these marks._
