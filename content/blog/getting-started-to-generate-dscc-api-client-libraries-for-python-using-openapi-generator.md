@@ -11,13 +11,15 @@ tags:
 ---
 In this blog, you will be introduced with the process that is required to convert the HPE Data Services Cloud Console (DSCC) public API specification in the OpenAPI 3.X definition to any client libraries from several popular programming language. The goal of this conversion process is to achieve the agility of cloud-like operation where update to DSCC API client libraries is automatic and painless.
 
-HPE DSCC public REST API is for customers looking to enhance their data-ops using the programmatic extensions from Data Services Cloud Console. Please see the [Data Services Cloud Console Platform page](https://developer.hpe.com/platform/data-services-cloud-console/home/) for detailed information about the DSCC benefits to customer's Data-Ops operation. The DSCC API definition is available for download in either YAML or JSON format from the DSCC API website (US region:  <https://console-us1.data.cloud.hpe.com/doc/api/v1/>) as shown below:
+HPE DSCC public REST API is for customers looking to enhance their data-ops using the programmatic extensions from Data Services Cloud Console. Please see the [Data Services Cloud Console Platform page](https://developer.hpe.com/platform/data-services-cloud-console/home/) for detailed information about the DSCC benefits to customer's Data-Ops operation. Please see the [Getting Started with the HPE Data Services Cloud Console Public REST API](https://developer.hpe.com/blog/getting-started-with-the-hpe-data-services-cloud-console-public-rest-api/) for the authentication mechanism used to access the DSCC API.
+
+The DSCC API definition is available for download in either YAML or JSON format from the DSCC API website (US region:  <https://console-us1.data.cloud.hpe.com/doc/api/v1/>) as shown below:
 
 ![DSCC API download](/img/dscc-api-spec.png "DSCC API specification download")
 
 The definition file contains the following information:
 
-* Brief description of the API definition along with the version of the API in this file.
+* A brief description of the API definition along with the version of the API in this file.
 * The available regions with the base-URL that must be concatenated to every API paths. For more information about each region, please see [Getting Started with DSCC API](https://developer.hpe.com/blog/getting-started-with-the-hpe-data-services-cloud-console-public-rest-api/) blog.
 * Summary tags for the content of this API definition.
 
