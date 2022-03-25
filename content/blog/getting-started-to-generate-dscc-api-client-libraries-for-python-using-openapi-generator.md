@@ -196,7 +196,7 @@ Lets run a sample code which displays the access types in the DSCC. The required
 ~$ pip install requirements.txt 
 ```
 
-Below is the example code for getting information about the associated user's RBAC association. This code sample will provide list of the capabilities (port.read, volume.create) of the provided user that are authorized to exercise. To execute this code, please substitute the *YOUR_BEARER_TOKEN* with the access token generated in your example.
+Below is the example code for getting information about the associated user's RBAC association. This code sample will provide list of the capabilities (port.read, volume.create) that are authorized for the user to exercise. To execute this code, please substitute the *YOUR_BEARER_TOKEN* with the access token generated in your example.
 
 ```python
 import time
