@@ -44,14 +44,14 @@ In this tutorial, I am going to cover the popular and simple OpenAPI generator f
 
 ### Generating Client Libraries using OpenAPI Generator painlessly
 
-The OpenAPI Generator tool allows the automatic generation of API client libraries (SDKs), server stubs, documentation, and configuration automatically with a given input of [OpenAPI spec](https://github.com/OAI/OpenAPI-Specification) (support both 2.0 and 3.0 OpenAPI formats). This tool can generate more than 50 programming languages that can be consumed by various DevOps tools.
+The OpenAPI Generator tool allows the automatic generation of API client libraries (SDKs), server stubs, documentation, and configuration with a given input of [OpenAPI spec](https://github.com/OAI/OpenAPI-Specification) (support both 2.0 and 3.0 OpenAPI formats). This tool can generate more than 50 programming languages that can be consumed by various DevOps tools.
 
 The OpenAPI Generator tool is available for the variety of applications that meet the user's familiarity. The OpenAPI Generator website provides 4 different sets of application:
 
 * A downloadable and executable **JAR** file that can be executed using **Java Run Time tool**.
-* **Docker** image that can be executed using the docker engine.
-* Dependencies in **Maven** and **Gradle** projects that can be used for building automation.
-* Node package manager (**npm**) package wrapper.
+* A **Docker** image that can be executed using the docker engine.
+* Some dependencies in **Maven** and **Gradle** projects that can be used for building the automation tool.
+* A node package manager (**npm**) package wrapper.
 
 Those applications and the information about using the OpenAPI generator is available as the Readme section in the GitHub page from the following URL: <https://github.com/OpenAPITools/openapi-generator> as shown below:
 
