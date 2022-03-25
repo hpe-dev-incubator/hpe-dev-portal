@@ -44,7 +44,7 @@ In this tutorial, I am going to cover the popular and simple OpenAPI generator f
 
 ### Generating Client Libraries using OpenAPI Generator painlessly
 
-OpenAPI Generator tool allows the generation of API client libraries (SDK), server stubs, documentation, and configuration automatically with a given input of [OpenAPI spec](https://github.com/OAI/OpenAPI-Specification) (support both 2.0 and 3.0 OpenAPI formats). This tool can generate more than 50 programming languages which can be consumed by various DevOps tools.
+The OpenAPI Generator tool allows the automatic generation of API client libraries (SDKs), server stubs, documentation, and configuration automatically with a given input of [OpenAPI spec](https://github.com/OAI/OpenAPI-Specification) (support both 2.0 and 3.0 OpenAPI formats). This tool can generate more than 50 programming languages that can be consumed by various DevOps tools.
 
 OpenAPI Generator tool is available in various form of applications that meet the user's familiarity. The OpenAPI Generator website provides 4 different set of applications:
 
