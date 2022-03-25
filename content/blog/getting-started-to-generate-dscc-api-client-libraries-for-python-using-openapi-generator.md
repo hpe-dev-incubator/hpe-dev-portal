@@ -61,7 +61,7 @@ The key information found in this GitHub website that will be useful and importa
 
 ![](/img/openapi-generator-version-locatoin.png "Stable version for the openAPI generator project")
 
-In this tutorial, let's look at the painless and simplest application of the openAPI generator, that is using the JAR file. Actually using JAR file doesn't require installation at all. The JAR file can be downloaded and executed directly from the command lines. The requirement for executing the JAR file is that your workstation must be deployed with JAVA runtime 8 (JRE) at a minimum. 
+In this tutorial, let's look at the painless and simplest application of the OpenAPI Generator, that is using the JAR file. Actually, using the JAR file doesn't require installation at all. The JAR file can be downloaded and executed directly from the command lines. The requirement for executing the JAR file is that your workstation must be deployed with JAVA runtime 8 (JRE) at a minimum. 
 
 For more information about the deployment of JAVA runtime executables based on the operating system of your workstation, please take a look at the installation page from the JAVA website: <https://www.java.com/en/download/help/download_options.html>
 
