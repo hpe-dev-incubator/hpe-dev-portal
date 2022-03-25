@@ -69,6 +69,7 @@ Python library and Command Line Interface (CLI) for HPE Ezmeral Runtime Enterpri
 Use the [HPE Ezmeral interactive demo experience](https://www.hpe.com/us/en/resources/solutions/hpe-ezmeral-demo.html) to learn how to perform common tasks related to building and deploying stateful, containerized applications with HPE Ezmeral Runtime Enterprise, building an Apache Spark ML model, and protecting container data using data fabric.
 
 --- 
+
 <a id="projects"></a>
 
 ## Projects
@@ -85,7 +86,7 @@ Kubernetes Director (aka KubeDirector) for deploying and managing stateful appli
 [Apache Spark](https://spark.apache.org/)
 
 
-HPE Ezmeral software provides the option of leveraging the power of Apache Spark, which is an open-source unified analytics engine for large-scale data processing that is maintained by the Apache Software Foundation. If your organization has a need to run Apache Spark jobs in a Containerized environment, such as within a Kubernetes cluster using a Spark Operator or Livy API server to manage Apache Spark jobs, then HPE offers the HPE Ezmeral Unified Analytics license for the [HPE Ezmeral Runtime Enterprise platform](https://docs.containerplatform.hpe.com/).  
+HPE Ezmeral software provides the option of leveraging the power of Apache Spark, which is an open-source unified analytics engine for large-scale data processing that is maintained by the Apache Software Foundation. If your organization has a need to run Apache Spark jobs in a Containerized environment, such as within a Kubernetes cluster using a Spark Operator or Livy API server to manage Apache Spark jobs, then HPE offers the HPE Ezmeral Unified Analytics license for the [HPE Ezmeral Runtime Enterprise platform](https://docs.containerplatform.hpe.com/home/).  
 
 --- 
 
