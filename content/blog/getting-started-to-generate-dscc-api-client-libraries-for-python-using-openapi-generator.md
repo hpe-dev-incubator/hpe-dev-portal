@@ -81,7 +81,7 @@ The JAR file for this OpenAPI generator is available at Maven.org. You can downl
 
 **Note:** The OpenAPI Generator version shown above is 5.4.0 (current version as of March 2022). Please keep in mind that, in the future, the location of the JAR file will change once the new version is released.  Please take a look at the figure above to obtain the latest version number, and modify the path to download the latest *openapi-generator-cli* JAR file.
 
-Once the JAR file is downloaded, you can execute the following CLI at the folder where the JAR file is downloaded to display the brief information on how to use this JAR file.
+Once the JAR file is downloaded, you can execute the following CLI at the folder where the JAR file is downloaded, to display the brief information on how to use this JAR file.
 
 ```shell
 ~$ java -jar openapi-generator-cli.jar help
@@ -107,7 +107,7 @@ See 'openapi-generator-cli help <command>' for more information on a specific
 command.
 ```
 
-Now that the JAR file is downloaded and ready to use, lets create a Python SDK using the openAPI generator JAR file. The following command line is used for generating a Python client library using the openapi-generator.jar file.
+Now that the JAR file is downloaded and ready to be used, lets create a Python SDK using the OpenAPI generator JAR file. The following command line is used for generating a Python client library using the *openapi-generator-cli.jar* file.
 
 ```shell
 ~$ java -jar openapi-generator-cli.jar generate -i storage-api.yaml -g python -o sdks/dscc-python-sdk
