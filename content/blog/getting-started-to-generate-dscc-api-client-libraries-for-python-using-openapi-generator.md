@@ -20,7 +20,7 @@ The DSCC API definition is available for download in either YAML or JSON format 
 The definition file contains the following information:
 
 * A brief description of the API definition along with the version of the API in this file.
-* The available regions with the base-URL that must be concatenated to every API paths. For more information about each region, please see [Getting Started with DSCC API](https://developer.hpe.com/blog/getting-started-with-the-hpe-data-services-cloud-console-public-rest-api/) blog.
+* The available regions with the base-URL that must be concatenated to every API path. For more information about each region, please see [Getting Started with DSCC API](https://developer.hpe.com/blog/getting-started-with-the-hpe-data-services-cloud-console-public-rest-api/) blog post.
 * Summary tags for the content of this API definition.
 
 ![](/img/the-introduction-to-the-api-definition.png "DSCC Open API specification (YAML)")
