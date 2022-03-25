@@ -69,9 +69,9 @@ The key information found in this GitHub website that will be useful and importa
 
 In this tutorial, let's take a look at the painless and simplest application of the OpenAPI Generator, which is using the JAR file. Actually, using the JAR file doesn't require any application installation at all. The JAR file can be downloaded and executed directly from the command line window in your workstation. The minimum requirement for executing the JAR file is that your workstation must be deployed with JAVA Run Time Environment (JRE) version 8. 
 
-**Note:** For more information about the deployment of JAVA Run Time executables based on the operating system of your workstation, please take a look at the installation page from the JAVA website [here](https://www.java.com/en/download/help/download_options.html).
+**Note:** For more information about the deployment of JAVA Run Time executables based on the operating system of your workstation, please take a look at the installation page from the JAVA website in [here](https://www.java.com/en/download/help/download_options.html).
 
-The JAR file for this OpenAPI generator is available at Maven.org. You can download it from the following [location](https://repo1.maven.org/maven2/org/openapitools/openapi-generator-cli/5.4.0/openapi-generator-cli-5.4.0.jar). Below , you will find the syntax required to download the OpenAPI generator JAR files from each corresponding workstation:
+The JAR file for this OpenAPI generator is available at Maven.org. You can download it from the following [location](https://repo1.maven.org/maven2/org/openapitools/openapi-generator-cli/5.4.0/openapi-generator-cli-5.4.0.jar). Below , you will find the syntax required to download the OpenAPI generator JAR files from each corresponding operating systems:
 
 **For Mac/Linux users:**
 
@@ -161,9 +161,9 @@ The client library comes with the following:
 
 * The code for assisting the DSCC API calls.
 * The documentation for this DSCC client library derived from the API spec.
-* Test codes that can be used to validate the operation of this client library.
+* Some test codes that can be used to validate the operation of this client library.
 * Examples of every endpoint available in the README.md
-* Required python dependencies (requirements.txt and test-requirements.txt) that are required for using this SDK
+* The required python dependencies (requirements.txt and test-requirements.txt) that are required for using this SDK
 
 For instance, take a look at the README file of this repository which has the following info.
 
@@ -187,10 +187,10 @@ For instance, take a look at the README file of this repository which has the fo
 
 ![](/img/auth.png "Authorization of API calls")
 
-Lets run a sample code which displays the access types in DSCC. The usage of each endpoint is given under documentation of each endpoint in the form of a sample code. To execute the operations on the DSCC, all that is needed for a user to do is:
+Lets run a sample code which displays the access types in the DSCC. The required parameters and the returned results for each endpoint is described under each of endpoints in the sample code. To execute the operations on the DSCC, you will need to perform:
 
-1. Provide an authorized token which is generated from the HPE GreenLake as mentioned in the [blog](https://developer.hpe.com/blog/oauth2-for-hpe-greenlake-data-services-cloud-console/)
-2. Install the Python dependencies using the following command.
+1. Provide an authorized token which is generated from the HPE GreenLake as mentioned in the blog [post](https://developer.hpe.com/blog/api-console-for-data-services-cloud-console/).
+2. Install the required Python dependencies using the following command:
 
 ```shell
 ~$ pip install requirements.txt 
