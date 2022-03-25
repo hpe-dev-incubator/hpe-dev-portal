@@ -187,10 +187,10 @@ For instance, take a look at the README file of this repository which has the fo
 
 ![](/img/auth.png "Authorization of API calls")
 
-Lets run a sample code which displays the access types in the DSCC. The required parameters and the returned results for each endpoint is described under each of endpoints in the sample code. To execute the operations on the DSCC, you will need to perform:
+Lets run a sample code which displays the access types in the DSCC. The required parameters and the returned results for each endpoint is described under each of endpoints in the sample code. To execute the an API call on the DSCC, you will need:
 
-1. Provide an authorized token which is generated from the HPE GreenLake as mentioned in the blog [post](https://developer.hpe.com/blog/api-console-for-data-services-cloud-console/).
-2. Install the required Python dependencies using the following command:
+1. The authorized access token which is generated from the HPE GreenLake API Gateway as mentioned in the blog [post](https://developer.hpe.com/blog/api-console-for-data-services-cloud-console/).
+2. To install the required Python dependencies using the following command:
 
 ```shell
 ~$ pip install requirements.txt 
