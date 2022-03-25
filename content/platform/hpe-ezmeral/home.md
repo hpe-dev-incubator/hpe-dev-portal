@@ -56,7 +56,7 @@ Automated installation for HPE Ezmeral Runtime Enterprise and HPE Ezmeral ML Ops
 
 Python library and Command Line Interface (CLI) for HPE Ezmeral Runtime Enterprise and HPE Ezmeral ML Ops.
 
-### Learn from the experts
+#### Learn from the experts
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/fCQpSHDEHY0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <br />
@@ -64,7 +64,7 @@ Python library and Command Line Interface (CLI) for HPE Ezmeral Runtime Enterpri
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/4-yGrKZ4M-U" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-### Interactive Demo Experience (IDE)
+#### Interactive Demo Experience (IDE)
 
 Use the [HPE Ezmeral interactive demo experience](https://www.hpe.com/us/en/resources/solutions/hpe-ezmeral-demo.html) to learn how to perform common tasks related to building and deploying stateful, containerized applications with HPE Ezmeral Runtime Enterprise, building an Apache Spark ML model, and protecting container data using data fabric.
 
