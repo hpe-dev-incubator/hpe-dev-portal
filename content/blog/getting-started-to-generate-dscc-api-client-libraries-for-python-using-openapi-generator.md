@@ -26,7 +26,7 @@ The definition file contains the following information:
 ![](/img/the-introduction-to-the-api-definition.png "DSCC Open API specification (YAML)")
 
 * All available endpoints of the DSCC resources, along with their HTTP headers, parameters, and the responses for each endpoint.
-* The Syntax of the HTTP methods (GET, POST, UPDATE, DELETE) and path (relative path).
+* The syntax of the HTTP methods (GET, POST, UPDATE, DELETE) and path (relative path).
 * A more detail description of the content of each responses.
 
 ![](/img/examples-of-the-api-definition-end-points.png "Detail of a resource - host-initiator group")
