@@ -118,8 +118,6 @@ Now that the JAR file is downloaded and ready to be used, let's create a Python 
 * 'g' represents the generator/language name like Java, Go.
 * 'o' represents output directory where the client library will be generated.
 
-
-
 This Python DSCC client library can be generated in a few minutes. Below, you can see the screen output generated from the Python client library using the *openapi-generator.jar* file.
 
 ![](/img/client-generation.jpg "Generating Python SDK using OpenAPI generator")
