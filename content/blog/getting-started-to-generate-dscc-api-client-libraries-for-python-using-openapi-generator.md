@@ -165,7 +165,7 @@ The client library comes with the following:
 * Examples of every endpoint available in the README.md
 * The required python dependencies (requirements.txt and test-requirements.txt) that are required for using this SDK
 
-For instance, take a look at the README file of this repository which has the following info.
+Now, you have all the components that are required for invoking the DSCC API using Python scripts and this generated DSCC API. To use this DSCC API client library, let's go through the steps that are described in the README.md:
 
 1. Installation instructions
 
@@ -243,6 +243,8 @@ $ python .\GetAudits.py
 {'items': ['port.read', 'volume.create']}
 ```
 
-Using these client generator tools, client libraries for DSCC can be generated faster and can be pushed to a GitHub repository and be made ready to use. One good advantage is that, automation of this process can be done by using CI/CD pipelines which require no manual intervention in updating any latest released APIs. 
+Using the client generator tool such as described above, the client libraries for DSCC can be generated in agile manner.  As the result, the DSCC API client library in Python can be pushed to a GitHub repository automatically so that it will be ready to be used by any projects. Further advantage of this method is the automation using Continuous Integration/Continuous Deployment (CI/CD) pipeline which require no manual intervention in updating any projects to use the latest released version of the DSCC API. 
 
-Hope this blog on generating Python client library of DSCC is hepful. More blog posts will be coming to help you take further advantage of its capabilities. Stay tuned to the [HPE DEV](https://developer.hpe.com/blog) blog for more blog posts about HPE DSCC REST API.
+See, that's what I call a painless generation of DSCC API client libraries! 
+
+More blog posts will be coming to help you taking further advantage of DSCC API capabilities. Stay tuned to the [HPE DEV](https://developer.hpe.com/blog) blog for more blog posts about HPE DSCC REST API!
