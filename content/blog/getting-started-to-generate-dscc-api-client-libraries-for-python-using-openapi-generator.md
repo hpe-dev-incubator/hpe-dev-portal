@@ -196,7 +196,7 @@ Lets run a sample code which displays the access types in the DSCC. The required
 ~$ pip install requirements.txt 
 ```
 
-Below is the example code for getting information about the associated user's RBAC association. This code sample will provide list of the capabilities (port.read, volume.create) that are authorized for the user to exercise. To execute this code, please substitute the *YOUR_BEARER_TOKEN* with the access token generated in your example.
+Below is the example code for obtaining the information about the associated user's RBAC association. This code sample will provide list of the capabilities (port.read, volume.create) that are authorized for the user to exercise. To execute this code, please substitute the *YOUR_BEARER_TOKEN* with the access token generated in your example.
 
 ```python
 import time
@@ -245,6 +245,6 @@ $ python .\GetAudits.py
 
 Using the client generator tool such as described above, the client libraries for DSCC can be generated in agile manner.  As the result, the DSCC API client library in Python can be pushed to a GitHub repository automatically so that it will be ready to be used by any projects. Further advantage of this method is the automation using Continuous Integration/Continuous Deployment (CI/CD) pipeline which require no manual intervention in updating any projects to use the latest released version of the DSCC API. 
 
-See, that's what I call a painless generation of DSCC API client libraries! 
+I hope this blog post on generating Python client libraries for DSCC is helpful.
 
-More blog posts will be coming to help you taking further advantage of DSCC API capabilities. Stay tuned to the [HPE DEV](https://developer.hpe.com/blog) blog for more blog posts about HPE DSCC REST API!
+More blog posts will be coming to help you taking further advantage of DSCC API capabilities. Stay tuned to the [HPE DEV](https://developer.hpe.com/blog) blog for more blog posts about HPE DSCC REST API.
