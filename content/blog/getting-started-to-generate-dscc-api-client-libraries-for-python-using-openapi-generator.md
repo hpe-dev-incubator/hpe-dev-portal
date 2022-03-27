@@ -157,7 +157,9 @@ The generated client library can be made available on your workstation, or it ca
 
 ![](/img/python-open-api-sdk-repo.jpg "GitHub repository of Python Client library generated using OpenAPI generator")
 
-The client library comes with the following:
+For information on uploading a project and associated files into the GitHub, please see the following [website](https://docs.github.com/en/get-started/importing-your-projects-to-github/importing-source-code-to-github/adding-locally-hosted-code-to-github).
+
+Now, the generated client library comes with the following files:
 
 * The code for assisting the DSCC API calls.
 * The documentation for this DSCC client library derived from the API spec.
