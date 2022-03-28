@@ -7,7 +7,6 @@ author: Don Wake
 authorimage: https://gravatar.com/avatar/e5e1a9dd49e6e07ee55d4532e25c08e5?s=96
 tags:
   - hpe-ezmeral-runtime
-  - hpe-ezmeral-container-platform
   - hpe-ezmeral-data-fabric
   - data-scientist
   - data-ml-engineer

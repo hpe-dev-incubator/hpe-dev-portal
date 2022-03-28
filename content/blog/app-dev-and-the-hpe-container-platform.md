@@ -8,8 +8,6 @@ authorimage: /img/blogs/Avatar5.svg
 thumbnailimage: null
 tags:
   - hpe-ezmeral-runtime
-  - hpe-ezmeral-container-platform
-  - hpe-container-platform
   - opensource
   - kubedirector
 ---
