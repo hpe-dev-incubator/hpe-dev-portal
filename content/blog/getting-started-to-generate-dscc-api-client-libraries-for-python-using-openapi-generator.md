@@ -13,7 +13,7 @@ In this tutorial, you will be introduced to the process that is required to conv
 
 HPE DSCC public REST API is for customers looking to enhance their data-ops using the programmatic extensions from Data Services Cloud Console. Please see the [Data Services Cloud Console Platform page](https://developer.hpe.com/platform/data-services-cloud-console/home/) for detailed information about the DSCC benefits to customer's Data-Ops operation. Please see the [Getting Started with the HPE Data Services Cloud Console Public REST API](https://developer.hpe.com/blog/getting-started-with-the-hpe-data-services-cloud-console-public-rest-api/) for the authentication mechanism used to access the DSCC API.
 
-The DSCC API definition is available for download in either YAML or JSON format from the DSCC API website (US region:  <https://console-us1.data.cloud.hpe.com/doc/api/v1/>) as shown below:
+The DSCC API definition is available for download in either YAML or JSON format from the DSCC API website ([US region](https://console-us1.data.cloud.hpe.com/doc/api/v1/)) as shown below:
 
 ![DSCC API download](/img/dscc-api-spec.png "DSCC API specification download")
 
