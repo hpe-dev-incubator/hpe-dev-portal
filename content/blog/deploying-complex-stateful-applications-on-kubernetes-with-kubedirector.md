@@ -7,7 +7,7 @@ author: Tom Phelan & Joel Baxter
 authorimage: /img/blogs/Avatar3.svg
 thumbnailimage: null
 tags:
-  - hpe-ezmeral-runtime
+  - hpe-ezmeral
   - bluedata
   - container
   - opensource

@@ -5,7 +5,7 @@ author: HPE DEV
 authorimage: /img/Avatar1.svg
 tags:
   - hpe-ezmeral-data-fabric
-  - hpe-ezmeral-runtime
+  - hpe-ezmeral
 ---
 ![](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/12/ezmeral-day-picture-1615293804678.png)
 
