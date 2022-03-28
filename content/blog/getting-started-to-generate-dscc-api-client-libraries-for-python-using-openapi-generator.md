@@ -26,10 +26,12 @@ $ wget https://console-us1.data.cloud.hpe.com/doc/api/v1/storage-api.yaml
 The definition file contains the following information:
 
 * A brief description of the API definition along with the version of the API in this file.
-* The available regions with the base-URL that must be concatenated to every API path. For more information about each region, please see [Getting Started with DSCC API](https://developer.hpe.com/blog/getting-started-with-the-hpe-data-services-cloud-console-public-rest-api/) blog post.
+* The available regions with the base-URL that must be concatenated to every API path. For more information about each region, please see the [Getting Started with DSCC API](https://developer.hpe.com/blog/getting-started-with-the-hpe-data-services-cloud-console-public-rest-api/) blog post.
 * Summary tags for the content of this API definition.
 
 ![](/img/the-introduction-to-the-api-definition.png "DSCC Open API specification (YAML)")
+
+In addition, the definition file also contains:
 
 * All available endpoints of the DSCC resources, along with their HTTP headers, parameters, and the responses for each endpoint.
 * The syntax of the HTTP methods (GET, POST, UPDATE, DELETE) and path (relative path).
