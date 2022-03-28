@@ -60,9 +60,13 @@ Automated installation for HPE Ezmeral Runtime Enterprise and HPE Ezmeral ML Ops
 Python library and Command Line Interface (CLI) for HPE Ezmeral Runtime Enterprise and HPE Ezmeral ML Ops.
 
 #### Learn from the experts
+> <font color="blue"> <font size="3"> **Note:** The HPE Ezmeral Container Platform referenced in these videos has been renamed to HPE Ezmeral Runtime Enterprise. All other information is correct. </font> </font> 
+<br>
+
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/fCQpSHDEHY0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <br />
+
 
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/4-yGrKZ4M-U" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
