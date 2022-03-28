@@ -191,7 +191,7 @@ Now, you have all the components that are required for invoking the DSCC API usi
 
 ![](/img/auth.png "Authorization of API calls")
 
-Lets run a sample code which displays the access types in the DSCC. The required parameters and the returned results for each endpoint is described under each of endpoints in the sample code. To execute the an API call on the DSCC, you will need:
+Let's run a sample code that displays the access types in the DSCC. The required parameters and the returned results for each endpoint are described under each of the endpoints in the sample code. To execute the an API call on the DSCC, you will need:
 
 1. The authorized access token which is generated from the HPE GreenLake API Gateway as mentioned in the blog [post](https://developer.hpe.com/blog/api-console-for-data-services-cloud-console/).
 2. To install the required Python dependencies using the following command:
