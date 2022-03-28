@@ -167,7 +167,7 @@ Now, the generated client library comes with the following files:
 * The documentation for this DSCC client library derived from the API spec.
 * Some test codes that can be used to validate the operation of this client library.
 * Examples of every endpoint available in the README.md
-* The required python dependencies (requirements.txt and test-requirements.txt) that are required for using this SDK
+* The required Python dependencies (requirements.txt and test-requirements.txt) that are required for using this SDK
 
 Now, you have all the components that are required for invoking the DSCC API using Python scripts. To use this DSCC API client library, let's go through the steps that are described in the README.md:
 
