@@ -1,5 +1,5 @@
 ---
-title: Get started building DSCC API Client Libraries for Python using OpenAPI
+title: Get Started Building DSCC API Client Libraries for Python using OpenAPI
   Generator
 date: 2022-03-07T13:34:56.483Z
 priority: 2
