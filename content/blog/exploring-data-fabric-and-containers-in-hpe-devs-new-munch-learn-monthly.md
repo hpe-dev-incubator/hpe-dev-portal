@@ -12,7 +12,7 @@ tags:
   - munch
   - learn
   - hpe-ezmeral
-  - hpe-ezmeral-container-platform
+  
   - hpe-ezmeral-data-fabric
   - data-scientist
 ---

@@ -7,7 +7,7 @@ author: Cenz Wong
 authorimage: https://avatars.githubusercontent.com/u/44856918?v=4
 tags:
   - hpe-ezmeral
-  - hpe-ezmeral-container-platform
+  
   - hpe-ezmeral-data-fabric
   - data-ml-engineer
 ---

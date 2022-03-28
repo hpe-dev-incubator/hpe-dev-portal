@@ -8,8 +8,8 @@ authorimage: /img/blogs/Avatar5.svg
 thumbnailimage: null
 tags:
   - hpe-ezmeral
-  - hpe-ezmeral-container-platform
-  - hpe-container-platform
+  
+  
   - bluedata
   - container
   - opensource
