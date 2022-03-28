@@ -8,8 +8,6 @@ authorimage: /img/blogs/Avatar3.svg
 thumbnailimage: null
 tags:
   - hpe-ezmeral
-  
-  
   - bluedata
   - container
   - opensource

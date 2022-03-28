@@ -8,8 +8,6 @@ authorimage: /img/blogs/Avatar5.svg
 thumbnailimage: null
 tags:
   - hpe-ezmeral
-  
-  
   - opensource
   - kubedirector
 ---

@@ -6,8 +6,6 @@ authorimage: /img/Avatar1.svg
 tags:
   - kubedirector
   - hpe-ezmeral
-  
-  - opensource
 ---
 ![Kartik Mathur](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2021/3/kartik-blog-small-1616160879068.jpg)
 

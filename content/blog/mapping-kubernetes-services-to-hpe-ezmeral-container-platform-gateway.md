@@ -8,8 +8,6 @@ authorimage: https://avatars.githubusercontent.com/u/44856918?s=400&u=37bb095377
 thumbnailimage: https://docs.containerplatform.hpe.com/53/images/5.2/01_unversal_concepts/gateway_hosts_logical_kubernetes.jpg
 tags:
   - hpe-ezmeral
----
-**Editor’s Note – NAME CHANGE: HPE Ezmeral Container Platform is now HPE Ezmeral Runtime Enterprise.** For more information on why the name was changed, please click [here](https://community.hpe.com/t5/HPE-Ezmeral-Uncut/HPE-Ezmeral-Container-Platform-is-now-HPE-Ezmeral-Runtime/ba-p/7151720#.YW7nOxrMKM8).
 
 Imagine you have different Kubernetes services and different services that come with different IP addresses. Are there tools that unify different services into single domain name? A gateway can answer that question. There are several benefits of using a gateway. First, the gateway can act as a load-balancer for different services. Second, only a gateway host IP address is exposed to the public while the rest remains behind the firewall. Follow this blog post to learn more about how to map Kubernetes Services to HPE Ezmeral Runtime Enterprise Gateway.
 

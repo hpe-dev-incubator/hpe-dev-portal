@@ -8,8 +8,6 @@ authorimage: /img/blogs/Avatar1.svg
 thumbnailimage: https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/12/pinkish-image-4-run-ai-post-1612367610553.JPG
 tags:
   - hpe-ezmeral
-  
-  - run:ai
   - GPU
   - AI
   - ML
