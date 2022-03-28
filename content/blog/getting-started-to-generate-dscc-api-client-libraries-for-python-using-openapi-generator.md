@@ -1,6 +1,6 @@
 ---
-title: Getting started to generate DSCC API Client Libraries for Python using
-  OpenAPI-Generator
+title: Get started building DSCC API Client Libraries for Python using OpenAPI
+  Generator
 date: 2022-03-07T13:34:56.483Z
 priority: 2
 author: Anusha, Y; Sijeesh; RonD
