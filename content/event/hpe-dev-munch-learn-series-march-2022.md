@@ -4,7 +4,7 @@ dateStart: 2022-03-22T23:01:16.892Z
 dateEnd: 2022-03-23T22:59:16.911Z
 category: Virtual Event
 image: /img/event-ml_cap_02_rgb.png
-link: https://hpe.zoom.us/webinar/register/5816450193815/WN_wwXxcdVDRfG20gaHnq-dTQ
+link: https://developer.hpe.com/campaign/munch-and-learn
 width: large
 tags:
   - spiffe-and-spire-projects
