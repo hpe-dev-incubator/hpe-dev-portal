@@ -25,7 +25,7 @@ const SideNavContainer = styled(Box)`
   z-index: 1;
 `;
 
-const NavButton = ({ active, to, children, size }) => {
+const NavButton = ({ active, to, children }) => {
   const [hover, setHover] = useState(false);
 
   return (
@@ -39,11 +39,7 @@ const NavButton = ({ active, to, children, size }) => {
       onMouseOut={() => setHover(false)}
       onBlur={() => setHover(false)}
     >
-      <Heading
-        margin="none"
-        size={size === 'small' ? 'medium' : 'small'}
-        color={getNavColor(active, hover)}
-      >
+      <Heading margin="none" size="small" color={getNavColor(active, hover)}>
         {children}
       </Heading>
     </Button>
@@ -54,13 +50,12 @@ NavButton.propTypes = {
   active: PropTypes.bool.isRequired,
   children: PropTypes.node.isRequired,
   to: PropTypes.string.isRequired,
-  size: PropTypes.string,
 };
 
 const SideNav = ({ data }) => {
   const size = useContext(ResponsiveContext);
   const location = useLocation();
-  const platforms = data.allMarkdownRemark.edges;
+  const platforms = data.allMarkdownRemark?.edges;
 
   const PlatformButtonLinks = ({ column }) => {
     const leftColumn = platforms.filter((platform, index) => index % 2 === 0);
@@ -84,38 +79,30 @@ const SideNav = ({ data }) => {
   };
   return (
     <SideNavContainer align="start" gap="xsmall" width={{ min: '250px' }}>
-      <NavButton
-        active={location.pathname === '/hackshack'}
-        to="/hackshack"
-        size={size}
-      >
+      <NavButton active={location.pathname === '/hackshack'} to="/hackshack">
         HACK SHACK
       </NavButton>
       <NavButton
         active={location.pathname === '/hackshack/workshops'}
         to="/hackshack/workshops"
-        size={size}
       >
         WORKSHOPS
       </NavButton>
       <NavButton
         active={location.pathname === '/hackshack/challenges'}
         to="/hackshack/challenges"
-        size={size}
       >
         CHALLENGES
       </NavButton>
       <NavButton
         active={location.pathname === '/hackshack/ezmeral'}
         to="/hackshack/ezmeral"
-        size={size}
       >
         HPE EZMERAL
       </NavButton>
       <NavButton
         active={location.pathname === '/hackshack/replays/:replayId'}
         to="/hackshack/replays/0"
-        size={size}
       >
         REPLAYS
       </NavButton>
@@ -123,7 +110,6 @@ const SideNav = ({ data }) => {
         <NavButton
           active={location.pathname === '/hackshack/community'}
           to="/community"
-          size={size}
         >
           COMMUNITY
         </NavButton>
@@ -135,7 +121,6 @@ const SideNav = ({ data }) => {
           location.pathname === '/hackshack/competiton'
         }
         to="/hackshack/arcade"
-        size={size}
       >
         ARCADE
       </NavButton>

@@ -21,7 +21,7 @@ const TextAlignLeft = styled(Box)`
 
 function Header() {
   const { data } = useContext(AppContext);
-  const platforms = data.allMarkdownRemark.edges;
+  const platforms = data.allMarkdownRemark?.edges;
 
   const PlatformButtonLinks = ({ column }) => {
     const leftColumn = platforms.filter((platform, index) => index % 2 === 0);
