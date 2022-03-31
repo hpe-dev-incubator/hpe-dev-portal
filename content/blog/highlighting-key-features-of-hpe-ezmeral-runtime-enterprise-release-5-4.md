@@ -6,7 +6,7 @@ authorimage: /img/Avatar1.svg
 ---
 It’s a cliché to say that data is an important asset to organizations. Organizations of all sizes are looking at data as a strategic asset to help them create a digital advantage. From delivering frictionless customer experiences and fraud detection, to accelerating breakthrough innovations in healthcare and personal medicine, enterprises are moving into the digital economy very rapidly. Data-first artificial intelligence (AI) and machine learning (ML) initiatives are seen as a strategic enabler and a top investment priority for these organizations. Yet, 80-85% of Enterprises  find it difficult to move their AI/ML initiatives beyond the experimentation stage and thus fail to deliver any meaningful business outcomes.
 
-Common operational challenges 
+# Common operational challenges 
 
 I speak to a lot of customers across different industries and verticals. It is fascinating to see that they all have many challenges in common. Some that I hear repeatedly are: 
 
@@ -24,7 +24,7 @@ Runtime environment consistency
 
 Deploying Kubernetes has become a lot simpler today, which leads to different development teams easily spinning up new clusters. However, these clusters may not be in compliance or meet enterprise security standards. The question is, how do you make it easier for application teams to self-provision Kubernetes clusters and, at the same time, enforce immutable security controls that are centrally governed? 
 
-HPE Ezmeral Runtime Enterprise – Modern approach to delivering end-to-end analytics solutions at scale
+# HPE Ezmeral Runtime Enterprise – Modern approach to delivering end-to-end analytics solutions at scale
 
 HPE Ezmeral Runtime Enterprise is a turnkey platform designed to support clients’ AI, analytics and data needs, as well as help them innovate faster. Built on the foundation of Kubernetes, the Ezmeral Runtime Enterprise platform brings simplicity to operationalizing the ML lifecycle through HPE Ezmeral ML Ops and HPE Ezmeral Runtime Enterprise Analytics for Apache Spark at the edge, on-premises or on public clouds with an infrastructure agnostic approach to deploying and managing the analytics stack.
 
@@ -51,7 +51,7 @@ Spark users, on the other hand, have their own concerns:
 * Multiple storage options – S3, MapR FS, Hadoop data lakes access
 * Support for real-time and batch workloads at scale
 
-How does HPE Ezmeral Unified Analytics solve these challenges? 
+# How does HPE Ezmeral Unified Analytics solve these challenges? 
 
 Let me summarize the features and benefits here. 
 
@@ -93,9 +93,7 @@ Enterprise-grade security secures access to Spark clusters. Users are authentica
 
 Hopefully, this gives you enough information to whet your appetite about the HPE Ezmeral Unified Analytics solution. 
 
-
-
-Let’s move on to HPE Ezmeral ML Ops 
+# Let’s move on to HPE Ezmeral ML Ops 
 
 HPE Ezmeral MLOps is an end-to-end Machine Learning lifecycle management platform for building, training and operationalizing ML models. Here are some of the key features of HPE Ezmeral ML Ops in release 5.4.
 
@@ -112,9 +110,7 @@ Accelerating Model training and inferencing
 
 HPE Ezmeral ML Ops is adding support for NVIDIA MIG-enabled GPUs to be leveraged by data scientists in their notebooks for model building and training. ML/DL frameworks such as Tensorflow and Pytorch have been updated with the right CUDA (Compute Unified Device Architecture) libraries to take advantage of fractionalized GPUs providing cost-efficiency and secure isolation of workloads. 
 
-
-
-HPE Ezmeral Runtime Control plane – The wizard behind the curtain
+# HPE Ezmeral Runtime Control plane – The wizard behind the curtain
 
 The HPE Ezmeral Runtime Enterprise control plane is responsible for lifecycle management of on-premises K8s clusters; orchestrating cloud provider-managed K8s clusters – EKS, AKS and GKE; managing user identity and access controls; and securing ingress and access to service endpoints, to name a few of its capabilities.
 
@@ -124,8 +120,8 @@ Fractional GPU support for NVIDIA MIG-enabled devices: Multi-instance GPU (MIG) 
 
 Day 2 enhancements for Centralized Policy management: The previous 5.3 release included a GitOps-based centralized policy management feature to declaratively construct K8s clusters that conformed to organizations policies. The policy management feature also brought in drift management and reconciliation capabilities to create immutable clusters. The 5.4 release offers a simpler way for admins to visualize the effects of cluster policies on a dashboard. Admins can quickly see which of the existing Kubernetes objects and workloads are in non-compliance with the policy set or the new objects that are being blocked from creation due to the enforced policies. This way, admins can make better decisions about the effects of policies and fine tune them as needed.
 
-Where to go from here
+# Where to go from here
 
 As you can tell, there are quite a few new features and capabilities included in the HPE Ezmeral Runtime Enterprise 5.4 release and we are excited to share them with you. 
 
-To learn more about the HPE Ezmeral products, please contact the HPE Sales team, or visit www.hpe.com/ezmeral to explore how HPE Ezmeral Runtime Enterprise can accelerate your AI and Analytics journey. You can view other articles on HPE Ezmeral here on the HPE DEV blog.
+To learn more about the HPE Ezmeral products, please contact the HPE Sales team, or visit www.hpe.com/ezmeral to explore how HPE Ezmeral Runtime Enterprise can accelerate your AI and Analytics journey. You can view other articles on HPE Ezmeral here on the [HPE DEV blog](https://developer.hpe.com/blog).
