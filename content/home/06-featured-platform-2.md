@@ -3,7 +3,7 @@ title: HPE Ezmeral Runtime Enterprise
 category: Feature Platform
 priority: 6
 width: medium
-link: /platform/hpe-ezmeral-runtime/home/
+link: /platform/hpe-ezmeral/home/
 image: /img/home/ezmeral.svg
 ---
 ## HPE Ezmeral Runtime Enterprise

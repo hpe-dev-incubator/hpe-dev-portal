@@ -57,7 +57,7 @@ function BlogTabs({ data, columns }) {
 
   const platforms = {
     ezmeralBlogs: {
-      label: 'HPE Ezmeral Runtime Enterprise',
+      label: 'HPE Ezmeral',
       count: data.ezmeralBlogsCount.totalCount,
     },
     spiffeBlogs: {

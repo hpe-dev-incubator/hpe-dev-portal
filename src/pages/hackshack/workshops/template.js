@@ -77,6 +77,7 @@ const Workshop = (props) => {
             if (workshop.sessionType === 'Workshops-on-Demand')
               arr.push({ ...workshop });
           });
+          console.log('workshop array', arr);
           setworkshops(arr);
         })
         .catch((err) => {

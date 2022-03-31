@@ -7,7 +7,7 @@ image: /img/munch-and-learn-event-card-white.jpg
 link: https://developer.hpe.com/campaign/munch-and-learn
 width: large
 tags:
-  - hpe-ezmeral-runtime
+  - hpe-ezmeral
   - hpe-ezmeral-data-fabric
 ---
 ## HPE DEV Munch & Learn series
