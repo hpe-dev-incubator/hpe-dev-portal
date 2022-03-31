@@ -1,5 +1,5 @@
 # HPE DEV External Contributor Guide
-**Version 2.0** - 26-Jan-2022
+**Version 2.0** - 25-Mar-2022
 
 >**Note:** A recording of the training session delivered on April 30, 2021 is available [here](https://vimeo.com/544486602). 
 
@@ -458,6 +458,10 @@ To do so, proceed as follows:
 
     -   **Method 2:** Using your PC/Laptop, change image size using you preferred image editor (i.e.: Paint). Toggle to **Rich Text** mode and upload/select the resized image.
  
+ - **Adjusting the font size of a text:**
+ It may happen that you want to put a sentence (such as a footnote - see example below) in a smaller font size. Use the HTML code below. You adjust the font size number from 1 to 4, where 1 is the smallest font size.
+ 
+ \<font size="2"\> _Apache® and Apache Spark™ are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by the Apache Software Foundation is implied by the use of these marks._ \</font\>
  
 - **Embed a YouTube video (HPE Appoved video) in a blog or in Platform page:**
 
@@ -519,11 +523,11 @@ To do so, proceed as follows:
 
        \*\<space\>bullet list item 1
 
-       \<space\>\<space\>\<space\>\*sub-item 1
+       \<space\>\<space\>\<space\>\* sub-item 1
 
-       \<space\>\<space\>\<space\>\*sub-item 2
+       \<space\>\<space\>\<space\>\* sub-item 2
 
-       \<space\>\<space\>\<space\>\*sub-item N
+       \<space\>\<space\>\<space\>\* sub-item N
 
        >**Note:** Always insert a line break between a standard paragraph and the first item of a list
 
@@ -546,7 +550,7 @@ If appropriate, use a tag to tie your blog post to a "platform" page on HPE DEV 
 
   | **Platform name**                  |   **Associated tag**    |
   | ---------------------------------- | ----------------------- |
-  | **HPE Ezmeral Runtime Enterprise** | hpe-ezmeral-runtime |
+  | **HPE Ezmeral** | hpe-ezmeral     |
   | **HPE Ezmeral Data Fabric**        | hpe-ezmeral-data-fabric |
   | **HPE GreenLake**                  | hpe-greenlake |
   | **Spiffe and Spire**               | spiffe-and-spire-projects |

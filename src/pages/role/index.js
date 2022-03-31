@@ -57,14 +57,15 @@ function Role({ data, location }) {
     <Layout title={siteTitle}>
       <SEO title="What's Your Role" />
       <PageDescription
-        image="/img/role/whatsYourRole.png"
+        image="/img/role/roles-main-teal.png"
         title="What's Your Role?"
         alt="What's Your Role page logo"
       >
         <Paragraph size="large">
           Software is at the heart of everything we do. No matter your role,
           you’ll find resources and tools to assist you in building the best
-          possible experience for your customers – from edge to cloud.
+          possible experience for your customers – from edge to cloud. Click on
+          the cards below to learn more.
         </Paragraph>
       </PageDescription>
       <SectionHeader>
@@ -77,6 +78,7 @@ function Role({ data, location }) {
               link={`/${node.fields.sourceInstanceName}${node.fields.slug}`}
               image={node.frontmatter.image}
               category={node.frontmatter.category}
+              flex
             />
           ))}
         </ResponsiveGrid>
@@ -99,6 +101,7 @@ Role.propTypes = {
               image: PropTypes.string,
               frontpage: PropTypes.bool,
               priority: PropTypes.number,
+              active: PropTypes.bool,
             }).isRequired,
             excerpt: PropTypes.string.isRequired,
             fields: PropTypes.shape({
@@ -127,7 +130,7 @@ export const pageQuery = graphql`
           sourceInstanceName: { eq: "role" }
           slug: { regex: "//home/$/" }
         }
-        frontmatter: { isAside: { ne: true } }
+        frontmatter: { isAside: { ne: true }, active: { eq: true } }
       }
       sort: { fields: [frontmatter___priority] }
     ) {
@@ -146,6 +149,7 @@ export const pageQuery = graphql`
             description
             image
             frontpage
+            active
             priority
           }
         }

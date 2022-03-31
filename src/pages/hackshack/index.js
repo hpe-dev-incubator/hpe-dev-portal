@@ -1,6 +1,7 @@
 /* eslint-disable max-len */
 import React, { useContext, useState } from 'react';
 import PropTypes from 'prop-types';
+import { graphql } from 'gatsby';
 import {
   Box,
   Text,
@@ -9,10 +10,10 @@ import {
   Anchor,
   Button,
   Stack,
-  Video,
   Layer,
   Grommet,
 } from 'grommet';
+import ReactPlayer from 'react-player';
 import { Close } from 'grommet-icons';
 import { hpe } from 'grommet-theme-hpe';
 import styled, { keyframes } from 'styled-components';
@@ -258,86 +259,71 @@ GrommetMascot.propTypes = {
   setOpen: PropTypes.func,
 };
 
-const Cards = ({ size }) => (
-  <CardWrapper gap="large">
-    {size === 'small' && (
-      <Card
-        logo="/img/hackshack/StickerPage/gremlin.png"
-        title="New to the HPE DEV Hack Shack?"
-        desc="Watch this video!"
-        background="rgba(0, 86, 122, 0.8);"
-        label="Watch Now"
-        link="https://vimeo.com/539879968"
-        margin={size === 'small' ? { bottom: 'none' } : { bottom: 'xlarge' }}
-      />
-    )}
-    <Card
-      image="/img/hackshack/workshops-on-demand.png"
-      title="INTRODUCING HPE DEV WORKSHOPS-ON-DEMAND"
-      desc="Learn more about our technologies through hands-on experience."
-      path="/hackshack/workshops"
-      background="background"
-      label="Register Now!"
-      margin={
-        size === 'small'
-          ? { top: '0px', right: '0px' }
-          : { top: 'xlarge', right: 'large' }
-      }
-    />
-    <Card
-      image="/img/hackshack/cap_ML.png"
-      title="Mithril: Introducing Robust Identities into Istio by integrating with SPIRE"
-      desc="Join us for a free, 60-minute session where you can connect with experts who offer valuable insights into today’s most popular technologies. This month, meet with Mithril engineering team at HPE who will discuss the fundamentals of zero trust, workload identities, and introduce the concept of Service Mesh. They will then explain how the new open source solution, Mithril, leverages the widely adopted Service Mesh solution Istio, and the secure identities framework of SPIRE to secure the Istio Service Mesh."
-      link="https://hpe.zoom.us/webinar/register/5816450193815/WN_wwXxcdVDRfG20gaHnq-dTQ"
-      date="March 23, 2022"
-      background="rgba(0, 86, 122, 0.8);"
-      label="Register Now!"
-      margin={
-        size === 'small'
-          ? { top: '0px', right: '0px' }
-          : { top: 'xlarge', right: 'large' }
-      }
-    />
-    {/* <Card
-      image="/img/Arcade/TreasureMap.png"
-      title="WIN IN THE HPE DEV TREASURE HUNT"
-      desc="Discover ways to collaborate and where to find resources."
-      link="https://bit.ly/kubecon-na-2021-hpedev-treasure-hunt"
-      background="rgba(0, 86, 122, 0.8);"
-      label="Hunt for Treasure!"
-      margin={size === 'small' ? { bottom: 'none' } : { bottom: 'xlarge' }}
-    /> */}
-    {/* <Card
-      logo="/img/Community/dev-thumb.png"
-      title="GET THE HPE DEVELOPER NEWSLETTER"
-      desc="Want to read more about industry 
-        trends for developers? Sign up here."
-      link="https://developer.hpe.com/newsletter-signup"
-      background="background"
-      label="Get the Newsletter"
-      margin={
-        size === 'small'
-          ? { top: '0px', right: '0px' }
-          : { top: 'xlarge', right: 'large' }
-      }
-    /> */}
-    {/* <Card
-      image="/img/Arcade/score.png"
-      title="PLAY HACK SHACK ATTACK, OUR RETRO VIDEO GAME"
-      desc="Compete with your friends for bragging rights."
-      path="/hackshackattack"
-      background="rgba(0, 86, 122, 0.8);"
-      label="Play the Game"
-      margin={size === 'small' ? { bottom: 'none' } : { bottom: 'xlarge' }}
-    /> */}
-  </CardWrapper>
-);
+const Cards = ({ size, data }) => {
+  const homeCards = data?.allMarkdownRemark?.edges;
+  return (
+    <>
+      <CardWrapper gap="large">
+        {size === 'small' && (
+          <Card
+            logo="/img/hackshack/StickerPage/gremlin.png"
+            title="New to the HPE DEV Hack Shack?"
+            desc="Watch this video!"
+            background="rgba(0, 86, 122, 0.8);"
+            label="Watch Now"
+            link="https://youtu.be/Urth22R5Iz4"
+            margin={
+              size === 'small' ? { bottom: 'none' } : { bottom: 'xlarge' }
+            }
+          />
+        )}
+        {homeCards &&
+          homeCards.map(({ node }) => (
+            <Card
+              key={node.id}
+              image={node.frontmatter.image}
+              title={node.frontmatter.title}
+              desc={node.frontmatter.description}
+              link={node.frontmatter.link}
+              path={node.frontmatter.path}
+              background={node.frontmatter.background}
+              label={node.frontmatter.label}
+              margin={
+                size === 'small'
+                  ? { top: '0px', right: '0px' }
+                  : { top: 'xlarge', right: 'large' }
+              }
+            />
+          ))}
+      </CardWrapper>
+    </>
+  );
+};
 
 Cards.propTypes = {
   size: PropTypes.string,
+  data: PropTypes.shape({
+    allMarkdownRemark: PropTypes.shape({
+      edges: PropTypes.arrayOf(
+        PropTypes.shape({
+          node: PropTypes.shape({
+            id: PropTypes.string,
+            frontmatter: PropTypes.shape({
+              width: PropTypes.string,
+              category: PropTypes.string,
+              image: PropTypes.string,
+              link: PropTypes.string,
+              priority: PropTypes.number,
+            }),
+          }),
+          rawMarkdownBody: PropTypes.string,
+        }),
+      ),
+    }),
+  }).isRequired,
 };
 
-const ResponsiveContextWrapper = ({ children, setOpen }) => {
+const ResponsiveContextWrapper = ({ children, setOpen, data }) => {
   const size = useContext(ResponsiveContext);
   return (
     <Box
@@ -347,7 +333,7 @@ const ResponsiveContextWrapper = ({ children, setOpen }) => {
     >
       {children}
       {size !== 'small' && <GrommetMascot setOpen={setOpen} />}
-      <Cards size={size} />
+      <Cards size={size} data={data} />
     </Box>
   );
 };
@@ -355,9 +341,28 @@ const ResponsiveContextWrapper = ({ children, setOpen }) => {
 ResponsiveContextWrapper.propTypes = {
   children: PropTypes.node.isRequired,
   setOpen: PropTypes.func.isRequired,
+  data: PropTypes.shape({
+    allMarkdownRemark: PropTypes.shape({
+      edges: PropTypes.arrayOf(
+        PropTypes.shape({
+          node: PropTypes.shape({
+            id: PropTypes.string,
+            frontmatter: PropTypes.shape({
+              width: PropTypes.string,
+              category: PropTypes.string,
+              image: PropTypes.string,
+              link: PropTypes.string,
+              priority: PropTypes.number,
+            }),
+          }),
+          rawMarkdownBody: PropTypes.string,
+        }),
+      ),
+    }),
+  }).isRequired,
 };
 
-const Home = () => {
+const Home = ({ data }) => {
   const [open, setOpen] = useState();
   const onClose = () => setOpen(undefined);
   return (
@@ -367,7 +372,7 @@ const Home = () => {
         <Helmet>
           <body margin="0" />
         </Helmet>
-        <ResponsiveContextWrapper setOpen={setOpen}>
+        <ResponsiveContextWrapper setOpen={setOpen} data={data}>
           {open && (
             <StyledLayer
               full
@@ -389,21 +394,13 @@ const Home = () => {
                 />
               </Box>
               <Box alignSelf="center">
-                <Video controls="over" autoPlay fit="cover">
-                  <source
-                    key="video"
-                    src="https://player.vimeo.com/external/539879968.hd.mp4?s=1ff575d7f35468a09a8ad9ac86361989b4cb33e5&profile_id=174"
-                    type="video/mp4"
-                  />
-                  <track
-                    key="cc"
-                    label="English"
-                    kind="subtitles"
-                    srcLang="en"
-                    src="/img/assets/small-en.vtt"
-                    default
-                  />
-                </Video>
+                <ReactPlayer
+                  url="https://youtu.be/Urth22R5Iz4"
+                  controls
+                  width="932px"
+                  height="528px"
+                  playing
+                />
               </Box>
             </StyledLayer>
           )}
@@ -428,5 +425,57 @@ const Home = () => {
     </Grommet>
   );
 };
+
+Home.propTypes = {
+  data: PropTypes.shape({
+    allMarkdownRemark: PropTypes.shape({
+      edges: PropTypes.arrayOf(
+        PropTypes.shape({
+          node: PropTypes.shape({
+            id: PropTypes.string,
+            frontmatter: PropTypes.shape({
+              width: PropTypes.string,
+              category: PropTypes.string,
+              image: PropTypes.string,
+              link: PropTypes.string,
+              priority: PropTypes.number,
+            }),
+          }),
+          rawMarkdownBody: PropTypes.string,
+        }),
+      ),
+    }),
+  }).isRequired,
+};
+
+export const pageQuery = graphql`
+  query {
+    allMarkdownRemark(
+      filter: {
+        fields: { sourceInstanceName: { eq: "hackshackhome" } }
+        frontmatter: { active: { eq: true } }
+      }
+      sort: { fields: [frontmatter___priority] }
+    ) {
+      edges {
+        node {
+          id
+          frontmatter {
+            title
+            link
+            path
+            description
+            image
+            background
+            label
+            priority
+            active
+          }
+          rawMarkdownBody
+        }
+      }
+    }
+  }
+`;
 
 export default Home;

@@ -64,7 +64,7 @@ function RoleTemplate({ data }) {
             <Heading margin="none">{title}</Heading>
             <MarkdownLayout>{rawMarkdownBody}</MarkdownLayout>
             {blogs.length > 0 && (
-              <SectionHeader title="Related Blogs" color="border">
+              <SectionHeader title="Blog articles and tutorials" color="border">
                 <ResponsiveGrid gap="large" rows={rows} columns={columns}>
                   {blogs.map(({ node }, i) => {
                     return node &&
@@ -81,7 +81,7 @@ function RoleTemplate({ data }) {
         <Box alignSelf="start">
           <ButtonLink
             icon={<FormPreviousLink />}
-            label="Go to What's Your Role Page"
+            label="Your Role Page"
             to="/role"
           />
         </Box>
