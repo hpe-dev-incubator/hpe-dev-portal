@@ -36,6 +36,7 @@ ExternalButtonLink.propTypes = {
 export const ButtonLink = ({ to, state, ...rest }) => (
   <Button
     href={to}
+    style={{ zIndex: 100 }}
     onClick={(ev) => {
       navigate(to, state);
       ev.preventDefault();
