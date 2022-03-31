@@ -79,9 +79,9 @@ function Header() {
     //   to="/use-cases"
     //   alignSelf="start"
     // />,
-    <ButtonLink key="yr" label="Your Role" to="/role" alignSelf="start" />,
-    <ButtonLink key="ev" label="Events" to="/events" />,
-    <ButtonLink key="su" label="Skill Up" to="/skillup" />,
+    <ButtonLink align="start" key="yr" label="Your Role" to="/role" />,
+    <ButtonLink align="start" key="ev" label="Events" to="/events" />,
+    <ButtonLink align="start" key="su" label="Skill Up" to="/skillup" />,
     <ButtonLink
       align="start"
       key="bl"
