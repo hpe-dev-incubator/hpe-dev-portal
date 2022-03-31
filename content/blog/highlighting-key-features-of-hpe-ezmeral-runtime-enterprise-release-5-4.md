@@ -131,3 +131,7 @@ The HPE Ezmeral Runtime Enterprise control plane is responsible for lifecycle ma
 As you can tell, there are quite a few new features and capabilities included in the HPE Ezmeral Runtime Enterprise 5.4 release and we are excited to share them with you. 
 
 To learn more about the HPE Ezmeral products, please contact the HPE Sales team, or visit www.hpe.com/ezmeral to explore how HPE Ezmeral Runtime Enterprise can accelerate your AI and Analytics journey. You can view other articles on HPE Ezmeral here on the [HPE DEV blog](https://developer.hpe.com/blog).
+
+
+
+###### Apache® and Apache Spark™ are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by the Apache Software Foundation is implied by the use of these marks.
