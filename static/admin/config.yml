@@ -241,8 +241,8 @@ collections:
           - {label: 'Template Name', name: 'templateName', widget: 'string' }
           - {label: 'Template Link', name: 'link', widget: 'string' }
 # Evangelist collection
-  - name: 'contribute'
-    label: 'HPE DEV Evangelist'
+  - name: 'evangelist'
+    label: 'Evangelist'
     folder: 'content/evangelist'
     extension: 'md'
     create: true
