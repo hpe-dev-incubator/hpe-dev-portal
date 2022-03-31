@@ -7,7 +7,7 @@ author: Cenz Wong
 authorimage: https://avatars.githubusercontent.com/u/44856918?s=400&u=37bb095377cd6b4ad21c3a7ab8b5afe185a46941&v=4
 thumbnailimage: https://docs.containerplatform.hpe.com/53/images/5.2/01_unversal_concepts/gateway_hosts_logical_kubernetes.jpg
 tags:
-  - hpe-ezmeral-runtime
+  - hpe-ezmeral
 ---
 **Editor’s Note – NAME CHANGE: HPE Ezmeral Container Platform is now HPE Ezmeral Runtime Enterprise.** For more information on why the name was changed, please click [here](https://community.hpe.com/t5/HPE-Ezmeral-Uncut/HPE-Ezmeral-Container-Platform-is-now-HPE-Ezmeral-Runtime/ba-p/7151720#.YW7nOxrMKM8).
 
@@ -116,4 +116,4 @@ kubectl delete deployment/k8s-helloworld
 
 # Take away
 
-Mapping Kubernetes services to HPE Ezmeral Runtime Enterprise Gateway provides a single point of secure access to the platform, which also allows for load-balancing. As you can see from what we just went through, it really isn't that hard. Feel free to navigate to HPE DEV Hack Shack to register for a [Workshop-on-Demand](/hackshack/workshop/24) for Kubernetes 101. Here, you can try it for yourself. After playing around with this, if you would like to clean up the application, remember to delete both the services and the deployment. Stay tuned to the [HPE DEV blog](https://developer.hpe.com/blog) to learn more on other [HPE Ezmeral Runtime Enterprise](https://developer.hpe.com/platform/hpe-ezmeral-runtime/home/) related topics.
+Mapping Kubernetes services to HPE Ezmeral Runtime Enterprise Gateway provides a single point of secure access to the platform, which also allows for load-balancing. As you can see from what we just went through, it really isn't that hard. Feel free to navigate to HPE DEV Hack Shack to register for a [Workshop-on-Demand](/hackshack/workshop/24) for Kubernetes 101. Here, you can try it for yourself. After playing around with this, if you would like to clean up the application, remember to delete both the services and the deployment. Stay tuned to the [HPE DEV blog](https://developer.hpe.com/blog) to learn more on other [HPE Ezmeral Runtime Enterprise](https://developer.hpe.com/platform/hpe-ezmeral/home/) related topics.

@@ -209,14 +209,14 @@ export const pageQuery = graphql`
     ezmeralBlogsCount: allMarkdownRemark(
       filter: {
         fields: { sourceInstanceName: { eq: "blog" } }
-        frontmatter: { tags: { eq: "hpe-ezmeral-runtime" } }
+        frontmatter: { tags: { eq: "hpe-ezmeral" } }
       }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
       totalCount
     }
     ezmeralBlogs: paginatedCollectionPage(
-      collection: { name: { eq: "ezmeral-runtime-blog-posts" } }
+      collection: { name: { eq: "ezmeral-blog-posts" } }
       index: { eq: 0 }
     ) {
       nodes
@@ -561,7 +561,7 @@ export const pageQuery = graphql`
             nin: [
               "opensource"
               "hpe-ezmeral-container-platform"
-              "hpe-ezmeral-runtime"
+              "hpe-ezmeral"
               "spiffe-and-spire-projects"
               "hpe-ezmeral-data-fabric"
               "hpe-greenlake"

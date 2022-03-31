@@ -11,8 +11,7 @@ tags:
   - munch-and-Learn
   - munch
   - learn
-  - hpe-ezmeral-runtime
-  - hpe-ezmeral-container-platform
+  - hpe-ezmeral
   - hpe-ezmeral-data-fabric
   - data-scientist
 ---

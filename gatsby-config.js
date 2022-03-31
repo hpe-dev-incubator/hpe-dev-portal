@@ -187,6 +187,13 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
+        path: `${__dirname}/content/evangelist`,
+        name: 'evangelist',
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
         path: `${__dirname}/content/hackshackhome`,
         name: 'hackshackhome',
       },
@@ -332,7 +339,7 @@ module.exports = {
           "iLOrest",
           "ilo-restful-api",
           "Redfish",
-          "hpe-ezmeral-runtime"
+          "hpe-ezmeral"
           "data-services-cloud-console"
           "determined-ai"
           ]}}}, sort: {fields: [frontmatter___date], order: DESC}) {
@@ -372,7 +379,7 @@ module.exports = {
       },
     },
     paginatedCollection('opensource-blog-posts', 'opensource'),
-    paginatedCollection('ezmeral-runtime-blog-posts', 'hpe-ezmeral-runtime'),
+    paginatedCollection('ezmeral-blog-posts', 'hpe-ezmeral'),
     paginatedCollection('spiffe-blog-posts', 'spiffe-and-spire-projects'),
     paginatedCollection('data-fabric-posts', 'hpe-ezmeral-data-fabric'),
     paginatedCollection('greenlake-posts', 'hpe-greenlake'),

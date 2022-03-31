@@ -598,6 +598,7 @@ const ScheduleCard = ({
   duration,
   popular,
 }) => {
+  console.log('session link', sessionLink);
   const size = useContext(ResponsiveContext);
   const textSize = size === 'small' ? '16px' : 'medium';
   let backgroundColor;

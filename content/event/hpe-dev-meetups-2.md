@@ -8,7 +8,7 @@ link: https://hpe.zoom.us/webinar/register/8216432918970/WN_h-SgJ0_kRmiUIm-A3GEP
 width: large
 tags:
   - Meetups
-  - hpe-ezmeral-runtime
+  - hpe-ezmeral
 ---
 ## HPE DEV Meetups
 
