@@ -30,7 +30,7 @@ Let’s examine these features in detail.
 
 High-performance object store capabilities optimize all object sizes for both performance and storage efficiency. With HPE Ezmeral Data Fabric, multi-protocol access, using S3 API or standard interfaces, increases object availability to a wider set of traditional and cloud-native applications. As a part of this, HPE Ezmeral Data Fabric now allows you to: 
 
-* Be Write Once Read Many (WORM) compliant, for organizations that must satisfy record keeping rules that ensure data is not tampered with in any possible way. This governance and compliance for data retention periods is very useful in financial and healthcare vertical markets.
+* Be Write Once Read Many (WORM) compliant, helping organizations that must satisfy record keeping rules that ensure data is not tampered with in any possible way. This governance and compliance for data retention periods is very useful in financial and healthcare vertical markets.
 * Integrate with MCS: With the new object store UI, administrators can manage accounts, buckets, objects, access policies, and users through a simple, intuitive interface.
 * Archive data and build on-premises applications or migrate to cloud-native applications.
 * Store media for operational use with fast retrieval, reduce costs of storing globally distributed media, such as music, video, and images.
