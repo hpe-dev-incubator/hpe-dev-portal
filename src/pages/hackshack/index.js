@@ -11,11 +11,9 @@ import {
   Button,
   Stack,
   Layer,
-  Grommet,
 } from 'grommet';
 import ReactPlayer from 'react-player';
 import { Close } from 'grommet-icons';
-import { hpe } from 'grommet-theme-hpe';
 import styled, { keyframes } from 'styled-components';
 import Helmet from 'react-helmet';
 import { SEO } from '../../components';
@@ -366,63 +364,63 @@ const Home = ({ data }) => {
   const [open, setOpen] = useState();
   const onClose = () => setOpen(undefined);
   return (
-    <Grommet theme={hpe}>
-      <Layout background="/img/hackshack/BackgroundImages/hack-shack-home-background.png">
-        <SEO title="Hack Shack" />
-        <Helmet>
-          <body margin="0" />
-        </Helmet>
-        <ResponsiveContextWrapper setOpen={setOpen} data={data}>
-          {open && (
-            <StyledLayer
-              full
-              animation="fadeIn"
-              onClickOutside={onClose}
-              onEsc={onClose}
-            >
-              <Box alignSelf="end" pad={{ top: 'large', bottom: 'xsmall' }}>
-                <Button
-                  alignSelf="end"
-                  label={
-                    <Text weight="normal" color="white" size="xlarge">
-                      Close
-                    </Text>
-                  }
-                  reverse
-                  icon={<Close size="medium" />}
-                  onClick={onClose}
-                />
-              </Box>
-              <Box alignSelf="center">
-                <ReactPlayer
-                  url="https://youtu.be/Urth22R5Iz4"
-                  controls
-                  width="932px"
-                  height="528px"
-                  playing
-                />
-              </Box>
-            </StyledLayer>
-          )}
-          <MainWrapper align="center">
-            <LogoWrapper>
-              <Image
-                width="100%"
-                fit="cover"
-                src="/img/hackshack/hack-shack-logo.png"
-                alt="Hack Shack"
+    // <Grommet theme={hpe}>
+    <Layout background="/img/hackshack/BackgroundImages/hack-shack-home-background.png">
+      <SEO title="Hack Shack" />
+      <Helmet>
+        <body margin="0" />
+      </Helmet>
+      <ResponsiveContextWrapper setOpen={setOpen} data={data}>
+        {open && (
+          <StyledLayer
+            full
+            animation="fadeIn"
+            onClickOutside={onClose}
+            onEsc={onClose}
+          >
+            <Box alignSelf="end" pad={{ top: 'large', bottom: 'xsmall' }}>
+              <Button
+                alignSelf="end"
+                label={
+                  <Text weight="normal" color="white" size="xlarge">
+                    Close
+                  </Text>
+                }
+                reverse
+                icon={<Close size="medium" />}
+                onClick={onClose}
               />
-            </LogoWrapper>
-            <Content />
-            {/* <ButtonWrapper>
+            </Box>
+            <Box alignSelf="center">
+              <ReactPlayer
+                url="https://youtu.be/Urth22R5Iz4"
+                controls
+                width="932px"
+                height="528px"
+                playing
+              />
+            </Box>
+          </StyledLayer>
+        )}
+        <MainWrapper align="center">
+          <LogoWrapper>
+            <Image
+              width="100%"
+              fit="cover"
+              src="/img/hackshack/hack-shack-logo.png"
+              alt="Hack Shack"
+            />
+          </LogoWrapper>
+          <Content />
+          {/* <ButtonWrapper>
               <ButtonSplit to="https://developer.hpe.com">
                 Visit HPE DEV Community Portal
               </ButtonSplit>
             </ButtonWrapper> */}
-          </MainWrapper>
-        </ResponsiveContextWrapper>
-      </Layout>
-    </Grommet>
+        </MainWrapper>
+      </ResponsiveContextWrapper>
+    </Layout>
+    // </Grommet>
   );
 };
 

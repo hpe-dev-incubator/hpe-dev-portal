@@ -1,16 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql, navigate } from 'gatsby';
-import {
-  Box,
-  Text,
-  Heading,
-  Card,
-  Image,
-  Anchor,
-  Markdown,
-  Paragraph,
-} from 'grommet';
+import { Box, Text, Heading, Card, Image, Markdown, Paragraph } from 'grommet';
 import { FormPreviousLink } from 'grommet-icons';
 import {
   Content,
@@ -19,6 +10,7 @@ import {
   ButtonLink,
   PageDescription,
   ResponsiveGrid,
+  Questions,
 } from '../../components';
 import { useSiteMetadata } from '../../hooks/use-site-metadata';
 
@@ -115,18 +107,7 @@ function Contribute({ data }) {
             </ResponsiveGrid>
           </Box>
         </Box>
-        <Heading level="3">Questions?</Heading>
-        <Text size="27px" margin={{ bottom: 'medium' }}>
-          Feel free to reach out to us via{' '}
-          <Anchor href="mailto:hpedev@hpe.com" target="_blank">
-            email
-          </Anchor>{' '}
-          or through our{' '}
-          <Anchor href="https://slack.hpedev.io/" target="_blank">
-            HPE DEV Slack channel
-          </Anchor>
-          .
-        </Text>
+        <Questions />
       </PageDescription>
       <Box alignSelf="start">
         <ButtonLink

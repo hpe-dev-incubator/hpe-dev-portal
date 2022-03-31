@@ -1,18 +1,32 @@
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { Box, Button, Text, Header as HeaderGrommet } from 'grommet';
+import {
+  Box,
+  Button,
+  Header as HeaderGrommet,
+  ResponsiveContext,
+} from 'grommet';
 import { Menu } from 'grommet-icons';
+import { ButtonLink } from '../..';
 
-export const Header = ({ setLayer, size }) => {
+export const Header = ({ setLayer }) => {
+  const size = useContext(ResponsiveContext);
   useEffect(() => {
     if (size !== 'small') setLayer(false);
   }, [size, setLayer]);
 
   return (
-    <HeaderGrommet pad="medium" justify="between" align="center">
+    <HeaderGrommet
+      justify="between"
+      pad={{ horizontal: 'medium', vertical: 'small' }}
+    >
       {size === 'small' && (
-        <Box direction="row" align="center">
-          <Text color="#FFFFFF">MENU</Text>
+        <Box flex={false}>
+          <ButtonLink label="HPE Developer" to="/" />
+        </Box>
+      )}
+      {size === 'small' && (
+        <Box>
           <Button icon={<Menu />} onClick={() => setLayer(true)} />
         </Box>
       )}
@@ -23,5 +37,4 @@ export default Header;
 
 Header.propTypes = {
   setLayer: PropTypes.func,
-  size: PropTypes.string,
 };

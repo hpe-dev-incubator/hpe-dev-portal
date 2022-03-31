@@ -6,9 +6,9 @@ import {
   Nav,
   ResponsiveContext,
 } from 'grommet';
-import { useStaticQuery, graphql } from 'gatsby';
 import { Menu, Search, FormDown } from 'grommet-icons';
 import styled from 'styled-components';
+import { AppContext } from '../../providers/AppProvider';
 import { ButtonLink } from '..';
 
 const TextAlignLeft = styled(Box)`
@@ -20,34 +20,8 @@ const TextAlignLeft = styled(Box)`
 `;
 
 function Header() {
-  const data = useStaticQuery(graphql`
-    query NonPageQuery {
-      allMarkdownRemark(
-        filter: {
-          fields: {
-            sourceInstanceName: { eq: "platform" }
-            slug: { regex: "//home/$/" }
-          }
-        }
-        sort: { fields: [frontmatter___priority] }
-      ) {
-        edges {
-          node {
-            id
-            fields {
-              slug
-              sourceInstanceName
-            }
-            frontmatter {
-              title
-            }
-          }
-        }
-      }
-    }
-  `);
-
-  const platforms = data.allMarkdownRemark.edges;
+  const { data } = useContext(AppContext);
+  const platforms = data.allMarkdownRemark?.edges;
 
   const PlatformButtonLinks = ({ column }) => {
     const leftColumn = platforms.filter((platform, index) => index % 2 === 0);
@@ -72,7 +46,7 @@ function Header() {
 
   const size = useContext(ResponsiveContext);
   const navLinks = [
-    <ButtonLink key="os" label="Open Source" to="/opensource" />,
+    <ButtonLink align="start" key="os" label="Open Source" to="/opensource" />,
     <DropButton
       label="Our Platforms"
       dropAlign={{ top: 'bottom', left: 'left' }}
@@ -105,17 +79,29 @@ function Header() {
     //   to="/use-cases"
     //   alignSelf="start"
     // />,
-    <ButtonLink key="yr" label="Your Role" to="/role" alignSelf="start" />,
-    <ButtonLink key="ev" label="Events" to="/events" />,
-    <ButtonLink key="su" label="Skill Up" to="/skillup" />,
+    <ButtonLink align="start" key="yr" label="Your Role" to="/role" />,
+    <ButtonLink align="start" key="ev" label="Events" to="/events" />,
+    <ButtonLink align="start" key="su" label="Skill Up" to="/skillup" />,
     <ButtonLink
+      align="start"
       key="bl"
       label="Blog"
       to="/blog"
       state={{ state: { isBlogHeaderClicked: true } }}
     />,
-    <ButtonLink key="cm" label="Community" to="/community" />,
+    <ButtonLink align="start" key="cm" label="Community" to="/community" />,
   ];
+  if (size === 'small') {
+    navLinks.push(
+      <ButtonLink
+        align="start"
+        to="/search"
+        icon={<Search />}
+        label="Search"
+        reverse
+      />,
+    );
+  }
 
   return (
     <GrommetHeader
@@ -142,14 +128,17 @@ function Header() {
           </Nav>
         </Box>
       )}
-      <ButtonLink
-        align="start"
-        to="/search"
-        icon={<Search />}
-        label="Search"
-        reverse
-      />
+      {size !== 'small' && (
+        <ButtonLink
+          align="start"
+          to="/search"
+          icon={<Search />}
+          label="Search"
+          reverse
+        />
+      )}
     </GrommetHeader>
   );
 }
+
 export default Header;

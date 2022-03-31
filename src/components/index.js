@@ -17,6 +17,7 @@ import NewsletterCard from './NewsletterCard';
 import CommunityCard from './CommunityCard';
 import BlogTabs from './BlogTabs';
 import BlogTabContent from './BlogTabContent';
+import Questions from './Questions';
 
 export * from './Card';
 export * from './Link';
@@ -43,4 +44,5 @@ export {
   CommunityCard,
   BlogTabs,
   BlogTabContent,
+  Questions,
 };

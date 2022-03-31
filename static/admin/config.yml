@@ -60,14 +60,14 @@ collections:
     fields:
       - { label: 'Title', name: 'title', widget: 'string', required: true }
       - { label: 'Active', name: 'active', widget: 'boolean', required: false, hint: 'selecting true adds the card in the Hackshack home page'  }
-      - { label: 'External Link', name: 'link', widget: 'string' }
-      - { label: 'Navigation Path', name: 'path', widget: 'string'}
+      - { label: 'External Link', name: 'link', widget: 'string', required: false }
+      - { label: 'Navigation Path', name: 'path', widget: 'string', required: false}
       - { label: 'Description', name: 'description', widget: 'string', required: true}
       - { label: 'Background Color', name: 'background', widget: 'select', options: [ 'background', 'rgba(0, 86, 122, 0.8);' ], default: 'background', required: true}
       - { label: 'Button Lable', name: 'label', widget: 'string' , required: true}
       - { label: 'Priority', name: 'priority', widget: 'number' , required: true }
       - { label: 'Thumbnail Image', name: 'image', widget: 'image', media_folder: '/static/img', public_folder: '/img', hint: 'image to appear on card' , required: true }
-      - { label: 'Body', name: 'body', widget: 'markdown' }
+      - { label: 'Body', name: 'body', widget: 'markdown', required: false }
   # Opensource collectionel: 
   - name: 'opensource'
     label: 'Opensource'
