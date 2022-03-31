@@ -1,10 +1,12 @@
 ---
-title: Highlighting Key Features of HPE Ezmeral Runtime Enterprise Release 5.4
+title: Highlighting key features of HPE Ezmeral Runtime Enterprise Release 5.4
 date: 2022-03-31T18:18:53.021Z
 author: Srikanth Venkata Seshu
 authorimage: /img/Avatar1.svg
 ---
-It’s a cliché to say that data is an important asset to organizations. Organizations of all sizes are looking at data as a strategic asset to help them create a digital advantage. From delivering frictionless customer experiences and fraud detection, to accelerating breakthrough innovations in healthcare and personal medicine, enterprises are moving into the digital economy very rapidly. Data-first artificial intelligence (AI) and machine learning (ML) initiatives are seen as a strategic enabler and a top investment priority for these organizations. Yet, 80-85% of Enterprises  find it difficult to move their AI/ML initiatives beyond the experimentation stage and thus fail to deliver any meaningful business outcomes.
+It’s a cliché to say that data is an important asset to organizations. Organizations of all sizes are looking at data as a strategic asset to help them create a digital advantage. From delivering frictionless customer experiences and fraud detection, to accelerating breakthrough innovations in healthcare and personal medicine, enterprises are moving into the digital economy very rapidly. Data-first artificial intelligence (AI) and machine learning (ML) initiatives are seen as a strategic enabler and a top investment priority for these organizations. Yet, 80-85% of Enterprises* find it difficult to move their AI/ML initiatives beyond the experimentation stage and thus fail to deliver any meaningful business outcomes.
+
+###### \* Gartner: Don't Stumble at the Last Mile: Leveraging MLOps and DataOps to Operationalize ML and AI
 
 ## Common operational challenges 
 
