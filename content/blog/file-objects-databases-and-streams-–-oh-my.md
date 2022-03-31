@@ -4,6 +4,9 @@ date: 2022-03-31T15:49:36.744Z
 author: Sridhar Reddy
 authorimage: /img/sridhar-reddy.png
 thumbnailimage: /img/data-fabric-7-1200-x-675.png
+tags:
+  - hpe-ezmeral-data-fabric
+  - MapR
 ---
 Analytics and machine learning (ML) have become key elements of every data-driven enterprise. The good news is that organizations have a lot of data at their disposal. The not-so-good news is that this data is distributed across data lakes, warehouses, edge, core, and data centers, making it more difficult for data engineers and scientists to do their jobs.  HPE Ezmeral Data Fabric solves this problem by ingesting and cleansing hybrid data distributed across edge to cloud into a single logical infrastructure providing data teams with a unified data source that increases data integrity and trust in analytic insights. 
 
@@ -64,7 +67,7 @@ This release includes a number of features that harden the HPE Ezmeral Data Fabr
 
 Dynamic data masking is the ability to apply variety of data masks in real-time on customer-designated fields in database queries, to hide sensitive data.  This feature is perfect for Personal Identifiable Information (PII) or General Data Protection Regulation (GDPR) use cases. 
 
-#### Performance Improvements using Remote Direct Memory Access
+#### Performance Improvements using Remote Direct Memory Access 
 
 Remote Direct Memory Access (RDMA) transfers data directly between user space process buffers on separate servers to bypass the Linux kernel and server CPU for increased performance and lower CPU utilization.
 
