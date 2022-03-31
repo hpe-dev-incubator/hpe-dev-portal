@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
-import { Box, Image, Stack, ResponsiveContext } from 'grommet';
+import { Box, Image, Stack, ResponsiveContext, Grommet } from 'grommet';
+import { hpe } from 'grommet-theme-hpe';
 import styled from 'styled-components';
 import {
   Row1,
@@ -188,48 +189,49 @@ const StickerWall = () => {
   const mobileRow4 = [Row7[0], Row7[1], Row8[1]];
   const size = useContext(ResponsiveContext);
   return (
-    // eslint-disable-next-line max-len
-    <Layout background="/img/hackshack/BackgroundImages/stickers-background.jpg">
-      <SEO title="Hack Shack Sticker Wall" />
-      <SubPageHeader title="STICKERS AND ART">
-        <Box
-          background={{ color: '#263040' }}
-          pad="large"
-          round="small"
-          alignSelf={size === 'small' ? 'center' : undefined}
-          width={size !== 'small' ? { min: '680px' } : { min: '280px' }}
-        >
-          {size !== 'small' && (
-            <Box>
-              <Box direction="row">{StickerRow(Row1, size)}</Box>
-              <Box direction="row">{StickerRow(Row2, size)}</Box>
-              <Box direction="row">{StickerRow(Row3, size)}</Box>
-              <Box direction="row">{StickerRow(Row4, size)}</Box>
-              <Box direction="row">{StickerRow(Row5, size)}</Box>
-              <Box direction="row">{StickerRow(Row6, size)}</Box>
-              <Box direction="row">{StickerRow(Row7, size)}</Box>
-            </Box>
-          )}
-          {size === 'small' && (
-            <Box align="center">
-              <Box direction="row">{StickerRow(Row1.slice(0, 3), size)}</Box>
-              <Box direction="row">{StickerRow(Row2.slice(0, 2), size)}</Box>
-              <Box direction="row">{StickerRow(Row3.slice(0, 2), size)}</Box>
-              <Box direction="row">{StickerRow(Row4.slice(0, 2), size)}</Box>
-              <Box direction="row">{StickerRow(Row5.slice(0, 2), size)}</Box>
-              <Box direction="row">{StickerRow(Row6.slice(0, 2), size)}</Box>
-              <Box direction="row">{StickerRow(mobileRow1, size)}</Box>
-              <Box direction="row">{StickerRow(mobileRow2, size)}</Box>
-              <Box direction="row">{StickerRow(mobileRow3, size)}</Box>
-              <Box direction="row">{StickerRow(mobileRow4, size)}</Box>
-              <Box direction="row" alignSelf="start">
-                {StickerRow(Row8.slice(0, 1), size)}
+    <Grommet theme={hpe}>
+      <Layout background="/img/hackshack/BackgroundImages/stickers-background.jpg">
+        <SEO title="Hack Shack Sticker Wall" />
+        <SubPageHeader title="STICKERS AND ART">
+          <Box
+            background={{ color: '#263040' }}
+            pad="large"
+            round="small"
+            alignSelf={size === 'small' ? 'center' : undefined}
+            width={size !== 'small' ? { min: '680px' } : { min: '280px' }}
+          >
+            {size !== 'small' && (
+              <Box>
+                <Box direction="row">{StickerRow(Row1, size)}</Box>
+                <Box direction="row">{StickerRow(Row2, size)}</Box>
+                <Box direction="row">{StickerRow(Row3, size)}</Box>
+                <Box direction="row">{StickerRow(Row4, size)}</Box>
+                <Box direction="row">{StickerRow(Row5, size)}</Box>
+                <Box direction="row">{StickerRow(Row6, size)}</Box>
+                <Box direction="row">{StickerRow(Row7, size)}</Box>
               </Box>
-            </Box>
-          )}
-        </Box>
-      </SubPageHeader>
-    </Layout>
+            )}
+            {size === 'small' && (
+              <Box align="center">
+                <Box direction="row">{StickerRow(Row1.slice(0, 3), size)}</Box>
+                <Box direction="row">{StickerRow(Row2.slice(0, 2), size)}</Box>
+                <Box direction="row">{StickerRow(Row3.slice(0, 2), size)}</Box>
+                <Box direction="row">{StickerRow(Row4.slice(0, 2), size)}</Box>
+                <Box direction="row">{StickerRow(Row5.slice(0, 2), size)}</Box>
+                <Box direction="row">{StickerRow(Row6.slice(0, 2), size)}</Box>
+                <Box direction="row">{StickerRow(mobileRow1, size)}</Box>
+                <Box direction="row">{StickerRow(mobileRow2, size)}</Box>
+                <Box direction="row">{StickerRow(mobileRow3, size)}</Box>
+                <Box direction="row">{StickerRow(mobileRow4, size)}</Box>
+                <Box direction="row" alignSelf="start">
+                  {StickerRow(Row8.slice(0, 1), size)}
+                </Box>
+              </Box>
+            )}
+          </Box>
+        </SubPageHeader>
+      </Layout>
+    </Grommet>
   );
 };
 
