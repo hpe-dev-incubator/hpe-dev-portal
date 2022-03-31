@@ -61,9 +61,10 @@ Python library and Command Line Interface (CLI) for HPE Ezmeral Runtime Enterpri
 
 #### Learn from the experts
 > <font size="3"> **Note:** The _HPE Ezmeral Container Platform_ referenced in these videos has been renamed to _HPE Ezmeral Runtime Enterprise_. All other information is correct. </font> 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/fCQpSHDEHY0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <br />
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/fCQpSHDEHY0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<br />
 
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/4-yGrKZ4M-U" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
