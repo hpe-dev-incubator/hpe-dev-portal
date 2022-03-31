@@ -5,17 +5,11 @@ author: Sridhar Reddy
 authorimage: /img/sridhar-reddy.png
 thumbnailimage: /img/data-fabric-7-1200-x-675.png
 ---
-
-
-
-
 Analytics and machine learning (ML) have become key elements of every data-driven enterprise. The good news is that organizations have a lot of data at their disposal. The not-so-good news is that this data is distributed across data lakes, warehouses, edge, core, and data centers, making it more difficult for data engineers and scientists to do their jobs.  HPE Ezmeral Data Fabric solves this problem by ingesting and cleansing hybrid data distributed across edge to cloud into a single logical infrastructure providing data teams with a unified data source that increases data integrity and trust in analytic insights. 
 
 ![](/img/architecture-edf-7.png "Figure 1 Solution stack for HPE Ezmeral Data Fabric")
 
 ##### *Figure 1 Solution stack for HPE Ezmeral Data Fabric*
-
-
 
 ## Introducing HPE Ezmeral Data Fabric 7.0 with support for S3 compatible object store and FIPS compliance
 
@@ -42,7 +36,7 @@ High-performance object store capabilities optimize all object sizes for both pe
 * Publish S3 events to HPE Ezmeral Data Fabric streams for monitoring activity.
 * Be compatible with opensource AWS S3 SDK and Minio SDK.
 
-## Federal Information Processing Standard Support 
+## Federal Information Processing Standard Support
 
 The Federal Information Processing Standard (FIPS) is a US government standard used to approve cryptographic modules. FIPS-validated products give users the assurance that data within the product is protected using cryptographic algorithms meeting the stringent guidelines and testing procedures established by the FIPS standard. FIPS was established by the National Institute of Standards and Technology (NIST) and defines critical security parameters that vendors must use for encryption. Products sold to the US government must meet FIPS validation criteria. In addition, there is a growing need by organizations processing sensitive data, such as banks, financial institutions, legal and medical institutions, to have the products that are FIPS 140-2/3 validated.
 
@@ -62,7 +56,7 @@ This release includes a number of features that harden the HPE Ezmeral Data Fabr
 * Enhances the `mrhsm` utility. `mrhsm` is used to configure KMIP support and includes support for file-based key stores.
 * Includes a new property `(isFips)` in the output of the `maprcli node list` command to indicate whether a particular node is FIPS-enabled.
 * Offers a new ticket type: A new `servicewithimpersonationandticket` ticket type is introduced that allows some ticket holders to generate tickets subject to their impersonation authority. 
-* Has cross-cluster security enhancements: `configure-crosscluster.sh `script to automate establishing security between two clusters. New options are provided to specify trust store passwords. The file `/etc/hadoop/ssl-server.xml `no longer includes the trust store passwords.
+* Has cross-cluster security enhancements: `configure-crosscluster.sh`script to automate establishing security between two clusters. New options are provided to specify trust store passwords. The file `/etc/hadoop/ssl-server.xml`no longer includes the trust store passwords.
 
 ## Other enhancements
 
@@ -70,17 +64,19 @@ This release includes a number of features that harden the HPE Ezmeral Data Fabr
 
 Dynamic data masking is the ability to apply variety of data masks in real-time on customer-designated fields in database queries, to hide sensitive data.  This feature is perfect for Personal Identifiable Information (PII) or General Data Protection Regulation (GDPR) use cases. 
 
-#### Performance Improvements using Remote Direct Memory Access 
+#### Performance Improvements using Remote Direct Memory Access
 
 Remote Direct Memory Access (RDMA) transfers data directly between user space process buffers on separate servers to bypass the Linux kernel and server CPU for increased performance and lower CPU utilization.
 
-#### Ezmeral Ecosystem Pack (EEP) 
+#### Ezmeral Ecosystem Pack (EEP)
 
 Ezmeral Ecosystem Pack (EEP) provides certified open-source tools and engines that can be directly layered onto the data fabric reducing time spent integrating and configuring open-source tools for analytics. New to this release is Apache Airflow 2.2.1 along with significant updates to Apache Spark™ 3.2.0. Enhancements are also made to many other Hadoop components as well as Apache Drill 1.16.1. 
 
 ## Get to know HPE Ezmeral Data Fabric better
 
 Developers, data engineers and scientists need high quality data to deliver the trusted insights businesses run on. Trusted insights only happen when distributed data is centralized into a single data layer that is optimized for analytics use cases. HPE Ezmeral Data Fabric delivers that high-performance, unified data layer without compromising security and governance that allows organizations to go to the next level by layering open-source engines and tools to deliver insights faster. 
+
+For more information, please refer to the below listed resources. You can find other articles on HPE Ezmeral Data Fabric on the[ HPE DEV blog](https://developer.hpe.com/blog).
 
 * [Core](http://package.mapr.hpe.com/releases/v7.0.0) 
 * [EEP 8.1.0](http://package.mapr.hpe.com/releases/MEP/MEP-8.1.0/)  
