@@ -130,7 +130,7 @@ The HPE Ezmeral Runtime Enterprise control plane is responsible for lifecycle ma
 
 As you can tell, there are quite a few new features and capabilities included in the HPE Ezmeral Runtime Enterprise 5.4 release and we are excited to share them with you. 
 
-To learn more about the HPE Ezmeral products, please contact the HPE Sales team, or visit www.hpe.com/ezmeral to explore how HPE Ezmeral Runtime Enterprise can accelerate your AI and Analytics journey. You can view other articles on HPE Ezmeral here on the [HPE DEV blog](https://developer.hpe.com/blog).
+To learn more about the HPE Ezmeral products, please contact the HPE Sales team, or visit [www.hpe.com/ezmeral](https://www.hpe.com/us/en/software.html) to explore how HPE Ezmeral Runtime Enterprise can accelerate your AI and Analytics journey. To learn more about this release, please refer to the [documentation and release notes](https://docs.containerplatform.hpe.com/54/). More information on [HPE Ezmeral](https://developer.hpe.com/platform/hpe-ezmeral/home/) can be found on the HPE Developer portal. You can view other articles on HPE Ezmeral here on the [HPE DEV blog](https://developer.hpe.com/blog).
 
 
 
