@@ -11,7 +11,6 @@ import { ButtonLink } from '../..';
 
 export const Header = ({ setLayer }) => {
   const size = useContext(ResponsiveContext);
-  console.log('size in hackshack header', size);
   useEffect(() => {
     if (size !== 'small') setLayer(false);
   }, [size, setLayer]);
