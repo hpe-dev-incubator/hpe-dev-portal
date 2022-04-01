@@ -18,10 +18,14 @@ Analytics and machine learning (ML) have become key elements of every data-drive
 
 The latest release of HPE Ezmeral Data Fabric adds support for the fastest growing data type today, object. This release makes HPE Ezmeral Data Fabric the industry’s first data fabric to centralize files, objects, NoSQL databases and streams into a single data store, simplifying data lifecycle and operational management.  Key features of this release include:
 
-* A high-performance object store 
-* Federal Information Processing Standard (FIPS) compliance 
-* Security enhancements 
+* A high-performance object store
+ 
+* Federal Information Processing Standard (FIPS) compliance
+
+* Security enhancements
+
 * Dynamic data masking for JSON document databases
+
 * Performance improvements using Remote Direct Memory Access (RDMA)
 
 Let’s examine these features in detail.
@@ -82,5 +86,8 @@ Developers, data engineers and scientists need high quality data to deliver the 
 For more information, please refer to the below listed resources. You can find other articles on HPE Ezmeral Data Fabric on the[ HPE DEV blog](https://developer.hpe.com/blog).
 
 * [Core](http://package.mapr.hpe.com/releases/v7.0.0) 
+
 * [EEP 8.1.0](http://package.mapr.hpe.com/releases/MEP/MEP-8.1.0/)  
+
 * [Documentation and release notes](https://docs.datafabric.hpe.com/70/home.html)
+
