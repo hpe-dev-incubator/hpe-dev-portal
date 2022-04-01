@@ -32,15 +32,15 @@ Deploying Kubernetes has become a lot simpler today, which leads to different de
 
 ## HPE Ezmeral Runtime Enterprise – Modern approach to delivering end-to-end analytics solutions at scale
 
-HPE Ezmeral Runtime Enterprise is a turnkey platform designed to support clients’ AI, analytics and data needs, as well as help them innovate faster. Built on the foundation of Kubernetes, the Ezmeral Runtime Enterprise platform brings simplicity to operationalizing the ML lifecycle through HPE Ezmeral ML Ops and HPE Ezmeral Runtime Enterprise Analytics for Apache Spark at the edge, on-premises or on public clouds with an infrastructure agnostic approach to deploying and managing the analytics stack.
+[HPE Ezmeral Runtime Enterprise](https://www.hpe.com/us/en/software/ezmeral-runtime.html) is a turnkey platform designed to support clients’ AI, analytics and data needs, as well as help them innovate faster. Built on the foundation of Kubernetes, the Ezmeral Runtime Enterprise platform brings simplicity to operationalizing the ML lifecycle through [HPE Ezmeral ML Ops](https://docs.containerplatform.hpe.com/54/reference/universal-concepts/About_HPE_Ezmeral_ML_Ops.html) and [HPE Ezmeral Runtime Enterprise Analytics for Apache Spark]( https://docs.containerplatform.hpe.com/54/reference/HPE_Ezmeral_Runtime_Analytics_for_Spark.html) at the edge, on-premises or on public clouds with an infrastructure agnostic approach to deploying and managing the analytics stack.
 
-HPE Ezmeral Runtime Enterprise natively includes ***Ezmeral Data Fabric*** – a modern data platform with global namespace and built-in capabilities to store files, objects, event stream store, databases – binary and JSON db – and provide access to data via various protocols including NFS, HDFS, S3 and POSIX. HPE Ezmeral Runtime Enterprise also provides the flexibility to connect to existing data lakes and data sources such as HDFS, S3 Object stores and third-party storage systems, to enable analytical applications running on K8s clusters remote access to data, thus enabling compute-storage separation. 
+HPE Ezmeral Runtime Enterprise natively includes ***[Ezmeral Data Fabric](https://www.hpe.com/us/en/software/ezmeral-data-fabric.html)*** – a modern data platform with global namespace and built-in capabilities to store files, objects, event stream store, databases – binary and JSON db – and provide access to data via various protocols including NFS, HDFS, S3 and POSIX. HPE Ezmeral Runtime Enterprise also provides the flexibility to connect to existing data lakes and data sources such as HDFS, S3 Object stores and third-party storage systems, to enable analytical applications running on K8s clusters remote access to data, thus enabling compute-storage separation. 
 
 The latest 5.4 release of HPE Ezmeral Runtime Enterprise includes quite a few new capabilities, so without further delay, let me highlight these new features. 
 
 #### HPE Ezmeral Unified Analytics 
 
-HPE Ezmeral Unified Analytics is a modern approach to delivering elastic open-source based Spark clusters combined with the Delta Lake for a data lakehouse architecture solution. More on this later. But before that, let me walk you through some common challenges that I hear repeatedly from both Spark administrators and users (think Data Engineers, Data Analysts, and Data Scientists):
+[HPE Ezmeral Unified Analytics](https://www.hpe.com/us/en/software/ezmeral-unified-analytics.html) is a modern approach to delivering elastic open-source based Spark clusters combined with the Delta Lake for a data lakehouse architecture solution. More on this later. But before that, let me walk you through some common challenges that I hear repeatedly from both Spark administrators and users (think Data Engineers, Data Analysts, and Data Scientists):
 
 Challenges of a Spark administrator:
 
@@ -67,23 +67,23 @@ One-click deployment of a Spark Operator on Kubernetes cluster. This single Spar
 
 #### Interactive Spark experience through Livy 
 
-This is for personas that are adept at using REST APIs to interact with Spark. HPE has included Livy support for both Spark 2 and 3 versions. This allows personas, like Data Scientists, to interact with Spark from their Jupyter notebooks. You simply launch the Livy server with one click, connect to the server endpoint, and start submitting Spark jobs. 
+This is for personas that are adept at using REST APIs to interact with Spark. HPE has included [Livy support](https://docs.containerplatform.hpe.com/54/reference/kubernetes-applications/spark/submit_spark_application_using_livy.html) for both Spark 2 and 3 versions. This allows personas, like Data Scientists, to interact with Spark from their Jupyter notebooks. You simply launch the Livy server with one click, connect to the server endpoint, and start submitting Spark jobs. 
 
 #### Interaction with BI tools 
 
-The Thrift Server component provides a JDBC/ODBC interface for enabling Data Analysts to interact with Spark from BI tools such as Tableau, PowerBI, Qlik, etc.
+The [Thrift Server](https://docs.containerplatform.hpe.com/54/reference/kubernetes-applications/spark/installing-and-configuring-spark-thrift-server.html) component provides a JDBC/ODBC interface for enabling Data Analysts to interact with Spark from BI tools such as Tableau, PowerBI, Qlik, etc.
 
-#### Shared Hive metastore service 
+#### Shared [Hive metastore](https://docs.containerplatform.hpe.com/54/reference/kubernetes-applications/spark/install_configure_hive_metastore.html) service 
 
 This enables multiple Spark applications running across different tenants or K8s clusters to share common metadata/schema. 
 
 #### Intuitive Job submission interface 
 
-This provides a wizard-driven UI for tenant users to submit their Spark applications. HPE Ezmeral Runtime Enterprise also allows users to bring their YAML files and upload them to UI to run their Spark job immediately, or schedule it to run at a specified time interval. Users can monitor the status of running jobs, as well as look at the events and log files all from an intuitive user interface. 
+This provides a [wizard-driven UI](https://docs.containerplatform.hpe.com/54/reference/kubernetes-applications/spark/managing_spark_applications_using_gui.html) for tenant users to submit their Spark applications. HPE Ezmeral Runtime Enterprise also allows users to bring their YAML files and upload them to UI to run their Spark job immediately, or schedule it to run at a specified time interval. Users can monitor the status of running jobs, as well as look at the events and log files all from an intuitive user interface. 
 
 #### Airflow DAGs 
 
-Data engineers responsible for building data pipelines often resort to automation provided by workflow orchestration tools, like Airflow, to sequence a set of tasks using Directed Acyclic Graph (DAG). HPE Ezmeral Runtime Enterprise includes an Airflow operator - enabled with one click during Kubernetes cluster creation. Once enabled, users create and submit Spark jobs using DAGs. Users can store their DAGs in Git, version control it and configure HPE Ezmeral Runtime Enterprise to run those from the Git repository.
+Data engineers responsible for building data pipelines often resort to automation provided by workflow orchestration tools, like [Airflow](https://docs.containerplatform.hpe.com/54/reference/kubernetes/kubernetes-administrator/airflow/airflow_installation.html), to sequence a set of tasks using Directed Acyclic Graph (DAG). HPE Ezmeral Runtime Enterprise includes an Airflow operator - enabled with one click during Kubernetes cluster creation. Once enabled, users create and submit Spark jobs using DAGs. Users can store their DAGs in Git, version control it and configure HPE Ezmeral Runtime Enterprise to run those from the Git repository.
 
 #### Delta Lake support 
 
@@ -101,7 +101,7 @@ Hopefully, this gives you enough information to whet your appetite about the HPE
 
 ## Let’s move on to HPE Ezmeral ML Ops 
 
-HPE Ezmeral MLOps is an end-to-end Machine Learning lifecycle management platform for building, training and operationalizing ML models. Here are some of the key features of HPE Ezmeral ML Ops in release 5.4.
+[HPE Ezmeral MLOps](https://www.hpe.com/us/en/solutions/ezmeral-machine-learning-operations.html) is an end-to-end Machine Learning lifecycle management platform for building, training and operationalizing ML models. Here are some of the key features of HPE Ezmeral ML Ops in release 5.4.
 
 #### Introducing support for KubeFlow (KF) 1.3
 
