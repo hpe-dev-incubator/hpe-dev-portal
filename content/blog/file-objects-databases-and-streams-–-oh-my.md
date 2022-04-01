@@ -16,16 +16,12 @@ Analytics and machine learning (ML) have become key elements of every data-drive
 
 ## Introducing HPE Ezmeral Data Fabric 7.0 with support for S3 compatible object store and FIPS compliance
 
-The latest release of HPE Ezmeral Data Fabric adds support for the fastest growing data type today, object. This release makes HPE Ezmeral Data Fabric the industry’s first data fabric to centralize files, objects, NoSQL databases and streams into a single data store, simplifying data lifecycle and operational management.  Key features of this release include:
+The[ latest release of HPE Ezmeral Data Fabric](https://community.hpe.com/t5/HPE-Ezmeral-Uncut/HPE-Ezmeral-News-GA-for-the-Enterprise-Data-and-Unified/ba-p/7163244) adds support for the fastest growing data type today, object. This release makes HPE Ezmeral Data Fabric the industry’s first data fabric to centralize files, objects, NoSQL databases and streams into a single data store, simplifying data lifecycle and operational management.  Key features of this release include:
 
 * A high-performance object store
- 
 * Federal Information Processing Standard (FIPS) compliance
-
 * Security enhancements
-
 * Dynamic data masking for JSON document databases
-
 * Performance improvements using Remote Direct Memory Access (RDMA)
 
 Let’s examine these features in detail.
@@ -60,10 +56,10 @@ This release includes a number of features that harden the HPE Ezmeral Data Fabr
 * Eliminates all clear-text passwords. 
 * Supports for the separation of passwords for key and trust stores 
 * Enhances data-fabric SASL to enable applications that are not cluster aware (such as data-fabric ecosystem components) to gain access to services in another cluster for which they have a ticket. 
-* Enhances the `mrhsm` utility. `mrhsm` is used to configure KMIP support and includes support for file-based key stores.
-* Includes a new property `(isFips)` in the output of the `maprcli node list` command to indicate whether a particular node is FIPS-enabled.
-* Offers a new ticket type: A new `servicewithimpersonationandticket` ticket type is introduced that allows some ticket holders to generate tickets subject to their impersonation authority. 
-* Has cross-cluster security enhancements: `configure-crosscluster.sh`script to automate establishing security between two clusters. New options are provided to specify trust store passwords. The file `/etc/hadoop/ssl-server.xml`no longer includes the trust store passwords.
+* Enhances the ***mrhsm*** utility. ***mrhsm*** is used to configure KMIP support and includes support for file-based key stores.
+* Includes a new property ***(isFips)*** in the output of the ***maprcli node list*** command to indicate whether a particular node is FIPS-enabled.
+* Offers a new ticket type: A new ***servicewithimpersonationandticket*** ticket type is introduced that allows some ticket holders to generate tickets subject to their impersonation authority. 
+* Has cross-cluster security enhancements: ***configure-crosscluster.sh*** script to automate establishing security between two clusters. New options are provided to specify trust store passwords. The file ***/etc/hadoop/ssl-server.xml*** no longer includes the trust store passwords.
 
 ## Other enhancements
 
@@ -71,7 +67,7 @@ This release includes a number of features that harden the HPE Ezmeral Data Fabr
 
 Dynamic data masking is the ability to apply variety of data masks in real-time on customer-designated fields in database queries, to hide sensitive data.  This feature is perfect for Personal Identifiable Information (PII) or General Data Protection Regulation (GDPR) use cases. 
 
-#### Performance Improvements using Remote Direct Memory Access 
+#### Performance Improvements using Remote Direct Memory Access
 
 Remote Direct Memory Access (RDMA) transfers data directly between user space process buffers on separate servers to bypass the Linux kernel and server CPU for increased performance and lower CPU utilization.
 
@@ -86,8 +82,5 @@ Developers, data engineers and scientists need high quality data to deliver the 
 For more information, please refer to the below listed resources. You can find other articles on HPE Ezmeral Data Fabric on the[ HPE DEV blog](https://developer.hpe.com/blog).
 
 * [Core](http://package.mapr.hpe.com/releases/v7.0.0) 
-
 * [EEP 8.1.0](http://package.mapr.hpe.com/releases/MEP/MEP-8.1.0/)  
-
 * [Documentation and release notes](https://docs.datafabric.hpe.com/70/home.html)
-
