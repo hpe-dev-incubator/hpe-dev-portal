@@ -63,7 +63,7 @@ Let me summarize the features and benefits here.
 
 #### Multi-version Spark support 
 
-One-click deployment of a Spark Operator on Kubernetes cluster. This single Spark Operator manages Spark version 2.4.7 and Spark version 3.1.2 and enables users to run multi-version Spark applications. This also includes Spark images with support for multiple languages including Python, R, Java, Scala, etc. 
+One-click deployment of a [Spark Operator](https://docs.containerplatform.hpe.com/54/reference/kubernetes-applications/spark/Spark_Overview.html) on Kubernetes cluster. This single Spark Operator manages Spark version 2.4.7 and Spark version 3.1.2 and enables users to run multi-version Spark applications. This also includes Spark images with support for multiple languages including Python, R, Java, Scala, etc. 
 
 #### Interactive Spark experience through Livy 
 
@@ -87,11 +87,11 @@ Data engineers responsible for building data pipelines often resort to automatio
 
 #### Delta Lake support 
 
-Delta Lake is a storage architecture that enables a lakehouse architecture on Spark. It combines the best of data warehouse characteristics, such as ACID properties, schema enforcement, and versioning features, to unstructured and semi-structured data stored in a massively scalable and cost-optimized data lake. With this, you get the data consistency and data reliability that are key requirements in environments with multiple concurrent data pipelines acting on data. The HPE Ezmeral Unified Analytics stack includes open delta libraries by default, enabling applications to read and write data using the delta format in parquet files on HPE Ezmeral Data Fabric or on any S3-compatible object stores.
+[Delta Lake](https://docs.containerplatform.hpe.com/54/reference/Whats_New_in_Version.html?hl=delta%2Clake) is a storage architecture that enables a lakehouse architecture on Spark. It combines the best of data warehouse characteristics, such as ACID properties, schema enforcement, and versioning features, to unstructured and semi-structured data stored in a massively scalable and cost-optimized data lake. With this, you get the data consistency and data reliability that are key requirements in environments with multiple concurrent data pipelines acting on data. The HPE Ezmeral Unified Analytics stack includes open delta libraries by default, enabling applications to read and write data using the delta format in parquet files on HPE Ezmeral Data Fabric or on any S3-compatible object stores.
 
 #### Read and write data from different data sources 
 
-HPE Ezmeral Runtime Enterprise provides DataTap to connect Spark applications to remote HDFS data sources, thereby bringing compute closer to data. You can also connect Spark apps to any S3-compatible object store to access and store data. 
+HPE Ezmeral Runtime Enterprise provides [DataTap](https://docs.containerplatform.hpe.com/54/reference/universal-concepts/About_DataTaps.html) to connect Spark applications to remote HDFS data sources, thereby bringing compute closer to data. You can also connect Spark apps to any S3-compatible object store to access and store data. 
 
 #### Enterprise-grade Security 
 
@@ -105,7 +105,7 @@ Hopefully, this gives you enough information to whet your appetite about the HPE
 
 #### Introducing support for KubeFlow (KF) 1.3
 
-Single click deployment of KF 1.3. This includes integration with MLFlow for model management, experiment tracking and improved collaboration among data scientists operating on projects to share ML models and model metadata.
+Single click deployment of [KF 1.3](https://docs.containerplatform.hpe.com/54/reference/kubernetes/kubernetes-administrator/kubeflow/kubeflow.html). This includes integration with MLFlow for model management, experiment tracking and improved collaboration among data scientists operating on projects to share ML models and model metadata.
 
 #### Enhancing data scientist productivity
 
@@ -114,7 +114,7 @@ Single click deployment of KF 1.3. This includes integration with MLFlow for mod
 
 #### Accelerating Model training and inferencing 
 
-HPE Ezmeral ML Ops is adding support for NVIDIA MIG-enabled GPUs to be leveraged by data scientists in their notebooks for model building and training. ML/DL frameworks such as Tensorflow and Pytorch have been updated with the right CUDA (Compute Unified Device Architecture) libraries to take advantage of fractionalized GPUs providing cost-efficiency and secure isolation of workloads. 
+HPE Ezmeral ML Ops is adding support for [NVIDIA MIG-enabled GPUs](https://docs.containerplatform.hpe.com/54/reference/nvidia-gpu-support/nvidia-gpus.html) to be leveraged by data scientists in their notebooks for model building and training. ML/DL frameworks such as Tensorflow and Pytorch have been updated with the right CUDA (Compute Unified Device Architecture) libraries to take advantage of fractionalized GPUs providing cost-efficiency and secure isolation of workloads. 
 
 ## HPE Ezmeral Runtime Control plane – The wizard behind the curtain
 
