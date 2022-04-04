@@ -5,7 +5,7 @@ import WorkshopsTemplate from './template';
 
 const Workshops = (props) => {
   return (
-    <Grommet full theme={hpe}>
+    <Grommet theme={hpe}>
       <WorkshopsTemplate {...props} />
     </Grommet>
   );
