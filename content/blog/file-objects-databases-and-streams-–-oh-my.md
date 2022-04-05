@@ -2,6 +2,8 @@
 title: File, objects, databases and streams – Oh my!
 date: 2022-03-31T15:49:36.744Z
 author: Sridhar Reddy
+featuredBlog: true
+priority: 1
 authorimage: /img/sridhar-reddy.png
 thumbnailimage: /img/data-fabric-7-1200-x-675.png
 tags:
