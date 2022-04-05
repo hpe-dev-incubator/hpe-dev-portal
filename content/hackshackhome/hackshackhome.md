@@ -17,4 +17,5 @@ background: rgba(0, 86, 122, 0.8);
 label: Register Now!
 priority: 2
 image: /img/hackshack/cap_ML.png
+alt: munch and learn logo
 ---
