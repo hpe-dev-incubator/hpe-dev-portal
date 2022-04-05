@@ -1,7 +1,7 @@
 ---
 title: Mapping Kubernetes Services to HPE Ezmeral Runtime Enterprise Gateway
 date: 2021-12-06T10:44:42.992Z
-featuredBlog: true
+featuredBlog: false
 priority: 1
 author: Cenz Wong
 authorimage: https://avatars.githubusercontent.com/u/44856918?s=400&u=37bb095377cd6b4ad21c3a7ab8b5afe185a46941&v=4
