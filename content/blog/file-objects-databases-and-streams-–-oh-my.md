@@ -12,7 +12,7 @@ tags:
 ---
 Analytics and machine learning (ML) have become key elements of every data-driven enterprise. The good news is that organizations have a lot of data at their disposal. The not-so-good news is that this data is distributed across data lakes, warehouses, edge, core, and data centers, making it more difficult for data engineers and scientists to do their jobs.  HPE Ezmeral Data Fabric solves this problem by ingesting and cleansing hybrid data distributed across edge to cloud into a single logical infrastructure providing data teams with a unified data source that increases data integrity and trust in analytic insights. 
 
-![](/img/architecture-edf7-new.png "Figure 1 Solution stack for HPE Ezmeral Data Fabric")
+<img src="/img/architecture-edf7-new.png" width="600" height="324" alt="Figure 1 Solution stack for HPE Ezmeral Data Fabric">
 
 ##### *Figure 1 Solution stack for HPE Ezmeral Data Fabric*
 
