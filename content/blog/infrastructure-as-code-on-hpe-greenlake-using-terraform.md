@@ -76,7 +76,7 @@ This page also provides a link to the GitHub repository corresponding to this pr
 
 #### Setting up the Terraform provider
 
-Now that you have expressed the fact that the hpegl provider will be used, you need to setup some parameters for it. As explained on this [page](https://github.com/HewlettPackard/terraform-provider-hpegl/blob/main/docs/index.md), you can either explicitly set those parameters in your TF file, or have them set in a series of environment variables, or a mix of both. I suggest the following two parameters be added in your TF file:
+Now that you have expressed the fact that the hpegl provider will be used, you need to setup some parameters for it. As explained on this [page](https://github.com/hpe/terraform-provider-hpegl/blob/main/docs/index.md), you can either explicitly set those parameters in your TF file, or have them set in a series of environment variables, or a mix of both. I suggest the following two parameters be added in your TF file:
 
 ```json
 # Setup provider environment (location and space)
