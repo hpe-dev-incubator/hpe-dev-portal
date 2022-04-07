@@ -238,7 +238,7 @@ resource "hpegl_vmaas_instance" "DidierTest1" {
 
 Before you can use Terraform, you will have to initialize it from the configuration file we have created. This is done with the following step: **terraform init**
 
-```
+```markdown
 $ terraform init
 
 Initializing the backend...
