@@ -668,7 +668,7 @@ const ScheduleCard = ({
         headers: { 'x-access-token': AuthService.getCurrentUser().accessToken },
       })
         .then((res) => {
-          if (res.data.capacity === 0) {
+          if (res.data.capacity <= 0) {
             setDisabled(true);
           }
         })
