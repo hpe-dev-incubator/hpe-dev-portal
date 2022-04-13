@@ -72,6 +72,7 @@ const ReplayTemplate = (props) => {
     workshopImg,
     workshopDuration,
   } = props.pageContext;
+  console.log('workshop duration', workshopDuration);
   const workshopIndex = workshopId
     ? parseInt(props.pageContext.workshopId, 10)
     : 0;
