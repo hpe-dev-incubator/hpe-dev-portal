@@ -8,5 +8,6 @@
         label: "Register Now!"
         priority: 1
         active: true
+        alt: workshops on demand logo
 ---
           

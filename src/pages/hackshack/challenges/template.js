@@ -172,7 +172,10 @@ const Challenge = (props) => {
               <Text size="large" color="status-critical" alignSelf="center">
                 {error}
               </Text>
-              <Image src="/img/hackshack/gremlin-rockin.svg" />
+              <Image
+                alt="gremlin rockin"
+                src="/img/hackshack/gremlin-rockin.svg"
+              />
             </>
           ) : (
             <Box height="medium" />

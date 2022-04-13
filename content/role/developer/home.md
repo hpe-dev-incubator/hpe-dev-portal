@@ -74,7 +74,7 @@ The role of the Developer may overlap with other roles like the [Data-driven Dev
 <div class="row">
   <div class="column">
     
-    Modern, cloud-native application development relies heavily on containers and Kubernetes. When determining the right platform for your use, be sure to check out [HPE Ezmeral Runtime Enterprise.](https://developer.hpe.com/platform/hpe-ezmeral-runtime/home/)
+    Modern, cloud-native application development relies heavily on containers and Kubernetes. When determining the right platform for your use, be sure to check out [HPE Ezmeral Runtime Enterprise.](https://developer.hpe.com/platform/hpe-ezmeral/home/)
 
   </div>
   <div class="column">

@@ -117,7 +117,7 @@ const BoxImage = ({
           >
             {img && (
               <Box fill>
-                <Image fit="contain" src={img} />
+                <Image alt="stickers" fit="contain" src={img} />
                 <Stack alignSelf="end">{icon}</Stack>
               </Box>
             )}
@@ -140,7 +140,7 @@ const BoxImage = ({
           >
             {img && (
               <Box fill>
-                <Image fit="contain" src={img} />
+                <Image alt="stickers" fit="contain" src={img} />
                 <Stack alignSelf="end">{icon}</Stack>
               </Box>
             )}

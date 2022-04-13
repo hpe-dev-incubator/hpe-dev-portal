@@ -1,11 +1,11 @@
 ---
-title: HPE Ezmeral Runtime Enterprise
+title: HPE Ezmeral
 category: Feature Platform
 priority: 6
 width: medium
-link: /platform/hpe-ezmeral-runtime/home/
+link: /platform/hpe-ezmeral/home/
 image: /img/home/ezmeral.svg
 ---
-## HPE Ezmeral Runtime Enterprise
+## HPE Ezmeral
 
-An  enterprise-grade software orchestration platform designed to deploy modern applications using open-source Kubernetes, from edge to cloud.
+Accelerate modern data analytics initiatives at scale with this Kubernetes orchestrated container platform that helps you unify data and modernize apps.

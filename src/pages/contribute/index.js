@@ -92,6 +92,11 @@ function Contribute({ data }) {
                           ? '/img/community/microsoft-word-icon.svg'
                           : '/img/community/google-docs-icon.svg'
                       }
+                      alt={
+                        card.templateType === 'Microsoft Word'
+                          ? 'microsoft word doc icon'
+                          : 'google docs icon'
+                      }
                     />
                   </Box>
                   <Box pad={{ left: 'medium' }} width="medium">

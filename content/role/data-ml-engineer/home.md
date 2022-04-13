@@ -63,7 +63,7 @@ The roles of the Data/ML Engineer and Data Scientist can overlap. You may also f
 
     - Read [Kuberneticized machine learning and AI using Kubeflow](https://developer.hpe.com/blog/kubernetized-machine-learning-and-ai-using-kubeflow/)
 
-    - Learn how management of large scale Kubernetes clusters is made easier with [HPE Ezmeral Runtime Enterprise](https://developer.hpe.com/platform/hpe-ezmeral-runtime/home/) 
+    - Learn how management of large scale Kubernetes clusters is made easier with [HPE Ezmeral Runtime Enterprise](https://developer.hpe.com/platform/hpe-ezmeral/home/) 
  
   </div>
 </div>

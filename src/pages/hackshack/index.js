@@ -210,10 +210,10 @@ const GrommetMascot = ({ setOpen }) => (
   <StyledStack>
     <Stack anchor="bottom" alignSelf="start">
       <StyledGremlin>
-        <Image src="/img/hackshack/gremlinInBubble.png" />
+        <Image alt="gremlinInBubble" src="/img/hackshack/gremlinInBubble.png" />
       </StyledGremlin>
       <StyledBubble>
-        <Image src="/img/hackshack/quotebubble.png" />
+        <Image alt="quotebubble" src="/img/hackshack/quotebubble.png" />
       </StyledBubble>
       <StyledTextBox gap="small">
         <StyledBoxText width="medium">
@@ -244,6 +244,7 @@ const GrommetMascot = ({ setOpen }) => (
           }
         />
         <Image
+          alt="play-button"
           style={{ width: '38px', height: '38px' }}
           src="/img/hackshack/play-button.png"
           margin={{ bottom: '4px' }}
@@ -286,6 +287,7 @@ const Cards = ({ size, data }) => {
               path={node.frontmatter.path}
               background={node.frontmatter.background}
               label={node.frontmatter.label}
+              alt={node.frontmatter.alt}
               margin={
                 size === 'small'
                   ? { top: '0px', right: '0px' }
@@ -312,6 +314,7 @@ Cards.propTypes = {
               image: PropTypes.string,
               link: PropTypes.string,
               priority: PropTypes.number,
+              alt: PropTypes.string,
             }),
           }),
           rawMarkdownBody: PropTypes.string,
@@ -351,6 +354,7 @@ ResponsiveContextWrapper.propTypes = {
               image: PropTypes.string,
               link: PropTypes.string,
               priority: PropTypes.number,
+              alt: PropTypes.string,
             }),
           }),
           rawMarkdownBody: PropTypes.string,
@@ -437,6 +441,7 @@ Home.propTypes = {
               image: PropTypes.string,
               link: PropTypes.string,
               priority: PropTypes.number,
+              alt: PropTypes.string,
             }),
           }),
           rawMarkdownBody: PropTypes.string,
@@ -468,6 +473,7 @@ export const pageQuery = graphql`
             label
             priority
             active
+            alt
           }
           rawMarkdownBody
         }

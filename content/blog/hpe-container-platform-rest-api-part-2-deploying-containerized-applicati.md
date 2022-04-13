@@ -8,9 +8,7 @@ author: Denis Choukroun
 authorimage: https://gravatar.com/avatar/f66dd9562c53567466149af06ae9d4f1?s=96
 thumbnailimage: null
 tags:
-  - hpe-ezmeral-runtime
-  - hpe-ezmeral-container-platform
-  - hpe-container-platform
+  - hpe-ezmeral
   - kubedirector
   - opensource
 ---

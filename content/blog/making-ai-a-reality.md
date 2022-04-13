@@ -9,8 +9,7 @@ thumbnailimage: null
 tags:
   - ai
   - h2o.ai
-  - hpe-ezmeral-runtime
-  - hpe-ezmeral-container-platform
+  - hpe-ezmeral
   - hpe-ezmeral-data-fabric
 ---
 ![data drive ai](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/12/data-drive-ai-1610724616865.JPG)

@@ -1,13 +1,12 @@
 ---
 title: "On-Premise Adventures: How to build an Apache Spark lab on Kubernetes"
 date: 2021-06-15T16:51:59.069Z
-featuredBlog: true
+featuredBlog: false
 priority: 3
 author: Don Wake
 authorimage: https://gravatar.com/avatar/e5e1a9dd49e6e07ee55d4532e25c08e5?s=96
 tags:
-  - hpe-ezmeral-runtime
-  - hpe-ezmeral-container-platform
+  - hpe-ezmeral
   - hpe-ezmeral-data-fabric
   - data-scientist
   - data-ml-engineer

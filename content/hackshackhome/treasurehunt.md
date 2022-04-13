@@ -8,5 +8,6 @@
         label: "Hunt for Treasure!"
         priority: 3
         active: false
+        alt: treasure hunt map logo
 ---
           

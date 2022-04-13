@@ -8,7 +8,7 @@ link: https://developer.hpe.com/campaign/munch-and-learn
 width: large
 tags:
   - hpe-ezmeral-data-fabric
-  - hpe-ezmeral-runtime
+  - hpe-ezmeral
 ---
 ## HPE DEV Munch & Learn series
 

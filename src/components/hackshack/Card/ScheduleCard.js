@@ -598,6 +598,7 @@ const ScheduleCard = ({
   duration,
   popular,
 }) => {
+  console.log('session link', sessionLink);
   const size = useContext(ResponsiveContext);
   const textSize = size === 'small' ? '16px' : 'medium';
   let backgroundColor;
@@ -667,7 +668,7 @@ const ScheduleCard = ({
         headers: { 'x-access-token': AuthService.getCurrentUser().accessToken },
       })
         .then((res) => {
-          if (res.data.capacity === 0) {
+          if (res.data.capacity <= 0) {
             setDisabled(true);
           }
         })

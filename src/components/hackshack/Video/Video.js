@@ -24,6 +24,7 @@ const Video = ({
   capacity,
   workshopTitle,
   workshopId,
+  workshopDuration,
 }) => {
   const [signupLayer, setSignupLayer] = useState(false);
   const [successLayer, setSuccessLayer] = useState(false);
@@ -36,6 +37,7 @@ const Video = ({
     sessionType,
     location,
     termsAndConditions: false,
+    duration: workshopDuration,
     proxy: 'hackshack',
   });
   const resetFormData = () => {
@@ -49,6 +51,7 @@ const Video = ({
       location,
       termsAndConditions: false,
       proxy: 'hackshack',
+      duration: workshopDuration,
     });
   };
   const size = useContext(ResponsiveContext);
@@ -132,6 +135,7 @@ const Video = ({
               title={title}
               size={size}
               sessionType={sessionType}
+              duration={duration}
             />
           )}
           {successLayer && (
@@ -193,6 +197,7 @@ Video.propTypes = {
   capacity: PropTypes.number,
   workshopTitle: PropTypes.string,
   workshopId: PropTypes.number,
+  workshopDuration: PropTypes.number,
 };
 
 export default Video;

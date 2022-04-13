@@ -163,7 +163,7 @@ Explore community-powered innovation here as we highlight a few of the latest op
 
 - Learn about and contribute to the HPE-sponsored open source project [KubeDirector](https://kubedirector.io/)
 
-- Deploy cloud-native and non-cloud-native apps running on bare-metal or virtualized infrastructure, on-premises, on any cloud and at the edge with KubeDirector-powered [HPE Ezmeral Runtime Enterprise](https://developer.hpe.com/platform/hpe-ezmeral-runtime/home/)
+- Deploy cloud-native and non-cloud-native apps running on bare-metal or virtualized infrastructure, on-premises, on any cloud and at the edge with KubeDirector-powered [HPE Ezmeral Runtime Enterprise](https://developer.hpe.com/platform/hpe-ezmeral/home/)
 
 **How can I manage my systems using open source standards?**
 
@@ -283,7 +283,7 @@ Explore community-powered innovation here as we highlight a few of the latest op
 
     - [Grommet](/platform/grommet/home/)
 
-    - [KubeDirector](/platform/hpe-ezmeral-runtime/home/)
+    - [KubeDirector](/platform/hpe-ezmeral/home/)
 
     - [SmartSim](/platform/smartsim/home/)
 
