@@ -41,7 +41,6 @@ const ReplayTemplate = (props) => {
         url: getReplaysApi,
       })
         .then((response) => {
-          console.log('response data', response.data);
           setReplays(response.data);
         })
         .catch(() => {
@@ -79,7 +78,6 @@ const ReplayTemplate = (props) => {
   const [autoplay, setAutoPlay] = useState(false);
   const sortedReplays = sortReplays(replays, current);
   const selectedReplay = replays.find(({ id }) => id === current);
-  console.log('selectedReplay', selectedReplay);
 
   return (
     <Layout background="/img/BackgroundImages/generic-background.jpg">
