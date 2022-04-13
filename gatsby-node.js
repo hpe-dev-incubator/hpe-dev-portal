@@ -90,7 +90,6 @@ exports.createPages = async ({ graphql, actions }) => {
           workshopTitle: title,
           workshopDesc: desc,
           workshopImg: workshop && workshop.workshopImg,
-          workshopDuration: workshop.duration,
         },
       });
 
@@ -105,7 +104,6 @@ exports.createPages = async ({ graphql, actions }) => {
           workshopTitle: title,
           workshopDesc: desc,
           workshopImg: workshop && workshop.workshopImg,
-          workshopDuration: workshop.duration,
         },
       });
 

@@ -26,6 +26,8 @@ const Video = ({
   workshopId,
   workshopDuration,
 }) => {
+  console.log('workshop duration', workshopDuration);
+  console.log('capacity', capacity);
   const [signupLayer, setSignupLayer] = useState(false);
   const [successLayer, setSuccessLayer] = useState(false);
   const [formData, setFormData] = useState({
@@ -37,7 +39,6 @@ const Video = ({
     sessionType,
     location,
     termsAndConditions: false,
-    duration: workshopDuration,
     proxy: 'hackshack',
   });
   const resetFormData = () => {
@@ -51,7 +52,6 @@ const Video = ({
       location,
       termsAndConditions: false,
       proxy: 'hackshack',
-      duration: workshopDuration,
     });
   };
   const size = useContext(ResponsiveContext);
@@ -135,7 +135,7 @@ const Video = ({
               title={title}
               size={size}
               sessionType={sessionType}
-              duration={duration}
+              duration={workshopDuration}
             />
           )}
           {successLayer && (

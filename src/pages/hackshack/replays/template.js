@@ -41,6 +41,7 @@ const ReplayTemplate = (props) => {
         url: getReplaysApi,
       })
         .then((response) => {
+          console.log('response data', response.data);
           setReplays(response.data);
         })
         .catch(() => {
@@ -70,9 +71,7 @@ const ReplayTemplate = (props) => {
     workshopTitle,
     workshopDesc,
     workshopImg,
-    workshopDuration,
   } = props.pageContext;
-  console.log('workshop duration', workshopDuration);
   const workshopIndex = workshopId
     ? parseInt(props.pageContext.workshopId, 10)
     : 0;
@@ -80,6 +79,7 @@ const ReplayTemplate = (props) => {
   const [autoplay, setAutoPlay] = useState(false);
   const sortedReplays = sortReplays(replays, current);
   const selectedReplay = replays.find(({ id }) => id === current);
+  console.log('selectedReplay', selectedReplay);
 
   return (
     <Layout background="/img/BackgroundImages/generic-background.jpg">
@@ -120,7 +120,9 @@ const ReplayTemplate = (props) => {
                 selectedReplay.workshop && selectedReplay.workshop.name
               }
               workshopId={workshopId}
-              workshopDuration={workshopDuration}
+              workshopDuration={
+                selectedReplay.workshop && selectedReplay.workshop.duration
+              }
             />
             <Heading color="text" style={{ fontWeight: '500' }} level={2}>
               UP NEXT
