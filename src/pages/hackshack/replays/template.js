@@ -70,6 +70,7 @@ const ReplayTemplate = (props) => {
     workshopTitle,
     workshopDesc,
     workshopImg,
+    workshopDuration,
   } = props.pageContext;
   const workshopIndex = workshopId
     ? parseInt(props.pageContext.workshopId, 10)
@@ -118,6 +119,7 @@ const ReplayTemplate = (props) => {
                 selectedReplay.workshop && selectedReplay.workshop.name
               }
               workshopId={workshopId}
+              workshopDuration={workshopDuration}
             />
             <Heading color="text" style={{ fontWeight: '500' }} level={2}>
               UP NEXT
