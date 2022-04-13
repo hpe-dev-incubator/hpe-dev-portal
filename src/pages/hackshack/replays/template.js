@@ -118,6 +118,9 @@ const ReplayTemplate = (props) => {
                 selectedReplay.workshop && selectedReplay.workshop.name
               }
               workshopId={workshopId}
+              workshopDuration={
+                selectedReplay.workshop && selectedReplay.workshop.duration
+              }
             />
             <Heading color="text" style={{ fontWeight: '500' }} level={2}>
               UP NEXT
