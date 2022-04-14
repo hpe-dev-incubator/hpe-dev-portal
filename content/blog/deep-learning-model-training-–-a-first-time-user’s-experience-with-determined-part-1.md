@@ -19,7 +19,7 @@ tags:
 ---
 [Determined](https://github.com/determined-ai/determined) is an open-source deep learning training platform that helps data science teams train models more quickly, easily share GPU resources, and collaborate more effectively. The open-source version of Determined can be deployed on-premises in your data center, on any hardware, on Kubernetes, or in public clouds – wherever GPU resources are available to obtain the full benefit of Determined. 
 
-![High Level architecture diagram](/img/detai-high-levl-architecture-thumbnail.png "High Level architecture diagram")
+<center><img src="/img/detai-high-levl-architecture-thumbnail.png" width="400" height="477" alt="High Level architecture diagram"></center>
 
 In this two-part blog series, I’ll share my experience as a first-time user of Determined. This blog series aims to provide a high-level overview of the basic concepts behind Determined and why you should consider it if you find doing deep learning at scale a bit challenging.
 
@@ -158,7 +158,8 @@ Finally, I need to authenticate as a Determined user. By default, at the time of
 det user login admin
 ```
 
-\##Creating User accounts for the data science team
+## Creating User accounts for the data science team
+
 Determined is designed for data science teams. As such, I’d recommend creating a user account for each member of the team who wants to use Determined. This provides the organizational benefits of associating each Determined entity, such as model experiments and associated training tasks, with the user who created it.
 
 I have experienced user account creation using both the CLI and the REST API. In both cases, it’s a two-step operation: 1) create the user account, and 2) set the password. The ***Admin*** privileged user account must be used to create a user account and set the newly created user account password.
@@ -180,9 +181,9 @@ Unlike the DET CLI, which requires keyboard input for the password, a programmat
 
 Below is the sequence of REST API calls I can use to create a new user account (testuser1) in Determined and to set the password, all using code. You can see how I use ***cURL*** as an HTTP client to interact with Determined through its REST API:  
 
-1- I first need to authenticate as Admin user to Determined and save the authentication token (bearer token) for subsequent REST API calls.\
-2- I then create a non-admin user account using the access token as the bearer token authentication.\
-3- Finally, I set the password for the newly created user account.
+1. I first need to authenticate as Admin user to Determined and save the authentication token (bearer token) for subsequent REST API calls.
+2. I then create a non-admin user account using the access token as the bearer token authentication.
+3. Finally, I set the password for the newly created user account.
 
 ```bash
 # Authenticate as admin user and get the authentication token for subsequent calls:
