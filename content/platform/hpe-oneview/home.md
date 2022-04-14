@@ -6,6 +6,7 @@ image: /img/platforms/Oneview.svg
 width: large
 priority: 3
 frontpage: true
+active: true
 tags:
   - hpe-oneview
 ---
