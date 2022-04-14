@@ -17,6 +17,10 @@ tags:
   - Kubernetes
   - "Ezmeral "
 ---
+![]()
+
+![]()
+
 [Determined](https://github.com/determined-ai/determined) is an open-source deep learning training platform that helps data science teams train models more quickly, easily share GPU resources, and collaborate more effectively. The open-source version of Determined can be deployed on-premises in your data center, on any hardware, on Kubernetes, or in public clouds – wherever GPU resources are available to obtain the full benefit of Determined. 
 
 In this two-part blog series, I’ll share my experience as a first-time user of Determined. This blog series aims to provide a high-level overview of the basic concepts behind Determined and why you should consider it if you find doing deep learning at scale a bit challenging.
@@ -105,7 +109,149 @@ At the time of the Determined installation on the Kubernetes cluster, an instanc
 kubectl get pod,services –n determinedai
 ```
 
-
 ![](/img/determined-pod-svc.png)
 
 As shown in the above image, these components run as a container within a Kubernetes POD. Service endpoints for the Determined’s Master and the Database services are also deployed. The Determined Master service endpoint is a NodePort service that enables HPE Ezmeral Runtime Enterprise to expose that service outside the Kubernetes cluster through its **ingress gateway.**
+
+## Installing the Determined Command Line Interface
+
+As mentioned earlier, Determined provides a web user interface (WebUI), APIs (REST API and Python API), and a command line interface (CLI) tool to interact with the system. The CLI is the most common tool used by data scientists and ML engineers to interact with Determined, especially for launching deep learning model training tasks on Determined. The WebUI is mainly used to monitor the progress of model experiments and training tasks, and visualize the model training performance in graphs.
+
+The Determined CLI is distributed as a Python package. I need Python 3.6 or later installed on my Linux workstation along with the latest version of `pip`. I can use the following command to install the CLI tool on my workstation:
+
+```bash
+#install latest version of pip if needed
+python3 -m pip install --upgrade pip 
+
+#install the Determined CLI
+pip install determined 
+```
+
+## Using the Determined Command Line Interface
+
+I am now ready to enter Determined CLI commands. All commands begin with **det** and any CLI command has the form:
+
+ ***det \[-m <det_master_URL_or_IP:port>] <command_argument> <action_verb> \[-h]***
+
+The Master service endpoint is referenced using the -m flag to specify the URL of the Determined Master that the CLI connects to. Instead of specifying the ***\-m*** flag in every command, I can define an environmental variable, ***DET_MASTER***, that points to the Determined Master service endpoint URL. 
+
+> Note:  The help flag \[-h] can be used to learn more about CLI options.
+
+To use and interact with Determined using the CLI, I need to tell the CLI where the Determined Master service is running. To do so, I first use the `kubectl describe service` command below and look at the **Annotations** section to get the **ingress gateway URL** and **network port** provided by HPE Ezmeral Runtime Enterprise for the Master service of the Determined deployment:
+
+```bash
+kubectl describe service determined-master-service-stagingdetai -n determinedai
+```
+
+![Ingress Gateway URL for the Determined Master endpoint service](/img/determined-master-endpoint-ofuscated.png "Ingress Gateway URL for the Determined Master endpoint service")
+
+In this example, the network port is 13047. 
+
+I now need to export on my workstation the **DET_MASTER** environmental variable, which points to that URL and port:
+
+```bash
+export DET_MASTER=http://gateway2.<mydomain.name>:13047
+```
+
+Finally, I need to authenticate as a Determined user. By default, at the time of the Determined installation, two user accounts are created: ***Admin*** an administrator account, and ***Determined*** a non-privileged user account with the password specified in the Helm chart *values.yaml* configuration file. Using the following command allows me to authenticate as an admin user. I will be prompted by the CLI for the password.
+
+```bash
+#format: det user login <username>
+det user login admin
+```
+
+\##Creating User accounts for the data science team
+Determined is designed for data science teams. As such, I’d recommend creating a user account for each member of the team who wants to use Determined. This provides the organizational benefits of associating each Determined entity, such as model experiments and associated training tasks, with the user who created it.
+
+I have experienced user account creation using both the CLI and the REST API. In both cases, it’s a two-step operation: 1) create the user account, and 2) set the password. The ***Admin*** privileged user account must be used to create a user account and set the newly created user account password.
+
+### Using the Det CLI
+
+Once logged in as Admin user on Determined, I can use the following command to create a test user account. First, I create the user account. The newly created user account has a blank password by default. Then, I set the password for the user account using the second command, which prompts me for the password and password confirmation.
+
+```bash
+# Create the user account
+det user create <username>
+# Set the password for the user account
+det user change-password <target-username>
+```
+
+### Using the REST API for a programmatic approach
+
+Unlike the DET CLI, which requires keyboard input for the password, a programmatic approach to create user accounts might be more appropriate depending on the organization’s use case. Determined is also REST API enabled. The Determined REST API documentation is available [here](https://docs.determined.ai/latest/rest-api/index.html). 
+
+Below is the sequence of REST API calls I can use to create a new user account (testuser1) in Determined and to set the password, all using code. You can see how I use ***cURL*** as an HTTP client to interact with Determined through its REST API:
+
+1- I first need to authenticate as Admin user to Determined and save the authentication token (bearer token) for subsequent REST API calls.
+
+2- I then create a non-admin user account using the access token as the bearer token authentication.
+
+3- Finally, I set the password for the newly created user account.
+
+```bash
+# Authenticate as admin user and get the authentication token for subsequent calls:
+token=$(curl -i -s -X 'POST' \
+  '${DET_MASTER}/api/v1/auth/login' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "username": "admin",
+  "password": "<MyPassword>"
+}' | grep token | awk '{print $1}' | tr -d '\r')
+
+# Extract token value and remove trailing quotes 
+MyToken=$(echo $token | cut -d':' -f 2 | cut -d',' -f 1 | tr -d '"') 
+```
+
+```bash
+# Create a new user account “testuser1”
+curl -X 'POST' \
+  '${DET_MASTER}/api/v1/users' \
+  -H 'accept: application/json' \
+  -H "Authorization: Bearer $MyToken" \
+  -d '{
+  "user": {
+    "username": "testuser1",
+    "admin": false,
+    "active": true
+   }
+}'
+```
+
+```bash
+# Set password for the user account “testuser1”
+curl -X 'POST' \
+'${DET_MASTER}/api/v1/users/testuser1/password' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -H "Authorization: Bearer $MyToken" \
+  -d '"<userPassword>"'
+```
+
+> Note: The open-source version of Determined does not provide user access control features in case you have multiple data science teams (i.e.: multiple tenants). Open-source Determined uses a local user directory as a convenient method to show the entity created by the logged in users. However, the open-source version makes any entity (experiments, tasks) visible to all users, regardless of who created it. This can be a challenge for enterprises that need to keep strong model governance for audit purposes. The enterprise version of the open-source Determined product, [HPE Cray AI Development Environment](https://www.hpe.com/us/en/compute/hpc/cray-ai-development.html) addresses this limitation.
+
+## Checking connectivity to the WebUI using the newly created user account
+
+A good method to verify that a member of the data science team can interact with Determined is to test the connectivity to the WebUI. The WebUI is available on the same service endpoint URL as the CLI. Using my browser, I connect to the Master service URL and verify that I am prompted to login to the WebUI as shown in the following figure:
+
+![Determined WebUI login page](/img/determined-webui-login.png "Determined WebUI login page")
+
+Upon successful login, I land on the ***dashboard*** below. You’ll learn more about the WebUI in my second blog post in this series.
+
+> Note: At the bottom right of the menu bar, you can see that having access to a running Determined instance allows me to navigate a Swagger UI version of the REST API in an interactive fashion.
+
+
+
+![Determined WebUi Dashboard](/img/determined-webui-dashboard.png "Determined WebUi Dashboard")
+
+That’s it! Everything is set. I am now ready to put on my data scientist hat, go and use Determined to train and tune a deep learning model in Determined using the CLI, visualize training results using the WebUI, and load and test models by making inferences. 
+
+## Summary
+As you can see, using my IT operations manager’s hat, I deployed Determined on a Kubernetes cluster running on HPE Ezmeral Runtime Enterprise, which provides all the components needed to run Determined: a task scheduler such as Kubernetes, a namespace, multi-tenancy, an ingress gateway, persistent storage for experiment tracking, and a shared file system for storing model artifacts and datasets.
+
+
+In the second post in this series, I will walk through training a TensorFlow Keras model in Determined using features such as distributed training and automatic model tuning with hyperparameter search.
+
+
+You can subscribe for updates from the HPE Dev Community by subscribing to our [newsletter](https://developer.hpe.com/community). I was able to write this post by joining and receiving help from the [Determined Community Slack](https://join.slack.com/t/determined-community/shared_invite/zt-cnj7802v-KcVbaUrIzQOwmkmY7gP0Ew), which you can also do .You can begin training models with Determined today by visiting the [Determined project on GitHub](https://github.com/determined-ai/determined).
+
