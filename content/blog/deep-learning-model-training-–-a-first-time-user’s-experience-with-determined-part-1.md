@@ -13,9 +13,9 @@ tags:
   - developer
   - machine-learning
   - deep-learning
-  - artificial intelligence
   - Kubernetes
   - "Ezmeral "
+  - artificial-intelligence
 ---
 [Determined](https://github.com/determined-ai/determined) is an open-source deep learning training platform that helps data science teams train models more quickly, easily share GPU resources, and collaborate more effectively. The open-source version of Determined can be deployed on-premises in your data center, on any hardware, on Kubernetes, or in public clouds – wherever GPU resources are available to obtain the full benefit of Determined. 
 
