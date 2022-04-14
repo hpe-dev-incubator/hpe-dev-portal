@@ -15,7 +15,7 @@ tags:
 ---
 [Determined](https://github.com/determined-ai/determined) is an open-source deep learning training platform that helps data science teams train models more quickly, easily share GPU resources, and collaborate more effectively. The open-source version of Determined can be deployed on-premises in your data center, on any hardware, on Kubernetes, or in public clouds – wherever GPU resources are available to obtain the full benefit of Determined. 
 
-<center><img src="/img/detai-high-levl-architecture-thumbnail.png" width="500" height="596" alt="High Level architecture diagram"></center>
+<center><img src="/img/detai-high-levl-architecture-thumbnail.png" width="550" height="656" alt="High Level architecture diagram"></center>
 
 In this two-part blog series, I’ll share my experience as a first-time user of Determined. This blog series aims to provide a high-level overview of the basic concepts behind Determined and why you should consider it if you find doing deep learning at scale a bit challenging.
 
