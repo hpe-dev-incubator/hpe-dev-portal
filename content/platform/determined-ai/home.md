@@ -6,6 +6,7 @@ description: "Determined AI accelerates innovation with open source AI solutions
 image: /img/platforms/logo-determine-ai-216px.svg
 width: large
 priority: 2
+active: true
 tags:
   - determined
   - determined-AI

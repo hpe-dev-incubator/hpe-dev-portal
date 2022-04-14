@@ -13,6 +13,7 @@ const AppProvider = ({ children }) => {
             sourceInstanceName: { eq: "platform" }
             slug: { regex: "//home/$/" }
           }
+          frontmatter: { active: { eq: true } }
         }
         sort: { fields: [frontmatter___priority] }
       ) {
@@ -25,6 +26,7 @@ const AppProvider = ({ children }) => {
             }
             frontmatter {
               title
+              active
             }
           }
         }

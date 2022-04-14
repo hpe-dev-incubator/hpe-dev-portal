@@ -8,6 +8,7 @@ image: /img/platforms/Greenlake.svg
 width: large
 priority: 1
 frontpage: true
+active: true
 tags:
   - hpe-greenlake
 ---

@@ -5,6 +5,7 @@ description: A paradigm shift in data infrastructure.
 image: /img/alletra-element-small.png
 width: large
 priority: 2
+active: true
 tags:
   - hpe-alletra
   - hpe-alletra-6000

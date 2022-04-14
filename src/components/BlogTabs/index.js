@@ -84,10 +84,10 @@ function BlogTabs({ data, columns }) {
       label: 'HPE Alletra',
       count: data.alletraBlogsCount.totalCount,
     },
-    deepLearningBlogs: {
-      label: 'HPE Deep Learning Cookbook',
-      count: data.deepLearningBlogsCount.totalCount,
-    },
+    // deepLearningBlogs: {
+    //   label: 'HPE Deep Learning Cookbook',
+    //   count: data.deepLearningBlogsCount.totalCount,
+    // },
     threeParBlogs: {
       label: 'HPE 3PAR and Primera',
       count: data.threeParBlogsCount.totalCount,
