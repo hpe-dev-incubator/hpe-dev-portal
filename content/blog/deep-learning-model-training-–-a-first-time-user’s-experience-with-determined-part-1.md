@@ -17,11 +17,9 @@ tags:
   - Kubernetes
   - "Ezmeral "
 ---
-![]()
-
-![]()
-
 [Determined](https://github.com/determined-ai/determined) is an open-source deep learning training platform that helps data science teams train models more quickly, easily share GPU resources, and collaborate more effectively. The open-source version of Determined can be deployed on-premises in your data center, on any hardware, on Kubernetes, or in public clouds – wherever GPU resources are available to obtain the full benefit of Determined. 
+
+![High Level architecture diagram](/img/detai-high-levl-architecture-thumbnail.png "High Level architecture diagram")
 
 In this two-part blog series, I’ll share my experience as a first-time user of Determined. This blog series aims to provide a high-level overview of the basic concepts behind Determined and why you should consider it if you find doing deep learning at scale a bit challenging.
 
@@ -180,12 +178,10 @@ det user change-password <target-username>
 
 Unlike the DET CLI, which requires keyboard input for the password, a programmatic approach to create user accounts might be more appropriate depending on the organization’s use case. Determined is also REST API enabled. The Determined REST API documentation is available [here](https://docs.determined.ai/latest/rest-api/index.html). 
 
-Below is the sequence of REST API calls I can use to create a new user account (testuser1) in Determined and to set the password, all using code. You can see how I use ***cURL*** as an HTTP client to interact with Determined through its REST API:
+Below is the sequence of REST API calls I can use to create a new user account (testuser1) in Determined and to set the password, all using code. You can see how I use ***cURL*** as an HTTP client to interact with Determined through its REST API:  
 
-1- I first need to authenticate as Admin user to Determined and save the authentication token (bearer token) for subsequent REST API calls.
-
-2- I then create a non-admin user account using the access token as the bearer token authentication.
-
+1- I first need to authenticate as Admin user to Determined and save the authentication token (bearer token) for subsequent REST API calls.\
+2- I then create a non-admin user account using the access token as the bearer token authentication.\
 3- Finally, I set the password for the newly created user account.
 
 ```bash
@@ -240,18 +236,14 @@ Upon successful login, I land on the ***dashboard*** below. You’ll learn more 
 
 > Note: At the bottom right of the menu bar, you can see that having access to a running Determined instance allows me to navigate a Swagger UI version of the REST API in an interactive fashion.
 
-
-
 ![Determined WebUi Dashboard](/img/determined-webui-dashboard.png "Determined WebUi Dashboard")
 
 That’s it! Everything is set. I am now ready to put on my data scientist hat, go and use Determined to train and tune a deep learning model in Determined using the CLI, visualize training results using the WebUI, and load and test models by making inferences. 
 
 ## Summary
-As you can see, using my IT operations manager’s hat, I deployed Determined on a Kubernetes cluster running on HPE Ezmeral Runtime Enterprise, which provides all the components needed to run Determined: a task scheduler such as Kubernetes, a namespace, multi-tenancy, an ingress gateway, persistent storage for experiment tracking, and a shared file system for storing model artifacts and datasets.
 
+As you can see, using my IT operations manager’s hat, I deployed Determined on a Kubernetes cluster running on HPE Ezmeral Runtime Enterprise, which provides all the components needed to run Determined: a task scheduler such as Kubernetes, a namespace, multi-tenancy, an ingress gateway, persistent storage for experiment tracking, and a shared file system for storing model artifacts and datasets.
 
 In the second post in this series, I will walk through training a TensorFlow Keras model in Determined using features such as distributed training and automatic model tuning with hyperparameter search.
 
-
 You can subscribe for updates from the HPE Dev Community by subscribing to our [newsletter](https://developer.hpe.com/community). I was able to write this post by joining and receiving help from the [Determined Community Slack](https://join.slack.com/t/determined-community/shared_invite/zt-cnj7802v-KcVbaUrIzQOwmkmY7gP0Ew), which you can also do .You can begin training models with Determined today by visiting the [Determined project on GitHub](https://github.com/determined-ai/determined).
-
