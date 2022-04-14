@@ -8,6 +8,7 @@ image: /img/platforms/HPEOneviewGlobalDashboard.svg
 width: large
 priority: 4
 frontpage: true
+active: true
 tags:
   - hpe-oneview-global-dashboard
 ---

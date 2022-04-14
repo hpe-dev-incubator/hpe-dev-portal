@@ -128,7 +128,7 @@ export const pageQuery = graphql`
           sourceInstanceName: { eq: "platform" }
           slug: { regex: "//home/$/" }
         }
-        frontmatter: { isAside: { ne: true } }
+        frontmatter: { isAside: { ne: true }, active: { eq: true } }
       }
       sort: { fields: [frontmatter___priority] }
     ) {
@@ -148,6 +148,7 @@ export const pageQuery = graphql`
             image
             frontpage
             priority
+            active
           }
         }
       }

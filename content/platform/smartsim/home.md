@@ -5,6 +5,7 @@ description: Enabling Machine Learning and AI for traditional high performance
   computing (HPC) simulations.
 image: /img/platforms/smartsim.svg
 width: large
+active: true
 priority: 2
 tags:
   - SmartSim
