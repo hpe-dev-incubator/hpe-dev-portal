@@ -45,7 +45,7 @@ As the figure above indicates, my experimental deployment of Determined consists
 
 * A Determined **Master**, which is attached to a **PostgreSQL** database. The Determined Master and Database run as containers, each within a Kubernetes POD, in the worker nodes of the Kubernetes cluster.
 
-    * The Master hosts the interfaces service endpoint that clients use to communicate with Determined through a CLI, WebUI, and APIs.
+    * The Master hosts the interface service endpoint that clients use to communicate with Determined through a CLI, WebUI, and APIs.
 
     * The Master schedules tasks and brings up PODs on Kubernetes worker nodes to run tasks on demand. For example, the model training tasks and auxiliary tasks (TensorBoard, Notebook).
 
@@ -66,10 +66,15 @@ Before deploying the Helm chart, an important aspect to understand is how to con
 Furthermore, some aspects of Helm chart deployment must be configured before installing Determined on Kubernetes. Although most of the default Helm chart configuration settings are suitable for getting started with Determined on Kubernetes, some parameters must be configured in the chart *values.yaml* file to match the designated Kubernetes cluster deployment and available compute, storage and network resources such as:
 
 * The use of the Kubernetes *NodePort* service type to expose the Determined Master service endpoint outside the Kubernetes cluster,
-* The shared storage volume path to use to save validated model files and checkpoints for fault tolerance, 
-* The amount of GPU resources available on the Kubernetes worker hosts, 
-* The [advanced scheduler](https://docs.determined.ai/latest/concepts/scheduling.html) for large Kubernetes clusters with multiple GPUs per worker host. For my experimental Determined deployment, as I only have 1 GPU per worker host, the default Kubernetes scheduler will be used by Determined to schedule training tasks.  
-* The Determined *Admin* and *Determined* default user account passwords
+
+* The shared storage volume path to use to save validated model files and checkpoints for fault tolerance,
+
+* The amount of GPU resources available on the Kubernetes worker hosts,
+
+* The [advanced scheduler](https://docs.determined.ai/latest/concepts/scheduling.html) for large Kubernetes clusters with multiple GPUs per worker host. For my experimental Determined deployment, as I only have 1 GPU per worker host, the default Kubernetes scheduler will be used by Determined to schedule training tasks,
+
+* The Determined *Admin* and *Determined* default user account passwords,
+
 * The friendly name for Determined deployment.
 
 For more information about the configuration options for the Helm Chart deployment, see the [installation guide documentation](https://docs.determined.ai/latest/sysadmin-deploy-on-k8s/install-on-kubernetes.html).
@@ -184,8 +189,11 @@ Unlike the DET CLI, which requires keyboard input for the password, a programmat
 Below is the sequence of REST API calls I can use to create a new user account (testuser1) in Determined and to set the password, all using code. You can see how I use ***cURL*** as an HTTP client to interact with Determined through its REST API:  
 
 1. I first need to authenticate as Admin user to Determined and save the authentication token (bearer token) for subsequent REST API calls.
+
 2. I then create a non-admin user account using the access token as the bearer token authentication.
+
 3. Finally, I set the password for the newly created user account.
+
 
 ```bash
 # Authenticate as admin user and get the authentication token for subsequent calls:
