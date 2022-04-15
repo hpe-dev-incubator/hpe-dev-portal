@@ -15,11 +15,11 @@ tags:
 ---
 [Determined](https://github.com/determined-ai/determined) is an open-source deep learning training platform that helps data science teams train models more quickly, easily share GPU resources, and collaborate more effectively. The open-source version of Determined can be deployed on-premises in your data center, on any hardware, on Kubernetes, or in public clouds – wherever GPU resources are available to obtain the full benefit of Determined. 
 
-<center><img src="/img/detai-high-levl-architecture-thumbnail.png" width="550" height="656" alt="High Level architecture diagram"></center>
-
 In this two-part blog series, I’ll share my experience as a first-time user of Determined. This blog series aims to provide a high-level overview of the basic concepts behind Determined and why you should consider it if you find doing deep learning at scale a bit challenging.
 
 In this first part, I’ll put on my IT Operations manager’s hat and explain how I deploy Determined on a Kubernetes cluster in an on-premises HPE Ezmeral Runtime Enterprise deployment. In this instance, it will enable my organization’s data science team to quickly try out Determined and assess its capabilities for their data science work. 
+
+<center><img src="/img/detai-high-levl-architecture-thumbnail-v2.png" width="543" height="708" alt="High Level architecture diagram"></center>
 
 In the second part of this series, I'll wear my data scientist/ML engineer hat as a member of a larger data science team that wants to get started with Determined and explore some of its fundamental concepts and features. I’ll review how to train neural network models using one or more GPUs with distributed training, and advanced functionality such as state-of-the-art hyperparameter search to improve model accuracy and find the best version of a model.
 
@@ -37,15 +37,16 @@ HPE Ezmeral Runtime Enterprise with the pre-integrated HPE Ezmeral Data Fabric p
 
 ## Components of Determined on Kubernetes
 
-![Figure1 Determined  High Level Architecture on Kubernetes ](/img/detai-lab-environment-architecture.png "Figure1 Determined High Level Architecture on Kubernetes")
+![Figure1 Determined  High Level Architecture on Kubernetes ](/img/detai-lab-environment-architecture-v2.png "Figure1 Determined High Level Architecture on Kubernetes")
 
 As the figure above indicates, my experimental deployment of Determined consists of:
 
 * A Kubernetes cluster, managed by HPE Ezmeral Runtime Enterprise, with a set of worker nodes with [NVIDIA GPUs support enabled](https://kubernetes.io/docs/tasks/manage-gpus/scheduling-gpus/) (1 GPU device per worker node in my Kubernetes cluster).
 * A Determined **Master**, which is attached to a **PostgreSQL** database. The Determined Master and Database run as containers, each within a Kubernetes POD, in the worker nodes of the Kubernetes cluster.
-    * The Master hosts the interfaces service endpoint that clients use to communicate with Determined through a CLI, WebUI, and APIs.
-    * The Master schedules tasks and brings up PODs on Kubernetes worker nodes to run tasks on demand. For example, the model training tasks and auxiliary tasks (TensorBoard, Notebook).
-    * As training tasks execute, the Master maintains communication with training task PODs and saves training model metadata, like the training and validation metrics received from the training tasks, as well as the state of the tasks, in the PostgreSQL database, for model experiment tracking and analysis.
+
+  * The Master hosts the interfaces service endpoint that clients use to communicate with Determined through a CLI, WebUI, and APIs.
+  * The Master schedules tasks and brings up PODs on Kubernetes worker nodes to run tasks on demand. For example, the model training tasks and auxiliary tasks (TensorBoard, Notebook).
+  * As training tasks execute, the Master maintains communication with training task PODs and saves training model metadata, like the training and validation metrics received from the training tasks, as well as the state of the tasks, in the PostgreSQL database, for model experiment tracking and analysis.
 * An ingress gateway makes the Master's interface service endpoint reachable from outside the Kubernetes cluster.
 * A persistent storage volume for experiment tracking by logging the model’s metadata information, such as hyperparameters, the training and validation metrics, logs, date/time, on the PostgreSQL database.
 * A volume shared across the Kubernetes worker nodes. The shared file system is needed to store the **model artifacts**, such as model code and model **checkpoint** files. The model checkpoint files are saved versions of the validated models that data science teams can access later for testing and analysis. This makes them available to a deployment or serving solution such as Seldon core. The shared file system can also be used by Determined to store the model datasets on which the model is trained by the training tasks.
