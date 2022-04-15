@@ -45,11 +45,11 @@ As the figure above indicates, my experimental deployment of Determined consists
 
 * A Determined **Master**, which is attached to a **PostgreSQL** database. The Determined Master and Database run as containers, each within a Kubernetes POD, in the worker nodes of the Kubernetes cluster.
 
-* The Master hosts the interfaces service endpoint that clients use to communicate with Determined through a CLI, WebUI, and APIs.
+    * The Master hosts the interfaces service endpoint that clients use to communicate with Determined through a CLI, WebUI, and APIs.
 
-* The Master schedules tasks and brings up PODs on Kubernetes worker nodes to run tasks on demand. For example, the model training tasks and auxiliary tasks (TensorBoard, Notebook).
+    * The Master schedules tasks and brings up PODs on Kubernetes worker nodes to run tasks on demand. For example, the model training tasks and auxiliary tasks (TensorBoard, Notebook).
 
-* As training tasks execute, the Master maintains communication with training task PODs and saves training model metadata, like the training and validation metrics received from the training tasks, as well as the state of the tasks, in the PostgreSQL database, for model experiment tracking and analysis.
+    * As training tasks execute, the Master maintains communication with training task PODs and saves training model metadata, like the training and validation metrics received from the training tasks, as well as the state of the tasks, in the PostgreSQL database, for model experiment tracking and analysis.
 
 * An ingress gateway makes the Master's interface service endpoint reachable from outside the Kubernetes cluster.
 
