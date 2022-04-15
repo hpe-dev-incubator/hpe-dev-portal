@@ -186,13 +186,9 @@ det user change-password <target-username>
 
 Unlike the DET CLI, which requires keyboard input for the password, a programmatic approach to create user accounts might be more appropriate depending on the organization’s use case. Determined is also REST API enabled. The Determined REST API documentation is available [here](https://docs.determined.ai/latest/rest-api/index.html). 
 
-Below is the sequence of REST API calls I can use to create a new user account (testuser1) in Determined and to set the password, all using code. You can see how I use ***cURL*** as an HTTP client to interact with Determined through its REST API:  
+Below is the sequence of REST API calls I can use to create a new user account (testuser1) in Determined and to set the password, all using code. You can see how I use ***cURL*** as an HTTP client to interact with Determined through its REST API.  
 
-1. I first need to authenticate as Admin user to Determined and save the authentication token (bearer token) for subsequent REST API calls.
-
-2. I then create a non-admin user account using the access token as the bearer token authentication.
-
-3. Finally, I set the password for the newly created user account.
+* I first need to authenticate as Admin user to Determined and save the authentication token (bearer token) for subsequent REST API calls:
 
 
 ```bash
@@ -210,6 +206,9 @@ token=$(curl -i -s -X 'POST' \
 MyToken=$(echo $token | cut -d':' -f 2 | cut -d',' -f 1 | tr -d '"') 
 ```
 
+* I then create a non-admin user account using the access token as the bearer token authentication:
+
+
 ```bash
 # Create a new user account “testuser1”
 curl -X 'POST' \
@@ -224,6 +223,8 @@ curl -X 'POST' \
    }
 }'
 ```
+
+* Finally, I set the password for the newly created user account:
 
 ```bash
 # Set password for the user account “testuser1”
