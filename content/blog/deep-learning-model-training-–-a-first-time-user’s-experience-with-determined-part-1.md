@@ -38,7 +38,7 @@ Built from the ground up to be open and run in hybrid environment, [HPE Ezmeral 
 
 HPE Ezmeral Runtime Enterprise with the pre-integrated HPE Ezmeral Data Fabric provides all the networking, compute, and storage resources needed to run the Determined open-source platform on premises on Kubernetes. 
 
-## Components of Determined on Kubernetes
+## Components of my Determined deployment on Kubernetes
 
 <center><img src="/img/detai-lab-environment-architecture-v2.png" width="1332" height="725" alt="Figure1 Determined High Level Architecture on Kubernetes"></center>
 
