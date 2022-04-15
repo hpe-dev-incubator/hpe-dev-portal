@@ -247,7 +247,7 @@ A good method to verify that a member of the data science team can interact with
 
 Upon successful login, I land on the ***dashboard*** below. You’ll learn more about the WebUI in my second blog post in this series.
 
-> Note: At the bottom right of the menu bar, you can see that having access to a running Determined instance allows me to navigate a Swagger UI version of the REST API in an interactive fashion.
+> Note: At the bottom left of the menu bar, you can see that having access to a running Determined instance allows me to navigate a Swagger UI version of the REST API in an interactive fashion.
 
 ![Determined WebUi Dashboard](/img/determined-webui-dashboard.png "Determined WebUi Dashboard")
 
