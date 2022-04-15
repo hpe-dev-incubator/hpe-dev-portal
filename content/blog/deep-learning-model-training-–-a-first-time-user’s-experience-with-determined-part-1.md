@@ -12,6 +12,9 @@ tags:
   - developer
   - Kubernetes
   - deep-learning
+  - data-scientist
+  - data-ml-engineer
+  - machine-learning
 ---
 [Determined](https://github.com/determined-ai/determined) is an open-source deep learning training platform that helps data science teams train models more quickly, easily share GPU resources, and collaborate more effectively. The open-source version of Determined can be deployed on-premises in your data center, on any hardware, on Kubernetes, or in public clouds – wherever GPU resources are available to obtain the full benefit of Determined. 
 
@@ -188,8 +191,7 @@ Unlike the DET CLI, which requires keyboard input for the password, a programmat
 
 Below is the sequence of REST API calls I can use to create a new user account (testuser1) in Determined and to set the password, all using code. You can see how I use ***cURL*** as an HTTP client to interact with Determined through its REST API.  
 
-* I first need to authenticate as Admin user to Determined and save the authentication token (bearer token) for subsequent REST API calls:
-
+I first need to authenticate as Admin user to Determined and save the authentication token (bearer token) for subsequent REST API calls:
 
 ```bash
 # Authenticate as admin user and get the authentication token for subsequent calls:
@@ -206,8 +208,7 @@ token=$(curl -i -s -X 'POST' \
 MyToken=$(echo $token | cut -d':' -f 2 | cut -d',' -f 1 | tr -d '"') 
 ```
 
-* I then create a non-admin user account using the access token as the bearer token authentication:
-
+I then create a non-admin user account using the access token as the bearer token authentication:
 
 ```bash
 # Create a new user account “testuser1”
@@ -224,7 +225,7 @@ curl -X 'POST' \
 }'
 ```
 
-* Finally, I set the password for the newly created user account:
+Finally, I set the password for the newly created user account:
 
 ```bash
 # Set password for the user account “testuser1”
