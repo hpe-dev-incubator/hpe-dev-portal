@@ -40,13 +40,11 @@ HPE Ezmeral Runtime Enterprise with the pre-integrated HPE Ezmeral Data Fabric p
 ![Figure1 Determined  High Level Architecture on Kubernetes ](/img/detai-lab-environment-architecture-v2.png "Figure1 Determined High Level Architecture on Kubernetes")
 
 As the figure above indicates, my experimental deployment of Determined consists of:
-
 * A Kubernetes cluster, managed by HPE Ezmeral Runtime Enterprise, with a set of worker nodes with [NVIDIA GPUs support enabled](https://kubernetes.io/docs/tasks/manage-gpus/scheduling-gpus/) (1 GPU device per worker node in my Kubernetes cluster).
 * A Determined **Master**, which is attached to a **PostgreSQL** database. The Determined Master and Database run as containers, each within a Kubernetes POD, in the worker nodes of the Kubernetes cluster.
-
-  * The Master hosts the interfaces service endpoint that clients use to communicate with Determined through a CLI, WebUI, and APIs.
-  * The Master schedules tasks and brings up PODs on Kubernetes worker nodes to run tasks on demand. For example, the model training tasks and auxiliary tasks (TensorBoard, Notebook).
-  * As training tasks execute, the Master maintains communication with training task PODs and saves training model metadata, like the training and validation metrics received from the training tasks, as well as the state of the tasks, in the PostgreSQL database, for model experiment tracking and analysis.
+    * The Master hosts the interfaces service endpoint that clients use to communicate with Determined through a CLI, WebUI, and APIs.
+    * The Master schedules tasks and brings up PODs on Kubernetes worker nodes to run tasks on demand. For example, the model training tasks and auxiliary tasks (TensorBoard, Notebook).
+    * As training tasks execute, the Master maintains communication with training task PODs and saves training model metadata, like the training and validation metrics received from the training tasks, as well as the state of the tasks, in the PostgreSQL database, for model experiment tracking and analysis.
 * An ingress gateway makes the Master's interface service endpoint reachable from outside the Kubernetes cluster.
 * A persistent storage volume for experiment tracking by logging the model’s metadata information, such as hyperparameters, the training and validation metrics, logs, date/time, on the PostgreSQL database.
 * A volume shared across the Kubernetes worker nodes. The shared file system is needed to store the **model artifacts**, such as model code and model **checkpoint** files. The model checkpoint files are saved versions of the validated models that data science teams can access later for testing and analysis. This makes them available to a deployment or serving solution such as Seldon core. The shared file system can also be used by Determined to store the model datasets on which the model is trained by the training tasks.
