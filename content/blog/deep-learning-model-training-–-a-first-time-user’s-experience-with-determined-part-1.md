@@ -72,9 +72,9 @@ Furthermore, some aspects of Helm chart deployment must be configured before ins
 
 * The shared storage volume path to use to save validated model files and checkpoints for fault tolerance,
 
-* The amount of GPU resources available on the Kubernetes worker hosts,
+* The amount of GPU resources (known as ***slot***) available on the Kubernetes worker hosts. In my Determined deployment I have 1 GPU per worker host,
 
-* The [advanced scheduler](https://docs.determined.ai/latest/concepts/scheduling.html) for large Kubernetes clusters with multiple GPUs per worker host. For my experimental Determined deployment, as I only have 1 GPU per worker host, the default Kubernetes scheduler will be used by Determined to schedule training tasks,
+* The [advanced scheduler](https://docs.determined.ai/latest/concepts/scheduling.html) to use for large Kubernetes clusters with multiple GPUs per worker host. For my experimental Determined deployment, as I only have 1 GPU per worker host, it is recommended to let Determined use the **default Kubernetes scheduler** to schedule training tasks,
 
 * The Determined *Admin* and *Determined* default user account passwords,
 
