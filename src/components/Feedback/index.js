@@ -7,6 +7,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Box } from 'grommet';
 import { useFormik } from 'formik';
+import * as yup from 'yup';
 import FeedBackButton from './FeedbackButton/FeedbackButton';
 import FeedbackForm from './FeedbackForm/FeedbackForm';
 
@@ -27,16 +28,19 @@ const questions = [
     id: 1,
     display: 'I like something',
     title: 'What did you like?',
+    subTitle: 'Help us improve by giving us some more details.',
   },
   {
     id: 2,
     display: 'I have an idea',
     title: 'What is your suggestion?',
+    subTitle: 'Give us some more details about it.',
   },
   {
     id: 3,
     display: "Something's not working",
     title: 'What did you find?',
+    subTitle: 'Give us some more details so that we can look into.',
   },
 ];
 
@@ -77,15 +81,24 @@ const Feedback = (props) => {
       });
       setSelQuestion(undefined);
       feedbackFromik.resetForm();
-      handleClose();
-      setShowForm(false);
-      setShowButton(true);
     }
   };
+
+  const successClose = () => {
+    handleClose();
+    setShowForm(false);
+    setShowButton(true);
+  };
+
+  const validationSchema = yup.object({
+    value: yup.string().required('Required'),
+    email: yup.string().email('Invalid email format').required('Required'),
+  });
 
   const feedbackFromik = useFormik({
     initialValues: initialState,
     onSubmit: submithandler,
+    validationSchema,
   });
 
   // const handleMessageInput = (inputName, content) => {
@@ -118,12 +131,22 @@ const Feedback = (props) => {
     setSelQuestion(questions[value]);
   };
 
+  // const previousHandler = () => {
+  //   if (selQuestion) {
+  //   }
+  // };
+
   const closeHandler = () => {
     setShowButton(true);
     setSelQuestion(undefined);
     feedbackFromik.resetForm();
     setShowForm(false);
     handleClose();
+  };
+
+  const cancelQuestion = () => {
+    setSelQuestion(undefined);
+    feedbackFromik.resetForm();
   };
 
   return (
@@ -145,6 +168,8 @@ const Feedback = (props) => {
             changeQuestion={changeQuestion}
             nextHandler={nextHandler}
             questions={questions}
+            cancelQuestion={cancelQuestion}
+            successClose={successClose}
           />
         </Box>
       )}

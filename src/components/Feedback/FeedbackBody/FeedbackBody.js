@@ -1,8 +1,14 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable max-len */
-import { Box, Button, TextInput, Text } from 'grommet';
+import { Box, Button, TextInput, Text, TextArea, Image } from 'grommet';
 import React, { useState } from 'react';
-import { Dislike, Like, Emoji } from 'grommet-icons';
+import {
+  Dislike,
+  Like,
+  Emoji,
+  FormNextLink,
+  FormPreviousLink,
+} from 'grommet-icons';
 
 const defaultBodyStyles = {
   padding: '10px',
@@ -14,7 +20,7 @@ const defaultMessageStyles = {
   boxSizing: 'border-box',
   padding: '10px 10px 10px 10px',
   overflow: 'hidden',
-  width: '300px',
+  // width: '300px',
   fontFamily: 'arial',
 };
 
@@ -23,84 +29,150 @@ const FeedbackBody = ({
   feedbackFromik,
   selQuestion,
   changeQuestion,
+  cancelQuestion,
+  successClose,
 }) => {
   const [emailDis, setEmailDis] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+
+  const backHandler = () => {
+    if (emailDis) {
+      setEmailDis(false);
+    } else {
+      feedbackFromik.resetForm();
+      cancelQuestion();
+    }
+  };
 
   return (
-    <Box gap="small" style={{ height: 300, width: 300 }}>
-      {selQuestion === undefined && (
-        <Box style={{ marginBottom: 60 }}>
-          <Box style={defaultMessageStyles}>
-            <Text weight="bold">{bodyText}</Text>
+    <Box gap="small" style={{ height: 300, width: 350 }}>
+      {selQuestion === undefined &&
+        (!isSuccess ? (
+          <Box style={{ marginBottom: 60 }}>
+            <Box style={defaultMessageStyles}>
+              <Text weight="bold" alignSelf="center">
+                {bodyText}
+              </Text>
+            </Box>
+            <Button
+              alignSelf="center"
+              secondary
+              label="I like something"
+              icon={<Like />}
+              style={{ marginTop: 10 }}
+              onClick={() => changeQuestion(0)}
+            />
+            <Button
+              alignSelf="center"
+              secondary
+              label="I have an idea"
+              icon={<Emoji />}
+              style={{ marginTop: 10 }}
+              onClick={() => changeQuestion(1)}
+            />
+            <Button
+              alignSelf="center"
+              secondary
+              label="Something's not working"
+              icon={<Dislike />}
+              style={{ marginTop: 10 }}
+              onClick={() => changeQuestion(2)}
+            />
           </Box>
-          <Button
-            alignSelf="center"
-            secondary
-            label="I like something"
-            icon={<Like />}
-            style={{ marginTop: 10 }}
-            onClick={() => changeQuestion(0)}
-          />
-          <Button
-            alignSelf="center"
-            secondary
-            label="I have an idea"
-            icon={<Emoji />}
-            style={{ marginTop: 10 }}
-            onClick={() => changeQuestion(1)}
-          />
-          <Button
-            alignSelf="center"
-            secondary
-            label="Something's not working"
-            icon={<Dislike />}
-            style={{ marginTop: 10 }}
-            onClick={() => changeQuestion(2)}
-          />
-        </Box>
-      )}
+        ) : (
+          <Box style={{ marginBottom: 60, marginInline: 20 }}>
+            <Image
+              height={60}
+              width={60}
+              alignSelf="center"
+              src="https://pbs.twimg.com/profile_images/1060682187232600065/SotJzj_4_400x400.jpg"
+              style={{ marginTop: 20 }}
+            />
+            <Text
+              style={{
+                fontWeight: 'bold',
+                textAlign: 'center',
+                marginTop: 25,
+                fontSize: 22,
+              }}
+            >
+              Thank You!
+            </Text>
+            <Text
+              style={{ textAlign: 'center', fontSize: 16, fontWeight: '500' }}
+            >
+              We value your feedback and we will use it to improve our websites
+              and services.
+            </Text>
 
-      {selQuestion && !emailDis && (
-        <Box style={{ marginInline: 20, marginTop: 40 }}>
-          <Text weight="bold">{selQuestion.title}</Text>
-          <TextInput
-            rows="5"
-            name="value"
-            value={feedbackFromik.values.value}
-            placeholder="Enter Your Name"
-            required
-            style={{ marginTop: 20 }}
-            onChange={feedbackFromik.handleChange}
-          />
-          <Button
-            label="Next"
-            style={{ marginTop: 20 }}
-            onClick={() => setEmailDis(true)}
-            alignSelf="end"
-            primary
-          />
-        </Box>
-      )}
+            <Button
+              label="Close"
+              style={{ marginTop: 30 }}
+              onClick={() => {
+                successClose();
+              }}
+              alignSelf="center"
+              primary
+            />
+          </Box>
+        ))}
 
-      {selQuestion && emailDis && (
-        <Box style={{ marginInline: 20, marginTop: 40 }}>
-          <Text weight="bold">Can we get back to you?</Text>
-          <TextInput
-            name="email"
-            rows="5"
-            value={feedbackFromik.values.email}
-            style={{ marginTop: 20 }}
-            placeholder="Enter Your Email"
-            required
-            onChange={feedbackFromik.handleChange}
-          />
-          <Button
-            label="Submit"
-            style={{ marginTop: 20 }}
-            onClick={() => feedbackFromik.submitForm()}
-            alignSelf="end"
-            primary
-          />
+      {selQuestion && (
+        <Box style={{ marginInline: 20, marginTop: 20, marginBottom: 20 }}>
+          <Box style={{ marginBottom: 20 }} onClick={() => backHandler()}>
+            <FormPreviousLink />
+          </Box>
+          {!emailDis ? (
+            <>
+              <Text weight="bold">{selQuestion.title}</Text>
+              <Text style={{ fontSize: 14 }}>{selQuestion.subTitle}</Text>
+              <TextArea
+                rows="5"
+                name="value"
+                value={feedbackFromik.values.value}
+                placeholder="Type here..."
+                required
+                style={{ marginTop: 10 }}
+                onChange={feedbackFromik.handleChange}
+              />
+              <Button
+                label="Next"
+                style={{ marginTop: 20 }}
+                icon={<FormNextLink />}
+                onClick={() => setEmailDis(true)}
+                alignSelf="end"
+                reverse
+                primary
+                disabled={feedbackFromik.values.value === ''}
+              />
+            </>
+          ) : (
+            <>
+              <Text weight="bold">Can we get back to you?</Text>
+              <Text style={{ fontSize: 14 }}>
+                If yes, Please share your email
+              </Text>
+              <TextInput
+                name="email"
+                rows="5"
+                value={feedbackFromik.values.email}
+                style={{ marginTop: 10 }}
+                placeholder="Enter Your Email"
+                required
+                onChange={feedbackFromik.handleChange}
+              />
+              <Button
+                label="Send Feedback"
+                style={{ marginTop: 20 }}
+                onClick={() => {
+                  feedbackFromik.submitForm();
+                  setIsSuccess(true);
+                }}
+                alignSelf="end"
+                primary
+              />
+            </>
+          )}
         </Box>
       )}
     </Box>

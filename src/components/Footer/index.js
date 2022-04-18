@@ -96,7 +96,7 @@ export const Footer = () => (
       style={{ zIndex: '100', position: 'fixed', left: '2px!' }}
       position="left"
       numberOfStars={5}
-      headerText="Feedback"
+      headerText="Help us improve HPE DEV Community"
       bodyText="What kind of Feedback do you have?"
       buttonText="Feedback"
       handleClose={() => console.log('handleclose')}

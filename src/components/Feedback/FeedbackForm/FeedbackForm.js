@@ -29,6 +29,8 @@ const FeedbackForm = (props) => {
     changeAnsQue,
     selQuestion,
     changeQuestion,
+    cancelQuestion,
+    successClose,
   } = props;
 
   const customFormStyles = handleCustomPosition(position, formStyles);
@@ -52,6 +54,8 @@ const FeedbackForm = (props) => {
         changeAnsQue={changeAnsQue}
         selQuestion={selQuestion}
         changeQuestion={changeQuestion}
+        cancelQuestion={cancelQuestion}
+        successClose={successClose}
       />
       {/* <FeedbackFooter handleSubmit={handleSubmit} 
       handleClose={handleClose} /> */}
