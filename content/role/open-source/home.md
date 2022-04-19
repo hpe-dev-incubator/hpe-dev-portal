@@ -30,7 +30,7 @@ Explore community-powered innovation here as we highlight a few of the latest op
 <div class="row">
   <div class="column">
     ### Get Inspired
-    \*\*Data science de facto standards emerge\*\*
+    \\*\\*Data science de facto standards emerge\\*\\*
 
 ```
 *Explore open standards for AI/ML tool and application development.*
@@ -39,7 +39,7 @@ Explore community-powered innovation here as we highlight a few of the latest op
   </div>
   <div class="column">
     ### Building a Foundation 
-    \*\*Secure from the start\*\*
+    \\*\\*Secure from the start\\*\\*
 
 ```
 *Start with a zero-trust policy where everyone needs to be authenticated and authorized.*
@@ -50,7 +50,7 @@ Explore community-powered innovation here as we highlight a few of the latest op
 
 <div class="row">
   <div class="column">
-    - Improve scientific simulation efficiency and accuracy at scale using high-performance compute simulations and the open source framework of \[SmartSim](https://developer.hpe.com/platform/smartsim/home/)
+    - Improve scientific simulation efficiency and accuracy at scale using high-performance compute simulations and the open source framework of \\[SmartSim](https://developer.hpe.com/platform/smartsim/home/)
 
 ```
 - Accelerate time-to-production with [Determined AI](https://developer.hpe.com/platform/determined-ai/home/), an open source deep learning training platform to build and train models faster and easier
@@ -71,7 +71,7 @@ Explore community-powered innovation here as we highlight a few of the latest op
 
 <div class="row">
   <div class="column">
-    \*\*Prototype-then-port parallel processing apps\*\*
+    \\*\\*Prototype-then-port parallel processing apps\\*\\*
 
 ```
 *ML/DL and AI apps requiring large-scale simulation often need the power of parallel processing, but access to HPC hardware can be limited.*
@@ -79,7 +79,7 @@ Explore community-powered innovation here as we highlight a few of the latest op
 
   </div>
   <div class="column">
-    \*\*Connect seamlessly to trustworthy data\*\*
+    \\*\\*Connect seamlessly to trustworthy data\\*\\*
 
 ```
 *Dataspaces provide the building blocks to integrate diverse data sets from multiple distributed owners and gain broader discovery and access with improved governance and trust.*
@@ -91,7 +91,7 @@ Explore community-powered innovation here as we highlight a few of the latest op
 <div class="row">
   <div class="column">
     
-    - Consider writing your app in \[Chapel](https://developer.hpe.com/platform/chapel/home/), which allows you to prototype your app on a laptop and then run it at scale on larger systems
+    - Consider writing your app in \\[Chapel](https://developer.hpe.com/platform/chapel/home/), which allows you to prototype your app on a laptop and then run it at scale on larger systems
      
 
   </div>
@@ -109,7 +109,7 @@ Explore community-powered innovation here as we highlight a few of the latest op
 
 <div class="row">
   <div class="column">
-    \*\*Apply open source solutions to solve global issues\*\*
+    \\*\\*Apply open source solutions to solve global issues\\*\\*
 
 ```
 *In an interconnected world, technology can enhance and protect our existence*
@@ -117,7 +117,7 @@ Explore community-powered innovation here as we highlight a few of the latest op
 
   </div>
   <div class="column">
-    \*\*Modernize the SQL stack for analytics transformations\*\*
+    \\*\\*Modernize the SQL stack for analytics transformations\\*\\*
 
 ```
 *Enterprises increasingly require data analytics services with cloud-like operations*
@@ -129,7 +129,7 @@ Explore community-powered innovation here as we highlight a few of the latest op
 <div class="row">
   <div class="column">
     
-    - \[AgStack](https://github.com/agstack) Foundation aims to improve global agriculture efficiency through the creation, maintenance and enhancement of free, reusable, open and specialized digital infrastructure for data and applications
+    - \\[AgStack](https://github.com/agstack) Foundation aims to improve global agriculture efficiency through the creation, maintenance and enhancement of free, reusable, open and specialized digital infrastructure for data and applications
      
 
   </div>
@@ -290,7 +290,7 @@ Explore community-powered innovation here as we highlight a few of the latest op
 
 <div class="row">
   <div class="column">
-    Find documentation, API information, videos and tutorials on our \[open source platform pages](/opensource/).
+    Find documentation, API information, videos and tutorials on our \\[open source platform pages](/opensource/).
 
   </div>
   <div class="column">
@@ -320,7 +320,7 @@ Explore community-powered innovation here as we highlight a few of the latest op
 
 <div class="row">
   <div class="column">
-    Ping us with your comments, questions, and requests for information. We recommend starting with the HPE DEV Slack workspace.
+    Ping us with your comments, questions, and requests for information. We recommend starting with the HPE DEV Slack workspace. 
 
   </div>
   <div class="column">
