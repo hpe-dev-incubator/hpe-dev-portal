@@ -4,7 +4,7 @@ title: Deep Learning Model Training – A First-Time User’s Experience with
 date: 2022-04-14T17:21:31.857Z
 author: Denis Choukroun
 authorimage: https://gravatar.com/avatar/f66dd9562c53567466149af06ae9d4f1?s=192
-thumbnailimage: ""
+thumbnailimage: /img/detai-high-levl-architecture-thumbnail-v2.png
 tags:
   - determined-ai
   - opensource
