@@ -111,6 +111,7 @@ helm status stagingdetai -n determinedai
 
 ![Helm Chart deployment status](/img/determined-helm-install-status.png "Helm Chart deployment status")
 
+
 At the time of the Determined installation on the Kubernetes cluster, an instance of the **Determined Master** and a **PostgreSQL database** are deployed in the Kubernetes cluster. Using the kubectl command below allows me to check the resources that are deployed on the Kubernetes cluster: 
 
 ```bash
