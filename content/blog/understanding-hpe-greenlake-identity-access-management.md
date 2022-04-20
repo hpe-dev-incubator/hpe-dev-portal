@@ -2,7 +2,7 @@
 title: Understanding HPE GreenLake Identity & Access Management
 date: 2022-04-19T17:43:23.594Z
 author: John Lenihan
-authorimage: /img/win_20210422_16_43_59_pro.jpg
+authorimage: /img/mugshot.png
 ---
 ### IAM Definitions
 
@@ -79,7 +79,7 @@ Once a Tenant Administrator is on-boarded, they can invite their users to join t
 2. Select the Users Tab
 3. Under the Actions pull-down, choose 'Invite User'
 
-<img src="relative-path-of-your-image-in-the-form: /img/invite-user-1-.png" width="600" height="359" alt="Invite User">
+![](/img/invite-user.png)
 
 The invited User receives an email inviting them to join the Tenant. Once the User activates their account they can log into GreenLake Central and switch to the Tenant. The Tenant Administrator can add the new User to various User Groups, etc.
 
@@ -263,8 +263,6 @@ Each division has their own unique billing account:
 | Big and Small (USA)    | HP-AMS-DMO-USA-99918  |
 | Big and Small (Europe) | HP-EMEA-DMO-DEU-99919 |
 | Big and Small (Japan)  | HP-APJ-DMO-JPN-99920  |
-
-
 
 A Tenant for Big and Small (USA) is created.The main service in this Tenant is HPE GreenLake for Private Cloud. This is configured such that the metrics from this service are sent to the Billing Account 'HP-AMS-DMO-USA-99918'.
 
