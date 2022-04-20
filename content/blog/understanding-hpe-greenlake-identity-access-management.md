@@ -212,27 +212,35 @@ ABC Corp is a small company with three departments, A, B and C. Since the compan
 The Tenant Administrator for ABC Corp can create User Groups for each Department, e.g.
 
 * Department A Users
-* * Users: John, Mary
+
+  * Users: John, Mary
 * Department B Users
-* * Users: Mary
+
+  * Users: Mary
 * Department C Users
-* * Users: Robert
+
+  * Users: Robert
 
 NOTE: User Mary is a member o f both Department A Users and Department B Users User group.
 
 Next, the Tenant Administrator can create Spaces for each Department and select Billing Account Resources and User Groups as appropriate, e.g.
 
-* Department A Space
-* * Billing Resource HP-AMS-DMO-USA-99918
-  * Billing Resource HP-AMS-DMO-USA-99919
-  * Department A Users
-* Department B Space
-* * Billing Resource HP-AMS-DMO-USA-99920
-  * Department B Users
-* Department C Space
-* * Billing Resource HP-AMS-DMO-USA-99918
-  * Billing Resource HP-AMS-DMO-USA-99920
-  * Department C Users
+Department A Space
+
+* Billing Resource HP-AMS-DMO-USA-99918
+* Billing Resource HP-AMS-DMO-USA-99919
+* Department A Users
+
+Department B Space
+
+* Billing Resource HP-AMS-DMO-USA-99920
+* Department B Users
+
+Department C Space
+
+* Billing Resource HP-AMS-DMO-USA-99918
+* Billing Resource HP-AMS-DMO-USA-99920
+* Department C Users
 
 In this way, user John, who is a member of Department A Users would only have access to Department A Space and would be able to access Billing Resources HP-AMS-DMO-USA-99918 and HP-AMS-DMO-USA-99919.
 
@@ -264,19 +272,19 @@ Each division has their own unique billing account:
 | Big and Small (Europe) | HP-EMEA-DMO-DEU-99919 |
 | Big and Small (Japan)  | HP-APJ-DMO-JPN-99920  |
 
-A Tenant for Big and Small (USA) is created.The main service in this Tenant is HPE GreenLake for Private Cloud. This is configured such that the metrics from this service are sent to the Billing Account 'HP-AMS-DMO-USA-99918'.
+A Tenant for Big and Small (USA) is created. The main service in this Tenant is HPE GreenLake for Private Cloud. This is configured such that the metrics from this service are sent to the Billing Account 'HP-AMS-DMO-USA-99918'.
 
 Each Department has their own separate User Group, e.g. Department A Users. Users from the various Departments are added to the appropriate User Groups.
 
 A Space 'Main Space' is created within the IAM Service of this Tenant and Resources are added. In this case, the Resource for the Billing Account HP-AMS-DMO-USA-99918 and also the Resource for the HPE GreenLake for Private Cloud are added. Finally, the User Groups are assigned to the Space with the appropriate Roles.
 
-A Tenant for Big and Small (Europe) is created.The main service in this Tenant is HPE GreenLake for HPC. This is configured such that the metrics from this service are sent to the Billing Account 'HP-EMEA-DMO-DEU-99919'.
+A Tenant for Big and Small (Europe) is created. The main service in this Tenant is HPE GreenLake for HPC. This is configured such that the metrics from this service are sent to the Billing Account 'HP-EMEA-DMO-DEU-99919'.
 
 Each Department has their own separate User Group, e.g. Department D Users. Users from the various Departments are added to the appropriate User Groups.
 
 A Space 'Main Space' is created within the IAM Service of this Tenant and Resources are added. In this case, the Resource for the Billing Account HP-EMEA-DMO-DEU-99919 and also the Resource for the HPE GreenLake for HPC are added. Finally, the User Groups are assigned to the Space with the appropriate Roles.
 
-A Tenant for Big and Small (Japan) is created.The main service in this Tenant is HPE GreenLake for ML Ops. This is configured such that the metrics from this service are sent to the Billing Account 'HP-APJ-DMO-JPN-99920'.
+A Tenant for Big and Small (Japan) is created. The main service in this Tenant is HPE GreenLake for ML Ops. This is configured such that the metrics from this service are sent to the Billing Account 'HP-APJ-DMO-JPN-99920'.
 
 Each Department has their own separate User Group, e.g. Department F Users. Users from the various Departments are added to the appropriate User Groups.
 
