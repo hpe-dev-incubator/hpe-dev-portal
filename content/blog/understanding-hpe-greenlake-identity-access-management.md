@@ -3,6 +3,8 @@ title: Understanding HPE GreenLake Central Identity & Access Management
 date: 2022-04-19T17:43:23.594Z
 author: John Lenihan
 authorimage: /img/mugshot.png
+tags:
+  - hpe-greenlake
 ---
 ### IAM Definitions
 
