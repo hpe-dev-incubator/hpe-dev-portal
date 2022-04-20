@@ -75,50 +75,33 @@ New tenants are requested via a HPE Representative. The request includes an init
 
 Once a Tenant Administrator is on-boarded, they can invite their users to join the Tenant.
 
-1. Access the Identity & Access Service within the ![ ](/img/spanner.png "spanner")
-   ![](file:///C:\Users\Lenihan\AppData\Local\Temp\msohtmlclip1\01\clip_image001.png) icon.
+1. Access the Identity & Access Service within the Wrench icon.
 2. Select the Users Tab
 3. Under the Actions pull-down, choose 'Invite User'
 
-![](/img/invite-user-1-.png)
+<img src="relative-path-of-your-image-in-the-form: /img/invite-user-1-.png" width="600" height="359" alt="Invite User">
 
 The invited User receives an email inviting them to join the Tenant. Once the User activates their account they can log into GreenLake Central and switch to the Tenant. The Tenant Administrator can add the new User to various User Groups, etc.
 
 ### Creating and modifying User Groups
 
-1. Access the Identity & Access Service within the
-
-   ![](/img/spanner.png)
-
-   icon.
+1. Access the Identity & Access Service within the Wrench icon.
 2. Select the User Groups Tab
 3. To modify an existing User Group, click on it from the list of User Groups
 4. 1. Members can be added by selecting the Members Tab and selecting 'Add Members' under the Actions pull-down
-   2. Members can be removed from the User Group by clicking on the
-
-      ![](file:///C:\Users\Lenihan\AppData\Local\Temp\msohtmlclip1\01\clip_image005.png)
-
-      icon beside the Member name
+   2. Members can be removed from the User Group by clicking on the Trash icon beside the Member name
 5. To create a new User Group, click on the 'Create User Group' button
 6. 1. Enter a User Group Name and Description
    2. Once the User Group has been created it may be modified using the instructions above
 
 ### Creating and modifying Spaces
 
-1. Access the Identity & Access Service within the
-
-   ![](file:///C:\Users\Lenihan\AppData\Local\Temp\msohtmlclip1\01\clip_image001.png "spanner")
-
-   icon.
+1. Access the Identity & Access Service within the Wrench icon.
 2. Select the Spaces Tab
 3. To modify an existing Space, click on it from the list of Spaces
 4. 1. Users and User Groups can be added by selecting the Assignments Tab and selecting 'Create Assignment' under the Actions pull-down
    2. 1. Select appropriate Role(s) for the Space
-   3. Users and User Groups can be removed from the Space by clicking on the
-
-      ![](file:///C:\Users\Lenihan\AppData\Local\Temp\msohtmlclip1\01\clip_image005.png)
-
-      icon beside the Subject name
+   3. Users and User Groups can be removed from the Space by clicking on the Trash icon beside the Subject name
    4. Resources can be added and removed from the Space by selecting the Resources Tab and selecting 'Update Resources' under the Actions pull-down
 5. To create a new Space, click on the 'Create Space' button
 6. 1. Enter a Space Name and Parent Space
@@ -130,12 +113,7 @@ The invited User receives an email inviting them to join the Tenant. Once the Us
 
 ##### Design
 
-<!--\\\\\\\\\\\\\\[if gte vml 1]><v:shape id="Picture_x0020_7"
- o:spid="_x0000_i1040" type="#_x0000_t75" style='width:351pt;height:176.5pt;
- visibility:visible;mso-wrap-style:square'>
- <v:imagedata src="file:///C:\Users\Lenihan\AppData\Local\Temp\msohtmlclip1\01\clip_image006.jpg"
-  o:title="40fc263f34cd0f352ecce70532bb6257"/>
-</v:shape><!\\\\\\\\\\\\\\[endif]--><!--\\\\\\\\\\\\\\[if !vml]-->!\\\\\\\\\\\\\[](file:///C:\Users\Lenihan\AppData\Local\Temp\msohtmlclip1\01\clip_image007.jpg)<!--\\\\\\\\\\\\\\[endif]-->
+![](/img/iam-document-example-1-tenant-1-1-.jpg "Example 1: ACME Corp.")
 
 Customer ACME Corp. has users spread around the globe. The Users' email addresses are all of the form [xyz@acmecorp.com.](mailto:xyz@acmecorp.com.) ACME Corp. has several Departments which are also distributed around the globe. The customer wishes to use HPE GreenLake Private Cloud to create and manage virtual machines and Containers on behalf of the various departments. They also wish to use HPE GreenLake for ML Ops to examine their internal data and perform AI operations upon it and GreenLake for containers to run a Sales Application.
 
@@ -159,12 +137,7 @@ Next, they can create User Groups for each Department, e.g.
 
 Each User Group will consist of sets of users from each Department:
 
-<!--\\\\\\\\\\\\\\[if gte vml 1]><v:shape id="Picture_x0020_8"
- o:spid="_x0000_i1039" type="#_x0000_t75" style='width:351pt;height:190.5pt;
- visibility:visible;mso-wrap-style:square'>
- <v:imagedata src="file:///C:\Users\Lenihan\AppData\Local\Temp\msohtmlclip1\01\clip_image008.png"
-  o:title="1451a8dc99f86d687b38adb8c1ae1a56"/>
-</v:shape><!\\\\\\\\\\\\\\[endif]--><!--\\\\\\\\\\\\\\[if !vml]-->!\\\\\\\\\\\\\[](file:///C:\Users\Lenihan\AppData\Local\Temp\msohtmlclip1\01\clip_image009.png)<!--\\\\\\\\\\\\\\[endif]-->
+![](/img/sales-department-users-members.png "Sales Department Users")
 
 Next, the Tenant Administrator can create Spaces for each Department, e.g.
 
@@ -176,99 +149,79 @@ Next, the Tenant Administrator can create Spaces for each Department, e.g.
 
 When each Space is created, appropriate Resources are chosen and mapped to the Space:
 
-<!--\\\\\\\\\\\\\\[if gte vml 1]><v:shape id="Picture_x0020_9"
- o:spid="_x0000_i1038" type="#_x0000_t75" style='width:300pt;height:853pt;
- visibility:visible;mso-wrap-style:square'>
- <v:imagedata src="file:///C:\Users\Lenihan\AppData\Local\Temp\msohtmlclip1\01\clip_image010.png"
-  o:title="495e58c007f7bc2efaa8f82c6cbd6d70"/>
-</v:shape><!\\\\\\\\\\\\\\[endif]--><!--\\\\\\\\\\\\\\[if !vml]-->!\\\\\\\\\\\\\[](file:///C:\Users\Lenihan\AppData\Local\Temp\msohtmlclip1\01\clip_image011.png)<!--\\\\\\\\\\\\\\[endif]-->
+![](/img/resource-selection.png "Resource Selection")
 
 ##### Office of CEO
 
 The Office of CEO Space needs access to Billing across the entire Company. They may also use HPE GreenLake for Private Cloud to run some Virtual Machines. Finally, they occasionally run some AI on internal data.
 
-<!--\\\\\\\\\\\\\\[if gte vml 1]><v:shape id="Picture_x0020_10"
- o:spid="_x0000_i1037" type="#_x0000_t75" style='width:351pt;height:190.5pt;
- visibility:visible;mso-wrap-style:square'>
- <v:imagedata src="file:///C:\Users\Lenihan\AppData\Local\Temp\msohtmlclip1\01\clip_image012.png"
-  o:title="61d4ec4f99df2f3c51cf38998c85752b"/>
-</v:shape><!\\\\\\\\\\\\\\[endif]--><!--\\\\\\\\\\\\\\[if !vml]-->!\\\\\\\\\\\\\[](file:///C:\Users\Lenihan\AppData\Local\Temp\msohtmlclip1\01\clip_image013.png)<!--\\\\\\\\\\\\\\[endif]-->
+![](/img/office-of-ceo-space-resources.png)
 
 The User Group is assigned appropriate Roles for the selected Services:
 
-<!--\\\\\\\\\\\\\\[if gte vml 1]><v:shape id="Picture_x0020_11"
- o:spid="_x0000_i1036" type="#_x0000_t75" style='width:351pt;height:190.5pt;
- visibility:visible;mso-wrap-style:square'>
- <v:imagedata src="file:///C:\Users\Lenihan\AppData\Local\Temp\msohtmlclip1\01\clip_image014.png"
-  o:title="2e97145027b9e64b83d9c8a692453fa5"/>
-</v:shape><!\\\\\\\\\\\\\\[endif]--><!--\\\\\\\\\\\\\\[if !vml]-->!\\\\\\\\\\\\\[](file:///C:\Users\Lenihan\AppData\Local\Temp\msohtmlclip1\01\clip_image015.png)<!--\\\\\\\\\\\\\\[endif]-->
+![](/img/office-of-ceo-space-assignments.png "Office of CEO Space")
 
 The Space looks like this to the Users:
 
-<!--\\\\\\\\\\\\\\[if gte vml 1]><v:shape id="Picture_x0020_12"
- o:spid="_x0000_i1035" type="#_x0000_t75" style='width:351pt;height:190.5pt;
- visibility:visible;mso-wrap-style:square'>
- <v:imagedata src="file:///C:\Users\Lenihan\AppData\Local\Temp\msohtmlclip1\01\clip_image016.png"
-  o:title="41dd53de37dd542984273c573e8336d8"/>
-</v:shape><!\\\\\\\\\\\\\\[endif]--><!--\\\\\\\\\\\\\\[if !vml]-->!\\\\\\\\\\\\\[](file:///C:\Users\Lenihan\AppData\Local\Temp\msohtmlclip1\01\clip_image017.png)<!--\\\\\\\\\\\\\\[endif]-->
+![](/img/office-of-ceo-space-view.png "Office of CEO Space View")
 
-##### IT Department
+##### IT Department (XYZ)
 
 The IT Department Space would need access to GreenLake for Private Cloud, HPE GreenLake for ML Ops and HPE GreenLake for Containers Resources. This would allow users in this Department to manage the Resources running in both Services. Users in this department require Admin Roles for the selected Resources.
 
-<!--\\\\\\\\\\\\\\[if gte vml 1]><v:shape id="Picture_x0020_13"
+<!--\\\\\\\\\\\\\\\\[if gte vml 1]><v:shape id="Picture_x0020_13"
  o:spid="_x0000_i1034" type="#_x0000_t75" style='width:351pt;height:190.5pt;
  visibility:visible;mso-wrap-style:square'>
  <v:imagedata src="file:///C:\Users\Lenihan\AppData\Local\Temp\msohtmlclip1\01\clip_image018.png"
   o:title="9b10eb6e3d667f2ab89361a66e312e03"/>
-</v:shape><!\\\\\\\\\\\\\\[endif]--><!--\\\\\\\\\\\\\\[if !vml]-->!\\\\\\\\\\\\\[](file:///C:\Users\Lenihan\AppData\Local\Temp\msohtmlclip1\01\clip_image019.png)<!--\\\\\\\\\\\\\\[endif]-->
+</v:shape><!\\\\\\\\\\\\\\\\[endif]--><!--\\\\\\\\\\\\\\\\[if !vml]-->!\\\\\\\\\\\\\\\[](file:///C:\Users\Lenihan\AppData\Local\Temp\msohtmlclip1\01\clip_image019.png)<!--\\\\\\\\\\\\\\\\[endif]-->
 
 The User Group is assigned appropriate Roles for the selected Services:
 
-<!--\\\\\\\\\\\\\\[if gte vml 1]><v:shape id="Picture_x0020_14"
+<!--\\\\\\\\\\\\\\\\[if gte vml 1]><v:shape id="Picture_x0020_14"
  o:spid="_x0000_i1033" type="#_x0000_t75" style='width:351pt;height:190.5pt;
  visibility:visible;mso-wrap-style:square'>
  <v:imagedata src="file:///C:\Users\Lenihan\AppData\Local\Temp\msohtmlclip1\01\clip_image020.png"
   o:title="46e9e60575fe00f231bfb632dcd25f34"/>
-</v:shape><!\\\\\\\\\\\\\\[endif]--><!--\\\\\\\\\\\\\\[if !vml]-->!\\\\\\\\\\\\\[](file:///C:\Users\Lenihan\AppData\Local\Temp\msohtmlclip1\01\clip_image021.png)<!--\\\\\\\\\\\\\\[endif]-->
+</v:shape><!\\\\\\\\\\\\\\\\[endif]--><!--\\\\\\\\\\\\\\\\[if !vml]-->!\\\\\\\\\\\\\\\[](file:///C:\Users\Lenihan\AppData\Local\Temp\msohtmlclip1\01\clip_image021.png)<!--\\\\\\\\\\\\\\\\[endif]-->
 
 The Space looks like this to the Users:
 
-<!--\\\\\\\\\\\\\\[if gte vml 1]><v:shape id="Picture_x0020_15"
+<!--\\\\\\\\\\\\\\\\[if gte vml 1]><v:shape id="Picture_x0020_15"
  o:spid="_x0000_i1032" type="#_x0000_t75" style='width:351pt;height:190.5pt;
  visibility:visible;mso-wrap-style:square'>
  <v:imagedata src="file:///C:\Users\Lenihan\AppData\Local\Temp\msohtmlclip1\01\clip_image022.png"
   o:title="82cf03bff94d18581d768f6df356ea6b"/>
-</v:shape><!\\\\\\\\\\\\\\[endif]--><!--\\\\\\\\\\\\\\[if !vml]-->!\\\\\\\\\\\\\[](file:///C:\Users\Lenihan\AppData\Local\Temp\msohtmlclip1\01\clip_image023.png)<!--\\\\\\\\\\\\\\[endif]-->
+</v:shape><!\\\\\\\\\\\\\\\\[endif]--><!--\\\\\\\\\\\\\\\\[if !vml]-->!\\\\\\\\\\\\\\\[](file:///C:\Users\Lenihan\AppData\Local\Temp\msohtmlclip1\01\clip_image023.png)<!--\\\\\\\\\\\\\\\\[endif]-->
 
 ##### Sales Department
 
 The Sales Department Space runs a series of Containers which provide a service to their field sales users. Since they maintain their own code they have two Clusters: Integration and Production. They do not use other services.
 
-<!--\\\\\\\\\\\\\\[if gte vml 1]><v:shape id="Picture_x0020_16"
+<!--\\\\\\\\\\\\\\\\[if gte vml 1]><v:shape id="Picture_x0020_16"
  o:spid="_x0000_i1031" type="#_x0000_t75" style='width:351pt;height:190.5pt;
  visibility:visible;mso-wrap-style:square'>
  <v:imagedata src="file:///C:\Users\Lenihan\AppData\Local\Temp\msohtmlclip1\01\clip_image024.png"
   o:title="4b0f5943e0ac57b46e34fc030bfc9459"/>
-</v:shape><!\\\\\\\\\\\\\\[endif]--><!--\\\\\\\\\\\\\\[if !vml]-->!\\\\\\\\\\\\\[](file:///C:\Users\Lenihan\AppData\Local\Temp\msohtmlclip1\01\clip_image025.png)<!--\\\\\\\\\\\\\\[endif]-->
+</v:shape><!\\\\\\\\\\\\\\\\[endif]--><!--\\\\\\\\\\\\\\\\[if !vml]-->!\\\\\\\\\\\\\\\[](file:///C:\Users\Lenihan\AppData\Local\Temp\msohtmlclip1\01\clip_image025.png)<!--\\\\\\\\\\\\\\\\[endif]-->
 
 The User Group is assigned appropriate Roles for the selected Services:
 
-<!--\\\\\\\\\\\\\\[if gte vml 1]><v:shape id="Picture_x0020_17"
+<!--\\\\\\\\\\\\\\\\[if gte vml 1]><v:shape id="Picture_x0020_17"
  o:spid="_x0000_i1030" type="#_x0000_t75" style='width:351pt;height:190.5pt;
  visibility:visible;mso-wrap-style:square'>
  <v:imagedata src="file:///C:\Users\Lenihan\AppData\Local\Temp\msohtmlclip1\01\clip_image026.png"
   o:title="38c1043f9cff5bee546673694997e024"/>
-</v:shape><!\\\\\\\\\\\\\\[endif]--><!--\\\\\\\\\\\\\\[if !vml]-->!\\\\\\\\\\\\\[](file:///C:\Users\Lenihan\AppData\Local\Temp\msohtmlclip1\01\clip_image027.png)<!--\\\\\\\\\\\\\\[endif]-->
+</v:shape><!\\\\\\\\\\\\\\\\[endif]--><!--\\\\\\\\\\\\\\\\[if !vml]-->!\\\\\\\\\\\\\\\[](file:///C:\Users\Lenihan\AppData\Local\Temp\msohtmlclip1\01\clip_image027.png)<!--\\\\\\\\\\\\\\\\[endif]-->
 
 The Space looks like this to the Users:
 
-<!--\\\\\\\\\\\\\\[if gte vml 1]><v:shape id="Picture_x0020_18"
+<!--\\\\\\\\\\\\\\\\[if gte vml 1]><v:shape id="Picture_x0020_18"
  o:spid="_x0000_i1029" type="#_x0000_t75" style='width:351pt;height:190.5pt;
  visibility:visible;mso-wrap-style:square'>
  <v:imagedata src="file:///C:\Users\Lenihan\AppData\Local\Temp\msohtmlclip1\01\clip_image028.png"
   o:title="26773b00cc7679a59c8f15f405be4a14"/>
-</v:shape><!\\\\\\\\\\\\\\[endif]--><!--\\\\\\\\\\\\\\[if !vml]-->!\\\\\\\\\\\\\[](file:///C:\Users\Lenihan\AppData\Local\Temp\msohtmlclip1\01\clip_image029.png)<!--\\\\\\\\\\\\\\[endif]-->
+</v:shape><!\\\\\\\\\\\\\\\\[endif]--><!--\\\\\\\\\\\\\\\\[if !vml]-->!\\\\\\\\\\\\\\\[](file:///C:\Users\Lenihan\AppData\Local\Temp\msohtmlclip1\01\clip_image029.png)<!--\\\\\\\\\\\\\\\\[endif]-->
 
 ##### R&D Department
 
@@ -282,12 +235,12 @@ These users access several HPE GreenLake for ML Ops projects. The service is man
 
 ##### Design
 
-<!--\\\\\\\\\\\\\\[if gte vml 1]><v:shape id="Picture_x0020_19"
+<!--\\\\\\\\\\\\\\\\[if gte vml 1]><v:shape id="Picture_x0020_19"
  o:spid="_x0000_i1028" type="#_x0000_t75" style='width:351pt;height:176.5pt;
  visibility:visible;mso-wrap-style:square'>
  <v:imagedata src="file:///C:\Users\Lenihan\AppData\Local\Temp\msohtmlclip1\01\clip_image030.jpg"
   o:title="10a81b5c4083576b30238b998986ff74"/>
-</v:shape><!\\\\\\\\\\\\\\[endif]--><!--\\\\\\\\\\\\\\[if !vml]-->!\\\\\\\\\\\\\[](file:///C:\Users\Lenihan\AppData\Local\Temp\msohtmlclip1\01\clip_image031.jpg)<!--\\\\\\\\\\\\\\[endif]-->
+</v:shape><!\\\\\\\\\\\\\\\\[endif]--><!--\\\\\\\\\\\\\\\\[if !vml]-->!\\\\\\\\\\\\\\\[](file:///C:\Users\Lenihan\AppData\Local\Temp\msohtmlclip1\01\clip_image031.jpg)<!--\\\\\\\\\\\\\\\\[endif]-->
 
 ABC Corp is a small company with three departments, A, B and C. Since the company is small, some employees work across departments. ABC Corp Uses multiple GreenLake Services, each with separate Billing Accounts. A single Tenant is sufficient for the small number of employees of ABC Corp.
 
@@ -326,26 +279,26 @@ User Robert who is a member of the Department C Users would be able to access th
 
 ##### Design
 
-<!--\\\\\\\\\\\\\\[if gte vml 1]><v:shape id="Picture_x0020_20"
+<!--\\\\\\\\\\\\\\\\[if gte vml 1]><v:shape id="Picture_x0020_20"
  o:spid="_x0000_i1027" type="#_x0000_t75" style='width:351.5pt;height:120pt;
  visibility:visible;mso-wrap-style:square'>
  <v:imagedata src="file:///C:\Users\Lenihan\AppData\Local\Temp\msohtmlclip1\01\clip_image032.jpg"
   o:title="4b40c0a1bab6aa00072e3028afc083d2"/>
-</v:shape><!\\\\\\\\\\\\\\[endif]--><!--\\\\\\\\\\\\\\[if !vml]-->!\\\\\\\\\\\\\[](file:///C:\Users\Lenihan\AppData\Local\Temp\msohtmlclip1\01\clip_image033.jpg)<!--\\\\\\\\\\\\\\[endif]-->
+</v:shape><!\\\\\\\\\\\\\\\\[endif]--><!--\\\\\\\\\\\\\\\\[if !vml]-->!\\\\\\\\\\\\\\\[](file:///C:\Users\Lenihan\AppData\Local\Temp\msohtmlclip1\01\clip_image033.jpg)<!--\\\\\\\\\\\\\\\\[endif]-->
 
-<!--\\\\\\\\\\\\\\[if gte vml 1]><v:shape id="Picture_x0020_21"
+<!--\\\\\\\\\\\\\\\\[if gte vml 1]><v:shape id="Picture_x0020_21"
  o:spid="_x0000_i1026" type="#_x0000_t75" style='width:351.5pt;height:120pt;
  visibility:visible;mso-wrap-style:square'>
  <v:imagedata src="file:///C:\Users\Lenihan\AppData\Local\Temp\msohtmlclip1\01\clip_image034.jpg"
   o:title="f963630d108e10cffe702318481f20ff"/>
-</v:shape><!\\\\\\\\\\\\\\[endif]--><!--\\\\\\\\\\\\\\[if !vml]-->!\\\\\\\\\\\\\[](file:///C:\Users\Lenihan\AppData\Local\Temp\msohtmlclip1\01\clip_image035.jpg)<!--\\\\\\\\\\\\\\[endif]-->
+</v:shape><!\\\\\\\\\\\\\\\\[endif]--><!--\\\\\\\\\\\\\\\\[if !vml]-->!\\\\\\\\\\\\\\\[](file:///C:\Users\Lenihan\AppData\Local\Temp\msohtmlclip1\01\clip_image035.jpg)<!--\\\\\\\\\\\\\\\\[endif]-->
 
-<!--\\\\\\\\\\\\\\[if gte vml 1]><v:shape id="Picture_x0020_22"
+<!--\\\\\\\\\\\\\\\\[if gte vml 1]><v:shape id="Picture_x0020_22"
  o:spid="_x0000_i1025" type="#_x0000_t75" style='width:351.5pt;height:120pt;
  visibility:visible;mso-wrap-style:square'>
  <v:imagedata src="file:///C:\Users\Lenihan\AppData\Local\Temp\msohtmlclip1\01\clip_image036.jpg"
   o:title="57c8c817352a8aed7a87b9a188cc1cbb"/>
-</v:shape><!\\\\\\\\\\\\\\[endif]--><!--\\\\\\\\\\\\\\[if !vml]-->!\\\\\\\\\\\\\[](file:///C:\Users\Lenihan\AppData\Local\Temp\msohtmlclip1\01\clip_image037.jpg)<!--\\\\\\\\\\\\\\[endif]-->
+</v:shape><!\\\\\\\\\\\\\\\\[endif]--><!--\\\\\\\\\\\\\\\\[if !vml]-->!\\\\\\\\\\\\\\\[](file:///C:\Users\Lenihan\AppData\Local\Temp\msohtmlclip1\01\clip_image037.jpg)<!--\\\\\\\\\\\\\\\\[endif]-->
 
 Big and Small Corp is a large multinational company with several divisions. Each division is located in a different region and manages its services separately. Big and Small (USA) is headquartered in the US and is the holding company for all US-based business. This division runs a large Marketing service which has a web presence, hosted on a Public Cloud. Big and Small (USA) would like to replace the Public Cloud with HPE GreenLake for Private Cloud and manage the charges for this service within the division. Big and Small (Europe) is headquartered in Berlin, Germany. This division designs and manufactures a wide range of products for the European market. To support the division, they currently own a large HPC cluster, which they would like to replace with HPE GreenLake for HPC. This division also would like to manage their GreenLake expenses in a separate account. Finally, Big and Small (Japan) is an acquisition, based in Tokyo, Japan. This division had a previous relationship with HPE and already has a billing account, which they would like to retain. This division is responsible for future product development. They would like to use HPE GreenLake for ML Ops to develop innovative new products.
 
