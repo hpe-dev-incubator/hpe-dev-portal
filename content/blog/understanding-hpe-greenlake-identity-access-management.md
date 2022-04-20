@@ -6,6 +6,10 @@ authorimage: /img/mugshot.png
 tags:
   - hpe-greenlake
 ---
+### Introduction
+
+When configuring a GreenLake Central Tenant for diverse customer Identity and Access Management needs, it is important to understand how the various features work, so that correct decisions are made. Once you understand the features and how they work, this will help you to arrange resources in an optimal way. It will also prevent a need to reconfigure in the future. With this in mind, this blog begins by describing the various features of Identity and Access Management available in GreenLake Central and how to perform common tasks associated with IAM configuration. It also includes some simple steps in designing the IAM configuration based on customer requirements. Finally it examines several fictitious customer setups and shows how each is configured.
+
 ### IAM Definitions
 
 #### Users
@@ -90,30 +94,34 @@ The invited User receives an email inviting them to join the Tenant. Once the Us
 1. Access the Identity & Access Service within the Wrench icon.
 2. Select the User Groups Tab
 3. To modify an existing User Group, click on it from the list of User Groups
-4. 1. Members can be added by selecting the Members Tab and selecting 'Add Members' under the Actions pull-down
-   2. Members can be removed from the User Group by clicking on the Trash icon beside the Member name
-5. To create a new User Group, click on the 'Create User Group' button
-6. 1. Enter a User Group Name and Description
-   2. Once the User Group has been created it may be modified using the instructions above
+
+   * Members can be added by selecting the Members Tab and selecting 'Add Members' under the Actions pull-down
+   * Members can be removed from the User Group by clicking on the Trash icon beside the Member name
+4. To create a new User Group, click on the 'Create User Group' button
+5. Enter a User Group Name and Description
+6. Once the User Group has been created it may be modified using the instructions above
 
 ### Creating and modifying Spaces
 
 1. Access the Identity & Access Service within the Wrench icon.
 2. Select the Spaces Tab
 3. To modify an existing Space, click on it from the list of Spaces
-4. 1. Users and User Groups can be added by selecting the Assignments Tab and selecting 'Create Assignment' under the Actions pull-down
-   2. 1. Select appropriate Role(s) for the Space
-   3. Users and User Groups can be removed from the Space by clicking on the Trash icon beside the Subject name
-   4. Resources can be added and removed from the Space by selecting the Resources Tab and selecting 'Update Resources' under the Actions pull-down
-5. To create a new Space, click on the 'Create Space' button
-6. 1. Enter a Space Name and Parent Space
-   2. Select Resources by expanding the 'All Resources' list
+
+   1. Users and User Groups can be added by selecting the Assignments Tab and selecting 'Create Assignment' under the Actions pull-down
+   2. Select appropriate Role(s) for the Space
+
+      * Users and User Groups can be removed from the Space by clicking on the Trash icon beside the Subject name
+      * Resources can be added and removed from the Space by selecting the Resources Tab and selecting 'Update Resources' under the Actions pull-down
+4. To create a new Space, click on the 'Create Space' button
+
+   * Enter a Space Name and Parent Space
+   * Select Resources by expanding the 'All Resources' list
 
 ### Examples
 
 #### Example 1: ACME Corp.
 
-##### Design
+#### Design
 
 ![](/img/iam-document-example-1-tenant-1-1-.jpg "Example 1: ACME Corp.")
 
@@ -205,7 +213,7 @@ These users access several HPE GreenLake for ML Ops projects. The service is man
 
 #### Example 2: ABC Corp
 
-##### Design
+#### Design
 
 ![](/img/iam-document-example-2-tenant-1-1-.jpg "Example 2: ABC Corp")
 
@@ -252,7 +260,7 @@ User Robert who is a member of the Department C Users would be able to access th
 
 #### Example 3: Big And Small Corp
 
-##### Design
+#### Design
 
 ![](/img/iam-document-example-3-tenant-1-1-.jpg)
 
@@ -291,3 +299,9 @@ A Tenant for Big and Small (Japan) is created. The main service in this Tenant i
 Each Department has their own separate User Group, e.g. Department F Users. Users from the various Departments are added to the appropriate User Groups.
 
 A Space 'Main Space' is created within the IAM Service of this Tenant and Resources are added. In this case, the Resource for the Billing Account HP-APJ-DMO-JPN-99920 and also the Resource for the HPE GreenLake for ML Ops are added. Finally, the User Groups are assigned to the Space with the appropriate Roles.
+
+### Conclusion
+
+As you can see, the key to configuring Identiy and Access Management in a Tenant is to understand the building blocks and how to make informed decisions on how to design IAM resources to match customer requirements. Finally, the examples will help you to see how the flexibility of GreenLake Central Identity and Access Management allows an almost infinite number of possible configurations, giving the flexibility to match diverse customer requirements. 
+
+Please feel free to reach out directly if you have any questions.
