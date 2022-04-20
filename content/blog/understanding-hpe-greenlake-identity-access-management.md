@@ -165,63 +165,33 @@ The Space looks like this to the Users:
 
 ![](/img/office-of-ceo-space-view.png "Office of CEO Space View")
 
-##### IT Department (XYZ)
+##### IT Department
 
 The IT Department Space would need access to GreenLake for Private Cloud, HPE GreenLake for ML Ops and HPE GreenLake for Containers Resources. This would allow users in this Department to manage the Resources running in both Services. Users in this department require Admin Roles for the selected Resources.
 
-<!--\\\\\\\\\\\\\\\\[if gte vml 1]><v:shape id="Picture_x0020_13"
- o:spid="_x0000_i1034" type="#_x0000_t75" style='width:351pt;height:190.5pt;
- visibility:visible;mso-wrap-style:square'>
- <v:imagedata src="file:///C:\Users\Lenihan\AppData\Local\Temp\msohtmlclip1\01\clip_image018.png"
-  o:title="9b10eb6e3d667f2ab89361a66e312e03"/>
-</v:shape><!\\\\\\\\\\\\\\\\[endif]--><!--\\\\\\\\\\\\\\\\[if !vml]-->!\\\\\\\\\\\\\\\[](file:///C:\Users\Lenihan\AppData\Local\Temp\msohtmlclip1\01\clip_image019.png)<!--\\\\\\\\\\\\\\\\[endif]-->
+![](/img/it-department-space-resources.png "IT Department Space Resources")
 
 The User Group is assigned appropriate Roles for the selected Services:
 
-<!--\\\\\\\\\\\\\\\\[if gte vml 1]><v:shape id="Picture_x0020_14"
- o:spid="_x0000_i1033" type="#_x0000_t75" style='width:351pt;height:190.5pt;
- visibility:visible;mso-wrap-style:square'>
- <v:imagedata src="file:///C:\Users\Lenihan\AppData\Local\Temp\msohtmlclip1\01\clip_image020.png"
-  o:title="46e9e60575fe00f231bfb632dcd25f34"/>
-</v:shape><!\\\\\\\\\\\\\\\\[endif]--><!--\\\\\\\\\\\\\\\\[if !vml]-->!\\\\\\\\\\\\\\\[](file:///C:\Users\Lenihan\AppData\Local\Temp\msohtmlclip1\01\clip_image021.png)<!--\\\\\\\\\\\\\\\\[endif]-->
+![](/img/it-department-space-assignments.png "IT Department Space Assignments")
 
 The Space looks like this to the Users:
 
-<!--\\\\\\\\\\\\\\\\[if gte vml 1]><v:shape id="Picture_x0020_15"
- o:spid="_x0000_i1032" type="#_x0000_t75" style='width:351pt;height:190.5pt;
- visibility:visible;mso-wrap-style:square'>
- <v:imagedata src="file:///C:\Users\Lenihan\AppData\Local\Temp\msohtmlclip1\01\clip_image022.png"
-  o:title="82cf03bff94d18581d768f6df356ea6b"/>
-</v:shape><!\\\\\\\\\\\\\\\\[endif]--><!--\\\\\\\\\\\\\\\\[if !vml]-->!\\\\\\\\\\\\\\\[](file:///C:\Users\Lenihan\AppData\Local\Temp\msohtmlclip1\01\clip_image023.png)<!--\\\\\\\\\\\\\\\\[endif]-->
+![](/img/it-department-space-view.png "IT Department Space View")
 
 ##### Sales Department
 
 The Sales Department Space runs a series of Containers which provide a service to their field sales users. Since they maintain their own code they have two Clusters: Integration and Production. They do not use other services.
 
-<!--\\\\\\\\\\\\\\\\[if gte vml 1]><v:shape id="Picture_x0020_16"
- o:spid="_x0000_i1031" type="#_x0000_t75" style='width:351pt;height:190.5pt;
- visibility:visible;mso-wrap-style:square'>
- <v:imagedata src="file:///C:\Users\Lenihan\AppData\Local\Temp\msohtmlclip1\01\clip_image024.png"
-  o:title="4b0f5943e0ac57b46e34fc030bfc9459"/>
-</v:shape><!\\\\\\\\\\\\\\\\[endif]--><!--\\\\\\\\\\\\\\\\[if !vml]-->!\\\\\\\\\\\\\\\[](file:///C:\Users\Lenihan\AppData\Local\Temp\msohtmlclip1\01\clip_image025.png)<!--\\\\\\\\\\\\\\\\[endif]-->
+![](/img/sales-department-space-resources.png "Sales Department Space Resources")
 
 The User Group is assigned appropriate Roles for the selected Services:
 
-<!--\\\\\\\\\\\\\\\\[if gte vml 1]><v:shape id="Picture_x0020_17"
- o:spid="_x0000_i1030" type="#_x0000_t75" style='width:351pt;height:190.5pt;
- visibility:visible;mso-wrap-style:square'>
- <v:imagedata src="file:///C:\Users\Lenihan\AppData\Local\Temp\msohtmlclip1\01\clip_image026.png"
-  o:title="38c1043f9cff5bee546673694997e024"/>
-</v:shape><!\\\\\\\\\\\\\\\\[endif]--><!--\\\\\\\\\\\\\\\\[if !vml]-->!\\\\\\\\\\\\\\\[](file:///C:\Users\Lenihan\AppData\Local\Temp\msohtmlclip1\01\clip_image027.png)<!--\\\\\\\\\\\\\\\\[endif]-->
+![](/img/sales-department-space-assignments.png "Sales Department Space Assignments")
 
 The Space looks like this to the Users:
 
-<!--\\\\\\\\\\\\\\\\[if gte vml 1]><v:shape id="Picture_x0020_18"
- o:spid="_x0000_i1029" type="#_x0000_t75" style='width:351pt;height:190.5pt;
- visibility:visible;mso-wrap-style:square'>
- <v:imagedata src="file:///C:\Users\Lenihan\AppData\Local\Temp\msohtmlclip1\01\clip_image028.png"
-  o:title="26773b00cc7679a59c8f15f405be4a14"/>
-</v:shape><!\\\\\\\\\\\\\\\\[endif]--><!--\\\\\\\\\\\\\\\\[if !vml]-->!\\\\\\\\\\\\\\\[](file:///C:\Users\Lenihan\AppData\Local\Temp\msohtmlclip1\01\clip_image029.png)<!--\\\\\\\\\\\\\\\\[endif]-->
+![](/img/sales-department-space-view.png)
 
 ##### R&D Department
 
@@ -235,12 +205,7 @@ These users access several HPE GreenLake for ML Ops projects. The service is man
 
 ##### Design
 
-<!--\\\\\\\\\\\\\\\\[if gte vml 1]><v:shape id="Picture_x0020_19"
- o:spid="_x0000_i1028" type="#_x0000_t75" style='width:351pt;height:176.5pt;
- visibility:visible;mso-wrap-style:square'>
- <v:imagedata src="file:///C:\Users\Lenihan\AppData\Local\Temp\msohtmlclip1\01\clip_image030.jpg"
-  o:title="10a81b5c4083576b30238b998986ff74"/>
-</v:shape><!\\\\\\\\\\\\\\\\[endif]--><!--\\\\\\\\\\\\\\\\[if !vml]-->!\\\\\\\\\\\\\\\[](file:///C:\Users\Lenihan\AppData\Local\Temp\msohtmlclip1\01\clip_image031.jpg)<!--\\\\\\\\\\\\\\\\[endif]-->
+![](/img/iam-document-example-2-tenant-1-1-.jpg "Example 2: ABC Corp")
 
 ABC Corp is a small company with three departments, A, B and C. Since the company is small, some employees work across departments. ABC Corp Uses multiple GreenLake Services, each with separate Billing Accounts. A single Tenant is sufficient for the small number of employees of ABC Corp.
 
@@ -279,26 +244,11 @@ User Robert who is a member of the Department C Users would be able to access th
 
 ##### Design
 
-<!--\\\\\\\\\\\\\\\\[if gte vml 1]><v:shape id="Picture_x0020_20"
- o:spid="_x0000_i1027" type="#_x0000_t75" style='width:351.5pt;height:120pt;
- visibility:visible;mso-wrap-style:square'>
- <v:imagedata src="file:///C:\Users\Lenihan\AppData\Local\Temp\msohtmlclip1\01\clip_image032.jpg"
-  o:title="4b40c0a1bab6aa00072e3028afc083d2"/>
-</v:shape><!\\\\\\\\\\\\\\\\[endif]--><!--\\\\\\\\\\\\\\\\[if !vml]-->!\\\\\\\\\\\\\\\[](file:///C:\Users\Lenihan\AppData\Local\Temp\msohtmlclip1\01\clip_image033.jpg)<!--\\\\\\\\\\\\\\\\[endif]-->
+![](/img/iam-document-example-3-tenant-1-1-.jpg)
 
-<!--\\\\\\\\\\\\\\\\[if gte vml 1]><v:shape id="Picture_x0020_21"
- o:spid="_x0000_i1026" type="#_x0000_t75" style='width:351.5pt;height:120pt;
- visibility:visible;mso-wrap-style:square'>
- <v:imagedata src="file:///C:\Users\Lenihan\AppData\Local\Temp\msohtmlclip1\01\clip_image034.jpg"
-  o:title="f963630d108e10cffe702318481f20ff"/>
-</v:shape><!\\\\\\\\\\\\\\\\[endif]--><!--\\\\\\\\\\\\\\\\[if !vml]-->!\\\\\\\\\\\\\\\[](file:///C:\Users\Lenihan\AppData\Local\Temp\msohtmlclip1\01\clip_image035.jpg)<!--\\\\\\\\\\\\\\\\[endif]-->
+![](/img/iam-document-example-3-tenant-2-1-.jpg)
 
-<!--\\\\\\\\\\\\\\\\[if gte vml 1]><v:shape id="Picture_x0020_22"
- o:spid="_x0000_i1025" type="#_x0000_t75" style='width:351.5pt;height:120pt;
- visibility:visible;mso-wrap-style:square'>
- <v:imagedata src="file:///C:\Users\Lenihan\AppData\Local\Temp\msohtmlclip1\01\clip_image036.jpg"
-  o:title="57c8c817352a8aed7a87b9a188cc1cbb"/>
-</v:shape><!\\\\\\\\\\\\\\\\[endif]--><!--\\\\\\\\\\\\\\\\[if !vml]-->!\\\\\\\\\\\\\\\[](file:///C:\Users\Lenihan\AppData\Local\Temp\msohtmlclip1\01\clip_image037.jpg)<!--\\\\\\\\\\\\\\\\[endif]-->
+![](/img/iam-document-example-3-tenant-3-1-.jpg)
 
 Big and Small Corp is a large multinational company with several divisions. Each division is located in a different region and manages its services separately. Big and Small (USA) is headquartered in the US and is the holding company for all US-based business. This division runs a large Marketing service which has a web presence, hosted on a Public Cloud. Big and Small (USA) would like to replace the Public Cloud with HPE GreenLake for Private Cloud and manage the charges for this service within the division. Big and Small (Europe) is headquartered in Berlin, Germany. This division designs and manufactures a wide range of products for the European market. To support the division, they currently own a large HPC cluster, which they would like to replace with HPE GreenLake for HPC. This division also would like to manage their GreenLake expenses in a separate account. Finally, Big and Small (Japan) is an acquisition, based in Tokyo, Japan. This division had a previous relationship with HPE and already has a billing account, which they would like to retain. This division is responsible for future product development. They would like to use HPE GreenLake for ML Ops to develop innovative new products.
 
@@ -308,12 +258,13 @@ Since some divisions of Big and Small Corp came via acquisition, they have diffe
 
 Each division has their own unique billing account:
 
-|     |     |
-| --- | --- |
-|     |     |
-|     |     |
-|     |     |
-|     |     |
+| Division               | Billing Account       |
+| ---------------------- | --------------------- |
+| Big and Small (USA)    | HP-AMS-DMO-USA-99918  |
+| Big and Small (Europe) | HP-EMEA-DMO-DEU-99919 |
+| Big and Small (Japan)  | HP-APJ-DMO-JPN-99920  |
+
+
 
 A Tenant for Big and Small (USA) is created.The main service in this Tenant is HPE GreenLake for Private Cloud. This is configured such that the metrics from this service are sent to the Billing Account 'HP-AMS-DMO-USA-99918'.
 
@@ -332,5 +283,3 @@ A Tenant for Big and Small (Japan) is created.The main service in this Tenant is
 Each Department has their own separate User Group, e.g. Department F Users. Users from the various Departments are added to the appropriate User Groups.
 
 A Space 'Main Space' is created within the IAM Service of this Tenant and Resources are added. In this case, the Resource for the Billing Account HP-APJ-DMO-JPN-99920 and also the Resource for the HPE GreenLake for ML Ops are added. Finally, the User Groups are assigned to the Space with the appropriate Roles.
-
-<!--EndFragment-->
