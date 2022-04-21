@@ -179,7 +179,7 @@ The space looks like this to the users:
 
 #### IT Department
 
-The IT department dpace would need access to HPE GreenLake for Private Cloud, HPE GreenLake for ML Ops and HPE GreenLake for Containers resources. This would allow users in this department to manage the resources running in both services. Users in this department require admin roles for the selected resources.
+The IT department space would need access to HPE GreenLake for Private Cloud, HPE GreenLake for ML Ops and HPE GreenLake for Containers resources. This would allow users in this department to manage the resources running in both services. Users in this department require admin roles for the selected resources.
 
 ![](/img/it-department-space-resources.png "IT Department Space Resources")
 
