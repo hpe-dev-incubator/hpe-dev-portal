@@ -83,7 +83,7 @@ New tenants are requested via an HPE representative. The request includes an ini
 
 Once a tenant administrator is on-boarded, they can invite their users to join the tenant.
 
-1. Access the Identity & Access Service within the wrench icon.
+1. Access the Identity & Access Service within the **wrench** icon.
 2. Select the **Users** Tab
 3. Under the **Actions** pull-down, choose Invite User
 
@@ -93,33 +93,33 @@ The invited user receives an email inviting them to join the tenant. Once the us
 
 ## Creating and modifying User Groups
 
-1. Access the Identity & Access Service within the Wrench icon.
-2. Select the User Groups Tab
-3. To modify an existing User Group, click on it from the list of User Groups
+1. Access the Identity & Access Service within the **wrench** icon.
+2. Select the **User Groups** tab
+3. To modify an existing user group, click on it from the list of user groups
 
-   * Members can be added by selecting the Members Tab and selecting 'Add Members' under the Actions pull-down
-   * Members can be removed from the User Group by clicking on the Trash icon beside the Member name
-4. To create a new User Group, click on the 'Create User Group' button
-5. Enter a User Group Name and Description
-6. Once the User Group has been created it may be modified using the instructions above
+   * Members can be added by selecting the **Members** tab and selecting *Add Members* under the **Actions** pull-down
+   * Members can be removed from the user group by clicking on the **Trash** icon beside the member name
+4. To create a new user group, click on the *Create User Group* button
+5. Enter a user group name and description
+6. Once the user group has been created it may be modified using the instructions above
 
-## Creating and modifying Spaces
+## Creating and Modifying Spaces
 
-1. Access the Identity & Access Service within the Wrench icon.
-2. Select the Spaces Tab
-3. To modify an existing Space, click on it from the list of Spaces
+1. Access the Identity & Access Service within the **wrench** icon.
+2. Select the **Spaces** tab
+3. To modify an existing space, click on it from the list of spaces
 
-   1. Users and User Groups can be added by selecting the Assignments Tab and selecting 'Create Assignment' under the Actions pull-down
-   2. Select appropriate Role(s) for the Space
+   1. Users and user groups can be added by selecting the **Assignments** tab and selecting *Create Assignment* under the **Actions** pull-down
+   2. Select appropriate role(s) for the space
 
-      * Users and User Groups can be removed from the Space by clicking on the Trash icon beside the Subject name
-      * Resources can be added and removed from the Space by selecting the Resources Tab and selecting 'Update Resources' under the Actions pull-down
-4. To create a new Space, click on the 'Create Space' button
+      * Users and user groups can be removed from the space by clicking on the **Trash** icon beside the subject name
+      * Resources can be added and removed from the space by selecting the **Resources** tab and selecting *Update Resources* under the **Actions** pull-down
+4. To create a new space, click on the **Create Space** button
 
-   * Enter a Space Name and Parent Space
-   * Select Resources by expanding the 'All Resources' list
+   * Enter a space name and parent space
+   * Select **Resources** by expanding the **All Resources** list
 
-# Examples
+# Let's Explore Some Fictitious Customer Examples
 
 ## Example 1: ACME Corp.
 
@@ -127,41 +127,43 @@ The invited user receives an email inviting them to join the tenant. Once the us
 
 ![](/img/iam-document-example-1-tenant-1-1-.jpg "Example 1: ACME Corp.")
 
-Customer ACME Corp. has users spread around the globe. The Users' email addresses are all of the form [xyz@acmecorp.com.](mailto:xyz@acmecorp.com.) ACME Corp. has several Departments which are also distributed around the globe. The customer wishes to use HPE GreenLake Private Cloud to create and manage virtual machines and Containers on behalf of the various departments. They also wish to use HPE GreenLake for ML Ops to examine their internal data and perform AI operations upon it and GreenLake for containers to run a Sales Application.
+Customer ACME Corp. has users spread around the globe. The users' email addresses all take the form of [xyz@acmecorp.com.](mailto:xyz@acmecorp.com.) ACME Corp. has several departments that are also distributed around the globe. ACME Corp. wishes to use HPE GreenLake Private Cloud to create and manage virtual machines and containers on behalf of the various departments. They also wish to use HPE GreenLake for ML Ops to examine their internal data and perform AI operations upon it and use HPE GreenLake for containers to run a sales application.
 
-The Departments of ACME Corp. Are:
+The ACME Corp. departments include:
 
 * Office of CEO
-* IT Department
-* Sales Department
-* R&D Department
-* Data Science Department
+* IT department
+* Sales department
+* R&D department
+* Data Science department
 
-Since all users in ACME Corp. have the same email address format, and since all departments wish to be able to use all Resources, only one Tenant is required. ACME Corp wishes to be billed centrally for all services so a single Billing Account is sufficient.
+Since all users in ACME Corp. have the same email address format, and since all departments wish to be able to use all resources, only one tenant is required. ACME Corp wishes to be billed centrally for all services so a single billing account is sufficient.
 
-Next, they can create User Groups for each Department, e.g.
+Once this is done, they can create user groups for each department, e.g.
 
-* Office of CEO Users
-* IT Department Users
-* Sales Department Users
-* R&D Department Users
-* Data Science Users
+* Office of CEO users
+* IT department users
+* Sales department users
+* R&D department users
+* Data Science department users
 
-Each User Group will consist of sets of users from each Department:
+Each user group will consist of sets of users from each department:
 
 ![](/img/sales-department-users-members.png "Sales Department Users")
 
-Next, the Tenant Administrator can create Spaces for each Department, e.g.
+Next, the tenant administrator can create spaces for each department, e.g.
 
-* Office Of CEO Space
-* IT Department Space
-* Sales Department Space
-* R&D Department Space
-* Data Science Space
+* Office of CEO space
+* IT department space
+* Sales department space
+* R&D department space
+* Data Science department space
 
-When each Space is created, appropriate Resources are chosen and mapped to the Space:
+When each space is created, appropriate resources are chosen and mapped to the space:
 
-![](/img/resource-selection.png "Resource Selection")
+<img src="/img/resource-selection.png" width="600" height="359" alt="Resource Selection">
+
+
 
 #### Office of CEO
 
