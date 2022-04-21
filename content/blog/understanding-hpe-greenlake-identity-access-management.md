@@ -163,106 +163,104 @@ When each space is created, appropriate resources are chosen and mapped to the s
 
 <img src="/img/resource-selection.png" width="600" height="359" alt="Resource Selection">
 
-
-
 #### Office of CEO
 
-The Office of CEO Space needs access to Billing across the entire Company. They may also use HPE GreenLake for Private Cloud to run some Virtual Machines. Finally, they occasionally run some AI on internal data.
+The Office of CEO space needs access to billing across the entire company. They may also use HPE GreenLake for Private Cloud to run some virtual machines. Finally, they occasionally run some AI on internal data.
 
 ![](/img/office-of-ceo-space-resources.png)
 
-The User Group is assigned appropriate Roles for the selected Services:
+The user group is assigned appropriate roles for the selected services:
 
 ![](/img/office-of-ceo-space-assignments.png "Office of CEO Space")
 
-The Space looks like this to the Users:
+The space looks like this to the users:
 
 ![](/img/office-of-ceo-space-view.png "Office of CEO Space View")
 
 #### IT Department
 
-The IT Department Space would need access to GreenLake for Private Cloud, HPE GreenLake for ML Ops and HPE GreenLake for Containers Resources. This would allow users in this Department to manage the Resources running in both Services. Users in this department require Admin Roles for the selected Resources.
+The IT department dpace would need access to HPE GreenLake for Private Cloud, HPE GreenLake for ML Ops and HPE GreenLake for Containers resources. This would allow users in this department to manage the resources running in both services. Users in this department require admin roles for the selected resources.
 
 ![](/img/it-department-space-resources.png "IT Department Space Resources")
 
-The User Group is assigned appropriate Roles for the selected Services:
+The user group is assigned appropriate roles for the selected services:
 
 ![](/img/it-department-space-assignments.png "IT Department Space Assignments")
 
-The Space looks like this to the Users:
+The space looks like this to the users:
 
 ![](/img/it-department-space-view.png "IT Department Space View")
 
 #### Sales Department
 
-The Sales Department Space runs a series of Containers which provide a service to their field sales users. Since they maintain their own code they have two Clusters: Integration and Production. They do not use other services.
+The sales department space runs a series of containers that provide a service to their field sales users. Since they maintain their own code they have two clusters: Integration and Production. They do not use other services.
 
 ![](/img/sales-department-space-resources.png "Sales Department Space Resources")
 
-The User Group is assigned appropriate Roles for the selected Services:
+The user group is assigned appropriate roles for the selected services:
 
 ![](/img/sales-department-space-assignments.png "Sales Department Space Assignments")
 
-The Space looks like this to the Users:
+The space looks like this to the users:
 
 ![](/img/sales-department-space-view.png)
 
 #### R&D Department
 
-The R&D Department accesses a series of Virtual Machines in the HPE GreenLake for Private Cloud Service. Since the service is managed by the IT Department, these users do not need administrative rights.
+The R&D department accesses a series of virtual machines in the HPE GreenLake for Private Cloud service. Since the service is managed by the IT department, these users do not need administrative rights.
 
 #### Data Science Users
 
-These users access several HPE GreenLake for ML Ops projects. The service is managed by the IT Department.
+These users access several HPE GreenLake for ML Ops projects. The service is managed by the IT department.
 
-## Example 2: ABC Corp
+## Example 2: ABC Corp.
 
 ### Design
 
 ![](/img/iam-document-example-2-tenant-1-1-.jpg "Example 2: ABC Corp")
 
-ABC Corp is a small company with three departments, A, B and C. Since the company is small, some employees work across departments. ABC Corp Uses multiple GreenLake Services, each with separate Billing Accounts. A single Tenant is sufficient for the small number of employees of ABC Corp.
+ABC Corp. is a small company with three departments, A, B and C. Since the company is small, some employees work across departments. ABC Corp. uses multiple HPE GreenLake services, each with separate billing accounts. A single tenant is sufficient for the small number of employees of ABC Corp.
 
-The Tenant Administrator for ABC Corp can create User Groups for each Department, e.g.
+The tenant administrator for ABC Corp can create user groups for each department, e.g.
 
-* Department A Users
+* Department A users
 
   * Users: John, Mary
-* Department B Users
+* Department B users
 
   * Users: Mary
-* Department C Users
+* Department C users
 
   * Users: Robert
 
-NOTE: User Mary is a member o f both Department A Users and Department B Users User group.
+NOTE: User Mary is a member of both Department A and Department B user groups.
 
-Next, the Tenant Administrator can create Spaces for each Department and select Billing Account Resources and User Groups as appropriate, e.g.
+Next, the tenant administrator can create spaces for each department and select billing account resources and user groups as appropriate, e.g.
 
-Department A Space
+Department A space
 
-* Billing Resource HP-AMS-DMO-USA-99918
-* Billing Resource HP-AMS-DMO-USA-99919
-* Department A Users
+* Billing resource HP-AMS-DMO-USA-99918
+* Billing resource HP-AMS-DMO-USA-99919
+* Department A users
 
-Department B Space
+Department B space
 
-* Billing Resource HP-AMS-DMO-USA-99920
-* Department B Users
+* Billing resource HP-AMS-DMO-USA-99920
+* Department B users
 
-Department C Space
+Department C space
 
-* Billing Resource HP-AMS-DMO-USA-99918
-* Billing Resource HP-AMS-DMO-USA-99920
-* Department C Users
+* Billing resource HP-AMS-DMO-USA-99918
+* Billing resource HP-AMS-DMO-USA-99920
+* Department C users
 
-In this way, user John, who is a member of Department A Users would only have access to Department A Space and would be able to access Billing Resources HP-AMS-DMO-USA-99918 and HP-AMS-DMO-USA-99919.
+In this way, user John, who is a member of Department A users would only have access to Department A space and would be able to access billing resources HP-AMS-DMO-USA-99918 and HP-AMS-DMO-USA-99919.
 
-User Mary, who is a member of both Department A Users and Department B Users would have access to both Department A Space and Department B Space. User Mary would be able to see any of the Billing Resources by selecting the appropriate Space.
+User Mary, who is a member of both Department A users and Department B users would have access to both Department A space and Department B space. User Mary would be able to see any of the billing resources by selecting the appropriate space.
 
-User Robert who is a member of the Department C Users would be able to access the Department C Space with access to Billing Resources HP-AMS-DMO-USA-99918 and HP-AMS-DMO-USA-99920.
+User Robert who is a member of the Department C users, would be able to access the Department C space with access to billing resources HP-AMS-DMO-USA-99918 and HP-AMS-DMO-USA-99920.
 
-## Example 3: Big And Small Corp
+## Example 3: Big and Small Corp
 
 ### Design
 
@@ -272,11 +270,15 @@ User Robert who is a member of the Department C Users would be able to access th
 
 ![](/img/iam-document-example-3-tenant-3-1-.jpg)
 
-Big and Small Corp is a large multinational company with several divisions. Each division is located in a different region and manages its services separately. Big and Small (USA) is headquartered in the US and is the holding company for all US-based business. This division runs a large Marketing service which has a web presence, hosted on a Public Cloud. Big and Small (USA) would like to replace the Public Cloud with HPE GreenLake for Private Cloud and manage the charges for this service within the division. Big and Small (Europe) is headquartered in Berlin, Germany. This division designs and manufactures a wide range of products for the European market. To support the division, they currently own a large HPC cluster, which they would like to replace with HPE GreenLake for HPC. This division also would like to manage their GreenLake expenses in a separate account. Finally, Big and Small (Japan) is an acquisition, based in Tokyo, Japan. This division had a previous relationship with HPE and already has a billing account, which they would like to retain. This division is responsible for future product development. They would like to use HPE GreenLake for ML Ops to develop innovative new products.
+Big and Small Corp. is a large multinational company with several divisions. Each division is located in a different region and manages its services separately. Big and Small (USA) is headquartered in the US and is the holding company for all US-based business. This division runs a large marketing service which has a web presence, hosted on a public cloud. Big and Small (USA) would like to replace the public cloud with HPE GreenLake for Private Cloud and manage the charges for this service within the division. 
 
-Since some divisions of Big and Small Corp came via acquisition, they have different email addresses to other divisions. Therefore it is decided that each division should have a separate Tenant. This will allow each division to manage their own GreenLake Services and billing accounts.
+Big and Small (Europe) is headquartered in Berlin, Germany. This division designs and manufactures a wide range of products for the European market. To support the division, they currently own a large HPC cluster, which they would like to replace with HPE GreenLake for HPC. This division also would like to manage their HPE GreenLake expenses in a separate account. 
 
-**NOTE: Unless the customer has multiple entities and/or multiple email domains – HPE recommends consolidating all Resources under a single Tenant. This example is to show that multiple Tenants/Billing Accounts are supported but is not recommended unless required.**
+Finally, Big and Small (Japan) is an acquisition, based in Tokyo, Japan. This division had a previous relationship with HPE and already has a billing account, which they would like to retain. This division is responsible for future product development. They would like to use HPE GreenLake for ML Ops to develop innovative new products.
+
+Since some divisions of Big and Small Corp. came via acquisition, they have different email addresses than the other divisions. Therefore, it is decided that each division should have a separate tenant. This will allow each division to manage their own HPE GreenLake Services and billing accounts.
+
+**NOTE: Unless the customer has multiple entities and/or multiple email domains – HPE recommends consolidating all resources under a single tenant. This example is to show that multiple tenants/billing Accounts are supported but is not generally recommended unless specifically required.**
 
 Each division has their own unique billing account:
 
@@ -286,26 +288,28 @@ Each division has their own unique billing account:
 | Big and Small (Europe) | HP-EMEA-DMO-DEU-99919 |
 | Big and Small (Japan)  | HP-APJ-DMO-JPN-99920  |
 
-A Tenant for Big and Small (USA) is created. The main service in this Tenant is HPE GreenLake for Private Cloud. This is configured such that the metrics from this service are sent to the Billing Account 'HP-AMS-DMO-USA-99918'.
 
-Each Department has their own separate User Group, e.g. Department A Users. Users from the various Departments are added to the appropriate User Groups.
 
-A Space 'Main Space' is created within the IAM Service of this Tenant and Resources are added. In this case, the Resource for the Billing Account HP-AMS-DMO-USA-99918 and also the Resource for the HPE GreenLake for Private Cloud are added. Finally, the User Groups are assigned to the Space with the appropriate Roles.
+A tenant for Big and Small (USA) is created. The main service in this tenant is HPE GreenLake for Private Cloud. This is configured such that the metrics from this service are sent to the billing account 'HP-AMS-DMO-USA-99918'.
 
-A Tenant for Big and Small (Europe) is created. The main service in this Tenant is HPE GreenLake for HPC. This is configured such that the metrics from this service are sent to the Billing Account 'HP-EMEA-DMO-DEU-99919'.
+Each department has their own separate user group, e.g. Department A users. Users from the various departments are added to the appropriate user groups.
 
-Each Department has their own separate User Group, e.g. Department D Users. Users from the various Departments are added to the appropriate User Groups.
+A space, '**Main Space**' is created within the IAM Service of this tenant and resources are added. In this case, the resource for the billing account HP-AMS-DMO-USA-99918 and also the resource for the HPE GreenLake for Private Cloud are added. Finally, the user groups are assigned to the space with the appropriate roles.
 
-A Space 'Main Space' is created within the IAM Service of this Tenant and Resources are added. In this case, the Resource for the Billing Account HP-EMEA-DMO-DEU-99919 and also the Resource for the HPE GreenLake for HPC are added. Finally, the User Groups are assigned to the Space with the appropriate Roles.
+A tenant for Big and Small (Europe) is created. The main service in this tenant is HPE GreenLake for HPC. This is configured such that the metrics from this service are sent to the billing account 'HP-EMEA-DMO-DEU-99919'.
 
-A Tenant for Big and Small (Japan) is created. The main service in this Tenant is HPE GreenLake for ML Ops. This is configured such that the metrics from this service are sent to the Billing Account 'HP-APJ-DMO-JPN-99920'.
+Each department has their own separate user group, e.g. Department D users. Users from the various departments are added to the appropriate user groups.
 
-Each Department has their own separate User Group, e.g. Department F Users. Users from the various Departments are added to the appropriate User Groups.
+A space '**Main Space**' is created within the IAM Service of this tenant and resources are added. In this case, the resource for the billing account HP-EMEA-DMO-DEU-99919 and also the resource for the HPE GreenLake for HPC are added. Finally, the user groups are assigned to the space with the appropriate roles.
 
-A Space 'Main Space' is created within the IAM Service of this Tenant and Resources are added. In this case, the Resource for the Billing Account HP-APJ-DMO-JPN-99920 and also the Resource for the HPE GreenLake for ML Ops are added. Finally, the User Groups are assigned to the Space with the appropriate Roles.
+A tenant for Big and Small (Japan) is created. The main service in this tenant is HPE GreenLake for ML Ops. This is configured such that the metrics from this service are sent to the billing account 'HP-APJ-DMO-JPN-99920'.
+
+Each department has their own separate user group, e.g. Department F users. Users from the various departments are added to the appropriate user groups.
+
+A space '**Main Space**' is created within the IAM Service of this tenant and resources are added. In this case, the resource for the billing account HP-APJ-DMO-JPN-99920 and also the resource for the HPE GreenLake for ML Ops are added. Finally, the user groups are assigned to the space with the appropriate roles.
 
 # Conclusion
 
-As you can see, the key to configuring Identiy and Access Management in a Tenant is to understand the building blocks and how to make informed decisions on how to design IAM resources to match customer requirements. Finally, the examples will help you to see how the flexibility of GreenLake Central Identity and Access Management allows an almost infinite number of possible configurations, giving the flexibility to match diverse customer requirements. 
+As you can see, the key to configuring Identity and Access Management in a tenant is to understand the building blocks and how to make informed decisions on how to design IAM resources to match customer requirements. I hope these examples will help you to see how the flexibility of HPE GreenLake Central Identity and Access Management allows an almost infinite number of possible configurations, giving the flexibility to match diverse customer requirements. 
 
-Please feel free to reach out directly if you have any questions.
+Please feel free to reach out directly to me on Slack if you have any questions.
