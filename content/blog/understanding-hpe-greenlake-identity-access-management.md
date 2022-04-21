@@ -87,7 +87,7 @@ Once a tenant administrator is on-boarded, they can invite their users to join t
 2. Select the **Users** Tab
 3. Under the **Actions** pull-down, choose Invite User
 
-<img src="relative-path-of-your-image-in-the-form: /img/invite-user.png" width="480" height="538" alt="Invite User">
+<img src="/img/invite-user.png" width="480" height="538" alt="Invite User">
 
 The invited user receives an email inviting them to join the tenant. Once the user activates their account they can log into HPE GreenLake Central and switch to the tenant. The tenant administrator can add the new User to various User Groups, etc.
 
