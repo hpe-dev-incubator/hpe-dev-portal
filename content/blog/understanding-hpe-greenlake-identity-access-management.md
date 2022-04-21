@@ -306,7 +306,7 @@ A tenant for Big and Small (Japan) is created. The main service in this tenant i
 
 Each department has their own separate user group, e.g. Department F users. Users from the various departments are added to the appropriate user groups.
 
-A space '**Main Space**' is created within the IAM Service of this tenant and resources are added. In this case, the resource for the billing account HP-APJ-DMO-JPN-99920 and also the resource for the HPE GreenLake for ML Ops are added. Finally, the user groups are assigned to the space with the appropriate roles.
+A space '**Main Space**' is created within the IAM service of this tenant and resources are added. In this case, the resource for the billing account HP-APJ-DMO-JPN-99920 and also the resource for the HPE GreenLake for ML Ops are added. Finally, the user groups are assigned to the space with the appropriate roles.
 
 # Conclusion
 
