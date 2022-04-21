@@ -6,39 +6,41 @@ authorimage: /img/mugshot.png
 tags:
   - hpe-greenlake
 ---
-### Introduction
+# Introduction
 
-When configuring a GreenLake Central Tenant for diverse customer Identity and Access Management needs, it is important to understand how the various features work, so that correct decisions are made. Once you understand the features and how they work, this will help you to arrange resources in an optimal way. It will also prevent a need to reconfigure in the future. With this in mind, this blog begins by describing the various features of Identity and Access Management available in GreenLake Central and how to perform common tasks associated with IAM configuration. It also includes some simple steps in designing the IAM configuration based on customer requirements. Finally it examines several fictitious customer setups and shows how each is configured.
+When configuring an HPE GreenLake Central tenant for diverse customer Identity and Access Management (IAM) needs, it is important to understand how the various features work, so you can take appropriate actions. Once you understand the features and how they work, you'll be able to arrange resources in an optimal way. It will also prevent the need to reconfigure anything in the future. 
 
-### IAM Definitions
+With this in mind, I'd like to begin by describing the various features of Identity and Access Management available in HPE GreenLake Central and how to perform common tasks associated with IAM configuration. I'll also include some simple steps you can follow when designing IAM configurations based on customer requirements. Finally, I'll present several fictitious customer setups and show you how each is configured.
 
-#### Users
+# IAM Definitions
 
-All HPE GreenLake Central users start with getting an HPE GreenLake Central account and profile. Users are invited, by a Tenant Administrator or other user with appropriate permissions, to join the HPE GreenLake Central tenant.  HPE can assist with user management and can configure your HPE GreenLake environment to use the Customer's Single Sign-On (SSO) mechanism through a custom Services engagement. **NOTE: All users in a Tenant have the same email domain name.**
+## Users
 
-#### API Clients
+All HPE GreenLake Central users start with getting an HPE GreenLake Central account and profile. Users are invited by a tenant administrator, or another user with appropriate permissions, to join the HPE GreenLake Central tenant.  HPE can assist with user management and can configure your HPE GreenLake environment to use the Customer's Single Sign-On (SSO) mechanism through a custom Services engagement. **NOTE: All users in a tenant have the same email domain name.**
 
-API Clients are are nonhuman GreenLake Central Users for programmatic access to GreenLake Central. They are assigned Spaces, Roles similarly to a regular User. 
+## API Clients
 
-#### Tenants
+API clients are nonhuman HPE GreenLake Central users for programmatic access to HPE GreenLake Central. They are assigned spaces and roles, similar to a regular user. 
 
-A Tenant is an isolated environment with unique users and workloads.  Within a Tenant, Users are Invited to join the Tenant by a Tenant Administrator or other user with appropriate permissions.
+## Tenants
 
-#### User Groups
+A tenant is an isolated environment with unique users and workloads.  Within a tenant, users are invited to join the tenant by a tenant administrator or another user with the appropriate permissions.
 
-User Groups are a named set of users that share a common job function or access requirements. 
+## User Groups
 
-#### Spaces
+User groups are a named set of users that share a common job function or access requirements. 
 
-Spaces enable you to grant access to a defined subset of Resources within a Tenant. Access to resources in a Space is managed through the assignment of Users, User Groups or API clients to Roles in a Space. There is a Default Space where users arrive automatically upon login. The All Resources Space is a dynamic list of all resources in a Tenant. 
+## Spaces
 
-Users can be granted access to multiple Spaces.
+Spaces enable you to grant access to a defined subset of resources within a tenant. Access to resources in a space is managed through the assignment of users, user groups or API clients to roles in a space. There is a default space where users land automatically upon login. The all resources space is a dynamic list of all resources in a tenant. 
 
-#### Roles
+Users can be granted access to multiple spaces.
 
-Roles are a named set of permissions used to  access Resources.  They are assigned to Users, User Groups or API Clients to grant them permissions for a specific set of resources on a Space.
+## Roles
 
-Roles are available for the Services which are available within the Tenant. The following table is incomplete but lists the most common Roles and definitions.
+Roles are a named set of permissions used to  access resources.  They are assigned to users, user groups or API clients to grant them permissions for a specific set of resources on a space.
+
+Roles are available for the services that are available within the tenant. The following table is incomplete but lists the most common roles and definitions.
 
 | **Role**                                        | **Responsibility**                                                                                                                                                   |     |
 | ----------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --- |
@@ -50,46 +52,46 @@ Roles are available for the Services which are available within the Tenant. The 
 | **HPE GreenLake Billing**                       |                                                                                                                                                                      |     |
 | Billing Contributor                             | View billing information and edit downstream rates                                                                                                                   |     |
 | Billing Viewer                                  | View billing information                                                                                                                                             |     |
-| Billing Usage Viewer                            | View Monthly Charges card and report (usage information only - no cost information)                                                                                  |     |
+| Billing Usage Viewer                            | View monthly charges card and report (usage information only - no cost information)                                                                                  |     |
 | **HPE GreenLake for Private Cloud**             |                                                                                                                                                                      |     |
 | Private Cloud Tenant Owner                      | Administer HPE GreenLake for private cloud dashboard<br>Manage scheduling and activity<br>Manage infrastructure<br>Manage provisioning                               |     |
 | Private Cloud Tenant Contributor                | Manage self-service VMs and app provisions                                                                                                                           |     |
 | **HPE GreenLake for Containers**                |                                                                                                                                                                      |     |
-| Container Platform Cluster Owner                | Manage predefined and custom cluster blueprints, and machine blueprints                                                                                              |     |
+| Container Platform Cluster Owner                | Manage predefined and custom cluster blueprints, along with machine blueprints                                                                                       |     |
 | Container Platform Cluster Resource Contributor | Manage resources within a cluster namespace                                                                                                                          |     |
 | **HPE GreenLake for ML Ops**                    |                                                                                                                                                                      |     |
 | MLOps Admin and IAM Owner                       | Install services and manage projects, resources, and users, and view sites information                                                                               |     |
-| MLOps Project Admin                             | To build, train, and deploy models, launch the AI/ML services<br>Corresponds to Project Administrator role in HPE Ezmeral Container Platform                         |     |
-| MLOps Project Member                            | To build, train, and deploy models, launch the AI/ML projects and consume the AI/ML services<br>Corresponds to Project Member role in HPE Ezmeral Container Platform |     |
+| MLOps Project Admin                             | Build, train, and deploy models, launch the AI/ML services<br>Corresponds to Project Administrator role in HPE Ezmeral Runtime Enterprise                            |     |
+| MLOps Project Member                            | To build, train, and deploy models, launch the AI/ML projects and consume the AI/ML services<br>Corresponds to Project Member role in HPE Ezmeral Runtime Enterprise |     |
 | **HPE GreenLake for HPC**                       |                                                                                                                                                                      |     |
 | HPCaaS Admin                                    | Perform all actions                                                                                                                                                  |     |
 | HPCaaS Job Contributor                          | Manage job and job-related information                                                                                                                               |     |
 | HPCaaS Viewer                                   | View only                                                                                                                                                            |     |
 
-For more detail on Roles, please refer to the HPE GreenLake Central User Guide which is available here: [HPE GreenLake Central User Guide](https://support.hpe.com/hpesc/public/docDisplay?docId=a00092451en_us&page=index.html)
+For more detail on roles, please refer to the HPE GreenLake Central User Guide which can be found here: [HPE GreenLake Central User Guide](https://support.hpe.com/hpesc/public/docDisplay?docId=a00092451en_us&page=index.html)
 
-* Owner Roles apply to different aspects of Services. Some Administrator Roles are only available to HPE ITOC and DevOps teams.
-* Contributor Roles also apply to Services. These Roles allow non-admin operations within a Service.
-* Viewer Roles are 'read-only' roles which can be used to allow Users to access services but not to modify them in any way.
-* Custom Roles can also be defined. These allow arbitrary collections of Permissions to be combined into one or more Roles which can be assigned as normal.
+* Owner roles apply to different aspects of Services. Some administrator Roles are only available to HPE Information Technology Operations Center (ITOC) and DevOps teams.
+* Contributor roles also apply to services. These roles allow non-admin operations within a service.
+* Viewer roles are 'read-only' roles which can be used to allow users to access services but not to modify them in any way.
+* Custom roles can also be defined. These allow arbitrary collections of permissions to be combined into one or more roles and can be assigned as normal.
 
-### Tenant On-boarding
+# Tenant On-Boarding
 
-New tenants are requested via a HPE Representative. The request includes an initial contact email address. This new user account is associated with the new Tenant. Once the Tenant is created and the billing account is promoted into Production, the contact email address receives an email invitation to activate their account. The new user can then log into GreenLake Central and can start the process of setting up their Spaces, User Groups, Role Assignments, etc. They can also invite other users to join the Tenant and perform other activities relevant to the specific user permissions.
+New tenants are requested via an HPE representative. The request includes an initial contact email address. This new user account is associated with the new tenant. Once the tenant is created and the billing account is promoted into production, the contact email address receives an email invitation to activate their account. The new user can then log into HPE GreenLake Central and can start the process of setting up their spaces, user groups, role assignments, etc. They can also invite other users to join the tenant and perform other activities relevant to the specific user permissions.
 
-### Inviting Users
+## Inviting Users
 
-Once a Tenant Administrator is on-boarded, they can invite their users to join the Tenant.
+Once a tenant administrator is on-boarded, they can invite their users to join the tenant.
 
-1. Access the Identity & Access Service within the Wrench icon.
-2. Select the Users Tab
-3. Under the Actions pull-down, choose 'Invite User'
+1. Access the Identity & Access Service within the wrench icon.
+2. Select the **Users** Tab
+3. Under the **Actions** pull-down, choose Invite User
 
-![](/img/invite-user.png)
+<img src="relative-path-of-your-image-in-the-form: /img/invite-user.png" width="480" height="538" alt="Invite User">
 
-The invited User receives an email inviting them to join the Tenant. Once the User activates their account they can log into GreenLake Central and switch to the Tenant. The Tenant Administrator can add the new User to various User Groups, etc.
+The invited user receives an email inviting them to join the tenant. Once the user activates their account they can log into HPE GreenLake Central and switch to the tenant. The tenant administrator can add the new User to various User Groups, etc.
 
-### Creating and modifying User Groups
+## Creating and modifying User Groups
 
 1. Access the Identity & Access Service within the Wrench icon.
 2. Select the User Groups Tab
@@ -101,7 +103,7 @@ The invited User receives an email inviting them to join the Tenant. Once the Us
 5. Enter a User Group Name and Description
 6. Once the User Group has been created it may be modified using the instructions above
 
-### Creating and modifying Spaces
+## Creating and modifying Spaces
 
 1. Access the Identity & Access Service within the Wrench icon.
 2. Select the Spaces Tab
@@ -117,11 +119,11 @@ The invited User receives an email inviting them to join the Tenant. Once the Us
    * Enter a Space Name and Parent Space
    * Select Resources by expanding the 'All Resources' list
 
-### Examples
+# Examples
 
-#### Example 1: ACME Corp.
+## Example 1: ACME Corp.
 
-#### Design
+### Design
 
 ![](/img/iam-document-example-1-tenant-1-1-.jpg "Example 1: ACME Corp.")
 
@@ -161,7 +163,7 @@ When each Space is created, appropriate Resources are chosen and mapped to the S
 
 ![](/img/resource-selection.png "Resource Selection")
 
-##### Office of CEO
+#### Office of CEO
 
 The Office of CEO Space needs access to Billing across the entire Company. They may also use HPE GreenLake for Private Cloud to run some Virtual Machines. Finally, they occasionally run some AI on internal data.
 
@@ -175,7 +177,7 @@ The Space looks like this to the Users:
 
 ![](/img/office-of-ceo-space-view.png "Office of CEO Space View")
 
-##### IT Department
+#### IT Department
 
 The IT Department Space would need access to GreenLake for Private Cloud, HPE GreenLake for ML Ops and HPE GreenLake for Containers Resources. This would allow users in this Department to manage the Resources running in both Services. Users in this department require Admin Roles for the selected Resources.
 
@@ -189,7 +191,7 @@ The Space looks like this to the Users:
 
 ![](/img/it-department-space-view.png "IT Department Space View")
 
-##### Sales Department
+#### Sales Department
 
 The Sales Department Space runs a series of Containers which provide a service to their field sales users. Since they maintain their own code they have two Clusters: Integration and Production. They do not use other services.
 
@@ -203,17 +205,17 @@ The Space looks like this to the Users:
 
 ![](/img/sales-department-space-view.png)
 
-##### R&D Department
+#### R&D Department
 
 The R&D Department accesses a series of Virtual Machines in the HPE GreenLake for Private Cloud Service. Since the service is managed by the IT Department, these users do not need administrative rights.
 
-##### Data Science Users
+#### Data Science Users
 
 These users access several HPE GreenLake for ML Ops projects. The service is managed by the IT Department.
 
-#### Example 2: ABC Corp
+## Example 2: ABC Corp
 
-#### Design
+### Design
 
 ![](/img/iam-document-example-2-tenant-1-1-.jpg "Example 2: ABC Corp")
 
@@ -258,9 +260,9 @@ User Mary, who is a member of both Department A Users and Department B Users wou
 
 User Robert who is a member of the Department C Users would be able to access the Department C Space with access to Billing Resources HP-AMS-DMO-USA-99918 and HP-AMS-DMO-USA-99920.
 
-#### Example 3: Big And Small Corp
+## Example 3: Big And Small Corp
 
-#### Design
+### Design
 
 ![](/img/iam-document-example-3-tenant-1-1-.jpg)
 
@@ -300,7 +302,7 @@ Each Department has their own separate User Group, e.g. Department F Users. User
 
 A Space 'Main Space' is created within the IAM Service of this Tenant and Resources are added. In this case, the Resource for the Billing Account HP-APJ-DMO-JPN-99920 and also the Resource for the HPE GreenLake for ML Ops are added. Finally, the User Groups are assigned to the Space with the appropriate Roles.
 
-### Conclusion
+# Conclusion
 
 As you can see, the key to configuring Identiy and Access Management in a Tenant is to understand the building blocks and how to make informed decisions on how to design IAM resources to match customer requirements. Finally, the examples will help you to see how the flexibility of GreenLake Central Identity and Access Management allows an almost infinite number of possible configurations, giving the flexibility to match diverse customer requirements. 
 
