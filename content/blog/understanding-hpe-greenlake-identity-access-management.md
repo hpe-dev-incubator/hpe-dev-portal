@@ -310,4 +310,4 @@ A space '**Main Space**' is created within the IAM service of this tenant and re
 
 As you can see, the key to configuring Identity and Access Management in a tenant is to understand the building blocks and how to make informed decisions on how to design IAM resources to match customer requirements. I hope these examples will help you to see how the flexibility of HPE GreenLake Central Identity and Access Management allows an almost infinite number of possible configurations, giving the flexibility to match diverse customer requirements. 
 
-Please feel free to reach out directly to me on <https://slack.hpedev.io/> if you have any questions.
+Please feel free to reach out directly to me on the HPE Developer Slack Workspace ([](https://slack.hpedev.io/)[](https://slack.hpedev.io/)<https://slack.hpedev.io/>) in the #hpe-greenlake channel.
