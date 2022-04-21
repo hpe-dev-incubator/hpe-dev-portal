@@ -7,6 +7,7 @@ description: A programming language designed for productive parallel computing
   from laptops to supercomputers.
 image: /img/platforms/Chapel.svg
 frontpage: true
+active: true
 tags:
   - chapel
 ---

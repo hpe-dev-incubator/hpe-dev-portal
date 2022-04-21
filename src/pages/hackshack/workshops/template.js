@@ -34,10 +34,6 @@ const renderScheduleCard = (workshop, i) => (
 
 const Workshop = (props) => {
   const { GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT } = process.env;
-  console.log(
-    'workshop URL from env file',
-    GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT,
-  );
   const getWorkshopsApi = `${GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/workshops?active=true`;
   const [workshops, setworkshops] = useState([]);
   const [error, setError] = useState('');
@@ -81,7 +77,6 @@ const Workshop = (props) => {
             if (workshop.sessionType === 'Workshops-on-Demand')
               arr.push({ ...workshop });
           });
-          console.log('workshop array', arr);
           setworkshops(arr);
         })
         .catch((err) => {

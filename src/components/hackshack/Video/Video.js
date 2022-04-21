@@ -24,7 +24,10 @@ const Video = ({
   capacity,
   workshopTitle,
   workshopId,
+  workshopDuration,
 }) => {
+  console.log('workshop duration', workshopDuration);
+  console.log('capacity', capacity);
   const [signupLayer, setSignupLayer] = useState(false);
   const [successLayer, setSuccessLayer] = useState(false);
   const [formData, setFormData] = useState({
@@ -132,6 +135,7 @@ const Video = ({
               title={title}
               size={size}
               sessionType={sessionType}
+              duration={workshopDuration}
             />
           )}
           {successLayer && (
@@ -193,6 +197,7 @@ Video.propTypes = {
   capacity: PropTypes.number,
   workshopTitle: PropTypes.string,
   workshopId: PropTypes.number,
+  workshopDuration: PropTypes.number,
 };
 
 export default Video;

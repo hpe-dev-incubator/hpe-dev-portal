@@ -52,7 +52,7 @@ Let’s start building this TF file using your favorite editor.
 
 #### Selecting a Terraform provider
 
-The first section of the file will enumerate the “providers” you rely upon for building your infrastructure, and they could be multiple providers in a single TF file. In this case here, you will only have the HPE GreenLake provider referenced as hewlettpackard/hpeg in the official [Terraform registry](https://registry.terraform.io/).
+The first section of the file will enumerate the “providers” you rely upon for building your infrastructure, and they could be multiple providers in a single TF file. In this case here, you will only have the HPE GreenLake provider referenced as hpe/hpegl in the official [Terraform registry](https://registry.terraform.io/).
 
 The first lines of your Terraform configuration file should look like this:
 
@@ -61,24 +61,22 @@ The first lines of your Terraform configuration file should look like this:
 terraform {
       required_providers {
          hpegl = {
-            source  = "hewlettpackard/hpegl"
-            version = "0.1.0-beta7"
+            source  = "hpe/hpegl"
+            version = "0.1.7"
          }
       }
    }
 ```
 
-You can find out more about the HPE GreenLake Terraform provider from its [Terraform Registry page](https://registry.terraform.io/providers/HewlettPackard/hpegl/0.1.7).
+You can find out more about the HPE GreenLake Terraform provider from its [Terraform Registry page](https://registry.terraform.io/providers/HPE/hpegl/latest).
 
-![Terraform HPE GreenLake Provider](/img/terraformprovider.png "Terraform HPE GreenLake Provider")
-
-This page also provides a link to the GitHub repository corresponding to this provider. The [docs](https://github.com/HewlettPackard/terraform-provider-hpegl/tree/main/docs) folder is your best source of information for using the different data sources and resources provided by the provider. If you navigate to the resources section, you will see that one resource you can manipulate with this provider is a [VM instance](https://github.com/HewlettPackard/terraform-provider-hpegl/blob/main/docs/resources/vmaas_instance.md). Let’s focus on this resource in this article.
+This page also provides a link to the GitHub repository corresponding to this provider. The [docs](https://github.com/hpe/terraform-provider-hpegl/tree/main/docs) folder is your best source of information for using the different data sources and resources provided by the provider. If you navigate to the resources section, you will see that one resource you can manipulate with this provider is a [VM instance](https://github.com/hpe/terraform-provider-hpegl/blob/main/docs/resources/vmaas_instance.md). Let’s focus on this resource in this article.
 
 > Note: Because this is open source, don’t hesitate to open issues, or even a pull request, if you identify an issue.
 
 #### Setting up the Terraform provider
 
-Now that you have expressed the fact that the hpegl provider will be used, you need to setup some parameters for it. As explained on this [page](https://github.com/HewlettPackard/terraform-provider-hpegl/blob/main/docs/index.md), you can either explicitly set those parameters in your TF file, or have them set in a series of environment variables, or a mix of both. I suggest the following two parameters be added in your TF file:
+Now that you have expressed the fact that the hpegl provider will be used, you need to setup some parameters for it. As explained on this [page](https://github.com/hpe/terraform-provider-hpegl/blob/main/docs/index.md), you can either explicitly set those parameters in your TF file, or have them set in a series of environment variables, or a mix of both. I suggest the following two parameters be added in your TF file:
 
 ```json
 # Setup provider environment (location and space)
@@ -131,7 +129,7 @@ And execute it on your machine to set these environment variables.
 
 #### Querying for infrastructure components
 
-Your next step with the TF file is to query the HPE GreenLake provider to collect information needed to create your first VM instance. From the [documentation](https://github.com/HewlettPackard/terraform-provider-hpegl/blob/main/docs/resources/vmaas_instance.md), you can see that you need to gather the following information:
+Your next step with the TF file is to query the HPE GreenLake provider to collect information needed to create your first VM instance. From the [documentation](https://github.com/hpe/terraform-provider-hpegl/blob/main/docs/resources/vmaas_instance.md), you can see that you need to gather the following information:
 
 * Cloud ID
 * Group ID
@@ -196,7 +194,7 @@ data "hpegl_vmaas_template" "vanilla" {
    }
 ```
 
-> You can get information about each of the data statements supported by the hpegl provider from [GitHub](https://github.com/HewlettPackard/terraform-provider-hpegl/tree/main/docs/data-sources).
+> You can get information about each of the data statements supported by the hpegl provider from [GitHub](https://github.com/hpe/terraform-provider-hpegl/tree/main/docs/data-sources).
 
 #### Creating a VM resource
 
@@ -234,21 +232,21 @@ resource "hpegl_vmaas_instance" "DidierTest1" {
  
 ```
 
-> Note: You can get information about each of the resource statements supported by the hpegl provider from [GitHub](https://github.com/HewlettPackard/terraform-provider-hpegl/tree/main/docs/resources).
+> Note: You can get information about each of the resource statements supported by the hpegl provider from [GitHub](https://github.com/hpe/terraform-provider-hpegl/tree/main/docs/resources).
 
 #### Terraform init
 
 Before you can use Terraform, you will have to initialize it from the configuration file we have created. This is done with the following step: **terraform init**
 
-```
+```markdown
 $ terraform init
 
 Initializing the backend...
 
 Initializing provider plugins...
-- Finding hewlettpackard/hpegl versions matching "0.1.0-beta7"...
-- Installing hewlettpackard/hpegl v0.1.0-beta7...
-- Installed hewlettpackard/hpegl v0.1.0-beta7 (signed by a HashiCorp partner, key ID D1F277A1AC66CE3D)
+- Finding hpe/hpegl versions matching "0.1.7"...
+- Installing hpe/hpegl v0.1.7...
+- Installed hpe/hpegl v0.1.7 (signed by a HashiCorp partner, key ID D1F277A1AC66CE3D)
 
 Partner and community providers are signed by their developers.
 If you'd like to know more about provider signing, you can read about it here:
@@ -272,7 +270,7 @@ commands will detect it and remind you to do so if necessary.
 
 #### Terraform ready to plan
 
-To validate your configuration file, I recommend running the plan command as you add sections to your file. The **terraform plan** command will check for syntax errors and provide information about what will be created when the **terraform apply** method is used.
+To validate your configuration file, I recommend running the **terraform validate** command as you add sections to your file to track syntax errors. Once ready, the **terraform plan** command will provide information about what will be created when the **terraform apply** method is finally used.
 
 ```markdown
 $ terraform plan
@@ -523,6 +521,6 @@ In this blog post, I covered how to get started with the Terraform provider for 
 
 * [Learn more about Terraform](https://www.terraform.io/)
 * [Learn more about HPE GreenLake](https://www.hpe.com/us/en/greenlake.html)
-* [Learn more about the HPE GreenLake Terraform provider](https://registry.terraform.io/providers/HewlettPackard/hpegl/0.1.0-beta7)
+* [Learn more about the HPE GreenLake Terraform provider](https://registry.terraform.io/providers/hpe/hpegl/latest)
 
 Find other tutorials and articles on HPE GreenLake on the [HPE DEV blog](https://developer.hpe.com/blog).
