@@ -66,8 +66,11 @@ As part of its virtual presence, HPE will once again feature [the HPE Developer 
    * [Using Kubernetes CSI with HPE Ezmeral Container Platform](https://developer.hpe.com/hackshack/workshop/2)
 
 * [TREASURE HUNT](https://bit.ly/kubecon-eu-2022-hpedev-treasure-hunt): Our scavenger-hunt style challenge encourages you to check out all the resources that are available on the [HPE Developer Community website](https://developer.hpe.com/) and the Hack Shack. Be one of the first 15 people to answer all the questions correctly and win an HPE DEV hat!
+
 * [REPLAYS](https://developer.hpe.com/hackshack/replays/): You can find replays of many of the technical workshops we’ve offered live in the past in the Hack Shack as well. View them to learn more about the [HPE Ezmeral Container Platform now known as HPE Ezmeral Runtime Enterprise](https://developer.hpe.com/hackshack/replays/0), [SPIFFE and SPIRE authentication](https://developer.hpe.com/hackshack/replays/27), and the [HPE Container Storage Interface](https://developer.hpe.com/hackshack/replays/2) for Kubernetes.
+
 * [ARCADE](https://developer.hpe.com/hackshack/arcade/): In our arcade, you’ll find Hack Shack Attack! Give this popular retro-style video game a try and compete with your friends for the highest score. There’s also a place where you can download stickers, Zoom backgrounds, and cool artwork to use on your social channels.
+
 *[COMMUNITY](https://developer.hpe.com/community/): We invite you to join and contribute your expertise on our blog or deliver an on-demand workshop. Connect with others in the community via the [HPE Ezmeral Software Forum](https://www.hpe.com/forum/ezmeral), or our [Slack](https://slack.hpedev.io/) and [Twitter](https://twitter.com/HPE_DevCom) channels to start conversations and get answers to questions. Sign-up for our [HPE Developer Newsletter](https://developer.hpe.com/newsletter-signup) to stay up-to-date on the newest blog posts and tutorials. 
 
 
