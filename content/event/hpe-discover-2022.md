@@ -14,6 +14,6 @@ tags:
 
 Las Vegas, June 28-30
 
-From the latest insights in secure connectivity, hybrid cloud, AI and unified data analytics, HPE Discover 2022 is the best place to stay ahead of the trends and technologies that will move your business forward, faster. Join HPE experts, leading companies, and industry luminaries and learn how to accelerate your data-first modernization across edge to cloud. You don’t want to miss this opportunity to gather again together with HPE Developer Community members in the Hack Shack!
+From the latest insights in secure connectivity, hybrid cloud, AI and unified data analytics, HPE Discover 2022 is the best place to stay ahead of the trends and technologies that will move your business forward, faster. Join HPE experts, leading companies, and industry luminaries and learn how to accelerate your data-first modernization across edge to cloud. You don’t want to miss this opportunity to once again gather with HPE Developer Community members in the Hack Shack!
 
 
