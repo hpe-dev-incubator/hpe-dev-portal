@@ -58,12 +58,14 @@ As part of its virtual presence, HPE will once again feature [the HPE Developer 
 * [WORKSHOPS-ON-DEMAND](https://developer.hpe.com/hackshack/workshops): Access over two dozen free, on-demand hands-on training courses. Using a Jupyter Notebook environment, they provide you with hands-on experience across the latest HPE and Open Source technologies. Check out our newest workshops, including:
 
 
-    * Docker 101 - Introduction to Docker Concepts
-    * Spark 101 - Introduction to Apache Spark Concepts
-    * Creating a Zero Trust Model for Microservices Architectures with SPIRE and Envoy
-    * Kubernetes 101 - Introduction to the Kubernetes Concepts
-    * Building a dynamic Machine Learning pipeline with KubeDirector
-    * Using Kubernetes CSI with HPE Ezmeral Container Platform
+
+  * [Docker 101 - Introduction to Docker Concepts](https://developer.hpe.com/hackshack/workshop/33)
+  * [Spark 101 - Introduction to Apache Spark Concepts](https://developer.hpe.com/hackshack/workshop/34)
+  * [Creating a Zero Trust Model for Microservices Architectures with SPIRE and Envoy](https://developer.hpe.com/hackshack/workshop/32)
+  * [Kubernetes 101 - Introduction to the Kubernetes Concepts](https://developer.hpe.com/hackshack/workshop/24)
+  * [Building a dynamic Machine Learning pipeline with KubeDirector](https://developer.hpe.com/hackshack/workshop/18)
+  * [Using Kubernetes CSI with HPE Ezmeral Container Platform](https://developer.hpe.com/hackshack/workshop/2)
+
 
 * [TREASURE HUNT](https://bit.ly/kubecon-eu-2022-hpedev-treasure-hunt): Our scavenger-hunt style challenge encourages you to check out all the resources that are available on the [HPE Developer Community website](https://developer.hpe.com/) and the Hack Shack. Be one of the first 15 people to answer all the questions correctly and win an HPE DEV hat!
 
