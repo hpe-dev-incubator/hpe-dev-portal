@@ -54,25 +54,20 @@ As we’ve done the last few years, we’ll be offering live office hours where 
 
 
 As part of its virtual presence, HPE will once again feature [the HPE Developer Community Hack Shack](https://developer.hpe.com/hackshack/), a place to learn and have fun. It’s a unique place designed to give virtual events a more personal touch and extend the experience beyond the event. Here’s what the HPE Developer Community will provide to you through the Hack Shack and web portal:
+* [WORKSHOPS-ON-DEMAND](https://developer.hpe.com/hackshack/workshops): Access over two dozen free, on-demand hands-on training courses. Using a Jupyter Notebook environment, they provide you with hands-on experience across the latest HPE and Open Source technologies. Check out our newest workshops, including:
 
 
-[WORKSHOPS-ON-DEMAND](https://developer.hpe.com/hackshack/workshops): Access over two dozen free, on-demand hands-on training courses. Using a Jupyter Notebook environment, they provide you with hands-on experience across the latest HPE and Open Source technologies. Check out our newest workshops, including:
+   * [Docker 101 - Introduction to Docker Concepts](https://developer.hpe.com/hackshack/workshop/33)
+   * [Spark 101 - Introduction to Apache Spark Concepts](https://developer.hpe.com/hackshack/workshop/34)
+   * [Creating a Zero Trust Model for Microservices Architectures with SPIRE and Envoy](https://developer.hpe.com/hackshack/workshop/32)
+   * [Kubernetes 101 - Introduction to the Kubernetes Concepts](https://developer.hpe.com/hackshack/workshop/24)
+   * [Building a dynamic Machine Learning pipeline with KubeDirector](https://developer.hpe.com/hackshack/workshop/18)
+   * [Using Kubernetes CSI with HPE Ezmeral Container Platform](https://developer.hpe.com/hackshack/workshop/2)
 
-
-* [Docker 101 - Introduction to Docker Concepts](https://developer.hpe.com/hackshack/workshop/33)
-* [Spark 101 - Introduction to Apache Spark Concepts](https://developer.hpe.com/hackshack/workshop/34)
-* [Creating a Zero Trust Model for Microservices Architectures with SPIRE and Envoy](https://developer.hpe.com/hackshack/workshop/32)
-* [Kubernetes 101 - Introduction to the Kubernetes Concepts](https://developer.hpe.com/hackshack/workshop/24)
-* [Building a dynamic Machine Learning pipeline with KubeDirector](https://developer.hpe.com/hackshack/workshop/18)
-* [Using Kubernetes CSI with HPE Ezmeral Container Platform](https://developer.hpe.com/hackshack/workshop/2)
-
-[TREASURE HUNT](https://bit.ly/kubecon-eu-2022-hpedev-treasure-hunt): Our scavenger-hunt style challenge encourages you to check out all the resources that are available on the [HPE Developer Community website](https://developer.hpe.com/) and the Hack Shack. Be one of the first 15 people to answer all the questions correctly and win an HPE DEV hat!
-
-[REPLAYS](https://developer.hpe.com/hackshack/replays/): You can find replays of many of the technical workshops we’ve offered live in the past in the Hack Shack as well. View them to learn more about the [HPE Ezmeral Container Platform now known as HPE Ezmeral Runtime Enterprise](https://developer.hpe.com/hackshack/replays/0), [SPIFFE and SPIRE authentication](https://developer.hpe.com/hackshack/replays/27), and the [HPE Container Storage Interface](https://developer.hpe.com/hackshack/replays/2) for Kubernetes.
-
-[ARCADE](https://developer.hpe.com/hackshack/arcade/): In our arcade, you’ll find Hack Shack Attack! Give this popular retro-style video game a try and compete with your friends for the highest score. There’s also a place where you can download stickers, Zoom backgrounds, and cool artwork to use on your social channels.
-
-[COMMUNITY](https://developer.hpe.com/community/): We invite you to join and contribute your expertise on our blog or deliver an on-demand workshop. Connect with others in the community via the [HPE Ezmeral Software Forum](https://www.hpe.com/forum/ezmeral), or our [Slack](https://slack.hpedev.io/) and [Twitter](https://twitter.com/HPE_DevCom) channels to start conversations and get answers to questions. Sign-up for our [HPE Developer Newsletter](https://developer.hpe.com/newsletter-signup) to stay up-to-date on the newest blog posts and tutorials. 
+* [TREASURE HUNT](https://bit.ly/kubecon-eu-2022-hpedev-treasure-hunt): Our scavenger-hunt style challenge encourages you to check out all the resources that are available on the [HPE Developer Community website](https://developer.hpe.com/) and the Hack Shack. Be one of the first 15 people to answer all the questions correctly and win an HPE DEV hat!
+* [REPLAYS](https://developer.hpe.com/hackshack/replays/): You can find replays of many of the technical workshops we’ve offered live in the past in the Hack Shack as well. View them to learn more about the [HPE Ezmeral Container Platform now known as HPE Ezmeral Runtime Enterprise](https://developer.hpe.com/hackshack/replays/0), [SPIFFE and SPIRE authentication](https://developer.hpe.com/hackshack/replays/27), and the [HPE Container Storage Interface](https://developer.hpe.com/hackshack/replays/2) for Kubernetes.
+* [ARCADE](https://developer.hpe.com/hackshack/arcade/): In our arcade, you’ll find Hack Shack Attack! Give this popular retro-style video game a try and compete with your friends for the highest score. There’s also a place where you can download stickers, Zoom backgrounds, and cool artwork to use on your social channels.
+*[COMMUNITY](https://developer.hpe.com/community/): We invite you to join and contribute your expertise on our blog or deliver an on-demand workshop. Connect with others in the community via the [HPE Ezmeral Software Forum](https://www.hpe.com/forum/ezmeral), or our [Slack](https://slack.hpedev.io/) and [Twitter](https://twitter.com/HPE_DevCom) channels to start conversations and get answers to questions. Sign-up for our [HPE Developer Newsletter](https://developer.hpe.com/newsletter-signup) to stay up-to-date on the newest blog posts and tutorials. 
 
 
 As always, HPE is excited to have an opportunity to connect with other technologists at an event such as this. [Register now](https://events.linuxfoundation.org/kubecon-cloudnativecon-europe/register/) and meet us in Valencia to learn how HPE envisions Open Source running across edge to cloud, working to improve management and analytics, cloud-native security, and data insights. It’s been a long time since we’ve had the opportunity to see each other in person!
