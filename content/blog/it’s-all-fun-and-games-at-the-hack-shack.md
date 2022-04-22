@@ -29,11 +29,17 @@ We have also designed six role-based hands-on challenges you might want to take.
 Are you ready to take these challenges?
 
 * **Cloud Architect Challenge - VM Desired State Management in HPE GreenLake** – Your mission is to deploy a VM in HPE GreenLake using the open source configuration management tool, Terraform. For this challenge, you’ll describe the desired state of your environment and use Terraform to analyze and build the necessary infrastructure artifacts. You’ll be provided with everything you need in a nice and friendly Jupyter Notebook environment with little to no code to write. Take an hour to experience Infrastructure-as-Code on HPE GreenLake and earn a chance to win a prize.
+
 * **Open Source Advocate Challenge - Play with Python or Discover Ansible - Your Choice!** – Feeling competitive? Expand your Open Source skills with a chance to win cool prizes. In this challenge, you will be tasked with completing one of two popular HPE DEV Workshops-on-Demand. Choose from Python 101 - A simple introduction to Python programming language or Ansible 101 - Introduction to Ansible concepts and respond correctly to the quiz for a chance to win a prize. An hour should be enough for you to complete this challenge!
+
 * **Developer Challenge - Building Modern Software with Zero Trust Security** – In today’s highly distributed modern software environments, security is a major concern. Who do you trust? In this challenge, choose one of two workshops, SPIFFE – SPIRE 101 – An introduction to SPIFFE server and SPIRE agent security concepts or Creating a Zero Trust Model for Microservices Architectures with SPIRE and Envoy, to understand, in less than an hour, how open source projects SPIFFE and SPIRE enable zero trust security at the heart of your solution and compete for a prize.
+
 * **ML Engineer Challenge - Deep Learning Model Training at Scale with Determined** – Deep learning at scale is difficult, right? Explore the fundamentals of Determined, the open-source deep learning training platform, to learn how it can help. Take this challenge and respond correctly to a quiz to try and win a cool prize. In this challenge, you will train a TensorFlow model in Determined using one GPU, and scale up your training across multiple GPUs, using distributed training, while finding accurate models faster using state-of-the-art hyperparameter search methods.
+
 * **Data Scientist Challenge - Finding the Data You Didn't Know You Needed** – In this challenge, you’ll get to see how Dataspaces can help you discover new and meaningful datasets that enhance your model building experience, all whilst keeping track of the datasets you know and love, so next time you don’t have to go digging through old notebooks to find them! You’ll even learn how you can share them with your classmates or trade them for valuable tokens! This challenge should take out about an hour and gives you a chance to win an awesome prize.
+
 * **Data Driven Developer Challenge - Build a house on a Lake!** – Know little to nothing about Apache Spark? Maybe you’ve heard of the terms Data Lake and Data Warehouse? Yes or no, you’re perfectly prepared to step up, put on your Data Driven Developer hat and create your first Lakehouse architecture! Ingest data from a Data Lake and convert it to Apache Spark Delta Lake format. Then perform SQL queries on it, create streams of data, and verify ACID compliance! Within an hour you’ll be ready to build a house on a lake and qualify to win a cool prize.
+
 
 ## Come party with us
 
