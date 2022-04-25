@@ -65,7 +65,7 @@ As part of its virtual presence, HPE will once again feature [the HPE Developer 
    * [Building a dynamic Machine Learning pipeline with KubeDirector](https://developer.hpe.com/hackshack/workshop/18)
    * [Using Kubernetes CSI with HPE Ezmeral Container Platform](https://developer.hpe.com/hackshack/workshop/2)
 
-* [TREASURE HUNT](https://bit.ly/kubecon-eu-2022-hpedev-treasure-hunt): Our scavenger-hunt style challenge encourages you to check out all the resources that are available on the [HPE Developer Community website](https://developer.hpe.com/) and the Hack Shack. Be one of the first 15 people to answer all the questions correctly and win an HPE DEV hat!
+* [TREASURE HUNT](https://bit.ly/kubecon-eu-2022-hpedev-treasure-hunt): Our scavenger-hunt style challenge encourages you to check out all the resources that are available on the [HPE Developer website](https://developer.hpe.com/) and the Hack Shack. Be one of the first 15 people to answer all the questions correctly and win an HPE DEV hat!
 
 * [REPLAYS](https://developer.hpe.com/hackshack/replays/): You can find replays of many of the technical workshops we’ve offered live in the past in the Hack Shack as well. View them to learn more about the [HPE Ezmeral Container Platform](https://developer.hpe.com/hackshack/replays/0) (now known as HPE Ezmeral Runtime Enterprise), [SPIFFE and SPIRE authentication](https://developer.hpe.com/hackshack/replays/27), and the [HPE Container Storage Interface](https://developer.hpe.com/hackshack/replays/2) for Kubernetes.
 
