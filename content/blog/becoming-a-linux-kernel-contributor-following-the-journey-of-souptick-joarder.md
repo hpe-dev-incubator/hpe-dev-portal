@@ -11,8 +11,6 @@ tags:
 ---
 ![The Linux Kernel Archive](/img/linux_source_code_primary_site.png "The Linux Kernel Archive")
 
-
-
 As a leading global, edge-to-cloud company, Hewlett Packard Enterprise (HPE) prides itself in employing team members who share one common purpose: to advance the way people live and work. Because of this, HPE boasts some of the finest [Open Source](https://www.hpe.com/us/en/open-source.html) engineering talent. In this blog series, you’ll get to meet a number of them as I interview some of the Open Source experts who make up our team.
 
 In this blog interview, Souptick Joarder, who has been contributing to Linux Kernel for the last four years, describes his journey on becoming a trusted patch reviewer and contributor to Linux. Souptick first encountered Linux while studying embedded systems and became interested in Linux kernel programming due how Linux lent itself to exploration and modification according to one’s needs. He appreciated being able to give back to the community. Souptick received his Master of Technology degree in software systems at the Birla Institute of Technology and Science and works for HPE as a storage systems engineer.
@@ -25,11 +23,7 @@ To be sure, in the last four years that I’ve been involved, I’ve had to lear
 
 When getting started, I’d recommend that you choose a particular area that interests you to focus on. I spend most of my time acting as a reviewer for patches posted in the Memory Management mailing list for the Virtual Memory Management subsystem. The subsystem of Linux memory management is responsible to manage the memory inside the system. It contains the implementation of demand paging and virtual memory. Also, it contains memory allocation for user space programs and kernel internal structures.
 
-\[Figure 2]
-
 ![Memory Management Mailist List](/img/mm_mailing_list.png "Memory Management Mailist List")
-
-
 
 In parallel, I fix warning/errors reported by different kernel test bots on the memory management mailing list. Here is [the link for list of patches](https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/log/?qt=grep&q=jrdr.linux@gmail.com) for which I remain Author/ Reviewer/ Part of Discussion.
 
@@ -47,13 +41,13 @@ Reviewing patches is considered one of the most important things to do in terms 
 
 ### Could you give an example of one of your contributions?
 
-There had been multiple VM_FAULT_ERR error code noted, usually reported by drivers upon failures. These VM_FAULT_ERR error code had been defined as macro. When the drivers return a VM_FAULT_ERR error code, the data type was not shown as unique across the kernel. Each driver chose their own datatype to report the error, which turned out to be a problem.
+There had been multiple VM\_FAULT\_ERR error code noted, usually reported by drivers upon failures. These VM\_FAULT\_ERR error code had been defined as macro. When the drivers return a VM\_FAULT\_ERR error code, the data type was not shown as unique across the kernel. Each driver chose their own datatype to report the error, which turned out to be a problem.
 
-In many cases, the drivers failed to return the VM_FAULT_ERR error code despite seeing a failure and wound up returning SUCCESS instead. It also turned out that there was this silly inefficiency in the drivers (due to the lack of an appropriate API), resulting in ERRNO error codes sometimes being converted to a VM_FAULT_ERR error code before returning to memory management.
+In many cases, the drivers failed to return the VM\_FAULT\_ERR error code despite seeing a failure and wound up returning SUCCESS instead. It also turned out that there was this silly inefficiency in the drivers (due to the lack of an appropriate API), resulting in ERRNO error codes sometimes being converted to a VM\_FAULT\_ERR error code before returning to memory management.
 
-The plan was to introduce a new datatype (initially named vm_fault_t type) and then to enable all the drivers/filesystems in the entire kernel to use this new type. This would ensure that when any new driver used a datatype other than vm_fault_t to report the VM_FAULT_ERR error code, the compiler would catch it. This way, we would restrict all future callers to use only the vm_fault_t type to report a VM_FAULT_ERR error code. This allows the catching of errors much earlier in the build process (at compile time) instead of waiting for higher in the chain for execution.
+The plan was to introduce a new datatype (initially named vm\_fault\_t type) and then to enable all the drivers/filesystems in the entire kernel to use this new type. This would ensure that when any new driver used a datatype other than vm\_fault\_t to report the VM\_FAULT\_ERR error code, the compiler would catch it. This way, we would restrict all future callers to use only the vm\_fault\_t type to report a VM\_FAULT\_ERR error code. This allows the catching of errors much earlier in the build process (at compile time) instead of waiting for higher in the chain for execution.
 
-As part of this change, we also identified all the buggy drivers which were not returning the correct VM_FAULT_ERR error code upon failure and fixed them. We also identified all the other drivers which were converting ERRNO to VM_FAULT_ERR before reporting a failure to memory management. A few new wrapper APIs were added to make the conversions easy.
+As part of this change, we also identified all the buggy drivers which were not returning the correct VM\_FAULT\_ERR error code upon failure and fixed them. We also identified all the other drivers which were converting ERRNO to VM\_FAULT\_ERR before reporting a failure to memory management. A few new wrapper APIs were added to make the conversions easy.
 
 Just to give you an idea of the patience that’s required to do this, this work started with Linux V. 4.17 and will finish with V5.1 – a whole year’s worth of time.
 
