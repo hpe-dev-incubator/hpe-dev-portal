@@ -71,13 +71,13 @@ const Feedback = (props) => {
   } = props;
 
   const submithandler = (values) => {
-    console.log(values);
     if (isEmpty(values.value) || isEmpty(values.email)) {
       alert('Fields are missing!');
     } else {
       handleSubmit({
-        name: values.value,
+        message: values.value,
         email: values.email,
+        proxy: 'hackshack',
       });
       setSelQuestion(undefined);
       feedbackFromik.resetForm();
@@ -92,7 +92,7 @@ const Feedback = (props) => {
 
   const validationSchema = yup.object({
     value: yup.string().required('Required'),
-    email: yup.string().email('Invalid email format').required('Required'),
+    email: yup.string().email('Invalid email format'),
   });
 
   const feedbackFromik = useFormik({

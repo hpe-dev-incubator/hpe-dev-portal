@@ -57,8 +57,6 @@ const FeedbackForm = (props) => {
         cancelQuestion={cancelQuestion}
         successClose={successClose}
       />
-      {/* <FeedbackFooter handleSubmit={handleSubmit} 
-      handleClose={handleClose} /> */}
     </Card>
   );
 };
