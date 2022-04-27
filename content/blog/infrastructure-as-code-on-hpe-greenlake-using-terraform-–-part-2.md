@@ -247,7 +247,6 @@ To start, let’s keep things simple. You might want to just turn off the VMs th
 ```
      
 power = "poweron"
-
 ```
 
 While *poweron* is the only valid option when creating a new *resourcetype hpegl_vmaas_instance*, other values are available for lifecycle management, such as *poweroff* and *suspend*.
@@ -256,63 +255,59 @@ Edit the Terraform configuration file and change the power desired state to be *
 
 ```
      
-power = "poweron"
-
+power = "poweroff"
 ```
 
-Save and run a terraform apply command, which will prompt you to accept the following change:
+Save and run a **terraform apply** command, which will prompt you to accept the following change:
 
+```
 Terraform will perform the following actions:
 
-\# hpegl_vmaas_instance.DidierTest1 will be updated in-place
-
+# hpegl_vmaas_instance.DidierTest1 will be updated in-place
   ~ resource "hpegl_vmaas_instance" "DidierTest1" {
-
         id                 = "149"
-
         name               = "DidierTest1"
-
       ~ power              = "poweron" -> "poweroff"
+```
 
 Pretty soon afterwards, you can check out the HPE GreenLake console and see that the VM status was changed to stopped.
 
 ### Use case 2: Setting up tags and labels
 
-###  
-
-That was straight forward, right?, Now, restart the VM and try something else. You might want to test out tabs and labels. As organizations scale their cloud environments, they often need to define methodologies for organizing resources. For this, they can leverage tags and labels. Tags consist of key/vae/value pairs that make it easier to search for, or filter, your cloud resources based on categories relevant to the organization. Another option is to attach labels, which are simple values, to your VMs in order to keep track of what it’s used for or who it belongs to.
+That was straight forward, right?, Now, restart the VM and try something else. You might want to test out tabs and labels. As organizations scale their cloud environments, they often need to define methodologies for organizing resources. For this, they can leverage tags and labels. Tags consist of key/value pairs that make it easier to search for, or filter, your cloud resources based on categories relevant to the organization. Another option is to attach labels, which are simple values, to your VMs in order to keep track of what it’s used for or who it belongs to.
 
 Why don’t you try adding metadata to the VM using tags and labels. According to the [documentation](https://github.com/HPE/terraform-provider-hpegl/blob/main/docs/resources/vmaas_instance.md), you can add labels using the following syntax:
 
-     labels = \["hackshack", "hpedev"]
+```
+
+labels = ["hackshack", "hpedev"]
+
+```
 
 And you can add tags with the following syntax:
 
+```
 tags = {
-
         team  = "HPE Developer"
-
         support = "gold"
-
   }
+```
 
-Save and apply those changes with terraform apply, wait a little and look at the VM details. You can see the labels and the tags in the capture below.
+Save and apply those changes with **terraform apply**, wait a little and look at the VM details. You can see the labels and the tags in the capture below.
 
 ### Use case 3: Get me more disk space
 
-Another typical use case would be to add another disk to a VM, say a data volume for application usage. The syntax for this is the same as you used to create the VM with its root_vol, already visible in the Storage details of the VM:
+Another typical use case would be to add another disk to a VM, say a data volume for application usage. The syntax for this is the same as you used to create the VM with its *root_vol*, already visible in the Storage details of the VM:
 
 Go ahead and add the following code snippet to your configuration file:
 
+```
      volume {
-
          name         = "data_vol"
-
          size         = 25
-
          datastore_id = "auto"
-
      }
+```
 
 Save the file, apply those changes, wait a little and check the VM storage configuration again:
 
@@ -320,23 +315,24 @@ Save the file, apply those changes, wait a little and check the VM storage confi
 
 Here’s one last use case you can try, which consists of snapshotting the VM. You should use the following Terraform syntax:
 
+```
    snapshot {
-
-    name        = "Snap1"
-
+    name        = "Snap1
     description = "Snap this VM so we can restart from this state"
-
   }
+```
 
 Save the file, apply those changes, wait a little and check the details of the VM in the Backups section once again:
-
-##  
 
 ## Debugging when things go wrong
 
 In this post, I’ve showed you how to make sure the Terraform configuration file is valid before applying changes using the terraform validate command. To see more details during an apply command, you can also enable Terraform debug by simply setting up the TF_DEBUG environment variable:
 
+```
+
 export TF_LOG=DEBUG
+
+```
 
 ## What’s next?
 
