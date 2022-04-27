@@ -111,7 +111,7 @@ const getPositions = (searchResult, field) => {
 
 const getSearchResults = async (query) => {
   let searchResults = [];
-  const categoryMap = { 'All Results': true };
+  const categoryMap = { 'All Results': true, 'Blog by Author': true };
 
   if (query && window.__LUNR__) {
     try {
@@ -126,6 +126,7 @@ const getSearchResults = async (query) => {
           titlePos: getPositions(searchResult, 'title'),
           bodyPos: getPositions(searchResult, 'body'),
           tagsPos: getPositions(searchResult, 'tags'),
+          authorPos: getPositions(searchResult, 'author'),
           doc,
         };
       });
@@ -172,13 +173,17 @@ const SearchContainer = ({ location }) => {
     // todo update route term= param
   };
 
-  const filterResults = (category) =>
-    results.filter(
+  const filterResults = (category) => {
+    if (category === 'Blog by Author') {
+      return results.filter((author) => author.authorPos.length > 0);
+    }
+    return results.filter(
       ({ doc }) =>
         !category ||
         category === 'All Results' ||
         doc.sourceInstanceName === category,
     );
+  };
 
   const onCategoryChange = (index) => setActiveCategoryIndex(index);
 
