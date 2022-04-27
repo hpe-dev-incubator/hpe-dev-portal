@@ -108,7 +108,7 @@ const Challenge = (props) => {
               {workshops.map((workshop, i) => renderScheduleCard(workshop, i))}
             </CardGrid>
           </Tab>
-          <Tab title="Open source advocate">
+          <Tab title="Open Source Advocate">
             <CardGrid pad={{ top: 'medium' }} key="os">
               {workshops.map(
                 (workshop, i) =>
@@ -128,17 +128,17 @@ const Challenge = (props) => {
               )}
             </CardGrid>
           </Tab>
-          <Tab title="Cloud/Datacenter Owner">
+          <Tab title="Cloud Architect">
             <CardGrid pad={{ top: 'medium' }} key="hpee">
               {workshops.map(
                 (workshop, i) =>
                   workshop.category &&
-                  workshop.category.includes('cloud owner') &&
+                  workshop.category.includes('cloud architect') &&
                   renderScheduleCard(workshop, i),
               )}
             </CardGrid>
           </Tab>
-          <Tab title="Data-driven developer">
+          <Tab title="Data-Driven Developer">
             <CardGrid pad={{ top: 'medium' }} key="os">
               {workshops.map(
                 (workshop, i) =>
@@ -154,6 +154,16 @@ const Challenge = (props) => {
                 (workshop, i) =>
                   workshop.category &&
                   workshop.category.includes('developer') &&
+                  renderScheduleCard(workshop, i),
+              )}
+            </CardGrid>
+          </Tab>
+          <Tab title="Data Scientist">
+            <CardGrid pad={{ top: 'medium' }} key="os">
+              {workshops.map(
+                (workshop, i) =>
+                  workshop.category &&
+                  workshop.category.includes('data scientist') &&
                   renderScheduleCard(workshop, i),
               )}
             </CardGrid>
