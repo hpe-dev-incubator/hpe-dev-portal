@@ -13,7 +13,7 @@ tags:
 
 As a leading global, edge-to-cloud company, Hewlett Packard Enterprise (HPE) prides itself in employing team members who share one common purpose: to advance the way people live and work. Because of this, HPE boasts some of the finest [Open Source](https://www.hpe.com/us/en/open-source.html) engineering talent. In this blog series, you’ll get to meet a number of them as I interview some of the Open Source experts who make up our team.
 
-In this blog interview, Souptick Joarder, who has been contributing to the Linux Kernel for the last four years, describes his journey on becoming a trusted patch reviewer and contributor to Linux. Souptick first encountered Linux while studying embedded systems and became interested in Linux kernel programming due how Linux lent itself to exploration and modification according to one’s needs. He appreciated being able to give back to the community. Souptick received his Master of Technology degree in software systems at the Birla Institute of Technology and Science and works for HPE as a storage systems engineer.
+In this blog interview, Souptick Joarder, who has been contributing to the Linux Kernel for the last four years, describes his journey on becoming a trusted patch reviewer and contributor to Linux. Souptick first encountered Linux while studying embedded systems and became interested in Linux Kernel programming due to how Linux lent itself to exploration and modification according to one’s needs. He appreciated being able to give back to the community. Souptick received his Master of Technology degree in software systems at the Birla Institute of Technology and Science and works for HPE as a storage systems engineer.
 
 ### Contributing to such a large Open Source project must be a daunting task. What advice would you give to would-be contributors?
 
@@ -37,7 +37,7 @@ For instance, when I make my contributions for the virtual memory management sub
 
 ### How do you determine what to add or fix?
 
-Reviewing patches is considered one of the most important things to do in terms of the Linux kernel development process. You can really make substantial contributions here. An additional benefit of reviewing patches from other developers is that you get the opportunity to be involved in their contribution work and learn from it. Kernel test bots work from the Git repositories and report out on warnings and errors. Any developer can analyze those issues and provide a fix by following the correct protocols. It’s a continuous process that developers can spend a good amount of time on.
+Reviewing patches is considered one of the most important things to do in terms of the Linux Kernel development process. You can really make substantial contributions here. An additional benefit of reviewing patches from other developers is that you get the opportunity to be involved in their contribution work and learn from it. Kernel test bots work from the Git repositories and report out on warnings and errors. Any developer can analyze those issues and provide a fix by following the correct protocols. It’s a continuous process that developers can spend a good amount of time on.
 
 ### Could you give an example of one of your contributions?
 
@@ -49,11 +49,11 @@ The plan was to introduce a new datatype (initially named vm\_fault\_t type) and
 
 As part of this change, we also identified all the buggy drivers that were not returning the correct VM\_FAULT\_ERR error code upon failure and fixed them. We also identified all the other drivers that were converting ERRNO to VM\_FAULT\_ERR before reporting a failure to memory management. A few new wrapper APIs were added to make the conversions easy.
 
-Just to give you an idea of the patience that’s required to do this, this work started with Linux V. 4.17 and will finish with V5.1 – a whole year’s worth of time.
+Just to give you an idea of the patience that’s required to do this, this work started with Linux V4.17 and will finish with V5.1 – a whole year’s worth of time.
 
 ### Any final advice to developers who might like to start contributing to Linux?
 
-It’s important to remember that Linux kernel development doesn’t work with a deadline-based approach. Patches are reviewed and tested by developers and maintainers all around the world and this takes time. So you need to have a lot of patience. It could take months, or even years, to get your changes merged into the mainline code. Because the maintainers, in the end, are responsible for maintaining any new pieces of code, they believe in the approach of **breaking the code first before accepting it**. This can take time.
+It’s important to remember that Linux Kernel development doesn’t work with a deadline-based approach. Patches are reviewed and tested by developers and maintainers all around the world and this takes time. So you need to have a lot of patience. It could take months, or even years, to get your changes merged into the mainline code. Because the maintainers, in the end, are responsible for maintaining any new pieces of code, they believe in the approach of **breaking the code first before accepting it**. This can take time.
 
 Something else to keep in mind is that others will often criticize your changes. Sometimes it turns ugly. Learn to take criticism in a positive way. This is probably one of the most important pieces of advice I can give to fellow developers interested in working with the kernel community.
 
