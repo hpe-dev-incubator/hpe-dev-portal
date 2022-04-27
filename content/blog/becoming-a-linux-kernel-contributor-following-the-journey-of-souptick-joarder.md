@@ -31,7 +31,7 @@ There are many different subsystems in Linux and each has a named maintainer cal
 
 ### How does one make an actual contribution?
 
-Fixes/patches/enhancements are all submitted through mailing lists. Linux development is set up using a number of different mailing lists that align with different subsystems of the kernel. When you make your contribution, you’ll send it off to a specific mailing list and then you also want to CC the more general associated mailing list. 
+After the source code change is made and the pull request opened in the repository, fixes/patches/enhancements are all submitted through mailing lists. Linux development is set up using a number of different mailing lists that align with different subsystems of the kernel. When you make your contribution, you’ll send it off to a specific mailing list and then you also want to CC the more general associated mailing list. 
 
 For instance, when I make my contributions for the virtual memory management subsystem, I send it to the memory management mailing list. Then I also CC the higher-level, more general Linux Kernel Mailing List (LKML). There is a [MAINTAINERS file](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/MAINTAINERS) (text file) inside the kernel source code that will tell you exactly who should receive a review request for your patches. Once your patch is ready, you need to refer to this MAINTAINERS file and, based on the files you have modified, send patches to only those maintainers and mailing lists.
 
