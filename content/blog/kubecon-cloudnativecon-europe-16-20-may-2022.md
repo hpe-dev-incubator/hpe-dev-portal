@@ -40,7 +40,6 @@ As we’ve done the last few years, we’ll be offering live office hours where 
 As part of its virtual presence, HPE will once again feature [the HPE Developer Hack Shack](https://developer.hpe.com/hackshack/), a place to learn and have fun. It’s a unique place designed to give virtual events a more personal touch and extend the experience beyond the event. Here’s what the HPE Developer Community will provide to you through the Hack Shack and web portal:
 
 * [WORKSHOPS-ON-DEMAND](https://developer.hpe.com/hackshack/workshops): Access over two dozen free, on-demand hands-on training courses. Using a Jupyter Notebook environment, they provide you with hands-on experience across the latest HPE and Open Source technologies. Check out our newest workshops, including:
-
   * [Docker 101 - Introduction to Docker Concepts](https://developer.hpe.com/hackshack/workshop/33)
   * [Spark 101 - Introduction to Apache Spark Concepts](https://developer.hpe.com/hackshack/workshop/34)
   * [Creating a Zero Trust Model for Microservices Architectures with SPIRE and Envoy](https://developer.hpe.com/hackshack/workshop/32)
