@@ -7,6 +7,7 @@ tags:
   - devops
   - terraform
   - hpe-greenlake
+  - opensource
 ---
 The process of managing and provisioning computer data centers through machine-readable definition files, otherwise known as Infrastructure-as-Code (IaC), offers many significant benefits. It helps to increase operational agility, simplify management, reduce errors, and save cost. In this post, I’ll explore some of the benefits of using IaC on HPE GreenLake through the use of Terraform.
 
@@ -141,7 +142,7 @@ Your next step with the TF file is to query the HPE GreenLake provider to collec
 * Template ID
 * Folder Code
 
-For this, you will use the Terraform **data** statements. For example, the following statement retrieves the Cloud ID and stores it (in variable called **cloud**), which we can later retrieve using: **data.hpegl_vmaas_cloud.cloud.id**
+For this, you will use the Terraform **data** statements. For example, the following statement retrieves the Cloud ID and stores it (in variable called **cloud**), which we can later retrieve using: **data.hpegl\_vmaas\_cloud.cloud.id**
 
 ```json
 # Retrieve cloud id
