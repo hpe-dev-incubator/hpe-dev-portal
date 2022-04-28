@@ -21,7 +21,7 @@ To be sure, in the last four years that I’ve been involved, I’ve had to lear
 
 ### What would you recommend as the best way to get started?
 
-When getting started, I’d recommend that you choose a particular area that interests you to focus on. I spend most of my time acting as a reviewer for patches posted in the Memory Management mailing list for the Virtual Memory Management subsystem. The subsystem of Linux memory management is responsible to manage the memory inside the system. It contains the implementation of demand paging and virtual memory. Also, it contains memory allocation for user space programs and kernel internal structures.
+When getting started, I’d recommend that you choose a particular area that interests you to focus on. I spend most of my time acting as a reviewer for patches posted in the Memory Management mailing list for the Virtual Memory Management subsystem. It contains the implementation of demand paging and virtual memory. Also, it contains memory allocation for user space programs and kernel internal structures.
 
 ![Memory Management Mailist List](/img/mm_mailing_list.png "Memory Management Mailist List")
 
