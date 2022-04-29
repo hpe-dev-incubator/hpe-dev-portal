@@ -1,12 +1,12 @@
 ---
-title: File, objects, databases and streams – Oh my!
+title: "KubeCon + CloudNativeCon, Europe: 16-20 May 2022"
 category: Feature Blog
 priority: 2
 width: small
-link: blog/file-objects-databases-and-streams-–-oh-my/
-image: /img/sridhar-reddy2.png
+link: https://developer.hpe.com/blog/kubecon-cloudnativecon-europe-16-20-may-2022/
+image: /img/blog-author-rensing-96.jpg
 ---
-Sridhar Reddy
+Dale Rensing
 
-## File, objects, databases and streams – Oh my!
+## KubeCon + CloudNativeCon, Europe: 16-20 May 2022
 
