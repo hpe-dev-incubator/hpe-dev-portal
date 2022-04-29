@@ -248,8 +248,9 @@ Once your infrastructure is created, it will need to evolve over time in order t
 To start, let’s keep things simple. You might want to just turn off the VMs that are part of an infrastructure when you don’t need them to save cost or limit your carbon impact on the planet. If you paid attention to the current configuration file, you’ll see that we inserted a power statement when originally creating the VM.
 
 ```
-     
+# Power state     
 power = "poweron"
+
 ```
 
 While *poweron* is the only valid option when creating a new *resourcetype hpegl_vmaas_instance*, other values are available for lifecycle management, such as *poweroff* and *suspend*.
@@ -257,13 +258,14 @@ While *poweron* is the only valid option when creating a new *resourcetype hpegl
 Edit the Terraform configuration file and change the power desired state to be *poweroff*.
 
 ```
-     
+# Power state         
 power = "poweroff"
+
 ```
 
 Save and run a **terraform apply** command, which will prompt you to accept the following change:
 
-```
+```markdown
 Terraform will perform the following actions:
 
 # hpegl_vmaas_instance.DidierTest1 will be updated in-place
@@ -283,20 +285,23 @@ That was straight forward, right?, Now, restart the VM and try something else. Y
 
 Why don’t you try adding metadata to the VM using tags and labels. According to the [documentation](https://github.com/HPE/terraform-provider-hpegl/blob/main/docs/resources/vmaas_instance.md), you can add labels using the following syntax:
 
-```
+```markdown
+# Using labels
 labels = ["hackshack", "hpedev"]
+
 ```
 
 And you can add tags with the following syntax:
 
-```
+```markdown
+# Using tags
 tags = {
         team  = "HPE Developer"
         support = "gold"
   }
 ```
 
-Save and apply those changes with **terraform apply**, wait a little and look at the VM details. You can see the labels and the tags in the capture below.
+Save and apply those changes with **terraform apply**, wait a little and look at the VM details. You can see the labels and the tags in the capture below:
 
 ![tags and labels applied to VM](/img/terraform-greenlake-part2-blog-picture3.png "tags and labels applied to VM")
 
@@ -308,7 +313,7 @@ Another typical use case would be to add another disk to a VM, say a data volume
 
 Go ahead and add the following code snippet to your configuration file:
 
-```
+```markdown
      volume {
          name         = "data_vol"
          size         = 25
@@ -324,7 +329,7 @@ Save the file, apply those changes, wait a little and check the VM storage confi
 
 Here’s one last use case you can try, which consists of snapshotting the VM. You should use the following Terraform syntax:
 
-```
+```markdown
    snapshot {
     name        = "Snap1
     description = "Snap this VM so we can restart from this state"
@@ -337,10 +342,12 @@ Save the file, apply those changes, wait a little and check the details of the V
 
 ## Debugging when things go wrong
 
-In this post, I’ve showed you how to make sure the Terraform configuration file is valid before applying changes using the terraform validate command. To see more details during an apply command, you can also enable Terraform debug by simply setting up the TF_DEBUG environment variable:
+In this post, I’ve showed you how to make sure the Terraform configuration file is valid before applying changes using the **terraform validate** command. To see more details during an apply command, you can also enable Terraform debug by simply setting up the TF_DEBUG environment variable:
 
-```
+```markdown
+
 export TF_LOG=DEBUG
+
 ```
 
 ## What’s next?
