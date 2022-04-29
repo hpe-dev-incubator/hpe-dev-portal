@@ -16,6 +16,8 @@ The process of managing and provisioning computer data centers through machine-r
 
 In [my first blog](https://developer.hpe.com/blog/infrastructure-as-code-on-hpe-greenlake-using-terraform/), I covered HPE GreenLake with its Private Cloud Service and showed how to get started with Terraform and the Terraform provider for HPE GreenLake. In this post, I will start with the same VM configuration created in Part 1 and show you how to tap into more advanced functionality that’s provided by Terraform and the HPE GreenLake provider. If you’re coming in to this just now, you might want to follow the steps shown in my Part 1 blog post, up to the point (Terraform ready to apply) where the VM DidierTest1 is created in HPE GreenLake, as illustrated below:
 
+![DidierTest1 VM as created in Part 1](/img/terraform-greenlake-part2-blog-picture1.png "DidierTest1 VM as created in Part 1")
+
 The corresponding Terraform configuration file showed the following:
 
 ```markdown
@@ -273,6 +275,8 @@ Terraform will perform the following actions:
 
 Pretty soon afterwards, you can check out the HPE GreenLake console and see that the VM status was changed to stopped.
 
+![VM is now stopped](/img/terraform-greenlake-part2-blog-picture2.png "VM is now stopped")
+
 ### Use case 2: Setting up tags and labels
 
 That was straight forward, right?, Now, restart the VM and try something else. You might want to test out tabs and labels. As organizations scale their cloud environments, they often need to define methodologies for organizing resources. For this, they can leverage tags and labels. Tags consist of key/value pairs that make it easier to search for, or filter, your cloud resources based on categories relevant to the organization. Another option is to attach labels, which are simple values, to your VMs in order to keep track of what it’s used for or who it belongs to.
@@ -280,9 +284,7 @@ That was straight forward, right?, Now, restart the VM and try something else. Y
 Why don’t you try adding metadata to the VM using tags and labels. According to the [documentation](https://github.com/HPE/terraform-provider-hpegl/blob/main/docs/resources/vmaas_instance.md), you can add labels using the following syntax:
 
 ```
-
 labels = ["hackshack", "hpedev"]
-
 ```
 
 And you can add tags with the following syntax:
@@ -296,9 +298,13 @@ tags = {
 
 Save and apply those changes with **terraform apply**, wait a little and look at the VM details. You can see the labels and the tags in the capture below.
 
+![tags and labels applied to VM](/img/terraform-greenlake-part2-blog-picture3.png "tags and labels applied to VM")
+
 ### Use case 3: Get me more disk space
 
 Another typical use case would be to add another disk to a VM, say a data volume for application usage. The syntax for this is the same as you used to create the VM with its *root_vol*, already visible in the Storage details of the VM:
+
+![VM was created with one disk: root_vol](/img/terraform-greenlake-part2-blog-picture4.png "VM was created with one disk: root_vol")
 
 Go ahead and add the following code snippet to your configuration file:
 
@@ -311,6 +317,8 @@ Go ahead and add the following code snippet to your configuration file:
 ```
 
 Save the file, apply those changes, wait a little and check the VM storage configuration again:
+
+![VM with two disks](/img/terraform-greenlake-part2-blog-picture5.png "VM with two disks")
 
 ### Use case 4: Please snap this VM
 
@@ -325,14 +333,14 @@ Here’s one last use case you can try, which consists of snapshotting the VM. Y
 
 Save the file, apply those changes, wait a little and check the details of the VM in the Backups section once again:
 
+![Snap of VM ready](/img/terraform-greenlake-part2-blog-picture6.png "Snap of VM ready")
+
 ## Debugging when things go wrong
 
 In this post, I’ve showed you how to make sure the Terraform configuration file is valid before applying changes using the terraform validate command. To see more details during an apply command, you can also enable Terraform debug by simply setting up the TF_DEBUG environment variable:
 
 ```
-
 export TF_LOG=DEBUG
-
 ```
 
 ## What’s next?
