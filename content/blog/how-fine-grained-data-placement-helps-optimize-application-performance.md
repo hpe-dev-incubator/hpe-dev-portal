@@ -1,8 +1,8 @@
 ---
 title: How fine-grained data placement helps optimize application performance
 date: 2021-10-22T17:49:57.712Z
-featuredBlog: true
-priority: 3
+featuredBlog: false
+priority: 7
 author: Ellen Friedman
 authorimage: /img/Avatar3.svg
 tags:
