@@ -1,6 +1,8 @@
 ---
 title: "KubeCon + CloudNativeCon, Europe: 16-20 May 2022"
 date: 2022-04-22T19:03:59.378Z
+featuredBlog: true
+priority: 1
 author: Dale Rensing
 authorimage: /img/blog-author-rensing-96.jpg
 thumbnailimage: /img/kubecon-eu-2022-1200-x-675.png
