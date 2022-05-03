@@ -247,20 +247,18 @@ Once your infrastructure is created, it will need to evolve over time in order t
 
 To start, let’s keep things simple. You might want to just turn off the VMs that are part of an infrastructure when you don’t need them to save cost or limit your carbon impact on the planet. If you paid attention to the current configuration file, you’ll see that we inserted a power statement when originally creating the VM.
 
-```
+```markdown
 # Power state     
 power = "poweron"
-
 ```
 
 While *poweron* is the only valid option when creating a new *resourcetype hpegl_vmaas_instance*, other values are available for lifecycle management, such as *poweroff* and *suspend*.
 
 Edit the Terraform configuration file and change the power desired state to be *poweroff*.
 
-```
+```markdown
 # Power state         
 power = "poweroff"
-
 ```
 
 Save and run a **terraform apply** command, which will prompt you to accept the following change:
@@ -288,7 +286,6 @@ Why don’t you try adding metadata to the VM using tags and labels. According t
 ```markdown
 # Using labels
 labels = ["hackshack", "hpedev"]
-
 ```
 
 And you can add tags with the following syntax:
@@ -345,9 +342,7 @@ Save the file, apply those changes, wait a little and check the details of the V
 In this post, I’ve showed you how to make sure the Terraform configuration file is valid before applying changes using the **terraform validate** command. To see more details during an apply command, you can also enable Terraform debug by simply setting up the TF_DEBUG environment variable:
 
 ```markdown
-
 export TF_LOG=DEBUG
-
 ```
 
 ## What’s next?
