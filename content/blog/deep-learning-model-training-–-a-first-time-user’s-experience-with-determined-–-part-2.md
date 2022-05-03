@@ -25,15 +25,13 @@ In [my previous blog post](https://developer.hpe.com/blog/deep-learning-model-tr
 In this second part of the series, using  the Determined setup from Part I, I’ll  assume the role of a data scientist/ML Engineer who wants to:
 
 
-
-* Explore fundamental Determined concepts and features to train a TensorFlow model   
-
-
-* Track and visualize the progress and result of training process using a single GPU   
+* Explore fundamental Determined concepts and features to train a TensorFlow model
 
 
+* Track and visualize the progress and result of training process using a single GPU
 
-* Use distributed training across multiple GPUs and fine-tune the model with state-of-the-art hyperparameter search    
+
+* Use distributed training across multiple GPUs and fine-tune the model with state-of-the-art hyperparameter search
 
 
 
@@ -76,9 +74,11 @@ I’ve also stored a copy of the datasets in the shared storage volume for my De
 Let’s start by simply launching an experiment with a single training task for the Iris deep learning model on a single GPU by defining the hyperparameters as fixed values in the experiment configuration file. 
 
 
-T### he Experiment configuration file
+### The Experiment configuration file
 
 Here’s a quick look at the experiment configuration file (_const.yaml_):
+
+
 ```Yaml
 name: iris_const_testuser1
 hyperparameters:    # the hyperparameters to use for the training task
