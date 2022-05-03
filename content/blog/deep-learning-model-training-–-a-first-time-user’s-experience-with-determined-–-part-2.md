@@ -21,15 +21,16 @@ Determined is an open-source training platform that aims to simplify deep learni
 In [my previous blog post](https://developer.hpe.com/blog/deep-learning-model-training-%E2%80%93-a-first-time-user%E2%80%99s-experience-with-determined-part-1/), I put on my IT operations manager’s hat and discussed how I deployed Determined on a Kubernetes cluster in an on-premise HPE Ezmeral Runtime Enterprise environment. I also showed how easy it is to get started with the Determined CLI, REST API, and Web User Interface to interact with Determined.
 
 In this second part of the series, using  the Determined setup from Part I, I’ll  assume the role of a data scientist/ML Engineer who wants to:
-
+   
 * Explore fundamental Determined concepts and features to train a TensorFlow model
+   
 * Track and visualize the progress and result of training process using a single GPU
-* Use distributed training across multiple GPUs and fine-tune the model with state-of-the-art hyperparameter search
-
+   
+* Use distributed training across multiple GPUs and fine-tune the model with state-of-the-art hyperparameter search   
+   
 I will also use the Determined Python API in a Jupyter Notebook to load and test the trained model and see how well it performs. I’ll evaluate this by making inferences, which uses a trained model, and new, unlabelled data to make predictions. 
 
 ## Overview of the Determined training model process
-
 In short, Determined permits data science teams to launch deep learning model training tasks, called ***trials***, for their ported model. These tasks are distributed across one or more GPUs and grouped as a Determined ***experiment*** using a particular set of configuration parameters specified in an ***experiment configuration file***. This configuration file tells Determined how to run the model training process on Determined in terms of many different parameters, including, but not limited to, the following:
 
 * The hyperparameters
@@ -43,10 +44,9 @@ The experiment configuration file and the Python code for the model used to load
 > Note: The Experiment configuration file has required and optional fields.  I’ll explore the most common fields in this post. To learn more about Experiment configuration settings, check out the online documentation [here](https://docs.determined.ai/latest/training-apis/experiment-config.html).
 
 ## The use case and the model
-
 To get started with Determined, I need a use case and a model to train in Determined. As a Data Scientist running an experiment on Iris species, I pick the simple and well-known *“Iris classification”* model for predicting the likelihood that the flowers are Iris species (Iris setosa, Iris versicolor or Iris virginica) based on their sepal and petal length and width measurements. 
 
-To take advantage of Determined functionalities, I need to port the model to Determined framework APIs such as PyTorch, Tensorflow, and Keras, the most-commonly used deep learning frameworks. You can check out the *Iris deep learning model* code  — a TensorFlow Keras based model  — in the [Determined GitHub repository](https://github.com/determined-ai/determined/tree/master/examples/computer_vision/iris_tf_keras) and download the complete code for this use case [here](https://docs.determined.ai/latest/_downloads/b8b05d77875d7d5a43ea2bd4b35fb0f4/iris_tf_keras.tgz). I’ll train the model on the publicly available Iris [training dataset](http://download.tensorflow.org/data/iris_training.csv) and [validation dataset](http://download.tensorflow.org/data/iris_test.csv), which consist of 120 samples and 30 samples, respectively. Each sample consists of the following Iris flower properties:
+To take advantage of Determined functionalities, I need to port the model to Determined framework APIs such as PyTorch, Tensorflow, and Keras, the most-commonly used deep learning frameworks. You can check out the *Iris deep learning model* code  — a TensorFlow Keras based model  — in the [Determined GitHub repository](https://github.com/determined-ai/determined/tree/master/examples/computer_vision/iris_tf_keras) and download the complete code for this use case [here](https://docs.determined.ai/latest/_downloads/b8b05d77875d7d5a43ea2bd4b35fb0f4/iris_tf_keras.tgz). I’ll train the model on the publicly available Iris [training dataset](https://download.tensorflow.org/data/iris_training.csv) and [validation dataset](https://download.tensorflow.org/data/iris_test.csv), which consist of 120 samples and 30 samples, respectively. Each sample consists of the following Iris flower properties:
 
 * Features: sepal length, sepal width, petal length, petal width 
 * Label: the species of Iris to predict 
@@ -58,11 +58,9 @@ I’ve also stored a copy of the datasets in the shared storage volume for my De
 **Time to see Determined in action!**
 
 ## Launching my first experiment to train our model on a single GPU
-
 Let’s start by simply launching an experiment with a single training task for the Iris deep learning model on a single GPU by defining the hyperparameters as fixed values in the experiment configuration file. 
 
 ### The Experiment configuration file
-
 Here’s a quick look at the experiment configuration file (*const.yaml*):
 
 ```yaml
@@ -93,7 +91,6 @@ bind_mounts:         # Training and validation datasets location in shared volum
 At a glance, this configuration YAML file is full of concepts that data scientists and ML engineers are familiar with, such as hyperparameters, batches, batch size, metrics, etc. In other words, using the experiment configuration file allows me, as a data scientist, to describe experiments with the terms I’m familiar with. From this file, Determined can take care of the model training for me.
 
 ### Creating the experiment
-
 With the *const.yaml* experiment configuration file and the model code in the model definition directory, after being authenticated as a Determined user (`det user login <username>`), I’m going to start an experiment using the Determined CLI command line:  
 
 ```bash
@@ -116,7 +113,6 @@ det experiment list-checkpoints --best 1 <my-experiment-Id>
 ```
 
 ### Visualizing and inspecting the learning curve of the trained model
-
 I access information on both training and validation performance for my experiment using the Determined WebUI. From the dashboard I can see my experiment status, as shown in the following screenshot: 
 
 ![Determined WebUi Dashboard](/img/webui-myexp-const-status.png "Determined WebUi Dashboard")
@@ -142,7 +138,6 @@ det tensorboard kill <tensorboard-Id>
 ```
 
 ### Evaluating the model by making inferences using a local Jupyter Notebook
-
 With the model trained and the best model files saved on the shared storage volume for my Determined deployment, I can now test the best version of the model and see how well it performs using the [Determined Python API](https://docs.determined.ai/latest/interact/api-experimental-client.html). Using the command below, I simply start a **CPU-only** JupyterLab server instance with a bind-mounting configured to ensure that the validated model file and checkpoint files are accessible by the JupyterLab instance. Like any other task launched in Determined, the JupyterLab instance is launched as a container POD in the Kubernetes cluster.
 
 ```bash
@@ -161,7 +156,7 @@ bind_mounts: # Validated model checkpoints location in shared volume
 idle_timeout: 30m
 ```
 
-With the JupyterLab instance deployed, I use the `det notebook list` command to get the Notebook-Id, then connect to a Jupyterlab instance using my browser and the following URL: http://\<DET\_MASTER\_URL\>/proxy/\<Notebook-Id\>. 
+With the JupyterLab instance deployed, I use the `det notebook list` command to get the Notebook-Id, then connect to a Jupyterlab instance using my browser at the following URL: http://\<DET\_MASTER\_URL\>/proxy/\<Notebook-Id\>. 
 
 Finally, I use the Determined [Python Client API](https://docs.determined.ai/latest/interact/api-experimental-client.html) and its TensorFlow Keras [Checkpoint API](https://docs.determined.ai/latest/post-training/use-trained-models.html) in the following Python code example to download the best model file, load it into memory as a Python process for TensorFlow Keras based model, and make inferences.
 
@@ -202,7 +197,6 @@ print(np.argmax(prediction,axis=1))
 ```
 
 ### Cleaning up computational resources
-
 Once I’ve finished with the test of my model, I can stop the JupyterLab instance and release computational resources on my Kubernetes cluster with the command: 
 
 ```bash
@@ -210,14 +204,13 @@ det notebook kill <notebook-Id>
 ```
 
 ## Distributed training with multiple GPUs
-
 I’ll now launch another experiment that trains a single instance of my deep learning model using multiple GPUs, known as [distributed training](https://docs.determined.ai/latest/training-distributed/index.html). Similar to my first experiment, this experiment features a single trial with a set of constant hyperparameters.
 
 Determined can coordinate multiple GPUs to train a deep learning model more quickly by leveraging multiple GPUs on a single machine or over multiple machines. Typically, data science teams use distributed training to train models on larger datasets to improve model performance and accuracy, leveraging additional compute resources.
 
 Determined automatically executes [data parallelization](https://www.oreilly.com/content/distributed-tensorflow/) training, where a data set is divided into multiple pieces and distributed across the GPUs, **requiring minimal changes to model code**. Each GPU has the full model code but trains the model on its portion of the data. Determined ensures training coordination across multiple GPUs on a single machine or multiple machines to keep the overall training task in sync.
 
-To launch a multi-GPU experiment, all I need to do is specify the desired number of GPUs I want to use in the experiment configuration file without requiring any model code changes, and Determined takes care of the rest. For example, in the *distributed.yaml* experiment configuration file, I specify two GPUs per trial in the resources section:
+To launch a multi-GPU experiment, all I need to do is specify the desired number of GPUs I want to use in the experiment configuration file without requiring any model code changes, and Determined takes care of the rest. For example, in the *distributed.yaml* experiment configuration file, I specify two GPUs per trial in the **resources** section:
 
 ```Yaml
 resources:
@@ -235,8 +228,7 @@ With this configuration, Determined runs a single trial for my experiment. The t
 As with the other experiments, I navigate to the WebUI to monitor the progress of the training task for my experiment and visualize information on both training and validation performance over the number of completed batches. I can use the same ***Det*** CLI commands that I used for my first experiment to discover the performance metric for my model and launch auxiliary tasks, such as a TensorBoard server or a JupyterLab Notebook server. And, of course, I can use the same Determined Python API code I used for my first experiment to load and test the trained model to see how well it performs to make predictions.
 
 ## Automatic model tuning with Determined
-
-Previously, I showed you how to easily distribute a training task across multiple GPUs without changing your model code. Here, I’ll look at another way that an experiment can benefit from multiple GPUs. Determined makes it easy for data scientists and ML engineers to apply advanced functionality such as automatic model tuning with hyperparameter search, known as Hyperparameter Optimization (HPO), to accelerate the hyperparameter search for their model with minimal effort. [Determined HPO](https://docs.determined.ai/latest/training-hyperparameter/index.html#hyperparameter-tuning) uses a Searcher algorithm like Random, Grid, Adaptive, or PBT, and ranges of hyperparameters, which are specified in the experiment configuration file.
+Previously, I showed you how to easily distribute a training task across multiple GPUs without changing your model code. Here, I’ll look at another way that an experiment can benefit from multiple GPUs. Determined makes it easy for data scientists and ML engineers to apply advanced functionality such as automatic model tuning with hyperparameter search, known as **Hyperparameter Optimization** (HPO), to accelerate the hyperparameter search for their model with minimal effort. [Determined HPO](https://docs.determined.ai/latest/training-hyperparameter/index.html#hyperparameter-tuning) uses a Searcher algorithm like Random, Grid, Adaptive, or PBT, and ranges of hyperparameters, which are specified in the experiment configuration file.
 
 In general, data scientists experiment with several learning algorithms using a variety of hyperparameters on the same dataset by launching several training processes. They do so to find the model that works best for the business problem they are trying to solve. Determined HPO automates this process to find the best-performing model by running many training tasks, or trials, on the same dataset and code. Determined launches the trials simultaneously on different GPUs. Each trial uses a different configuration of hyperparameters **randomly** chosen by the Searcher from the range of values specified in the experiment configuration file. Determined then chooses the set of hyperparameter values that result in a model that performs the best, as measured by the validation metric defined in the experiment configuration file.
 
@@ -297,7 +289,6 @@ det trial describe <Trial-Id>
 And, of course, I can use the same Python API code I used earlier to load and test the best model and make inferences.  
 
 ## Summary
-
 During both parts of this blog series, I wore a couple of hats: an IT operations manager’s hat and a data scientist/ML engineer’s hat.
 
 With my IT operations manager’s hat, I deployed Determined on a Kubernetes cluster running on HPE Ezmeral Runtime Enterprise that provides all the components needed to run Determined: a workload scheduler, such as Kubernetes, a namespace, multi-tenancy, an ingress gateway, persistent storage for experiments tracking, and a shared file system for storing model artifacts and datasets.
