@@ -7,6 +7,7 @@ image: /img/platforms/EzmeralDataFabric.svg
 width: large
 priority: 1
 frontpage: true
+active: true
 tags:
   - hpe-ezmeral-data-fabric
 ---
@@ -27,10 +28,6 @@ You can store, manage and access your data from edge to core to cloud at any sca
 ## What is HPE Ezmeral Data Fabric?
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/TT1t8yaHj4w" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-## Machine Learning with Symbolic Data
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/1gqRZjKGn50" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## How to size a data fabric system
 

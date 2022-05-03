@@ -30,7 +30,7 @@ Explore community-powered innovation here as we highlight a few of the latest op
 <div class="row">
   <div class="column">
     ### Get Inspired
-    **Data science de factor standards emerge**
+    **Data science de facto standards emerge**
 
     *Explore open standards for AI/ML tool and application development.*
   </div>

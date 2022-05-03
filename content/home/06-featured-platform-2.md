@@ -1,11 +1,11 @@
 ---
-title: HPE Ezmeral
+title: Determined AI
 category: Feature Platform
 priority: 6
 width: medium
-link: /platform/hpe-ezmeral/home/
-image: /img/home/ezmeral.svg
+link: /platform/determined-ai/home/
+image: /img/logo-final-transparent-.png
 ---
-## HPE Ezmeral
+## Determined AI
 
-Accelerate modern data analytics initiatives at scale with this Kubernetes orchestrated container platform that helps you unify data and modernize apps.
+Determined AI accelerates innovation with open source AI solutions to build and train models faster and easier. 
