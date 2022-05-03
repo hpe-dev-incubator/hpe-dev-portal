@@ -11,11 +11,8 @@ tags:
   - Dataspaces
   - AgStack
 ---
-## Munch & Learn series
 
-
-
-### Why Open Source is more than Software: The example of The Linux Foundation's AgStack project
+## Why Open Source is more than Software: The example of The Linux Foundation's AgStack project
 
 
 
