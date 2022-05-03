@@ -14,8 +14,11 @@
     "axios": "^0.24.0",
     "babel-plugin-styled-components": "^1.12.0",
     "dotenv": "^8.2.0",
+    "formik": "^2.2.9",
     "gatsby": "^2.32.8",
+    "gatsby-cli": "^4.12.1",
     "gatsby-image": "^2.11.0",
+    "gatsby-legacy-polyfills": "^2.12.1",
     "gatsby-plugin-catch-links": "^2.10.0",
     "gatsby-plugin-feed": "^2.13.0",
     "gatsby-plugin-google-analytics": "^2.11.0",
@@ -52,7 +55,8 @@
     "remark": "^11.0.2",
     "strip-markdown": "^3.1.2",
     "styled-components": "^5.2.1",
-    "typescript": "^4.2.2"
+    "typescript": "^4.2.2",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "@hpe/project-scripts": "^1.1.0",
