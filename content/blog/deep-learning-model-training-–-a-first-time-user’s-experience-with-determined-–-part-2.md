@@ -22,12 +22,15 @@ Determined is an open-source training platform that aims to simplify deep learni
 In [my previous blog post](https://developer.hpe.com/blog/deep-learning-model-training-%E2%80%93-a-first-time-user%E2%80%99s-experience-with-determined-part-1/), I put on my IT operations manager’s hat and discussed how I deployed Determined on a Kubernetes cluster in an on-premise HPE Ezmeral Runtime Enterprise environment. I also showed how easy it is to get started with the Determined CLI, REST API, and Web User Interface to interact with Determined.
 
 
-In this second part of the series, using  the Determined setup from Part I, I’ll  assume the role of a data scientist/ML Engineer who wants to:    
+In this second part of the series, using  the Determined setup from Part I, I’ll  assume the role of a data scientist/ML Engineer who wants to:
+
 
 
 * Explore fundamental Determined concepts and features to train a TensorFlow model   
 
+
 * Track and visualize the progress and result of training process using a single GPU   
+
 
 
 * Use distributed training across multiple GPUs and fine-tune the model with state-of-the-art hyperparameter search    
@@ -57,7 +60,7 @@ The experiment configuration file and the Python code for the model used to load
 
 To get started with Determined, I need a use case and a model to train in Determined. As a Data Scientist running an experiment on Iris species, I pick the simple and well-known _“Iris classification”_ model for predicting the likelihood that the flowers are Iris species (Iris setosa, Iris versicolor or Iris virginica) based on their sepal and petal length and width measurements. 
 
-To take advantage of Determined functionalities, I need to port the model to Determined framework APIs such as PyTorch, Tensorflow, and Keras, the most-commonly used deep learning frameworks. You can check out the _Iris deep learning model_ code  — a TensorFlow Keras based model  — in the [Determined GitHub repository](https://github.com/determined-ai/determined/tree/master/examples/computer_vision/iris_tf_keras) and download the complete code for this use case [here](https://docs.determined.ai/latest/_downloads/b8b05d77875d7d5a43ea2bd4b35fb0f4/iris_tf_keras.tgz). I’ll train the model on the publicly available Iris [training dataset](http://download.tensorflow.org/data/iris_training.csv) and [validation dataset](http://download.tensorflow.org/data/iris_test.csv), which consist of 120 samples and 30 samples, respectively. Each sample consists of four Iris flower properties:
+To take advantage of Determined functionalities, I need to port the model to Determined framework APIs such as PyTorch, Tensorflow, and Keras, the most-commonly used deep learning frameworks. You can check out the _Iris deep learning model_ code  — a TensorFlow Keras based model  — in the [Determined GitHub repository](https://github.com/determined-ai/determined/tree/master/examples/computer_vision/iris_tf_keras) and download the complete code for this use case [here](https://docs.determined.ai/latest/_downloads/b8b05d77875d7d5a43ea2bd4b35fb0f4/iris_tf_keras.tgz). I’ll train the model on the publicly available Iris [training dataset](http://download.tensorflow.org/data/iris_training.csv) and [validation dataset](http://download.tensorflow.org/data/iris_test.csv), which consist of 120 samples and 30 samples, respectively. Each sample consists of the following Iris flower properties:
 
 * Features: sepal length, sepal width, petal length, petal width 
 * Label: the species of Iris to predict 
