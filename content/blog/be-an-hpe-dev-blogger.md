@@ -1,8 +1,8 @@
 ---
 title: Be an HPE Developer blogger!
 date: 2021-08-09T12:03:49.852Z
-featuredBlog: true
-priority: 5
+featuredBlog: false
+priority: 8
 author: HPE DEV
 authorimage: /img/blog-author-rensing-96.jpg
 tags:
