@@ -2,6 +2,8 @@
 title: "Becoming a Linux Kernel Contributor: Following the Journey of Souptick
   Joarder"
 date: 2022-04-26T19:38:25.987Z
+featuredBlog: true
+priority: 3
 author: Dale Rensing
 authorimage: /img/blog-author-rensing-96.jpg
 thumbnailimage: /img/linux_source_code_primary_site.png
