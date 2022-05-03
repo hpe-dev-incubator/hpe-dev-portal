@@ -22,15 +22,16 @@ Determined is an open-source training platform that aims to simplify deep learni
 In [my previous blog post](https://developer.hpe.com/blog/deep-learning-model-training-%E2%80%93-a-first-time-user%E2%80%99s-experience-with-determined-part-1/), I put on my IT operations manager’s hat and discussed how I deployed Determined on a Kubernetes cluster in an on-premise HPE Ezmeral Runtime Enterprise environment. I also showed how easy it is to get started with the Determined CLI, REST API, and Web User Interface to interact with Determined.
 
 
-In this second part of the series, using  the Determined setup from Part I, I’ll  assume the role of a data scientist/ML Engineer who wants to: 
+In this second part of the series, using  the Determined setup from Part I, I’ll  assume the role of a data scientist/ML Engineer who wants to:    
 
 
-* Explore fundamental Determined concepts and features to train a TensorFlow model
+* Explore fundamental Determined concepts and features to train a TensorFlow model   
 
-* Track and visualize the progress and result of training process using a single GPU 
+* Track and visualize the progress and result of training process using a single GPU   
 
 
-* Use distributed training across multiple GPUs and fine-tune the model with state-of-the-art hyperparameter search 
+* Use distributed training across multiple GPUs and fine-tune the model with state-of-the-art hyperparameter search    
+
 
 
 I will also use the Determined Python API in a Jupyter Notebook to load and test the trained model and see how well it performs. I’ll evaluate this by making inferences, which uses a trained model, and new, unlabelled data to make predictions. 
