@@ -1,5 +1,5 @@
 ---
-title: HPE Ezmeral
+title: Determined AI
 category: Feature Platform
 priority: 6
 width: medium
