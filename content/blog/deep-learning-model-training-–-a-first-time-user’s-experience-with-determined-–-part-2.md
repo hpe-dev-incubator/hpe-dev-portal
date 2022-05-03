@@ -236,3 +236,28 @@ det notebook kill <notebook-Id>
 
 ```
 
+## Distributed training with multiple GPUs 
+
+
+I’ll now launch another experiment that trains a single instance of my deep learning model using multiple GPUs, known as [distributed training](https://docs.determined.ai/latest/training-distributed/index.html). Similar to my first experiment, this experiment features a single trial with a set of constant hyperparameters.
+
+
+Determined can coordinate multiple GPUs to train a deep learning model more quickly by leveraging multiple GPUs on a single machine or over multiple machines. Typically, data science teams use distributed training to train models on larger datasets to improve model performance and accuracy, leveraging additional compute resources.
+
+
+Determined automatically executes [data parallelization](https://www.oreilly.com/content/distributed-tensorflow/) training, where a data set is divided into multiple pieces and distributed across the GPUs, **requiring minimal changes to model code**. Each GPU has the full model code but trains the model on its portion of the data. Determined ensures training coordination across multiple GPUs on a single machine or multiple machines to keep the overall training task in sync.
+
+
+To launch a multi-GPU experiment, all I need to do is specify the desired number of GPUs I want to use in the experiment configuration file without requiring any model code changes, and Determined takes care of the rest. For example, in the _distributed.yaml_ experiment configuration file, I specify two GPUs per trial in the resources section:
+
+
+```Yaml 
+resources:
+  slots_per_trial: 2
+```
+
+I launch the experiment using the `det experiment create distributed.yaml <model-definition-directory>` command. With this configuration, Determined runs a single trial for my experiment. The trial uses two GPUs to train my model, whether leveraging two GPUs on a single machine or two GPUs across multiple machines in the Kubernetes cluster.
+
+
+As with the other experiments, I navigate to the WebUI to monitor the progress of the training task for my experiment and visualize information on both training and validation performance over the number of completed batches. I can use the same ***Det*** CLI commands that I used for my first experiment to discover the performance metric for my model and launch auxiliary tasks, such as a TensorBoard server or a JupyterLab Notebook server. And, of course, I can use the same Determined Python API code I used for my first experiment to load and test the trained model to see how well it performs to make predictions.    
+
