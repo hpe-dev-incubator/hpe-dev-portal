@@ -5,7 +5,7 @@ dateStart: 2022-05-17T22:01:56.026Z
 dateEnd: 2022-05-18T21:59:56.049Z
 category: Virtual Event
 image: /img/event-munch-and-learns-newlogo400x360.png
-link: https://hpe.zoom.us/webinar/register/7116515095114/WN_L-HJRIRPQ0CQoIotnCiDJg
+link: https://hpe.zoom.us/webinar/register/6716515094960/WN_L-HJRIRPQ0CQoIotnCiDJg
 width: large
 tags:
   - Dataspaces
