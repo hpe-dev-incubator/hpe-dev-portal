@@ -149,7 +149,7 @@ With the model trained and the best model files saved on the shared storage volu
 det notebook start --config-file Notebook-config.yaml
 ```
 
-The *Notebook-config* YAML configuration file is used to control a JupyterLab instance deployment. To learn more about Jupyter Notebook in Determined, check out the [Notebook documentation](https://docs.determined.ai/latest/features/notebooks.html) and [a recent Determined’s blog post on this topic](https://www.determined.ai/blog/maximize-juptyter-notebook-experience-determined).
+The *Notebook-config* YAML configuration file below is used to control a JupyterLab instance deployment. To learn more about Jupyter Notebook in Determined, check out the [Notebook documentation](https://docs.determined.ai/latest/features/notebooks.html) and [a recent Determined’s blog post on this topic](https://www.determined.ai/blog/maximize-juptyter-notebook-experience-determined).
 
 ```yaml
 description: My-notebook
@@ -161,7 +161,7 @@ bind_mounts: # Validated model checkpoints location in shared volume
 idle_timeout: 30m
 ```
 
-With the JupyterLab instance deployed, I use the `det notebook list` command to get the Notebook-Id, then connect to a Jupyterlab instance using my browser and the following URL: http://<DET_MASTER_URL>/proxy/<Notebook-Id>. 
+With the JupyterLab instance deployed, I use the `det notebook list` command to get the Notebook-Id, then connect to a Jupyterlab instance using my browser and the following URL: http://\<DET\_MASTER\_URL\>/proxy/\<Notebook-Id\>. 
 
 Finally, I use the Determined [Python Client API](https://docs.determined.ai/latest/interact/api-experimental-client.html) and its TensorFlow Keras [Checkpoint API](https://docs.determined.ai/latest/post-training/use-trained-models.html) in the following Python code example to download the best model file, load it into memory as a Python process for TensorFlow Keras based model, and make inferences.
 
