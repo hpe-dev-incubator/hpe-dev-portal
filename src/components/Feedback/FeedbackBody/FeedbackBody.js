@@ -31,9 +31,9 @@ const FeedbackBody = ({
   changeQuestion,
   cancelQuestion,
   successClose,
+  isSubmissionSuccess,
 }) => {
   const [emailDis, setEmailDis] = useState(false);
-  const [isSuccess, setIsSuccess] = useState(false);
 
   const backHandler = () => {
     if (emailDis) {
@@ -43,11 +43,11 @@ const FeedbackBody = ({
       cancelQuestion();
     }
   };
-
+  console.log(feedbackFromik);
   return (
     <Box gap="small" style={{ height: 300, width: 350 }}>
       {selQuestion === undefined &&
-        (!isSuccess ? (
+        (isSubmissionSuccess === undefined ? (
           <Box style={{ marginBottom: 60 }}>
             <Box style={defaultMessageStyles}>
               <Text weight="bold" alignSelf="center">
@@ -81,39 +81,62 @@ const FeedbackBody = ({
           </Box>
         ) : (
           <Box style={{ marginBottom: 60, marginInline: 20 }}>
-            <Image
-              height={60}
-              width={60}
-              alignSelf="center"
-              src="https://pbs.twimg.com/profile_images/1060682187232600065/SotJzj_4_400x400.jpg"
-              style={{ marginTop: 20 }}
-            />
-            <Text
-              style={{
-                fontWeight: 'bold',
-                textAlign: 'center',
-                marginTop: 25,
-                fontSize: 22,
-              }}
-            >
-              Thank You!
-            </Text>
-            <Text
-              style={{ textAlign: 'center', fontSize: 16, fontWeight: '500' }}
-            >
-              We value your feedback and we will use it to improve our websites
-              and services.
-            </Text>
+            {isSubmissionSuccess === true ? (
+              <>
+                <Image
+                  height={60}
+                  width={60}
+                  alignSelf="center"
+                  src="https://pbs.twimg.com/profile_images/1060682187232600065/SotJzj_4_400x400.jpg"
+                  style={{ marginTop: 20 }}
+                />
+                <Text
+                  style={{
+                    fontWeight: 'bold',
+                    textAlign: 'center',
+                    marginTop: 25,
+                    fontSize: 22,
+                  }}
+                >
+                  Thank You!
+                </Text>
+                <Text
+                  style={{
+                    textAlign: 'center',
+                    fontSize: 16,
+                    fontWeight: '500',
+                  }}
+                >
+                  We value your feedback and we will use it to improve our
+                  websites and services.
+                </Text>
 
-            <Button
-              label="Close"
-              style={{ marginTop: 30 }}
-              onClick={() => {
-                successClose();
-              }}
-              alignSelf="center"
-              primary
-            />
+                <Button
+                  label="Close"
+                  style={{ marginTop: 30 }}
+                  onClick={() => {
+                    successClose();
+                  }}
+                  alignSelf="center"
+                  primary
+                />
+              </>
+            ) : (
+              <>
+                <div style={{ textAlign: 'center', marginTop: 40 }}>
+                  Please try again later
+                </div>
+                <Button
+                  label="Close"
+                  style={{ marginTop: 30 }}
+                  onClick={() => {
+                    successClose();
+                  }}
+                  alignSelf="center"
+                  primary
+                />
+              </>
+            )}
           </Box>
         ))}
 
@@ -133,8 +156,17 @@ const FeedbackBody = ({
                 placeholder="Type here..."
                 required
                 style={{ marginTop: 10 }}
-                onChange={feedbackFromik.handleChange}
+                onChange={(val) => {
+                  feedbackFromik.handleChange(val);
+                }}
+                onBlur={feedbackFromik.handleBlur}
+                onSubmit={() => {}}
               />
+              {feedbackFromik.errors.value && (
+                <Text style={{ fontSize: 14 }}>
+                  {feedbackFromik.errors.value}
+                </Text>
+              )}
               <Button
                 label="Next"
                 style={{ marginTop: 20 }}
@@ -143,7 +175,10 @@ const FeedbackBody = ({
                 alignSelf="end"
                 reverse
                 primary
-                disabled={feedbackFromik.values.value === ''}
+                disabled={
+                  feedbackFromik.values.value === '' ||
+                  feedbackFromik.errors.value
+                }
               />
             </>
           ) : (
@@ -160,16 +195,25 @@ const FeedbackBody = ({
                 placeholder="Enter Your Email"
                 required
                 onChange={feedbackFromik.handleChange}
+                onBlur={feedbackFromik.handleBlur}
               />
+              {feedbackFromik.errors.email && (
+                <Text style={{ fontSize: 14 }}>
+                  {feedbackFromik.errors.email}
+                </Text>
+              )}
               <Button
                 label="Send Feedback"
                 style={{ marginTop: 20 }}
                 onClick={() => {
                   feedbackFromik.submitForm();
-                  setIsSuccess(true);
                 }}
                 alignSelf="end"
                 primary
+                disabled={
+                  feedbackFromik.values.email === '' ||
+                  feedbackFromik.errors.email
+                }
               />
             </>
           )}

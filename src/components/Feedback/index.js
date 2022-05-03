@@ -3,7 +3,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-alert */
 /* eslint-disable react/prop-types */
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Box } from 'grommet';
 import { useFormik } from 'formik';
@@ -18,7 +18,7 @@ const handleCustomPosition = (position, formStyles) => {
   if (position === 'left') {
     customFormStyles = { ...formStyles, left: '5%' };
   } else {
-    customFormStyles = { ...formStyles, right: '5%' };
+    customFormStyles = { ...formStyles, right: '3%' };
   }
   return customFormStyles;
 };
@@ -68,7 +68,15 @@ const Feedback = (props) => {
     handleClose,
     handleButtonClick,
     handleSubmit,
+    isSubmissionSuccess,
   } = props;
+
+  useEffect(() => {
+    if (isSubmissionSuccess !== undefined) {
+      setSelQuestion(undefined);
+      feedbackFromik.resetForm();
+    }
+  }, [isSubmissionSuccess]);
 
   const submithandler = (values) => {
     if (isEmpty(values.value) || isEmpty(values.email)) {
@@ -79,8 +87,6 @@ const Feedback = (props) => {
         email: values.email,
         proxy: 'hackshack',
       });
-      setSelQuestion(undefined);
-      feedbackFromik.resetForm();
     }
   };
 
@@ -170,6 +176,7 @@ const Feedback = (props) => {
             questions={questions}
             cancelQuestion={cancelQuestion}
             successClose={successClose}
+            isSubmissionSuccess={isSubmissionSuccess}
           />
         </Box>
       )}

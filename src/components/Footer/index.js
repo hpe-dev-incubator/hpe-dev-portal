@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 /* eslint-disable react/jsx-no-undef */
-import React from 'react';
+import React, { useState } from 'react';
 import { Box, Heading, Anchor } from 'grommet';
 import axios from 'axios';
 import { EmailCapture } from '../../containers';
@@ -10,6 +10,7 @@ import AuthService from '../../services/auth.service';
 const { GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT } = process.env;
 
 export const Footer = () => {
+  const [isSubmissionSuccess, setIsSubmissionSuccess] = useState(undefined);
   const sendEmail = (data) => {
     axios({
       method: 'POST',
@@ -24,6 +25,7 @@ export const Footer = () => {
       },
     })
       .then((response) => {
+        setIsSubmissionSuccess(true);
         console.log('response', response);
         if (response?.data?.status === 200) {
           console.log('success');
@@ -32,10 +34,13 @@ export const Footer = () => {
         }
       })
       .catch((err) => {
-        if (err.response.status === 401) {
-          AuthService.login().then(() => sendEmail());
-        } else {
-          console.log('err', err);
+        setIsSubmissionSuccess(false);
+        if (err.response) {
+          if (err.response.status === 401) {
+            AuthService.login().then(() => sendEmail());
+          } else {
+            console.log('err', err);
+          }
         }
       });
   };
@@ -129,12 +134,12 @@ export const Footer = () => {
       </Box>
       <Feedback
         style={{ zIndex: '100', position: 'fixed', left: '2px!' }}
-        position="left"
-        numberOfStars={5}
+        position="right"
         headerText="Help us improve HPE DEV Community"
         bodyText="What kind of Feedback do you have?"
         buttonText="Feedback"
-        handleClose={() => console.log('handleclose')}
+        handleClose={() => setIsSubmissionSuccess(undefined)}
+        isSubmissionSuccess={isSubmissionSuccess}
         handleSubmit={(data) => {
           sendEmail(data);
         }}

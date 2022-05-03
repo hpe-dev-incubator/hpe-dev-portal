@@ -31,6 +31,7 @@ const FeedbackForm = (props) => {
     changeQuestion,
     cancelQuestion,
     successClose,
+    isSubmissionSuccess,
   } = props;
 
   const customFormStyles = handleCustomPosition(position, formStyles);
@@ -56,6 +57,7 @@ const FeedbackForm = (props) => {
         changeQuestion={changeQuestion}
         cancelQuestion={cancelQuestion}
         successClose={successClose}
+        isSubmissionSuccess={isSubmissionSuccess}
       />
     </Card>
   );
