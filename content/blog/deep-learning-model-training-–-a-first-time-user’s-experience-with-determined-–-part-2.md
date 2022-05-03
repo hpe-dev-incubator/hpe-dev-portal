@@ -119,11 +119,11 @@ det experiment list-checkpoints --best 1 <my-experiment-Id>
 
 I access information on both training and validation performance for my experiment using the Determined WebUI. From the dashboard I can see my experiment status, as shown in the following screenshot: 
 
-Figure1
+![Determined WebUi Dashboard](/img/webui-myexp-const-status.png "Determined WebUi Dashboard")
 
 Selecting the experiment, I can visualize the learning curve, which shows the model validation and training accuracy metric over the number of completed batches:
 
-Figure 2
+![Experiment performance visualization](/img/webui-myexp-const-graph.png "Experiment performance visualization")
 
 Here, I see the graph changing in real-time as the experiment runs. Determined plots training metrics every ***100 batches*** of training data (the purple line) by default. Validation metrics (the blue line) are plotted every ***1000 batches*** over the amount of data (5000 batches) based on the parameters I specified in the experiment configuration file.
 
@@ -277,18 +277,15 @@ bind_mounts:
 
 I then launch the experiment using the command:
 
-
- ```bash
+```bash
 det experiment create adaptive.yaml <model-definition-directory>
-
 ```
 
 As in the previous experiments, I navigate to the WebUI to monitor the training task progress and to access information on both training and validation performance for the experiment trials. As shown in the following figure, Determined hyperparameter search functionality gives me with several [visualization options](https://www.determined.ai/blog/hyperparameter-visualizations-determined) for analyzing results: Learning Curve, Parallel Plot, Scatter Plot, Heat Map.
 
+As the experiment runs, I select the training metric *categorical_accuracy* in the ***Learning Curve*** tab to visualize the model accuracy on training data for each trial over the number of completed batches. I can see that the Searcher Adaptive ASHA's ***early stopping*** capability has stopped poor-performing trials that do not require extra training. Determined releases valuable GPU resources on trials that are evaluated to never produce the best model.
 
-As the experiment runs, I select the training metric _categorical_accuracy_ in the ***Learning Curve*** tab to visualize the model accuracy on training data for each trial over the number of completed batches. I can see that the Searcher Adaptive ASHA's ***early stopping*** capability has stopped poor-performing trials that do not require extra training. Determined releases valuable GPU resources on trials that are evaluated to never produce the best model.
-
-Figure3
+![HPO Adaptive experiment trials visualization](/img/webui-myexp-adaptive-graphs-v2.png "HPO Adaptive experiment trials visualization")
 
 When the Determined experiment is complete, I’ll navigate to the WebUI **Trials** tab and compare the results of different trials and discover the hyperparameters that yield the best model that will enable me to perform better future experiments by further tuning the hyperparameters. One could also use the CLI commands below to get the best trial and discover the hyperparameters values for the best model:
 
@@ -301,17 +298,12 @@ And, of course, I can use the same Python API code I used earlier to load and te
 
 ## Summary
 
-
 During both parts of this blog series, I wore a couple of hats: an IT operations manager’s hat and a data scientist/ML engineer’s hat.
-
 
 With my IT operations manager’s hat, I deployed Determined on a Kubernetes cluster running on HPE Ezmeral Runtime Enterprise that provides all the components needed to run Determined: a workload scheduler, such as Kubernetes, a namespace, multi-tenancy, an ingress gateway, persistent storage for experiments tracking, and a shared file system for storing model artifacts and datasets.
 
-
 With my data scientist/ML engineer’s hat, I used Determined and its interfaces (CLI and the Web User Interface) to get started with Determined fundamental concepts, training a simple Iris classification neural network model using multiple GPUs with distributed training and advanced functionality such as state-of-the-art hyperparameter search. I also used the Determined Python API to load and test the trained model and to make inferences.
 
-
 The Iris classification example used in this post is relatively simple. In reality, you would use Determined to build and train more complex deep learning models with much larger datasets, probably using a larger compute infrastructure with plenty of GPUs available to parallelize training models across data science teams.
-
 
 I hope you found this information interesting and useful in helping you get started with Determined. I was able to write this two-part blog series by joining and receiving help from the Determined Community Slack, which you can do by [following this link](https://join.slack.com/t/determined-community/shared_invite/zt-cnj7802v-KcVbaUrIzQOwmkmY7gP0Ew). You can begin training models with Determined today by visiting the [Determined project on GitHub](https://github.com/determined-ai/determined).
