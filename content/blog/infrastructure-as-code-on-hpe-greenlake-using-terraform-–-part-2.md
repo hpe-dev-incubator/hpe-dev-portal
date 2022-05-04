@@ -245,20 +245,22 @@ Once your infrastructure is created, it will need to evolve over time in order t
 
 ### Use case 1: Stop this VM
 
-To start, let’s keep things simple. You might want to just turn off the VMs that are part of an infrastructure when you don’t need them to save cost or limit your carbon impact on the planet. If you paid attention to the current configuration file, you’ll see that we inserted a power statement when originally creating the VM.
+To start, let’s keep things simple. You might want to just turn off the VMs that are part of an infrastructure when you don’t need them to save cost or limit your carbon impact on the planet. If you paid attention to the current configuration file, you’ll see that we inserted a power statement when originally creating the VM. While *poweron* is the only valid option when creating a new resource of type **hpegl_vmaas_instance**, other values are available for lifecycle management, such as *poweroff* and *suspend*.
+
+Locate the following section in your configuration file:
 
 ```markdown
-# Power state     
-power = "poweron"
+     }
+     power = "poweron"
+   }
 ```
 
-While *poweron* is the only valid option when creating a new *resourcetype hpegl_vmaas_instance*, other values are available for lifecycle management, such as *poweroff* and *suspend*.
-
-Edit the Terraform configuration file and change the power desired state to be *poweroff*.
+And change it so that the power desired state is set to *poweroff* as shown below:
 
 ```markdown
-# Power state         
-power = "poweroff"
+     }
+     power = "poweroff"
+   }
 ```
 
 Save and run a **terraform apply** command, which will prompt you to accept the following change:
@@ -281,14 +283,14 @@ Pretty soon afterwards, you can check out the HPE GreenLake console and see that
 
 That was straight forward, right?, Now, restart the VM and try something else. You might want to test out tabs and labels. As organizations scale their cloud environments, they often need to define methodologies for organizing resources. For this, they can leverage tags and labels. Tags consist of key/value pairs that make it easier to search for, or filter, your cloud resources based on categories relevant to the organization. Another option is to attach labels, which are simple values, to your VMs in order to keep track of what it’s used for or who it belongs to.
 
-Why don’t you try adding metadata to the VM using tags and labels. According to the [documentation](https://github.com/HPE/terraform-provider-hpegl/blob/main/docs/resources/vmaas_instance.md), you can add labels using the following syntax:
+Why don’t you try adding metadata to the VM using tags and labels. According to the [documentation](https://github.com/HPE/terraform-provider-hpegl/blob/main/docs/resources/vmaas_instance.md), you can add labels using the following syntax in our configuration file:
 
 ```markdown
 # Using labels
 labels = ["hackshack", "hpedev"]
 ```
 
-And you can add tags with the following syntax:
+And you can add tags by inserting the following code snippet in your configuration file:
 
 ```markdown
 # Using tags
@@ -311,7 +313,9 @@ Another typical use case would be to add another disk to a VM, say a data volume
 Go ahead and add the following code snippet to your configuration file:
 
 ```markdown
-     volume {
+  # Add another volume
+  
+  volume {
          name         = "data_vol"
          size         = 25
          datastore_id = "auto"
