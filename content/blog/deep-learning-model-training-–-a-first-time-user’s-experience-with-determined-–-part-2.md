@@ -142,7 +142,7 @@ With the model trained and the best model files saved on the shared storage volu
 det notebook start --config-file Notebook-config.yaml
 ```
 
-The *Notebook-config* YAML configuration file below is used to control a JupyterLab instance deployment. When downloading checkpoints from a shared file system, Determined assumes the checkpoints location is mounted to the mount point _determined\_shared\_fs_ inside the JupyterLab POD container. To learn more about Jupyter Notebook in Determined, check out the [Notebook documentation](https://docs.determined.ai/latest/features/notebooks.html) and [a recent Determined’s blog post on this topic](https://www.determined.ai/blog/maximize-juptyter-notebook-experience-determined).
+The *Notebook-config* YAML configuration file below is used to control a JupyterLab instance deployment. When downloading checkpoints from a shared file system, Determined assumes the checkpoints location is mounted to the mount point ***determined\_shared\_fs*** inside the JupyterLab POD container. To learn more about Jupyter Notebook in Determined, check out the [Notebook documentation](https://docs.determined.ai/latest/features/notebooks.html) and [a recent Determined’s blog post on this topic](https://www.determined.ai/blog/maximize-juptyter-notebook-experience-determined).
 
 ```yaml
 description: My-notebook
