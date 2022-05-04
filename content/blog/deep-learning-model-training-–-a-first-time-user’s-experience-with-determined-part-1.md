@@ -24,7 +24,7 @@ In this first part, I’ll put on my IT Operations manager’s hat and explain h
 
 <center><img src="/img/detai-high-levl-architecture-thumbnail-v2.png" width="543" height="708" alt="High Level architecture diagram"></center>
 
-In the second part of this series, I'll wear my data scientist/ML engineer hat as a member of a larger data science team that wants to get started with Determined and explore some of its fundamental concepts and features. I’ll review how to train neural network models using one or more GPUs with distributed training, and advanced functionality such as state-of-the-art hyperparameter search to improve model accuracy and find the best version of a model.
+[In the second part of this series](https://developer.hpe.com/blog/deep-learning-model-training-%E2%80%93-a-first-time-user%E2%80%99s-experience-with-determined-%E2%80%93-part-2/), I'll wear my data scientist/ML engineer hat as a member of a larger data science team that wants to get started with Determined and explore some of its fundamental concepts and features. I’ll review how to train neural network models using one or more GPUs with distributed training, and advanced functionality such as state-of-the-art hyperparameter search to improve model accuracy and find the best version of a model.
 
 ## Determined AI
 
@@ -258,6 +258,6 @@ That’s it! Everything is set. I am now ready to put on my data scientist hat, 
 
 As you can see, using my IT operations manager’s hat, I deployed Determined on a Kubernetes cluster running on HPE Ezmeral Runtime Enterprise, which provides all the components needed to run Determined: a task scheduler such as Kubernetes, a namespace, multi-tenancy, an ingress gateway, persistent storage for experiment tracking, and a shared file system for storing model artifacts and datasets.
 
-In the second post in this series, I will walk through training a TensorFlow Keras model in Determined using features such as distributed training and automatic model tuning with hyperparameter search.
+[In the second post in this series](https://developer.hpe.com/blog/deep-learning-model-training-%E2%80%93-a-first-time-user%E2%80%99s-experience-with-determined-%E2%80%93-part-2/), I will walk through training a TensorFlow Keras model in Determined using features such as distributed training and automatic model tuning with hyperparameter search.
 
 You can subscribe for updates from the HPE Dev Community by subscribing to our [newsletter](https://developer.hpe.com/community). I was able to write this post by joining and receiving help from the [Determined Community Slack](https://join.slack.com/t/determined-community/shared_invite/zt-cnj7802v-KcVbaUrIzQOwmkmY7gP0Ew), which you can also do .You can begin training models with Determined today by visiting the [Determined project on GitHub](https://github.com/determined-ai/determined).
