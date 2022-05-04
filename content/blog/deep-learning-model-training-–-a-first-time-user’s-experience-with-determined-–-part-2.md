@@ -80,7 +80,7 @@ entrypoint: model_def:IrisTrial # Starting point of the model code
 min_validation_period:
   batches: 1000      # Report validation metrics to Master every 1000 batches
 scheduling_unit: 100 # Report training metrics to Master every 100 batches (default) 
-bind_mounts:         # Training and validation datasets location in shared volume
+bind_mounts:         # Training and validation datasets location in shared volume. Ensure the datasets on the shared volume are accessible to the training tasks.
   - host_path: /opt/bluedata/mapr/mnt/<DataFabric-clusterName>/exthcp/tenant-<ID>/fsmount/repo/data
     container_path: /opt/bluedata/mapr/mnt/<DataFabric-clusterName>/exthcp/tenant-<ID>/fsmount/repo/data
     read_only: true
