@@ -245,7 +245,7 @@ Once your infrastructure is created, it will need to evolve over time in order t
 
 ### Use case 1: Stop this VM
 
-To start, let’s keep things simple. You might want to just turn off the VMs that are part of an infrastructure when you don’t need them to save cost or limit your carbon impact on the planet. If you paid attention to the current configuration file, you’ll see that we inserted a power statement when originally creating the VM. While *poweron* is the only valid option when creating a new resource of type **hpegl_vmaas_instance**, other values are available for lifecycle management, such as *poweroff* and *suspend*.
+To start, let’s keep things simple. You might want to just turn off the VMs that are part of an infrastructure when you don’t need them to save cost or limit your carbon impact on the planet. If you paid attention to the current configuration file, you’ll see that we inserted a power statement when originally creating the VM. While *poweron* is the only valid option when creating a new resource of type **hpegl\_vmaas\_instance**, other values are available for lifecycle management, such as *poweroff* and *suspend*.
 
 Locate the following section in your configuration file:
 
@@ -328,7 +328,7 @@ Save the file, apply those changes, wait a little and check the VM storage confi
 
 ### Use case 4: Please snap this VM
 
-Here’s one last use case you can try, which consists of snapshotting the VM. You should use the following Terraform syntax:
+Here’s one last use case you can try, which consists of snapshotting the VM. You can do tis by adding the following Terraform code snippet in your configuration file:
 
 ```markdown
    snapshot {
@@ -337,14 +337,14 @@ Here’s one last use case you can try, which consists of snapshotting the VM. Y
   }
 ```
 
-Save the file, apply those changes, wait a little and check the details of the VM in the Backups section once again:
+Save the file, apply those changes, wait a little and check the details of the VM  once again, in the Backups section:
 
 ![Snap of VM ready](/img/terraform-greenlake-part2-blog-picture6.png "Snap of VM ready")
 
 ## Debugging when things go wrong
 
-In this post, I’ve showed you how to make sure the Terraform configuration file is valid before applying changes using the **terraform validate** command. To see more details during an apply command, you can also enable Terraform debug by simply setting up the TF_DEBUG environment variable:
-
+In this post, I’ve showed you how to make sure the Terraform configuration file is valid before applying changes using the **terraform validate** command. To see more details during an apply command, you can also enable Terraform debug by simply setting up the TF_LOG environment variable. I suggest setting it up to DEBUG but other supported values are: TRACE, INFO, WARN and ERROR.
+ 
 ```markdown
 export TF_LOG=DEBUG
 ```
