@@ -26,7 +26,7 @@ In this second part of the series, using  the Determined setup from Part I, I’
 * Track and visualize the progress and results of the training process using a single GPU
 * Use distributed training across multiple GPUs and fine-tune the model with state-of-the-art hyperparameter search
    
-   
+<br>
 I will also use the Determined Python API in a Jupyter Notebook to load and test the trained model and see how well it performs. I’ll evaluate this by making inferences, which uses a trained model and new, unlabelled data to make predictions. 
 
 ## Overview of the Determined training model process
