@@ -351,7 +351,7 @@ export TF_LOG=DEBUG
 
 ## What’s next?
 
-In [my first blog post](https://developer.hpe.com/blog/infrastructure-as-code-on-hpe-greenlake-using-terraform/), I covered how to get started with the Terraform provider for HPE GreenLake, I explained how to collect data from the platform and request the creation of a VM instance. In this article, I applied several changes to the Terraform infrastructure configuration file and observe how the desired state is automatically tracked by Terraform and applied to HPE GreenLake.
+In [my first blog post](https://developer.hpe.com/blog/infrastructure-as-code-on-hpe-greenlake-using-terraform/), I covered how to get started with the Terraform provider for HPE GreenLake, I explained how to collect data from the platform and request the creation of a Virtual Machine instance. In this article, I showed you how to manage the lifecycle of a Virtual Machine using Terraform. I applied several changes to the Terraform infrastructure configuration file and observe how the desired state is automatically tracked by Terraform and applied to HPE GreenLake.
 
 \-      [ Learn more about Terraform](https://www.terraform.io/)
 
