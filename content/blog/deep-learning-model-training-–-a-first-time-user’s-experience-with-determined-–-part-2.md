@@ -49,7 +49,7 @@ To take advantage of Determined's functionalities, I need to port the model to D
 * Features: sepal length, sepal width, petal length, petal width 
 * Label: the species of Iris to predict 
 
-I’ve also stored a copy of the datasets in the shared storage volume for my Determined deployment described in the [first post of this series](https://developer.hpe.com/blog/deep-learning-model-training-%E2%80%93-a-first-time-user%E2%80%99s-experience-with-determined-part-1/). I simply changed the model code to ensure the data loader function loads training and validation datasets from the shared storage volume. 
+I’ve also stored a copy of the datasets in the shared storage volume for my Determined deployment described in the [first post of this series](https://developer.hpe.com/blog/deep-learning-model-training-%E2%80%93-a-first-time-user%E2%80%99s-experience-with-determined-part-1/). I simply changed the model code to ensure the data loader function loads and reads training and validation datasets from the shared storage volume. 
 
 > Note: Porting deep learning model code to Determined is beyond the scope of this blog series. The easiest way to learn how to port an existing deep learning model code to Determined is to start with the [PyTorch Porting tutorial](https://docs.determined.ai/latest/tutorials/pytorch-porting-tutorial.html). 
 
