@@ -136,21 +136,21 @@ det tensorboard kill <tensorboard-Id>
 ```
 
 ### Evaluating the model by making inferences using a local Jupyter Notebook
-With the model trained and the best model files saved on the shared storage volume for my Determined deployment, I can now test the best version of the model and see how well it performs using the [Determined Python API](https://docs.determined.ai/latest/interact/api-experimental-client.html). Using the command below, I simply start a **CPU-only** JupyterLab server instance with a bind-mounting configured to ensure that the validated model file and checkpoint files are accessible by the JupyterLab instance. Like any other task launched in Determined, the JupyterLab instance is launched as a container POD in the Kubernetes cluster.
+With the model trained and the best model files saved on the shared storage volume for my Determined deployment, I can now download the checkpoint files for the best version of the model, test it and see how well it performs using the [Determined Python API](https://docs.determined.ai/latest/interact/api-experimental-client.html). Using the command below, I simply start a **CPU-only** JupyterLab server instance with a bind-mounting configured to ensure that the validated model file and checkpoint files are accessible by the JupyterLab instance. Like any other task launched in Determined, the JupyterLab instance is launched as a container POD in the Kubernetes cluster.
 
 ```bash
 det notebook start --config-file Notebook-config.yaml
 ```
 
-The *Notebook-config* YAML configuration file below is used to control a JupyterLab instance deployment. To learn more about Jupyter Notebook in Determined, check out the [Notebook documentation](https://docs.determined.ai/latest/features/notebooks.html) and [a recent Determined’s blog post on this topic](https://www.determined.ai/blog/maximize-juptyter-notebook-experience-determined).
+The *Notebook-config* YAML configuration file below is used to control a JupyterLab instance deployment. When downloading checkpoints from a shared file system, Determined assumes the checkpoints location is mounted to the mount point _determined\_shared\_fs_ inside the JupyterLab POD container. To learn more about Jupyter Notebook in Determined, check out the [Notebook documentation](https://docs.determined.ai/latest/features/notebooks.html) and [a recent Determined’s blog post on this topic](https://www.determined.ai/blog/maximize-juptyter-notebook-experience-determined).
 
 ```yaml
 description: My-notebook
 resources:
   slots: 0  # Launch a Notebook that does not use any GPU
-bind_mounts: # Validated model checkpoints location in shared volume
+bind_mounts: # Validated model checkpoints location in the shared volume
   - host_path: /opt/bluedata/mapr/mnt/<DataFabric-clusterName>/exthcp/tenant-<ID>/fsmount/checkpoints
-    container_path: /determined_shared_fs
+    container_path: /determined_shared_fs # Mount point the host_path is mounted to inside the JupyterLab POD container 
 idle_timeout: 30m
 ```
 
