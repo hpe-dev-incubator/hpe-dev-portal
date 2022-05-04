@@ -1,6 +1,6 @@
 ---
 title: "Infrastructure-as-Code on HPE GreenLake using Terraform – Part 2 "
-date: 2022-04-27T11:33:25.740Z
+date: 2022-05-04T13:13:17.938Z
 author: Didier Lalli
 authorimage: /img/didier-lalli.png
 thumbnailimage: /img/terraformprovider.png
