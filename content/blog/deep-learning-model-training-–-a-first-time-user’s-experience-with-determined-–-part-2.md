@@ -18,17 +18,16 @@ tags:
 ---
 Determined is an open-source training platform that aims to simplify deep learning (DL) model development and experimentation for data science teams by providing tools like distributing training, automatic model tuning, GPU resource management, and automatic experiment tracking.
 
-In [my previous blog post](https://developer.hpe.com/blog/deep-learning-model-training-%E2%80%93-a-first-time-user%E2%80%99s-experience-with-determined-part-1/), I put on my IT operations manager’s hat and discussed how I deployed Determined on a Kubernetes cluster in an on-premise HPE Ezmeral Runtime Enterprise environment. I also showed how easy it is to get started with the Determined CLI, REST API, and Web User Interface to interact with Determined.
+In [my previous blog post](https://developer.hpe.com/blog/deep-learning-model-training-%E2%80%93-a-first-time-user%E2%80%99s-experience-with-determined-part-1/), I put on my IT operations manager’s hat and discussed how I deployed Determined on a Kubernetes cluster in an on-premises HPE Ezmeral Runtime Enterprise environment. I also showed how easy it is to get started with the Determined CLI, REST API, and Web User Interface to interact with Determined.
 
 In this second part of the series, using  the Determined setup from Part I, I’ll  assume the role of a data scientist/ML Engineer who wants to:
    
 * Explore fundamental Determined concepts and features to train a TensorFlow model
+* Track and visualize the progress and results of the training process using a single GPU
+* Use distributed training across multiple GPUs and fine-tune the model with state-of-the-art hyperparameter search
    
-* Track and visualize the progress and result of training process using a single GPU
    
-* Use distributed training across multiple GPUs and fine-tune the model with state-of-the-art hyperparameter search   
-   
-I will also use the Determined Python API in a Jupyter Notebook to load and test the trained model and see how well it performs. I’ll evaluate this by making inferences, which uses a trained model, and new, unlabelled data to make predictions. 
+I will also use the Determined Python API in a Jupyter Notebook to load and test the trained model and see how well it performs. I’ll evaluate this by making inferences, which uses a trained model and new, unlabelled data to make predictions. 
 
 ## Overview of the Determined training model process
 In short, Determined permits data science teams to launch deep learning model training tasks, called ***trials***, for their ported model. These tasks are distributed across one or more GPUs and grouped as a Determined ***experiment*** using a particular set of configuration parameters specified in an ***experiment configuration file***. This configuration file tells Determined how to run the model training process on Determined in terms of many different parameters, including, but not limited to, the following:
@@ -44,14 +43,14 @@ The experiment configuration file and the Python code for the model used to load
 > Note: The Experiment configuration file has required and optional fields.  I’ll explore the most common fields in this post. To learn more about Experiment configuration settings, check out the online documentation [here](https://docs.determined.ai/latest/training-apis/experiment-config.html).
 
 ## The use case and the model
-To get started with Determined, I need a use case and a model to train in Determined. As a Data Scientist running an experiment on Iris species, I pick the simple and well-known *“Iris classification”* model for predicting the likelihood that the flowers are Iris species (Iris setosa, Iris versicolor or Iris virginica) based on their sepal and petal length and width measurements. 
+To get started with Determined, I need a use case and a model to train in Determined. As a Data Scientist running an experiment on Iris species, I pick the simple and well-known *“Iris classification”* model for predicting the likelihood that the flowers are an Iris species (Iris setosa, Iris versicolor or Iris virginica) based on their sepal and petal length and width measurements. 
 
-To take advantage of Determined functionalities, I need to port the model to Determined framework APIs such as PyTorch, Tensorflow, and Keras, the most-commonly used deep learning frameworks. You can check out the *Iris deep learning model* code  — a TensorFlow Keras based model  — in the [Determined GitHub repository](https://github.com/determined-ai/determined/tree/master/examples/computer_vision/iris_tf_keras) and download the complete code for this use case [here](https://docs.determined.ai/latest/_downloads/b8b05d77875d7d5a43ea2bd4b35fb0f4/iris_tf_keras.tgz). I’ll train the model on the publicly available Iris [training dataset](https://download.tensorflow.org/data/iris_training.csv) and [validation dataset](https://download.tensorflow.org/data/iris_test.csv), which consist of 120 samples and 30 samples, respectively. Each sample consists of the following Iris flower properties:
+To take advantage of Determined's functionalities, I need to port the model to Determined framework APIs such as PyTorch, Tensorflow, and Keras, the most commonly used deep learning frameworks. You can check out the *Iris deep learning model* code  — a TensorFlow Keras based model  — in the [Determined GitHub repository](https://github.com/determined-ai/determined/tree/master/examples/computer_vision/iris_tf_keras) and download the complete code for this use case [here](https://docs.determined.ai/latest/_downloads/b8b05d77875d7d5a43ea2bd4b35fb0f4/iris_tf_keras.tgz). I’ll train the model on the publicly available Iris [training dataset](http://download.tensorflow.org/data/iris_training.csv) and [validation dataset](http://download.tensorflow.org/data/iris_test.csv), which consist of 120 samples and 30 samples, respectively. Each sample consists of the following Iris flower properties:
 
 * Features: sepal length, sepal width, petal length, petal width 
 * Label: the species of Iris to predict 
 
-I’ve also stored a copy of the datasets in the shared storage volume for my Determined deployment described in the [first post of this series](https://developer.hpe.com/blog/deep-learning-model-training-%E2%80%93-a-first-time-user%E2%80%99s-experience-with-determined-part-1/).
+I’ve also stored a copy of the datasets in the shared storage volume for my Determined deployment described in the [first post of this series](https://developer.hpe.com/blog/deep-learning-model-training-%E2%80%93-a-first-time-user%E2%80%99s-experience-with-determined-part-1/). I simply changed the model code to ensure the data loader function loads training and validation datasets from the shared storage volume. 
 
 > Note: Porting deep learning model code to Determined is beyond the scope of this blog series. The easiest way to learn how to port an existing deep learning model code to Determined is to start with the [PyTorch Porting tutorial](https://docs.determined.ai/latest/tutorials/pytorch-porting-tutorial.html). 
 
