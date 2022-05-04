@@ -111,11 +111,11 @@ det experiment list-checkpoints --best 1 <my-experiment-Id>
 ```
 
 ### Visualizing and inspecting the learning curve of the trained model
-I access information on both training and validation performance for my experiment using the Determined WebUI. From the dashboard I can see my experiment status, as shown in the following screenshot: 
+I can also access information on both training and validation performance for my experiment using the Determined WebUI. From the dashboard I see my experiment status, as shown in the following screenshot: 
 
 ![Determined WebUi Dashboard](/img/webui-myexp-const-status.png "Determined WebUi Dashboard")
 
-Selecting the experiment, I can visualize the learning curve, which shows the model validation and training accuracy metric over the number of completed batches:
+Selecting the experiment, I visualize the learning curve, which shows the model validation and training accuracy metric over the number of completed batches:
 
 ![Experiment performance visualization](/img/webui-myexp-const-graph.png "Experiment performance visualization")
 
