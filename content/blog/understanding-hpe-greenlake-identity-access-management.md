@@ -32,13 +32,13 @@ User groups are a named set of users that share a common job function or access 
 
 ## Spaces
 
-Spaces enable you to grant access to a defined subset of resources within a tenant. Access to resources in a space is managed through the assignment of users, user groups or API clients to roles in a space. There is a default space where users land automatically upon login. The all resources space is a dynamic list of all resources in a tenant. 
+Spaces enable you to grant access to a defined subset of resources within a tenant. Resources can be a part of multiple spaces. Access to resources in a space is managed through the assignment of users, user groups or API clients to roles in a space. There is a default space where users land automatically upon login if they are assigned appropriate roles for that space. The all resources space is a dynamic list of all resources in a tenant. 
 
 Users can be granted access to multiple spaces.
 
 ## Roles
 
-Roles are a named set of permissions used to  access resources.  They are assigned to users, user groups or API clients to grant them permissions for a specific set of resources on a space.
+Roles are a named set of permissions used to access resources. They are assigned to users, user groups or API clients to grant them permissions for a specific set of resources on a space.
 
 Roles are available for the services that are available within the tenant. The following table is incomplete but lists the most common roles and definitions.
 
@@ -83,29 +83,29 @@ New tenants are requested via an HPE representative. The request includes an ini
 
 Once a tenant administrator is on-boarded, they can invite their users to join the tenant.
 
-1. Access the Identity & Access Service within the **wrench** icon.
+1. Access the User Management Service within the **wrench** icon.
 2. Select the **Users** Tab
 3. Under the **Actions** pull-down, choose Invite User
 
 <img src="/img/invite-user.png" width="480" height="538" alt="Invite User">
 
-The invited user receives an email inviting them to join the tenant. Once the user activates their account they can log into HPE GreenLake Central and switch to the tenant. The tenant administrator can add the new User to various User Groups, etc.
+The invited user receives an email inviting them to join the tenant. Once the user activates their account they can log into HPE GreenLake Central and switch to the tenant. The tenant administrator can add the new User to various User Groups, etc. The user will only receive an invitation email if they have not already been invited to join a tenant.
 
 ## Creating and modifying User Groups
 
-1. Access the Identity & Access Service within the **wrench** icon.
+1. Access the User Management Service within the **wrench** icon.
+
 2. Select the **User Groups** tab
 3. To modify an existing user group, click on it from the list of user groups
-
    * Members can be added by selecting the **Members** tab and selecting *Add Members* under the **Actions** pull-down
    * Members can be removed from the user group by clicking on the **Trash** icon beside the member name
-4. To create a new user group, click on the *Create User Group* button
+4. To create a new user group, from the **User Groups** tab, click on the *Create User Group* button
 5. Enter a user group name and description
 6. Once the user group has been created it may be modified using the instructions above
 
 ## Creating and Modifying Spaces
 
-1. Access the Identity & Access Service within the **wrench** icon.
+1. Access the Management Service within the **wrench** icon.
 2. Select the **Spaces** tab
 3. To modify an existing space, click on it from the list of spaces
 
