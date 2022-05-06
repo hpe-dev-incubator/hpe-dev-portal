@@ -11,7 +11,7 @@ tags:
 ---
 ## CHIUW 2022
 
-### The 9th annual Chapel Implementers and Users Workshop
+### The 9th Annual Chapel Implementers and Users Workshop
 
 June 09-10, 2022
 
