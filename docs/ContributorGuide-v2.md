@@ -332,7 +332,7 @@ To do so, proceed as follows:
 
      >Note: Click **UNSAVED CHANGES** to exit the CMS editor without saving your changes. Click **Delete unpublished entry** to delete the event entry.
 
-5.  When Saved, click on **Writing in Blog collection, CHANGES SAVED** to exit the CMS editor and return to the **Contents** section.
+5.  When Saved, click on **Writing in Events collection, CHANGES SAVED** to exit the CMS editor and return to the **Contents** section.
 
 6.  From the top menu bar, select **Workflow** to navigate to the **Editorial Workflow** section.
     Your new event entry is now visible in the **Drafts** column of the **Editorial Workflow**.
@@ -550,20 +550,19 @@ If appropriate, use a tag to tie your blog post to a "platform" page on HPE DEV 
 
   | **Platform name**                  |   **Associated tag**    |
   | ---------------------------------- | ----------------------- |
-  | **HPE Ezmeral** | hpe-ezmeral     |
+  | **HPE Ezmeral**                    | hpe-ezmeral     |
   | **HPE Ezmeral Data Fabric**        | hpe-ezmeral-data-fabric |
   | **HPE GreenLake**                  | hpe-greenlake |
   | **Spiffe and Spire**               | spiffe-and-spire-projects |
   | **Chapel**                         | chapel |
   | **Determined AI**                  | determined-ai |
   | **Grommet**                        | grommet |
-  | **HPE Deep Learning Cookbook**     | hpe-deep-learning-cookbook |
   | **Aruba Developer Hub**            | aruba |
   | **HPE 3PAR and Primera**           | hpe-3par-and-primera |
   | **HPE Nimble Storage**             | hpe-nimble-storage |
   | **HPE OneView**                    | hpe-oneview |
   | **HPE OneView Global Dashboard**   | hpe-oneview-global-dashboard |
-  |**HPE SimpliVity**                  | hpe-simplivity |
+  | **HPE SimpliVity**                 | hpe-simplivity |
   | **iLORESTful API**                 | ilo-restful-api |
   | **HPE Alletra**                    | hpe-alletra |
   | **SmartSim**                       | smartsim    |
