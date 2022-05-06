@@ -15,4 +15,4 @@ tags:
 
 June 09-10, 2022
 
-CHIUW 2022 is the 9th annual Chapel Implementers and Users Workshop, which serves as a forum where users and developers of the Chapel programming language (chapel-lang.org) can meet to report on work being done with Chapel, exchange ideas, forge new collaborations, and engage in interactive coding activities. Anyone interested in parallel programming and Chapel is encouraged to attend CHIUW, from long-term enthusiasts to those simply curious to learn more. This year's CHIUW will be online and there will be no registration fees.
+CHIUW 2022 is the 9th annual Chapel Implementers and Users Workshop, which serves as a forum where users and developers of the Chapel programming language (chapel-lang.org) can meet to report on work being done with Chapel, exchange ideas, forge new collaborations, and engage in coding activities. Anyone interested in parallel programming and Chapel is encouraged to attend CHIUW, from long-term enthusiasts to those simply curious to learn more. This year's CHIUW will be online and there will be no registration fees.
