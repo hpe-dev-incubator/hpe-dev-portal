@@ -238,7 +238,7 @@ curl -X 'POST' \
   -d '"<userPassword>"'
 ```
 
-> Note: The open-source version of Determined does not provide user access control features in case you have multiple data science teams (i.e.: multiple tenants). Open-source Determined uses a local user directory as a convenient method to show the entity created by the logged in users. However, the open-source version makes any entity (experiments, tasks) visible to all users, regardless of who created it. This can be a challenge for enterprises that need to keep strong model governance for audit purposes. The enterprise version of the open-source Determined product, [HPE Cray AI Development Environment](https://www.hpe.com/us/en/compute/hpc/cray-ai-development.html) addresses this limitation.
+> Note: The open-source version of Determined does not provide user access control features in case you have multiple data science teams (i.e.: multiple tenants). Open-source Determined uses a local user directory as a convenient method to show the entity created by the logged in users. However, the open-source version makes any entity (experiments, tasks) visible to all users, regardless of who created it. This can be a challenge for enterprises that need to keep strong model governance for audit purposes. The enterprise version of the open-source Determined product, [HPE Machine Learning Development Environment](https://www.hpe.com/us/en/solutions/artificial-intelligence/machine-learning-development-environment.html) addresses this limitation.
 
 ## Checking connectivity to the WebUI using the newly created user account
 
