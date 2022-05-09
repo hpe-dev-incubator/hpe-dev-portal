@@ -38,7 +38,7 @@ Users can be granted access to multiple spaces.
 
 ## Roles
 
-Roles are a named set of permissions used to access resources. They are assigned to users, user groups or API clients to grant them permissions for a specific set of resources on a space.
+Roles are a named set of permissions used to access resources. They are assigned to users, user groups or API clients. Roles grant permissions for a specific set of resources in a space.
 
 Roles are available for the services that are available within the tenant. The following table is incomplete but lists the most common roles and definitions.
 
