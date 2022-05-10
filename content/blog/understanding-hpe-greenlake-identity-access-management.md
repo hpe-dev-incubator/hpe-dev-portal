@@ -131,9 +131,9 @@ The invited user receives an email inviting them to join the tenant. Once the us
       * Resources can be added and removed from the space by selecting the **Resources** tab and selecting *Update Resources* under the **Actions** pull-down
 
 4. To create a new space, click on the **Create Space** button
+   * Enter a space name and parent space   
+   * Select **Resources** by expanding the **All Resources** list   
 
-   * Enter a space name and parent space
-   * Select **Resources** by expanding the **All Resources** list
 
 # Let's Explore Some Fictitious Customer Examples
 
@@ -326,4 +326,4 @@ A space '**Main Space**' is created within the IAM service of this tenant and re
 
 As you can see, the key to configuring Identity and Access Management in a tenant is to understand the building blocks and how to make informed decisions on how to design IAM resources to match customer requirements. I hope these examples will help you to see how the flexibility of HPE GreenLake Central Identity and Access Management allows an almost infinite number of possible configurations, giving the flexibility to match diverse customer requirements. 
 
-Please feel free to reach out directly to me on the HPE Developer Slack Workspace ([](https://slack.hpedev.io/)[](https://slack.hpedev.io/)<https://slack.hpedev.io/>) in the #hpe-greenlake channel.
+Please feel free to reach out directly to me on the [HPE Developer Slack Workspace](https://slack.hpedev.io/) in the [#hpe-greenlake](https://hpedev.slack.com/archives/C02EG5XFK8Q) channel.
