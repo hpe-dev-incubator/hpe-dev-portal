@@ -18,7 +18,7 @@ There are several ways to set up credentials to run containers from image regist
 
 
 
-$ k create secret docker-registry cfe-registry-key --docker-server=https://registry-1.docker.io/v2 --docker-username=caasgl --docker-password=b7624c08-62f7-4bb5-a5ec-f035ec6c4f5c --docker-email=guoping.jia@hpe.com
+$ k create secret docker-registry cfe-registry-key --docker-server=https://registry-1.docker.io/v2 --docker-username=<user> --docker-password=<password> --docker-email=guoping.jia@hpe.com
 
 $ k get secrets cfe-registry-key 
 NAME               TYPE                             DATA   AGE
