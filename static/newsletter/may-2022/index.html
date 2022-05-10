@@ -1,0 +1,2898 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <title>HPE Developer Newsletter</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style type="text/css">
+      @font-face {
+        font-family: 'Metric';
+        src: local('MetricHPE Regular'),
+          url('https://hpefonts.s3.amazonaws.com/web/MetricHPE-Web-Regular.woff')
+            format('woff');
+        mso-font-alt: 'Arial';
+      }
+
+      @font-face {
+        font-family: 'Metric';
+        src: local('MetricHPE Bold'),
+          url('https://hpefonts.s3.amazonaws.com/web/MetricHPE-Web-Bold.woff')
+            format('woff');
+        font-weight: 700;
+      }
+
+      @font-face {
+        font-family: 'Metric';
+        src: local('MetricHPE Light'),
+          url('https://hpefonts.s3.amazonaws.com/web/MetricHPE-Web-Light.woff')
+            format('woff');
+        font-weight: 100;
+      }
+
+      body {
+        font-family: 'Metric', arial, Helvetica, sans-serif;
+      }
+    </style>
+  </head>
+
+  <body
+    style="
+      min-width: 640px;
+      margin: 0 0 0 0;
+      -webkit-font-smoothing: antialiased;
+    "
+    bgcolor="#ffffff"
+    link="#003366"
+    vlink="#003366"
+    alink="#003366"
+    text="#000000"
+  >
+    <table
+      width="100%"
+      border="0"
+      align="center"
+      cellpadding="0"
+      cellspacing="0"
+      bgcolor="#f6f6f6"
+    >
+      <tr>
+        <td bgcolor="#f6f6f6">
+          <table
+            width="640"
+            style="min-width: 640px"
+            cellspacing="0"
+            cellpadding="0"
+            border="0"
+            align="center"
+          >
+            <tbody>
+              <tr>
+                <td>
+                  <!-- Insert email preview text here -->
+                  <div style="display: none; max-height: 0px; overflow: hidden">
+                    Let’s Hack Shack!
+                  </div>
+                  <!-- Insert &zwnj;&nbsp; hack after hidden preview text -->
+                  <div style="display: none; max-height: 0px; overflow: hidden">
+                    &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td bgcolor="#ffffff">
+                  <table
+                    width="640"
+                    bgcolor="#ffffff"
+                    cellspacing="0"
+                    cellpadding="0"
+                    border="0"
+                    align="center"
+                  >
+                    <tbody>
+                      <tr>
+                        <td
+                          width="600"
+                          height="10"
+                          bgcolor="#ffffff"
+                          style="line-height: 0px; font-size: 0px"
+                        ></td>
+                      </tr>
+                      <tr>
+                        <td
+                          width="640"
+                          height="64"
+                          style="line-height: 0px; font-size: 0px"
+                        ></td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <table
+                            style="width: 640px"
+                            border="0"
+                            cellspacing="0"
+                            cellpadding="0"
+                            align="center"
+                          >
+                            <tbody>
+                              <tr>
+                                <td
+                                  style="
+                                    line-height: 0px;
+                                    font-size: 0px;
+                                    width: 77px;
+                                  "
+                                >
+                                  &nbsp;
+                                </td>
+                                <td style="width: 85px">
+                                  <a
+                                    href="https://developer.hpe.com/"
+                                    target="_blank"
+                                    rel="noopener"
+                                  >
+                                    <img
+                                      style="
+                                        display: block;
+                                        border: 0;
+                                        max-width: 85px;
+                                        max-height: 95px;
+                                      "
+                                      src="https://marketing-image-production.s3.amazonaws.com/uploads/67689bafdc4d124d8cc56ad9d0ab48af6c5d3dd9d78bd3cad9ab3404eaeab3e8de2110670ffe4681d85dbb653b2aea4157c163d3754517bdc1d9276633c678d2.png"
+                                      alt="HPE Developer"
+                                      width="85"
+                                      height="95"
+                                      border="0"
+                                    />
+                                  </a>
+                                </td>
+                                <td
+                                  style="width: 318px"
+                                  align="right"
+                                  valign="top"
+                                >
+                                  <span
+                                    style="
+                                      font-family: Metric, arial, Helvetica,
+                                        sans-serif;
+                                      color: #000000;
+                                      font-size: 14px;
+                                    "
+                                  >
+                                    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                                  </span>
+                                  <span
+                                    style="
+                                      font-family: Metric, arial, Helvetica,
+                                        sans-serif;
+                                      font-size: 16px;
+                                      color: #999999;
+                                      text-decoration: none;
+                                    "
+                                  >
+                                    Monthly #62
+                                  </span>
+                                </td>
+                                <td
+                                  style="
+                                    line-height: 0px;
+                                    font-size: 0px;
+                                    width: 78px;
+                                  "
+                                >
+                                  &nbsp;
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td
+                          width="600"
+                          height="10"
+                          bgcolor="#ffffff"
+                          style="line-height: 0px; font-size: 0px"
+                        ></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <table
+            bgcolor="#ffffff"
+            width="640"
+            cellspacing="0"
+            cellpadding="0"
+            border="0"
+            align="center"
+          >
+            <tbody>
+              <tr>
+                <td bgcolor="#ffffff">
+                  <table
+                    width="640"
+                    bgcolor="#ffffff"
+                    cellspacing="0"
+                    cellpadding="0"
+                    border="0"
+                    align="center"
+                  >
+                    <tbody>
+                      <tr>
+                        <td
+                          width="85"
+                          style="line-height: 0px; font-size: 0px"
+                        ></td>
+                        <td>
+                          <table
+                            width="100%"
+                            cellspacing="0"
+                            cellpadding="0"
+                            border="0"
+                            align="center"
+                          >
+                            <tbody>
+                              <tr>
+                                <td
+                                  width="560"
+                                  height="32"
+                                  style="line-height: 0px; font-size: 0px"
+                                ></td>
+                              </tr>
+                              <tr>
+                                <td align="left">
+                                  <span
+                                    style="
+                                      font-family: Metric, arial, Helvetica,
+                                        sans-serif;
+                                      font-size: 36px;
+                                      color: #333333;
+                                      text-decoration: none;
+                                      font-weight: bold;
+                                    "
+                                  >
+                                  Let’s Hack Shack!
+                                  </span>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td
+                                  width="560"
+                                  height="12"
+                                  style="line-height: 0px; font-size: 0px"
+                                ></td>
+                              </tr>
+                              <tr>
+                                <td align="left">
+                                  <span
+                                    style="
+                                      font-family: Metric, arial, Helvetica,
+                                        sans-serif, arial, Helvetica, Helvetica,
+                                        sans-serif;
+                                      font-size: 24px;
+                                      color: #555555;
+                                      line-height: 28px;
+                                      font-weight: 100;
+                                    "
+                                  >
+                                  After years of only being able to meet virtually, the HPE Developer Community team is excited to be able to bring the Hack Shack back next month – in person – at the 
+                                  <a
+                                  style="
+                                    color: #333333;
+                                    text-decoration: underline;
+                                    font-weight: 500;
+                                  "
+                                  href="https://www.hpe.com/us/en/discover.html"
+                                  target="_blank"
+                                >
+                                  <span
+                                    style="color: #333333; font-weight: 500"
+                                    >HPE Discover 2022 Edge-to-Cloud conference</span></a> in Las Vegas, June 28-20.  
+                                </span>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td
+                                  width="560"
+                                  height="12"
+                                  style="line-height: 0px; font-size: 0px"
+                                ></td>
+                              </tr>
+                              <tr>
+                                <td align="left">
+                                  <span
+                                    style="
+                                      font-family: Metric, arial, Helvetica,
+                                        sans-serif, arial, Helvetica, Helvetica,
+                                        sans-serif;
+                                      font-size: 24px;
+                                      color: #555555;
+                                      line-height: 28px;
+                                      font-weight: 100;
+                                    "
+                                  >
+                                  The team is gearing up, designing a whole bunch of new role-based challenges, branded swag, in-person meetup sessions, and more. In this month’s edition, get specifics on our newest challenges and a preview of what you’ll see in the Hack Shack! 
+                                  </span>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td
+                                  width="560"
+                                  height="12"
+                                  style="line-height: 0px; font-size: 0px"
+                                ></td>
+                              </tr>
+                              <tr>
+                                <td
+                                  width="560"
+                                  height="12"
+                                  style="line-height: 0px; font-size: 0px"
+                                ></td>
+                              </tr>
+                              <tr>
+                                <td align="left">
+                                  <span
+                                    style="
+                                      font-family: Metric, arial, Helvetica,
+                                        sans-serif, arial, Helvetica, Helvetica,
+                                        sans-serif;
+                                      font-size: 24px;
+                                      color: #555555;
+                                      line-height: 28px;
+                                      font-weight: 100;
+                                    "
+                                  >
+                                    <span style="font-weight: 500"
+                                      >The HPE Developer Community team</span
+                                    >
+                                  </span>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td
+                                  width="560"
+                                  height="12"
+                                  style="line-height: 0px; font-size: 0px"
+                                ></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </td>
+                        <td
+                          width="85"
+                          style="line-height: 0px; font-size: 0px"
+                        ></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td
+                  width="640"
+                  height="24"
+                  style="line-height: 0px; font-size: 0px"
+                ></td>
+              </tr>
+            </tbody>
+          </table>
+          <table
+            bgcolor="#ffffff"
+            width="640"
+            cellspacing="0"
+            cellpadding="0"
+            border="0"
+            align="center"
+          >
+            <tbody>
+              <tr>
+                <td>
+                  <table
+                    width="640"
+                    cellspacing="0"
+                    cellpadding="0"
+                    border="0"
+                    align="center"
+                    height="4"
+                  >
+                    <tbody>
+                      <tr>
+                        <td
+                          width="85"
+                          style="line-height: 0px; font-size: 0px"
+                        ></td>
+                        <td
+                          style="padding: 0px 0px 4px 0px"
+                          bgcolor="#7630EA"
+                        ></td>
+                        <td
+                          width="85"
+                          style="line-height: 0px; font-size: 0px"
+                        ></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td
+                  width="640"
+                  height="18"
+                  style="line-height: 0px; font-size: 0px"
+                ></td>
+              </tr>
+              <tr>
+                <td>
+                  <table
+                    width="640"
+                    cellspacing="0"
+                    cellpadding="0"
+                    border="0"
+                    align="center"
+                  >
+                    <tbody>
+                      <tr>
+                        <td
+                          width="85"
+                          style="line-height: 0px; font-size: 0px"
+                        ></td>
+                        <td width="425" align="left">
+                          <span
+                            style="
+                              font-family: Metric, arial, Helvetica, sans-serif;
+                              font-size: 16px;
+                              color: #999999;
+                              text-decoration: none;
+                            "
+                          >
+                            Featured
+                          </span>
+                        </td>
+                        <td width="45"></td>
+                        <td
+                          width="85"
+                          style="line-height: 0px; font-size: 0px"
+                        ></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <table
+            width="640"
+            cellspacing="0"
+            cellpadding="0"
+            border="0"
+            align="center"
+          >
+            <tbody>
+              <tr>
+                <td bgcolor="#ffffff">
+                  <table
+                    width="640"
+                    bgcolor="#ffffff"
+                    cellspacing="0"
+                    cellpadding="0"
+                    border="0"
+                    align="center"
+                  >
+                    <tbody>
+                      <tr>
+                        <td
+                          width="85"
+                          style="line-height: 0px; font-size: 0px"
+                        ></td>
+                        <td>
+                          <table
+                            width="100%"
+                            cellspacing="0"
+                            cellpadding="0"
+                            border="0"
+                            align="center"
+                          >
+                            <tbody>
+                              <tr>
+                                <td
+                                  height="24"
+                                  style="line-height: 0px; font-size: 0px"
+                                ></td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  <table
+                                    width="100%"
+                                    cellspacing="0"
+                                    cellpadding="0"
+                                    border="0"
+                                    align="left"
+                                  >
+                                    <tbody>
+                                      <tr>
+                                        <td valign="top">
+                                          <table
+                                            width="50%"
+                                            cellspacing="0"
+                                            cellpadding="0"
+                                            border="0"
+                                            align="left"
+                                          >
+                                            <tbody>
+                                              <tr>
+                                                <td>
+                                                  <img
+                                                    src="https://legacy-image-prod.s3.amazonaws.com/uploads/cddcb27179263584e89b98f6e420f5308c2bf2dd3c6bb5d12d531ba7bf605415cfe5c1cd3a84a1941995c6499b8c06158ff47e15f01f9853e695dc24232b1749.jpg"
+                                                    width="224"
+                                                    height="172"
+                                                    alt="Deep Learning Model Training –Part 1"
+                                                    border="0"
+                                                    style="
+                                                      display: block;
+                                                      border: 0;
+                                                      max-width: 224px;
+                                                      max-height: 172px;
+                                                      border-radius: 12px;
+                                                    "
+                                                  />
+                                                </td>
+                                              </tr>
+                                              <tr>
+                                                <td
+                                                  height="12"
+                                                  style="
+                                                    line-height: 0px;
+                                                    font-size: 0px;
+                                                  "
+                                                ></td>
+                                              </tr>
+                                              <tr>
+                                                <td>
+                                                  <span
+                                                    style="
+                                                      font-family: Metric, arial,
+                                                        Helvetica, sans-serif;
+                                                      font-size: 24px;
+                                                      font-weight: bold;
+                                                      color: #333333;
+                                                    "
+                                                  >
+                                                    <a
+                                                      style="
+                                                        color: #333333;
+                                                        text-decoration: underline;
+                                                      "
+                                                      href="https://developer.hpe.com/blog/deep-learning-model-training-%E2%80%93-a-first-time-user%E2%80%99s-experience-with-determined-part-1/"
+                                                      target="_blank"
+                                                    >
+                                                      <span
+                                                        style="
+                                                          color: #333333;
+                                                          font-weight: bold;
+                                                        "
+                                                        >Deep Learning Model Training –Part 1</span></a>
+                                                  </span>
+                                                </td>
+                                              </tr>
+                                              <tr>
+                                                <td
+                                                  height="12"
+                                                  style="
+                                                    line-height: 0px;
+                                                    font-size: 0px;
+                                                  "
+                                                ></td>
+                                              </tr>
+                                              <tr>
+                                                <td>
+                                                  <span
+                                                    style="
+                                                      font-family: Metric, arial,
+                                                        Helvetica, sans-serif;
+                                                      font-size: 18px;
+                                                      line-height: 22px;
+                                                      color: #555555;
+                                                    "
+                                                  >
+                                                  The Hack Shack ML Engineer role-based challenge focuses on deep learning model training with Determined. Get a head-start and learn more about Determined now.
+                                                  </span>
+                                                </td>
+                                              </tr>
+                                            </tbody>
+                                          </table>
+                                        </td>
+                                        <td valign="top">
+                                          <table
+                                            width="50%"
+                                            cellspacing="0"
+                                            cellpadding="0"
+                                            border="0"
+                                            align="right"
+                                          >
+                                            <tbody>
+                                              <tr>
+                                                <td>
+                                                  <img
+                                                    src="https://legacy-image-prod.s3.amazonaws.com/uploads/7bf36ca0b133762c7bc0e0935e2c03f19bc727b59362dbe7ba3dafbf198ef31b90a7b375fda857e3bfc762295578af21660e0246171713e927fa6a170ff4bcbd.jpg"
+                                                    width="224"
+                                                    height="172"
+                                                    alt="Infrastructure-as-Code Using Terraform Part1"
+                                                    border="0"
+                                                    style="
+                                                      display: block;
+                                                      border: 0;
+                                                      max-width: 224px;
+                                                      max-height: 172px;
+                                                      border-radius: 12px;
+                                                    "
+                                                  />
+                                                </td>
+                                              </tr>
+                                              <tr>
+                                                <td
+                                                  height="12"
+                                                  style="
+                                                    line-height: 0px;
+                                                    font-size: 0px;
+                                                  "
+                                                ></td>
+                                              </tr>
+                                              <tr>
+                                                <td>
+                                                  <span
+                                                    style="
+                                                      font-family: Metric, arial,
+                                                        Helvetica, sans-serif;
+                                                      font-size: 24px;
+                                                      font-weight: bold;
+                                                      color: #333333;
+                                                    "
+                                                  >
+                                                    <a
+                                                      style="
+                                                        color: #333333;
+                                                        text-decoration: underline;
+                                                      "
+                                                      href="https://developer.hpe.com/blog/infrastructure-as-code-on-hpe-greenlake-using-terraform/"
+                                                      target="_blank"
+                                                    >
+                                                      <span
+                                                        style="
+                                                          color: #333333;
+                                                          font-weight: bold;
+                                                        "
+                                                        >Infrastructure-as-Code Using Terraform - Part 1</span></a>
+                                                  </span>
+                                                </td>
+                                              </tr>
+                                              <tr>
+                                                <td
+                                                  height="12"
+                                                  style="
+                                                    line-height: 0px;
+                                                    font-size: 0px;
+                                                  "
+                                                ></td>
+                                              </tr>
+                                              <tr>
+                                                <td>
+                                                  <span
+                                                    style="
+                                                      font-family: Metric, arial,
+                                                        Helvetica, sans-serif;
+                                                      font-size: 18px;
+                                                      line-height: 22px;
+                                                      color: #555555;
+                                                    "
+                                                  >
+                                                  The Hack Shack Cloud Architect role-based challenge has you deploy a VM in HPE GreenLake using Terraform. Find clues in this blog post to help you out.
+                                                  </span>
+                                                </td>
+                                              </tr>
+                                            </tbody>
+                                          </table>
+                                        </td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td
+                                  height="48"
+                                  style="line-height: 0px; font-size: 0px"
+                                ></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </td>
+                        <td
+                          width="85"
+                          style="line-height: 0px; font-size: 0px"
+                        ></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <table
+            bgcolor="#ffffff"
+            width="640"
+            cellspacing="0"
+            cellpadding="0"
+            border="0"
+            align="center"
+          >
+            <tbody>
+              <tr>
+                <td>
+                  <table
+                    width="640"
+                    cellspacing="0"
+                    cellpadding="0"
+                    border="0"
+                    align="center"
+                  >
+                    <tbody>
+                      <tr>
+                        <td
+                          width="85"
+                          style="line-height: 0px; font-size: 0px"
+                        ></td>
+                        <td
+                          style="padding: 0px 0px 4px 0px"
+                          bgcolor="#33DAC8"
+                        ></td>
+                        <td
+                          width="85"
+                          style="line-height: 0px; font-size: 0px"
+                        ></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td
+                  width="640"
+                  height="18"
+                  style="line-height: 0px; font-size: 0px"
+                ></td>
+              </tr>
+              <tr>
+                <td>
+                  <table
+                    width="640"
+                    cellspacing="0"
+                    cellpadding="0"
+                    border="0"
+                    align="center"
+                  >
+                    <tbody>
+                      <tr>
+                        <td
+                          width="85"
+                          style="line-height: 0px; font-size: 0px"
+                        ></td>
+                        <td width="425" align="left">
+                          <span
+                            style="
+                              font-family: Metric, arial, Helvetica, sans-serif;
+                              font-size: 16px;
+                              color: #999999;
+                              text-decoration: none;
+                            "
+                          >
+                            Community
+                          </span>
+                        </td>
+                        <td width="45"></td>
+                        <td
+                          width="85"
+                          style="line-height: 0px; font-size: 0px"
+                        ></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <table
+            width="640"
+            cellspacing="0"
+            cellpadding="0"
+            border="0"
+            align="center"
+          >
+            <tbody>
+              <tr>
+                <td bgcolor="#ffffff">
+                  <table
+                    width="640"
+                    bgcolor="#ffffff"
+                    cellspacing="0"
+                    cellpadding="0"
+                    border="0"
+                    align="center"
+                  >
+                    <tbody>
+                      <tr>
+                        <td
+                          width="85"
+                          style="line-height: 0px; font-size: 0px"
+                        ></td>
+                        <td>
+                          <table
+                            width="100%"
+                            cellspacing="0"
+                            cellpadding="0"
+                            border="0"
+                            align="center"
+                          >
+                            <tbody>
+                              <tr>
+                                <td
+                                  height="24"
+                                  style="line-height: 0px; font-size: 0px"
+                                ></td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  <table
+                                    width="100%"
+                                    cellspacing="0"
+                                    cellpadding="0"
+                                    border="0"
+                                    align="left"
+                                  >
+                                    <tbody>
+                                      <tr>
+                                        <td>
+                                          <span
+                                            style="
+                                              font-family: Metric, arial,
+                                                Helvetica, sans-serif;
+                                              font-size: 24px;
+                                              font-weight: bold;
+                                              color: #333333;
+                                            "
+                                          >
+                                          <a
+                                                  style="
+                                                    color: #333333;
+                                                    text-decoration: underline;
+                                                  "
+                                                  href="https://developer.hpe.com/blog/it%E2%80%99s-all-fun-and-games-at-the-hack-shack/"
+                                                  target="_blank"
+                                                >
+                                                      <span
+                                                        style="
+                                                          color: #333333;
+                                                          font-weight: bold;
+                                                        "
+                                                        >It’s All Fun and Games at the Hack Shack!</span></a>
+                                          </span>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td
+                                          height="12"
+                                          style="
+                                            line-height: 0px;
+                                            font-size: 0px;
+                                          "
+                                        ></td>
+                                      </tr>
+                                      <tr>
+                                        <td>
+                                          <span
+                                            style="
+                                              font-family: Metric, arial,
+                                                Helvetica, sans-serif;
+                                              font-size: 18px;
+                                              line-height: 22px;
+                                              color: #555555;
+                                            "
+                                          >
+                                          The HPE Developer Community once again welcomes developers, data scientists, and software technologists to the Hack Shack in June at HPE Discover 2022. In this post, get the details on the new software challenges we’ve developed just for this event, as well as a peek at other gaming opportunities you’ll find there.
+                                        </td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td
+                                  height="24"
+                                  style="line-height: 0px; font-size: 0px"
+                                ></td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  <table
+                                    width="100%"
+                                    cellspacing="0"
+                                    cellpadding="0"
+                                    border="0"
+                                    align="left"
+                                  >
+                                    <tbody>
+                                      <tr>
+                                        <td valign="top">
+                                          <table
+                                            width="100%"
+                                            cellspacing="0"
+                                            cellpadding="0"
+                                            border="0"
+                                            align="left"
+                                          >
+                                            <tbody>
+                                              <tr>
+                                                <td>
+                                                  <span
+                                                  style="
+                                                  font-family: Metric, arial,
+                                                    Helvetica, sans-serif;
+                                                  font-size: 24px;
+                                                  font-weight: bold;
+                                                  color: #333333;
+                                                "
+                                                  >
+                                                  <a
+                                                  style="
+                                                    color: #333333;
+                                                    text-decoration: underline;
+                                                  "
+                                                  href="https://developer.hpe.com/blog/kubecon-cloudnativecon-europe-16-20-may-2022/"
+                                                  target="_blank"
+                                                >
+                                                      <span
+                                                        style="
+                                                          color: #333333;
+                                                          font-weight: bold;
+                                                        "
+                                                        >Meet the Team at KubeCon + CloudNativeCon, Europe: 16-20 May 2022</span></a>
+                                                  </span>
+                                                </td>
+                                              </tr>
+                                              <tr>
+                                                <td
+                                                  height="12"
+                                                  style="
+                                                    line-height: 0px;
+                                                    font-size: 0px;
+                                                  "
+                                                ></td>
+                                              </tr>
+                                              <tr>
+                                                <td>
+                                                  <span
+                                                    style="
+                                                      font-family: Metric, arial,
+                                                        Helvetica, sans-serif;
+                                                      font-size: 18px;
+                                                      line-height: 22px;
+                                                      color: #555555;
+                                                    "
+                                                  >
+                                                  Meet members of the HPE Developer Community at Cloud Native Computing Foundation’s flagship conference in Valencia, Spain. Learn about our session on the SPIRE project and what else you’ll find in the HPE booth here. 
+                                                  </span>
+                                                </td>
+                                              </tr>
+                                            </tbody>
+                                          </table>
+                                        </td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td
+                                  height="24"
+                                  style="line-height: 0px; font-size: 0px"
+                                ></td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  <table
+                                    width="100%"
+                                    cellspacing="0"
+                                    cellpadding="0"
+                                    border="0"
+                                    align="left"
+                                  >
+                                    <tbody>
+                                      <tr>
+                                        <td valign="top">
+                                          <table
+                                            width="100%"
+                                            cellspacing="0"
+                                            cellpadding="0"
+                                            border="0"
+                                            align="left"
+                                          >
+                                            <tbody>
+                                              <tr>
+                                                <td>
+                                                  <span
+                                                  style="
+                                                  font-family: Metric, arial,
+                                                    Helvetica, sans-serif;
+                                                  font-size: 24px;
+                                                  font-weight: bold;
+                                                  color: #333333;
+                                                "
+                                                  >
+                                                    <a
+                                                      style="
+                                                        color: #333333;
+                                                        text-decoration: underline;
+                                                      "
+                                                      href="https://community.hpe.com/t5/HPE-Ezmeral-Uncut/HPE-Ezmeral-Learn-On-Demand-Distributed-Data-Essentials-and/ba-p/7164260#.Yl1ug-jMI2y"
+                                                      target="_blank"
+                                                    >
+                                                      <span
+                                                        style="
+                                                          color: #333333;
+                                                          font-weight: bold;
+                                                        "
+                                                        >Five New HPE Ezmeral Courses Now Available</span></a>
+                                                  </span>
+                                                </td>
+                                              </tr>
+                                              <tr>
+                                                <td
+                                                  height="12"
+                                                  style="
+                                                    line-height: 0px;
+                                                    font-size: 0px;
+                                                  "
+                                                ></td>
+                                              </tr>
+                                              <tr>
+                                                <td>
+                                                  <span
+                                                    style="
+                                                      font-family: Metric, arial,
+                                                        Helvetica, sans-serif;
+                                                      font-size: 18px;
+                                                      line-height: 22px;
+                                                      color: #555555;
+                                                    "
+                                                  >
+                                                  Keep your skills up to date with new training focused on distributed data and Apache Spark. Learn more about these HPE Ezmeral Learn On-Demand courses in this post.
+                                                  </span>
+                                                </td>
+                                              </tr>
+                                            </tbody>
+                                          </table>
+                                        </td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </td>
+                              </tr>
+
+                              <tr>
+                                <td
+                                  height="24"
+                                  style="line-height: 0px; font-size: 0px"
+                                ></td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  <table
+                                    width="100%"
+                                    cellspacing="0"
+                                    cellpadding="0"
+                                    border="0"
+                                    align="left"
+                                  >
+                                    <tbody>
+                                      <tr>
+                                        <td valign="top">
+                                          <table
+                                            width="100%"
+                                            cellspacing="0"
+                                            cellpadding="0"
+                                            border="0"
+                                            align="left"
+                                          >
+                                            <tbody>
+                                              <tr>
+                                                <td>
+                                                  <span
+                                                  style="
+                                                  font-family: Metric, arial,
+                                                    Helvetica, sans-serif;
+                                                  font-size: 24px;
+                                                  font-weight: bold;
+                                                  color: #333333;
+                                                "
+                                                  >
+                                                  <a
+                                                  style="
+                                                    color: #333333;
+                                                    text-decoration: underline;
+                                                  "
+                                                  href="https://community.hpe.com/t5/HPE-Ezmeral-Uncut/Data-versioning-for-data-science-data-fabric-snapshots-improve/ba-p/7160792#.YnC_pvPMJTZ"
+                                                  target="_blank"
+                                                >
+                                                    <span
+                                                      style="
+                                                        color: #333333;
+                                                        font-weight: bold;
+                                                      "
+                                                      >Data Versioning for Data Science: Data Fabric Snapshots Improve Data and Model Management</span></a>
+                                                  </span>
+                                                </td>
+                                              </tr>
+                                              <tr>
+                                                <td
+                                                  height="12"
+                                                  style="
+                                                    line-height: 0px;
+                                                    font-size: 0px;
+                                                  "
+                                                ></td>
+                                              </tr>
+                                              <tr>
+                                                <td>
+                                                  <span
+                                                    style="
+                                                      font-family: Metric, arial,
+                                                        Helvetica, sans-serif;
+                                                      font-size: 18px;
+                                                      line-height: 22px;
+                                                      color: #555555;
+                                                    "
+                                                  >
+                                                  What happens when you need the exact same training data used to train a particular model at one point in time – and you need to identify it among hundreds of model’s you’ve stored? Data fabric snapshots to the rescue!
+                                                  </span>
+                                                </td>
+                                              </tr>
+                                            </tbody>
+                                          </table>
+                                        </td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td
+                                  height="24"
+                                  style="line-height: 0px; font-size: 0px"
+                                ></td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  <table
+                                    width="100%"
+                                    cellspacing="0"
+                                    cellpadding="0"
+                                    border="0"
+                                    align="left"
+                                  >
+                                    <tbody>
+                                      <tr>
+                                        <td valign="top">
+                                          <table
+                                            width="100%"
+                                            cellspacing="0"
+                                            cellpadding="0"
+                                            border="0"
+                                            align="left"
+                                          >
+                                            <tbody>
+                                              <tr>
+                                                <td>
+                                                  <span
+                                                  style="
+                                                  font-family: Metric, arial,
+                                                    Helvetica, sans-serif;
+                                                  font-size: 24px;
+                                                  font-weight: bold;
+                                                  color: #333333;
+                                                "
+                                                  >
+                                                  <a
+                                                  style="
+                                                    color: #333333;
+                                                    text-decoration: underline;
+                                                  "
+                                                  href="https://developer.hpe.com/hackshack/workshops/"
+                                                  target="_blank"
+                                                >
+                                                    <span
+                                                      style="
+                                                        color: #333333;
+                                                        font-weight: bold;
+                                                      "
+                                                      >Prepare for Discover 2022 with Workshops-on-Demand!</span></a>
+                                                  </span>
+                                                </td>
+                                              </tr>
+                                              <tr>
+                                                <td
+                                                  height="12"
+                                                  style="
+                                                    line-height: 0px;
+                                                    font-size: 0px;
+                                                  "
+                                                ></td>
+                                              </tr>
+                                              <tr>
+                                                <td>
+                                                  <span
+                                                    style="
+                                                      font-family: Metric, arial,
+                                                        Helvetica, sans-serif;
+                                                      font-size: 18px;
+                                                      line-height: 22px;
+                                                      color: #555555;
+                                                    "
+                                                  >
+                                                  A lot of our Hack Shack challenges at HPE Discover 2022 are based on our popular hands-on workshops. Review them in our
+                                                  <a
+                                          style="
+                                            color: #555555;
+                                            text-decoration: underline;
+                                          "
+                                          href="https://developer.hpe.com/hackshack/workshops/"
+                                          target="_blank"
+                                        >
+                                          <span style="color: #333333"
+                                            >HPE Developer Workshops-on-Demand catalog</span></a> to sharpen your skills.
+                                            <ul>
+                                              <li>
+                                                <a
+                                                  style="
+                                                    color: #555555;
+                                                    text-decoration: underline;
+                                                  "
+                                                  href="https://developer.hpe.com/hackshack/workshop/15"
+                                                  target="_blank"
+                                                >
+                                                  <span style="color: #333333"
+                                                    >Introduction to Python programming </span></a>
+                                              </li>
+                                              <li>
+                                                <a
+                                                  style="
+                                                    color: #555555;
+                                                    text-decoration: underline;
+                                                  "
+                                                  href="https://developer.hpe.com/hackshack/workshop/31"
+                                                  target="_blank"
+                                                >
+                                                  <span style="color: #333333"
+                                                    >Ansible 101 - Introduction to Ansible Concepts </span></a>
+                                              </li>
+                                              <li>
+                                                <a
+                                                  style="
+                                                    color: #555555;
+                                                    text-decoration: underline;
+                                                  "
+                                                  href="https://developer.hpe.com/hackshack/workshop/27"
+                                                  target="_blank"
+                                                >
+                                                  <span style="color: #333333"
+                                                    >SPIFFE - SPIRE 101 – An introduction to SPIFFE server and SPIRE agent security concepts </span></a>
+                                              </li>
+                                              <li>
+                                                <a
+                                                  style="
+                                                    color: #555555;
+                                                    text-decoration: underline;
+                                                  "
+                                                  href="https://developer.hpe.com/hackshack/replays/32"
+                                                  target="_blank"
+                                                >
+                                                  <span style="color: #333333"
+                                                    >Creating a Zero Trust Model for Microservices Architectures with SPIRE and Envoy</span></a>
+                                              </li>
+                                            </ul>
+                                                  </span>
+                                                </td>
+                                              </tr>
+                                            </tbody>
+                                          </table>
+                                        </td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td
+                                  height="24"
+                                  style="line-height: 0px; font-size: 0px"
+                                ></td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  <table
+                                    width="100%"
+                                    cellspacing="0"
+                                    cellpadding="0"
+                                    border="0"
+                                    align="left"
+                                  >
+                                    <tbody>
+                                      <tr>
+                                        <td valign="top">
+                                          <table
+                                            width="100%"
+                                            cellspacing="0"
+                                            cellpadding="0"
+                                            border="0"
+                                            align="left"
+                                          >
+                                            <tbody>
+                                              <tr>
+                                                <td>
+                                                  <span
+                                                  style="
+                                                  font-family: Metric, arial,
+                                                    Helvetica, sans-serif;
+                                                  font-size: 24px;
+                                                  font-weight: bold;
+                                                  color: #333333;
+                                                "
+                                                  >
+                                                    <span
+                                                      style="
+                                                        color: #333333;
+                                                        font-weight: bold;
+                                                      "
+                                                      >Sign Up and Skill Up</span>
+                                                  </span>
+                                                </td>
+                                              </tr>
+                                              <tr>
+                                                <td
+                                                  height="12"
+                                                  style="
+                                                    line-height: 0px;
+                                                    font-size: 0px;
+                                                  "
+                                                ></td>
+                                              </tr>
+                                              <tr>
+                                                <td>
+                                                  <span
+                                                    style="
+                                                      font-family: Metric, arial,
+                                                        Helvetica, sans-serif;
+                                                      font-size: 18px;
+                                                      line-height: 22px;
+                                                      color: #555555;
+                                                    "
+                                                  >
+                                                  Register for our upcoming technology talks:
+                                                  <ul>
+                                                    <li>
+                                                      <a
+                                                        style="
+                                                          color: #555555;
+                                                          text-decoration: underline;
+                                                        "
+                                                        href="https://developer.hpe.com/campaign/munch-and-learn/"
+                                                        target="_blank"
+                                                      >
+                                                        <span style="color: #333333"
+                                                          >HPE Developer Munch & Learn calendar</span></a>
+                                                    </li>
+                                                    <li>
+                                                      <a
+                                                        style="
+                                                          color: #555555;
+                                                          text-decoration: underline;
+                                                        "
+                                                        href="https://developer.hpe.com/campaign/meetups/"
+                                                        target="_blank"
+                                                      >
+                                                        <span style="color: #333333"
+                                                          >HPE Developer Meetups calendar </span></a>
+                                                    </li>
+                                                  </ul>
+                                                  </span>
+                                                </td>
+                                              </tr>
+                                            </tbody>
+                                          </table>
+                                        </td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td
+                                  height="12"
+                                  style="line-height: 0px; font-size: 0px"
+                                ></td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  <table
+                                    width="100%"
+                                    cellspacing="0"
+                                    cellpadding="0"
+                                    border="0"
+                                    align="left"
+                                  >
+                                    <tbody>
+                                      <tr>
+                                        <td valign="top">
+                                          <table
+                                            width="100%"
+                                            cellspacing="0"
+                                            cellpadding="0"
+                                            border="0"
+                                            align="left"
+                                          >
+                                            <tbody>
+                                              <tr>
+                                                <td>
+                                                  <span
+                                                  style="
+                                                  font-family: Metric, arial,
+                                                    Helvetica, sans-serif;
+                                                  font-size: 24px;
+                                                  font-weight: bold;
+                                                  color: #333333;
+                                                "
+                                                  >
+                                                    <span
+                                                      style="
+                                                        color: #333333;
+                                                        font-weight: bold;
+                                                      "
+                                                      >
+                                                      <a
+                                                      style="
+                                                        color: #333333;
+                                                        text-decoration: underline;
+                                                      "
+                                                      href="https://www.youtube.com/playlist?list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF"
+                                                      target="_blank"
+                                                    >
+                                                      <span
+                                                        style="
+                                                          color: #333333;
+                                                          font-weight: bold;
+                                                        "
+                                                        >HPE Developer YouTube Channel</span></a></span
+                                                    >
+                                                  </span>
+                                                </td>
+                                              </tr>
+                                              <tr>
+                                                <td
+                                                  height="12"
+                                                  style="
+                                                    line-height: 0px;
+                                                    font-size: 0px;
+                                                  "
+                                                ></td>
+                                              </tr>
+                                              <tr>
+                                                <td>
+                                                  <span
+                                                    style="
+                                                      font-family: Metric, arial,
+                                                        Helvetica, sans-serif;
+                                                      font-size: 18px;
+                                                      line-height: 22px;
+                                                      color: #555555;
+                                                    "
+                                                  >
+                                                  Check out our newest videos: 
+                                                  <ul>
+                                                    <li> 
+                                                      <a
+                                                        style="
+                                                          color: #555555;
+                                                          text-decoration: underline;
+                                                        "
+                                                        href="https://www.youtube.com/watch?v=7Qk8T7_bevo&ab_channel=HPETechnology"
+                                                        target="_blank"
+                                                      >
+                                                        <span style="color: #333333"
+                                                          >Chapel: Making parallel computing as easy as Py(thon), from laptops to supercomputers</span></a> Munch & Learn
+                                                    </li>
+                                                    <li> 
+                                                      <a
+                                                        style="
+                                                          color: #555555;
+                                                          text-decoration: underline;
+                                                        "
+                                                        href="https://www.youtube.com/watch?v=_0XJnr8U0sU&feature=youtu.be"
+                                                        target="_blank"
+                                                      >
+                                                        <span style="color: #333333"
+                                                          >Decoupled policy enforcement with Open Policy Agent</span></a> April Meetup
+                                                    </li>
+                                                  </ul>Explore all our videos on our YouTube Channel.
+                                                  </span>
+                                                </td>
+                                              </tr>
+                                            </tbody>
+                                          </table>
+                                        </td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td
+                                  height="24"
+                                  style="line-height: 0px; font-size: 0px"
+                                ></td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  <table
+                                    width="100%"
+                                    cellspacing="0"
+                                    cellpadding="0"
+                                    border="0"
+                                    align="left"
+                                  >
+                                    <tbody>
+                                      <tr>
+                                        <td valign="top">
+                                          <table
+                                            width="100%"
+                                            cellspacing="0"
+                                            cellpadding="0"
+                                            border="0"
+                                            align="left"
+                                          >
+                                            <tbody>
+                                              <tr>
+                                                <td>
+                                                  <span
+                                                    style="
+                                                      font-family: Metric, arial,
+                                                        Helvetica, sans-serif;
+                                                      font-size: 24px;
+                                                      font-weight: bold;
+                                                      color: #333333;
+                                                    "
+                                                  >
+                                                    <a
+                                                      style="
+                                                        color: #333333;
+                                                        text-decoration: underline;
+                                                      "
+                                                      href="https://developer.hpe.com/blog/be-an-hpe-dev-blogger/"
+                                                      target="_blank"
+                                                    >
+                                                      <span
+                                                        style="
+                                                          color: #333333;
+                                                          font-weight: bold;
+                                                        "
+                                                        >Be a Blogger!</span
+                                                      ></a></span>
+                                                </td>
+                                              </tr>
+                                              <tr>
+                                                <td
+                                                  height="12"
+                                                  style="
+                                                    line-height: 0px;
+                                                    font-size: 0px;
+                                                  "
+                                                ></td>
+                                              </tr>
+                                              <tr>
+                                                <td>
+                                                  <span
+                                                    style="
+                                                      font-family: Metric, arial,
+                                                        Helvetica, sans-serif;
+                                                      font-size: 18px;
+                                                      line-height: 22px;
+                                                      color: #555555;
+                                                    "
+                                                  >
+                                                  Contribute to our blog. Learn how it’s done here.
+                                                  </span>
+                                                </td>
+                                              </tr>
+                                            </tbody>
+                                          </table>
+                                        </td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td
+                                  height="24"
+                                  style="line-height: 0px; font-size: 0px"
+                                ></td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  <table
+                                    width="100%"
+                                    cellspacing="0"
+                                    cellpadding="0"
+                                    border="0"
+                                    align="left"
+                                  >
+                                    <tbody>
+                                      <tr>
+                                        <td valign="top">
+                                          <table
+                                            width="100%"
+                                            cellspacing="0"
+                                            cellpadding="0"
+                                            border="0"
+                                            align="left"
+                                          >
+                                            <tbody>
+                                              <tr>
+                                                <td>
+                                                  <span
+                                                    style="
+                                                      font-family: Metric, arial,
+                                                        Helvetica, sans-serif;
+                                                      font-size: 24px;
+                                                      font-weight: bold;
+                                                      color: #333333;
+                                                    "
+                                                  >
+                                                    <a
+                                                      style="
+                                                        color: #333333;
+                                                        text-decoration: underline;
+                                                      "
+                                                      href="https://developer.hpe.com/newsletter-archive/"
+                                                      target="_blank"
+                                                    >
+                                                      <span
+                                                        style="
+                                                          color: #333333;
+                                                          font-weight: bold;
+                                                        "
+                                                        >HPE Developer Newsletter Archive</span
+                                                      ></a></span>
+                                                </td>
+                                              </tr>
+                                              <tr>
+                                                <td
+                                                  height="12"
+                                                  style="
+                                                    line-height: 0px;
+                                                    font-size: 0px;
+                                                  "
+                                                ></td>
+                                              </tr>
+                                              <tr>
+                                                <td>
+                                                  <span
+                                                    style="
+                                                      font-family: Metric, arial,
+                                                        Helvetica, sans-serif;
+                                                      font-size: 18px;
+                                                      line-height: 22px;
+                                                      color: #555555;
+                                                    "
+                                                  >
+                                                  Missed any of our previous newsletters? Don’t worry. You can always find them in our archive.
+                                                  </span>
+                                                </td>
+                                              </tr>
+                                            </tbody>
+                                          </table>
+                                        </td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td
+                                  height="48"
+                                  style="line-height: 0px; font-size: 0px"
+                                ></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </td>
+                        <td
+                          width="85"
+                          style="line-height: 0px; font-size: 0px"
+                        ></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <table
+            id="events"
+            bgcolor="#ffffff"
+            width="640"
+            cellspacing="0"
+            cellpadding="0"
+            border="0"
+            align="center"
+          >
+            <tbody>
+              <tr>
+                <td>
+                  <table
+                    width="640"
+                    cellspacing="0"
+                    cellpadding="0"
+                    border="0"
+                    align="center"
+                  >
+                    <tbody>
+                      <tr>
+                        <td
+                          width="85"
+                          style="line-height: 0px; font-size: 0px"
+                        ></td>
+                        <td
+                          style="padding: 0px 0px 4px 0px"
+                          bgcolor="#FF8300"
+                        ></td>
+                        <td
+                          width="85"
+                          style="line-height: 0px; font-size: 0px"
+                        ></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td
+                  width="640"
+                  height="18"
+                  style="line-height: 0px; font-size: 0px"
+                ></td>
+              </tr>
+              <tr>
+                <td>
+                  <table
+                    width="640"
+                    cellspacing="0"
+                    cellpadding="0"
+                    border="0"
+                    align="center"
+                  >
+                    <tbody>
+                      <tr>
+                        <td
+                          width="85"
+                          style="line-height: 0px; font-size: 0px"
+                        ></td>
+                        <td width="425" align="left">
+                          <span
+                            style="
+                              font-family: Metric, arial, Helvetica, sans-serif;
+                              font-size: 16px;
+                              color: #999999;
+                              text-decoration: none;
+                            "
+                          >
+                            Events
+                          </span>
+                        </td>
+                        <td width="45"></td>
+                        <td
+                          width="85"
+                          style="line-height: 0px; font-size: 0px"
+                        ></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <table
+            width="640"
+            cellspacing="0"
+            cellpadding="0"
+            border="0"
+            align="center"
+          >
+            <tbody>
+              <tr>
+                <td bgcolor="#ffffff">
+                  <table
+                    width="640"
+                    bgcolor="#ffffff"
+                    cellspacing="0"
+                    cellpadding="0"
+                    border="0"
+                    align="center"
+                  >
+                    <tbody>
+                      <tr>
+                        <td
+                          width="85"
+                          style="line-height: 0px; font-size: 0px"
+                        ></td>
+                        <td>
+                          <table
+                            width="100%"
+                            cellspacing="0"
+                            cellpadding="0"
+                            border="0"
+                            align="center"
+                          >
+                            <tbody>
+                              <tr>
+                                <td
+                                  height="24"
+                                  style="line-height: 0px; font-size: 0px"
+                                ></td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  <table
+                                    width="100%"
+                                    cellspacing="0"
+                                    cellpadding="0"
+                                    border="0"
+                                    align="left"
+                                  >
+                                    <tbody>
+                                      <tr>
+                                        <td valign="top">
+                                          <table
+                                            width="50%"
+                                            cellspacing="0"
+                                            cellpadding="0"
+                                            border="0"
+                                            align="left"
+                                          >
+                                            <tbody>
+                                              <tr>
+                                                <td>
+                                                  <img
+                                                    src="https://legacy-image-prod.s3.amazonaws.com/uploads/47ecba35f004fb14e5b30dcd64438e828ba914c7ace45b7026a9f3a0ef869fa84364ab89550bcb0b41b697b4730536ac70d1b7c7d3a26d88551d837c48833041.png"
+                                                    width="224"
+                                                    height="172"
+                                                    alt="HPE Developer Munch & Learn"
+                                                    border="0"
+                                                    style="
+                                                      display: block;
+                                                      border: 0;
+                                                      max-width: 224px;
+                                                      max-height: 172px;
+                                                      border-radius: 12px;
+                                                    "
+                                                  />
+                                                </td>
+                                              </tr>
+                                              <tr>
+                                                <td
+                                                  height="12"
+                                                  style="
+                                                    line-height: 0px;
+                                                    font-size: 0px;
+                                                  "
+                                                ></td>
+                                              </tr>
+                                              <tr>
+                                                <td align="center">
+                                                  <span
+                                                    style="
+                                                      font-family: Metric, arial,
+                                                        Helvetica, sans-serif;
+                                                      font-size: 24px;
+                                                      font-weight: bold;
+                                                      color: #333333;
+                                                    "
+                                                  >
+                                                    <a
+                                                      style="
+                                                        color: #333333;
+                                                        text-decoration: underline;
+                                                      "
+                                                      href="https://hpe.zoom.us/webinar/register/7116515095114/WN_L-HJRIRPQ0CQoIotnCiDJg"
+                                                      target="_blank"
+                                                    >
+                                                      <span
+                                                        style="
+                                                          color: #333333;
+                                                          font-weight: bold;
+                                                        "
+                                                        >Why Open Source is More than Software: The AgStack Example</span></a>
+                                                  </span>
+                                                </td>
+                                              </tr>
+                                              <tr>
+                                                <td align="center">
+                                                  <span
+                                                    style="
+                                                      font-family: Metric, arial,
+                                                        Helvetica, sans-serif;
+                                                      font-size: 18px;
+                                                      line-height: 22px;
+                                                      color: #555555;
+                                                      font-weight: bold;
+                                                    "
+                                                  >
+                                                  May 18, 2022 <br />5pm CET/ 8am PT
+                                                  </span>
+                                                </td>
+                                              </tr>
+                                              <tr>
+                                                <td
+                                                  height="12"
+                                                  style="
+                                                    line-height: 0px;
+                                                    font-size: 0px;
+                                                  "
+                                                ></td>
+                                              </tr>
+                                              <tr>
+                                                <td>
+                                                  <span
+                                                    style="
+                                                      font-family: Metric, arial,
+                                                        Helvetica, sans-serif;
+                                                      font-size: 18px;
+                                                      line-height: 22px;
+                                                      color: #555555;
+                                                    "
+                                                  >
+                                                  Learn about open services through the intriguing use case of Linux Foundation’s AgStack project. Hear from AgStack Founder, Sumer Johal, and HPE AgStack Developer, Ted Dunning, as they explore how open source enables services to benefit the world.
+                                                  </span>
+                                                </td>
+                                              </tr>
+                                            </tbody>
+                                          </table>
+                                        </td>
+                                        <td valign="top">
+                                          <table
+                                            width="50%"
+                                            cellspacing="0"
+                                            cellpadding="0"
+                                            border="0"
+                                            align="right"
+                                          >
+                                            <tbody>
+                                              <tr>
+                                                <td>
+                                                  <img
+                                                    src="https://legacy-image-prod.s3.amazonaws.com/uploads/06969a118fafb20e69be0cc03cc41535b86cd1424e3d38a736300cdfc4223aaca0537ef2c7e7ea79fde1368c71f5072e58d134ab0596477d3905f4ab4ce09f62.png"
+                                                    width="224"
+                                                    height="172"
+                                                    alt="HPE Developer Meetups"
+                                                    border="0"
+                                                    style="
+                                                      display: block;
+                                                      border: 0;
+                                                      max-width: 224px;
+                                                      max-height: 172px;
+                                                      border-radius: 12px;
+                                                    "
+                                                  />
+                                                </td>
+                                              </tr>
+                                              <tr>
+                                                <td
+                                                  height="12"
+                                                  style="
+                                                    line-height: 0px;
+                                                    font-size: 0px;
+                                                  "
+                                                ></td>
+                                              </tr>
+                                              <tr>
+                                                <td align="center">
+                                                  <span
+                                                    style="
+                                                      font-family: Metric, arial,
+                                                        Helvetica, sans-serif;
+                                                      font-size: 24px;
+                                                      font-weight: bold;
+                                                      color: #333333;
+                                                    "
+                                                  >
+                                                    <a
+                                                      style="
+                                                        color: #333333;
+                                                        text-decoration: underline;
+                                                      "
+                                                      href="https://hpe.zoom.us/webinar/register/3816500120912/WN_Tn1YIhepT2SbuendAF2K-w"
+                                                      target="_blank"
+                                                    >
+                                                      <span
+                                                        style="
+                                                          color: #333333;
+                                                          font-weight: bold;
+                                                        "
+                                                        >Scaling Language Training to Trillion-parameter Models on a GPU Cluster</span></a>
+                                                  </span>
+                                                </td>
+                                              </tr>
+                                              <tr>
+                                                <td align="center">
+                                                  <span
+                                                    style="
+                                                      font-family: Metric, arial,
+                                                        Helvetica, sans-serif;
+                                                      font-size: 18px;
+                                                      line-height: 22px;
+                                                      color: #555555;
+                                                      font-weight: bold;
+                                                    "
+                                                  >
+                                                  May 25, 2022 <br />
+                                                    5pm CET/ 8am PT
+                                                  </span>
+                                                </td>
+                                              </tr>
+                                              <tr>
+                                                <td
+                                                  height="12"
+                                                  style="
+                                                    line-height: 0px;
+                                                    font-size: 0px;
+                                                  "
+                                                ></td>
+                                              </tr>
+                                              <tr>
+                                                <td>
+                                                  <span
+                                                    style="
+                                                      font-family: Metric, arial,
+                                                        Helvetica, sans-serif;
+                                                      font-size: 18px;
+                                                      line-height: 22px;
+                                                      color: #555555;
+                                                    "
+                                                  >
+                                                  Natural language processing (NLP) powers the latest conversational AI and translation apps. Join Evan Sparks, VP of AI & HPC at HPE to explore how Determind’s open-source deep learning training platform helps model developers train models faster and easier.
+                                                  </span>
+                                                </td>
+                                              </tr>
+                                            </tbody>
+                                          </table>
+                                        </td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                  <table width="100%" cellspacing="0" cellpadding="0" border="0" align="center">
+                                    <tbody>
+                                      <tr>
+                                        <td height="24" style="line-height: 0px; font-size: 0px"></td>
+                                      </tr>
+                                      <tr>
+                                        <td>
+                                          <table width="100%" cellspacing="0" cellpadding="0" border="0" align="left">
+                                            <tbody>
+                                              <tr>
+                                                <td valign="top">
+                                                  <table width="50%" cellspacing="0" cellpadding="0" border="0" align="left">
+                                                    <tbody>
+                                                      <tr>
+                                                        <td>
+                                                          <img src="https://legacy-image-prod.s3.amazonaws.com/uploads/76c091470f6a6688169178d5a898384894ee90dde5787c0b1f4a36ab0b8c3bd075476835b791caafac7c26ac338e99a07a5cdb3fd4996e0b33fc42ba30d7f5b7.jpg" width="224" height="172" alt="HPE Developer Munch &amp; Learn" border="0" style="
+                                                              display: block;
+                                                              border: 0;
+                                                              max-width: 224px;
+                                                              max-height: 172px;
+                                                              border-radius: 12px;
+                                                            ">
+                                                        </td>
+                                                      </tr>
+                                                      <tr>
+                                                        <td height="12" style="
+                                                            line-height: 0px;
+                                                            font-size: 0px;
+                                                          "></td>
+                                                      </tr>
+                                                      <tr>
+                                                        <td align="center">
+                                                          <span style="
+                                                              font-family: Metric, arial,
+                                                                Helvetica, sans-serif;
+                                                              font-size: 24px;
+                                                              font-weight: bold;
+                                                              color: #333333;
+                                                            ">
+                                                            <a style="
+                                                                color: #333333;
+                                                                text-decoration: underline;
+                                                              " href="https://events.linuxfoundation.org/kubecon-cloudnativecon-europe/?utm_source=Google&utm_medium=Search&utm_campaign=KC+EU+2022&utm_id=KC+EU+2022&gclid=CjwKCAjwuYWSBhByEiwAKd_n_kllizleod5wsVLmNmC2HfciLkxC7ICcQy386F4NVQ5Y_Eiku_BP5xoCTYAQAvD_BwE" target="_blank">
+                                                              <span style="
+                                                                  color: #333333;
+                                                                  font-weight: bold;
+                                                                ">KubeCon EU</span></a>
+                                                          </span>
+                                                        </td>
+                                                      </tr>
+                                                      <tr>
+                                                        <td align="center">
+                                                          <span style="
+                                                              font-family: Metric, arial,
+                                                                Helvetica, sans-serif;
+                                                              font-size: 18px;
+                                                              line-height: 22px;
+                                                              color: #555555;
+                                                              font-weight: bold;
+                                                            ">
+                                                            May 16-20, 2022 <br>
+                                                          </span>
+                                                        </td>
+                                                      </tr>
+                                                      <tr>
+                                                        <td height="12" style="
+                                                            line-height: 0px;
+                                                            font-size: 0px;
+                                                          "></td>
+                                                      </tr>
+                                                      <tr>
+                                                        <td>
+                                                          <span style="
+                                                              font-family: Metric, arial,
+                                                                Helvetica, sans-serif;
+                                                              font-size: 18px;
+                                                              line-height: 22px;
+                                                              color: #555555;
+                                                            ">
+                                                          This hybrid CNCF flagship conference will gather adopters and technologists from leading open source and cloud native communities virtually and physically in Valencia, Spain.
+                                                          </span>
+                                                        </td>
+                                                      </tr>
+                                                    </tbody>
+                                                  </table>
+                                                </td>
+                                                <td valign="top">
+                                                  <table width="50%" cellspacing="0" cellpadding="0" border="0" align="right">
+                                                    <tbody>
+                                                      <tr>
+                                                        <td>
+                                                          <img src="https://legacy-image-prod.s3.amazonaws.com/uploads/801b47aab250f596ccadddc441d795be88e4e84f010e7a413667c404dc1ff76f2e3070dddec9bd67affc9dde9c3956ee386aaf600632b56624fe5f55dbb2b59f.jpg" width="224" height="172" alt="HPE Developer Meetups" border="0" style="
+                                                              display: block;
+                                                              border: 0;
+                                                              max-width: 224px;
+                                                              max-height: 172px;
+                                                              border-radius: 12px;
+                                                            ">
+                                                        </td>
+                                                      </tr>
+                                                      <tr>
+                                                        <td height="12" style="
+                                                            line-height: 0px;
+                                                            font-size: 0px;
+                                                          "></td>
+                                                      </tr>
+                                                      <tr>
+                                                        <td align="center">
+                                                          <span style="
+                                                              font-family: Metric, arial,
+                                                                Helvetica, sans-serif;
+                                                              font-size: 24px;
+                                                              font-weight: bold;
+                                                              color: #333333;
+                                                            ">
+                                                            <a style="
+                                                                color: #333333;
+                                                                text-decoration: underline;
+                                                              " href="https://www.hpe.com/us/en/discover.html" target="_blank">
+                                                              <span style="
+                                                                  color: #333333;
+                                                                  font-weight: bold;
+                                                                ">HPE Discover 2022</span></a>
+                                                          </span>
+                                                        </td>
+                                                      </tr>
+                                                      <tr>
+                                                        <td align="center">
+                                                          <span style="
+                                                              font-family: Metric, arial,
+                                                                Helvetica, sans-serif;
+                                                              font-size: 18px;
+                                                              line-height: 22px;
+                                                              color: #555555;
+                                                              font-weight: bold;
+                                                            ">
+                                                            June 28-30, 2022<br>
+                                                          </span>
+                                                        </td>
+                                                      </tr>
+                                                      <tr>
+                                                        <td height="12" style="
+                                                            line-height: 0px;
+                                                            font-size: 0px;
+                                                          "></td>
+                                                      </tr>
+                                                      <tr>
+                                                        <td>
+                                                          <span style="
+                                                              font-family: Metric, arial,
+                                                                Helvetica, sans-serif;
+                                                              font-size: 18px;
+                                                              line-height: 22px;
+                                                              color: #555555;
+                                                            ">
+                                                          Join the HPE Developer Community for fun meetups and games at HPE’s premier Edge-to-Cloud Conference in Las Vegas! Don’t miss our first physical Hack Shack since 2019!
+                                                          </span>
+                                                        </td>
+                                                      </tr>
+                                                    </tbody>
+                                                  </table>
+                                                </td>
+                                              </tr>
+                                            </tbody>
+                                          </table>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td height="48" style="line-height: 0px; font-size: 0px"></td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td
+                                  height="48"
+                                  style="line-height: 0px; font-size: 0px"
+                                ></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </td>
+                        <td
+                          width="85"
+                          style="line-height: 0px; font-size: 0px"
+                        ></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          
+          <table
+            bgcolor="#ffffff"
+            width="640"
+            cellspacing="0"
+            cellpadding="0"
+            border="0"
+            align="center"
+          >
+            <tbody>
+              <tr>
+                <td>
+                  <table
+                    width="640"
+                    cellspacing="0"
+                    cellpadding="0"
+                    border="0"
+                    align="center"
+                  >
+                    <tbody>
+                      <tr>
+                        <td
+                          width="85"
+                          style="line-height: 0px; font-size: 0px"
+                        ></td>
+                        <td
+                          style="padding: 0px 0px 4px 0px"
+                          bgcolor="#00C781"
+                        ></td>
+                        <td
+                          width="85"
+                          style="line-height: 0px; font-size: 0px"
+                        ></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td
+                  width="640"
+                  height="18"
+                  style="line-height: 0px; font-size: 0px"
+                ></td>
+              </tr>
+              <tr>
+                <td>
+                  <table
+                    width="640"
+                    cellspacing="0"
+                    cellpadding="0"
+                    border="0"
+                    align="center"
+                  >
+                    <tbody>
+                      <tr>
+                        <td
+                          width="85"
+                          style="line-height: 0px; font-size: 0px"
+                        ></td>
+                        <td width="425" align="left">
+                          <span
+                            style="
+                              font-family: Metric, arial, Helvetica, sans-serif;
+                              font-size: 16px;
+                              color: #999999;
+                              text-decoration: none;
+                            "
+                          >
+                            Engage
+                          </span>
+                        </td>
+                        <td width="45"></td>
+                        <td
+                          width="85"
+                          style="line-height: 0px; font-size: 0px"
+                        ></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <table
+            bgcolor="#ffffff"
+            width="640"
+            cellspacing="0"
+            cellpadding="0"
+            border="0"
+            align="center"
+          >
+            <tbody>
+              <tr>
+                <td bgcolor="#ffffff">
+                  <table
+                    width="640"
+                    bgcolor="#ffffff"
+                    cellspacing="0"
+                    cellpadding="0"
+                    border="0"
+                    align="center"
+                  >
+                    <tbody>
+                      <tr>
+                        <td
+                          width="85"
+                          style="line-height: 0px; font-size: 0px"
+                        ></td>
+                        <td>
+                          <table
+                            width="100%"
+                            cellspacing="0"
+                            cellpadding="0"
+                            border="0"
+                            align="center"
+                          >
+                            <tbody>
+                              <tr>
+                                <td
+                                  width="560"
+                                  height="32"
+                                  style="line-height: 0px; font-size: 0px"
+                                ></td>
+                              </tr>
+                              <tr>
+                                <td
+                                  width="560"
+                                  height="10"
+                                  style="line-height: 0px; font-size: 0px"
+                                ></td>
+                              </tr>
+                              <tr>
+                                <td align="center">
+                                  <span
+                                    style="
+                                      font-family: Metric, arial, Helvetica,
+                                        sans-serif;
+                                      font-size: 24px;
+                                      color: #333333;
+                                      line-height: 28px;
+                                      font-weight: 500;
+                                    "
+                                  >
+                                    Hewlett Packard Enterprise leads with
+                                    enterprise and open source solutions with
+                                    the expertise to help developers and
+                                    customers innovate and solve problems.
+                                    <br /><br />
+                                    <span
+                                      style="color: #333333; font-weight: 500"
+                                      >We're all developing something.
+                                      <br />Come join us in making the
+                                      future.</span
+                                    >
+                                  </span>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td
+                                  width="560"
+                                  height="32"
+                                  style="line-height: 0px; font-size: 0px"
+                                ></td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  <table
+                                    width="100%"
+                                    cellspacing="0"
+                                    cellpadding="0"
+                                    border="0"
+                                    align="center"
+                                  >
+                                    <tbody>
+                                      <tr>
+                                        <td>
+                                          <table
+                                            width="100%"
+                                            margin="none"
+                                            align="center"
+                                          >
+                                            <tbody>
+                                              <tr>
+                                                <td align="center" width="25%">
+                                                  <span
+                                                    style="
+                                                      font-family: Metric, arial,
+                                                        Helvetica, sans-serif;
+                                                      font-size: 18px;
+                                                      color: #555555;
+                                                      text-decoration: none;
+                                                      font-weight: bold;
+                                                    "
+                                                  >
+                                                    <a
+                                                      style="
+                                                        color: #555555;
+                                                        text-decoration: none;
+                                                        font-weight: bold;
+                                                      "
+                                                      href="https://developer.hpe.com/"
+                                                      target="_blank"
+                                                    >
+                                                      <span
+                                                        style="
+                                                          color: #555555;
+                                                          font-weight: bold;
+                                                        "
+                                                        >Design</span></a>
+                                                  </span>
+                                                </td>
+                                                <td align="center" width="25%">
+                                                  <span
+                                                    style="
+                                                      font-family: Metric, arial,
+                                                        Helvetica, sans-serif;
+                                                      font-size: 18px;
+                                                      color: #555555;
+                                                      text-decoration: none;
+                                                      font-weight: bold;
+                                                    "
+                                                  >
+                                                    <a
+                                                      style="
+                                                        color: #555555;
+                                                        text-decoration: none;
+                                                        font-weight: bold;
+                                                      "
+                                                      href="https://developer.hpe.com/"
+                                                      target="_blank"
+                                                    >
+                                                      <span
+                                                        style="
+                                                          color: #555555;
+                                                          font-weight: bold;
+                                                        "
+                                                        >Develop</span></a>
+                                                  </span>
+                                                </td>
+                                                <td align="center" width="25%">
+                                                  <span
+                                                    style="
+                                                      font-family: Metric, arial,
+                                                        Helvetica, sans-serif;
+                                                      font-size: 18px;
+                                                      color: #555555;
+                                                      text-decoration: none;
+                                                      font-weight: bold;
+                                                    "
+                                                  >
+                                                    <a
+                                                      style="
+                                                        color: #555555;
+                                                        text-decoration: none;
+                                                        font-weight: bold;
+                                                      "
+                                                      href="https://developer.hpe.com/"
+                                                      target="_blank"
+                                                    >
+                                                      <span
+                                                        style="
+                                                          color: #555555;
+                                                          font-weight: bold;
+                                                        "
+                                                        >Research</span></a>
+                                                  </span>
+                                                </td>
+                                                <td align="center" width="25%">
+                                                  <span
+                                                    style="
+                                                      font-family: Metric, arial,
+                                                        Helvetica, sans-serif;
+                                                      font-size: 18px;
+                                                      color: #555555;
+                                                      text-decoration: none;
+                                                      font-weight: bold;
+                                                    "
+                                                  >
+                                                    <a
+                                                      style="
+                                                        color: #555555;
+                                                        text-decoration: none;
+                                                        font-weight: bold;
+                                                      "
+                                                      href="https://developer.hpe.com/"
+                                                      target="_blank"
+                                                    >
+                                                      <span
+                                                        style="
+                                                          color: #555555;
+                                                          font-weight: bold;
+                                                        "
+                                                        >Open Source</span></a>
+                                                  </span>
+                                                </td>
+                                              </tr>
+                                            </tbody>
+                                          </table>
+                                        </td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td
+                                  width="560"
+                                  height="32"
+                                  style="line-height: 0px; font-size: 0px"
+                                ></td>
+                              </tr>
+                              <tr></tr>
+                            </tbody>
+                          </table>
+                        </td>
+                        <td
+                          width="85"
+                          style="line-height: 0px; font-size: 0px"
+                        ></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td
+                  width="640"
+                  height="32"
+                  style="line-height: 0px; font-size: 0px"
+                ></td>
+              </tr>
+            </tbody>
+          </table>
+          <table
+            bgcolor="#F8F8F8"
+            width="640"
+            cellspacing="0"
+            cellpadding="0"
+            border="0"
+            align="center"
+          >
+            <tbody>
+              <tr>
+                <td bgcolor="#F8F8F8">
+                  <table
+                    width="640"
+                    bgcolor="#F8F8F8"
+                    cellspacing="0"
+                    cellpadding="0"
+                    border="0"
+                    align="center"
+                  >
+                    <tbody>
+                      <tr>
+                        <td
+                          width="70"
+                          style="line-height: 0px; font-size: 0px"
+                        ></td>
+                        <td>
+                          <table
+                            width="100%"
+                            cellspacing="0"
+                            cellpadding="0"
+                            border="0"
+                            align="center"
+                          >
+                            <tbody>
+                              <tr>
+                                <td
+                                  width="560"
+                                  height="32"
+                                  style="line-height: 0px; font-size: 0px"
+                                ></td>
+                              </tr>
+                              <tr>
+                                <td
+                                  width="560"
+                                  height="10"
+                                  style="line-height: 0px; font-size: 0px"
+                                ></td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  <table
+                                    width="100%"
+                                    cellspacing="0"
+                                    cellpadding="0"
+                                    border="0"
+                                    align="center"
+                                  >
+                                    <tbody>
+                                      <tr>
+                                        <td>
+                                          <table width="341" align="center">
+                                            <tbody>
+                                              <tr>
+                                                <td align="right">
+                                                  <a
+                                                    style="color: #333333"
+                                                    href="https://twitter.com/HPE_DevCom"
+                                                    target="_blank"
+                                                  >
+                                                    <img
+                                                      src="https://marketing-image-production.s3.amazonaws.com/uploads/e90c7fe25dce37bbdcf56084eda384b308bdf10c8e1ad3e0df27fd466199598adec152969785d4abded5a51c93494877fd8daff5564bd04ba9007a4b9c566f2d.png"
+                                                      width="40"
+                                                      height="31"
+                                                      alt="Twitter"
+                                                      border="0"
+                                                      style="
+                                                        display: block;
+                                                        border: 0;
+                                                        max-width: 40px;
+                                                        max-height: 31px;
+                                                      "
+                                                    /></a>
+                                                </td>
+                                                <td align="center">
+                                                  <a
+                                                    style="color: #333333"
+                                                    href="https://github.com/hewlettpackard/"
+                                                    target="_blank"
+                                                  >
+                                                    <img
+                                                      src="https://marketing-image-production.s3.amazonaws.com/uploads/909824a85486e2a1b473e44d86f803e3272e026678207b342385e718644dc86c77ba69f73add3949a8931b6e7bed49270da46d65a9b1a0bb7035b48c93e7997f.png"
+                                                      width="36"
+                                                      height="35"
+                                                      alt="Github"
+                                                      border="0"
+                                                      style="
+                                                        display: block;
+                                                        border: 0;
+                                                        max-width: 36px;
+                                                        max-height: 35px;
+                                                      "
+                                                    /></a>
+                                                </td>
+                                                <td align="left">
+                                                  <a
+                                                    style="color: #333333"
+                                                    href="https://slack.hpedev.io/"
+                                                    target="_blank"
+                                                  >
+                                                    <img
+                                                      src="https://marketing-image-production.s3.amazonaws.com/uploads/2fa697ba80d6fa07e851bbe14c979f3091387fe1731ae70653c04d78f38c8a677f208e0e2861f8d0cd1a3085b7b0bb047a4d7ae05330c67606bcf045682e1997.png"
+                                                      width="36"
+                                                      height="36"
+                                                      alt="Slack"
+                                                      border="0"
+                                                      style="
+                                                        display: block;
+                                                        border: 0;
+                                                        max-width: 36px;
+                                                        max-height: 36px;
+                                                      "
+                                                    /></a>
+                                                </td>
+                                              </tr>
+                                            </tbody>
+                                          </table>
+                                        </td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td
+                                  width="560"
+                                  height="48"
+                                  style="line-height: 0px; font-size: 0px"
+                                ></td>
+                              </tr>
+                              <tr>
+                                <td align="center">
+                                  <span
+                                    style="
+                                      font-family: Metric, arial, Helvetica,
+                                        sans-serif;
+                                      font-size: 16px;
+                                      color: #999999;
+                                      line-height: 16px;
+                                    "
+                                  >
+                                    This email was made with &#x1F49C; using
+                                    <a
+                                      style="
+                                        color: #333333;
+                                        text-decoration: underline;
+                                      "
+                                      href="https://grommet.io/"
+                                      target="_blank"
+                                    >
+                                      <span style="color: #333333"
+                                        >Grommet</span></a>. <br /><br /><br />
+                                    You received this email because you
+                                    subscribed via the HPE Developer website or
+                                    had it forwarded from someone who did.<br />
+                                    If you have not yet subscribed but would
+                                    like to, you can do so
+                                    <a
+                                      style="
+                                        color: #333333;
+                                        text-decoration: underline;
+                                      "
+                                      href="https://developer.hpe.com/newsletter-signup"
+                                      target="_blank"
+                                    >
+                                      <span style="color: #333333"
+                                        >here</span></a>. <br /><br />
+                                    We'll be sorry to see you go but you can
+                                    <a
+                                      style="
+                                        color: #333333;
+                                        text-decoration: underline;
+                                      "
+                                      href="<%asm_group_unsubscribe_raw_url%>"
+                                      target="_blank"
+                                    >
+                                      <span style="color: #333333"
+                                        >unsubscribe instantly</span></a>
+                                    &#x1F622;. You can also review your
+                                    subscription settings with us
+                                    <a
+                                      style="
+                                        color: #333333;
+                                        text-decoration: underline;
+                                      "
+                                      href="<%asm_preferences_raw_url%>"
+                                      target="_blank"
+                                    >
+                                      <span style="color: #333333"
+                                        >on this page</span></a>. <br /><br />
+                                    Learn more about the
+                                    <a
+                                      style="
+                                        color: #333333;
+                                        text-decoration: underline;
+                                      "
+                                      href="https://www.hpe.com/us/en/legal/privacy.html"
+                                      target="_blank"
+                                    >
+                                      <span style="color: #333333"
+                                        >HPE Privacy Policy</span></a>.
+                                  </span>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td
+                                  width="570"
+                                  height="48"
+                                  style="line-height: 0px; font-size: 0px"
+                                ></td>
+                              </tr>
+                              <tr>
+                                <td align="center">
+                                  <span
+                                    style="
+                                      font-family: Metric, arial, Helvetica,
+                                        sans-serif;
+                                      font-size: 14px;
+                                      color: #cccccc;
+                                      line-height: 14px;
+                                    "
+                                  >
+                                    HPE Developer and its accompanying resources
+                                    are part of Hewlett Packard Enterprise, LP.
+                                  </span>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td
+                                  width="560"
+                                  height="24"
+                                  style="line-height: 0px; font-size: 0px"
+                                ></td>
+                              </tr>
+                              <tr>
+                                <td align="center">
+                                  <a
+                                    target="_blank"
+                                    href="https://www.hpe.com/us/en/home.html"
+                                  >
+                                    <img
+                                      src="https://marketing-image-production.s3.amazonaws.com/uploads/c13c7f565f5bd0a96ec79775a9f687319efa94adda4a82be386b2beec95f48bdda3f517c02c5811866d7e1b6ec68ee8dab6fdcced7dd69a616bfa4f1c879a7f1.png"
+                                      width="133"
+                                      height="70"
+                                      alt="Hewlett Packard Enterprise Logo"
+                                      border="0"
+                                      style="
+                                        display: block;
+                                        border: 0;
+                                        max-width: 133px;
+                                        max-height: 70px;
+                                      "
+                                    /></a>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </td>
+                        <td
+                          width="70"
+                          style="line-height: 0px; font-size: 0px"
+                        ></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td
+                  width="640"
+                  height="48"
+                  style="line-height: 0px; font-size: 0px"
+                ></td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

@@ -1,8 +1,8 @@
 ---
 title: Infrastructure-as-code on HPE GreenLake using Terraform
 date: 2022-03-08T15:17:41.884Z
-featuredBlog: true
-priority: 5
+featuredBlog: false
+priority: 9
 author: Didier Lalli
 authorimage: /img/didier-lalli.png
 tags:
@@ -144,7 +144,7 @@ Your next step with the TF file is to query the HPE GreenLake provider to collec
 * Template ID
 * Folder Code
 
-For this, you will use the Terraform **data** statements. For example, the following statement retrieves the Cloud ID and stores it (in variable called **cloud**), which we can later retrieve using: **data.hpegl\_vmaas\_cloud.cloud.id**
+For this, you will use the Terraform **data** statements. For example, the following statement retrieves the Cloud ID and stores it (in variable called **cloud**), which we can later retrieve using: **data.hpegl_vmaas_cloud.cloud.id**
 
 ```json
 # Retrieve cloud id
@@ -360,7 +360,7 @@ Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
 
 If you open your HPE GreenLake console to monitor the VM resources, you will see the effect of the **terraform apply** command:
 
-![GreenLake instance created](/img/greenlakeinstancecomplete.png "GreenLake instance created")
+![GreenLake instance created](/img/terraform-greenlake-part2-blog-picture1-1.png "GreenLake instance created")
 
 #### Cleaning it all up
 
