@@ -131,10 +131,8 @@ The invited user receives an email inviting them to join the tenant. Once the us
       * Resources can be added and removed from the space by selecting the **Resources** tab and selecting *Update Resources* under the **Actions** pull-down
 
 4. To create a new space, click on the **Create Space** button
-
-   * Enter a space name and parent space
-
-   * Select **Resources** by expanding the **All Resources** list
+   * Enter a space name and parent space   
+   * Select **Resources** by expanding the **All Resources** list   
 
 
 # Let's Explore Some Fictitious Customer Examples
