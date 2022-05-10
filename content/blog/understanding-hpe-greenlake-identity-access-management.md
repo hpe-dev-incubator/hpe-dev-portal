@@ -91,7 +91,9 @@ New tenants are requested via an HPE representative. The request includes an ini
 Once a tenant administrator is on-boarded, they can invite their users to join the tenant.
 
 1. Access the User Management Service within the **wrench** icon.
+
 2. Select the **Users** Tab
+
 3. Under the **Actions** pull-down, choose Invite User
 
 <img src="/img/invite-user.png" width="480" height="538" alt="Invite User">
@@ -103,24 +105,31 @@ The invited user receives an email inviting them to join the tenant. Once the us
 1. Access the User Management Service within the **wrench** icon.
 
 2. Select the **User Groups** tab
+
 3. To modify an existing user group, click on it from the list of user groups
    * Members can be added by selecting the **Members** tab and selecting *Add Members* under the **Actions** pull-down
    * Members can be removed from the user group by clicking on the **Trash** icon beside the member name
+
 4. To create a new user group, from the **User Groups** tab, click on the *Create User Group* button
+
 5. Enter a user group name and description
+
 6. Once the user group has been created it may be modified using the instructions above
 
 ## Creating and Modifying Spaces
 
 1. Access the Management Service within the **wrench** icon.
+
 2. Select the **Spaces** tab
+
 3. To modify an existing space, click on it from the list of spaces
 
    1. Users and user groups can be added by selecting the **Assignments** tab and selecting *Create Assignment* under the **Actions** pull-down
-   2. Select appropriate role(s) for the space
 
+   2. Select appropriate role(s) for the space
       * Users and user groups can be removed from the space by clicking on the **Trash** icon beside the subject name
       * Resources can be added and removed from the space by selecting the **Resources** tab and selecting *Update Resources* under the **Actions** pull-down
+
 4. To create a new space, click on the **Create Space** button
 
    * Enter a space name and parent space
