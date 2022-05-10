@@ -1,5 +1,5 @@
 ---
-title: Engage with the HPE DEV Team at HPE Technology and Solution Summit 2022
+title: HPE Technology and Solution Summit 2022
 dateStart: 2022-03-27T22:00:27.753Z
 dateEnd: 2022-03-31T21:59:27.768Z
 category: Virtual Event

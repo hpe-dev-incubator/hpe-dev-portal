@@ -457,6 +457,7 @@ module.exports = {
           { name: 'body', store: true },
           { name: 'path', store: true },
           { name: 'sourceInstanceName', store: true },
+          { name: 'author', store: true },
         ],
         filterNodes: (node) => !!node.frontmatter,
         // How to resolve each field's value for a supported node type
@@ -478,6 +479,7 @@ module.exports = {
                     '/home',
                   )}`,
             sourceInstanceName: (node) => node.fields.sourceInstanceName,
+            author: (node) => node.frontmatter.author,
           },
         },
       },

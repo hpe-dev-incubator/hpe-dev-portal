@@ -6,6 +6,7 @@ description: "Determined AI accelerates innovation with open source AI solutions
 image: /img/platforms/logo-determine-ai-216px.svg
 width: large
 priority: 2
+active: true
 tags:
   - determined
   - determined-AI
@@ -31,9 +32,9 @@ Since the open-source project launched in 2020, and as a result of its focus on 
 
 Call-to-action: [Get Started With Determined](https://docs.determined.ai/latest/#get-started-locally)
 
-By investing in Determined AI’s open-source project, HPE is furthering its mission in making AI heterogeneous and empowering ML engineers to build AI models at a greater scale. HPE Cray AI Development Environment builds upon Determined's world-class capabilities to support training at enterprise-scale. In addition to premium support, it includes additional features such as advanced security and tools for monitoring and observability.
+By investing in Determined AI’s open-source project, HPE is furthering its mission in making AI heterogeneous and empowering ML engineers to build AI models at a greater scale. HPE Machine Learning Development Environment builds upon Determined's world-class capabilities to support training at enterprise-scale. In addition to premium support, it includes additional features such as advanced security and tools for monitoring and observability.
 
-Call-to-action: [Get Started With HPE Cray AI Development Environment](https://www.hpe.com/ai/cray-ai-development-environment)
+Call-to-action: [Get Started With HPE Machine Learning Development Environment](https://www.hpe.com/us/en/solutions/artificial-intelligence/machine-learning-development-environment.html)
 
 # Projects
 

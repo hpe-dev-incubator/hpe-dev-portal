@@ -1,12 +1,15 @@
 ---
 title: Infrastructure-as-code on HPE GreenLake using Terraform
 date: 2022-03-08T15:17:41.884Z
+featuredBlog: false
+priority: 9
 author: Didier Lalli
 authorimage: /img/didier-lalli.png
 tags:
   - devops
   - terraform
   - hpe-greenlake
+  - opensource
 ---
 The process of managing and provisioning computer data centers through machine-readable definition files, otherwise known as Infrastructure-as-Code (IaC), offers many significant benefits. It helps to increase operational agility, simplify management, reduce errors, and save cost. In this post, I’ll explore some of the benefits of using IaC on HPE GreenLake through the use of Terraform.
 
@@ -357,7 +360,7 @@ Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
 
 If you open your HPE GreenLake console to monitor the VM resources, you will see the effect of the **terraform apply** command:
 
-![GreenLake instance created](/img/greenlakeinstancecomplete.png "GreenLake instance created")
+![GreenLake instance created](/img/terraform-greenlake-part2-blog-picture1-1.png "GreenLake instance created")
 
 #### Cleaning it all up
 

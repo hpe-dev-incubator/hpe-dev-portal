@@ -8,6 +8,7 @@ image: /img/platforms/Aruba.svg
 width: large
 priority: 3
 frontpage: true
+active: true
 tags:
   - aruba
 ---

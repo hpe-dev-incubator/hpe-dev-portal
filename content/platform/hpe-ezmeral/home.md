@@ -7,6 +7,7 @@ description: Accelerate modern data analytics initiatives at scale with this
 image: /img/platforms/EzmeralContainerPatform.svg
 width: large
 priority: 1
+active: true
 tags:
   - hpe-ezmeral
 ---

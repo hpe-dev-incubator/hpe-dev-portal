@@ -8,6 +8,7 @@ image: /img/platforms/NimbleStorage.svg
 width: large
 priority: 3
 frontpage: true
+active: true
 tags:
   - hpe-nimble-storage
 ---

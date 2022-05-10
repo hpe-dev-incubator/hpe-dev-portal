@@ -7,6 +7,7 @@ image: /img/platforms/simplivity-logo.svg
 width: medium
 priority: 6
 frontpage: true
+active: true
 tags:
   - hpe-simplivity
 ---
