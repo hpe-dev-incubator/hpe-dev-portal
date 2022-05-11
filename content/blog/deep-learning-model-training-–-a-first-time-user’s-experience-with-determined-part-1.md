@@ -195,9 +195,10 @@ Below is the sequence of REST API calls I can use to create a new user account (
 I first need to authenticate as Admin user to Determined and save the authentication token (bearer token) for subsequent REST API calls:
 
 ```bash
+detMaster=http://gateway2.<mydomain.name>:13047
 # Authenticate as admin user and get the authentication token for subsequent calls:
 token=$(curl -i -s -X 'POST' \
-  '${DET_MASTER}/api/v1/auth/login' \
+  "${detMaster}/api/v1/auth/login" \
   -H 'accept: application/json' \
   -H 'Content-Type: application/json' \
   -d '{
@@ -214,7 +215,7 @@ I then create a non-admin user account using the access token as the bearer toke
 ```bash
 # Create a new user account “testuser1”
 curl -X 'POST' \
-  '${DET_MASTER}/api/v1/users' \
+  "${detMaster}/api/v1/users" \
   -H 'accept: application/json' \
   -H "Authorization: Bearer $MyToken" \
   -d '{
@@ -231,7 +232,7 @@ Finally, I set the password for the newly created user account:
 ```bash
 # Set password for the user account “testuser1”
 curl -X 'POST' \
-'${DET_MASTER}/api/v1/users/testuser1/password' \
+"${detMaster}/api/v1/users/testuser1/password" \
   -H 'accept: application/json' \
   -H 'Content-Type: application/json' \
   -H "Authorization: Bearer $MyToken" \
