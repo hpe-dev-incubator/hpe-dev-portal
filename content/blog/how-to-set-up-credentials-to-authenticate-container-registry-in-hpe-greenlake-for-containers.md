@@ -9,6 +9,28 @@ tags:
 ---
 ## Introduction
 
+```
+$ kubectl run cfe-nginx --image=nginx
+pod/cfe-nginx created
+
+$ kubectl get pods
+NAME        READY   STATUS         RESTARTS   AGE
+cfe-nginx   0/1     ErrImagePull   0          5s
+
+
+$ kubectl describe pods cfe-nginx 
+Name:         cfe-nginx
+...
+Events:
+  Type     Reason     Age                            From                                                             Message
+  ----     ------     ----                           ----                                                             -------
+  Normal   Scheduled  <invalid>                      default-scheduler                                                Successfully assigned cfe-demo-cluster/cfe-nginx to k8s-cfe-demo-cluster-worker-67f75-24jmj.glhc-hpe.local
+  Warning  Failed     <invalid>                      kubelet, k8s-cfe-demo-cluster-worker-67f75-24jmj.glhc-hpe.local  Failed to pull image "nginx": rpc error: code = Unknown desc = failed to pull and unpack image "docker.io/library/nginx:latest": failed to copy: httpReadSeeker: failed open: unexpected status code https://registry-1.docker.io/v2/library/nginx/manifests/sha256:19da26bd6ef0468ac8ef5c03f01ce1569a4dbfb82d4d7b7ffbd7aed16ad3eb46: 429 Too Many Requests - Server message: toomanyrequests: You have reached your pull rate limit. You may increase the limit by authenticating and upgrading: https://www.docker.com/increase-rate-limit
+  Warning  Failed     <invalid>                      kubelet, k8s-cfe-demo-cluster-worker-67f75-24jmj.glhc-hpe.local  Error: ErrImagePull
+  Normal   BackOff    <invalid>                      kubelet, k8s-cfe-demo-cluster-worker-67f75-24jmj.glhc-hpe.local  Back-off pulling image "nginx"
+  Warning  Failed     <invalid>                      kubelet, k8s-cfe-demo-cluster-worker-67f75-24jmj.glhc-hpe.local  Error: ImagePullBackOff
+  Normal   Pulling    <invalid> (x2 over <invalid>)  kubelet, k8s-cfe-demo-cluster-worker-67f75-24jmj.glhc-hpe.local  Pulling image "nginx"
+```
 The example uses a private registry in Docker Hub.
 
 
@@ -18,21 +40,22 @@ There are several ways to set up credentials to run containers from image regist
 
 
 
-$ k create secret docker-registry cfe-registry-key --docker-server=https://registry-1.docker.io/v2 --docker-username=<user> --docker-password=<password> --docker-email=guoping.jia@hpe.com
+```
+$ kubectl create secret docker-registry cfe-registry-key --docker-server=https://registry-1.docker.io/v2 --docker-username=<user> --docker-password=<password> --docker-email=guoping.jia@hpe.com
 
-$ k get secrets cfe-registry-key 
+$ kubectl get secrets cfe-registry-key 
 NAME               TYPE                             DATA   AGE
 cfe-registry-key   kubernetes.io/dockerconfigjson   1      2m11s
 
-$ k get serviceaccount
+$ kubectl get serviceaccount
 NAME                     SECRETS   AGE
 default                  1         46d
 hpecp-tenant-326-mpj2s   1         46d
 
-$ k patch sa default -p '{"imagePullSecrets": [{"name": "cfe-registry-key"}]}'
+$ kubectl patch sa default -p '{"imagePullSecrets": [{"name": "cfe-registry-key"}]}'
 serviceaccount/default patched
 
-$ k get sa default -o yaml
+$ kubectl get sa default -o yaml
 apiVersion: v1
 imagePullSecrets:
 - name: cfe-registry-key
@@ -48,12 +71,20 @@ secrets:
 
 Verify imagePullSecrets got added to pod spec:
 
-$ k run cfe-nginx --image=nginx 
+$ kubectl run cfe-nginx --image=nginx 
 pod/cfe-nginx created
 
-$ k get pods
+$ kubectl get pods
 NAME        READY   STATUS    RESTARTS   AGE
 cfe-nginx   1/1     Running   0          4m28s
 
 $ k get pod cfe-nginx -o=jsonpath='{.spec.imagePullSecrets[0].name}{"\n"}'
 cfe-registry-key
+```
+
+## Conclusion
+Docker's image download rate limit has caused quite a few confusion in HPE GreenLake for Containers. This article describes you how to set up the registry secret using your docker Hub credentials to pull images in your application deployment. Once follow up the procedure, your applicaiton deployment will be able to download images without hitting the rate limit error.
+
+* [Learn more about Terraform](https://www.terraform.io/)
+* [Learn more about HPE GreenLake](https://www.hpe.com/us/en/greenlake.html)
+* [Manage Access Tokens for Docker Hub](https://docs.docker.com/docker-hub/access-tokens/)
