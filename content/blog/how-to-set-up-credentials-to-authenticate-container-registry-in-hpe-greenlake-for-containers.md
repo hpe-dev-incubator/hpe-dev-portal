@@ -98,4 +98,4 @@ Docker's image download rate limit has caused quite a few confusion in HPE Green
 
 * [Learn more about HPE GreenLake](https://www.hpe.com/us/en/greenlake.html)
 * [Docker download rate limit](https://docs.docker.com/docker-hub/download-rate-limit/)
-* [Manage Access Tokens for Docker Hub](https://docs.docker.com/docker-hub/access-tokens/)
+* [Manage Access Tokens](https://docs.docker.com/docker-hub/access-tokens/)
