@@ -53,7 +53,7 @@ As a summary, the operational model without PLDM for RDE introduces the followin
 
 ## Operational model with PLDM for RDE
 
-The implementation of PLDM for RDE standard, in both iLO and devices, changes the iLO role from "active" to "passthrough". In this configuration, the iLO receives HTTP requests from Redfish clients and translates then into a set of RDE requests to the device. When the PLDM dialog between the iLO and the device is over, the iLO sends back a final HTTP response to the Redfish client (See picture below).
+The implementation of PLDM for RDE standard, in both iLO and devices, changes the iLO role from "active" to "pass-through". In this configuration, the iLO receives HTTP requests from Redfish clients and translates then into a set of RDE requests to the device. When the PLDM dialog between the iLO and the device is over, the iLO sends back a final HTTP response to the Redfish client (See picture below).
 
 [Operational model with PLDM for RDE](WithPldmRde.png)
 
