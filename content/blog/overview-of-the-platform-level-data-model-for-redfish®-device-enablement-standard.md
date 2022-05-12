@@ -4,6 +4,8 @@ title: Overview of the Platform Level Data Model for Redfish® Device Enablement
 date: 2022-05-12T16:04:30.750Z
 author: François Donzé
 authorimage: /img/fdz-photoprofile.png
+tags:
+  - Redfish
 ---
 ## Introduction
 
