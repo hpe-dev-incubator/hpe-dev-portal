@@ -131,11 +131,9 @@ When this firmware is deployed a network adapter containing string `/DE` is pres
 
 The Intel E810 adapter is referred as a `/DE` device supporting RDE. Moreover, it does not contain any settings URI because modifications are transferred to the device in real time by the iLO and no server reboot is required to take those modification into account.
 
+![Setting an RDE network adapter property with iLOrest](/img/networkadapters.png "Setting an RDE network adapter property with iLOrest")
+
 The following picture shows a real-time property modification on port 0 of an Intel E810 network adapter, using [iLOrest](http://hpe.com/info/resttool) version 3.5.
-
-
-
-
 
 The first instruction selects explicitly the `port.v1_3_1` data type that includes this adapter. Using a `ilorest select port.` data would also select other data versions (i.e. data types related to non RDE adapters). If several data types are select, the filtering of properties is harder.
 
@@ -143,7 +141,7 @@ Then, it retrieves the `FlowControlConfiguration` of port 0, sets it to a differ
 
 **NOTE**: No `commit` instruction was needed with this version of iLOrest to modify this property. This may be different with later versions.
 
-[Set port property in RDE network adapter](SetRdeNetworkAdapterProperty.png)
+![Set port property in RDE network adapter](/img/setrdenetworkadapterproperty.png "Set port property in RDE network adapter")
 
 If you want to perform the same configuration using another Redfish client, you can send a PATCH request toward `{{iloURI}}/redfish/v1/Chassis/1/NetworkAdapters/DE081000/Ports/0` with the following body:
 
