@@ -50,3 +50,101 @@ As a summary, the operational model without PLDM for RDE introduces the followin
 * partial knowledge of device properties implemented iLO firmware
 * use of proprietary communication protocols between iLO and devices
 * Reboot required to load new device configuration settings
+
+## Operational model with PLDM for RDE
+
+The implementation of PLDM for RDE standard, in both iLO and devices, changes the iLO role from "active" to "passthrough". In this configuration, the iLO receives HTTP requests from Redfish clients and translates then into a set of RDE requests to the device. When the PLDM dialog between the iLO and the device is over, the iLO sends back a final HTTP response to the Redfish client (See picture below).
+
+[Operational model with PLDM for RDE](WithPldmRde.png)
+
+In this model, the Management Controller and device firmware don't need to be aligned because the MC does not contain any device properties. It contains only the necessary information to translate the Redfish client requests into PLDM for RDE messages.
+
+As a result, if all the computer makers implement the PLDM for RDE protocol suite in their Redfish service, the number of communication protocols to be implemented and maintained by the device providers is reduced to one.
+
+Lastly, PLDM for RDE device modifications do not require a reboot of the server to become effective in the device. However, a reboot may be required by the operating system or by applications.
+
+## HPE implementation of PLDM for RDE
+
+On the server side, the implementation of PLDM for RDE started in iLO 5 [firmware version 2.33](https://hewlettpackard.github.io/ilo-rest-api-docs/ilo5/#changelog) and newer firmware releases implement more and more PLDM related features that can be leveraged by devices providing their support of this standard. As an example, Redfish clients connected to an iLO 5 version 2.65 can perform read and write operations on Logical Drives hosted by  [HPE SR Smart Arrays](https://www.hpe.com/psnow/doc/a00047736enw.html?jumpid=in_pdp-psnow-qs) running firmware version 5.00.
+
+This statement is clearly mentioned in the `readme.txt` file embedded in the `ilo5_265.fwpkg` firmware package. You can use the `unzip` utility to extract this file from the package as shown in the next picture.
+
+[RDE support in iLO 5 firmware version 2.65](RdeSupportInFw265.png)
+
+### Storage controllers
+
+The [Enhancements paragraph](https://support.hpe.com/connect/s/softwaredetails?language=en_US&softwareId=MTX_a06269a339da44ada286007600&tab=Enhancements) of HPE Smart Arrays version 5.00 mentions several new PLDM and DMTF features for this version (see picture below).
+
+[PLDM Enhancements](FirmwareEnhancements.png)
+
+If you power on a server containing this type of storage controller and the correct firmware versions, you will notice a device with string `DE` in its URI similar to : `/redfish/v1/systems/1/DExxxxxx`. This `DE` string is synonym of a device supporting the PLDM for RDE standard and discovered as such by the Redfish service.
+
+A GET request toward this URI returns links to controllers, drives and volumes property end points as shown in the next picture.
+
+[RDE storage end point](RdeStorageEndPoint.png)
+
+If you want to create a Logical Drive, you can POST a request toward `{{iloURI}}/redfish/v1/Systems/1/Storage/DE07C000/Volumes` with a workload similar to:
+
+```json
+{
+    "RAIDType": "RAID1",
+    "DisplayName": "Raid1-1",
+    "ReadCachePolicy": "ReadAhead",
+    "VolumeUsage": "Data",
+    "InitializeMethod": "Background",
+    "Links": {
+        "Drives": [
+            {
+                "@odata.id": "/redfish/v1/Systems/1/Storage/DE07C000/Drives/0"
+            },
+            {
+                "@odata.id": "/redfish/v1/Systems/1/Storage/DE07C000/Drives/1"
+            }
+        ]
+    }
+}
+```
+
+The request will be transferred to the device and analyzed. If the device can process it, you will receive a `201 Created` HTTP response code. The just created Logical Drive can be used immediately by the operating system without any system reboot. You may have to ask the OS to re-scan storage devices to discover this newly created LD.
+
+The deletion of a RDE Logical Drive is straight forward; you just have to send a DELETE request toward the LD URI:
+
+```Bash
+curl --request DELETE "$iloURI/redfish/v1/Systems/1/Storage/DE07C000/Volumes/1"
+```
+
+**NOTE**: For backward compatibility and concerning HPE Smart Array SR devices, HPE Gen10 and Gen10 Plus servers offer the possibility to manage those devices using both `SmartStorageConfig` and `Storage` data types. However, always stick to a single management data type. Mixing those data types may lead to hazardous results.
+
+### Network adapters
+
+Several network adapter suppliers implement PLDM for RDE in their devices. The E[Intel E810 XXVDA2 Network Adapter](https://www.hpe.com/psnow/doc/a00073559enw.html?jumpid=in_pdp-psnow-qs) support this new technology in its firmware version 3.10. This firmware is packaged in a file called `HPE_E810_XXVDA2_SD_3p10_PLDMoMCTP_8000AD4A.fwpkg` mentioning explicitly PLDM over MCTP, meaning that PLDM messages between the Management Controller and the device are transported by the Management Component Transport Protocol mentioned above.
+
+When this firmware is deployed a network adapter containing string `/DE` is present under the `NetworkAdapter.` data type location. The next picture extracts three properties (URI, Name and Settings URI) from the `NetworkAdapter.` data type of a system containing two network adapters: an HPE 631FLR-SFP28 and an Intel E810. The HPE 631FLR-SFP28 adapter does not support RDE and is referred as a `/DC` device. Moreover, it contains a settings URI used to store modifications before being transferred to the device during the next system reboot.
+
+The Intel E810 adapter is referred as a `/DE` device supporting RDE. Moreover, it does not contain any settings URI because modifications are transferred to the device in real time by the iLO and no server reboot is required to take those modification into account.
+
+[Network Adapters](NetworkAdapters.png)
+
+The following picture shows a real-time property modification on port 0 of an Intel E810 network adapter, using [iLOrest](http://hpe.com/info/resttool) version 3.5.
+
+The first instruction selects explicitly the `port.v1_3_1` data type that includes this adapter. Using a `ilorest select port.` data would also select other data versions (i.e. data types related to non RDE adapters). If several data types are select, the filtering of properties is harder.
+
+Then, it retrieves the `FlowControlConfiguration` of port 0, sets it to a different value. The last instruction gets again the value of this property to show that it has changed without any reboot.
+
+**NOTE**: No `commit` instruction was needed with this version of iLOrest to modify this property. This may be different with later versions.
+
+[Set port property in RDE network adapter](SetRdeNetworkAdapterProperty.png)
+
+If you want to perform the same configuration using another Redfish client, you can send a PATCH request toward `{{iloURI}}/redfish/v1/Chassis/1/NetworkAdapters/DE081000/Ports/0` with the following body:
+
+```json
+{
+    "Ethernet": {
+        "FlowControlConfiguration": "TX"
+    }
+}
+```
+
+## Conclusion
+
+By leveraging several standards published before the Redfish standard (PLDM base specification, MCTP), the DMTF enhanced substantially the flexibility and ease of use of server management. 
