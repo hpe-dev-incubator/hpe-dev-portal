@@ -8,6 +8,9 @@ tags:
   - hpe-greenlake
 ---
 ## Introduction
+HPE GreenLake for Containers uses a gateway host, acting as a proxy sever, that carries client requests from deployed application service endpoints in the Kubernetes clusters. 
+The gateway host maps the private IP endpoints of services running on the Kubernetes nodes inside the clusters to publicly-accessible IP addresses and ports.
+
 
 ```
 $ kubectl run cfe-nginx --image=nginx
