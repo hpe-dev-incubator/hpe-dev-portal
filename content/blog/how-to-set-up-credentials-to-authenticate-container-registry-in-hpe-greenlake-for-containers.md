@@ -38,11 +38,18 @@ The example uses a private registry in Docker Hub.
 
 
 ## Prerequirements
-You need to have the credentials of your personal Docker account or a paid Docker account. The personal Docker account credentials allow you to log in to Docker as an authenticated user in which the image rate limit is set to 200 pulls per 6 hour period. The users with a paid Docker subscription have no limits in image downloads. It could make sense to have a paid Docker account at team or company level. However you do not really need to upgrade your Docker account to a paid one. 200 pulls per 6 hour period as an authenticated user should be enough to work on in your application deployment to the Kubernetes clusters.
+
+You need to have the following credentials of your personal Docker subscription or a paid one. 
+
+-	Docker Username
+-	Docker Password or Access Token
+
+Note that the Docker access token instead of Docker password would be recommended to be used as the credentials. You can refer to Docker’s Manage Access Tokens page to create such an access token of your Docker subscriptions. 
+
+The personal Docker account credentials allow you to log in to Docker as an authenticated user in which the image rate limit is set to 200 pulls per 6 hour period. The users with a paid Docker subscription have no limits in image downloads. It could make sense to have a paid Docker subscription at team or company level. However you do not really need to upgrade your Docker account to a paid one. 200 pulls per 6 hours period as an authenticated user should be enough to work on for individual developer in your application deployment to the Kubernetes clusters.
 
 The Docker credentials can be used to create a secret and install in the Kubernetes cluster to pull docker images as part of application deployments.
 
-It should be noted that you should use a docker access token rather than your docker account password directly as the credentials. Please refer to Docker’s Manage Access Tokens page to create such an access token of your Docker account. In case you have two-factor authentication setup on your Docker account, using an access token seems the only way to authenticate.
 
 
 ## Setup Details
