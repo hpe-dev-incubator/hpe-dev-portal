@@ -88,6 +88,6 @@ cfe-registry-key
 ## Conclusion
 Docker's image download rate limit has caused quite a few confusion in HPE GreenLake for Containers. This article describes you how to set up the registry secret using your docker Hub credentials to pull images in your application deployment. Once follow up the procedure, your applicaiton deployment will be able to download images without hitting the rate limit error.
 
-* [Learn more about Terraform](https://www.terraform.io/)
 * [Learn more about HPE GreenLake](https://www.hpe.com/us/en/greenlake.html)
+* [Docker download rate limit](https://docs.docker.com/docker-hub/download-rate-limit/)
 * [Manage Access Tokens for Docker Hub](https://docs.docker.com/docker-hub/access-tokens/)
