@@ -39,7 +39,7 @@ The example uses a private registry in Docker Hub.
 
 ## Prerequirements
 
-You need to have the following credentials of your personal Docker subscription or a paid one. 
+You need to have the following credentials of your personal Docker subscription or a paid Docker subscription. 
 
 -	Docker Username
 -	Docker Password or Access Token
@@ -48,8 +48,7 @@ Note that the Docker access token instead of Docker password would be recommende
 
 The personal Docker account credentials allow you to log in to Docker as an authenticated user in which the image rate limit is set to 200 pulls per 6 hour period. The users with a paid Docker subscription have no limits in image downloads. It could make sense to have a paid Docker subscription at team or company level. However you do not really need to upgrade your Docker account to a paid one. 200 pulls per 6 hours period as an authenticated user should be enough to work on for individual developer in your application deployment to the Kubernetes clusters.
 
-The Docker credentials can be used to create a secret and install in the Kubernetes cluster to pull docker images as part of application deployments.
-
+The Docker credentials are used to create a secret and install in the Kubernetes cluster to pull docker images as part of application deployments.
 
 
 ## Setup Details
