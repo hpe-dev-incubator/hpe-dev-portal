@@ -9,8 +9,7 @@ tags:
 ---
 ## Introduction
 HPE GreenLake for Containers uses a gateway host, acting as a proxy sever, that carries client requests from deployed application service endpoints in the Kubernetes clusters. 
-The gateway host maps the private IP endpoints of services running on the Kubernetes nodes inside the clusters to publicly-accessible IP addresses and ports.
-
+The gateway host maps the private IP endpoints of services running inside the Kubernetes clusters to external accessible IP addresses and ports. It provides better security by exposing only the gateway host IP address to the external while keeping all the others behind the firewall. However, when you deploy some applications to the clusters, you may hit issue, from time to time, and receive the error state `ErrImagePull` in your applicaiton pods. Here is a sample `ngnix` application deployment and the received issue:
 
 ```
 $ kubectl run cfe-nginx --image=nginx
