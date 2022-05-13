@@ -33,9 +33,11 @@ Events:
   Warning  Failed     <invalid>                      kubelet, k8s-cfe-demo-cluster-worker-67f75-24jmj.glhc-hpe.local  Error: ImagePullBackOff
   Normal   Pulling    <invalid> (x2 over <invalid>)  kubelet, k8s-cfe-demo-cluster-worker-67f75-24jmj.glhc-hpe.local  Pulling image "nginx"
 ```
-The above issue is caused by recent [Docker policy changes for downloading images](https://docs.docker.com/docker-hub/download-rate-limit/).  example uses a private registry in Docker Hub.
+The above issue is caused by recent [Docker policy changes for downloading images](https://docs.docker.com/docker-hub/download-rate-limit/). In particular, for anonymous users, the image download rate limit is set to 100 pulls per 6 hours per IP address. No matter who starts creating a new application from Docker image, the Kubernetes cluster downloads the image as an anonymous user, which counts toward the new rate limit on the same gateway host IP. Gvien that other developers are using the same Kubernetes cluster, together with many ArgoCD jobs configured to run in the backend, the limit can be eventually reached and the `ErrimagePull` message pops up.
 
 
+
+This article 
 ## Prerequirements
 
 You need to have the following credentials of your personal Docker subscription or a paid Docker subscription: 
