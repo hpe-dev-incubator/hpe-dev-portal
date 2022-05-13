@@ -49,17 +49,46 @@ Note that the Docker access token instead of Docker password would be recommende
 
 The personal Docker account credentials allow you to log in to Docker as an authenticated user in which the image rate limit is set to 200 pulls per 6 hour period. The users with a paid Docker subscription have no limits in image downloads. It could make sense to have a paid Docker subscription at team or company level. However you do not really need to upgrade your Docker account to a paid one. 200 pulls per 6 hours period as an authenticated user should be enough to work on for individual developer in your application deployment to the Kubernetes clusters.
 
-The Docker credentials are used to create a secret and install in the Kubernetes cluster to pull docker images as part of application deployments.
+The Docker credentials are used to create a secret and install it in the Kubernetes cluster to pull docker images as part of application deployments.
 
 
 ## Setup Details
-There are several ways to set up credentials to run containers from image registries. The approach of using imagePullSecrets is the recommended one.
 
-
-
+### Create a Registry Secret 
+You can use the following command to create a registry secret using your credentials:
 
 ```
-$ kubectl create secret docker-registry cfe-registry-key --docker-server=https://registry-1.docker.io/v2 --docker-username=<user> --docker-password=<password> --docker-email=guoping.jia@hpe.com
+$ kubectl create secret docker-registry cfe-registry-key --docker-server=https://index.docker.io/v1/ --docker-username=<username> --docker-password=<password> --docker-email=<email>
+```
+
+You can verify the registry secret has been created:
+```
+$ kubectl get secrets cfe-registry-key 
+NAME               TYPE                             DATA   AGE
+cfe-registry-key   kubernetes.io/dockerconfigjson   1      2m11s
+```
+
+### Specify `imagePullSecrets` on Pods
+You can create pods or update existing ones to refer to the created registry secret by adding the following `imagePullSecrets` section to Pod definition:
+
+```
+imagePullSecrets:
+- name: cfe-registry-key
+```
+
+With those pod manifest files, the Kubernetes cluster downloads the image as an authenticated user using the credentials from the registry secret. The image download will not count against the 100 download limit shared across all anonymous cluster users in the Kubernetes cluster. 
+
+Although it works for most of your application deployment, it requires to modify manifest files to add `imagePullSecrets` section. 
+
+You can use the following step to add image pull secret to `service accounts`. When you try to create new applications, the `imagePullSecrets` will be automatically injected and used in downloading the images. The setup makes sense especially when you have the paid Docker subscriptions. Other developers use the same Kubernetes cluster can benefit the setup to have unlimited image download in their application deployment.
+
+
+
+
+### Add `imagePullSecrets` to Service Accounts
+You can 
+```
+
 
 $ kubectl get secrets cfe-registry-key 
 NAME               TYPE                             DATA   AGE
