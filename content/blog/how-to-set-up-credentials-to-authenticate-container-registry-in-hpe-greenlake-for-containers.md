@@ -60,7 +60,7 @@ You can use the following command to create a registry secret using your Docker 
 ```
 $ kubectl create secret docker-registry cfe-registry-key --docker-server=https://index.docker.io/v1/ --docker-username=<username> --docker-password=<password> --docker-email=<email>
 ```
-The option `--docker-email` is optional. `cfe-registry-key` is the sample secret name in the setup process.
+The option `--docker-email` is optional. `cfe-registry-key` is the sample secret name used in the setup process.
 
 You can verify the registry secret has been created:
 ```
