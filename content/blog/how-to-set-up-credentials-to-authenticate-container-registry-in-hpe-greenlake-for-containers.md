@@ -33,7 +33,7 @@ Events:
   Warning  Failed     <invalid>                      kubelet, k8s-cfe-demo-cluster-worker-67f75-24jmj.glhc-hpe.local  Error: ImagePullBackOff
   Normal   Pulling    <invalid> (x2 over <invalid>)  kubelet, k8s-cfe-demo-cluster-worker-67f75-24jmj.glhc-hpe.local  Pulling image "nginx"
 ```
-The example uses a private registry in Docker Hub.
+The above issue is caused by Docker policy changes for downloading images.  example uses a private registry in Docker Hub.
 
 
 ## Prerequirements
