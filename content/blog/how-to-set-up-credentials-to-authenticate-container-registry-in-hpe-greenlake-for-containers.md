@@ -86,44 +86,38 @@ You can use the following step to add image pull secret to `service accounts`. W
 
 
 ### Add `imagePullSecrets` to Service Accounts
-You can 
+You can run the following command to modify the default service account to use `imagePullSecret`:
+
 ```
 
 
-$ kubectl get secrets cfe-registry-key 
-NAME               TYPE                             DATA   AGE
-cfe-registry-key   kubernetes.io/dockerconfigjson   1      2m11s
 
-$ kubectl get serviceaccount
-NAME                     SECRETS   AGE
-default                  1         46d
-hpecp-tenant-326-mpj2s   1         46d
 
-$ kubectl patch sa default -p '{"imagePullSecrets": [{"name": "cfe-registry-key"}]}'
+
+$ kubectl patch serviceaccount default -p '{"imagePullSecrets": [{"name": "cfe-registry-key"}]}'
 serviceaccount/default patched
 
-$ kubectl get sa default -o yaml
-apiVersion: v1
-imagePullSecrets:
-- name: cfe-registry-key
+
+$ kubectl get serviceaccount default -o yaml
 kind: ServiceAccount
 metadata:
-  creationTimestamp: "2022-03-24T07:17:36Z"
-  name: default
-  namespace: cfe-demo-cluster
-  resourceVersion: "11710765"
-  uid: 72706f80-26fc-405b-a154-ba5343a35ebe
-secrets:
-- name: default-token-zsscp
 
-Verify imagePullSecrets got added to pod spec:
+  name: default
+...
+...
+imagePullSecrets:
+- name: cfe-registry-key
+
+
 
 $ kubectl run cfe-nginx --image=nginx 
 pod/cfe-nginx created
 
+
 $ kubectl get pods
 NAME        READY   STATUS    RESTARTS   AGE
 cfe-nginx   1/1     Running   0          4m28s
+
 
 $ k get pod cfe-nginx -o=jsonpath='{.spec.imagePullSecrets[0].name}{"\n"}'
 cfe-registry-key
