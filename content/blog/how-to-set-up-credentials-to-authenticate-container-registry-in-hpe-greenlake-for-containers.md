@@ -129,9 +129,9 @@ cfe-nginx   1/1     Running   0          4m28s
 $ kubectl get pod cfe-nginx -o=jsonpath='{.spec.imagePullSecrets[0].name}{"\n"}'
 cfe-registry-key
 ```
-If you deploy application to a different namespace than the current one, you need run the command `kubectl patch serviceaccount` with the option `-n <namespace>` to add `imagePullSecrets` to the Service Account in the new namespace. 
+If you deploy application to a different namespace than the current one, you need run the command `kubectl patch serviceaccount` with the additional option `-n <namespace>` to add `imagePullSecrets` to the default service account in the new namespace. 
 
-Similarly, if you deploy application to a namespace using a different service account than the default one, you need replace `default` in the command `kubectl patch serviceaccount`  with the service account name to add `imagePullSecrets` to this Service Account. By default, deploying application to a namespace uses the default service account. You can define the `serviceAccountName` in your manifest file to change the service account.
+Similarly, if you deploy application to a namespace using a different service account than the default one, you need replace `default` in the command `kubectl patch serviceaccount`  with the service account name to add `imagePullSecrets` to this service account. By default, deploying application to a namespace uses the default service account. You can define the `serviceAccountName` in your manifest files to change the service account you want to use.
 
 ## Conclusion
 Docker's image download rate limit has caused quite a few confusion in HPE GreenLake for Containers. This article describes you how to set up the registry secret using credentials of your Docker subscription to pull images for your application deployment. Once follow up the procedure, your application deployment will be able to download images without hitting any more the rate limit error.
