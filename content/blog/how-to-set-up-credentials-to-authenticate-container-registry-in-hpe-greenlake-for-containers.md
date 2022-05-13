@@ -1,5 +1,5 @@
 ---
-title: How to Set Up Credentials to Authenticate Container Registry in HPE
+title: How to Set up Credentials to Authenticate Docker Registry in HPE
   GreenLake for Containers
 date: 2022-05-10T08:20:45.683Z
 author: Guoping Jia
@@ -36,25 +36,26 @@ Above issue is caused by [Docker policy changes for downloading images](https://
 
 
 
-This article 
+This article walks through the process of setting up credentials of your Docker subscription in the Kubernetes cluster. The cluster then uses it to authenticate to your Docker account and pull the image as an authenticated user. The image download will count against individual limit of your Docker subscription instead of the 100 downloads shared across all anonymous cluster users.
+
 ## Prerequisites
 
-You need to have the following credentials of your personal Docker subscription or a paid Docker subscription: 
+You need to have the following credentials of your Docker subscription, either personal or a paid one: 
 
 -	Docker Username
 -	Docker Password or Access Token
 
-Note that the Docker access token instead of Docker password would be recommended to be used as the credentials. You can refer to [Docker’s Manage Access Tokens page](https://docs.docker.com/docker-hub/access-tokens/) to create such an access token of your Docker subscriptions. Docker access token provides some advantages over the password. It can't be used for performing any admin activity on your Docker account, and it provides a way to check the last usage and it can be easily disabled or deleted. In case you have two-factor authentication setup on your account, using the access token is the only way to authenticate to Docker.
+Note that the Docker access token instead of Docker password would be recommended to be used as the credentials. You can refer to [Docker’s Manage Access Tokens page](https://docs.docker.com/docker-hub/access-tokens/) to create such an access token of your Docker subscription. Docker access token provides some advantages over the password. It can't be used for performing any admin activity on your Docker account, and it provides a way to check the last usage and it can be easily disabled or deleted. In case you have two-factor authentication setup on your account, using the access token is the only way to authenticate to Docker.
 
-The personal Docker account credentials allow you to log in to Docker as an authenticated user in which the image rate limit is set to 200 pulls per 6 hour period. The users with a paid Docker subscription have no limits in image downloads. It could make sense to have a paid Docker subscription at team or company level. However you do not really need to upgrade your Docker account to a paid one. 200 pulls per 6 hours period as an authenticated user should be enough to work on for individual developer in your application deployment to the Kubernetes clusters.
+The personal Docker subscription credentials allow you to log in to Docker as an authenticated user in which the image rate limit is set to 200 pulls per 6 hour period. The users with a paid Docker subscription have no limits in image downloads. It could make sense to have a paid Docker subscription at team or company level. However you do not really need to upgrade your Docker account to a paid one. 200 pulls per 6 hours period as an authenticated user should be enough for an individual developer to work on application deployment to the Kubernetes cluster.
 
-The Docker credentials are used to create a secret and install it in the Kubernetes cluster to pull docker images as part of application deployments.
+
 
 
 ## Setup Details
 
 ### Create a Registry Secret 
-You can use the following command to create a registry secret using your credentials:
+You can use the following command to create a registry secret using your Docker credentials:
 
 ```
 $ kubectl create secret docker-registry cfe-registry-key --docker-server=https://index.docker.io/v1/ --docker-username=<username> --docker-password=<password> --docker-email=<email>
@@ -79,7 +80,7 @@ With those pod manifest files, the Kubernetes cluster downloads the image as an 
 
 Although it works for most of your application deployment, it requires to modify manifest files to add `imagePullSecrets` section. 
 
-You can use the following step to add image pull secret to `service accounts`. When you try to create new applications, the `imagePullSecrets` will be automatically injected and used in downloading the images. The setup makes sense especially when you have the paid Docker subscriptions. Other developers use the same Kubernetes cluster can benefit the setup to have unlimited image download in their application deployment.
+You can use the following step to add image pull secret to `service accounts`. When you try to create new applications, the `imagePullSecrets` will be automatically injected and used in downloading the images. The setup makes sense especially when you have the paid Docker subscription. Other developers use the same Kubernetes cluster can benefit the setup to have unlimited image download in their application deployment.
 
 
 
