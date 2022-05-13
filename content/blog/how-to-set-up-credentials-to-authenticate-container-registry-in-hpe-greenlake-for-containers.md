@@ -71,7 +71,7 @@ cfe-registry-key   kubernetes.io/dockerconfigjson   1      2m11s
 ### Specify `imagePullSecrets` on Pods
 You can create pods or update existing ones to refer to the created registry secret by adding the following `imagePullSecrets` section to Pod definition:
 
-```
+```json
 imagePullSecrets:
 - name: cfe-registry-key
 ```
@@ -125,7 +125,3 @@ cfe-registry-key
 
 ## Conclusion
 Docker's image download rate limit has caused quite a few confusion in HPE GreenLake for Containers. This article describes you how to set up the registry secret with your docker Hub credentials to pull images in your application deployment. Once follow up the procedure, your application deployment will be able to download images without hitting any more the rate limit error.
-
-* [Learn more about HPE GreenLake](https://www.hpe.com/us/en/greenlake.html)
-* [Docker download rate limit](https://docs.docker.com/docker-hub/download-rate-limit/)
-* [Manage Access Tokens](https://docs.docker.com/docker-hub/access-tokens/)
