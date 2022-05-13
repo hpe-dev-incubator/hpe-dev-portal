@@ -33,7 +33,7 @@ Events:
   Warning  Failed     <invalid>                      kubelet, k8s-cfe-demo-cluster-worker-67f75-24jmj.glhc-hpe.local  Error: ImagePullBackOff
   Normal   Pulling    <invalid> (x2 over <invalid>)  kubelet, k8s-cfe-demo-cluster-worker-67f75-24jmj.glhc-hpe.local  Pulling image "nginx"
 ```
-The above issue is caused by Docker policy changes for downloading images.  example uses a private registry in Docker Hub.
+The above issue is caused by [Docker policy changes for downloading images](https://docs.docker.com/docker-hub/download-rate-limit/).  example uses a private registry in Docker Hub.
 
 
 ## Prerequirements
@@ -43,7 +43,7 @@ You need to have the following credentials of your personal Docker subscription 
 -	Docker Username
 -	Docker Password or Access Token
 
-Note that the Docker access token instead of Docker password would be recommended to be used as the credentials. You can refer to Docker’s Manage Access Tokens page to create such an access token of your Docker subscriptions. Docker access token provides some advantages over the password. It can't be used for performing any admin activity on your Docker account, and it provides a way to check the last usage and it can be easily disabled or deleted. In case you have two-factor authentication setup on your account, using the access token is the only way to authenticate to Docker.
+Note that the Docker access token instead of Docker password would be recommended to be used as the credentials. You can refer to [Docker’s Manage Access Tokens page](https://docs.docker.com/docker-hub/access-tokens/) to create such an access token of your Docker subscriptions. Docker access token provides some advantages over the password. It can't be used for performing any admin activity on your Docker account, and it provides a way to check the last usage and it can be easily disabled or deleted. In case you have two-factor authentication setup on your account, using the access token is the only way to authenticate to Docker.
 
 The personal Docker account credentials allow you to log in to Docker as an authenticated user in which the image rate limit is set to 200 pulls per 6 hour period. The users with a paid Docker subscription have no limits in image downloads. It could make sense to have a paid Docker subscription at team or company level. However you do not really need to upgrade your Docker account to a paid one. 200 pulls per 6 hours period as an authenticated user should be enough to work on for individual developer in your application deployment to the Kubernetes clusters.
 
