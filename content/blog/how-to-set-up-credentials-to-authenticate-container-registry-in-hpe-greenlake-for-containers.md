@@ -119,9 +119,13 @@ NAME        READY   STATUS    RESTARTS   AGE
 cfe-nginx   1/1     Running   0          4m28s
 
 
-$ k get pod cfe-nginx -o=jsonpath='{.spec.imagePullSecrets[0].name}{"\n"}'
+$ kubectl get pod cfe-nginx -o=jsonpath='{.spec.imagePullSecrets[0].name}{"\n"}'
 cfe-registry-key
 ```
 
 ## Conclusion
 Docker's image download rate limit has caused quite a few confusion in HPE GreenLake for Containers. This article describes you how to set up the registry secret with your docker Hub credentials to pull images in your application deployment. Once follow up the procedure, your application deployment will be able to download images without hitting any more the rate limit error.
+
+* [Learn more about HPE GreenLake](https://www.hpe.com/us/en/greenlake.html)
+* [Docker download rate limit](https://docs.docker.com/docker-hub/download-rate-limit/)
+* [Manage Access Tokens](https://docs.docker.com/docker-hub/access-tokens/)
