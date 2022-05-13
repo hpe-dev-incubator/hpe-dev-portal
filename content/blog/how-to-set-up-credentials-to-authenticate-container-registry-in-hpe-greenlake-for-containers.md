@@ -8,7 +8,7 @@ tags:
   - hpe-greenlake
 ---
 ## Introduction
-*HPE GreenLake for Containers* is built on HPE Ezmeral Container Platform, based on open source Kubernetes. It provides a pay-as-you go Kubernetes-based container optimized stack, delivered as a service to help you operationalize your containers at scale. In HPE GreenLake for Containers, it configures to use a gateway host, acting as a proxy sever, that carries client requests from deployed application service endpoints in the Kubernetes clusters. The gateway host maps the private IP endpoints of services running inside the Kubernetes clusters to external accessible IP addresses and ports. It provides better security by exposing only the gateway host IP address to the external while keeping all the others behind the firewall. However, when you deploy some applications to the clusters, you may hit issue, from time to time, and receive the error state *`ErrImagePull`* in your applicaiton pods. Here is a sample `ngnix` application deployment and the received issue:
+As one of HPE GreenLake Cloud Services, *HPE GreenLake for Containers* is an HPE-designed, implemented, owned, and operated private cloud that is built on HPE Ezmeral Container Platform, based on open source Kubernetes, and deployed at a customer site. In HPE GreenLake for Containers, it configures to use a gateway host, acting as a proxy sever, that carries client requests from deployed application service endpoints in the Kubernetes clusters. The gateway host maps the private IP endpoints of services running inside the Kubernetes clusters to external accessible IP addresses and ports. It provides better security by exposing only the gateway host IP address to the external while keeping all the others behind the firewall. However, when you create your application from Docker image, your application pods may get stuck in the error state *`ErrImagePull`*. Below is a sample `ngnix` application deployment and the received error message in the pod events:
 
 ```
 $ kubectl run cfe-nginx --image=nginx
@@ -32,12 +32,12 @@ Events:
   Warning  Failed     <invalid>                      kubelet, k8s-cfe-demo-cluster-worker-67f75-24jmj.glhc-hpe.local  Error: ImagePullBackOff
   Normal   Pulling    <invalid> (x2 over <invalid>)  kubelet, k8s-cfe-demo-cluster-worker-67f75-24jmj.glhc-hpe.local  Pulling image "nginx"
 ```
-The above issue is caused by recent [Docker policy changes for downloading images](https://docs.docker.com/docker-hub/download-rate-limit/). In particular, for anonymous users, the image download rate limit is set to 100 pulls per 6 hours per IP address. No matter who starts creating a new application from Docker image, the Kubernetes cluster downloads the image as an anonymous user, which counts toward the new rate limit on the same gateway host IP. Gvien that other developers are using the same Kubernetes cluster, together with many ArgoCD jobs configured to run in the backend, the limit can be eventually reached and the `ErrimagePull` message pops up.
+Above issue is caused by [Docker policy changes for downloading images](https://docs.docker.com/docker-hub/download-rate-limit/). In particular, for anonymous users, the image download rate limit is set to 100 pulls per 6 hours per IP address. No matter who starts creating a new application from Docker image, the Kubernetes cluster downloads the image as an anonymous user, which counts toward the new rate limit on the same gateway host IP. Given that other developers are using the same Kubernetes cluster, together with many *ArgoCD* jobs configured to run in the backend, the limit can be eventually reached and the *`ErrimagePull`* message pops up.
 
 
 
 This article 
-## Prerequirements
+## Prerequisites
 
 You need to have the following credentials of your personal Docker subscription or a paid Docker subscription: 
 
@@ -85,7 +85,7 @@ You can use the following step to add image pull secret to `service accounts`. W
 
 
 ### Add `imagePullSecrets` to Service Accounts
-You can run the following command to modify the default service account to use `imagePullSecret`:
+You can run the following command to modify the default service account to use `imagePullSecrets`:
 
 ```
 
@@ -108,10 +108,8 @@ imagePullSecrets:
 - name: cfe-registry-key
 
 
-
 $ kubectl run cfe-nginx --image=nginx 
 pod/cfe-nginx created
-
 
 $ kubectl get pods
 NAME        READY   STATUS    RESTARTS   AGE
@@ -124,7 +122,3 @@ cfe-registry-key
 
 ## Conclusion
 Docker's image download rate limit has caused quite a few confusion in HPE GreenLake for Containers. This article describes you how to set up the registry secret with your docker Hub credentials to pull images in your application deployment. Once follow up the procedure, your application deployment will be able to download images without hitting any more the rate limit error.
-
-* [Learn more about HPE GreenLake](https://www.hpe.com/us/en/greenlake.html)
-* [Docker download rate limit](https://docs.docker.com/docker-hub/download-rate-limit/)
-* [Manage Access Tokens](https://docs.docker.com/docker-hub/access-tokens/)
