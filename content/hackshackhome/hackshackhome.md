@@ -1,7 +1,7 @@
 ---
 title: "Chapel: Making parallel computing as easy as Py(thon), from laptops to
   supercomputers"
-active: true
+active: false
 link: https://hpe.zoom.us/webinar/register/7216485389685/WN_VHR47IEcSfCzVizUJX3R4w
 path: ""
 description: Join us for a free, 60-minute session where you can connect with
