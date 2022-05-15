@@ -45,7 +45,7 @@ You need to have the following credentials of your Docker subscription, either p
 -	Docker Username
 -	Docker Password or Access Token
 
-Note that the Docker access token instead of Docker password would be recommended to be used as the credentials. You can refer to [Docker’s Manage Access Tokens page](https://docs.docker.com/docker-hub/access-tokens/) to create such an access token of your Docker subscription. Docker access token provides some advantages over the password. It can't be used for performing any admin activity on your Docker account, and it provides a way to check the last usage and it can be easily disabled or deleted. In case you have two-factor authentication setup on your account, using the access token is the only way to authenticate to Docker.
+Note that the Docker access token instead of Docker password would be recommended to be used as the credentials. You can refer to [Docker’s Manage Access Tokens](https://docs.docker.com/docker-hub/access-tokens/) to create such an access token of your Docker subscription. Docker access token provides some advantages over the password. It can't be used for performing any admin activity on your Docker account, and it provides a way to check the last usage and it can be easily disabled or deleted. In case you have two-factor authentication setup on your account, using the access token is the only way to authenticate to Docker.
 
 The personal Docker subscription credentials allow you to log in to Docker as an authenticated user in which the image rate limit is set to 200 pulls per 6 hour period. The users with a paid Docker subscription have no limits in image downloads. It could make sense to have a paid Docker subscription at team or company level. However you do not really need to upgrade your Docker account to a paid one. 200 pulls per 6 hours period as an authenticated user should be enough for an individual developer to work on application deployment to the Kubernetes cluster.
 
@@ -60,7 +60,7 @@ You can use the following command to create a registry secret using your Docker 
 ```
 $ kubectl create secret docker-registry cfe-registry-key --docker-server=https://index.docker.io/v1/ --docker-username=<username> --docker-password=<password> --docker-email=<email>
 ```
-The option `--docker-email` is optional. `cfe-registry-key` is the sample secret name used in the setup process.
+The option `--docker-email` is optional. The `cfe-registry-key` is the sample secret name used in the setup process.
 
 You can verify the registry secret has been created:
 ```
