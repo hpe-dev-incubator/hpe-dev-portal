@@ -8,7 +8,7 @@ tags:
   - hpe-greenlake
 ---
 ## Introduction
-As one of HPE GreenLake Cloud Services, *HPE GreenLake for Containers* is an HPE-designed, implemented, owned, and operated private cloud that is built on HPE Ezmeral Container Platform, based on open source Kubernetes, and deployed at a customer site. In HPE GreenLake for Containers, it configures to use a gateway host, acting as a proxy sever, that carries client requests from deployed application service endpoints in the Kubernetes clusters. The gateway host maps the private IP endpoints of services running inside the Kubernetes clusters to external accessible IP addresses and ports. It provides better security by exposing only the gateway host IP address to the external while keeping all the others behind the firewall. However, when you create your application from Docker image, your application pods may get stuck in the error state *`ErrImagePull`*. Below is a sample `ngnix` application deployment and the received error message in the pod events:
+As one of HPE GreenLake Cloud Services, *HPE GreenLake for Containers* is an HPE-designed, implemented, owned, and operated private cloud that is built on HPE Ezmeral Container Platform, based on open source Kubernetes, and deployed at a customer site. In HPE GreenLake for Containers, it configures to use a gateway host, acting as a proxy sever, that carries client requests from deployed application service endpoints in the Kubernetes clusters. The gateway host maps the private IP endpoints of services running inside the Kubernetes clusters to external accessible IP addresses and ports. It provides better security by exposing only the gateway host IP address to the external while keeping all the others behind the firewall. However, when you create your application from Docker image in the Kubernetes cluster, your application pods may get stuck in the error state *`ErrImagePull`*. Below is a sample `ngnix` application deployment to the cluster and the received error message in the pod events:
 
 ```
 $ kubectl run cfe-nginx --image=nginx
@@ -36,7 +36,7 @@ Above issue is caused by [Docker policy changes for downloading images](https://
 
 
 
-This article walks through the process of setting up credentials of your Docker subscription in the Kubernetes cluster. The cluster then uses it to authenticate to your Docker account and pull the image as an authenticated user. The image download will count against individual limit of your Docker subscription instead of the 100 downloads shared across all anonymous cluster users.
+This article walks through the process of setting up credentials of your Docker subscription in the Kubernetes cluster. The cluster then uses it to authenticate to your Docker account and pull the image as an authenticated user. The image download will count against individual limit of your Docker subscription instead of the 100 downloads shared across all anonymous cluster users in the cluster.
 
 ## Prerequisites
 
