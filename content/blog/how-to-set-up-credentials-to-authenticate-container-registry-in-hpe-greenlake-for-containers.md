@@ -100,10 +100,11 @@ $ kubectl patch serviceaccount default -p '{"imagePullSecrets": [{"name": "cfe-
 serviceaccount/default patched
 ```
 you can verify the `imagePullSecrets` section has been added to the service account:
+
 ```
 
 
-$ kubectl get serviceaccount default -o yaml
+$ kubectl get serviceaccount default -o yaml
 kind: ServiceAccount
 metadata:
 
