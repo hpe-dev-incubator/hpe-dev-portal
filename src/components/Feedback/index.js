@@ -48,7 +48,6 @@ const Feedback = (props) => {
   const [showButton, setShowButton] = useState(true);
   const [showForm, setShowForm] = useState(false);
   const [selQuestion, setSelQuestion] = useState(undefined);
-  // const [ansQuestion, setAnsQuestion] = useState(0);
 
   const initialState = {
     value: '',
@@ -107,21 +106,6 @@ const Feedback = (props) => {
     validationSchema,
   });
 
-  // const handleMessageInput = (inputName, content) => {
-  //   if (inputName === 'email') {
-  //     setEmailInput(content);
-  //   } else if (inputName === 'name') {
-  //     setNameInput(content);
-  //   } else if (inputName === 'message') {
-  //     setMessageInput(content);
-  //   }
-  // };
-  // const handleNameInput = (name) => {
-  //   setNameInput(name);
-  // };
-  // const handleEmailInput = (email) => {
-  //   setEmailInput(email);
-  // };
   const buttonClickHandler = () => {
     setShowButton(false);
     setShowForm(true);
@@ -136,11 +120,6 @@ const Feedback = (props) => {
   const changeQuestion = (value) => {
     setSelQuestion(questions[value]);
   };
-
-  // const previousHandler = () => {
-  //   if (selQuestion) {
-  //   }
-  // };
 
   const closeHandler = () => {
     setShowButton(true);

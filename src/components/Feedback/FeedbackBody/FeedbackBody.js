@@ -37,7 +37,6 @@ const FeedbackBody = ({
       cancelQuestion();
     }
   };
-  console.log(feedbackFromik);
   return (
     <Box gap="small" style={{ height: 300, width: 350 }}>
       {selQuestion === undefined &&
