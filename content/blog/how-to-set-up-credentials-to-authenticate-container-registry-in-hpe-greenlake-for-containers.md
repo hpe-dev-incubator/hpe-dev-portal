@@ -63,6 +63,7 @@ $ kubectl create secret docker-registry cfe-registry-key --docker-server=https:/
 The option `--docker-email` is optional. The `cfe-registry-key` is the sample secret name used in the setup process.
 
 You can verify the registry secret has been created:
+
 ```markdown
 $ kubectl get secrets cfe-registry-key 
 NAME               TYPE                             DATA   AGE
@@ -90,19 +91,12 @@ You can use the following step to add image pull secret to `service accounts`. W
 You can run the following command to modify the default service account for the namespace to use `imagePullSecrets`:
 
 ```markdown
-
-
-
-
-
 $ kubectl patch serviceaccount default -p '{"imagePullSecrets": [{"name": "cfe-registry-key"}]}'
 serviceaccount/default patched
 ```
 you can verify the `imagePullSecrets` section has been added to the service account:
 
 ```markdown
-
-
 $ kubectl get serviceaccount default -o yaml
 kind: ServiceAccount
 metadata:
@@ -116,8 +110,6 @@ imagePullSecrets:
 When you try to create a pod in the current namespace, you can verify the pod has its `sepc.imagePullSecrets` field set automatically:
 
 ```markdown
-
-
 $ kubectl run cfe-nginx --image=nginx 
 pod/cfe-nginx created
 
