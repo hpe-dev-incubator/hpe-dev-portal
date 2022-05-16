@@ -10,7 +10,7 @@ tags:
 ## Introduction
 As one of HPE GreenLake Cloud Services, *HPE GreenLake for Containers* is an HPE-designed, implemented, owned, and operated private cloud that is built on HPE Ezmeral Container Platform, based on open source Kubernetes, and deployed at a customer site. In HPE GreenLake for Containers, it configures to use a gateway host, acting as a proxy sever, that carries client requests from deployed application service endpoints in the Kubernetes clusters. The gateway host maps the private IP endpoints of services running inside the Kubernetes clusters to external accessible IP addresses and ports. It provides better security by exposing only the gateway host IP address to the external while keeping all the others behind the firewall. However, when you create your application from Docker image in the Kubernetes cluster, your application pods may get stuck in the error state *`ErrImagePull`*. Below is a sample `ngnix` application deployment to the cluster and the received error message in the pod events:
 
-```
+```markdown
 $ kubectl run cfe-nginx --image=nginx
 pod/cfe-nginx created
 
@@ -57,13 +57,13 @@ The personal Docker subscription credentials allow you to log in to Docker as an
 ### Create a Registry Secret 
 You can use the following command to create a registry secret using your Docker credentials:
 
-```
+```markdown
 $ kubectl create secret docker-registry cfe-registry-key --docker-server=https://index.docker.io/v1/ --docker-username=<username> --docker-password=<password> --docker-email=<email>
 ```
 The option `--docker-email` is optional. The `cfe-registry-key` is the sample secret name used in the setup process.
 
 You can verify the registry secret has been created:
-```
+```markdown
 $ kubectl get secrets cfe-registry-key 
 NAME               TYPE                             DATA   AGE
 cfe-registry-key   kubernetes.io/dockerconfigjson   1      2m11s
@@ -89,7 +89,7 @@ You can use the following step to add image pull secret to `service accounts`. W
 ### Add `imagePullSecrets` to Service Accounts
 You can run the following command to modify the default service account for the namespace to use `imagePullSecrets`:
 
-```
+```markdown
 
 
 
@@ -100,7 +100,7 @@ serviceaccount/default patched
 ```
 you can verify the `imagePullSecrets` section has been added to the service account:
 
-```
+```markdown
 
 
 $ kubectl get serviceaccount default -o yaml
@@ -115,7 +115,7 @@ imagePullSecrets:
 ```
 When you try to create a pod in the current namespace, you can verify the pod has its `sepc.imagePullSecrets` field set automatically:
 
-```
+```markdown
 
 
 $ kubectl run cfe-nginx --image=nginx 
