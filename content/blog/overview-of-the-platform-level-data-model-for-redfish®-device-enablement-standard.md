@@ -10,7 +10,7 @@ tags:
 ---
 ## Introduction
 
-In 2019, the [Distributed Management Task Force](https://dmtf.org) (DMTF) published the first version of the Platform Level Data Model for Redfish Device Enablement ([PLDM for RDE](https://www.dmtf.org/dsp/DSP0218)) standard. This Redfish standard started to be implemented in HPE iLO 5 based servers (Gen10 and Gen10 Plus) as well as in several storage controller and network adapter option cards (i.e HPE Smart Array).
+In 2019, the [Distributed Management Task Force](https://dmtf.org) (DMTF) published the first version of the Platform Level Data Model for Redfish Device Enablement ([PLDM for RDE](https://www.dmtf.org/dsp/DSP0218)) standard. This Redfish standard extension started to be implemented in HPE iLO 5 based servers (Gen10 and Gen10 Plus) as well as in several storage controller and network adapter option cards (i.e HPE Smart Array).
 
 This blog post positions the PLDM for RDE standard within the Redfish service, explains its benefits and provides practical configuration examples.
 
@@ -53,7 +53,7 @@ As a summary, the operational model without PLDM for RDE introduces the followin
 
 ## Operational model with PLDM for RDE
 
-The implementation of PLDM for RDE standard, in both iLO and devices, changes the iLO role from "active" to "pass-through". In this configuration, the iLO receives HTTP requests from Redfish clients and translates then into a set of RDE requests to the device. When the PLDM dialog between the iLO and the device is over, the iLO sends back a final HTTP response to the Redfish client (See picture below).
+The implementation of PLDM for RDE standard, in both iLO and devices, changes the iLO role from "active" to "pass-through". In this configuration, the iLO receives HTTP requests from Redfish clients and translates them into a set of RDE requests to the device. When the PLDM dialog between the iLO and the device is over, the iLO sends back a final HTTP response to the Redfish client (See picture below).
 
 ![Operational model with PLDM for RDE](/img/withpldmrde.png "Operational model with PLDM for RDE")
 
@@ -85,7 +85,7 @@ A GET request toward this URI returns links to controllers, drives and volumes p
 
 ![RDE storage end point](/img/rdestorageendpoint.png "RDE storage end point")
 
-If you want to create a Logical Drive, you can POST a request toward `{{iloURI}}/redfish/v1/Systems/1/Storage/DE07C000/Volumes` with a workload similar to:
+If you want to create a Logical Drive, you can POST a request toward `{{iloURI}}/redfish/v1/Systems/1/Storage/DE07C000/Volumes` with a payload similar to:
 
 ```json
 {
@@ -149,6 +149,6 @@ If you want to perform the same configuration using another Redfish client, you 
 
 ## Conclusion
 
-By leveraging several standards published before the Redfish standard (PLDM base specification, MCTP), the DMTF substantially enhanced the flexibility and ease of use of server management with the PLDM for RDE standard: HPE adopted it very early in its iLO 5 based servers as well as most (if no all) of its external device providers. As a result, HPE customers benefit from this partnership and can save precious time during their management tasks.
+By leveraging several standards published before the Redfish standard (PLDM base specification, MCTP), the DMTF substantially enhanced the flexibility and ease of use of server management with the PLDM for RDE standard: HPE adopted it very early in its iLO 5 based servers as well as most (if not all) of its external device providers. As a result, HPE customers benefit from this partnership and can save precious time during their management tasks.
 
 Don't forget to check out some of my other [blog posts](https://developer.hpe.com/search/?term=donze) on the HPE Developer portal to learn more about Redfish tips and tricks.
