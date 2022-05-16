@@ -173,7 +173,7 @@ det user login admin
 
 Determined is designed for data science teams. As such, I’d recommend creating a user account for each member of the team who wants to use Determined. This provides the organizational benefits of associating each Determined entity, such as model experiments and associated training tasks, with the user who created it.
 
-I have experienced user account creation using both the CLI and the REST API. In both cases, it’s a two-step operation: 1) create the user account, and 2) set the password. The ***Admin*** privileged user account must be used to create a user account and set the newly created user account password.
+I have experienced user account creation using both the CLI and the REST API. The ***Admin*** privileged user account must be used to create a user account and set the newly created user account password.
 
 ### Using the Det CLI
 
@@ -210,7 +210,7 @@ token=$(curl -i -s -X 'POST' \
 MyToken=$(echo $token | cut -d':' -f 2 | cut -d',' -f 1 | tr -d '"') 
 ```
 
-I then create a non-admin user account using the access token as the bearer token authentication:
+I then create a non-admin user account using the Admin access token as the bearer token authentication:
 
 ```bash
 # Create a new user account “testuser1”
@@ -223,16 +223,24 @@ curl -X 'POST' \
     "username": "testuser1",
     "admin": false,
     "active": true
-   }
+   },
+   "password": "<UserPassword>"
 }'
 ```
 
-Finally, I set the password for the newly created user account:
+Changing the password for an existing user account is a two-step process. You must first obtain the userID of the user before changing the password:
 
 ```bash
+# Fetch the user ID for user "testuser1"
+detUserId=$(curl -s -X 'GET' \
+  "${detMaster}/api/v1/users" \
+  -H 'accept: application/json' \
+  -H "Authorization: Bearer $MyToken"| jq '.users[] | select(.username=="testuser1") | .id' | tr -d '"')
+echo " the determined AI user ID for user testuser1 is : $detUserId"
+
 # Set password for the user account “testuser1”
 curl -X 'POST' \
-"${detMaster}/api/v1/users/testuser1/password" \
+"${detMaster}/api/v1/users/${detUserId}/password" \
   -H 'accept: application/json' \
   -H 'Content-Type: application/json' \
   -H "Authorization: Bearer $MyToken" \
