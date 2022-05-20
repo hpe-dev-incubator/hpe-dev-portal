@@ -11,7 +11,7 @@ tags:
 
 
 
-<img src="/img/hpe-ecp-dashboard.png" width="480" height="538" alt="HPE ECP Dashboard">
+![](/img/hpe-ecp-dashboard.png "HPE ECP Dashboard")
 
 However, there are a couple of issues using the downloaded kubeconfig file from the dashboard:
 
@@ -27,8 +27,8 @@ You need a cleaner solution to have a kubeconfig file that is not tied to a spec
 You need to download the kubectl binary, together with the HPE kubectl plugin and the kubeconfig file, from the launched HPE Ezmeral Runtime Enterprise Dashboard. The downloaded kubectl binary and its plugin need to be set up in your environment. To simplify the setup process, you export the environment variable `KUBECONFIG` and point it to the downloaded kubeconfig file. With those setups in place, you can access the Kubernetes cluster in the HPE GreenLake for Containers.
 
 You have access to permissions that can create and update the following resources in the Kubernetes cluster:
--	Kubernetes Service Account(s)
--	Kubernetes Roles & RoleBindings
+- Kubernetes Service Account(s)
+- Kubernetes Roles & RoleBindings
 
 ## Setup Details
 ### Create a Kubernetes Service Account
