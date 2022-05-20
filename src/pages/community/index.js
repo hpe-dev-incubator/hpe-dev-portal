@@ -89,7 +89,10 @@ export default Community;
 export const pageQuery = graphql`
   query {
     allMarkdownRemark(
-      filter: { fields: { sourceInstanceName: { eq: "community" } } }
+      filter: {
+        fields: { sourceInstanceName: { eq: "community" } }
+        frontmatter: { active: { eq: true } }
+      }
       sort: { fields: [frontmatter___priority] }
     ) {
       edges {
@@ -107,6 +110,7 @@ export const pageQuery = graphql`
             image
             linkname
             priority
+            active
           }
         }
       }
