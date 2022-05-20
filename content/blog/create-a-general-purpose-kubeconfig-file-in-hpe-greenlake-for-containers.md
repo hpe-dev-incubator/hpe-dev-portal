@@ -162,7 +162,7 @@ cfe-demo-rb   Role/cfe-demo-role   19s
 ```
 
 ### Extract Service Account Token
-You check the secret token in the created service account and extract the token field by running the following commands. The token is a randomized string that's hidden in the setup.
+You check the secret token in the created service account and extract the token field by running the following commands. The token is a randomized string. The setup shows a snippet of this string.
 
 
 
@@ -189,18 +189,20 @@ Data
 ====
 ca.crt:     1066 bytes
 namespace:  16 bytes
-token:      <hidden>
+token:      iIsImtpZCI6IjA2YnhmSVZrVDRGWnBab0VOYXhnWFBTTE1WWmptUm40eER
+
 ```
 
 Note that if you use `-o yaml` instead of `describe` in the commands, you get a base64-encoded version of the token. You must decode it before you use it. 
 
 If you access the Kubernetes API directly, e.g., from `curl`, you can use the token as the bearer token for the authorization header. 
 
-However, if you have your script running outside the cluster that uses kubectl or a client library and accessing the Kubernetes cluster, you need the kubeconfig to load configs from. You need to follow up the following sections to create such a kubeconfig file.
+However, if you have your script running outside the cluster that uses kubectl or a client library to access the Kubernetes cluster, you need the kubeconfig to load configs from. You need to follow up the following section to create a kubeconfig file.
 
 
 
 ### Create a Kubeconfig File
+Here is a shall script to create a kubeconfig file using the token of the service account. Replace those variables to match with your environment.
 
 
 
@@ -233,27 +235,21 @@ rm tmp.raw
 rm tmp.min
 
 ```
+After running the script, a general-purpose kubeconfig file `kubeconfig-sa` is created. After export the kubeconfig file as the environment variable `KUBECONFIG`, you can access the Kubernetes cluster and check all the resources in the cluster.
 
 
 ```bash
-$ bash create-kubeconfig.sh 
+$ bash create-kubeconfig.sh
 Switched to context "fab-zero-cfe-demo-cluster-cfe-demo-cluster-guoping.jia@hpe.com".
 Context "fab-zero-cfe-demo-cluster-cfe-demo-cluster-guoping.jia@hpe.com" renamed to "cfe-demo-context".
 User "cfe-token-user" set.
 Context "cfe-demo-context" modified.
-```
 
-A general-purpose kubeconfig file `kubeconfig-sa` is created by running above script. After export it as the environment variable `KUBECONFIG`, you can access the Kubernetes cluster and check all the resources by running `kubectl get all`.
-
-
-
-```bash
 $ export KUBECONFIG=kubeconfig-sa
-
 
 $ kubectl get all
 No resources found in cfe-demo-cluster namespace.
 ```
 ## Conclusion
-This blog post shows you how to create a general-purpose kubeconfig file using a service account. The kubeconfig is not tied to any specific user. It is binded with a list of permissions carefully chosen for your access to the Kubernetes cluster. The created kubeconfig works permanently with both downloaded kubectl from HPE GreenLake for Containers Dashboard and the standard one from the Kubernetes site. This allows to use it in any Kubernetes client scripts, esp., in Kubernetes *CI/CD* pipelines.
+This blog post shows you how to create a general-purpose kubeconfig file using a service account. The kubeconfig is not tied to any specific user. It is bound with a list of permissions carefully chosen for your access to the Kubernetes cluster. The created kubeconfig file works permanently with both downloaded kubectl binary from HPE GreenLake for Containers Dashboard and the standard one from the Kubernetes site. This allows you to use it in any Kubernetes client scripts, esp., in your Kubernetes *CI/CD* pipeline.
 
