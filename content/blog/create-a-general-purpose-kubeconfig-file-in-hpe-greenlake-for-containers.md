@@ -27,6 +27,7 @@ You need a cleaner solution to have a kubeconfig file that is not tied to a spec
 You need to download the kubectl binary, together with the HPE kubectl plugin and the kubeconfig file, from the launched HPE Ezmeral Runtime Enterprise Dashboard. The downloaded kubectl binary and its plugin need to be set up in your environment. To simplify the setup process, you export the environment variable `KUBECONFIG` and point it to the downloaded kubeconfig file. With those setups in place, you can access the Kubernetes cluster in the HPE GreenLake for Containers.
 
 You have access to permissions that can create and update the following resources in the Kubernetes cluster:
+
 - Kubernetes Service Account(s)
 - Kubernetes Roles & RoleBindings
 
@@ -133,7 +134,7 @@ cfe-demo-role   2022-05-19T20:51:57Z
 ### Grant Permissions to Service Account
 You now create the RoleBinding to bind the role to the service account. 
 
-Here is the manifest file to the RoleBinding that binds the role `cfe-demo-role` to the service account `cfe-demo-sa`. Replace those names with the names in your environment.
+Here is the manifest file to create the RoleBinding that binds the role `cfe-demo-role` to the service account `cfe-demo-sa`. Replace those names with the names in your environment.
 
 
 ```json
@@ -201,12 +202,12 @@ Note that if you use `-o yaml` instead of `describe` in the commands, you get a 
 
 If you access the Kubernetes API directly, e.g., from `curl`, you can use the token as the bearer token for the authorization header. 
 
-However, if you have your scripts running outside the cluster that use kubectl or a client library to access the Kubernetes cluster, you need the kubeconfig file to load configs from. You need to follow up the following section to create a kubeconfig file.
+However, if you have your scripts running outside the cluster that use kubectl or a client library to access the Kubernetes cluster, you need the kubeconfig file to load configs from. You follow up the following section to create such a kubeconfig file.
 
 
 
 ### Create a Kubeconfig File
-Here is a shall script to create a kubeconfig file using the token of the service account. Replace those variables in the script to match with your environment.
+Here is a shall script to create a kubeconfig file using the secret token of the service account. Update those variables in the script header to match with your environment.
 
 
 
@@ -240,7 +241,7 @@ rm tmp.raw
 rm tmp.min
 
 ```
-After running the script, a general-purpose kubeconfig file `kubeconfig-sa` is created. After export the kubeconfig file as the environment variable `KUBECONFIG`, you can access the Kubernetes cluster and check all the resources in the cluster.
+After running the script, a general-purpose kubeconfig file `kubeconfig-sa` is created. Export the kubeconfig file as the environment variable `KUBECONFIG`, you can access the Kubernetes cluster and check all the resources deployed in the cluster.
 
 
 ```bash
