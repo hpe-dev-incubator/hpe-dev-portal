@@ -7,7 +7,7 @@
         background: "rgba(0, 86, 122, 0.8);"
         label: "Hunt for Treasure!"
         priority: 3
-        active: true
+        active: false
         alt: treasure hunt map logo
 ---
           
