@@ -52,9 +52,9 @@ const Project = ({ image, title, description, link }) => (
         : undefined
     }
   >
-    <Box flex={false} height="xsmall" width="xsmall">
+    {/* <Box flex={false} height="xsmall" width="xsmall">
       <Image src={image} fit="contain" alt="opensource project logo" />
-    </Box>
+    </Box> */}
     <Box>
       <Text size="large" weight="bold">
         {title}
@@ -87,9 +87,9 @@ const Home = ({ data }) => {
     <Layout title={siteTitle}>
       <SEO title={title} />
       <Box direction="row-responsive" pad="xlarge" gap="xlarge" align="center">
-        <Box align="center">
+        {/* <Box align="center">
           {image && <Image src={image} alt="hpedev logo" />}
-        </Box>
+        </Box> */}
         <TitleMarkdown>{data.markdownRemark.rawMarkdownBody}</TitleMarkdown>
       </Box>
       <Box flex={false} direction="row-responsive" wrap margin="medium">

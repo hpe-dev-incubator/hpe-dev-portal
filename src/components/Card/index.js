@@ -137,7 +137,7 @@ export const Card = ({
             >
               {image && category === 'Featured Blog' ? (
                 <Avatar size="96px" src={image} alt="author logo" />
-              ) : (
+              ) : image ? (
                 <Image
                   gridArea="image"
                   src={image}
@@ -145,6 +145,8 @@ export const Card = ({
                   alignSelf="start"
                   alt="card logo"
                 />
+              ) : (
+                <></>
               )}
               {content && (
                 <Box gridArea="content">

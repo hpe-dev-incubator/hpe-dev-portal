@@ -4,7 +4,7 @@ category: Featured Platform
 priority: 5
 width: medium
 link: /platform/spiffe-and-spire-projects/home/
-image: /img/spiffeandspire.svg
+image: 
 ---
 ## SPIFFE and SPIRE Projects
 

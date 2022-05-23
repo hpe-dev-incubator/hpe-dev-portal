@@ -1,5 +1,5 @@
 ---
-title: HPE DEV launches its Munch & Learn technical talks
+title: HPE Developer launches its Munch & Learn technical talks
 date: 2022-01-27T16:44:13.655Z
 featuredBlog: false
 priority: null
@@ -45,6 +45,6 @@ For our September 22nd session, we focused on how organizations that have progre
 
 ## And they just keep coming[](https://hpe.zoom.us/meeting/register/tJcrduuuqzgsHNEC-u8l_Y86YeZLMxEDF5fP)
 
-The year 2021 closed out with two additional Munch & Learn sessions; one on using HPE Ezmeral Unified Analytics and another on Redfish. Replays of those sessions are available through our [calendar page](https://developer.hpe.com/campaign/munch-and-learn). The HPE DEV Munch & Learn sessions proved quite popular, bring in over 1200 attendees over the course of the year. This success sparked the launch of a new set of technology talks which the HPE DEV team also offers on a monthly basis called HPE DEV Meetups. Whereas the Munch & Learn sessions bring in industry luminaries to cover emerging industry trends, the HPE DEV Meetups are opportunities to dig down deep into new technologies, inviting product experts to come in and talk on detail about a given subject. You can learn more about these meetups in this [blog post](https://developer.hpe.com/blog/new-for-2022-hpe-dev-meetups/) and check the [schedule](https://developer.hpe.com/campaign/meetups) for upcoming talks and video replays.
+The year 2021 closed out with two additional Munch & Learn sessions; one on using HPE Ezmeral Unified Analytics and another on Redfish. Replays of those sessions are available through our [calendar page](https://developer.hpe.com/campaign/munch-and-learn). The Munch & Learn sessions proved quite popular, bring in over 1200 attendees over the course of the year. This success sparked the launch of a new set of technology talks which the HPE Developer team also offers on a monthly basis called Meetups. Whereas the Munch & Learn sessions bring in industry luminaries to cover emerging industry trends, the Meetups are opportunities to dig down deep into new technologies, inviting product experts to come in and talk on detail about a given subject. You can learn more about these meetups in this [blog post](https://developer.hpe.com/blog/new-for-2022-hpe-dev-meetups/) and check the [schedule](https://developer.hpe.com/campaign/meetups) for upcoming talks and video replays.
 
 Keep checking back to see what new topics will be covered for HPE DEV Munch & Learns on [our schedule](https://developer.hpe.com/campaign/munch-and-learn) so you don’t miss any of these fun and engaging discussions. Better yet, subscribe to our [HPE DEV Newsletter](https://developer.hpe.com/newsletter-signup). In it, you’ll find information on our upcoming Munch & Learn sessions as well as learn about everything else that’s new.

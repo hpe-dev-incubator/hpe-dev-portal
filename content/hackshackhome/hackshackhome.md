@@ -1,7 +1,7 @@
 ---
 title: "Chapel: Making parallel computing as easy as Py(thon), from laptops to
   supercomputers"
-active: false
+active: true
 link: https://hpe.zoom.us/webinar/register/7216485389685/WN_VHR47IEcSfCzVizUJX3R4w
 path: ""
 description: Join us for a free, 60-minute session where you can connect with
@@ -16,6 +16,6 @@ description: Join us for a free, 60-minute session where you can connect with
 background: rgba(0, 86, 122, 0.8);
 label: Register Now!
 priority: 2
-image: /img/hackshack/cap_ML.png
+image: /img/munch-and-learn.png
 alt: munch and learn logo
 ---

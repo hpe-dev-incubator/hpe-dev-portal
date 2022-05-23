@@ -4,7 +4,7 @@ category: Feature Platform
 priority: 6
 width: medium
 link: /platform/determined-ai/home/
-image: /img/logo-final-transparent-.png
+image: 
 ---
 ## Determined AI
 

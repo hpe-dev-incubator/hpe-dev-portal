@@ -1,5 +1,5 @@
 ---
-        title: "INTRODUCING HPE DEV WORKSHOPS-ON-DEMAND"
+        title: "INTRODUCING WORKSHOPS-ON-DEMAND"
         description: Learn more about our technologies through hands-on experience.
         path: "/hackshack/workshops"
         link: ""

@@ -2,7 +2,7 @@
 title: HPE Technology and Solutions Summit 2021
 dateStart: 2021-03-15T10:00:00.000Z
 dateEnd: 2021-03-18T20:00:00.000Z
-image: /img/home/workshops-on-demand.svg
+image: /img/home/workshops-on-demand.png
 link: https://h41382.www4.hpe.com/tss/
 width: large
 tags:

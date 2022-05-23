@@ -209,7 +209,7 @@ Explore community-powered innovation here as we highlight a few of the latest op
 ---
 
 <br><br>
-<a href="https://developer.hpe.com/campaign/meetups/" style="font-weight: 700; font-size: 27px">HPE DEV Meetups</a>
+<a href="https://developer.hpe.com/campaign/meetups/" style="font-weight: 700; font-size: 27px">Meetups</a>
 
 <div class="row">
   <div class="column">

@@ -1,6 +1,6 @@
 ---
 title: HPE DEV Munch & Learn Technology Talks
-authorimage: /img/cap_02_rgb.png
+authorimage: /img/munch-and-learn.png
 ---
 Join our free, one-hour webinars to hear from and engage with renowned technologists as they share thought-leadership insights on popular HPE and open source technologies. Get your questions answered while sharing a recipe or two.
 

@@ -1,9 +1,9 @@
 ---
 title: Scaling Language Training to Trillion-parameter Models on a GPU Cluster
-dateStart: 2022-05-24T22:01:15.500Z
-dateEnd: 2022-05-25T10:59:15.518Z
+dateStart: 2022-05-25T16:00:51.279Z
+dateEnd: 2022-05-25T17:00:51.298Z
 category: Virtual Event
-image: /img/event-meetups-newlogo-400x400.png
+image: /img/meetups.png
 link: https://hpe.zoom.us/webinar/register/2516496785024/WN_Tn1YIhepT2SbuendAF2K-w
 width: large
 tags:

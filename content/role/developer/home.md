@@ -159,7 +159,7 @@ Mastering Git (including GitHub, GitLab, etc.) is a key element of the modern de
 ---
 
 <br><br>
-<a href="https://developer.hpe.com/campaign/meetups/" style="font-weight: 700; font-size: 27px">HPE DEV Meetups</a>
+<a href="https://developer.hpe.com/campaign/meetups/" style="font-weight: 700; font-size: 27px">Meetups</a>
 
 <div class="row">
   <div class="column">

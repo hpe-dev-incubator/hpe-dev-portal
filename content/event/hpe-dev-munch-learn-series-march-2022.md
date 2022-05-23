@@ -1,15 +1,15 @@
 ---
-title: HPE DEV Munch & Learn series March 2022
-dateStart: 2022-03-22T23:01:16.892Z
-dateEnd: 2022-03-23T22:59:16.911Z
+title: Munch & Learn series March 2022
+dateStart: 2022-03-23T16:00:00.000Z
+dateEnd: 2022-03-23T17:00:00.000Z
 category: Virtual Event
-image: /img/event-ml_cap_02_rgb.png
+image: /img/munch-and-learn.png
 link: https://developer.hpe.com/campaign/munch-and-learn
 width: large
 tags:
   - spiffe-and-spire-projects
 ---
-## HPE DEV Munch & Learn series
+## Munch & Learn series
 
 
 
