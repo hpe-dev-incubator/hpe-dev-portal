@@ -242,6 +242,19 @@ collections:
           - {label: 'Template Type', name: 'templateType', widget: 'string' }
           - {label: 'Template Name', name: 'templateName', widget: 'string' }
           - {label: 'Template Link', name: 'link', widget: 'string' }
+# OSS Contribute collection
+  - name: 'oss  contribute'
+    label: 'Be an open source contributor'
+    folder: 'content/osscontribute'
+    extension: 'md'
+    create: false
+    publish: false
+    slug: 'osscontribute'
+    editor:
+      preview: true
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string', required: true }
+      - { label: 'Body', name: 'body', widget: 'markdown'}
 # Evangelist collection
   - name: 'evangelist'
     label: 'Evangelist'
