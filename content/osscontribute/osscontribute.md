@@ -1,7 +1,5 @@
 ---
 title: Be an open source contributor Page
-description: "Are you a fan of HPE DEV? Become an HPE DEV Evangelist and help us spread the word on how developers, data scientists, and IT technologists can write applications and develop integrations for Hewlett Packard Enterprise enabled environments. As an HPE DEV Evangelist, you’ll be the primary HPE DEV contact for your region/country for colleagues, HPE partners and customers. You’ll forward communications to them, alerting them of upcoming meetups, Munch & Learn sessions and promoting the newest Workshops-on-Demand."
-subtitle: "Register to be an HPE DEV Evangelist"
 
 ---
  
