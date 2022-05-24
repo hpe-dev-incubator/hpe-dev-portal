@@ -18,9 +18,9 @@ HPE Ezmeral Data Fabric allows data analysts, engineers, and scientists to deliv
 Supports files, object, NoSQL databases, and streams
 
 * [Data Fabric file store](https://docs.datafabric.hpe.com/70/MapROverview/File-Store.html#MapR-XD)
-* [Data Fabric object store](https://docs.datafabric.hpe.com/70/MapROverview/HPE-Ezmeral-Data-Fabric-Object-Store.html?hl=object%2Cstore)
+* [Data Fabric object store](https://docs.datafabric.hpe.com/70/MapROverview/HPE-Ezmeral-Data-Fabric-Object-Store.html)
 * [Data Fabric database](https://docs.datafabric.hpe.com/70/MapROverview/maprDB-overview.html#maprDB-overview)
-* [Data Fabric event streams](https://docs.datafabric.hpe.com/70/MapROverview/maprDB-overview.html#maprDB-overview)
+* [Data Fabric data streams](https://docs.datafabric.hpe.com/70/MapROverview/c_mapr_streams.html)
 
 [HPE Ezmeral Ecosystem Pack includes](https://docs.datafabric.hpe.com/70/c_ecosystem_intro.html) certified open-source tools and engines that integrate directly on top of the data fabric. It enables in-place analytics no matter where data is located and reduces time spent integrating and configuring open source tools.
 
@@ -30,21 +30,21 @@ Supports files, object, NoSQL databases, and streams
 
 # Tutorials on GitHub
 
-* ### ["Music Catalog" Tutorial: REST and GraphQL ![](Github)](https://github.com/mapr-demos/mapr-music)[](https://github.com/mapr-demos/mapr-smart-home)
-* ### ["Smart Home" IoT Tutorial ![](Github)](https://github.com/mapr-demos/mapr-smart-home)
-* ### [Ezmeral Data Fabric for Predictive Maintenance ![](Github)](https://github.com/mapr-demos/predictive-maintenance)
-* ### [Customer 360 View ![](Github)](https://github.com/mapr-demos/customer360)
-* ### [Application for Processing Stock Market Trade Data ![](Github)](https://github.com/mapr-demos/finserv-application-blueprint)
+* [Music Catalog: REST and GraphQL tutorial ![](Github)](https://github.com/mapr-demos/mapr-music)[](https://github.com/mapr-demos/mapr-smart-home)
+* [Smart Home: IoT tutorial ![](Github)](https://github.com/mapr-demos/mapr-smart-home)
+* [Ezmeral Data Fabric for Predictive Maintenance ![](Github)](https://github.com/mapr-demos/predictive-maintenance)
+* [Customer 360 View ![](Github)](https://github.com/mapr-demos/customer360)
+* [Application for Processing Stock Market Trade Data ![](Github)](https://github.com/mapr-demos/finserv-application-blueprint)
 
 - - -
 
 # Munch & Learn
 
-## Great unification:  Building analytic pipelines with Apache Spark
+### Great unification:  Building analytic pipelines with Apache Spark
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/TxZP_T9CC5Y" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-## What's a data fabric and how does it work?
+### What's a data fabric and how does it work?
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/qi6sTvu8osk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -52,11 +52,11 @@ Supports files, object, NoSQL databases, and streams
 
 # YouTube Videos
 
-## How to size a data fabric system
+### How to size a data fabric system
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/6khp9SanXhY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-## Practical Erasure Coding in a Data Fabric
+### Practical Erasure Coding in a Data Fabric
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/-6IBKLiOb_Q" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -64,17 +64,19 @@ Supports files, object, NoSQL databases, and streams
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/S19rkDF_oPs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-## Create and configure accounts and users
+### Create and configure accounts and users
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/AoOKM_Bmziw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-## Create buckets and upload objects
+### Create buckets and upload objects
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/uSPdaOi2zP4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-## Create and configure user and bucket policies
+### Create and configure user and bucket policies
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/76y4pKaIzA0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+- - -
 
 # Free On-Demand Training
 
