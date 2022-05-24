@@ -13,7 +13,7 @@ In 2016, the [Distributed Management Task Force](https://dmtf.org) published the
 
 The best definition of PLDM for FWUPD is provided in the introduction paragraph of the [DSP0267](https://www.dmtf.org/sites/default/files/standards/documents/DSP0267_1.1.0.pdf) specification document:
 
-"_The Platform Level Data Model (PLDM) Firmware Update Specification defines messages and data structures for updating firmware or other code objects maintained within the firmware devices of a platform management subsystem. Additional functions related to the sequence of identifying and transferring the firmware, are also defined._"
+"*The Platform Level Data Model (PLDM) Firmware Update Specification defines messages and data structures for updating firmware or other code objects maintained within the firmware devices of a platform management subsystem. Additional functions related to the sequence of identifying and transferring the firmware, are also defined.*"
 
 This article explains how this standard simplifies and enhances the update firmware process of servers implementing it for the benefit of end customers, firmware suppliers and computer makers.
 
@@ -70,7 +70,7 @@ Examples:
 * Smart Array controller firmware
 * Network Interface Cards (NICs) firmware
 
-> Note: devices depending associated to a type D firmware update are called _type-D devices_.
+> Note: devices depending associated to a type D firmware update are called *type-D devices*.
 
 ## Added value of PLDM for FWUPD
 
@@ -89,7 +89,7 @@ The advantage of the move from type D to type A has several important consequenc
 
 PLDM for FWUPD capable packages have a `.fwpkg` extension. Some of them specifically mention `PLDM` or `pldm` in their filename like the HPE MCX512F-ACHT Mellanox Adapter package:  `16_32_1010-MCX512F-ACH_Ax_Bx.pldm.fwpkg`. However, to be sure that a firmware package supports PLDM for FWUPD, you have to extract its `payload.json` file and look for the `UpdatableBy` and `PLDMImage` key/values as shown in the next picture. The content of this file clearly mentions that the firmware is a PLDM image and that it can be updated by the Baseboard Management Controller (BMC). It also specifies that no reset of the server is required, which confirms that this context is of type A.
 
-![Partial extract of a PLDM for FWUPD payload.json file](PayloadOfPLDMImage.png)
+![Partial extract of a PLDM for FWUPD payload.json file](/img/payloadofpldmimage.png "Partial extract of a PLDM for FWUPD payload.json file")
 
 ## Conclusion
 
