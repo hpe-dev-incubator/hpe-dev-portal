@@ -21,7 +21,7 @@ In the Hack Shack (DEMO701), you’ll be introduced to HPE Developer, a program 
 
 To help you navigate the event, we’ve put together a list of recommended Hack Shack Meetup sessions to include in your agenda builder. Note: Live sessions, demos and hands-on labs in this article are listed in Pacific Daylight Time (PDT).
 
-Our 13 Hack Shack Sessions
+#### Our 13 Hack Shack Sessions
 
 **Session ID:** [HSM5292](https://content.attend.hpe.com/go/agendabuilder.sessions/?l=1049&sid=25292_0&locale=en_US) | Hack Shack Meetup
 **Tuesday, June 28, 12:30 p.m.**
