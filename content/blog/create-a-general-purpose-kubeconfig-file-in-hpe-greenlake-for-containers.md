@@ -7,19 +7,19 @@ tags:
   - hpe-greenlake
 ---
 ## Introduction
-[HPE GreenLake for Containers](https://www.hpe.com/us/en/greenlake/containers.html), one of the HPE GreenLake Cloud services, is built on  [HPE Ezmeral Runtime Enterprise](https://www.hpe.com/us/en/software/ezmeral-runtime.html) and deployed as an enterprise-grade container management service using open source Kubernetes. The HPE GreenLake for Containers service is accessed and managed through one portal, called HPE GreenLake Central. The HPE GreenLake Central dashboard allows you to open the Clusters screen to create Kubernetes clusters using cluster blueprints, view details about existing clusters, and launch the HPE Ezmeral Runtime Enterprise, where you can view the status of all Kubernetes services and resource utilization across all clusters. The HPE Ezmeral Runtime Enterprise dashboard also allows you to download the kubectl binary, together with the kubeconfig file, to access and deploy applications using the client script. In this blog post, I will describe the major issues in the kubeconfig file from the dashboard and show you how to get around them.
+[HPE GreenLake for Containers](https://www.hpe.com/us/en/greenlake/containers.html), one of the HPE GreenLake Cloud services, is built on  [HPE Ezmeral Runtime Enterprise](https://www.hpe.com/us/en/software/ezmeral-runtime.html) and deployed as an enterprise-grade container management service using open source Kubernetes. The HPE GreenLake for Containers service is accessed and managed through one portal, called HPE GreenLake Central. The HPE GreenLake Central dashboard allows you to open the Clusters screen to create Kubernetes clusters using cluster blueprints, view details about existing clusters, and launch the HPE Ezmeral Runtime Enterprise dashboard, where you can view the status of all Kubernetes services and resource utilization across all clusters. The HPE Ezmeral Runtime Enterprise dashboard also allows you to download the kubectl binary, together with the kubeconfig file, to access and deploy applications using the client script. In this blog post, I will describe issues that are associated with this specific kubeconfig file downloaded from the dashboard and show you how to get around them.
 
 
 
 ![](/img/hpe-ecp-dashboard.png "HPE ECP Dashboard")
 
-The kubeconfig file that can be downloaded from the HPE Ezmeral Runtime Enterprise dashboard comes up with a couple of issues:
+The kubeconfig file that can be downloaded from the HPE Ezmeral Runtime Enterprise dashboard can introduce a number of issues:
 
 1. The kubeconfig file is tied to the user who logs in to HPE GreenLake for Containers. There are many use cases that use simple scripts, such as in Bash, that call out to the kubectl or a proper client library to access the Kubernetes cluster with the kubeconfig file outside the cluster. They are not tied to any particular user. Providing a kubeconfig file that’s tied to your user is not considered to be a clean design due to the fact that each user may have different privileges, and providing the kubeconfig file with ability to access to the cluster may violate the [Principle of Least Privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege). 
 
 2. Since launching from HPE GreenLake Central to the HPE Ezmeral Runtime Enterprise is configured through SAML SSO, a session token is fetched and added to the kubeconfig file each time you launch the HPE Ezmeral Runtime Enterprise dashboard. With HPE GreenLake for Containers, the session token is configured to expire after an hour. You will be unable to use the downloaded kubeconfig file to access the cluster after the token expires. You will have to relaunch the dashboard and once again download the kubeconfig file.
 
-3. The kubeconfig file is generated to include some specific commands to show version, authenticate, and refresh the HPE Ezmeral Runtime Enterprise environment. The standard kubectl tool installed from the [official Kubernetes site](https://kubernetes.io/docs/tasks/tools/) does not work with this kubeconfig file. You have to download the `HPE kubectl plugin`, available from the same dashboard, and use it together with the kubectl and the kubeconfig file. This causes issue due to the fact that some services and tools, such as `Azure DevOps` and `Jenkins`, use the standard kubectl to access and deploy applications to the Kubernetes clusters. 
+3. The kubeconfig file is generated to include some specific commands to show version, authenticate, and refresh the HPE Ezmeral Runtime Enterprise environment. The standard kubectl tool installed from the [official Kubernetes site](https://kubernetes.io/docs/tasks/tools/) does not work with this kubeconfig file. You have to download the `HPE kubectl plugin`, available from the same dashboard, and use it together with the kubectl and the kubeconfig file. This causes issues due to the fact that some services and tools, such as `Azure DevOps` and `Jenkins`, use the standard kubectl to access and deploy applications to the Kubernetes clusters. 
 
 You need a cleaner solution to have a kubeconfig file that is not tied to a specific user, has the right set of privileges, and works permanently with the standard kubectl tool. This blog post walks you through the process of creating a general-purpose kubeconfig file that allows you to access and deploy applications to the Kubernetes cluster in HPE GreenLake for Containers. By using these instructions, you will be able to create a kubeconfig file that can be used by any external scripts specific to your CI/CD pipeline setup and have them work with the Kubernetes cluster.
 
@@ -258,4 +258,10 @@ No resources found in cfe-demo-cluster namespace.
 ```
 ## Conclusion
 This blog post shows you how to create a general-purpose kubeconfig file using a service account. This kubeconfig file is not tied to any specific user. It is bound with a list of permissions carefully chosen for your need to access the Kubernetes cluster. The created kubeconfig file works permanently with both the downloaded kubectl binary from HPE GreenLake for Containers dashboard and the standard one installed from the official Kubernetes site. This allows you to use it in any Kubernetes client scripts, esp., in your Kubernetes *CI/CD* pipeline.
+
+It should be noted that the token in a service account does not expire and is valid as long as the service account exists. You should consider to generate a new kubeconfig file by creating a new service account and then revoke access to the old service account. As one best practice for security, you should do this as often as you can. This is extremely important when you use the kubeconfig file to access the Kubernetes
+cluster from outside the cluster. 
+ 
+
+
 
