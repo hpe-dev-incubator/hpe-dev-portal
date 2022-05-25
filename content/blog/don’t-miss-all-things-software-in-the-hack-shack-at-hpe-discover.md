@@ -13,8 +13,6 @@ Calling all developers, data scientists, data architects, and machine learning e
   <p><strong>Register <a href="https://attend.hpe.com/discover2022/index.cfm?iLangID=1">here</a> for HPE Discover 2022!</strong></p>
 </div>
 
-**Register [here](https://attend.hpe.com/discover2022/index.cfm?iLangID=1) for HPE Discover 2022!**
-
 We invite you to explore all our sessions on the [content catalog](https://content.attend.hpe.com/go/agendabuilder.sessions/?l=1049&locale=en_US) to build your own agenda. You can create your personalized agenda [here](https://content.attend.hpe.com/go/agendabuilder.myagenda/?l=1049&locale=en_US).  To find our Hack Shack Meetup sessions in the catalogue, simply go to the search bar and type in Hack Shack. You’ll also find them listed below for easy reference. All sessions are listed in PDT.
 
 ## Spark Your Curiosity at the Hack Shack Meetups!
@@ -159,4 +157,7 @@ You’ll also meet our hardworking HPE Developer Community members who deliver t
 
 Build your agenda today and take advantage of the many things the Hack Shack offers to developers, designers, data scientists, data/ML engineers, open source advocates, and IT technologists.
 
-**[Register now](https://attend.hpe.com/discover2022/index.cfm?iLangID=1)**
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<div class="w3-container w3-center w3-margin-bottom">
+  <p><strong><a href="https://attend.hpe.com/discover2022/index.cfm?iLangID=1">Register now</a></strong></p>
+</div>
