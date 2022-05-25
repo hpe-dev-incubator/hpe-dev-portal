@@ -9,7 +9,8 @@ Calling all developers, data scientists, data architects, and machine learning e
 
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <div class="w3-container w3-center w3-margin-bottom">
-  <strong>Register <a href="https://attend.hpe.com/discover2022/index.cfm?iLangID=1">here</a> for HPE Discover 2022!</strong>
+  
+  <p><strong>Register <a href="https://attend.hpe.com/discover2022/index.cfm?iLangID=1">here</a> for HPE Discover 2022!</strong></p>
 </div>
 
 **Register [here](https://attend.hpe.com/discover2022/index.cfm?iLangID=1) for HPE Discover 2022!**
