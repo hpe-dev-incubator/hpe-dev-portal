@@ -28,7 +28,7 @@ Supports files, object, NoSQL databases, and streams
 
 - - -
 
-# Tutorials on GitHub
+## Tutorials on GitHub
 
 * [Music Catalog: REST and GraphQL tutorial ![](Github)](https://github.com/mapr-demos/mapr-music)[](https://github.com/mapr-demos/mapr-smart-home)
 * [Smart Home: IoT tutorial ![](Github)](https://github.com/mapr-demos/mapr-smart-home)
@@ -38,7 +38,7 @@ Supports files, object, NoSQL databases, and streams
 
 - - -
 
-# Munch & Learn
+## Munch & Learn
 
 ### Great unification:  Building analytic pipelines with Apache Spark
 
@@ -50,7 +50,7 @@ Supports files, object, NoSQL databases, and streams
 
 - - -
 
-# YouTube Videos
+## YouTube Videos
 
 ### How to size a data fabric system
 
@@ -64,21 +64,9 @@ Supports files, object, NoSQL databases, and streams
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/S19rkDF_oPs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-### Create and configure accounts and users
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/AoOKM_Bmziw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-### Create buckets and upload objects
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/uSPdaOi2zP4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-### Create and configure user and bucket policies
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/76y4pKaIzA0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
 - - -
 
-# Free On-Demand Training
+## Free On-Demand Training
 
 Learn for free with online courses that teach you how to build applications, secure, and administer HPE Ezmeral. Visit [HPE Ezmeral Learn On-Demand](https://learn.ezmeral.software.hpe.com/) to enroll.
 
@@ -91,7 +79,7 @@ Learn for free with online courses that teach you how to build applications, sec
 
 - - -
 
-# Workshops-on-Demand
+## Workshops-on-Demand
 
 Take advantage of our free, Jupyter-Notebook based Workshops-on-Demand available in the [Hack Shack](/hackshack/). These technical workshops provide you with an in-depth, hands-on learning experience where you can interact with and learn from the experts. Designed to fit your schedule, these workshops are available 24/7 – any time, from anywhere. HPE Ezmeral Data Fabric workshops are available today.
 
