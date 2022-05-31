@@ -17,7 +17,7 @@ We invite you to explore all our sessions on the [content catalog](https://conte
 
 ## Spark Your Curiosity at the Hack Shack Meetups!
 
-Our Hack Shack Meetup sessions are designed to help you get your questions answered. These 30-minute discussions are led by technology experts who’ll introduce the topic, point out important features, and then engage in conversation with you as a group. You’ll also have an opportunity to connect with them after each session to go into further detail about your specific situation. And you get to come away with an HPE Developer t-shirt. How cool is that?
+Our Hack Shack Meetup sessions are designed to help you get your questions answered. These 30-minute discussions are led by technology experts who’ll introduce the topic, point out important features, and then engage in conversation with you as a group. You’ll also have an opportunity to connect with them after each session to go into further detail about your specific situation. 
 
 ## Discover the Developer’s Journey
 
@@ -133,7 +133,7 @@ Interested in accessing data lakes directly using a lakehouse? Do you need relia
 
 ## Work Hard, Play Hard
 
-In addition to our classroom-style Hack Shack Meetup sessions, we invite you to come, relax, and participate in our fun and rewarding community activities. These include our Treasure Hunt, physical game challenges, software challenges, and our Hack Shack Celebration Party (complete with beer and pizza!). You’ll even have the opportunity to win prizes – from HPE Developer hats, stickers, and t-shirts to a hoodie or a CanaKit Raspberry Pi 4 Extreme Kit. Details below! (Please look here for [participation details](https://developer.hpe.com/hackshack/hpediscover2022-participations-terms-conditions/).)
+In addition to our classroom-style Hack Shack Meetup sessions, we invite you to come, relax, and participate in our fun and rewarding community activities. These include our Treasure Hunt, physical game challenges, software challenges, and our Hack Shack Celebration Party (complete with beer and pizza!). You’ll even have the opportunity to win prizes – from HPE Developer hats and t-shirts to a hoodie or a CanaKit Raspberry Pi 4 Extreme Kit. Details below! (Please look here for [participation details](https://developer.hpe.com/hackshack/hpediscover2022-participations-terms-conditions/).)
 
 #### HPE Developer Treasure Hunt
 
