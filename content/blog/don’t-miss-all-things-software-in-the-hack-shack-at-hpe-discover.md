@@ -139,19 +139,15 @@ In addition to our classroom-style Hack Shack Meetup sessions, we invite you to 
 
 Want to win a new HPE Developer t-shirt, or even possibly a hoodie? Participate in our scavenger hunt style Treasure Hunt! To answer the questions correctly, you’ll need to explore the physical Hack Shack in Las Vegas and scrutinize the HPE Developer portal. Those who complete the Treasure Hunt will receive a t-shirt. Twelve lucky winners who answer all the questions correctly and attend our Wednesday evening Hack Shack Celebration Party will also receive an HPE Developer hoodie. Look for the QR code in the booth to easily participate on your phone or use one of the provided laptops in our booth. (For complete details, please refer to the [Terms & Conditions](https://developer.hpe.com/hackshack/hpediscover2022-treasurehunt-terms-conditions/).)
 
-#### Physical Game Challenges
-
-Just want to relax and play a game? We’ve got you covered. In the Hack Shack, you’ll find corn hole, foosball, Jenga, and video games. Participate in one of these games and win a hat! 
-
 #### Software Challenges
 
-In an earlier blog post, ***[It’s all Fun and Games at the Hack Shack](https://developer.hpe.com/blog/it%E2%80%99s-all-fun-and-games-at-the-hack-shack/)***, we went into detail about our Hack Shack challenges. These role-based software challenges, which you’ll find listed in the HPE Discover 2022 catalog as session HSC5227, are available daily at the Hack Shack. Those who participate in these challenges from June 28-30th can receive an HPE branded t-shirt. Take any of our software challenges on Tuesday, June 28th or Wednesday, June 29th and be entered for one of 6 grand prizes. One grand prize winner will be selected for each challenge. Participants must be present at the Wednesday evening 5:00-6:00pm Hack Shack Celebration to win a grand prize. (For complete details, please refer to the [Terms & Conditions](https://developer.hpe.com/hackshack/hpediscover2022-swchallenges-terms-conditions/).)
+In an earlier blog post, ***[It’s all Fun and Games at the Hack Shack](https://developer.hpe.com/blog/it%E2%80%99s-all-fun-and-games-at-the-hack-shack/)***, we went into detail about our Hack Shack challenges. These role-based software challenges, which you’ll find listed in the HPE Discover 2022 catalog as session HSC5227, are available daily at the Hack Shack. Those who participate in these challenges and enter in the provided token key from June 28-30th can receive an HPE branded t-shirt. Take any of our software challenges on Tuesday, June 28th or Wednesday, June 29th and be entered for one of 6 grand prizes. One grand prize winner will be selected for each challenge. Participants must be present at the Wednesday evening 5:00-6:00pm Hack Shack Celebration to win a grand prize. (For complete details, please refer to the [Terms & Conditions](https://developer.hpe.com/hackshack/hpediscover2022-swchallenges-terms-conditions/).)
 
 ## Join the Party!
 
 Wednesday evening from 5:00-6:00pm, you’re invited to join us in the Hack Shack for our Celebration Party. Attendees will be treated to food (pizza, yay!) and refreshments (including beer) and get to go home with some additional swag. Sit down, relax, and listen to our master of ceremonies, Robert Christiansen, VP of Strategy in the CTO Office at Hewlett Packard Enterprise. 
 
-You’ll also meet our hardworking HPE Developer Community members who deliver the program, as well as our special guests, Kirk Bresniker and Dr. Eng Lim Goh. Kirk Bresniker, HPE VP and HPE Labs Chief Architect, will hand out the grand prizes for our software challenges. Dr. Eng Lim Goh, Senior VP and Chief Technologist for AI, will announce the prizes for our treasure hunt winners.
+You’ll also meet our hardworking HPE Developer Community members who deliver the program, as well as our special guests, Kirk Bresniker and Dr. Eng Lim Goh. Kirk Bresniker, HPE VP and HPE Labs Chief Architect, will hand out the grand prizes for our software challenges. Dr. Eng Lim Goh, Senior VP and Chief Technologist for AI, will announce the prizes for our Treasure Hunt winners.
 
 ## Don’t Miss Out
 
