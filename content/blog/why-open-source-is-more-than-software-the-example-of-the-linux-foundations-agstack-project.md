@@ -2,9 +2,10 @@
 title: "Why Open Source is more than Software: The example of the Linux
   Foundation's AgStack project"
 date: 2022-06-01T17:18:20.282Z
-priority: -1
+priority: 0
 author: Dale Rensing
 authorimage: /img/blog-author-rensing-96.jpg
+thumbnailimage: /img/agstack-512.png
 ---
 The Linux Foundation’s goal to create the greatest shared technology investment in history by enabling global open collaboration across companies, developers and users has profoundly impacted our digital heritage. Its tactics proved that using a shared development model fosters human collaboration, accelerates innovation, and notably expands adoption, with text book examples including Linux, Kubernetes, Cloud Foundry, and Jenkins. Propelled by this success, the set of open source projects under the Linux Foundation has expanded to over 400 projects.
 
