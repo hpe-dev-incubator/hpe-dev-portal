@@ -145,7 +145,7 @@ In an earlier blog post, ***[It’s all Fun and Games at the Hack Shack](https:/
 
 ## Join the Party!
 
-Wednesday evening from 5:00-6:00pm, you’re invited to join us in the Hack Shack for our Celebration Party. Attendees will be treated to food (pizza, yay!) and refreshments (including beer) and get to go home with some additional swag. Sit down, relax, and listen to our master of ceremonies, Robert Christiansen, VP of Strategy in the CTO Office at Hewlett Packard Enterprise. 
+Wednesday evening from 5:00-6:00pm, you’re invited to join us in the Hack Shack for our Celebration Party. Attendees will be treated to food (pizza, yay!) and refreshments (including beer) and get the opportunity to go home with some additional swag. Sit down, relax, and listen to our master of ceremonies, Robert Christiansen, VP of Strategy in the CTO Office at Hewlett Packard Enterprise. 
 
 You’ll also meet our hardworking HPE Developer Community members who deliver the program, as well as our special guests, Kirk Bresniker and Dr. Eng Lim Goh. Kirk Bresniker, HPE VP and HPE Labs Chief Architect, will hand out the grand prizes for our software challenges. Dr. Eng Lim Goh, Senior VP and Chief Technologist for AI, will announce the prizes for our Treasure Hunt winners.
 
