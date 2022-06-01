@@ -3,7 +3,7 @@ title: Munch & Learn series April 2022
 dateStart: 2022-04-20T16:00:00.000Z
 dateEnd: 2022-04-20T17:00:00.000Z
 category: Virtual Event
-image: /img/munch-and-learn.png
+image: /img/Munch_and_Learn_192_192.svg
 link: https://hpe.zoom.us/webinar/register/7216485389685/WN_VHR47IEcSfCzVizUJX3R4w
 width: large
 tags:

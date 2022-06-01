@@ -52,7 +52,7 @@ const Challenge = (props) => {
         (err) => {
           console.log('Error: ', err);
           setError(
-            'Oops..something went wrong. The HPE DEV team is addressing the problem. Please try again later!',
+            'Oops..something went wrong. The HPE Developer team is addressing the problem. Please try again later!',
           );
         },
       );
@@ -82,7 +82,7 @@ const Challenge = (props) => {
           } else {
             console.log('catch error', err);
             setError(
-              'Oops..something went wrong. The HPE DEV team is addressing the problem. Please try again later!',
+              'Oops..something went wrong. The HPE Developer team is addressing the problem. Please try again later!',
             );
           }
         });

@@ -37,18 +37,19 @@ const TreasureHuntTC = () => {
         <br />
         <Text size="xlarge">
           2. <strong>INTRODUCTION:</strong> HPE invites KubeCon Europe 2022
-          (“Event”) attendees to participate in the HPE DEV Virtual Treasure
-          Hunt Giveaway (“Program”) for a chance to win an HPE DEV cap
-          (“Prize”), subject to the terms and conditions below (“Terms and
-          Conditions”). By participating in the Program, participants affirm
-          that they have read, accepted, and agree to waive any right to claim
-          any ambiguity or error in these Terms and Conditions or the entry
-          itself and agree to be bound by these Terms and Conditions and HPE’s
-          decisions, which are final and binding in all respects. HPE reserves
-          the right to review, modify, extend or discontinue any and/or all
-          aspects of the Program, including these Terms and Conditions, at any
-          time without prior notice. The Program is subject to federal, state,
-          and local laws and regulations and is void where prohibited.
+          (“Event”) attendees to participate in the HPE Developer Virtual
+          Treasure Hunt Giveaway (“Program”) for a chance to win an HPE
+          Developer cap (“Prize”), subject to the terms and conditions below
+          (“Terms and Conditions”). By participating in the Program,
+          participants affirm that they have read, accepted, and agree to waive
+          any right to claim any ambiguity or error in these Terms and
+          Conditions or the entry itself and agree to be bound by these Terms
+          and Conditions and HPE’s decisions, which are final and binding in all
+          respects. HPE reserves the right to review, modify, extend or
+          discontinue any and/or all aspects of the Program, including these
+          Terms and Conditions, at any time without prior notice. The Program is
+          subject to federal, state, and local laws and regulations and is void
+          where prohibited.
         </Text>
         <br />
         <Text size="xlarge">
@@ -64,18 +65,19 @@ const TreasureHuntTC = () => {
           4. <strong>ELIGIBILITY:</strong> NO HPE PRODUCT OR SERVICE PURCHASE
           NECESSARY. A PURCHASE WILL NOT IMPROVE YOUR CHANCES OF WINNING. The
           Program is open only to participants eighteen (18) years of age and
-          older who are attendees of the Event. Winners of any previous HPE DEV
-          Virtual Treasure Hunt Giveaway are not eligible for a Prize for this
-          Program. Void in Puerto Rico, U.S. territories and possessions, and
-          where prohibited by law. Employees, contractors, and contingent
-          workers of HPE, its subsidiaries, affiliates, their immediate family
-          and household members are not eligible. Employees of the following
-          entities are ineligible for this promotion: National/federal, state,
-          and local government entities, public higher education institutions,
-          and private or public K-12 educational institutions and libraries and
-          their board members, employees, officers, representatives, agents,
-          consultants and independent contractors. HPE shall determine Program
-          eligibility in its sole and absolute discretion.
+          older who are attendees of the Event. Winners of any previous HPE
+          Developer Virtual Treasure Hunt Giveaway are not eligible for a Prize
+          for this Program. Void in Puerto Rico, U.S. territories and
+          possessions, and where prohibited by law. Employees, contractors, and
+          contingent workers of HPE, its subsidiaries, affiliates, their
+          immediate family and household members are not eligible. Employees of
+          the following entities are ineligible for this promotion:
+          National/federal, state, and local government entities, public higher
+          education institutions, and private or public K-12 educational
+          institutions and libraries and their board members, employees,
+          officers, representatives, agents, consultants and independent
+          contractors. HPE shall determine Program eligibility in its sole and
+          absolute discretion.
         </Text>
         <br />
         <Text size="xlarge">
@@ -83,14 +85,14 @@ const TreasureHuntTC = () => {
           Hunt during the Program Period, participants may be considered
           eligible for the Prize. LIMIT ONE (1) PRIZE PER PERSON/ENTRY WHILE
           SUPPLIES LAST. The Prize is subject to these Terms and Conditions. In
-          order to enter the Program, participants must access the HPE DEV
-          Virtual Treasure Hunt website or the HPE DEV Hack Shack website via
-          the links provided by HPE. At the HPE DEV Hack Shack website,
-          participants must then select the Virtual Treasure Hunt card and click
-          on the “Hunt for Treasure!” button. Participants must then complete
-          the Virtual Treasure Hunt by exploring the HPE Developer Community’s
-          rich ecosystem and submit their entry via the Virtual Treasure Hunt
-          form during the Program Period.
+          order to enter the Program, participants must access the HPE Developer
+          Virtual Treasure Hunt website or the Hack Shack website via the links
+          provided by HPE. At the Hack Shack website, participants must then
+          select the Virtual Treasure Hunt card and click on the “Hunt for
+          Treasure!” button. Participants must then complete the Virtual
+          Treasure Hunt by exploring the HPE Developer Community’s rich
+          ecosystem and submit their entry via the Virtual Treasure Hunt form
+          during the Program Period.
         </Text>
         <br />
         <Text size="xlarge">
@@ -105,11 +107,11 @@ const TreasureHuntTC = () => {
           the fifteen (15) winners who they determine have submitted the best
           Virtual Treasure Hunt entries based on the following criteria:
           Completeness, accuracy of responses and date/time of the submission.
-          Winners of any previous HPE DEV Virtual Treasure Hunt Giveaway are not
-          eligible for a Prize for this Program. Odds of winning depend on the
-          total number of eligible entries received during the Program Period.
-          Should you be awarded a Prize, you will be contacted via the email
-          address used in your entry method and asked to provide a mailing
+          Winners of any previous HPE Developer Virtual Treasure Hunt Giveaway
+          are not eligible for a Prize for this Program. Odds of winning depend
+          on the total number of eligible entries received during the Program
+          Period. Should you be awarded a Prize, you will be contacted via the
+          email address used in your entry method and asked to provide a mailing
           address. It shall be your responsibility to claim the Prize within
           fifteen (15) days of notification from HPE. Failure to do so will
           result in forfeiture of the Prize, and an alternate winner may be

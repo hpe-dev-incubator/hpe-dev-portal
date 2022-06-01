@@ -3,7 +3,7 @@ title: Munch & Learn series March 2022
 dateStart: 2022-03-23T16:00:00.000Z
 dateEnd: 2022-03-23T17:00:00.000Z
 category: Virtual Event
-image: /img/munch-and-learn.png
+image: /img/Munch_and_Learn_192_192.svg
 link: https://developer.hpe.com/campaign/munch-and-learn
 width: large
 tags:

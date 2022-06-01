@@ -266,7 +266,7 @@ const Cards = ({ size, data }) => {
         {size === 'small' && (
           <Card
             logo="/img/hackshack/StickerPage/gremlin.png"
-            title="New to the HPE DEV Hack Shack?"
+            title="New to the Hack Shack?"
             desc="Watch this video!"
             background="rgba(0, 86, 122, 0.8);"
             label="Watch Now"
@@ -418,7 +418,7 @@ const Home = ({ data }) => {
           <Content />
           {/* <ButtonWrapper>
               <ButtonSplit to="https://developer.hpe.com">
-                Visit HPE DEV Community Portal
+                Visit HPE Developer Community Portal
               </ButtonSplit>
             </ButtonWrapper> */}
         </MainWrapper>

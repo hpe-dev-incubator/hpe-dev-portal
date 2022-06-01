@@ -104,6 +104,7 @@ const Home = ({ data }) => {
               image={node.frontmatter.image}
               reverse={node.frontmatter.reverse}
               title={node.frontmatter.title}
+              author={node.frontmatter.author}
             />
           ))}
       </Box>
@@ -203,6 +204,7 @@ export const pageQuery = graphql`
             link
             image
             title
+            author
           }
           rawMarkdownBody
         }

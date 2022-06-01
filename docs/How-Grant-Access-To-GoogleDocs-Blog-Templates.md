@@ -6,7 +6,7 @@ This guide describes how to grant access to blog post templates that are availab
 
 1- One will have to watch out the hpedev.hackshack mbx on regular basis (once a day). Patrick and Frederic are checking the emails at least once a day.
 
-2- Should a contributor request access to one of the blog post templates in Goggle docs, an email is sent to the hpedev.hackshack mbx. Title: "Share request for 'HPE DEV BASIC/TECHNICAL TUTORIAL BLOG ARTICLE TEMPLATE'
+2- Should a contributor request access to one of the blog post templates in Goggle docs, an email is sent to the hpedev.hackshack mbx. Title: "Share request for 'HPE Developer BASIC/TECHNICAL TUTORIAL BLOG ARTICLE TEMPLATE'
 
 3- Before being able to grant access to the requested document in Google Docs, connect to Google Docs using hpedev.hackshack@hpe.com login account from your preferred browser.
 

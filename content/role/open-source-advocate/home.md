@@ -182,7 +182,7 @@ Explore community-powered innovation here as we highlight a few of the latest op
 
 ### Skill Up
 
-<a href="https://developer.hpe.com/campaign/munch-and-learn/" style="font-weight: 700; font-size: 27px">HPE DEV Munch & Learn technology talk</a>
+<a href="https://developer.hpe.com/campaign/munch-and-learn/" style="font-weight: 700; font-size: 27px">Munch & Learn technology talk</a>
 
 <div class="row">
   <div class="column">
@@ -235,7 +235,7 @@ Explore community-powered innovation here as we highlight a few of the latest op
 ---
 
 <br><br>
-<a href="https://hackshack.hpedev.io/workshops" style="font-weight: 700; font-size: 27px">HPE DEV Workshops-on-Demand</a>
+<a href="https://hackshack.hpedev.io/workshops" style="font-weight: 700; font-size: 27px">Workshops-on-Demand</a>
 
 <div class="row">
   <div class="column">
@@ -300,12 +300,12 @@ Explore community-powered innovation here as we highlight a few of the latest op
 
 <div class="row">
   <div class="column">
-    Ping us with your comments, questions, and requests for information. We recommend starting with the HPE DEV Slack workspace.
+    Ping us with your comments, questions, and requests for information. We recommend starting with the HPE Developer Slack workspace.
 
   </div>
   <div class="column">
 
-    - [HPE DEV Slack](https://slack.hpedev.io/)
+    - [HPE Developer Slack](https://slack.hpedev.io/)
 
     - [Grommet Slack](https://grommet.slack.com/)
 

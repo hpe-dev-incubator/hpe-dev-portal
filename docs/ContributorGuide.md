@@ -1,4 +1,4 @@
-# HPE DEV External Contributor Guide
+# HPE Developer External Contributor Guide
 **Version 1.0**
 
 16-MAR-2021
@@ -48,11 +48,11 @@ more support.
 > generated](media/image1.png){width="5.142445319335083in"
 > height="2.73in"}
 
-3.  Select **Fork the repo** to initiate a copy of the HPE DEV Web CMS
+3.  Select **Fork the repo** to initiate a copy of the HPE Developer Web CMS
     into your own GitHub account. (In GitHub, this will appear as a new
     repository: "yourAccountname/hpe-dev-portal"). This private copy of
     the repository is going to be used to make your changes to the web
-    site, before submitting them to the HPE DEV team.
+    site, before submitting them to the HPE Developer team.
 
 > ![Graphical user interface, text, application Description
 > automatically generated](media/image2.png){width="5.14in"
@@ -165,7 +165,7 @@ height="3.8333333333333335in"}
 > height="2.5766437007874017in"}
 
 13. As soon as the blog was placed **In Review,** a Pull Request (PR)
-    was automatically opened on the HPE DEV team's GitHub repository,
+    was automatically opened on the HPE Developer team's GitHub repository,
     with the changes you are proposing. We will review and get in touch
     with you shortly.
 
@@ -179,10 +179,10 @@ height="1.2118055555555556in"}
     withdraw the PR. You can also continue to make changes to your blog
     while the blog is **In Review**, this will be automatically
     synchronized in the PR (as additional Commits). This will be
-    particularly helpful when receiving feedback from the HPE DEV Team.
+    particularly helpful when receiving feedback from the HPE Developer Team.
 
 15. Once the team has agreed to accept your contribution, the PR will be
-    merged, the blog post will be published to the HPE DEV portal and
+    merged, the blog post will be published to the HPE Developer portal and
     the blog entry will disappear from your Editorial Workflow..
 
 
@@ -234,7 +234,7 @@ height="2.9208333333333334in"}
 > automatically generated](media/image21.png){width="6.5in"
 > height="3.154861111111111in"}
 
-7.  A Pull Request (PR) was automatically opened on the HPE DEV team's
+7.  A Pull Request (PR) was automatically opened on the HPE Developer team's
     GitHub repository, with the changes you are proposing. We will
     review and get in touch with you shortly.
 
@@ -252,7 +252,7 @@ height="2.9208333333333334in"}
     DEV Team.
 
 9.  Once the team has agreed to accept your contribution, the PR will be
-    merged, the platform page will be updated in HPE DEV Portal and the
+    merged, the platform page will be updated in HPE Developer Portal and the
     platform page will disappear from your Editorial Workflow.
 
 ## Adding an Event
@@ -281,7 +281,7 @@ To do so:
 6.  Select the Editorial Workflow view using **Workflow** from the menu
     bar. The platform page is now in the **Drafts** column. When ready
     drag/drop entry to the **In Review** column.
-7.  A Pull Request (PR) was automatically opened on the HPE DEV team's
+7.  A Pull Request (PR) was automatically opened on the HPE Developer team's
     GitHub repository, with the changes you are proposing. We will
     review and get in touch with you shortly.
 
@@ -427,12 +427,12 @@ break** between sub-list items:
 -   **Tag:**
 
 > If appropriate, use a tag to tie your blog post to a "platform" page
-> on HPE DEV portal. List of "platforms" tag is in the table below.
+> on HPE Developer portal. List of "platforms" tag is in the table below.
 >
 > You can also tag your article with popular keywords (1 to 4 keywords)
 > that reflect your topic relevancy. Use tags as one way to optimize
 > your blog post for results from search engines such as Google search
-> engine. Visit the site here to look for existing tags in our HPE DEV
+> engine. Visit the site here to look for existing tags in our HPE Developer
 > site: <https://hpe-dev-portal.netlify.app/tags/>
 
 ```

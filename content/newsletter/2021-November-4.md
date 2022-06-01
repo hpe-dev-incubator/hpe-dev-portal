@@ -5,7 +5,7 @@ link: /newsletter/nov-2021/
 description: As technologists, you’re challenged to stay
   up to date on new products and processes all
   the time. We’re here to help you do just
-  that. This month, HPE DEV
+  that. This month, HPE Developer
   offers insights on new ways to effectively
   harness data and optimize your applications
   using technologies like data fabric,

@@ -20,12 +20,12 @@ Heading.propTypes = {
 const columns = {
   small: ['auto'],
   medium: ['auto', 'auto'],
-  large: ['auto', 'auto'],
-  xlarge: ['auto', 'auto'],
+  large: ['auto', 'auto', 'auto'],
+  xlarge: ['auto', 'auto', 'auto'],
 };
 
 const rows = {
-  small: ['auto', 'auto'],
+  small: ['auto', 'auto', 'auto'],
   medium: ['auto', 'auto'],
   large: ['auto'],
   xlarge: ['auto'],
@@ -75,7 +75,7 @@ function Platform({ data, location }) {
               title={node.frontmatter.title}
               description={node.frontmatter.description}
               link={`/${node.fields.sourceInstanceName}${node.fields.slug}`}
-              image={node.frontmatter.image}
+              // image={node.frontmatter.image}
               category={node.frontmatter.category}
               flex
             />
