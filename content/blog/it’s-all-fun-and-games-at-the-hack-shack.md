@@ -1,8 +1,8 @@
 ---
 title: It’s All Fun and Games at the Hack Shack!
 date: 2022-04-22T12:36:51.853Z
-featuredBlog: true
-priority: 1
+featuredBlog: false
+priority: 9
 author: Dale Rensing
 authorimage: /img/blog-author-rensing-96.jpg
 thumbnailimage: /img/lets-hack-shack-512.png
