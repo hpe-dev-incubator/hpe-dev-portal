@@ -1,6 +1,8 @@
 ---
 title: Don’t Miss All Things Software in the Hack Shack at HPE Discover
 date: 2022-05-26T19:22:00.000Z
+featuredBlog: true
+priority: 1
 author: Dale Rensing
 authorimage: /img/blog-author-rensing-96.jpg
 thumbnailimage: /img/3b80von6qmg5y9jpuzfn_hpe_discover-202022_ppt_sessionsnot2miss-blogsize-v1-hackshack.jpg
