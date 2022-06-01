@@ -4,7 +4,7 @@ dateStart: 2022-05-24T22:01:15.500Z
 dateEnd: 2022-05-25T10:59:15.518Z
 category: Virtual Event
 image: /img/event-meetups-newlogo-400x400.png
-link: https://hpe.zoom.us/webinar/register/2516496785024/WN_Tn1YIhepT2SbuendAF2K-w
+link: https://developer.hpe.com/campaign/meetups
 width: large
 tags:
   - Meetups
