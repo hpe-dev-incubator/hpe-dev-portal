@@ -4,6 +4,10 @@ date: 2022-05-26T19:22:00.000Z
 author: Dale Rensing
 authorimage: /img/blog-author-rensing-96.jpg
 thumbnailimage: /img/3b80von6qmg5y9jpuzfn_hpe_discover-202022_ppt_sessionsnot2miss-blogsize-v1-hackshack.jpg
+tags:
+  - Discover
+  - HackShack
+  - HPEDiscover
 ---
 Calling all developers, data scientists, data architects, and machine learning engineers! The HPE Developer Community is excited to welcome you to Las Vegas, June 28-30, 2022 at the Hack Shack at HPE Discover 2022, The Edge-to-Cloud-Conference. The Hack Shack is a place specifically focused on software – from development, to design, to use. There, you can connect with our experts in meetup sessions, try our unique software challenges, and go on a treasure hunt to discover a wealth of resources for open source and HPE technologies. It’s a fun place to collaborate, learn, expand your technology skills, and win prizes!
 
