@@ -137,7 +137,7 @@ In addition to our classroom-style Hack Shack Meetup sessions, we invite you to 
 
 #### HPE Developer Treasure Hunt
 
-Want to win a new HPE Developer t-shirt or even possibly a hoodie? Participate in our scavenger hunt style Treasure Hunt! To answer the questions correctly, you’ll need to explore the physical Hack Shack in Las Vegas and scrutinize the HPE Developer portal. Those who complete the Treasure Hunt will receive a t-shirt. Twelve lucky winners who answer all the questions correctly and attend our Wednesday evening Hack Shack Celebration Party will also receive an HPE Developer hoodie. Look for the QR code in the booth to easily participate on your phone or use one of the provided laptops in our booth. (For complete details, please refer to the [Terms & Conditions](https://developer.hpe.com/hackshack/hpediscover2022-treasurehunt-terms-conditions/).)
+Want to win a new HPE Developer t-shirt or even possibly a hoodie? Participate in our scavenger hunt style Treasure Hunt! To answer the questions correctly, you’ll need to explore the physical Hack Shack in Las Vegas and scrutinize the HPE Developer portal. Those who complete the Treasure Hunt will have the opportunity to receive a t-shirt. Twelve lucky winners who answer all the questions correctly and attend our Wednesday evening Hack Shack Celebration Party will also win an HPE Developer hoodie. Look for the QR code in the booth to easily participate on your phone or use one of the provided laptops in our booth. (For complete details, please refer to the [Terms & Conditions](https://developer.hpe.com/hackshack/hpediscover2022-treasurehunt-terms-conditions/).)
 
 #### Software Challenges
 
