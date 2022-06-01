@@ -1,5 +1,5 @@
 ---
-title: "Why Open Source is more than Software: The example of the Linux
+title: "Why Open Source is more than Software: The Example of the Linux
   Foundation's AgStack project"
 date: 2022-06-01T17:18:20.282Z
 priority: 0
