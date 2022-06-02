@@ -8,6 +8,7 @@ authorimage: /img/blog-author-rensing-96.jpg
 thumbnailimage: /img/agstack-512.png
 tags:
   - opensource
+  - AgStack
 ---
 The Linux Foundation’s goal to create the greatest shared technology investment in history by enabling global open collaboration across companies, developers and users has profoundly impacted our digital heritage. Its tactics proved that using a shared development model fosters human collaboration, accelerates innovation, and notably expands adoption, with text book examples including Linux, Kubernetes, Cloud Foundry, and Jenkins. Propelled by this success, the set of open source projects under the Linux Foundation has expanded to over 400 projects.
 
@@ -25,13 +26,13 @@ Farmers are constantly grappling with weather, procurement, supply-chain, and di
 
 AgStack addresses these issues by focusing on being able to deliver four pieces that interconnect:
 
-1. Data. There is already a tremendous amount of data openly available today; weather data, satellite data, soil data.  Research about new varieties of seeds and fertilizer can significantly boost productivity. Near real-time information about soil types, weather conditions, market predictions, and nearby insect infestation can help farmers make better decisions on the ground. But hunting for that data requires time, expertise, and language translation in order to be useful.   
+1. **Data.** There is already a tremendous amount of data openly available today; weather data, satellite data, soil data.  Research about new varieties of seeds and fertilizer can significantly boost productivity. Near real-time information about soil types, weather conditions, market predictions, and nearby insect infestation can help farmers make better decisions on the ground. But hunting for that data requires time, expertise, and language translation in order to be useful.   
 
-2. Models. Many universities and research groups have developed models to predict how pests evolve, how different soils evolve, when to fertilize, etc. Again, much of this material is publically available and features permissive licensing, but you have to go off looking for it.   
+2. **Models.** Many universities and research groups have developed models to predict how pests evolve, how different soils evolve, when to fertilize, etc. Again, much of this material is publically available and features permissive licensing, but you have to go off looking for it.   
 
-3. Frameworks. Things like user registries and asset registries are other things that can be shared that are hosted by AgStack. Some of these help identify field boundaries in such a way that protects the owners’ personal information. Others can look at them to determine if the field they’re working on has similar attributes and requires similar considerations.   
+3. **Frameworks.** Things like user registries and asset registries are other things that can be shared that are hosted by AgStack. Some of these help identify field boundaries in such a way that protects the owners’ personal information. Others can look at them to determine if the field they’re working on has similar attributes and requires similar considerations.   
 
-4. Extensions and toolboxes. Extensions come from folks who share new research that can help farmers improve their practices. For example, tagged image datasets or tagged audio datasets can be extremely useful for those developing applications using machine learning algorithms. These datasets can help one determine if something is a piece of lettuce, an almond, or something else.   
+4. **Extensions and toolboxes.** Extensions come from folks who share new research that can help farmers improve their practices. For example, tagged image datasets or tagged audio datasets can be extremely useful for those developing applications using machine learning algorithms. These datasets can help one determine if something is a piece of lettuce, an almond, or something else.   
 
 It’s all about connecting the right data to the right people at the right time so the best decisions can be made.
 
