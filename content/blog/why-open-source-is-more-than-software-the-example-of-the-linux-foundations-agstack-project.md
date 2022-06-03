@@ -16,7 +16,7 @@ Now, a new Linux Foundation project, AgStack, aims to expand the definition of o
 
 ## Leveraging open source to improve agriculture efficiency
 
-Global agriculture is a highly-complex, interrelated trillion dollar industry. Its ecosystem is massively inefficient and confronts grave challenges in the face of climate change. It employs half the world’s population and uses 70% of the world’s fresh water.  Of the thousands of stakeholders who have to work together, its small holder farmers produce at least [one-third](https://ourworldindata.org/smallholder-food-production#:~:text=Family%20farms%20do%20produce%20around,poorest%20people%20in%20the%20world.) of the entire world’s food supply and represent some of the poorest people in the world. With 30% of our food wasted and 30% of the world’s people hungry, there’s quite a bit of room for improvement. 
+Global agriculture is a highly-complex, interrelated trillion dollar industry. Its ecosystem is massively inefficient and confronts grave challenges in the face of climate change. It employs half the world’s population and uses 70% of the world’s fresh water.  Of the thousands of stakeholders who have to work together, its small holder farmers produce at least one-third [(from Our World Data)](https://ourworldindata.org/smallholder-food-production#:~:text=Family%20farms%20do%20produce%20around,poorest%20people%20in%20the%20world.) of the entire world’s food supply and represent some of the poorest people in the world. With 30% of our food wasted and 30% of the world’s people hungry, there’s quite a bit of room for improvement. 
 
 The AgStack project seeks to increase global agriculture efficiency through the creation, maintenance and enhancement of a free, re-usable, open and specialized digital infrastructure for data and applications. This software infrastructure is community-maintained and provides a free and secure digital “operating system” for all agriculture stakeholders to run their agriculture applications – from farmers to marketers to extension agents. AgStack essentially sits between digital agriculture applications and third-party cloud systems, and uses an openly available API to deliver the required data, models, frameworks, extensions and toolboxes to help farmers be more successful in growing crops in a sustainable manner.
 
@@ -35,13 +35,13 @@ It’s all about connecting the right data to the right people at the right time
 
 ## Where does HPE fit in all this?
 
-As you can imagine, being able to deliver all this from edge-to-cloud requires lots of data computation. Hewlett Packard is supporting this effort in a couple of ways. It has:
+Being able to deliver all this from edge-to-cloud requires intensive data computation. Hewlett Packard is supporting this effort in a couple of ways. As a founding company, HPE has:
 
-* Donated a lot of server hardware, memory, and cloud space
+* Donated server hardware, memory, and cloud space
 * Sponsored the project through HPE’s Tech for Good program, demonstrating that technology has the potential to drive real and positive change when harnessed effectively
 * Openly collaborated, offering technical guidance on how to more easily and scalably provide for data motion and monitoring
 
-Janice Zdankus, HPE Vice President of CTO Technology Strategy and Innovation for Social Impact, whose team is involved with the AgStack project, as well as supporting projects like CGIAR and [DigitalGreen](https://bigdata.cgiar.org/digital-intervention/video-enabled-extension/), points out that “bringing together industry, technology, academia and government partners to solve key societal challenges, global impact can be delivered and scaled.” Her colleague, Ted Dunning, HPE CTO for Data Fabric and a member of her team, agrees, adding that “a modern world should make it possible for us to be generous.”
+Janice Zdankus, HPE Vice President of CTO Technology Strategy and Innovation for Social Impact, whose team is involved with the AgStack project, as well as supporting projects like CGIAR and [DigitalGreen](https://bigdata.cgiar.org/digital-intervention/video-enabled-extension/), points out that “bringing together industry, technology, academia and government partners to solve key societal challenges, global impact can be delivered and scaled.” Her colleague, Ted Dunning, HPE CTO for Data Fabric, a member of her team and an elected member of the Board for AgStack, agrees, adding that “a modern world should make it possible for us to be generous.”
 
 ## A road to a better tomorrow – open to all
 
