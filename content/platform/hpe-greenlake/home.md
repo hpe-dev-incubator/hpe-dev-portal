@@ -18,7 +18,7 @@ Powered by the HPE GreenLake Edge-to-Cloud platform, HPE GreenLake is an IT-as-a
 
 [Learn more about HPE GreenLake](https://www.hpe.com/us/en/services/it-consumption.html)
 
-HPE GreenLake customers and partners can take advantage of our well-documented, secure, and scalable framework of APIs for the HPE GreenLake Cloud Platform and HPE GreenLake Services found in our developer portal. Learn more about the unified HPE GreenLake Experience offered through the HPE GreenLake Developer Portal by clicking on the button below.
+HPE GreenLake customers and partners can take advantage of our well-documented, secure, and scalable framework of APIs for the HPE GreenLake Cloud Platform and HPE GreenLake Services found in our developer portal. Learn more about the unified HPE GreenLake experience offered through the HPE GreenLake Developer Portal by clicking on the button below.
 
 HPE GreenLake Developer Portal
 
