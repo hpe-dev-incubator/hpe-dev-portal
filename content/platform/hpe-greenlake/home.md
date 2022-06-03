@@ -20,7 +20,7 @@ Powered by the HPE GreenLake Edge-to-Cloud platform, HPE GreenLake is an IT-as-a
 
 HPE GreenLake customers and partners can take advantage of our well-documented, secure, and scalable framework of APIs for the HPE GreenLake Cloud Platform and HPE GreenLake Services found in our developer portal. Learn more about the unified HPE GreenLake experience offered through the HPE GreenLake Developer Portal by clicking on the button below.
 
-HPE GreenLake Developer Portal
+[HPE GreenLake Developer Portal](https://developer.greenlake.hpe.com/docs/greenlake)
 
 # HPE GreenLake Central
 
@@ -75,6 +75,16 @@ HPE GreenLake for ML Ops is an enterprise-grade machine learning service, with w
 <br>
 
 [Learn more about HPE GreenLake for ML Ops](https://www.hpe.com/us/en/greenlake/ml-ops.html)
+
+<br>
+
+## HPE GreenLake for Storage
+
+Accelerate data-first transformation with storage as a service and a cloud operating experience for every workload. HPE GreenLake for storage lets you exploit the full potential of your data with a seamless cloud experience that brings together the agility of cloud operations, consumption-based data services, and the freedom to run any app without compromise. 
+
+<br>
+
+Learn more about HPE GreenLake for Storage
 
 <br>
 
