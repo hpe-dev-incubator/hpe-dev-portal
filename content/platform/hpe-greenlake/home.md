@@ -20,7 +20,10 @@ Powered by the HPE GreenLake Edge-to-Cloud platform, HPE GreenLake is an IT-as-a
 
 HPE GreenLake customers and partners can take advantage of our well-documented, secure, and scalable framework of APIs for the HPE GreenLake Cloud Platform and HPE GreenLake Services found in our developer portal. Learn more about the unified HPE GreenLake experience offered through the HPE GreenLake Developer Portal by clicking on the button below.
 
-[HPE GreenLake Developer Portal](https://developer.greenlake.hpe.com/docs/greenlake)
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<div class="w3-container w3-center w3-margin-bottom">
+  <a href="https://developer.greenlake.hpe.com/docs/greenlake"><button type="button" class="button">Try API now!</button></a>
+</div>
 
 # HPE GreenLake Central
 
@@ -32,7 +35,7 @@ With the HPE GreenLake Central platform, you can manage all of your IT operation
 
 HPE GreenLake offers a broad portfolio of cloud services such as ML Ops, containers, virtual machines (VMs) and more, with no up‑front cost, which help customers transform and modernize their applications and data. Sophisticated metering enables accurate and transparent pay-per-use billing that scales up and down with usage. 
 
-##### [HPE GreenLake for private cloud](#privatecloud)     [HPE GreenLake for containers](#container)     [HPE GreenLake for ML Ops](#mlops)
+##### [HPE GreenLake for private cloud](#privatecloud)     [HPE GreenLake for containers](#container)     [HPE GreenLake for ML Ops](#mlops)      [HPE GreenLake for Storage](#storage)
 
 <br>
 
@@ -77,6 +80,8 @@ HPE GreenLake for ML Ops is an enterprise-grade machine learning service, with w
 [Learn more about HPE GreenLake for ML Ops](https://www.hpe.com/us/en/greenlake/ml-ops.html)
 
 <br>
+
+<a id="storage"></a>
 
 ## HPE GreenLake for Storage
 
