@@ -33,7 +33,7 @@ With the HPE GreenLake Central platform, you can manage all of your IT operation
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/l2-neSwhTWo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-HPE GreenLake offers a broad portfolio of cloud services such as ML Ops, containers, virtual machines (VMs) and more, with no up‑front cost, which help customers transform and modernize their applications and data. Sophisticated metering enables accurate and transparent pay-per-use billing that scales up and down with usage. 
+HPE GreenLake offers a broad portfolio of cloud services such as ML Ops, containers, virtual machines (VMs), storage and more, with no up‑front cost, which help customers transform and modernize their applications and data. Sophisticated metering enables accurate and transparent pay-per-use billing that scales up and down with usage. 
 
 ##### [HPE GreenLake for private cloud](#privatecloud)     [HPE GreenLake for containers](#container)     [HPE GreenLake for ML Ops](#mlops)      [HPE GreenLake for Storage](#storage)
 
