@@ -89,7 +89,7 @@ Accelerate data-first transformation with storage as a service and a cloud opera
 
 <br>
 
-Learn more about HPE GreenLake for Storage
+[Learn more about HPE GreenLake for Storage](https://www.hpe.com/us/en/greenlake/storage.html)
 
 <br>
 
