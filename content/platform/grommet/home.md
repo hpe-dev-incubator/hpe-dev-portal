@@ -41,9 +41,7 @@ HPE product designer at grommet.io, Chris Carlozzi, explains how Grommet is evol
 
 ## HPE Design System
 
-The HPE Design System demonstrates how grommet can be themed and used to build user interfaces with your own brand. The HPE Design System is used within HPE to guide the design of the user interfaces that HPE creates
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/FiekQmPElsA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+The HPE Design System demonstrates how grommet can be themed and used to build user interfaces with your own brand. The HPE Design System is used within HPE to guide the design of the user interfaces that HPE creates.
 
 * [Go to the HPE Design System Homepage](https://design-system.hpe.design/)
 
