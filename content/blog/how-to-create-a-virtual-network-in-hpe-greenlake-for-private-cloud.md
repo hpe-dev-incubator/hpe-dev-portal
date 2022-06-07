@@ -87,17 +87,17 @@ Locate HPE GreenLake for private cloud card in the HPE GreenLake Central dashboa
 * From the Networks tab, click the ADD drop-down list, select NSX-T Segment
 * From the dialog box, configure the NSX-T segment parameters as follows. For information about additional fields which are not described here, refer [User Guide](https://support.hpe.com/hpesc/public/docDisplay?docId=a00092451en_us&page=GUID-3DCFD624-DFE7-45A8-AFAC-BE004227C7EC.html).
 
-  * Group: From the drop-down list, select an infrastructure user group to isolate the network at the group level. The default is Shared (all infrastructure groups)
-  * Network Service: Select "NSX-T"
-  * Name: Network Name
-  * ACTIVE: Select to activate the network. Clear to deactivate the network
-  * Gateway: (Optional) Enter the gateway address
-  * Primary DNS: (Optional) Enter the primary DNS details
-  * Secondary DNS: (Optional) Enter the secondary DNS details
-  * Connected Gateway(Optional): From the drop-down list, select a Tier1 gateway router
-  * Gateway CIDR: Enter the Classless Inter-Domain Routing (CIDR) for the logical switch (example: 192.168.0.1/24)
-  * Transport Zone: Select Overlay
-  * Network Pool: Specify the IP Pool which was created in the prerequisites section
+  * **Group**: From the drop-down list, select an infrastructure user group to isolate the network at the group level. The default is Shared (all infrastructure groups)
+  * **Network Service**: Select "NSX-T"
+  * **Name**: Network Name
+  * **ACTIVE**: Select to activate the network. Clear to deactivate the network
+  * **Gateway**: (Optional) Enter the gateway address
+  * **Primary DNS**: (Optional) Enter the primary DNS details
+  * **Secondary DNS**: (Optional) Enter the secondary DNS details
+  * **Connected Gateway**: (Optional) From the drop-down list, select a Tier1 gateway router
+  * **Gateway CIDR**: Enter the Classless Inter-Domain Routing (CIDR) for the logical switch (example: 192.168.0.1/24)
+  * **Transport Zone**: Select Overlay
+  * **Network Pool**: Specify the IP Pool which was created in the prerequisites section
 
 ![](/img/fig-3.jpg)
 
@@ -115,16 +115,16 @@ Locate HPE GreenLake for private cloud card in the HPE GreenLake Central dashboa
 * From the Networks tab, click the ADD drop-down list, select NSX-T Segment
 * From the dialog box, configure the NSX-T segment parameters as follows. For information about additional fields which are not described here, refer [User Guide](https://support.hpe.com/hpesc/public/docDisplay?docId=a00092451en_us&page=GUID-3DCFD624-DFE7-45A8-AFAC-BE004227C7EC.html).
 
-  * Group: From the drop-down list, select an infrastructure user group to isolate the network at the group level. The default is Shared (all infrastructure groups)
-  * Network Service: Select "NSX-T"
-  * Name: Network Name
-  * ACTIVE: Select to activate the network. Clear to deactivate the network
-  * Gateway: (Optional) Enter the gateway address
-  * Primary DNS: (Optional) Enter the primary DNS details
-  * Secondary DNS: (Optional) Enter the secondary DNS details
-  * Connected Gateway(Optional): From the drop-down list, select a Tier1 gateway router
-  * Gateway CIDR: Enter the Classless Inter-Domain Routing (CIDR) for the logical switch (example: 192.168.0.1/24)
-  * Transport Zone: Select Overlay
+  * **Group**: From the drop-down list, select an infrastructure user group to isolate the network at the group level. The default is Shared (all infrastructure groups)
+  * **Network Service**: Select "NSX-T"
+  * **Name**: Network Name
+  * **ACTIVE**: Select to activate the network. Clear to deactivate the network
+  * **Gateway**: (Optional) Enter the gateway address
+  * **Primary DNS**: (Optional) Enter the primary DNS details
+  * **Secondary DNS**: (Optional) Enter the secondary DNS details
+  * **Connected Gateway**: (Optional) From the drop-down list, select a Tier1 gateway router
+  * **Gateway CIDR**: Enter the Classless Inter-Domain Routing (CIDR) for the logical switch (example: 192.168.0.1/24)
+  * **Transport Zone**: Select Overlay
 * Expand 'Subnet DHCP' Section and update the below fields
 
   * DHCP Type: Local DHCP Server (default)
@@ -141,9 +141,9 @@ On successful creation, the network will list under the "Networks" tab. Notice t
 
 ![](/img/fig-5.jpg)
 
-### Manage the virtual networks
+## Manage the virtual networks
 
-You can manage the virtual networks from Infrastructure &gt; Networks page. Below is the network details page of the sample network (Green-Segment) created in the previous step.
+You can manage the virtual networks from the Infrastructure > Networks page. Below is the network details page of the sample network (Green-Segment) created in the previous step.
 
 ![](/img/fig-6.jpg)
 
