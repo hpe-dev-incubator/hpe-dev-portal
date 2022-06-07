@@ -93,6 +93,6 @@ PLDM for FWUPD capable packages have a `.fwpkg` extension. Some of them specific
 
 By  transforming type-D devices into type-A, the Platform Level Data Model for Firmware Update specification provides a real benefit to end customers as no more server reboot is required. Firmware providers, too, can take advantage of this new standard, as they don't need to adapt their flash tools to each computer integrators' supporting their devices. Finally, computer makers don't need to provide run time agents supporting firmware provider flash tools.
 
-In addition to the drastic simplification and enhancement of firmware management, the PLDM DMTF standard enhances and simplifies external device supplied devices, in terms of monitoring and configuration. Read the [PLDM for RDE](https://developer.hpe.com/blog/) article to better understand how.
+In addition to the drastic simplification and enhancement of firmware management, the PLDM DMTF standard enhances and simplifies external device supplied devices, in terms of monitoring and configuration. Read the [PLDM for RDE](https://developer.hpe.com/blog/overview-of-the-platform-level-data-model-for-redfish®-device-enablement-standard) article to better understand how.
 
 As previously mentioned, don't forget to check out some of my other [blog posts](https://developer.hpe.com/search/?term=donze) on the HPE Developer portal to learn more about Redfish tips and tricks.
