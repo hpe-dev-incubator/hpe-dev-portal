@@ -140,3 +140,5 @@ Locate HPE GreenLake for private cloud card in the HPE GreenLake Central dashboa
 * Click "Save Changes"
 
 On successful creation, the network will list under the "Networks" tab. Notice the tick mark in DHCP Column. Use this segment for instance deployment.
+
+![](/img/fig-5.jpg)
