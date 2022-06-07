@@ -1,6 +1,6 @@
 ---
 title: Benefits of the Platform Level Data Model for Firmware Update Standard
-date: 2022-05-24T14:35:26.378Z
+date: 2022-06-07T16:35:17.136Z
 author: François Donzé
 authorimage: /img/fdz-photoprofile.png
 tags:
@@ -23,9 +23,11 @@ For more architecture detail concerning PLDM, read the [Overview of the Platform
 
 Computer firmware update is a complex process involving several types of objects in different contexts. An attempt to explain how the Redfish service of HPE iLO implements this process is presented in the following three blog posts:
 
-* [HPE firmware updates: Part 1 - File types and Smart Components](https://developer.hpe.com/blog/hpe-firmware-updates-part-3-the-redfish-update-service/)
-* [HPE firmware updates: Part 2 - Interaction in operating modes](https://developer.hpe.com/blog/hpe-firmware-updates-part-2-interaction-in-operating-modes/)
-* [HPE firmware updates: Part 3 - The Redfish update service](https://developer.hpe.com/blog/hpe-firmware-updates-part-3-the-redfish-update-service/)
+* [HPE firmware updates: Part 1 - File types and Smart Components](https://developer.hpe.com/blog/hpe-firmware-updates-part-3-the-redfish-update-service/) 
+
+* [HPE firmware updates: Part 2 - Interaction in operating modes](https://developer.hpe.com/blog/hpe-firmware-updates-part-2-interaction-in-operating-modes/) 
+
+* [HPE firmware updates: Part 3 - The Redfish update service](https://developer.hpe.com/blog/hpe-firmware-updates-part-3-the-redfish-update-service/) 
 
 Although the above articles provide many definitions, acronyms and their relationship with the firmware update process, I will use, in this blog post, a different approach to this process than the one used in the three articles mentioned above.
 
@@ -37,9 +39,12 @@ In this type of firmware update, the firmware can be flashed to its destination 
 
 Examples of firmware falling in this category:
 
-* iLO firmware
-* Power Supply firmware
-* PLDM firmware
+* iLO firmware 
+
+* Power Supply firmware 
+
+* PLDM firmware 
+
 
 ### Type B
 
@@ -47,8 +52,10 @@ Firmware update of type B is similar to type A, but requires a host server reset
 
 Examples of type B firmware:
 
-* Unified Extensible Firmware Interface (UEFI) firmware
-* Complex Programable Logic Devices (CPLD) firmware
+* Unified Extensible Firmware Interface (UEFI) firmware 
+
+* Complex Programable Logic Devices (CPLD) firmware 
+
 
 ### Type C
 
@@ -56,8 +63,10 @@ This firmware type contains firmware flashed by the UEFI. A system reboot is req
 
 Examples:
 
-* Trusted Platform Module (TPM) firmware
-* Non Volatile DIMM firmware
+* Trusted Platform Module (TPM) firmware 
+
+* Non Volatile DIMM firmware 
+
 
 ### Type D
 
@@ -65,8 +74,10 @@ UEFI and run time agents, like the Smart Update Manager (SUM) or the Smart Updat
 
 Examples:
 
-* Smart Array controller firmware
-* Network Interface Cards (NICs) firmware
+* Smart Array controller firmware 
+
+* Network Interface Cards (NICs) firmware 
+
 
 > Note: devices associated to a type D firmware update are called *type-D devices*.
 
@@ -78,10 +89,14 @@ When PLDM for FWUPD is supported by both the iLO Redfish service and a firmware 
 
 The advantage of the move from type D to type A has several important consequences:
 
-* No downtime of the server
-* Faster update process
-* No need to have an operating system installed
-* No need of run time agents
+* No downtime of the server 
+
+* Faster update process 
+
+* No need to have an operating system installed 
+
+* No need of run time agents 
+
 
 ### How do I recognize a PLDM for FWUPD capable package ?
 
