@@ -20,11 +20,13 @@ Before proceeding to the app deployment phase, an end-user may be interested to 
 
 
 
-## How to Use the Tools?
+## How to Use Automation Pipeline Tools?
 
-In Katalon, Test cases can be structured using test suites with environment variables. Test execution can be parameterized and parallelized using profiles. Remote execution in Katalon Studio can be triggered by CI systems via Docker container or command-line interface. Automation job can be triggered for Cluster Creation operation, following via Cluster Deletion operation. 
+In Katalon, Test cases can be structured using test suites with environment variables. Test execution can be parameterized and parallelized using profiles. Remote execution in Katalon Studio can be triggered by CI systems via Docker container or command-line interface. Automation job can be triggered for Cluster Creation operation, following via Cluster Scale Up, Cluster Scale Down and Cluster Deletion operation, 
 
-Inside these operations, all required metrics and verification points can be checked. Upon trigger of the cluster creation process, the automation suite can start recording the required time for the cluster to become ready. Similar way other cluster operations related data can be collected. Katalon Studio provides HTML-based reports or console logs to view the data after execution has been done. Any test script can help to extract the required data in form of a plain text-based file like .csv. CircleCi provides functionality to export this .csv file as an artifact inside the job. 
+The scripts for the above operations include verification points and required performance metrics. The automation suite starts recording the required time for the cluster to become ready upon the trigger of the cluster creation process. Similar way other cluster operations related data can be collected. Katalon Studio provides HTML-based reports or console logs to view the data after execution has been done. Any test script can help to extract the required data in form of a plain text-based file like .csv. CircleCi provides functionality to export this .csv file as an artifact inside the job. 
+
+Sample skeleton of circle-ci configuration:
 
 ```yaml
 executors:
@@ -47,9 +49,7 @@ jobs:
           path: /tmp/project/
 ```
 
-File structure may look like the below:
-
-Note that, all data illustrated is for understanding purposes only. There is no relavence to the actual performance claim from HPE GreenLake. 
+The Artifact File structure may look like the below:
 
 ```sql
 IDClusterCreation,DateTime,BlueprintType,ClusterCreationDuration,ClusterDeletionDuration,ClusterScaleUpDuration,ClusterScaleDownDuration
@@ -59,9 +59,9 @@ ce18d4e0-9af3-40da-8d43-266fe05d17ba,2022-06-15 20:10:00,large,04,05
 r3b185d5-c96a-49a5-b6de-13ae93c93fd4,2022-06-15 20:30:00,standard,05,04
 ```
 
- Now to demonstrate the collected data in visualized manner, the Grafana dashboard can be helpful. 
+Now to demonstrate the collected data in visualized manner, the Grafana dashboard can be helpful. 
 
-Nightly circleci builds run will collect the artifacts and those can be filled into databases like mySQL or Prometheus. In Grafana, various data source configurations are available, where the user has to configure the required datasource. There are various chart opetion available for visual interpretation. By providing various queries required graph can be generated. 
+Nightly circle-ci builds run will collect the artifacts and those can be filled into databases like MySQL or Prometheus. In Grafana, various data source configurations are available, where the user has to configure the required data source. There are various chart options available for visual interpretation. By providing various queries required graph can be generated. 
 
 ```sql
 select BlueprintType, AVG(ClusterCreationDuration) as "Time (Minutes)" from ClusterTable GROUP BY BlueprintType
@@ -73,5 +73,7 @@ AVG(ClusterCreationDuration) as "Average Creation Time (Minutes)",
 format(std(cast(ClusterCreationDuration as UNSIGNED)),2) AS "STD Dev.Creation Time(Minutes)"
 from ClusterTable GROUP BY BlueprintType;
 ```
+
+Note that, all data illustrated is for understanding purposes only. There is no relavence to the actual performance claim from HPE GreenLake. 
 
 ![SampleGrafanaDashboard](/img/sample-chart.jpg "Sample Grafana Dashboard (Data is for illustrative purpose only. Axis are hidden)")
