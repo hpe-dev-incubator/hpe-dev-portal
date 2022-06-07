@@ -28,19 +28,19 @@ const questions = [
     id: 1,
     display: 'I like something',
     title: 'What did you like?',
-    subTitle: 'Help us improve by giving us some more details.',
+    subTitle: 'Help us improve by giving us more detail.',
   },
   {
     id: 2,
     display: 'I have an idea',
     title: 'What is your suggestion?',
-    subTitle: 'Give us some more details about it.',
+    subTitle: 'Give us more details about it.',
   },
   {
     id: 3,
     display: "Something's not working",
     title: 'What did you find?',
-    subTitle: 'Give us some more details so that we can look into.',
+    subTitle: 'Give us more details so we can look into it.',
   },
 ];
 
