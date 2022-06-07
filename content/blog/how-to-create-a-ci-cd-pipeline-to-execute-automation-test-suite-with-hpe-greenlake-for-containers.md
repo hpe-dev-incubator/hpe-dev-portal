@@ -22,7 +22,7 @@ Before proceeding to the app deployment phase, an end-user may be interested to 
 
 ## How to Use Automation Pipeline Tools?
 
-In Katalon, Test cases can be structured using test suites with environment variables. Test execution can be parameterized and parallelized using profiles. Remote execution in Katalon Studio can be triggered by CI systems via Docker container or command-line interface. Automation job can be triggered for Cluster Creation operation, following via Cluster Scale Up, Cluster Scale Down and Cluster Deletion operation, 
+In Katalon, Test cases can be structured using test suites with environment variables. Test execution can be parameterized and parallelized using profiles. Remote execution in Katalon Studio can be triggered by CI systems via Docker container or command-line interface. Automation job can be triggered for Cluster Creation operation, following via Cluster Scale Up, Cluster Scale Down, and Cluster Deletion operation, 
 
 The scripts for the above operations include verification points and required performance metrics. The automation suite starts recording the required time for the cluster to become ready upon the trigger of the cluster creation process. Similar way other cluster operations related data can be collected. Katalon Studio provides HTML-based reports or console logs to view the data after execution has been done. Any test script can help to extract the required data in form of a plain text-based file like .csv. CircleCi provides functionality to export this .csv file as an artifact inside the job. 
 
@@ -74,6 +74,6 @@ format(std(cast(ClusterCreationDuration as UNSIGNED)),2) AS "STD Dev.Creation Ti
 from ClusterTable GROUP BY BlueprintType;
 ```
 
-Note that, all data illustrated is for understanding purposes only. There is no relavence to the actual performance claim from HPE GreenLake. 
+Note that, all data illustrated is for understanding purposes only. There is no relevance to the actual performance claim from HPE GreenLake. 
 
 ![SampleGrafanaDashboard](/img/sample-chart.jpg "Sample Grafana Dashboard (Data is for illustrative purpose only. Axis are hidden)")
