@@ -26,7 +26,7 @@ In Katalon, Test cases can be structured using test suites with environment vari
 
 Inside these operations, all required metrics and verification points can be checked. Upon trigger of the cluster creation process, the automation suite can start recording the required time for the cluster to become ready. Similar way other cluster operations related data can be collected. Katalon Studio provides HTML-based reports or console logs to view the data after execution has been done. Any test script can help to extract the required data in form of a plain text-based file like .csv. CircleCi provides functionality to export this .csv file as an artifact inside the job. 
 
-```
+```yaml
 executors:
   katalon8_test_executor:
     docker: 
@@ -51,7 +51,7 @@ File structure may look like the below:
 
 Note that, all data illustrated is for understanding purposes only. There is no relavence to the actual performance claim from HPE GreenLake. 
 
-```
+```sql
 IDClusterCreation,DateTime,BlueprintType,ClusterCreationDuration,ClusterDeletionDuration,ClusterScaleUpDuration,ClusterScaleDownDuration
 2a0810e6-0c32-451b-933b-74fbdf86358a,2022-06-15 20:00:00,demo,05,04
 ce18d4e0-9af3-40da-8d43-266fe05d17ba,2022-06-15 20:10:00,large,04,05
@@ -63,7 +63,7 @@ r3b185d5-c96a-49a5-b6de-13ae93c93fd4,2022-06-15 20:30:00,standard,05,04
 
 Nightly circleci builds run will collect the artifacts and those can be filled into databases like mySQL or Prometheus. In Grafana, various data source configurations are available, where the user has to configure the required datasource. There are various chart opetion available for visual interpretation. By providing various queries required graph can be generated. 
 
-```
+```sql
 select BlueprintType, AVG(ClusterCreationDuration) as "Time (Minutes)" from ClusterTable GROUP BY BlueprintType
  
 select BlueprintType AS "Blueprint Type",
