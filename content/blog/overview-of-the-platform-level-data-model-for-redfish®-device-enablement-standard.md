@@ -6,7 +6,7 @@ author: François Donzé
 authorimage: /img/fdz-photoprofile.png
 tags:
   - Redfish
-  - ilo-resful-api
+  - ilo-restful-api
 ---
 ## Introduction
 
@@ -51,10 +51,14 @@ The reboot requirement mentioned in the second bullet is another drawback genera
 
 As a summary, the operational model without PLDM for RDE introduces the following problems:
 
-* Firmware lock-step dependency between iLO and devices
-* Fartial knowledge of device properties implemented iLO firmware
-* Use of proprietary communication protocols between iLO and devices
-* Reboot required to load new device configuration settings
+* Firmware lock-step dependency between iLO and devices   
+
+* Fartial knowledge of device properties implemented iLO firmware   
+
+* Use of proprietary communication protocols between iLO and devices   
+
+* Reboot required to load new device configuration settings   
+
 
 ## Operational model with PLDM for RDE
 
