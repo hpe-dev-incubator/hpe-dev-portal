@@ -4,7 +4,7 @@ date: 2022-05-24T14:35:26.378Z
 author: François Donzé
 authorimage: /img/fdz-photoprofile.png
 tags:
-  - ilo-resful-api
+  - ilo-restful-api
   - Redfish
 ---
 ## Introduction
