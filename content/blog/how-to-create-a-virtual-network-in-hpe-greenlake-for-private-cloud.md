@@ -64,7 +64,7 @@ Role: Customer network admin with the following role permission to enable access
 
 ## How to create a virtual network with a static IP pool
 
-### 1. Create IP Pool
+### Step 1: Create IP Pool
 
 Locate HPE GreenLake for private cloud card in the HPE GreenLake Central dashboard and click the Launcher icon to open the HPE GreenLake for private cloud dashboard.
 
@@ -73,13 +73,13 @@ Locate HPE GreenLake for private cloud card in the HPE GreenLake Central dashboa
 * Click Add to open CREATE NETWORK POOL dialog box
 * Configure the NSX-T IP pool parameters as follows
 
-  * Name: IP Pool Name
-  * Pool Type: Select "Morpheus"
-  * IP Ranges: Specify the IP pool address range by entering the STARTING ADDRESS and ENDING ADDRESS
+  * **Name**: IP Pool Name
+  * **Pool Type**: Select "Morpheus"
+  * **IP Ranges**: Specify the IP pool address range by entering the STARTING ADDRESS and ENDING ADDRESS
 
 ![](/img/fig-1.jpg)
 
-### 2. Create NSX-T Segment with Static IP Pool
+### Step 2: Create NSX-T Segment with Static IP Pool
 
 Locate HPE GreenLake for private cloud card in the HPE GreenLake Central dashboard and click the Launcher icon to open the HPE GreenLake for private cloud dashboard.
 
