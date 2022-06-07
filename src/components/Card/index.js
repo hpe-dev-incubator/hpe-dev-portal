@@ -7,6 +7,7 @@ import {
   Card as GrommetCard,
   CardBody,
   CardHeader,
+  Heading,
   Grid,
   Image,
   Markdown,
@@ -96,6 +97,8 @@ export const Card = ({
   link,
   image,
   title,
+  date,
+  author,
   ...rest
 }) => {
   const [hover, setHover] = useState(false);
@@ -134,25 +137,38 @@ export const Card = ({
               pad={{ horizontal: 'large', top: 'medium', bottom: 'large' }}
               {...(gridProps[size === 'small' ? size : width] ||
                 gridProps.medium)}
+              style={{ display: image ? 'grid' : 'flex' }}
             >
-              {image && category === 'Featured Blog' ? (
-                <Avatar size="96px" src={image} alt="author logo" />
-              ) : (
-                <Image
-                  gridArea="image"
-                  src={image}
-                  fit="contain"
-                  alignSelf="start"
-                  alt="card logo"
-                />
-              )}
-              {content && (
-                <Box gridArea="content">
+              <Box style={{ alignItems: 'center' }}>
+                {image && category === 'Featured Blog' ? (
+                  <Avatar size="96px" src={image} alt="author logo" />
+                ) : image ? (
+                  <Image
+                    gridArea="image"
+                    src={image}
+                    fit="contain"
+                    alignSelf="center"
+                    alt="card logo"
+                  />
+                ) : (
+                  <></>
+                )}
+              </Box>
+
+              <Box gridArea="content">
+                {author && <Text style={{ marginBottom: 16 }}> {author}</Text>}
+                {title && (
+                  <Heading margin="none" level="3" style={{ marginBottom: 16 }}>
+                    {title}
+                  </Heading>
+                )}
+                {date && <Text>{date}</Text>}
+                {content && (
                   <MarkdownLayout components={cardComponents}>
                     {content}
                   </MarkdownLayout>
-                </Box>
-              )}
+                )}
+              </Box>
             </Grid>
           </CardBody>
         </GrommetCard>

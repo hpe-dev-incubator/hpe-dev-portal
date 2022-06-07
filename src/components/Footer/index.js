@@ -61,7 +61,7 @@ export const Footer = () => {
         <Box flex={false} direction="row" justify="between" gap="large">
           <Box align="start" gap="medium">
             <Heading margin="none" level="4">
-              HPE DEV
+              HPE Developer
             </Heading>
             <Box gap="small">
               <Anchor
@@ -135,8 +135,8 @@ export const Footer = () => {
       <Feedback
         style={{ zIndex: '100', position: 'fixed', left: '2px!' }}
         position="right"
-        headerText="Help us improve HPE DEV Community"
-        bodyText="What kind of Feedback do you have?"
+        headerText="Help us improve the Community"
+        bodyText="What kind of feedback do you have?"
         buttonText="Feedback"
         handleClose={() => setIsSubmissionSuccess(undefined)}
         isSubmissionSuccess={isSubmissionSuccess}

@@ -1,15 +1,15 @@
 ---
-title: HPE DEV Munch & Learn series April 2022
-dateStart: 2022-04-19T22:01:05.033Z
-dateEnd: 2022-04-20T21:59:05.050Z
+title: Munch & Learn series April 2022
+dateStart: 2022-04-20T16:00:00.000Z
+dateEnd: 2022-04-20T17:00:00.000Z
 category: Virtual Event
-image: /img/event-ml_cap_02_rgb.png
+image: /img/Munch_and_Learn_192_192.svg
 link: https://hpe.zoom.us/webinar/register/7216485389685/WN_VHR47IEcSfCzVizUJX3R4w
 width: large
 tags:
   - chapel
 ---
-## HPE DEV Munch & Learn series
+## Munch & Learn series
 
 ### Chapel: Making parallel computing as easy as Py(thon), from laptops to supercomputers
 

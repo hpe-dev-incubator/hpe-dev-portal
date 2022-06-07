@@ -65,8 +65,8 @@ const Card = ({
       overflow="hidden"
     >
       {image && (
-        <Image>
-          <GrommetImage src={image} alt={alt} fit="cover" />
+        <Image background="white">
+          <GrommetImage src={image} alt={alt} fit="contain" />
         </Image>
       )}
       {logo && (

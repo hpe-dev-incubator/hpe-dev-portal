@@ -7,20 +7,6 @@ const defaultFooterStyles = {
   boxSizing: 'border-box',
   overflow: 'hidden',
 };
-// const closeBtnStyle = {
-//   float: 'left',
-//   // borderRadius: '10px',
-//   // fontSize: '16px',
-//   // height: '35px',
-//   // paddingInline: 15,
-// };
-// const submitBtnStyle = {
-//   // float: 'right',
-//   // borderRadius: '10px',
-//   // fontSize: '16px',
-//   // height: '35px',
-//   // paddingInline: 15,
-// };
 
 const FeedbackFooter = ({ handleSubmit, footerStyles, handleClose }) => {
   return (

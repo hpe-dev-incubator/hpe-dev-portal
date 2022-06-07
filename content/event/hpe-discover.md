@@ -10,8 +10,8 @@ tags:
   - Discover
 ---
 ## HPE Discover 2021
-### Join the HPE DEV team in the Hack Shack
+### Join the HPE Developer team in the Hack Shack
 
 June 24, 2021 
 
-HPE DEV will offer five Hack Shack Workshops on Day 3 at Discover 2021. In each session, experts will cover topics from Kubernetes to data fabric and security, followed by hands-on workshops. These workshops will be available to all levels with some aimed specifically at beginners. The team will be available throughout the week to answer any questions you may have.
+HPE Developer will offer five Hack Shack Workshops on Day 3 at Discover 2021. In each session, experts will cover topics from Kubernetes to data fabric and security, followed by hands-on workshops. These workshops will be available to all levels with some aimed specifically at beginners. The team will be available throughout the week to answer any questions you may have.

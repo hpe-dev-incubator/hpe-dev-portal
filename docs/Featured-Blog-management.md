@@ -1,9 +1,9 @@
 # How to manage featured blogs list and Featured blog in home page
 
 Date: June 28, 2021
-Author: HPE DEV Team
+Author: HPE Developer Team
 
-## Feature blog in the HPE DEV portal Home page
+## Feature blog in the HPE Developer portal Home page
 * From CMS v2 editor (as Administrator), go to [Home panels](https://hpe-dev-portal.netlify.app/admin/#/collections/homepanels)
 * Edit the existing Feature blog card to set the Title, Navigation Path (relative path in the form of: /blog/<blog-title>), author image, and body.
 * In the Body area, enter the Author name, Title of the blog as Header level 2, and Date (if appropriate) as header level 4. An example is here:

@@ -45,7 +45,7 @@ const ReplayTemplate = (props) => {
         })
         .catch(() => {
           setError(
-            'Oops..something went wrong. The HPE DEV team is addressing the problem. Please try again later!',
+            'Oops..something went wrong. The HPE Developer team is addressing the problem. Please try again later!',
           );
           console.log(error);
         });
@@ -57,7 +57,7 @@ const ReplayTemplate = (props) => {
         },
         () => {
           setError(
-            'Oops..something went wrong. The HPE DEV team is addressing the problem. Please try again later!',
+            'Oops..something went wrong. The HPE Developer team is addressing the problem. Please try again later!',
           );
         },
       );

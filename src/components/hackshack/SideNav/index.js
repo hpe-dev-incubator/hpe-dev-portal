@@ -106,14 +106,6 @@ const SideNav = ({ data }) => {
       >
         REPLAYS
       </NavButton>
-      {size !== 'small' && (
-        <NavButton
-          active={location.pathname === '/hackshack/community'}
-          to="/community"
-        >
-          COMMUNITY
-        </NavButton>
-      )}
       <NavButton
         active={
           location.pathname === '/hackshack/arcade' ||

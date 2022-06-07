@@ -1,15 +1,15 @@
 ---
-title: HPE DEV Munch & Learn series February 2022
-dateStart: 2022-02-15T23:01:50.831Z
-dateEnd: 2022-02-16T23:00:50.880Z
+title: Munch & Learn series February 2022
+dateStart: 2022-02-16T16:00:51.279Z
+dateEnd: 2022-02-16T17:00:51.298Z
 category: Virtual Event
-image: /img/cap_02_rgb.png
+image: /img/Munch_and_Learn_192_192.svg
 link: https://developer.hpe.com/campaign/munch-and-learn
 width: large
 tags:
   - determined-ai
 ---
-## HPE DEV Munch & Learn series
+## Munch & Learn series
 
 ### Golden Age of AI, Dark Ages of AI Infrastructure
 

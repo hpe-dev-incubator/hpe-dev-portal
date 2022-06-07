@@ -14,11 +14,11 @@ templateCards:
     templateName: Basic Blog Template
     link: https://docs.google.com/document/d/1uAHcsJxavfmC0oRoccjBFI_WmuALDWhOINATiCEoDIw/edit?usp=sharing
 ---
-- Read instructions found in [Be an HPE DEV Blogger](https://developer.hpe.com/blog/be-an-hpe-dev-blogger/). 
+- Read instructions found in [Be a Blogger](https://developer.hpe.com/blog/be-an-hpe-dev-blogger/). 
 
 - Create an account or sign into <a target='\_blank' rel="noopener noreferrer" href='https://github.com/hpe-dev-incubator/hpe-dev-portal'>GitHub</a>.
 
-- Review tips offered in the <a target='\_blank'rel="noopener noreferrer" href='https://github.com/hpe-dev-incubator/hpe-dev-portal/blob/master/docs/ContributorGuide-v2.md'>HPE DEV External Contributor Guide</a> regarding the Netlify CMS. 
+- Review tips offered in the <a target='\_blank'rel="noopener noreferrer" href='https://github.com/hpe-dev-incubator/hpe-dev-portal/blob/master/docs/ContributorGuide-v2.md'>HPE Developer External Contributor Guide</a> regarding the Netlify CMS. 
 
 - Connect to our Content Management System to fork our repo and start working on your blog
 

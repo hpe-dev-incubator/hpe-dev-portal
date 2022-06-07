@@ -43,9 +43,9 @@ function NewsletterArchive({ data }) {
         alt="newsletter page logo"
       >
         <Paragraph>
-          Each month we alert subscribers to what's new in the HPE DEV Community
-          through our newsletter. Find what you may have missed in any of our
-          previous editions by visiting our archive.
+          Each month we alert subscribers to what's new in the HPE Developer
+          Community through our newsletter. Find what you may have missed in any
+          of our previous editions by visiting our archive.
         </Paragraph>
       </PageDescription>
       <Box margin={{ top: 'large' }}>

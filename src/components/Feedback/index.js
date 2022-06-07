@@ -28,19 +28,19 @@ const questions = [
     id: 1,
     display: 'I like something',
     title: 'What did you like?',
-    subTitle: 'Help us improve by giving us some more details.',
+    subTitle: 'Help us improve by giving us more detail.',
   },
   {
     id: 2,
     display: 'I have an idea',
     title: 'What is your suggestion?',
-    subTitle: 'Give us some more details about it.',
+    subTitle: 'Give us more details about it.',
   },
   {
     id: 3,
     display: "Something's not working",
     title: 'What did you find?',
-    subTitle: 'Give us some more details so that we can look into.',
+    subTitle: 'Give us more details so we can look into it.',
   },
 ];
 
@@ -48,7 +48,6 @@ const Feedback = (props) => {
   const [showButton, setShowButton] = useState(true);
   const [showForm, setShowForm] = useState(false);
   const [selQuestion, setSelQuestion] = useState(undefined);
-  // const [ansQuestion, setAnsQuestion] = useState(0);
 
   const initialState = {
     value: '',
@@ -107,21 +106,6 @@ const Feedback = (props) => {
     validationSchema,
   });
 
-  // const handleMessageInput = (inputName, content) => {
-  //   if (inputName === 'email') {
-  //     setEmailInput(content);
-  //   } else if (inputName === 'name') {
-  //     setNameInput(content);
-  //   } else if (inputName === 'message') {
-  //     setMessageInput(content);
-  //   }
-  // };
-  // const handleNameInput = (name) => {
-  //   setNameInput(name);
-  // };
-  // const handleEmailInput = (email) => {
-  //   setEmailInput(email);
-  // };
   const buttonClickHandler = () => {
     setShowButton(false);
     setShowForm(true);
@@ -136,11 +120,6 @@ const Feedback = (props) => {
   const changeQuestion = (value) => {
     setSelQuestion(questions[value]);
   };
-
-  // const previousHandler = () => {
-  //   if (selQuestion) {
-  //   }
-  // };
 
   const closeHandler = () => {
     setShowButton(true);

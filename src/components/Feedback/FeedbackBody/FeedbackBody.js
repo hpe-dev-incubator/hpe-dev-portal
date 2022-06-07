@@ -2,13 +2,7 @@
 /* eslint-disable max-len */
 import { Box, Button, TextInput, Text, TextArea, Image } from 'grommet';
 import React, { useState } from 'react';
-import {
-  Dislike,
-  Like,
-  Emoji,
-  FormNextLink,
-  FormPreviousLink,
-} from 'grommet-icons';
+import { FormNextLink, FormPreviousLink } from 'grommet-icons';
 
 const defaultBodyStyles = {
   padding: '10px',
@@ -43,7 +37,6 @@ const FeedbackBody = ({
       cancelQuestion();
     }
   };
-  console.log(feedbackFromik);
   return (
     <Box gap="small" style={{ height: 300, width: 350 }}>
       {selQuestion === undefined &&
@@ -57,27 +50,73 @@ const FeedbackBody = ({
             <Button
               alignSelf="center"
               secondary
-              label="I like something"
-              icon={<Like />}
-              style={{ marginTop: 10 }}
+              style={{ marginTop: 10, padding: 0, paddingInline: 10 }}
               onClick={() => changeQuestion(0)}
-            />
+            >
+              {() => (
+                <Box
+                  pad="small"
+                  direction="row"
+                  align="center"
+                  gap="small"
+                  style={{ padding: 7 }}
+                >
+                  <Image
+                    src="/img/home/like.png"
+                    alt="I like something"
+                    style={{ height: 22, width: 22 }}
+                  />
+                  <Text>I like something</Text>
+                </Box>
+              )}
+            </Button>
+
             <Button
               alignSelf="center"
               secondary
-              label="I have an idea"
-              icon={<Emoji />}
-              style={{ marginTop: 10 }}
+              style={{ marginTop: 10, padding: 0, paddingInline: 10 }}
               onClick={() => changeQuestion(1)}
-            />
+            >
+              {() => (
+                <Box
+                  pad="small"
+                  direction="row"
+                  align="center"
+                  gap="small"
+                  style={{ padding: 7 }}
+                >
+                  <Image
+                    src="/img/home/idea.png"
+                    alt="I have an idea"
+                    style={{ height: 24, width: 24 }}
+                  />
+                  <Text>I have an idea</Text>
+                </Box>
+              )}
+            </Button>
             <Button
               alignSelf="center"
               secondary
-              label="Something's not working"
-              icon={<Dislike />}
-              style={{ marginTop: 10 }}
+              style={{ marginTop: 10, padding: 0, paddingInline: 10 }}
               onClick={() => changeQuestion(2)}
-            />
+            >
+              {() => (
+                <Box
+                  pad="small"
+                  direction="row"
+                  align="center"
+                  gap="small"
+                  style={{ padding: 7 }}
+                >
+                  <Image
+                    src="/img/home/something-wrong.png"
+                    alt="Something's not working"
+                    style={{ height: 24, width: 24 }}
+                  />
+                  <Text>Something's not working</Text>
+                </Box>
+              )}
+            </Button>
           </Box>
         ) : (
           <Box style={{ marginBottom: 60, marginInline: 20 }}>
@@ -185,7 +224,7 @@ const FeedbackBody = ({
             <>
               <Text weight="bold">Can we get back to you?</Text>
               <Text style={{ fontSize: 14 }}>
-                If yes, Please share your email
+                If yes, please share your email
               </Text>
               <TextInput
                 name="email"

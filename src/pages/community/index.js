@@ -44,7 +44,7 @@ function Community({ data }) {
       >
         <Paragraph size="large">
           A community is all about connection. Discover the many different ways
-          you can connect with members of the HPE DEV Community here.
+          you can connect with members of the HPE Developer Community here.
         </Paragraph>
       </PageDescription>
       <SectionHeader>
@@ -89,7 +89,10 @@ export default Community;
 export const pageQuery = graphql`
   query {
     allMarkdownRemark(
-      filter: { fields: { sourceInstanceName: { eq: "community" } } }
+      filter: {
+        fields: { sourceInstanceName: { eq: "community" } }
+        frontmatter: { active: { eq: true } }
+      }
       sort: { fields: [frontmatter___priority] }
     ) {
       edges {
@@ -107,6 +110,7 @@ export const pageQuery = graphql`
             image
             linkname
             priority
+            active
           }
         }
       }
