@@ -88,17 +88,13 @@ const HPEDiscoverTreasureHuntTC = () => {
           “Activity”):
         </Text>
         <ul>
-          <li>
-            Attend a thirty minute technology “meetup” session with HPE experts
-            on new open source projects
-          </li>
           <li>Complete one (1) Hack Shack software challenge</li>
-          <li>Complete one (1) Hack Shack game</li>
           <li>Complete the Hack Shack Treasure Hunt</li>
           <li>
             Attend the Hack Shack celebration evening on Wednesday, June 29 from
             5:00 PM Pacific Time to 6:00 PM Pacific Time at the Hack Shack zone
-            in the Event show floor
+            in the Event show floor and complete the Hack Shack foosball game at
+            the celebration
           </li>
         </ul>
         <Text size="xlarge">
@@ -119,18 +115,19 @@ const HPEDiscoverTreasureHuntTC = () => {
             One (1) HPE branded t-shirt will be awarded for the completion of
             one (1) of the following Activities (each, a “Shirt Activity”):
             <ul>
-              <li>Attend a meetup session</li>
               <li>Complete one (1) Hack Shack software challenge</li>
               <li>Complete the Hack Shack Treasure Hunt</li>
             </ul>
           </li>
           <li>
-            One (1) HPE branded hat will be awarded for the completion of one
-            (1) of the following Activities (each, a “Hat Activity”):
+            One (1) HPE branded hat will be awarded for the completion of the
+            following Activity (“Hat Activity”):
           </li>
           <ul>
-            <li>Complete one (1) Hack Shack game</li>
-            <li>Attend the Hack Shack celebration</li>
+            <li>
+              Attend the Hack Shack celebration and complete the Hack Shack
+              foosball game at the celebration
+            </li>
           </ul>
         </ul>
         <Text size="xlarge">
@@ -142,7 +139,7 @@ const HPEDiscoverTreasureHuntTC = () => {
           permitted Prize, the participant may continue to participate in the
           Activities, but will not be eligible to receive any further Prize(s).
           The total estimated retail value of each Prize is USD $15.00. The
-          Program budget will not exceed USD $9,300.00 in total and will be
+          Program budget will not exceed USD $5,325.00 in total and will be
           allocated on a first come first serve basis. HPE reserves the right to
           distribute Prizes until the budget is reached. Prizes will be awarded
           to each participant who completes an eligible entry during the Program
@@ -154,15 +151,13 @@ const HPEDiscoverTreasureHuntTC = () => {
           There will be no substitution, cash redemption or transfer of Prizes,
           except in HPE’s sole discretion. The Prize may not be used for resale
           or distribution. Taxes and duties, if any, are winner’s
-          responsibility. Each participant is limited to one (1) Prize only and
-          any entries submitted after a participant has already received a Prize
-          will not be an eligible entry. Any Prize details not specified herein
-          will be determined by HPE in its sole discretion. HPE reserves the
-          right to not fulfill your Prize in the event that the Prize is not
-          certified in your country. Due to abuse, we cannot provide Prizes to
-          individuals who submitted their entry with Yahoo, Gmail, Hotmail, and
-          other email domains not registered to your company. Please speak
-          directly to your HPE representative if you have any questions.
+          responsibility. Any Prize details not specified herein will be
+          determined by HPE in its sole discretion. HPE reserves the right to
+          not fulfill your Prize in the event that the Prize is not certified in
+          your country. Due to abuse, we cannot provide Prizes to individuals
+          who submitted their entry with Yahoo, Gmail, Hotmail, and other email
+          domains not registered to your company. Please speak directly to your
+          HPE representative if you have any questions.
         </Text>
         <br />
         <Text size="xlarge">
