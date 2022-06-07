@@ -14,7 +14,7 @@ HPE GreenLake for private cloud is designed to deliver and help manage a private
 * Offered as a consumption-based service that enables customers to better align costs to outcomes
 * An intuitive self-service portal UI to create and manage private cloud services such as compute, storage, and network (example described in this blog)
 
-This blog focuses explains the steps to create a virtual network with a static IP pool and DHCP using NSX-T, network virtualization and a security platform that enables the virtual cloud network in HPE GreenLake for private cloud.
+This blog focuses explains the steps to create a virtual network with a static IP pool and DHCP using NSX-T, network virtualization, and a security platform that enables the virtual cloud network in HPE GreenLake for private cloud.
 
 ## Understanding private cloud networking
 
@@ -53,7 +53,7 @@ Gateway that processes the traffic between the logical and physical networks. A 
 
 ##### **Ext-Net**
 
-Interface connected to Virtual Distributed Switch configured in customer environment for enabling external connectivity from the tenant virtual machines.
+Interface connected to Virtual Distributed Switch configured in a customer environment for enabling external connectivity from the tenant virtual machines.
 
 ## Prerequisites
 
@@ -64,7 +64,7 @@ Role: Customer network admin with the following role permission to enable access
 
 ## How to create a virtual network with a static IP pool
 
-### 1.Create IP Pool
+### 1. Create IP Pool
 
 Locate HPE GreenLake for private cloud card in the HPE GreenLake Central dashboard and click the Launcher icon to open the HPE GreenLake for private cloud dashboard.
 
@@ -77,4 +77,30 @@ Locate HPE GreenLake for private cloud card in the HPE GreenLake Central dashboa
   * Pool Type: Select &quot;Morpheus&quot;
   * IP Ranges: Specify the IP pool address range by entering the STARTING ADDRESS and ENDING ADDRESS
 
-    ![](/img/fig-1.jpg)
+![](/img/fig-1.jpg)
+
+### 2. Create NSX-T Segment with Static IP Pool
+
+Locate HPE GreenLake for private cloud card in the HPE GreenLake Central dashboard and click the Launcher icon to open the HPE GreenLake for private cloud dashboard.
+
+* Navigate to Infrastructure > Networks
+* From the Networks tab, click the ADD drop-down list, select NSX-T Segment
+* From the dialog box, configure the NSX-T segment parameters as follows. For information about additional fields which are not described here, refer [User Guide](https://support.hpe.com/hpesc/public/docDisplay?docId=a00092451en_us&page=GUID-3DCFD624-DFE7-45A8-AFAC-BE004227C7EC.html).
+
+  * Group: From the drop-down list, select an infrastructure user group to isolate the network at the group level. The default is Shared (all infrastructure groups)
+  * Network Service: Select &quot; NSX-T&quot;
+  * Name: Network Name
+  * ACTIVE: Select to activate the network. Clear to deactivate the network
+  * Gateway: (Optional) Enter the gateway address
+  * Primary DNS: (Optional) Enter the primary DNS details
+  * Secondary DNS: (Optional) Enter the secondary DNS details
+  * Connected Gateway(Optional): From the drop-down list, select a Tier1 gateway router
+  * Gateway CIDR: Enter the Classless Inter-Domain Routing (CIDR) for the logical switch (example: 192.168.0.1/24)
+  * Transport Zone: Select Overlay
+  * Network Pool: Specify the IP Pool which was created in the prerequisites section
+
+![](/img/fig-3.jpg)
+
+* Click "Save Changes"
+
+On successful creation, the network will list under the "Networks" tab. Use this segment for instance deployment.
