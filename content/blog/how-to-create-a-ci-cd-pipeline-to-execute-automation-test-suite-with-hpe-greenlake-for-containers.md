@@ -24,7 +24,32 @@ Before proceeding to the app deployment phase, an end-user may be interested to 
 
 In Katalon, Test cases can be structured using test suites with environment variables. Test execution can be parameterized and parallelized using profiles. Remote execution in Katalon Studio can be triggered by CI systems via Docker container or command-line interface. Automation job can be triggered for Cluster Creation operation, following via Cluster Deletion operation. 
 
-Inside these operations, all required metrics and verification points can be checked. Upon trigger of the cluster creation process, the automation suite can start recording the required time for the cluster to become ready. Similar way other cluster operations related data can be collected. Katalon Studio provides HTML-based reports or console logs to view the data after execution has been done. Any test script can help to extract the required data in form of a plain text-based file like .csv. CircleCi provides functionality to export this .csv file as an artifact.
+Inside these operations, all required metrics and verification points can be checked. Upon trigger of the cluster creation process, the automation suite can start recording the required time for the cluster to become ready. Similar way other cluster operations related data can be collected. Katalon Studio provides HTML-based reports or console logs to view the data after execution has been done. Any test script can help to extract the required data in form of a plain text-based file like .csv. CircleCi provides functionality to export this .csv file as an artifact inside the job. 
+
+```
+executors:
+  katalon8_test_executor:
+    docker: 
+      - image: default/katalon8:latest
+jobs:
+    checkout-workspace:
+    copyright-check:
+    performance-run:
+      executor:
+        name: katalon8_test_executor
+      steps:
+        - checkout
+        - run:
+        - run:
+          name: "Creating directory for artifacts"
+          command: mkdir /tmp/project/
+        - store_artifacts:
+          path: /tmp/project/
+```
+
+File structure may look like the below:
+
+Note that, all data illustrated is for understanding purposes only. There is no relavence to the actual performance claim from HPE GreenLake. 
 
 ```
 IDClusterCreation,DateTime,BlueprintType,ClusterCreationDuration,ClusterDeletionDuration,ClusterScaleUpDuration,ClusterScaleDownDuration
