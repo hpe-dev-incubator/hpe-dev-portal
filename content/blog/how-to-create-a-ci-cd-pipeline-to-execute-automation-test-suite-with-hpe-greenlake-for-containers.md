@@ -1,6 +1,6 @@
 ---
-title: How to Create a CI/CD Pipeline to Execute Automation Test Suite with HPE
-  GreenLake for Containers
+title: How to Set up Automation Pipeline to Measure the Cluster Performance on
+  HPE GreenLake for Containers
 date: 2022-06-08T06:09:47.137Z
 featuredBlog: true
 priority: 1
