@@ -5,6 +5,8 @@ featuredBlog: true
 author: Vinnarasu Ganesan, Thavamaniraja S
 authorimage: /img/tmr_2.jpg
 thumbnailimage: /img/greenlake-576x324.jpg
+tags:
+  - hpe-greenlake
 ---
 ## Introduction
 
