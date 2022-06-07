@@ -135,10 +135,34 @@ Locate HPE GreenLake for private cloud card in the HPE GreenLake Central dashboa
 
 ![](/img/fig-4.jpg)
 
-
-
 * Click "Save Changes"
 
 On successful creation, the network will list under the "Networks" tab. Notice the tick mark in DHCP Column. Use this segment for instance deployment.
 
 ![](/img/fig-5.jpg)
+
+### Manage the virtual networks
+
+You can manage the virtual networks from Infrastructure &gt; Networks page. Below is the network details page of the sample network (Green-Segment) created in the previous step.
+
+![](/img/fig-6.jpg)
+
+Select the "Instances" tab to view the list of instances deployed using this network:
+
+![](/img/fig-7.jpg)
+
+Select the "Host Records" tab to view the records created for every deployment on the network.
+
+**Grid View:**
+
+![](/img/fig-8.jpg)
+
+**List View:**
+
+![](/img/fig-9.jpg)
+
+## Summary
+
+In this blog post, we covered how to get started with the software defined networking in HPE GreenLake for private cloud and explained the steps to create a sample virtual network with both static IP pool and DHCP. In the next article, we will cover the NSX distributed firewall feature of HPE GreenLake for private cloud and explain how to create and enforce firewall rules to restrict the network traffic to the virtual machines.
+
+Learn more about HPE GreenLake for private [cloud](https://support.hpe.com/hpesc/public/docDisplay?docId=a00092451en_us&page=HPE-GreenLake-private-cloud-networking.html) networking
