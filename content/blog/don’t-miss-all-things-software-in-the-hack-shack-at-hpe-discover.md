@@ -101,9 +101,9 @@ Have you heard about Grommet, a powerful react component library that provides a
 **Wednesday, June 29, 12:00 p.m., Thursday, June 30, 11:00 a.m.**
 
 **Speaker:** Glyn Bowden (HPE)
-**Establish a Trustworthy Data Pipeline with an Open Common Metadata Framework**
+**Establish a Trustworthy Data Pipeline with Project Data Map**
 
-Data consumers need trusted data to make their best decisions. Data producers require tools to share data safely with those who need it. Learn how HPE is working with the open source community to leverage existing tools and resources that extract metadata with the Common Metadata Framework and Dataspaces. Help us bring disparate tools and resources together, creating a system the whole community can contribute to for the best insights from quality data, no matter where the data lives.
+Data consumers need trusted data to make their best decisions. Data producers require tools to share data safely with those who need it. Learn how HPE is working with the open source community to leverage existing tools and resources that extract metadata with the Common Metadata Framework and Project Data Map. Help us bring disparate tools and resources together, creating a system the whole community can contribute to for the best insights from quality data, no matter where the data lives.
 
 **Session ID:** [HSM4996](https://content.attend.hpe.com/go/agendabuilder.sessions/?l=1049&sid=24996_0&locale=en_US) | Hack Shack Meetup
 **Wednesday, June 29, 1:00 p.m.**
