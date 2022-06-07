@@ -520,7 +520,7 @@ Destroy complete! Resources: 1 destroyed.
 
 ### What’s next?
 
-In this blog post, I covered how to get started with the Terraform provider for HPE GreenLake, explained how to collect data from the platform, and showed how to request the creation of a VM instance. In my next article, I will apply changes to infrastructure configuration file and demonstrate how the desired state is automatically tracked by Terraform and applied to HPE GreenLake.
+In this blog post, I covered how to get started with the Terraform provider for HPE GreenLake, explained how to collect data from the platform, and showed how to request the creation of a VM instance. [In my next article](https://developer.hpe.com/blog/infrastructure-as-code-on-hpe-greenlake-using-terraform-%E2%80%93-part-2/), I will apply changes to infrastructure configuration file and demonstrate how the desired state is automatically tracked by Terraform and applied to HPE GreenLake.
 
 * [Learn more about Terraform](https://www.terraform.io/)
 * [Learn more about HPE GreenLake](https://www.hpe.com/us/en/greenlake.html)
