@@ -104,3 +104,39 @@ Locate HPE GreenLake for private cloud card in the HPE GreenLake Central dashboa
 * Click "Save Changes"
 
 On successful creation, the network will list under the "Networks" tab. Use this segment for instance deployment.
+
+![](/img/fig-10.jpg)
+
+## How to create a virtual network with DHCP
+
+Locate HPE GreenLake for private cloud card in HPE GreenLake Central dashboard and click the Launcher icon to open the HPE GreenLake for private cloud dashboard.
+
+* Navigate to Infrastructure > Networks
+* From the Networks tab, click the ADD drop-down list, select NSX-T Segment
+* From the dialog box, configure the NSX-T segment parameters as follows. For information about additional fields which are not described here, refer [User Guide](https://support.hpe.com/hpesc/public/docDisplay?docId=a00092451en_us&page=GUID-3DCFD624-DFE7-45A8-AFAC-BE004227C7EC.html).
+
+  * Group: From the drop-down list, select an infrastructure user group to isolate the network at the group level. The default is Shared (all infrastructure groups)
+  * Network Service: Select "NSX-T"
+  * Name: Network Name
+  * ACTIVE: Select to activate the network. Clear to deactivate the network
+  * Gateway: (Optional) Enter the gateway address
+  * Primary DNS: (Optional) Enter the primary DNS details
+  * Secondary DNS: (Optional) Enter the secondary DNS details
+  * Connected Gateway(Optional): From the drop-down list, select a Tier1 gateway router
+  * Gateway CIDR: Enter the Classless Inter-Domain Routing (CIDR) for the logical switch (example: 192.168.0.1/24)
+  * Transport Zone: Select Overlay
+* Expand 'Subnet DHCP' Section and update the below fields
+
+  * DHCP Type: Local DHCP Server (default)
+  * DHCP Enabled: Select to Enable
+  * DHCP Server Address: This address must not overlap the ip-ranges of the subnet, or the gateway address of the subnet, or the DHCP static-binding addresses of this segment
+  * DHCP Ranges: Enter the DHCP ranges as comma-separated values. Entries can be in either range format (192.168.1.10-192.168.1.100) or CIDR format (192.168.10/24).
+  * DHCP LEASE TIME: (Optional) Enter the lease time. The default is one day.
+
+![](/img/fig-4.jpg)
+
+
+
+* Click "Save Changes"
+
+On successful creation, the network will list under the "Networks" tab. Notice the tick mark in DHCP Column. Use this segment for instance deployment.
