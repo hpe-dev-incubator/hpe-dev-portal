@@ -58,3 +58,20 @@ ce18d4e0-9af3-40da-8d43-266fe05d17ba,2022-06-15 20:10:00,large,04,05
 767801bd-7f1e-4a9a-804e-b560f168d968,2022-06-15 20:20:00,xlarge,04,05
 r3b185d5-c96a-49a5-b6de-13ae93c93fd4,2022-06-15 20:30:00,standard,05,04
 ```
+
+ Now to demonstrate the collected data in visualized manner, the Grafana dashboard can be helpful. 
+
+Nightly circleci builds run will collect the artifacts and those can be filled into databases like mySQL or Prometheus. In Grafana, various data source configurations are available, where the user has to configure the required datasource. There are various chart opetion available for visual interpretation. By providing various queries required graph can be generated. 
+
+```
+select BlueprintType, AVG(ClusterCreationDuration) as "Time (Minutes)" from ClusterTable GROUP BY BlueprintType
+ 
+select BlueprintType AS "Blueprint Type",
+max(cast(ClusterCreationDuration as UNSIGNED)) as "Maximum Creation Time (Minutes)",
+min(cast(ClusterCreationDuration as UNSIGNED)) as "Minimum Creation Time (Minutes)",
+AVG(ClusterCreationDuration) as "Average Creation Time (Minutes)",
+format(std(cast(ClusterCreationDuration as UNSIGNED)),2) AS "STD Dev.Creation Time(Minutes)"
+from ClusterTable GROUP BY BlueprintType;
+```
+
+![SampleGrafanaDashboard](/img/sample-chart.jpg "Sample Grafana Dashboard (Data is for illustrative purpose only. Axis are hidden)")
