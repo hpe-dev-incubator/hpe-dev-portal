@@ -41,8 +41,6 @@ Examples of firmware falling in this category:
 * Power Supply firmware
 * PLDM firmware
 
-> Note: The last bullet of this list is the reason of this article.
-
 ### Type B
 
 Firmware update of type B is similar to type A, but requires a host server reset for the firmware to become active.
@@ -70,13 +68,13 @@ Examples:
 * Smart Array controller firmware
 * Network Interface Cards (NICs) firmware
 
-> Note: devices depending associated to a type D firmware update are called *type-D devices*.
+> Note: devices associated to a type D firmware update are called *type-D devices*.
 
 ## Added value of PLDM for FWUPD
 
 When PLDM for FWUPD is not implemented in a Redfish service (i.e. iLO 5 firmware prior to version 2.30), or, if a type D firmware package does not support PDLM for FWUPD, the target device is flashed by a run time agent (SUM or SUT). If no run time agent is present, the firmware cannot be updated as explained in the second  [part](https://developer.hpe.com/blog/hpe-firmware-updates-part-2-interaction-in-operating-modes/) of the above blog post list.
 
-When PLDM for FWUPD is supported by both the iLO Redfish service and a firmware package of a type-D device, the firmware package falls in type A. As a result the iLO can flash the bits and no server reboot is required to activate them anymore.
+When PLDM for FWUPD is supported by both the iLO Redfish service and a firmware package of a type-D device, the firmware package falls in type A. As a result, the iLO can flash the bits and no server reboot is required to activate them anymore.
 
 The advantage of the move from type D to type A has several important consequences:
 
@@ -93,9 +91,8 @@ PLDM for FWUPD capable packages have a `.fwpkg` extension. Some of them specific
 
 ## Conclusion
 
-By  transforming type-D devices into type-A, the Platform Level Data Model for Firmware Update specification provides a real benefit to end customers as no more server reboot is required. Firmware providers, too, take advantage of this new standard, as they don't need to adapt their flash tools to each computer integrators supporting their devices. Finally, computer makers don't need to provide run time agents supporting firmware provider flash tools.
+By  transforming type-D devices into type-A, the Platform Level Data Model for Firmware Update specification provides a real benefit to end customers as no more server reboot is required. Firmware providers, too, can take advantage of this new standard, as they don't need to adapt their flash tools to each computer integrators' supporting their devices. Finally, computer makers don't need to provide run time agents supporting firmware provider flash tools.
 
-In addition to the drastic simplification and enhancement of firmware management, the PLDM DMTF standard enhances and simplifies external device supplied devices, in terms of monitoring and configuration. Read the [PLDM for RDE](TBD) article to better understand how.
+In addition to the drastic simplification and enhancement of firmware management, the PLDM DMTF standard enhances and simplifies external device supplied devices, in terms of monitoring and configuration. Read the [PLDM for RDE](https://developer.hpe.com/blog/) article to better understand how.
 
-As previously mentioned, 
-Don't forget to check out some of my other [blog posts](https://developer.hpe.com/search/?term=donze) on the HPE Developer portal to learn more about Redfish tips and tricks.
+As previously mentioned, don't forget to check out some of my other [blog posts](https://developer.hpe.com/search/?term=donze) on the HPE Developer portal to learn more about Redfish tips and tricks.
