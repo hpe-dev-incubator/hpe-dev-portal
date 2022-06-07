@@ -18,7 +18,7 @@ This blog post positions the PLDM for RDE standard within the Redfish service, e
 
 The DMTF PLDM protocol suite is composed of several [documents](https://www.dmtf.org/standards/pmci), and defines its base specification in the [DSP0240](https://www.dmtf.org/sites/default/files/standards/documents/DSP0240_1.1.0.pdf) document. In the introductory paragraph, you can read:
 
-"PLDM is designed to be an effective interface and data model that provides efficient access to low-level platform inventory, monitoring, control, event, and data/parameters transfer functions. For example, temperature, voltage, or fan sensors can have a PLDM representation that can be used to monitor and control the platform using a set of PLDM messages. PLDM defines data representations and commands that abstract the platform management hardware."
+"*PLDM is designed to be an effective interface and data model that provides efficient access to low-level platform inventory, monitoring, control, event, and data/parameters transfer functions. For example, temperature, voltage, or fan sensors can have a PLDM representation that can be used to monitor and control the platform using a set of PLDM messages. PLDM defines data representations and commands that abstract the platform management hardware.*"
 
 If you compare Redfish and PLDM, you could say that Redfish defines server modeling and management communications from a remote location, while PLDM defines server component modeling and communications between those internal components.
 
