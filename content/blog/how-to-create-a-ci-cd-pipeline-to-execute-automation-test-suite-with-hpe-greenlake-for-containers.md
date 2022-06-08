@@ -41,7 +41,7 @@ jobs:
     steps:
       - run:
         name: Check copy right
-  performance-run:
+  performance-run-chrome:
     executor:
       name: katalon8_test_executor
     steps:
@@ -67,8 +67,15 @@ workflows:
     jobs:
       - checkout-workspace
       - copyright-check
-      - performance-run
+      - performance-run-chrome
+          requires:
+            - checkout-workspace
+      - performance-run-firefox
+          requires:
+            - checkout-workspace 
       - updateTestResults
+          requires:
+            - checkout-workspace 
 
 ```
 
