@@ -24,7 +24,9 @@ This blog post will guide you through one method of implementing the Automation 
 
 In Katalon, test cases can be structured using test suites with environment variables. Test execution can be parameterized and parallelized using profiles. Remote execution in Katalon Studio can be triggered by CI systems via a Docker container or command-line interface. Automation jobs can be triggered for the Cluster Creation operation, followed by Cluster Scale Up, Cluster Scale Down, and Cluster Deletion operations.
 
-The scripts for the above operations include verification points and required performance metrics. The automation suite starts recording the required time for the cluster to become ready upon the trigger of the cluster creation process. In a similar way, other cluster operations-related data can be collected. Katalon Studio provides HTML-based reports or console logs to view the data after execution has been done. Any test script can help to extract the required data in the form of a plain text-based file like .csv. CircleCI provides functionality to export this .csv file as an artifact inside the job. Such artifacts data can be combined into the database. To demonstrate the collected data in visualized manner, the Grafana dashboard can be helpful. 
+The scripts for the above operations include verification points and required performance metrics. The automation suite starts recording the required time for the cluster to become ready upon the trigger of the cluster creation process. In a similar way, other cluster operations-related data can also be collected.
+
+Katalon Studio provides HTML-based reports or console logs to view the data after execution has been performed. Any test script can help to extract the required data in the form of a plain text-based file like .csv. However, CircleCI provides functionality to export this .csv file as an artifact inside the job. Such artifacts data can be combined into the database. To demonstrate the collected data in visualized manner, the Grafana dashboard can be helpful. 
 
 ![Architectural Diagram](/img/capture.jpg "Architectural Diagram")
 
