@@ -132,4 +132,4 @@ Note that, all data illustrated is for understanding purposes only. No relevance
 
 ## Conclusion
 
-By monitoring these graphs, unusual measurements can be tracked providing useful information to debug issues.
+Automation pipelines are helpful to find defects yet tricky to implement. This blog guides the user to integrate various tools and generate graphs. By analyzing these graphs, a user can track the cluster's performance measurements for a period of time which may help to find out the reasons for the degraded behavior of various clusters.
