@@ -1,5 +1,5 @@
 ---
-title: Meetups
+title: "HPE + vFunction: Modernizing Legacy Applications and Data Sources Faster"
 dateStart: 2022-03-30T16:00:51.279Z
 dateEnd: 2022-03-30T17:00:51.298Z
 category: Virtual Event

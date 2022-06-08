@@ -369,7 +369,7 @@ const Home = ({ data }) => {
   const onClose = () => setOpen(undefined);
   return (
     // <Grommet theme={hpe}>
-    <Layout background="/img/hackshack/BackgroundImages/hack-shack-home-background.png">
+    <Layout background="/img/hackshack/BackgroundImages/hack-shack-home-background-min.png">
       <SEO title="Hack Shack" />
       <Helmet>
         <body margin="0" />
