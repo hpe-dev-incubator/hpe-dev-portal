@@ -88,7 +88,7 @@ Sample CircleCI workflow can be demonstrated as below:
 
 ![CircleCI Automation pipeline](/img/sample-pipeline.jpg "Sample CircleCI Automation pipeline")
 
-A .csv artifact file may look like what's shown below:
+A csvDataSource.csv artifact file may look like what's shown below:
 
 ```sql
 IDClusterCreation,DateTime,BlueprintType,ClusterCreationDuration,ClusterDeletionDuration,ClusterScaleUpDuration,ClusterScaleDownDuration
@@ -102,7 +102,18 @@ To demonstrate the collected data in visualized manner, the Grafana dashboard ca
 
 Nightly CircleCI builds run will collect the artifacts and those can be filled into databases like MySQL or Prometheus. In Grafana, various data source configurations are available, where the user has to configure the required data source. There are various chart options available for visual interpretation. By providing various MySQL queries, the required graph can be generated. 
 
-By monitoring these graphs, unusual measurements can be tracked providing useful information to debug issues.
+
+
+## How to Download Artifacts from CircleCI Workflow Dynamically?
+
+CircleCI provides [API Token](https://circleci.com/docs/2.0/managing-api-tokens/#creating-a-personal-api-token) to view pipelines via an API interface. Based upon requirements various [APIs ](https://circleci.com/docs/api/v2/)can be selected. In the postman tool, a user can try a combination of APIs for passing the output of one API result to the input of another API. A curl command for downloading artifacts from CircleCI API may look like the below:
+
+```shell
+curl -H "Circle-Token: $TOKEN" "https://circleci.com/api/v2/project/gh/$repo/$project/$JOB_ID/artifacts" | grep -o 'https://[^"]*csvDataSource[^"]*' \
+   | wget --timeout=10  --verbose --header "Circle-Token: $TOKEN" --input-file -
+```
+
+
 
 A sample MySQL query to display the maximum, minimum, and average cluster creation duration for each blueprint type can be written for Grafana as below.
 
@@ -116,5 +127,9 @@ from ClusterTable GROUP BY BlueprintType;
 ```
 
 Note that, all data illustrated is for understanding purposes only. No relevance to actual HPE GreenLake performance is being shown or claimed in this blog post.
+
+
+
+By monitoring these graphs, unusual measurements can be tracked providing useful information to debug issues.
 
 ![SampleGrafanaDashboard](/img/sample-chart.jpg "Sample Grafana Dashboard (Data is for illustrative purpose only. Axis are hidden)")
