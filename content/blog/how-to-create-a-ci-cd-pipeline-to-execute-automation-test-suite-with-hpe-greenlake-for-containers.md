@@ -55,6 +55,20 @@ jobs:
           path: ./tests/katalon/Reports
       - store_artifacts:
           path: /tmp/project/
+workflows:
+  performance-run:
+    triggers:
+      - schedule:
+          cron: "0 20 * * *"
+          filters:
+            branches:
+              only:
+                - master
+    jobs:
+      - checkout-workspace
+      - copyright-check
+      - performance-run
+      - updateTestResults
 
 ```
 
