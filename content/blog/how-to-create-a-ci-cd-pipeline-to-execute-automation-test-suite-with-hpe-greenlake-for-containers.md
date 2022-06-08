@@ -74,6 +74,6 @@ format(std(cast(ClusterCreationDuration as UNSIGNED)),2) AS "STD Dev.Creation Ti
 from ClusterTable GROUP BY BlueprintType;
 ```
 
-Note that, all data illustrated is for understanding purposes only. There is no relevance to the actual performance claim from HPE GreenLake. 
+Note that, all data illustrated is for understanding purposes only. No relevance to actual HPE GreenLake performance is being shown or claimed in this blog post.
 
 ![SampleGrafanaDashboard](/img/sample-chart.jpg "Sample Grafana Dashboard (Data is for illustrative purpose only. Axis are hidden)")
