@@ -20,8 +20,6 @@ Before proceeding to the app deployment phase, an end-user may be interested in 
 
 This blog post will guide you through one method of implementing the Automation Pipeline via the use of automation weapons like Katalog (as an automation testing software tool), CircleCI (as a continuous integration and continuous delivery platform, and Grafana (as an interactive visualization web application tool that uses time-series data to deploy meaningful graphs).
 
-
-
 ## How to Use Automation Pipeline Tools?
 
 In Katalon, Test cases can be structured using test suites with environment variables. Test execution can be parameterized and parallelized using profiles. Remote execution in Katalon Studio can be triggered by CI systems via Docker container or command-line interface. Automation job can be triggered for Cluster Creation operation, following via Cluster Scale Up, Cluster Scale Down, and Cluster Deletion operation, 
@@ -29,6 +27,8 @@ In Katalon, Test cases can be structured using test suites with environment vari
 The scripts for the above operations include verification points and required performance metrics. The automation suite starts recording the required time for the cluster to become ready upon the trigger of the cluster creation process. In a similar way, other cluster operations-related data can be collected. Katalon Studio provides HTML-based reports or console logs to view the data after execution has been done. Any test script can help to extract the required data in the form of a plain text-based file like .csv. CircleCI provides functionality to export this .csv file as an artifact inside the job. 
 
 ![Architectural Diagram](/img/capture.jpg "Architectural Diagram")
+
+## What does a CircleCI pipeline look like?
 
 Sample CircleCI config.yaml:
 
@@ -98,10 +98,6 @@ ce18d4e0-9af3-40da-8d43-266fe05d17ba,2022-06-15 20:10:00,large,04,05,02,02
 r3b185d5-c96a-49a5-b6de-13ae93c93fd4,2022-06-15 20:30:00,standard,05,04,02,02
 ```
 
-To demonstrate the collected data in visualized manner, the Grafana dashboard can be helpful. 
-
-Nightly CircleCI builds run will collect the artifacts and those can be filled into databases like MySQL or Prometheus. In Grafana, various data source configurations are available, where the user has to configure the required data source. There are various chart options available for visual interpretation. By providing various MySQL queries, the required graph can be generated. 
-
 
 
 ## How to Download Artifacts from CircleCI Workflow Dynamically?
@@ -113,7 +109,11 @@ curl -H "Circle-Token: $TOKEN" "https://circleci.com/api/v2/project/gh/$repo/$pr
    | wget --timeout=10  --verbose --header "Circle-Token: $TOKEN" --input-file -
 ```
 
+## Grafana Dashboard Configurations
 
+To demonstrate the collected data in visualized manner, the Grafana dashboard can be helpful. 
+
+Nightly CircleCI builds run will collect the artifacts and those can be filled into databases like MySQL or Prometheus. In Grafana, various data source configurations are available, where the user has to configure the required data source. There are various chart options available for visual interpretation. By providing various MySQL queries, the required graph can be generated. 
 
 A sample MySQL query to display the maximum, minimum, and average cluster creation duration for each blueprint type can be written for Grafana as below.
 
@@ -128,8 +128,8 @@ from ClusterTable GROUP BY BlueprintType;
 
 Note that, all data illustrated is for understanding purposes only. No relevance to actual HPE GreenLake performance is being shown or claimed in this blog post.
 
+![SampleGrafanaDashboard](/img/sample-chart.jpg "Sample Grafana Dashboard (Data is for illustrative purpose only. Axis are hidden)")
 
+## Conclusion
 
 By monitoring these graphs, unusual measurements can be tracked providing useful information to debug issues.
-
-![SampleGrafanaDashboard](/img/sample-chart.jpg "Sample Grafana Dashboard (Data is for illustrative purpose only. Axis are hidden)")
