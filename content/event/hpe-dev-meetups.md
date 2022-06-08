@@ -1,5 +1,5 @@
 ---
-title: Meetups
+title: Quarkus - Supersonic Subatomic Java
 dateStart: 2022-01-26T16:00:51.279Z
 dateEnd: 2022-01-26T17:00:51.298Z
 category: Virtual Event

@@ -1,5 +1,5 @@
 ---
-title: Meetups
+title: "Styra - Decoupled policy enforcement with Open Policy Agent"
 dateStart: 2022-04-27T16:00:51.279Z
 dateEnd: 2022-04-27T17:00:51.298Z
 category: Virtual Event
