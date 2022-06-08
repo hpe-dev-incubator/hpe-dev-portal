@@ -24,6 +24,10 @@ In Katalon, Test cases can be structured using test suites with environment vari
 
 The scripts for the above operations include verification points and required performance metrics. The automation suite starts recording the required time for the cluster to become ready upon the trigger of the cluster creation process. Similar way other cluster operations related data can be collected. Katalon Studio provides HTML-based reports or console logs to view the data after execution has been done. Any test script can help to extract the required data in form of a plain text-based file like .csv. CircleCI provides functionality to export this .csv file as an artifact inside the job. 
 
+![Architectural Diagram](/img/architectural-diagram.jpg "Architectural Diagram")
+
+
+
 Sample skeleton of CircleCI configuration:
 
 ```yaml
