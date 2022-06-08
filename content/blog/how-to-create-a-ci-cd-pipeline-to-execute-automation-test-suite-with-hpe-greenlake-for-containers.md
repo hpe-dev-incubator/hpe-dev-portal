@@ -18,7 +18,7 @@ tags:
 
 Before proceeding to the app deployment phase, an end-user may be interested in performing some primary data verifications. These can be helpful in a number of ways; for example, sanity testing, regression testing, determining infrastructure health, and finding on-premise issues at an early stage. In order to take advantage of a smart, automated test solution, the user needs to verify specific data, such as cluster health, cluster status, node status, host IP, CPU, and memory allocation only.
 
-This blog post will guide you through one method of implementing the Automation Pipeline via the use of automation weapons like Katalog (as an automation testing software tool), CircleCI (as a continuous integration and continuous delivery platform), and Grafana (as an interactive visualization web application tool that uses time-series data to deploy meaningful graphs).
+This blog post will guide you through one method of implementing the Automation Pipeline via the use of automation weapons like Katalon (as an automation testing software tool), CircleCI (as a continuous integration and continuous delivery platform), and Grafana (as an interactive visualization web application tool that uses time-series data to deploy meaningful graphs).
 
 ## How to Use Automation Pipeline Tools?
 
@@ -26,7 +26,7 @@ In Katalon, test cases can be structured using test suites with environment vari
 
 The scripts for the above operations include verification points and required performance metrics. The automation suite starts recording the required time for the cluster to become ready upon the trigger of the cluster creation process. In a similar way, other cluster operations-related data can also be collected.
 
-Katalon Studio provides HTML-based reports or console logs to view the data after execution has been performed. Any test script can help to extract the required data in the form of a plain text-based file like .csv. However, CircleCI provides functionality to export this .csv file as an artifact inside the job. Such artifacts data can be combined into the database. To demonstrate the collected data in visualized manner, the Grafana dashboard can be helpful. 
+Katalon Studio provides HTML-based reports or console logs to view the data after execution has been completed. Any test script can help to extract the required data in the form of a plain text-based file like .csv. However, CircleCI provides functionality to export this .csv file as an artifact inside the job. Such artifacts data can be combined into the database. To demonstrate the collected data in visualized manner, the Grafana dashboard can be helpful. 
 
 ![Architectural Diagram](/img/capture.jpg "Architectural Diagram")
 
