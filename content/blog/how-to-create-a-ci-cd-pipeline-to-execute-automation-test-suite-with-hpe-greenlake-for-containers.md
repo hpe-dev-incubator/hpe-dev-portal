@@ -28,7 +28,7 @@ The scripts for the above operations include verification points and required pe
 
 
 
-Sample skeleton of CircleCI configuration:
+Sample CircleCI config.yaml:
 
 ```yaml
 executors:
