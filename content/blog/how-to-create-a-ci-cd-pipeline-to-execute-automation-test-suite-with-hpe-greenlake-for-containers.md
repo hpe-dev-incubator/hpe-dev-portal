@@ -57,7 +57,7 @@ ce18d4e0-9af3-40da-8d43-266fe05d17ba,2022-06-15 20:10:00,large,04,05
 r3b185d5-c96a-49a5-b6de-13ae93c93fd4,2022-06-15 20:30:00,standard,05,04
 ```
 
-Now to demonstrate the collected data in visualized manner, the Grafana dashboard can be helpful. 
+To demonstrate the collected data in visualized manner, the Grafana dashboard can be helpful. 
 
 Nightly CircleCI builds run will collect the artifacts and those can be filled into databases like MySQL or Prometheus. In Grafana, various data source configurations are available, where the user has to configure the required data source. There are various chart options available for visual interpretation. By providing various queries required graph can be generated. 
 
