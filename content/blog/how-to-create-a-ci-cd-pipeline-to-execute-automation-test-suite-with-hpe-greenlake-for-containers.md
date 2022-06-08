@@ -14,11 +14,11 @@ tags:
 ---
 ## Introduction
 
-*[HPE GreenLake for Containers](https://www.hpe.com/us/en/greenlake/containers.html)*, one of the HPE GreenLake Cloud Services, is built upon [HPE Ezmeral Runtime Enterprise](https://www.hpe.com/us/en/software/ezmeral-runtime.html) and runs via an underlying container-based Kubernetes orchestrated infrastructure. The HPE GreenLake Central dashboard allows one to perform several cluster-related operations through the use of the *Clusters* module. This module enables operations, such as cluster creation by using default and custom machine blueprints, cluster deletion, cluster scaling up, and cluster scaling down. It allows one to navigate to the HPE Ezmeral Runtime where an end-user can deploy various applications and fulfill the goal of containerization.
+*[HPE GreenLake for Containers](https://www.hpe.com/us/en/greenlake/containers.html)*, one of the HPE GreenLake Cloud Services, is built upon [HPE Ezmeral Runtime Enterprise](https://www.hpe.com/us/en/software/ezmeral-runtime.html) and runs via an underlying container-based Kubernetes orchestrated infrastructure. The HPE GreenLake Central dashboard allows one to perform several cluster-related operations through the use of the *Clusters* module. This module enables operations, such as cluster creation by using default and custom machine blueprints, cluster deletion, cluster scale up, and cluster scale down. It allows one to navigate to the HPE Ezmeral Runtime where an end-user can deploy various applications and fulfill the goal of containerization.
 
-Before proceeding to the app deployment phase, an end-user may be interested in performing some primary data verifications. These can be helpful in a number of ways; for example, sanity testing, regression testing, determining infrastructure health, and finding on-premises issues at an early stage. In order to take advantage of a smart, automated test solution, the user needs only to verify specific data, such as cluster health, cluster status, node status, host IP, CPU, and memory allocation.
+Before proceeding to the app deployment phase, an end-user may be interested in performing some primary data verifications. These can be helpful in a number of ways; for example, sanity testing, regression testing, determining infrastructure health, and finding on-premise issues at an early stage. In order to take advantage of a smart, automated test solution, the user needs to verify specific data, such as cluster health, cluster status, node status, host IP, CPU, and memory allocation only.
 
-This blog post will guide you through one method of implementing the Automation Pipeline via the use of automation weapons like Katalog (as an automation testing software tool), CircleCI (as a continuous integration and continuous delivery platform, and Grafana (as an interactive visualization web application tool that uses time-series data to deploy meaningful graphs).
+This blog post will guide you through one method of implementing the Automation Pipeline via the use of automation weapons like Katalog (as an automation testing software tool), CircleCI (as a continuous integration and continuous delivery platform), and Grafana (as an interactive visualization web application tool that uses time-series data to deploy meaningful graphs).
 
 ## How to Use Automation Pipeline Tools?
 
@@ -29,8 +29,6 @@ The scripts for the above operations include verification points and required pe
 ![Architectural Diagram](/img/capture.jpg "Architectural Diagram")
 
 ## What does a CircleCI pipeline look like?
-
-
 
 A pipeline includes various stages such as spinning up the environment by downloading required images and configuring test setup, preparing CircleCI environment, copyright check, cloning repository code, security checking, execution of test scripts, generating artifacts, generating results, and sending out results over email. A cron job schedules the execution of the automation pipeline. 
 
@@ -126,7 +124,7 @@ format(std(cast(ClusterCreationDuration as UNSIGNED)),2) AS "STD Dev.Creation Ti
 from ClusterTable GROUP BY BlueprintType;
 ```
 
-Finally, the Grafana dashboard appears as:
+**Finally, the Grafana dashboard appears as:**
 
 ![SampleGrafanaDashboard](/img/sample-chart.jpg "Sample Grafana Dashboard (Data is for illustrative purpose only. Axis are hidden)")
 
