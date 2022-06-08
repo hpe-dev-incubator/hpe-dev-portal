@@ -29,32 +29,43 @@ Sample skeleton of CircleCI configuration:
 ```yaml
 executors:
   katalon8_test_executor:
-    docker: 
+    docker:
       - image: default/katalon8:latest
 jobs:
-    checkout-workspace:
-    copyright-check:
-    performance-run:
-      executor:
-        name: katalon8_test_executor
-      steps:
-        - checkout
-        - run:
-        - run:
+  checkout-workspace:
+    docker:
+      - image: circleci/golang:latest
+  copyright-check:
+    docker:
+      - image: copyright-tool
+    steps:
+      - run:
+        name: Check copy right
+  performance-run:
+    executor:
+      name: katalon8_test_executor
+    steps:
+      - run:
           name: "Creating directory for artifacts"
           command: mkdir /tmp/project/
-        - store_artifacts:
+      - run:
+          name: "Execute Katalon performance test suite"
+          command: xvfb-run katalonc -consoleLog -browserType="Chrome" -retry=0 -statusDelay=15 -testSuitePath="Test Suites/PerformanceSuite" -executionProfile='default' -projectPath='/project/sample.prj' --config -webui.autoUpdateDrivers=true
+      - store_test_results:
+          path: ./tests/katalon/Reports
+      - store_artifacts:
           path: /tmp/project/
+
 ```
 
 An artifact file structure may look like what's shown below:
 
 ```sql
 IDClusterCreation,DateTime,BlueprintType,ClusterCreationDuration,ClusterDeletionDuration,ClusterScaleUpDuration,ClusterScaleDownDuration
-2a0810e6-0c32-451b-933b-74fbdf86358a,2022-06-15 20:00:00,demo,05,04
-ce18d4e0-9af3-40da-8d43-266fe05d17ba,2022-06-15 20:10:00,large,04,05
-767801bd-7f1e-4a9a-804e-b560f168d968,2022-06-15 20:20:00,xlarge,04,05
-r3b185d5-c96a-49a5-b6de-13ae93c93fd4,2022-06-15 20:30:00,standard,05,04
+2a0810e6-0c32-451b-933b-74fbdf86358a,2022-06-15 20:00:00,demo,05,04,02,02
+ce18d4e0-9af3-40da-8d43-266fe05d17ba,2022-06-15 20:10:00,large,04,05,02,02
+767801bd-7f1e-4a9a-804e-b560f168d968,2022-06-15 20:20:00,xlarge,04,05,02,02
+r3b185d5-c96a-49a5-b6de-13ae93c93fd4,2022-06-15 20:30:00,standard,05,04,02,02
 ```
 
 To demonstrate the collected data in visualized manner, the Grafana dashboard can be helpful. 
