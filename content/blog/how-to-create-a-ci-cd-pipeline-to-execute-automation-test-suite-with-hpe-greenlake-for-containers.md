@@ -18,15 +18,13 @@ tags:
 
 Before proceeding to the app deployment phase, an end-user may be interested to perform some primary data verifications that can be helpful in various ways, for example, sanity testing, regression testing, knowing infrastructure health, and finding on-prem issues at the early stage. As a part of the smart automated solution, the user needs to verify the data such as the cluster health, cluster status, node status, host IP, CPU, and memory allocation. This blog can guide to achieve one of the ways to implement the Automation Pipeline via using automation weapons like Katalon as an automation testing software tool, CircleCI as continuous integration and continuous delivery platform, and Grafana as an interactive visualization web application tool that uses time-series data to deploy meaningful graphs.
 
-
-
 ## How to Use Automation Pipeline Tools?
 
 In Katalon, Test cases can be structured using test suites with environment variables. Test execution can be parameterized and parallelized using profiles. Remote execution in Katalon Studio can be triggered by CI systems via Docker container or command-line interface. Automation job can be triggered for Cluster Creation operation, following via Cluster Scale Up, Cluster Scale Down, and Cluster Deletion operation, 
 
-The scripts for the above operations include verification points and required performance metrics. The automation suite starts recording the required time for the cluster to become ready upon the trigger of the cluster creation process. Similar way other cluster operations related data can be collected. Katalon Studio provides HTML-based reports or console logs to view the data after execution has been done. Any test script can help to extract the required data in form of a plain text-based file like .csv. CircleCi provides functionality to export this .csv file as an artifact inside the job. 
+The scripts for the above operations include verification points and required performance metrics. The automation suite starts recording the required time for the cluster to become ready upon the trigger of the cluster creation process. Similar way other cluster operations related data can be collected. Katalon Studio provides HTML-based reports or console logs to view the data after execution has been done. Any test script can help to extract the required data in form of a plain text-based file like .csv. CircleCI provides functionality to export this .csv file as an artifact inside the job. 
 
-Sample skeleton of circle-ci configuration:
+Sample skeleton of CircleCI configuration:
 
 ```yaml
 executors:
@@ -61,7 +59,7 @@ r3b185d5-c96a-49a5-b6de-13ae93c93fd4,2022-06-15 20:30:00,standard,05,04
 
 Now to demonstrate the collected data in visualized manner, the Grafana dashboard can be helpful. 
 
-Nightly circle-ci builds run will collect the artifacts and those can be filled into databases like MySQL or Prometheus. In Grafana, various data source configurations are available, where the user has to configure the required data source. There are various chart options available for visual interpretation. By providing various queries required graph can be generated. 
+Nightly CircleCI builds run will collect the artifacts and those can be filled into databases like MySQL or Prometheus. In Grafana, various data source configurations are available, where the user has to configure the required data source. There are various chart options available for visual interpretation. By providing various queries required graph can be generated. 
 
 From these graphs monitoring, unusual measurements can be tracked and it can be useful for further debugging to find out the issues.
 
