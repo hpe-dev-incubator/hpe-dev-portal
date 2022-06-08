@@ -47,7 +47,7 @@ jobs:
           path: /tmp/project/
 ```
 
-The Artifact File structure may look like the below:
+An artifact file structure may look like what's shown below:
 
 ```sql
 IDClusterCreation,DateTime,BlueprintType,ClusterCreationDuration,ClusterDeletionDuration,ClusterScaleUpDuration,ClusterScaleDownDuration
