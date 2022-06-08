@@ -104,7 +104,7 @@ r3b185d5-c96a-49a5-b6de-13ae93c93fd4,2022-06-15 20:30:00,standard,05,04,02,02
 
 ## How to Download Artifacts from CircleCI Workflow Dynamically?
 
-CircleCI provides [API Token](https://circleci.com/docs/2.0/managing-api-tokens/#creating-a-personal-api-token) to view pipelines via an API interface. Based upon requirements various [APIs ](https://circleci.com/docs/api/v2/)can be selected. In the [postman ](https://www.postman.com/downloads/)tool, a user can try a combination of APIs for passing the output of one API result to the input of another API. A curl command for downloading artifacts from CircleCI API may look like the below:
+CircleCI provides [API Token](https://circleci.com/docs/2.0/managing-api-tokens/#creating-a-personal-api-token) to view pipelines via an API interface. Based upon requirements, various [APIs ](https://circleci.com/docs/api/v2/)can be selected. In the [postman ](https://www.postman.com/downloads/)tool, a user can try a combination of APIs for passing the output of one API result to the input of another API. A curl command for downloading artifacts from CircleCI API may look like the one mentioned below:
 
 ```shell
 curl -H "Circle-Token: $TOKEN" "https://circleci.com/api/v2/project/gh/$repo/$project/$JOB_ID/artifacts" | grep -o 'https://[^"]*csvDataSource[^"]*' \
@@ -113,9 +113,9 @@ curl -H "Circle-Token: $TOKEN" "https://circleci.com/api/v2/project/gh/$repo/$pr
 
 ## Grafana Dashboard Configurations
 
-Nightly CircleCI builds run will collect the artifacts and those can be filled into databases like MySQL or Prometheus. In Grafana, various data source configurations are available, where the user has to configure the required data source. There are various chart options available for visual interpretation. By providing various MySQL queries, the required graph can be generated. 
+Nightly CircleCI build runs will collect the artifacts and those can be filled into databases like MySQL or Prometheus. In Grafana, various data source configurations are available, where the user has to configure the required data source. There are various chart options available for visual interpretation. By providing various MySQL queries, the required graph can be generated. 
 
-A sample MySQL query to display the maximum, minimum, and average cluster creation duration for each blueprint type can be written for Grafana as below.
+A sample MySQL query to display the maximum, minimum, and average cluster creation duration for each blueprint type can be written for Grafana as mentioned below.
 
 ```sql
 select BlueprintType AS "Blueprint Type",
