@@ -26,7 +26,7 @@ This blog post will guide you through one method of implementing the Automation 
 
 In Katalon, Test cases can be structured using test suites with environment variables. Test execution can be parameterized and parallelized using profiles. Remote execution in Katalon Studio can be triggered by CI systems via Docker container or command-line interface. Automation job can be triggered for Cluster Creation operation, following via Cluster Scale Up, Cluster Scale Down, and Cluster Deletion operation, 
 
-The scripts for the above operations include verification points and required performance metrics. The automation suite starts recording the required time for the cluster to become ready upon the trigger of the cluster creation process. Similar way other cluster operations related data can be collected. Katalon Studio provides HTML-based reports or console logs to view the data after execution has been done. Any test script can help to extract the required data in form of a plain text-based file like .csv. CircleCI provides functionality to export this .csv file as an artifact inside the job. 
+The scripts for the above operations include verification points and required performance metrics. The automation suite starts recording the required time for the cluster to become ready upon the trigger of the cluster creation process. In a similar way, other cluster operations-related data can be collected. Katalon Studio provides HTML-based reports or console logs to view the data after execution has been done. Any test script can help to extract the required data in the form of a plain text-based file like .csv. CircleCI provides functionality to export this .csv file as an artifact inside the job. 
 
 ![Architectural Diagram](/img/capture.jpg "Architectural Diagram")
 
@@ -88,7 +88,7 @@ Sample CircleCI workflow can be demonstrated as below:
 
 ![CircleCI Automation pipeline](/img/sample-pipeline.jpg "Sample CircleCI Automation pipeline")
 
-A .csv artifact file structure may look like what's shown below:
+A .csv artifact file may look like what's shown below:
 
 ```sql
 IDClusterCreation,DateTime,BlueprintType,ClusterCreationDuration,ClusterDeletionDuration,ClusterScaleUpDuration,ClusterScaleDownDuration
