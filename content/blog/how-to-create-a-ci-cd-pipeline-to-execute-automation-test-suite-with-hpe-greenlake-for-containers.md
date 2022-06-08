@@ -98,11 +98,9 @@ ce18d4e0-9af3-40da-8d43-266fe05d17ba,2022-06-15 20:10:00,large,04,05,02,02
 r3b185d5-c96a-49a5-b6de-13ae93c93fd4,2022-06-15 20:30:00,standard,05,04,02,02
 ```
 
-
-
 ## How to Download Artifacts from CircleCI Workflow Dynamically?
 
-CircleCI provides [API Token](https://circleci.com/docs/2.0/managing-api-tokens/#creating-a-personal-api-token) to view pipelines via an API interface. Based upon requirements various [APIs ](https://circleci.com/docs/api/v2/)can be selected. In the postman tool, a user can try a combination of APIs for passing the output of one API result to the input of another API. A curl command for downloading artifacts from CircleCI API may look like the below:
+CircleCI provides [API Token](https://circleci.com/docs/2.0/managing-api-tokens/#creating-a-personal-api-token) to view pipelines via an API interface. Based upon requirements various [APIs ](https://circleci.com/docs/api/v2/)can be selected. In the [postman ](https://www.postman.com/downloads/)tool, a user can try a combination of APIs for passing the output of one API result to the input of another API. A curl command for downloading artifacts from CircleCI API may look like the below:
 
 ```shell
 curl -H "Circle-Token: $TOKEN" "https://circleci.com/api/v2/project/gh/$repo/$project/$JOB_ID/artifacts" | grep -o 'https://[^"]*csvDataSource[^"]*' \
@@ -126,15 +124,11 @@ format(std(cast(ClusterCreationDuration as UNSIGNED)),2) AS "STD Dev.Creation Ti
 from ClusterTable GROUP BY BlueprintType;
 ```
 
-
-
 Finally, the Grafana dashboard appears as:
 
 ![SampleGrafanaDashboard](/img/sample-chart.jpg "Sample Grafana Dashboard (Data is for illustrative purpose only. Axis are hidden)")
 
 Note that, all data illustrated is for understanding purposes only. No relevance to actual HPE GreenLake performance is being shown or claimed in this blog post.
-
-
 
 ## Conclusion
 
