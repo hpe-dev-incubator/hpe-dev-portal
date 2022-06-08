@@ -1,5 +1,5 @@
 ---
-title: How to Set up Automation Pipeline to Measure the Cluster Performance on
+title: How to Set Up an Automation Pipeline to Measure Cluster Performance on
   HPE GreenLake for Containers
 date: 2022-06-08T06:09:47.137Z
 featuredBlog: false
