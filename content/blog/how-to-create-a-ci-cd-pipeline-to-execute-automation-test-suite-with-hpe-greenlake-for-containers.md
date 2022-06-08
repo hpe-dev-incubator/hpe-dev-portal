@@ -79,6 +79,14 @@ workflows:
 
 ```
 
+
+
+Sample CircleCI workflow can be demonstrated as below: 
+
+![CircleCI Automation pipeline](/img/sample-pipeline.jpg "Sample CircleCI Automation pipeline")
+
+
+
 An artifact file structure may look like what's shown below:
 
 ```sql
