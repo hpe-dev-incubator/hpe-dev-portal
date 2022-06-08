@@ -22,7 +22,7 @@ This blog post will guide you through one method of implementing the Automation 
 
 ## How to Use Automation Pipeline Tools?
 
-In Katalon, Test cases can be structured using test suites with environment variables. Test execution can be parameterized and parallelized using profiles. Remote execution in Katalon Studio can be triggered by CI systems via Docker container or command-line interface. Automation job can be triggered for Cluster Creation operation, following via Cluster Scale Up, Cluster Scale Down, and Cluster Deletion operation, 
+In Katalon, test cases can be structured using test suites with environment variables. Test execution can be parameterized and parallelized using profiles. Remote execution in Katalon Studio can be triggered by CI systems via a Docker container or command-line interface. Automation jobs can be triggered for the Cluster Creation operation, followed by Cluster Scale Up, Cluster Scale Down, and Cluster Deletion operations.
 
 The scripts for the above operations include verification points and required performance metrics. The automation suite starts recording the required time for the cluster to become ready upon the trigger of the cluster creation process. In a similar way, other cluster operations-related data can be collected. Katalon Studio provides HTML-based reports or console logs to view the data after execution has been done. Any test script can help to extract the required data in the form of a plain text-based file like .csv. CircleCI provides functionality to export this .csv file as an artifact inside the job. 
 
