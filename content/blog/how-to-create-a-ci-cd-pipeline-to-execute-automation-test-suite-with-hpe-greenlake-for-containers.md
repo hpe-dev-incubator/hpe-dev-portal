@@ -84,7 +84,7 @@ Sample CircleCI workflow can be demonstrated as below:
 
 ![CircleCI Automation pipeline](/img/sample-pipeline.jpg "Sample CircleCI Automation pipeline")
 
-An artifact file structure may look like what's shown below:
+A .csv artifact file structure may look like what's shown below:
 
 ```sql
 IDClusterCreation,DateTime,BlueprintType,ClusterCreationDuration,ClusterDeletionDuration,ClusterScaleUpDuration,ClusterScaleDownDuration
@@ -100,9 +100,9 @@ Nightly CircleCI builds run will collect the artifacts and those can be filled i
 
 By monitoring these graphs, unusual measurements can be tracked providing useful information to debug issues.
 
+A sample MySQL query to display the maximum, minimum, and average cluster creation duration for each blueprint type can be written for Grafana as below.
+
 ```sql
-select BlueprintType, AVG(ClusterCreationDuration) as "Time (Minutes)" from ClusterTable GROUP BY BlueprintType
- 
 select BlueprintType AS "Blueprint Type",
 max(cast(ClusterCreationDuration as UNSIGNED)) as "Maximum Creation Time (Minutes)",
 min(cast(ClusterCreationDuration as UNSIGNED)) as "Minimum Creation Time (Minutes)",
