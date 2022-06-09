@@ -53,7 +53,7 @@ jobs:
     steps:
       - run:
         name: Check copy right
-  performance-run-chrome:
+  cluster-observability:
     executor:
       name: katalon8_test_executor
     steps:
@@ -68,7 +68,7 @@ jobs:
       - store_artifacts:
           path: /tmp/project/
 workflows:
-  performance-run:
+  cluster-observability:
     triggers:
       - schedule:
           cron: "0 20 * * *"
