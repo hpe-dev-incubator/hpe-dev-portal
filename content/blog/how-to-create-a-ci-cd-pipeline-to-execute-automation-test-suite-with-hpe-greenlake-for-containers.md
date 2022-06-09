@@ -11,6 +11,7 @@ tags:
   - hpe-greenlake
   - Automation
   - Grafana
+  - observability
 ---
 ## Introduction
 
