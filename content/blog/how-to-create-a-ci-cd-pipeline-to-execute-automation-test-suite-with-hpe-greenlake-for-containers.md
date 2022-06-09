@@ -24,9 +24,11 @@ It sounds interesting if one can get historical data of such metrics to analyze 
 
 ## How to Implement the Automation Pipeline?
 
-In Katalon, test cases can be structured using test suites with environment variables. Test execution can be parameterized and parallelized using profiles. Remote execution in Katalon Studio can be triggered by CI systems via a Docker container or command-line interface. Automation jobs can be triggered at a scheduled time of duration to check various dynamic measurements on a graph for example to measure CPU usage, memory usage, storage capacity availability, count of worker nodes in cluster, count of the control plane in cluster, Cluster Creation operation time, Cluster Scale Up time, Cluster Scale Down time, Cluster Deletion time, etc for the type of a blueprint on which an application is deployed. 
 
-Katalon Studio provides HTML-based reports or console logs to view the data after execution has been completed. Any test script can help to extract the required data in the form of a plain text-based file like .csv. However, CircleCI provides functionality to export this .csv file as an artifact inside the job. Such artifacts data can be combined into the database. To demonstrate the collected data in visualized manner, the Grafana dashboard can be helpful. Below can be the architecture for the same.
+
+[Kalalon studio ](https://katalon.com/katalon-studio/)software uses an open-source Selenium framework to interact with web browsers with HTTP commands. CI systems can trigger remote execution of Katalon Studio scripts through Docker containers or command-line interfaces. At a scheduled time and frequency, cron jobs can be configured to check various dynamic measurements of clusters such as CPU usage, memory usage, storage capacity availability, the number of worker nodes in the cluster, the number of control planes in the cluster, the time taken to scale up a cluster node, time taken to scale down a cluster node, the time taken to create a cluster, etc.
+
+Katalon Studio provides HTML-based reports or console logs to view the data after execution has been completed. Any script can help to extract the required data in the form of a plain text-based file like .csv. However, CircleCI provides functionality to export this .csv file as an artifact inside the job. Such artifacts data can be combined into the database. To demonstrate the collected data in visualized manner, the Grafana dashboard can be helpful. Below can be the architecture for the same.
 
 ![Architectural Diagram of technology stack](/img/architectural-diagram.jpg "Architectural Diagram of technology stack")
 
