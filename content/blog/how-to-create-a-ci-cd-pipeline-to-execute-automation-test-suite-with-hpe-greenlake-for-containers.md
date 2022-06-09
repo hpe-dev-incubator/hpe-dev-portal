@@ -28,7 +28,7 @@ In Katalon, test cases can be structured using test suites with environment vari
 
 Katalon Studio provides HTML-based reports or console logs to view the data after execution has been completed. Any test script can help to extract the required data in the form of a plain text-based file like .csv. However, CircleCI provides functionality to export this .csv file as an artifact inside the job. Such artifacts data can be combined into the database. To demonstrate the collected data in visualized manner, the Grafana dashboard can be helpful. Below can be the architecture for the same.
 
-![Architectural Diagram](/img/architectural-diagram.jpg "Architectural Diagram")
+![Architectural Diagram of technology stack](/img/architectural-diagram.jpg "Architectural Diagram of technology stack")
 
 ## How to Create a  CircleCI pipeline?
 
