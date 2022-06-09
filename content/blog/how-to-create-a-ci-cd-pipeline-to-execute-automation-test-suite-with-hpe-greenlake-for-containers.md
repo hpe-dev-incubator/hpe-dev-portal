@@ -1,12 +1,12 @@
 ---
-title: How to Set Up an Automation Pipeline to Measure Cluster Performance on
-  HPE GreenLake for Containers
+title: How to Set Up an Automation Pipeline to Measure Application Performance
+  on HPE GreenLake for Containers
 date: 2022-06-08T06:09:47.137Z
 featuredBlog: false
 priority: 1
 author: Sweta Katkoria
 authorimage: /img/swetakatkoria_photo.jpg
-thumbnailimage: /img/thumbnail.jpeg
+thumbnailimage: ""
 tags:
   - hpe-greenlake
   - Automation
@@ -14,19 +14,17 @@ tags:
 ---
 ## Introduction
 
-*[HPE GreenLake for Containers](https://www.hpe.com/us/en/greenlake/containers.html)*, one of the HPE GreenLake Cloud Services, is built upon [HPE Ezmeral Runtime Enterprise](https://www.hpe.com/us/en/software/ezmeral-runtime.html) and runs via an underlying container-based Kubernetes orchestrated infrastructure. The HPE GreenLake Central dashboard allows one to perform several cluster-related operations through the use of the *Clusters* module. This module enables operations, such as cluster creation by using default and custom machine blueprints, cluster deletion, cluster scale up, and cluster scale down. It allows one to navigate to the HPE Ezmeral Runtime where an end-user can deploy various applications and fulfill the goal of containerization.
+*[HPE GreenLake for Containers](https://www.hpe.com/us/en/greenlake/containers.html)*, one of the HPE GreenLake Cloud Services, is built upon [HPE Ezmeral Runtime Enterprise](https://www.hpe.com/us/en/software/ezmeral-runtime.html) and runs via an underlying container-based Kubernetes orchestrated infrastructure. The HPE GreenLake Central dashboard allows one to perform several cluster-related operations through the use of the *Clusters* module. This module enables operations, such as cluster creation by using default and custom machine blueprints, cluster deletion, cluster scale up, and cluster scale down. It allows one to navigate to the HPE Ezmeral Runtime where an end-user can deploy various applications and fulfill the goal of containerization. Moreover, on the page of cluster detail, some interesting insights like CPU usage, memory allocation, and storage availability can also be tracked. These are the essential metrics to track the deployed application performance and usage to increase the business!
 
-Before proceeding to the app deployment phase, an end-user may be interested in performing some primary data verifications. These can be helpful in a number of ways; for example, sanity testing, regression testing, determining infrastructure health, and finding on-premise issues at an early stage. In order to take advantage of a smart, automated test solution, the user needs to verify specific data, such as cluster health, cluster status, node status, host IP, CPU, and memory allocation only.
+It sounds interesting if one can get a history of such metrics to analyze application performance metrics. As a part of one of the use cases, based on the past captured consumption usage data, a customer can decide whether he requires variation in the selected Blueprint type or scaling of worker nodes. This blog post will guide you through one method of implementing the Automation Pipeline which can result in beautiful graphs via the use of automation weapons like Katalon (as an automation testing software tool), CircleCI (as continuous integration and continuous delivery platform), and Grafana (as an interactive visualization web application tool that uses time-series data to deploy meaningful graphs).
 
-This blog post will guide you through one method of implementing the Automation Pipeline via the use of automation weapons like Katalon (as an automation testing software tool), CircleCI (as a continuous integration and continuous delivery platform), and Grafana (as an interactive visualization web application tool that uses time-series data to deploy meaningful graphs).
+
 
 ## How to Use Automation Pipeline Tools?
 
-In Katalon, test cases can be structured using test suites with environment variables. Test execution can be parameterized and parallelized using profiles. Remote execution in Katalon Studio can be triggered by CI systems via a Docker container or command-line interface. Automation jobs can be triggered for the Cluster Creation operation, followed by Cluster Scale Up, Cluster Scale Down, and Cluster Deletion operations.
+In Katalon, test cases can be structured using test suites with environment variables. Test execution can be parameterized and parallelized using profiles. Remote execution in Katalon Studio can be triggered by CI systems via a Docker container or command-line interface. Automation jobs can be triggered at a scheduled time of duration to check various dynamic measurements on a graph for example to measure the CPU usage, memory usage, storage capacity availability, Cluster Creation operation time, Cluster Scale Up time, Cluster Scale Down time, Cluster Deletion time. 
 
-The scripts for the above operations include verification points and required performance metrics. The automation suite starts recording the required time for the cluster to become ready upon the trigger of the cluster creation process. In a similar way, other cluster operations-related data can also be collected.
-
-Katalon Studio provides HTML-based reports or console logs to view the data after execution has been completed. Any test script can help to extract the required data in the form of a plain text-based file like .csv. However, CircleCI provides functionality to export this .csv file as an artifact inside the job. Such artifacts data can be combined into the database. To demonstrate the collected data in visualized manner, the Grafana dashboard can be helpful. 
+Katalon Studio provides HTML-based reports or console logs to view the data after execution has been completed. Any test script can help to extract the required data in the form of a plain text-based file like .csv. However, CircleCI provides functionality to export this .csv file as an artifact inside the job. Such artifacts data can be combined into the database. To demonstrate the collected data in visualized manner, the Grafana dashboard can be helpful. Below can be the architecture for the same.
 
 ![Architectural Diagram](/img/capture.jpg "Architectural Diagram")
 
