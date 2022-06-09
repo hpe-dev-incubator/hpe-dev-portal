@@ -15,13 +15,11 @@ tags:
 ---
 ## Introduction
 
-*An HPE GreenLake Cloud Service, HPE GreenLake for Containers, is built upon HPE Ezmeral Runtime Enterprise and runs on a container-based Kubernetes orchestrated infrastructure.* Using the Clusters module of the HPE GreenLake Central dashboard, one can perform several cluster-related operations. A cluster can be created using default or custom machine blueprints, deleted, scaled up, or scaled-down using this module. A user can navigate to the HPE Ezmeral Runtime through which various applications can be deployed and containerization can be achieved. Additionally, the cluster detail page provides some interesting insights like CPU usage, memory allocation, and storage availability. Metrics like these are crucial to tracking application usage and, subsequently, determining the resources required to grow the business. Here is the image mentioned above.
+An HPE GreenLake Cloud Service, [HPE GreenLake for Containers](https://www.hpe.com/us/en/greenlake/containers.html), is built upon [HPE Ezmeral Runtime Enterprise](https://www.hpe.com/us/en/software/ezmeral-runtime.html) and runs on a container-based Kubernetes orchestrated infrastructure*.* Using the Clusters module of the HPE GreenLake Central dashboard, one can perform several cluster-related operations. A cluster can be created using default or custom machine blueprints, deleted, scaled up, or scaled-down using this module. A user can navigate to the HPE Ezmeral Runtime dashboard through which various applications can be deployed and containerization can be achieved. Additionally, the cluster detail page provides some interesting insights like CPU usage, memory allocation, and storage availability. Metrics like these are crucial to tracking application usage and, subsequently, determining the resources required to grow the business. The image below illustrates what I mean.
 
 ![Cluster detail screen](/img/cluster-detail.jpg "Cluster detail screen")
 
-It can be useful to get historical trend data for such metrics to analyze application-specific metrics. Using past consumption data, a customer can decide if the cluster should be scaled up on some days of the year and scaled down on others. For a system administrator working on an abstract layer of application deployment, choosing the right blueprint is crucial. A graph indicating high memory usage over CPU usage might lead him to change blueprints that offer high compute resources. The purpose of this blog post is to illustrate how a person can implement the Automation Pipeline which can provide observability via the use of automation tools such as Katalon (UI automation tool), CircleCI (continuous integration and continuous delivery platform), MySQL (a database provider) and Grafana (an interactive visualization web application tool that uses time-series data to create meaningful graphs).
-
-
+It can be useful to get historical trend data for such metrics to analyze application-specific metrics. Using past consumption data, a customer can decide if the cluster should be scaled up on some days of the year and scaled down on others. For a system administrator working on an abstract layer of application deployment, choosing the right blueprint is crucial. A graph indicating high memory usage over CPU usage might lead him to change blueprints that offer high compute resources. The purpose of this blog post is to illustrate how a person can implement the Automation Pipeline to provide observability via the use of automation tools such as Katalon (UI automation tool), CircleCI (continuous integration and continuous delivery platform), MySQL (a database provider) and Grafana (an interactive visualization web application tool that uses time-series data to create meaningful graphs).
 
 ## How to Implement the Automation Pipeline?
 
@@ -103,11 +101,13 @@ ce18d4e0-9af3-40da-8d43-266fe05d17ba,2022-06-16 20:00:00,standard,80%,70%,5GB,3,
 r3b185d5-c96a-49a5-b6de-13ae93c93fd4,2022-06-18 20:00:00,standard,07%,10%,5GB,2,N,,,,
 ```
 
-As illustrated in the above data file, the UI automation run gathers data for the cluster where the application is deployed. A threshold value can be predefined for scaling requirements in the Katalon script. For example, 80% above usage should trigger scaling up, while 10% usage should trigger scaling down. As per the first record after app deployment, CPU and Memory metrics are 50% and 70%, respectively, for which scaling is not required which is marked as 'N' in the data file. On the second day, the CPU reached 80% usage, and the required time for a scale operation to complete is 1 minute, which is also captured. 
+As illustrated in the above data file, the UI automation run gathers data for the cluster where the application is deployed. A threshold value can be predefined for scaling requirements in the Katalon script. For example, 80% above usage should trigger scaling up, while 10% usage should trigger scaling down. Based on the first record after app deployment, CPU and Memory metrics are 50% and 70%, respectively, for which scaling is not necessary and is marked as 'N' in the data file. The CPU reached 80% usage, on the second day, which means that a scale up operation is required and is marked with 'Y' in the data file. The script for scaling up operation can also record the time it takes to become ready.
+
+
 
 ## How to Download Artifacts from CircleCI Workflow Dynamically?
 
-CircleCI provides [API Token](https://circleci.com/docs/2.0/managing-api-tokens/#creating-a-personal-api-token) to view pipelines via an API interface. Based upon requirements, various [APIs ](https://circleci.com/docs/api/v2/)can be selected. In the [postman ](https://www.postman.com/downloads/)tool, a user can try a combination of APIs for passing the output of one API result to the input of another API. A curl command for downloading artifacts from CircleCI API may look like the one mentioned below:
+CircleCI offers [API Token](https://circleci.com/docs/2.0/managing-api-tokens/#creating-a-personal-api-token) to view pipelines via an API interface. Based upon requirements, various [APIs ](https://circleci.com/docs/api/v2/)can be selected. In the [Postman ](https://www.postman.com/downloads/)tool, a user can try a combination of APIs for passing the output of one API result to the input of another API. A curl command for downloading artifacts from CircleCI API may look like the one mentioned below:
 
 ```shell
 curl -H "Circle-Token: $TOKEN" "https://circleci.com/api/v2/project/gh/$repo/$project/$JOB_ID/artifacts" | grep -o 'https://[^"]*csvDataSource[^"]*' \
@@ -118,7 +118,7 @@ curl -H "Circle-Token: $TOKEN" "https://circleci.com/api/v2/project/gh/$repo/$pr
 
 CircleCI build runs will collect the artifacts and those can be filled into databases like MySQL or Prometheus. In Grafana, various data source configurations are available, where the user has to configure the required data source. There are various chart options available for visual interpretation. By providing various MySQL queries, the required graph can be generated. 
 
-A sample MySQL query to display the maximum CPU, Memory, and Storage specific to the cluster name can be written for Grafana as mentioned below.
+A sample MySQL query to display the maximum CPU, Memory, and Storage specific to the cluster name can be written for Grafana, as mentioned below.
 
 ```sql
 select ClusterName AS "Cluster Name",
