@@ -1,6 +1,6 @@
 ---
-title: How to Set Up an Automation Pipeline to Measure Application Performance
-  on HPE GreenLake for Containers
+title: How to Set Up an Automation Pipeline to Automatic Scale Clusters on HPE
+  GreenLake for Containers
 date: 2022-06-08T06:09:47.137Z
 featuredBlog: false
 priority: 1
