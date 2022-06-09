@@ -18,6 +18,8 @@ tags:
 
 It sounds interesting if one can get a history of such metrics to analyze application-specific metrics. As a part of one of the use cases, based on the past captured consumption usage data, a customer can decide whether he requires to scale up of nodes during some days of the year. For the rest of the days scale down of the cluster is required. For a system admin persona working on an abstract layer of application deployment,  it can be important to choose the type of blueprint based on the application usage. For example, if a graph shows high memory usage over a CPU usage then he may shift to the blueprint which provides high compute resources. This blog post will guide you through one method of implementing the Automation Pipeline which can result in beautiful graphs via the use of automation weapons like Katalon (as an automation testing software tool), CircleCI (as continuous integration and continuous delivery platform), MySQL (as a database provider) and Grafana (as an interactive visualization web application tool that uses time-series data to deploy meaningful graphs).
 
+![Cluster detail](/img/cluster-detail.jpg "Cluster detail")
+
 
 
 ## How to Implement the Automation Pipeline?
@@ -26,11 +28,11 @@ In Katalon, test cases can be structured using test suites with environment vari
 
 Katalon Studio provides HTML-based reports or console logs to view the data after execution has been completed. Any test script can help to extract the required data in the form of a plain text-based file like .csv. However, CircleCI provides functionality to export this .csv file as an artifact inside the job. Such artifacts data can be combined into the database. To demonstrate the collected data in visualized manner, the Grafana dashboard can be helpful. Below can be the architecture for the same.
 
-![Architectural Diagram](/img/capture.jpg "Architectural Diagram")
+![Architectural Diagram](/img/architectural-diagram.jpg "Architectural Diagram")
 
-## What does a CircleCI pipeline look like?
+## How to Create a  CircleCI pipeline?
 
-A pipeline includes various stages such as spinning up the environment by downloading required images and configuring test setup, preparing CircleCI environment, copyright check, cloning repository code, security checking, execution of test scripts, generating artifacts, generating results, and sending out results over email. A cron job schedules the execution of the automation pipeline. 
+A CircleCI pipeline includes various stages such as spinning up the environment by downloading required images and configuring test setup, preparing CircleCI environment, copyright check, cloning repository code, security checking, execution of test scripts, generating artifacts, generating results, and sending out results over email. A cron job schedules the execution of the automation pipeline. 
 
 **Sample CircleCI config.yaml:**
 
@@ -57,8 +59,8 @@ jobs:
           name: "Creating directory for artifacts"
           command: mkdir /tmp/project/
       - run:
-          name: "Execute Katalon performance test suite"
-          command: xvfb-run katalonc -consoleLog -browserType="Chrome" -retry=0 -statusDelay=15 -testSuitePath="Test Suites/PerformanceSuite" -executionProfile='default' -projectPath='/project/sample.prj' --config -webui.autoUpdateDrivers=true
+          name: "Execute cluster metrics gathering test suite"
+          command: xvfb-run katalonc -consoleLog -browserType="Chrome" -retry=0 -statusDelay=15 -testSuitePath="Test Suites/ClusterMetricsSuite" -executionProfile='default' -projectPath='/project/sample.prj' --config -webui.autoUpdateDrivers=true
       - store_test_results:
           path: ./tests/katalon/Reports
       - store_artifacts:
@@ -75,13 +77,16 @@ workflows:
     jobs:
       - checkout-workspace
       - copyright-check
-      - performance-run-chrome
+      - gather-cluster-metrics
           requires:
             - checkout-workspace
-      - performance-run-firefox
+      - cluster-scaleup
           requires:
-            - checkout-workspace 
-      - updateTestResults
+            - checkout-workspace
+      - cluster-scaledown
+          requires:
+            - checkout-workspace             
+      - update-results
           requires:
             - checkout-workspace 
 ```
