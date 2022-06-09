@@ -22,17 +22,21 @@ Get started by diving into [our GitHub page](https://github.com/ZertoPublic) or 
 
 Zerto for Kubernetes (Z4K) enables continuous backup, disaster recovery, and long-term retention for stateful and stateless Kubernetes applications running on-premises or in the cloud.
 
-Learn more by watching Zerto for Kubernetes Overview (https://www.youtube.com/watch?v=EIQcOIcbBwU) or going to https://www.zerto.com/solutions/workloads-and-applications/zerto-for-kubernetes/ 
+Learn more by watching Zerto for Kubernetes Overview 
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/EIQcOIcbBwU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+or going to our [solution page](https://www.zerto.com/solutions/workloads-and-applications/zerto-for-kubernetes/).
 
 Follow along with on the [Z4K GitHub page](https://github.com/ZertoPublic/Z4K/blob/main/docs/DeployingZertoForK8S.md) to enjoy disaster recovery and data mobility of your K8s applications.
 
 ### Zerto In Cloud (ZIC) for AWS
 
-Zerto in Cloud (ZIC) for AWS provides orchestrated disaster recovery of EC2 instances across AWS regions and zones. Linked to our GitHub here are the Terraform files you can use to start experimenting with ZIC for AWS.
+Zerto in Cloud (ZIC) for AWS provides orchestrated disaster recovery of EC2 instances across AWS regions and zones. Linked to our [GitHub](https://github.com/ZertoPublic/ZIC-AWS) are the Terraform files you can use to start experimenting with ZIC for AWS.
 
 Ready to learn more? Read the ZIC for AWS datasheet
 
-Looking to try Zerto out? Sign up for our Hands on Labs!
+Looking to try Zerto out? Sign up for our [Hands on Labs! ](https://www.zerto.com/myzerto/labs)
 
 Have any questions on Zerto? Send us an email to zertotm@hpe.com
 
