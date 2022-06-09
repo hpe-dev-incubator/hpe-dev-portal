@@ -1,7 +1,7 @@
 ---
 title: How to Set Up an Automation Pipeline to Achieve Observability on HPE
   GreenLake for Containers
-date: 2022-06-08T06:09:47.137Z
+date: 2022-06-09T11:05:39.047Z
 featuredBlog: false
 priority: 1
 author: Sweta Katkoria
@@ -14,11 +14,11 @@ tags:
 ---
 ## Introduction
 
-*[HPE GreenLake for Containers](https://www.hpe.com/us/en/greenlake/containers.html)*, one of the HPE GreenLake Cloud Services, is built upon [HPE Ezmeral Runtime Enterprise](https://www.hpe.com/us/en/software/ezmeral-runtime.html) and runs via an underlying container-based Kubernetes orchestrated infrastructure. The HPE GreenLake Central dashboard allows one to perform several cluster-related operations through the use of the *Clusters* module. This module enables operations, such as cluster creation by using default and custom machine blueprints, cluster deletion, cluster scale up, and cluster scale down. It allows one to navigate to the HPE Ezmeral Runtime where an end-user can deploy various applications and fulfill the goal of containerization. Moreover, on the page of cluster detail, some interesting insights like CPU usage, memory allocation, and storage availability can also be tracked. These are the essential metrics to track the usage of deployed applications and based on that decide the required resources resulting increase in the business!
+*An HPE GreenLake Cloud Service, HPE GreenLake for Containers, is built upon HPE Ezmeral Runtime Enterprise and runs on a container-based Kubernetes orchestrated infrastructure.* Using the Clusters module of the HPE GreenLake Central dashboard, one can perform several cluster-related operations. A cluster can be created using default or custom machine blueprints, deleted, scaled up, or scaled-down using this module. A user can navigate to the HPE Ezmeral Runtime through which various applications can be deployed and containerization can be achieved. Additionally, the cluster detail page provides some interesting insights like CPU usage, memory allocation, and storage availability. Metrics like these are crucial to tracking application usage and, subsequently, determining the resources required to grow the business. Here is the image mentioned above.
+
+![Cluster detail screen](/img/cluster-detail.jpg "Cluster detail screen")
 
 It sounds interesting if one can get a history of such metrics to analyze application-specific metrics. As a part of one of the use cases, based on the past captured consumption usage data, a customer can decide whether he requires to scale up of nodes during some days of the year. For the rest of the days scale down of the cluster is required. For a system admin persona working on an abstract layer of application deployment,  it can be important to choose the type of blueprint based on the application usage. For example, if a graph shows high memory usage over a CPU usage then he may shift to the blueprint which provides high compute resources. This blog post will guide you through one method of implementing the Automation Pipeline which can result in beautiful graphs via the use of automation weapons like Katalon (as an automation testing software tool), CircleCI (as continuous integration and continuous delivery platform), MySQL (as a database provider) and Grafana (as an interactive visualization web application tool that uses time-series data to deploy meaningful graphs).
-
-![Cluster detail](/img/cluster-detail.jpg "Cluster detail")
 
 
 
