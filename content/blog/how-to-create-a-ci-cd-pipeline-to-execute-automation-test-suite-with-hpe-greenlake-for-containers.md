@@ -24,8 +24,6 @@ It can be useful to get historical trend data for such metrics to analyze applic
 
 ## How to Implement the Automation Pipeline?
 
-
-
 [Kalalon studio ](https://katalon.com/katalon-studio/)software uses an open-source Selenium framework to interact with web browsers with HTTP commands. CI systems can trigger remote execution of Katalon Studio scripts through Docker containers or command-line interfaces. At a scheduled time and frequency, cron jobs can be configured to check various dynamic measurements of clusters such as CPU usage, memory usage, storage capacity availability, the number of worker nodes in the cluster, the number of control planes in the cluster, the time taken to scale up a cluster node, time taken to scale down a cluster node, the time taken to create a cluster, etc.
 
 Katalon Studio provides HTML-based reports or console logs after execution is complete. It is possible to extract the required data in the form of a plain text-based file, such as .csv, using any script. CircleCI offers the capability to export this .csv file as an artifact inside the job. This artifact data can then be imported into the database. In order to visualize the collected data, the Grafana dashboard is helpful. This can be seen in the architecture below.
@@ -131,10 +129,10 @@ from ClusterMetricsTable GROUP BY ClusterName;
 
 **Finally, the Grafana dashboard appears as:**
 
-![SampleGrafanaDashboard]( "Sample Grafana Dashboard (Data is for illustrative purpose only. Axis are hidden)")
+![SampleGrafanaDashboard](/img/cluster-metrics-grafana.jpg "Sample Grafana Dashboard (Data is for illustrative purpose only. Axis are hidden)")
 
 Note that, all data illustrated is for understanding purposes only. No relevance to actual HPE GreenLake performance is being shown or claimed in this blog post.
 
 ## Conclusion
 
-Automation pipelines are helpful to find defects yet tricky to implement. This blog guides the user to integrate various tools and generate graphs. By analyzing these graphs, a user can track the cluster's performance measurements for a period of time which may help to find out the reasons for the degraded behavior of various clusters.
+Through this blog, users can integrate various tools and generate observability metrics. When these graphs are analyzed, several objectives can be achieved, including selecting the right blueprint for the application or automating cluster scale-up or scale-down operations.
