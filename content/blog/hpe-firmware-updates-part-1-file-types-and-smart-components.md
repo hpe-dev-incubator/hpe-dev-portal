@@ -1,19 +1,23 @@
 ---
 title: "HPE firmware updates: Part 1 – File types and Smart Components"
 date: 2020-08-21T15:07:31.534Z
-author: François Donzé 
-tags: ["ilo-restful-api","firmware","uefi","redfish"]
-authorimage: "/img/blogs/Avatar4.svg"
 featuredBlog: false
-priority:
-thumbnailimage:
+priority: null
+author: François Donzé
+authorimage: /img/fdz-photoprofile.png
+thumbnailimage: null
+tags:
+  - ilo-restful-api
+  - firmware
+  - uefi
+  - redfish
 ---
 ## Introduction
 Computer firmware updates are extremely important as they offer new features, fix bugs, and deliver security improvements. The diversity of devices within a computer that contain firmware is high and, unfortunately, due to their nature and origin, there is not a single path to update them. As an example, HPE ProLiant or Synergy BIOS/ROM firmware may not be updated with the same tools as a partner add-on network card.
     
 An efficient firmware update strategy requires the knowledge of several key components like update agents and firmware package types, as well as an awareness of all the associated tools involved. This multipart blog series describes the main objects related to firmware updates in HPE iLO 5 based servers and the relationships between them, important information to know when addressing firmware updates.
        
-In this first part, I will cover firmware file types and Smart Components (SC), including SC security and partner-specific considerations. It should be noted that I will not be covering the potential dependencies found with high-level management software like HPE OneView or the HPE iLO Amplifier Pack. For information on those topics, please refer to the specific product [documentation](http://hpe.com/info/EIL).
+In this first part, I will cover firmware file types and Smart Components (SC), including SC security and partner-specific considerations. It should be noted that I will not be covering the potential dependencies found with high-level management software like HPE OneView or the HPE iLO Amplifier Pack. For information on those topics, please refer to the specific product [documentation](http://www.hpe.com/support/hpesc).
        
 The [second part](/blog/hpe-firmware-updates-part-2-interaction-in-operating-modes) concerns firmware operating modes on different network topologies. Finally, once the firmware concepts are well understood, you will be ready to read part three, which deals with the automation of firmware updates using the [Redfish®](https://redfish.dmtf.org/) standard.
              
@@ -30,7 +34,7 @@ HPE and partner vendor (Intel, Mellanox, Marvell, etc.) firmware binaries are pa
             
 Smart Components are self-executable modules that contain firmware binaries, drivers, and JSON/XML metadata, as well as the code used to install or flash the embedded firmware or driver. They are packaged in different files types: `.fwpkg, .zip, .rpm` and `.exe`. In older SPPs, you may also find`.scexe` extensions.
     
-You can browse and extract the content from Smart Components using tools like `7-Zip` on Windows or `unzip, rpm` or `rpm2cpio` combined with `cpio` on Linux (see above picture). The following screenshots show content from the different SC types.
+You can browse and extract the content from Smart Components using tools like `7-Zip` on Windows or `unzip, rpm` or `rpm2cpio` combined with `cpio` on Linux (see below picture). The following screenshots show content from the different SC types.
 
 
 ![d2](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/7/d2-1598025876858.png)
@@ -44,7 +48,7 @@ You can browse and extract the content from Smart Components using tools like `7
 ![d4](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/7/d4-1598025888854.png)
 
 ## Security concerns
-     
+
 Smart Components are digitally signed by Hewlett Packard Enterprise (HPE) to avoid any injection of malware following the creation of the SC. The digital signature is either embedded in the SC (i.e. `.fwpkg`) or in an external companion file (`.compsig`). During the upload of Smart Components into the iLO Repository of a server, iLO verifies and validates the signature. If the signature does not validate correctly, iLO discards the SC and returns and error similar to “The file signature is invalid”.
 
 
@@ -58,7 +62,7 @@ HPE binaries contained in the SC also include an HPE signature. The following sc
 
 ![d7](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/7/d7-1598025910403.png)
 
-Smart Components larger than 32 MiB have several associated `.compsig` files, because iLO, like all of the Baseboard Management Cards (BMC) compliant to the Redfish® standard, has a limited transfer size of 32 MiB. The following picture shows a component in SPP 2020.03 with four `.compsig` files. To upload this SC into an iLO repository, you will need to first split it into chunks of 33554432 bytes (32 \* 1024 \* 1024) to match the `.compsig` files. You can automatically and seamlessly perform this split operation using tools like [iSUT](https://h20195.www2.hpe.com/V2/getpdf.aspx/4AA4-6947ENW.pdf), [SUM](https://support.hpe.com/hpesc/public/docDisplay?docId=a00097903en_us) or [ilorest](http://hpe.com/info/resttool).
+Smart Components larger than 32 MiB have several associated `.compsig` files, because iLO, like all of the Baseboard Management Cards (BMC) compliant to the Redfish® standard, has a limited transfer size of 32 MiB. The following picture shows a component in SPP 2020.03 with four `.compsig` files. To upload this SC into an iLO repository, you will need to first split it into chunks of 33554432 bytes (32 \* 1024 \* 1024) to match the `.compsig` files. You can automatically and seamlessly perform this split operation using tools like [iSUT](https://h20195.www2.hpe.com/V2/getpdf.aspx/4AA4-6947ENW.pdf), [SUM](https://support.hpe.com/hpesc/public/docDisplay?docId=a00097903en_us) or [iLOrest](http://hpe.com/info/resttool).
       
 
 ![d8](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/7/d8-1598025918145.png)
@@ -90,8 +94,11 @@ For example, Smart Component `cp040152.exe` contains firmware updates for Intel 
 
 ## Summary
 In this article, I covered the following objects and concepts involved in HPE firmware updates, as well as their relationships:
--	HPE Firmware binary types
--	HPE and partner Smart Components
--	Update agents
+
+* HPE Firmware binary types 
+
+* HPE and partner Smart Components 
+
+* Update agents 
       
 This is important information you need to plan your firmware update strategy, but it is not sufficient. In my second article on this subject, I will describe different update operating modes as well as the interactions between different objects. Make sure you check the [HPE DEV blog](/blog) site often to view my next post as well as other interesting tutorials and articles.
