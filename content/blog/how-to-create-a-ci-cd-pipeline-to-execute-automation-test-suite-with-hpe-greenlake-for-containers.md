@@ -82,12 +82,9 @@ workflows:
       - gather-cluster-metrics
           requires:
             - checkout-workspace
-      - cluster-scaleup
+      - cluster-scale-operations
           requires:
-            - checkout-workspace
-      - cluster-scaledown
-          requires:
-            - checkout-workspace             
+            - checkout-workspace          
       - update-results
           requires:
             - checkout-workspace 
@@ -95,16 +92,16 @@ workflows:
 
 **Sample CircleCI workflow can be demonstrated as below:** 
 
-![CircleCI Automation pipeline](/img/sample-pipeline.jpg "Sample CircleCI Automation pipeline")
+![Sample CircleCI Automation pipeline](/img/circleci-workflow.jpg "Sample CircleCI Automation pipeline")
 
 **A csvDataSource.csv artifact file may look like what's shown below:**
 
 ```sql
-IDClusterCreation,DateTime,BlueprintType,ClusterCreationDuration,ClusterDeletionDuration,ClusterScaleUpDuration,ClusterScaleDownDuration
-2a0810e6-0c32-451b-933b-74fbdf86358a,2022-06-15 20:00:00,demo,05,04,02,02
-ce18d4e0-9af3-40da-8d43-266fe05d17ba,2022-06-15 20:10:00,large,04,05,02,02
-767801bd-7f1e-4a9a-804e-b560f168d968,2022-06-15 20:20:00,xlarge,04,05,02,02
-r3b185d5-c96a-49a5-b6de-13ae93c93fd4,2022-06-15 20:30:00,standard,05,04,02,02
+IDCluster,DateTime,BlueprintType,CPUUsage,MemoryAllocation,StorageCapacity,WorkerNodeCount,ScalingRequired,ClusterScaleUpDuration,ClusterScaleDownDuration,ClusterCreationDuration,ClusterDeletionDuration
+2a0810e6-0c32-451b-933b-74fbdf86358a,2022-06-15 20:00:00,standard,50%,70%,5GB,3,N,,,,
+ce18d4e0-9af3-40da-8d43-266fe05d17ba,2022-06-16 20:00:00,standard,80%,70%,5GB,3,Y,01,,,
+767801bd-7f1e-4a9a-804e-b560f168d968,2022-06-17 20:00:00,standard,10%,10%,5GB,4,Y,,01,,
+r3b185d5-c96a-49a5-b6de-13ae93c93fd4,2022-06-18 20:00:00,standard,07%,10%,5GB,2,N,,,,
 ```
 
 ## How to Download Artifacts from CircleCI Workflow Dynamically?
