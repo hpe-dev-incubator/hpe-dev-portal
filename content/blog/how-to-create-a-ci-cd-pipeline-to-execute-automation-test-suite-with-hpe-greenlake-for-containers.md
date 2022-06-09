@@ -104,6 +104,8 @@ ce18d4e0-9af3-40da-8d43-266fe05d17ba,2022-06-16 20:00:00,standard,80%,70%,5GB,3,
 r3b185d5-c96a-49a5-b6de-13ae93c93fd4,2022-06-18 20:00:00,standard,07%,10%,5GB,2,N,,,,
 ```
 
+As illustrated in the above data file, the UI automation run gathers data for the cluster where the application is deployed. A threshold value can be predefined for scaling requirements in the Katalon script. For example, 80% above usage should trigger scaling up, while 10% usage should trigger scaling down. As per the first record after app deployment, CPU and Memory metrics are 50% and 70%, respectively, for which scaling is not required which is marked as 'N' in the data file. On the second day, the CPU reached 80% usage, and the required time for a scale operation to complete is 1 minute, which is also captured. 
+
 ## How to Download Artifacts from CircleCI Workflow Dynamically?
 
 CircleCI provides [API Token](https://circleci.com/docs/2.0/managing-api-tokens/#creating-a-personal-api-token) to view pipelines via an API interface. Based upon requirements, various [APIs ](https://circleci.com/docs/api/v2/)can be selected. In the [postman ](https://www.postman.com/downloads/)tool, a user can try a combination of APIs for passing the output of one API result to the input of another API. A curl command for downloading artifacts from CircleCI API may look like the one mentioned below:
@@ -115,22 +117,21 @@ curl -H "Circle-Token: $TOKEN" "https://circleci.com/api/v2/project/gh/$repo/$pr
 
 ## Grafana Dashboard Configurations
 
-Nightly CircleCI build runs will collect the artifacts and those can be filled into databases like MySQL or Prometheus. In Grafana, various data source configurations are available, where the user has to configure the required data source. There are various chart options available for visual interpretation. By providing various MySQL queries, the required graph can be generated. 
+CircleCI build runs will collect the artifacts and those can be filled into databases like MySQL or Prometheus. In Grafana, various data source configurations are available, where the user has to configure the required data source. There are various chart options available for visual interpretation. By providing various MySQL queries, the required graph can be generated. 
 
-A sample MySQL query to display the maximum, minimum, and average cluster creation duration for each blueprint type can be written for Grafana as mentioned below.
+A sample MySQL query to display the maximum CPU, Memory, and Storage specific to the cluster name can be written for Grafana as mentioned below.
 
 ```sql
-select BlueprintType AS "Blueprint Type",
-max(cast(ClusterCreationDuration as UNSIGNED)) as "Maximum Creation Time (Minutes)",
-min(cast(ClusterCreationDuration as UNSIGNED)) as "Minimum Creation Time (Minutes)",
-AVG(ClusterCreationDuration) as "Average Creation Time (Minutes)",
-format(std(cast(ClusterCreationDuration as UNSIGNED)),2) AS "STD Dev.Creation Time(Minutes)"
-from ClusterTable GROUP BY BlueprintType;
+select ClusterName AS "Cluster Name",
+max(cast(CPU as UNSIGNED)) as "Maximum CPU Usage",
+max(cast(CPU as UNSIGNED)) as "Maximum Memory Usage",
+max(cast(CPU as UNSIGNED)) as "Maximum Storage Usage",
+from ClusterMetricsTable GROUP BY ClusterName;
 ```
 
 **Finally, the Grafana dashboard appears as:**
 
-![SampleGrafanaDashboard](/img/sample-chart.jpg "Sample Grafana Dashboard (Data is for illustrative purpose only. Axis are hidden)")
+![SampleGrafanaDashboard]( "Sample Grafana Dashboard (Data is for illustrative purpose only. Axis are hidden)")
 
 Note that, all data illustrated is for understanding purposes only. No relevance to actual HPE GreenLake performance is being shown or claimed in this blog post.
 
