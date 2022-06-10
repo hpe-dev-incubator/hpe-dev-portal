@@ -156,7 +156,7 @@ const SideNav = ({ data }) => {
           <ButtonLink
             align="start"
             key="bl"
-            label="Blog"
+            label="Blogs"
             to="/blog"
             state={{ state: { isBlogHeaderClicked: true } }}
           />
