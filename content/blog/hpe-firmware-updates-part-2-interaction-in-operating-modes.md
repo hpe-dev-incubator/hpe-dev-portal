@@ -12,7 +12,10 @@ tags:
   - uefi
   - redfish
 ---
+### Updated: June 10, 2022
+
 ## Introduction
+
 In [my first blog](/blog/hpe-firmware-updates-part-1-file-types-and-smart-components) post regarding how to deal with HPE firmware upgrades, I discussed the main objects involved:
 
 * Firmware binary types 
@@ -24,6 +27,7 @@ In [my first blog](/blog/hpe-firmware-updates-part-1-file-types-and-smart-compon
 In this article, I will explain the interaction between these objects when used in three different operating modes.
      
 ## Firmware update operating modes
+
 The different firmware binary types, Smart Components (SC), the iLO Repository, Installation Queue and Runtime Agents allow for several operating modes on different network topologies. The presence (or lack thereof) of an operating system (OS), increases the complexity of this multi-dimensional matrix. The operating mode classifications presented below are based on the presence (or absence) of an operating system in the server and the server’s connectivity to the management network. The operating system may be one of the following types:
 
 * Standard production OS (Red Hat, Suse, Windows, ESX, etc.) 
@@ -52,6 +56,7 @@ The typical HPE firmware update flow, regardless the operating mode, consists of
 >** NOTE:** This article focuses on Smart Components and does not discuss the case of HPE binaries transparently bypassing steps 1 and 2 when the Update Firmware menu of the iLO GUI or the Redfish [Simple Update](https://hewlettpackard.github.io/ilo-rest-api-docs/ilo5/#simpleupdate-action) action is used. 
            
 ## Operating mode 1: Operating system present and connected to the management network
+
 Connecting an OS to the management network may not be a recognized best practice. However, several IT departments implement this network architecture and, from a didactic point of view, this mode is interesting as it helps explain the other modes. 
                   
 This mode allows the entire update process to be managed from a remote node on the management network through the OS, the iLO 5, or both. Some companies use a deployment network to install and update operating systems and drivers. This deployment network can also be used to upload Smart Components to the iLO Repository via Runtime Agents and the CHIF driver. 
@@ -110,6 +115,8 @@ In this mode, an operating system is booted but has no connectivity to the manag
 Operating mode 1 and 2 are very similar. Here, the only difference from the previous operating mode is that SCs cannot be uploaded first to the OS. All the SCs to be processed are directly uploaded to the iLO Repository from the management network.
          
 All types of Smart Components can be processed with no exception: `.zip` and `.rpm` SCs will wait for a Runtime Agent to process them as soon as they are added in the Installation Queue. Other SCs (`.exe, .bin` and `.fwpkg`) will be processed by iLO, eventually calling a Runtime Agent if specified in the `payload.json` metadata file, once they have been added to the Installation Queue.
+
+> Note: With the implementation of the Platform Level Data Model for Firmware Update [PLDM for FWUPD](/blog/benefits-of-the-platform-level-data-model-for-firmware-update-standard/) in both iLO firmware and external supplier devices, the firmware update process is simplified as it does not require any run time agents anymore.
            
 ## Operating mode 3: No operating system present
 
@@ -126,6 +133,7 @@ The second limitation targets `.fwpkg` and `.exe` Smart Components with `Runtime
 Binary files `.bin, signed.bin, signed.flash, signed.vme` (CPLD), `.hex` (PIC) have no limitation in this operating mode and can be processed seamlessly. 
       
 ## Summary
+
 ILO 5 provides a very powerful and flexible firmware update architecture with its Repository, Installation Queue and associated Runtime Agents. However, due to the many objects involved, one must have a clear understanding of the different update paths one can use based on the different operating modes in order to build an efficient firmware update strategy. 
        
 If you remember nothing else, just remember that Smart Components requiring the presence of a Runtime Agents will stall the entire update process if none are found. This requirement can happen when OS dependent components (`.zip, .rpm`) are added to the iLO Installation Queue or when RuntimeAgents are the only update agent listed in the SC metadata file, no matter the type of SC (`.fwpkg, .exe`…). Don’t forget to check back on the [HPE DEV blog](/blog) for more blog posts related to this subject.
