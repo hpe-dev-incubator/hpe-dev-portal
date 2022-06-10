@@ -15,7 +15,7 @@ tags:
   - ProLiant
   - iLO5
 ---
-Updated: July 2021  
+Updated: June, 2022  
     
 ## Introduction
 
@@ -23,7 +23,7 @@ Integrated Lights-Out ([iLO](https://www.hpe.com/info/ilo))  is an HPE ProLiant 
 
 In HPE ProLiant and Synergy Gen10 servers, HPE iLO 5 introduced the management of storage controllers via its graphical user interface and via the [Redfish](http://www.dmtf.org/redfish) RESTful API standard. Although [videos](https://www.youtube.com/channel/UCIZhrIYcNh3wHLiY4ola5ew/search?query=logicaldrive) already exist that cover the graphical user interface, I wanted to address this feature with a pure Redfish API approach, bypassing the `ilorest` [interface tool](http://www.hpe.com/info/resttool) and its Smart Array macro commands.
 
-In this article you start by learning how to cleanup and prepare a Smart Storage Controller for receiving a configuration with one or more logical drives. Then, on this fresh environment, you will learn how to create a simple RAID array configuration prior to more complex ones to complement the [API reference documentation](https://hewlettpackard.github.io/ilo-rest-api-docs/ilo5/#smartstorage-configuration).
+In this article you start by learning how to cleanup and prepare a Smart Storage Controller (SR line of product only) for receiving a configuration with one or more logical drives using an HPE proprietary OEM process. Then, on this fresh environment, you will learn how to create a simple RAID array configuration prior to more complex ones to complement the [API reference documentation](https://hewlettpackard.github.io/ilo-rest-api-docs/ilo5/?python#smartstorageconfig).
 
 ## Foreword
 
@@ -33,18 +33,26 @@ The reader should have the knowledge of HTTP [request methods](https://en.wikipe
 
 Moreover, it is assumed that the reader knows how to manage Redfish sessions as described in the [Redfish API Reference documentation](https://hewlettpackard.github.io/ilo-rest-api-docs/ilo5/#authentication-and-sessions). More hints for managing iLO sessions with Redfish can be found in this [article](/blog/managing-ilo-sessions-with-redfish).
 
-## Storage information locations
+## Storage data models
 
-The Redfish standard defines a `storage` subsystem as part of the `ComputerSystem` type under the `/redfish/v1/Systems/{item}/` location.
+The Redfish standard defines a `storage` data model as part of the `ComputerSystem` resource type under the `/redfish/v1/Systems/{item}/` URI. With the implementation of new standards like the Platform Level Data Model for Redfish Device Enablement ([PLDM for RDE](https://developer.hpe.com/blog/overview-of-the-platform-level-data-model-for-redfish%C2%AE-device-enablement-standard/)), this model is fully operational in terms of read, write and event operations against modern external provider devices. Starting at Gen10 and Gen10 Plus (firmware 2.30+), HPE servers can take advantage out of it. Note that it is the only storage data model implemented in Gen11 servers and beyond.
 
-However, HPE implements the description and the configuration of its Smart Storage devices (i.e. SmartArray controllers) respectively in the `SmartStorage` and `SmartStorageConfigX` (**X** is being an ID number) entry points of the same `ComputerSystem` type. When multiple controllers are present in a system,
+HPE initially developed the `SmartStorage` Redfish OEM data model for HPE ProLiant DL580 Gen8 servers, before any Redfish specification. It model supports inventory (GET) and monitoring (Events) features only.
+
+In HPE ProLiant Gen10, the `SmartStorageConfig` resource was added to support configuration. This OEM model uses a proprietary API that only supports the SR line of HPE storage controllers. 
+
+> **Note**: The HPE OEM `SmartStorageConfig` data model is removed in HPE Gen11 servers. 
+
+> **Note**: This article focuses only on the HPE OEM `SmartStorageConfig` data model.
+
+As said earlier, HPE Gen10 and Gen10 Plus servers implements the description and the configuration of its Smart Storage SR devices respectively in the `SmartStorage` and `SmartStorageConfigX` (**X** is being an ID number) entry points of the same `ComputerSystem` type. When multiple controllers are present in a system,
 a `SmartStorage/ArrayControllers/{item}/` entry point is present for each controller description and a `SmartStorageConfigX` entry point exits for the configuration entry points. Note that `{item}` and **`X`** are not correlated.
 
 ![HPE array controllers' entry points](https://redfish-lab.sourceforge.io/media/redfish-wiki/StorageManagementWithRedfifsh/0-SmartStorageArraysEntryPoints.png)
 
 ![Smart Array configuration entry points](https://redfish-lab.sourceforge.io/media/redfish-wiki/StorageManagementWithRedfifsh/0-SmartStorageConfigEntryPoints.png)
 
-Since our infrastructure contains only HPE storage devices, the `Storage` entry point is not populated. Only the `SmartStorage` and `SmartStorageConfigX` locations are populated. The following picture shows the URIs of four disk drives in the first controller of our infrastructure. Their properties can be obtained with a simple `GET` request.  
+Since the infrastructure used for this article contains only HPE storage devices and the iLO 5 firmware version is below 2.30, the `Storage` DMTF URI is not populated. Only the `SmartStorage` and `SmartStorageConfigX` locations are populated. The following picture shows the URIs of four disk drives in the first controller of our infrastructure. Their properties can be obtained with a simple `GET` request.  
 
 ![Physical Drives seen from the SmartStorage location](https://redfish-lab.sourceforge.io/media/redfish-wiki/StorageManagementWithRedfifsh/1-PhysicalDrives.png)
 
@@ -76,7 +84,7 @@ If the value is set to `Disabled`, destructive data actions are allowed. Finally
 
 Imagine you just received a bunch of brand new servers or you want to re-deploy servers for a new project. In this context, you would want to remove completely the entire storage configuration as well as all meta data stored in the physical drives to get a clean Smart Storage subsystem.
 
-Redfish models logical drives as a JSON collection stored in an array of objects represented like: `"LogicalDrives": [{ld-1},{ld-2,...{ld-n}]`. Each `ld-i` of this array contains the necessary properties to describe precisely the corresponding logical drive.
+The HPE OEM storage subsystem models logical drives as a JSON collection stored in an array of objects represented like: `"LogicalDrives": [{ld-1},{ld-2,...{ld-n}]`. Each `ld-i` of this array contains the necessary properties to describe precisely the corresponding logical drive.
 
 The following screenshot shows the `LogicalDrives` array containing one element and its attributes. In it, you can see that this logical drive is a RAID 0 made of a single data drive (`1I:3:1`).
 
@@ -84,7 +92,7 @@ The following screenshot shows the `LogicalDrives` array containing one element 
 
 ### Removing all logical drives
 
-Removing all the logical drives of a Smart Storage Controller is equivalent to the removal of all the elements of the `LogicalDrives` array. Practically you need to request an empty array to the Redfish server.
+Removing all the logical drives of an HPE SR Smart Storage Controller is equivalent to the removal of all the elements of the `LogicalDrives` array. Practically you need to request an empty array to the Redfish server.
 
 Since this action is data destructive, you must disable the `DataGuard` property to make sure the firmware allows this operation during the next reboot/POST of the system.
 
@@ -202,8 +210,8 @@ After reboot, the requested RAID0 logical drive is visible in the current config
 
 ## Conclusion
 
-Redfish is a powerful, open source method of being able to manage systems. With a RESTful interface, it is designed to leverage existing internet standards and tool chains, making it usable by both amateurs as well as professionals.The ability of managing HPE Smart Storage with Redfish is a major step forward to the full control of HPE ProLiant and Synergy Gen10 servers using a single RESTful API.
+Redfish is a powerful, open source method of being able to manage systems. With a RESTful interface, it is designed to leverage existing internet standards and tool chains, making it usable by both amateurs as well as professionals.The ability of managing HPE Smart Storage with Redfish is a major step forward to the full control of HPE Gen10 and beyond servers using a single RESTful API.
 
 Make sure you continue to follow my blog posts on HPE DEV for more hints on working with Redfish in HPE environments. You can connect with me in [the Redfish channel on Slack](https://hpedev.slack.com/) for specific questions.
 
-### Document last update: July 2021
+### Document last update: June 2022
