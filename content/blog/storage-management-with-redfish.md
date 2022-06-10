@@ -37,7 +37,7 @@ Moreover, it is assumed that the reader knows how to manage Redfish sessions as 
 
 The Redfish standard defines a `storage` data model as part of the `ComputerSystem` resource type under the `/redfish/v1/Systems/{item}/` URI. With the implementation of new standards like the Platform Level Data Model for Redfish Device Enablement ([PLDM for RDE](https://developer.hpe.com/blog/overview-of-the-platform-level-data-model-for-redfish%C2%AE-device-enablement-standard/)), this model is fully operational in terms of read, write and event operations against modern external provider devices. Starting at Gen10 and Gen10 Plus (firmware 2.30+), HPE servers can take advantage out of it. Note that it is the only storage data model implemented in Gen11 servers and beyond.
 
-HPE initially developed the `SmartStorage` Redfish OEM data model for HPE ProLiant DL580 Gen8 servers, before any Redfish specification. It model supports inventory (GET) and monitoring (Events) features only.
+HPE initially developed the `SmartStorage` Redfish OEM data model for HPE ProLiant DL580 Gen8 servers, before any Redfish specification. This model supports inventory (GET) and monitoring (Events) features only.
 
 In HPE ProLiant Gen10, the `SmartStorageConfig` resource was added to support configuration. This OEM model uses a proprietary API that only supports the SR line of HPE storage controllers. 
 
