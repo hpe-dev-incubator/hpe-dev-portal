@@ -136,4 +136,4 @@ Note that, all data illustrated is for understanding purposes only. No relevance
 
 ## Conclusion
 
-Through this blog, users can integrate various tools and generate observability metrics. When these graphs are analyzed, several objectives can be achieved, including selecting the right blueprint for the application or automating cluster scale-up or scale-down operations.
+Through this blog, users can integrate various tools and generate metrics for observability purpose. And by triggering actions based on these metrics, several objectives can be achieved, such as, selecting the right blueprint for the application or automating cluster scale-up or scale-down operations.
