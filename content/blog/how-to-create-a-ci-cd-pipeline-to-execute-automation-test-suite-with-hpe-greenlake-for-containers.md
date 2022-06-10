@@ -15,7 +15,7 @@ tags:
 ---
 ## Introduction
 
-An HPE GreenLake Cloud Service, [HPE GreenLake for Containers](https://www.hpe.com/us/en/greenlake/containers.html), is built upon [HPE Ezmeral Runtime Enterprise](https://www.hpe.com/us/en/software/ezmeral-runtime.html) and runs on a container-based Kubernetes orchestrated infrastructure*.* Using the Clusters module of the HPE GreenLake Central dashboard, one can perform several cluster-related operations. A cluster can be created using default or custom machine blueprints, deleted, scaled up, or scaled-down using this module. A user can navigate to the HPE Ezmeral Runtime dashboard through which various applications can be deployed and containerization can be achieved. Additionally, the cluster detail page provides some interesting insights like CPU usage, memory allocation, and storage availability. Metrics like these are crucial to tracking application usage and, subsequently, determining the resources required to grow the business. The image below illustrates what I mean.
+An HPE GreenLake Cloud Service, [HPE GreenLake for Containers](https://www.hpe.com/us/en/greenlake/containers.html), is built upon [HPE Ezmeral Runtime Enterprise](https://www.hpe.com/us/en/software/ezmeral-runtime.html) and runs on a container-based Kubernetes orchestrated infrastructure*.* Using the Clusters module of the HPE GreenLake Central dashboard, one can perform several cluster-related operations. A cluster can be created using default or custom machine blueprints, deleted, scaled up, or scaled-down using this module. Additionally, the cluster detail page provides some interesting insights like CPU usage, memory allocation, and storage availability. It is essential to monitor these types of data so that the resource requirement can be determined without any business impact. The image below illustrates the cluster detail page.
 
 ![Cluster detail screen](/img/cluster-detail.jpg "Cluster detail screen")
 
@@ -102,8 +102,6 @@ r3b185d5-c96a-49a5-b6de-13ae93c93fd4,2022-06-18 20:00:00,standard,07%,10%,5GB,2,
 ```
 
 As illustrated in the above data file, the UI automation run gathers data for the cluster where the application is deployed. A threshold value can be predefined for scaling requirements in the Katalon script. For example, 80% above usage should trigger scaling up, while 10% usage should trigger scaling down. Based on the first record after app deployment, CPU and Memory metrics are 50% and 70%, respectively, for which scaling is not necessary and is marked as 'N' in the data file. The CPU reached 80% usage, on the second day, which means that a scale up operation is required and is marked with 'Y' in the data file. The script for scaling up operation can also record the time it takes to become ready.
-
-
 
 ## How to Download Artifacts from CircleCI Workflow Dynamically?
 
