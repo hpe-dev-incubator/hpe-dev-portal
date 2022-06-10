@@ -12,7 +12,10 @@ tags:
   - uefi
   - redfish
 ---
+### Updated: June 10, 2022
+
 ## Introduction
+
 Computer firmware updates are extremely important as they offer new features, fix bugs, and deliver security improvements. The diversity of devices within a computer that contain firmware is high and, unfortunately, due to their nature and origin, there is not a single path to update them. As an example, HPE ProLiant or Synergy BIOS/ROM firmware may not be updated with the same tools as a partner add-on network card.
     
 An efficient firmware update strategy requires the knowledge of several key components like update agents and firmware package types, as well as an awareness of all the associated tools involved. This multipart blog series describes the main objects related to firmware updates in HPE iLO 5 based servers and the relationships between them, important information to know when addressing firmware updates.
@@ -23,6 +26,7 @@ The [second part](/blog/hpe-firmware-updates-part-2-interaction-in-operating-mod
              
 
 ## Firmware binaries
+
 Depending on the device being updated (aka flashed), the type of file containing the firmware is different. As an example, the Power Management Controller firmware is embedded in a `.hex` file while the System Programmable Logic Device firmware file uses the extension `.vme`. The exhaustive list of HPE firmware binary types is presented in a Help pop-up window of the iLO Graphical User Interface: `Firmware & OS Software --> Update Firmware` (right pane) `--> ? 
  --> Server firmware file type details`.
 
@@ -30,6 +34,7 @@ Depending on the device being updated (aka flashed), the type of file containing
 ![d1](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/7/d1-1598025868664.png)
 
 ## Smart Components
+
 HPE and partner vendor (Intel, Mellanox, Marvell, etc.) firmware binaries are packaged in Smart Components. They are distributed individually via the online [HPE Support Center](https://support.hpe.com/hpesc/public/home/) or grouped in support packs like the [Service Support Pack for ProLiant](http://www.hpe.com/servers/spp) (SPP).
             
 Smart Components are self-executable modules that contain firmware binaries, drivers, and JSON/XML metadata, as well as the code used to install or flash the embedded firmware or driver. They are packaged in different files types: `.fwpkg, .zip, .rpm` and `.exe`. In older SPPs, you may also find`.scexe` extensions.
@@ -68,6 +73,7 @@ Smart Components larger than 32 MiB have several associated `.compsig` files, be
 ![d8](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/7/d8-1598025918145.png)
 
 ## Update agents
+
 HPE iLO can flash its own firmware as well as the firmware of other devices. However, it is not able to flash all types of firmware to their target locations. Other update agents exist that can help with this and are listed in the `UpdatableBy` JSON array mentioned in the [HPE Redfish API reference document](https://hewlettpackard.github.io/ilo-rest-api-docs/ilo5/#updatableby-array). The description of each element (`Uefi, RuntimeAgent` and `Bmc`) is shown in the following screenshot.
             
 
@@ -76,6 +82,7 @@ HPE iLO can flash its own firmware as well as the firmware of other devices. How
 
         
 ## Smart Component metadata
+
 Smart Components contain metadata stored in one or more files with different suffixes (`.xml`, `.json`, etc). The `payload.json` file lists the update agents able to process the component. This list can be viewed from the iLO Graphical User Interface in the `Firmware & OS Software – iLO Repository` screen.
   
 
@@ -85,6 +92,7 @@ Smart Components contain metadata stored in one or more files with different suf
 Note that, if you modify the SC metadata file and its list of supported update agents, iLO will refuse to upload the SC since the signature has changed.
          
 ## Partner Smart Components
+
 HPE partner (Intel, Marvell, Mellanox, etc.) firmware and drivers are packaged in signed Smart Components by HPE. Very often, they also contain executables, scripts, and dynamically linked libraries (`.dll`) that are proprietary to the partner. It is crucial to understand that the list of update agents that are able to flash a partner’s firmware is dictated by the partner. Neither HPE nor end customers have the possibility to alter this list.
           
 For example, Smart Component `cp040152.exe` contains firmware updates for Intel Fortville based adapters. As shown below, the embedded `payload.json` only lists `RuntimeAgent` in the `UpdatableBy` array. Moreover, the `FirmwareImages` section explicitly mentions that UEFI is not able to flash the binary file `.//FW/BootIMG.FLB`. In other words, only OS-based applications, like [iSUT](https://h20195.www2.hpe.com/V2/getpdf.aspx/4AA4-6947ENW.pdf) or [SUM](https://support.hpe.com/hpesc/public/docDisplay?docId=a00097903en_us), are able to perform the firmware updates of these converged network adapters by launching the tools provided by the partner. The consequences of using this type of SC is discussed in Part 2 of this series.
@@ -92,7 +100,10 @@ For example, Smart Component `cp040152.exe` contains firmware updates for Intel 
 
 ![d11](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/7/d11-1598025939128.png)
 
+> Note: With the implementation of the Platform Level Data Model for Firmware Update [PLDM for FWUPD](/blog/benefits-of-the-platform-level-data-model-for-firmware-update-standard/) in both iLO firmware and external supplier devices, the firmware update process is simplified as it does not require any run time agents anymore.
+
 ## Summary
+
 In this article, I covered the following objects and concepts involved in HPE firmware updates, as well as their relationships:
 
 * HPE Firmware binary types 
