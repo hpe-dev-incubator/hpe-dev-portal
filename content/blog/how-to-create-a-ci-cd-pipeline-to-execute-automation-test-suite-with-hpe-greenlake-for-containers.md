@@ -1,12 +1,12 @@
 ---
-title: How to Set Up an Automation Pipeline to Achieve Observability on HPE
-  GreenLake for Containers
+title: How to Set Up an Automation Pipeline to View Historical Trend Data of
+  Clusters with HPE GreenLake for Containers
 date: 2022-06-09T11:05:39.047Z
 featuredBlog: false
 priority: 1
 author: Sweta Katkoria
 authorimage: /img/swetakatkoria_photo.jpg
-thumbnailimage: /img/thumbnail.jpg
+thumbnailimage: ""
 tags:
   - hpe-greenlake
   - Automation
