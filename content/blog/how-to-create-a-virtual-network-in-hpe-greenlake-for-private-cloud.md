@@ -16,7 +16,7 @@ HPE GreenLake for Private Cloud Enterprise is: designed to deliver and help mana
 * Offered as a consumption-based service that enables customers to better align costs to outcomes
 * An intuitive self-service portal UI used to create and manage private cloud services such as compute, storage, and network (example described in this blog)
 
-This blog post explains the steps to create a virtual network with a static IP pool and DHCP using NSX-T, network virtualization, and a security platform that enables the virtual cloud network in HPE GreenLake for private cloud.
+This blog post explains the steps to create a virtual network with a static IP pool and DHCP using NSX-T, network virtualization, and a security platform that enables the virtual cloud network in HPE GreenLake for Private Cloud Enterprise.
 
 ## Understanding private cloud networking
 
@@ -165,6 +165,6 @@ Select the "Host Records" tab to view the records created for every deployment o
 
 ## Summary
 
-In this blog post, we covered how to get started with software-defined networking in HPE GreenLake for Private Cloud Enterprise and explained the steps to create a sample virtual network with both static IP pool and DHCP. In the next article, we will cover the NSX distributed firewall feature of HPE GreenLake for private cloud and explain how to create and enforce firewall rules to restrict the network traffic to the virtual machines.
+In this blog post, we covered how to get started with software-defined networking in HPE GreenLake for Private Cloud Enterprise and explained the steps to create a sample virtual network with both static IP pool and DHCP. In the next article, we will cover the NSX distributed firewall feature of HPE GreenLake for Private Cloud Enterprise and explain how to create and enforce firewall rules to restrict the network traffic to virtual machines.
 
 Learn more about [HPE GreenLake for Private Cloud Enterprise](https://support.hpe.com/hpesc/public/docDisplay?docId=a00092451en_us&page=HPE-GreenLake-private-cloud-networking.html) networking
