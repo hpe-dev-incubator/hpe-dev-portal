@@ -10,7 +10,7 @@ tags:
 ---
 ## Introduction
 
-HPE GreenLake for private cloud is: designed to deliver and help manage a private cloud. Available on the HPE GreenLake Central platform, the HPE GreenLake for private cloud is
+HPE GreenLake for Private Cloud Enterprise is: designed to deliver and help manage a private cloud. Available on the HPE GreenLake Central platform, the HPE GreenLake for Private Cloud Enterprise is
 
 * An HPE designed, implemented, owned, and operated private cloud that is deployed at a customer site
 * Offered as a consumption-based service that enables customers to better align costs to outcomes
@@ -20,7 +20,7 @@ This blog post explains the steps to create a virtual network with a static IP p
 
 ## Understanding private cloud networking
 
-The following illustration shows how you can use NSX objects to achieve NSX logical networking in HPE GreenLake for private cloud.
+The following illustration shows how you can use NSX objects to achieve NSX logical networking in HPE GreenLake for Private Cloud Enterprise.
 
 ![](/img/fig-2.jpg)
 
@@ -68,7 +68,7 @@ Role: Customer network admin with the following role permission to enable access
 
 ### Step 1: Create IP Pool
 
-Locate HPE GreenLake for private cloud card in the HPE GreenLake Central dashboard and click the Launcher icon to open the HPE GreenLake for private cloud dashboard.
+Locate HPE GreenLake for Private Cloud Enterprise card in the HPE GreenLake Central dashboard and click the Launcher icon to open the HPE GreenLake for Private Cloud Enterprise dashboard.
 
 * Navigate to Infrastructure > Networks
 * Click the IP Pools tab
@@ -83,7 +83,7 @@ Locate HPE GreenLake for private cloud card in the HPE GreenLake Central dashboa
 
 ### Step 2: Create NSX-T Segment with Static IP Pool
 
-Locate HPE GreenLake for private cloud card in the HPE GreenLake Central dashboard and click the Launcher icon to open the HPE GreenLake for private cloud dashboard.
+Locate HPE GreenLake for Private Cloud Enterprise card in the HPE GreenLake Central dashboard and click the Launcher icon to open the HPE GreenLake for Private Cloud Enterprise dashboard.
 
 * Navigate to Infrastructure > Networks
 * From the Networks tab, click the ADD drop-down list, select NSX-T Segment
@@ -111,7 +111,7 @@ On successful creation, the network will list under the "Networks" tab. Use this
 
 ## How to create a virtual network with DHCP
 
-Locate the HPE GreenLake for private cloud card in the HPE GreenLake Central dashboard and click the Launcher icon to open the HPE GreenLake for private cloud dashboard.
+Locate the HPE GreenLake for Private Cloud Enterprise card in the HPE GreenLake Central dashboard and click the Launcher icon to open the HPE GreenLake for Private Cloud Enterprise dashboard.
 
 * Navigate to Infrastructure > Networks
 * From the Networks tab, click the ADD drop-down list, select NSX-T Segment
@@ -165,6 +165,6 @@ Select the "Host Records" tab to view the records created for every deployment o
 
 ## Summary
 
-In this blog post, we covered how to get started with software-defined networking in HPE GreenLake for private cloud and explained the steps to create a sample virtual network with both static IP pool and DHCP. In the next article, we will cover the NSX distributed firewall feature of HPE GreenLake for private cloud and explain how to create and enforce firewall rules to restrict the network traffic to the virtual machines.
+In this blog post, we covered how to get started with software-defined networking in HPE GreenLake for Private Cloud Enterprise and explained the steps to create a sample virtual network with both static IP pool and DHCP. In the next article, we will cover the NSX distributed firewall feature of HPE GreenLake for private cloud and explain how to create and enforce firewall rules to restrict the network traffic to the virtual machines.
 
-Learn more about HPE GreenLake for private [cloud](https://support.hpe.com/hpesc/public/docDisplay?docId=a00092451en_us&page=HPE-GreenLake-private-cloud-networking.html) networking
+Learn more about [HPE GreenLake for Private Cloud Enterprise](https://support.hpe.com/hpesc/public/docDisplay?docId=a00092451en_us&page=HPE-GreenLake-private-cloud-networking.html) networking
