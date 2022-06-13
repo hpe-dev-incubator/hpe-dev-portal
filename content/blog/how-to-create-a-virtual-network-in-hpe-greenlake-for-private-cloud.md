@@ -26,34 +26,34 @@ The following illustration shows how you can use NSX objects to achieve NSX logi
 
 The network components are as follows:
 
-##### **VM**
+**VM**
 
 Tenant virtual machines (VMs) are connected to Blue and Green networks.
 
-##### **NSX-T Segments**
+**NSX-T Segments**
 
 NSX-T segments are layer 2 virtual domains and there are two types of segments in an NSX-T Data Center
 
 * VLAN-backed segments: This is used for uplink traffic external to the NSX-T Data Center.
 * Overlay-backed segments: This enables traffic flow between two virtual machines on different hosts. The hosts are attached to the same overlay segment and have their Layer 2 traffic carried by a tunnel between them.
 
-##### **Blue-Network, Green-Network**
+**Blue-Network, Green-Network**
 
 NSX-T segments that are attached to the tenant virtual machines and Tier1 gateway.
 
-##### **Tier-1 Gateway**
+**Tier-1 Gateway**
 
 Gateway with downlink connections to NSX-T segments and uplink connections to Tier-0 gateways using an internal transit network. Typically, a Tier-1 gateway is connected to a Tier-0 gateway in the northbound direction and to segments in the southbound direction.
 
-##### **Internal Transit Network**
+**Internal Transit Network**
 
 The Network enables the communication between the Tier-0 gateway and all Tier-1 gateways that are linked to it. This connectivity is established when the Tier-1 gateway is attached to the Tier-0 gateway.
 
-##### **Tier-0 Gateway**
+**Tier-0 Gateway**
 
 Gateway that processes the traffic between the logical and physical networks. A Tier-0 gateway has downlink connections to Tier1 gateways and uplink connections to the physical networks.
 
-##### **Ext-Net**
+**Ext-Net**
 
 Interface connected to Virtual Distributed Switch configured in a customer environment for enabling external connectivity from the tenant virtual machines.
 
