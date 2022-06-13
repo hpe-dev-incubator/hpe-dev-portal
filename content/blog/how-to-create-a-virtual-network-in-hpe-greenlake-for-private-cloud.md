@@ -1,7 +1,7 @@
 ---
 title: How to create a virtual network in HPE GreenLake for private cloud
 date: 2022-06-07T05:34:46.180Z
-featuredBlog: true
+featuredBlog: false
 author: Vinnarasu Ganesan, Thavamaniraja S
 authorimage: /img/Avatar1.svg
 thumbnailimage: /img/greenlake-576x324.jpg
