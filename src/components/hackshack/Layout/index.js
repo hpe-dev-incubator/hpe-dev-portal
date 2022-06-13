@@ -7,24 +7,12 @@ import React, {
 } from 'react';
 import { useLocation } from '@reach/router';
 import PropTypes from 'prop-types';
-import { Grommet, Box, ResponsiveContext, Text, Button } from 'grommet';
+import { Box, ResponsiveContext, Text, Button } from 'grommet';
 import { Close } from 'grommet-icons';
-import { hpe } from 'grommet-theme-hpe';
-import { deepMerge } from 'grommet/utils';
 import { ResponsiveLayout, StyledLayer } from './styles';
 import { Header as HackShackHeader, SideNav } from '../index';
 import { Header as HPEDevHeader } from '../../index';
 import { AppContext } from '../../../providers/AppProvider';
-
-const customHpe = deepMerge(hpe, {
-  global: {
-    breakpoints: {
-      small: {
-        value: 900,
-      },
-    },
-  },
-});
 
 const Layout = ({ children, background }) => {
   const size = useContext(ResponsiveContext);
@@ -41,65 +29,57 @@ const Layout = ({ children, background }) => {
   });
 
   return (
-    <Grommet
-      theme={customHpe}
-      themeMode="dark"
-      background="#151d29"
-      style={{ overflowX: 'hidden' }}
-      // full
+    <ResponsiveLayout
+      background={{
+        image: `url(${background})`,
+        size: '100%',
+        position: 'top center',
+      }}
+      justify="between"
+      layer={layer}
     >
-      <ResponsiveLayout
-        background={{
-          image: `url(${background})`,
-          size: '100%',
-          position: 'top center',
-        }}
-        justify="between"
-        layer={layer}
-      >
-        <Box>
-          {location.pathname.includes('/hackshack') && size !== 'small' ? (
-            <HPEDevHeader data={data} />
-          ) : (
-            <HackShackHeader setLayer={setLayer} />
-          )}
+      <Box>
+        {location.pathname.includes('/hackshack') && size !== 'small' ? (
+          <HPEDevHeader data={data} />
+        ) : (
+          <HackShackHeader setLayer={setLayer} />
+        )}
 
-          <Box direction="row">
-            {location.pathname.includes('/hackshack') && size !== 'small' && (
-              <Box margin={{ top: 'xlarge', left: 'large' }}>
-                <SideNav data={data} />
-              </Box>
-            )}
-            <Box
-              align={size !== 'small' ? 'start' : 'center'}
-              fill="horizontal"
-              direction="column"
-              pad="xlarge"
-            >
-              {childrenWithProps}
+        <Box direction="row">
+          {location.pathname.includes('/hackshack') && size !== 'small' && (
+            <Box margin={{ top: 'xlarge', left: 'large' }}>
+              <SideNav data={data} />
             </Box>
+          )}
+          <Box
+            align={size !== 'small' ? 'start' : 'center'}
+            fill="horizontal"
+            direction="column"
+            pad="xlarge"
+          >
+            {childrenWithProps}
           </Box>
         </Box>
-        {layer && (
-          <StyledLayer>
-            <Box pad={{ top: 'xlarge', right: 'large' }}>
-              <Box
-                direction="row"
-                align="center"
-                justify="end"
-                margin={{ bottom: 'xlarge' }}
-              >
-                <Text color="#FFFFFF">CLOSE</Text>
-                <Button icon={<Close />} onClick={() => setLayer(false)} />
-              </Box>
-              <Box align="start" gap="large" pad="xlarge">
-                <SideNav data={data} />
-              </Box>
+      </Box>
+      {layer && (
+        <StyledLayer>
+          <Box pad={{ top: 'xlarge', right: 'large' }}>
+            <Box
+              direction="row"
+              align="center"
+              justify="end"
+              margin={{ bottom: 'xlarge' }}
+            >
+              <Text color="#FFFFFF">CLOSE</Text>
+              <Button icon={<Close />} onClick={() => setLayer(false)} />
             </Box>
-          </StyledLayer>
-        )}
-      </ResponsiveLayout>
-    </Grommet>
+            <Box align="start" gap="large" pad="xlarge">
+              <SideNav data={data} />
+            </Box>
+          </Box>
+        </StyledLayer>
+      )}
+    </ResponsiveLayout>
   );
 };
 
