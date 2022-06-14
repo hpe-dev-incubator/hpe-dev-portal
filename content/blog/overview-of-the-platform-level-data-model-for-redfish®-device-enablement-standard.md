@@ -130,7 +130,7 @@ curl --request DELETE "$iloURI/redfish/v1/Systems/1/Storage/DE07C000/Volumes/1"
 
 ### Network adapters
 
-Several network adapter suppliers implement PLDM for RDE in their devices. The [Intel E810 XXVDA2 Network Adapter](https://www.hpe.com/psnow/doc/a00073559enw.html?jumpid=in_pdp-psnow-qs) support this new technology in its firmware version 3.10. This firmware is packaged in a file called `HPE_E810_XXVDA2_SD_3p10_PLDMoMCTP_8000AD4A.fwpkg` mentioning explicitly PLDM over MCTP, meaning that PLDM messages between the canagement controller and the device are transported by the Management Component Transport Protocol mentioned above.
+Several network adapter suppliers implement PLDM for RDE in their devices. The [Intel E810 XXVDA2 Network Adapter](https://www.hpe.com/psnow/doc/a00073559enw.html?jumpid=in_pdp-psnow-qs) support this new technology in its firmware version 3.10. This firmware is packaged in a file called `HPE_E810_XXVDA2_SD_3p10_PLDMoMCTP_8000AD4A.fwpkg` mentioning explicitly PLDM over MCTP, meaning that PLDM messages between the management controller and the device are transported by the Management Component Transport Protocol mentioned above.
 
 When this firmware is deployed, a network adapter containing string `/DE` is present under the `NetworkAdapter.` data type location. The next picture extracts three properties (URI, Name and Settings URI) from the `NetworkAdapter.` data type of a system containing two network adapters: an HPE 631FLR-SFP28 and an Intel E810. The HPE 631FLR-SFP28 adapter does not support RDE and is referred to a `/DC` device. Moreover, it contains a settings URI used to store modifications before being transferred to the device during the next system reboot.
 
