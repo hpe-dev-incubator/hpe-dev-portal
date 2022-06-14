@@ -23,7 +23,7 @@ Integrated Lights-Out ([iLO](https://www.hpe.com/info/ilo))  is an HPE ProLiant 
 
 In HPE ProLiant and Synergy Gen10 servers, HPE iLO 5 introduced the management of storage controllers via its graphical user interface and via the [Redfish](http://www.dmtf.org/redfish) RESTful API standard. Although [videos](https://www.youtube.com/channel/UCIZhrIYcNh3wHLiY4ola5ew/search?query=logicaldrive) already exist that cover the graphical user interface, I wanted to address this feature with a pure Redfish API approach, bypassing the `ilorest` [interface tool](http://www.hpe.com/info/resttool) and its Smart Array macro commands.
 
-In this article you start by learning how to cleanup and prepare a Smart Storage Controller (SR line of product only) for receiving a configuration with one or more logical drives using an HPE proprietary OEM process. Then, on this fresh environment, you will learn how to create a simple RAID array configuration prior to more complex ones to complement the [API reference documentation](https://hewlettpackard.github.io/ilo-rest-api-docs/ilo5/?python#smartstorageconfig).
+In this article you start by learning how to cleanup and prepare a SmartRAID (SR) storage Controller for receiving a configuration with one or more logical drives using an HPE proprietary OEM process. Then, on this fresh environment, you will learn how to create a simple RAID array configuration prior to more complex ones to complement the [API reference documentation](https://hewlettpackard.github.io/ilo-rest-api-docs/ilo5/?python#smartstorageconfig).
 
 ## Foreword
 
@@ -39,7 +39,7 @@ The Redfish standard defines a `storage` data model as part of the `ComputerSyst
 
 HPE initially developed the `SmartStorage` Redfish OEM data model for HPE ProLiant DL580 Gen8 servers, before any Redfish specification. This model supports inventory (GET) and monitoring (Events) features only.
 
-In HPE ProLiant Gen10, the `SmartStorageConfig` resource was added to support configuration. This OEM model uses a proprietary API that only supports the SR line of HPE storage controllers. 
+In HPE ProLiant Gen10, the `SmartStorageConfig` resource was added to support configuration. This OEM model uses a proprietary API that only supports the SmartRAID (SR) line of HPE storage controllers. 
 
 > **Note**: The HPE OEM `SmartStorageConfig` data model is removed in HPE Gen11 servers. 
 
