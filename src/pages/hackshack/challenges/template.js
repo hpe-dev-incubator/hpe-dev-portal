@@ -65,11 +65,13 @@ const Challenge = (props) => {
         headers: { 'x-access-token': token },
       })
         .then((response) => {
+          console.log('response ++++', response.data.length);
           // Map created
           response.data.forEach((workshop) => {
             if (workshop.sessionType === 'Coding Challenge')
               arr.push({ ...workshop });
           });
+          console.log('challenges ++++', arr.length, arr);
           if (arr.length <= 0)
             setError(
               'There are currently no challenges in progress. Stay tuned!',
@@ -101,6 +103,7 @@ const Challenge = (props) => {
           Challenges
         </Heading>
       </MainTitle>
+      {console.log('replays in tabs ', workshops)}
       {workshops.length > 0 ? (
         <Tabs activeIndex={index} onActive={onActive} justify="start">
           <Tab title="All">

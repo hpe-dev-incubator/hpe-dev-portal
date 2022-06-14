@@ -9,7 +9,7 @@ export const SubPageHeader = ({ children, title, ...rest }) => {
   return (
     <Box align="start" width="xlarge" direction="column" {...rest}>
       <Box align="start">
-        <Link to="/arcade">
+        <Link to="/hackshack/arcade">
           <Button
             color="white"
             icon={<Previous size="small" />}

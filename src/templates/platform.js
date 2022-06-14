@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
-import { Box, Heading, Image } from 'grommet';
+import { Box, Heading } from 'grommet';
 import { FormPreviousLink } from 'grommet-icons';
 import {
   BlogCard,
@@ -67,7 +67,7 @@ function PlatformTemplate({ data }) {
   const siteMetadata = useSiteMetadata();
   const siteTitle = siteMetadata.title;
   const { rawMarkdownBody, excerpt } = post;
-  const { title, description, image, tags } = post.frontmatter;
+  const { title, description, tags } = post.frontmatter;
   return (
     <Layout title={siteTitle}>
       <SEO title={title} description={description || excerpt} />

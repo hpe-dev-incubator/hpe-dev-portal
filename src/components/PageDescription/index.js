@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Box, Image, Heading } from 'grommet';
+import { Box, Heading } from 'grommet';
 
-const PageDescription = ({ image, title, alt, children }) => {
+const PageDescription = ({ title, children }) => {
   return (
     <Box
       direction="row-responsive"
@@ -21,10 +21,10 @@ const PageDescription = ({ image, title, alt, children }) => {
 };
 
 PageDescription.propTypes = {
-  image: PropTypes.string,
+  // image: PropTypes.string,
   title: PropTypes.string,
   children: PropTypes.node,
-  alt: PropTypes.string,
+  // alt: PropTypes.string,
 };
 
 export default PageDescription;
