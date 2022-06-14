@@ -16,7 +16,20 @@ HPE GreenLake for private cloud is: designed to deliver and help manage a privat
 * Offered as a consumption-based service that enables customers to better align costs to outcomes
 * An intuitive self-service portal UI used to create and manage private cloud services such as compute, storage, and network (example described in this blog)
 
-This blog post explains the steps to create a virtual network with a static IP pool and DHCP using NSX-T, network virtualization, and a security platform that enables the virtual cloud network in HPE GreenLake for private cloud.
+This blog post explains how a Customer Network Administrator can create a virtual network with a static IP pool and DHCP using NSX-T, network virtualization, and a security platform that enables the virtual cloud network in HPE GreenLake for private cloud.
+
+## Prerequisites
+
+Access to Network Management is controlled by a user’s\[Customer Network Administrator] role. 
+
+With the Tenant Admin user, connect to HPE GreenLake Central, locate the HPE GreenLake for private cloud dashboard widget and click the Launch icon to open the HPE GreenLake for private cloud dashboard.
+
+Navigate to Administration > Roles and select the role to update the permission.
+
+From the ACCESS column of the selected role, select FULL for the below-mentioned NSX network objects
+
+* Infrastructure: Networks
+* Infrastructure: Network IP Pools
 
 ## Understanding private cloud networking
 
@@ -34,8 +47,10 @@ Tenant virtual machines (VMs) are connected to Blue and Green networks.
 
 NSX-T segments are layer 2 virtual domains and there are two types of segments in an NSX-T Data Center
 
+* Overlay-backed segments(**Default**): This enables traffic flow between two virtual machines on different hosts. The hosts are attached to the same overlay segment and have their Layer 2 traffic carried by a tunnel between them. 
 * VLAN-backed segments: This is used for uplink traffic external to the NSX-T Data Center.
-* Overlay-backed segments: This enables traffic flow between two virtual machines on different hosts. The hosts are attached to the same overlay segment and have their Layer 2 traffic carried by a tunnel between them.
+
+   *Note: Raise HPE Support case to enable the backend infrastructure to support this type.*
 
 **Blue-Network, Green-Network**
 
@@ -56,13 +71,6 @@ Gateway that processes the traffic between the logical and physical networks. A 
 **Ext-Net**
 
 Interface connected to Virtual Distributed Switch configured in a customer environment for enabling external connectivity from the tenant virtual machines.
-
-## Prerequisites
-
-Role: Customer network admin with the following role permission to enable access to NSX network objects:
-
-* Infrastructure: Networks
-* Infrastructure: Network IP Pools
 
 ## How to create a virtual network with a static IP pool
 
