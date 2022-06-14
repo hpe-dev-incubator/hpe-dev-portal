@@ -55,7 +55,7 @@ As a summary, the operational model without PLDM for RDE introduces the followin
 
 * Firmware lock-step dependency between iLO and devices   
 
-* Fartial knowledge of device properties implemented iLO firmware   
+* Partial knowledge of device properties implemented iLO firmware   
 
 * Use of proprietary communication protocols between iLO and devices   
 
