@@ -33,7 +33,7 @@ The database is running in a standalone VM hosted on a legacy NFS datastore.
 
 The content is simply validated by loading a SQL statement file provided in the GitHub repo.
 
-```
+```markdown
 $ mysql -u mmattsson -ppassword < test_employees_sha.sql
 INFO
 TESTING INSTALLATION
@@ -83,7 +83,7 @@ The first step in become becoming agile with the dataset of interest (the MariaD
 
 Another important detail is that the data that matters to the application reside in a filesystem compatible with the destination Kubernetes cluster and without partitioning schemes or volume managers. We know for a fact that MariaDB stores all its data on `/var/lib/mysql` so let’s investigate that path.
 
-```
+```markdown
 $ df -h /var/lib/mysql
 Filesystem      Size  Used Avail Use% Mounted on
 /dev/sda         64G  1.2G   63G   2% /var
@@ -103,7 +103,7 @@ In this next phase, all configuration and testing are performed directly from th
 
 There are several ways to [deploy the HPE CSI Driver](https://scod.hpedev.io/csi_driver/deployment.html) but the most common method is to use Helm and the gist of it is the following.
 
-```
+```markdown
 $ kubectl create ns hpe-storage
 $ helm install my-hpe-csi-driver hpe-storage/hpe-csi-driver --version 2.1.1-0 -n hpe-storage
 ```
@@ -181,14 +181,14 @@ The above parameters are quite self-explanatory, the `subPath` directive instruc
 
 Deploying the chart is straight forward.
 
-```
+```markdown
 $ helm repo add bitnami https://charts.bitnami.com/bitnami
 $ helm install my-test-clone bitnami/mariadb -f values.yaml
 ```
 
 Once the chart has been deployed and the database has come up, the “Hello World” test would of course be verifying the database.
 
-```
+```markdown
 $ kubectl exec -it my-test-clone-mariadb-0 -- bash
 I have no name!@my-test-clone-mariadb-0:/$ mysql -ummattsson -ppassword < /bitnami/mariadb/scripts/test_employees_sha.sql
 INFO
@@ -208,7 +208,7 @@ Up until this step, there’s been zero downtime or disruption to the source app
 
 While it’s harmless to leave the test clone chart and `PersistentVolumeClaim` on the cluster, we’ll remove it to avoid confusion.
 
-```
+```markdown
 $ helm uninstall my-test-clone
 $ kubectl delete pvc/data-my-test-clone-mariadb-0
 ```
@@ -248,7 +248,7 @@ An important detail to understand is that `importVolumeName` only works for offl
 
 Ok, let’s import the database into its final state.
 
-```
+```markdown
 $ helm install my-prod bitnami/mariadb -f values-import.yaml
 ```
 
