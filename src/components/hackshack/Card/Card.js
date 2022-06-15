@@ -56,6 +56,7 @@ const Card = ({
   path,
   size,
   fit,
+  imageBackground,
 }) => {
   return (
     <CardWrapper
@@ -66,7 +67,7 @@ const Card = ({
       overflow="hidden"
     >
       {image && (
-        <Image>
+        <Image background={imageBackground}>
           <GrommetImage src={image} alt={alt} fit={fit} />
         </Image>
       )}
@@ -139,6 +140,7 @@ Card.propTypes = {
   title: PropTypes.string,
   size: PropTypes.string,
   fit: PropTypes.string,
+  imageBackground: PropTypes.string,
 };
 
 export default Card;

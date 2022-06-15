@@ -289,7 +289,8 @@ const Cards = ({ size, data }) => {
               background={node.frontmatter.background}
               label={node.frontmatter.label}
               alt={node.frontmatter.alt}
-              fit="contain"
+              fit={node.frontmatter.fit}
+              imageBackground={node.frontmatter.imageBackground}
               margin={
                 size === 'small'
                   ? { top: '0px', right: '0px' }
@@ -317,6 +318,8 @@ Cards.propTypes = {
               link: PropTypes.string,
               priority: PropTypes.number,
               alt: PropTypes.string,
+              fit: PropTypes.string,
+              imageBackground: PropTypes.string,
             }),
           }),
           rawMarkdownBody: PropTypes.string,
@@ -357,6 +360,8 @@ ResponsiveContextWrapper.propTypes = {
               link: PropTypes.string,
               priority: PropTypes.number,
               alt: PropTypes.string,
+              fit: PropTypes.string,
+              imageBackground: PropTypes.string,
             }),
           }),
           rawMarkdownBody: PropTypes.string,
@@ -476,6 +481,8 @@ export const pageQuery = graphql`
             priority
             active
             alt
+            fit
+            imageBackground
           }
           rawMarkdownBody
         }

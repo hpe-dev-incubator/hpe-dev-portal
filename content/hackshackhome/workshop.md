@@ -7,7 +7,9 @@
         background: "background"
         label: "Register Now!"
         priority: 1
-        active: true
+        active: false
         alt: workshops on demand logo
+        fit: contain
+        imageBackground : white
 ---
           

@@ -1,9 +1,10 @@
+/* eslint-disable max-len */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Box, Button, Heading, Text, Anchor, Grommet } from 'grommet';
-import { hpe } from 'grommet-theme-hpe';
+import { Box, Button, Heading, Text, Anchor } from 'grommet';
 import { Previous } from 'grommet-icons';
 import { Link } from 'gatsby';
+import GrommetThemeWrapper from '../../../components/hackshack/Grommet/GrommetThemeWrapper';
 import { Layout } from '../../../components/hackshack';
 import { SEO } from '../../../components';
 
@@ -27,7 +28,7 @@ TableColumns.propTypes = {
 
 const WorkshopTC = () => {
   return (
-    <Grommet theme={hpe}>
+    <GrommetThemeWrapper>
       <Layout background="/img/hackshack/BackgroundImages/generic-background.svg">
         <SEO title="Hack Shack Workshop Terms" />
         <Box align="start" width="xlarge" direction="column">
@@ -125,7 +126,7 @@ const WorkshopTC = () => {
           <br />
         </Box>
       </Layout>
-    </Grommet>
+    </GrommetThemeWrapper>
   );
 };
 export default WorkshopTC;
