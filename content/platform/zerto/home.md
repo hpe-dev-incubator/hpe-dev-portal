@@ -42,4 +42,10 @@ Ready to learn more? Read the [Zerto-In Cloud for AWS datasheet](https://www.zer
 
 Looking to try Zerto out? Sign up for our [Hands on Labs! ](https://www.zerto.com/myzerto/labs)
 
-Have any questions on Zerto? Send us an email to zertotm@hpe.com
+- - -
+
+## Any questions on Zerto?
+
+Join the [HPEDEV Slack Workspace](https://slack.hpedev.io/) and start a discussion in our [\#zerto](https://hpedev.slack.com/archives/C03J3EGDDM0) channel.
+
+Not a Slack user? Send us an email to zertotm@hpe.com
