@@ -6,7 +6,7 @@ featuredBlog: false
 priority: 1
 author: Sweta Katkoria
 authorimage: /img/swetakatkoria_photo.jpg
-thumbnailimage: ""
+thumbnailimage: /img/sweta-blog-post-v2-1200-x-675.jpg
 tags:
   - hpe-greenlake
   - Automation
