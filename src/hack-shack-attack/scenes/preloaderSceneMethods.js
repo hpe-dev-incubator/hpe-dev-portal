@@ -4,7 +4,7 @@ const map = '/img/assets/playfield.png';
 
 // logos
 const gameLogo = '/img/assets/attack-marquee.png';
-// const hpeDevLogo = '/img/assets/hpe-dev-logo.png';
+const hpeDevLogo = '/img/assets/hpe-dev-logo.png';
 
 // sprites
 const playerAvatar = '/img/assets/player1-avatar.png';
@@ -104,7 +104,7 @@ function preloaderSceneMethods(PreloaderScene) {
     this.load.image('map', map);
 
     this.load.image('gameLogo', gameLogo);
-    // this.load.image('hpeDevLogo', hpeDevLogo);
+    this.load.image('hpeDevLogo', hpeDevLogo);
 
     this.load.image('playerAvatar', playerAvatar);
     this.load.image('bullet', bullet);

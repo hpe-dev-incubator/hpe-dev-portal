@@ -102,7 +102,7 @@ export const Card = ({
   ...rest
 }) => {
   const [hover, setHover] = useState(false);
-  const isHackShackCard = title === 'HPE DEV Hack Shack';
+  const isHackShackCard = title === 'Hack Shack';
   return (
     <ResponsiveContext.Consumer>
       {(size) => (
@@ -139,21 +139,23 @@ export const Card = ({
                 gridProps.medium)}
               style={{ display: image ? 'grid' : 'flex' }}
             >
-              <Box style={{ alignItems: 'center' }}>
-                {image && category === 'Featured Blog' ? (
-                  <Avatar size="96px" src={image} alt="author logo" />
-                ) : image ? (
-                  <Image
-                    gridArea="image"
-                    src={image}
-                    fit="contain"
-                    alignSelf="center"
-                    alt="card logo"
-                  />
-                ) : (
-                  <></>
-                )}
-              </Box>
+              {image && (
+                <Box style={{ alignItems: 'center' }}>
+                  {image && category === 'Featured Blog' ? (
+                    <Avatar size="96px" src={image} alt="author logo" />
+                  ) : image ? (
+                    <Image
+                      gridArea="image"
+                      src={image}
+                      fit="contain"
+                      alignSelf="center"
+                      alt="card logo"
+                    />
+                  ) : (
+                    <></>
+                  )}
+                </Box>
+              )}
 
               <Box gridArea="content">
                 {author && <Text style={{ marginBottom: 16 }}> {author}</Text>}

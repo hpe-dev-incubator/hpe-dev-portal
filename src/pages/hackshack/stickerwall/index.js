@@ -3,7 +3,6 @@ import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Image, Stack, ResponsiveContext } from 'grommet';
 import styled from 'styled-components';
-import GrommetThemeWrapper from '../../../components/hackshack/Grommet/GrommetThemeWrapper';
 import {
   Row1,
   Row2,
@@ -15,6 +14,7 @@ import {
   Row8,
   Row9,
 } from '../../../data/StickerData/stickers';
+import GrommetThemeWrapper from '../../../components/hackshack/Grommet/GrommetThemeWrapper';
 import { Layout, SubPageHeader } from '../../../components/hackshack';
 import { SEO } from '../../../components';
 
