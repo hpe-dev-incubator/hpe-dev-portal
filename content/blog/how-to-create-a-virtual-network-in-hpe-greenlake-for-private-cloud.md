@@ -10,23 +10,23 @@ tags:
 ---
 ## Introduction
 
-HPE GreenLake for private cloud is: designed to deliver and help manage a private cloud. Available on the HPE GreenLake Central platform, the HPE GreenLake for private cloud is
+HPE GreenLake for private cloud is designed to deliver and help manage a private cloud. Available on the HPE GreenLake Central platform, the HPE GreenLake for private cloud is
 
 * An HPE designed, implemented, owned, and operated private cloud that is deployed at a customer site
 * Offered as a consumption-based service that enables customers to better align costs to outcomes
-* An intuitive self-service portal UI used to create and manage private cloud services such as compute, storage, and network (example described in this blog)
+* An intuitive self-service portal UI is used to create and manage private cloud services such as compute, storage, and network (example described in this blog)
 
 This blog post explains how a Customer Network Administrator can create a virtual network with a static IP pool and DHCP using NSX-T, network virtualization, and a security platform that enables the virtual cloud network in HPE GreenLake for private cloud.
 
 ## Prerequisites
 
-Access to Network Management is controlled by a user’s\[Customer Network Administrator] role. 
+Access to Network Management is controlled by a user’s role. 
 
 With the Tenant Admin user, connect to HPE GreenLake Central, locate the HPE GreenLake for private cloud dashboard widget and click the Launch icon to open the HPE GreenLake for private cloud dashboard.
 
 Navigate to Administration > Roles and select the role to update the permission.
 
-From the ACCESS column of the selected role, select FULL for the below-mentioned NSX network objects
+From the ACCESS column of the selected role, select FULL for the below-mentioned NSX network objects:
 
 * Infrastructure: Networks
 * Infrastructure: Network IP Pools
@@ -45,7 +45,7 @@ Tenant virtual machines (VMs) are connected to Blue and Green networks.
 
 **NSX-T Segments**
 
-NSX-T segments are layer 2 virtual domains and there are two types of segments in an NSX-T Data Center
+NSX-T segments are layer 2 virtual domains and there are two types of segments in an NSX-T Data Center:
 
 * Overlay-backed segments(**Default**): This enables traffic flow between two virtual machines on different hosts. The hosts are attached to the same overlay segment and have their Layer 2 traffic carried by a tunnel between them. 
 * VLAN-backed segments: This is used for uplink traffic external to the NSX-T Data Center.
@@ -81,7 +81,7 @@ Locate HPE GreenLake for private cloud card in the HPE GreenLake Central dashboa
 * Navigate to Infrastructure > Networks
 * Click the IP Pools tab
 * Click Add to open CREATE NETWORK POOL dialog box
-* Configure the NSX-T IP pool parameters as follows
+* Configure the NSX-T IP pool parameters as follows:
 
   * **Name**: IP Pool Name
   * **Pool Type**: Select "Morpheus"
@@ -135,7 +135,7 @@ Locate the HPE GreenLake for private cloud card in the HPE GreenLake Central das
   * **Connected Gateway**: (Optional) From the drop-down list, select a Tier1 gateway router
   * **Gateway CIDR**: Enter the Classless Inter-Domain Routing (CIDR) for the logical switch (example: 192.168.0.1/24)
   * **Transport Zone**: Select Overlay
-* Expand 'Subnet DHCP' Section and update the below fields
+* Expand 'Subnet DHCP' Section and update the below fields:
 
   * DHCP Type: Local DHCP Server (default)
   * DHCP ENABLED: Select to Enable
