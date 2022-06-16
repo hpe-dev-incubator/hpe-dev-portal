@@ -12,7 +12,7 @@ This project is intended to show how to build Predictive Maintenance application
 
 ## Overview:
 
-Predictive Maintenance requires a cutting edge data platform in order to handle fast streams of  IoT data, with the processing required for on-the-fly feature engineering, and the flexibility required for data science and machine learning.
+Predictive Maintenance requires a cutting-edge data platform that handles fast streams of Internet of Things (IoT) data with the processing required for on-the-fly feature engineering and the flexibility required for data science and machine learning.
 
 ## Ingesting Factory IoT Data
 
@@ -50,7 +50,7 @@ These steps explain how to set up this tutorial using the [MapR Container for De
 
 ## Allocate 12GB to Docker
 
-This tutorial requires a lot of memory. We recommend allocating 12GB RAM, 4GB swap, and 2 CPUs to the Docker Community Edition for macOS.
+This project requires a lot of memory. We recommend allocating 12GB RAM, 4GB swap, and 2 CPUs to the Docker Community Edition for macOS.
 
 <img src="https://raw.githubusercontent.com/mapr-demos/predictive-maintenance/master/images/docker_config.png" width="100%">
 
@@ -92,7 +92,7 @@ Load the `Grafana/IoT_dashboard.json` file using Grafana's dashboard import func
 
 ## Predictive Maintenance Demo Procedure
 
-For learning or debugging purposes you should run each of the following steps manually but if you just want to see data show up in Grafana then just run `./run.sh`.
+For learning or debugging purposes you should run each of the following steps manually, but if you just want to see data show up in Grafana then just run `./run.sh`.
 
 ## Step 1 - Simulate HVAC data stream:
 
@@ -121,7 +121,7 @@ Run this command to see how the row count increases:
 
 ## Step 3 - Save IoT data stream to OpenTSDB:
 
-In this step we save the IoT data stream to OpenTSDB so we can visualize it in Grafana. 
+In this step, we save the IoT data stream to OpenTSDB so we can visualize it in Grafana. 
 
 Update `localhost:4242` with the hostname and port of your OpenTSDB server before running the following command:
 
@@ -143,7 +143,7 @@ This process will listen for failure events on a MapR Streams topic and retroact
 
 <img src="https://raw.githubusercontent.com/mapr-demos/predictive-maintenance/master/images/lagging_features_explanation.png" width="100%" align="center">
 
-This particular step probably says the most about the value of MapR, because consider this: if you have a factory, instrumented by IoT devices reporting hundreds of metrics, per machine, per second, and you're tasked with the challenge of saving all that data until one day, often months into the future, you finally have a machine fail. At that point, you have to retroactively go back and update all those records as being "about to fail" or "x days to failure"  so that you can use that data for training models to predict those lagging features.  That's one heck of a DB update, right? The only way to store all that data is with a distributed database. This is what makes Spark and MapR-DB such a great fit. Spark - the distributed processing engine for big data, and MapR-DB - the distributed data store for big data, working together to process and store lots of data with speed and scalability. 
+This particular step probably says the most about the value of MapR. Consider this scenario: You have a factory instrumented by IoT devices reporting hundres of metrics per machine per second and you're tasked with the challenge of saving all that data until one day, often months into the future, you finally experience a machine failure. At that point, you have to retroactively go back and update all those records as being "about to fail" or "x days to failure"  so that you can use that data for training models to predict those lagging features.  That's one heck of a DB update, right? The only way to store all that data is with a distributed database. This is what makes Spark and MapR-DB such a great fit. Spark - the distributed processing engine for big data, and MapR-DB - the distributed data store for big data, working together to process and store lots of data with speed and scalability. 
 
 ## Step 5 - Simulate a failure event:
 
@@ -164,7 +164,7 @@ $ mapr dbshell
 find /apps/mqtt_records --where '{ "$eq" : {"_Chiller1AboutToFail":"true"} }' --f _id,_Chiller1AboutToFail,timestamp
 ```
 
-Here are a few examples commands to look at that table with `mapr dbshell`:
+Here are a few example commands to look at that table with `mapr dbshell`:
 
 ```java
 $ mapr dbshell
@@ -207,7 +207,7 @@ This will calculate FFTs on the fly for the high-speed streaming data, and rende
 
 ## Step 9 - Visualize data in Grafana
 
-By now you should be able to see streaming IoT data, vibration faults, and device failures in the Grafana dashboard.
+By now, you should be able to see streaming IoT data, vibration faults, and device failures in the Grafana dashboard.
 
 <img src="https://raw.githubusercontent.com/mapr-demos/predictive-maintenance/master/images/grafana_screenshot.png" width="100%" align="center">
 
