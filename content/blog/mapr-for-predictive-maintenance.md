@@ -9,24 +9,24 @@ tags:
 ---
 **Editor’s Note:** MapR products and solutions sold prior to the acquisition of such assets by Hewlett Packard Enterprise Company in 2019 may have older product names and model numbers that differ from current solutions. For information about current offerings, which are now part of HPE Ezmeral Data Fabric, please visit <https://www.hpe.com/us/en/software/ezmeral-data-fabric.html>
 
-This project is intended to show how to build Predictive Maintenance applications on MapR. Predictive Maintenance applications place high demands on data streaming, time-series data storage, and machine learning. Therefore, this project focuses on data ingest with MapR Streams, time-series data storage with MapR-DB and OpenTSDB, and feature engineering with MapR-DB and Apache Spark.
+This project is intended to show how to build predictive maintenance applications on MapR. Predictive maintenance applications place high demands on data streaming, time-series data storage, and machine learning. Therefore, this project focuses on data ingest with MapR Streams, time-series data storage with MapR-DB and OpenTSDB, and feature engineering with MapR-DB and Apache Spark.
 
 ## Overview:
 
-Predictive Maintenance requires a cutting-edge data platform that handles fast streams of Internet of Things (IoT) data with the processing required for on-the-fly feature engineering and the flexibility required for data science and machine learning.
+Predictive maintenance requires a cutting-edge data platform that handles fast streams of Internet of Things (IoT) data with the processing required for on-the-fly feature engineering and the flexibility required for data science and machine learning.
 
 ## Ingesting Factory IoT Data
 
-Predictive Maintenance applications rely heavily on ingesting multiple data sources, each with its own format and throughput. MapR Streams can ingest data, regardless of format or speed, with standard Kafka and RESTful APIs.
+Predictive maintenance applications rely heavily on ingesting multiple data sources, each with its own format and throughput. MapR Streams can ingest data, regardless of format or speed, with standard Kafka and RESTful APIs.
 
 ## Machine Learning on Factory IoT Data
 
-The "predictive" aspects of Predictive Maintenance applications are usually realized through machine learning. Feature engineering is often considered the most important aspect of machine learning (as opposed to neural network design, for example). Feature engineering places high demands on the data layer because of the amount of data that IoT data streams generate. The tendency for failures to occur infrequently and without warning means vast amounts of raw time-series data must be stored. Not only must it be stored, but it must also be possible to retroactively update the lagging features necessary in order to label failures for the purposes of supervised machine learning. MapR-DB and Spark can work together to provide the capabilities required to put machine learning into practice for predictive maintenance.
+The "predictive" aspects of predictive maintenance applications are usually realized through machine learning. Feature engineering is often considered the most important aspect of machine learning (as opposed to neural network design, for example). Feature engineering places high demands on the data layer because of the amount of data that IoT data streams generate. The tendency for failures to occur infrequently and without warning means vast amounts of raw time-series data must be stored. Not only must it be stored, but it must also be possible to retroactively update the lagging features necessary in order to label failures for the purposes of supervised machine learning. MapR-DB and Spark can work together to provide the capabilities required to put machine learning into practice for predictive maintenance.
 
 In summary:
 
 * MapR Streams provide a convenient way to ingest IoT data because it is scalable and provides convenient interfaces.
-* The integration of MapR DB with Spark provides a convenient way to label lagging features needed for predicting failures via supervised Machine Learning.
+* The integration of MapR DB with Spark provides a convenient way to label lagging features needed for predicting failures via supervised machine learning.
 * Drill provides a convenient way to load ML data sets into Tensorflow for unsupervised and supervised machine learning
 
 ## Implementation Summary
