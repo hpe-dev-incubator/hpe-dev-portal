@@ -23,6 +23,7 @@ const FeedBackButton = (props) => {
       icon={<ChatOption />}
       onClick={handleButtonClick}
       style={handleCustomPosition(position, styles)}
+      title="Feedback"
       primary
     />
   );

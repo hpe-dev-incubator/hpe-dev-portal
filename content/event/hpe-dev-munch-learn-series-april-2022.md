@@ -1,5 +1,5 @@
 ---
-title: Munch & Learn series April 2022
+title: 'Chapel: Making parallel computing as easy as Py(thon), from laptops to supercomputers'
 dateStart: 2022-04-20T16:00:00.000Z
 dateEnd: 2022-04-20T17:00:00.000Z
 category: Virtual Event
@@ -9,7 +9,6 @@ width: large
 tags:
   - chapel
 ---
-## Munch & Learn series
 
 ### Chapel: Making parallel computing as easy as Py(thon), from laptops to supercomputers
 

@@ -1,5 +1,5 @@
 ---
-title: Munch & Learn series January 2022
+title: Location, location, location! Succeed at the Edge with HPE Ezmeral and NVIDIA
 dateStart: 2022-01-19T16:00:00.000Z
 dateEnd: 2022-01-19T17:00:00.000Z
 category: Virtual Event
@@ -10,7 +10,6 @@ tags:
   - hpe-ezmeral-data-fabric
   - hpe-ezmeral
 ---
-## Munch & Learn series
 
 ### Location, location, location! With data everywhere, location matters more than ever. Learn how to succeed at the Edge with HPE Ezmeral and NVIDIA 
 

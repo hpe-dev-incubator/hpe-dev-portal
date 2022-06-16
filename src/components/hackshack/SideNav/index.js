@@ -94,12 +94,12 @@ const SideNav = ({ data }) => {
       >
         CHALLENGES
       </NavButton>
-      <NavButton
+      {/* <NavButton
         active={location.pathname === '/hackshack/ezmeral'}
         to="/hackshack/ezmeral"
       >
         HPE EZMERAL
-      </NavButton>
+      </NavButton> */}
       <NavButton
         active={location.pathname === '/hackshack/replays/:replayId'}
         to="/hackshack/replays/0"

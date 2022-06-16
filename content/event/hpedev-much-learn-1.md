@@ -1,5 +1,5 @@
 ---
-title: Munch & Learn series January 2021
+title: What's a data fabric and how does it work?
 dateStart: 2021-01-27T16:00:00.000Z
 dateEnd: 2021-01-27T17:00:00.000Z
 category: Virtual Event

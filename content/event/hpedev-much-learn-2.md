@@ -1,5 +1,5 @@
 ---
-title: Munch & Learn series February 2021
+title: Explore Containerization and MLOps
 dateStart: 2021-02-24T16:00:00.000Z
 dateEnd: 2021-02-24T17:00:00.000Z
 category: Virtual Event

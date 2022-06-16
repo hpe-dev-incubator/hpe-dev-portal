@@ -6,5 +6,6 @@
           priority: 22
           image: '/img/platforms/SPIFFEandSpire.svg'
           active: true
+          Featured: true
 ---
           
