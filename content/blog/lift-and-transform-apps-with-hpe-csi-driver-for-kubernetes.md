@@ -24,9 +24,9 @@ Still want more details? Let’s get started!
 
 # Origin state
 
-In the following examples, we’re going to use a MariaDB database with the commonly used [Employees database](https://github.com/datacharmer/test_db) as an example workload. It provides a simple means to validate its contents and ensure that the contents are intact throughout its journey.
+In the following example, we’re going to use a MariaDB database with the commonly used [Employees database](https://github.com/datacharmer/test_db) as an example workload. It provides a simple means to validate its contents and ensure that the contents are intact throughout its journey.
 
-The database is running in a standalone VM hosted on a legacy NFS datastore. 
+The database is running in a standalone Virtual Machine (VM) hosted on a legacy NFS datastore. 
 
 ![MariaDB running on VMware vSphere](/img/slide1.png "MariaDB running on VMware vSphere")
 
@@ -76,7 +76,7 @@ While the destination state in our example is a virtualized Kubernetes cluster w
 
 # Initial transition
 
-The first step in become becoming agile with the dataset of interest (the MariaDB database in this case) is to transition the virtual machine’s storage to a VMware vSphere vVol from the legacy NFS datastore. This is done with VMware vSphere Storage vMotion.
+The first step in becoming agile with the dataset of interest (the MariaDB database in this case) is to transition the virtual machine's storage to a VMware vSphere Virtual Volume (vVol) from the legacy NFS datastore. This is done with VMware vSphere Storage vMotion that allows the live migration of a running virtual machine's file system from one storage system to another, with no downtime for the VM or service disruption.
 
 ![VMware vSphere Storage vMotion example.](/img/vmotion-screen-shot-2022-06-14-at-12.08.27-pm.png "VMware vSphere Storage vMotion example.")
 
@@ -88,7 +88,7 @@ Filesystem      Size  Used Avail Use% Mounted on
 /dev/sda         64G  1.2G   63G   2% /var
 ```
 
-If this is not the case, migrate the data within the VM to a new blank disk.
+In the output we can clearly see that the filesystem of interest resides on a disk device without a volume manager or a partitioning scheme. If this is not the case, the data needs to migrate within the VM to a new blank disk.
 
 Once the disk(s) have been migrated over the HPE Nimble Storage array, each individual virtual disk is represented as a standalone volume along with the VM's metadata volumes.
 
@@ -253,7 +253,7 @@ $ helm install my-prod bitnami/mariadb -f values-import.yaml
 
 Once the database is up, we can connect to the database and verify the contents yet again.
 
-```
+```markdown
 $ kubectl exec -it my-prod-mariadb-0 -- bash
 I have no name!@my-prod-mariadb-0:/$ mysql -u mmattsson -ppassword < /bitnami/mariadb/scripts/test_employees_sha.sql
 INFO
