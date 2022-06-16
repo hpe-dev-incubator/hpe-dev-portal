@@ -1,5 +1,5 @@
 ---
-title: Don’t Miss All Things Software in the Hack Shack at HPE Discover
+title: Don't miss us at HPE Discover
 category: Feature Blog
 priority: 2
 width: small

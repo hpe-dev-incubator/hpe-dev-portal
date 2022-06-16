@@ -1,5 +1,5 @@
 ---
-title: Munch & Learn series March 2022
+title: 'Mithril: Introducing Robust Identities into Istio by integrating with SPIRE'
 dateStart: 2022-03-23T16:00:00.000Z
 dateEnd: 2022-03-23T17:00:00.000Z
 category: Virtual Event
@@ -9,9 +9,6 @@ width: large
 tags:
   - spiffe-and-spire-projects
 ---
-## Munch & Learn series
-
-
 
 ### Mithril: Introducing Robust Identities into Istio by integrating with SPIRE
 

@@ -1,5 +1,5 @@
 ---
-title: Munch & Learn series February 2022
+title: Golden Age of AI, Dark Ages of AI Infrastructure
 dateStart: 2022-02-16T16:00:51.279Z
 dateEnd: 2022-02-16T17:00:51.298Z
 category: Virtual Event
@@ -9,7 +9,6 @@ width: large
 tags:
   - determined-ai
 ---
-## Munch & Learn series
 
 ### Golden Age of AI, Dark Ages of AI Infrastructure
 
