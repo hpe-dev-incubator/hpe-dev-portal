@@ -20,7 +20,7 @@ Predictive Maintenance applications rely heavily on ingesting multiple data sour
 
 ## Machine Learning on Factory IoT Data
 
-The "predictive" aspects of Predictive Maintenance applications are usually realized through machine learning. Feature engineering is often considered the most important aspect of machine learning (as opposed to neural network design, for example). Feature engineering places high demands on the data layer because of the amount of data that IoT data streams generate. The tendency for failures to occur infrequently and without warning means vast amounts of raw time-series data must be stored. Not only must it be stored, but it must also be possible to retroactively update the lagging features necessary in order to label failures for the purposes of supervised machine learning. MapR-DB and Spark can work together to provide the capabiltieis required to put machine learning into practice for predictive maintanence.
+The "predictive" aspects of Predictive Maintenance applications are usually realized through machine learning. Feature engineering is often considered the most important aspect of machine learning (as opposed to neural network design, for example). Feature engineering places high demands on the data layer because of the amount of data that IoT data streams generate. The tendency for failures to occur infrequently and without warning means vast amounts of raw time-series data must be stored. Not only must it be stored, but it must also be possible to retroactively update the lagging features necessary in order to label failures for the purposes of supervised machine learning. MapR-DB and Spark can work together to provide the capabilities required to put machine learning into practice for predictive maintenance.
 
 In summary:
 
@@ -54,7 +54,7 @@ This tutorial requires a lot of memory. We recommend allocating 12GB RAM, 4GB sw
 
 <img src="https://raw.githubusercontent.com/mapr-demos/predictive-maintenance/master/images/docker_config.png" width="100%">
 
-## Start the MapR sandbox
+## Start the MapR sandbox (Now known as the [Development Environment for HPE Ezmeral Data Fabric](https://docs.datafabric.hpe.com/62/MapRContainerDevelopers/RunMapRContainerDevelopers.html))
 
 Download and run the `./mapr_devsandbox_container_setup.sh` script.
 
@@ -243,7 +243,7 @@ Drill can also be used to load data from MapR-DB into data science notebooks. Ex
 
 ## References for Machine Learning techniques for Predictive Maintenance
 
-This tutorial focuses on data engineering - i.e. getting data in the right format and in the right place in order to take advantage of machine learning (ML) for predictive maintenance applications. The details of ML are beyond the scope of this tutorial but to better understand ML techniques commonly used for predictive maintenance, check out the provided Jupyter notebook for [LSTM predictions for About To Fail](https://github.com/mapr-demos/predictive-maintenance/blob/master/notebooks/jupyter/LSTM%20For%20Predictive%20Maintenance-ian01.ipynb). This notebook not only talks about how to use LSTM but also how to generate a sample dataset with [logsynth](https://github.com/tdunning/log-synth) that resembles what you might see in a real factory. This notebook is great because it explains how to experiment with LSTMs entirely on your laptop.
+This tutorial focuses on data engineering - i.e. getting data in the right format and in the right place in order to take advantage of machine learning (ML) for predictive maintenance applications. The details of ML are beyond the scope of this tutorial but to better understand ML techniques commonly used for predictive maintenance, check out the provided Jupyter notebook for [LSTM predictions for About To Fail](https://github.com/mapr-demos/predictive-maintenance/blob/master/notebooks/jupyter/LSTM%20For%20Predictive%20Maintenance-ian01.ipynb). This notebook not only talks about how to use Long Short Term Memory (LSTM) but also how to generate a sample dataset with [logsynth](https://github.com/tdunning/log-synth) that resembles what you might see in a real factory. This notebook is great because it explains how to experiment with LSTMs entirely on your laptop.
 
 <img src="https://raw.githubusercontent.com/mapr-demos/predictive-maintenance/master/images/lstm-about_to_fail-50.png?raw=true" width="100%" alt="LSTM About To Fail prediction">
 
