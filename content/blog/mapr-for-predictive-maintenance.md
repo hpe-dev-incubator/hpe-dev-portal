@@ -3,6 +3,7 @@ title: MapR for Predictive Maintenance
 date: 2022-02-15T05:31:46.014Z
 author: Ian Downard
 authorimage: /img/Avatar1.svg
+thumbnailimage: /img/dataflow.png
 tags:
   - hpe-ezmeral-data-fabric
 ---
@@ -201,7 +202,7 @@ This demonstrates the capacity of MapR to ingest and process high-speed streamin
 
 This will calculate FFTs on the fly for the high-speed streaming data, and render an event in Grafana when FFTs changed more than 25% over a rolling window. This simulates anomaly detection for a vibration signal. Update "http://localhost:3000" with the hostname and port for your Grafana instance.
 
-```java
+```bash
 /opt/mapr/spark/spark-*/bin/spark-submit --class com.mapr.examples.StreamingFourierTransform ~/predictive-maintenance/target/predictive-maintenance-1.0-jar-with-dependencies.jar /apps/fastdata:vibrations 25.0 http://localhost:3000
 ```
 
