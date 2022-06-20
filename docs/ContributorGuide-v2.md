@@ -93,7 +93,7 @@ Netlify and AWS Amplify has been both configured to integrate with GitHub versio
 ## Contributing a new blog
 You can create a new blog directly from the **Contents** tab or by navigating to the **Workflow** tab. Here's how you can create a new blog directly from the **Contents** tab.
 
->**IMPORTANT NOTE about Social Card creation for the promotion of your blog post:** _Every blog post *should* (if at all possible) have an image associated with it that can be used to promote the post on social media placed as either as **Thumbnail image** or as the **first image** in the post. Therefore, the image which tells the best story about what the blog post is about should either be inserted as a Thumbnail image or be the first in the post. Twitter and LinkedIn will automatically pulls the Thumbnail image if it exists, or the first image of the post (if a Thunmbnail image is not added to the post) and the first sentence from the post when creating social card for the blog post._
+>**IMPORTANT NOTE about Social Card creation for the promotion of your blog post:** _Every blog post *should* (if at all possible) have an image associated with it that can be used to promote the post on social media placed as either as **Thumbnail image** (recommended) or as the **first image** in the post. Therefore, the image which tells the best story about what the blog post is about should either be inserted as a Thumbnail image (recommended) or be the first in the post. Twitter and LinkedIn will automatically pulls the Thumbnail image if it exists, or the first image of the post (if a Thunmbnail image is not added to the post) and the first sentence from the post when creating social card for the blog post._
 
 1.  From the **Contents** tab, select the **Blog** section in the Collections tab, and click the **New Blog** button. This opens the editor.
 
@@ -115,7 +115,7 @@ You can create a new blog directly from the **Contents** tab or by navigating to
         
         >Note: For more information on how to get a gravatar URL, refer to section "***Tips and Tricks using the CMS Editor***" at the end of this document.
 
-    - **Thumbnail image** for Social Media card: although a Thumbnail image is an optional element of the post, it is **highly recommended** to add a Thumbnail image to your blog post that you want to use to promote the post on Social Media such as Twitter and LinkedIn. If you do not add a Thumbnail image, the first image in your post will be used. The thumbnail image or the first image of the post should tell the best story about what the blog post is about.
+    - **IMPORTANT NOTE: Thumbnail image** for Social Media card: although a Thumbnail image is an optional element of the post, it is **highly recommended** to add a Thumbnail image to your blog post that you want to use to promote the post on Social Media such as Twitter and LinkedIn. If you do not add a Thumbnail image, the first image in your post will be used. The thumbnail image or the first image of the post should tell the best story about what the blog post is about.
     
     
 4.  Start writing the content using either **Rich Text** mode or **Markdown** mode in the *BODY* canvas.   
