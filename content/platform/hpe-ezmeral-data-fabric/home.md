@@ -60,9 +60,11 @@ Supports files, object, NoSQL databases, and streams
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/-6IBKLiOb_Q" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-#### Data Fabric file and Object Store Overview
+#### Data Fabric File and Object Store Overview
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/S19rkDF_oPs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+To learn more about HPE Ezmeral Data Fabric File and Object Store, check out the HPE article [here](https://community.hpe.com/t5/HPE-Ezmeral-Uncut/HPE-Ezmeral-Data-Fabric-File-and-Object-Store-Benefits-and/ba-p/7168604#.YrHKV3ZByXI).
 
 - - -
 
