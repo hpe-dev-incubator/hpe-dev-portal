@@ -18,6 +18,7 @@ import styled, { keyframes } from 'styled-components';
 import Helmet from 'react-helmet';
 import { SEO } from '../../components';
 import { Layout, Card } from '../../components/hackshack';
+import GrommetThemeWrapper from '../../components/hackshack/Grommet/GrommetThemeWrapper';
 
 const slideUp = keyframes`
   0% {
@@ -266,7 +267,7 @@ const Cards = ({ size, data }) => {
         {size === 'small' && (
           <Card
             logo="/img/hackshack/StickerPage/gremlin.png"
-            title="New to the HPE DEV Hack Shack?"
+            title="New to the Hack Shack?"
             desc="Watch this video!"
             background="rgba(0, 86, 122, 0.8);"
             label="Watch Now"
@@ -288,6 +289,8 @@ const Cards = ({ size, data }) => {
               background={node.frontmatter.background}
               label={node.frontmatter.label}
               alt={node.frontmatter.alt}
+              fit={node.frontmatter.fit}
+              imageBackground={node.frontmatter.imageBackground}
               margin={
                 size === 'small'
                   ? { top: '0px', right: '0px' }
@@ -315,6 +318,8 @@ Cards.propTypes = {
               link: PropTypes.string,
               priority: PropTypes.number,
               alt: PropTypes.string,
+              fit: PropTypes.string,
+              imageBackground: PropTypes.string,
             }),
           }),
           rawMarkdownBody: PropTypes.string,
@@ -355,6 +360,8 @@ ResponsiveContextWrapper.propTypes = {
               link: PropTypes.string,
               priority: PropTypes.number,
               alt: PropTypes.string,
+              fit: PropTypes.string,
+              imageBackground: PropTypes.string,
             }),
           }),
           rawMarkdownBody: PropTypes.string,
@@ -368,63 +375,63 @@ const Home = ({ data }) => {
   const [open, setOpen] = useState();
   const onClose = () => setOpen(undefined);
   return (
-    // <Grommet theme={hpe}>
-    <Layout background="/img/hackshack/BackgroundImages/hack-shack-home-background.png">
-      <SEO title="Hack Shack" />
-      <Helmet>
-        <body margin="0" />
-      </Helmet>
-      <ResponsiveContextWrapper setOpen={setOpen} data={data}>
-        {open && (
-          <StyledLayer
-            full
-            animation="fadeIn"
-            onClickOutside={onClose}
-            onEsc={onClose}
-          >
-            <Box alignSelf="end" pad={{ top: 'large', bottom: 'xsmall' }}>
-              <Button
-                alignSelf="end"
-                label={
-                  <Text weight="normal" color="white" size="xlarge">
-                    Close
-                  </Text>
-                }
-                reverse
-                icon={<Close size="medium" />}
-                onClick={onClose}
+    <GrommetThemeWrapper>
+      <Layout background="/img/hackshack/BackgroundImages/hack-shack-home-background-min.png">
+        <SEO title="Hack Shack" />
+        <Helmet>
+          <body margin="0" />
+        </Helmet>
+        <ResponsiveContextWrapper setOpen={setOpen} data={data}>
+          {open && (
+            <StyledLayer
+              full
+              animation="fadeIn"
+              onClickOutside={onClose}
+              onEsc={onClose}
+            >
+              <Box alignSelf="end" pad={{ top: 'large', bottom: 'xsmall' }}>
+                <Button
+                  alignSelf="end"
+                  label={
+                    <Text weight="normal" color="white" size="xlarge">
+                      Close
+                    </Text>
+                  }
+                  reverse
+                  icon={<Close size="medium" />}
+                  onClick={onClose}
+                />
+              </Box>
+              <Box alignSelf="center">
+                <ReactPlayer
+                  url="https://youtu.be/Urth22R5Iz4"
+                  controls
+                  width="932px"
+                  height="528px"
+                  playing
+                />
+              </Box>
+            </StyledLayer>
+          )}
+          <MainWrapper align="center">
+            <LogoWrapper>
+              <Image
+                width="100%"
+                fit="cover"
+                src="/img/hackshack/hack-shack-logo.png"
+                alt="Hack Shack"
               />
-            </Box>
-            <Box alignSelf="center">
-              <ReactPlayer
-                url="https://youtu.be/Urth22R5Iz4"
-                controls
-                width="932px"
-                height="528px"
-                playing
-              />
-            </Box>
-          </StyledLayer>
-        )}
-        <MainWrapper align="center">
-          <LogoWrapper>
-            <Image
-              width="100%"
-              fit="cover"
-              src="/img/hackshack/hack-shack-logo.png"
-              alt="Hack Shack"
-            />
-          </LogoWrapper>
-          <Content />
-          {/* <ButtonWrapper>
+            </LogoWrapper>
+            <Content />
+            {/* <ButtonWrapper>
               <ButtonSplit to="https://developer.hpe.com">
-                Visit HPE DEV Community Portal
+                Visit HPE Developer Community Portal
               </ButtonSplit>
             </ButtonWrapper> */}
-        </MainWrapper>
-      </ResponsiveContextWrapper>
-    </Layout>
-    // </Grommet>
+          </MainWrapper>
+        </ResponsiveContextWrapper>
+      </Layout>
+    </GrommetThemeWrapper>
   );
 };
 
@@ -474,6 +481,8 @@ export const pageQuery = graphql`
             priority
             active
             alt
+            fit
+            imageBackground
           }
           rawMarkdownBody
         }

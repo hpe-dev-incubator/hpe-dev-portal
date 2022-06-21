@@ -1,9 +1,9 @@
-# HPE DEV External Contributor Guide
+# HPE Developer External Contributor Guide
 **Version 2.0** - 25-Mar-2022
 
 >**Note:** A recording of the training session delivered on April 30, 2021 is available [here](https://vimeo.com/544486602). 
 
->**IMPORTANT Note:** The recommended way for submitting your contribution is through the HPE DEV CMS editor as explained in this document. HPE DEV team provides review feedback to blog post authors, event card and platform page owners through GitHub. 
+>**IMPORTANT Note:** The recommended way for submitting your contribution is through the HPE Developer CMS editor as explained in this document. HPE Developer team provides review feedback to blog post authors, event card and platform page owners through GitHub. 
 
 >Note: You may prefer to use MS-Word or Google doc (a Google account is needed) to submit your contributions such as a blog post. In this case, we recommend you check out the blog post [here](https://developer.hpe.com/blog/be-an-hpe-dev-blogger/) 
 
@@ -40,18 +40,18 @@ The process described in this guide requires minimum familiarity with Git
 and an account on GitHub.com. You can find a tutorial on Git in this
 [3-part blog article](https://developer.hpe.com/blog/get-involved-in-the-open-source-community-part-1-getting-started-with-gi).
 
-Please contact [HPE DEV Team](mailto:hpedev@hpe.com?subject=Support%20for%20contribution%20to%20HPE%20DEV%20Community) for more support.
+Please contact [HPE Developer Team](mailto:hpedev@hpe.com?subject=Support%20for%20contribution%20to%20HPE%20DEV%20Community) for more support.
 
 ## Contribution workflow process
 
 <center><img src="media/HPEDEV-V2-Architecture-contributor.png" width="978" height="766"></center>
 
-HPE DEV portal is a static website built using an open-source frontend framework Gatsby JS and hosted on Netlify, AWS Amplify platforms with [GitHub](https://guides.github.com/) for version control and collaboration.
+HPE Developer portal is a static website built using an open-source frontend framework Gatsby JS and hosted on Netlify, AWS Amplify platforms with [GitHub](https://guides.github.com/) for version control and collaboration.
    * **[Gatsby](https://www.gatsbyjs.com/)** is an open source framework based on [ReactJS](https://reactjs.org/) that helps developers quickly build websites and apps.
-   * **[Netlify](https://www.netlify.com/)** (_a web developer platform and web hosting infrastructure_) hosts the Content Management System (CMS) to edit the website content. Netlify CMS allows you to create, edit and preview contributions (for example a new blog post, a new event card or platform page updates). Netlify CMS also opens a GitHub Pull Request (PR) as a method of submitting your contribution for HPE DEV team to review your contribution and conduct an editorial review before its publication.
-   * **[AWS Amplify](https://aws.amazon.com/amplify/)** (_a web hosting infrastructure and a framework platform for building secure and scalable web applications_) hosts the front end of the HPE DEV website [developer.hpe.com](https://developer.hpe.com). It provides the deploy previews for each commit to the GitHub repository.
+   * **[Netlify](https://www.netlify.com/)** (_a web developer platform and web hosting infrastructure_) hosts the Content Management System (CMS) to edit the website content. Netlify CMS allows you to create, edit and preview contributions (for example a new blog post, a new event card or platform page updates). Netlify CMS also opens a GitHub Pull Request (PR) as a method of submitting your contribution for HPE Developer team to review your contribution and conduct an editorial review before its publication.
+   * **[AWS Amplify](https://aws.amazon.com/amplify/)** (_a web hosting infrastructure and a framework platform for building secure and scalable web applications_) hosts the front end of the HPE Developer website [developer.hpe.com](https://developer.hpe.com). It provides the deploy previews for each commit to the GitHub repository.
 
-Netlify and AWS Amplify has been both configured to integrate with GitHub version control system to provide a continuous integration/continuous deployment (CI/CD) environment and deploy changes to the HPE DEV website whenever HPE DEV team pulls in your contributions and merges them into the master branch in GitHub.
+Netlify and AWS Amplify has been both configured to integrate with GitHub version control system to provide a continuous integration/continuous deployment (CI/CD) environment and deploy changes to the HPE Developer website whenever HPE Developer team pulls in your contributions and merges them into the master branch in GitHub.
 
 
 ## Getting started
@@ -59,7 +59,7 @@ Netlify and AWS Amplify has been both configured to integrate with GitHub versio
 1.  Make sure you are connected to **your personal GitHub account**. If you
     don't have an account, you can create one now [here](https://github.com/join).
 
-2.  Open the [HPE DEV Content Management System (CMS)](https://developer.hpe.com/admin) and select **login with GitHub**. 
+2.  Open the [HPE Developer Content Management System (CMS)](https://developer.hpe.com/admin) and select **login with GitHub**. 
 
 <center><img src="media/guide-login-with-Github.png" width="600" height="300"></center>
 
@@ -67,11 +67,11 @@ Netlify and AWS Amplify has been both configured to integrate with GitHub versio
 
 <center><img src="media/Github-Authorize-application-v2.png" width="800" height="600"></center>
 
-4.  Select **Fork the repo** to initiate a copy of the HPE DEV Web CMS
+4.  Select **Fork the repo** to initiate a copy of the HPE Developer Web CMS
     into your own GitHub account. (In GitHub, this will appear as a new
     repository: ***yourAccountname/hpe-dev-portal***). This private copy of
     the repository is going to be used to make your changes to the web
-    site, before submitting them to the HPE DEV team.
+    site, before submitting them to the HPE Developer team.
 
 <center><img src="media/guide-fork-repo.png" width="600" height="363"></center>
 
@@ -86,7 +86,7 @@ Netlify and AWS Amplify has been both configured to integrate with GitHub versio
     to change all sections of the web site. This guide, however, only covers
     changes to the **Blog**, **Platforms** and **Events** sections.
 
->Note: Please engage with the HPE DEV team before proposing changes to other sections.
+>Note: Please engage with the HPE Developer team before proposing changes to other sections.
 
 <center><img src="media/guide-contents-blog-platform.png" width="800" height="356"></center>
 
@@ -131,15 +131,15 @@ You can create a new blog directly from the **Contents** tab or by navigating to
     
 5. Tag your blog post.
 
-You can tag your post to tie it to one of the HPE DEV "Platform" pages on the HPE DEV portal. 
-Use tags as one way to optimize your blog post for results from search engines such as Google search engine. You do so by tagging your article with popular keywords (1 to 4 keywords) that reflect the relevancy of your topic. Visit the site [here](https://hpe-dev-portal.netlify.app/tags/) to look for existing tags in our HPE DEV web site.
+You can tag your post to tie it to one of the HPE Developer "Platform" pages on the HPE Developer portal. 
+Use tags as one way to optimize your blog post for results from search engines such as Google search engine. You do so by tagging your article with popular keywords (1 to 4 keywords) that reflect the relevancy of your topic. Visit the site [here](https://hpe-dev-portal.netlify.app/tags/) to look for existing tags in our HPE Developer web site.
 
 >Note: For more information on how to use tags and tie your blog post to a "Platform" page refer to section "***Tips and Tricks using the CMS Editor***" at the end of this document.
     
     
 6.  As you are adding content to the **BODY** area, you can preview your blog on the right pane.
 
->**Important Note:** The text font size in the preview area will be smaller than what is rendered in the blog post in HPE DEV portal. 
+>**Important Note:** The text font size in the preview area will be smaller than what is rendered in the blog post in HPE Developer portal. 
 
 <center><img src="media/guide-blog-preview-area.png" width="1000" height="458"></center>
 
@@ -191,16 +191,16 @@ Clicking **View Preview** will open your blog post in a new browser tab for your
 
 14. Leave the editor using the **Changes Saved** option.
 
-15. As soon as the blog was placed **In Review,** a Pull Request (PR) is automatically opened on the HPE DEV team's GitHub repository, with the new content you are proposing.
+15. As soon as the blog was placed **In Review,** a Pull Request (PR) is automatically opened on the HPE Developer team's GitHub repository, with the new content you are proposing.
 
 <center><img src="media/guide-blog-pull-request.png" width="1000" height="337"></center>
 
 
-16. Once you have initiated the Pull Request by moving the post into the **In Review** column, and you are satisfied with your blog entry, it is also a good idea to follow up with the [HPE DEV Team](mailto:hpedev@hpe.com?subject=New%20blog%20contribution%20for%20HPE%20DEV) indicating that your new submission is ready for review. HPE DEV team will then proceed with an editorial review and will get in touch with you shortly.
+16. Once you have initiated the Pull Request by moving the post into the **In Review** column, and you are satisfied with your blog entry, it is also a good idea to follow up with the [HPE Developer Team](mailto:hpedev@hpe.com?subject=New%20blog%20contribution%20for%20HPE%20DEV) indicating that your new submission is ready for review. HPE Developer team will then proceed with an editorial review and will get in touch with you shortly.
 
->**Note:** *Moving the blog post back to the **Drafts** column of the CMS will withdraw the PR (the PR will actually be closed). It is recommended you continue to make changes to your blog while the blog is **In Review**. This will be automatically synchronized in the PR (as additional Commits). This will be particularly helpful when receiving feedback from the HPE DEV Team.*
+>**Note:** *Moving the blog post back to the **Drafts** column of the CMS will withdraw the PR (the PR will actually be closed). It is recommended you continue to make changes to your blog while the blog is **In Review**. This will be automatically synchronized in the PR (as additional Commits). This will be particularly helpful when receiving feedback from the HPE Developer Team.*
 
->**Note:** *Once the team has agreed to accept your contribution, the PR will be merged, the blog post will be published to the HPE DEV portal and the blog entry will disappear from your Editorial Workflow.*
+>**Note:** *Once the team has agreed to accept your contribution, the PR will be merged, the blog post will be published to the HPE Developer portal and the blog entry will disappear from your Editorial Workflow.*
 
 ## Editing a blog post that is already published
 You may want to edit an existing blog post. For example, you may need to update a referenced link that is no longer valid.
@@ -228,19 +228,19 @@ You may want to edit an existing blog post. For example, you may need to update 
 
 8. In the editor, after about four (4) minutes, you'll notice the **Check for Preview** at the top right of the screen in the editor menu has turned into **View Preview**. Click **View Preview** to open a preview of your post in a new browser tab and validate your changes. If needed, click **Check for Preview** to refresh the status. 
 
-9. As soon as the blog was placed **In Review,** a Pull Request (PR) is automatically opened on the HPE DEV team's GitHub repository, with the content you are proposing.
+9. As soon as the blog was placed **In Review,** a Pull Request (PR) is automatically opened on the HPE Developer team's GitHub repository, with the content you are proposing.
 
-10. Once you have initiated the Pull Request by moving the post into the **In Review** column, and you are satisfied with your changes, it is also a good idea to follow up with the [HPE DEV Team](mailto:hpedev@hpe.com?subject=Edition%20of%20blog%20contribution%20for%20HPE%20DEV) indicating that your submission is ready for review. Please provide a brief description of the changes you made. HPE DEV team will then proceed with an editorial review and will get in touch with you shortly.
+10. Once you have initiated the Pull Request by moving the post into the **In Review** column, and you are satisfied with your changes, it is also a good idea to follow up with the [HPE Developer Team](mailto:hpedev@hpe.com?subject=Edition%20of%20blog%20contribution%20for%20HPE%20DEV) indicating that your submission is ready for review. Please provide a brief description of the changes you made. HPE Developer team will then proceed with an editorial review and will get in touch with you shortly.
 
 >**Note:** *Moving the blog post back to the **Drafts** column of the CMS will withdraw the PR. You can also continue to make changes to your blog while the blog is **In Review**. This will be automatically synchronized in the PR (as additional Commits).*
 
->**Note:** *Once the team has agreed to accept your contribution, the PR will be merged, the blog post will be published with your recent changes to the HPE DEV portal and the blog entry will disappear from your Editorial Workflow.*
+>**Note:** *Once the team has agreed to accept your contribution, the PR will be merged, the blog post will be published with your recent changes to the HPE Developer portal and the blog entry will disappear from your Editorial Workflow.*
 
 11. Leave the editor using the **Changes Saved** option.
 
 ## Creating and editing a platform page
 
->**Important Note:** For the image logo for the platform, make sure you first work with HPE DEV team to determine the best image logo for your platform page. The recommended image size 216px x 216px and format is **SVG** file (an SVG image will not lose quality/resolution when scaled up or down). if needed, HPE DEV team can work with you to design an appropriate image logo for your platform. 
+>**Important Note:** For the image logo for the platform, make sure you first work with HPE Developer team to determine the best image logo for your platform page. The recommended image size 216px x 216px and format is **SVG** file (an SVG image will not lose quality/resolution when scaled up or down). if needed, HPE Developer team can work with you to design an appropriate image logo for your platform. 
 
 1.  In the CMS, from the **Contents** tab, select **Platforms** in the Collections tab. Click on **New Platforms** button to create a new platform. To edit an existing platform, locate the platform to edit (HPE Ezmeral Data Fabric in our example) and select the Platform. This opens the editor.
 
@@ -249,7 +249,7 @@ You may want to edit an existing blog post. For example, you may need to update 
 2.  In the editor, for a new platform page, specify a title, description, logo image and content in the Body area. Make the required changes using **Rich Text** mode or
     **Markdown** mode. Verify content in the preview pane on the right side of the screen.
     
-    >**Important Note:** The text font size in the preview area will be smaller than what is rendered in the Platform page in HPE DEV portal. 
+    >**Important Note:** The text font size in the preview area will be smaller than what is rendered in the Platform page in HPE Developer portal. 
 
     <center><img src="media/guide-platform-body.png" width="1200" height="541"></center>
 
@@ -286,15 +286,15 @@ You may want to edit an existing blog post. For example, you may need to update 
 
 Clicking **View Preview** will open your Platform page in a new browser tab for your review.
 
-10. As soon as the Platform entry is placed **In Review,** a Pull Request (PR) is automatically opened on the HPE DEV team's GitHub repository, with the new content you are proposing.
+10. As soon as the Platform entry is placed **In Review,** a Pull Request (PR) is automatically opened on the HPE Developer team's GitHub repository, with the new content you are proposing.
 
    <center><img src="media/guide-platform-pull-request.png" width="1000" height="269"></center>
 
-11. Once you have initiated the Pull Request by moving the Platform entry into the **In Review** column, and you are satisfied with your Platform entry, it is also a good idea to follow up with the [HPE DEV Team](mailto:hpedev@hpe.com?subject=Update%20Platform%20contribution%20for%20HPE%20DEV) indicating that your Platform update submission is ready for review. Please provide a brief description of the changes you made on the platform page. HPE DEV team will then proceed with an editorial review and will get in touch with you shortly.
+11. Once you have initiated the Pull Request by moving the Platform entry into the **In Review** column, and you are satisfied with your Platform entry, it is also a good idea to follow up with the [HPE Developer Team](mailto:hpedev@hpe.com?subject=Update%20Platform%20contribution%20for%20HPE%20DEV) indicating that your Platform update submission is ready for review. Please provide a brief description of the changes you made on the platform page. HPE Developer team will then proceed with an editorial review and will get in touch with you shortly.
 
->**Note:** *Moving the Platform entry back to the **Drafts** column of the CMS will withdraw the PR (the PR will actually be closed). You can also continue to make changes to your blog while the blog is **In Review**. This will be automatically synchronized in the PR (as additional Commits). This will be particularly helpful when receiving feedback from the HPE DEV Team.*
+>**Note:** *Moving the Platform entry back to the **Drafts** column of the CMS will withdraw the PR (the PR will actually be closed). You can also continue to make changes to your blog while the blog is **In Review**. This will be automatically synchronized in the PR (as additional Commits). This will be particularly helpful when receiving feedback from the HPE Developer Team.*
 
->**Note:** *Once the team has agreed to accept your contribution, the PR will be merged, the Platform page will be published with your recent changes to the HPE DEV portal and the Platform entry will disappear from your Editorial Workflow.*
+>**Note:** *Once the team has agreed to accept your contribution, the PR will be merged, the Platform page will be published with your recent changes to the HPE Developer portal and the Platform entry will disappear from your Editorial Workflow.*
 
 12.  Leave the editor using the **Changes Saved** option.
 
@@ -346,13 +346,13 @@ To do so, proceed as follows:
  
 9. In the editor, after about four (4) minutes, you'll notice the **Check for Preview** at the top right has turned into **View Preview**. Click **View Preview** to open a preview of your event entry and validate your changes. If needed, click **Check for Preview** to refresh the status.
     
-10. As soon as the event entry is placed **In Review**, a Pull Request (PR) is automatically opened on the HPE DEV team's GitHub repository, with the new content you are proposing. 
+10. As soon as the event entry is placed **In Review**, a Pull Request (PR) is automatically opened on the HPE Developer team's GitHub repository, with the new content you are proposing. 
 
-12. Once you have initiated the Pull Request by moving the event entry into the **In Review** column, and you are satisfied with your event entry, it is also a good idea to follow up with [HPE DEV Team](mailto:hpedev@hpe.com?subject=New%20Event%20contribution%20for%20HPE%20DEV) indicating that your new submission is ready for review. HPE DEV team will then proceed with an editorial review and will get in touch with you shortly.
+12. Once you have initiated the Pull Request by moving the event entry into the **In Review** column, and you are satisfied with your event entry, it is also a good idea to follow up with [HPE Developer Team](mailto:hpedev@hpe.com?subject=New%20Event%20contribution%20for%20HPE%20DEV) indicating that your new submission is ready for review. HPE Developer team will then proceed with an editorial review and will get in touch with you shortly.
 
->**Note:** *Moving the event entry back to the **Drafts** column of the CMS will withdraw the PR (the PR will actually be closed). You can also continue to make changes to your event entry while it is **In Review** column. This will be automatically synchronized in the PR (as additional Commits). This will be particularly helpful when receiving feedback from the HPE DEV Team.*
+>**Note:** *Moving the event entry back to the **Drafts** column of the CMS will withdraw the PR (the PR will actually be closed). You can also continue to make changes to your event entry while it is **In Review** column. This will be automatically synchronized in the PR (as additional Commits). This will be particularly helpful when receiving feedback from the HPE Developer Team.*
 
->**Note:** *Once the team has agreed to accept your event entry, the PR will be merged, the event entry will be published to the HPE DEV portal and the event entry will disappear from your Editorial Workflow.*
+>**Note:** *Once the team has agreed to accept your event entry, the PR will be merged, the event entry will be published to the HPE Developer portal and the event entry will disappear from your Editorial Workflow.*
 
 13. Leave the editor using the **Changes Saved** option.
 
@@ -421,7 +421,7 @@ To do so, proceed as follows:
     
 -   **Insert an image in a blog post:**
 
-     >**IMPORTANT NOTE:** If your images are stored in **a personal website** you owned, it is recommended to proceed as explained below to get you images uploaded and stored to the HPE DEV CMS rather than using a link URL to your image on your web site. Security filter such as Zscaler may filter your images and make your images unrendered by the CMS. 
+     >**IMPORTANT NOTE:** If your images are stored in **a personal website** you owned, it is recommended to proceed as explained below to get you images uploaded and stored to the HPE Developer CMS rather than using a link URL to your image on your web site. Security filter such as Zscaler may filter your images and make your images unrendered by the CMS. 
      
     Small resolution image is recommended (i.e.: width: 800px)
     
@@ -543,9 +543,9 @@ To do so, proceed as follows:
 
 -   **Tagging:**
 
-If appropriate, use a tag to tie your blog post to a "platform" page on HPE DEV portal. List of "platforms" tag is in the table below.
+If appropriate, use a tag to tie your blog post to a "platform" page on HPE Developer portal. List of "platforms" tag is in the table below.
 
->**Note:** You can also tag your article with popular keywords (1 to 4 keywords) that reflect the relevancy of your topic. Use tags as one way to optimize your blog post for results from search engines such as Google search engine. Visit the site [here](https://hpe-dev-portal.netlify.app/tags/) to look for existing tags in our HPE DEV site.
+>**Note:** You can also tag your article with popular keywords (1 to 4 keywords) that reflect the relevancy of your topic. Use tags as one way to optimize your blog post for results from search engines such as Google search engine. Visit the site [here](https://hpe-dev-portal.netlify.app/tags/) to look for existing tags in our HPE Developer site.
 
 
   | **Platform name**                  |   **Associated tag**    |

@@ -1,7 +1,7 @@
 ---
 title: "Chapel: Making parallel computing as easy as Py(thon), from laptops to
   supercomputers"
-active: true
+active: false
 link: https://hpe.zoom.us/webinar/register/7216485389685/WN_VHR47IEcSfCzVizUJX3R4w
 path: ""
 description: Join us for a free, 60-minute session where you can connect with
@@ -13,9 +13,9 @@ description: Join us for a free, 60-minute session where you can connect with
   common techniques for writing parallel and/or scalable code. Brad will also
   describe an open-source Python library written in Chapel that uses parallelism
   to accelerate common NumPy and Pandas operations used in data science.
-background: rgba(0, 86, 122, 0.8);
+background: "rgba(0, 86, 122, 0.8);"
 label: Register Now!
 priority: 2
-image: /img/hackshack/cap_ML.png
+image: /img/Munch_and_Learn_192_192.svg
 alt: munch and learn logo
 ---

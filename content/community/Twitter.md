@@ -5,5 +5,6 @@
           description: Interested in what’s currently happening in the HPE Developer Community?
           priority: 2
           image: '/img/community/twitter.svg'
+          active: true
 ---
           

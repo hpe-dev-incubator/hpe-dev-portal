@@ -1,13 +1,7 @@
+/* eslint-disable max-len */
 import React from 'react';
-import {
-  Heading,
-  Button,
-  Text,
-  Image as GrommetImage,
-  Box,
-  Grommet,
-} from 'grommet';
-import { hpe } from 'grommet-theme-hpe';
+import { Heading, Button, Text, Image as GrommetImage, Box } from 'grommet';
+import GrommetThemeWrapper from '../../../components/hackshack/Grommet/GrommetThemeWrapper';
 import { Layout, ScheduleCard, CardGrid } from '../../../components/hackshack';
 import ezmeralContent from '../../../data/EzmeralData/ezmeral.json';
 import { MainTitle } from '../../../components/hackshack/StyledComponents';
@@ -15,7 +9,7 @@ import { SEO } from '../../../components';
 
 const Ezmeral = () => {
   return (
-    <Grommet theme={hpe}>
+    <GrommetThemeWrapper>
       <Layout background="/img/hackshack/BackgroundImages/ezmeral-background.png">
         <SEO title="Hack Shack Ezmeral" />
         <Box align="center" justify="between" direction="row" fill="horizontal">
@@ -86,7 +80,7 @@ const Ezmeral = () => {
           )}
         </CardGrid>
       </Layout>
-    </Grommet>
+    </GrommetThemeWrapper>
   );
 };
 

@@ -1,8 +1,8 @@
 ---
 title: Highlighting key features of HPE Ezmeral Runtime Enterprise Release 5.4
 date: 2022-03-31T18:18:53.021Z
-featuredBlog: true
-priority: 2
+featuredBlog: false
+priority: 12
 author: Srikanth Venkata Seshu
 authorimage: /img/srik.jpg
 tags:

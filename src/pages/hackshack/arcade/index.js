@@ -1,6 +1,6 @@
+/* eslint-disable max-len */
 import React from 'react';
-import { Grommet } from 'grommet';
-import { hpe } from 'grommet-theme-hpe';
+import GrommetThemeWrapper from '../../../components/hackshack/Grommet/GrommetThemeWrapper';
 import {
   Layout,
   PageHeader,
@@ -12,7 +12,7 @@ import { arcadeContent } from '../../../data/CardData/PageContent';
 
 const Arcade = () => {
   return (
-    <Grommet theme={hpe}>
+    <GrommetThemeWrapper>
       <Layout background="/img/hackshack/BackgroundImages/arcade-background.jpg">
         <SEO title="Hack Shack Arcade" />
         <PageHeader title="ARCADE">
@@ -33,7 +33,7 @@ const Arcade = () => {
           </CardGrid>
         </PageHeader>
       </Layout>
-    </Grommet>
+    </GrommetThemeWrapper>
   );
 };
 

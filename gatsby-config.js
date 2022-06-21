@@ -187,6 +187,13 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
+        path: `${__dirname}/content/osscontribute`,
+        name: 'osscontribute',
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
         path: `${__dirname}/content/evangelist`,
         name: 'evangelist',
       },

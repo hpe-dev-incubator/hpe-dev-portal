@@ -1,17 +1,14 @@
 ---
-title: HPE DEV Munch & Learn series March 2022
-dateStart: 2022-03-22T23:01:16.892Z
-dateEnd: 2022-03-23T22:59:16.911Z
+title: 'Mithril: Introducing Robust Identities into Istio by integrating with SPIRE'
+dateStart: 2022-03-23T16:00:00.000Z
+dateEnd: 2022-03-23T17:00:00.000Z
 category: Virtual Event
-image: /img/event-ml_cap_02_rgb.png
+image: /img/Munch_and_Learn_192_192.svg
 link: https://developer.hpe.com/campaign/munch-and-learn
 width: large
 tags:
   - spiffe-and-spire-projects
 ---
-## HPE DEV Munch & Learn series
-
-
 
 ### Mithril: Introducing Robust Identities into Istio by integrating with SPIRE
 
