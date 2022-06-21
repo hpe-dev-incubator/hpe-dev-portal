@@ -168,7 +168,7 @@ const Challenge = (props) => {
               )}
             </CardGrid>
           </Tab>
-          <Tab title="Data-Driven Developer">
+          {/* <Tab title="Data-Driven Developer">
             <CardGrid pad={{ top: 'medium' }} key="os">
               {workshops.map(
                 (workshop, i) =>
@@ -177,7 +177,7 @@ const Challenge = (props) => {
                   renderScheduleCard(workshop, i),
               )}
             </CardGrid>
-          </Tab>
+          </Tab> */}
           <Tab title="Developer">
             <CardGrid pad={{ top: 'medium' }} key="os">
               {workshops.map(
