@@ -13,4 +13,4 @@ width: large
 July 27, 2022
 
 
-Deepfence ThreatMapper is an open source project that extends the goodness of Shift Left into your production platforms, discovering and visualizing the external and internal attack surface for your applications and infrastructure. In this talk, we’ll cover the practical limitations of scanning before production, with a deep-dive into a couple of recent incidents. We will dissect log4j (or a similar event) and understand how an attacker might scan, discover and exploit such a vulnerability. We’ll then move to a demo, where we begin with a Kubernetes cluster and see how to scan for vulnerabilities and exposed secrets, and identify those which pose the greatest risk of exploit. 
+In this talk, we’ll explore how open source Deepfence ThreatMapper discovers and visualizes the external and internal attack surface for your applications and infrastructure. See how it extends the goodness of Shift Left into your production platforms in our Kubernetes cluster demo as it scans for vulnerabilities and exposed secrets to identify the greatest risks.
