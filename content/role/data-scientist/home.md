@@ -1,6 +1,6 @@
 ---
 title: Data Scientist
-description: Extractors of knowledge from data to deliver actionable insights 
+description: Extractors of knowledge from data to deliver actionable insights
 image: /img/role/data-scientist.png
 width: large
 priority: 2
@@ -8,7 +8,6 @@ frontpage: true
 active: true
 tags:
   - data-scientist
-
 ---
 <style>
 .row {
@@ -185,7 +184,7 @@ Check out these real-world case studies
 
   </div>
   <div class="column">
-    - [HPE Ezmeral Data Fabric 6.2 documentation](https://docs.datafabric.hpe.com/62/index.html)
+    - [HPE Ezmeral Data Fabric 7.0 documentation](https://docs.datafabric.hpe.com/70/index.html)
 
      
   </div>
