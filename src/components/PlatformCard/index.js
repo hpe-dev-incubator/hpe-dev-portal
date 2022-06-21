@@ -21,9 +21,11 @@ const PlatformCard = ({ description, link, image, title, flex }) => (
     }
   >
     <Box direction="row-responsive" gap="large" align="center">
-      <Box flex={flex}>
-        {image && <Image fit="contain" src={image} alt="platform logo" />}
-      </Box>
+      {image && (
+        <Box flex={flex}>
+          <Image fit="contain" src={image} alt="platform logo" />
+        </Box>
+      )}
       <Box flex>
         <Heading margin="none" level="3" size="small">
           {title}

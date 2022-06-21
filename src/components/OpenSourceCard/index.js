@@ -5,12 +5,11 @@ import {
   Text,
   Card as GrommetCard,
   Heading,
-  Image,
   ResponsiveContext,
 } from 'grommet';
 import { navigate } from 'gatsby';
 
-const OpenSourceCard = ({ image, title, link, description, category }) => {
+const OpenSourceCard = ({ title, link, description, category }) => {
   const size = useContext(ResponsiveContext);
   return (
     <GrommetCard
@@ -33,9 +32,9 @@ const OpenSourceCard = ({ image, title, link, description, category }) => {
         <Text color="text-weak">{category}</Text>
       </Box>
       <Box direction="row" gap="large" align="center">
-        <Box basis="1/3">
+        {/* <Box basis="1/3">
           {image && <Image fit="contain" src={image} alt="platform logo" />}
-        </Box>
+        </Box> */}
         <Box basis="2/3">
           <Heading margin="none" level="3" size="small">
             {title}
@@ -48,7 +47,7 @@ const OpenSourceCard = ({ image, title, link, description, category }) => {
 };
 
 OpenSourceCard.propTypes = {
-  image: PropTypes.string,
+  // image: PropTypes.string,
   title: PropTypes.string,
   description: PropTypes.string,
   link: PropTypes.string,

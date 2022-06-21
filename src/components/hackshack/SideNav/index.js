@@ -94,26 +94,18 @@ const SideNav = ({ data }) => {
       >
         CHALLENGES
       </NavButton>
-      <NavButton
+      {/* <NavButton
         active={location.pathname === '/hackshack/ezmeral'}
         to="/hackshack/ezmeral"
       >
         HPE EZMERAL
-      </NavButton>
+      </NavButton> */}
       <NavButton
         active={location.pathname === '/hackshack/replays/:replayId'}
         to="/hackshack/replays/0"
       >
         REPLAYS
       </NavButton>
-      {size !== 'small' && (
-        <NavButton
-          active={location.pathname === '/hackshack/community'}
-          to="/community"
-        >
-          COMMUNITY
-        </NavButton>
-      )}
       <NavButton
         active={
           location.pathname === '/hackshack/arcade' ||
@@ -164,7 +156,7 @@ const SideNav = ({ data }) => {
           <ButtonLink
             align="start"
             key="bl"
-            label="Blog"
+            label="Blogs"
             to="/blog"
             state={{ state: { isBlogHeaderClicked: true } }}
           />

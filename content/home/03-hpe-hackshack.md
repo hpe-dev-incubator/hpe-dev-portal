@@ -1,0 +1,10 @@
+---
+title: Hack Shack
+width: small
+category: Event
+priority: 3
+link: /hackshack/
+image: /img/home/hack-shack-logo-sm.png
+---
+
+Explore our Virtual Experience to learn about different technologies and have some fun in the process.

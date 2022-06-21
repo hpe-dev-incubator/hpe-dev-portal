@@ -59,7 +59,7 @@ const Workshop = (props) => {
         (err) => {
           console.log('Error: ', err);
           setError(
-            'Oops..something went wrong. The HPE DEV team is addressing the problem. Please try again later!',
+            'Oops..something went wrong. The HPE Developer team is addressing the problem. Please try again later!',
           );
         },
       );
@@ -85,7 +85,7 @@ const Workshop = (props) => {
           } else {
             console.log('catch error', err);
             setError(
-              'Oops..something went wrong. The HPE DEV team is addressing the problem. Please try again later!',
+              'Oops..something went wrong. The HPE Developer team is addressing the problem. Please try again later!',
             );
           }
         });

@@ -41,9 +41,13 @@ export const Row2 = [
     size: 'large',
   },
   {
-    img: '/img/hackshack/StickerPage/hpedevlogo.png',
+    img: '/img/hackshack/StickerPage/gremlin-cube-transparent.png',
     icon: <Monitor size="small" />,
   },
+  // {
+  //   img: '/img/hackshack/StickerPage/hpedevlogo.png',
+  //   icon: <Monitor size="small" />,
+  // },
   {
     img: '/img/hackshack/StickerPage/gremlin.png',
     icon: <User size="small" />,
@@ -80,9 +84,13 @@ export const Row3 = [
 
 export const Row4 = [
   {
-    icon: <User size="small" />,
-    img: '/img/hackshack/StickerPage/devlogo.png',
+    img: '/img/hackshack/StickerPage/itmonsterattack.png',
+    icon: <Monitor size="small" />,
   },
+  // {
+  //   icon: <User size="small" />,
+  //   img: '/img/hackshack/StickerPage/devlogo.png',
+  // },
   {
     backgroundImage: 'url(/img/hackshack/StickerPage/2gremlins.png)',
     download: '/img/hackshack/StickerPage/2gremlins.png',
@@ -105,9 +113,14 @@ export const Row5 = [
     size: 'large',
   },
   {
-    icon: <User size="small" />,
-    img: '/img/hackshack/StickerPage/dev-thumb.png',
+    backgroundImage: 'url(/img/hackshack/StickerPage/design.png)',
+    download: '/img/hackshack/StickerPage/design.png',
+    icon: <Monitor size="small" />,
   },
+  // {
+  //   icon: <User size="small" />,
+  //   img: '/img/hackshack/StickerPage/dev-thumb.png',
+  // },
   {
     img: '/img/hackshack/StickerPage/gremlin-cube.jpeg',
     backgroundColor: 'white',
@@ -122,10 +135,6 @@ export const Row5 = [
 
 export const Row6 = [
   {
-    img: '/img/hackshack/StickerPage/itmonsterattack.png',
-    icon: <Monitor size="small" />,
-  },
-  {
     img: '/img/hackshack/StickerPage/ResearchDesignDev.png',
     backgroundColor: 'white',
     icon: <Monitor size="small" />,
@@ -138,17 +147,7 @@ export const Row6 = [
   },
 ];
 
-export const Row7 = [
-  {
-    img: '/img/hackshack/StickerPage/gremlin-cube-transparent.png',
-    icon: <Monitor size="small" />,
-  },
-  {
-    backgroundImage: 'url(/img/hackshack/StickerPage/design.png)',
-    download: '/img/hackshack/StickerPage/design.png',
-    icon: <Monitor size="small" />,
-  },
-];
+export const Row7 = [];
 
 // Need extra rows for mobile view
 export const Row8 = [

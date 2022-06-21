@@ -1,15 +1,15 @@
 ---
-title: HPE DEV Meetups
-dateStart: 2022-01-25T23:01:18.395Z
-dateEnd: 2022-01-26T23:01:18.425Z
+title: Quarkus - Supersonic Subatomic Java
+dateStart: 2022-01-26T16:00:51.279Z
+dateEnd: 2022-01-26T17:00:51.298Z
 category: Virtual Event
-image: /img/microscope_01_rgb-copy.png
+image: /img/Meetups_192_192.svg
 link: https://developer.hpe.com/campaign/meetups
 width: large
 tags:
   - Meetups
 ---
-## HPE DEV Meetups
+## Meetups
 
 ### Quarkus - Supersonic Subatomic Java
 
