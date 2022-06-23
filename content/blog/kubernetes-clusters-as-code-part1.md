@@ -89,7 +89,7 @@ The API client is now ready to be used to run the Terraform resources.
 
 <!--EndFragment-->
 
-</br>
+<br/>
 
 <!--StartFragment-->
 
@@ -164,7 +164,7 @@ provider hpegl {
 
 <!--StartFragment-->
 
-</br>
+<br/>
 
 ## Create a Cluster resource
 
@@ -195,7 +195,7 @@ blueprint_id = data.hpegl_caas_cluster_blueprint.bp.id
 
 <!--StartFragment-->
 
-</br>
+<br/>
 
 ### Terraform data source for Site
 
@@ -224,7 +224,7 @@ site_id = data.hpegl_caas_site.blr.id
 
 <!--StartFragment-->
 
-</br>
+<br/>
 
 ###  Terraform data source for Cluster
 
@@ -254,7 +254,7 @@ token    = yamldecode(base64decode(data.hpegl_caas_cluster.test.kubeconfig)).use
 
 <!--StartFragment-->
 
-</br>
+<br/>
 
 ### Terraform resource for Cluster
 
@@ -264,9 +264,17 @@ In order to create a cluster using the cluster resource, the following values sh
 2. Cluster Blueprint Name: Fill in the appropriate cluster blueprint **name** in the **hpegl_caas_cluster_blueprint** block. In the below example, name= "demo" 
 3. Cluster Name: Fill in the cluster **name** of your choice in the **hpegl_caas_cluster** block. In the below example, name= "tf-test"
 
-Note: Here, the **space_id** is automatically set to the value specified while exporting **TF_VAR_HPEGL_SPACE**. 
+```markdown
+Note: Here, the space_id is automatically set to the value specified while exporting TF_VAR_HPEGL_SPACE.
+```
 
-**cluster-create.tf** (Note: You can name this file according to your preference. We are using cluster-create.tf here for easy reference)
+<br/>
+
+**cluster-create.tf**
+
+```markdown
+Note:You can name this file according to your preference. We are using cluster-create.tf here for easy reference.
+```
 
 <!--EndFragment-->
 
@@ -315,7 +323,7 @@ You can get information about each of the data sources and resources mentioned a
 
 <!--StartFragment-->
 
-</br>
+<br/>
 
 ### Initializing workspace & Synchronizing Infrastructure components
 
@@ -355,7 +363,7 @@ commands will detect it and remind you to do so if necessary.
 
 <!--StartFragment-->
 
-</br>
+<br/>
 
 ###  Terraform ready to plan
 
@@ -403,7 +411,7 @@ Note: You didn't use the -out option to save this plan, so Terraform can't guara
 
 <!--StartFragment-->
 
-</br>
+<br/>
 
 ### Terraform ready to apply
 
@@ -450,154 +458,10 @@ Do you want to perform these actions?
  
   Enter a value: yes  hpegl_caas_cluster.test: Creating...
 hpegl_caas_cluster.test: Still creating... [10s elapsed]
-hpegl_caas_cluster.test: Still creating... [20s elapsed]
-hpegl_caas_cluster.test: Still creating... [30s elapsed]
-hpegl_caas_cluster.test: Still creating... [40s elapsed]
-hpegl_caas_cluster.test: Still creating... [50s elapsed]
 hpegl_caas_cluster.test: Still creating... [1m0s elapsed]
-hpegl_caas_cluster.test: Still creating... [1m10s elapsed]
-hpegl_caas_cluster.test: Still creating... [1m20s elapsed]
-hpegl_caas_cluster.test: Still creating... [1m30s elapsed]
-hpegl_caas_cluster.test: Still creating... [1m40s elapsed]
-hpegl_caas_cluster.test: Still creating... [1m50s elapsed]
-hpegl_caas_cluster.test: Still creating... [2m0s elapsed]
-hpegl_caas_cluster.test: Still creating... [2m10s elapsed]
-hpegl_caas_cluster.test: Still creating... [2m20s elapsed]
-hpegl_caas_cluster.test: Still creating... [2m30s elapsed]
-hpegl_caas_cluster.test: Still creating... [2m40s elapsed]
-hpegl_caas_cluster.test: Still creating... [2m50s elapsed]
-hpegl_caas_cluster.test: Still creating... [3m0s elapsed]
-hpegl_caas_cluster.test: Still creating... [3m10s elapsed]
-hpegl_caas_cluster.test: Still creating... [3m20s elapsed]
-hpegl_caas_cluster.test: Still creating... [3m30s elapsed]
-hpegl_caas_cluster.test: Still creating... [3m40s elapsed]
-hpegl_caas_cluster.test: Still creating... [3m50s elapsed]
-hpegl_caas_cluster.test: Still creating... [4m0s elapsed]
-hpegl_caas_cluster.test: Still creating... [4m10s elapsed]
-hpegl_caas_cluster.test: Still creating... [4m20s elapsed]
-hpegl_caas_cluster.test: Still creating... [4m30s elapsed]
-hpegl_caas_cluster.test: Still creating... [4m40s elapsed]
-hpegl_caas_cluster.test: Still creating... [4m50s elapsed]
 hpegl_caas_cluster.test: Still creating... [5m0s elapsed]
-hpegl_caas_cluster.test: Still creating... [5m10s elapsed]
-hpegl_caas_cluster.test: Still creating... [5m20s elapsed]
-hpegl_caas_cluster.test: Still creating... [5m30s elapsed]
-hpegl_caas_cluster.test: Still creating... [5m40s elapsed]
-hpegl_caas_cluster.test: Still creating... [5m50s elapsed]
-hpegl_caas_cluster.test: Still creating... [6m0s elapsed]
-hpegl_caas_cluster.test: Still creating... [6m10s elapsed]
-hpegl_caas_cluster.test: Still creating... [6m20s elapsed]
-hpegl_caas_cluster.test: Still creating... [6m30s elapsed]
-hpegl_caas_cluster.test: Still creating... [6m40s elapsed]
-hpegl_caas_cluster.test: Still creating... [6m50s elapsed]
-hpegl_caas_cluster.test: Still creating... [7m0s elapsed]
-hpegl_caas_cluster.test: Still creating... [7m10s elapsed]
-hpegl_caas_cluster.test: Still creating... [7m20s elapsed]
-hpegl_caas_cluster.test: Still creating... [7m30s elapsed]
-hpegl_caas_cluster.test: Still creating... [7m40s elapsed]
-hpegl_caas_cluster.test: Still creating... [7m50s elapsed]
-hpegl_caas_cluster.test: Still creating... [8m0s elapsed]
-hpegl_caas_cluster.test: Still creating... [8m10s elapsed]
-hpegl_caas_cluster.test: Still creating... [8m20s elapsed]
-hpegl_caas_cluster.test: Still creating... [8m30s elapsed]
-hpegl_caas_cluster.test: Still creating... [8m40s elapsed]
-hpegl_caas_cluster.test: Still creating... [8m50s elapsed]
-hpegl_caas_cluster.test: Still creating... [9m0s elapsed]
-hpegl_caas_cluster.test: Still creating... [9m10s elapsed]
-hpegl_caas_cluster.test: Still creating... [9m20s elapsed]
-hpegl_caas_cluster.test: Still creating... [9m30s elapsed]
-hpegl_caas_cluster.test: Still creating... [9m40s elapsed]
-hpegl_caas_cluster.test: Still creating... [9m50s elapsed]
 hpegl_caas_cluster.test: Still creating... [10m0s elapsed]
-hpegl_caas_cluster.test: Still creating... [10m10s elapsed]
-hpegl_caas_cluster.test: Still creating... [10m20s elapsed]
-hpegl_caas_cluster.test: Still creating... [10m30s elapsed]
-hpegl_caas_cluster.test: Still creating... [10m40s elapsed]
-hpegl_caas_cluster.test: Still creating... [10m50s elapsed]
-hpegl_caas_cluster.test: Still creating... [11m0s elapsed]
-hpegl_caas_cluster.test: Still creating... [11m10s elapsed]
-hpegl_caas_cluster.test: Still creating... [11m20s elapsed]
-hpegl_caas_cluster.test: Still creating... [11m30s elapsed]
-hpegl_caas_cluster.test: Still creating... [11m40s elapsed]
-hpegl_caas_cluster.test: Still creating... [11m50s elapsed]
-hpegl_caas_cluster.test: Still creating... [12m0s elapsed]
-hpegl_caas_cluster.test: Still creating... [12m10s elapsed]
-hpegl_caas_cluster.test: Still creating... [12m20s elapsed]
-hpegl_caas_cluster.test: Still creating... [12m30s elapsed]
-hpegl_caas_cluster.test: Still creating... [12m40s elapsed]
-hpegl_caas_cluster.test: Still creating... [12m50s elapsed]
-hpegl_caas_cluster.test: Still creating... [13m0s elapsed]
-hpegl_caas_cluster.test: Still creating... [13m10s elapsed]
-hpegl_caas_cluster.test: Still creating... [13m20s elapsed]
-hpegl_caas_cluster.test: Still creating... [13m30s elapsed]
-hpegl_caas_cluster.test: Still creating... [13m40s elapsed]
-hpegl_caas_cluster.test: Still creating... [13m50s elapsed]
-hpegl_caas_cluster.test: Still creating... [14m0s elapsed]
-hpegl_caas_cluster.test: Still creating... [14m10s elapsed]
-hpegl_caas_cluster.test: Still creating... [14m20s elapsed]
-hpegl_caas_cluster.test: Still creating... [14m30s elapsed]
-hpegl_caas_cluster.test: Still creating... [14m40s elapsed]
-hpegl_caas_cluster.test: Still creating... [14m50s elapsed]
-hpegl_caas_cluster.test: Still creating... [15m0s elapsed]
-hpegl_caas_cluster.test: Still creating... [15m10s elapsed]
-hpegl_caas_cluster.test: Still creating... [15m20s elapsed]
-hpegl_caas_cluster.test: Still creating... [15m30s elapsed]
-hpegl_caas_cluster.test: Still creating... [15m40s elapsed]
-hpegl_caas_cluster.test: Still creating... [15m50s elapsed]
-hpegl_caas_cluster.test: Still creating... [16m0s elapsed]
-hpegl_caas_cluster.test: Still creating... [16m10s elapsed]
-hpegl_caas_cluster.test: Still creating... [16m20s elapsed]
-hpegl_caas_cluster.test: Still creating... [16m30s elapsed]
-hpegl_caas_cluster.test: Still creating... [16m40s elapsed]
-hpegl_caas_cluster.test: Still creating... [16m50s elapsed]
-hpegl_caas_cluster.test: Still creating... [17m0s elapsed]
-hpegl_caas_cluster.test: Still creating... [17m10s elapsed]
-hpegl_caas_cluster.test: Still creating... [17m20s elapsed]
-hpegl_caas_cluster.test: Still creating... [17m30s elapsed]
-hpegl_caas_cluster.test: Still creating... [17m40s elapsed]
-hpegl_caas_cluster.test: Still creating... [17m50s elapsed]
-hpegl_caas_cluster.test: Still creating... [18m0s elapsed]
-hpegl_caas_cluster.test: Still creating... [18m10s elapsed]
-hpegl_caas_cluster.test: Still creating... [18m20s elapsed]
-hpegl_caas_cluster.test: Still creating... [18m30s elapsed]
-hpegl_caas_cluster.test: Still creating... [18m40s elapsed]
-hpegl_caas_cluster.test: Still creating... [18m50s elapsed]
-hpegl_caas_cluster.test: Still creating... [19m0s elapsed]
-hpegl_caas_cluster.test: Still creating... [19m10s elapsed]
-hpegl_caas_cluster.test: Still creating... [19m20s elapsed]
-hpegl_caas_cluster.test: Still creating... [19m30s elapsed]
-hpegl_caas_cluster.test: Still creating... [19m40s elapsed]
-hpegl_caas_cluster.test: Still creating... [19m50s elapsed]
 hpegl_caas_cluster.test: Still creating... [20m0s elapsed]
-hpegl_caas_cluster.test: Still creating... [20m10s elapsed]
-hpegl_caas_cluster.test: Still creating... [20m20s elapsed]
-hpegl_caas_cluster.test: Still creating... [20m30s elapsed]
-hpegl_caas_cluster.test: Still creating... [20m40s elapsed]
-hpegl_caas_cluster.test: Still creating... [20m50s elapsed]
-hpegl_caas_cluster.test: Still creating... [21m0s elapsed]
-hpegl_caas_cluster.test: Still creating... [21m10s elapsed]
-hpegl_caas_cluster.test: Still creating... [21m20s elapsed]
-hpegl_caas_cluster.test: Still creating... [21m30s elapsed]
-hpegl_caas_cluster.test: Still creating... [21m40s elapsed]
-hpegl_caas_cluster.test: Still creating... [21m50s elapsed]
-hpegl_caas_cluster.test: Still creating... [22m0s elapsed]
-hpegl_caas_cluster.test: Still creating... [22m10s elapsed]
-hpegl_caas_cluster.test: Still creating... [22m20s elapsed]
-hpegl_caas_cluster.test: Still creating... [22m30s elapsed]
-hpegl_caas_cluster.test: Still creating... [22m40s elapsed]
-hpegl_caas_cluster.test: Still creating... [22m50s elapsed]
-hpegl_caas_cluster.test: Still creating... [23m0s elapsed]
-hpegl_caas_cluster.test: Still creating... [23m10s elapsed]
-hpegl_caas_cluster.test: Still creating... [23m20s elapsed]
-hpegl_caas_cluster.test: Still creating... [23m30s elapsed]
-hpegl_caas_cluster.test: Still creating... [23m40s elapsed]
-hpegl_caas_cluster.test: Still creating... [23m50s elapsed]
-hpegl_caas_cluster.test: Still creating... [24m0s elapsed]
-hpegl_caas_cluster.test: Still creating... [24m10s elapsed]
-hpegl_caas_cluster.test: Still creating... [24m20s elapsed]
-hpegl_caas_cluster.test: Still creating... [24m30s elapsed]
-hpegl_caas_cluster.test: Still creating... [24m40s elapsed]
-hpegl_caas_cluster.test: Still creating... [24m50s elapsed]
 hpegl_caas_cluster.test: Still creating... [25m0s elapsed]
 hpegl_caas_cluster.test: Still creating... [25m10s elapsed]
 hpegl_caas_cluster.test: Still creating... [25m20s elapsed]
@@ -798,50 +662,12 @@ Do you really want to destroy all resources?
  
 hpegl_caas_cluster.test: Destroying... [id=8a3396db-ae26-44fd-a128-264c357f71fb]
 hpegl_caas_cluster.test: Still destroying... [id=8a3396db-ae26-44fd-a128-264c357f71fb, 10s elapsed]
-hpegl_caas_cluster.test: Still destroying... [id=8a3396db-ae26-44fd-a128-264c357f71fb, 20s elapsed]
-hpegl_caas_cluster.test: Still destroying... [id=8a3396db-ae26-44fd-a128-264c357f71fb, 30s elapsed]
-hpegl_caas_cluster.test: Still destroying... [id=8a3396db-ae26-44fd-a128-264c357f71fb, 40s elapsed]
-hpegl_caas_cluster.test: Still destroying... [id=8a3396db-ae26-44fd-a128-264c357f71fb, 50s elapsed]
 hpegl_caas_cluster.test: Still destroying... [id=8a3396db-ae26-44fd-a128-264c357f71fb, 1m0s elapsed]
-hpegl_caas_cluster.test: Still destroying... [id=8a3396db-ae26-44fd-a128-264c357f71fb, 1m10s elapsed]
-hpegl_caas_cluster.test: Still destroying... [id=8a3396db-ae26-44fd-a128-264c357f71fb, 1m20s elapsed]
-hpegl_caas_cluster.test: Still destroying... [id=8a3396db-ae26-44fd-a128-264c357f71fb, 1m30s elapsed]
-hpegl_caas_cluster.test: Still destroying... [id=8a3396db-ae26-44fd-a128-264c357f71fb, 1m40s elapsed]
-hpegl_caas_cluster.test: Still destroying... [id=8a3396db-ae26-44fd-a128-264c357f71fb, 1m50s elapsed]
 hpegl_caas_cluster.test: Still destroying... [id=8a3396db-ae26-44fd-a128-264c357f71fb, 2m0s elapsed]
-hpegl_caas_cluster.test: Still destroying... [id=8a3396db-ae26-44fd-a128-264c357f71fb, 2m10s elapsed]
-hpegl_caas_cluster.test: Still destroying... [id=8a3396db-ae26-44fd-a128-264c357f71fb, 2m20s elapsed]
-hpegl_caas_cluster.test: Still destroying... [id=8a3396db-ae26-44fd-a128-264c357f71fb, 2m30s elapsed]
-hpegl_caas_cluster.test: Still destroying... [id=8a3396db-ae26-44fd-a128-264c357f71fb, 2m40s elapsed]
-hpegl_caas_cluster.test: Still destroying... [id=8a3396db-ae26-44fd-a128-264c357f71fb, 2m50s elapsed]
 hpegl_caas_cluster.test: Still destroying... [id=8a3396db-ae26-44fd-a128-264c357f71fb, 3m0s elapsed]
-hpegl_caas_cluster.test: Still destroying... [id=8a3396db-ae26-44fd-a128-264c357f71fb, 3m10s elapsed]
-hpegl_caas_cluster.test: Still destroying... [id=8a3396db-ae26-44fd-a128-264c357f71fb, 3m20s elapsed]
-hpegl_caas_cluster.test: Still destroying... [id=8a3396db-ae26-44fd-a128-264c357f71fb, 3m30s elapsed]
-hpegl_caas_cluster.test: Still destroying... [id=8a3396db-ae26-44fd-a128-264c357f71fb, 3m40s elapsed]
-hpegl_caas_cluster.test: Still destroying... [id=8a3396db-ae26-44fd-a128-264c357f71fb, 3m50s elapsed]
 hpegl_caas_cluster.test: Still destroying... [id=8a3396db-ae26-44fd-a128-264c357f71fb, 4m0s elapsed]
-hpegl_caas_cluster.test: Still destroying... [id=8a3396db-ae26-44fd-a128-264c357f71fb, 4m10s elapsed]
-hpegl_caas_cluster.test: Still destroying... [id=8a3396db-ae26-44fd-a128-264c357f71fb, 4m20s elapsed]
-hpegl_caas_cluster.test: Still destroying... [id=8a3396db-ae26-44fd-a128-264c357f71fb, 4m30s elapsed]
-hpegl_caas_cluster.test: Still destroying... [id=8a3396db-ae26-44fd-a128-264c357f71fb, 4m40s elapsed]
-hpegl_caas_cluster.test: Still destroying... [id=8a3396db-ae26-44fd-a128-264c357f71fb, 4m50s elapsed]
 hpegl_caas_cluster.test: Still destroying... [id=8a3396db-ae26-44fd-a128-264c357f71fb, 5m0s elapsed]
-hpegl_caas_cluster.test: Still destroying... [id=8a3396db-ae26-44fd-a128-264c357f71fb, 5m10s elapsed]
-hpegl_caas_cluster.test: Still destroying... [id=8a3396db-ae26-44fd-a128-264c357f71fb, 5m20s elapsed]
-hpegl_caas_cluster.test: Still destroying... [id=8a3396db-ae26-44fd-a128-264c357f71fb, 5m30s elapsed]
-hpegl_caas_cluster.test: Still destroying... [id=8a3396db-ae26-44fd-a128-264c357f71fb, 5m40s elapsed]
-hpegl_caas_cluster.test: Still destroying... [id=8a3396db-ae26-44fd-a128-264c357f71fb, 5m50s elapsed]
 hpegl_caas_cluster.test: Still destroying... [id=8a3396db-ae26-44fd-a128-264c357f71fb, 6m0s elapsed]
-hpegl_caas_cluster.test: Still destroying... [id=8a3396db-ae26-44fd-a128-264c357f71fb, 6m10s elapsed]
-hpegl_caas_cluster.test: Still destroying... [id=8a3396db-ae26-44fd-a128-264c357f71fb, 6m20s elapsed]
-hpegl_caas_cluster.test: Still destroying... [id=8a3396db-ae26-44fd-a128-264c357f71fb, 6m30s elapsed]
-hpegl_caas_cluster.test: Still destroying... [id=8a3396db-ae26-44fd-a128-264c357f71fb, 6m40s elapsed]
-hpegl_caas_cluster.test: Still destroying... [id=8a3396db-ae26-44fd-a128-264c357f71fb, 6m50s elapsed]
-hpegl_caas_cluster.test: Still destroying... [id=8a3396db-ae26-44fd-a128-264c357f71fb, 7m0s elapsed]
-hpegl_caas_cluster.test: Still destroying... [id=8a3396db-ae26-44fd-a128-264c357f71fb, 7m10s elapsed]
-hpegl_caas_cluster.test: Still destroying... [id=8a3396db-ae26-44fd-a128-264c357f71fb, 7m20s elapsed]
-hpegl_caas_cluster.test: Still destroying... [id=8a3396db-ae26-44fd-a128-264c357f71fb, 7m30s elapsed]
 hpegl_caas_cluster.test: Still destroying... [id=8a3396db-ae26-44fd-a128-264c357f71fb, 7m40s elapsed]
 hpegl_caas_cluster.test: Destruction complete after 7m48s
  
@@ -878,7 +704,7 @@ provider "kubernetes" {
 
 <!--StartFragment-->
 
-</br>
+<br/>
 
 ### Terraform resource for Namespace:
 
@@ -901,13 +727,15 @@ resource "kubernetes_namespace" "test-namespace" {
 
 <!--StartFragment-->
 
-</br>
+<br/>
 
 ### Namespace creation using Terraform:
 
-namespace-create.tf : Below is a complete example of using the kubernetes provider and creating a namespace on a pre-created cluster.
+**namespace-create.tf** : Below is a complete example of using the kubernetes provider and creating a namespace on a pre-created cluster.
 
-(Note: You can name this file according to your preference. We are using namespace-create.tf here for easy reference)
+```
+Note: You can name this file according to your preference. We are using namespace-create.tf here for easy reference.
+```
 
 <!--EndFragment-->
 
@@ -958,7 +786,7 @@ resource "kubernetes_namespace" "test-namespace" {
 
 <!--StartFragment-->
 
-</br>
+<br/>
 
 ### Initializing workspace & Synchronizing Infrastructure components
 
@@ -998,7 +826,7 @@ commands will detect it and remind you to do so if necessary.
 
 <!--StartFragment-->
 
-</br>
+<br/>
 
 ### Terraform ready to plan
 
@@ -1035,7 +863,7 @@ Note: You didn't use the -out option to save this plan, so Terraform can't guara
 
 <!--StartFragment-->
 
-</br>
+<br/>
 
 ### Terraform ready to apply
 
@@ -1083,7 +911,7 @@ You can verify the created namespace **test-namespace**, by running the comman
 
 ![](/img/11.png)
 
-</br>
+<br/>
 
 <!--StartFragment-->
 
