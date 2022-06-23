@@ -44,7 +44,7 @@ You need an API client to authenticate against HPE GreenLake. Follow the below 
 
  <!--StartFragment-->
 
-3.  Enter a **Name**(mandatory field) and **Description**(optional) for the API client, and click on**Create**button.
+3.  Enter a **Name**(mandatory field) and **Description**(optional) for the API client, and click on **Create** button.
 
 <!--EndFragment-->
 
@@ -52,7 +52,7 @@ You need an API client to authenticate against HPE GreenLake. Follow the below 
 
 <!--StartFragment-->
 
-4.  Ensure to make a note of the **Issuer**, **Client ID** and **Client Secret** before clicking on the **Close** button. These details will be used in section 1.2.2.2.
+4.  Ensure to make a note of the **Issuer**, **Client ID** and **Client Secret** before clicking on the **Close** button. These details will be exported as environment variables in the next section.
 
 <!--EndFragment-->
 
@@ -88,9 +88,9 @@ The API client is now ready to be used to run the Terraform resources.
 
 <!--StartFragment-->
 
-###  Selecting a Terraform provider with Container service configurations
+### Selecting a Terraform provider with Container service configurations
 
-####  1. Ensure you have Terraform installed.
+#### 1. Ensure you have Terraform installed.
 
 Terraform can be installed by following: [Terraform Installation](https://learn.hashicorp.com/tutorials/terraform/install-cli)
 
@@ -121,7 +121,7 @@ export TF_VAR_HPEGL_SPACE=<Space ID>
 
 <!--StartFragment-->
 
-Export the API client details based on what was noted down in section 1.2.1.
+Export the API client details based on what was noted down.
 
 <!--EndFragment-->
 
@@ -159,11 +159,13 @@ provider hpegl {
 
 <!--StartFragment-->
 
+</br>
+
 ## Create a Cluster resource
 
 ### Terraform data source for Cluster Blueprint
 
-In order to use the data source available for cluster blueprint, you should add the below block in your cluster-create.tf file (as shown in section 1.3.4), and specify the cluster blueprint name. Using this data source, terraform will fetch the cluster Blueprint ID associated with it.
+In order to use the data source available for cluster blueprint, you should add the below block in your terraform file, and specify the cluster blueprint name. Using this data source, terraform will fetch the cluster Blueprint ID associated with it.
 
 In the below block, "demo" is the cluster blueprint **name** provided:
 
@@ -190,7 +192,7 @@ blueprint_id = data.hpegl_caas_cluster_blueprint.bp.id
 
 ### Terraform data source for Site
 
-In order to use the data source available for site, you should add the below block in your cluster-create.tf file (as shown in section 1.3.4), and specify the site name. Using this data source, Terraform will fetch the site ID associated with it.
+In order to use the data source available for site, you should add the below block in your terraform file, and specify the site name. Using this data source, Terraform will fetch the site ID associated with it.
 
 In the below block, "BLR" is the site **name** provided:
 
@@ -219,7 +221,7 @@ site_id = data.hpegl_caas_site.blr.id
 
 In order to use the data source available for cluster, you should add the below block and provide the cluster name and space id. Using this data source, terraform will fetch the cluster server and user token associated with it.
 
-In the below block, "tf-test" is the **name** of the pre-created cluster. Example usage of this data source is shown in section 1.5.3.
+In the below block, "tf-test" is the **name** of the pre-created cluster.
 
 <!--EndFragment-->
 
@@ -382,7 +384,6 @@ Plan: 1 to add, 0 to change, 0 to destroy.
 ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
  
 Note: You didn't use the -out option to save this plan, so Terraform can't guarantee to take exactly these actions if you run "terraform apply" now.
-
 ```
 
 <!--StartFragment-->
