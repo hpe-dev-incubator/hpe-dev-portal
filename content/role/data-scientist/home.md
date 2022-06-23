@@ -30,59 +30,82 @@ The roles of the Data/ML Engineer and Data Scientist can overlap. You may also f
 <div class="row">
   <div class="column">
     ### Get Inspired
-    **A sampler of new ideas related to data/ML engineering:**
+    \*\*A sampler of new ideas\*\*
 
-    *Learn how industry innovation may affect your job.*
+```
+*Learn how industry innovation may affect your job.*
+```
+
   </div>
   <div class="column">
     ### Building a Foundation 
-    **Get maximum flexibility for your choice of tools**
+    \*\*Optimize data access\*\*
 
-    *The right data infrastructure should give you direct access to data via a wide range of APIs for flexibility in your choice of tools.*
+```
+*The right data infrastructure should give you direct access to data via a wide range of APIs for flexibility in your choice of tools.*
+```
+
   </div>
 </div>
 
 <div class="row">
   <div class="column">
-    - Unit testing isn’t just for code: you need to unit test your data. [Watch Deequ: Unit Tests for Data](https://www.youtube.com/watch?v=2f_JewK79GI)
+    - \[Watch Deequ: Unit Tests for Data](https://www.youtube.com/watch?v=2f_JewK79GI) to learn why unit testing isn't just for code
 
-    - Innovative architectures help in geo-distributed systems where it’s better to distribute learning rather than moving data. Read this technical paper from HPE AI Labs [Swarm Learning: Turn Your Distributed Data into Competitive Edge](https://www.hpe.com/us/en/pdfViewer.html?docId=a50000344&parentPage=/us/en/products/compute/hpc/deep-learning&resourceTitle=Swarm+Learning:+Turn+Your+Distributed+Data+into+Competitive+Edge+technical+white+paper)
+```
+- Read [Swarm Learning: Turn Your Distributed Data into Competitive Edge](https://www.hpe.com/us/en/pdfViewer.html?docId=a50000344&parentPage=/us/en/products/compute/hpc/deep-learning&resourceTitle=Swarm+Learning:+Turn+Your+Distributed+Data+into+Competitive+Edge+technical+white+paper) to see how innovative architectures take advantage of the increasingly distributed nature of data
+```
+
   </div>
   <div class="column">
-    - Study the technical paper [HPE Ezmeral Data Fabric: Modern infrastructure for data storage and management](https://www.hpe.com/psnow/doc/a00110846enw)
+    - Study the technical paper \[HPE Ezmeral Data Fabric: Modern infrastructure for data storage and management](https://www.hpe.com/psnow/doc/a00110846enw)
 
-    - View the [HPE Ezmeral Data Fabric platform ](https://developer.hpe.com/platform/hpe-ezmeral-data-fabric/home/) page
-  </div>
-</div>
+```
+- View the [HPE Ezmeral Data Fabric platform ](https://developer.hpe.com/platform/hpe-ezmeral-data-fabric/home/) page
+```
 
----
-
-<div class="row">
-  <div class="column">
-    **Working together**
-
-    *Essential to building projects that deliver value, domain expertise helps frame questions, identify useful data, and take action on insights.*
-    
-  </div>
-  <div class="column">
-    **Containerization of applications**
-
-    *Containerized applications can be orchestrated with the open source Kubernetes framework.*
   </div>
 </div>
 
+- - -
+
 <div class="row">
   <div class="column">
-    - Multiple roles contribute to a successful data science project. Discover [The New Data Science Team: Who’s on First?](https://community.hpe.com/t5/HPE-Ezmeral-Uncut/The-New-Data-Science-Team-Who-s-on-First/ba-p/7154783#.Ybi1pb3MI2y)
+    \*\*Working together\*\*
 
-    - Combining diverse data sets leads to advances in fighting disease. Watch  [Data Saves Lives](https://www.hpe.com/us/en/discover-more-network/events/discover-2021/results.html/types/sessions/search/b4372?media-id=/us/en/resources/discover/las-vegas-2021/B4372/_jcr_content.details.json)
+```
+*Essential to building projects that deliver value, domain expertise helps frame questions, identify useful data, and take action on insights.*
+```
 
-    - Combined stakeholder expertise puts advanced agricultural knowledge to work in the field – literally. Watch  [Data Feeds People](https://www.hpe.com/us/en/discover-more-network/events/discover-2021/results.html/types/sessions/search/b4373).
   </div>
   <div class="column">
-    - Read [Kuberneticized machine learning and AI using Kubeflow](https://developer.hpe.com/blog/kubernetized-machine-learning-and-ai-using-kubeflow/)
+    \*\*Containerization of applications\*\*
 
-    - Learn how management of large scale Kubernetes clusters is made easier with [HPE Ezmeral Runtime Enterprise](https://developer.hpe.com/platform/hpe-ezmeral/home/)
+```
+*Containerized applications can be orchestrated with the open source Kubernetes framework.*
+```
+
+  </div>
+</div>
+
+<div class="row">
+  <div class="column">
+    - Discover \[The New Data Science Team: Who’s on First?](https://community.hpe.com/t5/HPE-Ezmeral-Uncut/The-New-Data-Science-Team-Who-s-on-First/ba-p/7154783#.Ybi1pb3MI2y) and learn how multiple roles contribute to a successful data science project
+
+```
+- Watch  [Data Saves Lives](https://www.hpe.com/us/en/discover-more-network/events/discover-2021/results.html/types/sessions/search/b4372?media-id=/us/en/resources/discover/las-vegas-2021/B4372/_jcr_content.details.json) and see how combining diverse data sets leads to advances in fighting disease
+
+- Watch  [Data Feeds People](https://www.hpe.com/us/en/discover-more-network/events/discover-2021/results.html/types/sessions/search/b4373) to learn how combined stakeholder expertise puts advanced agricultural knowledge to work in the field - literally
+```
+
+  </div>
+  <div class="column">
+    - Read \[Kuberneticized machine learning and AI using Kubeflow](https://developer.hpe.com/blog/kubernetized-machine-learning-and-ai-using-kubeflow/)
+
+```
+- Learn how management of large scale Kubernetes clusters is made easier with [HPE Ezmeral Runtime Enterprise](https://developer.hpe.com/platform/hpe-ezmeral/home/)
+```
+
   </div>
 </div>
 
@@ -94,43 +117,34 @@ The roles of the Data/ML Engineer and Data Scientist can overlap. You may also f
 
 **How do I find and get access to the right data?**
 
-- Read [Avoiding pitfalls: Tips for better data science](https://community.hpe.com/t5/HPE-Ezmeral-Uncut/Avoiding-pitfalls-Tips-for-better-data-science/ba-p/7144228)
-
-- Better connections between data producers and data consumers make data science more successful. Check out [Getting value from your data shouldn’t be this hard](https://www.hpe.com/us/en/insights/articles/getting-value-from-your-data-shouldn-t-be-this-hard-2106.html)
+* Read [Avoiding pitfalls: Tips for better data science](https://community.hpe.com/t5/HPE-Ezmeral-Uncut/Avoiding-pitfalls-Tips-for-better-data-science/ba-p/7144228)
+* Better connections between data producers and data consumers make data science more successful. Check out [Getting value from your data shouldn’t be this hard](https://www.hpe.com/us/en/insights/articles/getting-value-from-your-data-shouldn-t-be-this-hard-2106.html)
 
 **What can I do to lower the entry barriers to developing new AI/ML/data science projects?**
 
-- AI/ML projects can and should be run on the same system as analytics projects: Read “Chapter 3: AI and Analytics Together” in the free eBook [AI and Analytics at Scale: Lessons from Real-World Production Systems](https://www.hpe.com/us/en/resources/software/ai-and-analytics-systems.html)
-
-- Read [2nd project advantage: lowering barriers to AI and machine learning](https://community.hpe.com/t5/HPE-Ezmeral-Uncut/Second-project-advantage-Lowering-barriers-to-AI-and-machine/ba-p/7154034#.YZYX2elKhE4)
+* AI/ML projects can and should be run on the same system as analytics projects: Read “Chapter 3: AI and Analytics Together” in the free eBook [AI and Analytics at Scale: Lessons from Real-World Production Systems](https://www.hpe.com/us/en/resources/software/ai-and-analytics-systems.html)
+* Read [2nd project advantage: lowering barriers to AI and machine learning](https://community.hpe.com/t5/HPE-Ezmeral-Uncut/Second-project-advantage-Lowering-barriers-to-AI-and-machine/ba-p/7154034#.YZYX2elKhE4)
 
 **How do I optimize data logistics and preparation efforts to keep them from overwhelming the data science project?**
 
-- Read [Budgeting time for AI/ML projects](https://community.hpe.com/t5/HPE-Ezmeral-Uncut/Budgeting-time-for-AI-ML-projects/ba-p/7090807#.YZYZVelKhE4)
-
-- See content for the [Data/ML Engineer role](/role/data-ml-engineer/home/)
+* Read [Budgeting time for AI/ML projects](https://community.hpe.com/t5/HPE-Ezmeral-Uncut/Budgeting-time-for-AI-ML-projects/ba-p/7090807#.YZYZVelKhE4)
+* See content for the [Data/ML Engineer role](/role/data-ml-engineer/home/)
 
 **What makes it easier to deal with edge computing in large-scale systems?**
 
-- Read [To the edge and back again: Meeting the challenges of edge computing](https://community.hpe.com/t5/HPE-Ezmeral-Uncut/To-the-edge-and-back-again-Meeting-the-challenges-of-edge/ba-p/7132609#.Ya5X3r3ML0o)
-
- 
+* Read [To the edge and back again: Meeting the challenges of edge computing](https://community.hpe.com/t5/HPE-Ezmeral-Uncut/To-the-edge-and-back-again-Meeting-the-challenges-of-edge/ba-p/7132609#.Ya5X3r3ML0o)
 
 **How do I ensure data trust and security?**
 
-- Learn about the [SPIFFE and SPIRE projects](https://developer.hpe.com/platform/spiffe-and-spire-projects/home/) that are hosted by the CNCF Foundation
-
- 
+* Learn about the [SPIFFE and SPIRE projects](https://developer.hpe.com/platform/spiffe-and-spire-projects/home/) that are hosted by the CNCF Foundation
 
 **How are others doing this?**
 
 Check out these real-world case studies
 
-- [Accelerating Autonomous Car Development with Ready Access to Global Data Fabric](https://www.hpe.com/psnow/doc/a50003176enw?jumpid=in_lit-psnow-red)
-
-- [Accelerating Data Insight for a Better Work Life](https://www.hpe.com/psnow/doc/a50003827enw)
-
-- [Architecting the World’s Largest Biometric Identity System: The Aadhaar Experience](https://developer.hpe.com/blog/architecting-the-worlds-largest-biometric-identity-system-the-aadhaar-ex/)
+* [Accelerating Autonomous Car Development with Ready Access to Global Data Fabric](https://www.hpe.com/psnow/doc/a50003176enw?jumpid=in_lit-psnow-red)
+* [Accelerating Data Insight for a Better Work Life](https://www.hpe.com/psnow/doc/a50003827enw)
+* [Architecting the World’s Largest Biometric Identity System: The Aadhaar Experience](https://developer.hpe.com/blog/architecting-the-worlds-largest-biometric-identity-system-the-aadhaar-ex/)
 
 <br>
 <hr style="background: #FF8300; height: 5px; border: none">
@@ -146,17 +160,20 @@ Check out these real-world case studies
 
   </div>
   <div class="column">
-    - [What’s a data fabric and how does it work?](https://www.youtube.com/watch?v=qi6sTvu8osk)
+    - \[What’s a data fabric and how does it work?](https://www.youtube.com/watch?v=qi6sTvu8osk)
 
-    - [Data Science Unplugged: Part 1](https://www.youtube.com/watch?v=Inh6eXM0EbA)
+```
+- [Data Science Unplugged: Part 1](https://www.youtube.com/watch?v=Inh6eXM0EbA)
 
-    - [Data Science Unplugged: Part 2](https://www.youtube.com/watch?v=Va4tSr__Yok)
+- [Data Science Unplugged: Part 2](https://www.youtube.com/watch?v=Va4tSr__Yok)
 
-    - [How to make data consumable for real-world data science](https://www.youtube.com/watch?v=4WKjRqflF7M)
+- [How to make data consumable for real-world data science](https://www.youtube.com/watch?v=4WKjRqflF7M)
+```
+
   </div>
 </div>
 
----
+- - -
 
 <br><br>
 <a href="https://hackshack.hpedev.io/workshops" style="font-weight: 700; font-size: 27px">HPE DEV Workshops-on-Demand</a>
@@ -167,48 +184,42 @@ Check out these real-world case studies
 
   </div>
   <div class="column">
-    - [HPE Ezmeral Data Fabric 101 – Get to know the basics around the data fabric](https://hackshack.hpedev.io/workshop/26)
+    - \[HPE Ezmeral Data Fabric 101 – Get to know the basics around the data fabric](https://hackshack.hpedev.io/workshop/26)
 
-     
   </div>
 </div>
 
----
+- - -
 
 <br><br>
+
 <div style="font-weight: 700; font-size: 27px">Documentation</div>
 
 <div class="row">
   <div class="column">    
-    The [HPE Ezmeral Data Fabric platform page](https://developer.hpe.com/platform/hpe-ezmeral-data-fabric/home/) offers documentation and API information along with informative videos and tutorials. Additional documentation can be found here.
+    The \[HPE Ezmeral Data Fabric platform page](https://developer.hpe.com/platform/hpe-ezmeral-data-fabric/home/) offers documentation and API information along with informative videos and tutorials. Additional documentation can be found here.
 
   </div>
   <div class="column">
-    - [HPE Ezmeral Data Fabric 7.0 documentation](https://docs.datafabric.hpe.com/70/index.html)
+    - \[HPE Ezmeral Data Fabric 7.0 documentation](https://docs.datafabric.hpe.com/70/index.html)
 
-     
   </div>
 </div>
 
----
+- - -
 
 <br><br>
+
 <div style="font-weight: 700; font-size: 27px">Engage</div>
 
 ## Workshops-on-Demand
+
 The [HPE DEV Workshops-on-Demand](/hackshack/workshops) are free, Jupyter Notebook-based workshops that offer an in-depth, hands-on learning experience. Explore details of a technology by interacting with it. Designed to fit your schedule, these workshops are available 24/7 – from anywhere at any time. Check out these interesting HPE Ezmeral Data Fabric workshops:
 
 * [HPE Ezmeral Data Fabric 101 – Get to know the basics around the data fabric](/hackshack/workshop/26)
-<div class="row">
-  <div class="column">
 
-    Ping us with your comments, questions, and requests for information.
+  ```
+  Ping us with your comments, questions, and requests for information.
 
-     
-  </div>
-  <div class="column">
-    - [HPE Dev Slack]( https://slack.hpedev.io/)
-
-     
-  </div>  
-</div>
+   
+  ```
