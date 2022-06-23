@@ -30,7 +30,7 @@ The roles of the Data/ML Engineer and Data Scientist can overlap. You may also f
 <div class="row">
   <div class="column">
     ### Get Inspired
-    \*\*A sampler of new ideas\*\*
+    **A sampler of new ideas**
 
 ```
 *Learn how industry innovation may affect your job.*
@@ -39,7 +39,7 @@ The roles of the Data/ML Engineer and Data Scientist can overlap. You may also f
   </div>
   <div class="column">
     ### Building a Foundation 
-    \*\*Optimize data access\*\*
+    **Optimize data access**
 
 ```
 *The right data infrastructure should give you direct access to data via a wide range of APIs for flexibility in your choice of tools.*
@@ -71,7 +71,7 @@ The roles of the Data/ML Engineer and Data Scientist can overlap. You may also f
 
 <div class="row">
   <div class="column">
-    \*\*Working together\*\*
+    **Working together**
 
 ```
 *Essential to building projects that deliver value, domain expertise helps frame questions, identify useful data, and take action on insights.*
@@ -79,7 +79,7 @@ The roles of the Data/ML Engineer and Data Scientist can overlap. You may also f
 
   </div>
   <div class="column">
-    \*\*Containerization of applications\*\*
+    **Containerization of applications**
 
 ```
 *Containerized applications can be orchestrated with the open source Kubernetes framework.*
