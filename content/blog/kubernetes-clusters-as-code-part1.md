@@ -3,6 +3,11 @@ title: Kubernetes clusters as Code - Part1
 date: 2022-06-23T10:15:09.699Z
 author: Rachana Kallada Jayaraj
 authorimage: /img/photo-1-.jpg
+tags:
+  - hpe-greenlake
+  - devops
+  - terraform
+  - open source
 ---
 <!--StartFragment-->
 
