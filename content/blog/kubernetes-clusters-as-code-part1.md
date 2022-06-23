@@ -103,7 +103,7 @@ Installation can be verified using the below command.
 
 <!--EndFragment-->
 
-```
+```markdown
 $ terraform version
 Terraform v1.1.9
 on linux_amd64
@@ -119,7 +119,7 @@ Export the Tenant ID and Space ID:
 
 <!--EndFragment-->
 
-```
+```markdown
 export HPEGL_TENANT_ID=<Tenant ID>
 export TF_VAR_HPEGL_SPACE=<Space ID>
 ```
@@ -130,7 +130,7 @@ Export the API client details based on what was noted down.
 
 <!--EndFragment-->
 
-```
+```markdown
 export HPEGL_USER_ID=<Client ID>
 export HPEGL_USER_SECRET=<Client Secret>
 export HPEGL_IAM_SERVICE_URL=<Issuer>
@@ -146,7 +146,7 @@ The first lines of your Terraform configuration file should look like this:
 
 <!--EndFragment-->
 
-```
+```markdown
 terraform {
   required_providers {
     hpegl = {
@@ -176,7 +176,7 @@ In the below block, "demo" is the cluster blueprint **name** provided:
 
 <!--EndFragment-->
 
-```
+```markdown
 data "hpegl_caas_cluster_blueprint" "bp" {
   name = "demo"
   site_id = data.hpegl_caas_site.blr.id
@@ -189,7 +189,7 @@ The cluster blueprint ID can now be fetched by using:
 
 <!--EndFragment-->
 
-```
+```markdown
 blueprint_id = data.hpegl_caas_cluster_blueprint.bp.id
 ```
 
@@ -205,7 +205,7 @@ In the below block, "BLR" is the site **name** provided:
 
 <!--EndFragment-->
 
-```
+```markdown
 data "hpegl_caas_site" "blr" {
   name = "BLR"
   space_id = ""
@@ -218,7 +218,7 @@ The site ID can now be fetched by using:
 
 <!--EndFragment-->
 
-```
+```markdown
 site_id = data.hpegl_caas_site.blr.id
 ```
 
@@ -234,7 +234,7 @@ In the below block, "tf-test" is the **name** of the pre-created cluster.
 
 <!--EndFragment-->
 
-```
+```markdown
 data "hpegl_caas_cluster" "test" {
   name     = "tf-test"
   space_id = ""
@@ -247,7 +247,7 @@ The **host** (cluster server) and **token** (user token) can now be fetched 
 
 <!--EndFragment-->
 
-```
+```markdown
 host     = yamldecode(base64decode(data.hpegl_caas_cluster.test.kubeconfig)).clusters[0].cluster.server
 token    = yamldecode(base64decode(data.hpegl_caas_cluster.test.kubeconfig)).users[0].user.token
 ```
@@ -270,7 +270,7 @@ Note: Here, the **space_id** is automatically set to the value specified while
 
 <!--EndFragment-->
 
-```
+```markdown
 terraform {
   required_providers {
     hpegl = {
@@ -323,7 +323,7 @@ Place the cluster-create.tf file in your working directory and initialize the w
 
 <!--EndFragment-->
 
-```
+```markdown
 $ terraform init
  
 Initializing the backend...
@@ -363,7 +363,7 @@ Terraform plan is a dry run which lets you preview the changes that terraform pl
 
 <!--EndFragment-->
 
-```
+```markdown
 $ terraform plan
  
 Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
@@ -411,7 +411,7 @@ Terraform apply executes the actions proposed in the Terraform plan and deploys 
 
 <!--EndFragment-->
 
-```
+```markdown
 $ terraform apply
  
 Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
@@ -646,7 +646,7 @@ In Terraform, clean-up can be done using the destroy command. This will automat
 
 <!--EndFragment-->
 
-```
+```markdown
 $ terraform destroy
 hpegl_caas_cluster.test: Refreshing state... [id=8a3396db-ae26-44fd-a128-264c357f71fb]
  
@@ -868,7 +868,7 @@ Below is the code block for adding **kubernetes** provider:
 
 <!--EndFragment-->
 
-```
+```markdown
 provider "kubernetes" {
   host     = yamldecode(base64decode(data.hpegl_caas_cluster.test.kubeconfig)).clusters[0].cluster.server
   token    = yamldecode(base64decode(data.hpegl_caas_cluster.test.kubeconfig)).users[0].user.token
@@ -886,7 +886,7 @@ You can create a kubernetes namespace using the **kubernetes_namespace** resou
 
 <!--EndFragment-->
 
-```
+```markdown
 resource "kubernetes_namespace" "test-namespace" {
   metadata {
     name = "test-namespace"
@@ -911,7 +911,7 @@ namespace-create.tf : Below is a complete example of using the kubernetes provid
 
 <!--EndFragment-->
 
-```
+```markdown
 # Copyright 2020 Hewlett Packard Enterprise Development LP
  
 # Set-up for terraform >= v0.13
@@ -966,7 +966,7 @@ Place the namespace-create.tf file in your working directory and initialize the
 
 <!--EndFragment-->
 
-```
+```markdown
 $ terraform init
  
 Initializing the backend...
@@ -1006,7 +1006,7 @@ Terraform plan is a dry run which lets you preview the changes that Terraform pl
 
 <!--EndFragment-->
 
-```
+```markdown
 $ terraform plan
  
 Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
@@ -1043,7 +1043,7 @@ Terraform apply executes the actions proposed in the Terraform plan and deploys 
 
 <!--EndFragment-->
 
-```
+```markdown
 $ terraform apply  Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
   + create
  
