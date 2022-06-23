@@ -24,7 +24,7 @@ HPE GreenLake customers and partners can take advantage of our well-documented, 
 
 ## Manage workloads with the HPE GreenLake edge-to-cloud platform
 
-* [Learn how with HPE GreenLake edge-to-cloud platform demos and resources](https://www.hpe.com/us/en/greenlake/demos.html)   
+[Learn how with HPE GreenLake edge-to-cloud platform demos and resources](https://www.hpe.com/us/en/greenlake/demos.html)   
  
 
 ## Workshops-on-Demand
