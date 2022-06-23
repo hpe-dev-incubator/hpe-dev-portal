@@ -190,6 +190,8 @@ blueprint_id = data.hpegl_caas_cluster_blueprint.bp.id
 
 <!--StartFragment-->
 
+</br>
+
 ### Terraform data source for Site
 
 In order to use the data source available for site, you should add the below block in your terraform file, and specify the site name. Using this data source, Terraform will fetch the site ID associated with it.
@@ -216,6 +218,8 @@ site_id = data.hpegl_caas_site.blr.id
 ```
 
 <!--StartFragment-->
+
+</br>
 
 ###  Terraform data source for Cluster
 
@@ -244,6 +248,8 @@ token    = yamldecode(base64decode(data.hpegl_caas_cluster.test.kubeconfig)).use
 ```
 
 <!--StartFragment-->
+
+</br>
 
 ### Terraform resource for Cluster
 
@@ -304,6 +310,8 @@ You can get information about each of the data sources and resources mentioned a
 
 <!--StartFragment-->
 
+</br>
+
 ### Initializing workspace & Synchronizing Infrastructure components
 
 Place the cluster-create.tf file in your working directory and initialize the working directory using the command: **terraform init**
@@ -341,6 +349,8 @@ commands will detect it and remind you to do so if necessary.
 ```
 
 <!--StartFragment-->
+
+</br>
 
 ###  Terraform ready to plan
 
@@ -387,6 +397,8 @@ Note: You didn't use the -out option to save this plan, so Terraform can't guara
 ```
 
 <!--StartFragment-->
+
+</br>
 
 ### Terraform ready to apply
 
@@ -861,6 +873,8 @@ provider "kubernetes" {
 
 <!--StartFragment-->
 
+</br>
+
 ### Terraform resource for Namespace:
 
 You can create a kubernetes namespace using the **kubernetes_namespace** resource and providing a namespace **name** of your choice. In the below example, name = "test-namespace".
@@ -881,6 +895,8 @@ resource "kubernetes_namespace" "test-namespace" {
 ```
 
 <!--StartFragment-->
+
+</br>
 
 ### Namespace creation using Terraform:
 
@@ -937,6 +953,8 @@ resource "kubernetes_namespace" "test-namespace" {
 
 <!--StartFragment-->
 
+</br>
+
 ### Initializing workspace & Synchronizing Infrastructure components
 
 Place the namespace-create.tf file in your working directory and initialize the working directory using the command: **terraform init**
@@ -975,6 +993,8 @@ commands will detect it and remind you to do so if necessary.
 
 <!--StartFragment-->
 
+</br>
+
 ### Terraform ready to plan
 
 Terraform plan is a dry run which lets you preview the changes that Terraform plans to make to your infrastructure based on the data you provide in your Terraform file. To see this, run: **terraform plan**
@@ -1009,6 +1029,8 @@ Note: You didn't use the -out option to save this plan, so Terraform can't guara
 ```
 
 <!--StartFragment-->
+
+</br>
 
 ### Terraform ready to apply
 
