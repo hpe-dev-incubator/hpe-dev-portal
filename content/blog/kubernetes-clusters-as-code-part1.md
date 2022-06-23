@@ -1082,3 +1082,13 @@ You can verify the created namespace **test-namespace**, by running the comman
 <!--EndFragment-->
 
 ![](/img/11.png)
+
+</br>
+
+<!--StartFragment-->
+
+## Next Up
+
+In our next blog, we will continue our discussion on deploying applications.
+
+<!--EndFragment-->
