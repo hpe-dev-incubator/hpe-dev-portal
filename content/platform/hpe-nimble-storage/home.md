@@ -6,7 +6,7 @@ description: The Cloud Ready storage platform with Predictive Analytics that
   generation data center.
 image: /img/platforms/NimbleStorage.svg
 width: large
-priority: 3
+priority: 14
 frontpage: true
 active: true
 tags:
