@@ -9,19 +9,19 @@ tags:
   - terraform
   - open source
 ---
-## Getting Started
+## Getting started
 
-The process of managing and provisioning computer data centers through machine-readable definition files, also known as Infrastructure-as-Code (IaC), offers many significant benefits. It helps to increase operational agility, simplify management, reduce errors, and save cost. In this post, we will explore some of the benefits of using IaC to build a Kubernetes cluster from scratch, with all the necessary configuration and core services, on HPE GreenLake using Terraform (TF). Storing Kubernetes cluster and favorable configurations as code, helps in repeatability and change management.
+The process of managing and provisioning computer data centers through machine-readable definition files, also known as Infrastructure-as-Code (IaC), offers many significant benefits. It helps to increase operational agility, simplify management, reduce errors, and save cost. In this post, we will explore some of the benefits of using IaC to build a Kubernetes cluster from scratch, with all the necessary configuration and core services, on HPE GreenLake using Terraform (TF). Storing Kubernetes cluster and favorable configurations as code helps in repeatability and change management.
 
-IaC with Kubernetes is not new. There are providers in the developer community which are quite good and well supported. Using the HPE GreenLake Terraform provider, you can bring up a Kubernetes cluster starting right from the infrastructure layer and way up in the stack, to set up desired configurations and applications. For reference, see the below picture.
+IaC with Kubernetes is not new. There are providers in the developer community that are quite good and well supported. Using the HPE GreenLake Terraform provider, you can bring up a Kubernetes cluster starting right from the infrastructure layer and way up in the stack, to set up desired configurations and applications. For reference, see the below picture.
 
 ![](/img/image2022-6-20_12-36-56.png)
 
 HPE GreenLake TF provider brings the Kubernetes stack up on the HPE GreenLake Infrastructure, and exposes credentials for other TF providers to integrate further and build the complete stack, as desired. In the diagram above, 2 and 3 are community providers that are available, which can be used in combination with HPE GreenLake TF provider. 
 
-## Preparing for Infrastructure-as-code implementation 
+## Preparing for infrastructure-as-code implementation 
 
-### Setting up API clients
+### Setting up API Client access
 
 You need an API client to authenticate against HPE GreenLake. Follow the below steps for API Client creation.
 
@@ -33,11 +33,11 @@ You need an API client to authenticate against HPE GreenLake. Follow the below 
 
 ![](/img/2.png)
 
-3.  Enter a **Name**(mandatory field) and **Description**(optional) for the API client, and click on **Create** button.
+3.  Enter a **Name** (mandatory field) and **Description** (optional) for the API client, and click on **Create** button.
 
 ![](/img/3.png)
 
-4.  Ensure to make a note of the **Issuer**, **Client ID** and **Client Secret** before clicking on the **Close** button. These details will be exported as environment variables in the next section.
+4.  Ensure you make a note of the **Issuer**, **Client ID** and **Client Secret** before clicking on the **Close** button. These details will be exported as environment variables in the next section.
 
 ![](/img/4.png)
 
@@ -55,7 +55,7 @@ You need an API client to authenticate against HPE GreenLake. Follow the below 
 
 The API client is now ready to be used to run the Terraform resources.
 
-### Selecting a Terraform provider with Container service configurations
+### Selecting a Terraform provider with container service configurations
 
 #### 1. Ensure you have Terraform installed.
 
@@ -88,7 +88,7 @@ export HPEGL_IAM_SERVICE_URL=<Issuer>
 
 #### 3. Choosing the appropriate Terraform provider.
 
-The first section of the Terraform file will enumerate the “providers” you rely upon for building your infrastructure, and they could be multiple providers in a single TF file. In this case here, you will have the HPE GreenLake provider referenced as hpe/hpegl (**source**) and the available versions to choose from (**version**), in the official [Terraform registry](https://registry.terraform.io/providers/HPE/hpegl/0.2.2).
+The first section of the Terraform file will enumerate the “providers” you rely upon for building your infrastructure, and there could be multiple providers in a single TF file. In this case here, you will have the HPE GreenLake provider referenced as hpe/hpegl (**source**) and the available versions to choose from (**version**), in the official [Terraform registry](https://registry.terraform.io/providers/HPE/hpegl/0.2.2).
 
 The first lines of your Terraform configuration file should look like this:
 
@@ -112,7 +112,7 @@ provider hpegl {
 
 ### Terraform data source for Cluster Blueprint
 
-In order to use the data source available for cluster blueprint, you should add the below block in your terraform file, and specify the cluster blueprint name. Using this data source, terraform will fetch the cluster Blueprint ID associated with it.
+In order to use the data source available for cluster blueprint, you should add the below block in your Terraform file, and specify the cluster blueprint name. Using this data source, Terraform will fetch the cluster Blueprint ID associated with it.
 
 In the below block, "demo" is the cluster blueprint **name** provided:
 
@@ -131,7 +131,7 @@ blueprint_id = data.hpegl_caas_cluster_blueprint.bp.id
 
 ### Terraform data source for Site
 
-In order to use the data source available for site, you should add the below block in your terraform file, and specify the site name. Using this data source, Terraform will fetch the site ID associated with it.
+In order to use the data source available for site, you should add the below block in your Terraform file, and specify the site name. Using this data source, Terraform will fetch the site ID associated with it.
 
 In the below block, "BLR" is the site **name** provided:
 
@@ -150,7 +150,7 @@ site_id = data.hpegl_caas_site.blr.id
 
 ###  Terraform data source for Cluster
 
-In order to use the data source available for cluster, you should add the below block and provide the cluster name and space id. Using this data source, terraform will fetch the cluster server and user token associated with it.
+In order to use the data source available for cluster, you should add the below block and provide the cluster name and space id. Using this data source, Terraform will fetch the cluster server and user token associated with it.
 
 In the below block, "tf-test" is the **name** of the pre-created cluster.
 
@@ -172,11 +172,11 @@ token    = yamldecode(base64decode(data.hpegl_caas_cluster.test.kubeconfig)).use
 
 In order to create a cluster using the cluster resource, the following values should be specified in the **cluster-create.tf** file:
 
-1. Site Name: Fill in the appropriate site **name** in the **hpegl\_caas\_site** block. In the below example, name= "BLR" 
-2. Cluster Blueprint Name: Fill in the appropriate cluster blueprint **name** in the **hpegl\_caas\_cluster\_blueprint** block. In the below example, name= "demo" 
-3. Cluster Name: Fill in the cluster **name** of your choice in the **hpegl\_caas\_cluster** block. In the below example, name= "tf-test"
+1. Site Name: Fill in the appropriate site **name** in the **hpegl_caas_site** block. In the below example, name= "BLR" 
+2. Cluster Blueprint Name: Fill in the appropriate cluster blueprint **name** in the **hpegl_caas_cluster_blueprint** block. In the below example, name= "demo" 
+3. Cluster Name: Fill in the cluster **name** of your choice in the **hpegl_caas_cluster** block. In the below example, name= "tf-test"
 
-> Note: Here, the space_id is automatically set to the value specified while exporting TF\_VAR\_HPEGL\_SPACE.
+> Note: Here, the space_id is automatically set to the value specified while exporting TF_VAR_HPEGL_SPACE.
 
 **cluster-create.tf**
 
@@ -221,7 +221,7 @@ resource hpegl_caas_cluster test {
 
 You can get information about each of the data sources and resources mentioned above from [Github](https://github.com/HPE/terraform-provider-hpegl/tree/main/docs).
 
-### Initializing workspace & Synchronizing Infrastructure components
+### Initializing workspace & synchronizing infrastructure components
 
 Place the cluster-create.tf file in your working directory and initialize the working directory using the command: **terraform init**
 
@@ -257,7 +257,7 @@ commands will detect it and remind you to do so if necessary.
 
 ###  Terraform ready to plan
 
-Terraform plan is a dry run which lets you preview the changes that terraform plans to make to your infrastructure based on the data you provide in your terraform file. To see this, run: **terraform plan**
+Terraform plan is a dry run that lets you preview the changes that Terraform plans to make to your infrastructure based on the data you provide in your Terraform file. To see this, run: **terraform plan**
 
 ```markdown
 $ terraform plan
@@ -299,7 +299,7 @@ Note: You didn't use the -out option to save this plan, so Terraform can't guara
 
 ### Terraform ready to apply
 
-Terraform apply executes the actions proposed in the Terraform plan and deploys the resources. Run **terraform apply** and then type yes when asked to **Enter a value**.
+Terraform apply executes the actions proposed in the Terraform plan and deploys the resources. Run the command: **terraform apply** and type **yes** when asked to **Enter a value**.
 
 ```markdown
 $ terraform apply
@@ -380,7 +380,7 @@ Based on the cluster details provided, the cluster will get created and the same
 
 ![](/img/9.png)
 
-## Delete a cluster resource
+## Delete a Cluster resource
 
 In Terraform, clean-up can be done using the destroy command. This will automatically use the HPE GreenLake provider to clean the infrastructure in HPE GreenLake. Run the following command: **terraform destroy**
 
@@ -554,11 +554,11 @@ The cluster **tf-test** has been deleted, and this can be verified within HPE 
 
 ## Additional 3rd party provider of your choice from community
 
-You can also use a 3rd party provider of your choice from the community. In this section, we will discuss on how to create a namespace in GL CaaS cluster using a kubernetes community provider.
+You can also use a 3rd party provider of your choice from the community. In this section, we will discuss on how to create a namespace in GL CaaS cluster using Kubernetes community provider.
 
-### Kubernetes Provider
+### Kubernetes provider
 
-Below is the code block for adding **kubernetes** provider:
+Below is the code block for adding **Kubernetes** provider:
 
 ```json
 provider "kubernetes" {
@@ -570,7 +570,7 @@ provider "kubernetes" {
 
 ### Terraform resource for Namespace:
 
-You can create a kubernetes namespace using the **kubernetes\_namespace** resource and providing a namespace **name** of your choice. In the below example, name = "test-namespace".
+You can create a Kubernetes namespace using the **kubernetes_namespace** resource and providing a namespace **name** of your choice. In the below example, name = "test-namespace".
 
 ```json
 resource "kubernetes_namespace" "test-namespace" {
@@ -587,7 +587,7 @@ resource "kubernetes_namespace" "test-namespace" {
 
 ### Namespace creation using Terraform:
 
-**namespace-create.tf** : Below is a complete example of using the kubernetes provider and creating a namespace on a pre-created cluster.
+**namespace-create.tf** : Below is a complete example of using the Kubernetes provider and creating a namespace on a pre-created cluster.
 
 ```
 Note: You can name this file according to your preference. We are using namespace-create.tf here for easy reference.
@@ -638,7 +638,7 @@ resource "kubernetes_namespace" "test-namespace" {
 }
 ```
 
-### Initializing workspace & Synchronizing Infrastructure components
+### Initializing workspace & synchronizing infrastructure components
 
 Place the namespace-create.tf file in your working directory and initialize the working directory using the command: **terraform init**
 
@@ -674,7 +674,7 @@ commands will detect it and remind you to do so if necessary.
 
 ### Terraform ready to plan
 
-Terraform plan is a dry run which lets you preview the changes that Terraform plans to make to your infrastructure based on the data you provide in your Terraform file. To see this, run: **terraform plan**
+Terraform plan is a dry run that lets you preview the changes that Terraform plans to make to your infrastructure based on the data you provide in your Terraform file. To see this, run: **terraform plan**
 
 ```markdown
 $ terraform plan
@@ -743,6 +743,6 @@ You can verify the created namespace **test-namespace**, by running the comman
 
 ![](/img/11.png)
 
-## Next Up
+## Next up
 
 In our next blog, we will continue our discussion on deploying applications.
