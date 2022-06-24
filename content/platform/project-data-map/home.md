@@ -38,23 +38,17 @@ HPE is developing Project Data Map to:
 
 With an open source foundation and a global data fabric, like HPE Ezmeral software, Project Data Map provides seamless, unified access to distributed data and unified control of distributed Kubernetes clusters. Project Data Map features:
 
-* A data preview browser, enabling you to see fragments of data and access its lineage to check on validity and quality.   
+* A data preview browser, enabling you to see fragments of data and access its lineage to check on validity and quality.
 
+* Data exchange and marketplace access, providing a mechanism to publish contextual meta data to help define policy, license and exchange contracts, and provide access rights to data when criteria is met.
 
-* Data exchange and marketplace access, providing a mechanism to publish contextual meta data to help define policy, license and exchange contracts, and provide access rights to data when criteria is met.   
+* An open Common Metadata Framework that standardizes the way for you to find the most meaningful data based on personalized recommendations.
 
+* A data policy engine, making data sovereignty possible through dynamic policy generation and governance integrated with standard AAA services and versioned persistence on-platform and enforceable license models.
 
-* An open Common Metadata Framework that standardizes the way for you to find the most meaningful data based on personalized recommendations.   
+* Data search and filter/meta data standards, automating meta data generation on ingest with the ability to provide rich meta data to describe the data and update it for personalization.
 
-
-* A data policy engine, making data sovereignty possible through dynamic policy generation and governance integrated with standard AAA services and versioned persistence on-platform and enforceable license models.   
-
-
-* Data search and filter/meta data standards, automating meta data generation on ingest with the ability to provide rich meta data to describe the data and update it for personalization.   
-
-
-* An Open API, allowing a service ecosystem to both consume data and orchestrate the creation of meta data for the mutual benefit of data producers and consumers.   
-
+* An Open API, allowing a service ecosystem to both consume data and orchestrate the creation of meta data for the mutual benefit of data producers and consumers.
 
 * Trustworthy Data Foundation, tracking and analyzing meta data from edge to core in order to shape data and pipelines with trustworthy elements throughout the entire data lifecycle.   
 
