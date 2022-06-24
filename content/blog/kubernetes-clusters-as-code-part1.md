@@ -21,9 +21,9 @@ HPE GreenLake TF provider brings the Kubernetes stack up on the HPE GreenLake In
 
 In this two-part blog series, I’ll share my experience as a first-time user of HPE Greenlake TF provider. This blog series aims to provide a step by step walkthrough of how to bring up a cluster using Terraform and how to deploy applications on the pre-created cluster. 
 
-In this first part, I will focus on the pre-requisites needed prior to using HPE GreenLake TF provider and the steps to be followed, to bring up the cluster resource. I will also discuss on the usage of 3rd party community providers like Kubernetes and how these can be used in combination with HPE Greenlake TF provider.
+In this first part, I will focus on the pre-requisites needed prior to using HPE GreenLake TF provider and the steps to be followed to bring up a cluster. I will also discuss on how 3rd party community providers can be used in tandem with HPE Greenlake TF provider.
 
-In the second part, I will focus on how to deploy applications on a pre-created cluster using Terraform.
+In the second part, I will illustrate how to deploy applications on a namespace in the pre-created cluster, using Terraform.
 
 ## Preparing for infrastructure-as-code implementation 
 
@@ -31,11 +31,11 @@ In the second part, I will focus on how to deploy applications on a pre-created 
 
 You need an API client to authenticate against HPE GreenLake.
 
-> Note: You should have IAM Owner Role assigned to you, to proceed with API Client creation.
+> Note: You should have **IAM Owner** role for the appropriate tenant to proceed with API Client creation.
 
-Follow the below steps for API Client creation.
+Follow the below steps for API Client creation:
 
-1. From the HPE GreenLake platform, launch the **HPE GreenLake Central console** for the appropriate tenant, and from the **Dashboard** select **User Management** option on the tenant page.
+1. From the HPE GreenLake platform, launch the **HPE GreenLake Central console** for the appropriate tenant. Under the settings icon on the tenant **Dashboard** page, select **User Management** option.
 
 ![](/img/1.png)
 
@@ -55,11 +55,7 @@ Follow the below steps for API Client creation.
 
 ![](/img/5.png)
 
-6. Create the assignment with below details: 
-
-   **Role Assignment**: Private Cloud Cluster Owner
-
-   **Space**: Default
+6. Create an assignment with **Role Assignment:** **Private Cloud Cluster Owner** and **Space:** **Default.**
 
 ![](/img/6.png)
 
@@ -118,9 +114,9 @@ provider hpegl {
 }
 ```
 
-## Create a Cluster resource
+## Create a cluster resource
 
-### Terraform data source for Cluster Blueprint
+### Terraform data source for cluster blueprint
 
 In order to use the data source available for cluster blueprint, you should add the below block in your Terraform file, and specify the cluster blueprint name. Using this data source, Terraform will fetch the cluster Blueprint ID associated with it.
 
@@ -139,7 +135,7 @@ The cluster blueprint ID can now be fetched by using:
 blueprint_id = data.hpegl_caas_cluster_blueprint.bp.id
 ```
 
-### Terraform data source for Site
+### Terraform data source for site
 
 In order to use the data source available for site, you should add the below block in your Terraform file, and specify the site name. Using this data source, Terraform will fetch the site ID associated with it.
 
@@ -158,7 +154,7 @@ The site ID can now be fetched by using:
 site_id = data.hpegl_caas_site.blr.id
 ```
 
-###  Terraform data source for Cluster
+###  Terraform data source for cluster
 
 In order to use the data source available for cluster, you should add the below block and provide the cluster name and space id. Using this data source, Terraform will fetch the cluster server and user token associated with it.
 
@@ -178,7 +174,7 @@ host     = yamldecode(base64decode(data.hpegl_caas_cluster.test.kubeconfig)).clu
 token    = yamldecode(base64decode(data.hpegl_caas_cluster.test.kubeconfig)).users[0].user.token
 ```
 
-### Terraform resource for Cluster
+### Terraform resource for cluster
 
 In order to create a cluster using the cluster resource, the following values should be specified in the **cluster-create.tf** file shown below:
 
@@ -190,7 +186,7 @@ In order to create a cluster using the cluster resource, the following values sh
 
 **cluster-create.tf**
 
-> Note:You can name this file according to your preference. We are using cluster-create.tf here for easy reference.
+> Note: You can name this file according to your preference. We are using cluster-create.tf here for easy reference.
 
 ```json
 terraform {
@@ -390,7 +386,7 @@ From the HPE GreenLake platform, launch the **HPE GreenLake Central console** fo
 
 ![](/img/9.png)
 
-## Delete a Cluster resource
+## Delete a cluster resource
 
 In Terraform, clean-up can be done using the destroy command. This will automatically use the HPE GreenLake provider to clean the infrastructure in HPE GreenLake. Run the following command: **terraform destroy**
 
@@ -578,7 +574,7 @@ provider "kubernetes" {
 }
 ```
 
-### Terraform resource for Namespace:
+### Terraform resource for namespace
 
 You can create a Kubernetes namespace using the **kubernetes_namespace** resource and providing a namespace **name** of your choice. In the below example, name = "test-namespace".
 
@@ -595,7 +591,7 @@ resource "kubernetes_namespace" "test-namespace" {
 }
 ```
 
-### Namespace creation using Terraform:
+### Namespace creation using Terraform
 
 **namespace-create.tf** : Below is a complete example of using the Kubernetes provider and creating a namespace on a pre-created cluster.
 
@@ -753,4 +749,4 @@ You can verify the created namespace **test-namespace**, by running the comman
 
 ## Next up
 
-In our next blog, we will continue our discussion on deploying applications.
+In our next blog, we will continue our discussion on deploying applications in a pre-created cluster.
