@@ -11,12 +11,12 @@ tags:
 ---
 ## Getting started
 
-The process of managing and provisioning computer data centers through machine-readable definition files, also known as Infrastructure-as-Code (IaC), offers many significant benefits like:
+The process of managing and provisioning computer data centers through machine-readable definition files, also known as Infrastructure-as-Code (IaC), offers many significant benefits, like:
 
-* Increase operational agility
-* Simplify management
-* Reduce errors
-* Save cost
+* Increased operational agility
+* Simplified management
+* Reduced errors
+* Saved cost
 
 Using the HPE GreenLake Terraform provider, you can bring up a Kubernetes cluster starting right from the infrastructure layer and way up in the stack to set up desired configurations and applications. In the diagram below, 2 and 3 are community providers that are available and can be used in combination with HPE GreenLake TF provider to deploy applications on the Kubernetes cluster. In this blog post, I will illustrate how this can be implemented using Terraform. 
 
@@ -26,15 +26,15 @@ Using similar Terraform files as shown in this blog post, customers can deploy a
 
 ## Let's recap
 
-In the Kubernetes Cluster as Code - Part 1 blog post, I covered the usage of the HPE GreenLake Terraform provider to create and destroy a Kubernetes cluster and discussed on how to use community providers in combination with HPE GreenLake TF provider, to create a namespace in the Kubernetes cluster.
+In [my first blog post](https://developer.hpe.com/blog/kubernetes-clusters-as-code-part1/), I covered the usage of the HPE GreenLake Terraform provider to create and destroy a Kubernetes cluster and discussed how to use community providers, in combination with HPE GreenLake TF provider, to create a namespace in the Kubernetes cluster.
 
-In this blog post, we will focus on managing application deployments using IaC. Here, I will be deploying Prometheus application on an existing/pre-created Kubernetes cluster. Hence, the pre-requisite to proceed would be to have a Kubernetes cluster and a namespace created. You could follow the steps mentioned in Kubernetes Cluster as Code - Part 1 blog post to achieve this.
+In this blog post, I will focus on managing application deployments using IaC. Here, I will be deploying a Prometheus application on an existing/pre-created Kubernetes cluster. Hence, the pre-requisite to proceed would be to have a Kubernetes cluster and a namespace created. You could follow the steps mentioned in [my first blog post](https://developer.hpe.com/blog/kubernetes-clusters-as-code-part1/) to achieve this.
 
 ## Application deployment on a Kubernetes cluster
 
 ### Helm provider
 
-Below is the code block for adding **helm** community provider. Please refer to Kubernetes Cluster as Code - Part 1 blog post for details regarding **hpegl\_caas\_cluster** data source.
+Below is the code block for adding **helm** community provider. Please refer to [my first blog post](https://developer.hpe.com/blog/kubernetes-clusters-as-code-part1/) for details regarding **hpegl\_caas\_cluster** data source.
 
 ```json
 provider "helm" {
@@ -302,7 +302,7 @@ For example, http://172.16.17.168:32424
 
 ## Summary
 
-In [](https://developer.hpe.com/blog/infrastructure-as-code-on-hpe-greenlake-using-terraform/)my first blog post, I covered how to get started with the Terraform provider for HPE GreenLake and explained how to create a Kubernetes cluster and bring up a namespace on the Kubernetes cluster using Kubernetes community provider. In this article, I showed you how to manage application deployments on a Kubernetes cluster using Terraform.
+In [my first blog post](https://developer.hpe.com/blog/kubernetes-clusters-as-code-part1/), I covered how to get started with the Terraform provider for HPE GreenLake and explained how to create a Kubernetes cluster and bring up a namespace on the Kubernetes cluster using Kubernetes community provider. In this article, I showed you how to manage application deployments on a Kubernetes cluster using Terraform.
 
 I hope you found this information interesting and useful in helping you get started with HPE GreenLake Terraform provider. You could also go through the below links to understand more about Terraform and HPE GreenLake Terraform Provider
 
@@ -312,4 +312,4 @@ I hope you found this information interesting and useful in helping you get star
 
 \-      [ Learn more about the HPE GreenLake Terraform provider](https://registry.terraform.io/providers/HPE/hpegl)
 
-Don’t forget, you can always find other tutorials and articles on HPE GreenLake on the [HPE Developer blog](https://developer.hpe.com/blog).
+Don’t forget, you can always find other tutorials and articles on HPE GreenLake on the [HPE Developer blog](https://developer.hpe.com/blog/tag/hpe-greenlake).
