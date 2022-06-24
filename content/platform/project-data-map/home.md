@@ -33,6 +33,7 @@ HPE is developing Project Data Map to:
 
 * Enable a distributed enterprise to minimize unnecessary data movement for more efficient data management and help with cloud egress
 
+[Learn more about project Data Map](https://hpe.com)
 
 ## Features
 
@@ -53,6 +54,10 @@ With an open source foundation and a global data fabric, like HPE Ezmeral softwa
 * Trustworthy Data Foundation, tracking and analyzing meta data from edge to core in order to shape data and pipelines with trustworthy elements throughout the entire data lifecycle.   
 
 
+
+## YouTube Videos
+
+[View our session from the HPE Discover 2022 edge-to-cloud conference](https://hpe.com)
 
 
 ## Projects
