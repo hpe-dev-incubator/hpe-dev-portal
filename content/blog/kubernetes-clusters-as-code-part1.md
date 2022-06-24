@@ -9,8 +9,6 @@ tags:
   - terraform
   - open source
 ---
-<!--StartFragment-->
-
 ## Getting Started
 
 The process of managing and provisioning computer data centers through machine-readable definition files, also known as Infrastructure-as-Code (IaC), offers many significant benefits. It helps to increase operational agility, simplify management, reduce errors, and save cost. In this post, we will explore some of the benefits of using IaC to build a Kubernetes cluster from scratch, with all the necessary configuration and core services, on HPE GreenLake using Terraform (TF). Storing Kubernetes cluster and favorable configurations as code, helps in repeatability and change management.
@@ -19,13 +17,7 @@ IaC with Kubernetes is not new. There are providers in the developer community w
 
 ![](/img/image2022-6-20_12-36-56.png)
 
-<!--StartFragment-->
-
 HPE GreenLake TF provider brings the Kubernetes stack up on the HPE GreenLake Infrastructure, and exposes credentials for other TF providers to integrate further and build the complete stack, as desired. In the diagram above, 2 and 3 are community providers that are available, which can be used in combination with HPE GreenLake TF provider. 
-
-<!--EndFragment-->
-
-<!--StartFragment-->
 
 ## Preparing for Infrastructure-as-code implementation 
 
@@ -33,45 +25,25 @@ HPE GreenLake TF provider brings the Kubernetes stack up on the HPE GreenLake In
 
 You need an API client to authenticate against HPE GreenLake. Follow the below steps for API Client creation.
 
-1. Launch HPE GreenLake **Dashboard** for the appropriate tenant and select **User Management** option on the tenant page.
-
-<!--EndFragment-->
+1. From the HPE GreenLake platform, launch the **HPE GreenLake Central console** for the appropriate tenant, and from the **Dashboard** select **User Management** option on the tenant page.
 
 ![](/img/1.png)
 
-<!--StartFragment-->
-
 2. Under the **API Clients** tab, click on **Create API Client**.
-
-<!--EndFragment-->
 
 ![](/img/2.png)
 
- <!--StartFragment-->
-
 3.  Enter a **Name**(mandatory field) and **Description**(optional) for the API client, and click on **Create** button.
-
-<!--EndFragment-->
 
 ![](/img/3.png)
 
-<!--StartFragment-->
-
 4.  Ensure to make a note of the **Issuer**, **Client ID** and **Client Secret** before clicking on the **Close** button. These details will be exported as environment variables in the next section.
-
-<!--EndFragment-->
 
 ![](/img/4.png)
 
-<!--StartFragment-->
-
 5. In the **API Clients** page, select the newly created client, and click on **Create Assignment** button.
 
-<!--EndFragment-->
-
 ![](/img/5.png)
-
-<!--StartFragment-->
 
 6. Create the assignment with below details:
 
@@ -79,19 +51,9 @@ You need an API client to authenticate against HPE GreenLake. Follow the below 
 
    **Space: Default**
 
-<!--EndFragment-->
-
 ![](/img/6.png)
 
-<!--StartFragment-->
-
 The API client is now ready to be used to run the Terraform resources.
-
-<!--EndFragment-->
-
-<br/>
-
-<!--StartFragment-->
 
 ### Selecting a Terraform provider with Container service configurations
 
@@ -101,34 +63,22 @@ Terraform can be installed by following: [Terraform Installation](https://learn
 
 Installation can be verified using the below command.
 
-<!--EndFragment-->
-
-```markdown
+```bash
 $ terraform version
 Terraform v1.1.9
 on linux_amd64
 ```
 
-<!--EndFragment-->
-
-<!--StartFragment-->
-
 #### 2. Export the following environment variables on your machine.
 
 Export the Tenant ID and Space ID:
-
-<!--EndFragment-->
 
 ```markdown
 export HPEGL_TENANT_ID=<Tenant ID>
 export TF_VAR_HPEGL_SPACE=<Space ID>
 ```
 
-<!--StartFragment-->
-
 Export the API client details based on what was noted down.
-
-<!--EndFragment-->
 
 ```markdown
 export HPEGL_USER_ID=<Client ID>
@@ -136,17 +86,13 @@ export HPEGL_USER_SECRET=<Client Secret>
 export HPEGL_IAM_SERVICE_URL=<Issuer>
 ```
 
-<!--StartFragment-->
-
 #### 3. Choosing the appropriate Terraform provider.
 
 The first section of the Terraform file will enumerate the “providers” you rely upon for building your infrastructure, and they could be multiple providers in a single TF file. In this case here, you will have the HPE GreenLake provider referenced as hpe/hpegl (**source**) and the available versions to choose from (**version**), in the official [Terraform registry](https://registry.terraform.io/providers/HPE/hpegl/0.2.2).
 
 The first lines of your Terraform configuration file should look like this:
 
-<!--EndFragment-->
-
-```markdown
+```json
 terraform {
   required_providers {
     hpegl = {
@@ -162,10 +108,6 @@ provider hpegl {
 }
 ```
 
-<!--StartFragment-->
-
-<br/>
-
 ## Create a Cluster resource
 
 ### Terraform data source for Cluster Blueprint
@@ -174,28 +116,18 @@ In order to use the data source available for cluster blueprint, you should add 
 
 In the below block, "demo" is the cluster blueprint **name** provided:
 
-<!--EndFragment-->
-
-```markdown
+```json
 data "hpegl_caas_cluster_blueprint" "bp" {
   name = "demo"
   site_id = data.hpegl_caas_site.blr.id
 }
 ```
 
-<!--StartFragment-->
-
 The cluster blueprint ID can now be fetched by using:
 
-<!--EndFragment-->
-
-```markdown
+```json
 blueprint_id = data.hpegl_caas_cluster_blueprint.bp.id
 ```
-
-<!--StartFragment-->
-
-<br/>
 
 ### Terraform data source for Site
 
@@ -203,28 +135,18 @@ In order to use the data source available for site, you should add the below blo
 
 In the below block, "BLR" is the site **name** provided:
 
-<!--EndFragment-->
-
-```markdown
+```json
 data "hpegl_caas_site" "blr" {
   name = "BLR"
   space_id = ""
 }
 ```
 
-<!--StartFragment-->
-
 The site ID can now be fetched by using:
 
-<!--EndFragment-->
-
-```markdown
+```json
 site_id = data.hpegl_caas_site.blr.id
 ```
-
-<!--StartFragment-->
-
-<br/>
 
 ###  Terraform data source for Cluster
 
@@ -232,53 +154,35 @@ In order to use the data source available for cluster, you should add the below 
 
 In the below block, "tf-test" is the **name** of the pre-created cluster.
 
-<!--EndFragment-->
-
-```markdown
+```json
 data "hpegl_caas_cluster" "test" {
   name     = "tf-test"
   space_id = ""
 }
 ```
 
-<!--StartFragment-->
-
 The **host** (cluster server) and **token** (user token) can now be fetched from the cluster kubeconfig using:
 
-<!--EndFragment-->
-
-```markdown
+```json
 host     = yamldecode(base64decode(data.hpegl_caas_cluster.test.kubeconfig)).clusters[0].cluster.server
 token    = yamldecode(base64decode(data.hpegl_caas_cluster.test.kubeconfig)).users[0].user.token
 ```
-
-<!--StartFragment-->
-
-<br/>
 
 ### Terraform resource for Cluster
 
 In order to create a cluster using the cluster resource, the following values should be specified in the **cluster-create.tf** file:
 
-1. Site Name: Fill in the appropriate site **name** in the **hpegl_caas_site** block. In the below example, name= "BLR" 
-2. Cluster Blueprint Name: Fill in the appropriate cluster blueprint **name** in the **hpegl_caas_cluster_blueprint** block. In the below example, name= "demo" 
-3. Cluster Name: Fill in the cluster **name** of your choice in the **hpegl_caas_cluster** block. In the below example, name= "tf-test"
+1. Site Name: Fill in the appropriate site **name** in the **hpegl\_caas\_site** block. In the below example, name= "BLR" 
+2. Cluster Blueprint Name: Fill in the appropriate cluster blueprint **name** in the **hpegl\_caas\_cluster\_blueprint** block. In the below example, name= "demo" 
+3. Cluster Name: Fill in the cluster **name** of your choice in the **hpegl\_caas\_cluster** block. In the below example, name= "tf-test"
 
-```markdown
-Note: Here, the space_id is automatically set to the value specified while exporting TF_VAR_HPEGL_SPACE.
-```
-
-<br/>
+> Note: Here, the space_id is automatically set to the value specified while exporting TF\_VAR\_HPEGL\_SPACE.
 
 **cluster-create.tf**
 
-```markdown
-Note:You can name this file according to your preference. We are using cluster-create.tf here for easy reference.
-```
+> Note:You can name this file according to your preference. We are using cluster-create.tf here for easy reference.
 
-<!--EndFragment-->
-
-```markdown
+```json
 terraform {
   required_providers {
     hpegl = {
@@ -315,21 +219,11 @@ resource hpegl_caas_cluster test {
 }
 ```
 
-<!--StartFragment-->
-
 You can get information about each of the data sources and resources mentioned above from [Github](https://github.com/HPE/terraform-provider-hpegl/tree/main/docs).
-
-<!--EndFragment-->
-
-<!--StartFragment-->
-
-<br/>
 
 ### Initializing workspace & Synchronizing Infrastructure components
 
 Place the cluster-create.tf file in your working directory and initialize the working directory using the command: **terraform init**
-
-<!--EndFragment-->
 
 ```markdown
 $ terraform init
@@ -361,15 +255,9 @@ rerun this command to reinitialize your working directory. If you forget, other
 commands will detect it and remind you to do so if necessary.
 ```
 
-<!--StartFragment-->
-
-<br/>
-
 ###  Terraform ready to plan
 
 Terraform plan is a dry run which lets you preview the changes that terraform plans to make to your infrastructure based on the data you provide in your terraform file. To see this, run: **terraform plan**
-
-<!--EndFragment-->
 
 ```markdown
 $ terraform plan
@@ -409,15 +297,9 @@ Plan: 1 to add, 0 to change, 0 to destroy.
 Note: You didn't use the -out option to save this plan, so Terraform can't guarantee to take exactly these actions if you run "terraform apply" now.
 ```
 
-<!--StartFragment-->
-
-<br/>
-
 ### Terraform ready to apply
 
 Terraform apply executes the actions proposed in the Terraform plan and deploys the resources. Run **terraform apply** and then type yes when asked to **Enter a value**.
-
-<!--EndFragment-->
 
 ```markdown
 $ terraform apply
@@ -492,23 +374,15 @@ hpegl_caas_cluster.test: Creation complete after 29m1s [id=8a3396db-ae26-44fd-a1
 Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
 ```
 
-<!--StartFragment-->
-
 Based on the cluster details provided, the cluster will get created and the same can be verified in the HPE GreenLake Central, under the list of clusters:
-
-<!--EndFragment-->
 
 ![](/img/8.png)
 
 ![](/img/9.png)
 
-<!--StartFragment-->
-
 ## Delete a cluster resource
 
 In Terraform, clean-up can be done using the destroy command. This will automatically use the HPE GreenLake provider to clean the infrastructure in HPE GreenLake. Run the following command: **terraform destroy**
-
-<!--EndFragment-->
 
 ```markdown
 $ terraform destroy
@@ -674,15 +548,9 @@ hpegl_caas_cluster.test: Destruction complete after 7m48s
 Destroy complete! Resources: 1 destroyed.
 ```
 
-<!--StartFragment-->
-
 The cluster **tf-test** has been deleted, and this can be verified within HPE GreenLake Central:
 
-<!--EndFragment-->
-
 ![](/img/10.png)
-
-<!--StartFragment-->
 
 ## Additional 3rd party provider of your choice from community
 
@@ -692,9 +560,7 @@ You can also use a 3rd party provider of your choice from the community. In this
 
 Below is the code block for adding **kubernetes** provider:
 
-<!--EndFragment-->
-
-```markdown
+```json
 provider "kubernetes" {
   host     = yamldecode(base64decode(data.hpegl_caas_cluster.test.kubeconfig)).clusters[0].cluster.server
   token    = yamldecode(base64decode(data.hpegl_caas_cluster.test.kubeconfig)).users[0].user.token
@@ -702,17 +568,11 @@ provider "kubernetes" {
 }
 ```
 
-<!--StartFragment-->
-
-<br/>
-
 ### Terraform resource for Namespace:
 
-You can create a kubernetes namespace using the **kubernetes_namespace** resource and providing a namespace **name** of your choice. In the below example, name = "test-namespace".
+You can create a kubernetes namespace using the **kubernetes\_namespace** resource and providing a namespace **name** of your choice. In the below example, name = "test-namespace".
 
-<!--EndFragment-->
-
-```markdown
+```json
 resource "kubernetes_namespace" "test-namespace" {
   metadata {
     name = "test-namespace"
@@ -725,10 +585,6 @@ resource "kubernetes_namespace" "test-namespace" {
 }
 ```
 
-<!--StartFragment-->
-
-<br/>
-
 ### Namespace creation using Terraform:
 
 **namespace-create.tf** : Below is a complete example of using the kubernetes provider and creating a namespace on a pre-created cluster.
@@ -737,9 +593,7 @@ resource "kubernetes_namespace" "test-namespace" {
 Note: You can name this file according to your preference. We are using namespace-create.tf here for easy reference.
 ```
 
-<!--EndFragment-->
-
-```markdown
+```json
 # Copyright 2020 Hewlett Packard Enterprise Development LP
  
 # Set-up for terraform >= v0.13
@@ -784,15 +638,9 @@ resource "kubernetes_namespace" "test-namespace" {
 }
 ```
 
-<!--StartFragment-->
-
-<br/>
-
 ### Initializing workspace & Synchronizing Infrastructure components
 
 Place the namespace-create.tf file in your working directory and initialize the working directory using the command: **terraform init**
-
-<!--EndFragment-->
 
 ```markdown
 $ terraform init
@@ -824,15 +672,9 @@ rerun this command to reinitialize your working directory. If you forget, other
 commands will detect it and remind you to do so if necessary.
 ```
 
-<!--StartFragment-->
-
-<br/>
-
 ### Terraform ready to plan
 
 Terraform plan is a dry run which lets you preview the changes that Terraform plans to make to your infrastructure based on the data you provide in your Terraform file. To see this, run: **terraform plan**
-
-<!--EndFragment-->
 
 ```markdown
 $ terraform plan
@@ -861,15 +703,9 @@ Plan: 1 to add, 0 to change, 0 to destroy.
 Note: You didn't use the -out option to save this plan, so Terraform can't guarantee to take exactly these actions if you run "terraform apply" now.
 ```
 
-<!--StartFragment-->
-
-<br/>
-
 ### Terraform ready to apply
 
 Terraform apply executes the actions proposed in the Terraform plan and deploys the resources. Run **terraform apply** and then type **yes** when asked to **Enter a value**.
-
-<!--EndFragment-->
 
 ```markdown
 $ terraform apply  Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
@@ -903,20 +739,10 @@ kubernetes_namespace.test-namespace: Creation complete after 0s [id=test-namespa
 Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
 ```
 
-<!--StartFragment-->
-
 You can verify the created namespace **test-namespace**, by running the command: **kubectl get namespace**
 
-<!--EndFragment-->
-
 ![](/img/11.png)
-
-<br/>
-
-<!--StartFragment-->
 
 ## Next Up
 
 In our next blog, we will continue our discussion on deploying applications.
-
-<!--EndFragment-->
