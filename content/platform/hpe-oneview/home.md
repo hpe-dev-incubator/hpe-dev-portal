@@ -4,7 +4,7 @@ version: v 6.01.8964
 description: The foundation for a software-defined data center.
 image: /img/platforms/Oneview.svg
 width: large
-priority: 3
+priority: 16
 frontpage: true
 active: true
 tags:
