@@ -2,8 +2,8 @@
 title: Project Data Map
 version: "1.0"
 description: A collaborative service platform for data publishing, subscription,
-  exchange, and management with data governance, security and trust to gain the
-  best insights for your business.
+  exchange, and management with data governance, lineage, security and trust to
+  gain the best insights for your business.
 image: /img/platforms/hpe-element.png
 width: large
 priority: 5
