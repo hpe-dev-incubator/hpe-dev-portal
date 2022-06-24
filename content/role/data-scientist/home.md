@@ -38,7 +38,7 @@ The roles of the Data/ML Engineer and Data Scientist can overlap. You may also f
     ### Building a Foundation 
     **Optimize data access**
 
-    *The right data infrastructure should give you direct access to data via a wide range of APIs for flexibility in your choice of tools.*
+    *The right data infrastructure gives you direct access to data via a wide range of APIs for a choice in tools.*
   </div>
 </div>
 
@@ -63,13 +63,13 @@ The roles of the Data/ML Engineer and Data Scientist can overlap. You may also f
   <div class="column">
     **Working together**
 
-    *Essential to building projects that deliver value, domain expertise helps frame questions, identify useful data, and take action on insights.*
+    *Domain expertise helps frame questions, identify useful data, and take action on insights.*
     
   </div>
   <div class="column">
     **Containerization of applications**
 
-    *Containerized applications can be orchestrated with the open source Kubernetes framework.*
+    *The open source Kubernetes framework orchestrates containers.*
   </div>
 </div>
 
@@ -77,9 +77,9 @@ The roles of the Data/ML Engineer and Data Scientist can overlap. You may also f
   <div class="column">
     - Discover [The New Data Science Team: Who’s on First?](https://community.hpe.com/t5/HPE-Ezmeral-Uncut/The-New-Data-Science-Team-Who-s-on-First/ba-p/7154783#.Ybi1pb3MI2y) and learn how multiple roles contribute to a successful data science project
 
-    - Combining diverse data sets leads to advances in fighting disease. Watch  [Data Saves Lives](https://www.hpe.com/us/en/discover-more-network/events/discover-2021/results.html/types/sessions/search/b4372?media-id=/us/en/resources/discover/las-vegas-2021/B4372/_jcr_content.details.json)
+    - Combine diverse data sets to advance healthcare. Watch  [Data Saves Lives](https://www.hpe.com/us/en/discover-more-network/events/discover-2021/results.html/types/sessions/search/b4372?media-id=/us/en/resources/discover/las-vegas-2021/B4372/_jcr_content.details.json) to learn how
 
-    - Combined stakeholder expertise puts advanced agricultural knowledge to work in the field – literally. Watch  [Data Feeds People](https://www.hpe.com/us/en/discover-more-network/events/discover-2021/results.html/types/sessions/search/b4373).
+    - Watch  [Data Feeds People](https://www.hpe.com/us/en/discover-more-network/events/discover-2021/results.html/types/sessions/search/b4373) to see how combined stakholder expertise puts advanced agricultural knowledge to work in the field - literally
   </div>
   <div class="column">
     - Read [Kuberneticized machine learning and AI using Kubeflow](https://developer.hpe.com/blog/kubernetized-machine-learning-and-ai-using-kubeflow/)
@@ -116,13 +116,7 @@ The roles of the Data/ML Engineer and Data Scientist can overlap. You may also f
 
 - Read [To the edge and back again: Meeting the challenges of edge computing](https://community.hpe.com/t5/HPE-Ezmeral-Uncut/To-the-edge-and-back-again-Meeting-the-challenges-of-edge/ba-p/7132609#.Ya5X3r3ML0o)
 
- 
-
-**How do I ensure data trust and security?**
-
-- Learn about the [SPIFFE and SPIRE projects](https://developer.hpe.com/platform/spiffe-and-spire-projects/home/) that are hosted by the CNCF Foundation
-
- 
+  
 
 **How are others doing this?**
 
