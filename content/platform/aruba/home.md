@@ -6,7 +6,7 @@ description: A comprehensive resource for developers that includes Aruba APIs
   edge applications leveraging the Aruba Edge Services Platform.
 image: /img/platforms/Aruba.svg
 width: large
-priority: 3
+priority: 15
 frontpage: true
 active: true
 tags:
