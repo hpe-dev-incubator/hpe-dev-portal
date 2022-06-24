@@ -54,7 +54,7 @@ With an open source foundation and a global data fabric, like HPE Ezmeral softwa
 
 
 
-## Videos, articles and more
+## Videos and articles
 
 [View our session from the HPE Discover 2022 edge-to-cloud conference](https://hpe.com)
 
