@@ -25,7 +25,7 @@ In this two-part blog series, I’ll share my experience as a first-time user of
 
 In this first part, I will focus on the pre-requisites needed prior to using HPE GreenLake TF provider and the steps to be followed to bring up a Kubernetes cluster. I will also discuss on how 3rd party community providers can be used in tandem with HPE Greenlake TF provider.
 
-In the second part, I will illustrate how to deploy applications on a namespace in the pre-created Kubernetes cluster, using Terraform.
+In [the second part of this series](https://developer.hpe.com/blog/kubernetes-cluster-as-code-part-2/), I will illustrate how to deploy applications on a namespace in the pre-created Kubernetes cluster, using Terraform.
 
 ## Preparing for infrastructure-as-code implementation 
 
@@ -751,4 +751,4 @@ You can verify the created namespace **test-namespace**, by running the comman
 
 ## Next up
 
-In our next blog, we will continue our discussion on deploying applications on a pre-created Kubernetes cluster.
+In [my next blog post](https://developer.hpe.com/blog/kubernetes-cluster-as-code-part-2/), we will continue our discussion on deploying applications on a pre-created Kubernetes cluster.
