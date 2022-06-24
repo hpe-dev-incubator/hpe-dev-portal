@@ -9,44 +9,27 @@ tags:
   - terraform
   - open source
 ---
-<!--StartFragment-->
+## Getting started
 
-## Getting Started
-
-The process of managing and provisioning computer data centers through machine-readable definition files, also known as Infrastructure-as-Code (IaC), offers many significant benefits. It helps to increase operational agility, simplify management, reduce errors, and save cost. In this post, we will explore some of the benefits of using IaC to build a Kubernetes cluster from scratch, with all the necessary configuration and core services, on HPE GreenLake using Terraform (TF). Storing Kubernetes cluster and favorable configurations as code, helps in repeatability and change management.
-
-IaC with Kubernetes is not new. There are providers in the developer community which are quite good and well supported. Using the HPE GreenLake Terraform provider, you can bring up a Kubernetes cluster starting right from the infrastructure layer and way up in the stack, to set up desired configurations and applications. For reference, see the below picture.
-
-<!--EndFragment-->
+The process of managing and provisioning computer data centers through machine-readable definition files, also known as Infrastructure-as-Code (IaC), offers many significant benefits. It helps to increase operational agility, simplify management, reduce errors, and save cost. Using the HPE GreenLake Terraform provider, you can bring up a Kubernetes cluster starting right from the infrastructure layer and way up in the stack to set up desired configurations and applications. For reference, see the below picture.
 
 ![](/img/image2022-6-20_12-36-56.png)
 
-<!--StartFragment-->
+In the diagram above, 2 and 3 are community providers that are available, which can be used in combination with HPE GreenLake TF provider. In this blog post, I will illustrate how to deploy applications on an existing Kubernetes cluster. Using similar Terraform files as shown in this blog post, customers can deploy any application of their choice on the cluster, using any of the community providers available. With this capability, customers can customize their Kubernetes clusters based on their needs.
 
-HPE GreenLake TF provider brings the Kubernetes stack up on the HPE GreenLake Infrastructure, and exposes credentials for other TF providers to integrate further and build the complete stack, as desired. In the diagram above, 2 and 3 are community providers that are available, which can be used in combination with HPE GreenLake TF provider. 
+## Let's recap
 
-<br/>
+In the Kubernetes Cluster as Code - Part 1 blog post, I covered the usage of the HPE GreenLake Terraform provider to create and destroy a Kubernetes cluster and discussed on how to use community providers in combination with HPE GreenLake TF provider, to create a namespace in the Kubernetes cluster.
 
-## Let's Recap
-
-In [](https://rndwiki-pro.its.hpecorp.net/display/HCSS/Blog+%3A+Kubernetes+clusters+as+Code+-+Part1)the Kubernetes Cluster as Code - Part 1 blog , we covered the usage of the HPE GreenLake Terraform provider:
-
-* To create and destroy a cluster resource.
-* To incorporate community providers like kubernetes and create namespaces in the created cluster.
-
-In this blog, we will focus on managing application deployments using IaC. Here, we will be deploying applications on an existing/pre-created cluster. Hence, the pre-requisite to proceed, would be, to have a cluster and a namespace created. You can follow the steps mentioned in Kubernetes Cluster as Code - Part 1 blog.
-
-<br/>
+In this blog post, we will focus on managing application deployments using IaC. Here, I will be deploying Prometheus application on an existing/pre-created Kubernetes cluster. Hence, the pre-requisite to proceed would be to have a cluster and a namespace created. You could follow the steps mentioned in Kubernetes Cluster as Code - Part 1 blog post to achieve this.
 
 ## Application deployment on a cluster
 
 ### Helm provider
 
-Below is the code block for adding **helm** communityprovider. Please refer to Kubernetes Cluster as Code - Part 1 blog for details regarding **hpegl\_caas\_cluster** data source.
+Below is the code block for adding **helm** community provider. Please refer to Kubernetes Cluster as Code - Part 1 blog post for details regarding **hpegl\_caas\_cluster** data source.
 
-<!--EndFragment-->
-
-```
+```json
 provider "helm" {
   kubernetes {
        host     = yamldecode(base64decode(data.hpegl_caas_cluster.tf-test-7.kubeconfig)).clusters[0].cluster.server
@@ -56,26 +39,18 @@ provider "helm" {
 }
 ```
 
-<!--StartFragment-->
+### Helm-release Terraform resource for Prometheus stack deployment
 
-<br/>
-
-### Helm-release terraform resource for Prometheus stack deployment
-
-In order to deploy prometheus stack using the helm-release resource, the following values have to be filled in the **prometheus-deploy.tf** file:
+In order to deploy Prometheus stack using the helm-release resource, the following values have to be filled in the **prometheus-deploy.tf** file:
 
 1. Cluster Name: Fill in the **name** of the pre-created cluster in **hpegl\_caas\_cluster** block. In the below example, name= "tf-test-7"
 2. Namespace: Fill in the appropriate **namespace** in the **helm\_release** block. In the below example, namespace= "test-namespace" 
 
 **prometheus-deploy.tf** 
 
-```markdown
-Note: You can name this file according to your preference. We are using prometheus-deploy.tf here for easy reference.
-```
+> Note: You can name this file according to your preference. We are using prometheus-deploy.tf here for easy reference.
 
-<!--EndFragment-->
-
-```markdown
+```json
 terraform {
   required_providers {
     hpegl = {
@@ -121,15 +96,11 @@ resource "helm_release" "prometheus-stack" {
 }
 ```
 
-<!--StartFragment-->
-
-### Initializing workspace & Synchronizing Infrastructure components
+### Initializing workspace & synchronizing infrastructure components
 
 Place the **prometheus-deploy.tf** file in your working directory and initialize the working directory using the command: **terraform init**
 
-<!--EndFragment-->
-
-```
+```markdown
 $ terraform init
  
 Initializing the backend...
@@ -155,13 +126,9 @@ rerun this command to reinitialize your working directory. If you forget, other
 commands will detect it and remind you to do so if necessary.
 ```
 
-<!--StartFragment-->
-
 ### Terraform ready to plan
 
 Terraform plan is a dry run which lets you preview the changes that Terraform plans to make to your infrastructure based on the data you provide in your Terraform file. To see this, run: **terraform plan**
-
-<!--EndFragment-->
 
 ```markdown
 $ terraform plan
@@ -216,13 +183,9 @@ Plan: 1 to add, 0 to change, 0 to destroy.
 Note: You didn't use the -out option to save this plan, so Terraform can't guarantee to take exactly these actions if you run "terraform apply" now.
 ```
 
-<!--StartFragment-->
-
 ### Terraform ready to apply
 
 Terraform apply executes the actions proposed in the Terraform plan and deploys the resources. Run **terraform apply** and then type yes when asked to **Enter a value**.
-
-<!--EndFragment-->
 
 ```markdown
 $ terraform apply
@@ -296,47 +259,31 @@ helm_release.prometheus-stack: Creation complete after 2m2s [id=prometheus-stack
 Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
 ```
 
-<!--StartFragment-->
+After Terraform apply is complete, you can see the Prometheus pods deployed by running the command:
 
-After Terraform apply is complete, you can see the prometheus pods deployed, by running the command:
-
-```markdown
+```bash
 $ kubectl get po -n <namespace>
 ```
 
-<!--EndFragment-->
-
 ![](/img/12.png)
 
-<!--StartFragment-->
+You can see the Prometheus services by running the command: 
 
-You can see the prometheus services, by running the command: 
-
-```markdown
+```bash
 $ kubectl get svc-n <namespace>
 ```
 
-<!--EndFragment-->
-
 ![](/img/13.png)
 
-<!--StartFragment-->
+You can fetch the node IP by running the command: 
 
-You can fetch the node IP, by running the command: 
-
-```markdown
+```bash
 $ kubectl get nodes -o wide
 ```
 
-<!--EndFragment-->
-
 ![](/img/14.png)
 
-<!--StartFragment-->
-
 Since grafana is exposed as a NodePort, this **PORT**: 32424 and the node's internal IP **INTERNAL-IP**: 172.16.17.168, can be used to access grafana portal as follows:
-
-<!--EndFragment-->
 
 ```markdown
 https://<INTERNAL-IP>:<PORT>
