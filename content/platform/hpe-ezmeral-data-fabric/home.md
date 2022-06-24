@@ -5,7 +5,7 @@ description: A sophisticated data fabric that enables you to run the right
   application at the right time in the right place on the right data.
 image: /img/platforms/EzmeralDataFabric.svg
 width: large
-priority: 1
+priority: 5
 frontpage: true
 active: true
 tags:
