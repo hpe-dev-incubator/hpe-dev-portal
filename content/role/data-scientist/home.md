@@ -188,17 +188,6 @@ Check out these real-world case studies
 
 ---
 
-<br><br>
-<div style="font-weight: 700; font-size: 27px">Engage</div>
-
-## Workshops-on-Demand
-The [HPE DEV Workshops-on-Demand](/hackshack/workshops) are free, Jupyter Notebook-based workshops that offer an in-depth, hands-on learning experience. Explore details of a technology by interacting with it. Designed to fit your schedule, these workshops are available 24/7 – from anywhere at any time. Check out these interesting HPE Ezmeral Data Fabric workshops:
-
-* [HPE Ezmeral Data Fabric 101 – Get to know the basics around the data fabric](/hackshack/workshop/26)
-<div class="row">
-  <div class="column">
-
-  ---
 
 <br><br>
 <div style="font-weight: 700; font-size: 27px">Engage</div>
