@@ -6,7 +6,7 @@ description: A managed cloud experience that accelerates your transformation by
   clouds.
 image: /img/platforms/Greenlake.svg
 width: large
-priority: 1
+priority: 2
 frontpage: true
 active: true
 tags:
