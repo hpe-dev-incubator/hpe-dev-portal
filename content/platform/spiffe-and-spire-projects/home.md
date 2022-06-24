@@ -6,7 +6,7 @@ description: Hewlett Packard Enterprise (HPE) is the leading contributor to
   projects.
 image: /img/platforms/SPIFFEandSpire.svg
 width: medium
-priority: 1
+priority: 7
 frontpage: true
 active: true
 tags:
