@@ -4,7 +4,7 @@ version: v0.1
 description: A paradigm shift in data infrastructure.
 image: /img/alletra-element-small.png
 width: large
-priority: 2
+priority: 12
 active: true
 tags:
   - hpe-alletra
