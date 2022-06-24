@@ -13,11 +13,17 @@ tags:
 
 The process of managing and provisioning computer data centers through machine-readable definition files, also known as Infrastructure-as-Code (IaC), offers many significant benefits. It helps to increase operational agility, simplify management, reduce errors, and save cost. In this post, we will explore some of the benefits of using IaC to build a Kubernetes cluster from scratch, with all the necessary configuration and core services, on HPE GreenLake using Terraform (TF). Storing Kubernetes cluster and favorable configurations as code helps in repeatability and change management.
 
-IaC with Kubernetes is not new. There are providers in the developer community that are quite good and well supported. Using the HPE GreenLake Terraform provider, you can bring up a Kubernetes cluster starting right from the infrastructure layer and way up in the stack, to set up desired configurations and applications. For reference, see the below picture.
+IaC with Kubernetes is not new. There are providers in the developer community that are quite good and well supported. Using the HPE GreenLake Terraform provider, you can bring up a Kubernetes cluster starting right from the infrastructure layer and way up in the stack to set up desired configurations and applications. For reference, see the below picture.
 
 ![](/img/image2022-6-20_12-36-56.png)
 
-HPE GreenLake TF provider brings the Kubernetes stack up on the HPE GreenLake Infrastructure, and exposes credentials for other TF providers to integrate further and build the complete stack, as desired. In the diagram above, 2 and 3 are community providers that are available, which can be used in combination with HPE GreenLake TF provider. 
+HPE GreenLake TF provider brings the Kubernetes stack up on the HPE GreenLake Infrastructure, and exposes credentials for other TF providers to integrate further and build the complete stack, as desired. In the diagram above, 2 and 3 are community providers that are available, which can be used in combination with HPE GreenLake TF provider.
+
+In this two-part blog series, I’ll share my experience as a first-time user of HPE Greenlake TF provider. This blog series aims to provide a step by step walkthrough of how to bring up a cluster using Terraform and how to deploy applications on the pre-created cluster. 
+
+In this first part, I will focus on the pre-requisites needed prior to using HPE GreenLake TF provider and the steps to be followed, to bring up the cluster resource. I will also discuss on the usage of 3rd party community providers like Kubernetes and how these can be used in combination with HPE Greenlake TF provider.
+
+In the second part, I will focus on how to deploy applications on a pre-created cluster using Terraform.
 
 ## Preparing for infrastructure-as-code implementation 
 
@@ -47,9 +53,9 @@ You need an API client to authenticate against HPE GreenLake. Follow the below 
 
 6. Create the assignment with below details:
 
-   **Role Assignment: Private Cloud Cluster Owner**
+**Role Assignment: Private Cloud Cluster Owner**
 
-   **Space: Default**
+**Space: Default**
 
 ![](/img/6.png)
 
@@ -176,7 +182,7 @@ In order to create a cluster using the cluster resource, the following values sh
 2. Cluster Blueprint Name: Fill in the appropriate cluster blueprint **name** in the **hpegl\_caas\_cluster\_blueprint** block. In the below example, name= "demo" 
 3. Cluster Name: Fill in the cluster **name** of your choice in the **hpegl\_caas\_cluster** block. In the below example, name= "tf-test"
 
-> Note: Here, the space_id is automatically set to the value specified while exporting TF_VAR_HPEGL_SPACE.
+> Note: Here, the space\_id is automatically set to the value specified while exporting TF\_VAR\_HPEGL\_SPACE.
 
 **cluster-create.tf**
 
