@@ -61,7 +61,7 @@ With an open source foundation and a global data fabric, like HPE Ezmeral softwa
 Explore how Project Data Map can transform the flow of data in these real-world projects:   
 
 
-* [CGIAR System Organization](https://www.cgiar.org/how-we-work/governance/system-organization/) and [Digital Green](https://www.digitalgreen.org/), who’s working on enabling farmers to find the data they need by ]combining diverse data sources to gain insights and grow and sell crops with a higher value in food production](https://www.hpe.com/us/en/discover-more-network/events/discover-2021/results.html/search/DEMO4480?media-id=%2Fus%2Fen%2Fresources%2Fdiscover%2Flas-vegas-2021%2FDiscover2021-24480%2F_jcr_content.details.json).
+* [CGIAR System Organization](https://www.cgiar.org/how-we-work/governance/system-organization/) and [Digital Green](https://www.digitalgreen.org/), who’s working on enabling farmers to find the data they need by [combining diverse data sources to gain insights and grow and sell crops with a higher value in food production](https://www.hpe.com/us/en/discover-more-network/events/discover-2021/results.html/search/DEMO4480?media-id=%2Fus%2Fen%2Fresources%2Fdiscover%2Flas-vegas-2021%2FDiscover2021-24480%2F_jcr_content.details.json).
 
 * [Novartis Global Health’s](https://www.novartis.com/esg/global-health) partnership with HPE [to collect and organize previously untapped data to enhance disease profiling and provide a more targeted response strategy](https://www.hpe.com/us/en/newsroom/news-advisory/2021/06/hewlett-packard-enterprise-and-novartis-join-forces-to-advance-novartis-global-health-efforts.html).
 
