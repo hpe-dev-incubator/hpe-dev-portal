@@ -6,7 +6,7 @@ description: Accelerate modern data analytics initiatives at scale with this
   modernize apps.
 image: /img/platforms/EzmeralContainerPatform.svg
 width: large
-priority: 1
+priority: 4
 active: true
 tags:
   - hpe-ezmeral
