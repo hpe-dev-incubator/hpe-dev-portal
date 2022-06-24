@@ -17,9 +17,9 @@ IaC with Kubernetes is not new. There are providers in the developer community t
 
 ![](/img/image2022-6-20_12-36-56.png)
 
-HPE GreenLake TF provider brings the Kubernetes stack up on the HPE GreenLake Infrastructure, and exposes credentials for other TF providers to integrate further and build the complete stack, as desired. In the diagram above, 2 and 3 are community providers that are available, which can be used in combination with HPE GreenLake TF provider.
+HPE GreenLake TF provider brings the Kubernetes stack up on the HPE GreenLake infrastructure, and exposes credentials for other TF providers to integrate further and build the complete stack, as desired. In the diagram above, 2 and 3 are community providers that are available, which can be used in combination with HPE GreenLake TF provider.
 
-One of the options provided by HPE GreenLake is to make it easy for customers to order and operate a private cloud with a mix of virtual machines, containers, and physical servers. This is exactly what the private cloud service is all about. It provides access via a public API, allowing developers to use an infrastructure-as-code type of tool to automate provisioning, for example using Terraform. For customers to try out everything that is mentioned in this blog series, they should have subscribed to **HPE GreenLake for private cloud enterprise**.
+One of the options provided by HPE GreenLake is to make it easy for customers to order and operate a private cloud with a mix of virtual machines, containers, and physical servers. This is exactly what the private cloud service is all about. It provides access via a public API, allowing developers to use an infrastructure-as-code type of tool to automate provisioning, for example using Terraform. For customers to try out everything that is mentioned in this blog series, they should have subscribed to **HPE GreenLake for private cloud enterprise** that unifies Virtual Machines, Containers and Bare-metal in one cloud service.
 
 In this two-part blog series, I’ll share my experience as a first-time user of HPE Greenlake TF provider. This blog series aims to provide a step by step walkthrough of how to bring up a Kubernetes cluster using Terraform and how to deploy applications on a pre-created Kubernetes cluster. 
 
