@@ -5,7 +5,7 @@ dateStart: 2022-06-22T15:01:00.000Z
 dateEnd: 2022-06-22T15:59:00.000Z
 category: Virtual Event
 image: /img/event-meetups-newlogo-400x400.png
-link: https://hpe.zoom.us/webinar/register/1616521724034/WN__33En3FZQAKTAI13MdwHnA
+link: https://developer.hpe.com/campaign/meetups
 width: large
 ---
 # OpenSearch – The open-source search and analytics suite you can run yourself 	
