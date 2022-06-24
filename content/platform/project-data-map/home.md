@@ -6,8 +6,8 @@ description: A collaborative service platform for data publishing, subscription,
   gain the best insights for your business.
 image: /img/platforms/hpe-element.png
 width: large
-priority: 5
-active: false
+priority: 3
+active: true
 tags:
   - project-data-map
 ---
