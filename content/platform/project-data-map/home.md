@@ -19,25 +19,20 @@ Project Data Map includes an open Common Metadata Framework, and correlates and 
 HPE is developing Project Data Map to:
 
 
-* Democratize access to data, data analytics, and AI to domain experts, citizen users, and data scientists   
+* Democratize access to data, data analytics, and AI to domain experts, citizen users, and data scientists
 
+* Create a standard and open approach to meta data, enabling easier cross-vertical discovery and sharing of distributed diverse data sets
 
-* Create a standard and open approach to meta data, enabling easier cross-vertical discovery and sharing of distributed diverse data sets   
+* Use data governance of rights and conditions to improve efficiency, promote transparency, and enable business insight
 
+* Accelerate the data and analytics exchange
 
-* Use data governance of rights and conditions to improve efficiency, promote transparency, and enable business insight   
+* Reduce the extreme expense of cloud egress
 
+* Secure data movement from every layer of the stack, continuously and automatically
 
-* Accelerate the data and analytics exchange   
+* Enable a distributed enterprise to minimize unnecessary data movement for more efficient data management and help with cloud egress
 
-
-* Reduce the extreme expense of cloud egress   
-
-
-* Secure data movement from every layer of the stack, continuously and automatically  
-  
-
-* Enable a distributed enterprise to minimize unnecessary data movement for more efficient data management and help with cloud egress   
 
 ## Features
 
@@ -72,15 +67,14 @@ With an open source foundation and a global data fabric, like HPE Ezmeral softwa
 Explore how Project Data Map can transform the flow of data in these real-world projects:   
 
 
-* [CGIAR System Organization](https://www.cgiar.org/how-we-work/governance/system-organization/) and [Digital Green](https://www.digitalgreen.org/), who’s working on enabling farmers to find the data they need by ]combining diverse data sources to gain insights and grow and sell crops with a higher value in food production](https://www.hpe.com/us/en/discover-more-network/events/discover-2021/results.html/search/DEMO4480?media-id=%2Fus%2Fen%2Fresources%2Fdiscover%2Flas-vegas-2021%2FDiscover2021-24480%2F_jcr_content.details.json).   
+* [CGIAR System Organization](https://www.cgiar.org/how-we-work/governance/system-organization/) and [Digital Green](https://www.digitalgreen.org/), who’s working on enabling farmers to find the data they need by ]combining diverse data sources to gain insights and grow and sell crops with a higher value in food production](https://www.hpe.com/us/en/discover-more-network/events/discover-2021/results.html/search/DEMO4480?media-id=%2Fus%2Fen%2Fresources%2Fdiscover%2Flas-vegas-2021%2FDiscover2021-24480%2F_jcr_content.details.json).
 
+* [Novartis Global Health’s](https://www.novartis.com/esg/global-health) partnership with HPE [to collect and organize previously untapped data to enhance disease profiling and provide a more targeted response strategy](https://www.hpe.com/us/en/newsroom/news-advisory/2021/06/hewlett-packard-enterprise-and-novartis-join-forces-to-advance-novartis-global-health-efforts.html).
 
-* [Novartis Global Health’s](https://www.novartis.com/esg/global-health) partnership with HPE [to collect and organize previously untapped data to enhance disease profiling and provide a more targeted response strategy](https://www.hpe.com/us/en/newsroom/news-advisory/2021/06/hewlett-packard-enterprise-and-novartis-join-forces-to-advance-novartis-global-health-efforts.html).   
-
-
-* [Gaia-X](https://www.data-infrastructure.eu/GAIAX/Navigation/EN/Home/home.html), a European Union and non-profit group that’s creating an interoperable data exchange in which data can be shared under the protection of European data privacy laws.  
-
+* [Gaia-X](https://www.data-infrastructure.eu/GAIAX/Navigation/EN/Home/home.html), a European Union and non-profit group that’s creating an interoperable data exchange in which data can be shared under the protection of European data privacy laws.
  
+--- 
+
 
 ## Workshops-on-Demand
 
@@ -91,6 +85,8 @@ Take advantage of our free, Jupyter-Notebook based Workshops-on-Demand available
 <div class="w3-container w3-center w3-margin-bottom">
   <a href="/hackshack/workshops"><button type="button" class="button">Try now!</button></a>
 </div>
+
+---
 
 
 ## Any questions on Project Data Map?
