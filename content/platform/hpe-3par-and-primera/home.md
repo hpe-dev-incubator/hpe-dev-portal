@@ -6,7 +6,7 @@ description: The world's most intelligent storage for mission-critical apps that
   as a service.
 image: /img/platforms/3PAR -Primera.svg
 width: large
-priority: 3
+priority: 13
 frontpage: true
 active: true
 tags:
