@@ -6,7 +6,7 @@ description: A software-defined, programmatic approach to managing
   instances, and 150 HPE Hyper Converged 380 instances across data centers.
 image: /img/platforms/HPEOneviewGlobalDashboard.svg
 width: large
-priority: 4
+priority: 17
 frontpage: true
 active: true
 tags:
