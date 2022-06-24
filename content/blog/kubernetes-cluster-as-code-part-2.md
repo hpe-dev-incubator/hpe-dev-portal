@@ -34,7 +34,7 @@ In this blog post, we will focus on managing application deployments using IaC. 
 
 ### Helm provider
 
-Below is the code block for adding **helm** community provider. Please refer to Kubernetes Cluster as Code - Part 1 blog post for details regarding **hpegl/_caas/_cluster** data source.
+Below is the code block for adding **helm** community provider. Please refer to Kubernetes Cluster as Code - Part 1 blog post for details regarding **hpegl_caas_cluster** data source.
 
 ```json
 provider "helm" {
@@ -50,8 +50,8 @@ provider "helm" {
 
 In order to deploy Prometheus stack using the helm-release resource, the following values have to be filled in the **prometheus-deploy.tf** file:
 
-1. Cluster Name: Fill in the **name** of the pre-created cluster in **hpegl/_caas/_cluster** block. In the below example, name= "tf-test-7"
-2. Namespace: Fill in the appropriate **namespace** in the **helm/_release** block. In the below example, namespace= "test-namespace" 
+1. Cluster Name: Fill in the **name** of the pre-created cluster in **hpegl_caas_cluster** block. In the below example, name= "tf-test-7"
+2. Namespace: Fill in the appropriate **namespace** in the **helm_release** block. In the below example, namespace= "test-namespace" 
 
 **prometheus-deploy.tf** 
 
