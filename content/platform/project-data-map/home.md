@@ -11,29 +11,29 @@ active: true
 tags:
   - project-data-map
 ---
-With so much data expanding exponentially at the edge, it’s challenging to find, use, manage, and share the right data, when you need it. To acquire the true meaning of your data and take action within your distributed enterprise, HPE is developing Project Data Map, which will allow you to navigate to the data you’re looking for with governance, lineage and trust. 
+With so much data expanding exponentially at the edge, it’s challenging to find, use, manage, and share the right data when you need it. To acquire the true meaning of your data and take action within your distributed enterprise, HPE is developing Project Data Map, which will allow you to navigate to the data you’re looking for with governance, lineage and trust. 
 
 
-Project Data Map includes an open Common Metadata Framework, and correlates and scores metadata relationships derived implicitly from data usage and signals that continuously track pattern changes. This allows it to get smarter data enabling precision AI and machine learning models to make the best possible decisions.  
+Project Data Map includes an open Common Metadata Framework, and correlates and scores metadata relationships derived implicitly from data usage and signals that continuously track pattern changes. This allows it to get smarter data, enabling precision AI and machine learning models to make the best possible decisions.  
 
 HPE is developing Project Data Map to:
 
 
-* Democratize access to data, data analytics, and AI to domain experts, citizen users, and data scientists
+* Democratize access to data, data analytics, and AI to domain experts, citizen users, and data scientists.
 
-* Create a standard and open approach to meta data, enabling easier cross-vertical discovery and sharing of distributed diverse data sets
+* Create a standard and open approach to meta data, enabling easier cross-vertical discovery and sharing of distributed diverse data sets.
 
-* Use data governance of rights and conditions to improve efficiency, promote transparency, and enable business insight
+* Use data governance of rights and conditions to improve efficiency, promote transparency, and enable business insight.
 
-* Accelerate the data and analytics exchange
+* Accelerate the data and analytics exchange.
 
-* Reduce the extreme expense of cloud egress
+* Reduce the extreme expense of cloud egress.
 
-* Secure data movement from every layer of the stack, continuously and automatically
+* Secure data movement from every layer of the stack, continuously and automatically.
 
-* Enable a distributed enterprise to minimize unnecessary data movement for more efficient data management and help with cloud egress
+* Enable a distributed enterprise to minimize unnecessary data movement for more efficient data management and help with cloud egress.
 
-[Learn more about project Data Map](https://hpe.com)
+[Learn more about Project Data Map](https://hpe.com)
 
 ## Features
 
