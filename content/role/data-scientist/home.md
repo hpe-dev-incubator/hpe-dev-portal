@@ -198,6 +198,14 @@ The [HPE DEV Workshops-on-Demand](/hackshack/workshops) are free, Jupyter Notebo
 <div class="row">
   <div class="column">
 
+  ---
+
+<br><br>
+<div style="font-weight: 700; font-size: 27px">Engage</div>
+
+<div class="row">
+  <div class="column">
+
     Ping us with your comments, questions, and requests for information.
 
      
