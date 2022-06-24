@@ -29,7 +29,11 @@ In the second part, I will focus on how to deploy applications on a pre-created 
 
 ### Setting up API Client access
 
-You need an API client to authenticate against HPE GreenLake. Follow the below steps for API Client creation.
+You need an API client to authenticate against HPE GreenLake.
+
+> Note: You should have IAM Owner Role assigned to you, to proceed with API Client creation.
+
+Follow the below steps for API Client creation.
 
 1. From the HPE GreenLake platform, launch the **HPE GreenLake Central console** for the appropriate tenant, and from the **Dashboard** select **User Management** option on the tenant page.
 
@@ -51,11 +55,11 @@ You need an API client to authenticate against HPE GreenLake. Follow the below 
 
 ![](/img/5.png)
 
-6. Create the assignment with below details:
+6. Create the assignment with below details: 
 
-**Role Assignment: Private Cloud Cluster Owner**
+   **Role Assignment**: Private Cloud Cluster Owner
 
-**Space: Default**
+   **Space**: Default
 
 ![](/img/6.png)
 
@@ -176,7 +180,7 @@ token    = yamldecode(base64decode(data.hpegl_caas_cluster.test.kubeconfig)).use
 
 ### Terraform resource for Cluster
 
-In order to create a cluster using the cluster resource, the following values should be specified in the **cluster-create.tf** file:
+In order to create a cluster using the cluster resource, the following values should be specified in the **cluster-create.tf** file shown below:
 
 1. Site Name: Fill in the appropriate site **name** in the **hpegl\_caas\_site** block. In the below example, name= "BLR" 
 2. Cluster Blueprint Name: Fill in the appropriate cluster blueprint **name** in the **hpegl\_caas\_cluster\_blueprint** block. In the below example, name= "demo" 
@@ -380,7 +384,7 @@ hpegl_caas_cluster.test: Creation complete after 29m1s [id=8a3396db-ae26-44fd-a1
 Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
 ```
 
-Based on the cluster details provided, the cluster will get created and the same can be verified in the HPE GreenLake Central, under the list of clusters:
+From the HPE GreenLake platform, launch the **HPE GreenLake Central console** for the appropriate tenant, and from the **Dashboard**, select **Clusters** to view the list of clusters. You will see **tf-test** cluster has been created successfully.
 
 ![](/img/8.png)
 
@@ -554,7 +558,7 @@ hpegl_caas_cluster.test: Destruction complete after 7m48s
 Destroy complete! Resources: 1 destroyed.
 ```
 
-The cluster **tf-test** has been deleted, and this can be verified within HPE GreenLake Central:
+From the HPE GreenLake platform, launch the **HPE GreenLake Central console** for the appropriate tenant, and from the **Dashboard**, select **Clusters** to view the list of clusters. You will see **tf-test** cluster has been deleted.
 
 ![](/img/10.png)
 
@@ -595,9 +599,7 @@ resource "kubernetes_namespace" "test-namespace" {
 
 **namespace-create.tf** : Below is a complete example of using the Kubernetes provider and creating a namespace on a pre-created cluster.
 
-```
-Note: You can name this file according to your preference. We are using namespace-create.tf here for easy reference.
-```
+> Note: You can name this file according to your preference. We are using namespace-create.tf here for easy reference.
 
 ```json
 # Copyright 2020 Hewlett Packard Enterprise Development LP
