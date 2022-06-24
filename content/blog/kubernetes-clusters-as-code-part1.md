@@ -19,11 +19,13 @@ IaC with Kubernetes is not new. There are providers in the developer community t
 
 HPE GreenLake TF provider brings the Kubernetes stack up on the HPE GreenLake Infrastructure, and exposes credentials for other TF providers to integrate further and build the complete stack, as desired. In the diagram above, 2 and 3 are community providers that are available, which can be used in combination with HPE GreenLake TF provider.
 
-In this two-part blog series, I’ll share my experience as a first-time user of HPE Greenlake TF provider. This blog series aims to provide a step by step walkthrough of how to bring up a cluster using Terraform and how to deploy applications on the pre-created cluster. 
+One of the options provided by HPE GreenLake is to make it easy for customers to order and operate a private cloud with a mix of virtual machines, containers, and physical servers. This is exactly what the private cloud service is all about. It provides access via a public API, allowing developers to use an infrastructure-as-code type of tool to automate provisioning, for example using Terraform. For customers to try out everything that is mentioned in this blog series, they should have subscribed to **HPE GreenLake for private cloud enterprise**.
 
-In this first part, I will focus on the pre-requisites needed prior to using HPE GreenLake TF provider and the steps to be followed to bring up a cluster. I will also discuss on how 3rd party community providers can be used in tandem with HPE Greenlake TF provider.
+In this two-part blog series, I’ll share my experience as a first-time user of HPE Greenlake TF provider. This blog series aims to provide a step by step walkthrough of how to bring up a Kubernetes cluster using Terraform and how to deploy applications on a pre-created Kubernetes cluster. 
 
-In the second part, I will illustrate how to deploy applications on a namespace in the pre-created cluster, using Terraform.
+In this first part, I will focus on the pre-requisites needed prior to using HPE GreenLake TF provider and the steps to be followed to bring up a Kubernetes cluster. I will also discuss on how 3rd party community providers can be used in tandem with HPE Greenlake TF provider.
+
+In the second part, I will illustrate how to deploy applications on a namespace in the pre-created Kubernetes cluster, using Terraform.
 
 ## Preparing for infrastructure-as-code implementation 
 
@@ -158,7 +160,7 @@ site_id = data.hpegl_caas_site.blr.id
 
 In order to use the data source available for cluster, you should add the below block and provide the cluster name and space id. Using this data source, Terraform will fetch the cluster server and user token associated with it.
 
-In the below block, "tf-test" is the **name** of the pre-created cluster.
+In the below block, "tf-test" is the **name** of the pre-created Kubernetes cluster.
 
 ```json
 data "hpegl_caas_cluster" "test" {
@@ -176,7 +178,7 @@ token    = yamldecode(base64decode(data.hpegl_caas_cluster.test.kubeconfig)).use
 
 ### Terraform resource for cluster
 
-In order to create a cluster using the cluster resource, the following values should be specified in the **cluster-create.tf** file shown below:
+In order to create a Kubernetes cluster using the cluster resource, the following values should be specified in the **cluster-create.tf** file shown below:
 
 1. Site Name: Fill in the appropriate site **name** in the **hpegl\_caas\_site** block. In the below example, name= "BLR" 
 2. Cluster Blueprint Name: Fill in the appropriate cluster blueprint **name** in the **hpegl\_caas\_cluster\_blueprint** block. In the below example, name= "demo" 
@@ -593,7 +595,7 @@ resource "kubernetes_namespace" "test-namespace" {
 
 ### Namespace creation using Terraform
 
-**namespace-create.tf** : Below is a complete example of using the Kubernetes provider and creating a namespace on a pre-created cluster.
+**namespace-create.tf** : Below is a complete example of using the Kubernetes provider and creating a namespace on a pre-created Kubernetes cluster.
 
 > Note: You can name this file according to your preference. We are using namespace-create.tf here for easy reference.
 
@@ -749,4 +751,4 @@ You can verify the created namespace **test-namespace**, by running the comman
 
 ## Next up
 
-In our next blog, we will continue our discussion on deploying applications in a pre-created cluster.
+In our next blog, we will continue our discussion on deploying applications on a pre-created Kubernetes cluster.
