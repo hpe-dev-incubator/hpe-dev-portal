@@ -3,7 +3,7 @@ title: Service Mesh Security Hardening – using SPIRE with Istio
 date: 2022-06-27T16:22:05.201Z
 author: Dale Rensing
 authorimage: /img/blog-author-rensing-96.jpg
-thumbnailimage: /img/service-mesh-security-istio-1200-x-675.png
+thumbnailimage: /img/service-mesh-istio-512-x-393.jpg
 tags:
   - Istio
   - SPIRE
@@ -20,4 +20,4 @@ In a recent SPIFFE blog post, Nathalia Satie Gomazako points out how a service m
 
 Nathalia goes on to explain how SPIRE, the reference implementation of SPIFFE, the Secure Production Identity Framework for Everyone, can integrate with Istio and assist with security concerns, especially when dealing with a multi-cloud infrastructure. This integration extends Istio capabilities by allowing workloads to be identified and to get their identities by a pre-defined set of assigned attributes. With this attestation process, Istio can securely issue cryptographic identities to workloads.
 
-Her article, [Hardening Istio security with SPIRE](https://blog.spiffe.io/hardening-istio-security-with-spire-d2f4f98f7a63), is a quick 3-minute read and quite informative. I highly recommend it.
+Her article, [Hardening Istio security with SPIRE](https://blog.spiffe.io/hardening-istio-security-with-spire-d2f4f98f7a63), is a quick 3-minute read and quite informative. I highly recommend it.
