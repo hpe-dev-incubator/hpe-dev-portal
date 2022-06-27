@@ -1,10 +1,10 @@
 ---
 title: "Why Open Source is more than Software: The example of The Linux
   Foundation's AgStack project"
-dateStart: 2022-05-17T22:01:56.026Z
-dateEnd: 2022-05-18T21:59:56.049Z
+dateStart: 2022-05-18T16:00:00.000Z
+dateEnd: 2022-05-18T17:00:00.000Z
 category: Virtual Event
-image: /img/event-munch-and-learn-newlogo400x400.png
+image: /img/Munch_and_Learn_192_192.svg
 link: https://developer.hpe.com/campaign/munch-and-learn
 width: large
 tags:

@@ -99,10 +99,10 @@ HPE Ezmeral software provides the option of leveraging the power of Apache Spark
 
 --- 
 
-## HPE DEV Workshops-on-Demand
+## Workshops-on-Demand
 
 
-Take advantage of our free, Jupyter-Notebook based workshops available in the HPE DEV [Hack Shack](https://developer.hpe.com/hackshack/). These technical workshops provide you with an in-depth, hands-on learning experience where you can interact with and learn from the experts. Designed to fit your schedule, these workshops are available 24/7 – any time, from anywhere. HPE Ezmeral Runtime Enterprise workshops (previously called HPE Ezmeral Container Platform workshops) are available today.
+Take advantage of our free, Jupyter-Notebook based workshops available in the HPE Developer [Hack Shack](https://developer.hpe.com/hackshack/). These technical workshops provide you with an in-depth, hands-on learning experience where you can interact with and learn from the experts. Designed to fit your schedule, these workshops are available 24/7 – any time, from anywhere. HPE Ezmeral Runtime Enterprise workshops (previously called HPE Ezmeral Container Platform workshops) are available today.
 
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <div class="w3-container w3-center w3-margin-bottom">
@@ -113,7 +113,7 @@ Take advantage of our free, Jupyter-Notebook based workshops available in the HP
 
 
 ## Any questions on HPE Ezmeral Runtime Enterprise?
-Join the [HPE DEV Slack Workspace](https://slack.hpedev.io/) and start a discussion in our [#ezmeral-runtime-enterprise](https://app.slack.com/client/T5SNJCC7K/C01BB50LG4W) channel.
+Join the [HPE Developer Slack Workspace](https://slack.hpedev.io/) and start a discussion in our [#ezmeral-runtime-enterprise](https://app.slack.com/client/T5SNJCC7K/C01BB50LG4W) channel.
 
 
 Not a Slack user? You can also ask your questions in our [HPE Ezmeral Forum](https://hpe.com/forum/ezmeral).

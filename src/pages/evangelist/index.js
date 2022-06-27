@@ -48,8 +48,9 @@ export const SuccessLayer = ({ setLayer, size, emailId, reset }) => (
       <Box margin={{ bottom: 'medium', top: 'small' }}>
         <Heading margin={{ top: 'none', bottom: 'small' }}>Welcome!</Heading>
         <Text>
-          You have successfully registered for the HPE DEV Evangelist program.
-          Head over to your email ({emailId}) to learn what happens next.
+          You have successfully registered for the HPE Developer Evangelist
+          program. Head over to your email ({emailId}) to learn what happens
+          next.
         </Text>
       </Box>
       <Box margin={{ top: 'medium' }}>

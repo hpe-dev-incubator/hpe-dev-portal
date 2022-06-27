@@ -1,7 +1,7 @@
+/* eslint-disable max-len */
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
-import { Box, Image, Stack, ResponsiveContext, Grommet } from 'grommet';
-import { hpe } from 'grommet-theme-hpe';
+import { Box, Image, Stack, ResponsiveContext } from 'grommet';
 import styled from 'styled-components';
 import {
   Row1,
@@ -14,6 +14,7 @@ import {
   Row8,
   Row9,
 } from '../../../data/StickerData/stickers';
+import GrommetThemeWrapper from '../../../components/hackshack/Grommet/GrommetThemeWrapper';
 import { Layout, SubPageHeader } from '../../../components/hackshack';
 import { SEO } from '../../../components';
 
@@ -189,7 +190,7 @@ const StickerWall = () => {
   const mobileRow4 = [Row7[0], Row7[1], Row8[1]];
   const size = useContext(ResponsiveContext);
   return (
-    <Grommet theme={hpe}>
+    <GrommetThemeWrapper>
       <Layout background="/img/hackshack/BackgroundImages/stickers-background.jpg">
         <SEO title="Hack Shack Sticker Wall" />
         <SubPageHeader title="STICKERS AND ART">
@@ -231,7 +232,7 @@ const StickerWall = () => {
           </Box>
         </SubPageHeader>
       </Layout>
-    </Grommet>
+    </GrommetThemeWrapper>
   );
 };
 

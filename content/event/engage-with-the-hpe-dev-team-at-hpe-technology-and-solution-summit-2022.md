@@ -1,7 +1,7 @@
 ---
 title: HPE Technology and Solution Summit 2022
-dateStart: 2022-03-27T22:00:27.753Z
-dateEnd: 2022-03-31T21:59:27.768Z
+dateStart: 2022-03-28T16:00:51.279Z
+dateEnd: 2022-03-31T17:00:51.298Z
 category: Virtual Event
 image: /img/tss-fred-blog-1.png
 link: https://h41382.www4.hpe.com/tss/

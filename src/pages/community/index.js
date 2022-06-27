@@ -44,7 +44,7 @@ function Community({ data }) {
       >
         <Paragraph size="large">
           A community is all about connection. Discover the many different ways
-          you can connect with members of the HPE DEV Community here.
+          you can connect with members of the HPE Developer Community here.
         </Paragraph>
       </PageDescription>
       <SectionHeader>

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Box, Image, Heading, Card as GrommetCard } from 'grommet';
+import { Box, Image, Heading, Card as GrommetCard, Text } from 'grommet';
 import { navigate } from 'gatsby';
 
 const monthDay = Intl.DateTimeFormat('default', {
@@ -28,10 +28,12 @@ const EventCard = ({ node, ...rest }) => (
         : undefined
     }
   >
-    <Box pad="large" gap="xlarge" direction="row-responsive">
-      <Box gap="small">
-        <Heading margin="none">{node.frontmatter.title}</Heading>
+    <Box pad="large" direction="row-responsive">
+      <Box gap="small" style={{ width: '60%' }}>
         <Heading margin="none" level="3">
+          {node.frontmatter.title}
+        </Heading>
+        <Text>
           {`${monthDay.format(new Date(node.frontmatter.dateStart))} 
           `}
           {node.frontmatter.dateEnd &&
@@ -39,9 +41,10 @@ const EventCard = ({ node, ...rest }) => (
               day.format(new Date(node.frontmatter.dateStart)) &&
             `- ${day.format(new Date(node.frontmatter.dateEnd))}`}
           {`, ${year.format(new Date(node.frontmatter.dateEnd))}`}
-        </Heading>
+        </Text>
       </Box>
-      <Box>
+      <Box style={{ width: '10%' }}></Box>
+      <Box style={{ width: '30%' }}>
         {node.frontmatter.image && (
           <Image fit="contain" src={node.frontmatter.image} alt="event logo" />
         )}

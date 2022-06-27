@@ -7,11 +7,22 @@ import {
   SEO,
   PageDescription,
   Card,
-  EventCard,
+  // EventCard,
   ResponsiveGrid,
   SectionHeader,
 } from '../../components';
 import { useSiteMetadata } from '../../hooks/use-site-metadata';
+
+const monthDay = Intl.DateTimeFormat('default', {
+  month: 'long',
+  day: 'numeric',
+});
+const day = Intl.DateTimeFormat('default', {
+  day: 'numeric',
+});
+const year = Intl.DateTimeFormat('default', {
+  year: 'numeric',
+});
 
 const columns = {
   small: ['auto'],
@@ -91,9 +102,31 @@ function Events({ data }) {
       )}
       {pastEvents && pastEvents.length > 0 && (
         <SectionHeader title="Past Events">
-          <ResponsiveGrid rows={rows} columns={columns}>
+          <ResponsiveGrid
+            rows={rows}
+            columns={columns}
+            style={{ gridGap: 0, margin: 0 }}
+          >
             {pastEvents.map(({ node }) => (
-              <EventCard key={node.id} node={node} />
+              // <EventCard key={node.id} node={node} />
+              <Card
+                key={node.id}
+                category={node.frontmatter.category}
+                width={node.frontmatter.width}
+                // content={node.rawMarkdownBody}
+                title={node.frontmatter.title}
+                date={`${monthDay.format(new Date(node.frontmatter.dateStart))}
+                ${
+                  node.frontmatter.dateEnd &&
+                  day.format(new Date(node.frontmatter.dateEnd)) >
+                    day.format(new Date(node.frontmatter.dateStart))
+                    ? `- ${day.format(new Date(node.frontmatter.dateEnd))}`
+                    : ''
+                }${`, ${year.format(new Date(node.frontmatter.dateEnd))}`}`}
+                link={node.frontmatter.link}
+                image={node.frontmatter.image}
+                basis="auto"
+              />
             ))}
           </ResponsiveGrid>
         </SectionHeader>

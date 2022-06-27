@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import React, { useState, useEffect, useRef, useContext } from 'react';
 import axios from 'axios';
 import {
@@ -376,7 +377,7 @@ export const SignupLayer = ({
                       <Anchor
                         target="_blank"
                         label="Terms and Conditions"
-                        href="/hackshack/challenge-terms-conditions"
+                        href="/hackshack/hpediscover2022-swchallenges-terms-conditions"
                       />{' '}
                       and{' '}
                       <Anchor

@@ -1,13 +1,13 @@
 import React from 'react';
-import { Grommet } from 'grommet';
-import { hpe } from 'grommet-theme-hpe';
+// eslint-disable-next-line max-len
+import GrommetThemeWrapper from '../../../components/hackshack/Grommet/GrommetThemeWrapper';
 import WorkshopsTemplate from './template';
 
 const Workshops = (props) => {
   return (
-    <Grommet theme={hpe}>
+    <GrommetThemeWrapper>
       <WorkshopsTemplate {...props} />
-    </Grommet>
+    </GrommetThemeWrapper>
   );
 };
 

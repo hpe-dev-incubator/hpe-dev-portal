@@ -134,7 +134,7 @@ Check out these real-world case studies
 
 ### Skill Up
 
-<a href="https://developer.hpe.com/campaign/munch-and-learn/" style="font-weight: 700; font-size: 27px">HPE DEV Munch & Learn technology talk</a>
+<a href="https://developer.hpe.com/campaign/munch-and-learn/" style="font-weight: 700; font-size: 27px">Munch & Learn technology talk</a>
 
 <div class="row">
   <div class="column">
@@ -155,7 +155,7 @@ Check out these real-world case studies
 ---
 
 <br><br>
-<a href="https://hackshack.hpedev.io/workshops" style="font-weight: 700; font-size: 27px">HPE DEV Workshops-on-Demand</a>
+<a href="https://hackshack.hpedev.io/workshops" style="font-weight: 700; font-size: 27px">Workshops-on-Demand</a>
 
 <div class="row">
   <div class="column">

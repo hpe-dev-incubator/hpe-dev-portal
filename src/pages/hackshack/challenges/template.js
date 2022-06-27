@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 import React, { useEffect, useState } from 'react';
-import { Heading, Text, Box, Image, Tab, Tabs } from 'grommet';
+import { Heading, Text, Box, Image, Tab, Tabs, Anchor } from 'grommet';
 import axios from 'axios';
 import PropTypes from 'prop-types';
 import { Layout, ScheduleCard, CardGrid } from '../../../components/hackshack';
@@ -52,7 +52,7 @@ const Challenge = (props) => {
         (err) => {
           console.log('Error: ', err);
           setError(
-            'Oops..something went wrong. The HPE DEV team is addressing the problem. Please try again later!',
+            'Oops..something went wrong. The HPE Developer team is addressing the problem. Please try again later!',
           );
         },
       );
@@ -65,11 +65,13 @@ const Challenge = (props) => {
         headers: { 'x-access-token': token },
       })
         .then((response) => {
+          console.log('response ++++', response.data.length);
           // Map created
           response.data.forEach((workshop) => {
             if (workshop.sessionType === 'Coding Challenge')
               arr.push({ ...workshop });
           });
+          console.log('challenges ++++', arr.length, arr);
           if (arr.length <= 0)
             setError(
               'There are currently no challenges in progress. Stay tuned!',
@@ -82,7 +84,7 @@ const Challenge = (props) => {
           } else {
             console.log('catch error', err);
             setError(
-              'Oops..something went wrong. The HPE DEV team is addressing the problem. Please try again later!',
+              'Oops..something went wrong. The HPE Developer team is addressing the problem. Please try again later!',
             );
           }
         });
@@ -101,6 +103,34 @@ const Challenge = (props) => {
           Challenges
         </Heading>
       </MainTitle>
+      <Text
+        color="text-strong"
+        weight="bold"
+        margin={{ top: 'none', bottom: 'small' }}
+      >
+        Attention, HPE Discover 2022 attendees! Compete in fun Hack Shack
+        Challenges for awesome prizes!
+      </Text>
+      <Text
+        color="text-strong"
+        size="large"
+        margin={{ top: 'none', bottom: 'small' }}
+      >
+        Six lucky participants who complete a challenge and answer all the quiz
+        questions correctly between 11:00am PT June 28, 2022 and 4:00pm PT June
+        29, 2022 will be chosen to win a CanaKit Raspberry Pi 4 Extreme Kit. You
+        must be present at the Hack Shack celebration party between 5:00-6:00pm
+        PT June 29, 2022 to win a prize. For complete details, refer to the{' '}
+        <Anchor
+          href="/hackshack/hpediscover2022-swchallenges-terms-conditions/"
+          target="_blank"
+          rel="noreferrer noopener"
+        >
+          Terms and Conditions
+        </Anchor>
+        .
+      </Text>
+      {console.log('replays in tabs ', workshops)}
       {workshops.length > 0 ? (
         <Tabs activeIndex={index} onActive={onActive} justify="start">
           <Tab title="All">
@@ -138,7 +168,7 @@ const Challenge = (props) => {
               )}
             </CardGrid>
           </Tab>
-          <Tab title="Data-Driven Developer">
+          {/* <Tab title="Data-Driven Developer">
             <CardGrid pad={{ top: 'medium' }} key="os">
               {workshops.map(
                 (workshop, i) =>
@@ -147,7 +177,7 @@ const Challenge = (props) => {
                   renderScheduleCard(workshop, i),
               )}
             </CardGrid>
-          </Tab>
+          </Tab> */}
           <Tab title="Developer">
             <CardGrid pad={{ top: 'medium' }} key="os">
               {workshops.map(

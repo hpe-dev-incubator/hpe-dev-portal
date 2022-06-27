@@ -12,6 +12,7 @@ import {
 } from '../../../components/hackshack';
 import AuthService from '../../../services/auth.service';
 import { SEO } from '../../../components';
+import GrommetThemeWrapper from '../../../components/hackshack/Grommet/GrommetThemeWrapper';
 
 const sortReplays = (replayData, current) => {
   const beggining = [];
@@ -45,7 +46,7 @@ const ReplayTemplate = (props) => {
         })
         .catch(() => {
           setError(
-            'Oops..something went wrong. The HPE DEV team is addressing the problem. Please try again later!',
+            'Oops..something went wrong. The HPE Developer team is addressing the problem. Please try again later!',
           );
           console.log(error);
         });
@@ -57,7 +58,7 @@ const ReplayTemplate = (props) => {
         },
         () => {
           setError(
-            'Oops..something went wrong. The HPE DEV team is addressing the problem. Please try again later!',
+            'Oops..something went wrong. The HPE Developer team is addressing the problem. Please try again later!',
           );
         },
       );
@@ -80,90 +81,92 @@ const ReplayTemplate = (props) => {
   const selectedReplay = replays.find(({ id }) => id === current);
 
   return (
-    <Layout background="/img/BackgroundImages/generic-background.jpg">
-      <PageHeader title={workshopTitle}>
-        <SEO
-          title={workshopTitle}
-          description={workshopDesc}
-          image={workshopImg}
-        />
-        {selectedReplay ? (
-          <>
-            <Video
-              videolink={selectedReplay.videoLink}
-              id={selectedReplay.id}
-              avatar={selectedReplay.avatar}
-              desc={selectedReplay.desc}
-              key={selectedReplay.title}
-              presenter={selectedReplay.presenter}
-              role={selectedReplay.role}
-              title={selectedReplay.title}
-              setCurrent={setCurrent}
-              current={current}
-              replaysLength={replays.length}
-              autoplay={autoplay}
-              notebook={
-                selectedReplay.workshop && selectedReplay.workshop.notebook
-              }
-              sessionType={
-                selectedReplay.workshop && selectedReplay.workshop.sessionType
-              }
-              location={
-                selectedReplay.workshop && selectedReplay.workshop.location
-              }
-              capacity={
-                selectedReplay.workshop && selectedReplay.workshop.capacity
-              }
-              workshopTitle={
-                selectedReplay.workshop && selectedReplay.workshop.name
-              }
-              workshopId={workshopId}
-              workshopDuration={
-                selectedReplay.workshop && selectedReplay.workshop.duration
-              }
-            />
-            <Heading color="text" style={{ fontWeight: '500' }} level={2}>
-              UP NEXT
-            </Heading>
-          </>
-        ) : (
-          <Box
-            pad="small"
-            justify="center"
-            margin={{ top: 'medium' }}
-            direction="column"
-            // background="status-critical"
-          >
-            {error ? (
-              <>
-                <Text size="large" color="status-critical" alignSelf="center">
-                  {error}
-                </Text>
-                <Image alt="gremlin rockin" src="/img/gremlin-rockin.svg" />
-              </>
-            ) : (
-              <Box height="medium" />
-            )}
-          </Box>
-        )}
-        {sortedReplays.map(
-          ({ desc, presenter, role, title, videoLink, id }) =>
-            id !== current && (
-              <VideoList
-                key={title}
-                id={id}
-                desc={`${desc.slice(0, 150)}...`}
-                title={title}
-                presenter={presenter}
-                videoLink={videoLink}
-                role={role}
+    <GrommetThemeWrapper>
+      <Layout background="/img/BackgroundImages/generic-background.jpg">
+        <PageHeader title={workshopTitle}>
+          <SEO
+            title={workshopTitle}
+            description={workshopDesc}
+            image={workshopImg}
+          />
+          {selectedReplay ? (
+            <>
+              <Video
+                videolink={selectedReplay.videoLink}
+                id={selectedReplay.id}
+                avatar={selectedReplay.avatar}
+                desc={selectedReplay.desc}
+                key={selectedReplay.title}
+                presenter={selectedReplay.presenter}
+                role={selectedReplay.role}
+                title={selectedReplay.title}
                 setCurrent={setCurrent}
-                setAutoPlay={setAutoPlay}
+                current={current}
+                replaysLength={replays.length}
+                autoplay={autoplay}
+                notebook={
+                  selectedReplay.workshop && selectedReplay.workshop.notebook
+                }
+                sessionType={
+                  selectedReplay.workshop && selectedReplay.workshop.sessionType
+                }
+                location={
+                  selectedReplay.workshop && selectedReplay.workshop.location
+                }
+                capacity={
+                  selectedReplay.workshop && selectedReplay.workshop.capacity
+                }
+                workshopTitle={
+                  selectedReplay.workshop && selectedReplay.workshop.name
+                }
+                workshopId={workshopId}
+                workshopDuration={
+                  selectedReplay.workshop && selectedReplay.workshop.duration
+                }
               />
-            ),
-        )}
-      </PageHeader>
-    </Layout>
+              <Heading color="text" style={{ fontWeight: '500' }} level={2}>
+                UP NEXT
+              </Heading>
+            </>
+          ) : (
+            <Box
+              pad="small"
+              justify="center"
+              margin={{ top: 'medium' }}
+              direction="column"
+              // background="status-critical"
+            >
+              {error ? (
+                <>
+                  <Text size="large" color="status-critical" alignSelf="center">
+                    {error}
+                  </Text>
+                  <Image alt="gremlin rockin" src="/img/gremlin-rockin.svg" />
+                </>
+              ) : (
+                <Box height="medium" />
+              )}
+            </Box>
+          )}
+          {sortedReplays.map(
+            ({ desc, presenter, role, title, videoLink, id }) =>
+              id !== current && (
+                <VideoList
+                  key={title}
+                  id={id}
+                  desc={`${desc.slice(0, 150)}...`}
+                  title={title}
+                  presenter={presenter}
+                  videoLink={videoLink}
+                  role={role}
+                  setCurrent={setCurrent}
+                  setAutoPlay={setAutoPlay}
+                />
+              ),
+          )}
+        </PageHeader>
+      </Layout>
+    </GrommetThemeWrapper>
   );
 };
 

@@ -1,5 +1,5 @@
 ---
-        title: "WIN IN THE HPE DEV TREASURE HUNT"
+        title: "WIN IN THE HPE DEVELOPER TREASURE HUNT"
         description: Discover ways to collaborate and where to find resources.
         path: ""
         link: "https://bit.ly/kubecon-eu-2022-hpedev-treasure-hunt"

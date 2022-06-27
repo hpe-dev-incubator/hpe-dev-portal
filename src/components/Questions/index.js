@@ -11,7 +11,7 @@ export const Questions = () => (
       </Anchor>{' '}
       or through our{' '}
       <Anchor href="https://slack.hpedev.io/" target="_blank">
-        HPE DEV Slack channel
+        HPE Developer Slack channel
       </Anchor>
       .
     </Text>

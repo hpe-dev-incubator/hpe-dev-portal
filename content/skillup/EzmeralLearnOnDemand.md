@@ -4,6 +4,6 @@
           linkname: Go to the Academy
           description: Learn about Data Fabric and DevOps with free on-demand technical courses found in the HPE Ezmeral Learning Academy.
           priority: 3
-          image: '/img/platforms/EzmeralDataFabric.svg'
+          image: '/img/platforms/EzmeralLearnondemand.png'
 ---
           
