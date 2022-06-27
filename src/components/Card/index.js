@@ -71,6 +71,21 @@ const gridProps = {
     justifyContent: 'start',
   },
   // image to the right of text
+  mediumReverse: {
+    gap: 'large',
+    columns: [
+      ['xsmall', 'flex'],
+      ['xsmall', 'flex'],
+    ],
+    rows: ['auto'],
+    areas: [
+      { name: 'image', start: [1, 0], end: [1, 0] },
+      { name: 'content', start: [0, 0], end: [0, 0] },
+    ],
+    align: 'start',
+    justifyContent: 'start',
+  },
+  // image to the right of text
   large: {
     gap: 'large',
     columns: ['flex', 'flex'],
@@ -78,6 +93,17 @@ const gridProps = {
     areas: [
       { name: 'image', start: [1, 0], end: [1, 0] },
       { name: 'content', start: [0, 0], end: [0, 0] },
+    ],
+    justifyContent: 'between',
+  },
+  // image to the left of text
+  largeReverse: {
+    gap: 'large',
+    columns: ['flex', 'flex'],
+    rows: ['auto'],
+    areas: [
+      { name: 'image', start: [0, 0], end: [0, 0] },
+      { name: 'content', start: [1, 0], end: [1, 0] },
     ],
     justifyContent: 'between',
   },
@@ -96,13 +122,18 @@ export const Card = ({
   width = 'medium',
   link,
   image,
+  imageScale = 1,
   title,
   date,
   author,
+  reverse,
   ...rest
 }) => {
   const [hover, setHover] = useState(false);
   const isHackShackCard = title === 'Hack Shack';
+
+  const gridWidth = reverse ? `${width}Reverse` : width;
+
   return (
     <ResponsiveContext.Consumer>
       {(size) => (
@@ -135,7 +166,7 @@ export const Card = ({
             <Grid
               fill="horizontal"
               pad={{ horizontal: 'large', top: 'medium', bottom: 'large' }}
-              {...(gridProps[size === 'small' ? size : width] ||
+              {...(gridProps[size === 'small' ? size : gridWidth] ||
                 gridProps.medium)}
               style={{ display: image ? 'grid' : 'flex' }}
             >
@@ -150,6 +181,7 @@ export const Card = ({
                       fit="contain"
                       alignSelf="center"
                       alt="card logo"
+                      style={{ transform: `scale(${imageScale})` }}
                     />
                   ) : (
                     <></>

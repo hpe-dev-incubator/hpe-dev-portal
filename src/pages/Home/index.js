@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { graphql, navigate } from 'gatsby';
 import {
   Box,
+  Button,
   Card as GrommetCard,
   CardHeader,
   Grid,
@@ -39,7 +40,7 @@ OpenSourceCard.propTypes = {
   children: PropTypes.node,
 };
 
-const Project = ({ image, title, description, link }) => (
+const Project = ({ title, description, link }) => (
   <Box
     align="start"
     gap="medium"
@@ -87,10 +88,26 @@ const Home = ({ data }) => {
     <Layout title={siteTitle}>
       <SEO title={title} />
       <Box direction="row-responsive" pad="xlarge" gap="xlarge" align="center">
-        {/* <Box align="center">
+        <Box>
+          <TitleMarkdown>{data.markdownRemark.rawMarkdownBody}</TitleMarkdown>
+          <Button
+            label="Join the Community"
+            primary
+            reverse
+            icon={<Image src="/img/home/hpe-element.png" />}
+            href="https://slack.hpedev.io/"
+            target="_blank"
+            style={{
+              backgroundColor: '#01A982',
+              borderRadius: '100px',
+              color: '#ffffff',
+              width: 300,
+            }}
+          />
+        </Box>
+        <Box align="center">
           {image && <Image src={image} alt="hpedev logo" />}
-        </Box> */}
-        <TitleMarkdown>{data.markdownRemark.rawMarkdownBody}</TitleMarkdown>
+        </Box>
       </Box>
       <Box flex={false} direction="row-responsive" wrap margin="medium">
         {panels &&
@@ -102,6 +119,7 @@ const Home = ({ data }) => {
               content={node.rawMarkdownBody}
               link={node.frontmatter.link}
               image={node.frontmatter.image}
+              imageScale={node.frontmatter.imageScale}
               reverse={node.frontmatter.reverse}
               title={node.frontmatter.title}
               author={node.frontmatter.author}
@@ -147,8 +165,10 @@ Home.propTypes = {
               width: PropTypes.string,
               category: PropTypes.string,
               image: PropTypes.string,
+              imageScale: PropTypes.number,
               link: PropTypes.string,
               priority: PropTypes.number,
+              reverse: PropTypes.bool,
             }),
           }),
           rawMarkdownBody: PropTypes.string,
@@ -203,8 +223,10 @@ export const pageQuery = graphql`
             category
             link
             image
+            imageScale
             title
             author
+            reverse
           }
           rawMarkdownBody
         }
