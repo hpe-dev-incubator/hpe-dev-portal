@@ -95,8 +95,7 @@ const Home = ({ data }) => {
             primary
             reverse
             icon={<Image src="/img/home/hpe-element.png" />}
-            href="https://slack.hpedev.io/"
-            target="_blank"
+            href="/community"
             style={{
               backgroundColor: '#01A982',
               borderRadius: '100px',
