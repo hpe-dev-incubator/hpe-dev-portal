@@ -3,7 +3,7 @@ title: Service Mesh Security Hardening – using SPIRE with Istio
 date: 2022-06-27T16:22:05.201Z
 author: Dale Rensing
 authorimage: /img/blog-author-rensing-96.jpg
-thumbnailimage: /img/service-mesh-security-istio-1200-x-675.png
+thumbnailimage: /img/service-mesh-istio-512-x-393.jpg
 tags:
   - Istio
   - SPIRE
