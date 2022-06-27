@@ -5,7 +5,7 @@ description: "Data Protection as Code: Converged Backup, DR (Disaster Recovery),
   and Mobility for Cloud Native Apps"
 image: https://www.zerto.com/wp-content/uploads/2019/04/Zerto-Logo.png
 width: large
-priority: 5
+priority: 11
 active: true
 ---
 Zerto, a Hewlett Packard Enterprise company, empowers customers to run an always-on business by simplifying the protection, recovery, and mobility of on-premises and cloud applications. Zerto’s cloud data management and protection solution eliminate the risks and complexity of modernization and cloud adoption across private, public, and hybrid deployments. The simple, software-only solution uses continuous data protection at scale to converge disaster recovery, backup, and data mobility. Zerto is trusted by over 9,500 customers globally and is powering offerings for Microsoft Azure, IBM Cloud, AWS (Amazon Web Services), Google Cloud, Oracle Cloud, and more than 350 managed service providers.  

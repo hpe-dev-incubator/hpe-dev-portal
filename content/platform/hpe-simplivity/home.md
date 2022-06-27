@@ -5,7 +5,7 @@ description: An enterprise-grade hyperconverged platform uniting best-in-class
   data services with the world’s bestselling server.
 image: /img/platforms/simplivity-logo.svg
 width: medium
-priority: 6
+priority: 18
 frontpage: true
 active: true
 tags:

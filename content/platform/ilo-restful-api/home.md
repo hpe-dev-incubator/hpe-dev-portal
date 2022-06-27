@@ -4,7 +4,7 @@ version: v 6.01.8964
 description: Redfish® API conformant for simple and automate remote HPE Server management.
 image: /img/platforms/iLOrestfulAPI.svg
 width: medium
-priority: 7
+priority: 19
 frontpage: true
 active: true
 tags:

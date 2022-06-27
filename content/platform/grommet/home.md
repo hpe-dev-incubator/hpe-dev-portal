@@ -4,7 +4,7 @@ version: v 2.01.8964
 description: An open source UI development and design tool.
 image: /img/platforms/Grommet.svg
 width: large
-priority: 2
+priority: 8
 frontpage: true
 active: true
 tags:

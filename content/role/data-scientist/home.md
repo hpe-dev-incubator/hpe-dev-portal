@@ -30,26 +30,28 @@ The roles of the Data/ML Engineer and Data Scientist can overlap. You may also f
 <div class="row">
   <div class="column">
     ### Get Inspired
-    **A sampler of new ideas related to data/ML engineering:**
+    **A sampler of new ideas**
 
-    *Learn how industry innovation may affect your job.*
+    *Learn how innovation may affect your job.*
   </div>
   <div class="column">
     ### Building a Foundation 
-    **Get maximum flexibility for your choice of tools**
+    **Optimize data access**
 
-    *The right data infrastructure should give you direct access to data via a wide range of APIs for flexibility in your choice of tools.*
+    *The right data infrastructure gives you direct access to data via a wide range of APIs for a choice in tools.*
   </div>
 </div>
 
 <div class="row">
   <div class="column">
-    - Unit testing isn’t just for code: you need to unit test your data. [Watch Deequ: Unit Tests for Data](https://www.youtube.com/watch?v=2f_JewK79GI)
+    - [Watch Deequ: Unit Tests for Data](https://www.youtube.com/watch?v=2f_JewK79GI) to learn why unit testing isn’t just for code
 
-    - Innovative architectures help in geo-distributed systems where it’s better to distribute learning rather than moving data. Read this technical paper from HPE AI Labs [Swarm Learning: Turn Your Distributed Data into Competitive Edge](https://www.hpe.com/us/en/pdfViewer.html?docId=a50000344&parentPage=/us/en/products/compute/hpc/deep-learning&resourceTitle=Swarm+Learning:+Turn+Your+Distributed+Data+into+Competitive+Edge+technical+white+paper)
+    - Read [Swarm Learning: Turn Your Distributed Data into Competitive Edge](https://www.hpe.com/us/en/pdfViewer.html?docId=a50000344&parentPage=/us/en/products/compute/hpc/deep-learning&resourceTitle=Swarm+Learning:+Turn+Your+Distributed+Data+into+Competitive+Edge+technical+white+paper) to see how innovative architectures take advantage of the increasingly distributed nature of data
   </div>
   <div class="column">
     - Study the technical paper [HPE Ezmeral Data Fabric: Modern infrastructure for data storage and management](https://www.hpe.com/psnow/doc/a00110846enw)
+
+    - Learn best practices in [Getting the most from your data-driven transformation: 10 key principles](https://www.hpe.com/us/en/insights/articles/getting-the-most-from-your-data-driven-transformation-2109.html)
 
     - View the [HPE Ezmeral Data Fabric platform ](https://developer.hpe.com/platform/hpe-ezmeral-data-fabric/home/) page
   </div>
@@ -61,23 +63,23 @@ The roles of the Data/ML Engineer and Data Scientist can overlap. You may also f
   <div class="column">
     **Working together**
 
-    *Essential to building projects that deliver value, domain expertise helps frame questions, identify useful data, and take action on insights.*
+    *Domain expertise helps frame questions, identify useful data, and take action on insights.*
     
   </div>
   <div class="column">
     **Containerization of applications**
 
-    *Containerized applications can be orchestrated with the open source Kubernetes framework.*
+    *The open source Kubernetes framework orchestrates containers.*
   </div>
 </div>
 
 <div class="row">
   <div class="column">
-    - Multiple roles contribute to a successful data science project. Discover [The New Data Science Team: Who’s on First?](https://community.hpe.com/t5/HPE-Ezmeral-Uncut/The-New-Data-Science-Team-Who-s-on-First/ba-p/7154783#.Ybi1pb3MI2y)
+    - Discover [The New Data Science Team: Who’s on First?](https://community.hpe.com/t5/HPE-Ezmeral-Uncut/The-New-Data-Science-Team-Who-s-on-First/ba-p/7154783#.Ybi1pb3MI2y) and learn how multiple roles contribute to a successful data science project
 
-    - Combining diverse data sets leads to advances in fighting disease. Watch  [Data Saves Lives](https://www.hpe.com/us/en/discover-more-network/events/discover-2021/results.html/types/sessions/search/b4372?media-id=/us/en/resources/discover/las-vegas-2021/B4372/_jcr_content.details.json)
+    - Combine diverse data sets to advance healthcare. Watch  [Data Saves Lives](https://www.hpe.com/us/en/discover-more-network/events/discover-2021/results.html/types/sessions/search/b4372?media-id=/us/en/resources/discover/las-vegas-2021/B4372/_jcr_content.details.json) to learn how
 
-    - Combined stakeholder expertise puts advanced agricultural knowledge to work in the field – literally. Watch  [Data Feeds People](https://www.hpe.com/us/en/discover-more-network/events/discover-2021/results.html/types/sessions/search/b4373).
+    - Watch  [Data Feeds People](https://www.hpe.com/us/en/discover-more-network/events/discover-2021/results.html/types/sessions/search/b4373) to see how combined stakholder expertise puts advanced agricultural knowledge to work in the field - literally
   </div>
   <div class="column">
     - Read [Kuberneticized machine learning and AI using Kubeflow](https://developer.hpe.com/blog/kubernetized-machine-learning-and-ai-using-kubeflow/)
@@ -114,13 +116,7 @@ The roles of the Data/ML Engineer and Data Scientist can overlap. You may also f
 
 - Read [To the edge and back again: Meeting the challenges of edge computing](https://community.hpe.com/t5/HPE-Ezmeral-Uncut/To-the-edge-and-back-again-Meeting-the-challenges-of-edge/ba-p/7132609#.Ya5X3r3ML0o)
 
- 
-
-**How do I ensure data trust and security?**
-
-- Learn about the [SPIFFE and SPIRE projects](https://developer.hpe.com/platform/spiffe-and-spire-projects/home/) that are hosted by the CNCF Foundation
-
- 
+  
 
 **How are others doing this?**
 
@@ -192,13 +188,10 @@ Check out these real-world case studies
 
 ---
 
+
 <br><br>
 <div style="font-weight: 700; font-size: 27px">Engage</div>
 
-## Workshops-on-Demand
-The [Workshops-on-Demand](/hackshack/workshops) are free, Jupyter Notebook-based workshops that offer an in-depth, hands-on learning experience. Explore details of a technology by interacting with it. Designed to fit your schedule, these workshops are available 24/7 – from anywhere at any time. Check out these interesting HPE Ezmeral Data Fabric workshops:
-
-* [HPE Ezmeral Data Fabric 101 – Get to know the basics around the data fabric](/hackshack/workshop/26)
 <div class="row">
   <div class="column">
 
