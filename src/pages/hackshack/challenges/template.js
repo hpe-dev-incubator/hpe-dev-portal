@@ -103,7 +103,7 @@ const Challenge = (props) => {
           Challenges
         </Heading>
       </MainTitle>
-      <Text
+      {/* <Text
         color="text-strong"
         weight="bold"
         margin={{ top: 'none', bottom: 'small' }}
@@ -129,8 +129,8 @@ const Challenge = (props) => {
           Terms and Conditions
         </Anchor>
         .
-      </Text>
-      {console.log('replays in tabs ', workshops)}
+      </Text> */}
+      {/* {console.log('replays in tabs ', workshops)} */}
       {workshops.length > 0 ? (
         <Tabs activeIndex={index} onActive={onActive} justify="start">
           <Tab title="All">
