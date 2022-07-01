@@ -181,10 +181,10 @@ token    = yamldecode(base64decode(data.hpegl_caas_cluster.test.kubeconfig)).use
 In order to create a Kubernetes cluster using the cluster resource, the following values should be specified in the **cluster-create.tf** file shown below:
 
 1. Site Name: Fill in the appropriate site **name** in the **hpegl\_caas\_site** block. In the below example, name= "BLR" 
-2. Cluster Blueprint Name: Fill in the appropriate cluster blueprint **name** in the **hpegl\_caas\_cluster_blueprint** block. In the below example, name= "demo" 
+2. Cluster Blueprint Name: Fill in the appropriate cluster blueprint **name** in the **hpegl\_caas\_cluster\_blueprint** block. In the below example, name= "demo" 
 3. Cluster Name: Fill in the cluster **name** of your choice in the **hpegl\_caas\_cluster** block. In the below example, name= "tf-test"
 
-> Note: Here, the space_id is automatically set to the value specified while exporting TF\_VAR\_HPEGL\_SPACE.
+> Note: Here, the space\_id is automatically set to the value specified while exporting TF\_VAR\_HPEGL\_SPACE.
 
 **cluster-create.tf**
 
