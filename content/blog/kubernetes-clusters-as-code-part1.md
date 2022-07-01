@@ -39,7 +39,7 @@ Follow the below steps for API Client creation:
 
 1. From the HPE GreenLake platform, launch the **HPE GreenLake Central console** for the appropriate tenant. Under the settings icon on the tenant **Dashboard** page, select **User Management** option.
 
-![](/img/1.png)
+![](/img/dashboard.png)
 
 2. Under the **API Clients** tab, click on **Create API Client**.
 
@@ -181,10 +181,10 @@ token    = yamldecode(base64decode(data.hpegl_caas_cluster.test.kubeconfig)).use
 In order to create a Kubernetes cluster using the cluster resource, the following values should be specified in the **cluster-create.tf** file shown below:
 
 1. Site Name: Fill in the appropriate site **name** in the **hpegl\_caas\_site** block. In the below example, name= "BLR" 
-2. Cluster Blueprint Name: Fill in the appropriate cluster blueprint **name** in the **hpegl\_caas\_cluster\_blueprint** block. In the below example, name= "demo" 
+2. Cluster Blueprint Name: Fill in the appropriate cluster blueprint **name** in the **hpegl\_caas\_cluster_blueprint** block. In the below example, name= "demo" 
 3. Cluster Name: Fill in the cluster **name** of your choice in the **hpegl\_caas\_cluster** block. In the below example, name= "tf-test"
 
-> Note: Here, the space\_id is automatically set to the value specified while exporting TF\_VAR\_HPEGL\_SPACE.
+> Note: Here, the space_id is automatically set to the value specified while exporting TF\_VAR\_HPEGL\_SPACE.
 
 **cluster-create.tf**
 
@@ -384,9 +384,7 @@ Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
 
 From the HPE GreenLake platform, launch the **HPE GreenLake Central console** for the appropriate tenant, and from the **Dashboard**, select **Clusters** to view the list of clusters. You will see **tf-test** cluster has been created successfully.
 
-![](/img/8.png)
-
-![](/img/9.png)
+![](/img/create.png)
 
 ## Delete a cluster resource
 
@@ -558,7 +556,7 @@ Destroy complete! Resources: 1 destroyed.
 
 From the HPE GreenLake platform, launch the **HPE GreenLake Central console** for the appropriate tenant, and from the **Dashboard**, select **Clusters** to view the list of clusters. You will see **tf-test** cluster has been deleted.
 
-![](/img/10.png)
+![](/img/delete.png)
 
 ## Additional 3rd party provider of your choice from community
 
