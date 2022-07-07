@@ -1,0 +1,1 @@
+reference:"blog/configuring-azure-ad-with-greenlake-cloud-platform-and-aruba-central.md"
