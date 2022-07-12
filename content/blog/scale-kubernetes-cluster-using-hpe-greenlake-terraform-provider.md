@@ -26,7 +26,7 @@ You should see the **tf-test** cluster present under **Dashboard -> Manage your 
 
 Below is the reference Terraform configuration file for the existing cluster.
 
-```
+```hcl
 terraform {
   required_providers {
     hpegl = {
@@ -68,16 +68,12 @@ resource hpegl_caas_cluster test {
 You can scale the cluster by adding a worker node. The following **worker_nodes** attributes are specified to add or modify node pools in the declared Kubernetes cluster resource.
 
 1. **name**: Fill in the name which would ideally represent each node pool.
-
-
 2. **machine_blueprint_id**: Fill in the ID for the machine blueprint which is already present in HPE GreenLake Central for your tenant. We use the machine blueprint data source to retrieve the machine blueprint ID.
-
-
 3. **count**: Add the number of nodes to be present as part of this node pool.
 
 Below is the reference Terraform configuration for creating the cluster with additional nodes.
 
-```
+```hcl
 terraform {
   required_providers {
     hpegl = {
@@ -125,8 +121,6 @@ resource hpegl_caas_cluster test {
 }
 ```
 
-
-
 ### *Trivia*
 
 *Machine blueprints are used to define the infrastructure details for the worker nodes used in a cluster. A machine blueprint includes the following:*
@@ -139,7 +133,7 @@ resource hpegl_caas_cluster test {
 
 Terraform plan is a dry run that lets you preview the changes that Terraform plans to make to your infrastructure based on the data you provide in your Terraform file. To see this, run: **terraform plan**
 
-```
+```shellsession
 $ terraform plan
 
 hpegl_caas_cluster.test: Refreshing state... [id=a32fabb9-7c19-42d1-9a38-ebf122810c0a]
@@ -167,17 +161,13 @@ Plan: 0 to add, 1 to change, 0 to destroy.
 ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 
 Note: You didn't use the -out option to save this plan, so Terraform can't guarantee to take exactly these actions if you run "terraform apply" now.
-
-
 ```
-
-
 
 # Terraform ready to apply
 
 Terraform executes the actions proposed in the Terraform plan and updates the resources. Run the command: **terraform apply** and type **yes** when asked to **Enter a value**.
 
-```
+```shellsession
 $ terraform apply
 
 hpegl_caas_cluster.test: Refreshing state... [id=a32fabb9-7c19-42d1-9a38-ebf122810c0a]
@@ -225,21 +215,15 @@ hpegl_caas_cluster.test: Modifications complete after 19m18s [id=a32fabb9-7c19-4
 Apply complete! Resources: 0 added, 1 changed, 0 destroyed.
 ```
 
-
-
 From HPE GreenLake Edge to Cloud Platform, launch the HPE GreenLake Central console. Navigate to **Dashboard -> Manage your Private Cloud -> Containers**, and select the **tf-test** cluster created. You will see additional nodes with **Node Pool** name as "**test-node-pool**" being created successfully.
 
 ![](/img/cluster_detail_page.jpg)
-
-
 
 # Scale Options
 
 The above example is specifically for adding a single worker node pool to an existing cluster. Below are all the possible options available for scaling.
 
 1. Add worker node pools: We can add multiple node pools by simply declaring corresponding **worker_nodes** in the same cluster resource.
-
-
 2. Reduce worker node pools: Remove **worker_nodes** associated with a specific node pool from the cluster resource
 3. Increase/decrease worker node count: Updating the **count** field increases or decreases the number of nodes under each node pool. 
 4. Increase/decrease default worker node count: Every cluster by default has a worker node with the node pool name “**worker**” even if **worker_nodes** are not declared in the Terraform configuration. This originally comes from what's declared in the cluster blueprint. We can override and update the count and machine blueprint for this default worker by declaring **worker_nodes** with the name “**worker**”. 
