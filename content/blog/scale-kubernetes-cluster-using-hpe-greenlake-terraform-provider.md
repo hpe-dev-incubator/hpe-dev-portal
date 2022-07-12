@@ -224,9 +224,17 @@ From HPE GreenLake Edge to Cloud Platform, launch the HPE GreenLake Central cons
 The above example is specifically for adding a single worker node pool to an existing cluster. Below are all the possible options available for scaling.
 
 1. Add worker node pools: We can add multiple node pools by simply declaring corresponding **worker_nodes** in the same cluster resource.
+
+
 2. Reduce worker node pools: Remove **worker_nodes** associated with a specific node pool from the cluster resource
+
+
 3. Increase/decrease worker node count: Updating the **count** field increases or decreases the number of nodes under each node pool. 
+
+
 4. Increase/decrease default worker node count: Every cluster by default has a worker node with the node pool name “**worker**” even if **worker_nodes** are not declared in the Terraform configuration. This originally comes from what's declared in the cluster blueprint. We can override and update the count and machine blueprint for this default worker by declaring **worker_nodes** with the name “**worker**”. 
+
+
 
 Note: If we remove the default node pool (**worker_nodes** with name “**worker**”), the default configuration coming from the cluster blueprint shall be retained.
 
