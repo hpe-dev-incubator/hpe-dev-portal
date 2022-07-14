@@ -4,10 +4,11 @@ date: 2022-07-12T14:06:02.781Z
 author: Arshad Saquib C L
 authorimage: /img/mypic192x192.jpg
 tags:
-  - " hpe-greenlake, devops, terraform, open source"
+  - " hpe-greenlake"
+  - devops
+  - terraform
+  - open source
 ---
-<!--StartFragment-->
-
 The process of managing and provisioning computer data centers through machine-readable definition files, also known as Infrastructure-as-Code (IaC), offers many significant benefits. It helps to increase operational agility, simplify management, reduce errors, and save cost.
 
 In this post, we will explore options to declare and scale Kubernetes clusters on HPE GreenLake using the HPE GreenLake Terraform Provider.
@@ -68,7 +69,7 @@ resource hpegl_caas_cluster test {
 You can scale the cluster by adding a worker node. The following **worker_nodes** attributes are specified to add or modify node pools in the declared Kubernetes cluster resource.
 
 1. **name**: Fill in the name which would ideally represent each node pool.
-2. **machine_blueprint_id**: Fill in the ID for the machine blueprint which is already present in HPE GreenLake Central for your tenant. We use the machine blueprint data source to retrieve the machine blueprint ID.
+2. **machine\_blueprint\_id**: Fill in the ID for the machine blueprint which is already present in HPE GreenLake Central for your tenant. We use the machine blueprint data source to retrieve the machine blueprint ID.
 3. **count**: Add the number of nodes to be present as part of this node pool.
 
 Below is the reference Terraform configuration for creating the cluster with additional nodes.
@@ -121,9 +122,9 @@ resource hpegl_caas_cluster test {
 }
 ```
 
-### *Trivia*
 
-*Machine blueprints are used to define the infrastructure details for the worker nodes used in a cluster. A machine blueprint includes the following:*
+
+*Note: Machine blueprints are used to define the infrastructure details for the worker nodes used in a cluster. A machine blueprint includes the following:*
 
 * *Machine provider*
 * *Operating system image and version*
@@ -215,7 +216,7 @@ hpegl_caas_cluster.test: Modifications complete after 19m18s [id=a32fabb9-7c19-4
 Apply complete! Resources: 0 added, 1 changed, 0 destroyed.
 ```
 
-From HPE GreenLake Edge to Cloud Platform, launch the HPE GreenLake Central console. Navigate to **Dashboard -> Manage your Private Cloud -> Containers**, and select the **tf-test** cluster created. You will see additional nodes with **Node Pool** name as "**test-node-pool**" being created successfully.
+From HPE GreenLake edge-to-cloud platform, launch the HPE GreenLake Central console. Navigate to **Dashboard -> Manage your Private Cloud -> Containers** and select the **tf-test** cluster created. You will see additional nodes with **Node Pool** name as "**test-node-pool**" being created successfully.
 
 ![](/img/cluster_detail_page.jpg)
 
@@ -224,17 +225,9 @@ From HPE GreenLake Edge to Cloud Platform, launch the HPE GreenLake Central cons
 The above example is specifically for adding a single worker node pool to an existing cluster. Below are all the possible options available for scaling.
 
 1. Add worker node pools: We can add multiple node pools by simply declaring corresponding **worker_nodes** in the same cluster resource.
-
-
 2. Reduce worker node pools: Remove **worker_nodes** associated with a specific node pool from the cluster resource
-
-
 3. Increase/decrease worker node count: Updating the **count** field increases or decreases the number of nodes under each node pool. 
-
-
 4. Increase/decrease default worker node count: Every cluster by default has a worker node with the node pool name “**worker**” even if **worker_nodes** are not declared in the Terraform configuration. This originally comes from what's declared in the cluster blueprint. We can override and update the count and machine blueprint for this default worker by declaring **worker_nodes** with the name “**worker**”. 
-
-
 
 Note: If we remove the default node pool (**worker_nodes** with name “**worker**”), the default configuration coming from the cluster blueprint shall be retained.
 
@@ -251,5 +244,3 @@ I hope you found this information interesting and useful while considering the s
 \-      [ Learn more about the HPE GreenLake Terraform provider](https://registry.terraform.io/providers/HPE/hpegl)
 
 Don’t forget, you can always find other tutorials and articles on HPE GreenLake on the [HPE Developer blog](https://developer.hpe.com/blog/tag/hpe-greenlake).
-
-<!--EndFragment-->
