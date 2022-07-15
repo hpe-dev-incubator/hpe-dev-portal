@@ -1,6 +1,6 @@
 ---
 title: Summary from The 9th Annual Chapel Implementers and Users Workshop (CHIUW 2022)
-date: 2022-07-20T16:55:02.401Z
+date: 2022-07-15T19:31:06.645Z
 priority: ""
 author: Michelle Strout and Engin Kayraklioglu
 authorimage: /img/mstrout-headshot-small.jpg
