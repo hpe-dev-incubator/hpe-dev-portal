@@ -8,7 +8,7 @@ image: /img/platforms/SPIFFEandSpire.svg
 width: medium
 priority: 7
 frontpage: true
-active: true
+active: false
 tags:
   - spiffe-and-spire-projects
 ---
