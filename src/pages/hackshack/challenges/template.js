@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 import React, { useEffect, useState } from 'react';
-import { Heading, Text, Box, Image, Tab, Tabs, Anchor } from 'grommet';
+import { Heading, Text, Box, Image, Tab, Tabs } from 'grommet';
 import axios from 'axios';
 import PropTypes from 'prop-types';
 import { Layout, ScheduleCard, CardGrid } from '../../../components/hackshack';
@@ -103,7 +103,7 @@ const Challenge = (props) => {
           Challenges
         </Heading>
       </MainTitle>
-      <Text
+      {/* <Text
         color="text-strong"
         weight="bold"
         margin={{ top: 'none', bottom: 'small' }}
@@ -129,8 +129,8 @@ const Challenge = (props) => {
           Terms and Conditions
         </Anchor>
         .
-      </Text>
-      {console.log('replays in tabs ', workshops)}
+      </Text> */}
+      {/* {console.log('replays in tabs ', workshops)} */}
       {workshops.length > 0 ? (
         <Tabs activeIndex={index} onActive={onActive} justify="start">
           <Tab title="All">

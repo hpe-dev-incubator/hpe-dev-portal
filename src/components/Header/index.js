@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import React, { useContext } from 'react';
 import {
   Box,
@@ -21,7 +22,8 @@ const TextAlignLeft = styled(Box)`
 
 function Header() {
   const { data } = useContext(AppContext);
-  const platforms = data.allMarkdownRemark?.edges;
+  const platforms = data?.platform?.edges;
+  const opensource = data?.opensource?.edges;
 
   const PlatformButtonLinks = ({ column }) => {
     const leftColumn = platforms.filter((platform, index) => index % 2 === 0);
@@ -44,11 +46,66 @@ function Header() {
     });
   };
 
+  const OpenSourceButtonLinks = ({ column }) => {
+    const leftColumn = opensource.filter((os, index) => index % 2 === 0);
+    const rightColumn = opensource.filter((os, index) => index % 2);
+    const osColumn = column === 'left' ? leftColumn : rightColumn;
+
+    return osColumn.map((os, index) => {
+      const { slug } = os.node.fields;
+      const s = slug.toLowerCase();
+      const { title } = os.node.frontmatter;
+
+      return (
+        <ButtonLink
+          key={index}
+          label={title}
+          to={`/platform${s}home`}
+          alignSelf="start"
+          fill="horizontal"
+        />
+      );
+    });
+  };
+
   const size = useContext(ResponsiveContext);
   const navLinks = [
-    <ButtonLink align="start" key="os" label="Open Source" to="/opensource" />,
+    // <ButtonLink align="start" key="os" label="Open Source" to="/opensource" />,
+    <ButtonLink
+      align="start"
+      key="os"
+      label="HPE GreenLake"
+      to="/platform/hpe-greenlake/home"
+    />,
     <DropButton
-      label="Our Platforms"
+      label="OpenSource"
+      align="start"
+      dropAlign={{ top: 'bottom', left: 'left' }}
+      icon={<FormDown />}
+      reverse
+      dropContent={
+        <TextAlignLeft>
+          <ButtonLink
+            key="pl"
+            label="All Open Source"
+            to="/opensource"
+            state={{ state: { isPlatformHeaderClicked: true } }}
+            alignSelf="start"
+            fill="horizontal"
+          />
+          <Box direction="row">
+            <TextAlignLeft>
+              <OpenSourceButtonLinks column="left" />
+            </TextAlignLeft>
+            <TextAlignLeft>
+              <OpenSourceButtonLinks column="right" />
+            </TextAlignLeft>
+          </Box>
+        </TextAlignLeft>
+      }
+    />,
+    <DropButton
+      label="Our Technologies"
       dropAlign={{ top: 'bottom', left: 'left' }}
       icon={<FormDown />}
       reverse

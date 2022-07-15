@@ -39,7 +39,7 @@ Follow the below steps for API Client creation:
 
 1. From the HPE GreenLake platform, launch the **HPE GreenLake Central console** for the appropriate tenant. Under the settings icon on the tenant **Dashboard** page, select **User Management** option.
 
-![](/img/1.png)
+![](/img/dashboard.png)
 
 2. Under the **API Clients** tab, click on **Create API Client**.
 
@@ -384,9 +384,7 @@ Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
 
 From the HPE GreenLake platform, launch the **HPE GreenLake Central console** for the appropriate tenant, and from the **Dashboard**, select **Clusters** to view the list of clusters. You will see **tf-test** cluster has been created successfully.
 
-![](/img/8.png)
-
-![](/img/9.png)
+![](/img/create.png)
 
 ## Delete a cluster resource
 
@@ -558,7 +556,7 @@ Destroy complete! Resources: 1 destroyed.
 
 From the HPE GreenLake platform, launch the **HPE GreenLake Central console** for the appropriate tenant, and from the **Dashboard**, select **Clusters** to view the list of clusters. You will see **tf-test** cluster has been deleted.
 
-![](/img/10.png)
+![](/img/delete.png)
 
 ## Additional 3rd party provider of your choice from community
 

@@ -6,7 +6,7 @@ description: Enabling Machine Learning and AI for traditional high performance
 image: /img/platforms/smartsim.svg
 width: large
 priority: 10
-active: true
+active: false
 tags:
   - SmartSim
 ---
