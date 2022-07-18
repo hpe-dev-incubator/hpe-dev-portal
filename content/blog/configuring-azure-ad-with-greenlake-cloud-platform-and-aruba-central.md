@@ -46,7 +46,7 @@ If you're looking for the Central 2.5.4 SAML integration guide, [it has been mov
 ## Terms used in this blog post
 
 - **CCS**: Common Cloud Service
-- **GLPC**: HPE GreenLake Cloud Platform
+- **GLCP**: HPE GreenLake Cloud Platform
 - **SSO**: Single Sign On
 - **SAML**: Security Assertion Markup Language
 - **idP**: Identity Providers
@@ -56,7 +56,7 @@ If you're looking for the Central 2.5.4 SAML integration guide, [it has been mov
 - **XML**: eXtensible Markup Language
 
 
-## Steps to Configure SSO/SAML Application in Azure AD
+## Steps to Configure a SSO/SAML Application in Azure AD
 To configure SSO in Aruba Central, first download the metadata file from Azure AD.
 
 
@@ -64,16 +64,16 @@ To configure SSO in Aruba Central, first download the metadata file from Azure A
 	<li>Create an Enteprise Application in the [Azure Portal](https://portal.azure.com)</li>
 	<li>Configure the Enterprise Application for HPE GLCP</li>
 	<li>Download the federated metadata XML file from Enterprise Application</li>
-	<li>Claim and Configure your domain within HPE GLCP</li>
+	<li>Claim and configure your domain within HPE GLCP</li>
 	<li>Upload the federated metadata XML file to HPE GLCP </li>
-	<li>Create recovery account</li></ol>
+	<li>Create a recovery account</li></ol>
 
 
 
 ## Step 1: Create an Azure AD Enterprise Application
 
 
-* Log into to Azure portal.
+* Log into to the Azure portal.
 
 * Click **Enterprise Applications** (you may need to search for it, if it's not on your menu)
 
@@ -93,7 +93,7 @@ To configure SSO in Aruba Central, first download the metadata file from Azure A
 ![Image](/img/0b085a5aef05404e9ecdf52cb9088feb/assign-users-groups.png)
 
 
-* Under Step 2: Set Up Signle sign on
+* Under Step 2: Set Up Signle Sign-On
   
 
 * The default setting is Disabled. Select **SAML** 
@@ -167,24 +167,24 @@ To configure SSO in Aruba Central, first download the metadata file from Azure A
 
 * Create the recovery user per the instructions
 * Validate the settings are correct
-* Save and Finish the configruation.
-* If you get an error that the SAML configuraiton wasn't completed using the account with the @domain.com. You'll have to log back up and login with the SAML domain and go through the above configuration again.
+* Save and finish the configuration.
+* If you get an error that the SAML configuration wasn't completed using the account with the @domain.com, you'll have to log out and login again with the SAML domain and go through the above configuration again.
 
-## Login to HPE GLCP and Aruba Central using Azure AD
+## Log in to HPE GLCP and Aruba Central using Azure AD
 
-* Once you've completed the above steps, login to HPE Greenlake Central using your Azure AD email.
+* Once you've completed the above steps, log in to HPE Greenlake Central using your Azure AD email.
 
 <img src="/img/0b085a5aef05404e9ecdf52cb9088feb/ccs_login.png" alt="ccs_login" height="40%" width="40%"><img src="/img/0b085a5aef05404e9ecdf52cb9088feb/ccs_login_saml.png" alt="ccs_login_saml" height="40%" width="40%">
 
-* If everything is working correctly, you should have logged into HPE GLCP and Aruba Central is an option to Launch.
+* If everything is working correctly, you should have logged into HPE GLCP and find the Aruba Central application tile with an button to "Launch" the Aruba Central application.
 
 ## Using Azure AD MFA
-* By default, Azure AD enables MFA. However, for testing and demos, it's much easier to disable MFA on your accounts. To disable MFA, please see the following documentation: [What are security defaults](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/concept-fundamentals-security-defaults)
+* By default, Azure AD enables Multi-Factor Authentication (MFA). However, for testing and demos, it's much easier to disable MFA on your accounts. To disable MFA, please see the following documentation: [What are security defaults](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/concept-fundamentals-security-defaults)
 
 ## Troubleshooting
-* There's a useful 3rd party browser tool called: SAML Tracer
+* There's a useful 3rd-party browser tool called: SAML Tracer
 * This tool will allow you to verify the attributes you're sending to Central.
-* It can be useful when configuratin SAML with multiple HPE Greenlake Central accounts or domains
+* It can be useful when configuration SAML with multiple HPE Greenlake Central accounts or domains.
 * SAML Tracer
 [Chrome](https://chrome.google.com/webstore/detail/saml-tracer/mpdajninpobndbfcldcmbpnnbhibjmch?hl=en)
 [FireFox](https://addons.mozilla.org/en-US/firefox/addon/saml-tracer/)
