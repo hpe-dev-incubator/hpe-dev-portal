@@ -3,7 +3,7 @@ title: "Why Open Source is more than Software: The Example of the Linux
   Foundation's AgStack project"
 date: 2022-06-01T17:18:20.282Z
 featuredBlog: true
-priority: 5
+priority: 1
 author: Dale Rensing
 authorimage: /img/blog-author-rensing-96.jpg
 thumbnailimage: /img/agstack-512.png
