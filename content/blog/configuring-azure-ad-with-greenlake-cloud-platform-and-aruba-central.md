@@ -89,6 +89,7 @@ To configure SSO in Aruba Central, first download the metadata file from Azure A
 * Select **Integrate any other application you don't find in the gallery (Non-gallery)**
 
 * Under Step 1: Assign users and groups, select the AD Group you created at the beginning of this document.
+
 ![Image](/img/0b085a5aef05404e9ecdf52cb9088feb/assign-users-groups.png)
 
 * Under Step 2: Set Up Single Sign-On
@@ -166,6 +167,7 @@ To configure SSO in Aruba Central, first download the metadata file from Azure A
 ## Log in to HPE GLCP and Aruba Central using Azure AD
 
 * Once you've completed the above steps, log in to HPE Greenlake Central using your Azure AD email.
+
 <img src="/img/0b085a5aef05404e9ecdf52cb9088feb/ccs_login.png" alt="ccs_login" height="40%" width="40%"><img src="/img/0b085a5aef05404e9ecdf52cb9088feb/ccs_login_saml.png" alt="ccs_login_saml" height="40%" width="40%">
 
 * If everything is working correctly, you should have logged into HPE GLCP and find the Aruba Central application tile with an button to "Launch" the Aruba Central application.
@@ -173,7 +175,7 @@ To configure SSO in Aruba Central, first download the metadata file from Azure A
 
 ## Using Azure AD MFA
 
-* By default, Azure AD enables Multi-Factor Authentication (MFA). However, for testing and demos, it's much easier to disable MFA on your accounts. To disable MFA, please see the following documentation: [What are security defaults](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/concept-fundamentals-security-defaults)
+By default, Azure AD enables Multi-Factor Authentication (MFA). However, for testing and demos, it's much easier to disable MFA on your accounts. To disable MFA, please see the following documentation: [What are security defaults](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/concept-fundamentals-security-defaults)
 
 
 ## Troubleshooting
