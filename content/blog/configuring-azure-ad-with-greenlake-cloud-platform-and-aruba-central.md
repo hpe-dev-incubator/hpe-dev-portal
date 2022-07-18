@@ -166,8 +166,7 @@ To configure SSO in Aruba Central, first download the metadata file from Azure A
 
 ## Log in to HPE GLCP and Aruba Central using Azure AD
 
-* Once you've completed the above steps, log in to HPE Greenlake Central using your Azure AD email.
-
+* Once you've completed the above steps, log in to HPE Greenlake Central using your Azure AD email.   
 <img src="/img/0b085a5aef05404e9ecdf52cb9088feb/ccs_login.png" alt="ccs_login" height="40%" width="40%"><img src="/img/0b085a5aef05404e9ecdf52cb9088feb/ccs_login_saml.png" alt="ccs_login_saml" height="40%" width="40%">
 
 * If everything is working correctly, you should have logged into HPE GLCP and find the Aruba Central application tile with an button to "Launch" the Aruba Central application.
