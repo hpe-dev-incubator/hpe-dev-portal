@@ -1,5 +1,6 @@
 ---
-title: Configuring Azure AD as the SAML IDP with HPE Greenlake Cloud Platform and Aruba Central
+title: Configuring Azure AD as the SAML IDP with HPE Greenlake Cloud Platform
+  and Aruba Central
 date: 2022-07-11T12:04:30.750Z
 featuredBlog: true
 priority: 2
@@ -85,23 +86,18 @@ To configure SSO in Aruba Central, first download the metadata file from Azure A
   Enter the name of your app. (Ex: Aruba Central USWEST 4)
 ![Image](/img/0b085a5aef05404e9ecdf52cb9088feb/create_app.png)
 
-
 * Select **Integrate any other application you don't find in the gallery (Non-gallery)**
 
-
 * Under Step 1: Assign users and groups, select the AD Group you created at the beginning of this document.
+
 ![Image](/img/0b085a5aef05404e9ecdf52cb9088feb/assign-users-groups.png)
 
-
-* Under Step 2: Set Up Signle Sign-On
+* Under Step 2: Set Up Single Sign-On
   
-
 * The default setting is Disabled. Select **SAML** 
 ![Image](/img/0b085a5aef05404e9ecdf52cb9088feb/select-saml.png)
 
-
 * Under Basic SAML Configuration, click **Edit**
-
 
 |                    Attribute                    |                     Values                    |
 |:-----------------------------------------------:|:---------------------------------------------:|
@@ -138,7 +134,6 @@ To configure SSO in Aruba Central, first download the metadata file from Azure A
 ![Image](/img/0b085a5aef05404e9ecdf52cb9088feb/azure-saml-custom-attributes-img1.png)
 ![Image](/img/0b085a5aef05404e9ecdf52cb9088feb/azure-saml-hpe_ccs_attribute.png)
 
-
 * Click **Download** under Step 3 : Federation Metadata XML.           
 <img src="/img/0b085a5aef05404e9ecdf52cb9088feb/azure-saml-federation-metadata-download.png" alt="azure-saml-federation-metadata-download" height="50%" width="50%">
 
@@ -148,50 +143,52 @@ To configure SSO in Aruba Central, first download the metadata file from Azure A
 * Login to HPE GLCP and select Manage.                 
 <img src="/img/0b085a5aef05404e9ecdf52cb9088feb/manage.png" alt="manage" height="50%" width="50%">
 
-
 * Select the Authentication tile.                        
 <img src="/img/0b085a5aef05404e9ecdf52cb9088feb/ccs-authentication.png" alt="ccs_authentication" height="50%" width="50%">
-
 
 * Claim your domain for SAML.                  
 <img src="/img/0b085a5aef05404e9ecdf52cb9088feb/ccs-claim-domain.png" alt="claim_domain" height="50%" width="50%">
 
-
 * Upload the _Federation Metadata XML_ file from the previous section.
 <img src="/img/0b085a5aef05404e9ecdf52cb9088feb/ccs-samle-azure-metadata-summry.png" alt="metadatasummary" height="70%" width="70%">
 
-
 * Apply the following configuration settings. These should match the First and Last Name settings you set above for Azure.
-
 <img src="/img/0b085a5aef05404e9ecdf52cb9088feb/ccs-saml-config-settings-summary.png" alt="saml-settings" height="70%" width="70%">
 
-* Create the recovery user per the instructions
-* Validate the settings are correct
+* Create the recovery user per the instructions.
+
+* Validate the settings are correct.
+
 * Save and finish the configuration.
+
 * If you get an error that the SAML configuration wasn't completed using the account with the @domain.com, you'll have to log out and login again with the SAML domain and go through the above configuration again.
+
 
 ## Log in to HPE GLCP and Aruba Central using Azure AD
 
-* Once you've completed the above steps, log in to HPE Greenlake Central using your Azure AD email.
-
+* Once you've completed the above steps, log in to HPE Greenlake Central using your Azure AD email.   
 <img src="/img/0b085a5aef05404e9ecdf52cb9088feb/ccs_login.png" alt="ccs_login" height="40%" width="40%"><img src="/img/0b085a5aef05404e9ecdf52cb9088feb/ccs_login_saml.png" alt="ccs_login_saml" height="40%" width="40%">
 
 * If everything is working correctly, you should have logged into HPE GLCP and find the Aruba Central application tile with an button to "Launch" the Aruba Central application.
 
+
 ## Using Azure AD MFA
-* By default, Azure AD enables Multi-Factor Authentication (MFA). However, for testing and demos, it's much easier to disable MFA on your accounts. To disable MFA, please see the following documentation: [What are security defaults](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/concept-fundamentals-security-defaults)
+
+By default, Azure AD enables Multi-Factor Authentication (MFA). However, for testing and demos, it's much easier to disable MFA on your accounts. To disable MFA, please see the following documentation: [What are security defaults](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/concept-fundamentals-security-defaults)
+
 
 ## Troubleshooting
+
 * There's a useful 3rd-party browser tool called: SAML Tracer
+
 * This tool will allow you to verify the attributes you're sending to Central.
+
 * It can be useful when configuration SAML with multiple HPE Greenlake Central accounts or domains.
+
 * SAML Tracer
 [Chrome](https://chrome.google.com/webstore/detail/saml-tracer/mpdajninpobndbfcldcmbpnnbhibjmch?hl=en)
 [FireFox](https://addons.mozilla.org/en-US/firefox/addon/saml-tracer/)
 ![Image](/img/0b085a5aef05404e9ecdf52cb9088feb/firefox-saml-tracer.png)
-
-
-
 
 
 ## Appendix: Generating the `hpe_ccs_attribute`
@@ -231,7 +228,7 @@ version_1#f9ee1cdecc1611ecb00e9e24ed17d2a7:00000000-0000-0000-0000-000000000000:
 
 ## Conclusion
 
-In this blog post, you learned how to configure Azure AD with HPE Greenlake by passing the necessary configuration and customizations using the hpe_ccs_attribute. From this point, you can create custom attributes to grant different level of access based on roles  such as Read/Write or Read/Only access. 
+In this blog post, you learned how to configure Azure AD with HPE Greenlake by passing the necessary configuration and customizations using the hpe\_ccs\_attribute. From this point, you can create custom attributes to grant different level of access based on roles  such as Read/Write or Read/Only access. 
 
 If you have feedback to this blog post, please send me a message.
 
