@@ -18,20 +18,18 @@ Azure Active Directory (Azure AD) is a cloud-based identity and access managemen
 I'll explain the process for configuring Azure AD to authenticate users into HPE Greenlake Cloud Platform (HPE GLCP) and Aruba Central using SAML idP.
 
 If you're looking for the Okta version of this information, it can be found on [WIFI-GUYS](https://www.wifi-guys.com/?p=512)
-<!-- prettier-ignore-start -->
-## Contents
 
-- [Configuring Azure AD as the SAML IDP with Greenlake Cloud Platform and Aruba Central](#configuring-azure-ad-as-the-saml-idp-with-greenlake-cloud-platform-and-aruba-central)
-	- [Contents](#contents)
-	- [Before you Begin](#before-you-begin)
-	- [Terms used in this blog post](#terms-used-in-this-document)
-	- [Steps to Configure SSO/SAML Application in Azure AD](#steps-to-configure-ssosaml-application-in-azure-ad)
-	- [Step 1: Create an Azure AD Enterprise Application](#step-1-create-an-azure-ad-enterprise-application)
-	- [Step 2: Configure GCLP for SAML Federation](#step-2-configure-gclp-for-saml-federation)
-	- [Login to HPE GLCP and Aruba Central using Azure AD](#login-to-glcp-and-aruba-central-using-azure-ad)
-	- [Using Azure AD MFA](#using-azure-ad-mfa)
-	- [Troubleshooting](#troubleshooting)
-	- [Appendix: Generating the hpe_ccs_attribute](#appendix-generating-the-hpe_ccs_attribute)
+## Contents
+<!-- prettier-ignore-start -->
+- [Before you Begin](#before-you-begin)
+- [Terms used in this blog post](#terms-used-in-this-document)
+- [Steps to Configure SSO/SAML Application in Azure AD](#steps-to-configure-ssosaml-application-in-azure-ad)
+- [Step 1: Create an Azure AD Enterprise Application](#step-1-create-an-azure-ad-enterprise-application)
+- [Step 2: Configure GCLP for SAML Federation](#step-2-configure-gclp-for-saml-federation)
+- [Login to HPE GLCP and Aruba Central using Azure AD](#login-to-glcp-and-aruba-central-using-azure-ad)
+- [Using Azure AD MFA](#using-azure-ad-mfa)
+- [Troubleshooting](#troubleshooting)
+- [Appendix: Generating the hpe_ccs_attribute](#appendix-generating-the-hpe_ccs_attribute)
 <!-- prettier-ignore-end -->
 
 ## Before you Begin
