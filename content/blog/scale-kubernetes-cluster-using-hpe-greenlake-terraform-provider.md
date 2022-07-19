@@ -4,7 +4,7 @@ date: 2022-07-12T14:06:02.781Z
 author: Arshad Saquib C L
 authorimage: /img/mypic192x192.jpg
 tags:
-  - " hpe-greenlake"
+  - hpe-greenlake
   - devops
   - terraform
   - open source
@@ -69,7 +69,7 @@ resource hpegl_caas_cluster test {
 You can scale the cluster by adding a worker node. The following worker-node attributes are specified to add or modify node pools in the declared Kubernetes cluster resource.
 
 1. **name**: Fill in the name that would ideally represent each node pool.
-2. **machine_blueprint_id**: Fill in the ID for the machine blueprint that is already present in HPE GreenLake Central for your tenant. Use the machine blueprint data source to retrieve the machine blueprint ID.
+2. **machine\_blueprint\_id**: Fill in the ID for the machine blueprint that is already present in HPE GreenLake Central for your tenant. Use the machine blueprint data source to retrieve the machine blueprint ID.
 3. **count**: Add the number of nodes to be present as part of this node pool.
 
 Below is the reference Terraform configuration for creating the cluster with additional nodes.
