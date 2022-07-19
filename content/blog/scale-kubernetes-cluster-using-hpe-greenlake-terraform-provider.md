@@ -4,7 +4,7 @@ date: 2022-07-12T14:06:02.781Z
 author: Arshad Saquib C L
 authorimage: /img/mypic192x192.jpg
 tags:
-  - " hpe-greenlake"
+  - hpe-greenlake
   - devops
   - terraform
   - open source
