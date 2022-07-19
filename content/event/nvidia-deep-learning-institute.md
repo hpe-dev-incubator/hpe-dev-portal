@@ -7,8 +7,6 @@ image: /img/nvidia-dli-free-training-qrcode.png
 link: https://nvda.ws/3yZCYkE
 width: large
 ---
-## Get a free course on AI, HPC or Data Science 
+## Get a free course on AI, HPC or Data Science from NVIDIA
 
-Learn to solve the world’s most challenging problems.
-
-Scan the QRCode, submit your details and get a free online course from NVIDIA Deep Learning Institute.
+Advance your knowledge in AI, accelerated computing, accelerated data science, graphics, and simulation with a free NVIDIA Deep Learning Institute course.
