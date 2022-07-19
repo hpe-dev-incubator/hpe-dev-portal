@@ -232,4 +232,3 @@ In this blog post, you learned how to configure Azure AD with HPE Greenlake by p
 If you have feedback to this blog post, please send me a message.
 
 Be sure to come back to the HPE Developer Community blog for more articles on this and other interesting subjects.
-
