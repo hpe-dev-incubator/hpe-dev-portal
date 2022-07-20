@@ -23,11 +23,11 @@ KubeDirector provides:
 * **An abstract framework**, allowing the definition of application characteristics through metadata and configuration artifacts   
 
 * **Continuous validation of resources**, automating app deployment and validation   
-
+   
 
 * **Hooks for “Day two” operations**, simplifying lifecycle management
+   
 
----
 
 ## Introduction to KubeDirector 
 
