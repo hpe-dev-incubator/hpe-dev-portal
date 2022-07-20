@@ -1,9 +1,8 @@
 ---
 title: KubeDirector
 version: "1.0"
-description: "KubeDirector is an open source Kubernetes custom controller that
+description: KubeDirector is an open source Kubernetes custom controller that
   simplifies implementing stateful scaleout application clusters on Kubernetes.
-  "
 image: /img/platforms/kubedirector-logo.png
 width: large
 priority: 5
