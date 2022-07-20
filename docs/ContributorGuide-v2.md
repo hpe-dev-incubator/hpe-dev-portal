@@ -570,5 +570,7 @@ If appropriate, use a tag to tie your blog post to a "platform" page on HPE Deve
   | **Data Sevices Cloud Console**     | data-services-cloud-console |
   | **Zerto**                          | zerto   |
   | **Project Data Map**               | project-data-map |
+  | **KubeDirector**                   | kubedirector |
+  
   
   
