@@ -18,11 +18,11 @@ KubeDirector does not tie a custom resource definition to a particular type of a
 KubeDirector provides:
 
 
-* **One operator for stateful apps**, enabling the deployment of legacy, stateful enterprise applications without writing or implementing application-specific operators
+* **One operator for stateful apps**, enabling the deployment of legacy, stateful enterprise applications without writing or implementing application-specific operators   
 
-* **An abstract framework**, allowing the definition of application characteristics through metadata and configuration artifacts
+* **An abstract framework**, allowing the definition of application characteristics through metadata and configuration artifacts   
 
-* **Continuous validation of resources**, automating app deployment and validation
+* **Continuous validation of resources**, automating app deployment and validation   
 
 
 * **Hooks for “Day two” operations**, simplifying lifecycle management
