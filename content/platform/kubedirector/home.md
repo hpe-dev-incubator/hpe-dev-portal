@@ -53,7 +53,6 @@ KubeDirector provides:
 [Update release info](https://github.com/bluek8s/kubedirector/blob/master/HISTORY.md)   
 
 
-[Webinars on KubeDirector](https://kubedirector.io/resources/)   
 
 ---
 
