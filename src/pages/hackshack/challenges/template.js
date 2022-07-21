@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 import React, { useEffect, useState } from 'react';
-import { Heading, Text, Box, Image, Tab, Tabs, Anchor } from 'grommet';
+import { Heading, Text, Box, Image, Tab, Tabs } from 'grommet';
 import axios from 'axios';
 import PropTypes from 'prop-types';
 import { Layout, ScheduleCard, CardGrid } from '../../../components/hackshack';

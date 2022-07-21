@@ -6,7 +6,7 @@ image: /img/platforms/Grommet.svg
 width: large
 priority: 8
 frontpage: true
-active: true
+active: false
 tags:
   - Grommet
 ---

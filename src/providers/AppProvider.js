@@ -7,12 +7,33 @@ export const AppContext = React.createContext({ data: {} });
 const AppProvider = ({ children }) => {
   const data = useStaticQuery(graphql`
     query ContextNonPageQuery {
-      allMarkdownRemark(
+      platform: allMarkdownRemark(
         filter: {
           fields: {
             sourceInstanceName: { eq: "platform" }
             slug: { regex: "//home/$/" }
           }
+          frontmatter: { active: { eq: true } }
+        }
+        sort: { fields: [frontmatter___priority] }
+      ) {
+        edges {
+          node {
+            id
+            fields {
+              slug
+              sourceInstanceName
+            }
+            frontmatter {
+              title
+              active
+            }
+          }
+        }
+      }
+      opensource: allMarkdownRemark(
+        filter: {
+          fields: { sourceInstanceName: { eq: "opensource" } }
           frontmatter: { active: { eq: true } }
         }
         sort: { fields: [frontmatter___priority] }

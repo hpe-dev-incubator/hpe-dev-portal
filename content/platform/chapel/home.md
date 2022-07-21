@@ -7,7 +7,7 @@ image: /img/platforms/Chapel.svg
 width: large
 priority: 9
 frontpage: true
-active: true
+active: false
 tags:
   - chapel
 ---
