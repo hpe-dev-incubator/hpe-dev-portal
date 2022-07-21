@@ -17,7 +17,7 @@ The Hack Shack schedule was pretty intense, as usual. For those of you who may n
 
 In the front yard, I met soon-to-become new members of the HPE Developer Community after sharing with them a few simple, yet efficient, words and a quick demo of our developer portal. I also helped attendees participate in our software challenges. These software challenges were enjoyed by many and will be transformed over the summer into workshops that people can take through our [Workshop-on-Demand catalog](https://developer.hpe.com/hackshack/workshops).
 
-<center><img src=![HPE Developer Community portal](/img/fred-2-b-3-475-pix.jpg "HPE Developer Community portal prominently displayed")> <center>
+<center><img src="/img/fred-2-b-3-475-pix.jpg" alt="HPE Developer Community portal prominently displayed"> <center>
 
 Another highlight of the week were the foosball challenges we engaged in with Hack Shack attendees. I remained unbeaten at the foosball table the entire week. And I even managed to deliver our HPE Developer Community message while playing. A peculiar, but effective, tactic I used to win, I must admit.  
 
