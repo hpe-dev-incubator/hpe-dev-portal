@@ -9,7 +9,7 @@ After two years of only being able to meet virtually, HPE Developer Community me
 
 It was great to once again meet up with colleagues and customers face-to-face. I arrived early this year in order to help with the Hack Shack setup over the weekend. Our CEO, Antonio Neri, stopped by the booth while we were doing setup. He gladly agreed to take a picture with some of us members of the HPE Developer Community team. (He’s the one in blue and I’m to the right.)
 
-<center><img src="/img/fred-1b-3-501-pix-.jpg alt="HPE Developer Community staff with HPE CEO, Antonio Neri"><center>
+<center><img src="/img/fred-1b-3-501-pix-.jpg" alt="HPE Developer Community staff with HPE CEO, Antonio Neri"><center>
 
 ### Highlights of the week
 
