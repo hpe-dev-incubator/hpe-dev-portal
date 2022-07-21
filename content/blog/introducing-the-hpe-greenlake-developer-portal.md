@@ -4,9 +4,9 @@ date: 2022-07-20T15:42:12.362Z
 author: By Dale Rensing
 authorimage: /img/blog-author-rensing-96.jpg
 thumbnailimage: /img/gl-dev-portal-long-1200-x-675.jpg
+tags:
+  - hpe-greenlake
 ---
-<!--StartFragment-->
-
 During the executive keynote session at the HPE Discover 2022 Edge-to-Cloud Conference, Antonio Neri, President and CEO of Hewlett Packard Enterprise, announced the availability of the HPE GreenLake Developer Portal. He was joined by Fidelma Russo, HPE CTO, and Bryan Thompson, HPE VP of GreenLake Product Management, who gave a quick look at how it provides APIs and documentation to assist developers of all types integrate their apps and services with HPE GreenLake. A [beta version of the portal](https://developer.greenlake.hpe.com/docs/greenlake) is available today, easily accessed through the [HPE Developer Community portal](https://developer.hpe.com/).
 
 Recently, I had the opportunity to talk with HPE GreenLake Platform Product Manager Navaneethan Venugopalan and HPE Distinguished Technologist Travis Tripp about this eagerly anticipated resource and review it myself. Through the portal, HPE GreenLake customers and partners can take advantage of a well-documented, secure, and scalable framework of APIs for the HPE GreenLake edge-to-cloud platform.  Starting off by providing material for the HPE GreenLake for Compute Ops Management service, contents in this resource portal will grow rapidly, so make sure you check it often.
@@ -38,5 +38,3 @@ Customers at the event asked that we ensure it is kept up-to-date with the most 
 **I wish you much success with the portal and look forward to working with you and your team more closely to compliment your site with HPE GreenLake-related blog posts, workshops, and technical talks on the HPE Developer Community portal.**
 
 We do as well. As you know, the [HPE GreenLake edge-to-cloud platform page](https://developer.hpe.com/platform/hpe-greenlake/home/) on the HPE Developer Community site already links to over a dozen blog posts and tutorials. There’s already one HPE GreenLake related [Workshop-on-Demand](https://developer.hpe.com/hackshack/workshops), and we expect that more will be added soon. We’ve been invited to participate in the Munch & Learn talks and Meetup sessions, and we look forward to doing that as well.
-
-<!--EndFragment-->
