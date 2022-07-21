@@ -4,6 +4,11 @@ date: 2022-07-21T15:50:16.669Z
 author: By Frederic Passeron
 authorimage: /img/fp-hpewod.jpg
 thumbnailimage: /img/fred-2.jpg
+tags:
+  - Discover
+  - HackShack
+  - HPEDiscover
+  - hpe-greenlake
 ---
 <!--StartFragment-->
 
