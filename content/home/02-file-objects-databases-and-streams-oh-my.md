@@ -1,9 +1,10 @@
 ---
-title: Don't miss us at HPE Discover
+title: The Linux Foundation's AgStack project
 category: Feature Blog
 priority: 2
 width: small
-link: https://developer.hpe.com/blog/don%E2%80%99t-miss-all-things-software-in-the-hack-shack-at-hpe-discover/
+link: https://developer.hpe.com/blog/why-open-source-is-more-than-software-the-example-of-the-linux-foundations-agstack-project/
 image: /img/blog-author-rensing-96.jpg
 author: Dale Rensing
 ---
+ 
