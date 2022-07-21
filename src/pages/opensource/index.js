@@ -158,7 +158,7 @@ export const pageQuery = graphql`
         fields: { sourceInstanceName: { eq: "opensource" } }
         frontmatter: { active: { eq: true } }
       }
-      sort: { fields: [frontmatter___title] }
+      sort: { fields: [frontmatter___priority] }
     ) {
       edges {
         node {

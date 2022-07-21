@@ -6,7 +6,7 @@ description: KubeDirector is an open source Kubernetes custom controller that
 image: /img/platforms/kubedirector-logo.png
 width: large
 priority: 5
-active: true
+active: false
 tags:
   - kubedirector
 ---
