@@ -4,6 +4,9 @@ date: 2022-07-21T16:48:50.759Z
 author: By Frederic Passeron
 authorimage: /img/fp-hpewod.jpg
 thumbnailimage: /img/fred-2.jpg
+tags:
+  - hackshack
+  - hpe-discover
 ---
 After two years of only being able to meet virtually, HPE Developer Community members were excited to be able to connect with one another in-person at HPE Discover 2022 in the Hack Shack. It was an amazing event with more than 8,000 visitors. The event focused mostly on HPE GreenLake and all the 70+ new services that have been made available, from private cloud for the enterprise to data analytics (try some of them here in the[ HPE GreenLake Test Drive](https://testdrive.greenlake.hpe.com/)).
 
