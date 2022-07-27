@@ -232,7 +232,6 @@ const FeedbackBody = ({
                 value={feedbackFromik.values.email}
                 style={{ marginTop: 10 }}
                 placeholder="Enter Your Email"
-                required
                 onChange={feedbackFromik.handleChange}
                 onBlur={feedbackFromik.handleBlur}
               />
@@ -249,10 +248,7 @@ const FeedbackBody = ({
                 }}
                 alignSelf="end"
                 primary
-                disabled={
-                  feedbackFromik.values.email === '' ||
-                  feedbackFromik.errors.email
-                }
+                disabled={feedbackFromik.errors.email}
               />
             </>
           )}
