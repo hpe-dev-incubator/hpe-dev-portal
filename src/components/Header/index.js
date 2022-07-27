@@ -113,7 +113,7 @@ function Header() {
         <TextAlignLeft>
           <ButtonLink
             key="pl"
-            label="All Platforms"
+            label="All Technologies"
             to="/platforms"
             state={{ state: { isPlatformHeaderClicked: true } }}
             alignSelf="start"
@@ -147,6 +147,12 @@ function Header() {
       state={{ state: { isBlogHeaderClicked: true } }}
     />,
     <ButtonLink align="start" key="cm" label="Community" to="/community" />,
+    // <ButtonLink
+    //   align="start"
+    //   key="os"
+    //   label="SignIn"
+    //   to={`https://www-prod-cockpit-west.ext.hpe.com/oauth2/authorization/hpe-okta?redirectUri=${window.location.origin}`}
+    // />,
   ];
   if (size === 'small') {
     navLinks.push(
