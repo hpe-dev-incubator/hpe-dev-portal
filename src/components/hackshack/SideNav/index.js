@@ -177,7 +177,7 @@ const SideNav = ({ data }) => {
               <TextAlignLeft>
                 <ButtonLink
                   key="pl"
-                  label="All Platforms"
+                  label="All Technologies"
                   to="/platforms"
                   state={{ state: { isPlatformHeaderClicked: true } }}
                   alignSelf="start"
