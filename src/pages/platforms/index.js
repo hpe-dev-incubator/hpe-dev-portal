@@ -55,11 +55,11 @@ function Platform({ data, location }) {
 
   return (
     <Layout title={siteTitle}>
-      <SEO title="Platforms" />
+      <SEO title="Our Technologies" />
       <PageDescription
         image="/img/platforms/PlatformsPage.svg"
-        title="Platforms"
-        alt="platform page logo"
+        title="Our Technologies"
+        alt="technology page logo"
       >
         <Paragraph size="large">
           Supporting developers, data scientists, and architects is what we do.
