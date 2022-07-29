@@ -3,7 +3,7 @@ title: Summary from the 9th Annual Chapel Implementers and Users Workshop (CHIUW
 date: 2022-07-15T19:31:06.645Z
 priority: 2
 author: Michelle Strout and Engin Kayraklioglu
-authorimage: /img/combined-author-photos.jpg
+authorimage: /img/combined-author-pic-correct-ratio.jpg
 thumbnailimage: /img/chapel-logo.jpg
 tags:
   - Chapel Programming Language
