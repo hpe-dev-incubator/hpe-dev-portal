@@ -23,10 +23,10 @@ In this post, Michelle Strout, general workshop chair, and Engin Kayraklioglu, p
 Programmers generally enjoy trying out new programming languages, but like to see example use cases before they lean on it.  CHIUW provides them with an opportunity to hear about and ask questions about many different use cases.  The Chapel programming language is being used productively in a range of application domains: data science, aeronautical simulations, cosmology simulations, and quantum diagonalization to name a few. CHIUW featured the following talks on different Chapel applications:
 
 * [Large-Scale and User-Friendly Exact Diagonalization in Chapel](<https://youtu.be/vBxPTzIRRr0>)
-* [Recent Developments in the CHApel Multi-Physics Simulation Software] (<https://youtu.be/uTE_RZkODOk>)
-* [UltraLight Dark Matter in Simulations: A Chapel-Powered Eigenstate Perspective] (<https://youtu.be/YrXYpgnt4rQ>)
+* [Recent Developments in the CHApel Multi-Physics Simulation Software](<https://youtu.be/uTE_RZkODOk>)
+* [UltraLight Dark Matter in Simulations: A Chapel-Powered Eigenstate Perspective](<https://youtu.be/YrXYpgnt4rQ>)
 * [Implementing and Optimizing Parquet I/O in Chapel] (<https://youtu.be/pstRsgMhCDA>)
-* [Truss Analytics Algorithms and Integration in Arkouda](<https://youtu.be/xI9EByv7A5M>)
+* [Truss Analytics Algorithms and Integration in Arkouda(<https://youtu.be/xI9EByv7A5M>)
 * [From C and Python to Chapel as My Main Programming Language](<https://youtu.be/400jmMzdzHQ>)
 
 **Coding Day**
