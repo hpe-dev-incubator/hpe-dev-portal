@@ -4,7 +4,7 @@ dateStart: 2022-07-26T22:01:27.279Z
 dateEnd: 2022-07-27T21:59:27.313Z
 category: Virtual Event
 image: /img/event-meetups-newlogo-400x400.png
-link: https://hpe.zoom.us/webinar/register/1716558231187/WN_AS6NmjPyROOXUektjrZfgw
+link: https://www.youtube.com/watch?v=r62VLwT6w3Y&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF&index=1
 width: large
 ---
 ## Finding vulnerabilities in production with open source ThreatMapper
