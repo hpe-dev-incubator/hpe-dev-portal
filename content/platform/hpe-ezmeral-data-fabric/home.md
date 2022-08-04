@@ -24,7 +24,7 @@ Supports files, object, NoSQL databases, and streams
 
 [HPE Ezmeral Ecosystem Pack includes](https://docs.datafabric.hpe.com/70/c_ecosystem_intro.html) certified open-source tools and engines that integrate directly on top of the data fabric. It enables in-place analytics no matter where data is located and reduces time spent integrating and configuring open source tools.
 
-[API Documentation](https://docs.datafabric.hpe.com/70/APIdocs.html) for app development.
+[API Documentation](https://docs.datafabric.hpe.com/home/) for app development.
 
 - - -
 
