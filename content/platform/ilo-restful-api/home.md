@@ -9,6 +9,7 @@ frontpage: true
 active: true
 tags:
   - ilo-restful-api
+  - Redfish
 ---
 # One Interface for Server Management Automation
 
@@ -20,33 +21,33 @@ A single API interface integrates server management components and full compute 
 
 Obtain simple, secure management of today’s scalable data center hardware with the Redfish API ecosystem. It’s an open industry-standard specification and schema that helps you integrate solutions within your existing tools. Published by the Distributed Management Task Force ([DMTF](http://www.dmtf.org/standards/redfish)), it’s ideal for cloud and web-based infrastructures, which typically have large quantities of servers in heterogeneous environments.
 
-* [Read about Redfish on iLO RESTful API](https://h20195.www2.hpe.com/V2/GetDocument.aspx?docname=4AA6-1727ENW)
+* [Read about Redfish on iLO RESTful API](https://h50146.www5.hpe.com/products/software/oe/linux/mainstream/support/whitepaper/pdfs/4AA6-1727ENW.pdf)
 
-* [Redfish Client Tools](https://youtu.be/ur9UKRV_0S8)
+* [Explore the API](https://ilorestfulapiexplorer.ext.hpe.com/)
 
-# GitHub Repositories
+* [Choose a Redfish Client Tool](https://youtu.be/ur9UKRV_0S8)
 
-Find tools you need to help you leverage the iLO RESTful API SDK.
+# GitHub and PowerShell Repositories
+
+Find tools you need to help you leverage the iLO RESTful API SDKs.
 
 ## SDKs and Language Bindings
 
 ### [iLO RESTful API Documentation ![](Github)](https://hewlettpackard.github.io/ilo-rest-api-docs/)
 
-Documentation to help you explore the data model, download sample code, use HTTP Basic Authentication and more.
-
-* [Browse the Demo](https://ilorestfulapiexplorer.ext.hpe.com/)
+HPE Reference documentation with examples to help you write Redfish programs and scripts.
 
 - - -
 
 ### [The Python library ![](Github)](https://github.com/HewlettPackard/python-ilorest-library)
 
-The Python library provides a rich Python library for developers to easy interact with the iLO RESTful API.
+The Python library provides a rich Redfish library and examples for developers to easy interact with the iLO RESTful API.
 
 - - -
 
-### [The PowerShell library ![](Github)](https://github.com/HewlettPackard/PowerShell-ProLiant-SDK)
+### [The PowerShell Gallery](https://www.powershellgallery.com/packages?q=hpe*cmdlets) and [library ![](Github)](https://github.com/HewlettPackard/PowerShell-ProLiant-SDK)
 
-The PowerShell library provides comments to interact with Windows PowerShell Interface to the iLO RESTful API.
+The PowerShell Gallery and library provide Cmdlets and scripts to interact with the Windows PowerShell Interface to the iLO RESTful API.
 
 - - -
 
@@ -74,15 +75,15 @@ Puppet module for installing the Python iLOrest library and examples.
 
 - - -
 
-### [Ansible ![](Github)](https://github.com/HewlettPackard/ansible-ilorest-role)
+### [Ansible ![](Github)] (https://galaxy.ansible.com/hpe/ilo)
 
-Ansible role for installing the Python iLOrest library and examples.
+[Ansible playbooks and roles](https://github.com/HewlettPackard/ilo-ansible-collection/) for iLOs using the Redfish API.
 
 ## IT Operations
 
 ### [RESTful Interface Tool ![](Github)](https://github.com/HewlettPackard/python-redfish-utility)
 
-RESTful Interface Tool (iLOrest) is an open source scripting tool with devices supporting Redfish API.
+The HPE RESTful Interface Tool ([iLOrest](http://hpe.com/info/resttool)) is an open source Redfish client scripting tool also featuring interactive and debug modes.
 
 * [Read the documentation guide](https://hewlettpackard.github.io/python-redfish-utility/)
 * [Watch the Demo](https://www.youtube.com/watch?v=xfEN95pNNfY)
