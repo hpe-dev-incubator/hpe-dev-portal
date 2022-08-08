@@ -83,7 +83,7 @@ Puppet module for installing the Python iLOrest library and examples.
 
 ### [RESTful Interface Tool ![](Github)](https://github.com/HewlettPackard/python-redfish-utility)
 
-The HPE RESTful Interface Tool ([iLOrest](https://hpe.com/info/resttool)) is an open source Redfish client scripting tool also featuring interactive and debug modes.
+The HPE RESTful Interface Tool ([iLOrest](https://www.hpe.com/info/resttool)) is an open source Redfish client scripting tool also featuring interactive and debug modes.
 
 * [Read the documentation guide](https://hewlettpackard.github.io/python-redfish-utility/)
 * [Watch the Demo](https://www.youtube.com/watch?v=xfEN95pNNfY)
