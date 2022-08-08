@@ -4,16 +4,16 @@ date: 2022-08-08T07:48:49.530Z
 author: Thirukkannan M
 authorimage: /img/Avatar1.svg
 ---
-<!--\[if !mso]>
+<!--\\[if !mso]>
 <style>
 v\:* {behavior:url(#default#VML);}
 o\:* {behavior:url(#default#VML);}
 w\:* {behavior:url(#default#VML);}
 .shape {behavior:url(#default#VML);}
 </style>
-<!\[endif]-->
+<!\\[endif]-->
 
-<!--\[if gte mso 9]><xml>
+<!--\\[if gte mso 9]><xml>
  <w:WordDocument>
   <w:View>Normal</w:View>
   <w:Zoom>0</w:Zoom>
@@ -52,9 +52,9 @@ w\:* {behavior:url(#default#VML);}
    <m:intLim m:val="subSup"/>
    <m:naryLim m:val="undOvr"/>
   </m:mathPr></w:WordDocument>
-</xml><!\[endif]-->
+</xml><!\\[endif]-->
 
-<!--\[if gte mso 9]><xml>
+<!--\\[if gte mso 9]><xml>
  <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
   DefSemiHidden="false" DefQFormat="false" DefPriority="99"
   LatentStyleCount="371">
@@ -623,9 +623,9 @@ w\:* {behavior:url(#default#VML);}
   <w:LsdException Locked="false" Priority="52"
    Name="List Table 7 Colorful Accent 6"/>
  </w:LatentStyles>
-</xml><!\[endif]-->
+</xml><!\\[endif]-->
 
-<!--\[if gte mso 10]>
+<!--\\[if gte mso 10]>
 <style>
  /* Style Definitions */
  table.MsoNormalTable
@@ -651,7 +651,7 @@ w\:* {behavior:url(#default#VML);}
 	mso-bidi-font-family:"Times New Roman";
 	mso-bidi-theme-font:minor-bidi;}
 </style>
-<!\[endif]-->
+<!\\[endif]-->
 
 <!--StartFragment-->
 
@@ -684,7 +684,7 @@ GreenLake for MLOps platform allows customers to host their favorite cloud nativ
 
 **Steps to deploy a model**
 
-<!--\[if !supportLists]-->1)   <!--\[endif]-->Validation connection to kubernetes cluster
+<!--\\[if !supportLists]-->1)   <!--\\[endif]-->Validation connection to kubernetes cluster
 
 1. Click HPE GreenLake for ML Ops card in the HPE GreenLake Central **Dashboard** shows the number of previously created projects.
 
@@ -693,9 +693,9 @@ GreenLake for MLOps platform allows customers to host their favorite cloud nativ
 3. Click “Dashboard” on left navigation of “Ezmeral Container Platform”
 4. Download “kubectl”, “HPE kubectl plugin”, and “kubeconfig”.
 5. Set environment variable KUBECONFIG to point to the kubeconfig file
-6. validate connectivty to the cluster using command “kubectl get no”
+6. validate connectivity to the cluster using command “kubectl get no”
 
-<!--\[if !supportLists]-->2)   <!--\[endif]-->Place the model in s3 object storage
+<!--\\[if !supportLists]-->2)   <!--\\[endif]-->Place the model in s3 object storage
 
 1. Place the model and configuration file for triton inference server in object storage
 
@@ -736,14 +736,12 @@ output [
 
 ]
 
-<!--\[if !supportLists]-->3)   <!--\[endif]-->Create a namespace and secret to place an object storage credentials
+<!--\\[if !supportLists]-->3)   <!--\\[endif]-->Create a namespace and secret to place an object storage credentials
 
 * Run command “kubectl create namespace triton”
 * Run command “kubectl create secret generic minio_cred –from-literal=AWS_ACCESS_KEY_ID=<specify_access_key> --from-literal=AWS_SECRET_ACCESS_KEY=<specify_secret_access_key> -n triton
 
-<!--\[if !supportLists]-->4)   <!--\[endif]-->Create a deployment to host the model and check pods and services are running
-
- 
+<!--\\[if !supportLists]-->4)   <!--\\[endif]-->Create a deployment to host the model and check pods and services are running
 
 \---
 
@@ -851,8 +849,6 @@ spec:
 
             nvidia.com/gpu: 1
 
-         
-
       volumes:
 
 \- name: dshm
@@ -942,15 +938,9 @@ spec:
 
 \    Inspect the external metrics endpoint using command kubectl describe svc <service_name> -n triton”
 
- 
-
- 
-
 **Next steps**
 
 Once the production model is hosted, then any application can perform inference on the model hosted by Triton inference server. More on Triton client libraries refer the references section below
-
- 
 
 **Reference**
 
