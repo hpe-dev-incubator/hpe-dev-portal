@@ -1,5 +1,5 @@
 ---
-title: MLOps – Deploying an ML model in HPE GreenLake Platform MLOps service
+title: ML Ops – Deploying an ML model in HPE GreenLake Platform ML Ops service
 date: 2022-08-08T07:48:49.530Z
 author: Thirukkannan M
 authorimage: /img/Avatar1.svg
@@ -12,7 +12,7 @@ HPE GreenLake Central is an advanced software-as-a-service platform that provid
 
 HPE GreenLake for ML Ops is an on-premises, enterprise-grade ML service, enabling developers and data scientists to rapidly build, train, and deploy ML models—from pilot to production, at any scale.
 
-This preconfigured solution comprises an optimized hardware stack and is powered by HPE Ezmeral Container Platform. It provides data scientists with self-service access to a sandbox environment for prototyping and testing, to eliminate IT provisioning delays, ensure repeatability, and accelerate time-to-value. As a fully managed solution, the HPE GreenLake for ML Ops offering frees IT from routine infrastructure management tasks.
+This preconfigured solution comprises an optimized hardware stack and is powered by HPE Ezmeral Runtime Enterprise. It provides data scientists with self-service access to a sandbox environment for prototyping and testing, to eliminate IT provisioning delays, ensure repeatability, and accelerate time-to-value. As a fully managed solution, the HPE GreenLake for ML Ops offering frees IT from routine infrastructure management tasks.
 
 **Machine learning Lifecycle**
 
@@ -24,12 +24,12 @@ In this article, we focus on optimal model identified after data preparation and
 
 Triton Inference server supports deployment of any AI model from multiple deep learning and machine learning frameworks, including TensorRT, TensorFlow, PyTorch, ONNX, OpenVINO, Python, RAPIDS FIL, and more. Triton delivers optimized performance for many query types, including real time, batched, ensembles and audio/video streaming. To learn more about Triton Inference server, refer to the References section at the end of the post.
 
-HPE GreenLake for MLOps platform allows customers to host their favorite cloud native applications say Mlflow, Minio, etc.
+HPE GreenLake for ML Ops platform allows customers to host their favorite cloud native applications say Mlflow, Minio, etc.
 
 **Pre-requisite**
 
 * An active service subscription to HPE GreenLake for ML Ops
-* MLOps project has been created by MLOps admin and user is able to launch to ECP Portal with MLOps Project Member Role role
+* ML Ops project has been created by ML Ops admin and user is able to launch to HPE Ezmeral Runtime Enterprise with ML Ops Project Member Role role
 * Access credentials to any S3 based object storage is available
 * Triton Inference Server container image accessible either through on-prem registry (eg Harbor) or public registry accessible.
 
@@ -39,7 +39,7 @@ HPE GreenLake for MLOps platform allows customers to host their favorite cloud n
 
 1. Click HPE GreenLake for ML Ops card in the HPE GreenLake Central **Dashboard** shows the number of previously created projects.
 
-   ![Select MLOps Project](/img/blog_2.png "Select MLOps Project")
+   ![Select ML Ops Project](/img/blog_2.png "Select ML Ops Project")
 2. Click link “Launch ML Operations Console”
 3. Click “Dashboard” on left navigation of “Ezmeral Container Platform”
 4. Download “kubectl”, “HPE kubectl plugin”, and “kubeconfig”.
@@ -326,5 +326,5 @@ Once the production model is hosted, then any application can perform inference 
 * \[Triton Inference server](<https://github.com/triton-inference-server/server>)
 * \[Triton Client](<https://github.com/triton-inference-server/client>)
 * \[MinIO](<https://min.io/>)
-* \[HPE GreenLake for MLOps documentation](<https://support.hpe.com/hpesc/public/docDisplay?docId=a00092451en_us&page=HPE-GreenLake-for-ML-Ops.html>)
-* \[HPE Ezmeral Container Platform Documentation](<https://docs.containerplatform.hpe.com/53/reference/HPE_Ezmeral_Container_Platform.html>)
+* \[HPE GreenLake for ML Ops documentation](<https://support.hpe.com/hpesc/public/docDisplay?docId=a00092451en_us&page=HPE-GreenLake-for-ML-Ops.html>)
+* \[HPE Ezmeral Runtime Enterprise Documentation](<https://docs.containerplatform.hpe.com/53/reference/HPE_Ezmeral_Container_Platform.html>)
