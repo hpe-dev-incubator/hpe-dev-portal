@@ -37,7 +37,7 @@ HPE GreenLake for MLOps platform allows customers to host their favorite cloud n
 
 **Steps to deploy a model**
 
-<!--\\\[if !supportLists]-->1)   <!--\\\[endif]-->Validation connection to kubernetes cluster
+1)   Validation connection to kubernetes cluster
 
 1. Click HPE GreenLake for ML Ops card in the HPE GreenLake Central **Dashboard** shows the number of previously created projects.
 
@@ -48,7 +48,7 @@ HPE GreenLake for MLOps platform allows customers to host their favorite cloud n
 5. Set environment variable KUBECONFIG to point to the kubeconfig file
 6. validate connectivity to the cluster using command “kubectl get no”
 
-<!--\\\[if !supportLists]-->2)   <!--\\\[endif]-->Place the model in s3 object storage
+2)   Place the model in s3 object storage
 
 1. Place the model and configuration file for triton inference server in object storage
 
@@ -89,12 +89,12 @@ output [
 
 ]
 
-<!--\\\[if !supportLists]-->3)   <!--\\\[endif]-->Create a namespace and secret to place an object storage credentials
+3)   Create a namespace and secret to place an object storage credentials
 
 * Run command “kubectl create namespace triton”
 * Run command “kubectl create secret generic minio_cred –from-literal=AWS_ACCESS_KEY_ID=<specify_access_key> --from-literal=AWS_SECRET_ACCESS_KEY=<specify_secret_access_key> -n triton
 
-<!--\\\[if !supportLists]-->4)   <!--\\\[endif]-->Create a deployment to host the model and check pods and services are running
+4) Create a deployment to host the model and check pods and services are running
 
 \---
 
