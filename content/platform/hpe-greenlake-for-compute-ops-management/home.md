@@ -44,5 +44,5 @@ HPE GreenLake for Compute Ops Management customers and partners can take advanta
 
 
 ## Any questions on HPE GreenLake for Compute Ops Management?
-Please join the [HPEDEV Slack Workspace](https://slack.hpedev.io/) and start a discussion in our [#computeopsmanagement](https://hpedev.slack.com/archives/C03QTQWC213) channel.
+Please join the [HPE Developer Slack Workspace](https://slack.hpedev.io/) and start a discussion in our [#computeopsmanagement](https://hpedev.slack.com/archives/C03QTQWC213) channel.
 
