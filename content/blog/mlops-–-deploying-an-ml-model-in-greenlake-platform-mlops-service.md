@@ -3,6 +3,8 @@ title: MLOps – Deploying an ML model in HPE GreenLake Platform MLOps service
 date: 2022-08-08T07:48:49.530Z
 author: Thirukkannan M
 authorimage: /img/Avatar1.svg
+tags:
+  - hpe-greenlake
 ---
 <!--\\\[if !mso]>
 <style>
