@@ -24,7 +24,7 @@ The ML project life cycle can generally be divided into three main stages: data 
 
 In this article, we focus on optimal model identified after data preparation and building model. More specifically, as an example, we shall deploy a sample ONNX model available in Kubernetes native MinIO Object storage, using Triton Inference Server.
 
-Triton Inference server supports deployment of any AI model from multiple deep learning and machine learning frameworks, including TensorRT, TensorFlow, PyTorch, ONNX, OpenVINO, Python, RAPIDS FIL, and more. Triton delivers optimized performance for many query types, including real time, batched, ensembles and audio/video streaming. For more refer the references section below
+Triton Inference server supports deployment of any AI model from multiple deep learning and machine learning frameworks, including TensorRT, TensorFlow, PyTorch, ONNX, OpenVINO, Python, RAPIDS FIL, and more. Triton delivers optimized performance for many query types, including real time, batched, ensembles and audio/video streaming. To learn more about Triton Inference server, refer to the References section at the end of the post.
 
 HPE GreenLake for MLOps platform allows customers to host their favorite cloud native applications say Mlflow, Minio, etc.
 
@@ -303,7 +303,14 @@ kubectl get svc –n triton
 
 \`\``
 
-* Service labels hpecp.hpe.com/hpecp-internal-gateway: "true" is placed to get a gateway endpoint to access the triton inference server outside the cluster. To find the endpoint run command “kubectl describe svc <service_name> -n triton”
+* Service labels **hpecp.hpe.com/hpecp-internal-gateway: "true"** is placed to get a gateway endpoint to access the triton inference server outside the cluster. To find the endpoint run command 
+
+\`\``bash
+
+kubectl describe svc <service_name> -n triton”
+
+\`\``
+
 * Check the metrics endpoints for models hosted in triton inference server are accessible:
 
 \`\``bash
