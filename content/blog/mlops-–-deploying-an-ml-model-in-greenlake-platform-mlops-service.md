@@ -53,8 +53,7 @@ HPE GreenLake for ML Ops platform allows customers to host their favorite cloud 
    ![object storage for model](/img/blog_1.png "object storage for model")
 2. Sample configuration file for the model as is below:
 
-\`\``markdown
-
+```markdown
 name: "braintumor_onnx"
 
 platform: "onnxruntime_onnx"
@@ -88,24 +87,24 @@ output [
   }
 
 ]
+```
 
-\`\``
+
 
 3)   Create a namespace and secret for object storage credentials with below commands:
 
-\`\``bash
-
+```shell
 kubectl create namespace triton”
 
 kubectl create secret generic minio_cred –from-literal=AWS_ACCESS_KEY_ID=<specify_access_key> --from-literal=AWS_SECRET_ACCESS_KEY=<specify_secret_access_key> -n triton
+```
 
-\`\``
+
 
 4) Create a deployment to host the model and check pods and services are running
 
-\`\``yaml
-
-\---
+```yaml
+---
 
 apiVersion: apps/v1
 
@@ -143,7 +142,7 @@ spec:
 
       containers:
 
-\- image: nvcr.io/nvidia/tritonserver:21.10-py3
+      - image: nvcr.io/nvidia/tritonserver:21.10-py3
 
         name: tritonservercont
 
@@ -153,7 +152,7 @@ spec:
 
         env:
 
-\- name: AWS_ACCESS_KEY_ID
+- name: AWS_ACCESS_KEY_ID
 
             valueFrom:
 
@@ -163,7 +162,7 @@ spec:
 
                 key: AWS_ACCESS_KEY_ID
 
-\- name : AWS_SECRET_ACCESS_KEY
+- name : AWS_SECRET_ACCESS_KEY
 
             valueFrom:
 
@@ -175,21 +174,21 @@ spec:
 
         ports:
 
-\- containerPort: 8000
+- containerPort: 8000
 
             name: http
 
-\- containerPort: 8001
+- containerPort: 8001
 
             name: grpc
 
-\- containerPort: 8002
+- containerPort: 8002
 
             name: metrics
 
         volumeMounts:
 
-\- mountPath: /dev/shm
+- mountPath: /dev/shm
 
           name: dshm
 
@@ -213,7 +212,7 @@ spec:
 
       volumes:
 
-\- name: dshm
+- name: dshm
 
         emptyDir:
 
@@ -229,7 +228,7 @@ spec:
 
         gl.hpe.com/instance-type: GL-GP-MLi-Metal
 
-\---
+---
 
 apiVersion: v1
 
@@ -255,7 +254,7 @@ spec:
 
   ports:
 
-\- protocol: TCP
+- protocol: TCP
 
       name: http
 
@@ -265,7 +264,7 @@ spec:
 
       targetPort: 8000
 
-\- protocol: TCP
+- protocol: TCP
 
       name: grpc
 
@@ -275,7 +274,7 @@ spec:
 
       targetPort: 8001
 
-\- protocol: TCP
+- protocol: TCP
 
       name: metrics
 
@@ -284,8 +283,9 @@ spec:
       port: 8002
 
       targetPort: 8002
+```
 
-\`\``
+
 
           **Notes:**
 
@@ -293,29 +293,29 @@ spec:
 * Node selector “gl.hpe.com/instance-type: GL-GP-MLi-Metal” is used to place the workload in inference cluster
 * Check the pods and service are running by running the below commands:
 
-\`\``bash
-
+```shell
 kubectl get po –n triton
 
 kubectl get svc –n triton
+```
 
-\`\``
+
 
 * Service labels **hpecp.hpe.com/hpecp-internal-gateway: "true"** is placed to get a gateway endpoint to access the triton inference server outside the cluster. To find the endpoint run command 
 
-\`\``bash
+```shell
+kubectl describe svc <service_name> -n triton
+```
 
-kubectl describe svc <service_name> -n triton”
 
-\`\``
 
 * Check the metrics endpoints for models hosted in triton inference server are accessible:
 
-\`\``bash
+```shell
+kubectl describe svc <service_name> -n triton
+```
 
-kubectl describe svc <service_name> -n triton”
 
-\`\``
 
 **Next steps**
 
