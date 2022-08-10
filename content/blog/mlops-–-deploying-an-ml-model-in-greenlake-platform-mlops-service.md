@@ -55,6 +55,8 @@ HPE GreenLake for MLOps platform allows customers to host their favorite cloud n
    ![object storage for model](/img/blog_1.png "object storage for model")
 2. Sample configuration file for the model as is below:
 
+\`\``markdown
+
 name: "braintumor_onnx"
 
 platform: "onnxruntime_onnx"
@@ -89,12 +91,21 @@ output [
 
 ]
 
-3)   Create a namespace and secret to place an object storage credentials
+\`\``
 
-* Run command “kubectl create namespace triton”
-* Run command “kubectl create secret generic minio_cred –from-literal=AWS_ACCESS_KEY_ID=<specify_access_key> --from-literal=AWS_SECRET_ACCESS_KEY=<specify_secret_access_key> -n triton
+3)   Create a namespace and secret for object storage credentials with below commands:
+
+\`\``bash
+
+kubectl create namespace triton”
+
+kubectl create secret generic minio_cred –from-literal=AWS_ACCESS_KEY_ID=<specify_access_key> --from-literal=AWS_SECRET_ACCESS_KEY=<specify_secret_access_key> -n triton
+
+\`\``
 
 4) Create a deployment to host the model and check pods and services are running
+
+\`\``yaml
 
 \---
 
@@ -276,20 +287,30 @@ spec:
 
       targetPort: 8002
 
+\`\``
+
           **Notes:**
 
 * Replace <objectstoreurl.com:port> and model path with actual object store url, model sub path where model and associate configuration is placed
 * Node selector “gl.hpe.com/instance-type: GL-GP-MLi-Metal” is used to place the workload in inference cluster
 * Check the pods and service are running by running the below commands:
 
-\    Kubectl get po –n triton
+\`\``bash
 
-\    Kubectl get svc –n triton
+kubectl get po –n triton
+
+kubectl get svc –n triton
+
+\`\``
 
 * Service labels hpecp.hpe.com/hpecp-internal-gateway: "true" is placed to get a gateway endpoint to access the triton inference server outside the cluster. To find the endpoint run command “kubectl describe svc <service_name> -n triton”
 * Check the metrics endpoints for models hosted in triton inference server are accessible:
 
-\    Inspect the external metrics endpoint using command kubectl describe svc <service_name> -n triton”
+\`\``bash
+
+kubectl describe svc <service_name> -n triton”
+
+\`\``
 
 **Next steps**
 
