@@ -315,4 +315,4 @@ Once the production model is hosted, then any application can perform inference 
 * \[Triton Client](<https://github.com/triton-inference-server/client>)
 * \[MinIO](<https://min.io/>)
 * \[HPE GreenLake for ML Ops documentation](<https://support.hpe.com/hpesc/public/docDisplay?docId=a00092451en_us&page=HPE-GreenLake-for-ML-Ops.html>)
-* \[HPE Ezmeral Runtime Enterprise Documentation](<https://docs.containerplatform.hpe.com/53/reference/HPE_Ezmeral_Container_Platform.html>)
+* \[HPE Ezmeral Runtime Enterprise Documentation](<https://docs.containerplatform.hpe.com/54/reference/HPE_Ezmeral_Container_Platform.html>)
