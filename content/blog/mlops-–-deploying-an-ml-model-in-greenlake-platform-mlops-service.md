@@ -146,9 +146,9 @@ spec:
 
         name: tritonservercont
 
-        command: \["/bin/bash"]
+        command: ["/bin/bash"]
 
-        args: \["-c", "/opt/tritonserver/bin/tritonserver --model-repository=s3://https://<objectstoreurl.com:port>/sample/models --strict-model-config=false"]
+        args: ["-c", "/opt/tritonserver/bin/tritonserver --model-repository=s3://https://<objectstoreurl.com:port>/sample/models --strict-model-config=false"]
 
         env:
 
