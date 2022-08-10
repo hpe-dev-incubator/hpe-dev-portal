@@ -7,7 +7,7 @@ description: HPE GreenLake for Compute Ops Management transforms compute
 image: /img/platforms/hpe-element.png
 width: large
 priority: 2
-active: false
+active: true
 tags:
   - hpe-greenlake-for-compute-ops-management
 ---
