@@ -6,8 +6,6 @@ authorimage: /img/Avatar1.svg
 tags:
   - hpe-greenlake
 ---
-<!--StartFragment-->
-
 **Overview**
 
 HPE GreenLake Central is an advanced software-as-a-service platform that provides you with a consistent cloud experience for all your applications and data—on-premises or off-premises. It provides you with insights and controls to manage your hybrid IT estate, complementing your use of public clouds and data centers. HPE GreenLake Central gives you the ability to choose where and how to place your workloads and data, and—through the services you purchase—enables you to monitor security, capacity, resource utilization, and costs.
@@ -330,5 +328,3 @@ Once the production model is hosted, then any application can perform inference 
 * MinIO - <https://min.io/>
 * HPE GreenLake for MLOps documentation - <https://support.hpe.com/hpesc/public/docDisplay?docId=a00092451en_us&page=HPE-GreenLake-for-ML-Ops.html>
 * Ezmeral Container Platform Documentation - <https://docs.containerplatform.hpe.com/53/reference/HPE_Ezmeral_Container_Platform.html>
-
-<!--EndFragment-->
