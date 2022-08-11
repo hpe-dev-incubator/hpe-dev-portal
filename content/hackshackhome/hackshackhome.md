@@ -12,5 +12,5 @@ description: "Join us to hear from HPE’s own Dr. Eng Lim Goh, senior VP and CT
   learned. "
 background: rgba(0, 86, 122, 0.8);
 label: Register Now!
-image: /img/Munch_and_Learn_192_192.svg
+image: /img/event-ml_cap_02_rgb.png
 ---
