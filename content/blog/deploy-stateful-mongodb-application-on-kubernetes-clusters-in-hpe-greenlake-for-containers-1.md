@@ -7,7 +7,7 @@ authorimage: /img/guoping.png
 ---
 ## Introduction
 
-[HPE GreenLake for Containers](https://www.hpe.com/us/en/greenlake/containers.html), one of the HPE GreenLake Cloud services available on the HPE GreenLake Central platform, allows customers to open the Clusters screen to create a cluster, view details about existing clusters, and launch the HPE GreenLake for Container service console. It provides an enterprise-grade container management service using open source Kubernetes. 
+[HPE GreenLake for Containers](https://www.hpe.com/us/en/greenlake/containers.html), one of the HPE GreenLake cloud services available on the HPE GreenLake Central platform, allows customers to open the Clusters screen to create a cluster, view details about existing clusters, and launch the HPE GreenLake for Container service console. It provides an enterprise-grade container management service using open source Kubernetes. 
 
 This blog post describes the process of deploying the stateful MongoDB application on the created Kubernetes clusters in HPE GreenLake for Containers. Using the Kubernetes StatefulSet and Headless Service, together with the pre-provisioned persistent volumes, the MongoDB application can be deployed as a Replica Set that provides redundancy, fault tolerance and high availability. This MongoDB application deployment can be used for working with a large amount of data and high loads in customer production environments.
 
@@ -19,13 +19,21 @@ MongoDB can be deployed as a standalone instance that is running as a single *mo
 
 ![](/img/mongodb-replica-set.png)
 
-The standalone MongoDB instance deployment is suitable for testing and some aspects of development. However, it’s not adequate for production use. The MongoDB Replica Set deployment ensures multiple replicas running at any given time, which provides redundancy, fault tolerance and high availability. It is recommended for production environments, such as HPE GreenLake for containers. The blog post will focus on deploying the MongoDB application as a Replica Set.
+The standalone MongoDB instance deployment is suitable for testing and some aspects of development. However, it’s not adequate for production use. The MongoDB Replica Set deployment ensures multiple replicas running at any given time, which provides redundancy, fault tolerance and high availability. It is recommended for production environments, such as HPE GreenLake for Containers. The blog post will focus on deploying the MongoDB application as a Replica Set.
 
 ## Deploy MongoDB Application
 
 ### Requirements
 
-A Kubernetes cluster can be created using either HPE GreenLake for Containers GUI, or through Infrastructure as Code (IaC) with [HPE GreenLake Terraform Provider](https://registry.terraform.io/providers/HPE/hpegl/0.2.2). By launching to the HPE GreenLake for Containers service console, you can download the __kubectl__ binary, together with the _kubeconfig_ file, and set it up to access the Kubernetes cluster using kubectl CLI. The administrative access will be configured from the created Kubernetes cluster in HPE GreenLake for containers, which allows you to set up the Kubernetes RBAC for MongoDB application deployment.
+A Kubernetes cluster can be created using either HPE GreenLake for Containers GUI, or through Infrastructure as Code (IaC) with [HPE GreenLake Terraform Provider](https://registry.terraform.io/providers/HPE/hpegl/0.2.2). By launching to the HPE GreenLake for Containers service console, you can download the **kubectl** binary, together with the *kubeconfig* file, and set it up to access the Kubernetes cluster using kubectl CLI. The administrative access will be configured from the created Kubernetes cluster in HPE GreenLake for containers, which allows you to set up the Kubernetes RBAC for MongoDB application deployment.
+
+Sample view of HPE GreenLake for Containers Clusters screen:
+
+![](/img/containers-clusters.png)
+
+Sample view of HPE GreenLake for Containers service console:
+
+![](/img/containers-service-console.png)
 
 ### Set up Role-Based Access Control (RBAC)
 
@@ -33,7 +41,7 @@ Kubernetes RBAC is a key security control to ensure that cluster users and workl
 
 To set up RBAC, you create a Service Account, a ClusterRole, and connect the two with a Cluster RoleBinding. 
 
-#### 1. Create a YAML file _sa.yaml_ for the service account:
+#### 1. Create a YAML file *sa.yaml* for the service account:
 
 ```markdown
 apiVersion: v1
@@ -42,7 +50,7 @@ metadata:
   name: mongo-account
 ```
 
-#### 2. Create a YAML file _clusterrole.yaml_ for the cluster roles:
+#### 2. Create a YAML file *clusterrole.yaml* for the cluster roles:
 
 ```markdown
 apiVersion: rbac.authorization.k8s.io/v1
@@ -61,7 +69,7 @@ rules:
   verbs: ["get","list", "watch"]
 ```
 
-#### 3. Create a YAML file _clusterrolebinding.yaml_ to bind the service account with the cluster access roles:
+#### 3. Create a YAML file *clusterrolebinding.yaml* to bind the service account with the cluster access roles:
 
 ```markdown
 apiVersion: rbac.authorization.k8s.io/v1
@@ -79,11 +87,11 @@ roleRef:
 
 ### Create the StatefuleSet Deployment
 
-To deploy MongoDB as a Replica Set with multiple pods, a Kubernetes StatefulSet deployment will be required. The data persistence setup can be done with a _VolumeClaimTemplate_ in the StatefulSet deployment.
+To deploy MongoDB as a Replica Set with multiple pods, a Kubernetes StatefulSet deployment will be required. The data persistence setup can be done with a *VolumeClaimTemplate* in the StatefulSet deployment.
 
 It should be noted that the Kubernetes Deployment works fine if you have only one single MongoDB replica being deployed. In case multiple replicas are running, which is required in the production environment, there will be some issues using Kubernetes Deployment. Developers have to handle the concurrent read-write of the same data in the deployment. 
 
-#### 1. Create a YAML file _namespace.yaml_ for the namespace:
+#### 1. Create a YAML file *namespace.yaml* for the namespace:
 
 ```markdown
 apiVersion: v1
@@ -92,7 +100,7 @@ metadata:
   name: mongodb
 ```
 
-#### 2. Create a YAML file _statefulset.yaml_ for MongoDB StatefulSet deployment:
+#### 2. Create a YAML file *statefulset.yaml* for MongoDB StatefulSet deployment:
 
 ```markdown
 apiVersion: apps/v1
@@ -146,7 +154,7 @@ spec:
 
 A Kubernetes Headless Service does not allocate an IP address or forward traffic. It’s used for creating a service grouping. Clients can connect to the pods of a Headless Service by connecting to the service’s DNS name. The DNS returns the pods’ IPs and the client can connect directly to the pods instead via the service proxy. The Headless Service can be used for deploying the stateful applications such as MongoDB, while still providing the benefits of a service definition for taking care of the pod restart.
 
-#### Create a YAML file _service.yaml_ for the headless service:
+#### Create a YAML file *service.yaml* for the headless service:
 
 ```markdown
 apiVersion: v1
@@ -169,7 +177,7 @@ spec:
 
 With all created YAML files, MongoDB application will be deployed using [Kustomize](https://kustomize.io/).
 
-#### 1. Move all YAML files to the folder '_base_':
+#### 1. Move all YAML files to the folder '*base*':
 
 ```markdown
 ├── base
@@ -181,10 +189,9 @@ With all created YAML files, MongoDB application will be deployed using [Kustomi
 │   ├── sa.yaml
 │   ├── service.yaml
 │   └── statefulset.yaml
-
 ```
 
-The file _kustomization.yaml_ lists all YAML files in its *resources* section:
+The file *kustomization.yaml* lists all YAML files in its *resources* section:
 
 ```markdown
 apiVersion: kustomize.config.k8s.io/v1beta1
@@ -198,7 +205,7 @@ resources:
   - service.yaml
 ```
 
-#### 2. Create another folder '_overlays_' and a sub-folder '_production_':
+#### 2. Create another folder '*overlays*' and a sub-folder '*production*':
 
 ```markdown
 └── overlays
@@ -207,7 +214,7 @@ resources:
         └── patch-statefulset.yaml
 ```
 
-The contents of the file _kustomization.yaml_:
+The contents of the file *kustomization.yaml*:
 
 ```markdown
 apiVersion: kustomize.config.k8s.io/v1beta1
@@ -222,7 +229,7 @@ patches:
 - ./patch-statefulset.yaml
 ```
 
-The contents of the file _patch-statefulset.yaml_:
+The contents of the file *patch-statefulset.yaml*:
 
 ```markdown
 apiVersion: apps/v1
@@ -247,7 +254,7 @@ service/pce-mongodb created
 statefulset.apps/pce-mongodb-replica created
 ```
 
-MongoDB application is deployed as Replica Set to the namespace '_pce-mongodb_' using the service account '_pce-mongo-account_'. Running the following command, you should see three specified replicas pods are all in __running__ status: 
+MongoDB application is deployed as Replica Set to the namespace '*pce-mongodb*' using the service account '*pce-mongo-account*'. Running the following command, you should see three specified replicas pods are all in **running** status: 
 
 ```markdown
 $ kubectl get all -n pce-mongodb
@@ -267,7 +274,7 @@ statefulset.apps/pce-mongodb-replica   3/3     30s
 
 After MongoDB application is deployed with all the replica pods in running states, you need to set up MongoDB replication. 
 
-#### 1. Connect to the MongoDB pod _pce-mongodb-replica-0_:
+#### 1. Connect to the MongoDB pod *pce-mongodb-replica-0*:
 
 ```markdown
 $ kubectl exec -it pce-mongodb-replica-0 -n pce-mongodb -- mongo
@@ -308,7 +315,7 @@ To permanently disable this reminder, run the following command: db.disableFreeM
 rs0:SECONDARY>
 ```
 
-#### 3. Add the pod as the _Primary_ server to the replication configuration:
+#### 3. Add the pod as the *Primary* server to the replication configuration:
 
 ```markdown
 rs0:SECONDARY> var cfg = rs.conf()
@@ -331,7 +338,7 @@ rs0:PRIMARY> rs.reconfig(cfg)
 rs0:PRIMARY>
 ```
 
-#### 4. Add the second MongoDB pod _pce-mongodb-replica-1_ to the replication configuration:
+#### 4. Add the second MongoDB pod *pce-mongodb-replica-1* to the replication configuration:
 
 ```markdown
 rs0:PRIMARY> rs.add("pce-mongodb-replica-1.pce-mongodb:27017")
@@ -349,7 +356,7 @@ rs0:PRIMARY> rs.add("pce-mongodb-replica-1.pce-mongodb:27017")
 rs0:PRIMARY>
 ```
 
-#### 5. Continue to add the third MongoDB pod _pce-mongodb-replica-2_ to the replication configuration:
+#### 5. Continue to add the third MongoDB pod *pce-mongodb-replica-2* to the replication configuration:
 
 ```markdown
 rs0:PRIMARY> rs.add("pce-mongodb-replica-2.pce-mongodb:27017")
@@ -514,9 +521,10 @@ rs0:PRIMARY> rs.status()
 }
 rs0:PRIMARY>
 ```
-The **members** section of the status output shows three replicas. The pod _pce-mongodb-replica-0_ is listed as the **PRIMARY** replica, while the other two pods, _pce-mongodb-replica-1_ & _pce-mongodb-replica-2_, are listed as the **SECONDARY** replicas.
 
-The MongoDB replica set deployment is set up and ready to operate now. You can download and install the [MongoDB Compass]( https://www.mongodb.com/docs/compass) and set up an external connection to connect to the MongoDB application deployed in the Kubernetes cluster. Using the powerful MongoDB Compass GUI, you can query, aggregate, and analyze the MongoDB data from the MongoDB deployment.
+The **members** section of the status output shows three replicas. The pod *pce-mongodb-replica-0* is listed as the **PRIMARY** replica, while the other two pods, *pce-mongodb-replica-1* & *pce-mongodb-replica-2*, are listed as the **SECONDARY** replicas.
+
+The MongoDB replica set deployment is set up and ready to operate now. You can download and install the [MongoDB Compass](https://www.mongodb.com/docs/compass) and set up an external connection to connect to the MongoDB application deployed in the Kubernetes cluster. Using the powerful MongoDB Compass GUI, you can query, aggregate, and analyze the MongoDB data from the MongoDB deployment.
 
 ## Scale MongoDB Application
 
@@ -526,10 +534,10 @@ If you want to add another replica set to the MongoDB deployment to scale up the
 $ kubectl scale statefulset <name> -n <namespace> --replicas=<number of replicas>
 ```
 
-Then you follow up the _step 1_ in previous section to connect to the first MongoDB pod and repeat the _step 5_ to add the new replica pod.
+Then you follow up the *step 1* in previous section to connect to the first MongoDB pod and repeat the *step 5* to add the new replica pod.
 
-To scale down the MongoDB application, you can simply run the command __rs.remove()__ to remove the replica pod from the replication configuration.
+To scale down the MongoDB application, you can simply run the command **rs.remove()** to remove the replica pod from the replication configuration.
 
-## Summary 
+## Summary
 
 This blog post describes the detailed process to deploy and set up a stateful MongoDB application as a Replica Set deployment on Kubernetes clusters in HPE GreenLake for Containers. Kubernetes provides the ability to persist the state, deploy the stateful application, and manage and scale those applications with state. The production deployment of the MongoDB application provides redundancy, fault tolerance, and high availability and scalability. It can be used for working with a large amount of data and high loads in customer production environments.
