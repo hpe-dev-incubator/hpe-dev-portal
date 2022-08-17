@@ -5,7 +5,9 @@ date: 2022-08-16T14:02:17.749Z
 author: Guoping Jia
 authorimage: /img/guoping.png
 tags:
-  - hpe-greenlake, kubernetes, mongodb
+  - hpe-greenlake
+  - kubernetes
+  - mongodb
 ---
 ## Introduction
 
