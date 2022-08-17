@@ -11,4 +11,4 @@ width: large
 
 September 21, 2022
 
-Join us for a free, 60-minute session where you can connect with experts who offer valuable insights into today’s most popular technologies. This month, learn how the French governmental agency, Pole Emploi, is collaborating with HPE to build and implement an effective and scalable AI/ML Ops platform that helps companies find and hire workers. Hear from Pole Emploi Software Engineers, François Rethore and Dietrich Zinsou as they explore different uses cases where this AI/ML Ops platform has been put into action. 
+Join us for a free, 60-minute session where you can connect with experts who offer valuable insights into today’s most popular technologies. This month, learn how the French governmental agency, Pole Emploi, is collaborating with HPE to build and implement an effective and scalable AI/ML Ops platform that helps companies find and hire workers. Hear from Pole Emploi Software Engineer, François Rethore, and HPE Software Engineer, Dietrich Zinsou, as they explore different uses cases where this AI/ML Ops platform has been put into action. 
