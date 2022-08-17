@@ -4,6 +4,8 @@ title: Deploy Stateful MongoDB Application on Kubernetes Clusters in HPE
 date: 2022-08-16T14:02:17.749Z
 author: Guoping Jia
 authorimage: /img/guoping.png
+tags:
+  - hpe-greenlake, kubernetes, mongodb
 ---
 ## Introduction
 
@@ -25,7 +27,7 @@ The standalone MongoDB instance deployment is suitable for testing and some aspe
 
 ### Requirements
 
-A Kubernetes cluster can be created using either HPE GreenLake for Containers GUI, or through Infrastructure as Code (IaC) with [HPE GreenLake Terraform Provider](https://registry.terraform.io/providers/HPE/hpegl/0.2.2). By launching to the HPE GreenLake for Containers service console, you can download the **kubectl** binary, together with the *kubeconfig* file, and set it up to access the Kubernetes cluster using kubectl CLI. The administrative access will be configured from the created Kubernetes cluster in HPE GreenLake for containers, which allows you to set up the Kubernetes RBAC for MongoDB application deployment.
+A Kubernetes cluster can be created using either HPE GreenLake for Containers GUI, or through Infrastructure as Code (IaC) with [HPE GreenLake Terraform Provider](https://registry.terraform.io/providers/HPE/hpegl/0.2.2) as explained in the blog post [Kubernetes Cluster as Code](https://developer.hpe.com/blog/kubernetes-clusters-as-code-part1/). By launching to the HPE GreenLake for Containers service console, you can download the **kubectl** binary, together with the *kubeconfig* file, and set it up to access the Kubernetes cluster using kubectl CLI. The administrative access will be configured from the created Kubernetes cluster in HPE GreenLake for containers, which allows you to set up the Kubernetes RBAC for MongoDB application deployment.
 
 Sample view of HPE GreenLake for Containers Clusters screen:
 
