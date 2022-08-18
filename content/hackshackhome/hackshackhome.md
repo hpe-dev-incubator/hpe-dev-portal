@@ -2,8 +2,10 @@
 active: true
 path: ""
 priority: 2
+fit: contain
+imageBackground: white
 alt: munch and learn logo
-title: " Machines learn from data to be artificially intelligent "
+title: "Machines learn from data to be artificially intelligent "
 link: https://hpe.zoom.us/webinar/register/8216594535490/WN_iCrngEP2T4Wlspf8RVvxMQ
 description: "Join us to hear from HPE’s own Dr. Eng Lim Goh, senior VP and CTO
   of AI, on the importance of sharing data to gain insights and how to do so

@@ -396,6 +396,11 @@ module.exports = {
     paginatedCollection('deep-learning-posts', 'deep-learning-cookbook'),
     paginatedCollection('3par-posts', 'hpe-3par-and-primera'),
     paginatedCollection('nimble-posts', 'hpe-nimble-storage'),
+    paginatedCollection('project-data-map-posts', 'project-data-map'),
+    // paginatedCollection('zerto-posts', 'zerto'),
+    paginatedCollection('aruba-posts', 'aruba'),
+    paginatedCollection('simplivity-posts', 'hpe-simplivity'),
+    // paginatedCollection('smartsim-posts', 'smartsim'),
     paginatedCollection('oneview-posts', 'hpe-oneview'),
     paginatedCollection(
       'oneview-dashboard-posts',
