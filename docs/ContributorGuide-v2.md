@@ -576,6 +576,8 @@ If appropriate, use a tag to tie your blog post to a "platform" page on HPE Deve
   | **Zerto**                          | zerto   |
   | **Project Data Map**               | project-data-map |
   | **KubeDirector**                   | kubedirector |
+  | **HPE GreenLake for Compute Ops Management** | hpe-greenlake-for-compute-ops-management |
+  
   
   
   
