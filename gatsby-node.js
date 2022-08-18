@@ -193,6 +193,9 @@ exports.createPages = async ({ graphql, actions }) => {
   const arubaQueryResult = await graphql(
     paginatedCollectionQuery('aruba-posts'),
   );
+  const kubeDirectorQueryResult = await graphql(
+    paginatedCollectionQuery('kubedirector-posts'),
+  );
   const simplivityQueryResult = await graphql(
     paginatedCollectionQuery('simplivity-posts'),
   );
@@ -224,6 +227,7 @@ exports.createPages = async ({ graphql, actions }) => {
   setPagination(projectDataMapQueryResult);
   // setPagination(zertoQueryResult);
   setPagination(arubaQueryResult);
+  setPagination(kubeDirectorQueryResult);
   setPagination(simplivityQueryResult);
   // setPagination(smartsimQueryResult);
   setPagination(othersQueryResult);

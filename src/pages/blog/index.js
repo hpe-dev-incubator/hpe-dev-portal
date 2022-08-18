@@ -506,6 +506,19 @@ export const pageQuery = graphql`
     ) {
       totalCount
     }
+    kubeDirectorBlogs: paginatedCollectionPage(
+      collection: { name: { eq: "kubedirector-posts" } }
+      index: { eq: 0 }
+    ) {
+      nodes
+      hasNextPage
+      nextPage {
+        id
+      }
+      collection {
+        id
+      }
+    }
     spiffeBlogsCount: allMarkdownRemark(
       filter: {
         fields: { sourceInstanceName: { eq: "blog" } }
