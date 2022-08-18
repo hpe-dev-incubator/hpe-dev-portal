@@ -2,6 +2,8 @@
 active: true
 path: ""
 priority: 2
+fit: contain
+imageBackground: white
 alt: munch and learn logo
 title: " Accelerate public sector AI use cases using a powerful ML Ops platform "
 link: https://hpe.zoom.us/webinar/register/1616608098344/WN_fvoiOt7KSBW-LMyYMdIk2A

@@ -54,7 +54,7 @@ export const BlogCard = ({ node, ...rest }) => {
     >
       <Box gap="small">
         <Box align="start">
-          {(node.authorimage || node.frontmatter.authorimage) && (
+          {(node?.authorimage || node?.frontmatter?.authorimage) && (
             <Avatar
               size="96px"
               src={node.authorimage || node.frontmatter.authorimage}
@@ -63,15 +63,15 @@ export const BlogCard = ({ node, ...rest }) => {
           )}
         </Box>
         <Box align="start">
-          <Text>{node.author || node.frontmatter.author}</Text>
+          <Text>{node?.author || node?.frontmatter?.author}</Text>
         </Box>
         <Heading level={4} margin="none">
-          {node.title || node.frontmatter.title}
+          {node?.title || node?.frontmatter.title}
         </Heading>
-        {(node.date || node.frontmatter.date) && (
+        {(node?.date || node?.frontmatter.date) && (
           <Text color="text-weak">
             {`${dateFormat.format(
-              new Date(node.date || node.frontmatter.date),
+              new Date(node?.date || node?.frontmatter.date),
             )}`}
           </Text>
         )}

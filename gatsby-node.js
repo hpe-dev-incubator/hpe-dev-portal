@@ -184,6 +184,25 @@ exports.createPages = async ({ graphql, actions }) => {
     paginatedCollectionQuery('determined-ai-posts'),
   );
   const dsccQueryResult = await graphql(paginatedCollectionQuery('dscc-posts'));
+  const projectDataMapQueryResult = await graphql(
+    paginatedCollectionQuery('project-data-map-posts'),
+  );
+  // const zertoQueryResult = await graphql(
+  //   paginatedCollectionQuery('zerto-posts'),
+  // );
+  const arubaQueryResult = await graphql(
+    paginatedCollectionQuery('aruba-posts'),
+  );
+  const kubeDirectorQueryResult = await graphql(
+    paginatedCollectionQuery('kubedirector-posts'),
+  );
+  const simplivityQueryResult = await graphql(
+    paginatedCollectionQuery('simplivity-posts'),
+  );
+  // const smartsimQueryResult = await graphql(
+  //   paginatedCollectionQuery('smartsim-posts'),
+  // );
+
   const othersQueryResult = await graphql(
     paginatedCollectionQuery('others-posts'),
   );
@@ -205,6 +224,12 @@ exports.createPages = async ({ graphql, actions }) => {
   setPagination(iloQueryResult);
   setPagination(determinedQueryResult);
   setPagination(dsccQueryResult);
+  setPagination(projectDataMapQueryResult);
+  // setPagination(zertoQueryResult);
+  setPagination(arubaQueryResult);
+  setPagination(kubeDirectorQueryResult);
+  setPagination(simplivityQueryResult);
+  // setPagination(smartsimQueryResult);
   setPagination(othersQueryResult);
 
   return graphql(
