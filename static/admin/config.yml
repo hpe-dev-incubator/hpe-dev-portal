@@ -60,8 +60,10 @@ collections:
     fields:
       - { label: 'Title', name: 'title', widget: 'string', required: true }
       - { label: 'Active', name: 'active', widget: 'boolean', required: false, hint: 'selecting true adds the card in the Hackshack home page'  }
+      - { label: 'Fit Image', name: 'fit', widget: 'select', options: [ 'contain', 'cover' ], default: 'contain', required: true}
       - { label: 'External Link', name: 'link', widget: 'string', required: false }
       - { label: 'Navigation Path', name: 'path', widget: 'string', required: false}
+      - { label: 'Image Background Color', name: 'imageBackground', widget: 'select', options: [ 'white', background, 'rgba(0, 86, 122, 0.8);' ], default: 'white', required: true}
       - { label: 'Description', name: 'description', widget: 'string', required: true}
       - { label: 'Background Color', name: 'background', widget: 'select', options: [ 'background', 'rgba(0, 86, 122, 0.8);' ], default: 'background', required: true}
       - { label: 'Button Lable', name: 'label', widget: 'string' , required: true}
@@ -81,6 +83,7 @@ collections:
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Active', name: 'active', widget: 'boolean', required: false, hint: 'selecting true adds the card in the OpenSource page'  }
+      - { label: 'featuredOnHome', name: 'Featured', widget: 'boolean', required: false, hint: 'selecting true adds the card in the Featured section on the Home page'  }
       - { label: 'Category', name: 'category', widget: 'string' }
       - { label: 'Navigation Path', name: 'link', widget: 'string'}
       - { label: 'Description', name: 'description', widget: 'string'}
