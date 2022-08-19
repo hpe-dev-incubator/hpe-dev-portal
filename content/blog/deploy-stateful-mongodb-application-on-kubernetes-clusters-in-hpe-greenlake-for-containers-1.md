@@ -1,5 +1,5 @@
 ---
-title: Deploy Stateful MongoDB Application on Kubernetes Clusters in HPE
+title: Deploy stateful MongoDB applications on Kubernetes clusters in HPE
   GreenLake for Containers
 date: 2022-08-16T14:02:17.749Z
 author: Guoping Jia
@@ -13,17 +13,17 @@ tags:
 
 [HPE GreenLake for Containers](https://www.hpe.com/us/en/greenlake/containers.html), one of the HPE GreenLake cloud services available on the HPE GreenLake Central platform, allows customers to open the Clusters screen to create a cluster, view details about existing clusters, and launch the HPE GreenLake for Container service console. It provides an enterprise-grade container management service using open source Kubernetes. 
 
-This blog post describes the process of deploying the stateful MongoDB application on the created Kubernetes clusters in HPE GreenLake for Containers. Using the Kubernetes StatefulSet and Headless Service, together with the pre-provisioned persistent volumes, the MongoDB application can be deployed as a Replica Set that provides redundancy, fault tolerance and high availability. This MongoDB application deployment can be used for working with a large amount of data and high loads in customer production environments.
+This blog post describes the process of deploying a stateful MongoDB application on the created Kubernetes clusters in HPE GreenLake for Containers. Using the Kubernetes StatefulSet and Headless Service, together with the pre-provisioned persistent volumes, the MongoDB application can be deployed as a Replica Set that provides redundancy, fault tolerance and high availability. This MongoDB application deployment can be used for working with a large amount of data and a high number of workloads in customer production environments.
 
 ## MongoDB Application
 
-[MongoDB](https://www.mongodb.com/) is a general-purpose, document-based NoSQL database program which is a popular alternative to traditional databases. The MongoDB data model can represent any kind of object structures which can have properties or even be nested for multiple levels. Unlike the relational databases, MongoDB can store large amounts of data without requiring a logical category or schema. Therefore, it takes up the challenge of focusing on scalability and the speed of queries. MongoDB is free, open-source software. You can download the MongoDB packages, set them up and configure them at no expense.
+[MongoDB](https://www.mongodb.com/) is a general-purpose, document-based NoSQL database program that is a popular alternative to traditional databases. The MongoDB data model can represent any kind of object structures that can have properties or even be nested for multiple levels. Unlike the relational databases, MongoDB can store large amounts of data without requiring a logical category or schema. Therefore, it takes up the challenge of focusing on scalability and the speed of queries. MongoDB is free, open-source software. You can download the MongoDB packages, set them up and configure them at no expense.
 
 MongoDB can be deployed as a standalone instance that is running as a single *mongod* server. It can also be deployed as a [Replica Set](https://www.mongodb.com/docs/manual/core/replica-set-architectures) with multiple running *mongod* instances that maintain the same data set. The Replica Set contains several data-bearing nodes. Of those data-bearing nodes, one and only one member is deemed the *Primary* node, while the other nodes are deemed *Secondary* nodes.
 
 ![](/img/mongodb-replica-set.png)
 
-The standalone MongoDB instance deployment is suitable for testing and some aspects of development. However, it’s not adequate for production use. The MongoDB Replica Set deployment ensures multiple replicas running at any given time, which provides redundancy, fault tolerance and high availability. It is recommended for production environments, such as HPE GreenLake for Containers. The blog post will focus on deploying the MongoDB application as a Replica Set.
+The standalone MongoDB instance deployment is suitable for testing and some aspects of development. However, it’s not adequate for production use. The MongoDB Replica Set deployment ensures multiple replicas running at any given time, which provides redundancy, fault tolerance and high availability. It is recommended for production environments, such as HPE GreenLake for Containers. This blog post will focus on deploying the MongoDB application as a Replica Set.
 
 ## Deploy MongoDB Application
 
@@ -276,7 +276,7 @@ statefulset.apps/pce-mongodb-replica   3/3     30s
 
 ## Set up MongoDB Replication Host
 
-After MongoDB application is deployed with all the replica pods in running states, you need to set up MongoDB replication. 
+After the MongoDB application is deployed with all the replica pods in running states, you need to set up MongoDB replication. 
 
 #### 1. Connect to the MongoDB pod *pce-mongodb-replica-0*:
 
@@ -526,7 +526,7 @@ rs0:PRIMARY> rs.status()
 rs0:PRIMARY>
 ```
 
-The **members** section of the status output shows three replicas. The pod *pce-mongodb-replica-0* is listed as the **PRIMARY** replica, while the other two pods, *pce-mongodb-replica-1* & *pce-mongodb-replica-2*, are listed as the **SECONDARY** replicas.
+The **members** section of the status output shows three replicas. The pod *pce-mongodb-replica-0* is listed as the **Primary** replica, while the other two pods, *pce-mongodb-replica-1* & *pce-mongodb-replica-2*, are listed as the **Secondary** replicas.
 
 The MongoDB replica set deployment is set up and ready to operate now. You can download and install the [MongoDB Compass](https://www.mongodb.com/docs/compass) and set up an external connection to connect to the MongoDB application deployed in the Kubernetes cluster. Using the powerful MongoDB Compass GUI, you can query, aggregate, and analyze the MongoDB data from the MongoDB deployment.
 
@@ -538,10 +538,10 @@ If you want to add another replica set to the MongoDB deployment to scale up the
 $ kubectl scale statefulset <name> -n <namespace> --replicas=<number of replicas>
 ```
 
-Then you follow up the *step 1* in previous section to connect to the first MongoDB pod and repeat the *step 5* to add the new replica pod.
+Then, follow up with *Step 1* from the previous section to connect to the first MongoDB pod and repeat *Step 5* to add the new replica pod.
 
 To scale down the MongoDB application, you can simply run the command **rs.remove()** to remove the replica pod from the replication configuration.
 
 ## Summary
 
-This blog post describes the detailed process to deploy and set up a stateful MongoDB application as a Replica Set deployment on Kubernetes clusters in HPE GreenLake for Containers. Kubernetes provides the ability to persist the state, deploy the stateful application, and manage and scale those applications with state. The production deployment of the MongoDB application provides redundancy, fault tolerance, and high availability and scalability. It can be used for working with a large amount of data and high loads in customer production environments.
+This blog post describes the detailed process used to deploy and set up a stateful MongoDB application as a Replica Set deployment on Kubernetes clusters in HPE GreenLake for Containers. Kubernetes provides the ability to persist the state, deploy the stateful application, and manage and scale those applications with state. The production deployment of the MongoDB application provides redundancy, fault tolerance, high availability, and scalability. It can be used for working with a large amount of data and a high number of workloads in customer production environments.
