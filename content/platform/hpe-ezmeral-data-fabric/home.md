@@ -72,11 +72,11 @@ To learn more about HPE Ezmeral Data Fabric File and Object Store, check out the
 
 Learn for free with online courses that teach you how to build applications, secure, and administer HPE Ezmeral. Visit [HPE Ezmeral Learn On-Demand](https://learn.ezmeral.software.hpe.com/) to enroll.
 
-* [Big Data Essentials](https://learn.ezmeral.software.hpe.com/page/big-data-essentials).  Challenges of modernizing the IT landscape is covered in these courses on big data, open source tools, Apache Spark, Data Fabric, Database, Event Streams and more.
-* [Artificial Intelligence & Machine Learning](https://learn.ezmeral.software.hpe.com/page/artificial-intelligence-machine-learning).  Learn the basics of AI and ML, machine learning project planning, and preparing and implementing the ML pipeline.
-* [Zero Trust & Data Security](https://learn.ezmeral.software.hpe.com/page/zero-trust-data-security).  Courses outlining emerging data security threats, SPIFFE-SPIRE, what zero trust architecture is, and technical details of HPE Ezmeral Data Fabric
-* [Apache Spark & SQL Analytics](https://learn.ezmeral.software.hpe.com/page/apache-spark).  Intro courses covering Apache Spark 3 essentials, Spark and Kubernetes, Apache Drill, and SQL Analytics using Apache Drill.
-* [Kubernetes and Stateful Applications](https://learn.ezmeral.software.hpe.com/page/kubernetes-stateful-applications).  What applications do, how Kubernetes works, plus access an HPE Workshop On-demand covering HPE Ezmeral Runtime.
+* [Big Data Essentials](https://learn.ezmeral.software.hpe.com/page/developer-essentials).  Challenges of modernizing the IT landscape is covered in these courses on big data, open source tools, Apache Spark, Data Fabric, Database, Event Streams and more.
+* [Artificial Intelligence & Machine Learning](https://learn.ezmeral.software.hpe.com/page/artificial-intelligence). Learn the basics of AI and ML, machine learning project planning, and preparing and implementing the ML pipeline.
+* [Zero Trust & Data Security](https://learn.ezmeral.software.hpe.com/page/security).  Courses outlining emerging data security threats, SPIFFE-SPIRE, what zero trust architecture is, and technical details of HPE Ezmeral Data Fabric
+* [Apache Spark & SQL Analytics](https://learn.ezmeral.software.hpe.com/page/analytics).  Intro courses covering Apache Spark 3 essentials, Spark and Kubernetes, Apache Drill, and SQL Analytics using Apache Drill.
+* [Kubernetes and Stateful Applications](https://learn.ezmeral.software.hpe.com/page/developer-essentials). What applications do, how Kubernetes works, plus access an HPE Workshop On-demand covering HPE Ezmeral Runtime.
 * [HPE Ezmeral Data Fabric](https://learn.ezmeral.software.hpe.com/page/data-fabric). Technical overview courses on HPE Ezmeral Data Fabric architecture and implementation, database essentials, and event streams pub-sub messaging.
 
 - - -
