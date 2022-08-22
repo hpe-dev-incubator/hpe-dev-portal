@@ -8,9 +8,9 @@ tags:
 ---
 **Overview**
 
-HPE GreenLake Central is an advanced software-as-a-service platform that provides you with a consistent cloud experience for all your applications and data—on-premises or off-premises. It provides you with insights and controls to manage your hybrid IT estate, complementing your use of public clouds and data centers. HPE GreenLake Central gives you the ability to choose where and how to place your workloads and data, and—through the services you purchase—enables you to monitor security, capacity, resource utilization, and costs.
+HPE GreenLake Central is an advanced software-as-a-service platform that provides you with a consistent cloud experience for all your applications and data on-premises or off-premises. It provides you with insights and controls to manage your hybrid IT estate, complementing your use of public clouds and data centers. HPE GreenLake Central gives you the ability to choose where and how to place your workloads and data, and through the services you purchase enables you to monitor security, capacity, resource utilization, and costs.
 
-HPE GreenLake for ML Ops is an on-premises, enterprise-grade ML service, enabling developers and data scientists to rapidly build, train, and deploy ML models—from pilot to production, at any scale.
+HPE GreenLake for ML Ops is an on-premises, enterprise-grade ML service, enabling developers and data scientists to rapidly build, train, and deploy ML models from pilot to production, at any scale.
 
 This preconfigured solution comprises an optimized hardware stack and is powered by HPE Ezmeral Runtime Enterprise. It provides data scientists with self-service access to a sandbox environment for prototyping and testing, to eliminate IT provisioning delays, ensure repeatability, and accelerate time-to-value. As a fully managed solution, the HPE GreenLake for ML Ops offering frees IT from routine infrastructure management tasks.
 
@@ -20,13 +20,13 @@ This preconfigured solution comprises an optimized hardware stack and is powered
 
 The ML project life cycle can generally be divided into three main stages: data preparation, model creation, and deployment. All three of these components are essential for creating quality models that will bring added value to your business. This process is *cyclical* because the insights gained from the existing model will help define the next model to be deployed.
 
-In this article, we focus on optimal model identified after data preparation and building model. More specifically, as an example, we shall deploy a sample ONNX model available in Kubernetes native MinIO Object storage, using Triton Inference Server.
+In this article, I will focus on optimal model identified after data preparation and building model. More specifically, as an example, I will show you how to deploy a sample ONNX model available in Kubernetes native MinIO Object storage, using Triton Inference Server.
 
 Triton Inference server supports deployment of any AI model from multiple deep learning and machine learning frameworks, including TensorRT, TensorFlow, PyTorch, ONNX, OpenVINO, Python, RAPIDS FIL, and more. Triton delivers optimized performance for many query types, including real time, batched, ensembles and audio/video streaming. To learn more about Triton Inference server, refer to the References section at the end of the post.
 
-HPE GreenLake for ML Ops platform allows customers to host their favorite cloud native applications say Mlflow, Minio, etc.
+HPE GreenLake for ML Ops platform allows customers to host their favorite cloud native applications, like MLflow, Minio, etc.
 
-**Pre-requisite**
+**Pre-requisites**
 
 * An active service subscription to HPE GreenLake for ML Ops
 * ML Ops project has been created by ML Ops admin and user is able to launch to HPE Ezmeral Runtime Enterprise with ML Ops Project Member Role role
@@ -48,7 +48,7 @@ HPE GreenLake for ML Ops platform allows customers to host their favorite cloud 
 
 2)   Place the model in s3 object storage
 
-1. Place the model and configuration file for triton inference server in object storage
+1. Place the model and configuration file for Triton Inference server in object storage
 
    ![object storage for model](/img/blog_1.png "object storage for model")
 2. Sample configuration file for the model as is below:
@@ -283,9 +283,9 @@ spec:
 
           **Notes:**
 
-* Replace <objectstoreurl.com:port> and model path with actual object store url, model sub path where model and associate configuration is placed
+* In the above YAML, replace <objectstoreurl.com:port> and model path with actual object store URL, model sub path. Model refers to location where model and associated configuration is placed.
 * Node selector “gl.hpe.com/instance-type: GL-GP-MLi-Metal” is used to place the workload in inference cluster
-* Check the pods and service are running by running the below commands:
+* Check that the pods and service are running using the commands shown below:
 
 ```shell
 kubectl get po –n triton
@@ -293,13 +293,13 @@ kubectl get po –n triton
 kubectl get svc –n triton
 ```
 
-* Service labels **hpecp.hpe.com/hpecp-internal-gateway: "true"** is placed to get a gateway endpoint to access the triton inference server outside the cluster. To find the endpoint run command 
+* Service labels **hpecp.hpe.com/hpecp-internal-gateway: "true"** is placed to get a gateway endpoint to access the Triton Inference server outside the cluster. To find the endpoint, run this command: 
 
 ```shell
 kubectl describe svc <service_name> -n triton
 ```
 
-* Check the metrics endpoints for models hosted in triton inference server are accessible:
+* Check the metrics endpoints for models hosted in Triton Inference server are accessible:
 
 ```shell
 kubectl describe svc <service_name> -n triton
@@ -307,7 +307,7 @@ kubectl describe svc <service_name> -n triton
 
 **Next steps**
 
-Once the production model is hosted, then any application can perform inference on the model hosted by Triton inference server. More on Triton client libraries refer the references section below
+Once the production model is hosted, then any application can perform inference on the model hosted by Triton inference server. For more on Triton client libraries, refer to the section below.
 
 **Reference**
 
