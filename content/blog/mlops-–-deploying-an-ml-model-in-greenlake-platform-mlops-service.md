@@ -5,6 +5,7 @@ author: Thirukkannan M
 authorimage: /img/Avatar1.svg
 tags:
   - hpe-greenlake
+  - MLOPS
 ---
 **Overview**
 
@@ -28,29 +29,37 @@ HPE GreenLake for ML Ops platform allows customers to host their favorite cloud 
 
 **Pre-requisites**
 
-* An active service subscription to HPE GreenLake for ML Ops
-* An ML Ops project that has been created by an ML Ops admin for which the user is able to launch to HPE Ezmeral Runtime Enterprise through an ML Ops Project Member role
-* Available access credentials to any S3 based object storage
-* Triton Inference Server container image accessible either through on-prem registry (eg Harbor) or public registry accessible.
+* An active service subscription to HPE GreenLake for ML Ops   
+* An ML Ops project that has been created by an ML Ops admin for which the user is able to launch to HPE Ezmeral Runtime Enterprise through an ML Ops Project Member role    
+* Available access credentials to any S3 based object storage    
+* Triton Inference Server container image accessible either through on-prem registry (eg Harbor) or public registry accessible.    
+
 
 **Steps to deploy a model**
 
-1)   Validation connection to Kubernetes cluster
+**Step 1:** Validation connection to Kubernetes cluster
 
 1. Click HPE GreenLake for ML Ops card in the HPE GreenLake Central **Dashboard,** which shows the number of previously created projects.
 
    ![Select ML Ops Project](/img/blog_2.png "Select ML Ops Project")
-2. Click link “Launch ML Operations Console”
-3. Click “Dashboard” on left navigation of “Ezmeral Container Platform”
-4. Download “kubectl”, “HPE kubectl plugin”, and “kubeconfig”.
-5. Set environment variable KUBECONFIG to point to the kubeconfig file
-6. Validate connectivity to the cluster using command “kubectl get no”
 
-2)   Place the model in s3 object storage
+2. Click link “Launch ML Operations Console”   
+
+3. Click “Dashboard” on left navigation of “Ezmeral Container Platform”   
+
+4. Download “kubectl”, “HPE kubectl plugin”, and “kubeconfig”   
+
+5. Set environment variable KUBECONFIG to point to the kubeconfig file   
+
+6. Validate connectivity to the cluster using command “kubectl get no”   
+
+
+**Step 2:** Place the model in S3 object storage
 
 1. Place the model and configuration file for Triton Inference server in object storage
 
    ![object storage for model](/img/blog_1.png "object storage for model")
+
 2. Sample configuration file for the model as shown below:
 
 ```markdown
@@ -89,7 +98,7 @@ output [
 ]
 ```
 
-3)   Create a namespace and secret for object storage credentials using the commands shown below:
+**Step 3:** Create a namespace and secret for object storage credentials using the commands shown below:
 
 ```shell
 kubectl create namespace triton
@@ -97,7 +106,7 @@ kubectl create namespace triton
 kubectl create secret generic minio_cred –from-literal=AWS_ACCESS_KEY_ID=<specify_access_key> --from-literal=AWS_SECRET_ACCESS_KEY=<specify_secret_access_key> -n triton
 ```
 
-4) Create a deployment to host the model and check the pods and services are running
+**Step 4:** Create a deployment to host the model and check the pods and services are running
 
 ```yaml
 ---
@@ -309,10 +318,10 @@ kubectl describe svc <service_name> -n triton
 
 Once the production model is hosted, then any application can perform inference on the model hosted by Triton inference server. For more on Triton client libraries, refer to the section below.
 
-**Reference**
+**References**
 
-* \[Triton Inference server](<https://github.com/triton-inference-server/server>)
-* \[Triton Client](<https://github.com/triton-inference-server/client>)
-* \[MinIO](<https://min.io/>)
-* \[HPE GreenLake for ML Ops documentation](<https://support.hpe.com/hpesc/public/docDisplay?docId=a00092451en_us&page=HPE-GreenLake-for-ML-Ops.html>)
-* \[HPE Ezmeral Runtime Enterprise Documentation](<https://docs.containerplatform.hpe.com/54/reference/HPE_Ezmeral_Container_Platform.html>)
+* [Triton Inference server](https://github.com/triton-inference-server/server)    
+* [Triton Client](https://github.com/triton-inference-server/client)   
+* [MinIO](https://min.io/)   
+* [HPE GreenLake for ML Ops documentation](https://support.hpe.com/hpesc/public/docDisplay?docId=a00092451en_us&page=HPE-GreenLake-for-ML-Ops.html)   
+* [HPE Ezmeral Runtime Enterprise Documentation](https://docs.containerplatform.hpe.com/54/reference/HPE_Ezmeral_Container_Platform.html)   
