@@ -30,8 +30,11 @@ HPE GreenLake for ML Ops platform allows customers to host their favorite cloud 
 **Pre-requisites**
 
 * An active service subscription to HPE GreenLake for ML Ops   
+
 * An ML Ops project that has been created by an ML Ops admin for which the user is able to launch to HPE Ezmeral Runtime Enterprise through an ML Ops Project Member role    
+
 * Available access credentials to any S3 based object storage    
+
 * Triton Inference Server container image accessible either through on-prem registry (eg Harbor) or public registry accessible.    
 
 
@@ -321,7 +324,12 @@ Once the production model is hosted, then any application can perform inference 
 **References**
 
 * [Triton Inference server](https://github.com/triton-inference-server/server)    
+
 * [Triton Client](https://github.com/triton-inference-server/client)   
+
 * [MinIO](https://min.io/)   
+
 * [HPE GreenLake for ML Ops documentation](https://support.hpe.com/hpesc/public/docDisplay?docId=a00092451en_us&page=HPE-GreenLake-for-ML-Ops.html)   
+
 * [HPE Ezmeral Runtime Enterprise Documentation](https://docs.containerplatform.hpe.com/54/reference/HPE_Ezmeral_Container_Platform.html)   
+
