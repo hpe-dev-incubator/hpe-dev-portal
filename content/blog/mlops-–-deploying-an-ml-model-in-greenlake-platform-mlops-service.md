@@ -7,7 +7,7 @@ tags:
   - hpe-greenlake
   - MLOPS
 ---
-**Overview**
+## Overview
 
 HPE GreenLake Central is an advanced software-as-a-service platform that provides you with a consistent cloud experience for all your applications and data on-premises or off-premises. It provides you with insights and controls to manage your hybrid IT estate, complementing your use of public clouds and data centers. HPE GreenLake Central gives you the ability to choose where and how to place your workloads and data, and through the services you purchase enables you to monitor security, capacity, resource utilization, and costs.
 
@@ -15,7 +15,7 @@ HPE GreenLake for ML Ops is an on-premises, enterprise-grade ML service, enabli
 
 This preconfigured solution comprises an optimized hardware stack and is powered by HPE Ezmeral Runtime Enterprise. It provides data scientists with self-service access to a sandbox environment for prototyping and testing, to eliminate IT provisioning delays, ensure repeatability, and accelerate time-to-value. As a fully managed solution, the HPE GreenLake for ML Ops offering frees IT from routine infrastructure management tasks.
 
-**Machine learning Lifecycle**
+## Machine learning Lifecycle
 
 ![ML Life cycle](/img/blog_3.png "ML Life cycle")
 
@@ -27,7 +27,7 @@ Triton Inference server supports deployment of any AI model from multiple deep l
 
 HPE GreenLake for ML Ops platform allows customers to host their favorite cloud native applications, like MLflow, Minio, etc.
 
-**Pre-requisites**
+## Pre-requisites
 
 * An active service subscription to HPE GreenLake for ML Ops   
 
@@ -38,7 +38,7 @@ HPE GreenLake for ML Ops platform allows customers to host their favorite cloud 
 * Triton Inference Server container image accessible either through on-prem registry (eg Harbor) or public registry accessible.    
 
 
-**Steps to deploy a model**
+### Steps to deploy a model
 
 **Step 1:** Validation connection to Kubernetes cluster
 
@@ -317,11 +317,11 @@ kubectl describe svc <service_name> -n triton
 kubectl describe svc <service_name> -n triton
 ```
 
-**Next steps**
+## Next steps
 
 Once the production model is hosted, then any application can perform inference on the model hosted by Triton inference server. For more on Triton client libraries, refer to the section below.
 
-**References**
+## References
 
 * [Triton Inference server](https://github.com/triton-inference-server/server)    
 
