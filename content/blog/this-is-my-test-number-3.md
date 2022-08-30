@@ -8,7 +8,7 @@ tags:
 ---
 Embedded Brightcove video:
 
-<iframe title='Brightcove Player' src='//players.brightcove.net/4119874060001/tViCJfxWJ_default/index.html?videoId=ref:1538d5da-42b8-4d03-83df-551f12fb3e43' allowfullscreen frameborder=0></iframe>
+<iframe width="560" height="315" title='Brightcove Player' src='//players.brightcove.net/4119874060001/tViCJfxWJ_default/index.html?videoId=ref:1538d5da-42b8-4d03-83df-551f12fb3e43' allowfullscreen frameborder=0></iframe>
 
 This is my test number 3
 
