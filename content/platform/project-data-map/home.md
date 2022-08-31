@@ -13,6 +13,9 @@ tags:
 ---
 With so much data expanding exponentially at the edge, it’s challenging to find, use, manage, and share the right data when you need it. To acquire the true meaning of your data and take action within your distributed enterprise, HPE is developing Project Data Map, which will allow you to navigate to the data you’re looking for with governance, lineage and trust. 
 
+<iframe width="560" height="315" title='Brightcove Player' src='//players.brightcove.net/4119874060001/tViCJfxWJ_default/index.html?videoId=ref:2f8dce2b-5585-48e3-a9bb-95e4a7f04562' allowfullscreen frameborder=0></iframe>
+
+
 
 Project Data Map includes an open Common Metadata Framework, and correlates and scores metadata relationships derived implicitly from data usage and signals that continuously track pattern changes. This allows it to get smarter data, enabling precision AI and machine learning models to make the best possible decisions.  
 
