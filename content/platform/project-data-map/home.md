@@ -58,6 +58,20 @@ With an open source foundation and a global data fabric, like HPE Ezmeral softwa
 
 
 
+## Resources
+
+* [New Innovations: Project Edge Cluster, Project Sustainability Edge Cluster, and Project Data Map](https://youtu.be/71_dEAWuBPw?t=1144)   
+
+* [Project Data Map demo](https://youtu.be/71_dEAWuBPw?t=2305)   
+
+* [Lightboard video](https://www.youtube.com/watch?v=9VTLA1nxpoo)   
+
+* [Getting the most from your data-driven transformation: 10 key principles](https://www.hpe.com/us/en/insights/articles/getting-the-most-from-your-data-driven-transformation-2109.html)   
+
+* [Getting value from your data shouldn't be this hard](https://www.hpe.com/us/en/insights/articles/getting-value-from-your-data-shouldn-t-be-this-hard-2106.html)   
+
+* [Dataspaces: how an open metadata layer can establish a trustworthy data pipeline](https://community.hpe.com/t5/Advancing-Life-Work/Dataspaces-how-an-open-metadata-layer-can-establish-a/ba-p/7149075#.Yw01QXbMKUk)   
+
 
 ## Collaborations
 
