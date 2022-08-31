@@ -70,7 +70,7 @@ With an open source foundation and a global data fabric, like HPE Ezmeral softwa
 
 * [Getting value from your data shouldn't be this hard](https://www.hpe.com/us/en/insights/articles/getting-value-from-your-data-shouldn-t-be-this-hard-2106.html)   
 
-* [Dataspaces: how an open metadata layer can establish a trustworthy data pipeline](https://community.hpe.com/t5/Advancing-Life-Work/Dataspaces-how-an-open-metadata-layer-can-establish-a/ba-p/7149075#.Yw01QXbMKUk)   
+* [How an open metadata layer can establish a trustworthy data pipeline](https://community.hpe.com/t5/Advancing-Life-Work/Dataspaces-how-an-open-metadata-layer-can-establish-a/ba-p/7149075#.Yw01QXbMKUk)   
 
 
 ## Collaborations
