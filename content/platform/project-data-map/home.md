@@ -13,6 +13,9 @@ tags:
 ---
 With so much data expanding exponentially at the edge, it’s challenging to find, use, manage, and share the right data when you need it. To acquire the true meaning of your data and take action within your distributed enterprise, HPE is developing Project Data Map, which will allow you to navigate to the data you’re looking for with governance, lineage and trust. 
 
+<iframe width="560" height="315" title='Brightcove Player' src='//players.brightcove.net/4119874060001/tViCJfxWJ_default/index.html?videoId=ref:2f8dce2b-5585-48e3-a9bb-95e4a7f04562' allowfullscreen frameborder=0></iframe>
+
+
 
 Project Data Map includes an open Common Metadata Framework, and correlates and scores metadata relationships derived implicitly from data usage and signals that continuously track pattern changes. This allows it to get smarter data, enabling precision AI and machine learning models to make the best possible decisions.  
 
@@ -55,6 +58,22 @@ With an open source foundation and a global data fabric, like HPE Ezmeral softwa
 
 
 
+## Resources
+
+* [New Innovations: Project Edge Cluster, Project Sustainability Edge Cluster, and Project Data Map](https://youtu.be/71_dEAWuBPw?t=1144)   
+
+* [Project Data Map demo](https://youtu.be/71_dEAWuBPw?t=2305)   
+
+* [Lightboard video](https://www.youtube.com/watch?v=9VTLA1nxpoo)   
+
+* [Getting the most from your data-driven transformation: 10 key principles](https://www.hpe.com/us/en/insights/articles/getting-the-most-from-your-data-driven-transformation-2109.html)   
+
+* [Getting value from your data shouldn't be this hard](https://www.hpe.com/us/en/insights/articles/getting-value-from-your-data-shouldn-t-be-this-hard-2106.html)   
+
+* [How an open metadata layer can establish a trustworthy data pipeline](https://community.hpe.com/t5/Advancing-Life-Work/Dataspaces-how-an-open-metadata-layer-can-establish-a/ba-p/7149075#.Yw01QXbMKUk)   
+
+* [Why the future of AI hinges on trust](https://www.hpe.com/us/en/insights/articles/why-the-future-of-ai-hinges-on-trust-2205.html)
+
 
 ## Collaborations
 
@@ -62,12 +81,14 @@ With an open source foundation and a global data fabric, like HPE Ezmeral softwa
 Explore how Project Data Map can transform the flow of data in these real-world projects:   
 
 
-* [CGIAR System Organization](https://www.cgiar.org/how-we-work/governance/system-organization/) and [Digital Green](https://www.digitalgreen.org/), who’s working on enabling farmers to find the data they need by [combining diverse data sources to gain insights and grow and sell crops with a higher value in food production](https://www.hpe.com/us/en/discover-more-network/events/discover-2021/results.html/search/DEMO4480?media-id=%2Fus%2Fen%2Fresources%2Fdiscover%2Flas-vegas-2021%2FDiscover2021-24480%2F_jcr_content.details.json).
+* **CGIAR (formerly the Consultative Group for International Agricultural Research), Digital Green, The AgStack Foundation and HPE** are on a global mission to build solutions to address the exponentially growing need for food. To learn more, watch the [Scale for Good video](https://www.hpe.com/us/en/discover-more-network/series/scale-for-good.html?media-id=/us/en/resources/discover/dmn/scale-for-good/thefoodcrisiscantechnologyscaletofeedtheworld/_jcr_content.details.json&media-strategy=delegate), and the [AI for Good webinar](https://www.youtube.com/watch?v=g0cGYXg11Os).   
 
-* [Novartis Global Health’s](https://www.novartis.com/esg/global-health) partnership with HPE [to collect and organize previously untapped data to enhance disease profiling and provide a more targeted response strategy](https://www.hpe.com/us/en/newsroom/news-advisory/2021/06/hewlett-packard-enterprise-and-novartis-join-forces-to-advance-novartis-global-health-efforts.html).
+* **Novartis Global Health and HPE** are seeking ways to develop a disease surveillance solution for dengue fever by collecting and integrating complex data sources across organizations globally, providing data transparency at scale to inform targeted response strategies. To learn more, [read the press release](https://www.hpe.com/us/en/newsroom/news-advisory/2021/06/hewlett-packard-enterprise-and-novartis-join-forces-to-advance-novartis-global-health-efforts.html).   
 
-* [Gaia-X](https://www.data-infrastructure.eu/GAIAX/Navigation/EN/Home/home.html), a European Union and non-profit group that’s creating an interoperable data exchange in which data can be shared under the protection of European data privacy laws.
- 
+* **Gaia-X and HPE** are creating an interoperable data exchange in which data can be shared under the protection of European data privacy laws. Hear the [HPE Tech Talk podcast](https://share.transistor.fm/s/b465abf0) to learn more. 
+
+
+
 --- 
 
 
