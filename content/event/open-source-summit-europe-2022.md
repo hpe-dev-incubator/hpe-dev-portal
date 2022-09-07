@@ -3,7 +3,7 @@ title: Open Source Summit Europe 2022
 dateStart: 2022-09-12T22:01:12.186Z
 dateEnd: 2022-09-16T21:59:12.221Z
 category: Event
-image: /img/oss2022-europe.png
+image: /img/oss2022-europe-v2.png
 link: https://events.linuxfoundation.org/open-source-summit-europe/
 width: large
 ---
