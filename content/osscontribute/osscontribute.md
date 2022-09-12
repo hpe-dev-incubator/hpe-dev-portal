@@ -11,7 +11,7 @@ description: Are you a fan of HPE Developer? Become an HPE Developer Evangelist
 subtitle: Register to be an HPE Developer Evangelist
 ---
  
-In open source land, you need to be fluent with Git. If it’s not the case yet, we recommend the following 3 part blogs: pramod
+In open source land, you need to be fluent with Git. If it’s not the case yet, we recommend the following 3 part blogs:
 
 * [Getting started with git](https://developer.hpe.com/blog/get-involved-in-the-open-source-community-part-1-getting-started-with-git/)
 * [Sharing with the community](https://developer.hpe.com/blog/get-involved-in-the-open-source-community-part-2-sharing-with-the-commun/)
