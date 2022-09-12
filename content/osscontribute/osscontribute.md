@@ -66,7 +66,7 @@ Finally, starting with open source, means that you will either contribute to an 
 
 If you want to create your own project, feel free to do so, and create a public repo for it. But if you are an HPE employee be aware that you have an open source review process to follow, before releasing any code to open source. Make sure you check this [HPE-only website](https://opensource.corp.hpecorp.net/osrp_process_upstream.html).
 
-HPE has a number of contributors/maintainers that we have highlighted in a series of blog, read about their respective journeys and join them in our hall of Fame:
+HPE has a number of contributors/maintainers that we have highlighted in a series of blog, read about their respective journeys and join them in our Hall of Fame:
 
 * [Kartik Mathur](<* https://developer.hpe.com/blog/open-source-contributor-explains-how-kubedirector-empowers-data-intensive-apps/>) (KubeDirector)
 * [Souptick Joarder](<* https://developer.hpe.com/blog/becoming-a-linux-kernel-contributor-following-the-journey-of-souptick-joarder/>) (Linux kernel)
