@@ -246,7 +246,7 @@ collections:
           - {label: 'Template Name', name: 'templateName', widget: 'string' }
           - {label: 'Template Link', name: 'link', widget: 'string' }
 # OSS Contribute collection
-  - name: 'oss  contribute'
+  - name: 'osscontribute'
     label: 'Be an open source contributor'
     folder: 'content/osscontribute'
     extension: 'md'
