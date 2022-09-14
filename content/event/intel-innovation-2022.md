@@ -7,4 +7,4 @@ image: /img/intelinnovation.jpg
 link: https://www.intel.com/content/www/us/en/events/on-event-series/innovation.html
 width: large
 ---
-Visit HPE Booth at Intel Innovation, the developer conference from intel. HPE Developer Community will be represented there, come and engage.
+Visit HPE Booth at Intel Innovation, the developer conference from Intel. HPE Developer Community will be represented there, come and engage.
