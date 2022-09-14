@@ -11,4 +11,4 @@ width: large
 
 #### September 27-28, 2022 San Jose, California
 
-Visit HPE Booth at Intel Innovation, the annual developer conference from Intel. HPE Developer Community will be represented there, come and engage.
+Attend the Intel Innovation developer conference and explore the latest break-throughs in tech-accelerating computing. Visit the HPE booth and hear more about what the HPE Developer Community is doing by engaging with the booth staff.
