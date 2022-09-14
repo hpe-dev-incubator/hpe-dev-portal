@@ -1,5 +1,5 @@
 ---
-title: Be an open source contributor page
+title: "Be an open source contributor "
 description: Are you a fan of HPE Developer? Become an HPE Developer Evangelist
   and help us spread the word on how developers, data scientists, and IT
   technologists can write applications and develop integrations for Hewlett
