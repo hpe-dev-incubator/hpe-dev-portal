@@ -1,5 +1,5 @@
 ---
-title: "Be an open source contributor "
+title: Be an open source contributor page
 description: Are you a fan of HPE Developer? Become an HPE Developer Evangelist
   and help us spread the word on how developers, data scientists, and IT
   technologists can write applications and develop integrations for Hewlett
@@ -11,13 +11,13 @@ description: Are you a fan of HPE Developer? Become an HPE Developer Evangelist
 subtitle: Register to be an HPE Developer Evangelist
 ---
  
-In the world of open source, you need to be fluent with [Git](https://git-scm.com/). If you are not yet, we recommend you read the following 3 part blog series:
+In the world of open source, you need to be fluent with [Git](https://git-scm.com/). If you are not yet, we recommend you read the following 3-part blog series:
 
 * [Getting started with Git](https://developer.hpe.com/blog/get-involved-in-the-open-source-community-part-1-getting-started-with-git/)
 * [Sharing with the community](https://developer.hpe.com/blog/get-involved-in-the-open-source-community-part-2-sharing-with-the-commun/)
 * [Contributing back](https://developer.hpe.com/blog/get-involved-in-the-open-source-community-part-3-contributing-back-to-th/)
 
-We also offer a Workshop-on-Demand that you can take to get hands-on experience with git. Feel free to register by clicking below:
+We also offer a Workshop-on-Demand that you can take to get hands-on experience with Git. Feel free to register by clicking below:
 
 * [Getting started with Git](https://developer.hpe.com/blog/get-involved-in-the-open-source-community-part-1-getting-started-with-git/)
 
