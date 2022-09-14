@@ -66,11 +66,11 @@ If you want to create your own project, feel free to do so, and create a public 
 
 HPE has a number of contributors/maintainers that we have highlighted in a series of blog, read about their respective journeys and join them in our Hall of Fame:
 
-* [Kartik Mathur](<* https://developer.hpe.com/blog/open-source-contributor-explains-how-kubedirector-empowers-data-intensive-apps/>) (KubeDirector)
-* [Souptick Joarder](<* https://developer.hpe.com/blog/becoming-a-linux-kernel-contributor-following-the-journey-of-souptick-joarder/>) (Linux kernel)
-* [Eric Soderberg and Shimrit Yacobi](<* https://developer.hpe.com/blog/meet-eric-soderberg-and-shimrit-yacobi-hpe-dev-team-members-working-on-g/>) (Grommet)
-* [Bruno Cornec](<* https://developer.hpe.com/blog/meet-linux-distinguished-technologist-and-open-source-evangelist-bruno-cornec/>) (MondoRescue)
-* [Agustín Martínez Fayó](<* https://developer.hpe.com/blog/spire-maintainer-agustn-martnez-fay-reveals-his-passion-for-information-/>) (SPIRE)
+* [Kartik Mathur](https://developer.hpe.com/blog/open-source-contributor-explains-how-kubedirector-empowers-data-intensive-apps/) (KubeDirector)
+* [Souptick Joarder](https://developer.hpe.com/blog/becoming-a-linux-kernel-contributor-following-the-journey-of-souptick-joarder/) (Linux kernel)
+* [Eric Soderberg and Shimrit Yacobi](https://developer.hpe.com/blog/meet-eric-soderberg-and-shimrit-yacobi-hpe-dev-team-members-working-on-g/) (Grommet)
+* [Bruno Cornec](https://developer.hpe.com/blog/meet-linux-distinguished-technologist-and-open-source-evangelist-bruno-cornec/) (MondoRescue)
+* [Agustín Martínez Fayó](https://developer.hpe.com/blog/spire-maintainer-agustn-martnez-fay-reveals-his-passion-for-information-/) (SPIRE)
 
 Last piece of advice. When joining an existing open source project in order to contribute, you will have to make yourself know to other contributors and maintainers. This might take time, be patient. Start small, by documenting issues in the code or in the documentation and proposing a solution. You can also review and comment on proposed changes. In most cases there will be a Slack or a glitter forum dedicated to the project, don’t hesitate to join and start discussion there. Once you name become associated with good feedback and proposal, it will be a lot easier for you to contribute code and get it approved and merged. 
 
