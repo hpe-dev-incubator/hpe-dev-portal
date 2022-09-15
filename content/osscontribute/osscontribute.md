@@ -62,8 +62,6 @@ When you get started with open source, it means that you will either contribute 
 | [SPIFFE/SPIRE](https://github.com/spiffe)                          | SPIRE (the SPIFFE Runtime Environment) is a toolchain of APIs for establishing trust between software systems across a wide variety of hosting platforms. SPIRE exposes the SPIFFE Workload API, which can attest running software systems and issue SPIFFE IDs and SVIDs to them. This in turn allows two workloads to establish trust between each other, for example by establishing an mTLS connection or by signing and verifying a JWT token. SPIRE can also enable workloads to securely authenticate to a secret store, a database, or a cloud provider service. |
 | [Zookeeper](https://github.com/apache/zookeeper)                   | ZooKeeper is a centralized service for maintaining   configuration information, naming, providing distributed synchronization, and providing group services.                                                                                                                                                                                                                                                                                                                                                                                                             |
 
-
-
 If you want to create your own project, feel free to do so and create a public repo for it. For HPE employees, be aware that there is an open source review process you need to follow before releasing any code to open source. Make sure you check this [HPE-only website](https://opensource.corp.hpecorp.net/osrp_process_upstream.html).
 
 HPE has a number of contributors/maintainers that we have highlighted in a series of blog posts. Read about their respective journeys and join them in our Hall of Fame:
@@ -73,6 +71,7 @@ HPE has a number of contributors/maintainers that we have highlighted in a serie
 * [Eric Soderberg and Shimrit Yacobi](https://developer.hpe.com/blog/meet-eric-soderberg-and-shimrit-yacobi-hpe-dev-team-members-working-on-g/) (Grommet)
 * [Bruno Cornec](https://developer.hpe.com/blog/meet-linux-distinguished-technologist-and-open-source-evangelist-bruno-cornec/) (MondoRescue)
 * [Agustín Martínez Fayó](https://developer.hpe.com/blog/spire-maintainer-agustn-martnez-fay-reveals-his-passion-for-information-/) (SPIRE)
+* [Brad Chamberlain](https://developer.hpe.com/blog/chapel-technical-lead-brad-chamberlain-opens-up-about-open-source/) (Chapel)
 
 One last piece of advice. When joining an existing open source project in order to contribute, you will have to make yourself known to other contributors and maintainers. This might take time. Be patient. Start small, by documenting issues in the code or in the documentation and propose a solution. You can also review and comment on proposed changes. In most cases, there will be a Slack or a glitter forum dedicated to the project. Don’t hesitate to join and start discussion there. Once your name becomes associated with good feedback and proposals, it will be a lot easier for you to contribute code and get it approved and merged. 
 
