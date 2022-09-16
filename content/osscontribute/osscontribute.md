@@ -10,8 +10,7 @@ description: Are you a fan of HPE Developer? Become an HPE Developer Evangelist
   newest Workshops-on-Demand.
 subtitle: Register to be an HPE Developer Evangelist
 ---
- 
-In the world of open source, you need to be fluent with [Git](https://git-scm.com/). If you are not yet, we recommend you read the following 3-part blog series:
+ In the world of open source, you need to be fluent with [Git](https://git-scm.com/). If you are not yet, we recommend you read the following 3-part blog series:
 
 * [Getting started with Git](https://developer.hpe.com/blog/get-involved-in-the-open-source-community-part-1-getting-started-with-git/)
 * [Sharing with the community](https://developer.hpe.com/blog/get-involved-in-the-open-source-community-part-2-sharing-with-the-commun/)
