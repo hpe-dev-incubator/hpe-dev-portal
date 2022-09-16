@@ -31,6 +31,8 @@ HPE has a number of contributors/maintainers that we have highlighted in a serie
 * [Agustín Martínez Fayó](https://developer.hpe.com/blog/spire-maintainer-agustn-martnez-fay-reveals-his-passion-for-information-/) (SPIRE)
 * [Brad Chamberlain](https://developer.hpe.com/blog/chapel-technical-lead-brad-chamberlain-opens-up-about-open-source/) (Chapel)
 
+One last piece of advice. When joining an existing open source project in order to contribute, you will have to make yourself known to other contributors and maintainers. This might take time. Be patient. Start small by documenting issues in the code or in the documentation and propose a solution. You can also review and comment on proposed changes. In most cases, there will be a Slack or a Glitter forum dedicated to the project. Don’t hesitate to join and start a discussion there. Once your name becomes associated with good feedback and proposals, it will be a lot easier for you to contribute code and get it approved and merged.
+
 And that’s when it gets really exciting.
 
 We estimate that there are 200 million packages on GitHub today, so finding the right place to engage is not that easy. If you are looking for a good project to contribute to, we suggest the following list (in alphabetical order). Enjoy the journey!
