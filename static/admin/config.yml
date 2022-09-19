@@ -121,7 +121,7 @@ collections:
     create: true
     publish: false
     slug: '{{slug}}'
-    preview_path: '/event'
+    preview_path: '/events'
     editor:
       preview: true
     fields:
