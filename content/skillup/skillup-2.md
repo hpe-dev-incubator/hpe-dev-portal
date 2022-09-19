@@ -5,6 +5,6 @@ linkname: Find out more
 description: Join the Ezmeral Early Access Program and provide feedback to our
   development team
 priority: 5
-image: /img/ezmeral.jpg
+image: /img/speedomoter_04_rgb.png
 ---
 Help
