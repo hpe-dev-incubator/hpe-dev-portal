@@ -55,6 +55,7 @@ collections:
     create: true
     publish: false
     slug: 'hackshackhome'
+    preview_path: '/hackshack/'
     editor:
       preview: true
     fields:
@@ -78,6 +79,7 @@ collections:
     create: true
     publish: false
     slug: '{{slug}}'
+    preview_path: '/platform/{{title}}/home'
     editor:
       preview: true
     fields:
@@ -119,6 +121,7 @@ collections:
     create: true
     publish: false
     slug: '{{slug}}'
+    preview_path: '/event'
     editor:
       preview: true
     fields:
@@ -181,6 +184,7 @@ collections:
     create: true
     publish: false
     slug: 'community'
+    preview_path: '/community'
     editor:
       preview: true
     fields:
@@ -211,6 +215,7 @@ collections:
   - name: 'skillup'
     label: 'Skillup'
     folder: 'content/skillup'
+    preview_path: '/skillup'
     extension: 'md'
     create: true
     publish: false
@@ -233,6 +238,7 @@ collections:
     create: false
     publish: false
     slug: 'contribute'
+    preview_path: '/contribute' 
     editor:
       preview: true
     fields:
@@ -253,6 +259,7 @@ collections:
     create: false
     publish: false
     slug: 'osscontribute'
+    preview_path: '/osscontribute' 
     editor:
       preview: true
     fields:
