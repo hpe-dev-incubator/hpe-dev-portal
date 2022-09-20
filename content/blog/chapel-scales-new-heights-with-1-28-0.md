@@ -5,7 +5,7 @@ author: Dale Rensing
 authorimage: /img/Avatar1.svg
 tags:
   - Chapel
-  - open source
+  - opensource
 ---
 Exciting news for the Chapel community this month – Chapel 1.28.0 has just been released! Chapel, a productive parallel programming language that scales from laptops to supercomputers, now features improved GPU support, a new Communication module that supports low-level puts and gets, and improvements to the interface and other aspects of the code. This open source project is also being highlighted this month at the AnitaB.Org 2022 Grace Hopper Celebration where Michelle Strout and Lydia Duncan of the HPE High Performance Computing and AI group ran a Choose Your Own Adventure project during the Open Source Day, where developers could come to learn more about Chapel and how to contribute to the project.
 
