@@ -18,11 +18,11 @@ A new Communication module has also been introduced in Chapel 1.28.0. This modul
 Here are some of the main highlights of the release:
 
 * Significantly improved behavior for numerical ops on small/mixed types
-*  A new Communication module for performing low-level puts/gets
-*  Expanded idioms that can run on GPUs and a new GPU utility module
-*  Improvements to ‘chpldoc’ and ‘mason’
-*  Simplified and improved selection between overloaded routines
-*  Stabilized language and library improvements
+* A new Communication module for performing low-level puts/gets
+* Expanded idioms that can run on GPUs and a new GPU utility module
+* Improvements to ‘chpldoc’ and ‘mason’
+* Simplified and improved selection between overloaded routines
+* Stabilized language and library improvements
 * Reduced average compilation times using the LLVM support library
 * Improved portability to ARM-based Macs
 
