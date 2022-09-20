@@ -2,7 +2,7 @@
 title: Chapel scales new heights with 1.28.0
 date: 2022-09-20T12:29:26.364Z
 author: Dale Rensing
-authorimage: /img/Avatar1.svg
+authorimage: /img/blog-author-rensing-96.jpg
 tags:
   - Chapel
   - opensource
