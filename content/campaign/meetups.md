@@ -6,8 +6,41 @@ Connect with the experts to dive deep and learn more about some of today’s mos
 
 Hosted by the HPE Developer Community, these meetups are held on a monthly basis at 5PM CET (8AM PST).  Read more about Meetups [in this blog](https://developer.hpe.com/blog/new-for-2022-hpe-dev-meetups/) post.
 
+<style>
+table {
+    display: block;
+    width: 100%;
+    width: max-content;
+    max-width: 100%;
+    overflow: auto; 
+     -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none; 
+    border:1px solid grey;
+}
+td {
+   -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    border:1px solid grey;
+    text-align: left !important; 
+    padding: 10px !important;
+}
+thead tr:first-child td {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  border:1px solid grey;
+  text-align: center !important; 
+  padding: 20px !important; 
+  font-weight: bold !important;
+}
+</style>
+
+
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Date&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Title                                                                                                                                                | Speaker(s)                        | &nbsp;&nbsp;Link&nbsp;&nbsp;&nbsp;&nbsp; |                                                                                                             |
 | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------- | ---------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| 26-Oct-22                                                                                                  | Boost Spark AI workloads with Pepperdata                                                                                           | Heidi Carson/Kirk Lewis                  | Pepperdata                                  | [Register](https://hpe.zoom.us/webinar/register/8216637690310/WN_taRSQMfhSqG3MJWH9bH0IQ)       |
 | **28-Sep-22**                                                                                              | **Machine Learning Data Version Control (DVC): Reproducibility and Collaboration in your ML Projects**                                               | **Alex Kim**                      | **Iterative**                            | **[Register](https://hpe.zoom.us/webinar/register/7016594481151/WN_g7YY8XsKRaOPTi3EQ1VGpQ)**                |
 | 31-Aug-22                                                                                                  | OpenTelemetry: Getting Started and The Road to Production                                                                                            | Michael Haberman                  | Aspecto                                  | [Replay](https://www.youtube.com/watch?v=odi9isyZOrU&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF&index=1)       |
 | 27-Jul-22                                                                                                  | Finding vulnerabilities in production with open source ThreatMapper                                                                                  | Owen Garrett                      | Deepfence                                | [Replay](https://www.youtube.com/watch?v=r62VLwT6w3Y&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF&index=1)       |
