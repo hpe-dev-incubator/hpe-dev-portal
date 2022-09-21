@@ -37,7 +37,7 @@ thead tr:first-child td {
 }
 </style>
 
-| Date;         | Title                                                                                                                                                                | Speaker(s)                                         | Link                                                                                                  |
+| Date&nsp&nsp  | Title                                                                                                                                                                | Speaker(s)                                         | Link                                                                                                  |
 | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
 | **21-Sep-22** | **Accelerate public sector AI use cases using a powerful ML Ops platform**                                                                                           | **François Réthoré / Dietrich Zinsou**             | **[Register](https://hpe.zoom.us/webinar/register/7216607313952/WN_fvoiOt7KSBW-LMyYMdIk2A)**          |
 | 17-Aug-22     | Machines learn from data to be artificially intelligent                                                                                                              | Dr. Eng Lim Goh                                    | [Replay](https://youtu.be/3KOFDciS3WU&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF&index=1)                |
