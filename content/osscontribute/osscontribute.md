@@ -1,5 +1,5 @@
 ---
-title: Be an open source contributor
+title: Be an Open Source Contributor
 description: Are you a fan of HPE Developer? Become an HPE Developer Evangelist
   and help us spread the word on how developers, data scientists, and IT
   technologists can write applications and develop integrations for Hewlett
@@ -22,7 +22,7 @@ We also offer a Workshop-on-Demand that you can take to get hands-on experience 
 
 When you get started with open source, it means that you will either contribute to an existing project or create your own project. If you want to create your own project, don’t forget to create a public repo for it. For HPE employees, be aware that there is an open source review process you need to follow before releasing any code to open source. Make sure you check this [HPE-only website](https://opensource.corp.hpecorp.net/osrp_process_upstream.html).
 
-The HPE Developer Community has highlighted a number of contributors/maintainers in a series of blog posts. Read about their respective journeys and join the in our Hall of Fame:
+The HPE Developer Community has highlighted a number of contributors/maintainers in a series of blog posts. Read about their respective journeys and join the team in our Hall of Fame:
 
 * [Kartik Mathur](https://developer.hpe.com/blog/open-source-contributor-explains-how-kubedirector-empowers-data-intensive-apps/) (KubeDirector)
 * [Souptick Joarder](https://developer.hpe.com/blog/becoming-a-linux-kernel-contributor-following-the-journey-of-souptick-joarder/) (Linux kernel)
