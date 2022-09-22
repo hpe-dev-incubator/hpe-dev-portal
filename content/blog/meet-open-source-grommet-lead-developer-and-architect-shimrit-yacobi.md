@@ -33,7 +33,7 @@ Grommet has over 120,000 downloads a month, over 300 contributors, and continues
 
 I think one of the things that makes Grommet so popular is that it simplifies the way web applications are built. Grommet does this by providing a package of commonly used interface elements from which developers and designers can choose to use. It provides powerful themes and tools that allow web developers to customize the color, type, component elements and layout according to their needs. It also provides support for Web Content Accessibility Guidelines (WCAG), making it great for accessibility.
 
-## What other open source projects are you involved with?
+## What other open source projects have you been involved with?
 
 I was the lead developer and architect for the HPE Design System, an open source library of elements consisting of working code, best practices, and design resources. It features human-centered guidelines, and engages with a vibrant community of contributors. One of the things I like most about it is that it enables experiences to be crafted with uncompromising integrity. 
 
