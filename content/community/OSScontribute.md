@@ -1,5 +1,5 @@
 ---
-title: I want to contribute to Open Source
+title: Be an Open Source Contributor
 link: /OSScontribute
 linkname: Start contributing
 description: I'd like to start contributing to open source software.
