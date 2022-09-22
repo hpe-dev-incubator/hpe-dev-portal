@@ -18,7 +18,7 @@ In the world of open source, you need to be fluent with [Git](https://git-scm.co
 
 We also offer a Workshop-on-Demand that you can take to get hands-on experience with Git. Feel free to register by clicking below:
 
-* [Getting started with Git](https://developer.hpe.com/blog/get-involved-in-the-open-source-community-part-1-getting-started-with-git/)
+* [Getting started with Git](https://developer.hpe.com/hackshack/workshop/17)
 
 When you get started with open source, it means that you will either contribute to an existing project or create your own project. If you want to create your own project, don’t forget to create a public repo for it. For HPE employees, be aware that there is an open source review process you need to follow before releasing any code to open source. Make sure you check this [HPE-only website](https://opensource.corp.hpecorp.net/osrp_process_upstream.html).
 
