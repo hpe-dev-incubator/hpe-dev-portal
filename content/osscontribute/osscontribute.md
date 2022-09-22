@@ -35,7 +35,7 @@ One last piece of advice. When joining an existing open source project in order 
 
 And that’s when it gets really exciting.
 
-We estimate that there are 200 million packages on GitHub today, so finding the right place to engage is not that easy. If you are looking for a good project to contribute to, we suggest the following list (in alphabetical order). Enjoy the journey!
+We estimate that there are 200 million packages on GitHub today, so finding the right place to engage is not that easy. If you are looking for a good project to contribute to, we suggest the following list (in alphabetical order). Enjoy the journey and check out our **[Open Source](https://developer.hpe.com/opensource)** page to learn more about some of the key projects HPE supports.
 
 <style> table { display: block; width: 100%; width: max-content; max-width: 100%; overflow: auto; -webkit-box-shadow: none; -moz-box-shadow: none; box-shadow: none; border:1px solid grey; } td { -webkit-box-shadow: none; -moz-box-shadow: none; box-shadow: none; border:1px solid grey; text-align: left !important; padding: 10px !important; } thead tr:first-child td { -webkit-box-shadow: none; -moz-box-shadow: none; box-shadow: none; border:1px solid grey; text-align: center !important; padding: 20px !important; font-weight: bold !important; } </style>
 
