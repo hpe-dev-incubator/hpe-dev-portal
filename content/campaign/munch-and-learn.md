@@ -6,16 +6,15 @@ Join our free, one-hour webinars to hear from and engage with renowned technolog
 
 Hosted by the HPE Developer Community, these gatherings are held on a monthly basis at 5PM CET (8AM PST). You can read more about Munch & Learn Technology Talks [in this blog](https://developer.hpe.com/blog/hpe-dev-launches-its-munch-learn-technical-talks) post.
 
-<style>
+style>
 table {
     display: block;
-    width: 100%;
-    width: max-content;
+    width: max-content !important;
     max-width: 100%;
-    overflow: auto; 
+    overflow: auto;
      -webkit-box-shadow: none;
     -moz-box-shadow: none;
-    box-shadow: none; 
+    box-shadow: none;
     border:1px solid grey;
 }
 td {
@@ -23,7 +22,8 @@ td {
     -moz-box-shadow: none;
     box-shadow: none;
     border:1px solid grey;
-    text-align: left !important; 
+    text-align: left !important;
+     font-weight: normal !important;
     padding: 10px !important;
 }
 thead tr:first-child td {
@@ -31,8 +31,8 @@ thead tr:first-child td {
   -moz-box-shadow: none;
   box-shadow: none;
   border:1px solid grey;
-  text-align: center !important; 
-  padding: 20px !important; 
+  text-align: center !important;
+  padding: 20px !important;
   font-weight: bold !important;
 }
 </style>
