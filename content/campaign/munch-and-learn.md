@@ -6,7 +6,7 @@ Join our free, one-hour webinars to hear from and engage with renowned technolog
 
 Hosted by the HPE Developer Community, these gatherings are held on a monthly basis at 5PM CET (8AM PST). You can read more about Munch & Learn Technology Talks [in this blog](https://developer.hpe.com/blog/hpe-dev-launches-its-munch-learn-technical-talks) post.
 
-style>
+<style>
 table {
     display: block;
     width: max-content !important;
