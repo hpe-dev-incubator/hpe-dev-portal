@@ -547,6 +547,44 @@ To do so, proceed as follows:
 
        <center><img src="media/Guide-tips-item-lists-2.png" width="1585" height="483"></center>
 
+-   **Formatting a table properly**
+
+To format correctly a table, insert the following Style statement in your markdown, above the table:
+
+
+```html
+<style>
+table {
+    display: block;
+    width: max-content !important;
+    max-width: 100%;
+    overflow: auto;
+     -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    border:1px solid grey;
+}
+td {
+   -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    border:1px solid grey;
+    text-align: left !important;
+     font-weight: normal !important;
+    padding: 10px !important;
+}
+thead tr:first-child td {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  border:1px solid grey;
+  text-align: center !important;
+  padding: 20px !important;
+  font-weight: bold !important;
+}
+</style>
+```
+
 -   **Tagging:**
 
 If appropriate, use a tag to tie your blog post to a "platform" page on HPE Developer portal. List of "platforms" tag is in the table below.
