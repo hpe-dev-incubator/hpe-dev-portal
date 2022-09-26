@@ -2,7 +2,7 @@
 title: Beta test our new HPE GreenLake for Data Fabric!
 date: 2022-09-23T20:32:16.515Z
 author: Alaric Thomas
-authorimage: /img/Avatar1.svg
+authorimage: /img/alaric_0.1.jpg
 thumbnailimage: /img/1338228_zh3kqtu6roaxv7asnc97_sw-dc-ezmeralwebinars-220921-gldatafabric-v1c.jpg
 tags:
   - hpe-ezmeral
