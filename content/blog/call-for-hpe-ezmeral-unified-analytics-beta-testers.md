@@ -2,7 +2,7 @@
 title: Call for HPE Ezmeral Unified Analytics beta testers
 date: 2022-09-23T18:49:55.075Z
 author: Skyler Thomas
-authorimage: /img/Avatar1.svg
+authorimage: /img/skyler-thomas.jpg
 thumbnailimage: /img/1338228_24a2hpcq2kxibhbz2uuv_sw-dc-ezmeralwebinars-220921-ezmeralunifanlytcs-v3c.jpg
 tags:
   - hpe-ezmeral
