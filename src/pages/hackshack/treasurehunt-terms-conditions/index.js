@@ -26,7 +26,7 @@ const TreasureHuntTC = () => {
               level="1"
               margin={{ bottom: 'none', top: 'none' }}
             >
-              HPE Virtual Treasure Hunt – KubeCon Europe 2022
+              HPE Virtual Treasure Hunt – KubeCon North America 2022
             </Heading>
             <Text color="text-strong" margin={{ bottom: 'large' }}>
               TERMS AND CONDITIONS
