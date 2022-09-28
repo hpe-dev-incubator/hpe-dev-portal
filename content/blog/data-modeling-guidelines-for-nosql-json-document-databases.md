@@ -1,12 +1,16 @@
 ---
-title: "Data Modeling Guidelines for NoSQL JSON Document Databases"
+title: Data Modeling Guidelines for NoSQL JSON Document Databases
 date: 2020-07-08T05:22:33.670Z
-author: Carol McDonald 
-tags: ["hpe-ezmeral-data-fabric","MapR","opensource", "data-ml-engineer"]
-authorimage: "/img/blogs/Avatar5.svg"
 featuredBlog: false
-priority:
-thumbnailimage:
+priority: null
+author: Carol McDonald
+authorimage: /img/blogs/Avatar5.svg
+thumbnailimage: null
+tags:
+  - hpe-ezmeral-data-fabric
+  - MapR
+  - opensource
+  - data-ml-engineer
 ---
 ## Original Post Information:
 ```
@@ -22,9 +26,11 @@ Document databases, such as MapR Database (now part of [HPE Ezmeral Data Fabric]
 
 ## **Why NoSQL?**
 
-Simply put the motivation behind NoSQL is data volume, velocity, and/or variety. MapR Database (now part of HPE Ezmeral Data Fabric) provides for data variety with two different data models:
-* HPE Ezmeral Data Fabric as a Wide column database with an Apache HBase API
-* HPE Ezmeral Data Fabric as a Document database with an Open JSON API
+Simply put the motivation behind NoSQL is data volume, velocity, and/or variety. MapR Database (now part of HPE Ezmeral Data Fabric) provides for data variety with two different data models:   
+
+* HPE Ezmeral Data Fabric as a Wide column database with an Apache HBase API   
+
+* HPE Ezmeral Data Fabric as a Document database with an Open JSON API   
 
 <img src="/uploads/media/2020/6/mapr-db-json-1594186549663.png" alt="HPE Ezmeral Data Fabric" width="900">
 
@@ -38,46 +44,68 @@ In relational design, the focus and effort is around describing the entity and i
 
 ## **NoSQL Data Modeling Process**
 
-It is useful to start off with [Entity Relationship](https://en.wikipedia.org/wiki/Entity%E2%80%93relationship_model) modeling in order to define the entities, relationships, and attributes in your application:
-* Entities: Main objects in your application
-* Attributes: properties of the objects in your application
-* Relationships: connections between entities - 1-1, 1-many, many-many
+It is useful to start off with [Entity Relationship](https://en.wikipedia.org/wiki/Entity%E2%80%93relationship_model) modeling in order to define the entities, relationships, and attributes in your application:   
+
+* Entities: Main objects in your application   
+
+* Attributes: properties of the objects in your application   
+
+* Relationships: connections between entities - 1-1, 1-many, many-many   
+
 
 ![Artist - Performs - Song](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/6/artist-performs-song-1594186280849.png)
 
 The E-R model can be used with your query and data access patterns to define the physical model so that the data that is read together is stored together.
-As a modeling example we will use a social application similar to reddit (Note: I do not know how reddit is really implemented). Here are the use cases:
+As a modeling example we will use a social application similar to reddit (Note: I do not know how reddit is really implemented). Here are the use cases:   
+
  * Users can post URLs to articles by category (like news, sports…).
+
    ![Reddit use case](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/6/reddit-use-case-1-1594186305947.png)
 
- * Users can then make comments on posts
+
+ * Users can then make comments on posts   
+
    ![Reddit use case](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/6/reddit-use-case-2-1594186327388.png)
 
-Some of the query requirements are:
-* Display the posts by category and date (most recent first)
-* Display the comments by post
-* Display the posts by userid
+Some of the query requirements are:   
+
+* Display the posts by category and date (most recent first)   
+
+* Display the comments by post   
+
+* Display the posts by userid   
+
 
 ## **Logical Model Example**
 
 This is an E-R Diagram for our example social application:
-![E-R Diagram](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/6/e-r-diagram-1594186359002.png)
-The Entities are:
+![E-R Diagram](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/6/e-r-diagram-1594186359002.png)   
+
+The Entities are:   
+
 * User, Post, Comment, Category
 
-The relations are:
-* A User makes a post
-* A Post has comments
-* A Post belongs to a category
+The relations are:   
+
+* A User makes a post   
+
+* A Post has comments   
+
+* A Post belongs to a category   
+
 
 ## **Relational Model Example**
 
 This is the relational model for the example social application:
-![Relation Model for Social Application](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/6/relation-model-social-app-1594186378259.png)
-* Users are stored in the user table
-* The posted URL is  stored in the Post table with a foreign key to the user that posted it, and a foreign key to the category for the post.
-* Comments about a post are stored in the comments table with a foreign key to the post and a foreign key to the user that commented
+![Relation Model for Social Application](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/6/relation-model-social-app-1594186378259.png)   
 
+* Users are stored in the user table   
+
+* The posted URL is  stored in the Post table with a foreign key to the user that posted it, and a foreign key to the category for the post.   
+
+* Comments about a post are stored in the comments table with a foreign key to the post and a foreign key to the user that commented.   
+
+ ﻿
 ## **Normalization**
 
 In a relational database, you normalize the schema to eliminate redundancy by putting repeating information into a table of its own. In this example below, we have an order table, which has a one-to-many relationship with an order items table. The order items table has a foreign key with the id of the corresponding order.
@@ -120,18 +148,24 @@ This is the document model for the example social application:
 
 There are 2 tables in the document model compared to 4 in the relational:
 
-* User details are stored in the user table
-* Posted URLs are stored in the Post table
- * The row key is composed of the category and a reverse timestamp so that posts will be grouped by category with the most recent first.
- * There is a secondary index on the posted by attribute, to query by who submitted the URL.
- * Comments are embedded in the post table
+* User details are stored in the user table   
+
+* Posted URLs are stored in the Post table   
+ * The row key is composed of the category and a reverse timestamp so that posts will be grouped by category with the most recent first.   
+ * There is a secondary index on the posted by attribute, to query by who submitted the URL.   
+ * Comments are embedded in the post table   
+
 
 ## **Composite Row Key Design**
 
-Row keys are the primary index for MapR Database (now part of HPE Ezmeral Data Fabric)  (HPE Ezmeral Data Fabric JSON 6.0 also has secondary indexes).  Data is automatically distributed as it is written by sorted row key range. You can include multiple data elements in a “composite” row key, which can be useful for grouping rows together for finding by key range. For example if you wanted to group posts by category and date, you could use a row key like `“SPORTS_20131012”` (if you want the most recent first use a reverse timestamp). If you wanted to group restaurants by location you could use a row key like `“TN_NASHVL_PANCAKEPANTRY”`.
-![Prefix](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/6/prefix-1594186429138.png)
-Another option is to add a hash prefix to the row key in order to get good distribution, and still have a secondary grouping.
-![Prefix the row key](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/6/prefix-row-key-1594186446213.png)
+Row keys are the primary index for MapR Database (now part of HPE Ezmeral Data Fabric)  (HPE Ezmeral Data Fabric JSON 6.0 also has secondary indexes).  Data is automatically distributed as it is written by sorted row key range. You can include multiple data elements in a “composite” row key, which can be useful for grouping rows together for finding by key range. For example if you wanted to group posts by category and date, you could use a row key like `“SPORTS_20131012”` (if you want the most recent first use a reverse timestamp). If you wanted to group restaurants by location you could use a row key like `“TN_NASHVL_PANCAKEPANTRY”`.   
+
+![Prefix](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/6/prefix-1594186429138.png)   
+
+Another option is to add a hash prefix to the row key in order to get good distribution, and still have a secondary grouping.   
+
+![Prefix the row key](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/6/prefix-row-key-1594186446213.png)   
+
 
 ## **Generic Data, Event Data, and Entity-Attribute-Value**
 
@@ -151,8 +185,10 @@ The Row Key is the patient ID plus a time stamp. The variable event type and mea
 
 ## **Tree, Adjacency List, Graph Data**
 
-Here is an example of a tree, or [adjacency list](https://en.wikipedia.org/wiki/Adjacency_list)
-![Document Model Tree](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/6/document-model-tree-1594186489204.png)
+Here is an example of a tree, or [adjacency list](https://en.wikipedia.org/wiki/Adjacency_list)   
+
+![Document Model Tree](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/6/document-model-tree-1594186489204.png)   
+
 Here is a document model for the tree shown above (there are multiple ways to represent trees):
 
 ```json
@@ -197,7 +233,11 @@ In this blog post, you learned how document database data modeling is different 
 
 ## **For More Information:**
 
-* [Open JSON Application Interface](https://github.com/ojai/ojai)
-* [Open JSON Application Interface wiki](https://github.com/ojai/ojai/wiki)
-* [Unified Data Modeling for Relational and NoSQL Databases](https://www.infoq.com/articles/unified-data-modeling-for-relational-and-nosql-databases)
-* [NOSQL DATA MODELING TECHNIQUES](https://highlyscalable.wordpress.com/2012/03/01/nosql-data-modeling-techniques/)
+* [Open JSON Application Interface](https://github.com/ojai/ojai)   
+
+* [Open JSON Application Interface wiki](https://github.com/ojai/ojai/wiki)   
+
+* [Unified Data Modeling for Relational and NoSQL Databases](https://www.infoq.com/articles/unified-data-modeling-for-relational-and-nosql-databases)   
+
+* [NOSQL DATA MODELING TECHNIQUES](https://highlyscalable.wordpress.com/2012/03/01/nosql-data-modeling-techniques/)   
+
