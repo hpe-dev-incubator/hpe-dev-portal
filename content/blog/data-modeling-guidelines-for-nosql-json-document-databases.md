@@ -79,9 +79,10 @@ Some of the query requirements are:
 ## **Logical Model Example**
 
 This is an E-R Diagram for our example social application:
-![E-R Diagram](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/6/e-r-diagram-1594186359002.png)   
+![E-R Diagram](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/6/e-r-diagram-1594186359002.png)    
 
-The Entities are:   
+
+The Entities are:     
 
 * User, Post, Comment, Category
 
@@ -104,8 +105,8 @@ This is the relational model for the example social application:
 * The posted URL is  stored in the Post table with a foreign key to the user that posted it, and a foreign key to the category for the post.   
 
 * Comments about a post are stored in the comments table with a foreign key to the post and a foreign key to the user that commented.   
+﻿
 
- ﻿
 ## **Normalization**
 
 In a relational database, you normalize the schema to eliminate redundancy by putting repeating information into a table of its own. In this example below, we have an order table, which has a one-to-many relationship with an order items table. The order items table has a foreign key with the id of the corresponding order.
