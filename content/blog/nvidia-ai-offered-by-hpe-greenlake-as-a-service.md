@@ -3,6 +3,7 @@ title: NVIDIA AI offered by HPE GreenLake as a service
 date: 2022-09-28T19:39:56.152Z
 author: Dale Rensing
 authorimage: /img/blog-author-rensing-96.jpg
+thumbnailimage: /img/gettyimages-180966749_1600_0_72_rgb-1200-x-675.jpg
 tags:
   - nvidia
   - ai
