@@ -271,7 +271,7 @@ const Cards = ({ size, data }) => {
             desc="Watch this video!"
             background="rgba(0, 86, 122, 0.8);"
             label="Watch Now"
-            link="https://youtu.be/Urth22R5Iz4"
+            link="https://youtu.be/Zgv99XD1Xjc"
             margin={
               size === 'small' ? { bottom: 'none' } : { bottom: 'xlarge' }
             }
@@ -404,7 +404,7 @@ const Home = ({ data }) => {
               </Box>
               <Box alignSelf="center">
                 <ReactPlayer
-                  url="https://youtu.be/Urth22R5Iz4"
+                  url="https://youtu.be/Zgv99XD1Xjc"
                   controls
                   width="932px"
                   height="528px"
