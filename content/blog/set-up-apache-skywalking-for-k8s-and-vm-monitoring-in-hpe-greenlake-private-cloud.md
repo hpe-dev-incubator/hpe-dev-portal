@@ -7,6 +7,8 @@ authorimage: /img/Avatar1.svg
 tags:
   - hpe-greenlake, kubernetes, virtual machine, monitoring
 ---
+![]()
+
 ## Introduction
 
 Available on the HPE GreenLake Central platform, [HPE GreenLake for Private Cloud Enterprise](https://www.hpe.com/us/en/greenlake/private-cloud-enterprise.html) is composed of the following suite of HPE services that are grouped specifically to create and manage a private cloud:
@@ -103,10 +105,107 @@ Y﻿ou can edit the deployed SkyWalking UI service *skywalking_ui* and change it
 ```markdown
 $ k edit service/skywalking-ui -n skywalking
 
-$ k get service skywalking-ui -n skywalking 
-NAME            TYPE       CLUSTER-IP       EXTERNAL-IP   PORT(S)        AGE
-skywalking-ui   NodePort   10.102.186.131   <none>        80:30048/TCP   19m
+$ k describe service/skywalking-ui -n skywalking 
+Name:                     skywalking-ui
+Namespace:                skywalking
+Labels:                   app=skywalking
+                          app.kubernetes.io/managed-by=Helm
+                          chart=skywalking-4.2.0
+                          component=ui
+                          heritage=Helm
+                          hpecp.hpe.com/hpecp-internal-gateway=true
+                          release=skywalking
+Annotations:              hpecp-internal-gateway/80: gl2-caas.gl-hpe.local:10037
+                          meta.helm.sh/release-name: skywalking
+                          meta.helm.sh/release-namespace: skywalking
+Selector:                 app=skywalking,component=ui,release=skywalking
+Type:                     NodePort
+IP:                       10.102.186.131
+Port:                     <unset>  80/TCP
+TargetPort:               8080/TCP
+NodePort:                 <unset>  32748/TCP
+Endpoints:                10.192.7.25:8080
+Session Affinity:         None
+External Traffic Policy:  Cluster
+Events:                   <none>
 ```
+
+T﻿he SkyWalking UI can then be accessed in your browser by typing the address *gl2-caas.gl-hpe.local:10037*: 
+
+![](/img/skywalking-ui-0.pnp.png)
+
+### Deploy Multi-tier Applications
+
+The following multi-tier music application will be installed to the K8s cluster.
+
+* App Server (NodeJS) & UI (React):
+* Gateway (Spring)
+* Recommendations (Python)
+* Songs (Spring)
+
+I﻿n order to monitor the multi-tier application from SkyWalking, various SkyWalking agent per programming language needs to be built into each service which collects application data and exports them to the SkyWalking OPA server. 
+
+![](/img/skywalking-agents.png)
+
+```markdown
+├── app
+│   ├── Dockerfile
+│   ├── Dockerfile.agentless
+│   ├── Makefile
+│   ├── package.json
+│   ├── package-lock.json
+│   ├── server
+│   └── ui
+├── gateway-service
+│   ├── build.gradle
+│   ├── Dockerfile
+│   ├── Dockerfile.agentless
+│   ├── gradle
+│   ├── gradle.properties
+│   ├── gradlew
+│   ├── gradlew.bat
+│   ├── Makefile
+│   ├── settings.gradle
+│   └── src
+├── recommendation-service
+│   ├── Dockerfile
+│   ├── Dockerfile.agentless
+│   ├── Makefile
+│   ├── requirements.txt
+│   └── src
+└── songs-service
+    ├── build.gradle
+    ├── Dockerfile
+    ├── Dockerfile.agentless
+    ├── gradle
+    ├── gradle.properties
+    ├── gradlew
+    ├── gradlew.bat
+    ├── Makefile
+    ├── settings.gradle
+    └── src
+```
+
+A﻿fter image files are rebuilt with the agent, the multi-tier application can be deployed to the K8s cluster:
+
+```markdown
+$ envsubst < resources.yaml | kubectl create -f -
+service/gateway created
+deployment.apps/gateway-deployment created
+service/songs created
+deployment.apps/songs-deployment created
+service/rcmd created
+deployment.apps/recommendation-deployment created
+service/app created
+deployment.apps/app-deployment created
+deployment.apps/loadgen-deployment created
+```
+
+### Monitor Multi-tier Applications from SkyWalking UI
+
+![](/img/skywalking-ui-app.png)
+
+![](/img/skywalking-ui-app-topology.png)
 
 ## Set up Apache SkyWalkinge for Application Monitoring on Virtual Machines
 
