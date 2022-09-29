@@ -9,10 +9,10 @@ tags:
 ---
 ## Introduction
 
-[HPE GreenLake for PriPrivate](https://www.hpe.com/us/en/greenlake/private-cloud-enterprise.html), one of the HPE GreenLake cloud services available on the HPE GreenLake Central platform, allows customers to open the Clusters screen to create a cluster, view details about existing clusters, and launch the HPE GreenLake for Container service console. It provides an enterprise-grade container management service using open source Kubernetes. 
+Available on the HPE GreenLake Central platform, [HPE GreenLake for Private Cloud Enterprise](https://www.hpe.com/us/en/greenlake/private-cloud-enterprise.html), one of the HPE GreenLake cloud services available on the HPE GreenLake Central platform, allows customers to open the Clusters screen to create a cluster, view details about existing clusters, and launch the HPE GreenLake for Container service console. It provides an enterprise-grade container management service using open source Kubernetes. 
 
 This blog post describes the process of deploying a stateful MongoDB application on the created Kubernetes clusters in HPE GreenLake for Containers. Using the Kubernetes StatefulSet and Headless Service, together with the pre-provisioned persistent volumes, the MongoDB application can be deployed as a Replica Set that provides redundancy, fault tolerance and high availability. This MongoDB application deployment can be used for working with a large amount of data and a high number of workloads in customer production environments.
 
-## ApongoDB Application
+## Apache SkyWalking
 
-[MongoDB](https://www.mongodb.com/)
+[Apache SkyWalking](https://www.mongodb.com/) is an open source application performance monitor (APM) system, especially designed for microservices, cloud native, and container-based architectures.
