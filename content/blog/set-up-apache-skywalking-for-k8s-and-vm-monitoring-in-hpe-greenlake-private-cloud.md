@@ -9,9 +9,17 @@ tags:
 ---
 ## Introduction
 
-Available on the HPE GreenLake Central platform, [HPE GreenLake for Private Cloud Enterprise](https://www.hpe.com/us/en/greenlake/private-cloud-enterprise.html), one of the HPE GreenLake cloud services available on the HPE GreenLake Central platform, allows customers to open the Clusters screen to create a cluster, view details about existing clusters, and launch the HPE GreenLake for Container service console. It provides an enterprise-grade container management service using open source Kubernetes. 
+Available on the HPE GreenLake Central platform, [HPE GreenLake for Private Cloud Enterprise](https://www.hpe.com/us/en/greenlake/private-cloud-enterprise.html) is composed of the following suite of HPE services that are grouped specifically to create and manage a private cloud:
 
-This blog post describes the process of deploying a stateful MongoDB application on the created Kubernetes clusters in HPE GreenLake for Containers. Using the Kubernetes StatefulSet and Headless Service, together with the pre-provisioned persistent volumes, the MongoDB application can be deployed as a Replica Set that provides redundancy, fault tolerance and high availability. This MongoDB application deployment can be used for working with a large amount of data and a high number of workloads in customer production environments.
+- HPE GreenLake for Virtual Machines
+- HPE GreenLake for Containers
+- HPE GreenLake for Bare Metal Servers
+
+I﻿t provides an automated, flexible private cloud c﻿ustomers can use to run, support, and develop any of apps in their private environment, with modern cloud experience for VMs, containers, and bare metal. 
+
+This blog post describes the process of deploying the Apache SkyWalking t﻿o the HPE GreenLake private cloud. in customer production environments. 
+
+
 
 ## Apache SkyWalking
 
