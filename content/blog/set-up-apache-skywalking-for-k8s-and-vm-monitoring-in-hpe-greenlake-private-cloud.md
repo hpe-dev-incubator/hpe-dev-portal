@@ -7,8 +7,6 @@ authorimage: /img/Avatar1.svg
 tags:
   - hpe-greenlake, kubernetes, virtual machine, monitoring
 ---
-![]()
-
 ## Introduction
 
 Available on the HPE GreenLake Central platform, [HPE GreenLake for Private Cloud Enterprise](https://www.hpe.com/us/en/greenlake/private-cloud-enterprise.html) is composed of the following suite of HPE services that are grouped specifically to create and manage a private cloud:
