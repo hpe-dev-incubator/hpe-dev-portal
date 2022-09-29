@@ -4,7 +4,7 @@ dateStart: 2022-09-20T22:01:36.942Z
 dateEnd: 2022-09-21T21:59:36.960Z
 category: Virtual Event
 image: /img/event-munch-and-learn-newlogo400x400.png
-link: https://hpe.zoom.us/webinar/register/1716607349849/WN_fvoiOt7KSBW-LMyYMdIk2A
+link: https://www.youtube.com/watch?v=5pejLKu32Js&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF&index=1
 width: large
 ---
 ## Accelerate public sector AI use cases using a powerful ML Ops platform
