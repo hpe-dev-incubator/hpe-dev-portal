@@ -25,7 +25,7 @@ The complete HPE Ezmeral portfolio offers integrated workflows from analytics to
 
 [HPE Ezmeral Data Fabric File & Object Store](https://www.hpe.com/us/en/software/ezmeral-data-fabric.html) – is the industry’s first edge-to-cloud solution that ingests, stores in the native format, and completes in-place processing of different data types. It supports the most popular data and analytics APIs, which simplifies data access across the enterprise for all analytics users. 
 
-[HPE Ezmeral Unified Analytics](https://www.hpe.com/us/en/software/ezmeral-runtime.html) – features native integration of Apache Spark Kubernetes Operator and offers a unified data experience to securely connect to data wherever it exists.
+[HPE Ezmeral Analytics](https://www.hpe.com/us/en/software/ezmeral-runtime.html)[ for Apache Spark](https://www.hpe.com/us/en/software/ezmeral-runtime.html) – features native integration of Apache Spark Kubernetes Operator and offers a unified data experience to securely connect to data wherever it exists.
 
 HPE Ezmeral supports the most popular open-source ML Ops, Airflow, MLflow, and Kubeflow projects while integrating with an ever-growing ecosystem of certified HPE ISV partners.
 
