@@ -1,8 +1,8 @@
 ---
 title: Call for HPE Ezmeral Unified Analytics beta testers
 date: 2022-09-23T18:49:55.075Z
-author: Skyler Thomas
-authorimage: /img/skyler-thomas.jpg
+author: HPE DEV
+authorimage: /img/Avatar5.svg
 thumbnailimage: /img/1338228_24a2hpcq2kxibhbz2uuv_sw-dc-ezmeralwebinars-220921-ezmeralunifanlytcs-v3c.jpg
 tags:
   - hpe-ezmeral
@@ -10,7 +10,7 @@ tags:
 ---
 The HPE Ezmeral team has been hard at work creating the next generation analytics and advanced analytics platform. To give you an early look at what we’ve been up to, we have created the HPE Ezmeral Early Access beta program. Through our HPE Ezmeral Early Access beta program, you can start working with the tools and frameworks packaged inside HPE Ezmeral Unified Analytics. Your feedback will be critical in helping to shape our final product.
 
-**What’s new with HPE Ezmeral Unified Analytics?**
+**Building out a more robust HPE Ezmeral Unified Analytics**
 
 The new HPE Ezmeral Unified Analytics is a packaged offering that contains best-of-breed open source tools, including data analytics tools like Apache Spark and Presto, data visualization tools like Apache Superset, data engineering tools like Airflow and Great Expectations, and data science tools like Kubeflow, MLflow, and Feast. These open source packages are generally better than any proprietary solutions on the market and are also fully supported by HPE as part of HPE Ezmeral Unified Analytics. HPE’s open source packages are also pre-integrated. Integration can be one of the biggest challenges of consuming open source solutions. Our work at the data/feature layer radically simplifies your overall solution without compromising the benefits of using 100% open source API’s. In addition to framework integration, we have also spent time securing these components out-of-the-box, removing yet another headache.
 
