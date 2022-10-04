@@ -5,6 +5,10 @@ featuredBlog: true
 author: HPE DEV
 authorimage: /img/Avatar1.svg
 thumbnailimage: /img/1338228_7dgv1delrhc291yqzimg_sw-dc-kubeconna-220920-v1.jpg
+tags:
+  - kubernetes
+  - KubeCon
+  - hpe-ezmeral
 ---
 This October 24-28, the Cloud Native Computing Foundation will once again be hosting its flagship conference – [KubeCon+CloudNativeCon](https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/) – as a hybrid event. Take this opportunity to meet with thousands of cloud-native leaders, including gold-sponsor Hewlett Packard Enterprise (HPE), as the community gathers to further the education and advancement of cloud native computing. This is an important event for HPE as it offers us the opportunity to further educate the community on our expertise and support of open source and cloud native technologies.
 
