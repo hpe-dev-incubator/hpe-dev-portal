@@ -1,8 +1,8 @@
 ---
 title: Lift and Transform Apps with HPE CSI Driver for Kubernetes
 date: 2022-06-17T10:26:26.099Z
-featuredBlog: true
-priority: 4
+featuredBlog: false
+priority: 8
 author: Michael Mattsson
 authorimage: /img/portrait-192.png
 tags:
