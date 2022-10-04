@@ -38,7 +38,7 @@ HPE GreenLake for Data Fabric strives to enable this abstraction for quantifiabl
 
 * Read more about the HPE Ezmeral Early Access beta for HPE GreenLake for Data Fabric in this blog post.    
 
-* Sign up to become a beta tester.    
+* Sign up to become a beta tester. (Link to be inserted here as hotlink)
 
 
 - - -
