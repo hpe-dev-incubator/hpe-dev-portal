@@ -1,6 +1,7 @@
 ---
 title: Catch HPE at KubeCon NA 2022
 date: 2022-10-04T15:47:12.615Z
+featuredBlog: true
 author: HPE DEV
 authorimage: /img/Avatar1.svg
 thumbnailimage: /img/1338228_7dgv1delrhc291yqzimg_sw-dc-kubeconna-220920-v1.jpg
@@ -28,7 +29,7 @@ Make sure you stop by the booth to talk with some of our SPIFFE/SPIRE experts, l
 
 ### Ahoy, developers… join us virtually and seek out your cache!
 
-As part of our virtual presence, we’ll be hosting several Office Hours designed for developers, data scientists, and data/ML engineers to hear more about what HPE offers for them. Tune in for:
+As part of our virtual presence, we’ll be hosting several Office Hours designed for developers, data scientists, and data/ML engineers to hear more about what HPE offers for them. [Tune in](https://kubecon-cloudnativecon-na.com/virtual-exhibitor/?v4b4342b0f72f3260e37d74de68eab433fee0c641d933e76d52be7eb34b211371656f07b5a54b2e522db3ac7b27c7d555=068E4EDFD2D581C2C838CEEFD5F655754F523A6864305A1184BF01DD527B60FB0740D3F17B594A1732C891BBBA3213A8) for:
 
 * The HPE Developer Community team’s session on ***What? Not yet an HPE Developer Community member? There’s treasure to be found!***, guiding you through the rich set of resources HPE offers developers through our web portal.
 * The HPE Ezmeral engineering group’s talk on ***HPE Ezmeral Early Access***, a beta program that allows developers to try new products before they’re released. With exemplary training and support provided by HPE, developers will get hands-on experience with new features and capabilities.
