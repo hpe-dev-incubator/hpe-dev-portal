@@ -7,7 +7,7 @@ description: "GreenLake for Data Fabric (GL4DF) is a brand-new offering from HPE
 image: /img/platforms/Greenlake.svg
 width: large
 priority: 2
-active: "true"
+active: false
 tags:
   - hpe-greenlake-for-data-fabric
 ---
