@@ -1,7 +1,7 @@
 ---
 title: Catch HPE at KubeCon NA 2022
 date: 2022-10-04T15:47:12.615Z
-featuredBlog: true
+featuredBlog: false
 author: HPE DEV
 authorimage: /img/Avatar1.svg
 thumbnailimage: /img/1338228_7dgv1delrhc291yqzimg_sw-dc-kubeconna-220920-v1.jpg
