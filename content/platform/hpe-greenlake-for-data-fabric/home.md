@@ -38,5 +38,9 @@ GitHub for community samples
 
 Documentation
 
+-﻿--
 
-Join Slack channel
+## Any questions on HPE GreenLake for Data Fabric
+
+
+Join the [HPE Developer Slack Workspace](https://slack.hpedev.io/) and start a discussion in our [#hpe-greenlake-for-data-fabric-early-access](https://slack.hpedev.io/) channel.
