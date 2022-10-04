@@ -29,7 +29,7 @@ Each day, we’ll also be giving away a Raspberry Pi Starter Kit. Booth visitors
 
 Contributing alongside the many leading technology companies who were a part of this project, like VMWare, Uber, ByteDance, Anthem, Transferwise, IBM, etc., HPE is really excited that SPIFFE/SPIRE has just been designated a Graduated project of CNCF. Leading and influencing meaningful innovation in the Open Source community is important to us, as it provides key capabilities that our customers desire and helps us design solutions that meet their needs.
 
-Make sure you stop by the booth to talk with some of our SPIFFE/SPIRE experts, like Andrew Jessup, to learn more about what it can do for you. We’ll be giving out several copies of ***[Solving the Bottom Turtle](<https://thebottomturtle.io/Solving-the-bottom-turtle-SPIFFE-SPIRE-Book.pdf  >)*** as part of our celebration.
+Make sure you stop by the booth to talk with some of our SPIFFE/SPIRE experts, like Andrew Jessup, to learn more about what it can do for you. We’ll be giving out several copies of ***[Solving the Bottom Turtle](https://thebottomturtle.io/Solving-the-bottom-turtle-SPIFFE-SPIRE-Book.pdf)*** as part of our celebration.
 
 ### Ahoy, developers… join us virtually and seek out your cache!
 
