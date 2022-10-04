@@ -32,24 +32,27 @@ To address these challenges, HPE GreenLake for Data Fabric enables features like
 
 HPE GreenLake for Data Fabric strives to enable this abstraction for quantifiable business outcomes. It lets customers focus on their business instead of spending time and effort constantly trying to find and relocate data.
 
-# HPE Ezmeral Early Access Program for HPE GreenLake for Data Fabric
+## HPE Ezmeral Early Access Program for HPE GreenLake for Data Fabric   
 
-* The HPE Ezmeral Early Access beta program allows developers to try these new products before they’re released. With exemplary training and support provided by HPE, developers will get hands-on experience with new features and capabilities. They’ll also be able to provide regular feedback based on their hands-on activities, helping to guide the product roadmap and ensure new and exciting products are being developed and released on a regular basis. 
+
+* The HPE Ezmeral Early Access beta program allows developers to try these new products before they’re released. With exemplary training and support provided by HPE, developers will get hands-on experience with new features and capabilities. They’ll also be able to provide regular feedback based on their hands-on activities, helping to guide the product roadmap and ensure new and exciting products are being developed and released on a regular basis.    
+
    
-* Read more about the HPE Ezmeral Early Access beta for HPE GreenLake for Data Fabric in this blog post. 
+* Read more about the HPE Ezmeral Early Access beta for HPE GreenLake for Data Fabric in this blog post.    
+
 
 * Sign up to become a beta tester.    
 
 - - -
 
-# GitHub for community samples
+## GitHub for community samples
 
 - - -
 
-# Documentation
+## Documentation
 
 - - -
 
-# Any questions on HPE GreenLake for Data Fabric
+## Any questions on HPE GreenLake for Data Fabric
 
 Join the [HPE Developer Slack Workspace](https://slack.hpedev.io/) and start a discussion in our [\#hpe-greenlake-for-data-fabric-early-access](https://slack.hpedev.io/) channel.
