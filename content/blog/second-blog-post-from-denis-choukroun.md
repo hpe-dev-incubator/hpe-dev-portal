@@ -4,7 +4,8 @@ date: 2021-09-15T18:01:41.876Z
 author: Denis Choukroun
 authorimage: /img/Avatar1.svg
 ---
-Thsi is a new test.
+This is a new test - this is a new test.
+
 Denis
 
 ```markdown
@@ -38,3 +39,6 @@ This is an update.
 
 
 ![this is a 2nd image](/img/2-gunna.png "test image")
+
+* item 1
+* item 2
