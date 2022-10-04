@@ -29,7 +29,7 @@ Each day, we’ll also be giving away a Raspberry Pi Starter Kit. Booth visitors
 
 Contributing alongside the many leading technology companies who were a part of this project, like VMWare, Uber, ByteDance, Anthem, Transferwise, IBM, etc., HPE is really excited that SPIFFE/SPIRE has just been designated a Graduated project of CNCF. Leading and influencing meaningful innovation in the Open Source community is important to us, as it provides key capabilities that our customers desire and helps us design solutions that meet their needs.
 
-Make sure you stop by the booth to talk with some of our SPIFFE/SPIRE experts, like Andrew Jessup, to learn more about what it can do for you. We’ll be giving out several copies of “Solving the Bottom Turtle” as part of our celebration.
+Make sure you stop by the booth to talk with some of our SPIFFE/SPIRE experts, like Andrew Jessup, to learn more about what it can do for you. We’ll be giving out several copies of ***[Solving the Bottom Turtle](<https://thebottomturtle.io/Solving-the-bottom-turtle-SPIFFE-SPIRE-Book.pdf  >)*** as part of our celebration.
 
 ### Ahoy, developers… join us virtually and seek out your cache!
 
@@ -38,7 +38,7 @@ As part of our virtual presence, we’ll be hosting several Office Hours designe
 * The HPE Developer Community team’s session on ***What? Not yet an HPE Developer Community member? There’s treasure to be found!***, guiding you through the rich set of resources HPE offers developers through our web portal.
 * The HPE Ezmeral engineering group’s talk on ***HPE Ezmeral Early Access***, a beta program that allows developers to try new products before they’re released. With exemplary training and support provided by HPE, developers will get hands-on experience with new features and capabilities.
 
-The HPE Developer Community team will also be hosting a Virtual Treasure Hunt. This is a popular game that we’ve held at several past events that gets updated with new questions every time. Twelve players who complete the Virtual Treasure Hunt will be selected as winners of a $50 e-gift card to be redeemed at the HPE-branded merchandise e-store. Completing the Virtual Treasure Hunt requires participants to explore the HPE Developer Community’s rich ecosystem and submit their entry via the Virtual Treasure Hunt form during the event. Refer to the giveaway [Terms and Conditions](https://developer.hpe.com/hackshack/treasurehunt-terms-conditions/) for complete program details.
+The HPE Developer Community team will also be hosting a Virtual Treasure Hunt. This is a popular game that we’ve held at several past events that gets updated with new questions every time. Twelve players who complete the Virtual Treasure Hunt will be selected as winners of a $50 e-gift card to be redeemed at the HPE-branded merchandise e-store. Completing the Virtual Treasure Hunt requires participants to explore the HPE Developer Community’s rich ecosystem and submit their entry via the [Virtual Treasure Hunt form](https://bit.ly/kubecon-na-2022-hpedev-treasure-hunt) during the event. Refer to the giveaway [Terms and Conditions](https://developer.hpe.com/hackshack/treasurehunt-terms-conditions/) for complete program details.
 
 ### We’ve always got something going on in this space
 
