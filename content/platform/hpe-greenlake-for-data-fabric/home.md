@@ -19,10 +19,14 @@ Enterprises have, for many decades, struggled with islands of data, firstly acro
 
 HPE GreenLake for Data Fabric targets the following enterprise challenges with big data
 
-1. Moving data is hard 
-2. Applications need to re-factored when switching between on and off premise
-3. Relocating data on prem ensures vendor lock in attracts huge move out costs
-4. Its hard to stage data near a cloud to enable bursting as needed
+1. Moving data is hard    
+
+2. Applications need to re-factored when switching between on and off premise   
+
+3. Relocating data on prem ensures vendor lock in attracts huge move out costs   
+
+4. Its hard to stage data near a cloud to enable bursting as needed   
+
 
 To solve for these challenges HPE GreenLake for Data Fabric enables features like Global Namespace, consistent application layer to develop against, multi modal interfaces (NFS, S3, Kafka and HDFS) and data transport solutions and enables fine grained consumption model and associated pricing.
 
