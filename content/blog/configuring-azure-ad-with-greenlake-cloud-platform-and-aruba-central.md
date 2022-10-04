@@ -2,8 +2,8 @@
 title: Configuring Azure AD as the SAML IDP with HPE Greenlake Cloud Platform
   and Aruba Central
 date: 2022-07-11T12:04:30.750Z
-featuredBlog: true
-priority: 2
+featuredBlog: false
+priority: 9
 author: Michael Rose Jr.
 authorimage: /img/mrose-photoprofile.png
 tags:
