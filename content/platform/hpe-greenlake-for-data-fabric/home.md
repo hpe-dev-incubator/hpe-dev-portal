@@ -28,7 +28,7 @@ HPE GreenLake for Data Fabric has been designed to address the many challenges e
 4. It’s difficult to stage data near a cloud in order to enable bursting, as needed
 
 
-To address these challenges, HPE GreenLake for Data Fabric enables features like Global Namespace, a consistent application layer to develop against, multi-modal interfaces (NFS, S3, Kafka and HDFS) and data transport solutions. It also enables a fine-grained consumption model and associated pricing.
+To address these challenges, HPE GreenLake for Data Fabric enables features like Global Namespace, a consistent application layer that supports a broad range of APIs, languages and protocols that developers and data scientists can leverage to address multiple analytics use cases (data analytics, AI/ML),  multi-modal interfaces (NFS, S3, Kafka and HDFS) and data transport solutions. It also enables a fine-grained consumption model and associated pricing.
 
 HPE GreenLake for Data Fabric strives to enable this abstraction for quantifiable business outcomes. It lets customers focus on their business instead of spending time and effort constantly trying to find and relocate data.
 
@@ -40,7 +40,7 @@ HPE GreenLake for Data Fabric strives to enable this abstraction for quantifiabl
 
 * Learn more about this program [here](https://developer.hpe.com/campaign/ezmeral-early-access-program/)
 
-* Sign up to become a beta tester. (Link to be inserted here as hotlink)
+* [Sign up to become a beta tester](https://connect.hpe.com/HPEGreenLakeEarlyAccessDataFabric).
 
 
 - - -
