@@ -34,13 +34,13 @@ HPE GreenLake for Data Fabric strives to enable this abstraction for quantifiabl
 
 ## HPE Ezmeral Early Access Program for HPE GreenLake for Data Fabric
 
-* The HPE Ezmeral Early Access beta program allows developers to try these new products before they’re released. With exemplary training and support provided by HPE, developers will get hands-on experience with new features and capabilities. They’ll also be able to provide regular feedback based on their hands-on activities, helping to guide the product roadmap and ensure new and exciting products are being developed and released on a regular basis.    
+The HPE Ezmeral Early Access beta program allows developers to try these new products before they’re released. With exemplary training and support provided by HPE, developers will get hands-on experience with new features and capabilities. They’ll also be able to provide regular feedback based on their hands-on activities, helping to guide the product roadmap and ensure new and exciting products are being developed and released on a regular basis.    
 
 * Read more about the HPE Ezmeral Early Access beta for HPE GreenLake for Data Fabric in [this blog post](https://developer.hpe.com/blog/beta-test-our-new-hpe-greenlake-for-data-fabric/).    
 
 * Learn more about this program [here](https://developer.hpe.com/campaign/ezmeral-early-access-program/)
 
-* [Sign up to become a beta tester](https://connect.hpe.com/HPEGreenLakeEarlyAccessDataFabric).
+* [Sign up](https://connect.hpe.com/HPEGreenLakeEarlyAccessDataFabric) to become a beta tester.
 
 
 - - -
