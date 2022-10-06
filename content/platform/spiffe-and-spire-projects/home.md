@@ -49,7 +49,7 @@ These projects recently moved into the CNCF incubator and have received contribu
 
 [Download the eBook: Solving the Bottom Turtle](https://spiffe.io/book/)
 
-[SPIFFE/SPIRE on Katacoda](https://www.katacoda.com/spiffe)
+[](https://www.katacoda.com/spiffe)
 
 - - -
 
