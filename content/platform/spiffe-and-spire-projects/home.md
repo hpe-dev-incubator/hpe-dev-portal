@@ -16,12 +16,12 @@ Inspired by production infrastructure at Facebook, Google, Netflix, and more, SP
 
 Together, the projects deliver a foundational capability, *service identity*, for cloud- and container-deployed microservices. They enable organizations to deploy consistent, fine-grained cross-service authentication via a “dial-tone” API across heterogeneous environments.
 
-These projects recently moved into the CNCF incubator and have received contributions from Bloomberg, Google, Pinterest, Square, Uber, and others. SPIFFE and SPIRE have grown to become a foundational layer within the cloud native ecosystem. These projects integrate with multiple cloud native technologies and projects, such as Istio, Envoy, gPRC, and OPA (Open Policy Agent).
+[SPIFFE and SPIRE projects recently graduated](https://www.cncf.io/announcements/2022/09/20/spiffe-and-spire-projects-graduate-from-cloud-native-computing-foundation-incubator/) from Cloud Native Computing Foundation Incubator, joining the group of 16 already [graduted projects from CNCF.](https://www.cncf.io/projects/) These projects have received contributions from Bloomberg, Google, Pinterest, Square, Uber, and others. SPIFFE and SPIRE have grown to become a foundational layer within the cloud native ecosystem. These projects integrate with multiple cloud native technologies and projects, such as Istio, Envoy, gPRC, and OPA (Open Policy Agent).
 
 * [Project web site at CNCF](https://spiffe.io/)
 
 You can download an eBook that presents the SPIFFE standard for service identity, and SPIRE, the reference implementation for SPIFFE [here](https://spiffe.io/book/).
- 
+
 - - -
 
 # Introduction to SPIFFE and SPIRE
@@ -46,8 +46,7 @@ You can download an eBook that presents the SPIFFE standard for service identity
 # Integrations
 
 * [Tutorial on how to configure the Envoy proxy with SPIFFE and SPIRE](https://spiffe.io/docs/latest/microservices/envoy/)
-
-* [Tutorial on how to configure Istio with SPIRE](https://istio.io/latest/docs/ops/integrations/spire/)
+* [Tutorial on how to configure Istio with SPIRE](https://istio.io/latest/docs/ops/integrations/spire/). The Istio integration was contributed to by HPE engineers, and is now part of Istio, since V1.14.
 
 - - -
 
