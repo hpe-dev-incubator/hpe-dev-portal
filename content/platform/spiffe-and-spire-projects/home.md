@@ -24,7 +24,7 @@ You can download an eBook that presents the SPIFFE standard for service identity
 
 - - -
 
-# Introduction to SPIFFE and SPIRE
+# Learn from the experts
 
 <p style="text-align: center;">
 <iframe width="560" height="315" src="https://www.youtube.com/embed/-XGKybqTfZo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
