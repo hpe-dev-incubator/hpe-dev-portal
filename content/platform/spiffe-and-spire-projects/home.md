@@ -16,7 +16,7 @@ Inspired by production infrastructure at Facebook, Google, Netflix, and more, SP
 
 Together, the projects deliver a foundational capability, *service identity*, for cloud- and container-deployed microservices. They enable organizations to deploy consistent, fine-grained cross-service authentication via a “dial-tone” API across heterogeneous environments.
 
-[SPIFFE and SPIRE projects recently graduated](https://www.cncf.io/announcements/2022/09/20/spiffe-and-spire-projects-graduate-from-cloud-native-computing-foundation-incubator/) from Cloud Native Computing Foundation Incubator, joining the group of 16 already [graduted projects from CNCF.](https://www.cncf.io/projects/) These projects have received contributions from Bloomberg, Google, Pinterest, Square, Uber, and others. SPIFFE and SPIRE have grown to become a foundational layer within the cloud native ecosystem. These projects integrate with multiple cloud native technologies and projects, such as Istio, Envoy, gPRC, and OPA (Open Policy Agent).
+[SPIFFE and SPIRE projects recently graduated](https://www.cncf.io/announcements/2022/09/20/spiffe-and-spire-projects-graduate-from-cloud-native-computing-foundation-incubator/) from Cloud Native Computing Foundation Incubator, joining the group of 16 already [graduted projects from CNCF.](https://www.cncf.io/projects/)  SPIFFE and SPIRE projects have received contributions from Bloomberg, Google, Pinterest, Square, Uber, and others and have grown to become a foundational layer within the cloud native ecosystem. These projects integrate with multiple cloud native technologies and projects, such as Istio, Envoy, gPRC, and OPA (Open Policy Agent).
 
 * [Project web site at CNCF](https://spiffe.io/)
 
