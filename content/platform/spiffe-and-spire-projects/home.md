@@ -26,9 +26,21 @@ You can download an eBook that presents the SPIFFE standard for service identity
 
 # Learn from the experts
 
+### Introduction to SPIFFE and SPIRE
+
 <p style="text-align: center;">
 <iframe width="560" height="315" src="https://www.youtube.com/embed/-XGKybqTfZo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </p>
+
+### How to prevent software supply chain attacks using SPIRE and Sigstore
+
+Learn how HPE is using innovative Open Source project SPIRE (the SPIFFE Runtime Environment) with Sigstore integration, to establish trust between workloads and to secure and prevent complex cyber attacks on the software supply chain and to protect modern infrastructure environments. SPIRE is a graduated project of the Cloud Computing Foundation (CNCF).
+
+<p style="text-align: center;">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/qT09bEmQmLI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</p>
+
+
 
 - - -
 
