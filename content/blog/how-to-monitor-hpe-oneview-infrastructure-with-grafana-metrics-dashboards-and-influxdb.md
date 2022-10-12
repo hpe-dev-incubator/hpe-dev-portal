@@ -394,17 +394,15 @@ Select the measure you need:
 Then:
 
 * Add a panel title
-* Use 5m for the Min interval query options
+* Use **5m** for the Min interval query options
 * Select the graph styles options
-
-  * Connect null values: Always
-  * Show points: Never
+  * Connect null values: **Always**
+  * Show points: **Never**
 * Select the correct unit corresponding to the measurement type
-
-  * Power: Energy / Watt
-  * Temperature: Temperature / Celsius
-  * CPU: simply type GHz
-* Add meaningful alias names to reflect reported measurement.
+  * Power: Energy / **Watt**
+  * Temperature: Temperature / **Celsius**
+  * CPU: simply type **GHz**
+* Add meaningful alias names to reflect reported measurement
 
 Add any additional measurement you need, using another query.
 
