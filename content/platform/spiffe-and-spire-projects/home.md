@@ -16,16 +16,30 @@ Inspired by production infrastructure at Facebook, Google, Netflix, and more, SP
 
 Together, the projects deliver a foundational capability, *service identity*, for cloud- and container-deployed microservices. They enable organizations to deploy consistent, fine-grained cross-service authentication via a “dial-tone” API across heterogeneous environments.
 
-These projects recently moved into the CNCF incubator and have received contributions from Bloomberg, Google, Pinterest, Square, Uber, and others. SPIFFE and SPIRE have grown to become a foundational layer within the cloud native ecosystem. These projects integrate with multiple cloud native technologies and projects, such as Istio, Envoy, gPRC, and OPA (Open Policy Agent).
+[SPIFFE and SPIRE are graduated projects](https://www.cncf.io/announcements/2022/09/20/spiffe-and-spire-projects-graduate-from-cloud-native-computing-foundation-incubator/) from the Cloud Native Computing Foundation (CNCF). Joining the group of 16 already [graduated projects](https://www.cncf.io/projects/),  including HELM and Kubernetes, SPIFFE and SPIRE projects have received contributions from Bloomberg, Google, Pinterest, Square, Uber, and others and have grown to become a foundational layer within the cloud native ecosystem. These projects integrate with multiple cloud native technologies and projects, such as Istio, Envoy, gPRC, and OPA (Open Policy Agent).
 
-* [Project web site](https://spiffe.io/)
+* [Project web site at CNCF](https://spiffe.io/)
+
+You can download an eBook that presents the SPIFFE standard for service identity, and SPIRE, the reference implementation for SPIFFE [here](https://spiffe.io/book/).
 
 - - -
 
-# Introduction to SPIFFE and SPIRE
+# Learn from the experts
+
+### Introduction to SPIFFE and SPIRE
+
+In this lightboard video, Evan Gilman, co-author of O’Reilly’s book Zero Trust Networks and a maintainer for SPIRE, provides an overview of CNCF’s SPIFFE and SPIRE Projects. Evan goes into the security issues that SPIFFE/SPIRE solve and how through workload identity attestation.
 
 <p style="text-align: center;">
 <iframe width="560" height="315" src="https://www.youtube.com/embed/-XGKybqTfZo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</p>
+
+### How to prevent software supply chain attacks using SPIRE and Sigstore
+
+In this video, Daniel Feldman, Cloud Security Architect at HPE, shows how HPE is using the innovative Open Source project SPIRE (the SPIFFE Runtime Environment) with Sigstore integration. He covers how it is used to establish trust between workloads, secure and prevent complex cyber attacks on the software supply chain, and protect modern infrastructure environments.
+
+<p style="text-align: center;">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/qT09bEmQmLI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </p>
 
 - - -
@@ -41,15 +55,10 @@ These projects recently moved into the CNCF incubator and have received contribu
 
 - - -
 
-# Documentation and tutorials
+# Integrations
 
-[Tutorial on how to configure the Envoy proxy with SPIFFE and SPIRE](https://spiffe.io/docs/latest/microservices/envoy/)
-
-[Tutorial on how to configure Istio with SPIRE](https://istio.io/latest/docs/ops/integrations/spire/)
-
-[Download the eBook: Solving the Bottom Turtle](https://spiffe.io/book/)
-
-[SPIFFE/SPIRE on Katacoda](https://www.katacoda.com/spiffe)
+* [Tutorial on how to configure the Envoy proxy with SPIFFE and SPIRE](https://spiffe.io/docs/latest/microservices/envoy/)
+* [Tutorial on how to configure Istio with SPIRE](https://istio.io/latest/docs/ops/integrations/spire/). The Istio integration was contributed to by HPE engineers, and is now part of Istio, since V1.14.
 
 - - -
 
