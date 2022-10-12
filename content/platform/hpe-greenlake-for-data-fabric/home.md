@@ -45,11 +45,11 @@ The HPE Ezmeral Early Access beta program allows developers to try these new pro
 
 - - -
 
-## GitHub for community samples
+## GitHub for community samples (awaiting inputs)
 
 - - -
 
-## Documentation
+## Documentation (awaiting inputs)
 
 - - -
 
