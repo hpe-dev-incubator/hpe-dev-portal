@@ -17,8 +17,6 @@ Grafana's time series graphs are the perfect enabler for IT infrastructure metri
 
 The following picture shows a typical HPE infrastructure dashboard with Synergy frame, compute, and interconnect metrics:
 
-<img src="/img/image001.png" width="50%" height="50%">
-
 ![](/img/image001.png)
 
 
@@ -35,7 +33,9 @@ Multiple metrics resources are supported by HPE OneView through the API: CPU, me
 
 # InfluxDB Time-series database
 
-The decision to use InfluxDB was made for several reasons: first, InfluxDB can be installed on Windows and Linux, it is an open-source tool, and there are PowerShell modules to interact with. You should know that there are many other options like the Prometheus application which also allows to record real-time metrics in a time-series database. To collect OneView metrics, we use a PowerShell script. This script collects utilization statistics of defined resources from the HPE OneView API periodically and continually transmits the metricsto InfluxDB via the REST API. The timestamped metrics data is saved into the InfluxDB time series database that Grafana uses to generate the graphs.
+The decision to use InfluxDB was made for several reasons. First, InfluxDB can be installed on both Windows and Linux, it is an open-source tool, and there are very useful modules to create entries in a database. Other options include Prometheus, which can also be used to collect and record measurements in real time.  
+
+To collect OneView metrics, we use a PowerShell script. This script collects utilization statistics of defined resources from the HPE OneView API periodically and continually transmits the metrics to InfluxDB via its REST API. The timestamped metrics data is saved into the InfluxDB time series database that Grafana uses to generate the graphs.
 
 The script is an independent process that must run continuously.
 
@@ -61,7 +61,7 @@ Cons:
 
 HPE OneView supports many resource metrics that are accessible through the API:
 
-**Server hardware Metrics:**\
+**Server hardware Metrics:**  
 Ambient Temperature: /rest/server-hardware/{id}/utilization?fields=AmbientTemperature\
  Average Power: /rest/server-hardware/{id}/utilization?fields=AveragePower\
  Cpu Average Frequency: /rest/server-hardware/{id}/utilization?fields=CpuAverageFreq\
@@ -69,13 +69,13 @@ Ambient Temperature: /rest/server-hardware/{id}/utilization?fields=AmbientTemper
  Peak Power: /rest/server-hardware/{id}/utilization?fields=PeakPower\
  Power Cap: /rest/server-hardware/{id}/utilization?fields=PowerCap  
 
-**Enclosures Metrics:**\
+**Enclosures Metrics:**  
 Ambient Temperature: /rest/enclosures/{id}/utilization?fields=AmbientTemperature\
 Average Power: /rest/enclosures/{id}/utilization?fields= AveragePower\
 Peak Power: /rest/enclosures/{id}/utilization?fields=PeakPower\
 Ambient Temperature: /rest/enclosures/{id}/utilizationfields=AmbientTemperature  
 
-**Interconnect Metrics:**\
+**Interconnect Metrics:**  
 Statistics for the specified port name on an interconnect: /rest/interconnects/{id}/statistics/portname\
 Interconnect cpu and memory utilization data: /rest/interconnects/{id}/utilization/  
 
@@ -92,27 +92,27 @@ Interconnect cpu and memory utilization data: /rest/interconnects/{id}/utilizati
 
 By default, all security features are disabled in InfluxDB, so it is recommended to set up authentication by creating an **admin** user.
 
-To launch the influx command line interface (CLI), type:\
-*influx*\
-Then create a user with an authentication password:\
+To launch the influx command line interface (CLI), type:  
+*influx*  
+Then create a user with an authentication password:  
 *CREATE USER admin WITH PASSWORD 'P@ssw0rd' WITH ALL PRIVILEGES*
 
-Once created, authenticate using:\
-*auth*\
-username:*admin*\
+Once created, authenticate using:  
+*auth*  
+username:*admin*  
 password:*\*\*\*\*\*\*\*\**  
 
 To enable the http authentication, you need to modify the InfluxDB configuration file. Go to the **\[http]** section of **/etc/influxdb/influxdb.conf** and change the **auth-enabled** value to **true.**
 
-*\[http]*\
+*[http]*  
 *auth-enabled = true*
 
-Once modified, restart the InfluxDB service:\
+Once modified, restart the InfluxDB service:  
 *sudo systemctl restart influxdb*
 
 ## PowerShell Scripts for HPE OneView metrics collection
 
-PowerShell scripts which allow collecting metrics from the HPE OneView API can be found at <https://github.com/jullienl/HPE-Synergy-OneView-demos/tree/master/Powershell/Grafana%20Metrics>
+PowerShell scripts to collect metrics from the HPE OneView API can be found at <https://github.com/jullienl/HPE-Synergy-OneView-demos/tree/master/Powershell/Grafana%20Metrics>
 
 Two distinct scripts are available, one for the interconnect metrics and one for Compute, enclosure, and server profile metrics.
 
@@ -154,7 +154,7 @@ You can check the job schedule by typing:
 
 ![](/img/image008.png)
 
-Alternatively, launch Windows Task Scheduler, by pressing Windows + R keys on your keyboard to Run a command, and enter:
+Alternatively, launch Windows Task Scheduler, by pressing Windows + R keys on your keyboard to run a command, and enter:
 
 *\> taskschd.msc*
 
@@ -180,31 +180,31 @@ The Linux repositories proposed by Microsoft can be found at the following addre
 
 On a RHEL/CentOS virtual machine, you can use the following steps:
 
-* Add the Microsoft package repository:\
+* Add the Microsoft package repository:  
   *curl https://packages.microsoft.com/config/centos/8/prod.repo | sudo tee /etc/yum.repos.d/microsoft.repo*
-* Run the PowerShell installation:\
+* Run the PowerShell installation:   
   *yum install powershell*
-* Copy the script files to the Linux system and set the execution permission on both files:\
-  *chmod +x Grafana-Interconnect-monitoring.ps1*\
-  *chmod +x Grafana-Server_Enclosure-monitoring.ps1*
-* Open the crontab configuration:\
-  *crontab -e*
-* Add two configurations, one for each script with a startup execution after a sleep time:\
-  *@reboot sleep 30 && pwsh -File "\<path>/Grafana-Interconnect-monitoring.ps1"*\
-  *@reboot sleep 30 && pwsh -File "\<path>/Grafana-Server_Enclosure-monitoring.ps1"*
-* Restart the Linux machine to trigger the execution:\
-  *shutdown -r now*
+* Copy the script files to the Linux system and set the execution permission on both files:  
+  *chmod +x Grafana-Interconnect-monitoring.ps1*  
+  *chmod +x Grafana-Server_Enclosure-monitoring.ps1*  
+* Open the crontab configuration:  
+  *crontab -e*  
+* Add two configurations, one for each script with a startup execution after a sleep time:  
+  *@reboot sleep 30 && pwsh -File "\<path>/Grafana-Interconnect-monitoring.ps1"*  
+  *@reboot sleep 30 && pwsh -File "\<path>/Grafana-Server_Enclosure-monitoring.ps1"*  
+* Restart the Linux machine to trigger the execution:  
+  *shutdown -r now*  
 
 ### How to ensure that the scripts have started successfully?
 
 First, to make sure that the scripts have started, you can check that the databases have been created using the InfluxDB tool.
 
-Connect to the server running InfluxDB and *launch the InfluxDB CLI*:\
-*influx*\
- Authenticate using your InfluxDB credentials:\
-*auth*\
- Display existing databases:\
-*show databases*  
+Connect to the server running InfluxDB and *launch the InfluxDB CLI*:  
+*influx*  
+ Authenticate using your InfluxDB credentials:  
+*auth*  
+ Display existing databases:  
+*show databases* 
 
 If both databases defined in the script are listed, then both scripts have started successfully:
 
@@ -212,15 +212,15 @@ If both databases defined in the script are listed, then both scripts have start
 
 ![](/img/image012.png)
 
-To verify that metrics are collected successfully enter "use \<database name>", where \<database name> is the name of your database, then show measurements as shown below:\
+To verify that metrics are collected successfully enter "use \<database name>", where \<database name> is the name of your database, then show measurements as shown below:  
 *use \<database name>*  
-*show measurements*
+*show measurements*  
 
 ![](/img/image013.png)
 
 The measurements listed here correspond to the metrics (ports or resources) defined in the PowerShell scripts.
 
-Open one of the measurements to verify that the metric data is coming in:\
+Open one of the measurements to verify that the metric data is coming in:  
 *SELECT * FROM "Frame3-Interconnect3-Q1"*
 
 ![](/img/image014.png)
@@ -231,11 +231,11 @@ The data shows that the collection of metrics has started and that everything is
 
 Now that InfluxDB is configured and the data is collected, we can add the databases (created by the two scripts) to Grafana as new InfluxDB data sources.
 
-Once that is completed, any dashboard we create in Grafana will have access to the metric data collected..
+Once that is completed, any dashboard we create in Grafana will have access to the metric data collected.
 
 To launch the Grafana IU, open your web browser and navigate to **http://<grafana_IP or DNS name>:3000/**
 
-**Note** : The default HTTP port that Grafana listens to is 3000 unless you have configured a different port.
+**Note**: The default HTTP port that Grafana listens to is 3000 unless you have configured a different port.
 
 Click on the gear icon on the side menu and click **Add data Sources**.
 
@@ -289,7 +289,7 @@ We are now ready to access our InfluxDB time series databases in Grafana.
 
 ## Creating the Grafana dashboard
 
-A Grafana dashboard can aggregate one or more panels using multiple sources. Thus, we can create a single dashboard with Server_Enclosure and Interconnect metrics panels.
+A Grafana dashboard can aggregate one or more panels using multiple sources. Thus, we can create a single dashboard with Server/Enclosure and Interconnect metrics panels.
 
 Click on the Dashboards icon on the side menu and click **New dashboard.**
 
@@ -301,7 +301,7 @@ In Data source, select **Influxdb-OV-Interconnect-Metrics**
 
 ![](/img/image025.png)
 
-For Query options, it is recommended to set **5m** as the minimum query interval to match the OneView API metrics sampling value of the interconnect interfaces (see below).
+For **Query options**, it is recommended to set **5m** as the minimum query interval to match the OneView API metrics sampling value of the interconnect interfaces (see below).
 
 ![](/img/image026.png)
 
@@ -309,7 +309,7 @@ Then, you need to define a query for each port you specified in the PowerShell s
 
 ![](/img/image027.png)
 
-For example, to set the Q1 port, you need to click on **select measurement** next to **FROM** :
+For example, to set the Q1 port, you need to click on **select measurement** next to **FROM**:
 
 ![](/img/image028.png)
 
@@ -339,15 +339,15 @@ Further, you can specify a panel title in the right-side menu using the intercon
 
 ![](/img/image034.png)
 
-And for a better visualization, you can select **Always** for **Connect null values** and **Never** for **Show points** in the Graph styles section.
+And for a better visualization, you can select **Always** for **Connect null values** and **Never** for **Show points** in the **Graph styles** section.
 
 ![](/img/image035.png)
 
-And finally, set the unit data rate you selected in the SELECT row. Scroll down to the **Standard options** section and in **Unit** , select **Data rate** and click on **kilobytes/sec**.
+And finally, set the unit data rate you selected in the **SELECT** row. Scroll down to the **Standard options** section and in **Unit** , select **Data rate** and click on **kilobytes/sec**.
 
 ![](/img/image036.png)
 
-Rendering should occur as follows:
+Rendering should display as follows:
 
 ![](/img/image037.png)
 
@@ -379,7 +379,7 @@ The dashboard now displays two panels, one for each Virtual Connect module that 
 
 ![](/img/image042.png)
 
-The next step consists in creating panels to display Compute and frame metrics.
+The next step consists in creating panels to display Compute and Frame metrics.
 
 Click on the **Add panel** button on the upper bar and select **Add a new panel**.
 
