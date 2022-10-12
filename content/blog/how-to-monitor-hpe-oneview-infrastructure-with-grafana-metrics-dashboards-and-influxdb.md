@@ -24,8 +24,27 @@ The following picture shows a typical HPE infrastructure dashboard with Synergy 
 
 Multiple metrics resources are supported by HPE OneView through the API: CPU, memory, power consumption, temperature, health, capacity data for some resources like Enclosures, Interconnects and Server hardware. Network statistics and network throughput are also available for each uplink and downlink ports in "interconnects" such as Virtual Connect modules.
 
-**Note** : HPE OneView Metrics are enabled by default.
- For Virtual Connect network statistics, the Utilization Sampling settings defined in the Logical Interconnect Group controls the data collection rate and sample interval value. By default, the HPE Virtual Connect Module sampling rate is 12 samples per hour, as depicted in the following figure:
+The following list provides the resource metrics that are accessible through the OneView API:
+
+**Server hardware Metrics:**  
+Ambient Temperature: /rest/server-hardware/{id}/utilization?fields=AmbientTemperature\
+ Average Power: /rest/server-hardware/{id}/utilization?fields=AveragePower\
+ Cpu Average Frequency: /rest/server-hardware/{id}/utilization?fields=CpuAverageFreq\
+ Cpu Utilization: /rest/server-hardware/{id}/utilization?fields=CpuUtilization\
+ Peak Power: /rest/server-hardware/{id}/utilization?fields=PeakPower\
+ Power Cap: /rest/server-hardware/{id}/utilization?fields=PowerCap  
+
+**Enclosures Metrics:**  
+Ambient Temperature: /rest/enclosures/{id}/utilization?fields=AmbientTemperature\
+Average Power: /rest/enclosures/{id}/utilization?fields= AveragePower\
+Peak Power: /rest/enclosures/{id}/utilization?fields=PeakPower\
+Ambient Temperature: /rest/enclosures/{id}/utilizationfields=AmbientTemperature  
+
+**Interconnect Metrics:**  
+Statistics for the specified port name on an interconnect: /rest/interconnects/{id}/statistics/portname\
+Interconnect cpu and memory utilization data: /rest/interconnects/{id}/utilization/  
+
+HPE OneView Metrics are enabled by default. For Virtual Connect network statistics, the Utilization Sampling settings defined in the Logical Interconnect Group controls the data collection rate and sample interval value. By default, the HPE Virtual Connect Module sampling rate is 12 samples per hour, as depicted in the following figure:
 
  
 
@@ -56,28 +75,6 @@ Cons:
 
 * Requires development of PowerShell scripts if the examples provided do not meet your needs.
 * Requires in-depth knowledge of the language, API, authentication, and methods.
-
-# HPE OneView resource metrics list
-
-HPE OneView supports many resource metrics that are accessible through the API:
-
-**Server hardware Metrics:**  
-Ambient Temperature: /rest/server-hardware/{id}/utilization?fields=AmbientTemperature\
- Average Power: /rest/server-hardware/{id}/utilization?fields=AveragePower\
- Cpu Average Frequency: /rest/server-hardware/{id}/utilization?fields=CpuAverageFreq\
- Cpu Utilization: /rest/server-hardware/{id}/utilization?fields=CpuUtilization\
- Peak Power: /rest/server-hardware/{id}/utilization?fields=PeakPower\
- Power Cap: /rest/server-hardware/{id}/utilization?fields=PowerCap  
-
-**Enclosures Metrics:**  
-Ambient Temperature: /rest/enclosures/{id}/utilization?fields=AmbientTemperature\
-Average Power: /rest/enclosures/{id}/utilization?fields= AveragePower\
-Peak Power: /rest/enclosures/{id}/utilization?fields=PeakPower\
-Ambient Temperature: /rest/enclosures/{id}/utilizationfields=AmbientTemperature  
-
-**Interconnect Metrics:**  
-Statistics for the specified port name on an interconnect: /rest/interconnects/{id}/statistics/portname\
-Interconnect cpu and memory utilization data: /rest/interconnects/{id}/utilization/  
 
 # Configuration
 
