@@ -46,7 +46,7 @@ Interconnect cpu and memory utilization data: _/rest/interconnects/{id}/utilizat
 
 HPE OneView Metrics are enabled by default. For Virtual Connect network statistics, the Utilization Sampling settings defined in the Logical Interconnect Group controls the data collection rate and sample interval value. By default, the HPE Virtual Connect Module sampling rate is 12 samples per hour, as shown in the following figure:
 
-<img src="/img/image002.png" width="70%" height="70%">
+<img src="/img/image002.png" width="50%" height="50%">
 
 # InfluxDB Time-series database
 
@@ -88,14 +88,14 @@ Cons:
 By default, all security features are disabled in InfluxDB, so it is recommended to set up authentication by creating an **admin** user.
 
 To launch the influx command line interface (CLI), type:  
-*influx*  
+\> *influx*  
 Then create a user with an authentication password:  
-*CREATE USER admin WITH PASSWORD 'P@ssw0rd' WITH ALL PRIVILEGES*
+\> *CREATE USER admin WITH PASSWORD 'P@ssw0rd' WITH ALL PRIVILEGES*
 
 Once created, authenticate using:  
-*auth*  
-username:*admin*  
-password:*\*\*\*\*\*\*\*\**  
+\> *auth*  
+username: *admin*  
+password: *\*\*\*\*\*\*\*\**  
 
 To enable the http authentication, you need to modify the InfluxDB configuration file. Go to the **\[http]** section of **/etc/influxdb/influxdb.conf** and change the **auth-enabled** value to **true.**
 
@@ -103,7 +103,7 @@ To enable the http authentication, you need to modify the InfluxDB configuration
 *auth-enabled = true*
 
 Once modified, restart the InfluxDB service:  
-*sudo systemctl restart influxdb*
+\> *sudo systemctl restart influxdb*
 
 ## PowerShell Scripts for HPE OneView metrics collection
 
@@ -137,11 +137,11 @@ These scripts are written to collect metrics continually. They can be run in bac
 
 The following commands can be used to schedule both jobs on a Windows machine:
 
-*$trigger = New-JobTrigger -AtStartup -RandomDelay 00:00:30*
+\> *$trigger = New-JobTrigger -AtStartup -RandomDelay 00:00:30*
 
-*Register-ScheduledJob -Trigger $trigger -FilePath "\<path to file>\Grafana-Server_Enclosure-monitoring.ps1" -Name GrafanaServerEnclosureMonitoring*
+\> *Register-ScheduledJob -Trigger $trigger -FilePath "\<path to file>\Grafana-Server_Enclosure-monitoring.ps1" -Name GrafanaServerEnclosureMonitoring*
 
-*Register-ScheduledJob -Trigger $trigger -FilePath "\<path to file>\Grafana-Interconnect-monitoring.ps1" -Name GrafanaInterconnectMonitoring*
+\> *Register-ScheduledJob -Trigger $trigger -FilePath "\<path to file>\Grafana-Interconnect-monitoring.ps1" -Name GrafanaInterconnectMonitoring*
 
 You can check the job schedule by typing:
 
@@ -176,30 +176,30 @@ The Linux repositories proposed by Microsoft can be found at the following addre
 On a RHEL/CentOS virtual machine, you can use the following steps:
 
 * Add the Microsoft package repository:  
-  *curl https://packages.microsoft.com/config/centos/8/prod.repo | sudo tee /etc/yum.repos.d/microsoft.repo*
+  \> *curl https://packages.microsoft.com/config/centos/8/prod.repo | sudo tee /etc/yum.repos.d/microsoft.repo*
 * Run the PowerShell installation:   
-  *yum install powershell*
+  \> *yum install powershell*
 * Copy the script files to the Linux system and set the execution permission on both files:  
-  *chmod +x Grafana-Interconnect-monitoring.ps1*  
-  *chmod +x Grafana-Server_Enclosure-monitoring.ps1*  
+  \> *chmod +x Grafana-Interconnect-monitoring.ps1*  
+  \> *chmod +x Grafana-Server_Enclosure-monitoring.ps1*  
 * Open the crontab configuration:  
-  *crontab -e*  
+  \> *crontab -e*  
 * Add two configurations, one for each script with a startup execution after a sleep time:  
-  *@reboot sleep 30 && pwsh -File "\<path>/Grafana-Interconnect-monitoring.ps1"*  
-  *@reboot sleep 30 && pwsh -File "\<path>/Grafana-Server_Enclosure-monitoring.ps1"*  
+  \> *@reboot sleep 30 && pwsh -File "\<path>/Grafana-Interconnect-monitoring.ps1"*  
+  \> *@reboot sleep 30 && pwsh -File "\<path>/Grafana-Server_Enclosure-monitoring.ps1"*  
 * Restart the Linux machine to trigger the execution:  
-  *shutdown -r now*  
+  \> *shutdown -r now*  
 
 ### How to ensure that the scripts have started successfully?
 
 First, to make sure that the scripts have started, you can check that the databases have been created using the InfluxDB tool.
 
 Connect to the server running InfluxDB and *launch the InfluxDB CLI*:  
-*influx*  
+\> *influx*  
  Authenticate using your InfluxDB credentials:  
-*auth*  
+\> *auth*  
  Display existing databases:  
-*show databases* 
+\> *show databases* 
 
 If both databases defined in the script are listed, then both scripts have started successfully:
 
@@ -208,15 +208,15 @@ If both databases defined in the script are listed, then both scripts have start
 ![](/img/image012.png)
 
 To verify that metrics are collected successfully enter "use \<database name>", where \<database name> is the name of your database, then show measurements as shown below:  
-*use \<database name>*  
-*show measurements*  
+\> *use \<database name>*  
+\> *show measurements*  
 
 ![](/img/image013.png)
 
 The measurements listed here correspond to the metrics (ports or resources) defined in the PowerShell scripts.
 
 Open one of the measurements to verify that the metric data is coming in:  
-*SELECT * FROM "Frame3-Interconnect3-Q1"*
+\> *SELECT \* FROM "Frame3-Interconnect3-Q1"*
 
 ![](/img/image014.png)
 
@@ -300,7 +300,7 @@ For **Query options**, it is recommended to set **5m** as the minimum query inte
 
 ![](/img/image026.png)
 
-Then, you need to define a query for each port you specified in the PowerShell script (in the $Ports variable) for this interconnect module name, as shown below:
+Then, you need to define a query for each port you specified in the PowerShell script (in the **$Ports** variable) for this interconnect module name, as shown below:
 
 ![](/img/image027.png)
 
@@ -382,7 +382,7 @@ Select the **InfluxDB-OV-Server-Metrics** data source, then select the resource 
 
 ![](/img/image043.png)
 
-Select the measure you need:
+Select the measurement you need:
 
 ![](/img/image044.png)
 
