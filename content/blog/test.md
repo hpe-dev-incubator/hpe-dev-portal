@@ -8,16 +8,15 @@ thumbnailimage: /img/didier-lalli.png
 <style>
 
 ul li{
- font-size:10px;
+ font-size:20px;
 }
 
 </style>
- 
+
 This is a paragraph of text
 
 * This is a list item
 * another
 * a last one
-
 
 This another paragraph
