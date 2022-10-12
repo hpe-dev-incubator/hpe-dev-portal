@@ -13,9 +13,14 @@ IT infrastructure metrics visualization is critical for health monitoring, predi
 
 Grafana's time series graphs are the perfect enabler for IT infrastructure metrics evolution over time; examples include, temperature changes, network traffic performance, power consumption and many more. They are useful to compare data over time and see the trends, detect issues and allow administrators to make infrastructure adjustments and prevent downtime.
 
+
+
 The following picture shows a typical HPE infrastructure dashboard with Synergy frame, compute, and interconnect metrics:
 
+<img src="/img/image001.png" width="50%" height="50%">
+
 ![](/img/image001.png)
+
 
 # HPE OneView metric resources
 
