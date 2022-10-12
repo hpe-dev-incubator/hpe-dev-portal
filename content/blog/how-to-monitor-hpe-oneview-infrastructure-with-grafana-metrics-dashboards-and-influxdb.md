@@ -44,7 +44,7 @@ Ambient Temperature: /rest/enclosures/{id}/utilizationfields=AmbientTemperature
 Statistics for the specified port name on an interconnect: /rest/interconnects/{id}/statistics/portname\
 Interconnect cpu and memory utilization data: /rest/interconnects/{id}/utilization/  
 
-HPE OneView Metrics are enabled by default. For Virtual Connect network statistics, the Utilization Sampling settings defined in the Logical Interconnect Group controls the data collection rate and sample interval value. By default, the HPE Virtual Connect Module sampling rate is 12 samples per hour, as depicted in the following figure:
+HPE OneView Metrics are enabled by default. For Virtual Connect network statistics, the Utilization Sampling settings defined in the Logical Interconnect Group controls the data collection rate and sample interval value. By default, the HPE Virtual Connect Module sampling rate is 12 samples per hour, as shown in the following figure:
 
 <img src="/img/image002.png" width="70%" height="70%">
 
