@@ -57,9 +57,9 @@ Cons:
 * Requires development of PowerShell scripts if the examples provided do not meet your needs.
 * Requires in-depth knowledge of the language, API, authentication, and methods.
 
-# HPE Oneview resource metrics list
+# HPE OneView resource metrics list
 
-HPE Oneview supports many resource metrics that can be retrieved using a collector script:
+HPE OneView supports many resource metrics that are accessible through the API:
 
 **Server hardware Metrics:**\
 Ambient Temperature: /rest/server-hardware/{id}/utilization?fields=AmbientTemperature\
