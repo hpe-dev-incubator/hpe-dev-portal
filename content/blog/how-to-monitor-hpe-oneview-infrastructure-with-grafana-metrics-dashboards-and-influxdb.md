@@ -85,7 +85,7 @@ Cons:
 
 ## Configure InfluxDB http Authentication
 
-By default, all security features are disabled in InfluxDB, so it is recommended to set up authentication by creating an **admin** user.
+By default, all security features are disabled in InfluxDB, so it is recommended to set up authentication by creating an *admin* user.
 
 To launch the influx command line interface (CLI), type:  
 \> *influx*  
