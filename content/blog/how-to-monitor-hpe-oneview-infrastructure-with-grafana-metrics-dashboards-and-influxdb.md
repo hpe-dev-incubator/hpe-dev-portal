@@ -139,9 +139,9 @@ The following commands can be used to schedule both jobs on a Windows machine:
 
 *$trigger = New-JobTrigger -AtStartup -RandomDelay 00:00:30*
 
-*Register-ScheduledJob -Trigger $trigger -FilePath "<path to file>\ Grafana-Server_Enclosure-monitoring.ps1" -Name GrafanaServerEnclosureMonitoring*
+*Register-ScheduledJob -Trigger $trigger -FilePath "\<path to file>\Grafana-Server_Enclosure-monitoring.ps1" -Name GrafanaServerEnclosureMonitoring*
 
-*Register-ScheduledJob -Trigger $trigger -FilePath "<path to file>\Grafana-Interconnect-monitoring.ps1" -Name GrafanaInterconnectMonitoring*
+*Register-ScheduledJob -Trigger $trigger -FilePath "\<path to file>\Grafana-Interconnect-monitoring.ps1" -Name GrafanaInterconnectMonitoring*
 
 You can check the job schedule by typing:
 
@@ -185,12 +185,12 @@ On a RHEL/CentOS virtual machine, you can use the following steps:
 * Open the crontab configuration:\
   *crontab -e*
 * Add two configurations, one for each script with a startup execution after a sleep time:\
-  *@reboot sleep 30 && pwsh -File "/<path>/Grafana-Interconnect-monitoring.ps1"*\
-  *@reboot sleep 30 && pwsh -File "/<path>/Grafana-Server_Enclosure-monitoring.ps1"*
+  *@reboot sleep 30 && pwsh -File "\<path>/Grafana-Interconnect-monitoring.ps1"*\
+  *@reboot sleep 30 && pwsh -File "\<path>/Grafana-Server_Enclosure-monitoring.ps1"*
 * Restart the Linux machine to trigger the execution:\
   *shutdown -r now*
 
-**How to ensure that the scripts have started successfully?**
+### How to ensure that the scripts have started successfully?
 
 First, to make sure that the scripts have started, you can check that the databases have been created using the InfluxDB tool.
 
@@ -207,8 +207,8 @@ If both databases defined in the script are listed, then both scripts have start
 
 ![](/img/image012.png)
 
-To verify that metrics are collected successfully enter "use <database name>", where <database name> is the name of your database, then show measurements as shown below:\
-*use <database name>*.\
+To verify that metrics are collected successfully enter "use \<database name>", where \<database name> is the name of your database, then show measurements as shown below:\
+*use \<database name>*  
 *show measurements*
 
 ![](/img/image013.png)
