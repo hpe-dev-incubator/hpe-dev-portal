@@ -95,7 +95,7 @@ Then create a user with an authentication password:
 Once created, authenticate using:  
 \> *auth*  
 username: *admin*  
-password: *\*\*\*\*\*\*\*\**  
+password: *\*\*\*\*\*\*\*\*  
 
 To enable the http authentication, you need to modify the InfluxDB configuration file. Go to the **\[http]** section of **/etc/influxdb/influxdb.conf** and change the **auth-enabled** value to **true.**
 
@@ -216,7 +216,7 @@ To verify that metrics are collected successfully enter "use \<database name>", 
 The measurements listed here correspond to the metrics (ports or resources) defined in the PowerShell scripts.
 
 Open one of the measurements to verify that the metric data is coming in:  
-\> *SELECT \* FROM "Frame3-Interconnect3-Q1"*
+\> SELECT * FROM "Frame3-Interconnect3-Q1"
 
 ![](/img/image014.png)
 
