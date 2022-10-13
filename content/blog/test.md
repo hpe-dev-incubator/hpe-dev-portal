@@ -7,9 +7,12 @@ thumbnailimage: /img/didier-lalli.png
 ---
 <style>
 ul li{
- font-size:25px;
+ font-size:24px;
 }
+i { 
+  color: grey; }
 </style>
+
 
 This is a paragraph of text
 
