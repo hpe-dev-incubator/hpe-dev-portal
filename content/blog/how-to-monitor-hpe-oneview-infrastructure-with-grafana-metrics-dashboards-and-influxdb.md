@@ -114,7 +114,7 @@ password: <i>\*\*\*\*\*\*\*\*</i>
 To enable the http authentication, you need to modify the InfluxDB configuration file. Go to the **\[http]** section of **/etc/influxdb/influxdb.conf** and change the **auth-enabled** value to **true.**
 
 *[http]*  
-*auth-enabled = true*
+*auth-enabled = <i>true*</i>
 
 Once modified, restart the InfluxDB service:  
 \> <i>*sudo systemctl restart influxdb*</i>
