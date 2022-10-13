@@ -151,9 +151,9 @@ The following commands can be used to schedule both jobs on a Windows machine:
 
 \> <i>*$trigger = New-JobTrigger -AtStartup -RandomDelay 00:00:30*</i>
 
-\> <i>*Register-ScheduledJob -Trigger $trigger -FilePath "\<path to file\>\Grafana-Server_Enclosure-monitoring.ps1" -Name GrafanaServerEnclosureMonitoring*</i>
+\> <i>*Register-ScheduledJob -Trigger $trigger -FilePath "...\Grafana-Server_Enclosure-monitoring.ps1" -Name GrafanaServerEnclosureMonitoring*</i>
 
-\> <i>*Register-ScheduledJob -Trigger $trigger -FilePath "\<path to file\>\Grafana-Interconnect-monitoring.ps1" -Name GrafanaInterconnectMonitoring*</i>
+\> <i>*Register-ScheduledJob -Trigger $trigger -FilePath "...\Grafana-Interconnect-monitoring.ps1" -Name GrafanaInterconnectMonitoring*</i>
 
 You can check the job schedule by typing:
 
@@ -197,8 +197,8 @@ On a RHEL/CentOS virtual machine, you can use the following steps:
 * Open the crontab configuration:  
   \> <i>*crontab -e*</i>  
 * Add two configurations, one for each script with a startup execution after a sleep time:  
-  \> <i>*@reboot sleep 30 && pwsh -File "\<path\>/Grafana-Interconnect-monitoring.ps1"*</i>  
-  \> <i>*@reboot sleep 30 && pwsh -File "\<path\>/Grafana-Server_Enclosure-monitoring.ps1"*</i>  
+  \> <i>*@reboot sleep 30 && pwsh -File ".../Grafana-Interconnect-monitoring.ps1"*</i>  
+  \> <i>*@reboot sleep 30 && pwsh -File ".../Grafana-Server_Enclosure-monitoring.ps1"*</i>  
 * Restart the Linux machine to trigger the execution:  
   \> <i>*shutdown -r now*</i>  
 
@@ -219,8 +219,8 @@ If both databases defined in the script are listed, then both scripts have start
 
 ![](/img/image012.png)
 
-To verify that metrics are collected successfully enter "use \<database name>", where \<database name> is the name of your database, then show measurements as shown below:  
-\> <i>*use \<database name\>*</i>  
+To verify that the metrics are successfully collected, open one of the databases and check the data content as shown below:  
+\> <i>*use ov_icm_db*</i>  
 \> <i>*show measurements*</i>  
 
 ![](/img/image013.png)
