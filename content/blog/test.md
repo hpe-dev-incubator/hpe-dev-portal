@@ -8,7 +8,7 @@ thumbnailimage: /img/didier-lalli.png
 <style>
 
 ul li{
- font-size:40px;
+ font-size:15px;
 }
 
 </style>
@@ -19,4 +19,9 @@ This is a paragraph of text
 * another
 * a last one
 
+
 This another paragraph
+
+* Orange
+* Green
+* Blue
