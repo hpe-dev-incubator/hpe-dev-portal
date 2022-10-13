@@ -5,6 +5,14 @@ date: 2022-10-12T10:00:35.115Z
 author: Lionel Jullien
 authorimage: /img/small-size-id.jpg
 ---
+
+<style>
+ul li{
+ font-size:40px;
+}
+</style>
+
+
 The purpose of this blog post is to describe how to generate Grafana dashboards using InfluxDB and PowerShell scripts to monitor any HPE Compute infrastructure managed by HPE OneView.
 
 # Grafana Dashboards
@@ -24,32 +32,29 @@ The following picture shows a typical HPE infrastructure dashboard with Synergy 
 
 Multiple metrics resources are supported by HPE OneView through the API: CPU, memory, power consumption, temperature, health, capacity data for some resources like Enclosures, Interconnects and Server hardware. Network statistics and network throughput are also available for each uplink and downlink ports in "interconnects" such as Virtual Connect modules.
 
-The following list provides the resource metrics that are accessible through the OneView API:
+The following table provides the resource metrics that are accessible through the OneView API:
 
-**Server hardware Metrics:**  
-Ambient Temperature: _/rest/server-hardware/{id}/utilization?fields=AmbientTemperature_  
- Average Power: _/rest/server-hardware/{id}/utilization?fields=AveragePower_  
- Cpu Average Frequency: _/rest/server-hardware/{id}/utilization?fields=CpuAverageFreq_  
- Cpu Utilization: _/rest/server-hardware/{id}/utilization?fields=CpuUtilization_  
-Peak Power: _/rest/server-hardware/{id}/utilization?fields=PeakPower_  
-Power Cap: _/rest/server-hardware/{id}/utilization?fields=PowerCap_  
-
-| col | col |  
-|:----:|:---|  
-| dfdf|dfdf|  
+| **Server hardware Metrics**| **URI**|  
+|:----|:---|  
+| Ambient Temperature|_/rest/server-hardware/{id}/utilization?fields=AmbientTemperature_|  
+| Average Power|_/rest/server-hardware/{id}/utilization?fields=AveragePower_|
+| Cpu Average Frequency|_/rest/server-hardware/{id}/utilization?fields=CpuAverageFreq_|
+| Cpu Utilization|_/rest/server-hardware/{id}/utilization?fields=CpuUtilization_|
+| Peak Power|_/rest/server-hardware/{id}/utilization?fields=PeakPower_ |
+| Power Cap|_/rest/server-hardware/{id}/utilization?fields=PowerCap_|  
 
 
+| **Enclosures Metrics**| **URI**|  
+|:----|:---|  
+| Ambient Temperature|_/rest/enclosures/{id}/utilization?fields=AmbientTemperature_|
+| Average Power|_/rest/enclosures/{id}/utilization?fields=AveragePower_|
+| Peak Power|_/rest/enclosures/{id}/utilization?fields=PeakPower_  |  
+ 
 
-
-**Enclosures Metrics:**  
-Ambient Temperature: _/rest/enclosures/{id}/utilization?fields=AmbientTemperature_  
-Average Power: _/rest/enclosures/{id}/utilization?fields=AveragePower_  
-Peak Power: _/rest/enclosures/{id}/utilization?fields=PeakPower_  
-Ambient Temperature: _/rest/enclosures/{id}/utilizationfields=AmbientTemperature_  
-
-**Interconnect Metrics:**  
-Statistics for the specified port name on an interconnect: _/rest/interconnects/{id}/statistics/portname_  
-Interconnect cpu and memory utilization data: _/rest/interconnects/{id}/utilization_  
+|**Interconnect Metrics**| **URI**|   
+|:----|:---|   
+|Statistics for the specified port name on an interconnect| _/rest/interconnects/{id}/statistics/portname_  |
+|Interconnect cpu and memory utilization data| _/rest/interconnects/{id}/utilization_  |  
 
 HPE OneView Metrics are enabled by default. For Virtual Connect network statistics, the Utilization Sampling settings defined in the Logical Interconnect Group controls the data collection rate and sample interval value. By default, the HPE Virtual Connect Module sampling rate is 12 samples per hour, as shown in the following figure:
 
@@ -114,7 +119,7 @@ Once modified, restart the InfluxDB service:
 
 ## PowerShell Scripts for HPE OneView metrics collection
 
-PowerShell scripts to collect metrics from the HPE OneView API can be found at <https://github.com/jullienl/HPE-Synergy-OneView-demos/tree/master/Powershell/Grafana%20Metrics>
+PowerShell scripts to collect metrics from the HPE OneView API can be found in my GitHub repository [here](https://github.com/jullienl/HPE-Synergy-OneView-demos/tree/master/Powershell/Grafana%20Metrics).
 
 Two distinct scripts are available, one for the interconnect metrics and one for Compute, enclosure, and server profile metrics.
 
