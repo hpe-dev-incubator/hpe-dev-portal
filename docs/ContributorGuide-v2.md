@@ -464,7 +464,7 @@ To do so, proceed as follows:
 
     -   **Method 2:** Using your PC/Laptop, change image size using you preferred image editor (i.e.: Paint). Toggle to **Rich Text** mode and upload/select the resized image.
  
- - **Tip #7: Adjusting the font size of a text:**
+- **Tip #7: Adjusting the font size of a text:**
  It may happen that you want to put a sentence (such as a footnote - see example below) in a smaller font size. Use the HTML code below. You adjust the font size number from 1 to 4, where 1 is the smallest font size.
  
  \<font size="2"\> _Apache® and Apache Spark™ are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by the Apache Software Foundation is implied by the use of these marks._ \</font\>
@@ -553,7 +553,7 @@ To do so, proceed as follows:
 
 ***Formatting the bullet list to standard text size***
     
-  >Note: As explained in the tip "**Tip #13: Inserting List items/sub-list items**", the bullet list items will be rendered with smaller font size than a text in a "standard" paragraph. You can adjust the size of the bullet list items using the HTML style below: 
+  >Note: As explained in the tip "**Tip #14: Inserting List items/sub-list items**", the bullet list items will be rendered with smaller font size than a text in a "standard" paragraph. You can adjust the size of the bullet list items using the HTML style below: 
 
    Insert the following Style statement in your markdown at the beginning of your post. The standard text size is 25px. 
    You can use different font-size according to your needs. The font-size will then apply to **ALL** the bullet lists in your article. 
