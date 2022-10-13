@@ -8,7 +8,7 @@ thumbnailimage: /img/didier-lalli.png
 <style>
 
 ul li{
- font-size:30px;
+ font-size:25px;
 }
 
 </style>
