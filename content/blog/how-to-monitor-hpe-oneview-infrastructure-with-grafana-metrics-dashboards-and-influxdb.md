@@ -9,8 +9,11 @@ authorimage: /img/small-size-id.jpg
 ul li{
  font-size:24px;
 }
-i { 
-  color: grey; }
+</style>
+
+<style>
+i{ 
+  color:grey; }
 </style>
 
 
@@ -33,7 +36,7 @@ The following picture shows a typical HPE infrastructure dashboard with Synergy 
 
 Multiple metrics resources are supported by HPE OneView through the API: CPU, memory, power consumption, temperature, health, capacity data for some resources like Enclosures, Interconnects and Server hardware. Network statistics and network throughput are also available for each uplink and downlink ports in "interconnects" such as Virtual Connect modules.
 
-The following table provides the resource metrics that are accessible through the OneView API:
+The following table provides the resource metrics that are accessible through the HPE OneView RESTful API:
 
 | **Server hardware Metrics**| **URI**|  
 |:----|:---|  
