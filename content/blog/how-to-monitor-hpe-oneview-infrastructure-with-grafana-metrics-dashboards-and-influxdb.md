@@ -100,14 +100,14 @@ Cons:
 By default, all security features are disabled in InfluxDB, so it is recommended to set up authentication by creating an *admin* user.
 
 To launch the influx command line interface (CLI), type:  
-\> <font familly="courier new">*influx*</font>
+\> *influx*  
 Then create a user with an authentication password:  
 \> *CREATE USER admin WITH PASSWORD 'P@ssw0rd' WITH ALL PRIVILEGES*
 
 Once created, authenticate using:  
 \> *auth*  
 username: *admin*  
-password: *\*\*\*\*\*\*\*\*  
+password: \*\*\*\*\*\*\*\*  
 
 To enable the http authentication, you need to modify the InfluxDB configuration file. Go to the **\[http]** section of **/etc/influxdb/influxdb.conf** and change the **auth-enabled** value to **true.**
 
