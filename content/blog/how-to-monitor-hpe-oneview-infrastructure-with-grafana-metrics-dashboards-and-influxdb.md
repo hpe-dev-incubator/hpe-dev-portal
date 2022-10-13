@@ -100,7 +100,7 @@ Cons:
 By default, all security features are disabled in InfluxDB, so it is recommended to set up authentication by creating an *admin* user.
 
 To launch the influx command line interface (CLI), type:  
-\> *influx*  
+\> <font familly="courier new">*influx*</font>
 Then create a user with an authentication password:  
 \> *CREATE USER admin WITH PASSWORD 'P@ssw0rd' WITH ALL PRIVILEGES*
 
