@@ -34,6 +34,13 @@ Ambient Temperature: _/rest/server-hardware/{id}/utilization?fields=AmbientTempe
 Peak Power: _/rest/server-hardware/{id}/utilization?fields=PeakPower_  
 Power Cap: _/rest/server-hardware/{id}/utilization?fields=PowerCap_  
 
+| col | col |  
+|:----:|:---|  
+| dfdf|dfdf|  
+
+
+
+
 **Enclosures Metrics:**  
 Ambient Temperature: _/rest/enclosures/{id}/utilization?fields=AmbientTemperature_  
 Average Power: _/rest/enclosures/{id}/utilization?fields=AveragePower_  
