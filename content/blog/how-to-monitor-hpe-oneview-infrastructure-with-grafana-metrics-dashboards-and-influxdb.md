@@ -8,7 +8,7 @@ authorimage: /img/small-size-id.jpg
 
 <style>
 ul li{
- font-size:20px;
+ font-size:24px;
 }
 </style>
 
@@ -37,9 +37,9 @@ The following table provides the resource metrics that are accessible through th
 | **Server hardware Metrics**| **URI**|  
 |:----|:---|  
 | Ambient Temperature|_/rest/server-hardware/{id}/utilization?fields=AmbientTemperature_|  
-| Average Power|_/rest/server-hardware/{id}/utilization?fields=AveragePower_|
 | Cpu Average Frequency|_/rest/server-hardware/{id}/utilization?fields=CpuAverageFreq_|
 | Cpu Utilization|_/rest/server-hardware/{id}/utilization?fields=CpuUtilization_|
+| Average Power|_/rest/server-hardware/{id}/utilization?fields=AveragePower_|
 | Peak Power|_/rest/server-hardware/{id}/utilization?fields=PeakPower_ |
 | Power Cap|_/rest/server-hardware/{id}/utilization?fields=PowerCap_|  
    
