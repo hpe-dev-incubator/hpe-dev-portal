@@ -11,10 +11,6 @@ ul li{
 }
 </style>
 
-<style>
-i{ 
-  color:grey; }
-</style>
 
 
 The purpose of this blog post is to describe how to generate Grafana dashboards using InfluxDB and PowerShell scripts to monitor any HPE Compute infrastructure managed by HPE OneView.
