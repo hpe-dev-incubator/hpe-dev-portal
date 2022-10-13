@@ -441,7 +441,7 @@ To do so, proceed as follows:
     
     >**IMPORTANT NOTE:** Adding a _ALT Text_ will help promote online content in Search Engine such as Google.      
 
--   **Adjusting image size and its position:**
+- **Tip #6: Adjusting image size and its position:**
 
     -   **Method 1 (recommended):** Use HTML code to set the size (height, width) for your image. First, toggle to **Rich Text** mode to insert your image. Then toggle to **Markdown** mode to obtain the relative path for your image (in the form: */img/myimage.png*) and **substitute** the line **"\!\[\](/img/myimage.png)"** with the HTML syntax below:
 
@@ -464,12 +464,12 @@ To do so, proceed as follows:
 
     -   **Method 2:** Using your PC/Laptop, change image size using you preferred image editor (i.e.: Paint). Toggle to **Rich Text** mode and upload/select the resized image.
  
- - **Tip #6: Adjusting the font size of a text:**
+ - **Tip #7: Adjusting the font size of a text:**
  It may happen that you want to put a sentence (such as a footnote - see example below) in a smaller font size. Use the HTML code below. You adjust the font size number from 1 to 4, where 1 is the smallest font size.
  
  \<font size="2"\> _Apache® and Apache Spark™ are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by the Apache Software Foundation is implied by the use of these marks._ \</font\>
  
-- **Tip #7: Embed a YouTube video (HPE Approved video) in a blog or in Platform page:**
+- **Tip #8: Embed a YouTube video (HPE Approved video) in a blog or in Platform page:**
 
     To insert a YouTube video — that has gone through the legal Marketing Asset Publishing (MAP) process — in a blog post or a "platform" page proceed as follows:
     * Go to your YouTube video URL
@@ -478,13 +478,13 @@ To do so, proceed as follows:
     * Copy the HTML code that is displayed, starting with <iframe width...> and ending with </iframe>
     * in the CMS editor, toggle to **Markdown** mode, and paste (CTRL+SHIFT+V) the embedded HTML code. 
 
-- **Tip #8: Inserting Horizontal separator:**
+- **Tip #9: Inserting Horizontal separator:**
 
     Toggle to **Markdown** mode and use the "- - -" (without the quotation mark).
 
     >**Note:** Make sure to insert a line break before and after the horizontal separator.
 
-- **Tip #9: Inserting Code block snippet:** 
+- **Tip #10: Inserting Code block snippet:** 
 
     You can use **Rich Text** mode (Select **+** to add a Code Block component) or use **Markdown** mode by placing triple backticks ***\`\`\`*** before and after the code block to include code block snippets in your blog post.
 
@@ -492,19 +492,19 @@ To do so, proceed as follows:
 
     -   Make sure to insert a line break before and after a code block snippet
 
-- **Tip #10: Inserting "em-dash" character:**
+- **Tip #11: Inserting "em-dash" character:**
 
     The CMS editor does not correctly interpret the em-dash (\&mdash;\) markdown syntax. Using the Rich text or Markdown mode of the CMS editor, should you need to use an em-dash character, you can do a copy/paste of the em-dash character here: — 
     
-- **Tip #11: Inserting a Line Break in a paragraph:**
+- **Tip #12: Inserting a Line Break in a paragraph:**
 
   To insert a line break in a paragraph, while in **Markdown** mode, you can use the HTML syntax \<br \/\> at the end of the sentence. 
   
-- **Tip #12: Inserting Special characters:**
+- **Tip #13: Inserting Special characters:**
 
     Some characters (underscore, hash, backslash) have special meanings in the Markdown syntax. If you want to use these special characters in a text, you have to _escape_ them. The way to escape a special character is to add a backslash (\\) before it, for example: I do not want \\\_italic text\\\_ here. 
 
-- **Tip #13: Inserting List items/sub-list items:**
+- **Tip #14: Inserting List items/sub-list items:**
     To deal with item list, it is recommended to toggle to **Markdown** mode in the editor and use the syntax below for creating item lists and sub-item lists:
     
     >**Note:** Only a certain level of bulleting is supported; i.e. you can't do 1a, 1b, etc.
@@ -547,7 +547,7 @@ To do so, proceed as follows:
 
        <center><img src="media/Guide-tips-item-lists-2.png" width="1585" height="483"></center>
 
-- **Tip #14: Global styles**
+- **Tip #15: Global styles**
     
   You can use the tips below to format tables and bullet list items throughout your blog post. These styles apply **globally** to your post.
 
@@ -607,7 +607,7 @@ thead tr:first-child td {
 ```
        
 
--  **Tip #15: Tagging:**
+-  **Tip #16: Tagging:**
 
 If appropriate, use a tag to tie your blog post to a "platform" page on HPE Developer portal. List of "platforms" tag is in the table below.
 
