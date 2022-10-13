@@ -8,7 +8,7 @@ authorimage: /img/small-size-id.jpg
 
 <style>
 ul li{
- font-size:9px;
+ font-size:12px;
 }
 </style>
 
