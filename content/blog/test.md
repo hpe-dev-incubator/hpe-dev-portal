@@ -24,4 +24,7 @@ This another paragraph
 
 * Orange
 * Green
-* Blue
+* Blue
+
+
+<font size="3"> _Apache® and Apache Spark™ are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by the Apache Software Foundation is implied by the use of these marks._ </font>
