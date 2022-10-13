@@ -151,9 +151,9 @@ The following commands can be used to schedule both jobs on a Windows machine:
 
 \> <i>*$trigger = New-JobTrigger -AtStartup -RandomDelay 00:00:30*</i>
 
-\> <i>*Register-ScheduledJob -Trigger $trigger -FilePath "\<path to file>\Grafana-Server_Enclosure-monitoring.ps1" -Name GrafanaServerEnclosureMonitoring*</i>
+\> <i>*Register-ScheduledJob -Trigger $trigger -FilePath "\<path to file\>\Grafana-Server_Enclosure-monitoring.ps1" -Name GrafanaServerEnclosureMonitoring*</i>
 
-\> <i>*Register-ScheduledJob -Trigger $trigger -FilePath "\<path to file>\Grafana-Interconnect-monitoring.ps1" -Name GrafanaInterconnectMonitoring*</i>
+\> <i>*Register-ScheduledJob -Trigger $trigger -FilePath "\<path to file\>\Grafana-Interconnect-monitoring.ps1" -Name GrafanaInterconnectMonitoring*</i>
 
 You can check the job schedule by typing:
 
@@ -179,9 +179,9 @@ Restart the server and confirm that scripts are executed. Once restarted, you ca
 
 PowerShell can be installed on different Linux distributions today and it works perfectly, using a crontab configuration would make the scripts run in background. This allows using only one Linux machine to host all components (i.e., Grafana, InfluxDB and the execution of the PowerShell scripts).
 
-To learn more, you can refer to <https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-linux?view=powershell-7.2>.
+To learn more, you can refer to [this article](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-linux?view=powershell-7.2).
 
-The Linux repositories proposed by Microsoft can be found at the following address: <https://packages.microsoft.com/config/>
+The Linux repositories proposed by Microsoft can be found [here](https://packages.microsoft.com/config/).
 
 ![](/img/image011.png)
 
@@ -197,8 +197,8 @@ On a RHEL/CentOS virtual machine, you can use the following steps:
 * Open the crontab configuration:  
   \> <i>*crontab -e*</i>  
 * Add two configurations, one for each script with a startup execution after a sleep time:  
-  \> <i>*@reboot sleep 30 && pwsh -File "\<path>/Grafana-Interconnect-monitoring.ps1"*</i>  
-  \> <i>*@reboot sleep 30 && pwsh -File "\<path>/Grafana-Server_Enclosure-monitoring.ps1"*</i>  
+  \> <i>*@reboot sleep 30 && pwsh -File "\<path\>/Grafana-Interconnect-monitoring.ps1"*</i>  
+  \> <i>*@reboot sleep 30 && pwsh -File "\<path\>/Grafana-Server_Enclosure-monitoring.ps1"*</i>  
 * Restart the Linux machine to trigger the execution:  
   \> <i>*shutdown -r now*</i>  
 
@@ -220,7 +220,7 @@ If both databases defined in the script are listed, then both scripts have start
 ![](/img/image012.png)
 
 To verify that metrics are collected successfully enter "use \<database name>", where \<database name> is the name of your database, then show measurements as shown below:  
-\> <i>*use \<database name>*</i>  
+\> <i>*use \<database name\>*</i>  
 \> <i>*show measurements*</i>  
 
 ![](/img/image013.png)
@@ -228,7 +228,7 @@ To verify that metrics are collected successfully enter "use \<database name>", 
 The measurements listed here correspond to the metrics (ports or resources) defined in the PowerShell scripts.
 
 Open one of the measurements to verify that the metric data is coming in:  
-\> <i>SELECT * FROM "Frame3-Interconnect3-Q1"</i>
+\> <i>*SELECT \* FROM "Frame3-Interconnect3-Q1"*</i>
 
 ![](/img/image014.png)
 
