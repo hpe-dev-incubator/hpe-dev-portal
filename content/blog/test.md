@@ -6,11 +6,9 @@ authorimage: /img/Avatar1.svg
 thumbnailimage: /img/didier-lalli.png
 ---
 <style>
-
 ul li{
  font-size:25px;
 }
-
 </style>
 
 This is a paragraph of text
