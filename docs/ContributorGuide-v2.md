@@ -1,5 +1,5 @@
 # HPE Developer External Contributor Guide
-**Version 2.0** - 25-Mar-2022
+**Version 2.0** - 13-Oct-2022
 
 >**Note:** A recording of the training session delivered on April 30, 2021 is available [here](https://vimeo.com/544486602). 
 
@@ -379,7 +379,7 @@ To do so, proceed as follows:
     pandoc -f docx -t markdown mydoc.docx -o mymarkdown.md
     ```
 
--   **Author image:**
+-   **Tip #1: Author image:**
     
     - When creating or editing a blog post, in AUTHOR IMAGE section, you can **Choose an image** and upload an image of size: **192px x 192px** or you can insert a Gravatar picture URL (**Insert from URL**). To create a Gravatar URL proceed as follows:
 
@@ -400,7 +400,7 @@ To do so, proceed as follows:
 
          - Use this URL from now on as your picture in the CMS (and elsewhere)
 
--   **Headings:**
+-   **Tip #2: Headings:**
 
     Select **H** in the "Rich Text" menu bar and select the
     heading level. To clear a Heading, put your cursor in front of the text, click **H** in
@@ -408,11 +408,11 @@ To do so, proceed as follows:
 
     >**Note:** We recommend to use "**Header 2**" for your primary heading, and "**Header 3**" for subsequent heading, etc.
 
--   **Undo function:**
+-   **Tip #3: Undo function:**
     
     The CMS editor does not provide an "Undo" button. Use the shortcut **CTRL + Z** for Undo action.
 
--   **Hotlink:**
+-   **Tip #4: Hotlink:**
     * To hotlink a piece of text, you can use the **Rich Text** mode, select the text you want to hotlink and click the `Link` icon on the editor menu (BODY section) and specify the URL.
     
     * You can also toggle to **Markdown** mode, and use a a combination of square and round brackets as shown below:
@@ -420,7 +420,7 @@ To do so, proceed as follows:
          \[Piece-of-text-to-hotlink](Link-URL)
           
     
--   **Insert an image in a blog post:**
+-   **Tip #5: Insert an image in a blog post:**
 
      >**IMPORTANT NOTE:** If your images are stored in **a personal website** you owned, it is recommended to proceed as explained below to get you images uploaded and stored to the HPE Developer CMS rather than using a link URL to your image on your web site. Security filter such as Zscaler may filter your images and make your images unrendered by the CMS. 
      
@@ -464,27 +464,27 @@ To do so, proceed as follows:
 
     -   **Method 2:** Using your PC/Laptop, change image size using you preferred image editor (i.e.: Paint). Toggle to **Rich Text** mode and upload/select the resized image.
  
- - **Adjusting the font size of a text:**
+ - **Tip #6: Adjusting the font size of a text:**
  It may happen that you want to put a sentence (such as a footnote - see example below) in a smaller font size. Use the HTML code below. You adjust the font size number from 1 to 4, where 1 is the smallest font size.
  
  \<font size="2"\> _Apache® and Apache Spark™ are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by the Apache Software Foundation is implied by the use of these marks._ \</font\>
  
-- **Embed a YouTube video (HPE Appoved video) in a blog or in Platform page:**
+- **Tip #7: Embed a YouTube video (HPE Approved video) in a blog or in Platform page:**
 
     To insert a YouTube video — that has gone through the legal Marketing Asset Publishing (MAP) process — in a blog post or a "platform" page proceed as follows:
-    * Go to your YoutTube video URL
+    * Go to your YouTube video URL
     * Select ***"Share"*** option just underneath the video frame
     * Select ***"Embed"*** option
     * Copy the HTML code that is displayed, starting with <iframe width...> and ending with </iframe>
     * in the CMS editor, toggle to **Markdown** mode, and paste (CTRL+SHIFT+V) the embedded HTML code. 
 
--   **Inserting Horizontal separator:**
+- **Tip #8: Inserting Horizontal separator:**
 
     Toggle to **Markdown** mode and use the "- - -" (without the quotation mark).
 
     >**Note:** Make sure to insert a line break before and after the horizontal separator.
 
--   **Inserting Code block snippet:** 
+- **Tip #9: Inserting Code block snippet:** 
 
     You can use **Rich Text** mode (Select **+** to add a Code Block component) or use **Markdown** mode by placing triple backticks ***\`\`\`*** before and after the code block to include code block snippets in your blog post.
 
@@ -492,19 +492,19 @@ To do so, proceed as follows:
 
     -   Make sure to insert a line break before and after a code block snippet
 
--   **Inserting "em-dash" character:**
+- **Tip #10: Inserting "em-dash" character:**
 
     The CMS editor does not correctly interpret the em-dash (\&mdash;\) markdown syntax. Using the Rich text or Markdown mode of the CMS editor, should you need to use an em-dash character, you can do a copy/paste of the em-dash character here: — 
     
-- **Inserting a Line Break in a paragraph:**
+- **Tip #11: Inserting a Line Break in a paragraph:**
 
   To insert a line break in a paragraph, while in **Markdown** mode, you can use the HTML syntax \<br \/\> at the end of the sentence. 
   
-- **Inserting Special characters:**
+- **Tip #12: Inserting Special characters:**
 
-    Some characters (underscore, hash, backslash) have special meanings in the Markdown syntax. If you want to use these special characters in a text, you have to _escape_ them. The way to escape a special charcater is to add a backslash (\\) before it, for example: I do not want \\\_italic text\\\_ here. 
+    Some characters (underscore, hash, backslash) have special meanings in the Markdown syntax. If you want to use these special characters in a text, you have to _escape_ them. The way to escape a special character is to add a backslash (\\) before it, for example: I do not want \\\_italic text\\\_ here. 
 
--   **Inserting List items/sub-list items:**
+- **Tip #13: Inserting List items/sub-list items:**
     To deal with item list, it is recommended to toggle to **Markdown** mode in the editor and use the syntax below for creating item lists and sub-item lists:
     
     >**Note:** Only a certain level of bulleting is supported; i.e. you can't do 1a, 1b, etc.
@@ -537,7 +537,7 @@ To do so, proceed as follows:
 
        >**Note:** Always insert a line break between a standard paragraph and the first item of a list
 
-       >**Note:** By default, the bullet list items will be rendered with smaller font size than a text in a "standard" paragraph. If you wish to keep same character font as a standard paragraph, it is recommended to insert a line break between list items.
+       >**Note:** By default, the bullet list items will be rendered with smaller font size than a text in a "standard" paragraph. If you wish to keep same character font as a standard paragraph, it is recommended to insert a line break between list items. Alternatively, you can use an HTML style as explained in the next tip: "**Global Styles**".
 
        Example **with line break** between first level list items and **no line break** between sub-list items:
 
@@ -547,9 +547,30 @@ To do so, proceed as follows:
 
        <center><img src="media/Guide-tips-item-lists-2.png" width="1585" height="483"></center>
 
--   **Formatting a table properly**
+- **Tip #14: Global styles**
+    
+  You can use the tips below to format tables and bullet list items throughout your blog post. These styles apply **globally** to your post.
 
-To format correctly a table, insert the following Style statement in your markdown, above the table:
+***Formatting the bullet list to standard text size***
+    
+  >Note: As explained in the tip "**Tip #13: Inserting List items/sub-list items**", the bullet list items will be rendered with smaller font size than a text in a "standard" paragraph. You can adjust the size of the bullet list items using the HTML style below: 
+
+   Insert the following Style statement in your markdown at the beginning of your post. The standard text size is 25px. 
+   You can use different font-size according to your needs. The font-size will then apply to **ALL** the bullet lists in your article. 
+       
+```html
+<style>
+ul li{
+ font-size:25px;
+}
+</style>
+```       
+
+<br/>
+
+***Formatting a table properly***
+
+   To format correctly a table, insert the following Style statement in your markdown at the beginning of your post:
 
 
 ```html
@@ -584,8 +605,9 @@ thead tr:first-child td {
 }
 </style>
 ```
+       
 
--   **Tagging:**
+-  **Tip #15: Tagging:**
 
 If appropriate, use a tag to tie your blog post to a "platform" page on HPE Developer portal. List of "platforms" tag is in the table below.
 
