@@ -8,7 +8,7 @@ authorimage: /img/small-size-id.jpg
 
 <style>
 ul li{
- font-size:40px;
+ font-size:9px;
 }
 </style>
 
@@ -42,7 +42,7 @@ The following table provides the resource metrics that are accessible through th
 | Cpu Utilization|_/rest/server-hardware/{id}/utilization?fields=CpuUtilization_|
 | Peak Power|_/rest/server-hardware/{id}/utilization?fields=PeakPower_ |
 | Power Cap|_/rest/server-hardware/{id}/utilization?fields=PowerCap_|  
-
+   
 
 | **Enclosures Metrics**| **URI**|  
 |:----|:---|  
