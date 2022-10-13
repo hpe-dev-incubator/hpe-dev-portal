@@ -16,5 +16,6 @@
  | **HPE L&D**                | Jose Euceda & Boucha |
  | **HPE AP&S**               | Kerridge, Richard & Sarah Lennox |
  | **OpenSource.announce**    | Bruno Cornec |
+ | **WW Ambassadors**         | Al Amin & Iris Young |
  
 
