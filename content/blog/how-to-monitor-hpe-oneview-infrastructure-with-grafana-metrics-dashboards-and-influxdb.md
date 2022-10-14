@@ -106,14 +106,14 @@ Then create a user with an authentication password:
 \> *CREATE USER admin WITH PASSWORD 'P@ssw0rd' WITH ALL PRIVILEGES*
 
 Once created, authenticate using:  
-\> *auth*  
-username: *admin*  
-password: \*\*\*\*\*\*\*\*  
+\> <i>*auth* </i> 
+username: <i>*admin*  </i>
+password: <i>\*\*\*\*\*\*\*\* </i> 
 
 To enable the http authentication, you need to modify the InfluxDB configuration file. Go to the **\[http]** section of **/etc/influxdb/influxdb.conf** and change the **auth-enabled** value to **true.**
 
 *[http]*  
-*auth-enabled = true*
+*auth-enabled = <i>true*</i>
 
 Once modified, restart the InfluxDB service:  
 \> *sudo systemctl restart influxdb*
