@@ -12,7 +12,7 @@ ul li{
 }
 </style>
 
-<style> i{ color:grey; } </style>
+<style> i{ color:grey;font-family:'Courier New' } </style>
 
 The purpose of this blog post is to describe how to generate Grafana dashboards using InfluxDB and PowerShell scripts to monitor any HPE Compute infrastructure managed by HPE OneView.
 
@@ -229,7 +229,7 @@ To verify that the metrics are successfully collected, open one of the databases
 The measurements listed here correspond to the metrics (ports or resources) defined in the PowerShell scripts.
 
 Open one of the measurements to verify that the metric data is coming in:  
-\> <i>_SELECT \* FROM "Frame3-Interconnect3-Q1"_</i>
+\> _SELECT \* FROM "Frame3-Interconnect3-Q1"_
 
 ![](/img/image014.png)
 
@@ -281,9 +281,11 @@ Again, using the database name you defined in *Grafana-Interconnect-monitoring.p
 
 ![](/img/image021.png)
 
-![](/img/image022.png)
+
 
 Once this is done, click on the **Save & Test** button and make sure the data source is working.
+
+![](/img/image022.png)
 
 You can then click on the **Back** button to return to the Data sources configuration window.
 
