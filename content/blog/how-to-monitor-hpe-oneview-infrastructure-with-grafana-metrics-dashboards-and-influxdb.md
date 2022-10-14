@@ -189,7 +189,7 @@ The Linux repositories proposed by Microsoft can be found [here](https://package
 On a RHEL/CentOS virtual machine, you can use the following steps:
 
 * Add the Microsoft package repository:  
-  \> *curl https://packages.microsoft.com/config/centos/8/prod.repo | sudo tee /etc/yum.repos.d/microsoft.repo*
+  \> <i>*curl https://packages.microsoft.com/config/centos/8/prod.repo | sudo tee /etc/yum.repos.d/microsoft.repo*</i>
 * Run the PowerShell installation:   
   \> *yum install powershell*
 * Copy the script files to the Linux system and set the execution permission on both files:  
