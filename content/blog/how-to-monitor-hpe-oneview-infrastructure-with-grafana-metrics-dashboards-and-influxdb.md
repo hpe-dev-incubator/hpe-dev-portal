@@ -193,13 +193,13 @@ On a RHEL/CentOS virtual machine, you can use the following steps:
 * Run the PowerShell installation:   
   \> <i>*yum install powershell*</i>
 * Copy the script files to the Linux system and set the execution permission on both files:  
-  \> <i>*chmod +x Grafana-Interconnect-monitoring.ps1*</i> 
+  \> <i>*chmod +x Grafana-Interconnect-monitoring.ps1*</i>   
   \> <i>*chmod +x Grafana-Server_Enclosure-monitoring.ps1*</i> 
 * Open the crontab configuration:  
   \> <i>*crontab -e*</i>  
 * Add two configurations, one for each script with a startup execution after a sleep time:  
-  \> *@reboot sleep 30 && pwsh -File ".../Grafana-Interconnect-monitoring.ps1"*  
-  \> *@reboot sleep 30 && pwsh -File ".../Grafana-Server_Enclosure-monitoring.ps1"* 
+  *@reboot sleep 30 && pwsh -File ".../Grafana-Interconnect-monitoring.ps1"*  
+  *@reboot sleep 30 && pwsh -File ".../Grafana-Server_Enclosure-monitoring.ps1"* 
 * Restart the Linux machine to trigger the execution:  
   \> <i>*shutdown -r now*</i>  
 
@@ -210,7 +210,7 @@ First, to make sure that the scripts have started, you can check that the databa
 Connect to the server running InfluxDB and *launch the InfluxDB CLI*:  
 \> <i>*influx*</i>  
  Authenticate using your InfluxDB credentials:  
-\> <i>*auth*</i> 
+\> <i>*auth*</i>   
  Display existing databases:  
 \> <i>*show databases*</i> 
 
@@ -221,7 +221,7 @@ If both databases defined in the script are listed, then both scripts have start
 ![](/img/image012.png)
 
 To verify that the metrics are successfully collected, open one of the databases and check the data content as shown below:  
-\> <i>*use ov\_icm\_db*</i>  
+\> *use ov\_icm\_db*
 \> <i>*show measurements*</i>
 
 ![](/img/image013.png)
