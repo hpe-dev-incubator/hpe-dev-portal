@@ -221,7 +221,7 @@ If both databases defined in the script are listed, then both scripts have start
 ![](/img/image012.png)
 
 To verify that the metrics are successfully collected, open one of the databases and check the data content as shown below:  
-\> *use ov_icm_db*  
+\> *use ov\_icm\_db*  
 \> *show measurements*  
 
 ![](/img/image013.png)
@@ -229,7 +229,7 @@ To verify that the metrics are successfully collected, open one of the databases
 The measurements listed here correspond to the metrics (ports or resources) defined in the PowerShell scripts.
 
 Open one of the measurements to verify that the metric data is coming in:  
-\> *SELECT \* FROM "Frame3-Interconnect3-Q1"*
+\> _SELECT \* FROM "Frame3-Interconnect3-Q1"_
 
 ![](/img/image014.png)
 
@@ -243,7 +243,7 @@ Once that is completed, any dashboard we create in Grafana will have access to t
 
 To launch the Grafana IU, open your web browser and navigate to **http://<grafana_IP or DNS name>:3000/**
 
-**Note**: The default HTTP port that Grafana listens to is 3000 unless you have configured a different port.
+Note: The default HTTP port that Grafana listens to is 3000 unless you have configured a different port.
 
 Click on the gear icon on the side menu and click **Add data Sources**.
 
