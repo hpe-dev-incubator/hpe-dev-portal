@@ -10,5 +10,4 @@ width: large
 ## Introduction to KubeFlow
 November 30, 2022
 
-In this HPE Developer Meetup, join Chase Christensen, Solutions Architect at Arrikto, and Souheil Inati, PhD., Head of Field Data Science at Arrikto to learn the basics of Kubeflow, the machine learning (ML) toolkit for Kubernetes dedicated to making deployments of ML workflows on Kubernetes simple, portable and scalable.
-In the presentation, Chase and Souheil will explain what Kubeflow is, how it works, and what this brings to users; both data scientists and MLOps engineers. They’ll walk you through the code, explaining the technical merits of Kubeflow and its components. They’ll also point out what external add-ons are appropriate and why they may be important in certain use cases. They’ll also introduce you to Arrikto’s Enterprise Kubeflow distribution, a complete MLOps platform that reduces costs, while accelerating the delivery of scalable models from laptop to production.
+Learn the basics of Kubeflow, the machine learning toolkit for Kubernetes dedicated to making deployments of ML workflows on Kubernetes simple, portable, and scalable. See how it works and what it brings to both data scientists and MLOps engineers. Find out what external add-ons may be important in certain use cases, and hear what Arrikto’s Enterprise Kubeflow distribution adds to the equation.
