@@ -1,4 +1,5 @@
-## Document to be used by HPE Dev Team, particularly Didier, when creating registation links in Zoom Webniar for our monthly technology talks (M&L and Meetup):
+## Document to be used by HPE Dev Team, particularly Didier, when creating registation links in Zoom Webniar for our monthly technology talks (M&L and Meetup).
+The aim of this document is to provide guidance to the HPE Dev team for creating appropriate registration links for monthly technology talks.  
 
  | Registration Link Name in Zoom     | **Organization**                   | **Contact Person or PDL**   | **E-mail address**  |
  | ---------------------------------- | ---------------------------------- | --------------------------- | ------------------- | 
