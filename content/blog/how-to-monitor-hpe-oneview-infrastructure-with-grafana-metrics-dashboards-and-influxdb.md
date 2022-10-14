@@ -5,12 +5,7 @@ date: 2022-10-12T10:00:35.115Z
 author: Lionel Jullien
 authorimage: /img/small-size-id.jpg
 ---
-<style>
-
-ul li{
- font-size:24px;
-}
-</style>
+<style>ul li{ font-size:24px;}</style>
 
 <style> i{ color:grey;font-family:'Courier New';font-size:25px; } </style>
 
