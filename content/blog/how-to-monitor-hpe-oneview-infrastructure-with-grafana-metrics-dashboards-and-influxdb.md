@@ -12,7 +12,7 @@ ul li{
 }
 </style>
 
-
+<style> i{ color:grey; } </style>
 
 The purpose of this blog post is to describe how to generate Grafana dashboards using InfluxDB and PowerShell scripts to monitor any HPE Compute infrastructure managed by HPE OneView.
 
@@ -101,7 +101,7 @@ Cons:
 By default, all security features are disabled in InfluxDB, so it is recommended to set up authentication by creating an *admin* user.
 
 To launch the influx command line interface (CLI), type:  
-\> *influx*  
+\> <i>*influx*</i>  
 Then create a user with an authentication password:  
 \> *CREATE USER admin WITH PASSWORD 'P@ssw0rd' WITH ALL PRIVILEGES*
 
