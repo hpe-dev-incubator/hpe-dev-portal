@@ -111,6 +111,7 @@ collections:
       - { label: 'Author', name: 'author', widget: 'string' } 
       - { label: 'Author Image', name: 'authorimage', widget: 'image',default: "/img/Avatar1.svg", media_folder: '/static/img', public_folder: '/img', hint: 'author image shown next to content' }
       - { label: 'Thumbnail Image', name: 'thumbnailimage', required: false, widget: 'image', media_folder: '/static/img', public_folder: '/img', hint: 'thumbnail image shown next to content' }
+      - { label: 'Disable', name: 'disable', widget: 'boolean', default: false , required: false, hint: 'selecting true disable the card on the blog page' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
       - { label: 'Tags', name: 'tags', widget: 'list', allow_add: true, required: false, field: {label: 'Tag', name: 'tag', widget: 'string'}  }
   # Event collectionel: 
@@ -228,7 +229,7 @@ collections:
       - { label: 'Navigation Path', name: 'link', widget: 'string'}
       - { label: 'Button Label', name: 'linkname', widget: 'string'}
       - { label: 'Description', name: 'description', widget: 'string' }
-      - { label: 'Disable', name: 'disable', widget: 'boolean', default: 'false' , required: false, hint: 'selecting true disable the card on the skillup page'  }
+      - { label: 'Disable', name: 'disable', widget: 'boolean', default: false , required: false, hint: 'selecting true disable the card on the skillup page'  }
       - { label: 'Priority', name: 'priority', widget: 'number', hint: 'controls the card position on the skill up page'}
       - { label: 'Image', name: 'image', widget: 'image',media_folder: '/static/img', public_folder: '/img', hint: 'image to appear on skill up card' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
