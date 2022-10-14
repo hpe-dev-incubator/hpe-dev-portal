@@ -112,8 +112,8 @@ password: <i>\*\*\*\*\*\*\*\*</i>
 
 To enable the http authentication, you need to modify the InfluxDB configuration file. Go to the **\[http]** section of **/etc/influxdb/influxdb.conf** and change the **auth-enabled** value to **true.**
 
-*[http]*  
-*auth-enabled =* <i>*true*</i> 
+[http]  
+auth-enabled = <i>*true*</i> 
 
 Once modified, restart the InfluxDB service:  
 \> <i>*sudo systemctl restart influxdb*</i>
@@ -152,19 +152,19 @@ The following commands can be used to schedule both jobs on a Windows machine:
 
 \> <i>*$trigger = New-JobTrigger -AtStartup -RandomDelay 00:00:30*</i>
 
-\> *Register-ScheduledJob -Trigger $trigger -FilePath "...\Grafana-Server_Enclosure-monitoring.ps1" -Name GrafanaServerEnclosureMonitoring*
+\> <i>*Register-ScheduledJob -Trigger $trigger -FilePath "...\Grafana-Server_Enclosure-monitoring.ps1" -Name GrafanaServerEnclosureMonitoring*</i>
 
-\> *Register-ScheduledJob -Trigger $trigger -FilePath "...\Grafana-Interconnect-monitoring.ps1" -Name GrafanaInterconnectMonitoring*
+\> <i>*Register-ScheduledJob -Trigger $trigger -FilePath "...\Grafana-Interconnect-monitoring.ps1" -Name GrafanaInterconnectMonitoring*</i>
 
 You can check the job schedule by typing:
 
-*\> Get-ScheduledJob*
+\> <i>*Get-ScheduledJob*</i>
 
 ![](/img/image008.png)
 
 Alternatively, launch Windows Task Scheduler, by pressing Windows + R keys on your keyboard to run a command, and enter:
 
-*\> taskschd.msc*
+\> <i>*taskschd.msc*</i>
 
 ![](/img/image009.png)
 
@@ -172,7 +172,7 @@ As we are using an "at startup" trigger, it is required to restart the server in
 
 Restart the server and confirm that scripts are executed. Once restarted, you can run on a Windows machine:
 
-*\> Get-job*
+\> <i>*Get-job*</i>
 
 ![](/img/image010.png)
 
