@@ -101,22 +101,22 @@ Cons:
 By default, all security features are disabled in InfluxDB, so it is recommended to set up authentication by creating an *admin* user.
 
 To launch the influx command line interface (CLI), type:  
-\> <i>*influx*</i>  
+\> *influx*  
 Then create a user with an authentication password:  
-\> <i>*CREATE USER admin WITH PASSWORD 'P@ssw0rd' WITH ALL PRIVILEGES*</i>
+\> *CREATE USER admin WITH PASSWORD 'P@ssw0rd' WITH ALL PRIVILEGES*
 
 Once created, authenticate using:  
-\> <i>*auth*</i>  
-username: <i>*admin*</i>  
-password: <i>\*\*\*\*\*\*\*\*</i>  
+\> *auth*  
+username: *admin*  
+password: \*\*\*\*\*\*\*\*  
 
 To enable the http authentication, you need to modify the InfluxDB configuration file. Go to the **\[http]** section of **/etc/influxdb/influxdb.conf** and change the **auth-enabled** value to **true.**
 
 *[http]*  
-*auth-enabled = <i>true*</i>
+*auth-enabled = true*
 
 Once modified, restart the InfluxDB service:  
-\> <i>*sudo systemctl restart influxdb*</i>
+\> *sudo systemctl restart influxdb*
 
 ## PowerShell Scripts for HPE OneView metrics collection
 
@@ -150,21 +150,21 @@ These scripts are written to collect metrics continually. They can be run in bac
 
 The following commands can be used to schedule both jobs on a Windows machine:
 
-\> <i>*$trigger = New-JobTrigger -AtStartup -RandomDelay 00:00:30*</i>
+\> *$trigger = New-JobTrigger -AtStartup -RandomDelay 00:00:30*
 
-\> <i>*Register-ScheduledJob -Trigger $trigger -FilePath "...\Grafana-Server_Enclosure-monitoring.ps1" -Name GrafanaServerEnclosureMonitoring*</i>
+\> *Register-ScheduledJob -Trigger $trigger -FilePath "...\Grafana-Server_Enclosure-monitoring.ps1" -Name GrafanaServerEnclosureMonitoring*
 
-\> <i>*Register-ScheduledJob -Trigger $trigger -FilePath "...\Grafana-Interconnect-monitoring.ps1" -Name GrafanaInterconnectMonitoring*</i>
+\> *Register-ScheduledJob -Trigger $trigger -FilePath "...\Grafana-Interconnect-monitoring.ps1" -Name GrafanaInterconnectMonitoring*
 
 You can check the job schedule by typing:
 
-*\> <i>Get-ScheduledJob*</i>
+*\> Get-ScheduledJob*
 
 ![](/img/image008.png)
 
 Alternatively, launch Windows Task Scheduler, by pressing Windows + R keys on your keyboard to run a command, and enter:
 
-*\> <i>taskschd.msc*</i>
+*\> taskschd.msc*
 
 ![](/img/image009.png)
 
@@ -172,7 +172,7 @@ As we are using an "at startup" trigger, it is required to restart the server in
 
 Restart the server and confirm that scripts are executed. Once restarted, you can run on a Windows machine:
 
-*\> <i>Get-job*</i>
+*\> Get-job*
 
 ![](/img/image010.png)
 
@@ -189,30 +189,30 @@ The Linux repositories proposed by Microsoft can be found [here](https://package
 On a RHEL/CentOS virtual machine, you can use the following steps:
 
 * Add the Microsoft package repository:  
-  \> <i>*curl https://packages.microsoft.com/config/centos/8/prod.repo | sudo tee /etc/yum.repos.d/microsoft.repo*</i>
+  \> *curl https://packages.microsoft.com/config/centos/8/prod.repo | sudo tee /etc/yum.repos.d/microsoft.repo*
 * Run the PowerShell installation:   
-  \> <i>*yum install powershell*</i>
+  \> *yum install powershell*
 * Copy the script files to the Linux system and set the execution permission on both files:  
-  \> <i>*chmod +x Grafana-Interconnect-monitoring.ps1*</i>  
-  \> <i>*chmod +x Grafana-Server_Enclosure-monitoring.ps1*</i>  
+  \> *chmod +x Grafana-Interconnect-monitoring.ps1*  
+  \> *chmod +x Grafana-Server_Enclosure-monitoring.ps1*  
 * Open the crontab configuration:  
-  \> <i>*crontab -e*</i>  
+  \> *crontab -e*  
 * Add two configurations, one for each script with a startup execution after a sleep time:  
-  \> <i>*@reboot sleep 30 && pwsh -File ".../Grafana-Interconnect-monitoring.ps1"*</i>  
-  \> <i>*@reboot sleep 30 && pwsh -File ".../Grafana-Server_Enclosure-monitoring.ps1"*</i>  
+  \> *@reboot sleep 30 && pwsh -File ".../Grafana-Interconnect-monitoring.ps1"*  
+  \> *@reboot sleep 30 && pwsh -File ".../Grafana-Server_Enclosure-monitoring.ps1"*  
 * Restart the Linux machine to trigger the execution:  
-  \> <i>*shutdown -r now*</i>  
+  \> *shutdown -r now*  
 
 ### How to ensure that the scripts have started successfully?
 
 First, to make sure that the scripts have started, you can check that the databases have been created using the InfluxDB tool.
 
 Connect to the server running InfluxDB and *launch the InfluxDB CLI*:  
-\> <i>*influx*</i>  
+\> *influx*  
  Authenticate using your InfluxDB credentials:  
-\> <i>*auth*</i>  
+\> *auth*  
  Display existing databases:  
-\> <i>*show databases*</i>  
+\> *show databases*  
 
 If both databases defined in the script are listed, then both scripts have started successfully:
 
@@ -221,15 +221,15 @@ If both databases defined in the script are listed, then both scripts have start
 ![](/img/image012.png)
 
 To verify that the metrics are successfully collected, open one of the databases and check the data content as shown below:  
-\> <i>*use ov_icm_db*</i>  
-\> <i>*show measurements*</i>  
+\> *use ov_icm_db*  
+\> *show measurements*  
 
 ![](/img/image013.png)
 
 The measurements listed here correspond to the metrics (ports or resources) defined in the PowerShell scripts.
 
 Open one of the measurements to verify that the metric data is coming in:  
-\> <i>*SELECT \* FROM "Frame3-Interconnect3-Q1"*</i>
+\> *SELECT \* FROM "Frame3-Interconnect3-Q1"*
 
 ![](/img/image014.png)
 
