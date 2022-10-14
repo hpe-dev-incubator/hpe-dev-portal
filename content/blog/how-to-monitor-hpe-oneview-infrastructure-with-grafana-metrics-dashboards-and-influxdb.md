@@ -12,7 +12,7 @@ ul li{
 }
 </style>
 
-<style> i{ color:grey;font-family:'Courier New';font-size:20px; } </style>
+<style> i{ color:grey;font-family:'Courier New';font-size:30px; } </style>
 
 The purpose of this blog post is to describe how to generate Grafana dashboards using InfluxDB and PowerShell scripts to monitor any HPE Compute infrastructure managed by HPE OneView.
 
@@ -201,18 +201,18 @@ On a RHEL/CentOS virtual machine, you can use the following steps:
   \> *@reboot sleep 30 && pwsh -File ".../Grafana-Interconnect-monitoring.ps1"*  
   \> *@reboot sleep 30 && pwsh -File ".../Grafana-Server_Enclosure-monitoring.ps1"* 
 * Restart the Linux machine to trigger the execution:  
-  \> *shutdown -r now*  
+  \> <i>*shutdown -r now*</i>  
 
 ### How to ensure that the scripts have started successfully?
 
 First, to make sure that the scripts have started, you can check that the databases have been created using the InfluxDB tool.
 
 Connect to the server running InfluxDB and *launch the InfluxDB CLI*:  
-\> *influx*  
+\> <i>*influx*</i>  
  Authenticate using your InfluxDB credentials:  
-\> *auth* 
+\> <i>*auth*</i> 
  Display existing databases:  
-\> *show databases* 
+\> <i>*show databases*</i> 
 
 If both databases defined in the script are listed, then both scripts have started successfully:
 
@@ -222,7 +222,7 @@ If both databases defined in the script are listed, then both scripts have start
 
 To verify that the metrics are successfully collected, open one of the databases and check the data content as shown below:  
 \> *use ov\_icm\_db*  
-\> *show measurements*
+\> <i>*show measurements*</i>
 
 ![](/img/image013.png)
 
