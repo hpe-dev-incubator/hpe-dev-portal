@@ -103,20 +103,20 @@ By default, all security features are disabled in InfluxDB, so it is recommended
 To launch the influx command line interface (CLI), type:  
 \> <i>*influx*</i>  
 Then create a user with an authentication password:  
-\> *CREATE USER admin WITH PASSWORD 'P@ssw0rd' WITH ALL PRIVILEGES*
+\> <i>*CREATE USER admin WITH PASSWORD 'P@ssw0rd' WITH ALL PRIVILEGES*</i>  
 
 Once created, authenticate using:  
-\> <i>*auth* </i> 
-username: <i>*admin*  </i>
-password: <i>\*\*\*\*\*\*\*\* </i> 
+\> <i>*auth*</i>   
+username: <i>*admin*</i>  
+password: <i>\*\*\*\*\*\*\*\*</i> 
 
 To enable the http authentication, you need to modify the InfluxDB configuration file. Go to the **\[http]** section of **/etc/influxdb/influxdb.conf** and change the **auth-enabled** value to **true.**
 
 *[http]*  
-*auth-enabled = <i>true*</i>
+*auth-enabled =* <i>*true*</i> 
 
 Once modified, restart the InfluxDB service:  
-\> *sudo systemctl restart influxdb*
+\> <i>*sudo systemctl restart influxdb*</i>
 
 ## PowerShell Scripts for HPE OneView metrics collection
 
@@ -150,7 +150,7 @@ These scripts are written to collect metrics continually. They can be run in bac
 
 The following commands can be used to schedule both jobs on a Windows machine:
 
-\> *$trigger = New-JobTrigger -AtStartup -RandomDelay 00:00:30*
+\> <i>*$trigger = New-JobTrigger -AtStartup -RandomDelay 00:00:30*</i>
 
 \> *Register-ScheduledJob -Trigger $trigger -FilePath "...\Grafana-Server_Enclosure-monitoring.ps1" -Name GrafanaServerEnclosureMonitoring*
 
