@@ -216,7 +216,7 @@ If both databases defined in the script are listed, then both scripts have start
 ![](/img/image012.png)
 
 To verify that the metrics are successfully collected, open one of the databases and check the data content as shown below:  
-\> <i>*use ov\_icm\_db*</i>
+\> <i>*use ov\_icm\_db*</i>  
 \> <i>*show measurements*</i>
 
 ![](/img/image013.png)
