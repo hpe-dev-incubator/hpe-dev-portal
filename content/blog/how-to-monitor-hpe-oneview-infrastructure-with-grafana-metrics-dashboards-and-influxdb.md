@@ -12,7 +12,7 @@ ul li{
 }
 </style>
 
-<style> i{ color:grey;font-family:'Courier New' } </style>
+<style> i{ color:grey;font-family:'Courier New';font-size:20px; } </style>
 
 The purpose of this blog post is to describe how to generate Grafana dashboards using InfluxDB and PowerShell scripts to monitor any HPE Compute infrastructure managed by HPE OneView.
 
@@ -191,12 +191,12 @@ On a RHEL/CentOS virtual machine, you can use the following steps:
 * Add the Microsoft package repository:  
   \> <i>*curl https://packages.microsoft.com/config/centos/8/prod.repo | sudo tee /etc/yum.repos.d/microsoft.repo*</i>
 * Run the PowerShell installation:   
-  \> *yum install powershell*
+  \> <i>*yum install powershell*</i>
 * Copy the script files to the Linux system and set the execution permission on both files:  
-  \> *chmod +x Grafana-Interconnect-monitoring.ps1* 
-  \> *chmod +x Grafana-Server_Enclosure-monitoring.ps1* 
+  \> <i>*chmod +x Grafana-Interconnect-monitoring.ps1*</i> 
+  \> <i>*chmod +x Grafana-Server_Enclosure-monitoring.ps1*</i> 
 * Open the crontab configuration:  
-  \> *crontab -e*  
+  \> <i>*crontab -e*</i>  
 * Add two configurations, one for each script with a startup execution after a sleep time:  
   \> *@reboot sleep 30 && pwsh -File ".../Grafana-Interconnect-monitoring.ps1"*  
   \> *@reboot sleep 30 && pwsh -File ".../Grafana-Server_Enclosure-monitoring.ps1"* 
