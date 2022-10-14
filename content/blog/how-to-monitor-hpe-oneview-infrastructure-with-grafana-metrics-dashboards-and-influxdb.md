@@ -189,30 +189,30 @@ The Linux repositories proposed by Microsoft can be found [here](https://package
 On a RHEL/CentOS virtual machine, you can use the following steps:
 
 * Add the Microsoft package repository:  
-  \> *curl https://packages.microsoft.com/config/centos/8/prod.repo | sudo tee /etc/yum.repos.d/microsoft.repo*
+  \> <i>*curl https://packages.microsoft.com/config/centos/8/prod.repo | sudo tee /etc/yum.repos.d/microsoft.repo*</i>
 * Run the PowerShell installation:   
-  \> *yum install powershell*
+  \> <i>*yum install powershell*</i>
 * Copy the script files to the Linux system and set the execution permission on both files:  
-  \> *chmod +x Grafana-Interconnect-monitoring.ps1*  
-  \> *chmod +x Grafana-Server_Enclosure-monitoring.ps1*  
+  \> <i>*chmod +x Grafana-Interconnect-monitoring.ps1*</i> 
+  \> <i>*chmod +x Grafana-Server_Enclosure-monitoring.ps1*</i>  
 * Open the crontab configuration:  
-  \> *crontab -e*  
+  \> <i>*crontab -e*</i>  
 * Add two configurations, one for each script with a startup execution after a sleep time:  
-  \> *@reboot sleep 30 && pwsh -File ".../Grafana-Interconnect-monitoring.ps1"*  
-  \> *@reboot sleep 30 && pwsh -File ".../Grafana-Server_Enclosure-monitoring.ps1"*  
+  \> <i>*@reboot sleep 30 && pwsh -File ".../Grafana-Interconnect-monitoring.ps1"*</i>  
+  \> <i>*@reboot sleep 30 && pwsh -File ".../Grafana-Server_Enclosure-monitoring.ps1"*</i>  
 * Restart the Linux machine to trigger the execution:  
-  \> *shutdown -r now*  
+  \> <i>*shutdown -r now*</i>  
 
 ### How to ensure that the scripts have started successfully?
 
 First, to make sure that the scripts have started, you can check that the databases have been created using the InfluxDB tool.
 
 Connect to the server running InfluxDB and *launch the InfluxDB CLI*:  
-\> *influx*  
+\> <i>*influx*</i>  
  Authenticate using your InfluxDB credentials:  
-\> *auth*  
+\> <i>*auth*</i>  
  Display existing databases:  
-\> *show databases*  
+\> <i>*show databases*</i>  
 
 If both databases defined in the script are listed, then both scripts have started successfully:
 
@@ -221,15 +221,15 @@ If both databases defined in the script are listed, then both scripts have start
 ![](/img/image012.png)
 
 To verify that the metrics are successfully collected, open one of the databases and check the data content as shown below:  
-\> *use ov\_icm\_db*  
-\> *show measurements*  
+\> <i>*use ov\_icm\_db*</i>  
+\> <i>*show measurements*</i>  
 
 ![](/img/image013.png)
 
 The measurements listed here correspond to the metrics (ports or resources) defined in the PowerShell scripts.
 
 Open one of the measurements to verify that the metric data is coming in:  
-\> _SELECT \* FROM "Frame3-Interconnect3-Q1"_
+\> <i>_SELECT \* FROM "Frame3-Interconnect3-Q1"_</i>
 
 ![](/img/image014.png)
 
