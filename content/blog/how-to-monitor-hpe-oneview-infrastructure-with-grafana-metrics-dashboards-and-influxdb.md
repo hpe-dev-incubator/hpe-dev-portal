@@ -193,8 +193,9 @@ On a RHEL/CentOS virtual machine, you can use the following steps:
 * Open the crontab configuration:  
   \> <i>*crontab -e*</i>  
 * Add two configurations, one for each script with a startup execution after a sleep time:  
-  * _@reboot sleep 30 && pwsh -File ".../Grafana-Interconnect-monitoring.ps1"_  
-  * _@reboot sleep 30 && pwsh -File ".../Grafana-Server_Enclosure-monitoring.ps1"_ 
+  * <i>_@reboot sleep 30 && pwsh -File ".../Grafana-Interconnect-monitoring.ps1"_</i>  
+  * _@reboot sleep 30 && pwsh -File ".../Grafana-Server_Enclosure_
+monitoring.ps1"_   
 * Restart the Linux machine to trigger the execution:  
   \> <i>*shutdown -r now*</i>  
 
