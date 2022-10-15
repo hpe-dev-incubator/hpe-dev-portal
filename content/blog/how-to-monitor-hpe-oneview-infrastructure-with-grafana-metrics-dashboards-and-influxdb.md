@@ -224,7 +224,7 @@ To verify that the metrics are successfully collected, open one of the databases
 The measurements listed here correspond to the metrics (ports or resources) defined in the PowerShell scripts.
 
 Open one of the measurements to verify that the metric data is coming in:  
-\> _SELECT \* FROM "Frame3-Interconnect3-Q1"_
+\> <i>_SELECT \* FROM "Frame3-Interconnect3-Q1"_<\i>
 
 ![](/img/image014.png)
 
