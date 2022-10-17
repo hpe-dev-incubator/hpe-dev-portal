@@ -49,8 +49,25 @@ The HPE Ezmeral Early Access beta program allows developers to try these new pro
 
 - - -
 
-## Documentation (awaiting inputs)
+## Video Tutorials
 
+### HPE GreenLake for Data Fabric – Creating an HPE Ezmeral Data Fabric Cluster from HPE GreenLake
+https://hpe.seismic.com/Link/Content/DCVB7cmFQjPC289TCMRJ7PFJcbhd
+Note: L﻿ink to YT will be published in Oct 17. 
+
+
+
+### HPE GreenLake for Data Fabric – Demo of Global Namespace
+https://hpe.seismic.com/Link/Content/DCPmgbWfB9ddRGFDhBHdQTCVQWjV
+Note: L﻿ink to YT will be published in Oct 17.
+
+- - -
+
+## Documentation
+
+[HPE GreenLake for Data Fabric Beta User Guide](https://www.hpe.com/greenlake/gl-data-fabric-user-gd)
+
+Note: P﻿ublic link will be available in Oct 17.
 - - -
 
 ## Any questions on HPE GreenLake for Data Fabric
