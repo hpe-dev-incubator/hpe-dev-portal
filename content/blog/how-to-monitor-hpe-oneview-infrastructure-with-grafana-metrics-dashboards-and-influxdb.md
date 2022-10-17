@@ -91,9 +91,11 @@ Cons:
 By default, all security features are disabled in InfluxDB, so it is recommended to set up authentication by creating an *admin* user.
 
 To launch the influx command line interface (CLI), type:  
-\> <i>*influx*</i>   
+\> <i>*influx*</i> 
+  
 Then create a user with an authentication password:  
 \> <i>*CREATE USER admin WITH PASSWORD 'P@ssw0rd' WITH ALL PRIVILEGES*</i>
+
 Once created, authenticate using:  
 \> <i>*auth*</i>   
 username: <i>*admin*</i>   
@@ -137,30 +139,26 @@ These scripts are written to collect metrics continually. They can be run in bac
 
 ### How to run the scripts on a Microsoft Windows machine?
 
-The following commands can be used to schedule both jobs on a Microsoft Windows machine:
-
+The following commands can be used to schedule both jobs on a Microsoft Windows machine:  
 \> <i>*$trigger = New-JobTrigger -AtStartup -RandomDelay 00:00:30*</i>
-
-\> <i>*Register-ScheduledJob -Trigger $trigger -FilePath "...\Grafana-Server_Enclosure-monitoring.ps1" -Name GrafanaServerEnclosureMonitoring*</i>
+  
+\> <i>*Register-ScheduledJob -Trigger $trigger -FilePath "...\Grafana-Server_Enclosure-monitoring.ps1" -Name GrafanaServerEnclosureMonitoring*</i>  
 
 \> <i>*Register-ScheduledJob -Trigger $trigger -FilePath "...\Grafana-Interconnect-monitoring.ps1" -Name GrafanaInterconnectMonitoring*</i>
 
-You can check the job schedule by typing:
-
+You can check the job schedule by typing:  
 \> <i>*Get-ScheduledJob*</i>
 
 ![](/img/image008.png)
 
-Alternatively, launch Windows Task Scheduler, by pressing Windows + R keys on your keyboard to run a command, and enter:
-
+Alternatively, launch Windows Task Scheduler, by pressing Windows + R keys on your keyboard to run a command, and enter:  
 \> <i>*taskschd.msc*</i>
 
 ![](/img/image009.png)
 
 As I am using an "at startup" trigger, it is required to restart the server in order to run the scripts.
 
-Restart the server and confirm that scripts are executed. Once restarted, you can run on a Microsoft Windows machine:
-
+Restart the server and confirm that scripts are executed. Once restarted, you can run on a Microsoft Windows machine:  
 \> <i>*Get-job*</i>
 
 ![](/img/image010.png)
