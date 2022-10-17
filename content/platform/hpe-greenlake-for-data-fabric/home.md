@@ -69,6 +69,7 @@ This video demonstrates how to move data freely between a developer system and m
 https://hpe.seismic.com/Link/Content/DCPmgbWfB9ddRGFDhBHdQTCVQWjV
 Note: L﻿ink to YT will be published in Oct 17.
 
+
 - - -
 
 ## Documentation
@@ -76,6 +77,8 @@ Note: L﻿ink to YT will be published in Oct 17.
 [HPE GreenLake for Data Fabric Beta User Guide](https://www.hpe.com/greenlake/gl-data-fabric-user-gd)
 
 Note: P﻿ublic link will be available in Oct 17.
+
+
 - - -
 
 ## Any questions on HPE GreenLake for Data Fabric
