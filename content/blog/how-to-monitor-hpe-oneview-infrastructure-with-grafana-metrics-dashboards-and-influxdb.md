@@ -92,20 +92,20 @@ By default, all security features are disabled in InfluxDB, so it is recommended
 
 To launch the influx command line interface (CLI), type:
 
-\> <i>*influx*</i>\
+\> <i>*influx*</i>   
 Then create a user with an authentication password:  
 
 \> <i>*CREATE USER admin WITH PASSWORD 'P@ssw0rd' WITH ALL PRIVILEGES*</i>  
 
 Once created, authenticate using:
 
-\> <i>*auth*</i>\
-username: <i>*admin*</i>\
+\> <i>*auth*</i>   
+username: <i>*admin*</i>   
 password: <i>\*\*\*\*\*\*\*\*</i>   
 
 To enable the http authentication, you need to modify the InfluxDB configuration file. Go to the **\[http]** section of **/etc/influxdb/influxdb.conf** and change the **auth-enabled** value to **true.**
 
-\[http]\
+\[http]  
 auth-enabled = <i>*true*</i> 
 
 Once modified, restart the InfluxDB service:
@@ -199,7 +199,7 @@ On a RHEL/CentOS virtual machine, you can use the following steps:
 * Add two configurations, one for each script with a startup execution after a sleep time:  
 
   * *@reboot sleep 30 && pwsh -File ".../Grafana-Interconnect-monitoring.ps1"*  
-  * *@reboot sleep 30 && pwsh -File ".../Grafana-Server-Enclosure-monitoring.ps1"*
+  * *@reboot sleep 30 && pwsh -File ".../Grafana-Server_Enclosure-monitoring.ps1"*
 * Restart the Linux machine to trigger the execution:
 
   \> <i>*shutdown -r now*</i>  
@@ -226,7 +226,7 @@ If both databases defined in the script are listed, then both scripts have start
 
 To verify that the metrics are successfully collected, open one of the databases and check the data content as shown below:
 
-\> <i>*use ov_icm_db*</i>
+\> <i>*use ov\_icm\_db*</i>
 
 \> <i>*show measurements*</i>
 
