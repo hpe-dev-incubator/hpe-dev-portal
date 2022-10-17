@@ -27,22 +27,22 @@ Multiple metrics resources are supported by HPE OneView through the API, includi
 The following table provides the resource metrics that are accessible through the HPE OneView RESTful API:
 
 | **Server hardware Metrics** | **URI**                                                            |
-| --------------------------- | ------------------------------------------------------------------ |
+| :--------------------------- | :------------------------------------------------------------------ |
 | Ambient Temperature         | */rest/server-hardware/{id}/utilization?fields=AmbientTemperature* |
 | Cpu Average Frequency       | */rest/server-hardware/{id}/utilization?fields=CpuAverageFreq*     |
 | Cpu Utilization             | */rest/server-hardware/{id}/utilization?fields=CpuUtilization*     |
 | Average Power               | */rest/server-hardware/{id}/utilization?fields=AveragePower*       |
 | Peak Power                  | */rest/server-hardware/{id}/utilization?fields=PeakPower*          |
-| Power Cap                   | */rest/server-hardware/{id}/utilization?fields=PowerCap*           |
+| Power Cap                   | */rest/server-hardware/{id}/utilization?fields=PowerCap*           |  
 
 | **Enclosures Metrics** | **URI**                                                       |
-| ---------------------- | ------------------------------------------------------------- |
+| :---------------------- | :------------------------------------------------------------- |
 | Ambient Temperature    | */rest/enclosures/{id}/utilization?fields=AmbientTemperature* |
 | Average Power          | */rest/enclosures/{id}/utilization?fields=AveragePower*       |
-| Peak Power             | */rest/enclosures/{id}/utilization?fields=PeakPower*          |
+| Peak Power             | */rest/enclosures/{id}/utilization?fields=PeakPower*          |  
 
 | **Interconnect Metrics**                                  | **URI**                                        |
-| --------------------------------------------------------- | ---------------------------------------------- |
+| :--------------------------------------------------------- | :---------------------------------------------- |
 | Statistics for the specified port name on an interconnect | */rest/interconnects/{id}/statistics/portname* |
 | Interconnect cpu and memory utilization data              | */rest/interconnects/{id}/utilization*         |
 
