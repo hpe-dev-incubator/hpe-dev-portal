@@ -2,6 +2,8 @@
 title: Deploy stateful MongoDB applications on Kubernetes clusters in HPE
   GreenLake for Containers
 date: 2022-08-16T14:02:17.749Z
+featuredBlog: true
+priority: 3
 author: Guoping Jia
 authorimage: /img/guoping.png
 tags:
