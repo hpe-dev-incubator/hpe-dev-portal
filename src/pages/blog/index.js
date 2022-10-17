@@ -65,9 +65,9 @@ function Blog({ data, location }) {
         alt="blog page logo"
       >
         <Paragraph size="large">
-          Sharing expertise is a great way to move technology forward. Browse
+          Sharing expertise is a great way to move technology forward.Browse
           through our library of tutorials and articles to learn new ways to do
-          things. Or, click on the Get Started button to write your own!
+          things.Or, click on the Get Started button to write your own!
         </Paragraph>
         <Box wrap align="start">
           <ButtonLink primary label="Get Started" to="/contribute" />
@@ -137,6 +137,7 @@ export const pageQuery = graphql`
         frontmatter: {
           featuredBlog: { eq: true }
           priority: { lte: 5, gte: 1 }
+          disable: { ne: true }
         }
       }
       sort: { fields: [frontmatter___priority], order: ASC }
@@ -158,6 +159,7 @@ export const pageQuery = graphql`
             authorimage
             thumbnailimage
             category
+            disable
           }
         }
       }
@@ -165,7 +167,7 @@ export const pageQuery = graphql`
     allBlogsCount: allMarkdownRemark(
       filter: {
         fields: { sourceInstanceName: { eq: "blog" } }
-        frontmatter: { featuredBlog: { ne: true } }
+        frontmatter: { featuredBlog: { ne: true }, disable: { ne: true } }
       }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
@@ -187,7 +189,7 @@ export const pageQuery = graphql`
     projectDataMapBlogsCount: allMarkdownRemark(
       filter: {
         fields: { sourceInstanceName: { eq: "blog" } }
-        frontmatter: { tags: { eq: "project-data-map" } }
+        frontmatter: { tags: { eq: "project-data-map" }, disable: { ne: true } }
       }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
@@ -209,7 +211,7 @@ export const pageQuery = graphql`
     ezmeralBlogsCount: allMarkdownRemark(
       filter: {
         fields: { sourceInstanceName: { eq: "blog" } }
-        frontmatter: { tags: { eq: "hpe-ezmeral" } }
+        frontmatter: { tags: { eq: "hpe-ezmeral" }, disable: { ne: true } }
       }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
@@ -231,7 +233,7 @@ export const pageQuery = graphql`
     zertoBlogsCount: allMarkdownRemark(
       filter: {
         fields: { sourceInstanceName: { eq: "blog" } }
-        frontmatter: { tags: { eq: "zerto" } }
+        frontmatter: { tags: { eq: "zerto" }, disable: { ne: true } }
       }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
@@ -253,7 +255,10 @@ export const pageQuery = graphql`
     threeParBlogsCount: allMarkdownRemark(
       filter: {
         fields: { sourceInstanceName: { eq: "blog" } }
-        frontmatter: { tags: { eq: "hpe-3par-and-primera" } }
+        frontmatter: {
+          tags: { eq: "hpe-3par-and-primera" }
+          disable: { ne: true }
+        }
       }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
@@ -275,7 +280,7 @@ export const pageQuery = graphql`
     arubaBlogsCount: allMarkdownRemark(
       filter: {
         fields: { sourceInstanceName: { eq: "blog" } }
-        frontmatter: { tags: { eq: "aruba" } }
+        frontmatter: { tags: { eq: "aruba" }, disable: { ne: true } }
       }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
@@ -297,7 +302,10 @@ export const pageQuery = graphql`
     oneviewDashboardBlogsCount: allMarkdownRemark(
       filter: {
         fields: { sourceInstanceName: { eq: "blog" } }
-        frontmatter: { tags: { eq: "hpe-oneview-global-dashboard" } }
+        frontmatter: {
+          tags: { eq: "hpe-oneview-global-dashboard" }
+          disable: { ne: true }
+        }
       }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
@@ -323,6 +331,7 @@ export const pageQuery = graphql`
           tags: {
             in: ["ilo", "Redfish", "ilorest", "iLOrest", "ilo-restful-api"]
           }
+          disable: { ne: true }
         }
       }
       sort: { fields: [frontmatter___date], order: DESC }
@@ -345,7 +354,10 @@ export const pageQuery = graphql`
     dsccBlogsCount: allMarkdownRemark(
       filter: {
         fields: { sourceInstanceName: { eq: "blog" } }
-        frontmatter: { tags: { eq: "data-services-cloud-console" } }
+        frontmatter: {
+          tags: { eq: "data-services-cloud-console" }
+          disable: { ne: true }
+        }
       }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
@@ -367,7 +379,10 @@ export const pageQuery = graphql`
     dataFabricBlogsCount: allMarkdownRemark(
       filter: {
         fields: { sourceInstanceName: { eq: "blog" } }
-        frontmatter: { tags: { in: ["hpe-ezmeral-data-fabric", "MapR"] } }
+        frontmatter: {
+          tags: { in: ["hpe-ezmeral-data-fabric", "MapR"] }
+          disable: { ne: true }
+        }
       }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
@@ -389,7 +404,7 @@ export const pageQuery = graphql`
     alletraBlogsCount: allMarkdownRemark(
       filter: {
         fields: { sourceInstanceName: { eq: "blog" } }
-        frontmatter: { tags: { eq: "hpe-alletra" } }
+        frontmatter: { tags: { eq: "hpe-alletra" }, disable: { ne: true } }
       }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
@@ -411,7 +426,10 @@ export const pageQuery = graphql`
     nimbleBlogsCount: allMarkdownRemark(
       filter: {
         fields: { sourceInstanceName: { eq: "blog" } }
-        frontmatter: { tags: { eq: "hpe-nimble-storage" } }
+        frontmatter: {
+          tags: { eq: "hpe-nimble-storage" }
+          disable: { ne: true }
+        }
       }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
@@ -433,7 +451,7 @@ export const pageQuery = graphql`
     oneviewBlogsCount: allMarkdownRemark(
       filter: {
         fields: { sourceInstanceName: { eq: "blog" } }
-        frontmatter: { tags: { eq: "hpe-oneview" } }
+        frontmatter: { tags: { eq: "hpe-oneview" }, disable: { ne: true } }
       }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
@@ -455,7 +473,7 @@ export const pageQuery = graphql`
     simplivityBlogsCount: allMarkdownRemark(
       filter: {
         fields: { sourceInstanceName: { eq: "blog" } }
-        frontmatter: { tags: { eq: "hpe-simplivity" } }
+        frontmatter: { tags: { eq: "hpe-simplivity" }, disable: { ne: true } }
       }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
@@ -478,7 +496,7 @@ export const pageQuery = graphql`
     greenlakeBlogsCount: allMarkdownRemark(
       filter: {
         fields: { sourceInstanceName: { eq: "blog" } }
-        frontmatter: { tags: { eq: "hpe-greenlake" } }
+        frontmatter: { tags: { eq: "hpe-greenlake" }, disable: { ne: true } }
       }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
@@ -500,7 +518,7 @@ export const pageQuery = graphql`
     kubeDirectorBlogsCount: allMarkdownRemark(
       filter: {
         fields: { sourceInstanceName: { eq: "blog" } }
-        frontmatter: { tags: { eq: "kubedirector" } }
+        frontmatter: { tags: { eq: "kubedirector" }, disable: { ne: true } }
       }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
@@ -522,7 +540,10 @@ export const pageQuery = graphql`
     spiffeBlogsCount: allMarkdownRemark(
       filter: {
         fields: { sourceInstanceName: { eq: "blog" } }
-        frontmatter: { tags: { eq: "spiffe-and-spire-projects" } }
+        frontmatter: {
+          tags: { eq: "spiffe-and-spire-projects" }
+          disable: { ne: true }
+        }
       }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
@@ -545,7 +566,7 @@ export const pageQuery = graphql`
     chapelBlogsCount: allMarkdownRemark(
       filter: {
         fields: { sourceInstanceName: { eq: "blog" } }
-        frontmatter: { tags: { eq: "chapel" } }
+        frontmatter: { tags: { eq: "chapel" }, disable: { ne: true } }
       }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
@@ -568,7 +589,7 @@ export const pageQuery = graphql`
     grommetBlogsCount: allMarkdownRemark(
       filter: {
         fields: { sourceInstanceName: { eq: "blog" } }
-        frontmatter: { tags: { eq: "grommet" } }
+        frontmatter: { tags: { eq: "grommet" }, disable: { ne: true } }
       }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
@@ -590,7 +611,7 @@ export const pageQuery = graphql`
     smartSimBlogsCount: allMarkdownRemark(
       filter: {
         fields: { sourceInstanceName: { eq: "blog" } }
-        frontmatter: { tags: { eq: "smartsim" } }
+        frontmatter: { tags: { eq: "smartsim" }, disable: { ne: true } }
       }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
@@ -613,7 +634,10 @@ export const pageQuery = graphql`
     deepLearningBlogsCount: allMarkdownRemark(
       filter: {
         fields: { sourceInstanceName: { eq: "blog" } }
-        frontmatter: { tags: { eq: "deep-learning-cookbook" } }
+        frontmatter: {
+          tags: { eq: "deep-learning-cookbook" }
+          disable: { ne: true }
+        }
       }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
@@ -636,7 +660,7 @@ export const pageQuery = graphql`
     determinedBlogsCount: allMarkdownRemark(
       filter: {
         fields: { sourceInstanceName: { eq: "blog" } }
-        frontmatter: { tags: { eq: "determined-ai" } }
+        frontmatter: { tags: { eq: "determined-ai" }, disable: { ne: true } }
       }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
@@ -658,7 +682,7 @@ export const pageQuery = graphql`
     openSourceBlogsCount: allMarkdownRemark(
       filter: {
         fields: { sourceInstanceName: { eq: "blog" } }
-        frontmatter: { tags: { eq: "opensource" } }
+        frontmatter: { tags: { eq: "opensource" }, disable: { ne: true } }
       }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
@@ -694,6 +718,7 @@ export const pageQuery = graphql`
       filter: {
         fields: { sourceInstanceName: { eq: "blog" } }
         frontmatter: {
+          disable: { ne: true }
           tags: {
             nin: [
               "opensource"
