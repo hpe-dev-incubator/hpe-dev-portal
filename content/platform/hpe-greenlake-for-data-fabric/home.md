@@ -52,12 +52,20 @@ The HPE Ezmeral Early Access beta program allows developers to try these new pro
 ## Video Tutorials
 
 ### HPE GreenLake for Data Fabric – Creating an HPE Ezmeral Data Fabric Cluster from HPE GreenLake
+
+I﻿n this video, learn how to create an HPE Ezmeral Data Fabric cluster using HPE GreenLake for Data Fabric.
+
+
 https://hpe.seismic.com/Link/Content/DCVB7cmFQjPC289TCMRJ7PFJcbhd
 Note: L﻿ink to YT will be published in Oct 17. 
 
 
 
 ### HPE GreenLake for Data Fabric – Demo of Global Namespace
+
+This video demonstrates how to move data freely between a developer system and multiple HPE GreenLake for Data Fabrics on two different public cloud environments.
+
+
 https://hpe.seismic.com/Link/Content/DCPmgbWfB9ddRGFDhBHdQTCVQWjV
 Note: L﻿ink to YT will be published in Oct 17.
 
