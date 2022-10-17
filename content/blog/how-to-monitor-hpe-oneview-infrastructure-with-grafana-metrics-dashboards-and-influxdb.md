@@ -15,7 +15,7 @@ The purpose of this blog post is to describe how to generate Grafana dashboards 
 
 IT infrastructure metrics visualization is critical for health monitoring, prediction, and capacity planning. It provides a powerful way of viewing infrastructure utilization, revealing issues and helping maintain uninterrupted services.
 
-Grafana's time series graphs are the perfect enabler for IT infrastructure metrics evolution over time; examples include, temperature changes, network traffic performance, power consumption and many more. They are useful to compare data over time and see the trends, detect issues and allow administrators to make infrastructure adjustments and prevent downtime.
+Grafana’s time-series graphs are the perfect enabler for IT infrastructure optimization. They can assist administrators in monitoring temperature changes, network traffic performance, power consumption, and much more. They can be used to compare data over time to note trends and detect issues, allowing administrators to make any necessary adjustments and prevent downtime.
 
 The following picture shows a typical HPE infrastructure dashboard with Synergy frame, compute, and interconnect metrics:
 
@@ -23,7 +23,7 @@ The following picture shows a typical HPE infrastructure dashboard with Synergy 
 
 # HPE OneView metric resources
 
-Multiple metrics resources are supported by HPE OneView through the API: CPU, memory, power consumption, temperature, health, capacity data for some resources like Enclosures, Interconnects and Server hardware. Network statistics and network throughput are also available for each uplink and downlink ports in "interconnects" such as Virtual Connect modules.
+Multiple metrics resources are supported by HPE OneView through the API, including CPU, memory, power consumption, temperature, health, capacity data for some resources like enclosures, interconnects and server hardware. Network statistics and network throughput are also available for each uplink and downlink ports in "interconnects" such as HPE Virtual Connect modules.
 
 The following table provides the resource metrics that are accessible through the HPE OneView RESTful API:
 
@@ -47,15 +47,15 @@ The following table provides the resource metrics that are accessible through th
 | Statistics for the specified port name on an interconnect | */rest/interconnects/{id}/statistics/portname* |
 | Interconnect cpu and memory utilization data              | */rest/interconnects/{id}/utilization*         |
 
-HPE OneView Metrics are enabled by default. For Virtual Connect network statistics, the Utilization Sampling settings defined in the Logical Interconnect Group controls the data collection rate and sample interval value. By default, the HPE Virtual Connect Module sampling rate is 12 samples per hour, as shown in the following figure:
+HPE OneView metrics are enabled by default. For HPE Virtual Connect network statistics, the Utilization Sampling settings defined in the logical interconnect group controls the data collection rate and sample interval value. By default, the HPE Virtual Connect module sampling rate is 12 samples per hour, as shown in the following figure:
 
 <img src="/img/image002.png" width="50%" height="50%">
 
 # InfluxDB Time-series database
 
-The decision to use InfluxDB was made for several reasons. First, InfluxDB can be installed on both Windows and Linux, it is an open-source tool, and there are very useful modules to create entries in a database. Other options include Prometheus, which can also be used to collect and record measurements in real time.  
+My decision to use InfluxDB with Grafana metrics dashboards to monitor HPE OneView infrastructure was made for several reasons. First, InfluxDB can be installed on both Microsoft Windows and Linux, it is an open-source tool, and many useful modules are available to create entries in a database. Other options include Prometheus, which can also be used to collect and record measurements in real time.  
 
-To collect OneView metrics, we use a PowerShell script. This script collects utilization statistics of defined resources from the HPE OneView API periodically and continually transmits the metrics to InfluxDB via its REST API. The timestamped metrics data is saved into the InfluxDB time series database that Grafana uses to generate the graphs.
+To collect HPE OneView metrics, I use a PowerShell script. This script collects utilization statistics of defined resources from the HPE OneView API periodically and continually transmits the metrics to InfluxDB via its REST API. The timestamped metrics data is saved into the InfluxDB time series database that Grafana uses to generate the graphs.
 
 The script is an independent process that must run continuously.
 
@@ -70,7 +70,7 @@ Pros:
 * Enables time-series graphs for the HPE OneView Server hardware utilization statistics and HPE Virtual Connect modules utilization statistics.
 * Supports collecting metrics from any API (simply requires the appropriate PowerShell script for the collection)
 * Provides a flexible solution using widely used and cross-platform scripting language.
-* Cross-platform support, all components can be installed on Windows or Linux.
+* Cross-platform support, all components can be installed on Microsoft Windows or Linux.
 
 Cons:
 
@@ -92,19 +92,20 @@ By default, all security features are disabled in InfluxDB, so it is recommended
 
 To launch the influx command line interface (CLI), type:
 
-\> <i>*influx*</i>  
+\> <i>*influx*</i>\
 Then create a user with an authentication password:  
-> <i>*CREATE USER admin WITH PASSWORD 'P@ssw0rd' WITH ALL PRIVILEGES*</i>  
+
+\> <i>*CREATE USER admin WITH PASSWORD 'P@ssw0rd' WITH ALL PRIVILEGES*</i>  
 
 Once created, authenticate using:
 
-\> <i>*auth*</i>  
-username: <i>*admin*</i>  
+\> <i>*auth*</i>\
+username: <i>*admin*</i>\
 password: <i>\*\*\*\*\*\*\*\*</i>   
 
 To enable the http authentication, you need to modify the InfluxDB configuration file. Go to the **\[http]** section of **/etc/influxdb/influxdb.conf** and change the **auth-enabled** value to **true.**
 
-\[http]  
+\[http]\
 auth-enabled = <i>*true*</i> 
 
 Once modified, restart the InfluxDB service:
@@ -115,7 +116,7 @@ Once modified, restart the InfluxDB service:
 
 PowerShell scripts to collect metrics from the HPE OneView API can be found in my GitHub repository [here](https://github.com/jullienl/HPE-Synergy-OneView-demos/tree/master/Powershell/Grafana%20Metrics).
 
-Two distinct scripts are available, one for the interconnect metrics and one for Compute, enclosure, and server profile metrics.
+Two distinct scripts are available, one for the interconnect metrics and one for compute, enclosure, and server profile metrics.
 
 ![](/img/image004.png)
 
@@ -131,17 +132,17 @@ Note that the interconnect modules and port names can be found in the HPE OneVie
 
 ![](/img/image006.png)
 
-For *Grafana-Server_Enclosure-monitoring.ps1*, you need to provide at the beginning of the script, the resource names (Server hardware or Server profile or Enclosure) and utilization (CPU, Power, or Temperature) that you want to monitor using a hash table format:
+For *Grafana-Server_Enclosure-monitoring.ps1*, you need to provide at the beginning of the script, the resource names (server hardware or server profile or enclosure) and utilization (CPU, power, or temperature) that you want to monitor using a hash table format:
 
 ![](/img/image007.png)
 
-The names of the resources that need to be provided can be easily identified in the corresponding menus of the OneView user interface.
+The names of the resources that need to be provided can be easily identified in the corresponding menus of the HPE OneView user interface.
 
-These scripts are written to collect metrics continually. They can be run in background on a Linux system using a crontab configuration or on a Windows one, usingTask Scheduler.
+These scripts are written to collect metrics continually. They can be run in background on a Linux system using a crontab configuration or on a Microsoft Windows one, using Task Scheduler.
 
-### How to run the scripts on a Windows machine?
+### How to run the scripts on a Microsoft Windows machine?
 
-The following commands can be used to schedule both jobs on a Windows machine:
+The following commands can be used to schedule both jobs on a Microsoft Windows machine:
 
 \> <i>*$trigger = New-JobTrigger -AtStartup -RandomDelay 00:00:30*</i>
 
@@ -163,7 +164,7 @@ Alternatively, launch Windows Task Scheduler, by pressing Windows + R keys on yo
 
 As we are using an "at startup" trigger, it is required to restart the server in order to run the scripts.
 
-Restart the server and confirm that scripts are executed. Once restarted, you can run on a Windows machine:
+Restart the server and confirm that scripts are executed. Once restarted, you can run on a Microsoft Windows machine:
 
 \> <i>*Get-job*</i>
 
@@ -190,14 +191,15 @@ On a RHEL/CentOS virtual machine, you can use the following steps:
 * Copy the script files to the Linux system and set the execution permission on both files:
 
   \> <i>*chmod +x Grafana-Interconnect-monitoring.ps1*</i>
-  <i>*chmod +x Grafana-Server_Enclosure-monitoring.ps1*</i> 
+
+  \> <i>*chmod +x Grafana-Server_Enclosure-monitoring.ps1*</i> 
 * Open the crontab configuration:
 
   \> <i>*crontab -e*</i>  
 * Add two configurations, one for each script with a startup execution after a sleep time:  
 
-  * <i>*@reboot sleep 30 && pwsh -File ".../Grafana-Interconnect-monitoring.ps1"*</i>  
-  * <i>*@reboot sleep 30 && pwsh -File ".../Grafana-Server-Enclosure-monitoring.ps1"*</i>   
+  * *@reboot sleep 30 && pwsh -File ".../Grafana-Interconnect-monitoring.ps1"*  
+  * *@reboot sleep 30 && pwsh -File ".../Grafana-Server-Enclosure-monitoring.ps1"*
 * Restart the Linux machine to trigger the execution:
 
   \> <i>*shutdown -r now*</i>  
@@ -234,7 +236,7 @@ The measurements listed here correspond to the metrics (ports or resources) defi
 
 Open one of the measurements to verify that the metric data is coming in:  
 
-\> <i>_*SELECT \* FROM "Frame3-Interconnect3-Q1"*_</i>
+\> _SELECT \* FROM "Frame3-Interconnect3-Q1"_
 
 ![](/img/image014.png)
 
@@ -242,9 +244,9 @@ The data shows that the collection of metrics has started and that everything is
 
 ## Adding InfluxDB data sources in Grafana
 
-Now that InfluxDB is configured and the data is collected, we can add the databases (created by the two scripts) to Grafana as new InfluxDB data sources.
+Now that InfluxDB is configured and the data is collected, you can add the databases (created by the two scripts) to Grafana as new InfluxDB data sources.
 
-Once that is completed, any dashboard we create in Grafana will have access to the metric data collected.
+Once that is completed, any dashboard you create in Grafana will have access to the metric data collected.
 
 To launch the Grafana IU, open your web browser and navigate to **http://<grafana_IP or DNS name>:3000/**
 
@@ -258,7 +260,7 @@ Select **InfluxDB** from the data source list.
 
 ![](/img/image016.png)
 
-For Server and Enclosure metrics, enter a data source name, e.g., **InfluxDB-OV-Server-Metrics**
+For server and enclosure metrics, enter a data source name, e.g., **InfluxDB-OV-Server-Metrics**
 
 Add the InfluxDB URL; by default it is **[http://localhost:8086](http://localhost:8086/)**
 
@@ -276,7 +278,7 @@ If no error is returned, a "Data source is working" message is displayed.
 
 ![](/img/image019.png)
 
-Now repeat the same Add data source procedure for the Interconnect metrics, using this time the data source name **InfluxDB-OV-Interconnect-Metrics**
+Now repeat the same Add data source procedure for the Interconnect metrics, this time using the data source name **InfluxDB-OV-Interconnect-Metrics**
 
 ![](/img/image020.png)
 
@@ -300,19 +302,19 @@ We are now ready to access our InfluxDB time series databases in Grafana.
 
 ## Creating the Grafana dashboard
 
-A Grafana dashboard can aggregate one or more panels using multiple sources. Thus, we can create a single dashboard with Server/Enclosure and Interconnect metrics panels.
+A Grafana dashboard can aggregate one or more panels using multiple sources. Thus, you can create a single dashboard with server/enclosure and interconnect metrics panels.
 
 Click on the Dashboards icon on the side menu and click **New dashboard.**
 
 ![](/img/image024.png)
 
-Click on **Add a new panel** to create a panel to visualize the first Virtual Connect module metrics.
+Click on **Add a new panel** to create a panel to visualize the first HPE Virtual Connect module metrics.
 
 In Data source, select **Influxdb-OV-Interconnect-Metrics**
 
 ![](/img/image025.png)
 
-For **Query options**, it is recommended to set **5m** as the minimum query interval to match the OneView API metrics sampling value of the interconnect interfaces (see below).
+For **Query options**, it is recommended to set **5m** as the minimum query interval to match the HPE OneView API metrics sampling value of the interconnect interfaces (see below).
 
 ![](/img/image026.png)
 
@@ -374,7 +376,7 @@ Once all queries have been defined, you can save the panel using the **Save** bu
 
 ![](/img/image040.png)
 
-We can now duplicate this panel to create another one for the second Virtual Connect module. Click on the panel's context menu, select **More** , then **Duplicate**.
+You can now duplicate this panel to create another one for the second HPE Virtual Connect module. Click on the panel's context menu, select **More** , then **Duplicate**.
 
 Click on the duplicated panel's context menu then select **Edit**.
 
@@ -386,7 +388,7 @@ Then modify each query by selecting the ports on the second interconnect module 
 
 Click **Save** then **Apply**.
 
-The dashboard now displays two panels, one for each Virtual Connect module that was defined in *Grafana Interconnect monitoring.ps1*
+The dashboard now displays two panels, one for each HPE Virtual Connect module that was defined in *Grafana Interconnect monitoring.ps1*
 
 ![](/img/image042.png)
 
@@ -447,4 +449,4 @@ You can then click on **Save,** then **Apply** buttons to return to the Grafana 
 
 Next, you can add as many panels as you have resources defined in your PowerShell scripts.
 
-This concludes this blog post. We hope you find it useful and should you have any feedback, please send me a message.
+This concludes this blog post. I hope you find it useful and should you have any feedback, please send me a message to lio@hpe.com.
