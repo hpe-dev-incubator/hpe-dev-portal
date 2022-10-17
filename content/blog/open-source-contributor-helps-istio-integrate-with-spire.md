@@ -1,6 +1,8 @@
 ---
 title: Open source contributor helps Istio integrate with SPIRE
 date: 2022-10-12T15:24:29.364Z
+featuredBlog: true
+priority: 2
 author: Dale Rensing
 authorimage: /img/blog-author-rensing-96.jpg
 tags:
