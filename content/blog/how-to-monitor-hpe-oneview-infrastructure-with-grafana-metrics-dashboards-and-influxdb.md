@@ -388,11 +388,9 @@ Then:
 * Add a panel title
 * Use **5m** for the Min interval query options
 * Select the graph styles options
-
   * Connect null values: **Always**
   * Show points: **Never**
 * Select the correct unit corresponding to the measurement type
-
   * Power: Energy / **Watt**
   * Temperature: Temperature / **Celsius**
   * CPU: simply type **GHz**
