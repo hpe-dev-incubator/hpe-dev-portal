@@ -1,13 +1,15 @@
 ---
-title: "How to monitor HPE Compute Ops Management "
+title: How to monitor HPE Compute Ops Management infrastructure with Grafana
+  Metrics Dashboards
 date: 2022-10-19T13:04:56.553Z
 author: Lionel Jullien
-authorimage: /img/Avatar1.svg
+authorimage: /img/small-size-id.jpg
 ---
 <style>ul li{ font-size:26px;}</style>
+
 <style> i{ color:grey;font-family:'Courier New';font-size:22px; } </style>
 
-The purpose of this blog post is to describe how to generate Grafana dashboards using InfluxDB and PowerShell scripts to monitor any HPE Compute infrastructure managed by HPE OneView.
+The purpose of this blog post is to describe how to generate Grafana dashboards to monitor any HPE Compute infrastructure managed by HPE Compute Ops Management.
 
 # Grafana Dashboards
 
@@ -15,33 +17,41 @@ IT infrastructure metrics visualization is critical for health monitoring, predi
 
 Grafana’s time-series graphs are the perfect enabler for IT infrastructure optimization. They can assist administrators in monitoring temperature changes, network traffic performance, power consumption, and much more. They can be used to compare data over time to note trends and detect issues, allowing administrators to make any necessary adjustments and prevent downtime.
 
-The following picture shows a typical HPE infrastructure dashboard with Synergy frame, compute, and interconnect metrics:
+The following picture shows a typical HPE infrastructure dashboard with different panels generated from HPE Compute Ops Management:
 
-![](/img/image001.png)
+![](/img/2022-10-19-15_14_34-hpe-com-using-infinity-uql-native-api-calls-grafana-—-mozilla-firefox.png)
 
-# HPE OneView metric resources
+# HPE Compute Ops Management REST API
 
-Multiple metrics resources are supported by HPE OneView through the API, including CPU, memory, power consumption, temperature, health, capacity data for some resources like enclosures, interconnects and server hardware. Network statistics and network throughput are also available for each uplink and downlink ports in "interconnects" such as HPE Virtual Connect modules.
+HPE Compute Ops Management offers a northbound RESTful API to customers who are looking to enhance their infrastructure management and data-ops using the programmatic extensions or command line.
+The API enables customers to invoke any operation or task that is available through the User Interface (UI) web interface.
+
+
+https://developer.greenlake.hpe.com/docs/greenlake/services/compute-ops/public/openapi/compute-ops-latest/overview/
+
+# HPE Compute Ops Management metric resources
+
+Only a few resource metrics are currently supported by HPE Compute Ops Management via the RESTful API, but things will change quickly in the coming months. Today, the main metric available is the CO2 emission report but many other resources are available to create nice dashboards in Grafana such as data related to the number of servers, service packs, groups, etc. 
 
 The following table provides the resource metrics that are accessible through the HPE OneView RESTful API:
 
 | **Server hardware Metrics** | **URI**                                                            |
-| :------------ | :----------------- |
+| --------------------------- | ------------------------------------------------------------------ |
 | Ambient Temperature         | */rest/server-hardware/{id}/utilization?fields=AmbientTemperature* |
 | Cpu Average Frequency       | */rest/server-hardware/{id}/utilization?fields=CpuAverageFreq*     |
 | Cpu Utilization             | */rest/server-hardware/{id}/utilization?fields=CpuUtilization*     |
 | Average Power               | */rest/server-hardware/{id}/utilization?fields=AveragePower*       |
 | Peak Power                  | */rest/server-hardware/{id}/utilization?fields=PeakPower*          |
-| Power Cap                   | */rest/server-hardware/{id}/utilization?fields=PowerCap*           |  
+| Power Cap                   | */rest/server-hardware/{id}/utilization?fields=PowerCap*           |
 
 | **Enclosures Metrics** | **URI**                                                       |
-| :------------------- | :------------------- |
+| ---------------------- | ------------------------------------------------------------- |
 | Ambient Temperature    | */rest/enclosures/{id}/utilization?fields=AmbientTemperature* |
 | Average Power          | */rest/enclosures/{id}/utilization?fields=AveragePower*       |
-| Peak Power             | */rest/enclosures/{id}/utilization?fields=PeakPower*          |  
+| Peak Power             | */rest/enclosures/{id}/utilization?fields=PeakPower*          |
 
-| **Interconnect Metrics**               | **URI**                                   |
-| :------------------ | :------------------ |
+| **Interconnect Metrics**                                  | **URI**                                        |
+| --------------------------------------------------------- | ---------------------------------------------- |
 | Statistics for the specified port name on an interconnect | */rest/interconnects/{id}/statistics/portname* |
 | Interconnect cpu and memory utilization data              | */rest/interconnects/{id}/utilization*         |
 
@@ -88,24 +98,24 @@ Cons:
 
 By default, all security features are disabled in InfluxDB, so it is recommended to set up authentication by creating an *admin* user.
 
-To launch the influx command line interface (CLI), type:  
-\> <i>*influx*</i> 
-  
-Then create a user with an authentication password:  
-\> <i>*CREATE USER admin WITH PASSWORD 'P@ssw0rd' WITH ALL PRIVILEGES*</i>
+To launch the influx command line interface (CLI), type:\
+> <i>*influx*</i> 
 
-Once created, authenticate using:  
-\> <i>*auth*</i>   
-username: <i>*admin*</i>   
+Then create a user with an authentication password:\
+> <i>*CREATE USER admin WITH PASSWORD 'P@ssw0rd' WITH ALL PRIVILEGES*</i>
+
+Once created, authenticate using:\
+> <i>*auth*</i>\
+username: <i>*admin*</i>\
 password: <i>\*\*\*\*\*\*\*\*</i>   
 
 To enable the http authentication, you need to modify the InfluxDB configuration file. Go to the **\[http]** section of **/etc/influxdb/influxdb.conf** and change the **auth-enabled** value to **true.**
 
-\[http]  
+\[http]\
 auth-enabled = <i>*true*</i> 
 
-Once modified, restart the InfluxDB service:  
-\> <i>*sudo systemctl restart influxdb*</i>
+Once modified, restart the InfluxDB service:\
+> <i>*sudo systemctl restart influxdb*</i>
 
 ## PowerShell Scripts for HPE OneView metrics collection
 
@@ -137,27 +147,27 @@ These scripts are written to collect metrics continually. They can be run in bac
 
 ### How to run the scripts on a Microsoft Windows machine?
 
-The following commands can be used to schedule both jobs on a Microsoft Windows machine:  
-\> <i>*$trigger = New-JobTrigger -AtStartup -RandomDelay 00:00:30*</i>
-  
+The following commands can be used to schedule both jobs on a Microsoft Windows machine:\
+> <i>*$trigger = New-JobTrigger -AtStartup -RandomDelay 00:00:30*</i>
+
 \> <i>*Register-ScheduledJob -Trigger $trigger -FilePath "...\Grafana-Server_Enclosure-monitoring.ps1" -Name GrafanaServerEnclosureMonitoring*</i>  
 
 \> <i>*Register-ScheduledJob -Trigger $trigger -FilePath "...\Grafana-Interconnect-monitoring.ps1" -Name GrafanaInterconnectMonitoring*</i>
 
-You can check the job schedule by typing:  
-\> <i>*Get-ScheduledJob*</i>
+You can check the job schedule by typing:\
+> <i>*Get-ScheduledJob*</i>
 
 ![](/img/image008.png)
 
-Alternatively, launch Windows Task Scheduler, by pressing Windows + R keys on your keyboard to run a command, and enter:  
-\> <i>*taskschd.msc*</i>
+Alternatively, launch Windows Task Scheduler, by pressing Windows + R keys on your keyboard to run a command, and enter:\
+> <i>*taskschd.msc*</i>
 
 ![](/img/image009.png)
 
 As I am using an "at startup" trigger, it is required to restart the server in order to run the scripts.
 
-Restart the server and confirm that scripts are executed. Once restarted, you can run on a Microsoft Windows machine:  
-\> <i>*Get-job*</i>
+Restart the server and confirm that scripts are executed. Once restarted, you can run on a Microsoft Windows machine:\
+> <i>*Get-job*</i>
 
 ![](/img/image010.png)
 
@@ -173,48 +183,49 @@ The Linux repositories proposed by Microsoft can be found [here](https://package
 
 On a RHEL/CentOS virtual machine, you can use the following steps:
 
-* Add the Microsoft package repository:  
- \> <i>*curl https://packages.microsoft.com/config/centos/8/prod.repo | sudo tee /etc/yum.repos.d/microsoft.repo*</i>  
-* Run the PowerShell installation:  
-  \> <i>*yum install powershell*</i>  
-* Copy the script files to the Linux system and set the execution permission on both files:  
-  \> <i>*chmod +x Grafana-Interconnect-monitoring.ps1*</i>  
-  \> <i>*chmod +x Grafana-Server_Enclosure-monitoring.ps1*</i>   
-* Open the crontab configuration:  
-  \> <i>*crontab -e*</i>  
+* Add the Microsoft package repository:\
+  > <i>*curl https://packages.microsoft.com/config/centos/8/prod.repo | sudo tee /etc/yum.repos.d/microsoft.repo*</i>  
+* Run the PowerShell installation:\
+  > <i>*yum install powershell*</i>  
+* Copy the script files to the Linux system and set the execution permission on both files:\
+  > <i>*chmod +x Grafana-Interconnect-monitoring.ps1*</i>\
+  > <i>*chmod +x Grafana-Server_Enclosure-monitoring.ps1*</i>   
+* Open the crontab configuration:\
+  > <i>*crontab -e*</i>  
 * Add two configurations, one for each script with a startup execution after a sleep time:  
+
   * *@reboot sleep 30 && pwsh -File ".../Grafana-Interconnect-monitoring.ps1"*  
   * *@reboot sleep 30 && pwsh -File ".../Grafana-Server_Enclosure-monitoring.ps1"*
-* Restart the Linux machine to trigger the execution:  
-  \> <i>*shutdown -r now*</i>  
+* Restart the Linux machine to trigger the execution:\
+  > <i>*shutdown -r now*</i>  
 
 ### How to ensure that the scripts have started successfully?
 
 First, to make sure that the scripts have started, you can check that the databases have been created using the InfluxDB tool.
 
-Connect to the server running InfluxDB and *launch the InfluxDB CLI*:  
-\> <i>*influx*</i>
+Connect to the server running InfluxDB and *launch the InfluxDB CLI*:\
+> <i>*influx*</i>
 
-Authenticate using your InfluxDB credentials:  
-\> <i>*auth*</i>  
+Authenticate using your InfluxDB credentials:\
+> <i>*auth*</i>  
 
-Display existing databases:  
-\> <i>*show databases*</i>  
+Display existing databases:\
+> <i>*show databases*</i>  
 
 If both databases defined in the script are listed, then both scripts have started successfully:
 
 ![](/img/image012.png)
 
-To verify that the metrics are successfully collected, open one of the databases and check the data content as shown below:  
-\> <i>*use ov\_icm\_db*</i>  
-\> <i>*show measurements*</i>
+To verify that the metrics are successfully collected, open one of the databases and check the data content as shown below:\
+> <i>*use ov_icm_db*</i>\
+> <i>*show measurements*</i>
 
 ![](/img/image013.png)
 
 The measurements listed here correspond to the metrics (ports or resources) defined in the PowerShell scripts.
 
-Open one of the measurements to verify that the metric data is coming in:  
-\> <i>_SELECT \* FROM "Frame3-Interconnect3-Q1"_</i>
+Open one of the measurements to verify that the metric data is coming in:\
+> <i>*SELECT * FROM "Frame3-Interconnect3-Q1"*</i>
 
 ![](/img/image014.png)
 
@@ -387,9 +398,11 @@ Then:
 * Add a panel title
 * Use **5m** for the Min interval query options
 * Select the graph styles options
+
   * Connect null values: **Always**
   * Show points: **Never**
 * Select the correct unit corresponding to the measurement type
+
   * Power: Energy / **Watt**
   * Temperature: Temperature / **Celsius**
   * CPU: simply type **GHz**
