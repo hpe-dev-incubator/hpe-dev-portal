@@ -6,6 +6,7 @@ author: Lionel Jullien
 authorimage: /img/small-size-id.jpg
 ---
 <style>ul li{ font-size:26px;}</style>
+
 <style> i{ color:grey;font-family:'Courier New';font-size:22px; } </style>
 
 The purpose of this blog post is to describe how to generate Grafana dashboards to monitor any HPE Compute infrastructure managed by HPE Compute Ops Management.
@@ -32,8 +33,6 @@ For information about how to generate an access token for Compute Ops Management
 
 Only a few resource metrics are currently supported by HPE Compute Ops Management via the RESTful API, but things will change quickly in the coming months. Today, the only metric available is the carbon footprint report but many other resources are available to create nice Grafana dashboards such as data related to the number of servers, health of servers, service packs, groups, etc. 
 
-
-
 # Grafana Infinity plugin
 
 There are several Grafana plugins that support data collection via the REST API (e.g. Infinity, [JSON](https://grafana.com/grafana/plugins/simpod-json-datasource/), [JSON API](https://grafana.com/grafana/plugins/marcusolsson-json-datasource/)) but [Infinity ](https://grafana.com/grafana/plugins/yesoreyeram-infinity-datasource/)has the great advantage of offering an advanced query language that is essential for manipulating JSON data into a suitable format that Grafana can understand. This language is called [UQL](https://sriramajeyam.com/grafana-infinity-datasource/wiki/uql/), Infinity's unstructured query language.
@@ -47,7 +46,6 @@ A UQL query can be formed with a list of commands joined by |. Most of the time,
 The following diagram describes the different components of the solution:
 
 ![](/img/2022-10-19-16_15_11-lj-synergy-composable-fabric.pptx-powerpoint.png)
-
 
 ## Pros and Cons about this solution
 
@@ -71,10 +69,10 @@ Cons:
 
 ## Infinity plugin installation
 
-From an SSH session on the Grafana server, enter:   
-\> <i>grafana-cli plugins install yesoreyeram-infinity-datasource</i>  
-Then restart the Grafana service:  
-\> <i>service grafana-server restart</i>  
+From an SSH session on the Grafana server, enter:\
+> <i>grafana-cli plugins install yesoreyeram-infinity-datasource</i>\
+Then restart the Grafana service:\
+> <i>service grafana-server restart</i>\
 For more details on how to install the Infinity plugin, you can refer to this [article](< https://github.com/yesoreyeram/grafana-infinity-datasource>).
 
 ## Grafana configuration
@@ -90,5 +88,35 @@ Click on the gear icon on the side menu and click **Add data Sources**.
 Search for Infinity from the data source list. 
 
 ![](/img/lj-grafana-com-picture2.png)
+
+Select **Infinity** and add it as a data source, name it as **Infinity-COM**.
+
+
+![](/img/2022-10-19-17_05_15-infinity-com_-settings-grafana-—-mozilla-firefox.png)
+
+
+Leave all other settings as default and click **Save & test**.
+
+Then to create a new Dashboard, click on the Dashboards icon on the side menu and select **New dashboard**.
+
+![](/img/lj-grafana-com-picture3.png)
+
+Next, you will create variables related to this Dashboard. They will be used to simplify the authentication process with the HPE Compute Ops Management API and facilitate the creation of the REST requests you will define later.
+
+Click on **Dashboard settings**:
+
+![](/img/lj-grafana-com-picture4.png)
+
+Then select **Variables** then **Add variables**:
+
+![](/img/lj-grafana-com-picture5.png)
+
+
+
+
+
+
+
+
 
 This concludes this blog post. I hope you find it useful and should you have any feedback, please send me a [message](mailto:lio@hpe.com).
