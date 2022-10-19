@@ -5,6 +5,8 @@ date: 2022-10-19T13:04:56.553Z
 author: Lionel Jullien
 authorimage: /img/small-size-id.jpg
 ---
+![]()
+
 <style>ul li{ font-size:26px;}</style>
 
 <style> i{ color:grey;font-family:'Courier New';font-size:22px; } </style>
@@ -211,11 +213,13 @@ Analyzing carbon emissions can help you understand the impact of your servers on
 
 The report does not include estimates of the embedded carbon footprint from manufacturing and distribution of the servers
 
-#### API request: 
+![](/img/2022-10-19-20_06_34-hpe-com-using-infinity-uql-native-api-calls-grafana-—-mozilla-firefox.png)
+
+#### API request:
 
 `get /compute-ops/v1beta1/reports/{id}/data`
 
-#### API response: 
+#### API response:
 
 ```{
   "id": "843023bd-9412-46c2-8ac2-a3691f657fdb",
@@ -258,12 +262,27 @@ The report does not include estimates of the embedded carbon footprint from manu
 ```
 
 #### Panel configuration:
-* Data source: **Infinity-COM**\
-  Query options interval: 5m 
-  Type: UQL
-  Format: Time Series
-  URL: ${url}/rest/server-hardware/{id}/utilization?fields=CpuUtilization
 
-Note: /rest/server-hardware/{id} is the URI of the server hardware you want to monitor. It can be found in the address bar of your browser when you select a server hardware in the OneView GUI. 
+* Data source: **Infinity-COM**
+* Type: **UQL**
+* Format: **Time Series**
+* URL: **${url}${reportID}**
+* Method: **GET**
+* Header Name: **Authorization**
+* Header Value: **Bearer ${session}**
+* UQL:
+
+  ```
+  parse-json 
+    | jsonata  "series[subject.type = 'TOTAL']" 
+    | scope "buckets"
+    | project "timestamp"=todatetime("timestamp"), "Carbon Emissions (kgCO2e)"="value"
+  ```
+
+
+
+
+
+![](/img/2022-10-19-20_07_50-hpe-com-using-infinity-uql-native-api-calls-grafana-—-mozilla-firefox.png)
 
 This concludes this blog post. I hope you find it useful and should you have any feedback, please send me a [message](mailto:lio@hpe.com).
