@@ -281,10 +281,81 @@ The report does not include estimates of the embedded carbon footprint from manu
     | project "timestamp"=todatetime("timestamp"), "Carbon Emissions (kgCO2e)"="value"
   ```
 
-
-
-
-
 ![](/img/2022-10-19-20_07_50-hpe-com-using-infinity-uql-native-api-calls-grafana-—-mozilla-firefox.png)
+
+### Carbon footprint Report (each server)
+
+This report displays the estimated total carbon emissions for each server
+
+The report does not include estimates of the embedded carbon footprint from manufacturing and distribution of the servers
+
+#### Panel overview
+
+![](/img/2022-10-19-20_25_24-hpe-com-using-infinity-uql-native-api-calls-grafana-—-mozilla-firefox.png)
+
+#### API request:
+
+`get /compute-ops/v1beta1/reports/{id}/data`
+
+#### API response:
+
+```{
+  "id": "843023bd-9412-46c2-8ac2-a3691f657fdb",
+  "type": "compute-ops/report-data",
+  "name": "Carbon Footprint Report (All Servers)",
+  "request": {
+    "reportDataStartAt": "2022-02-04T01:04:20+00:00",
+    "reportDataEndAt": "2022-02-11T01:04:20+00:00",
+    "reportType": "CARBON_FOOTPRINT"
+  },
+  "series": [
+    {
+      "name": "Carbon Emissions",
+      "type": "CO2_EMISSIONS",
+      "units": "kgCO2e",
+      "unitsDisplayName": "kilograms of carbon dioxide equivalent",
+      "subject": {
+        "displayName": "1M512501AB",
+        "id": "875765-S01+1M512501AB",
+        "type": "SERVER"
+      },
+      "summary": {
+        "avg": 6.4,
+        "sum": 6.4
+      },
+      "bucketDurationInSec": 86961.3,
+      "expectedSamplesPerBucket": 289.9,
+      "buckets": [
+        {
+          "timestamp": "2019-08-24T14:15:22Z",
+          "value": 6.4,
+          "numSamples": 233,
+          "noValueReason": null,
+          "extrapolated": 8
+        }
+      ]
+    }
+  ]
+}
+```
+
+#### Panel configuration:
+
+* Data source: **Infinity-COM**
+* Type: **UQL**
+* Format: **Table**
+* URL: **${url}${reportID}**
+* Method: **GET**
+* Header Name: **Authorization**
+* Header Value: **Bearer ${session}**
+* UQL:
+
+  ```
+  parse-json 
+  | scope "series" 
+  | project "Servers"="subject.displayName", "Carbon Emissions"="summary.sum"
+  ```
+
+![](/img/2022-10-19-20_26_28-hpe-com-using-infinity-uql-native-api-calls-grafana-—-mozilla-firefox.png)
 
 This concludes this blog post. I hope you find it useful and should you have any feedback, please send me a [message](mailto:lio@hpe.com).
