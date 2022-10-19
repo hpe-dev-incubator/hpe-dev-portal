@@ -213,6 +213,8 @@ Analyzing carbon emissions can help you understand the impact of your servers on
 
 The report does not include estimates of the embedded carbon footprint from manufacturing and distribution of the servers
 
+#### Panel overview
+
 ![](/img/2022-10-19-20_06_34-hpe-com-using-infinity-uql-native-api-calls-grafana-—-mozilla-firefox.png)
 
 #### API request:
