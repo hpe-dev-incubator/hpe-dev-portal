@@ -1,7 +1,7 @@
 ---
 title: How to monitor HPE Compute Ops Management infrastructure with Grafana
   Metrics Dashboards
-date: 2022-10-19T13:04:56.553Z
+date: 2022-10-19T18:21:24.504Z
 author: Lionel Jullien
 authorimage: /img/small-size-id.jpg
 ---
