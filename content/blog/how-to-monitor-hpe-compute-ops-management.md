@@ -59,15 +59,14 @@ The following diagram describes the different components of the solution:
 
 Pros:
 
-* Enables time-series graphs for the HPE OneView Server hardware utilization statistics and HPE Virtual Connect modules utilization statistics.
-* Supports collecting metrics from any API (simply requires the appropriate PowerShell script for the collection)
-* Provides a flexible solution using widely used and cross-platform scripting language.
+* Lightweight solution as it only requires Grafana and an easily installable plugin
+* Supports collecting metrics from any API
 * Cross-platform support, all components can be installed on Microsoft Windows or Linux.
 
 Cons:
 
-* Requires development of PowerShell scripts if the examples provided do not meet your needs.
-* Requires in-depth knowledge of the language, API, authentication, and methods.
+* Cannot create a time series Grafana visualization with non-time series data you may retrieve from an API. This would require the use of a database like Prometheus or InfluxDB
+* Requires in-depth knowledge of the UQL language, API, authentication, and methods.
 
 # Configuration
 
