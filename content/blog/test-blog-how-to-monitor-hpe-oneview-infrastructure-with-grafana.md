@@ -19,7 +19,7 @@ Grafana’s time-series graphs are the perfect enabler for IT infrastructure opt
 
 The following picture shows a typical HPE infrastructure dashboard with Synergy frame, compute, and interconnect metrics:
 
-![](/img/image001.png)
+[](/img/image001.png)
 
 # HPE OneView metric resources
 
@@ -65,7 +65,7 @@ The script is an independent process that must run continuously.
 
 The following diagram describes the different components of the solution:
 
-![](/img/image003.png)
+[](/img/image003.png)
 
 ## Pros and Cons about this solution
 
@@ -123,23 +123,23 @@ PowerShell scripts to collect metrics from the HPE OneView API can be found in m
 
 Two distinct scripts are available, one for the interconnect metrics and one for compute, enclosure, and server profile metrics.
 
-![](/img/image004.png)
+[](/img/image004.png)
 
 For each script, it is important to provide all the required variables for HPE OneView and InfluxDB.
 
-![](/img/image005.png)
+[](/img/image005.png)
 
 For *Grafana-Interconnect-monitoring.ps1*, at the beginning of the script you need to provide the interconnect module names and port IDs that you would like to monitor using a hash table format:
 
-![](/img/picture1.png)
+[](/img/picture1.png)
 
 Note that the interconnect modules and port names can be found in the HPE OneView UI (in the Interconnects menu):
 
-![](/img/image006.png)
+[](/img/image006.png)
 
 For *Grafana-Server_Enclosure-monitoring.ps1*, you need to provide at the beginning of the script, the resource names (server hardware or server profile or enclosure) and utilization (CPU, power, or temperature) that you want to monitor using a hash table format:
 
-![](/img/image007.png)
+[](/img/image007.png)
 
 The names of the resources that need to be provided can be easily identified in the corresponding menus of the HPE OneView user interface.
 
@@ -159,13 +159,13 @@ You can check the job schedule by typing:
 
 \> <i>*Get-ScheduledJob*</i>
 
-![](/img/image008.png)
+[](/img/image008.png)
 
 Alternatively, launch Windows Task Scheduler, by pressing Windows + R keys on your keyboard to run a command, and enter:
 
 \> <i>*taskschd.msc*</i>
 
-![](/img/image009.png)
+[](/img/image009.png)
 
 As I am using an "at startup" trigger, it is required to restart the server in order to run the scripts.
 
@@ -173,7 +173,7 @@ Restart the server and confirm that scripts are executed. Once restarted, you ca
 
 \> <i>*Get-job*</i>
 
-![](/img/image010.png)
+[](/img/image010.png)
 
 ### How to run the scripts on a Linux machine?
 
@@ -183,7 +183,7 @@ To learn more, you can refer to [this article](https://docs.microsoft.com/en-us/
 
 The Linux repositories proposed by Microsoft can be found [here](https://packages.microsoft.com/config/).
 
-![](/img/image011.png)
+[](/img/image011.png)
 
 On a RHEL/CentOS virtual machine, you can use the following steps:
 
@@ -231,14 +231,14 @@ Display existing databases:
 
 If both databases defined in the script are listed, then both scripts have started successfully:
 
-![](/img/image012.png)
+[](/img/image012.png)
 
 To verify that the metrics are successfully collected, open one of the databases and check the data content as shown below:
 
 \> <i>*use ov_icm_db*</i>
 \> <i>*show measurements*</i>
 
-![](/img/image013.png)
+[](/img/image013.png)
 
 The measurements listed here correspond to the metrics (ports or resources) defined in the PowerShell scripts.
 
@@ -246,7 +246,7 @@ Open one of the measurements to verify that the metric data is coming in:
 
 \> <i>*SELECT*  FROM "Frame3-Interconnect3-Q1"*</i>
 
-![](/img/image014.png)
+[](/img/image014.png)
 
 The data shows that the collection of metrics has started and that everything is running fine.
 
@@ -262,11 +262,11 @@ To launch the Grafana UI, open your web browser and navigate to **http://<grafan
 
 Click on the gear icon on the side menu and click **Add data Sources**.
 
-![](/img/image015.png)
+[](/img/image015.png)
 
 Select **InfluxDB** from the data source list.
 
-![](/img/image016.png)
+[](/img/image016.png)
 
 For server and enclosure metrics, enter a data source name, e.g., **InfluxDB-OV-Server-Metrics**
 
@@ -274,35 +274,35 @@ Add the InfluxDB URL; by default it is **[http://localhost:8086](http://localhos
 
 Add the database name that you defined in *Grafana-Server_Enclosure-monitoring.ps1*
 
-![](/img/image017.png)
+[](/img/image017.png)
 
 Provide the InfluxDB admin username and password.
 
-![](/img/image018.png)
+[](/img/image018.png)
 
 Once completed, click on the **Save & Test** button.
 
 If no error is returned, a "Data source is working" message is displayed.
 
-![](/img/image019.png)
+[](/img/image019.png)
 
 Now repeat the same Add data source procedure for the Interconnect metrics, this time using the data source name **InfluxDB-OV-Interconnect-Metrics**
 
-![](/img/image020.png)
+[](/img/image020.png)
 
 Again, using the database name you defined in *Grafana-Interconnect-monitoring.ps1*
 
-![](/img/image021.png)
+[](/img/image021.png)
 
 Once this is done, click on the **Save & Test** button and make sure the data source is working.
 
-![](/img/image022.png)
+[](/img/image022.png)
 
 You can then click on the **Back** button to return to the Data sources configuration window.
 
 You should now have two new Grafana data sources corresponding to the two InfluxDB databases generated by the two PowerShell scripts.
 
-![](/img/image023.png)
+[](/img/image023.png)
 
 This completes the configuration of the Grafana data source.
 
@@ -314,75 +314,75 @@ A Grafana dashboard can aggregate one or more panels using multiple sources. Thu
 
 Click on the Dashboards icon on the side menu and click **New dashboard.**
 
-![](/img/image024.png)
+[](/img/image024.png)
 
 Click on **Add a new panel** to create a panel to visualize the first HPE Virtual Connect module metrics.
 
 In Data source, select **Influxdb-OV-Interconnect-Metrics**
 
-![](/img/image025.png)
+[](/img/image025.png)
 
 For **Query options**, it is recommended to set **5m** as the minimum query interval to match the HPE OneView API metrics sampling value of the interconnect interfaces (see below).
 
-![](/img/image026.png)
+[](/img/image026.png)
 
 Then, you need to define a query for each port you specified in the PowerShell script (in the **$Ports** variable) for this interconnect module name, as shown below:
 
-![](/img/image027.png)
+[](/img/image027.png)
 
 For example, to set the Q1 port, you need to click on **select measurement** next to **FROM**:
 
-![](/img/image028.png)
+[](/img/image028.png)
 
 A list of all the measurements available in the database is displayed in the drop-down menu, as seen below:
 
-![](/img/image029.png)
+[](/img/image029.png)
 
 Select **Q1,** then click on **field (value)** in the **SELECT** row to select the value you want to display:
 
-![](/img/image030.png)
+[](/img/image030.png)
 
 A list of all measurement values recorded in the database displays in the drop-down menu:
 
-![](/img/image031.png)
+[](/img/image031.png)
 
 Select **receiveKilobytesPerSec** for example.
 
 You can then set the alias as **Q1** to replace the default metric name and get a clear legend label on the chart.
 
-![](/img/image032.png)
+[](/img/image032.png)
 
-![](/img/image033.png)
+[](/img/image033.png)
 
 The metric points should already appear on the graph.
 
 Further, you can specify a panel title in the right-side menu using the interconnect name you selected, like **VC Frame3-Interconnect3** (in our example).
 
-![](/img/image034.png)
+[](/img/image034.png)
 
 And for a better visualization, you can select **Always** for **Connect null values** and **Never** for **Show points** in the **Graph styles** section.
 
-![](/img/image035.png)
+[](/img/image035.png)
 
 And finally, set the unit data rate you selected in the **SELECT** row. Scroll down to the **Standard options** section and in **Unit** , select **Data rate** and click on **kilobytes/sec**.
 
-![](/img/image036.png)
+[](/img/image036.png)
 
 Rendering should display as follows:
 
-![](/img/image037.png)
+[](/img/image037.png)
 
 This completes the configuration of the first port query.
 
 You will need to click on the **+ Query** button for the other ports and repeat the same query configuration (as previously described) for all the ports defined in the PowerShell script.
 
-![](/img/image038.png)
+[](/img/image038.png)
 
-![](/img/image039.png)
+[](/img/image039.png)
 
 Once all queries have been defined, you can save the panel using the **Save** button in the upper right corner. Type a name for the newly created dashboard like **HPE OneView Metrics**.
 
-![](/img/image040.png)
+[](/img/image040.png)
 
 You can now duplicate this panel to create another one for the second HPE Virtual Connect module. Click on the panel's context menu, select **More** , then **Duplicate**.
 
@@ -392,13 +392,13 @@ Change the panel title with the name of your second Virtua Connect module like *
 
 Then modify each query by selecting the ports on the second interconnect module that you want to monitor.
 
-![](/img/image041.png)
+[](/img/image041.png)
 
 Click **Save** then **Apply**.
 
 The dashboard now displays two panels, one for each HPE Virtual Connect module that was defined in *Grafana Interconnect monitoring.ps1*
 
-![](/img/image042.png)
+[](/img/image042.png)
 
 The next step consists in creating panels to display Compute and Frame metrics.
 
@@ -406,11 +406,11 @@ Click on the **Add panel** button on the upper bar and select **Add a new panel*
 
 Select the **InfluxDB-OV-Server-Metrics** data source, then select the resource you want to monitor.
 
-![](/img/image043.png)
+[](/img/image043.png)
 
 Select the measurement you need:
 
-![](/img/image044.png)
+[](/img/image044.png)
 
 Then:
 
@@ -429,13 +429,13 @@ Add any additional measurement you need, using another query.
 
 Here is an example of a frame panel with power and temperature metrics defined:
 
-![](/img/image045.png)
+[](/img/image045.png)
 
 For panels with two different types of measurements (Watt and Celsius) as seen above, you need to define two Y-axes. One for the temperature and one for the power consumption.
 
 Select **Overrides** at the top of the right-side menu, then click on **Add field override** :
 
-![](/img/image046.png)
+[](/img/image046.png)
 
 After that, select the following override properties:
 
@@ -443,15 +443,15 @@ After that, select the following override properties:
 * Axis placement: **Right**
 * Standard options > Unit: Energy / **Watt (W)**
 
-![](/img/image047.png)
+[](/img/image047.png)
 
 When completed, the panel displays the two Y-axis:
 
-![](/img/image048.png)
+[](/img/image048.png)
 
 You can then click on **Save,** then **Apply** buttons to return to the Grafana dashboard. An additional panel to monitor the temperature and power consumption of a frame is displayed.
 
-![](/img/image049.png)
+[](/img/image049.png)
 
 Next, you can add as many panels as you have resources defined in your PowerShell scripts.
 
