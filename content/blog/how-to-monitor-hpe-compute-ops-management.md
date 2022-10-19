@@ -23,53 +23,37 @@ The following picture shows a typical HPE infrastructure dashboard with differen
 
 # HPE Compute Ops Management REST API
 
-HPE Compute Ops Management offers a northbound RESTful API to customers who are looking to enhance their infrastructure management and data-ops using the programmatic extensions or command line.
-The API enables customers to invoke any operation or task that is available through the User Interface (UI) web interface.
+HPE Compute Ops Management provides a northbound RESTful [API ](https://developer.greenlake.hpe.com/docs/greenlake/services/compute-ops/public/openapi/compute-ops-latest/overview/)that supports many operations. All the data you can get from the HPE Compute Ops Management API can be leveraged to create beautiful and instructive Grafana dashboards and the simplest solution is to use a generic Grafana plugin that can handle REST requests, parse json responses and generate tables. With this solution, we greatly reduce the complexity of the solution which in principle requires a database like Prometheus or InfluxDB. In this post, we will see how to do without a database...
+
+HPE Compute Ops Management REST API uses the OAuth 2.0 authentication based on the client credential, which generates a limited lifetime access token.
+
+The access token is a long string in the form of a JSON Web Token that is signed using RS256 algorithm. The access token must be added into the HTTP header with keyword "Authorization: Bearer {token}" for any REST API request. 
+
+For information about how to generate an access token for Compute Ops Management, please refer to [this link ](https://developer.greenlake.hpe.com/docs/greenlake/guides/public/authentication/authentication/)for more details.
+
+Only a few resource metrics are currently supported by HPE Compute Ops Management via the RESTful API, but things will change quickly in the coming months. Today, the only metric available is the carbon footprint report but many other resources are available to create nice Grafana dashboards such as data related to the number of servers, health of servers, service packs, groups, etc. 
 
 
-https://developer.greenlake.hpe.com/docs/greenlake/services/compute-ops/public/openapi/compute-ops-latest/overview/
 
-# HPE Compute Ops Management metric resources
+# Grafana Infinity plugin
 
-Only a few resource metrics are currently supported by HPE Compute Ops Management via the RESTful API, but things will change quickly in the coming months. Today, the main metric available is the CO2 emission report but many other resources are available to create nice dashboards in Grafana such as data related to the number of servers, service packs, groups, etc. 
+There are several Grafana plugins that support data collection via the REST API (e.g. Infinity, [JSON](https://grafana.com/grafana/plugins/simpod-json-datasource/), [JSON API](https://grafana.com/grafana/plugins/marcusolsson-json-datasource/)) but [Infinity ](https://grafana.com/grafana/plugins/yesoreyeram-infinity-datasource/)has the great advantage of offering an advanced query language that is essential for manipulating JSON data into a suitable format that Grafana can understand. This language is called [UQL](https://sriramajeyam.com/grafana-infinity-datasource/wiki/uql/), Infinity's unstructured query language.
 
-The following table provides the resource metrics that are accessible through the HPE OneView RESTful API:
+UQL is not simple at first glance but I will provide examples in this blog. With UQL, you can customize the results you need regardless of the json format returned by the API.
 
-| **Server hardware Metrics** | **URI**                                                            |
-| --------------------------- | ------------------------------------------------------------------ |
-| Ambient Temperature         | */rest/server-hardware/{id}/utilization?fields=AmbientTemperature* |
-| Cpu Average Frequency       | */rest/server-hardware/{id}/utilization?fields=CpuAverageFreq*     |
-| Cpu Utilization             | */rest/server-hardware/{id}/utilization?fields=CpuUtilization*     |
-| Average Power               | */rest/server-hardware/{id}/utilization?fields=AveragePower*       |
-| Peak Power                  | */rest/server-hardware/{id}/utilization?fields=PeakPower*          |
-| Power Cap                   | */rest/server-hardware/{id}/utilization?fields=PowerCap*           |
+A UQL query can be formed with a list of commands joined by |. Most of the time, fields are referenced in double quotes and string values are referenced in single quotes as shown below:
 
-| **Enclosures Metrics** | **URI**                                                       |
-| ---------------------- | ------------------------------------------------------------- |
-| Ambient Temperature    | */rest/enclosures/{id}/utilization?fields=AmbientTemperature* |
-| Average Power          | */rest/enclosures/{id}/utilization?fields=AveragePower*       |
-| Peak Power             | */rest/enclosures/{id}/utilization?fields=PeakPower*          |
-
-| **Interconnect Metrics**                                  | **URI**                                        |
-| --------------------------------------------------------- | ---------------------------------------------- |
-| Statistics for the specified port name on an interconnect | */rest/interconnects/{id}/statistics/portname* |
-| Interconnect cpu and memory utilization data              | */rest/interconnects/{id}/utilization*         |
-
-HPE OneView metrics are enabled by default. For HPE Virtual Connect network statistics, the Utilization Sampling settings defined in the logical interconnect group controls the data collection rate and sample interval value. By default, the HPE Virtual Connect module sampling rate is 12 samples per hour, as shown in the following figure:
-
-<img src="/img/image002.png" width="50%" height="50%">
-
-# InfluxDB Time-series database
-
-My decision to use InfluxDB with Grafana metrics dashboards to monitor HPE OneView infrastructure was made for several reasons. First, InfluxDB can be installed on both Microsoft Windows and Linux, it is an open-source tool, and many useful modules are available to create entries in a database. Other options include Prometheus, which can also be used to collect and record measurements in real time.  
-
-To collect HPE OneView metrics, I use a PowerShell script. This script collects utilization statistics of defined resources from the HPE OneView API periodically and continually transmits the metrics to InfluxDB via its REST API. The timestamped metrics data is saved into the InfluxDB time series database that Grafana uses to generate the graphs.
-
-The script is an independent process that must run continuously.
+![](/img/2022-10-19-16_33_28-hpe-software-‎-onenote-for-windows-10.png)
 
 The following diagram describes the different components of the solution:
 
-![](/img/image003.png)
+![](/img/2022-10-19-16_15_11-lj-synergy-composable-fabric.pptx-powerpoint.png)
+
+
+
+
+
+![]()
 
 ## Pros and Cons about this solution
 
