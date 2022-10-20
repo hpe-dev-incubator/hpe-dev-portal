@@ -47,7 +47,7 @@ The following table provides the resource metrics that are accessible through th
 
 HPE OneView metrics are enabled by default. For HPE Virtual Connect network statistics, the Utilization Sampling settings defined in the logical interconnect group controls the data collection rate and sample interval value. By default, the HPE Virtual Connect module sampling rate is 12 samples per hour, as shown in the following figure:
 
-![](/img/image002.png)
+<img src="/img/image002.png" width="50%" height="50%">
 
 # InfluxDB Time-series database
 
