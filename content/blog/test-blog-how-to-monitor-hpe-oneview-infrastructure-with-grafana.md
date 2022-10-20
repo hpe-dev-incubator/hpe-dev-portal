@@ -447,7 +447,7 @@ When completed, the panel displays the two Y-axis:
 
 You can then click on **Save,** then **Apply** buttons to return to the Grafana dashboard. An additional panel to monitor the temperature and power consumption of a frame is displayed.
 
-(/img/image049.png)
+![](/img/image049.png)
 
 Next, you can add as many panels as you have resources defined in your PowerShell scripts.
 
