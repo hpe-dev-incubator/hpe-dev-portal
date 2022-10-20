@@ -19,7 +19,7 @@ Grafana’s time-series graphs are the perfect enabler for IT infrastructure opt
 
 The following picture shows a typical HPE infrastructure dashboard with Synergy frame, compute, and interconnect metrics:
 
-(/img/image001.png)
+![](/img/image001.png)
 
 # HPE OneView metric resources
 
@@ -49,7 +49,7 @@ The following table provides the resource metrics that are accessible through th
 
 HPE OneView metrics are enabled by default. For HPE Virtual Connect network statistics, the Utilization Sampling settings defined in the logical interconnect group controls the data collection rate and sample interval value. By default, the HPE Virtual Connect module sampling rate is 12 samples per hour, as shown in the following figure:
 
-(/img/image002.png)
+![](/img/image002.png)
 
 # InfluxDB Time-series database
 
@@ -61,7 +61,7 @@ The script is an independent process that must run continuously.
 
 The following diagram describes the different components of the solution:
 
-(/img/image003.png)
+![](/img/image003.png)
 
 ## Pros and Cons about this solution
 
@@ -101,6 +101,7 @@ Then create a user with an authentication password:
 Once created, authenticate using:
 
 \> <i>*auth*</i>
+
 > username: <i>*admin*</i>
 > password: <i>\*\*\*\*\*\*\*\*</i>   
 
@@ -119,23 +120,23 @@ PowerShell scripts to collect metrics from the HPE OneView API can be found in m
 
 Two distinct scripts are available, one for the interconnect metrics and one for compute, enclosure, and server profile metrics.
 
-(/img/image004.png)
+![](/img/image004.png)
 
 For each script, it is important to provide all the required variables for HPE OneView and InfluxDB.
 
-(/img/image005.png)
+![](/img/image005.png)
 
 For *Grafana-Interconnect-monitoring.ps1*, at the beginning of the script you need to provide the interconnect module names and port IDs that you would like to monitor using a hash table format:
 
-(/img/picture1.png)
+![](/img/picture1.png)
 
 Note that the interconnect modules and port names can be found in the HPE OneView UI (in the Interconnects menu):
 
-(/img/image006.png)
+![](/img/image006.png)
 
 For *Grafana-Server_Enclosure-monitoring.ps1*, you need to provide at the beginning of the script, the resource names (server hardware or server profile or enclosure) and utilization (CPU, power, or temperature) that you want to monitor using a hash table format:
 
-(/img/image007.png)
+![](/img/image007.png)
 
 The names of the resources that need to be provided can be easily identified in the corresponding menus of the HPE OneView user interface.
 
@@ -192,6 +193,7 @@ On a RHEL/CentOS virtual machine, you can use the following steps:
 * Copy the script files to the Linux system and set the execution permission on both files:
 
   \> <i>*chmod +x Grafana-Interconnect-monitoring.ps1*</i>
+
   > <i>*chmod +x Grafana-Server_Enclosure-monitoring.ps1*</i>   
 * Open the crontab configuration:
 
@@ -227,6 +229,7 @@ If both databases defined in the script are listed, then both scripts have start
 To verify that the metrics are successfully collected, open one of the databases and check the data content as shown below:
 
 \> <i>*use ov_icm_db*</i>
+
 > <i>*show measurements*</i>
 
 (/img/image013.png)
