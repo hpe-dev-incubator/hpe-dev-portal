@@ -180,7 +180,7 @@ To learn more, you can refer to [this article](https://docs.microsoft.com/en-us/
 
 The Linux repositories proposed by Microsoft can be found [here](https://packages.microsoft.com/config/).
 
-(/img/image011.png)
+![](/img/image011.png)
 
 On a RHEL/CentOS virtual machine, you can use the following steps:
 
