@@ -67,15 +67,15 @@ As with any solution, there are both Pros and Cons to using it.
   
 Pros:
 
-* Enables time-series graphs for the HPE OneView Server hardware utilization statistics and HPE Virtual Connect modules utilization statistics.
+* Enables time-series graphs for the HPE OneView Server hardware utilization statistics and HPE Virtual Connect modules utilization statistics
 * Supports collecting metrics from any API (simply requires the appropriate PowerShell script for the collection)
-* Provides a flexible solution using widely used and cross-platform scripting language.
-* Cross-platform support, all components can be installed on Microsoft Windows or Linux.
+* Provides a flexible solution using widely used and cross-platform scripting language
+* Cross-platform support, all components can be installed on Microsoft Windows or Linux
 
 Cons:
 
-* Requires development of PowerShell scripts if the examples provided do not meet your needs.
-* Requires in-depth knowledge of the language, API, authentication, and methods.
+* Requires development of PowerShell scripts if the examples provided do not meet your needs
+* Requires in-depth knowledge of the language, API, authentication, and methods
 
 # Configuration
 
@@ -84,7 +84,7 @@ Cons:
 * Grafana and InfluxDB must be installed, started, and enabled
 * A firewall rule must be created to allow TCP port 8086 (used by InfluxDB API, by default)
 * PowerShell Core for Linux must be installed if a Linux server is used to run the PowerShell scripts
-* HPE OneView PowerShell library 6.60 or later must be used.
+* HPE OneView PowerShell library 6.60 or later must be used
 
 ## Configure InfluxDB http Authentication
 
