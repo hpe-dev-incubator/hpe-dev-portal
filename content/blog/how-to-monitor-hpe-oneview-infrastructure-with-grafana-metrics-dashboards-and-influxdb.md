@@ -5,7 +5,7 @@ date: 2022-10-12T10:00:35.115Z
 author: Lionel Jullien
 authorimage: /img/small-size-id.jpg
 ---
-<style>ul li{ font-size:26px;}</style>
+<style>ul li{ font-size:26px;padding-bottom: 0.5em;}</style>
 <style> i{ color:grey;font-family:'Courier New';font-size:22px; } </style>
 
 The purpose of this blog post is to describe how to generate Grafana dashboards using InfluxDB and PowerShell scripts to monitor any HPE Compute infrastructure managed by HPE OneView.
@@ -63,7 +63,8 @@ The following diagram describes the different components of the solution:
 ![](/img/image003.png)
 
 ## Pros and Cons about this solution
-
+As with any solution, there are both Pros and Cons to using it. 
+  
 Pros:
 
 * Enables time-series graphs for the HPE OneView Server hardware utilization statistics and HPE Virtual Connect modules utilization statistics.
