@@ -129,8 +129,10 @@ Three variables are required:
 
    Create a new variable using the following parameters:
 
-   * Name: **url**   
+   * Name: **url** 
+  
    * Type: **Custom**
+
    * Value: *endpoint URL*
 
        <img
@@ -141,8 +143,11 @@ Three variables are required:
    HPE Compute Ops Management REST API uses the OAuth 2.0 authentication based on the client credential, which generates a limited lifetime access token. So the variable must be created using:
 
    * Name: **session**   
+
    * Data source: **Infinity-COM**   
+
    * Query Type: **Infinity**   
+
    * URL: **https://sso.common.cloud.hpe.com/as/token.oauth2**
 
        <img
@@ -178,9 +183,13 @@ Three variables are required:
    For this variable, use the following parameters:
 
    * Name: **reportID**   
+
    * Data source: **Infinity-COM**   
+
    * Query Type: **Infinity**   
+
    * URL: **${url}/compute-ops/v1beta1/reports**   
+
    * Column 1: **reportDataUri**
 
       <img
@@ -206,8 +215,6 @@ Three variables are required:
       <img
     src="/img/2022-10-19-19_02_23-hpe-com-using-infinity-uql-native-api-calls-grafana-—-mozilla-firefox.png"
       />
-
-
 
 The variables and parameters of the dashboard are now complete. The warning on the `reportID` variable below is expected because this variable is not yet used by any panel. This will be corrected once `reportID` is used in a query.
 
@@ -287,18 +294,27 @@ The report does not include estimates of the embedded carbon footprint from manu
 
 #### Panel configuration:
 
-* Data source: **Infinity-COM**   
+* Data source: **Infinity-COM**  
+ 
 * Type: **UQL**   
-* Format: **Time Series**   
-* URL: **${url}${reportID}**   
+
+* Format: **Time Series** 
+  
+* URL: **${url}${reportID}**  
+ 
 * Method: **GET**   
-* Header: Name = **Authorization /** Value = **Bearer ${session}**   
+
+* Header: Name = **Authorization /** Value = **Bearer ${session}**  
+ 
 * UQL:
 
   ```
   parse-json   
-    | jsonata  "series[subject.type = 'TOTAL']"    
+
+    | jsonata  "series[subject.type = 'TOTAL']" 
+   
     | scope "buckets"   
+
     | project "timestamp"=todatetime("timestamp"), "Carbon Emissions (kgCO2e)"="value"
   ```
 
@@ -306,10 +322,11 @@ The report does not include estimates of the embedded carbon footprint from manu
     src="/img/2022-10-19-20_07_50-hpe-com-using-infinity-uql-native-api-calls-grafana-—-mozilla-firefox.png"
   />
 
+   Note: JSONata is an open source expression language that is used for querying and transforming JSON data. You can refer to the following [JSONata Cheatsheet](https://www.stedi.com/docs/mappings/jsonata-cheatsheet) for tons of examples on how to manipulate json data.
+
 ### Carbon footprint Report (each server)
 
 This report displays the estimated total carbon emissions for each server.
-
 
 #### Panel overview
 
@@ -364,23 +381,33 @@ This report displays the estimated total carbon emissions for each server.
 #### Panel configuration:
 
 * Data source: **Infinity-COM**   
+
 * Type: **UQL**   
+
 * Format: **Table**   
+
 * URL: **${url}${reportID}**   
+
 * Method: **GET**   
+
 * Header: Name = **Authorization /** Value = **Bearer ${session}**   
+
 * UQL:
 
   ```
   parse-json   
+
   | scope "series"   
+
   | project "Servers"="subject.displayName", "Carbon Emissions"="summary.sum"
   ```
 * Override: Fields with name = **Carbon Emissions** / Cell display Mode = **LCD Gauge**
 * Vizualization: **Table**
 
   * Unit: **kgCO2e** 
-  * Color scheme: **Green-Yellow-Red (by value)**   
+
+  * Color scheme: **Green-Yellow-Red (by value)**
+   
 
   <img
     src="/img/2022-10-19-20_26_28-hpe-com-using-infinity-uql-native-api-calls-grafana-—-mozilla-firefox.png"
