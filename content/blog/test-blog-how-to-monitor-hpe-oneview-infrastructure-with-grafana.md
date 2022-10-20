@@ -443,7 +443,7 @@ After that, select the following override properties:
 
 When completed, the panel displays the two Y-axis:
 
-(/img/image048.png)
+![](/img/image048.png)
 
 You can then click on **Save,** then **Apply** buttons to return to the Grafana dashboard. An additional panel to monitor the temperature and power consumption of a frame is displayed.
 
