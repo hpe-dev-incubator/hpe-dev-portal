@@ -5,8 +5,6 @@ date: 2022-10-19T18:21:24.504Z
 author: Lionel Jullien
 authorimage: /img/small-size-id.jpg
 ---
-![]()
-
 <style>ul li{ font-size:26px;}</style>
 
 <style> i{ color:grey;font-family:'Courier New';font-size:22px; } </style>
@@ -133,8 +131,10 @@ Three variables are required:
 
    Create a new variable using the following parameters:
 
-   * Name: **url** <br />  
-   * Type: **Custom**  <br /> 
+   * Name: **url** 
+  
+   * Type: **Custom** 
+
    * Value: *endpoint URL*
 
        <img
@@ -144,8 +144,10 @@ Three variables are required:
 
    HPE Compute Ops Management REST API uses the OAuth 2.0 authentication based on the client credential, which generates a limited lifetime access token. So the variable must be created using:
 
-   * Name: **session** <br />  
+   * Name: **session** <br />
+  
    * Data source: **Infinity-COM**<br />   
+
    * Query Type: **Infinity**   
    * URL: **https://sso.common.cloud.hpe.com/as/token.oauth2**
 
@@ -156,19 +158,20 @@ Three variables are required:
    Click then on **HTTP method, Query param, Headers** and use the following parameters:
 
    * Method: **POST**   <br />
-   * Body: **grant\_type=client\_credentials&client_id=**<your-client-ID>**&client_secret=**<your-client-secret>
 
-   *\<your-client-ID>* and *\<your-client-secret>* are the HPE Compute Ops Management API client credentials generated from the HPE GreenLake Cloud Platform (GLCP).
+   * Body: **grant_type=client_credentials&client_id=**<your-client-ID>**&client_secret=**<your-client-secret>
+
+   *<your-client-ID>* and *<your-client-secret>* are the HPE Compute Ops Management API client credentials generated from the HPE GreenLake Cloud Platform (GLCP).
 
       <img
-   src="/img/2022-10-19-18_07_06-hpe-com-using-infinity-uql-native-api-calls-grafana-—-mozilla-firefox"
+   src="/img/2022-10-19-18_07_06-hpe-com-using-infinity-uql-native-api-calls-grafana-—-mozilla-firefox.png"
      />
 
 
 
    And add in the Headers tab: 
 
-   * Header Name: **Content-type** 
+   * Header Name: **Content-type** <br />
    * Header Value: **application/x-www-form-urlencoded**
 
        <img
@@ -180,17 +183,19 @@ Three variables are required:
     <img
     src="/img/lj-grafana-com-picture7.png"
     />
-
-
-3. A variable for the carbon footprint report ID   
+4. A variable for the carbon footprint report ID   
 
    I use a variable for the carbon footprint report ID, because each time a new report is generated, a new ID is created. So by using a variable, I can fetch the last report ID and be sure that all my CO2 report API requests will be successful.
    For this variable, use the following parameters:
 
    * Name: **reportID**<br />   
+
    * Data source: **Infinity-COM** <br />  
+
    * Query Type: **Infinity**   <br />
+
    * URL: **${url}/compute-ops/v1beta1/reports** <br />  
+
    * Column 1: **reportDataUri**
 
       <img
@@ -205,9 +210,8 @@ Three variables are required:
       src="/img/2022-10-19-18_35_09-hpe-com-using-infinity-uql-native-api-calls-grafana-—-mozilla-firefox.png"
       />
 
-
-
    * Header Name: **Authorization**  
+
    * Header Value: **Bearer ${session}**
 
        <img
@@ -303,12 +307,12 @@ The report does not include estimates of the embedded carbon footprint from manu
 * Format: **Time Series** <br />
 * URL: **${url}${reportID}** <br /> 
 * Method: **GET**   <br />
-* Header: Name = **Authorization** - Value = **Bearer ${session}**<br />
-* UQL:
-
-  **parse-json**  
-  **\| jsonata  "series\[subject.type = 'TOTAL']"**  
-  **\| scope "buckets"**  
+* Header name: **Authorization** 
+* Header value = **Bearer ${session}**<br />
+* UQL:   
+  **parse-json**\
+  **\| jsonata  "series\[subject.type = 'TOTAL']"**\
+  **\| scope "buckets"**\
   **\| project "timestamp"=todatetime("timestamp"), "Carbon Emissions (kgCO2e)"="value"**
 
   <img
@@ -378,17 +382,17 @@ This report displays the estimated total carbon emissions for each server.
 * Format: **Table**   <br />
 * URL: **${url}${reportID}** <br />  
 * Method: **GET**   <br />
-* Header: Name = **Authorization** - Value = **Bearer ${session}**  <br /> 
-* UQL:
-
-  **parse-json**  
-  **\| scope "series"**  
+* Header name: **Authorization** 
+* Header value = **Bearer ${session}**<br />
+* UQL:  
+  **parse-json**\
+  **\| scope "series"**\
   **\| project "Servers"="subject.displayName", "Carbon Emissions"="summary.sum"**
 * Override: Fields with name = **Carbon Emissions** / Cell display Mode = **LCD Gauge**
 * Vizualization: **Table**
 
   * Unit: **kgCO2e** 
-  * Color scheme: **Green-Yellow-Red (by value)**<br />
+  * Color scheme: **Green-Yellow-Red (by value)**<br /><br />
 
   <img
     src="/img/2022-10-19-20_26_28-hpe-com-using-infinity-uql-native-api-calls-grafana-—-mozilla-firefox.png"
