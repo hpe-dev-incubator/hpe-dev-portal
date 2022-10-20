@@ -145,7 +145,7 @@ Three variables are required:
    * Query Type: **Infinity**
    * URL: **https://sso.common.cloud.hpe.com/as/token.oauth2**
 
-    <img
+   <img
      src="/img/2022-10-19-17_52_33-hpe-com-using-infinity-uql-native-api-calls-grafana-—-mozilla-firefox.png"
        />
 
@@ -163,7 +163,7 @@ Three variables are required:
    * Header Name: **Content-type**
    * Header Value: **application/x-www-form-urlencoded**
 
-    <img
+   <img
      src="/img/lj-grafana-com-picture6.png"
      />
 
@@ -184,7 +184,7 @@ Three variables are required:
    * URL: **${url}/compute-ops/v1beta1/reports**
    * Column 1: **reportDataUri**
 
-    <img
+   <img
    src="/img/2022-10-19-18_33_40-hpe-com-using-infinity-uql-native-api-calls-grafana-—-mozilla-firefox.png"
    />
 
