@@ -102,12 +102,12 @@ Once created, authenticate using:
 
 \> <i>*auth*</i>
 
-> username: <i>*admin*</i>
+> username: <i>*admin*</i>  
 > password: <i>\*\*\*\*\*\*\*\*</i>   
 
 To enable the http authentication, you need to modify the InfluxDB configuration file. Go to the **\[http]** section of **/etc/influxdb/influxdb.conf** and change the **auth-enabled** value to **true.**
 
-\[http]\
+\[http]  
 auth-enabled = <i>*true*</i> 
 
 Once modified, restart the InfluxDB service:
