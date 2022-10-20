@@ -5,6 +5,9 @@ author: Denis Choukroun
 authorimage: /img/Avatar1.svg
 disable: false
 ---
+<style>ul li{ font-size:26px;}</style>
+<style> i{ color:grey;font-family:'Courier New';font-size:22px; } </style>
+
 The purpose of this blog post is to describe how to generate Grafana dashboards using InfluxDB and PowerShell scripts to monitor any HPE Compute infrastructure managed by HPE OneView.
 
 # Grafana Dashboards
@@ -45,7 +48,7 @@ The following table provides the resource metrics that are accessible through th
 
 HPE OneView metrics are enabled by default. For HPE Virtual Connect network statistics, the Utilization Sampling settings defined in the logical interconnect group controls the data collection rate and sample interval value. By default, the HPE Virtual Connect module sampling rate is 12 samples per hour, as shown in the following figure:
 
-<img src="/img/image002.png" width="50%" height="50%">
+![](/img/image002.png)
 
 # InfluxDB Time-series database
 
