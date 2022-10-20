@@ -386,13 +386,13 @@ Change the panel title with the name of your second Virtua Connect module like *
 
 Then modify each query by selecting the ports on the second interconnect module that you want to monitor.
 
-(/img/image041.png)
+![](/img/image041.png)
 
 Click **Save** then **Apply**.
 
 The dashboard now displays two panels, one for each HPE Virtual Connect module that was defined in *Grafana Interconnect monitoring.ps1*
 
-(/img/image042.png)
+![](/img/image042.png)
 
 The next step consists in creating panels to display Compute and Frame metrics.
 
@@ -400,11 +400,11 @@ Click on the **Add panel** button on the upper bar and select **Add a new panel*
 
 Select the **InfluxDB-OV-Server-Metrics** data source, then select the resource you want to monitor.
 
-(/img/image043.png)
+![](/img/image043.png)
 
 Select the measurement you need:
 
-(/img/image044.png)
+![](/img/image044.png)
 
 Then:
 
