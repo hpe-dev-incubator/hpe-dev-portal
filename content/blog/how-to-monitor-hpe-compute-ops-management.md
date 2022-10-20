@@ -192,13 +192,13 @@ Three variables are required:
 
    * Method: **GET**
 
-     <img
+   <img
    src="/img/2022-10-19-18_35_09-hpe-com-using-infinity-uql-native-api-calls-grafana-—-mozilla-firefox.png"
    />
    * Header Name: **Authorization**
    * Header Value: **Bearer ${session}**
 
-     <img
+   <img
   src="/img/2022-10-19-18_34_48-hpe-com-using-infinity-uql-native-api-calls-grafana-—-mozilla-firefox.png"
     />
 
