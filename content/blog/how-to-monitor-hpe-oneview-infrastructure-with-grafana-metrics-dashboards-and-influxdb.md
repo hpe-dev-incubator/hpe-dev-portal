@@ -86,7 +86,7 @@ Cons:
 * PowerShell Core for Linux must be installed if a Linux server is used to run the PowerShell scripts
 * HPE OneView PowerShell library 6.60 or later must be used
 
-## Configure InfluxDB http Authentication
+## Configure InfluxDB http authentication
 
 By default, all security features are disabled in InfluxDB, so it is recommended to set up authentication by creating an *admin* user.
 
@@ -109,7 +109,7 @@ auth-enabled = <i>*true*</i>
 Once modified, restart the InfluxDB service:  
 \> <i>*sudo systemctl restart influxdb*</i>
 
-## PowerShell Scripts for HPE OneView metrics collection
+## PowerShell scripts for HPE OneView metrics collection
 
 PowerShell scripts to collect metrics from the HPE OneView API can be found in my GitHub repository [here](https://github.com/jullienl/HPE-Synergy-OneView-demos/tree/master/Powershell/Grafana%20Metrics).
 
