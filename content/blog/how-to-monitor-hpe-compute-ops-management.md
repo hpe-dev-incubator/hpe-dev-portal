@@ -130,9 +130,7 @@ Three variables are required:
    Create a new variable using the following parameters:
 
    * Name: **url** 
-  
    * Type: **Custom** 
-
    * Value: *endpoint URL*
 
        <img
@@ -142,11 +140,9 @@ Three variables are required:
 
    HPE Compute Ops Management REST API uses the OAuth 2.0 authentication based on the client credential, which generates a limited lifetime access token. So the variable must be created using:
 
-   * Name: **session** <br />
-  
-   * Data source: **Infinity-COM**<br />   
-
-   * Query Type: **Infinity**   
+   * Name: **session**
+   * Data source: **Infinity-COM**
+   * Query Type: **Infinity**
    * URL: **https://sso.common.cloud.hpe.com/as/token.oauth2**
 
        <img
@@ -155,8 +151,7 @@ Three variables are required:
 
    Click then on **HTTP method, Query param, Headers** and use the following parameters:
 
-   * Method: **POST**   <br />
-
+   * Method: **POST**
    * Body: **grant\_type=client\_credentials&client_id=**<your-client-ID>**&client_secret=**<your-client-secret>
 
    *<your-client-ID>* and *<your-client-secret>* are the HPE Compute Ops Management API client credentials generated from the HPE GreenLake Cloud Platform (GLCP).
@@ -166,8 +161,7 @@ Three variables are required:
      />
 
    And add in the Headers tab: 
-   * Header Name: **Content-type** <br />
-
+   * Header Name: **Content-type**
    * Header Value: **application/x-www-form-urlencoded**
 
        <img
@@ -187,14 +181,10 @@ Three variables are required:
 
    For this variable, use the following parameters:
 
-   * Name: **reportID**<br />   
-
-   * Data source: **Infinity-COM** <br />  
-
-   * Query Type: **Infinity**   <br />
-
-   * URL: **${url}/compute-ops/v1beta1/reports** <br />  
-
+   * Name: **reportID**
+   * Data source: **Infinity-COM**
+   * Query Type: **Infinity**
+   * URL: **${url}/compute-ops/v1beta1/reports**
    * Column 1: **reportDataUri**
 
       <img
@@ -209,8 +199,7 @@ Three variables are required:
       src="/img/2022-10-19-18_35_09-hpe-com-using-infinity-uql-native-api-calls-grafana-—-mozilla-firefox.png"
       />
 
-   * Header Name: **Authorization**  
-
+   * Header Name: **Authorization**
    * Header Value: **Bearer ${session}**
 
        <img
@@ -307,12 +296,15 @@ The report does not include estimates of the embedded carbon footprint from manu
 * URL: **${url}${reportID}** <br /> 
 * Method: **GET**   <br />
 * Header name: **Authorization** 
-* Header value = **Bearer ${session}**<br />
+* Header value = **Bearer ${session}**
 * UQL:   
   **parse-json**   
   **\| jsonata  "series[subject.type = 'TOTAL']"**   
   **\| scope "buckets"**   
   **\| project "timestamp"=todatetime("timestamp"), "Carbon Emissions (kgCO2e)"="value"**
+* Vizualization: **Time Series**
+  * Unit: **Number**
+
 
   <img
     src="/img/2022-10-19-20_07_50-hpe-com-using-infinity-uql-native-api-calls-grafana-—-mozilla-firefox.png"
@@ -390,7 +382,7 @@ This report displays the estimated total carbon emissions for each server.
 * Override: Fields with name = **Carbon Emissions** / Cell display Mode = **LCD Gauge**
 * Vizualization: **Table**
   * Unit: **kgCO2e** 
-  * Color scheme: **Green-Yellow-Red (by value)**<br /><br />
+  * Color scheme: **Green-Yellow-Red (by value)**<br />
 
   <img
     src="/img/2022-10-19-20_26_28-hpe-com-using-infinity-uql-native-api-calls-grafana-—-mozilla-firefox.png"
