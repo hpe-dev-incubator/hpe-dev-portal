@@ -425,13 +425,13 @@ Add any additional measurement you need, using another query.
 
 Here is an example of a frame panel with power and temperature metrics defined:
 
-(/img/image045.png)
+![](/img/image045.png)
 
 For panels with two different types of measurements (Watt and Celsius) as seen above, you need to define two Y-axes. One for the temperature and one for the power consumption.
 
 Select **Overrides** at the top of the right-side menu, then click on **Add field override** :
 
-(/img/image046.png)
+![](/img/image046.png)
 
 After that, select the following override properties:
 
