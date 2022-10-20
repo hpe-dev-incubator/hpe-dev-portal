@@ -73,10 +73,13 @@ Cons:
 
 From an SSH session on the Grafana server, enter:\
 
-> <i>grafana-cli plugins install yesoreyeram-infinity-datasource</i>\
-> Then restart the Grafana service:\
-> <i>service grafana-server restart</i>\
-> For more details on how to install the Infinity plugin, you can refer to this [article](< https://github.com/yesoreyeram/grafana-infinity-datasource>).
+> <i>grafana-cli plugins install yesoreyeram-infinity-datasource</i>
+
+Then restart the Grafana service:\
+
+> <i>service grafana-server restart</i>
+
+For more details on how to install the Infinity plugin, you can refer to this [article](https://github.com/yesoreyeram/grafana-infinity-datasource).
 
 ## Grafana configuration
 
@@ -114,7 +117,7 @@ Then select **Variables** then **Add variables**:
 
 Three variables are required:
 
-1. A variable for the endpoint URL for your HPE Compute Ops Management API:
+1. A variable for the HPE Compute Ops Management API endpoint URL:
 
    Endpoints are the host URLs that you will submit your API requests to. HPE Compute Ops Management has unique endpoints in specific regions. Which region is used depends on which region the devices were onboarded into via the HPE GreenLake Cloud Platform.
 
@@ -357,6 +360,8 @@ The report does not include estimates of the embedded carbon footprint from manu
   * Unit: **kgCO2e** 
   * Color scheme: **Green-Yellow-Red (by value)**
 
-![](/img/2022-10-19-20_26_28-hpe-com-using-infinity-uql-native-api-calls-grafana-—-mozilla-firefox.png)
+  <img
+    src="/img/2022-10-19-20_26_28-hpe-com-using-infinity-uql-native-api-calls-grafana-—-mozilla-firefox.png"
+  />
 
 This concludes this blog post. I hope you find it useful and should you have any feedback, please send me a [message](mailto:lio@hpe.com).
