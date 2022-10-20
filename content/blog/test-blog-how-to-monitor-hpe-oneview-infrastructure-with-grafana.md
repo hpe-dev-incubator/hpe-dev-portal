@@ -439,7 +439,7 @@ After that, select the following override properties:
 * Axis placement: **Right**
 * Standard options > Unit: Energy / **Watt (W)**
 
-(/img/image047.png)
+![](/img/image047.png)
 
 When completed, the panel displays the two Y-axis:
 
