@@ -134,6 +134,8 @@ Three variables are required:
    Create a new variable using the following parameters:
 
    * Name: **url** 
+
+
    * Type: **Custom**
    * Value: *endpoint URL*
 
@@ -145,8 +147,14 @@ Three variables are required:
    HPE Compute Ops Management REST API uses the OAuth 2.0 authentication based on the client credential, which generates a limited lifetime access token. So the variable must be created using:
 
    * Name: **session**   
+
+
    * Data source: **Infinity-COM**   
+
+
    * Query Type: **Infinity**   
+
+
    * URL: **https://sso.common.cloud.hpe.com/as/token.oauth2**
 
        <img
@@ -190,9 +198,17 @@ Three variables are required:
    For this variable, use the following parameters:
 
    * Name: **reportID**   
+
+
    * Data source: **Infinity-COM**   
+
+
    * Query Type: **Infinity**   
+
+
    * URL: **${url}/compute-ops/v1beta1/reports**   
+
+
    * Column 1: **reportDataUri**
 
       <img
@@ -298,16 +314,33 @@ The report does not include estimates of the embedded carbon footprint from manu
 #### Panel configuration:
 
 * Data source: **Infinity-COM**  
+
+
 * Type: **UQL**   
+
+
 * Format: **Time Series** 
+
+
 * URL: **${url}${reportID}**  
+
+
 * Method: **GET**   
+
+
 * Header: Name = **Authorization /** Value = **Bearer ${session}**  
+
+
 * UQL:
 
-  **parse-json**   \
-  **\| jsonata  "series\[subject.type = 'TOTAL']"**\
-   **\| scope "buckets"**\
+  **parse-json**
+
+     \
+  **\| jsonata  "series\[subject.type = 'TOTAL']"**
+
+   **\| scope "buckets"**
+
+  \
   **\| project "timestamp"=todatetime("timestamp"), "Carbon Emissions (kgCO2e)"="value"**
 
   <img
@@ -372,22 +405,44 @@ This report displays the estimated total carbon emissions for each server.
 
 #### Panel configuration:
 
-* Data source: **Infinity-COM**   
+* Data source: **Infinity-COM**
+
+     
 * Type: **UQL**   
+
+
 * Format: **Table**   
+
+
 * URL: **${url}${reportID}**   
+
+
 * Method: **GET**   
+
+
 * Header: Name = **Authorization /** Value = **Bearer ${session}**   
+
+
 * UQL:
 
-  **parse-json**\
-  **\| scope "series"**\
+  **parse-json**
+
+  \
+  **\| scope "series"**
+
+  \
   **\| project "Servers"="subject.displayName", "Carbon Emissions"="summary.sum"**
+
+
 * Override: Fields with name = **Carbon Emissions** / Cell display Mode = **LCD Gauge**
+
+
 * Vizualization: **Table**
 
   * Unit: **kgCO2e** 
   * Color scheme: **Green-Yellow-Red (by value)**
+
+
 
   <img
     src="/img/2022-10-19-20_26_28-hpe-com-using-infinity-uql-native-api-calls-grafana-—-mozilla-firefox.png"
