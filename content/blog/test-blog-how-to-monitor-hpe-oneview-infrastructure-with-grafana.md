@@ -5,8 +5,6 @@ author: Denis Choukroun
 authorimage: /img/Avatar1.svg
 disable: false
 ---
-<style>ul li{ font-size:26px;}</style>
-
 The purpose of this blog post is to describe how to generate Grafana dashboards using InfluxDB and PowerShell scripts to monitor any HPE Compute infrastructure managed by HPE OneView.
 
 # Grafana Dashboards
