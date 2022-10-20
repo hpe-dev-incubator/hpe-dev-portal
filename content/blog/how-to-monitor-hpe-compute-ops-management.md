@@ -538,5 +538,7 @@ This panel displays the health and information for each server. The information 
     src="/img/2022-10-20-17_22_27-hpe-com-using-infinity-uql-native-api-calls-grafana-—-mozilla-firefox.png"
   />
 
+Many other panels using other API resources can be generated, for example for firmware-bundles, groups, activities, etc. You now have all the basics to continue on your own and create the panels you want according to your own requirements.
+
 This concludes this blog post. I hope you find it useful and should you have any feedback, please send me a [message](mailto:lio@hpe.com).
 
