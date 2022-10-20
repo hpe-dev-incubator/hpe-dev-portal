@@ -172,7 +172,7 @@ Three variables are required:
       <img
    src="/img/lj-grafana-com-picture7.png"
    />
-3. A variable for the carbon footprint report ID   
+3. A variable for the carbon footprint report ID:   
 
    I use a variable for the carbon footprint report ID, because each time a new report is generated, a new ID is created. So by using a variable, I can fetch the last report ID and be sure that all my CO2 report API requests will be successful.
 
@@ -238,11 +238,11 @@ The report does not include estimates of the embedded carbon footprint from manu
 
 ![](/img/2022-10-19-20_06_34-hpe-com-using-infinity-uql-native-api-calls-grafana-—-mozilla-firefox.png)
 
-#### API request:
+#### API request
 
 `get /compute-ops/v1beta1/reports/{id}/data`
 
-#### API response:
+#### API response
 
 ```{
   "id": "843023bd-9412-46c2-8ac2-a3691f657fdb",
@@ -284,7 +284,7 @@ The report does not include estimates of the embedded carbon footprint from manu
 }
 ```
 
-#### Panel configuration:
+#### Panel configuration
 
 * Data source: **Infinity-COM**<br />  
 * Type: **UQL**   <br />
@@ -315,11 +315,11 @@ This report displays the estimated total carbon emissions for each server.
 
 ![](/img/2022-10-19-20_25_24-hpe-com-using-infinity-uql-native-api-calls-grafana-—-mozilla-firefox.png)
 
-#### API request:
+#### API request
 
 `get /compute-ops/v1beta1/reports/{id}/data`
 
-#### API response:
+#### API response
 
 ```{
   "id": "843023bd-9412-46c2-8ac2-a3691f657fdb",
@@ -361,7 +361,7 @@ This report displays the estimated total carbon emissions for each server.
 }
 ```
 
-#### Panel configuration:
+#### Panel configuration
 
 * Data source: **Infinity-COM**<br />
 * Type: **UQL**   <br />
@@ -394,11 +394,11 @@ This panel displays the health and information for each server. The information 
 
 ![](/img/2022-10-20-17_14_30-hpe-com-using-infinity-uql-native-api-calls-grafana-—-mozilla-firefox.png)
 
-#### API request:
+#### API request
 
 `get /compute-ops/v1beta2/servers/`
 
-#### API response:
+#### API response
 
 ```{
     "id": "P39886-B21+CN70490RXS",
@@ -494,7 +494,7 @@ This panel displays the health and information for each server. The information 
 ```
 
 
-#### Panel configuration:
+#### Panel configuration
 
 * Data source: **Infinity-COM**<br />
 * Type: **JSON**   <br />
