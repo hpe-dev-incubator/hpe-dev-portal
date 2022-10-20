@@ -222,7 +222,7 @@ To create a first panel, click on the **Add panel** icon in the upper menu bar a
 
 ![](/img/2022-10-19-19_41_45-hpe-com-using-infinity-uql-native-api-calls-grafana-—-mozilla-firefox.png)
 
-The following sections describe different panels you can generate in Grafana with HPE Compute Ops Management. They are provided as examples and the parameters can of course be modified to suit your needs. Each section lists the required parameters, provides API information, and methods and and includes the UQL queries (if needed) to transform the JSON data.
+The following sections describe different panels you can generate in Grafana with HPE Compute Ops Management. They are provided as examples and the parameters can of course be modified to suit your needs. Each section lists the required parameters, provides API information, and methods and includes the UQL queries (if needed) to transform the JSON data.
 
 ### Carbon footprint report (all servers)
 
