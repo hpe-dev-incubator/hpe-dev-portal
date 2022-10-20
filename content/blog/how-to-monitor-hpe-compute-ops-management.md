@@ -19,7 +19,7 @@ Grafana’s time-series graphs are the perfect enabler for IT infrastructure opt
 
 The following picture shows a typical HPE infrastructure dashboard with different panels generated from HPE Compute Ops Management:
 
-![](/img/2022-10-19-15_14_34-hpe-com-using-infinity-uql-native-api-calls-grafana-—-mozilla-firefox.png)
+![](/img/2022-10-20-17_01_21-hpe-com-using-infinity-uql-native-api-calls-grafana-—-mozilla-firefox.png)
 
 # HPE Compute Ops Management REST API
 
@@ -374,7 +374,7 @@ This report displays the estimated total carbon emissions for each server.
   **parse-json**   
   **\| scope "series"**   
   **\| project "Servers"="subject.displayName", "Carbon Emissions"="summary.sum"**
-* Override: Fields with name = **Carbon Emissions** / Cell display Mode = **LCD Gauge**
+* Override1: Fields with name = **Carbon Emissions** / Cell display Mode = **LCD Gauge**
 * Vizualization: **Table**
   * Unit: **kgCO2e**
   * Color scheme: **Green-Yellow-Red (by value)**<br />
@@ -388,11 +388,11 @@ This report displays the estimated total carbon emissions for each server.
 
 ### Server health and information panel
 
-This panel displays the health and information for each server. The information you want to display in the table is very flexible, many properties are available in the servers resource.
+This panel displays the health and information for each server. The information you want to display in the panel is very flexible, many properties are available in the servers resource, such as server model, serial number, model, power status, etc.
 
 #### Panel overview
 
-![](/img/2022-10-19-20_25_24-hpe-com-using-infinity-uql-native-api-calls-grafana-—-mozilla-firefox.png)
+![](/img/2022-10-20-17_14_30-hpe-com-using-infinity-uql-native-api-calls-grafana-—-mozilla-firefox.png)
 
 #### API request:
 
@@ -497,23 +497,46 @@ This panel displays the health and information for each server. The information 
 #### Panel configuration:
 
 * Data source: **Infinity-COM**<br />
-* Type: **UQL**   <br />
+* Type: **JSON**   <br />
 * Format: **Table**   <br />
-* URL: **${url}${reportID}** <br />  
+* URL: **${url}/compute-ops/v1beta2/servers?limit=100** <br />  
 * Method: **GET**   <br />
 * Header name: **Authorization** 
 * Header value = **Bearer ${session}**<br />
-* UQL:   
-  **parse-json**   
-  **\| scope "series"**   
-  **\| project "Servers"="subject.displayName", "Carbon Emissions"="summary.sum"**
-* Override: Fields with name = **Carbon Emissions** / Cell display Mode = **LCD Gauge**
-* Vizualization: **Table**
-  * Unit: **kgCO2e**
-  * Color scheme: **Green-Yellow-Red (by value)**<br />
+* Column 1: **name** as **Name**
+* Column 2: **hardware.serialNumber** as **Serial Number**
+* Column 3: **hardware.model** as **Model**
+* Column 4: **hardware.health.summary** as **Health**
+* Column 5: **hardware.powerState** as **Power State**
+* Column 6: **hardware.bmc.ip** as **iLO IP**
+* Column 7: **lastFirmwareUpdate.status** as **Last FW Update Status**
+
 
 <img
-    src="/img/2022-10-19-20_26_28-hpe-com-using-infinity-uql-native-api-calls-grafana-—-mozilla-firefox.png"
+    src="/img/2022-10-20-17_20_28-hpe-com-using-infinity-uql-native-api-calls-grafana-—-mozilla-firefox.png"
+  />
+
+* Override1: Fields with name = **Health** / Cell display Mode = **Color text**
+* Override2: Fields with name = **Power State** / Cell display Mode = **Color text**
+* Override3: Fields with name = **Last FW Update Status** / Cell display Mode = **Color text**
+
+
+<img
+    src="/img/2022-10-20-17_23_49-.png"
+  />
+
+* Vizualization: **Table**
+* Value mappings: 
+  * **OK** : Green
+  * **WARNING** : Orange
+  * **ERROR** : Red
+  * **ON** : Green
+  * **OFF** : Red
+
+
+<img
+    src="/img/2022-10-20-17_22_27-hpe-com-using-infinity-uql-native-api-calls-grafana-—-mozilla-firefox.png"
   />
 
 This concludes this blog post. I hope you find it useful and should you have any feedback, please send me a [message](mailto:lio@hpe.com).
+
