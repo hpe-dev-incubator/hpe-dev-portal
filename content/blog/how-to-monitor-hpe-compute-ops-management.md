@@ -400,8 +400,7 @@ This panel displays the health and information for each server. The information 
 
 #### API response:
 
-```
-{
+```{
     "id": "P39886-B21+CN70490RXS",
     "type": "compute-ops/server",
     "platformFamily": "PROLIANT",
@@ -493,6 +492,7 @@ This panel displays the health and information for each server. The information 
     "autoIloFwUpdate": true
 }
 ```
+
 
 #### Panel configuration:
 
