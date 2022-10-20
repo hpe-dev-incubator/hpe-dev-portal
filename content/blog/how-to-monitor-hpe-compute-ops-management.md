@@ -25,7 +25,7 @@ The following picture shows a typical HPE infrastructure dashboard with differen
 
 HPE Compute Ops Management provides a northbound RESTful [API ](https://developer.greenlake.hpe.com/docs/greenlake/services/compute-ops/public/openapi/compute-ops-latest/overview/)that supports many operations. All the data you can get from the HPE Compute Ops Management API can be leveraged to create beautiful and instructive Grafana dashboards. 
 
-To take advantage of this, simply use a generic Grafana plugin that can handle REST requests, parse json responses and generate tables. With this solution, we greatly reduce the complexity of the solution which in principle requires a database like Prometheus or InfluxDB. In this post, I will show you how to do it without a database...
+To take advantage of this, simply use a generic Grafana plugin that can handle REST requests, parse JSON responses and generate tables. With this solution, we greatly reduce the complexity of the solution which in principle requires a database like Prometheus or InfluxDB. In this post, I will show you how to do it without a database...
 
 HPE Compute Ops Management REST API uses the OAuth 2.0 authentication based on the client credential, which generates a limited lifetime access token.
 
@@ -39,7 +39,7 @@ Only a few resource metrics are currently supported by HPE Compute Ops Managemen
 
 There are several Grafana plugins that support data collection via the REST API (e.g. Infinity, [JSON](https://grafana.com/grafana/plugins/simpod-json-datasource/), [JSON API](https://grafana.com/grafana/plugins/marcusolsson-json-datasource/)) but [Infinity ](https://grafana.com/grafana/plugins/yesoreyeram-infinity-datasource/)has the great advantage of offering an advanced query language that is essential for manipulating JSON data into a suitable format that Grafana can understand. This language is called [UQL](https://sriramajeyam.com/grafana-infinity-datasource/wiki/uql/), Infinity's unstructured query language.
 
-UQL is not simple at first glance, but I will provide examples in this blog. With UQL, you can customize the results you need regardless of the json format returned by the API.
+UQL is not simple at first glance, but I will provide examples in this blog. With UQL, you can customize the results you need regardless of the JSON format returned by the API.
 
 A UQL query can be formed with a list of commands joined by "|". Most of the time, fields are referenced in double quotes and string values are referenced in single quotes as shown below:
 
@@ -79,7 +79,7 @@ From an SSH session on the Grafana server, enter:
 Then restart the Grafana service:   
 \> <i>service grafana-server restart</i>
 
-For more details on how to install the Infinity plugin, you can check out the [Infinty GitHub repository](https://github.com/yesoreyeram/grafana-infinity-datasource).
+For more details on how to install the Infinity plugin, you can check out the [Infinity GitHub repository](https://github.com/yesoreyeram/grafana-infinity-datasource).
 
 ## Grafana configuration
 
@@ -138,7 +138,7 @@ Three variables are required:
        />
 2. A variable to generate the access token for the API authentication:
 
-   HPE Compute Ops Management REST API uses the OAuth 2.0 authentication based on the client credential, which generates a limited lifetime access token. So the variable must be created using:
+   HPE Compute Ops Management REST API uses the OAuth 2.0 authentication based on the client credential, which generates a limited lifetime access token. So, the variable must be created using:
 
    * Name: **session**
    * Data source: **Infinity-COM**
@@ -174,7 +174,7 @@ Three variables are required:
    />
 3. A variable for the carbon footprint report ID:   
 
-   I use a variable for the carbon footprint report ID, because each time a new report is generated, a new ID is created. So by using a variable, I can fetch the last report ID and be sure that all my CO2 report API requests will be successful.
+   I use a variable for the carbon footprint report ID, because each time a new report is generated, a new ID is created. So, by using a variable, I can fetch the last report ID and be sure that all my CO2 report API requests will be successful.
 
    For this variable, use the following parameters:
 
@@ -202,7 +202,7 @@ Three variables are required:
   src="/img/2022-10-19-18_34_48-hpe-com-using-infinity-uql-native-api-calls-grafana-—-mozilla-firefox.png"
     />
 
-   Once completed, the URI of the carbon footprint report should be displayed in the *Preview of values* section :
+   Once completed, the URI of the carbon footprint report should be displayed in the *Preview of values* section:
 
    <img
  src="/img/2022-10-19-19_02_23-hpe-com-using-infinity-uql-native-api-calls-grafana-—-mozilla-firefox.png"
@@ -298,14 +298,14 @@ The report does not include estimates of the embedded carbon footprint from manu
   **\| jsonata  "series\[subject.type = 'TOTAL']"**   
   **\| scope "buckets"**   
   **\| project "timestamp"=todatetime("timestamp"), "Carbon Emissions (kgCO2e)"="value"**
-* Vizualization: **Time Series**
+* Visualization: **Time Series**
   * Unit: **Number**
 
 <img
     src="/img/2022-10-19-20_07_50-hpe-com-using-infinity-uql-native-api-calls-grafana-—-mozilla-firefox.png"
   />
 
-Note: JSONata is an open source expression language that is used for querying and transforming JSON data. You can refer to the following [JSONata Cheatsheet](https://www.stedi.com/docs/mappings/jsonata-cheatsheet) for tons of examples on how to manipulate json data.
+Note: JSONata is an open-source expression language that is used for querying and transforming JSON data. You can refer to the following [JSONata Cheatsheet](https://www.stedi.com/docs/mappings/jsonata-cheatsheet) for tons of examples on how to manipulate JSON data.
 
 ### Carbon footprint report (each server)
 
@@ -375,7 +375,7 @@ This report displays the estimated total carbon emissions for each server.
   **\| scope "series"**   
   **\| project "Servers"="subject.displayName", "Carbon Emissions"="summary.sum"**
 * Override1: Fields with name = **Carbon Emissions** / Cell display Mode = **LCD Gauge**
-* Vizualization: **Table**
+* Visualization: **Table**
   * Unit: **kgCO2e**
   * Color scheme: **Green-Yellow-Red (by value)**<br />
 
@@ -388,7 +388,7 @@ This report displays the estimated total carbon emissions for each server.
 
 ### Server health and information panel
 
-This panel displays the health and information for each server. The information you want to display in the panel is very flexible, many properties are available in the servers resource, such as server model, serial number, model, power status, etc.
+This panel displays the health and information for each server. The information you want to display in the panel is very flexible, many properties are available in servers resource, such as server model, serial number, model, power status, etc.
 
 #### Panel overview
 
@@ -525,13 +525,13 @@ This panel displays the health and information for each server. The information 
     src="/img/2022-10-20-17_23_49-.png"
   />
 
-* Vizualization: **Table**
+* Visualization: **Table**
 * Value mappings: 
-  * **OK** : Green
-  * **WARNING** : Orange
-  * **ERROR** : Red
-  * **ON** : Green
-  * **OFF** : Red
+  * **OK**: Green
+  * **WARNING**: Orange
+  * **ERROR**: Red
+  * **ON**: Green
+  * **OFF**: Red
 
 
 <img
