@@ -27,15 +27,13 @@ The following picture shows a typical HPE infrastructure dashboard with differen
 
 HPE Compute Ops Management provides a northbound RESTful [API ](https://developer.greenlake.hpe.com/docs/greenlake/services/compute-ops/public/openapi/compute-ops-latest/overview/)that supports many operations. All the data you can get from the HPE Compute Ops Management API can be leveraged to create beautiful and instructive Grafana dashboards. 
 
-To take advantage of this, simply use a generic Grafana plugin that can handle REST requests, parse json responses and generate tables
-
-With this solution, we greatly reduce the complexity of the solution which in principle requires a database like Prometheus or InfluxDB. In this post, I will see how to do without a database...
+To take advantage of this, simply use a generic Grafana plugin that can handle REST requests, parse json responses and generate tables. With this solution, we greatly reduce the complexity of the solution which in principle requires a database like Prometheus or InfluxDB. In this post, I will show you how to do it without a database...
 
 HPE Compute Ops Management REST API uses the OAuth 2.0 authentication based on the client credential, which generates a limited lifetime access token.
 
 The access token is a long string in the form of a JSON Web Token that is signed using RS256 algorithm. The access token must be added into the HTTP header with keyword "Authorization: Bearer {token}" for any REST API request. 
 
-For information about how to generate an access token for Compute Ops Management, please refer to [this link ](https://developer.greenlake.hpe.com/docs/greenlake/guides/public/authentication/authentication/)for more details.
+For information about how to create API client credentials and how to generate an access token for HPE Compute Ops Management, refer to [this article](https://developer.greenlake.hpe.com/docs/greenlake/guides/public/authentication/authentication/).
 
 Only a few resource metrics are currently supported by HPE Compute Ops Management via the RESTful API, but things will change quickly in the coming months. Today, the only metric available is the carbon footprint report but many other resources are available to create nice Grafana dashboards such as data related to the number of servers, health of servers, service packs, groups, etc. 
 
@@ -45,7 +43,7 @@ There are several Grafana plugins that support data collection via the REST API 
 
 UQL is not simple at first glance, but I will provide examples in this blog. With UQL, you can customize the results you need regardless of the json format returned by the API.
 
-A UQL query can be formed with a list of commands joined by |. Most of the time, fields are referenced in double quotes and string values are referenced in single quotes as shown below:
+A UQL query can be formed with a list of commands joined by "|". Most of the time, fields are referenced in double quotes and string values are referenced in single quotes as shown below:
 
 ![](/img/2022-10-19-16_33_28-hpe-software-‎-onenote-for-windows-10.png)
 
@@ -73,7 +71,7 @@ Cons:
 ## Prerequisites
 
 * Grafana must be installed, started, and enabled
-* HPE Compute Ops Management API client credentials are required
+* HPE Compute Ops Management API client credentials are required (this consists of a *client ID* and a *client secret*)
 
 ## Infinity plugin installation
 
@@ -85,7 +83,7 @@ Then restart the Grafana service:
 
 \> <i>service grafana-server restart</i>
 
-For more details on how to install the Infinity plugin, you can refer to this [article](https://github.com/yesoreyeram/grafana-infinity-datasource).
+For more details on how to install the Infinity plugin, you can check out the [Infinty GitHub repository](https://github.com/yesoreyeram/grafana-infinity-datasource).
 
 ## Grafana configuration
 
@@ -158,11 +156,19 @@ Three variables are required:
    Click then on **HTTP method, Query param, Headers** and use the following parameters:
 
    * Method: **POST**
-   * Body: **grant_type=client_credentials&client_id=**<your-client-ID>**&client_secret=**<your-client-secret>
+   * Body: **grant\_type=client\_credentials&client_id=**<your-client-ID>**&client_secret=**<your-client-secret>
+
+
+
+     *\<your-client-ID>* and *\<your-client-secret>* are the HPE Compute Ops Management API client credentials generated from the HPE GreenLake Cloud Platform (GLCP) services.
+
+
 
        <img
      src="/img/2022-10-19-18_07_06-hpe-com-using-infinity-uql-native-api-calls-grafana-—-mozilla-firefox.png"
        />
+
+
 
    And add in the Headers tab: 
 
@@ -304,8 +310,6 @@ The report does not include estimates of the embedded carbon footprint from manu
    **\| scope "buckets"**\
   **\| project "timestamp"=todatetime("timestamp"), "Carbon Emissions (kgCO2e)"="value"**
 
-
-
   <img
     src="/img/2022-10-19-20_07_50-hpe-com-using-infinity-uql-native-api-calls-grafana-—-mozilla-firefox.png"
   />
@@ -379,8 +383,6 @@ This report displays the estimated total carbon emissions for each server.
   **parse-json**\
   **\| scope "series"**\
   **\| project "Servers"="subject.displayName", "Carbon Emissions"="summary.sum"**
-
-
 * Override: Fields with name = **Carbon Emissions** / Cell display Mode = **LCD Gauge**
 * Vizualization: **Table**
 
