@@ -19,7 +19,7 @@ Grafana’s time-series graphs are the perfect enabler for IT infrastructure opt
 
 The following picture shows a typical HPE infrastructure dashboard with Synergy frame, compute, and interconnect metrics:
 
-/img/image001.png
+(/img/image001.png)
 
 # HPE OneView metric resources
 
@@ -47,13 +47,9 @@ The following table provides the resource metrics that are accessible through th
 | Statistics for the specified port name on an interconnect | */rest/interconnects/{id}/statistics/portname* |
 | Interconnect cpu and memory utilization data              | */rest/interconnects/{id}/utilization*         |
 
-
-
 HPE OneView metrics are enabled by default. For HPE Virtual Connect network statistics, the Utilization Sampling settings defined in the logical interconnect group controls the data collection rate and sample interval value. By default, the HPE Virtual Connect module sampling rate is 12 samples per hour, as shown in the following figure:
 
-(/img/image002.png")
-
-
+(/img/image002.png)
 
 # InfluxDB Time-series database
 
@@ -105,8 +101,8 @@ Then create a user with an authentication password:
 Once created, authenticate using:
 
 \> <i>*auth*</i>
-\> username: <i>*admin*</i>
-\> password: <i>\*\*\*\*\*\*\*\*</i>   
+> username: <i>*admin*</i>
+> password: <i>\*\*\*\*\*\*\*\*</i>   
 
 To enable the http authentication, you need to modify the InfluxDB configuration file. Go to the **\[http]** section of **/etc/influxdb/influxdb.conf** and change the **auth-enabled** value to **true.**
 
@@ -190,25 +186,20 @@ On a RHEL/CentOS virtual machine, you can use the following steps:
 * Add the Microsoft package repository:
 
   \> <i>*curl https://packages.microsoft.com/config/centos/8/prod.repo | sudo tee /etc/yum.repos.d/microsoft.repo*</i> 
- 
 * Run the PowerShell installation:
 
   \> <i>*yum install powershell*</i>  
-
 * Copy the script files to the Linux system and set the execution permission on both files:
 
   \> <i>*chmod +x Grafana-Interconnect-monitoring.ps1*</i>
-  \> <i>*chmod +x Grafana-Server_Enclosure-monitoring.ps1*</i>   
-
+  > <i>*chmod +x Grafana-Server_Enclosure-monitoring.ps1*</i>   
 * Open the crontab configuration:
 
   \> <i>*crontab -e*</i>  
-
 * Add two configurations, one for each script with a startup execution after a sleep time:  
 
   * *@reboot sleep 30 && pwsh -File ".../Grafana-Interconnect-monitoring.ps1"*  
   * *@reboot sleep 30 && pwsh -File ".../Grafana-Server_Enclosure-monitoring.ps1"*
-
 * Restart the Linux machine to trigger the execution:
 
   \> <i>*shutdown -r now*</i>  
@@ -236,7 +227,7 @@ If both databases defined in the script are listed, then both scripts have start
 To verify that the metrics are successfully collected, open one of the databases and check the data content as shown below:
 
 \> <i>*use ov_icm_db*</i>
-\> <i>*show measurements*</i>
+> <i>*show measurements*</i>
 
 (/img/image013.png)
 
@@ -258,7 +249,7 @@ Once that is completed, any dashboard you create in Grafana will have access to 
 
 To launch the Grafana UI, open your web browser and navigate to **http://<grafana_IP or DNS name>:3000/**
 
->Note: The default HTTP port that Grafana listens to is 3000 unless you have configured a different port.
+> Note: The default HTTP port that Grafana listens to is 3000 unless you have configured a different port.
 
 Click on the gear icon on the side menu and click **Add data Sources**.
 
@@ -417,9 +408,11 @@ Then:
 * Add a panel title
 * Use **5m** for the Min interval query options
 * Select the graph styles options
+
   * Connect null values: **Always**
   * Show points: **Never**
 * Select the correct unit corresponding to the measurement type
+
   * Power: Energy / **Watt**
   * Temperature: Temperature / **Celsius**
   * CPU: simply type **GHz**
