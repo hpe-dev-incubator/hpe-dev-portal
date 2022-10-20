@@ -308,33 +308,33 @@ A Grafana dashboard can aggregate one or more panels using multiple sources. Thu
 
 Click on the Dashboards icon on the side menu and click **New dashboard.**
 
-(/img/image024.png)
+![](/img/image024.png)
 
 Click on **Add a new panel** to create a panel to visualize the first HPE Virtual Connect module metrics.
 
 In Data source, select **Influxdb-OV-Interconnect-Metrics**
 
-(/img/image025.png)
+![](/img/image025.png)
 
 For **Query options**, it is recommended to set **5m** as the minimum query interval to match the HPE OneView API metrics sampling value of the interconnect interfaces (see below).
 
-(/img/image026.png)
+![](/img/image026.png)
 
 Then, you need to define a query for each port you specified in the PowerShell script (in the **$Ports** variable) for this interconnect module name, as shown below:
 
-(/img/image027.png)
+![](/img/image027.png)
 
 For example, to set the Q1 port, you need to click on **select measurement** next to **FROM**:
 
-(/img/image028.png)
+![](/img/image028.png)
 
 A list of all the measurements available in the database is displayed in the drop-down menu, as seen below:
 
-(/img/image029.png)
+![](/img/image029.png)
 
 Select **Q1,** then click on **field (value)** in the **SELECT** row to select the value you want to display:
 
-(/img/image030.png)
+![](/img/image030.png)
 
 A list of all measurement values recorded in the database displays in the drop-down menu:
 
