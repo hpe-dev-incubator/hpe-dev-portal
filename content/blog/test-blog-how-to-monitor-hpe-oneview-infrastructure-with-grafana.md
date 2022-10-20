@@ -360,23 +360,23 @@ And for a better visualization, you can select **Always** for **Connect null val
 
 And finally, set the unit data rate you selected in the **SELECT** row. Scroll down to the **Standard options** section and in **Unit** , select **Data rate** and click on **kilobytes/sec**.
 
-(/img/image036.png)
+![](/img/image036.png)
 
 Rendering should display as follows:
 
-(/img/image037.png)
+![](/img/image037.png)
 
 This completes the configuration of the first port query.
 
 You will need to click on the **+ Query** button for the other ports and repeat the same query configuration (as previously described) for all the ports defined in the PowerShell script.
 
-(/img/image038.png)
+![](/img/image038.png)
 
-(/img/image039.png)
+![](/img/image039.png)
 
 Once all queries have been defined, you can save the panel using the **Save** button in the upper right corner. Type a name for the newly created dashboard like **HPE OneView Metrics**.
 
-(/img/image040.png)
+![](/img/image040.png)
 
 You can now duplicate this panel to create another one for the second HPE Virtual Connect module. Click on the panel's context menu, select **More** , then **Duplicate**.
 
