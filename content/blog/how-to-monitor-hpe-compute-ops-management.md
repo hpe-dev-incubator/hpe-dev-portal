@@ -135,7 +135,7 @@ Three variables are required:
    * Type: **Custom**
    * Value: *endpoint URL*
 
-       <img
+   <img
      src="/img/2022-10-19-17_41_55-hpe-com-using-infinity-uql-native-api-calls-grafana-—-mozilla-firefox.png"
        />
 2. A variable to generate the access token for the API authentication:
@@ -295,7 +295,7 @@ The report does not include estimates of the embedded carbon footprint from manu
 * Method: **GET**   <br />
 * Header name: **Authorization** 
 * Header value = **Bearer ${session}**
-* UQL:\
+* UQL:   
   **parse-json**   
   **\| jsonata  "series\[subject.type = 'TOTAL']"**   
   **\| scope "buckets"**   
@@ -372,7 +372,7 @@ This report displays the estimated total carbon emissions for each server.
 * Method: **GET**   <br />
 * Header name: **Authorization** 
 * Header value = **Bearer ${session}**<br />
-* UQL:
+* UQL:   
   **parse-json**   
   **\| scope "series"**   
   **\| project "Servers"="subject.displayName", "Carbon Emissions"="summary.sum"**
