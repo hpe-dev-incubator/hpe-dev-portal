@@ -25,7 +25,11 @@ The following picture shows a typical HPE infrastructure dashboard with differen
 
 # HPE Compute Ops Management REST API
 
-HPE Compute Ops Management provides a northbound RESTful [API ](https://developer.greenlake.hpe.com/docs/greenlake/services/compute-ops/public/openapi/compute-ops-latest/overview/)that supports many operations. All the data you can get from the HPE Compute Ops Management API can be leveraged to create beautiful and instructive Grafana dashboards and the simplest solution is to use a generic Grafana plugin that can handle REST requests, parse json responses and generate tables. With this solution, we greatly reduce the complexity of the solution which in principle requires a database like Prometheus or InfluxDB. In this post, we will see how to do without a database...
+HPE Compute Ops Management provides a northbound RESTful [API ](https://developer.greenlake.hpe.com/docs/greenlake/services/compute-ops/public/openapi/compute-ops-latest/overview/)that supports many operations. All the data you can get from the HPE Compute Ops Management API can be leveraged to create beautiful and instructive Grafana dashboards. 
+
+To take advantage of this, simply use a generic Grafana plugin that can handle REST requests, parse json responses and generate tables
+
+With this solution, we greatly reduce the complexity of the solution which in principle requires a database like Prometheus or InfluxDB. In this post, I will see how to do without a database...
 
 HPE Compute Ops Management REST API uses the OAuth 2.0 authentication based on the client credential, which generates a limited lifetime access token.
 
@@ -39,7 +43,7 @@ Only a few resource metrics are currently supported by HPE Compute Ops Managemen
 
 There are several Grafana plugins that support data collection via the REST API (e.g. Infinity, [JSON](https://grafana.com/grafana/plugins/simpod-json-datasource/), [JSON API](https://grafana.com/grafana/plugins/marcusolsson-json-datasource/)) but [Infinity ](https://grafana.com/grafana/plugins/yesoreyeram-infinity-datasource/)has the great advantage of offering an advanced query language that is essential for manipulating JSON data into a suitable format that Grafana can understand. This language is called [UQL](https://sriramajeyam.com/grafana-infinity-datasource/wiki/uql/), Infinity's unstructured query language.
 
-UQL is not simple at first glance but I will provide examples in this blog. With UQL, you can customize the results you need regardless of the json format returned by the API.
+UQL is not simple at first glance, but I will provide examples in this blog. With UQL, you can customize the results you need regardless of the json format returned by the API.
 
 A UQL query can be formed with a list of commands joined by |. Most of the time, fields are referenced in double quotes and string values are referenced in single quotes as shown below:
 
@@ -51,16 +55,18 @@ The following diagram describes the different components of the solution:
 
 ## Pros and Cons about this solution
 
+As with any solution, there are both Pros and Cons to using it.
+
 Pros:
 
-* Lightweight solution as it only requires Grafana and an easily installable plugin
+* A lightweight solution that only requires Grafana and an easily installable plugin
 * Supports collecting metrics from any API
-* Cross-platform support, all components can be installed on Microsoft Windows or Linux.
+* Cross-platform support, all components can be installed on Microsoft Windows or Linux
 
 Cons:
 
-* Cannot create a time series Grafana visualization with non-time series data you may retrieve from an API. This would require the use of a database like Prometheus or InfluxDB
-* Requires in-depth knowledge of the UQL language, API, authentication, and methods.
+* Cannot create a time series Grafana visualization with non-time series data you may retrieve from an API (This would require the use of a database, like Prometheus or InfluxDB)
+* Requires in-depth knowledge of the UQL language, API, authentication, and methods
 
 # Configuration
 
@@ -130,9 +136,7 @@ Three variables are required:
    Create a new variable using the following parameters:
 
    * Name: **url** 
-  
    * Type: **Custom**
-
    * Value: *endpoint URL*
 
        <img
@@ -143,11 +147,8 @@ Three variables are required:
    HPE Compute Ops Management REST API uses the OAuth 2.0 authentication based on the client credential, which generates a limited lifetime access token. So the variable must be created using:
 
    * Name: **session**   
-
    * Data source: **Infinity-COM**   
-
    * Query Type: **Infinity**   
-
    * URL: **https://sso.common.cloud.hpe.com/as/token.oauth2**
 
        <img
@@ -183,13 +184,9 @@ Three variables are required:
    For this variable, use the following parameters:
 
    * Name: **reportID**   
-
    * Data source: **Infinity-COM**   
-
    * Query Type: **Infinity**   
-
    * URL: **${url}/compute-ops/v1beta1/reports**   
-
    * Column 1: **reportDataUri**
 
       <img
@@ -240,7 +237,7 @@ Analyzing carbon emissions can help you understand the impact of your servers on
 * Estimated daily carbon emissions for all servers
 * Estimated total carbon emissions for each server
 
-The report does not include estimates of the embedded carbon footprint from manufacturing and distribution of the servers
+The report does not include estimates of the embedded carbon footprint from manufacturing and distribution of the servers.
 
 #### Panel overview
 
@@ -295,28 +292,19 @@ The report does not include estimates of the embedded carbon footprint from manu
 #### Panel configuration:
 
 * Data source: **Infinity-COM**  
- 
 * Type: **UQL**   
-
 * Format: **Time Series** 
-  
 * URL: **${url}${reportID}**  
- 
 * Method: **GET**   
-
 * Header: Name = **Authorization /** Value = **Bearer ${session}**  
- 
 * UQL:
 
-  ```
-  parse-json   
+  **parse-json**   \
+  **\| jsonata  "series\[subject.type = 'TOTAL']"**\
+   **\| scope "buckets"**\
+  **\| project "timestamp"=todatetime("timestamp"), "Carbon Emissions (kgCO2e)"="value"**
 
-    | jsonata  "series[subject.type = 'TOTAL']" 
-   
-    | scope "buckets"   
 
-    | project "timestamp"=todatetime("timestamp"), "Carbon Emissions (kgCO2e)"="value"
-  ```
 
   <img
     src="/img/2022-10-19-20_07_50-hpe-com-using-infinity-uql-native-api-calls-grafana-—-mozilla-firefox.png"
@@ -381,33 +369,23 @@ This report displays the estimated total carbon emissions for each server.
 #### Panel configuration:
 
 * Data source: **Infinity-COM**   
-
 * Type: **UQL**   
-
 * Format: **Table**   
-
 * URL: **${url}${reportID}**   
-
 * Method: **GET**   
-
 * Header: Name = **Authorization /** Value = **Bearer ${session}**   
-
 * UQL:
 
-  ```
-  parse-json   
+  **parse-json**\
+  **\| scope "series"**\
+  **\| project "Servers"="subject.displayName", "Carbon Emissions"="summary.sum"**
 
-  | scope "series"   
 
-  | project "Servers"="subject.displayName", "Carbon Emissions"="summary.sum"
-  ```
 * Override: Fields with name = **Carbon Emissions** / Cell display Mode = **LCD Gauge**
 * Vizualization: **Table**
 
   * Unit: **kgCO2e** 
-
   * Color scheme: **Green-Yellow-Red (by value)**
-   
 
   <img
     src="/img/2022-10-19-20_26_28-hpe-com-using-infinity-uql-native-api-calls-grafana-—-mozilla-firefox.png"
