@@ -338,25 +338,25 @@ Select **Q1,** then click on **field (value)** in the **SELECT** row to select t
 
 A list of all measurement values recorded in the database displays in the drop-down menu:
 
-(/img/image031.png)
+![](/img/image031.png)
 
 Select **receiveKilobytesPerSec** for example.
 
 You can then set the alias as **Q1** to replace the default metric name and get a clear legend label on the chart.
 
-(/img/image032.png)
+![](/img/image032.png)
 
-(/img/image033.png)
+![](/img/image033.png)
 
 The metric points should already appear on the graph.
 
 Further, you can specify a panel title in the right-side menu using the interconnect name you selected, like **VC Frame3-Interconnect3** (in our example).
 
-(/img/image034.png)
+![](/img/image034.png)
 
 And for a better visualization, you can select **Always** for **Connect null values** and **Never** for **Show points** in the **Graph styles** section.
 
-(/img/image035.png)
+![](/img/image035.png)
 
 And finally, set the unit data rate you selected in the **SELECT** row. Scroll down to the **Standard options** section and in **Unit** , select **Data rate** and click on **kilobytes/sec**.
 
