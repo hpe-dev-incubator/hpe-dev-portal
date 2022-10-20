@@ -224,7 +224,7 @@ Display existing databases:
 
 If both databases defined in the script are listed, then both scripts have started successfully:
 
-(/img/image012.png)
+![](/img/image012.png)
 
 To verify that the metrics are successfully collected, open one of the databases and check the data content as shown below:
 
@@ -232,7 +232,7 @@ To verify that the metrics are successfully collected, open one of the databases
 
 > <i>*show measurements*</i>
 
-(/img/image013.png)
+![](/img/image013.png)
 
 The measurements listed here correspond to the metrics (ports or resources) defined in the PowerShell scripts.
 
@@ -240,7 +240,7 @@ Open one of the measurements to verify that the metric data is coming in:
 
 \> <i>*SELECT*  FROM "Frame3-Interconnect3-Q1"*</i>
 
-(/img/image014.png)
+![](/img/image014.png)
 
 The data shows that the collection of metrics has started and that everything is running fine.
 
