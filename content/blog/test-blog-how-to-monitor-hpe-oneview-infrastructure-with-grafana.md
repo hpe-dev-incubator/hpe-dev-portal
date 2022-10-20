@@ -156,13 +156,13 @@ You can check the job schedule by typing:
 
 \> <i>*Get-ScheduledJob*</i>
 
-(/img/image008.png)
+![](/img/image008.png)
 
 Alternatively, launch Windows Task Scheduler, by pressing Windows + R keys on your keyboard to run a command, and enter:
 
 \> <i>*taskschd.msc*</i>
 
-(/img/image009.png)
+![](/img/image009.png)
 
 As I am using an "at startup" trigger, it is required to restart the server in order to run the scripts.
 
@@ -170,7 +170,7 @@ Restart the server and confirm that scripts are executed. Once restarted, you ca
 
 \> <i>*Get-job*</i>
 
-(/img/image010.png)
+![](/img/image010.png)
 
 ### How to run the scripts on a Linux machine?
 
