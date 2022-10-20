@@ -129,7 +129,7 @@ Three variables are required:
    Create a new variable using the following parameters:
 
    * Name: **url** 
-   * Type: **Custom** 
+   * Type: **Custom**
    * Value: *endpoint URL*
 
        <img
@@ -153,7 +153,7 @@ Three variables are required:
    * Method: **POST**
    * Body: **grant\_type=client\_credentials&client_id=**<your-client-ID>**&client_secret=**<your-client-secret>
 
-   *<your-client-ID>* and *<your-client-secret>* are the HPE Compute Ops Management API client credentials generated from the HPE GreenLake Cloud Platform (GLCP).
+   Note: *<your-client-ID>* and *<your-client-secret>* are the HPE Compute Ops Management API client credentials generated from the HPE GreenLake Cloud Platform (GLCP).
 
       <img
    src="/img/2022-10-19-18_07_06-hpe-com-using-infinity-uql-native-api-calls-grafana-—-mozilla-firefox.png"
