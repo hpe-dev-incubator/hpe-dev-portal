@@ -299,15 +299,13 @@ The report does not include estimates of the embedded carbon footprint from manu
   **\| scope "buckets"**   
   **\| project "Timestamp"=todatetime("timestamp"), "Carbon Emissions (kgCO2e)"="value"**
 
-   Description of UQL commands:  
+   Description of the UQL commands:  
    * **parse-json**:  command to instruct UQL to parse the response as JSON   
-   * **jsonata**: command to select the object representing the carbon emission report for all servers in the `series` array   
+   * **jsonata**: command to select the object representing the carbon emission report for all servers available in the `series` array   
    * **scope**: command to set `buckets` as the output data   
    * **project**: command to create a table with two columns (Timestamp and Carbon Emissions (kgCO2e))
-
 * Visualization: **Time Series**
-  * Unit: **Number**
-
+  * Unit: **Number**  
 <img
     src="/img/2022-10-19-20_07_50-hpe-com-using-infinity-uql-native-api-calls-grafana-—-mozilla-firefox.png"
   />
@@ -376,17 +374,15 @@ This report displays the estimated total carbon emissions for each server.
 * URL: **${url}${reportID}** <br />  
 * Method: **GET**   <br />
 * Header name: **Authorization** 
-* Header value = **Bearer ${session}**<br />
+* Header value = **Bearer ${session}**
 * UQL:   
   **parse-json**   
   **\| scope "series"**   
-  **\| project "Servers"="subject.displayName", "Carbon Emissions"="summary.sum"**
-
-   Description of UQL commands:  
+  **\| project "Servers"="subject.displayName", "Carbon Emissions"="summary.sum"**   
+   Description of the UQL commands:  
    * **parse-json**:  command to instruct UQL to parse the response as JSON   
    * **scope**: command to set `series` as the output data   
    * **project**: command to create a table with two columns (Servers and Carbon Emissions)
-
 * Override1: Fields with name = **Carbon Emissions** / Cell display Mode = **LCD Gauge**
 * Visualization: **Table**
   * Unit: **kgCO2e**
@@ -551,7 +547,7 @@ This panel displays the health and information for each server. The information 
     src="/img/2022-10-20-17_22_27-hpe-com-using-infinity-uql-native-api-calls-grafana-—-mozilla-firefox.png"
   />
 
-Many other panels using other API resources can be generated, for example for firmware-bundles, groups, activities, etc. You now have all the basics to continue on your own and create the panels you want according to your own requirements.
+Many other panels using other API resources can be generated, for example for firmware bundles, groups, activities, etc. And now you have all the basics to get started and create the panels you need in your environment.
 
 This concludes this blog post. I hope you find it useful and should you have any feedback, please send me a [message](mailto:lio@hpe.com).
 
