@@ -62,7 +62,8 @@ Pros:
 Cons:
 
 * Cannot create a time series Grafana visualization with non-time series data you may retrieve from an API (This would require the use of a database, like Prometheus or InfluxDB)
-* Requires in-depth knowledge of the UQL language, API, authentication, and methods
+* Requires in-depth knowledge of the API, authentication, and methods
+* Requires knowledge of the UQL language to manipulate JSON data
 
 # Configuration
 
@@ -308,6 +309,7 @@ The report does not include estimates of the embedded carbon footprint from manu
   Note: JSONata is an open-source expression language that is used for querying and transforming JSON data. You can refer to the following [JSONata Cheatsheet](https://www.stedi.com/docs/mappings/jsonata-cheatsheet) for tons of examples on how to manipulate JSON data.
 * Visualization: **Time Series**
   * Unit: **Number**
+
 ![](/img/2022-10-19-20_07_50-hpe-com-using-infinity-uql-native-api-calls-grafana-—-mozilla-firefox.png)
 
 ### Carbon footprint report (each server)
