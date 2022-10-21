@@ -19,7 +19,7 @@ Grafana’s time-series graphs are the perfect enabler for IT infrastructure opt
 
 The following picture shows a typical HPE infrastructure dashboard with different panels generated from HPE Compute Ops Management:
 
-![](/img/2022-10-20-17_01_21-hpe-com-using-infinity-uql-native-api-calls-grafana-—-mozilla-firefox.png)
+![](/img/2022-10-21-11_14_38-hpe-com-using-infinity-uql-native-api-calls-grafana-—-mozilla-firefox.png)
 
 # HPE Compute Ops Management REST API
 
@@ -303,9 +303,8 @@ The report does not include estimates of the embedded carbon footprint from manu
    * **parse-json**:  command to instruct UQL to parse the response as JSON   
    * **jsonata**: command to select the object representing the carbon emission report for all servers available in the `series` array   
    * **scope**: command to set `buckets` as the output data   
-   * **project**: command to create a table with two columns (Timestamp and Carbon Emissions (kgCO2e))
-
-Note: JSONata is an open-source expression language that is used for querying and transforming JSON data. You can refer to the following [JSONata Cheatsheet](https://www.stedi.com/docs/mappings/jsonata-cheatsheet) for tons of examples on how to manipulate JSON data.
+   * **project**: command to create a table with two columns (Timestamp and Carbon Emissions (kgCO2e))   
+   Note: JSONata is an open-source expression language that is used for querying and transforming JSON data. You can refer to the following [JSONata Cheatsheet](https://www.stedi.com/docs/mappings/jsonata-cheatsheet) for tons of examples on how to manipulate JSON data.
 * Visualization: **Time Series**
   * Unit: **Number**
 
@@ -319,7 +318,7 @@ This report displays the estimated total carbon emissions for each server.
 
 #### Panel overview
 
-![](/img/2022-10-19-20_25_24-hpe-com-using-infinity-uql-native-api-calls-grafana-—-mozilla-firefox.png)
+![](/img/2022-10-21-11_23_31-hpe-com-using-infinity-uql-native-api-calls-grafana-—-mozilla-firefox.png)
 
 #### API request
 
@@ -387,7 +386,7 @@ This report displays the estimated total carbon emissions for each server.
    * **scope**: command to set `series` as the output data   
    * **project**: command to create a table with two columns (Servers and Carbon Emissions)
 * Override1: Fields with name = **Carbon Emissions** / Cell display Mode = **LCD Gauge**
-* Visualization: **Table**
+* Visualization: **Table**   
   * Unit: **kgCO2e**
   * Color scheme: **Green-Yellow-Red (by value)**<br />
 
@@ -404,7 +403,7 @@ This panel displays the health and information for each server. The information 
 
 #### Panel overview
 
-![](/img/2022-10-20-17_14_30-hpe-com-using-infinity-uql-native-api-calls-grafana-—-mozilla-firefox.png)
+![](/img/2022-10-21-11_24_26-hpe-com-using-infinity-uql-native-api-calls-grafana-—-mozilla-firefox.png)
 
 #### API request
 
