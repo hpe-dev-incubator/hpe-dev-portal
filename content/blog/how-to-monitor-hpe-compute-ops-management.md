@@ -43,7 +43,7 @@ UQL is not simple at first glance, but I will provide examples in this blog. Wit
 
 A UQL query can be formed with a list of commands joined by "|". Most of the time, fields are referenced in double quotes and string values are referenced in single quotes as shown below:
 
-![](/img/2022-10-19-16_33_28-hpe-software-‎-onenote-for-windows-10.png)
+![](/img/2022-10-21-11_47_58-hpe-software-‎-onenote-for-windows-10.png)
 
 The following diagram describes the different components of the solution:
 
@@ -131,7 +131,7 @@ Three variables are required:
 
    * Name: **url** 
    * Type: **Custom**
-   * Value: *endpoint URL*
+   * Value: *\<Your endpoint URL>*
 
    <img
      src="/img/2022-10-19-17_41_55-hpe-com-using-infinity-uql-native-api-calls-grafana-—-mozilla-firefox.png"
@@ -308,7 +308,6 @@ The report does not include estimates of the embedded carbon footprint from manu
   Note: JSONata is an open-source expression language that is used for querying and transforming JSON data. You can refer to the following [JSONata Cheatsheet](https://www.stedi.com/docs/mappings/jsonata-cheatsheet) for tons of examples on how to manipulate JSON data.
 * Visualization: **Time Series**
   * Unit: **Number**
-
 ![](/img/2022-10-19-20_07_50-hpe-com-using-infinity-uql-native-api-calls-grafana-—-mozilla-firefox.png)
 
 ### Carbon footprint report (each server)
