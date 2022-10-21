@@ -297,7 +297,14 @@ The report does not include estimates of the embedded carbon footprint from manu
   **parse-json**   
   **\| jsonata  "series\[subject.type = 'TOTAL']"**   
   **\| scope "buckets"**   
-  **\| project "timestamp"=todatetime("timestamp"), "Carbon Emissions (kgCO2e)"="value"**
+  **\| project "Timestamp"=todatetime("timestamp"), "Carbon Emissions (kgCO2e)"="value"**
+
+   Description of UQL commands:  
+   * **parse-json**:  command to instruct UQL to parse the response as JSON   
+   * **jsonata**: command to select the object representing the carbon emission report for all servers in the `series` array   
+   * **scope**: command to set `buckets` as the output data   
+   * **project**: command to create a table with two columns (Timestamp and Carbon Emissions (kgCO2e))
+
 * Visualization: **Time Series**
   * Unit: **Number**
 
@@ -374,6 +381,12 @@ This report displays the estimated total carbon emissions for each server.
   **parse-json**   
   **\| scope "series"**   
   **\| project "Servers"="subject.displayName", "Carbon Emissions"="summary.sum"**
+
+   Description of UQL commands:  
+   * **parse-json**:  command to instruct UQL to parse the response as JSON   
+   * **scope**: command to set `series` as the output data   
+   * **project**: command to create a table with two columns (Servers and Carbon Emissions)
+
 * Override1: Fields with name = **Carbon Emissions** / Cell display Mode = **LCD Gauge**
 * Visualization: **Table**
   * Unit: **kgCO2e**
