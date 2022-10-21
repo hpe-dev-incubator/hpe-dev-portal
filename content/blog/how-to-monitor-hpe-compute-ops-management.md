@@ -108,7 +108,7 @@ Then to create a new Dashboard, click on the Dashboards icon on the side menu an
 
 The next steps consist in creating variables and panels for this dashboard. I will describe in this blog each step with a lot of details to give you an overview of the methods I use.
 
-However, you have the option to import the dashboard directly from my [GitHub repository] (https://github.com/jullienl/HPE-Compute-Ops-Management/tree/main/Grafana) using the JSON file provided, which contains everything you need (layout, variables, styles, data sources, queries, etc.). Once imported in Grafana, the same dashboard that is described in detail below with its different panels will be immediately available, it includes carbon emissions reports, server information and health, firmware bundles, groups information, etc.
+> **Important note**: You have the option to import the dashboard directly from my [GitHub repository](https://github.com/jullienl/HPE-Compute-Ops-Management/tree/main/Grafana) using the JSON file provided, which contains everything you need (layout, variables, styles, data sources, queries, etc.). Once imported in Grafana, the same dashboard that is described in detail below with its different panels will be immediately available, it includes carbon emissions reports, server information and health, firmware bundles, groups information, etc. Refer to the README.md for more details.
 
 Going back to the manual configuration, the next step is to create Grafana variables for this new dashboard. These will be used to simplify the API authentication process and the REST requests you will define later.
 
