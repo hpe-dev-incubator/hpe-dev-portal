@@ -8,6 +8,7 @@ The aim of this document is to provide guidance to the HPE Dev team for creating
  |                                    | **Hack Shack event tile**          | Dev Team (Denis, Didier)    |                     |
  |                                    | **HPE Developer Newsletter**       | Dev Team (Dale)             |                     |
  |                                    | **HPE Dev Twitter**                | Dev Team (Dale)             |                     |
+ |                                    | **BeHPE**                          | Dev Team (Dale)             |                     |
  |                                    | **HPE Dev Slack**                  | Dev Team (Didier)           |                     |
  |                                    | **Yammer Tech Pro Forum**          | Dev Team (Didier)           |                     |
  |                                    | **HPE Internal Slack**             | Dev Team (Didier)           |                     |
@@ -18,6 +19,7 @@ The aim of this document is to provide guidance to the HPE Dev team for creating
  |                                    | **HPE L&D**                        | Jose Euceda & A C, Bushra   |                     |
  |                                    | **HPE AP&S**                       | Kerridge, Richard & Sarah Lennox |                |
  |                                    | **OpenSource.announce**            | <opensource.announce@lists.osp.hpe.com> |         |
+ |                                    | **CTO**                            | Yaron, David                |                     |
  |                                    | **WW Ambassadors**                 | Al Amin & Iris Young        |                     |
  |                                    | **HPE Ezmeral in NewsCenter**      | Abril Sanchez               |                     |
  |                                    | **HPE Ezmeral LinkedIn**           | Abril Sanchez               |                     |
