@@ -177,34 +177,34 @@ const Content = () => {
   const size = useContext(ResponsiveContext);
   const fontSize = size === 'small' ? '4vw' : '2.2vw';
   return (
-    <TextWrapper>
-      <Text size={fontSize} color="#FFFFFF">
-        Welcome to the Hack Shack. We offer many
-      </Text>
-      <Text size={fontSize} color="#FFFFFF">
-        ways to collaborate and expand your skills.
-      </Text>
-      <Text size={fontSize} color="#FFFFFF">
-        Try our technology Workshops-on-Demand,
-      </Text>
-      <Text size={fontSize} color="#FFFFFF">
-        for a unique, hands-on learning experience.
-      </Text>
-    </TextWrapper>
     // <TextWrapper>
     //   <Text size={fontSize} color="#FFFFFF">
-    //     Welcome to the Hack Shack, a place to collaborate
+    //     Welcome to the Hack Shack. We offer many
     //   </Text>
     //   <Text size={fontSize} color="#FFFFFF">
-    //     and expand technology skills. Try our unique on-demand
+    //     ways to collaborate and expand your skills.
     //   </Text>
     //   <Text size={fontSize} color="#FFFFFF">
-    //     workshops or go on a virtual treasure hunt to discover
+    //     Try our technology Workshops-on-Demand,
     //   </Text>
     //   <Text size={fontSize} color="#FFFFFF">
-    //     a wealth of other resources and perhaps win a prize.
+    //     for a unique, hands-on learning experience.
     //   </Text>
     // </TextWrapper>
+    <TextWrapper>
+      <Text size={fontSize} color="#FFFFFF">
+        Welcome to the Hack Shack, a place to collaborate
+      </Text>
+      <Text size={fontSize} color="#FFFFFF">
+        and expand technology skills. Try our unique on-demand
+      </Text>
+      <Text size={fontSize} color="#FFFFFF">
+        workshops or go on a virtual treasure hunt to discover
+      </Text>
+      <Text size={fontSize} color="#FFFFFF">
+        a wealth of other resources and perhaps win a prize.
+      </Text>
+    </TextWrapper>
   );
 };
 const GrommetMascot = ({ setOpen }) => (

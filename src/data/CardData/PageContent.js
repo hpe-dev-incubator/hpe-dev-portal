@@ -71,16 +71,16 @@ export const arcadeContent = [
     label: 'Play the Game',
     background: 'background',
   },
-  // {
-  //   image: '/img/hackshack/Arcade/TreasureMap.png',
-  //   alt: 'Treasure hunt map',
-  //   title: 'HPE DEVELOPER TREASURE HUNT',
-  //   desc:
-  //     "Explore the HPE Developer Community's rich ecosystem in this scavenger-hunt style game!",
-  //   link: 'https://bit.ly/kubecon-eu-2022-hpedev-treasure-hunt  ',
-  //   label: 'Hunt for Treasure!',
-  //   background: 'background',
-  // },
+  {
+    image: '/img/hackshack/Arcade/TreasureMap.png',
+    alt: 'Treasure hunt map',
+    title: 'HPE DEVELOPER TREASURE HUNT',
+    desc:
+      "Explore the HPE Developer Community's rich ecosystem in this scavenger-hunt style game!",
+    link: 'https://bit.ly/kubecon-na-2022-hpedev-treasure-hunt',
+    label: 'Hunt for Treasure!',
+    background: 'background',
+  },
   {
     image: '/img/hackshack/Arcade/rockingGremlin.png',
     alt: 'Gremlin',

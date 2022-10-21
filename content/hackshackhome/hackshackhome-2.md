@@ -11,6 +11,6 @@ description: "30-November-2022: Learn the basics of Kubeflow, the machine
   Arrikto’s Enterprise Kubeflow distribution."
 background: rgba(0, 86, 122, 0.8);
 label: Register Now!
-priority: 4
+priority: 3
 image: /img/event-meetups-newlogo-400x400.png
 ---

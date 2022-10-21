@@ -13,7 +13,7 @@ description: "26-October-2022: In this talk, we’ll learn how HPE is partnering
   real-time, autonomous optimization of cluster container resources via
   Pepperdata’s Capacity Optimizer, without the need for Spark developers to
   change a single line of code."
-background: rgba(0, 86, 122, 0.8);
+background: background
 label: Register Now!
 image: /img/event-meetups-newlogo-400x400.png
 ---
