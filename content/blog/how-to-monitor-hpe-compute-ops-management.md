@@ -12,7 +12,6 @@ tags:
   - api
 ---
 <style>ul li{ font-size:26px;padding-bottom: 0.5em;}</style>
-
 <style> i{ color:grey;font-family:'Courier New';font-size:22px; } </style>
 
 The purpose of this blog post is to describe how to generate Grafana dashboards to monitor any HPE Compute infrastructure managed by HPE Compute Ops Management.
