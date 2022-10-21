@@ -1,6 +1,6 @@
 ---
 title: HPE Sustainability Strategy and Sustainability Research at Hewlett Packard Labs
-active: true
+active: false
 fit: contain
 link: "https://hpe.zoom.us/webinar/register/1416645577367/WN_pb_mmhLEQQSGNf6ta1d-jA "
 imageBackground: white
