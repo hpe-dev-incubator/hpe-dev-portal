@@ -306,6 +306,7 @@ The report does not include estimates of the embedded carbon footprint from manu
    * **project**: command to create a table with two columns (Timestamp and Carbon Emissions (kgCO2e))
 * Visualization: **Time Series**
   * Unit: **Number**  
+
 <img
     src="/img/2022-10-19-20_07_50-hpe-com-using-infinity-uql-native-api-calls-grafana-—-mozilla-firefox.png"
   />
@@ -379,6 +380,7 @@ This report displays the estimated total carbon emissions for each server.
   **parse-json**   
   **\| scope "series"**   
   **\| project "Servers"="subject.displayName", "Carbon Emissions"="summary.sum"**   
+   
    Description of the UQL commands:  
    * **parse-json**:  command to instruct UQL to parse the response as JSON   
    * **scope**: command to set `series` as the output data   
