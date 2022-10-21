@@ -9,6 +9,7 @@ tags:
   - grafana
   - hpe-greenlake
   - monitoring
+  - api
 ---
 <style>ul li{ font-size:26px;padding-bottom: 0.5em;}</style>
 
