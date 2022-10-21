@@ -70,9 +70,10 @@ export const arcadeContent = [
     path: '/hackshack/hack-shack-attack',
     label: 'Play the Game',
     background: 'background',
+    fit: 'cover',
   },
   {
-    image: '/img/hackshack/Arcade/TreasureMap.png',
+    image: '/img/hackshack/Arcade/treasure_hunt.png',
     alt: 'Treasure hunt map',
     title: 'HPE DEVELOPER TREASURE HUNT',
     desc:
@@ -80,6 +81,7 @@ export const arcadeContent = [
     link: 'https://bit.ly/kubecon-na-2022-hpedev-treasure-hunt',
     label: 'Hunt for Treasure!',
     background: 'background',
+    fit: 'cover',
   },
   {
     image: '/img/hackshack/Arcade/rockingGremlin.png',
@@ -90,6 +92,7 @@ export const arcadeContent = [
     path: '/hackshack/stickerwall',
     label: 'Grab some Art',
     background: 'background',
+    fit: 'cover',
   },
   // {
   //   image: '/img/Arcade/score.png',
