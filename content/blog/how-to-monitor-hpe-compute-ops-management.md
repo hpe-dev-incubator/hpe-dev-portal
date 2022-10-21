@@ -4,6 +4,11 @@ title: How to monitor HPE Compute Ops Management infrastructure with Grafana
 date: 2022-10-19T18:21:24.504Z
 author: Lionel Jullien
 authorimage: /img/small-size-id.jpg
+tags:
+  - hpe-greenlake-for-compute-ops-management
+  - grafana
+  - hpe-greenlake
+  - monitoring
 ---
 <style>ul li{ font-size:26px;padding-bottom: 0.5em;}</style>
 
