@@ -304,13 +304,14 @@ The report does not include estimates of the embedded carbon footprint from manu
    * **jsonata**: command to select the object representing the carbon emission report for all servers available in the `series` array   
    * **scope**: command to set `buckets` as the output data   
    * **project**: command to create a table with two columns (Timestamp and Carbon Emissions (kgCO2e))
+
+Note: JSONata is an open-source expression language that is used for querying and transforming JSON data. You can refer to the following [JSONata Cheatsheet](https://www.stedi.com/docs/mappings/jsonata-cheatsheet) for tons of examples on how to manipulate JSON data.
 * Visualization: **Time Series**
-  * Unit: **Number**  
+  * Unit: **Number**
+
 <img
     src="/img/2022-10-19-20_07_50-hpe-com-using-infinity-uql-native-api-calls-grafana-—-mozilla-firefox.png"
   />
-
-Note: JSONata is an open-source expression language that is used for querying and transforming JSON data. You can refer to the following [JSONata Cheatsheet](https://www.stedi.com/docs/mappings/jsonata-cheatsheet) for tons of examples on how to manipulate JSON data.
 
 ### Carbon footprint report (each server)
 
