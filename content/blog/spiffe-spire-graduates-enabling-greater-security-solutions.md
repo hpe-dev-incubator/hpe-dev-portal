@@ -20,7 +20,7 @@ disable: false
 >
 > #### HPE Cray Exascale Super Computer Management
 >
-> SPIFFE/SPIRE has shown that it can scale and how it’s being used by the Cray System Management (CSM) tooling underscores that super power. HPE Cray Exascale Super Computers are big – data center-sized big - comprised of tens of thousands of compute nodes and high-performance storage. In late 2018, development work began on the Cray CSM, a solution enabling system administrators to manage these large-scale supercomputers leveraging the architecture and advances of hyper-scalers and cloud providers, based on open source code.
+> SPIFFE/SPIRE has shown that it can scale and how it’s being used by the Cray System Management (CSM) tooling underscores that super power. HPE Cray Exascale Super Computers are big – data center-sized big – comprised of tens of thousands of compute nodes and high-performance storage. In late 2018, development work began on the Cray CSM, a solution enabling system administrators to manage these large-scale supercomputers leveraging the architecture and advances of hyper-scalers and cloud providers, based on open source code.
 >
 > When both Scytale and Cray were acquired by HPE in 2019, the synergies found in their technologies started the engineering groups working together. They were quickly able to identify how important and helpful SPIFFE/SPIRE could be to the CSM development effort. Given how CSM helps customers to go beyond the traditional and enable new services, deploy a broad range of workloads, and drive towards an as-a-service experience, the integration of SPIRE makes these implementations even more secure.
 >
@@ -34,6 +34,6 @@ disable: false
 >
 > The SPIFFE/SPIRE cryptographic identities enable other opportunities for use with HPE GreenLake Edge-to-Cloud Platform as well. They offer a global identity foundation that could be leveraged for a broad spectrum of platform eco-system tools and services, such as a service mesh, policy framework, secrets managers, identity and access management (IAM) frameworks, and software supply chain integrity tools. By bootstrapping authentication to authorization tools, one could address the “credential zero” or “secure introduction” problem by eliminating the need for workloads to securely store the credentials needed to authenticate to the secret store.
 >
-> ### Driving towards the best secured edge-to-platform infrastructure
+> ### Driving towards the best secured edge-to-cloud platform
 >
 > The examples noted above are just some of the ways HPE is using this innovative technology to provide for a better and more seamlessly secured environment.  There’s a lot more going on. Stay tuned to the [HPE Developer blog](https://developer.hpe.com/blog) to learn about different SPIFFE/SPIRE implementations and other news in this area. You might also want to check out the book, [Solving the Bottom Turtle](https://spiffe.io/book/), for interesting and detailed information about SPIFFE and SPIRE.
