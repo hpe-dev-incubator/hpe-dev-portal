@@ -178,9 +178,7 @@ Three variables are required:
 
       <img src="/img/2022-10-19-18_07_06-hpe-com-using-infinity-uql-native-api-calls-grafana-—-mozilla-firefox.png"   />
 
-
    And add in the Headers tab:  
-
    * Header Name: **Content-type**
    * Header Value: **application/x-www-form-urlencoded**
 
@@ -193,6 +191,8 @@ Three variables are required:
       <img
    src="/img/lj-grafana-com-picture7.png"
    />
+
+
 3. A variable for the carbon footprint report ID:   
 
    I use a variable for the carbon footprint report ID, because each time a new report is generated, a new `id` is created. So, by using a variable, I can fetch the last report `id` and be sure that all my CO2 report API requests will be successful.
