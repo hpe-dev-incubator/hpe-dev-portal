@@ -152,7 +152,7 @@ Three variables are required:
 
    ![](/img/2022-10-24-11_22_41-hpe-com-using-infinity-uql-native-api-calls-grafana-—-mozilla-firefox.png)
 
-   When multiple endpoints values are defined, the *url* variable is listed in a drop-down list at the top of the dashboard. This is very useful if you want to quickly adjust the visualization of the different regions.
+   Note: When multiple endpoints values are defined, the *url* variable is listed in a drop-down list at the top of the dashboard. This is very useful if you want to quickly adjust the visualization of the different regions.
 
    ![](/img/2022-10-24-11_24_26-hpe-com-using-infinity-uql-native-api-calls-grafana-—-mozilla-firefox.png)
 
