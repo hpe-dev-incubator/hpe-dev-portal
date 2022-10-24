@@ -566,6 +566,15 @@ ul li{
 </style>
 ```       
 
+Similarly you can change the numbered lists font-size with the following global statement:
+
+```html
+<style>
+ol li{
+ font-size:25px;
+}
+</style>
+```     
 <br/>
 
 ***Formatting a table properly***
