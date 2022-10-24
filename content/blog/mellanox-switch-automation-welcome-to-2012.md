@@ -17,13 +17,9 @@ You never know when you'll run into the same issue, so let me help you out here 
 
 Within the architecture, there are only five networks; the iLO (or Out-of-Band management), the VMware Management network, the home of the vCenter, a VM production network, and two ISCSI data networks
 
-My ultimate goal was to develop an application to speak directly to the switches via the REST API. Without having access to the hardware, it was a bit of a challenge to develop the Python bindings. To solve this challenge, I would need to create a text file which contains the configuration statements for the switch. Lucky for me, this is super easy using Flask and Jinja2 templates. 
-
- 
+My ultimate goal was to develop an application to speak directly to the switches via the REST API. Without having access to the hardware, it was a bit of a challenge to develop the Python bindings. To solve this challenge, I would need to create a text file which contains the configuration statements for the switch. Lucky for me, this is super easy using Flask and Jinja2 templates.  
 
 Looking at the switch configuration file, most of the information is static. Very little of it is dynamic. There are only 17 variables that need to be collected before they can be applied to a Jinja2 template. So, the solution for me was to use a Flask form and pass the variables over to Jinja2 to create the necessary configuration file. 
-
- 
 
 Writing the Python code can be quickly accomplished if you can see the results of the API requests. It contains valuable information that gives guidance as to the specific structure of the information the switch sends back. Once this information is understood, Flask can process the information and apply the Jinja2 template. Here's a handy link to the Flask documentation.<https://flask.palletsprojects.com/en/2.2.x/>
 
