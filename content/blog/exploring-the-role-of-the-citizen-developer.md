@@ -3,6 +3,7 @@ title: Exploring the role of the Citizen Developer
 date: 2022-10-24T13:33:55.858Z
 author: Didier Lalli
 authorimage: /img/didier-lalli.png
+thumbnailimage: /img/hpe20160720045_1600_0_72_rgb-1200-x-675.jpg
 disable: false
 tags:
   - citizen_dev
@@ -13,13 +14,15 @@ ul li{
 }
 </style>
 
+![](/img/hpe20160720045_1600_0_72_rgb-1200-x-675.jpg)
+
 A topic I’ve been reading about more a lot lately is the rise of the Citizen Developer.
 
 Citizen Developers leverage low-code/no-code (LCNC) platforms to build applications through visual representations without having to have spent years developing deep coding skills. They’ve become more plentiful as more and more businesses rely on software applications to help automate their processes, helping organizations do more with less.
 
 In essence, Citizen Developers are just non-IT employees who use technology to make work easier and more efficient using platforms designed to create programs using intuitive interfaces and a mouse click, as opposed to having to write lines and lines of code. Enabling Citizen Developers can save companies a lot of money by removing the constraint on IT for low-complexity innovation and helping everyone become more self-sufficient and efficient.
 
-At last week’s [SlashData’s DevRe\[X\] Summit](https://www.devrelxsummit.com/), I learned that the usage of low/no code has doubled in the last 2 years, with 57% of developers reporting the use of LNC tools. That is an interesting statistic, as it seems to indicate that these tools are being used not only by Citizen Developers, but are also making their way into “real” developers’ toolboxes (for building prototypes, front end development, etc.).
+At last week’s [SlashData’s DevRe\[X] Summit](https://www.devrelxsummit.com/), I learned that the usage of low/no code has doubled in the last 2 years, with 57% of developers reporting the use of LNC tools. That is an interesting statistic, as it seems to indicate that these tools are being used not only by Citizen Developers, but are also making their way into “real” developers’ toolboxes (for building prototypes, front end development, etc.).
 
 The reason for this rise in popularity is that there are many pros to the Citizen Developer movement:
 
