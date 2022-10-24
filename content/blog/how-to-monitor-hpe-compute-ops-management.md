@@ -37,7 +37,7 @@ HPE GreenLake for Compute Ops Management REST API uses the OAuth 2.0 authenticat
 
 The access token is a long string in the form of a JSON Web Token that is signed using RS256 algorithm. The access token must be added into the HTTP header with keyword "Authorization: Bearer {token}" for any REST API request. 
 
-For information about how to create API client credentials and how to generate an access token for HPE Compute Ops Management, refer to [this article](https://developer.greenlake.hpe.com/docs/greenlake/guides/public/authentication/authentication/).
+For information about how to create API client credentials and how to generate an access token for HPE Compute Ops Management, refer to [this web page](https://developer.greenlake.hpe.com/docs/greenlake/guides/public/authentication/authentication/).
 
 Only a few resource metrics are currently supported by HPE Compute Ops Management via the RESTful API, but things will change quickly in the coming months. Today, the only metric available is the carbon footprint report but many other resources are available to create nice Grafana dashboards such as data related to the number of servers, health of servers, service packs, groups, etc. 
 
@@ -47,7 +47,7 @@ There are several Grafana plugins that support data collection via the REST API 
 
 UQL is not simple at first glance, but I will provide examples in this blog. With UQL, you can customize the results you need regardless of the JSON format returned by the API.
 
-A UQL query can be formed with a list of commands joined by "|". Most of the time, fields are referenced in double quotes and string values are referenced in single quotes as shown below:
+A UQL query can be formed with a list of commands joined by ` | `. Most of the time, fields are referenced in double quotes and string values are referenced in single quotes as shown below:
 
 ![](/img/2022-10-21-11_47_58-hpe-software-‎-onenote-for-windows-10.png)
 
@@ -185,7 +185,7 @@ Three variables are required:
    />
 3. A variable for the carbon footprint report ID:   
 
-   I use a variable for the carbon footprint report ID, because each time a new report is generated, a new ID is created. So, by using a variable, I can fetch the last report ID and be sure that all my CO2 report API requests will be successful.
+   I use a variable for the carbon footprint report ID, because each time a new report is generated, a new `id` is created. So, by using a variable, I can fetch the last report `id` and be sure that all my CO2 report API requests will be successful.
 
    For this variable, use the following parameters:
 
