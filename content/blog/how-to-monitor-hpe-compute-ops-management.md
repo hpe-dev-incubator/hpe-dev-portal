@@ -27,7 +27,7 @@ The following picture shows a typical HPE infrastructure dashboard with differen
 
 ![](/img/2022-10-21-11_14_38-hpe-com-using-infinity-uql-native-api-calls-grafana-—-mozilla-firefox.png)
 
-# HPE Compute Ops Management REST API
+# HPE GreenLake for Compute Ops Management REST API
 
 HPE GreenLake for Compute Ops Management provides a northbound RESTful [API ](https://developer.greenlake.hpe.com/docs/greenlake/services/compute-ops/public/openapi/compute-ops-latest/overview/)that supports many operations. All the data you can get from the HPE Compute Ops Management API can be leveraged to create beautiful and instructive Grafana dashboards. 
 
