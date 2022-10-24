@@ -9,7 +9,7 @@ tags:
   - citizen_dev
 ---
 <style>
-nl li{
+ol li{
  font-size:25px;
 }
 </style>
