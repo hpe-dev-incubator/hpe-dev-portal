@@ -250,6 +250,8 @@ Analyzing carbon emissions can help you understand the impact of your servers on
 
 The report does not include estimates of the embedded carbon footprint from manufacturing and distribution of the servers.
 
+> **Important note**: Carbon footprint information is only available after running a report from the HPE GreenLake Cloud Platform GUI and, be aware, there is currently no API method to generate a report, so this process can only be manual and via the GUI. The carbon footprint report, when run, collects data from the last seven days and Compute Ops Management only saves the most recent report. As a result, the visualization in Grafana will be limited to seven days prior to the report run date and to get an up-to-date graph, it is necessary to run a new report from the HPE GreenLake GUI.
+
 #### Panel overview
 
 ![](/img/2022-10-19-20_06_34-hpe-com-using-infinity-uql-native-api-calls-grafana-—-mozilla-firefox.png)
