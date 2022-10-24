@@ -4,7 +4,7 @@ dateStart: 2022-12-06T23:01:56.534Z
 dateEnd: 2022-12-07T22:59:56.554Z
 category: Virtual Event
 image: /img/event-meetups-newlogo-400x400.png
-link: https://developer.hpe.com
+link: https://hpe.zoom.us/webinar/register/2816666285051/WN_Tf5HfKX6Sa2AbRhzeMIOgA
 width: large
 ---
 ## Running reliable systems Part 1: An overview of SRE
