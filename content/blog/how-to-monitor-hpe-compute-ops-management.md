@@ -1,6 +1,6 @@
 ---
-title: How to monitor HPE Compute Ops Management infrastructure with Grafana
-  Metrics Dashboards
+title: How to monitor HPE GreenLake for Compute Ops Management infrastructure
+  with Grafana Metrics Dashboards
 date: 2022-10-19T18:21:24.504Z
 author: Lionel Jullien
 authorimage: /img/small-size-id.jpg
@@ -10,11 +10,12 @@ tags:
   - hpe-greenlake
   - monitoring
   - api
+  - COM
 ---
 <style>ul li{ font-size:26px;padding-bottom: 0.5em;}</style>
 <style> i{ color:grey;font-family:'Courier New';font-size:22px; } </style>
 
-The purpose of this blog post is to describe how to generate Grafana dashboards to monitor any HPE Compute infrastructure managed by HPE Compute Ops Management.
+The purpose of this blog post is to describe how to generate Grafana dashboards to monitor any HPE Compute infrastructure managed by HPE GreenLake for Compute Ops Management.
 
 # Grafana Dashboards
 
@@ -28,11 +29,11 @@ The following picture shows a typical HPE infrastructure dashboard with differen
 
 # HPE Compute Ops Management REST API
 
-HPE Compute Ops Management provides a northbound RESTful [API ](https://developer.greenlake.hpe.com/docs/greenlake/services/compute-ops/public/openapi/compute-ops-latest/overview/)that supports many operations. All the data you can get from the HPE Compute Ops Management API can be leveraged to create beautiful and instructive Grafana dashboards. 
+HPE GreenLake for Compute Ops Management provides a northbound RESTful [API ](https://developer.greenlake.hpe.com/docs/greenlake/services/compute-ops/public/openapi/compute-ops-latest/overview/)that supports many operations. All the data you can get from the HPE Compute Ops Management API can be leveraged to create beautiful and instructive Grafana dashboards. 
 
 To take advantage of this, simply use a generic Grafana plugin that can handle REST requests, parse JSON responses and generate tables. With this solution, we greatly reduce the complexity of the solution which in principle requires a database like Prometheus or InfluxDB. In this post, I will show you how to do it without a database...
 
-HPE Compute Ops Management REST API uses the OAuth 2.0 authentication based on the client credential, which generates a limited lifetime access token.
+HPE GreenLake for Compute Ops Management REST API uses the OAuth 2.0 authentication based on the client credential, which generates a limited lifetime access token.
 
 The access token is a long string in the form of a JSON Web Token that is signed using RS256 algorithm. The access token must be added into the HTTP header with keyword "Authorization: Bearer {token}" for any REST API request. 
 
