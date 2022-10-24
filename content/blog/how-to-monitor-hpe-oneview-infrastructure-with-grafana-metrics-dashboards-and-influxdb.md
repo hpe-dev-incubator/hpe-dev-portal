@@ -4,6 +4,10 @@ title: How to monitor HPE OneView infrastructure with Grafana Metrics Dashboards
 date: 2022-10-12T10:00:35.115Z
 author: Lionel Jullien
 authorimage: /img/small-size-id.jpg
+tags:
+  - hpe-oneview
+  - grafana
+  - influxdb
 ---
 <style>ul li{ font-size:26px;padding-bottom: 0.5em;}</style>
 <style> i{ color:grey;font-family:'Courier New';font-size:22px; } </style>
