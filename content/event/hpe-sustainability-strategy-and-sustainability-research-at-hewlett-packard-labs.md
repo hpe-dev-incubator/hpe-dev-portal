@@ -4,7 +4,7 @@ dateStart: 2022-10-18T22:01:01.542Z
 dateEnd: 2022-10-19T21:59:01.558Z
 category: Virtual Event
 image: /img/event-munch-and-learn-newlogo400x400.png
-link: https://hpe.zoom.us/webinar/register/1416645577367/WN_pb_mmhLEQQSGNf6ta1d-jA
+link: https://www.youtube.com/watch?v=SUgdVsncWrk&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF&index=1
 width: large
 ---
 ## HPE Sustainability Strategy and Sustainability Research at Hewlett Packard Labs
