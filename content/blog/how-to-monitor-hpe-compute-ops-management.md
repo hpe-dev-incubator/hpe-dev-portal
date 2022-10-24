@@ -29,7 +29,7 @@ The following picture shows a typical HPE infrastructure dashboard with differen
 
 # HPE GreenLake for Compute Ops Management REST API
 
-HPE GreenLake for Compute Ops Management provides a northbound RESTful [API ](https://developer.greenlake.hpe.com/docs/greenlake/services/compute-ops/public/openapi/compute-ops-latest/overview/)that supports many operations. All the data you can get from the HPE Compute Ops Management API can be leveraged to create beautiful and instructive Grafana dashboards. 
+HPE GreenLake for Compute Ops Management provides a northbound RESTful [API ](https://developer.greenlake.hpe.com/docs/greenlake/services/compute-ops/public/openapi/compute-ops-latest/overview/)that supports many operations. All the data you can get from the Compute Ops Management API can be leveraged to create beautiful and instructive Grafana dashboards. 
 
 To take advantage of this, simply use a generic Grafana plugin that can handle REST requests, parse JSON responses and generate tables. With this solution, we greatly reduce the complexity of the solution which in principle requires a database like Prometheus or InfluxDB. In this post, I will show you how to do it without a database...
 
@@ -37,9 +37,9 @@ HPE GreenLake for Compute Ops Management REST API uses the OAuth 2.0 authenticat
 
 The access token is a long string in the form of a JSON Web Token that is signed using RS256 algorithm. The access token must be added into the HTTP header with keyword "Authorization: Bearer {token}" for any REST API request. 
 
-For information about how to create API client credentials and how to generate an access token for HPE Compute Ops Management, refer to [this web page](https://developer.greenlake.hpe.com/docs/greenlake/guides/public/authentication/authentication/).
+For information about how to create API client credentials and how to generate an access token for HPE GreenLake for Compute Ops Management, refer to [this web page](https://developer.greenlake.hpe.com/docs/greenlake/guides/public/authentication/authentication/).
 
-Only a few resource metrics are currently supported by HPE Compute Ops Management via the RESTful API, but things will change quickly in the coming months. Today, the only metric available is the carbon footprint report but many other resources are available to create nice Grafana dashboards such as data related to the number of servers, health of servers, service packs, groups, etc. 
+Only a few resource metrics are currently supported by Compute Ops Management via the RESTful API, but things will change quickly in the coming months. Today, the only metric available is the carbon footprint report but many other resources are available to create nice Grafana dashboards such as data related to the number of servers, health of servers, service packs, groups, etc. 
 
 # Grafana Infinity plugin
 
@@ -76,7 +76,7 @@ Cons:
 ## Prerequisites
 
 * Grafana must be installed, started, and enabled
-* HPE Compute Ops Management API client credentials are required (this consists of a *client ID* and a *client secret*)
+* HPE GreenLake for Compute Ops Management API client credentials are required (this consists of a *client ID* and a *client secret*)
 
 ## Infinity plugin installation
 
@@ -128,9 +128,9 @@ Then select **Variables** then **Add variables**:
 
 Three variables are required:
 
-1. A variable for the HPE Compute Ops Management API endpoint URL:
+1. A variable for the HPE GreenLake for Compute Ops Management API endpoint URL:
 
-   Endpoints are the host URLs that you will submit your API requests to. HPE Compute Ops Management has unique endpoints in specific regions. Which region is used depends on which region the devices were onboarded into via the HPE GreenLake Cloud Platform.
+   Endpoints are the host URLs that you will submit your API requests to. Compute Ops Management has unique endpoints in specific regions. Which region is used depends on which region the devices were onboarded into via the HPE GreenLake Cloud Platform.
 
    Use the following list to identify your application endpoint:
 
@@ -147,9 +147,19 @@ Three variables are required:
    <img
      src="/img/2022-10-19-17_41_55-hpe-com-using-infinity-uql-native-api-calls-grafana-—-mozilla-firefox.png"
        />
+
+
+   Note: If you have devices in different regions, you can define your variable with the values of the three endpoints separated by a comma.  
+
+   ![](/img/2022-10-24-11_22_41-hpe-com-using-infinity-uql-native-api-calls-grafana-—-mozilla-firefox.png)
+
+   When multiple endpoints values are defined, the *url* variable is listed in a drop-down list at the top of the dashboard. This is very useful if you want to quickly adjust the visualization of the different regions.
+
+   ![](/img/2022-10-24-11_24_26-hpe-com-using-infinity-uql-native-api-calls-grafana-—-mozilla-firefox.png)
+
 2. A variable to generate the access token for the API authentication:
 
-   HPE Compute Ops Management REST API uses the OAuth 2.0 authentication based on the client credential, which generates a limited lifetime access token. So, the variable must be created using:
+   Compute Ops Management REST API uses the OAuth 2.0 authentication based on the client credential, which generates a limited lifetime access token. So, the variable must be created using:
 
    * Name: **session**
    * Data source: **Infinity-COM**
@@ -165,7 +175,7 @@ Three variables are required:
    * Method: **POST**
    * Body: **grant\_type=client\_credentials&client_id=**\<your-client-ID>**&client_secret=**\<your-client-secret>
 
-   Note: *\<your-client-ID>* and *\<your-client-secret>* are the HPE Compute Ops Management API client credentials generated from the HPE GreenLake Cloud Platform (GLCP).
+   Note: *\<your-client-ID>* and *\<your-client-secret>* are the Compute Ops Management API client credentials generated from the HPE GreenLake Cloud Platform (GLCP).
 
       <img src="/img/2022-10-19-18_07_06-hpe-com-using-infinity-uql-native-api-calls-grafana-—-mozilla-firefox.png"   />
 
@@ -178,7 +188,7 @@ Three variables are required:
      src="/img/lj-grafana-com-picture6.png"
      />
 
-   When everything is properly configured, the access token generated by the HPE Compute Ops Management API should be displayed in the *Preview of values* section at the bottom of the page:
+   When everything is properly configured, the access token generated by the Compute Ops Management API should be displayed in the *Preview of values* section at the bottom of the page:
 
       <img
    src="/img/lj-grafana-com-picture7.png"
@@ -314,7 +324,7 @@ The report does not include estimates of the embedded carbon footprint from manu
    * **parse-json**:  command to instruct UQL to parse the response as JSON   
    * **jsonata**: command to select the object representing the carbon emission report for all servers available in the `series` array   
    * **scope**: command to set `buckets` as the output data   
-   * **project**: command to create a table with two columns (Timestamp and Carbon Emissions (kgCO2e))
+   * **project**: command to create a table with two columns (*Timestamp* and *Carbon Emissions (kgCO2e)*)
 
   Note: JSONata is an open-source expression language that is used for querying and transforming JSON data. You can refer to the following [JSONata Cheatsheet](https://www.stedi.com/docs/mappings/jsonata-cheatsheet) for tons of examples on how to manipulate JSON data.
 * Visualization: **Time Series**
@@ -394,7 +404,7 @@ This report displays the estimated total carbon emissions for each server.
    Description of the UQL commands:  
    * **parse-json**:  command to instruct UQL to parse the response as JSON   
    * **scope**: command to set `series` as the output data   
-   * **project**: command to create a table with two columns (Servers and Carbon Emissions)
+   * **project**: command to create a table with two columns (*Servers* and *Carbon Emissions*)
 * Override1: Fields with name = **Carbon Emissions** / Cell display Mode = **LCD Gauge**
 * Visualization: **Table**   
   * Unit: **kgCO2e**
@@ -562,4 +572,7 @@ This panel displays the health and information for each server. The information 
 Many other panels using other [API resources](https://developer.greenlake.hpe.com/docs/greenlake/services/compute-ops/public/openapi/compute-ops-latest/overview/) can be generated, for example for firmware bundles, groups, activities, etc. And now you have all the basics to get started and create the panels you need in your environment.
 
 This concludes this blog post. I hope you find it useful and should you have any feedback, please send me a [message](mailto:lio@hpe.com).
+
+
+
 
