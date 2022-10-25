@@ -17,7 +17,7 @@ ul li{
 
 ![](/img/hpe20160720045_1600_0_72_rgb-1200-x-675.jpg)
 
-A topic I’ve been reading about more a lot lately is the rise of the Citizen Developer.
+A topic I’ve been reading about a lot lately is the rise of the Citizen Developer.
 
 Citizen Developers leverage low-code/no-code (LCNC) platforms to build applications through visual representations without having to have spent years developing deep coding skills. They’ve become more plentiful as more and more businesses rely on software applications to help automate their processes, helping organizations do more with less.
 
