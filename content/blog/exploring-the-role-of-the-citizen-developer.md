@@ -10,8 +10,8 @@ tags:
 ---
 <style>
 ol li{
-  font-size:20px;
-  padding: 20;
+  font-size:25px;
+  list-style-position: outside;
 }
 </style>
 
