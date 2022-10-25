@@ -10,6 +10,7 @@ tags:
   - cray
   - spiffe-spire
   - open-source
+  - spiffe-and-spire-projects
 ---
 > Late September 2022, the Cloud Native Computing Foundation® (CNCF)[ announced the graduation of the SPIFFE and SPIRE projects](https://www.cncf.io/announcements/2022/09/20/spiffe-and-spire-projects-graduate-from-cloud-native-computing-foundation-incubator/), joining an elite group of only 18 graduated CNCF projects, like HELM and Kubernetes. Being designated a graduated project means that the project is considered stable, with enough governance processes around it, and ready to be widely deployed in production.
 >
