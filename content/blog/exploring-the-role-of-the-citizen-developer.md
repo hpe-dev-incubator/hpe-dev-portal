@@ -28,9 +28,11 @@ In essence, Citizen Developers are just non-IT employees who use technology to m
 
 At last week’s \[SlashData’s DevRe[X] Summit](https://www.devrelxsummit.com/), I learned that the usage of low/no code has doubled in the last 2 years, with 57% of developers reporting the use of LNC tools. 
 
-![Usage of low/no code](/img/usage-of-low-no-code.png)
+![Usage of low/no code](/img/usage-of-low-no-code-copy.jpg)
 
-That is an interesting statistic, as it seems to indicate that these tools are being used not only by Citizen Developers, but are also making their way into “real” developers’ toolboxes (for building prototypes, front end development, etc.). You can check the full session which the data comes from [here](https://youtu.be/Up-N5x6NCps).
+You can check the full session from Christina Voskoglou, which the data comes [here](https://youtu.be/Up-N5x6NCps).
+
+That is an interesting statistic, as it seems to indicate that these tools are being used not only by Citizen Developers, but are also making their way into “real” developers’ toolboxes (for building prototypes, front end development, etc.). 
 
 The reason for this rise in popularity is that there are many pros to the Citizen Developer movement:
 
