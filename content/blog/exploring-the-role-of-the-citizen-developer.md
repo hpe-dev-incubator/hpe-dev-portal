@@ -26,7 +26,7 @@ Citizen Developers leverage low-code/no-code (LCNC) platforms to build applicati
 
 In essence, Citizen Developers are just non-IT employees who use technology to make work easier and more efficient using platforms designed to create programs using intuitive interfaces and a mouse click, as opposed to having to write lines and lines of code. Enabling Citizen Developers can save companies a lot of money by removing the constraint on IT for low-complexity innovation and helping everyone become more self-sufficient and efficient.
 
-At last week’s [SlashData’s DevRe[X] Summit](https://www.devrelxsummit.com/), I learned that the usage of low/no code has doubled in the last 2 years, with 57% of developers reporting the use of LNC tools. 
+At last week’s [SlashData’s DevRe\[X] Summit](https://www.devrelxsummit.com/), I learned that the usage of low/no code has doubled in the last 2 years, with 57% of developers reporting the use of LCNC tools. 
 
 ![Usage of low/no code](/img/usage-of-low-no-code-copy.jpg)
 
@@ -54,6 +54,6 @@ One article I recently found was very interesting: [ How Low-Code Platforms Can
 
 ### Hear more about it
 
-HPE is exploring low-code/no-code options as well. In the [HPE Developer November 16th Munch & Learn](https://hpe.zoom.us/webinar/register/8716666192015/WN_8jlRM9SaRKmbT3r1CDNtDw), Jeffrey Fougere, an Innovation Strategist at HPE, and Richard Kerridge from HPE Education Services will come to talk on this subject. They’ll introduce session attendees to some of the popular platforms, like Microsoft Power Aps and Power Automate, and explain how HPE employees themselves have been able to build enterprise-level apps and automations with little-to-no budget. This is a session you’ll not want to miss. Even full-time developers can benefit from learning about these technologies to create full-stack solutions outside of their areas of expertise. There will be a replay posted on the [Munch & Learn Technology Talks](https://developer.hpe.com/campaign/munch-and-learn) calendar page once it’s ready.
+HPE is exploring low-code/no-code options as well. In the [HPE Developer November 16th Munch & Learn](https://hpe.zoom.us/webinar/register/8716666192015/WN_8jlRM9SaRKmbT3r1CDNtDw), Jeffrey Fougere, an Innovation Strategist at HPE, Colin Lue King, Talent Management Manager at HPE, and Richard Kerridge, Learning Technology Architecture & Strategy Manager at HPE will come to talk on this subject. They’ll introduce session attendees to some of the popular platforms, like Microsoft Power Aps and Power Automate, and explain how HPE employees themselves have been able to build enterprise-level apps and automations with little-to-no budget. This is a session you’ll not want to miss. Even full-time developers can benefit from learning about these technologies to create full-stack solutions outside of their areas of expertise. There will be a replay posted on the [Munch & Learn Technology Talks](https://developer.hpe.com/campaign/munch-and-learn) calendar page once it’s ready.
 
 What’s your experience with low-code/no-code solutions? Other community members could learn a lot from your experience. If you’re a citizen developer, consider [contributing a blog post](https://developer.hpe.com/contribute) on the subject. The HPE Developer Community team would love to hear more about it.
