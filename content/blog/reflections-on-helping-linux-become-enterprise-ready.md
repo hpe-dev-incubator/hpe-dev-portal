@@ -9,7 +9,7 @@ In this blog series, you’ll meet some of the open source experts working with 
 
 Some of the contributions Suparna made to Linux were in the areas of filesystems, IO and RAS (reliability, availability, and serviceability), helping to establish Linux as an enterprise-grade OS. During her tenure as a contributor, Suparna learned many things she was able to apply throughout her engineering career and shared them with me here.
 
-#### **Suparna, can you set the stage for me as to your involvement with contributing to the Linux kernel?**
+#### Suparna, can you set the stage for me as to your involvement with contributing to the Linux kernel?
 
 Back in 2000, there were a number of companies interested in helping Linux evolve into an operating system that could be used in enterprise-scale environments. I was working at IBM at the time and looking for ways I could contribute to help in that effort. My specific project was intended to look at serviceability capabilities, i.e. RAS features. But I wound up contributing in several areas that made their way into the kernel over the course of several years (2000-2007), including:
 
