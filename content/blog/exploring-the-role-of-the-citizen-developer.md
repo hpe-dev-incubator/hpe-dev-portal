@@ -26,9 +26,9 @@ Citizen Developers leverage low-code/no-code (LCNC) platforms to build applicati
 
 In essence, Citizen Developers are just non-IT employees who use technology to make work easier and more efficient using platforms designed to create programs using intuitive interfaces and a mouse click, as opposed to having to write lines and lines of code. Enabling Citizen Developers can save companies a lot of money by removing the constraint on IT for low-complexity innovation and helping everyone become more self-sufficient and efficient.
 
-At last week’s [SlashData’s DevRe\[X] Summit](https://www.devrelxsummit.com/), I learned that the usage of low/no code has doubled in the last 2 years, with 57% of developers reporting the use of LNC tools. 
+At last week’s \[SlashData’s DevRe[X] Summit](https://www.devrelxsummit.com/), I learned that the usage of low/no code has doubled in the last 2 years, with 57% of developers reporting the use of LNC tools. 
 
-![](/img/usage-of-low-no-code.png)
+![Usage of low/no code](/img/usage-of-low-no-code.png)
 
 That is an interesting statistic, as it seems to indicate that these tools are being used not only by Citizen Developers, but are also making their way into “real” developers’ toolboxes (for building prototypes, front end development, etc.). You can check the full session which the data comes from [here](https://youtu.be/Up-N5x6NCps).
 
