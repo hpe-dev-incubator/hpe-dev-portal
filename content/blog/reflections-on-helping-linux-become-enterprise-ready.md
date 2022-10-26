@@ -75,4 +75,4 @@ It was a very exciting time, probably the most enjoyable phase of my entire care
 
 For example, one of the most important lessons I learned was that, when addressing design goals for new features, conventional approaches are not always good enough. You have to rethink and challenge long held beliefs to gracefully cope with evolving needs. New challenges are always emerging.
 
-And finally, I learned the power of simplicity, learning to do more with less. You want to reduce things down to the most essential features and avoid unnecessary complexity. Understanding these things has helped me to bring about change more easily in each and every engineering organization I’ve been a part of.
+And finally, I learned the power of simplicity, learning to do more with less. You want to reduce things down to the most essential features and avoid unnecessary complexity. Understanding these things has helped me to bring about change more easily in each and every engineering organization I’ve been a part of throughout my career.
