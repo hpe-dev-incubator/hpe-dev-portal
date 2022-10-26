@@ -26,21 +26,25 @@ Citizen Developers leverage low-code/no-code (LCNC) platforms to build applicati
 
 In essence, Citizen Developers are just non-IT employees who use technology to make work easier and more efficient using platforms designed to create programs using intuitive interfaces and a mouse click, as opposed to having to write lines and lines of code. Enabling Citizen Developers can save companies a lot of money by removing the constraint on IT for low-complexity innovation and helping everyone become more self-sufficient and efficient.
 
-At last week’s [SlashData’s DevRe\[X\] Summit](https://www.devrelxsummit.com/), I learned that the usage of low/no code has doubled in the last 2 years, with 57% of developers reporting the use of LNC tools. That is an interesting statistic, as it seems to indicate that these tools are being used not only by Citizen Developers, but are also making their way into “real” developers’ toolboxes (for building prototypes, front end development, etc.).
+At last week’s [SlashData’s DevRe\[X] Summit](https://www.devrelxsummit.com/), I learned that the usage of low/no code has doubled in the last 2 years, with 57% of developers reporting the use of LNC tools. 
+
+![](/img/usage-of-low-no-code.png)
+
+That is an interesting statistic, as it seems to indicate that these tools are being used not only by Citizen Developers, but are also making their way into “real” developers’ toolboxes (for building prototypes, front end development, etc.). You can check the full session which the data comes from [here](https://youtu.be/Up-N5x6NCps).
 
 The reason for this rise in popularity is that there are many pros to the Citizen Developer movement:
 
-- Low-code/no-code platforms allow non-developers to build simple apps with little IT investment, while freeing up corporate developers to focus on key applications.
-- They provide pre-existing libraries of components for quick software builds.
-- It expands the ability to innovate within the enterprise.
-- The platforms allow one to start small, then customize and improve as you go, again without corporate developer interaction.
+* Low-code/no-code platforms allow non-developers to build simple apps with little IT investment, while freeing up corporate developers to focus on key applications.
+* They provide pre-existing libraries of components for quick software builds.
+* It expands the ability to innovate within the enterprise.
+* The platforms allow one to start small, then customize and improve as you go, again without corporate developer interaction.
 
 As you can see, there are a lot of benefits to be had for an organization. However, if you decide you want to provide your employees with low-code/no-code platforms and tools, there are a few things you’ll want to make sure corporate IT is involved with:
 
-- You might need to provide training on simple development concepts and on LCNC tools you selected, and deployed for employees.
-- You will need to watch over the data being used by Citizen Devs, to make sure no compliance or privacy rules are broken. Most likely you will need to implement some policy restrictions, which might represent a governance challenge.
-- Enabling Citizen Devs can represent a risk to IT sprawl and shadow IT, if not carefully managed.
-- It may represent a security risk, as in most case these Citizen Dev-built apps are being used and developed on personal devices, mobile devices and non-corporate Wi-Fi connections.
+* You might need to provide training on simple development concepts and on LCNC tools you selected, and deployed for employees.
+* You will need to watch over the data being used by Citizen Devs, to make sure no compliance or privacy rules are broken. Most likely you will need to implement some policy restrictions, which might represent a governance challenge.
+* Enabling Citizen Devs can represent a risk to IT sprawl and shadow IT, if not carefully managed.
+* It may represent a security risk, as in most case these Citizen Dev-built apps are being used and developed on personal devices, mobile devices and non-corporate Wi-Fi connections.
 
 ### Read more about it
 
