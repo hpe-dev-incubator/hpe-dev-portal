@@ -30,7 +30,7 @@ At last week’s \[SlashData’s DevRe[X] Summit](https://www.devrelxsummit.com/
 
 ![Usage of low/no code](/img/usage-of-low-no-code-copy.jpg)
 
-You can check the full session from Christina Voskoglou, which the data comes [here](https://youtu.be/Up-N5x6NCps).
+You can check the full session from Christina Voskoglou, which the data comes from, [here](https://youtu.be/Up-N5x6NCps).
 
 That is an interesting statistic, as it seems to indicate that these tools are being used not only by Citizen Developers, but are also making their way into “real” developers’ toolboxes (for building prototypes, front end development, etc.). 
 
