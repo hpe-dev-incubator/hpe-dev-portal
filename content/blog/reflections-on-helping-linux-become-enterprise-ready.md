@@ -19,7 +19,7 @@ Back in 2000, there were a number of companies interested in helping Linux evolv
 * pre-emptible RCU
 * RAS features, including kprobes and kdump
 
-#### **You’ve likened your experience to bridging Lilliput and Brobdingnag, places found in Gulliver’s Travels by Jonathan Swift. Can you explain what you mean by that?**
+**You’ve likened your experience to bridging Lilliput and Brobdingnag, places found in Gulliver’s Travels by Jonathan Swift. Can you explain what you mean by that?**
 
 Up until that point, Linux had predominantly been used on relatively smaller systems. The challenge now was to make it work well on much larger systems in order to support the enterprise. It felt like trying to build a city where both the Lilliputians could live alongside the Brobdingnagians. You had to be careful that, when you introduced code to support the larger systems, you didn’t trample on the Lilliputians.  In other words, our challenge was to advance the scalability, responsiveness and dependability of Linux for enterprise workloads without introducing additional overhead for non-enterprise users.
 
