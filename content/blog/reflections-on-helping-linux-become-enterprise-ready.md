@@ -3,7 +3,11 @@ title: Reflections on helping Linux become enterprise-ready
 date: 2022-10-26T15:17:41.359Z
 author: Dale Rensing
 authorimage: /img/Avatar6.svg
+thumbnailimage: /img/making-linux-enterprise-ready.jpg
 disable: false
+tags:
+  - linux
+  - open-source
 ---
 In this blog series, you’ll meet some of the open source experts working with the HPE Developer Community team. In this post, I’ll be interviewing Suparna Bhattacharya who works in the HPE AI Research Lab on foundations and techniques for data centric trustworthy AI. She is an HPE Fellow and also the architect for Project Data Map, an innovation project in the CTO. Suparna was a Linux kernel contributor between 2000 and 2007 during the period when Linux was evolving into an enterprise OS.
 
