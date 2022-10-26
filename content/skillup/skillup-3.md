@@ -5,7 +5,7 @@ linkname: Test now
 description: Get first-hand experience on our platform, customized by
   technology, use case, and role.
 disable: false
-priority: 5
+priority: 4
 image: /img/stoplight.jpg
 ---
 Done
