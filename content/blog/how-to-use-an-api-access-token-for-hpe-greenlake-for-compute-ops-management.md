@@ -7,9 +7,7 @@ disable: false
 tags:
   - hpe-greenlake, hpe-greenlake-for-compute-ops-management
 ---
-The Compute Ops Management REST API uses the OAuth 2.0 HPE GreenLake authentication flow. A limited 
-
-lifetime access token needs to be provided in the header of each REST API request as the authorization bearer. The access token is associated with a subject (person or service) and has all the same permissions and privileges as the subject. The access token expires after 120 minutes.
+The Compute Ops Management REST API uses the OAuth 2.0 HPE GreenLake authentication flow. A limited lifetime access token needs to be provided in the header of each REST API request as the authorization bearer. The access token is associated with a subject (person or service) and has all the same permissions and privileges as the subject. The access token expires after 120 minutes.
 
 This blog will discuss the essential steps required to generate the limited lifetime access token.
 
@@ -33,8 +31,6 @@ To configure your API Client Credentials, perform the following steps:
 
 ![GreenLake Create Credential Button](/img/glcp_create_cred.png "GreenLake Create Credential Button")
 
-
-
 4. Select the **Application** you want to access. 
 5. Provide a Credential Name.
 6. Click the **Create Credentials** button to continue. 
@@ -57,15 +53,13 @@ Once you have created credentials, you can view their details on the API page.  
 ![Generate GreenLake  Access Token](/img/glcp_generate_token.png "Generate GreenLake Access Token")
 
 3. Enter your **Client Secret** and click the **Create Access Token** button.
-4. The Access Token Created screen displays your **Access Token**.
+4. The **Access Token Created** screen displays your **Access Token**.
    **Note:** Since access tokens are not stored, HPE GreenLake recommends you make a copy of your access token and keep it in a safe location. 
-5. Click the Close button when you are finished.
+5. Click the **Close** button when you are finished.
 
 **Note:** This access token is referenced later as “<copy_access_token_here>” when demonstrating an API call.
 
 ![Copy GreenLake Access Token](/img/glcp_copy_token.png "Copy GreenLake Access Token")
-
-
 
 ### Resetting Your Client Secret
 
@@ -76,18 +70,13 @@ There may be a time when you want to reset your client secret for security purpo
 
 ![Reset GreenLake Access Token](/img/glcp_reset_token.png "Reset GreenLake Access Token")
 
-
-
-# How to use the access token 
+# How to use the access token
 
 The user can embed the access token in the REST API request to perform the HTTP method against the desired Compute Ops Management resource to obtain the response. Note that the user must use the correct connectivity endpoint according to the region where Compute Ops Management is deployed. Currently, these are the connectivity endpoints for the possible regions:
 
-> **EU Central**
-> <https://eu-central1-api.compute.cloud.hpe.com>
-> **AP Northeast**
-> <https://ap-northeast1-api.compute.cloud.hpe.com>
-> **US West**
-> <https://us-west2-api.compute.cloud.hpe.com>
+* **EU Central** - <https://eu-central1-api.compute.cloud.hpe.com>
+* **AP Northeast** - <https://ap-northeast1-api.compute.cloud.hpe.com>
+* **US West** - <https://us-west2-api.compute.cloud.hpe.com>
 
 ![GreenLake API Endpoint](/img/glcp_endpoint.png "GreenLake API Endpoint")
 
@@ -95,10 +84,7 @@ The access token must be added to the header "Authorization: Bearer " for any RE
 
 ## How to use the access token - cURL method
 
-```
-curl -X GET https://us-west2-api.compute.cloud.hpe.com/compute-ops/v1beta2/servers 
-   -H "Accept:application/json" -H "Authorization:Bearer <copy_access_token_here>”
-```
+`curl -X GET https://us-west2-api.compute.cloud.hpe.com/compute-ops/v1beta2/servers -H "Accept:application/json" -H "Authorization:Bearer <copy_access_token_here>”`
 
 Response - List of compute servers onboarded and assigned to the corresponding application for the user’s customer account
 
@@ -128,10 +114,7 @@ Response - List of compute servers onboarded and assigned to the corresponding a
       }
    ]
 }
-
 ```
-
-
 
 ## How to use the access token - POSTMAN
 
@@ -139,15 +122,13 @@ To execute the REST API using the Postman tool, the access token needs to be cop
 
 ![GreenLake API Call with POSTMAN](/img/glcp_postman.png "GreenLake API Call with POSTMAN")
 
-
-
-# Deleting Client Credentials 
+# Deleting Client Credentials
 
 Deleting the client ID and secret will invalidate all tokens associated with the ID and secret.
 
 1. Click the ellipsis next to the Generate Access Token button to delete your client credentials. 
 2. Select the **Delete Credentials** link. 
-   Note: If a user is deleted from HPE GreenLake, any tokens or client IDs generated and associated with any applications owned by this user will no longer be valid.
+   **Note:** If a user is deleted from HPE GreenLake, any tokens or client IDs generated and associated with any applications owned by this user will no longer be valid.
 
 ![Delete GreenLake Client Credential](/img/glcp_delete_cred.png "Delete GreenLake Client Credential")
 
