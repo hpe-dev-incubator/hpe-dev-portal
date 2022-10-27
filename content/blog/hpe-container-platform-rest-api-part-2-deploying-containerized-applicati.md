@@ -468,5 +468,5 @@ To increase or decrease the number of members in a role, you would just have to 
 
 Hopefully, this blog has helped you learn how to programmatically interact with the HPE Container Platform to deploy both cloud native stateless, microservices based applications and non-cloud native distributed stateful [KubeDirector](/blog/running-non-cloud-native-apps-on-kubernetes-with-kubedirector) applications for various use cases. 
 
-You can stay up to date with the latest news from HPE DEV by [signing up for our monthly newsletter.](https://developer.hpe.com/newsletter-signup) In it, you will find more awesome developers and data scientists focused posts about the HPE Container Platform. You can also follow our community on [Twitter](https://twitter.com/HPE_DevCom) and join the conversation on our [HPE DEV Slack Channel.](https://slack.hpedev.io/)
+You can stay up to date with the latest news from HPE DEV by [signing up for our monthly newsletter.](https://developer.hpe.com/newsletter-signup) In it, you will find more awesome developers and data scientists focused posts about the HPE Container Platform. You can also follow our community on [Twitter](https://twitter.com/HPE_Developer) and join the conversation on our [HPE DEV Slack Channel.](https://slack.hpedev.io/)
 
