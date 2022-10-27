@@ -15,7 +15,7 @@ To simplify the management of hybrid cloud infrastructures, the [HPE OneView](ht
 
 HPE just released OVGD version 1.8, and I’m excited to tell you about what’s new. Can you believe it? This is our 9th release in less than three years! Our 10th is planned around OVGD’s 3rd birthday in October of this year. The team prides itself on having met every release on time. We are also happy with the features in each release of the product.
 
-The OVGD team designs software that helps you tame your IT monster, but sometimes features can sneak in unnoticed by users. Let’s take a quick look back and examine some of these newer releases to see if there is something you didn’t know about or a feature you have used and would like to comment on. We constantly strive to make the product better in the hopes of making you more efficient. So, keep us in mind and don’t hesitate to reach out via [Slack](https://slack.hpedev.io/) or [Twitter](https://twitter.com/HPE_DevCom) if you think our product team can help you. 
+The OVGD team designs software that helps you tame your IT monster, but sometimes features can sneak in unnoticed by users. Let’s take a quick look back and examine some of these newer releases to see if there is something you didn’t know about or a feature you have used and would like to comment on. We constantly strive to make the product better in the hopes of making you more efficient. So, keep us in mind and don’t hesitate to reach out via [Slack](https://slack.hpedev.io/) or [Twitter](https://twitter.com/HPE_Developer) if you think our product team can help you. 
 ## Data Aggregator  
 * OVGD supplies data about:
     * Enclosures
