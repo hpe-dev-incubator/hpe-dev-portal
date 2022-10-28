@@ -84,7 +84,7 @@ The access token must be added to the header "Authorization: Bearer " for any RE
 
 ## How to use the access token - cURL method
 
-`curl -X GET https://us-west2-api.compute.cloud.hpe.com/compute-ops/v1beta2/servers -H "Accept:application/json" -H "Authorization:Bearer <copy_access_token_here>”`
+curl -X GET https://us-west2-api.compute.cloud.hpe.com/compute-ops/v1beta2/servers -H "Accept:application/json" -H "Authorization:Bearer <copy_access_token_here>”
 
 Response - List of compute servers onboarded and assigned to the corresponding application for the user’s customer account
 
