@@ -35,7 +35,7 @@ In doing so, I inadvertently triggered a whole [firestorm](https://lore.kernel.o
 
 **What was the fallout from the email firestorm?**
 
-Then, [Jens Axboe](https://www.landley.net/kdocs/ols/2004/ols2004v1-pages-51-62.pdf) started looking at how to rewrite the block IO sub-system. The challenge was to be able to support these larger IO requests while at the same time supporting the diverse workloads and devices at the low end.
+Then, [Jens Axboe](https://www.landley.net/kdocs/ols/2004/ols2004v1-pages-51-62.pdf) started looking at how to rewrite the block IO sub-system. The challenge was to be able to support these larger IO requests while at the same time supporting diverse workloads and devices at the low end.
 
 Leaning on some of my past experience, I studied his re-write as he posted his patches and came up with notes on the block IO evolution that captured the design issues and tradeoffs. Some of these “bionotes” eventually became part of the block IO design documentation. While I was writing this up, a few others pointed out that there were still places where the new system was inefficient for certain kinds of IO devices, and I had to come up with some patches to fix that. It’s kind of funny how, although my original objective was to get Linux to the point where it worked better for the enterprise, I found myself contributing patches to make it better so that changes we were making ensured it still worked efficiently for smaller systems .
 
