@@ -22,8 +22,6 @@ The Test Drive modules can be sorted by Category, Use Case, and Role.
 
 The Category filter provides the ability to hone in on different technologies; from Containers to Private Cloud and Virtualization. The Use Case filter addresses real-life uses cases related to the different roles listed. Finally, the Role filter allows a persona-driven selection. A DevOps engineer or a developer can be checked to filter exercises specifically relevant to their job and there are actually quite a few options in this area.
 
-  
-
 ![](/img/fred-2.png)
 
 If you are interested in reading more on these subjects, please have a look at the following blog posts:
@@ -78,7 +76,7 @@ When everything is ready, you will log into the tenant and run through the exerc
 
 ![](/img/fred-8-ppt-a.png)
 
-![](https://lh6.googleusercontent.com/QB1__-a__DNcziWiLBD974B-COIEXWnpPG6mAS5TUTWYPkzP1sL3wI8Ea-mSx3uPxGMZlbk1zeCK3DfcfzlyTDdldzTQTJZ2xGTZa-a8tVju5yngUEOmn8YBc7Vn-Cb3gC9n-1h2hudjkdTwoSlUmgvlugCBhkMQPDAH17TW_LvGMmDzTCTMbVpPLA) ![](/img/fred-9-ppt-b.jpg)
+![](https://lh6.googleusercontent.com/QB1__-a__DNcziWiLBD974B-COIEXWnpPG6mAS5TUTWYPkzP1sL3wI8Ea-mSx3uPxGMZlbk1zeCK3DfcfzlyTDdldzTQTJZ2xGTZa-a8tVju5yngUEOmn8YBc7Vn-Cb3gC9n-1h2hudjkdTwoSlUmgvlugCBhkMQPDAH17TW_LvGMmDzTCTMbVpPLA) ![]()
 
 At the end of the Test Drive, the environment is wiped out and you can move on to another use case.
 
