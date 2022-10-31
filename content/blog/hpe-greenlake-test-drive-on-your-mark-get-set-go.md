@@ -70,13 +70,13 @@ When you are ready, simply click Start Test Drive. This kicks in automation that
 
 A few minutes later, you’ll access the detailed instructions for the module. Read through them and perform the necessary steps.
 
-![](/img/fred-7-ppt-b.jpg)
+![](/img/fred-7-ppt-a.png)
 
 When everything is ready, you will log into the tenant and run through the exercises.
 
 ![](/img/fred-8-ppt-a.png)
 
-![](/img/fred-9-ppt-b.jpg)
+![](/img/fred-9-ppt-a.png)
 
 At the end of the Test Drive, the environment is wiped out and you can move on to another use case.
 
