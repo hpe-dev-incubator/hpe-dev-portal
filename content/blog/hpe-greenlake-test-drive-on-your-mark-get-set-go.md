@@ -76,7 +76,7 @@ When everything is ready, you will log into the tenant and run through the exerc
 
 ![](/img/fred-8-ppt-a.png)
 
-![](https://lh6.googleusercontent.com/QB1__-a__DNcziWiLBD974B-COIEXWnpPG6mAS5TUTWYPkzP1sL3wI8Ea-mSx3uPxGMZlbk1zeCK3DfcfzlyTDdldzTQTJZ2xGTZa-a8tVju5yngUEOmn8YBc7Vn-Cb3gC9n-1h2hudjkdTwoSlUmgvlugCBhkMQPDAH17TW_LvGMmDzTCTMbVpPLA) ![]()
+![](https://lh6.googleusercontent.com/QB1__-a__DNcziWiLBD974B-COIEXWnpPG6mAS5TUTWYPkzP1sL3wI8Ea-mSx3uPxGMZlbk1zeCK3DfcfzlyTDdldzTQTJZ2xGTZa-a8tVju5yngUEOmn8YBc7Vn-Cb3gC9n-1h2hudjkdTwoSlUmgvlugCBhkMQPDAH17TW_LvGMmDzTCTMbVpPLA) ![](/img/fred-9-ppt-b.jpg)
 
 At the end of the Test Drive, the environment is wiped out and you can move on to another use case.
 
