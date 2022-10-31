@@ -50,7 +50,7 @@ You can opt for a self-service Test Drive or a Hosted experience, depending upon
 
 In this blog post, I will describe the Test Drive experience. The Hosted trial is completely different. Keep your eyes posted on the [HPE Developer blog](https://developer.hpe.com/blog) for a future post regarding Hosted trials.
 
-![](/img/fred-3.png)
+![](/img/fred-3-ppt-a.png)
 
 ### Start your engine!
 
