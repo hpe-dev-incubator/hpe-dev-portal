@@ -22,7 +22,9 @@ The Test Drive modules can be sorted by Category, Use Case, and Role.
 
 The Category filter provides the ability to hone in on different technologies; from Containers to Private Cloud and Virtualization. The Use Case filter addresses real-life uses cases related to the different roles listed. Finally, the Role filter allows a persona-driven selection. A DevOps engineer or a developer can be checked to filter exercises specifically relevant to their job and there are actually quite a few options in this area.
 
-  ![](https://lh6.googleusercontent.com/rQge-Cp5qraR7J0YaZJrEzxSfVheVjDbpyFAGbzBzqQ-3xYWJEBzt0Al8vB8UFPcn_4DqLpKY0qvt8hIux3XzXf3biudOa2KD7YzW66RSr5XsmDbQlGIq0bQR7CnUtjnG0xX0EIPM3OJWGBw_rhIYxLhp2yvRrq2vEiPjrGDcGG0c21pwvs2qlB8OQ)
+  
+
+![](/img/fred-2.png)
 
 If you are interested in reading more on these subjects, please have a look at the following blog posts:
 
@@ -50,27 +52,33 @@ You can opt for a self-service Test Drive or a Hosted experience, depending upon
 
 In this blog post, I will describe the Test Drive experience. The Hosted trial is completely different. Keep your eyes posted on the [HPE Developer blog](https://developer.hpe.com/blog) for a future post regarding Hosted trials.
 
+![](/img/fred-3.png)
+
 ### Start your engine!
 
 Taking a Test Drive is similar to how one engages with a Workshop-on-Demand. You register, and then you run the exercise. The only important prerequisite is to have a HPE My Account. If you do not already have one, it’s very easy. Just go to [testdrive.greenlake.hpe.com](https://testdrive.greenlake.hpe.com/) and when the below screen comes up, click on Sign up at the bottom. 
 
-![](/img/fred-4.png)
+![](/img/fred-4-ppt-a.png)
 
 Once you’re signed into the Test Drive page, filter the selection by choosing your desired persona, categories and use cases. You can then click on one of the tiles to start a Test Drive.
 
-![](https://lh4.googleusercontent.com/wkKT6hPOPVXMhi12nntmqpN6psjVfwSCEJrAZiokypSJFWOxBLs-N2wHBg_q3x5cgRISl9n4UxH3eFeEd26ceil0Kuwjek5fWBTsAzBMzbzsyhfmdKRJmLLD3NIggDeRntlSt-gm3COvsy7-6ZUO0lxRMiw_R4VALtsEgibbpjU5YMNttb2KFKJUpg)The selected Test Drive page will provide you with information about the time allocated, an abstract and the objective of the exercise, as shown above.
+![](/img/fred-5-ppt-b.jpg)
+
+The selected Test Drive page will provide you with information about the time allocated, an abstract and the objective of the exercise, as shown above.
 
 When you are ready, simply click Start Test Drive. This kicks in automation that configures the necessary resources in an HPE GreenLake trial tenant. Your account will be added to the tenant along with the proper RBAC (Role Based Access Configuration) policies.
 
-![](/img/fred-6.png)
+![](/img/fred-6-ppt-b.jpg)
 
 A few minutes later, you’ll access the detailed instructions for the module. Read through them and perform the necessary steps.
 
-![](https://lh4.googleusercontent.com/ZBs9wvU8qYPMNwll9Ofwopb1fcl_FbRFifYPBGLDJgRBL-IpwcSPw0vJVL1BK-TLsgJ3lGZgCbGNdTRiJYqYbLzWSvHy_JHLVbJv-ZS5NYdfAyjkvIBxMgBXSQDSBETE1Uw8GC4P2RXEQhNxXGL-xVSDBL2mhI1LbZsEBjVbJ78wNBLjw76m3t8FiQ)
+![](/img/fred-7-ppt-b.jpg)
 
 When everything is ready, you will log into the tenant and run through the exercises.
 
-![](https://lh6.googleusercontent.com/QB1__-a__DNcziWiLBD974B-COIEXWnpPG6mAS5TUTWYPkzP1sL3wI8Ea-mSx3uPxGMZlbk1zeCK3DfcfzlyTDdldzTQTJZ2xGTZa-a8tVju5yngUEOmn8YBc7Vn-Cb3gC9n-1h2hudjkdTwoSlUmgvlugCBhkMQPDAH17TW_LvGMmDzTCTMbVpPLA) ![](/img/fred-9.png)
+![](/img/fred-8-ppt-a.png)
+
+![](https://lh6.googleusercontent.com/QB1__-a__DNcziWiLBD974B-COIEXWnpPG6mAS5TUTWYPkzP1sL3wI8Ea-mSx3uPxGMZlbk1zeCK3DfcfzlyTDdldzTQTJZ2xGTZa-a8tVju5yngUEOmn8YBc7Vn-Cb3gC9n-1h2hudjkdTwoSlUmgvlugCBhkMQPDAH17TW_LvGMmDzTCTMbVpPLA) ![](/img/fred-9-ppt-b.jpg)
 
 At the end of the Test Drive, the environment is wiped out and you can move on to another use case.
 
