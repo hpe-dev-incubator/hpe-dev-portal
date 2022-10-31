@@ -1,6 +1,6 @@
 ---
 title: Boost Spark AI workloads with Pepperdata
-active: true
+active: false
 fit: contain
 link: https://hpe.zoom.us/webinar/register/8216637690310/WN_taRSQMfhSqG3MJWH9bH0IQ
 path: ""
