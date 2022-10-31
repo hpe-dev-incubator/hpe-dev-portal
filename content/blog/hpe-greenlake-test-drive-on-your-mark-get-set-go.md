@@ -56,7 +56,7 @@ In this blog post, I will describe the Test Drive experience. The Hosted trial i
 
 Taking a Test Drive is similar to how one engages with a Workshop-on-Demand. You register, and then you run the exercise. The only important prerequisite is to have a HPE My Account. If you do not already have one, it’s very easy. Just go to [testdrive.greenlake.hpe.com](https://testdrive.greenlake.hpe.com/) and when the below screen comes up, click on Sign up at the bottom. 
 
-![](/img/fred-4-ppt-a.png)
+![](/img/fred-4-ppt-c-425.png)
 
 Once you’re signed into the Test Drive page, filter the selection by choosing your desired persona, categories and use cases. You can then click on one of the tiles to start a Test Drive.
 
