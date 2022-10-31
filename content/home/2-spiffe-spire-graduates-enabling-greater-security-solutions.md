@@ -6,4 +6,4 @@ width: medium
 link: https://developer.hpe.com/blog/spiffe-spire-graduates-enabling-greater-security-solutions/
 image: /img/Avatar1.svg
 ---
-H﻿PE DEV
+ ﻿
