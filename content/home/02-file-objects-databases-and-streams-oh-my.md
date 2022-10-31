@@ -4,7 +4,9 @@ category: Feature Blog
 priority: 2
 width: medium
 link: https://developer.hpe.com/blog/spiffe-spire-graduates-enabling-greater-security-solutions/
-image: /img/blog-author-rensing-96.jpg
+image: /img/Avatar1.svg
 author: Dale Rensing
 ---
- ﻿
+H﻿PE DEV
+
+## SPIFFE/SPIRE graduates, enabling greater security solutions
