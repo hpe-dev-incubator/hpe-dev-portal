@@ -18,7 +18,7 @@ The exercises are targeted towards both non-technical and technical personas. Cu
 
 The Test Drive modules can be sorted by Category, Use Case, and Role.
 
-![](https://lh6.googleusercontent.com/KnXxNZLrQSpkwpwVTcxfFswNMQmOpzk-eC47v8RbJg3nkmEs5RE9RyGmMHtNsmNJ-UauiLVNGENsmTPHAaTFI6iQlw3fHmMiVgoXoGf2op5JylCCNpMjyLyT15Eu-XwqvoLgqt6UnoqF2x1V312RAga2b60rjPnI9iEfzrm3VysZVWnd6nOC6FJQjg)
+![](/img/fred-1.png)
 
 The Category filter provides the ability to hone in on different technologies; from Containers to Private Cloud and Virtualization. The Use Case filter addresses real-life uses cases related to the different roles listed. Finally, the Role filter allows a persona-driven selection. A DevOps engineer or a developer can be checked to filter exercises specifically relevant to their job and there are actually quite a few options in this area.
 
@@ -54,7 +54,7 @@ In this blog post, I will describe the Test Drive experience. The Hosted trial i
 
 Taking a Test Drive is similar to how one engages with a Workshop-on-Demand. You register, and then you run the exercise. The only important prerequisite is to have a HPE My Account. If you do not already have one, it’s very easy. Just go to [testdrive.greenlake.hpe.com](https://testdrive.greenlake.hpe.com/) and when the below screen comes up, click on Sign up at the bottom. 
 
-![](https://lh6.googleusercontent.com/ZDo9f5MAd-ItdE3ffVIVbgraV_WTeKowYrPLCrFZ4mXRlSsUX_sV4vn7BGHtYWvEhyviziYfj7ZoAD58JBo01cowDl2JLpAP5zsg6xMfF3XorW6rEEeqeePILwpKHd98jvwJo3d4eZkXaLWKE0vnWCZF4LAx-xCrZBgSvXAw9W2522gypzfKw4Fbsw)
+![](/img/fred-4.png)
 
 Once you’re signed into the Test Drive page, filter the selection by choosing your desired persona, categories and use cases. You can then click on one of the tiles to start a Test Drive.
 
@@ -62,7 +62,7 @@ Once you’re signed into the Test Drive page, filter the selection by choosing 
 
 When you are ready, simply click Start Test Drive. This kicks in automation that configures the necessary resources in an HPE GreenLake trial tenant. Your account will be added to the tenant along with the proper RBAC (Role Based Access Configuration) policies.
 
-![](https://lh6.googleusercontent.com/ma02vmLYe5HmOhseaB8PbZVsJJElwWT7lsHYjLeo6B0HD35ileQowAqjfvoslGGIkM7cu66Yss7Fk-6-OhNpg_3hS4lP3e-94KwczZCbPzsJv_YjhYhGNlm218xDtQwr4T1w7WBE3G3b5NWriPkRiD4aro9rX1KFt9RrK9hLigFJDulcLlfOTVJOaw)
+![](/img/fred-6.png)
 
 A few minutes later, you’ll access the detailed instructions for the module. Read through them and perform the necessary steps.
 
@@ -70,7 +70,7 @@ A few minutes later, you’ll access the detailed instructions for the module. R
 
 When everything is ready, you will log into the tenant and run through the exercises.
 
-![](https://lh6.googleusercontent.com/QB1__-a__DNcziWiLBD974B-COIEXWnpPG6mAS5TUTWYPkzP1sL3wI8Ea-mSx3uPxGMZlbk1zeCK3DfcfzlyTDdldzTQTJZ2xGTZa-a8tVju5yngUEOmn8YBc7Vn-Cb3gC9n-1h2hudjkdTwoSlUmgvlugCBhkMQPDAH17TW_LvGMmDzTCTMbVpPLA) ![](https://lh5.googleusercontent.com/tPrn2s25ZZ_8ltjqU27xaGbpAm-ubL4MmpO5tgPBNXh881X7-5Si7D2mOlhyvXMOOKqF0jacwztIijykJDi4V40oBMkNw-NvNn5I9XkE41vLJmHXwpAYiljF9BZAvJzeFZW01E1cdnv9hQ5mZFJH5iWV0ovLeYWqxIHAS0d0h1X0XU9BTfbfSlXZYg)
+![](https://lh6.googleusercontent.com/QB1__-a__DNcziWiLBD974B-COIEXWnpPG6mAS5TUTWYPkzP1sL3wI8Ea-mSx3uPxGMZlbk1zeCK3DfcfzlyTDdldzTQTJZ2xGTZa-a8tVju5yngUEOmn8YBc7Vn-Cb3gC9n-1h2hudjkdTwoSlUmgvlugCBhkMQPDAH17TW_LvGMmDzTCTMbVpPLA) ![](/img/fred-9.png)
 
 At the end of the Test Drive, the environment is wiped out and you can move on to another use case.
 
