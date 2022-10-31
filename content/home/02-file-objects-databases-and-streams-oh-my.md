@@ -7,6 +7,4 @@ link: https://developer.hpe.com/blog/spiffe-spire-graduates-enabling-greater-sec
 image: /img/Avatar1.svg
 author: Dale Rensing
 ---
-H﻿PE DEV
-
-## SPIFFE/SPIRE graduates, enabling greater security solutions
+ ﻿
