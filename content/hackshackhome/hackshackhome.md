@@ -1,19 +1,19 @@
 ---
-title: Boost Spark AI workloads with Pepperdata
-active: false
+title: "Calling all citizen developers: Can low-code platforms accelerate your
+  impact?"
+active: true
 fit: contain
-link: https://hpe.zoom.us/webinar/register/8216637690310/WN_taRSQMfhSqG3MJWH9bH0IQ
+link: https://hpe.zoom.us/webinar/register/3416663493869/WN_8jlRM9SaRKmbT3r1CDNtDw
 path: ""
 imageBackground: white
-priority: 2
+priority: 1
 alt: munch and learn logo
-description: "26-October-2022: In this talk, we’ll learn how HPE is partnering
-  with Pepperdata to bring detailed observability via Pepperdata’s Platform and
-  Application Spotlight, and more importantly, deliver automated, near
-  real-time, autonomous optimization of cluster container resources via
-  Pepperdata’s Capacity Optimizer, without the need for Spark developers to
-  change a single line of code."
+description: "Nov. 16, 2022: Hear how low-code development platforms are
+  unleashing creative talent to build enterprise apps and automations– often
+  with little-to-no budget. Even full-time developers can benefit from learning
+  about citizen development platforms to create “full stack” solutions outside
+  of their areas of expertise."
 background: background
 label: Register Now!
-image: /img/event-meetups-newlogo-400x400.png
+image: /img/event-munch-and-learn-newlogo400x400.png
 ---
