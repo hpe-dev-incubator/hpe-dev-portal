@@ -5,6 +5,8 @@ author: Frederic Passeron
 authorimage: /img/fp-hpewod.jpg
 thumbnailimage: /img/hpe-gl-test-drive-1200-x-675.jpg
 disable: false
+tags:
+  - hpe-greenlake
 ---
 ### Brand new Cadillac
 
@@ -50,7 +52,7 @@ You can opt for a self-service Test Drive or a Hosted experience, depending upon
 
 In this blog post, I will describe the Test Drive experience. The Hosted trial is completely different. Keep your eyes posted on the [HPE Developer blog](https://developer.hpe.com/blog) for a future post regarding Hosted trials.
 
-![](/img/fred-3-ppt-a.png)
+![](/img/fred-3-test-drive-vs-hoste-trial-1040x773.png)
 
 ### Start your engine!
 
