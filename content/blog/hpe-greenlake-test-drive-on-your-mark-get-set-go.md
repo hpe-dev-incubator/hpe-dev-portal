@@ -26,7 +26,7 @@ The Category filter provides the ability to hone in on different technologies; f
 
 If you are interested in reading more on these subjects, please have a look at the following blog posts:
 
-• Kubernetes Cluster as Code - [Part 1](https://developer.hpe.com/blog/kubernetes-clusters-as-code-part1/) and [Part 2](https://developer.hpe.com/blog/kubernetes-clusters-as-code-part2/)
+• Kubernetes Cluster as Code - [Part 1](https://developer.hpe.com/blog/kubernetes-clusters-as-code-part1/) and [Part 2](https://developer.hpe.com/blog/kubernetes-cluster-as-code-part-2/)
 
 • Infrastructure-as-code on HPE GreenLake using Terraform [Part 1](https://developer.hpe.com/blog/infrastructure-as-code-on-hpe-greenlake-using-terraform/) and [Part 2](https://developer.hpe.com/blog/infrastructure-as-code-on-hpe-greenlake-using-terraform-%E2%80%93-part-2/)
 
@@ -50,7 +50,7 @@ You can opt for a self-service Test Drive or a Hosted experience, depending upon
 
 In this blog post, I will describe the Test Drive experience. The Hosted trial is completely different. Keep your eyes posted on the [HPE Developer blog](https://developer.hpe.com/blog) for a future post regarding Hosted trials.
 
-### ![](https://lh5.googleusercontent.com/CQKLTokn8etl6CjcShPDoTXIUjnWoCmC5ovgSxkh8pbfZjd1rednGVr3FB06yheObm4lHTXYwEFdZXgePKBdhL1X6nA_ZUEePR8qO8IbEOQugTUwAsAg2VsGxus_eqPcWNZ0AUyJ_sm5yzKPKfWlZRW3eZOGdYTdW316l6SPQNfFq3wVxY7e6BYjuA)Start your engine!
+### Start your engine!
 
 Taking a Test Drive is similar to how one engages with a Workshop-on-Demand. You register, and then you run the exercise. The only important prerequisite is to have a HPE My Account. If you do not already have one, it’s very easy. Just go to [testdrive.greenlake.hpe.com](https://testdrive.greenlake.hpe.com/) and when the below screen comes up, click on Sign up at the bottom. 
 
@@ -66,7 +66,9 @@ When you are ready, simply click Start Test Drive. This kicks in automation that
 
 A few minutes later, you’ll access the detailed instructions for the module. Read through them and perform the necessary steps.
 
-![](https://lh4.googleusercontent.com/ZBs9wvU8qYPMNwll9Ofwopb1fcl_FbRFifYPBGLDJgRBL-IpwcSPw0vJVL1BK-TLsgJ3lGZgCbGNdTRiJYqYbLzWSvHy_JHLVbJv-ZS5NYdfAyjkvIBxMgBXSQDSBETE1Uw8GC4P2RXEQhNxXGL-xVSDBL2mhI1LbZsEBjVbJ78wNBLjw76m3t8FiQ)When everything is ready, you will log into the tenant and run through the exercises.
+![](https://lh4.googleusercontent.com/ZBs9wvU8qYPMNwll9Ofwopb1fcl_FbRFifYPBGLDJgRBL-IpwcSPw0vJVL1BK-TLsgJ3lGZgCbGNdTRiJYqYbLzWSvHy_JHLVbJv-ZS5NYdfAyjkvIBxMgBXSQDSBETE1Uw8GC4P2RXEQhNxXGL-xVSDBL2mhI1LbZsEBjVbJ78wNBLjw76m3t8FiQ)
+
+When everything is ready, you will log into the tenant and run through the exercises.
 
 ![](https://lh6.googleusercontent.com/QB1__-a__DNcziWiLBD974B-COIEXWnpPG6mAS5TUTWYPkzP1sL3wI8Ea-mSx3uPxGMZlbk1zeCK3DfcfzlyTDdldzTQTJZ2xGTZa-a8tVju5yngUEOmn8YBc7Vn-Cb3gC9n-1h2hudjkdTwoSlUmgvlugCBhkMQPDAH17TW_LvGMmDzTCTMbVpPLA) ![](https://lh5.googleusercontent.com/tPrn2s25ZZ_8ltjqU27xaGbpAm-ubL4MmpO5tgPBNXh881X7-5Si7D2mOlhyvXMOOKqF0jacwztIijykJDi4V40oBMkNw-NvNn5I9XkE41vLJmHXwpAYiljF9BZAvJzeFZW01E1cdnv9hQ5mZFJH5iWV0ovLeYWqxIHAS0d0h1X0XU9BTfbfSlXZYg)
 
