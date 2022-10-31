@@ -6,7 +6,7 @@ authorimage: /img/fp-hpewod.jpg
 thumbnailimage: /img/hpe-gl-test-drive-1200-x-675.jpg
 disable: false
 ---
-Brand new Cadillac
+### Brand new Cadillac
 
 There’s always more than one way to learn and the more methods you have, the better. Our HPE Developer Community Workshops-on-Demand are a great way to discover new technologies. They’re free, available 24/7, and enjoyable enough to have attracted nearly 4000 users! But there’s another program available and we want to share that with you, too.
 
@@ -14,7 +14,7 @@ Announced this past summer at HPE Discover 2022 in Las Vegas, HPE GreenLake Test
 
 The exercises are targeted towards both non-technical and technical personas. Customers get a similar experience as found in the HPE Developer Workshops-on-Demand; including the ability to use the Test Drive for a limited-time, at no-cost, and with no-obligation.
 
-Navigating Test Drives
+### Navigating Test Drives
 
 The Test Drive modules can be sorted by Category, Use Case, and Role.
 
@@ -24,15 +24,13 @@ The Category filter provides the ability to hone in on different technologies; f
 
   ![](https://lh6.googleusercontent.com/rQge-Cp5qraR7J0YaZJrEzxSfVheVjDbpyFAGbzBzqQ-3xYWJEBzt0Al8vB8UFPcn_4DqLpKY0qvt8hIux3XzXf3biudOa2KD7YzW66RSr5XsmDbQlGIq0bQR7CnUtjnG0xX0EIPM3OJWGBw_rhIYxLhp2yvRrq2vEiPjrGDcGG0c21pwvs2qlB8OQ)
 
- 
-
 If you are interested in reading more on these subjects, please have a look at the following blog posts:
 
 • Kubernetes Cluster as Code - [Part 1](https://developer.hpe.com/blog/kubernetes-clusters-as-code-part1/) and [Part 2](https://developer.hpe.com/blog/kubernetes-clusters-as-code-part2/)
 
 • Infrastructure-as-code on HPE GreenLake using Terraform [Part 1](https://developer.hpe.com/blog/infrastructure-as-code-on-hpe-greenlake-using-terraform/) and [Part 2](https://developer.hpe.com/blog/infrastructure-as-code-on-hpe-greenlake-using-terraform-%E2%80%93-part-2/)
 
-You’ll have fun, fun, fun 
+### You’ll have fun, fun, fun 
 
 You’ll want to check out the HPE GreenLake Test Drive because:
 
@@ -52,7 +50,7 @@ You can opt for a self-service Test Drive or a Hosted experience, depending upon
 
 In this blog post, I will describe the Test Drive experience. The Hosted trial is completely different. Keep your eyes posted on the [HPE Developer blog](https://developer.hpe.com/blog) for a future post regarding Hosted trials.
 
-![](https://lh5.googleusercontent.com/CQKLTokn8etl6CjcShPDoTXIUjnWoCmC5ovgSxkh8pbfZjd1rednGVr3FB06yheObm4lHTXYwEFdZXgePKBdhL1X6nA_ZUEePR8qO8IbEOQugTUwAsAg2VsGxus_eqPcWNZ0AUyJ_sm5yzKPKfWlZRW3eZOGdYTdW316l6SPQNfFq3wVxY7e6BYjuA)Start your engine!
+### ![](https://lh5.googleusercontent.com/CQKLTokn8etl6CjcShPDoTXIUjnWoCmC5ovgSxkh8pbfZjd1rednGVr3FB06yheObm4lHTXYwEFdZXgePKBdhL1X6nA_ZUEePR8qO8IbEOQugTUwAsAg2VsGxus_eqPcWNZ0AUyJ_sm5yzKPKfWlZRW3eZOGdYTdW316l6SPQNfFq3wVxY7e6BYjuA)Start your engine!
 
 Taking a Test Drive is similar to how one engages with a Workshop-on-Demand. You register, and then you run the exercise. The only important prerequisite is to have a HPE My Account. If you do not already have one, it’s very easy. Just go to [testdrive.greenlake.hpe.com](https://testdrive.greenlake.hpe.com/) and when the below screen comes up, click on Sign up at the bottom. 
 
@@ -74,7 +72,7 @@ A few minutes later, you’ll access the detailed instructions for the module. R
 
 At the end of the Test Drive, the environment is wiped out and you can move on to another use case.
 
-Life is a highway
+### Life is a highway
 
 Quoting Adan DuVander, “Knowledge is the developer currency.” This concept truly applies to this new program from the HPE GreenLake Test Drive team and what one learns from experience.
 
