@@ -109,7 +109,7 @@ You can create a new blog directly from the **Contents** tab or by navigating to
 3.  Make sure you set the following parameters:
 
     -   **Title**
-    >Note: The recommendation is to keep it as short as you can while capturing the reader's attention. Also, title must be ***Sentence case*** (that is, capitalize the first letter of the word of the title).
+    >Note: The recommendation is to keep it as short as you can while capturing the reader's attention. Also, title must be ***Sentence case*** (that is, capitalize the first letter of the word of the title - HPE brand is moving away from the use of title case, so unless words are used as a proper noun (like the name of a product or program), the general guidance is to use initial lower case letters).
     -   **Author name**
     -   **Author Image** (image size recommended is **192px X 192px**). 
         You can upload a picture or use your gravatar picture URL if you have one. 
