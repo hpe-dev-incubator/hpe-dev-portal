@@ -40,7 +40,7 @@ First, existing SPIRE federation options require a secure, public endpoint to se
 
 Second, federating many-to-many relationships requires manual creation of federation entries. For example, federating five trust domains to each other requires 20 administrator actions (each domain needs four new configuration changes to federate with the four others). More administrator actions are required when trust points change URLs or relationships change. 
 
-A third limitation relates to the lifecycle and auditing of federated relationships. SPIRE does not provide a mechanism to manage and track the lifecycle of federated relationships. Current techniques rely solely on manual configuration changes, and they do not allow for observability of trust bundle exchange.  
+A third limitation relates to the lifecycle and auditing of federated relationships. SPIRE does not provide a mechanism to manage and track the lifecycle of federated relationships. Current techniques rely solely on manual configuration changes, and do not allow for observability of trust bundle exchange.  
 
 ## Enter Galadriel
 
@@ -52,6 +52,6 @@ This new federation approach removes the need to have a public end-point configu
 
 An initial release of Galadriel is planned for the first half of 2023. For more detailed design information about Galadriel, check out the design proposal [RFC - SPIFFE/SPIRE Federation](https://docs.google.com/document/d/1nkiJV4PAV8Wx1oNvx4CT3IDtDRvUFSL8/edit?usp=sharing&ouid=104807789400318304424&rtpof=true&sd=true)  presented to the SPIRE community. 
 
-To know more about HPE's contributions to SPIFFE and SPIRE, visit the [HPE - SPIFFE/SPIRE website](https://developer.hpe.com/platform/spiffe-and-spire-projects/home). 
+To know more about HPE's contributions to SPIFFE and SPIRE, visit the [HPE - SPIFFE/SPIRE](https://developer.hpe.com/platform/spiffe-and-spire-projects/home) website. 
 
 
