@@ -8,6 +8,7 @@ disable: false
 tags:
   - SPIRE
   - SPIFFE
+  - spiffe-and-spire-projects
 ---
 
 SPIRE (SPIFFE Runtime Environment) provides a workload identity management solution that allows organizations to establish attestable and verifiable mTLS (Mutual Transport Layer Security) connections among services. These capabilities support the concept of explicit trust beyond the perimeters of cloud providers or data centers. Its platform-agnostic and pluggable architecture gives organizations the flexibility to orchestrate services based on zero trust principles in highly heterogeneous environments. 
