@@ -41,8 +41,10 @@ collections:
       preview: true
     fields:
       - { label: 'Title', name: 'title', widget: 'string', hint: 'used for the filename and tagging' }
+      - { label: 'Author', name: 'author', widget: 'string' } 
       - { label: 'Category', name: 'category', widget: 'select', options: [ { label: 'none', value: ''}, { label: 'Community', value: 'Community' }, { label: 'Design', value: 'Design' }, { label: 'Workshop', value: 'Workshop' }, { label: 'Event', value: 'Event' },{ label: 'Virtual Event', value: 'Virtual Event' }, { label: 'Open Source', value: 'Open Source' }, { label: 'Feature Blog', value: 'Feature Blog' }, { label: 'Feature Platform', value: 'Feature Platform' } ], default: 'none' }
       - { label: 'Priority', name: 'priority', widget: 'number', hint: 'controls the position on the page'}
+      - { label: 'Active', name: 'active', widget: 'boolean', hint: 'selecting true adds the card in the Hackshack home page'  }
       - { label: 'Card Size', name: 'width', widget: 'select', options: [ 'small', 'medium', 'large' ], default: 'medium'}
       - { label: 'Navigation Path', name: 'link', widget: 'string'}
       - { label: 'Image', name: 'image', widget: 'image', media_folder: '/static/img', public_folder: '/img', hint: 'image shown next to or above content' }
