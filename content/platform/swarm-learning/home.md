@@ -24,8 +24,28 @@ active: false
 
 \-﻿ Request for Swarm Learning Demo
 
-## K﻿now more about Swarm Learning
+## Know more about Swarm Learning
 
-\-﻿ HPE Swarm Learning Product Introduction
+**\-﻿ HPE Swarm Learning Product Introduction**
 
-<iframe width="560" height="315" src="<https://www.youtube.com/watch?v=8TfxmXBjEZA>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/8TfxmXBjEZA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+**\-﻿ What's All the Buzz about Swarm Learning?**
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/JqwjyENd89I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+**\-﻿ The Big Shift: What is Swarm Learning?**
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/6Fep6Lw5t-U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+
+## Listen to what the Experts are saying
+
+\-﻿ **How to Optimize Machine Learning at the Edge with Swarm Learning**
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/paBt6nvyTHQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+\-﻿ **Fireside Chat: Steering  HPC Simulation with AI**
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/MV5_f59TpfA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
