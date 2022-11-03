@@ -168,6 +168,7 @@ Home.propTypes = {
               link: PropTypes.string,
               priority: PropTypes.number,
               reverse: PropTypes.bool,
+              active: PropTypes.bool,
             }),
           }),
           rawMarkdownBody: PropTypes.string,
@@ -211,7 +212,10 @@ export const pageQuery = graphql`
       rawMarkdownBody
     }
     home: allMarkdownRemark(
-      filter: { fields: { sourceInstanceName: { eq: "homepanels" } } }
+      filter: {
+        fields: { sourceInstanceName: { eq: "homepanels" } }
+        frontmatter: { active: { eq: true } }
+      }
       sort: { fields: [frontmatter___priority] }
     ) {
       edges {
@@ -226,6 +230,7 @@ export const pageQuery = graphql`
             title
             author
             reverse
+            active
           }
           rawMarkdownBody
         }
