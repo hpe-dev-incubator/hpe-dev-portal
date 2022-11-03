@@ -8,4 +8,4 @@ width: medium
 link: https://developer.hpe.com/blog/reflections-on-helping-linux-become-enterprise-ready/
 image: /img/Avatar2.svg
 ---
- ﻿
+ ﻿  
