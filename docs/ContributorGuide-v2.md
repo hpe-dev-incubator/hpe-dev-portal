@@ -250,6 +250,8 @@ You may want to edit an existing blog post. For example, you may need to update 
 2.  In the editor, for a new platform page, specify a title, description, logo image and content in the Body area. Make the required changes using **Rich Text** mode or
     **Markdown** mode. Verify content in the preview pane on the right side of the screen.
     
+    >**Important Note:** Please keep the options "FEATURED" and "ACTIVE" toggled Off.
+     
     >**Important Note:** The text font size in the preview area will be smaller than what is rendered in the Platform page in HPE Developer portal. 
 
     <center><img src="media/guide-platform-body.png" width="1200" height="541"></center>
