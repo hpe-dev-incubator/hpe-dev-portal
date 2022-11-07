@@ -10,7 +10,7 @@ description: Swarm Learning is a decentralized, privacy-preserving Machine
   data-driven decisions are mostly necessary. In this completely decentralized
   architecture, only the insights learned are shared with the collaborating ML
   peers, not the raw data. This tremendously enhances data security and privacy.
-image: /img/platforms/platform-page-image.jpg
+image: /img/platforms/guid-e80d248e-e754-498e-99d6-67508092f779-high.jpg
 width: large
 priority: 0
 frontpage: false
