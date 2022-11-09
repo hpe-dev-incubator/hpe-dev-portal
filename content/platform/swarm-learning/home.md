@@ -16,11 +16,17 @@ priority: 0
 frontpage: false
 active: false
 ---
+- - -
+
 ## Resources[](https://www.hpe.com/us/en/solutions/artificial-intelligence/swarm-learning.html)
 
 * [H﻿PE Swarm Learning Home Page](https://www.hpe.com/us/en/solutions/artificial-intelligence/swarm-learning.html)
 * [Swarm Learning Community Edition (GitHub)](https://github.com/HewlettPackard/swarm-learning)
 * [Try Swarm Learning Examples (GitHub)](https://github.com/HewlettPackard/swarm-learning/tree/master/examples)
+
+
+
+- - -
 
 ## Know more about Swarm Learning
 
@@ -36,8 +42,24 @@ active: false
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/6Fep6Lw5t-U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+
+
+
+
+- - -
+
 ## Listen to what the Experts are saying
 
 \-﻿ **How to Optimize Machine Learning at the Edge with Swarm Learning**
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/paBt6nvyTHQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+
+
+
+- - -
+
+## Any Questions on HPE Swarm Learning?
+
+J﻿oin the [HPEDEV Slack Workspace](https://slack.hpedev.io/) and start a discussion in our [\#hpe-swarm-learning](https://hpedev.slack.com/archives/C04A5DK9TUK) channel.
