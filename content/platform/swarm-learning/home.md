@@ -24,7 +24,13 @@ active: false
 * [Swarm Learning Community Edition (GitHub)](https://github.com/HewlettPackard/swarm-learning)
 * [Try Swarm Learning Examples (GitHub)](https://github.com/HewlettPackard/swarm-learning/tree/master/examples)
 
+- - -
 
+## Articles
+
+* **[2﻿021 Nature Paper - Swarm Learning for decentralized and confidential clinical machine learning](https://www.nature.com/articles/s41586-021-03583-3)**
+* **[HPE Labs - SWARM LEARNING: TURN YOUR DISTRIBUTED DATA INTO COMPETITIVE EDGE](https://www.hpe.com/psnow/doc/a50000344enw?jumpid=in_lit-psnow-red)**
+* **[Research gate - Swarm Learning as a privacy-preserving machine learning approach for disease classification](https://www.researchgate.net/publication/342495847_Swarm_Learning_as_a_privacy-preserving_machine_learning_approach_for_disease_classification)**
 
 - - -
 
@@ -42,10 +48,6 @@ active: false
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/6Fep6Lw5t-U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-
-
-
-
 - - -
 
 ## Listen to what the Experts are saying
@@ -53,10 +55,6 @@ active: false
 \-﻿ **How to Optimize Machine Learning at the Edge with Swarm Learning**
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/paBt6nvyTHQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-
-
-
 
 - - -
 
