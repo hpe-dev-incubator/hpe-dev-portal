@@ -20,9 +20,9 @@ active: false
 
 ## Resources[](https://www.hpe.com/us/en/solutions/artificial-intelligence/swarm-learning.html)
 
-* [H﻿PE Swarm Learning Home Page](https://www.hpe.com/us/en/solutions/artificial-intelligence/swarm-learning.html)
-* [Swarm Learning Community Edition (GitHub)](https://github.com/HewlettPackard/swarm-learning)
-* [Try Swarm Learning Examples (GitHub)](https://github.com/HewlettPackard/swarm-learning/tree/master/examples)
+* **[H﻿PE Swarm Learning Home Page](https://www.hpe.com/us/en/solutions/artificial-intelligence/swarm-learning.html)**
+* **[Swarm Learning Community Edition (GitHub)](https://github.com/HewlettPackard/swarm-learning)**
+* **[Try Swarm Learning Examples (GitHub)](https://github.com/HewlettPackard/swarm-learning/tree/master/examples)**
 
 - - -
 
