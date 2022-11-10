@@ -11,7 +11,7 @@ tags:
   - hpe-ezmeral
   - analytics
 ---
-The HPE Ezmeral team has been hard at work creating the next generation analytics and advanced analytics platform. To give you an early look at what we’ve been up to, we have created the HPE Ezmeral Early Access beta program. Through our HPE Ezmeral Early Access beta program, you can start working with the tools and frameworks packaged inside HPE Ezmeral Unified Analytics. Your feedback will be critical in helping to shape our final product.
+The HPE Ezmeral team has been hard at work creating the next generation analytics and advanced analytics platform. To give you an early look at what we’ve been up to, we have created the [HPE Ezmeral Early Access beta program](https://connect.hpe.com/HPEEzmeralEarlyAccess). Through our HPE Ezmeral Early Access beta program, you can start working with the tools and frameworks packaged inside HPE Ezmeral Unified Analytics. Your feedback will be critical in helping to shape our final product.
 
 **Building out a more robust HPE Ezmeral Unified Analytics**
 
