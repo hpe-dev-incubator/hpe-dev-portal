@@ -1,6 +1,6 @@
 ---
 title: An overview of SRE
-active: false
+active: true
 fit: contain
 path: https://hpe.zoom.us/webinar/register/2816666284683/WN_Tf5HfKX6Sa2AbRhzeMIOgA
 imageBackground: white
@@ -12,4 +12,3 @@ label: Register Now!
 priority: 3
 image: /img/event-meetups-newlogo-400x400.png
 ---
- ﻿
