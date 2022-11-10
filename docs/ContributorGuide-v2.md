@@ -617,8 +617,14 @@ thead tr:first-child td {
 </style>
 ```
        
+- **Tip #16: Adding GitHub repo with the CAT logo in a platform/technology/opensource page**
 
--  **Tip #16: Tagging:**
+To add a the GitHub repo URL in a platform/Technology page, you can use the markdown syntax below. This syntax will display the "GitHub" CAT logo just at the right of the text. (Escape character (backslash) have been used here to make the markdown syntax visible).
+
+\[HPE Swarm Learning Community Edition \!\[](Github)\](https://github.com/HewlettPackard/swarm-learning)
+
+
+-  **Tip #17: Tagging:**
 
 If appropriate, use a tag to tie your blog post to a "platform" page on HPE Developer portal. List of "platforms" tag is in the table below.
 
