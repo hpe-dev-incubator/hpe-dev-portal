@@ -12,7 +12,7 @@ tags:
   - data-fabric
   - hpe-greenlake
 ---
-The HPE Ezmeral Early Access program is a new program designed to ensure new and exciting products are constantly developed. Through this beta program, we are giving you the opportunity to test out products and provide feedback to the engineering team. With exemplary training and support provided by HPE, you’ll get hands-on experience with new features and capabilities. One of our newest, exciting projects revolves around HPE Ezmeral Data Fabric, as it is about to start a new journey in its delivery of an enterprise-grade data fabric for hybrid and multi-cloud enterprises, bringing enterprise-grade data fabric to the as-a-Service world.
+The [HPE Ezmeral Early Access program](https://connect.hpe.com/HPEEzmeralEarlyAccess) is a new program designed to ensure new and exciting products are constantly developed. Through this beta program, we are giving you the opportunity to test out products and provide feedback to the engineering team. With exemplary training and support provided by HPE, you’ll get hands-on experience with new features and capabilities. One of our newest, exciting projects revolves around HPE Ezmeral Data Fabric, as it is about to start a new journey in its delivery of an enterprise-grade data fabric for hybrid and multi-cloud enterprises, bringing enterprise-grade data fabric to the as-a-Service world.
 
 **Chasing that single-source-of-truth**
 
