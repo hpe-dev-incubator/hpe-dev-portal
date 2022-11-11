@@ -3,7 +3,8 @@ title: How citizen developers can build award-winning enterprise apps with
   low-code development platforms
 date: 2022-11-11T13:58:12.102Z
 author: Jeff Fougere
-authorimage: /img/Avatar1.svg
+authorimage: /img/medium_am_fougerej_3109.jpg
+thumbnailimage: /img/blog-post-citizen-dev-award-winning-apps.jpg
 disable: false
 tags:
   - low-code
