@@ -23,7 +23,7 @@ To access the Data Services Cloud Console, click on this URL <https://console.gr
 
 For a detailed overview of the console, and to get started using it, please click on this link <https://hpe.com/storage/dscc>.
 
-For a quick overview of Data Services Cloud Console, please click on the videos below.
+For a quick overview of the console, please click on the videos below.
 
 <iframe title="HPE Data Services Cloud Console Chalk Talk" width="560" height="315" src="https://www.youtube.com/embed/AxUE89X3Sy0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
