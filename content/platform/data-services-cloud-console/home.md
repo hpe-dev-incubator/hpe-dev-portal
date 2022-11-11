@@ -11,11 +11,11 @@ tags:
   - data-services-cloud-console
   - greenlake-cloud-console
 ---
-To eliminate the silos and complexity of data management and infrastructure, HPE provides the Data Services Cloud Console (DSCC), a SaaS-based cloud console that delivers cloud operational agility and unified data operations as a service. Data Services Cloud Console also offers a unified API that gives developers access to infrastructure and data as code. 
+To eliminate the silos and complexity of data management and infrastructure, HPE provides the Data Services Cloud Console, a SaaS-based cloud console that delivers cloud operational agility and unified data operations as a service. Data Services Cloud Console also offers a unified API that gives developers access to infrastructure and data as code. 
 
 ![DSCC UI](/img/a-single-destination-for-data-and-infra-services.png "DSCC UI diagram")
 
-Data Services Cloud Console (DSCC) brings the cloud experience to wherever data lives and streamlines data management across your hybrid cloud. It provides a suite of cloud services across your edge, core, and cloud to accelerate data, agility, and innovation for everyone, from data managers, to data innovators. Delivered as a SaaS-based cloud console, DSCC speeds customer innovation because there is nothing to deploy, everything is always updated to the latest software, and ownership risk is reduced by virtue of it being a subscription. The console is a single pane for management of any data and infrastructure services that are found as the cloud data services and  the cloud infrastructure services catalog. 
+The cloud brings the cloud experience to wherever data lives and streamlines data management across your hybrid cloud. It provides a suite of cloud services across your edge, core, and cloud to accelerate data, agility, and innovation for everyone, from data managers, to data innovators. Delivered as a SaaS-based cloud console, DSCC speeds customer innovation because there is nothing to deploy, everything is always updated to the latest software, and ownership risk is reduced by virtue of it being a subscription. The console is a single pane for management of any data and infrastructure services that are found as the cloud data services and  the cloud infrastructure services catalog. 
 
 ### Introduction to Data Services Cloud Console
 
