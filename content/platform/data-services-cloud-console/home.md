@@ -31,9 +31,9 @@ For a quick overview of Data Services Cloud Console, please click on the videos 
 
 ### Data Services Cloud Console Public REST API
 
-Data Services Cloud Console public REST API provides a resource for customers who are looking to enhance their infrastructure management and data-ops using the programmatic extensions from Data Services Cloud Console.  More blog posts will be coming that will provide more information to help customers adopting this API, providing examples, code snippets and other helpful information.
+Data Services Cloud Console public REST API provides a resource for customers who are looking to enhance their infrastructure management and data-ops using the programmatic extensions from the console.  More blog posts will be coming that will provide more information to help customers adopting this API, providing examples, code snippets and other helpful information.
 
-For detailed [](https://console-us1.data.cloud.hpe.com/doc/api/v1/)exploration of this console's public REST API, please take a look at the following blog posts and the video of the API demo in the Youtube.
+For detailed [](https://console-us1.data.cloud.hpe.com/doc/api/v1/)exploration of the console's public REST API, please take a look at the following blog posts and the video of the API demo in the Youtube.
 
 <iframe title="Introduction to HPE Data Services Cloud Console public API" width="560" height="315" src="https://www.youtube.com/embed/g3UO0S-4r6I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
