@@ -15,13 +15,13 @@ To eliminate the silos and complexity of data management and infrastructure, HPE
 
 ![DSCC UI](/img/a-single-destination-for-data-and-infra-services.png "DSCC UI diagram")
 
-The cloud console brings the cloud experience to wherever data lives and streamlines data management across your hybrid cloud. It provides a suite of cloud services across your edge, core, and cloud to accelerate data, agility, and innovation for everyone, from data managers, to data innovators. Delivered as a SaaS-based cloud console, DSCC speeds customer innovation because there is nothing to deploy, everything is always updated to the latest software, and ownership risk is reduced by virtue of it being a subscription. The console is a single pane for management of any data and infrastructure services that are found as the cloud data services and  the cloud infrastructure services catalog. 
+The cloud console brings the cloud experience to wherever data lives and streamlines data management across your hybrid cloud. It provides a suite of cloud services across your edge, core, and public cloud to accelerate data, agility, and innovation for everyone, from data managers, to data innovators. Delivered as a SaaS-based console, Data Services Cloud Console speeds customer innovation because there is nothing to deploy, everything is always updated to the latest software, and ownership risk is reduced by virtue of it being a subscription. The console is a single pane for management of any data and infrastructure services that are found as the cloud data services and  the cloud infrastructure services catalog. 
 
 ### Introduction to Data Services Cloud Console
 
-To access the Data Services Cloud Console, click on this URL <https://console.greenlake.hpe.com>, and sign-in using your HPE GreenLake Console's account.[](https://common.cloud.hpe.com)
+To access the Data Services Cloud Console, click on this URL <https://console.greenlake.hpe.com>, and sign-in using your HPE GreenLake's account.[](https://common.cloud.hpe.com)
 
-For a detailed overview of Data Services Cloud Console, and to get started using it, please click on this link <https://hpe.com/storage/dscc>.
+For a detailed overview of the console, and to get started using it, please click on this link <https://hpe.com/storage/dscc>.
 
 For a quick overview of Data Services Cloud Console, please click on the videos below.
 
