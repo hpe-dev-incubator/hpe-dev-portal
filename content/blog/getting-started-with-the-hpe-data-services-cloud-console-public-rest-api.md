@@ -142,23 +142,23 @@ Glossary of the terms:
 
 **[Endpoint](https://developer.hpe.com/blog/oauth2-for-hpe-greenlake-data-services-cloud-console/)**: Location where service can be accessed, usually is represented by URL (Uniform Resource Locator) e.g. https://eu1.data.cloud.hpe.com
 
-![OAuth 2.0 flow](/img/dscc-public-api-access-point.jpg "authentication and authorization flow")
+![OAuth 2.0 flow](/img/dscc-public-api-introduction-updated_111122.jpg "authentication and authorization flow")
 
-The client's application can issue a REST API request using the access token as the bearer of the token. The client can obtain this access token from the authorization API end point, after the client successfully authenticates through an associated customer's application credential (client-id and client-secret). This application credential is created by the DSCC user who has the permission to access resources (such as controllers, volumes etc.) under the DSCC instances. This access token expiration time, by default, is set for 7200 seconds (2 hours). When the resource server sees this expired access token, it returns a 0x401 response (not authorized). The client must then authenticate using the associated client-id and client-secret to obtain the next access-token to use for the next REST API request.
+The client's application can issue a REST API request using the access token as the bearer of the token. The client can obtain this access token from the authorization API end point, after the client successfully authenticates through an associated customer's application credential (client-id and client-secret). This application credential is created by the console's user who has the permission to access resources (such as controllers, volumes etc.) under the console instances. This access token expiration time, by default, is set for 7200 seconds (2 hours). When the resource server sees this expired access token, it returns a 0x401 response (not authorized). The client must then authenticate using the associated client-id and client-secret to obtain the next access-token to use for the next REST API request.
 
 ### Authorization Policies
 
 The client can only receive properties from the authorized API resources based on the Role Base Access Control for the user who created the client-credential pair (client-id and client-secret). This authorization derives from the organization, capability, and scope (roles) that the associated user is assigned. As a result, the authorization for the client application will inherit the user's permission who created the client-application registration under the API Gateway. Note that subsequent changes to the user's permission after the client application registered will impact the response returned based on current authority.
 
-### The API Endpoints (base-URL) for each DSCC Region
+### The API Endpoints (base-URL) for each Data Services Cloud Console's Region
 
-The REST API for DSCC requires the client application to issue the REST API request to the URL that is associated with the DSCC instance deployed at the associated region of the storage array. As of November 2021, here are the Domain URLs which the client application must use as the base-URL to the resource path of REST API.
+The REST API for Data Services Cloud Console requires the client application to issue the REST API request to the URL that is associated with the console's instance deployed at the associated region of the storage array. As of November 2021, here are the Domain URLs which the client application must use as the base-URL to the resource path of REST API.
 
-| DSCC Region  | Base-URL                       |
-| ------------ | ------------------------------ |
-| EU Central   | https://eu1.data.cloud.hpe.com |
-| AP Northeast | https://jp1.data.cloud.hpe.com |
-| US West      | https://us1.data.cloud.hpe.com |
+| Data Services Cloud Console Region | Base-URL                       |
+| ---------------------------------- | ------------------------------ |
+| EU Central (Europe)                | https://eu1.data.cloud.hpe.com |
+| AP Northeast (Asia Pacific)        | https://jp1.data.cloud.hpe.com |
+| US West (United States)            | https://us1.data.cloud.hpe.com |
 
 ### Asynchronous Response
 
