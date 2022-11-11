@@ -15,7 +15,7 @@ To eliminate the silos and complexity of data management and infrastructure, HPE
 
 ![DSCC UI](/img/a-single-destination-for-data-and-infra-services.png "DSCC UI diagram")
 
-The cloud brings the cloud experience to wherever data lives and streamlines data management across your hybrid cloud. It provides a suite of cloud services across your edge, core, and cloud to accelerate data, agility, and innovation for everyone, from data managers, to data innovators. Delivered as a SaaS-based cloud console, DSCC speeds customer innovation because there is nothing to deploy, everything is always updated to the latest software, and ownership risk is reduced by virtue of it being a subscription. The console is a single pane for management of any data and infrastructure services that are found as the cloud data services and  the cloud infrastructure services catalog. 
+The cloud console brings the cloud experience to wherever data lives and streamlines data management across your hybrid cloud. It provides a suite of cloud services across your edge, core, and cloud to accelerate data, agility, and innovation for everyone, from data managers, to data innovators. Delivered as a SaaS-based cloud console, DSCC speeds customer innovation because there is nothing to deploy, everything is always updated to the latest software, and ownership risk is reduced by virtue of it being a subscription. The console is a single pane for management of any data and infrastructure services that are found as the cloud data services and  the cloud infrastructure services catalog. 
 
 ### Introduction to Data Services Cloud Console
 
