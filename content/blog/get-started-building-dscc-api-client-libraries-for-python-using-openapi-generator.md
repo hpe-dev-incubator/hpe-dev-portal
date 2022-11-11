@@ -9,15 +9,15 @@ thumbnailimage: /img/dscc-icon-transparent.png
 tags:
   - data-services-cloud-console
 ---
-In this tutorial, you will be introduced to the process that is required to convert the HPE Data Services Cloud Console (DSCC) public API specification in the OpenAPI 3.X definition to any client libraries from several popular programming languages. The goal of this conversion process is to achieve the agility of cloud-like operations where updates to DSCC API client libraries are automatic and painless.
+In this tutorial, you will be introduced to the process that is required to convert the HPE Data Services Cloud Console public API specification in the OpenAPI 3.X definition to any client libraries from several popular programming languages. The goal of this conversion process is to achieve the agility of cloud-like operations where updates to console API client libraries are automatic and painless.
 
-HPE DSCC public REST API is for customers looking to enhance their data-ops using the programmatic extensions from Data Services Cloud Console. Please see the [Data Services Cloud Console Platform page](https://developer.hpe.com/platform/data-services-cloud-console/home/) for detailed information about the DSCC benefits to customer's Data-Ops operation. Please see the [Getting Started with the HPE Data Services Cloud Console Public REST API](https://developer.hpe.com/blog/getting-started-with-the-hpe-data-services-cloud-console-public-rest-api/) for the authentication mechanism used to access the DSCC API.
+Data Serviecs Cloud Console public REST API is for customers looking to enhance their data-ops using the programmatic extensions from Data Services Cloud Console. Please see the [Data Services Cloud Console Platform page](https://developer.hpe.com/platform/data-services-cloud-console/home/) for detailed information about the console benefits to customer's Data-Ops operation. Please see the [Getting Started with the HPE Data Services Cloud Console Public REST API](https://developer.hpe.com/blog/getting-started-with-the-hpe-data-services-cloud-console-public-rest-api/) for the authentication mechanism used to access the console API.
 
-The DSCC API definition is available for download in either YAML or JSON format from the DSCC API website ([US region](https://console-us1.data.cloud.hpe.com/doc/api/v1/)) as shown below:
+The Data Services Cloud Console API definition is available for download in either YAML or JSON format from the console API website ([US region](https://console-us1.data.cloud.hpe.com/doc/api/v1/)) as shown below:
 
-![DSCC API download](/img/dscc-api-spec.png "DSCC API specification download")
+![Data Services Cloud Console API download](/img/dscc-api-spec.png "Data Services Cloud Console API specification download")
 
-You can also download the DSCC API YAML file using the following Unix command line:
+You can also download the console API YAML file using the following Unix command line:
 
 ```shell
 $ wget https://console-us1.data.cloud.hpe.com/doc/api/v1/storage-api.yaml
@@ -26,10 +26,10 @@ $ wget https://console-us1.data.cloud.hpe.com/doc/api/v1/storage-api.yaml
 The definition file contains the following information:
 
 * A brief description of the API definition along with the version of the API in this file.
-* The available regions with the base-URL that must be concatenated to every API path. For more information about each region, please see the [Getting Started with DSCC API](https://developer.hpe.com/blog/getting-started-with-the-hpe-data-services-cloud-console-public-rest-api/) blog post.
+* The available regions with the base-URL that must be concatenated to every API path. For more information about each region, please see the [Getting Started with Data Services Cloud Console API](https://developer.hpe.com/blog/getting-started-with-the-hpe-data-services-cloud-console-public-rest-api/) blog post.
 * Summary tags for the content of this API definition.
 
-![](/img/the-introduction-to-the-api-definition.png "DSCC Open API specification (YAML)")
+![](/img/the-introduction-to-the-api-definition.png "Data Services Cloud Console Open API specification (YAML)")
 
 In addition, the definition file also contains:
 
@@ -252,4 +252,3 @@ Using the client generator tool such as described above, the client libraries fo
 I hope this blog post on generating Python client libraries for DSCC is helpful.
 
 More blog posts will be coming to help you taking further advantage of DSCC API capabilities. Stay tuned to the [HPE DEV](https://developer.hpe.com/blog) blog for more blog posts about HPE DSCC REST API.
-
