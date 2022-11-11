@@ -41,6 +41,6 @@ For detailed [](https://console-us1.data.cloud.hpe.com/doc/api/v1/)exploration o
 * Blog: [Using HPE GreenLake Console's API Gateway for DSCC](https://developer.hpe.com/blog/api-console-for-data-services-cloud-console/)
 * Blog: [Implementing OAuth 2.0 Flow for DSCC's Client Application](https://developer.hpe.com/blog/oauth2-for-hpe-greenlake-data-services-cloud-console/)
 
-### Any Questions on Data Services Cloud Console?
+### Any Question on Data Services Cloud Console?
 
 Please join [HPEDEV Slack Workspace](https://slack.hpedev.io/) and start a discussion in our [\#Data-Services-Cloud-Console channel](https://hpedev.slack.com/archives/C02D6H623JP)
