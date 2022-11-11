@@ -33,13 +33,13 @@ The definition file contains the following information:
 
 In addition, the definition file also contains:
 
-* All available endpoints of the DSCC resources, along with their HTTP headers, parameters, and the responses for each endpoint.
+* All available endpoints of the console resources, along with their HTTP headers, parameters, and the responses for each endpoint.
 * The syntax of the HTTP methods (GET, POST, UPDATE, DELETE) and path (relative path).
 * A more detailed description of the content of each response.
 
 ![](/img/examples-of-the-api-definition-end-points.png "Detail of a resource - host-initiator group")
 
-With this definition file (YAML or JSON), anyone can generate client libraries into a selected programming language or scripts.  With the client libraries, a user can use them to programmatically consume the capabilities of DSCC. Currently, there are many tools on the market that are capable to perform the conversion. The list of some of the well-known open-API converter tools are:
+With this definition file (YAML or JSON), anyone can generate client libraries into a selected programming language or scripts.  With the client libraries, a user can use them to programmatically consume the capabilities of Data Services Cloud Console. Currently, there are many tools on the market that are capable to perform the conversion. The list of some of the well-known open-API converter tools are:
 
 * [OpenAPI generator](https://openapi-generator.tech/)
 * [Swagger Codegen](https://swagger.io/tools/swagger-codegen/)
@@ -48,7 +48,7 @@ With this definition file (YAML or JSON), anyone can generate client libraries i
 
 In this tutorial, I am going to cover the popular and simple OpenAPI generator from the [OpenAPI generator](https://openapi-generator.tech/) from soup to nuts. 
 
-*Let's get on with it!*
+### *Let's get on with it!*
 
 ### Generating Client Libraries using OpenAPI Generator painlessly
 
@@ -71,7 +71,7 @@ The key information found in this GitHub website that will be useful and importa
 
 In this tutorial, let's take a look at the painless and simplest application of the OpenAPI Generator, which is using the JAR file. Actually, using the JAR file doesn't require any application installation at all. The JAR file can be downloaded and executed directly from the command line window in your workstation. The minimum requirement for executing the JAR file is that your workstation must be deployed with JAVA Run Time Environment (JRE) version 8. 
 
-**Note:** For more information about the deployment of JAVA Run Time executables based on the operating system of your workstation, please take a look at the installation page from [the JAVA website](https://www.java.com/en/download/help/download_options.html).
+**Note:** For more information about the deployment of JAVA Run Time executeables based on the operating system of your workstation, please take a look at the installation page from [the JAVA website](https://www.java.com/en/download/help/download_options.html).
 
 The JAR file for this OpenAPI generator is available at Maven.org. You can download it from the following [location](https://repo1.maven.org/maven2/org/openapitools/openapi-generator-cli/5.4.0/openapi-generator-cli-5.4.0.jar). Below, you will find the syntax required to download the OpenAPI generator JAR files from each corresponding operating systems:
 
@@ -121,7 +121,7 @@ Now that the JAR file is downloaded and ready to be used, let's create a Python 
 ~$ java -jar openapi-generator-cli.jar generate -i storage-api.yaml -g python -o sdks/dscc-python-sdk
 ```
 
-* '-i' represents the input file, that is the downloaded DSCC OpenAPI spec which can be in the form of JSON or YAML.
+* '-i' represents the input file, that is the downloaded Data Services Cloud Console OpenAPI spec which can be in the form of JSON or YAML.
 * 'generate' represents generating the code based on the specified generator
 * 'g' represents the generator/language name like Java, Go.
 * 'o' represents output directory where the client library will be generated. In the above example, the generated files are going to be in the ~/sdks/dscc-python-sdk
@@ -163,13 +163,13 @@ For information on uploading a project and the associated files into GitHub, ple
 
 Now, the generated client library comes with the following files:
 
-* The code for assisting the DSCC API calls.
-* The documentation for this DSCC client library derived from the API spec.
+* The code for assisting the console API calls.
+* The documentation for this console client library derived from the API spec.
 * Some test codes that can be used to validate the operation of this client library.
 * Examples of every endpoint available in the README.md
 * The required Python dependencies (requirements.txt and test-requirements.txt) that are required for using this SDK
 
-Now, you have all the components that are required for invoking the DSCC API using Python scripts. To use this DSCC API client library, let's go through the steps that are described in the README.md:
+Now, you have all the components that are required for invoking the console API using Python scripts. To use this Data Services Cloud Console API client library, let's go through the steps that are described in the README.md:
 
 1. Installation instructions
 
@@ -191,7 +191,7 @@ Now, you have all the components that are required for invoking the DSCC API usi
 
 ![](/img/auth.png "Authorization of API calls")
 
-Let's run a sample code that displays the access types in the DSCC. The required parameters and the returned results for each endpoint are described under each of the endpoints in the sample code. To execute the an API call on the DSCC, you will need:
+Let's run a sample code that displays the access types in the console. The required parameters and the returned results for each endpoint are described under each of the endpoints in the sample code. To execute the an API call on the console, you will need:
 
 1. The authorized access token which is generated from the HPE GreenLake API Gateway as mentioned in the blog [post](https://developer.hpe.com/blog/api-console-for-data-services-cloud-console/).
 2. To install the required Python dependencies using the following command:
@@ -247,8 +247,8 @@ $ python .\GetAudits.py
 {'items': ['port.read', 'volume.create']}
 ```
 
-Using the client generator tool such as described above, the client libraries for DSCC can be generated in agile manner.  As the result, the DSCC API client library in Python can be pushed to a GitHub repository automatically so that it will be ready to be used by any projects. Further advantage of this method is the automation using Continuous Integration/Continuous Deployment (CI/CD) pipeline which require no manual intervention in updating any projects to use the latest released version of the DSCC API. 
+Using the client generator tool such as described above, the client libraries for DSCC can be generated in agile manner.  As the result, the Data Services Cloud Console API client library in Python can be pushed to a GitHub repository automatically so that it will be ready to be used by any projects. Further advantage of this method is the automation using Continuous Integration/Continuous Deployment (CI/CD) pipeline which require no manual intervention in updating any projects to use the latest released version of the DSCC API. 
 
-I hope this blog post on generating Python client libraries for DSCC is helpful.
+I hope this blog post on generating Python client libraries for Data Services Cloud Console is helpful.
 
-More blog posts will be coming to help you taking further advantage of DSCC API capabilities. Stay tuned to the [HPE DEV](https://developer.hpe.com/blog) blog for more blog posts about HPE DSCC REST API.
+More blog posts will be coming to help you taking further advantage of Data Services Cloud Console REST API capabilities. Stay tuned to the [HPE DEV](https://developer.hpe.com/blog) blog for more blog posts about Data Services Cloud Console REST API.
