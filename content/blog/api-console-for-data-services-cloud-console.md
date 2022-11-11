@@ -21,13 +21,13 @@ The Data Services Cloud Console public API relies on an OAuth 2.0 third party au
 
 ![client-credential application flow](/img/greenlake-api-access-flow.png "obtain client-id and client-secret")
 
-The access token has a limited lifetime (about 7200 seconds or 2 hours). Once it expires, the client application must use the obtained client id and client secret to generate a new access token. One indication of the expiration of the access token, the request to DSCC API will return a response error: '401 Unauthorized HTTP.'  If the client application generates a new access token before the current one has expired, then the current access token will be invalidated or treated as not authorized. 
+The access token has a limited lifetime (about 7200 seconds or 2 hours). Once it expires, the client application must use the obtained client id and client secret to generate a new access token. One indication of the expiration of the access token, the request to console's API will return a response error: '401 Unauthorized HTTP.'  If the client application generates a new access token before the current one has expired, then the current access token will be invalidated or treated as not authorized. 
 
 Additionally, a user can also change the client secret to update the authorization when the authorized client application has lost it's client secret, or when the client secret has been compromised. 
 
-And lastly, when access to the DSCC REST API must be disabled, a user can delete the API client credential associated with client id and client secret in the API Gateway menu.
+And lastly, when access to the console's REST API must be disabled, a user can delete the API client credential associated with client id and client secret in the API Gateway menu.
 
-The following flow chart describes steps required to perform the DSCC REST API request. The flow starts from the authorized user creating the client id and client secret to be used to obtain the access token. The access token will be used in the authorization bearer to ensure the secure REST API request. 
+The following flow chart describes steps required to perform the console's REST API request. The flow starts from the GreenLake authorized user creating the client id and client secret to be used to obtain the access token. The access token will be used in the authorization bearer to ensure the secure REST API request. 
 
 ![Access API process](/img/user-guide-for-authorization.png "Process to authenticate and to obtain secure access ")
 
