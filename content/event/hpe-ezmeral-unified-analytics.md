@@ -10,5 +10,5 @@ width: large
 ## HPE Ezmeral Unified Analytics
 December 13, 2022
 
-HPE Ezmeral Unified Analytics operationalizes hybrid multi-cloud modern and advanced analytic workloads and lets you choose where to deploy your compute and data. This new single packaged offering includes open source tools for a full lifecycle data management tasks in an appliance-like form factor. Join this webinar to learn how the HPE Ezmeral Early Access program can let you try HPE Ezmeral Unified Analytics and influence what goes into the product release.
+HPE Ezmeral Unified Analytics operationalizes hybrid multi-cloud advanced analytic workloads, letting organizations choose where to deploy their compute and data. It provides a prepackaged offering that supports best of breed open-source tools including Spark, Super Set, Presto SQL, Airflow, Kubeflow, MLFlow, Great Expectations, Feast, making it quick and easy for application developers to develop and deploy applications across hybrid environments. Join this webinar to learn how the HPE Ezmeral Early Access program can let you try HPE Ezmeral Unified Analytics.
 
