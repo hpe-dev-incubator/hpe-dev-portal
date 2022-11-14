@@ -13,7 +13,6 @@ import { FormDown } from 'grommet-icons';
 import { hpe } from 'grommet-theme-hpe';
 import { deepMerge } from 'grommet/utils';
 import { BlogTabContent } from '..';
-import { useLocalStorage } from '../../hooks/use-local-storage';
 
 const customTheme = deepMerge(hpe, {
   tab: {
@@ -31,15 +30,21 @@ function BlogTabs({ data, columns }) {
   const [platformContent, setPlatformContent] = useState({
     data: data.allBlogs,
   });
+  const [openSourceContent, setOpenSourceContent] = useState({
+    data: data.openSourceBlogs,
+  });
   const onActive = (nextIndex) => setIndex(nextIndex);
   const size = useContext(ResponsiveContext);
 
-  const [activeBlogTab, setActiveBlogTab] = useLocalStorage('activeBlogTab');
-  const [platformData, setPlatformData] = useLocalStorage('platformData');
-  const [activePlatform, setActivePlatform] = useLocalStorage('activePlatform');
+  const [activeBlogTab, setActiveBlogTab] = useState('');
+  const [platformData, setPlatformData] = useState('');
+  const [openSourceData, setOpenSourceData] = useState('');
+  const [activePlatform, setActivePlatform] = useState('');
+  const [activeOpenSource, setActiveOpenSource] = useState('');
 
   const totalAllBlogsCount = data.allBlogsCount.totalCount;
   const totalOpenSourceBlogsCount = data.openSourceBlogsCount.totalCount;
+  const totalGreenLakeBlogsCount = data.greenlakeBlogsCount.totalCount;
   const totalOthersBlogsCount = data.othersBlogsCount.totalCount;
 
   useEffect(() => {
@@ -47,79 +52,97 @@ function BlogTabs({ data, columns }) {
     if (platformData && platformData.nodes) {
       setPlatformContent({ data: platformData });
     }
+    if (openSourceData && openSourceData.nodes) {
+      setOpenSourceContent({ data: openSourceData });
+    }
 
     // loads persisted blog tab index # when user goes back to the blog page
     if (activeBlogTab) {
       setIndex(activeBlogTab);
       setPlatform(true);
     }
-  }, [platformData, activeBlogTab]);
+  }, [platformData, openSourceData, activeBlogTab]);
 
   const platforms = {
     ezmeralBlogs: {
       label: 'HPE Ezmeral',
-      count: data.ezmeralBlogsCount.totalCount,
-    },
-    spiffeBlogs: {
-      label: 'Spiffee and Spire Projects',
-      count: data.spiffeBlogsCount.totalCount,
+      count: data?.ezmeralBlogsCount?.totalCount || 0,
     },
     dataFabricBlogs: {
       label: 'HPE Ezmeral Data Fabric',
-      count: data.dataFabricBlogsCount.totalCount,
+      count: data?.dataFabricBlogsCount?.totalCount || 0,
     },
-    greenlakeBlogs: {
-      label: 'HPE GreenLake',
-      count: data.greenlakeBlogsCount.totalCount,
-    },
-    chapelBlogs: {
-      label: 'Chapel',
-      count: data.chapelBlogsCount.totalCount,
-    },
-    grommetBlogs: {
-      label: 'Grommet',
-      count: data.grommetBlogsCount.totalCount,
+    projectDataMapBlogs: {
+      label: 'Project Data Map',
+      count: data?.projectdataMapBlogsCount?.totalCount || 0,
     },
     alletraBlogs: {
       label: 'HPE Alletra',
-      count: data.alletraBlogsCount.totalCount,
+      count: data?.alletraBlogsCount?.totalCount || 0,
     },
     // deepLearningBlogs: {
     //   label: 'HPE Deep Learning Cookbook',
-    //   count: data.deepLearningBlogsCount.totalCount,
+    //   count: data?.deepLearningBlogsCount.totalCount,
     // },
     threeParBlogs: {
       label: 'HPE 3PAR and Primera',
-      count: data.threeParBlogsCount.totalCount,
+      count: data?.threeParBlogsCount?.totalCount || 0,
     },
     nimbleBlogs: {
       label: 'HPE Nimble Storage',
-      count: data.nimbleBlogsCount.totalCount,
+      count: data?.nimbleBlogsCount?.totalCount || 0,
     },
     oneviewBlogs: {
       label: 'HPE OneView',
-      count: data.oneviewBlogsCount.totalCount,
+      count: data?.oneviewBlogsCount?.totalCount || 0,
     },
     oneviewDashboardBlogs: {
       label: 'HPE OneView Global Dashboard',
-      count: data.oneviewDashboardBlogsCount.totalCount,
-    },
-    determinedBlogs: {
-      label: 'Determined AI',
-      count: data.determinedBlogsCount.totalCount,
+      count: data?.oneviewDashboardBlogsCount?.totalCount || 0,
     },
     iloBlogs: {
       label: 'iLO RESTful API',
-      count: data.iloBlogsCount.totalCount,
+      count: data?.iloBlogsCount?.totalCount || 0,
     },
     dsccBlogs: {
       label: 'Data Service Cloud Console',
-      count: data.dsccBlogsCount.totalCount,
+      count: data?.dsccBlogsCount?.totalCount || 0,
+    },
+  };
+
+  const opensource = {
+    kubeDirectorBlogs: {
+      label: 'KubeDirector',
+      count: data?.kubeDirectorBlogsCount?.totalCount || 0,
+    },
+    spiffeBlogs: {
+      label: 'Spiffee and Spire Projects',
+      count: data?.spiffeBlogsCount?.totalCount || 0,
+    },
+    chapelBlogs: {
+      label: 'Chapel',
+      count: data?.chapelBlogsCount?.totalCount || 0,
+    },
+    grommetBlogs: {
+      label: 'Grommet',
+      count: data.grommetBlogsCount?.totalCount || 0,
+    },
+    determinedBlogs: {
+      label: 'Determined AI',
+      count: data.determinedBlogsCount?.totalCount || 0,
+    },
+    smartSimBlogs: {
+      label: 'SmartSim',
+      count: data.smartSimBlogsCount?.totalCount || 0,
     },
   };
 
   const platformsMenuItems = Object.entries(data)
-    .filter((item) => Object.prototype.hasOwnProperty.call(platforms, item[0]))
+    .filter(
+      (item) =>
+        Object.prototype.hasOwnProperty.call(platforms, item[0]) &&
+        platforms[item[0]].count > 0,
+    )
     .map((item, i) => {
       return {
         label: `${platforms[item[0]].label} (${platforms[item[0]].count})`,
@@ -133,11 +156,32 @@ function BlogTabs({ data, columns }) {
       };
     });
 
+  const openSourceMenuItems = Object.entries(data)
+    .filter(
+      (item) =>
+        Object.prototype.hasOwnProperty.call(opensource, item[0]) &&
+        opensource[item[0]].count > 0,
+    )
+    .map((item, i) => {
+      return {
+        label: `${opensource[item[0]].label} (${opensource[item[0]].count})`,
+        active: opensource[item[0]].label === activeOpenSource,
+        onClick: () => {
+          setActiveBlogTab(index);
+          setOpenSourceData(item[1]);
+          setOpenSourceContent({ key: i, data: item[1] });
+          setActiveOpenSource(opensource[item[0]].label);
+        },
+      };
+    });
+
   const previousTabContent = (previousTabIndex) => {
-    const { allBlogs, openSourceBlogs, othersBlogs } = data;
+    const { allBlogs, openSourceBlogs, greenlakeBlogs, othersBlogs } = data;
     switch (previousTabIndex) {
       case 0:
         return allBlogs;
+      case 1:
+        return greenlakeBlogs;
       case 2:
         return openSourceBlogs;
       case 3:
@@ -169,6 +213,59 @@ function BlogTabs({ data, columns }) {
           setPreviousTab={setPreviousTab}
         />
       </Tab>
+      <Tab title={`HPE GreenLake (${totalGreenLakeBlogsCount})`}>
+        <BlogTabContent
+          key={index}
+          initialPage={data.greenlakeBlogs}
+          columns={columns}
+          activeTab={index}
+          platform
+          setPlatform={setPlatform}
+          setPreviousTab={setPreviousTab}
+        />
+      </Tab>
+      <Grommet theme={customTheme}>
+        <Tab
+          pad="none"
+          title={
+            <Menu
+              /* eslint-disable-next-line no-unneeded-ternary */
+              open={activeOpenSource ? true : false}
+              dropProps={{
+                align: { top: 'bottom', left: 'left' },
+              }}
+              items={openSourceMenuItems}
+            >
+              <Box
+                width="220px"
+                height={size === 'small' ? '36px' : '48px'}
+                justify="center"
+                align="center"
+                direction="row"
+              >
+                <Text color="black" margin={{ right: 'xsmall' }}>
+                  Open Source ({totalOpenSourceBlogsCount})
+                </Text>
+                <FormDown />
+              </Box>
+            </Menu>
+          }
+        >
+          <BlogTabContent
+            key={openSourceContent.key}
+            initialPage={
+              platform
+                ? openSourceContent.data
+                : previousTabContent(previousTab)
+            }
+            columns={columns}
+            activeTab={index}
+            platform
+            setPlatform={setPlatform}
+            setPreviousTab={setPreviousTab}
+          />
+        </Tab>
+      </Grommet>
       <Grommet theme={customTheme}>
         <Tab
           pad="none"
@@ -182,14 +279,14 @@ function BlogTabs({ data, columns }) {
               items={platformsMenuItems}
             >
               <Box
-                width="160px"
+                width="220px"
                 height={size === 'small' ? '36px' : '48px'}
                 justify="center"
                 align="center"
                 direction="row"
               >
                 <Text color="black" margin={{ right: 'xsmall' }}>
-                  Platforms ({totalAllPlatformsBlogsCount})
+                  Our Technologies ({totalAllPlatformsBlogsCount})
                 </Text>
                 <FormDown />
               </Box>
@@ -209,7 +306,8 @@ function BlogTabs({ data, columns }) {
           />
         </Tab>
       </Grommet>
-      <Tab title={`Open Source (${totalOpenSourceBlogsCount})`}>
+
+      {/* <Tab title={`Open Source (${totalOpenSourceBlogsCount})`}>
         <BlogTabContent
           key={index}
           initialPage={data.openSourceBlogs}
@@ -218,7 +316,7 @@ function BlogTabs({ data, columns }) {
           setPlatform={setPlatform}
           setPreviousTab={setPreviousTab}
         />
-      </Tab>
+      </Tab> */}
       <Tab title={`Others (${totalOthersBlogsCount})`}>
         <BlogTabContent
           key={index}
@@ -281,15 +379,19 @@ BlogTabs.propTypes = {
     }).isRequired,
     allBlogs: blogsPropType,
     openSourceBlogs: blogsPropType,
+    greenlakeBlogs: blogsPropType,
     othersBlogs: blogsPropType,
     allBlogsCount: PropTypes.objectOf(PropTypes.number),
     openSourceBlogsCount: PropTypes.objectOf(PropTypes.number),
     ezmeralBlogsCount: PropTypes.objectOf(PropTypes.number),
     spiffeBlogsCount: PropTypes.objectOf(PropTypes.number),
+    kubeDirectorBlogsCount: PropTypes.objectOf(PropTypes.number),
     dataFabricBlogsCount: PropTypes.objectOf(PropTypes.number),
     greenlakeBlogsCount: PropTypes.objectOf(PropTypes.number),
     chapelBlogsCount: PropTypes.objectOf(PropTypes.number),
     grommetBlogsCount: PropTypes.objectOf(PropTypes.number),
+    projectdataMapBlogsCount: PropTypes.objectOf(PropTypes.number),
+    zertoBlogsCount: PropTypes.objectOf(PropTypes.number),
     alletraBlogsCount: PropTypes.objectOf(PropTypes.number),
     deepLearningBlogsCount: PropTypes.objectOf(PropTypes.number),
     threeParBlogsCount: PropTypes.objectOf(PropTypes.number),
@@ -298,6 +400,7 @@ BlogTabs.propTypes = {
     oneviewDashboardBlogsCount: PropTypes.objectOf(PropTypes.number),
     iloBlogsCount: PropTypes.objectOf(PropTypes.number),
     determinedBlogsCount: PropTypes.objectOf(PropTypes.number),
+    smartSimBlogsCount: PropTypes.objectOf(PropTypes.number),
     dsccBlogsCount: PropTypes.objectOf(PropTypes.number),
     othersBlogsCount: PropTypes.objectOf(PropTypes.number),
   }).isRequired,

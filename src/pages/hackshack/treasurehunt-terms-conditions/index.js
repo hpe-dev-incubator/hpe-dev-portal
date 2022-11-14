@@ -26,7 +26,7 @@ const TreasureHuntTC = () => {
               level="1"
               margin={{ bottom: 'none', top: 'none' }}
             >
-              HPE Virtual Treasure Hunt – KubeCon Europe 2022
+              HPE Virtual Treasure Hunt – KubeCon North America 2022
             </Heading>
             <Text color="text-strong" margin={{ bottom: 'large' }}>
               TERMS AND CONDITIONS
@@ -39,47 +39,47 @@ const TreasureHuntTC = () => {
           </Text>
           <br />
           <Text size="xlarge">
-            2. <strong>INTRODUCTION:</strong> HPE invites KubeCon Europe 2022
-            (“Event”) attendees to participate in the HPE Developer Virtual
-            Treasure Hunt Giveaway (“Program”) for a chance to win an HPE
-            Developer cap (“Prize”), subject to the terms and conditions below
-            (“Terms and Conditions”). By participating in the Program,
-            participants affirm that they have read, accepted, and agree to
-            waive any right to claim any ambiguity or error in these Terms and
-            Conditions or the entry itself and agree to be bound by these Terms
-            and Conditions and HPE’s decisions, which are final and binding in
-            all respects. HPE reserves the right to review, modify, extend or
-            discontinue any and/or all aspects of the Program, including these
-            Terms and Conditions, at any time without prior notice. The Program
-            is subject to federal, state, and local laws and regulations and is
-            void where prohibited.
+            2. <strong>INTRODUCTION:</strong> HPE invites KubeCon North America
+            2022 (“Event”) attendees to participate in the HPE Developer Virtual
+            Treasure Hunt Giveaway (“Program”) for a chance to win a fifty
+            dollar (USD $50.00) e-gift card for HPE branded merchandise
+            (“Prize”), subject to the terms and conditions below (“Terms and
+            Conditions”). By participating in the Program, participants affirm
+            that they have read, accepted, and agree to waive any right to claim
+            any ambiguity or error in these Terms and Conditions or the entry
+            itself and agree to be bound by these Terms and Conditions and HPE’s
+            decisions, which are final and binding in all respects. HPE reserves
+            the right to review, modify, extend or discontinue any and/or all
+            aspects of the Program, including these Terms and Conditions, at any
+            time without prior notice. The Program is subject to federal, state,
+            and local laws and regulations and is void where prohibited.
           </Text>
           <br />
           <Text size="xlarge">
-            3. <strong>PROGRAM PERIOD:</strong> The Program begins on May 15,
-            2022 at 12:00 AM Pacific Time and ends at 11:59 PM Pacific Time on
-            May 21, 2022, or when the Program budget has been reached, whichever
-            is earlier (the “Program Period”). Entries submitted before or after
-            the Program Period will not be eligible. HPE’s computer is the
-            official time-keeping device for the Program.
+            3. <strong>PROGRAM PERIOD:</strong> The Program begins on October
+            23, 2022 at 12:00 AM Pacific Time and ends at 11:59 PM Pacific Time
+            on October 28, 2022, or when the Program budget has been reached,
+            whichever is earlier (the “Program Period”). Entries submitted
+            before or after the Program Period will not be eligible. HPE’s
+            computer is the official time-keeping device for the Program.
           </Text>
           <br />
           <Text size="xlarge">
             4. <strong>ELIGIBILITY:</strong> NO HPE PRODUCT OR SERVICE PURCHASE
-            NECESSARY. A PURCHASE WILL NOT IMPROVE YOUR CHANCES OF WINNING. The
+            NECESSARY.A PURCHASE WILL NOT IMPROVE YOUR CHANCES OF WINNING.The
             Program is open only to participants eighteen (18) years of age and
-            older who are attendees of the Event. Winners of any previous HPE
+            older who are attendees of the Event.Winners of any previous HPE
             Developer Virtual Treasure Hunt Giveaway are not eligible for a
-            Prize for this Program. Void in Puerto Rico, U.S. territories and
-            possessions, and where prohibited by law. Employees, contractors,
-            and contingent workers of HPE, its subsidiaries, affiliates, their
-            immediate family and household members are not eligible. Employees
-            of the following entities are ineligible for this promotion:
+            Prize for this Program.Void in Puerto Rico, U.S.territories and
+            possessions, and where prohibited by law.Employees, contractors, and
+            contingent workers of HPE, its subsidiaries, affiliates, their
+            immediate family and household members are not eligible.Employees of
+            the following entities are ineligible for this promotion:
             National/federal, state, and local government entities, public
             higher education institutions, and private or public K-12
             educational institutions and libraries and their board members,
             employees, officers, representatives, agents, consultants and
-            independent contractors. HPE shall determine Program eligibility in
+            independent contractors.HPE shall determine Program eligibility in
             its sole and absolute discretion.
           </Text>
           <br />
@@ -89,25 +89,26 @@ const TreasureHuntTC = () => {
             eligible for the Prize. LIMIT ONE (1) PRIZE PER PERSON/ENTRY WHILE
             SUPPLIES LAST. The Prize is subject to these Terms and Conditions.
             In order to enter the Program, participants must access the HPE
-            Developer Virtual Treasure Hunt website or the Hack Shack website
-            via the links provided by HPE. At the Hack Shack website,
-            participants must then select the Virtual Treasure Hunt card and
-            click on the “Hunt for Treasure!” button. Participants must then
-            complete the Virtual Treasure Hunt by exploring the HPE Developer
-            Community’s rich ecosystem and submit their entry via the Virtual
-            Treasure Hunt form during the Program Period.
+            Developer Virtual Treasure Hunt website or the HPE Developer Hack
+            Shack website via the links provided by HPE. At the HPE Developer
+            Hack Shack website, participants must then select the Virtual
+            Treasure Hunt card and click on the “Hunt for Treasure!” button.
+            Participants must then complete the Virtual Treasure Hunt by
+            exploring the HPE Developer Community’s rich ecosystem and submit
+            their entry via the Virtual Treasure Hunt form during the Program
+            Period.
           </Text>
           <br />
           <Text size="xlarge">
             6. <strong>PRIZE:</strong> Interested parties who merely complete
             the Virtual Treasure Hunt form or submit an entry are not guaranteed
             a Prize. The total estimated retail value of each Prize is USD
-            $15.00. HPE will give away a total of fifteen (15) Prizes, with a
-            total estimated retail value of USD $225.00. No later than fourteen
-            (14) business days after the end of the Program Period, fifteen (15)
+            $50.00. HPE will give away a total of twelve (12) Prizes, with a
+            total estimated retail value of USD $600.00. No later than fourteen
+            (14) business days after the end of the Program Period, twelve (12)
             potential winners will be selected from all eligible entries
             received during the Program Period. A panel of two (2) HPE judges
-            will select the fifteen (15) winners who they determine have
+            will select the twelve (12) winners who they determine have
             submitted the best Virtual Treasure Hunt entries based on the
             following criteria: Completeness, accuracy of responses and
             date/time of the submission. Winners of any previous HPE Developer
@@ -115,27 +116,27 @@ const TreasureHuntTC = () => {
             Program. Odds of winning depend on the total number of eligible
             entries received during the Program Period. Should you be awarded a
             Prize, you will be contacted via the email address used in your
-            entry method and asked to provide a mailing address. It shall be
-            your responsibility to claim the Prize within fifteen (15) days of
-            notification from HPE. Failure to do so will result in forfeiture of
-            the Prize, and an alternate winner may be selected from among the
-            remaining eligible entries.
+            entry method. It shall be your responsibility to claim the Prize
+            upon notification from HPE. Failure to redeem the Prize within
+            thirty (30) days of notification from HPE will result in forfeiture
+            of the Prize.
           </Text>
           <br />
           <Text size="xlarge">
             There will be no substitution, cash redemption or transfer of
             Prizes, except in HPE’s sole discretion. The Prize may not be used
             for resale or distribution. Taxes and duties, if any, are winner’s
-            responsibility. Each participant is limited to one (1) Prize only
-            and any entries submitted after a participant has already received a
-            Prize will not be an eligible entry. Any Prize details not specified
-            herein will be determined by HPE in its sole discretion. HPE
-            reserves the right to not fulfill your Prize in the event that the
-            Prize is not certified in your country. Due to abuse, we cannot
-            provide Prizes to individuals who submitted their entry with Yahoo,
-            Gmail, Hotmail, and other email domains not registered to your
-            company. Please speak directly to your HPE representative if you
-            have any questions.
+            responsibility. Prizes are promotional in nature and may be subject
+            to an expiration date. Each participant is limited to one (1) Prize
+            only and any entries submitted after a participant has already
+            received a Prize will not be an eligible entry. Any Prize details
+            not specified herein will be determined by HPE in its sole
+            discretion. HPE reserves the right to not fulfill your Prize in the
+            event that the Prize is not certified in your country. Due to abuse,
+            we cannot provide Prizes to individuals who submitted their entry
+            with Yahoo, Gmail, Hotmail, and other email domains not registered
+            to your company. Please speak directly to your HPE representative if
+            you have any questions.
           </Text>
           <br />
           <Text size="xlarge">
@@ -159,7 +160,7 @@ const TreasureHuntTC = () => {
           </Text>
           <br />
           <Text size="xlarge">
-            8. <strong>RELEASE AND LIMITATIONS OF LIABILITY:</strong> By
+            8. <strong>RELEASE AND LIMITATIONS OF LIABILITY:</strong> : By
             participating in this Program, to the maximum extent permitted by
             applicable laws, you release and discharge HPE from any and all
             liability resulting from late, lost, delayed, stolen, misdirected,
@@ -183,12 +184,12 @@ const TreasureHuntTC = () => {
           </Text>
           <br />
           <Text size="xlarge">
-            9. <strong>THIRD PARTIES:</strong> By For the purposes of this
-            Program, HPE cannot guarantee the performance of any third party and
-            to the extent permitted by applicable law shall not be liable for
-            any act or default by a third party. All third party trademarks are
-            the property of their respective owners. KubeCon is not affiliated
-            with HPE and is not a sponsor of, has not endorsed, and is not
+            9. <strong>THIRD PARTIES:</strong> For the purposes of this Program,
+            HPE cannot guarantee the performance of any third party and to the
+            extent permitted by applicable law shall not be liable for any act
+            or default by a third party. All third party trademarks are the
+            property of their respective owners. KubeCon is not affiliated with
+            HPE and is not a sponsor of, has not endorsed, and is not
             participating in the Program.
           </Text>
           <br />

@@ -1,10 +1,23 @@
-import React from 'react';
+import React, { useMemo, useState } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 
-export const AppContext = React.createContext({ data: {} });
+export const AppContext = React.createContext({
+  data: {},
+  user: localStorage.getItem('userInfo'),
+  setUser: () => null,
+});
 
 const AppProvider = ({ children }) => {
+  const [userStr, setUser] = useState(localStorage.getItem('userInfo'));
+
+  const user = useMemo(() => {
+    if (userStr) {
+      return JSON.parse(userStr);
+    }
+    return null;
+  }, [userStr]);
+
   const data = useStaticQuery(graphql`
     query ContextNonPageQuery {
       platform: allMarkdownRemark(
@@ -54,7 +67,12 @@ const AppProvider = ({ children }) => {
       }
     }
   `);
-  return <AppContext.Provider value={{ data }}>{children}</AppContext.Provider>;
+
+  return (
+    <AppContext.Provider value={{ data, user, setUser }}>
+      {children}
+    </AppContext.Provider>
+  );
 };
 
 AppProvider.propTypes = {

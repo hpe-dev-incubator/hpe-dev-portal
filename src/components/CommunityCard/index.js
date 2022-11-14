@@ -27,7 +27,7 @@ const CommunityCard = ({ node, ...rest }) => (
         : undefined
     }
   >
-    <CardBody pad={{ bottom: 'small' }} align="start" flex={false}>
+    <CardBody pad={{ bottom: 'small' }} align="center" flex={false}>
       {node.frontmatter.image && (
         <Image
           height="144"

@@ -1,5 +1,5 @@
 ---
-title: MapR for Predictive Maintenance
+title: HPE Ezmeral Data Fabric for Predictive Maintenance
 date: 2022-02-15T05:31:46.014Z
 author: Ian Downard
 authorimage: /img/Avatar1.svg

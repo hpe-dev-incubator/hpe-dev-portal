@@ -28,6 +28,7 @@ const Arcade = () => {
                 label={content.label}
                 link={content.link}
                 path={content.path}
+                fit={content.fit}
               />
             ))}
           </CardGrid>

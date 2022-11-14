@@ -17,7 +17,7 @@ tags:
 
 Programming today becomes complicated by the many kinds of parallelism that exist in everything from phones to laptops to supercomputers.  The open-source Chapel parallel programming language makes parallel programming easier and more productive, while still enabling high performance that takes advantage of the wide variety of parallelism available today.
 
-In this post, Michelle Strout, general workshop chair, and Engin Kayraklioglu, program committee chair, summarize the highlights of the recent 9th Annual Chapel Implementers and Users Workshop (CHIUW 2022). Read on to hear about some exciting applications.  Read on to hear about some exciting applications that are using Chapel productively, the coding day that happened the day before the workshop, updates on the project, and feedback the team received during and after the workshop.
+In this post, Michelle Strout, general workshop chair, and Engin Kayraklioglu, program committee chair, summarize the highlights of the recent 9th Annual Chapel Implementers and Users Workshop (CHIUW 2022). Read on to hear about some exciting applications that are using Chapel productively, the coding day that happened the day before the workshop, updates on the project, and feedback the team received during and after the workshop.
 
 **Applications Written in Chapel**
 

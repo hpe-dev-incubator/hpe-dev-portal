@@ -1,16 +1,19 @@
 ---
+title: "Calling all citizen developers: Can low-code platforms accelerate your
+  impact?"
 active: true
+fit: contain
+link: https://hpe.zoom.us/webinar/register/3416663493869/WN_8jlRM9SaRKmbT3r1CDNtDw
 path: ""
-priority: 2
+imageBackground: white
+priority: 1
 alt: munch and learn logo
-title: " Machines learn from data to be artificially intelligent "
-link: https://hpe.zoom.us/webinar/register/8216594535490/WN_iCrngEP2T4Wlspf8RVvxMQ
-description: "Join us to hear from HPE’s own Dr. Eng Lim Goh, senior VP and CTO
-  of AI, on the importance of sharing data to gain insights and how to do so
-  responsibly. In his talk, Dr. Goh will illustrate how AI can advance the human
-  condition, exploring a variety of industry use cases and lessons we’ve
-  learned. "
-background: rgba(0, 86, 122, 0.8);
+description: "Nov. 16, 2022: Hear how low-code development platforms are
+  unleashing creative talent to build enterprise apps and automations– often
+  with little-to-no budget. Even full-time developers can benefit from learning
+  about citizen development platforms to create “full stack” solutions outside
+  of their areas of expertise."
+background: background
 label: Register Now!
-image: /img/Munch_and_Learn_192_192.svg
+image: /img/event-munch-and-learn-newlogo400x400.png
 ---

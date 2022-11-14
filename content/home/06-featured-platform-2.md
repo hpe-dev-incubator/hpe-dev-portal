@@ -5,6 +5,7 @@ priority: 6
 width: medium
 link: /platform/determined-ai/home/
 image: 
+active: true
 ---
 
 Determined AI accelerates innovation with open source AI solutions to build and train models faster and easier. 

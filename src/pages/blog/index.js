@@ -65,9 +65,9 @@ function Blog({ data, location }) {
         alt="blog page logo"
       >
         <Paragraph size="large">
-          Sharing expertise is a great way to move technology forward. Browse
+          Sharing expertise is a great way to move technology forward.Browse
           through our library of tutorials and articles to learn new ways to do
-          things. Or, click on the Get Started button to write your own!
+          things.Or, click on the Get Started button to write your own!
         </Paragraph>
         <Box wrap align="start">
           <ButtonLink primary label="Get Started" to="/contribute" />
@@ -137,6 +137,7 @@ export const pageQuery = graphql`
         frontmatter: {
           featuredBlog: { eq: true }
           priority: { lte: 5, gte: 1 }
+          disable: { ne: true }
         }
       }
       sort: { fields: [frontmatter___priority], order: ASC }
@@ -158,6 +159,7 @@ export const pageQuery = graphql`
             authorimage
             thumbnailimage
             category
+            disable
           }
         }
       }
@@ -165,7 +167,7 @@ export const pageQuery = graphql`
     allBlogsCount: allMarkdownRemark(
       filter: {
         fields: { sourceInstanceName: { eq: "blog" } }
-        frontmatter: { featuredBlog: { ne: true } }
+        frontmatter: { featuredBlog: { ne: true }, disable: { ne: true } }
       }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
@@ -184,17 +186,17 @@ export const pageQuery = graphql`
         id
       }
     }
-    dataFabricBlogsCount: allMarkdownRemark(
+    projectDataMapBlogsCount: allMarkdownRemark(
       filter: {
         fields: { sourceInstanceName: { eq: "blog" } }
-        frontmatter: { tags: { eq: "hpe-ezmeral-data-fabric" } }
+        frontmatter: { tags: { eq: "project-data-map" }, disable: { ne: true } }
       }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
       totalCount
     }
-    dataFabricBlogs: paginatedCollectionPage(
-      collection: { name: { eq: "data-fabric-posts" } }
+    projectDataMapBlogs: paginatedCollectionPage(
+      collection: { name: { eq: "project-data-map-posts" } }
       index: { eq: 0 }
     ) {
       nodes
@@ -209,7 +211,7 @@ export const pageQuery = graphql`
     ezmeralBlogsCount: allMarkdownRemark(
       filter: {
         fields: { sourceInstanceName: { eq: "blog" } }
-        frontmatter: { tags: { eq: "hpe-ezmeral" } }
+        frontmatter: { tags: { eq: "hpe-ezmeral" }, disable: { ne: true } }
       }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
@@ -228,127 +230,17 @@ export const pageQuery = graphql`
         id
       }
     }
-    greenlakeBlogsCount: allMarkdownRemark(
+    zertoBlogsCount: allMarkdownRemark(
       filter: {
         fields: { sourceInstanceName: { eq: "blog" } }
-        frontmatter: { tags: { eq: "hpe-greenlake" } }
+        frontmatter: { tags: { eq: "zerto" }, disable: { ne: true } }
       }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
       totalCount
     }
-    greenlakeBlogs: paginatedCollectionPage(
-      collection: { name: { eq: "greenlake-posts" } }
-      index: { eq: 0 }
-    ) {
-      nodes
-      hasNextPage
-      nextPage {
-        id
-      }
-      collection {
-        id
-      }
-    }
-    spiffeBlogsCount: allMarkdownRemark(
-      filter: {
-        fields: { sourceInstanceName: { eq: "blog" } }
-        frontmatter: { tags: { eq: "spiffe-and-spire-projects" } }
-      }
-      sort: { fields: [frontmatter___date], order: DESC }
-    ) {
-      totalCount
-    }
-    spiffeBlogs: paginatedCollectionPage(
-      collection: { name: { eq: "spiffe-blog-posts" } }
-      index: { eq: 0 }
-    ) {
-      nodes
-      hasNextPage
-      nextPage {
-        id
-      }
-      collection {
-        id
-      }
-    }
-    chapelBlogsCount: allMarkdownRemark(
-      filter: {
-        fields: { sourceInstanceName: { eq: "blog" } }
-        frontmatter: { tags: { eq: "chapel" } }
-      }
-      sort: { fields: [frontmatter___date], order: DESC }
-    ) {
-      totalCount
-    }
-    chapelBlogs: paginatedCollectionPage(
-      collection: { name: { eq: "chapel-posts" } }
-      index: { eq: 0 }
-    ) {
-      nodes
-      hasNextPage
-      nextPage {
-        id
-      }
-      collection {
-        id
-      }
-    }
-    grommetBlogsCount: allMarkdownRemark(
-      filter: {
-        fields: { sourceInstanceName: { eq: "blog" } }
-        frontmatter: { tags: { eq: "grommet" } }
-      }
-      sort: { fields: [frontmatter___date], order: DESC }
-    ) {
-      totalCount
-    }
-    grommetBlogs: paginatedCollectionPage(
-      collection: { name: { eq: "grommet-posts" } }
-      index: { eq: 0 }
-    ) {
-      nodes
-      hasNextPage
-      nextPage {
-        id
-      }
-      collection {
-        id
-      }
-    }
-    alletraBlogsCount: allMarkdownRemark(
-      filter: {
-        fields: { sourceInstanceName: { eq: "blog" } }
-        frontmatter: { tags: { eq: "hpe-alletra" } }
-      }
-      sort: { fields: [frontmatter___date], order: DESC }
-    ) {
-      totalCount
-    }
-    alletraBlogs: paginatedCollectionPage(
-      collection: { name: { eq: "alletra-posts" } }
-      index: { eq: 0 }
-    ) {
-      nodes
-      hasNextPage
-      nextPage {
-        id
-      }
-      collection {
-        id
-      }
-    }
-    deepLearningBlogsCount: allMarkdownRemark(
-      filter: {
-        fields: { sourceInstanceName: { eq: "blog" } }
-        frontmatter: { tags: { eq: "deep-learning-cookbook" } }
-      }
-      sort: { fields: [frontmatter___date], order: DESC }
-    ) {
-      totalCount
-    }
-    deepLearningBlogs: paginatedCollectionPage(
-      collection: { name: { eq: "deep-learning-posts" } }
+    zertoBlogs: paginatedCollectionPage(
+      collection: { name: { eq: "zerto-posts" } }
       index: { eq: 0 }
     ) {
       nodes
@@ -363,7 +255,10 @@ export const pageQuery = graphql`
     threeParBlogsCount: allMarkdownRemark(
       filter: {
         fields: { sourceInstanceName: { eq: "blog" } }
-        frontmatter: { tags: { eq: "hpe-3par-and-primera" } }
+        frontmatter: {
+          tags: { eq: "hpe-3par-and-primera" }
+          disable: { ne: true }
+        }
       }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
@@ -382,39 +277,17 @@ export const pageQuery = graphql`
         id
       }
     }
-    nimbleBlogsCount: allMarkdownRemark(
+    arubaBlogsCount: allMarkdownRemark(
       filter: {
         fields: { sourceInstanceName: { eq: "blog" } }
-        frontmatter: { tags: { eq: "hpe-nimble-storage" } }
+        frontmatter: { tags: { eq: "aruba" }, disable: { ne: true } }
       }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
       totalCount
     }
-    nimbleBlogs: paginatedCollectionPage(
-      collection: { name: { eq: "nimble-posts" } }
-      index: { eq: 0 }
-    ) {
-      nodes
-      hasNextPage
-      nextPage {
-        id
-      }
-      collection {
-        id
-      }
-    }
-    oneviewBlogsCount: allMarkdownRemark(
-      filter: {
-        fields: { sourceInstanceName: { eq: "blog" } }
-        frontmatter: { tags: { eq: "hpe-oneview" } }
-      }
-      sort: { fields: [frontmatter___date], order: DESC }
-    ) {
-      totalCount
-    }
-    oneviewBlogs: paginatedCollectionPage(
-      collection: { name: { eq: "oneview-posts" } }
+    arubaBlogs: paginatedCollectionPage(
+      collection: { name: { eq: "aruba-posts" } }
       index: { eq: 0 }
     ) {
       nodes
@@ -429,7 +302,10 @@ export const pageQuery = graphql`
     oneviewDashboardBlogsCount: allMarkdownRemark(
       filter: {
         fields: { sourceInstanceName: { eq: "blog" } }
-        frontmatter: { tags: { eq: "hpe-oneview-global-dashboard" } }
+        frontmatter: {
+          tags: { eq: "hpe-oneview-global-dashboard" }
+          disable: { ne: true }
+        }
       }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
@@ -455,6 +331,7 @@ export const pageQuery = graphql`
           tags: {
             in: ["ilo", "Redfish", "ilorest", "iLOrest", "ilo-restful-api"]
           }
+          disable: { ne: true }
         }
       }
       sort: { fields: [frontmatter___date], order: DESC }
@@ -474,32 +351,13 @@ export const pageQuery = graphql`
         id
       }
     }
-    determinedBlogsCount: allMarkdownRemark(
-      filter: {
-        fields: { sourceInstanceName: { eq: "blog" } }
-        frontmatter: { tags: { eq: "determined-ai" } }
-      }
-      sort: { fields: [frontmatter___date], order: DESC }
-    ) {
-      totalCount
-    }
-    determinedBlogs: paginatedCollectionPage(
-      collection: { name: { eq: "determined-ai-posts" } }
-      index: { eq: 0 }
-    ) {
-      nodes
-      hasNextPage
-      nextPage {
-        id
-      }
-      collection {
-        id
-      }
-    }
     dsccBlogsCount: allMarkdownRemark(
       filter: {
         fields: { sourceInstanceName: { eq: "blog" } }
-        frontmatter: { tags: { eq: "data-services-cloud-console" } }
+        frontmatter: {
+          tags: { eq: "data-services-cloud-console" }
+          disable: { ne: true }
+        }
       }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
@@ -518,10 +376,313 @@ export const pageQuery = graphql`
         id
       }
     }
+    dataFabricBlogsCount: allMarkdownRemark(
+      filter: {
+        fields: { sourceInstanceName: { eq: "blog" } }
+        frontmatter: {
+          tags: { in: ["hpe-ezmeral-data-fabric", "MapR"] }
+          disable: { ne: true }
+        }
+      }
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
+      totalCount
+    }
+    dataFabricBlogs: paginatedCollectionPage(
+      collection: { name: { eq: "data-fabric-posts" } }
+      index: { eq: 0 }
+    ) {
+      nodes
+      hasNextPage
+      nextPage {
+        id
+      }
+      collection {
+        id
+      }
+    }
+    alletraBlogsCount: allMarkdownRemark(
+      filter: {
+        fields: { sourceInstanceName: { eq: "blog" } }
+        frontmatter: { tags: { eq: "hpe-alletra" }, disable: { ne: true } }
+      }
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
+      totalCount
+    }
+    alletraBlogs: paginatedCollectionPage(
+      collection: { name: { eq: "alletra-posts" } }
+      index: { eq: 0 }
+    ) {
+      nodes
+      hasNextPage
+      nextPage {
+        id
+      }
+      collection {
+        id
+      }
+    }
+    nimbleBlogsCount: allMarkdownRemark(
+      filter: {
+        fields: { sourceInstanceName: { eq: "blog" } }
+        frontmatter: {
+          tags: { eq: "hpe-nimble-storage" }
+          disable: { ne: true }
+        }
+      }
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
+      totalCount
+    }
+    nimbleBlogs: paginatedCollectionPage(
+      collection: { name: { eq: "nimble-posts" } }
+      index: { eq: 0 }
+    ) {
+      nodes
+      hasNextPage
+      nextPage {
+        id
+      }
+      collection {
+        id
+      }
+    }
+    oneviewBlogsCount: allMarkdownRemark(
+      filter: {
+        fields: { sourceInstanceName: { eq: "blog" } }
+        frontmatter: { tags: { eq: "hpe-oneview" }, disable: { ne: true } }
+      }
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
+      totalCount
+    }
+    oneviewBlogs: paginatedCollectionPage(
+      collection: { name: { eq: "oneview-posts" } }
+      index: { eq: 0 }
+    ) {
+      nodes
+      hasNextPage
+      nextPage {
+        id
+      }
+      collection {
+        id
+      }
+    }
+    simplivityBlogsCount: allMarkdownRemark(
+      filter: {
+        fields: { sourceInstanceName: { eq: "blog" } }
+        frontmatter: { tags: { eq: "hpe-simplivity" }, disable: { ne: true } }
+      }
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
+      totalCount
+    }
+    simplivityBlogs: paginatedCollectionPage(
+      collection: { name: { eq: "simplivity-posts" } }
+      index: { eq: 0 }
+    ) {
+      nodes
+      hasNextPage
+      nextPage {
+        id
+      }
+      collection {
+        id
+      }
+    }
+
+    greenlakeBlogsCount: allMarkdownRemark(
+      filter: {
+        fields: { sourceInstanceName: { eq: "blog" } }
+        frontmatter: { tags: { eq: "hpe-greenlake" }, disable: { ne: true } }
+      }
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
+      totalCount
+    }
+    greenlakeBlogs: paginatedCollectionPage(
+      collection: { name: { eq: "greenlake-posts" } }
+      index: { eq: 0 }
+    ) {
+      nodes
+      hasNextPage
+      nextPage {
+        id
+      }
+      collection {
+        id
+      }
+    }
+    kubeDirectorBlogsCount: allMarkdownRemark(
+      filter: {
+        fields: { sourceInstanceName: { eq: "blog" } }
+        frontmatter: { tags: { eq: "kubedirector" }, disable: { ne: true } }
+      }
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
+      totalCount
+    }
+    kubeDirectorBlogs: paginatedCollectionPage(
+      collection: { name: { eq: "kubedirector-posts" } }
+      index: { eq: 0 }
+    ) {
+      nodes
+      hasNextPage
+      nextPage {
+        id
+      }
+      collection {
+        id
+      }
+    }
+    spiffeBlogsCount: allMarkdownRemark(
+      filter: {
+        fields: { sourceInstanceName: { eq: "blog" } }
+        frontmatter: {
+          tags: { eq: "spiffe-and-spire-projects" }
+          disable: { ne: true }
+        }
+      }
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
+      totalCount
+    }
+
+    spiffeBlogs: paginatedCollectionPage(
+      collection: { name: { eq: "spiffe-blog-posts" } }
+      index: { eq: 0 }
+    ) {
+      nodes
+      hasNextPage
+      nextPage {
+        id
+      }
+      collection {
+        id
+      }
+    }
+    chapelBlogsCount: allMarkdownRemark(
+      filter: {
+        fields: { sourceInstanceName: { eq: "blog" } }
+        frontmatter: { tags: { eq: "chapel" }, disable: { ne: true } }
+      }
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
+      totalCount
+    }
+    chapelBlogs: paginatedCollectionPage(
+      collection: { name: { eq: "chapel-posts" } }
+      index: { eq: 0 }
+    ) {
+      nodes
+      hasNextPage
+      nextPage {
+        id
+      }
+      collection {
+        id
+      }
+    }
+
+    grommetBlogsCount: allMarkdownRemark(
+      filter: {
+        fields: { sourceInstanceName: { eq: "blog" } }
+        frontmatter: { tags: { eq: "grommet" }, disable: { ne: true } }
+      }
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
+      totalCount
+    }
+    grommetBlogs: paginatedCollectionPage(
+      collection: { name: { eq: "grommet-posts" } }
+      index: { eq: 0 }
+    ) {
+      nodes
+      hasNextPage
+      nextPage {
+        id
+      }
+      collection {
+        id
+      }
+    }
+    smartSimBlogsCount: allMarkdownRemark(
+      filter: {
+        fields: { sourceInstanceName: { eq: "blog" } }
+        frontmatter: { tags: { eq: "smartsim" }, disable: { ne: true } }
+      }
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
+      totalCount
+    }
+    smartSimBlogs: paginatedCollectionPage(
+      collection: { name: { eq: "smartsim-posts" } }
+      index: { eq: 0 }
+    ) {
+      nodes
+      hasNextPage
+      nextPage {
+        id
+      }
+      collection {
+        id
+      }
+    }
+
+    deepLearningBlogsCount: allMarkdownRemark(
+      filter: {
+        fields: { sourceInstanceName: { eq: "blog" } }
+        frontmatter: {
+          tags: { eq: "deep-learning-cookbook" }
+          disable: { ne: true }
+        }
+      }
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
+      totalCount
+    }
+    deepLearningBlogs: paginatedCollectionPage(
+      collection: { name: { eq: "deep-learning-posts" } }
+      index: { eq: 0 }
+    ) {
+      nodes
+      hasNextPage
+      nextPage {
+        id
+      }
+      collection {
+        id
+      }
+    }
+
+    determinedBlogsCount: allMarkdownRemark(
+      filter: {
+        fields: { sourceInstanceName: { eq: "blog" } }
+        frontmatter: { tags: { eq: "determined-ai" }, disable: { ne: true } }
+      }
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
+      totalCount
+    }
+    determinedBlogs: paginatedCollectionPage(
+      collection: { name: { eq: "determined-ai-posts" } }
+      index: { eq: 0 }
+    ) {
+      nodes
+      hasNextPage
+      nextPage {
+        id
+      }
+      collection {
+        id
+      }
+    }
     openSourceBlogsCount: allMarkdownRemark(
       filter: {
         fields: { sourceInstanceName: { eq: "blog" } }
-        frontmatter: { tags: { eq: "opensource" } }
+        frontmatter: { tags: { eq: "opensource" }, disable: { ne: true } }
       }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
@@ -557,6 +718,7 @@ export const pageQuery = graphql`
       filter: {
         fields: { sourceInstanceName: { eq: "blog" } }
         frontmatter: {
+          disable: { ne: true }
           tags: {
             nin: [
               "opensource"
