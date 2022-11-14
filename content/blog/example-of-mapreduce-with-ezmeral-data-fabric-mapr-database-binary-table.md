@@ -10,36 +10,6 @@ tags:
   - hpe-ezmeral-data-fabric
   - MapReduce
 ---
-<!-- MarkdownTOC -->
-
-
-
-- Introduction
-- Prerequisite: Create a Development Environment for EDF
-- MapReduce on EDF Database Binary Table
-
-
-    - Create a Binary Table
-
-
-        - For convenience of data management, I would like to create a volume for the Binary Table, the command are as following:
-        - Now we can create the Binary Table
-
-
-    - Build and Run The MapReduce Application
-
-
-        - MapReduce Application Source Code
-        - How to Run it On EDF
-
-
-- Explanation of some glossary
-
-
-
-<!-- /MarkdownTOC -->
-
-
 
 ## Introduction
 
