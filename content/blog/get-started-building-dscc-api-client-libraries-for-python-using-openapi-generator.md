@@ -1,6 +1,6 @@
 ---
-title: Get Started Building DSCC API Client Libraries for Python using OpenAPI
-  Generator
+title: Get Started Building Data Services Cloud Console API Client Libraries for
+  Python using OpenAPI Generator
 date: 2022-03-28T16:57:29.512Z
 priority: 2
 author: Anusha, Y, Sijeesh Kattumunda and Ron Dharma
