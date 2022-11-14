@@ -10,4 +10,4 @@ width: large
 ## HPE GreenLake for Data Fabric
 D﻿ecember 15, 2022
 
-Targeting hybrid and multi-cloud use cases, HPE GreenLake for Data Fabric delivers HPE Ezmeral Data Fabric as a service. Join this webinar to learn how the HPE Ezmeral Early Access program allows you to test out a fully deployed, configured and managed data fabric to develop applications that are portable across clouds and on-prem.
+HPE GreenLake for Data Fabric introduces the HPE Ezmeral Data Fabric delivered as-a-service. Ideal for application developers working on hybrid and multi-cloud use cases, the HPE Ezmeral Early Access program provides early access to a fully deployed, configured and managed data fabric for application developers who need a multi-modal data fabric to develop applications that are portable across clouds and on-prem. Join this webinar to learn how the HPE Ezmeral Early Access program can let you try HPE GreenLake for Data Fabric.
