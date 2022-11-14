@@ -1,5 +1,5 @@
 ---
-title: Getting Started with the HPE Data Services Cloud Console Public REST API
+title: Getting Started with Data Services Cloud Console Public REST API
 date: 2021-12-15T16:01:03.611Z
 priority: 2
 author: Ron Dharma
@@ -12,20 +12,20 @@ tags:
 
 Customers across industries are struggling with the complexity of managing data and infrastructure, because it creates a roadblock to innovation and agility. Today, every organization is required to unleash the power of data to drive digital transformation, but fragmented data management tools, manual processes, and infrastructure silos - spanning edge to cloud - are getting in the way. This complexity also amplifies business risk, and it's only getting harder as data continues to grow, apps evolve, and infrastructure continues its spread from edge to cloud. 
 
-Data Services Cloud Console public REST API provides a resource for customers who are looking to enhance their infrastructure management and data-ops using the programmatic extensions from Data Services Cloud Console (DSCC).
+Data Services Cloud Console public REST API provides a resource for customers who are looking to enhance their infrastructure management and data-ops using the programmatic extensions from Data Services Cloud Console.
 
 ### A Public REST API which is based on the OpenAPI 3.X Specification
 
 ![API diagram](/img/universal-public-api.png "API ")
 
-Hewlett Packard Enterprise (HPE) offers the DSCC public REST API to provide the agility previously mentioned. It is specified based on the OpenAPI format version 3 (OpenAPI 3.0 information). The specification defines a standard, language-agnostic interface to the RESTful API allowing clients (both human and computer) to consume capabilities of DSCC services efficiently. The API definition is available for download in either OpenAPI 3 YAML or JSON format at the link mentioned in the next chapter.
+Hewlett Packard Enterprise (HPE) offers the Data Services Cloud Console unified REST API to provide the agility previously mentioned. It is specified based on the OpenAPI format version 3 (OpenAPI 3.0 information). The specification defines a standard, language-agnostic interface to the RESTful API allowing clients (both human and computer) to consume capabilities of the console's services efficiently. The API definition is available for download in either OpenAPI 3 YAML or JSON format at the link mentioned in the next chapter.
 
 Some of the advantages of distributing the API in OpenAPI 3.0 format:
 
 1. Updates to the API can be generated in a more agile manner where documentation is embedded, describing any endpoints, parameters, and more; such as contact information, license, terms of use.
 2. Consumers of this API also gain the benefits of agility by using the converter from openAPI yaml, or json to any programming language that is used as part of their automation or CI/CD workflow. (Please check https://openapi.tools for more information for the API tools to generate client code)
 
-### DSCC REST API Details
+### Data Services Cloud Console REST API Details
 
 Anyone can download this OpenAPI Specification (OAS) v3 definition of the DSCC from the following: [Link to the API repository](https://console-us1.data.cloud.hpe.com/doc/api/v1/)
 
@@ -142,23 +142,23 @@ Glossary of the terms:
 
 **[Endpoint](https://developer.hpe.com/blog/oauth2-for-hpe-greenlake-data-services-cloud-console/)**: Location where service can be accessed, usually is represented by URL (Uniform Resource Locator) e.g. https://eu1.data.cloud.hpe.com
 
-![OAuth 2.0 flow](/img/dscc-public-api-access-point.jpg "authentication and authorization flow")
+![OAuth 2.0 flow](/img/dscc-public-api-introduction-updated_111122.jpg "authentication and authorization flow")
 
-The client's application can issue a REST API request using the access token as the bearer of the token. The client can obtain this access token from the authorization API end point, after the client successfully authenticates through an associated customer's application credential (client-id and client-secret). This application credential is created by the DSCC user who has the permission to access resources (such as controllers, volumes etc.) under the DSCC instances. This access token expiration time, by default, is set for 7200 seconds (2 hours). When the resource server sees this expired access token, it returns a 0x401 response (not authorized). The client must then authenticate using the associated client-id and client-secret to obtain the next access-token to use for the next REST API request.
+The client's application can issue a REST API request using the access token as the bearer of the token. The client can obtain this access token from the authorization API end point, after the client successfully authenticates through an associated customer's application credential (client-id and client-secret). This application credential is created by the console's user who has the permission to access resources (such as controllers, volumes etc.) under the console instances. This access token expiration time, by default, is set for 7200 seconds (2 hours). When the resource server sees this expired access token, it returns a 0x401 response (not authorized). The client must then authenticate using the associated client-id and client-secret to obtain the next access-token to use for the next REST API request.
 
 ### Authorization Policies
 
 The client can only receive properties from the authorized API resources based on the Role Base Access Control for the user who created the client-credential pair (client-id and client-secret). This authorization derives from the organization, capability, and scope (roles) that the associated user is assigned. As a result, the authorization for the client application will inherit the user's permission who created the client-application registration under the API Gateway. Note that subsequent changes to the user's permission after the client application registered will impact the response returned based on current authority.
 
-### The API Endpoints (base-URL) for each DSCC Region
+### The API Endpoints (base-URL) for each Data Services Cloud Console's Region
 
-The REST API for DSCC requires the client application to issue the REST API request to the URL that is associated with the DSCC instance deployed at the associated region of the storage array. As of November 2021, here are the Domain URLs which the client application must use as the base-URL to the resource path of REST API.
+The REST API for Data Services Cloud Console requires the client application to issue the REST API request to the URL that is associated with the console's instance deployed at the associated region of the storage array. As of November 2021, here are the Domain URLs which the client application must use as the base-URL to the resource path of REST API.
 
-| DSCC Region  | Base-URL                       |
-| ------------ | ------------------------------ |
-| EU Central   | https://eu1.data.cloud.hpe.com |
-| AP Northeast | https://jp1.data.cloud.hpe.com |
-| US West      | https://us1.data.cloud.hpe.com |
+| Data Services Cloud Console Region | Base-URL                       |
+| ---------------------------------- | ------------------------------ |
+| EU Central (Europe)                | https://eu1.data.cloud.hpe.com |
+| AP Northeast (Asia Pacific)        | https://jp1.data.cloud.hpe.com |
+| US West (United States)            | https://us1.data.cloud.hpe.com |
 
 ### Asynchronous Response
 
@@ -196,7 +196,7 @@ For more in depth discussion on the topics about API Gateway and OAuth 2.0 (Open
 
 <iframe title="Introduction to HPE Data Services Cloud Console public API" width="560" height="315" src="https://www.youtube.com/embed/g3UO0S-4r6I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-* Blog: [Using HPE GreenLake Console's API Gateway for Data Services Cloud Console](https://developer.hpe.com/blog/api-console-for-data-services-cloud-console/)
+* Blog: [Using HPE GreenLake's API Gateway for Data Services Cloud Console](https://developer.hpe.com/blog/api-console-for-data-services-cloud-console/)
 * Blog: [Implementing OAuth 2 Flow for Data Services Cloud Console's Client Application](https://developer.hpe.com/blog/oauth2-for-hpe-greenlake-data-services-cloud-console/)
 * TEKTALK ON POINT: [Introduction to Data Services Cloud Console public API](https://vshow.on24.com/vshow/HPETekTalks/content/3571890/)
 
