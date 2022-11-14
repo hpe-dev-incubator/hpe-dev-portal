@@ -90,7 +90,10 @@ export default Skillup;
 export const pageQuery = graphql`
   query {
     allMarkdownRemark(
-      filter: { fields: { sourceInstanceName: { eq: "skillup" } } }
+      filter: {
+        fields: { sourceInstanceName: { eq: "skillup" } }
+        frontmatter: { disable: { ne: true } }
+      }
       sort: { fields: [frontmatter___priority] }
     ) {
       edges {
@@ -108,6 +111,7 @@ export const pageQuery = graphql`
             image
             linkname
             priority
+            disable
           }
         }
       }

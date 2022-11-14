@@ -136,6 +136,16 @@ const Workshop = (props) => {
               )}
             </CardGrid>
           </Tab>
+          <Tab title="HPE GreenLake">
+            <CardGrid pad={{ top: 'medium' }} key="hpee">
+              {workshops.map(
+                (workshop, i) =>
+                  workshop.category &&
+                  workshop.category.includes('hpe greenlake') &&
+                  renderScheduleCard(workshop, i),
+              )}
+            </CardGrid>
+          </Tab>
           <Tab title="HPE Ezmeral">
             <CardGrid pad={{ top: 'medium' }} key="hpee">
               {workshops.map(

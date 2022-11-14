@@ -41,8 +41,10 @@ collections:
       preview: true
     fields:
       - { label: 'Title', name: 'title', widget: 'string', hint: 'used for the filename and tagging' }
+      - { label: 'Author', name: 'author', widget: 'string' } 
       - { label: 'Category', name: 'category', widget: 'select', options: [ { label: 'none', value: ''}, { label: 'Community', value: 'Community' }, { label: 'Design', value: 'Design' }, { label: 'Workshop', value: 'Workshop' }, { label: 'Event', value: 'Event' },{ label: 'Virtual Event', value: 'Virtual Event' }, { label: 'Open Source', value: 'Open Source' }, { label: 'Feature Blog', value: 'Feature Blog' }, { label: 'Feature Platform', value: 'Feature Platform' } ], default: 'none' }
       - { label: 'Priority', name: 'priority', widget: 'number', hint: 'controls the position on the page'}
+      - { label: 'Active', name: 'active', widget: 'boolean', hint: 'selecting true adds the card in the Hackshack home page'  }
       - { label: 'Card Size', name: 'width', widget: 'select', options: [ 'small', 'medium', 'large' ], default: 'medium'}
       - { label: 'Navigation Path', name: 'link', widget: 'string'}
       - { label: 'Image', name: 'image', widget: 'image', media_folder: '/static/img', public_folder: '/img', hint: 'image shown next to or above content' }
@@ -55,6 +57,7 @@ collections:
     create: true
     publish: false
     slug: 'hackshackhome'
+    preview_path: '/hackshack/'
     editor:
       preview: true
     fields:
@@ -78,6 +81,7 @@ collections:
     create: true
     publish: false
     slug: '{{slug}}'
+    preview_path: '/platform/{{title}}/home'
     editor:
       preview: true
     fields:
@@ -109,6 +113,7 @@ collections:
       - { label: 'Author', name: 'author', widget: 'string' } 
       - { label: 'Author Image', name: 'authorimage', widget: 'image',default: "/img/Avatar1.svg", media_folder: '/static/img', public_folder: '/img', hint: 'author image shown next to content' }
       - { label: 'Thumbnail Image', name: 'thumbnailimage', required: false, widget: 'image', media_folder: '/static/img', public_folder: '/img', hint: 'thumbnail image shown next to content' }
+      - { label: 'Disable', name: 'disable', widget: 'boolean', default: false , required: false, hint: 'selecting true disable the card on the blog page' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
       - { label: 'Tags', name: 'tags', widget: 'list', allow_add: true, required: false, field: {label: 'Tag', name: 'tag', widget: 'string'}  }
   # Event collectionel: 
@@ -119,6 +124,7 @@ collections:
     create: true
     publish: false
     slug: '{{slug}}'
+    preview_path: '/events'
     editor:
       preview: true
     fields:
@@ -181,6 +187,7 @@ collections:
     create: true
     publish: false
     slug: 'community'
+    preview_path: '/community'
     editor:
       preview: true
     fields:
@@ -206,11 +213,13 @@ collections:
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Author Image', name: 'authorimage', widget: 'image',default: "/img/Avatar1.svg",media_folder: '/static/img', public_folder: '/img', hint: 'author image shown next to content' }
+      - { label: 'Disable', name: 'disable', default: false, widget: 'boolean', required: false, hint: 'selecting true will block the campaign page to be created'  }
       - { label: 'Body', name: 'body', widget: 'markdown' }
 # Skillup collection
   - name: 'skillup'
     label: 'Skillup'
     folder: 'content/skillup'
+    preview_path: '/skillup'
     extension: 'md'
     create: true
     publish: false
@@ -222,6 +231,7 @@ collections:
       - { label: 'Navigation Path', name: 'link', widget: 'string'}
       - { label: 'Button Label', name: 'linkname', widget: 'string'}
       - { label: 'Description', name: 'description', widget: 'string' }
+      - { label: 'Disable', name: 'disable', widget: 'boolean', default: false , required: false, hint: 'selecting true disable the card on the skillup page'  }
       - { label: 'Priority', name: 'priority', widget: 'number', hint: 'controls the card position on the skill up page'}
       - { label: 'Image', name: 'image', widget: 'image',media_folder: '/static/img', public_folder: '/img', hint: 'image to appear on skill up card' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
@@ -233,6 +243,7 @@ collections:
     create: false
     publish: false
     slug: 'contribute'
+    preview_path: '/contribute' 
     editor:
       preview: true
     fields:
@@ -246,13 +257,14 @@ collections:
           - {label: 'Template Name', name: 'templateName', widget: 'string' }
           - {label: 'Template Link', name: 'link', widget: 'string' }
 # OSS Contribute collection
-  - name: 'oss  contribute'
+  - name: 'osscontribute'
     label: 'Be an open source contributor'
     folder: 'content/osscontribute'
     extension: 'md'
     create: false
     publish: false
     slug: 'osscontribute'
+    preview_path: '/osscontribute' 
     editor:
       preview: true
     fields:

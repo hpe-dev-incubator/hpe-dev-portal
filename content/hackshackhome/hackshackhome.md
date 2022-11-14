@@ -1,21 +1,19 @@
 ---
+title: "Calling all citizen developers: Can low-code platforms accelerate your
+  impact?"
 active: true
-path: ""
-priority: 2
 fit: contain
+link: https://hpe.zoom.us/webinar/register/3416663493869/WN_8jlRM9SaRKmbT3r1CDNtDw
+path: ""
 imageBackground: white
+priority: 1
 alt: munch and learn logo
-title: " Accelerate public sector AI use cases using a powerful ML Ops platform "
-link: https://hpe.zoom.us/webinar/register/1616608098344/WN_fvoiOt7KSBW-LMyYMdIk2A
-description: "21-SEP-2022: The French governmental agency, Pole Emploi, is
-  collaborating with HPE in an effort to improve its ability to provide social
-  benefits to the unemployed and help them find work. They have built an
-  effective and scalable AI/ML Ops platform based on HPE Ezmeral Runtime
-  Enterprise that helps companies find and hire workers. Following HPE best
-  practices and using purpose built platforms, they aim to improve productivity
-  across the many teams involved in implementing an ML Ops pipeline, including
-  Big Data teams, business owners, data scientists, and IT Operations. "
-background: rgba(0, 86, 122, 0.8);
+description: "Nov. 16, 2022: Hear how low-code development platforms are
+  unleashing creative talent to build enterprise apps and automations– often
+  with little-to-no budget. Even full-time developers can benefit from learning
+  about citizen development platforms to create “full stack” solutions outside
+  of their areas of expertise."
+background: background
 label: Register Now!
-image: /img/event-ml_cap_02_rgb.png
+image: /img/event-munch-and-learn-newlogo400x400.png
 ---

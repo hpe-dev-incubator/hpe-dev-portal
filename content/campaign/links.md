@@ -11,7 +11,7 @@ We are glad you followed that QR Code link. Now please join the HPE Developer Co
 - On [Yammer](https://www.yammer.com/hpe.com/groups/HPEDeveloperCommunityProgram) (HPE)
 - On [Yammer](https://www.yammer.com/presalesone/groups/HPEDeveloperCommunity) (Partners)
 - On [Slack](https://slack.hpedev.io)
-- On [Twitter](https://twitter.com/HPE_DevCom)
+- On [Twitter](https://twitter.com/HPE_Developer)
 - On the [Web](https://developer.hpe.com)
 - By [email](mailto:hpedev@hpe.com) 
 - Subscribe to our monthly [Newsletter](https://developer.hpe.com/newsletter-signup) 

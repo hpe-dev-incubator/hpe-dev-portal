@@ -142,14 +142,18 @@ function BlogPostTemplate({ data }) {
                 <Heading level={2} margin={{ vertical: 'none' }}>
                   Tags
                 </Heading>
-                <Box direction="row-responsive" align="baseline">
+                <Box
+                  direction="row-responsive"
+                  align="baseline"
+                  style={{ display: 'inline-block' }}
+                >
                   {tags.map((tag, index) => (
                     <Link
                       to={`/blog/tag/${tag.toLowerCase().trim()}`}
                       key={tag}
                       size="xxlarge"
                     >
-                      {(index ? ', ' : '') + tag}
+                      {tag + (index !== tags.length - 1 ? ',' : '')}
                     </Link>
                   ))}
                 </Box>
