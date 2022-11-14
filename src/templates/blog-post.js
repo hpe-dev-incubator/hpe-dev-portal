@@ -149,7 +149,7 @@ function BlogPostTemplate({ data }) {
                       key={tag}
                       size="xxlarge"
                     >
-                      {(index ? ',' : '') + tag}
+                      {(index ? ', ' : '') + tag}
                     </Link>
                   ))}
                 </Box>
