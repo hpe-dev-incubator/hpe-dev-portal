@@ -52,4 +52,4 @@ thead tr:first-child td {
 | 15-Dec-22     | HPE GreenLake for Data Fabric     | Alaric Thomas              | [Register for Webinar](https://hpe.zoom.us/webinar/register/1016631597484/WN_xLR2ynonSi6SojUswkVmRw)     | [Learn about EEA](https://connect.hpe.com/HPEGreenLakeEarlyAccessDataFabric)         |
 
 
-<font size="2"> [^1]. IDC FutureScape: worldwide data & content technologies 2023 predictions, October 2022. </font>
+<font size="1"> [^1]. IDC FutureScape: worldwide data & content technologies 2023 predictions, October 2022. </font>
