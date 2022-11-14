@@ -3,7 +3,7 @@ title: HPE Ezmeral Early Access
 authorimage: /img/Avatar1.svg
 disable: false
 ---
-Companies that leverage business analytics, data management, and artificial intelligence (AI), outperform and deliver better outcomes than their counterparts [^1]. 
+Companies that leverage business analytics, data management, and artificial intelligence (AI), outperform and deliver better outcomes than their counterparts [^fn1]. 
 
 HPE Ezmeral simplifies business analytics, data management, and AI to provide the foundational layer you need for hybrid data analytics. With HPE Ezmeral, you can seamlessly access, manage, and govern all your data from a single view, regardless of where it is located. Then layer on HPE-supported open source tools and frameworks allowing developer’s to use their preferred tools of choice for data analytics and processing.
 
@@ -52,4 +52,4 @@ thead tr:first-child td {
 | 15-Dec-22     | HPE GreenLake for Data Fabric     | Alaric Thomas              | [Register for Webinar](https://hpe.zoom.us/webinar/register/1016631597484/WN_xLR2ynonSi6SojUswkVmRw)     | [Learn about EEA](https://connect.hpe.com/HPEGreenLakeEarlyAccessDataFabric)         |
 
 
-<font size="1"> 1. IDC FutureScape: worldwide data & content technologies 2023 predictions, October 2022. </font>
+<font size="2"> 1. IDC FutureScape: worldwide data & content technologies 2023 predictions, October 2022. </font>
