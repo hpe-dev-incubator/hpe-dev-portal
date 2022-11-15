@@ -167,8 +167,8 @@ This MapReduce application is simple, the following is the logic:
 
 
 
-    For example, there may be comment type, promotion type, friend-request type, etc. in this table.
-    Then the app will count how many rows of comment type, promotion typee, friend-request type are there.
+For example, there may be comment type, promotion type, friend-request type, etc. in this table.
+Then the app will count how many rows of comment type, promotion typee, friend-request type are there.
 
 
 
