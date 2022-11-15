@@ -207,7 +207,7 @@ Output:
 
 
 
-```
+```markdown
 yarn jar ./target/original-hbase-example-1.0-SNAPSHOT.jar com.shouneng.learn.mapReduce.Main
 WARNING: An illegal reflective access operation has occurred
 WARNING: Illegal reflective access by org.apache.hadoop.hbase.util.UnsafeAvailChecker (file:/opt/mapr/hadoop/hadoop-2.7.6/share/hadoop/common/hbase-common-1.4.13.200-eep-810.jar) to method java.nio.Bits.unaligned()
