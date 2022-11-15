@@ -337,7 +337,7 @@ This is because the HBase related packages are considered as third-party librari
 
 
 <details>
-<summary>Ezmeral Data Fabric (AKA. MapR)</summary>
+<summary>HPE Ezmeral Data Fabric (AKA. MapR)</summary>
 
 
 
