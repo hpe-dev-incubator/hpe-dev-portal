@@ -23,8 +23,8 @@ This article will cover:
 
 
 
-    This is a one-node cluster based on Docker containers, with a choice of different EDF versions, it integrates EEP.
-    This way you can quickly create an EDF environment on your work computer.
+This is a one-node cluster based on Docker containers, with a choice of different EDF versions, it integrates EEP.
+This way you can quickly create an EDF environment on your work computer.
 
 
 
