@@ -115,7 +115,7 @@ sudo -u mapr hadoop mfs -ls /testbinarytable1volume
 
 
 
-#### Now we can create the Binary Table
+**Now we can create the Binary Table**
 
 
 
