@@ -4,16 +4,16 @@ import PropTypes from 'prop-types';
 
 export const AppContext = React.createContext({
   data: {},
-  user: localStorage.getItem('userInfo'),
+  user: {},
   setUser: () => null,
 });
 
 const AppProvider = ({ children }) => {
-  const [userStr, setUser] = useState(localStorage.getItem('userInfo'));
+  const [userStr, setUser] = useState(null);
 
   const user = useMemo(() => {
     if (userStr) {
-      return JSON.parse(userStr);
+      return JSON.parse(localStorage.getItem('userInfo'));
     }
     return null;
   }, [userStr]);
