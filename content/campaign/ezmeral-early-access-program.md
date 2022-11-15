@@ -11,9 +11,6 @@ HPE is offering an exciting opportunity for early access to new capabilities and
 
 Register today for one of two webinars where you can learn more.  
 
-**HPE GreenLake for Data Fabric** is a true hybrid cloud platform that delivers a consistent data experience across edge, core, and multiple clouds. It’s perfect for developers who want to write applications once and then run them on any deployment target.  
-
-**HPE Ezmeral Unified Analytics** is ideal for developers who want to accelerate app development using HPE curated and supported open-source tools for full lifecycle management of today’s most popular data engineering, data analytics, and data science tasks.
 
 <style>
 table {
@@ -46,7 +43,16 @@ thead tr:first-child td {
 }
 </style>
 
+**HPE Ezmeral Unified Analytics** is ideal for developers who want to accelerate app development using HPE curated and supported open-source tools for full lifecycle management of today’s most popular data engineering, data analytics, and data science tasks.
+
 | Date          | Title                             | Speaker                    | Webinar link                                                                                            | HPE Ezmeral Early Access link                                                                             |
 | ------------- | --------------------------------- | -------------------------- | ------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
 | **13-Dec-22** | **HPE Ezmeral Unified Analytics** | **Srikanth Vendara Seshu** | **[Register for Webinar](https://hpe.zoom.us/webinar/register/7516631596092/WN_qEWHxuucTa-UilEnOqmByg)** | **[Learn about EEA](https://connect.hpe.com/HPEEzmeralEarlyAccessUnifiedAnalytics)** |
-| 15-Dec-22     | HPE GreenLake for Data Fabric     | Alaric Thomas              | [Register for Webinar](https://hpe.zoom.us/webinar/register/1016631597484/WN_xLR2ynonSi6SojUswkVmRw)     | [Learn about EEA](https://connect.hpe.com/HPEGreenLakeEarlyAccessDataFabric)         |
+
+<br/>
+
+**HPE GreenLake for Data Fabric** is a true hybrid cloud platform that delivers a consistent data experience across edge, core, and multiple clouds. It’s perfect for developers who want to write applications once and then run them on any deployment target.  
+
+| Date          | Title                             | Speaker                    | Webinar link                                                                                            | HPE Ezmeral Early Access link                                                                             |
+| ------------- | --------------------------------- | -------------------------- | ------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| **15-Dec-22**     | **HPE GreenLake for Data Fabric**     | **Alaric Thomas**              | **[Register for Webinar](https://hpe.zoom.us/webinar/register/1016631597484/WN_xLR2ynonSi6SojUswkVmRw)**  | **[Learn about EEA](https://connect.hpe.com/HPEGreenLakeEarlyAccessDataFabric)** |
