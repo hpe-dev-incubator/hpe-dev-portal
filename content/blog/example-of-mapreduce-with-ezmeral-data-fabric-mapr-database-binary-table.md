@@ -32,7 +32,7 @@ This article will cover:
 
 
 
-I will create the table using the hbase shell command line tool customized for EDF Database and do CRUD operations using a MapReduce application.
+I will create the table using the hbase shell command line tool customized for EDF Database and do CRUD (Create, Read, Update, Delete) operations using a MapReduce application.
 
 
 
