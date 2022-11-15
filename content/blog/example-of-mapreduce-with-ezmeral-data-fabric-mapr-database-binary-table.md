@@ -19,7 +19,7 @@ This article will cover:
 
 
 
-1. How to create Development Environment for HPE Ezmeral Data Fabric on Linux, Windows and Mac.
+1. How to create Development Environment for HPE Ezmeral Data Fabric (EDF) on Linux, Windows and Mac.
 
 
 
@@ -95,7 +95,7 @@ To be able to use the `hbase shell`, we need to install the **[mapr-hbase][MaprH
 
 
 
-#### For convenience of data management, I would like to create a volume for the Binary Table, the command are as following:
+**For convenience of data management, I would like to create a volume for the Binary Table, the command are as following:**
 
 
 
