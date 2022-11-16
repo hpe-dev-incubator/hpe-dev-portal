@@ -61,28 +61,20 @@ All you really need to do is follow the instructions in the documentation. Be aw
 
 So I ended up installing VMWare on my Windows PC, creating a CentOS8 VM, and ran the HPE Ezmeral Data Fabric Development Environment setup script in the VM. This approach proved feasible. Also, you can always choose the version of the development environment you want to deploy. You just need to change the tag of the Docker image.
 
-## MapReduce on Ezmeral Data Fabric Database Binary Table
+## MapReduce on HPE Ezmeral Data Fabric database binary table
 
-Ezmeral Data Fabric Database Binary Table is equivalent to the Ezmeral Data Fabric version of Apache HBase, but its technical implementation is different from HBase, which is of course, because the bottom layer of Ezmeral Data Fabric Database Binary Table is Ezmeral Data Fabric File Store.
+HPE Ezmeral Data Fabric database binary table is equivalent to the HPE Ezmeral Data Fabric version of Apache HBase, but its technical implementation is different from HBase. This is, of course, because the bottom layer of HPE Ezmeral Data Fabric database binary table is the HPE Ezmeral Data Fabric File tore.For users, there is almost no difference between using HPE Ezmeral Data Fabric database binary table and using HBase.
 
-For users, there is almost no difference between using Ezmeral Data Fabric Database Binary Table and using HBase.
+Now, let's imagine that we want to build a user notifications service. Since HBase does not support any operations that go across rows or across tables, in order to implement operations such as **joins** and **group** by in RDBMS, we will use MapReduce to complete some data analysis tasks.
 
-Now, let's imagine that we want to build a User Notifications service.
+### Create a binary table
 
-Since HBase does not support any operations that across rows or across tables, in order to implement operations such as Joins and Group by in RDBMS, we will use MapReduce to complete some data analysis tasks.
+**Note**: *The commands in this article are all executed as the user "mapr", which is by default the admin user of the Development Environment for HPE Ezmeral Data Fabric. You can also use the "root" user to create the table and run the application, but if you don't modify the ACEs of the table, the "mapr" user would be not able to see the data in the table.*
 
-### Create a Binary Table
+We are going to use the [hbase shell](https://docs.datafabric.hpe.com/70/ReferenceGuide/HBaseShellforMapR-DB.html) to create a [binary table](https://docs.datafabric.hpe.com/70/MapR-DB/intro-binary-tables.html) inside the HPE Ezmeral Data Fabric Database.
+To be able to use the `hbase shell`, you will first need to install the **[mapr-hbase](https://docs.datafabric.hpe.com/70/AdvancedInstallation/InstallingHBase-client-node.html?hl=mapr-hbase)** package first.
 
-**Important note**:
-
-<ins>the commands in this article are all executed as the user "mapr", which is by default the admin user of the Ezmeral Data Fabric Development Environment.</ins>
-
-<ins>You can also use the "root" user to create the table and run the application, but if you don't modify the ACEs of the table, the "mapr" user would be not able to see the data in the table.</ins>
-
-We are going to use the [hbase shell](https://docs.datafabric.hpe.com/70/ReferenceGuide/HBaseShellforMapR-DB.html) to create a [Binary Table](https://docs.datafabric.hpe.com/70/MapR-DB/intro-binary-tables.html) inside the Ezmeral Data Fabric Database.
-To be able to use the `hbase shell`, we need to install the **[mapr-hbase](https://docs.datafabric.hpe.com/70/AdvancedInstallation/InstallingHBase-client-node.html?hl=mapr-hbase)** package first.
-
-**For convenience of data management, I would like to create a volume for the Binary Table, the command are as following:**
+For data management convenience, I'll show you how to create a volume for the binary table. The commands are as follows:
 
 ```bash
 sudo -u mapr maprcli volume list -output terse -columns volumename,volumetype,actualreplication,localpath,mounted,mountdir,logicalUsed,used,nameContainerDataThresholdMB,nameContainerSizeMB,needsGfsck
@@ -94,9 +86,9 @@ sudo -u mapr hadoop fs -ls -d -h /testbinarytable1volume
 sudo -u mapr hadoop mfs -ls /testbinarytable1volume
 ```
 
-☝ The volume's name is: test.binarytable1 and it will be mounted as <ins>/testbinarytable1volume/</ins> in the Ezmeral Data Fabric File System.
+☝ The volume's name is test.binarytable1 and it will be mounted as <ins>/testbinarytable1volume/</ins> in the HPE Ezmeral Data Fabric file system.
 
-**Now we can create the Binary Table**
+Creating the binary table
 
 👇 Inside `hbase shell`:
 
