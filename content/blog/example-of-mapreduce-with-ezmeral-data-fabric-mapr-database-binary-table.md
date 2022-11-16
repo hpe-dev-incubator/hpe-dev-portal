@@ -19,31 +19,31 @@ In traditional applications, we use RDBMS as the database, but in big data syste
 There is no need to elaborate on the difference between RDBMS and NoSQL.
 
 **However, among the many NoSQL systems, why should we consider using HPE Ezmeral Data Fabric database?**
-Let's first look at the position of the EDF Database in the EDF software stack.
+Let's first look at the position of the Ezmeral Data Fabric Database in the Ezmeral Data Fabric software stack.
 
 ![EDF Database is based on File System](/img/system_architecture_position-hpe-edf_database.png "Position of the Database in EDF stack")
 
-Since the bottom layer of EDF Database is the File System, this question also involves the advantages of EDF File System compared to other similar products: better performance and simpler management and ease of use.
+Since the bottom layer of Ezmeral Data Fabric Database is the File System, this question also involves the advantages of EDF File System compared to other similar products: better performance and simpler management and ease of use.
 
 There is a detailed description in the official document, here I would like to talk about my personal feelings.
-For example, using the open source Apache Hadoop, I need to consider merging small files before putting them into Hadoop. This is because of its design principles. In order to fully utilize the performance of Hadoop, it is necessary to do so. In EDF File System, I don't have to care so much about whether small files need to be merged. This is because of the existence of the logical unit Volume in the EDF File System. As long as we use this feature reasonably, saving many small files in the EDF File System will not cause too much waste to the performance and capacity of the system.
-Another advantage of EDF File System is that it provides a very widely used protocol interface: NFS.
-That is to say, you can mount EDF File System as an NFS file system on your PC. This is something that Hadoop and other peer commercial software cannot do.
+For example, using the open source Apache Hadoop, I need to consider merging small files before putting them into Hadoop. This is because of its design principles. In order to fully utilize the performance of Hadoop, it is necessary to do so. In Ezmeral Data Fabric File System, I don't have to care so much about whether small files need to be merged. This is because of the existence of the logical unit Volume in the EDF File System. As long as we use this feature reasonably, saving many small files in the EDF File System will not cause too much waste to the performance and capacity of the system.
+Another advantage of Ezmeral Data Fabric File System is that it provides a very widely used protocol interface: NFS.
+That is to say, you can mount Ezmeral Data Fabric File System as an NFS file system on your PC. This is something that Hadoop and other peer commercial software cannot do.
 
-Of course, EDF File System has other advantages. What I want to emphasize here is that EDF Database is built on top of  File System, so these advantages are also the advantages of Database.
+Of course, Ezmeral Data Fabric File System has other advantages. What I want to emphasize here is that EDF Database is built on top of  File System, so these advantages are also the advantages of Database.
 
-Now let me talk about the most important unique advantages of EDF Database that I personally feel.
+Now let me talk about the most important unique advantages of Ezmeral Data Fabric Database that I personally feel.
 The first thing that comes to my mind is, the simplicity of the product.
 For example, if you are using products in the Apache Hadoop ecosystem, or a commercial version of a big data system like Cloudera, you need to install and maintain the NoSQL service included in it separately. For example, we often come into contact with: HBase, MongoDB, etc.
-But in EDF, we don't need to deploy HBase and MongoDB separately, because these two different types of NoSQL systems have been integrated in EDF Core as EDF Database. From the process level, we only see one MFS process.
+But in Ezmeral Data Fabric, we don't need to deploy HBase and MongoDB separately, because these two different types of NoSQL systems have been integrated in EDF Core as EDF Database. From the process level, we only see one MFS process.
 When you are using HBase, you need to care about the HBase Master and Region Server processes, as well as the underlying Hadoop Namenode and Datanode processes.
-EDF Database includes two different types of NoSQL database systems, namely: Binary Table and JSON Table, which correspond to open source HBase and MongoDB respectively.
+Ezmeral Data Fabric Database includes two different types of NoSQL database systems, namely: Binary Table and JSON Table, which correspond to open source HBase and MongoDB respectively.
 Now, only one software process can be seen, which is MFS. And when you use a completely open source big data technology stack or other commercial big data platforms, you will still see a bunch of processes, which is one of the biggest differences: simplicity.
 
 Although it seems that the column-oriented NoSQL database such as HBase is a bit outdated in design compared with the document-oriented NoSQL database such as MongoDB, but since I did not find other demo articles related to Binary Table(better replacement for HBase) in the HPE Dev Portal , I decided to write such an article to introduce the demo of MapReduce based on Binary Table.
 Note: I found a demo of Spark based on HBase: [Spark Streaming with HBase]([SparkStreamingWithHbase]: https://developer.hpe.com/blog/spark-streaming-with-hbase/) (Author: Carol McDonald).
 
-So, I briefly talked about why we need to consider using EDF Database, what are its advantages over other similar products: simplicity, and the advantages of other EDF File System compared with similar products: performance, ease of use, and ease of maintenance.
+So, I briefly talked about why we need to consider using Ezmeral Data Fabric Database, what are its advantages over other similar products: simplicity, and the advantages of other EDF File System compared with similar products: performance, ease of use, and ease of maintenance.
 As for why we use this kind of NoSQL products, I don’t think I need to go into details here. This is the same as why Hadoop, a big data file system, was born. Simply put, it is because we need to build a distributed storage and computing system. In order to complete the analysis and computation tasks of huge data volumes on cheap commercial computers.
 In addition, the main reason for me to write this article is: I did not find a demo article in the HPE Dev Portal that introduces the use of Binary Table and MapReduce together, so I would like to add such an example.
 
@@ -51,16 +51,16 @@ Now let's get to the topic.
 
 This article will cover:
 
-1. How to create aDevelopment Environment for HPE Ezmeral Data Fabric (EDF) on Linux, Window,s and Mac. 
+1. How to create a Development Environment for HPE Ezmeral Data Fabric (EDF) on Linux, Microsoft Windows and Apple Mac. 
 
-This is a one-node cluster based on Docker containers, with a choice of different EDF versions, it integrates EEP.
-This way you can quickly create an EDF environment on your work computer.
+This is a one-node cluster based on Docker containers, with a choice of different Ezmeral Data Fabric versions, it integrates EEP.
+This way you can quickly create an Ezmeral Data Fabric environment on your work computer.
 
-2. Demonstrate a MapReduce application that uses EDF's Database Binary Table as the backend service.
+2. Demonstrate a MapReduce application that uses Ezmeral Data Fabric's Database Binary Table as the backend service.
 
-I will create the table using the hbase shell command line tool customized for EDF Database and do CRUD (Create, Read, Update, Delete) operations using a MapReduce application.
+I will create the table using the hbase shell command line tool customized for Ezmeral Data Fabric Database and do aggregation operations using a MapReduce application.
 
-## Prerequisite: Create a Development Environment for EDF
+## Prerequisite: Create a Development Environment for Ezmeral Data Fabric
 
 There is already an article on the HPE Developer Portal blog that describes how to deploy a Development Environment👉: [Getting Started with Spark on MapR Sandbox](https://developer.hpe.com/blog/getting-started-with-spark-on-mapr-sandbox/)
 
