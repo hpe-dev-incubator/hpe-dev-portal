@@ -120,12 +120,12 @@ You can download it and compile it using Visual Studio Code. This MapReduce appl
 For example, there may be comment type, promotion type, friend-request type, etc. in this table.
 Then the app will count how many rows of comment type, promotion typee, friend-request type are there.
 
-#### How to Run it On Ezmeral Data Fabric
+#### How to run it on HPE Ezmeral Data Fabric
 
-You can run the MapReduction application on your one-node cluster of Ezmeral Data Fabric Development Environment, then.
-Refer to the following command:
+When ready, you can run the MapReduce application on your one-node cluster of the Development Environment for HPE Ezmeral Data Fabric.
+Refer to the following commands:
 
-First, we need to create a new table(target table) for storing the counter number:
+First, use this command to create a new table for storing the counter number:
 
 ```bash
 create '/testbinarytable1volume/summary','metrics'
@@ -139,7 +139,7 @@ yarn jar ./target/original-hbase-example-1.0-SNAPSHOT.jar com.shouneng.learn.map
   -libjar ./hbase-server-1.4.13.200-eep-810.jar,hbase-client-1.4.13.200-eep-810.jar,hadoop-common-2.7.6.200-eep-810.jar,hbase-common-1.4.13.203-eep-810.jar
 ```
 
-Output:
+You should see the following output:
 
 ```markdown
 yarn jar ./target/original-hbase-example-1.0-SNAPSHOT.jar com.shouneng.learn.mapReduce.Main
@@ -241,7 +241,7 @@ WARNING: All illegal access operations will be denied in a future release
                 Bytes Written=0
 ```
 
-**Important note**: If you encountered the issue that some of the HBase related Java packages are missing, you can simply copy the following packages from 📁<ins>/opt/mapr/hbase/hbase-{VERSION}/lib/</ins> to 📁<ins>/opt/mapr/hadoop/hadoop-{VERSION}/share/hadoop/common/</ins>.
+**Note**: If you encountered an issue indicating that some of the HBase related Java packages are missing, you can simply copy the following packages from 📁<ins>/opt/mapr/hbase/hbase-{VERSION}/lib/</ins> to 📁<ins>/opt/mapr/hadoop/hadoop-{VERSION}/share/hadoop/common/</ins>.
 
 * hbase-client-*.jar
 * hbase-server-*.jar
