@@ -90,16 +90,18 @@ sudo -u mapr hadoop mfs -ls /testbinarytable1volume
 
 Creating the binary table
 
-👇 Inside `hbase shell`:
+On any node where the mapr-hbase package is installed, enter the command: "hbase shell" to enter the HBase shell interface.
+
+👇 Execute the following commands on the HBase shell interface:
 
 ```
 create '/testbinarytable1volume/notifications','attributes','metrics'
 ```
 
-Table name is <ins>/testbinarytable1volume/notifications</ins>. **attributes** and **metrics** are column families.
+In this example, the table name is <ins>/testbinarytable1volume/notifications</ins> and the "attributes" and "metrics" are column families.
 
-**Note**: In Ezmeral Data Fabric Database Binary Table, the table name is by default a path in the File System.
-You can change the style of the table name to be like in Apache HBase, refer to👉: [Mapping to HBase Table Namespaces](https://docs.datafabric.hpe.com/70/UpgradeGuide/.MappingTableNamespace-HBase-DBbinary_2.html).
+**Note**: In HPE Ezmeral Data Fabric Database binary table, the table name is by default a path in the file system.
+You can change the style of the table name to be like something that would be found in Apache HBase. Refer to 👉 [Mapping to HBase Table Namespaces](https://docs.datafabric.hpe.com/70/UpgradeGuide/.MappingTableNamespace-HBase-DBbinary_2.html) for details.
 
 ### Build and Run The MapReduce Application
 
