@@ -278,14 +278,14 @@ WARNING: All illegal access operations will be denied in a future release
 * metrics-core-*.jar
 * hbase-common-*.jar
 
-This is because the HBase related packages are considered as third-party libraries to the Hadoop system, refer to👉: [Install the third-party libraries on each node that runs the program](https://docs.datafabric.hpe.com/70/DevelopmentGuide/Manage3rdPartyLibsForMapReduce.html).
+You may run into this issue because the HBase related packages are considered as third-party libraries to the Hadoop system.
+For more information, refer to👉: [Install the third-party libraries on each node that runs the program](https://docs.datafabric.hpe.com/70/DevelopmentGuide/Manage3rdPartyLibsForMapReduce.html).
 
-## Explanation of some glossary
+## Glossary
 
 <details>
-<summary>HPE Ezmeral Data Fabric (AKA. MapR)</summary>
+<summary>HPE Ezmeral Data Fabric (aka. MapR)</summary>
 
-EDF for short.
 HPE Ezmeral Data Fabric is a platform for data-driven analytics, ML, and AI workloads.
 The platform serves as a secure data store and provides file storage, NoSQL databases, object storage, and event streams.
 The patented filesystem architecture was designed and built for performance, reliability, and scalability.
@@ -298,10 +298,28 @@ The patented filesystem architecture was designed and built for performance, rel
 
 
 
-EEP for short.
+
 This is a software collection package that includes computing scheduling frameworks and computing engines of common Hadoop ecosystems such as YARN, Spark, Drill, and Hive, as well as a service suite for monitoring performance indicators and logs of Ezmeral Data Fabric.
 Users of Ezmeral Data Fabric will use these customized Spark, Drill, Hive and other software to complete computing, analysis tasks and machine learning tasks.
 
 
 
 </details>
+
+## Summary
+
+
+
+In this blog post, I introduced the advantages of Ezmeral Data Fabric Database compared to similar products. I also demonstrated a MapReduce application based on Ezmeral Data Fabric Database binary table.
+Ezmeral Data Fabric Database binary table is equivalent to a better alternative to Apache HBase.
+
+
+
+I hope this blog post can help you quickly develop applications based on Ezmeral Data Fabric Database binary table.
+Please note that developing an application based on Ezmeral Data Fabric Database binary table is essentially the same as developing an application based on Apache HBase, but some of the specific steps are different.
+For example, in the step of creating a binary table, in addition to the method of using the `habse shell` demonstrated in this article, you can still use `maprcli`, a command line tool proprietary to Ezmeral Data Fabric.
+Moreover, the experience of developing a MapReduce application based on Ezmeral Data Fabric Database binary table is also applicable to other computing engines, such as Spark.
+
+
+
+Stay tuned to the [HPE Developer blog](https://developer.hpe.com/blog) for more interesting posts and tutorials on HPE Ezmeral Data Fabric.
