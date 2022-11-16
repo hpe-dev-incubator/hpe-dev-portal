@@ -67,13 +67,13 @@ There is already an article on the HPE Developer Portal blog that describes how 
 However, I recommend you to read the latest official documentation first👉: [Development Environment for HPE Ezmeral Data Fabric](https://docs.datafabric.hpe.com/70/MapRContainerDevelopers/MapRContainerDevelopersOverview.html)
 
 **Note**:
-Basically you can follow the instructions in the documentation, the documentation tells you to install Docker Desktop on a Mac, but you don't have to install Docker Desktop, it's fine to install the Docker Engine in a standard Linux distribution.
+Basically you can follow the instructions in the documentation, the documentation tells you to install Docker Desktop on a Apple Mac, but you don't have to install Docker Desktop, it's fine to install the Docker Engine in a standard Linux distribution.
 
-**It's worth noting that installing Docker Desktop in Windows won't work.**
+**It's worth noting that installing Docker Desktop in Microsoft Windows won't work.**
 
-I tried the following: first install WSL2 (Windows Subsystem Linux 2), then install Docker Desktop for Windows and integrate with WSL2, then run the Ezmeral Data Fabric Development Environment install script, but it still fails.
+I tried the following: first install Microsoft WSL2 (Windows Subsystem Linux 2), then install Docker Desktop for Microsoft Windows and integrate with WSL2, then run the Ezmeral Data Fabric Development Environment install script, but it still fails.
 
-So what I ended up doing was: install VMWare on my Windows PC, create a CentOS8 VM, and run the Ezmeral Data Fabric Development Environment setup script in the VM. This approach is feasible.
+So what I ended up doing was: install VMWare on my Microsoft Windows PC, create a CentOS8 VM, and run the Ezmeral Data Fabric Development Environment setup script in the VM. This approach is feasible.
 Also, you can always choose the version of the Development Environment you want to deploy, you just need to change the tag of the Docker image.
 
 ## MapReduce on Ezmeral Data Fabric Database Binary Table
