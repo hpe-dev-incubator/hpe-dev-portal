@@ -23,27 +23,27 @@ Let's first look at the position of the Ezmeral Data Fabric Database in the Ezme
 
 ![EDF Database is based on File System](/img/system_architecture_position-hpe-edf_database.png "Position of the Database in EDF stack")
 
-Since the bottom layer of Ezmeral Data Fabric Database is the File System, this question also involves the advantages of EDF File System compared to other similar products: better performance and simpler management and ease of use.
+Since the bottom layer of Ezmeral Data Fabric Database is the File System, this question also involves the advantages of Ezmeral Data Fabric File System compared to other similar products: better performance and simpler management and ease of use.
 
 There is a detailed description in the official document, here I would like to talk about my personal feelings.
-For example, using the open source Apache Hadoop, I need to consider merging small files before putting them into Hadoop. This is because of its design principles. In order to fully utilize the performance of Hadoop, it is necessary to do so. In Ezmeral Data Fabric File System, I don't have to care so much about whether small files need to be merged. This is because of the existence of the logical unit Volume in the EDF File System. As long as we use this feature reasonably, saving many small files in the EDF File System will not cause too much waste to the performance and capacity of the system.
+For example, using the open source Apache Hadoop, I need to consider merging small files before putting them into Hadoop. This is because of its design principles. In order to fully utilize the performance of Hadoop, it is necessary to do so. In Ezmeral Data Fabric File System, I don't have to care so much about whether small files need to be merged. This is because of the existence of the logical unit Volume in the Ezmeral Data Fabric File System. As long as we use this feature reasonably, saving many small files in the Ezmeral Data Fabric File System will not cause too much waste to the performance and capacity of the system.
 Another advantage of Ezmeral Data Fabric File System is that it provides a very widely used protocol interface: NFS.
 That is to say, you can mount Ezmeral Data Fabric File System as an NFS file system on your PC. This is something that Hadoop and other peer commercial software cannot do.
 
-Of course, Ezmeral Data Fabric File System has other advantages. What I want to emphasize here is that EDF Database is built on top of  File System, so these advantages are also the advantages of Database.
+Of course, Ezmeral Data Fabric File System has other advantages. What I want to emphasize here is that Ezmeral Data Fabric Database is built on top of  File System, so these advantages are also the advantages of Database.
 
 Now let me talk about the most important unique advantages of Ezmeral Data Fabric Database that I personally feel.
 The first thing that comes to my mind is, the simplicity of the product.
 For example, if you are using products in the Apache Hadoop ecosystem, or a commercial version of a big data system like Cloudera, you need to install and maintain the NoSQL service included in it separately. For example, we often come into contact with: HBase, MongoDB, etc.
-But in Ezmeral Data Fabric, we don't need to deploy HBase and MongoDB separately, because these two different types of NoSQL systems have been integrated in EDF Core as EDF Database. From the process level, we only see one MFS process.
+But in Ezmeral Data Fabric, we don't need to deploy HBase and MongoDB separately, because these two different types of NoSQL systems have been integrated in Ezmeral Data Fabric Core as Ezmeral Data Fabric Database. From the process level, we only see one MFS process.
 When you are using HBase, you need to care about the HBase Master and Region Server processes, as well as the underlying Hadoop Namenode and Datanode processes.
 Ezmeral Data Fabric Database includes two different types of NoSQL database systems, namely: Binary Table and JSON Table, which correspond to open source HBase and MongoDB respectively.
 Now, only one software process can be seen, which is MFS. And when you use a completely open source big data technology stack or other commercial big data platforms, you will still see a bunch of processes, which is one of the biggest differences: simplicity.
 
 Although it seems that the column-oriented NoSQL database such as HBase is a bit outdated in design compared with the document-oriented NoSQL database such as MongoDB, but since I did not find other demo articles related to Binary Table(better replacement for HBase) in the HPE Dev Portal , I decided to write such an article to introduce the demo of MapReduce based on Binary Table.
-Note: I found a demo of Spark based on HBase: [Spark Streaming with HBase]([SparkStreamingWithHbase]: https://developer.hpe.com/blog/spark-streaming-with-hbase/) (Author: Carol McDonald).
+Note: I found a demo of Spark based on HBase: \[Spark Streaming with HBase](\[SparkStreamingWithHbase]: https://developer.hpe.com/blog/spark-streaming-with-hbase/) (Author: Carol McDonald).
 
-So, I briefly talked about why we need to consider using Ezmeral Data Fabric Database, what are its advantages over other similar products: simplicity, and the advantages of other EDF File System compared with similar products: performance, ease of use, and ease of maintenance.
+So, I briefly talked about why we need to consider using Ezmeral Data Fabric Database, what are its advantages over other similar products: simplicity, and the advantages of other Ezmeral Data Fabric File System compared with similar products: performance, ease of use, and ease of maintenance.
 As for why we use this kind of NoSQL products, I don’t think I need to go into details here. This is the same as why Hadoop, a big data file system, was born. Simply put, it is because we need to build a distributed storage and computing system. In order to complete the analysis and computation tasks of huge data volumes on cheap commercial computers.
 In addition, the main reason for me to write this article is: I did not find a demo article in the HPE Dev Portal that introduces the use of Binary Table and MapReduce together, so I would like to add such an example.
 
@@ -51,7 +51,7 @@ Now let's get to the topic.
 
 This article will cover:
 
-1. How to create a Development Environment for HPE Ezmeral Data Fabric (EDF) on Linux, Microsoft Windows and Apple Mac. 
+1. How to create a Development Environment for HPE Ezmeral Data Fabric on Linux, Microsoft Windows and Apple Mac. 
 
 This is a one-node cluster based on Docker containers, with a choice of different Ezmeral Data Fabric versions, it integrates Ezmeral Ecosystem Packs.
 This way you can quickly create an Ezmeral Data Fabric environment on your work computer.
@@ -78,9 +78,9 @@ Also, you can always choose the version of the Development Environment you want 
 
 ## MapReduce on Ezmeral Data Fabric Database Binary Table
 
-EDF Database Binary Table is equivalent to the EDF version of Apache HBase, but its technical implementation is different from HBase, which is of course, because the bottom layer of EDF Database Binary Table is EDF File Store.
+Ezmeral Data Fabric Database Binary Table is equivalent to the Ezmeral Data Fabric version of Apache HBase, but its technical implementation is different from HBase, which is of course, because the bottom layer of Ezmeral Data Fabric Database Binary Table is Ezmeral Data Fabric File Store.
 
-For users, there is almost no difference between using EDF Database Binary Table and using HBase.
+For users, there is almost no difference between using Ezmeral Data Fabric Database Binary Table and using HBase.
 
 Now, let's imagine that we want to build a User Notifications service.
 
@@ -90,11 +90,11 @@ Since HBase does not support any operations that across rows or across tables, i
 
 **Important note**:
 
-<ins>the commands in this article are all executed as the user "mapr", which is by default the admin user of the EDF Development Environment.</ins>
+<ins>the commands in this article are all executed as the user "mapr", which is by default the admin user of the Ezmeral Data Fabric Development Environment.</ins>
 
 <ins>You can also use the "root" user to create the table and run the application, but if you don't modify the ACEs of the table, the "mapr" user would be not able to see the data in the table.</ins>
 
-We are going to use the [hbase shell](https://docs.datafabric.hpe.com/70/ReferenceGuide/HBaseShellforMapR-DB.html) to create a [Binary Table](https://docs.datafabric.hpe.com/70/MapR-DB/intro-binary-tables.html) inside the EDF Database.
+We are going to use the [hbase shell](https://docs.datafabric.hpe.com/70/ReferenceGuide/HBaseShellforMapR-DB.html) to create a [Binary Table](https://docs.datafabric.hpe.com/70/MapR-DB/intro-binary-tables.html) inside the Ezmeral Data Fabric Database.
 To be able to use the `hbase shell`, we need to install the **[mapr-hbase](https://docs.datafabric.hpe.com/70/AdvancedInstallation/InstallingHBase-client-node.html?hl=mapr-hbase)** package first.
 
 **For convenience of data management, I would like to create a volume for the Binary Table, the command are as following:**
@@ -109,7 +109,7 @@ sudo -u mapr hadoop fs -ls -d -h /testbinarytable1volume
 sudo -u mapr hadoop mfs -ls /testbinarytable1volume
 ```
 
-☝ The volume's name is: test.binarytable1 and it will be mounted as <ins>/testbinarytable1volume/</ins> in the EDF File System.
+☝ The volume's name is: test.binarytable1 and it will be mounted as <ins>/testbinarytable1volume/</ins> in the Ezmeral Data Fabric File System.
 
 **Now we can create the Binary Table**
 
@@ -121,7 +121,7 @@ create '/testbinarytable1volume/notifications','attributes','metrics'
 
 Table name is <ins>/testbinarytable1volume/notifications</ins>. **attributes** and **metrics** are column families.
 
-**Note**: In EDF Database Binary Table, the table name is by default a path in the File System.
+**Note**: In Ezmeral Data Fabric Database Binary Table, the table name is by default a path in the File System.
 You can change the style of the table name to be like in Apache HBase, refer to👉: [Mapping to HBase Table Namespaces](https://docs.datafabric.hpe.com/70/UpgradeGuide/.MappingTableNamespace-HBase-DBbinary_2.html).
 
 ### Build and Run The MapReduce Application
@@ -143,9 +143,9 @@ This MapReduce application is simple, the following is the logic:
 For example, there may be comment type, promotion type, friend-request type, etc. in this table.
 Then the app will count how many rows of comment type, promotion typee, friend-request type are there.
 
-#### How to Run it On EDF
+#### How to Run it On Ezmeral Data Fabric
 
-You can run the MapReduction application on your one-node cluster of EDF Development Environment, then.
+You can run the MapReduction application on your one-node cluster of Ezmeral Data Fabric Development Environment, then.
 Refer to the following command:
 
 First, we need to create a new table(target table) for storing the counter number:
@@ -296,30 +296,19 @@ The patented filesystem architecture was designed and built for performance, rel
 <details>
 <summary>Ezmeral Ecosystem Packs</summary>
 
-
-
-
 This is a software collection package that includes computing scheduling frameworks and computing engines of common Hadoop ecosystems such as YARN, Spark, Drill, and Hive, as well as a service suite for monitoring performance indicators and logs of Ezmeral Data Fabric.
 Users of Ezmeral Data Fabric will use these customized Spark, Drill, Hive and other software to complete computing, analysis tasks and machine learning tasks.
-
-
 
 </details>
 
 ## Summary
 
-
-
 In this blog post, I introduced the advantages of Ezmeral Data Fabric Database compared to similar products. I also demonstrated a MapReduce application based on Ezmeral Data Fabric Database binary table.
 Ezmeral Data Fabric Database binary table is equivalent to a better alternative to Apache HBase.
-
-
 
 I hope this blog post can help you quickly develop applications based on Ezmeral Data Fabric Database binary table.
 Please note that developing an application based on Ezmeral Data Fabric Database binary table is essentially the same as developing an application based on Apache HBase, but some of the specific steps are different.
 For example, in the step of creating a binary table, in addition to the method of using the `habse shell` demonstrated in this article, you can still use `maprcli`, a command line tool proprietary to Ezmeral Data Fabric.
 Moreover, the experience of developing a MapReduce application based on Ezmeral Data Fabric Database binary table is also applicable to other computing engines, such as Spark.
-
-
 
 Stay tuned to the [HPE Developer blog](https://developer.hpe.com/blog) for more interesting posts and tutorials on HPE Ezmeral Data Fabric.
