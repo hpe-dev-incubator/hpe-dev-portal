@@ -66,7 +66,7 @@ Users can download the API definition from the API documentation website, and th
 
 ### Supported API Categories (Services)
 
-The API categories for DSCC will grow in accordance to the expansion of the DSCC services that are going to be released in the future. As recorded today, the current services that are available include:
+The API categories for Data Services Cloud Console will grow in accordance to the expansion of future services. As recorded today, the current services that are available include:
 
 #### **Common (Alletra-6K, Alletra-9K, Primera, Nimble)**
 
@@ -130,13 +130,13 @@ Existing clients will be able to maintain the backward compatibility from the hi
 
 Glossary of the terms:
 
-**[Resources](https://developer.hpe.com/blog/api-console-for-data-services-cloud-console/)**:  Components inside the DSCC, such as storage array, volumes, and many other objects that are consumable and related to each other, and provides methods to operate on it. Usually is represented by path that is appended to Endpoint e.g. /api/v1/storage-array.
+**[Resources](https://developer.hpe.com/blog/api-console-for-data-services-cloud-console/)**:  Components inside the cloud console, such as storage array, volumes, and many other objects that are consumable and related to each other, and provides methods to operate on it. Usually is represented by path that is appended to Endpoint e.g. /api/v1/storage-array.
 
-**[Resource Owner](https://developer.hpe.com/blog/api-console-for-data-services-cloud-console/):**  The user that is registered inside the HPE GreenLake console that has the capability to authorize the client application access to the DSCC resources.
+**[Resource Owner](https://developer.hpe.com/blog/api-console-for-data-services-cloud-console/):**  The user that is registered inside the HPE GreenLake console that has the capability to authorize the client application access to the cloud console resources.
 
 **[Client Application](https://developer.hpe.com/blog/api-console-for-data-services-cloud-console/):**  The stand-alone application that runs on the client machine, and usually represent the customer's business application for automation, ticketing, monitoring and many other business processes.
 
-**[Access Token:](https://developer.hpe.com/blog/api-console-for-data-services-cloud-console/)** This is the object that describes the permission and the security context of which the client application was delegated. This token contains the identity and privileges of the DSCC user which create this token.
+**[Access Token:](https://developer.hpe.com/blog/api-console-for-data-services-cloud-console/)** This is the object that describes the permission and the security context of which the client application was delegated. This token contains the identity and privileges of the cloud console user which create this token.
 
 **[API Gateway](https://developer.hpe.com/blog/api-console-for-data-services-cloud-console/)**: The API Gateway is the menu in the HPE GreenLake console that is used to register a client application and obtain the API client credentials (client-id and client-secret) for that client application. These credentials are required to generate a short-lived access token that is used to make secure REST API calls to the DSCC application instance.
 
