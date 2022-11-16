@@ -61,6 +61,9 @@ All you really need to do is follow the instructions in the documentation. Be aw
 
 So I ended up installing VMWare on my Windows PC, creating a CentOS8 VM, and ran the HPE Ezmeral Data Fabric Development Environment setup script in the VM. This approach proved feasible. Also, you can always choose the version of the development environment you want to deploy. You just need to change the tag of the Docker image.
 
+After running the setup script, you'll have a HPE Ezmeral Data Fabric cluster up and running. But in order to run a MapReduce application, you need to install the YARN framework first. Starting from release of HPE Ezmeral Data Fabric 6.2.0, the YARN framework decoupled from the core platform and exists as an ecosystem component as part of Ezmeral Ecosystem Packs.
+So if you are running a Development Environment newer than 6.2.0 (including 6.2.0), you need to complete the following steps: [Installing Hadoop and YARN](https://docs.datafabric.hpe.com/70/AdvancedInstallation/InstallingHadoop.html).
+
 ## MapReduce on HPE Ezmeral Data Fabric database binary table
 
 HPE Ezmeral Data Fabric database binary table is equivalent to the HPE Ezmeral Data Fabric version of Apache HBase, but its technical implementation is different from HBase. This is, of course, because the bottom layer of HPE Ezmeral Data Fabric database binary table is the HPE Ezmeral Data Fabric File tore.For users, there is almost no difference between using HPE Ezmeral Data Fabric database binary table and using HBase.
@@ -103,11 +106,7 @@ In this example, the table name is <ins>/testbinarytable1volume/notifications</i
 **Note**: In HPE Ezmeral Data Fabric Database binary table, the table name is by default a path in the file system.
 You can change the style of the table name to be like something that would be found in Apache HBase. Refer to 👉 [Mapping to HBase Table Namespaces](https://docs.datafabric.hpe.com/70/UpgradeGuide/.MappingTableNamespace-HBase-DBbinary_2.html) for details.
 
-### Build and Run The MapReduce Application
-
-**Important note**: Before running the MapReduce application, if you are using the Development Environment, you have to complete the following steps: [Installing Hadoop and YARN](https://docs.datafabric.hpe.com/70/AdvancedInstallation/InstallingHadoop.html).
-
-It's because by default the YARN framework is not installed and hence the MapReduce framework is not installed.
+### Build and run the MapReduce application
 
 #### MapReduce Application Source Code
 
