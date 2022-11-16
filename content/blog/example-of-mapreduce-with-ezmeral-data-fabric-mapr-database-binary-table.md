@@ -108,7 +108,7 @@ You can change the style of the table name to be like something that would be fo
 
 ### Build and run the MapReduce application
 
-#### MapReduce Application Source Code
+#### MapReduce application source code
 
 I have put the code on Github: [Example-MapReduce-With-EzmeralDataFabricMapR-DatabaseBinaryTable](https://github.com/aruruka/Example-MapReduce-With-EzmeralDataFabricMapR-DatabaseBinaryTable).
 You can download it and compile it using Visual Studio Code.
