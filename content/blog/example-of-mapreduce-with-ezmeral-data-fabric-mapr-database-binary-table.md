@@ -110,13 +110,12 @@ You can change the style of the table name to be like something that would be fo
 
 #### MapReduce application source code
 
-I have put the code on Github: [Example-MapReduce-With-EzmeralDataFabricMapR-DatabaseBinaryTable](https://github.com/aruruka/Example-MapReduce-With-EzmeralDataFabricMapR-DatabaseBinaryTable).
-You can download it and compile it using Visual Studio Code.
+For your convenience, I have put the code on Github: [Example-MapReduce-With-EzmeralDataFabricMapR-DatabaseBinaryTable](https://github.com/aruruka/Example-MapReduce-With-EzmeralDataFabricMapR-DatabaseBinaryTable).
+You can download it and compile it using Visual Studio Code. This MapReduce application is simple. It follows this logic:
 
-This MapReduce application is simple, the following is the logic:
-
-1. Get data from the source table: <ins>/testbinarytable1volume/notifications</ins> and output aggregated data to the target table: <ins>/testbinarytable1volume/summary</ins>.
-2. It's basically a varietas of "Word Count". This MapReduce application simply aggregates the number of rows which contains a column called "type" in the "attributes" column family.
+1. Get data from the source table: <ins>/testbinarytable1volume/notifications</ins>.
+2. Output aggregated data to the target table: <ins>/testbinarytable1volume/summary</ins>.
+3. This is basically a variation of "Word Count". This MapReduce application simply aggregates the number of rows which contains a column called "type" in the "attributes" column family.
 
 For example, there may be comment type, promotion type, friend-request type, etc. in this table.
 Then the app will count how many rows of comment type, promotion typee, friend-request type are there.
