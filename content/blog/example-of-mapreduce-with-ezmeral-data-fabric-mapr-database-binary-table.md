@@ -30,7 +30,7 @@ For example, using the open source Apache Hadoop, I need to consider merging sma
 Another advantage of Ezmeral Data Fabric File System is that it provides a very widely used protocol interface: NFS.
 That is to say, you can mount Ezmeral Data Fabric File System as an NFS file system on your PC. This is something that Hadoop and other peer commercial software cannot do.
 
-Of course, Ezmeral Data Fabric File System has other advantages. What I want to emphasize here is that Ezmeral Data Fabric Database is built on top of  File System, so these advantages are also the advantages of Database.
+Of course, Ezmeral Data Fabric File System has other advantages. What I want to emphasize here is that Ezmeral Data Fabric Database is built on top of  the File System, so these advantages are also the advantages of Database.
 
 Now let me talk about the most important unique advantages of Ezmeral Data Fabric Database that I personally feel.
 The first thing that comes to my mind is, the simplicity of the product.
@@ -49,32 +49,17 @@ In addition, the main reason for me to write this article is: I did not find a d
 
 Now let's get to the topic.
 
-This article will cover:
-
-1. How to create a Development Environment for HPE Ezmeral Data Fabric on Linux, Microsoft Windows and Apple Mac. 
-
-This is a one-node cluster based on Docker containers, with a choice of different Ezmeral Data Fabric versions, it integrates Ezmeral Ecosystem Packs.
-This way you can quickly create an Ezmeral Data Fabric environment on your work computer.
-
-2. Demonstrate a MapReduce application that uses Ezmeral Data Fabric's Database Binary Table as the backend service.
-
-I will create the table using the hbase shell command line tool customized for Ezmeral Data Fabric Database and do aggregation operations using a MapReduce application.
+In this article, I will show you how to create the Development Environment for HPE Ezmeral Data Fabric on Linux, Microsoft Windows and Apple Mac in a single-node cluster based on Docker containers. It will provide you with a choice of different HPE Ezmeral Data Fabric versions, based on how it integrates into Ezmeral Ecosystem Packs. This way you can quickly create an HPE Ezmeral Data Fabric environment on your work computer. Then, using this as an example, I'll demonstrate a MapReduce application that uses HPE Ezmeral Data Fabric's database binary table as the backend service. I will create the table using the hbase shell command line tool customized for an HPE Ezmeral Data Fabric database and do  operations using a MapReduce application. Let's get started!
 
 ## Prerequisite: Create a Development Environment for Ezmeral Data Fabric
 
-There is already an article on the HPE Developer Portal blog that describes how to deploy a Development Environment👉: [Getting Started with Spark on MapR Sandbox](https://developer.hpe.com/blog/getting-started-with-spark-on-mapr-sandbox/)
+Before you get started, you'll need to set up a Development Environment for HPE Ezmeral Data Fabric. To get some hints on how to do this, refer to the 👉 [Getting Started with Spark on MapR Sandbox](https://developer.hpe.com/blog/getting-started-with-spark-on-mapr-sandbox/) blog post. I recommend that you read the latest official documentation, 👉 [Development Environment for HPE Ezmeral Data Fabric](https://docs.datafabric.hpe.com/70/MapRContainerDevelopers/MapRContainerDevelopersOverview.html), before setting up your environment.
 
-However, I recommend you to read the latest official documentation first👉: [Development Environment for HPE Ezmeral Data Fabric](https://docs.datafabric.hpe.com/70/MapRContainerDevelopers/MapRContainerDevelopersOverview.html)
+All you really need to do is follow the instructions in the documentation. Be aware that the documentation will instruct you to install Docker Desktop on a Mac, but you don't really have to install Docker Desktop. It's fine to install the Docker Engine using a standard Linux distribution.
 
-**Note**:
-Basically you can follow the instructions in the documentation, the documentation tells you to install Docker Desktop on a Apple Mac, but you don't have to install Docker Desktop, it's fine to install the Docker Engine in a standard Linux distribution.
+**It's worth noting that installing Docker Desktop in Windows won't work.** I tried getting it to work through the following actions: I first installed WSL2 (Windows Subsystem Linux 2) then installed Docker Desktop for Windows and integrated with WSL2, and then ran the HPE Ezmeral Data Fabric Development Environment install script, but it still failed.
 
-**It's worth noting that installing Docker Desktop in Microsoft Windows won't work.**
-
-I tried the following: first install Microsoft WSL2 (Windows Subsystem Linux 2), then install Docker Desktop for Microsoft Windows and integrate with WSL2, then run the Ezmeral Data Fabric Development Environment install script, but it still fails.
-
-So what I ended up doing was: install VMWare on my Microsoft Windows PC, create a CentOS8 VM, and run the Ezmeral Data Fabric Development Environment setup script in the VM. This approach is feasible.
-Also, you can always choose the version of the Development Environment you want to deploy, you just need to change the tag of the Docker image.
+So I ended up installing VMWare on my Windows PC, creating a CentOS8 VM, and ran the HPE Ezmeral Data Fabric Development Environment setup script in the VM. This approach proved feasible. Also, you can always choose the version of the development environment you want to deploy. You just need to change the tag of the Docker image.
 
 ## MapReduce on Ezmeral Data Fabric Database Binary Table
 
