@@ -40,12 +40,12 @@ When you are using HBase, you need to care about the HBase Master and Region Ser
 Ezmeral Data Fabric Database includes two different types of NoSQL database systems, namely: Binary Table and JSON Table, which correspond to open source HBase and MongoDB respectively.
 Now, only one software process can be seen, which is MFS. And when you use a completely open source big data technology stack or other commercial big data platforms, you will still see a bunch of processes, which is one of the biggest differences: simplicity.
 
-Although it seems that the column-oriented NoSQL database such as HBase is a bit outdated in design compared with the document-oriented NoSQL database such as MongoDB, but since I did not find other demo articles related to Binary Table(better replacement for HBase) in the HPE Dev Portal , I decided to write such an article to introduce the demo of MapReduce based on Binary Table.
+Although it seems that the column-oriented NoSQL database such as HBase is a bit outdated in design compared with the document-oriented NoSQL database such as MongoDB, but since I did not find other demo articles related to Binary Table(better replacement for HBase) in the HPE Developer portal , I decided to write such an article to introduce the demo of MapReduce based on Binary Table.
 Note: I found a demo of Spark based on HBase: [Spark Streaming with HBase](https://developer.hpe.com/blog/spark-streaming-with-hbase/) (Author: Carol McDonald).
 
 So, I briefly talked about why we need to consider using Ezmeral Data Fabric Database, what are its advantages over other similar products: simplicity, and the advantages of other Ezmeral Data Fabric file system compared with similar products: performance, ease of use, and ease of maintenance.
 As for why we use this kind of NoSQL products, I don’t think I need to go into details here. This is the same as why Hadoop, a big data file system, was born. Simply put, it is because we need to build a distributed storage and computing system. In order to complete the analysis and computation tasks of huge data volumes on cheap commercial computers.
-In addition, the main reason for me to write this article is: I did not find a demo article in the HPE Dev Portal that introduces the use of Binary Table and MapReduce together, so I would like to add such an example.
+In addition, the main reason for me to write this article is: I did not find a demo article in the HPE Developer portal that introduces the use of Binary Table and MapReduce together, so I would like to add such an example.
 
 Now let's get to the topic.
 
@@ -66,7 +66,7 @@ So if you are running a Development Environment newer than 6.2.0 (including 6.2.
 
 ## MapReduce on HPE Ezmeral Data Fabric database binary table
 
-HPE Ezmeral Data Fabric database binary table is equivalent to the HPE Ezmeral Data Fabric version of Apache HBase, but its technical implementation is different from HBase. This is, of course, because the bottom layer of HPE Ezmeral Data Fabric database binary table is the HPE Ezmeral Data Fabric File tore.For users, there is almost no difference between using HPE Ezmeral Data Fabric database binary table and using HBase.
+HPE Ezmeral Data Fabric database binary table is equivalent to the HPE Ezmeral Data Fabric version of Apache HBase, but its technical implementation is different from HBase. This is, of course, because the bottom layer of HPE Ezmeral Data Fabric database binary table is the HPE Ezmeral Data Fabric File Store. For users, there is almost no difference between using HPE Ezmeral Data Fabric database binary table and using HBase.
 
 Now, let's imagine that we want to build a user notifications service. Since HBase does not support any operations that go across rows or across tables, in order to implement operations such as **joins** and **group** by in RDBMS, we will use MapReduce to complete some data analysis tasks.
 
