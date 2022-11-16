@@ -53,7 +53,7 @@ This article will cover:
 
 1. How to create a Development Environment for HPE Ezmeral Data Fabric (EDF) on Linux, Microsoft Windows and Apple Mac. 
 
-This is a one-node cluster based on Docker containers, with a choice of different Ezmeral Data Fabric versions, it integrates EEP.
+This is a one-node cluster based on Docker containers, with a choice of different Ezmeral Data Fabric versions, it integrates Ezmeral Ecosystem Packs.
 This way you can quickly create an Ezmeral Data Fabric environment on your work computer.
 
 2. Demonstrate a MapReduce application that uses Ezmeral Data Fabric's Database Binary Table as the backend service.
@@ -71,12 +71,12 @@ Basically you can follow the instructions in the documentation, the documentatio
 
 **It's worth noting that installing Docker Desktop in Windows won't work.**
 
-I tried the following: first install WSL2 (Windows Subsystem Linux 2), then install Docker Desktop for Windows and integrate with WSL2, then run the EDF Development Environment install script, but it still fails.
+I tried the following: first install WSL2 (Windows Subsystem Linux 2), then install Docker Desktop for Windows and integrate with WSL2, then run the Ezmeral Data Fabric Development Environment install script, but it still fails.
 
-So what I ended up doing was: install VMWare on my Windows PC, create a CentOS8 VM, and run the EDF Development Environment setup script in the VM. This approach is feasible.
+So what I ended up doing was: install VMWare on my Windows PC, create a CentOS8 VM, and run the Ezmeral Data Fabric Development Environment setup script in the VM. This approach is feasible.
 Also, you can always choose the version of the Development Environment you want to deploy, you just need to change the tag of the Docker image.
 
-## MapReduce on EDF Database Binary Table
+## MapReduce on Ezmeral Data Fabric Database Binary Table
 
 EDF Database Binary Table is equivalent to the EDF version of Apache HBase, but its technical implementation is different from HBase, which is of course, because the bottom layer of EDF Database Binary Table is EDF File Store.
 
@@ -290,5 +290,18 @@ HPE Ezmeral Data Fabric is a platform for data-driven analytics, ML, and AI work
 The platform serves as a secure data store and provides file storage, NoSQL databases, object storage, and event streams.
 The patented filesystem architecture was designed and built for performance, reliability, and scalability.
 📖[Documentation website](https://docs.datafabric.hpe.com/70/index.html)
+
+</details>
+
+<details>
+<summary>Ezmeral Ecosystem Packs</summary>
+
+
+
+EEP for short.
+This is a software collection package that includes computing scheduling frameworks and computing engines of common Hadoop ecosystems such as YARN, Spark, Drill, and Hive, as well as a service suite for monitoring performance indicators and logs of Ezmeral Data Fabric.
+Users of Ezmeral Data Fabric will use these customized Spark, Drill, Hive and other software to complete computing, analysis tasks and machine learning tasks.
+
+
 
 </details>
