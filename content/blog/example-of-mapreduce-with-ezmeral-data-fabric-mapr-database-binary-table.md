@@ -41,7 +41,7 @@ Ezmeral Data Fabric Database includes two different types of NoSQL database syst
 Now, only one software process can be seen, which is MFS. And when you use a completely open source big data technology stack or other commercial big data platforms, you will still see a bunch of processes, which is one of the biggest differences: simplicity.
 
 Although it seems that the column-oriented NoSQL database such as HBase is a bit outdated in design compared with the document-oriented NoSQL database such as MongoDB, but since I did not find other demo articles related to Binary Table(better replacement for HBase) in the HPE Dev Portal , I decided to write such an article to introduce the demo of MapReduce based on Binary Table.
-Note: I found a demo of Spark based on HBase: \[Spark Streaming with HBase](\[SparkStreamingWithHbase]: https://developer.hpe.com/blog/spark-streaming-with-hbase/) (Author: Carol McDonald).
+Note: I found a demo of Spark based on HBase: [Spark Streaming with HBase](https://developer.hpe.com/blog/spark-streaming-with-hbase/) (Author: Carol McDonald).
 
 So, I briefly talked about why we need to consider using Ezmeral Data Fabric Database, what are its advantages over other similar products: simplicity, and the advantages of other Ezmeral Data Fabric file system compared with similar products: performance, ease of use, and ease of maintenance.
 As for why we use this kind of NoSQL products, I don’t think I need to go into details here. This is the same as why Hadoop, a big data file system, was born. Simply put, it is because we need to build a distributed storage and computing system. In order to complete the analysis and computation tasks of huge data volumes on cheap commercial computers.
