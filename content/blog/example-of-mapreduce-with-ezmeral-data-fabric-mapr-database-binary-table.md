@@ -1,5 +1,5 @@
 ---
-title: Example of MapReduce With Ezmeral Data Fabric(MapR) Database Binary Table
+title: Using MapReduce with an HPE Ezmeral Data fabric database binary table
 date: 2022-11-14T15:56:03.596Z
 featuredBlog: false
 author: Raymond Yan
@@ -10,77 +10,83 @@ tags:
   - hpe-ezmeral-data-fabric
   - MapReduce
 ---
-
 ## Introduction
 
+No matter what kind of application you want to develop, the underlying layer will need a database.
+Nowadays, applications based on big data are generally divided into two types: BI (Business Intelligence) and AI (Artificial Intelligence).
+Naturally, both of these two types of applications require a big data system as a base.
+In traditional applications, we use RDBMS as the database, but in big data systems, we need to use NoSQL databases.
+There is no need to elaborate on the difference between RDBMS and NoSQL.
 
+**However, among the many NoSQL systems, why should we consider using HPE Ezmeral Data Fabric database?**
+Let's first look at the position of the EDF Database in the EDF software stack.
+
+![EDF Database is based on File System](/img/system_architecture_position-hpe-edf_database.png "Position of the Database in EDF stack")
+
+Since the bottom layer of EDF Database is the File System, this question also involves the advantages of EDF File System compared to other similar products: better performance and simpler management and ease of use.
+
+There is a detailed description in the official document, here I would like to talk about my personal feelings.
+For example, using the open source Apache Hadoop, I need to consider merging small files before putting them into Hadoop. This is because of its design principles. In order to fully utilize the performance of Hadoop, it is necessary to do so. In EDF File System, I don't have to care so much about whether small files need to be merged. This is because of the existence of the logical unit Volume in the EDF File System. As long as we use this feature reasonably, saving many small files in the EDF File System will not cause too much waste to the performance and capacity of the system.
+Another advantage of EDF File System is that it provides a very widely used protocol interface: NFS.
+That is to say, you can mount EDF File System as an NFS file system on your PC. This is something that Hadoop and other peer commercial software cannot do.
+
+Of course, EDF File System has other advantages. What I want to emphasize here is that EDF Database is built on top of  File System, so these advantages are also the advantages of Database.
+
+Now let me talk about the most important unique advantages of EDF Database that I personally feel.
+The first thing that comes to my mind is, the simplicity of the product.
+For example, if you are using products in the Apache Hadoop ecosystem, or a commercial version of a big data system like Cloudera, you need to install and maintain the NoSQL service included in it separately. For example, we often come into contact with: HBase, MongoDB, etc.
+But in EDF, we don't need to deploy HBase and MongoDB separately, because these two different types of NoSQL systems have been integrated in EDF Core as EDF Database. From the process level, we only see one MFS process.
+When you are using HBase, you need to care about the HBase Master and Region Server processes, as well as the underlying Hadoop Namenode and Datanode processes.
+EDF Database includes two different types of NoSQL database systems, namely: Binary Table and JSON Table, which correspond to open source HBase and MongoDB respectively.
+Now, only one software process can be seen, which is MFS. And when you use a completely open source big data technology stack or other commercial big data platforms, you will still see a bunch of processes, which is one of the biggest differences: simplicity.
+
+Although it seems that the column-oriented NoSQL database such as HBase is a bit outdated in design compared with the document-oriented NoSQL database such as MongoDB, but since I did not find other demo articles related to Binary Table(better replacement for HBase) in the HPE Dev Portal , I decided to write such an article to introduce the demo of MapReduce based on Binary Table.
+Note: I found a demo of Spark based on HBase: [Spark Streaming with HBase]([SparkStreamingWithHbase]: https://developer.hpe.com/blog/spark-streaming-with-hbase/) (Author: Carol McDonald).
+
+So, I briefly talked about why we need to consider using EDF Database, what are its advantages over other similar products: simplicity, and the advantages of other EDF File System compared with similar products: performance, ease of use, and ease of maintenance.
+As for why we use this kind of NoSQL products, I don’t think I need to go into details here. This is the same as why Hadoop, a big data file system, was born. Simply put, it is because we need to build a distributed storage and computing system. In order to complete the analysis and computation tasks of huge data volumes on cheap commercial computers.
+In addition, the main reason for me to write this article is: I did not find a demo article in the HPE Dev Portal that introduces the use of Binary Table and MapReduce together, so I would like to add such an example.
+
+Now let's get to the topic.
 
 This article will cover:
 
-
-
-1. How to create Development Environment for HPE Ezmeral Data Fabric (EDF) on Linux, Windows and Mac.
-
-
+1. How to create aDevelopment Environment for HPE Ezmeral Data Fabric (EDF) on Linux, Window,s and Mac. 
 
 This is a one-node cluster based on Docker containers, with a choice of different EDF versions, it integrates EEP.
 This way you can quickly create an EDF environment on your work computer.
 
-
-
 2. Demonstrate a MapReduce application that uses EDF's Database Binary Table as the backend service.
-
-
 
 I will create the table using the hbase shell command line tool customized for EDF Database and do CRUD (Create, Read, Update, Delete) operations using a MapReduce application.
 
-
-
 ## Prerequisite: Create a Development Environment for EDF
 
+There is already an article on the HPE Developer Portal blog that describes how to deploy a Development Environment👉: [Getting Started with Spark on MapR Sandbox](https://developer.hpe.com/blog/getting-started-with-spark-on-mapr-sandbox/)
 
-
-There is already an article on the HPE Developer Portal blog that describes how to deploy a Development Environment👉: [Getting Started with Spark on MapR Sandbox][GettingStartedWithSparkOnMaprSandbox]
-
-
-However, I recommend you to read the latest official documentation first👉: [Development Environment for HPE Ezmeral Data Fabric][DevelopmentEnvironmentForHpeEzmeral]
-
-
+However, I recommend you to read the latest official documentation first👉: [Development Environment for HPE Ezmeral Data Fabric](https://docs.datafabric.hpe.com/70/MapRContainerDevelopers/MapRContainerDevelopersOverview.html)
 
 **Note**:
 Basically you can follow the instructions in the documentation, the documentation tells you to install Docker Desktop on a Mac, but you don't have to install Docker Desktop, it's fine to install the Docker Engine in a standard Linux distribution.
 
-
 **It's worth noting that installing Docker Desktop in Windows won't work.**
 
-
 I tried the following: first install WSL2 (Windows Subsystem Linux 2), then install Docker Desktop for Windows and integrate with WSL2, then run the EDF Development Environment install script, but it still fails.
-
 
 So what I ended up doing was: install VMWare on my Windows PC, create a CentOS8 VM, and run the EDF Development Environment setup script in the VM. This approach is feasible.
 Also, you can always choose the version of the Development Environment you want to deploy, you just need to change the tag of the Docker image.
 
-
-
 ## MapReduce on EDF Database Binary Table
-
-
 
 EDF Database Binary Table is equivalent to the EDF version of Apache HBase, but its technical implementation is different from HBase, which is of course, because the bottom layer of EDF Database Binary Table is EDF File Store.
 
 For users, there is almost no difference between using EDF Database Binary Table and using HBase.
 
-
 Now, let's imagine that we want to build a User Notifications service.
-
 
 Since HBase does not support any operations that across rows or across tables, in order to implement operations such as Joins and Group by in RDBMS, we will use MapReduce to complete some data analysis tasks.
 
-
-
 ### Create a Binary Table
-
-
 
 **Important note**:
 
@@ -88,16 +94,10 @@ Since HBase does not support any operations that across rows or across tables, i
 
 <ins>You can also use the "root" user to create the table and run the application, but if you don't modify the ACEs of the table, the "mapr" user would be not able to see the data in the table.</ins>
 
-
-
-We are going to use the [hbase shell][HbaseShell] to create a [Binary Table][BinaryTable] inside the EDF Database.
-To be able to use the `hbase shell`, we need to install the **[mapr-hbase][MaprHbasePackage]** package first.
-
-
+We are going to use the [hbase shell](https://docs.datafabric.hpe.com/70/ReferenceGuide/HBaseShellforMapR-DB.html) to create a [Binary Table](https://docs.datafabric.hpe.com/70/MapR-DB/intro-binary-tables.html) inside the EDF Database.
+To be able to use the `hbase shell`, we need to install the **[mapr-hbase](https://docs.datafabric.hpe.com/70/AdvancedInstallation/InstallingHBase-client-node.html?hl=mapr-hbase)** package first.
 
 **For convenience of data management, I would like to create a volume for the Binary Table, the command are as following:**
-
-
 
 ```bash
 sudo -u mapr maprcli volume list -output terse -columns volumename,volumetype,actualreplication,localpath,mounted,mountdir,logicalUsed,used,nameContainerDataThresholdMB,nameContainerSizeMB,needsGfsck
@@ -109,91 +109,52 @@ sudo -u mapr hadoop fs -ls -d -h /testbinarytable1volume
 sudo -u mapr hadoop mfs -ls /testbinarytable1volume
 ```
 
-
-
 ☝ The volume's name is: test.binarytable1 and it will be mounted as <ins>/testbinarytable1volume/</ins> in the EDF File System.
-
-
 
 **Now we can create the Binary Table**
 
-
-
 👇 Inside `hbase shell`:
-
-
 
 ```
 create '/testbinarytable1volume/notifications','attributes','metrics'
 ```
 
-
-
 Table name is <ins>/testbinarytable1volume/notifications</ins>. **attributes** and **metrics** are column families.
 
-
-
 **Note**: In EDF Database Binary Table, the table name is by default a path in the File System.
-You can change the style of the table name to be like in Apache HBase, refer to👉: [Mapping to HBase Table Namespaces][MappingToHbaseTableNamespaces].
-
-
+You can change the style of the table name to be like in Apache HBase, refer to👉: [Mapping to HBase Table Namespaces](https://docs.datafabric.hpe.com/70/UpgradeGuide/.MappingTableNamespace-HBase-DBbinary_2.html).
 
 ### Build and Run The MapReduce Application
 
-
-
-**Important note**: Before running the MapReduce application, if you are using the Development Environment, you have to complete the following steps: [Installing Hadoop and YARN][InstallingHadoopAndYarn].
-
+**Important note**: Before running the MapReduce application, if you are using the Development Environment, you have to complete the following steps: [Installing Hadoop and YARN](https://docs.datafabric.hpe.com/70/AdvancedInstallation/InstallingHadoop.html).
 
 It's because by default the YARN framework is not installed and hence the MapReduce framework is not installed.
 
-
-
 #### MapReduce Application Source Code
 
-
-
-I have put the code on Github: [Example-MapReduce-With-EzmeralDataFabricMapR-DatabaseBinaryTable][MapReduceEDFDataBaseBinaryTable].
+I have put the code on Github: [Example-MapReduce-With-EzmeralDataFabricMapR-DatabaseBinaryTable](https://github.com/aruruka/Example-MapReduce-With-EzmeralDataFabricMapR-DatabaseBinaryTable).
 You can download it and compile it using Visual Studio Code.
 
-
-
 This MapReduce application is simple, the following is the logic:
-
-
 
 1. Get data from the source table: <ins>/testbinarytable1volume/notifications</ins> and output aggregated data to the target table: <ins>/testbinarytable1volume/summary</ins>.
 2. It's basically a varietas of "Word Count". This MapReduce application simply aggregates the number of rows which contains a column called "type" in the "attributes" column family.
 
-
-
 For example, there may be comment type, promotion type, friend-request type, etc. in this table.
 Then the app will count how many rows of comment type, promotion typee, friend-request type are there.
 
-
-
 #### How to Run it On EDF
-
-
 
 You can run the MapReduction application on your one-node cluster of EDF Development Environment, then.
 Refer to the following command:
 
-
-
 First, we need to create a new table(target table) for storing the counter number:
-
-
 
 ```bash
 create '/testbinarytable1volume/summary','metrics'
 ```
 
-
-
 Then, run the MapReduce application via `yarn jar` command:
-
-
 
 ```bash
 sudo -u mapr \
@@ -201,11 +162,7 @@ yarn jar ./target/original-hbase-example-1.0-SNAPSHOT.jar com.shouneng.learn.map
   -libjar ./hbase-server-1.4.13.200-eep-810.jar,hbase-client-1.4.13.200-eep-810.jar,hadoop-common-2.7.6.200-eep-810.jar,hbase-common-1.4.13.203-eep-810.jar
 ```
 
-
-
 Output:
-
-
 
 ```markdown
 yarn jar ./target/original-hbase-example-1.0-SNAPSHOT.jar com.shouneng.learn.mapReduce.Main
@@ -305,61 +262,33 @@ WARNING: All illegal access operations will be denied in a future release
                 Bytes Read=0
         File Output Format Counters
                 Bytes Written=0
-
 ```
-
-
 
 **Important note**: If you encountered the issue that some of the HBase related Java packages are missing, you can simply copy the following packages from 📁<ins>/opt/mapr/hbase/hbase-{VERSION}/lib/</ins> to 📁<ins>/opt/mapr/hadoop/hadoop-{VERSION}/share/hadoop/common/</ins>.
 
+* hbase-client-*.jar
+* hbase-server-*.jar
+* hbase-protocol-*.jar
+* hbase-hadoop2-compat-*.jar
+* hbase-hadoop-compat-*.jar
+* hbase-metrics-*.jar
+* hbase-metrics-api-*.jar
+* hbase-shaded-gson-*.jar
+* hbase-shaded-htrace-*.jar
+* metrics-core-*.jar
+* hbase-common-*.jar
 
-
-- hbase-client-\*.jar
-- hbase-server-\*.jar
-- hbase-protocol-\*.jar
-- hbase-hadoop2-compat-\*.jar
-- hbase-hadoop-compat-\*.jar
-- hbase-metrics-\*.jar
-- hbase-metrics-api-\*.jar
-- hbase-shaded-gson-\*.jar
-- hbase-shaded-htrace-\*.jar
-- metrics-core-\*.jar
-- hbase-common-\*.jar
-
-
-
-This is because the HBase related packages are considered as third-party libraries to the Hadoop system, refer to👉: [Install the third-party libraries on each node that runs the program][InstallTheThird-partyLibrariesOn].
-
-
+This is because the HBase related packages are considered as third-party libraries to the Hadoop system, refer to👉: [Install the third-party libraries on each node that runs the program](https://docs.datafabric.hpe.com/70/DevelopmentGuide/Manage3rdPartyLibsForMapReduce.html).
 
 ## Explanation of some glossary
 
-
-
 <details>
 <summary>HPE Ezmeral Data Fabric (AKA. MapR)</summary>
-
-
 
 EDF for short.
 HPE Ezmeral Data Fabric is a platform for data-driven analytics, ML, and AI workloads.
 The platform serves as a secure data store and provides file storage, NoSQL databases, object storage, and event streams.
 The patented filesystem architecture was designed and built for performance, reliability, and scalability.
-📖[Documentation website][EDFDocumentation]
-
-
+📖[Documentation website](https://docs.datafabric.hpe.com/70/index.html)
 
 </details>
-
-
-
-[EDFDocumentation]: https://docs.datafabric.hpe.com/70/index.html
-[GettingStartedWithSparkOnMaprSandbox]: https://developer.hpe.com/blog/getting-started-with-spark-on-mapr-sandbox/
-[DevelopmentEnvironmentForHpeEzmeral]: https://docs.datafabric.hpe.com/70/MapRContainerDevelopers/MapRContainerDevelopersOverview.html
-[HbaseShell]: https://docs.datafabric.hpe.com/70/ReferenceGuide/HBaseShellforMapR-DB.html
-[BinaryTable]: https://docs.datafabric.hpe.com/70/MapR-DB/intro-binary-tables.html
-[MaprHbasePackage]: https://docs.datafabric.hpe.com/70/AdvancedInstallation/InstallingHBase-client-node.html?hl=mapr-hbase
-[MappingToHbaseTableNamespaces]: https://docs.datafabric.hpe.com/70/UpgradeGuide/.MappingTableNamespace-HBase-DBbinary_2.html
-[MapReduceEDFDataBaseBinaryTable]: https://github.com/aruruka/Example-MapReduce-With-EzmeralDataFabricMapR-DatabaseBinaryTable
-[InstallingHadoopAndYarn]: https://docs.datafabric.hpe.com/70/AdvancedInstallation/InstallingHadoop.html
-[InstallTheThird-partyLibrariesOn]: https://docs.datafabric.hpe.com/70/DevelopmentGuide/Manage3rdPartyLibsForMapReduce.html
