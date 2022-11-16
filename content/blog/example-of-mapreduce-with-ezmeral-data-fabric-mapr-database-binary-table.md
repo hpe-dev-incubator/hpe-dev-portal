@@ -281,7 +281,7 @@ Users of Ezmeral Data Fabric will use these customized Spark, Drill, Hive and ot
 ## Summary
 
 In this blog post, I introduced the advantages of Ezmeral Data Fabric Database compared to similar products. I also demonstrated a MapReduce application based on Ezmeral Data Fabric Database binary table.
-Ezmeral Data Fabric Database binary table is equivalent to a better alternative to Apache HBase.
+HPE Ezmeral Data Fabric Database binary table is equivalent to a better alternative to Apache HBase.
 
 I hope this blog post can help you quickly develop applications based on Ezmeral Data Fabric Database binary table.
 Please note that developing an application based on Ezmeral Data Fabric Database binary table is essentially the same as developing an application based on Apache HBase, but some of the specific steps are different.
