@@ -49,7 +49,7 @@ In addition, the main reason for me to write this article is: I did not find a d
 
 Now let's get to the topic.
 
-In this article, I will show you how to create the Development Environment for HPE Ezmeral Data Fabric on Linux, Microsoft Windows and Apple Mac in a single-node cluster based on Docker containers. It will provide you with a choice of different HPE Ezmeral Data Fabric versions, based on how it integrates into Ezmeral Ecosystem Packs. This way you can quickly create an HPE Ezmeral Data Fabric environment on your work computer. Then, using this as an example, I'll demonstrate a MapReduce application that uses HPE Ezmeral Data Fabric's database binary table as the backend service. I will create the table using the hbase shell command line tool customized for the HPE Ezmeral Data Fabric database and do aggregation operations using a MapReduce application. Let's get started!
+In this article, I will show you how to create the Development Environment for HPE Ezmeral Data Fabric on Linux, Microsoft Windows and Apple Mac in a single-node cluster based on Docker containers. It will provide you with a choice of different HPE Ezmeral Data Fabric versions, based on how it integrates into HPE Ezmeral Ecosystem Packs. This way you can quickly create an HPE Ezmeral Data Fabric environment on your work computer. Then, using this as an example, I'll demonstrate a MapReduce application that uses HPE Ezmeral Data Fabric's database binary table as the backend service. I will create the table using the hbase shell command line tool customized for the HPE Ezmeral Data Fabric database and do aggregation operations using a MapReduce application. Let's get started!
 
 ## Prerequisite: Create a Development Environment for HPE Ezmeral Data Fabric
 
@@ -61,7 +61,7 @@ All you really need to do is follow the instructions in the documentation. Be aw
 
 So I ended up installing VMWare on my Windows PC, creating a CentOS8 VM, and ran the HPE Ezmeral Data Fabric Development Environment setup script in the VM. This approach proved feasible. Also, you can always choose the version of the development environment you want to deploy. You just need to change the tag of the Docker image.
 
-After running the setup script, you'll have a HPE Ezmeral Data Fabric cluster up and running. But in order to run a MapReduce application, you need to install the YARN framework first. Starting from release of HPE Ezmeral Data Fabric 6.2.0, the YARN framework decoupled from the core platform and exists as an ecosystem component as part of Ezmeral Ecosystem Packs.
+After running the setup script, you'll have a HPE Ezmeral Data Fabric cluster up and running. But in order to run a MapReduce application, you need to install the YARN framework first. Starting from release of HPE Ezmeral Data Fabric 6.2.0, the YARN framework decoupled from the core platform and exists as an ecosystem component as part of HPE Ezmeral Ecosystem Packs.
 So if you are running a Development Environment newer than 6.2.0 (including 6.2.0), you need to complete the following steps: [Installing Hadoop and YARN](https://docs.datafabric.hpe.com/70/AdvancedInstallation/InstallingHadoop.html).
 
 ## MapReduce on HPE Ezmeral Data Fabric database binary table
@@ -273,10 +273,10 @@ The patented filesystem architecture was designed and built for performance, rel
 </details>
 
 <details>
-<summary>Ezmeral Ecosystem Packs</summary>
+<summary>HPE Ezmeral Ecosystem Packs</summary>
 
-This is a software collection package that includes computing scheduling frameworks and computing engines of common Hadoop ecosystems such as YARN, Spark, Drill, and Hive, as well as a service suite for monitoring performance indicators and logs of Ezmeral Data Fabric.
-Users of Ezmeral Data Fabric will use these customized Spark, Drill, Hive and other software to complete computing, analysis tasks and machine learning tasks.
+This is a software collection package that includes computing scheduling frameworks and computing engines of common Hadoop ecosystems such as YARN, Spark, Drill, and Hive, as well as a service suite for monitoring performance indicators and logs of HPE Ezmeral Data Fabric.
+Users of HPE Ezmeral Data Fabric will use these customized Spark, Drill, Hive and other software to complete computing, analysis tasks and machine learning tasks.
 
 </details>
 
@@ -285,7 +285,7 @@ Users of Ezmeral Data Fabric will use these customized Spark, Drill, Hive and ot
 In this blog post, I introduced the advantages of HPE Ezmeral Data Fabric database compared to similar products. I also demonstrated a MapReduce application based on HPE Ezmeral Data Fabric database binary table.
 HPE Ezmeral Data Fabric database binary table is equivalent to a better alternative to Apache HBase.
 
-I hope this blog post can help you quickly develop applications based on Ezmeral Data Fabric database binary table.
+I hope this blog post can help you quickly develop applications based on HPE Ezmeral Data Fabric database binary table.
 Please note that developing an application based on HPE Ezmeral Data Fabric database binary table is essentially the same as developing an application based on Apache HBase, but some of the specific steps are different.
 For example, in the step of creating a binary table, in addition to the method of using the `habse shell` demonstrated in this article, you can still use `maprcli`, a command line tool proprietary to HPE Ezmeral Data Fabric.
 Moreover, the experience of developing a MapReduce application based on HPE Ezmeral Data Fabric database binary table is also applicable to other computing engines, such as Spark.
