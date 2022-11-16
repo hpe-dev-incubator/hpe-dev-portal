@@ -30,12 +30,12 @@ For example, using the open source Apache Hadoop, I need to consider merging sma
 Another advantage of HPE Ezmeral Data Fabric file system is that it provides a very widely used protocol interface: NFS.
 That is to say, you can mount the HPE Ezmeral Data Fabric file system as an NFS file system on your PC. This is something that Hadoop and other peer commercial software cannot do.
 
-Of course, HPE Ezmeral Data Fabric file system has other advantages. What I want to emphasize here is that HPE Ezmeral Data Fabric Database is built on top of the file system, so these advantages are also the advantages of Database.
+Of course, HPE Ezmeral Data Fabric file system has other advantages. What I want to emphasize here is that HPE Ezmeral Data Fabric database is built on top of the file system, so these advantages are also the advantages of Database.
 
 Now let me talk about the most important unique advantages of HPE Ezmeral Data Fabric database that I personally feel.
 The first thing that comes to my mind is, the simplicity of the product.
 For example, if you are using products in the Apache Hadoop ecosystem, or a commercial version of a big data system like Cloudera, you need to install and maintain the NoSQL service included in it separately. For example, we often come into contact with: HBase, MongoDB, etc.
-But in HPE Ezmeral Data Fabric, we don't need to deploy HBase and MongoDB separately, because these two different types of NoSQL systems have been integrated in HPE Ezmeral Data Fabric Core as HPE Ezmeral Data Fabric Database. From the process level, we only see one MFS process.
+But in HPE Ezmeral Data Fabric, we don't need to deploy HBase and MongoDB separately, because these two different types of NoSQL systems have been integrated in HPE Ezmeral Data Fabric Core as HPE Ezmeral Data Fabric database. From the process level, we only see one MFS process.
 When you are using HBase, you need to care about the HBase Master and Region Server processes, as well as the underlying Hadoop Namenode and Datanode processes.
 HPE Ezmeral Data Fabric database includes two different types of NoSQL database systems, namely: Binary Table and JSON Table, which correspond to open source HBase and MongoDB respectively.
 Now, only one software process can be seen, which is MFS. And when you use a completely open source big data technology stack or other commercial big data platforms, you will still see a bunch of processes, which is one of the biggest differences: simplicity.
