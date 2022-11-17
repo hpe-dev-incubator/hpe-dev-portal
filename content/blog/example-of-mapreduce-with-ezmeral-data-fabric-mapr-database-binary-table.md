@@ -47,7 +47,7 @@ In addition, the main reason for me to write this article is: I did not find a d
 
 In this article, I will show you how to create the Development Environment for HPE Ezmeral Data Fabric on Linux, Microsoft Windows and Apple Mac in a single-node cluster based on Docker containers. It will provide you with a choice of different HPE Ezmeral Data Fabric versions, based on how it integrates into HPE Ezmeral Ecosystem Packs. This way you can quickly create an HPE Ezmeral Data Fabric environment on your work computer. Then, using this as an example, I'll demonstrate a MapReduce application that uses HPE Ezmeral Data Fabric's database binary table as the backend service. I will create the table using the HBase shell command line tool customized for the HPE Ezmeral Data Fabric database and do aggregation operations using a MapReduce application. Let's get started!
 
-## Prerequisite: Create a Development Environment for HPE Ezmeral Data Fabric
+### Prerequisite: Create a Development Environment for HPE Ezmeral Data Fabric
 
 Before you get started, you'll need to set up a Development Environment for HPE Ezmeral Data Fabric. To get some hints on how to do this, refer to the 👉 [Getting Started with Spark on MapR Sandbox](https://developer.hpe.com/blog/getting-started-with-spark-on-mapr-sandbox/) blog post. I recommend that you read the latest official documentation, 👉 [Development Environment for HPE Ezmeral Data Fabric](https://docs.datafabric.hpe.com/70/MapRContainerDevelopers/MapRContainerDevelopersOverview.html), before setting up your environment.
 
@@ -57,10 +57,10 @@ All you really need to do is follow the instructions in the documentation. Be aw
 
 So I ended up installing VMWare on my Windows PC, creating a CentOS8 VM, and ran the HPE Ezmeral Data Fabric Development Environment setup script in the VM. This approach proved feasible. Also, you can always choose the version of the development environment you want to deploy. You just need to change the tag of the Docker image.
 
-After running the setup script, you'll have a HPE Ezmeral Data Fabric cluster up and running. But in order to run a MapReduce application, you need to install the YARN framework first. Starting from release of HPE Ezmeral Data Fabric 6.2.0, the YARN framework decoupled from the core platform and exists as an ecosystem component as part of HPE Ezmeral Ecosystem Packs.
-So if you are running a Development Environment newer than 6.2.0 (including 6.2.0), you need to complete the following steps: [Installing Hadoop and YARN](https://docs.datafabric.hpe.com/70/AdvancedInstallation/InstallingHadoop.html).
+After running the setup script, you'll have an HPE Ezmeral Data Fabric cluster up and running. But in order to run a MapReduce application, you need to install the YARN framework first. Starting from release of HPE Ezmeral Data Fabric 6.2.0, the YARN framework decoupled from the core platform and exists as an ecosystem component as part of HPE Ezmeral Ecosystem Packs.
+So if you are running a Development Environment newer than 6.2.0 (including 6.2.0), you need to complete the steps found in [Installing Hadoop and YARN](https://docs.datafabric.hpe.com/70/AdvancedInstallation/InstallingHadoop.html).
 
-## MapReduce on HPE Ezmeral Data Fabric database binary table
+## Using MapReduce on an HPE Ezmeral Data Fabric database binary table
 
 HPE Ezmeral Data Fabric database binary table is equivalent to the HPE Ezmeral Data Fabric version of Apache HBase, but its technical implementation is different from HBase. This is, of course, because the bottom layer of HPE Ezmeral Data Fabric database is the HPE Ezmeral Data Fabric File Store. For users, there is almost no difference between using HPE Ezmeral Data Fabric database binary table and using HBase.
 
@@ -87,11 +87,9 @@ sudo -u mapr hadoop mfs -ls /testbinarytable1volume
 
 ☝ The volume's name is *test.binarytable1* and it will be mounted as <ins>/testbinarytable1volume/</ins> in the HPE Ezmeral Data Fabric file system.
 
-Creating the binary table:
-
 On any node where the mapr-hbase package is installed, enter the command: "hbase shell" to enter the HBase shell interface.
 
-👇 Execute the following commands on the HBase shell interface:
+👇 Execute the following command on the HBase shell interface:
 
 ```
 create '/testbinarytable1volume/notifications','attributes','metrics'
@@ -111,8 +109,8 @@ You can download it and compile it using Visual Studio Code. This MapReduce appl
 
 1. Get data from the source table: <ins>/testbinarytable1volume/notifications</ins>.
 2. Output aggregated data to the target table: <ins>/testbinarytable1volume/summary</ins>.
-3. This is basically a variation of "Word Count". This MapReduce application simply aggregates the number of rows which contains a column called "type" in the "attributes" column family.
 
+This is basically a variation of "Word Count". This MapReduce application simply aggregates the number of rows which contains a column called "type" in the "attributes" column family.
 For example, there may be comment type, promotion type, friend-request type, etc. in this table.
 Then the app will count how many rows of comment type, promotion type, friend-request type are there.
 
