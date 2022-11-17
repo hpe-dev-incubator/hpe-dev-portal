@@ -22,7 +22,7 @@ In traditional applications, we use RDBMS as the database, but in big data syste
 Let's first look at the position of the HPE Ezmeral Data Fabric database in the HPE Ezmeral Data Fabric software stack.
 Since the bottom layer of HPE Ezmeral Data Fabric database is the file system, you get the benefits of better performance, simpler management, and ease of use.
 
-![EDF Database is based on File System](/img/system_architecture_position-hpe-edf_database.png "Position of the Database in EDF stack")
+![HPE EDF Database is based on file system](/img/system_architecture_position-hpe-edf_database.png "Position of the database in HPE EDF stack")
 
 In my personal experience, I have found this to be true. For example, when using open source Apache Hadoop, due to its design principles, in order to fully realize the performance of Hadoop, it is necessary to merge small files before putting them in. With HPE Ezmeral Data Fabric file system, it's not necessary to care about whether small files need to be merged due to the existence of the logical unit volume within the file system. Another advantage of using HPE Ezmeral Data Fabric file system is that it provides the widely used protocol interface - NFS - allowing you to mount the HPE Ezmeral Data Fabric file system as an NFS file system on your PC.
 That is to say, you can mount the HPE Ezmeral Data Fabric file system as an NFS file system on your PC. This is something that Hadoop and other peer commercial software cannot do.
