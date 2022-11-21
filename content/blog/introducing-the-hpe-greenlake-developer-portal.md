@@ -6,6 +6,7 @@ authorimage: /img/blog-author-rensing-96.jpg
 thumbnailimage: /img/gl-dev-portal-long-1200-x-675.jpg
 tags:
   - hpe-greenlake
+  - developer
 ---
 During the executive keynote session at the HPE Discover 2022 Edge-to-Cloud Conference, Antonio Neri, President and CEO of Hewlett Packard Enterprise, announced the availability of the HPE GreenLake Developer Portal. He was joined by Fidelma Russo, HPE CTO, and Bryan Thompson, HPE VP of GreenLake Product Management, who gave a quick look at how it provides APIs and documentation to assist developers of all types integrate their apps and services with HPE GreenLake. A [beta version of the portal](https://developer.greenlake.hpe.com/docs/greenlake) is available today, easily accessed through the [HPE Developer Community portal](https://developer.hpe.com/).
 
