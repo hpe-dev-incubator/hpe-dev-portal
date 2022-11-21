@@ -7,6 +7,7 @@ authorimage: https://gravatar.com/avatar/8102f2adeef249065ccb9c43b8866d17?s=192
 thumbnailimage: /img/dscc-icon.png
 tags:
   - data-services-cloud-console
+  - developer
 ---
 <center><img src="/img/dscc-idp-core-architect.png" width="500" height="501" alt="Unified DataOps"></center>
 
@@ -27,7 +28,7 @@ Some of the advantages of distributing the API in OpenAPI 3.0 format:
 
 ### Data Services Cloud Console REST API Details
 
-Anyone can download this OpenAPI Specification (OAS) v3 definition of the DSCC from the following: [Link to the API repository](https://console-us1.data.cloud.hpe.com/doc/api/v1/)
+Anyone can download this OpenAPI Specification (OAS) v3 definition of the Data Services Cloud Console from the following: [Link to the API repository](https://console-us1.data.cloud.hpe.com/doc/api/v1/)
 
 ![HPE GreenLake API documentation](/img/api-documentation-display.png "API Doc")
 
@@ -39,7 +40,7 @@ The website also provides additional information:
 4. The body of response is returned in JSON format according to the response status of the REST API.
 
 
-   The website also provides the links to download the cloud console OpenAPI definitions in either json or yaml format. Below is an example of the downloaded yaml definition file from the DSCC REST API documentation website.
+   The website also provides the links to download the cloud console OpenAPI definitions in either json or yaml format. Below is an example of the downloaded yaml definition file from the Data Services Cloud Console REST API documentation website.
 
 ![API definition yaml](/img/open-api-yaml.png "yaml")
 
