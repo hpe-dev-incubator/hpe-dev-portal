@@ -7,6 +7,7 @@ authorimage: https://gravatar.com/avatar/8102f2adeef249065ccb9c43b8866d17?s=192
 thumbnailimage: /img/dscc-icon-transparent.png
 tags:
   - data-services-cloud-console
+  - developer
 ---
 ## HPE GreenLake API Security
 
