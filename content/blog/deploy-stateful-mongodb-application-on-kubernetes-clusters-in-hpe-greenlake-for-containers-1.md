@@ -10,6 +10,7 @@ tags:
   - hpe-greenlake
   - kubernetes
   - mongodb
+  - developer
 ---
 ## Introduction
 
