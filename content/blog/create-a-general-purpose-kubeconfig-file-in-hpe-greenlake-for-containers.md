@@ -5,6 +5,7 @@ author: Guoping Jia
 authorimage: /img/guoping.png
 tags:
   - hpe-greenlake
+  - developer
 ---
 ## Introduction
 [HPE GreenLake for Containers](https://www.hpe.com/us/en/greenlake/containers.html), one of the HPE GreenLake Cloud services, is built on the CNCF certified [HPE Ezmeral Runtime Enterprise](https://www.hpe.com/us/en/software/ezmeral-runtime.html) and deployed as an enterprise-grade container management service using open source Kubernetes. The HPE GreenLake for Containers service is accessed and managed through one portal, called HPE GreenLake Central. The HPE GreenLake Central dashboard allows you to open the Clusters screen to create Kubernetes clusters using cluster blueprints, view details about existing clusters, and launch the HPE Ezmeral Runtime Enterprise dashboard, where you can view the status of all Kubernetes services and resource utilization across all clusters. The HPE Ezmeral Runtime Enterprise dashboard also allows you to download the kubectl binary, together with the kubeconfig file, to access and deploy applications using the client script. In this blog post, I will describe issues that are associated with this specific kubeconfig file downloaded from the dashboard and show you how to get around them.
