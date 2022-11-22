@@ -9,11 +9,11 @@ export const AppContext = React.createContext({
 });
 
 const AppProvider = ({ children }) => {
-  const [userStr, setUser] = useState(null);
+  const [userStr, setUser] = useState(localStorage.getItem('userInfo'));
 
   const user = useMemo(() => {
     if (userStr) {
-      return JSON.parse(localStorage.getItem('userInfo'));
+      return JSON.parse(userStr);
     }
     return null;
   }, [userStr]);
