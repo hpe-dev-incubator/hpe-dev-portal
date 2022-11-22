@@ -21,7 +21,7 @@ The cloud console brings the cloud experience to wherever data lives and streaml
 
 To access the Data Services Cloud Console, click on this URL <https://console.greenlake.hpe.com>, and sign-in using your HPE GreenLake's account.[](https://common.cloud.hpe.com)
 
-For a detailed overview of the console, and to get started using it, please click on this link <https://hpe.com/storage/dscc>.
+For a detailed overview of the console, and to get started using it, please click on this link <https://www.hpe.com/us/en/storage/data-services-cloud-console.html>.
 
 For a quick overview of the console, please click on the videos below.
 
