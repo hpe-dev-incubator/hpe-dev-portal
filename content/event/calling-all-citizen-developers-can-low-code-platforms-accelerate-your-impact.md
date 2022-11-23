@@ -5,7 +5,7 @@ dateStart: 2022-11-16T16:00:00.000Z
 dateEnd: 2022-11-16T17:00:00.000Z
 category: Virtual Event
 image: /img/Munch_and_Learn_192_192.svg
-link: " https://hpe.zoom.us/webinar/register/3416663493869/WN_8jlRM9SaRKmbT3r1CDNtDw"
+link: https://www.youtube.com/watch?v=zc_54fq8PoY&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF&index=1
 width: large
 ---
 ## Calling all citizen developers: Can low-code platforms accelerate your impact? 
