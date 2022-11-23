@@ -1,7 +1,7 @@
 ---
 title: "Calling all citizen developers: Can low-code platforms accelerate your
   impact?"
-active: true
+active: false
 fit: contain
 link: https://hpe.zoom.us/webinar/register/3416663493869/WN_8jlRM9SaRKmbT3r1CDNtDw
 path: ""
