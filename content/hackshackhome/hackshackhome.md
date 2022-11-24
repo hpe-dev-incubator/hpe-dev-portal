@@ -1,19 +1,16 @@
 ---
-title: "Calling all citizen developers: Can low-code platforms accelerate your
-  impact?"
-active: false
+title: "Running reliable systems Part 2: SLO Math"
+active: true
 fit: contain
-link: https://hpe.zoom.us/webinar/register/3416663493869/WN_8jlRM9SaRKmbT3r1CDNtDw
+link: https://hpe.zoom.us/webinar/register/7116666297407/WN_W88OPBFHR9adPaz5I6I0bQ
 path: ""
 imageBackground: white
-priority: 1
+priority: 3
 alt: munch and learn logo
-description: "Nov. 16, 2022: Hear how low-code development platforms are
-  unleashing creative talent to build enterprise apps and automations– often
-  with little-to-no budget. Even full-time developers can benefit from learning
-  about citizen development platforms to create “full stack” solutions outside
-  of their areas of expertise."
+description: "Dec 14, 2022: Join us to find out how you can set Service Level
+  Objectives that reflect the expectations of your customers through
+  mathematical probability."
 background: background
 label: Register Now!
-image: /img/event-munch-and-learn-newlogo400x400.png
+image: /img/event-meetups-newlogo-400x400.png
 ---
