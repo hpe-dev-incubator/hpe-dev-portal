@@ -8,6 +8,6 @@ link: https://hpe.zoom.us/webinar/register/1116680185569/WN_xLR2ynonSi6SojUswkVm
 width: large
 ---
 ## HPE GreenLake for Data Fabric
-January 19, 2022
+January 19, 2023
 
 Targeting hybrid and multi-cloud use cases that need a multi-modal data fabric, HPE GreenLake for Data Fabric delivers HPE Ezmeral Data Fabric as a managed service. Join this webinar to learn how the HPE Ezmeral Early Access program lets you try a fully deployed, configured and managed data fabric to aggregate heterogeneous data stores from a single interface and develop applications that are portable across clouds and on-prem.
