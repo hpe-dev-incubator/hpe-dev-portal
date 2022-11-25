@@ -4,7 +4,7 @@ dateStart: 2023-01-24T23:01:54.733Z
 dateEnd: 2023-01-25T22:59:54.811Z
 category: Virtual Event
 image: /img/event-meetups-newlogo-400x400.png
-link: https://developer.hpe.com
+link: https://hpe.zoom.us/webinar/register/7316693932430/WN_ILz_170PQuGrUdK3i79cqQ
 width: large
 ---
 ## HPE GreenLake and Infrastructure-as-Code (IaC)
