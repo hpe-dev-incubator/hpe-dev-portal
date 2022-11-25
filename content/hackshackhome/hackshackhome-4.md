@@ -1,7 +1,7 @@
 ---
 title: HPE GreenLake and IaC
 fit: contain
-path: https://developer.hpe.com
+path: https://hpe.zoom.us/webinar/register/6516693932553/WN_ILz_170PQuGrUdK3i79cqQ
 imageBackground: white
 description: "January 25, 2023: Join us to find out the work that is underway at
   HPE to support IaC in HPE GreenLake enabling developers to extend automation
