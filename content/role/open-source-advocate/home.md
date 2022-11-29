@@ -9,6 +9,7 @@ frontpage: true
 tags:
   - opensource
 ---
+
 <style>
 .row {
   display: grid;
@@ -17,11 +18,9 @@ tags:
 }
 </style>
 
-To stay on the cutting edge, you know your organization needs the agility afforded by open source software and community collaboration. And that’s what you’ll find here. Hewlett-Packard Enterprise (HPE) has always had a culture of open collaboration and giving back to the community. It’s in our DNA. Open source collaboration is the whole idea behind the HPE Developer Community, offering a place where HPE and external engineers can come together to accelerate innovation.
+Your organization appreciates the agility afforded by open source software and community collaboration. Here, you’ll discover how deeply open source is ingrained in the culture of Hewlett-Packard Enterprise (HPE) and how the projects we champion focus on the most important issues customers face today.
 
-Our open source projects today focus on common problems customers are trying to solve; making hybrid IT simple, enabling cloud economics, programming data analyses on laptops through supercomputers, and securing digital infrastructure. But they go beyond providing innovative enterprise solutions to tackling global issues, such as ensuring the right people can access the right data wherever it’s needed to combat disease and hunger. We do so by contributing to projects focused on cloud-native application development, data fabric, and high performance computing (HPC), investing in future growth areas such as AI, machine learning, data science, and edge computing.
-
-Explore community-powered innovation here as we highlight a few of the latest open source contributions from HPE. We encourage you to join these community efforts, contributing where and when you can.
+Explore community-powered innovation and join these [community](https://developer.hpe.com/community) efforts, contributing where and when you can.
 
 <br>
 <hr style="background: #7630EA; height: 5px; border: none">
@@ -30,90 +29,65 @@ Explore community-powered innovation here as we highlight a few of the latest op
 <div class="row">
   <div class="column">
     ### Get Inspired
-    **Data science de facto standards emerge**
+    **De facto standards emerge**
 
-    *Explore open standards for AI/ML tool and application development.*
+    *Explore new projects for AI/ML tool and application development*
   </div>
   <div class="column">
     ### Building a Foundation 
     **Secure from the start**
 
-    *Start with a zero-trust policy where everyone needs to be authenticated and authorized.*
+    *Implement a zero-trust policy where everyone needs to be authenticated and authorized*
   </div>
 </div>
 
 <div class="row">
   <div class="column">
-    - Improve scientific simulation efficiency and accuracy at scale using high-performance compute simulations and the open source framework of [SmartSim](https://developer.hpe.com/platform/smartsim/home/)
+    - Discover the high-performance compute framework of [SmartSim](https://developer.hpe.com/platform/smartsim/home/)
 
-    - Accelerate time-to-production with [Determined AI](https://developer.hpe.com/platform/determined-ai/home/), an open source deep learning training platform to build and train models faster and easier
+    - Accelerate deep learning time-to-production with [Determined AI](https://developer.hpe.com/platform/determined-ai/home/)
+
+    - Write, prototype, and port your parallel processing app in [Chapel](https://developer.hpe.com/platform/chapel/home/)
+
   </div>
   <div class="column">
 
-    - Use [SPIFFE](https://developer.hpe.com/platform/spiffe-and-spire-projects/home/) (Secure Production Identity Framework for Everyone) to securely authenticate services in dynamic and heterogeneous environments through platform-agnostic, cryptographic identification. This ensures distributed workloads can continuously establish mutual trust and encrypted communications within and across organizational boundaries, especially when communicating over untrusted networks
-     
+    - Use [SPIFFE](https://developer.hpe.com/platform/spiffe-and-spire-projects/home/) (Secure Production Identity Framework for Everyone) to securely authenticate services in dynamic, heterogeneous environments
 
+     
   </div>
 </div>
 
 ---
 
-<div class="row">
-  <div class="column">
-    **Prototype-then-port parallel processing apps**
-
-    *ML/DL and AI apps requiring large-scale simulation often need the power of parallel processing, but access to HPC hardware can be limited.*
-    
-  </div>
-  <div class="column">
-    **Connect seamlessly to trustworthy data**
-
-    *Dataspaces provide the building blocks to integrate diverse data sets from multiple distributed owners and gain broader discovery and access with improved governance and trust.*
-  </div>
-</div>
-
-<div class="row">
-  <div class="column">
-    
-    - Consider writing your app in [Chapel](https://developer.hpe.com/platform/chapel/home/), which allows you to prototype your app on a laptop and then run it at scale on larger systems
-     
-
-  </div>
-  <div class="column">
-
-    - Create a standard and open approach to meta data, enabling easier cross-vertical discovery and sharing of distributed diverse data sets with [HPE Dataspaces](https://www.hpe.com/us/en/what-is/dataspaces.html)
-     
-
-  </div>
-</div>
-
----
-
-<div class="row">
-  <div class="column">
-    **Apply open source solutions to solve global issues**
+<div class="row"> 
+  <div class="column"> 
+    **Solve global issues**
 
     *In an interconnected world, technology can enhance and protect our existence*
-    
+
   </div>
-  <div class="column">
+  <div class="column"> 
     **Modernize the SQL stack for analytics transformations**
 
     *Enterprises increasingly require data analytics services with cloud-like operations*
+
   </div>
 </div>
 
 <div class="row">
   <div class="column">
-    
-    - [AgStack](https://github.com/agstack) Foundation aims to improve global agriculture efficiency through the creation, maintenance and enhancement of free, reusable, open and specialized digital infrastructure for data and applications
-     
+
+    - See how the [AgStack](https://github.com/agstack) Foundation aims to improve global agriculture efficiency
+
+    - Watch [Scale for good](https://www.hpe.com/us/en/discover-more-network/series/scale-for-good.html?media-id=/us/en/resources/discover/dmn/scale-for-good/thefoodcrisiscantechnologyscaletofeedtheworld/_jcr_content.details.json&media-strategy=delegate)
 
   </div>
   <div class="column">
 
-    - Current on-premises SQL technologies don’t account for the new requirements around hybrid cloud and scale. [Presto](https://github.com/prestodb/presto) supports SQL runtimes to increase speed
-     
+    - Explore [Presto](https://github.com/prestodb/presto)
+
+    - Watch [Scale for good](https://www.hpe.com/us/en/discover-more-network/series/scale-for-good.html?media-id=/us/en/resources/discover/dmn/scale-for-good/thefoodcrisiscantechnologyscaletofeedtheworld/_jcr_content.details.json&media-strategy=delegate)
 
   </div>
 </div>
@@ -124,57 +98,55 @@ Explore community-powered innovation here as we highlight a few of the latest op
 
 ### Addressing Key Concerns
 
-**I have data everywhere, including supplier and customer sites. I need to take advantage of it for AI and machine learning applications. What open source technologies can help me do this?**
+**Managing distributed data, including supplier and customer sites**
 
-- View this video to learn how [HPE Dataspaces](https://www.hpe.com/h22228/video-gallery/us/en/505e5730-c199-4ca8-9ee7-d70ba6f6f7fa/dataspaces--connecting-you-to-data-you-can-trust/video/) connects data consumers with data producers offering a clean and trusted exchange of data
- 
+  - View how [HPE Dataspaces](https://www.hpe.com/h22228/video-gallery/us/en/505e5730-c199-4ca8-9ee7-d70ba6f6f7fa/dataspaces--connecting-you-to-data-you-can-trust/video/) (now known as HPE Project Data Map) connects data consumers with data producers offering a clean and trusted exchange of data
 
-**How can open, interconnected data access solve global issues?**
+  - Explore [Project Data Map](https://developer.hpe.com/platform/project-data-map/home/)
 
--	Explore how HPE’s research partnership with [CGIAR System Organization](https://www.cgiar.org/how-we-work/governance/system-organization/), [The AgStack Foundation](https://agstack.org/) and [Digital Green](https://www.digitalgreen.org/) enables farmers to find the data they need to advance their agricultural goals in this [article](https://community.hpe.com/t5/Advancing-Life-Work/Dataspaces-how-an-open-metadata-layer-can-establish-a/ba-p/7149075#.YjUz4hDMLlx)
- 
+**Solving global issues with open, interconnected solutions**
 
+  - Explore HPE’s research partnerships with [CGIAR System Organization](https://www.cgiar.org/how-we-work/governance/system-organization/), [The AgStack Foundation](https://agstack.org/) and [Digital Green](https://www.digitalgreen.org/) in this [article](https://community.hpe.com/t5/Advancing-Life-Work/Dataspaces-how-an-open-metadata-layer-can-establish-a/ba-p/7149075#.YjUz4hDMLlx)
+   
 
-**Where can I find an open source tool that helps me build and train ML models faster and easier?**
+**Building and training deep learning models faster and easier**
 
-- Read [Determined AI is Joining Hewlett Packard Enterprise](https://developer.hpe.com/blog/determined-ai-is-joining-hewlett-packard-enterprise/)
+  - Read Deep learning model training [Part 1](https://developer.hpe.com/blog/deep-learning-model-training-%E2%80%93-a-first-time-user%E2%80%99s-experience-with-determined-part-1/) and [Part 2](https://developer.hpe.com/blog/deep-learning-model-training-%E2%80%93-a-first-time-user%E2%80%99s-experience-with-determined-%E2%80%93-part-2/)
 
-- Learn more about [Determined AI](https://developer.hpe.com/platform/determined-ai/home/)
+  - Learn more about [Determined AI](https://developer.hpe.com/platform/determined-ai/home/)
 
-**My machine-learning application requires the power of parallel processing. But access to HPC machines is limited. Is there a way I can prototype my app on less expensive hardware and then port it over to a cluster or supercomputer?**
+**Designing for parallel processing easily and with less expense**
 
-- Explore [Chapel](https://developer.hpe.com/platform/chapel/home/), an open source programming language that aims to solve the “prototype then port” issue, developed by Cray, an HPE company
+  - Explore [Chapel](https://developer.hpe.com/platform/chapel/home/), an open source programming language designed to “prototype then port”, developed by Cray, an HPE company
 
-- Learn more about [Chapel](https://chapel-lang.org/)
+  - Learn more about [Chapel](https://chapel-lang.org/)
 
-- [Join the Chapel community](https://chapel.discourse.group/latest)
+  - [Join the Chapel community](https://chapel.discourse.group/latest)
 
- 
+**Securing applications in heterogeneous, distributed environments**
 
-**How do I secure an application in heterogeneous, distributed environments?**
+  - Learn how [SPIFFE/SPIRE](https://developer.hpe.com/platform/spiffe-and-spire-projects/home/) can help in the eBook [Solving the Bottom Turtle](https://spiffe.io/book/)
 
-- Learn how the CNCF-incubated project, [SPIFFE/SPIRE](https://developer.hpe.com/platform/spiffe-and-spire-projects/home/), can help in the eBook [Solving the Bottom Turtle](https://spiffe.io/book/)
+  - [SPIFEE/SPIRE graduates](https://developer.hpe.com/blog/spiffe-spire-graduates-enabling-greater-security-solutions/) at CNCF
 
-- Explore some of the [top capabilities of SPIFFE/SPIRE](https://developer.hpe.com/blog/top-13-capabilities-within-spiffe-and-spire-released-in-2019/)
+  - [Join the SPIFFE/SPIRE community](https://slack.spiffe.io/)
 
-- [Join the SPIFFE/SPIRE community](https://slack.spiffe.io/)
+**Deploying stateful applications on a modern Kubernetes platform**
 
-**How can I deploy my stateful application on my modern, open Kubernetes platform?**
+  - Learn about and contribute to the HPE-sponsored open source project [KubeDirector](https://kubedirector.io/)
 
-- Learn about and contribute to the HPE-sponsored open source project [KubeDirector](https://kubedirector.io/)
+  - Explore [HPE Ezmeral Runtime Enterprise](https://developer.hpe.com/platform/hpe-ezmeral/home/)
 
-- Deploy cloud-native and non-cloud-native apps running on bare-metal or virtualized infrastructure, on-premises, on any cloud and at the edge with KubeDirector-powered [HPE Ezmeral Runtime Enterprise](https://developer.hpe.com/platform/hpe-ezmeral/home/)
+**Managing systems using open source standards**
 
-**How can I manage my systems using open source standards?**
+  - Check out the [Redfish API ecosystem](https://developer.hpe.com/platform/ilo-restful-api/home/)
 
-- Simply and securely manage your data center hardware with the [Redfish API ecosystem](https://developer.hpe.com/platform/ilo-restful-api/home/)
+  - Learn why the [industry is transitioning to Redfish](https://www.hpe.com/psnow/doc/4AA6-1727ENW?jumpid=in_lit-psnow-red)
 
-- Learn why the [industry is transitioning to Redfish](https://www.hpe.com/psnow/doc/4AA6-1727ENW?jumpid=in_lit-psnow-red)
+**Creating responsive, accessible mobile-first apps**
 
-**Where can I find open source design system and development framework tools to create responsive, accessible mobile-first apps?**
-
-- Build awesome apps with the HPE-sponsored open source project, [Grommet](/platform/grommet/home/)
- 
+  - Build awesome apps, [Grommet](https://developer.hpe.com/platform/grommet/home/)
+   
 
 <br>
 <hr style="background: #FF8300; height: 5px; border: none">
@@ -186,11 +158,12 @@ Explore community-powered innovation here as we highlight a few of the latest op
 
 <div class="row">
   <div class="column">
-    Monthly meetups where you can hear from experts on the newest technologies. Catch up on any you may have missed and register for upcoming talks.
+
+   Monthly meetups where you can hear from experts on the newest technologies. Catch up on any you may have missed and register for upcoming talks.
 
   </div>
   <div class="column">
-    - Mithril: Introducing Robust Identities into Istio by integrating with SPIRE
+    - [Mithril: Introducing Robust Identities into Istio by integrating with SPIRE](https://youtu.be/xhd8MhG4Vvw&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF)
 
     - [Golden Age of AI, Dark Ages of AI Infrastructure](https://www.youtube.com/watch?v=ktZFLD-9qgw&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF)
 
@@ -199,9 +172,14 @@ Explore community-powered innovation here as we highlight a few of the latest op
     - [How to make data consumable for real-world data science](https://www.youtube.com/watch?v=4WKjRqflF7M&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF&ab_channel=HPETechnology)
 
     - [Building a foundation for zero trust with SPIFFE](https://www.youtube.com/watch?v=G1ceKr16nn8&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF&ab_channel=HPETechnology)
-    
+
     - [What’s a data fabric and how does it work?](https://www.youtube.com/watch?v=qi6sTvu8osk&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF)
 
+    - [Kubernetes 101](https://youtu.be/PWVJKK1obKQ&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF)
+
+    - [Chapel: making parallel computing as easy as Py(thon) from laptops to supercomputers](https://www.youtube.com/watch?v=7Qk8T7_bevo&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF&index=1)
+
+    - [Why Open Source is more than software: The example of the Linux Foundation’s AgStack project](https://www.youtube.com/watch?v=dnhjRF5dr6M&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF&index=1)
 
   </div>
 </div>
@@ -213,20 +191,32 @@ Explore community-powered innovation here as we highlight a few of the latest op
 
 <div class="row">
   <div class="column">
+
     A series of in-depth talks on open source developer technologies.
 
   </div>
   <div class="column">
 
-    - Decoupled policy enforcement with Open Policy Agent
+    - [Decoupled policy enforcement with Open Policy Agent](https://www.youtube.com/watch?v=_0XJnr8U0sU&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF)
 
-    - HPE + vFunction: Modernizing Legacy Applications and Data Sources Faster
+    - [HPE + vFunction: Modernizing Legacy Applications and Data Sources Faster](https://www.youtube.com/watch?v=UvcyIjzml7s&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF)
 
     - [Quarkus - Supersonic Subatomic Java](https://hpe.zoom.us/webinar/register/5716414626617/WN_VS7nBF_qQze0G64XLzBilw)
 
     - [Streamlit - The fastest way to build and share data science apps](https://hpe.zoom.us/webinar/register/2016414625150/WN_FzzTDsTjQBSw-UFwD6UTdw)
 
-     
+    - [Scaling language training to trillion-parameter models on a GPU cluster](https://www.youtube.com/watch?v=rIPqCvvMmms&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF&index=1)
+
+    - [OpenSearch – the open-source search and analytics suite you can run yourself](https://www.youtube.com/watch?v=KdssEOIdO_0&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF&index=1)
+
+    - [Finding vulnerabilities in production with open source ThreatMapper](https://www.youtube.com/watch?v=r62VLwT6w3Y&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF&index=1)
+
+    - [OpenTelemetry: Getting started and the road to production](https://www.youtube.com/watch?v=odi9isyZOrU&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF&index=1)
+
+    - [Boost Spark AI workloads with Pepperdata](https://www.youtube.com/watch?v=N36DTliNmck&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF&index=1)
+
+    - Introduction to Kubeflow
+
   </div>
 </div>
 
@@ -262,6 +252,20 @@ Explore community-powered innovation here as we highlight a few of the latest op
 
     - [Jupyter Notebooks 101 – A simple how to on Jupyter Notebooks](https://developer.hpe.com/hackshack/workshop/25)
 
+    - [Ansible 101 – Introduction to Ansible concepts](https://developer.hpe.com/hackshack/workshop/31)
+
+    - [Spark 101 – Introduction to Apache Spark concepts](https://developer.hpe.com/hackshack/workshop/34)
+
+    - [Deep Learning model training at scale with Determined](https://developer.hpe.com/hackshack/replays/38)
+
+    - [Docker 101 – Introduction to Docker concepts](https://developer.hpe.com/hackshack/workshop/33)
+
+    - [Creating a zero trust model for microservices architectures with SPIRE and Envoy](https://developer.hpe.com/hackshack/replays/32)
+
+    - [Building a dynamic Machine Learning pipeline with KubeDirector](https://developer.hpe.com/hackshack/workshop/18)
+
+    - [Redfish API 101 – Introduction to Redfish programming through the use of PowerShell and Python](https://developer.hpe.com/hackshack/workshop/10)
+
   </div>
 </div>
 
@@ -272,7 +276,7 @@ Explore community-powered innovation here as we highlight a few of the latest op
 
 <div class="row">
   <div class="column">
-    Find documentation, API information, videos and tutorials on our [open source platform pages](/opensource/).
+    Find documentation, API information, videos and tutorials on our [open source platform pages](https://developer.hpe.com/opensource/).
 
   </div>
   <div class="column">
@@ -294,22 +298,24 @@ Explore community-powered innovation here as we highlight a few of the latest op
 
 ---
 
-
 <br><br>
+
 <div style="font-weight: 700; font-size: 27px">Engage</div>
 
 <div class="row">
   <div class="column">
-    Ping us with your comments, questions, and requests for information. We recommend starting with the HPE Developer Slack workspace.
+   Ping us with your comments, questions, and requests for information. We recommend starting with the HPE Developer Slack workspace.
 
   </div>
   <div class="column">
 
-    - [HPE Developer Slack](https://slack.hpedev.io/)
+    - [HPE Developer Community Slack](https://slack.hpedev.io/)
 
     - [Grommet Slack](https://grommet.slack.com/)
 
     - [Chapel Discourse Forum](https://chapel.discourse.group/latest)
+
+    - [Contribute to open source projects](https://developer.hpe.com/OSScontribute)
 
   </div>
 </div>

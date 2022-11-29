@@ -9,6 +9,7 @@ active: true
 tags:
   - developer
 ---
+
 <style>
 .row {
   display: grid;
@@ -17,11 +18,9 @@ tags:
 }
 </style>
 
-Every software developer, computer programmer, software engineer, and coder shares the same goal: to create the best software for customers. This involves user experience, security, serviceability, and reusability, as well as commercial success. In addition to knowing the languages and tools at your disposal, it also requires an understanding of your deployment model - considering the teams in place, the corporate context and the delivery mechanism. And in this quickly evolving environment, it’s not always easy to keep up.
+Every software developer, computer programmer, and coder shares the same goal: to create the best software for customers. Here, we cover the latest trends and techniques to help you improve the way you build software for your customers – whether it’s through open source projects or commercial offerings.
 
-Here, we cover the latest software trends, new programming languages, and new techniques and methodologies to help you improve the way you build software for your customers – whether it’s through open source projects or commercial offerings. 
-
-The role of the Developer may overlap with other roles like the [Data-driven Developer](https://developer.hpe.com/role/data-driven-developer/home/) or even the [Data Scientist](https://developer.hpe.com/role/data-scientist/home/). On this page, we focus on developers who build the applications that generate data, which Data Scientists can use to support business outcomes.
+Check out some of our other role pages, such as [Data Scientist](https://developer.hpe.com/role/data-scientist/home/) to explore issues you may have in common.
 
 <br>
 <hr style="background: #7630EA; height: 5px; border: none">
@@ -32,26 +31,29 @@ The role of the Developer may overlap with other roles like the [Data-driven Dev
     ### Get Inspired
     **Build the right user experience**
 
-    *Delivering a consistent, enjoyable user experience (UX) is key to developing successful applications today.*
+    *Delivering a consistent, enjoyable user experience (UX) is key to developing successful applications today*
+
   </div>
   <div class="column">
     ### Building a Foundation 
-    **Kubernetes**
+    **HPE GreenLake**
 
-    *Open source Kubernetes is the de-facto standard for managing containerized applications at scale. But it can be complex and take time and experience to fully master.*
+    *Develop for an as-a-Service infrastructure*
+
   </div>
 </div>
 
 <div class="row">
   <div class="column">
-    - Bringing UX designers into a project early can significantly improve your chances of success. Read [Wow – A practiced and perfected design process.](https://developer.hpe.com/blog/wow-a-practiced-and-perfected-design-process-part-1-uncovering-the-merit/)
-
-    - Implementing validated designs isn’t always easy. See how [HPE DesignSystem](https://design-system.hpe.design/), based on open source Grommet, can help you get there faster and easier.
+    - Read [Wow – A practiced and perfected design process.](https://developer.hpe.com/blog/wow-a-practiced-and-perfected-design-process-part-1-uncovering-the-merit/)
+    
+    - Explore [HPE Design System](https://design-system.hpe.design/)
   </div>
   <div class="column">
-    - Learn how to migrate an existing application by reading [Deploying Complex Stateful Applications on Kubernetes with KubeDirector](https://developer.hpe.com/blog/deploying-complex-stateful-applications-on-kubernetes-with-kubedirector/) or [Best Practices for Migrating Your Apps to Containers and Kubernetes](https://developer.hpe.com/blog/best-practices-for-migrating-your-apps-to-containers-and-kubernetes/)
+    - Read [Introducing the HPE GreenLake Developer portal](https://developer.hpe.com/blog/introducing-the-hpe-greenlake-developer-portal/)
 
-    - Read [Introducing a multi-vendor CSI driver for Kubernetes](https://developer.hpe.com/blog/introducing-a-multi-vendor-csi-driver-for-kubernetes/) and [Using Raw Block and Ephemeral Inline Volumes on Kubernetes](https://developer.hpe.com/blog/using-raw-block-and-ephemeral-inline-volumes-on-kubernetes/) to learn how to leverage the CSI driver for persistent storage for your applications
+    - Check out the [HPE GreenLake Developer API portal](https://developer.greenlake.hpe.com/)
+
   </div>
 </div>
 
@@ -61,26 +63,34 @@ The role of the Developer may overlap with other roles like the [Data-driven Dev
   <div class="column">
     **Containerized apps**
 
-    *Complex applications can be assembled from small, independent containerized modules with REST API-based interaction. Choose the right platform for your deployment.*
-    
+    *Modern, cloud-native application development relies heavily on containers and Kubernetes*
+
   </div>
   <div class="column">
     **Zero-Trust Security**
 
-    *Securing an application in heterogeneous, distributed environments is a daunting task. A CNCF-incubated project, SPIFFE/SPIRE, can help.*
+    *Secure applications in heterogeneous, distributed environments*
+
   </div>
 </div>
 
 <div class="row">
   <div class="column">
-    
-    Modern, cloud-native application development relies heavily on containers and Kubernetes. When determining the right platform for your use, be sure to check out [HPE Ezmeral Runtime Enterprise.](https://developer.hpe.com/platform/hpe-ezmeral/home/)
+    - Check out [HPE Ezmeral Runtime Enterprise](https://developer.hpe.com/platform/hpe-ezmeral/home/)
+
+    - [Create a general-purpose Kubeconfig file in HPE GreenLake for Containers](https://developer.hpe.com/blog/create-a-general-purpose-kubeconfig-file-in-hpe-greenlake-for-containers/)
+
+    - See [Best Practices for Migrating Your Apps to Containers and Kubernetes](https://developer.hpe.com/blog/best-practices-for-migrating-your-apps-to-containers-and-kubernetes/)
+
+    - Read [Lift and transform apps with HPE CSI Driver for Kubernetes](https://developer.hpe.com/blog/lift-and-transform-apps-with-hpe-csi-driver-for-kubernetes/)
 
   </div>
   <div class="column">
-    - [Learn about the concept of Zero-Trust security in the ebook Solving the Bottom Turtle](https://spiffe.io/book/)
+    - Explore [SPIFFE/SPIRE projects](https://developer.hpe.com/platform/spiffe-and-spire-projects/home)
 
-    - [Discover some of the more recently added SPIFFE/SPIRE capabilities](https://developer.hpe.com/blog/top-13-capabilities-within-spiffe-and-spire-released-in-2019/)
+    - Read [SPIFFE/SPIRE graduates, enabling greater security solutions](https://developer.hpe.com/blog/spiffe-spire-graduates-enabling-greater-security-solutions/)
+
+    - Discover [Galadriel - A SPIRE Federation alternative](https://developer.hpe.com/blog/galadriel-a-spire-federation-alternative/)
 
   </div>
 </div>
@@ -91,47 +101,46 @@ The role of the Developer may overlap with other roles like the [Data-driven Dev
 
 ### Addressing Key Concerns
 
-**How can I easily prototype my designs?**
+**Prototyping designs**
 
-- Learn about the [open source React framework Grommet](https://developer.hpe.com/platform/grommet/home/)
+- Learn about the [Grommet](https://developer.hpe.com/platform/grommet/home/)
 
 - [Test the Grommet Designer ](https://designer.grommet.io/)
 
-**How do I best handle parallel programming?**
+**Handling parallel programming**
 
--	Explore [Chapel](https://developer.hpe.com/platform/chapel/home/), an open source programming language invented by parallel programming engineers from Cray Computer, now part of Hewlett Packard Enterprise
+  - Explore [Chapel](https://developer.hpe.com/platform/chapel/home/)
 
-- [Join the Chapel community](https://chapel.discourse.group/latest)
+  - [Join the Chapel community](https://chapel.discourse.group/latest)
 
-- Read about the HPE Cray Programming Environment [here](https://community.hpe.com/t5/Advantage-EX/Make-your-apps-run-faster-with-HPE-Cray-Programming-Environment/ba-p/7144400?jumpId=in_videogallery_0f352d12-b606-4fae-97db-be760f0fda7a_gaiw) or follow [this](https://www.hpe.com/h22228/video-gallery/us/en/4ee817bd-3edc-45db-aed0-ae054d9d8712/take-the-frustration-out-of-hpc-software-development-with-hpe-cray-programming-environment-/video/) 25mn seminar
+**Securing workloads in distributed environments**
 
-**How do I secure workloads in distributed environments?**
+  - Learn about [SPIFFE/SPIRE](https://developer.hpe.com/platform/spiffe-and-spire-projects/home/)
 
-- Learn about the CNCF project, [SPIFFE/SPIRE](https://developer.hpe.com/platform/spiffe-and-spire-projects/home/), and how to achieve zero-trust security for your application
+  - [Join the SPIFFE/SPIRE community](https://slack.spiffe.io/)
 
-- [Join the SPIFFE/SPIRE community](https://slack.spiffe.io/)
+**Deploying stateful applications**
 
-**How can I deploy my stateful application on my modern Kubernetes platform?**
+  - [Read about the KubeDirector project](https://developer.hpe.com/blog/best-practices-for-migrating-your-apps-to-containers-and-kubernetes/)
+  
 
-- If migrating a legacy application to Kubernetes is one of your concerns, [read about  the KubeDirector project](https://developer.hpe.com/blog/best-practices-for-migrating-your-apps-to-containers-and-kubernetes/)
+**Designing for HPE GreenLake**
 
- 
+  - Find APIs in the [HPE GreenLake Developer API portal](https://developer.greenlake.hpe.com/)
 
-**How can I focus more about the application, and less about the data?**
+  - Learn to [create a general purpose kubeconfig file in HPE GreenLake for Containers](https://developer.hpe.com/blog/create-a-general-purpose-kubeconfig-file-in-hpe-greenlake-for-containers/)
 
-- [Read the eBook](https://www.hpe.com/us/en/resources/software/ai-and-analytics-systems.html) to learn how to simplify using and sharing your data with a common infrastructure
+  - See how to [deploy a stateful MongoDB application on Kubernetes clusters in HPE GreenLake for Containers](https://developer.hpe.com/blog/deploy-stateful-mongodb-application-on-kubernetes-clusters-in-hpe-greenlake-for-containers-1/)
 
-- Make sure you check our [HPE Ezmeral Data Fabric platform](https://developer.hpe.com/platform/hpe-ezmeral-data-fabric/home/) pages
+  - Learn more about [HPE GreenLake](https://developer.hpe.com/platform/hpe-greenlake/home)
 
-**How do you handle collaboration and sharing of code in your organization?**
+**Building through collaboration**
 
-Mastering Git (including GitHub, GitLab, etc.) is a key element of the modern developer toolkit and mandatory for being a contributor or consumer of open source projects. We have designed this series of blog posts to help with Git wizardry: 
+  - [Get started with Git and get involved in the open source community](https://developer.hpe.com/blog/get-involved-in-the-open-source-community-part-1-getting-started-with-git/)
 
-- [Get started with Git and get involved in the open source community](https://developer.hpe.com/blog/get-involved-in-the-open-source-community-part-1-getting-started-with-git/)
+  - [Learn to share with the community using Git](https://developer.hpe.com/blog/get-involved-in-the-open-source-community-part-2-sharing-with-the-commun/)
 
-- [Learn to share with the community using Git](https://developer.hpe.com/blog/get-involved-in-the-open-source-community-part-2-sharing-with-the-commun/)
-
-- [Start contributing back to the community](https://developer.hpe.com/blog/get-involved-in-the-open-source-community-part-3-contributing-back-to-th/)
+  - [Start contributing back to the community](https://developer.hpe.com/blog/get-involved-in-the-open-source-community-part-3-contributing-back-to-th/)
 
 <br>
 <hr style="background: #FF8300; height: 5px; border: none">
@@ -143,7 +152,10 @@ Mastering Git (including GitHub, GitLab, etc.) is a key element of the modern de
 
 <div class="row">
   <div class="column">
-    Monthly meetups where you can hear from experts on the newest technologies. Catch up on any you may have missed and register for upcoming talks.
+
+    Hear from industry experts on the newest technologies.
+
+     
 
   </div>
   <div class="column">
@@ -152,6 +164,12 @@ Mastering Git (including GitHub, GitLab, etc.) is a key element of the modern de
     - [Building a foundation for zero trust with SPIFFE](https://www.youtube.com/watch?v=G1ceKr16nn8)
 
     - [Kubernetes 101](https://www.youtube.com/watch?v=PWVJKK1obKQ&feature=youtu.be)
+
+    - [Mithril: Introducing Robust Identities into Istio by integrating with SPIRE](https://youtu.be/xhd8MhG4Vvw&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF)
+
+    - [Chapel: Making parallel computing as easy as Py(thon), from laptops to supercomputers](https://www.youtube.com/watch?v=7Qk8T7_bevo&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF&index=1)
+
+    - [Calling all citizen developers: Can low-code platforms accelerate your impact?](https://youtu.be/zc_54fq8PoY)
 
   </div>
 </div>
@@ -163,7 +181,8 @@ Mastering Git (including GitHub, GitLab, etc.) is a key element of the modern de
 
 <div class="row">
   <div class="column">
-    A series of in-depth talks on open source developer technologies.
+
+   A series of in-depth talks on open source developer technologies.
 
   </div>
   <div class="column">
@@ -171,7 +190,14 @@ Mastering Git (including GitHub, GitLab, etc.) is a key element of the modern de
 
     - [Streamlit - The fastest way to build and share data science apps](https://hpe.zoom.us/webinar/register/2016414625150/WN_FzzTDsTjQBSw-UFwD6UTdw)
 
-     
+    - [HPE + vFunction: Modernizing Legacy Applications and Data Sources Faster](https://www.youtube.com/watch?v=UvcyIjzml7s&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF&index=1)
+
+    - Introduction to Kubeflow
+
+    - Running reliable systems - Part 1: An Overview of Site Reliability Engineering (SRE)
+
+    - Running reliable systems - Part 2: Service level objective (SLO) Math
+
   </div>
 </div>
 
@@ -184,6 +210,7 @@ Mastering Git (including GitHub, GitLab, etc.) is a key element of the modern de
 
 <div class="row">
   <div class="column">
+
     Free, in-depth, hands-on workshops that allow you to explore details of a technology by interacting with it. Designed to fit your schedule, these workshops are available 24/7 – from anywhere at any time.
 
   </div>
@@ -203,23 +230,38 @@ Mastering Git (including GitHub, GitLab, etc.) is a key element of the modern de
 
     - [GIT 101 – Get involved in the open source community](https://hackshack.hpedev.io/workshop/17)
 
+    - [Docker 101 – Introduction to Docker concepts](https://developer.hpe.com/hackshack/workshop/33)
+
+    - [Using Kubernetes CSI with HPE Ezmeral Runtime Enterprise](https://developer.hpe.com/hackshack/workshop/2)
+
+    - [Creating a Zero Trust Model for Microservices Architectures with SPIRE and Envoy](https://developer.hpe.com/hackshack/replays/32)
+
+    - [Programming with the Aruba CX pyaoscx Python SDK](https://developer.hpe.com/hackshack/replays/11)
+
+    - [Intro to the HPE Ezmeral Runtime Enterprise REST API](https://developer.hpe.com/hackshack/workshop/0)
+
+    - [Jupyter Notebooks 101 – a simple how to on Jupyter Notebooks](https://developer.hpe.com/hackshack/workshop/25)
+
+    - [Redfish API 101 – Introduction to Redfish programming through the use of PowerShell and Python](https://developer.hpe.com/hackshack/workshop/10)
+
   </div>
 </div>
 
 ---
 
-
 <br><br>
+
 <div style="font-weight: 700; font-size: 27px">Engage</div>
 
 <div class="row">
   <div class="column">
+
     Ping us with your comments, questions, and requests for information. We recommend starting with the HPE Developer Slack workspace.
 
   </div>
   <div class="column">
 
-    - [HPE Developer Slack](https://slack.hpedev.io/)
+    - [HPE Developer Community Slack](https://slack.hpedev.io/)
 
     - [Grommet Slack](https://grommet.slack.com/)
 

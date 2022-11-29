@@ -9,6 +9,7 @@ active: true
 tags:
   - data-scientist
 ---
+
 <style>
 .row {
   display: grid;
@@ -17,11 +18,9 @@ tags:
 }
 </style>
 
-Data science is an intriguing field, and recognition of its potential is rapidly expanding. But there are challenges. You need access to the right data and the flexibility to use a variety of tools of your own choice. The pipeline for data preparation and for model and application deployment needs to be reliable and efficient. And you need to increase the likelihood that stakeholders and IT managers will green-light new projects.
+Data scientists continuously look for ways to extract value from data and to better know what data they can trust. On this page, we showcase foundational material to guide you, ideas to help you get inspired, and practical tips to help make your data science projects easier to build and more likely to be successful.
 
-On this page, we provide a range of content – for advanced data scientists to those just getting started – to help you meet these challenges. You will find a rotating selection of foundational material, ideas to help you get inspired, as well as practical tips on key issues that help make your data science projects easier to build and more likely to be successful. You’ll also learn what Hewlett Packard Enterprise (HPE) offers. 
-
-The roles of the Data/ML Engineer and Data Scientist can overlap. You may also find content of interest to you on the [Data/ML Engineer](/role/data-ml-engineer/home/) page. Content on this page changes as new material becomes available or new topics arise, so check back regularly.
+Visit our [Data/ML Engineer](https://developer.hpe.com/role/data-ml-engineer/home/) page to explore areas of common interest.
 
 <br>
 <hr style="background: #7630EA; height: 5px; border: none">
@@ -30,63 +29,44 @@ The roles of the Data/ML Engineer and Data Scientist can overlap. You may also f
 <div class="row">
   <div class="column">
     ### Get Inspired
-    **A sampler of new ideas**
-
-    *Learn how innovation may affect your job.*
-  </div>
-  <div class="column">
-    ### Building a Foundation 
-    **Optimize data access**
-
-    *The right data infrastructure gives you direct access to data via a wide range of APIs for a choice in tools.*
-  </div>
-</div>
-
-<div class="row">
-  <div class="column">
-    - [Watch Deequ: Unit Tests for Data](https://www.youtube.com/watch?v=2f_JewK79GI) to learn why unit testing isn’t just for code
-
-    - Read [Swarm Learning: Turn Your Distributed Data into Competitive Edge](https://www.hpe.com/us/en/pdfViewer.html?docId=a50000344&parentPage=/us/en/products/compute/hpc/deep-learning&resourceTitle=Swarm+Learning:+Turn+Your+Distributed+Data+into+Competitive+Edge+technical+white+paper) to see how innovative architectures take advantage of the increasingly distributed nature of data
-  </div>
-  <div class="column">
-    - Study the technical paper [HPE Ezmeral Data Fabric: Modern infrastructure for data storage and management](https://www.hpe.com/psnow/doc/a00110846enw)
-
-    - Learn best practices in [Getting the most from your data-driven transformation: 10 key principles](https://www.hpe.com/us/en/insights/articles/getting-the-most-from-your-data-driven-transformation-2109.html)
-
-    - View the [HPE Ezmeral Data Fabric platform ](https://developer.hpe.com/platform/hpe-ezmeral-data-fabric/home/) page
-  </div>
-</div>
-
----
-
-<div class="row">
-  <div class="column">
-    **Working together**
-
-    *Domain expertise helps frame questions, identify useful data, and take action on insights.*
+    **Dealing with distributed data**
     
+    *See how innovative architectures help you take advantage of the increasingly distributed nature of data*
+
   </div>
   <div class="column">
-    **Containerization of applications**
+    ###Building a Foundation
+    **Optimize data access**
+    
+    *The right data infrastructure gives you direct access to data via a wide range of APIs*
 
-    *The open source Kubernetes framework orchestrates containers.*
   </div>
 </div>
-
 <div class="row">
   <div class="column">
-    - Discover [The New Data Science Team: Who’s on First?](https://community.hpe.com/t5/HPE-Ezmeral-Uncut/The-New-Data-Science-Team-Who-s-on-First/ba-p/7154783#.Ybi1pb3MI2y) and learn how multiple roles contribute to a successful data science project
 
-    - Combine diverse data sets to advance healthcare. Watch  [Data Saves Lives](https://www.hpe.com/us/en/discover-more-network/events/discover-2021/results.html/types/sessions/search/b4372?media-id=/us/en/resources/discover/las-vegas-2021/B4372/_jcr_content.details.json) to learn how
+    - Explore [Project Data Map](https://developer.hpe.com/platform/project-data-map/home/)
 
-    - Watch  [Data Feeds People](https://www.hpe.com/us/en/discover-more-network/events/discover-2021/results.html/types/sessions/search/b4373) to see how combined stakholder expertise puts advanced agricultural knowledge to work in the field - literally
+    - Understand [Why Open Source is more than software: The example of the Linux Foundation’s AgStack project](https://developer.hpe.com/blog/why-open-source-is-more-than-software-the-example-of-the-linux-foundations-agstack-project/)
+
+    - Watch [Using Data for Good](https://www.youtube.com/watch?v=2f4DQ2jPcHI)
+
+    - [Read Writing deep learning tools for all data scientists, not just unicorns](https://developer.hpe.com/blog/writing-deep-learning-tools-for-all-data-scientists-not-just-unicorns/)
+
   </div>
-  <div class="column">
-    - Read [Kuberneticized machine learning and AI using Kubeflow](https://developer.hpe.com/blog/kubernetized-machine-learning-and-ai-using-kubeflow/)
+   <div class="column">
 
-    - Learn how management of large scale Kubernetes clusters is made easier with [HPE Ezmeral Runtime Enterprise](https://developer.hpe.com/platform/hpe-ezmeral/home/)
+    - Explore [Getting the most from your data-driven transformation: 10 key principles](https://www.hpe.com/us/en/insights/articles/getting-the-most-from-your-data-driven-transformation-2109.html)
+
+    - Learn more about [HPE GreenLake for AI/ML/Data Analytics](https://www.hpe.com/us/en/greenlake/ai-ml-analytics.html)
+
+    - Learn [how an open metadata layer can establish a trustworthy data pipeline](https://community.hpe.com/t5/advancing-life-work/dataspaces-how-an-open-metadata-layer-can-establish-a/ba-p/7149075#.Y3ay-XbMI2w)
+
+    - View [HPE Ezmeral Data Fabric](https://developer.hpe.com/platform/hpe-ezmeral-data-fabric/home/)
+
   </div>
 </div>
+ 
 
 <br>
 <hr style="background: #33DAC8; height: 5px; border: none">
@@ -94,39 +74,30 @@ The roles of the Data/ML Engineer and Data Scientist can overlap. You may also f
 
 ### Addressing Key Concerns
 
-**How do I find and get access to the right data?**
+**Finding and accessing the right data**
 
 - Read [Avoiding pitfalls: Tips for better data science](https://community.hpe.com/t5/HPE-Ezmeral-Uncut/Avoiding-pitfalls-Tips-for-better-data-science/ba-p/7144228)
 
-- Better connections between data producers and data consumers make data science more successful. Check out [Getting value from your data shouldn’t be this hard](https://www.hpe.com/us/en/insights/articles/getting-value-from-your-data-shouldn-t-be-this-hard-2106.html)
+- Check out [Getting value from your data shouldn’t be this hard](https://www.hpe.com/us/en/insights/articles/getting-value-from-your-data-shouldn-t-be-this-hard-2106.html)
 
-**What can I do to lower the entry barriers to developing new AI/ML/data science projects?**
+**Lowering barriers of entry to data science projects**
 
-- AI/ML projects can and should be run on the same system as analytics projects: Read “Chapter 3: AI and Analytics Together” in the free eBook [AI and Analytics at Scale: Lessons from Real-World Production Systems](https://www.hpe.com/us/en/resources/software/ai-and-analytics-systems.html)
+- Check out “Chapter 3: AI and Analytics Together” in the free eBook [AI and Analytics at Scale: Lessons from Real-World Production Systems](https://www.hpe.com/us/en/resources/software/ai-and-analytics-systems.html)
 
 - Read [2nd project advantage: lowering barriers to AI and machine learning](https://community.hpe.com/t5/HPE-Ezmeral-Uncut/Second-project-advantage-Lowering-barriers-to-AI-and-machine/ba-p/7154034#.YZYX2elKhE4)
 
-**How do I optimize data logistics and preparation efforts to keep them from overwhelming the data science project?**
+**Optimizing data logistics and preparation efforts**
 
 - Read [Budgeting time for AI/ML projects](https://community.hpe.com/t5/HPE-Ezmeral-Uncut/Budgeting-time-for-AI-ML-projects/ba-p/7090807#.YZYZVelKhE4)
+ 
 
-- See content for the [Data/ML Engineer role](/role/data-ml-engineer/home/)
+**Case studies**
 
-**What makes it easier to deal with edge computing in large-scale systems?**
+- [Accelerating autonomous car development with ready access to global data fabric](https://www.hpe.com/psnow/doc/a50003176enw?jumpid=in_lit-psnow-red)
 
-- Read [To the edge and back again: Meeting the challenges of edge computing](https://community.hpe.com/t5/HPE-Ezmeral-Uncut/To-the-edge-and-back-again-Meeting-the-challenges-of-edge/ba-p/7132609#.Ya5X3r3ML0o)
+- [Accelerating data insight for a better work life](https://www.hpe.com/psnow/doc/a50003827enw)
 
-  
-
-**How are others doing this?**
-
-Check out these real-world case studies
-
-- [Accelerating Autonomous Car Development with Ready Access to Global Data Fabric](https://www.hpe.com/psnow/doc/a50003176enw?jumpid=in_lit-psnow-red)
-
-- [Accelerating Data Insight for a Better Work Life](https://www.hpe.com/psnow/doc/a50003827enw)
-
-- [Architecting the World’s Largest Biometric Identity System: The Aadhaar Experience](https://developer.hpe.com/blog/architecting-the-worlds-largest-biometric-identity-system-the-aadhaar-ex/)
+- [Architecting the world’s largest biometric identity system: The Aadhaar experience](https://developer.hpe.com/blog/architecting-the-worlds-largest-biometric-identity-system-the-aadhaar-ex/)
 
 <br>
 <hr style="background: #FF8300; height: 5px; border: none">
@@ -138,7 +109,8 @@ Check out these real-world case studies
 
 <div class="row">
   <div class="column">
-    Monthly meetups where you can hear from experts on the newest technologies. Catch up on any you may have missed and register for upcoming talks.
+
+   Monthly meetups where you can hear from experts on the newest technologies. Catch up on any you may have missed and register for upcoming talks.
 
   </div>
   <div class="column">
@@ -149,6 +121,32 @@ Check out these real-world case studies
     - [Data Science Unplugged: Part 2](https://www.youtube.com/watch?v=Va4tSr__Yok)
 
     - [How to make data consumable for real-world data science](https://www.youtube.com/watch?v=4WKjRqflF7M)
+
+    - [Digital Transformation.Next: Data & Analytics Workloads](https://youtu.be/Q4kJKCS7rbo&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF)
+
+    - [Why Open Source is more than Software: The example of The Linux Foundation's AgStack project](https://www.youtube.com/watch?v=dnhjRF5dr6M&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF&index=1)
+
+    - [Machines learn from data to be artificially intelligent](https://youtu.be/3KOFDciS3WU&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF&index=1)
+
+  </div>
+</div>
+
+---
+
+<br><br>
+<a href="https://hackshack.hpedev.io/workshops" style="font-weight: 700; font-size: 27px">Meetups</a>
+
+<div class="row">
+  <div class="column">
+
+    A series of in-depth talks on open source developer technologies.
+
+  </div>
+  <div class="column">
+
+    - [Streamlit - The fastest way to build and share data science apps](https://youtu.be/sdgTYy3BJiM&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF)
+
+ 
   </div>
 </div>
 
@@ -159,37 +157,44 @@ Check out these real-world case studies
 
 <div class="row">
   <div class="column">
-    Free, in-depth, hands-on workshops that allow you to explore details of a technology by interacting with it. Designed to fit your schedule, these workshops are available 24/7 – from anywhere at any time.
+
+   Free, in-depth, hands-on workshops that allow you to explore details of a technology by interacting with it. Designed to fit your schedule, these workshops are available 24/7 – from anywhere at any time.
 
   </div>
   <div class="column">
-    - [HPE Ezmeral Data Fabric 101 – Get to know the basics around the data fabric](https://hackshack.hpedev.io/workshop/26)
 
-     
+    - [HPE Ezmeral Data Fabric 101 – Get to know the basics around the data fabric](https://hackshack.hpedev.io/workshop/26)
+   
+    - [Build a house on a lake!](https://developer.hpe.com/hackshack/replays/40)
+   
+    - [Spark 101 – Introduction to Apache Spark Concepts](https://developer.hpe.com/hackshack/workshop/34)
   </div>
 </div>
 
 ---
 
 <br><br>
+
 <div style="font-weight: 700; font-size: 27px">Documentation</div>
 
 <div class="row">
-  <div class="column">    
-    The [HPE Ezmeral Data Fabric platform page](https://developer.hpe.com/platform/hpe-ezmeral-data-fabric/home/) offers documentation and API information along with informative videos and tutorials. Additional documentation can be found here.
+  <div class="column">
+
+    The [HPE Ezmeral product page](https://developer.hpe.com/platform/hpe-ezmeral/home/) offers documentation and API information along with informative videos and tutorials. Additional documentation can be found here.
 
   </div>
   <div class="column">
-    - [HPE Ezmeral Data Fabric 7.0 documentation](https://docs.datafabric.hpe.com/70/index.html)
 
-     
+    - [HPE Ezmeral documentation](https://developer.hpe.com/platform/hpe-ezmeral/home)
+
+ 
   </div>
 </div>
 
 ---
 
-
 <br><br>
+
 <div style="font-weight: 700; font-size: 27px">Engage</div>
 
 <div class="row">
@@ -197,11 +202,10 @@ Check out these real-world case studies
 
     Ping us with your comments, questions, and requests for information.
 
-     
   </div>
   <div class="column">
-    - [HPE Dev Slack]( https://slack.hpedev.io/)
 
-     
+    - [HPE Developer Community Slack](https://slack.hpedev.io/)
+ 
   </div>  
 </div>
