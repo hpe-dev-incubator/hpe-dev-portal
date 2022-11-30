@@ -28,7 +28,7 @@ Here are some of the operations you can do with the HPE GreenLake for Compute Op
 
 ![blog figure1](/img/greenlake-com-ops-api-curl24.png)
 
-We would like to share with you today a few examples of REST API calls that can be made through simple cURL [curl](<>) commands or Postman examples.
+We would like to share with you today a few examples of REST API calls that can be made through simple [cURL](https://curl.se/)  commands or [Postman](https://www.postman.com/) examples.
 
 The HPE GreenLake for Compute Ops Management REST API uses the OAuth 2.0 HPE GreenLake authentication flow, where a limited lifetime access token is provided in the header of each REST API request as the authorization bearer. The process to generate this necessary access token is well described in the blog post written by **Nisha Thomas**, entitled [How to use an API access token for HPE GreenLake for Compute Ops Management](https://developer.hpe.com/blog/how-to-use-an-api-access-token-for-hpe-greenlake-for-compute-ops-management/). If you are not familiar with this token generation and usage,  we would strongly advise you to read it as it represents the very first and important steps to be performed prior to getting the chief benefits described above.
 
