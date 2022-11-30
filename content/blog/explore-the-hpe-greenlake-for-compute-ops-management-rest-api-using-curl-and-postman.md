@@ -294,12 +294,16 @@ To test this filter, we enter the following URL in the Request field:\
 
 The Authorization tab should still have your Access Token (an access token is valid for 2 hours).
 
-We hit the **Send** button.\
+We hit the **Send** button.
+
+\
 The request should indicate success (Status is 200 OK) and, in this example, the response shows 4 server resources whose model name contains DL365.
 
 ![blog figure20](/img/greenlake-com-ops-api-curl10.png)
 
-The filter query syntax supports a richer set of filters than the single operation in the previous example. Filtering syntax is broken down by Operations, Logic, and Types. In the previous example[,](<>)  the operation was 'eq' for equality. Most comparison operations require the evaluated property name to the left of the operator[](<>) and a literal to the right.
+The filter query syntax supports a richer set of filters than the single operation in the previous example. Filtering syntax is broken down by Operations, Logic, and Types. 
+
+In the previous example[,](<>)  the operation was 'eq' for equality. Most comparison operations require the evaluated property name to the left of the operator[](<>) and a literal to the right.
 
 ![blog figure21](/img/greenlake-com-ops-api-curl16.png)
 
