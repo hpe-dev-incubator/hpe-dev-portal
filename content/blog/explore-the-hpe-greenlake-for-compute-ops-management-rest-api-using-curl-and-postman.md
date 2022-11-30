@@ -15,7 +15,7 @@ HPE GreenLake for Compute Ops Management automates and transforms complex and ti
 
 HPE GreenLake for Compute Ops Management provides a Restful API to customers who want to manage their devices programmatically or through a command line interface. The API enables customers to invoke operations or tasks such as list devices, see device details, device health, manage a device's firmware and much more.
 
-To learn more about HPE GreenLake for Compute Ops Management API methods and resources, you can refer to [the API reference documentation](https://developer.greenlake.hpe.com/docs/greenlake/services/compute-ops/public/openapi/compute-ops-latest/overview/).
+To learn more about HPE GreenLake for Compute Ops Management API methods and resources, you can refer to the [API reference documentation](https://developer.greenlake.hpe.com/docs/greenlake/services/compute-ops/public/openapi/compute-ops-latest/overview/).
 
 Here are some of the operations you can do with the HPE GreenLake for Compute Ops Management API:
 
@@ -124,83 +124,81 @@ To use a filter on a nested property name, the '**/**' separator can be specifie
 
         **{**
 
-           ** "id": "P39368-B21+CN70421C51",**
+            **"id": "P39368-B21+CN70421C51",**
 
-           ** "type": "compute-ops/server",**
+            **"type": "compute-ops/server",**
 
-           ** "platformFamily": "PROLIANT",**
+            **"platformFamily": "PROLIANT",**
 
-           ** "resourceUri": "/compute-ops/v1beta2/servers/P39368-B21+CN70421C51",**
+            **"resourceUri": "/compute-ops/v1beta2/servers/P39368-B21+CN70421C51",**
 
-           ** "name": "HPE-HOL56",**
+            **"name": "HPE-HOL56",**
 
-           ** "createdAt": "2022-04-29T12:35:35.265978+00:00",**
+            **"createdAt": "2022-04-29T12:35:35.265978+00:00",**
 
-           ** "updatedAt": "2022-10-25T19:54:36.572565+00:00",**
+            **"updatedAt": "2022-10-25T19:54:36.572565+00:00",**
 
-           ** "generation": 292,**
+            **"generation": 292,**
 
-           ** "hardware": {**
+            **"hardware": {**
 
-           **     "serialNumber": "CN70421C51",**
+            **    "serialNumber": "CN70421C51",**
 
-           **     "model": "ProLiant DL365 Gen10 Plus",**
+            **    "model": "ProLiant DL365 Gen10 Plus",**
 
-           **     "uuid": "33393350-3836-4E43-3730-343231433531",**
+            **    "uuid": "33393350-3836-4E43-3730-343231433531",**
 
-           **     "productId": "P39368-B21",**
+            **    "productId": "P39368-B21",**
 
-           **     "powerState": "ON",**
+            **    "powerState": "ON",**
 
-           **     "indicatorLed": "OFF",**
+            **    "indicatorLed": "OFF",**
 
-           **     "health": {**
+            **    "health": {**
 
-           **         "summary": "OK",**
+            **        "summary": "OK",**
 
-           **         "healthLED": "OK",**
+            **        "healthLED": "OK",**
 
-           **         "fans": "OK",**
+            **        "fans": "OK",**
 
-           **         "fanRedundancy": "REDUNDANT",**
+            **        "fanRedundancy": "REDUNDANT",**
 
-           **         "liquidCooling": "NOT_PRESENT",**
+            **        "liquidCooling": "NOT_PRESENT",**
 
-           **         "liquidCoolingRedundancy": "NOT_PRESENT",**
+            **        "liquidCoolingRedundancy": "NOT_PRESENT",**
 
-           **         "memory": "OK",**
+            **        "memory": "OK",**
 
-           **         "network": "UNKNOWN",**
+            **        "network": "UNKNOWN",**
 
-           **         "powerSupplies": "OK",**
+            **        "powerSupplies": "OK",**
 
-           **         "powerSupplyRedundancy": "NOT_PRESENT",**
+            **        "powerSupplyRedundancy": "NOT_PRESENT",**
 
-           **         "processor": "OK",**
+            **        "processor": "OK",**
 
-           **         "storage": "OK",**
+            **        "storage": "OK",**
 
-           **         "temperature": "OK",**
+            **        "temperature": "OK",**
 
-           **         "bios": "OK",**
+            **        "bios": "OK",**
 
-           **         "smartStorage": "OK"**
+            **        "smartStorage": "OK"**
 
-           **     },**
+            **    },**
 
-           **     "bmc": {**
+            **    "bmc": {**
 
-           **         "mac": "B4:7A:F1:4E:9E:92",**
+            **        "mac": "B4:7A:F1:4E:9E:92",**
 
-           **         "ip": "172.30.231.116",**
+            **        "ip": "172.30.231.116",**
 
-           **         "hostname": "None"**
+            **        "hostname": "None"**
 
 The following cURL command includes the filter
 
 **curl -X GET “https://us-west2-api.compute.cloud.hpe.com/compute-ops/v1beta2/servers?filter=contains(hardware/model,'DL365')” -H "Authorization:Bearer <your access_token_here>”**
-
-
 
 ![blog figure8](/img/greenlake-com-ops-api-curl5.png)
 
