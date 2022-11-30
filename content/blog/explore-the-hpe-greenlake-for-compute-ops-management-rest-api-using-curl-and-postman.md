@@ -2,7 +2,7 @@
 title: Explore the HPE GreenLake for Compute Ops Management REST API using Curl
   and Postman
 date: 2022-11-30T12:36:05.351Z
-author: Frederic Passeron  & Vincent Berger
+author: Vincent Berger & Frederic Passeron
 authorimage: /img/vb-fp192.png
 thumbnailimage: /img/vb-fp192.png
 disable: false
@@ -28,7 +28,7 @@ Here are some of the operations you can do with the HPE GreenLake for Compute Op
 
 ![blog figure1](/img/greenlake-com-ops-api-curl24.png)
 
-I would like to share with you today a few examples of REST API calls that can be made through simple cURL [curl](<>) commands or Postman examples.
+We would like to share with you today a few examples of REST API calls that can be made through simple cURL [curl](<>) commands or Postman examples.
 
 The HPE GreenLake for Compute Ops Management REST API uses the OAuth 2.0 HPE GreenLake authentication flow, where a limited lifetime access token is provided in the header of each REST API request as the authorization bearer. The process to generate this necessary access token is well described in the blog post written by Nisha Thomas, entitled [How to use an API access token for HPE GreenLake for Compute Ops Management](https://developer.hpe.com/blog/how-to-use-an-api-access-token-for-hpe-greenlake-for-compute-ops-management/). If you are not familiar with this token generation and usage,  I would strongly advise you to read it as it represents the very first and important steps to be performed prior to getting the chief benefits described above.
 
@@ -118,77 +118,77 @@ To use a filter on a nested property name, the '**/**' separator can be specifie
 
         **{**
 
-         **   "id": "P39368-B21+CN70421C51",**
+          **  "id": "P39368-B21+CN70421C51",**
 
-         **   "type": "compute-ops/server",**
+          **  "type": "compute-ops/server",**
 
-         **   "platformFamily": "PROLIANT",**
+          **  "platformFamily": "PROLIANT",**
 
-         **   "resourceUri": "/compute-ops/v1beta2/servers/P39368-B21+CN70421C51",**
+          **  "resourceUri": "/compute-ops/v1beta2/servers/P39368-B21+CN70421C51",**
 
-         **   "name": "HPE-HOL56",**
+          **  "name": "HPE-HOL56",**
 
-         **   "createdAt": "2022-04-29T12:35:35.265978+00:00",**
+          **  "createdAt": "2022-04-29T12:35:35.265978+00:00",**
 
-         **   "updatedAt": "2022-10-25T19:54:36.572565+00:00",**
+          **  "updatedAt": "2022-10-25T19:54:36.572565+00:00",**
 
-         **   "generation": 292,**
+          **  "generation": 292,**
 
-         **   "hardware": {**
+          **  "hardware": {**
 
-         **       "serialNumber": "CN70421C51",**
+          **      "serialNumber": "CN70421C51",**
 
-         **       "model": "ProLiant DL365 Gen10 Plus",**
+          **      "model": "ProLiant DL365 Gen10 Plus",**
 
-         **       "uuid": "33393350-3836-4E43-3730-343231433531",**
+          **      "uuid": "33393350-3836-4E43-3730-343231433531",**
 
-         **       "productId": "P39368-B21",**
+          **      "productId": "P39368-B21",**
 
-         **       "powerState": "ON",**
+          **      "powerState": "ON",**
 
-         **       "indicatorLed": "OFF",**
+          **      "indicatorLed": "OFF",**
 
-         **       "health": {**
+          **      "health": {**
 
-         **           "summary": "OK",**
+          **          "summary": "OK",**
 
-         **           "healthLED": "OK",**
+          **          "healthLED": "OK",**
 
-         **           "fans": "OK",**
+          **          "fans": "OK",**
 
-         **           "fanRedundancy": "REDUNDANT",**
+          **          "fanRedundancy": "REDUNDANT",**
 
-         **           "liquidCooling": "NOT_PRESENT",**
+          **          "liquidCooling": "NOT_PRESENT",**
 
-         **           "liquidCoolingRedundancy": "NOT_PRESENT",**
+          **          "liquidCoolingRedundancy": "NOT_PRESENT",**
 
-         **           "memory": "OK",**
+          **          "memory": "OK",**
 
-         **           "network": "UNKNOWN",**
+          **          "network": "UNKNOWN",**
 
-         **           "powerSupplies": "OK",**
+          **          "powerSupplies": "OK",**
 
-         **           "powerSupplyRedundancy": "NOT_PRESENT",**
+          **          "powerSupplyRedundancy": "NOT_PRESENT",**
 
-         **           "processor": "OK",**
+          **          "processor": "OK",**
 
-         **           "storage": "OK",**
+          **          "storage": "OK",**
 
-         **           "temperature": "OK",**
+          **          "temperature": "OK",**
 
-         **           "bios": "OK",**
+          **          "bios": "OK",**
 
-         **           "smartStorage": "OK"**
+          **          "smartStorage": "OK"**
 
-         **       },**
+          **      },**
 
-         **       "bmc": {**
+          **      "bmc": {**
 
-         **           "mac": "B4:7A:F1:4E:9E:92",**
+          **          "mac": "B4:7A:F1:4E:9E:92",**
 
-         **           "ip": "172.30.231.116",**
+          **          "ip": "172.30.231.116",**
 
-         **           "hostname": "None"**
+          **          "hostname": "None"**
 
 The following cURL command includes the filter
 
@@ -210,10 +210,6 @@ The HPE GreenLake for Compute Ops Management API supports many resources that ar
 
 Unique Resource Identifiers [(URIs)](<>)  are used to identify a resource. A URI is a full API path ending in an identification number. For example:
 
-<!--\\\\\\\\\[if !supportLineBreakNewLine]-->\
-
-<!--\\\\\\\\\[endif]-->
-
 \*/compute-ops/v1beta2/servers/{serverId}
 
 \*/compute-ops/v1beta1/reports/{id}/data
@@ -221,8 +217,6 @@ Unique Resource Identifiers [(URIs)](<>)  are used to identify a resource. A UR
 **v1beta1**, **v1beta2** in the URI is the version of the resource that is being accessed.\
 
 One can invoke the common HTTP [](<>)[methods](<>), like GET, POST, PUT, PATCH, and DELETE, on resources in the HPE GreenLake for Compute Ops Management API as shown below for the **filters** resource:
-
-
 
 ![blog figure11](/img/greenlake-com-ops-api-curl23.png)
 
@@ -236,63 +230,30 @@ Postman is a tool designed to build and use APIs.
 
 ![blog figure12](/img/greenlake-com-ops-api-curl7.png)
 
-<!--\\\\\\\\\[if !supportLineBreakNewLine]-->\
-
-<!--\\\\\\\\\[endif]-->
-
 In the request URL field, enter the endpoint URL ﻿[](<>)**<https://us-west2-api.compute.cloud.hpe.com/compute-ops/v1beta2/servers?limit=2>**
 
 This is the base connectivity endpoint** ﻿<https://us-west2-api.compute.cloud.hpe.com>** you have seen in earlier, followed by the resource URI you want to query ﻿**/compute-ops/v1beta2/servers** as described in the API reference table.
 
-
-
-\
- In order to limit the output as documented in the request pane of the *servers* resource:, use query parameter ﻿**?limit=2**
-
-
-
 ![blog figure13](/img/greenlake-com-ops-api-curl25.png)
 
-
-
-
+In order to limit the output as documented in the request pane of the *servers* resource:, use query parameter ﻿**?limit=2**
 
 ![blog figure14](/img/greenlake-com-ops-api-curl19.png)
-
-
 
 ![blog figure15](/img/greenlake-com-ops-api-curl20.png)
 
 In the *Authorization* tab, choose  **Bearer Token** in the *Type* drop-down menu and paste the access token that was generated earlier in the Token field. Postman will generate the appropriate Authorization header when you send the request.
 
-
-
 ![blog figure16](/img/greenlake-com-ops-api-curl8.png)
-
-<!--\\\\\\\\\[if !supportLineBreakNewLine]-->\
-
-<!--\\\\\\\\\[endif]-->
 
 Hit the **Send** button to get a **200 OK** status response indicating success and a JSON body with the details of two compute servers on boarded and assigned to the corresponding application for the user's account.
 
-
-
 ![blog figure17](/img/greenlake-com-ops-api-curl9.png)
-
-<!--\\\\\\\\\[if !supportLineBreakNewLine]-->\
-
-<!--\\\\\\\\\[endif]-->
 
 \
 The complete list of response codes is documented for each resource in the API reference table shown below:
 
-
-
 ![blog figure18](/img/greenlake-com-ops-api-curl21.png)
-
-<!--\\\\\\\\\[if !supportLineBreakNewLine]-->\
-
-<!--\\\\\\\\\[endif]-->
 
 The API supports several query parameters depending on the resource type, such as filter, limit (maximum number of records to return), offset (resource offset to start the response from) and sort (order in which to return the resources in the collection).\
 \
@@ -306,15 +267,9 @@ To use a filter on a nested property name, the '**/**' separator can be specifie
 \
 **GET /compute-ops/v1beta2/servers?filter=hardware/model eq 'ProLiant DL365 Gen10 Plus'\*\***\
 
-<!--\\\\\\\\\[if !supportLineBreakNewLine]-->\
-
-<!--\\\\\\\\\[endif]-->\\\\\\\\*\\\\\\\\*
-
-To test this filter[, enter](<>) <!--\\\\\\\\\[if !supportAnnotations]-->\[[RD24]](#_msocom_24)<!--\\\\\\\\\[endif]--> the following URL in the Request field:\
+To test this filter, enter the following URL in the Request field:\
 \
 **<https://us-west2-api.compute.cloud.hpe.com/compute-ops/v1beta2/servers?filter=contains(hardware/model,'DL365')>**
-
-
 
 ![blog figure19](/img/greenlake-com-ops-api-curl22.png)
 
@@ -325,7 +280,7 @@ The request should indicate success (Status is 200 OK) and, in this example, the
 
 ![blog figure20](/img/greenlake-com-ops-api-curl10.png)
 
-The filter query syntax supports a richer set of filters than the single operation in the previous example. Filtering syntax is broken down by Operations, Logic, and Types. In the previous example[,](<>)  the operation was 'eq' for equality. Most comparison operations require the evaluated property name to the left of the operator[r](<>)<!--\\\\\\\\\[if !supportAnnotations]-->\[[RD27]](#_msocom_27)<!--\\\\\\\\\[endif]--> and a literal to the right.\
+The filter query syntax supports a richer set of filters than the single operation in the previous example. Filtering syntax is broken down by Operations, Logic, and Types. In the previous example[,](<>)  the operation was 'eq' for equality. Most comparison operations require the evaluated property name to the left of the operator[](<>) and a literal to the right.\
 \
 
 ![blog figure21](/img/greenlake-com-ops-api-curl16.png)
@@ -336,7 +291,7 @@ To learn more about Filtering, see the [HPE GreenLake for Compute Ops Management
 
 Unique Resource Identifiers (URIs) are used to identify a resource. A URI is a full API path ending in an identification number. For example:\
 
-*  compute-ops/v1beta2/servers/{serverId}
+* compute-ops/v1beta2/servers/{serverId}
 * compute-ops/v1beta1/reports/{id}/data 
 
 **v1beta1**, **v1beta2** in the URI is the version of the resource that is being accessed.
@@ -346,8 +301,6 @@ You can invoke the common HTTP methods, like GET, POST, PUT, PATCH, and DELETE,o
 Refer to the [API reference](https://developer.greenlake.hpe.com/docs/greenlake/services/compute-ops/public/openapi/compute-ops-latest/overview/) site for a complete list of methods supported by each API resource.
 
 Finally, a Postman collection of executable API requests for the HPE GreenLake for Compute Ops Management API can be found [HERE](https://www.postman.com/jullienl/workspace/lionel-jullien-s-public-workspace/collection/991177-10c5377d-892b-4612-9e81-23d75d6c2f0d?ctx=documentation).
-
-
 
 # What’s next?
 
