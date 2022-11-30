@@ -118,77 +118,77 @@ To use a filter on a nested property name, the '**/**' separator can be specifie
 
         **{**
 
-        **    "id": "P39368-B21+CN70421C51",**
+         **   "id": "P39368-B21+CN70421C51",**
 
-        **    "type": "compute-ops/server",**
+         **   "type": "compute-ops/server",**
 
-        **    "platformFamily": "PROLIANT",**
+         **   "platformFamily": "PROLIANT",**
 
-        **    "resourceUri": "/compute-ops/v1beta2/servers/P39368-B21+CN70421C51",**
+         **   "resourceUri": "/compute-ops/v1beta2/servers/P39368-B21+CN70421C51",**
 
-        **    "name": "HPE-HOL56",**
+         **   "name": "HPE-HOL56",**
 
-        **    "createdAt": "2022-04-29T12:35:35.265978+00:00",**
+         **   "createdAt": "2022-04-29T12:35:35.265978+00:00",**
 
-        **    "updatedAt": "2022-10-25T19:54:36.572565+00:00",**
+         **   "updatedAt": "2022-10-25T19:54:36.572565+00:00",**
 
-        **    "generation": 292,**
+         **   "generation": 292,**
 
-        **    "hardware": {**
+         **   "hardware": {**
 
-        **        "serialNumber": "CN70421C51",**
+         **       "serialNumber": "CN70421C51",**
 
-        **        "model": "ProLiant DL365 Gen10 Plus",**
+         **       "model": "ProLiant DL365 Gen10 Plus",**
 
-        **        "uuid": "33393350-3836-4E43-3730-343231433531",**
+         **       "uuid": "33393350-3836-4E43-3730-343231433531",**
 
-        **        "productId": "P39368-B21",**
+         **       "productId": "P39368-B21",**
 
-        **        "powerState": "ON",**
+         **       "powerState": "ON",**
 
-        **        "indicatorLed": "OFF",**
+         **       "indicatorLed": "OFF",**
 
-        **        "health": {**
+         **       "health": {**
 
-        **            "summary": "OK",**
+         **           "summary": "OK",**
 
-        **            "healthLED": "OK",**
+         **           "healthLED": "OK",**
 
-        **            "fans": "OK",**
+         **           "fans": "OK",**
 
-        **            "fanRedundancy": "REDUNDANT",**
+         **           "fanRedundancy": "REDUNDANT",**
 
-        **            "liquidCooling": "NOT_PRESENT",**
+         **           "liquidCooling": "NOT_PRESENT",**
 
-        **            "liquidCoolingRedundancy": "NOT_PRESENT",**
+         **           "liquidCoolingRedundancy": "NOT_PRESENT",**
 
-        **            "memory": "OK",**
+         **           "memory": "OK",**
 
-        **            "network": "UNKNOWN",**
+         **           "network": "UNKNOWN",**
 
-        **            "powerSupplies": "OK",**
+         **           "powerSupplies": "OK",**
 
-        **            "powerSupplyRedundancy": "NOT_PRESENT",**
+         **           "powerSupplyRedundancy": "NOT_PRESENT",**
 
-        **            "processor": "OK",**
+         **           "processor": "OK",**
 
-        **            "storage": "OK",**
+         **           "storage": "OK",**
 
-        **            "temperature": "OK",**
+         **           "temperature": "OK",**
 
-        **            "bios": "OK",**
+         **           "bios": "OK",**
 
-        **            "smartStorage": "OK"**
+         **           "smartStorage": "OK"**
 
-        **        },**
+         **       },**
 
-        **        "bmc": {**
+         **       "bmc": {**
 
-        **            "mac": "B4:7A:F1:4E:9E:92",**
+         **           "mac": "B4:7A:F1:4E:9E:92",**
 
-        **            "ip": "172.30.231.116",**
+         **           "ip": "172.30.231.116",**
 
-        **            "hostname": "None"**
+         **           "hostname": "None"**
 
 The following cURL command includes the filter
 
@@ -210,11 +210,11 @@ The HPE GreenLake for Compute Ops Management API supports many resources that ar
 
 Unique Resource Identifiers [(URIs)](<>)  are used to identify a resource. A URI is a full API path ending in an identification number. For example:
 
-<!--\\\\\\\\[if !supportLineBreakNewLine]-->\
+<!--\\\\\\\\\[if !supportLineBreakNewLine]-->\
 
-<!--\\\\\\\\[endif]-->
+<!--\\\\\\\\\[endif]-->
 
-<!--\\\\\\\\[if !supportLists]-->·       <!--\\\\\\\\[endif]-->/compute-ops/v1beta2/servers/{serverId}
+\*/compute-ops/v1beta2/servers/{serverId}
 
 \*/compute-ops/v1beta1/reports/{id}/data
 
@@ -222,181 +222,77 @@ Unique Resource Identifiers [(URIs)](<>)  are used to identify a resource. A UR
 
 One can invoke the common HTTP [](<>)[methods](<>), like GET, POST, PUT, PATCH, and DELETE, on resources in the HPE GreenLake for Compute Ops Management API as shown below for the **filters** resource:
 
-<!--\\\\\\\\[if gte vml 1]><v:shape id="_x0000_i1036" type="#_x0000_t75"
- alt="A screenshot of a computer&#10;&#10;Description automatically generated"
- style='width:370pt;height:134pt;visibility:visible;mso-wrap-style:square'
- o:bordertopcolor="yellow pure" o:borderleftcolor="yellow pure"
- o:borderbottomcolor="yellow pure" o:borderrightcolor="yellow pure">
- <v:imagedata src="file:///C:\Users\passeron\AppData\Local\Temp\msohtmlclip1\01\clip_image023.png"
-  o:title="A screenshot of a computer&#10;&#10;Description automatically generated"/>
- <w:bordertop type="single" width="12"/>
- <w:borderleft type="single" width="12"/>
- <w:borderbottom type="single" width="12"/>
- <w:borderright type="single" width="12"/>
-</v:shape><!\\\\\\\\[endif]--><!--\\\\\\\\[if !vml]-->![A screenshot of a computer
 
-Description automatically generated](file:///C:\Users\passeron\AppData\Local\Temp\msohtmlclip1\01\clip_image024.jpg)<!--\\\\\\\\[endif]-->
 
-Refer to the [API reference](https://developer.greenlake.hpe.com/docs/greenlake/services/compute-ops/public/openapi/compute-ops-latest/overview/) site for a complete list of [](<>)[methods](<>)<!--\\\\\\\\[if !supportAnnotations]-->\[[RD20]](#_msocom_20)<!--\\\\\\\\[endif]--> <!--\\\\\\\\[if !supportAnnotations]-->\[[PF(D(x21]](#_msocom_21)<!--\\\\\\\\[endif]-->  supported by each API resource.
+![blog figure11](/img/greenlake-com-ops-api-curl23.png)
 
-# Using Postman <!--\\\\\\\\[if !supportLineBreakNewLine]--> <!--\\\\\\\\[endif]-->
+Refer to the [API reference](https://developer.greenlake.hpe.com/docs/greenlake/services/compute-ops/public/openapi/compute-ops-latest/overview/) site for a complete list of [](<>)methods supported by each API resource.
+
+# Using Postman
 
 Postman is a tool designed to build and use APIs.
 
- To get started, “create a request”, as shown below:\
-\
+ To get started, “create a request”, as shown below:
 
-<!--\\\\\\\\[if gte vml 1]><v:shape id="Image_x0020_15"
- o:spid="_x0000_i1035" type="#_x0000_t75" alt="Une image contenant texte&#10;&#10;Description générée automatiquement"
- style='width:358.5pt;height:141pt;visibility:visible;mso-wrap-style:square'
- o:bordertopcolor="yellow pure" o:borderleftcolor="yellow pure"
- o:borderbottomcolor="yellow pure" o:borderrightcolor="yellow pure">
- <v:imagedata src="file:///C:\Users\passeron\AppData\Local\Temp\msohtmlclip1\01\clip_image025.png"
-  o:title="Une image contenant texte&#10;&#10;Description générée automatiquement"/>
- <w:bordertop type="single" width="12"/>
- <w:borderleft type="single" width="12"/>
- <w:borderbottom type="single" width="12"/>
- <w:borderright type="single" width="12"/>
-</v:shape><!\\\\\\\\[endif]--><!--\\\\\\\\[if !vml]-->![Une image contenant texte
+![blog figure12](/img/greenlake-com-ops-api-curl7.png)
 
-Description générée automatiquement](file:///C:\Users\passeron\AppData\Local\Temp\msohtmlclip1\01\clip_image026.jpg)<!--\\\\\\\\[endif]-->\
+<!--\\\\\\\\\[if !supportLineBreakNewLine]-->\
 
-<!--\\\\\\\\[if !supportLineBreakNewLine]-->\
+<!--\\\\\\\\\[endif]-->
 
-<!--\\\\\\\\[endif]-->
+In the request URL field, enter the endpoint URL ﻿[](<>)**<https://us-west2-api.compute.cloud.hpe.com/compute-ops/v1beta2/servers?limit=2>**
 
-In the request URL field, enter the endpoint URL ﻿[](<>)**<https://us-west2-api.compute.cloud.hpe.com/compute-ops/v1beta2/servers?limit=2>**<!--\\\\\\\\[if !supportAnnotations]-->\[[RD22]](#_msocom_22)<!--\\\\\\\\[endif]--> This is the base connectivity endpoint** ﻿<https://us-west2-api.compute.cloud.hpe.com>** you have seen in earlier, followed by the resource URI you want to query ﻿**/compute-ops/v1beta2/servers** as described in the API reference table.
+This is the base connectivity endpoint** ﻿<https://us-west2-api.compute.cloud.hpe.com>** you have seen in earlier, followed by the resource URI you want to query ﻿**/compute-ops/v1beta2/servers** as described in the API reference table.
 
-\
 
-<!--\\\\\\\\[if gte vml 1]><v:shape id="Picture_x0020_103"
- o:spid="_x0000_i1034" type="#_x0000_t75" alt="Graphical user interface&#10;&#10;Description automatically generated"
- style='width:359pt;height:105.5pt;visibility:visible;mso-wrap-style:square'
- o:bordertopcolor="yellow pure" o:borderleftcolor="yellow pure"
- o:borderbottomcolor="yellow pure" o:borderrightcolor="yellow pure">
- <v:imagedata src="file:///C:\Users\passeron\AppData\Local\Temp\msohtmlclip1\01\clip_image005.png"
-  o:title="Graphical user interface&#10;&#10;Description automatically generated"/>
- <w:bordertop type="single" width="12"/>
- <w:borderleft type="single" width="12"/>
- <w:borderbottom type="single" width="12"/>
- <w:borderright type="single" width="12"/>
-</v:shape><!\\\\\\\\[endif]--><!--\\\\\\\\[if !vml]-->![Graphical user interface
-
-Description automatically generated](file:///C:\Users\passeron\AppData\Local\Temp\msohtmlclip1\01\clip_image027.jpg)<!--\\\\\\\\[endif]-->\
-
-<!--\\\\\\\\[if !supportLineBreakNewLine]-->\
-
-<!--\\\\\\\\[endif]-->
 
 \
  In order to limit the output as documented in the request pane of the *servers* resource:, use query parameter ﻿**?limit=2**
 
-\
-\
 
-<!--\\\\\\\\[if gte vml 1]><v:shape id="Picture_x0020_102"
- o:spid="_x0000_i1033" type="#_x0000_t75" alt="Graphical user interface, application&#10;&#10;Description automatically generated"
- style='width:359.5pt;height:199pt;visibility:visible;mso-wrap-style:square'
- o:bordertopcolor="yellow pure" o:borderleftcolor="yellow pure"
- o:borderbottomcolor="yellow pure" o:borderrightcolor="yellow pure">
- <v:imagedata src="file:///C:\Users\passeron\AppData\Local\Temp\msohtmlclip1\01\clip_image007.png"
-  o:title="Graphical user interface, application&#10;&#10;Description automatically generated"/>
- <w:bordertop type="single" width="12"/>
- <w:borderleft type="single" width="12"/>
- <w:borderbottom type="single" width="12"/>
- <w:borderright type="single" width="12"/>
-</v:shape><!\\\\\\\\[endif]--><!--\\\\\\\\[if !vml]-->![Graphical user interface, application
 
-Description automatically generated](file:///C:\Users\passeron\AppData\Local\Temp\msohtmlclip1\01\clip_image028.jpg)<!--\\\\\\\\[endif]-->\
-
-<!--\\\\\\\\[if gte vml 1]><v:shape id="Image_x0020_14"
- o:spid="_x0000_i1032" type="#_x0000_t75" alt="Une image contenant texte&#10;&#10;Description générée automatiquement"
- style='width:5in;height:133.5pt;visibility:visible;mso-wrap-style:square'
- o:bordertopcolor="yellow pure" o:borderleftcolor="yellow pure"
- o:borderbottomcolor="yellow pure" o:borderrightcolor="yellow pure">
- <v:imagedata src="file:///C:\Users\passeron\AppData\Local\Temp\msohtmlclip1\01\clip_image029.png"
-  o:title="Une image contenant texte&#10;&#10;Description générée automatiquement"/>
- <w:bordertop type="single" width="12"/>
- <w:borderleft type="single" width="12"/>
- <w:borderbottom type="single" width="12"/>
- <w:borderright type="single" width="12"/>
-</v:shape><!\\\\\\\\[endif]--><!--\\\\\\\\[if !vml]-->![Une image contenant texte
-
-Description générée automatiquement](file:///C:\Users\passeron\AppData\Local\Temp\msohtmlclip1\01\clip_image030.jpg)<!--\\\\\\\\[endif]-->\
-
-<!--\\\\\\\\[if !supportLineBreakNewLine]-->\
-
-<!--\\\\\\\\[endif]-->
-
-In the *Authorization* tab[, choose](<>) <!--\\\\\\\\[if !supportAnnotations]-->\[[RD23]](#_msocom_23)<!--\\\\\\\\[endif]--> **Bearer Token** in the *Type* drop-down menu and paste the access token that was generated earlier in the Token field. Postman will generate the appropriate Authorization header when you send the request.
+![blog figure13](/img/greenlake-com-ops-api-curl25.png)
 
 
 
-<!--\\\\\\\\[if gte vml 1]><v:shape id="Image_x0020_3"
- o:spid="_x0000_i1031" type="#_x0000_t75" alt="Une image contenant texte&#10;&#10;Description générée automatiquement"
- style='width:376pt;height:145.5pt;visibility:visible;mso-wrap-style:square'
- o:bordertopcolor="yellow pure" o:borderleftcolor="yellow pure"
- o:borderbottomcolor="yellow pure" o:borderrightcolor="yellow pure">
- <v:imagedata src="file:///C:\Users\passeron\AppData\Local\Temp\msohtmlclip1\01\clip_image031.png"
-  o:title="Une image contenant texte&#10;&#10;Description générée automatiquement"/>
- <w:bordertop type="single" width="12"/>
- <w:borderleft type="single" width="12"/>
- <w:borderbottom type="single" width="12"/>
- <w:borderright type="single" width="12"/>
-</v:shape><!\\\\\\\\[endif]--><!--\\\\\\\\[if !vml]-->![Une image contenant texte
 
-Description générée automatiquement](file:///C:\Users\passeron\AppData\Local\Temp\msohtmlclip1\01\clip_image032.jpg)<!--\\\\\\\\[endif]-->\
 
-<!--\\\\\\\\[if !supportLineBreakNewLine]-->\
+![blog figure14](/img/greenlake-com-ops-api-curl19.png)
 
-<!--\\\\\\\\[endif]-->
+
+
+![blog figure15](/img/greenlake-com-ops-api-curl20.png)
+
+In the *Authorization* tab, choose  **Bearer Token** in the *Type* drop-down menu and paste the access token that was generated earlier in the Token field. Postman will generate the appropriate Authorization header when you send the request.
+
+
+
+![blog figure16](/img/greenlake-com-ops-api-curl8.png)
+
+<!--\\\\\\\\\[if !supportLineBreakNewLine]-->\
+
+<!--\\\\\\\\\[endif]-->
 
 Hit the **Send** button to get a **200 OK** status response indicating success and a JSON body with the details of two compute servers on boarded and assigned to the corresponding application for the user's account.
 
-\
-\
 
-<!--\\\\\\\\[if gte vml 1]><v:shape id="Image_x0020_12"
- o:spid="_x0000_i1030" type="#_x0000_t75" alt="Une image contenant texte&#10;&#10;Description générée automatiquement"
- style='width:380.5pt;height:319.5pt;visibility:visible;mso-wrap-style:square'
- o:bordertopcolor="yellow pure" o:borderleftcolor="yellow pure"
- o:borderbottomcolor="yellow pure" o:borderrightcolor="yellow pure">
- <v:imagedata src="file:///C:\Users\passeron\AppData\Local\Temp\msohtmlclip1\01\clip_image033.png"
-  o:title="Une image contenant texte&#10;&#10;Description générée automatiquement"/>
- <w:bordertop type="single" width="12"/>
- <w:borderleft type="single" width="12"/>
- <w:borderbottom type="single" width="12"/>
- <w:borderright type="single" width="12"/>
-</v:shape><!\\\\\\\\[endif]--><!--\\\\\\\\[if !vml]-->![Une image contenant texte
 
-Description générée automatiquement](file:///C:\Users\passeron\AppData\Local\Temp\msohtmlclip1\01\clip_image034.jpg)<!--\\\\\\\\[endif]-->\
+![blog figure17](/img/greenlake-com-ops-api-curl9.png)
 
-<!--\\\\\\\\[if !supportLineBreakNewLine]-->\
+<!--\\\\\\\\\[if !supportLineBreakNewLine]-->\
 
-<!--\\\\\\\\[endif]-->
+<!--\\\\\\\\\[endif]-->
 
 \
 The complete list of response codes is documented for each resource in the API reference table shown below:
 
-\
-\*\*<!--\\\\\\\\[if gte vml 1]><v:shape
- id="Picture_x0020_121" o:spid="_x0000_i1029" type="#_x0000_t75" alt="Background pattern&#10;&#10;Description automatically generated"
- style='width:394.5pt;height:132.5pt;visibility:visible;mso-wrap-style:square'
- o:bordertopcolor="yellow pure" o:borderleftcolor="yellow pure"
- o:borderbottomcolor="yellow pure" o:borderrightcolor="yellow pure">
- <v:imagedata src="file:///C:\Users\passeron\AppData\Local\Temp\msohtmlclip1\01\clip_image013.png"
-  o:title="Background pattern&#10;&#10;Description automatically generated"/>
- <w:bordertop type="single" width="12"/>
- <w:borderleft type="single" width="12"/>
- <w:borderbottom type="single" width="12"/>
- <w:borderright type="single" width="12"/>
-</v:shape><!\\\\\\\\[endif]--><!--\\\\\\\\[if !vml]-->![Background pattern
 
-Description automatically generated](file:///C:\Users\passeron\AppData\Local\Temp\msohtmlclip1\01\clip_image035.jpg)<!--\\\\\\\\[endif]-->\*\*\
 
-<!--\\\\\\\\[if !supportLineBreakNewLine]-->\
+![blog figure18](/img/greenlake-com-ops-api-curl21.png)
 
-<!--\\\\\\\\[endif]-->
+<!--\\\\\\\\\[if !supportLineBreakNewLine]-->\
+
+<!--\\\\\\\\\[endif]-->
 
 The API supports several query parameters depending on the resource type, such as filter, limit (maximum number of records to return), offset (resource offset to start the response from) and sort (order in which to return the resources in the collection).\
 \
@@ -410,84 +306,38 @@ To use a filter on a nested property name, the '**/**' separator can be specifie
 \
 **GET /compute-ops/v1beta2/servers?filter=hardware/model eq 'ProLiant DL365 Gen10 Plus'\*\***\
 
-<!--\\\\\\\\[if !supportLineBreakNewLine]-->\
+<!--\\\\\\\\\[if !supportLineBreakNewLine]-->\
 
-<!--\\\\\\\\[endif]-->\\\\\\\*\\\\\\\*
+<!--\\\\\\\\\[endif]-->\\\\\\\\*\\\\\\\\*
 
-To test this filter[, enter](<>) <!--\\\\\\\\[if !supportAnnotations]-->\[[RD24]](#_msocom_24)<!--\\\\\\\\[endif]--> the following URL in the Request field:\
+To test this filter[, enter](<>) <!--\\\\\\\\\[if !supportAnnotations]-->\[[RD24]](#_msocom_24)<!--\\\\\\\\\[endif]--> the following URL in the Request field:\
 \
 **<https://us-west2-api.compute.cloud.hpe.com/compute-ops/v1beta2/servers?filter=contains(hardware/model,'DL365')>**
 
-\
 
-<!--\\\\\\\\[if gte vml 1]><v:shape
- id="Image_x0020_5" o:spid="_x0000_i1028" type="#_x0000_t75" style='width:407.5pt;
- height:125.5pt;visibility:visible;mso-wrap-style:square' o:bordertopcolor="yellow pure"
- o:borderleftcolor="yellow pure" o:borderbottomcolor="yellow pure"
- o:borderrightcolor="yellow pure">
- <v:imagedata src="file:///C:\Users\passeron\AppData\Local\Temp\msohtmlclip1\01\clip_image036.png"
-  o:title=""/>
- <w:bordertop type="single" width="12"/>
- <w:borderleft type="single" width="12"/>
- <w:borderbottom type="single" width="12"/>
- <w:borderright type="single" width="12"/>
-</v:shape><!\\\\\\\\[endif]--><!--\\\\\\\\[if !vml]-->!\\\\\\\[](file:///C:\Users\passeron\AppData\Local\Temp\msohtmlclip1\01\clip_image037.jpg)<!--\\\\\\\\[endif]-->
+
+![blog figure19](/img/greenlake-com-ops-api-curl22.png)
 
 The Authorization tab should still have your Access Token (an access token is valid for 2 hours).
 
 Hit the **Send** button.\
-The request should indicate success (Status is 200 OK) and, in this example, the response shows 4 server resources whose model name contains DL36[5.](<>)<!--\\\\\\\\[if !supportAnnotations]-->\[[RD25]](#_msocom_25)<!--\\\\\\\\[endif]--> 
+The request should indicate success (Status is 200 OK) and, in this example, the response shows 4 server resources whose model name contains DL365.
 
+![blog figure20](/img/greenlake-com-ops-api-curl10.png)
+
+The filter query syntax supports a richer set of filters than the single operation in the previous example. Filtering syntax is broken down by Operations, Logic, and Types. In the previous example[,](<>)  the operation was 'eq' for equality. Most comparison operations require the evaluated property name to the left of the operator[r](<>)<!--\\\\\\\\\[if !supportAnnotations]-->\[[RD27]](#_msocom_27)<!--\\\\\\\\\[endif]--> and a literal to the right.\
 \
 
-<!--\\\\\\\\[if gte vml 1]><v:shape id="Image_x0020_7" o:spid="_x0000_i1027"
- type="#_x0000_t75" alt="Une image contenant texte&#10;&#10;Description générée automatiquement"
- style='width:267pt;height:204pt;visibility:visible;mso-wrap-style:square'
- o:bordertopcolor="yellow pure" o:borderleftcolor="yellow pure"
- o:borderbottomcolor="yellow pure" o:borderrightcolor="yellow pure">
- <v:imagedata src="file:///C:\Users\passeron\AppData\Local\Temp\msohtmlclip1\01\clip_image038.png"
-  o:title="Une image contenant texte&#10;&#10;Description générée automatiquement"/>
- <w:bordertop type="single" width="12"/>
- <w:borderleft type="single" width="12"/>
- <w:borderbottom type="single" width="12"/>
- <w:borderright type="single" width="12"/>
-</v:shape><!\\\\\\\\[endif]--><!--\\\\\\\\[if !vml]-->![Une image contenant texte
+![blog figure21](/img/greenlake-com-ops-api-curl16.png)
 
-Description générée automatiquement](file:///C:\Users\passeron\AppData\Local\Temp\msohtmlclip1\01\clip_image039.jpg)<!--\\\\\\\\[endif]-->
-
-The filter query syntax supports a richer set of filters than the single operation in the previous example. Filtering syntax is broken down by Operations, Logic, and Types. In the previous example[,](<>)<!--\\\\\\\\[if !supportAnnotations]-->\[[RD26]](#_msocom_26)<!--\\\\\\\\[endif]-->  the operation was 'eq' for equality. Most comparison operations require the evaluated property name to the left of the operato[r](<>)<!--\\\\\\\\[if !supportAnnotations]-->\[[RD27]](#_msocom_27)<!--\\\\\\\\[endif]--> and a literal to the right.\
 \
-
-<!--\\\\\\\\[if gte vml 1]><v:shape id="Picture_x0020_116"
- o:spid="_x0000_i1026" type="#_x0000_t75" alt="Table&#10;&#10;Description automatically generated"
- style='width:309.5pt;height:132.5pt;visibility:visible;mso-wrap-style:square'
- o:bordertopcolor="yellow pure" o:borderleftcolor="yellow pure"
- o:borderbottomcolor="yellow pure" o:borderrightcolor="yellow pure">
- <v:imagedata src="file:///C:\Users\passeron\AppData\Local\Temp\msohtmlclip1\01\clip_image019.png"
-  o:title="Table&#10;&#10;Description automatically generated"/>
- <w:bordertop type="single" width="12"/>
- <w:borderleft type="single" width="12"/>
- <w:borderbottom type="single" width="12"/>
- <w:borderright type="single" width="12"/>
-</v:shape><!\\\\\\\\[endif]--><!--\\\\\\\\[if !vml]-->![Table
-
-Description automatically generated](file:///C:\Users\passeron\AppData\Local\Temp\msohtmlclip1\01\clip_image040.jpg)<!--\\\\\\\\[endif]-->\
 \
 To learn more about Filtering, see the [HPE GreenLake for Compute Ops Management guide](https://developer.greenlake.hpe.com/docs/greenlake/services/compute-ops/public/guide/#filtering).\
 
-<!--\\\\\\\\[if !supportLineBreakNewLine]-->\
-
-<!--\\\\\\\\[endif]-->
-
 Unique Resource Identifiers (URIs) are used to identify a resource. A URI is a full API path ending in an identification number. For example:\
 
-<!--\\\\\\\\[if !supportLineBreakNewLine]-->\
-
-<!--\\\\\\\\[endif]-->
-
-<!--\\\\\\\\[if !supportLists]-->·       <!--\\\\\\\\[endif]-->/compute-ops/v1beta2/servers/{serverId}
-
-* /compute-ops/v1beta1/reports/{id}/data 
+*  compute-ops/v1beta2/servers/{serverId}
+* compute-ops/v1beta1/reports/{id}/data 
 
 **v1beta1**, **v1beta2** in the URI is the version of the resource that is being accessed.
 
@@ -495,500 +345,16 @@ You can invoke the common HTTP methods, like GET, POST, PUT, PATCH, and DELETE,o
 
 Refer to the [API reference](https://developer.greenlake.hpe.com/docs/greenlake/services/compute-ops/public/openapi/compute-ops-latest/overview/) site for a complete list of methods supported by each API resource.
 
+Finally, a Postman collection of executable API requests for the HPE GreenLake for Compute Ops Management API can be found [HERE](https://www.postman.com/jullienl/workspace/lionel-jullien-s-public-workspace/collection/991177-10c5377d-892b-4612-9e81-23d75d6c2f0d?ctx=documentation).
+
+
+
 # What’s next?
 
 In this blog post, we covered how to get started with the HPE GreenLake for Compute Ops Management REST API, explained how to post simple API calls through cURL commands, and showed you how to leverage Postman to achieve the same results.  In our next article, we will show how similar calls can be performed using Python or PowerShell.
 
 [Learn more about HPE GreenLake](<>)
 
-Learn more about the HPE GreenLake for Compute Ops Management REST API
+Learn more about the [HPE GreenLake for Compute Ops Management REST API](https://developer.greenlake.hpe.com/docs/greenlake/services/compute-ops/public/guide/#filtering)
 
-Find other tutorials and articles on HPE GreenLake on the HPE Developer blog.<!--\\\\\\\\[if !supportAnnotations]-->\[[RD30]](#_msocom_30)<!--\\\\\\\\[endif]--> 
-
-<!--\\\\\\\\[if !supportAnnotations]-->
-
-- - -
-
-<!--\\\\\\\\[endif]-->
-
-<!--\\\\\\\\[if !supportAnnotations]-->
-
-<!--\\\\\\\\[endif]-->
-
-<!--\\\\\\\\[if !supportAnnotations]-->
-
-[](<>)
-
-<!--\\\\\\\\[endif]-->
-
- <!--\\\\\\\\[if !supportAnnotations]-->\[[RD1]](#_msoanchor_1)<!--\\\\\\\\[endif]-->This “is” the official title, correct? While it may mean Operations, I believe the product name is specifically Ops.
-
-<!--\\\\\\\\[if !supportAnnotations]-->
-
-<!--\\\\\\\\[endif]-->
-
-<!--\\\\\\\\[if !supportAnnotations]-->
-
-<!--\\\\\\\\[endif]-->
-
-<!--\\\\\\\\[if !supportAnnotations]-->
-
-[](<>)
-
-<!--\\\\\\\\[endif]-->
-
- <!--\\\\\\\\[if !supportAnnotations]-->\[[RD2]](#_msoanchor_2)<!--\\\\\\\\[endif]-->Remove period after “update”
-
-<!--\\\\\\\\[if !supportAnnotations]-->
-
-<!--\\\\\\\\[endif]-->
-
-<!--\\\\\\\\[if !supportAnnotations]-->
-
-<!--\\\\\\\\[endif]-->
-
-<!--\\\\\\\\[if !supportAnnotations]-->
-
-[](<>)
-
-<!--\\\\\\\\[endif]-->
-
- <!--\\\\\\\\[if !supportAnnotations]-->\[[RD3]](#_msoanchor_3)<!--\\\\\\\\[endif]-->Should this be written as cURL, curl, Curl, or CURL? I’ve seen it just about every different way on the internet.
-
-<!--\\\\\\\\[if !supportAnnotations]-->
-
-<!--\\\\\\\\[endif]-->
-
-<!--\\\\\\\\[if !supportAnnotations]-->
-
-<!--\\\\\\\\[endif]-->
-
-<!--\\\\\\\\[if !supportAnnotations]-->
-
-[](<>)
-
-<!--\\\\\\\\[endif]-->
-
- <!--\\\\\\\\[if !supportAnnotations]-->\[[RD4]](#_msoanchor_4)<!--\\\\\\\\[endif]-->Do you really mean “method”? Would “call” work better? Or “request”? or “command”?
-
-<!--\\\\\\\\[if !supportAnnotations]-->
-
-<!--\\\\\\\\[endif]-->
-
-<!--\\\\\\\\[if !supportAnnotations]-->
-
-<!--\\\\\\\\[endif]-->
-
-<!--\\\\\\\\[if !supportAnnotations]-->
-
-[](<>)
-
-<!--\\\\\\\\[endif]-->
-
- <!--\\\\\\\\[if !supportAnnotations]-->\[[PF(D(x5]](#_msoanchor_5)<!--\\\\\\\\[endif]-->method
-
-<!--\\\\\\\\[if !supportAnnotations]-->
-
-<!--\\\\\\\\[endif]-->
-
-<!--\\\\\\\\[if !supportAnnotations]-->
-
-<!--\\\\\\\\[endif]-->
-
-<!--\\\\\\\\[if !supportAnnotations]-->
-
-[](<>)
-
-<!--\\\\\\\\[endif]-->
-
- <!--\\\\\\\\[if !supportAnnotations]-->\[[RD6]](#_msoanchor_6)<!--\\\\\\\\[endif]-->Okay… if you are going to use it this way, we should be consistent throughout the blog post.
-
-<!--\\\\\\\\[if !supportAnnotations]-->
-
-<!--\\\\\\\\[endif]-->
-
-<!--\\\\\\\\[if !supportAnnotations]-->
-
-<!--\\\\\\\\[endif]-->
-
-<!--\\\\\\\\[if !supportAnnotations]-->
-
-[](<>)
-
-<!--\\\\\\\\[endif]-->
-
- <!--\\\\\\\\[if !supportAnnotations]-->\[[PF(D(x7]](#_msoanchor_7)<!--\\\\\\\\[endif]-->Agree
-
-<!--\\\\\\\\[if !supportAnnotations]-->
-
-<!--\\\\\\\\[endif]-->
-
-<!--\\\\\\\\[if !supportAnnotations]-->
-
-<!--\\\\\\\\[endif]-->
-
-<!--\\\\\\\\[if !supportAnnotations]-->
-
-[](<>)
-
-<!--\\\\\\\\[endif]-->
-
- <!--\\\\\\\\[if !supportAnnotations]-->\[[RD8]](#_msoanchor_8)<!--\\\\\\\\[endif]-->Is this really one word? Or should it be “an open API”? Just wondering…
-
-<!--\\\\\\\\[if !supportAnnotations]-->
-
-<!--\\\\\\\\[endif]-->
-
-<!--\\\\\\\\[if !supportAnnotations]-->
-
-<!--\\\\\\\\[endif]-->
-
-<!--\\\\\\\\[if !supportAnnotations]-->
-
-[](<>)
-
-<!--\\\\\\\\[endif]-->
-
- <!--\\\\\\\\[if !supportAnnotations]-->\[[PF(D(x9]](#_msoanchor_9)<!--\\\\\\\\[endif]-->One Word
-
-<!--\\\\\\\\[if !supportAnnotations]-->
-
-<!--\\\\\\\\[endif]-->
-
-<!--\\\\\\\\[if !supportAnnotations]-->
-
-<!--\\\\\\\\[endif]-->
-
-<!--\\\\\\\\[if !supportAnnotations]-->
-
-[](<>)
-
-<!--\\\\\\\\[endif]-->
-
- <!--\\\\\\\\[if !supportAnnotations]-->\[[RD10]](#_msoanchor_10)<!--\\\\\\\\[endif]-->URIs or URLs?
-
-<!--\\\\\\\\[if !supportAnnotations]-->
-
-<!--\\\\\\\\[endif]-->
-
-<!--\\\\\\\\[if !supportAnnotations]-->
-
-<!--\\\\\\\\[endif]-->
-
-<!--\\\\\\\\[if !supportAnnotations]-->
-
-[](<>)
-
-<!--\\\\\\\\[endif]-->
-
- <!--\\\\\\\\[if !supportAnnotations]-->\[[PF(D(x11]](#_msoanchor_11)<!--\\\\\\\\[endif]-->URIS
-
-<!--\\\\\\\\[if !supportAnnotations]-->
-
-<!--\\\\\\\\[endif]-->
-
-<!--\\\\\\\\[if !supportAnnotations]-->
-
-<!--\\\\\\\\[endif]-->
-
-<!--\\\\\\\\[if !supportAnnotations]-->
-
-[](<>)
-
-<!--\\\\\\\\[endif]-->
-
- <!--\\\\\\\\[if !supportAnnotations]-->\[[RD12]](#_msoanchor_12)<!--\\\\\\\\[endif]-->In the API reference or “in the API reference documentation”? It just sounds a little weird, so I was wondering what you meant.
-
-<!--\\\\\\\\[if !supportAnnotations]-->
-
-<!--\\\\\\\\[endif]-->
-
-<!--\\\\\\\\[if !supportAnnotations]-->
-
-<!--\\\\\\\\[endif]-->
-
-<!--\\\\\\\\[if !supportAnnotations]-->
-
-[](<>)
-
-<!--\\\\\\\\[endif]-->
-
- <!--\\\\\\\\[if !supportAnnotations]-->\[[PF(D(x13]](#_msoanchor_13)<!--\\\\\\\\[endif]-->Doc / guide
-
-<!--\\\\\\\\[if !supportAnnotations]-->
-
-<!--\\\\\\\\[endif]-->
-
-<!--\\\\\\\\[if !supportAnnotations]-->
-
-<!--\\\\\\\\[endif]-->
-
-<!--\\\\\\\\[if !supportAnnotations]-->
-
-[](<>)
-
-<!--\\\\\\\\[endif]-->
-
- <!--\\\\\\\\[if !supportAnnotations]-->\[[RD14]](#_msoanchor_14)<!--\\\\\\\\[endif]-->Don’t talk about it from the perspective of what you personally are doing. Think of it more in terms of you guiding them to do something. This helps to make it more personal and engaging with the reader.
-
-<!--\\\\\\\\[if !supportAnnotations]-->
-
-<!--\\\\\\\\[endif]-->
-
-<!--\\\\\\\\[if !supportAnnotations]-->
-
-<!--\\\\\\\\[endif]-->
-
-<!--\\\\\\\\[if !supportAnnotations]-->
-
-[](<>)
-
-<!--\\\\\\\\[endif]-->
-
- <!--\\\\\\\\[if !supportAnnotations]-->\[[RD15]](#_msoanchor_15)<!--\\\\\\\\[endif]-->Add a comma
-
-<!--\\\\\\\\[if !supportAnnotations]-->
-
-<!--\\\\\\\\[endif]-->
-
-<!--\\\\\\\\[if !supportAnnotations]-->
-
-<!--\\\\\\\\[endif]-->
-
-<!--\\\\\\\\[if !supportAnnotations]-->
-
-[](<>)
-
-<!--\\\\\\\\[endif]-->
-
- <!--\\\\\\\\[if !supportAnnotations]-->\[[RD16]](#_msoanchor_16)<!--\\\\\\\\[endif]-->No comma required here
-
-<!--\\\\\\\\[if !supportAnnotations]-->
-
-<!--\\\\\\\\[endif]-->
-
-<!--\\\\\\\\[if !supportAnnotations]-->
-
-<!--\\\\\\\\[endif]-->
-
-<!--\\\\\\\\[if !supportAnnotations]-->
-
-[](<>)
-
-<!--\\\\\\\\[endif]-->
-
- <!--\\\\\\\\[if !supportAnnotations]-->\[[RD17]](#_msoanchor_17)<!--\\\\\\\\[endif]-->Aha! You DID mean URIs earlier. It’s best to fully write it out the first time you want to use it and then use the abbreviation after that. So, for that earlier instance, could you please write it like you did here? And, you don’t actually have to use the abbreviation each time… you could leave this here as is. You just need to make sure that you’ve also done it earlier, in the first instance where you’ve used it.
-
-<!--\\\\\\\\[if !supportAnnotations]-->
-
-<!--\\\\\\\\[endif]-->
-
-<!--\\\\\\\\[if !supportAnnotations]-->
-
-<!--\\\\\\\\[endif]-->
-
-<!--\\\\\\\\[if !supportAnnotations]-->
-
-[](<>)
-
-<!--\\\\\\\\[endif]-->
-
- <!--\\\\\\\\[if !supportAnnotations]-->\[[RD18]](#_msoanchor_18)<!--\\\\\\\\[endif]-->Again, “methods” doesn’t feel like the right word. It seems like “commands” would work better or “calls”.
-
-<!--\\\\\\\\[if !supportAnnotations]-->
-
-<!--\\\\\\\\[endif]-->
-
-<!--\\\\\\\\[if !supportAnnotations]-->
-
-<!--\\\\\\\\[endif]-->
-
-<!--\\\\\\\\[if !supportAnnotations]-->
-
-[](<>)
-
-<!--\\\\\\\\[endif]-->
-
- <!--\\\\\\\\[if !supportAnnotations]-->\[[RD19]](#_msoanchor_19)<!--\\\\\\\\[endif]-->Also, don’t forget to place commas around “like GET, POST, PUT, PATCH, and DELETE”
-
-<!--\\\\\\\\[if !supportAnnotations]-->
-
-<!--\\\\\\\\[endif]-->
-
-<!--\\\\\\\\[if !supportAnnotations]-->
-
-<!--\\\\\\\\[endif]-->
-
-<!--\\\\\\\\[if !supportAnnotations]-->
-
-[](<>)
-
-<!--\\\\\\\\[endif]-->
-
- <!--\\\\\\\\[if !supportAnnotations]-->\[[RD20]](#_msoanchor_20)<!--\\\\\\\\[endif]-->“calls” or “commands”?
-
-<!--\\\\\\\\[if !supportAnnotations]-->
-
-<!--\\\\\\\\[endif]-->
-
-<!--\\\\\\\\[if !supportAnnotations]-->
-
-<!--\\\\\\\\[endif]-->
-
-<!--\\\\\\\\[if !supportAnnotations]-->
-
-[](<>)
-
-<!--\\\\\\\\[endif]-->
-
- <!--\\\\\\\\[if !supportAnnotations]-->\[[PF(D(x21]](#_msoanchor_21)<!--\\\\\\\\[endif]-->Method is fine
-
-<!--\\\\\\\\[if !supportAnnotations]-->
-
-<!--\\\\\\\\[endif]-->
-
-<!--\\\\\\\\[if !supportAnnotations]-->
-
-<!--\\\\\\\\[endif]-->
-
-<!--\\\\\\\\[if !supportAnnotations]-->
-
-[](<>)
-
-<!--\\\\\\\\[endif]-->
-
- <!--\\\\\\\\[if !supportAnnotations]-->\[[RD22]](#_msoanchor_22)<!--\\\\\\\\[endif]-->I’m not suggesting you hotlink these URLs here because I get the impression the reader needs to see pieces of the complete URL. But if that’s not the case, you can consider writing it so that it would take a hot-linked URL.
-
-<!--\\\\\\\\[if !supportAnnotations]-->
-
-<!--\\\\\\\\[endif]-->
-
-<!--\\\\\\\\[if !supportAnnotations]-->
-
-<!--\\\\\\\\[endif]-->
-
-<!--\\\\\\\\[if !supportAnnotations]-->
-
-[](<>)
-
-<!--\\\\\\\\[endif]-->
-
- <!--\\\\\\\\[if !supportAnnotations]-->\[[RD23]](#_msoanchor_23)<!--\\\\\\\\[endif]-->Again, take the “I” out of the equation and talk directly to the reader.
-
-<!--\\\\\\\\[if !supportAnnotations]-->
-
-<!--\\\\\\\\[endif]-->
-
-<!--\\\\\\\\[if !supportAnnotations]-->
-
-<!--\\\\\\\\[endif]-->
-
-<!--\\\\\\\\[if !supportAnnotations]-->
-
-[](<>)
-
-<!--\\\\\\\\[endif]-->
-
- <!--\\\\\\\\[if !supportAnnotations]-->\[[RD24]](#_msoanchor_24)<!--\\\\\\\\[endif]-->Remove “I”
-
-<!--\\\\\\\\[if !supportAnnotations]-->
-
-<!--\\\\\\\\[endif]-->
-
-<!--\\\\\\\\[if !supportAnnotations]-->
-
-<!--\\\\\\\\[endif]-->
-
-<!--\\\\\\\\[if !supportAnnotations]-->
-
-[](<>)
-
-<!--\\\\\\\\[endif]-->
-
- <!--\\\\\\\\[if !supportAnnotations]-->\[[RD25]](#_msoanchor_25)<!--\\\\\\\\[endif]-->Don’t forget the period
-
-<!--\\\\\\\\[if !supportAnnotations]-->
-
-<!--\\\\\\\\[endif]-->
-
-<!--\\\\\\\\[if !supportAnnotations]-->
-
-<!--\\\\\\\\[endif]-->
-
-<!--\\\\\\\\[if !supportAnnotations]-->
-
-[](<>)
-
-<!--\\\\\\\\[endif]-->
-
- <!--\\\\\\\\[if !supportAnnotations]-->\[[RD26]](#_msoanchor_26)<!--\\\\\\\\[endif]-->comma
-
-<!--\\\\\\\\[if !supportAnnotations]-->
-
-<!--\\\\\\\\[endif]-->
-
-<!--\\\\\\\\[if !supportAnnotations]-->
-
-<!--\\\\\\\\[endif]-->
-
-<!--\\\\\\\\[if !supportAnnotations]-->
-
-[](<>)
-
-<!--\\\\\\\\[endif]-->
-
- <!--\\\\\\\\[if !supportAnnotations]-->\[[RD27]](#_msoanchor_27)<!--\\\\\\\\[endif]-->no comma required here
-
-<!--\\\\\\\\[if !supportAnnotations]-->
-
-<!--\\\\\\\\[endif]-->
-
-<!--\\\\\\\\[if !supportAnnotations]-->
-
-<!--\\\\\\\\[endif]-->
-
-<!--\\\\\\\\[if !supportAnnotations]-->
-
-[](<>)
-
-<!--\\\\\\\\[endif]-->
-
- <!--\\\\\\\\[if !supportAnnotations]-->\[[RD28]](#_msoanchor_28)<!--\\\\\\\\[endif]-->“calls” or “commands”?
-
-<!--\\\\\\\\[if !supportAnnotations]-->
-
-<!--\\\\\\\\[endif]-->
-
-<!--\\\\\\\\[if !supportAnnotations]-->
-
-<!--\\\\\\\\[endif]-->
-
-<!--\\\\\\\\[if !supportAnnotations]-->
-
-[](<>)
-
-<!--\\\\\\\\[endif]-->
-
- <!--\\\\\\\\[if !supportAnnotations]-->\[[RD29]](#_msoanchor_29)<!--\\\\\\\\[endif]-->Commas should be on either side of “like GET, POST, PUT, PATCH, and DELETE”
-
-<!--\\\\\\\\[if !supportAnnotations]-->
-
-<!--\\\\\\\\[endif]-->
-
-<!--\\\\\\\\[if !supportAnnotations]-->
-
-<!--\\\\\\\\[endif]-->
-
-<!--\\\\\\\\[if !supportAnnotations]-->
-
-[](<>)
-
-<!--\\\\\\\\[endif]-->
-
- <!--\\\\\\\\[if !supportAnnotations]-->\[[RD30]](#_msoanchor_30)<!--\\\\\\\\[endif]-->Don’t forget the appropriate hotlinks
-
-<!--\\\\\\\\[if !supportAnnotations]-->
-
-<!--\\\\\\\\[endif]-->
-
-<!--EndFragment-->
+Find other tutorials and articles on HPE GreenLake on the [HPE Developer blog](https://developer.hpe.com/blog).
