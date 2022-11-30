@@ -57,12 +57,8 @@ If you are wondering which to use, cURL is probably a good choice if you like co
 From the command prompt, use a simple cURL command like:
 
 ```
-**curl -X GET https://us-west2-api.compute.cloud.hpe.com/compute-ops/v1beta2/servers?limit=2 -H "Authorization:Bearer ,< access_token_here>”**
+curl -X GET https://us-west2-api.compute.cloud.hpe.com/compute-ops/v1beta2/servers?limit=2 -H "Authorization:Bearer ,< access_token_here>”**
 ```
-
-
-
-**curl -X GET https://us-west2-api.compute.cloud.hpe.com/compute-ops/v1beta2/servers?limit=2 -H "Authorization:Bearer ,< access_token_here>”**
 
 \
 Note that you must use the correct connectivity endpoint according to the region where HPE GreenLake for Compute Ops Management is deployed. Currently, these are the connectivity endpoints for the possible HPE GreenLake for Compute Ops Management regions:
@@ -88,16 +84,10 @@ The command uses a header parameter with keyword **"Authorization:Bearer {token}
 To see the API response code, add -I at the end of the command:
 
 ```
-curl -X GET https://us-west2-api.compute.cloud.hpe.com/compute-ops/v1beta2/servers?limit=2 -H "Authorization:Bearer <your access_token_here>” –I**
+curl -X GET https://us-west2-api.compute.cloud.hpe.com/compute-ops/v1beta2/servers?limit=2 -H "Authorization:Bearer <your access_token_here>” –I
 ```
 
 
-
-
-
-
-
-**curl -X GET https://us-west2-api.compute.cloud.hpe.com/compute-ops/v1beta2/servers?limit=2 -H "Authorization:Bearer <your access_token_here>” –I**
 
 ![blog figure5](/img/greenlake-com-ops-api-curl2.png)
 
@@ -154,63 +144,67 @@ To use a filter on a nested property name, the '**/**' separator can be specifie
 
             **"hardware": {**
 
-            **    "serialNumber": "CN70421C51",**
+             **   "serialNumber": "CN70421C51",**
 
-            **    "model": "ProLiant DL365 Gen10 Plus",**
+             **   "model": "ProLiant DL365 Gen10 Plus",**
 
-            **    "uuid": "33393350-3836-4E43-3730-343231433531",**
+             **   "uuid": "33393350-3836-4E43-3730-343231433531",**
 
-            **    "productId": "P39368-B21",**
+             **   "productId": "P39368-B21",**
 
-            **    "powerState": "ON",**
+             **   "powerState": "ON",**
 
-            **    "indicatorLed": "OFF",**
+             **   "indicatorLed": "OFF",**
 
-            **    "health": {**
+             **   "health": {**
 
-            **        "summary": "OK",**
+             **       "summary": "OK",**
 
-            **        "healthLED": "OK",**
+             **       "healthLED": "OK",**
 
-            **        "fans": "OK",**
+             **       "fans": "OK",**
 
-            **        "fanRedundancy": "REDUNDANT",**
+             **       "fanRedundancy": "REDUNDANT",**
 
-            **        "liquidCooling": "NOT_PRESENT",**
+             **       "liquidCooling": "NOT_PRESENT",**
 
-            **        "liquidCoolingRedundancy": "NOT_PRESENT",**
+             **       "liquidCoolingRedundancy": "NOT_PRESENT",**
 
-            **        "memory": "OK",**
+             **       "memory": "OK",**
 
-            **        "network": "UNKNOWN",**
+             **       "network": "UNKNOWN",**
 
-            **        "powerSupplies": "OK",**
+             **       "powerSupplies": "OK",**
 
-            **        "powerSupplyRedundancy": "NOT_PRESENT",**
+             **       "powerSupplyRedundancy": "NOT_PRESENT",**
 
-            **        "processor": "OK",**
+             **       "processor": "OK",**
 
-            **        "storage": "OK",**
+             **       "storage": "OK",**
 
-            **        "temperature": "OK",**
+             **       "temperature": "OK",**
 
-            **        "bios": "OK",**
+             **       "bios": "OK",**
 
-            **        "smartStorage": "OK"**
+             **       "smartStorage": "OK"**
 
-            **    },**
+             **   },**
 
-            **    "bmc": {**
+             **   "bmc": {**
 
-            **        "mac": "B4:7A:F1:4E:9E:92",**
+             **       "mac": "B4:7A:F1:4E:9E:92",**
 
-            **        "ip": "172.30.231.116",**
+             **       "ip": "172.30.231.116",**
 
-            **        "hostname": "None"**
+             **       "hostname": "None"**
 
 The following cURL command includes the filter
 
-**curl -X GET “https://us-west2-api.compute.cloud.hpe.com/compute-ops/v1beta2/servers?filter=contains(hardware/model,'DL365')” -H "Authorization:Bearer <your access_token_here>”**
+```
+curl -X GET “https://us-west2-api.compute.cloud.hpe.com/compute-ops/v1beta2/servers?filter=contains(hardware/model,'DL365')” -H "Authorization:Bearer <your access_token_here>"
+```
+
+
 
 ![blog figure8](/img/greenlake-com-ops-api-curl5.png)
 
