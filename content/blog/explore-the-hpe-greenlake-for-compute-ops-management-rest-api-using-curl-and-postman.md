@@ -56,6 +56,12 @@ If you are wondering which to use, cURL is probably a good choice if you like co
 
 From the command prompt, use a simple cURL command like:
 
+```
+**curl -X GET https://us-west2-api.compute.cloud.hpe.com/compute-ops/v1beta2/servers?limit=2 -H "Authorization:Bearer ,< access_token_here>”**
+```
+
+
+
 **curl -X GET https://us-west2-api.compute.cloud.hpe.com/compute-ops/v1beta2/servers?limit=2 -H "Authorization:Bearer ,< access_token_here>”**
 
 \
