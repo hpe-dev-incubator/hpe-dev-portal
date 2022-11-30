@@ -60,7 +60,6 @@ From the command prompt, use a simple cURL command like:
 curl -X GET https://us-west2-api.compute.cloud.hpe.com/compute-ops/v1beta2/servers?limit=2 -H "Authorization:Bearer ,< access_token_here>”**
 ```
 
-\
 Note that you must use the correct connectivity endpoint according to the region where HPE GreenLake for Compute Ops Management is deployed. Currently, these are the connectivity endpoints for the possible HPE GreenLake for Compute Ops Management regions:
 
 * [EU Central](https://eu-central1-api.compute.cloud.hpe.com)   
@@ -101,8 +100,8 @@ The JSON response provided by the API is not formatted, which makes it difficult
 
 ![blog figure7](/img/greenlake-com-ops-api-curl4.png)
 
-The API supports several query parameters depending on the resource type, such as filter, limit (maximum number of records to return), offset (resource offset to start the response from) and sort (order in which to return the resources in the collection).\
-\
+The API supports several query parameters depending on the resource type, such as filter, limit (maximum number of records to return), offset (resource offset to start the response from) and sort (order in which to return the resources in the collection).
+
 Filters provide the ability to limit the resources that take part in the action of a REST call. When a REST call includes a filter, the GET or DELETE action is restricted to a response that meets the filter requirements. Filters are specified by using the query parameter 'filter'.
 
 Here is a simple example of filtering:
@@ -239,7 +238,7 @@ Refer to the [API reference](https://developer.greenlake.hpe.com/docs/greenlake/
 
 Postman is a tool designed to build and use APIs.
 
- To get started, “create a request”, as shown below:
+To get started, “create a request”, as shown below:
 
 ![blog figure12](/img/greenlake-com-ops-api-curl7.png)
 
@@ -267,27 +266,26 @@ Hit the **Send** button to get a **200 OK** status response indicating success a
 
 ![blog figure17](/img/greenlake-com-ops-api-curl9.png)
 
-\
 The complete list of response codes is documented for each resource in the API reference table shown below:
 
 ![blog figure18](/img/greenlake-com-ops-api-curl21.png)
 
-The API supports several query parameters depending on the resource type, such as filter, limit (maximum number of records to return), offset (resource offset to start the response from) and sort (order in which to return the resources in the collection).\
-\
-Filters provide the ability to limit the resources that take part in the action of a REST call. When a REST call includes a filter, the GET or DELETE action is restricted to a response that meets the filter requirements. Filters are specified by using the query parameter 'filter'.\
-\
-A simple example of filtering follows:\
-\
+The API supports several query parameters depending on the resource type, such as filter, limit (maximum number of records to return), offset (resource offset to start the response from) and sort (order in which to return the resources in the collection).
+
+Filters provide the ability to limit the resources that take part in the action of a REST call. When a REST call includes a filter, the GET or DELETE action is restricted to a response that meets the filter requirements. Filters are specified by using the query parameter 'filter'.
+
+A simple example of filtering follows:
+
 **GET <URI>?filter=powerState eq 'Off'**
 
-This example shows a simple filter. The resources returned by the query are limited to results with the attribute **powerState** and the value **Off**.\
-\
-To use a filter on a nested property name, the '**/**' separator can be specified as follows:\
-\
+This example shows a simple filter. The resources returned by the query are limited to results with the attribute **powerState** and the value **Off**.
+
+To use a filter on a nested property name, the '**/**' separator can be specified as follows:
+
 **GET /compute-ops/v1beta2/servers?filter=hardware/model eq 'ProLiant DL365 Gen10 Plus'**
 
-To test this filter, we enter the following URL in the Request field:\
-\
+To test this filter, we enter the following URL in the Request field:
+
 **<https://us-west2-api.compute.cloud.hpe.com/compute-ops/v1beta2/servers?filter=contains(hardware/model,'DL365')>**
 
 ![blog figure19](/img/greenlake-com-ops-api-curl22.png)
@@ -296,7 +294,6 @@ The Authorization tab should still have your Access Token (an access token is va
 
 We hit the **Send** button.
 
-\
 The request should indicate success (Status is 200 OK) and, in this example, the response shows 4 server resources whose model name contains DL365.
 
 ![blog figure20](/img/greenlake-com-ops-api-curl10.png)
@@ -307,7 +304,7 @@ In the previous example[,](<>)  the operation was 'eq' for equality. Most compa
 
 ![blog figure21](/img/greenlake-com-ops-api-curl16.png)
 
-\
+
 To learn more about Filtering, see the [HPE GreenLake for Compute Ops Management guide](https://developer.greenlake.hpe.com/docs/greenlake/services/compute-ops/public/guide/#filtering).
 
 Unique Resource Identifiers (URIs) are used to identify a resource. A URI is a full API path ending in an identification number. 
