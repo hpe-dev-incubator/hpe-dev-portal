@@ -262,11 +262,7 @@ Hit the **Send** button to get a **200 OK** status response indicating success a
 
 ![blog figure17](/img/greenlake-com-ops-api-curl9.png)
 
-
-
 The complete list of response codes is documented for each resource in the API reference table shown below:
-
-
 
 ![blog figure18](/img/greenlake-com-ops-api-curl21.png)
 
