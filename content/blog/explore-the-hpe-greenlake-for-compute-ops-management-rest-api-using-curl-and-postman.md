@@ -85,11 +85,13 @@ To see the API response code, add -I at the end of the command:
 
 ![blog figure5](/img/greenlake-com-ops-api-curl2.png)
 
-The response code displays **200 OK.** This status response code indicates that the request has succeeded. The complete list of response codes for each resource in the API reference is shown below:
+The response code displays **200 OK.** 
+
+This status response code indicates that the request has succeeded. The complete list of response codes for each resource in the API reference is shown below:
 
 ![blog figure6](/img/greenlake-com-ops-api-curl26.png)
 
-The JSON response provided by the API is not formatted, which makes it difficult to read and understand the JSON content, but a tool like jq (<https://stedolan.github.io/jq/>) can prettify the content. Just add “| jq” at the end of the command to get a better visual display
+The JSON response provided by the API is not formatted, which makes it difficult to read and understand the JSON content, but a tool like jq (<https://stedolan.github.io/jq/>) can prettify the content. Just add “| jq” at the end of the command to get a better visual display.
 
 ![blog figure7](/img/greenlake-com-ops-api-curl4.png)
 
@@ -118,81 +120,83 @@ To use a filter on a nested property name, the '**/**' separator can be specifie
 
         **{**
 
-          **  "id": "P39368-B21+CN70421C51",**
+           ** "id": "P39368-B21+CN70421C51",**
 
-          **  "type": "compute-ops/server",**
+           ** "type": "compute-ops/server",**
 
-          **  "platformFamily": "PROLIANT",**
+           ** "platformFamily": "PROLIANT",**
 
-          **  "resourceUri": "/compute-ops/v1beta2/servers/P39368-B21+CN70421C51",**
+           ** "resourceUri": "/compute-ops/v1beta2/servers/P39368-B21+CN70421C51",**
 
-          **  "name": "HPE-HOL56",**
+           ** "name": "HPE-HOL56",**
 
-          **  "createdAt": "2022-04-29T12:35:35.265978+00:00",**
+           ** "createdAt": "2022-04-29T12:35:35.265978+00:00",**
 
-          **  "updatedAt": "2022-10-25T19:54:36.572565+00:00",**
+           ** "updatedAt": "2022-10-25T19:54:36.572565+00:00",**
 
-          **  "generation": 292,**
+           ** "generation": 292,**
 
-          **  "hardware": {**
+           ** "hardware": {**
 
-          **      "serialNumber": "CN70421C51",**
+           **     "serialNumber": "CN70421C51",**
 
-          **      "model": "ProLiant DL365 Gen10 Plus",**
+           **     "model": "ProLiant DL365 Gen10 Plus",**
 
-          **      "uuid": "33393350-3836-4E43-3730-343231433531",**
+           **     "uuid": "33393350-3836-4E43-3730-343231433531",**
 
-          **      "productId": "P39368-B21",**
+           **     "productId": "P39368-B21",**
 
-          **      "powerState": "ON",**
+           **     "powerState": "ON",**
 
-          **      "indicatorLed": "OFF",**
+           **     "indicatorLed": "OFF",**
 
-          **      "health": {**
+           **     "health": {**
 
-          **          "summary": "OK",**
+           **         "summary": "OK",**
 
-          **          "healthLED": "OK",**
+           **         "healthLED": "OK",**
 
-          **          "fans": "OK",**
+           **         "fans": "OK",**
 
-          **          "fanRedundancy": "REDUNDANT",**
+           **         "fanRedundancy": "REDUNDANT",**
 
-          **          "liquidCooling": "NOT_PRESENT",**
+           **         "liquidCooling": "NOT_PRESENT",**
 
-          **          "liquidCoolingRedundancy": "NOT_PRESENT",**
+           **         "liquidCoolingRedundancy": "NOT_PRESENT",**
 
-          **          "memory": "OK",**
+           **         "memory": "OK",**
 
-          **          "network": "UNKNOWN",**
+           **         "network": "UNKNOWN",**
 
-          **          "powerSupplies": "OK",**
+           **         "powerSupplies": "OK",**
 
-          **          "powerSupplyRedundancy": "NOT_PRESENT",**
+           **         "powerSupplyRedundancy": "NOT_PRESENT",**
 
-          **          "processor": "OK",**
+           **         "processor": "OK",**
 
-          **          "storage": "OK",**
+           **         "storage": "OK",**
 
-          **          "temperature": "OK",**
+           **         "temperature": "OK",**
 
-          **          "bios": "OK",**
+           **         "bios": "OK",**
 
-          **          "smartStorage": "OK"**
+           **         "smartStorage": "OK"**
 
-          **      },**
+           **     },**
 
-          **      "bmc": {**
+           **     "bmc": {**
 
-          **          "mac": "B4:7A:F1:4E:9E:92",**
+           **         "mac": "B4:7A:F1:4E:9E:92",**
 
-          **          "ip": "172.30.231.116",**
+           **         "ip": "172.30.231.116",**
 
-          **          "hostname": "None"**
+           **         "hostname": "None"**
 
 The following cURL command includes the filter
 
 **curl -X GET “https://us-west2-api.compute.cloud.hpe.com/compute-ops/v1beta2/servers?filter=contains(hardware/model,'DL365')” -H "Authorization:Bearer <your access_token_here>”**
+
+
 
 ![blog figure8](/img/greenlake-com-ops-api-curl5.png)
 
@@ -208,15 +212,16 @@ The HPE GreenLake for Compute Ops Management API supports many resources that ar
 
 ![blog figure10](/img/greenlake-com-ops-api-curl17.png)
 
-Unique Resource Identifiers [(URIs)](<>)  are used to identify a resource. A URI is a full API path ending in an identification number. For example:
+Unique Resource Identifiers [(URIs)](<>)  are used to identify a resource. A URI is a full API path ending in an identification number. 
 
-\*/compute-ops/v1beta2/servers/{serverId}
+For example:
 
-\*/compute-ops/v1beta1/reports/{id}/data
+* compute-ops/v1beta2/servers/{serverId}
+* compute-ops/v1beta1/reports/{id}/data
 
-**v1beta1**, **v1beta2** in the URI is the version of the resource that is being accessed.\
+**v1beta1**, **v1beta2** in the URI is the version of the resource that is being accessed.
 
-One can invoke the common HTTP [](<>)[methods](<>), like GET, POST, PUT, PATCH, and DELETE, on resources in the HPE GreenLake for Compute Ops Management API as shown below for the **filters** resource:
+One can invoke the common HTTP [](<>)methods, like GET, POST, PUT, PATCH, and DELETE, on resources in the HPE GreenLake for Compute Ops Management API as shown below for the **filters** resource:
 
 ![blog figure11](/img/greenlake-com-ops-api-curl23.png)
 
@@ -230,13 +235,17 @@ Postman is a tool designed to build and use APIs.
 
 ![blog figure12](/img/greenlake-com-ops-api-curl7.png)
 
-In the request URL field, enter the endpoint URL ﻿[](<>)**<https://us-west2-api.compute.cloud.hpe.com/compute-ops/v1beta2/servers?limit=2>**
+In the request URL field, enter the endpoint URL: ﻿
 
-This is the base connectivity endpoint** ﻿<https://us-west2-api.compute.cloud.hpe.com>** you have seen in earlier, followed by the resource URI you want to query ﻿**/compute-ops/v1beta2/servers** as described in the API reference table.
+[](<>)**<https://us-west2-api.compute.cloud.hpe.com/compute-ops/v1beta2/servers?limit=2>**
+
+This is the base connectivity endpoint you have seen in earlier, followed by the resource URI you want to query ﻿**/compute-ops/v1beta2/servers** as described in the API reference table.
 
 ![blog figure13](/img/greenlake-com-ops-api-curl25.png)
 
-In order to limit the output as documented in the request pane of the *servers* resource:, use query parameter ﻿**?limit=2**
+In order to limit the output as documented in the request pane of the *servers* resource:
+
+We use query parameter ﻿**?limit=2**
 
 ![blog figure14](/img/greenlake-com-ops-api-curl19.png)
 
@@ -261,13 +270,15 @@ Filters provide the ability to limit the resources that take part in the action 
 \
 A simple example of filtering follows:\
 \
-**GET <URI>?filter=powerState eq 'Off'**This example shows a simple filter. The resources returned by the query are limited to results with the attribute **powerState** and the value **Off**.\
+**GET <URI>?filter=powerState eq 'Off'**
+
+This example shows a simple filter. The resources returned by the query are limited to results with the attribute **powerState** and the value **Off**.\
 \
 To use a filter on a nested property name, the '**/**' separator can be specified as follows:\
 \
-**GET /compute-ops/v1beta2/servers?filter=hardware/model eq 'ProLiant DL365 Gen10 Plus'\*\***\
+**GET /compute-ops/v1beta2/servers?filter=hardware/model eq 'ProLiant DL365 Gen10 Plus'**
 
-To test this filter, enter the following URL in the Request field:\
+To test this filter, we enter the following URL in the Request field:\
 \
 **<https://us-west2-api.compute.cloud.hpe.com/compute-ops/v1beta2/servers?filter=contains(hardware/model,'DL365')>**
 
@@ -275,7 +286,7 @@ To test this filter, enter the following URL in the Request field:\
 
 The Authorization tab should still have your Access Token (an access token is valid for 2 hours).
 
-Hit the **Send** button.\
+We hit the **Send** button.\
 The request should indicate success (Status is 200 OK) and, in this example, the response shows 4 server resources whose model name contains DL365.
 
 ![blog figure20](/img/greenlake-com-ops-api-curl10.png)
@@ -287,7 +298,9 @@ The filter query syntax supports a richer set of filters than the single operati
 \
 To learn more about Filtering, see the [HPE GreenLake for Compute Ops Management guide](https://developer.greenlake.hpe.com/docs/greenlake/services/compute-ops/public/guide/#filtering).
 
-Unique Resource Identifiers (URIs) are used to identify a resource. A URI is a full API path ending in an identification number. For example:
+Unique Resource Identifiers (URIs) are used to identify a resource. A URI is a full API path ending in an identification number. 
+
+For example:
 
 * compute-ops/v1beta2/servers/{serverId}
 * compute-ops/v1beta1/reports/{id}/data 
