@@ -81,6 +81,10 @@ The command uses a header parameter with keyword **"Authorization:Bearer {token}
 
 To see the API response code, add -I at the end of the command:
 
+```
+curl -X GET https://us-west2-api.compute.cloud.hpe.com/compute-ops/v1beta2/servers?limit=2 -H "Authorization:Bearer <your access_token_here>” –I**
+```
+
 **curl -X GET https://us-west2-api.compute.cloud.hpe.com/compute-ops/v1beta2/servers?limit=2 -H "Authorization:Bearer <your access_token_here>” –I**
 
 ![blog figure5](/img/greenlake-com-ops-api-curl2.png)
