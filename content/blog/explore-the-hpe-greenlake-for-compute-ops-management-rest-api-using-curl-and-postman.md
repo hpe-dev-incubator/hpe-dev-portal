@@ -280,16 +280,14 @@ The request should indicate success (Status is 200 OK) and, in this example, the
 
 ![blog figure20](/img/greenlake-com-ops-api-curl10.png)
 
-The filter query syntax supports a richer set of filters than the single operation in the previous example. Filtering syntax is broken down by Operations, Logic, and Types. In the previous example[,](<>)  the operation was 'eq' for equality. Most comparison operations require the evaluated property name to the left of the operator[](<>) and a literal to the right.\
-\
+The filter query syntax supports a richer set of filters than the single operation in the previous example. Filtering syntax is broken down by Operations, Logic, and Types. In the previous example[,](<>)  the operation was 'eq' for equality. Most comparison operations require the evaluated property name to the left of the operator[](<>) and a literal to the right.
 
 ![blog figure21](/img/greenlake-com-ops-api-curl16.png)
 
 \
-\
-To learn more about Filtering, see the [HPE GreenLake for Compute Ops Management guide](https://developer.greenlake.hpe.com/docs/greenlake/services/compute-ops/public/guide/#filtering).\
+To learn more about Filtering, see the [HPE GreenLake for Compute Ops Management guide](https://developer.greenlake.hpe.com/docs/greenlake/services/compute-ops/public/guide/#filtering).
 
-Unique Resource Identifiers (URIs) are used to identify a resource. A URI is a full API path ending in an identification number. For example:\
+Unique Resource Identifiers (URIs) are used to identify a resource. A URI is a full API path ending in an identification number. For example:
 
 * compute-ops/v1beta2/servers/{serverId}
 * compute-ops/v1beta1/reports/{id}/data 
