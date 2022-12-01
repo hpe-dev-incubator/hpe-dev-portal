@@ -1,6 +1,6 @@
 ---
 title: Introduction to KubeFlow
-active: true
+active: false
 fit: contain
 link: ""
 path: https://hpe.zoom.us/webinar/register/3016656731532/WN_7W6neXEaTiOjfGJZPtfTIQ
