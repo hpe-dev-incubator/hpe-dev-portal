@@ -4,7 +4,7 @@ dateStart: 2022-11-29T23:01:31.781Z
 dateEnd: 2022-11-30T22:59:31.801Z
 category: Virtual Event
 image: /img/event-meetups-newlogo-400x400.png
-link: https://hpe.zoom.us/webinar/register/7016656731469/WN_7W6neXEaTiOjfGJZPtfTIQ
+link: https://developer.hpe.com/campaign/meetups
 width: large
 ---
 ## Introduction to KubeFlow
