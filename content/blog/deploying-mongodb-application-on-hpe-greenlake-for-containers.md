@@ -7,13 +7,13 @@ disable: false
 tags:
   - HPE GreenLake for containers
 ---
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <o:OfficeDocumentSettings>
   <o:AllowPNG/>
  </o:OfficeDocumentSettings>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <w:WordDocument>
   <w:View>Normal</w:View>
   <w:Zoom>0</w:Zoom>
@@ -52,9 +52,9 @@ tags:
    <m:intLim m:val="subSup"/>
    <m:naryLim m:val="undOvr"/>
   </m:mathPr></w:WordDocument>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
   DefSemiHidden="false" DefQFormat="false" DefPriority="99"
   LatentStyleCount="376">
@@ -633,9 +633,9 @@ tags:
   <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
    Name="Smart Link"/>
  </w:LatentStyles>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 10]>
+<!--\\\\[if gte mso 10]>
 <style>
  /* Style Definitions */
  table.MsoNormalTable
@@ -662,7 +662,7 @@ tags:
 	mso-bidi-theme-font:minor-bidi;
 	mso-fareast-language:EN-US;}
 </style>
-<!\\\[endif]-->
+<!\\\\[endif]-->
 
 <!--StartFragment-->
 
@@ -670,13 +670,13 @@ tags:
 
 <!--EndFragment-->
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <o:OfficeDocumentSettings>
   <o:AllowPNG/>
  </o:OfficeDocumentSettings>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <w:WordDocument>
   <w:View>Normal</w:View>
   <w:Zoom>0</w:Zoom>
@@ -715,9 +715,9 @@ tags:
    <m:intLim m:val="subSup"/>
    <m:naryLim m:val="undOvr"/>
   </m:mathPr></w:WordDocument>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
   DefSemiHidden="false" DefQFormat="false" DefPriority="99"
   LatentStyleCount="376">
@@ -1296,9 +1296,9 @@ tags:
   <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
    Name="Smart Link"/>
  </w:LatentStyles>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 10]>
+<!--\\\\[if gte mso 10]>
 <style>
  /* Style Definitions */
  table.MsoNormalTable
@@ -1325,7 +1325,7 @@ tags:
 	mso-bidi-theme-font:minor-bidi;
 	mso-fareast-language:EN-US;}
 </style>
-<!\\\[endif]-->
+<!\\\\[endif]-->
 
 <!--StartFragment-->
 
@@ -1333,13 +1333,13 @@ In this blog, we demonstrate how an end user can deploy a containerized, statefu
 
 <!--EndFragment-->
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <o:OfficeDocumentSettings>
   <o:AllowPNG/>
  </o:OfficeDocumentSettings>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <w:WordDocument>
   <w:View>Normal</w:View>
   <w:Zoom>0</w:Zoom>
@@ -1378,9 +1378,9 @@ In this blog, we demonstrate how an end user can deploy a containerized, statefu
    <m:intLim m:val="subSup"/>
    <m:naryLim m:val="undOvr"/>
   </m:mathPr></w:WordDocument>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
   DefSemiHidden="false" DefQFormat="false" DefPriority="99"
   LatentStyleCount="376">
@@ -1959,9 +1959,9 @@ In this blog, we demonstrate how an end user can deploy a containerized, statefu
   <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
    Name="Smart Link"/>
  </w:LatentStyles>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 10]>
+<!--\\\\[if gte mso 10]>
 <style>
  /* Style Definitions */
  table.MsoNormalTable
@@ -1988,7 +1988,7 @@ In this blog, we demonstrate how an end user can deploy a containerized, statefu
 	mso-bidi-theme-font:minor-bidi;
 	mso-fareast-language:EN-US;}
 </style>
-<!\\\[endif]-->
+<!\\\\[endif]-->
 
 <!--StartFragment-->
 
@@ -1996,13 +1996,13 @@ In this blog, we demonstrate how an end user can deploy a containerized, statefu
 
 <!--EndFragment-->
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <o:OfficeDocumentSettings>
   <o:AllowPNG/>
  </o:OfficeDocumentSettings>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <w:WordDocument>
   <w:View>Normal</w:View>
   <w:Zoom>0</w:Zoom>
@@ -2041,9 +2041,9 @@ In this blog, we demonstrate how an end user can deploy a containerized, statefu
    <m:intLim m:val="subSup"/>
    <m:naryLim m:val="undOvr"/>
   </m:mathPr></w:WordDocument>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
   DefSemiHidden="false" DefQFormat="false" DefPriority="99"
   LatentStyleCount="376">
@@ -2622,9 +2622,9 @@ In this blog, we demonstrate how an end user can deploy a containerized, statefu
   <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
    Name="Smart Link"/>
  </w:LatentStyles>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 10]>
+<!--\\\\[if gte mso 10]>
 <style>
  /* Style Definitions */
  table.MsoNormalTable
@@ -2651,7 +2651,7 @@ In this blog, we demonstrate how an end user can deploy a containerized, statefu
 	mso-bidi-theme-font:minor-bidi;
 	mso-fareast-language:EN-US;}
 </style>
-<!\\\[endif]-->
+<!\\\\[endif]-->
 
 <!--StartFragment-->
 
@@ -2665,13 +2665,20 @@ The HPE GreenLake for containers service:
 
 <!--EndFragment-->
 
-<!--\\\[if gte mso 9]><xml>
+* Is an HPE-designed, implemented, owned, and operated private cloud that is deployed at a customer site
+* Is offered as a consumption-based service that allows customers to better align costs to outcomes
+* Supports Kubernetes on VMware vSphere
+* Supports HPE Alletra Storage which provides persistent storage for containerized workloads
+
+
+
+<!--\\\\[if gte mso 9]><xml>
  <o:OfficeDocumentSettings>
   <o:AllowPNG/>
  </o:OfficeDocumentSettings>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <w:WordDocument>
   <w:View>Normal</w:View>
   <w:Zoom>0</w:Zoom>
@@ -2710,9 +2717,9 @@ The HPE GreenLake for containers service:
    <m:intLim m:val="subSup"/>
    <m:naryLim m:val="undOvr"/>
   </m:mathPr></w:WordDocument>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
   DefSemiHidden="false" DefQFormat="false" DefPriority="99"
   LatentStyleCount="376">
@@ -3291,9 +3298,9 @@ The HPE GreenLake for containers service:
   <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
    Name="Smart Link"/>
  </w:LatentStyles>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 10]>
+<!--\\\\[if gte mso 10]>
 <style>
  /* Style Definitions */
  table.MsoNormalTable
@@ -3320,7 +3327,7 @@ The HPE GreenLake for containers service:
 	mso-bidi-theme-font:minor-bidi;
 	mso-fareast-language:EN-US;}
 </style>
-<!\\\[endif]-->
+<!\\\\[endif]-->
 
 <!--StartFragment-->
 
@@ -3328,13 +3335,13 @@ Launch HPE GreenLake for containers using the HPE GreenLake for Private Cloud E
 
 <!--EndFragment-->
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <o:OfficeDocumentSettings>
   <o:AllowPNG/>
  </o:OfficeDocumentSettings>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <w:WordDocument>
   <w:View>Normal</w:View>
   <w:Zoom>0</w:Zoom>
@@ -3373,9 +3380,9 @@ Launch HPE GreenLake for containers using the HPE GreenLake for Private Cloud E
    <m:intLim m:val="subSup"/>
    <m:naryLim m:val="undOvr"/>
   </m:mathPr></w:WordDocument>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
   DefSemiHidden="false" DefQFormat="false" DefPriority="99"
   LatentStyleCount="376">
@@ -3954,9 +3961,9 @@ Launch HPE GreenLake for containers using the HPE GreenLake for Private Cloud E
   <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
    Name="Smart Link"/>
  </w:LatentStyles>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 10]>
+<!--\\\\[if gte mso 10]>
 <style>
  /* Style Definitions */
  table.MsoNormalTable
@@ -3983,7 +3990,7 @@ Launch HPE GreenLake for containers using the HPE GreenLake for Private Cloud E
 	mso-bidi-theme-font:minor-bidi;
 	mso-fareast-language:EN-US;}
 </style>
-<!\\\[endif]-->
+<!\\\\[endif]-->
 
 <!--StartFragment-->
 
@@ -3991,13 +3998,13 @@ Launch HPE GreenLake for containers using the HPE GreenLake for Private Cloud E
 
 <!--EndFragment-->
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <o:OfficeDocumentSettings>
   <o:AllowPNG/>
  </o:OfficeDocumentSettings>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <w:WordDocument>
   <w:View>Normal</w:View>
   <w:Zoom>0</w:Zoom>
@@ -4036,9 +4043,9 @@ Launch HPE GreenLake for containers using the HPE GreenLake for Private Cloud E
    <m:intLim m:val="subSup"/>
    <m:naryLim m:val="undOvr"/>
   </m:mathPr></w:WordDocument>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
   DefSemiHidden="false" DefQFormat="false" DefPriority="99"
   LatentStyleCount="376">
@@ -4617,9 +4624,9 @@ Launch HPE GreenLake for containers using the HPE GreenLake for Private Cloud E
   <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
    Name="Smart Link"/>
  </w:LatentStyles>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 10]>
+<!--\\\\[if gte mso 10]>
 <style>
  /* Style Definitions */
  table.MsoNormalTable
@@ -4646,7 +4653,7 @@ Launch HPE GreenLake for containers using the HPE GreenLake for Private Cloud E
 	mso-bidi-theme-font:minor-bidi;
 	mso-fareast-language:EN-US;}
 </style>
-<!\\\[endif]-->
+<!\\\\[endif]-->
 
 <!--StartFragment-->
 
@@ -4656,13 +4663,13 @@ Predefined blueprints are provided when the service is provisioned, and you can 
 
 <!--EndFragment-->
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <o:OfficeDocumentSettings>
   <o:AllowPNG/>
  </o:OfficeDocumentSettings>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <w:WordDocument>
   <w:View>Normal</w:View>
   <w:Zoom>0</w:Zoom>
@@ -4701,9 +4708,9 @@ Predefined blueprints are provided when the service is provisioned, and you can 
    <m:intLim m:val="subSup"/>
    <m:naryLim m:val="undOvr"/>
   </m:mathPr></w:WordDocument>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
   DefSemiHidden="false" DefQFormat="false" DefPriority="99"
   LatentStyleCount="376">
@@ -5282,9 +5289,9 @@ Predefined blueprints are provided when the service is provisioned, and you can 
   <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
    Name="Smart Link"/>
  </w:LatentStyles>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 10]>
+<!--\\\\[if gte mso 10]>
 <style>
  /* Style Definitions */
  table.MsoNormalTable
@@ -5311,7 +5318,7 @@ Predefined blueprints are provided when the service is provisioned, and you can 
 	mso-bidi-theme-font:minor-bidi;
 	mso-fareast-language:EN-US;}
 </style>
-<!\\\[endif]-->
+<!\\\\[endif]-->
 
 <!--StartFragment-->
 
@@ -5319,19 +5326,27 @@ A machine blueprint includes the:
 
 <!--EndFragment-->
 
+* Machine provider
+* Operating system image and version
+* Number of vCPU cores and amount of memory in the node
+* Compute instance types
+* Storage instance types
+
+
+
 ![](/img/image-1.png)
 
 ![](/img/image-2.png)
 
 ![](/img/image-3.png)
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <o:OfficeDocumentSettings>
   <o:AllowPNG/>
  </o:OfficeDocumentSettings>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <w:WordDocument>
   <w:View>Normal</w:View>
   <w:Zoom>0</w:Zoom>
@@ -5370,9 +5385,9 @@ A machine blueprint includes the:
    <m:intLim m:val="subSup"/>
    <m:naryLim m:val="undOvr"/>
   </m:mathPr></w:WordDocument>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
   DefSemiHidden="false" DefQFormat="false" DefPriority="99"
   LatentStyleCount="376">
@@ -5951,9 +5966,9 @@ A machine blueprint includes the:
   <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
    Name="Smart Link"/>
  </w:LatentStyles>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 10]>
+<!--\\\\[if gte mso 10]>
 <style>
  /* Style Definitions */
  table.MsoNormalTable
@@ -5980,7 +5995,7 @@ A machine blueprint includes the:
 	mso-bidi-theme-font:minor-bidi;
 	mso-fareast-language:EN-US;}
 </style>
-<!\\\[endif]-->
+<!\\\\[endif]-->
 
 <!--StartFragment-->
 
@@ -5988,13 +6003,13 @@ A machine blueprint includes the:
 
 <!--EndFragment-->
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <o:OfficeDocumentSettings>
   <o:AllowPNG/>
  </o:OfficeDocumentSettings>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <w:WordDocument>
   <w:View>Normal</w:View>
   <w:Zoom>0</w:Zoom>
@@ -6033,9 +6048,9 @@ A machine blueprint includes the:
    <m:intLim m:val="subSup"/>
    <m:naryLim m:val="undOvr"/>
   </m:mathPr></w:WordDocument>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
   DefSemiHidden="false" DefQFormat="false" DefPriority="99"
   LatentStyleCount="376">
@@ -6614,9 +6629,9 @@ A machine blueprint includes the:
   <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
    Name="Smart Link"/>
  </w:LatentStyles>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 10]>
+<!--\\\\[if gte mso 10]>
 <style>
  /* Style Definitions */
  table.MsoNormalTable
@@ -6643,7 +6658,7 @@ A machine blueprint includes the:
 	mso-bidi-theme-font:minor-bidi;
 	mso-fareast-language:EN-US;}
 </style>
-<!\\\[endif]-->
+<!\\\\[endif]-->
 
 <!--StartFragment-->
 
@@ -6655,17 +6670,24 @@ A cluster blueprint includes the:
 
 <!--EndFragment-->
 
+* Cluster provider
+* Version of Kubernetes to deploy on the cluster
+* Default storage class
+* Control plane nodes and worker nodes
+
+
+
 ![](/img/image-4.png)
 
 ![](/img/image-5.png)
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <o:OfficeDocumentSettings>
   <o:AllowPNG/>
  </o:OfficeDocumentSettings>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <w:WordDocument>
   <w:View>Normal</w:View>
   <w:Zoom>0</w:Zoom>
@@ -6704,9 +6726,9 @@ A cluster blueprint includes the:
    <m:intLim m:val="subSup"/>
    <m:naryLim m:val="undOvr"/>
   </m:mathPr></w:WordDocument>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
   DefSemiHidden="false" DefQFormat="false" DefPriority="99"
   LatentStyleCount="376">
@@ -7285,9 +7307,9 @@ A cluster blueprint includes the:
   <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
    Name="Smart Link"/>
  </w:LatentStyles>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 10]>
+<!--\\\\[if gte mso 10]>
 <style>
  /* Style Definitions */
  table.MsoNormalTable
@@ -7314,7 +7336,7 @@ A cluster blueprint includes the:
 	mso-bidi-theme-font:minor-bidi;
 	mso-fareast-language:EN-US;}
 </style>
-<!\\\[endif]-->
+<!\\\\[endif]-->
 
 <!--StartFragment-->
 
@@ -7322,13 +7344,13 @@ A cluster blueprint includes the:
 
 <!--EndFragment-->
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <o:OfficeDocumentSettings>
   <o:AllowPNG/>
  </o:OfficeDocumentSettings>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <w:WordDocument>
   <w:View>Normal</w:View>
   <w:Zoom>0</w:Zoom>
@@ -7367,9 +7389,9 @@ A cluster blueprint includes the:
    <m:intLim m:val="subSup"/>
    <m:naryLim m:val="undOvr"/>
   </m:mathPr></w:WordDocument>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
   DefSemiHidden="false" DefQFormat="false" DefPriority="99"
   LatentStyleCount="376">
@@ -7948,9 +7970,9 @@ A cluster blueprint includes the:
   <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
    Name="Smart Link"/>
  </w:LatentStyles>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 10]>
+<!--\\\\[if gte mso 10]>
 <style>
  /* Style Definitions */
  table.MsoNormalTable
@@ -7977,7 +7999,7 @@ A cluster blueprint includes the:
 	mso-bidi-theme-font:minor-bidi;
 	mso-fareast-language:EN-US;}
 </style>
-<!\\\[endif]-->
+<!\\\\[endif]-->
 
 <!--StartFragment-->
 
@@ -7985,13 +8007,13 @@ A cluster blueprint includes the:
 
 <!--EndFragment-->
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <o:OfficeDocumentSettings>
   <o:AllowPNG/>
  </o:OfficeDocumentSettings>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <w:WordDocument>
   <w:View>Normal</w:View>
   <w:Zoom>0</w:Zoom>
@@ -8030,9 +8052,9 @@ A cluster blueprint includes the:
    <m:intLim m:val="subSup"/>
    <m:naryLim m:val="undOvr"/>
   </m:mathPr></w:WordDocument>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
   DefSemiHidden="false" DefQFormat="false" DefPriority="99"
   LatentStyleCount="376">
@@ -8611,9 +8633,9 @@ A cluster blueprint includes the:
   <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
    Name="Smart Link"/>
  </w:LatentStyles>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 10]>
+<!--\\\\[if gte mso 10]>
 <style>
  /* Style Definitions */
  table.MsoNormalTable
@@ -8640,7 +8662,7 @@ A cluster blueprint includes the:
 	mso-bidi-theme-font:minor-bidi;
 	mso-fareast-language:EN-US;}
 </style>
-<!\\\[endif]-->
+<!\\\\[endif]-->
 
 <!--StartFragment-->
 
@@ -8652,13 +8674,13 @@ Below is the preferred cluster configuration for MongoDB In-Memory Database Work
 
 ![](/img/image-7.png)
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <o:OfficeDocumentSettings>
   <o:AllowPNG/>
  </o:OfficeDocumentSettings>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <w:WordDocument>
   <w:View>Normal</w:View>
   <w:Zoom>0</w:Zoom>
@@ -8697,9 +8719,9 @@ Below is the preferred cluster configuration for MongoDB In-Memory Database Work
    <m:intLim m:val="subSup"/>
    <m:naryLim m:val="undOvr"/>
   </m:mathPr></w:WordDocument>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
   DefSemiHidden="false" DefQFormat="false" DefPriority="99"
   LatentStyleCount="376">
@@ -9278,9 +9300,9 @@ Below is the preferred cluster configuration for MongoDB In-Memory Database Work
   <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
    Name="Smart Link"/>
  </w:LatentStyles>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 10]>
+<!--\\\\[if gte mso 10]>
 <style>
  /* Style Definitions */
  table.MsoNormalTable
@@ -9307,7 +9329,7 @@ Below is the preferred cluster configuration for MongoDB In-Memory Database Work
 	mso-bidi-theme-font:minor-bidi;
 	mso-fareast-language:EN-US;}
 </style>
-<!\\\[endif]-->
+<!\\\\[endif]-->
 
 <!--StartFragment-->
 
@@ -9315,13 +9337,13 @@ Below is the preferred cluster configuration for MongoDB In-Memory Database Work
 
 <!--EndFragment-->
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <o:OfficeDocumentSettings>
   <o:AllowPNG/>
  </o:OfficeDocumentSettings>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <w:WordDocument>
   <w:View>Normal</w:View>
   <w:Zoom>0</w:Zoom>
@@ -9360,9 +9382,9 @@ Below is the preferred cluster configuration for MongoDB In-Memory Database Work
    <m:intLim m:val="subSup"/>
    <m:naryLim m:val="undOvr"/>
   </m:mathPr></w:WordDocument>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
   DefSemiHidden="false" DefQFormat="false" DefPriority="99"
   LatentStyleCount="376">
@@ -9941,9 +9963,9 @@ Below is the preferred cluster configuration for MongoDB In-Memory Database Work
   <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
    Name="Smart Link"/>
  </w:LatentStyles>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 10]>
+<!--\\\\[if gte mso 10]>
 <style>
  /* Style Definitions */
  table.MsoNormalTable
@@ -9970,7 +9992,7 @@ Below is the preferred cluster configuration for MongoDB In-Memory Database Work
 	mso-bidi-theme-font:minor-bidi;
 	mso-fareast-language:EN-US;}
 </style>
-<!\\\[endif]-->
+<!\\\\[endif]-->
 
 <!--StartFragment-->
 
@@ -9982,13 +10004,13 @@ To create a cluster, you must have the roles **Private Cloud Cluster Owner** and
 
 ![](/img/image-9.png)
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <o:OfficeDocumentSettings>
   <o:AllowPNG/>
  </o:OfficeDocumentSettings>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <w:WordDocument>
   <w:View>Normal</w:View>
   <w:Zoom>0</w:Zoom>
@@ -10027,9 +10049,9 @@ To create a cluster, you must have the roles **Private Cloud Cluster Owner** and
    <m:intLim m:val="subSup"/>
    <m:naryLim m:val="undOvr"/>
   </m:mathPr></w:WordDocument>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
   DefSemiHidden="false" DefQFormat="false" DefPriority="99"
   LatentStyleCount="376">
@@ -10608,9 +10630,9 @@ To create a cluster, you must have the roles **Private Cloud Cluster Owner** and
   <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
    Name="Smart Link"/>
  </w:LatentStyles>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 10]>
+<!--\\\\[if gte mso 10]>
 <style>
  /* Style Definitions */
  table.MsoNormalTable
@@ -10637,7 +10659,7 @@ To create a cluster, you must have the roles **Private Cloud Cluster Owner** and
 	mso-bidi-theme-font:minor-bidi;
 	mso-fareast-language:EN-US;}
 </style>
-<!\\\[endif]-->
+<!\\\\[endif]-->
 
 <!--StartFragment-->
 
@@ -10647,13 +10669,13 @@ As indicated above there are multiple clusters deployed in parallel for multiple
 
 ![](/img/image-10.png)
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <o:OfficeDocumentSettings>
   <o:AllowPNG/>
  </o:OfficeDocumentSettings>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <w:WordDocument>
   <w:View>Normal</w:View>
   <w:Zoom>0</w:Zoom>
@@ -10692,9 +10714,9 @@ As indicated above there are multiple clusters deployed in parallel for multiple
    <m:intLim m:val="subSup"/>
    <m:naryLim m:val="undOvr"/>
   </m:mathPr></w:WordDocument>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
   DefSemiHidden="false" DefQFormat="false" DefPriority="99"
   LatentStyleCount="376">
@@ -11273,9 +11295,9 @@ As indicated above there are multiple clusters deployed in parallel for multiple
   <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
    Name="Smart Link"/>
  </w:LatentStyles>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 10]>
+<!--\\\\[if gte mso 10]>
 <style>
  /* Style Definitions */
  table.MsoNormalTable
@@ -11302,7 +11324,7 @@ As indicated above there are multiple clusters deployed in parallel for multiple
 	mso-bidi-theme-font:minor-bidi;
 	mso-fareast-language:EN-US;}
 </style>
-<!\\\[endif]-->
+<!\\\\[endif]-->
 
 <!--StartFragment-->
 
@@ -11314,13 +11336,13 @@ As indicated above there are multiple clusters deployed in parallel for multiple
 
 ![](/img/image-12.png)
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <o:OfficeDocumentSettings>
   <o:AllowPNG/>
  </o:OfficeDocumentSettings>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <w:WordDocument>
   <w:View>Normal</w:View>
   <w:Zoom>0</w:Zoom>
@@ -11359,9 +11381,9 @@ As indicated above there are multiple clusters deployed in parallel for multiple
    <m:intLim m:val="subSup"/>
    <m:naryLim m:val="undOvr"/>
   </m:mathPr></w:WordDocument>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
   DefSemiHidden="false" DefQFormat="false" DefPriority="99"
   LatentStyleCount="376">
@@ -11940,9 +11962,9 @@ As indicated above there are multiple clusters deployed in parallel for multiple
   <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
    Name="Smart Link"/>
  </w:LatentStyles>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 10]>
+<!--\\\\[if gte mso 10]>
 <style>
  /* Style Definitions */
  table.MsoNormalTable
@@ -11969,7 +11991,7 @@ As indicated above there are multiple clusters deployed in parallel for multiple
 	mso-bidi-theme-font:minor-bidi;
 	mso-fareast-language:EN-US;}
 </style>
-<!\\\[endif]-->
+<!\\\\[endif]-->
 
 <!--StartFragment-->
 
@@ -11977,13 +11999,13 @@ As indicated above there are multiple clusters deployed in parallel for multiple
 
 <!--EndFragment-->
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <o:OfficeDocumentSettings>
   <o:AllowPNG/>
  </o:OfficeDocumentSettings>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <w:WordDocument>
   <w:View>Normal</w:View>
   <w:Zoom>0</w:Zoom>
@@ -12022,9 +12044,9 @@ As indicated above there are multiple clusters deployed in parallel for multiple
    <m:intLim m:val="subSup"/>
    <m:naryLim m:val="undOvr"/>
   </m:mathPr></w:WordDocument>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
   DefSemiHidden="false" DefQFormat="false" DefPriority="99"
   LatentStyleCount="376">
@@ -12603,9 +12625,9 @@ As indicated above there are multiple clusters deployed in parallel for multiple
   <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
    Name="Smart Link"/>
  </w:LatentStyles>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 10]>
+<!--\\\\[if gte mso 10]>
 <style>
  /* Style Definitions */
  table.MsoNormalTable
@@ -12632,7 +12654,7 @@ As indicated above there are multiple clusters deployed in parallel for multiple
 	mso-bidi-theme-font:minor-bidi;
 	mso-fareast-language:EN-US;}
 </style>
-<!\\\[endif]-->
+<!\\\\[endif]-->
 
 <!--StartFragment-->
 
@@ -12640,13 +12662,13 @@ As indicated above there are multiple clusters deployed in parallel for multiple
 
 <!--EndFragment-->
 
-<!--\[if gte mso 9]><xml>
+<!--\\[if gte mso 9]><xml>
  <o:OfficeDocumentSettings>
   <o:AllowPNG/>
  </o:OfficeDocumentSettings>
-</xml><!\[endif]-->
+</xml><!\\[endif]-->
 
-<!--\[if gte mso 9]><xml>
+<!--\\[if gte mso 9]><xml>
  <w:WordDocument>
   <w:View>Normal</w:View>
   <w:Zoom>0</w:Zoom>
@@ -12685,9 +12707,9 @@ As indicated above there are multiple clusters deployed in parallel for multiple
    <m:intLim m:val="subSup"/>
    <m:naryLim m:val="undOvr"/>
   </m:mathPr></w:WordDocument>
-</xml><!\[endif]-->
+</xml><!\\[endif]-->
 
-<!--\[if gte mso 9]><xml>
+<!--\\[if gte mso 9]><xml>
  <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
   DefSemiHidden="false" DefQFormat="false" DefPriority="99"
   LatentStyleCount="376">
@@ -13266,9 +13288,9 @@ As indicated above there are multiple clusters deployed in parallel for multiple
   <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
    Name="Smart Link"/>
  </w:LatentStyles>
-</xml><!\[endif]-->
+</xml><!\\[endif]-->
 
-<!--\[if gte mso 10]>
+<!--\\[if gte mso 10]>
 <style>
  /* Style Definitions */
  table.MsoNormalTable
@@ -13295,7 +13317,7 @@ As indicated above there are multiple clusters deployed in parallel for multiple
 	mso-bidi-theme-font:minor-bidi;
 	mso-fareast-language:EN-US;}
 </style>
-<!\[endif]-->
+<!\\[endif]-->
 
 <!--StartFragment-->
 
@@ -13306,8 +13328,6 @@ View the Kubernetes version
 *Client Version: v1.20.0*
 
 *Server Version: v1.20.11-hpe-2*
-
-
 
 View the deployed control plane nodes and worker nodes
 
@@ -13329,13 +13349,13 @@ View the deployed control plane nodes and worker nodes
 
 <!--EndFragment-->
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <o:OfficeDocumentSettings>
   <o:AllowPNG/>
  </o:OfficeDocumentSettings>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <w:WordDocument>
   <w:View>Normal</w:View>
   <w:Zoom>0</w:Zoom>
@@ -13374,9 +13394,9 @@ View the deployed control plane nodes and worker nodes
    <m:intLim m:val="subSup"/>
    <m:naryLim m:val="undOvr"/>
   </m:mathPr></w:WordDocument>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
   DefSemiHidden="false" DefQFormat="false" DefPriority="99"
   LatentStyleCount="376">
@@ -13955,9 +13975,9 @@ View the deployed control plane nodes and worker nodes
   <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
    Name="Smart Link"/>
  </w:LatentStyles>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 10]>
+<!--\\\\[if gte mso 10]>
 <style>
  /* Style Definitions */
  table.MsoNormalTable
@@ -13984,7 +14004,7 @@ View the deployed control plane nodes and worker nodes
 	mso-bidi-theme-font:minor-bidi;
 	mso-fareast-language:EN-US;}
 </style>
-<!\\\[endif]-->
+<!\\\\[endif]-->
 
 <!--StartFragment-->
 
@@ -13992,13 +14012,13 @@ View the deployed control plane nodes and worker nodes
 
 <!--EndFragment-->
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <o:OfficeDocumentSettings>
   <o:AllowPNG/>
  </o:OfficeDocumentSettings>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <w:WordDocument>
   <w:View>Normal</w:View>
   <w:Zoom>0</w:Zoom>
@@ -14037,9 +14057,9 @@ View the deployed control plane nodes and worker nodes
    <m:intLim m:val="subSup"/>
    <m:naryLim m:val="undOvr"/>
   </m:mathPr></w:WordDocument>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
   DefSemiHidden="false" DefQFormat="false" DefPriority="99"
   LatentStyleCount="376">
@@ -14618,9 +14638,9 @@ View the deployed control plane nodes and worker nodes
   <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
    Name="Smart Link"/>
  </w:LatentStyles>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 10]>
+<!--\\\\[if gte mso 10]>
 <style>
  /* Style Definitions */
  table.MsoNormalTable
@@ -14647,7 +14667,7 @@ View the deployed control plane nodes and worker nodes
 	mso-bidi-theme-font:minor-bidi;
 	mso-fareast-language:EN-US;}
 </style>
-<!\\\[endif]-->
+<!\\\\[endif]-->
 
 <!--StartFragment-->
 
@@ -14729,13 +14749,13 @@ View the deployed control plane nodes and worker nodes
 
 <!--EndFragment-->
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <o:OfficeDocumentSettings>
   <o:AllowPNG/>
  </o:OfficeDocumentSettings>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <w:WordDocument>
   <w:View>Normal</w:View>
   <w:Zoom>0</w:Zoom>
@@ -14774,9 +14794,9 @@ View the deployed control plane nodes and worker nodes
    <m:intLim m:val="subSup"/>
    <m:naryLim m:val="undOvr"/>
   </m:mathPr></w:WordDocument>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
   DefSemiHidden="false" DefQFormat="false" DefPriority="99"
   LatentStyleCount="376">
@@ -15355,9 +15375,9 @@ View the deployed control plane nodes and worker nodes
   <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
    Name="Smart Link"/>
  </w:LatentStyles>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 10]>
+<!--\\\\[if gte mso 10]>
 <style>
  /* Style Definitions */
  table.MsoNormalTable
@@ -15384,7 +15404,7 @@ View the deployed control plane nodes and worker nodes
 	mso-bidi-theme-font:minor-bidi;
 	mso-fareast-language:EN-US;}
 </style>
-<!\\\[endif]-->
+<!\\\\[endif]-->
 
 <!--StartFragment-->
 
@@ -15392,13 +15412,13 @@ View the deployed control plane nodes and worker nodes
 
 <!--EndFragment-->
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <o:OfficeDocumentSettings>
   <o:AllowPNG/>
  </o:OfficeDocumentSettings>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <w:WordDocument>
   <w:View>Normal</w:View>
   <w:Zoom>0</w:Zoom>
@@ -15437,9 +15457,9 @@ View the deployed control plane nodes and worker nodes
    <m:intLim m:val="subSup"/>
    <m:naryLim m:val="undOvr"/>
   </m:mathPr></w:WordDocument>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
   DefSemiHidden="false" DefQFormat="false" DefPriority="99"
   LatentStyleCount="376">
@@ -16018,9 +16038,9 @@ View the deployed control plane nodes and worker nodes
   <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
    Name="Smart Link"/>
  </w:LatentStyles>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 10]>
+<!--\\\\[if gte mso 10]>
 <style>
  /* Style Definitions */
  table.MsoNormalTable
@@ -16047,7 +16067,7 @@ View the deployed control plane nodes and worker nodes
 	mso-bidi-theme-font:minor-bidi;
 	mso-fareast-language:EN-US;}
 </style>
-<!\\\[endif]-->
+<!\\\\[endif]-->
 
 <!--StartFragment-->
 
@@ -16131,13 +16151,13 @@ No resources found in mongo namespace.
 
 <!--EndFragment-->
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <o:OfficeDocumentSettings>
   <o:AllowPNG/>
  </o:OfficeDocumentSettings>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <w:WordDocument>
   <w:View>Normal</w:View>
   <w:Zoom>0</w:Zoom>
@@ -16176,9 +16196,9 @@ No resources found in mongo namespace.
    <m:intLim m:val="subSup"/>
    <m:naryLim m:val="undOvr"/>
   </m:mathPr></w:WordDocument>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
   DefSemiHidden="false" DefQFormat="false" DefPriority="99"
   LatentStyleCount="376">
@@ -16757,9 +16777,9 @@ No resources found in mongo namespace.
   <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
    Name="Smart Link"/>
  </w:LatentStyles>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 10]>
+<!--\\\\[if gte mso 10]>
 <style>
  /* Style Definitions */
  table.MsoNormalTable
@@ -16786,7 +16806,7 @@ No resources found in mongo namespace.
 	mso-bidi-theme-font:minor-bidi;
 	mso-fareast-language:EN-US;}
 </style>
-<!\\\[endif]-->
+<!\\\\[endif]-->
 
 <!--StartFragment-->
 
@@ -16794,13 +16814,13 @@ No resources found in mongo namespace.
 
 <!--EndFragment-->
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <o:OfficeDocumentSettings>
   <o:AllowPNG/>
  </o:OfficeDocumentSettings>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <w:WordDocument>
   <w:View>Normal</w:View>
   <w:Zoom>0</w:Zoom>
@@ -16839,9 +16859,9 @@ No resources found in mongo namespace.
    <m:intLim m:val="subSup"/>
    <m:naryLim m:val="undOvr"/>
   </m:mathPr></w:WordDocument>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
   DefSemiHidden="false" DefQFormat="false" DefPriority="99"
   LatentStyleCount="376">
@@ -17420,9 +17440,9 @@ No resources found in mongo namespace.
   <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
    Name="Smart Link"/>
  </w:LatentStyles>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 10]>
+<!--\\\\[if gte mso 10]>
 <style>
  /* Style Definitions */
  table.MsoNormalTable
@@ -17449,7 +17469,7 @@ No resources found in mongo namespace.
 	mso-bidi-theme-font:minor-bidi;
 	mso-fareast-language:EN-US;}
 </style>
-<!\\\[endif]-->
+<!\\\\[endif]-->
 
 <!--StartFragment-->
 
@@ -17473,9 +17493,9 @@ No resources found in mongo namespace.
 
   *labels:*
 
-   * name: mongo*
+    *name: mongo*
 
-   * hpecp.hpe.com/hpecp-internal-gateway: "true" # Expose the service on ECP Gateway*
+    *hpecp.hpe.com/hpecp-internal-gateway: "true" # Expose the service on ECP Gateway*
 
 *spec:*
 
@@ -17483,13 +17503,13 @@ No resources found in mongo namespace.
 
  *\- protocol: TCP*
 
-   * port: 27017*
+    *port: 27017*
 
-   * targetPort: 27017*
+    *targetPort: 27017*
 
   *selector:*
 
-   * role: mongo*
+    *role: mongo*
 
 *\---*
 
@@ -17505,9 +17525,9 @@ No resources found in mongo namespace.
 
   *selector:*
 
-   * matchLabels:*
+    *matchLabels:*
 
-   *   app: mongo*
+    *  app: mongo*
 
   *serviceName: "mongo"*
 
@@ -17519,33 +17539,33 @@ No resources found in mongo namespace.
 
   *template:*
 
-   * metadata:*
+    *metadata:*
 
-   *   labels:*
+    *  labels:*
 
-   *     app: mongo*
+    *    app: mongo*
 
-   * spec:*
+    *spec:*
 
-   *   terminationGracePeriodSeconds: 10*
+    *  terminationGracePeriodSeconds: 10*
 
-   *   containers:*
+    *  containers:*
 
  *\- name: mongo*
 
-   *       image: mongo*
+    *      image: mongo*
 
-   *       env:*
+    *      env:*
 
  *\- name: POD_IP_ADDRESS*
 
-   *         valueFrom:*
+    *        valueFrom:*
 
-   *           fieldRef:*
+    *          fieldRef:*
 
-   *             fieldPath: status.podIP*
+    *            fieldPath: status.podIP*
 
-   *       command:*
+    *      command:*
 
  *\- "mongod"*
 
@@ -17559,53 +17579,53 @@ No resources found in mongo namespace.
 
  *\- "128"*
 
-   *       ports:*
+    *      ports:*
 
  *\- containerPort: 27017*
 
-   *       volumeMounts:*
+    *      volumeMounts:*
 
  *\- name: mongo-persistent-storage*
 
-   *           mountPath: /data/db*
+    *          mountPath: /data/db*
 
  *\- name: mongo-sidecar*
 
-   *       image: cvallance/mongo-k8s-sidecar*
+    *      image: cvallance/mongo-k8s-sidecar*
 
-   *       env:*
+    *      env:*
 
  *\- name: MONGO_SIDECAR_POD_LABELS*
 
-   *           value: "app=mongo"*
+    *          value: "app=mongo"*
 
   *volumeClaimTemplates:*
 
  *\- metadata:*
 
-   *     name: mongo-persistent-storage*
+    *    name: mongo-persistent-storage*
 
-   *   spec:*
+    *  spec:*
 
-   *     accessModes: \[ "ReadWriteOnce" ]*
+    *    accessModes: \[ "ReadWriteOnce" ]*
 
-   *     storageClassName: gl-sbc-glhcnimblestor*
+    *    storageClassName: gl-sbc-glhcnimblestor*
 
-   *     resources:*
+    *    resources:*
 
-   *       requests:*
+    *      requests:*
 
-   *         storage: 50Gi*
+    *        storage: 50Gi*
 
 <!--EndFragment-->
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <o:OfficeDocumentSettings>
   <o:AllowPNG/>
  </o:OfficeDocumentSettings>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <w:WordDocument>
   <w:View>Normal</w:View>
   <w:Zoom>0</w:Zoom>
@@ -17644,9 +17664,9 @@ No resources found in mongo namespace.
    <m:intLim m:val="subSup"/>
    <m:naryLim m:val="undOvr"/>
   </m:mathPr></w:WordDocument>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
   DefSemiHidden="false" DefQFormat="false" DefPriority="99"
   LatentStyleCount="376">
@@ -18225,9 +18245,9 @@ No resources found in mongo namespace.
   <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
    Name="Smart Link"/>
  </w:LatentStyles>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 10]>
+<!--\\\\[if gte mso 10]>
 <style>
  /* Style Definitions */
  table.MsoNormalTable
@@ -18254,7 +18274,7 @@ No resources found in mongo namespace.
 	mso-bidi-theme-font:minor-bidi;
 	mso-fareast-language:EN-US;}
 </style>
-<!\\\[endif]-->
+<!\\\\[endif]-->
 
 <!--StartFragment-->
 
@@ -18262,13 +18282,13 @@ No resources found in mongo namespace.
 
 <!--EndFragment-->
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <o:OfficeDocumentSettings>
   <o:AllowPNG/>
  </o:OfficeDocumentSettings>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <w:WordDocument>
   <w:View>Normal</w:View>
   <w:Zoom>0</w:Zoom>
@@ -18307,9 +18327,9 @@ No resources found in mongo namespace.
    <m:intLim m:val="subSup"/>
    <m:naryLim m:val="undOvr"/>
   </m:mathPr></w:WordDocument>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
   DefSemiHidden="false" DefQFormat="false" DefPriority="99"
   LatentStyleCount="376">
@@ -18888,9 +18908,9 @@ No resources found in mongo namespace.
   <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
    Name="Smart Link"/>
  </w:LatentStyles>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 10]>
+<!--\\\\[if gte mso 10]>
 <style>
  /* Style Definitions */
  table.MsoNormalTable
@@ -18917,7 +18937,7 @@ No resources found in mongo namespace.
 	mso-bidi-theme-font:minor-bidi;
 	mso-fareast-language:EN-US;}
 </style>
-<!\\\[endif]-->
+<!\\\\[endif]-->
 
 <!--StartFragment-->
 
@@ -18965,7 +18985,7 @@ No resources found in mongo namespace.
 
 *Labels:            hpecp.hpe.com/hpecp-internal-gateway=true*
 
-   *                name=mongo*
+    *               name=mongo*
 
 *Annotations:       <none>*
 
@@ -19015,9 +19035,9 @@ No resources found in mongo namespace.
 
 *Annotations:   pv.kubernetes.io/bind-completed: yes*
 
-   *            pv.kubernetes.io/bound-by-controller: yes*
+    *           pv.kubernetes.io/bound-by-controller: yes*
 
-   *            volume.beta.kubernetes.io/storage-provisioner: csi.hpe.com*
+    *           volume.beta.kubernetes.io/storage-provisioner: csi.hpe.com*
 
 *Finalizers:    \[kubernetes.io/pvc-protection]*
 
@@ -19103,67 +19123,67 @@ No resources found in mongo namespace.
 
 *Source:*
 
-   * Type:              CSI (a Container Storage Interface (CSI) volume source)*
+    *Type:              CSI (a Container Storage Interface (CSI) volume source)*
 
-   * Driver:            csi.hpe.com*
+    *Driver:            csi.hpe.com*
 
-   * FSType:            xfs*
+    *FSType:            xfs*
 
-   * VolumeHandle:      067ac428a6431c485b00000000000000000000044d*
+    *VolumeHandle:      067ac428a6431c485b00000000000000000000044d*
 
-   * ReadOnly:          false*
+    *ReadOnly:          false*
 
-   * VolumeAttributes:      accessProtocol=iscsi*
+    *VolumeAttributes:      accessProtocol=iscsi*
 
-   *                        allowOverrides=nfsResources,nfsNamespace*
+    *                       allowOverrides=nfsResources,nfsNamespace*
 
-   *                        cloneOf=*
+    *                       cloneOf=*
 
-   *                        createSnapshot=false*
+    *                       createSnapshot=false*
 
-   *                        dedupeEnabled=true*
+    *                       dedupeEnabled=true*
 
-   *                        description=hpe*
+    *                       description=hpe*
 
-   *                        destroyOnDelete=true*
+    *                       destroyOnDelete=true*
 
-   *                        encrypted=false*
+    *                       encrypted=false*
 
-   *                        folder=caas-pvs*
+    *                       folder=caas-pvs*
 
-   *                        fsType=xfs*
+    *                       fsType=xfs*
 
-   *                        hostEncryption=false*
+    *                       hostEncryption=false*
 
-   *                        limitIops=-1*
+    *                       limitIops=-1*
 
-   *                        limitMbps=-1*
+    *                       limitMbps=-1*
 
-   *                        performancePolicy=default*
+    *                       performancePolicy=default*
 
-   *                        pool=default*
+    *                       pool=default*
 
-   *                        storage.kubernetes.io/csiProvisionerIdentity=1663147353961-8081-csi.hpe.com*
+    *                       storage.kubernetes.io/csiProvisionerIdentity=1663147353961-8081-csi.hpe.com*
 
-   *                        syncOnDetach=false*
+    *                       syncOnDetach=false*
 
-   *                        targetScope=volume*
+    *                       targetScope=volume*
 
-   *                        thick=false*
+    *                       thick=false*
 
-   *                        volumeAccessMode=mount*
+    *                       volumeAccessMode=mount*
 
 *Events:                <none>*
 
 <!--EndFragment-->
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <o:OfficeDocumentSettings>
   <o:AllowPNG/>
  </o:OfficeDocumentSettings>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <w:WordDocument>
   <w:View>Normal</w:View>
   <w:Zoom>0</w:Zoom>
@@ -19202,9 +19222,9 @@ No resources found in mongo namespace.
    <m:intLim m:val="subSup"/>
    <m:naryLim m:val="undOvr"/>
   </m:mathPr></w:WordDocument>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
   DefSemiHidden="false" DefQFormat="false" DefPriority="99"
   LatentStyleCount="376">
@@ -19783,9 +19803,9 @@ No resources found in mongo namespace.
   <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
    Name="Smart Link"/>
  </w:LatentStyles>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 10]>
+<!--\\\\[if gte mso 10]>
 <style>
  /* Style Definitions */
  table.MsoNormalTable
@@ -19812,7 +19832,7 @@ No resources found in mongo namespace.
 	mso-bidi-theme-font:minor-bidi;
 	mso-fareast-language:EN-US;}
 </style>
-<!\\\[endif]-->
+<!\\\\[endif]-->
 
 <!--StartFragment-->
 
@@ -19820,13 +19840,13 @@ No resources found in mongo namespace.
 
 <!--EndFragment-->
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <o:OfficeDocumentSettings>
   <o:AllowPNG/>
  </o:OfficeDocumentSettings>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <w:WordDocument>
   <w:View>Normal</w:View>
   <w:Zoom>0</w:Zoom>
@@ -19865,9 +19885,9 @@ No resources found in mongo namespace.
    <m:intLim m:val="subSup"/>
    <m:naryLim m:val="undOvr"/>
   </m:mathPr></w:WordDocument>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
   DefSemiHidden="false" DefQFormat="false" DefPriority="99"
   LatentStyleCount="376">
@@ -20446,9 +20466,9 @@ No resources found in mongo namespace.
   <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
    Name="Smart Link"/>
  </w:LatentStyles>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 10]>
+<!--\\\\[if gte mso 10]>
 <style>
  /* Style Definitions */
  table.MsoNormalTable
@@ -20475,7 +20495,7 @@ No resources found in mongo namespace.
 	mso-bidi-theme-font:minor-bidi;
 	mso-fareast-language:EN-US;}
 </style>
-<!\\\[endif]-->
+<!\\\\[endif]-->
 
 <!--StartFragment-->
 
@@ -20519,11 +20539,11 @@ No resources found in mongo namespace.
 
 *Labels:                   app=mongo*
 
-   *                       controller-revision-hash=mongo-7648bd99c8*
+    *                      controller-revision-hash=mongo-7648bd99c8*
 
-   *                       hpecp.hpe.com/hpecp-internal-gateway=true*
+    *                      hpecp.hpe.com/hpecp-internal-gateway=true*
 
-   *                       statefulset.kubernetes.io/pod-name=mongo-0*
+    *                      statefulset.kubernetes.io/pod-name=mongo-0*
 
 *Annotations:              hpecp-internal-gateway/27017: epicgw.customer.hpe.net:10030*
 
@@ -20565,11 +20585,11 @@ No resources found in mongo namespace.
 
 *Labels:                   app=mongo*
 
-   *                       controller-revision-hash=mongo-7648bd99c8*
+    *                      controller-revision-hash=mongo-7648bd99c8*
 
-   *                       hpecp.hpe.com/hpecp-internal-gateway=true*
+    *                      hpecp.hpe.com/hpecp-internal-gateway=true*
 
-   *                       statefulset.kubernetes.io/pod-name=mongo-1*
+    *                      statefulset.kubernetes.io/pod-name=mongo-1*
 
 *Annotations:              hpecp-internal-gateway/27017: epicgw.customer.hpe.net:10031*
 
@@ -20611,11 +20631,11 @@ No resources found in mongo namespace.
 
 *Labels:                   app=mongo*
 
-   *                       controller-revision-hash=mongo-7648bd99c8*
+    *                      controller-revision-hash=mongo-7648bd99c8*
 
-   *                       hpecp.hpe.com/hpecp-internal-gateway=true*
+    *                      hpecp.hpe.com/hpecp-internal-gateway=true*
 
-   *                       statefulset.kubernetes.io/pod-name=mongo-2*
+    *                      statefulset.kubernetes.io/pod-name=mongo-2*
 
 *Annotations:              hpecp-internal-gateway/27017: epicgw.customer.hpe.net:10035*
 
@@ -20729,15 +20749,15 @@ No resources found in mongo namespace.
 
   *'$clusterTime': {*
 
-   * clusterTime: Timestamp({ t: 1669297890, i: 1 }),*
+    *clusterTime: Timestamp({ t: 1669297890, i: 1 }),*
 
-   * signature: {*
+    *signature: {*
 
-   *   hash: Binary(Buffer.from("0000000000000000000000000000000000000000", "hex"), 0),*
+    *  hash: Binary(Buffer.from("0000000000000000000000000000000000000000", "hex"), 0),*
 
-   *   keyId: Long("0")*
+    *  keyId: Long("0")*
 
-   * }*
+    *}*
 
   *},*
 
@@ -20775,19 +20795,19 @@ No resources found in mongo namespace.
 
   *optimes: {*
 
-   * lastCommittedOpTime: { ts: Timestamp({ t: 1669297950, i: 1 }), t: Long("1") },*
+    *lastCommittedOpTime: { ts: Timestamp({ t: 1669297950, i: 1 }), t: Long("1") },*
 
-   * lastCommittedWallTime: ISODate("2022-11-24T13:52:30.843Z"),*
+    *lastCommittedWallTime: ISODate("2022-11-24T13:52:30.843Z"),*
 
-   * readConcernMajorityOpTime: { ts: Timestamp({ t: 1669297950, i: 1 }), t: Long("1") },*
+    *readConcernMajorityOpTime: { ts: Timestamp({ t: 1669297950, i: 1 }), t: Long("1") },*
 
-   * appliedOpTime: { ts: Timestamp({ t: 1669297950, i: 1 }), t: Long("1") },*
+    *appliedOpTime: { ts: Timestamp({ t: 1669297950, i: 1 }), t: Long("1") },*
 
-   * durableOpTime: { ts: Timestamp({ t: 1669297950, i: 1 }), t: Long("1") },*
+    *durableOpTime: { ts: Timestamp({ t: 1669297950, i: 1 }), t: Long("1") },*
 
-   * lastAppliedWallTime: ISODate("2022-11-24T13:52:30.843Z"),*
+    *lastAppliedWallTime: ISODate("2022-11-24T13:52:30.843Z"),*
 
-   * lastDurableWallTime: ISODate("2022-11-24T13:52:30.843Z")*
+    *lastDurableWallTime: ISODate("2022-11-24T13:52:30.843Z")*
 
   *},*
 
@@ -20795,71 +20815,71 @@ No resources found in mongo namespace.
 
   *electionCandidateMetrics: {*
 
-   * lastElectionReason: 'electionTimeout',*
+    *lastElectionReason: 'electionTimeout',*
 
-   * lastElectionDate: ISODate("2022-11-24T13:49:50.807Z"),*
+    *lastElectionDate: ISODate("2022-11-24T13:49:50.807Z"),*
 
-   * electionTerm: Long("1"),*
+    *electionTerm: Long("1"),*
 
-   * lastCommittedOpTimeAtElection: { ts: Timestamp({ t: 1669297790, i: 1 }), t: Long("-1") },*
+    *lastCommittedOpTimeAtElection: { ts: Timestamp({ t: 1669297790, i: 1 }), t: Long("-1") },*
 
-   * lastSeenOpTimeAtElection: { ts: Timestamp({ t: 1669297790, i: 1 }), t: Long("-1") },*
+    *lastSeenOpTimeAtElection: { ts: Timestamp({ t: 1669297790, i: 1 }), t: Long("-1") },*
 
-   * numVotesNeeded: 1,*
+    *numVotesNeeded: 1,*
 
-   * priorityAtElection: 1,*
+    *priorityAtElection: 1,*
 
-   * electionTimeoutMillis: Long("10000"),*
+    *electionTimeoutMillis: Long("10000"),*
 
-   * newTermStartDate: ISODate("2022-11-24T13:49:50.829Z"),*
+    *newTermStartDate: ISODate("2022-11-24T13:49:50.829Z"),*
 
-   * wMajorityWriteAvailabilityDate: ISODate("2022-11-24T13:49:50.840Z")*
+    *wMajorityWriteAvailabilityDate: ISODate("2022-11-24T13:49:50.840Z")*
 
   *},*
 
   *members: [*
 
-   * {*
+    *{*
 
-   *   _id: 0,*
+    *  _id: 0,*
 
-   *   name: '10.192.3.58:27017',*
+    *  name: '10.192.3.58:27017',*
 
-   *   health: 1,*
+    *  health: 1,*
 
-   *   state: 1,*
+    *  state: 1,*
 
-   *   stateStr: 'PRIMARY',*
+    *  stateStr: 'PRIMARY',*
 
-   *   uptime: 3836,*
+    *  uptime: 3836,*
 
-   *   optime: { ts: Timestamp({ t: 1669297950, i: 1 }), t: Long("1") },*
+    *  optime: { ts: Timestamp({ t: 1669297950, i: 1 }), t: Long("1") },*
 
-   *   optimeDate: ISODate("2022-11-24T13:52:30.000Z"),*
+    *  optimeDate: ISODate("2022-11-24T13:52:30.000Z"),*
 
-   *   lastAppliedWallTime: ISODate("2022-11-24T13:52:30.843Z"),*
+    *  lastAppliedWallTime: ISODate("2022-11-24T13:52:30.843Z"),*
 
-   *   lastDurableWallTime: ISODate("2022-11-24T13:52:30.843Z"),*
+    *  lastDurableWallTime: ISODate("2022-11-24T13:52:30.843Z"),*
 
-   *   syncSourceHost: '',*
+    *  syncSourceHost: '',*
 
-   *   syncSourceId: -1,*
+    *  syncSourceId: -1,*
 
-   *   infoMessage: '',*
+    *  infoMessage: '',*
 
-   *   electionTime: Timestamp({ t: 1669297790, i: 2 }),*
+    *  electionTime: Timestamp({ t: 1669297790, i: 2 }),*
 
-   *   electionDate: ISODate("2022-11-24T13:49:50.000Z"),*
+    *  electionDate: ISODate("2022-11-24T13:49:50.000Z"),*
 
-   *   configVersion: 2,*
+    *  configVersion: 2,*
 
-   *   configTerm: 1,*
+    *  configTerm: 1,*
 
-   *   self: true,*
+    *  self: true,*
 
-   *   lastHeartbeatMessage: ''*
+    *  lastHeartbeatMessage: ''*
 
-   * }*
+    *}*
 
   *],*
 
@@ -20867,15 +20887,15 @@ No resources found in mongo namespace.
 
   *'$clusterTime': {*
 
-   * clusterTime: Timestamp({ t: 1669297950, i: 1 }),*
+    *clusterTime: Timestamp({ t: 1669297950, i: 1 }),*
 
-   * signature: {*
+    *signature: {*
 
-   *   hash: Binary(Buffer.from("0000000000000000000000000000000000000000", "hex"), 0),*
+    *  hash: Binary(Buffer.from("0000000000000000000000000000000000000000", "hex"), 0),*
 
-   *   keyId: Long("0")*
+    *  keyId: Long("0")*
 
-   * }*
+    *}*
 
   *},*
 
@@ -20895,15 +20915,15 @@ No resources found in mongo namespace.
 
   *'$clusterTime': {*
 
-   * clusterTime: Timestamp({ t: 1669298574, i: 1 }),*
+    *clusterTime: Timestamp({ t: 1669298574, i: 1 }),*
 
-   * signature: {*
+    *signature: {*
 
-   *   hash: Binary(Buffer.from("0000000000000000000000000000000000000000", "hex"), 0),*
+    *  hash: Binary(Buffer.from("0000000000000000000000000000000000000000", "hex"), 0),*
 
-   *   keyId: Long("0")*
+    *  keyId: Long("0")*
 
-   * }*
+    *}*
 
   *},*
 
@@ -20941,19 +20961,19 @@ No resources found in mongo namespace.
 
   *optimes: {*
 
-   * lastCommittedOpTime: { ts: Timestamp({ t: 1669298630, i: 1 }), t: Long("1") },*
+    *lastCommittedOpTime: { ts: Timestamp({ t: 1669298630, i: 1 }), t: Long("1") },*
 
-   * lastCommittedWallTime: ISODate("2022-11-24T14:03:50.861Z"),*
+    *lastCommittedWallTime: ISODate("2022-11-24T14:03:50.861Z"),*
 
-   * readConcernMajorityOpTime: { ts: Timestamp({ t: 1669298630, i: 1 }), t: Long("1") },*
+    *readConcernMajorityOpTime: { ts: Timestamp({ t: 1669298630, i: 1 }), t: Long("1") },*
 
-   * appliedOpTime: { ts: Timestamp({ t: 1669298630, i: 1 }), t: Long("1") },*
+    *appliedOpTime: { ts: Timestamp({ t: 1669298630, i: 1 }), t: Long("1") },*
 
-   * durableOpTime: { ts: Timestamp({ t: 1669298630, i: 1 }), t: Long("1") },*
+    *durableOpTime: { ts: Timestamp({ t: 1669298630, i: 1 }), t: Long("1") },*
 
-   * lastAppliedWallTime: ISODate("2022-11-24T14:03:50.861Z"),*
+    *lastAppliedWallTime: ISODate("2022-11-24T14:03:50.861Z"),*
 
-   * lastDurableWallTime: ISODate("2022-11-24T14:03:50.861Z")*
+    *lastDurableWallTime: ISODate("2022-11-24T14:03:50.861Z")*
 
   *},*
 
@@ -20961,117 +20981,117 @@ No resources found in mongo namespace.
 
   *electionCandidateMetrics: {*
 
-   * lastElectionReason: 'electionTimeout',*
+    *lastElectionReason: 'electionTimeout',*
 
-   * lastElectionDate: ISODate("2022-11-24T13:49:50.807Z"),*
+    *lastElectionDate: ISODate("2022-11-24T13:49:50.807Z"),*
 
-   * electionTerm: Long("1"),*
+    *electionTerm: Long("1"),*
 
-   * lastCommittedOpTimeAtElection: { ts: Timestamp({ t: 1669297790, i: 1 }), t: Long("-1") },*
+    *lastCommittedOpTimeAtElection: { ts: Timestamp({ t: 1669297790, i: 1 }), t: Long("-1") },*
 
-   * lastSeenOpTimeAtElection: { ts: Timestamp({ t: 1669297790, i: 1 }), t: Long("-1") },*
+    *lastSeenOpTimeAtElection: { ts: Timestamp({ t: 1669297790, i: 1 }), t: Long("-1") },*
 
-   * numVotesNeeded: 1,*
+    *numVotesNeeded: 1,*
 
-   * priorityAtElection: 1,*
+    *priorityAtElection: 1,*
 
-   * electionTimeoutMillis: Long("10000"),*
+    *electionTimeoutMillis: Long("10000"),*
 
-   * newTermStartDate: ISODate("2022-11-24T13:49:50.829Z"),*
+    *newTermStartDate: ISODate("2022-11-24T13:49:50.829Z"),*
 
-   * wMajorityWriteAvailabilityDate: ISODate("2022-11-24T13:49:50.840Z")*
+    *wMajorityWriteAvailabilityDate: ISODate("2022-11-24T13:49:50.840Z")*
 
   *},*
 
   *members: [*
 
-   * {*
+    *{*
 
-   *   _id: 0,*
+    *  _id: 0,*
 
-   *   name: '10.192.3.58:27017',*
+    *  name: '10.192.3.58:27017',*
 
-   *   health: 1,*
+    *  health: 1,*
 
-   *   state: 1,*
+    *  state: 1,*
 
-   *   stateStr: 'PRIMARY',*
+    *  stateStr: 'PRIMARY',*
 
-   *   uptime: 4514,*
+    *  uptime: 4514,*
 
-   *   optime: { ts: Timestamp({ t: 1669298630, i: 1 }), t: Long("1") },*
+    *  optime: { ts: Timestamp({ t: 1669298630, i: 1 }), t: Long("1") },*
 
-   *   optimeDate: ISODate("2022-11-24T14:03:50.000Z"),*
+    *  optimeDate: ISODate("2022-11-24T14:03:50.000Z"),*
 
-   *   lastAppliedWallTime: ISODate("2022-11-24T14:03:50.861Z"),*
+    *  lastAppliedWallTime: ISODate("2022-11-24T14:03:50.861Z"),*
 
-   *   lastDurableWallTime: ISODate("2022-11-24T14:03:50.861Z"),*
+    *  lastDurableWallTime: ISODate("2022-11-24T14:03:50.861Z"),*
 
-   *   syncSourceHost: '',*
+    *  syncSourceHost: '',*
 
-   *   syncSourceId: -1,*
+    *  syncSourceId: -1,*
 
-   *   infoMessage: '',*
+    *  infoMessage: '',*
 
-   *   electionTime: Timestamp({ t: 1669297790, i: 2 }),*
+    *  electionTime: Timestamp({ t: 1669297790, i: 2 }),*
 
-   *   electionDate: ISODate("2022-11-24T13:49:50.000Z"),*
+    *  electionDate: ISODate("2022-11-24T13:49:50.000Z"),*
 
-   *   configVersion: 4,*
+    *  configVersion: 4,*
 
-   *   configTerm: 1,*
+    *  configTerm: 1,*
 
-   *   self: true,*
+    *  self: true,*
 
-   *   lastHeartbeatMessage: ''*
+    *  lastHeartbeatMessage: ''*
 
-   * },*
+    *},*
 
-   * {*
+    *{*
 
-   *   _id: 1,*
+    *  _id: 1,*
 
-   *   name: '10.192.3.59:27017',*
+    *  name: '10.192.3.59:27017',*
 
-   *   health: 1,*
+    *  health: 1,*
 
-   *   state: 2,*
+    *  state: 2,*
 
-   *   stateStr: 'SECONDARY',*
+    *  stateStr: 'SECONDARY',*
 
-   *   uptime: 58,*
+    *  uptime: 58,*
 
-   *   optime: { ts: Timestamp({ t: 1669298630, i: 1 }), t: Long("1") },*
+    *  optime: { ts: Timestamp({ t: 1669298630, i: 1 }), t: Long("1") },*
 
-   *   optimeDurable: { ts: Timestamp({ t: 1669298630, i: 1 }), t: Long("1") },*
+    *  optimeDurable: { ts: Timestamp({ t: 1669298630, i: 1 }), t: Long("1") },*
 
-   *   optimeDate: ISODate("2022-11-24T14:03:50.000Z"),*
+    *  optimeDate: ISODate("2022-11-24T14:03:50.000Z"),*
 
-   *   optimeDurableDate: ISODate("2022-11-24T14:03:50.000Z"),*
+    *  optimeDurableDate: ISODate("2022-11-24T14:03:50.000Z"),*
 
-   *   lastAppliedWallTime: ISODate("2022-11-24T14:03:50.861Z"),*
+    *  lastAppliedWallTime: ISODate("2022-11-24T14:03:50.861Z"),*
 
-   *   lastDurableWallTime: ISODate("2022-11-24T14:03:50.861Z"),*
+    *  lastDurableWallTime: ISODate("2022-11-24T14:03:50.861Z"),*
 
-   *   lastHeartbeat: ISODate("2022-11-24T14:03:52.308Z"),*
+    *  lastHeartbeat: ISODate("2022-11-24T14:03:52.308Z"),*
 
-   *   lastHeartbeatRecv: ISODate("2022-11-24T14:03:50.818Z"),*
+    *  lastHeartbeatRecv: ISODate("2022-11-24T14:03:50.818Z"),*
 
-   *   pingMs: Long("0"),*
+    *  pingMs: Long("0"),*
 
-   *   lastHeartbeatMessage: '',*
+    *  lastHeartbeatMessage: '',*
 
-   *   syncSourceHost: '10.192.3.58:27017',*
+    *  syncSourceHost: '10.192.3.58:27017',*
 
-   *   syncSourceId: 0,*
+    *  syncSourceId: 0,*
 
-   *   infoMessage: '',*
+    *  infoMessage: '',*
 
-   *   configVersion: 4,*
+    *  configVersion: 4,*
 
-   *   configTerm: 1*
+    *  configTerm: 1*
 
-   * }*
+    *}*
 
   *],*
 
@@ -21079,15 +21099,15 @@ No resources found in mongo namespace.
 
   *'$clusterTime': {*
 
-   * clusterTime: Timestamp({ t: 1669298630, i: 1 }),*
+    *clusterTime: Timestamp({ t: 1669298630, i: 1 }),*
 
-   * signature: {*
+    *signature: {*
 
-   *   hash: Binary(Buffer.from("0000000000000000000000000000000000000000", "hex"), 0),*
+    *  hash: Binary(Buffer.from("0000000000000000000000000000000000000000", "hex"), 0),*
 
-   *   keyId: Long("0")*
+    *  keyId: Long("0")*
 
-   * }*
+    *}*
 
   *},*
 
@@ -21107,15 +21127,15 @@ No resources found in mongo namespace.
 
   *'$clusterTime': {*
 
-   * clusterTime: Timestamp({ t: 1669298829, i: 1 }),*
+    *clusterTime: Timestamp({ t: 1669298829, i: 1 }),*
 
-   * signature: {*
+    *signature: {*
 
-   *   hash: Binary(Buffer.from("0000000000000000000000000000000000000000", "hex"), 0),*
+    *  hash: Binary(Buffer.from("0000000000000000000000000000000000000000", "hex"), 0),*
 
-   *   keyId: Long("0")*
+    *  keyId: Long("0")*
 
-   * }*
+    *}*
 
   *},*
 
@@ -21153,19 +21173,19 @@ No resources found in mongo namespace.
 
   *optimes: {*
 
-   * lastCommittedOpTime: { ts: Timestamp({ t: 1669298880, i: 1 }), t: Long("1") },*
+    *lastCommittedOpTime: { ts: Timestamp({ t: 1669298880, i: 1 }), t: Long("1") },*
 
-   * lastCommittedWallTime: ISODate("2022-11-24T14:08:00.869Z"),*
+    *lastCommittedWallTime: ISODate("2022-11-24T14:08:00.869Z"),*
 
-   * readConcernMajorityOpTime: { ts: Timestamp({ t: 1669298880, i: 1 }), t: Long("1") },*
+    *readConcernMajorityOpTime: { ts: Timestamp({ t: 1669298880, i: 1 }), t: Long("1") },*
 
-   * appliedOpTime: { ts: Timestamp({ t: 1669298880, i: 1 }), t: Long("1") },*
+    *appliedOpTime: { ts: Timestamp({ t: 1669298880, i: 1 }), t: Long("1") },*
 
-   * durableOpTime: { ts: Timestamp({ t: 1669298880, i: 1 }), t: Long("1") },*
+    *durableOpTime: { ts: Timestamp({ t: 1669298880, i: 1 }), t: Long("1") },*
 
-   * lastAppliedWallTime: ISODate("2022-11-24T14:08:00.869Z"),*
+    *lastAppliedWallTime: ISODate("2022-11-24T14:08:00.869Z"),*
 
-   * lastDurableWallTime: ISODate("2022-11-24T14:08:00.869Z")*
+    *lastDurableWallTime: ISODate("2022-11-24T14:08:00.869Z")*
 
   *},*
 
@@ -21173,163 +21193,163 @@ No resources found in mongo namespace.
 
   *electionCandidateMetrics: {*
 
-   * lastElectionReason: 'electionTimeout',*
+    *lastElectionReason: 'electionTimeout',*
 
-   * lastElectionDate: ISODate("2022-11-24T13:49:50.807Z"),*
+    *lastElectionDate: ISODate("2022-11-24T13:49:50.807Z"),*
 
-   * electionTerm: Long("1"),*
+    *electionTerm: Long("1"),*
 
-   * lastCommittedOpTimeAtElection: { ts: Timestamp({ t: 1669297790, i: 1 }), t: Long("-1") },*
+    *lastCommittedOpTimeAtElection: { ts: Timestamp({ t: 1669297790, i: 1 }), t: Long("-1") },*
 
-   * lastSeenOpTimeAtElection: { ts: Timestamp({ t: 1669297790, i: 1 }), t: Long("-1") },*
+    *lastSeenOpTimeAtElection: { ts: Timestamp({ t: 1669297790, i: 1 }), t: Long("-1") },*
 
-   * numVotesNeeded: 1,*
+    *numVotesNeeded: 1,*
 
-   * priorityAtElection: 1,*
+    *priorityAtElection: 1,*
 
-   * electionTimeoutMillis: Long("10000"),*
+    *electionTimeoutMillis: Long("10000"),*
 
-   * newTermStartDate: ISODate("2022-11-24T13:49:50.829Z"),*
+    *newTermStartDate: ISODate("2022-11-24T13:49:50.829Z"),*
 
-   * wMajorityWriteAvailabilityDate: ISODate("2022-11-24T13:49:50.840Z")*
+    *wMajorityWriteAvailabilityDate: ISODate("2022-11-24T13:49:50.840Z")*
 
   *},*
 
   *members: [*
 
-   * {*
+    *{*
 
-   *   _id: 0,*
+    *  _id: 0,*
 
-   *   name: '10.192.3.58:27017',*
+    *  name: '10.192.3.58:27017',*
 
-   *   health: 1,*
+    *  health: 1,*
 
-   *   state: 1,*
+    *  state: 1,*
 
-   *   stateStr: 'PRIMARY',*
+    *  stateStr: 'PRIMARY',*
 
-   *   uptime: 4767,*
+    *  uptime: 4767,*
 
-   *   optime: { ts: Timestamp({ t: 1669298880, i: 1 }), t: Long("1") },*
+    *  optime: { ts: Timestamp({ t: 1669298880, i: 1 }), t: Long("1") },*
 
-   *   optimeDate: ISODate("2022-11-24T14:08:00.000Z"),*
+    *  optimeDate: ISODate("2022-11-24T14:08:00.000Z"),*
 
-   *   lastAppliedWallTime: ISODate("2022-11-24T14:08:00.869Z"),*
+    *  lastAppliedWallTime: ISODate("2022-11-24T14:08:00.869Z"),*
 
-   *   lastDurableWallTime: ISODate("2022-11-24T14:08:00.869Z"),*
+    *  lastDurableWallTime: ISODate("2022-11-24T14:08:00.869Z"),*
 
-   *   syncSourceHost: '',*
+    *  syncSourceHost: '',*
 
-   *   syncSourceId: -1,*
+    *  syncSourceId: -1,*
 
-   *   infoMessage: '',*
+    *  infoMessage: '',*
 
-   *   electionTime: Timestamp({ t: 1669297790, i: 2 }),*
+    *  electionTime: Timestamp({ t: 1669297790, i: 2 }),*
 
-   *   electionDate: ISODate("2022-11-24T13:49:50.000Z"),*
+    *  electionDate: ISODate("2022-11-24T13:49:50.000Z"),*
 
-   *   configVersion: 6,*
+    *  configVersion: 6,*
 
-   *   configTerm: 1,*
+    *  configTerm: 1,*
 
-   *   self: true,*
+    *  self: true,*
 
-   *   lastHeartbeatMessage: ''*
+    *  lastHeartbeatMessage: ''*
 
-   * },*
+    *},*
 
-   * {*
+    *{*
 
-   *   _id: 1,*
+    *  _id: 1,*
 
-   *   name: '10.192.3.59:27017',*
+    *  name: '10.192.3.59:27017',*
 
-   *   health: 1,*
+    *  health: 1,*
 
-   *   state: 2,*
+    *  state: 2,*
 
-   *   stateStr: 'SECONDARY',*
+    *  stateStr: 'SECONDARY',*
 
-   *   uptime: 311,*
+    *  uptime: 311,*
 
-   *   optime: { ts: Timestamp({ t: 1669298880, i: 1 }), t: Long("1") },*
+    *  optime: { ts: Timestamp({ t: 1669298880, i: 1 }), t: Long("1") },*
 
-   *   optimeDurable: { ts: Timestamp({ t: 1669298880, i: 1 }), t: Long("1") },*
+    *  optimeDurable: { ts: Timestamp({ t: 1669298880, i: 1 }), t: Long("1") },*
 
-   *   optimeDate: ISODate("2022-11-24T14:08:00.000Z"),*
+    *  optimeDate: ISODate("2022-11-24T14:08:00.000Z"),*
 
-   *   optimeDurableDate: ISODate("2022-11-24T14:08:00.000Z"),*
+    *  optimeDurableDate: ISODate("2022-11-24T14:08:00.000Z"),*
 
-   *   lastAppliedWallTime: ISODate("2022-11-24T14:08:00.869Z"),*
+    *  lastAppliedWallTime: ISODate("2022-11-24T14:08:00.869Z"),*
 
-   *   lastDurableWallTime: ISODate("2022-11-24T14:08:00.869Z"),*
+    *  lastDurableWallTime: ISODate("2022-11-24T14:08:00.869Z"),*
 
-   *   lastHeartbeat: ISODate("2022-11-24T14:08:05.090Z"),*
+    *  lastHeartbeat: ISODate("2022-11-24T14:08:05.090Z"),*
 
-   *   lastHeartbeatRecv: ISODate("2022-11-24T14:08:05.094Z"),*
+    *  lastHeartbeatRecv: ISODate("2022-11-24T14:08:05.094Z"),*
 
-   *   pingMs: Long("0"),*
+    *  pingMs: Long("0"),*
 
-   *   lastHeartbeatMessage: '',*
+    *  lastHeartbeatMessage: '',*
 
-   *   syncSourceHost: '10.192.3.58:27017',*
+    *  syncSourceHost: '10.192.3.58:27017',*
 
-   *   syncSourceId: 0,*
+    *  syncSourceId: 0,*
 
-   *   infoMessage: '',*
+    *  infoMessage: '',*
 
-   *   configVersion: 6,*
+    *  configVersion: 6,*
 
-   *   configTerm: 1*
+    *  configTerm: 1*
 
-   * },*
+    *},*
 
-   * {*
+    *{*
 
-   *   _id: 2,*
+    *  _id: 2,*
 
-   *   name: '10.192.4.208:27017',*
+    *  name: '10.192.4.208:27017',*
 
-   *   health: 1,*
+    *  health: 1,*
 
-   *   state: 2,*
+    *  state: 2,*
 
-   *   stateStr: 'SECONDARY',*
+    *  stateStr: 'SECONDARY',*
 
-   *   uptime: 56,*
+    *  uptime: 56,*
 
-   *   optime: { ts: Timestamp({ t: 1669298880, i: 1 }), t: Long("1") },*
+    *  optime: { ts: Timestamp({ t: 1669298880, i: 1 }), t: Long("1") },*
 
-   *   optimeDurable: { ts: Timestamp({ t: 1669298880, i: 1 }), t: Long("1") },*
+    *  optimeDurable: { ts: Timestamp({ t: 1669298880, i: 1 }), t: Long("1") },*
 
-   *   optimeDate: ISODate("2022-11-24T14:08:00.000Z"),*
+    *  optimeDate: ISODate("2022-11-24T14:08:00.000Z"),*
 
-   *   optimeDurableDate: ISODate("2022-11-24T14:08:00.000Z"),*
+    *  optimeDurableDate: ISODate("2022-11-24T14:08:00.000Z"),*
 
-   *   lastAppliedWallTime: ISODate("2022-11-24T14:08:00.869Z"),*
+    *  lastAppliedWallTime: ISODate("2022-11-24T14:08:00.869Z"),*
 
-   *   lastDurableWallTime: ISODate("2022-11-24T14:08:00.869Z"),*
+    *  lastDurableWallTime: ISODate("2022-11-24T14:08:00.869Z"),*
 
-   *   lastHeartbeat: ISODate("2022-11-24T14:08:05.104Z"),*
+    *  lastHeartbeat: ISODate("2022-11-24T14:08:05.104Z"),*
 
-   *   lastHeartbeatRecv: ISODate("2022-11-24T14:08:03.615Z"),*
+    *  lastHeartbeatRecv: ISODate("2022-11-24T14:08:03.615Z"),*
 
-   *   pingMs: Long("0"),*
+    *  pingMs: Long("0"),*
 
-   *   lastHeartbeatMessage: '',*
+    *  lastHeartbeatMessage: '',*
 
-   *   syncSourceHost: '10.192.3.59:27017',*
+    *  syncSourceHost: '10.192.3.59:27017',*
 
-   *   syncSourceId: 1,*
+    *  syncSourceId: 1,*
 
-   *   infoMessage: '',*
+    *  infoMessage: '',*
 
-   *   configVersion: 6,*
+    *  configVersion: 6,*
 
-   *   configTerm: 1*
+    *  configTerm: 1*
 
-   * }*
+    *}*
 
   *],*
 
@@ -21337,15 +21357,15 @@ No resources found in mongo namespace.
 
   *'$clusterTime': {*
 
-   * clusterTime: Timestamp({ t: 1669298880, i: 1 }),*
+    *clusterTime: Timestamp({ t: 1669298880, i: 1 }),*
 
-   * signature: {*
+    *signature: {*
 
-   *   hash: Binary(Buffer.from("0000000000000000000000000000000000000000", "hex"), 0),*
+    *  hash: Binary(Buffer.from("0000000000000000000000000000000000000000", "hex"), 0),*
 
-   *   keyId: Long("0")*
+    *  keyId: Long("0")*
 
-   * }*
+    *}*
 
   *},*
 
@@ -21357,13 +21377,13 @@ No resources found in mongo namespace.
 
 <!--EndFragment-->
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <o:OfficeDocumentSettings>
   <o:AllowPNG/>
  </o:OfficeDocumentSettings>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <w:WordDocument>
   <w:View>Normal</w:View>
   <w:Zoom>0</w:Zoom>
@@ -21402,9 +21422,9 @@ No resources found in mongo namespace.
    <m:intLim m:val="subSup"/>
    <m:naryLim m:val="undOvr"/>
   </m:mathPr></w:WordDocument>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
   DefSemiHidden="false" DefQFormat="false" DefPriority="99"
   LatentStyleCount="376">
@@ -21983,9 +22003,9 @@ No resources found in mongo namespace.
   <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
    Name="Smart Link"/>
  </w:LatentStyles>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 10]>
+<!--\\\\[if gte mso 10]>
 <style>
  /* Style Definitions */
  table.MsoNormalTable
@@ -22012,7 +22032,7 @@ No resources found in mongo namespace.
 	mso-bidi-theme-font:minor-bidi;
 	mso-fareast-language:EN-US;}
 </style>
-<!\\\[endif]-->
+<!\\\\[endif]-->
 
 <!--StartFragment-->
 
@@ -22020,13 +22040,13 @@ No resources found in mongo namespace.
 
 <!--EndFragment-->
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <o:OfficeDocumentSettings>
   <o:AllowPNG/>
  </o:OfficeDocumentSettings>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <w:WordDocument>
   <w:View>Normal</w:View>
   <w:Zoom>0</w:Zoom>
@@ -22065,9 +22085,9 @@ No resources found in mongo namespace.
    <m:intLim m:val="subSup"/>
    <m:naryLim m:val="undOvr"/>
   </m:mathPr></w:WordDocument>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
   DefSemiHidden="false" DefQFormat="false" DefPriority="99"
   LatentStyleCount="376">
@@ -22646,9 +22666,9 @@ No resources found in mongo namespace.
   <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
    Name="Smart Link"/>
  </w:LatentStyles>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 10]>
+<!--\\\\[if gte mso 10]>
 <style>
  /* Style Definitions */
  table.MsoNormalTable
@@ -22675,7 +22695,7 @@ No resources found in mongo namespace.
 	mso-bidi-theme-font:minor-bidi;
 	mso-fareast-language:EN-US;}
 </style>
-<!\\\[endif]-->
+<!\\\\[endif]-->
 
 <!--StartFragment-->
 
@@ -22691,13 +22711,13 @@ End user can access Jupyter notebook over external network or internet and perfo
 
 ![](/img/image-16.png)
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <o:OfficeDocumentSettings>
   <o:AllowPNG/>
  </o:OfficeDocumentSettings>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <w:WordDocument>
   <w:View>Normal</w:View>
   <w:Zoom>0</w:Zoom>
@@ -22736,9 +22756,9 @@ End user can access Jupyter notebook over external network or internet and perfo
    <m:intLim m:val="subSup"/>
    <m:naryLim m:val="undOvr"/>
   </m:mathPr></w:WordDocument>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
   DefSemiHidden="false" DefQFormat="false" DefPriority="99"
   LatentStyleCount="376">
@@ -23317,9 +23337,9 @@ End user can access Jupyter notebook over external network or internet and perfo
   <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
    Name="Smart Link"/>
  </w:LatentStyles>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 10]>
+<!--\\\\[if gte mso 10]>
 <style>
  /* Style Definitions */
  table.MsoNormalTable
@@ -23346,7 +23366,7 @@ End user can access Jupyter notebook over external network or internet and perfo
 	mso-bidi-theme-font:minor-bidi;
 	mso-fareast-language:EN-US;}
 </style>
-<!\\\[endif]-->
+<!\\\\[endif]-->
 
 <!--StartFragment-->
 
@@ -23354,13 +23374,13 @@ End user can access Jupyter notebook over external network or internet and perfo
 
 <!--EndFragment-->
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <o:OfficeDocumentSettings>
   <o:AllowPNG/>
  </o:OfficeDocumentSettings>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <w:WordDocument>
   <w:View>Normal</w:View>
   <w:Zoom>0</w:Zoom>
@@ -23399,9 +23419,9 @@ End user can access Jupyter notebook over external network or internet and perfo
    <m:intLim m:val="subSup"/>
    <m:naryLim m:val="undOvr"/>
   </m:mathPr></w:WordDocument>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 9]><xml>
+<!--\\\\[if gte mso 9]><xml>
  <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
   DefSemiHidden="false" DefQFormat="false" DefPriority="99"
   LatentStyleCount="376">
@@ -23980,9 +24000,9 @@ End user can access Jupyter notebook over external network or internet and perfo
   <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
    Name="Smart Link"/>
  </w:LatentStyles>
-</xml><!\\\[endif]-->
+</xml><!\\\\[endif]-->
 
-<!--\\\[if gte mso 10]>
+<!--\\\\[if gte mso 10]>
 <style>
  /* Style Definitions */
  table.MsoNormalTable
@@ -24009,7 +24029,7 @@ End user can access Jupyter notebook over external network or internet and perfo
 	mso-bidi-theme-font:minor-bidi;
 	mso-fareast-language:EN-US;}
 </style>
-<!\\\[endif]-->
+<!\\\\[endif]-->
 
 <!--StartFragment-->
 
