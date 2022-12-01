@@ -48,7 +48,11 @@ A machine blueprint includes the:
 
 ![](/img/image-1.png)
 
+
+
 ![](/img/image-2.png)
+
+
 
 ![](/img/image-3.png)
 
@@ -67,6 +71,8 @@ A cluster blueprint includes the:
 
 ![](/img/image-4.png)
 
+
+
 ![](/img/image-5.png)
 
 ## HPE GreenLake for Containers: MongoDB Application deployment on Kubernetes cluster
@@ -76,6 +82,8 @@ MongoDB is an open source, NoSQL database that provides support for JSON-styled,
 Below is the preferred cluster configuration for MongoDB In-Memory Database workload
 
 ![](/img/image-6.png)
+
+
 
 ![](/img/image-7.png)
 
@@ -87,6 +95,8 @@ To create a cluster, you must have the roles Private Cloud Cluster Owner and Pri
 * In the Create Cluster form, provide the cluster name 'hpe', and select the standard cluster blueprint. The new cluster appears in the list of clusters.
 
 ![](/img/image-8.png)
+
+
 
 ![](/img/image-9.png)
 
@@ -100,6 +110,8 @@ As indicated above there are multiple clusters deployed in parallel for multiple
 * Click on Download kubeconfig.
 
 ![](/img/image-11.png)
+
+
 
 ![](/img/image-12.png)
 
