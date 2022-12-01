@@ -3,7 +3,7 @@ title: Explore the HPE GreenLake for Compute Ops Management REST API using Curl
   and Postman
 date: 2022-11-30T12:36:05.351Z
 author: Lionel Jullien &Vincent Berger & Frederic Passeron
-authorimage: /img/lj-vb-fp192.png
+authorimage: /img/Avatar3.svg
 thumbnailimage: ""
 disable: false
 ---
