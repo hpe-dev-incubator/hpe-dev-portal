@@ -48,7 +48,7 @@ There are several ways to invoke the API:
 * Using PowerShell
 * Using Ansible, Terraform, etc.
 
-The [HPE GreenLake for Compute Ops Management API Reference site](https://developer.greenlake.hpe.com/docs/greenlake/services/compute-ops/public/openapi/compute-ops-latest/overview/) leverages an OpenAPIconformant documentation that provides a complete explanation of the operations supported by the Unique Resource Identifiers [(URIs)](<>)as well as sample requests and responses. 
+The [HPE GreenLake for Compute Ops Management API Reference site](https://developer.greenlake.hpe.com/docs/greenlake/services/compute-ops/public/openapi/compute-ops-latest/overview/) leverages an OpenAPI conformant documentation that provides a complete explanation of the operations supported by the Unique Resource Identifiers [(URIs)](<>)as well as sample requests and responses. 
 
 If you are wondering which to use, cURL is probably a good choice if you like command line interfaces, Postman if you prefer graphical user interfaces, and PowerShell or Python if you are really into programming.
 
@@ -141,59 +141,59 @@ To use a filter on a nested property name, the '**/**' separator can be specifie
 
             **"hardware": {**
 
-              **  "serialNumber": "CN70421C51",**
+               ** "serialNumber": "CN70421C51",**
 
-              **  "model": "ProLiant DL365 Gen10 Plus",**
+               ** "model": "ProLiant DL365 Gen10 Plus",**
 
-              **  "uuid": "33393350-3836-4E43-3730-343231433531",**
+               ** "uuid": "33393350-3836-4E43-3730-343231433531",**
 
-              **  "productId": "P39368-B21",**
+               ** "productId": "P39368-B21",**
 
-              **  "powerState": "ON",**
+               ** "powerState": "ON",**
 
-              **  "indicatorLed": "OFF",**
+               ** "indicatorLed": "OFF",**
 
-              **  "health": {**
+               ** "health": {**
 
-              **      "summary": "OK",**
+               **     "summary": "OK",**
 
-              **      "healthLED": "OK",**
+               **     "healthLED": "OK",**
 
-              **      "fans": "OK",**
+               **     "fans": "OK",**
 
-              **      "fanRedundancy": "REDUNDANT",**
+               **     "fanRedundancy": "REDUNDANT",**
 
-              **      "liquidCooling": "NOT_PRESENT",**
+               **     "liquidCooling": "NOT_PRESENT",**
 
-              **      "liquidCoolingRedundancy": "NOT_PRESENT",**
+               **     "liquidCoolingRedundancy": "NOT_PRESENT",**
 
-              **      "memory": "OK",**
+               **     "memory": "OK",**
 
-              **      "network": "UNKNOWN",**
+               **     "network": "UNKNOWN",**
 
-              **      "powerSupplies": "OK",**
+               **     "powerSupplies": "OK",**
 
-              **      "powerSupplyRedundancy": "NOT_PRESENT",**
+               **     "powerSupplyRedundancy": "NOT_PRESENT",**
 
-              **      "processor": "OK",**
+               **     "processor": "OK",**
 
-              **      "storage": "OK",**
+               **     "storage": "OK",**
 
-              **      "temperature": "OK",**
+               **     "temperature": "OK",**
 
-              **      "bios": "OK",**
+               **     "bios": "OK",**
 
-              **      "smartStorage": "OK"**
+               **     "smartStorage": "OK"**
 
-              **  },**
+               ** },**
 
-              **  "bmc": {**
+               ** "bmc": {**
 
-              **      "mac": "B4:7A:F1:4E:9E:92",**
+               **     "mac": "B4:7A:F1:4E:9E:92",**
 
-              **      "ip": "172.30.231.116",**
+               **     "ip": "172.30.231.116",**
 
-              **      "hostname": "None"**
+               **     "hostname": "None"**
 
 The following cURL command includes the filter
 
