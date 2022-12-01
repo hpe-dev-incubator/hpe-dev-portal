@@ -17,9 +17,7 @@ tags:
 }
 </style>
 
-You’ve got your hands full addressing all aspects of data logistics and processing required to ensure the success of your data-intensive projects, including those involving analytics and AI/machine learning.
-
-On this page, we provide content to help you meet these challenges, as well as practical tips on key issues to improve efficiency and performance. 
+You’ve got your hands full addressing all aspects of data logistics and processing required to ensure the success of your data-intensive projects, including those involving analytics and AI/machine learning. On this page, we provide content to help you meet these challenges, as well as practical tips on key issues to improve efficiency and performance. 
 
 You may also find content of interest to you on the [Data Scientist](/role/data-scientist/home/) page, so be sure to check it out.
 
@@ -30,7 +28,7 @@ You may also find content of interest to you on the [Data Scientist](/role/data-
 <div class="row">
   <div class="column">
     ### Get Inspired
-    **A sampler of new ideas related to data/ML engineering:**
+    **New ideas related to data/ML engineering**
 
     *Learn how industry innovation may affect your job.*
 
@@ -53,13 +51,13 @@ You may also find content of interest to you on the [Data Scientist](/role/data-
     - Read [Writing deep learning tools for all data scientists, not just unicorns](/blog/writing-deep-learning-tools-for-all-data-scientists-not-just-unicorns/)
   </div>
   <div class="column">
-    - Study the technical paper [HPE Ezmeral Data Fabric: Modern infrastructure for data storage and management](https://www.hpe.com/psnow/doc/a00110846enw)
-
-    - Read [Deploying an ML model in HPE GreenLake for ML Ops](https://community.hpe.com/t5/HPE-Ezmeral-Uncut/What-s-your-superpower-for-data-management/ba-p/7100920#.Ya5RTb3ML0p)
+    - Read [Deploying an ML model in HPE GreenLake for ML Ops](/blog/mlops-–-deploying-an-ml-model-in-greenlake-platform-mlops-service/)
 
     - Learn more about [HPE GreenLake for AI/ML/Data Analytics](https://www.hpe.com/us/en/greenlake/ai-ml-analytics.html)
 
     -	Check out how to [build transformative AI applications at scale with HPE Machine Learning Development Environment](/blog/build-transformative-ai-applications-at-scale-with-hpe-cray-ai-development-environment/)
+
+    - Study the technical paper [HPE Ezmeral Data Fabric: Modern infrastructure for data storage and management](https://www.hpe.com/psnow/doc/a00110846enw)
  
   </div>
 </div>
@@ -103,9 +101,7 @@ You may also find content of interest to you on the [Data Scientist](/role/data-
 
   - Explore the CNCF [SPIFFE and SPIRE projects](https://developer.hpe.com/platform/spiffe-and-spire-projects/home/)
 
-**How are others doing this?**
-
-Case studies
+**Case studies**
 
   - [Accelerating Autonomous Car Development with Ready Access to Global Data Fabric](https://www.hpe.com/psnow/doc/a50003176enw?jumpid=in_lit-psnow-red)
 

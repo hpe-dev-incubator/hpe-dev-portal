@@ -86,8 +86,7 @@ Explore community-powered innovation and join these [community](https://develope
   <div class="column">
 
     - Explore [Presto](https://github.com/prestodb/presto)
-
-    - Watch [Scale for good](https://www.hpe.com/us/en/discover-more-network/series/scale-for-good.html?media-id=/us/en/resources/discover/dmn/scale-for-good/thefoodcrisiscantechnologyscaletofeedtheworld/_jcr_content.details.json&media-strategy=delegate)
+     
 
   </div>
 </div>
@@ -98,7 +97,7 @@ Explore community-powered innovation and join these [community](https://develope
 
 ### Addressing Key Concerns
 
-**Managing distributed data, including supplier and customer sites**
+**Managing distributed data, including from supplier and customer sites**
 
   - View how [HPE Dataspaces](https://www.hpe.com/h22228/video-gallery/us/en/505e5730-c199-4ca8-9ee7-d70ba6f6f7fa/dataspaces--connecting-you-to-data-you-can-trust/video/) (now known as HPE Project Data Map) connects data consumers with data producers offering a clean and trusted exchange of data
 
@@ -115,7 +114,7 @@ Explore community-powered innovation and join these [community](https://develope
 
   - Learn more about [Determined AI](https://developer.hpe.com/platform/determined-ai/home/)
 
-**Designing for parallel processing easily and with less expense**
+**Designing for parallel processing more easily and with less expense**
 
   - Explore [Chapel](https://developer.hpe.com/platform/chapel/home/), an open source programming language designed to “prototype then port”, developed by Cray, an HPE company
 
@@ -201,9 +200,9 @@ Explore community-powered innovation and join these [community](https://develope
 
     - [HPE + vFunction: Modernizing Legacy Applications and Data Sources Faster](https://www.youtube.com/watch?v=UvcyIjzml7s&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF)
 
-    - [Quarkus - Supersonic Subatomic Java](https://hpe.zoom.us/webinar/register/5716414626617/WN_VS7nBF_qQze0G64XLzBilw)
+    - [Quarkus - Supersonic Subatomic Java](https://www.youtube.com/watch?v=mY1z9OC0y54&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF)
 
-    - [Streamlit - The fastest way to build and share data science apps](https://hpe.zoom.us/webinar/register/2016414625150/WN_FzzTDsTjQBSw-UFwD6UTdw)
+    - [Streamlit - The fastest way to build and share data science apps](https://www.youtube.com/watch?v=sdgTYy3BJiM&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF)
 
     - [Scaling language training to trillion-parameter models on a GPU cluster](https://www.youtube.com/watch?v=rIPqCvvMmms&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF&index=1)
 

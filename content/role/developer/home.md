@@ -1,6 +1,6 @@
 ---
 title: Developer
-description: Technologists defining the future through automation
+description: Technologists defining the future through software and automation
 image: /img/role/developer.png
 width: large
 priority: 1
@@ -20,7 +20,7 @@ tags:
 
 Every software developer, computer programmer, and coder shares the same goal: to create the best software for customers. Here, we cover the latest trends and techniques to help you improve the way you build software for your customers – whether it’s through open source projects or commercial offerings.
 
-Check out some of our other role pages, such as [Data Scientist](https://developer.hpe.com/role/data-scientist/home/) to explore issues you may have in common.
+Check out some of our other role pages, such as [Data Scientist](https://developer.hpe.com/role/data-scientist/home/), to explore issues you may have in common.
 
 <br>
 <hr style="background: #7630EA; height: 5px; border: none">
@@ -45,7 +45,7 @@ Check out some of our other role pages, such as [Data Scientist](https://develop
 
 <div class="row">
   <div class="column">
-    - Read [Wow – A practiced and perfected design process.](https://developer.hpe.com/blog/wow-a-practiced-and-perfected-design-process-part-1-uncovering-the-merit/)
+    - Read [Wow – A practiced and perfected design process](https://developer.hpe.com/blog/wow-a-practiced-and-perfected-design-process-part-1-uncovering-the-merit/)
     
     - Explore [HPE Design System](https://design-system.hpe.design/)
   </div>
@@ -67,7 +67,7 @@ Check out some of our other role pages, such as [Data Scientist](https://develop
 
   </div>
   <div class="column">
-    **Zero-Trust Security**
+    **Zero-trust security**
 
     *Secure applications in heterogeneous, distributed environments*
 
@@ -101,11 +101,21 @@ Check out some of our other role pages, such as [Data Scientist](https://develop
 
 ### Addressing Key Concerns
 
-**Prototyping designs**
+**Prototyping applications**
 
 - Learn about the [Grommet](https://developer.hpe.com/platform/grommet/home/)
 
 - [Test the Grommet Designer ](https://designer.grommet.io/)
+
+**Designing for HPE GreenLake**
+
+  - Find APIs in the [HPE GreenLake Developer API portal](https://developer.greenlake.hpe.com/)
+
+  - Learn to [create a general purpose kubeconfig file in HPE GreenLake for Containers](https://developer.hpe.com/blog/create-a-general-purpose-kubeconfig-file-in-hpe-greenlake-for-containers/)
+
+  - See how to [deploy a stateful MongoDB application on Kubernetes clusters in HPE GreenLake for Containers](https://developer.hpe.com/blog/deploy-stateful-mongodb-application-on-kubernetes-clusters-in-hpe-greenlake-for-containers-1/)
+
+  - Learn more about [HPE GreenLake](https://developer.hpe.com/platform/hpe-greenlake/home)
 
 **Handling parallel programming**
 
@@ -124,16 +134,6 @@ Check out some of our other role pages, such as [Data Scientist](https://develop
   - [Read about the KubeDirector project](https://developer.hpe.com/blog/best-practices-for-migrating-your-apps-to-containers-and-kubernetes/)
   
 
-**Designing for HPE GreenLake**
-
-  - Find APIs in the [HPE GreenLake Developer API portal](https://developer.greenlake.hpe.com/)
-
-  - Learn to [create a general purpose kubeconfig file in HPE GreenLake for Containers](https://developer.hpe.com/blog/create-a-general-purpose-kubeconfig-file-in-hpe-greenlake-for-containers/)
-
-  - See how to [deploy a stateful MongoDB application on Kubernetes clusters in HPE GreenLake for Containers](https://developer.hpe.com/blog/deploy-stateful-mongodb-application-on-kubernetes-clusters-in-hpe-greenlake-for-containers-1/)
-
-  - Learn more about [HPE GreenLake](https://developer.hpe.com/platform/hpe-greenlake/home)
-
 **Building through collaboration**
 
   - [Get started with Git and get involved in the open source community](https://developer.hpe.com/blog/get-involved-in-the-open-source-community-part-1-getting-started-with-git/)
@@ -141,6 +141,8 @@ Check out some of our other role pages, such as [Data Scientist](https://develop
   - [Learn to share with the community using Git](https://developer.hpe.com/blog/get-involved-in-the-open-source-community-part-2-sharing-with-the-commun/)
 
   - [Start contributing back to the community](https://developer.hpe.com/blog/get-involved-in-the-open-source-community-part-3-contributing-back-to-th/)
+
+  - [Be an open source contributor](https://developer.hpe.com/OSScontribute )
 
 <br>
 <hr style="background: #FF8300; height: 5px; border: none">
@@ -186,9 +188,9 @@ Check out some of our other role pages, such as [Data Scientist](https://develop
 
   </div>
   <div class="column">
-    - [Quarkus - Supersonic Subatomic Java](https://hpe.zoom.us/webinar/register/5716414626617/WN_VS7nBF_qQze0G64XLzBilw)
+    - [Quarkus - Supersonic Subatomic Java](https://www.youtube.com/watch?v=mY1z9OC0y54&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF)
 
-    - [Streamlit - The fastest way to build and share data science apps](https://hpe.zoom.us/webinar/register/2016414625150/WN_FzzTDsTjQBSw-UFwD6UTdw)
+    - [Streamlit - The fastest way to build and share data science apps](https://www.youtube.com/watch?v=sdgTYy3BJiM&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF)
 
     - [HPE + vFunction: Modernizing Legacy Applications and Data Sources Faster](https://www.youtube.com/watch?v=UvcyIjzml7s&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF&index=1)
 

@@ -18,7 +18,7 @@ tags:
 }
 </style>
 
-Data scientists continuously look for ways to extract value from data and to better know what data they can trust. On this page, we showcase foundational material to guide you, ideas to help you get inspired, and practical tips to help make your data science projects easier to build and more likely to be successful.
+Data scientists continuously look for ways to extract value from data and to better know what data they can trust. On this page, we showcase foundational material to guide you, ideas to help get you inspired, and practical tips to help make your data science projects easier to build and more likely to be successful.
 
 Visit our [Data/ML Engineer](https://developer.hpe.com/role/data-ml-engineer/home/) page to explore areas of common interest.
 
@@ -51,7 +51,7 @@ Visit our [Data/ML Engineer](https://developer.hpe.com/role/data-ml-engineer/hom
 
     - Watch [Using Data for Good](https://www.youtube.com/watch?v=2f4DQ2jPcHI)
 
-    - [Read Writing deep learning tools for all data scientists, not just unicorns](https://developer.hpe.com/blog/writing-deep-learning-tools-for-all-data-scientists-not-just-unicorns/)
+    - Read [Writing deep learning tools for all data scientists, not just unicorns](https://developer.hpe.com/blog/writing-deep-learning-tools-for-all-data-scientists-not-just-unicorns/)
 
   </div>
    <div class="column">
@@ -185,7 +185,7 @@ Visit our [Data/ML Engineer](https://developer.hpe.com/role/data-ml-engineer/hom
   </div>
   <div class="column">
 
-    - [HPE Ezmeral documentation](https://developer.hpe.com/platform/hpe-ezmeral/home)
+    - [HPE Ezmeral documentation](https://docs.containerplatform.hpe.com/)
 
  
   </div>
