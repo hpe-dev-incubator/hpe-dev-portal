@@ -10,7 +10,7 @@ HPE GreenLake for Compute Ops Management automates and transforms complex and ti
 
 ![figure1](/img/greenlake-com-ops-api-curl1.png)
 
-**HPE GreenLake for Compute Ops Management REST API**
+# **HPE GreenLake for Compute Ops Management REST API**
 
 HPE GreenLake for Compute Ops Management provides a Restful API to customers who want to manage their devices programmatically or through a command line interface. The API enables customers to invoke operations or tasks such as list devices, see device details, device health, manage a device's firmware and much more.
 
@@ -24,8 +24,6 @@ Here are some of the operations you can do with the HPE GreenLake for Compute Op
 * Perform a firmware update
 * Run a carbon emissions report
 * Power on/off/restart a server
-
-
 
 ![figure2](/img/greenlake-com-ops-api-pyt-pow9.png)
 
@@ -50,3 +48,30 @@ There are several ways to invoke the API:
 * Using Ansible, Terraform, etc.
 
 The [HPE GreenLake for Compute Ops Management API Reference site](https://developer.greenlake.hpe.com/docs/greenlake/services/compute-ops/public/openapi/compute-ops-latest/overview/) leverages an OpenAPI conformant documentation that provides a complete explanation of the operations supported by the Unique Resource Identifiers [(URIs)](<>)as well as sample requests and responses.
+
+# Using PowerShell
+
+From a Terminal application, I start a PowerShell environment and set some variables that will be used later. 
+
+```
+# Store our Compute Ops Manager API endpoint
+$endpoint = "https://us-west2-api.compute.cloud.hpe.com"
+# Initialize an empty headers array
+$headers = @{} 	
+# Add a header for authorization, using the Access Token generated in task 2	
+$headers["Authorization"] = "Bearer_access_token_here"
+```
+
+![figure3](/img/greenlake-com-ops-api-pyt-pow1.png)
+
+Our first request:
+
+```
+$response = Invoke-webrequest "$endpoint/compute-ops/v1beta2/servers?limit=2" -Method GET -Headers $headers
+```
+
+When the request is successful, the response should display 200:
+
+![figure4](/img/greenlake-com-ops-api-pyt-pow2.png)
+
+The JSON data returned by the request is in $response.Content but it is rather hard to read as is, I can prettify it a bit with:
