@@ -4,7 +4,8 @@ date: 2022-12-01T08:19:17.375Z
 author: Akash Patel, Ashish Kumar
 authorimage: /img/Avatar1.svg
 disable: false
-tags: []
+tags:
+  - HPE GreenLake for containers
 ---
 <!--\\\[if gte mso 9]><xml>
  <o:OfficeDocumentSettings>
