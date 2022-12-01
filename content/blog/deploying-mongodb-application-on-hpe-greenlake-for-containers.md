@@ -6,6 +6,9 @@ authorimage: /img/Avatar1.svg
 disable: false
 tags:
   - HPE GreenLake for containers
+  - hpe-greenlake
+  - developer
+  - mongodb
 ---
 <!--\\\\[if gte mso 9]><xml>
  <o:OfficeDocumentSettings>
