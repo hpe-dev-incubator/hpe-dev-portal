@@ -61,7 +61,7 @@ If you are wondering which to use, cURL is probably a good choice if you like co
 
 From the command prompt, use a simple cURL command like:
 
-```
+```shell
 curl -X GET https://us-west2-api.compute.cloud.hpe.com/compute-ops/v1beta2/servers?limit=2 -H "Authorization:Bearer ,< access_token_here>”**
 ```
 
@@ -87,7 +87,7 @@ The command uses a header parameter with keyword **"Authorization:Bearer {token}
 
 To see the API response code, add -I at the end of the command:
 
-```
+```shell
 curl -X GET https://us-west2-api.compute.cloud.hpe.com/compute-ops/v1beta2/servers?limit=2 -H "Authorization:Bearer <your access_token_here>” –I
 ```
 
@@ -160,49 +160,49 @@ To use a filter on a nested property name, the '**/**' separator can be specifie
 
                 **"health": {**
 
-                **    "summary": "OK",**
+                 **   "summary": "OK",**
 
-                **    "healthLED": "OK",**
+                 **   "healthLED": "OK",**
 
-                **    "fans": "OK",**
+                 **   "fans": "OK",**
 
-                **    "fanRedundancy": "REDUNDANT",**
+                 **   "fanRedundancy": "REDUNDANT",**
 
-                **    "liquidCooling": "NOT_PRESENT",**
+                 **   "liquidCooling": "NOT_PRESENT",**
 
-                **    "liquidCoolingRedundancy": "NOT_PRESENT",**
+                 **   "liquidCoolingRedundancy": "NOT_PRESENT",**
 
-                **    "memory": "OK",**
+                 **   "memory": "OK",**
 
-                **    "network": "UNKNOWN",**
+                 **   "network": "UNKNOWN",**
 
-                **    "powerSupplies": "OK",**
+                 **   "powerSupplies": "OK",**
 
-                **    "powerSupplyRedundancy": "NOT_PRESENT",**
+                 **   "powerSupplyRedundancy": "NOT_PRESENT",**
 
-                **    "processor": "OK",**
+                 **   "processor": "OK",**
 
-                **    "storage": "OK",**
+                 **   "storage": "OK",**
 
-                **    "temperature": "OK",**
+                 **   "temperature": "OK",**
 
-                **    "bios": "OK",**
+                 **   "bios": "OK",**
 
-                **    "smartStorage": "OK"**
+                 **   "smartStorage": "OK"**
 
                 **},**
 
                 **"bmc": {**
 
-                **    "mac": "B4:7A:F1:4E:9E:92",**
+                 **   "mac": "B4:7A:F1:4E:9E:92",**
 
-                **    "ip": "172.30.231.116",**
+                 **   "ip": "172.30.231.116",**
 
-                **    "hostname": "None"**
+                 **   "hostname": "None"**
 
 The following cURL command includes the filter
 
-```
+```shell
 curl -X GET “https://us-west2-api.compute.cloud.hpe.com/compute-ops/v1beta2/servers?filter=contains(hardware/model,'DL365')” -H "Authorization:Bearer <your access_token_here>"
 ```
 
@@ -328,6 +328,6 @@ In this blog post, we covered how to get started with the HPE GreenLake for Comp
 
 Learn more about [HPE GreenLake](https://www.hpe.com/hpe/greenlake)
 
-Learn more about the [HPE GreenLake for Compute Ops Management REST API](https://developer.greenlake.hpe.com/docs/greenlake/services/compute-ops/public/guide/#filtering)
+Learn more about the [HPE GreenLake for Compute Ops Management REST API](https://developer.greenlake.hpe.com/docs/greenlake/services/compute-ops/public/guide)
 
 Find other tutorials and articles on HPE GreenLake on the [HPE Developer blog](https://developer.hpe.com/blog).
