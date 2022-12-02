@@ -58,7 +58,7 @@ The [HPE GreenLake for Compute Ops Management API Reference site](https://develo
 
 From a Terminal application, I start a PowerShell environment and set some variables that will be used later. 
 
-```
+```powershell
 # Store our Compute Ops Manager API endpoint
 $endpoint = "https://us-west2-api.compute.cloud.hpe.com"
 # Initialize an empty headers array
@@ -71,7 +71,7 @@ $headers["Authorization"] = "Bearer_access_token_here"
 
 Our first request:
 
-```
+```powershell
 $response = Invoke-webrequest "$endpoint/compute-ops/v1beta2/servers?limit=2" -Method GET -Headers $headers
 ```
 
@@ -79,13 +79,13 @@ When the request is successful, the response should display 200:
 
 ![figure4](/img/greenlake-com-ops-api-pyt-pow2.png)
 
-```
+```powershell
 $response.StatusCode
 ```
 
 The JSON data returned by the request is in $response.Content but it is rather hard to read as is, I can prettify it a bit with: 
 
-```
+```powershell
 $response.Content | ConvertFrom-Json | Format-List
 ```
 
@@ -109,14 +109,14 @@ To use a filter on a nested property name, the '/' separator can be specified as
 
 To test this filter, I run  the following command: 
 
-```
+```powershell
 $response = Invoke-webrequest "$endpoint/compute-ops/v1beta2/servers?filter=contains(hardware/model,'DL365')" -Method GET -Headers 
 $headers
 ```
 
 I start by checking the request was successful as before:
 
-```
+```powershell
 $response.StatusCode
 ```
 
@@ -124,7 +124,7 @@ it should display 200
 
 Then I parse the result with the following command:
 
-```
+```powershell
 $response.Content | ConvertFrom-Json | select count
 ```
 
@@ -143,14 +143,14 @@ Refer to the following [blog](https://developer.hpe.com/blog/) for more informat
 from a Python 3 environment:
 At the Python interpreter prompt >>>, I import 2 modules to make HTTP requests and to work with JSON data
 
-```
+```python
 import requests
 import json
 ```
 
 I need to set some variables that I will use later:
 
-```
+```python
 # Store our Compute Ops Manager API endpoint
 endpoint = "https://us-west2-api.compute.cloud.hpe.com"
 # Add a header for authorization, using the Access Token generated in task 2	
@@ -161,19 +161,19 @@ headers = {"Authorization": "Bearer " + "paste_access_token_here"}
 
 I can now send my first request:
 
-```
+```python
 response = requests.get(url=endpoint + '/compute-ops/v1beta2/servers?limit=2', headers=headers)
 ```
 
 Once again, I check if the request was successful, the response status code should display 200:
 
-```
+```python
 print(response.status_code)
 ```
 
 In order to display the JSON data returned by the request in a human-readable form:
 
-```
+```python
 print(json.dumps(response.json(), indent=2))
 ```
 
@@ -197,13 +197,13 @@ To use a filter on a nested property name, the '/' separator can be specified as
 
 I can test with the following command:
 
-```
+```python
 response = requests.get(url= endpoint + "/compute-ops/v1beta2/servers?filter=contains(hardware/model,'DL365')", headers=headers)
 ```
 
 First check if the request was successful as before
 
-```
+```python
 print(response.status_code)
 ```
 
@@ -211,8 +211,7 @@ should display 200
 
 Display the number of objects in the response
 
-
-```
+```python
 print(response.json()\['count'])
 ```
 
@@ -222,8 +221,7 @@ It should display 4
 
 Display the JSON data returned by the request in a human-readable form
 
-
-```
+```python
 print(json.dumps(response.json(), indent=2))
 ```
 
@@ -237,7 +235,7 @@ In this blog post, we covered how to get started with HPE GREENLAKE FOR COMPUTE 
 
 [Learn more about HPE GreenLake](<>)
 
-Learn more about the [HPE GreenLake for Compute Ops Management REST API](https://developer.greenlake.hpe.com/docs/greenlake/services/compute-ops/public/guide/#filtering)
+Learn more about the [HPE GreenLake for Compute Ops Management REST API](https://developer.greenlake.hpe.com/docs/greenlake/services/compute-ops/public/guide)
 
 This [GitHub repository](https://github.com/jullienl/HPE-Compute-Ops-Management) hosts many script samples for the Compute Ops Management API including PowerShell, Python, Ansible playbooks and others.
 
