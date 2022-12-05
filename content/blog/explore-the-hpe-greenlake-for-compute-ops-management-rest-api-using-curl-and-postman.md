@@ -1,5 +1,5 @@
 ---
-title: Explore HPE GreenLake for Compute Ops Management REST API using Curl and
+title: Explore HPE GreenLake for Compute Ops Management REST API using cURL and
   Postman
 date: 2022-11-30T12:36:05.351Z
 author: Lionel Jullien &Vincent Berger & Frederic Passeron
@@ -263,7 +263,7 @@ In the *Authorization* tab, choose  **Bearer Token** in the *Type* drop-down me
 
 ![blog figure16](/img/greenlake-com-ops-api-curl8.png)
 
-Hit the **Send** button to get a **200 OK** status response indicating success and a JSON body with the details of two compute servers on boarded and assigned to the corresponding application for the user's account.
+Hit the **Send** button to get a **200 OK** status response indicating success and a JSON body with the details of two compute servers on-boarded and assigned to the corresponding application for the user's account.
 
 ![blog figure17](/img/greenlake-com-ops-api-curl9.png)
 
