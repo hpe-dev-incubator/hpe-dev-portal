@@ -1,6 +1,6 @@
 ---
-title: Explore the HPE GreenLake for Compute Ops Management REST API using Curl
-  and Postman
+title: Explore HPE GreenLake for Compute Ops Management REST API using Curl and
+  Postman
 date: 2022-11-30T12:36:05.351Z
 author: Lionel Jullien &Vincent Berger & Frederic Passeron
 authorimage: /img/Avatar3.svg
@@ -53,7 +53,7 @@ There are several ways to invoke the API:
 * Using PowerShell
 * Using Ansible, Terraform, etc.
 
-The [HPE GreenLake for Compute Ops Management API Reference site](https://developer.greenlake.hpe.com/docs/greenlake/services/compute-ops/public/openapi/compute-ops-latest/overview/) leverages an OpenAPI conformant documentation that provides a complete explanation of the operations supported by the Unique Resource Identifiers [(URIs)](<>)as well as sample requests and responses. 
+The [HPE GreenLake for Compute Ops Management API Reference site](https://developer.greenlake.hpe.com/docs/greenlake/services/compute-ops/public/openapi/compute-ops-latest/overview/) leverages OpenAPI conformant documentation that provides a complete explanation of the operations supported by the Unique Resource Identifiers [(URIs)](<>)as well as sample requests and responses. 
 
 If you are wondering which to use, cURL is probably a good choice if you like command line interfaces, Postman if you prefer graphical user interfaces, and PowerShell or Python if you are really into programming.
 
@@ -81,7 +81,7 @@ The command uses a header parameter with keyword **"Authorization:Bearer {token}
 
 ![blog figure4](/img/greenlake-com-ops-api-curl19.png)
 
- As a result of the command, the API response lists two compute servers that are on boarded and assigned to the corresponding application for the user's account.
+As a result of the command, the API response lists two compute servers that are on-boarded and assigned to the corresponding application for the user's account.
 
 ![blog figure4](/img/greenlake-com-ops-api-curl15.png)
 
@@ -160,45 +160,45 @@ To use a filter on a nested property name, the '**/**' separator can be specifie
 
                 **"health": {**
 
-                 **   "summary": "OK",**
+                  **  "summary": "OK",**
 
-                 **   "healthLED": "OK",**
+                  **  "healthLED": "OK",**
 
-                 **   "fans": "OK",**
+                  **  "fans": "OK",**
 
-                 **   "fanRedundancy": "REDUNDANT",**
+                  **  "fanRedundancy": "REDUNDANT",**
 
-                 **   "liquidCooling": "NOT_PRESENT",**
+                  **  "liquidCooling": "NOT_PRESENT",**
 
-                 **   "liquidCoolingRedundancy": "NOT_PRESENT",**
+                  **  "liquidCoolingRedundancy": "NOT_PRESENT",**
 
-                 **   "memory": "OK",**
+                  **  "memory": "OK",**
 
-                 **   "network": "UNKNOWN",**
+                  **  "network": "UNKNOWN",**
 
-                 **   "powerSupplies": "OK",**
+                  **  "powerSupplies": "OK",**
 
-                 **   "powerSupplyRedundancy": "NOT_PRESENT",**
+                  **  "powerSupplyRedundancy": "NOT_PRESENT",**
 
-                 **   "processor": "OK",**
+                  **  "processor": "OK",**
 
-                 **   "storage": "OK",**
+                  **  "storage": "OK",**
 
-                 **   "temperature": "OK",**
+                  **  "temperature": "OK",**
 
-                 **   "bios": "OK",**
+                  **  "bios": "OK",**
 
-                 **   "smartStorage": "OK"**
+                  **  "smartStorage": "OK"**
 
                 **},**
 
                 **"bmc": {**
 
-                 **   "mac": "B4:7A:F1:4E:9E:92",**
+                  **  "mac": "B4:7A:F1:4E:9E:92",**
 
-                 **   "ip": "172.30.231.116",**
+                  **  "ip": "172.30.231.116",**
 
-                 **   "hostname": "None"**
+                  **  "hostname": "None"**
 
 The following cURL command includes the filter
 
