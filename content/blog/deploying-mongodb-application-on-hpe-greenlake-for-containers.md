@@ -1,8 +1,7 @@
 ---
-title: Deploying MongoDB application on HPE GreenLake for Containers
+title: A guide to deploying MongoDB application using HPE GreenLake for Containers
 date: 2022-12-01T15:59:42.991Z
-author: Akash Patel (akash.patel2@hpe.com), Ashish Kumar (ashish-kumar@hpe.com),
-  Sudhakaran Sonu (sonu.sudhakaran@hpe.com)
+author: Akash Patel , Ashish Kumar, Sudhakaran Sonu
 authorimage: /img/Avatar1.svg
 disable: false
 tags:
@@ -13,15 +12,15 @@ tags:
 ---
 ## Introduction
 
-In this blog, we demonstrate how an end user can deploy a containerized, stateful MongoDB Application stack on a Kubernetes-based container stack provided by HPE GreenLake for containers and then access it over an external network or internet. In this scenario, the Kubernetes cluster gets configured with HPE Nimble CSI driver, along with the Default storage class.
+In this blog post, we demonstrate how an end user can deploy a containerized, stateful MongoDB application on a Kubernetes-based container stack provided by HPE GreenLake for Containers and then access it over an external network or internet. In this scenario, the Kubernetes cluster gets configured using HPE CSI driver, along with the default storage class.
 
-## HPE GreenLake for Containers: Overview
+## An overview of HPE GreenLake for Containers
 
-HPE GreenLake for Containers provides a pay-as-you go Kubernetes-based container optimized stack, delivered as a service to help you operationalize your containers at scale.
+HPE GreenLake for Containers provides a pay-as-you-go, Kubernetes-based container-optimized stack that is delivered as a service to help you operationalize your containers at scale.
 
-HPE GreenLake for Containers provides a standardized approach for cluster creation using cluster blueprints with user roles and role-based access controls defined in the HPE GreenLake for Containers interface to the created clusters and applications. You can also view a dashboard that displays the status of all Kubernetes services and resource utilization across all clusters.
+HPE GreenLake for Containers provides a standardized approach for cluster creation using cluster blueprints with user roles and role-based access controls as defined in the HPE GreenLake for Containers interface to the created clusters and applications. It also provides you with a dashboard view that displays the status of all Kubernetes services and resource utilization across all clusters.
 
-HPE manages your environment and will contact you before an upgrade to let you know the planned date and time along with any pre-upgrade requirements.
+HPE manages your environment and will contact you before any upgrades are made to let you know the planned date and time, along with any pre-upgrade requirements.
 
 The HPE GreenLake for Containers service:
 
@@ -30,11 +29,11 @@ The HPE GreenLake for Containers service:
 * Supports Kubernetes on VMware vSphere
 * Supports HPE Nimble and Alletra Storage arrays which provides persistent storage for containerized workloads
 
-Launch HPE GreenLake for Containers using the HPE GreenLake for Private Cloud Enterprise card on the HPE GreenLake Central Dashboard. From the Private Cloud Enterprise main page, click Containers to create clusters and blueprints, view details about existing clusters, and launch the HPE Ezmeral Runtime Environment.
+You can launch HPE GreenLake for Containers using the HPE GreenLake for Private Cloud Enterprise card on the HPE GreenLake Central Dashboard. From the Private Cloud Enterprise main page, click Containers to create clusters and blueprints, view details about existing clusters, and launch the HPE Ezmeral Runtime Environment.
 
-## HPE GreenLake for Containers: Machine Blueprint layout for Kubernetes cluster node(s)
+## HPE GreenLake for Containers: Machine blueprint layout for Kubernetes cluster node(s)
 
-HPE GreenLake for containers uses machine blueprints to define the infrastructure details for the worker nodes used in a cluster.
+HPE GreenLake for Containers uses machine blueprints to define the infrastructure details for the worker nodes used in a cluster.
 
 Predefined blueprints are provided when the service is provisioned, and you can create your own custom machine blueprints.
 
@@ -48,15 +47,11 @@ A machine blueprint includes the:
 
 ![](/img/image-1.png)
 
-
-
 ![](/img/image-2.png)
-
-
 
 ![](/img/image-3.png)
 
-## HPE GreenLake for Containers: Cluster Blueprint layout for Kubernetes cluster
+## HPE GreenLake for Containers: Cluster blueprint layout for Kubernetes cluster
 
 HPE GreenLake for Containers uses cluster blueprints to define the cluster layout and other infrastructure details used to create a cluster.
 
@@ -71,47 +66,39 @@ A cluster blueprint includes the:
 
 ![](/img/image-4.png)
 
-
-
 ![](/img/image-5.png)
 
-## HPE GreenLake for Containers: MongoDB Application deployment on Kubernetes cluster
+## HPE GreenLake for Containers: MongoDB application deployment on Kubernetes cluster
 
 MongoDB is an open source, NoSQL database that provides support for JSON-styled, document-oriented storage systems. It supports a flexible data model that enables you to store data of any structure, and provides a rich set of features, including full index support, sharding, and replication.
 
-Below is the preferred cluster configuration for MongoDB In-Memory Database workload
+Below is the preferred cluster configuration for a MongoDB in-memory database workload.
 
 ![](/img/image-6.png)
 
-
-
 ![](/img/image-7.png)
 
-### Step-1: Create Kubernetes cluster from Containers page
+### Step-1: Create a Kubernetes cluster from containers page
 
-To create a cluster, you must have the roles Private Cloud Cluster Owner and Private Cloud Widget Viewer. 
+To create a cluster, you must have been assigned the roles of **Private Cloud Cluster Owner** and **Private Cloud Widget Viewer**.
 
 * From the Containers main page, under the Clusters tab, click Create Cluster. 
 * In the Create Cluster form, provide the cluster name 'hpe', and select the standard cluster blueprint. The new cluster appears in the list of clusters.
 
 ![](/img/image-8.png)
 
-
-
 ![](/img/image-9.png)
 
-As indicated above there are multiple clusters deployed in parallel for multiple purposes. For MongoDB Application deployment we will use cluster created with name 'hpe'.
+As indicated above, there are multiple clusters deployed in parallel for multiple purposes. For the MongoDB application deployment in our example, the cluster will be created with the name "hpe".
 
 ![](/img/image-10.png)
 
 ### Step-2: Download scoped kubeconfig from Container platform page
 
-* From the Clusters tab, select the 'hpe' Kubernetes cluster and click Launch Service Console. You are directed to the container platform page.
+* From the Clusters tab, select the 'hpe' Kubernetes cluster and click **Launch Service Console**. This will direct you to the container platform page.
 * Click on Download kubeconfig.
 
 ![](/img/image-11.png)
-
-
 
 ![](/img/image-12.png)
 
@@ -119,15 +106,11 @@ Note: Launching HPE Ezmeral Runtime Enterprise from HPE GreenLake Central is con
 
 ### Step-3: View the 'hpe' Kubernetes cluster environment details
 
-View the Kubernetes version
-
 ```shellsession
 $ kubectl version --short
 Client Version: v1.20.0
 Server Version: v1.20.11-hpe-2
 ```
-
-View the deployed control plane nodes and worker nodes
 
 ```shellsession
 $ kubectl get nodes -o wide
@@ -139,8 +122,6 @@ k8s-hpe-worker-qscr4-89n67.glhc-hpe.local   Ready    worker                 71d 
 k8s-hpe-worker-qscr4-fp8px.glhc-hpe.local   Ready    worker                 71d   v1.20.11-hpe-2   172.16.17.116   <none>        SUSE Linux Enterprise Server 15 SP2   5.3.18-150200.24.115-default   containerd://1.5.1-hpe-1
 k8s-hpe-worker-qscr4-l95j4.glhc-hpe.local   Ready    worker                 71d   v1.20.11-hpe-2   172.16.17.113   <none>        SUSE Linux Enterprise Server 15 SP2   5.3.18-150200.24.115-default   containerd://1.5.1-hpe-1
 ```
-
-### Step-4: View the 'hpe' Kubernetes cluster default storage class configuration
 
 ```shellsession
 $ kubectl get sc
@@ -189,7 +170,7 @@ NAME                                   READY   AGE
 statefulset.apps/snapshot-controller   1/1     69d
 ```
 
-### Step-5: Create a namespace on 'hpe' Kubernetes cluster for MongoDB Deployment
+### Step-4: Create a namespace on 'hpe' Kubernetes cluster for MongoDB deployment
 
 ```shellsession
 $ kubectl create ns mongo
@@ -238,7 +219,7 @@ $ kubectl get pods
 No resources found in mongo namespace.
 ```
 
-### Step-6: Deploy MongoDB
+### Step-5: Deploy MongoDB
 
 ```shellsession
 $ kubectl create -f install-mongo.yaml
@@ -316,7 +297,7 @@ spec:
             storage: 50Gi
 ```
 
-### Step-7: Validate MongoDB Deployment
+### Step-6: Validate MongoDB deployment
 
 ```shellsession
 $ kubectl get pods -o wide
@@ -448,10 +429,10 @@ Source:
 Events:                <none> 
 ```
 
-### Step-8: Configure MongoDB Primary and Secondary Replica
+### Step-7: Configure MongoDB primary and secondary replica
 
 ```shellsession
-Fetch the IPs of each Mongo Pod
+Fetch the IP of each mongo pod
 
 $ kubectl get pods -o wide
 NAME      READY   STATUS    RESTARTS   AGE   IP             NODE                                        NOMINATED NODE   READINESS GATES
@@ -459,7 +440,7 @@ mongo-0   2/2     Running   0          44m   10.192.3.58    k8s-hpe-worker-qscr4
 mongo-1   2/2     Running   0          44m   10.192.3.59    k8s-hpe-worker-qscr4-89n67.glhc-hpe.local   <none>           <none>
 mongo-2   2/2     Running   0          44m   10.192.4.208   k8s-hpe-worker-qscr4-l95j4.glhc-hpe.local   <none>           <none>
 
-Expose Mongo as service 
+Expose mongo as a service 
 
 kubectl expose pod/mongo-2 --type="NodePort" --port 27017
 kubectl expose pod/mongo-2 --type="NodePort" --port 27017
@@ -547,10 +528,12 @@ Events:
 
 
  
-Execute Mongo Shell into any one of the mongo services to configure Mongo Replica-Set
+Execute mongo shell into any one of the mongo services to configure mongo replicaset
 
-Install “mongosh” client locally for shell interaction with mongodb. Mongosh will be accessing the mongo cluster from outside the Kubernetes cluster.
-Package : “mongosh-1.6.0-win32-x64.zip”
+Install "mongosh" client locally for shell interaction with mongodb. mongosh will be accessing the mongo cluster from outside the Kubernetes cluster.
+
+Package : "mongosh-1.6.0-win32-x64.zip"
+
 $ export PATH=$PATH:/c/Ashish/mongosh-1.6.0-win32-x64/bin/
 
 
@@ -584,7 +567,7 @@ For mongosh info see: https://docs.mongodb.com/mongodb-shell/
 
 test>
 
-Initialize Replicaset
+Initialize replicaset
 
 test> rs.initiate()
 {
@@ -594,7 +577,7 @@ test> rs.initiate()
 }
 rs0 [direct: other] test>
 
-Register mongo-0 pod as PRIMARY Replica
+Register mongo-0 pod as primary replica
 
 rs0 [direct: other] test> var cfg = rs.conf();cfg.members[0].host="10.192.3.58:27017";rs.reconfig(cfg)
 {
@@ -609,7 +592,7 @@ rs0 [direct: other] test> var cfg = rs.conf();cfg.members[0].host="10.192.3.58:2
   operationTime: Timestamp({ t: 1669297890, i: 1 })
 }
 
-Validate that mongo-0 pod is registered as Primary Replica
+Validate that mongo-0 pod is registered as primary replica
 
 rs0 [direct: other] test> rs.status()
 {
@@ -681,7 +664,7 @@ rs0 [direct: other] test> rs.status()
 }
 rs0 [direct: primary] test>
 
-Add mongo-1 pod as Secondary Replica
+Add mongo-1 pod as secondary replica
 
 rs0 [direct: primary] test> rs.add("10.192.3.59:27017")
 {
@@ -696,7 +679,7 @@ rs0 [direct: primary] test> rs.add("10.192.3.59:27017")
   operationTime: Timestamp({ t: 1669298574, i: 1 })
 }
 
-Validate that mongo-1 pod is registered as Secondary Replica
+Validate that mongo-1 pod is registered as secondary replica
 
 rs0 [direct: primary] test> rs.status()
 {
@@ -791,7 +774,7 @@ rs0 [direct: primary] test> rs.status()
 }
 rs0 [direct: primary] test>
 
-Add mongo-2 pod as Secondary Replica
+Add mongo-2 pod as secondary replica
 
 rs0 [direct: primary] test> rs.add("10.192.4.208:27017")
 {
@@ -806,7 +789,7 @@ rs0 [direct: primary] test> rs.add("10.192.4.208:27017")
   operationTime: Timestamp({ t: 1669298829, i: 1 })
 }
 
-Validate that mongo-2 pod is registered as Secondary Replica
+Validate that mongo-2 pod is registered as secondary replica
 
 rs0 [direct: primary] test> rs.status()
 {
@@ -925,9 +908,9 @@ rs0 [direct: primary] test> rs.status()
 rs0 [direct: primary] test>
 ```
 
-## HPE GreenLake for Containers: Data Science with MongoDB deployed on Kubernetes cluster
+## HPE GreenLake for Containers: Data Science with MongoDB deployed on a Kubernetes cluster
 
-Below steps illustrate interactive Jupyter notebook adding records and querying MongoDB deployed on 'hpe' Kubernetes cluster.
+The below steps illustrate an interactive Jupyter notebook adding records and querying MongoDB deployed on the "hpe" Kubernetes cluster.
 
 ![](/img/image-13.png)
 
@@ -945,4 +928,6 @@ Perform query operation on sample collection
 
 ## HPE GreenLake for Containers: Demo Summary
 
-Github Repository Hosting Demo Code: https://github.com/cxteamtrials/caas-trials-content
+You can find the GitHub repository that hosts demo code [here](https://github.com/cxteamtrials/caas-trials-content).
+
+We hope that this blog post has provided you with enough information for you to get started deploying a containerized, stateful MongoDB application using HPE GreenLake for Containers. To view more articles and tutorials on the use of HPE GreenLake for Containers, refer to the [HPE Developer Community blog](https://developer.hpe.com/).
