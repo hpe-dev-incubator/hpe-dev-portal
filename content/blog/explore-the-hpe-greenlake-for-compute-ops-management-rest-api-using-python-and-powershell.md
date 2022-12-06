@@ -233,7 +233,7 @@ Refer to previous sections for more information on filter query syntax and API r
 
 ## What’s next?
 
-In this blog post, we covered how to get started with HPE GreenLake for Compute Ops Management REST API and explained how to post simple API calls through Python and PowerShell. In some of our future [Workshops-on-Demand](https://developer.hpe.com/hackshack/workshops), you will have the opportunity to run live experiments on these examples. Stay tuned for more details.
+In this blog post, we covered how to get started with HPE GreenLake for Compute Ops Management REST API and explained how to post simple API calls through Python and PowerShell. In some of our future [Workshops-on-Demand](https://developer.hpe.com/hackshack/workshops), you will have the opportunity to run live experiments on these examples. Stay tuned for more details!
 
 [Learn more about HPE GreenLake](<>)
 
