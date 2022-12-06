@@ -211,17 +211,17 @@ print(response.status_code)
 
 It should display 200.
 
-Display the number of objects in the response
+Now, display the number of objects in the response.
 
 ```python
 print(response.json()\['count'])
 ```
 
-It should display 4 
+It should display 4.
 
 ![figure 10](/img/greenlake-com-ops-api-pyt-pow7.png)
 
-Display the JSON data returned by the request in a human-readable form
+To display the JSON data returned by the request in a human-readable form, type the following:
 
 ```python
 print(json.dumps(response.json(), indent=2))
@@ -233,7 +233,7 @@ Refer to previous sections for more information on filter query syntax and API r
 
 ## What’s next?
 
-In this blog post, we covered how to get started with HPE GREENLAKE FOR COMPUTE OPS MANAGEMENT REST API explained how to post simple API calls through Python and PowerShell. Some future Workshops-on-Demand will allow you to run experiment these examples live, stay tuned.
+In this blog post, we covered how to get started with HPE GreenLake for Compute Ops Management REST API and explained how to post simple API calls through Python and PowerShell. In some of our future [Workshops-on-Demand](https://developer.hpe.com/hackshack/workshops), you will have the opportunity to run live experiments on these examples. Stay tuned for more details.
 
 [Learn more about HPE GreenLake](<>)
 
