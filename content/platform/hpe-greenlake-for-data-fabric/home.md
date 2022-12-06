@@ -41,7 +41,7 @@ Here’s your chance to [try HPE GreenLake for Data Fabric](https://home.hpe-df.
 
 ## Documentation
 
-[HPE GreenLake for Data Fabric Beta User Guide](https://www.hpe.com/greenlake/gl-data-fabric-user-gd)
+[HPE GreenLake for Data Fabric Beta User Guide](https://support.hpe.com/hpesc/public/docDisplay?docId=sd00003042en_us)
 
 - - -
 
