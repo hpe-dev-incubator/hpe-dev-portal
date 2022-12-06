@@ -3,7 +3,7 @@ title: Explore the HPE GreenLake for Compute Ops Management REST API using
   Python and PowerShell
 date: 2022-12-01T12:28:58.682Z
 author: Vincent Berger & Frederic Passeron
-authorimage: /img/vb-fp192.png
+authorimage: /img/Avatar4.svg
 disable: false
 tags:
   - "hpe-greenlake "
@@ -11,7 +11,9 @@ tags:
   - "developer "
   - devops
 ---
-HPE GreenLake for Compute Ops Management automates and transforms complex and time-consuming compute management operations into a simplified experience across edge-to-cloud. Whether you are an IT OPS or a DEV OPS engineer, you know that automation is the key to success. And today’s automation relies heavily on APIs and how one can interact easily with them. So, let us show you how to leverage the API provided so you, too, can take advantage of what HPE GreenLake for Compute Ops Management can provide.
+HPE GreenLake for Compute Ops Management automates and transforms complex and time-consuming compute management operations into a simplified experience across edge-to-cloud. Whether you are an IT OPS or a DEV OPS engineer, you know that automation is the key to success. And today’s automation relies heavily on APIs and how one can interact easily with them. So, let us show you how to leverage the API provided so you, too, can take advantage of what HPE GreenLake for Compute Ops Management can provide. In this blog post, we will cover how to do this using Python and PowerShell.
+
+
 
 ![figure1](/img/greenlake-com-ops-api-curl1.png)
 
@@ -32,7 +34,7 @@ Here are some of the operations you can do with the HPE GreenLake for Compute Op
 
 ![figure2](/img/greenlake-com-ops-api-pyt-pow9.png)
 
-I﻿n a previous [blog](https://developer.hpe.com/blog/explore-the-hpe-greenlake-for-compute-ops-management-rest-api-using-curl-and-postman), we covered some of basics of this API using cURL or Postman. We would like to share with you today a few examples of REST API calls that can be made through simple Python and PowerShell codes examples
+I﻿n a previous [blog](https://developer.hpe.com/blog/explore-the-hpe-greenlake-for-compute-ops-management-rest-api-using-curl-and-postman), we covered some of basics of this API using cURL or Postman. In this post, we would like to share with you a few examples of REST API calls that can be made through simple Python and PowerShell code examples.
 
 The HPE GreenLake for Compute Ops Management REST API uses the OAuth 2.0 HPE GreenLake authentication flow, where a limited lifetime access token is provided in the header of each REST API request as the authorization bearer. The process to generate this necessary access token is well described in the blog post written by **Nisha Thomas**, entitled [How to use an API access token for HPE GreenLake for Compute Ops Management](https://developer.hpe.com/blog/how-to-use-an-api-access-token-for-hpe-greenlake-for-compute-ops-management/). If you are not familiar with this token generation and usage,  we would strongly advise you to read it as it represents the very first and important steps to be performed prior to getting the chief benefits described above.
 
@@ -52,11 +54,11 @@ There are several ways to invoke the API:
 * Using PowerShell
 * Using Ansible, Terraform, etc.
 
-The [HPE GreenLake for Compute Ops Management API Reference site](https://developer.greenlake.hpe.com/docs/greenlake/services/compute-ops/public/openapi/compute-ops-latest/overview/) leverages an OpenAPI conformant documentation that provides a complete explanation of the operations supported by the Unique Resource Identifiers [(URIs)](<>)as well as sample requests and responses.
+The [HPE GreenLake for Compute Ops Management API Reference site](https://developer.greenlake.hpe.com/docs/greenlake/services/compute-ops/public/openapi/compute-ops-latest/overview/) leverages OpenAPI conformant documentation that provides a complete explanation of the operations supported by the Unique Resource Identifiers [(URIs)](<>)as well as sample requests and responses.
 
 # Using PowerShell
 
-From a Terminal application, I start a PowerShell environment and set some variables that will be used later. 
+From a terminal application, start a PowerShell environment and set the variables that will be used later.
 
 ```powershell
 # Store our Compute Ops Manager API endpoint
@@ -120,7 +122,7 @@ I start by checking the request was successful as before:
 $response.StatusCode
 ```
 
-it should display 200
+It should display 200.
 
 Then I parse the result with the following command:
 
@@ -140,7 +142,7 @@ Refer to the following [blog](https://developer.hpe.com/blog/) for more informat
 
 # Using Python
 
-from a Python 3 environment:
+From a Python 3 environment:
 At the Python interpreter prompt >>>, I import 2 modules to make HTTP requests and to work with JSON data
 
 ```python
@@ -207,7 +209,7 @@ First check if the request was successful as before
 print(response.status_code)
 ```
 
-should display 200
+It should display 200.
 
 Display the number of objects in the response
 
