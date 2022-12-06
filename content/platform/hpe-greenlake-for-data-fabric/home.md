@@ -33,7 +33,7 @@ Develop in the cloud while data and models are automatically replicated to produ
 
 Here’s your chance to [try HPE GreenLake for Data Fabric](https://home.hpe-df.com/) before it is officially released. With early access, you have the opportunity to get hands-on experience with new features and capabilities while helping to guide the product roadmap. 
 
-* [Read this blog post for more information about the HPE Ezmeral Early Access program](o	https://developer.hpe.com/blog/hpe-ezmeral-early-access-gives-developers-hands-on-experience-with-the-new-hpe-greenlake-for-data-fabric/).   
+* [Read this blog post for more information about the HPE Ezmeral Early Access program](https://developer.hpe.com/blog/hpe-ezmeral-early-access-gives-developers-hands-on-experience-with-the-new-hpe-greenlake-for-data-fabric/).   
 
 * Learn more about this program [here](https://connect.hpe.com/HPEEzmeralEarlyAccess).   
 
