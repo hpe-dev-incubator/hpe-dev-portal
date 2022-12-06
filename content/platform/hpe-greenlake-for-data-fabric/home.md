@@ -19,7 +19,7 @@ HPE has the solution…..and an invitation for early access.
 
 
 
-HPE has taken the power of HPE Ezmeral Data Fabric and made it available as a fully managed service. This means you have access to hybrid data from edge, multicloud and data centers in one backbone of data that sits on HPE managed infrastructure. The result is a reduction in the amount of time you spend negotiating access rights from owners of data silos then relying on complex ETL (extract, transform, and load) processes to move the data to your systems.
+HPE has taken the power of HPE Ezmeral Data Fabric and made it available as a fully managed service. This means you have access to hybrid data from edge, multi-cloud and data centers in one backbone of data that sits on HPE managed infrastructure. The result is a reduction in the amount of time you spend negotiating access rights from owners of data silos then relying on complex ETL (extract, transform, and load) processes to move the data to your systems.
 
 
 
@@ -31,9 +31,9 @@ Develop in the cloud while data and models are automatically replicated to produ
 
 ## HPE Ezmeral Early Access Program
 
-Here’s your chance to try HPE GreenLake for Data Fabric before it is officially released. With early access, you have the opportunity to get hands-on experience with new features and capabilities while helping to guide the product roadmap. 
+Here’s your chance to [try HPE GreenLake for Data Fabric](https://home.hpe-df.com/) before it is officially released. With early access, you have the opportunity to get hands-on experience with new features and capabilities while helping to guide the product roadmap. 
 
-* [Read this blog post for more information about the HPE Ezmeral Early Access program](https://developer.hpe.com/blog/beta-test-our-new-hpe-greenlake-for-data-fabric/).   
+* [Read this blog post for more information about the HPE Ezmeral Early Access program](o	https://developer.hpe.com/blog/hpe-ezmeral-early-access-gives-developers-hands-on-experience-with-the-new-hpe-greenlake-for-data-fabric/).   
 
 * Learn more about this program [here](https://connect.hpe.com/HPEEzmeralEarlyAccess).   
 
