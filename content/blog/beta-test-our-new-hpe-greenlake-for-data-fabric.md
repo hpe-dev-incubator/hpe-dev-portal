@@ -1,5 +1,5 @@
 ---
-title: Beta test our new HPE GreenLake for Data Fabric!
+title: Beta test our new HPE GreenLake for Data Fabric! (Draft - to be deleted)
 date: 2022-11-14T14:53:18.663Z
 featuredBlog: false
 priority: 7
