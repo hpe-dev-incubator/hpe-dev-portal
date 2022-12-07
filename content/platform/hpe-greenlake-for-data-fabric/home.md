@@ -47,4 +47,4 @@ Here’s your chance to [try HPE GreenLake for Data Fabric](https://home.hpe-df.
 
 ## Any questions on HPE GreenLake for Data Fabric
 
-Join the [HPE Developer Slack Workspace](https://slack.hpedev.io/) and start a discussion in our [\#hpe-greenlake-for-data-fabric-early-access](https://slack.hpedev.io/) channel.
+Join the [HPE Developer Slack Workspace](https://slack.hpedev.io/) and start a discussion in our [\#hpe-greenlake-for-data-fabric-early-access](https://hpedev.slack.com/archives/C044E295003) channel.
