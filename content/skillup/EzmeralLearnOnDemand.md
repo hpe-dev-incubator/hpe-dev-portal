@@ -1,9 +1,10 @@
 ---
-title: HPE Ezmeral Learn On-Demand
-link: https://learn.ezmeral.software.hpe.com/
-linkname: Go to the Academy
-description: Learn about Data Fabric and DevOps with free on-demand technical
-  courses found in the HPE Ezmeral Learning Academy.
+title: HPE Learn On-Demand
+link: https://learn.software.hpe.com/
+linkname: Learn more
+description: "Take on-demand technical courses covering key topics in AL/ML,
+  Apache Spark, data security, HPE Data Fabric, swarm learning, developer
+  essentials, NiFi – ETL, and more. Always free.  "
 priority: 5
 image: /img/platforms/EzmeralLearnondemand.png
 ---
