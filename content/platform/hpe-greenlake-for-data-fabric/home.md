@@ -6,8 +6,8 @@ description: HPE GreenLake for Data Fabric is a new offering from Hewlett
   for the enterprise.
 image: /img/platforms/Greenlake.svg
 width: large
-priority: 2
-active: false
+priority: 4
+active: true
 tags:
   - hpe-greenlake-for-data-fabric
 ---
