@@ -1,6 +1,6 @@
 ---
 title: An overview of SRE
-active: true
+active: false
 fit: contain
 path: https://hpe.zoom.us/webinar/register/2816666284683/WN_Tf5HfKX6Sa2AbRhzeMIOgA
 imageBackground: white
