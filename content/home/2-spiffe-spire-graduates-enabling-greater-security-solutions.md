@@ -1,11 +1,12 @@
 ---
-title: SPIFFE/SPIRE graduates, enabling greater security solutions
-author: HPE DEV
+title: HPE Ezmeral Early Access gives developers hands-on experience with the
+  new HPE GreenLake for Data Fabric
+author: Alaric Thomas
 category: Feature Blog
 priority: 2
-width: medium
-link: https://developer.hpe.com/blog/spiffe-spire-graduates-enabling-greater-security-solutions/
-image: /img/Avatar1.svg
 active: true
+width: medium
+link: https://developer.hpe.com/blog/hpe-ezmeral-early-access-gives-developers-hands-on-experience-with-the-new-hpe-greenlake-for-data-fabric/
+image: /img/alaric_0.1.jpg
 ---
- ﻿
+ 
