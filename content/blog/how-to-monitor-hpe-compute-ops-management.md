@@ -3,7 +3,7 @@ title: How to monitor HPE GreenLake for Compute Ops Management infrastructure
   with Grafana Metrics Dashboards
 date: 2022-10-19T18:21:24.504Z
 featuredBlog: true
-priority: 3
+priority: 4
 author: Lionel Jullien
 authorimage: /img/small-size-id.jpg
 tags:
