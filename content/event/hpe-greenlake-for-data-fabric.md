@@ -3,7 +3,7 @@ title: HPE GreenLake for Data Fabric
 dateStart: 2023-01-18T23:01:58.161Z
 dateEnd: 2023-01-19T22:59:58.198Z
 category: Virtual Event
-image: /img/event-hpe-ezmeral-early-access-webinar-400x400.png
+image: /img/event-hpe-ezmeral-early-access-webinar-294x306.png
 link: https://hpe.zoom.us/webinar/register/1116680185569/WN_xLR2ynonSi6SojUswkVmRw
 width: large
 ---
