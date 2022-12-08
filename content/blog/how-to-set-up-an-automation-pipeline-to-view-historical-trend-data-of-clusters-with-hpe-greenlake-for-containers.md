@@ -12,6 +12,7 @@ tags:
   - Automation
   - Grafana
   - observability
+  - data-ml-engineer
 ---
 ## Introduction
 

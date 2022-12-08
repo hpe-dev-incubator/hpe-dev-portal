@@ -4,7 +4,7 @@ dateStart: 2022-10-25T22:01:26.861Z
 dateEnd: 2022-10-26T21:59:26.878Z
 category: Virtual Event
 image: /img/event-meetups-newlogo-400x400.png
-link: https://hpe.zoom.us/webinar/register/8216637690310/WN_taRSQMfhSqG3MJWH9bH0IQ
+link: https://www.youtube.com/watch?v=N36DTliNmck&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF&index=1
 width: large
 ---
 ## Boost Spark AI workloads with Pepperdata

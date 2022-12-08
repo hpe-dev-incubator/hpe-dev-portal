@@ -626,7 +626,7 @@ const ScheduleCard = ({
   const [formData, setFormData] = useState({
     name: userDetail?.name || '',
     email: userDetail?.email || '',
-    company: '',
+    company: userDetail?.type || '',
     title,
     notebook,
     sessionType,
