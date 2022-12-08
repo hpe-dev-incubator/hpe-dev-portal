@@ -8,6 +8,7 @@ authorimage: /img/Avatar3.svg
 thumbnailimage: /img/dscc-icon-transparent.png
 tags:
   - data-services-cloud-console
+  - developer
 ---
 In this tutorial, you will be introduced to the process that is required to convert the HPE Data Services Cloud Console public API specification in the OpenAPI 3.X definition to any client libraries from several popular programming languages. The goal of this conversion process is to achieve the agility of cloud-like operations where updates to console API client libraries are automatic and painless.
 
