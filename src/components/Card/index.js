@@ -178,7 +178,7 @@ export const Card = ({
                     <Image
                       gridArea="image"
                       src={image}
-                      fit="contain"
+                      // fit="contain"
                       alignSelf="center"
                       alt="card logo"
                       style={{ transform: `scale(${imageScale})` }}
