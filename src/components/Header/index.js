@@ -24,6 +24,28 @@ function Header() {
   const { data } = useContext(AppContext);
   const platforms = data?.platform?.edges;
   const opensource = data?.opensource?.edges;
+  const greenlake = data?.greenlake?.edges;
+
+  const GreenLakeButtonLinks = ({ column }) => {
+    const leftColumn = greenlake.filter((gl, index) => index % 2 === 0);
+    const rightColumn = greenlake.filter((gl, index) => index % 2);
+    const greenlakeColumn = column === 'left' ? leftColumn : rightColumn;
+
+    return greenlakeColumn.map((gl, index) => {
+      const { slug } = gl.node.fields;
+      const { title } = gl.node.frontmatter;
+
+      return (
+        <ButtonLink
+          key={index}
+          label={title}
+          to={`/platform${slug}`}
+          alignSelf="start"
+          fill="horizontal"
+        />
+      );
+    });
+  };
 
   const PlatformButtonLinks = ({ column }) => {
     const leftColumn = platforms.filter((platform, index) => index % 2 === 0);
@@ -71,11 +93,38 @@ function Header() {
   const size = useContext(ResponsiveContext);
   const navLinks = [
     // <ButtonLink align="start" key="os" label="Open Source" to="/opensource" />,
-    <ButtonLink
-      align="start"
-      key="os"
+    // <ButtonLink
+    //   align="start"
+    //   key="os"
+    //   label="HPE GreenLake"
+    //   to="/platform/hpe-greenlake/home"
+    // />,
+    <DropButton
       label="HPE GreenLake"
-      to="/platform/hpe-greenlake/home"
+      align="start"
+      dropAlign={{ top: 'bottom', left: 'left' }}
+      icon={<FormDown />}
+      reverse
+      dropContent={
+        <TextAlignLeft>
+          <ButtonLink
+            key="pl"
+            label="All Green Lake"
+            to="/platform/hpe-greenlake/home"
+            state={{ state: { isPlatformHeaderClicked: true } }}
+            alignSelf="start"
+            fill="horizontal"
+          />
+          <Box direction="row">
+            <TextAlignLeft>
+              <GreenLakeButtonLinks column="left" />
+            </TextAlignLeft>
+            <TextAlignLeft>
+              <GreenLakeButtonLinks column="right" />
+            </TextAlignLeft>
+          </Box>
+        </TextAlignLeft>
+      }
     />,
     <DropButton
       label="OpenSource"
@@ -105,7 +154,7 @@ function Header() {
       }
     />,
     <DropButton
-      label="Our Technologies"
+      label="Our Products"
       dropAlign={{ top: 'bottom', left: 'left' }}
       icon={<FormDown />}
       reverse
@@ -113,7 +162,7 @@ function Header() {
         <TextAlignLeft>
           <ButtonLink
             key="pl"
-            label="All Technologies"
+            label="All Products"
             to="/platforms"
             state={{ state: { isPlatformHeaderClicked: true } }}
             alignSelf="start"

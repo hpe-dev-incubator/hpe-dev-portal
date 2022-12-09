@@ -1,5 +1,5 @@
 ---
-title: Aruba Developer Hub
+title: Aruba Central
 version: v 2.01.8964
 description: A comprehensive resource for developers that includes Aruba APIs
   and documentation to streamline the development of innovative, next-generation
