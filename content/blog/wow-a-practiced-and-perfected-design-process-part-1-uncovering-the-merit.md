@@ -1,12 +1,13 @@
 ---
-title: "WOW – A practiced and perfected design process  Part 1 – Uncovering the merit of UX design to projects"
+title: WOW – A practiced and perfected design process  Part 1 – Uncovering the
+  merit of UX design to projects
 date: 2020-04-13T17:45:00.133Z
-author: Parul Tyagi 
-tags: []
-authorimage: "/img/blogs/Avatar2.svg"
 featuredBlog: false
-priority:
-thumbnailimage:
+priority: null
+author: Parul Tyagi
+authorimage: /img/blogs/Avatar2.svg
+thumbnailimage: null
+tags: []
 ---
 ![title slide](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/3/title-slide-1587659126865.jpg)
 
@@ -14,13 +15,14 @@ thumbnailimage:
 
 The HPE Experience Studio works with design teams throughout Hewlett Packard Enterprise (HPE) to deliver a consistent user experience (UX) for customers. We are constantly learning, iterating, and innovating the UX design process across the HPE portfolio. As the manager for experience design, I’ve found that many businesses struggle with understanding the true value UX designers bring to a project. In this series of blog posts, I want to share with you a method our group developed that demonstrates this value and provides enterprise UX designers with a practiced and perfected path to achieving success. This is a workflow we call WOW (Why On What with customers and constructors). You’ll note that, as with any good UX design, we used a little creativity in the spelling, with two reflected “C’s” (representing the customers and the constructors) used to create the “O”.
 
-WOW is a domain and persona agnostic workflow that has been perfected over a period of time. The flow doesn’t provide any governance on tools, activities, or timelines, but instead sets the right framework in place to bring about a level of certainty and success to a project while moving from one part of the process to the next. It is an easy, engaging methodology that helps creative teams focus on four important stages of a project: 
+WOW is a domain and persona agnostic workflow that has been perfected over a period of time. The flow doesn’t provide any governance on tools, activities, or timelines, but instead sets the right framework in place to bring about a level of certainty and success to a project while moving from one part of the process to the next. It is an easy, engaging methodology that helps creative teams focus on four important stages of a project:    
 
- 1. Uncover why the business (and this particular project) needs a UX
+1. Uncover why the business (and this particular project) needs a UX
 2. Involve the customer early in the design phase
 3. Ensure the constructor (developer) has the right information during design implementation
 4. Convey the business value of the design
 
+ 
 ## Uncovering the project value of the UX using a contextual presentation
 
 Traditionally, designers tend to focus on what UX design tools and methods they plan to use for a project when they present to stakeholders (such as software developers, program and product managers, etc.) As they attempt to convey the value of a purposefully designed UX, they also cover the revenue and efficiency impact the design will have on customers. Though this approach is good for on-stage presentations, in the HPE Experience Studio, we’ve found that this method is not effective in meetings where stakeholders are looking to understand the value of the UX in the context of the overall project.
