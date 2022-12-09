@@ -21,7 +21,6 @@ WOW is a domain and persona agnostic workflow that has been perfected over a per
 2. Involve the customer early in the design phase
 3. Ensure the constructor (developer) has the right information during design implementation
 4. Convey the business value of the design
- 
 ## Uncovering the project value of the UX using a contextual presentation
 
 Traditionally, designers tend to focus on what UX design tools and methods they plan to use for a project when they present to stakeholders (such as software developers, program and product managers, etc.) As they attempt to convey the value of a purposefully designed UX, they also cover the revenue and efficiency impact the design will have on customers. Though this approach is good for on-stage presentations, in the HPE Experience Studio, we’ve found that this method is not effective in meetings where stakeholders are looking to understand the value of the UX in the context of the overall project.
