@@ -306,6 +306,20 @@ exports.createPages = async ({ graphql, actions }) => {
               tagRE: arrayToRE(post.node.frontmatter.tags),
             },
           });
+        } else if (post.node.fields.sourceInstanceName === 'greenlake') {
+          const { sourceInstanceName, slug } = post.node.fields;
+          console.log(
+            `Create pages /${sourceInstanceName}${slug} from ${slug}`,
+          );
+          console.log('------------------------------');
+          createPage({
+            path: `/${sourceInstanceName}${slug}`,
+            component: platform,
+            context: {
+              slug: post.node.fields.slug,
+              tagRE: arrayToRE(post.node.frontmatter.tags),
+            },
+          });
         } else if (post.node.fields.sourceInstanceName === 'event') {
           const { sourceInstanceName, slug } = post.node.fields;
           console.log(

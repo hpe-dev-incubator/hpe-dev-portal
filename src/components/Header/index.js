@@ -10,7 +10,7 @@ import {
 import { Menu, Search, FormDown } from 'grommet-icons';
 import styled from 'styled-components';
 import { AppContext } from '../../providers/AppProvider';
-import { ButtonLink } from '..';
+import { ButtonLink, ExternalButtonLink } from '..';
 
 const TextAlignLeft = styled(Box)`
   & > a {
@@ -29,9 +29,26 @@ function Header() {
   const GreenLakeButtonLinks = ({ column }) => {
     const leftColumn = greenlake.filter((gl, index) => index % 2 === 0);
     const rightColumn = greenlake.filter((gl, index) => index % 2);
+    const externalLinks = [
+      {
+        title: 'HPE GreenLake Testdrive',
+        slug: 'https://testdrive.greenlake.hpe.com/',
+      },
+      {
+        title: 'HPE GreenLake API Portal',
+        slug: 'https://developer.greenlake.hpe.com/',
+      },
+    ];
+
+    const externalLeftColumn = externalLinks.filter(
+      (el, index) => index % 2 === 0,
+    );
+    const externalRightColumn = externalLinks.filter((el, index) => index % 2);
+    const externalLinksColumn =
+      column === 'left' ? externalLeftColumn : externalRightColumn;
     const greenlakeColumn = column === 'left' ? leftColumn : rightColumn;
 
-    return greenlakeColumn.map((gl, index) => {
+    const glColumns = greenlakeColumn.map((gl, index) => {
       const { slug } = gl.node.fields;
       const { title } = gl.node.frontmatter;
 
@@ -39,12 +56,26 @@ function Header() {
         <ButtonLink
           key={index}
           label={title}
-          to={`/platform${slug}`}
+          to={`/greenlake${slug}`}
           alignSelf="start"
           fill="horizontal"
         />
       );
     });
+    const elColumns = externalLinksColumn.map((el, index) => {
+      const { slug, title } = el;
+      return (
+        <ExternalButtonLink
+          key={index}
+          label={title}
+          to={`${slug}`}
+          alignSelf="start"
+          fill="horizontal"
+        />
+      );
+    });
+    const allLinks = [...glColumns, ...elColumns];
+    return allLinks;
   };
 
   const PlatformButtonLinks = ({ column }) => {
