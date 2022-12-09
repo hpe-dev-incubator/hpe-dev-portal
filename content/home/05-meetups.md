@@ -1,7 +1,7 @@
 ---
 title: Meetups
 category: Virtual Event
-priority: 8
+priority: 5
 width: medium
 link: /campaign/meetups
 image: /img/Meetups_192_192.svg

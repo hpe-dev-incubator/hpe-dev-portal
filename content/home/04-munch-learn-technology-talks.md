@@ -1,7 +1,7 @@
 ---
 title: Munch & Learn Technology Talks
 category: Virtual Event
-priority: 7
+priority: 4
 width: medium
 link: /campaign/munch-and-learn/
 image: /img/home/Munch_and_Learn_192_192.svg

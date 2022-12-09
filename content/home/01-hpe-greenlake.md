@@ -1,6 +1,6 @@
 ---
-title: HPE GreenLake Developer Portal
-width: large
+title: HPE GreenLake API Portal
+width: medium
 category: Featured
 priority: 1
 link: https://developer.greenlake.hpe.com/
