@@ -21,7 +21,6 @@ WOW is a domain and persona agnostic workflow that has been perfected over a per
 2. Involve the customer early in the design phase
 3. Ensure the constructor (developer) has the right information during design implementation
 4. Convey the business value of the design
-
  
 ## Uncovering the project value of the UX using a contextual presentation
 
