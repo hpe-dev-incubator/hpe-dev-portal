@@ -5,7 +5,7 @@ description: Easy to read guides, tips and documentation to rapidly help any
   developer working with Data Services Cloud Console APIs.
 image: /img/platforms/image-1-dscc.svg
 width: large
-priority: 2
+priority: 7
 active: true
 tags:
   - data-services-cloud-console
