@@ -5,7 +5,7 @@ category: Featured
 priority: 3
 link: /role
 image: /img/role/developer.png
-imageScale: 0.7
+imageScale: 1
 reverse: false
 active: true
 ---

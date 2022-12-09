@@ -5,7 +5,7 @@ category: Featured
 priority: 2
 link: https://testdrive.greenlake.hpe.com/
 image: /img/stoplight.jpg
-imageScale: 0.7
+imageScale: 1
 reverse: true
 active: true
 ---

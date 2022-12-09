@@ -5,7 +5,7 @@ category: Featured
 priority: 1
 link: https://developer.greenlake.hpe.com/
 image: /img/home/HPE-GreenLake-Badge.png
-imageScale: 0.7
+imageScale: 1
 reverse: true
 active: true
 ---
