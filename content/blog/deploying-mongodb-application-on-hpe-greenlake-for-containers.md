@@ -1,5 +1,5 @@
 ---
-title: A guide to deploying MongoDB application using HPE GreenLake for Containers
+title: A guide to deploying MongoDB applications using HPE GreenLake for Containers
 date: 2022-12-01T15:59:42.991Z
 author: Akash Patel , Ashish Kumar, Sudhakaran Sonu
 authorimage: /img/Avatar1.svg
@@ -29,7 +29,7 @@ The HPE GreenLake for Containers service:
 * Supports Kubernetes on VMware vSphere
 * Supports HPE Nimble and Alletra Storage arrays which provides persistent storage for containerized workloads
 
-You can launch HPE GreenLake for Containers using the HPE GreenLake for Private Cloud Enterprise card on the HPE GreenLake Central Dashboard. From the Private Cloud Enterprise main page, click Containers to create clusters and blueprints, view details about existing clusters, and launch the HPE Ezmeral Runtime Environment.
+You can launch HPE GreenLake for Containers using the HPE GreenLake for Private Cloud Enterprise card on the HPE GreenLake Central Dashboard. From the Private Cloud Enterprise main page, click Containers to create clusters and blueprints, view details about existing clusters, and launch the HPE Ezmeral Runtime Environment (Containers page).
 
 ## HPE GreenLake for Containers: Machine blueprint layout for Kubernetes cluster node(s)
 
@@ -106,11 +106,15 @@ Note: Launching HPE Ezmeral Runtime Enterprise from HPE GreenLake Central is con
 
 ### Step-3: View the 'hpe' Kubernetes cluster environment details
 
+Get Kubernetes **cluster version.**
+
 ```shellsession
 $ kubectl version --short
 Client Version: v1.20.0
 Server Version: v1.20.11-hpe-2
 ```
+
+Get Kubernetes **cluster nodes.**
 
 ```shellsession
 $ kubectl get nodes -o wide
@@ -123,6 +127,8 @@ k8s-hpe-worker-qscr4-fp8px.glhc-hpe.local   Ready    worker                 71d 
 k8s-hpe-worker-qscr4-l95j4.glhc-hpe.local   Ready    worker                 71d   v1.20.11-hpe-2   172.16.17.113   <none>        SUSE Linux Enterprise Server 15 SP2   5.3.18-150200.24.115-default   containerd://1.5.1-hpe-1
 ```
 
+Get Kubernetes cluster **default storage class.**
+
 ```shellsession
 $ kubectl get sc
 NAME                              PROVISIONER                    RECLAIMPOLICY   VOLUMEBINDINGMODE      ALLOWVOLUMEEXPANSION   AGE
@@ -132,7 +138,11 @@ gl-sbp-glhcnimblestor             csi.hpe.com                    Delete         
 hpe-hdd-storage                   kubernetes.io/no-provisioner   Delete          WaitForFirstConsumer   false                  69d
 hpe-nvme-storage                  kubernetes.io/no-provisioner   Delete          WaitForFirstConsumer   false                  69d
 hpe-ssd-storage                   kubernetes.io/no-provisioner   Delete          WaitForFirstConsumer   false                  69d
+```
 
+Get all resources available under **hpe-storage** namespace i.e. HPE CSI driver, Snapshot controller.
+
+```shellsession
 $ kubectl get all -n hpe-storage
 NAME                                       READY   STATUS    RESTARTS   AGE
 pod/hpe-csi-controller-7c6f876494-vrd49    9/9     Running   0          69d
@@ -172,6 +182,8 @@ statefulset.apps/snapshot-controller   1/1     69d
 
 ### Step-4: Create a namespace on 'hpe' Kubernetes cluster for MongoDB deployment
 
+Create namespace with name **mongo.**
+
 ```shellsession
 $ kubectl create ns mongo
 namespace/mongo created
@@ -206,9 +218,11 @@ kube-system               Active   71d
 kubernetes-dashboard      Active   71d
 mongo                     Active   6s
 opsramp-agent             Active   71d
+```
 
-Switch the new namespace in the current context
+Switch to new namespace i.e. **mongo** in the current context.
 
+```shellsession
 $ kubectl config set-context --current --namespace=mongo
 Context "caas-dev-3-hpe-hpe-ashish-kumar@hpe.com" modified.
 
@@ -220,6 +234,8 @@ No resources found in mongo namespace.
 ```
 
 ### Step-5: Deploy MongoDB
+
+Deploy the MongoDB application using YAML file i.e. **services/mongodb/install-mongo.yaml** from **https://github.com/cxteamtrials/caas-trials-content** location.
 
 ```shellsession
 $ kubectl create -f install-mongo.yaml
@@ -234,7 +250,7 @@ metadata:
   name: mongo
   labels:
     name: mongo
-    hpecp.hpe.com/hpecp-internal-gateway: "true" # Expose the service on ECP Gateway
+    hpecp.hpe.com/hpecp-internal-gateway: "true" # Expose the service on ERE Gateway
 spec:
   ports:
   - protocol: TCP
@@ -298,6 +314,8 @@ spec:
 ```
 
 ### Step-6: Validate MongoDB deployment
+
+Get MongoDB related Kubernetes resources like; pod, service, pvc and validate the deployment.
 
 ```shellsession
 $ kubectl get pods -o wide
@@ -431,21 +449,27 @@ Events:                <none> 
 
 ### Step-7: Configure MongoDB primary and secondary replica
 
-```shellsession
-Fetch the IP of each mongo pod
+Get the IP address of each mongo pod.
 
+```shellsession
 $ kubectl get pods -o wide
 NAME      READY   STATUS    RESTARTS   AGE   IP             NODE                                        NOMINATED NODE   READINESS GATES
 mongo-0   2/2     Running   0          44m   10.192.3.58    k8s-hpe-worker-qscr4-89n67.glhc-hpe.local   <none>           <none>
 mongo-1   2/2     Running   0          44m   10.192.3.59    k8s-hpe-worker-qscr4-89n67.glhc-hpe.local   <none>           <none>
 mongo-2   2/2     Running   0          44m   10.192.4.208   k8s-hpe-worker-qscr4-l95j4.glhc-hpe.local   <none>           <none>
+```
 
-Expose mongo as a service 
+Expose mongo as a service.
 
+```shellsession
+kubectl expose pod/mongo-0 --type="NodePort" --port 27017
+kubectl expose pod/mongo-1 --type="NodePort" --port 27017
 kubectl expose pod/mongo-2 --type="NodePort" --port 27017
-kubectl expose pod/mongo-2 --type="NodePort" --port 27017
-kubectl expose pod/mongo-2 --type="NodePort" --port 27017
+```
 
+Describe each mongo service and get the port details on which service has been exposed over ERE Gateway.
+
+```shellsession
 $ kubectl get svc
 NAME      TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)           AGE
 mongo     ClusterIP   10.96.180.195   <none>        27017/TCP         54m
@@ -524,19 +548,20 @@ Events:
   Type    Reason  Age   From         Message
   ----    ------  ----  ----         -------
   Normal  HpeCp   23m   hpecp-agent  Created HPECP K8S service
+```
 
+Install '**mongosh**' client locally for shell interaction with MongoDB. **mongosh** will be accessing the mongo cluster from outside the Kubernetes cluster.
+You can download package '**mongosh-1.6.0-win32-x64.zip**' from **https://github.com/cxteamtrials/caas-trials-content** location.
 
+Extract the package and set the **mongosh** client bin path.
 
- 
-Execute mongo shell into any one of the mongo services to configure mongo replicaset
-
-Install "mongosh" client locally for shell interaction with mongodb. mongosh will be accessing the mongo cluster from outside the Kubernetes cluster.
-
-Package : "mongosh-1.6.0-win32-x64.zip"
-
+```shellsession
 $ export PATH=$PATH:/c/Ashish/mongosh-1.6.0-win32-x64/bin/
+```
 
+Connect to MongoDB service over ERE Gateway through **mongosh** client.
 
+```shellsession
 $ mongosh --host epicgw.customer.hpe.net --port 10030
 Current Mongosh Log ID: 637f7622aaa80bc199cfcb06
 Connecting to:          mongodb://epicgw.customer.hpe.net:10030/?directConnection=true&appName=mongosh+1.6.0
@@ -566,9 +591,11 @@ For mongosh info see: https://docs.mongodb.com/mongodb-shell/
 ------
 
 test>
+```
 
-Initialize replicaset
+Initialize MongoDB replicaset.
 
+```shellsession
 test> rs.initiate()
 {
   info2: 'no configuration specified. Using a default configuration for the set',
@@ -576,9 +603,11 @@ test> rs.initiate()
   ok: 1
 }
 rs0 [direct: other] test>
+```
 
-Register mongo-0 pod as primary replica
+Register mongo-0 pod as primary replica.
 
+```shellsession
 rs0 [direct: other] test> var cfg = rs.conf();cfg.members[0].host="10.192.3.58:27017";rs.reconfig(cfg)
 {
   ok: 1,
@@ -591,9 +620,11 @@ rs0 [direct: other] test> var cfg = rs.conf();cfg.members[0].host="10.192.3.58:2
   },
   operationTime: Timestamp({ t: 1669297890, i: 1 })
 }
+```
 
-Validate that mongo-0 pod is registered as primary replica
+Validate that mongo-0 pod is registered as primary replica.
 
+```shellsession
 rs0 [direct: other] test> rs.status()
 {
   set: 'rs0',
@@ -663,9 +694,11 @@ rs0 [direct: other] test> rs.status()
   operationTime: Timestamp({ t: 1669297950, i: 1 })
 }
 rs0 [direct: primary] test>
+```
 
-Add mongo-1 pod as secondary replica
+Add mongo-1 pod as secondary replica.
 
+```shellsession
 rs0 [direct: primary] test> rs.add("10.192.3.59:27017")
 {
   ok: 1,
@@ -678,9 +711,11 @@ rs0 [direct: primary] test> rs.add("10.192.3.59:27017")
   },
   operationTime: Timestamp({ t: 1669298574, i: 1 })
 }
+```
 
-Validate that mongo-1 pod is registered as secondary replica
+Validate that mongo-1 pod is registered as secondary replica.
 
+```shellsession
 rs0 [direct: primary] test> rs.status()
 {
   set: 'rs0',
@@ -773,9 +808,11 @@ rs0 [direct: primary] test> rs.status()
   operationTime: Timestamp({ t: 1669298630, i: 1 })
 }
 rs0 [direct: primary] test>
+```
 
-Add mongo-2 pod as secondary replica
+Add mongo-2 pod as secondary replica.
 
+```shellsession
 rs0 [direct: primary] test> rs.add("10.192.4.208:27017")
 {
   ok: 1,
@@ -788,9 +825,11 @@ rs0 [direct: primary] test> rs.add("10.192.4.208:27017")
   },
   operationTime: Timestamp({ t: 1669298829, i: 1 })
 }
+```
 
-Validate that mongo-2 pod is registered as secondary replica
+Validate that mongo-2 pod is registered as secondary replica.
 
+```shellsession
 rs0 [direct: primary] test> rs.status()
 {
   set: 'rs0',
@@ -918,11 +957,11 @@ Create a Database instance 'glcaasmongodemo' and sample collection 'glsamplecoll
 
 ![](/img/image-14.png)
 
-Add multiple documents to sample collection
+Add multiple documents to sample collection.
 
 ![](/img/image-15.png)
 
-Perform query operation on sample collection
+Perform query operation on sample collection,
 
 ![](/img/image-16.png)
 
