@@ -961,7 +961,7 @@ Add multiple documents to sample collection.
 
 ![](/img/image-15.png)
 
-Perform query operation on sample collection,
+Perform query operation on sample collection.
 
 ![](/img/image-16.png)
 
