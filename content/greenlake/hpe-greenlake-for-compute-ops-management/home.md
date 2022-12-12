@@ -6,7 +6,7 @@ description: HPE GreenLake for Compute Ops Management transforms compute
   agility, and speed across your entire compute landscape, globally.
 image: /img/platforms/hpe-element.png
 width: large
-priority: 1
+priority: 4
 active: true
 tags:
   - hpe-greenlake-for-compute-ops-management

@@ -117,6 +117,13 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
+        path: `${__dirname}/content/greenlake`,
+        name: 'greenlake',
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
         path: `${__dirname}/content/newsletter`,
         name: 'newsletter',
       },
