@@ -26,6 +26,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
 import { CardWrapper, ContrastLayer } from './styles';
 import AuthService from '../../../services/auth.service';
+import { AppContext } from '../../../providers/AppProvider';
 import Share from '../Share';
 
 const { GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT } = process.env;
@@ -225,6 +226,7 @@ export const SignupLayer = ({
     username: '',
     password: '',
   });
+
   const resetUnregisterFormData = () => {
     setUnregisterFormData({
       username: '',
@@ -600,6 +602,7 @@ const ScheduleCard = ({
   popular,
 }) => {
   const size = useContext(ResponsiveContext);
+  const { user: userDetail } = useContext(AppContext);
   const textSize = size === 'small' ? '16px' : 'medium';
   let backgroundColor;
   let uri = '';
@@ -621,9 +624,9 @@ const ScheduleCard = ({
   const [successLayer, setSuccessLayer] = useState(false);
   const [disabled, setDisabled] = useState(false);
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    company: '',
+    name: userDetail?.name || '',
+    email: userDetail?.email || '',
+    company: userDetail?.type || '',
     title,
     notebook,
     sessionType,
@@ -948,6 +951,7 @@ const ScheduleCard = ({
                 size={size}
                 sessionType={sessionType}
                 duration={duration}
+                userInfo={userDetail}
               />
             )}
             {successLayer && (
