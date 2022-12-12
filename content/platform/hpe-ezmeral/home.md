@@ -33,6 +33,24 @@ The associated [BlueK8s open source initiative](https://github.com/bluek8s) will
 
 - - -
 
+## Get started with HPE Ezmeral
+
+The [HPE Ezmeral Early Access](https://connect.hpe.com/HPEEzmeralEarlyAccess) (EEA) program lets developers try new products before they’re released. With exemplary training and support provided by HPE, developers get real-time, hands-on experience with new products, features and capabilities to solve advanced data and analytics problems. A key element of the EEA program is the feedback we’ll collect from developers, providing input to the product roadmap and helping ensure it continues to evolve with our customers’ needs.
+
+The first two products that are available through EEA are:
+
+* [HPE GreenLake for Data Fabric](https://home.hpe-df.com/) (GLDF) – a managed service that provides a fully deployed, configured and managed single global name space to aggregate heterogeneous data stores from a single interface    
+
+* [HPE Ezmeral Unified Analytics](https://connect.hpe.com/HPEEzmeralEarlyAccessUnifiedAnalytics) (UA) – software that combines fully integrated open-source enterprise analytics tools and data fabric capabilities, making it faster and easier to develop and deploy applications across hybrid environments    
+
+The following overview videos are available to provide more information on EEA and the first two products:
+
+* [HPE Ezmeral Early Access overview video](https://youtu.be/_ygMN4UvqU4)
+* [HPE GreenLake for Data Fabric overview video](https://youtu.be/YTf5OPsb-cM)
+* [HPE Ezmeral Unified Analytics overview video](https://youtu.be/z9Q4FG7LzgI)
+
+- - -
+
 ## Resources
 
 * [HPE Ezmeral Home Page](https://www.hpe.com/us/en/software.html)

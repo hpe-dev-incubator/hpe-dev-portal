@@ -65,9 +65,9 @@ function Blog({ data, location }) {
         alt="blog page logo"
       >
         <Paragraph size="large">
-          Sharing expertise is a great way to move technology forward.Browse
+          Sharing expertise is a great way to move technology forward. Browse
           through our library of tutorials and articles to learn new ways to do
-          things.Or, click on the Get Started button to write your own!
+          things. Or, click on the Get Started button to write your own!
         </Paragraph>
         <Box wrap align="start">
           <ButtonLink primary label="Get Started" to="/contribute" />
