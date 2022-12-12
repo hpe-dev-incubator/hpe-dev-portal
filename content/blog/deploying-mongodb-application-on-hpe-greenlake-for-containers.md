@@ -551,7 +551,7 @@ Events:
 ```
 
 Install '**mongosh**' client locally for shell interaction with MongoDB. **mongosh** will be accessing the mongo cluster from outside the Kubernetes cluster.
-You can download package '**mongosh-1.6.0-win32-x64.zip**' from **https://github.com/cxteamtrials/caas-trials-content** location.
+You can download package **services/mongodb/mongosh-1.6.0-win32-x64.zip** from **https://github.com/cxteamtrials/caas-trials-content** location.
 
 Extract the package and set the **mongosh** client bin path.
 
