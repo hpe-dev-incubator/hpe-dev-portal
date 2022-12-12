@@ -253,7 +253,7 @@ function Header() {
       }
     />,
     <DropButton
-      label="Our Products"
+      label="Products"
       dropAlign={{ top: 'bottom', left: 'left' }}
       icon={<FormDown />}
       reverse
