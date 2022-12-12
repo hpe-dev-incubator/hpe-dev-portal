@@ -73,7 +73,7 @@ export const Footer = () => {
               />
               <Anchor
                 align="start"
-                href="https://twitter.com/HPE_DevCom"
+                href="https://twitter.com/HPE_Developer"
                 label="Twitter"
                 target="_blank"
                 rel="noopener noreferrer"

@@ -2,8 +2,8 @@
 title: Deep Learning Model Training – A First-Time User’s Experience with
   Determined – Part 2
 date: 2022-05-03T13:51:27.971Z
-featuredBlog: true
-priority: 4
+featuredBlog: false
+priority: 8
 author: Denis Choukroun
 authorimage: https://gravatar.com/avatar/f66dd9562c53567466149af06ae9d4f1?s=192
 thumbnailimage: /img/detai-high-levl-architecture-thumbnail-v2.png

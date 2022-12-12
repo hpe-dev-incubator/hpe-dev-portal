@@ -4,7 +4,7 @@ dateStart: 2022-08-16T22:01:17.460Z
 dateEnd: 2022-08-17T21:59:17.486Z
 category: Virtual Event
 image: /img/event-munch-and-learn-newlogo400x400.png
-link: https://hpe.zoom.us/webinar/register/6316581540546/WN_iCrngEP2T4Wlspf8RVvxMQ
+link: https://youtu.be/3KOFDciS3WU&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF&index=1
 width: large
 ---
 ## Machines learn from data to be artificially intelligent

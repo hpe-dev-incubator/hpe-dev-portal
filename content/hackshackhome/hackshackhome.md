@@ -1,16 +1,16 @@
 ---
+title: "Running reliable systems Part 2: SLO Math"
 active: true
+fit: contain
+link: https://hpe.zoom.us/webinar/register/7116666297407/WN_W88OPBFHR9adPaz5I6I0bQ
 path: ""
-priority: 2
+imageBackground: white
+priority: 3
 alt: munch and learn logo
-title: " Machines learn from data to be artificially intelligent "
-link: https://hpe.zoom.us/webinar/register/8216594535490/WN_iCrngEP2T4Wlspf8RVvxMQ
-description: "Join us to hear from HPE’s own Dr. Eng Lim Goh, senior VP and CTO
-  of AI, on the importance of sharing data to gain insights and how to do so
-  responsibly. In his talk, Dr. Goh will illustrate how AI can advance the human
-  condition, exploring a variety of industry use cases and lessons we’ve
-  learned. "
-background: rgba(0, 86, 122, 0.8);
+description: "Dec 14, 2022: Join us to find out how you can set Service Level
+  Objectives that reflect the expectations of your customers through
+  mathematical probability."
+background: background
 label: Register Now!
-image: /img/Munch_and_Learn_192_192.svg
+image: /img/event-meetups-newlogo-400x400.png
 ---

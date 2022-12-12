@@ -20,7 +20,7 @@ Powered by the HPE GreenLake edge-to-cloud platform, HPE GreenLake helps you ach
 ## APIs and Documentation
 HPE GreenLake customers and partners can take advantage of our well-documented, secure, and scalable framework of APIs for HPE GreenLake found in our developer portal. Learn more about the unified HPE GreenLake experience offered through the HPE GreenLake Developer Portal by clicking on the button below.
 
-[Check out the HPE GreenLake Developer Portal](https://developer.greenlake.hpe.com/docs/greenlake)
+[Check out the HPE GreenLake Developer Portal](https://developer.greenlake.hpe.com)
 
 ## Manage workloads with the HPE GreenLake edge-to-cloud platform
 

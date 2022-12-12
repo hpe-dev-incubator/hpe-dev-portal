@@ -1,7 +1,7 @@
 ---
-active: true
+active: false
 path: ""
-priority: 1
+priority: 2
 imageBackground: white
 alt: workshops on demand logo
 background: background

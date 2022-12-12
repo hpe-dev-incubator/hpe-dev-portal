@@ -5,8 +5,12 @@ Author: HPE Developer Team
 
 ## Feature blog in the HPE Developer portal Home page
 * From CMS v2 editor (as Administrator), go to [Home panels](https://hpe-dev-portal.netlify.app/admin/#/collections/homepanels)
-* Edit the existing Feature blog card to set the Title, Navigation Path (relative path in the form of: /blog/<blog-title>), author image, and body.
-* In the Body area, enter the Author name, Title of the blog as Header level 2, and Date (if appropriate) as header level 4. An example is here:
+* Edit the existing Feature blog card to set the Title, Navigation Path (full path of the post in the form of: https:developer.hpe.com/blog/<blog-title>), author image, Author name. Set priority (value: 2) and toggle on the "Active" flag option.
+ 
+  >Note: if you want to remove a Featured Blog post from the home panel, simply toggle off the "Active" flag option.
+  
+* In the Body area just enter a "space" charcater. 
+  (note: this is no longer true for the body area: enter the Author name, Title of the blog as Header level 2, and Date (if appropriate) as header level 4. An example is here:)
   
  Author Name
  

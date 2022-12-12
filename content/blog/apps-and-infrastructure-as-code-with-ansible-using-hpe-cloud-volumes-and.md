@@ -276,4 +276,4 @@ We hope to address a number of shortcomings with our persistent storage drivers 
 # Conclusions
 Thank you for following this tutorial and hopefully it has been useful and sparked interest and ideas about Containers, Hybrid IT and multicloud. Wherever you are on your journey, we're very eager to hear what challenges exist out there today, particularly when it comes to presenting data across public cloud boundaries and data intense use cases. I genuinely believe HPE can help out in a multitude of ways. 
 
-Please join our Slack community, it's just starting up, [register here and say hello](https://www.labs.hpe.com/slack), I'm user `michaelm`. Follow [me](https://twitter.com/drajen) and [HPE DEV](https://twitter.com/HPE_DevCom) on Twitter!
+Please join our Slack community, it's just starting up, [register here and say hello](https://www.labs.hpe.com/slack), I'm user `michaelm`. Follow [me](https://twitter.com/drajen) and [HPE DEV](https://twitter.com/HPE_Developer) on Twitter!

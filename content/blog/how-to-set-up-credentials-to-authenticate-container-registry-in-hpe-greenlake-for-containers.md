@@ -6,6 +6,7 @@ author: Guoping Jia
 authorimage: /img/guoping.png
 tags:
   - hpe-greenlake
+  - devops
 ---
 ## Introduction
 [*HPE GreenLake for Containers*](https://www.hpe.com/us/en/greenlake/containers.html), one of HPE GreenLake Cloud Services, is an HPE-designed, implemented, owned, and operated private cloud deployed at a customer site. It is built on [HPE Ezmeral Runtime Enterprise](https://www.hpe.com/us/en/software/ezmeral-runtime.html), featuring  open source Kubernetes container management. Customers can benefit from the use of HPE GreenLake for Containers by having a powerful underlying container-based infrastructure for both cloud-native apps and monolithic apps, and enjoy as-a-Service ease-of-use and economics. When working with Docker images, one can run into some issues, as Docker's image download rate limit can cause unexpected errors. In this blog post, I will walk you through the process of setting up a secret using the credentials for your Docker subscription in the Kubernetes cluster to avoid this issue.

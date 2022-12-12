@@ -27,7 +27,7 @@ const paginatedCollection = (name, tag) => {
       query: `
       {
         allMarkdownRemark(filter: {fields: {sourceInstanceName: {eq: "blog"}
-      }, frontmatter: {tags: {eq: "${tag}"}}},
+      }, frontmatter: {disable:{ne: true},tags: {eq: "${tag}"}}},
         sort: {fields: [frontmatter___date], order: DESC}) {
           nodes {
             id
@@ -282,7 +282,7 @@ module.exports = {
         query: `
         {
           allMarkdownRemark(filter: {fields: {sourceInstanceName: {eq: "blog"}
-        }, frontmatter: {featuredBlog: {ne: true}}},
+        }, frontmatter: {disable:{ne: true},featuredBlog: {ne: true}}},
           sort: {fields: [frontmatter___date], order: DESC}) {
             nodes {
               id
@@ -327,7 +327,7 @@ module.exports = {
         query: `
         {
           allMarkdownRemark(filter: {fields: {sourceInstanceName: {eq: "blog"}
-          }, frontmatter: {tags: {nin: [
+          }, frontmatter: {disable:{ne: true},tags: {nin: [
           "opensource", 
           "hpe-ezmeral-container-platform", 
           "spiffe-and-spire-projects", 
@@ -335,7 +335,8 @@ module.exports = {
           "hpe-greenlake", 
           "chapel", 
           "grommet", 
-          "hpe-alletra", 
+          "hpe-alletra",
+          "kubedirector" 
           "deep-learning-cookbook", 
           "hpe-3par-and-primera", 
           "hpe-nimble-storage", 
@@ -396,6 +397,12 @@ module.exports = {
     paginatedCollection('deep-learning-posts', 'deep-learning-cookbook'),
     paginatedCollection('3par-posts', 'hpe-3par-and-primera'),
     paginatedCollection('nimble-posts', 'hpe-nimble-storage'),
+    paginatedCollection('kubedirector-posts', 'kubedirector'),
+    paginatedCollection('project-data-map-posts', 'project-data-map'),
+    // paginatedCollection('zerto-posts', 'zerto'),
+    paginatedCollection('aruba-posts', 'aruba'),
+    paginatedCollection('simplivity-posts', 'hpe-simplivity'),
+    // paginatedCollection('smartsim-posts', 'smartsim'),
     paginatedCollection('oneview-posts', 'hpe-oneview'),
     paginatedCollection(
       'oneview-dashboard-posts',
@@ -411,7 +418,7 @@ module.exports = {
         query: `
           {
             allMarkdownRemark(filter: {fields: {sourceInstanceName: {eq: "blog"}
-            }, frontmatter: {tags: {in: [
+            }, frontmatter: {disable:{ne: true},tags: {in: [
               "ilo",
               "Redfish",
               "ilorest",

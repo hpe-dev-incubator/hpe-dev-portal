@@ -1,16 +1,19 @@
 ---
-title: "The HPE DEV Community Hack Shack – A place to gather, learn, and play"
+title: The HPE DEV Community Hack Shack – A place to gather, learn, and play
 date: 2020-07-31T07:39:28.479Z
-author: Dale Rensing 
-tags: ["kubecon-europe-2020","kubecon","cncf","containers","developer"]
-authorimage: "/img/blogs/Avatar3.svg"
 featuredBlog: false
-priority:
-thumbnailimage:
+priority: null
+author: Dale Rensing
+authorimage: /img/blogs/Avatar3.svg
+thumbnailimage: null
+tags:
+  - kubecon-europe-2020
+  - kubecon
+  - cncf
+  - containers
+  - developer
 ---
-![kubblog1](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/7/kubblog1-1596183350621.png)
-
-From August 17-20, the [Cloud Native Computing Foundation (CNCF)](http://cncf.io) will welcome technologists from all over the world to virtually connect at their flagship event, [ KubeCon | CloudNativeCon EU] (https://events.linuxfoundation.org/kubecon-cloudnativecon-europe/) . There, Platinum Sponsor Hewlett Packard Enterprise (HPE), will host the HPE DEV Community Hack Shack virtual experience. HPE will also highlight the new HPE Ezmeral software portfolio (which includes the HPE Ezmeral Container Platform) and showcase its strategic offerings in the areas of containers and Kubernetes.
+From August 17-20, the [Cloud Native Computing Foundation (CNCF)](http://cncf.io) will welcome technologists from all over the world to virtually connect at their flagship event, [ KubeCon | CloudNativeCon EU](https://events.linuxfoundation.org/kubecon-cloudnativecon-europe/) . There, Platinum Sponsor Hewlett Packard Enterprise (HPE), will host the HPE DEV Community Hack Shack virtual experience. HPE will also highlight the new HPE Ezmeral software portfolio (which includes the HPE Ezmeral Container Platform) and showcase its strategic offerings in the areas of containers and Kubernetes.
 
 ![kubblog2](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/7/kubblog2-1596183367896.png)
 
@@ -27,7 +30,6 @@ Within the HPE DEV Hack Shack, you’ll find the following tabs where you’ll b
 * [REPLAYS:](/hackshack/replays) Watch some of the in-depth Technical Workshops we’ve offered in the past. Topics include the HPE Ezmeral Container Platform, SPIFFE and SPIRE fundamentals, and the HPE Container Storage Interface for Kubernetes. 
 * [HPE EZMERAL:](/hackshack/ezmeral) Get detailed information regarding the HPE Ezmeral software portfolio. 
 * [COMMUNITY:](/hackshack/community) Connect with HPE experts and participate in on-demand training. While there, sign-up for our HPE DEV Newsletter to stay up-to-date on the newest blog posts and tutorials. As an incentive to become a part of the community, those who sign up for the [HPE DEV Newsletter](https://developer.hpe.com/event/kubecon-europe-2020?listid=10605211) between August 17 and August 20, will be entered into a drawing to win a prize.
-
 
 ![kubblog3](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/7/kubblog3-1596183377034.png)
 
@@ -56,7 +58,6 @@ At the [KubeCon | CloudNativeCon EU](https://events.linuxfoundation.org/kubecon-
 
 Refer to the [program schedule](https://events.linuxfoundation.org/kubecon-cloudnativecon-europe/program/schedule/) for specific times and locations.
 
-
 ![grommet](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/7/grommet-1596183385085.png)
 
-Virtual events can be challenging. Many who attend physical conferences come specifically to engage personally with industry and subject matter experts. That’s why the [HPE DEV community](https://developer.hpe.com/community) has worked hard to deliver its [HPE DEV Community Hack Shack] (/hackshack) virtual experience. We want to ensure you have a place where you can do just that. For questions or help, be sure to connect with us on our [HPE DEV Slack Channel](https://slack.hpedev.io/). 
+Virtual events can be challenging. Many who attend physical conferences come specifically to engage personally with industry and subject matter experts. That’s why the [HPE DEV community](https://developer.hpe.com/community) has worked hard to deliver its [HPE DEV Community Hack Shack](/hackshack) virtual experience. We want to ensure you have a place where you can do just that. For questions or help, be sure to connect with us on our [HPE DEV Slack Channel](https://slack.hpedev.io/).

@@ -44,8 +44,6 @@ function Events({ data }) {
   const onGoingEvents = data.onGoingEvents.edges;
   const siteMetadata = useSiteMetadata();
   const siteTitle = siteMetadata.title;
-  console.log('upcomingEvents', upcomingEvents);
-  console.log('onGoingEvents', onGoingEvents);
 
   return (
     <Layout title={siteTitle}>

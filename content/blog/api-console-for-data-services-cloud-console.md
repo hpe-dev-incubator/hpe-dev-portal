@@ -8,32 +8,33 @@ authorimage: https://gravatar.com/avatar/8102f2adeef249065ccb9c43b8866d17?s=192
 thumbnailimage: /img/dscc-icon.png
 tags:
   - data-services-cloud-console
+  - developer
 ---
 ## Secured, Yet Agile
 
-A major guiding principle in the creation of the Application Programming Interface (API) for Data Services Cloud Console (DSCC) from Hewlett Packard Enterprise (HPE) is security. However, to be able to be used by applications or tools that rely on the API to extend their features using DSCC, the API must also be flexible. To provide both security and flexibility, the DSCC REST API uses the 0Auth 2.0 authentication flow based on the client credential, which generates a limited lifetime access token. This access token is then embedded in the header of each REST API request as the authorization bearer.
+A major guiding principle in the creation of the Application Programming Interface (API) for Data Services Cloud Console from Hewlett Packard Enterprise (HPE) is security. However, to be able to be used by applications or tools that rely on the API to extend their features using the console, the API must also be flexible. To provide both security and flexibility, the console's REST API uses the 0Auth 2.0 authentication flow based on the client credential, which generates a limited lifetime access token. This access token is then embedded in the header of each REST API request as the authorization bearer.
 
-This blog will walk through the essential steps required to exercise or experiment with the DSCC REST API.
+This blog will walk through the essential steps required to exercise or experiment with the Data Services Cloud Console REST API.
 
 ### Authentication Process to Obtain the Access Token
 
-The DSCC public API relies on an OAuth 2.0 third party authorization framework on behalf of the resource owner (HPE GreenLake Console's user) for security. The user starts by logging and authenticating into HPE GreenLake Console, which is authenticated by the Identity Provider (validated through username, password, or Multi Factor Authentication). Using the API gateway menu in the HPE GreenLake Console, a customer registers their client application (REST API client) to obtain the OAuth 2.0 API client credentials (client id and client secret). This association allows the user to obtain the access token from the menu, and the user can then use the access token inside the token bearer field (header) with any REST API request. This action allows any client application or script to perform any API request to the correct instance of DSCC.
+The Data Services Cloud Console public API relies on an OAuth 2.0 third party authorization framework on behalf of the resource owner (HPE GreenLake's user) for security. The user starts by logging and authenticating into HPE GreenLake console, which is authenticated by the Identity Provider (validated through username, password, or Multi Factor Authentication). Using the API gateway menu in the HPE GreenLake, a customer registers their client application (REST API client) to obtain the OAuth 2.0 API client credentials (client id and client secret). This association allows the user to obtain the access token from the menu, and the user can then use the access token inside the token bearer field (header) with any REST API request. This action allows any client application or script to perform any API request to the correct instance of Data Services Cloud Console.
 
 ![client-credential application flow](/img/greenlake-api-access-flow.png "obtain client-id and client-secret")
 
-The access token has a limited lifetime (about 7200 seconds or 2 hours). Once it expires, the client application must use the obtained client id and client secret to generate a new access token. One indication of the expiration of the access token, the request to DSCC API will return a response error: '401 Unauthorized HTTP.'  If the client application generates a new access token before the current one has expired, then the current access token will be invalidated or treated as not authorized. 
+The access token has a limited lifetime (about 7200 seconds or 2 hours). Once it expires, the client application must use the obtained client id and client secret to generate a new access token. One indication of the expiration of the access token, the request to console's API will return a response error: '401 Unauthorized HTTP.'  If the client application generates a new access token before the current one has expired, then the current access token will be invalidated or treated as not authorized. 
 
 Additionally, a user can also change the client secret to update the authorization when the authorized client application has lost it's client secret, or when the client secret has been compromised. 
 
-And lastly, when access to the DSCC REST API must be disabled, a user can delete the API client credential associated with client id and client secret in the API Gateway menu.
+And lastly, when access to the console's REST API must be disabled, a user can delete the API client credential associated with client id and client secret in the API Gateway menu.
 
-The following flow chart describes steps required to perform the DSCC REST API request. The flow starts from the authorized user creating the client id and client secret to be used to obtain the access token. The access token will be used in the authorization bearer to ensure the secure REST API request. 
+The following flow chart describes steps required to perform the console's REST API request. The flow starts from the GreenLake authorized user creating the client id and client secret to be used to obtain the access token. The access token will be used in the authorization bearer to ensure the secure REST API request. 
 
 ![Access API process](/img/user-guide-for-authorization.png "Process to authenticate and to obtain secure access ")
 
 ## Accessing the API Gateway Menu
 
-To access the API gateway menu, the user must log into the [HPE GreenLake Console,](https://common.cloud.hpe.com) deployed the DSCC to the intended region, and onboarded a storage array (HPE Alletra, HPE Nimble, or HPE Primera) into the organization that is associated with the user account. The user must have the role that is required to perform the intended operation at the instance of DSCC where the storage has been deployed. For instance, the user must have volume management capability in the Data Ops Management to create a storage volume in US region. For more information about the role based access control, please take a look at the [HPE GreenLake User Guide](https://support.hpe.com/hpesc/public/docDisplay?docId=ccs-help_en_us)
+To access the API gateway menu, the user must log into the [HPE GreenLake,](https://common.cloud.hpe.com) deployed Data Services Cloud Console to the intended region, and onboarded a storage array (HPE Alletra, HPE Nimble, or HPE Primera) into the organization that is associated with the user account. The user must have the role that is required to perform the intended operation at the instance of console where the storage has been deployed. For instance, the user must have volume management capability in the Data Ops Manager to create a storage volume in US region. For more information about the role based access control, please take a look at the [HPE GreenLake User Guide](https://support.hpe.com/hpesc/public/docDisplay?docId=ccs-help_en_us)
 
 The API Gateway menu is available inside the HPE GreenLake's Manage menu. From HPE Greenlake Console click on Menu to access this Manage Menu.
 
@@ -45,24 +46,22 @@ The API Gateway menu provides the following operations:
 
 1. Creates and manages API client credential association in order to obtain:
 
-   1. Instance ID of the DSCC at the particular region (Hexadecimals).
+   1. Instance ID of the Data Services Cloud Console at the particular region (Hexadecimals).
    2. Client ID (Hexadecimals).
    3. Client Secret (Hexadecimals).
-   4. URL to the HPE GreenLake Console API end-point (string).
-   5. URL to the HPE DSCC API end-point (string).
 2. Generates access token, changes client secret, and deletes client credential.
 
 ![API Gateway Menu](/img/api-gateway-block.png "DSCC API Gateway Menu")
 
 ### Manages API client application
 
-Each instance of API client credential represents the authorization relationship between the client application and the DSCC REST API resources. Please click on the Create Credentials button to generate a client credential. Afterwards, the user can obtain the client secret and client secret, and use them to generate the access token.
+Each instance of API client credential represents the authorization relationship between the client application and the Data Services Cloud Console REST API resources. Please click on the Create Credentials button to generate a client credential. Afterwards, the user can obtain the client secret and client secret, and use them to generate the access token.
 
 ![API client credentials](/img/create-credentials-button.png "Create API Client Credentials")
 
-Inside the Create Credentials menu, click on the V button to show the pull down list and use the mouse to click on the desired application. For the purpose of using the DSCC REST API, please select Data Services Cloud Console instance in the region where the array has been deployed. The list shows all instances with the regions where the applications are deployed.
+Inside the Create Credentials menu, click on the V button to show the pull down list and use the mouse to click on the desired application. For the purpose of using the Data Services Cloud Console REST API, please select the console instance in the region where the array has been deployed. The list shows all instances with the regions where the applications are deployed.
 
-![select the application](/img/select-the-desired-application.png "Choose application (DSCC)")
+![select the application](/img/select-the-desired-application.png "Choose the application from Data Services Cloud Console")
 
 After selecting the correct application, enter the Credential Name (Please see [HPE GreenLake Cloud Console User Guide](https://support.hpe.com/hpesc/public/docDisplay?docId=ccs-help_en_us) for supported characters).  Click the Create Credentials button to proceed with Client Credentials creation.
 
@@ -76,7 +75,7 @@ After closing the credential creation menu, the user can observe the prior creat
 
 ![](/img/application-credential-created-prior-shown.png "API Client Credentials are created")
 
-After clicking on the down arrow button, the user can see the Generate Access Token button in order to generate the access token required to be used for the DSCC REST API request. Please click on the Generate Access Token to generate an access token.
+After clicking on the down arrow button, the user can see the Generate Access Token button in order to generate the access token required to be used for the Data Services Cloud Console REST API request. Please click on the Generate Access Token to generate an access token.
 
 ![](/img/api-client-credential-get-access-token.png "Time to obtain the Access Token")
 
@@ -88,7 +87,7 @@ The Access Token Created menu will appear and shows the generated access token. 
 
 ![](/img/access-token-created-and-close.png "Access Token Generated and Consumed")
 
-Afterward, the user can embed the access token to the REST API request in order to perform the HTTP method against the desired resource in order to obtain the response.  Note that the user must use the correct base-URL according to the region where the DSCC is deployed. Currently these are the base-URL and the corresponding region where the DSCC is deployed (November 2021).
+Afterward, the user can embed the access token to the REST API request header in order to perform the HTTP method against the desired resource in order to obtain the response.  Note that the user must use the correct base-URL according to the region where the DSCC is deployed. Currently these are the base-URL and the corresponding region where the DSCC is deployed (November 2021).
 
 | DSCC Region  | base-URL                       |
 | ------------ | ------------------------------ |
@@ -104,7 +103,7 @@ The client secret can be recreated inside the create credentials menu by clickin
 
 #### Nice! Can you give me an example of using the access token?
 
-The access token is a long string of JSON Web Token that is signed using RS256 algorithm. Note that the access token must be added into the header of with keyword "Authorization: Bearer <access token in JWT>" for any DSCC REST API request. This following example is based on ubiquitous cURL tool, and it uses "https://scalpha-app.qa.cds.hpe.com" as the base URL. Note that this base URL is the DSCC testing-site only. For your exercise, please use one of the base-URL noted in the above table. The following example of the DSCC REST API request uses GET method for this resource /api/v1/audit-events to obtain a list of the available audit-events. Note the additional parameter with keyword "Authorization: Bearer" is added into the header of this REST API request.
+The access token is a long string of JSON Web Token that is signed using RS256 algorithm. Note that the access token must be added into the header of with keyword "Authorization: Bearer <access token in JWT>" for any Data Services Cloud Console REST API request. This following example is based on ubiquitous cURL tool, and it uses "https://scalpha-app.qa.cds.hpe.com" as the base URL. Note that this base URL is the DSCC testing-site only. For your exercise, please use one of the base-URL noted in the above table. The following example of the DSCC REST API request uses GET method for this resource /api/v1/audit-events to obtain a list of the available audit-events. Note the additional parameter with keyword "Authorization: Bearer" is added into the header of this REST API request.
 
 ```shell
 >curl -X GET https://scalpha-app.qa.cds.hpe.com/api/v1/audit-events 
@@ -112,7 +111,7 @@ The access token is a long string of JSON Web Token that is signed using RS256 a
 -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IllUMU9MZWRYeDFCbHZ2and6OU1FNm8ya1BQayIsInBpLmF0bSI6ImRlejAifQ.eyJjbGllbnRfaWQiOiIwMGNmZmY3MC04NmFiLTRmNjYtODI0NS0xZWIwNTQ2MzljMzgiLCJpc3MiOiJodHRwczovL3Nzby5jb21tb24uY2xvdWQuaHBlLmNvbSIsImF1ZCI6ImV4dGVybmFsX2FwaSIsInN1YiI6InJvbmFsZC5kaGFybWFAaHBlLmNvbSIsInVzZXJfY3R4IjoiZThhNGRhMmVlZmMzMTFlYmEwMmNiNjAzNDIyYmMwYTAiLCJhdXRoX3NvdXJjZSI6ImNjc190b2tlbl9tYW5hZ2VtZW50IiwicGxhdGZvcm1fY3VzdG9tZXJfaWQiOiIyMzRkNzZjNmU5ZDAxMWViYjczMDgyYjIxMmFkNmZlYSIsImlhdCI6MTYzNzAwNjk0NSwiYXBwbGljYXRpb25faW5zdGFuY2VfaWQiOiIzYzE4YmQwMy04MzA2LTRjN2MtOTQyZS1jNzA0YTRiODc0NGMiLCJleHAiOjE2MzcwMTQxNDV9.gHcBzl0n2wwrMRR2tSbT6jHN68d1TSNT743GED3LuF2B08ABYh9ePKQjhqYW6mjY-oSfEW2BTfG7TfTzZj9MtQ2kJGmq3DvLBl6fAaN6MEkSIz54hu0PdmDW8His6oET2txq_0kp5XJ7T6n_QJzZY0xvSoquE-48gCxwGFPWIRwefIpdw_1URFXYgfdKCxCIDTdPfYKs8kD8hzwyF9uvgLgVPWZJD6b1UHJK5OpNnBOpAxrs1xfFBz688b0vheZdARCJsl5E3Qxjyg68hw2cjavZZOX-_RWpd6JWPrQnqxyxQeYQ5yYy7giVCViM5SUZkv6j0Ts3TVguapE2kvahkQ"
 ```
 
-The response is returned in the form of JSON string, as shown in the below example. Note that, the user can use additional parameter of the REST API Get audit-events to filter particular events. Please take a look at the [DSCC API documentation](https://console-us1.data.cloud.hpe.com/doc/api/v1/) for more information on additional parameters that are available for /api/v1/audit-events resource.
+The response is returned in the form of JSON string, as shown in the below example. Note that, the user can use additional parameter of the REST API Get audit-events to filter particular events. Please take a look at the [Data Services Cloud Console API documentation](https://console-us1.data.cloud.hpe.com/doc/api/v1/) for more information on additional parameters that are available for /api/v1/audit-events resource.
 
 ```javascript
 {
@@ -197,6 +196,6 @@ The response is returned in the form of JSON string, as shown in the below examp
 }
 ```
 
-The recommended tool at this moment of time to experiment with the REST API for DSCC is the Postman which is downloadable from the [Postman website](https://www.postman.com/downloads/). The postman is a versatile tool, that anyone can copy the access token (or better to use the client id and client secret) from the API Gateway menu and issue a REST API request without using programming language. Furthermore, user can also test the parameters and format the responses of each REST API request using the Postman tool.
+The recommended tool at this moment of time to experiment with the REST API for the console is the Postman which is downloadable from the [Postman website](https://www.postman.com/downloads/). The postman is a versatile tool, that anyone can copy the access token (or better to use the client id and client secret) from the API Gateway menu and issue a REST API request without using programming language. Furthermore, user can also test the parameters and format the responses of each REST API request using the Postman tool.
 
-In conclusion, this blog gives you a great example on how to obtain the access token and experiment with the DSCC REST API. Please take a look at the next blog on getting the access token programmatically to enable any client application using any familiar tool like Postman, use a programming, or a scripting language.
+In conclusion, this blog gives you a great example on how to obtain the access token and experiment with the Data Services Cloud Console REST API. Please take a look at the next blog on getting the access token programmatically to enable any client application using any familiar tool like Postman, use a programming, or a scripting language.
