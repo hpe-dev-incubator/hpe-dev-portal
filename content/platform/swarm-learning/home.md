@@ -16,7 +16,7 @@ HPE Swarm Learning is a decentralized, privacy-preserving Machine Learning frame
 ## Articles
 
 * **[2﻿021 Nature Paper - Swarm Learning for decentralized and confidential clinical machine learning](https://www.nature.com/articles/s41586-021-03583-3)**
-* **[HPE Labs - SWARM LEARNING: TURN YOUR DISTRIBUTED DATA INTO COMPETITIVE EDGE](https://www.hpe.com/psnow/doc/a50000344enw?jumpid=in_lit-psnow-red)**
+* **[HPE Labs - Swarm Learning: Turn your distributed data into competitive edge](https://www.hpe.com/psnow/doc/a50000344enw?jumpid=in_lit-psnow-red)**
 * **[Research gate - Swarm Learning as a privacy-preserving machine learning approach for disease classification](https://www.researchgate.net/publication/342495847_Swarm_Learning_as_a_privacy-preserving_machine_learning_approach_for_disease_classification)**
 
 - - -
