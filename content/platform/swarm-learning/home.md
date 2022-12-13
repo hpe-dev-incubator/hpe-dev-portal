@@ -54,5 +54,5 @@ J﻿oin the [HPEDEV Slack Workspace](https://slack.hpedev.io/) and start a discu
 ## Resources[](https://www.hpe.com/us/en/solutions/artificial-intelligence/swarm-learning.html)
 
 * **[H﻿PE Swarm Learning Home Page](https://www.hpe.com/us/en/solutions/artificial-intelligence/swarm-learning.html)**
-* HPE Swarm Learning Community Edition ![](GitHub)
+* [**HPE Swarm Learning Community Edition ![](Github)**](https://github.com/HewlettPackard/swarm-learning)
 * [**Try Swarm Learning Examples ![](GitHub)**](https://github.com/HewlettPackard/swarm-learning/tree/master/examples)
