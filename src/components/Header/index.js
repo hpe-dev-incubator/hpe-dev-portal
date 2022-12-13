@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useRef } from 'react';
 import axios from 'axios';
 import {
   Box,
-  Button,
+  // Button,
   DropButton,
   Header as GrommetHeader,
   Nav,
@@ -335,26 +335,17 @@ function Header() {
     />,
   );
 
-  if (!userDetail) {
-    // navLinks.push(
-    //   <HeaderMenu
-    //     label="LOG IN"
-    //     items={[
-    //       { label: 'HPE Email ID', onClick: handleHPESignIn },
-    //        { label: 'Github Id', onClick: hanldeGitHubSignIn },
-    //     ]}
-    //   />,
-    // );
-    navLinks.push(
-      <Button
-        align="start"
-        key="os"
-        label="SIGN IN"
-        secondary
-        onClick={handleHPESignIn}
-      />,
-    );
-  }
+  // if (!userDetail) {
+  //   navLinks.push(
+  //     <Button
+  //       align="start"
+  //       key="os"
+  //       label="SIGN IN"
+  //       secondary
+  //       onClick={handleHPESignIn}
+  //     />,
+  //   );
+  // }
   if (size === 'small') {
     navLinks.push(
       <ButtonLink
@@ -401,7 +392,7 @@ function Header() {
           reverse
         />
       )}
-      {userDetail && <UserMenu userInfo={userDetail} />}
+      {/* {userDetail && <UserMenu userInfo={userDetail} />} */}
 
       <iframe
         title="cookie-session"
