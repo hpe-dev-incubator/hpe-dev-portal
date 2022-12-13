@@ -11,16 +11,6 @@ active: false
 ---
 HPE Swarm Learning is a decentralized, privacy-preserving Machine Learning framework. This framework utilizes the computing power at, or near, the distributed data sources to run the Machine Learning algorithms that train the models. It uses the security of a blockchain platform to share learnings with peers in a safe and secure manner. In  HPE Swarm Learning, training of the model occurs at the edge, where data is most recent, and where prompt, data-driven decisions are mostly necessary. In this completely decentralized architecture, only the insights learned are shared with the collaborating ML peers, not the raw data. This tremendously enhances data security and privacy.
 
-
-
-- - -
-
-## Resources[](https://www.hpe.com/us/en/solutions/artificial-intelligence/swarm-learning.html)
-
-* **[H﻿PE Swarm Learning Home Page](https://www.hpe.com/us/en/solutions/artificial-intelligence/swarm-learning.html)**
-* **[Swarm Learning Community Edition (GitHub)](https://github.com/HewlettPackard/swarm-learning)**
-* **[Try Swarm Learning Examples (GitHub)](https://github.com/HewlettPackard/swarm-learning/tree/master/examples)**
-
 - - -
 
 ## Articles
@@ -58,3 +48,11 @@ HPE Swarm Learning is a decentralized, privacy-preserving Machine Learning frame
 ## Any Questions on HPE Swarm Learning?
 
 J﻿oin the [HPEDEV Slack Workspace](https://slack.hpedev.io/) and start a discussion in our [\#hpe-swarm-learning](https://hpedev.slack.com/archives/C04A5DK9TUK) channel.
+
+- - -
+
+## Resources[](https://www.hpe.com/us/en/solutions/artificial-intelligence/swarm-learning.html)
+
+* **[H﻿PE Swarm Learning Home Page](https://www.hpe.com/us/en/solutions/artificial-intelligence/swarm-learning.html)**
+* HPE Swarm Learning Community Edition ![](GitHub)
+* [**Try Swarm Learning Examples ![](GitHub)**](https://github.com/HewlettPackard/swarm-learning/tree/master/examples)
