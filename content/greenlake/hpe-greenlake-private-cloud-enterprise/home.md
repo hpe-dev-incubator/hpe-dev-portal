@@ -7,7 +7,7 @@ image: /img/platforms/EzmeralDataFabric.svg
 width: large
 priority: 5
 frontpage: true
-active: true
+active: false
 tags:
   - hpe-ezmeral-data-fabric
 ---
