@@ -1,8 +1,9 @@
 ---
 title: HPE GreenLake Cloud Platform
 version: v 2.01.8964
-description: A sophisticated data fabric that enables you to run the right
-  application at the right time in the right place on the right data.
+description: A managed cloud experience that accelerates your transformation by
+  helping you to design, build, manage, and optimize your on- and off-premises
+  clouds.
 image: /img/platforms/Greenlake.svg
 width: large
 priority: 1
