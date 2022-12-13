@@ -2,7 +2,7 @@
 title: Workshops-on-Demand
 width: large
 category: Workshop
-priority: 4
+priority: 6
 image: /img/home/Workshops_on_demand_192_192.svg
 link: /hackshack/workshops
 active: true

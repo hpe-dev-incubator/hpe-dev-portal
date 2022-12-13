@@ -1,11 +1,11 @@
 ---
-title: HPE GreenLake Developer Portal
-width: large
+title: HPE GreenLake API Portal
+width: medium
 category: Featured
 priority: 1
 link: https://developer.greenlake.hpe.com/
 image: /img/home/HPE-GreenLake-Badge.png
-imageScale: 0.5
+imageScale: 0.7
 reverse: true
 active: true
 ---

@@ -1,13 +1,13 @@
 ---
-title: HPE Ezmeral Data Fabric
+title: HPE GreenLake Cloud Platform
 version: v 2.01.8964
 description: A sophisticated data fabric that enables you to run the right
   application at the right time in the right place on the right data.
 image: /img/platforms/EzmeralDataFabric.svg
 width: large
-priority: 6
+priority: 1
 frontpage: true
-active: true
+active: false
 tags:
   - hpe-ezmeral-data-fabric
 ---

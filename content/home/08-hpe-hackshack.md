@@ -2,7 +2,7 @@
 title: Hack Shack
 width: small
 category: Event
-priority: 3
+priority: 8
 link: /hackshack/
 image: /img/home/hack-shack-logo-sm.png
 active: true
