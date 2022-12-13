@@ -537,17 +537,17 @@ To do so, proceed as follows:
 
        <space><space><space>* sub-item N
 
-       >**Note:** Always insert a line break between a standard paragraph and the first item of a list
+ >**Note:** Always insert a line break between a standard paragraph and the first item of a list
 
-       >**Note:** By default, the bullet list items will be rendered with smaller font size than a text in a "standard" paragraph. If you wish to keep same character font as a standard paragraph, it is recommended to insert a line break between list items. Alternatively, you can use an HTML style as explained in the next tip: "**Global Styles**".
+ >**Note:** By default, the bullet list items will be rendered with smaller font size than a text in a "standard" paragraph. If you wish to keep same character font as a standard paragraph, it is recommended to insert a line break between list items. Alternatively, you can use an HTML style as explained in the next tip: "**Global Styles**".
 
-       Example **with line break** between first level list items and **no line break** between sub-list items:
+Example **with line break** between first level list items and **no line break** between sub-list items:
 
-       <center><img src="media/Guide-tips-item-lists-1.png" width="1537" height="799"></center>
+<center><img src="media/Guide-tips-item-lists-1.png" width="1537" height="799"></center>
 
-       Example with **no line break** between list items:
+Example with **no line break** between list items:
 
-       <center><img src="media/Guide-tips-item-lists-2.png" width="1585" height="483"></center>
+<center><img src="media/Guide-tips-item-lists-2.png" width="1585" height="483"></center>
 
 - **Tip #15: Global styles**
     
