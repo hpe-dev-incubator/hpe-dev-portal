@@ -21,11 +21,7 @@ HPE Swarm Learning is a decentralized, privacy-preserving Machine Learning frame
 
 - - -
 
-## Know more about Swarm Learning
-
-**\-﻿ HPE Swarm Learning Product Introduction**
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/8TfxmXBjEZA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+## Learn more about HPE Swarm Learning and its underlying technology
 
 **\-﻿ What's All the Buzz about Swarm Learning?**
 
@@ -34,6 +30,12 @@ HPE Swarm Learning is a decentralized, privacy-preserving Machine Learning frame
 **\-﻿ The Big Shift: What is Swarm Learning?**
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/6Fep6Lw5t-U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+**\-﻿ HPE Swarm Learning Product Introduction**
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ORujFJ1lVVw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
 
 - - -
 
@@ -45,7 +47,7 @@ HPE Swarm Learning is a decentralized, privacy-preserving Machine Learning frame
 
 - - -
 
-## Any Questions on HPE Swarm Learning?
+## Any questions on HPE Swarm Learning?
 
 J﻿oin the [HPEDEV Slack Workspace](https://slack.hpedev.io/) and start a discussion in our [\#hpe-swarm-learning](https://hpedev.slack.com/archives/C04A5DK9TUK) channel.
 
