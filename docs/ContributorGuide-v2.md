@@ -513,29 +513,29 @@ To do so, proceed as follows:
     
     **Bullet list:**
 
-       \*\<space\>bullet list item 1
+       *<space>bullet list item 1
 
-       \*\<space\>bullet list item 2
+       *<space>bullet list item 2
 
-       \*\<space\>bullet list item N
+       *<space>bullet list item N
         
     **Numbered list:**
 
-       1.\<space\>numbered list item 1
+       1.<space>numbered list item 1
 
-       2.\<space\>numbered list item 2
+       2.<space>numbered list item 2
 
-       N.\<space\>numbered list item N
+       N.<space>numbered list item N
         
     **Item list with Sub-item list:**
 
-       \*\<space\>bullet list item 1
+       *<space>bullet list item 1
 
-       \<space\>\<space\>\<space\>\* sub-item 1
+       <space><space><space>* sub-item 1
 
-       \<space\>\<space\>\<space\>\* sub-item 2
+       <space><space><space>* sub-item 2
 
-       \<space\>\<space\>\<space\>\* sub-item N
+       <space><space><space>* sub-item N
 
        >**Note:** Always insert a line break between a standard paragraph and the first item of a list
 
