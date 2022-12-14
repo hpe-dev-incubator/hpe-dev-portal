@@ -154,6 +154,31 @@ collections:
       - { label: 'Description', name: 'description', widget: 'string'}
       - { label: 'Monthly', name: 'monthly', widget: 'number' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
+    # GreenLake collection
+  - name: 'greenlake'
+    label: 'GreenLake'
+    folder: 'content/greenlake'
+    path: '{{title}}/{{slug}}'
+    preview_path: '/greenlake/{{title}}/home'
+    media_folder: /static/img
+    public_folder: /img
+    extension: 'md'
+    create: true
+    publish: false
+    slug: 'home'
+    editor:
+      preview: true
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Version', name: 'version', widget: 'string' }
+      - { label: 'Description', name: 'description', widget: 'string' }
+      - { label: 'Image', name: 'image', widget: 'image',media_folder: '/static/img/greenlake', public_folder: '/img/greenlake', hint: 'image to appear on greenlake page' }
+      - { label: 'Card Size', name: 'width', widget: 'select', options: [ 'large' ], default: 'large'}
+      - { label: 'Priority', name: 'priority', widget: 'number', hint: 'controls the card position on the greenlake page'}
+      - { label: 'Featured', name: 'frontpage', widget: 'boolean', required: false, hint: 'selecting true displays the card on the dashboard/home page'  }
+      - { label: 'Active', name: 'active', widget: 'boolean', default: 'true' , required: false, hint: 'selecting true adds the card on the GreenLake page'  }
+      - { label: 'Tags', name: 'tags', widget: 'list', allow_add: true, required: false, field: {label: 'Tag', name: 'tag', widget: 'string'} }
+      - { label: 'Body', name: 'body', widget: 'markdown' }
   # Platform collection - TODO: hierarchical content/platform/{name}/home.md 
   - name: 'platform'
     label: 'Platforms'
