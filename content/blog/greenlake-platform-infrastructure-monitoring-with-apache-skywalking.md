@@ -42,7 +42,7 @@ Login to the console of machine to be monitored.
 
 Next, Download and run the node exporter using below code snippet
 
-```
+```shell
 wget https://github.com/prometheus/node_exporter/releases/download/v1.4.0-rc.0/node_exporter-1.4.0-rc.0.linux-amd64.tar.gz
 
 tar xvfz node_exporter-1.4.0-rc.0.linux-amd64.tar.gz
@@ -78,7 +78,7 @@ systemctl start nodexporter.service
 
 Check the metrics endpoint shows metrics exported from the infrastructure node.
 
-```
+```shell
 curl <http://localhost:9100/metrics>
 ```
 
@@ -90,7 +90,7 @@ OTel provides a set of standardized vendor-agnostic SDKs, APIs, and tools for 
 
 Install OTel collector.
 
-```
+```shell
 sudo wget <https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.54.0/otelcol_0.54.0_linux_amd64.deb>
 
 sudo dpkg -i otelcol_0.54.0_linux_amd64.deb
@@ -106,7 +106,7 @@ Create a new otel configuration file (say /etc/otelcol/otel-collector-config.yam
 
 Change OTel configuration to newly created OTel configuration file.
 
-```
+```shell
 cd /etc/otelcol
 
 sudo nano otelcol.conf
