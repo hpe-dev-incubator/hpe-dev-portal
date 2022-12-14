@@ -125,7 +125,7 @@ sudo journalctl -u otelcol
 
 # **Conclusion**
 
-Infrastructure and application level monitoring gives holistic picturec of service reliability. We have seen, how easily we could perform compute infrastructure resource monitoring, running in on- or off premises, using OpenTelemetry and Skywalking.
+Infrastructure and application level monitoring gives holistic picture of service reliability. We have seen, how easily we could setup compute infrastructure resource monitoring, running in on- or off premises, using OpenTelemetry and Skywalking. CPU, Memory, and Disk usage trend in APM tool gives monitoring team, with early insight into potential issues in system, which need to be addressed before its faced by customers of applications. Additionally, APM tools often provide trace, logs, metrics monitoring along with alerting, which can be used in conjunction with infrastructure monitoring to have highly reliable service for customers.
 
 # **Reference**
 
