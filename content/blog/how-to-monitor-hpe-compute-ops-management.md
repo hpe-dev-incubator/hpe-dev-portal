@@ -10,6 +10,7 @@ tags:
   - hpe-greenlake-for-compute-ops-management
   - grafana
   - hpe-greenlake
+  - hpe-greenlake-cloud-platform
   - monitoring
   - api
   - COM
