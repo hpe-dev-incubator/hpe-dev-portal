@@ -43,4 +43,4 @@ For detailed [](https://console-us1.data.cloud.hpe.com/doc/api/v1/)exploration o
 
 ### Any Question on Data Services Cloud Console?
 
-Please join [HPEDEV Slack Workspace](https://slack.hpedev.io/) and start a discussion in our [\#Data-Services-Cloud-Console channel](https://hpedev.slack.com/archives/C02D6H623JP)
+Please join [HPEDEV Slack Workspace](https://slack.hpedev.io/) and start a discussion in our [\#hpe-greenlake-data-services-cloud-console](https://hpedev.slack.com/archives/C02D6H623JP) channel.
