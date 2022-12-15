@@ -8,6 +8,7 @@ thumbnailimage: /img/dscc-icon.png
 tags:
   - data-services-cloud-console
   - developer
+  - hpe-greenlake-cloud-platform
 ---
 <center><img src="/img/dscc-idp-core-architect.png" width="500" height="501" alt="Unified DataOps"></center>
 
