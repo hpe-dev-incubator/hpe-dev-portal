@@ -630,12 +630,16 @@ If appropriate, use a tag to tie your blog post to a "platform" page on HPE Deve
 
 >**Note:** You can also tag your article with popular keywords (1 to 4 keywords) that reflect the relevancy of your topic. Use tags as one way to optimize your blog post for results from search engines such as Google search engine. Visit the site [here](https://hpe-dev-portal.netlify.app/tags/) to look for existing tags in our HPE Developer site.
 
+>**Note about HPE GLCP**: When tagging blog posts for DSCC, COM and Aruba Central, please add the tag hpe-greenlake-cloud-platform because COM, DSCC and Aruba Central are native SaaS-based console delivered from HPE GreenLake Cloud Platform.
 
   | **Platform name**                  |   **Associated tag**    |
   | ---------------------------------- | ----------------------- |
   | **HPE Ezmeral**                    | hpe-ezmeral     |
   | **HPE Ezmeral Data Fabric**        | hpe-ezmeral-data-fabric |
   | **HPE GreenLake**                  | hpe-greenlake |
+  | **HPE GreenLake for Compute Ops Management** | hpe-greenlake-for-compute-ops-management |
+  | **HPE GreenLake Cloud Platform**   | hpe-greenlake-cloud-platform |
+  | **Data Sevices Cloud Console**     | data-services-cloud-console |
   | **Spiffe and Spire**               | spiffe-and-spire-projects |
   | **Chapel**                         | chapel |
   | **Determined AI**                  | determined-ai |
@@ -649,11 +653,10 @@ If appropriate, use a tag to tie your blog post to a "platform" page on HPE Deve
   | **iLORESTful API**                 | ilo-restful-api |
   | **HPE Alletra**                    | hpe-alletra |
   | **SmartSim**                       | smartsim    |
-  | **Data Sevices Cloud Console**     | data-services-cloud-console |
   | **Zerto**                          | zerto   |
   | **Project Data Map**               | project-data-map |
   | **KubeDirector**                   | kubedirector |
-  | **HPE GreenLake for Compute Ops Management** | hpe-greenlake-for-compute-ops-management |
+  | **HPE Swarm Learning**             | hpe-swarm-learning |
   
   
   
