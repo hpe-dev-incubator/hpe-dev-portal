@@ -20,6 +20,7 @@ const { GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT } = process.env;
 const { GATSBY_COCKPIT_HPE_USER } = process.env;
 const { GATSBY_COCKPIT_HPE_OAUTH } = process.env;
 const { GATSBY_REDIRECT_URI } = process.env;
+
 // const { GATSBY_CLIENT_ID } = process.env;
 // const { GATSBY_CLIENT_OAUTH } = process.env;
 
