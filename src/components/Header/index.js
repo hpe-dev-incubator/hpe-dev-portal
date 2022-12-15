@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useRef } from 'react';
 import axios from 'axios';
 import {
   Box,
-  // Button,
+  Button,
   DropButton,
   Header as GrommetHeader,
   Nav,
@@ -136,7 +136,7 @@ function Header() {
 
   const fetchUserDetail = (userData) => {
     if (!userData) {
-      fetch(`${GATSBY_COCKPIT_HPE_USER}`)
+      fetch(`${GATSBY_COCKPIT_HPE_USER}`, { credentials: 'include' })
         .then((response) => {
           return response.json();
         })
@@ -317,12 +317,12 @@ function Header() {
 
     // <ButtonLink align="start" key="cm" label="Community" to="/community" />,
 
-    // <ButtonLink
-    //   align="start"
-    //   key="os"
-    //   label="SignIn"
-    //   to={`https://www-prod-cockpit-west.ext.hpe.com/oauth2/authorization/hpe-okta?redirectUri=${window.location.origin}`}
-    // />,
+    <ButtonLink
+      align="start"
+      key="os"
+      label="SignIn"
+      to={`https://www-prod-cockpit-west.ext.hpe.com/oauth2/authorization/hpe-okta?redirectUri=${window.location.origin}`}
+    />,
   ];
 
   navLinks.push(
@@ -335,17 +335,17 @@ function Header() {
     />,
   );
 
-  // if (!userDetail) {
-  //   navLinks.push(
-  //     <Button
-  //       align="start"
-  //       key="os"
-  //       label="SIGN IN"
-  //       secondary
-  //       onClick={handleHPESignIn}
-  //     />,
-  //   );
-  // }
+  if (!userDetail) {
+    navLinks.push(
+      <Button
+        align="start"
+        key="os"
+        label="SIGN IN"
+        secondary
+        onClick={handleHPESignIn}
+      />,
+    );
+  }
   if (size === 'small') {
     navLinks.push(
       <ButtonLink
@@ -392,7 +392,7 @@ function Header() {
           reverse
         />
       )}
-      {/* {userDetail && <UserMenu userInfo={userDetail} />} */}
+      {userDetail && <UserMenu userInfo={userDetail} />}
 
       <iframe
         title="cookie-session"
