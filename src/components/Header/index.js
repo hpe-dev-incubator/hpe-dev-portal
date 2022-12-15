@@ -322,7 +322,11 @@ function Header() {
       align="start"
       key="os"
       label="SignIn"
-      to={`https://www-prod-cockpit-west.ext.hpe.com/oauth2/authorization/hpe-okta?redirectUri=${window.location.origin}`}
+      to={`https://www-prod-cockpit-west.ext.hpe.com/oauth2/authorization/hpe-okta?redirectUri=${
+        typeof window !== 'undefined'
+          ? window.location.origin
+          : 'https://developer.hpe.com/'
+      }`}
     />,
   ];
 
