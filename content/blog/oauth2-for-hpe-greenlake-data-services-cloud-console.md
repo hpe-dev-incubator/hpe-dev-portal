@@ -8,7 +8,7 @@ thumbnailimage: /img/dscc-icon-transparent.png
 tags:
   - data-services-cloud-console
   - developer
-  - hpe-greenlake-cloud-plaform
+  - hpe-greenlake-cloud-platform
 ---
 ## HPE GreenLake API Security
 
