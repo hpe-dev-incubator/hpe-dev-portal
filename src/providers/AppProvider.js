@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useMemo, useState, useEffect } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 
@@ -8,12 +8,51 @@ export const AppContext = React.createContext({
   setUser: () => null,
 });
 
+const { GATSBY_COCKPIT_HPE_USER } = process.env;
+
 const AppProvider = ({ children }) => {
-  const [userStr, setUser] = useState(localStorage.getItem('userInfo'));
+  // const [userStr, setUser] = useState(localStorage.getItem('userInfo'));
+  const [userStr, setUser] = useState(null);
+
+  const fetchUserDetail = (userData) => {
+    if (!userData) {
+      fetch(`${GATSBY_COCKPIT_HPE_USER}`, { credentials: 'include' })
+        .then((response) => {
+          return response.json();
+        })
+        .then((response) => {
+          console.log({ apiData: response });
+          if (
+            response.status !== 401 &&
+            response.code !== 'AuthenticationCredentialsNotFoundException'
+          ) {
+            const userDetails = {
+              id: response.uuid,
+              name: response.name,
+              email: response.email,
+              type: 'HPE',
+              roles: [],
+              accessToken: '',
+            };
+            // const userStr = JSON.stringify(userDetails);
+            // localStorage.setItem('userInfo', userStr);
+            setUser(userDetails);
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+          return err;
+        });
+    }
+  };
+
+  useEffect(() => {
+    fetchUserDetail(userStr);
+  }, [userStr]);
 
   const user = useMemo(() => {
     if (userStr) {
-      return JSON.parse(userStr);
+      return userStr;
     }
     return null;
   }, [userStr]);

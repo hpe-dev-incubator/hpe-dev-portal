@@ -1,9 +1,10 @@
 import React, { useRef, useState } from 'react';
-import { Avatar, Box, Button, Layer, Text } from 'grommet';
+import { Avatar, Box, Layer, Text } from 'grommet';
 import { LinkNext } from 'grommet-icons';
 import PropTypes from 'prop-types';
+import { ButtonLink } from '..';
 
-const { GATSBY_HPE_SIGNOUT } = process.env;
+// const { GATSBY_HPE_SIGNOUT } = process.env;
 // const { GATSBY_REDIRECT_URI } = process.env;
 
 function getInitials(name) {
@@ -24,30 +25,30 @@ export function UserMenu({ userInfo }) {
     setOpen((o) => !o);
   };
 
-  const handleSignOut = () => {
-    console.log('log out');
-    // fetch(`${GATSBY_HPE_SIGNOUT}?redirectUri=${GATSBY_REDIRECT_URI}`)
-    fetch(`${GATSBY_HPE_SIGNOUT}&tstamp=${new Date().getTime()}`, {
-      credentials: 'include',
-    })
-      // fetch(
-      //   'https://aquila-user-api.common.cloud.hpe.com/authn/v1/session/end-session',
-      // )
-      // .then((response) => {
-      //   console.log('response1', response);
-      //   return response.json();
-      // })
-      .then((response) => {
-        console.log('response2', response);
-        localStorage.removeItem('userInfo');
-        window.location.reload();
-      })
-      .catch((err) => {
-        console.log(err);
-        return err;
-      });
-    //
-  };
+  // const handleSignOut = () => {
+  //   console.log('log out');
+  //   // fetch(`${GATSBY_HPE_SIGNOUT}?redirectUri=${GATSBY_REDIRECT_URI}`)
+  //   fetch(`${GATSBY_HPE_SIGNOUT}&tstamp=${new Date().getTime()}`, {
+  //     credentials: 'include',
+  //   })
+  //     // fetch(
+  //     //   'https://aquila-user-api.common.cloud.hpe.com/authn/v1/session/end-session',
+  //     // )
+  //     // .then((response) => {
+  //     //   console.log('response1', response);
+  //     //   return response.json();
+  //     // })
+  //     .then((response) => {
+  //       console.log('response2', response);
+  //       localStorage.removeItem('userInfo');
+  //       window.location.reload();
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //       return err;
+  //     });
+  //   //
+  // };
 
   return (
     <Box>
@@ -90,14 +91,26 @@ export function UserMenu({ userInfo }) {
                   width,
                 }}
               />
-              <Button
+              {/* <Button
                 size="medium"
                 icon={<LinkNext />}
                 label="Sign Out"
                 alignSelf="start"
                 style={{ padding: 16, fontWeight: 'bold' }}
                 onClick={handleSignOut}
+              /> */}
+              <ButtonLink
+                align="start"
+                icon={<LinkNext />}
+                key="os"
+                label="Sign Out"
+                to={`https://www.hpe.com/system/sling/logout.html?redirectUri=${
+                  typeof window !== 'undefined'
+                    ? window.location.origin
+                    : 'https://developer.hpe.com/'
+                }`}
               />
+              ,
             </Box>
           </div>
         </Layer>

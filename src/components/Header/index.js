@@ -17,9 +17,7 @@ import { ButtonLink, ExternalButtonLink } from '..';
 import { UserMenu } from './UserMenu';
 
 const { GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT } = process.env;
-const { GATSBY_COCKPIT_HPE_USER } = process.env;
 const { GATSBY_COCKPIT_HPE_OAUTH } = process.env;
-const { GATSBY_REDIRECT_URI } = process.env;
 
 // const { GATSBY_CLIENT_ID } = process.env;
 // const { GATSBY_CLIENT_OAUTH } = process.env;
@@ -33,7 +31,7 @@ const TextAlignLeft = styled(Box)`
 `;
 
 function Header() {
-  const { data, user: userDetail, setUser } = useContext(AppContext);
+  const { data, user: userDetail } = useContext(AppContext);
 
   const platforms = data?.platform?.edges;
   const opensource = data?.opensource?.edges;
@@ -135,65 +133,16 @@ function Header() {
     });
   };
 
-  const fetchUserDetail = (userData) => {
-    if (!userData) {
-      fetch(`${GATSBY_COCKPIT_HPE_USER}`, { credentials: 'include' })
-        .then((response) => {
-          return response.json();
-        })
-        .then((response) => {
-          console.log({ apiData: response });
-          if (
-            response.status !== 401 &&
-            response.code !== 'AuthenticationCredentialsNotFoundException'
-          ) {
-            const userDetails = {
-              id: response.uuid,
-              name: response.name,
-              email: response.email,
-              type: 'HPE',
-              roles: [],
-              accessToken: '',
-            };
-            const userStr = JSON.stringify(userDetails);
-            localStorage.setItem('userInfo', userStr);
-            setUser(userStr);
-          }
-        })
-        .catch((err) => {
-          console.log(err);
-          return err;
-        });
-    }
-  };
-
-  // const receiveMessage = (event) => {
-  //   console.log('message event', event);
-
-  //   if (
-  //     iframeRef &&
-  //     iframeRef.current &&
-  //     iframeRef.current.contentWindow === event.source
-  //   ) {
-  //     const cData = JSON.parse(event.data);
-
-  //     if (cData.cookie) {
-  //       console.log(`[COCKPIT] CKPT_JSESSIONID: ${cData.cookie}`);
-  //     } else {
-  //       console.log(`[COCKPIT] ${cData.message}`);
-  //     }
-  //     fetchUserDetail();
-  //   }
-  // };
   const handleHPESignIn = () => {
-    window.location.href = `${GATSBY_COCKPIT_HPE_OAUTH}?redirectUri=${GATSBY_REDIRECT_URI}`;
+    window.location.href = `${GATSBY_COCKPIT_HPE_OAUTH}?redirectUri=${
+      typeof window !== 'undefined'
+        ? window.location.origin
+        : 'https://developer.hpe.com/'
+    }`;
   };
   // const hanldeGitHubSignIn = () => {
   //   window.location.href = `${GATSBY_CLIENT_OAUTH}?scope=user&client_id=${GATSBY_CLIENT_ID}&redirect_uri=${GATSBY_REDIRECT_URI}`;
   // };
-  useEffect(() => {
-    fetchUserDetail(userDetail);
-  }, [userDetail]);
 
   useEffect(() => {
     // After requesting Github access, Github redirects back to your app with a code parameter
@@ -317,17 +266,6 @@ function Header() {
     <ButtonLink align="start" key="su" label="Skill Up" to="/skillup" />,
 
     // <ButtonLink align="start" key="cm" label="Community" to="/community" />,
-
-    <ButtonLink
-      align="start"
-      key="os"
-      label="SignIn"
-      to={`https://www-prod-cockpit-west.ext.hpe.com/oauth2/authorization/hpe-okta?redirectUri=${
-        typeof window !== 'undefined'
-          ? window.location.origin
-          : 'https://developer.hpe.com/'
-      }`}
-    />,
   ];
 
   navLinks.push(
