@@ -1,5 +1,6 @@
 ---
 title: HPE Ezmeral Unified Analytics
+active: true
 fit: contain
 path: https://hpe.zoom.us/webinar/register/9016680186328/WN_qEWHxuucTa-UilEnOqmByg
 imageBackground: white
