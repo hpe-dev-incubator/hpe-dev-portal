@@ -3,11 +3,11 @@ import React, { useContext, useEffect, useRef } from 'react';
 import axios from 'axios';
 import {
   Box,
-  // Button,
+  Button,
   DropButton,
   Header as GrommetHeader,
   Nav,
-  // Menu as HeaderMenu,
+  Menu as HeaderMenu,
   ResponsiveContext,
 } from 'grommet';
 import { Menu, Search, FormDown } from 'grommet-icons';
@@ -20,8 +20,8 @@ const { GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT } = process.env;
 const { GATSBY_COCKPIT_HPE_USER } = process.env;
 const { GATSBY_COCKPIT_HPE_OAUTH } = process.env;
 const { GATSBY_REDIRECT_URI } = process.env;
-// const { GATSBY_CLIENT_ID } = process.env;
-// const { GATSBY_CLIENT_OAUTH } = process.env;
+const { GATSBY_CLIENT_ID } = process.env;
+const { GATSBY_CLIENT_OAUTH } = process.env;
 
 const TextAlignLeft = styled(Box)`
   & > a {
@@ -136,7 +136,7 @@ function Header() {
 
   const fetchUserDetail = (userData) => {
     if (!userData) {
-      fetch(`${GATSBY_COCKPIT_HPE_USER}`)
+      fetch(`${GATSBY_COCKPIT_HPE_USER}`, { credentials: 'include' })
         .then((response) => {
           return response.json();
         })
@@ -187,9 +187,9 @@ function Header() {
   const handleHPESignIn = () => {
     window.location.href = `${GATSBY_COCKPIT_HPE_OAUTH}?redirectUri=${GATSBY_REDIRECT_URI}`;
   };
-  // const hanldeGitHubSignIn = () => {
-  //   window.location.href = `${GATSBY_CLIENT_OAUTH}?scope=user&client_id=${GATSBY_CLIENT_ID}&redirect_uri=${GATSBY_REDIRECT_URI}`;
-  // };
+  const hanldeGitHubSignIn = () => {
+    window.location.href = `${GATSBY_CLIENT_OAUTH}?scope=user&client_id=${GATSBY_CLIENT_ID}&redirect_uri=${GATSBY_REDIRECT_URI}`;
+  };
   useEffect(() => {
     fetchUserDetail(userDetail);
   }, [userDetail]);
@@ -317,12 +317,12 @@ function Header() {
 
     // <ButtonLink align="start" key="cm" label="Community" to="/community" />,
 
-    // <ButtonLink
-    //   align="start"
-    //   key="os"
-    //   label="SignIn"
-    //   to={`https://www-prod-cockpit-west.ext.hpe.com/oauth2/authorization/hpe-okta?redirectUri=${window.location.origin}`}
-    // />,
+    <ButtonLink
+      align="start"
+      key="os"
+      label="SignIn"
+      to={`https://www-prod-cockpit-west.ext.hpe.com/oauth2/authorization/hpe-okta?redirectUri=${window.location.origin}`}
+    />,
   ];
 
   navLinks.push(
@@ -335,17 +335,17 @@ function Header() {
     />,
   );
 
-  // if (!userDetail) {
-  //   navLinks.push(
-  //     <Button
-  //       align="start"
-  //       key="os"
-  //       label="SIGN IN"
-  //       secondary
-  //       onClick={handleHPESignIn}
-  //     />,
-  //   );
-  // }
+  if (!userDetail) {
+    navLinks.push(
+      <Button
+        align="start"
+        key="os"
+        label="SIGN IN"
+        secondary
+        onClick={handleHPESignIn}
+      />,
+    );
+  }
   if (size === 'small') {
     navLinks.push(
       <ButtonLink
@@ -392,7 +392,7 @@ function Header() {
           reverse
         />
       )}
-      {/* {userDetail && <UserMenu userInfo={userDetail} />} */}
+      {userDetail && <UserMenu userInfo={userDetail} />}
 
       <iframe
         title="cookie-session"
