@@ -7,6 +7,7 @@ tags:
   - data-services-cloud-console
   - powershell
   - developer
+  - hpe-greenlake-cloud-platform
 ---
 Hewlett Packard Enterprise (HPE) recently introduced a new way to manage IT data storage resources: [Data Services Cloud Console](https://www.hpe.com/us/en/storage/data-services-cloud-console.html) (DSCC) which takes a cloud-based approach to running on-prem data storage infrastructure and offers [an innovative way ](https://www.storagereview.com/news/hpe-alletra-cloud-native-high-performance-storage)to meet the management challenges of modern IT workloads. While DSCC initially added a Storage-as-a-Service layer on top of the new [HPE Alletra storage arrays,](https://www.hpe.com/us/en/storage/alletra.html) the vision of DSCC goes well beyond this, encompassing a full range of data storage services, monitoring, planning and data protection.
 
