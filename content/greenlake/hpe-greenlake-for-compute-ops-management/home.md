@@ -17,11 +17,11 @@ Every business is facing tough challenges – to digitally transform, address se
 
 With HPE GreenLake for Compute Ops Management, you can:
 
-* **Unify compute management** \
+* **Unify compute management**    
 Streamline your compute management operations using a seamless as-a-service single console experience from edge-to-cloud with self-service and real-time access to servers.   
-* **Simplify and automate** \
+* **Simplify and automate**   
   Simplify and bring agility to your compute lifecycle management to lower your Total Cost of Ownership (TCO).   
-* **Secure cloud operations** \
+* **Secure cloud operations**    
   Securely control your distributed compute lifecycle tasks using a cloud-native architecture to manage and monitor your servers seamlessly.   
 
 ### [Learn more about HPE GreenLake for Compute Ops Management](https://www.hpe.com/us/en/compute/management-software.html)
