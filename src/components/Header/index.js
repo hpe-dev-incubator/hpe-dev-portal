@@ -265,7 +265,7 @@ function Header() {
     <ButtonLink align="start" key="ev" label="Events" to="/events" />,
     <ButtonLink align="start" key="su" label="Skill Up" to="/skillup" />,
 
-    // <ButtonLink align="start" key="cm" label="Community" to="/community" />,
+    <ButtonLink align="start" key="cm" label="Community" to="/community" />,
   ];
 
   navLinks.push(

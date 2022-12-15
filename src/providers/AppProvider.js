@@ -11,7 +11,6 @@ export const AppContext = React.createContext({
 const { GATSBY_COCKPIT_HPE_USER } = process.env;
 
 const AppProvider = ({ children }) => {
-  // const [userStr, setUser] = useState(localStorage.getItem('userInfo'));
   const [userStr, setUser] = useState(null);
 
   const fetchUserDetail = (userData) => {
