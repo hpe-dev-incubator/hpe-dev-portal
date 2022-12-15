@@ -9,6 +9,7 @@ thumbnailimage: /img/dscc-icon.png
 tags:
   - data-services-cloud-console
   - developer
+  - hpe-greenlake-cloud-platform
 ---
 ## Secured, Yet Agile
 
