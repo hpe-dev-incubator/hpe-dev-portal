@@ -7,7 +7,7 @@ import {
   DropButton,
   Header as GrommetHeader,
   Nav,
-  Menu as HeaderMenu,
+  // Menu as HeaderMenu,
   ResponsiveContext,
 } from 'grommet';
 import { Menu, Search, FormDown } from 'grommet-icons';
@@ -20,8 +20,8 @@ const { GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT } = process.env;
 const { GATSBY_COCKPIT_HPE_USER } = process.env;
 const { GATSBY_COCKPIT_HPE_OAUTH } = process.env;
 const { GATSBY_REDIRECT_URI } = process.env;
-const { GATSBY_CLIENT_ID } = process.env;
-const { GATSBY_CLIENT_OAUTH } = process.env;
+// const { GATSBY_CLIENT_ID } = process.env;
+// const { GATSBY_CLIENT_OAUTH } = process.env;
 
 const TextAlignLeft = styled(Box)`
   & > a {
@@ -187,9 +187,9 @@ function Header() {
   const handleHPESignIn = () => {
     window.location.href = `${GATSBY_COCKPIT_HPE_OAUTH}?redirectUri=${GATSBY_REDIRECT_URI}`;
   };
-  const hanldeGitHubSignIn = () => {
-    window.location.href = `${GATSBY_CLIENT_OAUTH}?scope=user&client_id=${GATSBY_CLIENT_ID}&redirect_uri=${GATSBY_REDIRECT_URI}`;
-  };
+  // const hanldeGitHubSignIn = () => {
+  //   window.location.href = `${GATSBY_CLIENT_OAUTH}?scope=user&client_id=${GATSBY_CLIENT_ID}&redirect_uri=${GATSBY_REDIRECT_URI}`;
+  // };
   useEffect(() => {
     fetchUserDetail(userDetail);
   }, [userDetail]);
