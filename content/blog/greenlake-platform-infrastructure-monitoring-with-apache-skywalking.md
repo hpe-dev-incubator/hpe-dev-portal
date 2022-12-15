@@ -1,6 +1,6 @@
 ---
-title: HPE GreenLake for Private Cloud Enterprise infrastructure monitoring with
-  Apache Skywalking
+title: HPE GreenLake for Private Cloud Enterprise monitoring with Apache
+  SkyWalking and OpenTelemetry
 date: 2022-12-13T08:52:15.545Z
 author: Thirukkannan M
 authorimage: /img/thirupp_192x192.jpg
@@ -13,13 +13,13 @@ tags:
 ---
 # **Overview**
 
-Modern applications are predominantly distributed microservices based, which are flexible to scale and are developed with varying technology stack. These applications are deployed on a highly available infrastructure composed on multitude of compute (baremetal/virtual machine/container). It is imperative to monitor, in near real time, how the compute resources are utilized, so that necessary proactive actions are initiated to keep the applications in consistently acceptable state. APM (Application performance Management) tools helps to centrally monitor distributed applications and/or compute resources.
+Modern applications are predominantly distributed microservices-based applications that are flexible for scalability and developed using varying technology stacks. These applications are deployed on a highly available infrastructure composed of a multitude of compute instances (bare metal/virtual machine/container). It is imperative to monitor, in near real time, how the compute resources are utilized, so that necessary proactive actions are initiated to keep the applications in a consistently acceptable state. Application Performance Management (APM) tools help to centrally monitor distributed applications and/or compute resources.
 
-SkyWalking is a popular open-source application performance monitoring (APM) tool used to collect, analyze, aggregate, and visualize data from services and cloud-native infrastructures. It provides an easy way to maintain a clear view of your distributed systems, even across clouds. You can use it with HPE GreenLake for Private Cloud Enterprise, the managed, pay-per-use Private Cloud as a Service (PCaaS) solution to enhance monitoring and observability of your workloads.
+Apache SkyWalking is a popular, open-source application performance monitoring (APM) tool used to collect, analyze, aggregate, and visualize data from services and cloud-native infrastructures. It provides an easy way to maintain a clear view of your distributed systems, even across clouds. You can use it with HPE GreenLake for Private Cloud Enterprise, the managed, pay-per-use Private Cloud as a Service (PCaaS) solution to enhance monitoring and observability of your workloads.
 
 Because HPE GreenLake for Private Cloud Enterprise provides you with a flexible, self-service environment where you can implement a hybrid approach and run different kinds of bare metal, virtual machine, and containerized workloads, you can take advantage of additional apps and tools like SkyWalking to customize your situation and meet your specific needs.
 
-In this post, I will focus on how you can use SkyWalking and Open Telemetry to do infrastructure host monitoring while taking advantage of how HPE GreenLake provides you with a consistent cloud experience across all your applications and data, whether on- or off-premises.
+In this post, I will focus on how you can use SkyWalking and OpenTelemetry or OTel for short, to do infrastructure host monitoring while taking advantage of how HPE GreenLake provides you with a consistent cloud experience across all your applications and data, whether on- or off-premises.
 
 # **L﻿et's get started**
 
@@ -31,16 +31,16 @@ In this post, I will focus on how you can use SkyWalking and Open Telemetry to d
 ## **Pre-requisites**
 
 * An active service subscription to HPE GreenLake Private Cloud Enterprise.
-* VM and/or Bare metal instances are provisioned for the workloads and we are able to login to console.
+* VM and/or Bare metal instances are provisioned for the workloads and you are able to log in to the console.
 * SkyWalking instance has been setup either on premises or in Hyperscalers. Ensure that inbound ingress traffic is allowed on port 11800 for SkyWalking instance.
 
 ## **Steps to configure monitoring**
 
 ### Step 1- Monitoring host metric with node exporter
 
-Login to the console of machine to be monitored.
+Log in to the console of machine to be monitored.
 
-Next, Download and run the node exporter using below code snippet
+Next, download and run the node exporter using the snippet code below.
 
 ```shell
 wget https://github.com/prometheus/node_exporter/releases/download/v1.4.0-rc.0/node_exporter-1.4.0-rc.0.linux-amd64.tar.gz
@@ -76,7 +76,7 @@ systemctl enable nodexporter.service
 systemctl start nodexporter.service
 ```
 
-Check the metrics endpoint shows metrics exported from the infrastructure node.
+Check that the metrics endpoint shows metrics exported from the infrastructure node.
 
 ```shell
 curl <http://localhost:9100/metrics>
@@ -84,9 +84,9 @@ curl <http://localhost:9100/metrics>
 
 ![](/img/node_metrics.png "Node Metrics")
 
-### Step 2- Setup OTel (OpenTelemetry) collector
+### Step 2- Setup OpenTelemetry (OTel) collector
 
-OTel provides a set of standardized vendor-agnostic SDKs, APIs, and tools for ingesting, transforming, and sending data to an Observability back-end. We can install OTel collector in the same host, which exposes metrics, or we can create central VM/Bare metal instance to receive telemetry information from several infrastructure instances.
+OTel provides a set of standardized vendor-agnostic SDKs, APIs, and tools for ingesting, transforming, and sending data to an observability back-end. You can install OTel collector in the same host, which exposes metrics, or we can create central VM/Bare metal instance to receive telemetry information from several infrastructure instances.
 
 Install OTel collector.
 
@@ -100,19 +100,19 @@ systemctl status otelcol
 # By default, the otelcol systemd service will be started with the --config=/etc/otelcol/config.yaml option after installation.
 ```
 
-Create a new otel configuration file (say /etc/otelcol/otel-collector-config.yaml) to link the metrics from host nodes to SkyWalking oap. The orange box in below images must be modified to point to correct infrastructure hosts and SkyWalking DNS or IP address.
+Create a new OTel configuration file (say /etc/otelcol/otel-collector-config.yaml) to link the metrics from host nodes to SkyWalking oap. The orange boxes shown in the images below must be modified to point to the correct infrastructure hosts and SkyWalking DNS or IP address.
 
 ![](/img/otel_collector_configuration.png "OTeL Configuration")
 
-Change OTel configuration to newly created OTel configuration file.
+Change the OTel configuration to the newly created OTel configuration file.
 
 ```shell
 cd /etc/otelcol
 
 sudo nano otelcol.conf
 
-#change the path to new configuration file we created in the above step and save
-
+# Change the path to the new configuration file you just created in the 
+# above step and save.
 
 sudo systemctl restart otelcol
 
@@ -125,7 +125,7 @@ sudo journalctl -u otelcol
 
 # **Conclusion**
 
-Infrastructure and application level monitoring gives holistic picture of service reliability. We have seen, how easily we could setup compute infrastructure resource monitoring, running in on- or off premises, using OpenTelemetry and Skywalking. CPU, Memory, and Disk usage trend in APM tool gives monitoring team, with early insight into potential issues in system, which need to be addressed before its faced by customers of applications. Additionally, APM tools often provide trace, logs, metrics monitoring along with alerting, which can be used in conjunction with infrastructure monitoring to have highly reliable service for customers.
+Infrastructure and application level monitoring gives a holistic picture of service reliability. In this post, I have shown you how easily you can set up compute infrastructure resource monitoring, running in on- or off-premises, using OpenTelemetry and SkyWalking. CPU, Memory, and Disk usage trends showin in the APM tool give the monitoring team early insights into potential system issues that should be addressed before they impact customer applications. Additionally, APM tools often provide trace, logs, metrics monitoring along with alerting, which can be used in conjunction with infrastructure monitoring tools to provide highly reliable services for customers.
 
 # **Reference**
 
