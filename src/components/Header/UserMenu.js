@@ -27,7 +27,9 @@ export function UserMenu({ userInfo }) {
   const handleSignOut = () => {
     console.log('log out');
     // fetch(`${GATSBY_HPE_SIGNOUT}?redirectUri=${GATSBY_REDIRECT_URI}`)
-    fetch(`${GATSBY_HPE_SIGNOUT}&tstamp=${new Date().getTime()}`)
+    fetch(`${GATSBY_HPE_SIGNOUT}&tstamp=${new Date().getTime()}`, {
+      credentials: 'include',
+    })
       // fetch(
       //   'https://aquila-user-api.common.cloud.hpe.com/authn/v1/session/end-session',
       // )
