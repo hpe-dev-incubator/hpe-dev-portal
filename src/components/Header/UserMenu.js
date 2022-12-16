@@ -99,6 +99,14 @@ export function UserMenu({ userInfo }) {
                 style={{ padding: 16, fontWeight: 'bold' }}
                 onClick={handleSignOut}
               /> */}
+              {console.log(
+                'sing out +++++',
+                `https://www.hpe.com/system/sling/logout.html?redirectUri=${
+                  typeof window !== 'undefined'
+                    ? window.location.origin
+                    : 'https://developer.hpe.com/'
+                }`,
+              )}
               <ButtonLink
                 align="start"
                 icon={<LinkNext />}
