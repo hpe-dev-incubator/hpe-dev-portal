@@ -25,31 +25,6 @@ export function UserMenu({ userInfo }) {
     setOpen((o) => !o);
   };
 
-  // const handleSignOut = () => {
-  //   console.log('log out');
-  //   // fetch(`${GATSBY_HPE_SIGNOUT}?redirectUri=${GATSBY_REDIRECT_URI}`)
-  //   fetch(`${GATSBY_HPE_SIGNOUT}&tstamp=${new Date().getTime()}`, {
-  //     credentials: 'include',
-  //   })
-  //     // fetch(
-  //     //   'https://aquila-user-api.common.cloud.hpe.com/authn/v1/session/end-session',
-  //     // )
-  //     // .then((response) => {
-  //     //   console.log('response1', response);
-  //     //   return response.json();
-  //     // })
-  //     .then((response) => {
-  //       console.log('response2', response);
-  //       localStorage.removeItem('userInfo');
-  //       window.location.reload();
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //       return err;
-  //     });
-  //   //
-  // };
-
   return (
     <Box>
       <Avatar background="brand" size="medium" onClick={onMenuClick}>
@@ -91,14 +66,6 @@ export function UserMenu({ userInfo }) {
                   width,
                 }}
               />
-              {/* <Button
-                size="medium"
-                icon={<LinkNext />}
-                label="Sign Out"
-                alignSelf="start"
-                style={{ padding: 16, fontWeight: 'bold' }}
-                onClick={handleSignOut}
-              /> */}
               {console.log(
                 'sing out +++++',
                 `https://www.hpe.com/system/sling/logout.html?redirectUri=${
