@@ -657,6 +657,7 @@ If appropriate, use a tag to tie your blog post to a "platform" page on HPE Deve
   | **Project Data Map**               | project-data-map |
   | **KubeDirector**                   | kubedirector |
   | **HPE Swarm Learning**             | hpe-swarm-learning |
+  | **open-source software**           | opensource |
   
   
   
