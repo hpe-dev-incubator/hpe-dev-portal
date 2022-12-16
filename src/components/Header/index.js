@@ -134,6 +134,14 @@ function Header() {
   };
 
   const handleHPESignIn = () => {
+    console.log(
+      'Sign in URL+++',
+      `${GATSBY_COCKPIT_HPE_OAUTH}?redirectUri=${
+        typeof window !== 'undefined'
+          ? window.location.origin
+          : 'https://developer.hpe.com/'
+      }`,
+    );
     window.location.href = `${GATSBY_COCKPIT_HPE_OAUTH}?redirectUri=${
       typeof window !== 'undefined'
         ? window.location.origin
@@ -261,7 +269,7 @@ function Header() {
     //   to="/use-cases"
     //   alignSelf="start"
     // />,
-    <ButtonLink align="start" key="yr" label="Your Role" to="/role" />,
+    // <ButtonLink align="start" key="yr" label="Your Role" to="/role" />,
     <ButtonLink align="start" key="ev" label="Events" to="/events" />,
     <ButtonLink align="start" key="su" label="Skill Up" to="/skillup" />,
 
