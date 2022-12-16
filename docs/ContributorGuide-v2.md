@@ -626,13 +626,13 @@ To add a the GitHub repo URL in a platform/Technology page, you can use the mark
 
 -  **Tip #17: Tagging:**
 
-If appropriate, use a tag to tie your blog post to a "platform" page on HPE Developer portal. List of "platforms" tag is in the table below.
+If appropriate, use a tag to tie your blog post to a "Product" page or a "HPE GreenLake" page on HPE Developer portal. List of appropiate tags to use is in the table below.
 
->**Note:** You can also tag your article with popular keywords (1 to 4 keywords) that reflect the relevancy of your topic. Use tags as one way to optimize your blog post for results from search engines such as Google search engine. Visit the site [here](https://hpe-dev-portal.netlify.app/tags/) to look for existing tags in our HPE Developer site.
+>**Note:** You can also tag your article with popular keywords (1 to 4 keywords) that reflect the relevancy of your topic. Use tags as one way to optimize your blog post for results from search engines such as Google search engine. Visit the site [here](https://developer.hpe.com/tags/) to look for existing tags in our HPE Developer site.
 
 >**Note about HPE GLCP**: When tagging blog posts for DSCC, COM and Aruba Central, please add the tag hpe-greenlake-cloud-platform because COM, DSCC and Aruba Central are native SaaS-based console delivered from HPE GreenLake Cloud Platform.
 
-  | **Platform name**                  |   **Associated tag**    |
+  | **Product and HPE GreenLake**      |   **Associated tag**    |
   | ---------------------------------- | ----------------------- |
   | **HPE Ezmeral**                    | hpe-ezmeral     |
   | **HPE Ezmeral Data Fabric**        | hpe-ezmeral-data-fabric |
