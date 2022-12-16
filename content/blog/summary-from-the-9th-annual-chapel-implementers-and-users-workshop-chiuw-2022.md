@@ -9,7 +9,7 @@ tags:
   - Chapel Programming Language
   - GPU Programming
   - High Performance Computing
-  - Open Source
+  - opensource
   - Arkouda (Data Analytics in Python powered by Chapel)
   - chapel
 ---
