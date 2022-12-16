@@ -1,12 +1,15 @@
 ---
-title: "Sir Hackington Appbuilder III Tells You What Happened at OSCON"
+title: Sir Hackington Appbuilder III Tells You What Happened at OSCON
 date: 2018-08-10T01:00:29.215Z
-author: Sir Hackington Appbuilder III 
-tags: ["opensource","community","OSCON"]
-authorimage: "/img/blogs/Avatar2.svg"
 featuredBlog: false
-priority:
-thumbnailimage:
+priority: null
+author: Sir Hackington Appbuilder III
+authorimage: /img/blogs/Avatar2.svg
+thumbnailimage: null
+tags:
+  - opensource
+  - community
+  - OSCON
 ---
 Sir Hackington Appbuilder III here. Yeah, take a look at the picture. I’m the dog with the lanyards. I’m pretty cute, huh? That’s what people tell me. Sure, they also call me a mascot, but I’d like to think I’m the most important member of the HPE Developer Community (HPE DEV). 
 
@@ -43,3 +46,4 @@ HPE DEV is making inroads with the developer community, which they continued at 
 ![4](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2018/8/4-1533863163033.png)
 
 Missed HPE DEV at OSCON? No worries. They will be making appearances at dev-friendly conferences around the United States and Europe over the next few months. For more information about where you can find them, visit the [Events](https://developer.hpe.com/events) page. And follow the [Community](https://developer.hpe.com/community) page to see highlights of previous appearances and ways to get involved and contribute. And come check us next at [VMworld](https://www.vmworld.com/en/us/index.html) to learn more! I’ll be there!
+
