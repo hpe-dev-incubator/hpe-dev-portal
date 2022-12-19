@@ -47,7 +47,7 @@ thead tr:first-child td {
 
 | Date          | Title                             | Speaker                    | Webinar link                                                                                            | HPE Ezmeral Early Access link                                                                             |
 | ------------- | --------------------------------- | -------------------------- | ------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
-| **17-Jan-23** | **HPE Ezmeral Unified Analytics** | **Srikanth Vendara Seshu** | **[Register for Webinar](https://hpe.zoom.us/webinar/register/7516631596092/WN_qEWHxuucTa-UilEnOqmByg)** | **[Learn about EEA](https://connect.hpe.com/HPEEzmeralEarlyAccessUnifiedAnalytics)** |
+| **17-Jan-23** | **HPE Ezmeral Unified Analytics** | **Srikanth Venkata Seshu** | **[Register for Webinar](https://hpe.zoom.us/webinar/register/7516631596092/WN_qEWHxuucTa-UilEnOqmByg)** | **[Learn about EEA](https://connect.hpe.com/HPEEzmeralEarlyAccessUnifiedAnalytics)** |
 
 <br/>
 
