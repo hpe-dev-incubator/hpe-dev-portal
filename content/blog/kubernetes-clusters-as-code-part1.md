@@ -7,7 +7,7 @@ tags:
   - hpe-greenlake
   - devops
   - terraform
-  - open source
+  - opensource
 ---
 ## Getting started
 

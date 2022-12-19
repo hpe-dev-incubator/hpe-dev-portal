@@ -6,7 +6,7 @@ author: Dale Rensing
 authorimage: /img/Avatar6.svg
 disable: false
 tags:
-  - open-source
+  - opensource
 ---
 In this blog series, you’ll meet some of the open source experts working with the HPE Developer Community team. In this post, I’ll be interviewing Annmary Justine K who works in the HPE AI Research Lab on foundations and techniques for data centric trustworthy AI. As an AI Expert, she has been looking into areas like data provenance, data versioning, metadata tracking and lineages. Prior to her work in HPE’s AI research lab, she worked in HPE Storage, focused on various products ranging from file, block, and object level storage. She has published multiple research papers and patent disclosures in her 15 years of industry experience.
 
