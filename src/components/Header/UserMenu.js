@@ -25,6 +25,8 @@ export function UserMenu({ userInfo }) {
     setOpen((o) => !o);
   };
 
+  console.log('--user-- UserMenu', userInfo);
+
   return (
     <Box>
       <Avatar background="brand" size="medium" onClick={onMenuClick}>
