@@ -56,3 +56,5 @@ thead tr:first-child td {
 | Date          | Title                             | Speaker                    | Webinar link                                                                                            | HPE Ezmeral Early Access link                                                                             |
 | ------------- | --------------------------------- | -------------------------- | ------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
 | **19-Jan-23**     | **HPE GreenLake for Data Fabric**     | **Alaric Thomas**              | **[Register for Webinar](https://hpe.zoom.us/webinar/register/1016631597484/WN_xLR2ynonSi6SojUswkVmRw)**  | **[Learn about EEA](https://home.hpe-df.com)** |
+
+
