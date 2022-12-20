@@ -53,14 +53,14 @@ Ronald van Loon and Krishnaprasad Shastry, Chief Technologist at HPE, talked abo
 
 - - -
 
-## Any questions on HPE Swarm Learning?
-
-J﻿oin the [HPEDEV Slack Workspace](https://slack.hpedev.io/) and start a discussion in our [\#hpe-swarm-learning](https://hpedev.slack.com/archives/C04A5DK9TUK) channel.
-
-- - -
-
 ## Resources[](https://www.hpe.com/us/en/solutions/artificial-intelligence/swarm-learning.html)
 
 * **[H﻿PE Swarm Learning Home Page](https://www.hpe.com/us/en/solutions/artificial-intelligence/swarm-learning.html)**
 * [**HPE Swarm Learning Community Edition ![](Github)**](https://github.com/HewlettPackard/swarm-learning)
 * [**Try HPE Swarm Learning Examples ![](GitHub)**](https://github.com/HewlettPackard/swarm-learning/tree/master/examples)
+
+- - -
+
+## Any questions on HPE Swarm Learning?
+
+J﻿oin the [HPEDEV Slack Workspace](https://slack.hpedev.io/) and start a discussion in our [\#hpe-swarm-learning](https://hpedev.slack.com/archives/C04A5DK9TUK) channel.
