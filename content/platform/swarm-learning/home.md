@@ -57,7 +57,7 @@ In this video Ronald van Loon and HPE Chief Technologist, Krishnaprasad Shastry,
 
 * **[H﻿PE Swarm Learning home page](https://www.hpe.com/us/en/solutions/artificial-intelligence/swarm-learning.html)**
 * **[HPE Swarm Learning community edition ![](Github)](https://github.com/HewlettPackard/swarm-learning)**
-* **[Try HPE Swarm Learning examples ![](GitHub)](https://github.com/HewlettPackard/swarm-learning/tree/master/examples)**
+* **[Try HPE Swarm Learning examples ![](Github)](https://github.com/HewlettPackard/swarm-learning/tree/master/examples)**
 
 - - -
 
