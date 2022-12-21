@@ -29,7 +29,7 @@ In this video, Dr. Eng Lim Goh highlights the challenges of data privacy for org
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/JqwjyENd89I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-**\-﻿ The Big Shift: What is Swarm Learning?**
+**\-﻿ The Big Shift: What is swarm learning?**
 
 Swarm learning is the next gold rush for machine intelligence - training at the edge so the edge devices get smarter and also train their peers. With no central authority, Blockchain is integrated to add control, privacy, and security.
 
