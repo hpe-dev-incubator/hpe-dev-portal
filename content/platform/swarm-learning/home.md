@@ -43,7 +43,7 @@ HPE Swarm Learning is the industry’s first privacy preserving, decentralized m
 
 - - -
 
-## Listen to what the Experts are saying
+## Listen to what the experts are saying
 
 \-﻿ **How to Optimize Machine Learning at the Edge with Swarm Learning**
 
