@@ -23,13 +23,13 @@ HPE Swarm Learning is a decentralized, privacy-preserving Machine Learning frame
 
 ## Learn more about HPE Swarm Learning and its underlying technology
 
-**\-﻿ What's all the Buzz about Swarm Learning?**
+**\-﻿ What's all the buzz about Swarm Learning?**
 
 In this video, Dr. Eng Lim Goh highlights the challenges of data privacy for organizations using siloed data to bring about collective insights. Also, he explains HPE Swarm Learning has the potential to change our lives and solve some of the world's most pressing and complex problems.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/JqwjyENd89I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-**\-﻿ The Big Shift: What is swarm learning?**
+**\-﻿ The big shift: What is swarm learning?**
 
 Swarm learning is the next gold rush for machine intelligence - training at the edge so the edge devices get smarter and also train their peers. With no central authority, Blockchain is integrated to add control, privacy, and security.
 
@@ -55,12 +55,12 @@ In this video Ronald van Loon and HPE Chief Technologist, Krishnaprasad Shastry,
 
 ## Resources[](https://www.hpe.com/us/en/solutions/artificial-intelligence/swarm-learning.html)
 
-* **[H﻿PE Swarm Learning Home Page](https://www.hpe.com/us/en/solutions/artificial-intelligence/swarm-learning.html)**
-* [**HPE Swarm Learning Community Edition ![](Github)**](https://github.com/HewlettPackard/swarm-learning)
-* [**Try HPE Swarm Learning Examples ![](GitHub)**](https://github.com/HewlettPackard/swarm-learning/tree/master/examples)
+* **[H﻿PE Swarm Learning home page](https://www.hpe.com/us/en/solutions/artificial-intelligence/swarm-learning.html)**
+* **[HPE Swarm Learning community edition ![](Github)](https://github.com/HewlettPackard/swarm-learning)**
+* **[Try HPE Swarm Learning examples ![](GitHub)](https://github.com/HewlettPackard/swarm-learning/tree/master/examples)**
 
 - - -
 
 ## Any questions on HPE Swarm Learning?
 
-J﻿oin the [HPEDEV Slack Workspace](https://slack.hpedev.io/) and start a discussion in our [\#hpe-swarm-learning](https://hpedev.slack.com/archives/C04A5DK9TUK) channel.
+J﻿oin the [HPE Developer Slack Workspace](https://slack.hpedev.io/) and start a discussion in our [\#hpe-swarm-learning](https://hpedev.slack.com/archives/C04A5DK9TUK) channel.
