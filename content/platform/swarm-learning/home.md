@@ -37,7 +37,7 @@ Swarm learning is the next gold rush for machine intelligence - training at the 
 
 **\-﻿ HPE Swarm Learning product introduction**
 
-HPE Swarm Learning – industry’s first privacy preserving, decentralized machine learning solution . Developed by HPE Labs, HPE Swarm Learning enables AI/ML model developers to increase accuracy and reduces biases in their models.
+HPE Swarm Learning – industry’s first privacy preserving, decentralized machine learning solution. Developed by HPE Labs, HPE Swarm Learning enables AI/ML model developers to increase accuracy and reduce biases in their models.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ORujFJ1lVVw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
