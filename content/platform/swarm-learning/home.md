@@ -5,7 +5,7 @@ description: "HPE Swarm Learning is a decentralized, privacy-preserving Machine
   Learning framework. "
 image: /img/platforms/guid-e80d248e-e754-498e-99d6-67508092f779-high.jpg
 width: large
-priority: 5
+priority: 3
 frontpage: false
 active: true
 tags:
