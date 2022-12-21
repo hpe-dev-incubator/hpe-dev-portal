@@ -9,7 +9,7 @@ priority: 0
 frontpage: false
 active: false
 ---
-HPE Swarm Learning is a decentralized, privacy-preserving Machine Learning framework. This framework utilizes the computing power at, or near, the distributed data sources to run the Machine Learning algorithms that train the models. It uses the security of a blockchain platform to share learnings with peers in a safe and secure manner. In  HPE Swarm Learning, training of the model occurs at the edge, where data is most recent, and where prompt, data-driven decisions are mostly necessary. In this completely decentralized architecture, only the insights learned are shared with the collaborating ML peers, not the raw data. This tremendously enhances data security and privacy.
+HPE Swarm Learning is a decentralized, privacy-preserving Machine Learning framework. This ML framework utilizes the computing power at, or near, the distributed data sources to run the Machine Learning algorithms that train the models. It uses the security of a blockchain platform to share learnings with peers in a safe and secure manner. In  HPE Swarm Learning, training of the model occurs at the edge, where data is most recent, and where prompt, data-driven decisions are mostly necessary. In this completely decentralized architecture, only the insights learned are shared with the collaborating ML peers, not the raw data. This tremendously enhances data security and privacy.
 
 - - -
 
@@ -23,9 +23,9 @@ HPE Swarm Learning is a decentralized, privacy-preserving Machine Learning frame
 
 ## Learn more about HPE Swarm Learning and its underlying technology
 
-**\-﻿ What's All the Buzz about Swarm Learning?**
+**\-﻿ What's all the Buzz about Swarm Learning?**
 
-In this video, Dr. Eng Lim Goh highlights the challenges of data privacy in the organizations to use siloed data to be used to bring out collective insights. Also, he explains HPE Swarm learning has the potential to change our lives and solve some of the world's most pressing and complex problems.
+In this video, Dr. Eng Lim Goh highlights the challenges of data privacy for organizations using siloed data to bring about collective insights. Also, he explains HPE Swarm Learning has the potential to change our lives and solve some of the world's most pressing and complex problems.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/JqwjyENd89I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
