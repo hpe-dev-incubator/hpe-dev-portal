@@ -47,7 +47,7 @@ HPE Swarm Learning is the industry’s first privacy preserving, decentralized m
 
 \-﻿ **How to optimize machine learning at the edge with HPE Swarm Learning**
 
-Ronald van Loon and Krishnaprasad Shastry, Chief Technologist at HPE, talked about optimizing Machine Learning at the edge with Swarm Learning.
+In this video Ronald van Loon and HPE Chief Technologist, Krishnaprasad Shastry, talk about optimizing machine learning at the edge with swarm learning
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/paBt6nvyTHQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
