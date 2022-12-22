@@ -10,6 +10,7 @@ tags:
   - hpe-greenlake
   - developer
   - mongodb
+  - hpe-greenlake-for-private-cloud-enterprise
 ---
 **Editor’s Note – NAME CHANGE: HPE GreenLake for Containers is now part of HPE GreenLake for Private Cloud Enterprise.**
 
