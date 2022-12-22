@@ -1,5 +1,6 @@
 ---
-title: A guide to deploying MongoDB applications using HPE GreenLake for Containers
+title: A guide to deploying MongoDB applications using HPE GreenLake for Private
+  Cloud Enterprise
 date: 2022-12-01T15:59:42.991Z
 author: Akash Patel , Ashish Kumar, Sudhakaran Sonu
 authorimage: /img/Avatar1.svg
@@ -10,6 +11,10 @@ tags:
   - developer
   - mongodb
 ---
+**Editor’s Note – NAME CHANGE: HPE GreenLake for Containers is now part of HPE GreenLake for Private Cloud Enterprise.**
+
+- - -
+
 ## Introduction
 
 In this blog post, we demonstrate how an end user can deploy a containerized, stateful MongoDB application on a Kubernetes-based container stack provided by HPE GreenLake for Containers and then access it over an external network or internet. In this scenario, the Kubernetes cluster gets configured using HPE CSI driver, along with the default storage class.
