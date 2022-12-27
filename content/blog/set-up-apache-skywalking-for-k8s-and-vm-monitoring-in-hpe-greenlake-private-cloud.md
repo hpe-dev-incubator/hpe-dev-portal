@@ -1,5 +1,5 @@
 ---
-title: Set up Apache SkyWalking for application monitoring on K8s and VM in HPE
+title: Set up Apache SkyWalking for both application and K8s monitoring in HPE
   GreenLake Private Cloud
 date: 2022-09-29T07:26:49.087Z
 author: Guoping Jia and Thirukkannan M
