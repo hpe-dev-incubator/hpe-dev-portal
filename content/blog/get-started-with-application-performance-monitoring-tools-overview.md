@@ -13,7 +13,7 @@ tags:
   - Prometheus
   - Elastic
   - Apache SkyWalking
-  - Synatrace
+  - Dynatrace
 ---
 ## Introduction
 
