@@ -31,11 +31,11 @@ There is a wealth of APM tools, either dedicated to APM tasks or with APM functi
 
 ## APM Tools: open-source vs commercial vendor
 
-The market is saturated with commercial but also free and open-source APM tools. Picking the right one for your stack might be tricky. 
+The market is saturated with commercial but also free and open-source based APM tools. Picking the right one for your stack might be tricky. 
 
-Open source APM tools give a lot of freedom to their users since they can access and customize the tool’s source code for their project-specific needs. It also allows for self-hosting, which can help in the context of tightening data protection laws and remove the privacy and security concerns customers may have to put customer data going to third party services. Open source tools also often offer a vibrant community of active Developers who might provide helpful plugins and tips.
+Open source based APM tools give a lot of freedom to their users since they can access and customize the tool’s source code for their project-specific needs. It also allows for self-hosting, which can help in the context of tightening data protection laws and remove the privacy and security concerns customers may have to put customer data going to third party services. Open source APM tools also often offer a vibrant community of active developers who might provide helpful plugins and tips.
 
-However, many SaaS-based APM tools offer free or reasonably priced bundles. Open source is rarely free, and many SaaS solutions offer better, more reliable, and reasonably priced APM tools.
+However, many SaaS-based commercial APM tools offer free or reasonably priced bundles. Open source is rarely free, and many commercial SaaS solutions offer better, more reliable, and reasonably priced APM tools.
 
 ## APM Tools Overview
 
@@ -236,21 +236,22 @@ Apache SkyWalking provides a list of agents to be used for building _Java_, _.NE
 
 
 
-Apache SkyWalking is lightweight and scalable. It can be easily set up as a _self-managed_ APM tool within an on-premises data center. This avoids leasing customer data to third party services and removes the restricted security restriction in user environment.  
+Apache SkyWalking is lightweight, scalable, and supports alerting and visualization. It can be easily set up as a _self-managed_ APM tool within an on-premises data center. This avoids leasing customer data to third party services and removes the restricted security restriction in user environment.   
 
 ## Conclusion
 
-This blog post gave a closer look at some of the best APM tools, either open-source or commercial vendor based. It discussed their strengths and weaknesses. Although we know the importance of a good APM solution, picking up the right, and ideally the best one, can be a very difficult decision to make.  
+This blog post gave a closer look at some of the best APM tools, either open-source or commercial vendor based. It listed the key features of each APM tool, and discussed in details their strengths and weaknesses. The importance of a good APM solution is now indisputable. So all it takes is to pick the right one based on your monitoring needs for your applications.   
 
 
 
-This blog post is the first of two in a series. In the second post, I will show you the detailed process how to set up APM tool in HPE GreenLake PCE, using _Apache SkyWalking_, for monitoring and alerting both customer application and Kubernetes cluster.
+This blog post is the first of two in a series. In the second post, I will show you the detailed process how to set up the _Apache SkyWalking_, as the APM tool, in HPE GreenLake Private Cloud Enterprise  for monitoring and alerting both customer application and Kubernetes cluster. 
 
 
 
 ## Reference
  
-* [Splunk](https://www.splunk.com/)
+* [HPE GreenLake for Private Cloud Enterprise](https://www.hpe.com/us/en/greenlake/private-cloud-enterprise.html) 
+* [Splunk](https://www.splunk.com/) 
 * [New Relic](https://newrelic.com/) 
 * [Datadog](https://www.datadoghq.com/)
 * [Dynatrace](https://www.dynatrace.com/)
