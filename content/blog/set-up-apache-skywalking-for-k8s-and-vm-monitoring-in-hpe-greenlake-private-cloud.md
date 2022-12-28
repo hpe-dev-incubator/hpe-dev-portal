@@ -5,7 +5,8 @@ date: 2022-09-29T07:26:49.087Z
 author: Guoping Jia
 authorimage: /img/guoping.png
 tags:
-  - hpe-greenlake, kubernetes, virtual machine, monitoring
+  - hpe-greenlake, kubernetes, application performance monitoring, Apache
+    SkyWalking
 ---
 ## Introduction
 
@@ -15,29 +16,27 @@ Available on the HPE GreenLake Central platform, [HPE GreenLake for Private Clou
 * HPE GreenLake for Containers
 * HPE GreenLake for Bare Metal Servers
 
-I﻿t provides an automated, flexible private cloud c﻿ustomers can use to run, support, and develop any of apps in their private environment, with modern cloud experience for VMs, containers, and bare metal. 
+I﻿t provides an automated, flexible private cloud customers can use to run, support, and develop any of apps in their private environment, with modern cloud experience for VMs, containers, and bare metal. 
 
 This blog post describes the process of deploying the Apache SkyWalking t﻿o the HPE GreenLake private cloud. in customer production environments. 
 
 ## Apache SkyWalking
 
-[Apache SkyWalking](https://skywalking.apache.org/) is an open source application performance monitor (APM) tool, especially designed for microservices, cloud native, and container-based architectures. It provides a list of agents to be used for building Java, .NET core, PHP, Node.js, Golang, LUA, Rust and C++ apps. This enables the Apache SkyWalking to automatically discover, instrument and collect monitoring metrics from application environment, detect slow services and endpoints, and provide root cause analysis. 
+[Apache SkyWalking](https://skywalking.apache.org/) is an open source application performance monitor (APM) tool, especially designed for microservices, cloud native, and container-based architectures. It provides a list of agents to be used for building `Java`, `.NET Core`, `PHP`, `Node.js`, `Golang`, `LUA`, `Rust` and `C++` apps. This enables the Apache SkyWalking to automatically discover, instrument and collect monitoring metrics from application environment, detect slow services and endpoints, and provide root cause analysis. 
 
 Apache SkyWalking is lightweight and scalable. It can be easily set up as self-managed APM tool within an on-premises data center. This avoids leasing customer data to third party services and matches well with the restricted security restriction in HPE GreenLake for Private Cloud Enterprise environment.
 
 ## Prerequisites
-A Kubernetes cluster needs to be created in HPE GreenLake for Private Cloud Enterprise. You need to download the _kubectl_ binary, together with the _HPE kubectl plugin_ and the _kubeconfig_ file of the created cluster, from the launched service console. The downloaded kubectl binary and its plugin need to be set up in your environment. To simplify the setup process, you should export the environment variable `KUBECONFIG` and point it to the downloaded kubeconfig file. With these setups in place, you can access the Kubernetes cluster in the HPE GreenLake for Private Cloud Enterprise.
 
+A Kubernetes cluster needs to be created in HPE GreenLake for Private Cloud Enterprise. You need to download the *kubectl* binary, together with the *HPE kubectl plugin* and the *kubeconfig* file of the created cluster, from the launched service console. The downloaded *kubectl* binary and its plugin need to be set up in your environment. To simplify the setup process, you should export the environment variable `KUBECONFIG` and point it to the downloaded kubeconfig file. With these setups in place, you can access the Kubernetes cluster in the HPE GreenLake for Private Cloud Enterprise.
 
-
-The [Helm CLI]( https://helm.sh/docs/intro/install/) needs to be installed in your environment. This Helm CLI will be used for installing and setting up the Apache SkyWalking.
-
+The [Helm CLI](https://helm.sh/docs/intro/install/) needs to be installed in your environment. This Helm CLI will be used for installing and setting up the Apache SkyWalking.
 
 ## Setup Details
 
-### Deploy Apache SkyWalkinge
+### Deploy Apache SkyWalking
 
-Install SkyWalking using helm charts with elasticsearch as storage 
+Install SkyWalking using helm charts with *elasticsearch* as storage:
 
 ```markdown
 $ git clone https://github.com/apache/skywalking-kubernetes 
@@ -75,10 +74,10 @@ Get the UI URL by running these commands:
   kubectl port-forward svc/skywalking-ui 8080:80 --namespace skywalking
 ```
 
-T﻿he Apache SkyWalking is installed to the K8s cluster namespace *skywalking*. You can check the details by typing the following kubectl command:
+T﻿he Apache SkyWalking is installed to the K8s cluster namespace *skywalking*. You can check the details by typing the following *kubectl* command:
 
 ```markdown
-$ k get all -n skywalking
+$ kubectl get all -n skywalking
 NAME                                  READY   STATUS      RESTARTS   AGE
 pod/elasticsearch-master-0            1/1     Running     0          8m7s
 pod/elasticsearch-master-1            1/1     Running     0          8m7s
@@ -141,9 +140,9 @@ Events:                   <none>
 
 T﻿he SkyWalking UI can then be accessed in your browser by typing the address *gl2-caas.gl-hpe.local:10037*: 
 
-![](/img/skywalking-ui-0.pnp.png)
+![](/img/sw-ui.png)
 
-### Deploy Multi-tier Applications
+### Deploy a Sample SpringBoot Application
 
 The following multi-tier music application will be installed to the K8s cluster.
 
@@ -152,9 +151,41 @@ The following multi-tier music application will be installed to the K8s cluster.
 * Recommendations (Python)
 * Songs (Spring)
 
-I﻿n order to monitor the multi-tier application from SkyWalking, various SkyWalking agent per programming language needs to be built into each service which collects application data and exports them to the SkyWalking OPA server. 
+![](/img/sw-agents.png)
 
-![](/img/skywalking-agents.png)
+I﻿n order to monitor the multi-tier application from SkyWalking, each SkyWalking agent per programming language needs to be built into corresponding service which collects application data and exports them to the SkyWalking OAP server. 
+
+![](/img/java-agent.png)
+
+```markdown
+$ cat Dockerfile
+FROM adoptopenjdk:11-jre-hotspot
+# copy extracted agent folder from the downloaded archive
+ADD agent /opt/agent
+# copy the app jar file
+EXPOSE 8080
+ADD target/springboot-k8s-demo.jar /app/springboot-k8s-demo.jar
+WORKDIR /app
+ENTRYPOINT ["java","-javaagent:/opt/agent/skywalking-agent.jar=agent.namespace=default,agent.service_name=springboot-k8s-app,collector.backend_service=skywalking-oap.skywalking.svc.cluster.local: 11800, plugin.jdbc.trace_sql_parameters = true,profile.active=true","-jar","/app/springboot-k8s-app.jar"]
+```
+### Monitor SpringBoot Application from SkyWalking UI
+
+![](/img/java-app.png)
+
+![](/img/java-app-map.png)
+
+### Deploy Multi-tier Application
+
+The following multi-tier music application will be installed to the K8s cluster.
+
+* App Server (NodeJS) & UI (React):
+* Gateway (Spring)
+* Recommendations (Python)
+* Songs (Spring)
+
+![](/img/multl-tier-app-music.png)
+
+I﻿n order to monitor the multi-tier application from SkyWalking, each SkyWalking agent per programming language needs to be built into corresponding service which collects application data and exports them to the SkyWalking OAP server. 
 
 ```markdown
 ├── app
@@ -195,7 +226,7 @@ I﻿n order to monitor the multi-tier application from SkyWalking, various SkyWa
     └── src
 ```
 
-A﻿fter image files are rebuilt with the agent, the multi-tier application can be deployed to the K8s cluster:
+A﻿fter image files are rebuilt with the agents, the multi-tier application can be deployed to the K8s cluster:
 
 ```markdown
 $ envsubst < resources.yaml | kubectl create -f -
@@ -210,12 +241,12 @@ deployment.apps/app-deployment created
 deployment.apps/loadgen-deployment created
 ```
 
-### Monitor Multi-tier Applications from SkyWalking UI
+### Monitor Multi-tier Application from SkyWalking UI
 
-![](/img/skywalking-ui-app.png)
+![](/img/multl-tier-app.png)
 
-![](/img/skywalking-ui-app-topology.png)
+![](/img/multl-tier-app-map.png)
 
-## Set up Apache SkyWalkinge for Application Monitoring on Virtual Machines
+## Conclusion
 
 <﻿to be added>
