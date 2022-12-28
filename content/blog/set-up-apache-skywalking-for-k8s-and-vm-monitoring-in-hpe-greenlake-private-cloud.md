@@ -1,9 +1,9 @@
 ---
-title: Set up Apache SkyWalking for both application and K8s monitoring in HPE
-  GreenLake Private Cloud
+title: Set up Apache SkyWalking for application monitoring in HPE GreenLake for
+  Private Cloud Enterprise
 date: 2022-09-29T07:26:49.087Z
-author: Guoping Jia and Thirukkannan M
-authorimage: /img/Avatar1.svg
+author: Guoping Jia
+authorimage: /img/guoping.png
 tags:
   - hpe-greenlake, kubernetes, virtual machine, monitoring
 ---
@@ -21,7 +21,9 @@ This blog post describes the process of deploying the Apache SkyWalking t﻿o th
 
 ## Apache SkyWalking
 
-[Apache SkyWalking](https://www.mongodb.com/) is an open source application performance monitor (APM) system, especially designed for microservices, cloud native, and container-based architectures.
+[Apache SkyWalking](https://skywalking.apache.org/) is an open source application performance monitor (APM) tool, especially designed for microservices, cloud native, and container-based architectures. It provides a list of agents to be used for building Java, .NET core, PHP, Node.js, Golang, LUA, Rust and C++ apps. This enables the Apache SkyWalking to automatically discover, instrument and collect monitoring metrics from application environment, detect slow services and endpoints, and provide root cause analysis. 
+
+Apache SkyWalking is lightweight and scalable. It can be easily set up as self-managed APM tool within an on-premises data center. This avoids leasing customer data to third party services and matches well with the restricted security restriction in HPE GreenLake for Private Cloud Enterprise environment.
 
 ## Set up Apache SkyWalkinge for Application Monitoring on K8s
 
