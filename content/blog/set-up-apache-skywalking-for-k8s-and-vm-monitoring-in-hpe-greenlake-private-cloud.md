@@ -25,7 +25,15 @@ This blog post describes the process of deploying the Apache SkyWalking t﻿o th
 
 Apache SkyWalking is lightweight and scalable. It can be easily set up as self-managed APM tool within an on-premises data center. This avoids leasing customer data to third party services and matches well with the restricted security restriction in HPE GreenLake for Private Cloud Enterprise environment.
 
-## Set up Apache SkyWalkinge for Application Monitoring on K8s
+## Prerequisites
+A Kubernetes cluster needs to be created in HPE GreenLake for Private Cloud Enterprise. You need to download the _kubectl_ binary, together with the _HPE kubectl plugin_ and the _kubeconfig_ file of the created cluster, from the launched service console. The downloaded kubectl binary and its plugin need to be set up in your environment. To simplify the setup process, you should export the environment variable `KUBECONFIG` and point it to the downloaded kubeconfig file. With these setups in place, you can access the Kubernetes cluster in the HPE GreenLake for Private Cloud Enterprise.
+
+
+
+The [Helm CLI]( https://helm.sh/docs/intro/install/) needs to be installed in your environment. This Helm CLI will be used for installing and setting up the Apache SkyWalking.
+
+
+## Setup Details
 
 ### Deploy Apache SkyWalkinge
 
@@ -43,6 +51,7 @@ $ helm install skywalking skywalking –n skywalking \
 --set elasticsearch.imageTag=7.5.1 \
 --set elasticsearch.persistence.enabled=true \
 --set elasticsearch.sysctlInitContainer.enabled=false
+
 NAME: skywalking
 LAST DEPLOYED: Sat Sep 24 09:29:38 2022
 NAMESPACE: skywalking
