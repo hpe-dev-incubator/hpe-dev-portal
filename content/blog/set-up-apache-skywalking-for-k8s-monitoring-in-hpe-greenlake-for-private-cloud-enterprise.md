@@ -347,9 +347,39 @@ $ kubectl apply -f otel-collector-config.yaml -n skywalking
 $ kubectl apply -f otel-collector-deploy.yaml -n skywalking
 ```
 
+```markdown
+$ kubectl  get all -n skywalking -l app=otel-kubernetes-monitor
+NAME                                                      READY   STATUS    RESTARTS   AGE
+pod/otel-deployment-kubernetes-monitor-798cdd8486-gz885   1/1     Running   0          93d
+
+NAME                                                 READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/otel-deployment-kubernetes-monitor   1/1     1            1           96d
+
+NAME                                                            DESIRED   CURRENT   READY   AGE
+replicaset.apps/otel-deployment-kubernetes-monitor-798cdd8486   1         1         1       96d
+```
+
 O﻿nce all is done you should see the K8s metrics in Skywalking UI.
 
-![](/img/sw-k8s.png)
+-﻿ Kubernetes cluster:
+
+![](/img/sw-k8s-clu.png)
+
+-﻿ Kubernetes overview:
+
+![](/img/sw-k8s-overview.png)
+
+-﻿ Kubernetes nodes:
+
+![](/img/sw-k8s-node.png)
+
+-﻿ Kubernetes worker node:
+
+![](/img/sw-k8s-node-instance.png)
+
+-﻿ Kubernetes services:
+
+![](/img/sw-k8s-svc.png)
 
 ## Conclusion
 
