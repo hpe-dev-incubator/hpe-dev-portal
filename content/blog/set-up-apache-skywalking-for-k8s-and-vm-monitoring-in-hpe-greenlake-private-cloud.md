@@ -168,6 +168,7 @@ ADD target/springboot-k8s-demo.jar /app/springboot-k8s-demo.jar
 WORKDIR /app
 ENTRYPOINT ["java","-javaagent:/opt/agent/skywalking-agent.jar=agent.namespace=default,agent.service_name=springboot-k8s-app,collector.backend_service=skywalking-oap.skywalking.svc.cluster.local: 11800, plugin.jdbc.trace_sql_parameters = true,profile.active=true","-jar","/app/springboot-k8s-app.jar"]
 ```
+
 ### Monitor SpringBoot Application from SkyWalking UI
 
 ![](/img/java-app.png)
@@ -243,9 +244,33 @@ deployment.apps/loadgen-deployment created
 
 ### Monitor Multi-tier Application from SkyWalking UI
 
-![](/img/multl-tier-app.png)
+\-﻿ Multi-tier application services:
+
+![](/img/sw-app-svc.png)
+
+\-﻿ Multi-tier application topology:
 
 ![](/img/multl-tier-app-map.png)
+
+\-﻿ Multi-tier application trace:
+
+![](/img/sw-app-trace.png)
+
+\-﻿ Multi-tier application alarms:
+
+![](/img/sw-app-alarms.png)
+
+T﻿he alarms page shows *Successful rate of service agent::app is lower than 80% in 2 minutes of last 10 minutes*. 
+
+From the service `agent::app` overview page below, it shows *Success Rate 66.66%*. You may check the service's trace pages and try to figure out the root cause for this issue.
+
+\-﻿ Multi-tier application service `agent::app` overview:
+
+![](/img/sw-svc-app-overview.png)
+
+\-﻿ Multi-tier application service `agent::app` trace:
+
+![](/img/sw-svc-app-trace.png)
 
 ## Conclusion
 
