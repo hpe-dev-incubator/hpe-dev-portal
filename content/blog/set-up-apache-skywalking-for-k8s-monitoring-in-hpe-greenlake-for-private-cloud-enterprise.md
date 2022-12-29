@@ -148,7 +148,15 @@ $ helm install  kube-state-metrics -n skywalking prometheus-community/kube-state
 
 The OpenTelemetry collector needs to be installed and set up to transfer the metrics to OpenTelemetry receiver from SkyWalking OAP server.
 
-#### Set up RBAC
+### Set up Role-Based Access Control (RBAC)
+
+
+
+Kubernetes RBAC is a key security control to ensure that cluster users and workloads have access only to resources required to execute their roles. It is important to ensure that, when designing permissions for cluster users, the cluster administrator understands the areas where privilege escalation could occur, to reduce the risk of excessive access leading to security incidents.
+
+To set up RBAC, you create a Service Account, a ClusterRole, and connect the two with a Cluster RoleBinding.
+
+#### 1. Create a YAML file _sa.yaml_ for the service account:
 
 
 ```markdown
