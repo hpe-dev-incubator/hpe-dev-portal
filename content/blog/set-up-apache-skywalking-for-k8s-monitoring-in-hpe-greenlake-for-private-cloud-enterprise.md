@@ -26,11 +26,14 @@ Apache SkyWalking is lightweight and scalable. It can be easily set up as self-m
 
 ## Prerequisites
 
-A Kubernetes cluster needs to be created in HPE GreenLake for Private Cloud Enterprise. You need to download the *kubectl* binary, together with the *HPE kubectl plugin* and the *kubeconfig* file of the created cluster, from the launched service console. The downloaded *kubectl* binary and its plugin need to be set up in your environment. To simplify the setup process, you should export the environment variable `KUBECONFIG` and point it to the downloaded kubeconfig file. With these setups in place, you can access the Kubernetes cluster in the HPE GreenLake for Private Cloud Enterprise.
+Before you start, make sure you meet the following requirements:
 
-The [Helm CLI](https://helm.sh/docs/intro/install/) needs to be installed in your environment. This Helm CLI will be used for installing and setting up the Apache SkyWalking.
 
-The [istioctl](https://istio.io/latest/docs/setup/getting-started/#download) needs to be installed as well in your environment. The istioctl client will be used for installing and set up `Istio`.
+* A Kubernetes cluster needs to be created in HPE GreenLake for Private Cloud Enterprise. You need to download the *kubectl* binary, together with the *HPE kubectl plugin* and the *kubeconfig* file of the created cluster, from the launched service console. The downloaded *kubectl* binary and its plugin need to be set up in your environment. To simplify the setup process, you should export the environment variable `KUBECONFIG` and point it to the downloaded kubeconfig file. With these setups in place, you can access the Kubernetes cluster in the HPE GreenLake for Private Cloud Enterprise.
+
+* The [Helm CLI](https://helm.sh/docs/intro/install/) needs to be installed in your environment. This Helm CLI will be used for installing and setting up the Apache SkyWalking.
+
+* The [istioctl](https://istio.io/latest/docs/setup/getting-started/#download) needs to be installed as well in your environment. The istioctl client will be used for installing and set up `Istio`.
 
 With your user access setup, you should have access to permissions that can create and update the following resources in the Kubernetes cluster:
 
