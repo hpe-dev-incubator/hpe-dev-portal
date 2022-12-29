@@ -148,7 +148,7 @@ $ helm install  kube-state-metrics -n skywalking prometheus-community/kube-state
 
 The OpenTelemetry collector needs to be installed and set up to transfer the metrics to OpenTelemetry receiver from SkyWalking OAP server.
 
-### Set up Role-Based Access Control (RBAC)
+#### Set up Role-Based Access Control (RBAC)
 
 
 
@@ -156,17 +156,195 @@ Kubernetes RBAC is a key security control to ensure that cluster users and workl
 
 To set up RBAC, you create a Service Account, a ClusterRole, and connect the two with a Cluster RoleBinding.
 
-#### 1. Create a YAML file _sa.yaml_ for the service account:
+##### 1. Create a YAML file _otel-sa-kubernetes-monitor.yaml_ for the service account:
+
+```markdown
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: otel-sa-kubernetes-monitor
+
+```
+
+
+
+##### 2. Create a YAML file _otel-role-kubernetes-monitor.yaml_ for the cluster roles:
+
+```markdown
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+
+metadata:
+  name: otel-role-kubernetes-monitor
+rules:
+  - apiGroups: [ "" ]
+    resources:
+      # @feature: kubernetes-monitor; permissions to read resources
+      - "endpoints"
+      - "pods"
+      - "services"
+      - "nodes"
+      - "nodes/metrics"
+      - "nodes/proxy"
+    verbs: [ "get", "watch", "list" ]
+
+
+
+```
+
+##### 3. Create a YAML file _otel-role-binding-kubernetes-monitor.yaml_ to bind the service account with the cluster access roles:
+
 
 
 ```markdown
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: otel-role-binding-kubernetes-monitor
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: otel-role-kubernetes-monitor
+subjects:
+  - kind: ServiceAccount
+    name: otel-sa-kubernetes-monitor
+    namespace: skywalking
 
+```
+
+
+##### 4. Deploy the service account, the cluster role and the cluster rolebinding:
+
+
+
+```markdown
+$ kubectl apply -f otel-sa-kubernetes-monitor.yaml -n skywalking
+$ kubectl apply -f otel-role-kubernetes-monitor.yaml -n skywalking
+$ kubectl apply -f otel-role-binding-kubernetes-monitor.yaml.yaml -n skywalking
 ```
 
 #### Deploy OpenTelemetry Collector
 
+##### 1. Create a YAML file _otel-collector-config.yaml_ to set OpenTelemetry config to scrape the Kubernetes metrics:
+
+```markdown
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: otel-collector-conf-kubernetes-monitor
+  labels:
+    app: otel-kubernetes-monitor
+data:
+  otel-collector-config: |
+    service:
+      pipelines:
+        metrics:
+          receivers: [ prometheus ]
+          exporters: [ opencensus,logging ]
+    exporters:
+      opencensus:
+        endpoint: "skywalking-oap.skywalking.svc.cluster.local:11800"
+        tls:
+          insecure: true
+      logging:
+        loglevel: debug
+    receivers:
+      prometheus:
+        config:
+          scrape_configs:
+          # @feature: kubernetes-monitor; configuration to scrape Kubernetes Nodes metrics
+          - job_name: 'kubernetes-cadvisor'
+            scheme: https
+            tls_config:
+              ca_file: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
+            bearer_token_file: /var/run/secrets/kubernetes.io/serviceaccount/token
+            kubernetes_sd_configs:
+              - role: node
+            relabel_configs:
+              - action: labelmap
+                regex: __meta_kubernetes_node_label_(.+)
+              - source_labels: []
+                target_label: cluster
+                replacement: cfe-iac-clu
+              - target_label: __address__
+                replacement: kubernetes.default.svc:443
+              - source_labels: [__meta_kubernetes_node_name]
+                regex: (.+)
+                target_label: __metrics_path__
+                replacement: /api/v1/nodes/$${1}/proxy/metrics/cadvisor
+              - source_labels: [instance]
+                separator: ;
+                regex: (.+)
+                target_label: node
+                replacement: $$1
+                action: replace
+          # @feature: kubernetes-monitor; configuration to scrape Kubernetes Endpoints metrics
+          - job_name: kube-state-metrics
+            metrics_path: /metrics
+            kubernetes_sd_configs:
+            - role: endpoints
+            relabel_configs:
+            - source_labels: [__meta_kubernetes_service_label_app_kubernetes_io_name]
+              regex: kube-state-metrics
+              replacement: $$1
+              action: keep
+            - action: labelmap
+              regex: __meta_kubernetes_service_label_(.+)
+            - source_labels: []
+              target_label: cluster
+              replacement: cfe-iac-clu
+```
+
+
+
+##### 2. Create a YAML file _otel-collector-deploy.yaml_ for the OpenTelemetry collector deployment:
+
+
+```markdown
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: otel-deployment-kubernetes-monitor
+  labels:
+    app: otel-kubernetes-monitor
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: otel-kubernetes-monitor
+  template:
+    metadata:
+      labels:
+        app: otel-kubernetes-monitor
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      serviceAccountName: otel-sa-kubernetes-monitor
+      containers:
+        - name: otel-kubernetes-monitor
+          image: otel/opentelemetry-collector:0.50.0
+          command:
+            - "/otelcol"
+            - "--config=/conf/otel-collector-config.yaml"
+          volumeMounts:
+            - name: otel-collector-config-vol-kubernetes-monitor
+              mountPath: /conf
+      volumes:
+        - name: otel-collector-config-vol-kubernetes-monitor
+          configMap:
+            name: otel-collector-conf-kubernetes-monitor
+            items:
+              - key: otel-collector-config
+                path: otel-collector-config.yaml
+```
+##### 3. Deploy the OpenTelemetry collector:
+
+
+
 ```markdown
 $ kubectl apply -f otel-collector-config.yaml -n skywalking
+$ kubectl apply -f otel-collector-deploy.yaml -n skywalking
 ```
 
 O﻿nce all is done you should see the K8s metrics in Skywalking UI.
