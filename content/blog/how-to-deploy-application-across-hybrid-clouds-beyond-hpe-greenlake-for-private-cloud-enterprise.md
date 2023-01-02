@@ -1,0 +1,269 @@
+---
+title: How to deploy application across hybrid clouds beyond HPE GreenLake for
+  Private Cloud Enterprise
+date: 2023-01-02T07:52:05.869Z
+author: Guoping Jia
+authorimage: /img/guoping.png
+disable: false
+---
+## Introduction
+
+[HPE GreenLake for Private Cloud Enterprise (PCE)](https://www.hpe.com/us/en/greenlake/private-cloud-enterprise.html) delivers a modern private cloud to support your app workloads with bare metal, containers, and virtual machines (VMs) running in any combination across your edges, colocations, and data centers. It combines self-service resource access for developers with consumption and performance transparency for IT. 
+
+This blog post show you how to deploy a complex application that consists of multiple microservices as a hybrid app that spans both public AWS EKS cluster and private K
+ubernetes cluster in HPE GreenLake PCE. By using a hybrid cloud solution, you can combine the compliance benefits of a private cloud in HPE GreenLake PCE environment with the scalability and connectivity of the public cloud. You can rely on the security of finely tuned, on-premises data centers while turning to the agility of cloud computing to manage the font end of an application in the public cloud. It essentially can optimize resource allocation, save costs and improve overall productivity and performance in the process. 
+
+## Prerequisites
+
+Before you start, make sure you meet the following requirements: 
+
+* A public Kubernetes cluster from one of the public cloud providers such as *AWS*, *Microsoft Azure* or *Google*. We use one EKS cluster, named *eks-cfe-public* from AWS, in this blog for application deployment. However, it works if you choose a cluster from other providers.
+* A private Kubernetes cluster, named *eks-pce-clu-1* provisioned in HPE GreenLake for Private Cloud Enterprise; 
+* The *kubectl* CLI tool, version 1.23 or later, together with the *kubeconfig* files for accessing both public and private clusters;
+* The [Skupper](https://skupper.io/start/#step-1-install-the-skupper-command-line-tool-in-your-environment) CLI tool, the latest version 1.2.0.
+
+## Online Boutique
+
+[Online Boutique](https://github.com/GoogleCloudPlatform/microservices-demo) is a cloud-first microservices demo application. It consists of an 11-tier microservices application. The application is a web-based e-commerce app where users can browse items, add them to the cart, and purchase them. This demo app has been used widely for demonstrating various technologies. It’s easy to deploy and it works on any Kubernetes cluster.
+
+This blog will use the *Online Boutique* as our demo application, deploying it across the public AWS EKS cluster and the private PCE 
+Kubernetes cluster in HPE GreenLake for Private Cloud Enterprise using *Skupper*. 
+
+![](/img/apps.png)
+
+## Skupper
+
+[Skupper](https://skupper.io/) is a *Layer 7* service interconnect. It enables secure communication across multiple Kubernetes clusters through a Virtual Application Network (VPN). The VAN connects the applications and services in multiple clusters into a virtual network so that they can communicate with each other as if they were all running in the same site. VANs are able to provide connectivity across the hybrid cloud because they operate at Layer 7 (the application layer). They use Layer 7 application routers to route communication between Layer 7 application addresses. 
+With *Skupper*, your application can span multiple cloud providers, data centers, and regions with no VPNs or special firewall rules.
+
+## Deploy Online Boutique Application
+
+Clone the [Online Boutique](https://github.com/GoogleCloudPlatform/microservices-demo) GitHub repo to your local environment:
+
+```markdown
+$ git clone https://github.com/GoogleCloudPlatform/microservices-demo.git
+$ cd microservices-demo/release/
+```
+
+From the manifests file *kubernetes-manifests.yaml*  in the folder, create the following 3 manifests files:
+
+* **k8s-manifests-deploy-private.yaml**, including the following 3 *Deployment* manifests:
+
+  * *emailservice*;
+  * *paymentservice*;
+  * *shippingservice*;
+* **k8s-manifests-deploy-public.yaml**, including the following 7 *Deployment* manifests:
+
+  * *frontend*;
+  * *recommendationservice*;
+  * *productcatalogservice*;
+  * *checkoutservice*;
+  * *cartservice*;
+  * *currencyservice*;
+  * *redis-cart*;
+  * *adservice*;
+* **k8s-manifests-service-public.yaml**, including the following 2 *Service* manifests:
+
+  * *frontend*;
+  * *frontend-external*;
+
+### Deploy Application Microservices to AWS EKS Cluster
+
+C﻿reate the namespace *boutique* in the cluster and then deploy 7 *Deployment* and 2 *Service* resources to the namespace:
+
+```markdown
+$ kubectl create ns boutique
+$ kubectl config set-context --current --namespace boutique
+$ kubectl apply -f k8s-manifests-deploy-public.yaml                  
+deployment.apps/recommendationservice created                                                  
+deployment.apps/frontend created                                                             
+deployment.apps/productcatalogservice created                                               
+deployment.apps/checkoutservice created                                                      
+deployment.apps/cartservice created                                               
+deployment.apps/currencyservice created                                                
+deployment.apps/redis-cart created                                                      
+deployment.apps/adservice created                                                            
+
+$ kubectl apply -f k8s-manifests-service-public.yaml           
+service/frontend created                                                              
+service/frontend-external created    
+
+$ kubectl get svc
+frontend                ClusterIP      172.20.103.129   <none>                                                                    80/TCP                            40s   <none>
+frontend-external       LoadBalancer   172.20.16.223    a52d7c861c01c4466803a44373bc11dc-1387384363.us-east-2.elb.amazonaws.com   80:31482/TCP                      40s   <none>                                    
+```
+
+### Deploy Application Microservices to PCE Private Cluster
+
+S﻿imilarly, create the namespace *boutique* in the cluster and then deploy 3 *Deployment* resources to the namespace:
+
+```markdown
+$ kubectl create ns boutique
+$ kubectl config set-context --current --namespace boutique
+$ kubectl apply -f k8s-manifests-deploy-private.yaml    
+deployment.apps/emailservice created
+deployment.apps/paymentservice created
+deployment.apps/shippingservice created
+```
+
+### Deploy Virtual Application Network
+
+Define the Virtual Application Network using *Skupper* on both AWS public and PCE private clusters:
+
+#### 1. In AWS public cluster, deploy the *aws-public* application router.
+
+```markdown
+$ kubectl config set-context --current –namespace boutique
+$ skupper init --site-name aws-public                                                                                         
+Waiting 115 seconds for LoadBalancer IP or hostname...                                         
+Waiting 111 seconds for LoadBalancer IP or hostname...                                         
+Waiting 108 seconds for LoadBalancer IP or hostname...                                        
+Skupper is now installed in namespace 'boutique'.  Use 'skupper status' to get more information.            
+                                                                        
+$ skupper status             
+Skupper is enabled for namespace "boutique" with site name "aws-public" in interior mode. It is connected to 1 other site. It has 10 exposed services.
+The site console url is:  https://aea867abf6fb6413d8f577652da564c1-130946084.us-east-2.elb.amazonaws.com:8080
+The credentials for internal console-auth mode are held in secret: 'skupper-console-users'
+```
+
+#### 2. In PCE private cluster, deploy the *pce-private* application router.
+
+```markdown
+$ kubectl config set-context --current –namespace boutique
+$ skupper init --ingress none --site-name pce-private
+Skupper is now installed in namespace 'boutique'.  Use 'skupper status' to get more information.
+
+$ skupper status
+Skupper is enabled for namespace "boutique" with site name "pce-private" in interior mode. It is not connected to any other sites. It has no exposed services
+```
+
+#### 3. In AWS public cluster, create a connection token for connection.
+
+```markdown
+$ skupper token create ~/aws-public-token.yaml                                                                              
+Token written to /home/guoping/aws-public-token.yaml                                           
+```
+
+#### 4. In PCE private cluster, define the connections to the AWS public cluster.
+
+```markdown
+$ skupper link create ~/aws-public-token.yaml 
+Site configured to link to https://aea867abf6fb6413d8f577652da564c1-130946084.us-east-2.elb.amazonaws.com:8081/d2e35a8c-6654-11ed-bf10-000c295724b5 (name=link1)
+Check the status of the link using 'skupper link status'.
+
+$ skupper link status
+
+Links created from this site:
+-------------------------------
+Link link1 is active
+
+Currently active links from other sites:
+----------------------------------------
+There are no active links
+
+$ skupper status
+Skupper is enabled for namespace "boutique" with site name "pce-private" in interior mode. It is connected to 1 other site. It has no exposed services.
+```
+
+#### 5. In AWS public cluster, verify connectivity has been established.
+
+```markdown
+$ skupper status               
+Skupper is enabled for namespace "aws-boutique" with site name "aws-public" in interior mode. It is connected to 1 other site. It has no exposed services.                                    
+The site console url is:  https://aea867abf6fb6413d8f577652da564c1-130946084.us-east-2.elb.amazonaws.com:8080
+The credentials for internal console-auth mode are held in secret: 'skupper-console-users'
+```
+
+F﻿rom the *Skupper* console URL at **https://aea867abf6fb6413d8f577652da564c1-130946084.us-east-2.elb.amazonaws.com:8080**, you can see the connections from
+ the AWS public cluster and the PCE private cluster:
+
+![](/img/skupper-status.png)
+
+### Expose Application Microservices to Virtual Application Network
+
+#### 1. In PCE private cluster, expose 3 servicess:
+
+```markdown
+$ skupper expose deployment emailservice --address emailservice --port 5000 --protocol http2 --target-port 8080
+deployment emailservice exposed as emailservice
+
+$ skupper expose deployment paymentservice --address paymentservice --port 50051 --protocol http2 --target-port 50051
+deployment paymentservice exposed as paymentservice
+
+$ skupper expose deployment shippingservice --address shippingservice --port 50051 --protocol http2 --target-port 50051
+deployment shippingservice exposed as shippingservice
+```
+
+#### 2. In AWS public cluster, expose 7 services:
+
+```markdown
+$ skupper expose deployment productcatalogservice --address productcatalogservice --port 3550 --protocol http2 --target-port 3550
+deployment productcatalogservice exposed as productcatalogservice
+
+$ skupper expose deployment recommendationservice --address recommendationservice --port 8080 --protocol http2 --target-port 8080
+deployment recommendationservice exposed as recommendationservice
+
+$ skupper expose deployment checkoutservice --address checkoutservice --port 5050 --protocol http2 --target-port 5050
+deployment checkoutservice exposed as checkoutservice
+
+$ skupper expose deployment cartservice --address cartservice --port 7070 --protocol http2 --target-port 7070
+deployment cartservice exposed as cartservice
+
+$ skupper expose deployment currencyservice --address currencyservice --port 7000 --protocol http2 --target-port 7000
+deployment currencyservice exposed as currencyservice
+
+$ skupper expose deployment adservice --address adservice --port 9555 --protocol http2 --target-port 9555
+deployment adservice exposed as adservice                                                      
+
+$ skupper expose deployment redis-cart --address redis-cart --port 6379 --protocol tcp --target-port 6379
+deployment redis-cart exposed as redis-cart                                                    
+```
+
+### Access Online Boutique Application
+
+F﻿rom the *Skupper* console, you can see all he deployed services to the AWS public cluster and the PCE private cluster:  
+
+![](/img/skupper-apps.png)
+
+From the AWS public cluster, check all the deployed services.
+
+```markdown
+NAME                    TYPE           CLUSTER-IP       EXTERNAL-IP                                                               PORT(S)                           AGE
+adservice               ClusterIP      172.20.183.120   <none>                                                                    9555/TCP                          40d
+cartservice             ClusterIP      172.20.255.202   <none>                                                                    7070/TCP                          40d
+checkoutservice         ClusterIP      172.20.146.32    <none>                                                                    5050/TCP                          40d
+currencyservice         ClusterIP      172.20.244.103   <none>                                                                    7000/TCP                          40d
+emailservice            ClusterIP      172.20.136.4     <none>                                                                    5000/TCP                          28h
+frontend                ClusterIP      172.20.103.129   <none>                                                                    80/TCP                            40d
+frontend-external       LoadBalancer   172.20.16.223    a52d7c861c01c4466803a44373bc11dc-1387384363.us-east-2.elb.amazonaws.com   80:31482/TCP                      40d
+paymentservice          ClusterIP      172.20.244.25    <none>                                                                    50051/TCP                         28h
+productcatalogservice   ClusterIP      172.20.147.163   <none>                                                                    3550/TCP                          40d
+recommendationservice   ClusterIP      172.20.83.157    <none>                                                                    8080/TCP                          40d
+redis-cart              ClusterIP      172.20.179.232   <none>                                                                    6379/TCP                          40d
+shippingservice         ClusterIP      172.20.16.129    <none>                                                                    50051/TCP                         28h
+skupper                 LoadBalancer   172.20.111.44    aea867abf6fb6413d8f577652da564c1-130946084.us-east-2.elb.amazonaws.com    8080:31907/TCP,8081:30027/TCP     40d
+skupper-router          LoadBalancer   172.20.182.70    acaedc6978d3b453b8555d6dead90943-1598691456.us-east-2.elb.amazonaws.com   55671:30272/TCP,45671:32499/TCP   40d
+skupper-router-local    ClusterIP      172.20.175.145   <none>                                                                    5671/TCP                          40d
+skupper-router-local    ClusterIP      172.20.249.51    <none>                                                                    5671/TCP                          35m                       
+```
+
+T﻿he *Online Boutique* application can be accessed from the assigned LoadBalancing host name **a52d7c861c01c4466803a44373bc11dc-1387384363.us-east-2.elb.amazonaws.com**:
+
+![](/img/online-boutique-frontend.png)
+
+You can start shopping by adding items to the shopping cart, creating your shipping address and choosing the payment method. Please note that both the payment and the shipping services are running from the PCE private cluster. 
+
+![](/img/online-boutique-payment.png)
+
+You can then place order to complete your shopping.
+
+![](/img/online-boutique-order.png)
+
+## Next Steps
+
+This blog post described the process of deploying the *Online Boutique* application as a hybrid app across both public cluster 
+in AWS and private cluster in HPE GreenLake for PCE environment. 
+
+Running applications and services in this hybrid cloud environment is becoming increasingly popular as more businesses and enterprises shift toward cloud-based computing. This model can amplify the benefits of both private and public clouds and allows for more seamless integration across technological barriers. 
+
+As the next step, we will show you how to install and set up the application performance monitoring tool to monitor the deployed application in such hybrid cloud environment. It helps to reduce management complexity and deliver operational insights for more informed business practices, and protect your most valuable user data.
