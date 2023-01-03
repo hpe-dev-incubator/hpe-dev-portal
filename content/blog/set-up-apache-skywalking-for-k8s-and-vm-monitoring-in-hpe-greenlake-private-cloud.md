@@ -11,14 +11,13 @@ tags:
 ## Introduction
 
 
-
 [HPE GreenLake for Private Cloud Enterprise](https://www.hpe.com/us/en/greenlake/private-cloud-enterprise.html) delivers a modern private cloud to support your app workloads with bare metal, containers, and virtual machines (VMs) running in any combination across your edges, colocations, and data centers. It combines self-service resource access for developers with consumption and performance transparency for IT. Within this modern application environment, having a robust application performance monitoring (APM) tool is becoming essential. It can help IT professionals to ensure that deployed applications meet the performance, reliability and valuable user experience required by developers, partners and customers.
 
-In [my first blog post](https://developer.hpe.com/blog/get-started-with-application-performance-monitoring-tools-overview/), I walked through some of the best APM tools, described their key features and discussed in details their strengths and weaknesses.
+In [my first blog post](https://developer.hpe.com/blog/get-started-with-application-performance-monitoring-tools-overview/), we walked through some of the best APM tools, described their key features and discussed in details their strengths and weaknesses.
 
 
 
-In this blog post, I will focus on deploying the _Apache SkyWalking_, as an APM tool, t﻿o HPE GreenLake for Private Cloud Enterprise for monitoring customer applications deployed in the environment.    
+In this blog post, we will start choosing one APM tool,  _Apache SkyWalking_, and describe the detailed process to set it up in HPE GreenLake for Private Cloud Enterprise for monitoring customer applications.
 
 ## Apache SkyWalking
 
@@ -26,7 +25,7 @@ In this blog post, I will focus on deploying the _Apache SkyWalking_, as an APM 
 
 Apache SkyWalking provides a list of agents to be used for building *Java*, *.NET Core*, *PHP*, *Node.js*, *Golang*, *LUA*, *Rust* and *C++* apps. It provides tracing, metrics analysis, alerting, service mesh observability and visualization.
 
-Apache SkyWalking is lightweight, scalable, and supports alerting and visualization. It can be easily set up as a *self-managed* APM tool within an on-premises data center. This avoids leasing customer data to third party services and matches well with the restricted security restriction in HPE GreenLake for Private Cloud Enterprise environment.
+Apache SkyWalking is lightweight, scalable, and supports alerting and visualization. It can be easily set up as a *self-managed* APM tool within an on-premises data center. This avoids leasing customer data to third party services and matches very well with the security restriction in HPE GreenLake for Private Cloud Enterprise environment. 
 
 ## Prerequisites
 
@@ -40,17 +39,21 @@ Before we start, make sure we meet the following requirements:
 * The _kubectl_ CLI tool, together with the _kubeconfig_ files for accessing the Kubernetes clusters;
 
 * The [_Helm_](https://helm.sh/docs/intro/install/) CLI tool. I﻿t will be used for installing the Apache SkyWalking;
-## Setup Details
+
+## Set up Apache SkyWalking for Application Monitoring
+
+We will take the approach to setting up the Apache SkyWalking as a _self-hosted_ APM tool within the Kubernetes cluster created in HPE GreenLake for Private Cloud Enterprise environment. This mainly takes into account the restricted security concerns in HPE GreenLake product environment. 
 
 ### Deploy Apache SkyWalking
 
-Install SkyWalking using helm charts with *elasticsearch* as storage:
+Install Apache SkyWalking using Helm charts with *elasticsearch* as storage:
 
 ```markdown
 $ git clone https://github.com/apache/skywalking-kubernetes 
 $ cd skywalking-kubernetes/chart
 $ helm repo add elastic https://helm.elastic.co
 $ helm dep up skywalking
+$﻿ kubectl create ns skywalking
 $ helm install skywalking skywalking –n skywalking \
 --set oap.image.tag=9.1.0 \
 --set oap.storageType=elasticsearch \
@@ -58,31 +61,9 @@ $ helm install skywalking skywalking –n skywalking \
 --set elasticsearch.imageTag=7.5.1 \
 --set elasticsearch.persistence.enabled=true \
 --set elasticsearch.sysctlInitContainer.enabled=false
-
-NAME: skywalking
-LAST DEPLOYED: Sat Sep 24 09:29:38 2022
-NAMESPACE: skywalking
-STATUS: deployed
-REVISION: 1
-NOTES:
-************************************************************************
-*                                                                      *
-*                 SkyWalking Helm Chart by SkyWalking Team             *
-*                                                                      *
-************************************************************************
-
-Thank you for installing skywalking.
-
-Your release is named skywalking.
-
-Learn more, please visit https://skywalking.apache.org/
-
-Get the UI URL by running these commands:
-  echo "Visit http://127.0.0.1:8080 to use your application"
-  kubectl port-forward svc/skywalking-ui 8080:80 --namespace skywalking
 ```
 
-T﻿he Apache SkyWalking is installed to the K8s cluster namespace *skywalking*. You can check the details by typing the following *kubectl* command:
+T﻿he Apache SkyWalking is installed to the Kubernetes cluster namespace *skywalking*. We can check the details by typing the following *kubectl* command:
 
 ```markdown
 $ kubectl get all -n skywalking
