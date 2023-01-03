@@ -73,8 +73,8 @@ export function UserMenu({ userInfo }) {
                 `https://www.hpe.com/system/sling/logout.html?redirectUri=${
                   typeof window !== 'undefined'
                     ? window.location.origin
-                    : 'https://developer.hpe.com/'
-                }`,
+                    : 'https://developer.hpe.com'
+                }/`,
               )}
               <ButtonLink
                 align="start"
@@ -84,8 +84,8 @@ export function UserMenu({ userInfo }) {
                 to={`https://www.hpe.com/system/sling/logout.html?redirectUri=${
                   typeof window !== 'undefined'
                     ? window.location.origin
-                    : 'https://developer.hpe.com/'
-                }`}
+                    : 'https://developer.hpe.com'
+                }/`}
               />
               ,
             </Box>
