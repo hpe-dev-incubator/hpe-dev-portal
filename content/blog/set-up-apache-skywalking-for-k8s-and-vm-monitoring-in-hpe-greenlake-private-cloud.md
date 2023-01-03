@@ -133,17 +133,9 @@ T﻿he SkyWalking UI can then be accessed in the browser by typing the address *
 A﻿s the first demo application, create a _SpingBoot_ Web app that provides a REST endpoint **/message** to print some nice message. Then generate a _jar_ file *springboot-k8s-demo.jar* to the target folder:
 
 ```markdown
-├── agent
-│   ├── activations
-│   ├── bootstrap-plugins
-│   ├── config
-│   ├── logs
-│   ├── optional-plugins
-│   ├── optional-reporter-plugins
-│   ├── plugins
-│   └── skywalking-agent.jar
+
 ├── Dockerfile
-├── Dockerfile.agentless
+├── Dockerfile.agentless
 ├── pom.xml
 ├── README.md
 ├── src
