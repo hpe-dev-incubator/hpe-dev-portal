@@ -27,7 +27,11 @@ Apache SkyWalking provides a list of agents to be used for building *Java*, *.NE
 
 Apache SkyWalking is lightweight, scalable, and supports alerting and visualization. It can be easily set up as a *self-managed* APM tool within an on-premises data center. This avoids leasing customer data to third party services and matches very well with the security restriction in HPE GreenLake for Private Cloud Enterprise environment. 
 
-## Prerequisites
+## Set up Apache SkyWalking for Application Monitoring
+
+We will take the approach to setting up the Apache SkyWalking as a _self-hosted_ APM tool within the Kubernetes cluster created in HPE GreenLake for Private Cloud Enterprise. This mainly takes into account the security concerns in HPE GreenLake product environment. 
+
+### Prerequisites
 
 Before we start, make sure we meet the following requirements:
 
@@ -39,10 +43,6 @@ Before we start, make sure we meet the following requirements:
 * The _kubectl_ CLI tool, together with the _kubeconfig_ files for accessing the Kubernetes clusters;
 
 * The [_Helm_](https://helm.sh/docs/intro/install/) CLI tool. I﻿t will be used for installing the Apache SkyWalking;
-
-## Set up Apache SkyWalking for Application Monitoring
-
-We will take the approach to setting up the Apache SkyWalking as a _self-hosted_ APM tool within the Kubernetes cluster created in HPE GreenLake for Private Cloud Enterprise environment. This mainly takes into account the restricted security concerns in HPE GreenLake product environment. 
 
 ### Deploy Apache SkyWalking
 
