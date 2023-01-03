@@ -10,14 +10,11 @@ tags:
 ---
 ## Introduction
 
-
 [HPE GreenLake for Private Cloud Enterprise](https://www.hpe.com/us/en/greenlake/private-cloud-enterprise.html) delivers a modern private cloud to support your app workloads with bare metal, containers, and virtual machines (VMs) running in any combination across your edges, colocations, and data centers. It combines self-service resource access for developers with consumption and performance transparency for IT. Within this modern application environment, having a robust application performance monitoring (APM) tool is becoming essential. It can help IT professionals to ensure that deployed applications meet the performance, reliability and valuable user experience required by developers, partners and customers.
 
 In [my first blog post](https://developer.hpe.com/blog/get-started-with-application-performance-monitoring-tools-overview/), we walked through some of the best APM tools, described their key features and discussed in details their strengths and weaknesses.
 
-
-
-In this blog post, we will start choosing one APM tool,  _Apache SkyWalking_, and describe the detailed process to set it up in HPE GreenLake for Private Cloud Enterprise for monitoring customer applications.
+In this blog post, we will start choosing one APM tool,  *Apache SkyWalking*, and describe the detailed process to set it up in HPE GreenLake for Private Cloud Enterprise for monitoring customer applications.
 
 ## Apache SkyWalking
 
@@ -29,20 +26,16 @@ Apache SkyWalking is lightweight, scalable, and supports alerting and visualizat
 
 ## Set up Apache SkyWalking for Application Monitoring
 
-We will take the approach to setting up the Apache SkyWalking as a _self-hosted_ APM tool within the Kubernetes cluster created in HPE GreenLake for Private Cloud Enterprise. This mainly takes into account the security concerns in HPE GreenLake product environment. 
+We will take the approach to setting up the A
+pache SkyWalking as a *self-hosted* APM tool within the Kubernetes cluster created in HPE GreenLake for Private Cloud Enterprise. This mainly takes into account the security concerns in HPE GreenLake product environment. 
 
 ### Prerequisites
 
 Before we start, make sure we meet the following requirements:
 
-
-
 * A Kubernetes cluster, being provisioned in HPE GreenLake for Private Cloud Enterprise;
-
-
-* The _kubectl_ CLI tool, together with the _kubeconfig_ files for accessing the Kubernetes clusters;
-
-* The [_Helm_](https://helm.sh/docs/intro/install/) CLI tool. I﻿t will be used for installing the Apache SkyWalking;
+* The *kubectl* CLI tool, together with the *kubeconfig* files for accessing the Kubernetes clusters;
+* The *[Helm](https://helm.sh/docs/intro/install/)* CLI tool. I﻿t will be used for installing the Apache SkyWalking;
 
 ### Deploy Apache SkyWalking
 
@@ -55,15 +48,19 @@ $ helm repo add elastic https://helm.elastic.co
 $ helm dep up skywalking
 $﻿ kubectl create ns skywalking
 $ helm install skywalking skywalking –n skywalking \
---set oap.image.tag=9.1.0 \
+--set oap.image.tag=9.2.0 \
 --set oap.storageType=elasticsearch \
---set ui.image.tag=9.1.0 \
---set elasticsearch.imageTag=7.5.1 \
+--set ui.image.tag=9.2.0 \
+--set elasticsearch.imageTag=7.17.1 \
 --set elasticsearch.persistence.enabled=true \
 --set elasticsearch.sysctlInitContainer.enabled=false
 ```
 
-T﻿he Apache SkyWalking is installed to the Kubernetes cluster namespace *skywalking*. We can check the details by typing the following *kubectl* command:
+T﻿he Apache SkyWalking is installed to the Kubernetes cluster namespace *skywalking*. It creates the *elasticsearch* as the `StatefulSet`, running pod on each worker node. It runs the Apache SkyWalking OAP with replicas as 2 to provide high availability.
+
+It should be noted that the last option *elasticsearch.sysctlInitContainer.enabled=false* is necessary. Otherwise, it will try to set up *vm.max_map_count* using a privileged container during *elasticsearch* installation. It will violate the existing *PodSecurityPolicy* deployed in the HPE GreenLake environment. Therefore, it will fail the Helm install. 
+
+We can check the detailed Apache SkyWalking installation by typing the following *kubectl* command:
 
 ```markdown
 $ kubectl get all -n skywalking
@@ -97,7 +94,7 @@ NAME                           COMPLETIONS   DURATION   AGE
 job.batch/skywalking-es-init   1/1           7m27s      8m6s
 ```
 
-Y﻿ou can edit the deployed SkyWalking UI service *skywalking_ui* and change its type from *ClusterIP* to *NodePort*. The service will be automatically mapped to gateway host with an assigned port.
+We can edit the deployed SkyWalking UI service *skywalking_ui* and change its type from *ClusterIP* to *NodePort*. The service will be automatically mapped to gateway host with an assigned port.
 
 ```markdown
 $ k edit service/skywalking-ui -n skywalking
@@ -127,44 +124,98 @@ External Traffic Policy:  Cluster
 Events:                   <none>
 ```
 
-T﻿he SkyWalking UI can then be accessed in your browser by typing the address *gl2-caas.gl-hpe.local:10037*: 
+T﻿he SkyWalking UI can then be accessed in the browser by typing the address *gl2-caas.gl-hpe.local:10037*: 
 
 ![](/img/sw-ui.png)
 
 ### Deploy a Sample SpringBoot Application
 
-The following multi-tier music application will be installed to the K8s cluster.
+A﻿s the first demo application, create a _SpingBoot_ Web app that provides a REST endpoint **/message** to print some nice message. Then generate a _jar_ file *springboot-k8s-demo.jar* to the target folder:
 
-* App Server (NodeJS) & UI (React):
-* Gateway (Spring)
-* Recommendations (Python)
-* Songs (Spring)
+```markdown
+├── agent
+│   ├── activations
+│   ├── bootstrap-plugins
+│   ├── config
+│   ├── logs
+│   ├── optional-plugins
+│   ├── optional-reporter-plugins
+│   ├── plugins
+│   └── skywalking-agent.jar
+├── Dockerfile
+├── Dockerfile.agentless
+├── pom.xml
+├── README.md
+├── src
+│   ├── main
+│   └── test
+└── target
+    ├── springboot-k8s-demo.jar
+    └── test-classes
+```
+B﻿y building a _Docker_ image using the generated _jar_ file, this _SpringBoot_ app can be easily deployed as a containerized application to the Kubernetes cluster.
+
+Apache SkyWalking provides a list of agents per programming language that can be used for building into corresponding aservice which collects application data and exports them to the SkyWalking OAP server.  
 
 ![](/img/sw-agents.png)
 
-I﻿n order to monitor the multi-tier application from SkyWalking, each SkyWalking agent per programming language needs to be built into corresponding service which collects application data and exports them to the SkyWalking OAP server. 
+I﻿n order to monitor the sample  _SpringBoot_ app from Apache SkyWalking, we need to download the Java agent and rebuild the image.
 
 ![](/img/java-agent.png)
+
+H﻿ere is the _Dockerfile_ for building the new image:
 
 ```markdown
 $ cat Dockerfile
 FROM adoptopenjdk:11-jre-hotspot
-# copy extracted agent folder from the downloaded archive
+# copy extracted java agent folder from the downloaded apache skywalking archive
 ADD agent /opt/agent
 # copy the app jar file
 EXPOSE 8080
 ADD target/springboot-k8s-demo.jar /app/springboot-k8s-demo.jar
 WORKDIR /app
-ENTRYPOINT ["java","-javaagent:/opt/agent/skywalking-agent.jar=agent.namespace=default,agent.service_name=springboot-k8s-app,collector.backend_service=skywalking-oap.skywalking.svc.cluster.local: 11800, plugin.jdbc.trace_sql_parameters = true,profile.active=true","-jar","/app/springboot-k8s-app.jar"]
+ENTRYPOINT ["java","-javaagent:/opt/agent/skywalking-agent.jar=agent.namespace=default,agent.service_name=springboot-k8s-app,collector.backend_service=skywalking-oap.skywalking.svc.cluster.local:11800, plugin.jdbc.trace_sql_parameters = true,profile.active=true","-jar","/app/springboot-k8s-app.jar"]
 ```
 
 ### Monitor SpringBoot Application from SkyWalking UI
 
+W﻿e build the Docker image *guopingjia/springboot-k8s-demo:pce* and push it to the _DockerHub_. Then we can deploy the _SpringBoot_ app:
+
+```markdown
+$﻿ cat deployment.yaml
+apiVersion: apps/v1
+kind: Deployment 
+metadata:
+  name: springboot-k8s-demo
+spec:
+  selector:
+    matchLabels:
+      app: springboot-k8s-demo
+  replicas: 1  
+  template:
+    metadata:
+      labels:
+        app: springboot-k8s-demo
+    spec:
+      containers:
+        - name: springboot-k8s-demo
+          image: docker.io/guopingjia/springboot-k8s-demo:pce
+
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+
+$﻿ kubectl apply -f deployment.yaml
+```
+A﻿fter the app gets deployed, the built-in Java agent should start collecting application data and post it to the SkyWalking OAP. All the application metrics will be available in the SkyWalking UI:
+
 ![](/img/java-app.png)
+
+H﻿ere is the application topology map:
 
 ![](/img/java-app-map.png)
 
-### Deploy Multi-tier Application
+### Deploy a Multi-tier Application 
 
 The following multi-tier music application will be installed to the K8s cluster.
 
