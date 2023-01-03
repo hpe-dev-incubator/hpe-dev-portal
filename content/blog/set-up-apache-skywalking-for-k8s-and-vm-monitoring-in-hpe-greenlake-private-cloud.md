@@ -10,28 +10,36 @@ tags:
 ---
 ## Introduction
 
-Available on the HPE GreenLake Central platform, [HPE GreenLake for Private Cloud Enterprise](https://www.hpe.com/us/en/greenlake/private-cloud-enterprise.html) is composed of the following suite of HPE services that are grouped specifically to create and manage a private cloud:
 
-* HPE GreenLake for Virtual Machines
-* HPE GreenLake for Containers
-* HPE GreenLake for Bare Metal Servers
 
-I﻿t provides an automated, flexible private cloud customers can use to run, support, and develop any of apps in their private environment, with modern cloud experience for VMs, containers, and bare metal. 
+[HPE GreenLake for Private Cloud Enterprise](https://www.hpe.com/us/en/greenlake/private-cloud-enterprise.html) delivers a modern private cloud to support your app workloads with bare metal, containers, and virtual machines (VMs) running in any combination across your edges, colocations, and data centers. It combines self-service resource access for developers with consumption and performance transparency for IT. Within this modern application environment, having a robust application performance monitoring (APM) tool is becoming essential. It can help IT professionals to ensure that deployed applications meet the performance, reliability and valuable user experience required by developers, partners and customers.
 
-This blog post describes the process of deploying the Apache SkyWalking t﻿o the HPE GreenLake private cloud. in customer production environments. 
+In [my first blog post](https://developer.hpe.com/blog/get-started-with-application-performance-monitoring-tools-overview/), I walked through some of the best APM tools, described their key features and discussed in details their strengths and weaknesses.
+
+
+
+In this blog post, I will focus on deploying the _Apache SkyWalking_, as an APM tool, t﻿o HPE GreenLake for Private Cloud Enterprise for monitoring customer applications deployed in the environment.    
 
 ## Apache SkyWalking
 
-[Apache SkyWalking](https://skywalking.apache.org/) is an open source application performance monitor (APM) tool, especially designed for microservices, cloud native, and container-based architectures. It provides a list of agents to be used for building `Java`, `.NET Core`, `PHP`, `Node.js`, `Golang`, `LUA`, `Rust` and `C++` apps. This enables the Apache SkyWalking to automatically discover, instrument and collect monitoring metrics from application environment, detect slow services and endpoints, and provide root cause analysis. 
+[Apache SkyWalking](https://skywalking.apache.org/) is an open source APM tool with capabilities for monitoring, tracing and diagnosing distributed system. It’s especially designed for microservices, cloud native and container-based architectures. 
 
-Apache SkyWalking is lightweight and scalable. It can be easily set up as self-managed APM tool within an on-premises data center. This avoids leasing customer data to third party services and matches well with the restricted security restriction in HPE GreenLake for Private Cloud Enterprise environment.
+Apache SkyWalking provides a list of agents to be used for building *Java*, *.NET Core*, *PHP*, *Node.js*, *Golang*, *LUA*, *Rust* and *C++* apps. It provides tracing, metrics analysis, alerting, service mesh observability and visualization.
+
+Apache SkyWalking is lightweight, scalable, and supports alerting and visualization. It can be easily set up as a *self-managed* APM tool within an on-premises data center. This avoids leasing customer data to third party services and matches well with the restricted security restriction in HPE GreenLake for Private Cloud Enterprise environment.
 
 ## Prerequisites
 
-A Kubernetes cluster needs to be created in HPE GreenLake for Private Cloud Enterprise. You need to download the *kubectl* binary, together with the *HPE kubectl plugin* and the *kubeconfig* file of the created cluster, from the launched service console. The downloaded *kubectl* binary and its plugin need to be set up in your environment. To simplify the setup process, you should export the environment variable `KUBECONFIG` and point it to the downloaded kubeconfig file. With these setups in place, you can access the Kubernetes cluster in the HPE GreenLake for Private Cloud Enterprise.
+Before we start, make sure we meet the following requirements:
 
-The [Helm CLI](https://helm.sh/docs/intro/install/) needs to be installed in your environment. This Helm CLI will be used for installing and setting up the Apache SkyWalking.
 
+
+* A Kubernetes cluster, being provisioned in HPE GreenLake for Private Cloud Enterprise;
+
+
+* The _kubectl_ CLI tool, together with the _kubeconfig_ files for accessing the Kubernetes clusters;
+
+* The [_Helm_](https://helm.sh/docs/intro/install/) CLI tool. I﻿t will be used for installing the Apache SkyWalking;
 ## Setup Details
 
 ### Deploy Apache SkyWalking
