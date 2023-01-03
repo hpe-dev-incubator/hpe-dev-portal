@@ -18,23 +18,21 @@ This blog post will give an overview of the existing application performance mon
 
 Application performance monitoring (APM) is the collection of tools and processes to track the performance of application and analyze it to spot anomalies and performance-related issues. The continued availability and appropriate performance of an application are essential to a company’s ability to maintain uninterrupted business processes. This prevents unnecessary business disruptions and enhances customer satisfaction. Modern application architectures, such as HPE GreenLake for Private Cloud Enterprise, can be complex, involving large numbers of services and distributed systems located across multiple networks and physical locations, including the cloud. This evolution can present challenging environments to monitor. 
 
-APM tools have been configured to collect data through metrics, traces and logs to measure performance and identify potential problems. It helps to collect application data across a broader range of environments and performs sophisticated analytics on data patterns to provide insights on large and complex environments. As the business impact of outages rises day by day, more and more businesses are likely to spend on APM tools. 
+APM tools have been configured to collect data through metrics, traces and logs to measure performance and identify potential problems. It helps to collect application data across a broader range of environments and performs sophisticated analytics on data patterns to provide insights on large and complex environments. As the business impact of outages rises day by day, more and more businesses are likely to spend on APM tools and choose an APM tool that is most appropriate to their monitoring needs.
 
-There is a wealth of APM tools, either dedicated to APM tasks or with APM functionality built into a broader array of features. Some of those APM tools can be deployed as Software as a Service (SaaS) solution to public cloud, or on-premises to private cloud, or even to hybrid environment. While they have a ton of features covering most use cases, they could also come with premium pricing attached to it. Choosing a good APM tool that best fits both your monitoring needs and your budget is a challenge.  
-
-You should spend time and effort in APM feature evaluation and product selection by deciding the most beneficial data for your application and selecting APM tools based on your monitoring needs for your applications and its operational benvironment.
+There is a wealth of APM tools, either dedicated to APM tasks or with APM functionality built into a broader array of features. Some of the most popular APM tools can be deployed as Software as a Service (SaaS) solution to public cloud, or on-premises to private cloud, or even to hybrid environment. While they have a ton of features covering most use cases, they could also come with premium pricing attached to it. Choosing a good APM tool that best fits both your monitoring needs and your budget is a challenge.  
 
 ## APM Tools: open-source vs commercial vendor
 
-The market is saturated with commercial but also free and open-source based APM tools. Picking the right one for your stack might be tricky. 
+The market is saturated with commercial but also free and open source based APM tools. Picking the right one for your stack might be tricky. 
 
 Open source based APM tools give a lot of freedom to their users since they can access and customize the tool’s source code for their project-specific needs. It also allows for self-hosting, which can help in the context of tightening data protection laws and remove the privacy and security concerns customers may have to put customer data going to third party services. Open source APM tools also often offer a vibrant community of active developers who might provide helpful plugins and tips.
 
-However, many SaaS-based commercial APM tools offer free or reasonably priced bundles. Open source is rarely free, and many commercial SaaS solutions offer better, more reliable, and reasonably priced APM tools. You should spend time and effort in APM feature evaluation and product selection, and select APM tools based on your monitoring needs and budget.
+However, many SaaS-based commercial APM tools offer free or reasonably priced bundles. Open source is rarely free, and many commercial SaaS solutions offer better, more reliable, and reasonably priced APM tools. You should spend time and effort in APM feature evaluation and make the best decision that saves cost and works well with your stack.
 
 ## APM Tools Overview
 
-Let’s take a look at some of the most common, most reliable and commercial or ccommunity-approved APM tools.
+Let’s take a look at some of the most common and most reliable APM tools.
 
 ### **Splunk**
 
