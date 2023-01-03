@@ -139,14 +139,14 @@ function Header() {
       `${GATSBY_COCKPIT_HPE_OAUTH}?redirectUri=${
         typeof window !== 'undefined'
           ? window.location.origin
-          : 'https://developer.hpe.com/'
-      }`,
+          : 'https://developer.hpe.com'
+      }/`,
     );
     window.location.href = `${GATSBY_COCKPIT_HPE_OAUTH}?redirectUri=${
       typeof window !== 'undefined'
         ? window.location.origin
-        : 'https://developer.hpe.com/'
-    }`;
+        : 'https://developer.hpe.com'
+    }/`;
   };
   // const hanldeGitHubSignIn = () => {
   //   window.location.href = `${GATSBY_CLIENT_OAUTH}?scope=user&client_id=${GATSBY_CLIENT_ID}&redirect_uri=${GATSBY_REDIRECT_URI}`;
