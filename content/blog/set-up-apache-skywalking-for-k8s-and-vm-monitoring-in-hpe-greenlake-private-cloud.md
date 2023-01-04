@@ -129,10 +129,9 @@ T﻿he SkyWalking UI can then be accessed in the browser by typing the address *
 
 ### Deploy a Sample SpringBoot Application
 
-A﻿s the first demo application, create a _SpingBoot_ Web app that provides a REST endpoint **/message** to print some nice message. Then generate a _jar_ file *springboot-k8s-demo.jar* to the target folder:
+A﻿s the first demo application, create a *SpingBoot* Web app that provides a REST endpoint **/message** to print some nice message. Then generate a *jar* file *springboot-k8s-demo.jar* to the target folder:
 
 ```markdown
-
 ├── Dockerfile
 ├── Dockerfile.agentless
 ├── pom.xml
@@ -144,17 +143,18 @@ A﻿s the first demo application, create a _SpingBoot_ Web app that provides a R
     ├── springboot-k8s-demo.jar
     └── test-classes
 ```
-B﻿y building a _Docker_ image using the generated _jar_ file, this _SpringBoot_ app can be easily deployed as a containerized application to the Kubernetes cluster.
+
+B﻿y building a *Docker* image using the generated *jar* file, this *SpringBoot* app can be easily deployed as a containerized application to the Kubernetes cluster.
 
 Apache SkyWalking provides a list of agents per programming language that can be used for building into corresponding aservice which collects application data and exports them to the SkyWalking OAP server.  
 
 ![](/img/sw-agents.png)
 
-I﻿n order to monitor the sample  _SpringBoot_ app from Apache SkyWalking, we need to download the Java agent and rebuild the image.
+I﻿n order to monitor the sample  *SpringBoot* app from Apache SkyWalking, we need to download the Java agent and rebuild the image.
 
 ![](/img/java-agent.png)
 
-H﻿ere is the _Dockerfile_ for building the new image:
+H﻿ere is the *Dockerfile* for building the new image:
 
 ```markdown
 $ cat Dockerfile
@@ -170,7 +170,7 @@ ENTRYPOINT ["java","-javaagent:/opt/agent/skywalking-agent.jar=agent.namespace=d
 
 ### Monitor SpringBoot Application from SkyWalking UI
 
-After build the Docker image *guopingjia/springboot-k8s-demo:pce* and push it to the _DockerHub_, we deploy the _SpringBoot_ app to the Kubernetes cluster:
+After build the Docker image *guopingjia/springboot-k8s-demo:pce* and push it to the *DockerHub*, we deploy the *SpringBoot* app to the Kubernetes cluster:
 
 ```markdown
 $﻿ cat deployment.yaml
@@ -207,9 +207,9 @@ H﻿ere is the application topology map:
 
 ![](/img/java-app-map.png)
 
-### Deploy a Multi-tier Application 
+### Deploy a Multi-tier Application
 
-A﻿s the sfirst demo application, create a _SpingBoot_ Web app that provides a REST endpoint **/message** to print some nice message. Then generate a _jar_ file *springboot-k8s-demo.jar* to the target folder: second , we will deploy a multi-tier _music_ application, available as part of [Apache SkyWalking showcase application](https://github.com/apache/skywalking-showcase). This multi-tier music application consists of a frontend server and its UI, backend gateway service, recommendation service and songs service, together with a _H2_ database. Each microservice is coding with different programming languages, _NodeJS_, _React_, _Spring_, _Python_, etc.
+A﻿s the second demo application, we will deploy a multi-tier *music* application, available as part of [Apache SkyWalking showcase application](https://github.com/apache/skywalking-showcase). This multi-tier music application consists of a frontend server and its UI, backend gateway service, recommendation service and songs service, together with a *H2* database. Each microservice is coding with different programming languages, *NodeJS*, *React*, *Spring*, *Python*, etc.
 
 ![](/img/multl-tier-app-music.png)
 
@@ -271,19 +271,19 @@ deployment.apps/loadgen-deployment created
 
 ### Monitor Multi-tier Application from SkyWalking UI
 
--﻿ Multi-tier application services:
+\-﻿ Multi-tier application services:
 
-![](/img/sw-app-svc.png)
+![](/img/multl-tier-app.png)
 
--﻿ Multi-tier application topology:
+\-﻿ Multi-tier application topology:
 
 ![](/img/multl-tier-app-map.png)
 
--﻿ Multi-tier application trace:
+\-﻿ Multi-tier application trace:
 
 ![](/img/sw-app-trace.png)
 
--﻿ Multi-tier application alarms:
+\-﻿ Multi-tier application alarms:
 
 ![](/img/sw-app-alarms.png)
 
@@ -291,16 +291,16 @@ T﻿he alarms page shows *Successful rate of service agent::app is lower than 80
 
 From the service `agent::app` overview page below, it shows *Success Rate 66.66%*. You may check the service's trace pages and try to figure out the root cause for this issue.
 
--﻿ Multi-tier application service `agent::app` overview:
+\-﻿ Multi-tier application service `agent::app` overview:
 
 ![](/img/sw-svc-app-overview.png)
 
--﻿ Multi-tier application service `agent::app` trace:
+\-﻿ Multi-tier application service `agent::app` trace:
 
 ![](/img/sw-svc-app-trace.png)
 
 ## Conclusion
 
-This blog post took the Apache SkyWalking as the application performance monitoring (APM) tool and showed the detailed process to set it up, as a _self-managed_ environment, in HPE GreenLake for Private Cloud Enterprise for monitoring and alerting applications. Using the instrumentation of multiple supported agents from Apache SkyWalking, the application workloads can be easily monitored through the integrated Apache SkyWalking UI, with nice application topology map, tracing details and real-time alarms for any application performance issues.  
+This blog post took the Apache SkyWalking as the application performance monitoring (APM) tool and showed the detailed process to set it up, as a *self-managed* environment, in HPE GreenLake for Private Cloud Enterprise for monitoring and alerting applications. Using the instrumentation of multiple supported agents from Apache SkyWalking, the application workloads can be easily monitored through the integrated Apache SkyWalking UI, with nice application topology map, tracing details and real-time alarms for any application performance issues.  
 
 I﻿n the next blog, we will show you how to use Apache SkyWalking for Kubernetes monitoing in HPE GreenLake for Private Cloud Enterprise.
