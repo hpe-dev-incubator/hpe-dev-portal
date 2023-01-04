@@ -170,7 +170,7 @@ ENTRYPOINT ["java","-javaagent:/opt/agent/skywalking-agent.jar=agent.namespace=d
 
 ### Monitor SpringBoot Application from SkyWalking UI
 
-W﻿e build the Docker image *guopingjia/springboot-k8s-demo:pce* and push it to the _DockerHub_. Then we can deploy the _SpringBoot_ app:
+After build the Docker image *guopingjia/springboot-k8s-demo:pce* and push it to the _DockerHub_, we deploy the _SpringBoot_ app to the Kubernetes cluster:
 
 ```markdown
 $﻿ cat deployment.yaml
@@ -199,7 +199,7 @@ spec:
 $﻿ kubectl apply -f deployment.yaml
 ```
 
-A﻿fter the app gets deployed, the built-in Java agent should start collecting application data and post it to the SkyWalking OAP. All the application metrics will be available in the SkyWalking UI:
+When the app gets deployed, the built-in Java agent will start collecting application data and post it to the SkyWalking OAP. All the application metrics will be available in the SkyWalking UI:
 
 ![](/img/java-app.png)
 
