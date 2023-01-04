@@ -209,7 +209,7 @@ H﻿ere is the *SpingBoot* Web app topology map:
 
 ### Deploy a Multi-tier Application
 
-A﻿s the second demo application, we will deploy a multi-tier *music* application, available as part of [Apache SkyWalking showcase application](https://github.com/apache/skywalking-showcase). This multi-tier music application consists of a frontend server and its UI, backend gateway service, recommendation service and songs service, together with a *H2* database. Each microservice is coding with different programming languages, *NodeJS*, *React*, *Spring*, *Python*, etc.
+A﻿s the second demo application, we will deploy a multi-tier *music* application, available as part of [Apache SkyWalking showcase application](https://github.com/apache/skywalking-showcase). This multi-tier music application consists of a frontend app server and its UI, backend gateway service, recommendation service and songs service, together with a *H2* database. Each microservice is coding with different programming languages, *NodeJS*, *React*, *Spring*, *Python*, etc.
 
 ![](/img/multl-tier-app-music.png)
 
@@ -283,20 +283,38 @@ You can also check the multi-tier music application trace page:
 
 ![](/img/sw-app-trace.png)
 
+### Application Alerting
 
-\-﻿ Multi-tier application alarms:
+Apache SkyWalking provides an alerting mechanism to measure application performance according to a list of pre-defined metrics, e.g., _service_resp_time_, _database_access_resp_time_, and _service_sla_. It will trigger alerting when some metrics reach its pre-defined thresholds. We can define new metrics or customize the existing metrics with new thresholds. 
+
+Here is the alarms page from SkyWalking UI showing all the triggered alerting for deployed multi-tier music app: 
 
 ![](/img/sw-app-alarms.png)
 
-T﻿he alarms page shows *Successful rate of service agent::app is lower than 80% in 2 minutes of last 10 minutes*. 
+T﻿he alarms page shows *Successful rate of service agent::app is lower than 80% in 2 minutes of last 10 minutes*. It indicates issue from the frontend app server in multi-tier music application.
 
-From the service `agent::app` overview page below, it shows *Success Rate 66.66%*. You may check the service's trace pages and try to figure out the root cause for this issue.
+I﻿t's triggered by the following metric alerting rule _service_sla_:
 
-\-﻿ Multi-tier application service `agent::app` overview:
+```markdown
+  service_sla_rule:
+    # Metrics value need to be long, double or int
+    metrics-name: service_sla
+    op: "<"
+    threshold: 8000
+    # The length of time to evaluate the metrics
+    period: 10
+    # How many times after the metrics match the condition, will trigger alarm
+    count: 2
+    # How many times of checks, the alarm keeps silence after alarm triggered, default as same as period.
+    silence-period: 3
+    message: Successful rate of service {name} is lower than 80% in 2 minutes of last 10 minutes
+```
+
+From the below service `agent::app` overview page, it shows **Success Rate 66.66%**. 
 
 ![](/img/sw-svc-app-overview.png)
 
-\-﻿ Multi-tier application service `agent::app` trace:
+You may check the service's trace page and try to figure out the root cause for this issue.
 
 ![](/img/sw-svc-app-trace.png)
 
