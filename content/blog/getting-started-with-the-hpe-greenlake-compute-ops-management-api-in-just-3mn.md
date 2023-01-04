@@ -48,7 +48,7 @@ thead tr:first-child td {
 
 ## Apply the power of a Developer Community
 
-HPE GreenLake provides APIs for the different applications hosted on the HPE GreenLake Cloud Platform to do what can be done in the GUI through programmatic techniques. One of these applications is HPE GreenLake for Compute Ops Management (COM). You can find its documentation on the HPE GreenLake API portal at [developer.greenlake.hpe.com](http://developer.greenlake.hpe.com).
+HPE GreenLake provides APIs for the different applications hosted on the HPE GreenLake Cloud Platform to do what can be done in the GUI through programmatic techniques. One of these applications is HPE GreenLake for Compute Ops Management (COM). HPE GreenLake for Compute Ops Management automates and transforms complex and time-consuming compute management operations into a simplified experience across edge-to-cloud. You can find its API documentation on the HPE GreenLake API portal at [developer.greenlake.hpe.com](http://developer.greenlake.hpe.com).
 
 However, if you are time constrained and prefer to just poke around instead of browsing pages of documentation, this blog post is for you. One of the benefits of working within a community is the ability to take advantage of open collaboration, sharing hints, tools, and resources. In order to discover the API capabilities more rapidly, you can use a (free) tool such as Postman and leverage some of the Postman collections already created by members of the HPE Developer Community. If you are not yet familiar with Postman, no problem! We will provide you with step-by-step instructions.
 
@@ -66,7 +66,7 @@ If you don’t have a Postman account already, you can request a free one at: <h
 
 Log in to your Postman account and, from the search bar, look for the collection “Compute Ops Management”  and select from the list, the one from our Community contributor, Lionel Jullien’s (lio@hpe.com) public workspace. 
 
-> Note: You can access it directly from [here](https://www.postman.com/jullienl/workspace/lionel-jullien-s-public-workspace/collection/991177-a2b4838f-3e9d-4047-b02f-f813b73a6724?ctx=documentation) directly.
+> Note: You can access it directly from [here](https://www.postman.com/jullienl/workspace/lionel-jullien-s-public-workspace/collection/991177-a2b4838f-3e9d-4047-b02f-f813b73a6724?ctx=documentation).
 
 ## Step 3 - Fork the existing HPE GreenLake Compute Ops management collection
 
@@ -76,7 +76,7 @@ You can fork Lionel’s COM collection into your Postman workspace, which is ver
 
 ## Step 4 - Prepare your COM environment
 
-The COM collection built by Lionel makes use of environment variables which can be grouped in a Postman environment. We will define and initialize these environment variables before using calls from the Postman collection. You can view Lionel’s Postman environment in his workspace, and either fork his environment or recreate it from scratch by creating a new environment in your workspace and setting up the following variables:
+The COM collection built by Lionel makes use of environment variables which can be grouped in a Postman environment. You will have to define and initialize these environment variables before using calls from the Postman collection. You can view Lionel’s Postman environment in his workspace, and either fork his environment or recreate it from scratch by creating a new environment in your workspace and setting up the following variables:
 
 * ClientID
 * SecretID
