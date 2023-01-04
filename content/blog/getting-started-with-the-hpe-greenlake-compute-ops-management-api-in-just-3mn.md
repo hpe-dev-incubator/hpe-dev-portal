@@ -13,7 +13,7 @@ HPE GreenLake provides APIs for the different applications hosted on the HPE Gre
 
 However, if you are time constrained and prefer to just poke around instead of browsing pages of documentation, this blog post is for you. One of the benefits of working within a community is the ability to take advantage of open collaboration, sharing hints, tools, and resources. \[RD5] Because In order to discover the API capabilities more rapidly, you can use a (free) tool such as Postman and leverage some of the Postman collections already created by members of the HPE Developer Community. If you are not yet familiar with Postman, no problem! We will provide you with step-by-step instructions.
 
-Note: You can follow these instructions with the Postman native application as well as the SaaS version of Postman. 
+>Note: You can follow these instructions with the Postman native application as well as the SaaS version of Postman. 
 
 Ready? Let’s start the stopwatch, now!
 
@@ -27,13 +27,13 @@ If you don’t have a Postman account already, you can request a free one at: <h
 
 Log in to your Postman account and, from the search bar, look for the collection “Compute Ops Management”  and select from the list, the one from our Community contributor, Lionel Jullien’s (lio@hpe.com) public workspace. 
 
-Note: You can link [here](https://www.postman.com/jullienl/workspace/lionel-jullien-s-public-workspace/collection/991177-a2b4838f-3e9d-4047-b02f-f813b73a6724?ctx=documentation) directly.
+>Note: You can link [here](https://www.postman.com/jullienl/workspace/lionel-jullien-s-public-workspace/collection/991177-a2b4838f-3e9d-4047-b02f-f813b73a6724?ctx=documentation) directly.
 
 ## Step 3 - Fork the existing HPE GreenLake Compute Ops management collection
 
 You can fork Lionel’s COM collection into your Postman workspace, which is very similar to a GitHub fork operation. This will copy the content of the collection to your workspace, and maintain a link to the source, which would allow you to get updates (if Lionel does update his collection), or contribute to Lionel’s collection by opening a Pull Request (PR) if you have made changes to the collection. After you fork his collection, you can work on your own copy in your Postman workspace.
 
-Note: You might not be able to fork a collection from Postman if it is hosted on a free account, and it has reached the maximum number of allowed forks. In that case, export the collection and import it into your own workspace.
+>Note: You might not be able to fork a collection from Postman if it is hosted on a free account, and it has reached the maximum number of allowed forks. In that case, export the collection and import it into your own workspace.
 
 ## Step 4 - Prepare your COM environment
 
@@ -43,7 +43,7 @@ The COM collection built by Lionel makes use of environment variables which can 
 * SecretID
 * url
 
-Note: Be careful, as Postman variables are case-sensitive. Also, you can set the type of variable ClientSecret to secret, so the value of the variable is only shown upon request.
+>Note: Be careful, as Postman variables are case-sensitive. Also, you can set the type of variable ClientSecret to secret, so the value of the variable is only shown upon request.
 
 ## Step 5 - Set your COM environment
 
@@ -57,35 +57,30 @@ From the GUI, make note of your Client ID, your Client Secret and the Connectivi
 | ClientSecret  | Your client Secret         |
 | url           | Your Connectivity Endpoint |
 
-
-
-Note: Make sure that there isn’t any space or carriage return at the end of the variable values and to save your environment. 
+>Note: Make sure that there isn’t any space or carriage return at the end of the variable values and to save your environment. 
 
 ## Step 6 - Obtaining a session token
 
 Open your Postman workspace and locate the COM collection you have forked (or imported). Now, generate a session token using the **Create session** call from the **0_session** folder
 
-Note:  Before pressing Send, make sure that you have selected your environment in the upper right corner drop down. By default, it is set to **No Environment**.
+>Note:  Before pressing Send, make sure that you have selected your environment in the upper right corner drop down. By default, it is set to **No Environment**.
 
 Once the call returns, make sure you have a Status of 200 OK and check the JSON response body:
 
-```
-`{`
+```json
+{
 
-`"access_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6IlRFak8tZEJPbThxUDlqRUlxdVE5aXVKX09HTSIsInBpLmF0bSI6ImRlejAifQ.eyJjbGllbnRfaWQiOiJmYWE5ZDZjMi04MjdjLTQzMWYtYTI2My1kNGE1YzY5YjYwZjIiLCJpc3MiOiJodHRwczovL3Nzby5jb21tb24uY2xvdWQuaHBlLmNvbSIsImF1ZCI6ImV4dGVybmFsX2FwaSIsInN1YiI6ImNvbS5kZW1vdXNlckBnbWFpbC5jb20iLCJ1c2VyX2N0eCI6ImIwMDQxNjk0NDM5MjExZWM5MWQ2YzZhZGQyMDZhMjQ3IiwiYXV0aF9zb3VyY2UiOiJjY3NfdG9rZW5fbWFuYWdlbWVudCIsInBsYXRmb3JtX2N1c3RvbWVyX2lkIjoiMzQ2NTJmZjAzMTc3MTFlYzliYzA5Njg3MjU4MGZkNmQiLCJpYXQiOjE2NzEwOTM2ODUsImFwcGxpY2F0aW9uX2luc3RhbmNlX2lkIjoiNjM3ZjA5MzgtMTg4Mi00NzNiLTkyNDQtNGNkMDFkMWExNjY4IiwiZXhwIjoxNjcxMTAwODg1fQ.ajV-eV98TrdZPtQAIynOW_9zrF0HaZo_g8eBdoxjHldEvXlxyomcpT3ElI_Ke2AZAGKDDQB9zihy0bfplSgnMg1yBoH7r2Ih4PJXm-lprFQZPF9dApDvv39sPu-VJZU2RijCGPp5fDqzbcF-37zbCzdhihdYsAnQE3VcGd8xKRTkH8JZVe3Rg22_ndzZOqTR3SAeVcFGuI3PN3r2mJ5GyxlT8ckt_QsUHrxtYPEVwZnOwRFtrT7JB-Ht3vJB8wJJwXdyIadr64gunV3UusMjxMzYk4RpvdMjRuANhhBUAHxdA3Mmnq3MXtnSLu_hPGz2MUzoXO9IPMI9Csq3q5G8Rg",`
-
-`    "token_type": "Bearer",`
-
-`    "expires_in": 7199`
-
-`}`
+"access_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6IlRFak8tZEJPbThxUDlqRUlxdVE5aXVKX09HTSIsInBpLmF0bSI6ImRlejAifQ.eyJjbGllbnRfaWQiOiJmYWE5ZDZjMi04MjdjLTQzMWYtYTI2My1kNGE1YzY5YjYwZjIiLCJpc3MiOiJodHRwczovL3Nzby5jb21tb24uY2xvdWQuaHBlLmNvbSIsImF1ZCI6ImV4dGVybmFsX2FwaSIsInN1YiI6ImNvbS5kZW1vdXNlckBnbWFpbC5jb20iLCJ1c2VyX2N0eCI6ImIwMDQxNjk0NDM5MjExZWM5MWQ2YzZhZGQyMDZhMjQ3IiwiYXV0aF9zb3VyY2UiOiJjY3NfdG9rZW5fbWFuYWdlbWVudCIsInBsYXRmb3JtX2N1c3RvbWVyX2lkIjoiMzQ2NTJmZjAzMTc3MTFlYzliYzA5Njg3MjU4MGZkNmQiLCJpYXQiOjE2NzEwOTM2ODUsImFwcGxpY2F0aW9uX2luc3RhbmNlX2lkIjoiNjM3ZjA5MzgtMTg4Mi00NzNiLTkyNDQtNGNkMDFkMWExNjY4IiwiZXhwIjoxNjcxMTAwODg1fQ.ajV-eV98TrdZPtQAIynOW_9zrF0HaZo_g8eBdoxjHldEvXlxyomcpT3ElI_Ke2AZAGKDDQB9zihy0bfplSgnMg1yBoH7r2Ih4PJXm-lprFQZPF9dApDvv39sPu-VJZU2RijCGPp5fDqzbcF-37zbCzdhihdYsAnQE3VcGd8xKRTkH8JZVe3Rg22_ndzZOqTR3SAeVcFGuI3PN3r2mJ5GyxlT8ckt_QsUHrxtYPEVwZnOwRFtrT7JB-Ht3vJB8wJJwXdyIadr64gunV3UusMjxMzYk4RpvdMjRuANhhBUAHxdA3Mmnq3MXtnSLu_hPGz2MUzoXO9IPMI9Csq3q5G8Rg",
+    "token_type": "Bearer",
+    "expires_in": 7199
+}
 ```
 
 This token is known as a Bearer token and it is valid for 7200 seconds (120 minutes or 2 hours). It will expire after that period and will need to be regenerated by running a Create session call again if you have exceeded that time.
 
 There is javascript code executed at the end of the call to automatically capture the value of the session token and store it in a new environment variable (called COM_Token) that is visible in your Postman environment. You can check this code in the Tests tab of the API call:
 
-```
+```jscript
 const responseJson = pm.response.json();
 
 // Set environment variables
@@ -109,13 +104,13 @@ The COM API is an aggregation of multiple independent APIs. To help you find wha
 
 ![](/img/apicalls.png)
 
-Note: This is not using an API, but parsing the content of a documentation web page so it might be subject to changes in the future.
+>Note: This is not using an API, but parsing the content of a documentation web page so it might be subject to changes in the future.
 
 ## Step 8 - Exploring the API
 
 Now that you have a valid token and have identified the API endpoints, you are ready to explore the rest of the COM API using this handy collection. Pick one call from the Servers folder to List of all ProLiant DL325 Gen10 Plus and hit Send. You will get the following JSON response (provided you have some of these servers in your environment).
 
-```
+```json
 {
     "offset": 0,
     "count": 1,
