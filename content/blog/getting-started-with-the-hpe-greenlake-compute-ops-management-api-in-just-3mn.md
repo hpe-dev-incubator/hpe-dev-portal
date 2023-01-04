@@ -4,14 +4,52 @@ date: 2023-01-04T09:57:13.816Z
 author: Didier Lalli
 authorimage: /img/didier-lalli.png
 disable: false
+tags:
+  - hpe-greenlake-cloud-platform
+  - hpe-greenlake-for-compute-ops-management
+  - hpe-greenlake
 ---
-# Getting started with the HPE GreenLake Compute Ops Management API in just 3mn
+<style>
+ul li{
+ font-size:25px;
+}
+</style>
+<style>
+table {
+    display: block;
+    width: max-content !important;
+    max-width: 100%;
+    overflow: auto;
+     -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    border:1px solid grey;
+}
+td {
+   -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    border:1px solid grey;
+    text-align: left !important;
+     font-weight: normal !important;
+    padding: 10px !important;
+}
+thead tr:first-child td {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  border:1px solid grey;
+  text-align: center !important;
+  padding: 20px !important;
+  font-weight: bold !important;
+}
+</style>
 
 ## Apply the power of a Developer Community
 
-HPE GreenLake provides APIs for the different applications hosted on the HPE GreenLake Cloud Platform \[CD(SL2] to do what can be done in the GUI through programmatic \[CD(SL3] techniques. One of these applications is HPE GreenLake for Compute Ops Management (COM). You can find its documentation on the HPE GreenLake API portal \[CD(SL4] at [developer.greenlake.hpe.com](http://developer.greenlake.hpe.com).
+HPE GreenLake provides APIs for the different applications hosted on the HPE GreenLake Cloud Platform to do what can be done in the GUI through programmatic techniques. One of these applications is HPE GreenLake for Compute Ops Management (COM). You can find its documentation on the HPE GreenLake API portal at [developer.greenlake.hpe.com](http://developer.greenlake.hpe.com).
 
-However, if you are time constrained and prefer to just poke around instead of browsing pages of documentation, this blog post is for you. One of the benefits of working within a community is the ability to take advantage of open collaboration, sharing hints, tools, and resources. \[RD5] Because In order to discover the API capabilities more rapidly, you can use a (free) tool such as Postman and leverage some of the Postman collections already created by members of the HPE Developer Community. If you are not yet familiar with Postman, no problem! We will provide you with step-by-step instructions.
+However, if you are time constrained and prefer to just poke around instead of browsing pages of documentation, this blog post is for you. One of the benefits of working within a community is the ability to take advantage of open collaboration, sharing hints, tools, and resources. In order to discover the API capabilities more rapidly, you can use a (free) tool such as Postman and leverage some of the Postman collections already created by members of the HPE Developer Community. If you are not yet familiar with Postman, no problem! We will provide you with step-by-step instructions.
 
 >Note: You can follow these instructions with the Postman native application as well as the SaaS version of Postman. 
 
@@ -27,13 +65,13 @@ If you don’t have a Postman account already, you can request a free one at: <h
 
 Log in to your Postman account and, from the search bar, look for the collection “Compute Ops Management”  and select from the list, the one from our Community contributor, Lionel Jullien’s (lio@hpe.com) public workspace. 
 
->Note: You can link [here](https://www.postman.com/jullienl/workspace/lionel-jullien-s-public-workspace/collection/991177-a2b4838f-3e9d-4047-b02f-f813b73a6724?ctx=documentation) directly.
+>Note: You can access it directly from [here](https://www.postman.com/jullienl/workspace/lionel-jullien-s-public-workspace/collection/991177-a2b4838f-3e9d-4047-b02f-f813b73a6724?ctx=documentation) directly.
 
 ## Step 3 - Fork the existing HPE GreenLake Compute Ops management collection
 
 You can fork Lionel’s COM collection into your Postman workspace, which is very similar to a GitHub fork operation. This will copy the content of the collection to your workspace, and maintain a link to the source, which would allow you to get updates (if Lionel does update his collection), or contribute to Lionel’s collection by opening a Pull Request (PR) if you have made changes to the collection. After you fork his collection, you can work on your own copy in your Postman workspace.
 
->Note: You might not be able to fork a collection from Postman if it is hosted on a free account, and it has reached the maximum number of allowed forks. In that case, export the collection and import it into your own workspace.
+>Note: You can also export the collection and import it into your own workspace.
 
 ## Step 4 - Prepare your COM environment
 
