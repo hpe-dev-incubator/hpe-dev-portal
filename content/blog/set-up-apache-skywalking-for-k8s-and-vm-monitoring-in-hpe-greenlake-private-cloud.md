@@ -1,7 +1,7 @@
 ---
 title: Set up Apache SkyWalking for application monitoring in HPE GreenLake for
   Private Cloud Enterprise
-date: 2022-09-29T07:26:49.087Z
+date: 2023-01-04T07:31:55.711Z
 author: Guoping Jia
 authorimage: /img/guoping.png
 tags:
@@ -26,16 +26,15 @@ Apache SkyWalking is lightweight, scalable, and supports alerting and visualizat
 
 ## Set up Apache SkyWalking for Application Monitoring
 
-We will take the approach to setting up the A
-pache SkyWalking as a *self-hosted* APM tool within the Kubernetes cluster created in HPE GreenLake for Private Cloud Enterprise. This mainly takes into account the security concerns in HPE GreenLake product environment. 
+We will take the approach to setting up the Apache SkyWalking as a *self-hosted* APM tool within the Kubernetes cluster created in HPE GreenLake for Private Cloud Enterprise. This mainly takes into account the security concerns in HPE GreenLake product environment. 
 
 ### Prerequisites
 
 Before we start, make sure we meet the following requirements:
 
 * A Kubernetes cluster, being provisioned in HPE GreenLake for Private Cloud Enterprise;
-* The *kubectl* CLI tool, together with the *kubeconfig* files for accessing the Kubernetes clusters;
-* The *[Helm](https://helm.sh/docs/intro/install/)* CLI tool. I﻿t will be used for installing the Apache SkyWalking;
+* The *kubectl* CLI tool, version 1.23.1 or later, together with the *kubeconfig* files for accessing the Kubernetes cluster; 
+* The *[Helm](https://helm.sh/docs/intro/install/)* CLI tool, version 3.8.1 or later. 
 
 ### Deploy Apache SkyWalking
 
@@ -199,6 +198,7 @@ spec:
 
 $﻿ kubectl apply -f deployment.yaml
 ```
+
 A﻿fter the app gets deployed, the built-in Java agent should start collecting application data and post it to the SkyWalking OAP. All the application metrics will be available in the SkyWalking UI:
 
 ![](/img/java-app.png)
@@ -209,16 +209,11 @@ H﻿ere is the application topology map:
 
 ### Deploy a Multi-tier Application 
 
-The following multi-tier music application will be installed to the K8s cluster.
-
-* App Server (NodeJS) & UI (React):
-* Gateway (Spring)
-* Recommendations (Python)
-* Songs (Spring)
+A﻿s the sfirst demo application, create a _SpingBoot_ Web app that provides a REST endpoint **/message** to print some nice message. Then generate a _jar_ file *springboot-k8s-demo.jar* to the target folder: second , we will deploy a multi-tier _music_ application, available as part of [Apache SkyWalking showcase application](https://github.com/apache/skywalking-showcase). This multi-tier music application consists of a frontend server and its UI, backend gateway service, recommendation service and songs service, together with a _H2_ database. Each microservice is coding with different programming languages, _NodeJS_, _React_, _Spring_, _Python_, etc.
 
 ![](/img/multl-tier-app-music.png)
 
-I﻿n order to monitor the multi-tier application from SkyWalking, each SkyWalking agent per programming language needs to be built into corresponding service which collects application data and exports them to the SkyWalking OAP server. 
+I﻿n order to monitor the multi-tier application from Apache SkyWalking, we need to pickup the SkyWalking agent per programming language and rebuild corresponding service to instrument the applicaiton to the SkyWalking OAP server. 
 
 ```markdown
 ├── app
@@ -276,19 +271,19 @@ deployment.apps/loadgen-deployment created
 
 ### Monitor Multi-tier Application from SkyWalking UI
 
-\-﻿ Multi-tier application services:
+-﻿ Multi-tier application services:
 
 ![](/img/sw-app-svc.png)
 
-\-﻿ Multi-tier application topology:
+-﻿ Multi-tier application topology:
 
 ![](/img/multl-tier-app-map.png)
 
-\-﻿ Multi-tier application trace:
+-﻿ Multi-tier application trace:
 
 ![](/img/sw-app-trace.png)
 
-\-﻿ Multi-tier application alarms:
+-﻿ Multi-tier application alarms:
 
 ![](/img/sw-app-alarms.png)
 
@@ -296,14 +291,16 @@ T﻿he alarms page shows *Successful rate of service agent::app is lower than 80
 
 From the service `agent::app` overview page below, it shows *Success Rate 66.66%*. You may check the service's trace pages and try to figure out the root cause for this issue.
 
-\-﻿ Multi-tier application service `agent::app` overview:
+-﻿ Multi-tier application service `agent::app` overview:
 
 ![](/img/sw-svc-app-overview.png)
 
-\-﻿ Multi-tier application service `agent::app` trace:
+-﻿ Multi-tier application service `agent::app` trace:
 
 ![](/img/sw-svc-app-trace.png)
 
 ## Conclusion
 
-<﻿to be added>
+This blog post took the Apache SkyWalking as the application performance monitoring (APM) tool and showed the detailed process to set it up, as a _self-managed_ environment, in HPE GreenLake for Private Cloud Enterprise for monitoring and alerting applications. Using the instrumentation of multiple supported agents from Apache SkyWalking, the application workloads can be easily monitored through the integrated Apache SkyWalking UI, with nice application topology map, tracing details and real-time alarms for any application performance issues.  
+
+I﻿n the next blog, we will show you how to use Apache SkyWalking for Kubernetes monitoing in HPE GreenLake for Private Cloud Enterprise.
