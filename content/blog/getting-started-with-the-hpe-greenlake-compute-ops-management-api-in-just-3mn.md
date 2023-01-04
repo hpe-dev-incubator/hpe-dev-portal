@@ -109,8 +109,8 @@ Once the call returns, make sure you have a Status of 200 OK and check the JSON 
 {
 
 "access_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6IlRFak8tZEJPbThxUDlqRUlxdVE5aXVKX09HTSIsInBpLmF0bSI6ImRlejAifQ.eyJjbGllbnRfaWQiOiJmYWE5ZDZjMi04MjdjLTQzMWYtYTI2My1kNGE1YzY5YjYwZjIiLCJpc3MiOiJodHRwczovL3Nzby5jb21tb24uY2xvdWQuaHBlLmNvbSIsImF1ZCI6ImV4dGVybmFsX2FwaSIsInN1YiI6ImNvbS5kZW1vdXNlckBnbWFpbC5jb20iLCJ1c2VyX2N0eCI6ImIwMDQxNjk0NDM5MjExZWM5MWQ2YzZhZGQyMDZhMjQ3IiwiYXV0aF9zb3VyY2UiOiJjY3NfdG9rZW5fbWFuYWdlbWVudCIsInBsYXRmb3JtX2N1c3RvbWVyX2lkIjoiMzQ2NTJmZjAzMTc3MTFlYzliYzA5Njg3MjU4MGZkNmQiLCJpYXQiOjE2NzEwOTM2ODUsImFwcGxpY2F0aW9uX2luc3RhbmNlX2lkIjoiNjM3ZjA5MzgtMTg4Mi00NzNiLTkyNDQtNGNkMDFkMWExNjY4IiwiZXhwIjoxNjcxMTAwODg1fQ.ajV-eV98TrdZPtQAIynOW_9zrF0HaZo_g8eBdoxjHldEvXlxyomcpT3ElI_Ke2AZAGKDDQB9zihy0bfplSgnMg1yBoH7r2Ih4PJXm-lprFQZPF9dApDvv39sPu-VJZU2RijCGPp5fDqzbcF-37zbCzdhihdYsAnQE3VcGd8xKRTkH8JZVe3Rg22_ndzZOqTR3SAeVcFGuI3PN3r2mJ5GyxlT8ckt_QsUHrxtYPEVwZnOwRFtrT7JB-Ht3vJB8wJJwXdyIadr64gunV3UusMjxMzYk4RpvdMjRuANhhBUAHxdA3Mmnq3MXtnSLu_hPGz2MUzoXO9IPMI9Csq3q5G8Rg",
-    "token_type": "Bearer",
-    "expires_in": 7199
+"token_type": "Bearer",
+"expires_in": 7199
 }
 ```
 
@@ -118,7 +118,7 @@ This token is known as a Bearer token and it is valid for 7200 seconds (120 minu
 
 There is javascript code executed at the end of the call to automatically capture the value of the session token and store it in a new environment variable (called COM_Token) that is visible in your Postman environment. You can check this code in the Tests tab of the API call:
 
-```jscript
+```js
 const responseJson = pm.response.json();
 
 // Set environment variables
