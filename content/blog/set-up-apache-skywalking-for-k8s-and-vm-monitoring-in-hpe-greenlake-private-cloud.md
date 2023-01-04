@@ -146,7 +146,7 @@ A﻿s the first demo application, create a *SpingBoot* Web app that provides a R
 
 B﻿y building a *Docker* image using the generated *jar* file, this *SpringBoot* app can be easily deployed as a containerized application to the Kubernetes cluster.
 
-Apache SkyWalking provides a list of agents per programming language that can be used for building into corresponding aservice which collects application data and exports them to the SkyWalking OAP server.  
+Apache SkyWalking provides a list of agents per programming language that can be used for building into corresponding service which collects application data and exports them to the SkyWalking OAP server.  
 
 ![](/img/sw-agents.png)
 
@@ -170,7 +170,7 @@ ENTRYPOINT ["java","-javaagent:/opt/agent/skywalking-agent.jar=agent.namespace=d
 
 ### Monitor SpringBoot Application from SkyWalking UI
 
-After build the Docker image *guopingjia/springboot-k8s-demo:pce* and push it to the *DockerHub*, we deploy the *SpringBoot* app to the Kubernetes cluster:
+After build the Docker image *guopingjia/springboot-k8s-demo:pce* and push it to the *DockerHub* registry, we deploy the *SpringBoot* app to the Kubernetes cluster:
 
 ```markdown
 $﻿ cat deployment.yaml
@@ -203,7 +203,7 @@ When the app gets deployed, the built-in Java agent will start collecting applic
 
 ![](/img/java-app.png)
 
-H﻿ere is the application topology map:
+H﻿ere is the *SpingBoot* Web app topology map:
 
 ![](/img/java-app-map.png)
 
@@ -213,7 +213,7 @@ A﻿s the second demo application, we will deploy a multi-tier *music* applicati
 
 ![](/img/multl-tier-app-music.png)
 
-I﻿n order to monitor the multi-tier application from Apache SkyWalking, we need to pickup the SkyWalking agent per programming language and rebuild corresponding service to instrument the applicaiton to the SkyWalking OAP server. 
+I﻿n order to monitor the multi-tier application from Apache SkyWalking, we need to pickup the SkyWalking agent per programming language and rebuild corresponding service to instrument the application to the SkyWalking OAP server. 
 
 ```markdown
 ├── app
@@ -271,17 +271,18 @@ deployment.apps/loadgen-deployment created
 
 ### Monitor Multi-tier Application from SkyWalking UI
 
-\-﻿ Multi-tier application services:
+When the multi-tier app gets deployed, the agents built with each microservice will start collecting application data and post it to the SkyWalking OAP. The multi-tier music application metrics will be available in the SkyWalking UI, under _General Service_ tab:
 
 ![](/img/multl-tier-app.png)
 
-\-﻿ Multi-tier application topology:
+Here is the multi-tier music application topology map:
 
 ![](/img/multl-tier-app-map.png)
 
-\-﻿ Multi-tier application trace:
+You can also check the multi-tier music application trace page:
 
 ![](/img/sw-app-trace.png)
+
 
 \-﻿ Multi-tier application alarms:
 
