@@ -70,7 +70,7 @@ Log in to your Postman account and, from the search bar, look for the collection
 
 ## Step 3 - Fork the existing HPE GreenLake Compute Ops management collection
 
-You can fork Lionel’s COM collection into your Postman workspace, which is very similar to a GitHub fork operation. This will copy the content of the collection to your workspace, and maintain a link to the source, which would allow you to get updates (if Lionel does update his collection), or contribute to Lionel’s collection by opening a Pull Request (PR) if you have made changes to the collection. After you fork his collection, you can work on your own copy in your Postman workspace.
+You can fork Lionel’s COM collection into your Postman workspace, which is very similar to a GitHub fork operation. This will copy the content of the collection to your workspace, and maintain a link to the source, which would allow you to get updates (if Lionel does update his collection), or contribute to Lionel’s collection by opening a Pull Request (PR) if you have made changes to the collection. After you forked his collection, you can work on your own copy in your Postman workspace.
 
 > Note: You can also export the collection and import it into your own workspace.
 
