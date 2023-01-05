@@ -5,8 +5,9 @@ author: Guoping Jia
 authorimage: /img/guoping.png
 disable: false
 tags:
-  - hpe-greenlake, application performance monitoring, Splunk, Datadog, New
-    Relic, Dynatrace, Prometheus, Elastic, Apache SkyWalking
+  - hpe-greenlake, hpe-greenlake-for-private-cloud-enterprise, application
+    performance monitoring, Splunk, Datadog, New Relic, Dynatrace, Prometheus,
+    Elastic, Apache SkyWalking
 ---
 ## Introduction
 
@@ -159,7 +160,7 @@ Key features:
 * find data relationships through aggregations and graph exploration and create alerts;
 * model and automate the analysis of time series data, combine alerting and inference using machine learning;
 
-Elastic builds and maintains the *Elastic Stack*, an _all-in-one_ platform built upon the proven *ELK Stack* for the logs, metrics, and application trace data with a multitude of out-of-the-box integrations. Elastic Stack is the foundation for its primary solutions, *Elastic Enterprise Search*, the fleet of search solutions, *Elastic Observability*, the solution for unified visibility across logs, metrics and APM data, and *Elastic Security*, the solution that unifies endpoint protection and _SIEM_. You can easily deploy any of these solutions as a managed service with Elastic Cloud, with one stack powering three solutions. 
+Elastic builds and maintains the *Elastic Stack*, an _all-in-one_ platform built upon the proven *Elasticsearch, Logstash, and Kibana (ELK) Stack* for the logs, metrics, and application trace data with a multitude of out-of-the-box integrations. Elastic Stack is the foundation for its primary solutions, *Elastic Enterprise Search*, the fleet of search solutions, *Elastic Observability*, the solution for unified visibility across logs, metrics and APM data, and *Elastic Security*, the solution that unifies endpoint protection and _SIEM_. You can easily deploy any of these solutions as a managed service with Elastic Cloud, with one stack powering three solutions. 
 
 Elastic has been named as a *Visionary* in the latest [Gartner Magic Quadrant for APM and Observability](https://www.elastic.co/explore/devops-observability/2022-gartner-magic-quadrant-apm/). It has a modern initial interface that users can take advantage out of the box. It provides a lot of very powerful tools for data ingestion, data enrichment, data analysis and various plugins and open source integrations, from years of development and community input. Elastic has good capabilities across reporting and dashboards, user interaction performance, multicloud resource view, predictive analysis, and intelligent data push. It’s easy to use, but a bit of a hassle to configure and maintain. Since Elastic is based on open source code, it requires technical skills in open source and it has quite high threshold to get over to understand how the system works and how to configure it properly. 
 
@@ -207,7 +208,7 @@ Key features:
 * support infrastructure monitoring for Kubernetes and Linux;
 * support alerting using rules in both observability analysis language and metric analysis language;
 
-Apache SkyWalking provides a list of agents to be used for building *Java*, *.NET Core*, *PHP*, *Node.js*, *Golang*, *LUA*, *Rust* and *C++* apps. It supports to integrate and collect data from multiple sources, including _Prometheu_, _OpenTelemetry_ and _Zabbix_ for metrics and logs, _Zipkin_ for traces. It provides tracing, metrics analysis, alerting, service mesh observability and visualization. 
+Apache SkyWalking provides a list of agents to be used for building *Java*, *.NET Core*, *PHP*, *Node.js*, *Golang*, *LUA*, *Rust* and *C++* apps. It supports to integrate and collect data from multiple sources, including _Prometheus_, _OpenTelemetry_ and _Zabbix_ for metrics and logs, _Zipkin_ for traces. It provides tracing, metrics analysis, alerting, service mesh observability and visualization. 
 
 Apache SkyWalking is an open source tool with *21K* GitHub stars and *6K* GitHub forks. In [StackShare community](https://stackshare.io/apache-skywalking#stacks.), Apache SkyWalking does not yet have many approval, only being  mentioned in 12 developer stacks. However, Apache SkyWalking has more than *600* contributors on GitHub and thousands of contributions every year. All the agents for application instrumentation have been actively maintained. 
 
