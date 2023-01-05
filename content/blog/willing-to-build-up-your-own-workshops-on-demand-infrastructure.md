@@ -70,4 +70,23 @@ F﻿rom the email, the particpant click on the start button. it will open up a b
 
 T﻿he participant will go through the different steps and labs of the workshop connecting to the necessary endpoints and leveraging the different kernels available on the jupyterhub server.
 
-M﻿eanwhile, the frontend server will perform regular checks on time passed.
+M﻿eanwhile, the frontend server will perform regular checks on time passed. Depending on time allocation (from 2 to 4 hours) associated with the workshop, the frontend server will send a reminder email usually a hour before the end of the time allocated. The time count actually starts when the participant hit the register for the workshop button. It is mentionned in the terms and conditions.
+
+F﻿inally, when the time is up: 
+
+T﻿he frontend server send a new order to the backend to:
+
+P﻿erform either CLEANUP or RESET  action for the dedicated studentid.
+
+T﻿his means:
+
+* Resetting any infrastructure that was requiered for the workshop (Virtual Appliance, Virtual Machine, Docker Container, LDAP config, etc..)
+* G﻿enerate a random Password for the allocated student
+* D﻿elete the workshop content on the jupyterhub server in the dedicated student home directory (Notebooks files necessary for the workshop)
+* Send back through API Calls to the frontend server the confirmation of the CLEANUP or RESET of the workshop along with the student details (Password)
+
+4﻿.The frontend server get its different tables updated:
+
+* T﻿he customer tables shows an inactive status for the participant row. The password field has been updated. 
+* T﻿he Workshop table gets also updated. The capacity field increment the number of available seats. 
+* The student tables gets updated as well by setting the allocated student to inactive.
