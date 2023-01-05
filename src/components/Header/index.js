@@ -138,13 +138,13 @@ function Header() {
       'Sign in URL+++',
       `${GATSBY_COCKPIT_HPE_OAUTH}?redirectUri=${
         typeof window !== 'undefined'
-          ? window.location.origin
+          ? window.location.href
           : 'https://developer.hpe.com'
       }/`,
     );
     window.location.href = `${GATSBY_COCKPIT_HPE_OAUTH}?redirectUri=${
       typeof window !== 'undefined'
-        ? window.location.origin
+        ? window.location.href
         : 'https://developer.hpe.com'
     }/`;
   };

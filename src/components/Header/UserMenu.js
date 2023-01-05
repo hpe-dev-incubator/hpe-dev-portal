@@ -72,7 +72,7 @@ export function UserMenu({ userInfo }) {
                 'sing out +++++',
                 `https://www.hpe.com/system/sling/logout.html?redirectUri=${
                   typeof window !== 'undefined'
-                    ? window.location.origin
+                    ? window.location.href
                     : 'https://developer.hpe.com'
                 }/`,
               )}
@@ -83,7 +83,7 @@ export function UserMenu({ userInfo }) {
                 label="Sign Out"
                 to={`https://www.hpe.com/system/sling/logout.html?redirectUri=${
                   typeof window !== 'undefined'
-                    ? window.location.origin
+                    ? window.location.href
                     : 'https://developer.hpe.com'
                 }/`}
               />
