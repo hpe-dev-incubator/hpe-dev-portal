@@ -23,18 +23,37 @@ F﻿rom a technical standpoint, as mentioned above we had to make sure to separa
 
 ![Workshops-on-Demand Concepts 1](/img/howto-wod-1.png "Workshops-on-Demand Concepts 1")
 
+### T﻿he Register Phase:
+
 T﻿he participant starts by browsing a frontend web server that presents the catalog of available workshops. He then select one of them and registers for it by entering his Email address, first and last names as well as his company name. Finally he accepts the terms and conditions and hit the register button. As he is clicking the register button, the frontend server will perform a series of actions:
 
-1﻿/Assign a student from the dedicated workshop range to the participant. Every workshop has a dedicated range of student assigned to it.
+1.Assign a student from the dedicated workshop range to the participant. Every workshop has a dedicated range of student assigned to it.
 
-H﻿ere is a screenshot of the workshop table present in the frontend Database Server.
+H﻿ere is a screenshot of the workshop table present in the frontend Database Server showing API101 workshops details.
 
 ![Workshops Table from Frontend DB server](/img/howto-wod-2.png "Workshops Table from Frontend DB server")
 
-* Frederic Passeron gets assigned student1 for workshop "API101" 
+* Frederic Passeron gets assigned a studentid "student397" for workshop "API101".
 
 ![Customers Table from Frontend DB server](/img/howto-wod-3.png "Customers Table from Frontend DB server")
 
+H﻿ere are the details of the participant info when registered to a given workshop.
+
+2﻿.A first email is sent to participant from the frontend server welcoming him to the workshop and informing him the deployment is ongoing and that a second email show be recieved shortly providing him with the necessary infos to logon  to the workshop environment.
+
+3﻿.The frontend server at the same time sends the necessary orders through a procmail API to the backend server. The mail sent to the backend server contains the following details :
+
+* Action Type ( CREATE, CLEANUP, RESET)
+* W﻿orkshop ID
+* S﻿tudent ID
+
+3﻿.The Backend Server recieves the order and processes it by  parsing the email recieved and using the information to automate the deployment of the workshop.
 
 
-send the necessary orders through a procmail API to the backend server. The mail sent to the backend server contains the following details :
+
+T﻿his means:
+
+* P﻿reparing any infrastructure that might be requiered for the workshop (Virtual Appliance, Virtual Machine, Docker Container, LDAP config, etc..)
+* G﻿enerate a random Password for the allocated student
+* D﻿eploy the workshop content on the jupyterhub server in the dedicated student home directory (Notebooks files necessary for the workshop)
+*﻿ Send back through API Calls the confirmation of the deployment of the workshop along with the student details (Password)
