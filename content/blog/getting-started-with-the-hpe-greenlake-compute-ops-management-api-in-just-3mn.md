@@ -1,5 +1,5 @@
 ---
-title: Getting started with the HPE GreenLake Compute Ops Management API in just 3mn
+title: Getting started with HPE GreenLake Compute Ops Management API in just 3mn
 date: 2023-01-04T09:57:13.816Z
 author: Didier Lalli
 authorimage: /img/didier-lalli.png
@@ -48,9 +48,9 @@ thead tr:first-child td {
 
 ## Apply the power of a Developer Community
 
-HPE GreenLake provides APIs for the different applications hosted on the HPE GreenLake Cloud Platform to do what can be done in the GUI through programmatic techniques. One of these applications is HPE GreenLake for Compute Ops Management (COM). HPE GreenLake for Compute Ops Management automates and transforms complex and time-consuming compute management operations into a simplified experience across edge-to-cloud. You can find its API documentation on the HPE GreenLake API portal at [developer.greenlake.hpe.com](http://developer.greenlake.hpe.com).
+HPE GreenLake provides APIs for the different applications hosted on the HPE GreenLake Cloud Platform to do what can be done in the GUI through programmatic techniques. One of these applications is HPE GreenLake for Compute Ops Management (COM). HPE GreenLake for Compute Ops Management automates and transforms complex and time-consuming compute management operations into a simplified experience across edge-to-cloud. You can find its [API documentation](https://developer.greenlake.hpe.com/docs/greenlake/services/compute-ops/public/) on the [HPE GreenLake API portal](https://developer.greenlake.hpe.com/). 
 
-However, if you are time constrained and prefer to just poke around instead of browsing pages of documentation, this blog post is for you. One of the benefits of working within a community is the ability to take advantage of open collaboration, sharing hints, tools, and resources. In order to discover the API capabilities more rapidly, you can use a (free) tool such as Postman and leverage some of the Postman collections already created by members of the HPE Developer Community. If you are not yet familiar with Postman, no problem! We will provide you with step-by-step instructions.
+However, if you are time constrained and prefer to just poke around instead of browsing through pages of documentation, this blog post is for you. One of the benefits of working within a community is the ability to take advantage of open collaboration, sharing hints, tools, and resources. In order to discover the API capabilities more rapidly, you can use a (free) tool, such as Postman, and leverage some of the Postman collections already created by members of the HPE Developer Community. If you are not yet familiar with Postman, no problem! In this post, I will provide you with step-by-step instructions.
 
 > Note: You can follow these instructions with the Postman native application as well as the SaaS version of Postman. 
 
@@ -58,13 +58,13 @@ Ready? Let’s start the stopwatch, now!
 
 ![](/img/stopwatch1.jpg)
 
-## Step 1 - \[optional] Get yourself a Postman account
+## Step 1 \[optional] - Get yourself a Postman account
 
 If you don’t have a Postman account already, you can request a free one at: <https://identity.getpostman.com/signup>
 
-## Step 2 - Log in to Postman
+## Step 2 - Log into Postman
 
-Log in to your Postman account and, from the search bar, look for the collection “Compute Ops Management”  and select from the list, the one from our Community contributor, Lionel Jullien’s (lio@hpe.com) public workspace. 
+Log into your Postman account. From the search bar, look for the collection “Compute Ops Management”  and select from the list, the one from our Community contributor, Lionel Jullien’s (lio@hpe.com) public workspace. 
 
 > Note: You can access it directly from [here](https://www.postman.com/jullienl/workspace/lionel-jullien-s-public-workspace/collection/991177-a2b4838f-3e9d-4047-b02f-f813b73a6724?ctx=documentation).
 
@@ -143,7 +143,7 @@ The COM API is an aggregation of multiple independent APIs. To help you find wha
 
 ![](/img/apicalls.png)
 
-> Note: This is not using an API, but parsing the content of a documentation web page so it might be subject to changes in the future.
+> Note: This is not using an API, but parsing the content of a documentation web page, so it might be subject to changes in the future.
 
 ## Step 8 - Exploring the API
 
