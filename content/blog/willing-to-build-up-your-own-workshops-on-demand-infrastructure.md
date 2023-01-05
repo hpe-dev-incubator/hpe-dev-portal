@@ -22,3 +22,19 @@ F﻿rom a technical standpoint, as mentioned above we had to make sure to separa
  The workshops-on-Demand concept is fairly simple. the following picture provides you with the overall process.
 
 ![Workshops-on-Demand Concepts 1](/img/howto-wod-1.png "Workshops-on-Demand Concepts 1")
+
+T﻿he participant starts by browsing a frontend web server that presents the catalog of available workshops. He then select one of them and registers for it by entering his Email address, first and last names as well as his company name. Finally he accepts the terms and conditions and hit the register button. As he is clicking the register button, the frontend server will perform a series of actions:
+
+1﻿/Assign a student from the dedicated workshop range to the participant. Every workshop has a dedicated range of student assigned to it.
+
+H﻿ere is a screenshot of the workshop table present in the frontend Database Server.
+
+![Workshops Table from Frontend DB server](/img/howto-wod-2.png "Workshops Table from Frontend DB server")
+
+* Frederic Passeron gets assigned student1 for workshop "API101" 
+
+![Customers Table from Frontend DB server](/img/howto-wod-3.png "Customers Table from Frontend DB server")
+
+
+
+send the necessary orders through a procmail API to the backend server. The mail sent to the backend server contains the following details :
