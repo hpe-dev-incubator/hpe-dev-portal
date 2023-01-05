@@ -7,4 +7,6 @@ disable: false
 ---
 [T﻿he Workshops-on-Demand](https://developer.hpe.com/hackshack/workshops/) have been an important asset for the HPE Developer Community for the last 2 years. We lately reached more than 4000 registered workshops. The project was used during physical and virtual events like HPE Discover, HPE Technical Symposium Summit, but also during Open Source events like OSS CON or Kube Con. Overtime, people have actually asked us how they could setup their own Workshops-on-Demand infrastructure. 
 
-A﻿s a consequence, we decided over the course of the Year 2022 to open source the project.
+A﻿s a consequence, we decided over the course of the Year 2022 to open source the project. As HPE Employees, we had to go through different steps including technical, legal concerns to achieve this.
+
+F﻿rom a legal standpoint, we needed to go through the OSSRB (Open Source Review Board) to present the project that we wanted to open source. This was quite straightforward in this case as the project did not contain any HPE proper Intellectual Property that could not be viewed publicly. Indeed, the project is mainly based on Open Source technologies like Ansible or Jupyter.
