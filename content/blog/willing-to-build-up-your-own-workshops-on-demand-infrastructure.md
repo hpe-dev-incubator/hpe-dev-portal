@@ -5,7 +5,7 @@ author: "Frederic Passeron "
 authorimage: /img/fp-hpewod.jpg
 disable: false
 ---
-# H﻿ow-to build up your own Workshops-on-Demand Infrastructure.
+### H﻿ow-to build up your own Workshops-on-Demand Infrastructure.
 
 ## A﻿ bit of background first:
 
@@ -49,8 +49,6 @@ H﻿ere are the details of the participant info when registered to a given works
 
 3﻿.The Backend Server recieves the order and processes it by  parsing the email recieved and using the information to automate the deployment of the workshop.
 
-
-
 T﻿his means:
 
 * P﻿reparing any infrastructure that might be requiered for the workshop (Virtual Appliance, Virtual Machine, Docker Container, LDAP config, etc..)
@@ -59,3 +57,17 @@ T﻿his means:
 * Send back through API Calls to the frontend server the confirmation of the deployment of the workshop along with the student details (Password)
 
 4﻿.The frontend server get its different tables updated:
+
+* T﻿he customer tables shows an active status for the participant row. The password field has been updated. 
+* T﻿he Workshop table gets also updated. The capacity field decrement the number of available seats. 
+* The student tables gets updated as well by setting the allocated student to active.
+
+5﻿.The frontend server sends the second email to the particpant providing him with the details to connect to the workshop environment.
+
+### T﻿he Run Phase:
+
+F﻿rom the email, the particpant click on the start button. it will open up a browser to the jupyterhub server and directly open up the readme first notebook presenting the workshops flow.
+
+T﻿he participant will go through the different steps and labs of the workshop connecting to the necessary endpoints and leveraging the different kernels available on the jupyterhub server.
+
+M﻿eanwhile, the frontend server will perform regular checks on time passed.
