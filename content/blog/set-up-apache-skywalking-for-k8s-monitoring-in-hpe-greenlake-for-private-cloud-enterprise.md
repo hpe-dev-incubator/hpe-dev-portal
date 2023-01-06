@@ -5,10 +5,13 @@ date: 2022-12-28T20:19:50.005Z
 author: Guoping JIA
 authorimage: /img/guoping.png
 disable: false
+tags:
+  - hpe-greenlake, hpe-greenlake-for-private-cloud-enterprise, Kubernetes,
+    application performance monitoring, Apache SkyWalking
 ---
 ## Introduction
 
-[HPE GreenLake for Private Cloud Enterprise](https://www.hpe.com/us/en/greenlake/private-cloud-enterprise.html) delivers a modern private cloud to support your app workloads running in any combination across your edges, colocations, and data centers. It contains one HPE service, called [HPE GreenLake for Containers](https://www.hpe.com/us/en/greenlake/containers.html), which provides an enterprise-grade container management service using open source Kubernetes. It allows customers to create a Kubernetes cluster, view details about existing clusters, and launch the service console. 
+[HPE GreenLake for Private Cloud Enterprise](https://www.hpe.com/us/en/greenlake/private-cloud-enterprise.html) delivers a modern private cloud to support your app workloads running in any combination across your edges, colocations, and data centers. It contains one HPE service, called [HPE GreenLake for Private Cloud Enterprise: Containers](https://www.hpe.com/us/en/greenlake/containers.html), which provides an enterprise-grade container management service using open source Kubernetes. It allows customers to create a Kubernetes cluster, view details about existing clusters, and launch the service console. 
 
 Since Kubernetes is widely used for processing customer workloads, the non-availability of applications can adversely impact productivity, business continuity and user experience. To avoid this, enterprise must closely monitor the status of the objects managed and operations performed by Kubernetes, proactively capture abnormalities, and resolve them well before end-users notice. Though Kubernetes dramatically simplifies application deployment in containers and across clouds, it adds a new set of complexities for managing, securing and troubleshooting applications. Kubernetes monitoring is critical to managing application performance, service uptime and troubleshooting. Having a good application performance monitoring (APM) tool is becoming essential for Kubernetes monitoring. 
 
@@ -24,11 +27,11 @@ Apache SkyWalking is lightweight and scalable. It can be easily set up as a *sel
 
 ## Prerequisites
 
-Before you start, make sure you meet the following requirements:
+Before I start, make sure the following requirements are met:
 
-* A Kubernetes cluster needs to be created in HPE GreenLake for Private Cloud Enterprise. You need to download the *kubectl* binary, together with the *HPE kubectl plugin* and the *kubeconfig* file of the created cluster, from the launched service console. The downloaded *kubectl* binary and its plugin need to be set up in your environment. To simplify the setup process, you should export the environment variable `KUBECONFIG` and point it to the downloaded kubeconfig file. With these setups in place, you can access the Kubernetes cluster in the HPE GreenLake for Private Cloud Enterprise.
-* The [Helm CLI](https://helm.sh/docs/intro/install/) needs to be installed in your environment. This Helm CLI will be used for installing and setting up the Apache SkyWalking.
-* The [istioctl](https://istio.io/latest/docs/setup/getting-started/#download) needs to be installed as well in your environment. The istioctl client will be used for installing and set up `Istio`.
+* A Kubernetes cluster, being provisioned in HPE GreenLake for Private Cloud Enterprise;
+* The *kubectl*, together with the *HPE kubectl plugin* and the *kubeconfig* file of the Kubernetes cluster. You can download them from the launched service console in HPE GreenLake for Private Cloud Enterprise. To simplify the setup process, you can export the environment variable `KUBECONFIG` and point it to the downloaded *kubeconfig* file;
+* The *[Helm](https://helm.sh/docs/intro/install/)* CLI tool, version 3.8.1 or later. 
 
 With your user access setup, you should have access to permissions that can create and update the following resources in the Kubernetes cluster:
 
@@ -37,16 +40,7 @@ With your user access setup, you should have access to permissions that can crea
 
 ## Set up Apache SkyWalking for Kubernetes monitoring
 
-### Prerequisites
-
-Before I start, make sure the following requirements a
-re met:
-
-* A Kubernetes cluster, being provisioned in HPE GreenLake for Private Cloud Enterprise;
-* The *kubectl* CLI tool, version 1.23 or later, together with the *kubeconfig* files for accessing the Kubernetes cluster; 
-* The *[Helm](https://helm.sh/docs/intro/install/)* CLI tool, version 3.8.1 or later. 
-
-Apache SkyWalking leverages Kubernetes [kube-state-metrics](https://github.com/kubernetes/kube-state-metrics) service for collecting metrics data from Kubernetes cluster. It then leverages *OpenTelemetry* collector to transfer the Kubernetes metrics to *OpenTelemetry* receiver for Kubernetes monitoring. 
+Apache SkyWalking leverages Kubernetes [kube-state-metrics](https://github.com/kubernetes/kube-state-metrics) service for collecting metrics data from Kubernetes cluster. It then leverages *OpenTelemetry* collector to transfer the Kubernetes metrics to *OpenTelemetry* receiver in Apache SkyWalking Observability Analysis Platform (OAP) for Kubernetes monitoring. 
 
 ![](/img/otel-collector.png)
 
@@ -73,9 +67,9 @@ $ helm install skywalking skywalking –n skywalking \
 --set oap.env.SW_OTEL_RECEIVER_ENABLED_OC_RULES="k8s-cluster\,k8s-service\,k8s-node" 
 ```
 
-After running above commands, t﻿he Apache SkyWalking is installed to the Kubernetes cluster's namespace *skywalking*. It creates the *elasticsearch* as the `StatefulSet`, running a pod on each worker node. It runs the Apache SkyWalking Observability Analysis Platform (OAP) with replicas as 2 to provide high availability to the pods.
+After running above commands, t﻿he Apache SkyWalking is installed to the Kubernetes cluster's namespace *skywalking*. It creates the *elasticsearch* as the `StatefulSet` resource, running a pod on each worker node. It runs the Apache SkyWalking OAP with replicas as 2 to provide high availability.
 
-T﻿he last two options enable the *OpenTelemetry* receiver and define the metrics for Kubernetes service, service instance and endpoint. It requires Apache SkyWalking OAP to have access to Kubernetes API server to query the metadata. 
+T﻿he last two options, *oap.env.SW_OTEL_RECEIVER=default* & *oap.env.SW_OTEL_RECEIVER_ENABLED_OC_RULES="k8s-cluster,k8s-service,k8s-node"*, enable the *OpenTelemetry* receiver and define the metrics for Kubernetes service, service instance and endpoint. It requires Apache SkyWalking OAP to have access to Kubernetes API server to query the metadata.
 
 You can check the detailed Apache SkyWalking installation by typing the following *kubectl* command:
 
@@ -141,7 +135,7 @@ External Traffic Policy:  Cluster
 Events:                   <none>
 ```
 
-T﻿he SkyWalking UI can then be accessed in your browser by typing the address *gl2-caas.gl-hpe.local:10037*: 
+As shown in the _**Annotations**_ section of the service description above, t﻿he SkyWalking UI can then be accessed in your browser by typing the address *gl2-caas.gl-hpe.local:10037*: 
 
 ![](/img/sw-ui.png)
 
@@ -349,11 +343,11 @@ NAME                                                            DESIRED   CURREN
 replicaset.apps/otel-deployment-kubernetes-monitor-798cdd8486   1         1         1       96d
 ```
 
-After all setup steps are finished, the Kubernetes metrics will be showing up in Skywalking UI, under *Kubernetes* tab:
+After all setup steps are finished, the Kubernetes metrics will be showing up in SkyWalking UI, under *Kubernetes* tab:
 
 ![](/img/sw-k8s-clu.png)
 
-You can check the﻿ Kubernetes overview from Skywalking UI:
+You can check the﻿ Kubernetes overview from SkyWalking UI:
 
 ![](/img/sw-k8s-overview.png)
 
