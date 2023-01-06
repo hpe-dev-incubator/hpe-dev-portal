@@ -207,3 +207,5 @@ At the end of the installation process:
 * you will have a jupyterhub server running on port http 8000
 * You will get a new wodadmin user
 * You will get a set of students
+
+W﻿od-Frontend:
