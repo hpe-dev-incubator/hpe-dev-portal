@@ -1,6 +1,6 @@
 ---
-title: "•\tAddressing hybrid cloud application challenges using HPE GreenLake
-  for Private Cloud Enterprise – Part 1: Deploying complex apps"
+title: "Addressing hybrid cloud application challenges using HPE GreenLake for
+  Private Cloud Enterprise – Part 1: Deploying complex apps"
 date: 2023-01-02T07:52:05.869Z
 author: Guoping Jia
 authorimage: /img/guoping.png
