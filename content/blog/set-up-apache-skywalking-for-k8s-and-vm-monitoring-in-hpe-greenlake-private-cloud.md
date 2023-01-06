@@ -5,16 +5,16 @@ date: 2023-01-04T07:31:55.711Z
 author: Guoping Jia
 authorimage: /img/guoping.png
 tags:
-  - hpe-greenlake, kubernetes, application performance monitoring, Apache
-    SkyWalking
+  - hpe-greenlake, hpe-greenlake-for-private-cloud-enterprise, Kubernetes,
+    application performance monitoring, Apache SkyWalking
 ---
 ## Introduction
 
 [HPE GreenLake for Private Cloud Enterprise](https://www.hpe.com/us/en/greenlake/private-cloud-enterprise.html) delivers a modern private cloud to support your app workloads with bare metal, containers, and virtual machines (VMs) running in any combination across your edges, colocations, and data centers. It combines self-service resource access for developers with consumption and performance transparency for IT. Within this modern application environment, having a robust application performance monitoring (APM) tool is becoming essential. It can help IT professionals to ensure that deployed applications meet the performance, reliability and valuable user experience required by developers, partners and customers.
 
-In [the first blog post](https://developer.hpe.com/blog/get-started-with-application-performance-monitoring-tools-overview/), we walked through some of the best APM tools, described their key features and discussed in details their strengths and weaknesses.
+In [the first blog post](https://developer.hpe.com/blog/get-started-with-application-performance-monitoring-tools-overview/), I walked through some of the best APM tools, and I described their key features and discussed in details their strengths and weaknesses.
 
-In this blog post, we will start choosing one APM tool,  *Apache SkyWalking*, and describe the detailed process how to set it up in HPE GreenLake for Private Cloud Enterprise for monitoring and alerting customer applications. 
+In this blog post, I will start choosing one APM tool,  *Apache SkyWalking*, and describe the detailed process how to set it up in HPE GreenLake for Private Cloud Enterprise for monitoring and alerting customer applications. 
 
 ## Apache SkyWalking
 
@@ -26,7 +26,7 @@ Apache SkyWalking is lightweight and scalable. It can be easily set up as a *sel
 
 ## Set up Apache SkyWalking for Application Monitoring
 
-We will take the approach to setting up the Apache SkyWalking as a *self-managed* APM tool within the Kubernetes cluster created in HPE GreenLake for Private Cloud Enterprise. This mainly takes into account the security concerns in HPE GreenLake product environment. 
+I will take the approach to setting up the Apache SkyWalking as a *self-managed* APM tool within the Kubernetes cluster created in HPE GreenLake for Private Cloud Enterprise. This mainly takes into account the security concerns in HPE GreenLake product environment. 
 
 ### Prerequisites
 
@@ -55,11 +55,11 @@ $ helm install skywalking skywalking –n skywalking \
 --set elasticsearch.sysctlInitContainer.enabled=false
 ```
 
-After running above commands, t﻿he Apache SkyWalking is installed to the Kubernetes cluster's namespace *skywalking*. It creates the *elasticsearch* as the `StatefulSet`, running a pod on each worker node. It runs the Apache SkyWalking OAP with replicas as 2 to provide high availability. 
+After running above commands, t﻿he Apache SkyWalking is installed to the Kubernetes cluster's namespace *skywalking*. It creates the *elasticsearch* as the `StatefulSet` object, running a pod on each worker node. It runs the Apache SkyWalking Observability Analysis Platform (OAP) with replicas as 2 to provide high availability. 
 
-It should be noted that the last option *elasticsearch.sysctlInitContainer.enabled=false* is necessary. Otherwise, it will try to set up *vm.max_map_count* using a privileged container during *elasticsearch* installation. It will violate the existing *PodSecurityPolicy* deployed in the HPE GreenLake environment. It therefore will fail the Helm install. 
+It should be noted that the last option *elasticsearch.sysctlInitContainer.enabled=false* is necessary. Otherwise, it will try to set up *vm.max_map_count* using a privileged container during *elasticsearch* installation. It will violate the existing *PodSecurityPolicy* deployed in the HPE GreenLake for Private Cloud Enterprise environment. It therefore will fail the Helm install. 
 
-We can check the detailed Apache SkyWalking installation by typing the following *kubectl* command:
+You can check the detailed Apache SkyWalking installation by typing the following *kubectl* command:
 
 ```markdown
 $ kubectl get all -n skywalking
@@ -93,7 +93,7 @@ NAME                           COMPLETIONS   DURATION   AGE
 job.batch/skywalking-es-init   1/1           7m27s      8m6s
 ```
 
-We can edit the deployed SkyWalking UI service *skywalking_ui* and change its type from *ClusterIP* to *NodePort*. The service will be automatically mapped to gateway host with an assigned port.
+You can edit the deployed SkyWalking UI service *skywalking_ui* and change its type from *ClusterIP* to *NodePort*. The service will be automatically mapped to gateway host with an assigned port.
 
 ```markdown
 $ k edit service/skywalking-ui -n skywalking
@@ -123,13 +123,13 @@ External Traffic Policy:  Cluster
 Events:                   <none>
 ```
 
-T﻿he SkyWalking UI can then be accessed in the browser by typing the address *gl2-caas.gl-hpe.local:10037*: 
+As shown in the ***Annotations*** section of the service description above, the SkyWalking UI can then be accessed in the browser by typing the address *gl2-caas.gl-hpe.local:10037*: 
 
 ![](/img/sw-ui.png)
 
-### Deploy a Sample SpringBoot Application
+### Deploy a sample application: *SpringBoot*
 
-A﻿s the first demo application, create a *SpingBoot* Web app that provides a REST endpoint **/message** to print some nice message. Then generate a *jar* file *springboot-k8s-demo.jar* to the target folder:
+A﻿s the first demo application, create a *SpingBoot* Web app that provides a REST endpoint **/message** to print some nice message. Then generate a *jar* package using the [Apache Maven](https://maven.apache.org/what-is-maven.html) command *mvn* with the *pom.xml* file:
 
 ```markdown
 ├── Dockerfile
@@ -142,9 +142,58 @@ A﻿s the first demo application, create a *SpingBoot* Web app that provides a R
 └── target
     ├── springboot-k8s-demo.jar
     └── test-classes
+
+$﻿ cat pom.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.6.1</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>com.javatechie</groupId>
+	<artifactId>springboot-k8s-demo</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>springboot-k8s-demo</name>
+	<description>Demo project for Spring Boot</description>
+	<properties>
+		<java.version>1.8</java.version>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+		<finalName>springboot-k8s-demo</finalName>
+	</build>
+
+</project>
+
+$﻿ mvn compile
+$﻿ mvn package
+$ ls target/springboot-k8s-demo.jar
+target/springboot-k8s-demo.jar
 ```
 
-B﻿y building a *Docker* image using the generated *jar* file, this *SpringBoot* app can be easily deployed as a containerized application to the Kubernetes cluster.
+You can see the *jar* package *springboot-k8s-demo.jar* is built to the *target* folder. B﻿y building a *Docker* image using this generated *jar* file, the *SpringBoot* Web app can be easily deployed as a containerized application to the Kubernetes cluster.
 
 Apache SkyWalking provides a list of agents for instrumenting applications. A specific agent per programming language can be used for building into corresponding service which collects application data and exports them to the SkyWalking OAP server.   
 
@@ -168,9 +217,9 @@ WORKDIR /app
 ENTRYPOINT ["java","-javaagent:/opt/agent/skywalking-agent.jar=agent.namespace=default,agent.service_name=springboot-k8s-app,collector.backend_service=skywalking-oap.skywalking.svc.cluster.local:11800, plugin.jdbc.trace_sql_parameters = true,profile.active=true","-jar","/app/springboot-k8s-app.jar"]
 ```
 
-### Monitor SpringBoot Application from SkyWalking UI
+### Monitor SpringBoot application from SkyWalking UI
 
-After build the Docker image *guopingjia/springboot-k8s-demo:pce* and push it to the *DockerHub* registry, we deploy the *SpringBoot* Web app to the Kubernetes cluster:
+After build the Docker image *guopingjia/springboot-k8s-demo:pce* and push it to the *DockerHub* registry, we deploy the *SpringBoot* Web app to the Kubernetes cluster with the *deployment.yaml* manifest file:
 
 ```markdown
 $﻿ cat deployment.yaml
@@ -199,21 +248,23 @@ spec:
 $﻿ kubectl apply -f deployment.yaml
 ```
 
-Upon the Web app gets deployed, the built-in Java agent will start collecting application data and post it to the SkyWalking OAP. All the application metrics will be available in the SkyWalking UI, under _General Service_ tab:
+Upon the Web app gets deployed, the built-in Java agent will start collecting application data and post it to the SkyWalking OAP. All the application metrics will be available in the SkyWalking UI, under *General Service* tab:
 
 ![](/img/java-app.png)
 
-Below is the *SpingBoot* Web app topology map:
+Below is the *SpringBoot* Web app topology map:
 
 ![](/img/java-app-map.png)
 
-### Deploy a Multi-tier Application
+### Deploy a multi-tier application
 
-A﻿s the second demo application, we will deploy a multi-tier *music* application, available as part of [Apache SkyWalking showcase application](https://github.com/apache/skywalking-showcase). This multi-tier music application consists of a frontend app server and its UI, backend gateway service, recommendation service and songs service, together with a *H2* database. Each microservice is coding with different programming languages, *NodeJS*, *React*, *Spring*, *Python*, etc.
+A﻿s the second demo application, I will deploy a multi-tier *music* application, available as part of [Apache SkyWalking showcase application](https://github.com/apache/skywalking-showcase). This multi-tier music application consists of a frontend app server and its UI, backend gateway service, recommendation service and songs service, together with a *H2* database. Each microservice is implemented with different programming language, *NodeJS*, *React*, *Spring*, *Python*, etc.
 
 ![](/img/multl-tier-app-music.png)
 
-I﻿n order to monitor this multi-tier *music* application from Apache SkyWalking, we need to pick up the SkyWalking agent per programming language and rebuild corresponding service to instrument the application to the SkyWalking OAP server.
+I﻿n order to monitor this multi-tier *music* application from Apache SkyWalking, you need to pick up the SkyWalking agent per programming language and rebuild corresponding service to instrument the application to the SkyWalking OAP server.
+
+Y﻿ou can rebuild the *Docker* image per service using the agent version file _**Dockerfile**_ in each service's folder from the multi-tier *music* application repo:
 
 ```markdown
 ├── app
@@ -254,7 +305,7 @@ I﻿n order to monitor this multi-tier *music* application from Apache SkyWalkin
     └── src
 ```
 
-A﻿fter image files are rebuilt with the agents, the multi-tier *music* application can be deployed to the K8s cluster:
+A﻿fter image files are rebuilt with the agents, the multi-tier *music* application can be deployed to the Kubernetes cluster:
 
 ```markdown
 $ envsubst < resources.yaml | kubectl create -f -
@@ -269,9 +320,9 @@ deployment.apps/app-deployment created
 deployment.apps/loadgen-deployment created
 ```
 
-### Monitor Multi-tier Application from SkyWalking UI
+### Monitor multi-tier application from SkyWalking UI
 
-When the multi-tier *music* app gets deployed, the agents built with each microservice will start collecting application data and post it to the SkyWalking OAP. The multi-tier *music* application metrics will be available in the SkyWalking UI, under _General Service_ tab:
+When the multi-tier *music* app gets deployed, the agents built with each microservice will start collecting application data and post it to the SkyWalking OAP. The multi-tier *music* application metrics will be available in the SkyWalking UI, under *General Service* tab:
 
 ![](/img/multl-tier-app.png)
 
@@ -283,17 +334,23 @@ You can also check the following multi-tier *music* application trace page. It's
 
 ![](/img/sw-app-trace.png)
 
-### Application Alerting
+### Application alerting
 
-Apache SkyWalking provides an alerting mechanism to measure application performance according to a list of pre-defined metrics, e.g., _service_resp_time_, _database_access_resp_time_, and _service_sla_. It will trigger alerting when some metrics reach its pre-defined thresholds. We can define new metrics or customize the existing metrics with new thresholds. 
+Apache SkyWalking provides an alerting mechanism to measure application performance according to a list of pre-defined metrics, e.g., *service\_resp\_time*, *database\_access\_resp\_time*, and *service\_sla*. It will trigger alerting when some metrics reach its pre-defined thresholds. You can define new metrics using Observability Analysis Language (OAL) or customize the existing metrics with new thresholds. 
 
-Here is the alarms page from SkyWalking UI showing all the triggered alerting for deployed multi-tier *music* app: 
+Here is the alarms page from SkyWalking UI showing all the triggered alerts for deployed multi-tier *music* application: 
 
 ![](/img/sw-app-alarms.png)
 
 T﻿he alarms page shows *Successful rate of service agent::app is lower than 80% in 2 minutes of last 10 minutes*. It indicates issue from the frontend app server in multi-tier *music* application.
 
-The alerts are triggered by the following metric alerting rule _service_sla_: 
+A﻿pache SkyWalking configures the alerting using a collection of alerting rules located in */skywalking/config/alarm-settings.yml* from the SkyWalking OAP pod. You can check the content by running the following command:
+
+```markdown
+$ kukectl exec pod/skywalking-skywalking-helm-oap-bfb57fbf8-5g7k7 -n skywalking -it -- cat /skywalking/config/alarm-settings.yml 
+```
+
+Comparing to the output of the _alarm-settings.yml_, you can see the alerts from the alarms page are triggered by the following metric alerting rule *service\_sla*:  
 
 ```markdown
   service_sla_rule:
@@ -309,16 +366,17 @@ The alerts are triggered by the following metric alerting rule _service_sla_:
     silence-period: 3
     message: Successful rate of service {name} is lower than 80% in 2 minutes of last 10 minutes
 ```
-W﻿e can go to the frontend app by clicking the service `agent::app` from SkyWalking UI Service page. From the below service `agent::app` overview page, it shows **Success Rate 66.66%**. 
+
+You can go to the frontend app by clicking the service `agent::app` from SkyWalking UI Service page. From the below service `agent::app` overview page, it shows **Success Rate 66.66%**. 
 
 ![](/img/sw-svc-app-overview.png)
 
-We may check further the service's trace page and try to figure out the root cause for this issue.
+You may check further the service's trace page and try to figure out the root cause for this issue.
 
-![](/img/sw-svc-app-trace.png) 
+![](/img/sw-svc-app-trace.png)
 
 ## Conclusion
 
 This blog post took the Apache SkyWalking as the application performance monitoring (APM) tool and showed the detailed process to set it up, as a *self-managed* environment in HPE GreenLake for Private Cloud Enterprise, for monitoring and alerting applications. Using the instrumentation of multiple supported agents from Apache SkyWalking, the application workloads can be easily monitored through the integrated Apache SkyWalking UI, with nice application topology map, tracing details and real-time alarms for any application performance issues.  
 
-I﻿n the next blog, we will show you how to use Apache SkyWalking for Kubernetes monitoring in HPE GreenLake for Private Cloud Enterprise.
+I﻿n [the next blog post of the series](https://developer.hpe.com/blog/set-up-apache-skywalking-for-k8s-monitoring-in-hpe-greenlake-for-private-cloud-enterprise/) , I will show you how to use Apache SkyWalking APM tool for monitoring of Kubernetes clusters provisioned on HPE GreenLake for Private Cloud Enterprise.
