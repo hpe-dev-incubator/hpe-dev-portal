@@ -220,7 +220,7 @@ Apache SkyWalking is lightweight, scalable, and supports alerting and visualizat
 
 This blog post gave a closer look at some of the best APM tools, either open-source or commercial vendor based. It listed the key features of each APM tool, and discussed in details their strengths and weaknesses. The importance of a good APM solution is now indisputable. All it takes is to pick the right one based on your monitoring needs for your applications.   
 
-This blog post is the first of three in a series. In the following posts, I will show you the detailed process how to set up the *Apache SkyWalking*, as the APM tool, in HPE GreenLake for Private Cloud Enterprise for monitoring and alerting both customer application and Kubernetes cluster. 
+This blog post is the first of three in a series. In [the second post of the series](https://developer.hpe.com/blog/set-up-apache-skywalking-for-k8s-and-vm-monitoring-in-hpe-greenlake-private-cloud/), I will show you the detailed process on how to set up the Apache SkyWalking APM tool for monitoring and alerting of customer applications deployed on Kubernetes cluster provisioned on HPE GreenLake for Private Cloud Enterprise. In [the third post of the series](https://developer.hpe.com/blog/set-up-apache-skywalking-for-k8s-monitoring-in-hpe-greenlake-for-private-cloud-enterprise/), I will expand on setting up Apache SkyWalking APM tool to monitor the infrastructure of Kubernetes clusters deployed on HPE GreenLake for Private Cloud Enterprise.
 
 ## Reference
 
