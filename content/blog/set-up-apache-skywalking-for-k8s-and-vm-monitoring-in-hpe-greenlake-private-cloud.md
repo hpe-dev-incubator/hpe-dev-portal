@@ -1,6 +1,6 @@
 ---
-title: Set up Apache SkyWalking for application monitoring in HPE GreenLake for
-  Private Cloud Enterprise
+title: "Handling application performance monitoring on HPE GreenLake for Private
+  Cloud Enterprise – Part 2: App monitoring using Apache SkyWalking"
 date: 2023-01-04T07:31:55.711Z
 author: Guoping Jia
 authorimage: /img/guoping.png
