@@ -11,15 +11,15 @@ tags:
 ---
 ## Introduction
 
-In [the first blog](https://developer.hpe.com/blog/how-to-deploy-application-across-hybrid-clouds-beyond-hpe-greenlake-for-private-cloud-enterprise/), we described the detailed process of deploying the complex Online Boutique application to a hybrid cloud environment, across the public EKS cluster from AWS to the private Kubernetes cluster in [HPE GreenLake for Private Cloud Enterprise](https://www.hpe.com/us/en/greenlake/private-cloud-enterprise.html). This hybrid cloud model amplifies the benefits of both private and public clouds and allows for more seamless integration across technological barriers. It enables the enterprise to rely on the security of on-premises data centers while turning to the agility of managing the frontend of an application in public cloud. This model is now becoming increasingly popular as more businesses and enterprises shift toward cloud-based computing. However, this evolution presents challenges for monitoring, as applications and services are inherently more distributed in this environment. Having a good application performance monitoring (APM) tool is becoming essential within the hybrid cloud environment. It can consolidate performance metrics and troubleshooting data for assets across the hybrid cloud environment into a single application. It makes it easier to track metrics and allows enterprise to resolve problems quickly.
+In [my previous blog post](https://developer.hpe.com/blog/how-to-deploy-application-across-hybrid-clouds-beyond-hpe-greenlake-for-private-cloud-enterprise/), I covered the detailed process of deploying the complex Online Boutique application to a hybrid cloud environment, across the public EKS cluster from AWS to the private Kubernetes cluster in [HPE GreenLake for Private Cloud Enterprise](https://www.hpe.com/us/en/greenlake/private-cloud-enterprise.html). This hybrid cloud model amplifies the benefits of both private and public clouds and allows for more seamless integration across technological barriers. It enables the enterprise to rely on the security of on-premises data centers while turning to the agility of managing the frontend of an application in public cloud. This model is now becoming increasingly popular as more businesses and enterprises shift toward cloud-based computing. However, this evolution presents challenges for monitoring, as applications and services are inherently more distributed in this environment. Having a good application performance monitoring (APM) tool is becoming essential within the hybrid cloud environment. It can consolidate performance metrics and troubleshooting data for assets across the hybrid cloud environment into a single application. It makes it easier to track metrics and allows enterprise to resolve problems quickly.
 
-In this blog post, we c﻿hoose the Apache SkyWalking as an APM tool and describe how to set up it, as a *self-hosted* APM tool, for monitoring and alerting the application performance across hybrid cloud environment. We take the service mesh as an auto instrumentation mechanism for application monitoring, without adding any manual process to instrument existing applications. 
+In this blog post, I c﻿hoose the Apache SkyWalking as an APM tool and describe how to set up it, as a *self-hosted* APM tool, for monitoring and alerting the application performance across hybrid cloud environment. I take the service mesh as an auto instrumentation mechanism for application monitoring, without adding any manual process to instrument existing applications. 
 
 ## Apache SkyWalking
 
 [Apache SkyWalking](https://skywalking.apache.org/) is an open source APM tool with capabilities for monitoring, tracing and diagnosing distributed system. It’s especially designed for microservices, cloud native and container-based architectures. 
 
-Apart from a list of supported agents to be used for instrumenting applications, Apache SkyWalking implements an [Envoy Access Log Service (ALS)](https://www.envoyproxy.io/docs/envoy/v1.18.2/api-v2/service/accesslog/v2/als.proto) based solution to provide observability on the service mesh, no matter the architecture or language. Since service mesh provides full control of *RPC*, this observation solution is much easier to be added without language specific technology. With this solution, users could get the application service topology map, metrics graph, request details and error message with a very nice visualization. This integration solution can be extremely important for monitoring and visualizing application that consists of many microservices running across on-premises, cloud-based or hybrid environments. 
+Apart from a list of supported agents to be used for instrumenting applications, Apache SkyWalking implements an [Envoy Access Log Service (ALS)](https://www.envoyproxy.io/docs/envoy/v1.18.2/api-v2/service/accesslog/v2/als.proto) based solution to provide observability on the service mesh, no matter the architecture or language. Since service mesh provides full control of _**RPC**_ communication protocol,, this observation solution is much easier to be added without language specific technology. With this solution, users could get the application service topology map, metrics graph, request details and error message with a very nice visualization. This integration solution can be extremely important for monitoring and visualizing application that consists of many microservices running across on-premises, cloud-based or hybrid environments. 
 
 Apache SkyWalking is lightweight and scalable. It can be easily set up as a *self-hosted* APM tool within hybrid cloud environment, without any additional external resource for hosting the tool. This can help in the context of a resource-constrained environment and remove the privacy and security concerns customers may have to put customer data going to third party services. 
 
@@ -27,11 +27,13 @@ Apache SkyWalking is lightweight and scalable. It can be easily set up as a *sel
 
 ### Prerequisites
 
-Before we start, make sure we meet the following requirements:
+Before I start, make sure the following requirements are met:
 
 * A public Kubernetes cluster from one of the public cloud providers such as *AWS*, *Microsoft Azure* or *Google*. We use one EKS cluster, named *eks-cfe-public* from AWS. However, it works if you choose a cluster from other providers.
 * A private Kubernetes cluster, named *eks-pce-clu-1* provisioned in HPE GreenLake for Private Cloud Enterprise; 
 * The *kubectl* CLI tool, version 1.23 or later, together with the *kubeconfig* files for accessing both public and private clusters;
+* The *[Helm](https://helm.sh/docs/intro/install/)* CLI tool, version 3.8.1 or later. 
+* ﻿The [istioctl](https://istio.io/latest/docs/reference/commands/istioctl/) CLI tool, version 1.16.0 or later. Use the [istioctl Installation](https://istio.io/latest/docs/setup/install/istioctl/) to install this CLI tool to your local development environment. The _istioctl_ client will be used for installing and set up *Istio* service mesh;  
 * The [Skupper](https://skupper.io/) CLI tool, the latest version 1.2.0. Use the [Skupper Installation](https://skupper.io/start/#step-1-install-the-skupper-command-line-tool-in-your-environment) to install this CLI tool to your local development environment;
 
 ### Deploy Apache SkyWalking to AWS EKS cluster
@@ -56,11 +58,11 @@ $ helm install skywalking skywalking –n skywalking \
 --set oap.env.SW_ENVOY_METRIC_ALS_TCP_ANALYSIS=mx-mesh
 ```
 
-Above Helm commands install the Apache SkyWalking to the namespace *skywalking* of the AWS EKS cluster. It uses the *elasticsearch* as storage type and creates it as *StatefulSet* resource, running a pod on each worker node. It installs the Apache SkyWalking OAP with replicas setting as 2 to ensure the high availability. The installation enables the Envoy Access Log Service (ALS) and specifies the ALS analyzer as *mx-mesh*.
+Above Helm commands install the Apache SkyWalking to the namespace *skywalking* of the AWS EKS cluster. It uses the *elasticsearch* as storage type and creates it as *StatefulSet* resource, running a pod on each worker node. It installs the Apache SkyWalking Observability Analysis Platform (OAP) with replicas setting as 2 to ensure high availability. The installation enables the Envoy Access Log Service (ALS) and specifies the ALS analyzer as *mx-mesh*.
 
-It should be noted that the Apache SkyWalking supports also the ALS analyzer *k8s-mesh*, which uses the metadata from Kubernetes cluster to analyze the logs. It requires the SkyWalking OAP server to access the Kubernetes API server to get information of pods, services and service endpoints. This works only for monitoring a single cloud environment. For hybrid cloud case, we need to use the ALS analyzer *mx-mesh*, which uses the Envoy metadata exchange mechanism to get the service names. It's required for monitoring applications deployed in the hybrid cloud environment.
+It should be noted that the Apache SkyWalking supports also the ALS analyzer *k8s-mesh*, which uses the metadata from Kubernetes cluster to analyze the logs. It requires the SkyWalking OAP server to access the Kubernetes API server to get information of pods, services and service endpoints. This works only for monitoring a single cloud environment. For hybrid cloud case, you need to use the ALS analyzer *mx-mesh*, which uses the Envoy metadata exchange mechanism to get the service names. It's required for monitoring applications deployed in the hybrid cloud environment.
 
-We can check the detailed Apache SkyWalking installation by typing the following *kubectl* command:
+You can check the detailed Apache SkyWalking installation by typing the following *kubectl* command:
 
 ```markdown
 $ kubectl get all -n skywalking
@@ -93,7 +95,7 @@ NAME                            COMPLETIONS   DURATION   AGE
 job.batch/skywalking-oap-init   1/1           31s        94s
 ```
 
-We change the service types for both service *skywalking-skywalking-helm-oap*   and *skywalking-skywalking-helm-ui*  from *ClusterIP* to *LoadBalancer*. With the built-in support of Elastic Load Balancing in AWS EKS cluster, the external accessible load balancing host names will be created for those two services in Apache SkyWalking installation.
+You change the service types for both service *skywalking-skywalking-helm-oap*   and *skywalking-skywalking-helm-ui*  from *ClusterIP* to *LoadBalancer*. With the built-in support of Elastic Load Balancing (ELB) in AWS EKS cluster, the external accessible load balancing host names will be created for those two services in Apache SkyWalking installation.
 
 ```markdown
 $ kubectl edit service/skywalking-skywalking-helm-ui -n skywalking 
@@ -122,7 +124,7 @@ $ istioctl install -y --set profile=demo \
 
 Run above commands on both AWS EKS cluster and private Kubernetes cluster. It installs the *istio* to the namespace *istio-system* of the clusters. It enables explicitly the Envoy Access Log Service (ALS), with both  *envoyAccessLogService.address* and  *envoyMetricsService.address* settings pointing to the Apache SkyWalking OAP server ELB host name and its port *11800*.
 
-We can check the detailed *istio* installation by typing the following *kubectl* command:
+You can check the detailed *istio* installation by typing the following *kubectl* command:
 
 ```markdown
 $ kubectl get all -n istio-system
@@ -149,7 +151,7 @@ replicaset.apps/istiod-67fcb675b5                 1         1         1       38
 
 ### Deploy Online Boutique application
 
-Please follow up the deployment process in [the first blog](https://developer.hpe.com/blog/how-to-deploy-application-across-hybrid-clouds-beyond-hpe-greenlake-for-private-cloud-enterprise/) to deploy the Online Boutique application across the public AWS EKS cluster and the private Kubernetes cluster in HPE GreenLake for Private Cloud Enterprise. The *Skupper* CLI tool is used for deploying the Virtual Application Network (VAN) and creating connection between private Kubernetes cluster and public AWS EKS cluster.
+Please follow up the deployment process in my blog post [here](https://developer.hpe.com/blog/how-to-deploy-application-across-hybrid-clouds-beyond-hpe-greenlake-for-private-cloud-enterprise/) to deploy the Online Boutique application across the public AWS EKS cluster and the private Kubernetes cluster in HPE GreenLake for Private Cloud Enterprise. The *Skupper* CLI tool is used for deploying the Virtual Application Network (VAN) and creating connection between private Kubernetes cluster and public AWS EKS cluster.
 
 After deployed the Online Boutique application, you can verify deployment by checking the *Skupper* status from the deployment namespace *boutique*: 
 
@@ -279,7 +281,16 @@ You can also check all the services from the *Data Plane* tab under  *Service Me
 
 
 
-Apache SkyWalking provides an alerting mechanism to measure application performance according to a list of pre-defined metrics, e.g., _service_resp_time_, _ service_instance_resp_time_, and _service_sla_. It will trigger alerting when some metrics reach its pre-defined thresholds. We can define new metrics using SkyWalking observability analysis language (OAL), or customize the existing metrics with new thresholds. 
+Apache SkyWalking provides an alerting mechanism to measure application performance according to a list of pre-defined metrics, e.g., *service\_resp\_time*, *service\_instance\_resp\_time*, and *service\_sla*. It will trigger alerting when some metrics reach its pre-defined thresholds. 
+
+A﻿pache SkyWalking configures the alerting using a collection of alerting rules located in */skywalking/config/alarm-settings.yml* from the SkyWalking OAP pod. You can check the content by running the following command:
+
+
+
+```markdown
+$ kukectl exec pod/skywalking-skywalking-helm-oap-bfb57fbf8-5g7k7 -n skywalking -it -- cat /skywalking/config/alarm-settings.yml 
+```
+You can define new metrics by adding new entry to the file using SkyWalking observability analysis language (OAL), or customize the existing metrics with new thresholds. 
 
 
 
@@ -295,7 +306,7 @@ The alarms page shows an alert * Response time of service instance frontend-549f
 
 
 
-This alert is triggered by the following metric alerting rule for the metric _ service_instance_resp_time _: 
+This alert is triggered by the following metric alerting rule for the metric *service\_instance\_resp\_time*: 
 
 
 
