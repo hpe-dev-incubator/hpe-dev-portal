@@ -3,6 +3,7 @@ title: Getting started with HPE GreenLake Compute Ops Management API in just 3mn
 date: 2023-01-04T09:57:13.816Z
 author: Didier Lalli
 authorimage: /img/didier-lalli.png
+thumbnailimage: /img/postman_-software-.png
 disable: false
 tags:
   - hpe-greenlake-cloud-platform
