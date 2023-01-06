@@ -1,6 +1,6 @@
 ---
-title: Monitor application performance across hybrid cloud environment using
-  Apache SkyWalking and service mesh
+title: "Addressing hybrid cloud application challenges using HPE GreenLake for
+  Private Cloud Enterprise – Part 2: Application monitoring"
 date: 2023-01-05T06:42:26.899Z
 author: Guoping Jia
 authorimage: /img/guoping.png
