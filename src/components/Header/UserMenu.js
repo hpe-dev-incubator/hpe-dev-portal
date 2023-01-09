@@ -26,7 +26,11 @@ export function UserMenu({ userInfo }) {
   };
 
   console.log('--user-- UserMenu', userInfo);
-
+  let redirectURI =
+    typeof window !== 'undefined'
+      ? window.location.href
+      : 'https://developer.hpe.com';
+  redirectURI += redirectURI.charAt(redirectURI.length - 1) !== '/' ? '/' : '';
   return (
     <Box>
       <Avatar background="brand" size="medium" onClick={onMenuClick}>
@@ -70,22 +74,14 @@ export function UserMenu({ userInfo }) {
               />
               {console.log(
                 'sing out +++++',
-                `https://www.hpe.com/system/sling/logout.html?redirectUri=${
-                  typeof window !== 'undefined'
-                    ? window.location.href
-                    : 'https://developer.hpe.com'
-                }/`,
+                `https://www.hpe.com/system/sling/logout.html?redirectUri=${redirectURI}`,
               )}
               <ButtonLink
                 align="start"
                 icon={<LinkNext />}
                 key="os"
                 label="Sign Out"
-                to={`https://www.hpe.com/system/sling/logout.html?redirectUri=${
-                  typeof window !== 'undefined'
-                    ? window.location.href
-                    : 'https://developer.hpe.com'
-                }/`}
+                to={`https://www.hpe.com/system/sling/logout.html?redirectUri=${redirectURI}`}
               />
               ,
             </Box>
