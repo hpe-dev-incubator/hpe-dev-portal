@@ -10,6 +10,7 @@ tags:
   - Infrastructure Monitoring
   - Apache SkyWalking
   - hpe-greenlake
+  - hpe-greenlake-for-private-cloud-enterprise
 ---
 # **Overview**
 
@@ -100,7 +101,7 @@ systemctl status otelcol
 # By default, the otelcol systemd service will be started with the --config=/etc/otelcol/config.yaml option after installation.
 ```
 
-Create a new OTel configuration file (say /etc/otelcol/otel-collector-config.yaml) to link the metrics from host nodes to SkyWalking oap. The orange boxes shown in the images below must be modified to point to the correct infrastructure hosts and SkyWalking DNS or IP address.
+Create a new OTel configuration file (say /etc/otelcol/otel-collector-config.yaml) to link the metrics from host nodes to SkyWalking Observability Analysis Platform (OAP). The orange boxes shown in the images below must be modified to point to the correct infrastructure hosts and SkyWalking DNS or IP address.
 
 ![](/img/otel_collector_configuration.png "OTeL Configuration")
 
