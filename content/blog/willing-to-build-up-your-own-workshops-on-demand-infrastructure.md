@@ -169,9 +169,9 @@ PLease refer to the following [url](https://docs.github.com/en/authentication/ke
   * Uncomment line : token=`cat $EXEPATH/token`
   * use the token in the url WODPRIVREPO="git clone <https://user:$token@github.com/....../wod-private.git> wod-private"
 
-### Install process details: 
+### Install process details:
 
-install script: install.sh usage() { echo "install.sh \[-h]\[-t type]\[-g groupname]\[-b backend]\[-f frontend]\[-a api-db]\[-e external]\[-u user]"}
+install script: install.sh usage() { echo "install.sh \[-h]\[-t type]\[-g groupname]\[-b backend]\[-f frontend]\[-a api-db]\[-e external]\[-u user] \[-s sender]"}
 
 Example :
 
