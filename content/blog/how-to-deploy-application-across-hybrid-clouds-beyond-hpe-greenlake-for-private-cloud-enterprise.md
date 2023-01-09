@@ -12,23 +12,23 @@ tags:
 
 [HPE GreenLake for Private Cloud Enterprise](https://www.hpe.com/us/en/greenlake/private-cloud-enterprise.html) delivers a modern private cloud to support your app workloads with bare metal, containers, and virtual machines (VMs) running in any combination across your edges, colocations, and data centers. It combines self-service resource access for developers with consumption and performance transparency for IT. 
 
-This blog post show you how to deploy a complex application that consists of multiple microservices as a hybrid app that spans both public AWS EKS cluster and private Kubernetes cluster in HPE GreenLake for Private Cloud Enterprise. By using a hybrid cloud solution, you can combine the compliance benefits of a private cloud in HPE GreenLake for Private Cloud Enterprise environment with the scalability and connectivity of the public cloud. You can rely on the security of finely tuned, on-premises data centers while turning to the agility of cloud computing to manage the front end of an application in the public cloud. It essentially can optimize resource allocation, save costs and improve overall productivity and performance in the process. 
+This blog post shows you how to deploy a complex application that consists of multiple microservices as a hybrid app that spans both a public AWS EKS cluster and a private Kubernetes cluster in HPE GreenLake for Private Cloud Enterprise. By using a hybrid cloud solution, you can combine the compliance benefits of a private cloud in HPE GreenLake for Private Cloud Enterprise environment with the scalability and connectivity of the public cloud. You can rely on the security of finely tuned, on-premises data centers while turning to the agility of cloud computing to manage the front end of an application in the public cloud. Using HPE GreenLake for Private Cloud Enterprise, you can optimize resource allocation, save costs, and improve overall productivity and performance in the process. 
 
 ## Prerequisites
 
-Before you start, make sure you meet the following requirements: 
+Before you start, make sure you have the following required components: 
 
-* A public Kubernetes cluster from one of the public cloud providers such as *AWS*, *Microsoft Azure* or *Google*. We use one EKS cluster, named *eks-cfe-public* from AWS, in this blog for application deployment. However, it works if you choose a cluster from other providers.
-* A private Kubernetes cluster, named *eks-pce-clu-1* provisioned in HPE GreenLake for Private Cloud Enterprise; 
-* The *kubectl* CLI tool, version 1.23 or later, together with the *kubeconfig* files for accessing both the public AWS EKS cluster and private Kubernetes cluster in HPE GreenLake for Private Cloud Enterprise. To simplify the setup process, you can start two terminal sessions in your environment, export the environment variable `KUBECONFIG` in each session and point it to the kubeconfig file for accessing the public AWS EKS cluster and private Kubernetes cluster, respectively. 
-* The [Skupper](https://skupper.io/start/#step-1-install-the-skupper-command-line-tool-in-your-environment) CLI tool, the latest version 1.2.0. Use the [Skupper Installation](https://skupper.io/start/#step-1-install-the-skupper-command-line-tool-in-your-environment) to install this CLI tool to your environment. The _Skupper_ CLI tool works w﻿ith the same environment setup for _kubectl_ for accessing the public AWS EKS cluster and private Kubernetes cluster in HPE GreenLake for Private Cloud Enterprise. Some options, e.g., _--kubeconfig_, _--context_, and _--namespace_, can be used explicitly in _Skupper_ for using a specific _kubeconfig_ file and context, or accessing a Kubernetes namespace. 
+* A public Kubernetes cluster from one of the public cloud providers such as *AWS*, *Microsoft Azure* or *Google*. For the purposes of the use case being highlighted in this blog post, a single EKS cluster, named *eks-cfe-public* from AWS, is being used. However, it works if you choose a cluster from other providers.
+* A private Kubernetes cluster, named *eks-pce-clu-1* provisioned in HPE GreenLake for Private Cloud Enterprise. 
+* The *kubectl* CLI tool, version 1.23 or later, together with the *kubeconfig* files for accessing both the public AWS EKS cluster and private Kubernetes cluster in HPE GreenLake for Private Cloud Enterprise. To simplify the setup process, you can start two terminal sessions in your environment, export the environment variable `KUBECONFIG` in each session and point it to the *kubeconfig* file for accessing the public AWS EKS cluster and the private Kubernetes cluster, respectively. 
+* The [Skupper](https://skupper.io/) CLI tool, the latest version 1.2.0. Use the [Skupper Installation](https://skupper.io/start/#step-1-install-the-skupper-command-line-tool-in-your-environment) to install this CLI tool to your environment. The _Skupper_ CLI tool works w﻿ith the same environment setup for _kubectl_ for accessing the public AWS EKS cluster and private Kubernetes cluster in HPE GreenLake for Private Cloud Enterprise. Some options, e.g., _--kubeconfig_, _--context_, and _--namespace_, can be used explicitly in _Skupper_ for using a specific _kubeconfig_ file and context or accessing a Kubernetes namespace. 
 
 
 ## Online Boutique
 
 [Online Boutique](https://github.com/GoogleCloudPlatform/microservices-demo) is a cloud-first microservices demo application. It consists of an _11-tier_ microservices application. The application is a web-based e-commerce app where users can browse items, add them to the cart, and purchase them. This demo app has been used widely for demonstrating various technologies. It’s easy to deploy and it works on any Kubernetes cluster.
 
-This blog post will use the *Online Boutique* as our demo application, deploying it across the public AWS EKS cluster and the private Kubernetes cluster in HPE GreenLake for Private Cloud Enterprise using *Skupper*. 
+This blog post will use the *Online Boutique* as the demo application, deploying it across the public AWS EKS cluster and the private Kubernetes cluster in HPE GreenLake for Private Cloud Enterprise using *Skupper*. 
 
 ![](/img/apps.png)
 
@@ -51,23 +51,25 @@ From the manifests file *kubernetes-manifests.yaml*  in the folder, create the f
 
 * **k8s-manifests-deploy-private.yaml**, including the following 3 *Deployment* manifests:
 
-  * *emailservice*;
-  * *paymentservice*;
-  * *shippingservice*;
+  * *emailservice*
+  * *paymentservice*
+  * *shippingservice*
+
 * **k8s-manifests-deploy-public.yaml**, including the following 7 *Deployment* manifests:
 
-  * *frontend*;
-  * *recommendationservice*;
-  * *productcatalogservice*;
-  * *checkoutservice*;
-  * *cartservice*;
-  * *currencyservice*;
-  * *redis-cart*;
-  * *adservice*;
+  * *frontend*
+  * *recommendationservice*
+  * *productcatalogservice*
+  * *checkoutservice*
+  * *cartservice*
+  * *currencyservice*
+  * *redis-cart*
+  * *adservice*
+
 * **k8s-manifests-service-public.yaml**, including the following 2 *Service* manifests:
 
-  * *frontend*;
-  * *frontend-external*;
+  * *frontend*
+  * *frontend-external*
 
 ### Deploy application microservices to AWS EKS cluster
 
@@ -183,7 +185,7 @@ F﻿rom the *Skupper* console URL at **https://aea867abf6fb6413d8f577652da564c1-
 
 ### Expose application microservices to Virtual Application Network
 
-#### 1. In the private Kubernetes cluster, expose 3 servicess:
+#### 1. In the private Kubernetes cluster, expose 3 services:
 
 ```markdown
 $ skupper expose deployment emailservice --address emailservice --port 5000 --protocol http2 --target-port 8080
@@ -223,7 +225,7 @@ deployment redis-cart exposed as redis-cart
 
 ### Access Online Boutique application
 
-F﻿rom the *Skupper* console, you can see all he deployed services to the public AWS EKS cluster and the private Kubernetes cluster:  
+F﻿rom the *Skupper* console, you can see all the deployed services to the public AWS EKS cluster and the private Kubernetes cluster:  
 
 ![](/img/skupper-apps.png)
 
@@ -258,14 +260,14 @@ You can start shopping by adding items to the shopping cart, creating your shipp
 
 ![](/img/online-boutique-payment.png)
 
-You can then place order to complete your shopping.
+You can then place an order to complete your shopping.
 
 ![](/img/online-boutique-order.png)
 
 ## Next Steps
 
-This blog post described the process of deploying the *Online Boutique* application as a hybrid app across both public EKS cluster in AWS and private Kubernetes cluster in HPE GreenLake for Private Cloud Enterprise environment. 
+This blog post described the process of deploying the *Online Boutique* application as a hybrid app across both a public EKS cluster in AWS and a private Kubernetes cluster in HPE GreenLake for Private Cloud Enterprise environment. 
 
-Running applications and services in this hybrid cloud environment is becoming increasingly popular as more businesses and enterprises shift toward cloud-based computing. This model can amplify the benefits of both private and public clouds and allows for more seamless integration across technological barriers. 
+Running applications and services in this hybrid cloud environment is becoming increasingly popular as more businesses and enterprises shift toward cloud-based computing. This model can amplify the benefits of both private and public clouds and allows for more seamless integration across technical barriers. 
 
-In [my next blog post of the series](https://developer.hpe.com/blog/monitor-application-performance-across-hybrid-cloud-environment-using-apache-skywalking-and-service-mesh/), I will show you how to install and set up the Apache SkyWalking application performance monitoring tool to monitor the deployed application in such hybrid cloud environment. It helps to reduce management complexity and deliver operational insights for more informed business practices, and protect your most valuable user data. 
+In [my next blog post of the series](https://developer.hpe.com/blog/monitor-application-performance-across-hybrid-cloud-environment-using-apache-skywalking-and-service-mesh/), I will show you how to install and set up the Apache SkyWalking application performance monitoring tool to monitor the deployed application in such a hybrid cloud environment as this. It helps to reduce management complexity and deliver operational insights for more informed business practices, and protect your most valuable user data.
