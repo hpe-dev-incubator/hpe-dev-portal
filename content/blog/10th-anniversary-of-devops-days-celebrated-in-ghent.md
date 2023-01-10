@@ -7,6 +7,7 @@ authorimage: "/img/blogs/Avatar3.svg"
 featuredBlog: false
 priority:
 thumbnailimage:
+externalLink: ""
 ---
 ![picture2](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2019/10/picture2-1573748147341.png)
 

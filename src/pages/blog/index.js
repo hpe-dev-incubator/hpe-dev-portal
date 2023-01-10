@@ -160,6 +160,8 @@ export const pageQuery = graphql`
             thumbnailimage
             category
             disable
+            externalLink
+            featuredBlog
           }
         }
       }

@@ -110,6 +110,7 @@ collections:
       - { label: 'Publish Date', name: 'date', widget: 'datetime' }
       - { label: 'Featured', name: 'featuredBlog', widget: 'boolean', required: false, hint: 'selecting true adds the card in the Featured Blog section on the Blog page'  }
       - { label: 'Priority', name: 'priority', widget: 'number', required: false, hint: 'controls the card position in the Featured Blog section of the blog page' }
+      - { label: 'External Link', name: 'externalLink', widget: 'string', required: false, hint: 'provide link to the blog written outside HPE Developer portal' } 
       - { label: 'Author', name: 'author', widget: 'string' } 
       - { label: 'Author Image', name: 'authorimage', widget: 'image',default: "/img/Avatar1.svg", media_folder: '/static/img', public_folder: '/img', hint: 'author image shown next to content' }
       - { label: 'Thumbnail Image', name: 'thumbnailimage', required: false, widget: 'image', media_folder: '/static/img', public_folder: '/img', hint: 'thumbnail image shown next to content' }
