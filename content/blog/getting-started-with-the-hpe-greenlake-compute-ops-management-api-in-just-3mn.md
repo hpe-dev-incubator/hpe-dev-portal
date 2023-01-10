@@ -80,7 +80,7 @@ You can fork Lionel’s COM collection into your Postman workspace, which is ver
 The COM collection built by Lionel makes use of environment variables which can be grouped in a Postman environment. You will have to define and initialize these environment variables before using calls from the Postman collection. You can view Lionel’s Postman environment in his workspace, and either fork his environment or recreate it from scratch by creating a new environment in your workspace and setting up the following variables:
 
 * ClientID
-* SecretID
+* ClientSecret
 * url
 
 > Note: Be careful, as Postman variables are case-sensitive. Also, you can set the type of variable ClientSecret to secret, so the value of the variable is only shown upon request.
