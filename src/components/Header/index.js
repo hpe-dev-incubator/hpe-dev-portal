@@ -143,9 +143,9 @@ function Header() {
 
     console.log(
       'Sign in URL+++',
-      `${GATSBY_COCKPIT_HPE_OAUTH}?redirectUri=${redirectURI}/`,
+      `${GATSBY_COCKPIT_HPE_OAUTH}?redirectUri=${redirectURI}`,
     );
-    window.location.href = `${GATSBY_COCKPIT_HPE_OAUTH}?redirectUri=${redirectURI}/`;
+    window.location.href = `${GATSBY_COCKPIT_HPE_OAUTH}?redirectUri=${redirectURI}`;
   };
   // const hanldeGitHubSignIn = () => {
   //   window.location.href = `${GATSBY_CLIENT_OAUTH}?scope=user&client_id=${GATSBY_CLIENT_ID}&redirect_uri=${GATSBY_REDIRECT_URI}`;
