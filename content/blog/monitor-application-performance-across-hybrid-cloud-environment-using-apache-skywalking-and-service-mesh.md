@@ -11,7 +11,7 @@ tags:
 ---
 ## Introduction
 
-In [my previous blog post](https://developer.hpe.com/blog/how-to-deploy-application-across-hybrid-clouds-beyond-hpe-greenlake-for-private-cloud-enterprise/), I covered the detailed process of deploying the complex Online Boutique application in a hybrid cloud environment, across the public EKS cluster from AWS to the private Kubernetes cluster in [HPE GreenLake for Private Cloud Enterprise](https://www.hpe.com/us/en/greenlake/private-cloud-enterprise.html). This hybrid cloud model amplifies the benefits of both private and public clouds and allows for more seamless integration across technical barriers. It enables the enterprise to rely on the security of on-premise data centers while taking advantage of the agility of managing the front-end of an application in the public cloud. This model is becoming increasingly popular as more businesses and enterprises shift toward cloud-based computing. 
+In [my previous blog post](https://developer.hpe.com/blog/how-to-deploy-application-across-hybrid-clouds-beyond-hpe-greenlake-for-private-cloud-enterprise/), I covered the detailed process of deploying the complex Online Boutique application in a hybrid cloud environment, across the public EKS cluster from AWS to the private Kubernetes cluster in [HPE GreenLake for Private Cloud Enterprise](https://www.hpe.com/us/en/greenlake/private-cloud-enterprise.html). This hybrid cloud model amplifies the benefits of both private and public clouds and allows for more seamless integration across technical barriers. It enables the enterprise to rely on the security of on-premises data centers while taking advantage of the agility of managing the front-end of an application in the public cloud. This model is becoming increasingly popular as more businesses and enterprises shift toward cloud-based computing. 
 
 However, this evolution presents challenges for monitoring, as applications and services are inherently more distributed in this environment. Having a good application performance monitoring (APM) tool is becoming essential within the hybrid cloud environment. It can consolidate performance metrics and troubleshoot data for assets across the hybrid cloud environment into a single application. It makes it easier to track metrics and allows the enterprise to resolve problems quickly.
 
@@ -21,7 +21,7 @@ For this blog post, I c﻿hose Apache SkyWalking as an APM tool and describe how
 
 [Apache SkyWalking](https://skywalking.apache.org/) is an open source APM tool that can monitor, trace, and diagnose distributed systems. It’s especially designed for microservices, cloud native and container-based architectures. 
 
-Apart from a list of supported agents to be used for instrumenting applications, Apache SkyWalking implements an [Envoy Access Log Service (ALS)](https://www.envoyproxy.io/docs/envoy/v1.18.2/api-v2/service/accesslog/v2/als.proto) based solution to provide observability on the service mesh under Kubernetes environment, no matter the architecture or language. A service mesh provides a mesh of _Layer 7_ proxies that manages network traffic between services. It supports application observability at the platform layer, instead of the application layer, by abstracting away how inter-process and service to service communications being handled in Kubernetes. Using a list of implemented analyzers, e.g.,  _k8s-mesh_ and _mx-mesh_, Apache SkyWalking can receive and analyze the detailed access logs of all requests, both _**HTTP**_ and _**TCP**_, emitted from Envoy ALS.  With this solution, users could get the application service topology map, metrics graph, request details and error message with a very nice visualization. This observation solution is much easier to be added without language-specific technology. It can be extremely important for monitoring and visualizing applications that consist of many microservices running across on-premises, cloud-based or hybrid environments. 
+Apart from a list of supported agents to be used for instrumenting applications, Apache SkyWalking implements an [Envoy Access Log Service (ALS)](https://www.envoyproxy.io/docs/envoy/v1.18.2/api-v2/service/accesslog/v2/als.proto) based solution to provide observability on the service mesh under Kubernetes environment, no matter the architecture or language. A service mesh provides a mesh of _Layer 7_ proxies that manage network traffic between services. It supports application observability at the platform layer, instead of the application layer, by abstracting away how inter-process and service-to-service communications being handled in Kubernetes. Using a list of implemented analyzers, e.g.,  _k8s-mesh_ and _mx-mesh_, Apache SkyWalking can receive and analyze the detailed access logs of all requests, both _**HTTP**_ and _**TCP**_, emitted from Envoy ALS.  With this solution, users could get the application service topology map, metrics graph, request details and error message with a very nice visualization. This observation solution is much easier to be added without language-specific technology. It can be extremely important for monitoring and visualizing applications that consist of many microservices running across on-premises, cloud-based or hybrid environments. 
 
 Apache SkyWalking is lightweight and scalable. It can be easily set up as a *self-hosted* APM tool within a hybrid cloud environment, without any additional external resources for hosting the tool. This can help in the context of a resource-constrained environment and remove the privacy and security concerns customers may have in putting customer data that goes out to third-party services.   
 
@@ -32,11 +32,11 @@ Apache SkyWalking is lightweight and scalable. It can be easily set up as a *sel
 Before you start, make sure you have the following required elements:
 
 * A public Kubernetes cluster from one of the public cloud providers such as *AWS*, *Microsoft Azure* or *Google*. For the purposes of this case study blog post, one EKS cluster, named *eks-cfe-public* from AWS, is used. However, it works if you choose a cluster from other providers.
-* A private Kubernetes cluster, named *eks-pce-clu-1* provisioned in HPE GreenLake for Private Cloud Enterprise; 
-* The *kubectl* CLI tool, version 1.23 or later, together with the *kubeconfig* files for accessing both public and private clusters;
+* A private Kubernetes cluster, named *eks-pce-clu-1* provisioned in HPE GreenLake for Private Cloud Enterprise. 
+* The *kubectl* CLI tool, version 1.23 or later, together with the *kubeconfig* files for accessing both public and private clusters.
 * The *[Helm](https://helm.sh/docs/intro/install/)* CLI tool, version 3.8.1 or later. 
-* ﻿The [istioctl](https://istio.io/latest/docs/reference/commands/istioctl/) CLI tool, version 1.16.0 or later. Use the [istioctl Installation](https://istio.io/latest/docs/setup/install/istioctl/) to install this CLI tool to your local development environment. The _istioctl_ client will be used for installing and set up *Istio* service mesh;  
-* The [Skupper](https://skupper.io/) CLI tool, the latest version 1.2.0. Use the [Skupper Installation](https://skupper.io/start/#step-1-install-the-skupper-command-line-tool-in-your-environment) to install this CLI tool to your local development environment;
+* ﻿The [istioctl](https://istio.io/latest/docs/reference/commands/istioctl/) CLI tool, version 1.16.0 or later. Use the [istioctl Installation](https://istio.io/latest/docs/setup/install/istioctl/) to install this CLI tool to your local development environment. The _istioctl_ client will be used for installing and set up *Istio* service mesh.  
+* The [Skupper](https://skupper.io/) CLI tool, the latest version 1.2.0. Use the [Skupper Installation](https://skupper.io/start/#step-1-install-the-skupper-command-line-tool-in-your-environment) to install this CLI tool to your local development environment.
 
 ### Deploy Apache SkyWalking to AWS EKS cluster
 
@@ -60,7 +60,7 @@ $ helm install skywalking skywalking –n skywalking \
 --set oap.env.SW_ENVOY_METRIC_ALS_TCP_ANALYSIS=mx-mesh
 ```
 
-Above the Helm commands install the Apache SkyWalking to the namespace *skywalking* of the AWS EKS cluster. It uses the *elasticsearch* as the storage type and creates it as a *StatefulSet* resource, running a pod on each worker node. It installs the Apache SkyWalking Observability Analysis Platform (OAP) with replicas being set as 2 to ensure high availability. The installation enables the Envoy Access Log Service (ALS) and specifies the ALS analyzer as *mx-mesh*.
+Above the Helm commands, install the Apache SkyWalking to the namespace *skywalking* of the AWS EKS cluster. It uses the *elasticsearch* as the storage type and creates it as a *StatefulSet* resource, running a pod on each worker node. It installs the Apache SkyWalking Observability Analysis Platform (OAP) with replicas being set as 2 to ensure high availability. The installation enables the Envoy Access Log Service (ALS) and specifies the ALS analyzer as *mx-mesh*.
 
 It should be noted that Apache SkyWalking also supports the ALS analyzer *k8s-mesh*, which uses the metadata from Kubernetes cluster to analyze the logs. It requires the SkyWalking OAP server to access the Kubernetes API server to get information of pods, services and service endpoints. This works only for monitoring a single cloud environment. In the case of a hybrid cloud, you need to use the ALS analyzer *mx-mesh*, which uses the Envoy metadata exchange mechanism to get the service names. It's required for monitoring applications deployed in the hybrid cloud environment.
 
@@ -177,11 +177,11 @@ The credentials for internal console-auth mode are held in secret: 'skupper-cons
 
 The Skupper console shows the connections from the public AWS EKS cluster to the private Kubernetes cluster and the hybrid deployment of the Online Boutique application:
 
-![](/img/skupper-apps.png)
+![](/img/skupper-apps-monitor.png)
 
 The Online Boutique UI can be accessed through deployed frontend service URL from public AWS EKS cluster:
 
-![](/img/online-boutique-frontend.png)
+![](/img/online-boutique-frontend-monitor.png)
 
 ### Online Boutique application monitoring using ALS
 
