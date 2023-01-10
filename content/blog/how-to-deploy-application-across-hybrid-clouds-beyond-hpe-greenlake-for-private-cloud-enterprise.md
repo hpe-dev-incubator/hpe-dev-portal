@@ -21,12 +21,11 @@ Before you start, make sure you have the following required components:
 * A public Kubernetes cluster from one of the public cloud providers such as *AWS*, *Microsoft Azure* or *Google*. For the purposes of the use case being highlighted in this blog post, a single EKS cluster, named *eks-cfe-public* from AWS, is being used. However, it works if you choose a cluster from other providers.
 * A private Kubernetes cluster, named *eks-pce-clu-1* provisioned in HPE GreenLake for Private Cloud Enterprise. 
 * The *kubectl* CLI tool, version 1.23 or later, together with the *kubeconfig* files for accessing both the public AWS EKS cluster and private Kubernetes cluster in HPE GreenLake for Private Cloud Enterprise. To simplify the setup process, you can start two terminal sessions in your environment, export the environment variable `KUBECONFIG` in each session and point it to the *kubeconfig* file for accessing the public AWS EKS cluster and the private Kubernetes cluster, respectively. 
-* The [Skupper](https://skupper.io/) CLI tool, the latest version 1.2.0. Use the [Skupper Installation](https://skupper.io/start/#step-1-install-the-skupper-command-line-tool-in-your-environment) to install this CLI tool to your environment. The _Skupper_ CLI tool works w﻿ith the same environment setup for _kubectl_ for accessing the public AWS EKS cluster and private Kubernetes cluster in HPE GreenLake for Private Cloud Enterprise. Some options, e.g., _--kubeconfig_, _--context_, and _--namespace_, can be used explicitly in _Skupper_ for using a specific _kubeconfig_ file and context or accessing a Kubernetes namespace. 
-
+* The [Skupper](https://skupper.io/) CLI tool, the latest version 1.2.0. Use the [Skupper Installation](https://skupper.io/start/#step-1-install-the-skupper-command-line-tool-in-your-environment) to install this CLI tool to your environment. The *Skupper* CLI tool works w﻿ith the same environment setup for *kubectl* for accessing the public AWS EKS cluster and private Kubernetes cluster in HPE GreenLake for Private Cloud Enterprise. Some options, e.g., *\--kubeconfig*, *\--context*, and *\--namespace*, can be used explicitly in *Skupper* for using a specific *kubeconfig* file and context or accessing a Kubernetes namespace. 
 
 ## Online Boutique
 
-[Online Boutique](https://github.com/GoogleCloudPlatform/microservices-demo) is a cloud-first microservices demo application. It consists of an _11-tier_ microservices application. The application is a web-based e-commerce app where users can browse items, add them to the cart, and purchase them. This demo app has been used widely for demonstrating various technologies. It’s easy to deploy and it works on any Kubernetes cluster.
+[Online Boutique](https://github.com/GoogleCloudPlatform/microservices-demo) is a cloud-first microservices demo application. It consists of an *11-tier* microservices application. The application is a web-based e-commerce app where users can browse items, add them to the cart, and purchase them. This demo app has been used widely for demonstrating various technologies. It’s easy to deploy and it works on any Kubernetes cluster.
 
 This blog post will use the *Online Boutique* as the demo application, deploying it across the public AWS EKS cluster and the private Kubernetes cluster in HPE GreenLake for Private Cloud Enterprise using *Skupper*. 
 
@@ -54,7 +53,6 @@ From the manifests file *kubernetes-manifests.yaml*  in the folder, create the f
   * *emailservice*
   * *paymentservice*
   * *shippingservice*
-
 * **k8s-manifests-deploy-public.yaml**, including the following 7 *Deployment* manifests:
 
   * *frontend*
@@ -65,7 +63,6 @@ From the manifests file *kubernetes-manifests.yaml*  in the folder, create the f
   * *currencyservice*
   * *redis-cart*
   * *adservice*
-
 * **k8s-manifests-service-public.yaml**, including the following 2 *Service* manifests:
 
   * *frontend*
