@@ -42,6 +42,7 @@ const paginatedCollection = (name, tag) => {
               author
               tags
               authorimage
+              externalLink
             }
             excerpt
           }
@@ -304,6 +305,7 @@ module.exports = {
                 author
                 tags
                 authorimage
+                externalLink
               }
               excerpt
             }
@@ -371,6 +373,7 @@ module.exports = {
                 author
                 tags
                 authorimage
+                externalLink
               }
               excerpt
             }
@@ -445,6 +448,7 @@ module.exports = {
                   author
                   tags
                   authorimage
+                  externalLink
                 }
                 excerpt
               }

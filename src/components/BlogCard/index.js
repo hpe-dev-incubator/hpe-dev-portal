@@ -44,8 +44,16 @@ export const BlogCard = ({ node, ...rest }) => {
       elevation="medium"
       wrap
       onClick={
-        node.fields.slug && node.fields.sourceInstanceName
+        // () => navigate(`${node.frontmatter?.externalLink}`)
+        // eslint-disable-next-line no-nested-ternary
+        node?.frontmatter?.externalLink
+          ? () => {
+              console.log('external open link window');
+              window.open(`${node?.frontmatter?.externalLink}`, '_blank');
+            }
+          : node.fields.slug && node.fields.sourceInstanceName
           ? (e) => {
+              console.log('open within ');
               navigate(`/${node.fields.sourceInstanceName}${node.fields.slug}`);
               setBlogPosition(e.nativeEvent.pageY - e.nativeEvent.clientY);
             }
@@ -87,6 +95,7 @@ BlogCard.propTypes = {
       author: PropTypes.string,
       date: PropTypes.string,
       path: PropTypes.string,
+      externalLink: PropTypes.string,
     }),
     title: PropTypes.string,
     author: PropTypes.string,
@@ -105,9 +114,18 @@ export const FeaturedBlogCard = ({ node, ...rest }) => (
     elevation="medium"
     {...rest}
     onClick={
-      node.fields.slug && node.fields.sourceInstanceName
-        ? () =>
-            navigate(`/${node.fields.sourceInstanceName}${node.fields.slug}`)
+      // () => navigate(`${node.frontmatter?.externalLink}`)
+      // eslint-disable-next-line no-nested-ternary
+      node?.frontmatter?.externalLink
+        ? () => {
+            console.log('open external link window');
+            window.open(`${node?.frontmatter?.externalLink}`, '_blank');
+          }
+        : node.fields.slug && node.fields.sourceInstanceName
+        ? () => {
+            console.log('open within ');
+            navigate(`/${node.fields.sourceInstanceName}${node.fields.slug}`);
+          }
         : undefined
     }
   >
