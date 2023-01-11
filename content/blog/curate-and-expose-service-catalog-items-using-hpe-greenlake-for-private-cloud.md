@@ -1,12 +1,23 @@
 ---
-title: Curate and Expose Service Catalog Items using HPE GreenLake for private cloud
+title: Curate and Expose Service Catalog Items using HPE GreenLake for Private
+  Cloud Enterprise
 date: 2022-02-16T08:49:59.050Z
 author: Thavamaniraja.S and Vinnarasu Ganesan
 authorimage: /img/Avatar1.svg
 tags:
   - hpe-greenlake
+  - hpe-greenlake-for-private-cloud-enterprise
 ---
 <center><img src="/img/intro-greenlake-512-pixels-rgb-image.jpg" width="512" height="384" alt="Curate and expose catalog items using the HPE GreenLake Service Catalog persona view"></center>
+
+<br />
+
+- - -
+
+**Editor’s Note – NAME CHANGE: HPE GreenLake for Private Cloud is now part of HPE GreenLake for Private Cloud Enterprise.**
+
+- - -
+
 
 The HPE GreenLake Edge-to-Cloud platform has a very useful interface for managing the HPE GreenLake for private cloud service called HPE GreenLake Central. It provides a cloud experience to manage VMs in your on-premises, pay-per-use datacenter. Personas are alternate views in the HPE GreenLake for private cloud user interface (UI). A user’s access to the various personas is controlled by role permissions. 
 
