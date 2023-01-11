@@ -1,13 +1,18 @@
 ---
-title: How to provision HPE GreenLake private cloud resources from the
-  ServiceNow Service Catalog
+title: How to provision HPE GreenLake for Private Cloud Enterprise resources
+  from the ServiceNow Service Catalog
 date: 2022-03-08T06:13:00.000Z
 author: Vinnarasu Ganesan, Thavamaniraja S
 authorimage: /img/Avatar1.svg
 thumbnailimage: /img/thumbnail.jpg
 tags:
   - hpe-greenlake
+  - hpe-greenlake-for-private-cloud-enterprise
 ---
+**Editor’s Note – NAME CHANGE: HPE GreenLake for Private Cloud is now part of HPE GreenLake for Private Cloud Enterprise.**
+
+- - -
+
 ## Introduction
 
 A key strength of HPE GreenLake for private cloud is its self-service
