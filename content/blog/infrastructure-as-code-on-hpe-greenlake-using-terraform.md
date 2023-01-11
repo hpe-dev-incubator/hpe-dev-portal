@@ -10,7 +10,13 @@ tags:
   - terraform
   - hpe-greenlake
   - opensource
+  - hpe-greenlake-for-private-cloud-enterprise
 ---
+**Editor’s Note – NAME CHANGE: HPE GreenLake for Private Cloud is now part of HPE GreenLake for Private Cloud Enterprise.**
+
+- - -
+
+
 The process of managing and provisioning computer data centers through machine-readable definition files, otherwise known as Infrastructure-as-Code (IaC), offers many significant benefits. It helps to increase operational agility, simplify management, reduce errors, and save cost. In this post, I’ll explore some of the benefits of using IaC on HPE GreenLake through the use of Terraform.
 
 ## Let’s harness some of the benefits of Infrastructure as Code
