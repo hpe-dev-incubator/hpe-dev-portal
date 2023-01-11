@@ -1,6 +1,6 @@
 ---
 title: How to Set Up an Automation Pipeline to View Historical Trend Data of
-  Clusters with HPE GreenLake for Containers
+  Clusters with HPE GreenLake for Private Cloud Enterprise
 date: 2022-06-09T11:05:39.047Z
 featuredBlog: false
 priority: 1
@@ -13,7 +13,13 @@ tags:
   - Grafana
   - observability
   - data-ml-engineer
+  - hpe-greenlake-for-private-cloud-enterprise
 ---
+**Editor’s Note – NAME CHANGE: HPE GreenLake for Containers is now part of HPE GreenLake for Private Cloud Enterprise.**
+
+- - -
+
+
 ## Introduction
 
 An HPE GreenLake Cloud Service, [HPE GreenLake for Containers](https://www.hpe.com/us/en/greenlake/containers.html), is built upon [HPE Ezmeral Runtime Enterprise](https://www.hpe.com/us/en/software/ezmeral-runtime.html) and runs on a container-based Kubernetes orchestrated infrastructure*.* Using the Clusters module of the HPE GreenLake Central dashboard, one can perform several cluster-related operations. A cluster can be created using default or custom machine blueprints, deleted, scaled up, or scaled-down using this module. Additionally, the cluster detail page provides some interesting insights like CPU usage, memory allocation, and storage availability. It is essential to monitor these types of data so that the resource requirement can be determined without any business impact. The image below illustrates the cluster detail page.
