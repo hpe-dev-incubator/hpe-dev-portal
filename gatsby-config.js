@@ -58,6 +58,7 @@ const paginatedCollection = (name, tag) => {
           author: node.frontmatter.author,
           tags: node.frontmatter.tags,
           authorimage: node.frontmatter.authorimage,
+          externalLink: node.frontmatter.externalLink,
           fields: {
             slug: node.fields.slug,
             sourceInstanceName: node.fields.sourceInstanceName,
@@ -321,6 +322,7 @@ module.exports = {
             author: node.frontmatter.author,
             tags: node.frontmatter.tags,
             authorimage: node.frontmatter.authorimage,
+            externalLink: node.frontmatter.externalLink,
             fields: {
               slug: node.fields.slug,
               sourceInstanceName: node.fields.sourceInstanceName,
@@ -389,6 +391,7 @@ module.exports = {
             author: node.frontmatter.author,
             tags: node.frontmatter.tags,
             authorimage: node.frontmatter.authorimage,
+            externalLink: node.frontmatter.externalLink,
             fields: {
               slug: node.fields.slug,
               sourceInstanceName: node.fields.sourceInstanceName,
@@ -464,6 +467,7 @@ module.exports = {
             author: node.frontmatter.author,
             tags: node.frontmatter.tags,
             authorimage: node.frontmatter.authorimage,
+            externalLink: node.frontmatter.externalLink,
             fields: {
               slug: node.fields.slug,
               sourceInstanceName: node.fields.sourceInstanceName,

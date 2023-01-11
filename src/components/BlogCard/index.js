@@ -43,22 +43,17 @@ export const BlogCard = ({ node, ...rest }) => {
       {...rest}
       elevation="medium"
       wrap
-      onClick={
-        // () => navigate(`${node.frontmatter?.externalLink}`)
-        // eslint-disable-next-line no-nested-ternary
-        node?.frontmatter?.externalLink
-          ? () => {
-              console.log('external open link window');
-              window.open(`${node?.frontmatter?.externalLink}`, '_blank');
-            }
-          : node.fields.slug && node.fields.sourceInstanceName
-          ? (e) => {
-              console.log('open within ');
-              navigate(`/${node.fields.sourceInstanceName}${node.fields.slug}`);
-              setBlogPosition(e.nativeEvent.pageY - e.nativeEvent.clientY);
-            }
-          : undefined
-      }
+      onClick={(e) => {
+        console.log('open externalLink node', node);
+        if (node?.externalLink) {
+          console.log('external open link window');
+          window.open(`${node?.externalLink}`, '_blank');
+        } else if (node.fields.slug && node.fields.sourceInstanceName) {
+          console.log('open within ');
+          navigate(`/${node.fields.sourceInstanceName}${node.fields.slug}`);
+          setBlogPosition(e.nativeEvent.pageY - e.nativeEvent.clientY);
+        }
+      }}
     >
       <Box gap="small">
         <Box align="start">
@@ -113,21 +108,16 @@ export const FeaturedBlogCard = ({ node, ...rest }) => (
   <GrommetCard
     elevation="medium"
     {...rest}
-    onClick={
-      // () => navigate(`${node.frontmatter?.externalLink}`)
-      // eslint-disable-next-line no-nested-ternary
-      node?.frontmatter?.externalLink
-        ? () => {
-            console.log('open external link window');
-            window.open(`${node?.frontmatter?.externalLink}`, '_blank');
-          }
-        : node.fields.slug && node.fields.sourceInstanceName
-        ? () => {
-            console.log('open within ');
-            navigate(`/${node.fields.sourceInstanceName}${node.fields.slug}`);
-          }
-        : undefined
-    }
+    onClick={() => {
+      console.log('open featured externalLink node', node);
+      if (node?.frontmatter?.externalLink) {
+        console.log('external featured open link window');
+        window.open(`${node?.frontmatter?.externalLink}`, '_blank');
+      } else if (node.fields.slug && node.fields.sourceInstanceName) {
+        console.log('open within  featured');
+        navigate(`/${node.fields.sourceInstanceName}${node.fields.slug}`);
+      }
+    }}
   >
     {(node.frontmatter.category || node.frontmatter.tags) && (
       <CardHeader
