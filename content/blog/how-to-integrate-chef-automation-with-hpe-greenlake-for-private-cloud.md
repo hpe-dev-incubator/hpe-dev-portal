@@ -1,12 +1,22 @@
 ---
-title: How to integrate Chef automation with HPE GreenLake for private cloud
+title: How to integrate Chef automation with HPE GreenLake for Private Cloud
+  Enterprise
 date: 2021-04-13T17:25:38.920Z
 author: Vinnarasu Ganesan, John Lenihan & Junmei Zhang
 authorimage: /img/Avatar1.svg
 tags:
   - hpe-greenlake
+  - hpe-greenlake-for-private-cloud-enterprise
 ---
 ![](/img/gettyimages-521980823_16x9_1600_0_72_rgb.jpg)
+
+<br />
+
+- - -
+
+**Editor’s Note – NAME CHANGE: HPE GreenLake for Private Cloud is now part of HPE GreenLake for Private Cloud Enterprise.**
+
+- - -
 
 ## Introduction
 
