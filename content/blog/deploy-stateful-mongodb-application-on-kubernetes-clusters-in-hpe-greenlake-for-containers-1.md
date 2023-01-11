@@ -1,6 +1,6 @@
 ---
 title: Deploy stateful MongoDB applications on Kubernetes clusters in HPE
-  GreenLake for Containers
+  GreenLake for Private Cloud Enterprise
 date: 2022-08-16T14:02:17.749Z
 featuredBlog: false
 priority: 8
@@ -11,7 +11,13 @@ tags:
   - kubernetes
   - mongodb
   - developer
+  - hpe-greenlake-for-private-cloud-enterprise
 ---
+**Editor’s Note – NAME CHANGE: HPE GreenLake for Containers is now part of HPE GreenLake for Private Cloud Enterprise.**
+
+- - -
+
+
 ## Introduction
 
 [HPE GreenLake for Containers](https://www.hpe.com/us/en/greenlake/containers.html), one of the HPE GreenLake cloud services available on the HPE GreenLake Central platform, allows customers to open the Clusters screen to create a cluster, view details about existing clusters, and launch the HPE GreenLake for Container service console. It provides an enterprise-grade container management service using open source Kubernetes. 
