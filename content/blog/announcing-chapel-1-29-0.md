@@ -5,5 +5,7 @@ externalLink: https://chapel-lang.org/blog/posts/announcing-chapel-1.29/
 author: Brad Chamberlain
 authorimage: /img/Avatar1.svg
 disable: false
+tags:
+  - chapel
 ---
  External Blog
