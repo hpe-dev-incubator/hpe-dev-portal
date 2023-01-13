@@ -481,7 +481,7 @@ To do so, proceed as follows:
     
     \<span style="color:grey; font-family:Arial; font-size:1em"\> This article/content was written by the individual writer identified and does not necessarily reflect the view of Hewlett Packard Enterprise Company.\</span\>
  
-     To center the text, just use two blockquotes as show here:    
+     **To center the text**, just use a double blockquotes as show here:    
      \>> \<span style="color:grey; font-family:Arial; font-size:1em"\> This article/content was written by the individual writer identified and does not necessarily reflect the view of Hewlett Packard Enterprise Company.\</span\>
      
  
