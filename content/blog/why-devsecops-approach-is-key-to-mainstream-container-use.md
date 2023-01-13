@@ -30,9 +30,9 @@ Join this discussion with HPE Pointnext Services' Simon Leech and host Dana Gard
 
 **Dana Gardner:** Hello, and welcome to the next edition of the BriefingsDirect Voice of Innovation podcast series. I'm [Dana Gardner](https://www.linkedin.com/in/danagardner/), principal analyst at Interarbor Solutions, your host and moderator for this ongoing discussion on the latest insights into modern IT deployment architecture strategies.
 
-[Container-based deployment models](https://www.hpe.com/us/en/insights/articles/podcast-the-surging-role-of-containers-in-the-hybrid-estate-1911.html) have rapidly gained popularity, from cloud models to corporate data centers. IT operators are now looking to [extend the benefits of containers](https://www.hpe.com/us/en/insights/articles/the-cloud-is-an-experience-not-a-destination-2002.html) to more use cases, including the computing [edge](https://www.hpe.com/us/en/insights/articles/embracing-the-intelligent-edge-1806.html).
+Container-based deployment models have rapidly gained popularity, from cloud models to corporate data centers. IT operators are now looking to extend the benefits of containers to more use cases, including the computing edge.
 
-Yet, in order to push containers further into the mainstream, security concerns need to be addressed across this new end-to-end container deployment spectrum―and that means [security addressed during development](https://www.hpe.com/us/en/insights/articles/5-ways-to-secure-your-containers-1904.html) and employment under the rubric of [DevSecOps](https://www.devsecops.org/blog/tag/DevSecOps+Explained) best practices.
+Yet, in order to push containers further into the mainstream, security concerns need to be addressed across this new end-to-end container deployment spectrum―and that means security addressed during development and employment under the rubric of [DevSecOps](https://www.devsecops.org/blog/tag/DevSecOps+Explained) best practices.
 
 Stay with us now as we examine the escalating benefits that come from secure and robust container use with our guest, [Simon Leech](https://www.linkedin.com/in/simonleech/), worldwide security and risk management practice at Hewlett Packard Enterprise (HPE) Pointnext Services. Welcome, Simon.
 
@@ -44,9 +44,9 @@ Stay with us now as we examine the escalating benefits that come from secure and
 
 **Leech:** We are certainly seeing a lot of interest from our customers when we speak to them about the best practices they want to following in terms of rapid application development.
 
-One of the things that always held people back a little bit with [virtualization](https://www.hpe.com/us/en/insights/articles/10-virtualization-mistakes-everyone-makes-1808.html) was that you are always reliant on an operating system managing the applications that sit on top of that OS in managing the application code that you would deploy to that environment.
+One of the things that always held people back a little bit with virtualization was that you are always reliant on an operating system managing the applications that sit on top of that OS in managing the application code that you would deploy to that environment.
 
-But what we have seen with containers is that, as everything starts to follow a cloud-native approach, we start to deal with our applications as lots of individual [microservices](https://www.hpe.com/us/en/insights/articles/containers-and-microservices-and-serverless-oh-my-1805.html) that all communicate integrally to provide the application experience to the user. It makes a lot more sense from a development perspective to be able to address the development in these small, microservice-based or module-based development approaches.
+But what we have seen with containers is that, as everything starts to follow a cloud-native approach, we start to deal with our applications as lots of individual microservices that all communicate integrally to provide the application experience to the user. It makes a lot more sense from a development perspective to be able to address the development in these small, microservice-based or module-based development approaches.
 
 So, while we are not seeing a massive influx of container-based projects going into mainstream production at the moment, there are certainly a lot of customers testing their toes in the water to identify the best possibilities to adopt and address container use within their own application development environments.
 
@@ -68,7 +68,7 @@ Now, 451 Research recently predicted that the [market for containers will hit $2
 
 So it allows you to make many more changes than you previously would have been able to deliver to the organization, and it allows you to address those changes very rapidly.
 
-**Gardner:** How does this allow for a more common environment to [extend across hybrid IT](https://www.hpe.com/us/en/insights/articles/surprise-youre-running-hybrid-it-1803.html), from on premises to cloud to hybrid cloud and then ultimately to the edge?
+**Gardner:** How does this allow for a more common environment to extend across hybrid IT, from on premises to cloud to hybrid cloud and then ultimately to the edge?
 
 **Leech:** Well, applications developed in containers and developed within a cloud-native approach typically are very portable. So you don't need to be restricted to a particular version or limits, for example. The container itself runs on top of any OS of the same genre. Obviously, you can't run a Windows container on top of a Linux OS or vice versa.
 
@@ -80,7 +80,7 @@ But within the general Linux space, that pretty much has compatibility. So it ma
 
 **Gardner:** We have quite an opportunity in front of us with containers across the spectrum of continuous development and deployment and for multiple deployment scenarios. What challenges do we need to think about to embrace this as a lifecycle approach?
 
-What are the [challenges to providing security](https://www.hpe.com/us/en/insights/articles/security-strategies-for-hybrid-it-hybrid-cloud-and-multicloud-environments-2002.html) specifically, making sure that the containers are not going to add risk and, in fact, improve the deployment productivity of organizations?
+What are the challenges to providing security specifically, making sure that the containers are not going to add risk and, in fact, improve the deployment productivity of organizations?
 
 ### Make security a business priority
 
@@ -96,7 +96,7 @@ Often, we see in a traditional IT space that the application gets built, the inf
 
 If you introduce the security person into the small, agile team as you build it to deliver your container development strategy, then they can think together with the developers. They can start doing risk assessments and threat modeling right from the very beginning of the project. It allows us to reduce delays that you might have with security testing.
 
-At the same time, it also allows us to shift our testing model left in a traditional waterfall model, where testing happens right before the product goes live. But in a DevOps or DevSecOps model, it's much better to embed the security, best practices, and proper tooling right into the [continuous integration/continuous delivery (CI/CD)](https://www.hpe.com/us/en/insights/articles/the-quickie-guide-to-continuous-delivery-in-devops-1708.html) pipeline.
+At the same time, it also allows us to shift our testing model left in a traditional waterfall model, where testing happens right before the product goes live. But in a DevOps or DevSecOps model, it's much better to embed the security, best practices, and proper tooling right into the continuous integration/continuous delivery (CI/CD) pipeline.
 
 The last point around the business view is that, again, going back to the comment I made earlier, developers often are not aware of secure coding and how to make things secure. Providing a secure-by-default approach―or even a security self-service approach―allows developers to gain a security registry, for example. That provides known good instances of container images or provides infrastructure and compliance code so that they can follow a much more template-based approach to security. That also pays a lot of dividends in the quality of the software as it goes out the door.
 
