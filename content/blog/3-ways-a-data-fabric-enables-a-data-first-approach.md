@@ -33,7 +33,7 @@ Data motion is a key issue in large-scale data systems. Data motion can include 
 
 At one extreme, people may have an ingrained assumption that data motion is not a viable option, based on legacy systems that lack any provision for moving data. Without motion, data that could have value if put into a more global context may be discarded instead.
 
->> <span style="font-family:Arial; font-size:1em;">The key to success is choice: You should be able to efficiently move data as needed or store and analyze it in place, all within the same system.</span>
+>> <span style="font-family:Arial; font-size:1.2em;">The key to success is choice: You should be able to efficiently move data as needed or store and analyze it in place, all within the same system.</span>
 
 At other companies, the pendulum has swung radically to the opposite extreme, with a policy that all data to be analyzed must be moved to a central data center, either on premises or in the cloud. Unfortunately, the costs of data motion mount up, and where large amounts of data are at issue, only a tiny fraction of all possible data will be moved. Once again, data you could analyze is simply discarded.
 
@@ -77,9 +77,12 @@ Having the right data infrastructure lets you focus on the decisions that will m
 
 ### LESSONS FOR LEADERS
 
-* A data fabric is a highly scalable data infrastructure designed to store, manage, and move data as a unifying layer across an enterprise from edge to data center, on premises or in the cloud.    
-* A well-engineered modern data fabric allows DevOps and other teams to access data in the way they prefer.    
+* A data fabric is a highly scalable data infrastructure designed to store, manage, and move data as a unifying layer across an enterprise from edge to data center, on premises or in the cloud.  
+  
+* A well-engineered modern data fabric allows DevOps and other teams to access data in the way they prefer.   
+ 
 * Making wrong assumptions about data motion is one of the most common ways businesses inadvertently give up their ability to extract value from data.    
+   
 
 <br />
 
