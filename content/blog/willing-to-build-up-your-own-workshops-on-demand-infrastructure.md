@@ -33,7 +33,13 @@ F﻿rom a legal standpoint, we needed to go through the HPE OSRB (Open Source Re
 
  This was quite straightforward in this case as the project did not contain any HPE proprietary software. And HPE did not want to exploit commercially the generated intellectual property. Indeed, the project is uniquely based on Open Source technologies like Ansible or Jupyter. Besides, we explained the OSRB that the new architecture of the solution would allow the administrator of the project to separate public content from private one. This had a huge influence on the future architecture of the project that originally did not allow it. In our case, for instance, any workshop related to an HPE technology like  HPE Ezmeral would fall into the private part of the project and therefore would not appear on the public github repository that we had to create for the overall project distribution.
 
-F﻿rom a technical standpoint, as mentioned above we had to make sure to separate the public only content from any possible private one. We started by sorting the different Workshops. As a consequence, we also had to sort the related scripts that come along workshops. Going through this process, we found out that some of the global scripts had to be reworked as well to support future split of public and private content. This took us a few months and we are now ready to share with you the result of this work. In this first blog, we will focus our attention on the backend side of the Workshops-on-Demand project. A second blog will detail the frontend part of the project.
+#### T﻿echnical side of things
+
+F﻿rom a technical standpoint, as mentioned above we had to make sure to separate the public only content from any possible private one. We started by sorting the different Workshops. As a consequence, we also had to sort the related scripts that come along workshops. Going through this process, we found out that some of the global scripts had to be reworked as well to support future split of public and private content. Similarly, we had to address the branding aspect, variabalizing it instead of hardcoding it as it was in the first version.
+
+This took us a few months and we are now ready to share with you the result of this work. In this first blog, we will focus our attention on the architecture side of the Workshops-on-Demand project. 
+
+F﻿urther blog articles will help you setup your own architecture.
 
 ## U﻿nderstand the architecture first.
 
