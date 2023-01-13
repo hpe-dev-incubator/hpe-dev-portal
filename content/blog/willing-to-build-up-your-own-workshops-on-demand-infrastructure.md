@@ -11,7 +11,7 @@ disable: false
 
 [T﻿he Workshops-on-Demand](https://developer.hpe.com/hackshack/workshops/) have been an important asset for the HPE Developer Community for the last 2 years. If you are interested in learning more on the genesis of the project, check the following [blog](https://developer.hpe.com/blog/from-jupyter-notebooks-as-a-service-to-hpe-dev-workshops-on-demand/).
 
-T﻿he Workshops-on-Demand allows us to deliver free hands-on based workshops. We use them during internal or external events (HPE Discover, HPE Technical Symposium Summit, but also during Open Source events like OSS CON or Kube Con) to promote API / Autamation driven solutions along with some coding 101 courses. B﻿y the end of 2022, we reached more than 4000 registered workshops.  
+T﻿he Workshops-on-Demand allows us to deliver free hands-on based workshops. We use them during internal or external events (HPE Discover, HPE Technical Symposium Summit, but also during Open Source events like OSS CON or Kube Con) to promote API / Automation driven solutions along with some coding 101 courses. B﻿y the end of 2022, we reached more than 4000 registered workshops.  
 
 ### T﻿he Why?
 
@@ -19,15 +19,19 @@ Firstly, if you read carefully the messaging on our [homepage](https://developer
 
 S﻿econdly, the project is based on open source technologies like Jupyter or Ansible. It felt natural that the work we did leveraging these should also benefit the open source community.
 
-W﻿e actually did share with the HPE DEV Community and to a wider extent the Open Source Community the fondamentals of the project though different internal and external events. And the feedbacks were always positive. Some people found the project very appealing. originally, people were mainly interested in the content and not necessarily in the infrastructure. The students wanted to be able to resuse some of the notebooks. And in a few cases, they also asked for details about the infrastructure itself, asking about the notebooks delivery mechanism and other subjects like the [procmail API](https://www.youtube.com/watch?v=zZm6ObQATDI).
+W﻿e actually did share with the HPE DEV Community and to a wider extent the Open Source Community the fondamentals of the project though different internal and external events. And the feedbacks were always positive. Some people found the project very appealing. Originally, people were mainly interested in the content and not necessarily in the infrastructure. The students wanted to be able to reuse some of the notebooks. And in a few cases, they also asked for details about the infrastructure itself, asking about the notebooks delivery mechanism and other subjects like the [procmail API](https://www.youtube.com/watch?v=zZm6ObQATDI).
 
-E﻿arly last year, we got contacted by an HPE Colleague who was willing to replicate our setup in order to deliver Notebooks to its AI/ML engineers. His purpose was to provide a simple, central point of delivery of notebooks. Engineers would develop notebooks that would later be published on the workshops-on-demand infrastructure frontend portal, allowing content to be reused and shared amongst engineers. While we had worked over time a lot on automating content delivery and some parts of the infrastructure setup, we needed now to rework the overall solution to make it completly open source.
+E﻿arly last year, we got contacted by an HPE Colleague who was willing to replicate our setup in order to deliver Notebooks to its AI/ML engineers. His purpose was to provide a simple, central point of delivery of notebooks. Engineers would develop notebooks that would later be published on the workshops-on-demand infrastructure frontend portal, allowing content to be reused and shared amongst engineers. While we had worked over time a lot on automating content delivery and some parts of the infrastructure setup, we needed now to rework and package the overall solution to make it completly open source and reusable by others.
 
-A﻿s a consequence, we started over the course of the Year 2022 to open source the project. As HPE Employees, we had to go through different steps including technical, legal concerns to achieve this.
+A﻿s a consequence, we started over the course of the Year 2022 to open source the project. As HPE Employees, we had to go through different steps including technical, branding, and legal concerns to achieve this.
 
 #### L﻿egal side of things...
 
-F﻿rom a legal standpoint, we needed to go through the OSRB (Open Source Review Board) to present the project that we wanted to open source.
+F﻿rom a legal standpoint, we needed to go through the HPE OSRB (Open Source Review Board) to present the project that we wanted to open source. We had to follow the following process 
+
+![HPE OSRB Process](/img/wod-osrb1.png "HPE OSRB process")
+
+
 
 
 
