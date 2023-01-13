@@ -7,21 +7,19 @@ disable: false
 ---
 ### Open Sourcing the Workshops-on-Demand #1: The why and the How
 
-
-
 ## A﻿ bit of background first:
 
 [T﻿he Workshops-on-Demand](https://developer.hpe.com/hackshack/workshops/) have been an important asset for the HPE Developer Community for the last 2 years. I fyou are interested in learning more on the genesis of the project, check the following [blog](https://developer.hpe.com/blog/from-jupyter-notebooks-as-a-service-to-hpe-dev-workshops-on-demand/).
 
-T﻿he Workshops-on-Demand allows us to deliver free hands-on based workshops. We use them during internal or external events (HPE Discover, HPE Technical Symposium Summit, but also during Open Source events like OSS CON or Kube Con) to promote API / Autamation driven solutions along with some coding 101 courses. B﻿y the end of 2022,we reached more than 4000 registered workshops.  
+T﻿he Workshops-on-Demand allows us to deliver free hands-on based workshops. We use them during internal or external events (HPE Discover, HPE Technical Symposium Summit, but also during Open Source events like OSS CON or Kube Con) to promote API / Autamation driven solutions along with some coding 101 courses. B﻿y the end of 2022, we reached more than 4000 registered workshops.  
 
 ### T﻿he Why?
 
-Firstly, the project is based on open source technologies like Jupyter or Ansible. It felt natural that the work we did leveraging these should also benefit the open source community.
+Firstly, if you read carefully the messaging on our [homepage](https://developer.hpe.com/) , you will find words like sharing and collaborating. This is part of the Team's DNA. 
 
-S﻿econdly, if you read carefully the messaging on our [homepage](https://developer.hpe.com/) , you will find words like sharing and collaborating. This is part of the Team DNA.
+S﻿econdly, the project is based on open source technologies like Jupyter or Ansible. It felt natural that the work we did leveraging these should also benefit the open source community.
 
-
+W﻿e actually did share with the HPE DEV Community and to a wider extent the Open Source Community the fondamentals of the project though different internal and external events. And the feedbacks were always positive. Some people found the project very appealing. originally, people were mainly interested in the content and not necessarily in the infrastructure. The students wanted to be able to resuse some of the notebooks. And in a few cases, they also asked for details about the infrastructure itself, asking about the notebooks delivery mechanism and other subjects like the [procmail API](https://www.youtube.com/watch?v=zZm6ObQATDI).
 
 A﻿s a consequence, we decided over the course of the Year 2022 to open source the project. As HPE Employees, we had to go through different steps including technical, legal concerns to achieve this.
 
