@@ -212,7 +212,7 @@ Just make sure that you approach it using a DevSecOps model. There is a lot of d
 
 In terms of assets, there is plenty of information out there in a Google search; it finds you a lot of assets. But as I mentioned earlier, the [NIST white paper SP 800-190](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-190.pdf) is a great starting point to understand not only container security challenges but also to get a good understanding of what containers can deliver for you.
 
-At the same time, at [HPE](https://www.hpe.com/us/en/home.html), we are also committed to delivering relevant information to our customers. If you look on our website and also our [Enterprise.nxt](https://www.hpe.com/us/en/insights.html) blog site, you will see a lot of articles about best practices on container deployments, case studies, and architectures for running container orchestration platforms on our hardware. All of this is available for people to download and to consume.
+At the same time, at [HPE](https://www.hpe.com/us/en/home.html), we are also committed to delivering relevant information to our customers. If you look on our website, you will see a lot of articles about best practices on container deployments, case studies, and architectures for running container orchestration platforms on our hardware. All of this is available for people to download and to consume.
 
 **Gardner:** I'm afraid we will have to leave it there. We have been exploring how container-based deployment models have gained popularity, from cloud models to corporate data centers. And we have learned how, in order to push containers further into the mainstream, security concerns need to be addressed across this new end-to-end container deployment spectrum.
 
