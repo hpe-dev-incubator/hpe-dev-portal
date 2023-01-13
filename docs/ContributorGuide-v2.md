@@ -1,5 +1,5 @@
 # HPE Developer External Contributor Guide
-**Version 2.0** - 13-Oct-2022
+**Version 2.0** - 13-Jan-2023
 
 >**Note:** A recording of the training session delivered on April 30, 2021 is available [here](https://vimeo.com/544486602). 
 
@@ -466,10 +466,24 @@ To do so, proceed as follows:
 
     -   **Method 2:** Using your PC/Laptop, change image size using you preferred image editor (i.e.: Paint). Toggle to **Rich Text** mode and upload/select the resized image.
  
-- **Tip #7: Adjusting the font size of a text:**
- It may happen that you want to put a sentence (such as a footnote - see example below) in a smaller font size. Use the HTML code below. You adjust the font size number from 1 to 4, where 1 is the smallest font size.
+- **Tip #7: Adjusting the font size and font color of a text and its position:**
+
+    It may happen that you want to put a sentence (such as a footnote - see example below) in a smaller font size or different color. 
+    
+    Use the HTML code below. You adjust the font size number from 1 to 4, where 1 is the smallest font size:    
+    \<font size="2"\> _Apache® and Apache Spark™ are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by the Apache Software Foundation is implied by the use of these marks._ \</font\>
  
- \<font size="2"\> _Apache® and Apache Spark™ are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by the Apache Software Foundation is implied by the use of these marks._ \</font\>
+    or 
+ 
+    \<span style="font-family:Arial; font-size:1.2em;"\>The key to success is choice: You should be able to efficiently move data as needed or store and analyze it in place, all within the same system.\</span\>
+    
+    or
+    
+    \<span style="color:grey; font-family:Arial; font-size:1em"\> This article/content was written by the individual writer identified and does not necessarily reflect the view of Hewlett Packard Enterprise Company.\</span\>
+ 
+     To center the text, just use two blockquotes as show here:    
+     \>> \<span style="color:grey; font-family:Arial; font-size:1em"\> This article/content was written by the individual writer identified and does not necessarily reflect the view of Hewlett Packard Enterprise Company.\</span\>
+     
  
 - **Tip #8: Embed a YouTube video (HPE Approved video) in a blog or in Platform page:**
 
