@@ -520,7 +520,14 @@ To do so, proceed as follows:
 
     Some characters (underscore, hash, backslash) have special meanings in the Markdown syntax. If you want to use these special characters in a text, you have to _escape_ them. The way to escape a special character is to add a backslash (\\) before it, for example: I do not want \\\_italic text\\\_ here. 
 
-- **Tip #14: Inserting List items/sub-list items:**
+- **Tip #14: Underlying text:**
+   
+   If you want to underline a text or a header usthe the HTML code below
+   
+   \<u\>Your underlined text\</u\>
+   
+   
+- **Tip #15: Inserting List items/sub-list items:**
     To deal with item list, it is recommended to toggle to **Markdown** mode in the editor and use the syntax below for creating item lists and sub-item lists:
     
     >**Note:** Only a certain level of bulleting is supported; i.e. you can't do 1a, 1b, etc.
@@ -563,7 +570,7 @@ Example with **no line break** between list items:
 
 <center><img src="media/Guide-tips-item-lists-2.png" width="1585" height="483"></center>
 
-- **Tip #15: Global styles**
+- **Tip #16: Global styles**
     
   You can use the tips below to format tables and bullet list items throughout your blog post. These styles apply **globally** to your post.
 
@@ -631,14 +638,14 @@ thead tr:first-child td {
 </style>
 ```
        
-- **Tip #16: Adding GitHub repo with the CAT logo in a platform/technology/opensource page**
+- **Tip #17: Adding GitHub repo with the CAT logo in a platform/technology/opensource page**
 
 To add a the GitHub repo URL in a platform/Technology page, you can use the markdown syntax below. This syntax will display the "GitHub" CAT logo just at the right of the text. 
 
 \[HPE Swarm Learning Community Edition \!\[](Github)\](https://github.com/HewlettPackard/swarm-learning)
 
 
--  **Tip #17: Tagging:**
+-  **Tip #18: Tagging:**
 
 If appropriate, use a tag to tie your blog post to a **"Product"** page or a **"HPE GreenLake"** page on HPE Developer portal. List of appropiate tags to use is in the table below.
 
