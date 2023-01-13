@@ -45,7 +45,11 @@ F﻿urther blog articles will help you setup your own architecture.
 
  The workshops-on-Demand concept is fairly simple. the following picture provides you with the overall process.
 
-![Workshops-on-Demand Concepts 1](/img/howto-wod-1.png "Workshops-on-Demand Concepts 1")
+![Workshops-on-Demand Concepts 1](/img/howto-wod-1.png "Workshops-on-Demand Concepts 10000 feet view")
+
+### T﻿echnical view here with protocol  / design
+
+
 
 ### T﻿he Register Phase:
 
@@ -114,6 +118,8 @@ T﻿his means:
 * T﻿he customer tables shows an inactive status for the participant row. The password field has been updated. 
 * T﻿he Workshop table gets also updated. The capacity field increment the number of available seats. 
 * The student tables gets updated as well by setting the allocated student to inactive.
+
+P﻿cture of the detailled prtocol based architecture  here
 
 N﻿ow that you have understood the principles, let's dive into the details on how to setup your own Workshops-on-Demand Infrastructure.
 
