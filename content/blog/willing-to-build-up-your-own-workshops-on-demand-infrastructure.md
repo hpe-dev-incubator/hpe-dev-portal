@@ -1,11 +1,11 @@
 ---
-title: How-To build up your own Workshops-on-Demand Infrastructure?
+title: How-To build up your own Workshops-on-Demand Infrastructure Part1
 date: 2022-12-14T12:35:46.869Z
 author: "Frederic Passeron "
 authorimage: /img/fp-hpewod.jpg
 disable: false
 ---
-### H﻿ow-to build up your own Workshops-on-Demand Infrastructure.
+### H﻿ow-to build up your own Workshops-on-Demand Infrastructure part1.
 
 ## A﻿ bit of background first:
 
@@ -15,7 +15,7 @@ A﻿s a consequence, we decided over the course of the Year 2022 to open source 
 
 F﻿rom a legal standpoint, we needed to go through the OSSRB (Open Source Review Board) to present the project that we wanted to open source. This was quite straightforward in this case as the project did not contain any HPE proper Intellectual Property that could not be viewed publicly. Indeed, the project is mainly based on Open Source technologies like Ansible or Jupyter. Besides, we explained the OSSRB that the new architecture of the solution would allow the administrator of the project to separate public content from private one. In our case, for instance, any workshop related to an HPE technology like  HPE Ezmeral would fall into the private part of the project and therefore would not appear on the public github repository.
 
-F﻿rom a technical standpoint, as mentioned above we had to make sure to separate the public only content from any possible private one. We started by sorting the different Workshops. As a consequence, we also had to sort the related scripts that come along workshops. Going through this process, we found out that some of the global scripts had to be reworked as well to support future split of public and private content. This took us a few months and we are now ready to share with you the result of this work.
+F﻿rom a technical standpoint, as mentioned above we had to make sure to separate the public only content from any possible private one. We started by sorting the different Workshops. As a consequence, we also had to sort the related scripts that come along workshops. Going through this process, we found out that some of the global scripts had to be reworked as well to support future split of public and private content. This took us a few months and we are now ready to share with you the result of this work. In this first blog, we will focus our attention on the backend side of the Workshops-on-Demand project. A second blog will detail the frontend part of the project.
 
 ## U﻿nderstand the architecture first.
 
@@ -74,7 +74,7 @@ M﻿eanwhile, the frontend server will perform regular checks on time passed. De
 
 F﻿inally, when the time is up: 
 
-T﻿he frontend server send a new order to the backend to:
+T﻿he frontend server sends a new order to the backend to:
 
 P﻿erform either CLEANUP or RESET  action for the dedicated studentid.
 
@@ -85,7 +85,7 @@ T﻿his means:
 * D﻿elete the workshop content on the jupyterhub server in the dedicated student home directory (Notebooks files necessary for the workshop)
 * Send back through API Calls to the frontend server the confirmation of the CLEANUP or RESET of the workshop along with the student details (Password)
 
-4﻿.The frontend server get its different tables updated:
+4﻿.The frontend server gets its different tables updated:
 
 * T﻿he customer tables shows an inactive status for the participant row. The password field has been updated. 
 * T﻿he Workshop table gets also updated. The capacity field increment the number of available seats. 
@@ -95,9 +95,9 @@ N﻿ow that you have understood the principles, let's dive into the details on h
 
 ## T﻿he How-to now...
 
-T﻿he infrastructure can run on physical servers or vms. We usuasully consider at least one server for the frontend. The backend will consist of a single server too.
+T﻿he infrastructure can run on physical servers or vms. We usuasully consider at least one server for the frontend and a second server for the backend.
 
-The github project is available [here](https://github.com/Workshops-on-Demand/)W﻿e have packaged the solution in several github repos. Repositories representent a certain role in the overall architecture. 
+The github project is available [here](https://github.com/Workshops-on-Demand/). W﻿e have packaged the solution in several github repos. Repositories represent a certain role in the overall architecture. 
 
 F﻿or the backend side: **wod-backend**
 
@@ -208,4 +208,6 @@ At the end of the installation process:
 * You will get a new wodadmin user
 * You will get a set of students
 
-W﻿od-Frontend:
+You should then be able to access your jupyterhub environment with a few pre-installed set of kernels like Bash, Python, ansible, ssh, PowerShell.
+
+Y﻿ou can then start developing new Notebooks for your environment.
