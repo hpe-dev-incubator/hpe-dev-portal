@@ -75,7 +75,7 @@ The fact is, recent technology makes both goals achievable. If a modern data fab
 
 Having the right data infrastructure lets you focus on the decisions that will make your organization a data-first enterprise. Whether it is choosing the right level of data motion, using multiple tools to analyze the same data, or storing data as objects or files, your data infrastructure needs to provide a host of advanced capabilities but still be easy enough to drive. A modern data fabric does just that.
 
-### LESSONS FOR LEADERS
+### Lessons for leaders
 
 * A data fabric is a highly scalable data infrastructure designed to store, manage, and move data as a unifying layer across an enterprise from edge to data center, on premises or in the cloud.  
   
