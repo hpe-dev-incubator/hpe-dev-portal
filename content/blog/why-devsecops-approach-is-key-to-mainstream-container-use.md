@@ -42,7 +42,7 @@ Stay with us now as we examine the escalating benefits that come from secure and
 
 ### Mainstream containers coming
 
-Leech: We are certainly seeing a lot of interest from our customers when we speak to them about the best practices they want to following in terms of rapid application development.
+**Leech:** We are certainly seeing a lot of interest from our customers when we speak to them about the best practices they want to following in terms of rapid application development.
 
 One of the things that always held people back a little bit with [virtualization](https://www.hpe.com/us/en/insights/articles/10-virtualization-mistakes-everyone-makes-1808.html) was that you are always reliant on an operating system managing the applications that sit on top of that OS in managing the application code that you would deploy to that environment.
 
