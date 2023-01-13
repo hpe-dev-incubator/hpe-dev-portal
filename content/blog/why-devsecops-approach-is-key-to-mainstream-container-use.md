@@ -8,6 +8,8 @@ tags:
   - devops
   - SRE
   - devsecops
+  - containers
+  - hpe-ezmeral
 ---
 **Editor’s note: This article was originally posted on HPE Enterprise.nxt on March 17, 2020**
 
