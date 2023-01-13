@@ -1,15 +1,21 @@
 ---
-title: How-To build up your own Workshops-on-Demand Infrastructure Part1
+title: "Open sourcing Workshops-on-Demand Part 1: The why and the How."
 date: 2022-12-14T12:35:46.869Z
 author: "Frederic Passeron "
 authorimage: /img/fp-hpewod.jpg
 disable: false
 ---
-### H﻿ow-to build up your own Workshops-on-Demand Infrastructure part1.
+### Open Sourcing the Workshops-on-Demand #1: The why and the How
+
+
 
 ## A﻿ bit of background first:
 
-[T﻿he Workshops-on-Demand](https://developer.hpe.com/hackshack/workshops/) have been an important asset for the HPE Developer Community for the last 2 years. We lately reached more than 4000 registered workshops. The project was used during physical and virtual events like HPE Discover, HPE Technical Symposium Summit, but also during Open Source events like OSS CON or Kube Con. Overtime, people have actually asked us how they could setup their own Workshops-on-Demand infrastructure. 
+[T﻿he Workshops-on-Demand](https://developer.hpe.com/hackshack/workshops/) have been an important asset for the HPE Developer Community for the last 2 years. I fyou are interested in learning more on the genesis of the project, check the following [blog](https://developer.hpe.com/blog/from-jupyter-notebooks-as-a-service-to-hpe-dev-workshops-on-demand/).
+
+
+
+We lately reached more than 4000 registered workshops. The project was used during physical and virtual events like HPE Discover, HPE Technical Symposium Summit, but also during Open Source events like OSS CON or Kube Con. Overtime, people have actually asked us how they could setup their own Workshops-on-Demand infrastructure. 
 
 A﻿s a consequence, we decided over the course of the Year 2022 to open source the project. As HPE Employees, we had to go through different steps including technical, legal concerns to achieve this.
 
