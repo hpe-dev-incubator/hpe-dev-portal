@@ -124,7 +124,7 @@ T﻿his means:
 * T﻿he customer tables shows an inactive status for the participant row. The password field has been updated. 
 * T﻿he Workshop table gets also updated. The capacity field increment the number of available seats. 
 * The student tables gets updated as well by setting the allocated student to inactive.
-* T﻿he frontend sends the final email to the participant:
+* T﻿he frontend sends the final email to the participant.
 
 ### T﻿he React and Reward Phase:
 
