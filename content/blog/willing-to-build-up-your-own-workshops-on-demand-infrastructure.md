@@ -47,7 +47,9 @@ F﻿urther blog articles will help you setup your own architecture.
 
 ![Workshops-on-Demand Concepts 1](/img/wod-blogserie1.png "Workshops-on-Demand Concepts 10000 feet view")
 
-### T﻿echnical view here with protocol  / design
+N﻿ow that you have understood the overall principle, let's look at the details now. The following picture  will show from a protocol standpoint what happens at each stage.
+
+![](/img/howto-wod-4.png)
 
 ### T﻿he Register Phase:
 
