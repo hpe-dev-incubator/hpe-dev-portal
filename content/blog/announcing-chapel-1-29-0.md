@@ -7,5 +7,6 @@ authorimage: /img/Avatar1.svg
 disable: false
 tags:
   - chapel
+  - opensource
 ---
  External Blog
