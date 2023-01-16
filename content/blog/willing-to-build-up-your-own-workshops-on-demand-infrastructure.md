@@ -75,7 +75,15 @@ H﻿ere are the details of the participant info when registered to a given works
 * W﻿orkshop ID
 * S﻿tudent ID
 
-3﻿.The Backend Server recieves the order and processes it by  parsing the email recieved and using the information to automate the deployment of the workshop.
+3﻿.The Backend Server recieves the order and processes it by  parsing the email recieved using the procmail API. the procmail API automates the managementof the workshops.
+
+Like any API, it uses verbs to perform tasks.
+
+CREATE to deploy a workshop
+
+C﻿LEANUP to delete a workshop
+
+R﻿ESET to reset associated workshop's resource
 
 T﻿his means:
 
