@@ -79,11 +79,11 @@ H﻿ere are the details of the participant info when registered to a given works
 
 Like any API, it uses verbs to perform tasks.
 
-CREATE to deploy a workshop
+* CREATE to deploy a workshop
 
-C﻿LEANUP to delete a workshop
+* C﻿LEANUP to delete a workshop
 
-R﻿ESET to reset associated workshop's resource
+* R﻿ESET to reset associated workshop's resource
 
 T﻿his means:
 
