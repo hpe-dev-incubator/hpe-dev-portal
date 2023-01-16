@@ -75,7 +75,7 @@ H﻿ere are the details of the participant info when registered to a given works
 * W﻿orkshop ID
 * S﻿tudent ID
 
-3﻿.The Backend Server recieves the order and processes it by  parsing the email recieved using the procmail API. the procmail API automates the managementof the workshops.
+4﻿.The Backend Server recieves the order and processes it by  parsing the email recieved using the procmail API. the procmail API automates the managementof the workshops.
 
 Like any API, it uses verbs to perform tasks.
 
@@ -92,13 +92,13 @@ T﻿his means:
 * D﻿eploy the workshop content on the jupyterhub server in the dedicated student home directory (Notebooks files necessary for the workshop)
 * Send back through API Calls to the frontend server the confirmation of the deployment of the workshop along with the student details (Password)
 
-4﻿.The frontend server get its different tables updated:
+5﻿.The frontend server get its different tables updated:
 
 * T﻿he customer tables shows an active status for the participant row. The password field has been updated. 
 * T﻿he Workshop table gets also updated. The capacity field decrement the number of available seats. 
 * The student tables gets updated as well by setting the allocated student to active.
 
-5﻿.The frontend server sends the second email to the particpant providing him with the details to connect to the workshop environment.
+6﻿.The frontend server sends the second email to the particpant providing him with the details to connect to the workshop environment.
 
 ### T﻿he Run Phase:
 
