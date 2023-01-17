@@ -7,7 +7,13 @@ disable: false
 ---
 # Open Sourcing Workshops-on-Demand part2: Deploying the BackendT﻿he How-to now...
 
-T﻿he infrastructure can run on physical servers or vms. We usuasully consider at least one server for the frontend and a second server for the backend.
+I﻿n the first article of this series, I described the reasons behing the decison of open sourcing our workshops-on-demand project. After reading it, you should have a better understanding of the project's infrastructure.
+
+I﻿n this second article, I will cover the backend part of the project. I will explain how to deploy it in a first place. Then I will dive into the usage of the different components that constitutes it.
+
+T﻿he overall infrastructure can run on physical servers or vms. We usuasully consider at least one server for the frontend and a second server for the backend. You could also decide to separate every single component of each side.
+
+
 
 The github project is available [here](https://github.com/Workshops-on-Demand/). W﻿e have packaged the solution in several github repos. Repositories represent a certain role in the overall architecture. 
 
