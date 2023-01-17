@@ -236,38 +236,7 @@ cd wod-backend/install
   WODFEAPIPWD: MotDePasseCompliquéAussi125!!!##
   ```
 
-### [](https://github.com/Workshops-on-Demand/wod-backend/blob/main/INSTALL.md#for-private-based-workshops-on-demand-private-backend--private-workshops-or-if-you-need-to-modify-defaults)For private based Workshops-on-Demand (private backend + private workshops on top of default public backend and notebooks)
-
-###### Fork private repo (<https://github.com/Workshops-on-Demand/wod-private.git>) on github under your own github account
-
-* Clone the forked repo:
-
-```shellsession
-git clone <https://github.com/...................../wod-private.git> wod-private
-cd wod-private/ansible/group_vars
-```
-
-* Please edit the all.yml and << groupname >> files to customize your setup.
-* Commit and push changes to your repo
-
-```shellsession
-cd $HOME/wod-backend/install
-```
-
-* create an install.priv file located in install directory if using a private repo :
-
-  * Define the WODPRIVREPO with the correct url to clone (example in last line of install.repo) WODPRIVREPO="git clone [git@github.com](mailto:git@github.com):Account/Private-Repo.git wod-private"
-
-\*\* Note If using a token\*\* 
-
-PLease refer to the following [url](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) to generate token :
-
-* edit the install.repo file located in install directory of wod-backend:
-
-  * Uncomment line : token=`cat $EXEPATH/token`
-  * use the token in the url WODPRIVREPO="git clone <https://user:$token@github.com/....../wod-private.git> wod-private"
-
-### Install process details:
+### [](https://github.com/Workshops-on-Demand/wod-backend/blob/main/INSTALL.md#for-private-based-workshops-on-demand-private-backend--private-workshops-or-if-you-need-to-modify-defaults)Install process details:
 
 install script: install.sh usage() { echo "install.sh \[-h]\[-t type]\[-g groupname]\[-b backend]\[-f frontend]\[-a api-db]\[-e external]\[-u user] \[-s sender]"}
 
@@ -309,3 +278,34 @@ At the end of the installation process:
 You should then be able to access your jupyterhub environment with a few pre-installed set of kernels like Bash, Python, ansible, ssh, PowerShell.
 
 Y﻿ou can then start developing new Notebooks for your environment.
+
+### For private based Workshops-on-Demand (private backend + private workshops on top of default public backend and notebooks)
+
+Fork private repo (<https://github.com/Workshops-on-Demand/wod-private.git>) on github under your own github account
+
+* Clone the forked repo:
+
+```shellsession
+git clone <https://github.com/...................../wod-private.git> wod-private
+cd wod-private/ansible/group_vars
+```
+
+* Please edit the all.yml and << groupname >> files to customize your setup.
+* Commit and push changes to your repo
+
+```shellsession
+cd $HOME/wod-backend/install
+```
+
+* create an install.priv file located in install directory if using a private repo :
+
+  * Define the WODPRIVREPO with the correct url to clone (example in last line of install.repo) WODPRIVREPO="git clone [git@github.com](mailto:git@github.com):Account/Private-Repo.git wod-private"
+
+\*\* Note If using a token\*\* 
+
+PLease refer to the following [url](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) to generate token :
+
+* edit the install.repo file located in install directory of wod-backend:
+
+  * Uncomment line : token=`cat $EXEPATH/token`
+  * use the token in the url WODPRIVREPO="git clone <https://user:$token@github.com/....../wod-private.git> wod-private"
