@@ -236,9 +236,50 @@ cd wod-backend/install
   WODFEAPIPWD: MotDePasseCompliquéAussi125!!!##
   ```
 
-### [](https://github.com/Workshops-on-Demand/wod-backend/blob/main/INSTALL.md#for-private-based-workshops-on-demand-private-backend--private-workshops-or-if-you-need-to-modify-defaults)Install process details:
+[](https://github.com/Workshops-on-Demand/wod-backend/blob/main/INSTALL.md#for-private-based-workshops-on-demand-private-backend--private-workshops-or-if-you-need-to-modify-defaults)O﻿nce you are done with the files, you can can proceed with the installation itself.
 
-install script: install.sh usage() { echo "install.sh \[-h]\[-t type]\[-g groupname]\[-b backend]\[-f frontend]\[-a api-db]\[-e external]\[-u user] \[-s sender]"}
+### Installation process:
+
+T﻿he installation is based on a common install script \[install.sh] that allows the deployment of the different parts of the solution. It can be called as follows:
+
+install.sh usage() { echo "install.sh \[-h]\[-t type]\[-g groupname]\[-b backend]\[-f frontend]\[-a api-db]\[-e external]\[-u user] \[-s sender]"}
+
+
+
+\-﻿h provides the help
+
+```shellsession
+./install.sh -h
+install.sh called with -h
+install.sh [-h][-t type][-g groupname][-b backend][-f frontend][-a api-db][-e external][-u user][-s sender]
+
+where:
+type      is the installation type
+          example: backend, frontend or api-db
+          if empty using 'backend'
+groupname is the ansible group_vars name to be used
+          example: production, staging, test, ...
+          if empty using 'production'
+backend   is the FQDN of the backend JupyterHub server
+          example: be.internal.example.org
+          if empty using the local name for the backend
+frontend  is the FQDN of the frontend Web server
+          example: fe.example.org
+          if empty using the external name for the backend
+api-db    is the FQDN of the API/DB server
+          example: api.internal.example.org
+          if empty using the name for the frontend
+external  is the external FQDN of the backend JupyterHub server, reachable from the Internet
+          example: jphub.example.org
+          if empty using the internal name of the backend
+user      is the name of the admin user for the WoD project
+          example: mywodamin
+          if empty using wodadmin
+sender    is the e-mail address used in the WoD frontend to send API procmail mails to the WoD backend
+          example: sender@example.org
+          if empty using wodadmin@localhost
+
+```
 
 Example :
 
@@ -246,20 +287,19 @@ Example :
 sudo ./install.sh -t backend -g staging -b jup.example.net -f notebooks.example.io -a api.example.io -e notebooks.example.io -s sender@example.io
 ```
 
-Install.sh calls :
+Install.sh performs the following tasks:
 
-* install-system-<< distribution name >>.sh
-
-  * Installs minimal requirered (Ansible, git, jq, openssh server, npm)
-* creates an admin user as defined upper (default is wodadmin) with sudo rights
-* install-system-common.sh does
+* Calls the install-system-<< distribution name >>.sh script
+* Installs minimal requirered (Ansible, git, jq, openssh server, npm)
+* Creates an admin user as defined upper (default is wodadmin) with sudo rights
+* Calls the install-system-common.sh script that performs the following tasks:
 
   * cleanup
   * github repos cloning (leveraging install.repo file) : Backend and Private
   * Create ssh keys for wodadmin
   * Creates GROUPNAME variables
   * Creates ansible inventory files
-* install_system.sh with type (Backend, Frontend, etc..)
+* Calls the install_system.sh script with type (Backend, Frontend, etc..) that performs the following tasks:
 
   * Install the necessary stack based on selected type
   * Create a wod.sh script in wod-backend directory to be used by all other scripts
@@ -267,7 +307,7 @@ Install.sh calls :
   * Setup ansible-galaxies (community.general and posix)
   * Setup Ansible and call the playbook install_<>.yml followed by the ansible\_check\_<>.yml
 
-Playbooks are self documented. Please check for details.
+A﻿ll Playbooks are self documented. Please check for details.
 
 At the end of the installation process:
 
@@ -275,15 +315,20 @@ At the end of the installation process:
 * You will get a new wodadmin user
 * You will get a set of students
 
-You should then be able to access your jupyterhub environment with a few pre-installed set of kernels like Bash, Python, ansible, ssh, PowerShell.
+W﻿e leave it to you handle the necessary port redirection and SSL certificates management when needed. In our case, we went for a simple yet efficient solution based on an OPNSense Firewall along with a HAProxy setup to manage ports' redirection,HTTP to HTTPS Redirection, SSL Certification. The backend also includes a Fail2ban service for login security management.
 
-Y﻿ou can then start developing new Notebooks for your environment.
+At this point, you should then be able to access your jupyterhub environment with a few pre-installed set of kernels like Bash, Python, ansible, ssh, PowerShell.
+
+Y﻿ou can then start developing new Notebooks for your public based environment. And if you don't know how to achieve this, the next article in the series should allow you to learn more about it.
+
+N﻿ow if you are willing to develop private content that cannot be shared because of dedicated IP with the wider Open Source community, you can read the next part that will explain how to handle this.
 
 ### For private based Workshops-on-Demand (private backend + private workshops on top of default public backend and notebooks)
 
-Fork private repo (<https://github.com/Workshops-on-Demand/wod-private.git>) on github under your own github account
+T﻿he principle remains somehow similar with a few differences explained below.
 
-* Clone the forked repo:
+* Y﻿ou will start by forking the following public private repo (<https://github.com/Workshops-on-Demand/wod-private.git>) on github under your own github account.
+* Next, you clone the forked repo
 
 ```shellsession
 git clone <https://github.com/...................../wod-private.git> wod-private
@@ -292,20 +337,30 @@ cd wod-private/ansible/group_vars
 
 * Please edit the all.yml and << groupname >> files to customize your setup.
 * Commit and push changes to your repo
+* C﻿lone now your private repo on the jupyterhub server under the same account  used for public setup.
+* M﻿ove to the wod-backend/install directory
 
 ```shellsession
 cd $HOME/wod-backend/install
 ```
 
-* create an install.priv file located in install directory if using a private repo :
+* Create an install.priv file located in install directory when using a private repo 
 
   * Define the WODPRIVREPO with the correct url to clone (example in last line of install.repo) WODPRIVREPO="git clone [git@github.com](mailto:git@github.com):Account/Private-Repo.git wod-private"
 
-\*\* Note If using a token\*\* 
+**Note: When using a token**
 
-PLease refer to the following [url](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) to generate token :
+Please refer to the following [url](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) to generate token :
 
 * edit the install.repo file located in install directory of wod-backend:
 
   * Uncomment line : token=`cat $EXEPATH/token`
   * use the token in the url WODPRIVREPO="git clone <https://user:$token@github.com/....../wod-private.git> wod-private"
+
+Y﻿ou are now ready to perform the installation again to support a private repository. 
+
+```shellsession
+sudo ./install.sh -t backend -g staging -b jup.example.net -f notebooks.example.io -a api.example.io -e notebooks.example.io -s sender@example.io
+```
+
+Please note that this setup phase can be conccurent with the public setup phase. Indeed, the install script should detect the presence of the private repository owing to the presence of the install.priv file. It will automatically adjust the different scripts and variables to add the relevant content. It will actually overload some of the variables with the private ones.
