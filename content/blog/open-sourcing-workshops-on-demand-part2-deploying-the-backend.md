@@ -7,7 +7,7 @@ disable: false
 ---
 # Open Sourcing Workshops-on-Demand part 2: Deploying the Backend T﻿he How-to now...
 
-I﻿n the first article of this series, I described the reasons behing the decison of open sourcing our workshops-on-demand project. After reading it, you should have a better understanding of the project's infrastructure.
+I﻿n the first article of this series, I described the reasons behing the decison of open sourcing our workshops-on-demand project. After reading it, you should have a better understanding of our motivation. Moreover, the project's infrastructure has now no longer any secrets to you.
 
 I﻿n this second article, I will cover the backend part of the project. I will explain how to deploy it in a first place. Then I will dive into the usage of the different components that constitutes it.
 
