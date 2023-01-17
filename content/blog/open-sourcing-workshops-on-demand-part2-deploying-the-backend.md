@@ -13,19 +13,24 @@ I﻿n this second article, I will cover the backend part of the project. I will 
 
 T﻿he overall infrastructure can run on physical servers or vms. We usuasully consider at least one server for the frontend and a second server for the backend. You could also decide to separate every single component of each side.
 
+![](/img/howto-wod-5.png)
 
+The github project is available [here](https://github.com/Workshops-on-Demand/). W﻿e have packaged the solution in several github repos. Each repositories represents a role in the overall architecture. 
 
-The github project is available [here](https://github.com/Workshops-on-Demand/). W﻿e have packaged the solution in several github repos. Repositories represent a certain role in the overall architecture. 
+F﻿or the backend side, the repository name is **wod-backend.**
 
-F﻿or the backend side: **wod-backend**
-
-This project is the back-end part of our Workshop-on-Demand setup. It will setup:
+This project is the back-end part of our Workshop-on-Demand setup.  It provides:
 
 * A complete jupyterhub with extensions on your system, ready to host Workshops-on-Demand that you can find [here ](https://github.com/Workshops-on-Demand/wod-notebooks.git)[](https://github.com/Workshops-on-Demand/wod-notebooks.git)
 * A postfix server used for the procmail API
 * An Ansible engine to allow automation
 * A fail2ban server
 * An Admin user to manage everything
+* A﻿ set of scripts to handle different tasks such as:
+  -Notebooks deployment
+  ﻿-Jupyterhub compliancy
+  ﻿-Users compliancy
+  ﻿-Security Management
 
 ### Jupyterhub server preparation:
 
