@@ -5,7 +5,7 @@ author: Frederic Passeron
 authorimage: /img/fp-hpewod.jpg
 disable: false
 ---
-# Open Sourcing Workshops-on-Demand part2: Deploying the BackendT﻿he How-to now...
+# Open Sourcing Workshops-on-Demand part 2: Deploying the Backend T﻿he How-to now...
 
 I﻿n the first article of this series, I described the reasons behing the decison of open sourcing our workshops-on-demand project. After reading it, you should have a better understanding of the project's infrastructure.
 
