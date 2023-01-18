@@ -24,7 +24,7 @@ Apache SkyWalking is lightweight and scalable. It can be easily set up as a *sel
 
 ## Set up Apache SkyWalking for application monitoring
 
-I will take you through setting up Apache SkyWalking as a *self-managed* APM tool within the Kubernetes cluster created in HPE GreenLake for Private Cloud Enterprise. This mainly takes advantage of the security provided through the HPE GreenLake product environment. 
+I will take you through setting up Apache SkyWalking as a *self-managed* APM tool within the Kubernetes cluster created in HPE GreenLake for Private Cloud Enterprise. By setting up the APM tool within this environment, it can benefit from the security features of HPE GreenLake. 
 
 ### Prerequisites
 
