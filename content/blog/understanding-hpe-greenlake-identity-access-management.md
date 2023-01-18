@@ -49,8 +49,7 @@ Roles are available for the services that are available within the tenant. The f
 | **HPE Consumption Analytics**     |                                                                                                              |
 | Consumption Analytics Viewer      | View cost information in HPE GreenLake Central (Customer only)                                               |
 | Consumption Analytics Contributor | View cost information in HPE GreenLake Central and access HPE Consumption Analytics Platform (Customer only) |
-
-\|
+|
 | **HPE GreenLake Capacity Planning**             |                                                                                                                                                                                                                           |
 | Capacity Planning Viewer                        | Read capacity planning information                                                                                                                                                                                        |
 |
@@ -60,7 +59,7 @@ Roles are available for the services that are available within the tenant. The f
 | Billing Usage Viewer                            | View monthly charges card and report (usage information only - no cost information)                                                                                                                                       |
 |
 | **HPE GreenLake for Private Cloud Enterprise: Virtual Machines**             |                                                                                                                                                                                                                           |
-| Private Cloud Tenant Owner                      | Administer HPE GreenLake for Private Cloud dashboard<br>Manage scheduling and activity<br>Manage infrastructure<br>Manage provisioning                                                                                    |
+| Private Cloud Tenant Owner                      | Administer HPE GreenLake for Private Cloud Enterprise: Virtual Machines dashboard<br>Manage scheduling and activity<br>Manage infrastructure<br>Manage provisioning                                                                                    |
 | Private Cloud Tenant Contributor                | Manage self-service VMs and app provisions                                                                                                                                                                                |
 |
 | **HPE GreenLake for Private Cloud: Containers on Virtual Machines**                |                                                                                                                                                                                                                           |
