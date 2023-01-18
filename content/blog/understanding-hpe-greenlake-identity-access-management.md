@@ -6,6 +6,8 @@ authorimage: /img/mugshot.png
 tags:
   - hpe-greenlake
 ---
+
+
 # Introduction
 
 When configuring an HPE GreenLake Central tenant for diverse customer Identity and Access Management (IAM) needs, it is important to understand how the various features work, so you can take appropriate actions. Once you understand the features and how they work, you'll be able to arrange resources in an optimal way. It will also prevent the need to reconfigure anything in the future. 
@@ -42,12 +44,13 @@ Roles are a named set of permissions used to access resources. They are assigned
 
 Roles are available for the services that are available within the tenant. The following table is incomplete but lists the most common roles and definitions.
 
-| **Role**                                        | **Responsibility**                                                                                                                                                                                                        |
-| :---------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **HPE Consumption Analytics**                   |                                                                                                                                                                                                                           |
-| Consumption Analytics Viewer                    | View cost information in HPE GreenLake Central (Customer only)                                                                                                                                                            |
-| Consumption Analytics Contributor               | View cost information in HPE GreenLake Central and access HPE Consumption Analytics Platform (Customer only)                                                                                                              |
-|
+| **Role**                          | **Responsibility**                                                                                           |
+| --------------------------------- | ------------------------------------------------------------------------------------------------------------ |
+| **HPE Consumption Analytics**     |                                                                                                              |
+| Consumption Analytics Viewer      | View cost information in HPE GreenLake Central (Customer only)                                               |
+| Consumption Analytics Contributor | View cost information in HPE GreenLake Central and access HPE Consumption Analytics Platform (Customer only) |
+
+\|
 | **HPE GreenLake Capacity Planning**             |                                                                                                                                                                                                                           |
 | Capacity Planning Viewer                        | Read capacity planning information                                                                                                                                                                                        |
 |
@@ -74,7 +77,6 @@ Roles are available for the services that are available within the tenant. The f
 | HPCaaS Job Contributor                          | Manage job and job-related information                                                                                                                                                                                    |
 | HPCaaS Viewer                                   | View only                                                                                                                                                                                                                 |
 
-
 For more detail on roles, please refer to the HPE GreenLake Central User Guide which can be found here: [HPE GreenLake Central User Guide](https://support.hpe.com/hpesc/public/docDisplay?docId=a00092451en_us&page=index.html)
 
 * Owner roles apply to different aspects of Services. Some administrator Roles are only available to HPE Information Technology Operations Center (ITOC) and DevOps teams.
@@ -91,9 +93,7 @@ New tenants are requested via an HPE representative. The request includes an ini
 Once a tenant administrator is on-boarded, they can invite their users to join the tenant.
 
 1. Access the User Management Service within the **wrench** icon.
-
 2. Select the **Users** Tab
-
 3. Under the **Actions** pull-down, choose Invite User
 
 <img src="/img/invite-user.png" width="480" height="538" alt="Invite User">
@@ -103,37 +103,30 @@ The invited user receives an email inviting them to join the tenant. Once the us
 ## Creating and modifying User Groups
 
 1. Access the User Management Service within the **wrench** icon.
-
 2. Select the **User Groups** tab
-
 3. To modify an existing user group, click on it from the list of user groups
+
    * Members can be added by selecting the **Members** tab and selecting *Add Members* under the **Actions** pull-down
    * Members can be removed from the user group by clicking on the **Trash** icon beside the member name
-
 4. To create a new user group, from the **User Groups** tab, click on the *Create User Group* button
-
 5. Enter a user group name and description
-
 6. Once the user group has been created it may be modified using the instructions above
 
 ## Creating and Modifying Spaces
 
 1. Access the Management Service within the **wrench** icon.
-
 2. Select the **Spaces** tab
-
 3. To modify an existing space, click on it from the list of spaces
 
    1. Users and user groups can be added by selecting the **Assignments** tab and selecting *Create Assignment* under the **Actions** pull-down
-
    2. Select appropriate role(s) for the space
+
       * Users and user groups can be removed from the space by clicking on the **Trash** icon beside the subject name
       * Resources can be added and removed from the space by selecting the **Resources** tab and selecting *Update Resources* under the **Actions** pull-down
-
 4. To create a new space, click on the **Create Space** button
+
    * Enter a space name and parent space   
    * Select **Resources** by expanding the **All Resources** list   
-
 
 # Let's Explore Some Fictitious Customer Examples
 
@@ -141,7 +134,7 @@ The invited user receives an email inviting them to join the tenant. Once the us
 
 ### Design
 
-![](/img/iam-document-example-1-tenant-1-1-.jpg "Example 1: ACME Corp.")
+![](/img/iam-document-example-1-tenant-1-1a.jpg "Example 1: ACME Corp.")
 
 Customer ACME Corp. has users spread around the globe. The users' email addresses all take the form of [xyz@acmecorp.com.](mailto:xyz@acmecorp.com.) ACME Corp. has several departments that are also distributed around the globe. ACME Corp. wishes to use HPE GreenLake Private Cloud Enterprise to create and manage virtual machines and containers on behalf of the various departments. They also wish to use HPE GreenLake for ML Ops to examine their internal data and perform AI operations upon it and use HPE GreenLake for containers to run a sales application.
 
@@ -280,7 +273,7 @@ User Robert who is a member of the Department C users, would be able to access t
 
 ### Design
 
-![](/img/iam-document-example-3-tenant-1-1-.jpg)
+![](/img/iam-document-example-3-tenant-1-1a.jpg)
 
 ![](/img/iam-document-example-3-tenant-2-1-.jpg)
 
@@ -326,4 +319,4 @@ A space '**Main Space**' is created within the IAM service of this tenant and re
 
 As you can see, the key to configuring Identity and Access Management in a tenant is to understand the building blocks and how to make informed decisions on how to design IAM resources to match customer requirements. I hope these examples will help you to see how the flexibility of HPE GreenLake Central Identity and Access Management allows an almost infinite number of possible configurations, giving the flexibility to match diverse customer requirements. 
 
-Please feel free to reach out directly to me on the [HPE Developer Slack Workspace](https://slack.hpedev.io/) in the [#hpe-greenlake](https://hpedev.slack.com/archives/C02EG5XFK8Q) channel.
+Please feel free to reach out directly to me on the [HPE Developer Slack Workspace](https://slack.hpedev.io/) in the [\#hpe-greenlake](https://hpedev.slack.com/archives/C02EG5XFK8Q) channel.
