@@ -6,6 +6,8 @@ authorimage: /img/mugshot.png
 tags:
   - hpe-greenlake
 ---
+
+
 # Introduction
 
 When configuring an HPE GreenLake Central tenant for diverse customer Identity and Access Management (IAM) needs, it is important to understand how the various features work, so you can take appropriate actions. Once you understand the features and how they work, you'll be able to arrange resources in an optimal way. It will also prevent the need to reconfigure anything in the future. 
@@ -42,11 +44,11 @@ Roles are a named set of permissions used to access resources. They are assigned
 
 Roles are available for the services that are available within the tenant. The following table is incomplete but lists the most common roles and definitions.
 
-| **Role**                                        | **Responsibility**                                                                                                                                                                                                        |
-| :---------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **HPE Consumption Analytics**                   |                                                                                                                                                                                                                           |
-| Consumption Analytics Viewer                    | View cost information in HPE GreenLake Central (Customer only)                                                                                                                                                            |
-| Consumption Analytics Contributor               | View cost information in HPE GreenLake Central and access HPE Consumption Analytics Platform (Customer only)                                                                                                              |
+| **Role**                          | **Responsibility**                                                                                           |
+| --------------------------------- | ------------------------------------------------------------------------------------------------------------ |
+| **HPE Consumption Analytics**     |                                                                                                              |
+| Consumption Analytics Viewer      | View cost information in HPE GreenLake Central (Customer only)                                               |
+| Consumption Analytics Contributor | View cost information in HPE GreenLake Central and access HPE Consumption Analytics Platform (Customer only) |
 |
 | **HPE GreenLake Capacity Planning**             |                                                                                                                                                                                                                           |
 | Capacity Planning Viewer                        | Read capacity planning information                                                                                                                                                                                        |
@@ -56,11 +58,11 @@ Roles are available for the services that are available within the tenant. The f
 | Billing Viewer                                  | View billing information                                                                                                                                                                                                  |
 | Billing Usage Viewer                            | View monthly charges card and report (usage information only - no cost information)                                                                                                                                       |
 |
-| **HPE GreenLake for Private Cloud**             |                                                                                                                                                                                                                           |
-| Private Cloud Tenant Owner                      | Administer HPE GreenLake for private cloud dashboard<br>Manage scheduling and activity<br>Manage infrastructure<br>Manage provisioning                                                                                    |
+| **HPE GreenLake for Private Cloud Enterprise: Virtual Machines**             |                                                                                                                                                                                                                           |
+| Private Cloud Tenant Owner                      | Administer HPE GreenLake for Private Cloud Enterprise: Virtual Machines dashboard<br>Manage scheduling and activity<br>Manage infrastructure<br>Manage provisioning                                                                                    |
 | Private Cloud Tenant Contributor                | Manage self-service VMs and app provisions                                                                                                                                                                                |
 |
-| **HPE GreenLake for Containers**                |                                                                                                                                                                                                                           |
+| **HPE GreenLake for Private Cloud Enterprise: Containers on Virtual Machines**                |                                                                                                                                                                                                                           |
 | Container Platform Cluster Owner                | Manage predefined and custom cluster blueprints, along with machine blueprints                                                                                                                                            |
 | Container Platform Cluster Resource Contributor | Manage resources within a cluster namespace                                                                                                                                                                               |
 |
@@ -73,7 +75,6 @@ Roles are available for the services that are available within the tenant. The f
 | HPCaaS Admin                                    | Perform all actions                                                                                                                                                                                                       |
 | HPCaaS Job Contributor                          | Manage job and job-related information                                                                                                                                                                                    |
 | HPCaaS Viewer                                   | View only                                                                                                                                                                                                                 |
-
 
 For more detail on roles, please refer to the HPE GreenLake Central User Guide which can be found here: [HPE GreenLake Central User Guide](https://support.hpe.com/hpesc/public/docDisplay?docId=a00092451en_us&page=index.html)
 
@@ -91,9 +92,7 @@ New tenants are requested via an HPE representative. The request includes an ini
 Once a tenant administrator is on-boarded, they can invite their users to join the tenant.
 
 1. Access the User Management Service within the **wrench** icon.
-
 2. Select the **Users** Tab
-
 3. Under the **Actions** pull-down, choose Invite User
 
 <img src="/img/invite-user.png" width="480" height="538" alt="Invite User">
@@ -103,37 +102,30 @@ The invited user receives an email inviting them to join the tenant. Once the us
 ## Creating and modifying User Groups
 
 1. Access the User Management Service within the **wrench** icon.
-
 2. Select the **User Groups** tab
-
 3. To modify an existing user group, click on it from the list of user groups
+
    * Members can be added by selecting the **Members** tab and selecting *Add Members* under the **Actions** pull-down
    * Members can be removed from the user group by clicking on the **Trash** icon beside the member name
-
 4. To create a new user group, from the **User Groups** tab, click on the *Create User Group* button
-
 5. Enter a user group name and description
-
 6. Once the user group has been created it may be modified using the instructions above
 
 ## Creating and Modifying Spaces
 
 1. Access the Management Service within the **wrench** icon.
-
 2. Select the **Spaces** tab
-
 3. To modify an existing space, click on it from the list of spaces
 
    1. Users and user groups can be added by selecting the **Assignments** tab and selecting *Create Assignment* under the **Actions** pull-down
-
    2. Select appropriate role(s) for the space
+
       * Users and user groups can be removed from the space by clicking on the **Trash** icon beside the subject name
       * Resources can be added and removed from the space by selecting the **Resources** tab and selecting *Update Resources* under the **Actions** pull-down
-
 4. To create a new space, click on the **Create Space** button
+
    * Enter a space name and parent space   
    * Select **Resources** by expanding the **All Resources** list   
-
 
 # Let's Explore Some Fictitious Customer Examples
 
@@ -141,9 +133,9 @@ The invited user receives an email inviting them to join the tenant. Once the us
 
 ### Design
 
-![](/img/iam-document-example-1-tenant-1-1-.jpg "Example 1: ACME Corp.")
+![](/img/iam-document-example-1-tenant-1-1a.jpg "Example 1: ACME Corp.")
 
-Customer ACME Corp. has users spread around the globe. The users' email addresses all take the form of [xyz@acmecorp.com.](mailto:xyz@acmecorp.com.) ACME Corp. has several departments that are also distributed around the globe. ACME Corp. wishes to use HPE GreenLake Private Cloud to create and manage virtual machines and containers on behalf of the various departments. They also wish to use HPE GreenLake for ML Ops to examine their internal data and perform AI operations upon it and use HPE GreenLake for containers to run a sales application.
+Customer ACME Corp. has users spread around the globe. The users' email addresses all take the form of [xyz@acmecorp.com.](mailto:xyz@acmecorp.com.) ACME Corp. has several departments that are also distributed around the globe. ACME Corp. wishes to use HPE GreenLake for Private Cloud Enterprise to create and manage virtual machines and containers on behalf of the various departments. They also wish to use HPE GreenLake for ML Ops to examine their internal data and perform AI operations upon it and use HPE GreenLake for containers to run a sales application.
 
 The ACME Corp. departments include:
 
@@ -181,7 +173,7 @@ When each space is created, appropriate resources are chosen and mapped to the s
 
 #### Office of CEO
 
-The Office of CEO space needs access to billing across the entire company. They may also use HPE GreenLake for Private Cloud to run some virtual machines. Finally, they occasionally run some AI on internal data.
+The Office of CEO space needs access to billing across the entire company. They may also use HPE GreenLake for Private Cloud Enterprise to run some virtual machines. Finally, they occasionally run some AI on internal data.
 
 ![](/img/office-of-ceo-space-resources.png)
 
@@ -195,7 +187,7 @@ The space looks like this to the users:
 
 #### IT Department
 
-The IT department space would need access to HPE GreenLake for Private Cloud, HPE GreenLake for ML Ops and HPE GreenLake for Containers resources. This would allow users in this department to manage the resources running in both services. Users in this department require admin roles for the selected resources.
+The IT department space would need access to HPE GreenLake for Private Cloud Enterprise: Virtual Machines, HPE GreenLake for ML Ops and HPE GreenLake for Private Cloud Enterprise: Containers resources. This would allow users in this department to manage the resources running in both services. Users in this department require admin roles for the selected resources.
 
 ![](/img/it-department-space-resources.png "IT Department Space Resources")
 
@@ -223,7 +215,7 @@ The space looks like this to the users:
 
 #### R&D Department
 
-The R&D department accesses a series of virtual machines in the HPE GreenLake for Private Cloud service. Since the service is managed by the IT department, these users do not need administrative rights.
+The R&D department accesses a series of virtual machines in the HPE GreenLake for Private Cloud Enterprise: Virtual Machines service. Since the service is managed by the IT department, these users do not need administrative rights.
 
 #### Data Science Users
 
@@ -280,13 +272,13 @@ User Robert who is a member of the Department C users, would be able to access t
 
 ### Design
 
-![](/img/iam-document-example-3-tenant-1-1-.jpg)
+![](/img/iam-document-example-3-tenant-1-1a.jpg)
 
 ![](/img/iam-document-example-3-tenant-2-1-.jpg)
 
 ![](/img/iam-document-example-3-tenant-3-1-.jpg)
 
-Big and Small Corp. is a large multinational company with several divisions. Each division is located in a different region and manages its services separately. Big and Small (USA) is headquartered in the US and is the holding company for all US-based business. This division runs a large marketing service which has a web presence, hosted on a public cloud. Big and Small (USA) would like to replace the public cloud with HPE GreenLake for Private Cloud and manage the charges for this service within the division. 
+Big and Small Corp. is a large multinational company with several divisions. Each division is located in a different region and manages its services separately. Big and Small (USA) is headquartered in the US and is the holding company for all US-based business. This division runs a large marketing service which has a web presence, hosted on a public cloud. Big and Small (USA) would like to replace the public cloud with HPE GreenLake for Private Cloud Enterprise and manage the charges for this service within the division. 
 
 Big and Small (Europe) is headquartered in Berlin, Germany. This division designs and manufactures a wide range of products for the European market. To support the division, they currently own a large HPC cluster, which they would like to replace with HPE GreenLake for HPC. This division also would like to manage their HPE GreenLake expenses in a separate account. 
 
@@ -304,11 +296,11 @@ Each division has their own unique billing account:
 | Big and Small (Europe) | HP-EMEA-DMO-DEU-99919 |
 | Big and Small (Japan)  | HP-APJ-DMO-JPN-99920  |
 
-A tenant for Big and Small (USA) is created. The main service in this tenant is HPE GreenLake for Private Cloud. This is configured such that the metrics from this service are sent to the billing account 'HP-AMS-DMO-USA-99918'.
+A tenant for Big and Small (USA) is created. The main service in this tenant is HPE GreenLake for Private Cloud Enterprise. This is configured such that the metrics from this service are sent to the billing account 'HP-AMS-DMO-USA-99918'.
 
 Each department has their own separate user group, e.g. Department A users. Users from the various departments are added to the appropriate user groups.
 
-A space, '**Main Space**' is created within the IAM Service of this tenant and resources are added. In this case, the resource for the billing account HP-AMS-DMO-USA-99918 and also the resource for the HPE GreenLake for Private Cloud are added. Finally, the user groups are assigned to the space with the appropriate roles.
+A space, '**Main Space**' is created within the IAM Service of this tenant and resources are added. In this case, the resource for the billing account HP-AMS-DMO-USA-99918 and also the resource for the HPE GreenLake for Private Cloud Enterprise are added. Finally, the user groups are assigned to the space with the appropriate roles.
 
 A tenant for Big and Small (Europe) is created. The main service in this tenant is HPE GreenLake for HPC. This is configured such that the metrics from this service are sent to the billing account 'HP-EMEA-DMO-DEU-99919'.
 
@@ -326,4 +318,4 @@ A space '**Main Space**' is created within the IAM service of this tenant and re
 
 As you can see, the key to configuring Identity and Access Management in a tenant is to understand the building blocks and how to make informed decisions on how to design IAM resources to match customer requirements. I hope these examples will help you to see how the flexibility of HPE GreenLake Central Identity and Access Management allows an almost infinite number of possible configurations, giving the flexibility to match diverse customer requirements. 
 
-Please feel free to reach out directly to me on the [HPE Developer Slack Workspace](https://slack.hpedev.io/) in the [#hpe-greenlake](https://hpedev.slack.com/archives/C02EG5XFK8Q) channel.
+Please feel free to reach out directly to me on the [HPE Developer Slack Workspace](https://slack.hpedev.io/) in the [\#hpe-greenlake](https://hpedev.slack.com/archives/C02EG5XFK8Q) channel.
