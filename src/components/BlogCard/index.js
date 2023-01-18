@@ -45,9 +45,16 @@ export const BlogCard = ({ node, ...rest }) => {
       wrap
       onClick={(e) => {
         console.log('open externalLink node', node);
-        if (node?.externalLink) {
+        if (node?.externalLink || node?.frontmatter?.externalLink) {
           console.log('external open link window');
-          window.open(`${node?.externalLink}`, '_blank');
+          window.open(
+            `${
+              node?.externalLink
+                ? node?.externalLink
+                : node?.frontmatter?.externalLink
+            }`,
+            '_blank',
+          );
         } else if (node.fields.slug && node.fields.sourceInstanceName) {
           console.log('open within ');
           navigate(`/${node.fields.sourceInstanceName}${node.fields.slug}`);

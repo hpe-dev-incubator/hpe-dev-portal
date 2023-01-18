@@ -160,6 +160,7 @@ PlatformTemplate.propTypes = {
               author: PropTypes.string,
               date: PropTypes.string,
               authorimage: PropTypes.string,
+              externalLink: PropTypes.string,
             }).isRequired,
             excerpt: PropTypes.string.isRequired,
             fields: PropTypes.shape({
@@ -244,6 +245,7 @@ export const pageQuery = graphql`
             author
             date
             authorimage
+            externalLink
           }
           excerpt(format: MARKDOWN)
         }
