@@ -5,8 +5,11 @@ author: John Lenihan
 authorimage: /img/mugshot.png
 tags:
   - hpe-greenlake
+  - hpe-greenlake-for-private-cloud-enterprise
 ---
+**Editor’s Note – NAME CHANGE: HPE GreenLake for Private Cloud is now part of HPE GreenLake for Private Cloud Enterprise.**
 
+- - -
 
 # Introduction
 
