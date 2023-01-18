@@ -62,7 +62,7 @@ Roles are available for the services that are available within the tenant. The f
 | Private Cloud Tenant Owner                      | Administer HPE GreenLake for Private Cloud Enterprise: Virtual Machines dashboard<br>Manage scheduling and activity<br>Manage infrastructure<br>Manage provisioning                                                                                    |
 | Private Cloud Tenant Contributor                | Manage self-service VMs and app provisions                                                                                                                                                                                |
 |
-| **HPE GreenLake for Private Cloud: Containers on Virtual Machines**                |                                                                                                                                                                                                                           |
+| **HPE GreenLake for Private Cloud Enterprise: Containers on Virtual Machines**                |                                                                                                                                                                                                                           |
 | Container Platform Cluster Owner                | Manage predefined and custom cluster blueprints, along with machine blueprints                                                                                                                                            |
 | Container Platform Cluster Resource Contributor | Manage resources within a cluster namespace                                                                                                                                                                               |
 |
@@ -135,7 +135,7 @@ The invited user receives an email inviting them to join the tenant. Once the us
 
 ![](/img/iam-document-example-1-tenant-1-1a.jpg "Example 1: ACME Corp.")
 
-Customer ACME Corp. has users spread around the globe. The users' email addresses all take the form of [xyz@acmecorp.com.](mailto:xyz@acmecorp.com.) ACME Corp. has several departments that are also distributed around the globe. ACME Corp. wishes to use HPE GreenLake Private Cloud Enterprise to create and manage virtual machines and containers on behalf of the various departments. They also wish to use HPE GreenLake for ML Ops to examine their internal data and perform AI operations upon it and use HPE GreenLake for containers to run a sales application.
+Customer ACME Corp. has users spread around the globe. The users' email addresses all take the form of [xyz@acmecorp.com.](mailto:xyz@acmecorp.com.) ACME Corp. has several departments that are also distributed around the globe. ACME Corp. wishes to use HPE GreenLake for Private Cloud Enterprise to create and manage virtual machines and containers on behalf of the various departments. They also wish to use HPE GreenLake for ML Ops to examine their internal data and perform AI operations upon it and use HPE GreenLake for containers to run a sales application.
 
 The ACME Corp. departments include:
 
@@ -187,7 +187,7 @@ The space looks like this to the users:
 
 #### IT Department
 
-The IT department space would need access to HPE GreenLake Enterprise Private Cloud: Virtual Machines, HPE GreenLake for ML Ops and HPE GreenLake for Private Cloud Enterprise: Containers resources. This would allow users in this department to manage the resources running in both services. Users in this department require admin roles for the selected resources.
+The IT department space would need access to HPE GreenLake for Private Cloud Enterprise: Virtual Machines, HPE GreenLake for ML Ops and HPE GreenLake for Private Cloud Enterprise: Containers resources. This would allow users in this department to manage the resources running in both services. Users in this department require admin roles for the selected resources.
 
 ![](/img/it-department-space-resources.png "IT Department Space Resources")
 
