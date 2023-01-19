@@ -133,3 +133,5 @@ T﻿his means:
   E﻿t voila! [](https://developer.hpe.com/blog/become-a-legend/)
 
 W﻿ith this very first article, I wanted to set the stage for the following three where I plan to explain how to setup your own Workshops-on-Demand infrastructure. We will start by looking at the "jupyterhub" side of things. I will detail how to set it up depending on your use case (Public only vs Public and Private). Then, I will move to the workshop development part; from the notebook development to the automation that needs to come along with it in order to be properly integraged into the overall solution.Finally, the last article will cover the frontend's side. It will show you how to deploy it and more.
+
+Please be sure to drop back at [HPE DEV](https://developer.hpe.com/blog) for a follow up on this. Check out also the Hack Shack for new [workshops](https://developer.hpe.com/hackshack/workshops)! We are currently working on different subjects like Data Visualization 101 or HPE GreenLake for Compute Operations Management API 101. Stay tuned!
