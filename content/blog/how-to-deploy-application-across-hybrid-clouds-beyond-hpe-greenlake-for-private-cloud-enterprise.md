@@ -6,7 +6,10 @@ author: Guoping Jia
 authorimage: /img/guoping.png
 disable: false
 tags:
-  - hpe-greenlake, hpe-greenlake-for-private-cloud-enterprise, Skupper, AWS EKS
+  - hpe-greenlake
+  - hpe-greenlake-for-private-cloud-enterprise
+  - Skupper
+  - AWS EKS
 ---
 ## Introduction
 
