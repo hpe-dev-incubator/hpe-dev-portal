@@ -11,13 +11,13 @@ disable: false
 
 T﻿his program allows us to deliver free hands-on workshops. We use these during HPE sponsored events, like HPE Discover and HPE Technical Symposium Summit, as well as open source events, like OSCON and KubeCon, to promote API/automation-driven solutions along with some 101-level coding courses. B﻿y the end of 2022, more than 4000  had registered for our workshops. 
 
-## T﻿he Why?
+## Why would we consider open sourcing our Workshops-on-Demand?
 
 Firstly, if you read carefully the messaging on our [homepage](https://developer.hpe.com/) , you will find words like sharing and collaborating. This is part of the Team's DNA. 
 
 S﻿econdly, the project is based on open source technologies like Jupyter or Ansible. It felt natural that the work we did leveraging these should also benefit the open source community.
 
-W﻿e actually did share with the HPE DEV Community and to a wider extent the Open Source Community the fondamentals of the project though different internal and external events. And the feedbacks were always positive. Some people found the project very appealing. Originally, people were mainly interested in the content and not necessarily in the infrastructure. The students wanted to be able to reuse some of the notebooks. And in a few cases, they also asked for details about the infrastructure itself, asking about the notebooks delivery mechanism and other subjects like the [procmail API](https://www.youtube.com/watch?v=zZm6ObQATDI).
+W﻿e have, actually, shared the fondamentals of the project thoughout the HPE DEV Community, and to a wider extent, the Open Source Community  though different internal and external events. And the feedback has always been positive. Some people found the project very appealing. Originally, and long before even thinking of open sourcing the project, when we really started the project development, people were mainly interested in the content and not necessarily in the infrastructure. The students wanted to be able to reuse some of the notebooks. And in a few cases, they also asked for details about the infrastructure itself, asking about the notebooks delivery mechanism and other subjects like the [procmail API](https://www.youtube.com/watch?v=zZm6ObQATDI).
 
 E﻿arly last year, we got contacted by an HPE Colleague who was willing to replicate our setup in order to deliver Notebooks to its AI/ML engineers. His purpose was to provide a simple, central point of delivery of notebooks. Engineers would develop notebooks that would later be published on the workshops-on-demand infrastructure frontend portal, allowing content to be reused and shared amongst engineers. While we had worked over time a lot on automating content delivery and some parts of the infrastructure setup, we needed now to rework and package the overall solution to make it completly open source and reusable by others.
 
