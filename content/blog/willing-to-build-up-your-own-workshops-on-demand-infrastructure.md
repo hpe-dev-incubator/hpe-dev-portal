@@ -128,8 +128,8 @@ T﻿his means:
 
 ### T﻿he React and Reward Phase:
 
-* T﻿he finalemail thanks the customer for its participation.I﻿t provides a link to an external survey link and offers the possibility to share an achievement [badge](https://developer.hpe.com/blog/become-a-legend/) on social media like linkedin or twitter.
+* A final email thanks the students for their participation. It provides a link to an external survey and encourages the participants to share their achievement [badge](https://developer.hpe.com/blog/become-a-legend/) on social media like linkedin or twitter.
 
-E﻿t voila! 
+  E﻿t voila! [](https://developer.hpe.com/blog/become-a-legend/)
 
-W﻿ith this very first article, I wanted to set the stage for the following three where I plan to explain how to setup your own Workshops-on-Demand infrastructure. We will start by looking at the jupyterhub side of things. I will detail how to set it up depending on your use case (Public only vs Public and Private). Then I will move to the workshop development part. From the notebook development to the automation that needs to come along with it in order to be proper integrated in the overall solution. Finally, the last article will cover the frontend's side. It will show you how to deploy it and more...
+W﻿ith this very first article, I wanted to set the stage for the following three where I plan to explain how to setup your own Workshops-on-Demand infrastructure. We will start by looking at the "jupyterhub" side of things. I will detail how to set it up depending on your use case (Public only vs Public and Private). Then, I will move to the workshop development part; from the notebook development to the automation that needs to come along with it in order to be properly integraged into the overall solution.Finally, the last article will cover the frontend's side. It will show you how to deploy it and more.
