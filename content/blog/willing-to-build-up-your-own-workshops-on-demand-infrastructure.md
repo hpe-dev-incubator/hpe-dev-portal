@@ -5,15 +5,13 @@ author: "Frederic Passeron "
 authorimage: /img/fp-hpewod.jpg
 disable: false
 ---
-### Open Sourcing the Workshops-on-Demand #1: The why and the how
-
-## A﻿ bit of background first:
+# A﻿ bit of background first:
 
 [T﻿he Workshops-on-Demand](https://developer.hpe.com/hackshack/workshops/) have been an important asset for the HPE Developer Community for the last 2 years. If you are interested in learning more on the genesis of the project, check the following [blog](https://developer.hpe.com/blog/from-jupyter-notebooks-as-a-service-to-hpe-dev-workshops-on-demand/).
 
 T﻿he Workshops-on-Demand allows us to deliver free hands-on based workshops. We use them during internal or external events (HPE Discover, HPE Technical Symposium Summit, but also during Open Source events like OSS CON or Kube Con) to promote API / Automation driven solutions along with some coding 101 courses. B﻿y the end of 2022, we reached more than 4000 registered workshops.  
 
-### T﻿he Why?
+## T﻿he Why?
 
 Firstly, if you read carefully the messaging on our [homepage](https://developer.hpe.com/) , you will find words like sharing and collaborating. This is part of the Team's DNA. 
 
@@ -40,6 +38,8 @@ F﻿rom a technical standpoint, as mentioned above we had to make sure to separa
 This took us a few months and we are now ready to share with you the result of this work. In this first blog, we will focus our attention on the architecture side of the Workshops-on-Demand project. 
 
 F﻿urther blog articles will help you setup your own architecture.
+
+## T﻿he How
 
 ## U﻿nderstand the architecture first.
 
