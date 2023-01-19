@@ -29,7 +29,9 @@ F﻿rom a legal standpoint, we needed to go through the HPE OSRB (Open Source Re
 
 ![HPE OSRB Process](/img/wod-osrb1.png "HPE OSRB process")
 
- This was quite straightforward in this case as the project did not contain any HPE proprietary software. And HPE did not want to exploit commercially the generated intellectual property. Indeed, the project is uniquely based on Open Source technologies like Ansible or Jupyter. Besides, we explained the OSRB that the new architecture of the solution would allow the administrator of the project to separate public content from private one. This had a huge influence on the future architecture of the project that originally did not allow it. In our case, for instance, any workshop related to an HPE technology like  HPE Ezmeral would fall into the private part of the project and therefore would not appear on the public github repository that we had to create for the overall project distribution.
+As the project did not contain any HPE proprietary software, as it is based on open source technologies like Ansible or Jupyter, the process was quite straightforward. Besides, HPE did not want to exploit commercially the generated intellectual property.  We explained the OSRB that the new architecture of the solution would allow the administrator of the project to separate public content from private one. 
+
+This had a huge influence on the future architecture of the project that originally did not allow it. In our case, for instance, any workshop related to an HPE technology like  HPE Ezmeral would fall into the private part of the project and therefore would not appear on the public github repository that we had to create for the overall project distribution.
 
 #### T﻿echnical side of things
 
