@@ -5,7 +5,7 @@ author: "Frederic Passeron "
 authorimage: /img/fp-hpewod.jpg
 disable: false
 ---
-# A﻿ bit of background first:
+# A﻿ bit of background
 
 [T﻿he Workshops-on-Demand](https://developer.hpe.com/hackshack/workshops/) have been an important asset for the HPE Developer Community for the last 2 years. If you are interested in learning more on the genesis of the project, check the following [blog](https://developer.hpe.com/blog/from-jupyter-notebooks-as-a-service-to-hpe-dev-workshops-on-demand/).
 
