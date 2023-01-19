@@ -37,13 +37,13 @@ This had a huge influence on the future architecture of the project that origina
 
 F﻿rom a technical standpoint, as mentioned above we had to make sure to separate the public only content from any possible private one. We started by sorting the different Workshops. As a consequence, we also had to sort the related scripts that come along workshops. Going through this process, we found out that some of the global scripts had to be reworked as well to support future split of public and private content. Similarly, we had to address the branding aspect, variabalizing it instead of hardcoding it as it was in the first version.
 
-This took us a few months and we are now ready to share with you the result of this work. In this first blog, we will focus our attention on the architecture side of the Workshops-on-Demand project. 
+This took us a few months and we are now ready to share with you the result of this work. In this first blog, I will focus on the architecture side of the Workshops-on-Demand project. 
 
 F﻿urther blog articles will help you setup your own architecture.
 
 ## T﻿he How
 
-## U﻿nderstand the architecture first.
+## U﻿nderstand the architecture first
 
  The workshops-on-Demand concept is fairly simple. the following picture provides you with the overall process.
 
