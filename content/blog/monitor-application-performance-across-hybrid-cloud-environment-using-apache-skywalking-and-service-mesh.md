@@ -6,8 +6,12 @@ author: Guoping Jia
 authorimage: /img/guoping.png
 disable: false
 tags:
-  - hpe-greenlake, hpe-greenlake-for-private-cloud-enterprise, Apache
-    SkyWalking, service mesh, istio, application performance monitoring
+  - hpe-greenlake
+  - hpe-greenlake-for-private-cloud-enterprise
+  - Apache SkyWalking
+  - service mesh
+  - istio
+  - application performance monitoring
 ---
 ## Introduction
 
