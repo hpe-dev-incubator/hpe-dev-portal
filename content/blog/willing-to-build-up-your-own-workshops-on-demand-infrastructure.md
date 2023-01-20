@@ -95,8 +95,8 @@ Like any API, it uses verbs to perform tasks.
 5﻿. The frontend server tables will be updated in the following manner:
 
 * T﻿he customers table shows an active status for the participant row. The password field has been updated.
-* The workshop table also gets updated. The capacity field increments the number of available seats.
-* The student tables gets updated as well by setting the allocated student to active.
+* The workshop table also gets updated. The capacity field decrements the number of available seats.
+* The student tables gets updated as well by setting the allocated student to active
 
 6﻿. The frontend server sends the second email to each participant providing them with the details to connect to the workshop environment.
 
