@@ -1,6 +1,6 @@
 ---
 title: HPE GreenLake for Data Fabric
-active: true
+active: false
 fit: contain
 path: https://hpe.zoom.us/webinar/register/4016680185653/WN_xLR2ynonSi6SojUswkVmRw
 imageBackground: white
