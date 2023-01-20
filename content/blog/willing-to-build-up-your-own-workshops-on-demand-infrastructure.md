@@ -63,9 +63,9 @@ Now that you understand the basic principle, let's look at the details. The imag
 
 **1.** Participants start by browsing a frontend web server that presents the catalog of available workshops. They then select one and register for it by entering their email address, first and last names, as well as their company name. Finally, they accept the terms and conditions and hit the register button. 
 
-As the register button is clicked, the frontend server performs a series of actions:
+As the register button is clicked, the frontend server performs a series of actions.
 
-**2.** Assigns a student from the dedicated workshop range to the participant. Every workshop has a dedicated range of students assigned to it.
+**2.** Assigns a student (i.e student401) from the dedicated workshop range to the participant. Every workshop has a dedicated range of students assigned to it.
 
 H﻿ere is a screenshot of the workshop table present in the frontend database Server showing API 101 workshops details.
 
