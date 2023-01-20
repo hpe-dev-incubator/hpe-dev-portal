@@ -4,6 +4,8 @@ date: 2023-01-20T20:38:44.068Z
 author: Ria Farrell Schalnat
 authorimage: /img/Avatar1.svg
 disable: false
+tags:
+  - opensource
 ---
 Here at Hewlett Packard Enterprise (HPE), we like to say that “open collaboration is in HPE’s DNA”. We believe [open source technologies and communities](https://www.hpe.com/us/en/open-source.html) can help deliver innovative solutions securely and at scale.  Certainly, open source has a lot to do with the technologies we deliver. But, importantly, it also has a lot to do with how we conduct business on a daily basis, like connecting across teams and business units to collaborate, play, and learn together. 
 
