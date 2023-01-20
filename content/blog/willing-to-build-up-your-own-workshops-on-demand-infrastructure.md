@@ -90,21 +90,21 @@ Like any API, it uses verbs to perform tasks.
 * It prepares any infrastructure that might be required for the workshop (Virtual Appliance, Virtual Machine, Docker Container, LDAP config, etc.).
 * It g﻿enerates a random Password for the allocated student.
 * It deploys the workshop content on the jupyterhub server in the dedicated student home directory (Notebooks files necessary for the workshops).
-* It sends back through API Calls to the frontend server the confirmation of the deployment of the workshop along with the student details (Password).
+* It sends back the confirmation of the deployment of the workshop, along with the student's required details (i.e password), through API Calls to the frontend server.
 
 5﻿. The frontend server get its different tables updated:
 
-* T﻿he customer tables shows an active status for the participant row. The password field has been updated. 
-* The workshop table is also updated. The capacity field increments the number of available seats.
+* T﻿he customers table shows an active status for the participant row. The password field has been updated.
+* The workshop table gets also updated. The capacity field increments the number of available seats.
 * The student tables gets updated as well by setting the allocated student to active.
 
-6﻿. The frontend server sends the second email to the particpant providing him with the details to connect to the workshop environment.
+6﻿. The frontend server sends the second email to each participant providing them with the details to connect to the workshop environment.
 
 ### T﻿he Run Phase
 
-F﻿rom the email, the particpant click on the start button. it will open up a browser to the jupyterhub server and directly open up the readme first notebook presenting the workshops flow.
+F﻿rom the email, the particpant click on the start button. it will open up a browser to the JupyterHub server and directly open the readme first notebook, presenting the workshop's flow.
 
-T﻿he participant will go through the different steps and labs of the workshop connecting to the necessary endpoints and leveraging the different kernels available on the jupyterhub server.
+Participants will go through the different steps and labs of the workshop connecting to the necessary endpoints and leveraging the different kernels available on the JupyterHub server.
 
 M﻿eanwhile, the frontend server will perform regular checks on time passed. Depending on time allocation (from 2 to 4 hours) associated with the workshop, the frontend server will send a reminder email usually a hour before the end of the time allocated. The time count actually starts when the participant hit the register for the workshop button. It is mentionned in the terms and conditions.
 
