@@ -45,7 +45,7 @@ F﻿urther blog articles will help you setup your own architecture.
 
 ## U﻿nderstand the architecture first
 
- The Workshops-on-Demand concept is fairly simple. The following picture provides you with the overall process.
+ The Workshops-on-Demand concept is fairly simple. The following picture gives you a general idea of how the process works
 
 ![Workshops-on-Demand Concepts 1](/img/howto-wod-6.png "Workshops-on-Demand Concepts 10000 feet view")
 
