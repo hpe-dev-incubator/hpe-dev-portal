@@ -59,7 +59,7 @@ Participants start by browsing a frontend web server that presents the catalog o
 
 1. Assigns a student from the dedicated workshop range to the participant. Every workshop has a dedicated range of students assigned to it.
 
-H﻿ere is a screenshot of the workshop table present in the frontend Database Server showing API101 workshops details.
+H﻿ere is a screenshot of the workshop table present in the frontend database Server showing API 101 workshops details.
 
 ![Workshops Table from Frontend DB server](/img/howto-wod-2.png "Workshops Table from Frontend DB server")
 
@@ -77,7 +77,7 @@ H﻿ere is a screenshot of the workshop table present in the frontend Database S
 * W﻿orkshop ID
 * S﻿tudent ID
 
-4﻿. The Backend Server recieves the order and processes it by  parsing the email recieved using the procmail API. the procmail API automates the managementof the workshops.
+4﻿. The Backend Server recieves the order and processes it by  parsing the email recieved using the procmail API. the procmail API automates the management of the workshops.
 
 Like any API, it uses verbs to perform tasks.
 
@@ -92,10 +92,10 @@ Like any API, it uses verbs to perform tasks.
 * It deploys the workshop content on the jupyterhub server in the dedicated student home directory (Notebooks files necessary for the workshops).
 * It sends back the confirmation of the deployment of the workshop, along with the student's required details (i.e password), through API Calls to the frontend server.
 
-5﻿. The frontend server get its different tables updated:
+5﻿. The frontend server tables will be updated in the following manner:
 
 * T﻿he customers table shows an active status for the participant row. The password field has been updated.
-* The workshop table gets also updated. The capacity field increments the number of available seats.
+* The workshop table also gets updated. The capacity field increments the number of available seats.
 * The student tables gets updated as well by setting the allocated student to active.
 
 6﻿. The frontend server sends the second email to each participant providing them with the details to connect to the workshop environment.
