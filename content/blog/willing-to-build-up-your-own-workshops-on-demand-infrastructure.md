@@ -9,7 +9,7 @@ disable: false
 
 [T﻿he Workshops-on-Demand program ](https://developer.hpe.com/hackshack/workshops/) has been an important asset for the HPE Developer Community for the last 2 years. If you are interested in learning more on the genesis of the project, check the following [blog](https://developer.hpe.com/blog/from-jupyter-notebooks-as-a-service-to-hpe-dev-workshops-on-demand/).
 
-T﻿his program allows us to deliver free hands-on workshops. We use these during HPE sponsored events, like HPE Discover and HPE Technical Symposium Summit, as well as open source events, like OSCON and KubeCon, to promote API/automation-driven solutions along with some 101-level coding courses. B﻿y the end of 2022, more than 4000  had registered for our workshops. 
+T﻿his program allows us to deliver free hands-on workshops. We use these during HPE sponsored events, like HPE Discover and HPE Technical Symposium Summit, as well as open source events, like  Open Source Summit and KubeCon, to promote API/automation-driven solutions along with some 101-level coding courses. B﻿y the end of 2022, more than 4000  had registered for our workshops. 
 
 ## Why would we consider open sourcing our Workshops-on-Demand?
 
@@ -17,7 +17,7 @@ Firstly, if you read carefully the messaging on our [homepage](https://developer
 
 S﻿econdly, the project is based on open source technologies like Jupyter and Ansible. It felt natural that the work we did leveraging these should also benefit the open source community.
 
-W﻿e have, actually, shared the fondamentals of the project thoughout the HPE Developer Community, and to a wider extent, the Open Source Community  though different internal and external events. And the feedback has always been positive. Some people found the project very appealing. Originally, and long before even thinking of open sourcing the project, when we really started the project development, people were mainly interested in the content and not necessarily in the infrastructure. The students wanted to be able to reuse some of the notebooks. And in a few cases, they also asked for details about the infrastructure itself, asking about the notebooks delivery mechanism and other subjects like the [procmail API](https://www.youtube.com/watch?v=zZm6ObQATDI).
+W﻿e have, actually, shared the fundamentals of the project thoughout the HPE Developer Community, and to a wider extent, the Open Source Community  though different internal and external events. And the feedback has always been positive. Some people found the project very appealing. Originally, and long before even thinking of open sourcing the project, when we really started the project development, people were mainly interested in the content and not necessarily in the infrastructure. The students wanted to be able to reuse some of the notebooks. And in a few cases, they also asked for details about the infrastructure itself, asking about the notebooks delivery mechanism and other subjects like the [procmail API](https://www.youtube.com/watch?v=zZm6ObQATDI).
 
 Early last year, we were contacted by an HPE colleague who was willing to replicate our setup in order to deliver notebooks to its AI/ML engineers. His aim was to provide a simple, central point from which he could deliver Jupyter Notebooks, that would later be published on the Workshops-on-Demand infrastructure frontend portal, allowing content to be reused and shared amongst engineers. While, over time, we had worked  a lot on automating content delivery and some parts of the infrastructure setup, we needed now to rework and package the overall solution to make it completely open source and reusable by others.
 
@@ -55,9 +55,11 @@ Now that you understand the basic principle, let's look at the details. The imag
 
 ### T﻿he Register Phase
 
-Participants start by browsing a frontend web server that presents the catalog of available workshops. They then select one and register for it by entering their email address, first and last names, as well as their company name. Finally, they accept the terms and conditions and hit the register button. As the register button is clicked, the frontend server performs a series of actions:
+**1.** Participants start by browsing a frontend web server that presents the catalog of available workshops. They then select one and register for it by entering their email address, first and last names, as well as their company name. Finally, they accept the terms and conditions and hit the register button. 
 
-1. Assigns a student from the dedicated workshop range to the participant. Every workshop has a dedicated range of students assigned to it.
+As the register button is clicked, the frontend server performs a series of actions:.
+
+**2.** Assigns a student from the dedicated workshop range to the participant. Every workshop has a dedicated range of students assigned to it.
 
 H﻿ere is a screenshot of the workshop table present in the frontend database Server showing API 101 workshops details.
 
@@ -69,7 +71,7 @@ H﻿ere is a screenshot of the workshop table present in the frontend database S
 
 ![Customers Table from Frontend DB server](/img/howto-wod-3.png "Customers Table from Frontend DB server")
 
-2﻿. An initial email is sent to participants from the frontend server welcoming them to the workshop and informing them that the deployment is ongoing and that a second email will arrive shortly provding the necessary information required to log onto the workshop environment.
+**3.** An initial email is sent to participants from the frontend server welcoming them to the workshop and informing them that the deployment is ongoing and that a second email will arrive shortly provding the necessary information required to log onto the workshop environment.
 
 3﻿. At the same time, the frontend server sends the necessary orders through a procmail API to the backend server. The mail sent to the backend server contains the following details:
 
