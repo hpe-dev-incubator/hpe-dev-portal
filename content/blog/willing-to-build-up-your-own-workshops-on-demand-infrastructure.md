@@ -35,7 +35,7 @@ This had a huge influence on the future architecture of the project that origina
 
 #### T﻿echnical side of things
 
-F﻿rom a technical standpoint, as mentioned above we had to make sure to separate the public only content from any possible private content. We started by sorting the different workshops.  We also had to sort the related scripts that come along workshops. Going through this process, we found out that some of the global scripts had to be reworked as well to support any future split of public and private content. Similarly, we had to address the branding aspect, parameterizing instead of hardcoding varaibles as it was in the first version.
+F﻿rom a technical standpoint, as mentioned above we had to make sure to separate the public only content from any possible private content. We started by sorting the different workshops (public vs private). We also had to sort the related scripts that come along with the workshops. Going through this process, we found out that some of the global scripts had to be reworked as well to support any future split of public and private content. Similarly, we had to address the branding aspect, parameterizing instead of hardcoding varaibles as it was in the first version.
 
 This took us a few months and we are now ready to share with you the result of this work. In this first blog, I will focus on the architecture side of the Workshops-on-Demand project. 
 
