@@ -47,17 +47,17 @@ F﻿urther blog articles will help you setup your own architecture.
 
  The Workshops-on-Demand concept is fairly simple. The following picture provides you with the overall process.
 
-![Workshops-on-Demand Concepts 1](/img/wod-blogserie1.png "Workshops-on-Demand Concepts 10000 feet view")
+![Workshops-on-Demand Concepts 1](/img/howto-wod-6.png "Workshops-on-Demand Concepts 10000 feet view")
 
-N﻿ow that you have understood the overall principle, let's look at the details now. The following picture  will show from a protocol standpoint what happens at each stage.
+Now that you understand the basic principle, let's look at the details. The image below shows what happens at each stage from a protocol standpoint.
 
-![](/img/howto-wod-4.png)
+![](/img/howto-wod-7.png)
 
-### T﻿he Register Phase:
+### T﻿he Register Phase
 
-T﻿he participant starts by browsing a frontend web server that presents the catalog of available workshops. He then select one of them and registers for it by entering his Email address, first and last names as well as his company name. Finally he accepts the terms and conditions and hit the register button. As he is clicking the register button, the frontend server will perform a series of actions:
+Participants start by browsing a frontend web server that presents the catalog of available workshops. They then select one and register for it by entering their email address, first and last names, as well as their company name. Finally, they accept the terms and conditions and hit the register button. As the register button is clicked, the frontend server performs a series of actions:
 
-1.Assign a student from the dedicated workshop range to the participant. Every workshop has a dedicated range of student assigned to it.
+1. Assigns a student from the dedicated workshop range to the participant. Every workshop has a dedicated range of students assigned to it.
 
 H﻿ere is a screenshot of the workshop table present in the frontend Database Server showing API101 workshops details.
 
@@ -65,19 +65,19 @@ H﻿ere is a screenshot of the workshop table present in the frontend Database S
 
 * Frederic Passeron gets assigned a studentid "student397" for workshop "API101".
 
+  H﻿ere are the details of the participant info when registered to a given workshop.
+
 ![Customers Table from Frontend DB server](/img/howto-wod-3.png "Customers Table from Frontend DB server")
 
-H﻿ere are the details of the participant info when registered to a given workshop.
+2﻿. An initial email is sent to participants from the frontend server welcoming them to the workshop and informing them that the deployment is ongoing and that a second email will arrive shortly provding the necessary information required to log onto the workshop environment.
 
-2﻿.A first email is sent to participant from the frontend server welcoming him to the workshop and informing him the deployment is ongoing and that a second email show be recieved shortly providing him with the necessary infos to logon  to the workshop environment.
-
-3﻿.The frontend server at the same time sends the necessary orders through a procmail API to the backend server. The mail sent to the backend server contains the following details :
+3﻿. At the same time, the frontend server sends the necessary orders through a procmail API to the backend server. The mail sent to the backend server contains the following details:
 
 * Action Type ( CREATE, CLEANUP, RESET)
 * W﻿orkshop ID
 * S﻿tudent ID
 
-4﻿.The Backend Server recieves the order and processes it by  parsing the email recieved using the procmail API. the procmail API automates the managementof the workshops.
+4﻿. The Backend Server recieves the order and processes it by  parsing the email recieved using the procmail API. the procmail API automates the managementof the workshops.
 
 Like any API, it uses verbs to perform tasks.
 
@@ -92,15 +92,15 @@ T﻿his means:
 * D﻿eploy the workshop content on the jupyterhub server in the dedicated student home directory (Notebooks files necessary for the workshop)
 * Send back through API Calls to the frontend server the confirmation of the deployment of the workshop along with the student details (Password)
 
-5﻿.The frontend server get its different tables updated:
+5﻿. The frontend server get its different tables updated:
 
 * T﻿he customer tables shows an active status for the participant row. The password field has been updated. 
-* T﻿he Workshop table gets also updated. The capacity field decrement the number of available seats. 
+* The workshop table is also updated. The capacity field increments the number of available seats.
 * The student tables gets updated as well by setting the allocated student to active.
 
-6﻿.The frontend server sends the second email to the particpant providing him with the details to connect to the workshop environment.
+6﻿. The frontend server sends the second email to the particpant providing him with the details to connect to the workshop environment.
 
-### T﻿he Run Phase:
+### T﻿he Run Phase
 
 F﻿rom the email, the particpant click on the start button. it will open up a browser to the jupyterhub server and directly open up the readme first notebook presenting the workshops flow.
 
