@@ -13,7 +13,7 @@ T﻿his program allows us to deliver free hands-on workshops. We use these durin
 
 ﻿If you are interested in creating your own training architecture to deliver workshops, this project is definitely for you. It would allow you to create, manage content and deliver it in an automated and very efficient way. Once ready, the infrastructure can deliver workshops in matter of minutes!
 
-T﻿rying to build a similar architecture on your own is obviously possible, but we integrated so much automation around the different components like the JupyterHub server deployment along with multiple pre installed kernels, user management and much more. When leveraging our project, one can actually get a proper public based environment in 2 hours.
+T﻿rying to build a similar architecture on your own is obviously possible, but we integrated so much automation around the different components like the JupyterHub server deployment along with multiple pre installed kernels, user management and much more. When leveraging our project, one can actually get a proper public-based environment in 2 hours.
 
 This very first article will set the stage for the following blog articles where I will explain how to setup your own Workshops-on-Demand infrastructure. 
 
@@ -51,7 +51,7 @@ F﻿urther blog articles will help you setup your own architecture.
 
 ## U﻿nderstand the architecture first
 
- The Workshops-on-Demand concept is fairly simple. The following picture gives you a general idea of how the process works
+ The Workshops-on-Demand concept is fairly simple. The following picture gives you a general idea of how the process works.
 
 ![Workshops-on-Demand Concepts 1](/img/howto-wod-6.png "Workshops-on-Demand Concepts 10000 feet view")
 
@@ -63,7 +63,7 @@ Now that you understand the basic principle, let's look at the details. The imag
 
 **1.** Participants start by browsing a frontend web server that presents the catalog of available workshops. They then select one and register for it by entering their email address, first and last names, as well as their company name. Finally, they accept the terms and conditions and hit the register button. 
 
-As the register button is clicked, the frontend server performs a series of actions:.
+As the register button is clicked, the frontend server performs a series of actions:
 
 **2.** Assigns a student from the dedicated workshop range to the participant. Every workshop has a dedicated range of students assigned to it.
 
