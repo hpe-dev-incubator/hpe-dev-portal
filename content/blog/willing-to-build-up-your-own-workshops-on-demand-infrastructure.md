@@ -9,7 +9,9 @@ disable: false
 
 [T﻿he Workshops-on-Demand program ](https://developer.hpe.com/hackshack/workshops/) has been an important asset for the HPE Developer Community for the last 2 years. If you are interested in learning more on the genesis of the project, check the following [blog](https://developer.hpe.com/blog/from-jupyter-notebooks-as-a-service-to-hpe-dev-workshops-on-demand/).
 
-T﻿his program allows us to deliver free hands-on workshops. We use these during HPE sponsored events, like HPE Discover and HPE Technical Symposium Summit, as well as open source events, like  Open Source Summit and KubeCon, to promote API/automation-driven solutions along with some 101-level coding courses. B﻿y the end of 2022, more than 4000  had registered for our workshops. 
+T﻿his program allows us to deliver free hands-on workshops. We use these during HPE sponsored events, like HPE Discover and HPE Technical Symposium Summit, as well as open source events, like  Open Source Summit and KubeCon, to promote API/automation-driven solutions along with some 101-level coding courses. B﻿y the end of 2022, more than 4000  had registered for our workshops.
+
+This very first article will set the stage for the following blog articles where I will explain how to setup your own Workshops-on-Demand infrastructure. 
 
 ## Why would we consider open sourcing our Workshops-on-Demand?
 
@@ -51,7 +53,7 @@ F﻿urther blog articles will help you setup your own architecture.
 
 Now that you understand the basic principle, let's look at the details. The image below shows what happens at each stage from a protocol standpoint.
 
-![](/img/howto-wod-7.png)
+![](/img/howto-wod-9.png)
 
 ### T﻿he Register Phase
 
@@ -73,13 +75,13 @@ H﻿ere is a screenshot of the workshop table present in the frontend database S
 
 **3.** An initial email is sent to participants from the frontend server welcoming them to the workshop and informing them that the deployment is ongoing and that a second email will arrive shortly provding the necessary information required to log onto the workshop environment.
 
-3﻿. At the same time, the frontend server sends the necessary orders through a procmail API to the backend server. The mail sent to the backend server contains the following details:
+**4.** At the same time, the frontend server sends the necessary orders through a procmail API to the backend server. The mail sent to the backend server contains the following details:.
 
 * Action Type ( CREATE, CLEANUP, RESET)
 * W﻿orkshop ID
 * S﻿tudent ID
 
-4﻿. The Backend Server recieves the order and processes it by  parsing the email recieved using the procmail API. the procmail API automates the management of the workshops.
+**5.** The Backend Server recieves the order and processes it by  parsing the email recieved using the procmail API. the procmail API automates the management of the workshops.
 
 Like any API, it uses verbs to perform tasks.
 
@@ -89,22 +91,22 @@ Like any API, it uses verbs to perform tasks.
 
 **C﻿REATE subtasks:**
 
-* It prepares any infrastructure that might be required for the workshop (Virtual Appliance, Virtual Machine, Docker Container, LDAP config, etc.).
+* **6.** It prepares any infrastructure that might be required for the workshop (Virtual Appliance, Virtual Machine, Docker Container, LDAP config, etc.).
 * It g﻿enerates a random Password for the allocated student.
 * It deploys the workshop content on the jupyterhub server in the dedicated student home directory (Notebooks files necessary for the workshops).
-* It sends back the confirmation of the deployment of the workshop, along with the student's required details (i.e password), through API Calls to the frontend server.
+* **7.** It sends back the confirmation of the deployment of the workshop, along with the student's required details (i.e password), through API Calls to the frontend server.
 
-5﻿. The frontend server tables will be updated in the following manner:
+**8﻿.** The frontend server tables will be updated in the following manner:
 
 * T﻿he customers table shows an active status for the participant row. The password field has been updated.
 * The workshop table also gets updated. The capacity field decrements the number of available seats.
 * The student tables gets updated as well by setting the allocated student to active
 
-6﻿. The frontend server sends the second email to each participant providing them with the details to connect to the workshop environment.
+**9﻿.** The frontend server sends the second email to each participant providing them with the details to connect to the workshop environment.
 
 ### T﻿he Run Phase
 
-F﻿rom the email, the particpant click on the start button. it will open up a browser to the JupyterHub server and directly open the readme first notebook, presenting the workshop's flow.
+**10.** F﻿rom the email, the particpant click on the start button. it will open up a browser to the JupyterHub server and directly open the readme first notebook, presenting the workshop's flow.
 
 Participants will go through the different steps and labs of the workshop connecting to the necessary endpoints and leveraging the different kernels available on the JupyterHub server.
 
@@ -119,7 +121,7 @@ F﻿inally, when the time is up, the frontend server sends a new order to the ba
 * It d﻿eletes the workshop content on the JupyterHub server in the dedicated student home directory (Notebooks files necessary for the workshop).
 * It sends back the confirmation of the CLEANUP or RESET of the workshop along with the student details (i.e password) through API Calls to the frontend server.
 
-4﻿. The frontend server tables will be updated in the following manner:
+The frontend server tables will be updated in the following manner:
 
 * T﻿he customers' table will show an inactive status for the participant row. The password field has been updated. 
 * T﻿he Workshop table gets also updated. The capacity field increment the number of available seats. 
