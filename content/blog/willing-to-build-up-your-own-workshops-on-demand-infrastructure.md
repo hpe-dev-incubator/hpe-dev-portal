@@ -115,11 +115,11 @@ F﻿inally, when the time is up, the frontend server sends a new order to the ba
 * It Resets any infrastructure that was required for the workshop (Virtual Appliance, Virtual Machine, Docker Container, LDAP config, etc..).
 * It g﻿enerates a random password for the allocated student.
 * It d﻿eletes the workshop content on the JupyterHub server in the dedicated student home directory (Notebooks files necessary for the workshop).
-* It sends back to the frontend server the confirmation of the CLEANUP or RESET of the workshop along with the student details (i.e password) through API Calls.
+* It sends back the confirmation of the CLEANUP or RESET of the workshop along with the student details (i.e password) through API Calls to the frontend server.
 
-4﻿.The frontend server gets its different tables updated:
+4﻿. The frontend server tables will be updated in the following manner:
 
-* T﻿he customer tables shows an inactive status for the participant row. The password field has been updated. 
+* T﻿he customers' table will show an inactive status for the participant row. The password field has been updated. 
 * T﻿he Workshop table gets also updated. The capacity field increment the number of available seats. 
 * The student tables gets updated as well by setting the allocated student to inactive.
 * T﻿he frontend sends the final email to the participant.
