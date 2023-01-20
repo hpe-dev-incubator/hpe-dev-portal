@@ -364,7 +364,7 @@ To do so, proceed as follows:
 ## Onboarding an external blog post
 You can create a new blog post entry that connects back to a post published on an external blog website, for example [Cray Chapel](https://chapel-lang.org/blog/index.html) or [Determined AI](https://www.determined.ai/blog) or [Aruba Hub](https://blogs.arubanetworks.com/). 
 
-Here is how you can crate an externall blog post entry in the HPE Developer Community portal using the CMS editor: 
+Here is how you can crate an external blog post entry in the HPE Developer Community portal using the CMS editor: 
 
 1. From the **Contents** tab select the **Blog** section in the Collections tab, click on the **New Blog** button. You can also navigate to the **Workflow** tab, and click on the **New Post** button. This open the editor.
 
