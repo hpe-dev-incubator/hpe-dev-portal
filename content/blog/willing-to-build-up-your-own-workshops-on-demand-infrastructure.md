@@ -13,29 +13,29 @@ T﻿his program allows us to deliver free hands-on workshops. We use these durin
 
 ## Why would we consider open sourcing our Workshops-on-Demand?
 
-Firstly, if you read carefully the messaging on our [homepage](https://developer.hpe.com/) , you will find words like sharing and collaborating. This is part of the Team's DNA. 
+Firstly, if you read carefully the messaging on our [homepage](https://developer.hpe.com/) , you will find words like sharing and collaborating. This is part of the HPE Developer team's DNA. 
 
-S﻿econdly, the project is based on open source technologies like Jupyter or Ansible. It felt natural that the work we did leveraging these should also benefit the open source community.
+S﻿econdly, the project is based on open source technologies like Jupyter and Ansible. It felt natural that the work we did leveraging these should also benefit the open source community.
 
-W﻿e have, actually, shared the fondamentals of the project thoughout the HPE DEV Community, and to a wider extent, the Open Source Community  though different internal and external events. And the feedback has always been positive. Some people found the project very appealing. Originally, and long before even thinking of open sourcing the project, when we really started the project development, people were mainly interested in the content and not necessarily in the infrastructure. The students wanted to be able to reuse some of the notebooks. And in a few cases, they also asked for details about the infrastructure itself, asking about the notebooks delivery mechanism and other subjects like the [procmail API](https://www.youtube.com/watch?v=zZm6ObQATDI).
+W﻿e have, actually, shared the fondamentals of the project thoughout the HPE Developer Community, and to a wider extent, the Open Source Community  though different internal and external events. And the feedback has always been positive. Some people found the project very appealing. Originally, and long before even thinking of open sourcing the project, when we really started the project development, people were mainly interested in the content and not necessarily in the infrastructure. The students wanted to be able to reuse some of the notebooks. And in a few cases, they also asked for details about the infrastructure itself, asking about the notebooks delivery mechanism and other subjects like the [procmail API](https://www.youtube.com/watch?v=zZm6ObQATDI).
 
 Early last year, we were contacted by an HPE colleague who was willing to replicate our setup in order to deliver notebooks to its AI/ML engineers. His aim was to provide a simple, central point from which he could deliver Jupyter Notebooks, that would later be published on the Workshops-on-Demand infrastructure frontend portal, allowing content to be reused and shared amongst engineers. While, over time, we had worked  a lot on automating content delivery and some parts of the infrastructure setup, we needed now to rework and package the overall solution to make it completely open source and reusable by others.
 
-A﻿s a consequence, we started over the course of the Year 2022 to open source the project. As HPE Employees, we had to go through different steps including technical, branding, and legal concerns to achieve this.
+As a result of our work on that project, over the course of 2022 we started to open source the Workshops-on-Demand program. As a project developed within the confiines of Hewlett Packard Enterprise (HPE), we had a number of technical, branding, and legal hurdles we needed to overcome in order to achieve this.
 
-#### L﻿egal side of things...
+#### L﻿egal side of things
 
 F﻿rom a legal standpoint, we needed to go through the HPE OSRB (Open Source Review Board) to present the project that we wanted to open source. We were asked to follow a process that consisted of four steps:
 
 ![HPE OSRB Process](/img/wod-osrb1.png "HPE OSRB process")
 
-As the project did not contain any HPE proprietary software, as it is based on open source technologies like Ansible or Jupyter, the process was quite straightforward. Besides, HPE did not want to exploit commercially the generated intellectual property.  We explained the OSRB that the new architecture of the solution would allow the administrator of the project to separate public content from private one. 
+As the project did not contain any HPE proprietary software, as it is based on open source technologies like Ansible and Jupyter, the process was quite straightforward. Besides, HPE did not want to exploit commercially the generated intellectual property.  We explained the OSRB that the new architecture of the solution would allow the administrator of the project to separate public content from private one. 
 
 This had a huge influence on the future architecture of the project that originally did not allow it. In our case, for instance, any workshop related to an HPE technology like  HPE Ezmeral would fall into the private part of the project and therefore would not appear on the public github repository that we had to create for the overall project distribution.
 
 #### T﻿echnical side of things
 
-F﻿rom a technical standpoint, as mentioned above we had to make sure to separate the public only content from any possible private one. We started by sorting the different Workshops. As a consequence, we also had to sort the related scripts that come along workshops. Going through this process, we found out that some of the global scripts had to be reworked as well to support future split of public and private content. Similarly, we had to address the branding aspect, variabalizing it instead of hardcoding it as it was in the first version.
+F﻿rom a technical standpoint, as mentioned above we had to make sure to separate the public only content from any possible private content. We started by sorting the different workshops.  We also had to sort the related scripts that come along workshops. Going through this process, we found out that some of the global scripts had to be reworked as well to support any future split of public and private content. Similarly, we had to address the branding aspect, parameterizing instead of hardcoding varaibles as it was in the first version.
 
 This took us a few months and we are now ready to share with you the result of this work. In this first blog, I will focus on the architecture side of the Workshops-on-Demand project. 
 
