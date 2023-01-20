@@ -108,18 +108,14 @@ Participants will go through the different steps and labs of the workshop connec
 
 Meanwhile, the frontend server will perform regular checks on how much time has passed. Depending on the time allocation (from 2 to 4 hours) associated with the workshop, the frontend server will send a reminder email usually a hour before the end of the time allocated. The time count actually starts when participants hit the register for the workshop button. It is mentioned in the terms and conditions.
 
-F﻿inally, when the time is up: 
+F﻿inally, when the time is up, the frontend server sends a new order to the backend to perform either CLEANUP or RESET action for the dedicated studentid.
 
-T﻿he frontend server sends a new order to the backend to:
+**RESET subtasks:**
 
-P﻿erform either CLEANUP or RESET  action for the dedicated studentid.
-
-T﻿his means:
-
-* Resetting any infrastructure that was requiered for the workshop (Virtual Appliance, Virtual Machine, Docker Container, LDAP config, etc..)
-* G﻿enerate a random Password for the allocated student
-* D﻿elete the workshop content on the jupyterhub server in the dedicated student home directory (Notebooks files necessary for the workshop)
-* Send back through API Calls to the frontend server the confirmation of the CLEANUP or RESET of the workshop along with the student details (Password)
+* It Resets any infrastructure that was required for the workshop (Virtual Appliance, Virtual Machine, Docker Container, LDAP config, etc..).
+* It g﻿enerates a random password for the allocated student.
+* It d﻿eletes the workshop content on the JupyterHub server in the dedicated student home directory (Notebooks files necessary for the workshop).
+* It sends back to the frontend server the confirmation of the CLEANUP or RESET of the workshop along with the student details (i.e password) through API Calls.
 
 4﻿.The frontend server gets its different tables updated:
 
