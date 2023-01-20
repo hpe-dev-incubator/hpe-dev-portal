@@ -85,12 +85,12 @@ Like any API, it uses verbs to perform tasks.
 * C﻿LEANUP to delete a workshop
 * R﻿ESET to reset associated workshop's resource
 
-T﻿his means:
+**C﻿REATE subtasks:**
 
-* P﻿reparing any infrastructure that might be requiered for the workshop (Virtual Appliance, Virtual Machine, Docker Container, LDAP config, etc..)
-* G﻿enerate a random Password for the allocated student
-* D﻿eploy the workshop content on the jupyterhub server in the dedicated student home directory (Notebooks files necessary for the workshop)
-* Send back through API Calls to the frontend server the confirmation of the deployment of the workshop along with the student details (Password)
+* It prepares any infrastructure that might be required for the workshop (Virtual Appliance, Virtual Machine, Docker Container, LDAP config, etc.).
+* It g﻿enerates a random Password for the allocated student.
+* It deploys the workshop content on the jupyterhub server in the dedicated student home directory (Notebooks files necessary for the workshops).
+* It sends back through API Calls to the frontend server the confirmation of the deployment of the workshop along with the student details (Password).
 
 5﻿. The frontend server get its different tables updated:
 
