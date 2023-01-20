@@ -67,7 +67,7 @@ As the register button is clicked, the frontend server performs a series of acti
 
 **2.** Assigns a student (i.e student401) from the dedicated workshop range to the participant. Every workshop has a dedicated range of students assigned to it.
 
-H﻿ere is a screenshot of the workshop table present in the frontend database Server showing API 101 workshops details.
+H﻿ere is a screenshot of the workshop table present in the frontend database server showing API 101 workshops details.
 
 ![Workshops Table from Frontend DB server](/img/howto-wod-2.png "Workshops Table from Frontend DB server")
 
