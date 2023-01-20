@@ -53,7 +53,7 @@ F﻿urther blog articles will help you setup your own architecture.
 
 Now that you understand the basic principle, let's look at the details. The image below shows what happens at each stage from a protocol standpoint.
 
-![](/img/howto-wod-9.png)
+![](/img/howto-wod-10.png "Workshops-on-Demand Architecture Diagram")
 
 ### T﻿he Register Phase
 
