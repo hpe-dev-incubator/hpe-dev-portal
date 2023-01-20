@@ -23,6 +23,8 @@
 
 [Adding an Event](#adding-an-event)
 
+[Onboarding an external blog post](#onboarding-an-external-blog-post)
+
 [Tips and trick using the CMS Editor](#tips-and-trick-using-the-cms-editor)
 
 
@@ -358,6 +360,29 @@ To do so, proceed as follows:
 >**Note:** *Once the team has agreed to accept your event entry, the PR will be merged, the event entry will be published to the HPE Developer portal and the event entry will disappear from your Editorial Workflow.*
 
 13. Leave the editor using the **Changes Saved** option.
+
+## Onboarding an external blog post
+You can create a new blog post entry that connects back to a post published on an external blog website, for example [Cray Chapel](https://chapel-lang.org/blog/index.html) or [Determined AI](https://www.determined.ai/blog) or [Aruba Hub](https://blogs.arubanetworks.com/). 
+
+Here is how you can crate an externall blog post entry in the HPE Developer Community portal using the CMS editor: 
+
+1. From the **Contents** tab select the **Blog** section in the Collections tab, click on the **New Blog** button. You can also navigate to the **Workflow** tab, and click on the **New Post** button. This open the editor.
+
+2.  In the blog editor, you can set properties (title, author name, author picture) in the left pane and see the effect in the preview pane on the right side of the screen. 
+
+3.  Make sure you set the following parameters:
+
+    -   **Title**
+    >Note: The recommendation is to keep it as short as you can while capturing the reader's attention. Also, title must be ***Sentence case*** (that is, capitalize the first letter of the word of the title - HPE brand is moving away from the use of title case, so unless words are used as a proper noun (like the name of a product or program), the general guidance is to use initial lower case letters).
+    -   **Author name**
+    -   **Author Image** (image size recommended is **192px X 192px**). 
+        You can upload a picture or use your gravatar picture URL if you have one. 
+        
+        >Note: For more information on how to get a gravatar URL, refer to section "***Tips and Tricks using the CMS Editor***" at the end of this document.
+        
+     - **External link** - This is the URL to the external blog post on the external website. 
+     - **Body** - Just type the text: External blog
+     
 
 
 ## Tips and trick using the CMS Editor
