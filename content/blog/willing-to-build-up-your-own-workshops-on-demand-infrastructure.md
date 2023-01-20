@@ -77,15 +77,15 @@ H﻿ere is a screenshot of the workshop table present in the frontend database s
 
 ![Customers Table from Frontend DB server](/img/howto-wod-3.png "Customers Table from Frontend DB server")
 
-**3.** An initial email is sent to participants from the frontend server welcoming them to the workshop and informing them that the deployment is ongoing and that a second email will arrive shortly provding the necessary information required to log onto the workshop environment.
+**3.** An initial email is sent to participants from the frontend server welcoming them to the workshop and informing them that the deployment is ongoing and that a second email will arrive shortly providing the necessary information required to log onto the workshop environment.
 
-**4.** At the same time, the frontend server sends the necessary orders through a procmail API to the backend server. The mail sent to the backend server contains the following details:.
+**4.** At the same time, the frontend server sends the necessary orders through a procmail API call to the backend server. The mail sent to the backend server contains the following details:
 
 * Action Type ( CREATE, CLEANUP, RESET)
 * W﻿orkshop ID
 * S﻿tudent ID
 
-**5.** The Backend Server recieves the order and processes it by  parsing the email recieved using the procmail API. the procmail API automates the management of the workshops.
+**5.** The backend server recieves the order and processes it by parsing the email recieved using the procmail API. the procmail API automates the management of the workshops.
 
 Like any API, it uses verbs to perform tasks.
 
@@ -110,7 +110,7 @@ Like any API, it uses verbs to perform tasks.
 
 ### T﻿he Run Phase
 
-**10.** F﻿rom the email, the particpant click on the start button. it will open up a browser to the JupyterHub server and directly open the readme first notebook, presenting the workshop's flow.
+**10.** F﻿rom the email, the particpant clicks on the start button. it will open up a browser to the JupyterHub server and directly open the readme first notebook, presenting the workshop's flow.
 
 Participants will go through the different steps and labs of the workshop connecting to the necessary endpoints and leveraging the different kernels available on the JupyterHub server.
 
@@ -120,14 +120,14 @@ F﻿inally, when the time is up, the frontend server sends a new order to the ba
 
 **RESET subtasks:**
 
-* It Resets any infrastructure that was required for the workshop (Virtual Appliance, Virtual Machine, Docker Container, LDAP config, etc..).
+* It resets any infrastructure that was required for the workshop (Virtual Appliance, Virtual Machine, Docker Container, LDAP config, etc..).
 * It g﻿enerates a random password for the allocated student.
 * It d﻿eletes the workshop content on the JupyterHub server in the dedicated student home directory (Notebooks files necessary for the workshop).
 * It sends back the confirmation of the CLEANUP or RESET of the workshop along with the student details (i.e password) through API Calls to the frontend server.
 
 The frontend server tables will be updated in the following manner:
 
-* T﻿he customers' table will show an inactive status for the participant row. The password field has been updated. 
+* T﻿he customers table will show an inactive status for the participant row. The password field has been updated. 
 * T﻿he Workshop table gets also updated. The capacity field increment the number of available seats. 
 * The student tables gets updated as well by setting the allocated student to inactive.
 * T﻿he frontend sends the final email to the participant.
