@@ -134,10 +134,10 @@ You can create a new blog directly from the **Contents** tab or by navigating to
     
 5. Tag your blog post.
 
-You can tag your post to tie it to one of the HPE Developer "Platform" pages on the HPE Developer portal. 
+You can tag your post to tie it to one of the HPE Developer "products or HPE GreenLake or Open Source" pages on the HPE Developer portal. 
 Use tags as one way to optimize your blog post for results from search engines such as Google search engine. You do so by tagging your article with popular keywords (1 to 4 keywords) that reflect the relevancy of your topic. Visit the site [here](https://hpe-dev-portal.netlify.app/tags/) to look for existing tags in our HPE Developer web site.
 
->Note: For more information on how to use tags and tie your blog post to a "Platform" page refer to section "***Tips and Tricks using the CMS Editor***" at the end of this document.
+>Note: For more information on how to use tags and tie your blog post to a "Product, HPE GreenLake or Open Source" page refer to section "***Tips and Tricks using the CMS Editor***" at the end of this document.
     
     
 6.  As you are adding content to the **BODY** area, you can preview your blog on the right pane.
@@ -368,9 +368,9 @@ Here is how you can crate an externall blog post entry in the HPE Developer Comm
 
 1. From the **Contents** tab select the **Blog** section in the Collections tab, click on the **New Blog** button. You can also navigate to the **Workflow** tab, and click on the **New Post** button. This open the editor.
 
-2.  In the blog editor, you can set properties (title, author name, author picture) in the left pane and see the effect in the preview pane on the right side of the screen. 
+2. In the blog editor, you can set properties (title, author name, author picture) in the left pane and see the effect in the preview pane on the right side of the screen. 
 
-3.  Make sure you set the following parameters:
+3. Make sure you set the following parameters:
 
     -   **Title**
     >Note: The recommendation is to keep it as short as you can while capturing the reader's attention. Also, title must be ***Sentence case*** (that is, capitalize the first letter of the word of the title - HPE brand is moving away from the use of title case, so unless words are used as a proper noun (like the name of a product or program), the general guidance is to use initial lower case letters).
@@ -382,8 +382,25 @@ Here is how you can crate an externall blog post entry in the HPE Developer Comm
         
      - **External link** - This is the URL to the external blog post on the external website. 
      - **Body** - Just type the text: External blog
+     - **Thumbnail image** (Optional element):
+     > NOTE: Thumbnail image** for Social Media card: although a Thumbnail image is an optional element of the post, it is **highly recommended** to add a Thumbnail image to your blog post that you want to use to promote the post on Social Media such as Twitter and LinkedIn. The thumbnail image of the post card should tell the best story about what the blog post is about. The following image sizes have been tested successfully: **512x400** and **1200x675**.
+     - **Tag** (Optional element) - For more information on how to use tags and tie your blog post to a "Product, HPE GreenLake or Open Source" page refer to section "***Tips and Tricks using the CMS Editor***" at the end of this document.
+     - **FEATURED** and **PRIORITY** are optional elements. Please keep the default option toggled off.
      
+4. When ready, **Save** your work. 
 
+5. Wait until document is saved.
+
+6. When Saved, click on **Writing in Blog collection, CHANGES SAVED** to exit the CMS editor and return to the **Editorial Workflow** or **Contents** section.
+
+7. From the top menu bar, make sure **Workflow** is selected. Your blog is now visible in the **Drafts** column of the **Editorial Workflow**.
+
+9. Move your entry to the **In Review** column (drag & drop the blog entry from the **Drafts** column to the **In Review** column in the **Workflow** area). 
+   As soon as the blog was placed **In Review,** a Pull Request (PR) is automatically opened on the HPE Developer team's GitHub repository, with the new content you are proposing.    
+   The Pull Request is indicating that your submission is ready for review by the HPE Developer team.
+   
+10. Upon review of you rentry by the HPE Developer team, the Pull Request will be merged to push your entry to the HPE Developer Community portal. 
+ 
 
 ## Tips and trick using the CMS Editor
 
