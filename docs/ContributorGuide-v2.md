@@ -384,7 +384,7 @@ Here is how you can crate an external blog post entry in the HPE Developer Commu
      - **External link** - This is the URL to the external blog post on the external website. 
      - **Body** - Just type the text: External blog
      - **Thumbnail image** (Optional element):
-     > NOTE: Thumbnail image** for Social Media card: although a Thumbnail image is an optional element of the post, it is **highly recommended** to add a Thumbnail image to your blog post that you want to use to promote the post on Social Media such as Twitter and LinkedIn. The thumbnail image of the post card should tell the best story about what the blog post is about. The following image sizes have been tested successfully: **512x400** and **1200x675**.
+     > NOTE: **Thumbnail image** for Social Media card: although a Thumbnail image is an optional element of the post, it is **highly recommended** to add a Thumbnail image to your blog post that you want to use to promote the post on Social Media such as Twitter and LinkedIn. The thumbnail image of the post card should tell the best story about what the blog post is about. The following image sizes have been tested successfully: **512x400** and **1200x675**.
      - **Tag** (Optional element) - For more information on how to use tags and tie your blog post to a "Product, HPE GreenLake or Open Source" page refer to section "***Tips and Tricks using the CMS Editor***" at the end of this document.
      - **FEATURED** and **PRIORITY** are optional elements. Please keep the default option toggled off.
      
