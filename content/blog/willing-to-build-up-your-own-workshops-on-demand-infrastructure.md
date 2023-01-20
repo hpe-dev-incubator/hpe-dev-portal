@@ -11,6 +11,10 @@ disable: false
 
 T﻿his program allows us to deliver free hands-on workshops. We use these during HPE sponsored events, like HPE Discover and HPE Technical Symposium Summit, as well as open source events, like  Open Source Summit and KubeCon, to promote API/automation-driven solutions along with some 101-level coding courses. B﻿y the end of 2022, more than 4000  had registered for our workshops.
 
+﻿If you are interested in creating your own training architecture to deliver workshops, this project is definitely for you. It would allow you to create, manage content and deliver it in an automated and very efficient way. Once ready, the infrastructure can deliver workshops in matter of minutes!
+
+T﻿rying to build a similar architecture on your own is obviously possible, but we integrated so much automation around the different components like the JupyterHub server deployment along with multiple pre installed kernels, user management and much more. When leveraging our project, one can actually get a proper public based environment in 2 hours.
+
 This very first article will set the stage for the following blog articles where I will explain how to setup your own Workshops-on-Demand infrastructure. 
 
 ## Why would we consider open sourcing our Workshops-on-Demand?
