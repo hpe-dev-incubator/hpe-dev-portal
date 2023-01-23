@@ -8,6 +8,7 @@ tags:
   - devops
   - terraform
   - opensource
+  - hpe-greenlake-for-private-cloud-enterprise
 ---
 The process of managing and provisioning computer data centers through machine-readable definition files, also known as Infrastructure-as-Code (IaC), offers many significant benefits. It helps to increase operational agility, simplify management, reduce errors, and save cost.
 
