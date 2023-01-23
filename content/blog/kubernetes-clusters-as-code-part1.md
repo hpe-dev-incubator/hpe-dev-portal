@@ -8,6 +8,7 @@ tags:
   - devops
   - terraform
   - opensource
+  - hpe-greenlake-for-private-cloud-enterprise
 ---
 ## Getting started
 
