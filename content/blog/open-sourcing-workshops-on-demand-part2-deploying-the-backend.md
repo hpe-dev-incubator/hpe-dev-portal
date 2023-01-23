@@ -60,185 +60,179 @@ B﻿efore cloning the backend repository, you need to prepare the server that wi
    * 500 Gigas of Drive
 2. W﻿hen done with OS installation and preparation
 
-   * From the wod-backend server aka Jupyterhub server
+   * From the wod-backend server aka Jupyterhub server, as the created user, you will need to clone the repo first.
 
-     * As created user:  
+   ```shellsession
+   sudo su - [user]
+   git clone https://github.com/Workshops-on-Demand/wod-backend.git
+   cd wod-backend/install
+   ```
 
-       * you will need to clone the repo first.
+   * Examine default installation parameters and adapt when necessary accordingly.
 
-```shellsession
-sudo su - [user]
-git clone https://github.com/Workshops-on-Demand/wod-backend.git
-cd wod-backend/install
-```
+     * Look at the following files within ansible/group_vars directory.
 
-      * Examine default installation parameters and adapt when necessary accordingly.              
-      * Look at the following files within ansible/group_vars directory.
+       * all.yml file
 
+         ```shellsession
+         vi all.yml
+         ---
+         # We create fixed user accounts to provide an isolated execution environment to run the jupyter notebooks
+         # They are called studentXXX where XXX is comprised between USERMIN and USERMAX defined below poentially with the addition of an offset (UIDBASE) for their uid/gid
+         # Their home directory is located under /student and is thus named /student/studentXXX
+         # Corresponding JupyterHub accounts are also created
+         #
+         # USERMIN indicates the starting ID of the Linux and Jupyter user account range
+         #
+         USERMIN: 1
+         #
+         # USERMAX indicates the ending ID of the Linux and Jupyter user account range
+         #
+         USERMAX: 20
+         #
+         # UIDBASE is the offset used to create the Linux user account IDs
+         # Example when creating user 35 with UIDBASE of 2000, the uid created is 2035
+         #
+         UIDBASE: 2000
+         #
+         # GIDBASE is the offset used to create the Linux group IDs
+         # Example when creating user 35 with GIDBASE of 2000, the gid created is 2035
+         #
+         GIDBASE: 2000
+         #
+         # Setup CLEAN to true if you want all Liunx & Jupyter user accounts to be removed before ansible check
+         #
+         CLEAN: false
+         #
+         # VAULTPWD is the passwd used to manage the ansible vault
+         #
+         VAULTPWD: VeryComplexPasswd1234!
+         #
+         # NOCHECKSSH are ssh options used to dialog with appliances
+         # By default avoid checking Host keys and Host file as they may change on a regular base
+         #
+         NOCHECKSSH: -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null
+         #
+         # Branding management - Use if you want to customize Logo and Notebooks branding
+         #
+         BRANDING: "WoD Developer"
+         BRANDINGWOD: "WoD Developer"
+         BRANDINGLOGO: "![HPEDEVlogo](Pictures/hpe-dev-logo.png)"
+         BRANDINGURL: "https://wod.io"
+         #
+         # Survey management - Use if you want to ask for feedbacks on your Workshops - Look at existing conclusion notebooks
+         SURVEYURL: TBD
+         SURVEYCHALURL: TBD
+         #
+         # JPHUB  is the directory used to install the JupyterHub stack (a python venv)
+         #
+         JPHUB: /opt/jupyterhub
+         #
+         #
+         # These variables are defined in ansible playbooks, do not change without knowing what you do
+         #
+         STUDDIR: "{{ ansible_env.STUDDIR }}"
+         WODBEDIR: "{{ ansible_env.WODBEDIR }}"
+         WODPRIVDIR: "{{ ansible_env.WODPRIVDIR }}"
+         WODNOBO: "{{ ansible_env.WODNOBO }}"
+         WODAPIDBDIR: "{{ ansible_env.WODAPIDBDIR }}"
+         WODFEDIR: "{{ ansible_env.WODFEDIR }}"
+         SCRIPTDIR: "{{ WODBEDIR }}/scripts"
+         ANSIBLEDIR: "{{ WODBEDIR }}/ansible"
+         # This is the predefined structure for a private repo
+         WODPRIVNOBO: "{{ WODPRIVDIR }}/notebooks"
+         SCRIPTPRIVDIR: "{{ WODPRIVDIR }}/scripts"
+         ANSIBLEPRIVDIR: "{{ WODPRIVDIR }}/ansible"
+         ```
+       * wod-backend file
 
-* all.yml file
+         ```shellsession
+         vi wod-backend
+         #
+         # These variables are located lower in the ansible tree to allow different values required for different backends while keeping a single frontend
+         #
+         # BASESTDID is the offset used to create users in the DB. It is required that each backend has a different non overlapping value.
+         # Overlap is defined by BASESTDID + USERMAX (from all.yml)
+         #
+         # Example:
+         # for student 35 in location A having BASESTDID to 0 the user is create as id 35
+         # for student 35 in location B having BASESTDID to 2000 the user is create as id 2035
+         # There is no overlap as long as you do not create more than 2000 users which should be the value of USERMAX in that case.
+         #
+         # This is different from the offset UIDBASE used for Linux uid
+         #
+         BASESTDID: 0
+         #
+         # POSTPORT is the Postfix Port on which the smtp service is listening to receive API mail requests from the frontend
+         #
+         POSTPORT: "10025"
+         #
+         # In case we have a LDAP server to use, flag as such the corresponding workshops in the DB and use the following values:
+         #
+         LDAPSRVNAME: ldap.example.org
+         LDAPDMN: example.org
+         LDAPPWD: MotDePasseLDAPCompliquéAussi123!!!##
+         LDAPPORT: "389"
+         #
+         # For various existing public WoDs - needed. Adapt but do not remove !
+         #
+         SSHPORT-WKSHP-Docker101: 14101
+         SSHPORT-WKSHP-Ansible101: 16001
+         HTTPPORT-WKSHP-Docker101: 14151
+         HTTPPORT-WKSHP-Ansible101: 16051
+         HTTPPORT-WKSHP-Spark101: 17161
+         HTTPPORT-WKSHP-Concourse101: 19061
+         HTTPPORT-WKSHP-ML101: 18061
+         HTTPPORT-WKSHP-DataVisu101: 22161
+         CONCOURSEPORT-WKSHP-Concourse101: 19001
+         CONCOURSEPORT2-WKSHP-Concourse101: 19031
+         IP-WKSHP-DataVisu101: x.y.z.t
+         IP-WKSHP-Concourse101: x.y.z.t
+         IP-WKSHP-Docker101: x.y.z.t
+         IP-WKSHP-Ansible101: x.y.z.t
+         IP-WKSHP-Spark101: x.y.z.t
+         IP-WKSHP-ML101: x.y.z.t
+         IP-WKSHP-StackStorm101: x.y.z.t
+         SPARKPORT-WKSHP-Spark101: 17101
+         SPARKPORT2-WKSHP-Spark101: 17131
+         MLPORT-WKSHP-ML101: 18101
+         MLPORT2-WKSHP-ML101: 18031
+         DATAVISUPORT1-WKSHP-DataVisu101: 22101
+         DATAVISUPORT2-WKSHP-DataVisu101: 22131
+         ```
+       * wod-system
 
-```shellsession
-vi all.yml
----
-# We create fixed user accounts to provide an isolated execution environment to run the jupyter notebooks
-# They are called studentXXX where XXX is comprised between USERMIN and USERMAX defined below poentially with the addition of an offset (UIDBASE) for their uid/gid
-# Their home directory is located under /student and is thus named /student/studentXXX
-# Corresponding JupyterHub accounts are also created
-#
-# USERMIN indicates the starting ID of the Linux and Jupyter user account range
-#
-USERMIN: 1
-#
-# USERMAX indicates the ending ID of the Linux and Jupyter user account range
-#
-USERMAX: 20
-#
-# UIDBASE is the offset used to create the Linux user account IDs
-# Example when creating user 35 with UIDBASE of 2000, the uid created is 2035
-#
-UIDBASE: 2000
-#
-# GIDBASE is the offset used to create the Linux group IDs
-# Example when creating user 35 with GIDBASE of 2000, the gid created is 2035
-#
-GIDBASE: 2000
-#
-# Setup CLEAN to true if you want all Liunx & Jupyter user accounts to be removed before ansible check
-#
-CLEAN: false
-#
-# VAULTPWD is the passwd used to manage the ansible vault
-#
-VAULTPWD: VeryComplexPasswd1234!
-#
-# NOCHECKSSH are ssh options used to dialog with appliances
-# By default avoid checking Host keys and Host file as they may change on a regular base
-#
-NOCHECKSSH: -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null
-#
-# Branding management - Use if you want to customize Logo and Notebooks branding
-#
-BRANDING: "WoD Developer"
-BRANDINGWOD: "WoD Developer"
-BRANDINGLOGO: "![HPEDEVlogo](Pictures/hpe-dev-logo.png)"
-BRANDINGURL: "https://wod.io"
-#
-# Survey management - Use if you want to ask for feedbacks on your Workshops - Look at existing conclusion notebooks
-SURVEYURL: TBD
-SURVEYCHALURL: TBD
-#
-# JPHUB  is the directory used to install the JupyterHub stack (a python venv)
-#
-JPHUB: /opt/jupyterhub
-#
-#
-# These variables are defined in ansible playbooks, do not change without knowing what you do
-#
-STUDDIR: "{{ ansible_env.STUDDIR }}"
-WODBEDIR: "{{ ansible_env.WODBEDIR }}"
-WODPRIVDIR: "{{ ansible_env.WODPRIVDIR }}"
-WODNOBO: "{{ ansible_env.WODNOBO }}"
-WODAPIDBDIR: "{{ ansible_env.WODAPIDBDIR }}"
-WODFEDIR: "{{ ansible_env.WODFEDIR }}"
-SCRIPTDIR: "{{ WODBEDIR }}/scripts"
-ANSIBLEDIR: "{{ WODBEDIR }}/ansible"
-# This is the predefined structure for a private repo
-WODPRIVNOBO: "{{ WODPRIVDIR }}/notebooks"
-SCRIPTPRIVDIR: "{{ WODPRIVDIR }}/scripts"
-ANSIBLEPRIVDIR: "{{ WODPRIVDIR }}/ansible"
-```
-
-* wod-backend file
-
-```shellsession
-vi wod-backend
-#
-# These variables are located lower in the ansible tree to allow different values required for different backends while keeping a single frontend
-#
-# BASESTDID is the offset used to create users in the DB. It is required that each backend has a different non overlapping value.
-# Overlap is defined by BASESTDID + USERMAX (from all.yml)
-#
-# Example:
-# for student 35 in location A having BASESTDID to 0 the user is create as id 35
-# for student 35 in location B having BASESTDID to 2000 the user is create as id 2035
-# There is no overlap as long as you do not create more than 2000 users which should be the value of USERMAX in that case.
-#
-# This is different from the offset UIDBASE used for Linux uid
-#
-BASESTDID: 0
-#
-# POSTPORT is the Postfix Port on which the smtp service is listening to receive API mail requests from the frontend
-#
-POSTPORT: "10025"
-#
-# In case we have a LDAP server to use, flag as such the corresponding workshops in the DB and use the following values:
-#
-LDAPSRVNAME: ldap.example.org
-LDAPDMN: example.org
-LDAPPWD: MotDePasseLDAPCompliquéAussi123!!!##
-LDAPPORT: "389"
-#
-# For various existing public WoDs - needed. Adapt but do not remove !
-#
-SSHPORT-WKSHP-Docker101: 14101
-SSHPORT-WKSHP-Ansible101: 16001
-HTTPPORT-WKSHP-Docker101: 14151
-HTTPPORT-WKSHP-Ansible101: 16051
-HTTPPORT-WKSHP-Spark101: 17161
-HTTPPORT-WKSHP-Concourse101: 19061
-HTTPPORT-WKSHP-ML101: 18061
-HTTPPORT-WKSHP-DataVisu101: 22161
-CONCOURSEPORT-WKSHP-Concourse101: 19001
-CONCOURSEPORT2-WKSHP-Concourse101: 19031
-IP-WKSHP-DataVisu101: x.y.z.t
-IP-WKSHP-Concourse101: x.y.z.t
-IP-WKSHP-Docker101: x.y.z.t
-IP-WKSHP-Ansible101: x.y.z.t
-IP-WKSHP-Spark101: x.y.z.t
-IP-WKSHP-ML101: x.y.z.t
-IP-WKSHP-StackStorm101: x.y.z.t
-SPARKPORT-WKSHP-Spark101: 17101
-SPARKPORT2-WKSHP-Spark101: 17131
-MLPORT-WKSHP-ML101: 18101
-MLPORT2-WKSHP-ML101: 18031
-DATAVISUPORT1-WKSHP-DataVisu101: 22101
-DATAVISUPORT2-WKSHP-DataVisu101: 22131
-```
-
-* wod-system
-
-```shellsession
-vi wod-system
-#
-# Backend API management
-#
-# Do not change as the port is fixed in JupyterHub install
-#
-WODBEAPIURL: http://{{ WODBEFQDN }}:8000
-#
-# Replace with a random one - TODO Do that automatically at install time
-#
-WODBETOKEN: 2c0246e2c8564dc6ac7b12c544b25d77
-#
-# You may want to use these variables if you have an OPNSense server as a security FW and allowing http comm internally
-#
-#OPNSENSEKEY:
-#OPNSENSESEC:
-#OPNSENSEIP:
-#OPNSENSEPORT:
-#
-# Front-end API management
-#
-# Do not change as the port is fixed in JupyterHub install
-#
-WODFEAPIURL: https://{{ WODAPIDBFQDN }}/api
-#
-# Adapt to your setup - Used by installer to setup the frontend
-#
-WODFEAPIUSER: moderator
-WODFEAPIPWD: MotDePasseCompliquéAussi125!!!##
-```
+         ```shellsession
+         vi wod-system
+         #
+         # Backend API management
+         #
+         # Do not change as the port is fixed in JupyterHub install
+         #
+         WODBEAPIURL: http://{{ WODBEFQDN }}:8000
+         #
+         # Replace with a random one - TODO Do that automatically at install time
+         #
+         WODBETOKEN: 2c0246e2c8564dc6ac7b12c544b25d77
+         #
+         # You may want to use these variables if you have an OPNSense server as a security FW and allowing http comm internally
+         #
+         #OPNSENSEKEY:
+         #OPNSENSESEC:
+         #OPNSENSEIP:
+         #OPNSENSEPORT:
+         #
+         # Front-end API management
+         #
+         # Do not change as the port is fixed in JupyterHub install
+         #
+         WODFEAPIURL: https://{{ WODAPIDBFQDN }}/api
+         #
+         # Adapt to your setup - Used by installer to setup the frontend
+         #
+         WODFEAPIUSER: moderator
+         WODFEAPIPWD: MotDePasseCompliquéAussi125!!!##
+         ```
 
 [](https://github.com/Workshops-on-Demand/wod-backend/blob/main/INSTALL.md#for-private-based-workshops-on-demand-private-backend--private-workshops-or-if-you-need-to-modify-defaults)O﻿nce you are done with the files, you can can proceed with the installation itself.
 
