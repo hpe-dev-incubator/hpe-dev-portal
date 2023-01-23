@@ -42,15 +42,15 @@ F﻿or the backend side, the repository name is **wod-backend.** This project is
   ﻿-Users compliancy
   ﻿-Security Management
 
-#### Jupyterhub server preparation:
+#### Backend server preparation:
 
 B﻿efore cloning the backend repository, you need to prepare the server that will host the backend functionnalities. When ready, you will proceed with the cloning and then the installation process.
 
 ##### Pre requesites:
 
-1. I﻿n order to setup the jupyterhub server, you will need:
+1. I﻿n order to setup the backend server, you will need:
 
-   * A fresh OS install on Physical / VM server running Ubuntu 20.04 or Centos 7.9 via ILO e.g: using ubuntu-20.04.1-live-server-amd64.iso or with a VM template or any autodeploy mechanism of your choice.
+   * A fresh OS install on physical / virtualized server running Ubuntu 20.04 or Centos 7.9 leveraging any deployment mechanism of your choice.(e.g iLO, vagrant, etc.)
    * A linux account with sudo priviledges on your linux distro.
 
    **Note:** In order to support 100 concurrent users :
@@ -68,7 +68,7 @@ B﻿efore cloning the backend repository, you need to prepare the server that wi
    cd wod-backend/install
    ```
 
-   * Examine default installation parameters and adapt when necessary accordingly.
+   * Examine default installation parameters and adapt when necessary accordingly. Files are self documented.
 
      * Look at the following files within ansible/group_vars directory.
 
@@ -236,7 +236,7 @@ B﻿efore cloning the backend repository, you need to prepare the server that wi
 
 [](https://github.com/Workshops-on-Demand/wod-backend/blob/main/INSTALL.md#for-private-based-workshops-on-demand-private-backend--private-workshops-or-if-you-need-to-modify-defaults)O﻿nce you are done with the files, you can can proceed with the installation itself.
 
-### Installation process:
+#### B﻿ackend installation process:
 
 T﻿he installation is based on a common install script \[install.sh] that allows the deployment of the different parts of the solution. It can be called as follows:
 
@@ -276,7 +276,7 @@ sender    is the e-mail address used in the WoD frontend to send API procmail ma
           if empty using wodadmin@localhost
 ```
 
-Example :
+Example below for a backend server:
 
 ```shellsession
 sudo ./install.sh -t backend -g staging -b jup.example.net -f notebooks.example.io -a api.example.io -e notebooks.example.io -s sender@example.io
@@ -290,7 +290,7 @@ Install.sh performs the following tasks:
 * Calls the install-system-common.sh script that performs the following tasks:
 
   * cleanup
-  * github repos cloning (leveraging install.repo file) : Backend and Private
+  * github repos cloning (leveraging install.repo file) : public Backend and public Private repos
   * Create ssh keys for wodadmin
   * Creates GROUPNAME variables
   * Creates ansible inventory files
@@ -307,8 +307,8 @@ A﻿ll Playbooks are self documented. Please check for details.
 At the end of the installation process:
 
 * you will have a jupyterhub server running on port http 8000
-* You will get a new wodadmin user
-* You will get a set of students
+* You will get a new wodadmin user (Default admin)
+* You will get a set of 20 students (Default value)
 
 W﻿e leave it to you handle the necessary port redirection and SSL certificates management when needed. In our case, we went for a simple yet efficient solution based on an OPNSense Firewall along with a HAProxy setup to manage ports' redirection,HTTP to HTTPS Redirection, SSL Certification. The backend also includes a Fail2ban service for login security management.
 
@@ -359,3 +359,5 @@ sudo ./install.sh -t backend -g staging -b jup.example.net -f notebooks.example.
 ```
 
 Please note that this setup phase can be conccurent with the public setup phase. Indeed, the install script should detect the presence of the private repository owing to the presence of the install.priv file. It will automatically adjust the different scripts and variables to add the relevant content. It will actually overload some of the variables with the private ones.
+
+#### B﻿ackend server management:
