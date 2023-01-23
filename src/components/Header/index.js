@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-import React, { useContext, useEffect, useRef } from 'react';
+import React, { useContext, useEffect } from 'react';
 import axios from 'axios';
 import {
   Box,
@@ -88,7 +88,7 @@ function Header() {
     const allLinks = [...elColumns, ...glColumns];
     return allLinks;
   };
-  const iframeRef = useRef();
+  // const iframeRef = useRef();
 
   const PlatformButtonLinks = ({ column }) => {
     const leftColumn = platforms.filter((platform, index) => index % 2 === 0);
@@ -345,13 +345,13 @@ function Header() {
       )}
       {userDetail && <UserMenu userInfo={userDetail} />}
 
-      <iframe
+      {/* <iframe
         title="cookie-session"
         ref={iframeRef}
         id="iframe"
         src="https://origin-qa-www-hpe-com.ext.hpe.com/us/en/service-pages/hfws-cookie.html"
         style={{ display: 'none' }}
-      />
+      /> */}
     </GrommetHeader>
   );
 }
