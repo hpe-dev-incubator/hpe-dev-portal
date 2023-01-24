@@ -4,7 +4,7 @@ dateStart: 2023-01-16T23:01:49.410Z
 dateEnd: 2023-01-17T22:59:49.438Z
 category: Virtual Event
 image: /img/event-hpe-ezmeral-early-access-webinar-400x400.png
-link: https://developer.hpe.com/campaign/ezmeral-early-access-program/
+link: https://www.youtube.com/watch?v=1Z4fNOHGYlk&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF
 width: large
 ---
 ## HPE Ezmeral Unified Analytics
