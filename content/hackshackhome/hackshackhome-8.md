@@ -11,6 +11,6 @@ description: "Feb. 15, 2023: High performance computing democratization, along
   from embedded ML modeling using SmartSim."
 background: rgba(0, 86, 122, 0.8);
 label: Register Now!
-priority: 2
+priority: 1
 image: /img/event-munch-and-learn-newlogo400x400.png
 ---
