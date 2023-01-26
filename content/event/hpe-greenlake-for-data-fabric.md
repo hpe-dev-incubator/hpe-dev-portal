@@ -4,7 +4,7 @@ dateStart: 2023-01-18T23:01:58.161Z
 dateEnd: 2023-01-19T22:00:00.000Z
 category: Virtual Event
 image: /img/event-hpe-ezmeral-early-access-webinar-400x400.png
-link: https://developer.hpe.com/campaign/ezmeral-early-access-program/
+link: https://www.youtube.com/watch?v=rzLxGZIraTg&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF
 width: large
 ---
 ## HPE GreenLake for Data Fabric
