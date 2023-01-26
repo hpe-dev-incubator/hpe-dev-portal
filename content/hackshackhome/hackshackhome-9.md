@@ -1,5 +1,6 @@
 ---
 title: Extraordinary claims require extraordinary engineering
+active: true
 fit: contain
 path: https://hpe.zoom.us/webinar/register/1116742286840/WN_xZcMU68_RQibwG2WrEHP1Q
 imageBackground: white
