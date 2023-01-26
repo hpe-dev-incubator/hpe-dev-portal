@@ -8,6 +8,6 @@ description: "March 15, 2023: Don’t miss Kirk Bresniker discuss how approachin
   to the Qubits may accelerate productization."
 background: rgba(0, 86, 122, 0.8);
 label: Register Now!
-priority: 5
+priority: 3
 image: /img/event-munch-and-learn-newlogo400x400.png
 ---
