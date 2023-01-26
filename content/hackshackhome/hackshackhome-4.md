@@ -1,6 +1,6 @@
 ---
 title: HPE GreenLake and IaC
-active: true
+active: false
 fit: contain
 path: https://hpe.zoom.us/webinar/register/6516693932553/WN_ILz_170PQuGrUdK3i79cqQ
 imageBackground: white
