@@ -5,7 +5,7 @@ description: "The Warranty Check API enables easy integration of HPE support
   search into the user’s application and business processes. "
 image: /img/platforms/Greenlake.svg
 width: large
-priority: 12
+priority: 20
 active: "true"
 tags:
   - hpe-support-center
