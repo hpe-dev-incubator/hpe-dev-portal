@@ -87,7 +87,8 @@ Data Services Cloud Console API uses bearer token as authorization type to ensur
 
 The *GetToken* API call has defined a script in the ***Tests*** tab to programmatically set the collection variable BearerToken as shown in the picture below. The programmatically defined token is then used to authenticate any subsequent REST API calls.
 
-\[Figure 3]\
+![Defining collection variables programmatically in script](/img/tests-capturebearertoken-dscc-collection-postman-figure3.png "Defining collection variables programmatically in script")
+
 <span style="color:grey; font-family:Arial; font-size:1em">Figure 3: Defining collection variables programmatically in script.</span>
 
 > **Note:** Access bearer token expires after 120 minutes. Run the *GetToken* API request again to refresh the token before or after it expires.
@@ -100,15 +101,18 @@ Pick one REST API call from the ***storage-systems*** folder to ***Get all stora
 
 As shown in the two pictures below, all REST API requests in the collection will inherit the authorization bearer token that is specified at the collection level. 
 
-\[Figure 4]\
+![Authorization type (bearer token) specified at the collection level](/img/authorization-dscc-collection-postman-figure4.png "Authorization type (bearer token) specified at the collection level")
+
 <span style="color:grey; font-family:Arial; font-size:1em">Figure 4: Authorization type (bearer token) specified at the collection level.</span>
 
-\[Figure 5]\
+![REST API request with authorization type inherited from parent collection](/img/authorization-inherited-dscc-collection-postman-figure5.png "REST API request with authorization type inherited from parent collection")
+
 <span style="color:grey; font-family:Arial; font-size:1em">Figure 5: REST API request with authorization type inherited from parent collection.</span>
 
 As depicted in the figure below, the API supports several query parameters (click on Params tab in the request) depending on the resource type, such as filter (filter the set of resources returned), limit (maximum number of records to return), offset (resource offset to start the response from) and sort (order in which to return the resources in the collection). 
 
-\[Figure 6]\
+![REST API request with query parameter to search for storage array of type HPE Alletra 9060](/img/getallstoragesystems-dscc-collection-postman-figure6.png "REST API request with query parameter to search for storage array of type HPE Alletra 9060")
+
 <span style="color:grey; font-family:Arial; font-size:1em">Figure 6: REST API request with query parameter to search for storage array of type HPE Alletra 9060.</span>
 
 The query parameters are indicated after the question mark (“?”) in the REST API URL. Select and adjust the query parameters according to your environment. Make sure to refer to [the API documentation](https://console-us1.data.cloud.hpe.com/doc/api/v1/) to understand the query parameters that can be used for each HPE Data Services Cloud Console API requests. 
