@@ -18,3 +18,16 @@ The Warranty Check API enables easy integration of HPE support search into the u
 
 ## About the API
 
+[Read about the Warranty Check API](https://warranty-check.redoc.ly/)
+
+## Use the API
+
+[Getting Started](https://warranty-check.redoc.ly/developer-portal)
+
+[API call example](https://warranty-check.redoc.ly/developer-portal/examples/)
+
+## API authentication and authorization
+
+[Authenticating against the API](https://warranty-check.redoc.ly/developer-portal/authentication/)
+
+
