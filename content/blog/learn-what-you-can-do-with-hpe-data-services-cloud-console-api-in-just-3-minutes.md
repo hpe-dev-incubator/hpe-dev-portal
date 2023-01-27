@@ -77,3 +77,116 @@ Define the Current Value of the collection variables to match your Data Services
 
 * **BearerToken:** Do not edit this variable. Keep the value field empty. The collection variable BearerToken will be set automatically upon successful execution of the ***GetToken*** API call as explained in the next step.
 
+
+### Step 4 – Acquire an OAuth access token as your session bearer token
+
+Data Services Cloud Console API uses bearer token as authorization type to ensure that all REST API requests access authorized data services securely. So you first need to obtain a token from the OAuth authorization server before you can make any REST API calls to your regional Data Services Cloud Console application instance. To do so, proceed as follows:
+
+* From your collection, generate the token using the ***GetToken*** API call from the ***GetToken-Using-Variables*** folder.    
+
+* Verify you get a status code of 200 for a successful response with the token value in the response body.    
+
+* Check the token value has been automatically defined for the collection variable ***BearerToken***.    
+
+The _GetToken_ API call has defined a script in the ***Tests*** tab to programmatically set the collection variable BearerToken as shown in the picture below. The programmatically defined token is then used to authenticate any subsequent REST API calls.
+
+[Figure 3]    
+<span style="color:grey; font-family:Arial; font-size:1em">Figure 3: Defining collection variables programmatically in script.</span>
+
+>**Note:** Access bearer token expires after 120 minutes. Run the _GetToken_ API request again to refresh the token before or after it expires.
+
+### Step 5 – Make subsequent secure REST API calls
+
+The client REST API requests are authenticated by presenting the access token as authorization bearer token to the regional Data Services Cloud Console application instance. The instance validates the access token, and if valid, serves the request.
+
+Pick one REST API call from the ***storage-systems*** folder to ***Get all storage systems*** registered with your regional Data Services Cloud Console application instance. 
+
+As shown in the two pictures below, all REST API requests in the collection will inherit the authorization bearer token that is specified at the collection level. 
+
+[Figure 4]    
+<span style="color:grey; font-family:Arial; font-size:1em">Figure 4: Authorization type (bearer token) specified at the collection level.</span>
+
+[Figure 5]     
+<span style="color:grey; font-family:Arial; font-size:1em">Figure 5: REST API request with authorization type inherited from parent collection.</span>
+
+As depicted in the figure below, the API supports several query parameters (click on Params tab in the request) depending on the resource type, such as filter (filter the set of resources returned), limit (maximum number of records to return), offset (resource offset to start the response from) and sort (order in which to return the resources in the collection). 
+
+[Figure 6]    
+<span style="color:grey; font-family:Arial; font-size:1em">Figure 6: REST API request with query parameter to search for storage array of type HPE Alletra 9060.</span>
+
+The query parameters are indicated after the question mark (“?”) in the REST API URL. Select and adjust the query parameters according to your environment. Make sure to refer to [the API documentation](https://console-us1.data.cloud.hpe.com/doc/api/v1/) to understand the query parameters that can be used for each HPE Data Services Cloud Console API requests. 
+
+Finally click the **Send** button. You will get a JSON representation of the storage system resources registered based on the query parameters specified. Here, I am getting the list of storage systems of type “_HPE Alletra 9060_”.
+
+```json
+{
+    "items": [
+        {
+            "systemWWN": "2FF70002AC07EB29",
+            "name": "s3294",
+            "id": "4UW0003294",
+            "description": "System s3294",
+            "mgmtIp": "16.182.41.5",
+            "softwareVersions": "9.5.0",
+            "model": "HPE Alletra 9060",
+            "productFamily": "deviceType1",
+            "state": "NORMAL",
+            "callhomeStatus": "ENABLED_NORMAL",
+            "resourceUri": "/api/v1/storage-systems/device-type1/4UW0003294",
+            "upSince": 1670726169000,
+            "fqdn": "s3294.mip.storage.hpecorp.net",
+            "capacityDetail": {
+                "volumeSpace": 21092875,
+                "snapSpace": 1676167,
+                "totalUsedSpace": 22769042
+            },
+            "associatedLinks": [
+                {
+                    "type": "storage-pools",
+                    "resourceUri": "/api/v1/storage-systems/4UW0003294/storage-pools"
+                },
+                {
+                    "type": "volumes",
+                    "resourceUri": "/api/v1/storage-systems/4UW0003294/volumes"
+                },
+                {
+                    "type": "swupdatestatus",
+                    "resourceUri": "/api/v1/storage-systems/4UW0003294/swupdate/status"
+                }
+            ],
+            "arrayList": null,
+            "collectionStatus": {
+                "metricStatus": {
+                    "status": "NORMAL"
+                },
+                "configStatus": {
+                    "status": "NORMAL"
+                },
+                "overAllStatus": "NORMAL"
+            },
+            "lastConnectedTime": 1674674119,
+            "connectionStatus": "CONNECTED",
+            "customerId": "c93de31c382811ecb478320c1ce21c93",
+            "generation": 1674674119,
+            "type": "storage-system",
+            "tierType": "STORAGE_TIER_9000_NVME",
+            "tierName": "HPE Alletra 9000"
+        }
+    ],
+    "total": 1,
+    "pageLimit": 50,
+    "pageOffset": 0,
+    "requestUri": "https://us1.data.cloud.hpe.com/api/v1/storage-systems?filter=model%20eq%20%22HPE%20Alletra%209060%22"
+```
+
+**That’s it. No more than 3 minutes!**
+
+
+## Summary
+
+This blog gives you a great example on how to obtain the access token using API call and help you get started with the Data Services Cloud Console REST API for the _HPE GreenLake for Block Storage_ data service using Postman. Additional HPE data services APIs will be published in accordance to the expansion of cloud data services delivered through the HPE Data Services Cloud Console. So make sure to stay tuned for any update of Mark’s public Postman collection for Data Services Cloud Console API.  
+
+If you have more time, I invite you to explore further the rest of the collection on your own while adjusting the query parameters to match your Data Services Cloud Console context. Also, don’t hesitate to provide Mark with feedback on his very convenient collection.
+
+Any questions on HPE GreenLake Data Services Cloud Console API? Please join the [HPE Developer Slack Workspace](https://slack.hpedev.io/) and start a discussion in our [#hpe-greenlake-data-services-cloud-console](https://hpedev.slack.com/archives/C02D6H623JP) channel.
+
