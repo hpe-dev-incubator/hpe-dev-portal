@@ -16,4 +16,7 @@ If you’re looking for a quick way to discover everything you can do with the H
 
 >**Note:** This blog post assumes you have created an [HPE GreenLake account](https://console.greenlake.hpe.com/) and joined your account to your company account (also called an ***organization***). You also got assigned appropriate roles and permissions by the administrator for your organization in order to access HPE data services resources (for example storage arrays and volumes) through the Data Services Cloud Console application instances. A Data Service Cloud Console application instance is a service cluster running in one of the HPE regions.
 
+### Data Services Cloud Console and REST API
+
+Data Services Cloud Console supports a set of REST APIs that allows users to integrate HPE Data Services Cloud Console with their custom applications. By using [OAuth 2.0 protocol](https://oauth.net/2/) to authenticate and authorize applications, secure and time-limited (***120 minutes***) access to HPE data services are provided via an access token. The token is a string that is used to access protected HPE data services resources, and ensures that client API requests access HPE data services securely.
 
