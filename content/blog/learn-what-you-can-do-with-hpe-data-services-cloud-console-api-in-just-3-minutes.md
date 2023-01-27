@@ -7,14 +7,14 @@ authorimage: https://gravatar.com/avatar/f66dd9562c53567466149af06ae9d4f1?s=96
 disable: false
 tags:
   - hpe-greenlake
-  - hpe-greenalke-cloud-platform
+  - hpe-greenlake-cloud-platform
   - data-services-cloud-console
 ---
 [HPE Data Services Cloud Console](https://developer.hpe.com/greenlake/data-services-cloud-console/home/), available through the [HPE GreenLake edge-to-cloud platform](https://developer.hpe.com/greenlake/hpe-greenlake-cloud-platform/home/), is a Software-as-a-service (SaaS) based cloud console application that delivers a suite of cloud data services that enable a unified data operations as a service for storage infrastructure, simplify storage and data management, and bring the cloud experience to wherever data lives. Data Services Cloud Console also offers a unified and fully programmable API that enables developers to automate data infrastructure management. 
 
 If you’re looking for a quick way to discover everything you can do with the HPE GreenLake Data Services Cloud Console API using popular tools that doesn’t require programming such as Postman, this blog post is definitely for you. 
 
-As you know, one of the benefits of working within a community is the ability to take advantage of open collaboration, sharing hints, tools, and resources. This is exactly what we are doing here. This post helps you get started with the Data Services Cloud Console API for HPE GreenLake for Block Storage cloud data service by taking advantage of the Postman collection contributed by one of our HPE Developer Community members. 
+As you know, one of the benefits of working within a community is the ability to take advantage of open collaboration, sharing hints, tools, and resources. This is exactly what I am doing here. This post helps you get started with the Data Services Cloud Console API for HPE GreenLake for Block Storage cloud data service by taking advantage of the Postman collection contributed by one of our HPE Developer Community members. 
 
 > **Note:** This blog post assumes you have created an [HPE GreenLake account](https://console.greenlake.hpe.com/) and joined your account to your company account (also called an ***organization***). You also got assigned appropriate roles and permissions by the administrator for your organization in order to access HPE data services resources (for example storage arrays and volumes) through the Data Services Cloud Console application instances. A Data Service Cloud Console application instance is a service cluster running in one of the HPE regions.
 
@@ -30,13 +30,16 @@ Currently, there are three HPE regional Data Services Cloud Console application 
 
 * EU Central    
 
-  * https://eu1.data.cloud.hpe.com    
+  * https://eu1.data.cloud.hpe.com   
+ 
 * AP Northeast    
 
   * https://jp1.data.cloud.hpe.com    
+
 * US West    
 
   * https://us1.data.cloud.hpe.com    
+
 
 HPE GreenLake Cloud Platform allows developers to make API calls on a particular regional Data Services Cloud Console customer instances. Using the API functionality in the HPE GreenLake Cloud Platform graphical user interface (GUI), developers can create their **API client application** credentials. The credentials consist of a *ClientID-ClientSecret* pair that represents the permissions granted to the user who creates the API client application credentials, to access the protected resources. The credentials is then used to generate and refresh expired OAuth based access token. Once the token is generated or refreshed, it can be used as **authorization bearer token** to make further secure REST API calls to HPE data services resources via the regional Data Services Cloud Console application instance.
 
@@ -73,17 +76,24 @@ The Data Services Cloud Console API collection built by Mark makes use of collec
 Define the Current Value of the collection variables to match your Data Services Cloud Console context:    
 
 * **baseUrl**: This variable defines the base URL of the REST API requests. It should match the regional endpoint of your Data Services Cloud Console application instance where your storage devices are registered.    
+
 * **ClientId** and **ClientSecret**: they should be set with the value of your Client Application API credentials you previously created using the HPE GreenLake Cloud Platform GUI. These variables are used to request an OAuth access token by authenticating with the authorization server referenced in the **sso_URI** variable.    
+
 * **sso_URI**: This variable is the URI of the OAuth authorization server. If your organization has set up their own HPE GreenLake SAML Single Sign-On (SSO) authorization server to create access token, replace the current default value with your SSO URI. Otherwise keep the value for this variable as currently set to *sso.common.cloud.hpe.com/as/token.oauth2*.    
-* **BearerToken:** Do not edit this variable. Keep the value field empty. The collection variable BearerToken will be set automatically upon successful execution of the ***GetToken*** API call as explained in the next step.
+
+* **BearerToken:** Do not edit this variable. Keep the value field empty. The collection variable BearerToken will be set automatically upon successful execution of the ***GetToken*** API call as explained in the next step.    
+
 
 ### Step 4 – Acquire an OAuth access token as your session bearer token
 
 Data Services Cloud Console API uses bearer token as authorization type to ensure that all REST API requests access authorized data services securely. So you first need to obtain a token from the OAuth authorization server before you can make any REST API calls to your regional Data Services Cloud Console application instance. To do so, proceed as follows:
 
 * From your collection, generate the token using the ***GetToken*** API call from the ***GetToken-Using-Variables*** folder.    
+
 * Verify you get a status code of 200 for a successful response with the token value in the response body.    
+
 * Check the token value has been automatically defined for the collection variable ***BearerToken***.    
+
 
 The *GetToken* API call has defined a script in the ***Tests*** tab to programmatically set the collection variable BearerToken as shown in the picture below. The programmatically defined token is then used to authenticate any subsequent REST API calls.
 
