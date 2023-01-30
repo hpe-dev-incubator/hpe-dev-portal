@@ -2,8 +2,8 @@
 title: HPE Ezmeral Early Access gives developers hands-on experience with the
   new HPE GreenLake for Data Fabric
 date: 2022-12-07T09:23:02.929Z
-featuredBlog: true
-priority: 1
+featuredBlog: false
+priority: 10
 author: Alaric Thomas
 authorimage: /img/alaric_0.1.jpg
 thumbnailimage: /img/1338228_zh3kqtu6roaxv7asnc97_sw-dc-ezmeralwebinars-220921-gldatafabric-v1c.jpg
