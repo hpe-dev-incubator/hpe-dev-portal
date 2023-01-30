@@ -14,10 +14,14 @@ tags:
 ---
 Supercharge your network operations with Aruba devHub. Find help and resources to automate networks and quickly build powerful applications by integrating with HPE Aruba Networking products. Find APIs and guides, visit the Code Exchange, and join our community of Airheads.
 
-* [Check out the Aruba devHub](https://developer.arubanetworks.com/)
-* [Join the conversation at the Airheads Developer Community](https://community.arubanetworks.com/community-home?communitykey=3b1329d5-bdf8-44d2-93b1-8c252f5094fb)
-* [Simplify network operations with Aruba and Ansible](https://www.ansible.com/integrations/networks/aruba)
-* [Leverage the Aruba GitHub repository](https://github.com/aruba)
+* [Check out the Aruba devHub](https://developer.arubanetworks.com/)    
+
+* [Join the conversation at the Airheads Developer Community](https://community.arubanetworks.com/community-home?communitykey=3b1329d5-bdf8-44d2-93b1-8c252f5094fb)    
+
+* [Simplify network operations with Aruba and Ansible](https://www.ansible.com/integrations/networks/aruba)    
+
+* [Leverage the Aruba GitHub repository](https://github.com/aruba)     
+
 
 ## Resources
 
