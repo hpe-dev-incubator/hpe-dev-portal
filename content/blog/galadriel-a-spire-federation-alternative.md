@@ -1,7 +1,8 @@
 ---
 title: Galadriel - A SPIRE Federation Alternative
 date: 2022-10-31T19:57:46.505Z
-priority: 0
+featuredBlog: true
+priority: 4
 author: WILLIAM E BARRERA FUENTES
 authorimage: /img/Avatar1.svg
 disable: false
