@@ -1,6 +1,6 @@
 ---
 title: HPE joins the Linux Foundation’s SPDX workgroup as an SPDX supporter
-date: 2022-12-21T17:52:22.156Z
+date: 2023-01-05T17:52:22.156Z
 featuredBlog: true
 priority: 3
 author: Ria Farrell Schalnat and Chris Hibbard
