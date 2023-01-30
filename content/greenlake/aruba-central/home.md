@@ -16,7 +16,7 @@ Supercharge your network operations with Aruba devHub. Find help and resources t
 
 * [Check out the Aruba devHub](https://developer.arubanetworks.com/)    
 
-* [Join the conversation at the Airheads Developer Community](https://community.arubanetworks.com/community-home?communitykey=3b1329d5-bdf8-44d2-93b1-8c252f5094fb)    
+* [Join the conversation at the Airheads Developer Community](https://community.arubanetworks.com/community-home/digestviewer?communitykey=ea467413-8db4-4c49-b5f8-1a12f193e959&tab=digestviewer)    
 
 * [Simplify network operations with Aruba and Ansible](https://www.ansible.com/integrations/networks/aruba)    
 
@@ -25,9 +25,9 @@ Supercharge your network operations with Aruba devHub. Find help and resources t
 
 ## Resources
 
-* [Aruba API reference](https://developer.arubanetworks.com/aruba-central/reference/apiget_idp_metadata)    
+* [Aruba Central API reference](https://developer.arubanetworks.com/aruba-central/reference/apiget_idp_metadata)    
 
-* [Aruba Getting Started with Ansible guide](https://developer.arubanetworks.com/aruba-central/docs/ansible-getting-started)    
+* [Aruba Central's Getting Started with Ansible guide](https://developer.arubanetworks.com/aruba-central/docs/ansible-getting-started)    
 
 * [Aruba Central Postman collections](https://github.com/aruba/aruba-postman-collections)     
 
