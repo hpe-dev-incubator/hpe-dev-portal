@@ -27,7 +27,7 @@ Supercharge your network operations with Aruba devHub. Find help and resources t
 
 * [Aruba Central API reference](https://developer.arubanetworks.com/aruba-central/reference/apiget_idp_metadata)    
 
-* [Aruba Central's Getting Started with Ansible guide](https://developer.arubanetworks.com/aruba-central/docs/ansible-getting-started)    
+* [Getting Started with Ansible and Aruba Central](https://developer.arubanetworks.com/aruba-central/docs/ansible-getting-started)    
 
 * [Aruba Central Postman collections](https://github.com/aruba/aruba-postman-collections)     
 
