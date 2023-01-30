@@ -1,8 +1,8 @@
 ---
 title: SPIFFE/SPIRE graduates, enabling greater security solutions
 date: 2022-10-24T18:38:25.659Z
-featuredBlog: true
-priority: 3
+featuredBlog: false
+priority: 12
 author: HPE DEV
 authorimage: /img/Avatar1.svg
 thumbnailimage: /img/spiffe-spire-graduation-card-1200-x-675.jpg
