@@ -20,7 +20,7 @@ This blog post will give an overview of the existing application performance mon
 
 The continued availability and appropriate performance of an application are essential to a company’s ability to maintain uninterrupted business processes. This prevents unnecessary business disruptions and enhances customer satisfaction. To ensure this, many enterprises use application performance monitoring (APM). APM relies on a collection of tools and processes used to track the performance of applications and analyze the reports to spot anomalies and performance-related issues.
 
-Modern application architectures, such as HPE GreenLake for Private Cloud Enterprise, can be complex, involving large numbers of services and distributed systems located across multiple networks and physical locations, including the cloud. These environments can be challenging to monitor.  
+Modern application architectures can be complex, involving large numbers of services and distributed systems located across multiple networks and physical locations, including the cloud. These environments can be challenging to monitor.  
 
 APM tools collect data through metrics, traces and logs to measure performance and identify potential problems. They help collect application data across a broader range of environments and performs sophisticated analytics on data patterns to provide insights on large and complex environments. As the business impact of outages rises day by day, more and more businesses are likely to spend money on the best APM tool that matches their monitoring needs. 
 
