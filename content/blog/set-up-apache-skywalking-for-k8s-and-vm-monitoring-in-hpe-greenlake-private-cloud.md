@@ -55,7 +55,7 @@ $ helm install skywalking skywalking –n skywalking \
 
 After running the above commands, Apache SkyWalking is installed on the Kubernetes cluster's namespace *skywalking*. The option *elasticsearch.persistence.enabled=true* in the above Helm install command creates the *elasticsearch* as the `StatefulSet` object, running a pod on each worker node. The command runs the Apache SkyWalking Observability Analysis Platform (OAP) with replicas as 2 to provide high availability. 
 
-It should be noted that the last option *elasticsearch.sysctlInitContainer.enabled=false* in the above Helm install command is necessary. Otherwise, the command will try to set up *vm.max_map_count* using a privileged container during *elasticsearch* installation. By doing so, it will violate the existing *PodSecurityPolicy* deployed in the HPE GreenLake for Private Cloud Enterprise environment and will therefore fail the Helm install. 
+It should be noted that the last option *elasticsearch.sysctlInitContainer.enabled=false* in the above Helm install command is necessary. Otherwise, the command will try to set up *vm.max_map_count* using a privileged container during *elasticsearch* installation. Running privileged containers leaves a large chance that an attacker will be able to run code as root. There is one *PodSecurityPolicy*, **`psp-privileged-container`**, which has been pre-deployed in K8s clusters to deny privileged container running in the HPE GreenLake for Private Cloud Enterprise environment. This policy will fail the Helm install. 
 
 You can check the detailed Apache SkyWalking installation by typing the following *kubectl* command:
 
