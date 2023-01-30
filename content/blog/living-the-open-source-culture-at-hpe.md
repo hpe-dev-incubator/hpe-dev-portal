@@ -1,6 +1,8 @@
 ---
 title: Living the open source culture at HPE
 date: 2023-01-20T20:38:44.068Z
+featuredBlog: true
+priority: 5
 author: Ria Farrell Schalnat
 authorimage: /img/riapic.jpg
 disable: false
