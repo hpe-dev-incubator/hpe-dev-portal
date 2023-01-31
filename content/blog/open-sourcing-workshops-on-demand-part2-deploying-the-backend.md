@@ -464,27 +464,15 @@ T﻿his first check includes:
   * Ensure limits are correct for students accounts 
 * Copy the skeleton content under /etc/skel
 * Test .profile file
-
-  Ensure vim is the default EDITOR
-
-  Setup logind.conf
-
-  M﻿anage /etc/hosts file
-
-  Install the pkg update script
-
-  Setup crontab for daily pkg security update
-
-  Install utility scripts
-
-  Deliver the system scripts (cleanup-processes.sh.j2)
-
-  Install the cleanup-processes script
-
-  Setup weekly cleanup processes task
-
-  Enable WoD services
-
-  Test private tasks YAML file
-
-  Now call private tasks if available
+* Ensure vim is the default EDITOR
+* Setup logind.conf
+* M﻿anage /etc/hosts file
+* Install the pkg update script
+* Setup crontab for daily pkg security update
+* Install utility scripts
+* Deliver the system scripts (cleanup-processes.sh.j2)
+* Install the cleanup-processes script
+* Setup weekly cleanup processes task
+* Enable WoD service
+* Test private tasks YAML file
+* Call private tasks if available
