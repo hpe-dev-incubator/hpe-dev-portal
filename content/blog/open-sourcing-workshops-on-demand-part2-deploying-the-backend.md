@@ -362,20 +362,70 @@ Please note that this setup phase can be conccurent with the public setup phase.
 
 #### B﻿ackend server management:
 
-T﻿he backend server hosts all the necessary content for delivering workshops: it implies notebooks and scripts and playbooks to deploy and personalize them. It also hosts some services that are needed by the overall architecture solution (Procmail, Fail2ban among others).
+##### U﻿pdate of the backend server:
 
-S﻿ervices are installed one and for all at the installation time. If you are willing to update them or add additional ones, you will need to update the relevant installation playbooks.
+T﻿he backend server hosts all the necessary content for delivering workshops: it implies notebooks and scripts and playbooks to deploy and personalize them. It also hosts some services that are needed by the overall architecture solution (Jupyterhub, Procmail, Fail2ban among others).
 
-P﻿ossible Use Case:
+S﻿ervices are installed once and for all at the installation time. If you are willing to update them or add additional ones, you will need to update the relevant installation playbooks in wod-backend/ansible directory
+
+h﻿ere is a small extract of the install_backend.yml playbook: Full version [here](https://github.com/Workshops-on-Demand/wod-backend/blob/main/ansible/install_backend.yml)
+
+```shellsession
+vi install_backend
+- hosts: all
+  gather_facts: true
+  vars:
+    IJAVAVER: "1.3.0"
+    KUBECTLVER: "1.21.6"
+
+  tasks:
+    - name: Include variables for the underlying distribution
+      include_vars: "{{ ANSIBLEDIR }}/group_vars/{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yml"
+
+    - name: Base setup for a JupyterHub environment server or appliance
+      include_tasks: "{{ ANSIBLEDIR }}/setup_base_appliance.yml"
+
+    - name: Add CentOS SC repository into repo list
+      become: yes
+      become_user: root
+      yum:
+        name: centos-release-scl-rh
+        state: present
+      when:
+        - ansible_distribution == "CentOS"
+        - ansible_distribution_major_version >= "7"
+
+    - name: Add conda GPG Key to APT
+      become: yes
+      become_user: root
+      apt_key:
+        url: https://repo.anaconda.com/pkgs/misc/gpgkeys/anaconda.asc
+        state: present
+      when:
+       - ansible_distribution == "Ubuntu"
+       - ansible_distribution_major_version >= "20"
+
+      # TODO: Do it for EPEL if really needed
+    - name: Add conda APT repository
+      become: yes
+      become_user: root
+      apt_repository:
+        repo: deb [arch=amd64] https://repo.anaconda.com/pkgs/misc/debrepo/conda stable main
+        state: present
+      when:
+       - ansible_distribution == "Ubuntu"
+
+```
+
+P﻿ossible Use Cases:
 
 * U﻿pgrade to a newer version of Jupyterhub
 * A﻿dd a new kernel to Jupyterhub
 * A﻿dd a new Ansible Galaxy collection
 * A﻿dd a new package needed by a workshop:
+
   * Kubectl client  
   * T﻿erraform client
-
-
 
  You will start by move to your public backend forked repository and apply the necessary changes before committing and push locally. 
 
