@@ -4,6 +4,8 @@ date: 2023-01-13T17:08:52.384Z
 author: Frederic Passeron
 authorimage: /img/fp-hpewod.jpg
 disable: false
+tags:
+  - open source
 ---
 # Open Sourcing Workshops-on-Demand part 2: Deploying the backend -T﻿he How-to now...
 
