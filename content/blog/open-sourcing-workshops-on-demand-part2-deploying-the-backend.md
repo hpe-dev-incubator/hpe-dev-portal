@@ -449,15 +449,42 @@ T﻿his first check includes:
 * nproc hard and soft limits 
 * n﻿ofile hard and soft limits
 * Setup sysctl params 
+
   * net.ipv4.tcp_keepalive_time, value: "1800"  
   * kernel.threads-max, value: "4096000"  
   * kernel.pid_max, value: "200000" 
   * vm.max_map_count, value: "600000"
 * S﻿etup UDP and TCP firewall rules
 * Enable services:
+
   * Fi﻿rewalld 
   * N﻿tp 
 * S﻿tudent Management:
+
   * Ensure limits are correct for students accounts 
 * Copy the skeleton content under /etc/skel
 * Test .profile file
+
+  Ensure vim is the default EDITOR
+
+  Setup logind.conf
+
+  M﻿anage /etc/hosts file
+
+  Install the pkg update script
+
+  Setup crontab for daily pkg security update
+
+  Install utility scripts
+
+  Deliver the system scripts (cleanup-processes.sh.j2)
+
+  Install the cleanup-processes script
+
+  Setup weekly cleanup processes task
+
+  Enable WoD services
+
+  Test private tasks YAML file
+
+  Now call private tasks if available
