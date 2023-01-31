@@ -38,7 +38,7 @@ With your user access setup, you should have access to permissions that can crea
 
 ## Set up Apache SkyWalking for Kubernetes monitoring
 
-Apache SkyWalking leverages the Kubernetes [kube-state-metrics](https://github.com/kubernetes/kube-state-metrics) service for collecting metrics data from Kubernetes cluster. It then leverages the *OpenTelemetry* collector to transfer the Kubernetes metrics to *OpenTelemetry* receiver in the Apache SkyWalking Observability Analysis Platform (OAP) for Kubernetes monitoring. 
+Apache SkyWalking leverages the Kubernetes [kube-state-metrics](https://github.com/kubernetes/kube-state-metrics) service for collecting metrics data from Kubernetes cluster. It then leverages the *OpenTelemetry* collector to transfer the Kubernetes metrics to the *OpenTelemetry* receiver in the Apache SkyWalking Observability Analysis Platform (OAP) for Kubernetes monitoring. 
 
 ![](/img/otel-collector.png)
 
