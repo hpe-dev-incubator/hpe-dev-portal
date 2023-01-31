@@ -471,7 +471,7 @@ T﻿his first check includes:
 * Setup crontab for daily pkg security update
 * Install utility scripts
 * Deliver the system scripts (cleanup-processes.sh.j2)
-* Install the cleanup-processes script
+* Installation of the cleanup-processes script
 * Setup weekly cleanup processes task
 * Enable WoD service
 * Test private tasks YAML file
