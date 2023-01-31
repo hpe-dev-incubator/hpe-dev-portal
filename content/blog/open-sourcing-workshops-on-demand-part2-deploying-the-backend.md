@@ -437,3 +437,38 @@ P﻿ossible Use Cases:
  Then you will perform a merge request with the main repository. We plan to integrate here  in a proper CICD (continuous integration continous development) pipeline to allow a vagrant based test deployment. Whenever someone performs a merge request on the main repo, the test deployment task kicks in and deploy a virtual backend server on which the new version of the installation process is automatically tested. When successful, the merge request is accepted. Once merged, you will need to move to your backend server and perform git remote update and git rebase on the wod-backend directory. Once done, you will then be able to perform the installation process.
 
 ##### R﻿egular maintenance of the backend server:
+
+O﻿n a daily basis, some tasks are launched to check the integrity of the backend server. Some tasks are related to the security integrity of the system. The following playbook is at the heart of this verification: wod-backend/ansible/check_backend.yml. Full version of the file is available [here](https://github.com/Workshops-on-Demand/wod-backend/blob/main/ansible/check_backend.yml) for review.
+
+I﻿t checks a quite long list of items like:
+
+W﻿od System compliancy: is this really a wod system? by calling out [check_system.yml](https://github.com/Workshops-on-Demand/wod-backend/blob/main/ansible/check_system.yml) playbook
+
+T﻿his first check includes:
+
+nproc hard and soft limits
+
+n﻿ofile hard and soft limits
+
+Setup sysctl params 
+
+net.ipv4.tcp_keepalive_time, value: "1800" 
+kernel.threads-max, value: "4096000" 
+kernel.pid_max, value: "200000" 
+vm.max_map_count, value: "600000"
+
+S﻿etup UDP and TCP firewall rules
+
+Enable services:
+
+F﻿rewalld
+
+N﻿tp
+
+S﻿tudent Management:
+
+Ensure limits are correct for students accounts
+
+Copy the skeleton content under /etc/skel
+
+Test .profile file
