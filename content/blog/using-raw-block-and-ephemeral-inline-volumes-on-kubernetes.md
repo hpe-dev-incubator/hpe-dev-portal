@@ -1,12 +1,19 @@
 ---
-title: "Using Raw Block and Ephemeral Inline Volumes on Kubernetes"
+title: Using Raw Block and Ephemeral Inline Volumes on Kubernetes
 date: 2020-06-11T21:18:38.870Z
-author: Michael Mattsson 
-tags: ["hpe-nimble-storage","hpe-3par-and-primera"]
-authorimage: "/img/blogs/Avatar2.svg"
 featuredBlog: false
-priority:
-thumbnailimage:
+priority: null
+author: Michael Mattsson
+authorimage: /img/blogs/Avatar2.svg
+thumbnailimage: null
+tags:
+  - hpe-nimble-storage
+  - hpe-3par-and-primera
+  - hpe-greenlake
+  - hpe-greenlake-for-private-cloud-enterprise
+  - developer
+  - containers-service
+  - hpe-greenlake-for-private-cloud-enterprise-containers
 ---
 With the release of the [HPE CSI Driver for Kubernetes 1.2.0](https://community.hpe.com/t5/around-the-storage-block/hpe-csi-driver-for-kubernetes-1-2-0-available-now/ba-p/7091977) quite a few new Container Storage Interface (CSI) concepts were introduced as fully supported features. As always, new capabilities introduce new YAML stanzas that needs to be understood to take full advantage of these capabilities. In this blog post, we’ll explore how to expose raw block volumes and the different ways to declare an ephemeral inline volume for Kubernetes Pods.
 
