@@ -446,29 +446,18 @@ W﻿od System compliancy: is this really a wod system? by calling out [check_sys
 
 T﻿his first check includes:
 
-nproc hard and soft limits
-
-n﻿ofile hard and soft limits
-
-Setup sysctl params 
-
-net.ipv4.tcp_keepalive_time, value: "1800" 
-kernel.threads-max, value: "4096000" 
-kernel.pid_max, value: "200000" 
-vm.max_map_count, value: "600000"
-
-S﻿etup UDP and TCP firewall rules
-
-Enable services:
-
-F﻿rewalld
-
-N﻿tp
-
-S﻿tudent Management:
-
-Ensure limits are correct for students accounts
-
-Copy the skeleton content under /etc/skel
-
-Test .profile file
+* nproc hard and soft limits 
+* n﻿ofile hard and soft limits
+* Setup sysctl params 
+  * net.ipv4.tcp_keepalive_time, value: "1800"  
+  * kernel.threads-max, value: "4096000"  
+  * kernel.pid_max, value: "200000" 
+  * vm.max_map_count, value: "600000"
+* S﻿etup UDP and TCP firewall rules
+* Enable services:
+  * Fi﻿rewalld 
+  * N﻿tp 
+* S﻿tudent Management:
+  * Ensure limits are correct for students accounts 
+* Copy the skeleton content under /etc/skel
+* Test .profile file
