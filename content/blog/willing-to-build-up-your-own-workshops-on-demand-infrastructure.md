@@ -6,6 +6,9 @@ priority: 1
 author: "Frederic Passeron "
 authorimage: /img/fp-hpewod.jpg
 disable: false
+tags:
+  - opensource
+  - workshops-on-demand
 ---
 # A﻿ bit of background
 
