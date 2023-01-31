@@ -9,6 +9,11 @@ thumbnailimage: null
 tags:
   - hpe-nimble-storage
   - hpe-3par-and-primera
+  - hpe-greenlake
+  - hpe-greenlake-for-private-cloud-enterprise
+  - hpe-greenlake-for-private-cloud-enterprise-containers
+  - developer
+  - containers-service
 ---
 Typically, Persistent Volume Claims on Kubernetes are treated as a singular entity completely decoupled from your workload. The actual physical location doesn't really matter. But what if you wanted an atomic operation where all Persistent Volume Claims that make up an application in a microservice architecture need to be atomically protected to ensure referential integrity? Would you stop the application, sequence the operation or take a shotgun approach and hope for the best? 
 
