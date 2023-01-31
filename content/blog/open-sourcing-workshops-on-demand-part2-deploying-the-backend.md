@@ -361,3 +361,22 @@ sudo ./install.sh -t backend -g staging -b jup.example.net -f notebooks.example.
 Please note that this setup phase can be conccurent with the public setup phase. Indeed, the install script should detect the presence of the private repository owing to the presence of the install.priv file. It will automatically adjust the different scripts and variables to add the relevant content. It will actually overload some of the variables with the private ones.
 
 #### B﻿ackend server management:
+
+T﻿he backend server hosts all the necessary content for delivering workshops: it implies notebooks and scripts and playbooks to deploy and personalize them. It also hosts some services that are needed by the overall architecture solution (Procmail, Fail2ban among others).
+
+S﻿ervices are installed one and for all at the installation time. If you are willing to update them or add additional ones, you will need to update the relevant installation playbooks.
+
+P﻿ossible Use Case:
+
+* U﻿pgrade to a newer version of Jupyterhub
+* A﻿dd a new kernel to Jupyterhub
+* A﻿dd a new Ansible Galaxy collection
+* A﻿dd a new package needed by a workshop:
+  * Kubectl client  
+  * T﻿erraform client
+
+
+
+ You will start by move to your public backend forked repository and apply the necessary changes before committing and push locally. 
+
+ Then you will perform a merge reequest with the main repository. We plan to integrate here  in a proper CICD (continuous integration continous development) pipeline to allow a vagrant based test deployment. Whenever someone performs a merge request on the main repo, the test deployment task kicks in and deploy a virtual backend server on which the new version of the installation process is automatically tested. When successful, the merge request is accepted. Once merged, you will need to move to your backend server and perform git remote update and git rebase on the wod-backend directory. Once done, you will then be able to perform the installation process.
