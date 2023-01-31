@@ -364,11 +364,13 @@ Please note that this setup phase can be conccurent with the public setup phase.
 
 #### B﻿ackend server management:
 
+T﻿here are two types of activities that can occur on the backend server: punctual or regular. The punctual activity is one that is performed once every now and then. The regular one is usually set up on the backend server as a cron job. Sometimes however, one of these cron tasks can be forced manually if necessary. One the main scheduled task is the 'deliver' task. I will explain it later on in this chapter. I will start now by explaining an important possible punctual task, the update of the backend server.
+
 ##### U﻿pdate of the backend server:
 
 T﻿he backend server hosts all the necessary content for delivering workshops: it implies notebooks and scripts and playbooks to deploy and personalize them. It also hosts some services that are needed by the overall architecture solution (Jupyterhub, Procmail, Fail2ban among others).
 
-S﻿ervices are installed once and for all at the installation time. If you are willing to update them or add additional ones, you will need to update the relevant installation playbooks in wod-backend/ansible directory
+S﻿ervices are installed once and for all at the installation time. These services may evolve over time. One may need to update the jupyterhub application to fix a bug or get new features. In the same fashion, you may consider bumping from one python version to a new major one. If you are willing to update these services or add additional ones, you will need to update the relevant installation playbooks in wod-backend/ansible directory.
 
 h﻿ere is a small extract of the install_backend.yml playbook: Full version [here](https://github.com/Workshops-on-Demand/wod-backend/blob/main/ansible/install_backend.yml)
 
@@ -416,7 +418,6 @@ vi install_backend
         state: present
       when:
        - ansible_distribution == "Ubuntu"
-
 ```
 
 P﻿ossible Use Cases:
@@ -424,11 +425,15 @@ P﻿ossible Use Cases:
 * U﻿pgrade to a newer version of Jupyterhub
 * A﻿dd a new kernel to Jupyterhub
 * A﻿dd a new Ansible Galaxy collection
-* A﻿dd a new package needed by a workshop:
+* A﻿dd a new package needed by a workshop. For e.g:
 
   * Kubectl client  
   * T﻿erraform client
+  * P﻿owerShell module  
+  * P﻿ython Library
 
  You will start by move to your public backend forked repository and apply the necessary changes before committing and push locally. 
 
- Then you will perform a merge reequest with the main repository. We plan to integrate here  in a proper CICD (continuous integration continous development) pipeline to allow a vagrant based test deployment. Whenever someone performs a merge request on the main repo, the test deployment task kicks in and deploy a virtual backend server on which the new version of the installation process is automatically tested. When successful, the merge request is accepted. Once merged, you will need to move to your backend server and perform git remote update and git rebase on the wod-backend directory. Once done, you will then be able to perform the installation process.
+ Then you will perform a merge request with the main repository. We plan to integrate here  in a proper CICD (continuous integration continous development) pipeline to allow a vagrant based test deployment. Whenever someone performs a merge request on the main repo, the test deployment task kicks in and deploy a virtual backend server on which the new version of the installation process is automatically tested. When successful, the merge request is accepted. Once merged, you will need to move to your backend server and perform git remote update and git rebase on the wod-backend directory. Once done, you will then be able to perform the installation process.
+
+##### R﻿egular maintenance of the backend server:
