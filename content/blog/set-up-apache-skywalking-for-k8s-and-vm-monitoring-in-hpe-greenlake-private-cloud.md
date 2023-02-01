@@ -1,12 +1,15 @@
 ---
 title: "Handling application performance monitoring on HPE GreenLake for Private
   Cloud Enterprise – Part 2: App monitoring using Apache SkyWalking"
-date: 2023-01-04T07:31:55.711Z
+date: 2023-01-10T07:31:55.711Z
 author: Guoping Jia
 authorimage: /img/guoping.png
 tags:
-  - hpe-greenlake, hpe-greenlake-for-private-cloud-enterprise, Kubernetes,
-    application performance monitoring, Apache SkyWalking
+  - hpe-greenlake
+  - hpe-greenlake-for-private-cloud-enterprise
+  - Kubernetes
+  - application performance monitoring
+  - Apache SkyWalking
 ---
 ## Introduction
 
