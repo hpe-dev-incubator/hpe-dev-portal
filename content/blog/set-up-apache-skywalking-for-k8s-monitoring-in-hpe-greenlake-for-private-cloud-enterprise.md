@@ -6,8 +6,11 @@ author: Guoping Jia
 authorimage: /img/guoping.png
 disable: false
 tags:
-  - hpe-greenlake, hpe-greenlake-for-private-cloud-enterprise, Kubernetes,
-    application performance monitoring, Apache SkyWalking
+  - hpe-greenlake
+  - hpe-greenlake-for-private-cloud-enterprise
+  - Kubernetes
+  - application performance monitoring
+  - Apache SkyWalking
 ---
 ## Why is Kubernetes monitoring so important?
 
