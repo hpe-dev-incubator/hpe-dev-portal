@@ -6,9 +6,16 @@ author: Guoping Jia
 authorimage: /img/guoping.png
 disable: false
 tags:
-  - hpe-greenlake, hpe-greenlake-for-private-cloud-enterprise, application
-    performance monitoring, Splunk, Datadog, New Relic, Dynatrace, Prometheus,
-    Elastic, Apache SkyWalking
+  - hpe-greenlake
+  - hpe-greenlake-for-private-cloud-enterprise
+  - application performance monitoring
+  - Splunk
+  - Datadog
+  - New Relic
+  - Dynatrace
+  - Prometheus
+  - Elastic
+  - Apache SkyWalking
 ---
 ## Introduction
 
