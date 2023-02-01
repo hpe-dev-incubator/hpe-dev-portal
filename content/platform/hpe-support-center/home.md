@@ -16,10 +16,6 @@ HPE Support Center is the access point for technical case management, downloads,
 
 The Warranty Check API enables easy integration of HPE support search into the user’s application and business processes. It retrieves the warranty and support status of a serial number, including current support level with active dates, and any expired support within the past year.
 
-### About the API
-
-[Read about the Warranty Check API](https://warranty-check.redoc.ly/)
-
 ### Use the API
 
 [Getting started](https://warranty-check.redoc.ly/developer-portal)
