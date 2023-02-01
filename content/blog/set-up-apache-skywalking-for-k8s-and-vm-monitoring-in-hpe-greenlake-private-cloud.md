@@ -5,8 +5,11 @@ date: 2023-01-04T07:31:55.711Z
 author: Guoping Jia
 authorimage: /img/guoping.png
 tags:
-  - hpe-greenlake, hpe-greenlake-for-private-cloud-enterprise, Kubernetes,
-    application performance monitoring, Apache SkyWalking
+  - hpe-greenlake
+  - hpe-greenlake-for-private-cloud-enterprise
+  - Kubernetes
+  - application performance monitoring
+  - Apache SkyWalking
 ---
 ## Introduction
 
