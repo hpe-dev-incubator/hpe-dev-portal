@@ -9,6 +9,9 @@ tags:
   - terraform
   - opensource
   - hpe-greenlake-for-private-cloud-enterprise
+  - developer
+  - hpe-greenlake-for-private-cloud-enterprise-containers
+  - containers-service
 ---
 ## Getting started
 
