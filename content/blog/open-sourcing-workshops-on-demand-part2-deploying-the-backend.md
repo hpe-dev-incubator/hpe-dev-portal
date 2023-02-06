@@ -343,7 +343,9 @@ cd $HOME/wod-backend/install
 
 * Create an install.priv file located in install directory when using a private repo 
 
-  * Define the WODPRIVREPO with the correct url to clone (example in last line of install.repo) WODPRIVREPO="git clone [git@github.com](mailto:git@github.com):Account/Private-Repo.git wod-private"
+  * Define the WODPRIVREPO and WODPRIVBRANCH variables as follows:
+    * WODPRIVBRANCH="master"   
+    * WODPRIVREPO="[git@github.com](mailto:git@github.com):Account/Private-Repo.git wod-private"
 
 **Note: When using a token**
 
@@ -360,7 +362,7 @@ Y﻿ou are now ready to perform the installation again to support a private repo
 sudo ./install.sh -t backend -g staging -b jup.example.net -f notebooks.example.io -a api.example.io -e notebooks.example.io -s sender@example.io
 ```
 
-Please note that this setup phase can be conccurent with the public setup phase. Indeed, the install script should detect the presence of the private repository owing to the presence of the install.priv file. It will automatically adjust the different scripts and variables to add the relevant content. It will actually overload some of the variables with the private ones.
+Please note that this setup phase can be conccurent with the public setup phase. Indeed, the install script should detect the presence of the private repository owing to the presence of the install.priv file. It will automatically adjust the different scripts and variables to add the relevant content. It will actually overload some of the variables with private ones.
 
 #### B﻿ackend server management:
 
@@ -438,13 +440,13 @@ P﻿ossible Use Cases:
 
 ##### R﻿egular maintenance of the backend server:
 
-O﻿n a daily basis, some tasks are launched to check the integrity of the backend server. Some tasks are related to the security integrity of the system. The following playbook is at the heart of this verification: wod-backend/ansible/check_backend.yml. Full version of the file is available [here](https://github.com/Workshops-on-Demand/wod-backend/blob/main/ansible/check_backend.yml) for review.
+O﻿n a daily basis, some tasks are launched to check the integrity of the backend server. Some tasks are related to the security integrity of the system. The following playbook is at the heart of this verification: **wod-backend/ansible/check_backend.yml**. Full version of the file is available [here](https://github.com/Workshops-on-Demand/wod-backend/blob/main/ansible/check_backend.yml) for review.
 
 I﻿t checks a quite long list of items like:
 
-W﻿od System compliancy: is this really a wod system? by calling out [check_system.yml](https://github.com/Workshops-on-Demand/wod-backend/blob/main/ansible/check_system.yml) playbook
+* W﻿od System compliancy: is this really a wod system? by calling out [check_system.yml](https://github.com/Workshops-on-Demand/wod-backend/blob/main/ansible/check_system.yml) playbook
 
-T﻿his first check includes:
+\    T﻿his first check includes:  
 
 * nproc hard and soft limits 
 * n﻿ofile hard and soft limits
