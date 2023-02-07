@@ -7,6 +7,7 @@ tags:
   - hpe-greenlake
   - MLOPS
   - data-ml-engineer
+  - cloud-architect
 ---
 ## Overview
 

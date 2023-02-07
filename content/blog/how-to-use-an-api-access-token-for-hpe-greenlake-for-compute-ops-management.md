@@ -9,6 +9,7 @@ tags:
   - hpe-greenlake-for-compute-ops-management
   - developer
   - hpe-greenlake-cloud-platform
+  - cloud-architect
 ---
 Common identity frameworks and protocols use token-based strategies to secure access to applications and resources. OAuth 2.0 is one of the most popular, using access tokens and refresh tokens to allow an application to access resources hosted by other servers on behalf of a user. The Compute Ops Management REST API uses the OAuth 2.0 HPE GreenLake authentication flow, where a limited lifetime access token is provided in the header of each REST API request as the authorization bearer. The access token is associated with a subject (person or service) and retains all the same permissions and privileges as the subject. In this blog post, I will discuss the essential steps required to generate this access token.
 

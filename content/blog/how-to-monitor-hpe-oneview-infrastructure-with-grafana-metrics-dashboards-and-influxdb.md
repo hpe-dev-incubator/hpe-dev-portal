@@ -8,6 +8,7 @@ tags:
   - hpe-oneview
   - grafana
   - influxdb
+  - cloud-architect
 ---
 <style>ul li{ font-size:26px;padding-bottom: 0.5em;}</style>
 <style> i{ color:grey;font-family:'Courier New';font-size:22px; } </style>

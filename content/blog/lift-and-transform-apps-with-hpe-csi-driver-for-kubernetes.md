@@ -10,6 +10,9 @@ tags:
   - hpe-alletra
   - hpe-nimble-storage
   - hpe-3par-and-primera
+  - devops
+	- sre
+  - site-reliability-engineer
 ---
 Do you run your applications in virtual machines on VMware today using the same patterns once employed by bare-metal paradigms? It's just a bit more efficient from a resource consumption perspective, but what about the lifecycle of the application, its dependencies — including libraries, host operating systems and various mnemonics — used to keep the application up and running?
 

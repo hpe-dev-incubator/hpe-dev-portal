@@ -8,6 +8,7 @@ thumbnailimage: /img/greenlake-576x324.jpg
 tags:
   - hpe-greenlake
   - hpe-greenlake-for-private-cloud-enterprise
+  - cloud-architect
 ---
 **Editor’s Note – NAME CHANGE: HPE GreenLake for Private Cloud is now part of HPE GreenLake for Private Cloud Enterprise.**
 
