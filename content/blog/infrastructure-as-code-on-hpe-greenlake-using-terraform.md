@@ -14,7 +14,7 @@ tags:
   - cloud-architect
   - devops
   - sre
-  - site-reliability-enginee
+  - site-reliability-engineer
 ---
 **Editor’s Note – NAME CHANGE: HPE GreenLake for Private Cloud is now part of HPE GreenLake for Private Cloud Enterprise.**
 
