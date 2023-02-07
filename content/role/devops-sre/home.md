@@ -7,7 +7,9 @@ priority: 8
 frontpage: true
 active: true
 tags:
-  - it-system
+  - devops
+  - sre
+  - site-reliability-engineer
 ---
 <style>
 .row {
@@ -105,7 +107,7 @@ You may also find content of interest to you on the [Data Scientist](/role/data-
 
 - Review [HPE GreenLake for Private Cloud Enterprise monitoring with Apache SkyWalking and OpenTelemetry](/blog/greenlake-platform-infrastructure-monitoring-with-apache-skywalking/)
 
-- Read [Addressing hybrid cloud application challenges using HPE GreenLake for Private Cloud Enterprise – Part 2: Application monitoring](blog/monitor-application-performance-across-hybrid-cloud-environment-using-apache-skywalking-and-service-mesh/)
+- Read [Addressing hybrid cloud application challenges using HPE GreenLake for Private Cloud Enterprise – Part 2: Application monitoring](/blog/monitor-application-performance-across-hybrid-cloud-environment-using-apache-skywalking-and-service-mesh/)
 
 - Check out [Containers: Best practices for running in production](/blog/containers-best-practices-for-running-in-production/)
 
@@ -166,7 +168,7 @@ You may also find content of interest to you on the [Data Scientist](/role/data-
 
    - [Running reliable systems - Part 1: An Overview of Site Reliability Engineering (SRE)](https://www.youtube.com/watch?v=XhhqEjUaLjE&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF&ab_channel=HewlettPackardEnterprise)
 
-   - [Running reliable systems - Part 2: Service level objective (SLO) Math](https://www.youtube.com/watch?v=XhhqEjUaLjE&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF&ab_channel=HewlettPackardEnterprise)
+   - [Running reliable systems - Part 2: Service level objective (SLO) Math](https://www.youtube.com/watch?v=ZDxptOGs-ow&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF&index=2&ab_channel=HewlettPackardEnterprise)
 
    - [OpenTelemetry: Getting started and the road to production](https://www.youtube.com/watch?v=odi9isyZOrU&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF&index=1&ab_channel=HewlettPackardEnterprise)
 
