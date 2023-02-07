@@ -724,5 +724,13 @@ If appropriate, use a tag to tie your blog post to a **"Product"** page or a **"
   | **open-source software**           | opensource |
   
   
-  
+  | **Personas**    | **Associated Tags**  |
+  | --------------- | -------------------- |
+  | **Developer page**   | developer |
+  | **Data Scientist page**   | data-scientist  |
+  | **Data and ML Engineer page**  | data-ml-engineer |
+  | **Open Source Advocate page** | opensource |
+  | **Cloud Architect page**  | cloud-architect |
+  | **DevOps & Site Reliability Engineer** | devops ; sre ; site-reliability-engineer |
+ 
   
