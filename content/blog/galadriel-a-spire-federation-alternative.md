@@ -11,7 +11,7 @@ tags:
   - SPIFFE
   - spiffe-and-spire-projects
   - devops
-	- sre
+  - sre
   - site-reliability-engineer
 ---
 
