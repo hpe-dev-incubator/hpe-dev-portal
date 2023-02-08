@@ -13,7 +13,7 @@ tags:
   - hpe-greenlake-for-private-cloud-enterprise-containers
   - containers-service
   - devops
-	- sre
+  - sre
   - site-reliability-engineer
 ---
 ## Getting started
