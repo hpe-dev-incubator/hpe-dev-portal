@@ -11,7 +11,7 @@ tags:
   - Skupper
   - AWS EKS
   - devops
-	- sre
+  - sre
   - site-reliability-engineer
 ---
 ## Introduction
