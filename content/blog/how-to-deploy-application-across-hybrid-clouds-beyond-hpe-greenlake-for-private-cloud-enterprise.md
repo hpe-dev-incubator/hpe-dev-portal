@@ -10,6 +10,9 @@ tags:
   - hpe-greenlake-for-private-cloud-enterprise
   - Skupper
   - AWS EKS
+  - devops
+  - sre
+  - site-reliability-engineer
 ---
 ## Introduction
 

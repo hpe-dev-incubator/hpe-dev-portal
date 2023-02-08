@@ -2,7 +2,7 @@
 title: "Best Practices for Migrating Your Apps to Containers and Kubernetes"
 date: 2020-11-25T02:26:04.249Z
 author: Suzy Visvanathan 
-tags: ["hpe-ezmeral-data-fabric","MapR","mapr-platform","containers","microservices","opensource"]
+tags: ["hpe-ezmeral-data-fabric","MapR","mapr-platform","containers","microservices","opensource","devops","sre","site-reliability-engineer"]
 authorimage: "/img/blogs/Avatar6.svg"
 featuredBlog: false
 priority:

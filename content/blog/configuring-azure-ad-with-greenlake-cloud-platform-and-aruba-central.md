@@ -11,6 +11,7 @@ tags:
   - aruba-central
   - hpe-greenlake
   - hpe-greenlake-cloud-platform
+  - cloud-architect
 ---
 
 Single sign-on (SSO) enables users to securely authenticate with multiple applications and websites by logging in only once using just one set of credentials (username and password). With SSO, the application or website that the user is trying to access relies on a trusted third party (identity provider) to verify that users are who they say they are.

@@ -7,6 +7,7 @@ authorimage: /img/Avatar1.svg
 tags:
   - hpe-greenlake
   - hpe-greenlake-for-private-cloud-enterprise
+  - cloud-architect
 ---
 <center><img src="/img/intro-greenlake-512-pixels-rgb-image.jpg" width="512" height="384" alt="Curate and expose catalog items using the HPE GreenLake Service Catalog persona view"></center>
 

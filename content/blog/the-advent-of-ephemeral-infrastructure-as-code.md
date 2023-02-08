@@ -2,7 +2,7 @@
 title: "The Advent of Ephemeral Infrastructure as Code"
 date: 2019-01-02T15:40:59.636Z
 author: Katreena Mullican 
-tags: []
+tags: ["devops","sre","site-reliability-engineer"]
 authorimage: "/img/blogs/Avatar3.svg"
 featuredBlog: false
 priority:

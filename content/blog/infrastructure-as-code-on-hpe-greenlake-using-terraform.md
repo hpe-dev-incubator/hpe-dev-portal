@@ -11,6 +11,10 @@ tags:
   - hpe-greenlake
   - opensource
   - hpe-greenlake-for-private-cloud-enterprise
+  - cloud-architect
+  - devops
+  - sre
+  - site-reliability-engineer
 ---
 **Editor’s Note – NAME CHANGE: HPE GreenLake for Private Cloud is now part of HPE GreenLake for Private Cloud Enterprise.**
 

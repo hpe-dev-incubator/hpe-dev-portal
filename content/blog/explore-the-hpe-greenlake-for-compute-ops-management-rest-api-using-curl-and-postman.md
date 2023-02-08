@@ -12,6 +12,8 @@ tags:
   - developer
   - devops
   - hpe-greenlake-cloud-platform
+  - sre
+  - site-reliability-engineer
 ---
 HPE GreenLake for Compute Ops Management automates and transforms complex and time-consuming compute management operations into a simplified experience across edge-to-cloud. Whether you are an IT OPS or a DEV OPS engineer, you know that automation is the key to success. And today’s automation relies heavily on APIs and how one can interact easily with them. So, let us show you how to leverage the API provided so you, too, can take advantage of what HPE GreenLake for Compute Ops Management can provide. In this blog post, we will cover how to do this using cURL and Postman.
 

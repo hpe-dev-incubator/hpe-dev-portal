@@ -25,7 +25,7 @@ export function UserMenu({ userInfo }) {
     setOpen((o) => !o);
   };
 
-  console.log('--user-- UserMenu', userInfo);
+  // console.log('--user-- UserMenu', userInfo);
   let redirectURI =
     typeof window !== 'undefined'
       ? window.location.href

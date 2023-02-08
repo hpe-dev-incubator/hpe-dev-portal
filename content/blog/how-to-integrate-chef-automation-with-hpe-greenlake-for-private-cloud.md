@@ -7,6 +7,7 @@ authorimage: /img/Avatar1.svg
 tags:
   - hpe-greenlake
   - hpe-greenlake-for-private-cloud-enterprise
+  - cloud-architect
 ---
 ![](/img/gettyimages-521980823_16x9_1600_0_72_rgb.jpg)
 

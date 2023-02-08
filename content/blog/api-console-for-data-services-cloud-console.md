@@ -10,6 +10,7 @@ tags:
   - data-services-cloud-console
   - developer
   - hpe-greenlake-cloud-platform
+  - cloud-architect
 ---
 ## Secured, Yet Agile
 

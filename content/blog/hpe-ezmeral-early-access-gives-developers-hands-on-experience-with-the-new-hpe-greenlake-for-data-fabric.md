@@ -13,6 +13,7 @@ tags:
   - hpe-greenlake
   - data-fabric
   - hpe-greenlake-for-data-fabric
+  - cloud-architect
 ---
 The HPE Ezmeral Data Fabric is about to start a new journey in its delivery of an enterprise grade data fabric for hybrid and multi-cloud enterprises.
 
