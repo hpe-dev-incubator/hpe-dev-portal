@@ -7,8 +7,9 @@ tags:
   - gopaddle
   - hpe-ezmeral
   - devops
-	- sre
   - site-reliability-engineer
+  - sre
+
 ---
 ‘Autopilot’ is a concept that is familiar to many in the aviation and automobile industries. As it pertains to airplanes, autopilot systems aid pilots in focusing on crucial tasks by automating and controlling every aspect of the flight, from take-off to landing. Modern-day autopilot systems can be customized and pilots can decide on which features are to be manually controlled. Drawing parallels, in the context of Kubernetes, an autopilot system can manage the end-to-end automation of deployments as well as the maintenance of applications, relieving developers from the pain of manual intervention.  A system like this incorporates the necessary checks and balances to ensure the health of the applications and the CI/CD (continuous integration/continuous delivery) pipelines.
 
