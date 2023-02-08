@@ -14,7 +14,7 @@ tags:
   - containers-service
   - hpe-greenlake-for-private-cloud-enterprise-containers
   - devops
-	- sre
+  - sre
   - site-reliability-engineer
 ---
 **Editor’s Note – NAME CHANGE: HPE GreenLake for Containers is now part of HPE GreenLake for Private Cloud Enterprise.**
