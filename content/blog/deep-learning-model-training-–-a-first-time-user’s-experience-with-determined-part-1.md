@@ -22,7 +22,7 @@ In this two-part blog series, I’ll share my experience as a first-time user of
 
 In this first part, I’ll put on my IT Operations manager’s hat and explain how I deploy Determined on a Kubernetes cluster in an on-premises HPE Ezmeral Runtime Enterprise deployment. In this instance, it will enable my organization’s data science team to quickly try out Determined and assess its capabilities for their data science work. 
 
-<center><img src="/img/detai-high-levl-architecture-thumbnail-v2.png" width="543" height="708" alt="High Level architecture diagram"></center>
+<center><img src="/img/detai-high-levl-architecture-thumbnail-v2.png" width="543" height="708" alt="High Level architecture diagram" title="High Level architecture diagram"></center>
 
 [In the second part of this series](https://developer.hpe.com/blog/deep-learning-model-training-%E2%80%93-a-first-time-user%E2%80%99s-experience-with-determined-%E2%80%93-part-2/), I'll wear my data scientist/ML engineer hat as a member of a larger data science team that wants to get started with Determined and explore some of its fundamental concepts and features. I’ll review how to train neural network models using one or more GPUs with distributed training, and advanced functionality such as state-of-the-art hyperparameter search to improve model accuracy and find the best version of a model.
 
@@ -40,7 +40,7 @@ HPE Ezmeral Runtime Enterprise with the pre-integrated HPE Ezmeral Data Fabric p
 
 ## Components of my Determined deployment
 
-<center><img src="/img/detai-lab-environment-architecture-v2.png" width="1332" height="725" alt="Figure1 Determined High Level Architecture on Kubernetes"></center>
+<center><img src="/img/detai-lab-environment-architecture-v2.png" width="1332" height="725" alt="Figure1 Determined High Level Architecture on Kubernetes" title="Figure1 Determined High Level Architecture on Kubernetes"></center>
 
 As the figure above indicates, my experimental deployment of Determined consists of:
 
