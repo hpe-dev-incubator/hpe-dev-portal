@@ -480,7 +480,7 @@ Here is how you can crate an external blog post entry in the HPE Developer Commu
 
     -  On the top right of the wizard, click **Upload** to upload the image stored on your PC/laptop and select image you have just uploaded by clicking **Choose selected**.
      
-    -  Specify a "**Title**" for your image in the _TITLE_ section of the _IMAGE_ block. The title will appear when the reader hovers or pauses the mouse over the image. It aims to make the image collateral more accessible for people with visual impairments. 
+    -  Specify a "**Title**" for your image in the _TITLE_ section of the _IMAGE_ block. The title will appear when the reader hovers or pauses the mouse over the image. It aims to make the image collateral more accessible for people who use screen readers and for people with visual impairments. 
     
     -  Make sure to specify a description for your image in the _ALT TEXT_ section of the _IMAGE_ block. 
     
