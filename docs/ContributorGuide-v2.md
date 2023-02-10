@@ -465,7 +465,7 @@ Here is how you can crate an external blog post entry in the HPE Developer Commu
          \[Piece-of-text-to-hotlink](Link-URL)
           
     
--   **Tip #5: Insert an image in a blog post:**
+-   **Tip #5: Insert an image in a blog post to improve SEO and make collateral more accessible:**
 
      >**IMPORTANT NOTE:** If your images are stored in **a personal website** you owned, it is recommended to proceed as explained below to get you images uploaded and stored to the HPE Developer CMS rather than using a link URL to your image on your web site. Security filter such as Zscaler may filter your images and make your images unrendered by the CMS. 
      
@@ -480,7 +480,7 @@ Here is how you can crate an external blog post entry in the HPE Developer Commu
 
     -  On the top right of the wizard, click **Upload** to upload the image stored on your PC/laptop and select image you have just uploaded by clicking **Choose selected**.
      
-    -  Specify a "**Title**" for your image in the _TITLE_ section of the _IMAGE_ block. The title will appear when the reader hovers or pauses the mouse over the image.
+    -  Specify a "**Title**" for your image in the _TITLE_ section of the _IMAGE_ block. The title will appear when the reader hovers or pauses the mouse over the image. It aims to make the image collateral more accessible for people with visual impairments. 
     
     -  Make sure to specify a description for your image in the _ALT TEXT_ section of the _IMAGE_ block. 
     
@@ -490,22 +490,22 @@ Here is how you can crate an external blog post entry in the HPE Developer Commu
 
     -   **Method 1 (recommended):** Use HTML code to set the size (height, width) for your image. First, toggle to **Rich Text** mode to insert your image. Then toggle to **Markdown** mode to obtain the relative path for your image (in the form: */img/myimage.png*) and **substitute** the line **"\!\[\](/img/myimage.png)"** with the HTML syntax below:
 
-        \<img src=\"relative-path-of-your-image-in-the-form: /img/myimage.png\" width=\"600\" height=\"359\" alt=\"brief description for the image\"\>
+        \<img src=\"relative-path-of-your-image-in-the-form: /img/myimage.png\" width=\"600\" height=\"359\" alt=\"brief description for the image\" title=\"brief description for the image\"\>
         
         or you can use percent value to reduce the size of your original image:
         
-        \<img src=\"relative-path-of-your-image-in-the-form: /img/myimage.png\" width=\"50%\" height=\"50%\" alt=\"brief description for the image\"\>
+        \<img src=\"relative-path-of-your-image-in-the-form: /img/myimage.png\" width=\"50%\" height=\"50%\" alt=\"brief description for the image\" title=\"brief description for the image\"\>
 
         >**Note:** To get appropriate Horizontal and Vertical pixel values, you may want to use the "Resize" fonction of your "Paint" (or equivalent) application. 
         
         >**Note:** If you wish to center an image, then you can use HTML code below:
 
-         \<center\>\<img src=\"relative-path-of-your-image-in-the-form: /img/myimage.png\" width=\"500\" height=\"542\" alt=\"brief description for the image\"\>\</center\>
+         \<center\>\<img src=\"relative-path-of-your-image-in-the-form: /img/myimage.png\" width=\"500\" height=\"542\" alt=\"brief description for the image\" title=\"brief description for the image\"\>\</center\>
 
 
         >**Note:** When using HTML code to insert an image, you will see *an empty frame* for your image in the preview area (right side of the CMS editor). The frame corresponds to the size of the image (width and height) in the blog post. Adjust the width/height value as appropriate. You will also lose the description (title specified while in Rich Text mode) of the image.
 
-        >**IMPORTANT NOTE:** Adding a _ALT Text_ will help promote online content in Search Engine such as Google.  
+        >**IMPORTANT NOTE:** Adding a _ALT Text_ will help promote online content in Search Engine such as Google. Adding a _Title_ will help make your image collateral more accessible for people with visual impairments and help them understand pictures content.  
 
     -   **Method 2:** Using your PC/Laptop, change image size using you preferred image editor (i.e.: Paint). Toggle to **Rich Text** mode and upload/select the resized image.
  
