@@ -47,16 +47,18 @@ Provide a name for the Aruba GreenLake SSO service (Okta Application)
 
    Under General:
 
-   ```
-   Single Sign on URL: https://sso.common.cloud.hpe.com/sp/ACS.saml2
-   Audience URI (SP Entity ID): https://sso.common.cloud.hpe.com
-   Name ID format EmailAddress
-   Application username Email
-   NameID = user.email
-   gl_first_name = user.FirstName
-   gl_last_name = user.LastName
-    hpe_ccs_attribute = (See Below)
-   ```
+   ````
+     ```markdown  
+     Single Sign on URL: https://sso.common.cloud.hpe.com/sp/ACS.saml2
+     Audience URI (SP Entity ID): https://sso.common.cloud.hpe.com
+     Name ID format EmailAddress
+     Application username Email
+     NameID = user.email
+     gl_first_name = user.FirstName
+     gl_last_name = user.LastName
+     hpe_ccs_attribute = (See Below)
+     ```
+   ````
 
    See here for IdP attribute details: <https://support.hpe.com/hpesc/public/docDisplay?docId=a00120892en_us>
 
@@ -76,9 +78,13 @@ Example: 
 
 version_1#5b0ec0e8c4f422eca232ba72799953ac:00000000-0000-0000-0000-000000000000:Account Administrator:ALL_SCOPES:683da368-66cb-4ee7-90a9-ec1964768092:Aruba Central Administrator:ALL_SCOPES
 
-```
-version_1#5b0ec0e8c4f422eca232ba72799953ac:00000000-0000-0000-0000-000000000000:Account Administrator:ALL_SCOPES:683da368-66cb-4ee7-90a9-ec1964768092:Aruba Central Administrator:ALL_SCOPES
-```
+````
+  ```markdown  
+  version_1#5b0ec0e8c4f422eca232ba72799953ac:00000000-0000-0000-0000-000000000000:
+  Account Administrator:ALL_SCOPES:683da368-66cb-4ee7-90a9-ec1964768092:
+  Aruba Central Administrator:ALL_SCOPES
+  ```  
+````
 
 If you want to add additional GreenLake applications or if you have multiple Aruba Central accounts, you can add them as well. Just follow the same syntax as before. Once you have the attribute defined, enter it into the SAML attribute statement in Okta as shown below.
 
