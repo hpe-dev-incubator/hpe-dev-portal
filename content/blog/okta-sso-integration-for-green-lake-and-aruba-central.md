@@ -74,12 +74,10 @@ The **hpe****_**_****ccs****_****attribute** will always start with **version_1#
 
 Example: 
 
-````
-  ```markdown  
+````  
   version_1#5b0ec0e8c4f422eca232ba72799953ac:00000000-0000-0000-0000-000000000000:
   Account Administrator:ALL_SCOPES:683da368-66cb-4ee7-90a9-ec1964768092:
-  Aruba Central Administrator:ALL_SCOPES
-  ```  
+  Aruba Central Administrator:ALL_SCOPES 
 ````
 
 If you want to add additional GreenLake applications or if you have multiple Aruba Central accounts, you can add them as well. Just follow the same syntax as before. Once you have the attribute defined, enter it into the SAML attribute statement in Okta as shown below.
