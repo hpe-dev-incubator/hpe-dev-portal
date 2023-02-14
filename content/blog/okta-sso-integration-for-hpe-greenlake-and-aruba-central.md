@@ -30,7 +30,7 @@ To configure application metadata in Okta, complete the following steps:
 2. Click **Applications > Create App Integration.** The Create a new app integration window opens.
 3. Select SAML 2.0 and click Next.
 
-![](/img/image1.png)
+![](/img/image0.png)
 
 Provide a name for the Aruba GreenLake SSO service (Okta Application)
 
@@ -59,15 +59,13 @@ Provide a name for the Aruba GreenLake SSO service (Okta Application)
 
    One of the additional features added as part of the GreenLake CCS is Role Based Access Controls (RBAC) for Aruba Central and all other apps in CCS. A new SAML attribute has been added “hpe_ccs_attribute” which tells GreenLake and Central the exact role/permissions for each user. The following describes how to format the attribute.
 
+![](/img/image1.png)
+
 ![](/img/image2.png)
 
 ![](/img/image3.png)
 
-![](/img/image4.png)
-
 ![](/img/image5.png)
-
-
 
 The “**hpe_ccs_attribute**” will always start with “**version_1#**”. First, we’ll configure the attributes for GreenLake CCS, then Central. First enter the PCID for the account, followed by the GreenLake application ID. This will always be “**00000000-0000-0000-0000-000000000000**”. Then followed by the role name and “ALL_SCOPES”. Next will be the Aruba Central info. Start with the “**app cid**”, then the role name (IE Aruba Central Administrator) then “**ALL_SCOPES**”.
 
@@ -83,8 +81,6 @@ If you want to add additional GreenLake applications or if you have multiple Aru
 
 Click Next and Select “Internal App” then Finish
 
-
-
 **Step 3:** **Export the SAML 2.0 IdP metadata**
 
 1. Click Next – Configure the Sign On settings
@@ -96,8 +92,6 @@ Click Next and Select “Internal App” then Finish
    ![](/img/image9.png)
 2. C﻿lick Next
 3. Select Internal app and Click Finish
-
-
 
 **Step 4: Create SAML Authorization Profile in GreenLake Cloud Platform**
 
@@ -133,8 +127,6 @@ On the GreenLake Cloud Platform home page, Click Sign in with SSO.
 ![](/img/image16.png)
 
 Enter the SSO credentials and you will be redirected to Okta to authenticate. Once you successfully authenticate, you will be redirected back to GreenLake. You can then click on the Aruba Central application and given access based on the configured role/permissions.
-
-
 
 **Additional Notes:**
 
