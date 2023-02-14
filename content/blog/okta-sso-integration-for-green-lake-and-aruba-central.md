@@ -1,11 +1,16 @@
 ---
-title: Okta SSO Integration For Green Lake And Aruba Central
+title: Okta SSO integration for Green Lake and Aruba Central
 date: 2023-02-14T20:11:58.846Z
 externalLink: https://blog.wifig-guys.com
 author: "Will Smith - Consulting Systems Engineer (ACEX #34)"
 authorimage: /img/willsmith-sm.jpg
 thumbnailimage: /img/gl-sso.jpg
 disable: false
+tags:
+  - aruba-central
+  - hpe-greenlake-cloud-platform
+  - sso
+  - okta
 ---
 Aruba Central has gone GREEN…GreenLake that is! If you’re reading this, then you’ve likely heard that Aruba Central is now integrated into the new HPE GreenLake Common Cloud Platform (GLCP). This allows IT admins to view and orchestrate critical network services such as Wired, Wireless and SD-Branch, through the same dashboard as their compute and storage infrastructure.
 
