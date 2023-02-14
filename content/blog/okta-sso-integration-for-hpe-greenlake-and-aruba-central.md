@@ -76,8 +76,6 @@ The **hpe_ccs_attribute** will always start with **version_1#**. First, we’ll 
 
 Example: 
 
-version_1#5b0ec0e8c4f422eca232ba72799953ac:00000000-0000-0000-0000-000000000000:Account Administrator:ALL_SCOPES:683da368-66cb-4ee7-90a9-ec1964768092:Aruba Central Administrator:ALL_SCOPES
-
 ````
   ```markdown  
   version_1#5b0ec0e8c4f422eca232ba72799953ac:00000000-0000-0000-0000-000000000000:
