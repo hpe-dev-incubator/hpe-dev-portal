@@ -1,5 +1,5 @@
 ---
-title: Okta SSO Integration for HPE GreenLake and Aruba Central
+title: Okta SSO integration for HPE GreenLake and Aruba Central
 date: 2023-02-14T16:30:51.228Z
 externalLink: https://blog.wifi-guys.com
 author: "Will Smith - Consulting Systems Engineer (ACEX #34)"
@@ -7,7 +7,7 @@ authorimage: /img/willsmith-sm.jpg
 thumbnailimage: /img/gl-sso.jpg
 disable: false
 ---
-Aruba Central has gone GREEN…GreenLake that is! If you’re reading this, then you’ve likely heard that Aruba Central is now integrated into the new HPE GreenLake Common Cloud Service (CCS) Platform. This allows IT admins to view and orchestrate critical network services such as Wired, Wireless and SD-Branch, through the same dashboard as their compute and storage infrastructure.
+Aruba Central has gone GREEN…GreenLake that is! If you’re reading this, then you’ve likely heard that Aruba Central is now integrated into the new HPE GreenLake Common Cloud Platform (GLCP). This allows IT admins to view and orchestrate critical network services such as Wired, Wireless and SD-Branch, through the same dashboard as their compute and storage infrastructure.
 
 If you’ve already configured SSO with Aruba Central, then you don’t need to modify any of the existing SAML attributes. You can skip this post and follow the steps outlined in this [support advisory](https://dnrnwf7jtrmzj.cloudfront.net/prod/public/acc-1-asp/nc-22550/ARUBA-SA-20220207-PLN602%20Aruba%20Central%20SSO%20Migration%20(Rev-1)-20220208-0020.pdf?Expires=1649743011&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9kbnJud2Y3anRybXpqLmNsb3VkZnJvbnQubmV0L3Byb2QvcHVibGljL2FjYy0xLWFzcC9uYy0yMjU1MC9BUlVCQS1TQS0yMDIyMDIwNy1QTE42MDIgQXJ1YmEgQ2VudHJhbCBTU08gTWlncmF0aW9uIChSZXYtMSktMjAyMjAyMDgtMDAyMC5wZGYiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE2NDk3NDMwMTF9fX1dfQ__&Signature=ciAF48bi9yQUjLU7Rbq0mLpGHFL1CO2v5nHVy9hMl26k~muHL5QsboMvYBNt3QQJPhOKb1KPNFe3He55dA1Jal0TOWwn~Z2xhR1CAQKMBuNC7~51fZQOe9nziEi1VaoVDCj-7pq2B9sOdF8pwglhlGjEcQKzAT-EA55k40oMmkvtp301Wcf2nM5hPNcyuf0KsqbxVGpIkPXHkJakbVKA1vL2YiEaA~uEbRO8gIcIJ8SYxsZOef3VwwR~mg6MWPXGouKI5ZNimIuDTG39fe4Z7mGepBoNvjrAHPLauUXN~BsVENFH217K4n14KkdQBeHejDxde-FDYH4GpdxPYlRl0Q__&Key-Pair-Id=APKAJU5N2DC4BKLV5G4A). However, if you are new to Aruba Central or have never enabled SSO, this guide is for you. This will walk you through the process of configuring SSO for GreenLake and Aruba Central using Okta.
 
