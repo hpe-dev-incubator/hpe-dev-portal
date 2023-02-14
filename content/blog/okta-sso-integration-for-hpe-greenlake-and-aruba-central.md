@@ -34,6 +34,8 @@ To configure application metadata in Okta, complete the following steps:
 
 Provide a name for the Aruba GreenLake SSO service (Okta Application)
 
+![](/img/image1.png)
+
 **Step 2: Configure Single Sign On settings**
 
 1. Enter the SAML information.
@@ -59,11 +61,11 @@ Provide a name for the Aruba GreenLake SSO service (Okta Application)
 
    One of the additional features added as part of the GreenLake CCS is Role Based Access Controls (RBAC) for Aruba Central and all other apps in CCS. A new SAML attribute has been added “hpe_ccs_attribute” which tells GreenLake and Central the exact role/permissions for each user. The following describes how to format the attribute.
 
-![](/img/image1.png)
-
 ![](/img/image2.png)
 
 ![](/img/image3.png)
+
+![](/img/image4.png)
 
 ![](/img/image5.png)
 
@@ -74,6 +76,8 @@ Example: **version_1#5b0ec0e8c4f422eca232ba72799953ac:00000000-0000-0000-0000-0
 If you want to add additional GreenLake applications or if you have multiple Aruba Central accounts, you can add them as well. Just follow the same syntax as before. Once you have the attribute defined, enter it into the SAML attribute statement in Okta as shown below.
 
 ![](/img/image6.png)
+
+2﻿. Complete the setup.
 
 ![](/img/image7.png)
 
