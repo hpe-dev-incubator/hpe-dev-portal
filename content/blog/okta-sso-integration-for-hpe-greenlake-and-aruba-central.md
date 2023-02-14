@@ -70,12 +70,14 @@ Provide a name for the Aruba GreenLake SSO service (Okta Application)
 
 ![](/img/image5.png)
 
-The **hpe_ccs_attribute** will always start with **version_1#**. First, we’ll configure the attributes for GreenLake CCS, then Central. First enter the PCID for the account, followed by the GreenLake application ID. This will always be **00000000-0000-0000-0000-000000000000** Then followed by the role name and ALL_SCOPES” Next will be the Aruba Central info. Start with the **app cid**, then the role name (IE Aruba Central Administrator) then **ALL_SCOPES**.
+The **hpe_ccs_attribute** will always start with **version_1#**. First, we’ll configure the attributes for GreenLake CCS, then Central. First enter the PCID for the account, followed by the GreenLake application ID. This will always be **00000000-0000-0000-0000-000000000000**. Then followed by the role name and ALL_SCOPES. Next will be the Aruba Central info. Start with the **app cid**, then the role name (IE Aruba Central Administrator) then **ALL_SCOPES**.
 
 Example: 
 
+version_1#5b0ec0e8c4f422eca232ba72799953ac:00000000-0000-0000-0000-000000000000:Account Administrator:ALL_SCOPES:683da368-66cb-4ee7-90a9-ec1964768092:Aruba Central Administrator:ALL_SCOPES
+
 ```
-**version_1#5b0ec0e8c4f422eca232ba72799953ac:00000000-0000-0000-0000-000000000000:Account Administrator:ALL_SCOPES:683da368-66cb-4ee7-90a9-ec1964768092:Aruba Central Administrator:ALL_SCOPES**
+version_1#5b0ec0e8c4f422eca232ba72799953ac:00000000-0000-0000-0000-000000000000:Account Administrator:ALL_SCOPES:683da368-66cb-4ee7-90a9-ec1964768092:Aruba Central Administrator:ALL_SCOPES
 ```
 
 If you want to add additional GreenLake applications or if you have multiple Aruba Central accounts, you can add them as well. Just follow the same syntax as before. Once you have the attribute defined, enter it into the SAML attribute statement in Okta as shown below.
