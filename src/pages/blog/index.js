@@ -613,7 +613,7 @@ export const pageQuery = graphql`
     smartSimBlogsCount: allMarkdownRemark(
       filter: {
         fields: { sourceInstanceName: { eq: "blog" } }
-        frontmatter: { tags: { eq: "smartsim" }, disable: { ne: true } }
+        frontmatter: { tags: { eq: "SmartSim" }, disable: { ne: true } }
       }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {

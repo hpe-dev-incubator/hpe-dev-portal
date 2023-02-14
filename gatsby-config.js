@@ -415,7 +415,7 @@ module.exports = {
     // paginatedCollection('zerto-posts', 'zerto'),
     paginatedCollection('aruba-posts', 'aruba'),
     paginatedCollection('simplivity-posts', 'hpe-simplivity'),
-    // paginatedCollection('smartsim-posts', 'smartsim'),
+    paginatedCollection('smartsim-posts', 'SmartSim'),
     paginatedCollection('oneview-posts', 'hpe-oneview'),
     paginatedCollection(
       'oneview-dashboard-posts',

@@ -16,8 +16,8 @@ const BlogTabContent = ({
   setPreviousTab,
 }) => {
   const [latestPage, setLatestPage] = useState(initialPage);
-  const [blogPosts, setBlogPosts] = useState(initialPage.nodes);
-  const [collectionId, setCollectionId] = useState(initialPage.collection.id);
+  const [blogPosts, setBlogPosts] = useState(initialPage?.nodes);
+  const [collectionId, setCollectionId] = useState(initialPage?.collection?.id);
   /* eslint-disable no-unused-vars */
   const [activeBlogTab, setActiveBlogTab] = useLocalStorage('activeBlogTab');
   const [activePlatform, setActivePlatform] = useLocalStorage('activePlatform');

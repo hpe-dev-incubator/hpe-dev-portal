@@ -199,9 +199,9 @@ exports.createPages = async ({ graphql, actions }) => {
   const simplivityQueryResult = await graphql(
     paginatedCollectionQuery('simplivity-posts'),
   );
-  // const smartsimQueryResult = await graphql(
-  //   paginatedCollectionQuery('smartsim-posts'),
-  // );
+  const smartsimQueryResult = await graphql(
+    paginatedCollectionQuery('smartsim-posts'),
+  );
 
   const othersQueryResult = await graphql(
     paginatedCollectionQuery('others-posts'),
@@ -229,7 +229,7 @@ exports.createPages = async ({ graphql, actions }) => {
   setPagination(arubaQueryResult);
   setPagination(kubeDirectorQueryResult);
   setPagination(simplivityQueryResult);
-  // setPagination(smartsimQueryResult);
+  setPagination(smartsimQueryResult);
   setPagination(othersQueryResult);
 
   return graphql(
