@@ -47,14 +47,14 @@ Provide a name for the Aruba GreenLake SSO service (Okta Application)
 
    Under General:
 	```markdown
-	   Single Sign on URL: https://sso.common.cloud.hpe.com/sp/ACS.saml2
-   Audience URI (SP Entity ID): https://sso.common.cloud.hpe.com
-   Name ID format EmailAddress
-   Application username Email
-   NameID = user.email
-   gl_first_name = user.FirstName
-   gl_last_name = user.LastName
-   hpe_ccs_attribute = (See Below)
+	Single Sign on URL: https://sso.common.cloud.hpe.com/sp/ACS.saml2
+	Audience URI (SP Entity ID): https://sso.common.cloud.hpe.com
+	Name ID format EmailAddress
+	Application username Email
+	NameID = user.email
+	gl_first_name = user.FirstName
+	gl_last_name = user.LastName
+	hpe_ccs_attribute = (See Below)
 	```
 
    See here for IdP attribute details: <https://support.hpe.com/hpesc/public/docDisplay?docId=a00120892en_us>
