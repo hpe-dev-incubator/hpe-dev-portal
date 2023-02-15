@@ -65,7 +65,7 @@ Provide a name for the Aruba GreenLake SSO service (Okta Application)
 
    See here for IdP attribute details: <https://support.hpe.com/hpesc/public/docDisplay?docId=a00120892en_us>
 
-   One of the additional features added as part of the GreenLake CCS is Role Based Access Controls (RBAC) for Aruba Central and all other apps in CCS. A new SAML attribute has been added “hpe_ccs_attribute” which tells GreenLake and Central the exact role/permissions for each user. The following describes how to format the attribute.
+   One of the additional features added as part of the GreenLake platform is Role Based Access Controls (RBAC) for Aruba Central and all other apps in GLCP. A new SAML attribute has been added “hpe_ccs_attribute” which tells GreenLake and Central the exact role/permissions for each user. The following describes how to format the attribute.
 
 ![](/img/ws-image2.png)
 
@@ -128,7 +128,7 @@ Click Next and Select “Internal App” then Finish
 
    ![](/img/ws-image14.png)
 
-   Congratulations SSO will now be enabled for GreenLake as well as the Aruba Central application. Log out and on the GrenLake home page, click Sign in with SSO.
+   Congratulations SSO will now be enabled for GreenLake as well as the Aruba Central application. Log out and on the GreenLake home page, click Sign in with SSO.
 
 **Testing and Troubleshooting:**
 
