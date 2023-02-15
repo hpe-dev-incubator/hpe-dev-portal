@@ -402,7 +402,7 @@ It also hosts the inventory file describing the role of jupyterhub servers. Plac
 127.0.0.1  ansible_connection=localhost
 ```
 
-
+T﻿he conf folder hosts configuration files in a jinja format. Once expanded, the resulting files will be used by relevant workshops.
 
 A﻿s part of the refacturing work to open source the project, we reaaranged the different scripts locations. We have created an install folder to handle the different installation scripts either from a Jupyterhub 's perpective or from an appliance 's standpoint too.
 
