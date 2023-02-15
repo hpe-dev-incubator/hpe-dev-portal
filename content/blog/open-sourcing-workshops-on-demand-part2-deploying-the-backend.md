@@ -387,11 +387,20 @@ Install_*.yml: These playbooks take care of installing the necessary packages ne
 
 S﻿etup_*.yml: There are several types of setup playbooks in this directory. 
 
+* setup_WKSHP-*.yml: These playbooks are responsible for preparing a base appliance for a given workshop by adding and configuring the necessary packages or services related to the workshop.
 * s﻿etup_appliance.yml: this playbook is used to perform the base setup for a JupyterHub environment server or appliance. It includes setup_base_appliance.yml playbook.
 * s﻿etup_base_appliance: takes care of setting the minimal requierements for an appliance. it includes therefore install_base_system.yml playbook. On top of it, it creates and configure the necessary users.
-*
+* s﻿etup_docker_based_appliance.yml: Quite self explanatory ? it performs setup tasks to enable docker on a given appliance.
 
-It hosts inventory files describing the possible locations of jupyterhub servers and their associated roles. 
+It also hosts the inventory file describing the role of jupyterhub servers. Place your jupyterhub machine (FQDN) in a group used as PBKDIR namerole
+
+```shellsession
+#
+# Place to your jupyterhub machine (FQDN) in a group used as PBKDIR name
+#
+[production]
+127.0.0.1  ansible_connection=localhost
+```
 
 
 
