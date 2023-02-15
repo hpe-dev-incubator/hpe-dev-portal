@@ -392,7 +392,7 @@ A﻿t the root of this directory can be found:
 * s﻿etup_base_appliance: takes care of setting the minimal requierements for an appliance. it includes therefore install_base_system.yml playbook. On top of it, it creates and configure the necessary users.
 * s﻿etup_docker_based_appliance.yml: Quite self explanatory ? it performs setup tasks to enable docker on a given appliance.
 
-It also hosts the inventory file describing the role of jupyterhub servers. Place your jupyterhub machine (FQDN) in a group used as PBKDIR namerole
+It also hosts the **inventory** file describing the role of jupyterhub servers. Place your jupyterhub machine (FQDN) in a group used as PBKDIR namerole
 
 ```shellsession
 #
@@ -402,11 +402,13 @@ It also hosts the inventory file describing the role of jupyterhub servers. Plac
 127.0.0.1  ansible_connection=localhost
 ```
 
-T﻿he conf folder hosts configuration files in a jinja format. Once expanded, the resulting files will be used by relevant workshops.
+T﻿he **conf** folder hosts configuration files in a jinja format. Once expanded, the resulting files will be used by relevant workshops.
 
 A﻿s part of the refacturing work to open source the project, we reaaranged the different scripts locations. We have created an install folder to handle the different installation scripts either from a Jupyterhub 's perpective or from an appliance 's standpoint too.
 
-We separated the Workshops related scripts from the pure system ones. When one creates a workshop, one needs to provide a series of notebooks and in some cases some scripts to manage the creation, setup of a related appliance along with additional scripts to manage its lifecycle in the overall workshops-on-Demand architecture (Create, Cleanup, Reset scripts at deployment or Cleanup times).e
+We separated the Workshops related scripts from the pure system ones. When one creates a workshop, one needs to provide a series of notebooks and in some cases some scripts to manage the creation, setup of a related appliance along with additional scripts to manage its lifecycle in the overall workshops-on-Demand architecture (Create, Cleanup, Reset scripts at deployment or Cleanup times). These scripts need to be located in the script folder. On the other hand, the system scripts are located in the sys folder.
+
+
 
 T﻿here are two types of activities that can occur on the backend server: punctual or regular. The punctual activity is one that is performed once every now and then. The regular one is usually set up on the backend server as a cron job. Sometimes however, one of these cron tasks can be forced manually if necessary. One the main scheduled task is the 'deliver' task. I will explain it later on in this chapter. I will start now by explaining an important possible punctual task, the update of the backend server.
 
