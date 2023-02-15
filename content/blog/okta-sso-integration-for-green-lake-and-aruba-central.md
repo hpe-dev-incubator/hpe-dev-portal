@@ -1,7 +1,7 @@
 ---
 title: Okta SSO integration for Green Lake and Aruba Central
 date: 2023-02-14T20:11:58.846Z
-externalLink: https://blog.wifig-guys.com
+externalLink: ""
 author: "Will Smith - Consulting Systems Engineer (ACEX #34)"
 authorimage: /img/willsmith-sm.jpg
 thumbnailimage: /img/gl-sso.jpg
@@ -148,18 +148,3 @@ Enter the SSO credentials and you will be redirected to Okta to authenticate. On
 * SSO users can initiate a Single Sign On request by trying to log in to Aruba Central (SP-initiated login).
 * For more troubleshooting: <https://support.hpe.com/hpesc/public/docDisplay?docId=a00120892en_us>
 
-**Okta MFA Example:**
-
-* Okta as well as many cloud identity providers support various MFA and other types of additional security policies.
-* Okta Verify (Okta native MFA app) example:
-* Okta Admin portal > Security > MFA > Factor Type – Okta Verify Enable
-
-![](/img/ws-image17.png)
-
-1. Click Factor Enrollment and create an enrollment policy.
-2. Then select the user groups to apply this policy to.
-3. For MFA enable verify with push.
-
-![](/img/ws-image18.png)
-
-![](/img/ws-image19.jpeg)
