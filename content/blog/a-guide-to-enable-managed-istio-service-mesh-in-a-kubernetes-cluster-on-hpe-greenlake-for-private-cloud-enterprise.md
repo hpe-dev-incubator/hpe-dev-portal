@@ -211,4 +211,4 @@ In the **Services** tab from the left navigation menu, after selecting the **nam
 
 You can find the GitHub repository that hosts demo code **[here](https://github.com/cxteamtrials/caas-trials-content)**.
 
-We hope that this blog post has provided you with enough information for you to get started deploying containerized application or a managed service on a Kubernetes-based container stack using the cluster add-on feature provided by HPE GreenLake for Private Cloud Enterprise: Containers, refer to the **[HPE Developer Community blog](https://developer.hpe.com/)**.
+We hope that this blog post has provided you with enough information for you to get started deploying containerized application or a managed service on a Kubernetes-based container stack using the cluster add-on feature provided by **HPE GreenLake for Private Cloud Enterprise: Containers**, refer to the **[HPE Developer Community blog](https://developer.hpe.com/)**.
