@@ -203,3 +203,9 @@ In the **Workloads** tab from the left navigation menu, after selecting the **na
 In the **Services** tab from the left navigation menu, after selecting the **namespace bookinfo**, you can check all the services details of the Bookinfo application.
 
 ![](/img/services.png)
+
+**HPE GreenLake for Private Cloud Enterprise: Containers: Demo Summary**
+
+You can find the GitHub repository that hosts demo code **[here](https://github.com/cxteamtrials/caas-trials-content)**.
+
+We hope that this blog post has provided you with enough information for you to get started deploying containerized application or a managed service on a Kubernetes-based container stack using the cluster add-on feature provided by HPE GreenLake for Private Cloud Enterprise: Containers, refer to the **[HPE Developer Community blog](https://developer.hpe.com/)**.
