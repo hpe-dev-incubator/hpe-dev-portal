@@ -371,7 +371,7 @@ Please note that this setup phase can be conccurent with the public setup phase.
 
 S﻿imple tree view of the wod-backend directory:
 
-T﻿he ansible folder contains all the necessary playbooks and variables files to manage the main functions of the backend server. 
+T﻿he **ansible** folder contains all the necessary playbooks and variables files to manage the main functions of the backend server. 
 
 A﻿t the root of this directory can be found:
 
@@ -379,13 +379,13 @@ A﻿t the root of this directory can be found:
 
 **C﻿opy_folder.yml**: This is historically one of very first playbook we used and therefore a very important one. It performs the necessary actions to deploy, personnalize (by substituting ansible variables) the selected notebook to the appropriate student home folder.
 
-**C﻿ompile_scripts.yml**: Should you need to hide from the student a simple api call that is made on some private endpoint with non shareable data (credentials for instance), this playbook will make sure to compile it and create a executable file allowing it to happen. 
+**c﻿ompile_scripts.yml**: Should you need to hide from the student a simple api call that is made on some private endpoint with non shareable data (credentials for instance), this playbook will make sure to compile it and create a executable file allowing it to happen. 
 
-**D﻿istrib.yml**: This playbook retrieves the distribution name and version from the machine it is run on.
+**d﻿istrib.yml**: This playbook retrieves the distribution name and version from the machine it is run on.
 
-**Install_*.yml**: These playbooks take care of installing the necessary packages needed by the defined type (frontend, backend, api-db, base-system or even appliance)
+**install_*.yml**: These playbooks take care of installing the necessary packages needed by the defined type (frontend, backend, api-db, base-system or even appliance)
 
-**S﻿etup_*.yml**: There are several types of setup playbooks in this directory. 
+**setup_*.ym**: There are several types of setup playbooks in this directory. 
 
 * setup_WKSHP-*.yml: These playbooks are responsible for preparing a base appliance for a given workshop by adding and configuring the necessary packages or services related to the workshop.
 * s﻿etup_appliance.yml: this playbook is used to perform the base setup for a JupyterHub environment server or appliance. It includes setup_base_appliance.yml playbook.
@@ -407,8 +407,6 @@ T﻿he **conf** folder hosts configuration files in a jinja format. Once expande
 A﻿s part of the refacturing work to open source the project, we reaaranged the different scripts locations. We have created an install folder to handle the different installation scripts either from a Jupyterhub 's perpective or from an appliance 's standpoint too.
 
 We separated the Workshops related scripts from the pure system ones. When one creates a workshop, one needs to provide a series of notebooks and in some cases some scripts to manage the creation, setup of a related appliance along with additional scripts to manage its lifecycle in the overall workshops-on-Demand architecture (Create, Cleanup, Reset scripts at deployment or Cleanup times). These scripts need to be located in the script folder. On the other hand, the system scripts are located in the sys folder.
-
-
 
 T﻿here are two types of activities that can occur on the backend server: punctual or regular. The punctual activity is one that is performed once every now and then. The regular one is usually set up on the backend server as a cron job. Sometimes however, one of these cron tasks can be forced manually if necessary. One the main scheduled task is the 'deliver' task. I will explain it later on in this chapter. I will start now by explaining an important possible punctual task, the update of the backend server.
 
