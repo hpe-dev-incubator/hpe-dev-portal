@@ -1,6 +1,6 @@
 ---
 title: Accelerating scientific research
-active: true
+active: false
 fit: contain
 path: https://hpe.zoom.us/webinar/register/7316740591897/WN_13v3nUCAQa6GiQHnEgjKlw
 imageBackground: white
