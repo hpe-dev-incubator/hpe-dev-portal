@@ -5,7 +5,7 @@ dateStart: 2023-02-14T23:01:10.039Z
 dateEnd: 2023-02-15T22:59:10.101Z
 category: Virtual Event
 image: /img/event-munch-and-learn-newlogo400x400.png
-link: https://hpe.zoom.us/webinar/register/2816740591529/WN_13v3nUCAQa6GiQHnEgjKlw
+link: https://developer.hpe.com
 width: large
 ---
 ## Accelerating scientific research through high performance computing democratization
