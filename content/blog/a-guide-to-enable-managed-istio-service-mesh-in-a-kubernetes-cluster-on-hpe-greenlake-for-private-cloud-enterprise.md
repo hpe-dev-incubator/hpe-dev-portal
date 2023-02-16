@@ -51,14 +51,17 @@ As indicated above, there are multiple clusters deployed in parallel for multipl
 
 * In the Enable Addon wizard, select the add-on and click Next.
 
-![](/img/istioaddonpage-1.png)
+![](/img/istioaddonpage-11.png)
 
-* Provide the values for the fields that appear for the selected add-on and click Next.
-* Read and accept the license agreement and click Enable.
+* Provide the values for the fields that appear for the selected add-on, read and accept the license agreement, and click Enable.
 
 ![](/img/istioaddonpage-2.png)
 
+* A﻿fter successful add-on enablement, add-on status will get updated to '**succeeded**'.
+
 ![](/img/istioaddongreenstatus.png)
+
+* V﻿iew the details of the add-on that you just enabled.
 
 ![](/img/istioaddondetailspage.png)
 
