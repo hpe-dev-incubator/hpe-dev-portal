@@ -178,31 +178,31 @@ Bookinfo application **productpage** can be accessed in the browser by typing th
 
 Note : Above URL might be different in your environment. You can form the URL by referring annotations from the **productpage** service.
 
-![](/img/sample-app.png)
+![](/img/bookinfo-productpage.png)
 
-![](/img/sample-app-page.png)
+![](/img/bookinfo-productpage-normal-user.png)
 
 **Monitor the sample application using the Kiali dashboard**
 
 Enter **bookinfo** into the field Filter by Namespace. The Kiali Overview screen displays the details about the namespace bookinfo. It shows that 4 applications are running in the **namespace bookinfo** with no inbound traffic.
 
-![](/img/overview-kiali.png)
+![](/img/kiali-bookinfo.png)
 
 In the **Graph** tab from the left navigation menu, after selecting the **namespace bookinfo**, the screen shows an overview topology of the Bookinfo application.
 
-![](/img/graph-kiali.png)
+![](/img/kiali-console-graph.png)
 
 In the **Applications** tab from the left navigation menu, after selecting the **namespace bookinfo**, the screen shows application details of the Bookinfo application.
 
-![](/img/application-kiali.png)
+![](/img/kiali-console-applications.png)
 
 In the **Workloads** tab from the left navigation menu, after selecting the **namespace bookinfo**, the screen shows deployment details of the Bookinfo   application.
 
-![](/img/workload.png)
+![](/img/kiali-console-workloads.png)
 
 In the **Services** tab from the left navigation menu, after selecting the **namespace bookinfo**, you can check all the services details of the Bookinfo application.
 
-![](/img/services.png)
+![](/img/kiali-console-services.png)
 
 **HPE GreenLake for Private Cloud Enterprise: Containers: Demo Summary**
 
