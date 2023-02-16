@@ -55,7 +55,7 @@ As indicated above, there are multiple clusters deployed in parallel for multipl
 
 * Provide the values for the fields that appear for the selected add-on, read and accept the license agreement, and click Enable.
 
-![](/img/istioaddonpage-2.png)
+![](/img/istioaddonpage-22.png)
 
 * A﻿fter successful add-on enablement, add-on status will get updated to '**succeeded**'.
 
