@@ -32,59 +32,61 @@ In this blog post, we demonstrate how an end user can deploy a containerized app
 
 To create a cluster, you must have been assigned the roles of **Private Cloud Cluster Owner** and **Private Cloud Widget Viewer**.
 
-* From the Containers main page, under the Clusters tab, click Create Cluster.
-* In the Create Cluster form, provide the cluster name '**hpe**', and select the standard cluster blueprint. The new cluster appears in the list of clusters.
+* From the **Containers** main page, under the **Clusters** tab, click **Create Cluster**.
+* In the **Create Cluster** form, provide the cluster name '**hpe**', and select the standard cluster blueprint. The new cluster appears in the list of clusters.
 
-![](/img/clustermainpage-2.png)
+![](/img/clustermainpage-2.png "Clusters view")
 
 As indicated above, there are multiple clusters deployed in parallel for multiple purposes. For the **Istio** service mesh add-on enablement/deployment in our example, we will use created cluster with the name '**hpe**'.
 
-![](/img/clusterhpeview.png)
+![](/img/clusterhpeview.png "Cluster 'hpe' view")
 
 **Step-2: Enabling an add-on from a cluster**
 
-* On the Containers main page, click a cluster row to open the cluster details screen.
-* On the cluster details screen, click the Add-ons tab.
-* Click Enable Add-on if no add-ons are enabled or click Enable Another Add-on.
+* On the **Containers** main page, click a cluster row to open the cluster details screen.
+* On the cluster details screen, click the **Add-ons** tab.
+* Click **Enable Add-on** if no add-ons are enabled or click **Enable Another Add-on**.
 
-![](/img/blankaddonpage.png)
+![](/img/blankaddonpage.png "Add-ons view")
 
-* In the Enable Addon wizard, select the add-on and click Next.
+* In the **Enable Add-on** wizard, select the **Istio-service-mesh** add-on and click Next.
 
-![](/img/istioaddonpage-11.png)
+![](/img/istioaddonpage-11.png "Select Add-on view")
 
-* Provide the values for the fields that appear for the selected add-on, read and accept the license agreement, and click Enable.
+* Provide the values for the fields that appear for the selected add-on, read and accept the license agreement, and click **Enable**.
 
-![](/img/istioaddonpage-22.png)
+![](/img/istioaddonpage-22.png "Selected Add-on Istio-service-mesh view")
 
 * A﻿fter successful add-on enablement, add-on status will get updated to '**succeeded**'.
 
-![](/img/istioaddongreenstatus.png)
+![](/img/istioaddongreenstatus.png "Add-ons view")
 
 * V﻿iew the details of the add-on that you just enabled.
 
-![](/img/istioaddondetailspage.png)
+![](/img/istioaddondetailspage.png "Add-on Istio-service-mesh overview")
 
-**Step-3: Launching the Kiali dashboard**
+**Step-3: Launching the Kiali - the console for Istio service mesh**
 
-From the Overview tab, click the **KialiURL** link and use the **Kiali token**.
+**Kiali** is an open-source project that provides observability for Istio service mesh.
+
+From the **Overview** tab, click the **KialiURL** link and use the **Kiali token**.
 
 The **Kiali dashboard** launches in a new web page.
 
-**Note**: KialiURL might be different in your environment.
+**Note**: The URL for the Kiali console might be different in your environment.
 
-![](/img/kiali-console.png)
+![](/img/kiali-console.png "Kiali console view")
 
 **Note**: To take advantage of the Istio features, pods in the mesh must be running an Istio sidecar proxy. Injection of the proxy can be done either on a per-pod basis or at namespace level. To enable side car injection, see **<https://istio.io/latest/docs/setup/additional-setup/sidecar-injection/>**. For information about using Kiali, see the **[Kiali documentation](https://kiali.io/docs/)**.
 
 **Step-4: Download scoped kubeconfig from Container platform page**
 
-* From the Clusters tab, select the '**hpe**' Kubernetes cluster and click **Launch Service Console**. This will direct you to the container platform page.
+* From the **Clusters** tab, select the '**hpe**' Kubernetes cluster and click **Launch Service Console**. This will direct you to the container platform page.
 * Click on Download **kubeconfig**.
 
-**Note**: Launching HPE Ezmeral Runtime Enterprise from HPE GreenLake Central is configured through SAML SSO and adds a session token to the kubeconfig file. You will need to download the kubeconfig file again if you want to continue to access the cluster when the session token expires after an hour.
+**Note**: Launching service console from HPE GreenLake Central is configured through SAML SSO and adds a session token to the kubeconfig file. You will need to download the kubeconfig file again if you want to continue to access the cluster when the session token expires after an hour.
 
-**Step-5: Deploying a sample Istio application**
+**Step-5: Deploying a sample Istio application: Bookinfo**
 
 This procedure follows the standard Istio documentation to deploy a sample application. To know more about Bookinfo Application, see **[Istio documentation](https://istio.io/latest/docs/examples/bookinfo/)**.
 
@@ -181,33 +183,33 @@ Bookinfo application **productpage** can be accessed in the browser by typing th
 
 Note : Above URL might be different in your environment. You can form the URL by referring annotations from the **productpage** service.
 
-![](/img/bookinfo-productpage.png)
+![](/img/bookinfo-productpage.png "Bookinfo application default view")
 
-![](/img/bookinfo-productpage-normal-user.png)
+![](/img/bookinfo-productpage-normal-user.png "Bookinfo application productpage view")
 
 **Monitor the sample application using the Kiali dashboard**
 
 Enter **bookinfo** into the field Filter by Namespace. The Kiali Overview screen displays the details about the namespace bookinfo. It shows that 4 applications are running in the **namespace bookinfo** with no inbound traffic.
 
-![](/img/kiali-bookinfo.png)
+![](/img/kiali-bookinfo.png "Kiali overview")
 
 In the **Graph** tab from the left navigation menu, after selecting the **namespace bookinfo**, the screen shows an overview topology of the Bookinfo application.
 
-![](/img/kiali-console-graph.png)
+![](/img/kiali-console-graph.png "Kiali graph view")
 
 In the **Applications** tab from the left navigation menu, after selecting the **namespace bookinfo**, the screen shows application details of the Bookinfo application.
 
-![](/img/kiali-console-applications.png)
+![](/img/kiali-console-applications.png "Kiali applications view")
 
 In the **Workloads** tab from the left navigation menu, after selecting the **namespace bookinfo**, the screen shows deployment details of the Bookinfo   application.
 
-![](/img/kiali-console-workloads.png)
+![](/img/kiali-console-workloads.png "Kiali workloads view")
 
 In the **Services** tab from the left navigation menu, after selecting the **namespace bookinfo**, you can check all the services details of the Bookinfo application.
 
-![](/img/kiali-console-services.png)
+![](/img/kiali-console-services.png "Kiali services view")
 
-**HPE GreenLake for Private Cloud Enterprise: Containers: Demo Summary**
+**Summary**
 
 You can find the GitHub repository that hosts demo code **[here](https://github.com/cxteamtrials/caas-trials-content)**.
 
