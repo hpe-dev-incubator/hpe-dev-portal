@@ -4,7 +4,7 @@ dateStart: 2023-02-21T23:01:23.328Z
 dateEnd: 2023-02-22T22:59:23.470Z
 category: Virtual Event
 image: /img/event-meetups-newlogo-400x400.png
-link: https://hpe.zoom.us/webinar/register/4016736180120/WN_LAAUEtGfQJexWyZ0Scu8ug
+link: https://developer.hpe.com/campaign/meetups
 width: large
 ---
 ## Galadriel -  An alternative approach to SPIRE federation
