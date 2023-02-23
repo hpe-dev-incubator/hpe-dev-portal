@@ -9,6 +9,6 @@ description: "March 29, 2023: Learn how Postman can help include the broadest
   API lifecycle, including development, testing, deployment and management."
 background: rgba(0, 86, 122, 0.8);
 label: Register Now!
-priority: 6
+priority: 2
 image: /img/event-meetups-newlogo-400x400.png
 ---
