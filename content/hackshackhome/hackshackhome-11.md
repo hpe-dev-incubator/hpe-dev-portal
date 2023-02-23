@@ -1,6 +1,6 @@
 ---
 title: Divide and conquer with MicroFrontends
-active: true
+active: false
 fit: contain
 path: https://hpe.zoom.us/webinar/register/8016771786512/WN_4CthUQI3Qw64U9w_WHY4Kg
 imageBackground: white
