@@ -104,7 +104,7 @@ NAME       STATUS   AGE    LABELS
 bookinfo   Active   105s   gl.hpe.com/namespaceid=10d70074-0c2b-4221-804e-1437ed1842ca,hpe.com/cluster=stub,hpe.com/namespacetype=Tenant,hpe.com/tenant=bookinfo,hpe.com/version=6.2.0,hpecp.hpe.com/hpecptenant=hpecp-tenant-106,istio-injection=enabled,kubernetes.io/metadata.name=bookinfo,serving.kubeflow.org/inferenceservice=enabled
 ```
 
-**Deploy the Bookinfo application using the YAML manifest file i.e. services/istio/release-1.16/samples/bookinfo/bookinfo.yaml from the [](https://github)**[Github repository](https://github.com/cxteamtrials/caas-trials-content)**.
+**Deploy the Bookinfo application using the YAML manifest file i.e. services/istio/release-1.16/samples/bookinfo/bookinfo.yaml from the** [](https://github)[Github repository](https://github.com/cxteamtrials/caas-trials-content)\*\*.
 
 ```shellsession
 $ kubectl apply -f bookinfo.yaml -n bookinfo
