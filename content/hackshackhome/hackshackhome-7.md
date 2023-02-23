@@ -1,6 +1,6 @@
 ---
 title: Galadriel – A new take on SPIRE federation
-active: true
+active: false
 fit: contain
 link: https://hpe.zoom.us/webinar/register/8616736180239/WN_LAAUEtGfQJexWyZ0Scu8ug
 imageBackground: white
