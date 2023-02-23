@@ -12,15 +12,15 @@ tags:
   - sso
   - okta
 ---
-Aruba Central has gone GREEN…GreenLake that is! If you’re reading this, then you’ve likely heard that Aruba Central is now integrated into the new HPE GreenLake Common Cloud Platform (GLCP). This allows IT admins to view and orchestrate critical network services such as Wired, Wireless and SD-Branch, through the same dashboard as their compute and storage infrastructure.
+Aruba Central has gone GREEN…GreenLake that is! Aruba Central has recently been integrated into the HPE GreenLake Cloud Platform (GLCP). This provides IT administrators with the ability to view and orchestrate critical network services, such as Wired, Wireless and SD-Branch, through the same dashboard as their compute and storage infrastructure. GLCP also supports Single Sign On (SSO) which helps simplify account management.
 
-If you are new to Aruba Central and are looking to enable SSO, this guide is for you. This will walk you through the process of configuring SSO for GreenLake and Aruba Central using Okta.
+If you are new to Aruba Central and are looking to enable SSO, this guide is for you. It will walk you through the process of configuring SSO for HPE GreenLake and Aruba Central using Okta.
 
-### Before you Begin
+### Before starting
 
-Please review the [GreenLake](https://support.hpe.com/hpesc/public/docDisplay?docId=a00120892en_us) User Guide to understand how the SAML framework works in the context of Common Cloud Services for the Aruba Central application.
+Please review the [HPE GreenLake](https://support.hpe.com/hpesc/public/docDisplay?docId=a00120892en_us) User Guide to understand how the SAML framework works in the context of Common Cloud Services for the Aruba Central application.
 
-### Steps to Configure SSO/SAML Application in Okta
+### Configure SSO/SAML applications in Okta
 
 To configure application metadata in Okta, complete the following steps:
 
@@ -29,15 +29,15 @@ To configure application metadata in Okta, complete the following steps:
 * Step 3: Export the SAML 2.0 IdP metadata
 * Step 4: Configure the SAML connection in GreenLake
 
-**Step 1: Create an Okta SAML Application**
+**Step 1: Create an Okta SAML application**
 
 1. Log in to the Okta administration console.
-2. Click **Applications > Create App Integration.** The Create a new app integration window opens.
+2. Click **Applications > Create new app integration.** The Create a new app integration window opens.
 3. Select SAML 2.0 and click Next.
 
 ![](/img/ws-image0.png)
 
-Provide a name for the Aruba GreenLake SSO service (Okta Application)
+Provide a name for the Aruba GreenLake SSO service (Okta application)
 
 ![](/img/ws-image1.png)
 
