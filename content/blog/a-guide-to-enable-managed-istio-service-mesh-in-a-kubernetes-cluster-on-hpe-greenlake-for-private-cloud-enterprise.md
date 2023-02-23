@@ -18,7 +18,7 @@ tags:
   - site-reliability-engineer
   - hpe-greenlake-for-private-cloud-enterprise-containers
 ---
-# **Introduction**
+## **Introduction**
 
 In this blog post, we demonstrate how an end user can deploy a containerized application or a managed service on a Kubernetes-based container stack using the cluster add-on feature provided by **HPE GreenLake for Private Cloud Enterprise: Containers** and then access it over an external network or internet. The containers service evaluates the user’s environment and makes add-ons available to the user so that they can add the containerized application or managed service to the cluster as required.
 
@@ -26,7 +26,7 @@ For those of you who may be unfamiliar with the term, a **Service mesh** is a ne
 
 **Istio** is an open-source service mesh that provides a platform for distributed applications that includes API integrations with logging, telemetry, or policy systems. It provides a uniform and more efficient way to secure, connect, and monitor services. Istio automatically manages load balancing for HTTP, gRPC, WebSocket, and TCP traffic. For details, see **[The Istio service mesh](https://istio.io/latest/about/service-mesh/)**.
 
-# **Enabling Istio service mesh add-on from a cluster**
+## **Enabling Istio service mesh add-on from a cluster**
 
 ### **Step-1: Create a Kubernetes cluster from the containers page**
 
@@ -185,7 +185,7 @@ Note : The above URL might be different in your environment. You can form the UR
 
 ![](/img/bookinfo-productpage-normal-user.png "Bookinfo application productpage view")
 
-# **Monitor the sample application using the Kiali dashboard**
+## **Monitor the sample application using the Kiali dashboard**
 
 Enter **bookinfo** into the field Filter by Namespace. The Kiali overview screen displays the details about the namespace bookinfo. It shows that 4 applications are running in the **namespace bookinfo** with no inbound traffic.
 
@@ -207,7 +207,7 @@ In the **Services** tab from the left navigation menu, after selecting the **nam
 
 ![](/img/kiali-console-services.png "Kiali services view")
 
-# **Summary**
+## **Summary**
 
 You can find the GitHub repository that hosts demo code **[here](https://github.com/cxteamtrials/caas-trials-content)**.
 
