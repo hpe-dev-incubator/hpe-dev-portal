@@ -93,9 +93,9 @@ B﻿efore cloning the backend repository, you need to prepare the server that wi
 
    * Examine default installation parameters and adapt when necessary accordingly. Files are self documented.
 
-     * Look at the following files within ```ansible/group_vars``` directory.
+     * Look at the following files within `ansible/group_vars` directory.
 
-       * ```all.yml``` file
+       * `all.yml` file
 
          ```shellsession
          vi all.yml
@@ -167,7 +167,7 @@ B﻿efore cloning the backend repository, you need to prepare the server that wi
          SCRIPTPRIVDIR: "{{ WODPRIVDIR }}/scripts"
          ANSIBLEPRIVDIR: "{{ WODPRIVDIR }}/ansible"
          ```
-       * ```wod-backend``` file
+       * `wod-backend` file
 
          ```shellsession
          vi wod-backend
@@ -223,7 +223,7 @@ B﻿efore cloning the backend repository, you need to prepare the server that wi
          DATAVISUPORT1-WKSHP-DataVisu101: 22101
          DATAVISUPORT2-WKSHP-DataVisu101: 22131
          ```
-       * ```wod-system``` file
+       * `wod-system` file
 
          ```shellsession
          vi wod-system
@@ -261,9 +261,9 @@ B﻿efore cloning the backend repository, you need to prepare the server that wi
 
 #### B﻿ackend installation process:
 
-T﻿he installation is based on a common install script \[install.sh] that allows the deployment of the different parts of the solution. It can be called as follows:
+T﻿he installation is based on a common install script [install.sh ](https://github.com/Workshops-on-Demand/wod-backend/blob/main/install/install.sh)that allows the deployment of the different parts of the solution. It can be called as follows:
 
-install.sh usage() { echo "install.sh \[-h]\[-t type]\[-g groupname]\[-b backend]\[-f frontend]\[-a api-db]\[-e external]\[-u user] \[-s sender]"}
+```install.sh \[-h]\[-t type]\[-g groupname]\[-b backend]\[-f frontend]\[-a api-db]\[-e external]\[-u user] \[-s sender]```
 
 \-﻿h provides the help
 
