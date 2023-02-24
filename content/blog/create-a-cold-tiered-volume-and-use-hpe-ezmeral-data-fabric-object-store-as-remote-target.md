@@ -157,7 +157,7 @@ For object listing, getting, putting, and deleting operations, I recommend you u
 
 3. Cannot revert to HTTP mode after enabling HTTPS.
 
-If the Object Store was installed using the Installer, the Object Store will also have security enabled, including HTTPS.
+If the Object Store was installed using the Installer, the Object Store would also have security enabled, including HTTPS.
 
 Although you can see the below description:
 
@@ -167,4 +167,154 @@ from here - [HTTP Access to Object Store](https://docs.datafabric.hpe.com/72/Ad
 
 ### [](#create-a-bucket-in-hpe-ezmeral-data-fabric-object-store-and-upload-some-objects)Create a bucket in HPE Ezmeral Data Fabric Object Store and upload some objects
 
-...to be continued...
+In order to create a Bucket, you need to create an Account, an IAM User, and finally a Bucket in sequence.
+While creating IAM User and Bucket, you also need to prepare Access Policy to control who (IAM User) can perform which (list, get, put, etc.) operations on which Bucket.
+
+You can read the following document - [Entities and Resources](https://docs.datafabric.hpe.com/72/MapROverview/object_store_account_management.html) first to gain a deeper understanding of the entity model of HPE Ezmeral Data Fabric Object Store.
+
+Below, I will demonstrate in turn how to create the above-required entities.
+
+#### Create an account
+
+I choose to use the [mc](https://docs.datafabric.hpe.com/72/ReferenceGuide/mc-commands-overview.html) command line tool to create Account.
+
+Before using the mc command line for the first time, you need to create an Alias for your administrator.
+
+An Alias contains an access endpoint, such as "https://s3-us-west-1.amazonaws.com", which is an Amazon AWS S3 endpoint; another example is "http://10.10.88.198:9000", which is a Minio endpoint.
+An Alias also contains the Access Key and Secret Key used by your administrator or IAM User.
+
+1. You first use the "[mc alias list](https://docs.datafabric.hpe.com/72/ReferenceGuide/mc-alias-list.html)" command to view the default Alias in the following systems.
+
+❗Note: If you are using self-signed TLS certificates or installed the cluster by Installer, you have to copy <ins>/opt/mapr/conf/ca/chain-ca.pem</ins> to <ins>~/.mc/certs/CAs/</ins> on the node running `mc`.
+The meaning of this step is the same as you imported the self-issued CA to the keytool of the JVM earlier, `mc` also needs to import the self-issued CA to communicate with the S3server of the Object Store.
+
+```shell
+sudo -E -u mapr /opt/mapr/bin/mc alias list
+```
+
+Sample output:
+
+```
+gcs
+  URL       : https://storage.googleapis.com
+  AccessKey : YOUR-ACCESS-KEY-HERE
+  SecretKey : YOUR-SECRET-KEY-HERE
+  API       : S3v2
+  Path      : dns
+
+local
+  URL       : http://localhost:9000
+  AccessKey :
+  SecretKey :
+  API       :
+  Path      : auto
+
+play
+  URL       : https://play.min.io
+  AccessKey : XXXXXXXXXXXXXXXXXXXX
+  SecretKey : XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+  API       : S3v4
+  Path      : auto
+
+s3
+  URL       : https://s3.amazonaws.com
+  AccessKey : YOUR-ACCESS-KEY-HERE
+  SecretKey : YOUR-SECRET-KEY-HERE
+  API       : S3v4
+  Path      : dns
+```
+
+2. Generate S3 keys to authenticate your administrator
+
+
+The cluster administrator (typically the mapr user) must authenticate to the Object Store cluster and generate S3 keys (accessKey and secretKey) on the default Object Store account.
+Perform this operation before performing any CLI operations in Object Store.
+
+If the cluster is secure, use [maprlogin](https://docs.datafabric.hpe.com/72/SecurityGuide/ThemaprloginUtility.html) to authenticate the cluster administrator, and then generate the keys:
+
+
+```bash
+maprcli s3keys generate -domainname primary -accountname default -username mapr -json
+```
+
+
+🗒Note: An Object Store cluster has a domain, accounts, buckets, users, and access policies associated with it.
+Installing Object Store in a cluster provides a primary domain and a default account.
+
+Sample output:
+
+
+```json
+{
+  "timestamp":1676472096994,
+  "timeofday":"2023-02-15 10:41:36.994 GMT+0800 PM",
+  "status":"OK",
+  "total":1,
+  "data":[
+          {
+            "accesskey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+            "secretkey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+          }
+  ]
+}
+```
+
+
+🗒Note: If you encounter any problem when generating the S3 keys, refer to this page: [Generate S3 Keys to Authenticate Users and Applications](https://docs.datafabric.hpe.com/72/MapROverview/object-store-get-started.html#object-store-get-started__section_x4h_w13_4tb).
+
+3. Use the `mc alias set` command to create an alias for admin user
+
+
+```shell
+mc alias set s3-admin-alias https://`hostname -f`:9000 {ACCESS_KEY} {SECRET_KEY} --api "s3v4" --path "off" --json
+```
+
+
+🗒Note: "s3-admin-alias" is the name of the alias, you define it.
+
+"https://`hostname -f`:9000" is the endpoint of the Object Store service.
+Here, I'm running the command on the node which is running the S3server.
+After created an alias, you would find the information is appended into <ins>$HOME/.mc/config.json</ins>.
+
+4. Create an account
+
+
+I choose to use the Object Store Web GUI to create an account.
+
+
+Refer to this document - [Using the Object Store Interface](https://docs.datafabric.hpe.com/72/MapROverview/create-account.html#create_account__section_fsm_1hn_nrb).
+
+
+Create an account using Object Store Web GUI - 1
+<a href="https://ibb.co/SyW9MKK"><img src="https://i.ibb.co/XLNvKzz/Object-Store-Create-Account-1.png" alt="Object-Store-Create-Account-1" border="0"></a>
+
+Enter the following in "Default Bucket Place":
+
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+      {
+        "Sid": "GrantAdminPutPermissions",
+        "Effect": "Allow",
+        "Principal": "arn:primary:default:user:mapr",
+        "Action":"s3:PutObject",
+        "Resource":"arn:aws:s3:::${bucket}/*"
+      },
+      {
+        "Sid":"GrantAnonymousReadPermissions",
+        "Effect":"Allow",
+        "Principal": "*",
+        "Action":["s3:GetObject"],
+        "Resource":["arn:aws:s3:::${bucket}/*"]
+      }
+  ]
+}
+```
+
+
+HPE Ezmeral Data Fabric Object Store is an on-premises object storage service compatible with Minio.
+Some concepts such as Domain and Default Account do not exist in public cloud object storage services such as AWS S3.
+But the policy for Bucket and IAM User is compatible with the policy in public cloud object storage.
+For the Bucket Policy here, you can refer to AWS S3 [Bucket policy examples](https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-bucket-policies.html) and HPE Ezmeral Data Fabric Object Store document - [Access Policies](https://docs.datafabric.hpe.com/72/MapROverview/object-store-policies.html).
