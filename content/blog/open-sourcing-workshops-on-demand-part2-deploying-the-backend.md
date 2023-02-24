@@ -374,14 +374,10 @@ Please refer to the following [url](https://docs.github.com/en/authentication/ke
   * create line before variable declaration: ```token=`cat $EXEPATH/token` ```
   * use the token in the url WODPRIVREPO="git clone https://user:$token@github.com/Account/wod-private.git wod-private"
 
-* M﻿ove to the ```wod-backend/install``` directory
-
-```shellsession
-cd $HOME/wod-backend/install
-```
 Y﻿ou are now ready to perform the installation again to support a private repository. 
 
 ```shellsession
+cd $HOME/wod-backend/install
 sudo ./install.sh -t backend -g staging -b jup.example.net -f notebooks.example.io -a api.example.io -e notebooks.example.io -s sender@example.io
 ```
 
