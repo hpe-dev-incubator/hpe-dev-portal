@@ -19,7 +19,7 @@ T﻿he overall infrastructure can run on physical servers or vms. We usuasully c
 
 ## H﻿ow to deploy your own backend...
 
-A﻿s explained in the previous article, the project is split into multiple repositories from an architectural and public / private aspects. The architecture is divided between frontend and backend and the project admin will decide whether  he is willing to develop and propose public only content to the participants or add some propriatory and private content.
+A﻿s explained in the previous [article](https://developer.hpe.com/blog/willing-to-build-up-your-own-workshops-on-demand-infrastructure/), the project is split into multiple repositories from an architectural and public / private aspects. The architecture is divided between frontend and backend and the project admin will decide whether  he is willing to develop and propose public only content to the participants or add some proprietary and private content.
 
 I﻿ will start with the simpliest scenario: A public only approach. Then we will dive into the specificties related the private approach.
 
@@ -29,7 +29,11 @@ I﻿ will start with the simpliest scenario: A public only approach. Then we wil
 
 **T﻿his part is compulsory for any type of deployment. Public only or public + private.**
 
-F﻿irst, you need a repository to clone. The github project is available [here](https://github.com/Workshops-on-Demand/). W﻿e have packaged the solution in several github repos. Each repositorie represents a role in the overall architecture.
+F﻿irst, you need a repository to clone. The github projects are available [here](https://github.com/Workshops-on-Demand/). W﻿e have packaged the solution in several github repos. Each repository represents a role in the overall architecture.
+
+
+
+![](/img/wod-blogserie2-repos.png "WOD Repositories")
 
 F﻿or the backend side, the repository name is **wod-backend.** This project is the back-end part of our Workshop-on-Demand setup.  It provides:
 
