@@ -31,36 +31,32 @@ I﻿ will start with the simpliest scenario: A public only approach. Then we wil
 
 F﻿irst, you need a repository to clone. The github projects are available [here](https://github.com/Workshops-on-Demand/). W﻿e have packaged the solution in several github repos. Each repository represents a role in the overall architecture.
 
-**w﻿od-notebooks:** Public Workshops-on-Demand based on Jupyter Notebooks.
+![](/img/wod-blogserie2-repos.png "WOD Repositories")
+
+**[w﻿od-notebooks](https://github.com/Workshops-on-Demand/wod-notebooks):** Public Workshops-on-Demand based on Jupyter Notebooks.
 
 * You can test them live at <https://hackshack.hpedev.io/workshops>
 
-**w﻿od-frontend:** Frontend part of the Workshops-on-Demand project.
+**[w﻿od-frontend](https://github.com/Workshops-on-Demand/wod-frontend):** Frontend part of the Workshops-on-Demand project.
 
-Based on NGINX and NodeJS technologies, it provides the participatants' registration portal to book workshops.
+* Based on NGINX and NodeJS technologies, it provides the participatants' registration portal to book workshops.
 
-**w﻿od-api-db:**
+**[w﻿od-api-db](https://github.com/Workshops-on-Demand/wod-api-db):** Workshops-on-Demand registration portal application
 
+* Open API 3.0 based api used to manage the Workshops-on-Demand project. it also provides a Database hosting the different status of participants, workshops, students. 
 
+**[w﻿od-private](https://github.com/Workshops-on-Demand/wod-private):** Example Private configuration for WoD.
 
-**w﻿od-private:** Example Private configuration for WoD.
+* This provide an example for creating your own cutomization layer on top of the public standard wod Backend / wod Notebooks content. Do not put any confidential data here as this is a public repository !!
 
-This provide an example for creating your own cutomization layer on top of the public standard wod Backend / wod Notebooks content. Do not put any confidential data here as this is a public repository !!
+**[w﻿od-backend](https://github.com/Workshops-on-Demand/wod-backend):** Back-end part of our Workshop-on-Demand setup.  
 
-
-
-
-
-![](/img/wod-blogserie2-repos.png "WOD Repositories")
-
-**w﻿od-backend:**
-
-F﻿or the backend side, the repository name is **wod-backend.** This project is the back-end part of our Workshop-on-Demand setup.  It provides:
+It provides:
 
 * A complete JupyterHub server with extensions on your system, ready to host Workshops-on-Demand that you can find [here ](https://github.com/Workshops-on-Demand/wod-notebooks.git)[](https://github.com/Workshops-on-Demand/wod-notebooks.git)
 * A postfix server used for the procmail API
 * An Ansible engine to allow automation
-* A fail2ban server
+* A fail2ban service
 * An Admin user to manage everything
 * A﻿ set of scripts to handle different tasks such as:
   -Notebooks deployment
@@ -70,13 +66,13 @@ F﻿or the backend side, the repository name is **wod-backend.** This project is
 
 #### Backend server preparation:
 
-B﻿efore cloning the backend repository, you need to prepare the server that will host the backend functionnalities. When ready, you will proceed with the cloning and then the installation process.
+B﻿efore cloning the backend repository, you need to prepare the server that will host the backend features. When ready, you will proceed with the cloning and then the installation process.
 
 ##### Pre requesites:
 
 1. I﻿n order to setup the backend server, you will need:
 
-   * A fresh OS install on physical / virtualized server running Ubuntu 20.04 or Centos 7.9 leveraging any deployment mechanism of your choice.(e.g iLO, vagrant, etc.)
+   * A fresh OS install on physical / virtualized server running Ubuntu 20.04 or Centos 7.9 leveraging any deployment mechanism of your choice.(e.g iLO, vagrant, etc.). You may even use this [vagrant file](https://github.com/Workshops-on-Demand/wod-backend/blob/main/install/Vagrantfile) to generate automatically a complete setup leveraging vagrant, libvirt and QEMU/KVM.
    * A linux account with sudo priviledges on your linux distro.
 
    **Note:** In order to support 100 concurrent users :
