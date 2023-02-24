@@ -302,28 +302,28 @@ sender    is the e-mail address used in the WoD frontend to send API procmail ma
 Example below for a backend server:
 
 ```shellsession
-sudo ./install.sh -t backend -g staging -b jup.example.net -f notebooks.example.io -a api.example.io -e notebooks.example.io -s sender@example.io
+install$ sudo ./install.sh -t backend -g staging -b jup.example.net -f notebooks.example.io -a api.example.io -e notebooks.example.io -s sender@example.io
 ```
 
-Install.sh performs the following tasks:
+```install.sh``` performs the following tasks:
 
-* Calls the install-system-<< distribution name >>.sh script
-* Installs minimal requirered (Ansible, git, jq, openssh server, npm)
-* Creates an admin user as defined upper (default is wodadmin) with sudo rights
-* Calls the install-system-common.sh script that performs the following tasks:
+* Calls the ```install-system-<< distribution name >>.sh``` script
+* Installs minimal requirered (```ansible, git, jq, openssh server, npm```)
+* Creates an admin user as defined upper (default is ```wodadmin```) with sudo rights
+* Calls the ```install-system-common.sh``` script that performs the following tasks:
 
   * cleanup
   * github repos cloning (leveraging install.repo file) : public Backend and public Private repos
   * Create ssh keys for wodadmin
   * Creates GROUPNAME variables
   * Creates ansible inventory files
-* Calls the install_system.sh script with type (Backend, Frontend, etc..) that performs the following tasks:
+* Calls the ```install_system.sh``` script with the type (backend, frontend, etc..) that performs the following tasks:
 
   * Install the necessary stack based on selected type
-  * Create a wod.sh script in wod-backend directory to be used by all other scripts
-  * Source the wod.sh file
-  * Setup ansible-galaxies (community.general and posix)
-  * Setup Ansible and call the playbook install_<>.yml followed by the ansible\_check\_<>.yml
+  * Create a ```wod.sh``` script in ```wod-backend``` directory to be used by all other scripts
+  * Source the ```wod.sh``` file
+  * Setup Ansible-galaxies (```community.general``` and ```posix```)
+  * Setup Ansible and call the playbook ```install_<>.yml``` followed by the ```ansible\_check\_<>.yml```
 
 A﻿ll Playbooks are self documented. Please check for details.
 
