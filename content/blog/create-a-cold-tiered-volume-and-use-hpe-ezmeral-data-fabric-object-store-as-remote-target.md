@@ -318,3 +318,183 @@ HPE Ezmeral Data Fabric Object Store is an on-premises object storage service co
 Some concepts such as Domain and Default Account do not exist in public cloud object storage services such as AWS S3.
 But the policy for Bucket and IAM User is compatible with the policy in public cloud object storage.
 For the Bucket Policy here, you can refer to AWS S3 [Bucket policy examples](https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-bucket-policies.html) and HPE Ezmeral Data Fabric Object Store document - [Access Policies](https://docs.datafabric.hpe.com/72/MapROverview/object-store-policies.html).
+
+After creating the user account, you can use the below command to view it:
+
+
+```shell
+sudo -u mapr /opt/mapr/bin/mc admin account list {ADMIN_ALIAS} domain=primary --json
+```
+
+Sample output:
+
+
+```json
+{
+ "name": "default",
+ "id": 0,
+ "admin": "mapr",
+ "labelname": "default",
+ "minrepl": 2,
+ "desiredrepl": 3,
+ "usercount": 2
+}
+{
+  // # 👇 The account you just created.
+ "name": "s3test",
+ "id": 1,
+ "admin": "mapr",
+ "def_bucket_policy": {
+  "Version": "2012-10-17",
+  "Statement": [
+   {
+    "Sid": "GrantAdminPutPermissions",
+    "Effect": "Allow",
+    "Principal": {
+     "AWS": [
+      "arn:primary:default:user:mapr"
+     ]
+    },
+    "Action": [
+     "s3:PutObject"
+    ],
+    "Resource": [
+     "arn:aws:s3:::${bucket}/*"
+    ]
+   },
+   {
+    "Sid": "GrantAnonymousReadPermissions",
+    "Effect": "Allow",
+    "Principal": {
+     "AWS": [
+      "*"
+     ]
+    },
+    "Action": [
+     "s3:GetObject"
+    ],
+    "Resource": [
+     "arn:aws:s3:::${bucket}/*"
+    ]
+   }
+  ]
+ },
+ "size": 22871,
+ "labelname": "default",
+ "topology": "/data/default-rack",
+ "minrepl": 1,
+ "desiredrepl": 1,
+ "usercount": 1,
+ "bucketcount": 1
+}
+```
+
+#### Create an IAM User in the non-default Account you created just now
+
+
+In step 4, you created a non-default Account named "s3test".
+In HPE Ezmeral Data Fabric Object Store, you must create a non-default Account to create an IAM User, and you should use the IAM User to operate Buckets.
+
+
+```shell
+sudo -u mapr /opt/mapr/bin/mc admin user add s3-admin-alias s3-test-iam_user account=s3test domain=primary
+```
+
+
+🗒Note: "s3-admin-alias" is the admin alias you created in step-3, and "s3-test-iam_user" is the IAM User name.
+For more information, refer to: [Create IAM Users](https://docs.datafabric.hpe.com/72/MapROverview/create-IAM-user.html).
+
+
+Next, you create an IAM policy for the IAM User - s3-test-iam_user.
+
+
+```shell
+cat <<'EOF' > ./PolicyPublicRead.json
+{
+    "Version":"2012-10-17",
+    "Statement": [
+        {
+            "Sid":"GrantAnonymousReadPermissions",
+            "Effect":"Allow",
+            "Principal": "*",
+            "Action":["s3:GetObject"],
+            "Resource":["arn:aws:s3:::${bucket}/*"]
+        }
+    ]
+}
+EOF
+```
+
+
+
+```shell
+mc admin policy add s3-admin-alias PolicyPublicRead ./PolicyPublicRead.json account=s3test domain=primary
+```
+
+
+🗒Note: "PolicyPublicRead" is the IAM Policy's name.
+
+You can also use the Object Store Web GUI to create the IAM Policy, like the following screenshot👇.
+
+<a href="https://ibb.co/xsH1nYH"><img src="https://i.ibb.co/n0C7XBC/Object-Store-Create-IAMPolicy-1.png" alt="Object-Store-Create-IAMPolicy-1" border="0"></a>
+
+
+Let's create another IAM Policy named "GrantBucketOperations"👇, you will associate these 2 IAM Policies to the IAM User - "s3-test-iam_user" later.
+
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statement":
+    [
+        {
+            "Effect": "Allow",
+            "Action":
+            [
+                "s3:ListAllMyBuckets",
+                "s3:CreateBucket",
+                "s3:GetBucketLocation"
+            ],
+            "Resource":
+            [
+                "arn:aws:s3:::*"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action":
+            [
+                "s3:ListBucket",
+                "s3:GetBucketLocation"
+            ],
+            "Resource": "arn:aws:s3:::s3-test-iam-user-bucket/*"
+        },
+        {
+            "Effect": "Allow",
+            "Action":
+            [
+                "s3:PutObject",
+                "s3:PutObjectAcl",
+                "s3:GetObject",
+                "s3:GetObjectAcl",
+                "s3:DeleteObject"
+            ],
+            "Resource": "arn:aws:s3:::s3-test-iam-user-bucket/*"
+        }
+    ]
+}
+```
+
+
+To associate an IAM Policy to an IAM User:
+
+
+```shell
+sudo -u mapr /opt/mapr/bin/mc admin policy set s3-admin-alias PolicyPublicRead users='s3-test-iam_user' account='s3test' domain='primary'
+sudo -u mapr /opt/mapr/bin/mc admin policy set s3-admin-alias GrantBucketOperations users='s3-test-iam_user' account='s3test' domain='primary'
+```
+
+
+#### Create a Bucket for the IAM User
+
+... to be continued ...
