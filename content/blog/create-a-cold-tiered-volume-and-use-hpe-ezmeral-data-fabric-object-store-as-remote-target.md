@@ -497,4 +497,101 @@ sudo -u mapr /opt/mapr/bin/mc admin policy set s3-admin-alias GrantBucketOperati
 
 #### Create a Bucket for the IAM User
 
-... to be continued ...
+
+First, you need to generate the access key and secret key for the IAM User - "s3-test-iam_user".
+
+
+```shell
+sudo -u mapr maprcli s3keys generate -domainname primary \
+  -accountname s3test \
+  -username 's3-test-iam_user'
+```
+
+
+☝Then you would get the access key and secret key for the IAM User - "s3-test-iam_user".
+
+
+```shell
+sudo -u mapr mc alias set s3-test-iam_user-alias https://`hostname -f`:9000 \
+{ACCESS_KEY} \
+{SECRET_KEY} \
+--api "s3v4" --path "off" --json
+
+sudo -u mapr mc mb --account s3test --ignore-existing --disable-versioning --json s3-test-iam_user-alias/s3-test-iam-user-bucket
+
+```
+
+☝Now you have created a Bucket named "s3-test-iam-user-bucket" using the IAM User - "s3-test-iam_user".
+Because "s3-test-iam_user" is inside account - "s3test", the Bucket will be also placed under account - "s3test".
+
+To list Buckets using the `mc` command:
+
+
+```shell
+/opt/mapr/bin/mc ls --account s3test --versions --recursive --summarize --json s3-test-iam_user-alias
+```
+
+
+Sample output:
+
+
+```json
+{
+ "status": "success",
+ "type": "folder",
+ "lastModified": "2023-02-16T15:22:16+08:00",
+ "size": 23897893980,
+ "key": "s3-test-iam-user-bucket/",
+ "etag": "",
+ "url": "https://m2-maprts-vm197-172.mip.storage.hpecorp.net:9000/",
+ "versionOrdinal": 1
+}
+{
+"totalObjects": 1,
+"totalSize": 23897893980
+}
+```
+
+#### Install the AWS CLI and put an file into the Bucket
+
+
+To install the AWS CLI, refer to this Amazon AWS document 👉 [Installing or updating the latest version of the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html).
+
+
+Then you create a profile for the IAM User:
+
+
+```shell
+export AWS_CA_BUNDLE=/opt/mapr/conf/ca/chain-ca.pem
+aws configure --profile s3-test-iam_user-ray-2-objstor
+```
+
+
+❗Note: Before using the AWS CLI, remember to export the environment AWS_CA_BUNDLE=/opt/mapr/conf/ca/chain-ca.pem.
+Otherwise AWS CLI cannot communicate with S3server because S3server is using self-signed TLS certificates.
+
+
+After inputting the above command, the AWS CLI will ask you to input the access key and secret key.
+After the profile is created, the information will be stored at <ins>$HOME/.aws/config</ins> and <ins>$HOME/.aws/credentials</ins>.
+
+
+Use the below command to list Buckets:
+
+
+```shell
+aws s3api list-buckets --endpoint-url https://`hostname -f`:9000 --profile s3-test-iam_user-ray-2-objstor
+```
+
+
+Use the below command to put a file into the Bucket:
+
+
+```shell
+aws s3api put-object --bucket s3-test-iam-user-bucket --key 'testdir/s3-test-iam-user-dir/hpe-cp-rhel-release-5.5.1-3083.bin' --body 'downloads/hpe-cp-rhel-release-5.5.1-3083.bin' --endpoint-url https://m2-maprts-vm197-172.mip.storage.hpecorp.net:9000 --profile s3-test-iam_user-ray-2-objstor
+```
+
+
+🗒Note: "s3-test-iam-user-bucket" is the Bucket's name that you created before.
+"testdir/s3-test-iam-user-dir/hpe-cp-rhel-release-5.5.1-3083.bin" is the path that you want to put into the Bucket.
+The part of "testdir/s3-test-iam-user-dir/" indicates it's under this directory, if the directory doesn't exist, it will be created.
+"downloads/hpe-cp-rhel-release-5.5.1-3083.bin" is the local file path that you want to put into the Bucket.
