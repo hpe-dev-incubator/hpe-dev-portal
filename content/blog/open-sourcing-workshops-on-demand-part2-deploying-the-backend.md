@@ -31,9 +31,29 @@ I﻿ will start with the simpliest scenario: A public only approach. Then we wil
 
 F﻿irst, you need a repository to clone. The github projects are available [here](https://github.com/Workshops-on-Demand/). W﻿e have packaged the solution in several github repos. Each repository represents a role in the overall architecture.
 
+**w﻿od-notebooks:** Public Workshops-on-Demand based on Jupyter Notebooks.
+
+* You can test them live at <https://hackshack.hpedev.io/workshops>
+
+**w﻿od-frontend:** Frontend part of the Workshops-on-Demand project.
+
+Based on NGINX and NodeJS technologies, it provides the participatants' registration portal to book workshops.
+
+**w﻿od-api-db:**
+
+
+
+**w﻿od-private:** Example Private configuration for WoD.
+
+This provide an example for creating your own cutomization layer on top of the public standard wod Backend / wod Notebooks content. Do not put any confidential data here as this is a public repository !!
+
+
+
 
 
 ![](/img/wod-blogserie2-repos.png "WOD Repositories")
+
+**w﻿od-backend:**
 
 F﻿or the backend side, the repository name is **wod-backend.** This project is the back-end part of our Workshop-on-Demand setup.  It provides:
 
