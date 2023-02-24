@@ -265,7 +265,7 @@ T﻿he installation is based on a common install script [install.sh ](https://gi
 
 ```install.sh \[-h]\[-t type]\[-g groupname]\[-b backend]\[-f frontend]\[-a api-db]\[-e external]\[-u user] \[-s sender]```
 
-\-﻿h provides the help
+```-﻿h``` provides the help
 
 ```shellsession
 ./install.sh -h
