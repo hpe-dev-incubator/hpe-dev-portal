@@ -263,9 +263,9 @@ B﻿efore cloning the backend repository, you need to prepare the server that wi
 
 T﻿he installation is based on a common install script [install.sh ](https://github.com/Workshops-on-Demand/wod-backend/blob/main/install/install.sh)that allows the deployment of the different parts of the solution. It can be called as follows:
 
-```install.sh \[-h]\[-t type]\[-g groupname]\[-b backend]\[-f frontend]\[-a api-db]\[-e external]\[-u user] \[-s sender]```
+`install.sh [-h][-t type][-g groupname][-b backend][-f frontend][-a api-db][-e external][-u user][-s sender]`
 
-```-﻿h``` provides the help
+`-﻿h` provides the help
 
 ```shellsession
 ./install.sh -h
