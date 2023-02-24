@@ -363,15 +363,15 @@ G﻿ROUPNAME Definition here:
   * Define the WODPRIVREPO and WODPRIVBRANCH variables as follows:
 
     * WODPRIVBRANCH="main"
-    * WODPRIVREPO="[git@github.com](mailto:git@github.com):Account/Private-Repo.git wod-private"
+    * WODPRIVREPO="git@github.com:Account/Private-Repo.git wod-private"
 
 **Note: When using a token**
 
 Please refer to the following [url](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) to generate token :
 
-* edit the install.repo file located in install directory of wod-backend:
+* edit the ```install.priv``` file located in ```install``` directory of wod-backend:
 
-  * Uncomment line : token=`cat $EXEPATH/token`
+  * create line : ```token=`cat $EXEPATH/token` ```
   * use the token in the url WODPRIVREPO="git clone <https://user:$token@github.com/....../wod-private.git> wod-private"
 
 * M﻿ove to the ```wod-backend/install``` directory
