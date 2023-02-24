@@ -73,28 +73,29 @@ B﻿efore cloning the backend repository, you need to prepare the server that wi
 1. I﻿n order to setup the backend server, you will need:
 
    * A fresh OS install on physical / virtualized server running Ubuntu 20.04 or Centos 7.9 leveraging any deployment mechanism of your choice.(e.g iLO, vagrant, etc.). You may even use this [vagrant file](https://github.com/Workshops-on-Demand/wod-backend/blob/main/install/Vagrantfile) to generate automatically a complete setup leveraging vagrant, libvirt and QEMU/KVM.
-   * A linux account with sudo priviledges on your linux distro.
+   * A linux account with sudo priviledges on your linux distro. Name it `install`
 
-   **Note:** In order to support 100 concurrent users :
+   **Note:** In order to support 100 concurrent users : 
 
    * 2 cpus or more machine
    * 128 Gigas of Ram
    * 500 Gigas of Drive
+
+     W﻿e are currently using a DL360 gen10 server on our different production sites.
 2. W﻿hen done with OS installation and preparation
 
-   * From the wod-backend server aka Jupyterhub server, as the created user, you will need to clone the repo first.
+   * From the wod-backend server aka Jupyterhub server, as the `install` user, you will need to clone the repo first.
 
    ```shellsession
-   sudo su - [user]
-   git clone https://github.com/Workshops-on-Demand/wod-backend.git
-   cd wod-backend/install
+   install$ git clone https://github.com/Workshops-on-Demand/wod-backend.git
+   install$ cd wod-backend/
    ```
 
    * Examine default installation parameters and adapt when necessary accordingly. Files are self documented.
 
-     * Look at the following files within ansible/group_vars directory.
+     * Look at the following files within ```ansible/group_vars``` directory.
 
-       * all.yml file
+       * ```all.yml``` file
 
          ```shellsession
          vi all.yml
@@ -166,7 +167,7 @@ B﻿efore cloning the backend repository, you need to prepare the server that wi
          SCRIPTPRIVDIR: "{{ WODPRIVDIR }}/scripts"
          ANSIBLEPRIVDIR: "{{ WODPRIVDIR }}/ansible"
          ```
-       * wod-backend file
+       * ```wod-backend``` file
 
          ```shellsession
          vi wod-backend
