@@ -223,7 +223,7 @@ B﻿efore cloning the backend repository, you need to prepare the server that wi
          DATAVISUPORT1-WKSHP-DataVisu101: 22101
          DATAVISUPORT2-WKSHP-DataVisu101: 22131
          ```
-       * wod-system
+       * ```wod-system``` file
 
          ```shellsession
          vi wod-system
