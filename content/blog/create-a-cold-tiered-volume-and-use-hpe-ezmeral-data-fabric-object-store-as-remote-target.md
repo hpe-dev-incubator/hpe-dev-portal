@@ -595,3 +595,108 @@ aws s3api put-object --bucket s3-test-iam-user-bucket --key 'testdir/s3-test-iam
 "testdir/s3-test-iam-user-dir/hpe-cp-rhel-release-5.5.1-3083.bin" is the path that you want to put into the Bucket.
 The part of "testdir/s3-test-iam-user-dir/" indicates it's under this directory, if the directory doesn't exist, it will be created.
 "downloads/hpe-cp-rhel-release-5.5.1-3083.bin" is the local file path that you want to put into the Bucket.
+
+## Create an Cold-Tiered Volume and offlad to remote Object Store
+
+
+So, now we are going to create a Volume on another cluster and configure the Cold Tier remote target for this Volume.
+Then we will manually offload the data in this Volume to the remote HPE Ezmeral Data Fabric Object Store.
+
+### Create a Cold-Tiered Volume by Web GUI
+
+
+First of all, you need to log in to MCS, and enter the following positions in turn at the top of the screen: Data --> Volumes👇
+
+
+<a href="https://ibb.co/1Zg5RXN"><img src="https://i.ibb.co/2q9QcMr/Create-Cold-Tier-Volume-1.png" alt="Create-Cold-Tier-Volume-1" border="0"></a>
+
+
+Then click "Create Volume" at the top of the screen👇.
+
+
+<a href="https://ibb.co/T8SV1Mt"><img src="https://i.ibb.co/cFHGwhQ/Create-Cold-Tier-Volume-2.png" alt="Create-Cold-Tier-Volume-2" border="0"></a>
+
+
+Fill in the necessary information, you can refer to this document 👉 [Creating a Volume](https://docs.datafabric.hpe.com/72/ClusterAdministration/data/volumes/CreateVols.html).
+
+Turn on the "Data Tiering" switch and select "Remote Archiving(Cold)". Refer to the figure below to fill in the remote target information:
+
+
+<a href="https://ibb.co/cyy3cWt"><img src="https://i.ibb.co/3TTdyxW/Create-Cold-Tier-Volume-3.png" alt="Create-Cold-Tier-Volume-3" border="0"></a>
+
+
+- URL: The host where the S3server of the remote HPE Ezmeral Data Fabric cluster is located, and the port number is the default port 9000 of the S3server.
+- Bucket: The Bucket created for IAM User in previous steps.
+- Access Key and Secret Key: The keys of the IAM User created in the previous step.
+
+### Configure the CA certificate of the remote Object Store for the MAST Gateway of the local cluster
+
+
+You should remember that in the earlier steps, we configured the CA certificate of the Object Store's self-signed TLS certificate for the JDK keystore as well as the mc command line tool and the AWS CLI.
+
+Now we also need to configure this self-signed CA root certificate for MAST Gateway so that it can communicate with the remote Object Store.
+
+Refer to this document - [Configuring the MAST Gateway Service](https://docs.datafabric.hpe.com/72/StorageTiers/ConfigMASTGateway.html), set the value of "mastgateway.curl.cainfo" in the configuration file.
+
+You need to find <ins>/opt/mapr/conf/ca/chain-ca.pem</ins> from a host of the Object Store cluster first, and copy it to the MAST Gateway node.
+For the convenience of management, you can rename it appropriately and configure it as the value of "mastgateway.curl.cainfo".
+
+### Use the maprcli volume offload command to manually offload data
+
+
+Now you can place some data in the Cold-Tiered Volume you just created. 
+I put a 5.6GB file in it.
+
+
+Then, you can use the following command to manually trigger the offload of the entire Volume.
+
+
+```shell
+maprcli volume offload -ignorerule true -name {VOLUME_NAME}
+```
+
+
+Then, you can use the following command to monitor the offload status.
+
+
+```shell
+watch 'maprcli volume tierjobstatus -name {VOLUME_NAME} -json'
+```
+
+
+🗒Note: the `watch` will execute the following string as a command every 2 seconds.
+
+When the offload is complete, you will see the following output.
+
+
+```json
+{
+    "timestamp": 1676564889008,
+    "timeofday": "2023-02-17 12:28:09.008 GMT+0800 AM",
+    "status": "OK",
+    "total": 1,
+    "data":
+    [
+        {
+            "offload":
+            {
+                "state": "Success",
+                "progress": "100%",
+                "startTime": "2023-02-17 00:22:47.352 GMT+0800",
+                "endTime": "2023-02-17 00:27:00.014 GMT+0800",
+                "offloadedDataSize": "5697.702 MB",
+                "gateway": "10.163.173.99:8660"
+            }
+        }
+    ]
+}
+```
+
+## Summary
+
+
+Well, the above is the whole content of this article.
+In this article, I demonstrate how to create a Bucket in HPE Ezmeral Data Fabric Object Store and upload data using the AWS CLI command line tool.
+Then it demonstrates how to create a Cold-Tiered Volume and configure it to use the remote Object Store as a remote target.
+And how to manually trigger Volume data offload, so as to verify that the whole work is popular.
+Hope this article is helpful to you, see you next time.
