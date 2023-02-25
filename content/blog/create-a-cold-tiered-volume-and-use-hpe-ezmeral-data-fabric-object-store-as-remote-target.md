@@ -1,7 +1,7 @@
 ---
 title: Create a Cold-Tiered Volume and use HPE Ezmeral Data Fabric Object Store
   as remote target
-date: 2023-02-18T07:02:29.335Z
+date: 2023-02-25T16:12:07.149Z
 author: Raymond Yan
 authorimage: https://i.ibb.co/64JFMHq/mmexport1595671906156-1.png
 thumbnailimage: https://i.ibb.co/rvp7d53/thumbnail-image.png
