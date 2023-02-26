@@ -234,38 +234,104 @@ resource "hpegl_metal_host" "demo_host" {
 }
 ```
 
-Initialize Terraform 
-Before you can use Terraform, you will have to initialize it from the configuration file we have created. In the same directory as the main.tf file you created, run : terraform init
+#### Initialize Terraform 
 
-Validate and view the Terraform execution plan
-Terraform plan is a dry run that lets you preview the changes that Terraform plans to make to your infrastructure based on the data you provide in your Terraform file. To see this, run: terraform plan
+Before you can use Terraform, you will have to initialize it from the configuration file we have created. In the same directory as the **main.tf** file you created, **run : terraform init**
 
-```
+#### Validate and view the Terraform execution plan
 
-```
-
-Apply the Terraform execution plan 
-The command you need to use is now: terraform apply. This will rerun the plan command, then prompt you to confirm before it starts applying what’s in the plan:
+Terraform plan is a dry run that lets you preview the changes that Terraform plans to make to your infrastructure based on the data you provide in your Terraform file. To see this, **run: terraform plan**
 
 ```
 
 ```
 
-Advanced example: 
-The above example shows how to deploy a compute instance from the pre-existing resource. Below is another example that demonstrates compute instance deployment
-with dependency on dynamic resources and few other possible configuration options.
+#### Apply the Terraform execution plan  
+
+The command you need to use is now: **terraform apply**. This will rerun the plan command, then prompt you to confirm before it starts applying what’s in the plan:
+
+```
+
+```
+
+### \
+Advanced example:  
+
+The above example shows how to deploy a compute instance from the pre-existing resource. Below is another example that demonstrates compute instance deployment with dependency on dynamic resources and a few other possible configuration options. 
 
 ```hcl
+terraform {
+  required_providers {
+    hpegl = {
+      source  = "HPE/hpegl"
+      version = ">= 0.3.12"
+    }
+  }
+}
 
+provider "hpegl" {    
+  # metal block for configuring bare metal resources.
+  metal {   
+  } 
+}
+
+locals {
+  location = "USA:CO:FTC"
+}
+
+resource "hpegl_metal_ssh_key" "newssh_1" {
+  name       = "newssh_1"
+  public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCv03o//GEQ9/6eI1qZleyBbSndg0n5AkcKVnf5D4fEjwkWrtSIJEnROqJddEAn2XYALAk9x1AcB4Nue3q4tDG17VeK3ODo0+9Dx0LYqUTawnFWmo4X80QKr658Jmt7Enmnk5x2IrUDcNwAzALVellkBbwq7QbYUu1swSycNlNhSfGizqo/lQCNIHXyeRQ8oJxOuZkbiturXHZL389blIrTeUo53xmwE1TolVS8QzZRN8ve1GjFvpC5dl6orzi6LXDcrDcbZaxlrW+YQqyaipFRAw1DyTalrfpqxtq/Y9+Elz5xgCnUaepHN6ha/k81wtI2rySHga6pMOcJKlxaRS5OfzdrWh7oi2tEAaiq2y3pTr9hROQ2OGcMNU5gxbVU2ymeXdHVsAHMCmyKvQe0g0/fJzmNA/excogFCWDN7Spy9s2V39IbEKttyXjD/dpave7re9eFzYHA1CBEnNjMuvJj0H4tnpAETdQ6UbnjbE4JYn5eKGvnJ2w1JTfSdMK8nMcxqo4HfHWuLFuntCV9GAlWIVIvJn1pYisY8kEOtN5w6QrLTfsei96/TfssAsfhrDrVtgcgNU3EvZlC6Uaaly7D0ISFeufsxkPswu+jGNUJvGEqDiqvt05lSEZWS5viR/TOROTlicaGN9dhez/fqHcj5cnuoK1pmibK5GT7/Yf1Gw== user1@quattronetworks.com"
+}
+
+resource "hpegl_metal_network" "newpnet_1" {
+  name        = "newpnet_1"
+  description = "New private network 1 description"
+  location    = local.location
+  ip_pool {
+    name          = "npool"
+    description   = "New IP pool description"
+    ip_ver        = "IPv4"
+    base_ip       = "10.0.0.0"
+    netmask       = "/24"
+    default_route = "10.0.0.1"
+    sources {
+      base_ip = "10.0.0.3"
+      count   = 10
+    }
+    dns      = ["10.0.0.50"]
+    proxy    = "https://10.0.0.60"
+    no_proxy = "10.0.0.5"
+    ntp      = ["10.0.0.80"]
+  }
+}
+
+
+resource "hpegl_metal_host" "demo_advance" {
+  count = 0
+  name             = "demo-advance-1"
+  image            = "ubuntu@20.04-20210713"
+  machine_size     = "G2i"
+  ssh              = [hpegl_metal_ssh_key.newssh_1.id]
+  networks         = ["Public", hpegl_metal_network.newpnet_1.name]
+  network_route    = "Public"
+  network_untagged = hpegl_metal_network.newpnet_1.name
+  location         = local.location
+  description      = "Hello from Terraform"
+  # Attaching tags 
+  labels           = { "purpose" = "devops" }
+}
 ```
 
-Cleaning up resources
-When you no longer need the resources created via Terraform, destroy the resources using the terraform destroy command. 
-This will automatically use the HPE GreenLake provider to clean the infrastructure in HPE GreenLake.
+## \
+Cleaning up resources     ﻿
 
-Summary
+When you no longer need the resources created via Terraform, destroy the resources using the **terraform destroy** command.  This will automatically use the HPE GreenLake provider to clean the infrastructure in HPE GreenLake.
+
+# Summary    
+
 In this blog, I covered how to provision a compute instance with Terraform provider for HPE GreenLake using bare metal resources. I also showed you advanced usage of hpegl resource statements to deploy compute instance with dynamic resources. 
-I hope you found this information interesting and useful in helping you get started with HPE GreenLake Terraform provider. You can also go through the below links to understand more about the HPE GreenLake Terraform Provider.
-•	Learn more about the HPE GreenLake Terraform provider
-•	Kubernetes Cluster as Code – Part 1
-•	Kubernetes Cluster as Code – Part 2
+I hope you found this information interesting and useful in helping you get started with the HPE GreenLake Terraform provider. You can also go through the below links to understand more about the HPE GreenLake Terraform Provider.
+•	[Learn more about the HPE GreenLake Terraform provider](https://registry.terraform.io/providers/hpe/hpegl/latest)
+•	[Kubernetes Cluster as Code – Part 1](https://developer.hpe.com/blog/kubernetes-clusters-as-code-part1/)
+•	[Kubernetes Cluster as Code – Part 2](https://developer.hpe.com/blog/kubernetes-cluster-as-code-part-2/)
