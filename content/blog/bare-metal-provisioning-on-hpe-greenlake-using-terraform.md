@@ -42,6 +42,8 @@ Follow the below steps for API Client creation:
 
    ![](/img/apiclient1.png "User Management")
 2. Under the API Clients tab, click on Create API Client.
+
+   ![](/img/apiclient2.png)
 3. Enter a Name (mandatory field) and Description (optional) for the API client, and click on Create button.
 4. Ensure you make a note of the Issuer, Client ID and Client Secret before clicking on the Close button.
 
