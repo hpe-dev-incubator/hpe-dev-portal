@@ -39,6 +39,8 @@ Follow the below steps for API Client creation:
 1. From the HPE GreenLake platform, launch the HPE GreenLake Central console for the appropriate tenant. Under the settings icon on the tenant Dashboard page, select the User Management option.  
 
    ![User Management](/img/apiclient1.png "User Management")
+
+
 2. Under the API Clients tab, click on Create API Client.
 
    ![](/img/apiclient2.png)
@@ -49,7 +51,7 @@ Follow the below steps for API Client creation:
 
 The API Client is now ready to be used to run the Terraform resources.
 
-## Select the Compute Group ID  
+## Select the Compute Group ID
 
 Compute Group is a logical grouping of bare metal resources that a team of Cloud Consumers can consume. You must specify the compute-group ID to interact with bare metal resources.
 
@@ -62,7 +64,7 @@ You can get the compute group ID from HPE GreenLake Console.
 
 This will later be exported as environment variable **HPE_METAL_PROJECT_ID** in the later section.
 
-# Deploy Compute Instance 
+# Deploy Compute Instance
 
 ## Select Terraform provider with bare metal service configurations
 
@@ -80,7 +82,6 @@ This will later be exported as environment variable **HPE_METAL_PROJECT_ID** in 
    export HPEGL_USER_ID="<API Client ID>"
    export HPEGL_USER_SECRET="<API Client Secret>"
    export HPEGL_IAM_SERVICE_URL="<Issuer URL>"
-
    ```
 
    E﻿xport the Compute Group ID:
@@ -88,7 +89,6 @@ This will later be exported as environment variable **HPE_METAL_PROJECT_ID** in 
    ```
    # compute group/project ID
    export HPEGL_METAL_PROJECT_ID="<Compute Group ID>"
-
    ```
 
     ﻿Export bare metal service REST URL:
@@ -99,7 +99,6 @@ This will later be exported as environment variable **HPE_METAL_PROJECT_ID** in 
    # local development: http://localhost:3002
 
    export HPEGL_METAL_REST_URL="<Metal Service REST Base URL"
-
    ```
 2. Configure the Terraform provider.
 
@@ -122,7 +121,6 @@ This will later be exported as environment variable **HPE_METAL_PROJECT_ID** in 
      metal {   
      } 
    }
-
    ```
 
    T﻿his tells Terraform that you are going to be using HPE/hpegl as your provider and you are using bare metal service.
@@ -177,6 +175,7 @@ locals {
 ```
 
 ### \
+
 Querying for other available resources
 
 For this, you should use **hpegl_metal_available_resources** data resource.  For example, the following statements show how to retrieve the available SSH Key lists and store them in a local variable.
@@ -233,7 +232,7 @@ resource "hpegl_metal_host" "demo_host" {
 }
 ```
 
-#### Initialize Terraform 
+#### Initialize Terraform
 
 Before you can use Terraform, you will have to initialize it from the configuration file we have created. In the same directory as the **main.tf** file you created, **run : terraform init**
 
@@ -241,11 +240,12 @@ Before you can use Terraform, you will have to initialize it from the configurat
 
 Terraform plan is a dry run that lets you preview the changes that Terraform plans to make to your infrastructure based on the data you provide in your Terraform file. To see this, **run: terraform plan**
 
-#### Apply the Terraform execution plan  
+#### Apply the Terraform execution plan
 
 The command you need to use is now: **terraform apply**. This will rerun the plan command, then prompt you to confirm before it starts applying what’s in the plan: 
 
 ### \
+
 Advanced example  
 
 The above example shows how to deploy a compute instance from the pre-existing resource. Below is another example that demonstrates compute instance deployment with dependency on dynamic resources and a few other possible configuration options. 
@@ -315,11 +315,12 @@ resource "hpegl_metal_host" "demo_advance" {
 ```
 
 ## \
+
 Cleaning up resources     ﻿
 
 When you no longer need the resources created via Terraform, destroy the resources using the **terraform destroy** command.  This will automatically use the HPE GreenLake provider to clean the infrastructure in HPE GreenLake.
 
-# Summary    
+# Summary
 
 In this blog, I covered how to provision a compute instance with Terraform provider for HPE GreenLake using bare metal resources. I also showed you advanced usage of hpegl resource statements to deploy compute instance with dynamic resources. 
 I hope you found this information interesting and useful in helping you get started with the HPE GreenLake Terraform provider. You can also go through the below links to understand more about the HPE GreenLake Terraform Provider. 
