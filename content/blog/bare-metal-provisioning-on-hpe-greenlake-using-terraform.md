@@ -139,53 +139,99 @@ To deploy compute instance, you need to use the **hpegl_metal_host** terraform r
 
 The **hpegl_metal_host** resource supports many different arguments, but these are the required ones:
 
-•	Image – A specific flavor and version in the form of flavor@version.
-•	location – The location of where the compute instance will be provisioned.
-•	machine_size – Compute Instance type.
-•	networks – List of networks both required and optional.
-•	ssh – List of SSH keys that will be pushed to the host.
+* networks – List of networks both required and optional.
+* machine_size – Compute Instance type.
+* ssh – List of SSH keys that will be pushed to the host.
+* location – The location of where the compute instance will be provisioned.
+* Image – A specific flavor and version in the form of flavor@version
 
-```
+  Y﻿ou can also checck the documentation[ here ](https://registry.terraform.io/providers/HPE/hpegl/latest/docs/resources/metal_host)to see all the required and optional fields.
 
-```
+  Your next step with the TF file is to query the HPE GreenLake provider to collect the above-required information for creating a host. For this, you will use the Terraform data statements.  
 
-Your next step with the TF file is to query the HPE GreenLake provider to collect the above required information for creating a host. 
-For this, you will use the Terraform data statements.  
+### Querying for available OS images
 
-Querying for available OS images
-In order to list the available OS images for OS, add the below data statements in your terraform file main.tf:
+In order to list the available OS images for OS, add the below data statements in your terraform file *main.tf*:
 
 ```hcl
+data "hpegl_metal_available_images" "ubuntu" { 
+  # select anything that looks like ubuntu:20.04
+  filter {
+    name   = "flavor"
+    values = ["(?i)ubuntu"] 
+  }
 
+  filter {
+    name   = "version"
+    values = ["20.04*"] 
+  }
+}
 ```
 
-The OS image list can now be fetched by using:
+The OS image list can now be fetched by using the following:
 
 ```hcl
-
+locals {
+  ubuntu_image = format("%s@%s", data.hpegl_metal_available_images.ubuntu.images[0].flavor,
+                          data.hpegl_metal_available_images.ubuntu.images[0].version)
+}
 ```
 
-Querying for other available resource
-For this, you should use hpegl_metal_available_resources data resource. 
-For example, the following statements shows how to retrieve the available SSH Key lists and store in local variable.
+### \
+Querying for other available resources
+
+For this, you should use **hpegl_metal_available_resources** data resource.  For example, the following statements show how to retrieve the available SSH Key lists and store them in a local variable.
 
 ```hcl
+# query available resources.
+data "hpegl_metal_available_resources" "available" {
+}
 
+# using one of available SSH keys.
+locals  {
+  ssh_keys = data.hpegl_metal_available_resources.available.ssh_keys[0].name
+}
 ```
 
-Using a similar technique, you can retrieve the rest of the data you need - networks, machine_size etc.
+Using a similar technique, you can retrieve the rest of the data you need - networks, machine_size, etc.
 
 ```hcl
+# choosing a location that has at least one machine available.
+locals {
+  location = ([for msize in data.hpegl_metal_available_resources.available.machine_sizes : msize.location 
+                    if msize.quantity > 0])[0]
+}
 
+# Listing required networks for this location.
+locals {
+  networks = ([for net in data.hpegl_metal_available_resources.available.networks : net.name 
+                  if net.host_use == "Required"  && net.location == local.location])
+}
+
+# choosing machine size/Compute Instance Type to deploy OS.
+locals {
+  machine_size = ([for msize in data.hpegl_metal_available_resources.available.machine_sizes : msize.name 
+                    if msize.location == local.location])
+}
 ```
 
-Here you can get information about each of the bare metal data statemens supported by the hpegl provider.
+\
+[Here ](https://registry.terraform.io/providers/HPE/hpegl/latest/docs/data-sources/metal_available_resources)you can get information about each of the bare metal data statements supported by the hpegl provider.
 
-Create Compute Instance
+### Create Compute Instance
+
 The last step is to define a hpegl_metal_host terraform resource to request a new compute instance (Host):
 
 ```hcl
-
+resource "hpegl_metal_host" "demo_host" {
+  name          = "demo-host-1"
+  image         = local.ubuntu_image
+  machine_size  = local.machine_size[0]
+  ssh           = [ local.ssh_keys ]
+  networks      = local.networks
+  location      = local.location
+  description   = "Simple Host Deployment Demo"
+}
 ```
 
 Initialize Terraform 
