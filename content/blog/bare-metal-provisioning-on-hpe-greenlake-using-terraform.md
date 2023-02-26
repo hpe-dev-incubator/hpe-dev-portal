@@ -7,15 +7,14 @@ disable: false
 ---
 # Introduction
 
-The HPE GreenLake for Private Cloud Enterprise: bare metal (BMaaS) service offering enables you to create a dedicated compute instances deployed on a physical IT infrastructure facilitating on-demand scalability, convenience, and agility as a cloud service. 
+The HPE GreenLake for Private Cloud Enterprise: bare metal (BMaaS) service offering enables you to create dedicated compute instances deployed on a physical IT infrastructure facilitating on-demand scalability, convenience, and agility as a cloud service. 
 Using BMaaS, you can create compute-instances provisioned with specific operating systems, network connections, one or more public SSH keys, and optional network-attached storage volumes.
 The service can be accessed via GUI as well as via public APIs, enabling developers to use an Infrastructure-as-Code tool to build, change, and manage infrastructure in a consistent and repeatable way.
 
 ## HPE GreenLake Terraform Provider
 
 The HPE GreenLake Terraform provider hpegl by HPE GreenLake provides Infrastructure-as-Code support for HPE GreenLake Cloud Services.
-Using the hpegl Terraform provider you can automate the management of your infrastructure. You can provision OS on bare metal, spin Virtual Machines and bring up a Kubernetes cluster starting 
-right from bare metal all the way up in the stack to desired configurations and applications.
+Using the hpegl Terraform provider, you can automate the management of your infrastructure. You can provision OS on bare metal, spin Virtual Machines and bring up a Kubernetes cluster, starting right from bare metal all the way up in the stack to desired configurations and applications.
 
 In this blog post, I will walk you through the steps required to use the HPE GreenLake Terraform Provider to deploy and further manage bare metal compute instances.
 
@@ -25,9 +24,9 @@ In this blog post, I will walk you through the steps required to use the HPE Gre
 
 Your first step is to get your system ready to run Terraform. In case this has not been done yet:
 
-1. Download and install Terraform, version v0.13 or later.
+1. Download and install Terraform, version v0.13, or later.
    For more information, see https://learn.hashicorp.com/tutorials/terraform/install-cli. 
-2. Verify the installation with terraform -help. 
+2. Verify the installation with **terraform -help.** 
 
    At this point, you are ready to start building your infrastructure description file. 
 
@@ -145,7 +144,7 @@ The **hpegl_metal_host** resource supports many different arguments, but these a
 * location – The location of where the compute instance will be provisioned.
 * Image – A specific flavor and version in the form of flavor@version
 
-  Y﻿ou can also checck the documentation[ here ](https://registry.terraform.io/providers/HPE/hpegl/latest/docs/resources/metal_host)to see all the required and optional fields.
+  Y﻿ou can also check the documentation[ here ](https://registry.terraform.io/providers/HPE/hpegl/latest/docs/resources/metal_host)to see all the required and optional fields.
 
   Your next step with the TF file is to query the HPE GreenLake provider to collect the above-required information for creating a host. For this, you will use the Terraform data statements.  
 
