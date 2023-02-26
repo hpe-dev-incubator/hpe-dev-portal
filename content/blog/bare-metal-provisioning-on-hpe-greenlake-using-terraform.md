@@ -186,7 +186,7 @@ For this, you should use **hpegl_metal_available_resources** data resource.  For
 data "hpegl_metal_available_resources" "available" {
 }
 
-# using one of available SSH keys.
+# using one of the available SSH keys.
 locals  {
   ssh_keys = data.hpegl_metal_available_resources.available.ssh_keys[0].name
 }
