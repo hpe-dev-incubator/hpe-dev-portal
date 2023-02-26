@@ -40,7 +40,7 @@ Follow the below steps for API Client creation:
 
 1. From the HPE GreenLake platform, launch the HPE GreenLake Central console for the appropriate tenant. Under the settings icon on the tenant Dashboard page, select User Management option.
 
-   ![](/img/apiclient1.png)
+   ![](/img/apiclient1.png "User Management")
 2. Under the API Clients tab, click on Create API Client.
 3. Enter a Name (mandatory field) and Description (optional) for the API client, and click on Create button.
 4. Ensure you make a note of the Issuer, Client ID and Client Secret before clicking on the Close button.
