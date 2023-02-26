@@ -242,20 +242,12 @@ Before you can use Terraform, you will have to initialize it from the configurat
 
 Terraform plan is a dry run that lets you preview the changes that Terraform plans to make to your infrastructure based on the data you provide in your Terraform file. To see this, **run: terraform plan**
 
-```
-
-```
-
 #### Apply the Terraform execution plan  
 
-The command you need to use is now: **terraform apply**. This will rerun the plan command, then prompt you to confirm before it starts applying what’s in the plan:
-
-```
-
-```
+The command you need to use is now: **terraform apply**. This will rerun the plan command, then prompt you to confirm before it starts applying what’s in the plan: 
 
 ### \
-Advanced example:  
+Advanced example  
 
 The above example shows how to deploy a compute instance from the pre-existing resource. Below is another example that demonstrates compute instance deployment with dependency on dynamic resources and a few other possible configuration options. 
 
@@ -331,7 +323,8 @@ When you no longer need the resources created via Terraform, destroy the resourc
 # Summary    
 
 In this blog, I covered how to provision a compute instance with Terraform provider for HPE GreenLake using bare metal resources. I also showed you advanced usage of hpegl resource statements to deploy compute instance with dynamic resources. 
-I hope you found this information interesting and useful in helping you get started with the HPE GreenLake Terraform provider. You can also go through the below links to understand more about the HPE GreenLake Terraform Provider.
-•	[Learn more about the HPE GreenLake Terraform provider](https://registry.terraform.io/providers/hpe/hpegl/latest)
-•	[Kubernetes Cluster as Code – Part 1](https://developer.hpe.com/blog/kubernetes-clusters-as-code-part1/)
-•	[Kubernetes Cluster as Code – Part 2](https://developer.hpe.com/blog/kubernetes-cluster-as-code-part-2/)
+I hope you found this information interesting and useful in helping you get started with the HPE GreenLake Terraform provider. You can also go through the below links to understand more about the HPE GreenLake Terraform Provider. 
+
+* [Kubernetes Cluster as Code – Part 1](https://developer.hpe.com/blog/kubernetes-clusters-as-code-part1/)
+* [Kubernetes Cluster as Code – Part 2](https://developer.hpe.com/blog/kubernetes-cluster-as-code-part-2/)  
+* [Learn more about the HPE GreenLake Terraform provider](https://registry.terraform.io/providers/hpe/hpegl/latest)
