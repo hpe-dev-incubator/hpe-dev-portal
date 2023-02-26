@@ -7,13 +7,11 @@ disable: false
 ---
 # Introduction
 
-
 The HPE GreenLake for Private Cloud Enterprise: bare metal (BMaaS) service offering enables you to create a dedicated compute instances deployed on a physical IT infrastructure facilitating on-demand scalability, convenience, and agility as a cloud service. 
 Using BMaaS, you can create compute-instances provisioned with specific operating systems, network connections, one or more public SSH keys, and optional network-attached storage volumes.
 The service can be accessed via GUI as well as via public APIs, enabling developers to use an Infrastructure-as-Code tool to build, change, and manage infrastructure in a consistent and repeatable way.
 
 ## HPE GreenLake Terraform Provider
-
 
 The HPE GreenLake Terraform provider hpegl by HPE GreenLake provides Infrastructure-as-Code support for HPE GreenLake Cloud Services.
 Using the hpegl Terraform provider you can automate the management of your infrastructure. You can provision OS on bare metal, spin Virtual Machines and bring up a Kubernetes cluster starting 
@@ -29,7 +27,8 @@ Your first step is to get your system ready to run Terraform. In case this has n
 
 1. Download and install Terraform, version v0.13 or later.
    For more information, see https://learn.hashicorp.com/tutorials/terraform/install-cli. 
-2. Verify the installation with terraform –help
+2. Verify the installation with terraform -help. 
+
    At this point, you are ready to start building your infrastructure description file. 
 
 ## Setting up API Client for access
@@ -38,81 +37,107 @@ You need an API client to authenticate against HPE GreenLake.
 
 Follow the below steps for API Client creation:
 
-1. From the HPE GreenLake platform, launch the HPE GreenLake Central console for the appropriate tenant. Under the settings icon on the tenant Dashboard page, select User Management option.
+1. From the HPE GreenLake platform, launch the HPE GreenLake Central console for the appropriate tenant. Under the settings icon on the tenant Dashboard page, select the User Management option.  
 
    ![User Management](/img/apiclient1.png "User Management")
 2. Under the API Clients tab, click on Create API Client.
 
    ![](/img/apiclient2.png)
 3. Enter a Name (mandatory field) and Description (optional) for the API client, and click on Create button.
-4. Ensure you make a note of the Issuer, Client ID and Client Secret before clicking on the Close button.
-
-These details will be exported as environment variables in the next section.
-
-5. In the API Clients page, select the newly created client, and click on Create Assignment button.
-6. Assign the roles BMAAS Access Viewer and BMAAS Access Project Contributor on the Space: Default.
+4. Ensure you make a note of the Issuer, Client ID, and Client Secret before clicking on the Close button. These details will be exported as environment variables in the next section.
+5. In the API Clients page, select the newly created client, and click on **Create Assignment** button.
+6. Assign the roles **BMAAS Access Viewer** and **BMAAS Access Project Contributor** on the **Space: Default.**
 
 The API Client is now ready to be used to run the Terraform resources.
-Select the Compute Group ID
+
+## Select the Compute Group ID  
+
 Compute Group is a logical grouping of bare metal resources that a team of Cloud Consumers can consume. You must specify the compute-group ID to interact with bare metal resources.
 
-Note: Compute Group is AKA Project.
+*Note*: Compute Group is AKA Project.
 
 You can get the compute group ID from HPE GreenLake Console.
 
 1. Navigate to HPE GreenLake for Private Cloud Services card -> Bare Metal -> Compute Groups.
 2. Click on the desired compute group and extract the ID from the browser URL seen at that time.
 
-This will later be exported as environment variable HPE_METAL_PROJECT_ID in the later section.
+This will later be exported as environment variable **HPE_METAL_PROJECT_ID** in the later section.
 
-Deploy Compute Instance 
-Select Terraform provider with bare metal service configurations
+# Deploy Compute Instance 
+
+## Select Terraform provider with bare metal service configurations
 
 1. Export the following environment variables on your setup.
 
-Export the Tenant ID:
+   E﻿xport the Tenant ID:
 
-```bash
+   ```shell
+   export HPEGL_TENANT_ID="<Tenant ID>
+   ```
 
-```
+   Export the API Client credentials that you obtained when you create an API Client within HPE GreenLake Central:
 
-Export the API Client credentials that you obtained when you create an API Client within HPE GreenLake Central:
+   ```shell
+   export HPEGL_USER_ID="<API Client ID>"
+   export HPEGL_USER_SECRET="<API Client Secret>"
+   export HPEGL_IAM_SERVICE_URL="<Issuer URL>"
 
-```bash
+   ```
 
-```
+   E﻿xport the Compute Group ID:
 
-Export the Compute Group ID:
+   ```
+   # compute group/project ID
+   export HPEGL_METAL_PROJECT_ID="<Compute Group ID>"
 
-```bash
+   ```
 
-```
+    ﻿Export bare metal service REST URL:
 
-Export bare metal service REST URL:
+   ```
+   # Production Environment:  https://client.greenlake.hpe.com/api/metal
+   # Integration Environment: https://client.greenlake.hpe-gl-intg.com/api/metal
+   # local development: http://localhost:3002
 
-```bash
+   export HPEGL_METAL_REST_URL="<Metal Service REST Base URL"
 
-```
+   ```
+2. Configure the Terraform provider.
 
-2. Configure the Terraform provider
+   Create an empty folder and put a file in it called main.tf with the following contents:
 
-Create an empty folder and put a file in it called main.tf with the following contents:
+   main.tf:
 
-main.tf:
+   ```hcl
+   terraform {
+     required_providers {
+       hpegl = {
+         source  = "HPE/hpegl"
+         version = ">= 0.3.12"
+       }
+     }
+   }
 
-```hcl
+   provider "hpegl" {    
+     # metal block for configuring bare metal resources.
+     metal {   
+     } 
+   }
 
-```
+   ```
 
-This tells Terraform that you are going to be using HPE/hpegl as your provider and you are using bare metal service.
+   T﻿his tells Terraform that you are going to be using HPE/hpegl as your provider and you are using bare metal service.
 
-Write resource configuration for Compute Instance creation
-To deploy compute instance, you need to use the hpegl_metal_host terraform resource.
-Note:
-•	compute instance is AKA host.
-•	compute instance type is AKA machine size
+## Write resource configuration for Compute Instance creation
 
-The hpegl_metal_host resource supports many different arguments, but these are the required ones:
+To deploy compute instance, you need to use the **hpegl_metal_host** terraform resource.
+
+*Note*:
+
+* compute instance is AKA host.
+* compute instance type is AKA machine size
+
+The **hpegl_metal_host** resource supports many different arguments, but these are the required ones:
 
 •	Image – A specific flavor and version in the form of flavor@version.
 •	location – The location of where the compute instance will be provisioned.
