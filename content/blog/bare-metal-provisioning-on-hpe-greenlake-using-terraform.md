@@ -187,7 +187,7 @@ locals {
 }
 ```
 
-Querying for other available resources
+### Querying for other available resources
 
 For this, you should use **hpegl_metal_available_resources** data resource.  For example, the following statements show how to retrieve the available SSH Key lists and store them in a local variable.
 
@@ -263,9 +263,9 @@ The command you need to use is now: **terraform apply**. This will rerun the pla
 
 ![terraform apply](/img/bmaas_terraform_apply_2.png "terraform apply")
 
-Advanced example  
+## Advanced example
 
-The above example shows how to deploy a compute instance from the pre-existing resource. Below is another example that demonstrates compute instance deployment with dependency on dynamic resources and a few other possible configuration options. 
+The above example shows how to deploy a compute instance from a pre-existing resource. Below is another example that demonstrates compute instance deployment with dependency on dynamic resources and a few other possible configuration options. 
 
 ```hcl
 terraform {
@@ -331,7 +331,7 @@ resource "hpegl_metal_host" "demo_advance" {
 }
 ```
 
-Cleaning up resources     ﻿
+## Cleaning up resources   ﻿
 
 When you no longer need the resources created via Terraform, destroy the resources using the **terraform destroy** command.  This will automatically use the HPE GreenLake provider to clean the infrastructure in HPE GreenLake.
 
