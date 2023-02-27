@@ -708,7 +708,7 @@ If appropriate, use a tag to tie your blog post to a **"Product"** page or a **"
   | **Chapel**                         | chapel |
   | **Determined AI**                  | determined-ai |
   | **Grommet**                        | grommet |
-  | **Aruba Developer Hub**            | aruba |
+  | **Aruba Central**                  | aruba ; aruba-central|
   | **HPE 3PAR and Primera**           | hpe-3par-and-primera |
   | **HPE Nimble Storage**             | hpe-nimble-storage |
   | **HPE OneView**                    | hpe-oneview |
