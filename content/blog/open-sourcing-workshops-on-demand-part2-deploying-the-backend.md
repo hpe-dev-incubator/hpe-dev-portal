@@ -353,12 +353,7 @@ install$ git clone https://github.com/Account/wod-private.git wod-private
 install$ cd $HOME/wod-private/ansible/group_vars
 ```
 
-* Please edit the `all.yml` and `<groupname>` files to customize your setup.
-
-G﻿ROUPNAME Definition here:
-
-T﻿his variable defines possible backend server in your environement. By default, the project comes with a sample working file. But you could have multiple. In our case, we have defined sandbox, test, staging and several production files, all defining a different backend environment. These files will be used to override the default values specified by the public version delivered as part of the default public installation.
-
+* Please edit the `all.yml` and `<groupname>` files to customize your setup. T﻿his variable `<groupname>`defines possible backend server in your environement. By default, the project comes with a sample working file named `production` in `ansible/group-vars`. But you could have multiple. In our case, we have defined ```sandbox```, ```test```, ```staging``` and several ```production``` files, all defining a different backend environment. These files will be used to override the default values specified by the public version delivered as part of the default public installation.
 * Commit and push changes to your repo
 * Create an `install.priv` file located in `install` directory when using a private repo (consider looking at [install.repo](https://github.com/Workshops-on-Demand/wod-backend/blob/main/install/install.repo) file for better understanding of the variables.
 
