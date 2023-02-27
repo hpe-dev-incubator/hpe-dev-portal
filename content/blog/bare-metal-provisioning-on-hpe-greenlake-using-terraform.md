@@ -36,16 +36,27 @@ You need an API client to authenticate against HPE GreenLake.
 
 Follow the below steps for API Client creation:
 
-1. From the HPE GreenLake platform, launch the HPE GreenLake Central console for the appropriate tenant. Under the settings icon on the tenant Dashboard page, select the User Management option.  
+1. From the HPE GreenLake platform, launch the HPE GreenLake Central console for the appropriate tenant. Under the settings icon on the tenant Dashboard page, select the User Management option. 
 
-   ![User Management](/img/api-client-credential-created.png "User Management")
+![User Management](/img/greenlake_console_usermanagement.png "User Management")
+
 2. Under the API Clients tab, click on Create API Client.
 
-   ![](/img/apiclient2.png)
+![Create API Client](/img/greenlake_console_createapiclient.png "Create API Client")
+
 3. Enter a Name (mandatory field) and Description (optional) for the API client, and click on Create button.
+
+![Create API Client](/img/greenlake_console_createapiclient_form.png "Create API Client")
+
 4. Ensure you make a note of the Issuer, Client ID, and Client Secret before clicking on the Close button. These details will be exported as environment variables in the next section.
+
+![API Client Created](/img/greenlake_conolse_apiclient_created.png "API Client Created")
+
 5. In the API Clients page, select the newly created client, and click on **Create Assignment** button.
+
 6. Assign the roles **BMAAS Access Viewer** and **BMAAS Access Project Contributor** on the **Space: Default.**
+
+![BMaaS Roles](/img/greenlake_console_createbmaasassignment.png "BMaaS Roles")
 
 The API Client is now ready to be used to run the Terraform resources.
 
