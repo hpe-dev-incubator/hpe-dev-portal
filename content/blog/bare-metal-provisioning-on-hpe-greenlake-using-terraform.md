@@ -25,7 +25,7 @@ In this blog post, I will walk you through the steps required to use the HPE Gre
 Your first step is to get your system ready to run Terraform. In case this has not been done yet:
 
 1. Download and install Terraform, version v0.13, or later.
-   For more information, see https://learn.hashicorp.com/tutorials/terraform/install-cli. 
+   For more information, see [https://learn.hashicorp.com/tutorials/terraform/install-cli](<1. https://learn.hashicorp.com/tutorials/terraform/install-cli>). 
 2. Verify the installation with **terraform -help.** 
 
    At this point, you are ready to start building your infrastructure description file. 
@@ -187,8 +187,6 @@ locals {
 }
 ```
 
-### \
-
 Querying for other available resources
 
 For this, you should use **hpegl_metal_available_resources** data resource.  For example, the following statements show how to retrieve the available SSH Key lists and store them in a local variable.
@@ -336,6 +334,8 @@ resource "hpegl_metal_host" "demo_advance" {
 Cleaning up resources     ﻿
 
 When you no longer need the resources created via Terraform, destroy the resources using the **terraform destroy** command.  This will automatically use the HPE GreenLake provider to clean the infrastructure in HPE GreenLake.
+
+![terraform destroy](/img/bmaas_terraform_cleanup.png "terraform destroy")
 
 # Summary
 
