@@ -73,7 +73,7 @@ You can get the compute group ID from HPE GreenLake Console.
 
 2. Click on the desired compute group and extract the ID from the browser URL seen at that time.
 
-![Compute Group ID](/img/compute_group_id.png "Compute Group ID")  
+![Compute Group ID](/img/compute_group_id.png "Compute Group ID")
 
  ﻿ This will later be exported as environment variable **HPE_METAL_PROJECT_ID** in the later section.
 
@@ -249,15 +249,21 @@ resource "hpegl_metal_host" "demo_host" {
 
 Before you can use Terraform, you will have to initialize it from the configuration file we have created. In the same directory as the **main.tf** file you created, **run : terraform init**
 
+![terraform init](/img/bmaas_terraform_init.png "terraform init")
+
 #### Validate and view the Terraform execution plan
 
 Terraform plan is a dry run that lets you preview the changes that Terraform plans to make to your infrastructure based on the data you provide in your Terraform file. To see this, **run: terraform plan**
+
+![terraform plan](/img/bmaas_terraform_plan.png "terraform plan")
 
 #### Apply the Terraform execution plan
 
 The command you need to use is now: **terraform apply**. This will rerun the plan command, then prompt you to confirm before it starts applying what’s in the plan: 
 
-### \
+![terraform apply](/img/bmaas_terraform_apply_1.png "terraform apply")
+
+![terraform apply](/img/bmaas_terraform_apply_2.png "terraform apply")
 
 Advanced example  
 
@@ -326,8 +332,6 @@ resource "hpegl_metal_host" "demo_advance" {
   labels           = { "purpose" = "devops" }
 }
 ```
-
-## \
 
 Cleaning up resources     ﻿
 
