@@ -63,7 +63,7 @@ The API Client is now ready to be used to run the Terraform resources.
 
 Compute Group is a logical grouping of bare metal resources that a team of Cloud Consumers can consume. You must specify the compute-group ID to interact with bare metal resources.
 
-*Note*: Compute Group is AKA Project.
+***Note***: Compute Group is AKA Project.
 
 You can get the compute group ID from HPE GreenLake Console.
 
@@ -75,7 +75,7 @@ You can get the compute group ID from HPE GreenLake Console.
 
 ![Compute Group ID](/img/compute_group_id.png "Compute Group ID")
 
- ﻿ This will later be exported as environment variable **HPE_METAL_PROJECT_ID** in the later section.
+ ﻿ This will be exported as environment variable **HPE_METAL_PROJECT_ID** in the later section.
 
 # Deploy Compute Instance
 
@@ -142,10 +142,10 @@ You can get the compute group ID from HPE GreenLake Console.
 
 To deploy compute instance, you need to use the **hpegl_metal_host** terraform resource.
 
-*Note*:
+***Note***:
 
-* compute instance is AKA host.
-* compute instance type is AKA machine size
+* compute instance is AKA host. 
+* compute instance type is AKA machine size.
 
 The **hpegl_metal_host** resource supports many different arguments, but these are the required ones:
 
@@ -155,7 +155,7 @@ The **hpegl_metal_host** resource supports many different arguments, but these a
 * location – The location of where the compute instance will be provisioned.
 * Image – A specific flavor and version in the form of flavor@version
 
-  Y﻿ou can also check the documentation[ here ](https://registry.terraform.io/providers/HPE/hpegl/latest/docs/resources/metal_host)to see all the required and optional fields.
+  Y﻿ou can also check the documentation [here](https://registry.terraform.io/providers/HPE/hpegl/latest/docs/resources/metal_host) to see all the required and optional fields.
 
   Your next step with the TF file is to query the HPE GreenLake provider to collect the above-required information for creating a host. For this, you will use the Terraform data statements.  
 
