@@ -53,7 +53,6 @@ Follow the below steps for API Client creation:
 ![API Client Created](/img/greenlake_conolse_apiclient_created.png "API Client Created")
 
 5. In the API Clients page, select the newly created client, and click on **Create Assignment** button.
-
 6. Assign the roles **BMAAS Access Viewer** and **BMAAS Access Project Contributor** on the **Space: Default.**
 
 ![BMaaS Roles](/img/greenlake_console_createbmaasassignment.png "BMaaS Roles")
@@ -69,9 +68,14 @@ Compute Group is a logical grouping of bare metal resources that a team of Cloud
 You can get the compute group ID from HPE GreenLake Console.
 
 1. Navigate to HPE GreenLake for Private Cloud Services card -> Bare Metal -> Compute Groups.
+
+![BMaaS Compute Groups](/img/compute_group_list.png "BMaaS Compute Groups")
+
 2. Click on the desired compute group and extract the ID from the browser URL seen at that time.
 
-This will later be exported as environment variable **HPE_METAL_PROJECT_ID** in the later section.
+![Compute Group ID](/img/compute_group_id.png "Compute Group ID")  
+
+ ﻿ This will later be exported as environment variable **HPE_METAL_PROJECT_ID** in the later section.
 
 # Deploy Compute Instance
 
