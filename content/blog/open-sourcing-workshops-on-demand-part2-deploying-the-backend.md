@@ -345,7 +345,7 @@ N﻿ow if you are willing to develop private content that cannot be shared becau
 
 T﻿he principle remains somehow similar with a few differences explained below.
 
-* Y﻿ou will start by forking the following public private [repo](https://github.com/Workshops-on-Demand/wod-private.git) on github under your own github account (we will refer to it as ```Account```)
+* Y﻿ou will start by forking the following public private [repo](https://github.com/Workshops-on-Demand/wod-private.git) on github under your own github account (we will refer to it as `Account`)
 * Next, you clone the forked repo
 
 ```shellsession
@@ -357,8 +357,10 @@ install$ cd $HOME/wod-private/ansible/group_vars
 
 G﻿ROUPNAME Definition here:
 
+T﻿his variable defines possible backend server in your environement. By default, the project comes with a sample working file. But you could have multiple. In our case, we have defined sandbox, test, staging and several production files, all defining a different backend environment. These files will be used to override the default values specified by the public version delivered as part of the default public installation.
+
 * Commit and push changes to your repo
-* Create an ```install.priv``` file located in ```install``` directory when using a private repo (consider looking at [install.repo](https://github.com/Workshops-on-Demand/wod-backend/blob/main/install/install.repo) file for better understanding of the variables.
+* Create an `install.priv` file located in `install` directory when using a private repo (consider looking at [install.repo](https://github.com/Workshops-on-Demand/wod-backend/blob/main/install/install.repo) file for better understanding of the variables.
 
   * Define the WODPRIVREPO and WODPRIVBRANCH variables as follows:
 
@@ -367,11 +369,11 @@ G﻿ROUPNAME Definition here:
 
 **Note: When using a token**
 
-Please refer to the following [url](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) to generate a ```token``` file in ```install``` directory of wod-backend:
+Please refer to the following [url](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) to generate a `token` file in `install` directory of wod-backend:
 
-* edit the ```install.priv``` file located in ```install``` directory of wod-backend:
+* edit the `install.priv` file located in `install` directory of wod-backend:
 
-  * create line before variable declaration: ```token=`cat $EXEPATH/token` ```
+  * create line before variable declaration: ``token=`cat $EXEPATH/token` ``
   * use the token in the url WODPRIVREPO="git clone https://user:$token@github.com/Account/wod-private.git wod-private"
 
 Y﻿ou are now ready to perform the installation again to support a private repository. 
@@ -389,28 +391,28 @@ Please note that this setup phase can be conccurent with the public setup phase.
 
 S﻿imple tree view of the wod-backend directory:
 
-T﻿he ```ansible``` folder contains all the necessary playbooks and variables files to manage the main functions of the backend server.
+T﻿he `ansible` folder contains all the necessary playbooks and variables files to manage the main functions of the backend server.
 
 A﻿t the root of this directory can be found:
 
-```C﻿heck*.yml playbooks```: These playbooks are used to perform checks on the different systems. These checks ensure that this a compliant WoD system by checking Firewall rules and many other things. We will see this a bit later in more details.
+`C﻿heck*.yml playbooks`: These playbooks are used to perform checks on the different systems. These checks ensure that this a compliant WoD system by checking Firewall rules and many other things. We will see this a bit later in more details.
 
-```C﻿opy_folder.yml```: This is historically one of very first playbook we used and therefore a very important one. It performs the necessary actions to deploy, personnalize (by substituting ansible variables) the selected notebook to the appropriate student home folder.
+`C﻿opy_folder.yml`: This is historically one of very first playbook we used and therefore a very important one. It performs the necessary actions to deploy, personnalize (by substituting ansible variables) the selected notebook to the appropriate student home folder.
 
-```c﻿ompile_scripts.yml```: Should you need to hide from the student a simple api call that is made on some private endpoint with non shareable data (credentials for instance), this playbook will make sure to compile it and create a executable file allowing it to happen. 
+`c﻿ompile_scripts.yml`: Should you need to hide from the student a simple api call that is made on some private endpoint with non shareable data (credentials for instance), this playbook will make sure to compile it and create a executable file allowing it to happen. 
 
-```d﻿istrib.yml```: This playbook retrieves the distribution name and version from the machine it is run on.
+`d﻿istrib.yml`: This playbook retrieves the distribution name and version from the machine it is run on.
 
-```install_*.yml```: These playbooks take care of installing the necessary packages needed by the defined type (frontend, backend, api-db, base-system or even appliance)
+`install_*.yml`: These playbooks take care of installing the necessary packages needed by the defined type (frontend, backend, api-db, base-system or even appliance)
 
-```setup_*.ym```: There are several types of setup playbooks in this directory. 
+`setup_*.ym`: There are several types of setup playbooks in this directory. 
 
-* ```setup_WKSHP-*.yml```: These playbooks are responsible for preparing a base appliance for a given workshop by adding and configuring the necessary packages or services related to the workshop.
-* ```s﻿etup_appliance.yml```: this playbook is used to perform the base setup for a JupyterHub environment server or appliance. It includes setup_base_appliance.yml playbook.
-* ```s﻿etup_base_appliance```: takes care of setting the minimal requierements for an appliance. it includes therefore ```install_base_system.yml``` playbook. On top of it, it creates and configure the necessary users.
-* ```s﻿etup_docker_based_appliance.yml```: Quite self explanatory ? it performs setup tasks to enable docker on a given appliance.
+* `setup_WKSHP-*.yml`: These playbooks are responsible for preparing a base appliance for a given workshop by adding and configuring the necessary packages or services related to the workshop.
+* `s﻿etup_appliance.yml`: this playbook is used to perform the base setup for a JupyterHub environment server or appliance. It includes setup_base_appliance.yml playbook.
+* `s﻿etup_base_appliance`: takes care of setting the minimal requierements for an appliance. it includes therefore `install_base_system.yml` playbook. On top of it, it creates and configure the necessary users.
+* `s﻿etup_docker_based_appliance.yml`: Quite self explanatory ? it performs setup tasks to enable docker on a given appliance.
 
-It also hosts the ```inventory``` file describing the role of jupyterhub servers. Place your jupyterhub machine (FQDN) in a group used as PBKDIR namerole
+It also hosts the `inventory` file describing the role of jupyterhub servers. Place your jupyterhub machine (FQDN) in a group used as PBKDIR namerole
 
 ```shellsession
 #
@@ -420,13 +422,13 @@ It also hosts the ```inventory``` file describing the role of jupyterhub servers
 127.0.0.1  ansible_connection=localhost
 ```
 
-T﻿he ```conf``` folder hosts configuration files in a jinja format. Once expanded, the resulting files will be used by relevant workshops.
+T﻿he `conf` folder hosts configuration files in a jinja format. Once expanded, the resulting files will be used by relevant workshops.
 
 A﻿s part of the refacturing work to open source the project, we reaaranged the different scripts locations. We have created an install folder to handle the different installation scripts either from a Jupyterhub 's perpective or from an appliance 's standpoint too.
 
 We separated the Workshops related scripts from the pure system ones. When one creates a workshop, one needs to provide a series of notebooks and in some cases some scripts to manage the creation, setup of a related appliance along with additional scripts to manage its lifecycle in the overall workshops-on-Demand architecture (Create, Cleanup, Reset scripts at deployment or Cleanup times). These scripts need to be located in the script folder. On the other hand, the system scripts are located in the sys folder.
 
-T﻿here are two types of activities that can occur on the backend server: punctual or regular. The punctual activity is one that is performed once every now and then. The regular one is usually set up on the backend server as a cron job. Sometimes however, one of these cron tasks can be forced manually if necessary. One the main scheduled task is the ```deliver``` task. I will explain it later on in this chapter. I will start now by explaining an important possible punctual task, the update of the backend server.
+T﻿here are two types of activities that can occur on the backend server: punctual or regular. The punctual activity is one that is performed once every now and then. The regular one is usually set up on the backend server as a cron job. Sometimes however, one of these cron tasks can be forced manually if necessary. One the main scheduled task is the `deliver` task. I will explain it later on in this chapter. I will start now by explaining an important possible punctual task, the update of the backend server.
 
 ##### U﻿pdate of the backend server:
 
@@ -434,7 +436,7 @@ T﻿he backend server hosts all the necessary content for delivering workshops: 
 
 S﻿ervices are installed once and for all at the installation time. These services may evolve over time. One may need to update the jupyterhub application to fix a bug or get new features. In the same fashion, you may consider bumping from one python version to a new major one. If you are willing to update these services or add additional ones, you will need to update the relevant installation playbooks in wod-backend/ansible directory.
 
-h﻿ere is a small extract of the ```install_backend.yml``` playbook: Full version [here](https://github.com/Workshops-on-Demand/wod-backend/blob/main/ansible/install_backend.yml)
+h﻿ere is a small extract of the `install_backend.yml` playbook: Full version [here](https://github.com/Workshops-on-Demand/wod-backend/blob/main/ansible/install_backend.yml)
 
 ```shellsession
 vi install_backend
