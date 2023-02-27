@@ -2,7 +2,7 @@
 title: Bare Metal provisioning on HPE GreenLake using Terraform
 date: 2023-02-26T19:38:34.667Z
 author: Chaita Mylarappachar
-authorimage: /img/chaitra_mylarappachar.png
+authorimage: /img/chaitra-mylarappachar-192.png
 disable: false
 ---
 # Introduction
@@ -38,9 +38,7 @@ Follow the below steps for API Client creation:
 
 1. From the HPE GreenLake platform, launch the HPE GreenLake Central console for the appropriate tenant. Under the settings icon on the tenant Dashboard page, select the User Management option.  
 
-   ![User Management](/img/apiclient1.png "User Management")
-
-
+   ![User Management](/img/api-client-credential-created.png "User Management")
 2. Under the API Clients tab, click on Create API Client.
 
    ![](/img/apiclient2.png)
