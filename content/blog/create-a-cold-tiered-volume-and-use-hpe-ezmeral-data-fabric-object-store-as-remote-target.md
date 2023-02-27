@@ -73,7 +73,7 @@ You should refer to this document - [Enabling the HPE Ezmeral Data Fabric Objec
 
 For the above document, I have a few supplementary notes, which should make your configuration smoother.
 
-1. About the "keytool -noprompt -importcert" command in the docs.
+#### 1. About the "keytool -noprompt -importcert" command in the docs.
 
 Please do not use this 👇 command in the original document:
 
@@ -123,7 +123,7 @@ to look at things like CA certificates in your JVM.
 
 You'll find something like the following:
 
-```
+```dart
 Alias name: digicertassuredidrootca
 Creation date: Feb 2, 2023
 Entry type: trustedCertEntry
@@ -137,7 +137,7 @@ This is a recognized CA certificate issued by Digicert.
 
 So, after you use `keytool` to import /opt/mapr/conf/ca/chain-ca.pem into the JVM, use keytool -list -v -cacerts to see something similar to the following:
 
-```
+```dart
 Alias name: edf-clustera-ca
 Creation date: Feb 16, 2023
 Entry type: trustedCertEntry
@@ -147,7 +147,7 @@ Issuer: CN=MapR Engineering Root CA, OU=MapR Engineering Root CA, O=MapR, DC=hpe
 ...
 ```
 
-2. The documentation describes several client software that you can use to interact with the HPE Ezmeral Object Store. I would like to add the following clarification:
+#### 2. The documentation describes several client software that you can use to interact with the HPE Ezmeral Object Store. I would like to add the following clarification:
 
 When using the `mc` command-line tool or the `s3cmd` command-line tool to interact with HPE Ezmeral Data Fabric Object Store without completing the configuration of "[Enabling S3 Virtual-Host-Style Requests](https://docs.datafabric.hpe.com/72/AdvancedInstallation/Enabling_object_store.html#concept_isb_53h_5bb__section_nnp_kr2_bvb)", some commands will not work properly.
 
@@ -155,7 +155,7 @@ In this case, for management operations, such as creating accounts, IAM accounts
 
 For object listing, getting, putting, and deleting operations, I recommend you use `AWS CLI`.
 
-3. Cannot revert to HTTP mode after enabling HTTPS.
+#### 3. Cannot revert to HTTP mode after enabling HTTPS.
 
 If the Object Store was installed using the Installer, the Object Store would also have security enabled, including HTTPS.
 
@@ -183,7 +183,7 @@ Before using the mc command line for the first time, you need to create an Alias
 An Alias contains an access endpoint, such as "https://s3-us-west-1.amazonaws.com", which is an Amazon AWS S3 endpoint; another example is "http://10.10.88.198:9000", which is a Minio endpoint.
 An Alias also contains the Access Key and Secret Key used by your administrator or IAM User.
 
-1. You first use the "[mc alias list](https://docs.datafabric.hpe.com/72/ReferenceGuide/mc-alias-list.html)" command to view the default Alias in the following systems.
+##### 1. You first use the "[mc alias list](https://docs.datafabric.hpe.com/72/ReferenceGuide/mc-alias-list.html)" command to view the default Alias in the following systems.
 
 ❗Note: If you are using self-signed TLS certificates or installed the cluster by Installer, you have to copy <ins>/opt/mapr/conf/ca/chain-ca.pem</ins> to <ins>~/.mc/certs/CAs/</ins> on the node running `mc`.
 The meaning of this step is the same as you imported the self-issued CA to the keytool of the JVM earlier, `mc` also needs to import the self-issued CA to communicate with the S3server of the Object Store.
@@ -224,25 +224,21 @@ s3
   Path      : dns
 ```
 
-2. Generate S3 keys to authenticate your administrator
-
+##### 2. Generate S3 keys to authenticate your administrator
 
 The cluster administrator (typically the mapr user) must authenticate to the Object Store cluster and generate S3 keys (accessKey and secretKey) on the default Object Store account.
 Perform this operation before performing any CLI operations in Object Store.
 
 If the cluster is secure, use [maprlogin](https://docs.datafabric.hpe.com/72/SecurityGuide/ThemaprloginUtility.html) to authenticate the cluster administrator, and then generate the keys:
 
-
-```bash
+```shell
 maprcli s3keys generate -domainname primary -accountname default -username mapr -json
 ```
-
 
 🗒Note: An Object Store cluster has a domain, accounts, buckets, users, and access policies associated with it.
 Installing Object Store in a cluster provides a primary domain and a default account.
 
 Sample output:
-
 
 ```json
 {
@@ -259,16 +255,13 @@ Sample output:
 }
 ```
 
-
 🗒Note: If you encounter any problem when generating the S3 keys, refer to this page: [Generate S3 Keys to Authenticate Users and Applications](https://docs.datafabric.hpe.com/72/MapROverview/object-store-get-started.html#object-store-get-started__section_x4h_w13_4tb).
 
-3. Use the `mc alias set` command to create an alias for admin user
-
+##### 3. Use the `mc alias set` command to create an alias for admin user
 
 ```shell
 mc alias set s3-admin-alias https://`hostname -f`:9000 {ACCESS_KEY} {SECRET_KEY} --api "s3v4" --path "off" --json
 ```
-
 
 🗒Note: "s3-admin-alias" is the name of the alias, you define it.
 
@@ -276,20 +269,16 @@ mc alias set s3-admin-alias https://`hostname -f`:9000 {ACCESS_KEY} {SECRET_KEY}
 Here, I'm running the command on the node which is running the S3server.
 After created an alias, you would find the information is appended into <ins>$HOME/.mc/config.json</ins>.
 
-4. Create an account
-
+##### 4. Create an account
 
 I choose to use the Object Store Web GUI to create an account.
 
-
 Refer to this document - [Using the Object Store Interface](https://docs.datafabric.hpe.com/72/MapROverview/create-account.html#create_account__section_fsm_1hn_nrb).
-
 
 Create an account using Object Store Web GUI - 1
 <a href="https://ibb.co/SyW9MKK"><img src="https://i.ibb.co/XLNvKzz/Object-Store-Create-Account-1.png" alt="Object-Store-Create-Account-1" border="0"></a>
 
 Enter the following in "Default Bucket Place":
-
 
 ```json
 {
@@ -313,7 +302,6 @@ Enter the following in "Default Bucket Place":
 }
 ```
 
-
 HPE Ezmeral Data Fabric Object Store is an on-premises object storage service compatible with Minio.
 Some concepts such as Domain and Default Account do not exist in public cloud object storage services such as AWS S3.
 But the policy for Bucket and IAM User is compatible with the policy in public cloud object storage.
@@ -321,13 +309,11 @@ For the Bucket Policy here, you can refer to AWS S3 [Bucket policy examples](htt
 
 After creating the user account, you can use the below command to view it:
 
-
 ```shell
 sudo -u mapr /opt/mapr/bin/mc admin account list {ADMIN_ALIAS} domain=primary --json
 ```
 
 Sample output:
-
 
 ```json
 {
@@ -391,22 +377,17 @@ Sample output:
 
 #### Create an IAM User in the non-default Account you created just now
 
-
 In step 4, you created a non-default Account named "s3test".
 In HPE Ezmeral Data Fabric Object Store, you must create a non-default Account to create an IAM User, and you should use the IAM User to operate Buckets.
-
 
 ```shell
 sudo -u mapr /opt/mapr/bin/mc admin user add s3-admin-alias s3-test-iam_user account=s3test domain=primary
 ```
 
-
 🗒Note: "s3-admin-alias" is the admin alias you created in step-3, and "s3-test-iam_user" is the IAM User name.
 For more information, refer to: [Create IAM Users](https://docs.datafabric.hpe.com/72/MapROverview/create-IAM-user.html).
 
-
 Next, you create an IAM policy for the IAM User - s3-test-iam_user.
-
 
 ```shell
 cat <<'EOF' > ./PolicyPublicRead.json
@@ -425,12 +406,9 @@ cat <<'EOF' > ./PolicyPublicRead.json
 EOF
 ```
 
-
-
 ```shell
 mc admin policy add s3-admin-alias PolicyPublicRead ./PolicyPublicRead.json account=s3test domain=primary
 ```
-
 
 🗒Note: "PolicyPublicRead" is the IAM Policy's name.
 
@@ -438,9 +416,7 @@ You can also use the Object Store Web GUI to create the IAM Policy, like the fol
 
 <a href="https://ibb.co/xsH1nYH"><img src="https://i.ibb.co/n0C7XBC/Object-Store-Create-IAMPolicy-1.png" alt="Object-Store-Create-IAMPolicy-1" border="0"></a>
 
-
 Let's create another IAM Policy named "GrantBucketOperations"👇, you will associate these 2 IAM Policies to the IAM User - "s3-test-iam_user" later.
-
 
 ```json
 {
@@ -485,21 +461,16 @@ Let's create another IAM Policy named "GrantBucketOperations"👇, you will asso
 }
 ```
 
-
 To associate an IAM Policy to an IAM User:
-
 
 ```shell
 sudo -u mapr /opt/mapr/bin/mc admin policy set s3-admin-alias PolicyPublicRead users='s3-test-iam_user' account='s3test' domain='primary'
 sudo -u mapr /opt/mapr/bin/mc admin policy set s3-admin-alias GrantBucketOperations users='s3-test-iam_user' account='s3test' domain='primary'
 ```
 
-
 #### Create a Bucket for the IAM User
 
-
 First, you need to generate the access key and secret key for the IAM User - "s3-test-iam_user".
-
 
 ```shell
 sudo -u mapr maprcli s3keys generate -domainname primary \
@@ -507,9 +478,7 @@ sudo -u mapr maprcli s3keys generate -domainname primary \
   -username 's3-test-iam_user'
 ```
 
-
 ☝Then you would get the access key and secret key for the IAM User - "s3-test-iam_user".
-
 
 ```shell
 sudo -u mapr mc alias set s3-test-iam_user-alias https://`hostname -f`:9000 \
@@ -518,7 +487,6 @@ sudo -u mapr mc alias set s3-test-iam_user-alias https://`hostname -f`:9000 \
 --api "s3v4" --path "off" --json
 
 sudo -u mapr mc mb --account s3test --ignore-existing --disable-versioning --json s3-test-iam_user-alias/s3-test-iam-user-bucket
-
 ```
 
 ☝Now you have created a Bucket named "s3-test-iam-user-bucket" using the IAM User - "s3-test-iam_user".
@@ -526,14 +494,11 @@ Because "s3-test-iam_user" is inside account - "s3test", the Bucket will be also
 
 To list Buckets using the `mc` command:
 
-
 ```shell
 /opt/mapr/bin/mc ls --account s3test --versions --recursive --summarize --json s3-test-iam_user-alias
 ```
 
-
 Sample output:
-
 
 ```json
 {
@@ -554,42 +519,32 @@ Sample output:
 
 #### Install the AWS CLI and put an file into the Bucket
 
-
 To install the AWS CLI, refer to this Amazon AWS document 👉 [Installing or updating the latest version of the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html).
 
-
 Then you create a profile for the IAM User:
-
 
 ```shell
 export AWS_CA_BUNDLE=/opt/mapr/conf/ca/chain-ca.pem
 aws configure --profile s3-test-iam_user-ray-2-objstor
 ```
 
-
 ❗Note: Before using the AWS CLI, remember to export the environment AWS_CA_BUNDLE=/opt/mapr/conf/ca/chain-ca.pem.
 Otherwise AWS CLI cannot communicate with S3server because S3server is using self-signed TLS certificates.
-
 
 After inputting the above command, the AWS CLI will ask you to input the access key and secret key.
 After the profile is created, the information will be stored at <ins>$HOME/.aws/config</ins> and <ins>$HOME/.aws/credentials</ins>.
 
-
 Use the below command to list Buckets:
-
 
 ```shell
 aws s3api list-buckets --endpoint-url https://`hostname -f`:9000 --profile s3-test-iam_user-ray-2-objstor
 ```
 
-
 Use the below command to put a file into the Bucket:
-
 
 ```shell
 aws s3api put-object --bucket s3-test-iam-user-bucket --key 'testdir/s3-test-iam-user-dir/hpe-cp-rhel-release-5.5.1-3083.bin' --body 'downloads/hpe-cp-rhel-release-5.5.1-3083.bin' --endpoint-url https://m2-maprts-vm197-172.mip.storage.hpecorp.net:9000 --profile s3-test-iam_user-ray-2-objstor
 ```
-
 
 🗒Note: "s3-test-iam-user-bucket" is the Bucket's name that you created before.
 "testdir/s3-test-iam-user-dir/hpe-cp-rhel-release-5.5.1-3083.bin" is the path that you want to put into the Bucket.
@@ -598,39 +553,30 @@ The part of "testdir/s3-test-iam-user-dir/" indicates it's under this directory,
 
 ## Create an Cold-Tiered Volume and offlad to remote Object Store
 
-
 So, now we are going to create a Volume on another cluster and configure the Cold Tier remote target for this Volume.
 Then we will manually offload the data in this Volume to the remote HPE Ezmeral Data Fabric Object Store.
 
 ### Create a Cold-Tiered Volume by Web GUI
 
-
 First of all, you need to log in to MCS, and enter the following positions in turn at the top of the screen: Data --> Volumes👇
-
 
 <a href="https://ibb.co/1Zg5RXN"><img src="https://i.ibb.co/2q9QcMr/Create-Cold-Tier-Volume-1.png" alt="Create-Cold-Tier-Volume-1" border="0"></a>
 
-
 Then click "Create Volume" at the top of the screen👇.
 
-
 <a href="https://ibb.co/T8SV1Mt"><img src="https://i.ibb.co/cFHGwhQ/Create-Cold-Tier-Volume-2.png" alt="Create-Cold-Tier-Volume-2" border="0"></a>
-
 
 Fill in the necessary information, you can refer to this document 👉 [Creating a Volume](https://docs.datafabric.hpe.com/72/ClusterAdministration/data/volumes/CreateVols.html).
 
 Turn on the "Data Tiering" switch and select "Remote Archiving(Cold)". Refer to the figure below to fill in the remote target information:
 
-
 <a href="https://ibb.co/cyy3cWt"><img src="https://i.ibb.co/3TTdyxW/Create-Cold-Tier-Volume-3.png" alt="Create-Cold-Tier-Volume-3" border="0"></a>
 
-
-- URL: The host where the S3server of the remote HPE Ezmeral Data Fabric cluster is located, and the port number is the default port 9000 of the S3server.
-- Bucket: The Bucket created for IAM User in previous steps.
-- Access Key and Secret Key: The keys of the IAM User created in the previous step.
+* URL: The host where the S3server of the remote HPE Ezmeral Data Fabric cluster is located, and the port number is the default port 9000 of the S3server.
+* Bucket: The Bucket created for IAM User in previous steps.
+* Access Key and Secret Key: The keys of the IAM User created in the previous step.
 
 ### Configure the CA certificate of the remote Object Store for the MAST Gateway of the local cluster
-
 
 You should remember that in the earlier steps, we configured the CA certificate of the Object Store's self-signed TLS certificate for the JDK keystore as well as the mc command line tool and the AWS CLI.
 
@@ -643,31 +589,24 @@ For the convenience of management, you can rename it appropriately and configure
 
 ### Use the maprcli volume offload command to manually offload data
 
-
 Now you can place some data in the Cold-Tiered Volume you just created. 
 I put a 5.6GB file in it.
 
-
 Then, you can use the following command to manually trigger the offload of the entire Volume.
-
 
 ```shell
 maprcli volume offload -ignorerule true -name {VOLUME_NAME}
 ```
 
-
 Then, you can use the following command to monitor the offload status.
-
 
 ```shell
 watch 'maprcli volume tierjobstatus -name {VOLUME_NAME} -json'
 ```
 
-
 🗒Note: the `watch` will execute the following string as a command every 2 seconds.
 
 When the offload is complete, you will see the following output.
-
 
 ```json
 {
@@ -693,7 +632,6 @@ When the offload is complete, you will see the following output.
 ```
 
 ## Summary
-
 
 Well, the above is the whole content of this article.
 In this article, I demonstrate how to create a Bucket in HPE Ezmeral Data Fabric Object Store and upload data using the AWS CLI command line tool.
