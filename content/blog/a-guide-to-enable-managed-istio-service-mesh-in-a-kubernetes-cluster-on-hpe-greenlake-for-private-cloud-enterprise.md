@@ -104,7 +104,7 @@ NAME       STATUS   AGE    LABELS
 bookinfo   Active   105s   gl.hpe.com/namespaceid=10d70074-0c2b-4221-804e-1437ed1842ca,hpe.com/cluster=stub,hpe.com/namespacetype=Tenant,hpe.com/tenant=bookinfo,hpe.com/version=6.2.0,hpecp.hpe.com/hpecptenant=hpecp-tenant-106,istio-injection=enabled,kubernetes.io/metadata.name=bookinfo,serving.kubeflow.org/inferenceservice=enabled
 ```
 
-**Deploy the Bookinfo application using the YAML manifest file i.e. services/istio/release-1.16/samples/bookinfo/bookinfo.yaml from the [](https://github)**[Github repository](https://github.com/cxteamtrials/caas-trials-content)**.
+**Deploy the Bookinfo application using the YAML manifest file i.e. services/istio/release-1.16/samples/bookinfo/bookinfo.yaml from the** [](https://github)[Github repository](https://github.com/cxteamtrials/caas-trials-content).
 
 ```shellsession
 $ kubectl apply -f bookinfo.yaml -n bookinfo
@@ -211,4 +211,6 @@ In the **Services** tab from the left navigation menu, after selecting the **nam
 
 You can find the GitHub repository that hosts demo code **[here](https://github.com/cxteamtrials/caas-trials-content)**.
 
-We hope that this blog post has provided you with enough information for you to get started deploying containerized application or a managed service **i.e. Istio service mesh** on a Kubernetes-based container stack using the cluster add-on feature provided by **HPE GreenLake for Private Cloud Enterprise: Containers**, refer to the **[HPE Developer Community blog](https://developer.hpe.com/)**.
+We hope that this blog post has provided you with enough information for you to get started deploying containerized application or a managed service **i.e. Istio service mesh** on a Kubernetes-based container stack using the cluster add-on feature provided by **HPE GreenLake for Private Cloud Enterprise: Containers**. 
+
+To view more articles and tutorials on the use of the HPE GreenLake for Private Cloud Enterprise, refer to the **[HPE Developer Community blog](https://developer.hpe.com/)**.
