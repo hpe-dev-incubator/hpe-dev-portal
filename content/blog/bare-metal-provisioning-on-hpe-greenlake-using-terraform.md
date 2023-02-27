@@ -249,13 +249,13 @@ Before you can use Terraform, you will have to initialize it from the configurat
 
 ![terraform init](/img/bmaas_terraform_init.png "terraform init")
 
-#### Validate and view the Terraform execution plan
+#### Validate and View the Terraform Execution Plan
 
 Terraform plan is a dry run that lets you preview the changes that Terraform plans to make to your infrastructure based on the data you provide in your Terraform file. To see this, **run: terraform plan**
 
 ![terraform plan](/img/bmaas_terraform_plan.png "terraform plan")
 
-#### Apply the Terraform execution plan
+#### Apply the Terraform Execution Plan
 
 The command you need to use is now: **terraform apply**. This will rerun the plan command, then prompt you to confirm before it starts applying what’s in the plan: 
 
@@ -263,7 +263,7 @@ The command you need to use is now: **terraform apply**. This will rerun the pla
 
 ![terraform apply](/img/bmaas_terraform_apply_2.png "terraform apply")
 
-## Advanced example
+## Advanced Example
 
 The above example shows how to deploy a compute instance from a pre-existing resource. Below is another example that demonstrates compute instance deployment with dependency on dynamic resources and a few other possible configuration options. 
 
