@@ -27,13 +27,13 @@ To configure application metadata in Okta, complete the following steps:
 * Step 1: Create an Okta SAML application
 * Step 2: Configure Sign On settings
 * Step 3: Export the SAML 2.0 IdP metadata
-* Step 4: Configure the SAML connection in GreenLake
+* Step 4: Configure the SAML connection in HPE GreenLake
 
 **Step 1: Create an Okta SAML application**
 
 1. Log in to the Okta administration console.
 2. Click **Applications > Create new app integration.** The Create a new app integration window opens.
-3. Select SAML 2.0 and click Next.
+3. Select SAML 2.0 and click **Next**.
 
 ![](/img/ws-image0.png)
 
@@ -65,7 +65,7 @@ Provide a name for the Aruba GreenLake SSO service (Okta application)
 
    See here for IdP attribute details: <https://support.hpe.com/hpesc/public/docDisplay?docId=a00120892en_us>
 
-   As part of the HPE GreenLake cloud platform integration, one of the additional features that was added is the Role Based Access Controls for Aruba Central and all other apps on the platform. A new SAML attribute has been added “hpe\_ccs\_attribute” which tells GreenLake and Central the exact role/permissions for each user. The following describes how to format the attribute.
+   As part of the HPE GreenLake cloud platform integration, one of the additional features that was added is the Role Based Access Controls for Aruba Central and all other apps on the platform. A new SAML attribute has been added “hpe\_ccs\_attribute” which tells HPE GreenLake and Central the exact role/permissions for each user. The following describes how to format the attribute.
 
 ![](/img/ws-image2.png)
 
@@ -91,7 +91,7 @@ If you want to add additional HPE GreenLake applications, or if you have multipl
 
 ![](/img/ws-image7.png)
 
-Click Next and Select “Internal App” then Finish
+Click Next and Select “Internal App”, then Finish.
 
 **Step 3:** **Export the SAML 2.0 IdP metadata**
 
@@ -102,37 +102,46 @@ Click Next and Select “Internal App” then Finish
    Suggestion: Click **Identity Provider metadata** and save the XML data to a file.
 
    ![](/img/ws-image9.png)
-2. C﻿lick Next
-3. Select Internal app, and Click Finish
+
+2. C﻿lick Next.       
+
+3. Select Internal app, and Click Finish.    
+
 
 **Step 4: Create SAML Authorization Profile in HPE GreenLake Cloud Platform**
 
 1. Log into HPE GreenLake and click Menu > Manage > Authentication and Click Set Up SAML Connection.
 
-   *Before you can add a new SAML configuration, you must have at least one user account with that domain already enabled in HPE GreenLake. Also, you must be logged into GreenLake with an account from that domain in order to enable SSO for it.*
+   *Before you can add a new SAML configuration, you must have at least one user account with that domain already enabled in HPE GreenLake. Also, you must be logged into HPE GreenLake with an account from that domain in order to enable SSO for it.*
 
    ![](/img/ws-image10.png)
+     
 2. Type in the domain you want to enable SSO on:
 
    ![](/img/ws-image11.png)
+    
 3. Input the metadata from the step above.
 
    While HPE GreenLake does support entering this information manually, it's recommended that you simply upload the XML metadata that was downloaded in the previous step. To do so, Select Metadata File, selecting the XML file. Then, click Next.
 
    ![](/img/ws-image12.png)
+
 4. Enter the SAML attributes to match what was entered in Okta. Set the idle timeout value as well.
 
    ![](/img/ws-image13.png)
-5. Then click Next.
-6. Create a recover user so that, in the event SSO fails, an admin will still be able to access the HPE GreenLake portal.
+    
+5. Then click Next.    
+
+6. Create a recover user so that, in the event SSO fails, an admin will still be able to access the HPE GreenLake portal.    
+
 
    ![](/img/ws-image14.png)
 
-   Congratulations! SSO will now be enabled for HPE GreenLake as well as the Aruba Central application. Log out and on the HPE GreenLake home page, click Sign in with SSO.
+   Congratulations! SSO will now be enabled for HPE GreenLake as well as the Aruba Central application. Log out and on the HPE GreenLake home page, click **Sign in with SSO**.
 
 **Testing and troubleshooting:**
 
-On the HPE GreenLake Cloud Platform home page, click Sign In with SSO.
+On the HPE GreenLake Cloud Platform home page, click **Sign In with SSO**.
 
 ![](/img/ws-image15.png)
 
@@ -142,9 +151,14 @@ Enter the SSO credentials. You will be redirected to Okta to authenticate. Once 
 
 **Additional notes:**
 
-* There must be at least **one** verified user belonging to the **Domain** prior to configuration.
-* In order to configure SSO, you must be logged into HPE GreenLake with a user from the domain.
-* SSO user access is determined by the “role_name” attribute included in the SAML hpe_ccs_attribute provided by the IdP.
-* SSO users can initiate a Single Sign On request by trying to log into Aruba Central (SP-initiated login).
-* For more troubleshooting: <https://support.hpe.com/hpesc/public/docDisplay?docId=a00120892en_us>
+* There must be at least **one** verified user belonging to the **Domain** prior to configuration.    
+
+* In order to configure SSO, you must be logged into HPE GreenLake with a user from the domain.    
+
+* SSO user access is determined by the “role_name” attribute included in the SAML hpe_ccs_attribute provided by the IdP.    
+
+* SSO users can initiate a Single Sign On request by trying to log into Aruba Central (SP-initiated login).     
+
+* For more troubleshooting: <https://support.hpe.com/hpesc/public/docDisplay?docId=a00120892en_us>     
+
 
