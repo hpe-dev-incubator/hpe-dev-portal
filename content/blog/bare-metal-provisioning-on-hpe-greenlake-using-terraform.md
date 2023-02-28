@@ -4,6 +4,12 @@ date: 2023-02-26T19:38:34.667Z
 author: Chaita Mylarappachar
 authorimage: /img/chaitra-mylarappachar-192.png
 disable: false
+tags:
+  - hpe-greenlake
+  - terraform
+  - bare-metal-as-a-service
+  - hpegl
+  - BMaaS
 ---
 # Introduction
 
@@ -38,11 +44,13 @@ Follow the below steps for API Client creation:
 
 ![Create API Client](/img/greenlake_console_createapiclient_form.png "Create API Client")
 
-4. Ensure you make a note of the Issuer, Client ID, and Client Secret before clicking on the Close button. These details will be exported as environment variables in the next section.
+4. Ensure you make a note of the **Issuer**, **Client ID**, and **Client Secret** before clicking on the **Close** button. These details will be exported as environment variables in the next section.
 
 ![API Client Created](/img/greenlake_conolse_apiclient_created.png "API Client Created")
 
 5. In the API Clients page, select the newly created client, and click on **Create Assignment** button.
+
+
 6. Assign the roles **BMAAS Access Viewer** and **BMAAS Access Project Contributor** on the **Space: Default.**
 
 ![BMaaS Roles](/img/greenlake_console_createbmaasassignment.png "BMaaS Roles")
@@ -51,27 +59,27 @@ The API Client is now ready to be used to run the Terraform resources.
 
 ## Select the Compute Group ID
 
-Compute Group is a logical grouping of bare metal resources that a team of Cloud Consumers can consume. You must specify the compute-group ID to interact with bare metal resources.
+Compute Group is a logical grouping of bare metal resources (Compute Instances, Networks, SSHKeys, etc.) that a team of Cloud Consumers can consume. You must specify the compute group ID to interact with the bare metal service resources. You can create a new compute group or select the existing one from the HPE GreenLake console. Make a note of the compute group ID because you need it to set a variable.
 
-***Note***: Compute Group is AKA Project.
-
-You can get the compute group ID from HPE GreenLake Console.
+***Note: Compute Group is AKA Project.***
 
 1. Navigate to HPE GreenLake for Private Cloud Services card -> Bare Metal -> Compute Groups.
 
 ![BMaaS Compute Groups](/img/compute_group_list.png "BMaaS Compute Groups")
 
-2. Click on the desired compute group and extract the ID from the browser URL seen at that time.
+2. Click on the desired compute group and then extract the ID from the browser URL seen at that time.\
+   \
+   This will be exported in the environment variable **HPE_METAL_PROJECT_ID** in the later section.
 
 ![Compute Group ID](/img/compute_group_id.png "Compute Group ID")
 
- ﻿  This will be exported as environment variable  **HPE_METAL_PROJECT_ID** in the later section.
+ ﻿ 
 
-## Terraform Installation
+## Install Terraform
 
-Your first step is to get your system ready to run Terraform. In case this has not been done yet:
+Next, get your system ready to run Terraform. In case this has not been done yet:
 
-1. Download and install Terraform, version v0.13, or later.
+1. Download and install Terraform, version v0.13 or later.
    For more information, see [https://learn.hashicorp.com/tutorials/terraform/install-cli](<1. https://learn.hashicorp.com/tutorials/terraform/install-cli>). 
 2. Verify the installation with **terraform -help.** 
 
@@ -81,7 +89,7 @@ Your first step is to get your system ready to run Terraform. In case this has n
 
 ## Select Terraform provider with bare metal service configurations
 
-1. Export the following environment variables on your setup.
+1. #### Export the following environment variables on your setup.
 
    E﻿xport the Tenant ID:
 
@@ -89,7 +97,7 @@ Your first step is to get your system ready to run Terraform. In case this has n
    export HPEGL_TENANT_ID="<Tenant ID>
    ```
 
-   Export the API Client credentials that you obtained when you create an API Client within HPE GreenLake Central:
+   Export the API Client credentials that you obtained when you created an API Client within HPE GreenLake Central:
 
    ```shell
    export HPEGL_USER_ID="<API Client ID>"
@@ -111,13 +119,13 @@ Your first step is to get your system ready to run Terraform. In case this has n
    # Integration Environment: https://client.greenlake.hpe-gl-intg.com/api/metal
    # local development: http://localhost:3002
 
-   export HPEGL_METAL_REST_URL="<Metal Service REST Base URL"
+   export HPEGL_METAL_REST_URL="<Metal Service REST Base URL>"
    ```
-2. Configure the Terraform provider.
+2. #### Configure the Terraform provider.
 
    Create an empty folder and put a file in it called main.tf with the following contents:
 
-   main.tf:
+   **main.tf:**
 
    ```hcl
    terraform {
@@ -142,18 +150,18 @@ Your first step is to get your system ready to run Terraform. In case this has n
 
 To deploy compute instance, you need to use the **hpegl_metal_host** terraform resource.
 
-***Note***:
+***Note**:*
 
-* compute instance is AKA host. 
-* compute instance type is AKA machine size.
+* *compute instance is AKA host.* 
+* *compute instance type is AKA machine size.*
 
 The **hpegl_metal_host** resource supports many different arguments, but these are the required ones:
 
-* networks – List of networks both required and optional.
+* networks – List of networks. The list must always include any networks marked as '**required**' for that location. 
 * machine_size – Compute Instance type.
-* ssh – List of SSH keys that will be pushed to the host.
-* location – The location of where the compute instance will be provisioned.
-* Image – A specific flavor and version in the form of flavor@version
+* ssh – List of SSH keys to push to the host.
+* location – The data center location of where the compute instance will be provisioned.
+* Image – OS image in the form flavor@version.
 
   Y﻿ou can also check the documentation [here](https://registry.terraform.io/providers/HPE/hpegl/latest/docs/resources/metal_host) to see all the required and optional fields.
 
@@ -161,7 +169,7 @@ The **hpegl_metal_host** resource supports many different arguments, but these a
 
 ### Querying for available OS images
 
-In order to list the available OS images for OS, add the below data statements in your terraform file *main.tf*:
+In order to list the available OS images for OS, add the below data statements in your terraform file ***main.tf***:
 
 ```hcl
 data "hpegl_metal_available_images" "ubuntu" { 
@@ -178,7 +186,7 @@ data "hpegl_metal_available_images" "ubuntu" {
 }
 ```
 
-The OS image list can now be fetched by using the following:
+ The OS image list can be fetched using the following statements in main.tf: 
 
 ```hcl
 locals {
@@ -189,7 +197,9 @@ locals {
 
 ### Querying for other available resources
 
-For this, you should use **hpegl_metal_available_resources** data resource.  For example, the following statements show how to retrieve the available SSH Key lists and store them in a local variable.
+For this, you should use **hpegl_metal_available_resources** data resource. For example, the following statements show how to retrieve and store the available SSH keys in a local variable.\
+\
+Append to main.tf:
 
 ```hcl
 # query available resources.
@@ -202,7 +212,9 @@ locals  {
 }
 ```
 
-Using a similar technique, you can retrieve the rest of the data you need - networks, machine_size, etc.
+Using a similar technique, you can retrieve the rest of the data you need - networks, machine size, etc.\
+\
+A﻿ppend to main.tf:
 
 ```hcl
 # choosing a location that has at least one machine available.
@@ -225,11 +237,11 @@ locals {
 ```
 
 \
-[Here ](https://registry.terraform.io/providers/HPE/hpegl/latest/docs/data-sources/metal_available_resources)you can get information about each of the bare metal data statements supported by the hpegl provider.
+[Here ](https://registry.terraform.io/providers/HPE/hpegl/latest/docs/data-sources/metal_available_resources)you can get information about each of the bare metal data statements supported by the **hpegl** provider.
 
 ### Create Compute Instance
 
-The last step is to define a hpegl_metal_host terraform resource to request a new compute instance (Host):
+The last step is, define a hpegl_metal_host terraform resource in the file to request a new compute instance (host):
 
 ```hcl
 resource "hpegl_metal_host" "demo_host" {
@@ -265,7 +277,7 @@ The command you need to use is now: **terraform apply**. This will rerun the pla
 
 ## Advanced Example
 
-The above example shows how to deploy a compute instance from a pre-existing resource. Below is another example that demonstrates compute instance deployment with dependency on dynamic resources and a few other possible configuration options. 
+The above example shows how to deploy a compute instance from pre-existing resources. Below is another code sample demonstrating compute instance deployment using dynamic resources and additional optional configurations with **hpegl_metal_host.** 
 
 ```hcl
 terraform {
@@ -339,8 +351,8 @@ When you no longer need the resources created via Terraform, destroy the resourc
 
 # Summary
 
-In this blog, I covered how to provision a compute instance with Terraform provider for HPE GreenLake using bare metal resources. I also showed you advanced usage of hpegl resource statements to deploy a compute instance with dynamic resources. 
-I hope you found this information interesting and useful in helping you get started with the HPE GreenLake Terraform provider. You can also go through the below links to understand more about the HPE GreenLake Terraform Provider. 
+In this blog, I covered how to provision a compute instance with Terraform provider for HPE GreenLake using bare metal resources. I also showed you advanced usage of hpegl resource statements to deploy a compute instance with dynamic resources. \
+I hope you found this information interesting and helpful in helping you get started with the HPE GreenLake Terraform provider. You can also go through the below links to understand more about the HPE GreenLake Terraform provider. 
 
 * [Kubernetes Cluster as Code – Part 1](https://developer.hpe.com/blog/kubernetes-clusters-as-code-part1/)
 * [Kubernetes Cluster as Code – Part 2](https://developer.hpe.com/blog/kubernetes-cluster-as-code-part-2/)  
