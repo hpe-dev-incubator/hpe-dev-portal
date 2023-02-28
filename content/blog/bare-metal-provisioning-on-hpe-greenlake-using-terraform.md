@@ -13,38 +13,28 @@ The service can be accessed via GUI as well as via public APIs, enabling develop
 
 ## HPE GreenLake Terraform Provider
 
-The HPE GreenLake Terraform provider hpegl by HPE GreenLake provides Infrastructure-as-Code support for HPE GreenLake Cloud Services.
-Using the hpegl Terraform provider, you can automate the management of your infrastructure. You can provision OS on bare metal, spin Virtual Machines and bring up a Kubernetes cluster, starting right from bare metal all the way up in the stack to desired configurations and applications.
+The HPE GreenLake Terraform provider **hpegl** by HPE GreenLake provides Infrastructure-as-Code support for HPE GreenLake Cloud Services.
+Using the **hpegl** Terraform provider, you can automate the management of your infrastructure. You can provision OS on bare metal, spin virtual machines and bring up a Kubernetes cluster, starting right from bare metal all the way up in the stack to desired configurations and applications.
 
 In this blog post, I will walk you through the steps required to use the HPE GreenLake Terraform Provider to deploy and further manage bare metal compute instances.
 
 # Preparing for Infrastructure-as-Code implementation
 
-## Terraform Installation
-
-Your first step is to get your system ready to run Terraform. In case this has not been done yet:
-
-1. Download and install Terraform, version v0.13, or later.
-   For more information, see [https://learn.hashicorp.com/tutorials/terraform/install-cli](<1. https://learn.hashicorp.com/tutorials/terraform/install-cli>). 
-2. Verify the installation with **terraform -help.** 
-
-   At this point, you are ready to start building your infrastructure description file. 
-
 ## Setting up API Client for access
 
-You need an API client to authenticate against HPE GreenLake.
+You need an API client to authenticate against the HPE GreenLake.
 
 Follow the below steps for API Client creation:
 
-1. From the HPE GreenLake platform, launch the HPE GreenLake Central console for the appropriate tenant. Under the settings icon on the tenant Dashboard page, select the User Management option. 
+1. From the HPE GreenLake platform, launch the HPE GreenLake Central console for the appropriate tenant. Under the settings icon on the tenant Dashboard page, select the **User Management** option. 
 
 ![User Management](/img/greenlake_console_usermanagement.png "User Management")
 
-2. Under the API Clients tab, click on Create API Client.
+2. Under the API Clients tab, click on **Create API Client**.
 
 ![Create API Client](/img/greenlake_console_createapiclient.png "Create API Client")
 
-3. Enter a Name (mandatory field) and Description (optional) for the API client, and click on Create button.
+3. Enter a **Name** (mandatory field) and **Description** (optional) for the API client, and click on **Create** button.
 
 ![Create API Client](/img/greenlake_console_createapiclient_form.png "Create API Client")
 
@@ -75,7 +65,17 @@ You can get the compute group ID from HPE GreenLake Console.
 
 ![Compute Group ID](/img/compute_group_id.png "Compute Group ID")
 
- ﻿ This will be exported as environment variable **HPE_METAL_PROJECT_ID** in the later section.
+ ﻿  This will be exported as environment variable  **HPE_METAL_PROJECT_ID** in the later section.
+
+## Terraform Installation
+
+Your first step is to get your system ready to run Terraform. In case this has not been done yet:
+
+1. Download and install Terraform, version v0.13, or later.
+   For more information, see [https://learn.hashicorp.com/tutorials/terraform/install-cli](<1. https://learn.hashicorp.com/tutorials/terraform/install-cli>). 
+2. Verify the installation with **terraform -help.** 
+
+   At this point, you are ready to start building your infrastructure description file. 
 
 # Deploy Compute Instance
 
