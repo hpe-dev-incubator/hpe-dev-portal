@@ -390,7 +390,62 @@ L﻿et 's now look in details what is really happening  on the backend server's 
 
 ![](/img/wod-blogserie2backend-workflow.png "backend server <CREATE> workflow")
 
-0- The procmail api: This is a mail parsing process allowing the backend server to retrieve the relevant information in order to perform appropriate actions. As any api, it uses verbs to performs actions. In our case, we leverage <CREATE>, <CLEANUP>, <RESET> and <PURGE>. This api is actually based on a script `procmail-action.sh`. The following scripts defines the different actions linked to the verbs passed through the api calls.
+0- The procmail api: This is a mail parsing process allowing the backend server to retrieve the relevant information in order to perform appropriate actions. As any api, it uses verbs to performs actions. In our case, we leverage <CREATE>, <CLEANUP>, <RESET> and <PURGE>. 
+
+If you need more info on procmail usage, check the following page.
+
+T﻿ake a look at the  following template of the `.procmailrc` file that will be expanded at setup time.
+
+```
+MAILDIR=$HOME/.mail      # You'd better make sure it exists
+DEFAULT=$MAILDIR/mbox
+LOGFILE=$MAILDIR/from
+
+:0b
+#* ^From.*{{ WODSENDER }}.*
+# \/ defines what will be matched in $MATCH
+* ^Subject: *CREATE \/[1-9]+.*
+| {{ SCRIPTDIR }}/procmail-action.sh CREATE $MATCH
+
+:0b
+#* ^From.*{{ WODSENDER }}.*
+# \/ defines what will be matched in $MATCH
+* ^Subject: *CLEANUP \/[1-9]+.*
+| {{ SCRIPTDIR }}/procmail-action.sh CLEANUP $MATCH
+
+:0b
+#* ^From.*{{ WODSENDER }}.*
+# \/ defines what will be matched in $MATCH
+* ^Subject: *RESET \/[1-9]+.*
+| {{ SCRIPTDIR }}/procmail-action.sh RESET $MATCH
+
+:0b
+#* ^From.*{{ WODSENDER }}.*
+# \/ defines what will be matched in $MATCH
+* ^Subject: *PURGE student\/[1-9]+.*
+| {{ SCRIPTDIR }}/procmail-action.sh PURGE $MATCH
+
+```
+
+L﻿et's start with a <CREATE> scenario looking at the very first lines of the `procmail` log file.
+
+```
+From hpedev.hackshack@hpe.com  Wed Mar  1 15:10:41 2023
+ Subject: CREATE 401 825 frederic.passeron@hpe.com
+  Folder: /home/wodadmin/wod-backend/scripts/procmail-action.sh CREATE       14
+```
+
+
+
+
+
+The `From` is important as `.procmailrc` checks that the sender is the configured one from the frontend server. During the install process, the sender parameter id referring to this. Any mail from any other sender but the configured one is not processed.
+
+
+
+In Subject:, we look for the API verb **CREATE** followed by **student id,** **participant id** and finally the registered **participant email.**
+
+This api is actually based on a script `procmail-action.sh`. The following scripts defines the different actions linked to the verbs passed through the api calls.
 
 I﻿n order to work properly, `procmail-action.sh`needs to source 3 files:
 
@@ -467,19 +522,7 @@ export ANSPRIVOPT=" -e @/home/wodadmin/wod-private/ansible/group_vars/all.yml -e
 
 `f﻿unctions.sh` is a library of shell functions used by many scripts among which `procmail-action.sh`.  We will see the details shortly below.
 
-4- L﻿et's start with a <CREATE> scenario looking at the very first lines of the `procmail` log file.
-
-```
-From hpedev.hackshack@hpe.com  Wed Mar  1 15:10:41 2023
- Subject: CREATE 401 825 frederic.passeron@hpe.com
-  Folder: /home/wodadmin/wod-backend/scripts/procmail-action.sh CREATE       14
-```
-
-The `From` is important as `.procmail.rc` checks that the sender is the configured one from the frontend server. During the install process, the sender parameter id referring to this. Any mail from any other sender but the configured one is dropped.
-
-Procmail.rc image here
-
-In Subject : API verb **CREATE** followed by **student id,** **participant id** and finally the registered **participant email**
+4- 
 
 5- get_session_token() This function retrieves the necessary token to make api call to the api-db server.
 
@@ -502,10 +545,6 @@ The generated password will be sent back to the api-db server so that the fronte
 10- erase_student() This function erases the all content from the allocated student home directory. We want to make sure that home directory is not compromised. We start clean.
 
 11- get_compile_status() This function will check if he workshop needs some scripts to ne compiled. For instance, you need to authentificate against a private cloud portal and you don't want your participants to see the credentials. This compile feature will compile the authentification scripts into an executable that cannot be edited.
-
-
-
-
 
 wod name : get wod id
 
