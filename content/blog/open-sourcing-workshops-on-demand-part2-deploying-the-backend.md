@@ -382,20 +382,8 @@ sudo ./install.sh -t backend -g staging -b jup.example.net -f notebooks.example.
 
 Please note that this setup phase can be conccurent with the public setup phase. Indeed, the install script should detect the presence of the private repository owing to the presence of the install.priv file. It will automatically adjust the different scripts and variables to add the relevant content. It will actually overload some of the variables with private ones.
 
-
-
-Y﻿ou have now a working Workshops-on-Demand backend server in place. Congratulations! The next article in the series will help you better understand the lifecycle of the backend server. How does a workshop regiostration works from the backend server 's side. How do you manage this server on a daily basis? how and when do you need to update it ? All these questions will be answered in the next article. And from there, we will mve to the frontend side of things and finally to the workshop's creation process.
+Y﻿ou have now a working Workshops-on-Demand backend server in place. Congratulations! The next article in the series will help you better understand the lifecycle of the backend server. How does a workshop registration works from the backend server 's side? How do you manage this server on a daily basis? How and when do you need to update it ? All these questions will be answered in the next article. And from there, we will move to the frontend side of things and finally to the workshop's creation process.
 
 Please be sure to drop back at [HPE DEV](https://developer.hpe.com/blog) for a follow up on this. Check out also the Hack Shack for new [workshops](https://developer.hpe.com/hackshack/workshops)! [Data Visualization 101](https://developer.hpe.com/hackshack/replays/42) is now available! HPE GreenLake for Compute Operations Management API 101 on its way too. Stay tuned!
-
-
-
-
-
-
-
-
-
-
 
  And after having read the first article of this serie, you already have a rough idea of its lifecycle. I will provide now a more detailled view of it so you can fully understand the different features it embeds.
