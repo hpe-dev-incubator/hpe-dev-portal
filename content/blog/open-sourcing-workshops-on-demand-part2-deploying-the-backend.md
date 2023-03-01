@@ -384,13 +384,13 @@ Y﻿ou have now a working Workshops-on-Demand backend server in place. And after
 
 #### B﻿ackend server lifecycle:
 
-T﻿he following picture is depicting what happens on the backend server when a particpant has registered for a workshop. If you remember the fisrt article, you know that upon registration, the frontend sends through a procmail api call instructions to the backend server so that it the latter can proceed with the workshop preparation and deployment. Once done with these different tasks, it informs back the frontend through api calls with the relevant information.
+T﻿he following picture is depicting what happens on the backend server when a participant has registered for a workshop. If you remember the fisrt article, you know that upon registration, the frontend sends through a procmail api call instructions to the backend server so that the latter can proceed with the workshop preparation and deployment. Once done with these different tasks, it informs back the api-db server through api calls with the relevant information.
 
 L﻿et 's now look in details what is really happening  on the backend server's side:
 
 ![](/img/wod-blogserie2backend-workflow.png "backend server <CREATE> workflow")
 
-0- The procmail api: this is a mail parsing process allowing the backend server to retrieve the relevant information in order to perform adequat actions. As any api, it uses verbs to performs actions. In our case, we leverage <CREATE>, <CLEANUP>, <RESET> and <PURGE>. This api is actually based on a script `procmail-action.sh`. The following scripts defines the different actions linked to the verbs passed through the api calls.
+0- The procmail api: This is a mail parsing process allowing the backend server to retrieve the relevant information in order to perform appropriate actions. As any api, it uses verbs to performs actions. In our case, we leverage <CREATE>, <CLEANUP>, <RESET> and <PURGE>. This api is actually based on a script `procmail-action.sh`. The following scripts defines the different actions linked to the verbs passed through the api calls.
 
 I﻿n order to work properly, `procmail-action.sh`needs to source 3 files:
 
@@ -400,7 +400,7 @@ I﻿n order to work properly, `procmail-action.sh`needs to source 3 files:
 
 3- `f﻿unctions.sh`
 
-`w﻿od.sh` sets a large number of variables:
+`w﻿od.sh` sets a large number of variables: This script is generated at install time as it leverages variables defined at setup time.
 
 ```
 # This is the wod.sh script, generated at install
@@ -465,9 +465,9 @@ export ANSPRIVOPT=" -e @/home/wodadmin/wod-private/ansible/group_vars/all.yml -e
 
 `r﻿andom.sh` ﻿exports the randomly generated password.
 
-`f﻿unctions.sh` is a script that defines the different functions needed by procmail-action.sh to achieve its goals. We will see the details shortly below.
+`f﻿unctions.sh` is a library of shell functions used by many scripts among which `procmail-action.sh`.  We will see the details shortly below.
 
-4- L﻿et's start with a <CREATE>  scenario. 
+4- L﻿et's start with a <CREATE> scenario looking at the very first lines of the `procmail` log file.
 
 ```
 From hpedev.hackshack@hpe.com  Wed Mar  1 15:10:41 2023
@@ -475,7 +475,7 @@ From hpedev.hackshack@hpe.com  Wed Mar  1 15:10:41 2023
   Folder: /home/wodadmin/wod-backend/scripts/procmail-action.sh CREATE       14
 ```
 
-The From is important as `.procmail.rc` checks that the sender is the configured one from the frontend server. During the install process, the sender parameter id referring to this. Any mail from any other sender but the configured one is dropped.
+The `From` is important as `.procmail.rc` checks that the sender is the configured one from the frontend server. During the install process, the sender parameter id referring to this. Any mail from any other sender but the configured one is dropped.
 
 Procmail.rc image here
 
