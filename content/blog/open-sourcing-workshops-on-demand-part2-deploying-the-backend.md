@@ -51,6 +51,8 @@ F﻿irst, you need a repository to clone. The github projects are available [her
 
 **[w﻿od-backend](https://github.com/Workshops-on-Demand/wod-backend):** Back-end part of our Workshop-on-Demand setup.  
 
+![](/img/wod-blogserie2repos.png "Workshops-on-Demand repositories")
+
 It provides:
 
 * A complete JupyterHub server with extensions on your system, ready to host Workshops-on-Demand that you can find [here ](https://github.com/Workshops-on-Demand/wod-notebooks.git)[](https://github.com/Workshops-on-Demand/wod-notebooks.git)
