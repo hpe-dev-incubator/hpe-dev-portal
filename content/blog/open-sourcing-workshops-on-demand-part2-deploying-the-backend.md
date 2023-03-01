@@ -380,6 +380,12 @@ sudo ./install.sh -t backend -g staging -b jup.example.net -f notebooks.example.
 
 Please note that this setup phase can be conccurent with the public setup phase. Indeed, the install script should detect the presence of the private repository owing to the presence of the install.priv file. It will automatically adjust the different scripts and variables to add the relevant content. It will actually overload some of the variables with private ones.
 
+#### B﻿ackend server lifecycle:
+
+![](/img/wod-blogserie2backend-workflow.png "backend server <CREATE> workflow")
+
+
+
 #### B﻿ackend server management:
 
 ##### C﻿ontent of the backend server:
