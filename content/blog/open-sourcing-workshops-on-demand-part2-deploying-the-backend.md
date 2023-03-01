@@ -11,7 +11,7 @@ tags:
 
 I﻿n the first [article](https://developer.hpe.com/blog/willing-to-build-up-your-own-workshops-on-demand-infrastructure/) of this series, I described the reasons behind the decison of open sourcing our workshops-on-demand project. After reading it, you should have a better understanding of our motivations. Moreover, the project's infrastructure should now no longer have any secrets to you.
 
-I﻿n this second article, I will cover the backend part of the project. I will explain how to deploy it.
+I﻿n this second article, I will cover the backend part of the project. I will actually explain how to deploy it.
 
 T﻿he overall infrastructure can run on physical servers or vms. We usuasully consider at least one server for the frontend and a second server for the backend. You could also decide to separate every single component of each side.
 
