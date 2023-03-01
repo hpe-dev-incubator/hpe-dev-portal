@@ -393,11 +393,11 @@ L﻿et 's now look in details what is really happening  on the backend server's 
 The procmail api: this is a mail parsing process allowing the backend server to retrieve the relevant information in order to perform adequat actions. As any api, it uses verbs to performs actions. In our case, we leverage <CREATE>, <CLEANUP>, <RESET> and <PURGE>. This api is actually based on a script `procmail-action.sh`. The following scripts defines the different actions linked to the verbs passed through the api calls.
 
 I﻿n order to work properly, `procmail-action.sh`needs to source 3 files:
-```w﻿od.sh```
-```r﻿andom.sh```
-```f﻿unctions.sh```
+`w﻿od.sh`
+`r﻿andom.sh`
+`f﻿unctions.sh`
 
-```w﻿od.sh``` sets a large number of variables:
+`w﻿od.sh` sets a large number of variables:
 
 ```
 # This is the wod.sh script, generated at install
@@ -458,10 +458,15 @@ export STUDDIR=/student
 #
 export ANSPLAYOPT="-e PBKDIR=staging -e WODUSER=wodadmin -e WODBEDIR=/home/wodadmin/wod-backend -e WODNOBO=/home/wodadmin/wod-notebooks -e WODPRIVNOBO=/home/wodadmin/wod-private/notebooks -e WODPRIVDIR=/home/wodadmin/wod-private -e WODAPIDBDIR=/home/wodadmin/wod-api-db -e WODFEDIR=/home/wodadmin/wod-frontend -e STUDDIR=/student -e ANSIBLEDIR=/home/wodadmin/wod-backend/ansible -e ANSIBLEPRIVDIR=/home/wodadmin/wod-private/ansible -e SCRIPTPRIVDIR=/home/wodadmin/wod-private/scripts -e SYSDIR=/home/wodadmin/wod-backend/sys -e SYSPRIVDIR=/home/wodadmin/wod-private/sys"
 export ANSPRIVOPT=" -e @/home/wodadmin/wod-private/ansible/group_vars/all.yml -e @/home/wodadmin/wod-private/ansible/group_vars/staging"
-
 ```
 
-L﻿et's start with <CREATE>. 
+`r﻿andom.sh` ﻿exports the randomly generated password.
+
+`f﻿unctions.sh` is a script that defines the different functions needed by procmail-action.sh to achieve its goals. We will see the details shortly below.
+
+
+
+L﻿et's start with a <CREATE>  scenario. 
 
 ```
 From hpedev.hackshack@hpe.com  Wed Mar  1 15:10:41 2023
@@ -469,9 +474,9 @@ From hpedev.hackshack@hpe.com  Wed Mar  1 15:10:41 2023
   Folder: /home/wodadmin/wod-backend/scripts/procmail-action.sh CREATE       14
 ```
 
-The From is important:  Indeed .procmail.rc` checks that the sender is the configured one from the frontend server. During the install process, the sender parameter id referring to this. Any mail from any other sender but the configured one is dropped.
+The From is important as ```.procmail.rc``` checks that the sender is the configured one from the frontend server. During the install process, the sender parameter id referring to this. Any mail from any other sender but the configured one is dropped.
 
-Prcamil rc image here
+Procmail.rc image here
 
 In Subject : API verb **CREATE** followed by **student id,** **participant id** and finally the registered **participant email**
 
