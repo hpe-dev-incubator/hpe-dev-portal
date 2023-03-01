@@ -392,7 +392,7 @@ L﻿et 's now look in details what is really happening  on the backend server's 
 
 0- The procmail api: This is a mail parsing process allowing the backend server to retrieve the relevant information in order to perform appropriate actions. As any api, it uses verbs to performs actions. In our case, we leverage <CREATE>, <CLEANUP>, <RESET> and <PURGE>. 
 
-If you need more info on procmail usage, check the following [page](<[5:51 PM] Cornec, Bruno (Open Source and Linux Technology Strategist)
+If you need more info on procmail usage, check the following \[page](<\[5:51 PM] Cornec, Bruno (Open Source and Linux Technology Strategist)
 https://wiki.archlinux.org/title/Procmail>).
 
 T﻿ake a look at the  following template of the `.procmailrc` file that will be expanded at setup time.
@@ -444,9 +444,7 @@ In `Subject:`, we look for the API verb **CREATE** followed by **student id,** *
 H﻿ere the values are respectively:
 
 * s﻿tudent id: 401 
-
 * p﻿articipant id: 825
-
 * p﻿articipant email: frederic.passeron@hpe.com
 
 I﻿n order to work properly, `procmail-action.sh`needs to source 3 files:
@@ -524,29 +522,29 @@ export ANSPRIVOPT=" -e @/home/wodadmin/wod-private/ansible/group_vars/all.yml -e
 
 `f﻿unctions.sh` is a library of shell functions used by many scripts among which `procmail-action.sh`.  We will see the details shortly below.
 
-4- 
+4- `procmail-action.sh` c﻿alls the necessary functions and scripts to perform the < CREATE> operation.
 
-5- get_session_token() This function retrieves the necessary token to make api call to the api-db server.
+5- `get_session_token()` This function retrieves the necessary token to make api call to the api-db server.
 
-6- get_workshop_name()  This function extracts the workshop name from the mail body parsing process. In Body : One will find the workshop name : for example, **WKSHP-API101** 
+6- `get_workshop_name()`  This function extracts the workshop name from the mail body. In Body: One will find the workshop name: for example, **WKSHP-API101** 
 
-7- get_workshop_id() Out of the workshop name, the function `get_workshop_id()` will get the workshop 's id from the api-db server.
+7- `get_workshop_id()` Out of the workshop name, the function `get_workshop_id()` will get the workshop's id from the api-db server.
 
- This id will be used later to get some of the workshop's specifics through additional api calls to the api db server.
+This id will be used later to get some of the workshop's specifics through additional api calls to the api-db server.
 
 * D﻿oes the workshop require to use the student password as a variable?
-* Does the workshop require ldap authentification?
+* Does the workshop require ldap authentication?
 * D﻿oes the workshop require a compiled script?
 
-8- teststdid() this function checks the student id provided by procmail api is valid: This function exits when the student id is not in the correct range. For each workshop, a dedicated student range is allocated.
+8- `teststdid()` this function checks the student id provided by procmail API is valid: This function exits when the student id is not in the correct range. For each workshop, a dedicated student range is allocated.
 
-9- generate_randompwd() This function creates a random password for a user, it is used both for local and ldap users'passwords. If the workshops requires an ldap authentification (get_ldap_status() functions will get this information) then another function is used to update the ldap server with the password for the given student (update_ldap_passwd() )
+9- `generate_randompwd()` This function creates a random password for a user, it is used both for local and ldap users'passwords. If the workshop requires an LDAP authentication (`get_ldap_status()` functions will get this information) then another function is used to update the LDAP server with the password for the given student (`update_ldap_passwd()`)
 
 The generated password will be sent back to the api-db server so that the frontend server can then send an email to allow participant to connect to his workshop.
 
-10- erase_student() This function erases the all content from the allocated student home directory. We want to make sure that home directory is not compromised. We start clean.
+10- `erase_student()` This function erases all the content from the allocated student's home directory. We want to make sure that the home directory is not compromised. We start clean.
 
-11- get_compile_status() This function will check if he workshop needs some scripts to ne compiled. For instance, you need to authentificate against a private cloud portal and you don't want your participants to see the credentials. This compile feature will compile the authentification scripts into an executable that cannot be edited.
+11- `get_compile_status()` This function will check if he workshop needs some scripts to be compiled. For instance, if you need to authenticate against a private cloud portal and you don't want your participants to see the credentials, make sure to check the relevant box in the workshop table of the database. This compile feature will compile the authentication scripts into an executable that cannot be edited.
 
 wod name : get wod id
 
