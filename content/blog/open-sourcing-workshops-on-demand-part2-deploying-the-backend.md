@@ -5,7 +5,7 @@ author: Frederic Passeron
 authorimage: /img/fp-hpewod.jpg
 disable: false
 tags:
-  - open source
+  - " opensource,workshops-on-demand"
 ---
 # Open Sourcing Workshops-on-Demand part 2: Deploying the backend -T﻿he How-to now...
 
