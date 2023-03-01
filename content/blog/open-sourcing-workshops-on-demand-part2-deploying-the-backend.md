@@ -384,7 +384,7 @@ Y﻿ou have now a working Workshops-on-Demand backend server in place. And after
 
 #### B﻿ackend server lifecycle:
 
-T﻿he following picture is depciting what happens on the backend server when a particpant has registered for a workshop. If you remember the fisrt article, you know that upon registration, the frontend sends through a procmail api call instructions to the backend server so that it the latter can proceed with the workshop preparation and deployment. Once done with these different tasks, it informs back the frontend through api calls with the relevant information.
+T﻿he following picture is depicting what happens on the backend server when a particpant has registered for a workshop. If you remember the fisrt article, you know that upon registration, the frontend sends through a procmail api call instructions to the backend server so that it the latter can proceed with the workshop preparation and deployment. Once done with these different tasks, it informs back the frontend through api calls with the relevant information.
 
 L﻿et 's now look in details what is really happening  on the backend server's side:
 
@@ -400,17 +400,15 @@ From hpedev.hackshack@hpe.com  Wed Mar  1 15:10:41 2023
   Folder: /home/wodadmin/wod-backend/scripts/procmail-action.sh CREATE       14
 ```
 
-The From is important:  Indeed '``procmail.rc`` checks that the sender is the configured one from the frontend server. During the install process, the sender parameter id referring to this. Any of other sender but the configured one is dropped.
+The From is important:  Indeed ``.procmail.rc` checks that the sender is the configured one from the frontend server. During the install process, the sender parameter id referring to this. Any of other sender but the configured one is dropped.
 
 Prcamil rc image here
 
-In Subject :
+In Subject : API verb **CREATE** followed by **student id,** **participant id** and finally the registered **participant email**
 
-Create student id participant id participant email
+In Body : One will find the workshop name : for example, WKSHP-API101 
 
-In Body:
 
-WoD name : WKSHP-xyz
 
 From wod name : get wod id
 
@@ -429,8 +427,6 @@ Post actions if necessary
 Aoi calls to update : particpant
 
 Procmail action retrieves these data from
-
-<!--EndFragment-->
 
 #### B﻿ackend server management:
 
