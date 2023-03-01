@@ -392,7 +392,8 @@ L﻿et 's now look in details what is really happening  on the backend server's 
 
 0- The procmail api: This is a mail parsing process allowing the backend server to retrieve the relevant information in order to perform appropriate actions. As any api, it uses verbs to performs actions. In our case, we leverage <CREATE>, <CLEANUP>, <RESET> and <PURGE>. 
 
-If you need more info on procmail usage, check the following page.
+If you need more info on procmail usage, check the following [page](<[5:51 PM] Cornec, Bruno (Open Source and Linux Technology Strategist)
+https://wiki.archlinux.org/title/Procmail>).
 
 T﻿ake a look at the  following template of the `.procmailrc` file that will be expanded at setup time.
 
@@ -424,28 +425,29 @@ LOGFILE=$MAILDIR/from
 # \/ defines what will be matched in $MATCH
 * ^Subject: *PURGE student\/[1-9]+.*
 | {{ SCRIPTDIR }}/procmail-action.sh PURGE $MATCH
-
 ```
+
+The `From:` is important as `.procmailrc` checks that the sender is the configured one from the frontend server. During the install process, the sender parameter id referring to this. Any mail from any other sender but the configured one is not processed.
+
+This api is actually based on a script `procmail-action.sh`. This script defines the different actions linked to the verbs passed through the api calls via `.procmailrc`
 
 L﻿et's start with a <CREATE> scenario looking at the very first lines of the `procmail` log file.
 
 ```
-From hpedev.hackshack@hpe.com  Wed Mar  1 15:10:41 2023
+From xyz@hpe.com  Wed Mar  1 15:10:41 2023
  Subject: CREATE 401 825 frederic.passeron@hpe.com
   Folder: /home/wodadmin/wod-backend/scripts/procmail-action.sh CREATE       14
 ```
 
+In `Subject:`, we look for the API verb **CREATE** followed by **student id,** **participant id** and finally the registered **participant email.** 
 
+H﻿ere the values are respectively:
 
+* s﻿tudent id: 401 
 
+* p﻿articipant id: 825
 
-The `From` is important as `.procmailrc` checks that the sender is the configured one from the frontend server. During the install process, the sender parameter id referring to this. Any mail from any other sender but the configured one is not processed.
-
-
-
-In Subject:, we look for the API verb **CREATE** followed by **student id,** **participant id** and finally the registered **participant email.**
-
-This api is actually based on a script `procmail-action.sh`. The following scripts defines the different actions linked to the verbs passed through the api calls.
+* p﻿articipant email: frederic.passeron@hpe.com
 
 I﻿n order to work properly, `procmail-action.sh`needs to source 3 files:
 
