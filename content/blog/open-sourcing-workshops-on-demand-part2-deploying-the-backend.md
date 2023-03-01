@@ -482,7 +482,7 @@ In Subject : API verb **CREATE** followed by **student id,** **participant id** 
 
 In Body : One will find the workshop name : for example, **WKSHP-API101** 
 
-Out of the workshop name, the function get_workshop_id() will get the workshop 's id. This id will be used later to get some of the workshop's specifics through api calls to the api db server.
+Out of the workshop name, the function ```get_workshop_id()``` will get the workshop 's id. This id will be used later to get some of the workshop's specifics through api calls to the api db server.
 
 * D﻿oes the workshop require to use the student password as a variable?
 * Does the workshop require ldap authentification?
