@@ -353,7 +353,7 @@ install$ git clone https://github.com/Account/wod-private.git wod-private
 install$ cd $HOME/wod-private/ansible/group_vars
 ```
 
-* Please edit the `all.yml` and `<groupname>` files to customize your setup. T﻿his variable `<groupname>`defines possible backend server in your environement. By default, the project comes with a sample working file named `production` in `ansible/group-vars`. But you could have multiple. In our case, we have defined ```sandbox```, ```test```, ```staging``` and several ```production``` files, all defining a different backend environment. These files will be used to override the default values specified by the public version delivered as part of the default public installation.
+* Please edit the `all.yml` and `<groupname>` files to customize your setup. T﻿his variable `<groupname>`defines possible backend server in your environement. By default, the project comes with a sample working file named `production` in `ansible/group-vars`. But you could have multiple. In our case, we have defined `sandbox`, `test`, `staging` and several `production` files, all defining a different backend environment. These files will be used to override the default values specified by the public version delivered as part of the default public installation.
 * Commit and push changes to your repo
 * Create an `install.priv` file located in `install` directory when using a private repo (consider looking at [install.repo](https://github.com/Workshops-on-Demand/wod-backend/blob/main/install/install.repo) file for better understanding of the variables.
 
@@ -385,6 +385,8 @@ Please note that this setup phase can be conccurent with the public setup phase.
 ##### C﻿ontent of the backend server:
 
 S﻿imple tree view of the wod-backend directory:
+
+![](/img/wod-blogserie2-tree4.png "Tree view of wod-backend directory")
 
 T﻿he `ansible` folder contains all the necessary playbooks and variables files to manage the main functions of the backend server.
 
