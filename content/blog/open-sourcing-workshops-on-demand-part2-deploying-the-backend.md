@@ -380,11 +380,57 @@ sudo ./install.sh -t backend -g staging -b jup.example.net -f notebooks.example.
 
 Please note that this setup phase can be conccurent with the public setup phase. Indeed, the install script should detect the presence of the private repository owing to the presence of the install.priv file. It will automatically adjust the different scripts and variables to add the relevant content. It will actually overload some of the variables with private ones.
 
+Y﻿ou have now a working Workshops-on-Demand backend server in place. And after having read the first article of this serie, you already have a rough idea of its lifecycle. I will provide now a more detailled view of it so you can fully understand the different features it embeds.
+
 #### B﻿ackend server lifecycle:
+
+T﻿he following picture is depciting what happens on the backend server when a particpant has registered for a workshop. If you remember the fisrt article, you know that upon registration, the frontend sends through a procmail api call instructions to the backend server so that it the latter can proceed with the workshop preparation and deployment. Once done with these different tasks, it informs back the frontend through api calls with the relevant information.
+
+L﻿et 's now look in details what is really happening  on the backend server's side:
 
 ![](/img/wod-blogserie2backend-workflow.png "backend server <CREATE> workflow")
 
+The procmail api: this is a mail parsing process allowing the backend server to retrieve the relevant information in order to perform adequat actions. As any api, it uses verbs to performs actions. In our case, we leverage <CREATE>, <CLEANUP>, <RESET> and <PURGE>.
 
+L﻿et's start with <CREATE>. 
+
+```
+From hpedev.hackshack@hpe.com  Wed Mar  1 15:10:41 2023
+ Subject: CREATE 401 825 frederic.passeron@hpe.com
+  Folder: /home/wodadmin/wod-backend/scripts/procmail-action.sh CREATE       14
+```
+
+The From is important:  Indeed '``procmail.rc`` checks that the sender is the configured one from the frontend server. During the install process, the sender parameter id referring to this. Any of other sender but the configured one is dropped.
+
+Prcamil rc image here
+
+In Subject :
+
+Create student id participant id participant email
+
+In Body:
+
+WoD name : WKSHP-xyz
+
+From wod name : get wod id
+
+Generate a randow pwd for alocated student (either local or ldap id ladap configured)
+
+Cleanup student folder
+
+Complie necessary scritps
+
+If appliance : create wkshp.sh and user env on appliance
+
+Copy folder yml
+
+Post actions if necessary
+
+Aoi calls to update : particpant
+
+Procmail action retrieves these data from
+
+<!--EndFragment-->
 
 #### B﻿ackend server management:
 
