@@ -393,11 +393,11 @@ L﻿et 's now look in details what is really happening  on the backend server's 
 The procmail api: this is a mail parsing process allowing the backend server to retrieve the relevant information in order to perform adequat actions. As any api, it uses verbs to performs actions. In our case, we leverage <CREATE>, <CLEANUP>, <RESET> and <PURGE>. This api is actually based on a script `procmail-action.sh`. The following scripts defines the different actions linked to the verbs passed through the api calls.
 
 I﻿n order to work properly, `procmail-action.sh`needs to source 3 files:
-w﻿od.sh
-r﻿andom.sh
-f﻿unctions.sh
+```w﻿od.sh```
+```r﻿andom.sh```
+```f﻿unctions.sh```
 
-w﻿od.sh sets a large number of variables:
+```w﻿od.sh``` sets a large number of variables:
 
 ```
 # This is the wod.sh script, generated at install
