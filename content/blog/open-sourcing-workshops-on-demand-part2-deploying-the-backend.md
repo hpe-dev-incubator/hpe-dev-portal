@@ -390,7 +390,76 @@ L﻿et 's now look in details what is really happening  on the backend server's 
 
 ![](/img/wod-blogserie2backend-workflow.png "backend server <CREATE> workflow")
 
-The procmail api: this is a mail parsing process allowing the backend server to retrieve the relevant information in order to perform adequat actions. As any api, it uses verbs to performs actions. In our case, we leverage <CREATE>, <CLEANUP>, <RESET> and <PURGE>.
+The procmail api: this is a mail parsing process allowing the backend server to retrieve the relevant information in order to perform adequat actions. As any api, it uses verbs to performs actions. In our case, we leverage <CREATE>, <CLEANUP>, <RESET> and <PURGE>. This api is actually based on a script `procmail-action.sh`. The following scripts defines the different actions linked to the verbs passed through the api calls.
+
+I﻿n order to work properly, `procmail-action.sh`needs to source 3 files:
+w﻿od.sh
+r﻿andom.sh
+f﻿unctions.sh
+
+w﻿od.sh sets a large number of variables:
+
+```
+# This is the wod.sh script, generated at install
+#
+# Name of the admin user
+export WODUSER=wodadmin
+
+# Name of the wod machine type (backend, api-db, frontend, appliance)
+export WODTYPE=backend
+
+# This main dir is computed and is the backend main dir
+export WODBEDIR=/home/wodadmin/wod-backend
+
+# BACKEND PART
+# The backend dir has some fixed subdirs
+# wod-backend (WODBEDIR)
+#    |---------- ansible (ANSIBLEDIR)
+#    |---------- scripts (SCRIPTDIR defined in all.yml not here to allow overloading)
+#    |---------- sys (SYSDIR)
+#    |---------- install
+#    |---------- conf
+#    |---------- skel
+#
+export ANSIBLEDIR=$WODBEDIR/ansible
+export SYSDIR=$WODBEDIR/sys
+
+# PRIVATE PART
+# These 3 dirs have fixed names by default that you can change in this file
+# they are placed as sister dirs wrt WODBEDIR
+# This is the predefined structure for a private repo
+# wod-private (WODPRIVDIR)
+#    |---------- ansible (ANSIBLEPRIVDIR)
+#    |---------- notebooks (WODPRIVNOBO)
+#    |---------- scripts (SCRIPTPRIVDIR)
+#
+PWODBEDIR=`dirname $WODBEDIR`
+export WODPRIVDIR=$PWODBEDIR/wod-private
+export ANSIBLEPRIVDIR=$WODPRIVDIR/ansible
+export SCRIPTPRIVDIR=$WODPRIVDIR/scripts
+export SYSPRIVDIR=$WODPRIVDIR/sys
+export WODPRIVNOBO=$WODPRIVDIR/notebooks
+WODPRIVINV=""
+# Manages private inventory if any
+if [ -f $WODPRIVDIR/ansible/inventory ]; then
+        WODPRIVINV="-i $WODPRIVDIR/ansible/inventory"
+        export WODPRIVINV
+fi
+
+# AIP-DB PART
+export WODAPIDBDIR=$PWODBEDIR/wod-api-db
+
+# FRONTEND PART
+export WODFEDIR=$PWODBEDIR/wod-frontend
+
+# These dirs are also fixed by default and can be changed as needed
+export WODNOBO=$PWODBEDIR/wod-notebooks
+export STUDDIR=/student
+#
+export ANSPLAYOPT="-e PBKDIR=staging -e WODUSER=wodadmin -e WODBEDIR=/home/wodadmin/wod-backend -e WODNOBO=/home/wodadmin/wod-notebooks -e WODPRIVNOBO=/home/wodadmin/wod-private/notebooks -e WODPRIVDIR=/home/wodadmin/wod-private -e WODAPIDBDIR=/home/wodadmin/wod-api-db -e WODFEDIR=/home/wodadmin/wod-frontend -e STUDDIR=/student -e ANSIBLEDIR=/home/wodadmin/wod-backend/ansible -e ANSIBLEPRIVDIR=/home/wodadmin/wod-private/ansible -e SCRIPTPRIVDIR=/home/wodadmin/wod-private/scripts -e SYSDIR=/home/wodadmin/wod-backend/sys -e SYSPRIVDIR=/home/wodadmin/wod-private/sys"
+export ANSPRIVOPT=" -e @/home/wodadmin/wod-private/ansible/group_vars/all.yml -e @/home/wodadmin/wod-private/ansible/group_vars/staging"
+
+```
 
 L﻿et's start with <CREATE>. 
 
@@ -400,7 +469,7 @@ From hpedev.hackshack@hpe.com  Wed Mar  1 15:10:41 2023
   Folder: /home/wodadmin/wod-backend/scripts/procmail-action.sh CREATE       14
 ```
 
-The From is important:  Indeed ``.procmail.rc` checks that the sender is the configured one from the frontend server. During the install process, the sender parameter id referring to this. Any mail from any other sender but the configured one is dropped.
+The From is important:  Indeed .procmail.rc` checks that the sender is the configured one from the frontend server. During the install process, the sender parameter id referring to this. Any mail from any other sender but the configured one is dropped.
 
 Prcamil rc image here
 
@@ -411,12 +480,8 @@ In Body : One will find the workshop name : for example, **WKSHP-API101**
 Out of the workshop name, the function get_workshop_id() will get the workshop 's id. This id will be used later to get some of the workshop's specifics through api calls to the api db server.
 
 * D﻿oes the workshop require to use the student password as a variable?
-
 * Does the workshop require ldap authentification?
-
 * D﻿oes the workshop require a compiled script?
-
-
 
 wod name : get wod id
 
