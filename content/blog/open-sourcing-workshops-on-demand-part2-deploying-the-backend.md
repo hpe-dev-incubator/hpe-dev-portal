@@ -400,17 +400,25 @@ From hpedev.hackshack@hpe.com  Wed Mar  1 15:10:41 2023
   Folder: /home/wodadmin/wod-backend/scripts/procmail-action.sh CREATE       14
 ```
 
-The From is important:  Indeed ``.procmail.rc` checks that the sender is the configured one from the frontend server. During the install process, the sender parameter id referring to this. Any of other sender but the configured one is dropped.
+The From is important:  Indeed ``.procmail.rc` checks that the sender is the configured one from the frontend server. During the install process, the sender parameter id referring to this. Any mail from any other sender but the configured one is dropped.
 
 Prcamil rc image here
 
 In Subject : API verb **CREATE** followed by **student id,** **participant id** and finally the registered **participant email**
 
-In Body : One will find the workshop name : for example, WKSHP-API101 
+In Body : One will find the workshop name : for example, **WKSHP-API101** 
+
+Out of the workshop name, the function get_workshop_id() will get the workshop 's id. This id will be used later to get some of the workshop's specifics through api calls to the api db server.
+
+* D﻿oes the workshop require to use the student password as a variable?
+
+* Does the workshop require ldap authentification?
+
+* D﻿oes the workshop require a compiled script?
 
 
 
-From wod name : get wod id
+wod name : get wod id
 
 Generate a randow pwd for alocated student (either local or ldap id ladap configured)
 
