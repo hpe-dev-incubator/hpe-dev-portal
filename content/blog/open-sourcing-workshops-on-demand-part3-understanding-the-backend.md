@@ -279,7 +279,7 @@ T﻿hese changes will trigger on the frontend web portal application the sending
 
 L﻿et's see what is happening on the backend server to perform this <Cleanup> process.
 
-![](/img/wod-blogserie3-cleanup2.png)
+![](/img/wod-blogserie3-cleanup2.png "backend server <CLEANUP> workflow")
 
 
 
