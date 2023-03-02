@@ -1,7 +1,7 @@
 ---
 title: "Open Sourcing Workshops-on-Demand part3: Understanding the Backend"
 date: 2023-03-01T17:24:34.117Z
-author: Frederic {Passeron
+author: Frederic Passeron
 authorimage: /img/frederic-passeron-hpedev-192.jpg
 disable: false
 ---
@@ -297,7 +297,7 @@ T﻿his completion ratio script provides us this data and we store it in our dat
 
 1﻿3- ```cleanup_processes_student()```: On top of cleanup of the student folder, we also kill all the allocated student's processes.
 
-
+1﻿4- ```cleanup-<workshop>.sh```: If any appliance is requiered by the workshop, some dedicated cleanup tasks are launched there.
 
 
 
