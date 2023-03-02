@@ -15,8 +15,6 @@ A﻿s a reminder, here is a diagram showing the different parts of the Workshops
 
 ![](/img/wod-blogserie3-archi.png "Workshops-on-Demand Architecture")
 
-
-
 #### B﻿ackend server lifecycle:
 
 T﻿he following picture is depicting what happens on the backend server when a participant has registered for a workshop. If you remember the fisrt article, you know that upon registration, the frontend sends through a procmail api call instructions to the backend server so that the latter can proceed with the workshop preparation and deployment. Once done with these different tasks, it informs back the api-db server through api calls with the relevant information.
@@ -32,7 +30,7 @@ https://wiki.archlinux.org/title/Procmail>).
 
 T﻿ake a look at the  following template of the `.procmailrc` file that will be expanded at setup time.
 
-```
+```shellsession
 MAILDIR=$HOME/.mail      # You'd better make sure it exists
 DEFAULT=$MAILDIR/mbox
 LOGFILE=$MAILDIR/from
@@ -92,7 +90,7 @@ I﻿n order to work properly, `procmail-action.sh`needs to source 3 files:
 
 `w﻿od.sh` sets a large number of variables: This script is generated at install time as it leverages variables defined at setup time.
 
-```
+```shellsession
 # This is the wod.sh script, generated at install
 #
 # Name of the admin user
@@ -181,15 +179,105 @@ The generated password will be sent back to the api-db server so that the fronte
 
 11- `get_compile_status()` This function will check if he workshop needs some scripts to be compiled. For instance, if you need to authenticate against a private cloud portal and you don't want your participants to see the credentials, make sure to check the relevant box in the workshop table of the database. This compile feature will compile the authentication scripts into an executable that cannot be edited.
 
-12- If an appliance is needed for the workshop, then the following script is called: create wkshp.sh and user env on appliance2
+12- If an appliance is needed for the workshop, then the following script is called: `create-<WKSHP>.sh` and user env on appliance2 
 
-Copy folder yml
+F﻿or instance, `create-WKSHP-ML101.sh` will perform the following tasks in order to prepare the appliance for the workshop: It will start by reseting the appliance with the `reset-<WKSHP>.sh` s﻿cript. Then, it calls a second script aiming at preparing the appliance `create-appliance.sh`.﻿ Once done with these two, it moves on with the proper customization of the appliance for the given student.
 
-Post actions if necessary
+S﻿ee details below.
 
-Aoi calls to update : particpant
+```shellsession
+#!/bin/bash
 
-Procmail action retrieves these data from
+set -x
+
+source {{ SCRIPTDIR }}/functions.sh
+
+export RTARGET={{ hostvars[inventory_hostname]['IP-WKSHP-ML101'] }}
+# Start by cleaning up stuff - do it early as after we setup .ssh content
+{{ SCRIPTDIR }}/reset-$ws.sh
+{{ SCRIPTDIR }}/create-appliance.sh
+
+NAME=mllab
+TMPDIR=/tmp/$NAME.$stdid
+
+
+mkdir -p $TMPDIR
+
+# Define local variables
+echo wid=$wid
+APPMIN=`get_range_min $wid`
+echo stdid=$stdid
+echo APPMIN=$APPMIN
+mlport=$(($stdid-$APPMIN+{{ hostvars[inventory_hostname]['MLPORT-WKSHP-ML101'] }}))
+mlport2=$(($stdid-$APPMIN+{{ hostvars[inventory_hostname]['MLPORT2-WKSHP-ML101'] }}))
+httpport=$(($stdid-$APPMIN+{{ hostvars[inventory_hostname]['HTTPPORT-WKSHP-ML101'] }}))
+
+cat > $TMPDIR/dockerd-entrypoint.sh << EOF
+export HTTPPORT
+tini -g -- start-notebook.sh &
+sleep 3
+jupyter lab list | tail -1 | cut -d'=' -f2 | cut -d' ' -f1 > {{ STUDDIR }}/student$stdid/mltoken
+sleep infinity
+EOF
+
+cat > $TMPDIR/Dockerfile << EOF
+FROM ${NAME}:latest
+USER root
+COPY dockerd-entrypoint.sh /usr/local/bin/
+ENTRYPOINT /usr/local/bin/dockerd-entrypoint.sh
+RUN mkdir -p {{ STUDDIR }}/student$stdid
+RUN useradd student$stdid -u $stdid -g 100 -d {{ STUDDIR }}/student$stdid
+RUN chown student$stdid:users {{ STUDDIR }}/student$stdid
+# Unlock the account
+RUN perl -pi -e "s|^student$stdid:!:|student$stdid:\$6\$rl1WNGdr\$qHyKDW/prwoj5qQckWh13UH3uE9Sp7w43jPzUI9mEV6Y1gZ3MbDDMUX/1sP7ZRnItnGgBEklmsD8vAKgMszkY.:|" /etc/shadow
+# In case we need sudo
+#RUN echo "student$stdid   ALL=(ALL)       NOPASSWD: ALL" >> /etc/sudoers
+WORKDIR {{ STUDDIR }}/student$stdid
+USER student$stdid
+ENV NB_USER student$stdid
+ENV NB_UID $stdid
+ENV HTTPPORT $httpport
+RUN git clone https://github.com/snowch/ml-101 {{ STUDDIR }}/student$stdid/
+RUN /opt/conda/bin/jupyter-nbconvert --clear-output --inplace {{ STUDDIR }}/student$stdid/*.ipynb
+EOF
+
+
+# Look at https://stackoverflow.com/questions/34264348/docker-inside-docker-container
+# and http://jpetazzo.github.io/2015/09/03/do-not-use-docker-in-docker-for-ci/
+# For security consider using https://github.com/nestybox/sysbox
+cat > $TMPDIR/docker-compose.yml << EOF
+version: '3.5'
+services:
+  $NAME$stdid:
+    image: $NAME$stdid
+    build: .
+    #privileged: true
+    ports:
+      - "$httpport:8888"
+      - "$mlport:4040"
+      - "$mlport2:4041"
+#    volumes:
+#      - /var/run/docker.sock:/var/run/docker.sock
+EOF
+cat > $TMPDIR/launch-$NAME << EOF
+#!/bin/bash
+cd $TMPDIR
+docker-compose up --build -d
+EOF
+```
+
+1﻿3- T﻿he `copy folder yml` playbook is now executed to deploy the notebooks and scripts necessary for the participant to run the workshop. Remember that the  participant got a student allocated to him at the time of the registration. This student is picked from a range that is allocated for the workshop. The admin decides on the maximum capacity it allocates to a given workshop. `C﻿opy_folder.yml`: This is historically one of very first playbook we used and therefore a very important one. It performs the necessary actions to deploy, personnalize (by substituting ansible variables) the selected notebook to the appropriate student home folder.
+
+1﻿4- In the certain cases, some post deployment actions are needed. For instance, you may want to git clone some repository to leverage some data stored there. This can only occur when done with the deployment. Therefore, a `post-copy-<WKSHP.sh` ﻿is called.
+
+1﻿5- Finally, the workshop is now ready to be used by the participant. The backend therefore, needs to inform back the frontend of this. To do so, it will perform two API calls:
+
+* T﻿he first API call will update the password data for the participant's allocated student.
+* T﻿he second API call will update the the participant's allocated student's status to active.
+
+T﻿hese changes will trigger on the frontend web portal application the sending of the second email to the participant.  This email will contain the necessary information for the participant to connect to its notebooks environment.
+
+
 
 #### B﻿ackend server management:
 
