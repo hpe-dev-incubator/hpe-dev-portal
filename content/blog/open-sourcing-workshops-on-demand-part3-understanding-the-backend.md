@@ -15,7 +15,7 @@ A﻿s a reminder, here is a diagram showing the different parts of the Workshops
 
 ![](/img/wod-blogserie3-archi.png "Workshops-on-Demand Architecture")
 
-#### B﻿ackend server lifecycle:
+#### B﻿ackend server  / workshops deployment liefecycle
 
 T﻿he following picture is depicting what happens on the backend server when a participant has registered for a workshop. If you remember the fisrt article, you know that upon registration, the frontend sends through a procmail api call instructions to the backend server so that the latter can proceed with the workshop preparation and deployment. Once done with these different tasks, it informs back the api-db server through api calls with the relevant information.
 
@@ -275,9 +275,15 @@ EOF
 * T﻿he first API call will update the password data for the participant's allocated student.
 * T﻿he second API call will update the the participant's allocated student's status to active.
 
-T﻿hese changes will trigger on the frontend web portal application the sending of the second email to the participant.  This email will contain the necessary information for the participant to connect to its notebooks environment.
+T﻿hese changes will trigger on the frontend web portal application the sending of the second email to the participant.  This email will contain the necessary information for the participant to connect to its notebooks environment. The participant will then run the workshop. For each workshop, a dedicated time window is allocated. Some workshops will take longer to be run than others. The time windows varies from 2 to 4 hours maximum. The workshops are somehow time bombed. This means that a the very moment, the participant hit the register button on the frontend web portal, the cloak starts ticking. Some background checks take place on the web portal to verify time spent since the registration to a given workshop. As a consequence, a reminder email is sent a hour before the finish line. When the bell rings at the end of the class, a new procmail API call is made to the backend server ordering a <CLEANUP> action. The particpant can also trigger this action by registering to a new workshop before the end of the current one. He will have to provide the necessary information to the frontend web portal in order to 'cancel' / 'end' the current workshop. 
+
+L﻿et's see what is happening on the backend server to perform this <Cleanup> process.
+
+![](/img/wod-blogserie3-cleanup2.png)
 
 
+
+N﻿ow, you should have a clearer view of what is really happening in the background when one registers for a workshop. You can see that I have uncovered many scripts to explain step by step all the stages of a workshop's deployment process.
 
 #### B﻿ackend server management:
 
@@ -318,7 +324,7 @@ It also hosts the `inventory` file describing the role of jupyterhub servers. Pl
 127.0.0.1  ansible_connection=localhost
 ```
 
-T﻿he `conf` folder hosts configuration files in a jinja format. Once expanded, the resulting files will be used by relevant workshops.
+T﻿he `conf` folder hosts configuration files in a jinja format. Once expanded, the resulting files will be used by relevant workshops. I will explain in a future article all the steps and requirements to create a workshop.
 
 A﻿s part of the refacturing work to open source the project, we reaaranged the different scripts locations. We have created an install folder to handle the different installation scripts either from a Jupyterhub 's perpective or from an appliance 's standpoint too.
 
