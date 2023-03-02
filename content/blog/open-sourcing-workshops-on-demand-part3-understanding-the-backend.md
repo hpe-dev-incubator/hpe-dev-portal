@@ -287,7 +287,7 @@ T﻿he verb is now <CLEANUP>. As a consequence, step4 is now <CLEANUP>.
 
 N﻿othing changes from 5 to 9.
 
-1﻿0- get_wod_completion_ratio() allows us to retrieve through a simple computing of the numbers of notebooks cells executed thoughout the different exercices of the workshop a ratio. This enables us to see how much of the workshop is actually run. Participants are asked to fill out a form in a conclusion notebook which is present in every student's workshop's folder. But only 10 % of participant do fill it. That leaves many participants for which we don't know whether they liked or not or more importantly, did they actually run it ? 
+1﻿0- ```get_wod_completion_ratio()``` allows us to retrieve through a simple computing of the numbers of notebooks cells executed thoughout the different exercices of the workshop a ratio. This enables us to see how much of the workshop is actually run. Participants are asked to fill out a form in a conclusion notebook which is present in every student's workshop's folder. But only 10 % of participant do fill it. That leaves many participants for which we don't know whether they liked or not or more importantly, did they actually run it ? 
 
 T﻿his completion ratio script provides us this data and we store it in our database. 
 
