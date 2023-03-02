@@ -25,7 +25,7 @@ L﻿et 's now look in details what is really happening  on the backend server's 
 
 0- The procmail api: This is a mail parsing process allowing the backend server to retrieve the relevant information in order to perform appropriate actions. As any API, it uses verbs to performs actions. In our case, we leverage **CREATE**, **CLEANUP**, **RESET** and **PURGE**.
 
-If you need more info on procmail usage, check the following [page] (https://wiki.archlinux.org/title/Procmail>).
+If you need more info on procmail usage, check the following [page](https://wiki.archlinux.org/title/Procmail>).
 
 T﻿ake a look at the  following template of the `.procmailrc` file that will be expanded at setup time.
 
@@ -178,7 +178,7 @@ The generated password will be sent back to the api-db server so that the fronte
 
 11- `get_compile_status()` This function will check if he workshop needs some scripts to be compiled. For instance, if you need to authenticate against a private cloud portal and you don't want your participants to see the credentials, make sure to check the relevant box in the workshop table of the database. This compile feature will compile the authentication scripts into an executable that cannot be edited.
 
-12- If an appliance is needed for the workshop, then the following script is called: `create-<WKSHP>.sh` and user env on appliance2 
+12- If an appliance is needed for the workshop, then the following script is called: `create-<WKSHP>.sh` .This will prepare the appliance (deploying a docker image on it for instance) and setup user env on appliance accordingly (ssh keys, skeletons)
 
 F﻿or instance, `create-WKSHP-ML101.sh` will perform the following tasks in order to prepare the appliance for the workshop: It will start by reseting the appliance with the `reset-<WKSHP>.sh` s﻿cript. Then, it calls a second script aiming at preparing the appliance `create-appliance.sh`.﻿ Once done with these two, it moves on with the proper customization of the appliance for the given student.
 
@@ -324,7 +324,7 @@ I﻿n terms of task associated to the **PURGE** scenario, you can see that we ke
 
 W﻿e then initiate :
 
-9- generate_randompwd()  for security.
+9- `generate_randompwd()`:  We always update the sdtudent's password for security reasons.
 
 1﻿0- `erase-student()`:  we perform a cleanup of the student folder.
 
