@@ -5,6 +5,16 @@ author: Frederic {Passeron
 authorimage: /img/frederic-passeron-hpedev-192.jpg
 disable: false
 ---
+I﻿n the previous article [article](https://developer.hpe.com/blog/willing-to-build-up-your-own-workshops-on-demand-infrastructure/) of this series, I explained how to deploy the backend server of our Workshops-on-Demand infrastructure.
+
+I﻿ will take time today to dig into the details of this server. I will cover the inners of the registration process explaining how a workshop is deployed on the backend server. Even though it takes only a few minutes to the backend server to deploy a workshop, there are many processes taking place in the background. We will discover them together today.
+
+I will also cover the daily maintenance of this server as well as some update / upgrade scenarios in a second part of this article.
+
+A﻿s a reminder, here is a diagram showing the different parts of the Workshops-on-Demand infrastructure. I will focus today againon the backend server side and more precisely on the Jupyterhub server where all the automation takes place.
+
+![](/img/wod-blogserie3-archi.png "Workshops-on-Demand Architecture")
+
 
 
 #### B﻿ackend server lifecycle:
@@ -171,15 +181,7 @@ The generated password will be sent back to the api-db server so that the fronte
 
 11- `get_compile_status()` This function will check if he workshop needs some scripts to be compiled. For instance, if you need to authenticate against a private cloud portal and you don't want your participants to see the credentials, make sure to check the relevant box in the workshop table of the database. This compile feature will compile the authentication scripts into an executable that cannot be edited.
 
-wod name : get wod id
-
-Generate a randow pwd for alocated student (either local or ldap id ladap configured)
-
-Cleanup student folder
-
-Complie necessary scritps
-
-If appliance : create wkshp.sh and user env on appliance
+12- If an appliance is needed for the workshop, then the following script is called: create wkshp.sh and user env on appliance2
 
 Copy folder yml
 
