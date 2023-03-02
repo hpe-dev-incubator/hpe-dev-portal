@@ -332,9 +332,13 @@ W﻿e then initiate :
 
 A﻿n email is then sent to the participant explaining to him that we encountered an issue with the deployment and that we apologize for this. The same email is sent to the admin so he can work on the issue.
 
-N﻿ow, you should have a clearer view of what is really happening in the background when one registers for a workshop. You can see that I have uncovered many scripts to explain step by step all the stages of a workshop's deployment process.
+N﻿ow, you should have a clearer view of what is really happening in the background when one registers for a workshop. You can see that I have uncovered many scripts to explain step by step all the stages of a workshop's deployment process. But there are some more to be explained. It is obvious that the main function of the backend server is to deploy and run workshops. Nevertheless, as any other server, it cannot live without maintenance.
+
+
 
 #### B﻿ackend server management:
+
+I﻿ will detail how one needs to manage and work with this server on a daily basis. What we usually call day 2 operation. If you take a look at the file structure of the wod-backend directory, you will discover that we did our best to sort things properly.
 
 ##### C﻿ontent of the backend server:
 
@@ -342,7 +346,7 @@ S﻿imple tree view of the wod-backend directory:
 
 ![](/img/wod-blogserie2-tree4.png "Tree view of wod-backend directory")
 
-T﻿he `ansible` folder contains all the necessary playbooks and variables files to manage the main functions of the backend server.
+T﻿he `ansible` folder contains all the necessary playbooks and variables files to support the main functions of the backend server. It provides playbooks for installation of the server or appliances, setup of the servers (backend, frontend, api-db),of appliances or workshops as well as maintenance tasks.
 
 A﻿t the root of this directory can be found:
 
@@ -377,7 +381,7 @@ T﻿he `conf` folder hosts configuration files in a jinja format. Once expanded,
 
 A﻿s part of the refacturing work to open source the project, we reaaranged the different scripts locations. We have created an install folder to handle the different installation scripts either from a Jupyterhub 's perpective or from an appliance 's standpoint too.
 
-We separated the Workshops related scripts from the pure system ones. When one creates a workshop, one needs to provide a series of notebooks and in some cases some scripts to manage the creation, setup of a related appliance along with additional scripts to manage its lifecycle in the overall workshops-on-Demand architecture (Create, Cleanup, Reset scripts at deployment or Cleanup times). These scripts need to be located in the script folder. On the other hand, the system scripts are located in the sys folder.
+We separated the workshops related scripts from the pure system ones. When one creates a workshop, one needs to provide a series of notebooks and in some cases some scripts to manage the creation, setup of a related appliance along with additional scripts to manage its lifecycle in the overall workshops-on-Demand architecture (Create, Cleanup, Reset scripts at deployment or Cleanup times). These scripts need to be located in the script folder. On the other hand, the system scripts are located in the sys folder.
 
 T﻿here are two types of activities that can occur on the backend server: punctual or regular. The punctual activity is one that is performed once every now and then. The regular one is usually set up on the backend server as a cron job. Sometimes however, one of these cron tasks can be forced manually if necessary. One the main scheduled task is the `deliver` task. I will explain it later on in this chapter. I will start now by explaining an important possible punctual task, the update of the backend server.
 
@@ -447,7 +451,7 @@ P﻿ossible Use Cases:
   * P﻿owerShell module  
   * P﻿ython Library
 
- You will start by move to your public backend forked repository and apply the necessary changes before committing and push locally. 
+ You will start by moving to your public backend forked repository and apply the necessary changes before committing and push locally. 
 
  Then you will perform a merge request with the main repository. We plan to integrate here  in a proper CICD (continuous integration continous development) pipeline to allow a vagrant based test deployment. Whenever someone performs a merge request on the main repo, the test deployment task kicks in and deploy a virtual backend server on which the new version of the installation process is automatically tested. When successful, the merge request is accepted. Once merged, you will need to move to your backend server and perform git remote update and git rebase on the wod-backend directory. Once done, you will then be able to perform the installation process.
 
@@ -491,5 +495,13 @@ I﻿t checks a quite long list of items like:
 * Enable WoD service
 * Test private tasks YAML file
 * Call private tasks if available
+
+
+
+
+
+
+
+
 
 Unfortunately, this is not the case, when one offers access to some harware freely online, he can expect sooner or later to  see his original and pure idea to be highjacked...Let's say that you want to provide some AI/ML 101 type of workshops, you may consider providing servers with some GPUs. Any twisted minded cryptominer discovering your ressources will definitely think he hits the jackpot! This little anecdot actually happened to us and not only on GPU based servers, some regular servers got hit as well. We found out that performance on some servers became very poor and wehen looking into it, we found some scripts that were not supposed to be here and to run here...
