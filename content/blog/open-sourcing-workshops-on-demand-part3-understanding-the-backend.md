@@ -277,9 +277,11 @@ EOF
 
 T﻿hese changes will trigger on the frontend web portal application the sending of the second email to the participant.  This email will contain the necessary information for the participant to connect to its notebooks environment. The participant will then run the workshop. For each workshop, a dedicated time window is allocated. Some workshops will take longer to be run than others. The time windows varies from 2 to 4 hours maximum. The workshops are somehow time bombed. This means that a the very moment, the participant hit the register button on the frontend web portal, the cloak starts ticking. Some background checks take place on the web portal to verify time spent since the registration to a given workshop. As a consequence, a reminder email is sent a hour before the finish line. When the bell rings at the end of the class, a new procmail API call is made to the backend server ordering a <CLEANUP> action. The particpant can also trigger this action by registering to a new workshop before the end of the current one. He will have to provide the necessary information to the frontend web portal in order to 'cancel' / 'end' the current workshop. 
 
-L﻿et's see what is happening on the backend server to perform this <Cleanup> process.
+L﻿et's see what is happening on the backend server to perform this <CLEANUP> process.
 
 ![](/img/wod-blogserie3-cleanup2.png "backend server <CLEANUP> workflow")
+
+A﻿s you can see, it does not differ much from the <CREATE>. We still need to gather data to 
 
 
 
