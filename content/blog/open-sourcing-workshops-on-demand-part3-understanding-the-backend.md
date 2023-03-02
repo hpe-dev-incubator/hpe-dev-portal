@@ -21,12 +21,11 @@ T﻿he following picture is depicting what happens on the backend server when a 
 
 L﻿et 's now look in details what is really happening  on the backend server's side:
 
-![](/img/wod-blogserie3-create.png "backend server <CREATE> workflow")
+![](/img/wod-blogserie3-create.png "backend server CREATE workflow")
 
-0- The procmail api: This is a mail parsing process allowing the backend server to retrieve the relevant information in order to perform appropriate actions. As any api, it uses verbs to performs actions. In our case, we leverage <CREATE>, <CLEANUP>, <RESET> and <PURGE>. 
+0- The procmail api: This is a mail parsing process allowing the backend server to retrieve the relevant information in order to perform appropriate actions. As any API, it uses verbs to performs actions. In our case, we leverage **CREATE, CLEANUP, RESET and PURGE**. 
 
-If you need more info on procmail usage, check the following \[page](<\[5:51 PM] Cornec, Bruno (Open Source and Linux Technology Strategist)
-https://wiki.archlinux.org/title/Procmail>).
+If you need more info on procmail usage, check the following \[page](https://wiki.archlinux.org/title/Procmail>).
 
 T﻿ake a look at the  following template of the `.procmailrc` file that will be expanded at setup time.
 
@@ -155,7 +154,7 @@ export ANSPRIVOPT=" -e @/home/wodadmin/wod-private/ansible/group_vars/all.yml -e
 
 `f﻿unctions.sh` is a library of shell functions used by many scripts among which `procmail-action.sh`.  We will see the details shortly below.
 
-4- `procmail-action.sh` c﻿alls the necessary functions and scripts to perform the < CREATE> operation.
+4- `procmail-action.sh` c﻿alls the necessary functions and scripts to perform the  **CREATE** operation.
 
 5- `get_session_token()` This function retrieves the necessary token to make api call to the api-db server.
 
@@ -275,15 +274,15 @@ EOF
 * T﻿he first API call will update the password data for the participant's allocated student.
 * T﻿he second API call will update the the participant's allocated student's status to active.
 
-T﻿hese changes will trigger on the frontend web portal application the sending of the second email to the participant.  This email will contain the necessary information for the participant to connect to its notebooks environment. The participant will then run the workshop. For each workshop, a dedicated time window is allocated. Some workshops will take longer to be run than others. The time windows varies from 2 to 4 hours maximum. The workshops are somehow time bombed. This means that a the very moment, the participant hit the register button on the frontend web portal, the cloak starts ticking. Some background checks take place on the web portal to verify time spent since the registration to a given workshop. As a consequence, a reminder email is sent a hour before the finish line. When the bell rings at the end of the class, a new procmail API call is made to the backend server ordering a <CLEANUP> action. The particpant can also trigger this action by registering to a new workshop before the end of the current one. He will have to provide the necessary information to the frontend web portal in order to 'cancel' / 'end' the current workshop. 
+T﻿hese changes will trigger on the frontend web portal application the sending of the second email to the participant.  This email will contain the necessary information for the participant to connect to its notebooks environment. The participant will then run the workshop. For each workshop, a dedicated time window is allocated. Some workshops will take longer to be run than others. The time windows varies from 2 to 4 hours maximum. The workshops are somehow time bombed. This means that a the very moment, the participant hit the register button on the frontend web portal, the cloak starts ticking. Some background checks take place on the web portal to verify time spent since the registration to a given workshop. As a consequence, a reminder email is sent a hour before the finish line. When the bell rings at the end of the class, a new procmail API call is made to the backend server ordering a **CLEANUP** action. The particpant can also trigger this action by registering to a new workshop before the end of the current one. He will have to provide the necessary information to the frontend web portal in order to end the current workshop. 
 
-L﻿et's see what is happening on the backend server to perform this <CLEANUP> process.
+L﻿et's see what is happening on the backend server to perform this **CLEANUP** scenario.
 
 ![](/img/wod-blogserie3-cleanup.png "backend server <CLEANUP> workflow")
 
-A﻿s you can see, it does not differ much from the <CREATE>. We still need to gather data to interact with the proper workshop from the right student. The .procmail.rc is providing us these infos. Then, the automation kicks in through procmail-action-sh script.
+A﻿s you can see, it does not differ much from the **CREATE**. We still need to gather data to interact with the proper workshop from the right student. The .procmail.rc is providing us these infos. Then, the automation kicks in through procmail-action-sh script.
 
-T﻿he verb is now <CLEANUP>. As a consequence, step4 is now <CLEANUP>.
+T﻿he verb is now **CLEANUP**. As a consequence, step4 is now **CLEANUP**.
 
 N﻿othing changes from 5 to 9.
 
@@ -293,11 +292,47 @@ T﻿his completion ratio script provides us this data and we store it in our dat
 
 1﻿1- API call to send the completion ratio figure to the database. This can be later queried to build up nice reporting dashboard as explained here by my colleague Didier Lalli in the following [article](https://developer.hpe.com/blog/open-source-elasticsearch-helped-us-globally-support-virtual-labs/).
 
-1﻿2- ```erase-student()```: now that we have extracted the necessary data from the student's notebooks, we can perform a cleanup of the student folder.
+1﻿2- `erase-student()`: now that we have extracted the necessary data from the student's notebooks, we can perform a cleanup of the student folder.
 
-1﻿3- ```cleanup_processes_student()```: On top of cleanup of the student folder, we also kill all the allocated student's processes.
+1﻿3- `cleanup_processes_student()`: On top of cleanup of the student folder, we also kill all the allocated student's processes.
 
-1﻿4- ```cleanup-<workshop>.sh```: N﻿ow, you should have a clearer view of what is really happening in the background when one registers for a workshop. You can see that I have uncovered many scripts to explain step by step all the stages of a workshop's deployment process.
+1﻿4- `cleanup-<workshop>.sh`: If any appliance is involved, this task will perform the necessary cleanup processes on the appliance.
+
+1﻿5- Finally, just like for the creation of a workshop process, we need to inform back the frontend that now cleanup is done. Therefore, several API calls are made to update tables in the database. The new s﻿tudent password is recorded. We also generate a new password at the cleanup phase to prevent unregistered logins. The s﻿tudent status is set to inactive. The capacity figure is incremented by one to make the seat available again. 
+
+A﻿s for the <CREATE> phase, the regular checks occuring on the frontent web portal will get these data and trigger the final email to the participant thanking him for his particpation.
+
+N﻿ow let's look at the <RESET> scenario.
+
+![](/img/wod-blogserie3-reset.png "backend server <RESET> workflow")
+
+ You may wonder what are the differences between <CLEANUP> and <RESET>? Well, firstly, they spell differently but that has nothing to do with the purpose of this article...Secondly, <CLEANUP> only takes care of student whereas <RESET> takes care of a larger scope. Let me explain.
+
+W﻿hen a <CLEANUP> occurs, it deals with the participant's student workshop and home directory (the workshop directory belonging to the home directory). It cleans up workshop content, ssh keys, skeletons. The <RESET> will delete leftovers from the workshop's exercices. For intance, when one runs the [Kubernetes 101](https://developer.hpe.com/hackshack/workshop/24)workshop, he is creating microservices, he's scaling them, and should at the end of the workshop run some delete commands to clean up everything. However, this does happen all the time. And the admin needs to make sure that the next participant who will get affected the very same student environment comes with a fresh one. Therefore, some measures have to be taken. Well these measures take place when a reset flag is associated to the workshop in the database.
+
+D﻿uring the <CLEANUP> phase, a check is actually performed to test the presence of this flag through a simple API call on the frontend  API-DB server. If the workshop has a reset flag then a dedicated reset-WKSHP.sh script is called and performed the necessary tasks. In the case of kubernetes 101, it will wipe out any leftovers from the student. In some other cases, it will launch a revert to snapshot script on a virtual machine. 
+
+![](/img/wod-blogserie3-purge.png "backend server <PURGE> workflow")
+
+I﻿n a perfect world, we would have covered here what one would somehow expect from any kind of API (GET, PUT, DELETE = CREATE, CLEANUP and RESET).  But, this is unfortunately not the case. Even though we did our best to harden the deployment automation, failures might occur. A remote site could go down because of a backhoe loader cutting an internet line while digging...I have seen this. In this very case, you need to be able to cleanup the mess quickly.
+
+The <PURGE> scenario is therefore triggered on deployment failures.
+
+A﻿t the registration time, when the particpant hits the register button on the frontend web portal, an entry is automatically created in the database for him. It associates the particpant to a student and a workshop. it also r﻿egisters the date and start time of the workshop, sets the participant status  to 'welcome' in the database and a first email is sent to the particpant from the frontend web portal welcoming him to the Workshop-on-Demand and stating to him that within a few minutes a second email will be sent along with the necessary information (credentials and url) to connect to the workshop environment. If for any reason, the deployment of the workshop fails and as a consequence, no API call is made  back to the frontend from the backend, the frontend could remain stuck for ever and so would the participant. To overcome this, we implemented a check on the frontend web portal to test this welcome status. In a normal scenario, this welcome status gets updated within less than 3 minutes. If the status is not updated within 10 minutes, we consider that something went wrong during the deployment and as a result, a <PURGE> scenario is initiated to clean up both the backend and the frontend sides of the related registration. 
+
+I﻿n terms of task associated to the <PURGE> scenario, you can see that we kept the minimal as there should not be much to clean up on the backend server. Same tasks to begin with as we still need student id and workshop id. 
+
+W﻿e then initiate :
+
+9- generate_randompwd()  for security.
+
+1﻿0- `erase-student()`:  we perform a cleanup of the student folder.
+
+1﻿1- API calls to to update tables in the database. The new s﻿tudent password is recorded. We also generate a new password at the <PURGE> phase to prevent unregistered logins. The s﻿tudent status is set to inactive. The capacity figure is incremented by one to make the seat available again. 
+
+A﻿n email is then sent to the participant explaining to him that we encountered an issue with the deployment and that we apologize for this. The same email is sent to the admin so he can work on the issue.
+
+N﻿ow, you should have a clearer view of what is really happening in the background when one registers for a workshop. You can see that I have uncovered many scripts to explain step by step all the stages of a workshop's deployment process.
 
 #### B﻿ackend server management:
 
@@ -336,7 +371,7 @@ It also hosts the `inventory` file describing the role of jupyterhub servers. Pl
 #
 [production]
 127.0.0.1  ansible_connection=localhost
-````
+```
 
 T﻿he `conf` folder hosts configuration files in a jinja format. Once expanded, the resulting files will be used by relevant workshops. I will explain in a future article all the steps and requirements to create a workshop.
 
@@ -456,3 +491,5 @@ I﻿t checks a quite long list of items like:
 * Enable WoD service
 * Test private tasks YAML file
 * Call private tasks if available
+
+Unfortunately, this is not the case, when one offers access to some harware freely online, he can expect sooner or later to  see his original and pure idea to be highjacked...Let's say that you want to provide some AI/ML 101 type of workshops, you may consider providing servers with some GPUs. Any twisted minded cryptominer discovering your ressources will definitely think he hits the jackpot! This little anecdot actually happened to us and not only on GPU based servers, some regular servers got hit as well. We found out that performance on some servers became very poor and wehen looking into it, we found some scripts that were not supposed to be here and to run here...
