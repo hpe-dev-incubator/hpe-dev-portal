@@ -63,7 +63,7 @@ The `From:` is important as `.procmailrc` checks that the sender is the configur
 
 This api is actually based on a script `procmail-action.sh`. This script defines the different actions linked to the verbs passed through the api calls via `.procmailrc`
 
-L﻿et's start with a CREATE scenario looking at the very first lines of the `procmail` log file.
+L﻿et's start with a **CREATE** scenario looking at the very first lines of the `procmail` log file.
 
 ```
 From xyz@hpe.com  Wed Mar  1 15:10:41 2023
@@ -278,9 +278,9 @@ T﻿hese changes will trigger on the frontend web portal application the sending
 
 L﻿et's see what is happening on the backend server to perform this **CLEANUP** scenario.
 
-![](/img/wod-blogserie3-cleanup.png "backend server <CLEANUP> workflow")
+![](/img/wod-blogserie3-cleanup.png "backend server CLEANUP workflow")
 
-A﻿s you can see, it does not differ much from the **CREATE**. We still need to gather data to interact with the proper workshop from the right student. The .procmail.rc is providing us these infos. Then, the automation kicks in through procmail-action-sh script.
+A﻿s you can see, it does not differ much from the **CREATE**. We still need to gather data to interact with the proper workshop from the right student. The .procmail.rc is providing us these infos. Then, the automation kicks in through `procmail-action-sh` script.
 
 T﻿he verb is now **CLEANUP**. As a consequence, step4 is now **CLEANUP**.
 
@@ -300,27 +300,27 @@ T﻿his completion ratio script provides us this data and we store it in our dat
 
 1﻿5- Finally, just like for the creation of a workshop process, we need to inform back the frontend that now cleanup is done. Therefore, several API calls are made to update tables in the database. The new s﻿tudent password is recorded. We also generate a new password at the cleanup phase to prevent unregistered logins. The s﻿tudent status is set to inactive. The capacity figure is incremented by one to make the seat available again. 
 
-A﻿s for the <CREATE> phase, the regular checks occuring on the frontent web portal will get these data and trigger the final email to the participant thanking him for his particpation.
+A﻿s for the **CREATE** phase, the regular checks occuring on the frontent web portal will get these data and trigger the final email to the participant thanking him for his particpation.
 
-N﻿ow let's look at the <RESET> scenario.
+N﻿ow let's look at the **RESET** scenario.
 
-![](/img/wod-blogserie3-reset.png "backend server <RESET> workflow")
+![](/img/wod-blogserie3-reset.png "backend server RESET workflow")
 
- You may wonder what are the differences between <CLEANUP> and <RESET>? Well, firstly, they spell differently but that has nothing to do with the purpose of this article...Secondly, <CLEANUP> only takes care of student whereas <RESET> takes care of a larger scope. Let me explain.
+ You may wonder what are the differences between **CLEANUP** and **RESET**? Well, firstly, they spell differently but that has nothing to do with the purpose of this article...Secondly, **CLEANUP** only takes care of student whereas **RESET** takes care of a larger scope. Let me explain.
 
-W﻿hen a <CLEANUP> occurs, it deals with the participant's student workshop and home directory (the workshop directory belonging to the home directory). It cleans up workshop content, ssh keys, skeletons. The <RESET> will delete leftovers from the workshop's exercices. For intance, when one runs the [Kubernetes 101](https://developer.hpe.com/hackshack/workshop/24)workshop, he is creating microservices, he's scaling them, and should at the end of the workshop run some delete commands to clean up everything. However, this does happen all the time. And the admin needs to make sure that the next participant who will get affected the very same student environment comes with a fresh one. Therefore, some measures have to be taken. Well these measures take place when a reset flag is associated to the workshop in the database.
+W﻿hen a **CLEANUP** occurs, it deals with the participant's student workshop and home directory (the workshop directory belonging to the home directory). It cleans up workshop content, ssh keys, skeletons. The <RESET> will delete leftovers from the workshop's exercices. For intance, when one runs the [Kubernetes 101](https://developer.hpe.com/hackshack/workshop/24)workshop, he is creating microservices, he's scaling them, and should at the end of the workshop run some delete commands to clean up everything. However, this does happen all the time. And the admin needs to make sure that the next participant who will get affected the very same student environment comes with a fresh one. Therefore, some measures have to be taken. Well these measures take place when a reset flag is associated to the workshop in the database.
 
-D﻿uring the <CLEANUP> phase, a check is actually performed to test the presence of this flag through a simple API call on the frontend  API-DB server. If the workshop has a reset flag then a dedicated reset-WKSHP.sh script is called and performed the necessary tasks. In the case of kubernetes 101, it will wipe out any leftovers from the student. In some other cases, it will launch a revert to snapshot script on a virtual machine. 
+D﻿uring the **CLEANUP** phase, a check is actually performed to test the presence of this flag through a simple API call on the frontend  API-DB server. If the workshop has a reset flag then a dedicated reset-WKSHP.sh script is called and performed the necessary tasks. In the case of kubernetes 101, it will wipe out any leftovers from the student. In some other cases, it will launch a revert to snapshot script on a virtual machine. 
 
-![](/img/wod-blogserie3-purge.png "backend server <PURGE> workflow")
+![](/img/wod-blogserie3-purge.png "backend server PURGE workflow")
 
 I﻿n a perfect world, we would have covered here what one would somehow expect from any kind of API (GET, PUT, DELETE = CREATE, CLEANUP and RESET).  But, this is unfortunately not the case. Even though we did our best to harden the deployment automation, failures might occur. A remote site could go down because of a backhoe loader cutting an internet line while digging...I have seen this. In this very case, you need to be able to cleanup the mess quickly.
 
-The <PURGE> scenario is therefore triggered on deployment failures.
+The **PURGE** scenario is therefore triggered on deployment failures.
 
-A﻿t the registration time, when the particpant hits the register button on the frontend web portal, an entry is automatically created in the database for him. It associates the particpant to a student and a workshop. it also r﻿egisters the date and start time of the workshop, sets the participant status  to 'welcome' in the database and a first email is sent to the particpant from the frontend web portal welcoming him to the Workshop-on-Demand and stating to him that within a few minutes a second email will be sent along with the necessary information (credentials and url) to connect to the workshop environment. If for any reason, the deployment of the workshop fails and as a consequence, no API call is made  back to the frontend from the backend, the frontend could remain stuck for ever and so would the participant. To overcome this, we implemented a check on the frontend web portal to test this welcome status. In a normal scenario, this welcome status gets updated within less than 3 minutes. If the status is not updated within 10 minutes, we consider that something went wrong during the deployment and as a result, a <PURGE> scenario is initiated to clean up both the backend and the frontend sides of the related registration. 
+A﻿t the registration time, when the participant hits the register button on the frontend web portal, an entry is automatically created in the database for him. It associates the particpant to a student and a workshop. it also r﻿egisters the date and start time of the workshop, sets the participant status  to 'welcome' in the database and a first email is sent to the particpant from the frontend web portal welcoming him to the Workshop-on-Demand and stating to him that within a few minutes a second email will be sent along with the necessary information (credentials and url) to connect to the workshop environment. If for any reason, the deployment of the workshop fails and as a consequence, no API call is made  back to the frontend from the backend, the frontend could remain stuck for ever and so would the participant. To overcome this, we implemented a check on the frontend web portal to test this welcome status. In a normal scenario, this welcome status gets updated within less than 3 minutes. If the status is not updated within 10 minutes, we consider that something went wrong during the deployment and as a result, a <PURGE> scenario is initiated to clean up both the backend and the frontend sides of the related registration. 
 
-I﻿n terms of task associated to the <PURGE> scenario, you can see that we kept the minimal as there should not be much to clean up on the backend server. Same tasks to begin with as we still need student id and workshop id. 
+I﻿n terms of task associated to the **PURGE** scenario, you can see that we kept the minimal as there should not be much to clean up on the backend server. Same tasks to begin with as we still need student id and workshop id. 
 
 W﻿e then initiate :
 
@@ -328,7 +328,7 @@ W﻿e then initiate :
 
 1﻿0- `erase-student()`:  we perform a cleanup of the student folder.
 
-1﻿1- API calls to to update tables in the database. The new s﻿tudent password is recorded. We also generate a new password at the <PURGE> phase to prevent unregistered logins. The s﻿tudent status is set to inactive. The capacity figure is incremented by one to make the seat available again. 
+1﻿1- API calls to to update tables in the database. The new s﻿tudent password is recorded. We also generate a new password at the **PURGE** phase to prevent unregistered logins. The s﻿tudent status is set to inactive. The capacity figure is incremented by one to make the seat available again. 
 
 A﻿n email is then sent to the participant explaining to him that we encountered an issue with the deployment and that we apologize for this. The same email is sent to the admin so he can work on the issue.
 
