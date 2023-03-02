@@ -287,7 +287,7 @@ T﻿he verb is now <CLEANUP>. As a consequence, step4 is now <CLEANUP>.
 
 N﻿othing changes from 5 to 9.
 
-1﻿0- ```get_wod_completion_ratio()``` allows us to retrieve through a simple computing of the numbers of notebooks cells executed thoughout the different exercices of the workshop a ratio. This enables us to see how much of the workshop is actually run. Participants are asked to fill out a form in a conclusion notebook which is present in every student's workshop's folder. But only 10 % of participant do fill it. That leaves many participants for which we don't know whether they liked or not or more importantly, did they actually run it ? 
+1﻿0- `get_wod_completion_ratio()` allows us to retrieve through a simple computing of the numbers of notebooks cells executed thoughout the different exercices of the workshop a ratio. This enables us to see how much of the workshop is actually run. Participants are asked to fill out a form in a conclusion notebook which is present in every student's workshop's folder. But only 10 % of participant do fill it. That leaves many participants for which we don't know whether they liked or not or more importantly, did they actually run it ? 
 
 T﻿his completion ratio script provides us this data and we store it in our database. 
 
@@ -297,11 +297,7 @@ T﻿his completion ratio script provides us this data and we store it in our dat
 
 1﻿3- ```cleanup_processes_student()```: On top of cleanup of the student folder, we also kill all the allocated student's processes.
 
-1﻿4- ```cleanup-<workshop>.sh```: If any appliance is requiered by the workshop, some dedicated cleanup tasks are launched there.
-
-
-
-N﻿ow, you should have a clearer view of what is really happening in the background when one registers for a workshop. You can see that I have uncovered many scripts to explain step by step all the stages of a workshop's deployment process.
+1﻿4- ```cleanup-<workshop>.sh```: N﻿ow, you should have a clearer view of what is really happening in the background when one registers for a workshop. You can see that I have uncovered many scripts to explain step by step all the stages of a workshop's deployment process.
 
 #### B﻿ackend server management:
 
@@ -340,7 +336,7 @@ It also hosts the `inventory` file describing the role of jupyterhub servers. Pl
 #
 [production]
 127.0.0.1  ansible_connection=localhost
-```
+````
 
 T﻿he `conf` folder hosts configuration files in a jinja format. Once expanded, the resulting files will be used by relevant workshops. I will explain in a future article all the steps and requirements to create a workshop.
 
