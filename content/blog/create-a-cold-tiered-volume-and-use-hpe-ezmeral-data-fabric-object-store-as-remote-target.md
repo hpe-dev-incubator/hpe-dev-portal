@@ -10,8 +10,24 @@ tags:
   - hpe-ezmeral-data-fabric
   - data-tiering
   - object-store
+  - hpe-greenlake-for-data-fabric
 ---
 ## Introduction
+
+### What is Data Tiering and Why?
+
+
+Much of your data needs to be retained, either to meet regulatory requirements or because it still has value.
+It’s useful for data that is not accessed frequently but needs to be retained to be stored in a more resource-efficient and cost-effective manner. That’s the basic idea behind Data Tiering.
+
+
+The most frequently accessed file data can be thought of as a "hot" data tier, using normal file storage.
+Data used less often can be moved to low-cost storage alternatives in different ways, depending on the relative frequency of access.
+Some data is rarely accessed or modified but needs to be archived for future projects, for verification purposes in audits or to meet regulatory requirements. This "cold" data could be tiered to low-cost object storage in the same data storage system or in a remote storage system such as remote object storage.
+
+
+
+This blog post focuses on remote object storage.
 
 In HPE Ezmeral Data Fabric, you can create a Cold-Tiered Volume, set corresponding Storage Policies, and periodically offload the data in the Volume to the remote object storage.
 
@@ -19,7 +35,7 @@ The remote object storage can be the object storage of AWS, GCP, Azure and other
 
 Of course, you can also use the Object Store of HPE Ezmeral Data Fabric as a remote target.
 
-This article will demonstrate how to create a Cold-Tiered Volume and configure another Ezmeral Data Fabric Object Store as the remote target for offloading.
+This article will demonstrate how to create a Cold-Tiered Volume and configure another HPE Ezmeral Data Fabric Object Store as the remote target for offloading.
 
 At the same time, I will also demonstrate how to create an Account, IAM user, and bucket in the HPE Ezmeral Data Fabric Object Store, and use the AWS CLI to perform a put object operation on this bucket through the above configuration.
 
@@ -87,7 +103,7 @@ Instead, use the following command:
 ${JAVA_HOME}/bin/keytool -noprompt -importcert -file /opt/mapr/conf/ca/chain-ca.pem -alias maprca -cacerts -storepass <cacerts_truststore>
 ```
 
-If you use the Installer to install Ezmeral Data Fabric on a fresh OS, then Installer will automatically install JDK 11, then "-storepass" password is "changeit".
+If you use the Installer to install HPE Ezmeral Data Fabric on a fresh OS, then Installer will automatically install JDK 11, then "-storepass" password is "changeit".
 
 There is another place in the documentation where keytool is used, the command is as follows:
 
@@ -524,11 +540,11 @@ To install the AWS CLI, refer to this Amazon AWS document 👉 [Installing or up
 Then you create a profile for the IAM User:
 
 ```shell
-export AWS_CA_BUNDLE=/opt/mapr/conf/ca/chain-ca.pem
+export AWS\_CA\_BUNDLE=/opt/mapr/conf/ca/chain-ca.pem
 aws configure --profile s3-test-iam_user-ray-2-objstor
 ```
 
-❗Note: Before using the AWS CLI, remember to export the environment AWS_CA_BUNDLE=/opt/mapr/conf/ca/chain-ca.pem.
+❗Note: Before using the AWS CLI, remember to export the environment AWS\_CA\_BUNDLE=/opt/mapr/conf/ca/chain-ca.pem.
 Otherwise AWS CLI cannot communicate with S3server because S3server is using self-signed TLS certificates.
 
 After inputting the above command, the AWS CLI will ask you to input the access key and secret key.
