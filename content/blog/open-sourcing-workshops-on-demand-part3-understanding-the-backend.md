@@ -279,9 +279,27 @@ T﻿hese changes will trigger on the frontend web portal application the sending
 
 L﻿et's see what is happening on the backend server to perform this <CLEANUP> process.
 
-![](/img/wod-blogserie3-cleanup2.png "backend server <CLEANUP> workflow")
+![](/img/wod-blogserie3-cleanup.png "backend server <CLEANUP> workflow")
 
-A﻿s you can see, it does not differ much from the <CREATE>. We still need to gather data to 
+A﻿s you can see, it does not differ much from the <CREATE>. We still need to gather data to interact with the proper workshop from the right student. The .procmail.rc is providing us these infos. Then, the automation kicks in through procmail-action-sh script.
+
+T﻿he verb is now <CLEANUP>. As a consequence, step4 is now <CLEANUP>.
+
+N﻿othing changes from 5 to 9.
+
+1﻿0- get_wod_completion_ratio() allows us to retrieve through a simple computing of the numbers of notebooks cells executed thoughout the different exercices of the workshop a ratio. This enables us to see how much of the workshop is actually run. Participants are asked to fill out a form in a conclusion notebook which is present in every student's workshop's folder. But only 10 % of participant do fill it. That leaves many participants for which we don't know whether they liked or not or more importantly, did they actually run it ? 
+
+T﻿his completion ratio script provides us this data and we store it in our database. 
+
+1﻿1- API call to send the completion ratio figure to the database. This can be later queried to build up nice reporting dashboard as explained here by my colleague Didier Lalli in the following [article](https://developer.hpe.com/blog/open-source-elasticsearch-helped-us-globally-support-virtual-labs/).
+
+1﻿2- ```erase-student()```: now that we have extracted the necessary data from the student's notebooks, we can perform a cleanup of the student folder.
+
+1﻿3- ```cleanup_processes_student()```: On top of cleanup of the student folder, we also kill all the allocated student's processes.
+
+
+
+
 
 N﻿ow, you should have a clearer view of what is really happening in the background when one registers for a workshop. You can see that I have uncovered many scripts to explain step by step all the stages of a workshop's deployment process.
 
