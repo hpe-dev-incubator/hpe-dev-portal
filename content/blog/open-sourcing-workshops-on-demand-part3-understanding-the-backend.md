@@ -21,7 +21,7 @@ T﻿he following picture is depicting what happens on the backend server when a 
 
 L﻿et 's now look in details what is really happening  on the backend server's side:
 
-![](/img/wod-blogserie2backend-workflow.png "backend server <CREATE> workflow")
+![](/img/wod-blogserie3-create.png "backend server <CREATE> workflow")
 
 0- The procmail api: This is a mail parsing process allowing the backend server to retrieve the relevant information in order to perform appropriate actions. As any api, it uses verbs to performs actions. In our case, we leverage <CREATE>, <CLEANUP>, <RESET> and <PURGE>. 
 
@@ -282,8 +282,6 @@ L﻿et's see what is happening on the backend server to perform this <CLEANUP> p
 ![](/img/wod-blogserie3-cleanup2.png "backend server <CLEANUP> workflow")
 
 A﻿s you can see, it does not differ much from the <CREATE>. We still need to gather data to 
-
-
 
 N﻿ow, you should have a clearer view of what is really happening in the background when one registers for a workshop. You can see that I have uncovered many scripts to explain step by step all the stages of a workshop's deployment process.
 
