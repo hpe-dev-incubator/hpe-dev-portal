@@ -23,9 +23,9 @@ L﻿et 's now look in details what is really happening  on the backend server's 
 
 ![](/img/wod-blogserie3-create.png "backend server CREATE workflow")
 
-0- The procmail api: This is a mail parsing process allowing the backend server to retrieve the relevant information in order to perform appropriate actions. As any API, it uses verbs to performs actions. In our case, we leverage **CREATE, CLEANUP, RESET and PURGE**. 
+0- The procmail api: This is a mail parsing process allowing the backend server to retrieve the relevant information in order to perform appropriate actions. As any API, it uses verbs to performs actions. In our case, we leverage **CREATE**, **CLEANUP**, **RESET** and **PURGE**.
 
-If you need more info on procmail usage, check the following \[page](https://wiki.archlinux.org/title/Procmail>).
+If you need more info on procmail usage, check the following [page] (https://wiki.archlinux.org/title/Procmail>).
 
 T﻿ake a look at the  following template of the `.procmailrc` file that will be expanded at setup time.
 
@@ -63,7 +63,7 @@ The `From:` is important as `.procmailrc` checks that the sender is the configur
 
 This api is actually based on a script `procmail-action.sh`. This script defines the different actions linked to the verbs passed through the api calls via `.procmailrc`
 
-L﻿et's start with a <CREATE> scenario looking at the very first lines of the `procmail` log file.
+L﻿et's start with a CREATE scenario looking at the very first lines of the `procmail` log file.
 
 ```
 From xyz@hpe.com  Wed Mar  1 15:10:41 2023
