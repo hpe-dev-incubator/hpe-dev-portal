@@ -4,6 +4,9 @@ date: 2023-03-01T17:24:34.117Z
 author: Frederic Passeron
 authorimage: /img/frederic-passeron-hpedev-192.jpg
 disable: false
+tags:
+  - open source
+  - workshops-on-demand
 ---
 I﻿n the previous article [article](https://developer.hpe.com/blog/willing-to-build-up-your-own-workshops-on-demand-infrastructure/) of this series, I explained how to deploy the backend server of our Workshops-on-Demand infrastructure.
 
@@ -318,7 +321,7 @@ I﻿n a perfect world, we would have covered here what one would somehow expect 
 
 The **PURGE** scenario is therefore triggered on deployment failures.
 
-A﻿t the registration time, when the participant hits the register button on the frontend web portal, an entry is automatically created in the database for him. It associates the particpant to a student and a workshop. it also r﻿egisters the date and start time of the workshop, sets the participant status  to 'welcome' in the database and a first email is sent to the particpant from the frontend web portal welcoming him to the Workshop-on-Demand and stating to him that within a few minutes a second email will be sent along with the necessary information (credentials and url) to connect to the workshop environment. If for any reason, the deployment of the workshop fails and as a consequence, no API call is made  back to the frontend from the backend, the frontend could remain stuck for ever and so would the participant. To overcome this, we implemented a check on the frontend web portal to test this welcome status. In a normal scenario, this welcome status gets updated within less than 3 minutes. If the status is not updated within 10 minutes, we consider that something went wrong during the deployment and as a result, a <PURGE> scenario is initiated to clean up both the backend and the frontend sides of the related registration. 
+A﻿t the registration time, when the participant hits the register button on the frontend web portal, an entry is automatically created in the database for him. It associates the particpant to a student and a workshop. it also r﻿egisters the date and start time of the workshop, sets the participant status  to 'welcome' in the database and a first email is sent to the particpant from the frontend web portal welcoming him to the Workshop-on-Demand and stating to him that within a few minutes a second email will be sent along with the necessary information (credentials and url) to connect to the workshop environment. If for any reason, the deployment of the workshop fails and as a consequence, no API call is made  back to the frontend from the backend, the frontend could remain stuck for ever and so would the participant. To overcome this, we implemented a check on the frontend web portal to test this welcome status. In a normal scenario, this welcome status gets updated within less than 3 minutes. If the status is not updated within 10 minutes, we consider that something went wrong during the deployment and as a result, a **PURGE** scenario is initiated to clean up both the backend and the frontend sides of the related registration. 
 
 I﻿n terms of task associated to the **PURGE** scenario, you can see that we kept the minimal as there should not be much to clean up on the backend server. Same tasks to begin with as we still need student id and workshop id. 
 
@@ -334,4 +337,6 @@ A﻿n email is then sent to the participant explaining to him that we encountere
 
 N﻿ow, you should have a clearer view of what is really happening in the background when one registers for a workshop. You can see that I have uncovered many scripts to explain step by step all the stages of a workshop's deployment process. But there are some more to be explained. It is obvious that the main function of the backend server is to deploy and run workshops. Nevertheless, as any other server, it cannot live without maintenance.
 
-T﻿his subject will be at the core of my next article where I will detail how one needs to manage and work with this server on a daily basis. What we usually call day 2 operation.
+T﻿his subject will be at the core of my next article where I will detail how one needs to manage and work with this server on a daily basis. What we usually call day 2 operations.
+
+Please be sure to drop back at [HPE DEV](https://developer.hpe.com/blog) for a follow up on this. Check out also the Hack Shack for new [workshops](https://developer.hpe.com/hackshack/workshops)! We are currently working on different subjects like HPE GreenLake for Compute Operations Management API 101 or HPE Data Services Cloud Console API for HPE GreenLake for Block Storage cloud data service. Stay Tuned !
