@@ -11,4 +11,4 @@ width: large
 
 February 20, 2023 - April 17, 2023
 
-Build and train a ML model with the fastest and easiest tool to build deep learning models at scale.
+The Determined Community Team is running a hackathon! Build and train an ML model using Determined to win cash prizes.
