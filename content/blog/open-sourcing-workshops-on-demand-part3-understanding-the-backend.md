@@ -383,6 +383,8 @@ A﻿s part of the refacturing work to open source the project, we reaaranged the
 
 We separated the workshops related scripts from the pure system ones. When one creates a workshop, one needs to provide a series of notebooks and in some cases some scripts to manage the creation, setup of a related appliance along with additional scripts to manage its lifecycle in the overall workshops-on-Demand architecture (Create, Cleanup, Reset scripts at deployment or Cleanup times). These scripts need to be located in the script folder. On the other hand, the system scripts are located in the sys folder.
 
+
+
 T﻿here are two types of activities that can occur on the backend server: punctual or regular. The punctual activity is one that is performed once every now and then. The regular one is usually set up on the backend server as a cron job. Sometimes however, one of these cron tasks can be forced manually if necessary. One the main scheduled task is the `deliver` task. I will explain it later on in this chapter. I will start now by explaining an important possible punctual task, the update of the backend server.
 
 ##### U﻿pdate of the backend server:
@@ -488,16 +490,23 @@ I﻿t checks a quite long list of items like:
 * M﻿anage /etc/hosts file
 * Install the pkg update script
 * Setup crontab for daily pkg security update
+* Deliver create/reset/setup scripts as ansible template for variable expansion
 * Install utility scripts
 * Deliver the system scripts (cleanup-processes.sh.j2)
 * Installation of the cleanup-processes script
 * Setup weekly cleanup processes task
 * Enable WoD service
 * Test private tasks YAML file
-* Call private tasks if available
+* Call private tasks if available.We perform private part before users management to allow interruption of the deliver script during normal operations - waiting till end of users management can take hours for 2000 users. Potential impact: private scripts are run before users creation, so may miss some part of setup.
+* U﻿ser Management:
 
-
-
+  * Remove existing jupyterhub users
+  * Remove Linux users and their home directory
+  * Ensure dedicated students groups exist
+  * Ensure Linux students users exists with their home directory
+  * Ensure jupyterhub students users exist
+  * Setup ACL for students with jupyterhub account
+  * Setup default ACL for students with jupyterhub account
 
 
 
