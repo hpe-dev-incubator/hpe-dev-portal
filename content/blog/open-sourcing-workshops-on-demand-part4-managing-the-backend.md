@@ -5,11 +5,13 @@ author: Frederic Passeron
 authorimage: /img/frederic-passeron-hpedev-192.jpg
 disable: false
 ---
+I﻿n previous articles of this series dedicated to the [open sourcing of our Workshops-on-Demand project](https://developer.hpe.com/blog/willing-to-build-up-your-own-workshops-on-demand-infrastructure/), I covered the reasons why we open sourced  the project, how we did it. I also explained in details how you could install your own Workshops-on-Demand backend server. I also took the time to detail the automation that was hosted on this backend server. Today, I plan to describe to you the management of this backend server. What is often refered to as day2 operations.
 
+O﻿nce up and running, the backend server main purpose is to deliver workshops-on-Demand. But to do so, it may require updates, upgrades, new kernels for the Jupyterhub server. If new workshops are created, this means new jinja templates for related workshops' scripts (create<WKSHP>.sh. cleanup<WKSHP>.sh, reset<WKSHP>.sh among others). This also means new variables files. And obviously, this templates and variables will need to be taken into account by scripts and notebooks. Some tasks handle all of this. And we will see now how.
 
 #### B﻿ackend server management:
 
-I﻿ will detail how one needs to manage and work with this server on a daily basis. What we usually call day 2 operation. If you take a look at the file structure of the wod-backend directory, you will discover that we did our best to sort things properly depending on their relationship to system  or workshops.
+ If you take a look at the file structure of the wod-backend directory, you will discover that we did our best to sort things properly depending on their relationship to system  or workshops.
 
 ##### C﻿ontent of the backend server:
 
@@ -165,6 +167,7 @@ P﻿ossible Use Cases:
 * U﻿pgrade to a newer version of Jupyterhub
 * A﻿dd a new kernel to Jupyterhub
 * A﻿dd a new Ansible Galaxy collection
+* A﻿dd a new PowerShell library 
 * A﻿dd a new package needed by a workshop. For e.g:
 
   * Kubectl client  
@@ -182,10 +185,9 @@ O﻿n a daily basis, some tasks are launched to check the integrity of the backe
 
 I﻿t checks a quite long list of items like:
 
-* W﻿od System compliancy: is this really a wod system? by calling out [check_system.yml](https://github.com/Workshops-on-Demand/wod-backend/blob/main/ansible/check_system.yml) playbook
+* W﻿od System compliancy: is this really a wod system? by calling out [check_system.yml](https://github.com/Workshops-on-Demand/wod-backend/blob/main/ansible/check_system.yml) playbook. 
 
-\    T﻿his first check includes:  
-
+  T﻿his first check includes:  
 * nproc hard and soft limits 
 * n﻿ofile hard and soft limits
 * Setup sysctl params 
@@ -216,7 +218,7 @@ I﻿t checks a quite long list of items like:
 * Setup weekly cleanup processes task
 * Enable WoD service
 * Test private tasks YAML file
-* Call private tasks if available.We perform private part before users management to allow interruption of the deliver script during normal operations - waiting till end of users management can take hours for 2000 users. Potential impact: private scripts are run before users creation, so may miss some part of setup.
+* Call private tasks if available. We perform private part before users management to allow interruption of the deliver script during normal operations - waiting till end of users management can take hours for 2000 users. Potential impact: private scripts are run before users creation, so may miss some part of setup.
 * U﻿ser Management:
 
   * Remove existing jupyterhub users
