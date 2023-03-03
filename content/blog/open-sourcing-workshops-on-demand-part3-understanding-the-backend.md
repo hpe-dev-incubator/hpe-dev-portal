@@ -394,7 +394,6 @@ wodadmin@server:/usr/local/bin$ ./wod-test-action.sh
 Syntax: wod-test-action.sh <CREATE|CLEANUP|RESET|PURGE|PDF|WORD> WKSHOP [MIN[,MAX]
 ACTION is mandatory
 wodadmin@server:/usr/local/bin$
-
 ```
 
 I﻿t requires the verb, the workshop's name and the student id. Using the script, one does not need to provide participant id.  The script is run locally on the Jupyterhub server.
@@ -403,7 +402,7 @@ I﻿t requires the verb, the workshop's name and the student id. Using the scrip
 wodadmin@server:/usr/local/bin$ ./wod-test-action.sh
 Syntax: wod-test-action.sh <CREATE|CLEANUP|RESET|PURGE|PDF|WORD> WKSHOP [MIN[,MAX]
 ACTION is mandatory
-wodadmin@jupyterhub3:/usr/local/bin$ ./wod-test-action.sh CREATE WKSHP-API101 121
+wodadmin@server:/usr/local/bin$ ./wod-test-action.sh CREATE WKSHP-API101 121
 Action: CREATE
 We are working on WKSHP-API101
 Student range: 121
@@ -414,7 +413,6 @@ Sending a mail to CREATE student 121 for workshop WKSHP-API101
 354 End data with <CR><LF>.<CR><LF>
 250 2.0.0 Ok: queued as 9749E15403AB
 221 2.0.0 Bye
-
 ```
 
 I﻿n order to retrieve the result of the script, you simply need to run a `tail` command
@@ -429,7 +427,6 @@ From xyz@hpe.com  Fri Mar  3 09:08:35 2023
 + source /home/wodadmin/wod-backend/scripts/wod.sh
 ....
 + echo 'end of procmail-action for student 121 (passwd werty123) with workshop WKSHP-API101 with action CREATE at Fri Mar  3 09:11:39 UTC 2023'
-
 ```
 
 T﻿he very last line of the trace will provide you with the credentials necessary to test your workshop. 
