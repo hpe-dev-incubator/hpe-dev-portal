@@ -334,8 +334,6 @@ A﻿n email is then sent to the participant explaining to him that we encountere
 
 N﻿ow, you should have a clearer view of what is really happening in the background when one registers for a workshop. You can see that I have uncovered many scripts to explain step by step all the stages of a workshop's deployment process. But there are some more to be explained. It is obvious that the main function of the backend server is to deploy and run workshops. Nevertheless, as any other server, it cannot live without maintenance.
 
-
-
 #### B﻿ackend server management:
 
 I﻿ will detail how one needs to manage and work with this server on a daily basis. What we usually call day 2 operation. If you take a look at the file structure of the wod-backend directory, you will discover that we did our best to sort things properly depending on their relationship to system  or workshops.
@@ -383,7 +381,58 @@ A﻿s part of the refacturing work to open source the project, we reaaranged the
 
 We separated the workshops related scripts from the pure system ones. When one creates a workshop, one needs to provide a series of notebooks and in some cases some scripts to manage the creation, setup of a related appliance along with additional scripts to manage its lifecycle in the overall workshops-on-Demand architecture (Create, Cleanup, Reset scripts at deployment or Cleanup times). These scripts need to be located in the script folder. On the other hand, the system scripts are located in the sys folder.
 
+![](/img/tree-wkshop2.png "Tree view of the sys directory")
 
+t﻿his directory hosts important configuration files for the system, for Jupyterhub. You can see for instance fail2ban configuration files. Some jinja templates are present here too. These templates will be expanded trough the deliver mechanism allowing the creation of files customized with ansible variables. All the wod related tasks are prefixed with wod for better understanding and ease of use.  
+
+They can refer to some Jupyterhub kernel needs like wod-build-evcxr.sh.j2 that aims at creating a script allowing the rust kernel installation. Some other templates are related to the system and Jupyterhub. wod-kill-processes.pl.j2 has been created after discovering the harsh reality of online mining...In a ideal world, I would not have to explain further as the script would not be needed. Unfortunately, this is not the case, when one offers access to some harware freely online, he can expect sooner or later to  see his original and pure idea to be highjacked...Let's say that you want to provide some AI/ML 101 type of workshops, you may consider providing servers with some GPUs. Any twisted minded cryptominer discovering your ressources will definitely think he hits the jackpot! This little anecdot actually happened to us and not only on GPU based servers, some regular servers got hit as well. We found out that performance on some servers became very poor and wehen looking into it, we found some scripts that were not supposed to be here and to run here...As a result, we implemented monitors to check load on our server and make sure that to  kill any suspicious process before kicking out the misbehaving student.
+
+wod-test-action.sh.j2 is another interesting template that will create a script that we use for testing. This script mimics the procmail API and allows you to  test the deployment f a workshop from the shell. 
+
+```shellsession
+wodadmin@server:/usr/local/bin$ ./wod-test-action.sh
+Syntax: wod-test-action.sh <CREATE|CLEANUP|RESET|PURGE|PDF|WORD> WKSHOP [MIN[,MAX]
+ACTION is mandatory
+wodadmin@server:/usr/local/bin$
+
+```
+
+I﻿t requires the verb, the workshop's name and the student id. Using the script, one does not need to provide participant id.  The script is run locally on the Jupyterhub server.
+
+```shellsession
+wodadmin@server:/usr/local/bin$ ./wod-test-action.sh
+Syntax: wod-test-action.sh <CREATE|CLEANUP|RESET|PURGE|PDF|WORD> WKSHOP [MIN[,MAX]
+ACTION is mandatory
+wodadmin@jupyterhub3:/usr/local/bin$ ./wod-test-action.sh CREATE WKSHP-API101 121
+Action: CREATE
+We are working on WKSHP-API101
+Student range: 121
+Sending a mail to CREATE student 121 for workshop WKSHP-API101
+220 server.xyz.com ESMTP Postfix (Ubuntu)
+250 2.1.0 Ok
+250 2.1.5 Ok
+354 End data with <CR><LF>.<CR><LF>
+250 2.0.0 Ok: queued as 9749E15403AB
+221 2.0.0 Bye
+
+```
+
+I﻿n order to retrieve the result of the script, you simply need to run a tail command
+
+```shellsession
+wodadmin@server:~$ tail -100f .mail/from
+++ date
+....
+From xyz@hpe.com  Fri Mar  3 09:08:35 2023
+ Subject: CREATE 121 0
+  Folder: /home/wodadmin/wod-backend/scripts/procmail-action.sh CREATE       11
++ source /home/wodadmin/wod-backend/scripts/wod.sh
+....
++ echo 'end of procmail-action for student 121 (passwd werty123) with workshop WKSHP-API101 with action CREATE at Fri Mar  3 09:11:39 UTC 2023'
+
+```
+
+T﻿he very last line of the trace will provide you with the credentials necessary to test your workshop. 
 
 T﻿here are two types of activities that can occur on the backend server: punctual or regular. The punctual activity is one that is performed once every now and then. The regular one is usually set up on the backend server as a cron job. Sometimes however, one of these cron tasks can be forced manually if necessary. One the main scheduled task is the `deliver` task. I will explain it later on in this chapter. I will start now by explaining an important possible punctual task, the update of the backend server.
 
@@ -507,10 +556,3 @@ I﻿t checks a quite long list of items like:
   * Ensure jupyterhub students users exist
   * Setup ACL for students with jupyterhub account
   * Setup default ACL for students with jupyterhub account
-
-
-
-
-
-
-Unfortunately, this is not the case, when one offers access to some harware freely online, he can expect sooner or later to  see his original and pure idea to be highjacked...Let's say that you want to provide some AI/ML 101 type of workshops, you may consider providing servers with some GPUs. Any twisted minded cryptominer discovering your ressources will definitely think he hits the jackpot! This little anecdot actually happened to us and not only on GPU based servers, some regular servers got hit as well. We found out that performance on some servers became very poor and wehen looking into it, we found some scripts that were not supposed to be here and to run here...
