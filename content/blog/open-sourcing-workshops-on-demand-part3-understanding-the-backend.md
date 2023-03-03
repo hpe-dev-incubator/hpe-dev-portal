@@ -334,6 +334,12 @@ A﻿n email is then sent to the participant explaining to him that we encountere
 
 N﻿ow, you should have a clearer view of what is really happening in the background when one registers for a workshop. You can see that I have uncovered many scripts to explain step by step all the stages of a workshop's deployment process. But there are some more to be explained. It is obvious that the main function of the backend server is to deploy and run workshops. Nevertheless, as any other server, it cannot live without maintenance.
 
+T﻿his subject will be at the core of my next article where I will detail how one needs to manage and work with this server on a daily basis. What we usually call day 2 operation.
+
+
+
+
+
 #### B﻿ackend server management:
 
 I﻿ will detail how one needs to manage and work with this server on a daily basis. What we usually call day 2 operation. If you take a look at the file structure of the wod-backend directory, you will discover that we did our best to sort things properly depending on their relationship to system  or workshops.
