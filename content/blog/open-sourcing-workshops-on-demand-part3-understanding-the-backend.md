@@ -383,11 +383,11 @@ We separated the workshops related scripts from the pure system ones. When one c
 
 ![](/img/tree-wkshop2.png "Tree view of the sys directory")
 
-t﻿his directory hosts important configuration files for the system, for Jupyterhub. You can see for instance fail2ban configuration files. Some jinja templates are present here too. These templates will be expanded trough the deliver mechanism allowing the creation of files customized with ansible variables. All the wod related tasks are prefixed with wod for better understanding and ease of use.  
+t﻿his directory hosts important configuration files for the system, for Jupyterhub. You can see for instance `fail2ban` configuration files. Some jinja templates are present here too. These templates will be expanded trough the deliver mechanism allowing the creation of files customized with ansible variables. All the wod related tasks are prefixed with wod for better understanding and ease of use.  
 
-They can refer to some Jupyterhub kernel needs like wod-build-evcxr.sh.j2 that aims at creating a script allowing the rust kernel installation. Some other templates are related to the system and Jupyterhub. wod-kill-processes.pl.j2 has been created after discovering the harsh reality of online mining...In a ideal world, I would not have to explain further as the script would not be needed. Unfortunately, this is not the case, when one offers access to some harware freely online, he can expect sooner or later to  see his original and pure idea to be highjacked...Let's say that you want to provide some AI/ML 101 type of workshops, you may consider providing servers with some GPUs. Any twisted minded cryptominer discovering your ressources will definitely think he hits the jackpot! This little anecdot actually happened to us and not only on GPU based servers, some regular servers got hit as well. We found out that performance on some servers became very poor and wehen looking into it, we found some scripts that were not supposed to be here and to run here...As a result, we implemented monitors to check load on our server and make sure that to  kill any suspicious process before kicking out the misbehaving student.
+They can refer to some Jupyterhub kernel needs like wod-build-evcxr.sh.j2 that aims at creating a script allowing the rust kernel installation. Some other templates are related to the system and Jupyterhub. `wod-kill-processes.pl.j2` has been created after discovering the harsh reality of online mining...In a ideal world, I would not have to explain further as the script would not be needed. Unfortunately, this is not the case, when one offers access to some harware freely online, he can expect sooner or later to  see his original and pure idea to be highjacked...Let's say that you want to provide some AI/ML 101 type of workshops, you may consider providing servers with some GPUs. Any twisted minded cryptominer discovering your ressources will definitely think he hits the jackpot! This little anecdot actually happened to us and not only on GPU based servers, some regular servers got hit as well. We found out that performance on some servers became very poor and wehen looking into it, we found some scripts that were not supposed to be here and to run here...As a result, we implemented monitors to check load on our server and make sure that to  kill any suspicious process before kicking out the misbehaving student.
 
-wod-test-action.sh.j2 is another interesting template that will create a script that we use for testing. This script mimics the procmail API and allows you to  test the deployment f a workshop from the shell. 
+`wod-test-action.sh.j2` is another interesting template that will create a script that we use for testing. This script mimics the procmail API and allows you to  test the deployment of a workshop from the shell. 
 
 ```shellsession
 wodadmin@server:/usr/local/bin$ ./wod-test-action.sh
@@ -417,7 +417,7 @@ Sending a mail to CREATE student 121 for workshop WKSHP-API101
 
 ```
 
-I﻿n order to retrieve the result of the script, you simply need to run a tail command
+I﻿n order to retrieve the result of the script, you simply need to run a `tail` command
 
 ```shellsession
 wodadmin@server:~$ tail -100f .mail/from
