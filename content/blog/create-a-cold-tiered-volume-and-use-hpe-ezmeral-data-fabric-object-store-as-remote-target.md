@@ -188,7 +188,7 @@ I choose to use the [mc](https://docs.datafabric.hpe.com/72/ReferenceGuide/mc-co
 
 Before using the mc command line for the first time, you need to create an alias for your administrator.
 An alias contains an access endpoint, such as "https://s3-us-west-1.amazonaws.com", which is an Amazon AWS S3 endpoint; another example is "http://10.10.88.198:9000", which is a Minio endpoint.
-An alias also contains the Access Key and Secret Key used by your administrator or IAM User.
+An alias also contains the access key and secret key used by your administrator or IAM User.
 
 ##### 1. You first use the "[mc alias list](https://docs.datafabric.hpe.com/72/ReferenceGuide/mc-alias-list.html)" command to view the default Alias in the following systems.
 
