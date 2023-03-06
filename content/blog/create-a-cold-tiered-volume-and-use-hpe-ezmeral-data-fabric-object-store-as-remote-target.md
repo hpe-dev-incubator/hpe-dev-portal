@@ -180,7 +180,7 @@ While creating IAM user and bucket, you also need to prepare access policy contr
 
 You can read the following document - [Entities and Resources](https://docs.datafabric.hpe.com/72/MapROverview/object_store_account_management.html) first to gain a deeper understanding of the entity model of HPE Ezmeral Data Fabric Object Store.
 
-Below, I will demonstrate in turn how to create the above-required entities.
+Below, I will demonstrate how to create the above-required entities.
 
 #### Create an account
 
