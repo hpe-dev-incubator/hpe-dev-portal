@@ -580,14 +580,14 @@ Turn on the "Data Tiering" switch and select "Remote Archiving(Cold)". Refer to 
 <a href="https://ibb.co/cyy3cWt"><img src="https://i.ibb.co/3TTdyxW/Create-Cold-Tier-Volume-3.png" alt="Create-Cold-Tier-Volume-3" border="0"></a>
 
 * URL: The host where the S3server of the remote HPE Ezmeral Data Fabric cluster is located, and the port number is the default port 9000 of the S3server.
-* Bucket: The Bucket created for IAM User in previous steps.
+* Bucket: The bucket created for IAM User in previous steps.
 * Access key and secret key: The keys of the IAM User created in the previous step.
 
 ### Configure the CA certificate of the remote Object Store for the MAST Gateway of the local cluster
 
 You should remember that in the earlier steps, we configured the CA certificate of the Object Store's self-signed TLS certificate for the JDK keystore as well as the mc command line tool and the AWS CLI.
 
-Now we also need to configure this self-signed CA root certificate for MAST Gateway so that it can communicate with the remote Object Store.
+Now, you will also need to configure this self-signed CA root certificate for MAST Gateway so that it can communicate with the remote Object Store.
 
 Refer to this document - [Configuring the MAST Gateway Service](https://docs.datafabric.hpe.com/72/StorageTiers/ConfigMASTGateway.html), set the value of "mastgateway.curl.cainfo" in the configuration file.
 
