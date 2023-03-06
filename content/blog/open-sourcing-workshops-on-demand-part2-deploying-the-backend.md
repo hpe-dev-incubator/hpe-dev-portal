@@ -92,7 +92,6 @@ W﻿e are currently using a DL360 Gen10 server on our different production sites
 
    * From the WoD-backend server (aka JupyterHub server), as the `install` user, you will need to clone the repo first.    
 
-
    ```shellsession
    install$ git clone https://github.com/Workshops-on-Demand/wod-backend.git
    install$ cd wod-backend/
