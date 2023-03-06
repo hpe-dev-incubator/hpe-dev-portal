@@ -192,7 +192,7 @@ An alias also contains the access key and secret key used by your administrator 
 
 ##### 1. You first use the "[mc alias list](https://docs.datafabric.hpe.com/72/ReferenceGuide/mc-alias-list.html)" command to view the default Alias in the following systems.
 
-❗Note: If you are using self-signed TLS certificates or installed the cluster by Installer, you have to copy <ins>/opt/mapr/conf/ca/chain-ca.pem</ins> to <ins>~/.mc/certs/CAs/</ins> on the node running `mc`.
+❗Note: If you are using self-signed TLS certificates or installed the cluster via Installer, you have to copy <ins>/opt/mapr/conf/ca/chain-ca.pem</ins> to <ins>~/.mc/certs/CAs/</ins> on the node running `mc`.
 The meaning of this step is the same as you imported the self-issued CA to the keytool of the JVM earlier, `mc` also needs to import the self-issued CA to communicate with the S3server of the Object Store.
 
 ```shell
