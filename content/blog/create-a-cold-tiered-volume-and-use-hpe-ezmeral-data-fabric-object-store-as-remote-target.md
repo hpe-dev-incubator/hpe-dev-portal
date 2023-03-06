@@ -119,15 +119,13 @@ This is because the CA certificate used by the self-signed TLS certificate is no
 
 In any scenario where a self-signed TLS certificate is used, you need to import the self-signed CA certificate into the OS system.
 
-You can use the following command:
+You can use the following command to look at things like CA certificates in your JVM:
 
 ```shell
 keytool -list -v -cacerts
 ```
 
-to look at things like CA certificates in your JVM.
-
-You'll find something like the following:
+You should now see something like the following:
 
 ```dart
 Alias name: digicertassuredidrootca
