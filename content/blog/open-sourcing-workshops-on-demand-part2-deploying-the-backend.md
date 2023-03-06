@@ -7,8 +7,6 @@ disable: false
 tags:
   - " opensource,workshops-on-demand"
 ---
-# Open Sourcing Workshops-on-Demand part 2: How to deploy the backend
-
 In the first [article](https://developer.hpe.com/blog/willing-to-build-up-your-own-workshops-on-demand-infrastructure/) of this series, I described the reasons behind the decision to open source our Workshops-on-Demand (WoD) project and gave you a comprehensive picture of the project's overall infrastructure. In this second article, I will cover the backend part of the project and explain how to deploy it.
 
 T﻿he overall infrastructure can run on physical servers or VMs. We usually designate one server for the frontend and a second server for the backend. You could also decide to separate every single component of each side.
