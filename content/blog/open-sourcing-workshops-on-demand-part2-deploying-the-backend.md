@@ -311,7 +311,7 @@ install$ sudo ./install.sh -t backend -g staging -b jup.example.net -f notebooks
 * Calls the `install-system-<< distribution name >>.sh` script
 
 
-* Installs minimal requirered (`ansible, git, jq, openssh server, npm`)
+* Installs minimal required (`ansible, git, jq, openssh server, npm`)
 
 
 * Creates an admin user as defined upper (default is `wodadmin`) with sudo rights
@@ -320,10 +320,10 @@ install$ sudo ./install.sh -t backend -g staging -b jup.example.net -f notebooks
 * Calls the `install-system-common.sh` script that performs the following tasks:
 
   * cleanup
-  * github repos cloning (leveraging install.repo file) : public Backend and public Private repos
+  * Github repos cloning (leveraging install.repo file) : public Backend and public Private repos
   * Create ssh keys for wodadmin
   * Creates GROUPNAME variables
-  * Creates ansible inventory files
+  * Creates Ansible inventory files
 
 
 * Calls the `install_system.sh` script with the type (backend, frontend, etc..) that performs the following tasks:
@@ -338,33 +338,35 @@ A﻿ll Playbooks are self documented. Please check for details.
 
 At the end of the installation process:
 
-* you will have a Jupyterhub server running on port 8000
+* you will have a JupyterHub server running on port 8000
 * You will get a new `wodadmin` user (Default admin)
 * You will get a set of 20 students (Default value)
 
 W﻿e leave it to you to handle the necessary port redirection and SSL certificates management when needed. In our case, we went for a simple yet efficient solution based on an OPNSense Firewall along with a HAProxy setup to manage ports'redirection, HTTP to HTTPS Redirection, SSL Certificates. The backend also includes a Fail2ban service for login security management.
 
-At this point, you should then be able to access your Jupyterhub environment with a few pre-installed set of kernels like `Bash, Python, ansible, ssh, PowerShell`.
+At this point, you should be able to access your JupyterHub environment with a few pre-installed set of kernels like `Bash, Python, ansible, ssh, PowerShell`.
 
-Y﻿ou can then start developing new notebooks for your public based environment. And if you don't know how to achieve this, the next article in the series should allow you to learn more about it.
+Y﻿ou can then start developing new notebooks for your public based environment. And if you don't know how to do this, I will explain how in my next article
 
-N﻿ow if you are willing to develop private content that cannot be shared because of dedicated IPs with the wider Open Source community, you can read the next part that will explain you how to handle this.
+If you need to develop private content that cannot be shared with the wider Open Source Community because of dedicated IP, the next section in this article will explain how to handle this.
 
-### For private based Workshops-on-Demand (private backend + private workshops on top of default public backend and notebooks)
+### **How to handle private-content based Workshops-on-Demand**
 
-T﻿he principle remains somehow similar with a few differences explained below.
+###### *(private backend + private workshops on top of default public backend and notebooks)*
 
-* Y﻿ou will start by forking the following public private [repo](https://github.com/Workshops-on-Demand/wod-private.git) on github under your own github account (we will refer to it as `Account`)
-* Next, you clone the forked repo
+T﻿he principle remains similar, with a few differences explained below.
+
+* Y﻿ou will start by forking the following public private [repo](https://github.com/Workshops-on-Demand/wod-private.git) on Github under your own Github account (we will refer to it as `Account`).
+* Next, clone the forked repo.
 
 ```shellsession
 install$ git clone https://github.com/Account/wod-private.git wod-private
 install$ cd $HOME/wod-private/ansible/group_vars
 ```
 
-* Please edit the `all.yml` and `<groupname>` files to customize your setup. T﻿his variable `<groupname>`defines possible backend server in your environement. By default, the project comes with a sample working file named `production` in `ansible/group-vars`. But you could have multiple. In our case, we have defined `sandbox`, `test`, `staging` and several `production` files, all defining a different backend environment. These files will be used to override the default values specified by the public version delivered as part of the default public installation.
-* Commit and push changes to your repo
-* Create an `install.priv` file located in `install` directory when using a private repo (consider looking at [install.repo](https://github.com/Workshops-on-Demand/wod-backend/blob/main/install/install.repo) file for better understanding of the variables.
+* Edit the `all.yml` and `<groupname>` files to customize your setup. T﻿his variable `<groupname>` defines possible backend server in your environement. By default, the project comes with a sample working file named `production` in `ansible/group-vars`. But you could have multiple. In our case, we have defined `sandbox`, `test`, `staging` and several `production` files, all defining a different backend environment. These files will be used to override the default values specified by the public version delivered as part of the default public installation.
+* Commit and push changes to your repo.
+* Create an `install.priv` file located in `install` directory when using a private repo (consider looking at [install.repo](https://github.com/Workshops-on-Demand/wod-backend/blob/main/install/install.repo) file for a better understanding of the variables).
 
   * Define the WODPRIVREPO and WODPRIVBRANCH variables as follows:
 
@@ -373,12 +375,12 @@ install$ cd $HOME/wod-private/ansible/group_vars
 
 **Note: When using a token**
 
-Please refer to the following [url](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) to generate a `token` file in `install` directory of wod-backend:
+Please refer to the following [url](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) to generate a `token` file in `install` directory of WoD-backend:
 
-* edit the `install.priv` file located in `install` directory of wod-backend:  
+* Edit the `install.priv` file located in `install` directory of WoD-backend:  
 
-  * create line before variable declaration: ``token=`cat $EXEPATH/token` ``
-  * use the token in the url WODPRIVREPO="git clone https://user:$token@github.com/Account/wod-private.git wod-private"
+  * Create line before variable declaration: ``token=`cat $EXEPATH/token` ``
+  * Use the token in the url WODPRIVREPO="git clone https://user:$token@github.com/Account/wod-private.git wod-private"
 
 Y﻿ou are now ready to perform the installation again to support a private repository. 
 
@@ -389,8 +391,6 @@ sudo ./install.sh -t backend -g staging -b jup.example.net -f notebooks.example.
 
 Please note that this setup phase can be conccurent with the public setup phase. Indeed, the install script should detect the presence of the private repository owing to the presence of the install.priv file. It will automatically adjust the different scripts and variables to add the relevant content. It will actually overload some of the variables with private ones.
 
-Y﻿ou have now a working Workshops-on-Demand backend server in place. Congratulations! The next article in the series will help you better understand the lifecycle of the backend server. How does a workshop registration works from the backend server 's side? How do you manage this server on a daily basis? How and when do you need to update it ? All these questions will be answered in the next article. And from there, we will move to the frontend side of things and finally to the workshop's creation process.
+Y﻿ou now have a working Workshops-on-Demand backend server in place. Congratulations! The next article in the series will help you better understand the lifecycle of the backend server. How does a workshop registration work from the backend server 's side? How do you manage this server on a daily basis? How and when do you need to update it ? All these questions will be answered in the next article. And from there, we will move to the frontend side of things and finally to a workshop's creation process.
 
-Please be sure to drop back at [HPE DEV](https://developer.hpe.com/blog) for a follow up on this. Check out also the Hack Shack for new [workshops](https://developer.hpe.com/hackshack/workshops)! [Data Visualization 101](https://developer.hpe.com/hackshack/replays/42) is now available! HPE GreenLake for Compute Operations Management API 101 on its way too. Stay tuned!
-
-And after having read the first article of this serie, you already have a rough idea of its lifecycle. I will provide now a more detailled view of it so you can fully understand the different features it embeds.
+Please be sure to check back [HPE Developer blog site](https://developer.hpe.com/blog) to read all the articles in this series. Also, check out  the Hack Shack for new [workshops](https://developer.hpe.com/hackshack/workshops) [Data Visualization 101](https://developer.hpe.com/hackshack/replays/42) is now available! HPE GreenLake for Compute Operations Management API 101 on its way too. Stay tuned!
