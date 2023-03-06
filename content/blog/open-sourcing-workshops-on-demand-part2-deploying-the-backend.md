@@ -58,25 +58,20 @@ Here's a quick look at what can be found in each:
 It provides:
 
 * A complete JupyterHub server with some addons (additional Jupyterhub kernels, Ansible galaxies, and PowerShell libraries) on your system, ready to host Workshops-on-Demand that you can find [here](https://developer.hpe.com/hackshack/workshops).[](https://github.com/Workshops-on-Demand/wod-notebooks.git)
-
-
 * A postfix server used for the procmail API
-
 * An Ansible engine to allow automation
-
 * A fail2ban service
-
 * An Admin user to manage everything
-
 * A﻿ set of scripts to handle different tasks such as:
-  -Notebooks deployment
-  ﻿-Jupyterhub compliancy
-  ﻿-Users compliancy
-  ﻿-Security Management
+
+  * Notebooks deployment 
+    ﻿  *Jupyterhub compliancy*
+    ﻿  Users compliancy 
+    ﻿ * Security Management
 
 #### Backend server preparation:
 
-B﻿efore cloning the backend repository, you need to prepare the server that will host the backend features. When ready, you will proceed with the cloning and then the installation process.
+B﻿efore cloning the backend repository, you will need to prepare the server that will host the backend features. When ready, you will proceed with the cloning and then the installation process.
 
 ##### Pre requesites:
 
