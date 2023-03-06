@@ -77,14 +77,14 @@ B﻿efore cloning the backend repository, you will need to prepare the server th
 
 1. I﻿n order to setup the backend server, you will need:
 
-   * A fresh OS install on physical / virtualized server running Ubuntu 20.04 or Centos 7.9 leveraging any deployment mechanism of your choice.(e.g iLO, vagrant, etc.). You may even use this [vagrant file](https://github.com/Workshops-on-Demand/wod-backend/blob/main/install/Vagrantfile) to generate automatically a complete setup leveraging vagrant, libvirt and QEMU/KVM.
-   * A linux account with sudo priviledges on your linux distro. Name it `install`
+   * A fresh OS install on physical / virtualized server running Ubuntu 20.04 or Centos 7.9 leveraging any deployment mechanism of your choice.(e.g. iLO, vagrant, etc.). You may even use this [vagrant file](https://github.com/Workshops-on-Demand/wod-backend/blob/main/install/Vagrantfile) to automatically generate a complete setup leveraging vagrant, libvirt and QEMU/KVM.
+   * A Linux account with sudo priviledges on your Linux distro. Name it `install`
 
-   **Note:** In order to support 100 concurrent users : 
+   **Note:** In order to support 100 concurrent users, you need:
 
    * 2 cpus or more machine
-   * 128 Gigas of Ram
-   * 500 Gigas of Drive
+   * 128 GB of RAM
+   * 500 GB of storage
 
      W﻿e are currently using a DL360 gen10 server on our different production sites.
 2. W﻿hen done with OS installation and preparation
