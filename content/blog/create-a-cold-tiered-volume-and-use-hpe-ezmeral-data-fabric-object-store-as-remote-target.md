@@ -277,7 +277,7 @@ After created an alias, you would find the information is appended into <ins>$HO
 
 **4. Create an account**
 
-I choose to use the Object Store Web GUI to create an account.
+I chose to use the Object Store Web GUI to create an account.
 
 Refer to this document - [Using the Object Store Interface](https://docs.datafabric.hpe.com/72/MapROverview/create-account.html#create_account__section_fsm_1hn_nrb).
 
