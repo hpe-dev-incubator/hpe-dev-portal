@@ -581,7 +581,7 @@ Turn on the "Data Tiering" switch and select "Remote Archiving(Cold)". Refer to 
 
 * URL: The host where the S3server of the remote HPE Ezmeral Data Fabric cluster is located, and the port number is the default port 9000 of the S3server.
 * Bucket: The Bucket created for IAM User in previous steps.
-* Access Key and Secret Key: The keys of the IAM User created in the previous step.
+* Access key and secret key: The keys of the IAM User created in the previous step.
 
 ### Configure the CA certificate of the remote Object Store for the MAST Gateway of the local cluster
 
