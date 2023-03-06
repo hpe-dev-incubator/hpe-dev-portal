@@ -76,7 +76,7 @@ It provides:
 
 B﻿efore cloning the backend repository, you will need to prepare the server that will host the backend features. When ready, you will proceed with the cloning and then the installation process.
 
-##### Prerequesites:
+### Prerequesites:
 
 1. I﻿n order to setup the backend server, you will need:
 
@@ -84,8 +84,7 @@ B﻿efore cloning the backend repository, you will need to prepare the server th
 
    * A Linux account with sudo priviledges on your Linux distro. Name it `install`    
 
-
-     **Note:** In order to support 100 concurrent users, you need:
+**Note:** In order to support 100 concurrent users, you need:
 
    * 2 cpus or more machine
    * 128 GB of RAM
@@ -97,7 +96,6 @@ W﻿e are currently using a DL360 Gen10 server on our different production sites
 
    * From the WoD-backend server (aka JupyterHub server), as the `install` user, you will need to clone the repo first.    
 
-
    ```shellsession
    install$ git clone https://github.com/Workshops-on-Demand/wod-backend.git
    install$ cd wod-backend/
@@ -106,9 +104,9 @@ W﻿e are currently using a DL360 Gen10 server on our different production sites
    * Examine default installation parameters and adapt when necessary accordingly. Files are self documented.    
 
 
-     * Look at the following files within `ansible/group_vars` directory.
+      * Look at the following files within `ansible/group_vars` directory.    
 
-       * `all.yml` file
+         * `all.yml` file 
 
          ```shellsession
          vi all.yml
@@ -180,7 +178,7 @@ W﻿e are currently using a DL360 Gen10 server on our different production sites
          SCRIPTPRIVDIR: "{{ WODPRIVDIR }}/scripts"
          ANSIBLEPRIVDIR: "{{ WODPRIVDIR }}/ansible"
          ```
-       * `wod-backend` file
+       * `wod-backend` file    
 
          ```shellsession
          vi wod-backend
@@ -236,7 +234,7 @@ W﻿e are currently using a DL360 Gen10 server on our different production sites
          DATAVISUPORT1-WKSHP-DataVisu101: 22101
          DATAVISUPORT2-WKSHP-DataVisu101: 22131
          ```
-       * `wod-system` file
+       * `wod-system` file    
 
          ```shellsession
          vi wod-system
@@ -326,25 +324,28 @@ install$ sudo ./install.sh -t backend -g staging -b jup.example.net -f notebooks
 
 * Calls the `install-system-common.sh` script that performs the following tasks:
 
-  * cleanup
-  * Github repos cloning (leveraging install.repo file) : public Backend and public Private repos
-  * Create ssh keys for wodadmin
-  * Creates GROUPNAME variables
-  * Creates Ansible inventory files
+   * cleanup
+   * Github repos cloning (leveraging install.repo file) : public Backend and public Private repos
+   * Create ssh keys for wodadmin
+   * Creates GROUPNAME variables
+   * Creates Ansible inventory files
 
 * Calls the `install_system.sh` script with the type (backend, frontend, etc..) that performs the following tasks:
 
-  * Install the necessary stack based on selected type
-  * Create a `wod.sh` script in `wod-backend` directory to be used by all other scripts
-  * Source the `wod.sh` file 
-  * Setup Ansible-galaxies (`community.general` and `posix`)
-  * Setup Ansible and call the playbook `install_<type>.yml` followed by the `ansible\_check\_<type>.yml`
+   * Install the necessary stack based on selected type
+   * Create a `wod.sh` script in `wod-backend` directory to be used by all other scripts
+   * Source the `wod.sh` file 
+   * Setup Ansible-galaxies (`community.general` and `posix`)
+   * Setup Ansible and call the playbook `install_<type>.yml` followed by the `ansible\_check\_<type>.yml`
 
 At the end of the installation process:
 
-* you will have a JupyterHub server running on port 8000
-* You will get a new `wodadmin` user (Default admin)
-* You will get a set of 20 students (Default value)
+ * you will have a JupyterHub server running on port 8000    
+
+ * You will get a new `wodadmin` user (Default admin)    
+
+ * You will get a set of 20 students (Default value)    
+
 
 A﻿ll playbooks are self-documented. Please check for details.
 
@@ -362,31 +363,38 @@ If you need to develop private content that cannot be shared with the wider Open
 
 T﻿he principle remains similar, with a few differences explained below.
 
-* Y﻿ou will start by forking the following public private [repo](https://github.com/Workshops-on-Demand/wod-private.git) on Github under your own Github account (we will refer to it as `Account`).
-* Next, clone the forked repo.
+* Y﻿ou will start by forking the following public private [repo](https://github.com/Workshops-on-Demand/wod-private.git) on Github under your own Github account (we will refer to it as `Account`).    
+
+* Next, clone the forked repo.    
 
 ```shellsession
 install$ git clone https://github.com/Account/wod-private.git wod-private
 install$ cd $HOME/wod-private/ansible/group_vars
 ```
 
-* Edit the `all.yml` and `<groupname>` files to customize your setup. T﻿his variable `<groupname>` defines possible backend server in your environement. By default, the project comes with a sample working file named `production` in `ansible/group-vars`. But you could have multiple. In our case, we have defined `sandbox`, `test`, `staging` and several `production` files, all defining a different backend environment. These files will be used to override the default values specified by the public version delivered as part of the default public installation.
-* Commit and push changes to your repo.
-* Create an `install.priv` file located in `install` directory when using a private repo (consider looking at [install.repo](https://github.com/Workshops-on-Demand/wod-backend/blob/main/install/install.repo) file for a better understanding of the variables).
+* Edit the `all.yml` and `<groupname>` files to customize your setup. T﻿his variable `<groupname>` defines possible backend server in your environement. By default, the project comes with a sample working file named `production` in `ansible/group-vars`. But you could have multiple. In our case, we have defined `sandbox`, `test`, `staging` and several `production` files, all defining a different backend environment. These files will be used to override the default values specified by the public version delivered as part of the default public installation.    
 
-  * Define the WODPRIVREPO and WODPRIVBRANCH variables as follows:
+* Commit and push changes to your repo.    
 
-    * WODPRIVBRANCH="main"
-    * WODPRIVREPO="git@github.com:Account/Private-Repo.git wod-private"
+* Create an `install.priv` file located in `install` directory when using a private repo (consider looking at [install.repo](https://github.com/Workshops-on-Demand/wod-backend/blob/main/install/install.repo) file for a better understanding of the variables).        
+ ﻿ 
+
+    * Define the WODPRIVREPO and WODPRIVBRANCH variables as follows:     
+
+    * WODPRIVBRANCH="main"    
+
+    * WODPRIVREPO="git@github.com:Account/Private-Repo.git wod-private"    
+
 
 **Note: When using a token**
 
 Please refer to the following [url](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) to generate a `token` file in `install` directory of WoD-backend:
 
-* Edit the `install.priv` file located in `install` directory of WoD-backend:  
+* Edit the `install.priv` file located in `install` directory of WoD-backend:    
 
-  * Create line before variable declaration: ``token=`cat $EXEPATH/token` ``
-  * Use the token in the url WODPRIVREPO="git clone https://user:$token@github.com/Account/wod-private.git wod-private"
+  * Create line before variable declaration: ``token=`cat $EXEPATH/token` ``    
+
+  * Use the token in the url WODPRIVREPO="git clone https://user:$token@github.com/Account/wod-private.git wod-private"    
 
 Y﻿ou are now ready to perform the installation again to support a private repository. 
 
