@@ -38,9 +38,7 @@ Here's a quick look at what can be found in each:
 
 **[w﻿od-frontend](https://github.com/Workshops-on-Demand/wod-frontend):** Frontend part of the Workshops-on-Demand project.
 
-* Based on NGINX and NodeJS technologies, it provides the participtants' Registration Portal used to enable
-
-  booking of the workshops.
+* Based on NGINX and NodeJS technologies, it provides the participtants' Registration Portal used to enable booking of the workshops.
 
 **[w﻿od-api-db](https://github.com/Workshops-on-Demand/wod-api-db):** Workshops-on-Demand registration portal application
 
@@ -77,6 +75,7 @@ B﻿efore cloning the backend repository, you will need to prepare the server th
 1. I﻿n order to setup the backend server, you will need:
 
 * A fresh OS install on physical / virtualized server running Ubuntu 20.04 or Centos 7.9 leveraging any deployment mechanism of your choice.(e.g. iLO, vagrant, etc.). You may even use this [vagrant file](https://github.com/Workshops-on-Demand/wod-backend/blob/main/install/Vagrantfile) to automatically generate a complete setup leveraging vagrant, libvirt and QEMU/KVM.   
+
 * A Linux account with sudo priviledges on your Linux distro. Name it `install`    
 
 **Note:** In order to support 100 concurrent users, you need:
