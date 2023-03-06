@@ -418,7 +418,7 @@ mc admin policy add s3-admin-alias PolicyPublicRead ./PolicyPublicRead.json acco
 
 🗒Note: "PolicyPublicRead" is the IAM Policy's name.
 
-You can also use the Object Store Web GUI to create the IAM Policy, like the following screenshot👇.
+You can also use the Object Store Web GUI to create the IAM Policy, like shown in the following screenshot👇.
 
 <a href="https://ibb.co/xsH1nYH"><img src="https://i.ibb.co/n0C7XBC/Object-Store-Create-IAMPolicy-1.png" alt="Object-Store-Create-IAMPolicy-1" border="0"></a>
 
