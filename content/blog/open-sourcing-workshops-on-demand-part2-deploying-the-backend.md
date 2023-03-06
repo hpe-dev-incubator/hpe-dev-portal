@@ -90,6 +90,7 @@ W﻿e are currently using a DL360 Gen10 server on our different production sites
 
    * From the WoD-backend server (aka JupyterHub server), as the `install` user, you will need to clone the repo first.    
 
+
    ```shellsession
    install$ git clone https://github.com/Workshops-on-Demand/wod-backend.git
    install$ cd wod-backend/
@@ -97,9 +98,9 @@ W﻿e are currently using a DL360 Gen10 server on our different production sites
 
    * Examine default installation parameters and adapt when necessary accordingly. Files are self documented.    
 
-     * Look at the following files within `ansible/group_vars` directory.    
+  * Look at the following files within `ansible/group_vars` directory.     
 
-       * `all.yml` file 
+       * `all.yml` file    
 
        ```shellsession
        vi all.yml
