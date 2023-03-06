@@ -102,7 +102,7 @@ There is another place in the documentation where keytool is used. The command i
 ${JAVA_HOME}/bin/keytool -noprompt -importcert -file /opt/mapr/conf/ca/chain-ca.pem -alias mosscert -keystore ${JAVA_HOME}/lib/security/cacerts -storepass changeit
 ```
 
-You don't need to execute `keytool` twice to import the same **ca certificate** file.
+You don't need to execute `keytool` twice to import the same **CA certificate** file.
 
 I suggest you change "maprca" to something more recognizable.
 
