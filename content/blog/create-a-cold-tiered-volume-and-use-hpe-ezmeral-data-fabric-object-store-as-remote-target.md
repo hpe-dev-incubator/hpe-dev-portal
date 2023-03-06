@@ -139,7 +139,7 @@ Issuer: CN=DigiCert Assured ID Root CA, OU=www.digicert.com, O=DigiCert Inc, C=U
 
 This is a recognized CA certificate issued by Digicert.
 
-So, after you use `keytool` to import /opt/mapr/conf/ca/chain-ca.pem into the JVM, use keytool -list -v -cacerts to see something similar to the following:
+After you use `keytool` to import /opt/mapr/conf/ca/chain-ca.pem into the JVM, use keytool -list -v -cacerts to see something similar to the following:
 
 ```dart
 Alias name: edf-clustera-ca
