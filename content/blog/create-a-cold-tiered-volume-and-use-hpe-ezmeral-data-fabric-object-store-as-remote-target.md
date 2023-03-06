@@ -589,17 +589,17 @@ You should remember that in the earlier steps, we configured the CA certificate 
 
 Now, you will also need to configure this self-signed CA root certificate for MAST Gateway so that it can communicate with the remote Object Store.
 
-Refer to this document - [Configuring the MAST Gateway Service](https://docs.datafabric.hpe.com/72/StorageTiers/ConfigMASTGateway.html), set the value of "mastgateway.curl.cainfo" in the configuration file.
+Refer to this document - [Configuring the MAST Gateway Service](https://docs.datafabric.hpe.com/72/StorageTiers/ConfigMASTGateway.html), and set the value of "mastgateway.curl.cainfo" in the configuration file.
 
 You need to find <ins>/opt/mapr/conf/ca/chain-ca.pem</ins> from a host of the Object Store cluster first, and copy it to the MAST Gateway node.
 For the convenience of management, you can rename it appropriately and configure it as the value of "mastgateway.curl.cainfo".
 
 ### Use the maprcli volume offload command to manually offload data
 
-Now you can place some data in the Cold-Tiered Volume you just created. 
+Now you can place some data in the cold-tiered volume you just created.
 I put a 5.6GB file in it.
 
-Then, you can use the following command to manually trigger the offload of the entire Volume.
+Then, you can use the following command to manually trigger the offload of the entire olume.
 
 ```shell
 maprcli volume offload -ignorerule true -name {VOLUME_NAME}
