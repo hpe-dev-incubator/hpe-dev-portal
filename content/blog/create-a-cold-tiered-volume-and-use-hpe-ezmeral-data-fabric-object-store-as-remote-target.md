@@ -31,8 +31,7 @@ In HPE Ezmeral Data Fabric, you can create a cold-tiered volume, set correspondi
 The remote object storage can be the object storage of AWS, GCP, Azure and other public clouds, or an object storage service compatible with Minio.
 Of course, you can also use the Object Store of HPE Ezmeral Data Fabric as a remote target.
 This article will demonstrate how to create a cold-tiered volume and configure another HPE Ezmeral Data Fabric Object Store as the remote target for offloading.
-
-At the same time, I will also demonstrate how to create an Account, IAM user, and bucket in the HPE Ezmeral Data Fabric Object Store, and use the AWS CLI to perform a put object operation on this bucket through the above configuration.
+At the same time, I will also demonstrate how to create an account, IAM user, and bucket in the HPE Ezmeral Data Fabric Object Store, and use the AWS CLI to perform a **put object operation** on this bucket through the above configuration.
 
 ### [](#advantages-of-using-data-tiering)Advantages of using Data Tiering
 
