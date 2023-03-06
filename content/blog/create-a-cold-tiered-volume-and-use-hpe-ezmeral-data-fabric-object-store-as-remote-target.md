@@ -541,13 +541,13 @@ Otherwise AWS CLI cannot communicate with S3server because S3server is using sel
 After inputting the above command, the AWS CLI will ask you to input the access key and secret key.
 After the profile is created, the information will be stored at <ins>$HOME/.aws/config</ins> and <ins>$HOME/.aws/credentials</ins>.
 
-Use the below command to list Buckets:
+Use the below command to list buckets:
 
 ```shell
 aws s3api list-buckets --endpoint-url https://`hostname -f`:9000 --profile s3-test-iam_user-ray-2-objstor
 ```
 
-Use the below command to put a file into the Bucket:
+Use the below command to put a file into the bucket:
 
 ```shell
 aws s3api put-object --bucket s3-test-iam-user-bucket --key 'testdir/s3-test-iam-user-dir/hpe-cp-rhel-release-5.5.1-3083.bin' --body 'downloads/hpe-cp-rhel-release-5.5.1-3083.bin' --endpoint-url https://m2-maprts-vm197-172.mip.storage.hpecorp.net:9000 --profile s3-test-iam_user-ray-2-objstor
