@@ -61,6 +61,7 @@ It provides:
 * A fail2ban service
 * An Admin user to manage everything
 * A﻿ set of scripts to handle different tasks such as:
+
   * Notebooks deployment 
   * Jupyterhub compliancy
   * Users compliancy
@@ -308,25 +309,15 @@ install$ sudo ./install.sh -t backend -g staging -b jup.example.net -f notebooks
 `install.sh` performs the following tasks:
 
 * Calls the `install-system-<< distribution name >>.sh` script
-
-
 * Installs minimal required (`ansible, git, jq, openssh server, npm`)
-
-
 * Creates an admin user as defined upper (default is `wodadmin`) with sudo rights
-
-
 * Calls the `install-system-common.sh` script that performs the following tasks:
-
   * cleanup
   * Github repos cloning (leveraging install.repo file) : public Backend and public Private repos
   * Create ssh keys for wodadmin
   * Creates GROUPNAME variables
   * Creates Ansible inventory files
-
-
 * Calls the `install_system.sh` script with the type (backend, frontend, etc..) that performs the following tasks:
-
   * Install the necessary stack based on selected type
   * Create a `wod.sh` script in `wod-backend` directory to be used by all other scripts
   * Source the `wod.sh` file 
@@ -336,7 +327,6 @@ install$ sudo ./install.sh -t backend -g staging -b jup.example.net -f notebooks
 A﻿ll Playbooks are self documented. Please check for details.
 
 At the end of the installation process:
-
 * you will have a JupyterHub server running on port 8000
 * You will get a new `wodadmin` user (Default admin)
 * You will get a set of 20 students (Default value)
