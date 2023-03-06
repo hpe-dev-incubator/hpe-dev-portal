@@ -563,7 +563,7 @@ The part of "testdir/s3-test-iam-user-dir/" indicates it's under this directory,
 So, now we are going to create a volume on another cluster and configure the cold-tier remote target for this volume.
 Then we will manually offload the data in this olume to the remote HPE Ezmeral Data Fabric Object Store.
 
-### Create a cold-tiered volume by Web GUI
+### Create a cold-tiered volume via a web GUI
 
 First of all, you need to log in to MCS, and enter the following positions in turn at the top of the screen: Data --> Volumes👇
 
