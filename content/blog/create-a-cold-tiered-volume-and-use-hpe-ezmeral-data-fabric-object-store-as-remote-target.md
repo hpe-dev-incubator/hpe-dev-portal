@@ -80,7 +80,7 @@ You should refer to this document - [Enabling the HPE Ezmeral Data Fabric Objec
 
 For the above document, I have a few supplementary notes, which should make your configuration smoother.
 
-#### 1. About the "keytool -noprompt -importcert" command in the docs.
+#### 1. About "keytool -noprompt -importcert" command
 
 Please do not use this 👇 command in the original document:
 
