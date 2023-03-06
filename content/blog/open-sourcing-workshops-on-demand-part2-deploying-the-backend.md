@@ -318,6 +318,7 @@ install$ sudo ./install.sh -t backend -g staging -b jup.example.net -f notebooks
   * Create ssh keys for wodadmin
   * Creates GROUPNAME variables
   * Creates ansible inventory files
+
 * Calls the `install_system.sh` script with the type (backend, frontend, etc..) that performs the following tasks:
 
   * Install the necessary stack based on selected type
@@ -367,10 +368,10 @@ install$ cd $HOME/wod-private/ansible/group_vars
 
 Please refer to the following [url](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) to generate a `token` file in `install` directory of wod-backend:
 
-* edit the `install.priv` file located in `install` directory of wod-backend:
+  * edit the `install.priv` file located in `install` directory of wod-backend:  
 
-  * create line before variable declaration: ``token=`cat $EXEPATH/token` ``
-  * use the token in the url WODPRIVREPO="git clone https://user:$token@github.com/Account/wod-private.git wod-private"
+    * create line before variable declaration: ``token=`cat $EXEPATH/token` ``
+    * use the token in the url WODPRIVREPO="git clone https://user:$token@github.com/Account/wod-private.git wod-private"
 
 Y﻿ou are now ready to perform the installation again to support a private repository. 
 
@@ -385,4 +386,4 @@ Y﻿ou have now a working Workshops-on-Demand backend server in place. Congratul
 
 Please be sure to drop back at [HPE DEV](https://developer.hpe.com/blog) for a follow up on this. Check out also the Hack Shack for new [workshops](https://developer.hpe.com/hackshack/workshops)! [Data Visualization 101](https://developer.hpe.com/hackshack/replays/42) is now available! HPE GreenLake for Compute Operations Management API 101 on its way too. Stay tuned!
 
- And after having read the first article of this serie, you already have a rough idea of its lifecycle. I will provide now a more detailled view of it so you can fully understand the different features it embeds.
+And after having read the first article of this serie, you already have a rough idea of its lifecycle. I will provide now a more detailled view of it so you can fully understand the different features it embeds.
