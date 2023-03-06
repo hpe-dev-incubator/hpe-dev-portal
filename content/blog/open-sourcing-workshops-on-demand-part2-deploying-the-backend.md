@@ -81,7 +81,6 @@ B﻿efore cloning the backend repository, you will need to prepare the server th
    * A Linux account with sudo priviledges on your Linux distro. Name it `install`
 
      **Note:** In order to support 100 concurrent users, you need:
-
    * 2 cpus or more machine
    * 128 GB of RAM
    * 500 GB of storage
@@ -90,7 +89,7 @@ W﻿e are currently using a DL360 Gen10 server on our different production sites
 
 2. W﻿hen done with OS installation and preparation
 
-   * From the wod-backend server aka Jupyterhub server, as the `install` user, you will need to clone the repo first.
+   * From the WoD-backend server (aka JupyterHub server), as the `install` user, you will need to clone the repo first.
 
    ```shellsession
    install$ git clone https://github.com/Workshops-on-Demand/wod-backend.git
