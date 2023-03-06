@@ -184,7 +184,7 @@ Below, I will demonstrate how to create the above-required entities.
 
 #### Create an account
 
-I choose to use the [mc](https://docs.datafabric.hpe.com/72/ReferenceGuide/mc-commands-overview.html) command line tool to create Account.
+I choose to use the [mc](https://docs.datafabric.hpe.com/72/ReferenceGuide/mc-commands-overview.html) command line tool to create an account.
 
 Before using the mc command line for the first time, you need to create an Alias for your administrator.
 
