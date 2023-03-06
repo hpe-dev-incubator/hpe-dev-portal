@@ -76,9 +76,8 @@ B﻿efore cloning the backend repository, you will need to prepare the server th
 
 1. I﻿n order to setup the backend server, you will need:
 
-   * A fresh OS install on physical / virtualized server running Ubuntu 20.04 or Centos 7.9 leveraging any deployment mechanism of your choice.(e.g. iLO, vagrant, etc.). You may even use this [vagrant file](https://github.com/Workshops-on-Demand/wod-backend/blob/main/install/Vagrantfile) to automatically generate a complete setup leveraging vagrant, libvirt and QEMU/KVM.    
-
-   * A Linux account with sudo priviledges on your Linux distro. Name it `install`    
+* A fresh OS install on physical / virtualized server running Ubuntu 20.04 or Centos 7.9 leveraging any deployment mechanism of your choice.(e.g. iLO, vagrant, etc.). You may even use this [vagrant file](https://github.com/Workshops-on-Demand/wod-backend/blob/main/install/Vagrantfile) to automatically generate a complete setup leveraging vagrant, libvirt and QEMU/KVM.   
+* A Linux account with sudo priviledges on your Linux distro. Name it `install`    
 
 **Note:** In order to support 100 concurrent users, you need:
 
@@ -90,180 +89,182 @@ W﻿e are currently using a DL360 Gen10 server on our different production sites
 
 2. W﻿hen done with OS installation and preparation
 
-   * From the WoD-backend server (aka JupyterHub server), as the `install` user, you will need to clone the repo first.    
+* From the WoD-backend server (aka JupyterHub server), as the `install` user, you will need to clone the repo first.    
 
-   ```shellsession
-   install$ git clone https://github.com/Workshops-on-Demand/wod-backend.git
-   install$ cd wod-backend/
-   ```
+```shellsession
+install$ git clone https://github.com/Workshops-on-Demand/wod-backend.git
+install$ cd wod-backend/
+```
 
-   * Examine default installation parameters and adapt when necessary accordingly. Files are self documented.    
+* Examine default installation parameters and adapt when necessary accordingly. Files are self documented.
+* Look at the following files within `ansible/group_vars` directory.
 
+  * `all.yml` file       
 
-      * Look at the following files within `ansible/group_vars` directory.     
+```shellsession
+vi all.yml
+---
+# We create fixed user accounts to provide an isolated execution environment to run the jupyter notebooks
+# They are called studentXXX where XXX is set between USERMIN and USERMAX defined below potentially with the addition of an offset (UIDBASE) for their uid/gid
+# Their home directory is located under /student and is thus named /student/studentXXX
+# Corresponding JupyterHub accounts are also created
+#
+# USERMIN indicates the starting ID of the Linux and Jupyter user account range
+#
+USERMIN: 1
+#
+# USERMAX indicates the ending ID of the Linux and Jupyter user account range
+#
+USERMAX: 20
+#
+# UIDBASE is the offset used to create the Linux user account IDs
+# Example when creating user 35 with UIDBASE of 2000, the uid created is 2035
+#
+UIDBASE: 2000
+#
+# GIDBASE is the offset used to create the Linux group IDs
+# Example: When creating user 35 with GIDBASE of 2000, the gid created is 2035
+#
+GIDBASE: 2000
+#
+# Set CLEAN to true if you want all Liunx & Jupyter user accounts to be removed before ansible check
+#
+CLEAN: false
+#
+# VAULTPWD is the password used to manage the Ansible vault
+#
+VAULTPWD: VeryComplexPasswd1234!
+#
+# NOCHECKSSH are ssh options used to dialog with appliances
+# By default, avoid checking Host keys and Host file as they may change on a regular base
+#
+NOCHECKSSH: -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null
+#
+# Branding management - Use if you want to customize Logo and Notebooks branding
+#
+BRANDING: "WoD Developer"
+BRANDINGWOD: "WoD Developer"
+BRANDINGLOGO: "![HPEDEVlogo](Pictures/hpe-dev-logo.png)"
+BRANDINGURL: "https://wod.io"
+#
+# Survey management - Use if you want to ask for feedback on your workshops - Look at existing conclusion notebooks
+SURVEYURL: TBD
+SURVEYCHALURL: TBD
+#
+# JPHUB  is the directory used to install the JupyterHub stack (a Python venv)
+#
+JPHUB: /opt/jupyterhub
+#
+#
+# These variables are defined in Ansible playbooks. Do not change without knowing what you are doing.
+#
+STUDDIR: "{{ ansible_env.STUDDIR }}"
+WODBEDIR: "{{ ansible_env.WODBEDIR }}"
+WODPRIVDIR: "{{ ansible_env.WODPRIVDIR }}"
+WODNOBO: "{{ ansible_env.WODNOBO }}"
+WODAPIDBDIR: "{{ ansible_env.WODAPIDBDIR }}"
+WODFEDIR: "{{ ansible_env.WODFEDIR }}"
+SCRIPTDIR: "{{ WODBEDIR }}/scripts"
+ANSIBLEDIR: "{{ WODBEDIR }}/ansible"
+# This is the predefined structure for a private repo
+WODPRIVNOBO: "{{ WODPRIVDIR }}/notebooks"
+SCRIPTPRIVDIR: "{{ WODPRIVDIR }}/scripts"
+ANSIBLEPRIVDIR: "{{ WODPRIVDIR }}/ansible"
+```
 
-        * `all.yml` file       
+* `wod-backend` file
 
-  ```shellsession
-  vi all.yml
-  ---
-  # We create fixed user accounts to provide an isolated execution environment to run the jupyter notebooks
-  # They are called studentXXX where XXX is set between USERMIN and USERMAX defined below potentially with the addition of an offset (UIDBASE) for their uid/gid
-  # Their home directory is located under /student and is thus named /student/studentXXX
-  # Corresponding JupyterHub accounts are also created
-  #
-  # USERMIN indicates the starting ID of the Linux and Jupyter user account range
-  #
-  USERMIN: 1
-  #
-  # USERMAX indicates the ending ID of the Linux and Jupyter user account range
-  #
-  USERMAX: 20
-  #
-  # UIDBASE is the offset used to create the Linux user account IDs
-  # Example when creating user 35 with UIDBASE of 2000, the uid created is 2035
-  #
-  UIDBASE: 2000
-  #
-  # GIDBASE is the offset used to create the Linux group IDs
-  # Example: When creating user 35 with GIDBASE of 2000, the gid created is 2035
-  #
-  GIDBASE: 2000
-  #
-  # Set CLEAN to true if you want all Liunx & Jupyter user accounts to be removed before ansible check
-  #
-  CLEAN: false
-  #
-  # VAULTPWD is the password used to manage the Ansible vault
-  #
-  VAULTPWD: VeryComplexPasswd1234!
-  #
-  # NOCHECKSSH are ssh options used to dialog with appliances
-  # By default, avoid checking Host keys and Host file as they may change on a regular base
-  #
-  NOCHECKSSH: -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null
-  #
-  # Branding management - Use if you want to customize Logo and Notebooks branding
-  #
-  BRANDING: "WoD Developer"
-  BRANDINGWOD: "WoD Developer"
-  BRANDINGLOGO: "![HPEDEVlogo](Pictures/hpe-dev-logo.png)"
-  BRANDINGURL: "https://wod.io"
-  #
-  # Survey management - Use if you want to ask for feedback on your workshops - Look at existing conclusion notebooks
-  SURVEYURL: TBD
-  SURVEYCHALURL: TBD
-  #
-  # JPHUB  is the directory used to install the JupyterHub stack (a Python venv)
-  #
-  JPHUB: /opt/jupyterhub
-  #
-  #
-  # These variables are defined in Ansible playbooks. Do not change without knowing what you are doing.
-  #
-  STUDDIR: "{{ ansible_env.STUDDIR }}"
-  WODBEDIR: "{{ ansible_env.WODBEDIR }}"
-  WODPRIVDIR: "{{ ansible_env.WODPRIVDIR }}"
-  WODNOBO: "{{ ansible_env.WODNOBO }}"
-  WODAPIDBDIR: "{{ ansible_env.WODAPIDBDIR }}"
-  WODFEDIR: "{{ ansible_env.WODFEDIR }}"
-  SCRIPTDIR: "{{ WODBEDIR }}/scripts"
-  ANSIBLEDIR: "{{ WODBEDIR }}/ansible"
-  # This is the predefined structure for a private repo
-  WODPRIVNOBO: "{{ WODPRIVDIR }}/notebooks"
-  SCRIPTPRIVDIR: "{{ WODPRIVDIR }}/scripts"
-  ANSIBLEPRIVDIR: "{{ WODPRIVDIR }}/ansible"
-  ```
+````
+    * `wod-backend` file    
 
-        * `wod-backend` file    
+```shellsession
+vi wod-backend
+#
+# These variables are located lower in the ansible tree to allow different values required for different backends while keeping a single frontend
+#
+# BASESTDID is the offset used to create users in the DB. It is required that each backend has a different non overlapping value.
+# Overlap is defined by BASESTDID + USERMAX (from all.yml)
+#
+# Example:
+# for student 35 in location A having BASESTDID to 0 the user is create as id 35
+# for student 35 in location B having BASESTDID to 2000 the user is create as id 2035
+# There is no overlap as long as you do not create more than 2000 users which should be the value of USERMAX in that case.
+#
+# This is different from the offset UIDBASE used for Linux uid
+#
+BASESTDID: 0
+#
+# POSTPORT is the Postfix Port on which the smtp service is listening to receive API mail requests from the frontend
+#
+POSTPORT: "10025"
+#
+# In case you are using an LDAP server to use, flag as such the corresponding workshops in the DB and use the following values:
+#
+LDAPSRVNAME: ldap.example.org
+LDAPDMN: example.org
+LDAPPWD: MotDePasseLDAPCompliquéAussi123!!!##
+LDAPPORT: "389"
+#
+# For various existing public WoDs - These are needed. Adapt but do not remove!
+#
+SSHPORT-WKSHP-Docker101: 14101
+SSHPORT-WKSHP-Ansible101: 16001
+HTTPPORT-WKSHP-Docker101: 14151
+HTTPPORT-WKSHP-Ansible101: 16051
+HTTPPORT-WKSHP-Spark101: 17161
+HTTPPORT-WKSHP-Concourse101: 19061
+HTTPPORT-WKSHP-ML101: 18061
+HTTPPORT-WKSHP-DataVisu101: 22161
+CONCOURSEPORT-WKSHP-Concourse101: 19001
+CONCOURSEPORT2-WKSHP-Concourse101: 19031
+IP-WKSHP-DataVisu101: x.y.z.t
+IP-WKSHP-Concourse101: x.y.z.t
+IP-WKSHP-Docker101: x.y.z.t
+IP-WKSHP-Ansible101: x.y.z.t
+IP-WKSHP-Spark101: x.y.z.t
+IP-WKSHP-ML101: x.y.z.t
+IP-WKSHP-StackStorm101: x.y.z.t
+SPARKPORT-WKSHP-Spark101: 17101
+SPARKPORT2-WKSHP-Spark101: 17131
+MLPORT-WKSHP-ML101: 18101
+MLPORT2-WKSHP-ML101: 18031
+DATAVISUPORT1-WKSHP-DataVisu101: 22101
+DATAVISUPORT2-WKSHP-DataVisu101: 22131
+```
+    * `wod-system` file    
 
-    ```shellsession
-    vi wod-backend
-    #
-    # These variables are located lower in the ansible tree to allow different values required for different backends while keeping a single frontend
-    #
-    # BASESTDID is the offset used to create users in the DB. It is required that each backend has a different non overlapping value.
-    # Overlap is defined by BASESTDID + USERMAX (from all.yml)
-    #
-    # Example:
-    # for student 35 in location A having BASESTDID to 0 the user is create as id 35
-    # for student 35 in location B having BASESTDID to 2000 the user is create as id 2035
-    # There is no overlap as long as you do not create more than 2000 users which should be the value of USERMAX in that case.
-    #
-    # This is different from the offset UIDBASE used for Linux uid
-    #
-    BASESTDID: 0
-    #
-    # POSTPORT is the Postfix Port on which the smtp service is listening to receive API mail requests from the frontend
-    #
-    POSTPORT: "10025"
-    #
-    # In case you are using an LDAP server to use, flag as such the corresponding workshops in the DB and use the following values:
-    #
-    LDAPSRVNAME: ldap.example.org
-    LDAPDMN: example.org
-    LDAPPWD: MotDePasseLDAPCompliquéAussi123!!!##
-    LDAPPORT: "389"
-    #
-    # For various existing public WoDs - These are needed. Adapt but do not remove!
-    #
-    SSHPORT-WKSHP-Docker101: 14101
-    SSHPORT-WKSHP-Ansible101: 16001
-    HTTPPORT-WKSHP-Docker101: 14151
-    HTTPPORT-WKSHP-Ansible101: 16051
-    HTTPPORT-WKSHP-Spark101: 17161
-    HTTPPORT-WKSHP-Concourse101: 19061
-    HTTPPORT-WKSHP-ML101: 18061
-    HTTPPORT-WKSHP-DataVisu101: 22161
-    CONCOURSEPORT-WKSHP-Concourse101: 19001
-    CONCOURSEPORT2-WKSHP-Concourse101: 19031
-    IP-WKSHP-DataVisu101: x.y.z.t
-    IP-WKSHP-Concourse101: x.y.z.t
-    IP-WKSHP-Docker101: x.y.z.t
-    IP-WKSHP-Ansible101: x.y.z.t
-    IP-WKSHP-Spark101: x.y.z.t
-    IP-WKSHP-ML101: x.y.z.t
-    IP-WKSHP-StackStorm101: x.y.z.t
-    SPARKPORT-WKSHP-Spark101: 17101
-    SPARKPORT2-WKSHP-Spark101: 17131
-    MLPORT-WKSHP-ML101: 18101
-    MLPORT2-WKSHP-ML101: 18031
-    DATAVISUPORT1-WKSHP-DataVisu101: 22101
-    DATAVISUPORT2-WKSHP-DataVisu101: 22131
-    ```
-        * `wod-system` file    
-
-    ```shellsession
-    vi wod-system
-    #
-    # Backend API management
-    #
-    # Do not change, as the port is fixed in the JupyterHub install
-    #
-    WODBEAPIURL: http://{{ WODBEFQDN }}:8000
-    #
-    # Replace with a random one - TODO Do that automatically at install time
-    #
-    WODBETOKEN: 2c0246e2c8564dc6ac7b12c544b25d77
-    #
-    # You may want to use these variables if you have an OPNSense server as a security FW and are allowing http comm internally
-    #
-    #OPNSENSEKEY:
-    #OPNSENSESEC:
-    #OPNSENSEIP:
-    #OPNSENSEPORT:
-    #
-    # Front-end API management
-    #
-    # Do not change, as the port is fixed in the JupyterHub install
-    #
-    WODFEAPIURL: https://{{ WODAPIDBFQDN }}/api
-    #
-    # Adapt to your setup - Used by installer to setup the frontend
-    #
-    WODFEAPIUSER: moderator
-    WODFEAPIPWD: MotDePasseCompliquéAussi125!!!##
-    ```
+```shellsession
+vi wod-system
+#
+# Backend API management
+#
+# Do not change, as the port is fixed in the JupyterHub install
+#
+WODBEAPIURL: http://{{ WODBEFQDN }}:8000
+#
+# Replace with a random one - TODO Do that automatically at install time
+#
+WODBETOKEN: 2c0246e2c8564dc6ac7b12c544b25d77
+#
+# You may want to use these variables if you have an OPNSense server as a security FW and are allowing http comm internally
+#
+#OPNSENSEKEY:
+#OPNSENSESEC:
+#OPNSENSEIP:
+#OPNSENSEPORT:
+#
+# Front-end API management
+#
+# Do not change, as the port is fixed in the JupyterHub install
+#
+WODFEAPIURL: https://{{ WODAPIDBFQDN }}/api
+#
+# Adapt to your setup - Used by installer to setup the frontend
+#
+WODFEAPIUSER: moderator
+WODFEAPIPWD: MotDePasseCompliquéAussi125!!!##
+```
+````
 
 #### B﻿ackend installation process:
 
@@ -313,48 +314,30 @@ install$ sudo ./install.sh -t backend -g staging -b jup.example.net -f notebooks
 
 `install.sh` performs the following tasks:
 
-   * Calls the `install-system-<< distribution name >>.sh` script      
+* Calls the `install-system-<< distribution name >>.sh` script      
 
-        * Installs minimal required (`ansible, git, jq, openssh server, npm`)    
+  * Installs minimal required (`ansible, git, jq, openssh server, npm`)    
+  * Creates an admin user as defined upper (default is `wodadmin`) with sudo rights    
+* Calls the `install-system-common.sh` script that performs the following tasks:    
 
-        * Creates an admin user as defined upper (default is `wodadmin`) with sudo rights    
+  * cleanup    
+  * Github repos cloning (leveraging install.repo file) : public Backend and public Private repos    
+  * Create ssh keys for wodadmin    
+  * Creates GROUPNAME variables    
+  * Creates Ansible inventory files    
+* Calls the `install_system.sh` script with the type (backend, frontend, etc..) that performs the following tasks:    
 
-   * Calls the `install-system-common.sh` script that performs the following tasks:    
-
-
-        * cleanup    
-
-        * Github repos cloning (leveraging install.repo file) : public Backend and public Private repos    
-
-        * Create ssh keys for wodadmin    
-
-        * Creates GROUPNAME variables    
-
-        * Creates Ansible inventory files    
-
-
-   * Calls the `install_system.sh` script with the type (backend, frontend, etc..) that performs the following tasks:    
-
-
-        * Install the necessary stack based on selected type    
-
-        * Create a `wod.sh` script in `wod-backend` directory to be used by all other scripts    
-
-        * Source the `wod.sh` file     
-
-        * Setup Ansible-galaxies (`community.general` and `posix`)    
-
-        * Setup Ansible and call the playbook `install_<type>.yml` followed by the `ansible\_check\_<type>.yml`    
-
+  * Install the necessary stack based on selected type    
+  * Create a `wod.sh` script in `wod-backend` directory to be used by all other scripts    
+  * Source the `wod.sh` file     
+  * Setup Ansible-galaxies (`community.general` and `posix`)    
+  * Setup Ansible and call the playbook `install_<type>.yml` followed by the `ansible\_check\_<type>.yml`    
 
 At the end of the installation process:
 
 * you will have a JupyterHub server running on port 8000    
-
 * You will get a new `wodadmin` user (Default admin)    
-
 * You will get a set of 20 students (Default value)    
-
 
 A﻿ll playbooks are self-documented. Please check for details.
 
@@ -373,9 +356,7 @@ If you need to develop private content that cannot be shared with the wider Open
 T﻿he principle remains similar, with a few differences explained below.
 
 * Y﻿ou will start by forking the following public private [repo](https://github.com/Workshops-on-Demand/wod-private.git) on Github under your own Github account (we will refer to it as `Account`).    
-
 * Next, clone the forked repo.    
-
 
 ```shellsession
 install$ git clone https://github.com/Account/wod-private.git wod-private
@@ -383,17 +364,16 @@ install$ cd $HOME/wod-private/ansible/group_vars
 ```
 
 * Edit the `all.yml` and `<groupname>` files to customize your setup. T﻿his variable `<groupname>` defines possible backend server in your environement. By default, the project comes with a sample working file named `production` in `ansible/group-vars`. But you could have multiple. In our case, we have defined `sandbox`, `test`, `staging` and several `production` files, all defining a different backend environment. These files will be used to override the default values specified by the public version delivered as part of the default public installation.    
-
 * Commit and push changes to your repo.    
-
 * Create an `install.priv` file located in `install` directory when using a private repo (consider looking at [install.repo](https://github.com/Workshops-on-Demand/wod-backend/blob/main/install/install.repo) file for a better understanding of the variables).    
 
-        * Define the WODPRIVREPO and WODPRIVBRANCH variables as follows:    
- 
-           * WODPRIVBRANCH="main"      
+  ```
+    * Define the WODPRIVREPO and WODPRIVBRANCH variables as follows:    
 
-          * WODPRIVREPO="git@github.com:Account/Private-Repo.git wod-private"    
+       * WODPRIVBRANCH="main"      
 
+      * WODPRIVREPO="git@github.com:Account/Private-Repo.git wod-private"    
+  ```
 
 **Note:** When using a token
 
@@ -401,10 +381,11 @@ Please refer to the following [url](https://docs.github.com/en/authentication/ke
 
 * Edit the `install.priv` file located in `install` directory of WoD-backend:    
 
-        * Create line before variable declaration: ``token=`cat $EXEPATH/token` ``    
+  ```
+    * Create line before variable declaration: ``token=`cat $EXEPATH/token` ``    
 
-        * Use the token in the url WODPRIVREPO="git clone https://user:$token@github.com/Account/wod-private.git wod-private"    
-
+    * Use the token in the url WODPRIVREPO="git clone https://user:$token@github.com/Account/wod-private.git wod-private"    
+  ```
 
 Y﻿ou are now ready to perform the installation again to support a private repository. 
 
