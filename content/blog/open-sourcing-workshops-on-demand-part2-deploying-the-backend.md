@@ -104,7 +104,7 @@ W﻿e are currently using a DL360 Gen10 server on our different production sites
          vi all.yml
          ---
          # We create fixed user accounts to provide an isolated execution environment to run the jupyter notebooks
-         # They are called studentXXX where XXX is comprised between USERMIN and USERMAX defined below poentially with the addition of an offset (UIDBASE) for their uid/gid
+         # They are called studentXXX where XXX is set between USERMIN and USERMAX defined below potentially with the addition of an offset (UIDBASE) for their uid/gid
          # Their home directory is located under /student and is thus named /student/studentXXX
          # Corresponding JupyterHub accounts are also created
          #
@@ -122,20 +122,20 @@ W﻿e are currently using a DL360 Gen10 server on our different production sites
          UIDBASE: 2000
          #
          # GIDBASE is the offset used to create the Linux group IDs
-         # Example when creating user 35 with GIDBASE of 2000, the gid created is 2035
+         # Example: When creating user 35 with GIDBASE of 2000, the gid created is 2035
          #
          GIDBASE: 2000
          #
-         # Setup CLEAN to true if you want all Liunx & Jupyter user accounts to be removed before ansible check
+         # Set CLEAN to true if you want all Liunx & Jupyter user accounts to be removed before ansible check
          #
          CLEAN: false
          #
-         # VAULTPWD is the passwd used to manage the ansible vault
+         # VAULTPWD is the password used to manage the Ansible vault
          #
          VAULTPWD: VeryComplexPasswd1234!
          #
          # NOCHECKSSH are ssh options used to dialog with appliances
-         # By default avoid checking Host keys and Host file as they may change on a regular base
+         # By default, avoid checking Host keys and Host file as they may change on a regular base
          #
          NOCHECKSSH: -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null
          #
@@ -146,16 +146,16 @@ W﻿e are currently using a DL360 Gen10 server on our different production sites
          BRANDINGLOGO: "![HPEDEVlogo](Pictures/hpe-dev-logo.png)"
          BRANDINGURL: "https://wod.io"
          #
-         # Survey management - Use if you want to ask for feedbacks on your Workshops - Look at existing conclusion notebooks
+         # Survey management - Use if you want to ask for feedback on your workshops - Look at existing conclusion notebooks
          SURVEYURL: TBD
          SURVEYCHALURL: TBD
          #
-         # JPHUB  is the directory used to install the JupyterHub stack (a python venv)
+         # JPHUB  is the directory used to install the JupyterHub stack (a Python venv)
          #
          JPHUB: /opt/jupyterhub
          #
          #
-         # These variables are defined in ansible playbooks, do not change without knowing what you do
+         # These variables are defined in Ansible playbooks. Do not change without knowing what you are doing.
          #
          STUDDIR: "{{ ansible_env.STUDDIR }}"
          WODBEDIR: "{{ ansible_env.WODBEDIR }}"
@@ -193,14 +193,14 @@ W﻿e are currently using a DL360 Gen10 server on our different production sites
          #
          POSTPORT: "10025"
          #
-         # In case we have a LDAP server to use, flag as such the corresponding workshops in the DB and use the following values:
+         # In case you are using an LDAP server to use, flag as such the corresponding workshops in the DB and use the following values:
          #
          LDAPSRVNAME: ldap.example.org
          LDAPDMN: example.org
          LDAPPWD: MotDePasseLDAPCompliquéAussi123!!!##
          LDAPPORT: "389"
          #
-         # For various existing public WoDs - needed. Adapt but do not remove !
+         # For various existing public WoDs - These are needed. Adapt but do not remove!
          #
          SSHPORT-WKSHP-Docker101: 14101
          SSHPORT-WKSHP-Ansible101: 16001
@@ -233,7 +233,7 @@ W﻿e are currently using a DL360 Gen10 server on our different production sites
          #
          # Backend API management
          #
-         # Do not change as the port is fixed in JupyterHub install
+         # Do not change, as the port is fixed in the JupyterHub install
          #
          WODBEAPIURL: http://{{ WODBEFQDN }}:8000
          #
@@ -241,7 +241,7 @@ W﻿e are currently using a DL360 Gen10 server on our different production sites
          #
          WODBETOKEN: 2c0246e2c8564dc6ac7b12c544b25d77
          #
-         # You may want to use these variables if you have an OPNSense server as a security FW and allowing http comm internally
+         # You may want to use these variables if you have an OPNSense server as a security FW and are allowing http comm internally
          #
          #OPNSENSEKEY:
          #OPNSENSESEC:
@@ -250,7 +250,7 @@ W﻿e are currently using a DL360 Gen10 server on our different production sites
          #
          # Front-end API management
          #
-         # Do not change as the port is fixed in JupyterHub install
+         # Do not change, as the port is fixed in the JupyterHub install
          #
          WODFEAPIURL: https://{{ WODAPIDBFQDN }}/api
          #
@@ -260,11 +260,9 @@ W﻿e are currently using a DL360 Gen10 server on our different production sites
          WODFEAPIPWD: MotDePasseCompliquéAussi125!!!##
          ```
 
-[](https://github.com/Workshops-on-Demand/wod-backend/blob/main/INSTALL.md#for-private-based-workshops-on-demand-private-backend--private-workshops-or-if-you-need-to-modify-defaults)O﻿nce you are done with the files, you can can proceed with the installation itself.
-
 #### B﻿ackend installation process:
 
-T﻿he installation is based on a common install script [install.sh ](https://github.com/Workshops-on-Demand/wod-backend/blob/main/install/install.sh)that allows the deployment of the different parts of the solution. It can be called as follows:
+[](https://github.com/Workshops-on-Demand/wod-backend/blob/main/INSTALL.md#for-private-based-workshops-on-demand-private-backend--private-workshops-or-if-you-need-to-modify-defaults)O﻿nce you are done with the files, you can can proceed with the installation itself. T﻿he installation is based on a common install script [install.sh ](https://github.com/Workshops-on-Demand/wod-backend/blob/main/install/install.sh)that allows the deployment of the different parts of the solution. It can be called as follows:
 
 `install.sh [-h][-t type][-g groupname][-b backend][-f frontend][-a api-db][-e external][-u user][-s sender]`
 
@@ -302,7 +300,7 @@ sender    is the e-mail address used in the WoD frontend to send API procmail ma
           if empty using wodadmin@localhost
 ```
 
-Example below for a backend server:
+S﻿ee the example below for a backend server.
 
 ```shellsession
 install$ sudo ./install.sh -t backend -g staging -b jup.example.net -f notebooks.example.io -a api.example.io -e notebooks.example.io -s sender@example.io
