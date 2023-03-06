@@ -1,7 +1,7 @@
 ---
-title: Create a Cold-Tiered Volume and use HPE Ezmeral Data Fabric Object Store
-  as remote target
-date: 2023-02-25T16:12:07.149Z
+title: How to create a cold-tiered volume and use HPE Ezmeral Data Fabric Object
+  Store as the remote target
+date: 2023-03-06T01:05:32.156Z
 author: Raymond Yan
 authorimage: https://i.ibb.co/64JFMHq/mmexport1595671906156-1.png
 thumbnailimage: https://i.ibb.co/rvp7d53/thumbnail-image.png
@@ -14,16 +14,16 @@ tags:
 ---
 ## Introduction
 
-### What is Data Tiering and Why?
+### What is data tiering and why do it?
 
 
 Much of your data needs to be retained, either to meet regulatory requirements or because it still has value.
-It’s useful for data that is not accessed frequently but needs to be retained to be stored in a more resource-efficient and cost-effective manner. That’s the basic idea behind Data Tiering.
+Data tiering is useful for data that is not accessed frequently but needs to be retained to be stored in a more resource-efficient and cost-effective manner.
 
 
-The most frequently accessed file data can be thought of as a "hot" data tier, using normal file storage.
+The most frequently accessed file data can be thought of as a "hot data tier, which uses normal file storage.
 Data used less often can be moved to low-cost storage alternatives in different ways, depending on the relative frequency of access.
-Some data is rarely accessed or modified but needs to be archived for future projects, for verification purposes in audits or to meet regulatory requirements. This "cold" data could be tiered to low-cost object storage in the same data storage system or in a remote storage system such as remote object storage.
+Some data is rarely accessed or modified but needs to be archived for future projects, for verification purposes in audits, or to meet regulatory requirements. This "cold" data could be tiered to low-cost object storage in the same data storage system or in a remote storage system, such as remote object storage.
 
 
 
