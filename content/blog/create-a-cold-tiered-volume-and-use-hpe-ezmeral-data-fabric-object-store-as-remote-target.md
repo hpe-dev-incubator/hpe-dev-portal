@@ -190,7 +190,7 @@ Before using the mc command line for the first time, you need to create an alias
 An alias contains an access endpoint, such as "https://s3-us-west-1.amazonaws.com", which is an Amazon AWS S3 endpoint; another example is "http://10.10.88.198:9000", which is a Minio endpoint.
 An alias also contains the access key and secret key used by your administrator or IAM User.
 
-##### 1. You first use the "[mc alias list](https://docs.datafabric.hpe.com/72/ReferenceGuide/mc-alias-list.html)" command to view the default Alias in the following systems.
+**1. You first use the "[mc alias list](https://docs.datafabric.hpe.com/72/ReferenceGuide/mc-alias-list.html)" command to view the default alias in the following systems.**
 
 ❗Note: If you are using self-signed TLS certificates or installed the cluster via Installer, you have to copy <ins>/opt/mapr/conf/ca/chain-ca.pem</ins> to <ins>~/.mc/certs/CAs/</ins> on the node running `mc`.
 The reason for this step is the same as why you imported the self-issued CA to the keytool of the JVM earlier, `mc` also needs to import the self-issued CA to communicate with the S3server of the Object Store.
@@ -231,7 +231,7 @@ s3
   Path      : dns
 ```
 
-##### 2. Generate S3 keys to authenticate your administrator
+**2. Generate S3 keys to authenticate your administrator**
 
 The cluster administrator (typically the mapr user) must authenticate to the Object Store cluster and generate S3 keys (accessKey and secretKey) on the default Object Store account.
 Perform this operation before performing any CLI operations in Object Store.
