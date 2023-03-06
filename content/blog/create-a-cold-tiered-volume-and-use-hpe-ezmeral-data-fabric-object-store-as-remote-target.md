@@ -422,7 +422,8 @@ You can also use the Object Store Web GUI to create the IAM Policy, like shown i
 
 <a href="https://ibb.co/xsH1nYH"><img src="https://i.ibb.co/n0C7XBC/Object-Store-Create-IAMPolicy-1.png" alt="Object-Store-Create-IAMPolicy-1" border="0"></a>
 
-Let's create another IAM Policy named "GrantBucketOperations"👇, you will associate these 2 IAM Policies to the IAM User - "s3-test-iam_user" later.
+Let's create another IAM policy named "GrantbucketOperations"👇.
+You will associate these 2 IAM Policies to the IAM User - "s3-test-iam_user" later.
 
 ```json
 {
