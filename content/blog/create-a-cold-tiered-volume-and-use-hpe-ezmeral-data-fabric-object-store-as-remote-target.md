@@ -151,7 +151,9 @@ Issuer: CN=MapR Engineering Root CA, OU=MapR Engineering Root CA, O=MapR, DC=hpe
 ...
 ```
 
-#### 2. The documentation describes several client software that you can use to interact with the HPE Ezmeral Object Store. I would like to add the following clarification:
+#### 2. About client software options
+
+The documentation describes several client software that you can use to interact with the HPE Ezmeral Object Store. I would like to add the following clarification:
 
 When using the `mc` command-line tool or the `s3cmd` command-line tool to interact with HPE Ezmeral Data Fabric Object Store without completing the configuration of "[Enabling S3 Virtual-Host-Style Requests](https://docs.datafabric.hpe.com/72/AdvancedInstallation/Enabling_object_store.html#concept_isb_53h_5bb__section_nnp_kr2_bvb)", some commands will not work properly.
 
