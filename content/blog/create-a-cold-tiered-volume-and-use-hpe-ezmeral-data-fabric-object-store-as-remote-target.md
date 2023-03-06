@@ -175,8 +175,8 @@ You may be able to find out how to turn off HTTPS from this document. 👉 [Usin
 
 ### [](#create-a-bucket-in-hpe-ezmeral-data-fabric-object-store-and-upload-some-objects)Create a bucket in HPE Ezmeral Data Fabric Object Store and upload some objects
 
-In order to create a Bucket, you need to create an Account, an IAM User, and finally a Bucket in sequence.
-While creating IAM User and Bucket, you also need to prepare Access Policy to control who (IAM User) can perform which (list, get, put, etc.) operations on which Bucket.
+In order to create a bucket, you need to create an account, an IAM user, and finally a bucket in sequence.
+While creating IAM user and bucket, you also need to prepare access policy control for who (IAM User) can perform which (list, get, put, etc.) operations on which bucket.
 
 You can read the following document - [Entities and Resources](https://docs.datafabric.hpe.com/72/MapROverview/object_store_account_management.html) first to gain a deeper understanding of the entity model of HPE Ezmeral Data Fabric Object Store.
 
