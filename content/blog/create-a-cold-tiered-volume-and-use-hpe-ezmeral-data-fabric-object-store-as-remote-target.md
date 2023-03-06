@@ -553,10 +553,10 @@ Use the below command to put a file into the bucket:
 aws s3api put-object --bucket s3-test-iam-user-bucket --key 'testdir/s3-test-iam-user-dir/hpe-cp-rhel-release-5.5.1-3083.bin' --body 'downloads/hpe-cp-rhel-release-5.5.1-3083.bin' --endpoint-url https://m2-maprts-vm197-172.mip.storage.hpecorp.net:9000 --profile s3-test-iam_user-ray-2-objstor
 ```
 
-🗒Note: "s3-test-iam-user-bucket" is the Bucket's name that you created before.
-"testdir/s3-test-iam-user-dir/hpe-cp-rhel-release-5.5.1-3083.bin" is the path that you want to put into the Bucket.
+🗒Note: "s3-test-iam-user-bucket" is the bucket's name which you created before.
+"testdir/s3-test-iam-user-dir/hpe-cp-rhel-release-5.5.1-3083.bin" is the path which you want to put into the bucket.
 The part of "testdir/s3-test-iam-user-dir/" indicates it's under this directory, if the directory doesn't exist, it will be created.
-"downloads/hpe-cp-rhel-release-5.5.1-3083.bin" is the local file path that you want to put into the Bucket.
+"downloads/hpe-cp-rhel-release-5.5.1-3083.bin" is the local file path which you want to put into the bucket.
 
 ## Create an Cold-Tiered Volume and offlad to remote Object Store
 
