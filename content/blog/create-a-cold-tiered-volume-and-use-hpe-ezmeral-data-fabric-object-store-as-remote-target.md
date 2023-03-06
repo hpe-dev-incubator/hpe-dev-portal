@@ -85,13 +85,13 @@ For the above document, I have a few supplementary notes, which should make your
 Please do not use this 👇 command in the original document:
 
 ```shell
-${JAVA_HOME}/bin/keytool -noprompt -importcert -file /opt/mapr/conf/ca/chain-ca.pem -alias maprca -keystore ${JAVA_HOME}/lib/security/cacerts -storepass <cacerts_truststore>
+${JAVA_HOME}/bin/keytool -noprompt -importcert -file /opt/mapr/conf/ca/chain-ca.pem -alias maprca -keystore ${JAVA_HOME}/lib/security/cacerts -storepass <store_password>
 ```
 
 Instead, use the following command:
 
 ```shell
-${JAVA_HOME}/bin/keytool -noprompt -importcert -file /opt/mapr/conf/ca/chain-ca.pem -alias maprca -cacerts -storepass <cacerts_truststore>
+${JAVA_HOME}/bin/keytool -noprompt -importcert -file /opt/mapr/conf/ca/chain-ca.pem -alias maprca -cacerts -storepass <store_password>
 ```
 
 If you use the Installer to install HPE Ezmeral Data Fabric on a fresh OS, then Installer will automatically install JDK 11, then "-storepass" password is "changeit".
