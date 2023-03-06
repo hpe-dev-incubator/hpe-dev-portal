@@ -565,7 +565,7 @@ Then we will manually offload the data in this olume to the remote HPE Ezmeral D
 
 ### Create a cold-tiered volume via a web GUI
 
-First of all, you need to log in to MCS, and enter the following positions in turn at the top of the screen: Data --> Volumes👇
+First, you will need to log into MCS, and enter the following positions in turn at the top of the screen: Data --> Volumes👇
 
 <a href="https://ibb.co/1Zg5RXN"><img src="https://i.ibb.co/2q9QcMr/Create-Cold-Tier-Volume-1.png" alt="Create-Cold-Tier-Volume-1" border="0"></a>
 
