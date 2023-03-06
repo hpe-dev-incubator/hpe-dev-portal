@@ -386,7 +386,7 @@ install$ cd $HOME/wod-private/ansible/group_vars
     * WODPRIVREPO="git@github.com:Account/Private-Repo.git wod-private"    
 
 
-**Note: When using a token**
+Note: When using a token
 
 Please refer to the following [url](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) to generate a `token` file in `install` directory of WoD-backend:
 
