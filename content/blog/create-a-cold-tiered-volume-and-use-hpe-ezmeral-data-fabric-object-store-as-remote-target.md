@@ -496,10 +496,10 @@ sudo -u mapr mc alias set s3-test-iam_user-alias https://`hostname -f`:9000 \
 sudo -u mapr mc mb --account s3test --ignore-existing --disable-versioning --json s3-test-iam_user-alias/s3-test-iam-user-bucket
 ```
 
-☝Now you have created a Bucket named "s3-test-iam-user-bucket" using the IAM User - "s3-test-iam_user".
-Because "s3-test-iam_user" is inside account - "s3test", the Bucket will be also placed under account - "s3test".
+☝Now you have created a bucket named "s3-test-iam-user-bucket" using the IAM user - "s3-test-iam_user".
+Because "s3-test-iam_user" is inside account - "s3test", the bucket will be also placed under account - "s3test".
 
-To list Buckets using the `mc` command:
+To list buckets using the `mc` command:
 
 ```shell
 /opt/mapr/bin/mc ls --account s3test --versions --recursive --summarize --json s3-test-iam_user-alias
@@ -524,11 +524,11 @@ Sample output:
 }
 ```
 
-#### Install the AWS CLI and put an file into the Bucket
+#### Install the AWS CLI and put an file into the bucket
 
 To install the AWS CLI, refer to this Amazon AWS document 👉 [Installing or updating the latest version of the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html).
 
-Then you create a profile for the IAM User:
+Then, create a profile for the IAM user:
 
 ```shell
 export AWS\_CA\_BUNDLE=/opt/mapr/conf/ca/chain-ca.pem
