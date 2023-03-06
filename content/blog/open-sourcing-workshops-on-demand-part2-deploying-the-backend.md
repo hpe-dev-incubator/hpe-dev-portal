@@ -311,21 +311,18 @@ install$ sudo ./install.sh -t backend -g staging -b jup.example.net -f notebooks
 * Calls the `install-system-<< distribution name >>.sh` script
 * Installs minimal requirered (`ansible, git, jq, openssh server, npm`)
 * Creates an admin user as defined upper (default is `wodadmin`) with sudo rights
-* Calls the `install-system-common.sh` script that performs the following tasks:
-
-  * cleanup
-  * github repos cloning (leveraging install.repo file) : public Backend and public Private repos
-  * Create ssh keys for wodadmin
-  * Creates GROUPNAME variables
-  * Creates ansible inventory files
-
+* Calls the `install-system-common.sh` script that performs the following tasks: 
+   * cleanup
+   * github repos cloning (leveraging install.repo file) : public Backend and public Private repos
+   * Create ssh keys for wodadmin
+   * Creates GROUPNAME variables
+   * Creates ansible inventory files
 * Calls the `install_system.sh` script with the type (backend, frontend, etc..) that performs the following tasks:
-
-  * Install the necessary stack based on selected type
-  * Create a `wod.sh` script in `wod-backend` directory to be used by all other scripts
-  * Source the `wod.sh` file
-  * Setup Ansible-galaxies (`community.general` and `posix`)
-  * Setup Ansible and call the playbook `install_<type>.yml` followed by the `ansible\_check\_<type>.yml`
+   * Install the necessary stack based on selected type
+   * Create a `wod.sh` script in `wod-backend` directory to be used by all other scripts
+   * Source the `wod.sh` file 
+   * Setup Ansible-galaxies (`community.general` and `posix`)
+   * Setup Ansible and call the playbook `install_<type>.yml` followed by the `ansible\_check\_<type>.yml`
 
 A﻿ll Playbooks are self documented. Please check for details.
 
@@ -368,10 +365,10 @@ install$ cd $HOME/wod-private/ansible/group_vars
 
 Please refer to the following [url](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) to generate a `token` file in `install` directory of wod-backend:
 
-  * edit the `install.priv` file located in `install` directory of wod-backend:  
+* edit the `install.priv` file located in `install` directory of wod-backend:  
 
-    * create line before variable declaration: ``token=`cat $EXEPATH/token` ``
-    * use the token in the url WODPRIVREPO="git clone https://user:$token@github.com/Account/wod-private.git wod-private"
+  * create line before variable declaration: ``token=`cat $EXEPATH/token` ``
+  * use the token in the url WODPRIVREPO="git clone https://user:$token@github.com/Account/wod-private.git wod-private"
 
 Y﻿ou are now ready to perform the installation again to support a private repository. 
 
