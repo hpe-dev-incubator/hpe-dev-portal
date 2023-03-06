@@ -264,7 +264,7 @@ Sample output:
 
 🗒Note: If you encounter any problem when generating the S3 keys, refer to this page: [Generate S3 Keys to Authenticate Users and Applications](https://docs.datafabric.hpe.com/72/MapROverview/object-store-get-started.html#object-store-get-started__section_x4h_w13_4tb).
 
-##### 3. Use the `mc alias set` command to create an alias for admin user
+**3. Use the `mc alias set` command to create an alias for admin user**
 
 ```shell
 mc alias set s3-admin-alias https://`hostname -f`:9000 {ACCESS_KEY} {SECRET_KEY} --api "s3v4" --path "off" --json
