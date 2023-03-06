@@ -475,7 +475,7 @@ sudo -u mapr /opt/mapr/bin/mc admin policy set s3-admin-alias PolicyPublicRead u
 sudo -u mapr /opt/mapr/bin/mc admin policy set s3-admin-alias GrantBucketOperations users='s3-test-iam_user' account='s3test' domain='primary'
 ```
 
-#### Create a Bucket for the IAM User
+#### Create a bucket for the IAM user
 
 First, you need to generate the access key and secret key for the IAM User - "s3-test-iam_user".
 
