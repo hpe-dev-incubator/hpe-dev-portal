@@ -560,8 +560,8 @@ The part of "testdir/s3-test-iam-user-dir/" indicates it's under this directory,
 
 ## Create an Cold-Tiered Volume and offlad to remote Object Store
 
-So, now we are going to create a Volume on another cluster and configure the Cold Tier remote target for this Volume.
-Then we will manually offload the data in this Volume to the remote HPE Ezmeral Data Fabric Object Store.
+So, now we are going to create a volume on another cluster and configure the cold-tier remote target for this volume.
+Then we will manually offload the data in this olume to the remote HPE Ezmeral Data Fabric Object Store.
 
 ### Create a Cold-Tiered Volume by Web GUI
 
