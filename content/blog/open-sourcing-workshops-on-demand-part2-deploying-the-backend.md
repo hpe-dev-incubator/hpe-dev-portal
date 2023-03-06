@@ -1,5 +1,5 @@
 ---
-title: "Open Sourcing Workshops-on-Demand part2: Deploying the Backend"
+title: "Open Sourcing Workshops-on-Demand part2: How to Deploy the backend"
 date: 2023-03-01T17:23:03.445Z
 author: Frederic Passeron
 authorimage: /img/fp-hpewod.jpg
@@ -7,29 +7,29 @@ disable: false
 tags:
   - " opensource,workshops-on-demand"
 ---
-# Open Sourcing Workshops-on-Demand part 2: Deploying the backend -T﻿he How-to now...
+# Open Sourcing Workshops-on-Demand part 2: How to deploy the backend
 
-I﻿n the first [article](https://developer.hpe.com/blog/willing-to-build-up-your-own-workshops-on-demand-infrastructure/) of this series, I described the reasons behind the decison of open sourcing our workshops-on-demand project. After reading it, you should have a better understanding of our motivations. Moreover, the project's infrastructure should now no longer have any secrets to you.
+In the first [article](https://developer.hpe.com/blog/willing-to-build-up-your-own-workshops-on-demand-infrastructure/) of this series, I described the reasons behind the decision to open source our Workshops-on-Demand (WoD) project and gave you a comprehensive picture of the project's overall infrastructure. In this second article, I will cover the backend part of the project and explain how to deploy it.
 
-I﻿n this second article, I will cover the backend part of the project. I will actually explain how to deploy it.
-
-T﻿he overall infrastructure can run on physical servers or vms. We usuasully consider at least one server for the frontend and a second server for the backend. You could also decide to separate every single component of each side.
+T﻿he overall infrastructure can run on physical servers or VMs. We usually designate one server for the frontend and a second server for the backend. You could also decide to separate every single component of each side.
 
 ![](/img/howto-wod-5.png)
 
 ## H﻿ow to deploy your own backend...
 
-A﻿s explained in the previous [article](https://developer.hpe.com/blog/willing-to-build-up-your-own-workshops-on-demand-infrastructure/), the project is split into multiple repositories from an architectural and public / private aspects. The architecture is divided between frontend and backend and the project admin will decide whether  he is willing to develop and propose public only content to the participants or add some proprietary and private content.
+A﻿s explained in the previous [article](https://developer.hpe.com/blog/willing-to-build-up-your-own-workshops-on-demand-infrastructure/), the project is split into multiple repositories from the architectural and public / private aspects. The architecture is divided between the frontend and backend. The project admin will need to decide whether  he is willing to develop and propose public-only content to the participants or add any proprietary and private content.
 
-I﻿ will start with the simpliest scenario: A public only approach. Then we will dive into the specificties related the private approach.
+I﻿ will start with the simpliest scenario: A public-only approach. Then we will dive into the specificties related the private approach.
 
-### P﻿ublic only Deployment: (No private backend nor private workshops)
+### P﻿ublic-only Deployment: No private backend nor private workshops
 
 **Important Note:**  
 
 **T﻿his part is compulsory for any type of deployment. Public only or public + private.**
 
-F﻿irst, you need a repository to clone. The github projects are available [here](https://github.com/Workshops-on-Demand/). W﻿e have packaged the solution in several github repos. Each repository represents a role in the overall architecture.
+F﻿irst, you need a repository to clone. The Workshops-on-Demand GitHub projects can be found [here](https://github.com/Workshops-on-Demand/). W﻿e have packaged the solution in several Github repos. Each repository handles a specific role in the overall architecture.
+
+Here's a quick look at what can be found in each:
 
 ![](/img/wod-blogserie2-repos.png "WOD Repositories")
 
@@ -39,27 +39,35 @@ F﻿irst, you need a repository to clone. The github projects are available [her
 
 **[w﻿od-frontend](https://github.com/Workshops-on-Demand/wod-frontend):** Frontend part of the Workshops-on-Demand project.
 
-* Based on NGINX and NodeJS technologies, it provides the participatants' registration portal to book workshops.
+* Based on NGINX and NodeJS technologies, it provides the participtants' Registration Portal used to enable
+
+  booking of the workshops.
 
 **[w﻿od-api-db](https://github.com/Workshops-on-Demand/wod-api-db):** Workshops-on-Demand registration portal application
 
-* Open API 3.0 based api used to manage the Workshops-on-Demand project. it also provides a Database hosting the different status of participants, workshops, students. 
+* Open API 3.0 based api used to manage the Workshops-on-Demand project. It also provides a database hosting the different status of participants, workshops, and students. 
 
-**[w﻿od-private](https://github.com/Workshops-on-Demand/wod-private):** Example Private configuration for WoD.
+**[w﻿od-private](https://github.com/Workshops-on-Demand/wod-private):** Example Private configuration for Workshops-on-Demand (WoD).
 
-* This provide an example for creating your own cutomization layer on top of the public standard wod Backend / wod Notebooks content. Do not put any confidential data here as this is a public repository !!
+* This provide an example for creating your own cutomization layer on top of the public standard WoD Backend / wod Notebooks content. Do not put any confidential data here as this is a public repository!
 
-**[w﻿od-backend](https://github.com/Workshops-on-Demand/wod-backend):** Back-end part of our Workshop-on-Demand setup.  
+**[w﻿od-backend](https://github.com/Workshops-on-Demand/wod-backend):** Back-end part of our Workshops-on-Demand setup.  
 
 ![](/img/wod-blogserie2repos.png "Workshops-on-Demand repositories")
 
 It provides:
 
-* A complete JupyterHub server with extensions on your system, ready to host Workshops-on-Demand that you can find [here ](https://github.com/Workshops-on-Demand/wod-notebooks.git)[](https://github.com/Workshops-on-Demand/wod-notebooks.git)
+* A complete JupyterHub server with some addons (additional Jupyterhub kernels, Ansible galaxies, and PowerShell libraries) on your system, ready to host Workshops-on-Demand that you can find [here](https://developer.hpe.com/hackshack/workshops).[](https://github.com/Workshops-on-Demand/wod-notebooks.git)
+
+
 * A postfix server used for the procmail API
+
 * An Ansible engine to allow automation
+
 * A fail2ban service
+
 * An Admin user to manage everything
+
 * A﻿ set of scripts to handle different tasks such as:
   -Notebooks deployment
   ﻿-Jupyterhub compliancy
