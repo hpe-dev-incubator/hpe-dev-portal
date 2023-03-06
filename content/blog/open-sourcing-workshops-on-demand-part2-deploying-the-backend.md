@@ -335,8 +335,11 @@ install$ sudo ./install.sh -t backend -g staging -b jup.example.net -f notebooks
 At the end of the installation process:
 
 * you will have a JupyterHub server running on port 8000    
+
 * You will get a new `wodadmin` user (Default admin)    
+
 * You will get a set of 20 students (Default value)    
+
 
 A﻿ll playbooks are self-documented. Please check for details.
 
