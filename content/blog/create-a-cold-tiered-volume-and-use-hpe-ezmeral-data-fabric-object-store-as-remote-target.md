@@ -27,8 +27,6 @@ Some data is rarely accessed or modified but needs to be archived for future pro
 
 
 
-This blog post focuses on remote object storage.
-
 In HPE Ezmeral Data Fabric, you can create a Cold-Tiered Volume, set corresponding Storage Policies, and periodically offload the data in the Volume to the remote object storage.
 
 The remote object storage can be the object storage of AWS, GCP, Azure and other public clouds, or an object storage service compatible with Minio.
