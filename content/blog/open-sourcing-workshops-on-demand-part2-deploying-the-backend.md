@@ -95,7 +95,8 @@ install$ git clone https://github.com/Workshops-on-Demand/wod-backend.git
 install$ cd wod-backend/
 ```
 
-* Examine default installation parameters and adapt when necessary accordingly. Files are self documented.
+* Examine default installation parameters and adapt when necessary accordingly. Files are self documented.    
+
 * Look at the following files within `ansible/group_vars` directory.
 
   * `all.yml` file       
