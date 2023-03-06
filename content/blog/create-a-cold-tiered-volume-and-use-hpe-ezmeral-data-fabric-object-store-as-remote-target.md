@@ -76,7 +76,6 @@ Use the Installer to install HPE Ezmeral Data Fabric, which can automatically cr
 ### [](#post-installation-configuration-for-object-store)Post-installation configuration for Object Store
 
 Some post-installation steps must be performed before you can use the HPE Ezmeral Data Fabric Object Store.
-
 You should refer to this document - [Enabling the HPE Ezmeral Data Fabric Object Store](https://docs.datafabric.hpe.com/72/AdvancedInstallation/Enabling_object_store.html) for post-installation configuration.
 
 For the above document, I have a few supplementary notes, which should make your configuration smoother.
