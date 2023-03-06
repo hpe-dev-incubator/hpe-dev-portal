@@ -276,7 +276,7 @@ mc alias set s3-admin-alias https://`hostname -f`:9000 {ACCESS_KEY} {SECRET_KEY}
 Here, I'm running the command on the node which is running the S3server.
 After created an alias, you would find the information is appended into <ins>$HOME/.mc/config.json</ins>.
 
-##### 4. Create an account
+**4. Create an account**
 
 I choose to use the Object Store Web GUI to create an account.
 
