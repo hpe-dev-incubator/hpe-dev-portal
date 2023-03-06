@@ -652,4 +652,4 @@ When the offload is complete, you will see the following output.
 In this article, I have demonsrated how to create a bucket in HPE Ezmeral Data Fabric Object store and upload data using the AWS CLI command line tool.
 Then, I showed you how to create a cold-tiered volume and configure it to use the remote Object Store as a remote target.
 Finally, I showed you how to manually trigger a volume data offload to verify that the whole work is populated.
-Hope this article is helpful to you, see you next time.
+I hope this article was helpful to you. Catch you next time!
