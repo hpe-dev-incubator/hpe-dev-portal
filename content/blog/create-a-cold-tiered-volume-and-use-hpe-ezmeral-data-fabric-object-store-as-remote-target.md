@@ -115,7 +115,6 @@ ${JAVA_HOME}/bin/keytool -noprompt -importcert -file /opt/mapr/conf/ca/chain-ca.
 The file - /opt/mapr/conf/ca/chain-ca.pem, is a self-signed TLS certificate file created by the Installer when configuring wire-level encryption for the cluster.
 
 Since it's a self-signed TLS certificate, the client (application, or your browser) will not be able to trust the TLS certificate of the server when accessing the HPE Ezmeral Data Fabric server.
-
 This is because the CA certificate used by the self-signed TLS certificate is not publicly trusted.
 
 In any scenario where a self-signed TLS certificate is used, you need to import the self-signed CA certificate into the OS system.
