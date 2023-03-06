@@ -40,7 +40,7 @@ HPE Ezmeral Data Fabric provides a rule-based automated tiering functionality th
 - Low-cost storage as an additional storage tier in the data fabric cluster for storing file data that is less frequently accessed ("warm" data) in an erasure-coded volume.
 - 3rd party cloud object storage as an additional storage tier in the data fabric cluster to store file data that is rarely accessed or archived ("cold" data).
 
-In this way, valuable on-premise storage resources can be used for more active or "hot" file data and applications, while "warm" and/or "cold" file data can be retained at minimum cost for compliance, historical, or other business reasons. HPE Ezmeral Data Fabric provides consistent and simplified access to and management of the data.
+In this way, valuable on-premise storage resources can be used for more active or "hot" file data and applications, while "warm" and/or "cold" file data can be retained at minimal cost for compliance, historical, or other business reasons. HPE Ezmeral Data Fabric provides consistent and simplified access to and management of the data.
 
 ### [](#advantages-of-using-object-store)Advantages of using Object Store
 
@@ -48,7 +48,7 @@ HPE Ezmeral Data Fabric Object Store is a native object storage solution that ef
 
 Underlying each Object Store bucket is a volume. Every bucket created in an Object Store account is automatically associated with a volume. You can snapshot or mirror a bucket volume for disaster recovery.
 
-If you create an account in Object Store, specify the erasure coding scheme (ecscheme) in the storage_class. All buckets created in the account inherit the ecscheme. Underlying volumes are automatically tiered such that data in a bucket volume can be offloaded to a back-end volume to reclaim storage space.
+If you create an account in Object Store, specify the erasure coding scheme (ecscheme) in the storage_class. All buckets created in the account inherit the ecscheme. Underlying volumes are automaticall tiered in such a way that data in a bucket volume can be offloaded to a back-end volume to reclaim storage space.
 
 Some potential Object Store use cases include:
 
@@ -61,7 +61,7 @@ Some potential Object Store use cases include:
 
 ## [](#install-and-configure-object-store)Install and configure Object Store
 
-Regarding the installation of Object Store, I recommend you to use the [Installer](https://docs.datafabric.hpe.com/72/MapRInstaller.html).
+Regarding the installation of Object Store, I recommend you use the [Installer](https://docs.datafabric.hpe.com/72/MapRInstaller.html).
 
 When using the Installer to install HPE Ezmeral Data Fabric 7.0.0 or higher, you must enable security.
 
