@@ -270,10 +270,9 @@ Sample output:
 mc alias set s3-admin-alias https://`hostname -f`:9000 {ACCESS_KEY} {SECRET_KEY} --api "s3v4" --path "off" --json
 ```
 
-🗒Note: "s3-admin-alias" is the name of the alias, you define it.
-
+🗒Note: "s3-admin-alias" is the value of the alias parameter, you define it.
 "https://`hostname -f`:9000" is the endpoint of the Object Store service.
-Here, I'm running the command on the node which is running the S3server.
+Here, I'm running the command on the node that is running the S3server.
 After created an alias, you would find the information is appended into <ins>$HOME/.mc/config.json</ins>.
 
 **4. Create an account**
