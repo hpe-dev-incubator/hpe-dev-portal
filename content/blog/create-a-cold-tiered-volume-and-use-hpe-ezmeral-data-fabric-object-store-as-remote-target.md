@@ -383,8 +383,8 @@ Sample output:
 
 #### Create an IAM User in the non-default account just created
 
-In step 4, you created a non-default Account named "s3test".
-In HPE Ezmeral Data Fabric Object Store, you must create a non-default Account to create an IAM User, and you should use the IAM User to operate Buckets.
+In step 4, you created a non-default account named "s3test".
+In HPE Ezmeral Data Fabric Object Store, you must create a non-default account to create an IAM user, and you should use the IAM User to operate buckets.
 
 ```shell
 sudo -u mapr /opt/mapr/bin/mc admin user add s3-admin-alias s3-test-iam_user account=s3test domain=primary
