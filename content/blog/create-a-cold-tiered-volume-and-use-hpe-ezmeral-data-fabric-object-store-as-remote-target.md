@@ -35,10 +35,10 @@ At the same time, I will also demonstrate how to create an account, IAM user, an
 
 ### [](#advantages-of-using-data-tiering)Advantages of using data tiering
 
-HPE Ezmeral Data Fabric (data fabric) provides rule-based automated tiering functionality that allows you to seamlessly integrate with:
+HPE Ezmeral Data Fabric provides a rule-based automated tiering functionality that allows you to seamlessly integrate with:
 
-* Low-cost storage as an additional storage tier in the data fabric cluster for storing file data that is less frequently accessed ("warm" data) in erasure-coded volume.
-* 3rd party cloud object storage as an additional storage tier in the data fabric cluster to store file data that is rarely accessed or archived ("cold" data).
+- Low-cost storage as an additional storage tier in the data fabric cluster for storing file data that is less frequently accessed ("warm" data) in an erasure-coded volume.
+- 3rd party cloud object storage as an additional storage tier in the data fabric cluster to store file data that is rarely accessed or archived ("cold" data).
 
 In this way, valuable on-premise storage resources can be used for more active or "hot" file data and applications, while "warm" and/or "cold" file data can be retained at minimum cost for compliance, historical, or other business reasons. HPE Ezmeral Data Fabric provides consistent and simplified access to and management of the data.
 
