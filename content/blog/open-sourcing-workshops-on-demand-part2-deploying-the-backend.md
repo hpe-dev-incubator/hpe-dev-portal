@@ -5,7 +5,8 @@ author: Frederic Passeron
 authorimage: /img/fp-hpewod.jpg
 disable: false
 tags:
-  - " opensource,workshops-on-demand"
+  - open source
+  - Workshops-on-Demand
 ---
 In the first [article](https://developer.hpe.com/blog/willing-to-build-up-your-own-workshops-on-demand-infrastructure/) of this series, I described the reasons behind the decision to open source our Workshops-on-Demand (WoD) project and gave you a comprehensive picture of the project's overall infrastructure. In this second article, I will cover the backend part of the project and explain how to deploy it.
 
@@ -398,5 +399,7 @@ sudo ./install.sh -t backend -g staging -b jup.example.net -f notebooks.example.
 Please note that this setup phase can be conccurent with the public setup phase. Indeed, the install script should detect the presence of the private repository owing to the presence of the install.priv file. It will automatically adjust the different scripts and variables to add the relevant content. It will actually overload some of the variables with private ones.
 
 Y﻿ou now have a working Workshops-on-Demand backend server in place. Congratulations! The next article in the series will help you better understand the lifecycle of the backend server. How does a workshop registration work from the backend server 's side? How do you manage this server on a daily basis? How and when do you need to update it ? All these questions will be answered in the next article. And from there, we will move to the frontend side of things and finally to a workshop's creation process.
+
+I﻿f you need support for this installation process, use our dedicated slack channel
 
 Please be sure to check back [HPE Developer blog site](https://developer.hpe.com/blog) to read all the articles in this series. Also, check out  the Hack Shack for new [workshops](https://developer.hpe.com/hackshack/workshops) [Data Visualization 101](https://developer.hpe.com/hackshack/replays/42) is now available! HPE GreenLake for Compute Operations Management API 101 on its way too. Stay tuned!
