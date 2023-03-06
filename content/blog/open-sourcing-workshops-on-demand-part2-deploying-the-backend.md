@@ -312,16 +312,22 @@ install$ sudo ./install.sh -t backend -g staging -b jup.example.net -f notebooks
 `install.sh` performs the following tasks:
 
 * Calls the `install-system-<< distribution name >>.sh` script      
+
 * Installs minimal required (`ansible, git, jq, openssh server, npm`)    
+
 * Creates an admin user as defined upper (default is `wodadmin`) with sudo rights    
+
 * Calls the `install-system-common.sh` script that performs the following tasks:    
+
 
   * cleanup
   * Github repos cloning (leveraging install.repo file) : public Backend and public Private repos
   * Create ssh keys for wodadmin
   * Creates GROUPNAME variables
   * Creates Ansible inventory files
+
 * Calls the `install_system.sh` script with the type (backend, frontend, etc..) that performs the following tasks:    
+
 
   * Install the necessary stack based on selected type
   * Create a `wod.sh` script in `wod-backend` directory to be used by all other scripts
@@ -347,12 +353,14 @@ If you need to develop private content that cannot be shared with the wider Open
 
 ### **How to handle private-content based Workshops-on-Demand**
 
-###### *(private backend + private workshops on top of default public backend and notebooks)*
+##### *(private backend + private workshops on top of default public backend and notebooks)*
 
 T﻿he principle remains similar, with a few differences explained below.
 
 * Y﻿ou will start by forking the following public private [repo](https://github.com/Workshops-on-Demand/wod-private.git) on Github under your own Github account (we will refer to it as `Account`).    
+
 * Next, clone the forked repo.    
+
 
 ```shellsession
 install$ git clone https://github.com/Account/wod-private.git wod-private
