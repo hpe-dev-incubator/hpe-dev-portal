@@ -320,15 +320,15 @@ install$ sudo ./install.sh -t backend -g staging -b jup.example.net -f notebooks
 * Calls the `install-system-common.sh` script that performs the following tasks:    
 
 
-  * cleanup    
+   * cleanup    
 
-  * Github repos cloning (leveraging install.repo file) : public Backend and public Private repos    
+   * Github repos cloning (leveraging install.repo file) : public Backend and public Private repos    
 
-  * Create ssh keys for wodadmin    
+   * Create ssh keys for wodadmin    
 
-  * Creates GROUPNAME variables    
+   * Creates GROUPNAME variables    
 
-  * Creates Ansible inventory files    
+   * Creates Ansible inventory files    
 
 * Calls the `install_system.sh` script with the type (backend, frontend, etc..) that performs the following tasks:    
 
