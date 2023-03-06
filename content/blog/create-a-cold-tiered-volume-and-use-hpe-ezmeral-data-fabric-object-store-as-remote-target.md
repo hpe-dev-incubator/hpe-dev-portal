@@ -33,7 +33,7 @@ Of course, you can also use the Object Store of HPE Ezmeral Data Fabric as a rem
 This article will demonstrate how to create a cold-tiered volume and configure another HPE Ezmeral Data Fabric Object Store as the remote target for offloading.
 At the same time, I will also demonstrate how to create an account, IAM user, and bucket in the HPE Ezmeral Data Fabric Object Store, and use the AWS CLI to perform a **put object operation** on this bucket through the above configuration.
 
-### [](#advantages-of-using-data-tiering)Advantages of using Data Tiering
+### [](#advantages-of-using-data-tiering)Advantages of using data tiering
 
 HPE Ezmeral Data Fabric (data fabric) provides rule-based automated tiering functionality that allows you to seamlessly integrate with:
 
