@@ -363,11 +363,14 @@ install$ cd $HOME/wod-private/ansible/group_vars
 * Commit and push changes to your repo.    
 * Create an `install.priv` file located in `install` directory when using a private repo (consider looking at [install.repo](https://github.com/Workshops-on-Demand/wod-backend/blob/main/install/install.repo) file for a better understanding of the variables).    
 
-  * Define the WODPRIVREPO and WODPRIVBRANCH variables as follows:     
-  *  WODPRIVBRANCH="main"    
-  * WODPRIVREPO="git@github.com:Account/Private-Repo.git wod-private"    
+  * Define the WODPRIVREPO and WODPRIVBRANCH variables as follows:    
+ 
+     * WODPRIVBRANCH="main"     
 
-Note: When using a token
+     * WODPRIVREPO="git@github.com:Account/Private-Repo.git wod-private"    
+
+
+**Note:** When using a token
 
 Please refer to the following [url](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) to generate a `token` file in `install` directory of WoD-backend:
 
