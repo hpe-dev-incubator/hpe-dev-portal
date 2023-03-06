@@ -77,6 +77,7 @@ B﻿efore cloning the backend repository, you will need to prepare the server th
 1. I﻿n order to setup the backend server, you will need:
 
    * A fresh OS install on physical / virtualized server running Ubuntu 20.04 or Centos 7.9 leveraging any deployment mechanism of your choice.(e.g. iLO, vagrant, etc.). You may even use this [vagrant file](https://github.com/Workshops-on-Demand/wod-backend/blob/main/install/Vagrantfile) to automatically generate a complete setup leveraging vagrant, libvirt and QEMU/KVM.    
+
    * A Linux account with sudo priviledges on your Linux distro. Name it `install`    
 
 **Note:** In order to support 100 concurrent users, you need:
@@ -98,9 +99,9 @@ W﻿e are currently using a DL360 Gen10 server on our different production sites
 
    * Examine default installation parameters and adapt when necessary accordingly. Files are self documented.    
 
-* Look at the following files within `ansible/group_vars` directory.     
+      * Look at the following files within `ansible/group_vars` directory.     
 
-  * `all.yml` file    
+        * `all.yml` file       
 
   ```shellsession
   vi all.yml
@@ -173,7 +174,7 @@ W﻿e are currently using a DL360 Gen10 server on our different production sites
   ANSIBLEPRIVDIR: "{{ WODPRIVDIR }}/ansible"
   ```
 
-  * `wod-backend` file    
+        * `wod-backend` file    
 
     ```shellsession
     vi wod-backend
@@ -229,7 +230,7 @@ W﻿e are currently using a DL360 Gen10 server on our different production sites
     DATAVISUPORT1-WKSHP-DataVisu101: 22101
     DATAVISUPORT2-WKSHP-DataVisu101: 22131
     ```
-  * `wod-system` file    
+        * `wod-system` file    
 
     ```shellsession
     vi wod-system
