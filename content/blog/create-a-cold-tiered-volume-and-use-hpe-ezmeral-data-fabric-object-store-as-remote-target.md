@@ -381,7 +381,7 @@ Sample output:
 }
 ```
 
-#### Create an IAM User in the non-default Account you created just now
+#### Create an IAM User in the non-default account just created
 
 In step 4, you created a non-default Account named "s3test".
 In HPE Ezmeral Data Fabric Object Store, you must create a non-default Account to create an IAM User, and you should use the IAM User to operate Buckets.
