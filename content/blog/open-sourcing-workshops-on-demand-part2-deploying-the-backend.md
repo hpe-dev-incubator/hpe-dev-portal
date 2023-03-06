@@ -67,10 +67,10 @@ It provides:
 
 * A﻿ set of scripts to handle different tasks such as:    
 
-   * Notebooks deployment 
-   * Jupyterhub compliancy
-   * Users compliancy
-   * Security Management
+    * Notebooks deployment 
+    * Jupyterhub compliancy
+    * Users compliancy
+    * Security Management
 
 #### Backend server preparation:
 
