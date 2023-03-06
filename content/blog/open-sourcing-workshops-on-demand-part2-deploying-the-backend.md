@@ -308,9 +308,12 @@ install$ sudo ./install.sh -t backend -g staging -b jup.example.net -f notebooks
 
 `install.sh` performs the following tasks:
 
-* Calls the `install-system-<< distribution name >>.sh` script
-* Installs minimal required (`ansible, git, jq, openssh server, npm`)
-* Creates an admin user as defined upper (default is `wodadmin`) with sudo rights
+* Calls the `install-system-<< distribution name >>.sh` script    
+
+* Installs minimal required (`ansible, git, jq, openssh server, npm`)    
+
+* Creates an admin user as defined upper (default is `wodadmin`) with sudo rights    
+
 * Calls the `install-system-common.sh` script that performs the following tasks:
 
   * cleanup
