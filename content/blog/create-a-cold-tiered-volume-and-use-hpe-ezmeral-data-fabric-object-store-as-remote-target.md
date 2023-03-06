@@ -64,13 +64,11 @@ Some potential Object Store use cases include:
 Regarding the installation of Object Store, I recommend you use the [Installer](https://docs.datafabric.hpe.com/72/MapRInstaller.html).
 
 When using the Installer to install HPE Ezmeral Data Fabric 7.0.0 or higher, you must enable security.
-
 Even for POC environments, I recommend you enable and configure basic security.
 
 If you have ever used the ecological components of Apache Hadoop, or other commercial big data suites, then I think you already have the basic concepts of authentication, authorization, audit, and encryption of the Hadoop ecosystem.
 
 The rationale for the security of HPE Ezmeral Data Fabric is the same as an open-source Hadoop ecosystem.
-
 For example, SASL (MapR-SASL, Kerberos) is used for authentication, Ranger is used for authorization, and TLS is used for encryption.
 
 Use the Installer to install HPE Ezmeral Data Fabric, which can automatically create a series of TLS-related certificates, and automatically configure core components and various HPE Ezmeral Ecosystem Pack components to enable security.
