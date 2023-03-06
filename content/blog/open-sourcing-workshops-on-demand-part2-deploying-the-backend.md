@@ -377,7 +377,9 @@ Please refer to the following [url](https://docs.github.com/en/authentication/ke
 * Edit the `install.priv` file located in `install` directory of WoD-backend:    
 
   * Create line before variable declaration: ``token=`cat $EXEPATH/token` ``    
+
   * Use the token in the url WODPRIVREPO="git clone https://user:$token@github.com/Account/wod-private.git wod-private"    
+
 
 Y﻿ou are now ready to perform the installation again to support a private repository. 
 
