@@ -310,7 +310,7 @@ Enter the following in "Default Bucket Place":
 
 HPE Ezmeral Data Fabric Object Store is an on-premises object storage service compatible with Minio.
 Some concepts such as Domain and Default Account do not exist in public cloud object storage services such as AWS S3.
-But the policy for Bucket and IAM User is compatible with the policy in public cloud object storage.
+But the policy for bucket and IAM user is compatible with the policy in public cloud object storage.
 For the Bucket Policy here, you can refer to AWS S3 [Bucket policy examples](https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-bucket-policies.html) and HPE Ezmeral Data Fabric Object Store document - [Access Policies](https://docs.datafabric.hpe.com/72/MapROverview/object-store-policies.html).
 
 After creating the user account, you can use the below command to view it:
