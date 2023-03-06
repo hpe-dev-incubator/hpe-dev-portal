@@ -65,9 +65,9 @@ It provides:
 * A﻿ set of scripts to handle different tasks such as:
 
   * Notebooks deployment 
-    ﻿  *Jupyterhub compliancy*
-    ﻿  Users compliancy 
-    ﻿ * Security Management
+  * Jupyterhub compliancy
+  * Users compliancy
+  * Security Management
 
 #### Backend server preparation:
 
@@ -84,9 +84,10 @@ B﻿efore cloning the backend repository, you will need to prepare the server th
 
    * 2 cpus or more machine
    * 128 GB of RAM
-   * 500 GB of storage
+ ﻿  * 500 GB of storage
 
-     W﻿e are currently using a DL360 gen10 server on our different production sites.
+     W﻿e are currently using a DL360 Gen10 server on our different production sites.
+
 2. W﻿hen done with OS installation and preparation
 
    * From the wod-backend server aka Jupyterhub server, as the `install` user, you will need to clone the repo first.
