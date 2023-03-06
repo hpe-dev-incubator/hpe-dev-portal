@@ -165,11 +165,13 @@ For object listing, getting, putting, and deleting operations, I recommend you u
 
 If the Object Store was installed using the Installer, the Object Store would also have security enabled, including HTTPS.
 
-Although you can see the below description:
+For example, although you can see the description below from HTTP Access to Object Store, this configuration change alone does not change Object Store to HTTP mode.
 
 > To revert to http access, comment out the moss.certs.dir=/opt/mapr/conf line in the /opt/mapr/conf/moss.conf file.
 
-from here - [HTTP Access to Object Store](https://docs.datafabric.hpe.com/72/AdvancedInstallation/Enabling_object_store.html#concept_isb_53h_5bb__section_bg1_zd1_vsb), but this configuration change alone does not change Object Store to HTTP mode, and there is nothing else in HPE Ezmeral Data Fabric's documentation on how to modify Object Store's TLS mode.
+☝from here - [HTTP Access to Object Store](https://docs.datafabric.hpe.com/72/AdvancedInstallation/Enabling_object_store.html#concept_isb_53h_5bb__section_bg1_zd1_vsb)
+Additionally, there is nothing else in HPE Ezmeral Data Fabric's documentation on how to modify Object Store's TLS mode.
+You may be able to find out how to turn off HTTPS from this document. 👉 [Using Custom Signed Certificates with Object Store](https://docs.datafabric.hpe.com/72/MapROverview/Object-Store-signed-certs.html)
 
 ### [](#create-a-bucket-in-hpe-ezmeral-data-fabric-object-store-and-upload-some-objects)Create a bucket in HPE Ezmeral Data Fabric Object Store and upload some objects
 
