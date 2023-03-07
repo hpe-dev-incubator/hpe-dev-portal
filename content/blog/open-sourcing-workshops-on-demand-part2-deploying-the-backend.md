@@ -1,5 +1,5 @@
 ---
-title: "Open Sourcing Workshops-on-Demand part2: How to Deploy the backend"
+title: "Open Sourcing Workshops-on-Demand part 2: How to Deploy the backend"
 date: 2023-03-01T17:23:03.445Z
 author: Frederic Passeron
 authorimage: /img/fp-hpewod.jpg
