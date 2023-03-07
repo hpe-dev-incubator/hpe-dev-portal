@@ -69,7 +69,7 @@ It provides:
 
 B﻿efore cloning the backend repository, you will need to prepare the server that will host the backend features. When ready, you will proceed with the cloning and then the installation process.
 
-###### Prerequesites:
+##### Prerequesites:
 
 1. In order to setup the backend server, you will need:
 
