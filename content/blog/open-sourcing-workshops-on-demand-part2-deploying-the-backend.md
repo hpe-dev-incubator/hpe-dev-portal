@@ -75,7 +75,6 @@ In order to setup the backend server, you will need:
 
 * A fresh OS install on physical / virtualized server running Ubuntu 20.04 or Centos 7.9 leveraging any deployment mechanism of your choice.(e.g. iLO, vagrant, etc.). You may even use this vagrant file to automatically generate a complete setup leveraging vagrant, libvirt and QEMU/KVM. 
 * A Linux account with sudo priviledges on your Linux distro. Name it install 
-
   **Note**: In order to support 100 concurrent users, you need:
 
   * 2 cpus or more machine
@@ -93,7 +92,7 @@ install$ git clone https://github.com/Workshops-on-Demand/wod-backend.git
 install$ cd wod-backend/
 ```
 
-* Examine default installation parameters and adapt when necessary accordingly. Files are self-documented. 
+* Examine default installation parameters and adapt when necessary accordingly. Files are self-documented.
 * Look at the following files within ansible/group_vars directory.    
 
      	•`all.yml` file  
