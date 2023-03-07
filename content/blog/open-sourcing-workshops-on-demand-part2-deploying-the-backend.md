@@ -82,7 +82,8 @@ In order to setup the backend server, you will need:
 * 2 cpus or more machine
 * 128 GB of RAM
 * 500 GB of storage
-  We are currently using an HPE ProLiant DL360 Gen10 server on our different production sites.
+
+We are currently using an HPE ProLiant DL360 Gen10 server on our different production sites.
 
 When done with OS installation and preparation
 
