@@ -94,10 +94,14 @@ install$ git clone https://github.com/Workshops-on-Demand/wod-backend.git
 install$ cd wod-backend/
 ```
 
+
+
 * Examine default installation parameters and adapt when necessary accordingly. Files are self-documented.
 * Look at the following files within ansible/group_vars directory.    
 
   * `all.yml` file  
+
+
 
 ```shellsession
 vi all.yml
@@ -170,7 +174,11 @@ SCRIPTPRIVDIR: "{{ WODPRIVDIR }}/scripts"
 ANSIBLEPRIVDIR: "{{ WODPRIVDIR }}/ansible"
 ```
 
-* `wod-backend` file      
+``
+
+* `wod-backend` file   
+
+   
 
 ```shellsession
 vi wod-backend
@@ -227,7 +235,11 @@ DATAVISUPORT1-WKSHP-DataVisu101: 22101
 DATAVISUPORT2-WKSHP-DataVisu101: 22131
 ```
 
-* `wod-system` file    
+``
+
+* `wod-system` file
+
+\    
 
 ```shellsession
 vi wod-system
@@ -261,7 +273,13 @@ WODFEAPIUSER: moderator
 WODFEAPIPWD: MotDePasseCompliquéAussi125!!!##
 ```
 
+
+
 S﻿ee the example below for a backend server.
+
+```shellsession
+vi 
+```
 
 ### B﻿ackend installation process:
 
@@ -317,12 +335,11 @@ T﻿he principle remains similar, with a few differences explained below.
 * Next, clone the forked repo.    
 * Edit the `all.yml` and `<groupname>` files to customize your setup. T﻿his variable `<groupname>` defines possible backend server in your environement. By default, the project comes with a sample working file named `production` in `ansible/group-vars`. But you could have multiple. In our case, we have defined `sandbox`, `test`, `staging` and several `production` files, all defining a different backend environment. These files will be used to override the default values specified by the public version delivered as part of the default public installation.    
 * Commit and push changes to your repo.    
-* Create an `install.priv` file located in `install` directory when using a private repo (consider looking at [install.repo](https://github.com/Workshops-on-Demand/wod-backend/blob/main/install/install.repo) file for a better understanding of the variables).    
+* Create an `install.priv` file located in `install` directory when using a private repo (consider looking at [install.repo](https://github.com/Workshops-on-Demand/wod-backend/blob/main/install/install.repo) file for a better understanding of the variables).
+* Define the WODPRIVREPO and WODPRIVBRANCH variables as follows:    
 
-  * Define the WODPRIVREPO and WODPRIVBRANCH variables as follows:    
-
-    * WODPRIVBRANCH="main"      
-    * WODPRIVREPO="git@github.com:Account/Private-Repo.git wod-private"    
+  * WODPRIVBRANCH="main"      
+  * WODPRIVREPO="git@github.com:Account/Private-Repo.git wod-private"    
 
 **Note:** When using a token
 
