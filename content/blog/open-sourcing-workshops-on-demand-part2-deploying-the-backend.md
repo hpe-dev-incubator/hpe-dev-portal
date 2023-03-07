@@ -10,7 +10,9 @@ tags:
 ---
 In the first [article](https://developer.hpe.com/blog/willing-to-build-up-your-own-workshops-on-demand-infrastructure/) of this series, I described the reasons behind the decision to open source our Workshops-on-Demand (WoD) project and gave you a comprehensive picture of the project's overall infrastructure. In this second article, I will cover the backend part of the project and explain how to deploy it.
 
-T﻿he overall infrastructure can run on physical servers or VMs. We usually designate one server for the frontend and a second server for the backend. You could also decide to separate every single component of each side.
+The overall infrastructure can run on physical servers or VMs. We usually designate one server for the frontend and a second server for the backend. You could also decide to separate every single component of each side.
+
+
 
 ![](/img/howto-wod-5.png)
 
@@ -53,51 +55,48 @@ Here's a quick look at what can be found in each:
 ![](/img/wod-blogserie2repos.png "Workshops-on-Demand repositories")
 
 It provides:
-
-* A complete JupyterHub server with some addons (additional Jupyterhub kernels, Ansible galaxies, and PowerShell libraries) on your system, ready to host Workshops-on-Demand that you can find [here](https://developer.hpe.com/hackshack/workshops).[](https://github.com/Workshops-on-Demand/wod-notebooks.git)    
-* A postfix server used for the procmail API    
-* An Ansible engine to allow automation    
-* A fail2ban service    
-* An Admin user to manage everything    
-* A﻿ set of scripts to handle different tasks such as:    
-
-  * Notebooks deployment 
-  * Jupyterhub compliancy
-  * Users compliancy
-  * Security Management
+•	A complete JupyterHub server with some addons (additional Jupyterhub kernels, Ansible galaxies, and PowerShell libraries) on your system, ready to host Workshops-on-Demand that you can find here. 
+•	A postfix server used for the procmail API 
+•	An Ansible engine to allow automation 
+•	A fail2ban service 
+•	An Admin user to manage everything 
+•	A set of scripts to handle different tasks such as: 
+			o	Notebooks deployment 
+			o	Jupyterhub compliancy
+			o	Users compliancy
+			o	Security Managemen
 
 #### Backend server preparation:
 
 B﻿efore cloning the backend repository, you will need to prepare the server that will host the backend features. When ready, you will proceed with the cloning and then the installation process.
 
-### Prerequesites:
+###### Prerequesites:
 
-1. I﻿n order to setup the backend server, you will need:
+1. In order to setup the backend server, you will need:
+   	•	A fresh OS install on physical / virtualized server running Ubuntu 20.04 or Centos 7.9 leveraging any deployment mechanism of your choice.(e.g. iLO, vagrant, etc.). You may even use this vagrant file to automatically generate a complete setup leveraging vagrant, libvirt and QEMU/KVM. 
+   	•	A Linux account with sudo priviledges on your Linux distro. Name it install 
+   Note: In order to support 100 concurrent users, you need:
+   	•	2 cpus or more machine
+   	•	128 GB of RAM
+   	•	500 GB of storage
 
-* A fresh OS install on physical / virtualized server running Ubuntu 20.04 or Centos 7.9 leveraging any deployment mechanism of your choice.(e.g. iLO, vagrant, etc.). You may even use this [vagrant file](https://github.com/Workshops-on-Demand/wod-backend/blob/main/install/Vagrantfile) to automatically generate a complete setup leveraging vagrant, libvirt and QEMU/KVM.   
-* A Linux account with sudo priviledges on your Linux distro. Name it `install`    
 
-**Note:** In order to support 100 concurrent users, you need:
 
-* 2 cpus or more machine
-* 128 GB of RAM
-* 500 GB of storage
+We are currently using an HPE ProLiant DL360 Gen10 server on our different production sites.
 
-W﻿e are currently using an HPE ProLiant DL360 Gen10 server on our different production sites.
+2. When done with OS installation and preparation
+   	•	From the WoD-backend server (aka JupyterHub server), as the install user, you will need to clone the repo first. 
 
-2. W﻿hen done with OS installation and preparation
+   ```shellsession
+   install$ git clone https://github.com/Workshops-on-Demand/wod-backend.git
+   install$ cd wod-backend/
+   ```
 
-* From the WoD-backend server (aka JupyterHub server), as the `install` user, you will need to clone the repo first.    
 
-```shellsession
-install$ git clone https://github.com/Workshops-on-Demand/wod-backend.git
-install$ cd wod-backend/
-```
+   	•	Examine default installation parameters and adapt when necessary accordingly. Files are self-documented. 
+   	•	Look at the following files within ansible/group_vars directory.
 
-* Examine default installation parameters and adapt when necessary accordingly. Files are self documented.    
-* Look at the following files within `ansible/group_vars` directory.
-
-  * `all.yml` file       
+   	•`all.yml` file        
 
 ```shellsession
 vi all.yml
@@ -170,7 +169,7 @@ SCRIPTPRIVDIR: "{{ WODPRIVDIR }}/scripts"
 ANSIBLEPRIVDIR: "{{ WODPRIVDIR }}/ansible"
 ```
 
-* `wod-backend` file      
+   	•`wod-backend` file      
 
 ```shellsession
 vi wod-backend
@@ -227,7 +226,7 @@ DATAVISUPORT1-WKSHP-DataVisu101: 22101
 DATAVISUPORT2-WKSHP-DataVisu101: 22131
 ```
 
-* `wod-system` file    
+   	•`wod-system` file    
 
 ```shellsession
 vi wod-system
