@@ -60,6 +60,7 @@ It provides:
 * A fail2ban service    
 * An Admin user to manage everything    
 * A﻿ set of scripts to handle different tasks such as:    
+
   * Notebooks deployment 
   * Jupyterhub compliancy
   * Users compliancy
@@ -74,10 +75,10 @@ B﻿efore cloning the backend repository, you will need to prepare the server th
 1. I﻿n order to setup the backend server, you will need:
 
 * A fresh OS install on physical / virtualized server running Ubuntu 20.04 or Centos 7.9 leveraging any deployment mechanism of your choice.(e.g. iLO, vagrant, etc.). You may even use this [vagrant file](https://github.com/Workshops-on-Demand/wod-backend/blob/main/install/Vagrantfile) to automatically generate a complete setup leveraging vagrant, libvirt and QEMU/KVM.   
-
 * A Linux account with sudo priviledges on your Linux distro. Name it `install`    
 
 **Note:** In order to support 100 concurrent users, you need:
+
 * 2 cpus or more machine
 * 128 GB of RAM
 * 500 GB of storage
@@ -169,7 +170,7 @@ SCRIPTPRIVDIR: "{{ WODPRIVDIR }}/scripts"
 ANSIBLEPRIVDIR: "{{ WODPRIVDIR }}/ansible"
 ```
 
-  * `wod-backend` file      
+* `wod-backend` file      
 
 ```shellsession
 vi wod-backend
@@ -226,7 +227,7 @@ DATAVISUPORT1-WKSHP-DataVisu101: 22101
 DATAVISUPORT2-WKSHP-DataVisu101: 22131
 ```
 
-  * `wod-system` file    
+* `wod-system` file    
 
 ```shellsession
 vi wod-system
@@ -259,9 +260,10 @@ WODFEAPIURL: https://{{ WODAPIDBFQDN }}/api
 WODFEAPIUSER: moderator
 WODFEAPIPWD: MotDePasseCompliquéAussi125!!!##
 ```
-````
 
-#### B﻿ackend installation process:
+S﻿ee the example below for a backend server.
+
+### B﻿ackend installation process:
 
 [](https://github.com/Workshops-on-Demand/wod-backend/blob/main/INSTALL.md#for-private-based-workshops-on-demand-private-backend--private-workshops-or-if-you-need-to-modify-defaults)O﻿nce you are done with the files, you can can proceed with the installation itself. T﻿he installation is based on a common install script [install.sh ](https://github.com/Workshops-on-Demand/wod-backend/blob/main/install/install.sh)that allows the deployment of the different parts of the solution. It can be called as follows:
 
@@ -269,57 +271,20 @@ WODFEAPIPWD: MotDePasseCompliquéAussi125!!!##
 
 `-﻿h` provides the help
 
-```shellsession
-./install.sh -h
-install.sh called with -h
-install.sh [-h][-t type][-g groupname][-b backend][-f frontend][-a api-db][-e external][-u user][-s sender]
-
-where:
-type      is the installation type
-          example: backend, frontend or api-db
-          if empty using 'backend'
-groupname is the ansible group_vars name to be used
-          example: production, staging, test, ...
-          if empty using 'production'
-backend   is the FQDN of the backend JupyterHub server
-          example: be.internal.example.org
-          if empty using the local name for the backend
-frontend  is the FQDN of the frontend Web server
-          example: fe.example.org
-          if empty using the external name for the backend
-api-db    is the FQDN of the API/DB server
-          example: api.internal.example.org
-          if empty using the name for the frontend
-external  is the external FQDN of the backend JupyterHub server, reachable from the Internet
-          example: jphub.example.org
-          if empty using the internal name of the backend
-user      is the name of the admin user for the WoD project
-          example: mywodamin
-          if empty using wodadmin
-sender    is the e-mail address used in the WoD frontend to send API procmail mails to the WoD backend
-          example: sender@example.org
-          if empty using wodadmin@localhost
-```
-
-S﻿ee the example below for a backend server.
-
-```shellsession
-install$ sudo ./install.sh -t backend -g staging -b jup.example.net -f notebooks.example.io -a api.example.io -e notebooks.example.io -s sender@example.io
-```
-
 `install.sh` performs the following tasks:
 
 * Calls the `install-system-<< distribution name >>.sh` script      
 * Installs minimal required (`ansible, git, jq, openssh server, npm`)
 * Creates an admin user as defined upper (default is `wodadmin`) with sudo rights
 * Calls the `install-system-common.sh` script that performs the following tasks:    
+
   * Cleanup    
   * Github repos cloning (leveraging install.repo file) : public Backend and public Private repos    
   * Create ssh keys for wodadmin    
   * Creates GROUPNAME variables    
   * Creates Ansible inventory files       
-
 * Calls the `install_system.sh` script with the type (backend, frontend, etc..) that performs the following tasks:    
+
   * Install the necessary stack based on selected type    
   * Create a `wod.sh` script in `wod-backend` directory to be used by all other scripts    
   * Source the `wod.sh` file     
@@ -327,6 +292,7 @@ install$ sudo ./install.sh -t backend -g staging -b jup.example.net -f notebooks
   * Setup Ansible and call the playbook `install_<type>.yml` followed by the `ansible\_check\_<type>.yml`    
 
 At the end of the installation process:
+
 * you will have a JupyterHub server running on port 8000    
 * You will get a new `wodadmin` user (Default admin)    
 * You will get a set of 20 students (Default value)    
@@ -343,27 +309,20 @@ If you need to develop private content that cannot be shared with the wider Open
 
 ### **How to handle private-content based Workshops-on-Demand**
 
-##### *(private backend + private workshops on top of default public backend and notebooks)*
+#### *(private backend + private workshops on top of default public backend and notebooks)*
 
 T﻿he principle remains similar, with a few differences explained below.
 
 * Y﻿ou will start by forking the following public private [repo](https://github.com/Workshops-on-Demand/wod-private.git) on Github under your own Github account (we will refer to it as `Account`).    
 * Next, clone the forked repo.    
-
-```shellsession
-install$ git clone https://github.com/Account/wod-private.git wod-private
-install$ cd $HOME/wod-private/ansible/group_vars
-```
-
 * Edit the `all.yml` and `<groupname>` files to customize your setup. T﻿his variable `<groupname>` defines possible backend server in your environement. By default, the project comes with a sample working file named `production` in `ansible/group-vars`. But you could have multiple. In our case, we have defined `sandbox`, `test`, `staging` and several `production` files, all defining a different backend environment. These files will be used to override the default values specified by the public version delivered as part of the default public installation.    
 * Commit and push changes to your repo.    
 * Create an `install.priv` file located in `install` directory when using a private repo (consider looking at [install.repo](https://github.com/Workshops-on-Demand/wod-backend/blob/main/install/install.repo) file for a better understanding of the variables).    
 
+  * Define the WODPRIVREPO and WODPRIVBRANCH variables as follows:    
 
-    * Define the WODPRIVREPO and WODPRIVBRANCH variables as follows:    
-
-       * WODPRIVBRANCH="main"      
-       * WODPRIVREPO="git@github.com:Account/Private-Repo.git wod-private"    
+    * WODPRIVBRANCH="main"      
+    * WODPRIVREPO="git@github.com:Account/Private-Repo.git wod-private"    
 
 **Note:** When using a token
 
@@ -371,16 +330,10 @@ Please refer to the following [url](https://docs.github.com/en/authentication/ke
 
 * Edit the `install.priv` file located in `install` directory of WoD-backend:    
 
-    * Create line before variable declaration: ``token=`cat $EXEPATH/token` ``    
-
-    * Use the token in the url WODPRIVREPO="git clone https://user:$token@github.com/Account/wod-private.git wod-private"    
+  * Create line before variable declaration: ``token=`cat $EXEPATH/token` ``    
+  * Use the token in the url WODPRIVREPO="git clone https://user:$token@github.com/Account/wod-private.git wod-private"    
 
 Y﻿ou are now ready to perform the installation again to support a private repository. 
-
-```shellsession
-cd $HOME/wod-backend/install
-sudo ./install.sh -t backend -g staging -b jup.example.net -f notebooks.example.io -a api.example.io -e notebooks.example.io -s sender@example.io
-```
 
 Please note that this setup phase can be conccurent with the public setup phase. Indeed, the install script should detect the presence of the private repository owing to the presence of the install.priv file. It will automatically adjust the different scripts and variables to add the relevant content. It will actually overload some of the variables with private ones.
 
