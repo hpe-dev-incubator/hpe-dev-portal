@@ -12,8 +12,6 @@ In the first [article](https://developer.hpe.com/blog/willing-to-build-up-your-o
 
 The overall infrastructure can run on physical servers or VMs. We usually designate one server for the frontend and a second server for the backend. You could also decide to separate every single component of each side.
 
-
-
 ![](/img/howto-wod-5.png)
 
 ## H﻿ow to deploy your own backend...
@@ -80,23 +78,19 @@ B﻿efore cloning the backend repository, you will need to prepare the server th
    	•	128 GB of RAM
    	•	500 GB of storage
 
-
-
 We are currently using an HPE ProLiant DL360 Gen10 server on our different production sites.
 
 2. When done with OS installation and preparation
    	•	From the WoD-backend server (aka JupyterHub server), as the install user, you will need to clone the repo first. 
 
-   ```shellsession
+   ```
    install$ git clone https://github.com/Workshops-on-Demand/wod-backend.git
    install$ cd wod-backend/
    ```
+	•	Examine default installation parameters and adapt when necessary accordingly. Files are self-documented. 
+	•	Look at the following files within ansible/group_vars directory.
 
-
-   	•	Examine default installation parameters and adapt when necessary accordingly. Files are self-documented. 
-   	•	Look at the following files within ansible/group_vars directory.
-
-   	•`all.yml` file        
+   	•`all.yml` file  
 
 ```shellsession
 vi all.yml
