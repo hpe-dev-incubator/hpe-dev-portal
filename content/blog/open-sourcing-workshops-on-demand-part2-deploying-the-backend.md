@@ -78,12 +78,11 @@ B﻿efore cloning the backend repository, you will need to prepare the server th
 * A Linux account with sudo priviledges on your Linux distro. Name it `install`    
 
 **Note:** In order to support 100 concurrent users, you need:
-
 * 2 cpus or more machine
 * 128 GB of RAM
 * 500 GB of storage
 
-W﻿e are currently using a DL360 Gen10 server on our different production sites.
+W﻿e are currently using an HPE ProLiant DL360 Gen10 server on our different production sites.
 
 2. W﻿hen done with OS installation and preparation
 
@@ -95,7 +94,6 @@ install$ cd wod-backend/
 ```
 
 * Examine default installation parameters and adapt when necessary accordingly. Files are self documented.    
-
 * Look at the following files within `ansible/group_vars` directory.
 
   * `all.yml` file       
