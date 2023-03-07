@@ -74,9 +74,9 @@ B﻿efore cloning the backend repository, you will need to prepare the server th
 In order to setup the backend server, you will need:
 
 * A fresh OS install on physical / virtualized server running Ubuntu 20.04 or Centos 7.9 leveraging any deployment mechanism of your choice.(e.g. iLO, vagrant, etc.). You may even use this vagrant file to automatically generate a complete setup leveraging vagrant, libvirt and QEMU/KVM. 
-* A Linux account with sudo priviledges on your Linux distro. Name it install 
+* A Linux account with sudo priviledges on your Linux distro. Name it `install`   
   
-**Note**: In order to support 100 concurrent users, you need:
+**Note**: In order to support 100 concurrent users, you need:    
 * 2 cpus or more machine
 * 128 GB of RAM
 * 500 GB of storage
