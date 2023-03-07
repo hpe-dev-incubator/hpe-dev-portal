@@ -75,11 +75,11 @@ In order to setup the backend server, you will need:
 
 * A fresh OS install on physical / virtualized server running Ubuntu 20.04 or Centos 7.9 leveraging any deployment mechanism of your choice.(e.g. iLO, vagrant, etc.). You may even use this vagrant file to automatically generate a complete setup leveraging vagrant, libvirt and QEMU/KVM. 
 * A Linux account with sudo priviledges on your Linux distro. Name it install 
-  **Note**: In order to support 100 concurrent users, you need:
-
-  * 2 cpus or more machine
-  * 128 GB of RAM
-  * 500 GB of storage
+  
+**Note**: In order to support 100 concurrent users, you need:
+* 2 cpus or more machine
+* 128 GB of RAM
+* 500 GB of storage
 
 We are currently using an HPE ProLiant DL360 Gen10 server on our different production sites.
 
