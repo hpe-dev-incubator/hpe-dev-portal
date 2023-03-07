@@ -60,10 +60,10 @@ It provides:
 * A fail2ban service 
 * An Admin user to manage everything 
 * A set of scripts to handle different tasks such as: 
-  		o	Notebooks deployment 
-  		o	Jupyterhub compliancy
-  		o	Users compliancy
-  		o	Security Management
+   * Notebooks deployment
+   * Jupyterhub compliancy
+   * Users compliancy
+   * Security Management
 
 #### Backend server preparation:
 
