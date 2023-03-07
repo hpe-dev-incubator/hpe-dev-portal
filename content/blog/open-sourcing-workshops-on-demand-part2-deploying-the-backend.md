@@ -60,10 +60,11 @@ It provides:
 * A fail2ban service 
 * An Admin user to manage everything 
 * A set of scripts to handle different tasks such as: 
-   * Notebooks deployment
-   * Jupyterhub compliancy
-   * Users compliancy
-   * Security Management
+
+  * Notebooks deployment
+  * Jupyterhub compliancy
+  * Users compliancy
+  * Security Management
 
 #### Backend server preparation:
 
@@ -75,18 +76,19 @@ In order to setup the backend server, you will need:
 
 * A fresh OS install on physical / virtualized server running Ubuntu 20.04 or Centos 7.9 leveraging any deployment mechanism of your choice.(e.g. iLO, vagrant, etc.). You may even use this vagrant file to automatically generate a complete setup leveraging vagrant, libvirt and QEMU/KVM. 
 * A Linux account with sudo priviledges on your Linux distro. Name it `install`   
-  
+
 **Note**: In order to support 100 concurrent users, you need:    
-   * 2 cpus or more machine
-   * 128 GB of RAM
-   * 500 GB of storage
-We are currently using an HPE ProLiant DL360 Gen10 server on our different production sites.
+
+* 2 cpus or more machine
+* 128 GB of RAM
+* 500 GB of storage
+  We are currently using an HPE ProLiant DL360 Gen10 server on our different production sites.
 
 When done with OS installation and preparation
 
 * From the WoD-backend server (aka JupyterHub server), as the install user, you will need to clone the repo first.    
 
-```
+```shellsession
 install$ git clone https://github.com/Workshops-on-Demand/wod-backend.git
 install$ cd wod-backend/
 ```
@@ -167,7 +169,7 @@ SCRIPTPRIVDIR: "{{ WODPRIVDIR }}/scripts"
 ANSIBLEPRIVDIR: "{{ WODPRIVDIR }}/ansible"
 ```
 
-  * `wod-backend` file      
+* `wod-backend` file      
 
 ```shellsession
 vi wod-backend
@@ -224,7 +226,7 @@ DATAVISUPORT1-WKSHP-DataVisu101: 22101
 DATAVISUPORT2-WKSHP-DataVisu101: 22131
 ```
 
-  * `wod-system` file    
+* `wod-system` file    
 
 ```shellsession
 vi wod-system
@@ -260,8 +262,6 @@ WODFEAPIPWD: MotDePasseCompliquéAussi125!!!##
 
 S﻿ee the example below for a backend server.
 
-
-
 ### B﻿ackend installation process:
 
 [](https://github.com/Workshops-on-Demand/wod-backend/blob/main/INSTALL.md#for-private-based-workshops-on-demand-private-backend--private-workshops-or-if-you-need-to-modify-defaults)O﻿nce you are done with the files, you can can proceed with the installation itself. T﻿he installation is based on a common install script [install.sh ](https://github.com/Workshops-on-Demand/wod-backend/blob/main/install/install.sh)that allows the deployment of the different parts of the solution. It can be called as follows:
@@ -283,6 +283,7 @@ S﻿ee the example below for a backend server.
   * Creates GROUPNAME variables    
   * Creates Ansible inventory files       
 * Calls the `install_system.sh` script with the type (backend, frontend, etc..) that performs the following tasks:    
+
   * Install the necessary stack based on selected type    
   * Create a `wod.sh` script in `wod-backend` directory to be used by all other scripts    
   * Source the `wod.sh` file     
@@ -290,6 +291,7 @@ S﻿ee the example below for a backend server.
   * Setup Ansible and call the playbook `install_<type>.yml` followed by the `ansible\_check\_<type>.yml`    
 
 At the end of the installation process:
+
 * you will have a JupyterHub server running on port 8000    
 * You will get a new `wodadmin` user (Default admin)    
 * You will get a set of 20 students (Default value)    
@@ -317,6 +319,7 @@ T﻿he principle remains similar, with a few differences explained below.
 * Create an `install.priv` file located in `install` directory when using a private repo (consider looking at [install.repo](https://github.com/Workshops-on-Demand/wod-backend/blob/main/install/install.repo) file for a better understanding of the variables).    
 
   * Define the WODPRIVREPO and WODPRIVBRANCH variables as follows:    
+
     * WODPRIVBRANCH="main"      
     * WODPRIVREPO="git@github.com:Account/Private-Repo.git wod-private"    
 
@@ -325,6 +328,7 @@ T﻿he principle remains similar, with a few differences explained below.
 Please refer to the following [url](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) to generate a `token` file in `install` directory of WoD-backend:
 
 * Edit the `install.priv` file located in `install` directory of WoD-backend:  
+
   * Create line before variable declaration: ``token=`cat $EXEPATH/token` ``    
   * Use the token in the url WODPRIVREPO="git clone https://user:$token@github.com/Account/wod-private.git wod-private"    
 
