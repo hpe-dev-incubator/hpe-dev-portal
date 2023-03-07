@@ -76,9 +76,7 @@ B﻿efore cloning the backend repository, you will need to prepare the server th
 * A fresh OS install on physical / virtualized server running Ubuntu 20.04 or Centos 7.9 leveraging any deployment mechanism of your choice.(e.g. iLO, vagrant, etc.). You may even use this vagrant file to automatically generate a complete setup leveraging vagrant, libvirt and QEMU/KVM. 
 * A Linux account with sudo priviledges on your Linux distro. Name it install 
 
-
   **Note**: In order to support 100 concurrent users, you need:
-
   * 2 cpus or more machine
   * 128 GB of RAM
   * 500 GB of storage
@@ -88,7 +86,6 @@ We are currently using an HPE ProLiant DL360 Gen10 server on our different produ
 2. When done with OS installation and preparation
 
 * From the WoD-backend server (aka JupyterHub server), as the install user, you will need to clone the repo first. 
-
 ```
 install$ git clone https://github.com/Workshops-on-Demand/wod-backend.git
 install$ cd wod-backend/
