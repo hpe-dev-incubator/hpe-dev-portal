@@ -85,7 +85,8 @@ We are currently using an HPE ProLiant DL360 Gen10 server on our different produ
 
 2. When done with OS installation and preparation
 
-* From the WoD-backend server (aka JupyterHub server), as the install user, you will need to clone the repo first. 
+* From the WoD-backend server (aka JupyterHub server), as the install user, you will need to clone the repo first.    
+
 ```
 install$ git clone https://github.com/Workshops-on-Demand/wod-backend.git
 install$ cd wod-backend/
