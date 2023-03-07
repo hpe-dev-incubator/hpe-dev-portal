@@ -283,7 +283,6 @@ S﻿ee the example below for a backend server.
   * Creates GROUPNAME variables    
   * Creates Ansible inventory files       
 * Calls the `install_system.sh` script with the type (backend, frontend, etc..) that performs the following tasks:    
-
   * Install the necessary stack based on selected type    
   * Create a `wod.sh` script in `wod-backend` directory to be used by all other scripts    
   * Source the `wod.sh` file     
@@ -291,7 +290,6 @@ S﻿ee the example below for a backend server.
   * Setup Ansible and call the playbook `install_<type>.yml` followed by the `ansible\_check\_<type>.yml`    
 
 At the end of the installation process:
-
 * you will have a JupyterHub server running on port 8000    
 * You will get a new `wodadmin` user (Default admin)    
 * You will get a set of 20 students (Default value)    
@@ -319,7 +317,6 @@ T﻿he principle remains similar, with a few differences explained below.
 * Create an `install.priv` file located in `install` directory when using a private repo (consider looking at [install.repo](https://github.com/Workshops-on-Demand/wod-backend/blob/main/install/install.repo) file for a better understanding of the variables).    
 
   * Define the WODPRIVREPO and WODPRIVBRANCH variables as follows:    
-
     * WODPRIVBRANCH="main"      
     * WODPRIVREPO="git@github.com:Account/Private-Repo.git wod-private"    
 
@@ -327,8 +324,7 @@ T﻿he principle remains similar, with a few differences explained below.
 
 Please refer to the following [url](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) to generate a `token` file in `install` directory of WoD-backend:
 
-* Edit the `install.priv` file located in `install` directory of WoD-backend:    
-
+* Edit the `install.priv` file located in `install` directory of WoD-backend:  
   * Create line before variable declaration: ``token=`cat $EXEPATH/token` ``    
   * Use the token in the url WODPRIVREPO="git clone https://user:$token@github.com/Account/wod-private.git wod-private"    
 
