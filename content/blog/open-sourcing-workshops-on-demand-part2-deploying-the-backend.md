@@ -94,7 +94,7 @@ install$ cd wod-backend/
 * Examine default installation parameters and adapt when necessary accordingly. Files are self-documented.
 * Look at the following files within ansible/group_vars directory.    
 
-     	•`all.yml` file  
+  * `all.yml` file  
 
 ```shellsession
 vi all.yml
@@ -167,7 +167,7 @@ SCRIPTPRIVDIR: "{{ WODPRIVDIR }}/scripts"
 ANSIBLEPRIVDIR: "{{ WODPRIVDIR }}/ansible"
 ```
 
-   	•`wod-backend` file      
+  * `wod-backend` file      
 
 ```shellsession
 vi wod-backend
@@ -224,7 +224,7 @@ DATAVISUPORT1-WKSHP-DataVisu101: 22101
 DATAVISUPORT2-WKSHP-DataVisu101: 22131
 ```
 
-   	•`wod-system` file    
+  * `wod-system` file    
 
 ```shellsession
 vi wod-system
