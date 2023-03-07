@@ -63,7 +63,7 @@ It provides:
   		o	Notebooks deployment 
   		o	Jupyterhub compliancy
   		o	Users compliancy
-  		o	Security Managemen
+  		o	Security Management
 
 #### Backend server preparation:
 
@@ -77,9 +77,9 @@ In order to setup the backend server, you will need:
 * A Linux account with sudo priviledges on your Linux distro. Name it `install`   
   
 **Note**: In order to support 100 concurrent users, you need:    
-* 2 cpus or more machine
-* 128 GB of RAM
-* 500 GB of storage
+  		o 2 cpus or more machine
+  		o 128 GB of RAM
+  		o 500 GB of storage
 
 We are currently using an HPE ProLiant DL360 Gen10 server on our different production sites.
 
