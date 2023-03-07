@@ -77,6 +77,7 @@ In order to setup the backend server, you will need:
 * A Linux account with sudo priviledges on your Linux distro. Name it install 
 
   **Note**: In order to support 100 concurrent users, you need:
+
   * 2 cpus or more machine
   * 128 GB of RAM
   * 500 GB of storage
@@ -260,6 +261,8 @@ WODFEAPIPWD: MotDePasseCompliquéAussi125!!!##
 ```
 
 S﻿ee the example below for a backend server.
+
+
 
 ### B﻿ackend installation process:
 
