@@ -53,16 +53,17 @@ Here's a quick look at what can be found in each:
 ![](/img/wod-blogserie2repos.png "Workshops-on-Demand repositories")
 
 It provides:
-*	A complete JupyterHub server with some addons (additional Jupyterhub kernels, Ansible galaxies, and PowerShell libraries) on your system, ready to host Workshops-on-Demand that you can find here. 
-*	A postfix server used for the procmail API 
-*	An Ansible engine to allow automation 
-*	A fail2ban service 
-*	An Admin user to manage everything 
-*	A set of scripts to handle different tasks such as: 
-			o	Notebooks deployment 
-			o	Jupyterhub compliancy
-			o	Users compliancy
-			o	Security Managemen
+
+* A complete JupyterHub server with some addons (additional Jupyterhub kernels, Ansible galaxies, and PowerShell libraries) on your system, ready to host Workshops-on-Demand that you can find here. 
+* A postfix server used for the procmail API 
+* An Ansible engine to allow automation 
+* A fail2ban service 
+* An Admin user to manage everything 
+* A set of scripts to handle different tasks such as: 
+  		o	Notebooks deployment 
+  		o	Jupyterhub compliancy
+  		o	Users compliancy
+  		o	Security Managemen
 
 #### Backend server preparation:
 
@@ -71,26 +72,32 @@ B﻿efore cloning the backend repository, you will need to prepare the server th
 ###### Prerequesites:
 
 1. In order to setup the backend server, you will need:
-*	A fresh OS install on physical / virtualized server running Ubuntu 20.04 or Centos 7.9 leveraging any deployment mechanism of your choice.(e.g. iLO, vagrant, etc.). You may even use this vagrant file to automatically generate a complete setup leveraging vagrant, libvirt and QEMU/KVM. 
-*	A Linux account with sudo priviledges on your Linux distro. Name it install 
-   Note: In order to support 100 concurrent users, you need:
-   *	2 cpus or more machine
-   *	128 GB of RAM
-   *	500 GB of storage
+
+* A fresh OS install on physical / virtualized server running Ubuntu 20.04 or Centos 7.9 leveraging any deployment mechanism of your choice.(e.g. iLO, vagrant, etc.). You may even use this vagrant file to automatically generate a complete setup leveraging vagrant, libvirt and QEMU/KVM. 
+* A Linux account with sudo priviledges on your Linux distro. Name it install 
+
+
+  **Note**: In order to support 100 concurrent users, you need:
+
+  * 2 cpus or more machine
+  * 128 GB of RAM
+  * 500 GB of storage
 
 We are currently using an HPE ProLiant DL360 Gen10 server on our different production sites.
 
 2. When done with OS installation and preparation
-*	From the WoD-backend server (aka JupyterHub server), as the install user, you will need to clone the repo first. 
 
-   ```
-   install$ git clone https://github.com/Workshops-on-Demand/wod-backend.git
-   install$ cd wod-backend/
-   ```
-*	Examine default installation parameters and adapt when necessary accordingly. Files are self-documented. 
-*	Look at the following files within ansible/group_vars directory.
+* From the WoD-backend server (aka JupyterHub server), as the install user, you will need to clone the repo first. 
 
-   	*`all.yml` file  
+```
+install$ git clone https://github.com/Workshops-on-Demand/wod-backend.git
+install$ cd wod-backend/
+```
+
+* Examine default installation parameters and adapt when necessary accordingly. Files are self-documented. 
+* Look at the following files within ansible/group_vars directory.    
+
+     	•`all.yml` file  
 
 ```shellsession
 vi all.yml
