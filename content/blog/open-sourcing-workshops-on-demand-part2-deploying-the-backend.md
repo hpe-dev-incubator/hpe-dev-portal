@@ -60,10 +60,11 @@ It provides:
 * A fail2ban service 
 * An Admin user to manage everything 
 * A set of scripts to handle different tasks such as: 
-   * Notebooks deployment
-   * Jupyterhub compliancy
-   * Users compliancy
-   * Security Management
+
+  * Notebooks deployment
+  * Jupyterhub compliancy
+  * Users compliancy
+  * Security Management
 
 #### Backend server preparation:
 
@@ -93,14 +94,10 @@ install$ git clone https://github.com/Workshops-on-Demand/wod-backend.git
 install$ cd wod-backend/
 ```
 
-
-
 * Examine default installation parameters and adapt when necessary accordingly. Files are self-documented.
 * Look at the following files within ansible/group_vars directory.    
 
   * `all.yml` file  
-
-
 
 ```shellsession
 vi all.yml
@@ -175,7 +172,7 @@ ANSIBLEPRIVDIR: "{{ WODPRIVDIR }}/ansible"
 
 ``
 
-* `wod-backend` file   
+* `wod-backend` file  
 
    
 
@@ -238,7 +235,7 @@ DATAVISUPORT2-WKSHP-DataVisu101: 22131
 
 * `wod-system` file
 
-\    
+   
 
 ```shellsession
 vi wod-system
@@ -272,13 +269,7 @@ WODFEAPIUSER: moderator
 WODFEAPIPWD: MotDePasseCompliquéAussi125!!!##
 ```
 
-
-
 S﻿ee the example below for a backend server.
-
-```shellsession
-vi 
-```
 
 ### B﻿ackend installation process:
 
@@ -337,8 +328,8 @@ T﻿he principle remains similar, with a few differences explained below.
 * Create an `install.priv` file located in `install` directory when using a private repo (consider looking at [install.repo](https://github.com/Workshops-on-Demand/wod-backend/blob/main/install/install.repo) file for a better understanding of the variables).
 * Define the WODPRIVREPO and WODPRIVBRANCH variables as follows:    
 
-  * WODPRIVBRANCH="main"      
-  * WODPRIVREPO="git@github.com:Account/Private-Repo.git wod-private"    
+  * `WODPRIVBRANCH="main" `     
+  * `WODPRIVREPO="git@github.com:Account/Private-Repo.git wod-private"`    
 
 **Note:** When using a token
 
