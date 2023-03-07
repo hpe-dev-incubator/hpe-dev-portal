@@ -320,7 +320,6 @@ T﻿he principle remains similar, with a few differences explained below.
 * Commit and push changes to your repo.    
 * Create an `install.priv` file located in `install` directory when using a private repo (consider looking at [install.repo](https://github.com/Workshops-on-Demand/wod-backend/blob/main/install/install.repo) file for a better understanding of the variables).
 * Define the WODPRIVREPO and WODPRIVBRANCH variables as follows:    
-
    * `WODPRIVBRANCH="main"`     
    * `WODPRIVREPO="git@github.com:Account/Private-Repo.git wod-private"`    
 
@@ -329,7 +328,6 @@ T﻿he principle remains similar, with a few differences explained below.
 Please refer to the following [url](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) to generate a `token` file in `install` directory of WoD-backend:
 
 * Edit the `install.priv` file located in `install` directory of WoD-backend:  
-
    * Create line before variable declaration: ``token=`cat $EXEPATH/token` ``    
    * Use the token in the url WODPRIVREPO="git clone https://user:$token@github.com/Account/wod-private.git wod-private"    
 
