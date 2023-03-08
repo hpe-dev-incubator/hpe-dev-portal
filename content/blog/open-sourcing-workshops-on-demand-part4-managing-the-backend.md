@@ -228,3 +228,4 @@ I﻿t checks a quite long list of items like:
   * Ensure jupyterhub students users exist
   * Setup ACL for students with jupyterhub account
   * Setup default ACL for students with jupyterhub account
+*
