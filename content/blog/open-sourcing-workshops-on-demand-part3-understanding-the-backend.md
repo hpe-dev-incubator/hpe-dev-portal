@@ -14,7 +14,7 @@ I﻿ will take time today to dig into the details of this server. I will cover t
 
 A﻿s a reminder, here is a diagram showing the different parts of the Workshops-on-Demand infrastructure. I will focus today againon the backend server side and more precisely on the Jupyterhub server where all the automation takes place.
 
-![](/img/wod-blogserie3-archi.png "Workshops-on-Demand Architecture")
+![](/img/wod-blogserie3-archi-2.png "Workshops-on-Demand Architecture")
 
 #### B﻿ackend server  / workshops deployment liefecycle
 
@@ -309,7 +309,7 @@ N﻿ow let's look at the **RESET** scenario.
 
  You may wonder what are the differences between **CLEANUP** and **RESET**? Well, firstly, they spell differently but that has nothing to do with the purpose of this article...Secondly, **CLEANUP** only takes care of student whereas **RESET** takes care of a larger scope. Let me explain.
 
-W﻿hen a **CLEANUP** occurs, it deals with the participant's student workshop and home directory (the workshop directory belonging to the home directory). It cleans up workshop content, ssh keys, skeletons. The <RESET> will delete leftovers from the workshop's exercices. For intance, when one runs the [Kubernetes 101](https://developer.hpe.com/hackshack/workshop/24)workshop, he is creating microservices, he's scaling them, and should at the end of the workshop run some `kubectl delete` commands to clean up everything. However, this does happen all the time. And the admin needs to make sure that the next participant who will get affected the very same student environment comes with a fresh one. Therefore, some measures have to be taken. Well these measures take place when a reset flag is associated to the workshop in the database.
+W﻿hen a **CLEANUP** occurs, it deals with the participant's student workshop and home directory (the workshop directory belonging to the home directory). It cleans up workshop content, ssh keys, skeletons. The <RESET> will delete leftovers from the workshop's exercices. For intance, when one runs the [Kubernetes 101](https://developer.hpe.com/hackshack/workshop/24) workshop, he is creating microservices, he's scaling them, and should at the end of the workshop run some `kubectl delete` commands to clean up everything. However, this does happen all the time. And the admin needs to make sure that the next participant who will get affected the very same student environment comes with a fresh one. Therefore, some measures have to be taken. Well these measures take place when a reset flag is associated to the workshop in the database.
 
 D﻿uring the **CLEANUP** phase, a check is actually performed to test the presence of this flag through a simple API call on the frontend  API-DB server. If the workshop has a reset flag then a dedicated `reset-WKSHP.sh` script is called and performed the necessary tasks. In the case of kubernetes 101, it will wipe out any leftovers from the student. In some other cases, it will launch a revert to snapshot script on a virtual machine. 
 
