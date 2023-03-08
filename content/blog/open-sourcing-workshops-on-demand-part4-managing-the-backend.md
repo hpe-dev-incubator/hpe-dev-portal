@@ -205,15 +205,15 @@ I﻿t checks a quite long list of items like:
 
   * Ensure limits are correct for students accounts 
 * Copy the skeleton content under /etc/skel
-* Test .profile file
+* Test `.profile` file
 * Ensure vim is the default EDITOR
-* Setup logind.conf
-* M﻿anage /etc/hosts file
+* Setup `logind.conf`
+* M﻿anage `/etc/hosts` file
 * Install the pkg update script
-* Setup crontab for daily pkg security update
+* Setup `crontab` for daily pkg security update
 * Deliver create/reset/setup scripts as ansible template for variable expansion
 * Install utility scripts
-* Deliver the system scripts (cleanup-processes.sh.j2)
+* Deliver the system scripts (`cleanup-processes.sh.j2`)
 * Installation of the cleanup-processes script
 * Setup weekly cleanup processes task
 * Enable WoD service
