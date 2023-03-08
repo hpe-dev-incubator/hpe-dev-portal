@@ -1,5 +1,5 @@
 ---
-title: "Open Sourcing Workshops-on-Demand part4: Managing the Backend"
+title: "Open Sourcing Workshops-on-Demand part 4: Manage the Backend"
 date: 2023-03-03T13:27:23.312Z
 author: Frederic Passeron
 authorimage: /img/frederic-passeron-hpedev-192.jpg
@@ -7,7 +7,7 @@ disable: false
 ---
 I﻿n previous articles of this series dedicated to the [open sourcing of our Workshops-on-Demand project](https://developer.hpe.com/blog/willing-to-build-up-your-own-workshops-on-demand-infrastructure/), I covered the reasons why we open sourced  the project, how we did it. I also explained in details how you could install your own Workshops-on-Demand backend server. I also took the time to detail the automation that was hosted on this backend server. Today, I plan to describe to you the management of this backend server. What is often refered to as day2 operations.
 
-O﻿nce up and running, the backend server main purpose is to deliver workshops-on-Demand. But to do so, it may require updates, upgrades, new kernels for the Jupyterhub server. If new workshops are created, this means new jinja templates for related workshops' scripts (create<WKSHP>.sh. cleanup<WKSHP>.sh, reset<WKSHP>.sh among others). This also means new variables files. And obviously, this templates and variables will need to be taken into account by scripts and notebooks. Some tasks handle all of this. And we will see now how.
+O﻿nce up and running, the backend server main purpose is to deliver workshops-on-Demand. But to do so, it may require updates, upgrades, new kernels for the Jupyterhub server. If new workshops are created, this means new jinja templates for related workshops' scripts (`create<WKSHP>.sh`, `cleanup<WKSHP>.sh`, `reset<WKSHP>.sh`among others). This also means new variables files. And obviously, these templates and variables will need to be taken into account by scripts and notebooks. Some tasks handle all of this. And we will see now how.
 
 #### B﻿ackend server management:
 
