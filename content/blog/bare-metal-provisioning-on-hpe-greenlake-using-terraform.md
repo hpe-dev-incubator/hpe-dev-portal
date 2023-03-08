@@ -1,7 +1,7 @@
 ---
-title: Bare Metal provisioning on HPE GreenLake using Terraform
+title: Bare metal provisioning on HPE GreenLake using Terraform
 date: 2023-02-26T19:38:34.667Z
-author: Chaita Mylarappachar
+author: Chaitra Mylarappachar
 authorimage: /img/chaitra-mylarappachar-192.png
 disable: false
 tags:
@@ -13,24 +13,23 @@ tags:
 ---
 # Introduction
 
-The HPE GreenLake for Private Cloud Enterprise: bare metal (BMaaS) service offering enables you to create dedicated compute instances deployed on a physical IT infrastructure facilitating on-demand scalability, convenience, and agility as a cloud service. 
+The HPE GreenLake for Private Cloud Enterprise: bare metal (BMaaS) service offering enables you to create dedicated compute instances deployed on a physical IT infrastructure, facilitating on-demand scalability, convenience, and agility as a cloud service. 
+
 Using BMaaS, you can create compute-instances provisioned with specific operating systems, network connections, one or more public SSH keys, and optional network-attached storage volumes.
 The service can be accessed via GUI as well as via public APIs, enabling developers to use an Infrastructure-as-Code tool to build, change, and manage infrastructure in a consistent and repeatable way.
 
-## HPE GreenLake Terraform Provider
-
 The HPE GreenLake Terraform provider **hpegl** by HPE GreenLake provides Infrastructure-as-Code support for HPE GreenLake Cloud Services.
-Using the **hpegl** Terraform provider, you can automate the management of your infrastructure. You can provision OS on bare metal, spin virtual machines and bring up a Kubernetes cluster, starting right from bare metal all the way up in the stack to desired configurations and applications.
+Using the **hpegl** Terraform provider, you can automate the management of your infrastructure. You can provision OS on bare metal, spin up virtual machines and bring up a Kubernetes cluster; starting right from bare metal all the way up the stack to your desired configurations and applications.
 
 In this blog post, I will walk you through the steps required to use the HPE GreenLake Terraform Provider to deploy and further manage bare metal compute instances.
 
-# Preparing for Infrastructure-as-Code implementation
+# Preparing an Infrastructure-as-Code implementation
 
-## Setting up API Client for access
+## Setting up an API client for access
 
-You need an API client to authenticate against the HPE GreenLake.
+You need an API client to authenticate against HPE GreenLake.
 
-Follow the below steps for API Client creation:
+Follow the below steps for an API client creation:
 
 1. From the HPE GreenLake platform, launch the HPE GreenLake Central console for the appropriate tenant. Under the settings icon on the tenant Dashboard page, select the **User Management** option. 
 
@@ -49,31 +48,27 @@ Follow the below steps for API Client creation:
 ![API Client Created](/img/greenlake_conolse_apiclient_created.png "API Client Created")
 
 5. In the API Clients page, select the newly created client, and click on **Create Assignment** button.
-
-
 6. Assign the roles **BMAAS Access Viewer** and **BMAAS Access Project Contributor** on the **Space: Default.**
 
 ![BMaaS Roles](/img/greenlake_console_createbmaasassignment.png "BMaaS Roles")
 
-The API Client is now ready to be used to run the Terraform resources.
+The API client is now ready to be used to run the Terraform resources.
 
-## Select the Compute Group ID
+## Select the Compute group ID
 
-Compute Group is a logical grouping of bare metal resources (Compute Instances, Networks, SSHKeys, etc.) that a team of Cloud Consumers can consume. You must specify the compute group ID to interact with the bare metal service resources. You can create a new compute group or select the existing one from the HPE GreenLake console. Make a note of the compute group ID because you need it to set a variable.
+A compute group is a logical grouping of bare metal resources (compute instances, networks, SSH keys, etc.) that a team of cloud consumers can consume. You must specify the compute group ID to interact with the bare metal service resources. You can create a new compute group or select the existing one from the HPE GreenLake console. Make a note of the compute group ID because you need it to set a variable.
 
-***Note: Compute Group is AKA Project.***
+***Note: Compute group is an AKA Project.***
 
 1. Navigate to HPE GreenLake for Private Cloud Services card -> Bare Metal -> Compute Groups.
 
 ![BMaaS Compute Groups](/img/compute_group_list.png "BMaaS Compute Groups")
 
-2. Click on the desired compute group and then extract the ID from the browser URL seen at that time.\
-   \
+2. Click on the desired compute group and then extract the ID from the browser URL seen at that time.  
+
    This will be exported in the environment variable **HPE_METAL_PROJECT_ID** in the later section.
 
-![Compute Group ID](/img/compute_group_id.png "Compute Group ID")
-
- ﻿ 
+![Compute group ID](/img/compute_group_id.png "Compute group ID")
 
 ## Install Terraform
 
@@ -89,7 +84,7 @@ Next, get your system ready to run Terraform. In case this has not been done yet
 
 ## Select Terraform provider with bare metal service configurations
 
-1. #### Export the following environment variables on your setup.
+1. **Export the following environment variables on your setup.**
 
    E﻿xport the Tenant ID:
 
@@ -105,11 +100,11 @@ Next, get your system ready to run Terraform. In case this has not been done yet
    export HPEGL_IAM_SERVICE_URL="<Issuer URL>"
    ```
 
-   E﻿xport the Compute Group ID:
+   E﻿xport the Compute group ID:
 
    ```
    # compute group/project ID
-   export HPEGL_METAL_PROJECT_ID="<Compute Group ID>"
+   export HPEGL_METAL_PROJECT_ID="<Compute group ID>"
    ```
 
     ﻿Export bare metal service REST URL:
@@ -121,7 +116,7 @@ Next, get your system ready to run Terraform. In case this has not been done yet
 
    export HPEGL_METAL_REST_URL="<Metal Service REST Base URL>"
    ```
-2. #### Configure the Terraform provider.
+2. **Configure the Terraform provider.**
 
    Create an empty folder and put a file in it called main.tf with the following contents:
 
@@ -144,13 +139,13 @@ Next, get your system ready to run Terraform. In case this has not been done yet
    }
    ```
 
-   T﻿his tells Terraform that you are going to be using HPE/hpegl as your provider and you are using bare metal service.
+   T﻿his tells Terraform that you are going to be using HPE/hpegl as your provider and you are using the bare metal service.
 
-## Write resource configuration for Compute Instance creation
+## Write resource configuration for compute instance creation
 
 To deploy compute instance, you need to use the **hpegl_metal_host** terraform resource.
 
-***Note**:*
+**\*Note**:*
 
 * *compute instance is AKA host.* 
 * *compute instance type is AKA machine size.*
@@ -158,7 +153,7 @@ To deploy compute instance, you need to use the **hpegl_metal_host** terraform r
 The **hpegl_metal_host** resource supports many different arguments, but these are the required ones:
 
 * networks – List of networks. The list must always include any networks marked as '**required**' for that location. 
-* machine_size – Compute Instance type.
+* machine_size – Compute instance type.
 * ssh – List of SSH keys to push to the host.
 * location – The data center location of where the compute instance will be provisioned.
 * Image – OS image in the form flavor@version.
@@ -169,7 +164,7 @@ The **hpegl_metal_host** resource supports many different arguments, but these a
 
 ### Querying for available OS images
 
-In order to list the available OS images for OS, add the below data statements in your terraform file ***main.tf***:
+In order to list the available OS images for OS, add the below data statements in your Terraform file ***main.tf***:
 
 ```hcl
 data "hpegl_metal_available_images" "ubuntu" { 
@@ -197,8 +192,8 @@ locals {
 
 ### Querying for other available resources
 
-For this, you should use **hpegl_metal_available_resources** data resource. For example, the following statements show how to retrieve and store the available SSH keys in a local variable.\
-\
+For this, you should use **hpegl_metal_available_resources** data resource. For example, the following statements show how to retrieve and store the available SSH keys in a local variable.  
+
 Append to main.tf:
 
 ```hcl
@@ -212,8 +207,8 @@ locals  {
 }
 ```
 
-Using a similar technique, you can retrieve the rest of the data you need - networks, machine size, etc.\
-\
+Using a similar technique, you can retrieve the rest of the data you need - networks, machine size, etc.  
+
 A﻿ppend to main.tf:
 
 ```hcl
@@ -236,12 +231,11 @@ locals {
 }
 ```
 
-\
-[Here ](https://registry.terraform.io/providers/HPE/hpegl/latest/docs/data-sources/metal_available_resources)you can get information about each of the bare metal data statements supported by the **hpegl** provider.
+[Here](https://registry.terraform.io/providers/HPE/hpegl/latest/docs/data-sources/metal_available_resources) you can get information about each of the bare metal data statements supported by the **hpegl** provider.
 
-### Create Compute Instance
+### Create Compute instance
 
-The last step is, define a hpegl_metal_host terraform resource in the file to request a new compute instance (host):
+The last step is for you define a **hpegl_metal_host** terraform resource in the file to request a new compute instance (host):
 
 ```hcl
 resource "hpegl_metal_host" "demo_host" {
@@ -351,7 +345,7 @@ When you no longer need the resources created via Terraform, destroy the resourc
 
 # Summary
 
-In this blog, I covered how to provision a compute instance with Terraform provider for HPE GreenLake using bare metal resources. I also showed you advanced usage of hpegl resource statements to deploy a compute instance with dynamic resources. \
+In this blog, I covered how to provision a compute instance with Terraform provider for HPE GreenLake using bare metal resources. I also showed you advanced usage of hpegl resource statements to deploy a compute instance with dynamic resources.  
 I hope you found this information interesting and helpful in helping you get started with the HPE GreenLake Terraform provider. You can also go through the below links to understand more about the HPE GreenLake Terraform provider. 
 
 * [Kubernetes Cluster as Code – Part 1](https://developer.hpe.com/blog/kubernetes-clusters-as-code-part1/)
