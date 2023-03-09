@@ -16,9 +16,9 @@ The overall infrastructure can run on physical servers or VMs. We usually design
 
 ## H﻿ow to deploy your own backend...
 
-A﻿s explained in the previous [article](https://developer.hpe.com/blog/willing-to-build-up-your-own-workshops-on-demand-infrastructure/), the project is split into multiple repositories from the architectural and public / private aspects. The architecture is divided between the frontend and backend. The project admin will need to decide whether  he is willing to develop and propose public-only content to the participants or add any proprietary and private content.
+A﻿s explained in the previous [article](https://developer.hpe.com/blog/willing-to-build-up-your-own-workshops-on-demand-infrastructure/), the project is split into multiple repositories from the architectural and public / private aspects. The architecture is divided between the frontend and backend. The project admins will need to decide whether they are willing to develop and propose public-only content to the participants or add any proprietary and private content.
 
-I﻿ will start with the simpliest scenario: A public-only approach. Then we will dive into the specificties related the private approach.
+I﻿ will start with the simpliest scenario: A public-only approach. Then we will dive into the specificities related the private approach.
 
 ### P﻿ublic-only Deployment: No private backend nor private workshops
 
@@ -49,6 +49,10 @@ Here's a quick look at what can be found in each:
 * This provide an example for creating your own cutomization layer on top of the public standard WoD Backend / wod Notebooks content. Do not put any confidential data here as this is a public repository!
 
 **[w﻿od-backend](https://github.com/Workshops-on-Demand/wod-backend):** Back-end part of our Workshops-on-Demand setup.  
+
+**Note**: T﻿here are only 3 repositories available for now. The missing 2 will show up later.
+
+
 
 ![](/img/wod-blogserie2repos.png "Workshops-on-Demand repositories")
 
@@ -341,4 +345,4 @@ Y﻿ou now have a working Workshops-on-Demand backend server in place. Congratul
 
 I﻿f you need support for this installation process, use our dedicated [slack channel](https://hpedev.slack.com/archives/C01B60X8SSD)
 
-Please be sure to check back [HPE Developer blog site](https://developer.hpe.com/blog) to read all the articles in this series. Also, check out  the Hack Shack for new [workshops](https://developer.hpe.com/hackshack/workshops) [Data Visualization 101](https://developer.hpe.com/hackshack/replays/42) is now available! HPE GreenLake for Compute Operations Management API 101 on its way too. Stay tuned!
+Please be sure to check back [HPE Developer blog site](https://developer.hpe.com/blog) to read all the articles in this series. Also, check out  the Hack Shack for new [workshops](https://developer.hpe.com/hackshack/workshops) [Data Visualization 101](https://developer.hpe.com/hackshack/replays/42) is now available! Stay tuned!
