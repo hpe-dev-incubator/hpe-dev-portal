@@ -325,11 +325,11 @@ I﻿n terms of task associated to the **PURGE** scenario, you can see that we ke
 
 W﻿e then initiate :
 
-9- `generate_randompwd()`:  We always update the sdtudent's password for security reasons.
+9- `generate_randompwd()`:  We always update the student's password for security reasons.
 
 1﻿0- `erase-student()`:  we perform a cleanup of the student folder.
 
-1﻿1- API calls to to update tables in the database. The new s﻿tudent password is recorded. We also generate a new password at the **PURGE** phase to prevent unregistered logins. The s﻿tudent status is set to inactive. The capacity figure is incremented by one to make the seat available again. 
+1﻿1- API calls to update tables in the database. The new s﻿tudent password is recorded. We also generate a new password at the **PURGE** phase to prevent unregistered logins. The s﻿tudent status is set to inactive. The capacity figure is incremented by one to make the seat available again. 
 
 A﻿n email is then sent to the participant explaining to him that we encountered an issue with the deployment and that we apologize for this. The same email is sent to the admin so he can work on the issue.
 
