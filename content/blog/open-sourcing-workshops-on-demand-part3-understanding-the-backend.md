@@ -12,7 +12,7 @@ I﻿n the previous article [article](https://developer.hpe.com/blog/willing-to-b
 
 I﻿ will take time today to dig into the details of this server. I will cover the inners of the registration process explaining how a workshop is deployed on the backend server. Even though it takes only a few minutes to the backend server to deploy a workshop, there are many processes taking place in the background. We will discover them together today.
 
-A﻿s a reminder, here is a diagram showing the different parts of the Workshops-on-Demand infrastructure. I will focus today againon the backend server side and more precisely on the Jupyterhub server where all the automation takes place.
+A﻿s a reminder, here is a diagram showing the different parts of the Workshops-on-Demand infrastructure. I will focus today again on the backend server side and more precisely on the Jupyterhub server where all the automation takes place.
 
 ![](/img/wod-blogserie3-archi-2.png "Workshops-on-Demand Architecture")
 
@@ -60,7 +60,7 @@ LOGFILE=$MAILDIR/from
 | {{ SCRIPTDIR }}/procmail-action.sh PURGE $MATCH
 ```
 
-The `From:` is important as `.procmailrc` checks that the sender is the configured one from the frontend server. During the install process, the sender parameter id referring to this. Any mail from any other sender but the configured one is not processed.
+The `From:` is important as `.procmailrc` checks that the sender is the configured one from the frontend server. During the install process, the `WODSENDER` parameter id referring to this. Any mail from any other sender but the configured one is not processed.
 
 This api is actually based on a script `procmail-action.sh`. This script defines the different actions linked to the verbs passed through the api calls via `.procmailrc`
 
