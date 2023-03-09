@@ -60,6 +60,7 @@ It provides:
 * A fail2ban service 
 * An Admin user to manage everything 
 * A set of scripts to handle different tasks such as: 
+
   * Notebooks deployment
   * Jupyterhub compliancy
   * Users compliancy
@@ -92,11 +93,12 @@ When done with OS installation and preparation
 install$ git clone https://github.com/Workshops-on-Demand/wod-backend.git
 install$ cd wod-backend/
 ```
+
 * Examine default installation parameters and adapt when necessary accordingly. Files are self-documented.
 
 Look at the following files within ansible/group_vars directory.    
 
-  * `all.yml` file  
+* `all.yml` file  
 
 ```shellsession
 vi all.yml
@@ -276,23 +278,25 @@ WODFEAPIPWD: MotDePasseCompliquéAussi125!!!##
 * Installs minimal required (`ansible, git, jq, openssh server, npm`)
 * Creates an admin user as defined upper (default is `wodadmin`) with sudo rights
 * Calls the `install-system-common.sh` script that performs the following tasks:
-   * Cleanup    
-   * Github repos cloning (leveraging install.repo file) : public Backend and public Private repos    
-   * Create ssh keys for wodadmin    
-   * Creates GROUPNAME variables    
-   * Creates Ansible inventory files  
+
+  * Cleanup    
+  * Github repos cloning (leveraging install.repo file) : public Backend and public Private repos    
+  * Create ssh keys for wodadmin    
+  * Creates GROUPNAME variables    
+  * Creates Ansible inventory files  
 * Calls the `install_system.sh` script with the type (backend, frontend, etc..) that performs the following tasks:    
-   * Install the necessary stack based on selected type    
-   * Create a `wod.sh` script in `wod-backend` directory to be used by all other scripts    
-   * Source the `wod.sh` file     
-   * Setup Ansible-galaxies (`community.general` and `posix`)     
-   * Setup Ansible and call the playbook `install_<type>.yml` followed by the `ansible\_check\_<type>.yml`    
+
+  * Install the necessary stack based on selected type    
+  * Create a `wod.sh` script in `wod-backend` directory to be used by all other scripts    
+  * Source the `wod.sh` file     
+  * Setup Ansible-galaxies (`community.general` and `posix`)     
+  * Setup Ansible and call the playbook `install_<type>.yml` followed by the `ansible\_check\_<type>.yml`    
 
 At the end of the installation process:
 
-  * you will have a JupyterHub server running on port 8000    
-  * You will get a new `wodadmin` user (Default admin)    
-  * You will get a set of 20 students (Default value)    
+* you will have a JupyterHub server running on port 8000    
+* You will get a new `wodadmin` user (Default admin)    
+* You will get a set of 20 students (Default value)    
 
 A﻿ll playbooks are self-documented. Please check for details.
 
@@ -316,23 +320,25 @@ T﻿he principle remains similar, with a few differences explained below.
 * Commit and push changes to your repo.    
 * Create an `install.priv` file located in `install` directory when using a private repo (consider looking at [install.repo](https://github.com/Workshops-on-Demand/wod-backend/blob/main/install/install.repo) file for a better understanding of the variables).
 * Define the WODPRIVREPO and WODPRIVBRANCH variables as follows:    
-   * `WODPRIVBRANCH="main"`     
-   * `WODPRIVREPO="git@github.com:Account/Private-Repo.git wod-private"`    
+
+  * `WODPRIVBRANCH="main"`     
+  * `WODPRIVREPO="git@github.com:Account/Private-Repo.git wod-private"`    
 
 **Note:** When using a token
 
 Please refer to the following [url](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) to generate a `token` file in `install` directory of WoD-backend:
 
 * Edit the `install.priv` file located in `install` directory of WoD-backend:  
-   * Create line before variable declaration: ``token=`cat $EXEPATH/token` ``    
-   * Use the token in the url WODPRIVREPO="git clone https://user:$token@github.com/Account/wod-private.git wod-private"    
+
+  * Create line before variable declaration: ``token=`cat $EXEPATH/token` ``    
+  * Use the token in the url WODPRIVREPO="git clone https://user:$token@github.com/Account/wod-private.git wod-private"    
 
 Y﻿ou are now ready to perform the installation again to support a private repository. 
 
-Please note that this setup phase can be conccurent with the public setup phase. Indeed, the install script should detect the presence of the private repository owing to the presence of the install.priv file. It will automatically adjust the different scripts and variables to add the relevant content. It will actually overload some of the variables with private ones.
+Please note that this setup phase can be concurrent with the public setup phase. Indeed, the install script should detect the presence of the private repository owing to the presence of the install.priv file. It will automatically adjust the different scripts and variables to add the relevant content. It will actually overload some of the variables with private ones.
 
 Y﻿ou now have a working Workshops-on-Demand backend server in place. Congratulations! The next article in the series will help you better understand the lifecycle of the backend server. How does a workshop registration work from the backend server 's side? How do you manage this server on a daily basis? How and when do you need to update it ? All these questions will be answered in the next article. And from there, we will move to the frontend side of things and finally to a workshop's creation process.
 
-I﻿f you need support for this installation process, use our dedicated slack channel
+I﻿f you need support for this installation process, use our dedicated [slack channel](https://hpedev.slack.com/archives/C01B60X8SSD)
 
 Please be sure to check back [HPE Developer blog site](https://developer.hpe.com/blog) to read all the articles in this series. Also, check out  the Hack Shack for new [workshops](https://developer.hpe.com/hackshack/workshops) [Data Visualization 101](https://developer.hpe.com/hackshack/replays/42) is now available! HPE GreenLake for Compute Operations Management API 101 on its way too. Stay tuned!
