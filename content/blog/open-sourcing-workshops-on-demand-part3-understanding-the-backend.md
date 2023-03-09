@@ -313,15 +313,27 @@ W﻿hen a **CLEANUP** occurs, it deals with the participant's student workshop a
 
 D﻿uring the **CLEANUP** phase, a check is actually performed to test the presence of this flag through a simple API call on the frontend  API-DB server. If the workshop has a reset flag then a dedicated `reset-WKSHP.sh` script is called and performed the necessary tasks. In the case of kubernetes 101, it will wipe out any leftovers from the student. In some other cases, it will launch a revert to snapshot script on a virtual machine. 
 
+Finally, let's consider the **PURGE** scenario.
+
 ![](/img/wod-blogserie3-purge.png "backend server PURGE workflow")
 
-I﻿n a perfect world, we would have covered here what one would somehow expect from any kind of API (GET, PUT, DELETE = CREATE, CLEANUP and RESET).  But, this is unfortunately not the case. Even though we did our best to harden the deployment automation, failures might occur. A remote site could go down because of a backhoe loader cutting an internet line while digging...I have seen this. In this very case, you need to be able to cleanup the mess quickly.
+I﻿n a perfect world, we would have covered here what one would somehow expect from any kind of API (GET, PUT, DELETE = CREATE, CLEANUP and RESET).  But, this is unfortunately not the case. Even though we did our best to harden the deployment automation, failures might occur.  Issues could occur at many different levels. From a backhoe loader cutting an internet line on the very morning of a starting event (preventing you from accessing your remote labs) to unplanned power cuts, or misconfigured power redundancy in pdus assignment, there are many examples possible of human factor related issues. As a result, the Jupyterhub server or an appliance might become unreachable, and the automation of the workshop's deployment might fail.
 
-The **PURGE** scenario is therefore triggered on deployment failures.
+ In these very cases, you need to be able to cleanup the mess quickly.
 
-A﻿t the registration time, when the participant hits the register button on the frontend web portal, an entry is automatically created in the database for him. It associates the particpant to a student and a workshop. it also r﻿egisters the date and start time of the workshop, sets the participant status  to 'welcome' in the database and a first email is sent to the particpant from the frontend web portal welcoming him to the Workshop-on-Demand and stating to him that within a few minutes a second email will be sent along with the necessary information (credentials and url) to connect to the workshop environment. If for any reason, the deployment of the workshop fails and as a consequence, no API call is made  back to the frontend from the backend, the frontend could remain stuck for ever and so would the participant. To overcome this, we implemented a check on the frontend web portal to test this welcome status. In a normal scenario, this welcome status gets updated within less than 3 minutes. If the status is not updated within 10 minutes, we consider that something went wrong during the deployment and as a result, a **PURGE** scenario is initiated to clean up both the backend and the frontend sides of the related registration. 
+![](/img/wod-blogserie3-failure-purge.png "backend server PURGE / Failure workflow")
 
-I﻿n terms of task associated to the **PURGE** scenario, you can see that we kept the minimal as there should not be much to clean up on the backend server. Same tasks to begin with as we still need student id and workshop id. 
+* f﻿rontend - backend communication issues
+* J﻿upyterHub server failure
+* J﻿upyterHub server - appliance server communication issues
+
+The **PURGE** scenario is therefore triggered on Workshops-on-Demand' deployment failures.
+
+A﻿t the registration time, when the participant hits the register button on the frontend web portal, an entry is automatically created in the database for him. It associates the participant to a student and a workshop. it also r﻿egisters the date and start time of the workshop, sets the participant status  to 'welcome' in the database and a first email is sent to the particpant from the frontend web portal welcoming him to the Workshop-on-Demand and stating to him that within a few minutes a second email will be sent along with the necessary information (credentials and url) to connect to the workshop's environment. If for any reason, the deployment of the workshop fails and as a consequence, no API call is made back to the frontend from the backend, the frontend could remain stuck for ever and so would the participant. To overcome this, we implemented a check on the frontend web portal to test this welcome status. In a normal scenario, this welcome status gets updated within less than 3 minutes. If the status is not updated within 10 minutes, we consider that something went wrong during the deployment and as a result, a **PURGE** scenario is initiated to clean up both the backend and the frontend sides of the related registration. Of course, depending of the backend sanity, some actions could also fail. But from our experience, both  frontend and backend are really reliable. 
+
+Considering now the most common case: the backend server and frontend servers can communicate but the JupyterHub server has issues to communicate with appliances. I﻿n terms of tasks associated to the **PURGE** scenario, you can see that we kept the minimal as there should not be much to clean up on the backend server.
+
+We call the same tasks to begin with as we still need student id and workshop id. 
 
 W﻿e then initiate :
 
