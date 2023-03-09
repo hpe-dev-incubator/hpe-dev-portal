@@ -5,9 +5,7 @@ author: D.R.Niranjan, Chirag Talreja, Sagar Nayamagouda, Chinmay Chaturvedi,
   Kalapriya Kannan, Roopali Gupta
 authorimage: /img/Avatar1.svg
 disable: false
-tags:
-  - EMR Serverless
-  - Delta Lakes on EMRServerless
+tags: []
 ---
 <!--StartFragment-->
 
@@ -69,15 +67,11 @@ In this article, we provide step by step walkthrough of how we build custom imag
 
 Command to authenticate Docker to an AWS ECR public registry assuming region as us-east-1. As EMRServerless base docker image is present in ECR public registry, run below command before building your customized docker file.
 
-        
-
 ```
 ***aws ecr-public get-login-password --region us-east-1 --profile <profile_name_in_your_aws_credentials_file> | docker login --username AWS --password-stdin public.ecr.aws***
 ```
 
 Command to build docker image:
-
-        
 
 ```
 ***docker build -t local_docker_image_name:tag -f <docker_file_name> .***
@@ -85,15 +79,11 @@ Command to build docker image:
 
 Command to tag locally built docker image in order to push to AWS ECR private registry:
 
-        
-
 ```
 **docker tag local_docker_image_name:tag *[aws_account_id.dkr.ecr.region.amazonaws.com](http://aws_account_id.dkr.ecr.region.amazonaws.com)\*\****[/docker_image_name:](http://718515174980.dkr.ecr.us-east-1.amazonaws.com/emr-serverless-ci-examples:emr-serverless-6.9.0-V1)tag\*\*
 ```
 
 Command to authenticate Docker to an AWS ECR private registry assuming region as us-east-1. Run below command before pushing the docker image to AWS ECR private registry.
-
-        
 
 ```
 ***aws ecr get-login-password --region us-east-1 --profile <profile_name_in_your_aws_credentials_file> | docker login --username AWS --password-stdin [aws_account_id.dkr.ecr.region.amazonaws.com](http://aws_account_id.dkr.ecr.region.amazonaws.com)***
@@ -161,3 +151,27 @@ aws --region <region>  emr-serverless create-application \
 * *How to customize image for multi CPU architecture:* <https://docs.aws.amazon.com/emr/latest/EMR-on-EKS-DevelopmentGuide/docker-custom-images-steps.html>
 
 <!--EndFragment-->
+
+## **About the Authors:**
+
+![](/img/sagar-pic_2.jpg "sagar-nyamagouda@hpe.com")
+
+Sagar Nyamagouda holds a  B.E(Information Science and Engineering) from BMS College of Engineering (BMSCE), Bengaluru and M.Tech in Software Systems from BITS Pilani. He is an experienced R&D Engineer working on Big Data Technologies and building AI/ML pipelines for give real time insights to customers. An AI/ML enthusiast. Currently working with HPE enabling advanced insights for DSCC - an HPE Flagship cloud offering.   LinkedIn Profile: www.linkedin.com/in/sagarny
+
+![](/img/chinmay_2jpg.jpg "chinmay.chaturvedi@hpe.com")
+
+
+
+Hello Everyone!! I am Chinmay , currently working in HPE as a Cloud Engineer. I have expertise in  various technologies of Big  Data Processing  including building ML/AI platforms, data engineering and processing out of which most recently are related to spark, AWS , SQL etc. Apart from work I like playing badminton and fond of going on trips. LinkedIn Profile: <https://www.linkedin.com/in/chinmay-chaturvedi-707886138>
+
+[](https://www.linkedin.com/in/chinmay-chaturvedi-707886138)
+
+
+
+![](/img/chirag_2.jpg "chirag.talreja@hpe.com")
+
+Graduate from BITS Pilani, Pilani . Currently working as a Cloud Developer in HPE with over 6 years of experience in designing, developing, and implementing complex data processing pipelines . Experienced in microservice architecture,  big data tech stack like Apache Spark , Spark Streaming , SQL/NoSQL databases, Kafka, Core Java, Scala, python with  a good understanding of AWS platform. His linkedIn profile is available @ <https://www.linkedin.com/in/chiragtalreja29/>
+
+![](/img/whatsapp-image-2021-11-02-at-10.01.24-am-1-.jpg)
+
+Kalapriya Kannan currently works with HPE on cloud enablement of storage analytics.  She holds a Ph.D from IISc She has authored around 60 peer reviewed international conference papers and over a 100 disclosure submissions for patent filing out of which has been 65 granted patents.    Her interest are in the area of distributed and parallel system and currently she is working in processing of big data for analytical insights. Her linkedIn profile:  <https://www.linkedin.com/in/kalapriya-kannan-0862b55b>
