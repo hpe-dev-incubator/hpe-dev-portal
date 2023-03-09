@@ -12,7 +12,7 @@ In the first [article](https://developer.hpe.com/blog/willing-to-build-up-your-o
 
 The overall infrastructure can run on physical servers or VMs. We usually designate one server for the frontend and a second server for the backend. You could also decide to separate every single component of each side.
 
-![](/img/howto-wod-5.png)
+![](/img/wod-blogserie3-archi3.png)
 
 ## H﻿ow to deploy your own backend...
 
@@ -279,24 +279,24 @@ WODFEAPIPWD: MotDePasseCompliquéAussi125!!!##
 * Creates an admin user as defined upper (default is `wodadmin`) with sudo rights
 * Calls the `install-system-common.sh` script that performs the following tasks:    
 
-   * Cleanup    
-   * Github repos cloning (leveraging install.repo file) : public Backend and public Private repos    
-   * Create ssh keys for wodadmin    
-   * Creates GROUPNAME variables    
-   * Creates Ansible inventory files       
+  * Cleanup    
+  * Github repos cloning (leveraging install.repo file) : public Backend and public Private repos    
+  * Create ssh keys for wodadmin    
+  * Creates GROUPNAME variables    
+  * Creates Ansible inventory files       
 * Calls the `install_system.sh` script with the type (backend, frontend, etc..) that performs the following tasks:    
 
-   * Install the necessary stack based on selected type    
-   * Create a `wod.sh` script in `wod-backend` directory to be used by all other scripts    
-   * Source the `wod.sh` file     
-   * Setup Ansible-galaxies (`community.general` and `posix`)     
-   * Setup Ansible and call the playbook `install_<type>.yml` followed by the `ansible\_check\_<type>.yml`    
+  * Install the necessary stack based on selected type    
+  * Create a `wod.sh` script in `wod-backend` directory to be used by all other scripts    
+  * Source the `wod.sh` file     
+  * Setup Ansible-galaxies (`community.general` and `posix`)     
+  * Setup Ansible and call the playbook `install_<type>.yml` followed by the `ansible\_check\_<type>.yml`    
 
 At the end of the installation process:
 
-  * you will have a JupyterHub server running on port 8000    
-  * You will get a new `wodadmin` user (Default admin)    
-  * You will get a set of 20 students (Default value)    
+* you will have a JupyterHub server running on port 8000    
+* You will get a new `wodadmin` user (Default admin)    
+* You will get a set of 20 students (Default value)    
 
 A﻿ll playbooks are self-documented. Please check for details.
 
@@ -320,16 +320,18 @@ T﻿he principle remains similar, with a few differences explained below.
 * Commit and push changes to your repo.    
 * Create an `install.priv` file located in `install` directory when using a private repo (consider looking at [install.repo](https://github.com/Workshops-on-Demand/wod-backend/blob/main/install/install.repo) file for a better understanding of the variables).
 * Define the WODPRIVREPO and WODPRIVBRANCH variables as follows:    
-   * `WODPRIVBRANCH="main"`     
-   * `WODPRIVREPO="git@github.com:Account/Private-Repo.git wod-private"`    
+
+  * `WODPRIVBRANCH="main"`     
+  * `WODPRIVREPO="git@github.com:Account/Private-Repo.git wod-private"`    
 
 **Note:** When using a token
 
 Please refer to the following [url](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) to generate a `token` file in `install` directory of WoD-backend:
 
 * Edit the `install.priv` file located in `install` directory of WoD-backend:  
-   * Create line before variable declaration: ``token=`cat $EXEPATH/token` ``    
-   * Use the token in the url WODPRIVREPO="git clone https://user:$token@github.com/Account/wod-private.git wod-private"    
+
+  * Create line before variable declaration: ``token=`cat $EXEPATH/token` ``    
+  * Use the token in the url WODPRIVREPO="git clone https://user:$token@github.com/Account/wod-private.git wod-private"    
 
 Y﻿ou are now ready to perform the installation again to support a private repository. 
 
