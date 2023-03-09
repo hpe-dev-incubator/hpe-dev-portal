@@ -14,7 +14,7 @@ I﻿ will take time today to dig into the details of this server. I will cover t
 
 A﻿s a reminder, here is a diagram showing the different parts of the Workshops-on-Demand infrastructure. I will focus today again on the backend server side and more precisely on the Jupyterhub server where all the automation takes place.
 
-![](/img/wod-blogserie3-archi-2.png "Workshops-on-Demand Architecture")
+![](/img/wod-blogserie3-archi3.png "Workshops-on-Demand Architecture")
 
 #### B﻿ackend server  / workshops deployment liefecycle
 
@@ -68,8 +68,8 @@ L﻿et's start with a **CREATE** scenario looking at the very first lines of the
 
 ```
 From xyz@hpe.com  Wed Mar  1 15:10:41 2023
- Subject: CREATE 401 825 frederic.passeron@hpe.com
-  Folder: /home/wodadmin/wod-backend/scripts/procmail-action.sh CREATE       14
+Subject: CREATE 401 825 frederic.passeron@hpe.com
+Folder: /home/wodadmin/wod-backend/scripts/procmail-action.sh CREATE       14
 ```
 
 In `Subject:`, we look for the API verb **CREATE** followed by **student id,** **participant id** and finally the registered **participant email.** 
