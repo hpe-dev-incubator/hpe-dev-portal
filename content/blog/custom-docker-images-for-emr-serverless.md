@@ -71,7 +71,8 @@ In this article, we provide step by step walkthrough of how we build custom imag
 Command to authenticate Docker to an AWS ECR public registry assuming region as us-east-1. As EMRServerless base docker image is present in ECR public registry, run below command before building your customized docker file.
 
 ```
-***aws ecr-public get-login-password --region us-east-1 --profile <profile_name_in_your_aws_credentials_file> | docker login --username AWS --password-stdin public.ecr.aws***
+***aws ecr-public get-login-password --region us-east-1 --profile <profile_name_in_your_aws_credentials_file> |\
+docker login --username AWS --password-stdin public.ecr.aws***
 ```
 
 Command to build docker image:
@@ -83,13 +84,15 @@ Command to build docker image:
 Command to tag locally built docker image in order to push to AWS ECR private registry:
 
 ```
-**docker tag local_docker_image_name:tag *[aws_account_id.dkr.ecr.region.amazonaws.com](http://aws_account_id.dkr.ecr.region.amazonaws.com)\*\****[/docker_image_name:](http://718515174980.dkr.ecr.us-east-1.amazonaws.com/emr-serverless-ci-examples:emr-serverless-6.9.0-V1)tag\*\*
+**docker tag local_docker_image_name:tag *[aws_account_id.dkr.ecr.region.amazonaws.com](http://aws_account_id.dkr.ecr.region.amazonaws.com)
+\*\****[/docker_image_name:](http://718515174980.dkr.ecr.us-east-1.amazonaws.com/emr-serverless-ci-examples:emr-serverless-6.9.0-V1)tag\*\*
 ```
 
 Command to authenticate Docker to an AWS ECR private registry assuming region as us-east-1. Run below command before pushing the docker image to AWS ECR private registry.
 
 ```
-***aws ecr get-login-password --region us-east-1 --profile <profile_name_in_your_aws_credentials_file> | docker login --username AWS --password-stdin [aws_account_id.dkr.ecr.region.amazonaws.com](http://aws_account_id.dkr.ecr.region.amazonaws.com)***
+***aws ecr get-login-password --region us-east-1 --profile <profile_name_in_your_aws_credentials_file> | \
+docker login --username AWS --password-stdin [aws_account_id.dkr.ecr.region.amazonaws.com](http://aws_account_id.dkr.ecr.region.amazonaws.com)***
 ```
 
         **Note:**
@@ -133,7 +136,8 @@ aws --region <region>  emr-serverless create-application \
     --release-label emr-6.9.0 \
     --type "SPARK" \
     --name emr-application-1 \
-    **\--image-configuration '{ "imageUri": "<your AWS account ID>.dkr.ecr.<region>.[amazonaws.com/<ecr_registry_name:](http://amazonaws.com/emr-serverless-ci-examples:emr-serverless-ci-ml)image_name>" }'**
+    **\--image-configuration 
+    '{ "imageUri": "<your AWS account ID>.dkr.ecr.<region>.[amazonaws.com/<ecr_registry_name:](http://amazonaws.com/emr-serverless-ci-examples:emr-serverless-ci-ml)image_name>" }'**
 ```
 
 **Note:** Image URI can be copied from AWS ECR registry.
