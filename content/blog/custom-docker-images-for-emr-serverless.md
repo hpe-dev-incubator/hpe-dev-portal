@@ -158,15 +158,17 @@ aws --region <region>  emr-serverless create-application \
 
 <!--StartFragment-->
 
-D R Niranjan is a Senior software/Cloud application developer at HPE. Experienced in developing software and cloud applications for HPE Servers and Storage systems. Technically skilled in Python, Java, Scala, Spark programming, AWS, Dockers and Kubernetes, PgSQL/RDBMS.
+D R Niranjan is a Senior software/Cloud application developer at HPE. Experienced in developing software and cloud applications for HPE Servers and Storage systems. Technically skilled in Python, Java, Scala, Spark programming, AWS, Dockers and Kubernetes, PgSQL/RDBMS. You can have a look at his LinkedIn profile here: <https://www.linkedin.com/in/niranjan-d-r/>
 
 <!--EndFragment-->
-
-
 
 ![](/img/sagar-pic_2.jpg "sagar-nyamagouda@hpe.com")
 
 Sagar Nyamagouda holds a  B.E(Information Science and Engineering) from BMS College of Engineering (BMSCE), Bengaluru and M.Tech in Software Systems from BITS Pilani. He is an experienced R&D Engineer working on Big Data Technologies and building AI/ML pipelines for give real time insights to customers. An AI/ML enthusiast. Currently working with HPE enabling advanced insights for DSCC - an HPE Flagship cloud offering.   LinkedIn Profile: www.linkedin.com/in/sagarny
+
+![](/img/chirag_2.jpg "chirag.talreja@hpe.com")
+
+Graduate from BITS Pilani, Pilani . Currently working as a Cloud Developer in HPE with over 6 years of experience in designing, developing, and implementing complex data processing pipelines . Experienced in microservice architecture,  big data tech stack like Apache Spark , Spark Streaming , SQL/NoSQL databases, Kafka, Core Java, Scala, python with  a good understanding of AWS platform. His linkedIn profile is available @ <https://www.linkedin.com/in/chiragtalreja29/>
 
 ![](/img/chinmay_2jpg.jpg "chinmay.chaturvedi@hpe.com")
 
@@ -174,10 +176,18 @@ Hello Everyone!! I am Chinmay , currently working in HPE as a Cloud Engineer. I 
 
 [](https://www.linkedin.com/in/chinmay-chaturvedi-707886138)
 
-![](/img/chirag_2.jpg "chirag.talreja@hpe.com")
-
-Graduate from BITS Pilani, Pilani . Currently working as a Cloud Developer in HPE with over 6 years of experience in designing, developing, and implementing complex data processing pipelines . Experienced in microservice architecture,  big data tech stack like Apache Spark , Spark Streaming , SQL/NoSQL databases, Kafka, Core Java, Scala, python with  a good understanding of AWS platform. His linkedIn profile is available @ <https://www.linkedin.com/in/chiragtalreja29/>
-
 ![](/img/whatsapp-image-2021-11-02-at-10.01.24-am-1-.jpg)
 
 Kalapriya Kannan currently works with HPE on cloud enablement of storage analytics.  She holds a Ph.D from IISc She has authored around 60 peer reviewed international conference papers and over a 100 disclosure submissions for patent filing out of which has been 65 granted patents.    Her interest are in the area of distributed and parallel system and currently she is working in processing of big data for analytical insights. Her linkedIn profile:  <https://www.linkedin.com/in/kalapriya-kannan-0862b55b>
+
+
+
+![](/img/roopali_2.jpg)
+
+
+
+<!--StartFragment-->
+
+19 years of work experience in systems software development in the areas of operating system, file system and cloud technologies. Played various roles starting from developer to lead expert and product owner. In my current role, I am responsible for functional delivery and people management of Data Observability Analytics Project.
+
+<!--EndFragment-->
