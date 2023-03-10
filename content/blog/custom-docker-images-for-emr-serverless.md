@@ -1,9 +1,12 @@
 ---
 title: Custom Docker Images  for EMR Serverless.
 date: 2023-03-09T11:10:16.774Z
+externalLink: "
+  https://medium.com/@kalapriya/custom-docker-images-for-emr-serverless-f8d55b3\
+  2422e "
 author: D.R.Niranjan, Chirag Talreja, Sagar Nayamagouda, Chinmay Chaturvedi,
   Kalapriya Kannan, Roopali Gupta
-authorimage: /img/gettyimages-571979257_1600_0_72_rgb-1200-x-675.jpg
+authorimage: /img/munch-learn-2-at-224.png
 disable: false
 tags: []
 ---
