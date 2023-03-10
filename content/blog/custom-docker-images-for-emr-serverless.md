@@ -154,19 +154,25 @@ aws --region <region>  emr-serverless create-application \
 
 ## **About the Authors:**
 
+![]()
+
+<!--StartFragment-->
+
+D R Niranjan is a Senior software/Cloud application developer at HPE. Experienced in developing software and cloud applications for HPE Servers and Storage systems. Technically skilled in Python, Java, Scala, Spark programming, AWS, Dockers and Kubernetes, PgSQL/RDBMS.
+
+<!--EndFragment-->
+
+
+
 ![](/img/sagar-pic_2.jpg "sagar-nyamagouda@hpe.com")
 
 Sagar Nyamagouda holds a  B.E(Information Science and Engineering) from BMS College of Engineering (BMSCE), Bengaluru and M.Tech in Software Systems from BITS Pilani. He is an experienced R&D Engineer working on Big Data Technologies and building AI/ML pipelines for give real time insights to customers. An AI/ML enthusiast. Currently working with HPE enabling advanced insights for DSCC - an HPE Flagship cloud offering.   LinkedIn Profile: www.linkedin.com/in/sagarny
 
 ![](/img/chinmay_2jpg.jpg "chinmay.chaturvedi@hpe.com")
 
-
-
 Hello Everyone!! I am Chinmay , currently working in HPE as a Cloud Engineer. I have expertise in  various technologies of Big  Data Processing  including building ML/AI platforms, data engineering and processing out of which most recently are related to spark, AWS , SQL etc. Apart from work I like playing badminton and fond of going on trips. LinkedIn Profile: <https://www.linkedin.com/in/chinmay-chaturvedi-707886138>
 
 [](https://www.linkedin.com/in/chinmay-chaturvedi-707886138)
-
-
 
 ![](/img/chirag_2.jpg "chirag.talreja@hpe.com")
 
