@@ -63,8 +63,6 @@ In this article, we provide step by step walkthrough of how we build custom imag
 
 <!--EndFragment-->
 
-
-
 ## **Step 3: Pushing the docker image to the AWS ECR:**
 
 Command to authenticate Docker to an AWS ECR public registry assuming region as us-east-1. As EMRServerless base docker image is present in ECR public registry, run below command before building your customized docker file.
@@ -87,7 +85,7 @@ Command to tag locally built docker image in order to push to AWS ECR private re
 
 <!--StartFragment-->
 
-**docker tag local_docker_image_name:tag *[aws_account_id.dkr.ecr.region.amazonaws.com](http://aws_account_id.dkr.ecr.region.amazonaws.com)*****[/docker_image_name:](http://718515174980.dkr.ecr.us-east-1.amazonaws.com/emr-serverless-ci-examples:emr-serverless-6.9.0-V1)tag**
+**docker tag local_docker_image_name:tag *[aws_account_id.dkr.ecr.region.amazonaws.com](http://aws_account_id.dkr.ecr.region.amazonaws.com)\*\****[/docker_image_name:](http://718515174980.dkr.ecr.us-east-1.amazonaws.com/emr-serverless-ci-examples:emr-serverless-6.9.0-V1)tag\*\*
 
 <!--EndFragment-->
 
@@ -135,10 +133,10 @@ AWS CLI reference for EMRServerless application management: <https://docs.aws.am
 
 <!--StartFragment-->
 
-aws — region <region> emr-serverless create-application \\
-— release-label emr-6.9.0 \\
-— type “SPARK” \\
-— name emr-application-1 \\
+aws — region <region> emr-serverless create-application \
+— release-label emr-6.9.0 \
+— type “SPARK” \
+— name emr-application-1 \
 **— image-configuration ‘{ “imageUri”: “<your AWS account ID>.dkr.ecr.<region>.[amazonaws.com/<ecr_registry_name:](http://amazonaws.com/emr-serverless-ci-examples:emr-serverless-ci-ml)image_name>” }’**
 
 <!--EndFragment-->
@@ -178,7 +176,7 @@ D R Niranjan is a Senior software/Cloud application developer at HPE. Experience
 
 ![](/img/sagar-pic_2.jpg "sagar-nyamagouda@hpe.com")
 
-Sagar Nyamagouda holds a  B.E(Information Science and Engineering) from BMS College of Engineering (BMSCE), Bengaluru and M.Tech in Software Systems from BITS Pilani. He is an experienced R&D Engineer working on Big Data Technologies and building AI/ML pipelines for give real time insights to customers. An AI/ML enthusiast. Currently working with HPE enabling advanced insights for DSCC - an HPE Flagship cloud offering.   LinkedIn Profile: www.linkedin.com/in/sagarny
+#### `Sagar Nyamagouda holds a  B.E(Information Science and Engineering) from BMS College of Engineering (BMSCE), Bengaluru and M.Tech in Software Systems from BITS Pilani. He is an experienced R&D Engineer working on Big Data Technologies and building AI/ML pipelines for give real time insights to customers. An AI/ML enthusiast. Currently working with HPE enabling advanced insights for DSCC - an HPE Flagship cloud offering.   LinkedIn Profile: www.linkedin.com/in/sagarny`
 
 ![](/img/chirag_2.jpg "chirag.talreja@hpe.com")
 
