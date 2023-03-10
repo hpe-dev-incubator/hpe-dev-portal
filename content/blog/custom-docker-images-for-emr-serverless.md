@@ -157,7 +157,7 @@ aws --region <region>  emr-serverless create-application \
 
 ## **About the Authors:**
 
-![]()
+![](/img/niranjan_2.jpg)
 
 <!--StartFragment-->
 
@@ -183,11 +183,7 @@ Hello Everyone!! I am Chinmay , currently working in HPE as a Cloud Engineer. I 
 
 Kalapriya Kannan currently works with HPE on cloud enablement of storage analytics.  She holds a Ph.D from IISc She has authored around 60 peer reviewed international conference papers and over a 100 disclosure submissions for patent filing out of which has been 65 granted patents.    Her interest are in the area of distributed and parallel system and currently she is working in processing of big data for analytical insights. Her linkedIn profile:  <https://www.linkedin.com/in/kalapriya-kannan-0862b55b>
 
-
-
 ![](/img/roopali_2.jpg)
-
-
 
 <!--StartFragment-->
 
