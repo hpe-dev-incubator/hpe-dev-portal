@@ -42,16 +42,12 @@ In this article, we provide step by step walkthrough of how we build custom imag
 
 ## **Step 2: Sample Docker file used to create custom EMRServerless image**
 
-```
+<!--StartFragment-->
+
 *\# Refer AWS EMR documentation for the release version tag*\
 *FROM public.ecr.aws/emr-serverless/spark/emr-6.9.0:20221108*
 
 *USER root*
-
-*\# python packages*\
-*RUN pip3 install boto3*\
-*RUN pip3 install psycopg2-binary*\
-*RUN pip3 install PyYAML*
 
 *\# Dependent JAR files*\
 *RUN curl -O <https://repo1.maven.org/maven2/io/delta/delta-core_2.12/2.2.0/delta-core_2.12-2.2.0.jar>*\
@@ -59,41 +55,49 @@ In this article, we provide step by step walkthrough of how we build custom imag
 
 *\# The base emr-image sets WORKDIR to /home/hadoop, hence the JAR files will be downloaded under /home/hadoop.*\
 *\# Then these jars will be copied to /usr/lib/spark/jars which was set as SPARK_HOME by EMR base image.*\
-*RUN cp /home/hadoop/delta-core_2.12-2.2.0.jar /usr/lib/spark/jars/*\
+*RUN cp /home/hadoop/delta-core_2.12–2.2.0.jar /usr/lib/spark/jars/*\
 *RUN cp /home/hadoop/delta-storage-2.2.0.jar /usr/lib/spark/jars/*
 
 *\# EMRS will run the image as hadoop*\
 *USER hadoop:hadoop*
-```
+
+<!--EndFragment-->
+
+
 
 ## **Step 3: Pushing the docker image to the AWS ECR:**
 
 Command to authenticate Docker to an AWS ECR public registry assuming region as us-east-1. As EMRServerless base docker image is present in ECR public registry, run below command before building your customized docker file.
 
-```
-***aws ecr-public get-login-password --region us-east-1 --profile <profile_name_in_your_aws_credentials_file> |\
-docker login --username AWS --password-stdin public.ecr.aws***
-```
+<!--StartFragment-->
+
+***aws ecr-public get-login-password — region us-east-1 — profile <profile_name_in_your_aws_credentials_file> | docker login — username AWS — password-stdin public.ecr.aws***
+
+<!--EndFragment-->
 
 Command to build docker image:
 
-```
+<!--StartFragment-->
+
 ***docker build -t local_docker_image_name:tag -f <docker_file_name> .***
-```
+
+<!--EndFragment-->
 
 Command to tag locally built docker image in order to push to AWS ECR private registry:
 
-```
-**docker tag local_docker_image_name:tag *[aws_account_id.dkr.ecr.region.amazonaws.com](http://aws_account_id.dkr.ecr.region.amazonaws.com)
-\*\****[/docker_image_name:](http://718515174980.dkr.ecr.us-east-1.amazonaws.com/emr-serverless-ci-examples:emr-serverless-6.9.0-V1)tag\*\*
-```
+<!--StartFragment-->
+
+**docker tag local_docker_image_name:tag *[aws_account_id.dkr.ecr.region.amazonaws.com](http://aws_account_id.dkr.ecr.region.amazonaws.com)*****[/docker_image_name:](http://718515174980.dkr.ecr.us-east-1.amazonaws.com/emr-serverless-ci-examples:emr-serverless-6.9.0-V1)tag**
+
+<!--EndFragment-->
 
 Command to authenticate Docker to an AWS ECR private registry assuming region as us-east-1. Run below command before pushing the docker image to AWS ECR private registry.
 
-```
-***aws ecr get-login-password --region us-east-1 --profile <profile_name_in_your_aws_credentials_file> | \
-docker login --username AWS --password-stdin [aws_account_id.dkr.ecr.region.amazonaws.com](http://aws_account_id.dkr.ecr.region.amazonaws.com)***
-```
+<!--StartFragment-->
+
+***aws ecr get-login-password — region us-east-1 — profile <profile_name_in_your_aws_credentials_file> | docker login — username AWS — password-stdin [aws_account_id.dkr.ecr.region.amazonaws.com](http://aws_account_id.dkr.ecr.region.amazonaws.com)***
+
+<!--EndFragment-->
 
         **Note:**
 
@@ -101,19 +105,17 @@ docker login --username AWS --password-stdin [aws_account_id.dkr.ecr.region.amaz
 
         2.  Example content of ~/.aws/credentials file:          
 
-```
+<!--StartFragment-->
+
 \[default]\
-
-aws_access_key_id        = \
-
-aws_secret_access_key    = 
+aws_access_key_id =\
+aws_secret_access_key =
 
 \[testprofile]\
-
 aws_access_key_id=\
-
 aws_secret_access_key=
-```
+
+<!--EndFragment-->
 
 Command to push docker image to AWS ECR private registry:
 
@@ -131,14 +133,15 @@ There are two approaches for EMR Serverless to use the custom Image created
 
 AWS CLI reference for EMRServerless application management: <https://docs.aws.amazon.com/cli/latest/reference/emr-serverless/index.html>
 
-```
-aws --region <region>  emr-serverless create-application \
-    --release-label emr-6.9.0 \
-    --type "SPARK" \
-    --name emr-application-1 \
-    **\--image-configuration 
-    '{ "imageUri": "<your AWS account ID>.dkr.ecr.<region>.[amazonaws.com/<ecr_registry_name:](http://amazonaws.com/emr-serverless-ci-examples:emr-serverless-ci-ml)image_name>" }'**
-```
+<!--StartFragment-->
+
+aws — region <region> emr-serverless create-application \\
+— release-label emr-6.9.0 \\
+— type “SPARK” \\
+— name emr-application-1 \\
+**— image-configuration ‘{ “imageUri”: “<your AWS account ID>.dkr.ecr.<region>.[amazonaws.com/<ecr_registry_name:](http://amazonaws.com/emr-serverless-ci-examples:emr-serverless-ci-ml)image_name>” }’**
+
+<!--EndFragment-->
 
 **Note:** Image URI can be copied from AWS ECR registry.
 
