@@ -37,7 +37,7 @@ thead tr:first-child td {
 }
 </style>
 
-| &nbsp;&nbsp;Date&nbsp;&nbsp; | Title                                                                                                                                                                       | Speaker(s)                                          | Link                                                                                                  |
+| &nbsp;&nbsp;Date&nbsp;&nbsp; &nbsp; | Title                                                                                                                                                                       | Speaker(s)                                          | Link                                                                                                  |
 | ---------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
 | 19-Apr-23                    | Leveraging Tech to Address Global Challenges & Health              | Fred Tan | [Register](https://hpe.zoom.us/webinar/register/6316784562544/WN_DoWCB694RnSzjD9w78U3ZA)         |
 | **15-Mar-23**                | **Quantum computing insights from HPE Labs: Extraordinary Claims Require Extraordinary Engineering (and TAMO isn’t an option)**                                             | **Kirk Bresniker**                                  | **[Register](https://hpe.zoom.us/webinar/register/1416739450025/WN_xZcMU68_RQibwG2WrEHP1Q)**          |
