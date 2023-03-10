@@ -118,6 +118,8 @@ You can create a new blog directly from the **Contents** tab or by navigating to
         
         >Note: For more information on how to get a gravatar URL, refer to section "***Tips and Tricks using the CMS Editor***" at the end of this document.
 
+        >Note: If there are multiple authors, please select a generic image proposed by the CMS editor such as “Avatar1.svg”. 
+
     - **IMPORTANT NOTE: Thumbnail image** for Social Media card: although a Thumbnail image is an optional element of the post, it is **highly recommended** to add a Thumbnail image to your blog post that you want to use to promote the post on Social Media such as Twitter and LinkedIn. If you do not add a Thumbnail image, the first image in your post will be used. The thumbnail image or the first image of the post should tell the best story about what the blog post is about. The following image sizes have been tested successfully: **512x400** and **1200x675**.
     
     
@@ -380,6 +382,8 @@ Here is how you can crate an external blog post entry in the HPE Developer Commu
         You can upload a picture or use your gravatar picture URL if you have one. 
         
         >Note: For more information on how to get a gravatar URL, refer to section "***Tips and Tricks using the CMS Editor***" at the end of this document.
+       
+        >Note: If there are multiple authors, please select a generic image proposed by the CMS editor such as “Avatar1.svg”. 
         
      - **External link** - This is the URL to the external blog post on the external website. 
      - **Body** - Just type the text: External blog
