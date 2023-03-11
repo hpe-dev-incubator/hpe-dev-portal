@@ -18,9 +18,9 @@ In this article we take two scenarios , one where the application expects the da
 
 Delta lake (<https://delta.io>) is an open-source storage framework that enables building a lake house architecture. One of the important features supported by delta lake is the checkpoint management for batch/streaming jobs that uses AWS S3 as a data lake. The most common approach to use Delta lake is via command line argument to run spark-submit command something like *"sparkSubmitParameters": "--packages io. delta:delta-core_2.12:1.2.1"*. This dynamically pulls the delta lake (via maven project) when the spark jobs run (ref. <https://docs.delta.io/latest/quick-start.html#pyspark-shell> ). The other approach is to use **pip install delta-spark==2.2.0** when python is used**.** However, both these approaches in production might not be possible as they require an active internet connection, necessary permissions on the production machine to download/install a library at run time in the EMR serverless application.
 
-Our second use case is the installation of all custom libraries (in the form of jars etc.,) used by the code. We provide step by step walkthrough of how we build custom images, use the ECR to register our docker image, and use the docker image in the EMR Serverless.
+Our second use case is the installation of all custom libraries (in the form of jars etc.,) used by the code. We provide step by step walkthrough of how we build custom images addressing both the above scenarios, use the ECR to register our docker image, and finally use the docker image in the EMR Serverless.
 
-*Step 1:*  Understanding the pre-requisites
+*Step 1:*  Pre-requisites
 
 *Step 2:*  Identify the base EMR Serverless Docker Image, packages/jars that need to be installed/downloaded, and prepare the custom docker Image.
 
@@ -32,7 +32,7 @@ Our second use case is the installation of all custom libraries (in the form of 
 
 (b) through settings in the UI when creating or updating the EMR serverless application.
 
-## Step 1: Prerequisites to build a custom docker image for EMRServerless application:
+## Step 1: Prerequisites to build a custom docker image:
 
 * The latest version of the docker client
 * The latest version of AWS CLI
