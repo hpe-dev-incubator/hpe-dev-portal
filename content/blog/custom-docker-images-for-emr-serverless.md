@@ -12,17 +12,13 @@ tags: []
 ---
 <!--StartFragment-->
 
-Using EMR Serverless in production setting requires that we bundle all the required custom library jars, tools, modules etc., required for the application running on the EMR Serverless.  Examples of such, would be requirement of Delta Lake over S3 or specific python modules such as boto modules, data base access libraries like pgcopy etc.,  One would expect that we specify a requirement file and install these once the application starts executing on the EMR Serverless. However, in production setting it is encouraged to prebundle all required libraries/modules/jars and dynamic installations are typically discouraged due to access permissions, internet connectivity. 
+Using EMR Serverless in production setting requires that we bundle all the required custom library jars, tools, modules etc., required for the application running on the EMR Serverless.  Examples of such, would be requirement of Delta Lake over S3 or specific python modules such as boto modules, database access libraries like pgcopy etc.,  One would expect that we specify a requirement file and install these once the application starts executing on the EMR Serverless. However, in production setting it is encouraged to prebundle all required libraries/modules/jars and dynamic installations are typically discouraged due to access permissions, internet connectivity. 
 
-
-
-
+In this article we take two scenarios , one where the application expects the data jars to be in specific location for its execution as in case of Delta lake and another where we install specific python modules using pip install both of which are bundled into a custom docker image that the EMR serverless uses. 
 
 Delta lake (<https://delta.io>) is an open-source storage framework that enables building a lake house architecture. One of the important features supported by delta lake is the checkpoint management for batch/streaming jobs that uses AWS S3 as a data lake. The most common approach to use Delta lake is via command line argument to run spark-submit command something like *"sparkSubmitParameters": "--packages io. delta:delta-core_2.12:1.2.1"*. This dynamically pulls the delta lake (via maven project) when the spark jobs run (ref. <https://docs.delta.io/latest/quick-start.html#pyspark-shell> ). The other approach is to use **pip install delta-spark==2.2.0** when python is used**.** However, both these approaches in production might not be possible as they require an active internet connection, necessary permissions on the production machine to download/install a library at run time in the EMR serverless application.
 
-Our second use case is the installation of all custom libraries (in the form of jars etc.,) used by the code. In a usual docker setting it is feasible to do it either at run time or using python-pip to install the required packages. Again due to restricted settings on the production environment (download permissions, internet connectivity requirements), it is advisable that we have a custom image built for our required software and its version and use that image as an EMR Serverless docker image. 
-
-In this article, we provide step by step walkthrough of how we build custom images, use the ECR to register our docker image, and use the docker image in the EMR Serverless.
+Our second use case is the installation of all custom libraries (in the form of jars etc.,) used by the code. We provide step by step walkthrough of how we build custom images, use the ECR to register our docker image, and use the docker image in the EMR Serverless.
 
 *Step 1:*  Understanding the pre-requisites
 
