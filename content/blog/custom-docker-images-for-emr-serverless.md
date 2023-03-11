@@ -12,11 +12,13 @@ tags: []
 ---
 <!--StartFragment-->
 
-EMR serverless provides a viable option to spin spark applications and use resources optimally for the duration of the application.  It provides us with easy options to quickly set up a spark environment for processing data. It is often the case that one needs to build custom images in EMR serverless primarily due to the fact that the application is using specialized libraries that don’t come with EMR serverless base image.  A well-known scenario we have encountered was the need for a few module and jar dependencies. eg., installation of a python library pycopg2, boto3, pyyaml, delta-core, delta-storage.
+Using EMR Serverless in production setting requires that we bundle all the required custom library jars, tools, modules etc., required for the application running on the EMR Serverless.  Examples of such, would be requirement of Delta Lake over S3 or specific python modules such as boto modules, data base access libraries like pgcopy etc.,  One would expect that we specify a requirement file and install these once the application starts executing on the EMR Serverless. However, in production setting it is encouraged to prebundle all required libraries/modules/jars and dynamic installations are typically discouraged due to access permissions, internet connectivity. 
 
-While there exists an option to have them installed at a run time ie., when the image is running on a container and a custom script can be used to install,  it is desirable as it is in the case of the production environment to have these pre-installed to avoid any last mile issues in terms of connectivity to download, etc., In this article, we walk through a very useful utility for EMR serverless ie., building custom images with custom libraries for EMR serverless application.
 
-Our first use case is the utilization of Delta Lake over S3. Delta lake (<https://delta.io>) is an open-source storage framework that enables building a lake house architecture. One of the important features supported by delta lake is the checkpoint management for batch/streaming jobs that uses AWS S3 as a data lake. The most common approach to use Delta lake is via command line argument to run spark-submit command something like *"sparkSubmitParameters": "--packages io. delta:delta-core_2.12:1.2.1"*. This dynamically pulls the delta lake (via maven project) when the spark jobs run (ref. <https://docs.delta.io/latest/quick-start.html#pyspark-shell> ). The other approach is to use **pip install delta-spark==2.2.0** when python is used**.** However, both these approaches in production might not be possible as they require an active internet connection, necessarily permissions on the production machine to download/install a library at run time in the EMR serverless application.
+
+
+
+Delta lake (<https://delta.io>) is an open-source storage framework that enables building a lake house architecture. One of the important features supported by delta lake is the checkpoint management for batch/streaming jobs that uses AWS S3 as a data lake. The most common approach to use Delta lake is via command line argument to run spark-submit command something like *"sparkSubmitParameters": "--packages io. delta:delta-core_2.12:1.2.1"*. This dynamically pulls the delta lake (via maven project) when the spark jobs run (ref. <https://docs.delta.io/latest/quick-start.html#pyspark-shell> ). The other approach is to use **pip install delta-spark==2.2.0** when python is used**.** However, both these approaches in production might not be possible as they require an active internet connection, necessary permissions on the production machine to download/install a library at run time in the EMR serverless application.
 
 Our second use case is the installation of all custom libraries (in the form of jars etc.,) used by the code. In a usual docker setting it is feasible to do it either at run time or using python-pip to install the required packages. Again due to restricted settings on the production environment (download permissions, internet connectivity requirements), it is advisable that we have a custom image built for our required software and its version and use that image as an EMR Serverless docker image. 
 
@@ -177,8 +179,6 @@ D R Niranjan is a Senior software/Cloud application developer at HPE. Experience
 ![](/img/sagar-pic_2.jpg "sagar-nyamagouda@hpe.com")
 
 Sagar Nyamagouda holds a  B.E(Information Science and Engineering) from BMS College of Engineering (BMSCE), Bengaluru and M.Tech in Software Systems from BITS Pilani. He is an experienced R&D Engineer working on Big Data Technologies and building AI/ML pipelines for give real time insights to customers. An AI/ML enthusiast. Currently working with HPE enabling advanced insights for DSCC - an HPE Flagship cloud offering.   LinkedIn Profile: www.linkedin.com/in/sagarny
-
-
 
 ![](/img/chirag_2.jpg "chirag.talreja@hpe.com")
 
