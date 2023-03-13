@@ -349,4 +349,4 @@ N﻿ow, you should have a clearer view of what is really happening in the backgr
 
 T﻿his subject will be at the core of my next article where I will detail how one needs to manage and work with this server on a daily basis. What we usually call day 2 operations.
 
-Please be sure to drop back at [HPE DEV](https://developer.hpe.com/blog) for a follow up on this. Check out also the Hack Shack for new [workshops](https://developer.hpe.com/hackshack/workshops)! We are currently working on different subjects like HPE GreenLake for Compute Operations Management API 101 or HPE Data Services Cloud Console API for HPE GreenLake for Block Storage cloud data service. Stay Tuned !
+Please be sure to drop back at [HPE DEV](https://developer.hpe.com/blog) for a follow up on this. Check out also the Hack Shack for new [workshops](https://developer.hpe.com/hackshack/workshops)! Willing to collaborate with us? Contact us and let's build together some more workshops! Stay tuned!
