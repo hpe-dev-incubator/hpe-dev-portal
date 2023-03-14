@@ -100,3 +100,9 @@ As ease of use is an important feature of the tool suite, both simple and advanc
 * Code parallelization assistant helps developers reveal hidden potential of their application via code restructuring. The tool extends our existing performance analysis and visualization technology by combining performance statistics and program source code visualization with our compiling environment optimization feedback. This tool can easily navigate through source code to highlight dependencies or bottlenecks during the optimization phase of program development or porting.
 
 Using the program library provided by our compiling environment and the performance data collected by our performance, measurement, and analysis tools, users can navigate through their source code to understand which high-level loops could benefit from OpenMP parallelism.
+
+---
+
+# Any questions on HPE Cray Programming Environment?
+
+Join the [HPE Developer Slack Workspace](https://slack.hpedev.io/) and start a discussion in our [#hpe-cray-programming-environment](https://hpedev.slack.com/archives/C04TG4XJBL7) channel.
