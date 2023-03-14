@@ -89,10 +89,9 @@ We also offer support for traditional debugging mechanisms via integration with 
 
 ## Profiling and performance optimization tools
 
-Comprehensive collection of tools designed to reduce the time and effort associated with porting and tuning of applications on HPE and HPE Cray systems. We offer different tools and experiments to fit different developer needs and choice of interfaces for ease of use.          
+Comprehensive collection of tools designed to reduce the time and effort associated with porting and tuning of applications on HPE and HPE Cray systems. We offer different tools and experiments to fit different developer needs and choice of interfaces for ease of use.    
 
-
-* Performance analysis tool (PAT) brings valuable insight when analyzing bottlenecks to improve performance of applications that run across the whole system. The tool exposes a wide set of indicators, such as computation, communication, I/O, and memory statistics and displays a program’s top time consumers and bottlenecks (via unique and critical load balance analysis) for jobs at scale. It then automatically generates observations and suggestions to improve code performance.       
+Performance analysis tool (PAT) brings valuable insight when analyzing bottlenecks to improve performance of applications that run across the whole system. The tool exposes a wide set of indicators, such as computation, communication, I/O, and memory statistics and displays a program’s top time consumers and bottlenecks (via unique and critical load balance analysis) for jobs at scale. It then automatically generates observations and suggestions to improve code performance.    
 
 
 As ease of use is an important feature of the tool suite, both simple and advanced interfaces are available, offering both a simple path to get started and a wealth of capability for analyzing the most complex codes.
