@@ -34,7 +34,6 @@ Our user environment provides libraries that support code compilation and develo
 
 PrgEnv modules provide wrappers (cc, CC, ftn) for both CCE and third-party compiler drivers. These wrappers call the correct compiler with appropriate options to build and link applications with relevant libraries as required by loaded modules.  Note that only dynamic linking is supported. These wrappers replace direct calls to compiler drivers in Makefiles and build scripts.
 
-
 Hugepages: Standard Linux operating system typically supports base pages of size 4KiB. For high performance parallel workloads that involve data movement operations across a high-speed network, larger page sizes generally yield improved communication performance. On HPE Cray EX supercomputing systems, the Cray Operating System (COS) supports non-standard large page sizes to offer an additional layer of optimization. HPE CPE software stack is tightly integrated with COS and exposes this feature via craype-hugepages modules. Users can leverage this important optimization by loading specific craype-hugepages modules in their build and runtime environments.
 
 CrayPE API (cray-api) provides software package integration with enhanced control when building multiple versions of a software product modulefile.
@@ -74,37 +73,29 @@ NetCDF, HDF5, and Parallel NetCDF I/O libraries are built with the supported com
 The HPE Cray Programming Environment offers traditional debuggers combined with new innovative techniques. Together, these technologies allow users to address debugging problems at a broader range and scale than conventional techniques. This means that programmers can spend less time debugging and more time creating. Included are:
 
 * Comparative Debugger: This market-unique tool helps programmers uncover issues by running two applications side by side. If the values of the selected data structures diverge, the user is notified that an error may exist. This capability is useful for locating errors that are introduced when applications are modified through code, compiler, or library changes, and for application porting between architectures (for example, between CPUs and GPUs) or programming models.
-
 * GDB for HPC is based on the popular GDB command-line debugger used to debug applications compiled with Fortran, C, and C++ compilers with enhancements to provide a GDB debugging experience for applications that run at scale across many nodes. The tool enables users to run a traditional scalable debugging session—either by launching an application or by attaching it to an already-running application. A GDB for HPC debug session retrieves debug information from thousands of processes and presents merged backtraces and data, removing vast amounts of duplicate information.
-
 * Valgrind for HPC: Parallel memory analysis tool based on Valgrind debugger used for applications compiled with Fortran, C, and C++ compilers—it aggregates common errors into a single output record for easier analysis of potential memory problems within applications that run at scale.
-
 * Stack Trace Analysis Tool (STAT): Helps developers identify if an application is hung or still making progress when running. Generates a merged backtrace for applications so users can get a better insight into application behavior at a function level.
-
 * Tool for Abnormal Termination Processing (ATP): When an application crashes, the tool detects a signal and generates a merged backtrace resulting in a minimal core file set so that programmers do not have to plough through an enormous number of core files when debugging the application.
-
 * Sanitizers for HPC: Help developers detect memory and thread errors for easier analysis and debugging of their applications at scale by aggregating and analyzing output of LLVM sanitizers at scale.
 
 We also offer support for traditional debugging mechanisms via integration with TotalView by Perforce and Arm Forge.
 
 ## Profiling and performance optimization tools
 
-Comprehensive collection of tools designed to reduce the time and effort associated with porting and tuning of applications on HPE and HPE Cray systems. We offer different tools and experiments to fit different developer needs and choice of interfaces for ease of use.
-<br />
+Comprehensive collection of tools designed to reduce the time and effort associated with porting and tuning of applications on HPE and HPE Cray systems. We offer different tools and experiments to fit different developer needs and choice of interfaces for ease of use. <br />
 
-* Performance analysis tool (PAT) brings valuable insight when analyzing bottlenecks to improve performance of applications that run across the whole system. The tool exposes a wide set of indicators, such as computation, communication, I/O, and memory statistics and displays a program’s top time consumers and bottlenecks (via unique and critical load balance analysis) for jobs at scale. It then automatically generates observations and suggestions to improve code performance.
-
+* Performance analysis tool (PAT) brings valuable insight when analyzing bottlenecks to improve performance of applications that run across the whole system. The tool exposes a wide set of indicators, such as computation, communication, I/O, and memory statistics and displays a program’s top time consumers and bottlenecks (via unique and critical load balance analysis) for jobs at scale. It then automatically generates observations and suggestions to improve code performance. <br />
 
 As ease of use is an important feature of the tool suite, both simple and advanced interfaces are available, offering both a simple path to get started and a wealth of capability for analyzing the most complex codes.
 
 * Programmers can quickly assess the type and severity of performance issues by using our visualization tool, which complements text reports and summarizes programs’ performance data in graphs and charts, allowing users to easily drill down to get to the bottom of issues.
-
 * Code parallelization assistant helps developers reveal hidden potential of their application via code restructuring. The tool extends our existing performance analysis and visualization technology by combining performance statistics and program source code visualization with our compiling environment optimization feedback. This tool can easily navigate through source code to highlight dependencies or bottlenecks during the optimization phase of program development or porting.
 
 Using the program library provided by our compiling environment and the performance data collected by our performance, measurement, and analysis tools, users can navigate through their source code to understand which high-level loops could benefit from OpenMP parallelism.
 
----
+- - -
 
 # Any questions on HPE Cray Programming Environment?
 
-Join the [HPE Developer Slack Workspace](https://slack.hpedev.io/) and start a discussion in our [#hpe-cray-programming-environment](https://hpedev.slack.com/archives/C04TG4XJBL7) channel.
+Join the [HPE Developer Slack Workspace](https://slack.hpedev.io/) and start a discussion in our [\#hpe-cray-programming-environment](https://hpedev.slack.com/archives/C04TG4XJBL7) channel.
