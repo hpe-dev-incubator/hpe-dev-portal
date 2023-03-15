@@ -3,7 +3,7 @@ title: HPE Machine Learning Development Environment and the Open Source ML Advan
 dateStart: 2023-05-30T22:01:55.243Z
 dateEnd: 2023-05-31T21:59:55.313Z
 category: Virtual Event
-image: /img/event-munch-and-learn-newlogo400x400.png
+image: /img/event-meetups-newlogo-400x400.png
 link: https://developer.hpe.com
 width: large
 ---
