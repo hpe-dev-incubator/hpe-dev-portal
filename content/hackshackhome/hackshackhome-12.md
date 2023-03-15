@@ -10,6 +10,6 @@ description: "April 19, 2023: Hear Fred Tan, who is helping to drive the Force
   addressing pressing global challenges."
 background: rgba(0, 86, 122, 0.8);
 label: Register Now!
-priority: 3
+priority: 2
 image: /img/event-munch-and-learn-newlogo400x400.png
 ---
