@@ -17,14 +17,20 @@ tags:
 ---
 HPE Cray Programming Environment (CPE) suite offers programmers a comprehensive set of tools for developing, porting, debugging, and tuning applications. The programming environment simplifies the transition to new hardware architectures and configurations by automatically applying optimizations on HPC applications that use existing programming models with a simple recompile.
 
-The environment provides:
+The environment provides:    
 
-* User environment (compiler drivers, hugepages, craype-api)
-* Compilers, programming languages, and models
-* Scalable communication libraries
-* Scientific and math libraries
-* Debugging tools
-* Profiling and performance optimization tools
+* User environment (compiler drivers, hugepages, craype-api)    
+
+* Compilers, programming languages, and models    
+
+* Scalable communication libraries    
+
+* Scientific and math libraries    
+
+* Debugging tools    
+
+* Profiling and performance optimization tools    
+
 
 Learn more about the HPE Cray Programming Environment components
 
@@ -54,9 +60,9 @@ We focus on standards compliance for code safety, application portability, and i
 
 CMPT is a collection of libraries that provide portable, efficient, and flexible mechanisms for performing data transfers between parallel processes. It comprises HPE Cray MPI, HPE Cray OpenSHMEMX, HPE Cray PMI, and HPE Cray DSMML libraries.
 
-HPE Cray MPI is an MPICH ABI compatible library tuned for Intel, AMD, and ARM CPUs as well as AMD and NVIDIA GPUs. It is a highly scalable implementation, customized for low latency and high bandwidth, both on-node and off-node, for point-to-point and collective communications. It is also highly optimized and tuned for the HPE Slingshot network architecture.\[KK2]  Strategic optimizations for MPI I/O, MPI_THREAD_MULTIPLE, remote memory access (RMA), and integration with the performance analysis tools in the suite contribute to deliver ideal application performance for today's HPC codes.
+HPE Cray MPI is an MPICH ABI compatible library tuned for Intel, AMD, and ARM CPUs as well as AMD and NVIDIA GPUs. It is a highly scalable implementation, customized for low latency and high bandwidth, both on-node and off-node, for point-to-point and collective communications. It is also highly optimized and tuned for the HPE Slingshot network architecture. Strategic optimizations for MPI I/O, MPI\_THREAD\_MULTIPLE, remote memory access (RMA), and integration with the performance analysis tools in the suite contribute to deliver ideal application performance for today's HPC codes.
 
-HPE Cray OpenSHMEMX is a highly scalable implementation of the OpenSHMEM standards library interface specification. It supports Partitioned Global Address Space (PGAS) style of programming to cater to the needs of distributed memory applications with highly irregular and random communication models. It is optimized specifically for system architectures involving Intel, AMD, and ARM CPUs. HPE Cray OpenSHMEMX is tuned for exposing the rich set of features available in HPE Slingshot interconnect through operations like remote memory access (RMA), atomic memory updates, put-with-signal, scalable-collective communication, memory ordering, and effective multithreading. \[RN3] 
+HPE Cray OpenSHMEMX is a highly scalable implementation of the OpenSHMEM standards library interface specification. It supports Partitioned Global Address Space (PGAS) style of programming to cater to the needs of distributed memory applications with highly irregular and random communication models. It is optimized specifically for system architectures involving Intel, AMD, and ARM CPUs. HPE Cray OpenSHMEMX is tuned for exposing the rich set of features available in HPE Slingshot interconnect through operations like remote memory access (RMA), atomic memory updates, put-with-signal, scalable-collective communication, memory ordering, and effective multithreading.
 
 ## HPE Cray Scientific and Math Libraries
 
@@ -90,7 +96,7 @@ We also offer support for traditional debugging mechanisms via integration with 
 
 Comprehensive collection of tools designed to reduce the time and effort associated with porting and tuning of applications on HPE and HPE Cray systems. We offer different tools and experiments to fit different developer needs and choice of interfaces for ease of use.    
 
-* Performance analysis tool (PAT) brings valuable insight when analyzing bottlenecks to improve performance of applications that run across the whole system. The tool exposes a wide set of indicators, such as computation, communication, I/O, and memory statistics and displays a program’s top time consumers and bottlenecks (via unique and critical load balance analysis) for jobs at scale. It then automatically generates observations and suggestions to improve code performance.      
+*  Performance analysis tool (PAT) brings valuable insight when analyzing bottlenecks to improve performance of applications that run across the whole system. The tool exposes a wide set of indicators, such as computation, communication, I/O, and memory statistics and displays a program’s top time consumers and bottlenecks (via unique and critical load balance analysis) for jobs at scale. It then automatically generates observations and suggestions to improve code performance.      
 
 
 As ease of use is an important feature of the tool suite, both simple and advanced interfaces are available, offering both a simple path to get started and a wealth of capability for analyzing the most complex codes.
