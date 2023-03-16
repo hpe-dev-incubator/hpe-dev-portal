@@ -17,14 +17,20 @@ tags:
 ---
 HPE Cray Programming Environment (CPE) suite offers programmers a comprehensive set of tools for developing, porting, debugging, and tuning applications. The programming environment simplifies the transition to new hardware architectures and configurations by automatically applying optimizations on HPC applications that use existing programming models with a simple recompile.
 
-The environment provides:
+The environment provides:    
 
-* User environment (compiler drivers, hugepages, craype-api)
-* Compilers, programming languages, and models
-* Scalable communication libraries
-* Scientific and math libraries
-* Debugging tools
-* Profiling and performance optimization tools
+* User environment (compiler drivers, hugepages, craype-api)    
+
+* Compilers, programming languages, and models    
+
+* Scalable communication libraries    
+
+* Scientific and math libraries    
+
+* Debugging tools    
+
+* Profiling and performance optimization tools    
+
 
 Learn more about the HPE Cray Programming Environment components
 
