@@ -710,6 +710,7 @@ If appropriate, use a tag to tie your blog post to a **"Product"** page or a **"
   | **Data Sevices Cloud Console**     | data-services-cloud-console |
   | **Spiffe and Spire**               | spiffe-and-spire-projects |
   | **Chapel**                         | chapel |
+  | **HPE Cray Programming environment** | hpe-cray-programming-environment |
   | **Determined AI**                  | determined-ai |
   | **Grommet**                        | grommet |
   | **Aruba Central**                  | aruba ; aruba-central|
