@@ -1,7 +1,7 @@
 ---
 title: HPE Machine Learning Development Environment and the open source ML advantage
 fit: contain
-link: https://developer.hpe.com
+link: https://hpe.zoom.us/webinar/register/6016789872516/WN_yE9Y_5drRlOycA-XMlD_9g
 imageBackground: white
 description: "May 31, 2023: Get exposed to the Determined platform and how it
   integrates the latest, innovative open source AI/ML technologies and new
