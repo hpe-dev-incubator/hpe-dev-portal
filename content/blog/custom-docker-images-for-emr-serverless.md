@@ -10,31 +10,31 @@ tags: []
 ---
 <!--StartFragment-->
 
-EMR serverless is the latest addition from the AWS to offer out of box support for Elastic MapReduce paradigm with auto scaling and pay as you go model.  One often needs to build custom images in EMR serverless since the application uses specialized libraries that don't come with an EMR serverless base image. An explicit use case would be the requirements found with Delta Lake over S3 or specific Python modules, such as boto modules, database access libraries (i.e. pgcopy), etc. While there exists the option to have them installed at run time (i.e. when the image is running in a container and a custom script is used to install it), in production settings, it is encouraged to prebundle all the required libraries, modules, and jars. Dynamic installations are typically discouraged due to access permissions and internet connectivity issues.  Further, getting prebundled assembly jars with all the dependencies is feasible in certain programming such as a scala/java, but with widely used python the concept of creating assembly modules is missing. To address this, one option for all python based modules/libraries that are required by the application code is to be prebundle them into custom images.    We are going to show you a fairly quick and easy way to do this for AWS.
+EMR serverless  is the latest addition from the AWS to offer out of box support for Elastic MapReduce paradigm with auto scaling and pay as you go model.  One often needs to build custom images in EMR serverless since the application uses specialized libraries that don't come with an EMR serverless base image. An explicit use case would be the requirements found with Delta Lake over S3 or specific Python modules, such as boto modules, database access libraries (i.e. pgcopy), etc. While there exists the option to have them installed at run time (i.e. when the image is running in a container and a custom script is used to install it), in production settings, it is encouraged to prebundle all the required libraries, modules, and jars. Dynamic installations are typically discouraged due to access permissions and internet connectivity issues.  Further, getting prebundled assembly jars with all the dependencies is feasible in certain programming such as a scala/java, but with widely used Python the concept of creating assembly modules is missing. To address this, one option for all Python based modules/libraries that are required by the application code is to be prebundle them into custom images.    We are going to show you a fairly quick and easy way to do this for AWS.
 
-In this article we take two scenarios , one where the application expects the data jars to be in specific location for its execution as in case of Delta lake and another where we install specific python modules using pip install both of which are bundled into a custom docker image that the EMR serverless uses. 
+In this article we take two scenarios , one where the application expects the data jars to be in specific location for its execution as in case of Delta Lake and another where we install specific Python modules using pip install both of which are bundled into a custom docker image that the EMR serverless uses. 
 
-Delta lake (<https://delta.io>) is an open-source storage framework that enables building a lake house architecture. One of the important features supported by delta lake is the checkpoint management for batch/streaming jobs that uses AWS S3 as a data lake. The most common approach to use Delta lake is via command line argument to run spark-submit command something like *"sparkSubmitParameters": "--packages io. delta:delta-core_2.12:1.2.1"*. This dynamically pulls the delta lake (via maven project) when the spark jobs run (ref. <https://docs.delta.io/latest/quick-start.html#pyspark-shell> ). The other approach is to use **pip install delta-spark==2.2.0** when python is used**.** However, both these approaches in production might not be possible as they require an active internet connection, necessary permissions on the production machine to download/install a library at run time in the EMR serverless application.
+Delta Lake (<https://delta.io>) is an open-source storage framework that enables building a lake house architecture. One of the important features supported by Delta Lake is the checkpoint management for batch/streaming jobs that uses AWS S3 as a data lake. The most common approach in using Delta Lake is via the command line running the spark-submit command - something like `"sparkSubmitParameters": "--packages io.delta:delta-core_2.12:1.2.1"`. This dynamically pulls the Delta Lake (via maven project) when the spark jobs run (ref. <https://docs.delta.io/latest/quick-start.html#pyspark-shell> ). The other approach is to use **pip install delta-spark==2.2.0** when Python is used.  However, However, both these approraches in production might not be possible, as they require an active internet connection and necessasry permissions on the production machine to download/install a library at run time in the EMR serverless application.
 
-Our second use case is the installation of all custom libraries (in the form of jars etc.,) used by the code. We provide step by step walkthrough of how we build custom images addressing both the above scenarios, use the ECR to register our docker image, and finally use the docker image in the EMR Serverless.
+Another use case is the installation of all custom libraries (in the form of jars etc.) used by the code. In this article, we will provide you with step-by-step instructions on how to build custom images, addressing both of the above scenarios using the ECR to register our Docker image. We will also show you how to use the Docker image in the EMR Serverless.
 
-*Step 1:*  Pre-requisites
+*Step 1:*  Pre-requisites to build a custom Docker image
 
-*Step 2:*  Identify the base EMR Serverless Docker Image, packages/jars that need to be installed/downloaded, and prepare the custom docker Image.
+*Step 2:*  Identify the base EMR Serverless Docker image, packages/jars that need to be installed/downloaded, and prepare the custom Docker image.
 
-*Step 3:*  Push the Docker Image to the ECR
+*Step 3:*  Push the Docker image to the ECR
 
-*Step 4:* Create the EMR Serverless applications via
+*Step 4:* Create the EMR Serverless applications by using one of the following approaches 
 
-(a) Command using AWS CLI
+(a) the AWS command line (AWS CLI)
 
-(b) through settings in the UI when creating or updating the EMR serverless application.
+(b) through the settings in the UI when creating or updating the EMR serverless application
 
-## Step 1: Prerequisites to build a custom docker image:
+## Step 1: Prerequisites to build a custom Docker image:
 
-* The latest version of the docker client
+* The latest version of the Docker client
 * The latest version of AWS CLI
-* Verify the access to dependent repository from where resources (modules, code etc) might be downloaded.   
+* Verify the access to any dependent repository from where resources (modules, code etc) might be downloaded.   
 
 ## **Step 2: Sample Docker file used to create custom EMRServerless image**
 
@@ -59,9 +59,9 @@ Our second use case is the installation of all custom libraries (in the form of 
 
 <!--EndFragment-->
 
-## **Step 3: Pushing the docker image to the AWS ECR:**
+## **Step 3: Pushing the Docker image to the** Amazon Elastic Container Registry **(AWS ECR):**
 
-Command to authenticate Docker to an AWS ECR public registry assuming region as us-east-1. As EMRServerless base docker image is present in ECR public registry, run below command before building your customized docker file.
+Command to authenticate Docker to an AWS ECR public registry assuming region as us-east-1. As EMRServerless base Docker image is present in ECR public registry, run below command before building your customized docker file.
 
 <!--StartFragment-->
 
@@ -69,7 +69,7 @@ Command to authenticate Docker to an AWS ECR public registry assuming region as 
 
 <!--EndFragment-->
 
-Command to build docker image:
+Command to build Docker image:
 
 <!--StartFragment-->
 
@@ -77,7 +77,7 @@ Command to build docker image:
 
 <!--EndFragment-->
 
-Command to tag locally built docker image in order to push to AWS ECR private registry:
+Command to tag locally built Docker image in order to push to AWS ECR private registry:
 
 <!--StartFragment-->
 
@@ -85,7 +85,7 @@ Command to tag locally built docker image in order to push to AWS ECR private re
 
 <!--EndFragment-->
 
-Command to authenticate Docker to an AWS ECR private registry assuming region as us-east-1. Run below command before pushing the docker image to AWS ECR private registry.
+Command to authenticate Docker to an AWS ECR private registry assuming region as us-east-1. Run below command before pushing the Docker image to AWS ECR private registry.
 
 <!--StartFragment-->
 
@@ -111,7 +111,7 @@ aws_secret_access_key=
 
 <!--EndFragment-->
 
-Command to push docker image to AWS ECR private registry:
+Command to push Docker image to AWS ECR private registry:
 
        **docker push *[aws_account_id.dkr.ecr.region.amazonaws.com](http://aws_account_id.dkr.ecr.region.amazonaws.com)\*\****[/docker_image_name:](http://718515174980.dkr.ecr.us-east-1.amazonaws.com/emr-serverless-ci-examples:emr-serverless-6.9.0-V1)tag\*\*
 
@@ -123,7 +123,7 @@ There are two approaches for EMR Serverless to use the custom Image created
 
 (b) via EMR serverless application settings in AWS management console
 
-### **4a) Via AWS CLI command to create simple EMRServerless application using custom docker image:**
+### **4a) Via AWS CLI command to create simple EMRServerless application using custom Docker image:**
 
 AWS CLI reference for EMRServerless application management: <https://docs.aws.amazon.com/cli/latest/reference/emr-serverless/index.html>
 
@@ -145,9 +145,9 @@ aws — region <region> emr-serverless create-application \
 
 ![EMR Serverless Management Console Docker section](/img/customimagesettings-in-emrserverless.png)
 
-##### Browse and select custom EMRServerless image from AWS ECR private registry in the same region:
+##### Browse and select custom EMR Serverless image from AWS ECR private registry in the same region:
 
-![EMR Serverless Management Console to choose the Docker Image](/img/selectionofimagefromecr_registry.png)
+![EMR Serverless Management Console to choose the Docker image](/img/selectionofimagefromecr_registry.png)
 
 ### **Reference links to AWS documentations:**
 
@@ -176,7 +176,7 @@ Sagar Nyamagouda holds a  B.E(Information Science and Engineering) from BMS Coll
 
 ![](/img/chirag_2.jpg "chirag.talreja@hpe.com")
 
-Graduate from BITS Pilani, Pilani . Currently working as a Cloud Developer in HPE with over 6 years of experience in designing, developing, and implementing complex data processing pipelines . Experienced in microservice architecture,  big data tech stack like Apache Spark , Spark Streaming , SQL/NoSQL databases, Kafka, Core Java, Scala, python with  a good understanding of AWS platform. His linkedIn profile is available @ <https://www.linkedin.com/in/chiragtalreja29/>
+Graduate from BITS Pilani, Pilani . Currently working as a Cloud Developer in HPE with over 6 years of experience in designing, developing, and implementing complex data processing pipelines . Experienced in microservice architecture,  big data tech stack like Apache Spark , Spark Streaming , SQL/NoSQL databases, Kafka, Core Java, Scala, Python with  a good understanding of AWS platform. His linkedIn profile is available @ <https://www.linkedin.com/in/chiragtalreja29/>
 
 ![](/img/chinmay_2jpg.jpg "chinmay.chaturvedi@hpe.com")
 
