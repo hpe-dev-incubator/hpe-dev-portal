@@ -109,13 +109,15 @@ Command to authenticate Docker to an AWS ECR private registry assuming region as
 
 <!--StartFragment-->
 
-`[default]`\
-`aws_access_key_id =`\
-`aws_secret_access_key =`
+```
+\[default]\
+aws_access_key_id =\
+aws_secret_access_key =
 
-`[testprofile]`\
-`aws_access_key_id=`\
-`aws_secret_access_key=`
+\[testprofile]\
+aws_access_key_id=\
+aws_secret_access_key=
+```
 
 <!--EndFragment-->
 
