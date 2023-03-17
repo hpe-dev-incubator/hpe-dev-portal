@@ -4,13 +4,13 @@ date: 2023-03-09T11:10:16.774Z
 externalLink: ""
 author: D.R.Niranjan, Chirag Talreja, Sagar Nayamagouda, Chinmay Chaturvedi,
   Kalapriya Kannan, Roopali Gupta
-authorimage: /img/munch-learn-2-at-224.png
+authorimage: /img/alletra-element-small.png
 disable: false
 tags: []
 ---
 <!--StartFragment-->
 
-Using EMR Serverless in production setting requires that we bundle all the required custom library jars, tools, modules etc., required for the application running on the EMR Serverless.  Examples of such, would be requirement of Delta Lake over S3 or specific python modules such as boto modules, database access libraries like pgcopy etc.,  One would expect that we specify a requirement file and install these once the application starts executing on the EMR Serverless. However, in production setting it is encouraged to prebundle all required libraries/modules/jars and dynamic installations are typically discouraged due to access permissions, internet connectivity. 
+EMR serverless is the latest addition from the AWS to offer out of box support for Elastic MapReduce paradigm with auto scaling and pay as you go model.  One often needs to build custom images in EMR serverless since the application uses specialized libraries that don't come with an EMR serverless base image. An explicit use case would be the requirements found with Delta Lake over S3 or specific Python modules, such as boto modules, database access libraries (i.e. pgcopy), etc. While there exists the option to have them installed at run time (i.e. when the image is running in a container and a custom script is used to install it), in production settings, it is encouraged to prebundle all the required libraries, modules, and jars. Dynamic installations are typically discouraged due to access permissions and internet connectivity issues.  Further, getting prebundled assembly jars with all the dependencies is feasible in certain programming such as a scala/java, but with widely used python the concept of creating assembly modules is missing. To address this, one option for all python based modules/libraries that are required by the application code is to be prebundle them into custom images.    We are going to show you a fairly quick and easy way to do this for AWS.
 
 In this article we take two scenarios , one where the application expects the data jars to be in specific location for its execution as in case of Delta lake and another where we install specific python modules using pip install both of which are bundled into a custom docker image that the EMR serverless uses. 
 
