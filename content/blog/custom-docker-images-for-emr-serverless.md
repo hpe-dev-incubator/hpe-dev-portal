@@ -26,9 +26,9 @@ Another use case is the installation of all custom libraries (in the form of jar
 
 *Step 4:* Create the EMR Serverless applications by using one of the following approaches 
 
-(a) the AWS command line (AWS CLI)
+(a) Via the AWS command line (AWS CLI)
 
-(b) through the settings in the UI when creating or updating the EMR serverless application
+(b) Via EMR Serverless settings in the EMR management console
 
 ## Step 1: Prerequisites to build a custom Docker image:
 
@@ -61,7 +61,7 @@ Another use case is the installation of all custom libraries (in the form of jar
 
 ## **Step 3: Pushing the Docker image to the** Amazon Elastic Container Registry **(AWS ECR):**
 
-Command to authenticate Docker to an AWS ECR public registry assuming region as us-east-1. As EMRServerless base Docker image is present in ECR public registry, run below command before building your customized docker file.
+Command to authenticate Docker to an AWS ECR public registry assuming region as us-east-1. As the EMR Serverless base Docker image is present in the ECR public registry, run the command shown below before building your customized Docker file.
 
 <!--StartFragment-->
 
@@ -77,7 +77,7 @@ Command to build Docker image:
 
 <!--EndFragment-->
 
-Command to tag locally built Docker image in order to push to AWS ECR private registry:
+Command to tag locally built Docker image in order to push to the AWS ECR private registry:
 
 <!--StartFragment-->
 
@@ -85,7 +85,7 @@ Command to tag locally built Docker image in order to push to AWS ECR private re
 
 <!--EndFragment-->
 
-Command to authenticate Docker to an AWS ECR private registry assuming region as us-east-1. Run below command before pushing the Docker image to AWS ECR private registry.
+Command to authenticate Docker to an AWS ECR private registry assuming region as us-east-1. Run the command shown below before pushing the Docker image to AWS ECR private registry.
 
 <!--StartFragment-->
 
@@ -95,9 +95,9 @@ Command to authenticate Docker to an AWS ECR private registry assuming region as
 
         **Note:**
 
-        1. When --profile option is not provided, then credentials will be picked from profile name <default> in the \~/.aws/credentials file. If you are using access credentials for different user, then include the profile section in \~/.aws/credentials files.
+        1. When the --profile option is not provided, credentials will be picked from the profile name  <default> in the \~/.aws/credentials file. If you are using access credentials for a different user, then include the profile section in \~/.aws/credentials files.
 
-        2.  Example content of ~/.aws/credentials file:          
+\    2.  Example content of ~/.aws/credentials file:          
 
 <!--StartFragment-->
 
@@ -111,21 +111,21 @@ aws_secret_access_key=
 
 <!--EndFragment-->
 
-Command to push Docker image to AWS ECR private registry:
+Command to push Docker image to the  AWS ECR private registry:
 
        **docker push *[aws_account_id.dkr.ecr.region.amazonaws.com](http://aws_account_id.dkr.ecr.region.amazonaws.com)\*\****[/docker_image_name:](http://718515174980.dkr.ecr.us-east-1.amazonaws.com/emr-serverless-ci-examples:emr-serverless-6.9.0-V1)tag\*\*
 
-## **Step 4:  EMR Serverless using the custom Docker Image Created.**
+## **Step 4:  EMR Serverless using the custom Docker image created.**
 
-There are two approaches for EMR Serverless to use the custom Image created
+There are two approaches for EMR Serverless to use the custom image created
 
-(a) via AWS CLA
+(a) via the  AWS CLI 
 
-(b) via EMR serverless application settings in AWS management console
+(b) Via EMR Serverless settings in the EMR management console
 
-### **4a) Via AWS CLI command to create simple EMRServerless application using custom Docker image:**
+### **4a) Via the AWS CLI command to create simple EMR Serverless application using custom Docker image:**
 
-AWS CLI reference for EMRServerless application management: <https://docs.aws.amazon.com/cli/latest/reference/emr-serverless/index.html>
+AWS CLI reference for EMR Serverless application management: <https://docs.aws.amazon.com/cli/latest/reference/emr-serverless/index.html>
 
 <!--StartFragment-->
 
@@ -137,19 +137,19 @@ aws — region <region> emr-serverless create-application \
 
 <!--EndFragment-->
 
-**Note:** Image URI can be copied from AWS ECR registry.
+**Note:** Image URI can be copied from the AWS ECR registry.
 
-### **4b) Via EMR Serverless Settings in the EMR Management console**
+### **4b)** Via EMR Serverless settings in the EMR management console
 
-##### **EMRServerless Custom Image Settings section in AWS EMR Serverless management console:**
+##### EMR Serverless custom image settings section in the AWS EMR Serverless management console**:**
 
 ![EMR Serverless Management Console Docker section](/img/customimagesettings-in-emrserverless.png)
 
-##### Browse and select custom EMR Serverless image from AWS ECR private registry in the same region:
+##### Browse and select custom EMR Serverless image from the AWS ECR private registry in the same region:
 
 ![EMR Serverless Management Console to choose the Docker image](/img/selectionofimagefromecr_registry.png)
 
-### **Reference links to AWS documentations:**
+### **Reference links to AWS documentation:**
 
 * *Steps to build custom docker image for EMRServerless:* <https://aws.amazon.com/blogs/big-data/add-your-own-libraries-and-application-dependencies-to-spark-and-hive-on-amazon-emr-serverless-with-custom-images/>
 * *How to pull docker image from AWS ECR registry:* <https://docs.aws.amazon.com/AmazonECR/latest/userguide/docker-pull-ecr-image.html>
@@ -166,32 +166,34 @@ aws — region <region> emr-serverless create-application \
 
 <!--StartFragment-->
 
-D R Niranjan is a Senior software/Cloud application developer at HPE. Experienced in developing software and cloud applications for HPE Servers and Storage systems. Technically skilled in Python, Java, Scala, Spark programming, AWS, Dockers and Kubernetes, PgSQL/RDBMS. You can have a look at his LinkedIn profile here: <https://www.linkedin.com/in/niranjan-d-r/>
+D R Niranjan is a Senior software/Cloud application developer at HPE, experienced in developing software and cloud applications for HPE Servers and Storage systems. He is technically skilled in Python, Java, Scala, Spark programming, AWS, Dockers and Kubernetes, PgSQL/RDBMS. You can have a look at his LinkedIn profile here: <https://www.linkedin.com/in/niranjan-d-r/>
 
 <!--EndFragment-->
 
 ![](/img/sagar-pic_2.jpg "sagar-nyamagouda@hpe.com")
 
-Sagar Nyamagouda holds a  B.E(Information Science and Engineering) from BMS College of Engineering (BMSCE), Bengaluru and M.Tech in Software Systems from BITS Pilani. He is an experienced R&D Engineer working on Big Data Technologies and building AI/ML pipelines for give real time insights to customers. An AI/ML enthusiast. Currently working with HPE enabling advanced insights for DSCC - an HPE Flagship cloud offering.   LinkedIn Profile: www.linkedin.com/in/sagarny
+Sagar Nyamagouda holds a  B.E(Information Science and Engineering) from BMS College of Engineering (BMSCE), Bengaluru and M.Tech in Software Systems from BITS Pilani. He is an experienced R&D Engineer working on Big Data Technologies and building AI/ML pipelines to give real time insights to customers. An AI/ML enthusiast, he is currently working with HPE enabling advanced insights for Data Services in HPE GreenLake Cloud Platform.   LinkedIn Profile: www.linkedin.com/in/sagarny
 
 ![](/img/chirag_2.jpg "chirag.talreja@hpe.com")
 
-Graduate from BITS Pilani, Pilani . Currently working as a Cloud Developer in HPE with over 6 years of experience in designing, developing, and implementing complex data processing pipelines . Experienced in microservice architecture,  big data tech stack like Apache Spark , Spark Streaming , SQL/NoSQL databases, Kafka, Core Java, Scala, Python with  a good understanding of AWS platform. His linkedIn profile is available @ <https://www.linkedin.com/in/chiragtalreja29/>
+A graduate from BITS Pilani, Pilani, Chirag is currently working as a cloud developer in HPE. He has over 6 years of experience in designing, developing, and implementing complex data processing pipelines. He is experienced in microservice architecture,  big data tech stack like Apache Spark , Spark Streaming , SQL/NoSQL databases, Kafka, Core Java, Scala, and Python and has a good understanding of the AWS platform. His LinkedIn profile is <https://www.linkedin.com/in/chiragtalreja29/>
+
+
 
 ![](/img/chinmay_2jpg.jpg "chinmay.chaturvedi@hpe.com")
 
-Hello Everyone!! I am Chinmay , currently working in HPE as a Cloud Engineer. I have expertise in  various technologies of Big  Data Processing  including building ML/AI platforms, data engineering and processing out of which most recently are related to spark, AWS , SQL etc. Apart from work I like playing badminton and fond of going on trips. LinkedIn Profile: <https://www.linkedin.com/in/chinmay-chaturvedi-707886138>
+Chinmay currently works at HPE as a cloud engineer. He has expertise in various Big Data Processing technologies, including the building of ML/AI platforms, data engineering and processing (most recently related to Spark, AWS, SQL, etc.). Please view his LinkedIn profile here: <https://www.linkedin.com/in/chinmay-chaturvedi-707886138>
 
 [](https://www.linkedin.com/in/chinmay-chaturvedi-707886138)
 
 ![](/img/whatsapp-image-2021-11-02-at-10.01.24-am-1-.jpg)
 
-Kalapriya Kannan currently works with HPE on cloud enablement of storage analytics.  She holds a Ph.D from IISc She has authored around 60 peer reviewed international conference papers and over a 100 disclosure submissions for patent filing out of which has been 65 granted patents.    Her interest are in the area of distributed and parallel system and currently she is working in processing of big data for analytical insights. Her linkedIn profile:  <https://www.linkedin.com/in/kalapriya-kannan-0862b55b>
+Kalapriya Kannan currently works with HPE on cloud enablement of storage analytics.  She holds a Ph.D from IISc. She has authored around 60 peer reviewed international conference papers and over a 100 disclosure submissions for patent filing for which she has been granted 65 patents.    Her interests are in the area of distributed and parallel systems and currently she is working in processing of big data for analytical insights. Her linkedIn profile:  <https://www.linkedin.com/in/kalapriya-kannan-0862b55b>
 
 ![](/img/roopali_2.jpg)
 
 <!--StartFragment-->
 
-19 years of work experience in systems software development in the areas of operating system, file system and cloud technologies. Played various roles starting from developer to lead expert and product owner. In my current role, I am responsible for functional delivery and people management of Data Observability Analytics Project.
+Roopali has 19 years of work experience in systems software development in the areas of operating system, file system and cloud technologies. She has played a number of various roles, starting from developer to lead expert and product owner. In my current role, I am responsible for functional delivery and people management of Data Observability Analytics Project.
 
 <!--EndFragment-->
