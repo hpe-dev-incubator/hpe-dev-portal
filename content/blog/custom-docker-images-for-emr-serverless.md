@@ -73,7 +73,7 @@ Command to authenticate Docker to an AWS ECR public registry assuming region as 
 
 <!--StartFragment-->
 
-***`aws ecr-public get-login-password — region us-east-1 — profile <profile_name_in_your_aws_credentials_file> | docker login — username AWS — password-stdin public.ecr.aws`***
+*aws ecr-public get-login-password — region us-east-1 — profile <profile_name_in_your_aws_credentials_file> | docker login — username AWS — password-stdin public.ecr.aws*
 
 <!--EndFragment-->
 
@@ -81,7 +81,7 @@ Command to build Docker image:
 
 <!--StartFragment-->
 
-***`docker build -t local_docker_image_name:tag -f <docker_file_name> .`***
+*docker build -t local_docker_image_name:tag -f <docker_file_name> `.`*
 
 <!--EndFragment-->
 
@@ -89,7 +89,7 @@ Command to tag locally built Docker image in order to push to the AWS ECR privat
 
 <!--StartFragment-->
 
-**`docker tag local_docker_image_name:tag *`[`aws_account_id.dkr.ecr.region.amazonaws.com`](http://aws_account_id.dkr.ecr.region.amazonaws.com)`***`**[`/docker_image_name:`](http://718515174980.dkr.ecr.us-east-1.amazonaws.com/emr-serverless-ci-examples:emr-serverless-6.9.0-V1)`tag**`
+*docker tag local_docker_image_name:tag [aws_account_id.dkr.ecr.region.amazonaws.com](http://aws_account_id.dkr.ecr.region.amazonaws.com)[/docker_image_name](http://718515174980.dkr.ecr.us-east-1.amazonaws.com/emr-serverless-ci-examples:emr-serverless-6.9.0-V1):tag*
 
 <!--EndFragment-->
 
@@ -109,7 +109,6 @@ Command to authenticate Docker to an AWS ECR private registry assuming region as
 
 <!--StartFragment-->
 
-```
 \[default]\
 aws_access_key_id =\
 aws_secret_access_key =
@@ -117,13 +116,12 @@ aws_secret_access_key =
 \[testprofile]\
 aws_access_key_id=\
 aws_secret_access_key=
-```
 
 <!--EndFragment-->
 
 Command to push Docker image to the  AWS ECR private registry:
 
-    `   `**`docker push *`[`aws_account_id.dkr.ecr.region.amazonaws.com`](http://aws_account_id.dkr.ecr.region.amazonaws.com)`***`**[`/docker_image_name:`](http://718515174980.dkr.ecr.us-east-1.amazonaws.com/emr-serverless-ci-examples:emr-serverless-6.9.0-V1)`tag**`
+    `   `*docker push [aws_account_id.dkr.ecr.region.amazonaws.com](http://aws_account_id.dkr.ecr.region.amazonaws.com)[/docker_image_name:](http://718515174980.dkr.ecr.us-east-1.amazonaws.com/emr-serverless-ci-examples:emr-serverless-6.9.0-V1)tag*
 
 ## **Step 4:  EMR Serverless using the custom Docker image created.**
 
@@ -139,11 +137,11 @@ AWS CLI reference for EMR Serverless application management: <https://docs.aws.a
 
 <!--StartFragment-->
 
-`aws — region <region> emr-serverless create-application `\
-`— release-label emr-6.9.0 `\
-`— type “SPARK” `\
-`— name emr-application-1 `\
-**`— image-configuration ‘{ “imageUri”: “<your AWS account ID>.dkr.ecr.<region>.`[`amazonaws.com/<ecr_registry_name:`](http://amazonaws.com/emr-serverless-ci-examples:emr-serverless-ci-ml)`image_name>” }’`**
+*aws — region <region> emr-serverless create-application* \
+*— release-label emr-6.9.0* \
+*— type “SPARK”* \
+*— name emr-application-1* \
+*— image-configuration ‘{ “imageUri”: “<your AWS account ID>.dkr.ecr.<region>.[amazonaws.com/<ecr_registry_name:](http://amazonaws.com/emr-serverless-ci-examples:emr-serverless-ci-ml)image_name>” }’*
 
 <!--EndFragment-->
 
