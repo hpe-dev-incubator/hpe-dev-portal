@@ -40,21 +40,25 @@ Another use case is the installation of all custom libraries (in the form of jar
 
 <!--StartFragment-->
 
-*\# Refer AWS EMR documentation for the release version tag*\
+*\# Refer AWS EMR documentation for the release version tag*
+
 *`FROM public.ecr.aws/emr-serverless/spark/emr-6.9.0:20221108`*
 
 *USER root*
 
-*\# Dependent JAR files*\
+*\# Dependent JAR files*
+
 *`RUN curl -O `[`https://repo1.maven.org/maven2/io/delta/delta-core_2.12/2.2.0/delta-core_2.12-2.2.0.jar`](https://repo1.maven.org/maven2/io/delta/delta-core_2.12/2.2.0/delta-core_2.12-2.2.0.jar)*``\
 *`RUN curl -O `[`https://repo1.maven.org/maven2/io/delta/delta-storage/2.2.0/delta-storage-2.2.0.jar`](https://repo1.maven.org/maven2/io/delta/delta-storage/2.2.0/delta-storage-2.2.0.jar)*``
 
 *\# The base emr-image sets WORKDIR to /home/hadoop, hence the JAR files will be downloaded under /home/hadoop.*\
-*\# Then these jars will be copied to /usr/lib/spark/jars which was set as SPARK_HOME by EMR base image.*\
+*\# Then these jars will be copied to /usr/lib/spark/jars which was set as SPARK_HOME by EMR base image.*
+
 *`RUN cp /home/hadoop/delta-core_2.12–2.2.0.jar /usr/lib/spark/jars/`*\
 *`RUN cp /home/hadoop/delta-storage-2.2.0.jar /usr/lib/spark/jars/`*
 
-*\# EMRS will run the image as hadoop*\
+*\# EMRS will run the image as hadoop*
+
 *`USER hadoop:hadoop`*
 
 <!--EndFragment-->
