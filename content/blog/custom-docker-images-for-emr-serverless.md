@@ -50,7 +50,7 @@ Another use case is the installation of all custom libraries (in the form of jar
 
 *`RUN curl -O`[`https://repo1.maven.org/maven2/io/delta/delta-core_2.12/2.2.0/delta-core_2.12-2.2.0.jar`](https://repo1.maven.org/maven2/io/delta/delta-core_2.12/2.2.0/delta-core_2.12-2.2.0.jar)*``
 
-``RUN curl -O `[`https://repo1.maven.org/maven2/io/delta/delta-storage/2.2.0/delta-storage-2.2.0.jar`](https://repo1.maven.org/maven2/io/delta/delta-storage/2.2.0/delta-storage-2.2.0.jar)``
+``RUN curl -O `[`https://repo1.maven.org/maven2/io/delta/delta-storage/2.2.0/delta-storage-2.2.0.jar`](https://repo1.maven.org/maven2/io/delta/delta-storage/2.2.0/delta-storage-2.2.0.jar)` ``
 
 *\# The base emr-image sets WORKDIR to /home/hadoop, hence the JAR files will be downloaded under /home/hadoop.*
 
