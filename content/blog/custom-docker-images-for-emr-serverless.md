@@ -149,7 +149,9 @@ aws — region <region> emr-serverless create-application \
 
 ![EMR Serverless Management Console to choose the Docker image](/img/selectionofimagefromecr_registry.png)
 
-### **Reference links to AWS documentation:**
+### **Summary:**
+
+This article provides the reader with mechanisms to build custom Docker image where custom libraries especially python modules need to be bundled and used in EMR Serverless.  We use two use cases with python modules and Delta lake libraries on how one can build this Docker image. This should help all developers using python as their software language for EMR Serverless to pre-bundle the python libraries for the production environment. If you found this blog post helpful, we recommend you read more on the topic by referencing the documentation below:   
 
 * *Steps to build custom docker image for EMRServerless:* <https://aws.amazon.com/blogs/big-data/add-your-own-libraries-and-application-dependencies-to-spark-and-hive-on-amazon-emr-serverless-with-custom-images/>
 * *How to pull docker image from AWS ECR registry:* <https://docs.aws.amazon.com/AmazonECR/latest/userguide/docker-pull-ecr-image.html>
