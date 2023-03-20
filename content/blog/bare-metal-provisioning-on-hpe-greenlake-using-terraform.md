@@ -48,6 +48,7 @@ Follow the below steps for an API client creation:
 ![API Client Created](/img/greenlake_conolse_apiclient_created.png "API Client Created")
 
 5. In the API Clients page, select the newly created client, and click on **Create Assignment** button.
+
 6. Assign the roles **BMAAS Access Viewer** and **BMAAS Access Project Contributor** on the **Space: Default.**
 
 ![BMaaS Roles](/img/greenlake_console_createbmaasassignment.png "BMaaS Roles")
@@ -73,11 +74,12 @@ This will be exported in the environment variable **HPE\_METAL\_PROJECT\_ID** in
 
 Next, get your system ready to run Terraform. In case this has not been done yet:
 
-1. Download and install Terraform, version v0.13 or later.\
-   For more information, see <https://learn.hashicorp.com/tutorials/terraform/install-cli>. 
+1. Download and install Terraform, version v0.13 or later.  
+   For more information, see [https://learn.hashicorp.com/tutorials/terraform/install-cli](https://learn.hashicorp.com/tutorials/terraform/install-cli). 
+
 2. Verify the installation with **terraform -help.** 
 
-   At this point, you are ready to start building your infrastructure description file. 
+At this point, you are ready to start building your infrastructure description file. 
 
 # Deploy Compute Instance
 
@@ -101,15 +103,15 @@ Next, get your system ready to run Terraform. In case this has not been done yet
 
    E﻿xport the Compute group ID:
 
-   ```
+   ```shell
    # compute group/project ID
    export HPEGL_METAL_PROJECT_ID="<Compute group ID>"
    ```
 
     ﻿Export bare metal service REST URL:
 
-   ```
-   # Production Environment:  https://client.greenlake.hpe.com/api/metal
+   ```shell
+   # Production Environment:  https://client.greenlake.hpe.com/api/metal 
    # Integration Environment: https://client.greenlake.hpe-gl-intg.com/api/metal
    # local development: http://localhost:3002
 
@@ -117,7 +119,7 @@ Next, get your system ready to run Terraform. In case this has not been done yet
    ```
 2. Configure the Terraform provider.
 
-   Create an empty folder and put a file in it called main.tf with the following contents:
+   Create an empty folder and put a file in it called **main.tf** with the following contents:
 
    **main.tf:**
 
@@ -142,14 +144,14 @@ Next, get your system ready to run Terraform. In case this has not been done yet
 
 ## Write resource configuration for compute instance creation
 
-To deploy compute instance, you need to use the **hpegl_metal_host** terraform resource.
+To deploy compute instance, you need to use the **hpegl\_metal\_host** terraform resource.
 
 **Note:**
 
 * compute instance is AKA host.
 * compute instance type is AKA machine size.
 
-The **hpegl_metal_host** resource supports many different arguments, but these are the required ones:
+The **hpegl\_metal\_host** resource supports many different arguments, but these are the required ones:
 
 * networks – List of networks. The list must always include any networks marked as '**required**' for that location. 
 * machine_size – Compute instance type.
