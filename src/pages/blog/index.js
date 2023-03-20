@@ -472,6 +472,28 @@ export const pageQuery = graphql`
         id
       }
     }
+    crayBlogsCount: allMarkdownRemark(
+      filter: {
+        fields: { sourceInstanceName: { eq: "blog" } }
+        frontmatter: { tags: { eq: "cray" }, disable: { ne: true } }
+      }
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
+      totalCount
+    }
+    crayBlogs: paginatedCollectionPage(
+      collection: { name: { eq: "cray-posts" } }
+      index: { eq: 0 }
+    ) {
+      nodes
+      hasNextPage
+      nextPage {
+        id
+      }
+      collection {
+        id
+      }
+    }
     simplivityBlogsCount: allMarkdownRemark(
       filter: {
         fields: { sourceInstanceName: { eq: "blog" } }
@@ -740,6 +762,7 @@ export const pageQuery = graphql`
               "ilo"
               "data-services-cloud-console"
               "determined-ai"
+              "cray"
             ]
           }
         }

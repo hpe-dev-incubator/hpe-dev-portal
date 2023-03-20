@@ -108,6 +108,10 @@ function BlogTabs({ data, columns }) {
       label: 'Data Service Cloud Console',
       count: data?.dsccBlogsCount?.totalCount || 0,
     },
+    crayBlogs: {
+      label: 'HPE Cray Programming Environment',
+      count: data?.crayBlogsCount?.totalCount || 0,
+    },
   };
 
   const opensource = {
@@ -286,7 +290,7 @@ function BlogTabs({ data, columns }) {
                 direction="row"
               >
                 <Text color="black" margin={{ right: 'xsmall' }}>
-                  Our Technologies ({totalAllPlatformsBlogsCount})
+                  Products ({totalAllPlatformsBlogsCount})
                 </Text>
                 <FormDown />
               </Box>
@@ -402,6 +406,7 @@ BlogTabs.propTypes = {
     determinedBlogsCount: PropTypes.objectOf(PropTypes.number),
     smartSimBlogsCount: PropTypes.objectOf(PropTypes.number),
     dsccBlogsCount: PropTypes.objectOf(PropTypes.number),
+    crayBlogsCount: PropTypes.objectOf(PropTypes.number),
     othersBlogsCount: PropTypes.objectOf(PropTypes.number),
   }).isRequired,
   columns: PropTypes.shape({

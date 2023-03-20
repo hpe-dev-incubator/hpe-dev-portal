@@ -203,6 +203,8 @@ exports.createPages = async ({ graphql, actions }) => {
     paginatedCollectionQuery('smartsim-posts'),
   );
 
+  const crayQueryResult = await graphql(paginatedCollectionQuery('cray-posts'));
+
   const othersQueryResult = await graphql(
     paginatedCollectionQuery('others-posts'),
   );
@@ -230,6 +232,7 @@ exports.createPages = async ({ graphql, actions }) => {
   setPagination(kubeDirectorQueryResult);
   setPagination(simplivityQueryResult);
   setPagination(smartsimQueryResult);
+  setPagination(crayQueryResult);
   setPagination(othersQueryResult);
 
   return graphql(

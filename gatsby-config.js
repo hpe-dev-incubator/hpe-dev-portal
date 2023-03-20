@@ -358,9 +358,10 @@ module.exports = {
           "iLOrest",
           "ilo-restful-api",
           "Redfish",
-          "hpe-ezmeral"
-          "data-services-cloud-console"
-          "determined-ai"
+          "hpe-ezmeral",
+          "data-services-cloud-console",
+          "determined-ai",
+          "cray",
           ]}}}, sort: {fields: [frontmatter___date], order: DESC}) {
             nodes {
               id
@@ -422,6 +423,7 @@ module.exports = {
       'hpe-oneview-global-dashboard',
     ),
     paginatedCollection('determined-ai-posts', 'determined-ai'),
+    paginatedCollection('cray-posts', 'cray'),
     paginatedCollection('dscc-posts', 'data-services-cloud-console'),
     {
       resolve: 'gatsby-plugin-paginated-collection',
