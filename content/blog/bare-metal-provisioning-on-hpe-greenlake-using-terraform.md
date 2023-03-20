@@ -147,7 +147,6 @@ At this point, you are ready to start building your infrastructure description f
 To deploy compute instance, you need to use the **hpegl\_metal\_host** terraform resource.
 
 **Note:**
-
 * compute instance is AKA host.
 * compute instance type is AKA machine size.
 
@@ -165,7 +164,7 @@ Your next step with the TF file is to query the HPE GreenLake provider to collec
 
 ### Querying for available OS images
 
-In order to list the available OS images for OS, add the below data statements in your Terraform file ***main.tf***:
+In order to list the available OS images for OS, add the below data statements in your Terraform file **main.tf**:
 
 ```hcl
 data "hpegl_metal_available_images" "ubuntu" { 
@@ -182,7 +181,7 @@ data "hpegl_metal_available_images" "ubuntu" {
 }
 ```
 
- The OS image list can be fetched using the following statements in main.tf: 
+ The OS image list can be fetched using the following statements in **main.tf**: 
 
 ```hcl
 locals {
@@ -272,7 +271,7 @@ The command you need to use is now: **terraform apply**. This will rerun the pla
 
 ## Advanced Example
 
-The above example shows how to deploy a compute instance from pre-existing resources. Below is another code sample demonstrating compute instance deployment using dynamic resources and additional optional configurations with **hpegl_metal_host.** 
+The above example shows how to deploy a compute instance from pre-existing resources. Below is another code sample demonstrating compute instance deployment using dynamic resources and additional optional configurations with **hpegl\_metal\_host.** 
 
 ```hcl
 terraform {
@@ -346,7 +345,7 @@ When you no longer need the resources created via Terraform, destroy the resourc
 
 # Summary
 
-In this blog, I covered how to provision a compute instance with Terraform provider for HPE GreenLake using bare metal resources. I also showed you advanced usage of hpegl resource statements to deploy a compute instance with dynamic resources.\
+In this blog, I covered how to provision a compute instance with Terraform provider for HPE GreenLake using bare metal resources. I also showed you advanced usage of hpegl resource statements to deploy a compute instance with dynamic resources.  
 I hope you found this information interesting and helpful in helping you get started with the HPE GreenLake Terraform provider. You can also go through the below links to understand more about the HPE GreenLake Terraform provider. 
 
 * [Kubernetes Cluster as Code – Part 1](https://developer.hpe.com/blog/kubernetes-clusters-as-code-part1/)
