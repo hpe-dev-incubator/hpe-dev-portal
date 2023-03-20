@@ -48,7 +48,6 @@ Follow the below steps for an API client creation:
 ![API Client Created](/img/greenlake_conolse_apiclient_created.png "API Client Created")
 
 5. In the API Clients page, select the newly created client, and click on **Create Assignment** button.
-
 6. Assign the roles **BMAAS Access Viewer** and **BMAAS Access Project Contributor** on the **Space: Default.**
 
 ![BMaaS Roles](/img/greenlake_console_createbmaasassignment.png "BMaaS Roles")
@@ -66,18 +65,18 @@ A compute group is a logical grouping of bare metal resources (compute instances
 ![BMaaS Compute Groups](/img/compute_group_list.png "BMaaS Compute Groups")
 
 2. Click on the desired compute group and then extract the ID from the browser URL seen at that time.  
-This will be exported in the environment variable **HPE\_METAL\_PROJECT\_ID** in the later section.
+   This will be exported in the environment variable **HPE_METAL_PROJECT_ID** in the later section.
 
 ![Compute group ID](/img/compute_group_id.png "Compute group ID")
 
 ## Install Terraform
 
-Next, get your system ready to run Terraform. In case this has not been done yet:
+Next, get your system ready to run Terraform. In case this has not been done yet:  
 
-1. Download and install Terraform, version v0.13 or later.  
-   For more information, see [https://learn.hashicorp.com/tutorials/terraform/install-cli](https://learn.hashicorp.com/tutorials/terraform/install-cli). 
+1. Download and install Terraform, version v0.13 or later.   
 
-2. Verify the installation with **terraform -help.** 
+   For more information, see <https://learn.hashicorp.com/tutorials/terraform/install-cli>.  
+2. Verify the installation with **terraform -help.**   
 
 At this point, you are ready to start building your infrastructure description file. 
 
@@ -144,13 +143,14 @@ At this point, you are ready to start building your infrastructure description f
 
 ## Write resource configuration for compute instance creation
 
-To deploy compute instance, you need to use the **hpegl\_metal\_host** terraform resource.
+To deploy compute instance, you need to use the **hpegl_metal_host** terraform resource.
 
 **Note:**
+
 * compute instance is AKA host.
 * compute instance type is AKA machine size.
 
-The **hpegl\_metal\_host** resource supports many different arguments, but these are the required ones:
+The **hpegl_metal_host** resource supports many different arguments, but these are the required ones:
 
 * networks – List of networks. The list must always include any networks marked as '**required**' for that location. 
 * machine_size – Compute instance type.
@@ -192,7 +192,7 @@ locals {
 
 ### Querying for other available resources
 
-For this, you should use **hpegl\_metal\_available\_resources** data resource. For example, the following statements show how to retrieve and store the available SSH keys in a local variable.  
+For this, you should use **hpegl_metal_available_resources** data resource. For example, the following statements show how to retrieve and store the available SSH keys in a local variable.  
 
 Append to main.tf:
 
@@ -235,7 +235,7 @@ locals {
 
 ### Create Compute instance
 
-The last step is for you to define a **hpegl\_metal\_host** terraform resource in the file to request a new compute instance (host):
+The last step is for you to define a **hpegl_metal_host** terraform resource in the file to request a new compute instance (host):
 
 ```hcl
 resource "hpegl_metal_host" "demo_host" {
@@ -271,7 +271,7 @@ The command you need to use is now: **terraform apply**. This will rerun the pla
 
 ## Advanced Example
 
-The above example shows how to deploy a compute instance from pre-existing resources. Below is another code sample demonstrating compute instance deployment using dynamic resources and additional optional configurations with **hpegl\_metal\_host.** 
+The above example shows how to deploy a compute instance from pre-existing resources. Below is another code sample demonstrating compute instance deployment using dynamic resources and additional optional configurations with **hpegl_metal_host.** 
 
 ```hcl
 terraform {
@@ -345,7 +345,7 @@ When you no longer need the resources created via Terraform, destroy the resourc
 
 # Summary
 
-In this blog, I covered how to provision a compute instance with Terraform provider for HPE GreenLake using bare metal resources. I also showed you advanced usage of hpegl resource statements to deploy a compute instance with dynamic resources.  
+In this blog, I covered how to provision a compute instance with Terraform provider for HPE GreenLake using bare metal resources. I also showed you advanced usage of hpegl resource statements to deploy a compute instance with dynamic resources.\
 I hope you found this information interesting and helpful in helping you get started with the HPE GreenLake Terraform provider. You can also go through the below links to understand more about the HPE GreenLake Terraform provider. 
 
 * [Kubernetes Cluster as Code – Part 1](https://developer.hpe.com/blog/kubernetes-clusters-as-code-part1/)
