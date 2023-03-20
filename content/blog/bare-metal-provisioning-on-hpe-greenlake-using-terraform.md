@@ -30,28 +30,40 @@ In this blog post, I will walk you through the steps required to use the HPE Gre
 
 You need an API client to authenticate against HPE GreenLake.
 
-Follow the below steps for an API client creation:
+Follow the below steps for an API client creation:    
 
-1. From the HPE GreenLake platform, launch the HPE GreenLake Central console for the appropriate tenant. Under the settings icon on the tenant Dashboard page, select the **User Management** option. 
+
+1. From the HPE GreenLake platform, launch the HPE GreenLake Central console for the appropriate tenant. Under the settings icon on the tenant Dashboard page, select the **User Management** option.     
+
 
 ![User Management](/img/greenlake_console_usermanagement.png "User Management")
 
-2. Under the API Clients tab, click on **Create API Client**.
+
+2. Under the API Clients tab, click on **Create API Client**.    
+
 
 ![Create API Client](/img/greenlake_console_createapiclient.png "Create API Client")
 
-3. Enter a **Name** (mandatory field) and **Description** (optional) for the API client, and click on **Create** button.
+
+3. Enter a **Name** (mandatory field) and **Description** (optional) for the API client, and click on **Create** button.     
+
 
 ![Create API Client](/img/greenlake_conolse_apiclient_create.png "Create API Client")
 
-4. Ensure you make a note of the **Issuer**, **Client ID**, and **Client Secret** before clicking on the **Close** button. These details will be exported as environment variables in the next section.
+
+4. Ensure you make a note of the **Issuer**, **Client ID**, and **Client Secret** before clicking on the **Close** button. These details will be exported as environment variables in the next section.    
+
 
 ![API Client Created](/img/greenlake_conolse_apiclient_created.png "API Client Created")
 
-5. In the API Clients page, select the newly created client, and click on **Create Assignment** button.
-6. Assign the roles **BMAAS Access Viewer** and **BMAAS Access Project Contributor** on the **Space: Default.**
+
+5. In the API Clients page, select the newly created client, and click on **Create Assignment** button.    
+
+6. Assign the roles **BMAAS Access Viewer** and **BMAAS Access Project Contributor** on the **Space: Default.**    
+
 
 ![BMaaS Roles](/img/greenlake_console_createbmaasassignment.png "BMaaS Roles")
+
 
 The API client is now ready to be used to run the Terraform resources.
 
@@ -59,20 +71,26 @@ The API client is now ready to be used to run the Terraform resources.
 
 A compute group is a logical grouping of bare metal resources (compute instances, networks, SSH keys, etc.) that a team of cloud consumers can consume. You must specify the compute group ID to interact with the bare metal service resources. You can create a new compute group or select the existing one from the HPE GreenLake console. Make a note of the compute group ID because you need it to set a variable.
 
-**Note: Compute group is an AKA Project.**
+**Note: Compute group is an AKA Project.**    
 
-1. Navigate to HPE GreenLake for Private Cloud Services card -> Bare Metal -> Compute Groups.  
+
+1. Navigate to HPE GreenLake for Private Cloud Services card -> Bare Metal -> Compute Groups.      
+
 
 ![BMaaS Compute Groups](/img/compute_group_list.png "BMaaS Compute Groups")
 
-2. Click on the desired compute group and then extract the ID from the browser URL seen at that time.  
-   This will be exported in the environment variable **HPE\_METAL\_PROJECT\_ID** in the later section.
 
-![Compute group ID](/img/compute_group_id.png "Compute group ID")
+2. Click on the desired compute group and then extract the ID from the browser URL seen at that time.  
+   This will be exported in the environment variable **HPE\_METAL\_PROJECT\_ID** in the later section.    
+
+
+![Compute group ID](/img/compute_group_id.png "Compute group ID")    
+
 
 ## Install Terraform
 
-Next, get your system ready to run Terraform. In case this has not been done yet:  
+Next, get your system ready to run Terraform. In case this has not been done yet:      
+
 
 1. Download and install Terraform, version v0.13 or later.   
    For more information, see <https://learn.hashicorp.com/tutorials/terraform/install-cli>.  
@@ -148,16 +166,24 @@ To deploy compute instance, you need to use the **hpegl\_metal\_host** terraform
 
 **Note:**
 
-* compute instance is AKA host.
-* compute instance type is AKA machine size.
+* compute instance is AKA host.    
 
-The **hpegl\_metal\_host** resource supports many different arguments, but these are the required ones:
+* compute instance type is AKA machine size.    
 
-* networks – List of networks. The list must always include any networks marked as '**required**' for that location. 
-* machine_size – Compute instance type.
-* ssh – List of SSH keys to push to the host.
-* location – The data center location of where the compute instance will be provisioned.
-* Image – OS image in the form flavor@version.
+
+The **hpegl\_metal\_host** resource supports many different arguments, but these are the required ones:    
+
+
+* networks – List of networks. The list must always include any networks marked as '**required**' for that location.     
+
+* machine_size – Compute instance type.    
+
+* ssh – List of SSH keys to push to the host.    
+
+* location – The data center location of where the compute instance will be provisioned.    
+
+* Image – OS image in the form flavor@version.    
+
 
 Y﻿ou can also check the documentation [here](https://registry.terraform.io/providers/HPE/hpegl/latest/docs/resources/metal_host) to see all the required and optional fields.
 
@@ -258,7 +284,7 @@ Before you can use Terraform, you will have to initialize it from the configurat
 
 #### Validate and View the Terraform Execution Plan
 
-Terraform plan is a dry run that lets you preview the changes that Terraform plans to make to your infrastructure based on the data you provide in your Terraform file. To see this, run the command:**terraform plan**.
+Terraform plan is a dry run that lets you preview the changes that Terraform plans to make to your infrastructure based on the data you provide in your Terraform file. To see this, run the command: **terraform plan**.
 
 ![terraform plan](/img/bmaas_terraform_plan.png "terraform plan")
 
@@ -347,8 +373,10 @@ When you no longer need the resources created via Terraform, destroy the resourc
 # Summary
 
 In this blog, I covered how to provision a compute instance with Terraform provider for HPE GreenLake using bare metal resources. I also showed you advanced usage of hpegl resource statements to deploy a compute instance with dynamic resources.  
-I hope you found this information interesting and helpful in helping you get started with the HPE GreenLake Terraform provider. You can also go through the below links to understand more about the HPE GreenLake Terraform provider. 
+I hope you found this information interesting and helpful in helping you get started with the HPE GreenLake Terraform provider. You can also go through the below links to understand more about the HPE GreenLake Terraform provider.     
 
-* [Kubernetes Cluster as Code – Part 1](https://developer.hpe.com/blog/kubernetes-clusters-as-code-part1/)
-* [Kubernetes Cluster as Code – Part 2](https://developer.hpe.com/blog/kubernetes-cluster-as-code-part-2/)  
-* [Learn more about the HPE GreenLake Terraform provider](https://registry.terraform.io/providers/hpe/hpegl/latest)
+* [Kubernetes Cluster as Code – Part 1](https://developer.hpe.com/blog/kubernetes-clusters-as-code-part1/)    
+
+* [Kubernetes Cluster as Code – Part 2](https://developer.hpe.com/blog/kubernetes-cluster-as-code-part-2/)      
+
+* [Learn more about the HPE GreenLake Terraform provider](https://registry.terraform.io/providers/hpe/hpegl/latest)    
