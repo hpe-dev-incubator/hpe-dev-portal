@@ -160,7 +160,6 @@ To deploy compute instance, you need to use the **hpegl\_metal\_host** terraform
 **Note:**
 
 * compute instance is AKA host.    
-
 * compute instance type is AKA machine size.    
 
 
