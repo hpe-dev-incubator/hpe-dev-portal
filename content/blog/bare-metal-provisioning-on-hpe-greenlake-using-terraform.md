@@ -58,15 +58,14 @@ The API client is now ready to be used to run the Terraform resources.
 
 A compute group is a logical grouping of bare metal resources (compute instances, networks, SSH keys, etc.) that a team of cloud consumers can consume. You must specify the compute group ID to interact with the bare metal service resources. You can create a new compute group or select the existing one from the HPE GreenLake console. Make a note of the compute group ID because you need it to set a variable.
 
-***Note: Compute group is an AKA Project.***
+**Note: Compute group is an AKA Project.**
 
-1. Navigate to HPE GreenLake for Private Cloud Services card -> Bare Metal -> Compute Groups.
+1. Navigate to HPE GreenLake for Private Cloud Services card -> Bare Metal -> Compute Groups.  
 
 ![BMaaS Compute Groups](/img/compute_group_list.png "BMaaS Compute Groups")
 
 2. Click on the desired compute group and then extract the ID from the browser URL seen at that time.  
-
-   This will be exported in the environment variable **HPE_METAL_PROJECT_ID** in the later section.
+This will be exported in the environment variable **HPE\_METAL\_PROJECT\_ID** in the later section.
 
 ![Compute group ID](/img/compute_group_id.png "Compute group ID")
 
@@ -74,8 +73,8 @@ A compute group is a logical grouping of bare metal resources (compute instances
 
 Next, get your system ready to run Terraform. In case this has not been done yet:
 
-1. Download and install Terraform, version v0.13 or later.   
-   For more information, see [https://learn.hashicorp.com/tutorials/terraform/install-cli]( https://learn.hashicorp.com/tutorials/terraform/install-cli). 
+1. Download and install Terraform, version v0.13 or later.\
+   For more information, see <https://learn.hashicorp.com/tutorials/terraform/install-cli>. 
 2. Verify the installation with **terraform -help.** 
 
    At this point, you are ready to start building your infrastructure description file. 
@@ -192,7 +191,7 @@ locals {
 
 ### Querying for other available resources
 
-For this, you should use **hpegl_metal_available_resources** data resource. For example, the following statements show how to retrieve and store the available SSH keys in a local variable.  
+For this, you should use **hpegl\_metal\_available\_resources** data resource. For example, the following statements show how to retrieve and store the available SSH keys in a local variable.  
 
 Append to main.tf:
 
@@ -235,7 +234,7 @@ locals {
 
 ### Create Compute instance
 
-The last step is for you define a **hpegl_metal_host** terraform resource in the file to request a new compute instance (host):
+The last step is for you to define a **hpegl\_metal\_host** terraform resource in the file to request a new compute instance (host):
 
 ```hcl
 resource "hpegl_metal_host" "demo_host" {
