@@ -1,6 +1,6 @@
 ---
 title: Bare metal provisioning on HPE GreenLake using Terraform
-date: 2023-02-26T19:38:34.667Z
+date: 2023-03-20T18:30:57.328Z
 author: Chaitra Mylarappachar
 authorimage: /img/chaitra-mylarappachar-192.png
 disable: false
@@ -74,9 +74,9 @@ A compute group is a logical grouping of bare metal resources (compute instances
 Next, get your system ready to run Terraform. In case this has not been done yet:  
 
 1. Download and install Terraform, version v0.13 or later.   
-
    For more information, see <https://learn.hashicorp.com/tutorials/terraform/install-cli>.  
-2. Verify the installation with **terraform -help.**   
+
+1. Verify the installation with **terraform -help.**   
 
 At this point, you are ready to start building your infrastructure description file. 
 
