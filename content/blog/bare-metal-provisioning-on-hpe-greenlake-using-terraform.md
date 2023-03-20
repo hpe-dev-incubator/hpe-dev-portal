@@ -13,9 +13,9 @@ tags:
 ---
 # Introduction
 
-The HPE GreenLake for Private Cloud Enterprise: bare metal (BMaaS) service offering enables you to create dedicated compute instances deployed on a physical IT infrastructure, facilitating on-demand scalability, convenience, and agility as a cloud service. 
+The HPE GreenLake for Private Cloud Enterprise: Bare Metal service offering enables you to create dedicated compute instances deployed on a physical IT infrastructure, facilitating on-demand scalability, convenience, and agility as a cloud service. 
 
-Using BMaaS, you can create compute-instances provisioned with specific operating systems, network connections, one or more public SSH keys, and optional network-attached storage volumes.
+Using bare metal, you can create compute-instances provisioned with specific operating systems, network connections, one or more public SSH keys, and optional network-attached storage volumes.
 The service can be accessed via GUI as well as via public APIs, enabling developers to use an Infrastructure-as-Code tool to build, change, and manage infrastructure in a consistent and repeatable way.
 
 The HPE GreenLake Terraform provider **hpegl** by HPE GreenLake provides Infrastructure-as-Code support for HPE GreenLake Cloud Services.
@@ -41,7 +41,7 @@ Follow the below steps for an API client creation:
 
 3. Enter a **Name** (mandatory field) and **Description** (optional) for the API client, and click on **Create** button.
 
-![Create API Client](/img/greenlake_console_createapiclient_form.png "Create API Client")
+![Create API Client](/img/greenlake_conolse_apiclient_create.png "Create API Client")
 
 4. Ensure you make a note of the **Issuer**, **Client ID**, and **Client Secret** before clicking on the **Close** button. These details will be exported as environment variables in the next section.
 
@@ -74,8 +74,8 @@ A compute group is a logical grouping of bare metal resources (compute instances
 
 Next, get your system ready to run Terraform. In case this has not been done yet:
 
-1. Download and install Terraform, version v0.13 or later.
-   For more information, see [https://learn.hashicorp.com/tutorials/terraform/install-cli](<1. https://learn.hashicorp.com/tutorials/terraform/install-cli>). 
+1. Download and install Terraform, version v0.13 or later.   
+   For more information, see [https://learn.hashicorp.com/tutorials/terraform/install-cli]( https://learn.hashicorp.com/tutorials/terraform/install-cli). 
 2. Verify the installation with **terraform -help.** 
 
    At this point, you are ready to start building your infrastructure description file. 
@@ -84,7 +84,7 @@ Next, get your system ready to run Terraform. In case this has not been done yet
 
 ## Select Terraform provider with bare metal service configurations
 
-1. **Export the following environment variables on your setup.**
+1. Export the following environment variables on your setup.
 
    E﻿xport the Tenant ID:
 
@@ -116,7 +116,7 @@ Next, get your system ready to run Terraform. In case this has not been done yet
 
    export HPEGL_METAL_REST_URL="<Metal Service REST Base URL>"
    ```
-2. **Configure the Terraform provider.**
+2. Configure the Terraform provider.
 
    Create an empty folder and put a file in it called main.tf with the following contents:
 
@@ -145,10 +145,10 @@ Next, get your system ready to run Terraform. In case this has not been done yet
 
 To deploy compute instance, you need to use the **hpegl_metal_host** terraform resource.
 
-**\*Note**:*
+**Note:**
 
-* *compute instance is AKA host.* 
-* *compute instance type is AKA machine size.*
+* compute instance is AKA host.
+* compute instance type is AKA machine size.
 
 The **hpegl_metal_host** resource supports many different arguments, but these are the required ones:
 
@@ -158,9 +158,9 @@ The **hpegl_metal_host** resource supports many different arguments, but these a
 * location – The data center location of where the compute instance will be provisioned.
 * Image – OS image in the form flavor@version.
 
-  Y﻿ou can also check the documentation [here](https://registry.terraform.io/providers/HPE/hpegl/latest/docs/resources/metal_host) to see all the required and optional fields.
+Y﻿ou can also check the documentation [here](https://registry.terraform.io/providers/HPE/hpegl/latest/docs/resources/metal_host) to see all the required and optional fields.
 
-  Your next step with the TF file is to query the HPE GreenLake provider to collect the above-required information for creating a host. For this, you will use the Terraform data statements.  
+Your next step with the TF file is to query the HPE GreenLake provider to collect the above-required information for creating a host. For this, you will use the Terraform data statements.  
 
 ### Querying for available OS images
 
@@ -345,7 +345,7 @@ When you no longer need the resources created via Terraform, destroy the resourc
 
 # Summary
 
-In this blog, I covered how to provision a compute instance with Terraform provider for HPE GreenLake using bare metal resources. I also showed you advanced usage of hpegl resource statements to deploy a compute instance with dynamic resources.  
+In this blog, I covered how to provision a compute instance with Terraform provider for HPE GreenLake using bare metal resources. I also showed you advanced usage of hpegl resource statements to deploy a compute instance with dynamic resources.\
 I hope you found this information interesting and helpful in helping you get started with the HPE GreenLake Terraform provider. You can also go through the below links to understand more about the HPE GreenLake Terraform provider. 
 
 * [Kubernetes Cluster as Code – Part 1](https://developer.hpe.com/blog/kubernetes-clusters-as-code-part1/)
