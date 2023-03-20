@@ -1,5 +1,5 @@
 # HPE Developer External Contributor Guide
-**Version 2.0** - 20-Jan-2023
+**Version 2.0** - 20 March, 2023
 
 >**Note:** A recording of the training session delivered on April 30, 2021 is available [here](https://vimeo.com/544486602). 
 
@@ -635,6 +635,18 @@ ul li{
 }
 </style>
 ```       
+
+or you can use the following style font if you have single bullet list item in the content page (blog post, product page):
+
+```html
+<style>
+li {
+    font-size: 27px;
+    line-height: 33px;
+    max-width: none;
+}
+</style>
+```
 
 Similarly you can change the numbered lists font-size with the following global statement:
 
