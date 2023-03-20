@@ -10,12 +10,13 @@ tags:
   - bare-metal-as-a-service
   - hpegl
   - BMaaS
+  - hpe-greenlake-for-private-cloud-enterprise
 ---
 # Introduction
 
 The HPE GreenLake for Private Cloud Enterprise: Bare Metal service offering enables you to create dedicated compute instances deployed on a physical IT infrastructure, facilitating on-demand scalability, convenience, and agility as a cloud service. 
 
-Using bare metal, you can create compute-instances provisioned with specific operating systems, network connections, one or more public SSH keys, and optional network-attached storage volumes.
+Using bare metal service, you can create compute-instances provisioned with specific operating systems, network connections, one or more public SSH keys, and optional network-attached storage volumes.
 The service can be accessed via GUI as well as via public APIs, enabling developers to use an Infrastructure-as-Code tool to build, change, and manage infrastructure in a consistent and repeatable way.
 
 The HPE GreenLake Terraform provider **hpegl** by HPE GreenLake provides Infrastructure-as-Code support for HPE GreenLake Cloud Services.
@@ -251,13 +252,13 @@ resource "hpegl_metal_host" "demo_host" {
 
 #### Initialize Terraform
 
-Before you can use Terraform, you will have to initialize it from the configuration file we have created. In the same directory as the **main.tf** file you created, **run : terraform init.**
+Before you can use Terraform, you will have to initialize it from the configuration file we have created. In the same directory as the **main.tf** file you created, run the command: **terraform init**.
 
 ![terraform init](/img/bmaas_terraform_init.png "terraform init")
 
 #### Validate and View the Terraform Execution Plan
 
-Terraform plan is a dry run that lets you preview the changes that Terraform plans to make to your infrastructure based on the data you provide in your Terraform file. To see this, **run: terraform plan.**
+Terraform plan is a dry run that lets you preview the changes that Terraform plans to make to your infrastructure based on the data you provide in your Terraform file. To see this, run the command:**terraform plan**.
 
 ![terraform plan](/img/bmaas_terraform_plan.png "terraform plan")
 
