@@ -12,6 +12,14 @@ tags:
   - BMaaS
   - hpe-greenlake-for-private-cloud-enterprise
 ---
+<style>
+li {
+    font-size: 27px;
+    line-height: 33px;
+    max-width: none;
+}
+</style>
+
 # Introduction
 
 The HPE GreenLake for Private Cloud Enterprise: Bare Metal service offering enables you to create dedicated compute instances deployed on a physical IT infrastructure, facilitating on-demand scalability, convenience, and agility as a cloud service. 
@@ -35,32 +43,23 @@ Follow the below steps for an API client creation:
 
 1. From the HPE GreenLake platform, launch the HPE GreenLake Central console for the appropriate tenant. Under the settings icon on the tenant Dashboard page, select the **User Management** option.     
 
-
 ![User Management](/img/greenlake_console_usermanagement.png "User Management")
-
 
 2. Under the API Clients tab, click on **Create API Client**.    
 
-
 ![Create API Client](/img/greenlake_console_createapiclient.png "Create API Client")
-
 
 3. Enter a **Name** (mandatory field) and **Description** (optional) for the API client, and click on **Create** button.     
 
-
 ![Create API Client](/img/greenlake_conolse_apiclient_create.png "Create API Client")
-
 
 4. Ensure you make a note of the **Issuer**, **Client ID**, and **Client Secret** before clicking on the **Close** button. These details will be exported as environment variables in the next section.    
 
-
 ![API Client Created](/img/greenlake_conolse_apiclient_created.png "API Client Created")
-
 
 5. In the API Clients page, select the newly created client, and click on **Create Assignment** button.    
 
 6. Assign the roles **BMAAS Access Viewer** and **BMAAS Access Project Contributor** on the **Space: Default.**    
-
 
 ![BMaaS Roles](/img/greenlake_console_createbmaasassignment.png "BMaaS Roles")
 
@@ -73,24 +72,18 @@ A compute group is a logical grouping of bare metal resources (compute instances
 
 **Note: Compute group is an AKA Project.**    
 
-
 1. Navigate to HPE GreenLake for Private Cloud Services card -> Bare Metal -> Compute Groups.      
 
-
 ![BMaaS Compute Groups](/img/compute_group_list.png "BMaaS Compute Groups")
-
 
 2. Click on the desired compute group and then extract the ID from the browser URL seen at that time.  
    This will be exported in the environment variable **HPE\_METAL\_PROJECT\_ID** in the later section.    
 
-
 ![Compute group ID](/img/compute_group_id.png "Compute group ID")    
-
 
 ## Install Terraform
 
 Next, get your system ready to run Terraform. In case this has not been done yet:      
-
 
 1. Download and install Terraform, version v0.13 or later.   
    For more information, see <https://learn.hashicorp.com/tutorials/terraform/install-cli>.  
@@ -175,15 +168,10 @@ The **hpegl\_metal\_host** resource supports many different arguments, but these
 
 
 * networks – List of networks. The list must always include any networks marked as '**required**' for that location.     
-
 * machine_size – Compute instance type.    
-
 * ssh – List of SSH keys to push to the host.    
-
 * location – The data center location of where the compute instance will be provisioned.    
-
 * Image – OS image in the form flavor@version.    
-
 
 Y﻿ou can also check the documentation [here](https://registry.terraform.io/providers/HPE/hpegl/latest/docs/resources/metal_host) to see all the required and optional fields.
 
@@ -376,7 +364,5 @@ In this blog, I covered how to provision a compute instance with Terraform provi
 I hope you found this information interesting and helpful in helping you get started with the HPE GreenLake Terraform provider. You can also go through the below links to understand more about the HPE GreenLake Terraform provider.     
 
 * [Kubernetes Cluster as Code – Part 1](https://developer.hpe.com/blog/kubernetes-clusters-as-code-part1/)    
-
 * [Kubernetes Cluster as Code – Part 2](https://developer.hpe.com/blog/kubernetes-cluster-as-code-part-2/)      
-
 * [Learn more about the HPE GreenLake Terraform provider](https://registry.terraform.io/providers/hpe/hpegl/latest)    
