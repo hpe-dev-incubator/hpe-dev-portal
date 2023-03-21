@@ -34,9 +34,12 @@ Another use case is the installation of all custom libraries (in the form of jar
 
 ## Step 1: Prerequisites to build a custom Docker image:
 
-* The latest version of the Docker client
-* The latest version of AWS CLI
-* Verify the access to any dependent repository from where resources (modules, code etc) might be downloaded.   
+* The latest version of the Docker client    
+
+* The latest version of AWS CLI    
+
+* Verify the access to any dependent repository from where resources (modules, code etc) might be downloaded.    
+
 
 ## **Step 2: Sample Docker file used to create custom EMR Serverless image:**
 
