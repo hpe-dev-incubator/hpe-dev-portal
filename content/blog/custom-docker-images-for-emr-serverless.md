@@ -4,12 +4,10 @@ date: 2023-03-09T11:10:16.774Z
 externalLink: ""
 author: D.R.Niranjan, Chirag Talreja, Sagar Nayamagouda, Chinmay Chaturvedi,
   Kalapriya Kannan, Roopali Gupta
-authorimage: /img/alletra-element-small.png
+authorimage: /img/Avatar2.svg
 disable: false
 tags: []
 ---
-<!--StartFragment-->
-
 EMR serverless is the latest addition from the AWS to offer out of box support for Elastic MapReduce paradigm with auto scaling and pay as you go model.
 
 One often needs to build custom images in EMR serverless since the application uses specialized libraries that don't come with an EMR serverless base image. An explicit use case would be the requirements found with Delta Lake over S3 or specific Python modules, such as boto modules, database access libraries (i.e. pgcopy), etc. While there exists the option to have them installed at run time (i.e. when the image is running in a container and a custom script is used to install it), in production settings, it is encouraged to prebundle all the required libraries, modules, and jars. Dynamic installations are typically discouraged due to access permissions and internet connectivity issues.
@@ -36,13 +34,15 @@ Another use case is the installation of all custom libraries (in the form of jar
 
 ## Step 1: Prerequisites to build a custom Docker image:
 
-* The latest version of the Docker client
-* The latest version of AWS CLI
-* Verify the access to any dependent repository from where resources (modules, code etc) might be downloaded.   
+* The latest version of the Docker client    
+
+* The latest version of AWS CLI    
+
+* Verify the access to any dependent repository from where resources (modules, code etc) might be downloaded.    
+
 
 ## **Step 2: Sample Docker file used to create custom EMR Serverless image:**
 
-<!--StartFragment-->
 
 *\# Refer AWS EMR documentation for the release version tag*
 
@@ -67,49 +67,38 @@ Another use case is the installation of all custom libraries (in the form of jar
 
 *`USER hadoop:hadoop`*
 
-<!--EndFragment-->
 
 ## **Step 3: Pushing the Docker image to the** Amazon Elastic Container Registry **(AWS ECR):**
 
 Command to authenticate Docker to an AWS ECR public registry assuming region as us-east-1. As the EMR Serverless base Docker image is present in the ECR public registry, run the command shown below before building your customized Docker file.
 
-<!--StartFragment-->
 
 *aws ecr-public get-login-password — region us-east-1 — profile <profile_name_in_your_aws_credentials_file> | docker login — username AWS — password-stdin public.ecr.aws*
 
-<!--EndFragment-->
 
 Command to build Docker image:
 
-<!--StartFragment-->
-
 *docker build -t local_docker_image_name:tag -f <docker_file_name> `.`*
 
-<!--EndFragment-->
 
 Command to tag locally built Docker image in order to push to the AWS ECR private registry:
 
-<!--StartFragment-->
 
 *docker tag local_docker_image_name:tag [aws_account_id.dkr.ecr.region.amazonaws.com](http://aws_account_id.dkr.ecr.region.amazonaws.com)**[/docker_image_name](http://718515174980.dkr.ecr.us-east-1.amazonaws.com/emr-serverless-ci-examples:emr-serverless-6.9.0-V1):tag*
 
-<!--EndFragment-->
 
 Command to authenticate Docker to an AWS ECR private registry assuming region as us-east-1. Run the command shown below before pushing the Docker image to AWS ECR private registry.
 
-<!--StartFragment-->
 
 ***`aws ecr get-login-password — region us-east-1 — profile <profile_name_in_your_aws_credentials_file> | docker login — username AWS — password-stdin`[`aws_account_id.dkr.ecr.region.amazonaws.com`](http://aws_account_id.dkr.ecr.region.amazonaws.com)***``
 
-<!--EndFragment-->
 
-        **Note:**
+ **Note:**
 
    1. When the --profile option is not provided, credentials will be picked from the profile name  <default> in the \~/.aws/credentials file. If you are using access credentials for a different user, then include the profile section in \~/.aws/credentials files.
 
    2.  Example content of ~/.aws/credentials file:          
 
-<!--StartFragment-->
 
 \[default]\
 aws_access_key_id =\
@@ -119,7 +108,6 @@ aws_secret_access_key =
 aws_access_key_id=\
 aws_secret_access_key=
 
-<!--EndFragment-->
 
 Command to push Docker image to the  AWS ECR private registry:
 
@@ -137,14 +125,12 @@ There are two approaches for EMR Serverless to use the custom image created:
 
 AWS CLI reference for EMR Serverless application management: <https://docs.aws.amazon.com/cli/latest/reference/emr-serverless/index.html>
 
-<!--StartFragment-->
 
 *aws — region <region> emr-serverless create-application* \
 *— release-label emr-6.9.0* \
 *— type “SPARK”* \
 *— name emr-application-1* \
 *— image-configuration ‘{ “imageUri”: “<your AWS account ID>.dkr.ecr.<region>.[amazonaws.com/<ecr_registry_name:](http://amazonaws.com/emr-serverless-ci-examples:emr-serverless-ci-ml)image_name>” }’*
-
 
 
 **Note:** Image URI can be copied from the AWS ECR registry.
@@ -175,17 +161,13 @@ This article provides the reader with mechanisms to build custom Docker image wh
 
 * **[How to customize image for multi CPU architecture](https://docs.aws.amazon.com/emr/latest/EMR-on-EKS-DevelopmentGuide/docker-custom-images-steps.html)** 
 
-<!--EndFragment-->
 
 ## **About the Authors:**
 
 ![](/img/niranjan_2.jpg)
 
-<!--StartFragment-->
 
 D R Niranjan is a Senior software/Cloud application developer at HPE, experienced in developing software and cloud applications for HPE Servers and Storage systems. He is technically skilled in Python, Java, Scala, Spark programming, AWS, Dockers and Kubernetes, PgSQL/RDBMS. You can have a look at his LinkedIn profile here: <https://www.linkedin.com/in/niranjan-d-r/>
-
-<!--EndFragment-->
 
 ![](/img/sagar-pic_2.jpg "sagar-nyamagouda@hpe.com")
 
@@ -207,8 +189,5 @@ Kalapriya Kannan currently works with HPE on cloud enablement of storage analyti
 
 ![](/img/download.png)
 
-<!--StartFragment-->
 
 Roopali has 19 years of work experience in systems software development in the areas of operating system, file system and cloud technologies. She has played a number of various roles, starting from developer to lead expert and product owner. In her current role, she is responsible for functional delivery and people management of Data Observability Analytics Project.
-
-<!--EndFragment-->
