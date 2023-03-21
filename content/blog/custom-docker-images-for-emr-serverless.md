@@ -16,7 +16,7 @@ One often needs to build custom images in EMR serverless since the application u
 
 Further, getting prebundled assembly jars with all the dependencies is feasible in certain programming such as a scala/java, but with widely used Python the concept of creating assembly modules is missing. To address this, one option for all Python based modules/libraries that are required by the application code is to be prebundle them into custom images. We are going to show you a fairly quick and easy way to do this for AWS.
 
-In this article we take two scenarios , one where the application expects the data jars to be in specific location for its execution as in case of Delta Lake and another where we install specific Python modules using pip install both of which are bundled into a custom docker image that the EMR Serverless uses. 
+In this article we take two scenarios, one where the application expects the data jars to be in specific location for its execution as in case of Delta Lake and another where we install specific Python modules using pip install both of which are bundled into a custom docker image that the EMR Serverless uses. 
 
 Delta Lake (<https://delta.io>) is an open-source storage framework that enables building a lake house architecture. One of the important features supported by Delta Lake is the checkpoint management for batch/streaming jobs that uses AWS S3 as a data lake. The most common approach in using Delta Lake is via the command line running the spark-submit command - something like `"sparkSubmitParameters": "--packages io.delta:delta-core_2.12:1.2.1"`. This dynamically pulls the Delta Lake (via maven project) when the spark jobs run (ref. <https://docs.delta.io/latest/quick-start.html#pyspark-shell> ). The other approach is to use **pip install delta-spark==2.2.0** when Python is used.  However,  both these approaches in production might not be possible, as they require an active internet connection and necessary permissions on the production machine to download/install a library at run time in the EMR Serverless application.
 
@@ -28,7 +28,7 @@ Another use case is the installation of all custom libraries (in the form of jar
 
 *Step 3:*  Push the Docker image to the ECR
 
-*Step 4:* Create the EMR Serverless applications by using one of the following approaches 
+*Step 4:* Create the EMR Serverless applications by using one of the following approaches: 
 
 (a) Via the AWS command line (AWS CLI)
 
@@ -145,7 +145,7 @@ AWS CLI reference for EMR Serverless application management: <https://docs.aws.a
 *— name emr-application-1* \
 *— image-configuration ‘{ “imageUri”: “<your AWS account ID>.dkr.ecr.<region>.[amazonaws.com/<ecr_registry_name:](http://amazonaws.com/emr-serverless-ci-examples:emr-serverless-ci-ml)image_name>” }’*
 
-<!--EndFragment-->
+
 
 **Note:** Image URI can be copied from the AWS ECR registry.
 
@@ -161,14 +161,19 @@ AWS CLI reference for EMR Serverless application management: <https://docs.aws.a
 
 ### **Summary:**
 
-This article provides the reader with mechanisms to build custom Docker image where custom libraries especially Python modules need to be bundled and used in EMR Serverless.  We use two use cases with Python modules and Delta Lake libraries on how one can build this Docker image. This should help all developers using Python as their software language for EMR Serverless to pre-bundle the Python libraries for the production environment. If you found this blog post helpful, we recommend you read more on the topic by referencing the documentation below:   
+This article provides the reader with mechanisms to build custom Docker image where custom libraries especially Python modules need to be bundled and used in EMR Serverless. We use two use cases with Python modules and Delta Lake libraries on how one can build this Docker image. This should help all developers using Python as their software language for EMR Serverless to pre-bundle the Python libraries for the production environment. If you found this blog post helpful, we recommend you read more on the topic by referencing the documentation below:   
 
-* *Steps to build custom Docker image for EMR Serverless:* [](https://aws.amazon.com/blogs/big-data/add-your-own-libraries-and-application-dependencies-to-spark-and-hive-on-amazon-emr-serverless-with-custom-images/)[\* <https://aws.amazon.com/blogs/big-data/add-your-own-libraries-and-application-dependencies-to-spark-and-hive-on-amazon-emr-serverless-with-custom-images/>](<* <https://aws.amazon.com/blogs/big-data/add-your-own-libraries-and-application-dependencies-to-spark-and-hive-on-amazon-emr-serverless-with-custom-images/>>)
-* *How to pull Docker image from AWS ECR registry:* [](https://docs.aws.amazon.com/AmazonECR/latest/userguide/docker-pull-ecr-image.html)[\* <https://docs.aws.amazon.com/AmazonECR/latest/userguide/docker-pull-ecr-image.html>](<* <https://docs.aws.amazon.com/AmazonECR/latest/userguide/docker-pull-ecr-image.html>>)
-* *How to authorize AWS ECR registry with Docker client:* [](https://docs.aws.amazon.com/AmazonECR/latest/userguide/registry_auth.html)[\* <https://docs.aws.amazon.com/AmazonECR/latest/userguide/registry_auth.html>](<* <https://docs.aws.amazon.com/AmazonECR/latest/userguide/registry_auth.html>>)
-* *How to push Docker image to AWS ECS registry:* [\* <https://docs.aws.amazon.com/AmazonECR/latest/userguide/docker-push-ecr-image.html>](<* <https://docs.aws.amazon.com/AmazonECR/latest/userguide/docker-push-ecr-image.html>>)
-* *AWS EMR Serverless CLI reference:* [](https://docs.aws.amazon.com/cli/latest/reference/emr-serverless/index.html)[\* <https://docs.aws.amazon.com/cli/latest/reference/emr-serverless/index.html>](<* <https://docs.aws.amazon.com/cli/latest/reference/emr-serverless/index.html>>)
-* *How to customize image for multi CPU architecture:* [\* https://docs.aws.amazon.com/emr/latest/EMR-on-EKS-DevelopmentGuide/docker-custom-images-steps.html](<* https://docs.aws.amazon.com/emr/latest/EMR-on-EKS-DevelopmentGuide/docker-custom-images-steps.html>)
+* **[Steps to build custom Docker image for EMR Serverless](https://aws.amazon.com/blogs/big-data/add-your-own-libraries-and-application-dependencies-to-spark-and-hive-on-amazon-emr-serverless-with-custom-images/)** 
+
+* **[How to pull Docker image from AWS ECR registry](https://docs.aws.amazon.com/AmazonECR/latest/userguide/docker-pull-ecr-image.html)**
+
+* **[How to authorize AWS ECR registry with Docker client](https://docs.aws.amazon.com/AmazonECR/latest/userguide/registry_auth.html)**
+
+* **[How to push Docker image to AWS ECS registry](https://docs.aws.amazon.com/AmazonECR/latest/userguide/docker-push-ecr-image.html)** 
+
+* **[AWS EMR Serverless CLI reference](https://docs.aws.amazon.com/cli/latest/reference/emr-serverless/index.html)**
+
+* **[How to customize image for multi CPU architecture](https://docs.aws.amazon.com/emr/latest/EMR-on-EKS-DevelopmentGuide/docker-custom-images-steps.html)** 
 
 <!--EndFragment-->
 
@@ -184,7 +189,7 @@ D R Niranjan is a Senior software/Cloud application developer at HPE, experience
 
 ![](/img/sagar-pic_2.jpg "sagar-nyamagouda@hpe.com")
 
-Sagar Nyamagouda holds a  B.E(Information Science and Engineering) from BMS College of Engineering (BMSCE), Bengaluru and M.Tech in Software Systems from BITS Pilani. He is an experienced R&D Engineer working on Big Data Technologies and building AI/ML pipelines to give real time insights to customers. An AI/ML enthusiast, he is currently working with HPE enabling advanced insights for Data Services in HPE GreenLake Cloud Platform.   LinkedIn Profile: www.linkedin.com/in/sagarny
+Sagar Nyamagouda holds a  B.E(Information Science and Engineering) from BMS College of Engineering (BMSCE), Bengaluru and M.Tech in Software Systems from BITS Pilani. He is an experienced R&D Engineer working on Big Data Technologies and building AI/ML pipelines to give real time insights to customers. An AI/ML enthusiast, he is currently working with HPE enabling advanced insights for Data Services in HPE GreenLake Cloud Platform. LinkedIn Profile: www.linkedin.com/in/sagarny
 
 ![](/img/chirag_2.jpg "chirag.talreja@hpe.com")
 
@@ -198,7 +203,7 @@ Chinmay currently works at HPE as a cloud engineer. He has expertise in various 
 
 ![](/img/whatsapp-image-2021-11-02-at-10.01.24-am-1-.jpg)
 
-Kalapriya Kannan currently works with HPE on cloud enablement of storage analytics.  She holds a Ph.D from IISc. She has authored around 60 peer reviewed international conference papers and over a 100 disclosure submissions for patent filing for which she has been granted 65 patents.    Her interests are in the area of distributed and parallel systems and currently she is working in processing of big data for analytical insights. Her linkedIn profile:  <https://www.linkedin.com/in/kalapriya-kannan-0862b55b>
+Kalapriya Kannan currently works with HPE on cloud enablement of storage analytics. She holds a Ph.D from IISc. She has authored around 60 peer reviewed international conference papers and over a 100 disclosure submissions for patent filing for which she has been granted 65 patents. Her interests are in the area of distributed and parallel systems and currently she is working in processing of big data for analytical insights. Her linkedIn profile: <https://www.linkedin.com/in/kalapriya-kannan-0862b55b>
 
 ![](/img/download.png)
 
