@@ -105,7 +105,7 @@ Command to authenticate Docker to an AWS ECR private registry assuming region as
 
         **Note:**
 
-        1. When the --profile option is not provided, credentials will be picked from the profile name  <default> in the \~/.aws/credentials file. If you are using access credentials for a different user, then include the profile section in \~/.aws/credentials files.
+   1. When the --profile option is not provided, credentials will be picked from the profile name  <default> in the \~/.aws/credentials file. If you are using access credentials for a different user, then include the profile section in \~/.aws/credentials files.
 
    2.  Example content of ~/.aws/credentials file:          
 
