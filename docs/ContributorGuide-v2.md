@@ -122,6 +122,7 @@ You can create a new blog directly from the **Contents** tab or by navigating to
 
     - **IMPORTANT NOTE: Thumbnail image** for Social Media card: although a Thumbnail image is an optional element of the post, it is **highly recommended** to add a Thumbnail image to your blog post that you want to use to promote the post on Social Media such as Twitter and LinkedIn. If you do not add a Thumbnail image, the first image in your post will be used. The thumbnail image or the first image of the post should tell the best story about what the blog post is about. The following image sizes have been tested successfully: **512x400** and **1200x675**.
     
+    - **FEATURED** and **PRIORITY** are optional elements. **Please make sure to keep these default option toggled off**.
     
 4.  Start writing the content using either **Rich Text** mode or **Markdown** mode in the *BODY* canvas.   
 
@@ -371,7 +372,9 @@ Here is how you can crate an external blog post entry in the HPE Developer Commu
 
 1. From the **Contents** tab select the **Blog** section in the Collections tab, click on the **New Blog** button. You can also navigate to the **Workflow** tab, and click on the **New Post** button. This open the editor.
 
-2. In the blog editor, you can set properties (title, author name, author picture) in the left pane and see the effect in the preview pane on the right side of the screen. 
+2. In the blog editor, you can set properties (title, author name, author picture, external link, body) in the left pane and see the effect in the preview pane on the right side of the screen. 
+
+>**IMPORTANT NOTE:** Do not set any PRIORITY for the blog link entry. 
 
 3. Make sure you set the following parameters:
 
@@ -389,8 +392,10 @@ Here is how you can crate an external blog post entry in the HPE Developer Commu
      - **Body** - Just type the text: External blog
      - **Thumbnail image** (Optional element):
      > NOTE: **Thumbnail image** for Social Media card: although a Thumbnail image is an optional element of the post, it is **highly recommended** to add a Thumbnail image to your blog post that you want to use to promote the post on Social Media such as Twitter and LinkedIn. The thumbnail image of the post card should tell the best story about what the blog post is about. The following image sizes have been tested successfully: **512x400** and **1200x675**.
+     
      - **Tag** (Optional element) - For more information on how to use tags and tie your blog post to a "Product, HPE GreenLake or Open Source" page refer to section "***Tips and Tricks using the CMS Editor***" at the end of this document.
-     - **FEATURED** and **PRIORITY** are optional elements. Please keep the default option toggled off.
+     
+     - **FEATURED** and **PRIORITY** are optional elements. **Please make sure to keep these default option toggled off**.
      
 4. When ready, **Save** your work. 
 
