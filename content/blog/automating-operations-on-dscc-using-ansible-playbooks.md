@@ -5,38 +5,63 @@ author: Anusha Y and Sijeesh Kattumunda
 authorimage: /img/Avatar1.svg
 disable: false
 ---
-Automation is one of the top trends in technology and the pace of automation is accelerating with more companies opting for developing fully automated systems. Automation reduces time, effort, cost, and manual errors while increasing efficiency and productivity. Gone are those days when many complex coding skills were required to implement automation. Now, there are many low-code tools available in the market, like Ansible, that make automation easier.\
+Automation is one of the top trends in technology and the pace of automation is accelerating with more companies opting for developing fully automated systems. Automation reduces time, effort, cost, and manual errors while increasing efficiency and productivity. Gone are those days when many complex coding skills were required to implement automation. Now, there are many low-code tools available in the market, like Ansible, that make automation easier.
+
 In this blog post, I am excited to be able to introduce the Ansible playbooks for DSCC and show you how to use them. Along with the Python SDK for DSCC, these playbooks should help you in your efforts to automate HPE GreenLake Data Services through an infrastructure-as-code approach.
+
+
 Ansible is an open-source IT automation tool that automates provisioning, configuration management, application deployment, and many other IT processes. 
 Two main features that make Ansible the best choice for automation are:
-•	Ansible does not require any programming. 
-•	Idempotence is offered as a built-in feature of many of the Ansible modules. This means the result of performing a task once is the same as performing it multiple times without any intervening actions.
-Why do we need Ansible playbooks for DSCC?
+
+* Ansible does not require any programming. 
+* Idempotence is offered as a built-in feature of many of the Ansible modules. This means the result of performing a task once is the same as performing it multiple times without any intervening actions.
+
+
+**Why do we need Ansible playbooks for DSCC?**
+
 Ansible helps the users/admins to automate the deployment of resources and applications without the manual overhead of creating everything from scratch. These playbooks can be configured with conditions, variables, and tasks. Currently, simple playbooks, like performing CRUD operations on the resources, are available. These playbooks can be considered basic building blocks and can be reused to build simple-to-complex use cases.
-Ansible Modules for DSCC:
+
+
+**Ansible Modules for DSCC:**
+
 The following Ansible modules are currently available for DSCC. You can make use of the samples given or your own Ansible playbooks. Let's look at the Ansible modules available for the DSCC here. These modules are currently available in a GitHub repo.
-greenlake_audit_events_facts	Get details of audit events
-greenlake_host	Manage host 
-greenlake_host_facts	Get details of a host
-greenlake_host_group	Manage host group
-greenlake_host_group_facts	Get details of a host group
-greenlake_host_initiator_facts	Get details of a host initiator
-greenlake_storage_system_facts	Get details of a storage system
-greenlake_volume	Manage volume
-greenlake_volume_facts	Get details of a volume
-greenlake_volumeset	Manage volume set
-greenlake_volumeset_facts	Get details of a volume set
 
-Prerequisites to use these Ansible playbooks:
 
-1. Any machine with Python 3.8 or newer installed. This includes Red Hat, Debian, CentOS, macOS, any of the BSDs, and so on. (Microsoft Windows is not supported*)
+*greenlake_audit_events_facts* - Get details of audit events
+
+*greenlake_host* - Manage host
+
+*greenlake_host_facts -* Get details of a host
+
+*greenlake_host_group -* Manage host group
+
+*greenlake_host_group_facts -* Get details of a host group
+
+*greenlake_host_initiator_facts -* Get details of a host initiator
+
+*greenlake_storage_system_facts -* Get details of a storage system
+
+*greenlake_volume -* Manage volume
+
+*greenlake_volume_facts -* Get details of a volume
+
+*greenlake_volumeset -* Manage volume set
+
+*greenlake_volumeset_facts -* Get details of a volume set
+
+
+
+**Prerequisites to use these Ansible playbooks:**
+
+1. Any machine with Python 3.8 or newer installed. This includes Red Hat, Debian, CentOS, macOS, any of the BSDs, and so on. (Microsoft Windows is not supported *)
 2. The latest and most stable version of Ansible must be installed. (current version is 2.9)
 3. HPE GreenLake Data Services Python SDK. (Installation procedure is mentioned below)
 4. Cloning the GitHub repo that has these playbooks
 5. Setup ANSIBLE_LIBRARY and ANSIBLE_MODULE_UTILS environment variables
+
    (* If you are using Windows 10, then an Ubuntu terminal called Windows Subsystem for Linux(WSL) can be used.) 
 
-Installing Ansible on Ubuntu
+**Installing Ansible on Ubuntu**
 
 1. Make sure your system’s package index is up to date. Refresh the package index with the following command:
 
@@ -140,7 +165,6 @@ Ansible playbooks contain a list/array of tasks that will be performed sequentia
              name: "hostAnsibleTestUpdated"
        - debug: var=hosts
    ```
-
 
    Create a host: In this block, the input request parameters are provided under the section ‘data’. In this sample, only required fields for the REST API call are provided such as name, initiator_ids, user_created flag, and operating system.
    Update a host: In an update request, one can update the name, and change the initiators. These input parameters can be provided under the ‘data’ section.
