@@ -101,17 +101,27 @@ $git clone git@github.hpe.com:sijeesh-kattumunda/greenlake-data-services-ansible
 
 This repo mainly consists of two folders:
 
-1. Libraries: These are Python libraries that will be used by the Ansible playbooks to perform CRUD operations on DSCC resources.
-2. Examples: This folder consists of sample Ansible playbooks that perform CRUD operations on DSCC resources. With these examples, one can start building use cases.
+1. **Libraries**: These are Python libraries that will be used by the Ansible playbooks to perform CRUD operations on DSCC resources.
+2. **Examples**: This folder consists of sample Ansible playbooks that perform CRUD operations on DSCC resources. With these examples, one can start building use cases.
 
-   Setting up environment variables
-   ANSIBLE_LIBRARY and ANSIBLE_MODULE_UTILS are environment variables that need to be set.
-   Set the ANISBLE_LIBRARY variable to the greenlake-data-services-ansible/library directory of the repo like this.
-   `ANSIBLE_LIBRARY=/home/admin/greenlake-data-services-ansible/library`
-   Set the ANSIBLE_MODULE_UTILS to the module_utils directory under greenlake-data-services-ansible/library directory like this.
-   `ANSIBLE_MODULE_UTILS=/home/admin/greenlake-data-services-ansible/library/module_utils`
+**Setting up environment variables**
 
-Usage
+
+ANSIBLE_LIBRARY and ANSIBLE_MODULE_UTILS are environment variables that need to be set.
+Set the ANISBLE_LIBRARY variable to the greenlake-data-services-ansible/library directory of the repo like this.
+
+
+`ANSIBLE_LIBRARY=/home/admin/greenlake-data-services-ansible/library`
+
+
+Set the ANSIBLE_MODULE_UTILS to the module_utils directory under greenlake-data-services-ansible/library directory like this.
+
+
+`ANSIBLE_MODULE_UTILS=/home/admin/greenlake-data-services-ansible/library/module_utils`
+
+**Usage**
+
+
 Let’s have a look at an example used to perform DSCC operations on a host using an Ansible playbook. For any Ansible playbook to be used, an inventory file is required. The Ansible inventory file defines the hosts and groups of hosts on which commands, modules, and tasks in a playbook operate. In this example, we are calling REST APIs from our local machine. This file can be placed anywhere and the path of this file can be given during the Ansible playbook execution. Create an inventory file, name it “hosts” (the name of the file can be anything), and update it with the following details: 
 `[localhost]
 127.0.0.1 ansible_connection=local ansible_python_interpreter=/home/admin/ansible-env/bin/python`
@@ -120,9 +130,16 @@ The IP address given is localhost, which means operations are performed on the l
 Let's look at a sample of the host file.
 Ansible playbooks contain a list/array of tasks that will be performed sequentially. The below code snippet has the following tasks.
 
-1. Creation of host
-2. Update a host
-3. Delete a host
+1. **Creation** of host
+
+   In this block, the input request parameters are provided under the section ‘data’. In this sample, only required fields for the REST API call are provided such as name, initiator_ids, user_created flag, and operating system.
+2. **Update** a host
+
+   In an update request, one can update the name, and change the initiators. These input parameters can be provided under the ‘data’ section.
+
+3. **Delete** a host
+
+   To delete a host, all you need to provide is the name of the host.
 
    ```yaml
    ---
@@ -166,9 +183,7 @@ Ansible playbooks contain a list/array of tasks that will be performed sequentia
        - debug: var=hosts
    ```
 
-   Create a host: In this block, the input request parameters are provided under the section ‘data’. In this sample, only required fields for the REST API call are provided such as name, initiator_ids, user_created flag, and operating system.
-   Update a host: In an update request, one can update the name, and change the initiators. These input parameters can be provided under the ‘data’ section.
-   Delete a host: To delete a host, all you need to provide is the name of the host.
+
 
 To execute the Ansible playbook, execute the following command:
 
@@ -178,7 +193,7 @@ $ansible-playbook examples/greenlake_host.yaml --i ../hosts
 
 This is what the result of a playbook execution looks like.
 
-```
+```shell
 (ansible_env) anusha@MUCILUR2I5:~/greenlake-data-services-ansible$ ansible-playbook examples/greenlake_host.yaml -i ../hosts
 [WARNING]: Found variable using reserved name: name
 
@@ -334,7 +349,7 @@ $ansible-playbook examples/greenlake_host_facts.yaml --i ../hosts
 
 The output looks like this:
 
-```
+```shell
 (ansible_env) anusha@MUCILUR2I5:~/greenlake-data-services-ansible$ ansible-playbook examples/greenlake_host_facts.yaml -i ../hosts
 [WARNING]: Found variable using reserved name: name
 
