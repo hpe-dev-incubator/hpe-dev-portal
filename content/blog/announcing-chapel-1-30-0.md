@@ -7,7 +7,7 @@ author: Brad Chamberlain
 authorimage: https://chapel-lang.org/blog/authors/brad-chamberlain/photo.jpg
 disable: false
 tags:
-  - Chapel
+  - chapel
   - opensource
   - GPU Programming
   - HPC
