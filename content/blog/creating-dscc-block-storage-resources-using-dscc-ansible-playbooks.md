@@ -10,30 +10,31 @@ Use case:
 The objective of this use case is to provision a Primera volume from scratch using DSCC APIs.
 This use case covers the creation of the following resources in the following order:
 
-1. Create a host 
+1. Create a host
 2. Create a host group
 3. Create a volume set
 4. Create volumes
 5. Update the volume set with the volumes created
 6. Export the volume set to the host created
-   Let’s look at the Ansible playbook resource-wise.
-   Variables in Ansible are similar to variables in any programming language that can be declared and used anywhere in the script. In this use case, certain variables will be used in the playbook and these are declared under the ‘vars’ section. One important variable to watch for here is the “config” variable that provides credentials for the APIs to authenticate the request and the host URL to which the request will be sent. The greenlake_config.json file that is mentioned in the value of the config variable will have the clientID, client secret, and the host URL of the DSCC instance.
-
-   ```yaml
-   vars:
-       - config: "{{ playbook_dir }}/greenlake_config.json"
-       - name: Greenlake DSCC volumeset
-       - system_id: 2M29510B8L
-       - initiators: []
-       - host_name: host_from_ansible
-       - host_group_name: hostGroupFromAnsible
-       - operating_system: RHE Linux
-       - workload: ORACLE_LOG
-       - volume_set_name: ansibleVolumeSet
-       - volume_name: ansibleVolume
-   ```
 
 
+**Let’s look at the Ansible playbook resource-wise.**
+
+Variables in Ansible are similar to variables in any programming language that can be declared and used anywhere in the script. In this use case, certain variables will be used in the playbook and these are declared under the ‘vars’ section. One important variable to watch for here is the “config” variable that provides credentials for the APIs to authenticate the request and the host URL to which the request will be sent. The greenlake_config.json file that is mentioned in the value of the config variable will have the clientID, client secret, and the host URL of the DSCC instance.
+
+```yaml
+vars:
+    - config: "{{ playbook_dir }}/greenlake_config.json"
+    - name: Greenlake DSCC volumeset
+    - system_id: 2M29510B8L
+    - initiators: []
+    - host_name: host_from_ansible
+    - host_group_name: hostGroupFromAnsible
+    - operating_system: RHE Linux
+    - workload: ORACLE_LOG
+    - volume_set_name: ansibleVolumeSet
+    - volume_name: ansibleVolume
+```
 
 Contents of greenlake_config.json:
 
@@ -45,8 +46,11 @@ Contents of greenlake_config.json:
 }
 ```
 
-Creation of host
-A host represents a physical server and a host group represents a collection of physical servers. In the context of DSCC API, a host is a definition for a group of initiators that belong to a single server and a host group is a group of initiators across servers. To create a host, initiator information is needed and this can be obtained by a GET call to get the initiator resources. One of the initiators can be used in the creation of the host.
+**Creation of host**
+
+A host represents a physical server and a host group represents a collection of physical servers. In the context of DSCC API, a host is a definition for a group of initiators that belong to a single server and a host group is a group of initiators across servers. 
+
+To create a host, initiator information is needed and this can be obtained by a GET call to get the initiator resources. One of the initiators can be used in the creation of the host.
 This means that the creation of a host requires two calls;, one to get the initiator and another  to create a host. Along with this, you must mention the name of the host, operating system, and a “user_created” flag must be set to true. Variable names will be mentioned between two curly braces and double quotes as shown in the below code snippet.
 
 ```yaml
@@ -77,8 +81,10 @@ This means that the creation of a host requires two calls;, one to get the initi
     - debug: var=hosts
 ```
 
-Creation of host group
+**Creation of host group**
+
 A host group can be created using the host created in the previous step. The tasks of this Ansible playbook will be executed sequentially, so the creation of the host group task executes only after the host creation task is successfully completed.
+
 Provide the name of the host group, host Id, and make sure that the “user_created” flag is set to true.
 
 ```yaml
@@ -95,7 +101,8 @@ Provide the name of the host group, host Id, and make sure that the “user_crea
     - debug: var=host_groups
 ```
 
-Creation of Volume Set
+**Creation of Volume Set**
+
 The device type represents whether it’s a Primera or Nimble volume. If it is 1, then it is a Primera volume and if it is 2, then it is a Nimble volume. Mandatory parameters are app_set_name, app_set_importance, app_set_type (which is the kind of workload that is required, like Oracle Database). Optional parameters are commented on in the below snippet.
 Note: The request body for Nimble volume creation may vary, so please refer to the documentation for specifics.
 
@@ -118,7 +125,8 @@ Note: The request body for Nimble volume creation may vary, so please refer to t
     - debug: var=volume_sets
 ```
 
-Creation of Volume (Primera)
+**Creation of Volume (Primera)**
+
 The mandatory fields are the name, size, and user CPG. Other parameters are optional.
 
 ```yaml
@@ -141,7 +149,8 @@ The mandatory fields are the name, size, and user CPG. Other parameters are opti
     - debug: var=volumes
 ```
 
-Updating the volume set
+**Updating the volume set**
+
 The volume set will be updated with the volumes created earlier. For this, provide the id of the volume set and the names of the volumes created. Since these are created dynamically during the playbook execution, these are referred to as variables.
 
 ```yaml
@@ -160,7 +169,8 @@ The volume set will be updated with the volumes created earlier. For this, provi
     - debug: var=volume_sets
 ```
 
-Exporting the volume set to the Host Group
+**Exporting the volume set to the Host Group**
+
 Now, the volume set created needs to be exported to the host group created earlier. Provide the system id, host group id, and the volume set id in the form of variables.
 
 ```yaml
@@ -177,5 +187,7 @@ Now, the volume set created needs to be exported to the host group created earli
 
     - debug: var=volume_sets
 ```
+
+
 
 I hope you found this blog post helpful. This is just a sample use case one can implement to create resources on DSCC. Admins/users can come up with multiple use cases that can be used to manage the DSCC resources, like cleaning the resources, monitoring the resources, etc. Keep an eye out for new blogs and videos that are on track to be released related to the automation of DSCC operations.
