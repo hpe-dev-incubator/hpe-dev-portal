@@ -163,4 +163,19 @@ The volume set will be updated with the volumes created earlier. For this, provi
 Exporting the volume set to the Host Group
 Now, the volume set created needs to be exported to the host group created earlier. Provide the system id, host group id, and the volume set id in the form of variables.
 
+```yaml
+    - name: Export GreenLake DSCC Volume Set from system
+      greenlake_volumeset:
+        config: "{{ config }}"
+        device_type: 1
+        system_id: "{{system_id}}"
+        state: export
+        data:
+          id: "{{volume_sets.0.id}}"
+          host_group_ids:
+            - "{{host_groups.0.id}}"
+
+    - debug: var=volume_sets
+```
+
 I hope you found this blog post helpful. This is just a sample use case one can implement to create resources on DSCC. Admins/users can come up with multiple use cases that can be used to manage the DSCC resources, like cleaning the resources, monitoring the resources, etc. Keep an eye out for new blogs and videos that are on track to be released related to the automation of DSCC operations.
