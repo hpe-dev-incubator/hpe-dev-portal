@@ -9,23 +9,19 @@ Automation is one of the top trends in technology and the pace of automation is 
 
 In this blog post, I am excited to be able to introduce the Ansible playbooks for DSCC and show you how to use them. Along with the Python SDK for DSCC, these playbooks should help you in your efforts to automate HPE GreenLake Data Services through an infrastructure-as-code approach.
 
-
 Ansible is an open-source IT automation tool that automates provisioning, configuration management, application deployment, and many other IT processes. 
 Two main features that make Ansible the best choice for automation are:
 
 * Ansible does not require any programming. 
 * Idempotence is offered as a built-in feature of many of the Ansible modules. This means the result of performing a task once is the same as performing it multiple times without any intervening actions.
 
-
 **Why do we need Ansible playbooks for DSCC?**
 
 Ansible helps the users/admins to automate the deployment of resources and applications without the manual overhead of creating everything from scratch. These playbooks can be configured with conditions, variables, and tasks. Currently, simple playbooks, like performing CRUD operations on the resources, are available. These playbooks can be considered basic building blocks and can be reused to build simple-to-complex use cases.
 
-
 **Ansible Modules for DSCC:**
 
 The following Ansible modules are currently available for DSCC. You can make use of the samples given or your own Ansible playbooks. Let's look at the Ansible modules available for the DSCC here. These modules are currently available in a GitHub repo.
-
 
 *greenlake_audit_events_facts* - Get details of audit events
 
@@ -48,8 +44,6 @@ The following Ansible modules are currently available for DSCC. You can make use
 *greenlake_volumeset -* Manage volume set
 
 *greenlake_volumeset_facts -* Get details of a volume set
-
-
 
 **Prerequisites to use these Ansible playbooks:**
 
@@ -106,25 +100,22 @@ This repo mainly consists of two folders:
 
 **Setting up environment variables**
 
-
 ANSIBLE_LIBRARY and ANSIBLE_MODULE_UTILS are environment variables that need to be set.
 Set the ANISBLE_LIBRARY variable to the greenlake-data-services-ansible/library directory of the repo like this.
 
-
 `ANSIBLE_LIBRARY=/home/admin/greenlake-data-services-ansible/library`
 
-
 Set the ANSIBLE_MODULE_UTILS to the module_utils directory under greenlake-data-services-ansible/library directory like this.
-
 
 `ANSIBLE_MODULE_UTILS=/home/admin/greenlake-data-services-ansible/library/module_utils`
 
 **Usage**
 
-
 Let’s have a look at an example used to perform DSCC operations on a host using an Ansible playbook. For any Ansible playbook to be used, an inventory file is required. The Ansible inventory file defines the hosts and groups of hosts on which commands, modules, and tasks in a playbook operate. In this example, we are calling REST APIs from our local machine. This file can be placed anywhere and the path of this file can be given during the Ansible playbook execution. Create an inventory file, name it “hosts” (the name of the file can be anything), and update it with the following details: 
 `[localhost]
 127.0.0.1 ansible_connection=local ansible_python_interpreter=/home/admin/ansible-env/bin/python`
+
+
 The IP address given is localhost, which means operations are performed on the local host. Provide the Python interpreter location on your system. Name this file “hosts”.
 
 Let's look at a sample of the host file.
@@ -136,7 +127,6 @@ Ansible playbooks contain a list/array of tasks that will be performed sequentia
 2. **Update** a host
 
    In an update request, one can update the name, and change the initiators. These input parameters can be provided under the ‘data’ section.
-
 3. **Delete** a host
 
    To delete a host, all you need to provide is the name of the host.
@@ -182,8 +172,6 @@ Ansible playbooks contain a list/array of tasks that will be performed sequentia
              name: "hostAnsibleTestUpdated"
        - debug: var=hosts
    ```
-
-
 
 To execute the Ansible playbook, execute the following command:
 
