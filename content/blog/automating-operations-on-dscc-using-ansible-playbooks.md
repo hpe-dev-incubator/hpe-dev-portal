@@ -1,5 +1,5 @@
 ---
-title: Automating operations on DSCC using Ansible Playbooks
+title: Automating operations on Data Services Cloud Console using Ansible Playbooks
 date: 2023-03-29T14:00:40.866Z
 author: Anusha Y and Sijeesh Kattumunda
 authorimage: /img/Avatar1.svg
@@ -7,7 +7,7 @@ disable: false
 ---
 Automation is one of the top trends in technology and the pace of automation is accelerating with more companies opting for developing fully automated systems. Automation reduces time, effort, cost, and manual errors while increasing efficiency and productivity. Gone are those days when many complex coding skills were required to implement automation. Now, there are many low-code tools available in the market, like Ansible, that make automation easier.
 
-In this blog post, I am excited to be able to introduce the Ansible playbooks for DSCC and show you how to use them. Along with the Python SDK for DSCC, these playbooks should help you in your efforts to automate HPE GreenLake Data Services through an infrastructure-as-code approach.
+In this blog post, I am excited to be able to introduce the Ansible playbooks for Data Services Cloud Console and show you how to use them. Along with the [Python SDK](https://github.com/HewlettPackard/greenlake-data-services-python) for Data Services Cloud Console, these playbooks should help you in your efforts to automate HPE GreenLake Data Services through an infrastructure-as-code approach.
 
 Ansible is an open-source IT automation tool that automates provisioning, configuration management, application deployment, and many other IT processes. 
 Two main features that make Ansible the best choice for automation are:
@@ -15,35 +15,35 @@ Two main features that make Ansible the best choice for automation are:
 * Ansible does not require any programming. 
 * Idempotence is offered as a built-in feature of many of the Ansible modules. This means the result of performing a task once is the same as performing it multiple times without any intervening actions.
 
-**Why do we need Ansible playbooks for DSCC?**
+**Why do we need Ansible playbooks for Data Services Cloud Console?**
 
-Ansible helps the users/admins to automate the deployment of resources and applications without the manual overhead of creating everything from scratch. These playbooks can be configured with conditions, variables, and tasks. Currently, simple playbooks, like performing CRUD operations on the resources, are available. These playbooks can be considered basic building blocks and can be reused to build simple-to-complex use cases.
+Ansible helps the users/admins automate the deployment of resources and applications without the manual overhead of creating everything from scratch. These playbooks can be configured with conditions, variables, and tasks. Currently, simple playbooks, like performing CRUD operations on the resources, are available. These playbooks can be considered basic building blocks and can be reused to build simple-to-complex use cases.
 
-**Ansible Modules for DSCC:**
+**Ansible Modules for  Data Services Cloud Console:**
 
-The following Ansible modules are currently available for DSCC. You can make use of the samples given or your own Ansible playbooks. Let's look at the Ansible modules available for the DSCC here. These modules are currently available in a GitHub repo.
+The following Ansible modules are currently available for Data Services Cloud Console. You can use the samples given or customize it - 
 
-*greenlake_audit_events_facts* - Get details of audit events
+*greenlake\_audit\_events\_facts* - Get details of audit events
 
-*greenlake_host* - Manage host
+*greenlake\_host* - Manage host
 
-*greenlake_host_facts -* Get details of a host
+*greenlake\_host\_facts -* Get details of a host
 
-*greenlake_host_group -* Manage host group
+*greenlake\_host\_group -* Manage host group
 
-*greenlake_host_group_facts -* Get details of a host group
+*greenlake\_host\_group\_facts -* Get details of a host group
 
-*greenlake_host_initiator_facts -* Get details of a host initiator
+*greenlake\_host\_initiator\_facts -* Get details of a host initiator
 
-*greenlake_storage_system_facts -* Get details of a storage system
+*greenlake\_storage\_system\_facts -* Get details of a storage system
 
-*greenlake_volume -* Manage volume
+*greenlake\_volume -* Manage volume
 
-*greenlake_volume_facts -* Get details of a volume
+*greenlake\_volume\_facts -* Get details of a volume
 
-*greenlake_volumeset -* Manage volume set
+*greenlake\_volumeset -* Manage volume set
 
-*greenlake_volumeset_facts -* Get details of a volume set
+*greenlake\_volumeset\_facts -* Get details of a volume set
 
 **Prerequisites to use these Ansible playbooks:**
 
@@ -51,7 +51,7 @@ The following Ansible modules are currently available for DSCC. You can make use
 2. The latest and most stable version of Ansible must be installed. (current version is 2.9)
 3. HPE GreenLake Data Services Python SDK. (Installation procedure is mentioned below)
 4. Cloning the GitHub repo that has these playbooks
-5. Setup ANSIBLE_LIBRARY and ANSIBLE_MODULE_UTILS environment variables
+5. Setup ANSIBLE\_LIBRARY and ANSIBLE\_MODULE\_UTILS environment variables
 
    (* If you are using Windows 10, then an Ubuntu terminal called Windows Subsystem for Linux(WSL) can be used.) 
 
@@ -100,30 +100,28 @@ This repo mainly consists of two folders:
 
 **Setting up environment variables**
 
-ANSIBLE_LIBRARY and ANSIBLE_MODULE_UTILS are environment variables that need to be set.
-Set the ANISBLE_LIBRARY variable to the greenlake-data-services-ansible/library directory of the repo like this.
+ANSIBLE\_LIBRARY and ANSIBLE\_MODULE\_UTILS are environment variables that need to be set.
+Set the ANSIBLE\_LIBRARY variable to the greenlake-data-services-ansible/library directory of the repo like this.
 
 `ANSIBLE_LIBRARY=/home/admin/greenlake-data-services-ansible/library`
 
-Set the ANSIBLE_MODULE_UTILS to the module_utils directory under greenlake-data-services-ansible/library directory like this.
+Set the ANSIBLE\_MODULE\_UTILS to the module\_utils directory under greenlake-data-services-ansible\/library directory like this.
 
 `ANSIBLE_MODULE_UTILS=/home/admin/greenlake-data-services-ansible/library/module_utils`
 
 **Usage**
 
-Let’s have a look at an example used to perform DSCC operations on a host using an Ansible playbook. For any Ansible playbook to be used, an inventory file is required. The Ansible inventory file defines the hosts and groups of hosts on which commands, modules, and tasks in a playbook operate. In this example, we are calling REST APIs from our local machine. This file can be placed anywhere and the path of this file can be given during the Ansible playbook execution. Create an inventory file, name it “hosts” (the name of the file can be anything), and update it with the following details: 
+Let’s have a look at an example used to perform Data Services Cloud Console operations on a host using an Ansible playbook. For any Ansible playbook to be used, an inventory file is required. The Ansible inventory file defines the hosts and groups of hosts on which commands, modules, and tasks in a playbook operate. In this example, we are calling REST APIs from our local machine. This file can be placed anywhere and the path of this file can be given during the Ansible playbook execution. Create an inventory file, name it “hosts” (the name of the file can be anything), and update it with the following details: 
 `[localhost]
 127.0.0.1 ansible_connection=local ansible_python_interpreter=/home/admin/ansible-env/bin/python`
 
-
 The IP address given is localhost, which means operations are performed on the local host. Provide the Python interpreter location on your system. Name this file “hosts”.
 
-Let's look at a sample of the host file.
-Ansible playbooks contain a list/array of tasks that will be performed sequentially. The below code snippet has the following tasks.
+Let's look at a sample of the host file. Ansible playbooks contain a list\/array of tasks that will be performed sequentially. The below code snippet has the following tasks.
 
 1. **Creation** of host
 
-   In this block, the input request parameters are provided under the section ‘data’. In this sample, only required fields for the REST API call are provided such as name, initiator_ids, user_created flag, and operating system.
+   In this block, the input request parameters are provided under the section ‘data’. In this sample, only required fields for the REST API call are provided such as name, initiator\_ids, user\_created flag, and operating system.
 2. **Update** a host
 
    In an update request, one can update the name, and change the initiators. These input parameters can be provided under the ‘data’ section.
