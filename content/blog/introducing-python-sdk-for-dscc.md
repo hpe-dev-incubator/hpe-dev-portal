@@ -100,7 +100,7 @@ $python GetAudits.py
 ```
 
 	
-The output of scripts are in JSON format. For reference, there are example scripts available for ll the resources listed on the Data Services Cloud Console API spec. Check them out on the SDK, after which you can customize it per your use-case.
+The output of scripts are in JSON format. For reference, there are example scripts available for all the resources listed on the Data Services Cloud Console API spec. Check them out on the SDK, after which you can customize it per your use-case.
 
 ```json
 {'items': [{'associated_resource': {'id': '/api/v1/tasks/3b0139a1-478b-4a24-9811-9a1e072b5744',
