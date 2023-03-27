@@ -21,6 +21,8 @@ Ansible helps the users/admins automate the deployment of resources and applicat
 
 **Ansible Modules for  Data Services Cloud Console:**
 
+**...Github repo will be public soon. Will add the link to the repo here once it is available...**
+
 The following Ansible modules are currently available for Data Services Cloud Console. You can use the samples given or customize it - 
 
 *greenlake\_audit\_events\_facts* - Get details of audit events
@@ -82,12 +84,16 @@ For other operating systems, please refer to the official Ansible documentation.
 
 These Ansible playbooks use the Python libraries of the HPE GreenLake Python SDK. Install the SDK using this command:
 
+**...Below command will change and use the newly available repository...**
+
 ```shell
 $pip install git@github.hpe.com:sijeesh-kattumunda/greenlake_data_services_python.git
 ```
 
 Cloning the DSCC GitHub repo	
 To clone the repo, execute the following command on the machine where you installed Ansible:
+
+**...Below command will change and use the newly available repository...**
 
 ```shell
 $git clone git@github.hpe.com:sijeesh-kattumunda/greenlake-data-services-ansible.git
@@ -305,8 +311,8 @@ PLAY RECAP *********************************************************************
 127.0.0.1                  : ok=6    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
 ```
 
-These Ansible playbooks can be used to fetch details as well. Under the examples folder, there are files with the suffix ‘_facts’ which specify that it is used to get the details of a resource.
-For example, take a look at the ‘greenlake_host_facts.yaml’.  This playbook is used to get the details of the host.
+These Ansible playbooks can be used to fetch details as well. Under the examples folder, there are files with the suffix ‘\_facts’ which specify that it is used to get the details of a resource.
+For example, take a look at the ‘greenlake\_host\_facts.yaml’.  This playbook is used to get the details of the host.
 
 ```yaml
 ---
