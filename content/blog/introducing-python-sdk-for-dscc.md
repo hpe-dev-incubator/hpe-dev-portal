@@ -1,33 +1,47 @@
 ---
-title: Introducing Python SDK for DSCC
+title: Introducing Python SDK for Data Services Cloud Console
 date: 2023-03-29T13:45:50.979Z
 priority: 0
 author: Anusha Y and Sijeesh Kattumunda
 authorimage: /img/Avatar1.svg
 disable: false
 ---
-In my previous blog, I discussed how to generate a Software Development Kit (SDK) from the Data services cloud console (DSCC) Open API spec using a third-party tool called OpenAPI generator. Today, I am going to talk more in detail on the Python SDK generated using the tool. As we progress, we will discuss the implementation aspects, and then take up a use-case to better understand how to use the SDK. 
-Before we get into SDK, let’s understand the difference between an Application Programming Interface (API) and an SDK. 
-APIs are a list of functions libraries that are used to communicate with a web service (via secure HTTP), whereas an SDK is a development kit that facilitates the usage of these APIs. APIs enable any software developer to create business opportunities by leveraging the capabilities provided by the API to extend their application whereas the SDK facilitates the process for developers. An SDK is a collection of software tools and programs for a specific application platform that allows developers to manipulate the functions supported by the service. These can be considered as a wrapper on the top of the APIs, making the code consumable by the application.
-One thing to note is that, the user always gets access to the latest DSCC API version through the SDKs. How? The SDK is designed and deployed (using CI/CD pipelines such as Jenkins) in such a way that with every new release of the DSCC Open API spec, the SDKs get updated automatically. Thus, keeping it up-to date without any manual intervention. This also reduces time which is spent waiting for updates with newer features.
-Let us take a look at the Python SDK 
-Due to the wide adoption of Python, and for the python lovers out there who did not have an option to achieve their automation goals, we have the Python SDK available now. You can access the SDK on this github page.
-This SDK contains the following:
-•	Documentation (under docs folder)
-•	Code libraries (under greenlake_data_services folder)
-•	Test file (under test folder)
-•	README file 
-•	The Python libraries that are required to run this SDK (requirements.txt & test-requirements.txt)
-Requirements:
-All that is required for these scripts to run is Python (>=3.5). These scripts need the Python packages listed in the requirements.txt file. Then, all you have to do is execute the following command to install them:
-pip install –r requirements.txt
-Example Usage:
-Let us consider Audits as an example. Audit events are a collection of tasks performed by users. The below code snippet uses a GET method to fetch the details of audit events, like task ID, user email, state, etc.
-The sample code is provided in the documentation of this resource. Take the sample code and replace the BEARER_TOKEN with the access token. Generate the access token as mentioned in this blog.
+In my previous [blog](https://developer.hpe.com/blog/get-started-building-dscc-api-client-libraries-for-python-using-openapi-generator/), I discussed how to generate a Software Development Kit (SDK) from the Data Services Cloud Console Open API spec using a third-party tool called OpenAPI generator. Today, I am going to talk more in detail on the Python SDK generated using the tool. As we progress, we will discuss the implementation aspects, and then take up a use-case to better understand how to use the SDK.
 
+**APIs and SDKs** 
+
+APIs are a list of functions libraries that are used to communicate with a web service (via secure HTTP), whereas an SDK is a development kit that facilitates the usage of these APIs. APIs enable any software developer to create business opportunities by leveraging the capabilities provided by the API to extend their application whereas the SDK facilitates the process for developers. An SDK is a collection of software tools and programs for a specific application platform that allows developers to manipulate the functions supported by the service. These can be considered as a wrapper on the top of the APIs, making the code consumable by the application.
+
+One thing to note is that, the user always gets access to the latest Data Services Cloud Console API version through the SDKs. How? The SDK is designed and deployed (using CI/CD pipelines such as Jenkins) in such a way that with every new release of the Data Services Cloud Console Open API spec, the SDKs get updated automatically. Thus, keeping it up-to date without any manual intervention. This also reduces time which is spent waiting for updates with newer features.
+
+**Let us take a look at the Python SDK**
+
+Due to the wide adoption of Python, and for the python lovers out there who did not have an option to achieve their automation goals, we have the Python SDK available now. You can access the SDK on *this github (placeholder for the link) page*.
+
+
+This SDK contains the following:
+
+* Documentation (under docs folder)
+* Code libraries (under greenlake_data_services folder)
+* Test file (under test folder)
+* README file
+* The Python libraries that are required to run this SDK (requirements.txt & test-requirements.txt)
+
+**Requirements**:
+
+Python (>=3.5) is required to run the scripts. Run the following command to install all the required packages that the SDK is dependent on:
+
+```shell
+pip install –r requirements.txt
+```
+
+Example Usage:
+
+Let us consider Audits as an example. Audit events are a collection of tasks performed by users. The below code snippet uses a GET method to fetch the details of audit events, like task ID, user email, state, etc.
+
+The sample code is provided in the *documentation(placeholder for the link)* of this resource. Take the sample code and replace the BEARER_TOKEN with the access token. Generate the access token as mentioned in this [blog](https://developer.hpe.com/blog/oauth2-for-hpe-greenlake-data-services-cloud-console/).
 
 Save the file as GetAudits.py.
-
 
 ```python
 import time
@@ -79,16 +93,14 @@ with greenlake_data_services.ApiClient(configuration) as api_client:
         print("Exception when calling AuditApi->audit_events_get: %s\n" % e)
 ```
 
-Run this Python script.
+And run the script
 
 ```python
 $python GetAudits.py
 ```
 
-The output of the execution looks like this.
 	
-The output of these scripts will be in JSON format. These kinds of example scripts along with documentation are available in this SDK for all the resources mentioned in the DSCC API spec.
-These sample scripts can be used as per the requirement/use case to build automation scripts.
+The output of scripts are in JSON format. For reference, there are example scripts available for ll the resources listed on the Data Services Cloud Console API spec. Check them out on the SDK, after which you can customize it per your use-case.
 
 ```json
 {'items': [{'associated_resource': {'id': '/api/v1/tasks/3b0139a1-478b-4a24-9811-9a1e072b5744',
@@ -113,8 +125,10 @@ These sample scripts can be used as per the requirement/use case to build automa
  'page_limit': 1,
  'page_offset': 1,
  'total': 6978}
-
 ```
 
-Next Steps
-Now that you have access to the Python SDK for DSCC, use it to create automations for any use-case that requires the use of DSCC APIs, right from your console. In my next blog, I talk about how to use Ansible playbooks to achive your automation goals for DSCC. Stay tuned!
+
+
+**Next Steps**
+
+Now that you have access to the Python SDK for Data Services Cloud Console, use it to create automation for any use-case that requires the use of Data Services Cloud Console APIs, right from your console. In my next blog, I talk about how to use Ansible playbooks to achive your automation goals for Data Services Cloud Console. Stay tuned!
