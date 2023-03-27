@@ -18,7 +18,6 @@ One thing to note is that, the user always gets access to the latest Data Servic
 
 Due to the wide adoption of Python, and for the Python lovers out there who did not have an option to achieve their automation goals, we have the Python SDK available now. You can access the SDK onthis [github ](https://github.com/HewlettPackard/greenlake-data-services-python)page.
 
-
 This SDK contains the following:
 
 * Documentation (under docs folder)
@@ -99,7 +98,6 @@ And run the script
 $python GetAudits.py
 ```
 
-	
 The output of scripts are in JSON format. For reference, there are example scripts available for all the resources listed on the Data Services Cloud Console API spec. Check them out on the SDK, after which you can customize it per your use-case.
 
 ```json
@@ -127,8 +125,6 @@ The output of scripts are in JSON format. For reference, there are example scrip
  'total': 6978}
 ```
 
-
-
-**Next Steps**
+**Next steps**
 
 Now that you have access to the Python SDK for Data Services Cloud Console, use it to create automation for any use-case that requires the use of Data Services Cloud Console APIs, right from your console. In my next blog, I talk about how to use Ansible playbooks to achieve your automation goals for Data Services Cloud Console. Stay tuned!
