@@ -14,9 +14,9 @@ APIs are a list of functions libraries that are used to communicate with a web s
 
 One thing to note is that, the user always gets access to the latest Data Services Cloud Console API version through the SDKs. How? The SDK is designed and deployed (using CI/CD pipelines such as Jenkins) in such a way that with every new release of the Data Services Cloud Console Open API spec, the SDKs get updated automatically. Thus, keeping it up-to date without any manual intervention. This also reduces time which is spent waiting for updates with newer features.
 
-**Let us take a look at the Python SDK**
+**Introducing Python SDK for Data Services Cloud Console**
 
-Due to the wide adoption of Python, and for the python lovers out there who did not have an option to achieve their automation goals, we have the Python SDK available now. You can access the SDK on *this github (placeholder for the link) page*.
+Due to the wide adoption of Python, and for the Python lovers out there who did not have an option to achieve their automation goals, we have the Python SDK available now. You can access the SDK on *this github (placeholder for the link) page*.
 
 
 This SDK contains the following:
@@ -131,4 +131,4 @@ The output of scripts are in JSON format. For reference, there are example scrip
 
 **Next Steps**
 
-Now that you have access to the Python SDK for Data Services Cloud Console, use it to create automation for any use-case that requires the use of Data Services Cloud Console APIs, right from your console. In my next blog, I talk about how to use Ansible playbooks to achive your automation goals for Data Services Cloud Console. Stay tuned!
+Now that you have access to the Python SDK for Data Services Cloud Console, use it to create automation for any use-case that requires the use of Data Services Cloud Console APIs, right from your console. In my next blog, I talk about how to use Ansible playbooks to achieve your automation goals for Data Services Cloud Console. Stay tuned!
