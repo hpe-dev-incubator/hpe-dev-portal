@@ -16,7 +16,7 @@ One thing to note is that, the user always gets access to the latest Data Servic
 
 **Introducing Python SDK for Data Services Cloud Console**
 
-Due to the wide adoption of Python, and for the Python lovers out there who did not have an option to achieve their automation goals, we have the Python SDK available now. You can access the SDK on *this github (placeholder for the link) page*.
+Due to the wide adoption of Python, and for the Python lovers out there who did not have an option to achieve their automation goals, we have the Python SDK available now. You can access the SDK onthis [github ](https://github.com/HewlettPackard/greenlake-data-services-python)page.
 
 
 This SDK contains the following:
@@ -39,7 +39,7 @@ Example Usage:
 
 Let us consider Audits as an example. Audit events are a collection of tasks performed by users. The below code snippet uses a GET method to fetch the details of audit events, like task ID, user email, state, etc.
 
-The sample code is provided in the *documentation(placeholder for the link)* of this resource. Take the sample code and replace the BEARER_TOKEN with the access token. Generate the access token as mentioned in this [blog](https://developer.hpe.com/blog/oauth2-for-hpe-greenlake-data-services-cloud-console/).
+The sample code is provided in the [documentation](https://github.com/HewlettPackard/greenlake-data-services-python/blob/dev/docs/AuditEventApi.md#device_type2_get_events)of this resource. Take the sample code and replace the BEARER_TOKEN with the access token. Generate the access token as mentioned in this [blog](https://developer.hpe.com/blog/oauth2-for-hpe-greenlake-data-services-cloud-console/).
 
 Save the file as GetAudits.py.
 
