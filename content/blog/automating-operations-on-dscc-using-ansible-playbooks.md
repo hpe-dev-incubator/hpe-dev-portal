@@ -19,33 +19,31 @@ Two main features that make Ansible the best choice for automation are:
 
 Ansible helps the users/admins automate the deployment of resources and applications without the manual overhead of creating everything from scratch. These playbooks can be configured with conditions, variables, and tasks. Currently, simple playbooks, like performing CRUD operations on the resources, are available. These playbooks can be considered basic building blocks and can be reused to build simple-to-complex use cases.
 
-**Ansible Modules for  Data Services Cloud Console:**
-
-**...Github repo will be public soon. Will add the link to the repo here once it is available...**
+**[Ansible Modules for  Data Services Cloud Console](https://github.com/HewlettPackard/greenlake-data-services-ansible):**
 
 The following Ansible modules are currently available for Data Services Cloud Console. You can use the samples given or customize it - 
 
-*greenlake\_audit\_events\_facts* - Get details of audit events
+*greenlake_audit_events_facts* - Get details of audit events
 
-*greenlake\_host* - Manage host
+*greenlake_host* - Manage host
 
-*greenlake\_host\_facts -* Get details of a host
+*greenlake_host_facts -* Get details of a host
 
-*greenlake\_host\_group -* Manage host group
+*greenlake_host_group -* Manage host group
 
-*greenlake\_host\_group\_facts -* Get details of a host group
+*greenlake_host_group_facts -* Get details of a host group
 
-*greenlake\_host\_initiator\_facts -* Get details of a host initiator
+*greenlake_host_initiator_facts -* Get details of a host initiator
 
-*greenlake\_storage\_system\_facts -* Get details of a storage system
+*greenlake_storage_system_facts -* Get details of a storage system
 
-*greenlake\_volume -* Manage volume
+*greenlake_volume -* Manage volume
 
-*greenlake\_volume\_facts -* Get details of a volume
+*greenlake_volume_facts -* Get details of a volume
 
-*greenlake\_volumeset -* Manage volume set
+*greenlake_volumeset -* Manage volume set
 
-*greenlake\_volumeset\_facts -* Get details of a volume set
+*greenlake_volumeset_facts -* Get details of a volume set
 
 **Prerequisites to use these Ansible playbooks:**
 
@@ -53,7 +51,7 @@ The following Ansible modules are currently available for Data Services Cloud Co
 2. The latest and most stable version of Ansible must be installed. (current version is 2.9)
 3. HPE GreenLake Data Services Python SDK. (Installation procedure is mentioned below)
 4. Cloning the GitHub repo that has these playbooks
-5. Setup ANSIBLE\_LIBRARY and ANSIBLE\_MODULE\_UTILS environment variables
+5. Setup ANSIBLE_LIBRARY and ANSIBLE_MODULE_UTILS environment variables
 
    (* If you are using Windows 10, then an Ubuntu terminal called Windows Subsystem for Linux(WSL) can be used.) 
 
@@ -106,18 +104,19 @@ This repo mainly consists of two folders:
 
 **Setting up environment variables**
 
-ANSIBLE\_LIBRARY and ANSIBLE\_MODULE\_UTILS are environment variables that need to be set.
-Set the ANSIBLE\_LIBRARY variable to the greenlake-data-services-ansible/library directory of the repo like this.
+Set the ANSIBLE_LIBRARY variable to the greenlake\-data\-services\-ansible\/library directory of the repo -
 
 `ANSIBLE_LIBRARY=/home/admin/greenlake-data-services-ansible/library`
 
-Set the ANSIBLE\_MODULE\_UTILS to the module\_utils directory under greenlake-data-services-ansible\/library directory like this.
+Set the ANSIBLE\_MODULE\_UTILS to the module\_utils directory under greenlake\-data\-services\-ansible\/library directory -
 
 `ANSIBLE_MODULE_UTILS=/home/admin/greenlake-data-services-ansible/library/module_utils`
 
 **Usage**
 
 Let’s have a look at an example used to perform Data Services Cloud Console operations on a host using an Ansible playbook. For any Ansible playbook to be used, an inventory file is required. The Ansible inventory file defines the hosts and groups of hosts on which commands, modules, and tasks in a playbook operate. In this example, we are calling REST APIs from our local machine. This file can be placed anywhere and the path of this file can be given during the Ansible playbook execution. Create an inventory file, name it “hosts” (the name of the file can be anything), and update it with the following details: 
+
+
 `[localhost]
 127.0.0.1 ansible_connection=local ansible_python_interpreter=/home/admin/ansible-env/bin/python`
 
@@ -127,7 +126,7 @@ Let's look at a sample of the host file. Ansible playbooks contain a list\/array
 
 1. **Creation** of host
 
-   In this block, the input request parameters are provided under the section ‘data’. In this sample, only required fields for the REST API call are provided such as name, initiator\_ids, user\_created flag, and operating system.
+   In this block, the input request parameters are provided under the section ‘data’. In this sample, only required fields for the REST API call are provided such as name, initiator_ids, user_created flag, and operating system.
 2. **Update** a host
 
    In an update request, one can update the name, and change the initiators. These input parameters can be provided under the ‘data’ section.
