@@ -13,6 +13,13 @@ i {
   color: grey; }
 </style>
 
+<style>
+li {
+    font-size: 27px;
+    line-height: 33px;
+    max-width: none;
+}
+</style>
 
 This is a paragraph of text
 
@@ -27,6 +34,14 @@ This another paragraph
 * Blue
 
 <font size="3"> *Apache® and Apache Spark™ are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by the Apache Software Foundation is implied by the use of these marks.* </font>
+
+*greenlake_audit_events_facts* - Get details of audit events
+
+*greenlake_host* - Manage host
+
+*greenlake_host_facts -* Get details of a host
+
+*greenlake_host_group -* Manage host group
 
 <br />
  ﻿   
