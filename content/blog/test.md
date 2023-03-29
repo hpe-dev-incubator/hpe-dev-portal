@@ -35,13 +35,13 @@ This another paragraph
 
 <font size="3"> *Apache® and Apache Spark™ are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by the Apache Software Foundation is implied by the use of these marks.* </font>
 
-*greenlake_audit_events_facts* - Get details of audit events
+*greenlake\_audit\_events\_facts* - Get details of audit events
 
-*greenlake_host* - Manage host
+*greenlake\_host* - Manage host
 
-*greenlake_host_facts -* Get details of a host
+*greenlake\_host\_facts -* Get details of a host
 
-*greenlake_host_group -* Manage host group
+*greenlake\_host\_group -* Manage host group
 
 <br />
  ﻿   
