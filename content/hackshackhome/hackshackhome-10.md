@@ -1,6 +1,6 @@
 ---
 title: Collaborating at scale with Postman
-active: true
+active: false
 fit: contain
 path: https://hpe.zoom.us/webinar/register/7516742292458/WN_YF9SxOaRT--x2fhz1qiymQ
 imageBackground: white
