@@ -5,6 +5,9 @@ date: 2023-03-30T13:29:10.157Z
 author: Frederic Passeron
 authorimage: /img/frederic-passeron-hpedev-192.jpg
 disable: false
+tags:
+  - HPE TSS
+  - HPE DEV
 ---
 ![](/img/tss2023.png "HPE TECHNOLOGY AND SOLUTIONS SUMMIT 2023")
 
