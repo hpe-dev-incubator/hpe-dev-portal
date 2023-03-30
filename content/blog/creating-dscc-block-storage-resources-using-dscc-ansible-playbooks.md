@@ -104,7 +104,7 @@ Provide the name of the host group, host Id, and make sure that the “user_crea
 
 **Creation of volume set**
 
-The device type represents whether it’s a Primera or Nimble volume. If it is 1, then it is a Primera volume and if it is 2, then it is a Nimble volume. Mandatory parameters are app_set_name, app_set_importance, app_set_type (which indicates what kind of workload is required, like Oracle Database). Optional parameters are commented on in the below snippet.
+The device type represents whether it’s a Primera or Nimble volume. If it is 1, then it is a Primera\Alletra 9k volume and if it is 2, then it is a Nimble\Alletra 6k volume. Mandatory parameters are app_set_name, app_set_importance, app_set_type (which indicates what kind of workload is required, like Oracle Database). Optional parameters are commented on in the below snippet.
 Note: The request body for Nimble volume creation may vary, so please refer to the documentation for specifics.
 
 ```yaml
