@@ -5,7 +5,18 @@ date: 2023-03-30T14:02:46.043Z
 author: Anusha Y and Sijeesh Kattumunda
 authorimage: /img/Avatar1.svg
 disable: false
+tags:
+  - data-services-cloud-console
+  - Ansible
 ---
+<style>
+li {
+    font-size: 27px;
+    line-height: 33px;
+    max-width: none;
+}
+</style>
+
 In my previous [blog post](https://developer.hpe.com/blog/automating-operations-on-dscc-using-ansible-playbooks/) , I provided an introduction to Ansible playbooks for HPE GreenLake Data Services Cloud Console and how to use them. In this post, I will show you how to create an Ansible playbook to create block storage resources. 
 
 **Use case:**
@@ -104,8 +115,8 @@ Provide the name of the host group, host Id, and make sure that the “user_crea
 
 **Creation of volume set**
 
-The device type represents whether it’s a Primera or Nimble volume. If it is 1, then it is a Primera\Alletra 9k volume and if it is 2, then it is a Nimble\Alletra 6k volume. Mandatory parameters are app_set_name, app_set_importance, app_set_type (which indicates what kind of workload is required, like Oracle Database). Optional parameters are commented on in the below snippet.
-Note: The request body for Nimble volume creation may vary, so please refer to the documentation for specifics.
+The device type represents whether it’s a Primera or Nimble volume. If it is 1, then it is a Primera\Alletra 9k volume and if it is 2, then it is a Nimble\Alletra 6k volume. Mandatory parameters are app\_set\_name, app\_set\_importance, app\_set\_type (which indicates what kind of workload is required, like Oracle Database). Optional parameters are commented on in the below snippet.
+>Note: The request body for Nimble volume creation may vary, so please refer to the documentation for specifics.
 
 ```yaml
     - name: Create GreenLake DSCC Volume Set
