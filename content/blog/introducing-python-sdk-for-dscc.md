@@ -1,5 +1,5 @@
 ---
-title: Introducing Python SDK for Data Services Cloud Console
+title: Introducing Python SDK for HPE GreenLake Data Services Cloud Console
 date: 2023-03-29T13:45:50.979Z
 priority: 0
 author: Anusha Y and Sijeesh Kattumunda
@@ -12,11 +12,11 @@ In my previous [blog](https://developer.hpe.com/blog/get-started-building-dscc-a
 
 APIs are a list of functions libraries that are used to communicate with a web service (via secure HTTP), whereas an SDK is a development kit that facilitates the usage of these APIs. APIs enable any software developer to create business opportunities by leveraging the capabilities provided by the API to extend their application whereas the SDK facilitates the process for developers. An SDK is a collection of software tools and programs for a specific application platform that allows developers to manipulate the functions supported by the service. These can be considered as a wrapper on the top of the APIs, making the code consumable by the application.
 
-One thing to note is that, the user always gets access to the latest Data Services Cloud Console API version through the SDKs. How? The SDK is designed and deployed (using CI/CD pipelines such as Jenkins) in such a way that with every new release of the Data Services Cloud Console Open API spec, the SDKs get updated automatically. Thus, keeping it up-to date without any manual intervention. This also reduces time which is spent waiting for updates with newer features.
+One thing to note in the context of HPE GreenLake Data Services Cloud Console is that the user always gets access to the latest Data Services Cloud Console API version through the SDKs. How? The SDK is designed and deployed (using CI/CD pipelines such as Jenkins) in such a way that with every new release of the Data Services Cloud Console Open API spec, the SDKs get updated automatically. Thus, keeping it up-to date without any manual intervention. This also reduces time which is spent waiting for updates with newer features.
 
-**Introducing Python SDK for Data Services Cloud Console**
+**Introducing Python SDK for HPE GreenLake Data Services Cloud Console**
 
-Due to the wide adoption of Python, and for the Python lovers out there who did not have an option to achieve their automation goals, we have the Python SDK available now. You can access the SDK onthis [github ](https://github.com/HewlettPackard/greenlake-data-services-python)page.
+Due to the wide adoption of Python, and for the Python lovers out there who did not have an option to achieve their automation goals, we have the Python SDK available now. You can access the SDK on this [github ](https://github.com/HewlettPackard/greenlake-data-services-python)page.
 
 This SDK contains the following:
 
@@ -34,13 +34,13 @@ Python (>=3.5) is required to run the scripts. Run the following command to inst
 pip install –r requirements.txt
 ```
 
-Example Usage:
+Example usage:
 
 Let us consider Audits as an example. Audit events are a collection of tasks performed by users. The below code snippet uses a GET method to fetch the details of audit events, like task ID, user email, state, etc.
 
-The sample code is provided in the [documentation](https://github.com/HewlettPackard/greenlake-data-services-python/blob/dev/docs/AuditEventApi.md#device_type2_get_events)of this resource. Take the sample code and replace the BEARER_TOKEN with the access token. Generate the access token as mentioned in this [blog](https://developer.hpe.com/blog/oauth2-for-hpe-greenlake-data-services-cloud-console/).
+The sample code is provided in the [documentation](https://github.com/HewlettPackard/greenlake-data-services-python/blob/dev/docs/AuditEventApi.md#device_type2_get_events) of this resource. Take the sample code and replace the BEARER_TOKEN with the access token. Generate the access token as mentioned in this [blog](https://developer.hpe.com/blog/oauth2-for-hpe-greenlake-data-services-cloud-console/).
 
-Save the file as GetAudits.py.
+Save the file as GetAudits.py
 
 ```python
 import time
@@ -92,7 +92,7 @@ with greenlake_data_services.ApiClient(configuration) as api_client:
         print("Exception when calling AuditApi->audit_events_get: %s\n" % e)
 ```
 
-And run the script
+And run the script.
 
 ```python
 $python GetAudits.py
@@ -127,4 +127,4 @@ The output of scripts are in JSON format. For reference, there are example scrip
 
 **Next steps**
 
-Now that you have access to the Python SDK for Data Services Cloud Console, use it to create automation for any use-case that requires the use of Data Services Cloud Console APIs, right from your console. In my next blog, I talk about how to use Ansible playbooks to achieve your automation goals for Data Services Cloud Console. Stay tuned!
+Now that you have access to the Python SDK for HPE GreenLake Data Services Cloud Console, use it to create automation for any use-case that requires the use of Data Services Cloud Console APIs, right from your console. In my next blog, I talk about how to use Ansible playbooks to achieve your automation goals for Data Services Cloud Console. Stay tuned!
