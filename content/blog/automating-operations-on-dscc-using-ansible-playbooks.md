@@ -60,13 +60,13 @@ The following Ansible modules are currently available for Data Services Cloud Co
 
 **Prerequisites to use these Ansible playbooks:**
 
-1. Any machine with Python 3.8 or newer installed. This includes Red Hat, Debian, CentOS, macOS, any of the BSDs, and so on. (Microsoft Windows is not supported *)
+1. Any machine with Python 3.8 or newer installed. This includes Red Hat, Debian, CentOS, macOS, any of the BSDs, and so on. (Microsoft Windows is not supported - see Note below)
 2. The latest and most stable version of Ansible must be installed. (current version is 2.9)
 3. HPE GreenLake Data Services Python SDK. (Installation procedure is mentioned below)
 4. Cloning the GitHub repo that has these playbooks
 5. Setup ANSIBLE\_LIBRARY and ANSIBLE\_MODULE\_UTILS environment variables
 
-   (* If you are using Windows 10, then an Ubuntu terminal called Windows Subsystem for Linux(WSL) can be used.) 
+>Note: If you are using Windows 10, then an Ubuntu terminal called Windows Subsystem for Linux(WSL) can be used.
 
 **Installing Ansible on Ubuntu**
 
