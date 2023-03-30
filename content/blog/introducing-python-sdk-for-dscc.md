@@ -38,7 +38,7 @@ Example usage:
 
 Let us consider Audits as an example. Audit events are a collection of tasks performed by users. The below code snippet uses a GET method to fetch the details of audit events, like task ID, user email, state, etc.
 
-The sample code is provided in the [documentation](https://github.com/HewlettPackard/greenlake-data-services-python/blob/dev/docs/AuditEventApi.md#device_type2_get_events) of this resource. Take the sample code and replace the BEARER_TOKEN with the access token. Generate the access token as mentioned in this [blog](https://developer.hpe.com/blog/oauth2-for-hpe-greenlake-data-services-cloud-console/).
+The sample code is provided in the [documentation](https://github.com/HewlettPackard/greenlake-data-services-python/blob/main/docs/AuditEventApi.md) of this resource. Take the sample code and replace the BEARER_TOKEN with the access token. Generate the access token as mentioned in this [blog](https://developer.hpe.com/blog/oauth2-for-hpe-greenlake-data-services-cloud-console/).
 
 Save the file as GetAudits.py
 
