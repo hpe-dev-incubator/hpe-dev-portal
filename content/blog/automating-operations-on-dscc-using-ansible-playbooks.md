@@ -1,5 +1,6 @@
 ---
-title: Automating operations on Data Services Cloud Console using Ansible Playbooks
+title: Automating operations on HPE GreenLake Data Services Cloud Console using
+  Ansible Playbooks
 date: 2023-03-29T14:00:40.866Z
 author: Anusha Y and Sijeesh Kattumunda
 authorimage: /img/Avatar1.svg
@@ -7,7 +8,7 @@ disable: false
 ---
 Automation is one of the top trends in technology and the pace of automation is accelerating with more companies opting for developing fully automated systems. Automation reduces time, effort, cost, and manual errors while increasing efficiency and productivity. Gone are those days when many complex coding skills were required to implement automation. Now, there are many low-code tools available in the market, like Ansible, that make automation easier.
 
-In this blog post, I am excited to be able to introduce the Ansible playbooks for Data Services Cloud Console and show you how to use them. Along with the [Python SDK](https://github.com/HewlettPackard/greenlake-data-services-python) for Data Services Cloud Console, these playbooks should help you in your efforts to automate HPE GreenLake Data Services through an infrastructure-as-code approach.
+In this blog post, I am excited to be able to introduce the Ansible playbooks for HPE GreenLake Data Services Cloud Console and show you how to use them. Along with the [Python SDK](https://github.com/HewlettPackard/greenlake-data-services-python) for HPE GreenLake Data Services Cloud Console, these playbooks should help you in your efforts to automate HPE GreenLake Data Services through an infrastructure-as-code approach.
 
 Ansible is an open-source IT automation tool that automates provisioning, configuration management, application deployment, and many other IT processes. 
 Two main features that make Ansible the best choice for automation are:
@@ -15,11 +16,11 @@ Two main features that make Ansible the best choice for automation are:
 * Ansible does not require any programming. 
 * Idempotence is offered as a built-in feature of many of the Ansible modules. This means the result of performing a task once is the same as performing it multiple times without any intervening actions.
 
-**Why do we need Ansible playbooks for Data Services Cloud Console?**
+**Why do we need Ansible playbooks for HPE GreenLake Data Services Cloud Console?**
 
 Ansible helps the users/admins automate the deployment of resources and applications without the manual overhead of creating everything from scratch. These playbooks can be configured with conditions, variables, and tasks. Currently, simple playbooks, like performing CRUD operations on the resources, are available. These playbooks can be considered basic building blocks and can be reused to build simple-to-complex use cases.
 
-**[Ansible Modules for  Data Services Cloud Console](https://github.com/HewlettPackard/greenlake-data-services-ansible):**
+**[Ansible Modules for HPE GreenLake Data Services Cloud Console](https://github.com/HewlettPackard/greenlake-data-services-ansible):**
 
 The following Ansible modules are currently available for Data Services Cloud Console. You can use the samples given or customize it - 
 
@@ -76,25 +77,17 @@ The installation will prompt you to press Y to confirm, with the rest of the ins
    $ansible --version
    ```
 
-For other operating systems, please refer to the official Ansible documentation.
+For other operating systems, please refer to the official [Ansible documentation](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html).
 
 **Installing the HPE GreenLake Data Services Python SDK**
 
-These Ansible playbooks use the Python libraries of the HPE GreenLake Python SDK. Install the SDK using this command:
+These Ansible playbooks use the Python libraries of the HPE GreenLake Python SDK. Install the Python SDK using the steps mentioned [here](https://github.com/HewlettPackard/greenlake-data-services-python#installation--usage).
 
-**...Below command will change and use the newly available repository...**
-
-```shell
-$pip install git@github.hpe.com:sijeesh-kattumunda/greenlake_data_services_python.git
-```
-
-Cloning the DSCC GitHub repo	
+**Cloning the Data Services Cloud Console GitHub repo**	
 To clone the repo, execute the following command on the machine where you installed Ansible:
 
-**...Below command will change and use the newly available repository...**
-
 ```shell
-$git clone git@github.hpe.com:sijeesh-kattumunda/greenlake-data-services-ansible.git
+git clone https://github.com/HewlettPackard/greenlake-data-services-ansible.git
 ```
 
 This repo mainly consists of two folders:
@@ -104,11 +97,11 @@ This repo mainly consists of two folders:
 
 **Setting up environment variables**
 
-Set the ANSIBLE_LIBRARY variable to the greenlake\-data\-services\-ansible\/library directory of the repo -
+Set the ANSIBLE_LIBRARY variable to the greenlake-data-services-ansible/library directory of the repo -
 
 `ANSIBLE_LIBRARY=/home/admin/greenlake-data-services-ansible/library`
 
-Set the ANSIBLE\_MODULE\_UTILS to the module\_utils directory under greenlake\-data\-services\-ansible\/library directory -
+Set the ANSIBLE_MODULE_UTILS to the module_utils directory under greenlake-data-services-ansible/library directory -
 
 `ANSIBLE_MODULE_UTILS=/home/admin/greenlake-data-services-ansible/library/module_utils`
 
@@ -116,13 +109,12 @@ Set the ANSIBLE\_MODULE\_UTILS to the module\_utils directory under greenlake\-d
 
 Let’s have a look at an example used to perform Data Services Cloud Console operations on a host using an Ansible playbook. For any Ansible playbook to be used, an inventory file is required. The Ansible inventory file defines the hosts and groups of hosts on which commands, modules, and tasks in a playbook operate. In this example, we are calling REST APIs from our local machine. This file can be placed anywhere and the path of this file can be given during the Ansible playbook execution. Create an inventory file, name it “hosts” (the name of the file can be anything), and update it with the following details: 
 
-
 `[localhost]
 127.0.0.1 ansible_connection=local ansible_python_interpreter=/home/admin/ansible-env/bin/python`
 
 The IP address given is localhost, which means operations are performed on the local host. Provide the Python interpreter location on your system. Name this file “hosts”.
 
-Let's look at a sample of the host file. Ansible playbooks contain a list\/array of tasks that will be performed sequentially. The below code snippet has the following tasks.
+Let's look at a sample of the host file. Ansible playbooks contain a list/array of tasks that will be performed sequentially. The below code snippet has the following tasks.
 
 1. **Creation** of host
 
@@ -310,8 +302,8 @@ PLAY RECAP *********************************************************************
 127.0.0.1                  : ok=6    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
 ```
 
-These Ansible playbooks can be used to fetch details as well. Under the examples folder, there are files with the suffix ‘\_facts’ which specify that it is used to get the details of a resource.
-For example, take a look at the ‘greenlake\_host\_facts.yaml’.  This playbook is used to get the details of the host.
+These Ansible playbooks can be used to fetch details as well. Under the examples folder, there are files with the suffix ‘_facts’ which specify that it is used to get the details of a resource.
+For example, take a look at the ‘greenlake_host_facts.yaml’.  This playbook is used to get the details of the host.
 
 ```yaml
 ---
@@ -332,7 +324,7 @@ For example, take a look at the ‘greenlake\_host\_facts.yaml’.  This playboo
 ```
 
 In this playbook, you have an option to add filters to it like ID, limit, offset, etc., or else you can get the details of all hosts available.
-Use the following command to execute the ansible playbook:
+Use the following command to execute the Ansible playbook:
 
 ```shell
 $ansible-playbook examples/greenlake_host_facts.yaml --i ../hosts
@@ -438,3 +430,5 @@ PLAY RECAP *********************************************************************
 ```
 
 In the current release, only critical resources are supported. New resources will be added moving forward. This is just the beginning.  In the future, there are many use cases to cover.
+
+In this blog, I gave you a preview of the Ansible playbooks for HPE GreenLake Data Services Cloud Console. This SDK is a Beta version with lots of rooms for improvement. I would urge you to try out the features and keep us engaged with your feedback so that we come out with a better version for the GA. Also, look out for other posts in the HPE Developer blog that are related to Data Services Cloud Console.
