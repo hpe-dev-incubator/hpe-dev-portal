@@ -5,7 +5,19 @@ date: 2023-03-29T14:00:40.866Z
 author: Anusha Y and Sijeesh Kattumunda
 authorimage: /img/Avatar1.svg
 disable: false
+tags:
+  - data-services-cloud-console
+  - Ansible
 ---
+<style>
+li {
+    font-size: 27px;
+    line-height: 33px;
+    max-width: none;
+}
+</style>
+
+
 Automation is one of the top trends in technology and the pace of automation is accelerating with more companies opting for developing fully automated systems. Automation reduces time, effort, cost, and manual errors while increasing efficiency and productivity. Gone are those days when many complex coding skills were required to implement automation. Now, there are many low-code tools available in the market, like Ansible, that make automation easier.
 
 In this blog post, I am excited to be able to introduce the Ansible playbooks for HPE GreenLake Data Services Cloud Console and show you how to use them. Along with the [Python SDK](https://github.com/HewlettPackard/greenlake-data-services-python) for HPE GreenLake Data Services Cloud Console, these playbooks should help you in your efforts to automate HPE GreenLake Data Services through an infrastructure-as-code approach.
@@ -22,39 +34,39 @@ Ansible helps the users/admins automate the deployment of resources and applicat
 
 **[Ansible Modules for HPE GreenLake Data Services Cloud Console](https://github.com/HewlettPackard/greenlake-data-services-ansible):**
 
-The following Ansible modules are currently available for Data Services Cloud Console. You can use the samples given or customize it - 
+The following Ansible modules are currently available for Data Services Cloud Console. You can use the samples given or customize it. 
 
-*greenlake_audit_events_facts* - Get details of audit events
+*greenlake\_audit\_events\_facts* - Get details of audit events
 
 *greenlake_host* - Manage host
 
-*greenlake_host_facts -* Get details of a host
+*greenlake\_host\_facts -* Get details of a host
 
-*greenlake_host_group -* Manage host group
+*greenlake\_host\_group -* Manage host group
 
-*greenlake_host_group_facts -* Get details of a host group
+*greenlake\_host\_group\_facts -* Get details of a host group
 
-*greenlake_host_initiator_facts -* Get details of a host initiator
+*greenlake\_host\_initiator\_facts -* Get details of a host initiator
 
-*greenlake_storage_system_facts -* Get details of a storage system
+*greenlake\_storage\_system\_facts -* Get details of a storage system
 
-*greenlake_volume -* Manage volume
+*greenlake\_volume -* Manage volume
 
-*greenlake_volume_facts -* Get details of a volume
+*greenlake\_volume\_facts -* Get details of a volume
 
-*greenlake_volumeset -* Manage volume set
+*greenlake\_volumeset -* Manage volume set
 
-*greenlake_volumeset_facts -* Get details of a volume set
+*greenlake\_volumeset_facts -* Get details of a volume set
 
 **Prerequisites to use these Ansible playbooks:**
 
-1. Any machine with Python 3.8 or newer installed. This includes Red Hat, Debian, CentOS, macOS, any of the BSDs, and so on. (Microsoft Windows is not supported *)
+1. Any machine with Python 3.8 or newer installed. This includes Red Hat, Debian, CentOS, macOS, any of the BSDs, and so on. (Microsoft Windows is not supported - see Note below)
 2. The latest and most stable version of Ansible must be installed. (current version is 2.9)
 3. HPE GreenLake Data Services Python SDK. (Installation procedure is mentioned below)
 4. Cloning the GitHub repo that has these playbooks
-5. Setup ANSIBLE_LIBRARY and ANSIBLE_MODULE_UTILS environment variables
+5. Setup ANSIBLE\_LIBRARY and ANSIBLE\_MODULE\_UTILS environment variables
 
-   (* If you are using Windows 10, then an Ubuntu terminal called Windows Subsystem for Linux(WSL) can be used.) 
+>Note: If you are using Windows 10, then an Ubuntu terminal called Windows Subsystem for Linux(WSL) can be used.
 
 **Installing Ansible on Ubuntu**
 
@@ -92,16 +104,16 @@ git clone https://github.com/HewlettPackard/greenlake-data-services-ansible.git
 
 This repo mainly consists of two folders:
 
-1. **Libraries**: These are Python libraries that will be used by the Ansible playbooks to perform CRUD operations on DSCC resources.
-2. **Examples**: This folder consists of sample Ansible playbooks that perform CRUD operations on DSCC resources. With these examples, one can start building use cases.
+1. **Libraries**: These are Python libraries that will be used by the Ansible playbooks to perform CRUD operations on Data Services Cloud Console resources.
+2. **Examples**: This folder consists of sample Ansible playbooks that perform CRUD operations on Data Services Cloud Console resources. With these examples, one can start building use cases.
 
 **Setting up environment variables**
 
-Set the ANSIBLE_LIBRARY variable to the greenlake-data-services-ansible/library directory of the repo -
+Set the ANSIBLE\_LIBRARY variable to the greenlake-data-services-ansible/library directory of the repo -
 
 `ANSIBLE_LIBRARY=/home/admin/greenlake-data-services-ansible/library`
 
-Set the ANSIBLE_MODULE_UTILS to the module_utils directory under greenlake-data-services-ansible/library directory -
+Set the ANSIBLE\_MODULE\_UTILS to the module_utils directory under greenlake-data-services-ansible/library directory -
 
 `ANSIBLE_MODULE_UTILS=/home/admin/greenlake-data-services-ansible/library/module_utils`
 
@@ -303,7 +315,7 @@ PLAY RECAP *********************************************************************
 ```
 
 These Ansible playbooks can be used to fetch details as well. Under the examples folder, there are files with the suffix ‘_facts’ which specify that it is used to get the details of a resource.
-For example, take a look at the ‘greenlake_host_facts.yaml’.  This playbook is used to get the details of the host.
+For example, take a look at the ‘greenlake\_host\_facts.yaml’. This playbook is used to get the details of the host.
 
 ```yaml
 ---
