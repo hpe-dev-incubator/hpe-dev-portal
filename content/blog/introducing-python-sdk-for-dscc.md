@@ -5,6 +5,9 @@ priority: 0
 author: Anusha Y and Sijeesh Kattumunda
 authorimage: /img/Avatar1.svg
 disable: false
+tags:
+  - data-services-cloud-console
+  - Python
 ---
 <style>
 li {
