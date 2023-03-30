@@ -130,7 +130,7 @@ Let's look at a sample of the host file. Ansible playbooks contain a list/array 
 
 1. **Creation** of host
 
-   In this block, the input request parameters are provided under the section ‘data’. In this sample, only required fields for the REST API call are provided such as name, initiator_ids, user_created flag, and operating system.
+   In this block, the input request parameters are provided under the section ‘data’. In this sample, only required fields for the REST API call are provided such as name, initiator\_ids, user\_created flag, and operating system.
 2. **Update** a host
 
    In an update request, one can update the name, and change the initiators. These input parameters can be provided under the ‘data’ section.
