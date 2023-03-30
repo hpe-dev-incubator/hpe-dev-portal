@@ -6,7 +6,15 @@ author: Anusha Y and Sijeesh Kattumunda
 authorimage: /img/Avatar1.svg
 disable: false
 ---
-In my previous [blog](https://developer.hpe.com/blog/get-started-building-dscc-api-client-libraries-for-python-using-openapi-generator/), I discussed how to generate a Software Development Kit (SDK) from the Data Services Cloud Console Open API spec using a third-party tool called OpenAPI generator. Today, I am going to talk more in detail on the Python SDK generated using the tool. As we progress, we will discuss the implementation aspects, and then take up a use-case to better understand how to use the SDK.
+<style>
+li {
+    font-size: 27px;
+    line-height: 33px;
+    max-width: none;
+}
+</style>
+
+In my previous [blog](https://developer.hpe.com/blog/get-started-building-dscc-api-client-libraries-for-python-using-openapi-generator/), I discussed how to generate a Software Development Kit (SDK) from the HPE GreenLake Data Services Cloud Console Open API spec using a third-party tool called OpenAPI generator. Today, I am going to talk more in detail on the Python SDK generated using the tool. As we progress, we will discuss the implementation aspects, and then take up a use-case to better understand how to use the SDK.
 
 **APIs and SDKs** 
 
@@ -21,7 +29,7 @@ Due to the wide adoption of Python, and for the Python lovers out there who did 
 This SDK contains the following:
 
 * Documentation (under docs folder)
-* Code libraries (under greenlake_data_services folder)
+* Code libraries (under greenlake\_data\_services folder)
 * Test file (under test folder)
 * README file
 * The Python libraries that are required to run this SDK (requirements.txt & test-requirements.txt)
@@ -127,4 +135,4 @@ The output of scripts are in JSON format. For reference, there are example scrip
 
 **Next steps**
 
-Now that you have access to the Python SDK for HPE GreenLake Data Services Cloud Console, use it to create automation for any use-case that requires the use of Data Services Cloud Console APIs, right from your console. In my next blog, I talk about how to use Ansible playbooks to achieve your automation goals for Data Services Cloud Console. Stay tuned!
+Now that you have access to the Python SDK for HPE GreenLake Data Services Cloud Console, use it to create automation for any use-case that requires the use of Data Services Cloud Console APIs, right from your console. In [my next blog](https://developer.hpe.com/blog/automating-operations-on-dscc-using-ansible-playbooks/), I talk about how to use Ansible playbooks to achieve your automation goals for Data Services Cloud Console. Stay tuned!
