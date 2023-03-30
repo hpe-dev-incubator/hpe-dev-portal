@@ -1,15 +1,15 @@
 ---
-title: Creating Data Services Cloud Console Block storage resources using
-  Ansible playbooks
+title: Creating HPE GreenLake Data Services Cloud Console block storage
+  resources using Ansible playbooks
 date: 2023-03-30T14:02:46.043Z
 author: Anusha Y and Sijeesh Kattumunda
 authorimage: /img/Avatar1.svg
 disable: false
 ---
-In my previous blog post **...Link to the blog to be added here..** , I provided an introduction to Ansible playbooks for Data Services Cloud Console and how to use them. In this post, I will show you how to create an Ansible playbook to create block storage resources. 
+In my previous [blog post](https://developer.hpe.com/blog/automating-operations-on-dscc-using-ansible-playbooks/) , I provided an introduction to Ansible playbooks for HPE GreenLake Data Services Cloud Console and how to use them. In this post, I will show you how to create an Ansible playbook to create block storage resources. 
 
+**Use case:**
 
-Use case:
 The objective of this use case is to provision a Primera volume from scratch using Data Services Cloud Console APIs. This use case covers the creation of the following resources in the following order:
 
 1. Create a host
@@ -19,9 +19,9 @@ The objective of this use case is to provision a Primera volume from scratch usi
 5. Update the volume set with the volumes created
 6. Export the volume set to the host created
 
-**Let’s look at the Ansible playbook resource-wise.**
+**Let’s look at the Ansible playbook resource-wise**
 
-Variables in Ansible are similar to variables in any programming language that can be declared and used anywhere in the script. In this use case, certain variables will be used in the playbook and these are declared under the ‘vars’ section. One important variable to watch for here is the “config” variable that provides credentials for the APIs to authenticate the request and the host URL to which the request will be sent. The greenlake\_config.json file that is mentioned in the value of the config variable will have the clientID, client secret, and the host URL of the Data Services Cloud Console instance.
+Variables in Ansible are similar to variables in any programming language that can be declared and used anywhere in the script. In this use case, certain variables will be used in the playbook and these are declared under the ‘vars’ section. One important variable to watch for here is the “config” variable that provides credentials for the APIs to authenticate the request and the host URL to which the request will be sent. The greenlake_config.json file that is mentioned in the value of the config variable will have the clientID, client secret, and the host URL of the Data Services Cloud Console instance.
 
 ```yaml
 vars:
@@ -37,7 +37,7 @@ vars:
     - volume_name: ansibleVolume
 ```
 
-Contents of greenlake\_config.json:
+Contents of greenlake_config.json:
 
 ```json
 {
@@ -49,10 +49,10 @@ Contents of greenlake\_config.json:
 
 **Creation of host**
 
-A host represents a physical server and a host group represents a collection of physical servers. In the context of Data Services Cloud Console API, a host is a definition for a group of initiators that belong to a single server and a host group is a group of initiators across servers. 
+A host represents a physical server and a host group represents a collection of physical servers. In the context of the Data Services Cloud Console API, a host is a definition for a group of initiators that belong to a single server and a host group is a group of initiators across servers. 
 
 To create a host, initiator information is needed and this can be obtained by a GET call to get the initiator resources. One of the initiators can be used in the creation of the host.
-This means that the creation of a host requires two calls: one to get the initiator and another  to create a host. Along with this, you must mention the name of the host, operating system, and a “user\_created” flag must be set to true. Variable names will be mentioned between two curly braces and double quotes as shown in the below code snippet.
+This means that the creation of a host requires two calls: one to get the initiator and another  to create a host. Along with this, you must mention the name of the host, operating system, and a “user_created” flag must be set to true. Variable names will be mentioned between two curly braces and double quotes as shown in the below code snippet.
 
 ```yaml
     - name: Get GreenLake Host Initiators
@@ -86,7 +86,7 @@ This means that the creation of a host requires two calls: one to get the initia
 
 A host group can be created using the host created in the previous step. The tasks of this Ansible playbook will be executed sequentially, so the creation of the host group task executes only after the host creation task is successfully completed.
 
-Provide the name of the host group, host Id, and make sure that the “user\_created” flag is set to true.
+Provide the name of the host group, host Id, and make sure that the “user_created” flag is set to true.
 
 ```yaml
     - name: Create GreenLake DSCC Host Group
@@ -102,9 +102,9 @@ Provide the name of the host group, host Id, and make sure that the “user\_cre
     - debug: var=host_groups
 ```
 
-**Creation of Volume Set**
+**Creation of volume set**
 
-The device type represents whether it’s a Primera or Nimble volume. If it is 1, then it is a Primera volume and if it is 2, then it is a Nimble volume. Mandatory parameters are app\_set\_name, app\_set\_importance, app\_set\_type (which is the kind of workload that is required, like Oracle Database). Optional parameters are commented on in the below snippet.
+The device type represents whether it’s a Primera or Nimble volume. If it is 1, then it is a Primera volume and if it is 2, then it is a Nimble volume. Mandatory parameters are app_set_name, app_set_importance, app_set_type (which indicates what kind of workload is required, like Oracle Database). Optional parameters are commented on in the below snippet.
 Note: The request body for Nimble volume creation may vary, so please refer to the documentation for specifics.
 
 ```yaml
@@ -126,7 +126,7 @@ Note: The request body for Nimble volume creation may vary, so please refer to t
     - debug: var=volume_sets
 ```
 
-**Creation of Volume (Primera)**
+**Creation of volume (Primera)**
 
 The mandatory fields are the name, size, and user CPG. Other parameters are optional.
 
@@ -170,7 +170,7 @@ The volume set will be updated with the volumes created earlier. For this, provi
     - debug: var=volume_sets
 ```
 
-**Exporting the volume set to the Host Group**
+**Exporting the volume set to the host group**
 
 Now, the volume set created needs to be exported to the host group created earlier. Provide the system id, host group id, and the volume set id in the form of variables.
 
@@ -189,4 +189,4 @@ Now, the volume set created needs to be exported to the host group created earli
     - debug: var=volume_sets
 ```
 
-I hope you found this blog post helpful. This is just a sample use case one can implement to create resources on Data Services Cloud Console. Admins\/users can come up with multiple use cases that can be used to manage the Data Services Cloud Console resources, like cleaning the resources, monitoring the resources, etc. Keep an eye out for new blogs and videos that are on track to be released related to the automation of Data Services Cloud Console operations.
+I hope you found this blog post helpful. This is just a sample use case one can implement to create resources on HPE GreenLake Data Services Cloud Console. Admins/users can come up with multiple use cases that can be used to manage the Data Services Cloud Console resources, like cleaning the resources, monitoring the resources, etc. Keep an eye out for new blogs and videos that are on track to be released related to the automation of Data Services Cloud Console operations.
