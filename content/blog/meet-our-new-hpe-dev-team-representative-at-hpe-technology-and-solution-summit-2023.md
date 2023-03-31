@@ -17,11 +17,11 @@ HPE TSS is the largest HPE technical event that is held in the Europe, Middle Ea
 
 T﻿he decision to hold this event at a physical location came late this year. As a result, the HPE Developer Community team will be unable to bring the complete, well-loved Hack Shack to the event. And we will only be able to spare one member of our team to attend and run our sessions. However, we will be offering a number of sessions, hands-on labs, and a few surprises. 
 
-
-
 **Meet our new team member: Mathieu Losmede**
 
 M﻿athieu joined the HPE Developer Community team last summer. He came in with a strong HPE GreenLake background. He was part of the HPE GreenLake Cloud Service (aka Greenlake Central) SRE - Devops team. As our team's focus has recently shifted more heavily towards the HPE GreenLake Cloud Platform, we were very fortunate to have him join our group. 
+
+![](/img/fred-6-b-3-512-.jpg)
 
 Mathieu will be all over the place in Barcelona. One might wonder whether he managed to discover the secret of ubiquity. He will be delivering several technical breakouts either on his own or in partnership with other business units (BU) representatives (HPE GreenLake, Storage, Compute, and Aruba). He will also be co-presenting in other BUs' sessions. On top of these, he will deliver three hands-on labs based on our well-known [Workshops-on-Demand](https://developer.hpe.com/hackshack/workshops) project.
 
