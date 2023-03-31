@@ -1,6 +1,6 @@
 ---
 title: iLO RESTful API
-version: v 6.01.8964
+version: v 6.01.8965
 description: Redfish® API conformant for simple and automate remote HPE Server management.
 image: /img/platforms/iLOrestfulAPI.svg
 width: medium
@@ -13,15 +13,15 @@ tags:
 ---
 # One Interface for Server Management Automation
 
-HPE Server management provides intelligent remote control automation through HPE iLO and the iLO RESTful API. Gain even more capabilities that go beyond scripting by leveraging one API to manage your complete lifecycle of HPE Gen9 and Gen10 servers.
+HPE Server management provides intelligent remote control automation through HPE iLO and the Redfish® iLO RESTful API. Gain even more capabilities that go beyond scripting by leveraging one API to manage your complete lifecycle of HPE Gen10, Gen10 Plus and Gen11 servers.
 
-A single API interface integrates server management components and full compute power. Use it with HPE iLO 4 and iLO 5 to perform remote server provisioning, configuration, inventory and monitoring industry standards through Redfish API conformance.
+A single API interface integrates server management components and full compute power. Use it with HPE iLO 5 and iLO 6 to perform remote server provisioning, configuration, inventory and monitoring industry standards through Redfish API conformance.
 
-# Redfish API Implementation
+# HPE Redfish® API Implementation
 
-Obtain simple, secure management of today’s scalable data center hardware with the Redfish API ecosystem. It’s an open industry-standard specification and schema that helps you integrate solutions within your existing tools. Published by the Distributed Management Task Force ([DMTF](http://www.dmtf.org/standards/redfish)), it’s ideal for cloud and web-based infrastructures, which typically have large quantities of servers in heterogeneous environments.
+Obtain simple, secure management of today’s scalable data center hardware with the Redfish® API ecosystem. It’s an open industry-standard specification and schema that helps you integrate solutions within your existing tools. Published by the Distributed Management Task Force ([DMTF](http://www.dmtf.org/standards/redfish)), it's ideal for cloud and web-based infrastructures, which typically have large quantities of servers in heterogeneous environments.
 
-* [Read about Redfish on iLO RESTful API](https://h50146.www5.hpe.com/products/software/oe/linux/mainstream/support/whitepaper/pdfs/4AA6-1727ENW.pdf)
+* [Read about Redfish on iLO](https://h50146.www5.hpe.com/products/software/oe/linux/mainstream/support/whitepaper/pdfs/4AA6-1727ENW.pdf)
 
 * [Explore the API](https://ilorestfulapiexplorer.ext.hpe.com/)
 
@@ -33,9 +33,9 @@ Find tools you need to help you leverage the iLO RESTful API SDKs.
 
 ## SDKs and Language Bindings
 
-### [iLO RESTful API Documentation ![](Github)](https://hewlettpackard.github.io/ilo-rest-api-docs/)
+### [iLO RESTful API Documentation ![](Github)](https://hewlettpackard.github.io/ilo-rest-api-docs/ilo6)
 
-HPE Reference documentation with examples to help you write Redfish programs and scripts.
+HPE Reference documentation with examples to help you write Redfish client programs and scripts.
 
 - - -
 
@@ -81,16 +81,16 @@ Puppet module for installing the Python iLOrest library and examples.
 
 ## IT Operations
 
-### [RESTful Interface Tool ![](Github)](https://github.com/HewlettPackard/python-redfish-utility)
+### [RESTful Interface Tool ![iLOrest](Github)](https://github.com/HewlettPackard/python-redfish-utility)
 
-The HPE RESTful Interface Tool ([iLOrest](https://www.hpe.com/info/resttool)) is an open source Redfish client scripting tool also featuring interactive and debug modes.
+HPE iLOrest, the HPE RESTful Interface Tool ([iLOrest](https://www.hpe.com/info/resttool)) is an open source Redfish client scripting tool also featuring interactive and debug modes.
 
 * [Read the documentation guide](https://hewlettpackard.github.io/python-redfish-utility/)
 * [Watch the Demo](https://www.youtube.com/watch?v=xfEN95pNNfY)
 
 - - -
 
-### [Nagios- Plug-in ![](Github)](https://github.com/HewlettPackard/nagios-hpeilo-restful-extension)
+### [Nagios- Plug-in ![Redfish Nagios plug-in](Github)](https://github.com/HewlettPackard/nagios-hpeilo-restful-extension)
 
 Nagios- Plug-in for Industry Standard in IT infrastructure monitoring.
 
