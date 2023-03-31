@@ -5,7 +5,7 @@ dateStart: 2023-03-14T23:01:14.694Z
 dateEnd: 2023-03-15T22:59:14.761Z
 category: Virtual Event
 image: /img/event-munch-and-learn-newlogo400x400.png
-link: https://developer.hpe.com
+link: https://www.youtube.com/watch?v=wVY7uZstDWA&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF
 width: large
 ---
 ## Extraordinary claims require extraordinary engineering (and TAMO isn’t an option)
