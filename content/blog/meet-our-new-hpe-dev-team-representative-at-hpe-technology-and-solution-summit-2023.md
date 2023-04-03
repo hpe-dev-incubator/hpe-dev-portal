@@ -19,9 +19,11 @@ T﻿he decision to hold this event at a physical location came late this year. A
 
 **Meet our new team member: Mathieu Losmede**
 
-M﻿athieu joined the HPE Developer Community team last summer. He came in with a strong HPE GreenLake background. He was part of the HPE GreenLake Cloud Service (aka Greenlake Central) SRE - Devops team. As our team's focus has recently shifted more heavily towards the HPE GreenLake Cloud Platform, we were very fortunate to have him join our group. 
+M﻿athieu joined the HPE Developer Community team last summer. He was present at Discover 2022 with us at Las Vegas in the Hack Shack. You can see him between Patrick and myself on the following picture. He will be the face of the HPE Developer Community team in Barcelona.
 
 ![](/img/fred-6-b-3-512-.jpg)
+
+Mathieu came in with a strong HPE GreenLake background. He was part of the HPE GreenLake Cloud Service (aka Greenlake Central) SRE - Devops team. As our team's focus has recently shifted more heavily towards the HPE GreenLake Cloud Platform, we were very fortunate to have him join our group. 
 
 Mathieu will be all over the place in Barcelona. One might wonder whether he managed to discover the secret of ubiquity. He will be delivering several technical breakouts either on his own or in partnership with other business units (BU) representatives (HPE GreenLake, Storage, Compute, and Aruba). He will also be co-presenting in other BUs' sessions. On top of these, he will deliver three hands-on labs based on our well-known [Workshops-on-Demand](https://developer.hpe.com/hackshack/workshops) project.
 
