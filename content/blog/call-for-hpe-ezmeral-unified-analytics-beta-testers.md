@@ -11,7 +11,7 @@ tags:
   - hpe-ezmeral
   - analytics
 ---
-The HPE Ezmeral team has been hard at work creating the next generation analytics and advanced analytics platform. To give you an early look at what we’ve been up to, we have created the [HPE Ezmeral Early Access (EEA) program](https://connect.hpe.com/HPEEzmeralEarlyAccess) that lets developers try new products, capabilities and features before they’re released. 
+The HPE Ezmeral team has been hard at work creating the next generation analytics and advanced analytics platform. To give you an early look at what we’ve been up to, we have created the HPE Ezmeral Early Access (EEA) program that lets developers try new products, capabilities and features before they’re released. 
 
 **Building out a more robust HPE Ezmeral Unified Analytics**
 
@@ -27,4 +27,4 @@ As part of the EEA program, you will have access to an HPE Ezmeral Unified Analy
 
 The HPE Ezmeral portfolio of software products provides enterprises with the foundation needed to develop analytic applications across hybrid-cloud environments. HPE Ezmeral lets you seamlessly access, manage and govern all your data, regardless of where it is located, and combine it into a single view. Combined with our open-source analytics framework that allows your developers to use the tools of their choice, high-performance analytics can be delivered at enterprise scale with an overall lower TCO.
 
-HPE Ezmeral Unified Analytics operationalizes hybrid multi-cloud modern analytic and advanced analytic workloads and lets you choose where you deploy your compute and data. [Register today](https://connect.hpe.com/HPEEzmeralEarlyAccessUnifiedAnalytics) to learn more about how you can participate in this program, and make sure to check out the replay of our [HPE Ezmeral Unified Analytics Early Access webinar](https://www.youtube.com/watch?v=1Z4fNOHGYlk&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF).
+HPE Ezmeral Unified Analytics operationalizes hybrid multi-cloud modern analytic and advanced analytic workloads and lets you choose where you deploy your compute and data. [Register today](https://www.hpe.com/us/en/hpe-ezmeral-unified-analytics.html#EEAUA ) to learn more about how you can participate in this program, and make sure to check out the replay of our [HPE Ezmeral Unified Analytics Early Access webinar](https://www.youtube.com/watch?v=1Z4fNOHGYlk&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF).
