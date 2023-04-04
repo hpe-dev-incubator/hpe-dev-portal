@@ -58,3 +58,4 @@ thead tr:first-child td {
 | **19-Jan-23**     | **HPE Ezmeral Data Fabric Software**     | **Alaric Thomas**              | [Replay](https://www.youtube.com/watch?v=rzLxGZIraTg&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF) | **[Learn about EEA](https://home.hpe-df.com)** |
 
 
+
