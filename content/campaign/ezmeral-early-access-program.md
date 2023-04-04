@@ -7,7 +7,7 @@ Companies that leverage business analytics, data management, and artificial inte
 
 HPE Ezmeral simplifies business analytics, data management, and AI to provide the foundational layer you need for hybrid data analytics. With HPE Ezmeral, you can seamlessly access, manage, and govern all your data from a single view, regardless of where it is located. It then layers on HPE-supported open source tools and frameworks allowing developers to use their preferred tools of choice for data analytics and processing.
 
-HPE is offering an exciting opportunity for early access to new capabilities and features. Through the [HPE Ezmeral Early Access](https://connect.hpe.com/HPEEzmeralEarlyAccess) (EEA) program, developers will get hands-on experience, training, and support from HPE to try our two new solutions designed to solve your hybrid data analytics problems. In return, we ask that you provide regular feedback to guide product development and roadmaps.
+HPE is offering an exciting opportunity for early access to new capabilities and features. Through the HPE Ezmeral Early Access (EEA) program, developers will get hands-on experience, training, and support from HPE to try our two new solutions designed to solve your hybrid data analytics problems. In return, we ask that you provide regular feedback to guide product development and roadmaps.
 
 Register today for one of two webinars where you can learn more.  
 
@@ -47,7 +47,7 @@ thead tr:first-child td {
 
 | Date          | Title                             | Speaker                    | Webinar link                                                                                            | HPE Ezmeral Early Access link                                                                             |
 | ------------- | --------------------------------- | -------------------------- | ------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
-| **17-Jan-23** | **HPE Ezmeral Unified Analytics** | **Srikanth Venkata Seshu** | [Replay](https://www.youtube.com/watch?v=1Z4fNOHGYlk&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF) | **[Learn about EEA](https://connect.hpe.com/HPEEzmeralEarlyAccessUnifiedAnalytics)** |
+| **17-Jan-23** | **HPE Ezmeral Unified Analytics** | **Srikanth Venkata Seshu** | [Replay](https://www.youtube.com/watch?v=1Z4fNOHGYlk&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF) | **[Learn about EEA](https://www.hpe.com/us/en/hpe-ezmeral-unified-analytics.html#EEAUA)** |
 
 <br/>
 
