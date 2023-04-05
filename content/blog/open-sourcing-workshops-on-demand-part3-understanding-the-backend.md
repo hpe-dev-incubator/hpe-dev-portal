@@ -16,7 +16,7 @@ A﻿s a reminder, here is a diagram showing the different parts of the Workshops
 
 ![](/img/wod-blogserie3-archi3.png "Workshops-on-Demand Architecture")
 
-#### B﻿ackend server  / workshops deployment liefecycle
+#### B﻿ackend server  / workshops deployment lifecycle
 
 T﻿he following picture is depicting what happens on the backend server when a participant has registered for a workshop. If you remember the fisrt article, you know that upon registration, the frontend sends through a procmail api call instructions to the backend server so that the latter can proceed with the workshop preparation and deployment. Once done with these different tasks, it informs back the api-db server through api calls with the relevant information.
 
