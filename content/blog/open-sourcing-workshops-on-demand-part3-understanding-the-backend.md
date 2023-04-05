@@ -8,7 +8,7 @@ tags:
   - open source
   - workshops-on-demand
 ---
-I﻿n the previous article [article](https://developer.hpe.com/blog/willing-to-build-up-your-own-workshops-on-demand-infrastructure/) of this series, I explained how to deploy the backend server of our Workshops-on-Demand infrastructure.
+I﻿n the previous [article](https://developer.hpe.com/blog/open-sourcing-workshops-on-demand-part2-deploying-the-backend/) of this series, I explained how to deploy the backend server of our Workshops-on-Demand infrastructure.
 
 I﻿ will take time today to dig into the details of this server. I will cover the inners of the registration process explaining how a workshop is deployed on the backend server. Even though it takes only a few minutes to the backend server to deploy a workshop, there are many processes taking place in the background. We will discover them together today.
 
