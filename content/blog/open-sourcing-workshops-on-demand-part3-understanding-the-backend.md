@@ -1,6 +1,6 @@
 ---
 title: "Open Sourcing Workshops-on-Demand part 3: Understand the Backend"
-date: 2023-03-01T17:24:34.117Z
+date: 2023-04-05T08:57:41.541Z
 author: Frederic Passeron
 authorimage: /img/frederic-passeron-hpedev-192.jpg
 disable: false
