@@ -349,4 +349,4 @@ N﻿ow, you should have a clearer view of what is really happening in the backgr
 
 T﻿his subject will be at the core of my next article where I will detail how one needs to manage and work with this server on a daily basis. What we usually call Day 2 operations.
 
-If we can be of any help in clarifying any of this, please reach out to us on [Slack](https://slack.hpedev.io/).Please be sure to drop back at [HPE DEV](https://developer.hpe.com/blog) for a follow up on this. Check out also the Hack Shack for new [workshops](https://developer.hpe.com/hackshack/workshops)! Willing to collaborate with us? Contact us and let's build together some more workshops!.Stay tuned!
+If we can be of any help in clarifying any of this, please reach out to us on [Slack](https://slack.hpedev.io/). Please be sure to drop back at [HPE DEV](https://developer.hpe.com/blog) for a follow up on this. Check out also the Hack Shack for new [workshops](https://developer.hpe.com/hackshack/workshops)! Willing to collaborate with us? Contact us and let's build together some more workshops! Stay tuned!
