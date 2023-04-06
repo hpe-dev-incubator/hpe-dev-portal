@@ -72,7 +72,7 @@ Subject: CREATE 401 825 frederic.passeron@hpe.com
 Folder: /home/wodadmin/wod-backend/scripts/procmail-action.sh CREATE       14
 ```
 
-In `Subject:`, we look for the API verb **CREATE** followed by **student id,** **participant id** and finally the registered **participant email.** 
+In `Subject:`, look for the API verb **CREATE** followed by **student id,** **participant id** and finally the registered **participant email.** 
 
 H﻿ere the values are respectively:
 
@@ -171,7 +171,7 @@ This id will be used later to get some of the workshop's specifics through addit
 
 8- `teststdid()` this function checks the student id provided by procmail API is valid: This function exits when the student id is not in the correct range. For each workshop, a dedicated student range is allocated.
 
-9- `generate_randompwd()` This function creates a random password for a user, it is used both for local and ldap users'passwords. If the workshop requires an LDAP authentication (`get_ldap_status()` functions will return this information) then another function is used to update the LDAP server with the password for the given student (`update_ldap_passwd()`)
+9- `generate_randompwd()` This function creates a random password for a user, it is used both for local and ldap users' passwords. If the workshop requires an LDAP authentication (`get_ldap_status()` functions will return this information) then another function is used to update the LDAP server with the password for the given student (`update_ldap_passwd()`)
 
 The generated password will be sent back to the api-db server so that the frontend server can then send an email to allow participant to connect to his workshop.
 
@@ -266,7 +266,7 @@ docker-compose up --build -d
 EOF
 ```
 
-1﻿3- T﻿he `copy_folder yml` playbook is now executed to deploy the notebooks and scripts necessary for the participant to run the workshop. Remember that the  participant got a student allocated to him at the time of the registration. This student is picked from a range that is allocated for the workshop. The admin decides on the maximum capacity it allocates to a given workshop. `c﻿opy_folder.yml`: This is historically one of very first playbook we used and therefore a very important one. It performs the necessary actions to deploy, personnalize (by substituting ansible variables) the selected notebook to the appropriate student home folder.
+1﻿3- T﻿he `copy_folder yml` playbook is now executed to deploy the notebooks and scripts necessary for the participant to run the workshop. Remember that the  participant got a student (with a dedicated student id. For instance: student41) allocated to him/her at the time of the registration. This student id is picked from a range that is allocated for the workshop. The admin decides on the maximum capacity it allocates to a given workshop. `c﻿opy_folder.yml`: This is historically one of very first playbook we used and therefore a very important one. It performs the necessary actions to deploy, personnalize (by substituting ansible variables) the selected notebook to the appropriate student home folder
 
 1﻿4- In the certain cases, some post deployment actions are needed. For instance, you may want to git clone some repository to leverage some data stored there. This can only occur when done with the deployment. Therefore, a `post-copy-<WKSHP.sh` ﻿is called.
 
@@ -275,7 +275,7 @@ EOF
 * T﻿he first API call will update the password data for the participant's allocated student.
 * T﻿he second API call will update the participant's allocated student's status to active.
 
-T﻿hese changes will trigger on the frontend web portal application the sending of the second email to the participant.  This email will contain the necessary information for the participant to connect to its notebooks environment. The participant will then run the workshop. For each workshop, a dedicated time window is allocated. Some workshops will take longer to be run than others. The time windows varies from 2 to 4 hours maximum. The workshops are somehow time bombed. This means that at the very moment, the participant hit the register button on the frontend web portal, the cloak starts ticking. Some background checks take place on the web portal to verify time spent since the registration to a given workshop. As a consequence, a reminder email is sent an hour before the finish line. When the bell rings at the end of the class, a new procmail API call is made to the backend server ordering a **CLEANUP** action. The particpant can also trigger this action by registering to a new workshop before the end of the current one. He will have to provide the necessary information to the frontend web portal in order to end the current workshop. 
+T﻿hese changes will trigger on the frontend web portal application the sending of the second email to the participant.  This email will contain the necessary information for the participant to connect to its notebooks environment. The participant will then run the workshop. For each workshop, a dedicated time window is allocated. Some workshops will take longer to be run than others. The time windows varies from 2 to 4 hours maximum. The workshops are somehow time bombed. This means that at the very moment, the participant hit the register button on the frontend web portal, the cloak starts ticking. Some background checks take place on the web portal to verify time spent since the registration to a given workshop. As a consequence, a reminder email is sent an hour before the finish line. When the bell rings at the end of the class, a new procmail API call is made to the backend server ordering a **CLEANUP** action. The participant can also trigger this action by registering to a new workshop before the end of the current one. He/She will have to provide the necessary information to the frontend web portal in order to end the current workshop. 
 
 L﻿et's see what is happening on the backend server to perform this **CLEANUP** scenario.
 
