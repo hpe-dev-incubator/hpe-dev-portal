@@ -244,24 +244,24 @@ module.exports = {
         head: true,
       },
     },
-    {
-      resolve: 'gatsby-plugin-adobe-launch-hpe',
-      options: {
-        pluginConfig: {
-          analyticsScript:
-            'https://www.hpe.com/global/metrics/easy/basic_measurement.js',
-        },
-        events: {
-          onRouteUpdate: 'ANALYTICS.PAGEVIEW',
-        },
-        breadCrumbs: {
-          countryCode: 'us',
-          languageCode: 'en',
-          siteSection: 'non-aem:developer',
-          pageLevel: 'main',
-        },
-      },
-    },
+    // {
+    //   resolve: 'gatsby-plugin-adobe-launch-hpe',
+    //   options: {
+    //     pluginConfig: {
+    //       analyticsScript:
+    //         'https://www.hpe.com/global/metrics/easy/basic_measurement.js',
+    //     },
+    //     events: {
+    //       onRouteUpdate: 'ANALYTICS.PAGEVIEW',
+    //     },
+    //     breadCrumbs: {
+    //       countryCode: 'us',
+    //       languageCode: 'en',
+    //       siteSection: 'non-aem:developer',
+    //       pageLevel: 'main',
+    //     },
+    //   },
+    // },
     'gatsby-plugin-feed',
     {
       resolve: 'gatsby-plugin-manifest',
