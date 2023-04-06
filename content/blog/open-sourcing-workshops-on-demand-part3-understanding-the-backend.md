@@ -1,5 +1,5 @@
 ---
-title: "Open Sourcing Workshops-on-Demand part 3: Understand the Backend"
+title: "Open Sourcing Workshops-on-Demand part 3: Understanding the Backend"
 date: 2023-04-05T09:29:49.964Z
 author: Frederic Passeron
 authorimage: /img/frederic-passeron-hpedev-192.jpg
@@ -10,15 +10,15 @@ tags:
 ---
 I﻿n the previous [article](https://developer.hpe.com/blog/open-sourcing-workshops-on-demand-part2-deploying-the-backend/) of this series, I explained how to deploy the backend server of our Workshops-on-Demand infrastructure.
 
-I﻿ will take time today to dig into the details of this server. I will cover the inners of the registration process explaining how a workshop is deployed on the backend server. Even though it takes only a few minutes to the backend server to deploy a workshop, there are many processes taking place in the background. We will discover them together today.
+In this article, I will dig into details on the backend server. I will cover the inner workings of the registration process, explaining how a workshop is deployed on the backend server. Even though it takes only a few minutes for the backend server to deploy a workshop, there are many processes taking place in the background, which I will cover here.
 
-A﻿s a reminder, here is a diagram showing the different parts of the Workshops-on-Demand infrastructure. I will focus today again on the backend server side and more precisely on the Jupyterhub server where all the automation takes place.
+A﻿s a reminder, here is a diagram showing the different parts of the Workshops-on-Demand infrastructure. In this article, I will once again focus on the backend server side and, more precisely, on the JupyterHub server, where all the automation takes place.
 
 ![](/img/wod-blogserie3-archi3.png "Workshops-on-Demand Architecture")
 
 #### B﻿ackend server  / workshops deployment lifecycle
 
-T﻿he following picture is depicting what happens on the backend server when a participant has registered for a workshop. If you remember the fisrt article, you know that upon registration, the frontend sends through a procmail api call instructions to the backend server so that the latter can proceed with the workshop preparation and deployment. Once done with these different tasks, it informs back the api-db server through api calls with the relevant information.
+T﻿he following picture is depicting what happens on the backend server when a participant has registered for a workshop. If you remember the first article, you know that upon registration, the frontend sends through a procmail api call instructions to the backend server so that the latter can proceed with the workshop preparation and deployment. Once done with these different tasks, it informs back the api-db server through api calls with the relevant information.
 
 L﻿et 's now look in details what is really happening  on the backend server's side:
 
@@ -339,14 +339,14 @@ W﻿e then initiate :
 
 9- `generate_randompwd()`:  We always update the student's password for security reasons.
 
-1﻿0- `erase-student()`:  we perform a cleanup of the student folder.
+1﻿0- `erase-student()`:  We perform a cleanup of the student folder.
 
 1﻿1- API calls to update tables in the database. The new s﻿tudent password is recorded. We also generate a new password at the **PURGE** phase to prevent unregistered logins. The s﻿tudent status is set to inactive. The capacity figure is incremented by one to make the seat available again. 
 
 A﻿n email is then sent to the participant explaining to him that we encountered an issue with the deployment and that we apologize for this. The same email is sent to the admin so he can work on the issue.
 
-N﻿ow, you should have a clearer view of what is really happening in the background when one registers for a workshop. You can see that I have uncovered many scripts to explain step by step all the stages of a workshop's deployment process. But there are some more to be explained. It is obvious that the main function of the backend server is to deploy and run workshops. Nevertheless, as any other server, it cannot live without maintenance.
+N﻿ow, you should have a clearer view of what is really happening in the background when one registers for a workshop. You can see that I have uncovered many scripts to explain step by step all the stages of a workshop's deployment process. But there is more to be explained. It is obvious that the main function of the backend server is to deploy and run workshops. Nevertheless, as any other server, it cannot live without maintenance.
 
-T﻿his subject will be at the core of my next article where I will detail how one needs to manage and work with this server on a daily basis. What we usually call day 2 operations.
+T﻿his subject will be at the core of my next article where I will detail how one needs to manage and work with this server on a daily basis. What we usually call Day 2 operations.
 
-Please be sure to drop back at [HPE DEV](https://developer.hpe.com/blog) for a follow up on this. Check out also the Hack Shack for new [workshops](https://developer.hpe.com/hackshack/workshops)! Willing to collaborate with us? Contact us and let's build together some more workshops! Stay tuned!
+If we can be of any help in clarifying any of this, please reach out to us on [Slack](https://slack.hpedev.io/).Please be sure to drop back at [HPE DEV](https://developer.hpe.com/blog) for a follow up on this. Check out also the Hack Shack for new [workshops](https://developer.hpe.com/hackshack/workshops)! Willing to collaborate with us? Contact us and let's build together some more workshops!.Stay tuned!
