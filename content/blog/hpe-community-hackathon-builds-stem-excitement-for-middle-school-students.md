@@ -3,11 +3,13 @@ title: HPE community hackathon builds STEM excitement for middle school students
 date: 2023-04-07T16:39:31.153Z
 author: Dale Rensing
 authorimage: /img/blog-author-rensing-96.jpg
-thumbnailimage: /img/hpe20160525019_800_0_72_rgb.jpg
+thumbnailimage: ""
 disable: false
 tags:
   - hackathon
 ---
+![](/img/hpe20160525019_800_0_72_rgb.jpg)
+
 A Hewlett Packard Enterprise (HPE) employee resource group called S.W.A.G. (Supporting Women’s Aspirations Group) is hosting a hackathon for middle school students in the San Jose area on May 4th, 2023. Working in partnership with [Curated Pathways to Innovation™](https://www.curatedpathways.org/) (CPI), they are expected to deliver an exceptional experience to around 100 students. The day will be filled with fun activities meant to raise students’ awareness of the latest advancements in technology and their potential in playing a part in its development. Many volunteers will be helping with the planning and execution of this hackathon, and a fun time is expected to be had by all.
 
 As a part of the hackathon, students will be required to address a specific community issue and present their solution to the problem. Children will collaborate with one another, looking at community issues such as homelessness, domestic violence and teen depression/suicide and find ways to leverage technology to address them. They will do so using a hackathon platform developed by Curated Pathways to Innovation in conjunction with HPE. This platform forms the foundation of a STEM (Science, Technology, Engineering and Mathematics) curriculum followed by the schools participating in this event. Their students already use this platform in their school, so they’re very familiar with how to work with it.
