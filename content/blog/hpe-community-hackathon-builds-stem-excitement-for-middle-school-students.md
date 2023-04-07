@@ -18,7 +18,7 @@ Upon arrival at the facility, students will be greeted by S.W.A.G. team members 
 
 As a part of their tour of the HPE CIC, students will be introduced to many of the amazing products HPE produces and how they probably already experience these products as part of their everyday activities – from bringing real-time location context to mobile apps in stores to immersive and connected experiences at theme parks. 
 
-![](/img/innovation-center-650.jpg)
+![](/img/innovation-center-800-px.jpg)
 
 A special focal point of the CIC tour will be at a kiosk housing a model of a Galactic Starcruiser where the students will learn about HPE's partnership with Disney to bring about one of the most immersive experiences ever at Star Wars: Galaxy's Edge at the Walt Disney World Resort. Considering the date of this event, it certainly seems to be an appropriate tour stop. We can already imagine students calling out greetings of "May the 4th be with you". In the CIC, students will also learn about our work with auto manufacturers to bring greater safety to vehicles and how supercomputers are used to help unlock unlimited supplies of clean energy, potentially sparking some ideas for their projects. (Learn more about the [HPE Customer Innovation Center](https://www.hpe.com/us/en/about/virtual-customer-innovation-center.html).)
 
