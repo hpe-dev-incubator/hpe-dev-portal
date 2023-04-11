@@ -2,7 +2,7 @@
 title: "Open sourcing Workshops-on-Demand - Part 1: Why and How"
 date: 2023-01-24T12:35:46.869Z
 featuredBlog: true
-priority: 1
+priority: 5
 author: "Frederic Passeron "
 authorimage: /img/fp-hpewod.jpg
 disable: false
