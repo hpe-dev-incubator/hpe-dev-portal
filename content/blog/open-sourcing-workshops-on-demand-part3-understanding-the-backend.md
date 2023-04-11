@@ -171,11 +171,11 @@ This ID will be used later to get some of the workshop's specifics through addit
 
 8- `teststdid()` This function checks the student ID provided by procmail API is valid: For each workshop, a dedicated student range is allocated. This function exits when the student ID is not in the correct range. 
 
-9- `generate_randompwd()` This function creates a random password for a user, it is used both for local and LDAP users' passwords. If the workshop requires an LDAP authentication (`get_ldap_status()` functions will return this information) then another function is used to update the LDAP server with the password for the given student (`update_ldap_passwd()`)
+9- `generate_randompwd()` This function creates a random password for a user. It is used both for local and LDAP users' passwords. If the workshop requires an LDAP authentication (`get_ldap_status()` functions will return this information) then another function is used to update the LDAP server with the password for the given student (`update_ldap_passwd()`)
 
-The generated password will be sent back to the api-db server so that the frontend server can then send an email to allow participant to connect to his workshop.
+The generated password will be sent back to the api-db server so that the frontend server can then send an email to allow participant to connect to the workshop.
 
-10- `erase_student()` This function erases all the content from the allocated student's home directory. We want to make sure that the home directory is not compromised. We start clean.
+10- `erase_student()` This function erases all the content from the allocated student's home directory. You want to make sure that the home directory is not compromised. You want to start clean.
 
 11- `get_compile_status()` This function will check if he workshop needs some scripts to be compiled. For instance, if you need to authenticate against a private cloud portal and you don't want your participants to see the credentials, make sure to check the relevant box in the workshop table of the database. This compile feature will compile the authentication scripts into an executable that cannot be edited.
 
