@@ -96,7 +96,7 @@ I﻿n order to work properly, `procmail-action.sh` needs to source 3 files:
 # Name of the admin user
 export WODUSER=wodadmin
 
-# Name of the wod machine type (backend, api-db, frontend, appliance)
+# Name of the WoD machine type (backend, api-db, frontend, appliance)
 export WODTYPE=backend
 
 # This main dir is computed and is the backend main dir
@@ -151,27 +151,27 @@ export ANSPLAYOPT="-e PBKDIR=staging -e WODUSER=wodadmin -e WODBEDIR=/home/wodad
 export ANSPRIVOPT=" -e @/home/wodadmin/wod-private/ansible/group_vars/all.yml -e @/home/wodadmin/wod-private/ansible/group_vars/staging"
 ```
 
-`r﻿andom.sh` ﻿exports the randomly generated password.
+`r﻿andom.sh` ﻿Exports the randomly generated password.
 
-`f﻿unctions.sh` is a library of shell functions used by many scripts among which `procmail-action.sh`.  We will see the details shortly below.
+`f﻿unctions.sh` Is a library of shell functions used by many scripts, among which can be found `procmail-action.sh`.  Details are shown below.
 
-4- `procmail-action.sh` c﻿alls the necessary functions and scripts to perform the  **CREATE** operation.
+4- `procmail-action.sh` Calls the necessary functions and scripts to perform the **CREATE** operation.
 
-5- `get_session_token()` This function retrieves the necessary token to make api call to the api-db server.
+5- `get_session_token()` This function retrieves the necessary token to make an API call to the api-db server.
 
-6- `get_workshop_name()`  This function extracts the workshop name from the mail body. In Body: One will find the workshop name: for example, **WKSHP-API101** 
+6- `get_workshop_name()`  This function extracts the workshop name from the mail body. In the body, one will find the workshop name. For example, **WKSHP-API101** 
 
-7- `get_workshop_id()` Out of the workshop name, the function `get_workshop_id()` will get the workshop's id from the api-db server.
+7- `get_workshop_id()` From the workshop name, the function `get_workshop_id()` will get the workshop's ID from the api-db server.
 
-This id will be used later to get some of the workshop's specifics through additional api calls to the api-db server.
+This ID will be used later to get some of the workshop's specifics through additional API calls to the api-db server.
 
-* D﻿oes the workshop require to use the student password as a variable?
-* Does the workshop require ldap authentication?
+* Does the workshop require the use of the student password as a variable?
+* Does the workshop require LDAP authentication?
 * D﻿oes the workshop require a compiled script?
 
-8- `teststdid()` this function checks the student id provided by procmail API is valid: This function exits when the student id is not in the correct range. For each workshop, a dedicated student range is allocated.
+8- `teststdid()` This function checks the student ID provided by procmail API is valid: For each workshop, a dedicated student range is allocated. This function exits when the student ID is not in the correct range. 
 
-9- `generate_randompwd()` This function creates a random password for a user, it is used both for local and ldap users' passwords. If the workshop requires an LDAP authentication (`get_ldap_status()` functions will return this information) then another function is used to update the LDAP server with the password for the given student (`update_ldap_passwd()`)
+9- `generate_randompwd()` This function creates a random password for a user, it is used both for local and LDAP users' passwords. If the workshop requires an LDAP authentication (`get_ldap_status()` functions will return this information) then another function is used to update the LDAP server with the password for the given student (`update_ldap_passwd()`)
 
 The generated password will be sent back to the api-db server so that the frontend server can then send an email to allow participant to connect to his workshop.
 
