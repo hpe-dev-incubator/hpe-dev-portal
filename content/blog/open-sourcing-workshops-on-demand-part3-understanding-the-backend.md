@@ -270,20 +270,22 @@ EOF
 
 1﻿4- In the certain cases, some post deployment actions are needed. For instance, you may want to git clone some repository to leverage some data stored there. This can only occur when done with the deployment. Therefore, a `post-copy-<WKSHP.sh` ﻿is called.
 
-1﻿5- Finally, the workshop is now ready to be used by the participant. The backend therefore, needs to inform back the frontend of this. To do so, it will perform two API calls:
+1﻿5- Finally, the workshop is now ready to be used by the participant. The backend therefore, needs to inform the frontend of this. To do so, it will perform two API calls:
 
 * T﻿he first API call will update the password data for the participant's allocated student.
 * T﻿he second API call will update the participant's allocated student's status to active.
 
-T﻿hese changes will trigger on the frontend web portal application the sending of the second email to the participant.  This email will contain the necessary information for the participant to connect to its notebooks environment. The participant will then run the workshop. For each workshop, a dedicated time window is allocated. Some workshops will take longer to be run than others. The time windows varies from 2 to 4 hours maximum. The workshops are somehow time bombed. This means that at the very moment, the participant hit the register button on the frontend web portal, the cloak starts ticking. Some background checks take place on the web portal to verify time spent since the registration to a given workshop. As a consequence, a reminder email is sent an hour before the finish line. When the bell rings at the end of the class, a new procmail API call is made to the backend server ordering a **CLEANUP** action. The participant can also trigger this action by registering to a new workshop before the end of the current one. He/She will have to provide the necessary information to the frontend web portal in order to end the current workshop. 
+These changes will trigger the frontend web portal application to send a second email to the participant. This email will contain the necessary information for the participant to connect to its notebooks environment. The participant will then run the workshop. For each workshop, a dedicated time window is allocated. Some workshops will take longer to be run than others. The time windows varies from 2 to 4 hours maximum.The system knows how to set it up so that it will time out. This means that once the participant hits the register button on the frontend web portal, the clock starts ticking. 
+
+Some background checks take place on the web portal to verify time spent since the registration to a given workshop. As a consequence, a reminder email is sent an hour before the workshop times out. When the bell rings at the end of the class, a new procmail API call is made to the backend server ordering a **CLEANUP** action. The participant can also trigger this action by registering to a new workshop before the end of the current one. He/She will have to provide the necessary information to the frontend web portal in order to end the current workshop. 
 
 L﻿et's see what is happening on the backend server to perform this **CLEANUP** scenario.
 
 ![](/img/wod-blogserie3-cleanup.png "backend server CLEANUP workflow")
 
-A﻿s you can see, it does not differ much from the **CREATE**. We still need to gather data to interact with the proper workshop from the right student. The `.procmail.rc` is providing us with these infos. Then, the automation kicks in through the `procmail-action-sh` script.
+A﻿s you can see, it does not differ much from the **CREATE**. We still need to gather data to interact with the proper workshop from the right student. The `.procmail.rc` is providing us with this information. Then, the automation kicks in through the `procmail-action-sh` script.
 
-T﻿he verb is now **CLEANUP**. As a consequence, step4 is now **CLEANUP**.
+T﻿he verb is now **CLEANUP**. As a consequence, step 4 is now **CLEANUP**.
 
 N﻿othing changes from 5 to 9.
 
