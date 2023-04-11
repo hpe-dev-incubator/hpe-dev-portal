@@ -18,15 +18,15 @@ A﻿s a reminder, here is a diagram showing the different parts of the Workshops
 
 #### B﻿ackend server  / workshops deployment lifecycle
 
-T﻿he following picture is depicting what happens on the backend server when a participant has registered for a workshop. If you remember the first article, you know that upon registration, the frontend sends through a procmail api call instructions to the backend server so that the latter can proceed with the workshop preparation and deployment. Once done with these different tasks, it informs back the api-db server through api calls with the relevant information.
+The following picture depicts what happens on the backend server when a participant registers for a workshop. If you remember from the first article, upon registration the frontend sends instructions to the backend server through a procmail API call so the latter can proceed with the workshop preparation and deployment. Once these tasks are completed, it provides the API-DB server with the relevant information
 
-L﻿et 's now look in details what is really happening  on the backend server's side:
+L﻿et's now look in details what is really happening  on the backend server's side:
 
 ![](/img/wod-blogserie3-create.png "backend server CREATE workflow")
 
-0- The procmail API: This is a mail parsing process allowing the backend server to retrieve the relevant information in order to perform appropriate actions. As any API, it uses verbs to performs actions. In our case, we leverage **CREATE**, **CLEANUP**, **RESET** and **PURGE**.
+0- The procmail API: This is a mail parsing process allowing the backend server to retrieve the relevant information in order to perform appropriate actions. As with any API, it uses verbs to perform actions. In our case, we leverage **CREATE**, **CLEANUP**, **RESET** and **PURGE**.
 
-If you need more info on procmail usage, check the following [page](https://wiki.archlinux.org/title/Procmail>).
+If you need more info on procmail usage, check this [page](https://wiki.archlinux.org/title/Procmail>).
 
 T﻿ake a look at the  following template of the `.procmailrc` file that will be expanded at setup time.
 
@@ -60,9 +60,9 @@ LOGFILE=$MAILDIR/from
 | {{ SCRIPTDIR }}/procmail-action.sh PURGE $MATCH
 ```
 
-The `From:` is important as `.procmailrc` checks that the sender is the configured one from the frontend server. During the install process, the `WODSENDER` parameter id referring to this. Any mail from any other sender but the configured one is not processed.
+The `From:` is important as `.procmailrc` checks that the sender is the configured one from the frontend server. During the install process, the `WODSENDER` parameter ID referring to this. Any mail from any other sender but the configured one is not processed.
 
-This api is actually based on a script `procmail-action.sh`. This script defines the different actions linked to the verbs passed through the api calls via `.procmailrc`
+This API is actually based on a script `procmail-action.sh`. This script defines the different actions linked to the verbs passed through the API calls via `.procmailrc`
 
 L﻿et's start with a **CREATE** scenario looking at the very first lines of the `procmail` log file.
 
@@ -74,7 +74,7 @@ Folder: /home/wodadmin/wod-backend/scripts/procmail-action.sh CREATE       14
 
 In `Subject:`, look for the API verb **CREATE** followed by **student id,** **participant id** and finally the registered **participant email.** 
 
-H﻿ere the values are respectively:
+H﻿ere are the values respectively:
 
 * s﻿tudent id: 401 
 * p﻿articipant id: 825
