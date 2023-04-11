@@ -289,19 +289,19 @@ T﻿he verb is now **CLEANUP**. As a consequence, step 4 is now **CLEANUP**.
 
 N﻿othing changes from 5 to 9.
 
-1﻿0- `get_wod_completion_ratio()` Allows us to retrieve through a simple computing of the numbers of notebooks cells executed thoughout the different exercices of the workshop a ratio. This enables us to see how much of the workshop is actually run. Participants are asked to fill out a form in a conclusion notebook which is present in every student's workshop's folder. But only 10 % of participant do fill it. That leaves many participants for which we don't know whether they liked or not or more importantly, did they actually run it ? 
+1﻿0- `get_wod_completion_ratio()` Allows us to retrieve information through a simple computing of the numbers of notebooks cells executed thoughout the different exercices of the workshop a ratio. This enables us to see how much of the workshop is actually run. Participants are asked to fill out a form in a conclusion notebook which is present in every student's workshop's folder. 
 
 T﻿his completion ratio script provides us this data and we store it in our database. 
 
-1﻿1- API call to send the completion ratio figure to the database. This can be later queried to build up nice reporting dashboard as explained here by my colleague Didier Lalli in the following [article](https://developer.hpe.com/blog/open-source-elasticsearch-helped-us-globally-support-virtual-labs/).
+1﻿1- API call to send the completion ratio figure to the database. This can be later queried to build up a nice reporting dashboard as explained here by my colleague Didier Lalli, in the following [article](https://developer.hpe.com/blog/open-source-elasticsearch-helped-us-globally-support-virtual-labs/).
 
-1﻿2- `erase-student()`: now that we have extracted the necessary data from the student's notebooks, we can perform a cleanup of the student folder.
+1﻿2- `erase-student()`: Now that we have extracted the necessary data from the student's notebooks, we can perform a cleanup of the student folder.
 
-1﻿3- `cleanup_processes_student()`: On top of cleanup of the student folder, we also kill all the allocated student's processes.
+1﻿3- `cleanup_processes_student()`: On top of cleaning up the student folder, we also kill all the allocated student's processes.
 
 1﻿4- `cleanup-<workshop>.sh`: If any appliance is involved, this task will perform the necessary cleanup processes on the appliance.
 
-1﻿5- Finally, just like for the creation of a workshop process, we need to inform back the frontend that now cleanup is done. Therefore, several API calls are made to update tables in the database. The new s﻿tudent password is recorded. We also generate a new password at the cleanup phase to prevent unregistered logins. The s﻿tudent status is set to inactive. The capacity figure is incremented by one to make the seat available again. 
+1﻿5- Finally, just like for the creation of a workshop process, we need to tell the frontend that the cleanup is now done. Therefore, several API calls are made to update tables in the database. The new s﻿tudent password is recorded. We also generate a new password at the cleanup phase to prevent unregistered logins. The s﻿tudent status is set to inactive. The capacity figure is incremented by one to make the seat available again. 
 
 A﻿s for the **CREATE** phase, the regular checks occuring on the frontent web portal will get these data and trigger the final email to the participant thanking him for his particpation.
 
@@ -309,11 +309,11 @@ N﻿ow let's look at the **RESET** scenario.
 
 ![](/img/wod-blogserie3-reset.png "backend server RESET workflow")
 
- You may wonder what are the differences between **CLEANUP** and **RESET**? Well, firstly, they spell differently but that has nothing to do with the purpose of this article...Secondly, **CLEANUP** only takes care of student whereas **RESET** takes care of a larger scope. Let me explain.
+You may wonder about the differences between CLEANUP and RESET. CLEANUP only takes care of students whereas RESET takes care of a larger scope. Let me explain...**CLEANUP** only takes care of student whereas **RESET** takes care of a larger scope.
 
-W﻿hen a **CLEANUP** occurs, it deals with the participant's student workshop and home directory (the workshop directory belonging to the home directory). It cleans up workshop content, ssh keys, skeletons. The <RESET> will delete leftovers from the workshop's exercices. For instance, when one runs the [Kubernetes 101](https://developer.hpe.com/hackshack/workshop/24) workshop, he is creating microservices, he's scaling them, and should at the end of the workshop run some `kubectl delete` commands to clean up everything. However, this does not happen all the time. And the admin needs to make sure that the next participant who will get affected the very same student environment comes with a fresh one. Therefore, some measures have to be taken. Well these measures take place when a reset flag is associated to the workshop in the database.
+W﻿hen a **CLEANUP** occurs, it deals with the participant's student workshop and home directory (the workshop directory belonging to the home directory). It cleans up workshop content, ssh keys, skeletons. The **RESET** will delete leftovers from the workshop's exercices. For instance, when one runs the [Kubernetes 101](https://developer.hpe.com/hackshack/workshop/24) workshop, he is creating microservices, he's scaling them, and should at the end of the workshop run some `kubectl delete` commands to clean up everything. However, some participants may forget to run these clean up steps. And the admin needs to make sure that the next participant who will be assigned the same student environment gets a fresh one. Therefore, some measures have to be taken. These measures take place when a reset flag is associated to the workshop in the database.
 
-D﻿uring the **CLEANUP** phase, a check is actually performed to test the presence of this flag through a simple API call on the frontend  API-DB server. If the workshop has a reset flag then a dedicated `reset-WKSHP.sh` script is called and performed the necessary tasks. In the case of kubernetes 101, it will wipe out any leftovers from the student. In some other cases, it will launch a revert to snapshot script on a virtual machine. 
+D﻿uring the **CLEANUP** phase, a check is actually performed to test the presence of this flag through a simple API call on the frontend  API-DB server. If the workshop has a reset flag then a dedicated `reset-WKSHP.sh` script is called and performs the necessary tasks. In the case of Kubernetes 101, it will wipe out any leftovers from the student. In some other cases, it will launch a revert to snapshot script on a virtual machine. 
 
 Finally, let's consider the **PURGE** scenario.
 
@@ -331,11 +331,11 @@ I﻿n a perfect world, we would have covered here what one would somehow expect 
 
 The **PURGE** scenario is therefore triggered on Workshops-on-Demand' deployment failures.
 
-A﻿t the registration time, when the participant hits the register button on the frontend web portal, an entry is automatically created in the database for him. It associates the participant to a student and a workshop. it also r﻿egisters the date and start time of the workshop, sets the participant status  to 'welcome' in the database and a first email is sent to the particpant from the frontend web portal welcoming him to the Workshop-on-Demand and stating to him that within a few minutes a second email will be sent along with the necessary information (credentials and url) to connect to the workshop's environment. If for any reason, the deployment of the workshop fails and as a consequence, no API call is made back to the frontend from the backend, the frontend could remain stuck for ever and so would the participant. To overcome this, we implemented a check on the frontend web portal to test this welcome status. In a normal scenario, this welcome status gets updated within less than 3 minutes. If the status is not updated within 10 minutes, we consider that something went wrong during the deployment and as a result, a **PURGE** scenario is initiated to clean up both the backend and the frontend sides of the related registration. Of course, depending of the backend sanity, some actions could also fail. But from our experience, both  frontend and backend are really reliable. 
+A﻿t the registration time, when the participant hits the register button on the frontend web portal, an entry is automatically created in the database for him. It associates the participant to a student and a workshop. It also r﻿egisters the date and start time of the workshop, sets the participant status  to 'welcome' in the database and a first email is sent to the particpant from the frontend web portal welcoming him to the Workshop-on-Demand and stating to him that within a few minutes a second email will be sent along with the necessary information (credentials and url) to connect to the workshop's environment. If for any reason, the deployment of the workshop fails and as a consequence, no API call is made back to the frontend from the backend, the frontend could remain stuck forever and so would the participant. To overcome this, we implemented a check on the frontend web portal to test this welcome status. In a normal scenario, this welcome status gets updated within less than 3 minutes. If the status is not updated within 10 minutes, we consider that something went wrong during the deployment and as a result, a **PURGE** scenario is initiated to clean up both the backend and the frontend sides of the related registration. Of course, depending of the backend sanity, some actions could also fail. But from our experience, both  frontend and backend are really reliable. 
 
 Considering now the most common case: the backend server and frontend servers can communicate but the JupyterHub server has issues to communicate with appliances. I﻿n terms of tasks associated to the **PURGE** scenario, you can see that we kept the minimal as there should not be much to clean up on the backend server. Simply consider that is a **CLEANUP** scenario without any workshop deployment.
 
-We call the same tasks to begin with as we still need student id and workshop id. 
+We call the same tasks to begin with as we still need student ID and workshop ID.
 
 W﻿e then initiate :
 
