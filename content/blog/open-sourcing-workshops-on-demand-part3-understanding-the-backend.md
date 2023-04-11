@@ -177,9 +177,9 @@ The generated password will be sent back to the api-db server so that the fronte
 
 10- `erase_student()` This function erases all the content from the allocated student's home directory. You want to make sure that the home directory is not compromised. You want to start clean.
 
-11- `get_compile_status()` This function will check if he workshop needs some scripts to be compiled. For instance, if you need to authenticate against a private cloud portal and you don't want your participants to see the credentials, make sure to check the relevant box in the workshop table of the database. This compile feature will compile the authentication scripts into an executable that cannot be edited.
+11- `get_compile_status()` This function will check if the workshop needs some scripts to be compiled. For instance, if you need to authenticate against a private cloud portal and you don't want your participants to see the credentials, make sure to check the relevant box in the workshop table of the database. This compile feature will compile the authentication scripts into an executable that cannot be edited.
 
-12- If an appliance is needed for the workshop, then the following script is called: `create-<WKSHP>.sh` .This will prepare the appliance (deploying a docker image on it for instance) and setup user env on appliance accordingly (ssh keys, skeletons)
+12- If an appliance is needed for the workshop, then the following script is called: `create-<WKSHP>.sh` .This will prepare the appliance (deploying a docker image on it for instance) and setup user env on the appliance accordingly (ssh keys, skeletons)
 
 F﻿or instance, `create-WKSHP-ML101.sh` will perform the following tasks in order to prepare the appliance for the workshop: It will start by reseting the appliance with the `reset-<WKSHP>.sh` s﻿cript. Then, it calls a second script aiming at preparing  a generic appliance `create-appliance.sh`.﻿ Once done with these two, it moves on with the proper customization of the appliance for the given student.
 
@@ -266,7 +266,7 @@ docker-compose up --build -d
 EOF
 ```
 
-1﻿3- T﻿he `copy_folder yml` playbook is now executed to deploy the notebooks and scripts necessary for the participant to run the workshop. Remember that the  participant got a student (with a dedicated student id. For instance: student41) allocated to him/her at the time of the registration. This student id is picked from a range that is allocated for the workshop. The admin decides on the maximum capacity it allocates to a given workshop. `c﻿opy_folder.yml`: This is historically one of very first playbook we used and therefore a very important one. It performs the necessary actions to deploy, personnalize (by substituting ansible variables) the selected notebook to the appropriate student home folder
+1﻿3- T﻿he `copy_folder yml` playbook is now executed to deploy the notebooks and scripts necessary for the participant to run the workshop. Remember that the  participant got a student (with a dedicated student id. For instance: student41) allocated to him/her at the time of the registration. This student id is picked from a range that is allocated for the workshop. The admin decides on the maximum capacity it allocates to a given workshop. `c﻿opy_folder.yml`: This is historically one of very first playbooks we used and therefore a very important one. It performs the necessary actions to deploy and personnalize (by substituting Ansible variables) the selected notebook to the appropriate student home folder
 
 1﻿4- In the certain cases, some post deployment actions are needed. For instance, you may want to git clone some repository to leverage some data stored there. This can only occur when done with the deployment. Therefore, a `post-copy-<WKSHP.sh` ﻿is called.
 
