@@ -9,8 +9,8 @@ Author: HPE Developer Team
  
   >Note: if you want to remove a Featured Blog post from the home panel, simply toggle off the "Active" flag option.
   
-* In the Body area just enter a "space" charcater. 
-  (note: this is no longer true for the body area: enter the Author name, Title of the blog as Header level 2, and Date (if appropriate) as header level 4. An example is here:)
+* In the Body area just enter a "space" character. 
+  (note: this is no longer true for the body area: enter the Author name, Title of the blog as Header level 7, and Date (if appropriate) as header level 4. An example is here:)
   
  Author Name
  
