@@ -35,7 +35,7 @@ Look for the HPE Developer Community track in the HPE TSS 2023 agenda to get det
 
 As always,the HPE Developer Community team brings in new ways to learn in a fun way. This year at TSS 2023 in Barcelona, we propose you to participate to a treasure hunt. Do not worry, no long walking needed there, we won't be sending you looking for clues in the city of Barcelona. All you will be needing is an internet browser and a few minutes. The treasure hunt will be available from the HPE TSS mobile app. It will start on Monday the 22nd of May at 12.00 pm CEST and end on Thursday the 25th of May at 10.00 CEST.  
 
-Three winners will be selected. The winners will receive their prizes on Thursday, May 25th on the show floor at the HPE GreenLake booth at 12:15pm CEST. Please read the Terms and Conditions for participation in the HPE Developer Community Treasure Hunt found here.
+Three winners will be selected. The winners will receive their prizes on Thursday, May 25th on the show floor at the HPE GreenLake booth at 12:15pm CEST. Please read the Terms and Conditions for participation in the HPE Developer Community Treasure Hunt found [here](https://developer.hpe.com/hackshack/hpetss2023-treasurehunt-terms-conditions/).
 
 ![](/img/echodotgen3.png "Amazon Echo Dot3")
 
