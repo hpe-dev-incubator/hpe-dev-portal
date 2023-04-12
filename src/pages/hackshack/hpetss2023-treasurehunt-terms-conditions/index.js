@@ -199,24 +199,23 @@ const TreasureHuntTC = () => {
             providing HPE with your personal data, you consent to the use of
             your data by HPE for purposes of conducting this Program in
             accordance with these Terms and Conditions and subject to HPE’s
-            Privacy Statement, available at{' '}
+            Privacy Statement, available at {' '}
             <Anchor
               href="https://www.hpe.com/us/en/legal/privacy.html"
               target="_blank"
               rel="noreferrer noopener"
             >
-              https://www.hpe.com/us/en/legal/privacy.html 
+              https://www.hpe.com/us/en/legal/privacy.html
             </Anchor>
-             (external) or 
+            &nbsp;(external) or {' '}
             <Anchor
               href="https://hpe.sharepoint.com/teams/CorporateStdDMT/Approved/HPE002-03.pdf"
               target="_blank"
               rel="noreferrer noopener"
             >
-              https://hpe.sharepoint.com/teams/CorporateStdDMT/Approved/HPE002-03.pdf 
+              https://hpe.sharepoint.com/teams/CorporateStdDMT/Approved/HPE002-03.pdf
             </Anchor>
-             (Employee Privacy Policy)
-             .
+            &nbsp;(Employee Privacy Policy).
           </Text>
           <br />
           <Text size="xlarge">
