@@ -1,5 +1,6 @@
 ---
-title: "    WIN IN THE HPE DEV TREASURE HUNT"
+title: "    WIN IN THE HPE DEV TREASURE HUNT!"
+active: true
 fit: cover
 link: https://forms.office.com/r/8urPjeA64z
 imageBackground: rgba(0, 86, 122, 0.8);
