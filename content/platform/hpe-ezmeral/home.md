@@ -33,7 +33,7 @@ The HPE Ezmeral Early Access (EEA) program lets developers try new products befo
 
 The first two products that are available through EEA are:
 
-* [HPE GreenLake for Data Fabric Software](https://home.hpe-df.com/) (GLDF) – a managed service that provides a fully deployed, configured and managed single global name space to aggregate heterogeneous data stores from a single interface    
+* [HPE Ezmeral Data Fabric Software](https://home.hpe-df.com/) (GLDF) – a managed service that provides a fully deployed, configured and managed single global name space to aggregate heterogeneous data stores from a single interface    
 
 * [HPE Ezmeral Unified Analytics Software]( https://www.hpe.com/us/en/hpe-ezmeral-unified-analytics.html#EEAUA) (UA) – HPE Ezmeral Unified Analytics Software provides a curated, managed set of popular open-source frameworks targeting workloads in data engineering, large scale data analytics, BI Reporting and exploratory data science, AI, and ML.
 
