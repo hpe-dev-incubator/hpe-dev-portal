@@ -111,4 +111,4 @@ Take advantage of our free, Jupyter-Notebook based workshops available in the HP
 
 Join the [HPE Developer Slack Workspace](https://slack.hpedev.io/) and start a discussion in our [\#ezmeral-runtime-enterprise](https://app.slack.com/client/T5SNJCC7K/C01BB50LG4W) channel.
 
-Not a Slack user? You can also ask your questions in our [HPE Ezmeral Forum](https://hpe.com/forum/ezmeral).
+Not a Slack user? You can also ask your questions in our [HPE Ezmeral Software Forum](https://hpe.com/forum/ezmeral).
