@@ -162,7 +162,7 @@ The main cmdlets for managing users and their access to HPE GreenLake resources 
   * `New-HPEGLResourceRestrictionPolicy`: to set resource restriction policies in your HPE GreenLake account.
   * `Remove-HPEGLResourceRestrictionPolicy`: to remove resource restriction policies in your HPE GreenLake account.
 
-# Managing devices with the HPE GreenLake PowerShell Library
+## Managing devices with the HPE GreenLake PowerShell Library
 
 In HPE GreenLake, devices are the resource for compute, network and storage devices that you can onboard on the platform in your HPE GreenLake account. Once onboarded, devices can be viewed, assigned to an application instance, applied to a subscription, and tagged.
 
@@ -225,7 +225,7 @@ Overall, the ability to fully automate device onboarding is a significant advant
 
 Note that the library provides the same cmdlets for storage and networking devices. In the **Samples** folder of the library available on [GitHub](https://github.com/HewlettPackard/POSH-HPEGreenLake/tree/master/Samples), you can find a collection of sample scripts and sample csv files that show how to make the complete use of these full device onboarding cmdlets.
 
-# Managing applications with the HPE GreenLake PowerShell Library
+## Managing applications with the HPE GreenLake PowerShell Library
 
 The main cmdlets for managing applications in the HPE GreenLake Platform are the followings:
 
@@ -254,6 +254,11 @@ The main cmdlets for managing applications in the HPE GreenLake Platform are the
   * `Remove-HPEGLAPIcredential`: to delete an API credential of an application instance.
 
 
-# Managing subscriptions with the HPE GreenLake PowerShell Library 
+## Managing subscriptions with the HPE GreenLake PowerShell Library 
 
+The main cmdlets for managing subscriptions in the HPE GreenLake Platform are the followings:
+
+* To manage subscriptions : 
+
+  * `Get-HPEGLApplication`: 
 
