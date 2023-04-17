@@ -260,5 +260,5 @@ The main cmdlets for managing subscriptions in the HPE GreenLake Platform are th
 
 * To manage subscriptions : 
 
-  * `Get-HPEGLApplication`: 
+  * `HPEGLDeviceSubscription`: 
 
