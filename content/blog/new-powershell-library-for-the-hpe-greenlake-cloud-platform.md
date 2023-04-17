@@ -145,23 +145,24 @@ Additionally, you can restrict access to specific resources by creating custom r
 
 The main cmdlets for managing users and their access to HPE GreenLake resources are the following:
 
-- To manage users: 
-  - `Get-HPEGLUser`: to get users and their activity status and roles.
-  - `Send-HPEGLUserInvitation`: to invite users to your account. 
-  - `Remove-HPEGLUser`: to delete users from your account.
+* To manage users: 
 
-- To view and manage user roles and permissions: 
-  - `Get-HPEGLRole`: to view the role (= group of permissions) that you can specify and assign to users in your HPE GreenLake account.  
-  - `Get-HPEGLUserRole`: to view user roles and permissions. 
-  - `Set-HPEGLUserRole`: to set user roles and permissions. 
-  - `Remove-HPEGLUserRole`: to remove user roles and permissions. 
+  * `Get-HPEGLUser`: to get users and their activity status and roles.
+  * `Send-HPEGLUserInvitation`: to invite users to your account. 
+  * `Remove-HPEGLUser`: to delete users from your account.
+* To view and manage user roles and permissions: 
 
-- To define Resource Restriction Policies and manage access to resources:
-   - `Get-HPEGLResourceRestrictionPolicy`: to view resource restriction policies in your HPE GreenLake account.
-   - `New-HPEGLResourceRestrictionPolicy`: to set resource restriction policies in your HPE GreenLake account.
-   - `Remove-HPEGLResourceRestrictionPolicy`: to remove resource restriction policies in your HPE GreenLake account.
+  * `Get-HPEGLRole`: to view the role (= group of permissions) that you can specify and assign to users in your HPE GreenLake account.  
+  * `Get-HPEGLUserRole`: to view user roles and permissions. 
+  * `Set-HPEGLUserRole`: to set user roles and permissions. 
+  * `Remove-HPEGLUserRole`: to remove user roles and permissions. 
+* To define Resource Restriction Policies and manage access to resources:
 
-# Managing devices with the HPE GreenLake PowerShell Library 
+  * `Get-HPEGLResourceRestrictionPolicy`: to view resource restriction policies in your HPE GreenLake account.
+  * `New-HPEGLResourceRestrictionPolicy`: to set resource restriction policies in your HPE GreenLake account.
+  * `Remove-HPEGLResourceRestrictionPolicy`: to remove resource restriction policies in your HPE GreenLake account.
+
+# Managing devices with the HPE GreenLake PowerShell Library
 
 In HPE GreenLake, devices are the resource for compute, network and storage devices that you can onboard on the platform in your HPE GreenLake account. Once onboarded, devices can be viewed, assigned to an application instance, applied to a subscription, and tagged.
 
@@ -174,10 +175,85 @@ As in the GUI, the bare cmdlet (without parameters) returns a subset of resource
 The cmdlets in this library usually generate formatted objects when they are displayed on the console to enhance readability and ease of understanding. As an example, if you enter:
 
 > Get-HPEGLdevice -Limit 10 
+>
+> ![](/img/lj-picture8.png)
 
-The generated output is "formatted". To get the full view of a formatted object in PowerShell, you can use the Format-List cmdlet (or fl its alias). This cmdlet allows you to display all the properties and values of an object in a list form. Try this time:
+The generated output is "formatted". To get the full view of a formatted object in PowerShell, you can use the `Format-List` cmdlet (or `fl` its alias). This cmdlet allows you to display all the properties and values of an object in a list form:
 
 > Get-HPEGLdevice -Limit 10 | fl
+>
+> ![](/img/lj-picture9.png)
 
+Several other parameters are available with `Get-HPEGLDEvice` (e.g. Tags, Archived, Stats, Devicetype, Serialnumber, etc.) you can use the help to get the complete list, and try them out at your convenience.
+
+## Adding devices to the HPE GreenLake Platform
+
+To manage devices using HPE GreenLake, one of the initial steps is to onboard the device onto the platform. When using the GUI, this step is typically done manually. One of the major advantages of using a library that supports automation is the ability to streamline and fully automate processes such as device onboarding. With automation, you can significantly increase efficiency, reduce errors, and save time and resources that would otherwise be spent on manual tasks.
+
+`Add-HPEGLDeviceCompute` is the first cmdlet that you can use to simply add a Compute device to the HPE GreenLake console.  The sole purpose of this cmdlet is to add compute(s) with the specified tags to the platform and nothing beyond that.
+
+It is worth noting that a CSV file can be utilized to add multiple computes to the platform by containing device information such as serial number, part number, and tags. To do so, this CSV file can be used as a pipeline input of this cmdlet using the following procedure: 
+
+`> Import-Csv Compute_Devices.csv | Add-HPEGLDeviceCompute`
+
+The content of the csv file must use the following format:
+
+```
+   SerialNumber, PartNumber, Tags
+   WGX2380BLC,	P55181-B21, Country=US State=PACA App=RH
+   AZX2380BLD,  P55182-B21, State=Texas Role=production
+   7LKY23D9LM,  P54277-B21
+```
+
+Tags are optional but highly recommended, especially when creating the resource restriction policy.
+
+`Add-HPEGLDeviceComputeFullService` is a much more advanced cmdlet than the previous one. This specific command has the ability to perform all mandatory steps of Compute onboarding:
+
+* Connect to HPE GreenLake using the default account or the one provided using the GLCompanyName parameter.
+* Set the automatic assignment of subscriptions with the first Compute Enhanced subscription found that has not expired and has available subscription seats.
+* Onboard each device to the HPE GreenLake Cloud Platform account.      
+* Set optional server tags if defined with the Tags parameter.
+* Associate each device with the defined application instance (subscription is automatically assigned to each device as per auto assignment configuration).
+* Set each iLO to use a web proxy if defined via the different web proxy parameters.
+* Connect each iLO to the HPE Compute Ops Management instance.
+
+Use Get-Help to learn more about this cmdlet and particularly look at the different examples:
+
+`> Help Add-HPEGLDeviceComputeFullService -full`
+
+Overall, the ability to fully automate device onboarding is a significant advantage that can lead to many benefits for organizations of all sizes.
+
+Note that the library provides the same cmdlets for storage and networking devices. In the **Samples** folder of the library available on [GitHub](https://github.com/HewlettPackard/POSH-HPEGreenLake/tree/master/Samples), you can find a collection of sample scripts and sample csv files that show how to make the complete use of these full device onboarding cmdlets.
+
+# Managing applications with the HPE GreenLake PowerShell Library
+
+The main cmdlets for managing applications in the HPE GreenLake Platform are the followings:
+
+* To manage applications: 
+
+  * `Get-HPEGLApplication`: to get all applications available to you on your HPE GreenLake Platform, including the ones that are provisioned into your account and the ones that are not. 
+* To add and remove applications:
+
+  * `Add-HPEGLApplication`: to provision an application in a new region.
+  * `Remove-HPEGLApplication`: to delete an application instance. 
+
+    > **Note**: This cmdlet has a high-impact and irreversible action. This action permanently deletes all data of the application instance and cannot be undone once the process has started. For example, removing the Compute Ops Management US-West instance would remove all user data, all devices, all server settings, all server groups, all API credentials, etc. It's great to hear that this cmdlet has a confirmation prompt before deleting an application instance. This feature can help prevent accidental deletions and provide an extra layer of protection for critical data in applications.
+* To assign and unassign devices to applications:
+
+  * `Set-HPEGLDeviceApplication`: to attach devices to an application in a region, so that these devices become visible and managed in the application instance by users.
+* To create and delete API application credentials:
+
+  * `New-HPEGLAPIcredential`: to create an API credential for an application instance. 
+
+  > **Note**: With the HPE GreenLake platform, developers can make API calls on any application instance as long as they have the API credentials which consist of a client ID, client secret and connectivity endpoint. 
+  >
+  > **Note**: When API credentials are created, they are automatically stored in the global variable `$HPEGreenLakeSession.apiCredentials`. This global variable is accessible as long as the PowerShell console is active and `Disconnect-HPEGL` has not been used. In other words, as long as your session is active. This data is sensitive because it contains all you need to make API calls with an application API such as Compute Ops Management, Data Services Cloud Console, etc. To get a more complete example of how to deeply interact with Compute Ops Management, see [Interaction-with-COM_Sample](https://github.com/HewlettPackard/POSH-HPEGreenLake/blob/master/Samples/Interaction-with-COM_Sample.ps1) script sample.
+
+  > **Note**: To store the API credentials beyond the duration of the session, the cmdlet provides a `Location` parameter. This parameter can be used with `New-HPEGLAPIcredential` to save the API credentials in a directory and the `Encrypt` parameter can be utilized to encrypt the API credentials before exporting the JSON file into the designated `Location` directory.
+
+  * `Remove-HPEGLAPIcredential`: to delete an API credential of an application instance.
+
+
+# Managing subscriptions with the HPE GreenLake PowerShell Library 
 
 
