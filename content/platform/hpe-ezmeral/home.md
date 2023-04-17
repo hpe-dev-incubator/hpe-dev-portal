@@ -19,7 +19,7 @@ The complete HPE Ezmeral Software portfolio offers integrated workflows from ana
 
 ## Learn more about the HPE Ezmeral Software products
 
-[HPE Ezmeral Data Fabric Software](https://www.hpe.com/us/en/software/ezmeral-data-fabric.html) – Unlock more value by unifying data distributed across cloud, edge, and core into a global data backbone. Fuel decision velocity with secure access, and real-time identification, control, and processing of data everywhere it lives. 
+[HPE Ezmeral Data Fabric Software](https://www.hpe.com/us/en/software/ezmeral-data-fabric.html) – Unlock more value by unifying data distributed across cloud, edge, and core into a global data plane. Fuel decision velocity with secure access, and real-time identification, control, and processing of data everywhere it lives. 
 
 [HPE Ezmeral Unified Analytics Software](https://www.hpe.com/us/en/hpe-ezmeral-unified-analytics.html) – Unlock data and insights faster from edge to cloud with a managed, open-source SaaS data analytics solution providing curated, best-of-breed analytic software tools to develop and deploy applications across hybrid environments.
 
