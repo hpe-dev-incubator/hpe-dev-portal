@@ -57,10 +57,7 @@ Note: There could be several issues you may encounter while using the `Install-M
 * **Insufficient permissions**: You need administrative privileges to install modules. If you don't have sufficient privileges or if the PowerShell session is not running as an administrator, the cmdlet will fail. Make sure you launch your PowerShell client as Administrator:
 
   ![](/img/picture5.png)
-
-
 * **Blocked security protocols**: Sometimes, the security protocols built into PowerShell can prevent the installation process. This usually happens when the PowerShell execution policy is set to "Restricted". If `Get-ExecutionPolicy`shows Restricted, you may need to run `Set-ExecutionPolicy RemoteSigned`
-
 
 To find all cmdlets in a module that can be used with a specific resource, you can use the `Get-Command` cmdlet along with the `-Module` parameter to specify the name of the module. 
 
@@ -84,8 +81,38 @@ This will display all the available examples for the `Get-HPEGLUserRole` cmdlet 
 
 The connection to the HPE GreenLake Cloud Platform is done using the `Connect-HPEGL` cmdlet.
 
-- **Important note**: The library currently only supports single-factor authentication. Multi-factor authentication (MFA) and SAML single sign-on are not supported.
-These limitations mean that HPE employees cannot use their hpe.com corporate email to connect with `Connect-HPEGL` because hpe.com emails use SSO authentication. It is therefore mandatory that they use a non-hpe.com email. 
-To add a non-hpe.com secondary email into your HPE GreenLake account, just go to GreenLake GUI and use **Invite Users** card in **Manage** / **Identity & Access** to send an invitation to your personal email. Once you receive the email, accept the invitation and you will be taken to the HPE GreenLake interface where you can set a password. Once done, you can use this email and password with `Connect-HPEGL`.
+* **Important note**: The library currently only supports single-factor authentication. Multi-factor authentication (MFA) and SAML single sign-on are not supported.
+  These limitations mean that HPE employees cannot use their hpe.com corporate email to connect with `Connect-HPEGL` because hpe.com emails use SSO authentication. It is therefore mandatory that they use a non-hpe.com email. 
+  To add a non-hpe.com secondary email into your HPE GreenLake account, just go to GreenLake GUI and use **Invite Users** card in **Manage** / **Identity & Access** to send an invitation to your personal email. Once you receive the email, accept the invitation and you will be taken to the HPE GreenLake interface where you can set a password. Once done, you can use this email and password with `Connect-HPEGL`.
+
+After successfully authenticating to the HPE GreenLake platform, the `[HPEGreenLake.Connection]` object is returned to the caller and at the same time is added to the global session tracker `$HPEGreenLakeSession`.
+
+To display the content of this global variable in the console, use: 
+
+`> $HPEGreenLakeSession | format-List`
+
+![](/img/lj-picture6.png)
+
+This object contains the following properties:
+- **session** - Web session object containing information about the HPE GreenLake session, including cookies and credentials.
+- **oauth2AccessToken** - OAuth2 access token string returned by the API after successful authentication. 
+- **oauth2IdToken** - OAuth2 ID Token string returned by the API after successful authentication. 
+- **oauth2RefreshToken** - OAuth2 refresh token string returned by the API after successful authentication. 
+- **userName** - Email address that was authenticated with HPE GreenLake
+- **customerId** - HPE GreenLake customer ID
+- **companyName** - Name of the Company account  
+- **oauth2TokenCreation** - OAuth2 token creation datetime value.
+- **oauth2TokenCreationEpoch** - Unix time since creation of the OAuth2 token.
+- **userSessionIdleTimeout** - HPE GreenLake user session timeout in minutes.
+- **apiCredentials** - Collection of application API credentials created during the session. Each API credential object contains the following properties:
+   - **credential_name** - Name of the API credential
+   - **application_name** - Name of the application using this credential
+   - **ccs_region** - Region of the application using this credential
+   - **application_instance_id** - Instance ID of the application using this credential
+   - **client_id** - Client ID of the API credential
+   - **client_secret** - Client Secret of the API credential
+   - **connectivity_endpoint** - Connectivity endpoint of the application instance
+
+> **Note**: **apiCredentials** property is only filled in when using `New-HPEGLAPIcredential` during a session. 
 
 
