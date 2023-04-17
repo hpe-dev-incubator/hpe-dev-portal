@@ -19,9 +19,9 @@ The complete HPE Ezmeral Software portfolio offers integrated workflows from ana
 
 ## Learn more about the HPE Ezmeral Software products
 
-[HPE Ezmeral Data Fabric Software](https://www.hpe.com/us/en/software/ezmeral-data-fabric.html) – is the industry’s first edge-to-cloud solution that ingests, stores in the native format, and completes in-place processing of different data types. It supports the most popular data and analytics APIs, which simplifies data access across the enterprise for all analytics users. 
+[HPE Ezmeral Data Fabric Software](https://www.hpe.com/us/en/software/ezmeral-data-fabric.html) – Unlock more value by unifying data distributed across cloud, edge, and core into a global data backbone. Fuel decision velocity with secure access, and real-time identification, control, and processing of data everywhere it lives. 
 
-[HPE Ezmeral Unified Analytics Software](https://www.hpe.com/us/en/software/ezmeral-runtime.html) – features native integration of Apache Spark Kubernetes Operator and offers a unified data experience to securely connect to data wherever it exists.
+[HPE Ezmeral Unified Analytics Software](https://www.hpe.com/us/en/hpe-ezmeral-unified-analytics.html) – Unlock data and insights faster from edge to cloud with a managed, open-source SaaS data analytics solution providing curated, best-of-breed analytic software tools to develop and deploy applications across hybrid environments.
 
 HPE Ezmeral Software supports the most popular open-source ML Ops, Airflow, MLflow, and Kubeflow projects while integrating with an ever-growing ecosystem of certified HPE ISV partners.
 
@@ -29,13 +29,13 @@ HPE Ezmeral Software supports the most popular open-source ML Ops, Airflow, MLfl
 
 ## Get started with HPE Ezmeral Software
 
-The HPE Ezmeral Early Access (EEA) program lets developers try new products before they’re released. With exemplary training and support provided by HPE, developers get real-time, hands-on experience with new products, features and capabilities to solve advanced data and analytics problems. A key element of the EEA program is the feedback we’ll collect from developers, providing input to the product roadmap and helping ensure it continues to evolve with our customers’ needs.
+The HPE Ezmeral Early Access (EEA) program allows you to access soon to be released products – typically in private Beta or Select Availability – with exemplary training and support provided by HPE. The goal of the EEA program is to solicit early user feedback, and foster design partnerships with the application development community. By signing up, participants get real-time, hands-on experience with next generation capabilities to solve advanced data and analytics problems in hybrid environments.
 
 The first two products that are available through EEA are:
 
-* [HPE Ezmeral Data Fabric Software](https://home.hpe-df.com/) – a managed service that provides a fully deployed, configured and managed single global name space to aggregate heterogeneous data stores from a single interface    
+* [HPE Ezmeral Data Fabric Software](https://home.hpe-df.com/) – access HPE Ezmeral Data Fabric as a fully managed service. Register now for a 300GB instance to try out features and capabilities.    
 
-* [HPE Ezmeral Unified Analytics Software]( https://www.hpe.com/us/en/hpe-ezmeral-unified-analytics.html#EEAUA) (UA) – HPE Ezmeral Unified Analytics Software provides a curated, managed set of popular open-source frameworks targeting workloads in data engineering, large scale data analytics, BI Reporting and exploratory data science, AI, and ML.
+* [HPE Ezmeral Unified Analytics Software]( https://www.hpe.com/us/en/hpe-ezmeral-unified-analytics.html#EEAUA) (UA) – secure, fully managed, open-source software-as-a-service (SaaS) for the data analytics lifecycle that delivers a complete end-to-end solution.
 
 The following overview videos are available to provide more information on EEA and the first two products:
 
