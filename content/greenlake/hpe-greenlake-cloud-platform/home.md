@@ -22,13 +22,13 @@ HPE GreenLake customers and partners can take advantage of our well-documented, 
 
 [Check out the HPE GreenLake Developer Portal](https://developer.greenlake.hpe.com)
 
-## Manage workloads with the HPE GreenLake edge-to-cloud platform
+## Demos and resources
 
-[Learn how with HPE GreenLake edge-to-cloud platform demos and resources](https://www.hpe.com/us/en/greenlake/demos.html)   
+Get an overview of how you can manage workloads with the HPE GreenLake platform using our [quick demos](https://www.hpe.com/us/en/greenlake/demos.html).
 
-## Developer Test Drive
+## Test Drive for developers
 
-[Register for an HPE account](https://auth.hpe.com/hpe/cf/registration) and check what is available for developers in our [Test Drive](https://testdrive.greenlake.hpe.com/) platform 
+[Register for an HPE account](https://auth.hpe.com/hpe/cf/registration) and check what is available for developers in our [Test Drive](https://testdrive.greenlake.hpe.com/) platform. 
 
 ## Workshops-on-Demand
 
