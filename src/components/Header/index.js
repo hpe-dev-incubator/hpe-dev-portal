@@ -38,8 +38,10 @@ function Header() {
   const greenlake = data?.greenlake?.edges;
 
   const GreenLakeButtonLinks = ({ column }) => {
-    const leftColumn = greenlake.filter((gl, index) => index % 2 === 0);
-    const rightColumn = greenlake.filter((gl, index) => index % 2);
+  /* const leftColumn = greenlake.filter((gl, index) => index % 2 === 0); */
+  const leftColumn = greenlake;
+  const rightColumn = greenlake.filter((gl, index) => index % 2); 
+  
     const externalLinks = [
       {
         title: 'HPE GreenLake API Portal',
@@ -85,7 +87,7 @@ function Header() {
         />
       );
     });
-    const allLinks = [...elColumns, ...glColumns];
+    const allLinks = [/* ...elColumns, */...glColumns];
     return allLinks;
   };
   // const iframeRef = useRef();
@@ -203,9 +205,9 @@ function Header() {
             <TextAlignLeft>
               <GreenLakeButtonLinks column="left" />
             </TextAlignLeft>
-            <TextAlignLeft>
+{/*             <TextAlignLeft>
               <GreenLakeButtonLinks column="right" />
-            </TextAlignLeft>
+            </TextAlignLeft> */}
           </Box>
         </TextAlignLeft>
       }
