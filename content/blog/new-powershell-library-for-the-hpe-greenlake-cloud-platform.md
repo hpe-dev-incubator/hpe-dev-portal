@@ -94,25 +94,90 @@ To display the content of this global variable in the console, use:
 ![](/img/lj-picture6.png)
 
 This object contains the following properties:
-- **session** - Web session object containing information about the HPE GreenLake session, including cookies and credentials.
-- **oauth2AccessToken** - OAuth2 access token string returned by the API after successful authentication. 
-- **oauth2IdToken** - OAuth2 ID Token string returned by the API after successful authentication. 
-- **oauth2RefreshToken** - OAuth2 refresh token string returned by the API after successful authentication. 
-- **userName** - Email address that was authenticated with HPE GreenLake
-- **customerId** - HPE GreenLake customer ID
-- **companyName** - Name of the Company account  
-- **oauth2TokenCreation** - OAuth2 token creation datetime value.
-- **oauth2TokenCreationEpoch** - Unix time since creation of the OAuth2 token.
-- **userSessionIdleTimeout** - HPE GreenLake user session timeout in minutes.
-- **apiCredentials** - Collection of application API credentials created during the session. Each API credential object contains the following properties:
-   - **credential_name** - Name of the API credential
-   - **application_name** - Name of the application using this credential
-   - **ccs_region** - Region of the application using this credential
-   - **application_instance_id** - Instance ID of the application using this credential
-   - **client_id** - Client ID of the API credential
-   - **client_secret** - Client Secret of the API credential
-   - **connectivity_endpoint** - Connectivity endpoint of the application instance
+
+* **session** - Web session object containing information about the HPE GreenLake session, including cookies and credentials.
+* **oauth2AccessToken** - OAuth2 access token string returned by the API after successful authentication. 
+* **oauth2IdToken** - OAuth2 ID Token string returned by the API after successful authentication. 
+* **oauth2RefreshToken** - OAuth2 refresh token string returned by the API after successful authentication. 
+* **userName** - Email address that was authenticated with HPE GreenLake
+* **customerId** - HPE GreenLake customer ID
+* **companyName** - Name of the Company account  
+* **oauth2TokenCreation** - OAuth2 token creation datetime value.
+* **oauth2TokenCreationEpoch** - Unix time since creation of the OAuth2 token.
+* **userSessionIdleTimeout** - HPE GreenLake user session timeout in minutes.
+* **apiCredentials** - Collection of application API credentials created during the session. Each API credential object contains the following properties:
+
+  * **credential_name** - Name of the API credential
+  * **application_name** - Name of the application using this credential
+  * **ccs_region** - Region of the application using this credential
+  * **application_instance_id** - Instance ID of the application using this credential
+  * **client_id** - Client ID of the API credential
+  * **client_secret** - Client Secret of the API credential
+  * **connectivity_endpoint** - Connectivity endpoint of the application instance
 
 > **Note**: **apiCredentials** property is only filled in when using `New-HPEGLAPIcredential` during a session. 
+
+All properties in this object are important. **Session** stores what the library uses to make all the calls in the cmdlets. You can open session using:
+
+`> $HPEGreenLakeSession.session`
+
+![](/img/lj-picture7.png)
+
+Note that in the headers, an **Authorization Bearer <token>** header is defined. 
+
+This token is a JWT (JSON Web Token) pronounced “Jot” is a type of token used in the OAuth 2.0 standard for authentication and authorization purposes. OAuth 2.0 is a protocol designed to allow secure access to user resources in HPE GreenLake without requiring their credentials to be shared with HPE GreenLake, the client application.
+
+The JWT typically contains data about the token, such as its type and signature algorithm, statements about the user, such as their ID, name, email address, or role, and an expiration time. Finally, a signature that is used to verify that the token has not been altered during transmission and that it was issued by a trusted source.
+
+It's important to keep in mind that the access token will only be valid for a period of 2 hours, after which it will expire and no longer be usable. 
+
+The `Connect-HPEGL` cmdlet handles the entire authorization process, which includes authorizing with the third-party identity provider and collecting various tokens. Once all the necessary tokens have been obtained, a session is created by utilizing bearer authentication with the HPE GreenLake Common cloud Services (CCS) API using the id_token present in the payload to confirm our identity.
+
+When the session is created, CCS sets a unique session ID in a cookie that the library stores in `$HPEGreenLakeSession.session.cookies` so that all subsequent requests can use it. Other cookies are also added to maintain the session state between the PowerShell session and the CCS API. For each request from the HPE GreenLake library, these cookies are sent back to the CCS API, which allows the cloud platform to identify the user, associate it with their session data and grant various permissions.
+
+# Interaction with the HPE GreenLake API
+
+## Main Cmdlets for roles, permissions, and restrictions
+
+With HPE GreenLake, you have the ability to manage users and their permissions to services and resources within your account. The management of these permissions is done through Roles which are composed of a set of permissions that provide access to users in your HPE GreenLake account. 
+
+Additionally, you can restrict access to specific resources by creating custom resource groupings using Resource Restriction Policies.
+
+The main cmdlets for managing users and their access to HPE GreenLake resources are the following:
+
+- To manage users: 
+  - `Get-HPEGLUser`: to get users and their activity status and roles.
+  - `Send-HPEGLUserInvitation`: to invite users to your account. 
+  - `Remove-HPEGLUser`: to delete users from your account.
+
+- To view and manage user roles and permissions: 
+  - `Get-HPEGLRole`: to view the role (= group of permissions) that you can specify and assign to users in your HPE GreenLake account.  
+  - `Get-HPEGLUserRole`: to view user roles and permissions. 
+  - `Set-HPEGLUserRole`: to set user roles and permissions. 
+  - `Remove-HPEGLUserRole`: to remove user roles and permissions. 
+
+- To define Resource Restriction Policies and manage access to resources:
+   - `Get-HPEGLResourceRestrictionPolicy`: to view resource restriction policies in your HPE GreenLake account.
+   - `New-HPEGLResourceRestrictionPolicy`: to set resource restriction policies in your HPE GreenLake account.
+   - `Remove-HPEGLResourceRestrictionPolicy`: to remove resource restriction policies in your HPE GreenLake account.
+
+# Managing devices with the HPE GreenLake PowerShell Library 
+
+In HPE GreenLake, devices are the resource for compute, network and storage devices that you can onboard on the platform in your HPE GreenLake account. Once onboarded, devices can be viewed, assigned to an application instance, applied to a subscription, and tagged.
+
+In the library, the main cmdlet to get information on devices is `Get-HPEGLDevice`.
+
+`> Get-HPEGLdevice`
+
+As in the GUI, the bare cmdlet (without parameters) returns a subset of resources in a page. A maximum of 100 devices are displayed by default. The `-Nolimit` parameter can be used to display all available devices, but this may result in a longer response time. 
+
+The cmdlets in this library usually generate formatted objects when they are displayed on the console to enhance readability and ease of understanding. As an example, if you enter:
+
+> Get-HPEGLdevice -Limit 10 
+
+The generated output is "formatted". To get the full view of a formatted object in PowerShell, you can use the Format-List cmdlet (or fl its alias). This cmdlet allows you to display all the properties and values of an object in a list form. Try this time:
+
+> Get-HPEGLdevice -Limit 10 | fl
+
 
 
