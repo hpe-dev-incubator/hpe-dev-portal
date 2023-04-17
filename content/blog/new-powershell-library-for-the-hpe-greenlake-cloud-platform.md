@@ -59,7 +59,33 @@ Note: There could be several issues you may encounter while using the `Install-M
   ![](/img/picture5.png)
 
 
-* **Blocked security protocols**: Sometimes, the security protocols built into PowerShell can prevent the installation process. This usually happens when the PowerShell execution policy is set to "Restricted". If **Get-ExecutionPolicy** shows Restricted, you may need to run **Set-ExecutionPolicy RemoteSigned** 
+* **Blocked security protocols**: Sometimes, the security protocols built into PowerShell can prevent the installation process. This usually happens when the PowerShell execution policy is set to "Restricted". If `Get-ExecutionPolicy`shows Restricted, you may need to run `Set-ExecutionPolicy RemoteSigned`
 
 
-Now that the HPE GreenLake module is installed, you can get the list of commands exported by the module using the Get-Command cmdlet:
+To find all cmdlets in a module that can be used with a specific resource, you can use the `Get-Command` cmdlet along with the `-Module` parameter to specify the name of the module. 
+
+`> Get-Command -Module HPEGreenLake`
+
+In this first release, about 50 cmdlets are available with the HPE GreenLake module.
+
+In PowerShell, cmdlet names are constructed using a verb-noun format. The verb describes the action that the cmdlet performs (Get, Set, Remove, Invoke, etc.), and the noun specifies the object that the cmdlet acts upon. For example, the **Get-HPEGLUserRole** retrieves information about the user role in the HPE GreenLake platform. Note that object resource with the HPE GreenLake library always starts with `HPEGL<resource_name>` (GL for GreenLake). 
+
+`Get-Help` is an important cmdlet in PowerShell as it provides detailed information about a specific cmdlet or function. To get the full help details for the `Get-HPEGLUserRole` cmdlet, you can use the following command:
+
+`> Get-Help Get-HPEGLUserRole -Full`
+
+To view the detailed examples of how to use a particular cmdlet, you can use the `Get-Help` cmdlet along with the `-Examples` parameter followed by the name of the cmdlet. Here's an example command that you can use to get the examples of `Get-HPEGLUserRole` cmdlet:
+
+`> Get-Help Get-HPEGLUserRole -Examples`
+
+This will display all the available examples for the `Get-HPEGLUserRole` cmdlet in a list format. You can review the examples and use them according to your requirements.
+
+# Connection to the HPE GreenLake Cloud platform
+
+The connection to the HPE GreenLake Cloud Platform is done using the `Connect-HPEGL` cmdlet.
+
+- **Important note**: The library currently only supports single-factor authentication. Multi-factor authentication (MFA) and SAML single sign-on are not supported.
+These limitations mean that HPE employees cannot use their hpe.com corporate email to connect with `Connect-HPEGL` because hpe.com emails use SSO authentication. It is therefore mandatory that they use a non-hpe.com email. 
+To add a non-hpe.com secondary email into your HPE GreenLake account, just go to GreenLake GUI and use **Invite Users** card in **Manage** / **Identity & Access** to send an invitation to your personal email. Once you receive the email, accept the invitation and you will be taken to the HPE GreenLake interface where you can set a password. Once done, you can use this email and password with `Connect-HPEGL`.
+
+
