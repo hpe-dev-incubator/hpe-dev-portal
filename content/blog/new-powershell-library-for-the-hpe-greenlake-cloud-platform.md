@@ -205,7 +205,7 @@ The generated output is "formatted". To get the full view of a formatted object 
 
    ![](/img/lj-picture9.png)
 
-Several other parameters are available with **Get-HPEGLDEvice** (e.g. Tags, Archived, Stats, Devicetype, Serialnumber, etc.) you can use the help to get the complete list, and try them out at your convenience.
+Several other parameters are available such as Tags, Archived, Stats, Devicetype, Serialnumber, etc. You can use the help to get the complete list, and try them out at your convenience.
 
 ## Adding devices to the HPE GreenLake Platform
 
@@ -220,13 +220,15 @@ It is worth noting that a CSV file can be utilized to add multiple computes to t
 The content of the csv file must use the following format:
 
 ```
+
    SerialNumber, PartNumber, Tags
    WGX2380BLC,	P55181-B21, Country=US State=PACA App=RH
    AZX2380BLD,  P55182-B21, State=Texas Role=production
    7LKY23D9LM,  P54277-B21
+
 ```
 
-Tags are optional but highly recommended. They are particularly useful when creating resource restriction policies. They must meet the string format: "**<Name>=<Value> <Name>=<Value>**" such as "**Country=US State=TX App=Grafana**" or "**Country=US**".
+Tags are optional but highly recommended. They are particularly useful when creating resource restriction policies. They must meet the string format: "**\<Name\>=\<Value\> \<Name\>=\<Value\>**" such as "**Country=US State=TX App=Grafana**" or "**Country=US**".
 
 **Add-HPEGLDeviceComputeFullService** is a much more advanced cmdlet than the previous one. This specific command has the ability to perform all mandatory steps of Compute onboarding:
 
