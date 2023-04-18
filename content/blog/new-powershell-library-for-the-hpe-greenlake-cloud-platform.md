@@ -222,10 +222,15 @@ It is worth noting that a CSV file can be utilized to add multiple computes to t
 The content of the csv file must use the following format:
 
 ```
-SerialNumber, PartNumber, Tags   
+
+SerialNumber, PartNumber, Tags  
+ 
 WGX2380BLC, P55181-B21, Country=US State=PACA App=RH   
+
 AZX2380BLD, P55182-B21, State=Texas Role=production   
+
 7LKY23D9LM, P54277-B21
+
 ```
 
 Tags are optional but highly recommended. They are particularly useful when creating resource restriction policies. They must meet the string format: "**\<Name\>=\<Value\> \<Name\>=\<Value\>**" such as "**Country=US State=TX App=Grafana**" or "**Country=US**".
