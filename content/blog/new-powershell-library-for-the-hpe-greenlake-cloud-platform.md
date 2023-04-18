@@ -14,9 +14,9 @@ tags:
   - Cloud
   - HPEGreenLake
 ---
-<style>ul li{ font-size:28px;padding-bottom: 0.5em;line-height: 1.2}</style>
+<style>ul li{ font-size:28px;padding-bottom: 10px; line-height: 1.2}</style>
 
-<style>ol li{ font-size:28px;padding-bottom: 0.5em;line-height: 1.2}</style>
+<style>ol li{ font-size:28px;padding-bottom: 0.5em; line-height: 1.2}</style>
 
 <style>
   img {
@@ -114,7 +114,7 @@ The connection to the HPE GreenLake Cloud Platform is done using the **Connect-H
 
 To begin with, it is recommended that you create a credentials object that includes your HPE GreenLake user's email and password:
 
-`> $GLCP_userName = "HPEGL.DemoUser@gmail.com"`  
+`> $GLCP_userName = "Username@domain.com"`  
 `> $GLCP_password = "xxxxxxxxxxxxxxxx"`  
 `> $secpasswd = ConvertTo-SecureString -String $GLCP_password -AsPlainText -Force`  
 `> $credentials = New-Object System.Management.Automation.PSCredential ($GLCP_userName, $secpasswd)`  
@@ -156,7 +156,7 @@ Each API credential object contains the following properties:
 * **credential_name**: Name of the API credential
 * **application_name**: Name of the application using this credential
 * **ccs_region**: Region of the application using this credential
-* **application_instance_id**: Instance ID of the application using this credential
+* **application\_instance\_id**: Instance ID of the application using this credential
 * **client_id**: Client ID of the API credential
 * **client_secret**: Client Secret of the API credential
 * **connectivity_endpoint**: Connectivity endpoint of the application instance
@@ -185,7 +185,7 @@ When the session is created, CCS sets a unique session ID in a cookie that the l
 
 ## Main Cmdlets for roles, permissions, and restrictions
 
-With HPE GreenLake, you have the ability to manage users and their permissions to services and resources within your account. The management of these permissions is done through Roles which are composed of a set of permissions that provide access to users in your HPE GreenLake account. 
+In HPE GreenLake, you have the ability to manage users and their permissions to services and resources within your account. The management of these permissions is done through Roles which are composed of a set of permissions that provide access to users in your HPE GreenLake account. 
 
 Additionally, you can restrict access to specific resources by creating custom resource groupings using Resource Restriction Policies.
 
