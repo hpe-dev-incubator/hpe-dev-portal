@@ -161,7 +161,7 @@ Each API credential object contains the following properties:
 * **client_secret**: Client Secret of the API credential
 * **connectivity_endpoint**: Connectivity endpoint of the application instance
 
-> **Note**: The **apiCredentials** property is only filled in when using **New-HPEGLAPIcredential** during a session. 
+The **apiCredentials** property is only filled in when using **New-HPEGLAPIcredential** during a session. 
 
 All properties in this object are important. **Session** stores what the library uses to make all the calls in the cmdlets. You can open session using:
 
@@ -238,7 +238,7 @@ To manage devices using HPE GreenLake, one of the initial steps is to onboard th
 
 **Add-HPEGLDeviceCompute** is the first cmdlet that you can use to simply add a Compute device to the HPE GreenLake console.  The sole purpose of this cmdlet is to add compute(s) with the specified tags to the platform and nothing beyond that.
 
-It is worth noting that a CSV file can be utilized to add multiple computes to the platform by containing device information such as serial number, part number, and tags. To do so, this CSV file can be used as a pipeline input of this cmdlet using the following procedure: 
+It is worth noting that a CSV file can be utilized to add multiple computes to the platform by containing device information such as serial number, part number, and tags. To do so, this CSV file can be used as a pipeline input of this cmdlet using: 
 
 `> Import-Csv Compute_Devices.csv | Add-HPEGLDeviceCompute`
 
