@@ -157,7 +157,7 @@ All properties in this object are important. **Session** stores what the library
 
 Note that in the headers, an **Authorization Bearer <token>** header is defined. 
 
-This token is a JWT (JSON Web Token) pronounced “Jot” is a type of token used in the OAuth 2.0 standard for authentication and authorization purposes. OAuth 2.0 is a protocol designed to allow secure access to user resources in HPE GreenLake without requiring their credentials to be shared with HPE GreenLake, the client application.
+This token is a JWT (JSON Web Token) pronounced “Jot” is a type of token used in the OAuth 2.0 standard for authentication and authorization purposes with the HPE GreenLake Platform. OAuth 2.0 is a protocol designed to allow secure access to user resources in HPE GreenLake without requiring their credentials to be shared with HPE GreenLake, the client application.
 
 The JWT typically contains data about the token, such as its type and signature algorithm, statements about the user, such as their ID, name, email address, or role, and an expiration time. Finally, a signature that is used to verify that the token has not been altered during transmission and that it was issued by a trusted source.
 
