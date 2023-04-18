@@ -117,8 +117,8 @@ To display the full content of this global variable in the console, use:
 This object contains the following properties:
 
 * **session**: Web session object containing information about the HPE GreenLake session, including cookies and credentials.
-* **oauth2AccessToken**: OAuth2 access token string returned by the API after successful authentication. 
-* **oauth2IdToken** - OAuth2 ID Token string returned by the API after successful authentication. 
+* **oauth2AccessToken**: OAuth2 access token string returned by the API after successful authentication.
+* **oauth2IdToken** - OAuth2 ID Token string returned by the API after successful authentication.
 * **oauth2RefreshToken**: OAuth2 refresh token string returned by the API after successful authentication. 
 * **userName**: Email address that was authenticated with HPE GreenLake
 * **customerId**: HPE GreenLake customer ID
@@ -127,7 +127,6 @@ This object contains the following properties:
 * **oauth2TokenCreationEpoch**: Unix time since creation of the OAuth2 token.
 * **userSessionIdleTimeout**: HPE GreenLake user session timeout in minutes.
 * **apiCredentials**: Collection of application API credentials created during the session. Each API credential object contains the following properties:
-
   * **credential_name**: Name of the API credential
   * **application_name**: Name of the application using this credential
   * **ccs_region**: Region of the application using this credential
@@ -220,12 +219,10 @@ It is worth noting that a CSV file can be utilized to add multiple computes to t
 The content of the csv file must use the following format:
 
 ```
-
-   SerialNumber, PartNumber, Tags
-   WGX2380BLC,	P55181-B21, Country=US State=PACA App=RH
-   AZX2380BLD,  P55182-B21, State=Texas Role=production
-   7LKY23D9LM,  P54277-B21
-
+SerialNumber, PartNumber, Tags   
+WGX2380BLC, P55181-B21, Country=US State=PACA App=RH   
+AZX2380BLD, P55182-B21, State=Texas Role=production   
+7LKY23D9LM, P54277-B21
 ```
 
 Tags are optional but highly recommended. They are particularly useful when creating resource restriction policies. They must meet the string format: "**\<Name\>=\<Value\> \<Name\>=\<Value\>**" such as "**Country=US State=TX App=Grafana**" or "**Country=US**".
