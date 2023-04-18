@@ -5,7 +5,19 @@ externalLink: https://github.com/HewlettPackard/POSH-HPEGreenLake
 author: Lionel Jullien
 authorimage: /img/small-size-id.jpg
 disable: false
+tags:
+  - GreenLake
+  - GLCP
+  - PowerShell
+  - Common cloud services
+  - Platform
+  - Cloud
+  - HPEGreenLake
 ---
+<style>ul li{ font-size:26px;padding-bottom: 0.5em;}</style>
+
+<style> i{ color:grey;font-family:'Courier New';font-size:22px; } </style>
+
 The purpose of this blog is to familiarize readers with the recently released PowerShell library for the HPE GreenLake Edge-to-Cloud platform. This library allows PowerShell developers, IT automation experts, and DevOps professionals to use the platform's API without having to rely on the GUI.
 
 With the introduction of this new library, anyone with basic PowerShell skills can now automate their interaction with the HPE GreenLake API, leverage the many resources offered by the HPE Cloud Platform, and enjoy increased productivity and efficiency.
