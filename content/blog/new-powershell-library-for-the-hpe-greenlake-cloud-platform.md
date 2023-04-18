@@ -249,6 +249,8 @@ The content of the csv file must use the following format:
 *AZX2380BLD, P55182-B21, State=Texas Role=production*  
 *7LKY23D9LM, P54277-B21*
 
+Note that for 7LKY23D9LM, no tag is assigned in this example.
+
 Tags are optional but highly recommended. They are particularly useful when creating resource restriction policies. They must meet the string format: "**\<Name\>=\<Value\> \<Name\>=\<Value\>**" such as "**Country=US State=TX App=Grafana**" or "**Country=US**".
 
 **Add-HPEGLDeviceComputeFullService** is a much more advanced cmdlet than the previous one. This specific command has the ability to perform all mandatory steps of Compute onboarding:
@@ -268,7 +270,7 @@ This time, the content of the csv file that can be used as a pipeline input must
 *192.168.3.191, Administrator, password, Country=US State=Texas Role=Production Owner=LJ*  
 *192.168.3.205, demo, password*
 
-All Compute data that is required by the HPE GreenLake Platform to complete the Compute onboarding is collected and managed by the cmdlet in the background using RedFish iLO calls.
+All Compute data that is required by the HPE GreenLake Platform to complete the Compute onboarding is collected and managed by the cmdlet in the background using RedFish iLO calls. 
 
 You can use **Get-Help** to learn more about this cmdlet and particularly look at the different examples:
 
@@ -278,11 +280,12 @@ You can use **Get-Help** to learn more about this cmdlet and particularly look a
 
 Overall, the ability to fully automate device onboarding is a significant advantage that can lead to many benefits for organizations of all sizes.
 
-It's great to hear that there are [samples](https://github.com/HewlettPackard/POSH-HPEGreenLake/tree/master/Samples) available on GitHub repository which can help in learning how to use the full device onboarding cmdlets and how to build the csv files.
+Note that there are [samples](https://github.com/HewlettPackard/POSH-HPEGreenLake/tree/master/Samples) available on GitHub repository which can help in learning how to use the full device onboarding cmdlets and how to build a csv file for each device type.
 
 ## Managing applications with the HPE GreenLake PowerShell Library
 
 The main cmdlets for managing applications in the HPE GreenLake Platform are the followings:
+
 * To manage applications: 
 
   * **Get-HPEGLApplication**: to get all applications available to you on your HPE GreenLake Platform, including the ones that are provisioned into your account and the ones that are not. 
