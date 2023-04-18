@@ -84,10 +84,7 @@ This will download and install the module from the official PowerShell Gallery r
 
 There could be several issues you may encounter while using the **Install-Module** cmdlet in PowerShell, some of which are:
 
-* **Insufficient permissions**: You need administrative privileges to install modules. If you don't have sufficient privileges or if the PowerShell session is not running as an administrator, the cmdlet will fail. Make sure you launch your PowerShell client as Administrator:
-
-![](/img/lj-picture5.png)
-
+* **Insufficient permissions**: You need administrative privileges to install modules. If you don't have sufficient privileges or if the PowerShell session is not running as an administrator, the cmdlet will fail. Make sure you launch your PowerShell client as Administrator.
 * **Blocked security protocols**: Sometimes, the security protocols built into PowerShell can prevent the installation process. This usually happens when the PowerShell execution policy is set to "Restricted". If **Get-ExecutionPolicy** shows Restricted, you may need to run **Set-ExecutionPolicy RemoteSigned**.
 
 To find all cmdlets in a module that can be used with a specific resource, you can use the **Get-Command** cmdlet along with the **\-Module** parameter to specify the name of the module. 
@@ -115,7 +112,24 @@ The connection to the HPE GreenLake Cloud Platform is done using the **Connect-H
 * **Note**: The library currently only supports single-factor authentication. Multi-factor authentication (MFA) and SAML single sign-on are not supported. These limitations mean that HPE employees cannot use their hpe.com corporate email to connect with **Connect-HPEGL** because hpe.com emails use SSO authentication. It is therefore mandatory that they use a non-hpe.com email. 
 * To add a non-hpe.com secondary email into your HPE GreenLake account, just go to GreenLake GUI and use **Invite Users** card in **Manage** / **Identity & Access** to send an invitation to your personal email. Once you receive the email, accept the invitation and you will be taken to the HPE GreenLake interface where you can set a password. Once done, you can use this email and password with **Connect-HPEGL**.
 
+To begin with, it is recommended that you create a credentials object that includes your HPE GreenLake user's email and password:
+
+`> $GLCP_userName = "HPEGL.DemoUser@gmail.com"`\
+`> $GLCP_password = "xxxxxxxxxxxxxxxx"`\
+`> $secpasswd = ConvertTo-SecureString -String $GLCP_password -AsPlainText -Force`\
+`> $credentials = New-Object System.Management.Automation.PSCredential ($GLCP_userName, $secpasswd)`  
+
+Then using the **Connect-HPEGL** cmdlet, you can connect to the platform:
+
+`> Connect-HPEGL -Credential $credentials`
+
+If you have multiple company (or tenant) accounts, you can add the **CompanyName** parameter to connect to the appropriate tenant as follows:
+
+`> Connect-HPEGL -Credential $credentials -CompanyName "HPE Mougins"` 
+
 After successfully authenticating to the HPE GreenLake platform, the **\[HPEGreenLake.Connection]** object is returned to the caller and at the same time is added to the global session tracker **$HPEGreenLakeSession**.
+
+![](/img/lj-picture10.png)
 
 To display the full content of this global variable in the console, use: 
 
@@ -155,7 +169,7 @@ All properties in this object are important. **Session** stores what the library
 
 ![](/img/lj-picture7.png)
 
-Note that in the headers, an **Authorization Bearer <token>** header is defined. 
+Note that in the headers, an **Authorization, Bearer <token>** header is defined. 
 
 This token is a JWT (JSON Web Token) pronounced “Jot” is a type of token used in the OAuth 2.0 standard for authentication and authorization purposes with the HPE GreenLake Platform. OAuth 2.0 is a protocol designed to allow secure access to user resources in HPE GreenLake without requiring their credentials to be shared with HPE GreenLake, the client application.
 
