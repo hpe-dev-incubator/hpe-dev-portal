@@ -6,11 +6,19 @@ author: Lionel Jullien
 authorimage: /img/small-size-id.jpg
 disable: false
 ---
-The aim of this blog is to acquaint readers with the recently launched PowerShell library for HPE GreenLake Edge-to-Cloud platform. This library enables PowerShell developers, IT automation experts, and DevOps professionals to utilize the platform's API without having to depend on the graphical user interface.
+The purpose of this blog is to familiarize readers with the recently released PowerShell library for the HPE GreenLake Edge-to-Cloud platform. This library allows PowerShell developers, IT automation experts, and DevOps professionals to use the platform's API without having to rely on the GUI.
 
-With the introduction of this new library, individuals possessing basic PowerShell proficiency can now automate infrastructure policies, leverage numerous resources offered by the Cloud Platform, assign roles and create users. Additionally, they can implement restricted resource policies, completely automate device onboarding, generate API credentials for specific application instances like COM/DSCC/Aruba Central, extend their experience with GreenLake API, and make API calls to any HPE GreenLake application instances.
+With the introduction of this new library, individuals possessing basic PowerShell proficiency can now automate their interaction with the HPE GreenLake API, leverage numerous resources offered by the HPE Cloud Platform and experience increased productivity and efficiency. 
 
-The HPE GreenLake platform provides a shared set of common cloud services for various application instances and different services. This common service experience brings together all HPE service offerings into a single, comprehensive customer experience.
+With the introduction of this new library, anyone with basic PowerShell skills can now automate their interaction with the HPE GreenLake API, leverage the many resources offered by the HPE Cloud Platform, and enjoy increased productivity and efficiency.
+
+Are you seeking agility and the ability to automate routine tasks through HPE GreenLake? If so, this library is the ideal solution for you!
+
+Among many other operations, this library allows you to create users, assign roles, send invitations to users, add and archive devices, assign applications and attach subscriptions, add tags to any device, get all kinds of information about any HPE GreenLake resource. 
+
+In addition, you can implement resource restriction policies, fully automate device onboarding, generate API credentials for specific application instances such as HPE Computes Ops Management or HPE Data Services Cloud Console, and extend on the fly your API calls to any HPE GreenLake application instance.
+
+The HPE GreenLake platform provides a shared set of common cloud services for different application instances and services. This common service experience brings together all HPE service offerings into a single, comprehensive customer experience that this library leverages.
 
 ![](/img/ccs.png)
 
@@ -24,9 +32,9 @@ HPE GreenLake CCS, short for HPE GreenLake Common Cloud Services, offers a colle
 
   ![](/img/glcp2.png)
 
-The majority of these essential functions can be performed using the HPE GreenLake PowerShell library, which includes tasks such as account and user creation, role and permission assignment, device integration, application assignment, and tag and subscription definition.
+The majority of these essential functions can be performed effortlessly and with great efficiency using the HPE GreenLake PowerShell library.
 
-PowerShell offers numerous benefits, such as its flexibility and ease of learning, and with this new library, you can significantly boost your productivity, be agile while reducing the risk of manual errors. Most. if not all, of the HPE GreenLake tasks can be automated in a smarter way, making it a must-have tool for any IT automation engineer or DevOps personnel.
+PowerShell offers numerous benefits, such as its flexibility and ease of learning, and with this new library, you can significantly boost your productivity, be agile while reducing the risk of manual errors. Most, if not all, of the HPE GreenLake tasks can be automated in a smarter way, making it a must-have tool for any IT automation engineer or DevOps personnel.
 
 # Introduction to the HPE GreenLake PowerShell Library
 
@@ -307,8 +315,8 @@ If you encounter any questions, opinions, or problems during your testing, it's 
 
 # Want more?
 
-* HPE GreenLake Developer Portal: https://developer.greenlake.hpe.com/
-* Learn more about the HPE GreenLake Edge to Cloud Platform in the user guide at https://support.hpe.com/hpesc/public/docDisplay?docId=a00120892en_us 
+* [HPE GreenLake Developer Portal](https://developer.greenlake.hpe.com/).
+* To learn more about the HPE GreenLake Platform, refer to the [HPE GreenLake Edge to Cloud Platform User Guide](https://support.hpe.com/hpesc/public/docDisplay?docId=a00120892en_us). 
 
 
 
