@@ -205,25 +205,39 @@ The content of the csv file must use the following format:
    7LKY23D9LM,  P54277-B21
 ```
 
-Tags are optional but highly recommended, especially when creating the resource restriction policy.
+Tags are optional but highly recommended. They are particularly useful when creating resource restriction policies. They must meet the string format: "`<Name>=<Value> <Name>=<Value>`" such as "`Country=US State=TX App=Grafana`" or "`Country=US`".
 
 `Add-HPEGLDeviceComputeFullService` is a much more advanced cmdlet than the previous one. This specific command has the ability to perform all mandatory steps of Compute onboarding:
 
-* Connect to HPE GreenLake using the default account or the one provided using the GLCompanyName parameter.
-* Set the automatic assignment of subscriptions with the first Compute Enhanced subscription found that has not expired and has available subscription seats.
-* Onboard each device to the HPE GreenLake Cloud Platform account.      
-* Set optional server tags if defined with the Tags parameter.
-* Associate each device with the defined application instance (subscription is automatically assigned to each device as per auto assignment configuration).
-* Set each iLO to use a web proxy if defined via the different web proxy parameters.
-* Connect each iLO to the HPE Compute Ops Management instance.
+1. Connect to HPE GreenLake using the default account or the one provided using the GLCompanyName parameter.
+2. Set the automatic assignment of subscriptions with the first Compute Enhanced subscription found that has not expired and has available subscription seats.
+3. Onboard each device to the HPE GreenLake Cloud Platform account.      
+4. Set optional server tags if defined with the Tags parameter.
+5. Associate each device with the defined application instance (subscription is automatically assigned to each device as per auto assignment configuration).
+6. Set each iLO to use a web proxy if defined via the different web proxy parameters.
+7. Connect each iLO to the HPE Compute Ops Management instance.
 
-Use Get-Help to learn more about this cmdlet and particularly look at the different examples:
+This time, the content of the csv file that can be used as a pipeline input must have the  following format:
+
+```
+  IP, Username, Password, Tags
+  192.168.3.193, Administrator, password, Country=FR City=Mougins App=InfluxDB Owner=LJ
+  192.168.3.191, Administrator, password, Country=US State=Texas Role=Production Owner=LJ
+  192.168.3.205, demo, password
+```
+
+All Compute data that is required by the HPE GreenLake Platformm to complete the Compute onboarding is collected and managed by the cmdlet in the background using RedFish iLO calls.
+
+You can use `Get-Help` to learn more about this cmdlet and particularly look at the different examples:
 
 `> Help Add-HPEGLDeviceComputeFullService -full`
 
+`Add-HPEGLDeviceStorageFullService` and `Add-HPEGLDeviceNetworkFullService` offer the same full onbording service for storage and networking devices. 
+
 Overall, the ability to fully automate device onboarding is a significant advantage that can lead to many benefits for organizations of all sizes.
 
-Note that the library provides the same cmdlets for storage and networking devices. In the **Samples** folder of the library available on [GitHub](https://github.com/HewlettPackard/POSH-HPEGreenLake/tree/master/Samples), you can find a collection of sample scripts and sample csv files that show how to make the complete use of these full device onboarding cmdlets.
+It's great to hear that there are [samples](https://github.com/HewlettPackard/POSH-HPEGreenLake/tree/master/Samples) available on GitHub repository which can help in learning how to use the full device onboarding cmdlets and how to build the csv files.
+
 
 ## Managing applications with the HPE GreenLake PowerShell Library
 
@@ -281,3 +295,20 @@ The main cmdlets for managing subscriptions in the HPE GreenLake Platform are th
    >  **Note**: When the auto device subscription is not is not supported or not enabled for the type of device you use, you need to manually apply a subscription key.
 
    * `Remove-HPEGLDeviceSubscription`: to detach devices from a subscription key. 
+
+
+# Summary 
+
+You now have the necessary knowledge to begin testing the new library for the HPE GreenLake platform. By doing so, you can experience increased productivity and efficiency while minimizing costs and the risk of human error. Furthermore, this library can also help you adapt to growth, automate tasks, and more.
+
+If you encounter any questions, opinions, or problems during your testing, it's highly recommended that you [report](https://github.com/HewlettPackard/POSH-HPEGreenLake/issues) them on the library’s GitHub page. This can help improve the library and potentially benefit other users who may be facing similar issues. 
+ 
+
+
+# Want more?
+
+* HPE GreenLake Developer Portal: https://developer.greenlake.hpe.com/
+* Learn more about the HPE GreenLake Edge to Cloud Platform in the user guide at https://support.hpe.com/hpesc/public/docDisplay?docId=a00120892en_us 
+
+
+
