@@ -16,7 +16,15 @@ tags:
 ---
 <style>ul li{ font-size:28px;padding-bottom: 0.5em;line-height: 1.2}</style>
 <style>ol li{ font-size:28px;padding-bottom: 0.5em;line-height: 1.2}</style>
-<style> i{ color:grey;font-family:'Courier New';font-size:22px; } </style>
+<style>
+  img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #ccc;
+    margin: 20px;
+    box-shadow: 2px 2px 5px #ccc;
+  }
+</style>
 
 The purpose of this blog is to familiarize readers with the recently released PowerShell library for the HPE GreenLake Edge-to-Cloud platform. This library allows PowerShell developers, IT automation experts, and DevOps professionals to use the platform's API without having to rely on the GUI.
 
@@ -30,7 +38,7 @@ In addition, you can implement resource restriction policies, fully automate dev
 
 The HPE GreenLake platform provides a shared set of common cloud services for different application instances and services. This common service experience brings together all HPE service offerings into a single, comprehensive customer experience that this library leverages.
 
-<img src="/img/ccs.png" style="width: 500px; height: auto;">
+<img src="/img/ccs.png">
 
 HPE GreenLake CCS, short for HPE GreenLake Common Cloud Services, offers a collection of API-enabled services that serve various functions. The primary ones being:
 
