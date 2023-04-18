@@ -86,7 +86,8 @@ There could be several issues you may encounter while using the **Install-Module
 
 * **Insufficient permissions**: You need administrative privileges to install modules. If you don't have sufficient privileges or if the PowerShell session is not running as an administrator, the cmdlet will fail. Make sure you launch your PowerShell client as Administrator:
 
-  ![](/img/lj-picture5.png)
+![](/img/lj-picture5.png)
+
 * **Blocked security protocols**: Sometimes, the security protocols built into PowerShell can prevent the installation process. This usually happens when the PowerShell execution policy is set to "Restricted". If **Get-ExecutionPolicy** shows Restricted, you may need to run **Set-ExecutionPolicy RemoteSigned**.
 
 To find all cmdlets in a module that can be used with a specific resource, you can use the **Get-Command** cmdlet along with the **\-Module** parameter to specify the name of the module. 
@@ -207,13 +208,13 @@ The cmdlets in this library usually generate formatted objects when they are dis
 
 `> Get-HPEGLdevice -Limit 10` 
 
-  ![](/img/lj-picture8.png)
+![](/img/lj-picture8.png)
 
 The generated output is "formatted". To get the full view of a formatted object in PowerShell, you can use the **Format-List** cmdlet (or **fl** its alias). This cmdlet allows you to display all the properties and values of an object in a list form:
 
 `> Get-HPEGLdevice -Limit 10 | fl`
 
-   ![](/img/lj-picture9.png)
+![](/img/lj-picture9.png)
 
 Several other parameters are available such as Tags, Archived, Stats, Devicetype, Serialnumber, etc. You can use the help to get the complete list, and try them out at your convenience.
 
