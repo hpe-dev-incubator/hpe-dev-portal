@@ -123,7 +123,7 @@ Then using the **Connect-HPEGL** cmdlet, you can connect to the platform:
 
 `> Connect-HPEGL -Credential $credentials`
 
-If you have multiple company (or tenant) accounts, you can add the **CompanyName** parameter to connect to the appropriate tenant as follows:
+If you have multiple company (or tenant) accounts, you can add the **\-CompanyName** parameter to connect to the appropriate tenant as follows:
 
 `> Connect-HPEGL -Credential $credentials -CompanyName "HPE Mougins"` 
 
@@ -169,7 +169,7 @@ All properties in this object are important. **Session** stores what the library
 
 ![](/img/lj-picture7.png)
 
-Note that in the headers, an **Authorization, Bearer <token>** header is defined. 
+Note that in the headers, an **Authorization, Bearer \<token\>** header is defined. 
 
 This token is a JWT (JSON Web Token) pronounced “Jot” is a type of token used in the OAuth 2.0 standard for authentication and authorization purposes with the HPE GreenLake Platform. OAuth 2.0 is a protocol designed to allow secure access to user resources in HPE GreenLake without requiring their credentials to be shared with HPE GreenLake, the client application.
 
@@ -177,7 +177,7 @@ The JWT typically contains data about the token, such as its type and signature 
 
 It's important to keep in mind that the access token will only be valid for a period of 2 hours, after which it will expire and no longer be usable. 
 
-The **Connect-HPEGL** cmdlet handles the entire authorization process, which includes authorizing with the third-party identity provider and collecting various tokens. Once all the necessary tokens have been obtained, a session is created by utilizing bearer authentication with the HPE GreenLake Common cloud Services (CCS) API using the id_token present in the payload to confirm our identity.
+The **Connect-HPEGL** cmdlet handles the entire authorization process, which includes authorizing with the third-party identity provider and collecting various tokens. Once all the necessary tokens have been obtained, a session is created by utilizing bearer authentication with the HPE GreenLake Common cloud Services (CCS) API using the *id_token* present in the payload to confirm our identity.
 
 When the session is created, CCS sets a unique session ID in a cookie that the library stores in **$HPEGreenLakeSession.session.cookies** so that all subsequent requests can use it. Other cookies are also added to maintain the session state between the PowerShell session and the CCS API. For each request from the HPE GreenLake library, these cookies are sent back to the CCS API, which allows the cloud platform to identify the user and grant various permissions.
 
@@ -253,10 +253,10 @@ Tags are optional but highly recommended. They are particularly useful when crea
 
 **Add-HPEGLDeviceComputeFullService** is a much more advanced cmdlet than the previous one. This specific command has the ability to perform all mandatory steps of Compute onboarding:
 
-1. Connect to HPE GreenLake using the default account or the one provided using the **GLCompanyName** parameter.
+1. Connect to HPE GreenLake using the default account or the one provided using the **\-GLCompanyName** parameter.
 2. Set the automatic assignment of subscriptions with the first Compute Enhanced subscription found that has not expired and has available subscription seats.
 3. Onboard each device to the HPE GreenLake Cloud Platform account.      
-4. Set optional server tags if defined with the **Tags** parameter.
+4. Set optional server tags if defined with the **\-Tags** parameter.
 5. Associate each device with the defined application instance (subscription is automatically assigned to each device as per auto assignment configuration).
 6. Set each iLO to use a web proxy if defined via the different web proxy parameters.
 7. Connect each iLO to the HPE Compute Ops Management instance.
@@ -286,6 +286,7 @@ The main cmdlets for managing applications in the HPE GreenLake Platform are the
 * To manage applications: 
 
   * **Get-HPEGLApplication**: to get all applications available to you on your HPE GreenLake Platform, including the ones that are provisioned into your account and the ones that are not. 
+
 * To add and remove applications:
 
   * **Add-HPEGLApplication**: to provision an application in a new region.
@@ -295,11 +296,13 @@ The main cmdlets for managing applications in the HPE GreenLake Platform are the
   * **Remove-HPEGLApplication**: to delete an application instance. 
 
   > **Note**: This cmdlet has a high-impact and irreversible action. This action permanently deletes all data of the application instance and cannot be undone once the process has started. For example, removing the Compute Ops Management US-West instance would remove all user data, all devices, all server settings, all server groups, all API credentials, etc. It's great to hear that this cmdlet has a confirmation prompt before deleting an application instance. This feature can help prevent accidental deletions and provide an extra layer of protection for critical data in applications.
+
 * To assign and unassign devices to applications:
 
   * **Set-HPEGLDeviceApplication**: to attach devices to an application instance.
 
   > **Note**: Assigning devices to an application instance is the process of attaching devices to an application in a region, so that these devices become visible and managed in the application instance by users.
+
 * To create and delete API application credentials:
 
   * **New-HPEGLAPIcredential**: to create an API credential for an application instance. 
@@ -308,7 +311,7 @@ The main cmdlets for managing applications in the HPE GreenLake Platform are the
   >
   > **Note**: When API credentials are created, they are automatically stored in the global variable **$HPEGreenLakeSession.apiCredentials**. This global variable is accessible as long as the PowerShell console is active and **Disconnect-HPEGL** has not been used. In other words, as long as your session is active. This data is sensitive because it contains all you need to make API calls with an application API such as Compute Ops Management, Data Services Cloud Console, etc. To get a more complete example of how to deeply interact with Compute Ops Management, see [Interaction-with-COM_Sample](https://github.com/HewlettPackard/POSH-HPEGreenLake/blob/master/Samples/Interaction-with-COM_Sample.ps1) script sample.
   >
-  > **Note**: To store the API credentials beyond the duration of the session, the cmdlet provides a **Location** parameter. This parameter can be used with **New-HPEGLAPIcredential** to save the API credentials in a directory and the **Encrypt** parameter can be utilized to encrypt the API credentials before exporting the JSON file into the designated **Location** directory.
+  > **Note**: To store the API credentials beyond the duration of the session, the cmdlet provides a **\-Location** parameter. This parameter can be used with **New-HPEGLAPIcredential** to save the API credentials in a directory and the **\-Encrypt** parameter can be utilized to encrypt the API credentials before exporting the JSON file into the designated *Location* directory.
 
   * **Remove-HPEGLAPIcredential**: to delete an API credential of an application instance.
 
@@ -317,6 +320,7 @@ The main cmdlets for managing applications in the HPE GreenLake Platform are the
 ## Managing subscriptions with the HPE GreenLake PowerShell Library
 
 The main cmdlets for managing subscriptions in the HPE GreenLake Platform are the followings:
+
 * To get information about subscriptions: 
 
   * **Get-HPEGLDeviceSubscription**: to get information about your device subscriptions available in your HPE GreenLake account. Several parameters can be used to display the subscriptions with available quantity, the subscriptions that are expired or not expired, etc. You can combine parameters to obtain for example only the subscription keys that have not expired and for which there are still licenses available: **Get-HPEGLDeviceSubscription -Notexpired -Available**
@@ -325,6 +329,7 @@ The main cmdlets for managing subscriptions in the HPE GreenLake Platform are th
   * **Add-HPEGLDeviceSubscription**: to add device subscription to the HPE GreenLake account.
   * **Set-HPEGLDeviceAutoSubscription**: to set automatic subscription assignment. This feature automatically assigns a subscription to any supported device that is added to the HPE GreenLake platform.
   * **Remove-HPEGLDeviceAutoSubscription**: to remove an automatic assignment of subscriptions.
+
 * To apply subscription key to devices:
 
   * **Set-HPEGLDeviceSubscription**: to apply a subscription key to one or more devices. 
