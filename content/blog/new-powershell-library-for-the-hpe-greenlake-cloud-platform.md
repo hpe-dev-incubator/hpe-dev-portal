@@ -14,8 +14,8 @@ tags:
   - Cloud
   - HPEGreenLake
 ---
-<style>ul li{ font-size:28px;padding-bottom: 0.5em;line-height: 1.3}</style>
-<style>ol li{ font-size:28px;padding-bottom: 0.5em;line-height: 1.3}</style>
+<style>ul li{ font-size:28px;padding-bottom: 0.5em;line-height: 1.2}</style>
+<style>ol li{ font-size:28px;padding-bottom: 0.5em;line-height: 1.2}</style>
 <style> i{ color:grey;font-family:'Courier New';font-size:22px; } </style>
 
 The purpose of this blog is to familiarize readers with the recently released PowerShell library for the HPE GreenLake Edge-to-Cloud platform. This library allows PowerShell developers, IT automation experts, and DevOps professionals to use the platform's API without having to rely on the GUI.
@@ -129,6 +129,7 @@ This object contains the following properties:
 * **apiCredentials**: Collection of application API credentials created during the session. 
 
 Each API credential object contains the following properties:
+
 * **credential_name**: Name of the API credential
 * **application_name**: Name of the application using this credential
 * **ccs_region**: Region of the application using this credential
@@ -136,6 +137,7 @@ Each API credential object contains the following properties:
 * **client_id**: Client ID of the API credential
 * **client_secret**: Client Secret of the API credential
 * **connectivity_endpoint**: Connectivity endpoint of the application instance
+
 > Note: **apiCredentials** property is only filled in when using **New-HPEGLAPIcredential** during a session. 
 
 All properties in this object are important. **Session** stores what the library uses to make all the calls in the cmdlets. You can open session using:
