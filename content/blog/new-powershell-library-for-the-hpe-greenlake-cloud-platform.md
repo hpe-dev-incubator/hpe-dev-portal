@@ -40,7 +40,7 @@ In addition, you can implement resource restriction policies, fully automate dev
 
 The HPE GreenLake platform provides a shared set of common cloud services for different application instances and services. This common service experience brings together all HPE service offerings into a single, comprehensive customer experience that this library leverages.
 
-<img src="/img/ccs.png">
+![](/img/ccs.png)
 
 HPE GreenLake CCS, short for HPE GreenLake Common Cloud Services, offers a collection of API-enabled services that serve various functions. The primary ones being:
 
