@@ -114,9 +114,9 @@ The connection to the HPE GreenLake Cloud Platform is done using the **Connect-H
 
 To begin with, it is recommended that you create a credentials object that includes your HPE GreenLake user's email and password:
 
-`> $GLCP_userName = "HPEGL.DemoUser@gmail.com"`\
-`> $GLCP_password = "xxxxxxxxxxxxxxxx"`\
-`> $secpasswd = ConvertTo-SecureString -String $GLCP_password -AsPlainText -Force`\
+`> $GLCP_userName = "HPEGL.DemoUser@gmail.com"`  
+`> $GLCP_password = "xxxxxxxxxxxxxxxx"`  
+`> $secpasswd = ConvertTo-SecureString -String $GLCP_password -AsPlainText -Force`  
 `> $credentials = New-Object System.Management.Automation.PSCredential ($GLCP_userName, $secpasswd)`  
 
 Then using the **Connect-HPEGL** cmdlet, you can connect to the platform:
@@ -127,7 +127,7 @@ If you have multiple company (or tenant) accounts, you can add the **CompanyName
 
 `> Connect-HPEGL -Credential $credentials -CompanyName "HPE Mougins"` 
 
-After successfully authenticating to the HPE GreenLake platform, the **\[HPEGreenLake.Connection]** object is returned to the caller and at the same time is added to the global session tracker **$HPEGreenLakeSession**.
+After successfully authenticating to the HPE GreenLake platform, the *[HPEGreenLake.Connection]* object is returned to the caller and at the same time is added to the global session tracker **$HPEGreenLakeSession**.
 
 ![](/img/lj-picture10.png)
 
@@ -244,12 +244,12 @@ It is worth noting that a CSV file can be utilized to add multiple computes to t
 
 The content of the csv file must use the following format:
 
-*SerialNumber, PartNumber, Tags*\
-*WGX2380BLC, P55181-B21, Country=US State=PACA App=RH*\
-*AZX2380BLD, P55182-B21, State=Texas Role=production*\
+*SerialNumber, PartNumber, Tags*  
+*WGX2380BLC, P55181-B21, Country=US State=PACA App=RH*  
+*AZX2380BLD, P55182-B21, State=Texas Role=production*  
 *7LKY23D9LM, P54277-B21*
 
-Tags are optional but highly recommended. They are particularly useful when creating resource restriction policies. They must meet the string format: "**<Name>=<Value> <Name>=<Value>**" such as "**Country=US State=TX App=Grafana**" or "**Country=US**".
+Tags are optional but highly recommended. They are particularly useful when creating resource restriction policies. They must meet the string format: "**\<Name\>=\<Value\> \<Name\>=\<Value\>**" such as "**Country=US State=TX App=Grafana**" or "**Country=US**".
 
 **Add-HPEGLDeviceComputeFullService** is a much more advanced cmdlet than the previous one. This specific command has the ability to perform all mandatory steps of Compute onboarding:
 
@@ -263,9 +263,9 @@ Tags are optional but highly recommended. They are particularly useful when crea
 
 This time, the content of the csv file that can be used as a pipeline input must have the  following format:
 
-*IP, Username, Password, Tags*\
-*192.168.3.193, Administrator, password, Country=FR City=Mougins App=InfluxDB Owner=LJ*\
-*192.168.3.191, Administrator, password, Country=US State=Texas Role=Production Owner=LJ*\
+*IP, Username, Password, Tags*  
+*192.168.3.193, Administrator, password, Country=FR City=Mougins App=InfluxDB Owner=LJ*  
+*192.168.3.191, Administrator, password, Country=US State=Texas Role=Production Owner=LJ*  
 *192.168.3.205, demo, password*
 
 All Compute data that is required by the HPE GreenLake Platform to complete the Compute onboarding is collected and managed by the cmdlet in the background using RedFish iLO calls.
@@ -283,7 +283,6 @@ It's great to hear that there are [samples](https://github.com/HewlettPackard/PO
 ## Managing applications with the HPE GreenLake PowerShell Library
 
 The main cmdlets for managing applications in the HPE GreenLake Platform are the followings:
-
 * To manage applications: 
 
   * **Get-HPEGLApplication**: to get all applications available to you on your HPE GreenLake Platform, including the ones that are provisioned into your account and the ones that are not. 
@@ -318,10 +317,9 @@ The main cmdlets for managing applications in the HPE GreenLake Platform are the
 ## Managing subscriptions with the HPE GreenLake PowerShell Library
 
 The main cmdlets for managing subscriptions in the HPE GreenLake Platform are the followings:
-
 * To get information about subscriptions: 
 
-  * **Get-HPEGLDeviceSubscription**: to get information about your device subscriptions available in your HPE GreenLake account. Several parameters can be used to display the subscriptions with available quantity, the subscriptions that are expired or not expired, etc. You can combine parameters to obtain for example only the subscription keys that have not expired and for which there are still licenses available: **Get-HPEGLDeviceSubscription -Notexpired -Available** 
+  * **Get-HPEGLDeviceSubscription**: to get information about your device subscriptions available in your HPE GreenLake account. Several parameters can be used to display the subscriptions with available quantity, the subscriptions that are expired or not expired, etc. You can combine parameters to obtain for example only the subscription keys that have not expired and for which there are still licenses available: **Get-HPEGLDeviceSubscription -Notexpired -Available**
 * To manage device subscriptions:
 
   * **Add-HPEGLDeviceSubscription**: to add device subscription to the HPE GreenLake account.
