@@ -221,10 +221,10 @@ It is worth noting that a CSV file can be utilized to add multiple computes to t
 
 The content of the csv file must use the following format:
 
-*SerialNumber, PartNumber, Tags*  
-*WGX2380BLC, P55181-B21, Country=US State=PACA App=RH*  
-*AZX2380BLD, P55182-B21, State=Texas Role=production*  
-*7LKY23D9LM, P54277-B21*
+***SerialNumber, PartNumber, Tags***  
+***WGX2380BLC, P55181-B21, Country=US State=PACA App=RH***  
+***AZX2380BLD, P55182-B21, State=Texas Role=production***  
+***7LKY23D9LM, P54277-B21***
 
 
 Tags are optional but highly recommended. They are particularly useful when creating resource restriction policies. They must meet the string format: "**\<Name\>=\<Value\> \<Name\>=\<Value\>**" such as "**Country=US State=TX App=Grafana**" or "**Country=US**".
@@ -241,10 +241,10 @@ Tags are optional but highly recommended. They are particularly useful when crea
 
 This time, the content of the csv file that can be used as a pipeline input must have the  following format:
 
-*IP, Username, Password, Tags*  
-*192.168.3.193, Administrator, password, Country=FR City=Mougins App=InfluxDB Owner=LJ*  
-*192.168.3.191, Administrator, password, Country=US State=Texas Role=Production Owner=LJ*  
-*192.168.3.205, demo, password*
+***IP, Username, Password, Tags***  
+***192.168.3.193, Administrator, password, Country=FR City=Mougins App=InfluxDB Owner=LJ***  
+***192.168.3.191, Administrator, password, Country=US State=Texas Role=Production Owner=LJ***  
+***192.168.3.205, demo, password***
 
 All Compute data that is required by the HPE GreenLake Platform to complete the Compute onboarding is collected and managed by the cmdlet in the background using RedFish iLO calls.
 
