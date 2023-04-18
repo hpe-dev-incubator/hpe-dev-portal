@@ -1,7 +1,7 @@
 ---
 title: New PowerShell Library for the HPE GreenLake Cloud Platform
 date: 2023-04-17T10:57:44.709Z
-externalLink: https://github.com/HewlettPackard/POSH-HPEGreenLake
+externalLink: ""
 author: Lionel Jullien
 authorimage: /img/small-size-id.jpg
 disable: false
@@ -85,7 +85,7 @@ There could be several issues you may encounter while using the **Install-Module
 
 * **Insufficient permissions**: You need administrative privileges to install modules. If you don't have sufficient privileges or if the PowerShell session is not running as an administrator, the cmdlet will fail. Make sure you launch your PowerShell client as Administrator:
 
-<img src="/img/lj-picture5.png">
+<img src="/img/lj-picture5.png" style="width: 800px; height: auto;" >
 
 * **Blocked security protocols**: Sometimes, the security protocols built into PowerShell can prevent the installation process. This usually happens when the PowerShell execution policy is set to "Restricted". If **Get-ExecutionPolicy** shows Restricted, you may need to run **Set-ExecutionPolicy RemoteSigned**.
 
