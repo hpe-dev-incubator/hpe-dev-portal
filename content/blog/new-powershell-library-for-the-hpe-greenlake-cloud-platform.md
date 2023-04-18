@@ -40,7 +40,8 @@ HPE GreenLake CCS, short for HPE GreenLake Common Cloud Services, offers a colle
 * **Device activation and inventory**: ZTP (Zero Touch Provisioning) and Asset inventory (contract and customer order processing), includes device firmware management (firmware repository for resources, latest FW check, FW upgrade, baseline upgrade).
 * **Subscription management**: Subscription inventory, support for different consumption models.
 
-  ![](/img/glcp2.png)
+
+![](/img/glcp2.png)
 
 The majority of these essential functions can be performed effortlessly and with great efficiency using the HPE GreenLake PowerShell library.
 
