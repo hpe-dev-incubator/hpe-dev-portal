@@ -307,7 +307,7 @@ The main cmdlets for managing subscriptions in the HPE GreenLake Platform are th
 
 # Summary 
 
-You now have the necessary knowledge to begin testing the new library for the HPE GreenLake platform. By doing so, you can experience increased productivity and efficiency while minimizing costs and the risk of human error. Furthermore, this library can also help you adapt to growth, automate tasks, and more.
+In this blog, we have introduced you to the primary cmdlets that are provided by this library. However, there are more cmdlets available and much more to explore. Nevertheless, you now possess the necessary knowledge to begin testing, to develop your own PowerShell script to start automating your tasks and experience greater productivity and afficiency.
 
 If you encounter any questions, opinions, or problems during your testing, it's highly recommended that you [report](https://github.com/HewlettPackard/POSH-HPEGreenLake/issues) them on the library’s GitHub page. This can help improve the library and potentially benefit other users who may be facing similar issues. 
  
