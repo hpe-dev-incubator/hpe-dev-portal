@@ -118,7 +118,7 @@ This object contains the following properties:
 
 * **session**: Web session object containing information about the HPE GreenLake session, including cookies and credentials.
 * **oauth2AccessToken**: OAuth2 access token string returned by the API after successful authentication.
-* **oauth2IdToken** - OAuth2 ID Token string returned by the API after successful authentication.
+* **oauth2IdToken**: OAuth2 ID Token string returned by the API after successful authentication.
 * **oauth2RefreshToken**: OAuth2 refresh token string returned by the API after successful authentication. 
 * **userName**: Email address that was authenticated with HPE GreenLake
 * **customerId**: HPE GreenLake customer ID
@@ -126,15 +126,16 @@ This object contains the following properties:
 * **oauth2TokenCreation**: OAuth2 token creation datetime value.
 * **oauth2TokenCreationEpoch**: Unix time since creation of the OAuth2 token.
 * **userSessionIdleTimeout**: HPE GreenLake user session timeout in minutes.
-* **apiCredentials**: Collection of application API credentials created during the session. Each API credential object contains the following properties:
-  * **credential_name**: Name of the API credential
-  * **application_name**: Name of the application using this credential
-  * **ccs_region**: Region of the application using this credential
-  * **application_instance_id**: Instance ID of the application using this credential
-  * **client_id**: Client ID of the API credential
-  * **client_secret**: Client Secret of the API credential
-  * **connectivity_endpoint**: Connectivity endpoint of the application instance
+* **apiCredentials**: Collection of application API credentials created during the session. 
 
+Each API credential object contains the following properties:
+* **credential_name**: Name of the API credential
+* **application_name**: Name of the application using this credential
+* **ccs_region**: Region of the application using this credential
+* **application_instance_id**: Instance ID of the application using this credential
+* **client_id**: Client ID of the API credential
+* **client_secret**: Client Secret of the API credential
+* **connectivity_endpoint**: Connectivity endpoint of the application instance
 > Note: **apiCredentials** property is only filled in when using **New-HPEGLAPIcredential** during a session. 
 
 All properties in this object are important. **Session** stores what the library uses to make all the calls in the cmdlets. You can open session using:
