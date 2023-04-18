@@ -14,8 +14,8 @@ tags:
   - Cloud
   - HPEGreenLake
 ---
-<style>ul li{ font-size:28px;padding-bottom: 0.5em;}</style>
-<style>ol li{ font-size:28px;padding-bottom: 0.5em;}</style>
+<style>ul li{ font-size:28px;padding-bottom: 0.5em;line-height: 1.5}</style>
+<style>ol li{ font-size:28px;padding-bottom: 0.5em;line-height: 1.5}</style>
 <style> i{ color:grey;font-family:'Courier New';font-size:22px; } </style>
 
 The purpose of this blog is to familiarize readers with the recently released PowerShell library for the HPE GreenLake Edge-to-Cloud platform. This library allows PowerShell developers, IT automation experts, and DevOps professionals to use the platform's API without having to rely on the GUI.
@@ -240,10 +240,10 @@ Tags are optional but highly recommended. They are particularly useful when crea
 This time, the content of the csv file that can be used as a pipeline input must have the  following format:
 
 ```
-  IP, Username, Password, Tags
-  192.168.3.193, Administrator, password, Country=FR City=Mougins App=InfluxDB Owner=LJ
-  192.168.3.191, Administrator, password, Country=US State=Texas Role=Production Owner=LJ
-  192.168.3.205, demo, password
+IP, Username, Password, Tags   
+192.168.3.193, Administrator, password, Country=FR City=Mougins App=InfluxDB Owner=LJ   
+192.168.3.191, Administrator, password, Country=US State=Texas Role=Production Owner=LJ   
+192.168.3.205, demo, password
 ```
 
 All Compute data that is required by the HPE GreenLake Platform to complete the Compute onboarding is collected and managed by the cmdlet in the background using RedFish iLO calls.
