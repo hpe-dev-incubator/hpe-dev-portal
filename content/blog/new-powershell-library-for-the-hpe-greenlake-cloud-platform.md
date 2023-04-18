@@ -14,8 +14,8 @@ tags:
   - Cloud
   - HPEGreenLake
 ---
-<style>ul li{ font-size:28px;padding-bottom: 0.5em;line-height: 1.5}</style>
-<style>ol li{ font-size:28px;padding-bottom: 0.5em;line-height: 1.5}</style>
+<style>ul li{ font-size:28px;padding-bottom: 0.5em;line-height: 1.3}</style>
+<style>ol li{ font-size:28px;padding-bottom: 0.5em;line-height: 1.3}</style>
 <style> i{ color:grey;font-family:'Courier New';font-size:22px; } </style>
 
 The purpose of this blog is to familiarize readers with the recently released PowerShell library for the HPE GreenLake Edge-to-Cloud platform. This library allows PowerShell developers, IT automation experts, and DevOps professionals to use the platform's API without having to rely on the GUI.
