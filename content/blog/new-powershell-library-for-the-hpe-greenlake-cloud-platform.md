@@ -15,7 +15,9 @@ tags:
   - HPEGreenLake
 ---
 <style>ul li{ font-size:28px;padding-bottom: 0.5em;line-height: 1.2}</style>
+
 <style>ol li{ font-size:28px;padding-bottom: 0.5em;line-height: 1.2}</style>
+
 <style>
   img {
     max-width: 100%;
@@ -47,7 +49,6 @@ HPE GreenLake CCS, short for HPE GreenLake Common Cloud Services, offers a colle
 * **Authorization**: provides authorization service for HPE GreenLake CCS, includes unified RBAC (Role-Based Access Control for users), custom roles and RRP (Resource Restriction Policy). Includes role creation, resource assignment to a role, role assignment to user…
 * **Device activation and inventory**: ZTP (Zero Touch Provisioning) and Asset inventory (contract and customer order processing), includes device firmware management (firmware repository for resources, latest FW check, FW upgrade, baseline upgrade).
 * **Subscription management**: Subscription inventory, support for different consumption models.
-
 
 ![](/img/glcp2.png)
 
@@ -85,11 +86,10 @@ There could be several issues you may encounter while using the **Install-Module
 
 * **Insufficient permissions**: You need administrative privileges to install modules. If you don't have sufficient privileges or if the PowerShell session is not running as an administrator, the cmdlet will fail. Make sure you launch your PowerShell client as Administrator:
 
-<img src="/img/lj-picture5.png" style="width: 800px; height: auto;" >
-
+  ![](/img/lj-picture5.png)
 * **Blocked security protocols**: Sometimes, the security protocols built into PowerShell can prevent the installation process. This usually happens when the PowerShell execution policy is set to "Restricted". If **Get-ExecutionPolicy** shows Restricted, you may need to run **Set-ExecutionPolicy RemoteSigned**.
 
-To find all cmdlets in a module that can be used with a specific resource, you can use the **Get-Command** cmdlet along with the **-Module** parameter to specify the name of the module. 
+To find all cmdlets in a module that can be used with a specific resource, you can use the **Get-Command** cmdlet along with the **\-Module** parameter to specify the name of the module. 
 
 `> Get-Command -Module HPEGreenLake`
 
@@ -101,7 +101,7 @@ In PowerShell, cmdlet names are constructed using a verb-noun format. The verb d
 
 `> Get-Help Get-HPEGLUserRole -Full`
 
-To view the detailed examples of how to use a particular cmdlet, you can use the **Get-Help** cmdlet along with the **-Examples** parameter followed by the name of the cmdlet. Here's an example command that you can use to get the examples of **Get-HPEGLUserRole** cmdlet:
+To view the detailed examples of how to use a particular cmdlet, you can use the **Get-Help** cmdlet along with the **\-Examples** parameter followed by the name of the cmdlet. Here's an example command that you can use to get the examples of **Get-HPEGLUserRole** cmdlet:
 
 `> Get-Help Get-HPEGLUserRole -Examples`
 
@@ -114,13 +114,13 @@ The connection to the HPE GreenLake Cloud Platform is done using the **Connect-H
 * **Note**: The library currently only supports single-factor authentication. Multi-factor authentication (MFA) and SAML single sign-on are not supported. These limitations mean that HPE employees cannot use their hpe.com corporate email to connect with **Connect-HPEGL** because hpe.com emails use SSO authentication. It is therefore mandatory that they use a non-hpe.com email. 
 * To add a non-hpe.com secondary email into your HPE GreenLake account, just go to GreenLake GUI and use **Invite Users** card in **Manage** / **Identity & Access** to send an invitation to your personal email. Once you receive the email, accept the invitation and you will be taken to the HPE GreenLake interface where you can set a password. Once done, you can use this email and password with **Connect-HPEGL**.
 
-After successfully authenticating to the HPE GreenLake platform, the **[HPEGreenLake.Connection]** object is returned to the caller and at the same time is added to the global session tracker **$HPEGreenLakeSession**.
+After successfully authenticating to the HPE GreenLake platform, the **\[HPEGreenLake.Connection]** object is returned to the caller and at the same time is added to the global session tracker **$HPEGreenLakeSession**.
 
 To display the full content of this global variable in the console, use: 
 
 `> $HPEGreenLakeSession | format-List`
 
-   ![](/img/lj-picture6.png)
+![](/img/lj-picture6.png)
 
 This object contains the following properties:
 
@@ -152,7 +152,7 @@ All properties in this object are important. **Session** stores what the library
 
 `> $HPEGreenLakeSession.session`
 
-   ![](/img/lj-picture7.png)
+![](/img/lj-picture7.png)
 
 Note that in the headers, an **Authorization Bearer <token>** header is defined. 
 
@@ -201,7 +201,7 @@ In the library, the main cmdlet to get information on devices is **Get-HPEGLDevi
 
 `> Get-HPEGLdevice`
 
-As in the GUI, the bare cmdlet (without parameters) returns a subset of resources in a page. A maximum of 100 devices are displayed by default. The **-Nolimit** parameter can be used to display all available devices, but this may result in a longer response time. 
+As in the GUI, the bare cmdlet (without parameters) returns a subset of resources in a page. A maximum of 100 devices are displayed by default. The **\-Nolimit** parameter can be used to display all available devices, but this may result in a longer response time. 
 
 The cmdlets in this library usually generate formatted objects when they are displayed on the console to enhance readability and ease of understanding. As an example, if you enter:
 
@@ -229,13 +229,12 @@ It is worth noting that a CSV file can be utilized to add multiple computes to t
 
 The content of the csv file must use the following format:
 
-*SerialNumber, PartNumber, Tags*  
-*WGX2380BLC, P55181-B21, Country=US State=PACA App=RH*  
-*AZX2380BLD, P55182-B21, State=Texas Role=production*  
+*SerialNumber, PartNumber, Tags*\
+*WGX2380BLC, P55181-B21, Country=US State=PACA App=RH*\
+*AZX2380BLD, P55182-B21, State=Texas Role=production*\
 *7LKY23D9LM, P54277-B21*
 
-
-Tags are optional but highly recommended. They are particularly useful when creating resource restriction policies. They must meet the string format: "**\<Name\>=\<Value\> \<Name\>=\<Value\>**" such as "**Country=US State=TX App=Grafana**" or "**Country=US**".
+Tags are optional but highly recommended. They are particularly useful when creating resource restriction policies. They must meet the string format: "**<Name>=<Value> <Name>=<Value>**" such as "**Country=US State=TX App=Grafana**" or "**Country=US**".
 
 **Add-HPEGLDeviceComputeFullService** is a much more advanced cmdlet than the previous one. This specific command has the ability to perform all mandatory steps of Compute onboarding:
 
@@ -249,9 +248,9 @@ Tags are optional but highly recommended. They are particularly useful when crea
 
 This time, the content of the csv file that can be used as a pipeline input must have the  following format:
 
-*IP, Username, Password, Tags*  
-*192.168.3.193, Administrator, password, Country=FR City=Mougins App=InfluxDB Owner=LJ*  
-*192.168.3.191, Administrator, password, Country=US State=Texas Role=Production Owner=LJ*  
+*IP, Username, Password, Tags*\
+*192.168.3.193, Administrator, password, Country=FR City=Mougins App=InfluxDB Owner=LJ*\
+*192.168.3.191, Administrator, password, Country=US State=Texas Role=Production Owner=LJ*\
 *192.168.3.205, demo, password*
 
 All Compute data that is required by the HPE GreenLake Platform to complete the Compute onboarding is collected and managed by the cmdlet in the background using RedFish iLO calls.
@@ -273,7 +272,6 @@ The main cmdlets for managing applications in the HPE GreenLake Platform are the
 * To manage applications: 
 
   * **Get-HPEGLApplication**: to get all applications available to you on your HPE GreenLake Platform, including the ones that are provisioned into your account and the ones that are not. 
-
 * To add and remove applications:
 
   * **Add-HPEGLApplication**: to provision an application in a new region.
@@ -283,13 +281,11 @@ The main cmdlets for managing applications in the HPE GreenLake Platform are the
   * **Remove-HPEGLApplication**: to delete an application instance. 
 
   > **Note**: This cmdlet has a high-impact and irreversible action. This action permanently deletes all data of the application instance and cannot be undone once the process has started. For example, removing the Compute Ops Management US-West instance would remove all user data, all devices, all server settings, all server groups, all API credentials, etc. It's great to hear that this cmdlet has a confirmation prompt before deleting an application instance. This feature can help prevent accidental deletions and provide an extra layer of protection for critical data in applications.
-
 * To assign and unassign devices to applications:
 
   * **Set-HPEGLDeviceApplication**: to attach devices to an application instance.
 
   > **Note**: Assigning devices to an application instance is the process of attaching devices to an application in a region, so that these devices become visible and managed in the application instance by users.
-
 * To create and delete API application credentials:
 
   * **New-HPEGLAPIcredential**: to create an API credential for an application instance. 
