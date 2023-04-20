@@ -109,8 +109,11 @@ This will display all the available examples for the **Get-HPEGLUserRole** cmdle
 
 The connection to the HPE GreenLake Cloud Platform is done using the **Connect-HPEGL** cmdlet.
 
-* **Note**: The library currently only supports single-factor authentication. Multi-factor authentication (MFA) and SAML Single Sign-On are not supported. These limitations mean that HPE employees cannot use their hpe.com corporate email to connect with **Connect-HPEGL** because hpe.com emails use SSO authentication. It is therefore mandatory that they use a non hpe.com email. 
-* While waiting for SAML Single Sign-On support, the temporary solution is to add a secondary email other than hpe.com into your HPE GreenLake account. Just go to the GreenLake GUI and use the **Invite Users** card in **Manage** / **Identity & Access** to send an invitation to your personal email. Once you receive the email, accept the invitation and you will be directed to the HPE GreenLake interface where you can set a password. Once this is done, you can use this email and password with **Connect-HPEGL**.
+* **Note**: The library currently only supports single-factor authentication. Multi-factor authentication (MFA) and SAML Single Sign-On are not supported. 
+
+* **Note**: These limitations mean that users who use SAML single sign-on with the HPE GreenLake platform are not able to utilize their corporate email credentials while logging in via the **Connect-HPEGL** cmdlet. This applies to all HPE employees as they utilize SSO authentication.
+
+* **Note**: While waiting for SAML Single Sign-On support, the temporary solution is to add a secondary email into your HPE GreenLake account. Just go to the GreenLake GUI and use the **Invite Users** card in **Manage** / **Identity & Access** to send an invitation to a non-corporate email address. Once you receive the email, accept the invitation and you will be directed to the HPE GreenLake interface where you can set a password. Once this is done, you can use this email address and password to log in with **Connect-HPEGL**.
 
 To begin with, it is recommended that you create a credentials object that includes your HPE GreenLake user's email and password:
 
