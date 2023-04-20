@@ -1,6 +1,6 @@
 ---
 title: Leveraging Tech to Address Global Challenges & Health
-active: true
+active: false
 fit: contain
 link: https://hpe.zoom.us/webinar/register/6016788022876/WN_DoWCB694RnSzjD9w78U3ZA
 imageBackground: white
