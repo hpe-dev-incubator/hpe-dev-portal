@@ -4,7 +4,7 @@ dateStart: 2023-04-18T22:01:10.257Z
 dateEnd: 2023-04-19T21:59:10.345Z
 category: Virtual Event
 image: /img/event-munch-and-learn-newlogo400x400.png
-link: https://hpe.zoom.us/webinar/register/4016788022713/WN_DoWCB694RnSzjD9w78U3ZA
+link: https://developer.hpe.com/campaign/meetups
 width: large
 ---
 ## Leveraging Tech to Address Global Challenges & Health
