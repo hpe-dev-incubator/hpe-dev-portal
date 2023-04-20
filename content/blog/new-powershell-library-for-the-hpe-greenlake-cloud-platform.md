@@ -263,6 +263,8 @@ Tags are optional but highly recommended. They are particularly useful when crea
 6. Set each iLO to use a web proxy if defined via the different web proxy parameters.
 7. Connect each iLO to the HPE Compute Ops Management instance.
 
+> **Note**: This cmdlet is involved in the configuration of iLOs so the prerequisite for running this cmdlet is to have network access to both the Internet (to access the HPE GreenLake platform) and the iLO network (which is usually a private network).
+
 This time, the content of the csv file that can be used as a pipeline input must have the  following format:
 
 *IP, Username, Password, Tags*  
