@@ -84,7 +84,7 @@ This will download and install the module from the official PowerShell Gallery r
 
 There could be several issues you may encounter while using the **Install-Module** cmdlet in PowerShell, some of which are:
 
-* **Insufficient permissions**: You need administrative privileges to install modules. If you don't have sufficient privileges or if the PowerShell session is not running as an administrator, the cmdlet will fail. Make sure you launch your PowerShell client as Administrator.
+* **Insufficient permissions**: You may need administrative privileges to install modules. If you do not have sufficient privileges, you can run your PowerShell client as an administrator.
 * **Blocked security protocols**: Sometimes, the security protocols built into PowerShell can prevent the installation process. This usually happens when the PowerShell execution policy is set to "Restricted". If **Get-ExecutionPolicy** shows Restricted, you may need to run **Set-ExecutionPolicy RemoteSigned**.
 
 To find all cmdlets in a module that can be used with a specific resource, you can use the **Get-Command** cmdlet along with the **\-Module** parameter to specify the name of the module. 
@@ -109,8 +109,8 @@ This will display all the available examples for the **Get-HPEGLUserRole** cmdle
 
 The connection to the HPE GreenLake Cloud Platform is done using the **Connect-HPEGL** cmdlet.
 
-* **Note**: The library currently only supports single-factor authentication. Multi-factor authentication (MFA) and SAML single sign-on are not supported. These limitations mean that HPE employees cannot use their hpe.com corporate email to connect with **Connect-HPEGL** because hpe.com emails use SSO authentication. It is therefore mandatory that they use a non-hpe.com email. 
-* To add a non-hpe.com secondary email into your HPE GreenLake account, just go to GreenLake GUI and use **Invite Users** card in **Manage** / **Identity & Access** to send an invitation to your personal email. Once you receive the email, accept the invitation and you will be taken to the HPE GreenLake interface where you can set a password. Once done, you can use this email and password with **Connect-HPEGL**.
+* **Note**: The library currently only supports single-factor authentication. Multi-factor authentication (MFA) and SAML Single Sign-On are not supported. These limitations mean that HPE employees cannot use their hpe.com corporate email to connect with **Connect-HPEGL** because hpe.com emails use SSO authentication. It is therefore mandatory that they use a non hpe.com email. 
+* While waiting for SAML Single Sign-On support, the temporary solution is to add a secondary email other than hpe.com into your HPE GreenLake account. Just go to the GreenLake GUI and use the **Invite Users** card in **Manage** / **Identity & Access** to send an invitation to your personal email. Once you receive the email, accept the invitation and you will be directed to the HPE GreenLake interface where you can set a password. Once this is done, you can use this email and password with **Connect-HPEGL**.
 
 To begin with, it is recommended that you create a credentials object that includes your HPE GreenLake user's email and password:
 
