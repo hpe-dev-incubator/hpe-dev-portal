@@ -121,12 +121,12 @@ Step 14 Start Python and use these commands to check the OpenSSL 3.1 version.
 
 Step 16 Now open command windows as Administrator and execute 
 
-`set OPENSSL_CONF=C:\Python311\openssl.cnf`
+> `set OPENSSL_CONF=C:\Python311\openssl.cnf` 
 
 Step 17 To verify python is enabled with FIPS, both client and server needs to be FIPS mode. Client Windows OS need to be enabled with FIPS with these 2 steps.
 
-> Open `gpedit.msc` on run menu and navigate to Computer Configuration\Windows Settings\Security Settings\Local Policies\Security Options and enable the `System cryptography: Use FIPS compliant algorithms for encryption, hashing, and signing` setting.
-> Open `regedit` on run menu and go to `HKLM\System\CurrentControlSet\Control\Lsa\FipsAlgorithmPolicy\Enabled` and set Enabled to 1.
+> - Open `gpedit.msc` on run menu and navigate to Computer Configuration\Windows Settings\Security Settings\Local Policies\Security Options and enable the `System cryptography: Use FIPS compliant algorithms for encryption, hashing, and signing` setting.   
+> - Open `regedit` on run menu and go to `HKLM\System\CurrentControlSet\Control\Lsa\FipsAlgorithmPolicy\Enabled` and set Enabled to 1.
 
 Step 18 To verify python is enabled with FIPS, run the following commands. Note that list crypto algorithms available are more than crypto algorithms guaranteed.  But all algorithms can be used if Server where Client SSL is connecting is also configured in FIPS mode. The living example for OpenSSL Server is HPE iLO.
 
