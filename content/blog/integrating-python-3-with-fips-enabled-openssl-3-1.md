@@ -87,7 +87,7 @@ Step 12 Now, build `_hashlib.pyd` and `_ssl.pyd` in VS 2015.
 Step 13 Copy these built .pyd files from \PCbuild\amd64\ to a Python binary installation directory C:\python311\DLLs.
 Step 14 Start Python and use these commands to check the OpenSSL 3.1 version.
 
-> Step 15 Now, to run Python with FIPS enabled OpenSSL, create `openssl.cnf` and `fipsmodule.cnf` file using the below content in `C:\Python311` directory. By using this config file, FIPS will be enabled by default.
+Step 15 Now, to run Python with FIPS enabled OpenSSL, create `openssl.cnf` and `fipsmodule.cnf` file using the below content in `C:\Python311` directory. By using this config file, FIPS will be enabled by default.
 
 >#### openssl.cnf: 
 
