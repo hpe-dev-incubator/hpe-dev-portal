@@ -56,3 +56,14 @@ This is shown as below
 Step 7 Unzip Python in Windows to `C:\work\Python311` and go into `C:\work\Python-3.11.2\PCBuild`.  
 
 Run `get_externals.bat` file.  This will fetch the dependencies from internet into externals directory. Now create `openssl-bin-3.1.0` directory under `externals` directory as below.
+
+Step 8 Under 'externals', directory, create amd64 depending on the CPU architecture and 
+copy the as files to it as below.
+
+> copy \`C:\SSLout\DLL\x64\Release\lib\\*\.lib\` to \openssl-bin-3.1.0\amd64\`   \
+> copy `C:\SSLout\DLL\x64\Release\bin\\**.*  \openssl-bin-3.1.0\amd64\`  \
+> copy \`C:\SSLout\DLL\x64\Release\include directory to \openssl-bin-3.1.0\amd64\`  \
+> copy \`C:\SSLout\DLL\x64\Release\include\openssl\applink.c\`  \`\openssl-bin-3.1.0\amd64\include\`  \
+> copy `C:\SSLout\DLL\x64\Release\lib\ossl-modules\\\*\.\\**.* \`\openssl-bin-3.1.0\amd64.\`  
+
+Step 9 Modify `PCbuild/openssl.props` as shown below:
