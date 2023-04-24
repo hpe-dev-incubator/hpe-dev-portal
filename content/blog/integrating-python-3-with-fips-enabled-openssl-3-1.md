@@ -130,7 +130,7 @@ Step 18 To verify python is enabled with FIPS, run the following commands.
 
 ![](/img/openssl_fips_algo.jpg)
 
-Note that list crypto algorithms available are more than crypto algorithms guaranteed.  But all algorithms can be used if Server where Client SSL is connecting is also configured in FIPS mode. 
+Note that the list crypto algorithms available are more than the crypto algorithms guaranteed.  But all algorithms can be used if Server where Client SSL is connecting is also configured in FIPS mode. 
 
 The living example for OpenSSL Server is HPE iLO. 
 
