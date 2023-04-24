@@ -12,7 +12,7 @@ active: false
 tags:
   - hpe-greenlake-cloud-platform
 ---
-Powered by the HPE GreenLake edge-to-cloud platform, HPE GreenLake helps you achieve data-first modernization by bringing the cloud experience to your distributed apps and data wherever they are. With a pay per use, scalable, point & click self-service experience that is managed for you, HPE GreenLake can help you conserve your capital, reduce complexity, and achieve a faster time to market. You can run your business on HPE GreenLake.
+The HPE GreenLake platform, along with its marketplace and partner ecosystem, provides customers with a consistent, powerful foundation for application development and hybrid cloud innovation. This helps customers to reduce costs and complexity, while enhancing stability and performance across multiple IT environments.
 
 [Learn more about HPE GreenLake](https://www.hpe.com/us/en/greenlake.html)
 
