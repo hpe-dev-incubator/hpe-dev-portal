@@ -274,13 +274,13 @@ The process of onboarding devices on the platform actually requires several step
 
 **Add-HPEGLDeviceCompute** is the first cmdlet that you can use to simply add a Compute device to the HPE GreenLake console.  The sole purpose of this cmdlet is to add compute(s) with the specified tags to the platform and nothing beyond that. The corresponding cmdlets for adding storage and network devices are **Add-HPEGLDeviceStorage** and **Add-HPEGLDeviceNetwork**.
 
-It is worth noting that a CSV file can be utilized to add multiple devices to the platform by containing device information such as serial number, part number, and tags. To do so, this CSV file can be used as a pipeline input of these cmdlets using: 
+It is worth noting that a CSV file can be utilized to add multiple devices to the platform by containing device information such as serial number, part number, subscription key, MAC adress and tags depending on the device type. To do so, this CSV file can be used as a pipeline input of these cmdlets using for example with **Add-HPEGLDeviceCompute**: 
 
 ```Powershell
 > Import-Csv Compute_Devices.csv | Add-HPEGLDeviceCompute
 ```
 
-The content of the csv file must use the following format:
+In this case, the content of the csv file to define the Compute must use the following format:
 
 *SerialNumber, PartNumber, Tags*  
 *WGX2380BLC, P55181-B21, Country=US State=PACA App=RH*  
@@ -289,7 +289,7 @@ The content of the csv file must use the following format:
 
 Note that for 7LKY23D9LM, no tag is assigned in this example.
 
-Tags are optional but highly recommended. They are particularly useful when creating resource restriction policies. They must meet the string format: "**\<Name\>=\<Value\> \<Name\>=\<Value\>**" such as "**Country=US State=TX App=Grafana**" or "**Country=US**".
+Tags are optional with Compute but highly recommended. They are particularly useful when creating resource restriction policies. They must meet the string format: "**\<Name\>=\<Value\> \<Name\>=\<Value\>**" such as "**Country=US State=TX App=Grafana**" or "**Country=US**".
 
 **Add-HPEGLDeviceComputeFullService** is a much more advanced cmdlet than the previous one. This specific command has the ability to perform all mandatory steps of Compute onboarding, including both the HPE GreenLake platform side and server side procedures, as described in the following diagram:
 
@@ -307,7 +307,7 @@ A single command is sufficient to implement the entire onboarding process. The s
 
 > **Note**: This cmdlet is involved in the configuration of iLOs so the prerequisite for running this cmdlet is to have network access to both the Internet (to access the HPE GreenLake platform) and the iLO network (which is usually a private network).
 
-This time, the content of the csv file that can be used as a pipeline input must have the  following format:
+This time, the content of the csv file should contain information regarding iLOs which includes their IP addresses, login credentials (an administrator account is a requisite), and tags (if applicable). This is the only data needed to feed the pipeline. The format should be as follows:
 
 *IP, Username, Password, Tags*  
 *192.168.3.193, Administrator, password, Country=FR City=Mougins App=InfluxDB Owner=LJ*  
