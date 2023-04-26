@@ -93,7 +93,9 @@ There could be several issues you may encounter while using the **Install-Module
 
 To find all cmdlets in a module that can be used with a specific resource, you can use the **Get-Command** cmdlet along with the **\-Module** parameter to specify the name of the module. 
 
-`> Get-Command -Module HPEGreenLake`
+```Powershell
+Get-Command -Module HPEGreenLake
+```
 
 In this first release, about 50 cmdlets are available with the HPE GreenLake module. The main supported resources includes:
 
@@ -103,11 +105,15 @@ In PowerShell, cmdlet names are constructed using a verb-noun format. The verb d
 
 **Get-Help** is an important cmdlet in PowerShell as it provides detailed information about a specific cmdlet or function. To get the full help details for the **Get-HPEGLUserRole** cmdlet, you can use the following command:
 
-`> Get-Help Get-HPEGLUserRole -Full`
+```Powershell
+Get-Help Get-HPEGLUserRole -Full
+```
 
 To view the detailed examples of how to use a particular cmdlet, you can use the **Get-Help** cmdlet along with the **\-Examples** parameter followed by the name of the cmdlet. Here's an example command that you can use to get the examples of **Get-HPEGLUserRole** cmdlet:
 
-`> Get-Help Get-HPEGLUserRole -Examples`
+```Powershell
+Get-Help Get-HPEGLUserRole -Examples
+```
 
 This will display all the available examples for the **Get-HPEGLUserRole** cmdlet in a list format. You can review the examples and use them according to your requirements.
 
@@ -132,11 +138,15 @@ $credentials = New-Object System.Management.Automation.PSCredential ($GLCP_userN
 
 Then using the **Connect-HPEGL** cmdlet, you can connect to the platform:
 
-`> Connect-HPEGL -Credential $credentials`
+```Powershell
+Connect-HPEGL -Credential $credentials
+```
 
 If you have multiple company (or tenant) accounts, you can add the **\-CompanyName** parameter to connect to the appropriate tenant as follows:
 
-`> Connect-HPEGL -Credential $credentials -CompanyName "HPE Mougins"` 
+```Powershell
+Connect-HPEGL -Credential $credentials -CompanyName "HPE Mougins"
+``` 
 
 After successfully authenticating to the HPE GreenLake platform, the *[HPEGreenLake.Connection]* object is returned to the caller and (at the same time) is added to the global session tracker **$HPEGreenLakeSession**.
 
@@ -144,7 +154,9 @@ After successfully authenticating to the HPE GreenLake platform, the *[HPEGreenL
 
 To display the full content of this global variable in the console, use: 
 
-`> $HPEGreenLakeSession | format-List`
+```Powershell
+$HPEGreenLakeSession | format-List
+```
 
 ![](/img/lj-picture6.png)
 
@@ -176,7 +188,9 @@ The **apiCredentials** property is only filled in when using **New-HPEGLAPIcrede
 
 All properties in this object are important. **Session** stores what the library uses to make all the calls in the cmdlets. You can open a session using:
 
-`> $HPEGreenLakeSession.session`
+```Powershell
+$HPEGreenLakeSession.session
+```
 
 ![](/img/lj-picture7.png)
 
@@ -225,19 +239,25 @@ In HPE GreenLake, devices are the resource for compute, network and storage devi
 
 In the library, the main cmdlet to get information on devices is **Get-HPEGLDevice**.
 
-`> Get-HPEGLdevice`
+```Powershell
+Get-HPEGLdevice
+```
 
 As in the GUI, the bare cmdlet (without parameters) returns a subset of resources in a page. A maximum of 100 devices are displayed by default. The **\-Nolimit** parameter can be used to display all available devices, but this may result in a longer response time. 
 
 The cmdlets in this library usually generate formatted objects when they are displayed on the console to enhance readability and ease of understanding. As an example, if you enter:
 
-`> Get-HPEGLdevice -Limit 10` 
+```Powershell
+Get-HPEGLdevice -Limit 10
+``` 
 
 ![](/img/lj-picture8.png)
 
 The generated output is "formatted". To get the full view of a formatted object in PowerShell, you can use the **Format-List** cmdlet (or **fl** its alias). This cmdlet allows you to display all the properties and values of an object in a list form:
 
-`> Get-HPEGLdevice -Limit 10 | fl`
+```Powershell
+Get-HPEGLdevice -Limit 10 | fl
+```
 
 ![](/img/lj-picture9.png)
 
@@ -251,7 +271,9 @@ To manage devices using HPE GreenLake, one of the initial steps is to onboard th
 
 It is worth noting that a CSV file can be utilized to add multiple computes to the platform by containing device information such as serial number, part number, and tags. To do so, this CSV file can be used as a pipeline input of this cmdlet using: 
 
-`> Import-Csv Compute_Devices.csv | Add-HPEGLDeviceCompute`
+```Powershell
+Import-Csv Compute_Devices.csv | Add-HPEGLDeviceCompute
+```
 
 The content of the csv file must use the following format:
 
@@ -287,7 +309,9 @@ All Compute data that is required by the HPE GreenLake platform to complete the 
 
 You can use **Get-Help** to learn more about this cmdlet and particularly look at the different examples:
 
-`> Help Add-HPEGLDeviceComputeFullService -full`
+```Powershell
+Help Add-HPEGLDeviceComputeFullService -full
+```
 
 **Add-HPEGLDeviceStorageFullService** and **Add-HPEGLDeviceNetworkFullService** offer the same full onboarding service for storage and networking devices 
 
