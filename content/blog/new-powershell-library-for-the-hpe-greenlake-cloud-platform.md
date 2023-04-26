@@ -9,7 +9,7 @@ tags:
   - GreenLake
   - GLCP
   - PowerShell
-  - Common cloud services
+  - Common cloud Services
   - Platform
   - Cloud
   - HPE GreenLake
