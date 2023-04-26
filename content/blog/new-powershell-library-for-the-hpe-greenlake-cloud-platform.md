@@ -60,7 +60,7 @@ PowerShell offers numerous benefits, such as flexibility and ease of learning, a
 
 The new HPE GreenLake PowerShell library can be found on the Hewlett Packard Enterprise GitHub repository at the following [location](https://github.com/HewlettPackard/POSH-HPEGreenLake).    
 
-![](/img/github_-glcp.png)
+![](/img/GitHub_GLCP.png)
 
 The supported PowerShell editions for this new library are Desktop (with 5.1 and above) and Core (with 7.x supported on Windows, Linux and Mac).
 
