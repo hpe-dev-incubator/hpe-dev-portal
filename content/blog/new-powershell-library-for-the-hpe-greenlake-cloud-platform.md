@@ -127,6 +127,8 @@ The connection to the HPE GreenLake platform is done using the **Connect-HPEGL**
 
 > **Note**: While waiting for SAML Single Sign-On support, the temporary solution is to add a secondary email into your HPE GreenLake account. Just go to the HPE GreenLake GUI and use the **Invite Users** card in **Manage** / **Identity & Access** to send an invitation to a non-corporate email address. Once you receive the email, accept the invitation and you will be directed to the HPE GreenLake interface where you can set a password. Once this is done, you can use this email address and password to log in with **Connect-HPEGL**.
 
+> **Note**: The *observer* role for the *HPE GreenLake platform* application (view only privileges) is the minimum required to interact with the HPE GreenLake platform via this library. Modification will require the *Operator* (view and edit) or *Administrator* (view, edit and delete) roles.
+
 To begin with, it is recommended that you create a credentials object that includes your HPE GreenLake user's email and password:
 
 ```powershell
