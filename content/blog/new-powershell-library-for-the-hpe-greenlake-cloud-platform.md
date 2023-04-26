@@ -61,7 +61,7 @@ PowerShell offers numerous benefits, such as flexibility and ease of learning, a
 
 The new HPE GreenLake PowerShell library can be found on the Hewlett Packard Enterprise GitHub repository at the following [location](https://github.com/HewlettPackard/POSH-HPEGreenLake).    
 
-![](/img/GitHub_GLCP.png)
+![](/img/github_glcp.png)
 
 The supported PowerShell editions for this new library are Desktop (with 5.1 and above) and Core (with 7.x supported on Windows, Linux and Mac).
 
@@ -276,7 +276,7 @@ To manage devices using HPE GreenLake, one of the initial steps is to onboard th
 
 The process of onboarding devices on the platform actually requires several steps that must first be performed on the HPE GreenLake platform side. Here are the different steps and commands that need to be executed:
 
-![](/img/LJ-Device-onboarding.png)
+![](/img/lj-device-onboarding.png)
 
 
 **Add-HPEGLDeviceCompute** is the first cmdlet that you can use to simply add a Compute device to the HPE GreenLake console.  The sole purpose of this cmdlet is to add compute(s) with the specified tags to the platform and nothing beyond that. The corresponding cmdlets for adding storage and network devices are **Add-HPEGLDeviceStorage** and **Add-HPEGLDeviceNetwork**.
@@ -300,7 +300,7 @@ Tags are optional with Compute but highly recommended. They are particularly use
 
 **Add-HPEGLDeviceComputeFullService** is a much more advanced cmdlet than the previous one. This specific command has the ability to perform all mandatory steps of Compute onboarding, including both the HPE GreenLake platform side and server side procedures, as described in the following diagram:
 
-![](/img/LJ-Device-onboarding-full-service.png)
+![](/img/lj-device-onboarding-full-service.png)
 
 A single command is sufficient to implement the entire onboarding process. The steps include:
 
