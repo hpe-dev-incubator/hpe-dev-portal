@@ -1,5 +1,5 @@
 ---
-title: New PowerShell Library for the HPE GreenLake Cloud Platform
+title: New PowerShell library for the HPE GreenLake platform
 date: 2023-04-17T10:57:44.709Z
 externalLink: ""
 author: Lionel Jullien
@@ -28,51 +28,51 @@ tags:
   }
 </style>
 
-The purpose of this blog is to familiarize readers with the recently released PowerShell library for the HPE GreenLake Edge-to-Cloud platform. This library allows PowerShell developers, IT automation experts, and DevOps professionals to use the platform's API without having to rely on the GUI.
+The purpose of this blog is to familiarize readers with the recently released PowerShell library for the HPE GreenLake edge-to-cloud platform. This library allows PowerShell developers, IT automation experts, and DevOps professionals to use the platform's API without having to rely on the GUI.
 
-With the introduction of this new library, anyone with basic PowerShell skills can now automate their interaction with the HPE GreenLake API, leverage the many resources offered by the HPE Cloud Platform, and enjoy increased productivity and efficiency.
+With the introduction of this new library, anyone with basic PowerShell skills can now automate their interaction with the HPE GreenLake API, leverage the many resources offered by the HPE GreenLake platform, and enjoy increased productivity and efficiency.
 
 Are you seeking agility and the ability to automate routine tasks through HPE GreenLake? If so, this library is the ideal solution for you!
 
-Among many other operations, this library allows you to create users, assign roles, send invitations to users, add and archive devices, assign applications and attach subscriptions, add tags to any device, get all kinds of information about any HPE GreenLake resource. 
+Among many other operations, this library allows you to create users, assign roles, send invitations to users, add and archive devices, assign applications and attach subscriptions, add tags to any device, and get all kinds of information about any HPE GreenLake resource. 
 
-In addition, you can implement resource restriction policies, fully automate device onboarding, generate API credentials for specific application instances such as HPE Computes Ops Management or HPE Data Services Cloud Console, and extend on the fly your API calls to any HPE GreenLake application instance.
+In addition, you can implement resource restriction policies, fully automate device onboarding, generate API credentials for specific application instances (such as HPE Compute Ops Management or HPE Data Services Cloud Console), and extend your API calls to any HPE GreenLake application instance on the fly.
 
-The HPE GreenLake platform provides a shared set of common cloud services for different application instances and services. This common service experience brings together all HPE service offerings into a single, comprehensive customer experience that this library leverages.
+The HPE GreenLake platform provides a shared set of common cloud services for different application instances and services. This common service experience brings all HPE service offerings together into a single, comprehensive customer experience that this library leverages.
 
 ![](/img/ccs.png)
 
-HPE GreenLake CCS, short for HPE GreenLake Common Cloud Services, offers a collection of API-enabled services that serve various functions. The primary ones being:
+HPE GreenLake CCS, short for HPE GreenLake Common Cloud Services, offers a collection of API-enabled services that serve various functions, with the primary ones being:
 
-* **Registration**: in charge of the user registration. Includes email verification, account creation with HPE IDP (Identity Provider) with integration with PING Identity as the OIDC/RP provider (Relying Party for user authenticity verification and token issuance)
-* **Authentication**: takes care of the user authentication but also HPE GreenLake CCS to applications authentication. Includes unified login, Single or MFA or SSO (third party), federated authentication with customer’s identity DP, single logout, user management, supports increased security with PKCE (Proof Key for Code Exchange, pronounced ‘pixy”) for OAuth 2.0. 
-* **Authorization**: provides authorization service for HPE GreenLake CCS, includes unified RBAC (Role-Based Access Control for users), custom roles and RRP (Resource Restriction Policy). Includes role creation, resource assignment to a role, role assignment to user…
-* **Device activation and inventory**: ZTP (Zero Touch Provisioning) and Asset inventory (contract and customer order processing), includes device firmware management (firmware repository for resources, latest FW check, FW upgrade, baseline upgrade).
-* **Subscription management**: Subscription inventory, support for different consumption models.
+* **Registration**: in charge of the user registration. Includes email verification, account creation with HPE IDP (Identity Provider) including integration with PING Identity as the OIDC/RP provider (Relying Party for user authenticity verification and token issuance)
+* **Authentication**: takes care of the user authentication and HPE GreenLake CCS to applications authentication. Includes unified login, Single or Multi-factor authentication (MFA) or Single sign-on (SSO) with third party, federated authentication with customer’s identity DP, single logout, user management, and supports increased security with PKCE (Proof Key for Code Exchange, pronounced ‘pixy”) for OAuth 2.0. 
+* **Authorization**: provides authorization service for HPE GreenLake CCS. Includes unified RBAC (Role-Based Access Control for users), custom roles and RRP (Resource Restriction Policy) including role creation, resource assignment to a role, role assignment to user, etc.
+* **Device activation and inventory**: provides ZTP (Zero Touch Provisioning) and Asset inventory (contract and customer order processing). Includes device firmware management (firmware repository for resources, latest FW check, FW upgrade, baseline upgrade).
+* **Subscription management**: offers subscription inventory, support for different consumption models.
 
 ![](/img/glcp2.png)
 
 The majority of these essential functions can be performed effortlessly and with great efficiency using the HPE GreenLake PowerShell library.
 
-PowerShell offers numerous benefits, such as its flexibility and ease of learning, and with this new library, you can significantly boost your productivity, be agile while reducing the risk of manual errors. Most, if not all, of the HPE GreenLake tasks can be automated in a smarter way, making it a must-have tool for any IT automation engineer or DevOps personnel.
+PowerShell offers numerous benefits, such as flexibility and ease of learning, and, with this new library, you can significantly boost your productivity and be agile while reducing the risk of manual errors. Most, if not all, of the HPE GreenLake tasks can be automated in a smarter way through its use, making it a must-have tool for any IT automation engineer or DevOps personnel.
 
-# Introduction to the HPE GreenLake PowerShell Library
+# Introduction to the HPE GreenLake PowerShell library
 
-The new HPE GreenLake PowerShell Library can be found on the Hewlett Packard Enterprise GitHub repository at the following [location](https://github.com/HewlettPackard/POSH-HPEGreenLake).    
+The new HPE GreenLake PowerShell library can be found on the Hewlett Packard Enterprise GitHub repository at the following [location](https://github.com/HewlettPackard/POSH-HPEGreenLake).    
 
 ![](/img/github_-glcp.png)
 
 This module is also published in the PowerShell Gallery. The PowerShell Gallery is a repository for sharing and distributing PowerShell modules and scripts. It's a community-driven platform that provides access to various PowerShell resources, enabling you to easily discover, install, and publish your own PowerShell content. The PowerShell Gallery can be accessed through the PowerShellGet module, which comes pre-installed with Windows PowerShell 5.0 and above.
 
-In most GitHub repositories, the **README.md** file is a crucial file that provides essential information about the project. It typically contains instructions on how to install and use the module, as well as any other important details that potential users or contributors may need to know. Other files and folders in the repository includes source code, documentation, configuration files, samples, and more. These files are organized into different directories to help keep things organized and easy to find. As mentioned, the **README.md** file is an excellent starting point for getting familiar with this new module. 
+In most GitHub repositories, the **README.md** file is a crucial file that provides essential information about the project. It typically contains instructions on how to install and use the module, as well as any other important details that potential users or contributors may need to know. Other files and folders in the repository include source code, documentation, configuration files, samples, and more. These files are organized into different directories to help keep things organized and easy to find. As mentioned, the **README.md** file is an excellent starting point for getting familiar with this new module. 
 
-The **Samples** folder provides several scripts and csv files examples to demonstrate how this library can be best used. These examples illustrate the variety of functionality in the library, including connecting to the platform, onboarding devices, generating API credentials, interacting with iLO, etc.
+The **Samples** folder provides several scripts and csv file examples to demonstrate how this library can be best used. These examples illustrate the variety of functionality in the library, including connecting to the platform, onboarding devices, generating API credentials, interacting with iLO, etc.
 
 The **[Issues](https://github.com/HewlettPackard/POSH-HPEGreenLake/issues)** tab is a feature commonly found on websites that use version control systems such as Git, GitHub, or Bitbucket. It allows users to report issues, request new features, or provide feedback related to a project. When users click on one of the **Get Started** buttons, they are redirected to a form where they can enter details about their issue or suggestion. This information is then stored as a new issue in the project's issue tracker, where developers can see it and take action accordingly. The **Issues** tab is a valuable tool for effective communication between developers and users, allowing for a more transparent and collaborative development process.  
 
 ![](/img/github_-glcp_issues.png)
 
-# Installation of the HPE GreenLake PowerShell Library
+# Installation of the HPE GreenLake PowerShell library
 
 **Install-Module** cmdlet is a common way to install PowerShell modules from online repositories. The cmdlet downloads and installs the module and any associated dependencies that it may have. To use the **Install-Module** cmdlet, you can simply open a PowerShell console (or a PowerShell ISE console or VS Code), and run the following command:
 
@@ -105,15 +105,15 @@ To view the detailed examples of how to use a particular cmdlet, you can use the
 
 This will display all the available examples for the **Get-HPEGLUserRole** cmdlet in a list format. You can review the examples and use them according to your requirements.
 
-# Connection to the HPE GreenLake Cloud platform
+# Connection to the HPE GreenLake platform
 
-The connection to the HPE GreenLake Cloud Platform is done using the **Connect-HPEGL** cmdlet.
+The connection to the HPE GreenLake platform is done using the **Connect-HPEGL** cmdlet.
 
 >**Note**: The library currently only supports single-factor authentication. Multi-factor authentication (MFA) and SAML Single Sign-On are not supported. 
 
->**Note**: This limitation means that users who use SAML single sign-on with the HPE GreenLake Platform (this applies to all HPE employees) cannot use their corporate email credentials when logging in via the **Connect-HPEGL** cmdlet. 
+>**Note**: This limitation means that users who use SAML single sign-on with the HPE GreenLake platform (this applies to all HPE employees) cannot use their corporate email credentials when logging in via the **Connect-HPEGL** cmdlet. 
 
-> **Note**: While waiting for SAML Single Sign-On support, the temporary solution is to add a secondary email into your HPE GreenLake account. Just go to the GreenLake GUI and use the **Invite Users** card in **Manage** / **Identity & Access** to send an invitation to a non-corporate email address. Once you receive the email, accept the invitation and you will be directed to the HPE GreenLake interface where you can set a password. Once this is done, you can use this email address and password to log in with **Connect-HPEGL**.
+> **Note**: While waiting for SAML Single Sign-On support, the temporary solution is to add a secondary email into your HPE GreenLake account. Just go to the HPE GreenLake GUI and use the **Invite Users** card in **Manage** / **Identity & Access** to send an invitation to a non-corporate email address. Once you receive the email, accept the invitation and you will be directed to the HPE GreenLake interface where you can set a password. Once this is done, you can use this email address and password to log in with **Connect-HPEGL**.
 
 To begin with, it is recommended that you create a credentials object that includes your HPE GreenLake user's email and password:
 
@@ -130,7 +130,7 @@ If you have multiple company (or tenant) accounts, you can add the **\-CompanyNa
 
 `> Connect-HPEGL -Credential $credentials -CompanyName "HPE Mougins"` 
 
-After successfully authenticating to the HPE GreenLake platform, the *[HPEGreenLake.Connection]* object is returned to the caller and at the same time is added to the global session tracker **$HPEGreenLakeSession**.
+After successfully authenticating to the HPE GreenLake platform, the *[HPEGreenLake.Connection]* object is returned to the caller and (at the same time) is added to the global session tracker **$HPEGreenLakeSession**.
 
 ![](/img/lj-picture10.png)
 
@@ -142,17 +142,17 @@ To display the full content of this global variable in the console, use:
 
 This object contains the following properties:
 
-* **session**: Web session object containing information about the HPE GreenLake session, including cookies and credentials.
-* **oauth2AccessToken**: OAuth2 access token string returned by the API after successful authentication.
-* **oauth2IdToken**: OAuth2 ID Token string returned by the API after successful authentication.
-* **oauth2RefreshToken**: OAuth2 refresh token string returned by the API after successful authentication. 
+* **session**: Web session object containing information about the HPE GreenLake session, including cookies and credentials
+* **oauth2AccessToken**: OAuth2 access token string returned by the API after successful authentication
+* **oauth2IdToken**: OAuth2 ID token string returned by the API after successful authentication
+* **oauth2RefreshToken**: OAuth2 refresh token string returned by the API after successful authentication
 * **userName**: Email address that was authenticated with HPE GreenLake
 * **customerId**: HPE GreenLake customer ID
-* **companyName**: Name of the Company account  
-* **oauth2TokenCreation**: OAuth2 token creation datetime value.
-* **oauth2TokenCreationEpoch**: Unix time since creation of the OAuth2 token.
-* **userSessionIdleTimeout**: HPE GreenLake user session timeout in minutes.
-* **apiCredentials**: Collection of application API credentials created during the session. 
+* **companyName**: Name of the company account  
+* **oauth2TokenCreation**: OAuth2 token creation datetime value
+* **oauth2TokenCreationEpoch**: Unix time since creation of the OAuth2 token
+* **userSessionIdleTimeout**: HPE GreenLake user session timeout in minutes
+* **apiCredentials**: Collection of application API credentials created during the session
 
 Each API credential object contains the following properties:
 
@@ -166,7 +166,7 @@ Each API credential object contains the following properties:
 
 The **apiCredentials** property is only filled in when using **New-HPEGLAPIcredential** during a session. 
 
-All properties in this object are important. **Session** stores what the library uses to make all the calls in the cmdlets. You can open session using:
+All properties in this object are important. **Session** stores what the library uses to make all the calls in the cmdlets. You can open a session using:
 
 `> $HPEGreenLakeSession.session`
 
@@ -174,13 +174,13 @@ All properties in this object are important. **Session** stores what the library
 
 Note that in the headers, an **Authorization, Bearer \<token\>** header is defined. 
 
-This token is a JWT (JSON Web Token) pronounced “Jot” is a type of token used in the OAuth 2.0 standard for authentication and authorization purposes with the HPE GreenLake Platform. OAuth 2.0 is a protocol designed to allow secure access to user resources in HPE GreenLake without requiring their credentials to be shared with HPE GreenLake, the client application.
+This token is a JWT (JSON Web Token). Pronounced "Jot", this type of token is used in the 0Auth 2.0 standard for authentication and authorization purposes with the HPE GreenLake platform. OAuth 2.0 is a protocol designed to allow secure access to user resources in HPE GreenLake without requiring their credentials to be shared with HPE GreenLake, the client application.
 
-The JWT typically contains data about the token, such as its type and signature algorithm, statements about the user, such as their ID, name, email address, or role, and an expiration time. Finally, a signature that is used to verify that the token has not been altered during transmission and that it was issued by a trusted source.
+The JWT typically contains data about the token (such as its type and signature algorithm), statements about the user (such as their ID, name, email address, or role) and an expiration time. Finally, it includes a signature that is used to verify that the token has not been altered during transmission and that it was issued by a trusted source.
 
-It's important to keep in mind that the access token will only be valid for a period of 2 hours, after which it will expire and no longer be usable. 
+It's important to keep in mind that the access token will only be valid for a period of 2 hours, after which it will expire and no longer be usable. Note that the library has a built-in function that runs in the background to refresh the access token before it expires. The function is triggered whenever a cmdlet is executed. However, if your session has already expired due to prolonged inactivity ((defined by the session timeout in the HPE GreenLake user preferences) you will need to reconnect to the platform with **Connect-HPEGL**.
 
-The **Connect-HPEGL** cmdlet handles the entire authorization process, which includes authorizing with the third-party identity provider and collecting various tokens. Once all the necessary tokens have been obtained, a session is created by utilizing bearer authentication with the HPE GreenLake Common cloud Services (CCS) API using the *id_token* present in the payload to confirm our identity.
+The **Connect-HPEGL** cmdlet handles the entire authorization process, which includes authorizing with the third-party identity provider and collecting various tokens. Once all the necessary tokens have been obtained, a session is created by utilizing bearer authentication with the HPE GreenLake Common Cloud Services (CCS) API using the *id_token* present in the payload to confirm your identity.
 
 When the session is created, CCS sets a unique session ID in a cookie that the library stores in **$HPEGreenLakeSession.session.cookies** so that all subsequent requests can use it. Other cookies are also added to maintain the session state between the PowerShell session and the CCS API. For each request from the HPE GreenLake library, these cookies are sent back to the CCS API, which allows the cloud platform to identify the user and grant various permissions.
 
@@ -192,26 +192,26 @@ In HPE GreenLake, you have the ability to manage users and their permissions to 
 
 Additionally, you can restrict access to specific resources by creating custom resource groupings using Resource Restriction Policies.
 
-The main cmdlets for managing users and their access to HPE GreenLake resources are the following:
+The main cmdlets for managing users and their access to HPE GreenLake resources are as follows:
 
 * To manage users: 
 
-  * **Get-HPEGLUser**: to get users and their activity status and roles.
-  * **Send-HPEGLUserInvitation**: to invite users to your account. 
-  * **Remove-HPEGLUser**: to delete users from your account.
+  * **Get-HPEGLUser**: to get users and their activity status and roles
+  * **Send-HPEGLUserInvitation**: to invite users to your account
+  * **Remove-HPEGLUser**: to delete users from your account
 * To view and manage user roles and permissions: 
 
-  * **Get-HPEGLRole**: to view the role (= group of permissions) that you can specify and assign to users in your HPE GreenLake account.  
-  * **Get-HPEGLUserRole**: to view user roles and permissions. 
-  * **Set-HPEGLUserRole**: to set user roles and permissions. 
-  * **Remove-HPEGLUserRole**: to remove user roles and permissions. 
+  * **Get-HPEGLRole**: to view the role (= group of permissions) that you can specify and assign to users in your HPE GreenLake account
+  * **Get-HPEGLUserRole**: to view user roles and permissions 
+  * **Set-HPEGLUserRole**: to set user roles and permissions
+  * **Remove-HPEGLUserRole**: to remove user roles and permissions 
 * To define Resource Restriction Policies and manage access to resources:
 
-  * **Get-HPEGLResourceRestrictionPolicy**: to view resource restriction policies in your HPE GreenLake account.
-  * **New-HPEGLResourceRestrictionPolicy**: to set resource restriction policies in your HPE GreenLake account.
-  * **Remove-HPEGLResourceRestrictionPolicy**: to remove resource restriction policies in your HPE GreenLake account.
+  * **Get-HPEGLResourceRestrictionPolicy**: to view resource restriction policies in your HPE GreenLake account
+  * **New-HPEGLResourceRestrictionPolicy**: to set resource restriction policies in your HPE GreenLake account
+  * **Remove-HPEGLResourceRestrictionPolicy**: to remove resource restriction policies in your HPE GreenLake account
 
-## Managing devices with the HPE GreenLake PowerShell Library
+## Managing devices with the HPE GreenLake PowerShell library
 
 In HPE GreenLake, devices are the resource for compute, network and storage devices that you can onboard on the platform in your HPE GreenLake account. Once onboarded, devices can be viewed, assigned to an application instance, applied to a subscription, and tagged.
 
@@ -235,7 +235,7 @@ The generated output is "formatted". To get the full view of a formatted object 
 
 Several other parameters are available such as Tags, Archived, Stats, Devicetype, Serialnumber, etc. You can use the help to get the complete list, and try them out at your convenience.
 
-## Adding devices to the HPE GreenLake Platform
+## Adding devices to the HPE GreenLake platform
 
 To manage devices using HPE GreenLake, one of the initial steps is to onboard the device onto the platform. When using the GUI, this step is typically done manually. One of the major advantages of using a library that supports automation is the ability to streamline and fully automate processes such as device onboarding. With automation, you can significantly increase efficiency, reduce errors, and save time and resources that would otherwise be spent on manual tasks.
 
@@ -260,7 +260,7 @@ Tags are optional but highly recommended. They are particularly useful when crea
 
 1. Connect to HPE GreenLake using the default account or the one provided using the **\-GLCompanyName** parameter.
 2. Set the automatic assignment of subscriptions with the first Compute Enhanced subscription found that has not expired and has available subscription seats.
-3. Onboard each device to the HPE GreenLake Cloud Platform account.      
+3. Onboard each device to the HPE GreenLake platform account.      
 4. Set optional server tags if defined with the **\-Tags** parameter.
 5. Associate each device with the defined application instance (subscription is automatically assigned to each device as per auto assignment configuration).
 6. Set each iLO to use a web proxy if defined via the different web proxy parameters.
@@ -275,31 +275,31 @@ This time, the content of the csv file that can be used as a pipeline input must
 *192.168.3.191, Administrator, password, Country=US State=Texas Role=Production Owner=LJ*  
 *192.168.3.205, demo, password*
 
-All Compute data that is required by the HPE GreenLake Platform to complete the Compute onboarding is collected and managed by the cmdlet in the background using RedFish iLO calls. 
+All Compute data that is required by the HPE GreenLake platform to complete the Compute onboarding is collected and managed by the cmdlet in the background using RedFish iLO calls. 
 
 You can use **Get-Help** to learn more about this cmdlet and particularly look at the different examples:
 
 `> Help Add-HPEGLDeviceComputeFullService -full`
 
-**Add-HPEGLDeviceStorageFullService** and **Add-HPEGLDeviceNetworkFullService** offer the same full onbording service for storage and networking devices. 
+**Add-HPEGLDeviceStorageFullService** and **Add-HPEGLDeviceNetworkFullService** offer the same full onboarding service for storage and networking devices. 
 
 Overall, the ability to fully automate device onboarding is a significant advantage that can lead to many benefits for organizations of all sizes.
 
-Note that there are [samples](https://github.com/HewlettPackard/POSH-HPEGreenLake/tree/master/Samples) available on GitHub repository which can help in learning how to use the full device onboarding cmdlets and how to build a csv file for each device type.
+Note that there are [samples](https://github.com/HewlettPackard/POSH-HPEGreenLake/tree/master/Samples) available on GitHub repository that can help in learning how to use the full device onboarding cmdlets and how to build a csv file for each device type.
 
-## Managing applications with the HPE GreenLake PowerShell Library
+## Managing applications with the HPE GreenLake PowerShell library
 
-The main cmdlets for managing applications in the HPE GreenLake Platform are the followings:
+The main cmdlets for managing applications in the HPE GreenLake platform are the followings:
 
 * To manage applications: 
 
-  * **Get-HPEGLApplication**: to get all applications available to you on your HPE GreenLake Platform, including the ones that are provisioned into your account and the ones that are not. 
+  * **Get-HPEGLApplication**: to get all applications available to you on your HPE GreenLake platform, including the ones that are provisioned into your account and the ones that are not. 
 
 * To add and remove applications:
 
   * **Add-HPEGLApplication**: to provision an application in a new region.
 
-  > **Note**: A HPE GreenLake region refers to the geographical location where the HPE GreenLake services are hosted and provided from. This can vary depending on the customer's location and which HPE GreenLake application you are using. So customers can choose the region that best suits their needs in terms of location, availability, and compliance requirements.
+  > **Note**: A HPE GreenLake region refers to the geographical location where the HPE GreenLake services are hosted and provided from. This can vary depending on the customer's location and which HPE GreenLake application you are using. Customers can choose the region that best suits their needs in terms of location, availability, and compliance requirements.
 
   * **Remove-HPEGLApplication**: to delete an application instance. 
 
@@ -315,7 +315,7 @@ The main cmdlets for managing applications in the HPE GreenLake Platform are the
 
   * **New-HPEGLAPIcredential**: to create an API credential for an application instance. 
 
-  > **Note**: With the HPE GreenLake platform, developers can make API calls on any application instance as long as they have the API credentials which consist of a client ID, client secret and connectivity endpoint. 
+  > **Note**: With the HPE GreenLake platform, developers can make API calls on any application instance as long as they have the API credentials, which consist of a client ID, client secret and connectivity endpoint. 
   >
   > **Note**: When API credentials are created, they are automatically stored in the global variable **$HPEGreenLakeSession.apiCredentials**. This global variable is accessible as long as the PowerShell console is active and **Disconnect-HPEGL** has not been used. In other words, as long as your session is active. This data is sensitive because it contains all you need to make API calls with an application API such as Compute Ops Management, Data Services Cloud Console, etc. To get a more complete example of how to deeply interact with Compute Ops Management, see [Interaction-with-COM_Sample](https://github.com/HewlettPackard/POSH-HPEGreenLake/blob/master/Samples/Interaction-with-COM_Sample.ps1) script sample.
   >
@@ -325,34 +325,36 @@ The main cmdlets for managing applications in the HPE GreenLake Platform are the
 
   > **Note**: Once API credentials are deleted, access to the application instance API is lost permanently. This is because API credentials are used to authenticate and authorize access to the API. When the credentials are deleted, the corresponding API client ID is also invalidated, which means that any requests made using those credentials will be rejected by the API server.
 
-## Managing subscriptions with the HPE GreenLake PowerShell Library
+## Managing subscriptions with the HPE GreenLake PowerShell library
 
-The main cmdlets for managing subscriptions in the HPE GreenLake Platform are the followings:
+The main cmdlets for managing subscriptions in the HPE GreenLake platform are the followings:
 
 * To get information about subscriptions: 
 
-  * **Get-HPEGLDeviceSubscription**: to get information about your device subscriptions available in your HPE GreenLake account. Several parameters can be used to display the subscriptions with available quantity, the subscriptions that are expired or not expired, etc. You can combine parameters to obtain for example only the subscription keys that have not expired and for which there are still licenses available: **Get-HPEGLDeviceSubscription -Notexpired -Available**
+  * **Get-HPEGLDeviceSubscription**: to get information about your device subscriptions available in your HPE GreenLake account. Several parameters can be used to display the subscriptions with available quantity, the subscriptions that are expired or not expired, etc. For example, you can combine parameters to obtain only the subscription keys that have not expired and for which there are still licenses available: **Get-HPEGLDeviceSubscription -Notexpired -Available**
 * To manage device subscriptions:
 
-  * **Add-HPEGLDeviceSubscription**: to add device subscription to the HPE GreenLake account.
+  * **Add-HPEGLDeviceSubscription**: to add device subscriptions to the HPE GreenLake account.
   * **Set-HPEGLDeviceAutoSubscription**: to set automatic subscription assignment. This feature automatically assigns a subscription to any supported device that is added to the HPE GreenLake platform.
   * **Remove-HPEGLDeviceAutoSubscription**: to remove an automatic assignment of subscriptions.
 
-* To apply subscription key to devices:
+* To apply a subscription key to devices:
 
   * **Set-HPEGLDeviceSubscription**: to apply a subscription key to one or more devices. 
 
-  >  **Note**: When the auto device subscription is not is not supported or not enabled for the type of device you use, you need to manually apply a subscription key.
+  >  **Note**: When the auto device subscription is not supported or not enabled for the type of device you use, you need to manually apply a subscription key.
 
   * **Remove-HPEGLDeviceSubscription**: to detach devices from a subscription key. 
 
 # Summary
 
-In this blog, we have introduced you to the primary cmdlets that are provided by this library. However, there are more cmdlets available and much more to explore. Nevertheless, you now possess the necessary knowledge to begin testing, to develop your own PowerShell scripts to start automating your tasks and experience greater productivity and afficiency.
+In this blog, we have introduced you to the primary cmdlets that are provided by this new PowerShell library. However, there are more cmdlets available and much more to explore. Nevertheless, you now possess the necessary knowledge to begin testing and to develop your own PowerShell scripts to start automating tasks so you can experience greater productivity and efficiency.
 
-If you encounter any questions, opinions, or problems during your testing, it's highly recommended that you [report](https://github.com/HewlettPackard/POSH-HPEGreenLake/issues) them on the library’s GitHub page. This can help improve the library and potentially benefit other users who may be facing similar issues. 
+If you encounter any issues during your testing, it's highly recommended that you open a [![New issue][https://img.shields.io/badge/issues-new-yellowgreen?style=flat&logo=github][https://github.com/HewlettPackard/POSH-HPEGreenLake/issues] on the library’s GitHub page. This can help improve the library and potentially benefit other users who may be facing similar issues. 
+
+For general questions, or need to discuss a topic that doesn't need to be tracked in the issue tracker, please join the  GitHub Discussions for the project: [![Join the discussion][https://img.shields.io/badge/chat-on%20github%20discussions-green?style=flat&logo=gitter][https://github.com/HewlettPackard/POSH-HPEGreenLake/discussions/]
 
 # Want more?
 
 * [HPE GreenLake Developer Portal](https://developer.greenlake.hpe.com/).
-* To learn more about the HPE GreenLake Platform, refer to the [HPE GreenLake Edge to Cloud Platform User Guide](https://support.hpe.com/hpesc/public/docDisplay?docId=a00120892en_us).
+* To learn more about the HPE GreenLake platform, refer to the [HPE GreenLake Edge to Cloud Platform User Guide](https://support.hpe.com/hpesc/public/docDisplay?docId=a00120892en_us).
