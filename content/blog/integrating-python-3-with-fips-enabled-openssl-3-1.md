@@ -1,7 +1,7 @@
 ---
 title: Integrating Python 3 with FIPS enabled OpenSSL 3.1 on Microsoft Windows
 date: 2023-04-23T13:41:41.795Z
-featuredBlog: true
+featuredBlog: false
 author: Rajeevalochana Kallur
 authorimage: /img/rajeev_new.jpg
 disable: false
