@@ -45,10 +45,10 @@ The HPE GreenLake platform provides a shared set of common cloud services for di
 HPE GreenLake CCS, short for HPE GreenLake Common Cloud Services, offers a collection of API-enabled services that serve various functions, with the primary ones being:
 
 * **Registration**: in charge of the user registration. Includes email verification, account creation with HPE IDP (Identity Provider) including integration with PING Identity as the OIDC/RP provider (Relying Party for user authenticity verification and token issuance)
-* **Authentication**: takes care of the user authentication and HPE GreenLake CCS to applications authentication. Includes unified login, Single or Multi-factor authentication (MFA) or Single sign-on (SSO) with third party, federated authentication with customer’s identity DP, single logout, user management, and supports increased security with PKCE (Proof Key for Code Exchange, pronounced ‘pixy”) for OAuth 2.0. 
+* **Authentication**: takes care of the user authentication and HPE GreenLake CCS to applications authentication. Includes unified login, Single or Multi-factor authentication (MFA) or Single sign-on (SSO) with third party, federated authentication with customer’s identity DP, single logout, user management, and supports increased security with PKCE (Proof Key for Code Exchange, pronounced ‘pixy”) for OAuth 2.0 
 * **Authorization**: provides authorization service for HPE GreenLake CCS. Includes unified RBAC (Role-Based Access Control for users), custom roles and RRP (Resource Restriction Policy) including role creation, resource assignment to a role, role assignment to user, etc.
-* **Device activation and inventory**: provides ZTP (Zero Touch Provisioning) and Asset inventory (contract and customer order processing). Includes device firmware management (firmware repository for resources, latest FW check, FW upgrade, baseline upgrade).
-* **Subscription management**: offers subscription inventory, support for different consumption models.
+* **Device activation and inventory**: provides ZTP (Zero Touch Provisioning) and Asset inventory (contract and customer order processing). Includes device firmware management (firmware repository for resources, latest FW check, FW upgrade, baseline upgrade)
+* **Subscription management**: offers subscription inventory, support for different consumption models
 
 ![](/img/glcp2.png)
 
@@ -61,6 +61,8 @@ PowerShell offers numerous benefits, such as flexibility and ease of learning, a
 The new HPE GreenLake PowerShell library can be found on the Hewlett Packard Enterprise GitHub repository at the following [location](https://github.com/HewlettPackard/POSH-HPEGreenLake).    
 
 ![](/img/github_-glcp.png)
+
+The supported PowerShell editions for this new library are Desktop (with 5.1 and above) and Core (with 7.x supported on Windows, Linux and Mac).
 
 This module is also published in the PowerShell Gallery. The PowerShell Gallery is a repository for sharing and distributing PowerShell modules and scripts. It's a community-driven platform that provides access to various PowerShell resources, enabling you to easily discover, install, and publish your own PowerShell content. The PowerShell Gallery can be accessed through the PowerShellGet module, which comes pre-installed with Windows PowerShell 5.0 and above.
 
@@ -84,14 +86,16 @@ This will download and install the module from the official PowerShell Gallery r
 
 There could be several issues you may encounter while using the **Install-Module** cmdlet in PowerShell, some of which are:
 
-* **Insufficient permissions**: You may need administrative privileges to install modules. If you do not have sufficient privileges, you can run your PowerShell client as an administrator.
-* **Blocked security protocols**: Sometimes, the security protocols built into PowerShell can prevent the installation process. This usually happens when the PowerShell execution policy is set to "Restricted". If **Get-ExecutionPolicy** shows Restricted, you may need to run **Set-ExecutionPolicy RemoteSigned**.
+* **Insufficient permissions**: You may need administrative privileges to install modules. If you do not have sufficient privileges, you can run your PowerShell client as an administrator
+* **Blocked security protocols**: Sometimes, the security protocols built into PowerShell can prevent the installation process. This usually happens when the PowerShell execution policy is set to "Restricted". If **Get-ExecutionPolicy** shows Restricted, you may need to run **Set-ExecutionPolicy RemoteSigned**
 
 To find all cmdlets in a module that can be used with a specific resource, you can use the **Get-Command** cmdlet along with the **\-Module** parameter to specify the name of the module. 
 
 `> Get-Command -Module HPEGreenLake`
 
-In this first release, about 50 cmdlets are available with the HPE GreenLake module.
+In this first release, about 50 cmdlets are available with the HPE GreenLake module. The main supported resources includes:
+
+![](/img/LJ-key-supported-resources.png)
 
 In PowerShell, cmdlet names are constructed using a verb-noun format. The verb describes the action that the cmdlet performs (Get, Set, Remove, Invoke, etc.), and the noun specifies the object that the cmdlet acts upon. For example, the **Get-HPEGLUserRole** retrieves information about the user role in the HPE GreenLake platform. Note that object resource with the HPE GreenLake library always starts with **HPEGL<resource_name>** (GL for GreenLake). 
 
@@ -281,7 +285,7 @@ You can use **Get-Help** to learn more about this cmdlet and particularly look a
 
 `> Help Add-HPEGLDeviceComputeFullService -full`
 
-**Add-HPEGLDeviceStorageFullService** and **Add-HPEGLDeviceNetworkFullService** offer the same full onboarding service for storage and networking devices. 
+**Add-HPEGLDeviceStorageFullService** and **Add-HPEGLDeviceNetworkFullService** offer the same full onboarding service for storage and networking devices 
 
 Overall, the ability to fully automate device onboarding is a significant advantage that can lead to many benefits for organizations of all sizes.
 
@@ -293,27 +297,27 @@ The main cmdlets for managing applications in the HPE GreenLake platform are the
 
 * To manage applications: 
 
-  * **Get-HPEGLApplication**: to get all applications available to you on your HPE GreenLake platform, including the ones that are provisioned into your account and the ones that are not. 
+  * **Get-HPEGLApplication**: to get all applications available to you on your HPE GreenLake platform, including the ones that are provisioned into your account and the ones that are not 
 
 * To add and remove applications:
 
-  * **Add-HPEGLApplication**: to provision an application in a new region.
+  * **Add-HPEGLApplication**: to provision an application in a new region
 
   > **Note**: A HPE GreenLake region refers to the geographical location where the HPE GreenLake services are hosted and provided from. This can vary depending on the customer's location and which HPE GreenLake application you are using. Customers can choose the region that best suits their needs in terms of location, availability, and compliance requirements.
 
-  * **Remove-HPEGLApplication**: to delete an application instance. 
+  * **Remove-HPEGLApplication**: to delete an application instance 
 
   > **Note**: This cmdlet has a high-impact and irreversible action. This action permanently deletes all data of the application instance and cannot be undone once the process has started. For example, removing the Compute Ops Management US-West instance would remove all user data, all devices, all server settings, all server groups, all API credentials, etc. It's great to hear that this cmdlet has a confirmation prompt before deleting an application instance. This feature can help prevent accidental deletions and provide an extra layer of protection for critical data in applications.
 
 * To assign and unassign devices to applications:
 
-  * **Set-HPEGLDeviceApplication**: to attach devices to an application instance.
+  * **Set-HPEGLDeviceApplication**: to attach devices to an application instance
 
   > **Note**: Assigning devices to an application instance is the process of attaching devices to an application in a region, so that these devices become visible and managed in the application instance by users.
 
 * To create and delete API application credentials:
 
-  * **New-HPEGLAPIcredential**: to create an API credential for an application instance. 
+  * **New-HPEGLAPIcredential**: to create an API credential for an application instance 
 
   > **Note**: With the HPE GreenLake platform, developers can make API calls on any application instance as long as they have the API credentials, which consist of a client ID, client secret and connectivity endpoint. 
   >
@@ -321,7 +325,7 @@ The main cmdlets for managing applications in the HPE GreenLake platform are the
   >
   > **Note**: To store the API credentials beyond the duration of the session, the cmdlet provides a **\-Location** parameter. This parameter can be used with **New-HPEGLAPIcredential** to save the API credentials in a directory and the **\-Encrypt** parameter can be utilized to encrypt the API credentials before exporting the JSON file into the designated *Location* directory.
 
-  * **Remove-HPEGLAPIcredential**: to delete an API credential of an application instance.
+  * **Remove-HPEGLAPIcredential**: to delete an API credential of an application instance
 
   > **Note**: Once API credentials are deleted, access to the application instance API is lost permanently. This is because API credentials are used to authenticate and authorize access to the API. When the credentials are deleted, the corresponding API client ID is also invalidated, which means that any requests made using those credentials will be rejected by the API server.
 
@@ -334,25 +338,25 @@ The main cmdlets for managing subscriptions in the HPE GreenLake platform are th
   * **Get-HPEGLDeviceSubscription**: to get information about your device subscriptions available in your HPE GreenLake account. Several parameters can be used to display the subscriptions with available quantity, the subscriptions that are expired or not expired, etc. For example, you can combine parameters to obtain only the subscription keys that have not expired and for which there are still licenses available: **Get-HPEGLDeviceSubscription -Notexpired -Available**
 * To manage device subscriptions:
 
-  * **Add-HPEGLDeviceSubscription**: to add device subscriptions to the HPE GreenLake account.
-  * **Set-HPEGLDeviceAutoSubscription**: to set automatic subscription assignment. This feature automatically assigns a subscription to any supported device that is added to the HPE GreenLake platform.
-  * **Remove-HPEGLDeviceAutoSubscription**: to remove an automatic assignment of subscriptions.
+  * **Add-HPEGLDeviceSubscription**: to add device subscriptions to the HPE GreenLake account
+  * **Set-HPEGLDeviceAutoSubscription**: to set automatic subscription assignment. This feature automatically assigns a subscription to any supported device that is added to the HPE GreenLake platform
+  * **Remove-HPEGLDeviceAutoSubscription**: to remove an automatic assignment of subscriptions
 
 * To apply a subscription key to devices:
 
-  * **Set-HPEGLDeviceSubscription**: to apply a subscription key to one or more devices. 
+  * **Set-HPEGLDeviceSubscription**: to apply a subscription key to one or more devices 
 
   >  **Note**: When the auto device subscription is not supported or not enabled for the type of device you use, you need to manually apply a subscription key.
 
-  * **Remove-HPEGLDeviceSubscription**: to detach devices from a subscription key. 
+  * **Remove-HPEGLDeviceSubscription**: to detach devices from a subscription key 
 
 # Summary
 
 In this blog, we have introduced you to the primary cmdlets that are provided by this new PowerShell library. However, there are more cmdlets available and much more to explore. Nevertheless, you now possess the necessary knowledge to begin testing and to develop your own PowerShell scripts to start automating tasks so you can experience greater productivity and efficiency.
 
-If you encounter any issues during your testing, it's highly recommended that you open a [![New issue][https://img.shields.io/badge/issues-new-yellowgreen?style=flat&logo=github][https://github.com/HewlettPackard/POSH-HPEGreenLake/issues] on the library’s GitHub page. This can help improve the library and potentially benefit other users who may be facing similar issues. 
+If you encounter any issues during your testing, it's highly recommended that you open a [New issue](https://github.com/HewlettPackard/POSH-HPEGreenLake/issues) on the library’s GitHub page. This can help improve the library and potentially benefit other users who may be facing similar issues. 
 
-For general questions, or need to discuss a topic that doesn't need to be tracked in the issue tracker, please join the  GitHub Discussions for the project: [![Join the discussion][https://img.shields.io/badge/chat-on%20github%20discussions-green?style=flat&logo=gitter][https://github.com/HewlettPackard/POSH-HPEGreenLake/discussions/]
+For general questions, or need to discuss a topic that doesn't need to be tracked in the issue tracker, please join the  GitHub Discussions for the project: [Join the discussion](https://github.com/HewlettPackard/POSH-HPEGreenLake/discussions/)
 
 # Want more?
 
