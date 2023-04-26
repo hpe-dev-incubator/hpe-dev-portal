@@ -97,7 +97,7 @@ To find all cmdlets in a module that can be used with a specific resource, you c
 > Get-Command -Module HPEGreenLake
 ```
 
-In this first release, about 50 cmdlets are available with the HPE GreenLake module. The main supported resources includes:
+In this first release, about 50 cmdlets are available with the HPE GreenLake module. The table below describes the main resources and features that are supported:
 
 ![](/img/LJ-key-supported-resources.png)
 
@@ -191,6 +191,8 @@ All properties in this object are important. **Session** stores what the library
 ```powershell
 > $HPEGreenLakeSession.session
 ```
+
+The output is as follows:
 
 ![](/img/lj-picture7.png)
 
@@ -322,7 +324,7 @@ You can use **Get-Help** to learn more about this cmdlet and particularly look a
 > Help Add-HPEGLDeviceComputeFullService -full
 ```
 
-**Add-HPEGLDeviceStorageFullService** and **Add-HPEGLDeviceNetworkFullService** offer the same full onboarding service for storage and networking devices 
+**Add-HPEGLDeviceStorageFullService** and **Add-HPEGLDeviceNetworkFullService** offer the same full onboarding service for storage and networking devices. 
 
 Overall, the ability to fully automate device onboarding is a significant advantage that can lead to many benefits for organizations of all sizes.
 
