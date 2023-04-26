@@ -87,6 +87,8 @@ This will download and install the module from the official PowerShell Gallery r
 
 > **Note**: You must have an internet connection to install the module from the PowerShell Gallery.  
 
+> **Note**: At the time of writing this blog, the HPE GreenLake PowerShell library has no dependencies.
+  
 There could be several issues you may encounter while using the **Install-Module** cmdlet in PowerShell, some of which are:
 
 * **Insufficient permissions**: You may need administrative privileges to install modules. If you do not have sufficient privileges, you can run your PowerShell client as an administrator or use: **Install-Module HPEGreenLake -Scope CurrentUser**
