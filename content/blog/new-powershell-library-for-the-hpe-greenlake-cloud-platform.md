@@ -401,5 +401,5 @@ For general questions, or need to discuss a topic that doesn't need to be tracke
 
 # Want more?
 
-* [HPE GreenLake Developer Portal](https://developer.greenlake.hpe.com/).
-* To learn more about the HPE GreenLake platform, refer to the [HPE GreenLake Edge to Cloud Platform User Guide](https://support.hpe.com/hpesc/public/docDisplay?docId=a00120892en_us).
+* [HPE GreenLake Developer Portal](https://developer.greenlake.hpe.com/)
+* To learn more about the HPE GreenLake platform, refer to the [HPE GreenLake Edge to Cloud Platform User Guide](https://support.hpe.com/hpesc/public/docDisplay?docId=a00120892en_us)
