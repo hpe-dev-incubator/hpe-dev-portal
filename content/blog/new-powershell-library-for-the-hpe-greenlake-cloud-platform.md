@@ -102,7 +102,7 @@ To find all cmdlets in a module that can be used with a specific resource, you c
 
 In this first release, about 50 cmdlets are available with the HPE GreenLake module. The table below describes the main resources and features that are supported:
 
-![](/img/LJ-key-supported-resources.png)
+![](/img/lj-key-supported-resources.png)
 
 In PowerShell, cmdlet names are constructed using a verb-noun format. The verb describes the action that the cmdlet performs (Get, Set, Remove, Invoke, etc.), and the noun specifies the object that the cmdlet acts upon. For example, the **Get-HPEGLUserRole** retrieves information about the user role in the HPE GreenLake platform. Note that object resource with the HPE GreenLake library always starts with **HPEGL<resource_name>** (GL for GreenLake). 
 
