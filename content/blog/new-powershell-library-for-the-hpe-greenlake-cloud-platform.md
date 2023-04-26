@@ -123,10 +123,12 @@ The connection to the HPE GreenLake platform is done using the **Connect-HPEGL**
 
 To begin with, it is recommended that you create a credentials object that includes your HPE GreenLake user's email and password:
 
-`> $GLCP_userName = "Username@domain.com"`  
-`> $GLCP_password = "xxxxxxxxxxxxxxxx"`  
-`> $secpasswd = ConvertTo-SecureString -String $GLCP_password -AsPlainText -Force`  
-`> $credentials = New-Object System.Management.Automation.PSCredential ($GLCP_userName, $secpasswd)`  
+```Powershell
+$GLCP_userName = "Username@domain.com"  
+$GLCP_password = "xxxxxxxxxxxxxxxx"  
+$secpasswd = ConvertTo-SecureString -String $GLCP_password -AsPlainText -Force  
+$credentials = New-Object System.Management.Automation.PSCredential ($GLCP_userName, $secpasswd)  
+```
 
 Then using the **Connect-HPEGL** cmdlet, you can connect to the platform:
 
