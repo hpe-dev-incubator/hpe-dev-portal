@@ -274,7 +274,7 @@ The process of onboarding devices on the platform actually requires several step
 
 **Add-HPEGLDeviceCompute** is the first cmdlet that you can use to simply add a Compute device to the HPE GreenLake console.  The sole purpose of this cmdlet is to add compute(s) with the specified tags to the platform and nothing beyond that. The corresponding cmdlets for adding storage and network devices are **Add-HPEGLDeviceStorage** and **Add-HPEGLDeviceNetwork**.
 
-It is worth noting that a CSV file can be utilized to add multiple devices to the platform by containing device information such as serial number, part number, subscription key, MAC adress and tags depending on the device type. To do so, this CSV file can be used as a pipeline input of these cmdlets using for example with **Add-HPEGLDeviceCompute**: 
+It is worth noting that a CSV file can be utilized to add multiple devices to the platform by containing device information such as serial number, part number, subscription key, MAC address and tags depending on the type of device you wish to add. You can use this CSV file as an input for the pipeline of these cmdlets, as in this example with **Add-HPEGLDeviceCompute**:
 
 ```Powershell
 > Import-Csv Compute_Devices.csv | Add-HPEGLDeviceCompute
