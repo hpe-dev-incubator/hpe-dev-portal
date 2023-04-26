@@ -84,7 +84,7 @@ The **[Issues](https://github.com/HewlettPackard/POSH-HPEGreenLake/issues)** tab
 
 This will download and install the module from the official PowerShell Gallery repository. If this is your first time installing a module from the PowerShell Gallery, it will ask you to confirm whether you trust the repository or not. You can type **Y** and press **Enter** to continue with the installation.
 
-> **Note**: You need to be running PowerShell 5.0 or later and have an internet connection to install modules from the PowerShell Gallery. 
+> **Note**: You must have an internet connection to install the module from the PowerShell Gallery.  
 
 There could be several issues you may encounter while using the **Install-Module** cmdlet in PowerShell, some of which are:
 
