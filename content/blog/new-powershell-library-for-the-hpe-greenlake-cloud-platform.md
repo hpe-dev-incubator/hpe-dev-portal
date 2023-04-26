@@ -77,9 +77,11 @@ The **[Issues](https://github.com/HewlettPackard/POSH-HPEGreenLake/issues)** tab
 # Installation of the HPE GreenLake PowerShell library
 
 **Install-Module** cmdlet is a common way to install PowerShell modules from online repositories. The cmdlet downloads and installs the module and any associated dependencies that it may have. To use the **Install-Module** cmdlet, you can simply open a PowerShell console (or a PowerShell ISE console or VS Code), and run the following command:
+
 ```powershell
-Install-Module HPEGreenLake`
+Install-Module HPEGreenLake
 ```
+
 This will download and install the module from the official PowerShell Gallery repository. If this is your first time installing a module from the PowerShell Gallery, it will ask you to confirm whether you trust the repository or not. You can type **Y** and press **Enter** to continue with the installation.
 
 > **Note**: You need to be running PowerShell 5.0 or later and have an internet connection to install modules from the PowerShell Gallery. 
