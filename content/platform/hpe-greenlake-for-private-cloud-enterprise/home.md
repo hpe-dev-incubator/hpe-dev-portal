@@ -59,6 +59,7 @@ HPE GreenLake for Private Cloud Enterprise includes powerful DevOps tools that s
 ![HPE GreenLake for Private Cloud Enterprise architecture](/img/pce-architecture.png "HPE GreenLake for Private Cloud Enterprise architecture")
 
 #### Infrastructure as code (IaC)
+
 Leverage IaC functionality offered by the HPE GreenLake Terraform Provider to provision and manage your private cloud resources. The Terraform Registry resources can be [downloaded from here](https://registry.terraform.io/providers/HPE/hpegl/latest/docs).
 
 For more information on the HPE GreenLake IaC capabilities, please watch this video:
@@ -69,7 +70,8 @@ Get some real, hands-on experience by registering for this workshops-on-demand:
 [Introduction to Virtual Machine Infrastructure-as-Code using Terraform and HPE GreenLake for Private Cloud Enterprise](https://developer.hpe.com/hackshack/workshop/36)
 
 #### REST APIs
+
 HPE GreenLake APIs provide a secure, standardized interface for automating common and repetitive tasks, programmatically configuring and provisioning services, and integrating applications with cloud services. The APIs are based on the OpenAPI specification and governed by administratively defined RBACs and strong authentication methods.
 
-
+![HPE GreenLake for Private Cloud Enterprise API](/img/hpegl4pce-api.png "HPE GreenLake for Private Cloud Enterprise API")
 
