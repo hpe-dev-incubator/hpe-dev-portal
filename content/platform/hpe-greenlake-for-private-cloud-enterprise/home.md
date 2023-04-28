@@ -75,8 +75,8 @@ HPE GreenLake APIs provide a secure, standardized interface for automating commo
 
 ![HPE GreenLake for Private Cloud Enterprise API](/img/hpegl4pce-api.png "HPE GreenLake for Private Cloud Enterprise API")
 
-[Future – Link to open API specification]
+\[Future – Link to open API specification]
 
-[Future – Blog] 
+\[Future – Blog] 
 
 
