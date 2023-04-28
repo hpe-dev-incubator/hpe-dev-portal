@@ -94,3 +94,9 @@ Cloud shell as an interactive browser-based shell enables secure access to your 
 
 ![HPE GreenLake for Private Cloud Enterprise cloud shell](/img/hpegl4pce-cloud-shell.png "HPE GreenLake for Private Cloud Enterprise cloud shell")
 
+#### DevOps
+
+Cloud or tenant admins and cloud consumers can create DevOps projects—workspaces where authorized administrators and contributors can configure external connections such as GitHub, create and manage automated CD pipelines for external accounts, and associate Kubernetes container clusters with the deployment pipelines.
+
+![HPE GreenLake for Private Cloud Enterprise DevOps CI/CD pipeline](/img/hpegl4pce-devops.png "HPE GreenLake for Private Cloud Enterprise DevOps CI/CD pipeline")
+
