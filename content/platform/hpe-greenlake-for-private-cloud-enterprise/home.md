@@ -80,19 +80,17 @@ HPE GreenLake APIs provide a secure, standardized interface for automating commo
 \[Future – Blog] 
 
 #### Cloud shell CLI
+
 Cloud shell as an interactive browser-based shell enables secure access to your HPE GreenLake for Private Cloud Enterprise resources. Development packages, orchestration tools and the latest IaC libraries are pre-installed as part of the cloud shell.
 
 * Access pre-loaded with latest libraries and utilities with in-built authentication 
-     * Pre-packaged orchestration & IaC tools and templates (HPE GreenLake specific resources and tooling)
-     * Development packages such as Terraform, Git, Docker / Docker Compose/ Docker CLI, Golang (latest), Python 3.x
+
+  * Pre-packaged orchestration & IaC tools and templates (HPE GreenLake specific resources and tooling)
+  * Development packages such as Terraform, Git, Docker / Docker Compose/ Docker CLI, Golang (latest), Python 3.x
 * Clone GitHub repo in cloud shell, debug and deploy applications into HPE GreenLake for Private Cloud Enterprise resources
 * Create and manage VM and container resources via IaC using HPE GreenLake Terraform modules
 * Secure access to HPE GreenLake for Private Cloud Enterprise resources by automatically injecting the right security credentials (like kubeconfig for container clusters)
 * Each cloud shell instance backed by 1GB of persistent storage provisioned for User's $HOME directory 
 
-
-
-
-
-
+![HPE GreenLake for Private Cloud Enterprise cloud shell](/img/hpegl4pce-cloud-shell.png "HPE GreenLake for Private Cloud Enterprise cloud shell")
 
