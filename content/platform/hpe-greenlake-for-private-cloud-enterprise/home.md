@@ -44,7 +44,7 @@ Provision virtual machines on-demand to support traditional virtualized workload
 
 To learn, more review the [HPE GreenLake for Private Cloud Enterprise technical white paper](https://www.hpe.com/psnow/doc/a50007892enw).
 
-### Developer experience
+## Developer experience
 
 HPE GreenLake for Private Cloud Enterprise includes powerful DevOps tools that streamline and automate repetitive tasks with repeatable workflows, super-charging productivity and increasing agility for faster, more consistent code collaboration. 
 
@@ -58,7 +58,7 @@ HPE GreenLake for Private Cloud Enterprise includes powerful DevOps tools that s
 
 ![HPE GreenLake for Private Cloud Enterprise architecture](/img/pce-architecture.png "HPE GreenLake for Private Cloud Enterprise architecture")
 
-#### Infrastructure as code (IaC)
+### Infrastructure as code (IaC)
 
 Leverage IaC functionality offered by the HPE GreenLake Terraform Provider to provision and manage your private cloud resources. The Terraform Registry resources can be [downloaded from here](https://registry.terraform.io/providers/HPE/hpegl/latest/docs).
 
@@ -69,7 +69,7 @@ For more information on the HPE GreenLake IaC capabilities, please watch this vi
 Get some real, hands-on experience by registering for this workshops-on-demand:
 [Introduction to Virtual Machine Infrastructure-as-Code using Terraform and HPE GreenLake for Private Cloud Enterprise](https://developer.hpe.com/hackshack/workshop/36)
 
-#### REST APIs
+### REST APIs
 
 HPE GreenLake APIs provide a secure, standardized interface for automating common and repetitive tasks, programmatically configuring and provisioning services, and integrating applications with cloud services. The APIs are based on the OpenAPI specification and governed by administratively defined RBACs and strong authentication methods.
 
@@ -79,7 +79,7 @@ HPE GreenLake APIs provide a secure, standardized interface for automating commo
 
 \[Future – Blog] 
 
-#### Cloud shell CLI
+### Cloud shell CLI
 
 Cloud shell as an interactive browser-based shell enables secure access to your HPE GreenLake for Private Cloud Enterprise resources. Development packages, orchestration tools and the latest IaC libraries are pre-installed as part of the cloud shell.
 
@@ -94,9 +94,23 @@ Cloud shell as an interactive browser-based shell enables secure access to your 
 
 ![HPE GreenLake for Private Cloud Enterprise cloud shell](/img/hpegl4pce-cloud-shell.png "HPE GreenLake for Private Cloud Enterprise cloud shell")
 
-#### DevOps
+### DevOps
 
 Cloud or tenant admins and cloud consumers can create DevOps projects—workspaces where authorized administrators and contributors can configure external connections such as GitHub, create and manage automated CD pipelines for external accounts, and associate Kubernetes container clusters with the deployment pipelines.
 
 ![HPE GreenLake for Private Cloud Enterprise DevOps CI/CD pipeline](/img/hpegl4pce-devops.png "HPE GreenLake for Private Cloud Enterprise DevOps CI/CD pipeline")
+
+\[Creating guide] Step-by-step process for DevOps flow
+
+## Resources
+
+[Technical white paper](https://www.hpe.com/psnow/doc/a50007892enw)
+
+[Support documentation](https://support.hpe.com/hpesc/public/docDisplay?docId=a00092451en_us&page=GUID-D06895CD-C9CC-4E85-AA8F-A9D3D22D5874.html)
+
+API (Future)
+
+Marketplace (Future - post/Discover)
+
+
 
