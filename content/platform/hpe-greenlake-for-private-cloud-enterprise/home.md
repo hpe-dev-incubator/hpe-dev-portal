@@ -68,3 +68,8 @@ For more information on the HPE GreenLake IaC capabilities, please watch this vi
 Get some real, hands-on experience by registering for this workshops-on-demand:
 [Introduction to Virtual Machine Infrastructure-as-Code using Terraform and HPE GreenLake for Private Cloud Enterprise](https://developer.hpe.com/hackshack/workshop/36)
 
+#### REST APIs
+HPE GreenLake APIs provide a secure, standardized interface for automating common and repetitive tasks, programmatically configuring and provisioning services, and integrating applications with cloud services. The APIs are based on the OpenAPI specification and governed by administratively defined RBACs and strong authentication methods.
+
+
+
