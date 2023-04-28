@@ -723,6 +723,7 @@ If appropriate, use a tag to tie your blog post to a **"Product"** page or a **"
   | **HPE GreenLake**                  | hpe-greenlake |
   | **HPE GreenLake for Compute Ops Management** | hpe-greenlake-for-compute-ops-management |
   | **HPE GreenLake Cloud Platform**   | hpe-greenlake-cloud-platform |
+  | **HPE GreenLake for Private Cloud Enterprise** | hpe-greenlake-for-private-cloud-enterprise |
   | **Data Sevices Cloud Console**     | data-services-cloud-console |
   | **Spiffe and Spire**               | spiffe-and-spire-projects |
   | **Chapel**                         | chapel |
