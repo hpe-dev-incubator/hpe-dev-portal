@@ -8,7 +8,7 @@ description: "HPE GreenLake for Private Cloud Enterprise reimagines the private
 image: /img/platforms/Greenlake.svg
 width: large
 priority: 5
-active: false
+active: true
 ---
 <style>
 li {
