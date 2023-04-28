@@ -8,7 +8,7 @@ description: "HPE GreenLake for Private Cloud Enterprise reimagines the private
 image: /img/greenlake/greenlake.svg
 width: large
 priority: 5
-active: false
+active: true
 ---
 <style>
 li {
@@ -84,7 +84,6 @@ HPE GreenLake APIs provide a secure, standardized interface for automating commo
 Cloud shell as an interactive browser-based shell enables secure access to your HPE GreenLake for Private Cloud Enterprise resources. Development packages, orchestration tools and the latest IaC libraries are pre-installed as part of the cloud shell.
 
 * Access pre-loaded with latest libraries and utilities with in-built authentication 
-
   * Pre-packaged orchestration & IaC tools and templates (HPE GreenLake specific resources and tooling)
   * Development packages such as Terraform, Git, Docker / Docker Compose/ Docker CLI, Golang (latest), Python 3.x
 * Clone GitHub repo in cloud shell, debug and deploy applications into HPE GreenLake for Private Cloud Enterprise resources
