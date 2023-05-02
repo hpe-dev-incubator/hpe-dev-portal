@@ -40,7 +40,7 @@ The first two products that are available through EEA are:
 The following overview videos are available to provide more information on EEA and the first two products:
 
 * [HPE Ezmeral Early Access overview video](https://youtu.be/_ygMN4UvqU4)
-* [HPE GreenLake for Data Fabric Software overview video](https://youtu.be/YTf5OPsb-cM)
+* [HPE Ezmeral Data Fabric Software overview video](https://youtu.be/YTf5OPsb-cM)
 * [HPE Ezmeral Unified Analytics Software overview video](https://youtu.be/z9Q4FG7LzgI)
 
 - - -
