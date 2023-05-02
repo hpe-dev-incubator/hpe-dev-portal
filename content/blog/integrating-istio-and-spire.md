@@ -5,17 +5,21 @@ author: Nishant Chaturvedi, Akansha Sajimon
 authorimage: /img/Avatar1.svg
 disable: false
 ---
-Authors : Nishant Chaturvedi , Akansha Sajimon
-
 This blog demonstrates how to integrate ISTIO and SPIRE to enable advanced analysis and visualization of the service mesh.  
 
-ISTIO 
+## ISTIO 
 
-Istio is an open-source service mesh that provides a uniform and efficient way to secure, connect, and monitor services. Istio automatically manages load balancing for HTTP, gRPC, WebSocket, and TCP traffic. For details, see The Istio service mesh.
+Istio is an **open-source service mesh** that provides a uniform and efficient way to secure, connect, and monitor services. Istio automatically manages load balancing for HTTP, gRPC, WebSocket, and TCP traffic. For details, see [The Istio service mesh](https://istio.io/latest/about/service-mesh/).
 
-SPIRE 
+![](https://istio.io/latest/docs/ops/deployment/architecture/arch.svg)
+
+
+
+## SPIRE 
 
 SPIRE (SPIFFE Runtime Environment) is a production-ready implementation of the SPIFFE specification that performs node and workload attestation to securely issue cryptographic identities to workloads running in heterogeneous environments. 
+
+
 
 SPIRE can be configured as a source of cryptographic identities for Istio workloads through an integration with Envoy’s SDS (Secret Discovery Service) API. 
 This integration with SPIRE provides flexible attestation options not available with the default Istio identity management while harnessing Istio’s powerful service management. 
