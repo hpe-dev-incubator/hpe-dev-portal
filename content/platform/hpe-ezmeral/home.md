@@ -1,5 +1,5 @@
 ---
-title: HPE Ezmeral
+title: HPE Ezmeral Software
 version: "1.0"
 description: Accelerate modern data analytics initiatives at scale with this
   Kubernetes orchestrated container platform that helps you unify data and
@@ -13,41 +13,35 @@ tags:
 ---
 <a id="top"></a>
 
-HPE Ezmeral is a hybrid analytics and data science platform designed to drive data-first modernizations, enabling enterprises to unlock the value of their data wherever it lives. HPE Ezmeral powers HPE GreenLake analytic services to help customers unify, modernize, and analyze all their data across edge-to-cloud.
+HPE Ezmeral Software gives customers the software foundations to develop and deploy analytics applications seamlessly across hybrid-cloud environments.
 
-The complete HPE Ezmeral portfolio offers integrated workflows from analytics to ML/AI, spanning hybrid clouds and edge locations. **HPE Ezmeral Runtime Enterprise** provides a software orchestration platform designed to deploy modern applications using open source Kubernetes from edge to cloud. With **HPE Ezmeral ML Ops**, you can operationalize end-to-end processes and speed up data modeling timelines. **HPE Ezmeral Data Fabric** enables you to securely access data wherever it is located, from edge to cloud. And **HPE Ezmeral Unified Analytics** integrates security-hardened enterprise-grade open source Apache Spark™ to ensure as-needed data portability. This offers you a unified, modern analytics and data lakehouse platform optimized for on-premises, edge and cloud analytic deployments. 
+The complete HPE Ezmeral Software portfolio offers integrated workflows from analytics to ML/AI, spanning hybrid clouds and edge locations. HPE Ezmeral Data Fabric Software delivers a single source of trusted data that spans on-premises, edge, co-location, and Amazon Web Services, Microsoft Azure, and Google Cloud Platform™. Designed for developers, it allows seamless access to files, objects, tables, and streaming data regardless of its location or format. And HPE Ezmeral Unified Analytics Software helps customers develop and deploy data and analytic workloads faster by providing fully managed, secure, enterprise-grade versions of the most popular open-source frameworks in a cloud-like, consumption-based experience. 
 
-## Learn more about the HPE Ezmeral products
+## Learn more about the HPE Ezmeral Software products
 
-[HPE Ezmeral Runtime Enterprise](https://www.hpe.com/us/en/software/ezmeral-runtime.html) – (formerly known as the HPE Ezmeral Container Platform) is a secure, enterprise-grade platform to build and deploy cloud-native and non-cloud-native (i.e., legacy) applications at scale across data centers, multiple clouds, and at the edge for a wide range of use cases. It provides all the tools enterprise customers need to build, modernize, deploy, monitor and manage a wide range of AI and analytics workloads to unleash their data’s full potential and accelerate their data-driven digital transformation.
+[HPE Ezmeral Data Fabric Software](https://www.hpe.com/us/en/software/ezmeral-data-fabric.html) – Unlock more value by unifying data distributed across cloud, edge, and core into a global data plane. Fuel decision velocity with secure access, and real-time identification, control, and processing of data everywhere it lives. 
 
-[HPE Ezmeral ML Ops](https://www.hpe.com/us/en/solutions/ezmeral-machine-learning-operations.html) – is a software solution that extends the capabilities of HPE Ezmeral Runtime Enterprise to support the entire machine learning (ML) lifecycle. HPE Ezmeral ML Ops is an end-to-end data science solution with the flexibility to run on-premises, in multiple public clouds, or in a hybrid model, and respond to dynamic business requirements in a variety of use cases. HPE Ezmeral ML Ops addresses the challenges of operationalizing ML models at enterprise scale by delivering a cloud-like experience combined with pre-packaged tools to operationalize the machine learning lifecycle.
+[HPE Ezmeral Unified Analytics Software](https://www.hpe.com/us/en/hpe-ezmeral-unified-analytics.html) – Unlock data and insights faster from edge to cloud with a managed, open-source SaaS data analytics solution providing curated, best-of-breed analytic software tools to develop and deploy applications across hybrid environments.
 
-[HPE Ezmeral Data Fabric File & Object Store](https://www.hpe.com/us/en/software/ezmeral-data-fabric.html) – is the industry’s first edge-to-cloud solution that ingests, stores in the native format, and completes in-place processing of different data types. It supports the most popular data and analytics APIs, which simplifies data access across the enterprise for all analytics users. 
-
-[HPE Ezmeral Unified Analytics](https://www.hpe.com/us/en/software/ezmeral-runtime.html) – features native integration of Apache Spark Kubernetes Operator and offers a unified data experience to securely connect to data wherever it exists.
-
-HPE Ezmeral supports the most popular open-source ML Ops, Airflow, MLflow, and Kubeflow projects while integrating with an ever-growing ecosystem of certified HPE ISV partners.
-
-The associated [BlueK8s open source initiative](https://github.com/bluek8s) will include a number of projects to help bring enterprise-level capabilities for distributed stateful applications to Kubernetes. The first open source project in this initiative is Kubernetes Director, or [KubeDirector](https://kubedirector.io/) for short. (See [Projects](#projects) for specifics).
+HPE Ezmeral Software supports the most popular open-source ML Ops, Airflow, MLflow, and Kubeflow projects while integrating with an ever-growing ecosystem of certified HPE ISV partners.
 
 - - -
 
-## Get started with HPE Ezmeral
+## Get started with HPE Ezmeral Software
 
-The [HPE Ezmeral Early Access](https://connect.hpe.com/HPEEzmeralEarlyAccess) (EEA) program lets developers try new products before they’re released. With exemplary training and support provided by HPE, developers get real-time, hands-on experience with new products, features and capabilities to solve advanced data and analytics problems. A key element of the EEA program is the feedback we’ll collect from developers, providing input to the product roadmap and helping ensure it continues to evolve with our customers’ needs.
+The HPE Ezmeral Early Access (EEA) program allows you to access soon to be released products – typically in private Beta or Select Availability – with exemplary training and support provided by HPE. The goal of the EEA program is to solicit early user feedback, and foster design partnerships with the application development community. By signing up, participants get real-time, hands-on experience with next generation capabilities to solve advanced data and analytics problems in hybrid environments.
 
 The first two products that are available through EEA are:
 
-* [HPE GreenLake for Data Fabric](https://home.hpe-df.com/) (GLDF) – a managed service that provides a fully deployed, configured and managed single global name space to aggregate heterogeneous data stores from a single interface    
+* [HPE Ezmeral Data Fabric Software](https://home.hpe-df.com/) – access HPE Ezmeral Data Fabric as a fully managed service. Register now for a 300GB instance to try out features and capabilities.    
 
-* [HPE Ezmeral Unified Analytics](https://connect.hpe.com/HPEEzmeralEarlyAccessUnifiedAnalytics) (UA) – software that combines fully integrated open-source enterprise analytics tools and data fabric capabilities, making it faster and easier to develop and deploy applications across hybrid environments    
+* [HPE Ezmeral Unified Analytics Software]( https://www.hpe.com/us/en/hpe-ezmeral-unified-analytics.html#EEAUA) (UA) – secure, fully managed, open-source software-as-a-service (SaaS) for the data analytics lifecycle that delivers a complete end-to-end solution.
 
 The following overview videos are available to provide more information on EEA and the first two products:
 
 * [HPE Ezmeral Early Access overview video](https://youtu.be/_ygMN4UvqU4)
-* [HPE GreenLake for Data Fabric overview video](https://youtu.be/YTf5OPsb-cM)
-* [HPE Ezmeral Unified Analytics overview video](https://youtu.be/z9Q4FG7LzgI)
+* [HPE GreenLake for Data Fabric Software overview video](https://youtu.be/YTf5OPsb-cM)
+* [HPE Ezmeral Unified Analytics Software overview video](https://youtu.be/z9Q4FG7LzgI)
 
 - - -
 
@@ -73,9 +67,6 @@ Python library and Command Line Interface (CLI) for HPE Ezmeral Runtime Enterpri
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/fCQpSHDEHY0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <br />
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/4-yGrKZ4M-U" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
 <br />
 
 #### Interactive Demo Experience (IDE)
@@ -113,8 +104,8 @@ Take advantage of our free, Jupyter-Notebook based workshops available in the HP
 
 - - -
 
-## Any questions on HPE Ezmeral Runtime Enterprise?
+## Any questions on HPE Ezmeral Software?
 
-Join the [HPE Developer Slack Workspace](https://slack.hpedev.io/) and start a discussion in our [\#ezmeral-runtime-enterprise](https://app.slack.com/client/T5SNJCC7K/C01BB50LG4W) channel.
+Join the [HPE Developer Community Slack Workspace](https://slack.hpedev.io/) and start a discussion in our [\#hpe-ezmeral-runtime-enterprise](https://app.slack.com/client/T5SNJCC7K/C01BB50LG4W), [\#hpe-ezmeral-unified-analytics-software](https://hpedev.slack.com/archives/C055D1EECAK), and [\#hpe-ezmeral-data-fabric-software](https://hpedev.slack.com/archives/CU3JRBTB7) channels.
 
-Not a Slack user? You can also ask your questions in our [HPE Ezmeral Forum](https://hpe.com/forum/ezmeral).
+Not a Slack user? You can also ask your questions in our [HPE Ezmeral Software Forum](https://hpe.com/forum/ezmeral).
