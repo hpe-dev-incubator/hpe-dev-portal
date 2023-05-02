@@ -25,6 +25,8 @@ This integration with SPIRE provides flexible attestation options not available 
 ![](/img/picture1.jpg)
 
 Later this spire issued certificates or identities to workloads or services can be used for communication between different trust domains or between two different clusters also. 
+
+
 Use the steps in this blog to install Istio and Spire on the same cluster, then deploy a sample application using Spire-issued identities.  
 
 ### Step 1: Creating your own cluster
@@ -44,8 +46,14 @@ Use the steps in this blog to install Istio and Spire on the same cluster, then 
 ![](/img/picture5.png)
 
 **1.5**	 Obtain Kubeconfig for your cluster and launch a Web terminal to access your cluster for further steps in the document. 
+
+
 From the **Containers** main page, click **Launch Service Console** to launch the HPE Ezmeral Runtime Enterprise. Open Kubectl, which allows you to enter commands to communicate with your cluster.
+
+
 If Kubectl is not installed, download Kubectl and the HPE Kubectl Plugin from the **Dashboard**.
+
+
 For more information, see** [Dashboard - Kubernetes Tenant/Project Administrator](https://docs.containerplatform.hpe.com/55/reference/kubernetes/tenant-project-administration/Dashboard__Kubernetes_TenantProject_Administrator.html)** in the HPE Ezmeral Runtime Enterprise documentation.
 
 ### Step 2: Install Spire
@@ -61,6 +69,10 @@ This will install SPIRE into your cluster, along with two additional components:
 **Note:** Number of agents depends on number of nodes you are working with. Here we are working with three worker nodes, so three agents are assigned for each node. 
 
 Use the command given below, and you will get the output as shown.
+
+**`kubectl get pods -n spire`**
+
+![](/img/getpodsspire.png)
 
 ### Step 3: Install Istio
 
@@ -101,7 +113,7 @@ After exporting get out of directory.
 
    ![](/img/patch-error-ingress.jpg)
 
-**3.1**     For patching, the first step is to get and apply one of spire controller manager’s CRD ClusterSPIFFEID. It is a cluster-wide resource used to register workloads with SPIRE. The ClusterSPIFFEID can target all workloads in the cluster or can be optionally scoped to specific pods or namespaces via label selectors.
+ **3.1**  For patching, the first step is to get and apply one of spire controller manager’s CRD ClusterSPIFFEID. It is a cluster-wide resource used to register workloads with SPIRE. The ClusterSPIFFEID can target all workloads in the cluster or can be optionally scoped to specific pods or namespaces via label selectors.
 
 Create a ClusterSPIFFEID crd to generate registration entries in spire server for all workloads with the label **`spiffe.io/spire-managed-identity: true`**.
 
@@ -127,6 +139,8 @@ After patching, confirm the working of your ingress-gateway pod, istiod, and all
 #### Step 4: Deploying Sample Application
 
 Now that our SPIRE and ISTIO are integrated, the identities to workloads must be issued by SPIRE. 
+
+
 For our case, we will create a namespace “bookinfo” and will add a label **“spiffe.io/spire-managed-identity: true”** to it, then we will create a new ClusterSPIFFEID crd with **namespace selector** with match label as “spiffe.io/spire-managed-identity: true.” 
 
 Now when the new workload is added to this namespace or any other namespace which has the label mentioned above, then automatically it will get registered in the server. 
@@ -163,10 +177,10 @@ After editing your clusterSPIFFEID, apply it using kubectl.
 
 **4.5**  After successfully creating namespace and applying crd, deploy your application in the namespace you created. But before you deploy your application, the workloads will need the SPIFFE CSI Driver volume to access the SPIRE Agent socket. To accomplish this, we can leverage the spire pod annotation template:
 
-`annotations:`
+### `annotations:`
 
 ```
-       ` inject.istio.io/templates: "sidecar,spire"`
+        inject.istio.io/templates: "sidecar,spire"
 ```
 
 You can patch it to workload or just add this to your deployment manifest at **{spec:{template:{metadata:{ annotation:}}}}** as shown below.
