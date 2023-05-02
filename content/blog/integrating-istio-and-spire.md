@@ -309,10 +309,18 @@ Reach out to kiali dashboard in your browser by just copying external IP from ab
 **`http://<kiali_external_ip>:<port>`**
 
 After reaching kiali dashboard, generate traffic on product page and simultaneously, vview and analyse traffic on kiali using various graphs and visualising methods.
-App Graph:
 
-Service Graph:
 
-The graph below shows services communication, and the lock here symbolises mTls protocol.
+**App Graph:**
+
+![](/img/app_graph.png)
+
+**Service Graph:**
+
+![](/img/service_graph-1.png)
+
+![](/img/service_graph-22.png)
+
+The graph below shows services communication, and the lock here symbolises **mTls protocol**.
 
 We hope that this blog has helped you in integrating ISTIO and SPIRE from scratch, getting SPIRE issued identities for your sample application workloads, and setting up Kiali on your cluster for better visualisation of your service mesh.
