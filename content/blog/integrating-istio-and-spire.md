@@ -238,41 +238,105 @@ You should also check the same for ingress-gateway pod in istio-system namespace
 
 
 The Bookinfo application is deployed but not accessible from the outside. To make it accessible, you need to create an Istio Ingress Gateway, which maps a path to a route at the edge of your mesh.
-5.1 Associate this application with the Istio gateway:
 
-5.2 Ensure that there are no issues with the configuration:
 
-5.3 Execute the following command to determine if your Kubernetes cluster is running in an environment that supports external load balancers:
+**5.1** Associate this application with the Istio gateway:
+
+**`kubectl apply -f samples/bookinfo/networking/bookinfo-gateway.yaml -n bookinfo`**
+
+**5.2** Ensure that there are no issues with the configuration:
+
+**`istioctl analyze -n bookinfo`**
+
+![](/img/bookinfo-analyze.png)
+
+**5.3** Execute the following command to determine if your Kubernetes cluster is running in an environment that supports external load balancers:
+
+**`kubectl get svc istio-ingressgateway -n istio-system`**
+
+![](/img/ingress-gateway-svc.png)
 
 If the EXTERNAL-IP value is set, your environment has an external load balancer; if not, then set the external load balancer first then follow further steps.
+
+
 For this cluster we are using metallb.
-5.4 Download and install Kiali dashboard and Prometheus.
-Install Kiali:
-Kiali is an observability console for Istio with service mesh configuration and validation capabilities. It helps you understand the structure and health of your service mesh by monitoring traffic.
 
-Install Prometheus: 
-Prometheus is an open-source monitoring system and time series database. You can use Prometheus with Istio to record metrics that track the health of Istio and of applications within the service mesh.
 
-5.5 Later after setting up ingress gateway and bookinfo gateway, we will view the dashboard, so for that you need to make these setting changes in your system proxy status.
-Go to Settings > Network > Proxy status > Turn Use a proxy server On. In the exceptions field add your external IP address of kiali and ingressgateway service.
+**5.4** Download and install Kiali dashboard and Prometheus.
+
+
+**Install Kiali:**
+
+
+**[Kiali](https://kiali.io/)** is an observability console for Istio with service mesh configuration and validation capabilities. It helps you understand the structure and health of your service mesh by monitoring traffic.
+
+**`kubectl apply -f `[`https://raw.githubusercontent.com/istio/istio/release-1.17/samples/addons/kiali.yaml`](https://raw.githubusercontent.com/istio/istio/release-1.17/samples/addons/kiali.yaml)``**
+
+**Install Prometheus:** 
+
+
+[**Prometheus**](https://prometheus.io/) is an open-source monitoring system and time series database. You can use Prometheus with Istio to record metrics that track the health of Istio and of applications within the service mesh.
+
+**`kubectl apply -f `[`https://raw.githubusercontent.com/istio/istio/release-1.17/samples/addons/prometheus.yaml`](https://raw.githubusercontent.com/istio/istio/release-1.17/samples/addons/prometheus.yaml)``**
+
+**5.5** Later after setting up ingress gateway and bookinfo gateway, we will view the dashboard, so for that you need to make these setting changes in your system proxy status.
+
+
+Go to **Settings > Network > Proxy status >** Turn Use a **proxy server On**. In the exceptions field add your external IP address of kiali and ingressgateway service.
+
+
 You can get IPs of these services by following command:
 
-Format: http://{external ip};
-Note: Your kiali service might be of ClusterIP type, so to get the external IP for this service, you first need to edit the service type to LoadBalancer.
+**`kubectl get svc -n istio-system`**
+
+![](/img/istio-system-svcs.png)
+
+![](/img/manual_proxy.png)
+
+**Format:** `http://{external ip};`
+
+
+**Note:** Your kiali service might be of ClusterIP type, so to get the external IP for this service, you first need to edit the service type to LoadBalancer.
 
 * Use the following command to edit the service, then edit the service type.
 
-  ```
+  **`kubectl edit svc kiali -n istio-system`**
 
-  ```
+  Edit the service type **{spec: {type:LoadBalancer}}** as shown below
 
-  5.6 Set the ingress IP and ports:
+  ![](/img/service_edit.png)
 
-  5.7 Export and Set GATEWAY_URL:
 
-  ```
 
-  ```
+
+
+**5﻿.6**  Set the ingress IP and ports:
+
+**`export INGRESS_NAME=istio-ingressgateway`**
+
+**`export INGRESS_NS=istio-system`**
+
+**`export INGRESS_HOST=$(kubectl -n "$INGRESS_NS" get service "$INGRESS_NAME" -o jsonpath='{.status.loadBalancer.ingress[0].ip}')`**
+
+**`export INGRESS_PORT=$(kubectl -n "$INGRESS_NS" get service "$INGRESS_NAME" -o jsonpath='{.spec.ports[?(@.name=="http2")].port}')`**
+
+**5.7**  Export and Set GATEWAY_URL: 
+
+**`export GATEWAY_URL=$INGRESS_HOST:$INGRESS_PORT`**
+
+**`echo "$GATEWAY_URL"`**
+
+
+
+![](/img/gateway_url.png)
+
+
+
+Curl into productpage using gateway URL using following command.
+
+**`curl -v  http://$GATEWAY_URL/productpage`**
+
+
 
 You can generate traffic on product page by just reaching out to shown http URL. 
 Note: Before reaching out to this page and kiali in further step, ensure that you have followed 
