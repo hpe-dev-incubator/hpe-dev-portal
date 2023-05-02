@@ -19,25 +19,33 @@ Istio is an **open-source service mesh** that provides a uniform and efficient w
 
 SPIRE (SPIFFE Runtime Environment) is a production-ready implementation of the SPIFFE specification that performs node and workload attestation to securely issue cryptographic identities to workloads running in heterogeneous environments. 
 
-
+![](/img/spire.png)
 
 SPIRE can be configured as a source of cryptographic identities for Istio workloads through an integration with Envoy’s SDS (Secret Discovery Service) API. 
 This integration with SPIRE provides flexible attestation options not available with the default Istio identity management while harnessing Istio’s powerful service management. 
 
+![](/img/picture1.jpg)
+
 Later this spire issued certificates or identities to workloads or services can be used for communication between different trust domains or between two different clusters also. 
 Use the steps in this blog to install Istio and Spire on the same cluster, then deploy a sample application using Spire-issued identities.  
 
-Step 1: Creating your own cluster
+### Step 1: Creating your own cluster
 
-1.1	 Go to Greenlake client page. 
+**1.1**	 Go to [Greenlake client page](https://client.greenlake.hpe.com/session/hub/choose). 
 
-1.2	 Login to your tenant in HPE GreenLake Central  and navigate to HPE GreenLake for Private Cloud Enterprise dashboard. Click on Containers to launch into the containers dashboard.
+**1.2**	 Login to your tenant in HPE GreenLake Central  and navigate to HPE GreenLake for Private Cloud Enterprise dashboard. Click on Containers to launch into the containers dashboard. 
 
-1.3	 You will notice a similar page as shown below. Click “create cluster” to create a new cluster, or you can also choose from the already created clusters. Ensure that you choose a cluster that does not have ISTIO pre-deployed, since this exercise will deploy SPIRE and ISTIO together.
+![](/img/picture2.png)
 
-1.4	 After clicking create cluster, give name and description to your cluster and type of cluster. In  our case we have chosen large type.
+**1.3**	 You will notice a similar page as shown below. Click “create cluster” to create a new cluster, or you can also choose from the already created clusters. Ensure that you choose a cluster that does not have ISTIO pre-deployed, since this exercise will deploy SPIRE and ISTIO together.
 
-1.5	 Obtain Kubeconfig for your cluster and launch a Web terminal to access your cluster for further steps in the document. 
+![](/img/picture4.png)
+
+**1.4**	 After clicking create cluster, give name and description to your cluster and type of cluster. In  our case we have chosen large type.
+
+![](/img/picture5.png)
+
+**1.5**	 Obtain Kubeconfig for your cluster and launch a Web terminal to access your cluster for further steps in the document. 
 From the Containers main page, click Launch Service Console to launch the HPE Ezmeral Runtime Enterprise. Open Kubectl, which allows you to enter commands to communicate with your cluster.
 If Kubectl is not installed, download Kubectl and the HPE Kubectl Plugin from the Dashboard.
 For more information, see Dashboard - Kubernetes Tenant/Project Administrator in the HPE Ezmeral Runtime Enterprise documentation.
