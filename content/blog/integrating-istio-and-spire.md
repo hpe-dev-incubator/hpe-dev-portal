@@ -111,59 +111,132 @@ After exporting get out of directory.
 
    If you receive the error shown below, your ingress-gateway is not patched yet and is not being registered onto the server.
 
-   ![]()
+   ![](/img/patch-error-ingress.jpg)
 
-3.1    For patching, the first step is to get and apply one of spire controller manager’s CRD ClusterSPIFFEID. It is a cluster-wide resource used to register workloads with SPIRE. The ClusterSPIFFEID can target all workloads in the cluster or can be optionally scoped to specific pods or namespaces via label selectors.
-Create a ClusterSPIFFEID crd to generate registration entries in spire server for all workloads with the label spiffe.io/spire-managed-identity: true.\
-Get the ClusterSPIFFEID used by us for this demo using this link, copy that into your cluster, and apply it.
 
-Note: You can create your own custom clusterSPIFFEID crd with your own match label and own selector. For now, we have created simple crd with one pod selector and one match label.
-3.2 Now simply patch the ingress-gateway with spiffe.io/spire managed-identity: true label.
+
+**3.1**     For patching, the first step is to get and apply one of spire controller manager’s CRD ClusterSPIFFEID. It is a cluster-wide resource used to register workloads with SPIRE. The ClusterSPIFFEID can target all workloads in the cluster or can be optionally scoped to specific pods or namespaces via label selectors.
+
+
+Create a ClusterSPIFFEID crd to generate registration entries in spire server for all workloads with the label **`spiffe.io/spire-managed-identity: true`**.
+
+\
+Get the ClusterSPIFFEID used by us for this demo using [**this link**](https://raw.githubusercontent.com/cxteamtrials/caas-trials-content/main/services/spire/clusterspiffeid-example.yaml), copy that into your cluster, and apply it.
+
+**`kubectl apply -f cluster-spiffeID-crd.yaml`**
+
+**Note:** You can create your own custom clusterSPIFFEID crd with your own match label and own selector. For now, we have created simple crd with one pod selector and one match label.
+
+
+**3.2** Now simply patch the ingress-gateway with spiffe.io/spire managed-identity: true label.
+
+
  This will register your ingress-gateway pod into the server.  
+
+**`kubectl patch deployment istio-ingressgateway -n istio-system -p '{"spec":{"template":{"metadata":{"labels":{"spiffe.io/spire-managed-identity": "true"}}}}}'`**
 
 After patching, confirm the working of your ingress-gateway pod, istiod, and all their containers.
 
-Step 4: Deploying sample application
+**`kubectl get pods -n istio-system`**
+
+![](/img/pods.png)
+
+#### Step 4: Deploying Sample Application
+
+
 Now that our SPIRE and ISTIO are integrated, the identities to workloads must be issued by SPIRE. 
-For our case, we will create a namespace “bookinfo” and will add a label “spiffe.io/spire-managed-identity: true” to it, then we will create a new ClusterSPIFFEID crd with namespace selector with match label as “spiffe.io/spire-managed-identity: true.” 
+For our case, we will create a namespace “bookinfo” and will add a label **“spiffe.io/spire-managed-identity: true”** to it, then we will create a new ClusterSPIFFEID crd with **namespace selector** with match label as “spiffe.io/spire-managed-identity: true.” 
+
+
 Now when the new workload is added to this namespace or any other namespace which has the label mentioned above, then automatically it will get registered in the server. 
-4.1 Create a new namespace.
 
-4.2 Add a label to it, same as that you have used for clusterSPIFFEID.
+**4.1** Create a new namespace.    
 
-4.3 Enable istio-injection for this namespace so that any new pods that are created in that namespace will automatically have a sidecar added to them. You can achieve this by just adding another label in similar fashion.
+**`kubectl create namespace <insert-namespace-name-here>`**
+
+**4.2** Add a label to it, same as that you have used for clusterSPIFFEID.
+
+`kubectl label namespaces <namespace_name> spiffe.io/spire-managed-identity=true `
+
+**4.3** Enable istio-injection for this namespace so that any new pods that are created in that namespace will automatically have a sidecar added to them. You can achieve this by just adding another label in similar fashion.
+
+**`kubectl label namespace <namespace_name> istio-injection=enabled --overwrite`**
 
 After all edits to your namespace, the namespace would look similar as shown below.
-Note: You can edit further if you want using following command, but take care that your resulting yaml is not invalid. You can validate your yaml using any online validator available.
 
-4.2 Create and apply a ClusterSPIFFEID crd with namespace selector. 
-Copy the clusterSPIFFEID from this link and just change the selector to namespace selector and make sure that the correct match label is there like shown below. 
+
+**Note:** You can edit further if you want using following command, but take care that your resulting yaml is not invalid. You can validate your yaml using any online validator available.
+
+**`kubectl edit ns <namespace_name>`**
+
+![](/img/namespace.png)
+
+**4.4** Create and apply a ClusterSPIFFEID crd with namespace selector. 
+
+
+Copy the clusterSPIFFEID from **[this link](https://raw.githubusercontent.com/cxteamtrials/caas-trials-content/main/services/spire/clusterspiffeid-example.yaml)** and just change the selector to **namespace selector** and make sure that the correct match label is there like shown below. 
+
+![](/img/crd.png)
 
 After editing your clusterSPIFFEID, apply it using kubectl.
 
-4.3 After successfully creating namespace and applying crd, deploy your application in the namespace you created. But before you deploy your application, the workloads will need the SPIFFE CSI Driver volume to access the SPIRE Agent socket. To accomplish this, we can leverage the spire pod annotation template:
-annotations:
-            inject.istio.io/templates: "sidecar,spire"
-You can patch it to workload or just add this to your deployment manifest at {spec:{template:{metadata:{ annotation:}}}} as shown below.
+**`kubectl apply -f <your_clusterSPIFFEID_name>`**
 
-You can get the sample bookinfo application manifest from this link.
-Note: This manifest is annotation free, so you need to add annotation to its deployments by following above shown steps.
+**4.5**  After successfully creating namespace and applying crd, deploy your application in the namespace you created. But before you deploy your application, the workloads will need the SPIFFE CSI Driver volume to access the SPIRE Agent socket. To accomplish this, we can leverage the spire pod annotation template:
+
+
+`annotations:`
+
+
+           ` inject.istio.io/templates: "sidecar,spire"`
+
+
+You can patch it to workload or just add this to your deployment manifest at **{spec:{template:{metadata:{ annotation:}}}}** as shown below.
+
+![](/img/sidecar-patch.png)
+
+You can get the sample bookinfo application manifest from [**this link**](https://raw.githubusercontent.com/cxteamtrials/caas-trials-content/main/services/istio/release-1.16/samples/bookinfo/bookinfo.yaml).
+
+
+**Note:** This manifest is annotation free, so you need to add annotation to its deployments by following above shown steps.
+
+
 After editing the manifest, apply it in a newly created namespace.
+
+**`kubectl apply -f bookinfo.yaml -n <namespace_name>`**
 
 Verify all workloads and services you just deployed are running and up.
 
+**`kubectl get all -n <namespace_name>`**
+
 You will get output as shown below if everything is working fine.
 
+![](/img/bookinfo-all-pods.png)
+
 Once everything is up, all workloads would get registered under spire server.
-4.5 You can verify the registration of workloads using the following command:
+
+
+**4.6** You can verify the registration of workloads using the following command:
+
+**`kubectl exec <spire-server_pod_name> -n spire -c spire-server -- ./bin/spire-server entry show`**
 
 Verify that every workload with same label as clusterSPIFFEID crd’s match label is registered in the server.
 
-4.6 Verify that the certificate issuer of workloads is spire using following commands for each workload.
+![](/img/server-entries.png)
+
+**4.7** Verify that the certificate issuer of workloads is spire using following commands for each workload.
+
+**`istioctl proxy-config secret <pod_name> -n <namespace_name> -o json | jq -r '.dynamicActiveSecrets[0].secret.tlsCertificate.certificateChain.inlineBytes' | base64 --decode > chain.pem`**
+
+**`openssl x509 -in chain.pem -text | grep SPIRE`**
+
+![](/img/spire-verify.png)
 
 You should also check the same for ingress-gateway pod in istio-system namespace and verify that your deployed workloads and ingress-gateway has the same issuer.
 
-Step 5: Open the application outside traffic 
+#### Step 5: Open the application outside traffic 
+
+
 The Bookinfo application is deployed but not accessible from the outside. To make it accessible, you need to create an Istio Ingress Gateway, which maps a path to a route at the edge of your mesh.
 5.1 Associate this application with the Istio gateway:
 
