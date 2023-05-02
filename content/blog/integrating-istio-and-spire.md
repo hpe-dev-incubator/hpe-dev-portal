@@ -46,38 +46,72 @@ Use the steps in this blog to install Istio and Spire on the same cluster, then 
 ![](/img/picture5.png)
 
 **1.5**	 Obtain Kubeconfig for your cluster and launch a Web terminal to access your cluster for further steps in the document. 
-From the Containers main page, click Launch Service Console to launch the HPE Ezmeral Runtime Enterprise. Open Kubectl, which allows you to enter commands to communicate with your cluster.
-If Kubectl is not installed, download Kubectl and the HPE Kubectl Plugin from the Dashboard.
-For more information, see Dashboard - Kubernetes Tenant/Project Administrator in the HPE Ezmeral Runtime Enterprise documentation.
+From the **Containers** main page, click **Launch Service Console** to launch the HPE Ezmeral Runtime Enterprise. Open Kubectl, which allows you to enter commands to communicate with your cluster.
+If Kubectl is not installed, download Kubectl and the HPE Kubectl Plugin from the **Dashboard**.
+For more information, see** [Dashboard - Kubernetes Tenant/Project Administrator](https://docs.containerplatform.hpe.com/55/reference/kubernetes/tenant-project-administration/Dashboard__Kubernetes_TenantProject_Administrator.html)** in the HPE Ezmeral Runtime Enterprise documentation.
 
-Step 2: Install Spire
-Get the quickstart yaml file using this link and copy that into your cluster and apply it by using kubectl.
+### Step 2: Install Spire
 
-This will install SPIRE into your cluster, along with two additional components: the SPIFFE CSI Driver and the SPIRE Kubernetes Controller manager which facilitate the registration of workloads and establishment of federation relationships.
-2.1 Verify installation of spire by checking if all pods are running and containers within them are up. Specifically, you are looking for agent and spire server.
-Note: Number of agents depends on number of nodes you are working with. Here we are working with three worker nodes, so three agents are assigned for each node. 
+
+Get the quickstart yaml file using **[this link](https://raw.githubusercontent.com/cxteamtrials/caas-trials-content/main/services/spire/spire-quickstart.yaml)** and copy that into your cluster and apply it by using kubectl.
+
+**`kubectl apply -f spire-quickstart.yaml`**
+
+This will install SPIRE into your cluster, along with two additional components: the SPIFFE CSI Driver and the SPIRE Kubernetes **Controller manager** which facilitate the registration of workloads and establishment of federation relationships.
+
+
+**2.1** Verify installation of spire by checking if all pods are running and containers within them are up. Specifically, you are looking for agent and spire server.
+
+
+**Note:** Number of agents depends on number of nodes you are working with. Here we are working with three worker nodes, so three agents are assigned for each node. 
+
+
 Use the command given below, and you will get the output as shown.
 
-Step 3: Install Istio
+### Step 3: Install Istio
 
-1. Download the latest release:\
+1. #### Download the latest release:
+
+   \
    You can download the latest release using the official ISTIO repository or just copy the following command, which would do the same for you.
 
-For details reach out to ISTIO download page.
+   **`curl -L https://istio.io/downloadIstio | sh -`**
+
+For details reach out to [**ISTIO download page**](https://istio.io/latest/docs/setup/getting-started/#download).
+
+
 cd into the Istio directory and set the path by command:
+
+`export PATH=$PWD/bin:$PATH`
 
 After exporting get out of directory.
 
-Note: In the future, a case might occur when your cluster does not recognize “istioctl. ” In this case, export the path again after getting into istio directory.
+**`cd ..`**
 
-2. Install Istio with patches: 
+**Note:** In the future, a case might occur when your cluster does not recognize “istioctl. ” In this case, export the path again after getting into istio directory.
+
+2. #### Install Istio with patches: 
+
+
    After deploying SPIRE into your environment and verifying that all deployments are in Ready state, install Istio with custom patches for the Ingress-gateway as well as for Istio-proxy.
-   Get the Istio-spire-config patch using this link and copy that patch into your cluster. Install that patch using following command. 	
 
-This will share the spiffe-csi-driver with the Ingress Gateway and the sidecars that are going to be injected on workload pods, granting them access to the SPIRE Agent’s UNIX Domain Socket.
 
-3. Patching Istio-Ingress gateways 
+   Get the Istio-spire-config patch using **[this link](https://raw.githubusercontent.com/cxteamtrials/caas-trials-content/main/services/istio/release-1.17/spire/spire-patch.yaml)** and copy that patch into your cluster. Install that patch using following command.
+
+   **`istioctl install -f istio-spire-config.yaml`**
+
+    	
+
+   This will share the spiffe-csi-driver with the Ingress Gateway and the sidecars that are going to be injected on workload pods, granting them access to the SPIRE Agent’s UNIX Domain Socket.
+
+<!---->
+
+3. #### Patching Istio-Ingress gateways 
+
+
    If you receive the error shown below, your ingress-gateway is not patched yet and is not being registered onto the server.
+
+   ![]()
 
 3.1    For patching, the first step is to get and apply one of spire controller manager’s CRD ClusterSPIFFEID. It is a cluster-wide resource used to register workloads with SPIRE. The ClusterSPIFFEID can target all workloads in the cluster or can be optionally scoped to specific pods or namespaces via label selectors.
 Create a ClusterSPIFFEID crd to generate registration entries in spire server for all workloads with the label spiffe.io/spire-managed-identity: true.\
