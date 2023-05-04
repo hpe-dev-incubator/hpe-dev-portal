@@ -15,4 +15,4 @@ tags:
 
 J﻿une 01-02, 2023
 
-CHIUW 2023 is the 10th annual [Chapel Implementers and Users Workshop](https://chapel-lang.org/CHIUW.html), which serves as a forum where users and developers of the general-purpose Chapel programming language ([chapel-lang.org](https://chapel-lang.org/)) can meet to report on work being done with Chapel, exchange ideas, and forge new collaborations. Anyone interested in parallel programming and/or Chapel is encouraged to attend CHIUW, from long-term enthusiasts to those simply curious to learn more. This year's CHIUW will be online and there will be no registration fees.
+CHIUW 2023 is the 10th annual Chapel Implementers and Users Workshop, which serves as a forum where users and developers of the general-purpose Chapel programming language (chapel-lang.org) can meet to report on work being done with Chapel, exchange ideas, and forge new collaborations. Anyone interested in parallel programming and/or Chapel is encouraged to attend CHIUW, from long-term enthusiasts to those simply curious to learn more. This year's CHIUW will be online and there will be no registration fees.
