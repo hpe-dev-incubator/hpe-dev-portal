@@ -99,7 +99,7 @@ After exporting get out of directory.
 
    **`istioctl install -f istio-spire-config.yaml`**
 
-   ```shell
+   ```shellsession
    2. **`istioctl install -f istio-spire-config.yaml`**
    ```
 
