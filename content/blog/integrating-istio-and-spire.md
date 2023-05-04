@@ -26,7 +26,6 @@ This integration with SPIRE provides flexible attestation options not available 
 
 Later this spire issued certificates or identities to workloads or services can be used for communication between different trust domains or between two different clusters also. 
 
-
 Use the steps in this blog to install Istio and Spire on the same cluster, then deploy a sample application using Spire-issued identities.  
 
 ### Step 1: Creating your own cluster
@@ -47,12 +46,9 @@ Use the steps in this blog to install Istio and Spire on the same cluster, then 
 
 **1.5**	 Obtain Kubeconfig for your cluster and launch a Web terminal to access your cluster for further steps in the document. 
 
-
 From the **Containers** main page, click **Launch Service Console** to launch the HPE Ezmeral Runtime Enterprise. Open Kubectl, which allows you to enter commands to communicate with your cluster.
 
-
 If Kubectl is not installed, download Kubectl and the HPE Kubectl Plugin from the **Dashboard**.
-
 
 For more information, see** [Dashboard - Kubernetes Tenant/Project Administrator](https://docs.containerplatform.hpe.com/55/reference/kubernetes/tenant-project-administration/Dashboard__Kubernetes_TenantProject_Administrator.html)** in the HPE Ezmeral Runtime Enterprise documentation.
 
@@ -103,6 +99,10 @@ After exporting get out of directory.
 
    **`istioctl install -f istio-spire-config.yaml`**
 
+   ```shell
+   2. **`istioctl install -f istio-spire-config.yaml`**
+   ```
+
    This will share the spiffe-csi-driver with the Ingress Gateway and the sidecars that are going to be injected on workload pods, granting them access to the SPIRE Agent’s UNIX Domain Socket.
 
 <!---->
@@ -139,7 +139,6 @@ After patching, confirm the working of your ingress-gateway pod, istiod, and all
 #### Step 4: Deploying Sample Application
 
 Now that our SPIRE and ISTIO are integrated, the identities to workloads must be issued by SPIRE. 
-
 
 For our case, we will create a namespace “bookinfo” and will add a label **“spiffe.io/spire-managed-identity: true”** to it, then we will create a new ClusterSPIFFEID crd with **namespace selector** with match label as “spiffe.io/spire-managed-identity: true.” 
 
@@ -311,11 +310,9 @@ Curl into productpage using gateway URL using following command.
 
 You can generate traffic on product page by just reaching out to shown http URL. 
 
-
 **Note:** Before reaching out to this page and kiali in further step, ensure that you have followed step 5.5 properly.
 
 **5.9** **Kiali Dashboard**
-
 
 Generate traffic on product page and observe the graphs on Kiali dashboard.
 Reach out to kiali dashboard in your browser by just copying external IP from above and http into that IP and port.
@@ -323,7 +320,6 @@ Reach out to kiali dashboard in your browser by just copying external IP from ab
 **`http://<kiali_external_ip>:<port>`**
 
 After reaching kiali dashboard, generate traffic on product page and simultaneously, vview and analyse traffic on kiali using various graphs and visualising methods.
-
 
 **App Graph:**
 
