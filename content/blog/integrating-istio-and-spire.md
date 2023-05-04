@@ -105,7 +105,7 @@ After exporting get out of directory.
 
    This will share the spiffe-csi-driver with the Ingress Gateway and the sidecars that are going to be injected on workload pods, granting them access to the SPIRE Agent’s UNIX Domain Socket.
 
-<!---->
+
 
 3. #### Patching Istio-Ingress gateways
 
