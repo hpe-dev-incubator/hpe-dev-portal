@@ -131,7 +131,6 @@ This will share the spiffe-csi-driver with the Ingress Gateway and the sidecars 
 
   Create a ClusterSPIFFEID CRD to generate registration entries in SPIRE server for all workloads with the label **`spiffe.io/spire-managed-identity: true`**.
 
-  \
   Get the ClusterSPIFFEID used by us for this demo using **[this link](https://raw.githubusercontent.com/cxteamtrials/caas-trials-content/main/services/spire/clusterspiffeid-example.yaml)**, copy that into your cluster, and apply it.
 
   ```shellsession
