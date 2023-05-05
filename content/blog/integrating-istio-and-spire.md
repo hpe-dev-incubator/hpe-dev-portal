@@ -66,7 +66,7 @@ Get the quickstart yaml file using **[this link](https://raw.githubusercontent.c
 
 This will install SPIRE into your cluster, along with two additional components: the SPIFFE CSI Driver and the SPIRE Kubernetes **Controller manager** which facilitate the registration of workloads and establishment of federation relationships.
 
-**2.1** Verify installation of SPIRE by checking if all pods are running and containers within them are up. Specifically, you are looking for agent and SPIRE server.
+\- Verify installation of SPIRE by checking if all pods are running and containers within them are up. Specifically, you are looking for agent and SPIRE server.
 
 **Note:** Number of agents depends on number of nodes you are working with. Here we are working with three worker nodes, so three agents are assigned for each node. 
 
