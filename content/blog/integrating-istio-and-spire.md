@@ -322,7 +322,7 @@ Reach out to kiali dashboard in your browser by just copying external IP from ab
 
 **`http://<kiali_external_ip>:<port>`**
 
-After reaching kiali dashboard, generate traffic on product page and simultaneously, vview and analyse traffic on kiali using various graphs and visualising methods.
+After reaching kiali dashboard, generate traffic on product page and simultaneously, view and analyse traffic on kiali using various graphs and visualising methods.
 
 **App Graph:**
 
