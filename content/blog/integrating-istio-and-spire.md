@@ -265,21 +265,59 @@ You can get the sample bookinfo application manifest from **[this link](https://
 
 After editing the manifest, apply it in a newly created namespace.
 
-**`kubectl apply -f bookinfo.yaml -n <namespace_name>`**
+```shellsession
+kubectl apply -f bookinfo.yaml -n <namespace_name>
+```
 
 Verify all workloads and services you just deployed are running and up.
 
-**`kubectl get all -n <namespace_name>`**
+```shellsession
+kubectl get all -n <namespace_name>
+```
 
 You will get output as shown below if everything is working fine.
 
-![](/img/bookinfo-all-pods.png)
+```shellsession
+k8s-spiffe-integ-master-7j7fh-m67q9:~ kubectl get all -n bookinfo
+NAME                                 READY   STATUS    RESTARTS      AGE
+pod/details-v1-f8957ccb4-7vdgw       2/2     Running   0             37d
+pod/productpage-v1-cfb4bc854-5km2l   2/2     Running   0             37d
+pod/ratings-v1-65cd6fbcd8-s9jnc      2/2     Running   0             37d
+pod/reviews-v1-55f769fb78-czh7j      2/2     Running   0             37d
+pod/reviews-v2-6b7c798cc8-wkpxg      2/2     Running   0             37d
+pod/reviews-v3-695c7f59db-nzwwk      2/2     Running   2 (34d ago)   37d
+
+NAME                  TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)    AGE
+service/details       ClusterIP   10.111.38.161    <none>        9080/TCP   37d
+service/productpage   ClusterIP   10.102.189.161   <none>        9080/TCP   37d
+service/ratings       ClusterIP   10.105.7.153     <none>        9080/TCP   37d
+service/reviews       ClusterIP   10.106.49.246    <none>        9080/TCP   37d
+
+NAME                             READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/details-v1       1/1     1            1           37d
+deployment.apps/productpage-v1   1/1     1            1           37d
+deployment.apps/ratings-v1       1/1     1            1           37d
+deployment.apps/reviews-v1       1/1     1            1           37d
+deployment.apps/reviews-v2       1/1     1            1           37d
+deployment.apps/reviews-v3       1/1     1            1           37d
+
+NAME                                       DESIRED   CURRENT   READY   AGE
+replicaset.apps/details-v1-f8957ccb4       1         1         1       37d
+replicaset.apps/productpage-v1-cfb4bc854   1         1         1       37d
+replicaset.apps/ratings-v1-65cd6fbcd8      1         1         1       37d
+replicaset.apps/reviews-v1-55f769fb78      1         1         1       37d
+replicaset.apps/reviews-v2-6b7c798cc8      1         1         1       37d
+replicaset.apps/reviews-v3-695c7f59db      1         1         1       37d
+
+```
 
 Once everything is up, all workloads would get registered under SPIRE server.
 
 **4.6** You can verify the registration of workloads using the following command:
 
-**`kubectl exec <spire-server_pod_name> -n spire -c spire-server -- ./bin/spire-server entry show`**
+```shellsession
+kubectl exec <spire-server_pod_name> -n spire -c spire-server -- ./bin/spire-server entry show
+```
 
 Verify that every workload with same label as clusterSPIFFEID CRD’s match label is registered in the server.
 
@@ -287,11 +325,17 @@ Verify that every workload with same label as clusterSPIFFEID CRD’s match labe
 
 **4.7** Verify that the certificate issuer of workloads is SPIRE using following commands for each workload.
 
-**`istioctl proxy-config secret <pod_name> -n <namespace_name> -o json | jq -r '.dynamicActiveSecrets[0].secret.tlsCertificate.certificateChain.inlineBytes' | base64 --decode > chain.pem`**
+```shellsession
+istioctl proxy-config secret <pod_name> -n <namespace_name> -o json | jq -r '.dynamicActiveSecrets[0].secret.tlsCertificate.certificateChain.inlineBytes' | base64 --decode > chain.pem
+```
 
-**`openssl x509 -in chain.pem -text | grep SPIRE`**
+```shellsession
+k8s-spiffe-integ-master-7j7fh-m67q9:~ openssl x509 -in chain.pem -text | grep SPIRE
+ Subject: C = US, O = SPIRE, x500UniqueIdentifier = e2f9c35b9198e1824373e874b13287d0
 
-![](/img/spire-verify.png)
+```
+
+
 
 You should also check the same for ingress-gateway pod in Istio-system namespace and verify that your deployed workloads and ingress-gateway has the same issuer.
 
@@ -301,13 +345,20 @@ The Bookinfo application is deployed but not accessible from the outside. To mak
 
 **5.1** Associate this application with the Istio gateway:
 
-**`kubectl apply -f samples/bookinfo/networking/bookinfo-gateway.yaml -n bookinfo`**
+```shellsession
+kubectl apply -f samples/bookinfo/networking/bookinfo-gateway.yaml -n bookinfo
+```
 
 **5.2** Ensure that there are no issues with the configuration:
 
-**`istioctl analyze -n bookinfo`**
+```
+k8s-spiffe-integ-master-7j7fh-m67q9:~ # istioctl analyze -n bookinfo
 
-![](/img/bookinfo-analyze.png)
+✔ No validation issues found when analyzing namespace: bookinfo.
+
+```
+
+
 
 **5.3** Execute the following command to determine if your Kubernetes cluster is running in an environment that supports external load balancers:
 
