@@ -75,7 +75,13 @@ Use the command given below, and you will get the output as shown.
 **`kubectl get pods -n spire`**
 
 ```shellsession
-kubectl get pods -n spire
+k8s-spiffe-integ-master-7j7fh-m67q9:~ kubectl get pods -n spire
+NAME                            READY   STATUS    RESTARTS       AGE
+spire-agent-5tlck               3/3     Running   2 (31d ago)    31d
+spire-agent-gnwbj               3/3     Running   1 (31d ago)    31d
+spire-agent-mghnw               3/3     Running   2 (31d ago)    31d
+spire-server-574474c7dc-42kln   2/2     Running   4 (4d1h ago)   31d
+
 ```
 
 ![](/img/getpodsspire.png)
