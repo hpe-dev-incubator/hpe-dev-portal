@@ -85,14 +85,14 @@ spire-server-574474c7dc-42kln   2/2     Running   4 (4d1h ago)   31d
 
 ### Step 3: Install Istio
 
-1. #### Download the latest release:
+#### Download the latest release:
 
-   \
-   You can download the latest release using the official Istio repository or just copy the following command, which would do the same for you.
+\
+You can download the latest release using the official Istio repository or just copy the following command, which would do the same for you.
 
-   ```shellsession
-   curl -L https://istio.io/downloadIstio | sh -
-   ```
+```shellsession
+curl -L https://istio.io/downloadIstio | sh -
+```
 
 For details reach out to **[ISTIO download page](https://istio.io/latest/docs/setup/getting-started/#download)**.
 
@@ -110,56 +110,50 @@ cd ..
 
 **Note:** In the future, a case might occur when your cluster does not recognize istioctl. In this case, export the path again after getting into istio directory.
 
-2. #### Install Istio with patches:
+#### **Install Istio with patches:**
 
-   After deploying SPIRE into your environment and verifying that all deployments are in Ready state, install Istio with custom patches for the Ingress-gateway as well as for Istio-proxy.
+After deploying SPIRE into your environment and verifying that all deployments are in Ready state, install Istio with custom patches for the Ingress-gateway as well as for Istio-proxy.
 
-   Get the istio-spire-config patch using **[this link](https://raw.githubusercontent.com/cxteamtrials/caas-trials-content/main/services/istio/release-1.17/spire/spire-patch.yaml)** and copy that patch into your cluster. Install that patch using following command.
-
-   ```shellsession
-   istioctl install -f istio-spire-config.yaml
-   ```
-
-   This will share the spiffe-csi-driver with the Ingress Gateway and the sidecars that are going to be injected on workload pods, granting them access to the SPIRE Agent’s UNIX Domain Socket.
-3. #### Patching Istio-Ingress gateways
-
-   If you receive the error shown below, your ingress-gateway is not patched yet and is not being registered onto the server.
-
-   ![](/img/patch-error-ingress.jpg)
-
- **3.1**  For patching, the first step is to get and apply one of SPIRE controller manager’s [CRD(Custom Resource Definition)](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/) ClusterSPIFFEID. It is a cluster-wide resource used to register workloads with SPIRE. The ClusterSPIFFEID can target all workloads in the cluster or can be optionally scoped to specific pods or namespaces via label selectors.
-
-Create a ClusterSPIFFEID CRD to generate registration entries in SPIRE server for all workloads with the label **`spiffe.io/spire-managed-identity: true`**.
-
-\
-Get the ClusterSPIFFEID used by us for this demo using **[this link](https://raw.githubusercontent.com/cxteamtrials/caas-trials-content/main/services/spire/clusterspiffeid-example.yaml)**, copy that into your cluster, and apply it.
+Get the istio-spire-config patch using **[this link](https://raw.githubusercontent.com/cxteamtrials/caas-trials-content/main/services/istio/release-1.17/spire/spire-patch.yaml)** and copy that patch into your cluster. Install that patch using following command.
 
 ```shellsession
-kubectl apply -f cluster-spiffeID-crd.yaml
+istioctl install -f istio-spire-config.yaml
 ```
 
-**Note:** You can create your own custom clusterSPIFFEID CRD with your own match label and own selector. For now, we have created simple CRD with one pod selector and one match label.
+This will share the spiffe-csi-driver with the Ingress Gateway and the sidecars that are going to be injected on workload pods, granting them access to the SPIRE Agent’s UNIX Domain Socket.
 
-**3.2** Now simply patch the ingress-gateway with spiffe.io/spire managed-identity: true label.
+* #### Patching Istio-Ingress gateways
 
- This will register your ingress-gateway pod into the server.  
+  If you receive the error shown below, your ingress-gateway is not patched yet and is not being registered onto the server.
 
-```shellsession
-kubectl patch deployment istio-ingressgateway -n istio-system -p '{"spec":{"template":{"metadata":{"labels":{"spiffe.io/spire-managed-identity": "true"}}}}}'
-```
+  ![](/img/patch-error-ingress.jpg)
 
-After patching, confirm the working of your ingress-gateway pod, istiod, and all their containers.
+   For patching, the first step is to get and apply one of SPIRE controller manager’s [CRD(Custom Resource Definition)](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/) ClusterSPIFFEID. It is a cluster-wide resource used to register workloads with SPIRE. The ClusterSPIFFEID can target all workloads in the cluster or can be optionally scoped to specific pods or namespaces via label selectors.
 
-```shellsession
-k8s-spiffe-integ-master-7j7fh-m67q9:~ kubectl get pods -n istio-system
-NAME                                   READY   STATUS    RESTARTS   AGE
-istio-ingressgateway-6448bcfb6-d7gcw   1/1     Running   0          31d
-istiod-d5bc8669c-jhstc                 1/1     Running   0          31d
-kiali-648847c8c4-h5nmh                 1/1     Running   0          31d
-prometheus-7b8b9dd44c-s76kc            2/2     Running   0          31d
-```
+  Create a ClusterSPIFFEID CRD to generate registration entries in SPIRE server for all workloads with the label **`spiffe.io/spire-managed-identity: true`**.
 
-#### Step 4: Deploying Sample Application
+  \
+  Get the ClusterSPIFFEID used by us for this demo using **[this link](https://raw.githubusercontent.com/cxteamtrials/caas-trials-content/main/services/spire/clusterspiffeid-example.yaml)**, copy that into your cluster, and apply it.
+
+  ```shellsession
+  kubectl apply -f cluster-spiffeID-crd.yaml
+  ```
+
+  **Note:** You can create your own custom clusterSPIFFEID CRD with your own match label and own selector. For now, we have created simple CRD with one pod selector and one match label.
+
+  Now simply patch the ingress-gateway with spiffe.io/spire managed-identity: true label.
+
+   This will register your ingress-gateway pod into the server.  
+
+  ```shellsession
+  kubectl patch deployment istio-ingressgateway -n istio-system -p '{"spec":{"template":{"metadata":{"labels":{"spiffe.io/spire-managed-identity": "true"}}}}}'
+  ```
+
+  After patching, confirm the working of your ingress-gateway pod, istiod, and all their containers.
+
+
+
+## Step 4: Deploying Sample Application
 
 Now that our SPIRE and Istio are integrated, the identities to workloads must be issued by SPIRE. 
 
