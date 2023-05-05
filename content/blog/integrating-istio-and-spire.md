@@ -87,7 +87,6 @@ spire-server-574474c7dc-42kln   2/2     Running   4 (4d1h ago)   31d
 
 #### Download the latest release:
 
-\
 You can download the latest release using the official Istio repository or just copy the following command, which would do the same for you.
 
 ```shellsession
