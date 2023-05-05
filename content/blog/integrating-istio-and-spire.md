@@ -11,7 +11,7 @@ tags:
   - SPIRE
   - istio
 ---
-This blog demonstrates how to integrate ISTIO and SPIRE to enable advanced analysis and visualization of the service mesh.  
+This blog demonstrates how to integrate Istio and SPIRE to enable advanced analysis and visualization of the service mesh.  
 
 ## Istio
 
