@@ -13,7 +13,7 @@ tags:
 ---
 This blog demonstrates how to integrate ISTIO and SPIRE to enable advanced analysis and visualization of the service mesh.  
 
-## ISTIO
+## Istio
 
 Istio is an **open-source service mesh** that provides a uniform and efficient way to secure, connect, and monitor services. Istio automatically manages load balancing for HTTP, gRPC, WebSocket, and TCP traffic. For details, see [The Istio service mesh](https://istio.io/latest/about/service-mesh/).
 
@@ -42,7 +42,7 @@ Use the steps in this blog to install Istio and SPIRE on the same cluster, then 
 
 ![](/img/picture2.png)
 
-**1.3**	 You will notice a similar page as shown below. Click “create cluster” to create a new cluster, or you can also choose from the already created clusters. Ensure that you choose a cluster that does not have ISTIO pre-deployed, since this exercise will deploy SPIRE and ISTIO together.
+**1﻿.3**  You will notice a similar page as shown below. Click “create cluster” to create a new cluster, or you can also choose from the already created clusters. Ensure that you choose a cluster that does not have Istio pre-deployed, since this exercise will deploy SPIRE and Istio together.
 
 ![](/img/picture4.png)
 
@@ -81,7 +81,7 @@ Use the command given below, and you will get the output as shown.
 1. #### Download the latest release:
 
    \
-   You can download the latest release using the official ISTIO repository or just copy the following command, which would do the same for you.
+   You can download the latest release using the official Istio repository or just copy the following command, which would do the same for you.
 
    **`curl -L https://istio.io/downloadIstio | sh -`**
 
@@ -141,7 +141,7 @@ After patching, confirm the working of your ingress-gateway pod, istiod, and all
 
 #### Step 4: Deploying Sample Application
 
-Now that our SPIRE and ISTIO are integrated, the identities to workloads must be issued by SPIRE. 
+Now that our SPIRE and Istio are integrated, the identities to workloads must be issued by SPIRE. 
 
 For our case, we will create a namespace “bookinfo” and will add a label **“spiffe.io/spire-managed-identity: true”** to it, then we will create a new ClusterSPIFFEID crd with **namespace selector** with match label as “spiffe.io/spire-managed-identity: true.” 
 
@@ -223,7 +223,7 @@ Verify that every workload with same label as clusterSPIFFEID crd’s match labe
 
 ![](/img/spire-verify.png)
 
-You should also check the same for ingress-gateway pod in istio-system namespace and verify that your deployed workloads and ingress-gateway has the same issuer.
+You should also check the same for ingress-gateway pod in Istio-system namespace and verify that your deployed workloads and ingress-gateway has the same issuer.
 
 #### Step 5: Open the application outside traffic
 
@@ -336,4 +336,4 @@ After reaching kiali dashboard, generate traffic on product page and simultaneou
 
 The graph below shows services communication, and the lock here symbolises **mTls protocol**.
 
-We hope that this blog has helped you in integrating ISTIO and SPIRE from scratch, getting SPIRE issued identities for your sample application workloads, and setting up Kiali on your cluster for better visualisation of your service mesh.
+We hope that this blog has helped you in integrating Istio and SPIRE from scratch, getting SPIRE issued identities for your sample application workloads, and setting up Kiali on your cluster for better visualisation of your service mesh.
