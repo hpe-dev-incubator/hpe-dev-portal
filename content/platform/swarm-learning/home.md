@@ -1,6 +1,6 @@
 ---
 title: HPE Swarm Learning
-version: 1.2.0
+version: 2.0.0
 description: "HPE Swarm Learning is a decentralized, privacy-preserving Machine
   Learning framework. "
 image: /img/platforms/guid-e80d248e-e754-498e-99d6-67508092f779-high.jpg
@@ -58,8 +58,8 @@ In this video Ronald van Loon and HPE Chief Technologist, Krishnaprasad Shastry,
 ## Resources[](https://www.hpe.com/us/en/solutions/artificial-intelligence/swarm-learning.html)
 
 * **[H﻿PE Swarm Learning home page](https://www.hpe.com/us/en/solutions/artificial-intelligence/swarm-learning.html)**
-* **[HPE Swarm Learning community edition ![](Github)](https://github.com/HewlettPackard/swarm-learning)**
-* **[Try HPE Swarm Learning examples ![](Github)](https://github.com/HewlettPackard/swarm-learning/tree/master/examples)**
+* [**HPE Swarm Learning community edition ![](Github)**](https://github.com/HewlettPackard/swarm-learning)
+* [**Try HPE Swarm Learning examples ![](Github)**](https://github.com/HewlettPackard/swarm-learning/tree/master/examples)
 
 - - -
 
