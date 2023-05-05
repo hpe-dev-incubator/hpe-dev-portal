@@ -36,9 +36,9 @@ Use the steps in this blog to install Istio and SPIRE on the same cluster, then 
 
 ### Step 1: Creating your own cluster
 
-**1.1**	 Go to Heph HPEHe[Greenlake client page](https://client.greenlake.hpe.com/session/hub/choose). 
+**1﻿.1**  Go to [HPE Greenlake ](https://client.greenlake.hpe.com/session/hub/choose)client page. 
 
-**1.2**	 Login to your tenant in HPE GreenLake Central  and navigate to HPE GreenLake for Private Cloud Enterprise dashboard. Click on Containers to launch into the containers dashboard. 
+**1.2**  Login to your tenant in HPE GreenLake Central  and navigate to HPE GreenLake for Private Cloud Enterprise dashboard. Click on Containers to launch into the containers dashboard. 
 
 ![](/img/picture2.png)
 
