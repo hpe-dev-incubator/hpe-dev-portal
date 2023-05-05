@@ -21,7 +21,7 @@ Istio is an **open-source service mesh** that provides a uniform and efficient w
 
 ## SPIRE
 
-SPIRE (SPIFFE Runtime Environment) is a production-ready implementation of the SPIFFE specification that performs node and workload attestation to securely issue cryptographic identities to workloads running in heterogeneous environments. 
+SPIRE (SPIFFE Runtime Environment) is a production-ready implementation of the SPIFFE(Secure Production Identity Framework for Everyone) specification that performs node and workload attestation to securely issue cryptographic identities to workloads running in heterogeneous environments. 
 
 ![](/img/spire.png)
 
@@ -110,9 +110,6 @@ After exporting get out of directory.
    ```
 
    This will share the spiffe-csi-driver with the Ingress Gateway and the sidecars that are going to be injected on workload pods, granting them access to the SPIRE Agent’s UNIX Domain Socket.
-
-
-
 3. #### Patching Istio-Ingress gateways
 
    If you receive the error shown below, your ingress-gateway is not patched yet and is not being registered onto the server.
