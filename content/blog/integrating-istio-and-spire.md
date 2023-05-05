@@ -151,8 +151,6 @@ This will share the spiffe-csi-driver with the Ingress Gateway and the sidecars 
 
   After patching, confirm the working of your ingress-gateway pod, istiod, and all their containers.
 
-
-
 ## Step 4: Deploying Sample Application
 
 Now that our SPIRE and Istio are integrated, the identities to workloads must be issued by SPIRE. 
