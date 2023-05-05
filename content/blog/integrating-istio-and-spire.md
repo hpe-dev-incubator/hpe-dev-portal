@@ -74,6 +74,10 @@ Use the command given below, and you will get the output as shown.
 
 **`kubectl get pods -n spire`**
 
+```shellsession
+kubectl get pods -n spire
+```
+
 ![](/img/getpodsspire.png)
 
 ### Step 3: Install Istio
