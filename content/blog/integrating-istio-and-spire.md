@@ -1,5 +1,5 @@
 ---
-title: Integrating ISTIO and SPIRE
+title: Integrating Istio and SPIRE on HPE GreenLake for Private Cloud Enterprise
 date: 2023-04-25T09:54:00.229Z
 author: Nishant Chaturvedi, Akansha Sajimon
 authorimage: /img/Avatar1.svg
