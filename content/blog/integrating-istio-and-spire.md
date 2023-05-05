@@ -95,7 +95,7 @@ After exporting get out of directory.
 
 **`cd ..`**
 
-**Note:** In the future, a case might occur when your cluster does not recognize “istioctl. ” In this case, export the path again after getting into istio directory.
+**Note:** In the future, a case might occur when your cluster does not recognize istioctl. In this case, export the path again after getting into istio directory.
 
 2. #### Install Istio with patches:
 
