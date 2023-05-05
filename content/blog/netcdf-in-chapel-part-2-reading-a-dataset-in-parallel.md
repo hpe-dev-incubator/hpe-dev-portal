@@ -6,7 +6,6 @@ author: Scott Bachman
 authorimage: https://chapel-lang.org/blog/authors/scott-bachman/photo.jpg
 disable: false
 tags:
-  - Chapel
   - opensource
   - HPC
   - NetCDF
