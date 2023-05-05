@@ -30,9 +30,9 @@ This integration with SPIRE provides flexible attestation options not available 
 
 ![](/img/picture1.jpg)
 
-Later this spire issued certificates or identities to workloads or services can be used for communication between different trust domains or between two different clusters also. 
+Later this SPIRE issued certificates or identities to workloads or services can be used for communication between different trust domains or between two different clusters also. 
 
-Use the steps in this blog to install Istio and Spire on the same cluster, then deploy a sample application using Spire-issued identities.  
+Use the steps in this blog to install Istio and SPIRE on the same cluster, then deploy a sample application using SPIRE-issued identities.  
 
 ### Step 1: Creating your own cluster
 
@@ -58,7 +58,7 @@ If Kubectl is not installed, download Kubectl and the HPE Kubectl Plugin from th
 
 For more information, see** [Dashboard - Kubernetes Tenant/Project Administrator](https://docs.containerplatform.hpe.com/55/reference/kubernetes/tenant-project-administration/Dashboard__Kubernetes_TenantProject_Administrator.html)** in the HPE Ezmeral Runtime Enterprise documentation.
 
-### Step 2: Install Spire
+### Step 2: Install SPIRE
 
 Get the quickstart yaml file using **[this link](https://raw.githubusercontent.com/cxteamtrials/caas-trials-content/main/services/spire/spire-quickstart.yaml)** and copy that into your cluster and apply it by using kubectl.
 
@@ -66,7 +66,7 @@ Get the quickstart yaml file using **[this link](https://raw.githubusercontent.c
 
 This will install SPIRE into your cluster, along with two additional components: the SPIFFE CSI Driver and the SPIRE Kubernetes **Controller manager** which facilitate the registration of workloads and establishment of federation relationships.
 
-**2.1** Verify installation of spire by checking if all pods are running and containers within them are up. Specifically, you are looking for agent and spire server.
+**2.1** Verify installation of SPIRE by checking if all pods are running and containers within them are up. Specifically, you are looking for agent and SPIRE server.
 
 **Note:** Number of agents depends on number of nodes you are working with. Here we are working with three worker nodes, so three agents are assigned for each node. 
 
@@ -101,7 +101,7 @@ After exporting get out of directory.
 
    After deploying SPIRE into your environment and verifying that all deployments are in Ready state, install Istio with custom patches for the Ingress-gateway as well as for Istio-proxy.
 
-   Get the Istio-spire-config patch using **[this link](https://raw.githubusercontent.com/cxteamtrials/caas-trials-content/main/services/istio/release-1.17/spire/spire-patch.yaml)** and copy that patch into your cluster. Install that patch using following command.
+   Get the istio-spire-config patch using **[this link](https://raw.githubusercontent.com/cxteamtrials/caas-trials-content/main/services/istio/release-1.17/spire/spire-patch.yaml)** and copy that patch into your cluster. Install that patch using following command.
 
    **`istioctl install -f istio-spire-config.yaml`**
 
@@ -116,9 +116,9 @@ After exporting get out of directory.
 
    ![](/img/patch-error-ingress.jpg)
 
- **3.1**  For patching, the first step is to get and apply one of spire controller manager’s CRD ClusterSPIFFEID. It is a cluster-wide resource used to register workloads with SPIRE. The ClusterSPIFFEID can target all workloads in the cluster or can be optionally scoped to specific pods or namespaces via label selectors.
+ **3.1**  For patching, the first step is to get and apply one of SPIRE controller manager’s CRD ClusterSPIFFEID. It is a cluster-wide resource used to register workloads with SPIRE. The ClusterSPIFFEID can target all workloads in the cluster or can be optionally scoped to specific pods or namespaces via label selectors.
 
-Create a ClusterSPIFFEID crd to generate registration entries in spire server for all workloads with the label **`spiffe.io/spire-managed-identity: true`**.
+Create a ClusterSPIFFEID crd to generate registration entries in SPIRE server for all workloads with the label **`spiffe.io/spire-managed-identity: true`**.
 
 \
 Get the ClusterSPIFFEID used by us for this demo using **[this link](https://raw.githubusercontent.com/cxteamtrials/caas-trials-content/main/services/spire/clusterspiffeid-example.yaml)**, copy that into your cluster, and apply it.
@@ -177,7 +177,7 @@ After editing your clusterSPIFFEID, apply it using kubectl.
 
 **`kubectl apply -f <your_clusterSPIFFEID_name>`**
 
-**4.5**  After successfully creating namespace and applying crd, deploy your application in the namespace you created. But before you deploy your application, the workloads will need the SPIFFE CSI Driver volume to access the SPIRE Agent socket. To accomplish this, we can leverage the spire pod annotation template:
+**4.5**  After successfully creating namespace and applying crd, deploy your application in the namespace you created. But before you deploy your application, the workloads will need the SPIFFE CSI Driver volume to access the SPIRE Agent socket. To accomplish this, we can leverage the SPIRE pod annotation template:
 
 ### `annotations:`
 
@@ -205,7 +205,7 @@ You will get output as shown below if everything is working fine.
 
 ![](/img/bookinfo-all-pods.png)
 
-Once everything is up, all workloads would get registered under spire server.
+Once everything is up, all workloads would get registered under SPIRE server.
 
 **4.6** You can verify the registration of workloads using the following command:
 
@@ -215,7 +215,7 @@ Verify that every workload with same label as clusterSPIFFEID crd’s match labe
 
 ![](/img/server-entries.png)
 
-**4.7** Verify that the certificate issuer of workloads is spire using following commands for each workload.
+**4.7** Verify that the certificate issuer of workloads is SPIRE using following commands for each workload.
 
 **`istioctl proxy-config secret <pod_name> -n <namespace_name> -o json | jq -r '.dynamicActiveSecrets[0].secret.tlsCertificate.certificateChain.inlineBytes' | base64 --decode > chain.pem`**
 
