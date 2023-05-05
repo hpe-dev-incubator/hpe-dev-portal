@@ -4,6 +4,12 @@ date: 2023-04-25T09:54:00.229Z
 author: Nishant Chaturvedi, Akansha Sajimon
 authorimage: /img/Avatar1.svg
 disable: false
+tags:
+  - spiffe-and-spire-projects
+  - hpe-greenlake-for-private-cloud-enterprise
+  - SPIFFE
+  - SPIRE
+  - istio
 ---
 This blog demonstrates how to integrate ISTIO and SPIRE to enable advanced analysis and visualization of the service mesh.  
 
