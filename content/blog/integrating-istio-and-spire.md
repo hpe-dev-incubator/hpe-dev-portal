@@ -116,16 +116,16 @@ After exporting get out of directory.
 
    ![](/img/patch-error-ingress.jpg)
 
- **3.1**  For patching, the first step is to get and apply one of SPIRE controller manager’s CRD ClusterSPIFFEID. It is a cluster-wide resource used to register workloads with SPIRE. The ClusterSPIFFEID can target all workloads in the cluster or can be optionally scoped to specific pods or namespaces via label selectors.
+ **3.1**  For patching, the first step is to get and apply one of SPIRE controller manager’s [CRD(Custom Resource Definition)](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/) ClusterSPIFFEID. It is a cluster-wide resource used to register workloads with SPIRE. The ClusterSPIFFEID can target all workloads in the cluster or can be optionally scoped to specific pods or namespaces via label selectors.
 
-Create a ClusterSPIFFEID crd to generate registration entries in SPIRE server for all workloads with the label **`spiffe.io/spire-managed-identity: true`**.
+Create a ClusterSPIFFEID CRD to generate registration entries in SPIRE server for all workloads with the label **`spiffe.io/spire-managed-identity: true`**.
 
 \
 Get the ClusterSPIFFEID used by us for this demo using **[this link](https://raw.githubusercontent.com/cxteamtrials/caas-trials-content/main/services/spire/clusterspiffeid-example.yaml)**, copy that into your cluster, and apply it.
 
 **`kubectl apply -f cluster-spiffeID-crd.yaml`**
 
-**Note:** You can create your own custom clusterSPIFFEID crd with your own match label and own selector. For now, we have created simple crd with one pod selector and one match label.
+**Note:** You can create your own custom clusterSPIFFEID CRD with your own match label and own selector. For now, we have created simple CRD with one pod selector and one match label.
 
 **3.2** Now simply patch the ingress-gateway with spiffe.io/spire managed-identity: true label.
 
@@ -143,7 +143,7 @@ After patching, confirm the working of your ingress-gateway pod, istiod, and all
 
 Now that our SPIRE and Istio are integrated, the identities to workloads must be issued by SPIRE. 
 
-For our case, we will create a namespace “bookinfo” and will add a label **“spiffe.io/spire-managed-identity: true”** to it, then we will create a new ClusterSPIFFEID crd with **namespace selector** with match label as “spiffe.io/spire-managed-identity: true.” 
+For our case, we will create a namespace “bookinfo” and will add a label **“spiffe.io/spire-managed-identity: true”** to it, then we will create a new ClusterSPIFFEID CRD with **namespace selector** with match label as “spiffe.io/spire-managed-identity: true.” 
 
 Now when the new workload is added to this namespace or any other namespace which has the label mentioned above, then automatically it will get registered in the server. 
 
@@ -167,7 +167,7 @@ After all edits to your namespace, the namespace would look similar as shown bel
 
 ![](/img/namespace.png)
 
-**4.4** Create and apply a ClusterSPIFFEID crd with namespace selector. 
+**4.4** Create and apply a ClusterSPIFFEID CRD with namespace selector. 
 
 Copy the clusterSPIFFEID from **[this link](https://raw.githubusercontent.com/cxteamtrials/caas-trials-content/main/services/spire/clusterspiffeid-example.yaml)** and just change the selector to **namespace selector** and make sure that the correct match label is there like shown below. 
 
@@ -177,7 +177,7 @@ After editing your clusterSPIFFEID, apply it using kubectl.
 
 **`kubectl apply -f <your_clusterSPIFFEID_name>`**
 
-**4.5**  After successfully creating namespace and applying crd, deploy your application in the namespace you created. But before you deploy your application, the workloads will need the SPIFFE CSI Driver volume to access the SPIRE Agent socket. To accomplish this, we can leverage the SPIRE pod annotation template:
+**4.5**  After successfully creating namespace and applying CRD, deploy your application in the namespace you created. But before you deploy your application, the workloads will need the SPIFFE CSI Driver volume to access the SPIRE Agent socket. To accomplish this, we can leverage the SPIRE pod annotation template:
 
 ### `annotations:`
 
@@ -211,7 +211,7 @@ Once everything is up, all workloads would get registered under SPIRE server.
 
 **`kubectl exec <spire-server_pod_name> -n spire -c spire-server -- ./bin/spire-server entry show`**
 
-Verify that every workload with same label as clusterSPIFFEID crd’s match label is registered in the server.
+Verify that every workload with same label as clusterSPIFFEID CRD’s match label is registered in the server.
 
 ![](/img/server-entries.png)
 
