@@ -74,8 +74,6 @@ Verify installation of SPIRE by checking if all pods are running and containers 
 
 Use the command given below, and you will get the output as shown.
 
-**`kubectl get pods -n spire`**
-
 ```shellsession
 k8s-spiffe-integ-master-7j7fh-m67q9:~ kubectl get pods -n spire
 NAME                            READY   STATUS    RESTARTS       AGE
@@ -83,10 +81,7 @@ spire-agent-5tlck               3/3     Running   2 (31d ago)    31d
 spire-agent-gnwbj               3/3     Running   1 (31d ago)    31d
 spire-agent-mghnw               3/3     Running   2 (31d ago)    31d
 spire-server-574474c7dc-42kln   2/2     Running   4 (4d1h ago)   31d
-
 ```
-
-
 
 ### Step 3: Install Istio
 
@@ -162,10 +157,7 @@ istio-ingressgateway-6448bcfb6-d7gcw   1/1     Running   0          31d
 istiod-d5bc8669c-jhstc                 1/1     Running   0          31d
 kiali-648847c8c4-h5nmh                 1/1     Running   0          31d
 prometheus-7b8b9dd44c-s76kc            2/2     Running   0          31d
-
 ```
-
-
 
 #### Step 4: Deploying Sample Application
 
@@ -221,7 +213,6 @@ spec:
   - kubernetes
 status:
   phase: Active
-
 ```
 
 **4.4** Create and apply a ClusterSPIFFEID CRD with namespace selector. 
@@ -238,7 +229,6 @@ spec:
   namespaceSelector:
     matchLabels:
       spiffe.io/spire-managed-identity: "true"
-
 ```
 
 After editing your clusterSPIFFEID, apply it using kubectl.
@@ -252,7 +242,6 @@ kubectl apply -f <your_clusterSPIFFEID_name>
 ```yaml
 annotations:
             inject.istio.io/templates: "sidecar,spire"
-
 ```
 
 You can patch it to workload or just add this to your deployment manifest at **{spec:{template:{metadata:{ annotation:}}}}** as shown below.
@@ -308,7 +297,6 @@ replicaset.apps/ratings-v1-65cd6fbcd8      1         1         1       37d
 replicaset.apps/reviews-v1-55f769fb78      1         1         1       37d
 replicaset.apps/reviews-v2-6b7c798cc8      1         1         1       37d
 replicaset.apps/reviews-v3-695c7f59db      1         1         1       37d
-
 ```
 
 Once everything is up, all workloads would get registered under SPIRE server.
@@ -332,10 +320,7 @@ istioctl proxy-config secret <pod_name> -n <namespace_name> -o json | jq -r '.dy
 ```shellsession
 k8s-spiffe-integ-master-7j7fh-m67q9:~ openssl x509 -in chain.pem -text | grep SPIRE
  Subject: C = US, O = SPIRE, x500UniqueIdentifier = e2f9c35b9198e1824373e874b13287d0
-
 ```
-
-
 
 You should also check the same for ingress-gateway pod in Istio-system namespace and verify that your deployed workloads and ingress-gateway has the same issuer.
 
@@ -355,10 +340,7 @@ kubectl apply -f samples/bookinfo/networking/bookinfo-gateway.yaml -n bookinfo
 k8s-spiffe-integ-master-7j7fh-m67q9:~ # istioctl analyze -n bookinfo
 
 ✔ No validation issues found when analyzing namespace: bookinfo.
-
 ```
-
-
 
 **5.3** Execute the following command to determine if your Kubernetes cluster is running in an environment that supports external load balancers:
 
@@ -366,10 +348,7 @@ k8s-spiffe-integ-master-7j7fh-m67q9:~ # istioctl analyze -n bookinfo
 k8s-spiffe-integ-master-7j7fh-m67q9:~ kubectl get svc istio-ingressgateway -n istio-system
 NAME                   TYPE           CLUSTER-IP      EXTERNAL-IP   PORT(S)                                      AGE
 istio-ingressgateway   LoadBalancer   10.105.191.32   172.16.17.5   15021:30189/TCP,80:30392/TCP,443:30566/TCP   32d
-
 ```
-
-
 
 If the EXTERNAL-IP value is set, your environment has an external load balancer; if not, then set the external load balancer first then follow further steps.
 
@@ -406,7 +385,6 @@ istio-ingressgateway   LoadBalancer   10.105.191.32   172.16.17.5   15021:30189/
 istiod                 ClusterIP      10.101.27.65    <none>        15010/TCP,15012/TCP,443/TCP,15014/TCP        32d
 kiali                  LoadBalancer   10.103.14.197   172.16.17.6   20001:32116/TCP,9090:31950/TCP               32d
 prometheus             ClusterIP      10.98.101.102   <none>        9090/TCP                                     32d
-
 ```
 
 ![](/img/manual_proxy.png)
@@ -446,10 +424,7 @@ export GATEWAY_URL=$INGRESS_HOST:$INGRESS_PORT
 ```shellsession
 k8s-spiffe-integ-master-7j7fh-m67q9:~ echo "$GATEWAY_URL"
 172.16.17.5:80
-
 ```
-
-
 
 Curl into productpage using gateway URL using following command.
 
@@ -466,11 +441,7 @@ k8s-spiffe-integ-master-7j7fh-m67q9:~ curl -v  http://$GATEWAY_URL/productpage
 > Accept: */*
 > Proxy-Connection: Keep-Alive
 >
-
-
 ```
-
-
 
 You can generate traffic on product page by just reaching out to shown http URL. 
 
