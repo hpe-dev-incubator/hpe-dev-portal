@@ -362,9 +362,14 @@ k8s-spiffe-integ-master-7j7fh-m67q9:~ # istioctl analyze -n bookinfo
 
 **5.3** Execute the following command to determine if your Kubernetes cluster is running in an environment that supports external load balancers:
 
-**`kubectl get svc istio-ingressgateway -n istio-system`**
+```shellsession
+k8s-spiffe-integ-master-7j7fh-m67q9:~ kubectl get svc istio-ingressgateway -n istio-system
+NAME                   TYPE           CLUSTER-IP      EXTERNAL-IP   PORT(S)                                      AGE
+istio-ingressgateway   LoadBalancer   10.105.191.32   172.16.17.5   15021:30189/TCP,80:30392/TCP,443:30566/TCP   32d
 
-![](/img/ingress-gateway-svc.png)
+```
+
+
 
 If the EXTERNAL-IP value is set, your environment has an external load balancer; if not, then set the external load balancer first then follow further steps.
 
@@ -376,13 +381,17 @@ For this cluster we are using metallb.
 
 **[Kiali](https://kiali.io/)** is an observability console for Istio with service mesh configuration and validation capabilities. It helps you understand the structure and health of your service mesh by monitoring traffic.
 
-**`kubectl apply -f`[`https://raw.githubusercontent.com/istio/istio/release-1.17/samples/addons/kiali.yaml`](https://raw.githubusercontent.com/istio/istio/release-1.17/samples/addons/kiali.yaml)``**
+```shellsession
+kubectl apply -f https://raw.githubusercontent.com/istio/istio/release-1.17/samples/addons/kiali.yaml
+```
 
 **Install Prometheus:** 
 
 **[Prometheus](https://prometheus.io/)** is an open-source monitoring system and time series database. You can use Prometheus with Istio to record metrics that track the health of Istio and of applications within the service mesh.
 
-**`kubectl apply -f`[`https://raw.githubusercontent.com/istio/istio/release-1.17/samples/addons/prometheus.yaml`](https://raw.githubusercontent.com/istio/istio/release-1.17/samples/addons/prometheus.yaml)``**
+```shellsession
+kubectl apply -f https://raw.githubusercontent.com/istio/istio/release-1.17/samples/addons/prometheus.yaml
+```
 
 **5.5** Later after setting up ingress gateway and bookinfo gateway, we will view the dashboard, so for that you need to make these setting changes in your system proxy status.
 
@@ -390,9 +399,15 @@ Go to **Settings > Network > Proxy status >** Turn Use a **proxy server On**. In
 
 You can get IPs of these services by following command:
 
-**`kubectl get svc -n istio-system`**
+```shellsession
+k8s-spiffe-integ-master-7j7fh-m67q9:~ kubectl get svc -n istio-system
+NAME                   TYPE           CLUSTER-IP      EXTERNAL-IP   PORT(S)                                      AGE
+istio-ingressgateway   LoadBalancer   10.105.191.32   172.16.17.5   15021:30189/TCP,80:30392/TCP,443:30566/TCP   32d
+istiod                 ClusterIP      10.101.27.65    <none>        15010/TCP,15012/TCP,443/TCP,15014/TCP        32d
+kiali                  LoadBalancer   10.103.14.197   172.16.17.6   20001:32116/TCP,9090:31950/TCP               32d
+prometheus             ClusterIP      10.98.101.102   <none>        9090/TCP                                     32d
 
-![](/img/istio-system-svcs.png)
+```
 
 ![](/img/manual_proxy.png)
 
@@ -402,7 +417,9 @@ You can get IPs of these services by following command:
 
 * Use the following command to edit the service, then edit the service type.
 
-  **`kubectl edit svc kiali -n istio-system`**
+  ```shellsession
+  kubectl edit svc kiali -n istio-system
+  ```
 
   Edit the service type **{spec: {type:LoadBalancer}}** as shown below
 
@@ -410,27 +427,50 @@ You can get IPs of these services by following command:
 
 **5﻿.6**  Set the ingress IP and ports:
 
-**`export INGRESS_NAME=istio-ingressgateway`**
+```shellsession
+export INGRESS_NAME=istio-ingressgateway
 
-**`export INGRESS_NS=istio-system`**
+export INGRESS_NS=istio-system
 
-**`export INGRESS_HOST=$(kubectl -n "$INGRESS_NS" get service "$INGRESS_NAME" -o jsonpath='{.status.loadBalancer.ingress[0].ip}')`**
+export INGRESS_HOST=$(kubectl -n "$INGRESS_NS" get service "$INGRESS_NAME" -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
 
-**`export INGRESS_PORT=$(kubectl -n "$INGRESS_NS" get service "$INGRESS_NAME" -o jsonpath='{.spec.ports[?(@.name=="http2")].port}')`**
+export INGRESS_PORT=$(kubectl -n "$INGRESS_NS" get service "$INGRESS_NAME" -o jsonpath='{.spec.ports[?(@.name=="http2")].port}')
+```
 
 **5.7**  Export and Set GATEWAY_URL: 
 
-**`export GATEWAY_URL=$INGRESS_HOST:$INGRESS_PORT`**
+```shellsession
+export GATEWAY_URL=$INGRESS_HOST:$INGRESS_PORT
+```
 
-**`echo "$GATEWAY_URL"`**
+```shellsession
+k8s-spiffe-integ-master-7j7fh-m67q9:~ echo "$GATEWAY_URL"
+172.16.17.5:80
 
-![](/img/gateway_url.png)
+```
+
+
 
 Curl into productpage using gateway URL using following command.
 
-**`curl -v  http://$GATEWAY_URL/productpage`**
+```shellsession
+k8s-spiffe-integ-master-7j7fh-m67q9:~ curl -v  http://$GATEWAY_URL/productpage
+* Uses proxy env variable no_proxy == 'localhost,127.0.0.1,10.96.0.1,172.16.5.41,172.16.5.42,172.16.5.43,172.16.5.44,172.16.5.45,172.16.5.46,172.16.5.40,glhc-caas.glhc-hpe.local,.glhc-hpe.local,glhc-caas.customer.hpe.net,172.16.17.20,172.16.17.21,172.16.17.22,172.16.5.47,gl-pulpnode.glhc-hpe.local,gl-pulpnode,10.96.0.1,10.192.0.0/12,10.96.0.0/12,.svc,.cluster.local,.default.svc,.customer.hpe.net,172.16.17.23,172.16.17.30,gl-cp-gw-node2.glhc-hpe.local,gl-cp-gw-node1.glhc-hpe.local,172.16.17.50'
+* Uses proxy env variable http_proxy == 'http://172.16.0.250:8080'
+*   Trying 172.16.0.250:8080...
+* TCP_NODELAY set
+* Connected to 172.16.0.250 (172.16.0.250) port 8080 (#0)
+> GET http://172.16.17.5:80/productpage HTTP/1.1
+> Host: 172.16.17.5
+> User-Agent: curl/7.66.0
+> Accept: */*
+> Proxy-Connection: Keep-Alive
+>
 
-![](/img/prfuct_page.png)
+
+```
+
+
 
 You can generate traffic on product page by just reaching out to shown http URL. 
 
@@ -441,7 +481,9 @@ You can generate traffic on product page by just reaching out to shown http URL.
 Generate traffic on product page and observe the graphs on Kiali dashboard.
 Reach out to kiali dashboard in your browser by just copying external IP from above and http into that IP and port.
 
-**`http://<kiali_external_ip>:<port>`**
+```shellsession
+http://<kiali_external_ip>:<port>
+```
 
 After reaching kiali dashboard, generate traffic on product page and simultaneously, view and analyse traffic on kiali using various graphs and visualising methods.
 
