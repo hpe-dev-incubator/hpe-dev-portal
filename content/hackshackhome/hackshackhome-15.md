@@ -1,6 +1,7 @@
 ---
 title: "A new era of software development using large language model tools like
   ChatGPT "
+active: true
 fit: contain
 link: https://hpe.zoom.us/webinar/register/6416832842550/WN_AYFVckKZRqCKTvsycRNyGA
 imageBackground: white
