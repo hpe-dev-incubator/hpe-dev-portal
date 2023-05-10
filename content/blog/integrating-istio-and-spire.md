@@ -38,7 +38,7 @@ In this blog post, we will show you the steps you can use to install Istio and S
 
 **1﻿.1**  Go to [HPE Greenlake ](https://client.greenlake.hpe.com/session/hub/choose)client page. 
 
-**1.2**  Login to your tenant in HPE GreenLake Central  and navigate to HPE GreenLake for Private Cloud Enterprise dashboard. Click on Containers to launch into the containers dashboard. 
+**1.2**  Login to your tenant in HPE GreenLake Central  and navigate to the HPE GreenLake for Private Cloud Enterprise dashboard. Click on **Containers** to launch into the containers dashboard. 
 
 ![](/img/picture2.png)
 
@@ -46,11 +46,11 @@ In this blog post, we will show you the steps you can use to install Istio and S
 
 ![](/img/picture4.png)
 
-**1.4**	 After clicking create cluster, give name and description to your cluster and type of cluster. In  our case we have chosen large type.
+**1.4**	 After clicking Create cluster, give a name and description to your cluster and identify the type of cluster. In our case, we have chosen a large type.
 
 ![](/img/picture5.png)
 
-**1.5**	 Obtain Kubeconfig for your cluster and launch a Web terminal to access your cluster for further steps in the document. 
+**1.5**	 Obtain Kubeconfig for your cluster and launch a Web terminal to access your cluster to handle steps found later in this post.
 
 From the **Containers** main page, click **Launch Service Console** to launch the HPE Ezmeral Runtime Enterprise. Open Kubectl, which allows you to enter commands to communicate with your cluster.
 
