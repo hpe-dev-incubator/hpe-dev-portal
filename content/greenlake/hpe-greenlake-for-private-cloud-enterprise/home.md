@@ -69,16 +69,6 @@ For more information on the HPE GreenLake IaC capabilities, please watch this vi
 Get some real, hands-on experience by registering for this workshops-on-demand:
 [Introduction to Virtual Machine Infrastructure-as-Code using Terraform and HPE GreenLake for Private Cloud Enterprise](https://developer.hpe.com/hackshack/workshop/36)
 
-### REST APIs
-
-HPE GreenLake APIs provide a secure, standardized interface for automating common and repetitive tasks, programmatically configuring and provisioning services, and integrating applications with cloud services. The APIs are based on the OpenAPI specification and governed by administratively defined RBACs and strong authentication methods.
-
-![HPE GreenLake for Private Cloud Enterprise API](/img/hpegl4pce-api.png "HPE GreenLake for Private Cloud Enterprise API")
-
-\[Future – Link to open API specification]
-
-\[Future – Blog] 
-
 ### Cloud shell CLI
 
 Cloud shell as an interactive browser-based shell enables secure access to your HPE GreenLake for Private Cloud Enterprise resources. Development packages, orchestration tools and the latest IaC libraries are pre-installed as part of the cloud shell.
@@ -107,10 +97,6 @@ Cloud or tenant admins and cloud consumers can create DevOps projects—workspac
 
 [Support documentation](https://support.hpe.com/hpesc/public/docDisplay?docId=a00092451en_us&page=GUID-D06895CD-C9CC-4E85-AA8F-A9D3D22D5874.html)
 
-API (Future)
-
-Marketplace (Future - post/Discover)
-
 - - -
 
 ## Workshops-on-Demand
@@ -121,9 +107,3 @@ Take advantage of our free, Jupyter-Notebook based workshops available in the HP
 <div class="w3-container w3-center w3-margin-bottom">
   <a href="/hackshack/workshops"><button type="button" class="button">Try now!</button></a>
 </div>
-
-- - -
-
-## Any questions on HPE GreenLake for Private Cloud Enterprise?
-
-Join the [HPE Developer Community Slack Workspace](https://slack.hpedev.io/) and start a discussion in our #hpe-greenlake-for-private-cloud-enterprise channel.
