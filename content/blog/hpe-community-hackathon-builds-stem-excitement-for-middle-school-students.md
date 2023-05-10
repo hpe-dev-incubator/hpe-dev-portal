@@ -1,8 +1,8 @@
 ---
 title: HPE community hackathon builds STEM excitement for middle school students
 date: 2023-04-07T16:39:31.153Z
-featuredBlog: true
-priority: 1
+featuredBlog: false
+priority: 8
 author: Dale Rensing
 authorimage: /img/blog-author-rensing-96.jpg
 thumbnailimage: ""
