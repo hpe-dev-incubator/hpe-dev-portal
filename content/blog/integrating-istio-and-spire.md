@@ -42,7 +42,7 @@ In this blog post, we will show you the steps you can use to install Istio and S
 
 ![](/img/picture2.png)
 
-**1﻿.3**  You will notice a similar page as shown below. Click “create cluster” to create a new cluster, or you can also choose from the already created clusters. Ensure that you choose a cluster that does not have Istio pre-deployed, since this exercise will deploy SPIRE and Istio together.
+**1﻿.3**  You will notice a page similar to the one shown below. Click **Create cluster** to create a new cluster, or you can also choose from the already created clusters. Ensure that you choose a cluster that does not have Istio pre-deployed, since this exercise will deploy SPIRE and Istio together.
 
 ![](/img/picture4.png)
 
@@ -364,7 +364,7 @@ kubectl apply -f https://raw.githubusercontent.com/istio/istio/release-1.17/samp
 
 **5.5** Later after setting up ingress gateway and bookinfo gateway, we will view the dashboard, so for that you need to make these setting changes in your system proxy status.
 
-Go to **Settings > Network > Proxy status >** Turn Use a **proxy server On**. In the exceptions field add your external IP address of kiali and ingressgateway service.
+Go to **Settings > Network > Proxy status >** Turn Use a **proxy server On**. In the exceptions field, add your external IP address of kiali and ingressgateway service.
 
 You can get IPs of these services by following command:
 
@@ -416,7 +416,7 @@ k8s-spiffe-integ-master-7j7fh-m67q9:~ echo "$GATEWAY_URL"
 172.16.17.5:80
 ```
 
-Curl into productpage using gateway URL using following command.
+Curl into the productpage using gateway URL using following command.
 
 ```shellsession
 k8s-spiffe-integ-master-7j7fh-m67q9:~ curl -v  http://$GATEWAY_URL/productpage
@@ -433,14 +433,14 @@ k8s-spiffe-integ-master-7j7fh-m67q9:~ curl -v  http://$GATEWAY_URL/productpage
 >
 ```
 
-You can generate traffic on product page by just reaching out to shown http URL. 
+You can generate traffic on the product page by just reaching out to the shown http URL. 
 
 **Note:** Before reaching out to this page and kiali in further step, ensure that you have followed step 5.5 properly.
 
 **5.9** **Kiali Dashboard**
 
-Generate traffic on product page and observe the graphs on Kiali dashboard.
-Reach out to kiali dashboard in your browser by just copying external IP from above and http into that IP and port.
+Generate traffic on the product page and observe the graphs on the Kiali dashboard.
+Reach out to the kiali dashboard in your browser by just copying the external IP from above and http into that IP and port.
 
 ```shellsession
 http://<kiali_external_ip>:<port>
