@@ -2,6 +2,8 @@
 title: Meet the HPE Developer Community team at HPE Technology and Solution
   Summit 2023!
 date: 2023-03-30T13:29:10.157Z
+featuredBlog: true
+priority: 1
 author: Frederic Passeron
 authorimage: /img/frederic-passeron-hpedev-192.jpg
 disable: false
