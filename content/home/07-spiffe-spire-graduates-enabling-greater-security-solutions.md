@@ -1,5 +1,5 @@
 ---
-author: Dale Rensing
+author: Frederic Passeron
 priority: 7
 active: true
 width: medium
