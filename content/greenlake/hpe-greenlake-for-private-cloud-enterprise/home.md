@@ -99,7 +99,7 @@ Cloud or tenant admins and cloud consumers can create DevOps projects—workspac
 
 ![HPE GreenLake for Private Cloud Enterprise DevOps CI/CD pipeline](/img/hpegl4pce-devops.png "HPE GreenLake for Private Cloud Enterprise DevOps CI/CD pipeline")
 
-\[Creating guide] Step-by-step process for DevOps flow
+[Step-by-step process for DevOps flow](https://support.hpe.com/hpesc/public/docDisplay?docId=a00092451en_us&page=GUID-D06895CD-C9CC-4E85-AA8F-A9D3D22D5874.html)
 
 ## Resources
 
