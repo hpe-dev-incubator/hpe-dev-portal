@@ -21,7 +21,7 @@ Istio is an **open-source service mesh** that provides a uniform and efficient w
 
 ## SPIRE
 
-SPIRE (SPIFFE Runtime Environment) is a production-ready implementation of the SPIFFE(Secure Production Identity Framework for Everyone) specification that performs node and workload attestation to securely issue cryptographic identities to workloads running in heterogeneous environments. 
+SPIRE (SPIFFE Runtime Environment) is a production-ready implementation of the SPIFFE (Secure Production Identity Framework for Everyone) specification that performs node and workload attestation to securely issue cryptographic identities to workloads running in heterogeneous environments. 
 
 ![](/img/spire.png)
 
@@ -30,9 +30,9 @@ This integration with SPIRE provides flexible attestation options not available 
 
 ![](/img/picture1.jpg)
 
-Later this SPIRE issued certificates or identities to workloads or services can be used for communication between different trust domains or between two different clusters also. 
+Once integrated, SPIRE issued certificates to workloads can be used for communication between different trust domains or between two different clusters also.  
 
-Use the steps in this blog to install Istio and SPIRE on the same cluster, then deploy a sample application using SPIRE-issued identities.  
+In this blog post, we will show you the steps you can use to install Istio and SPIRE on the same cluster and how to deploy a sample application using SPIRE-issued identities.
 
 ### Step 1: Creating your own cluster
 
