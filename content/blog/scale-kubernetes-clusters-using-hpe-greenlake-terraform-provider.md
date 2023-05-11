@@ -160,7 +160,7 @@ Terraform will perform the following actions:
   # hpegl_caas_cluster.test will be updated in-place
   ~ resource "hpegl_caas_cluster" "test" {
         id                    = "a32fabb9-7c19-42d1-9a38-ebf122810c0a"
-        ~ kubernetes_version    = "1.22.9-hpe1" -> "1.23.13-hpe1"
+      ~ kubernetes_version    = "1.22.9-hpe1" -> "1.23.13-hpe1"
         name                  = "tf-test"
         # (17 unchanged attributes hidden)
     }
@@ -201,6 +201,8 @@ Apply complete! Resources: 0 added, 1 changed, 0 destroyed.
 # OS Version upgrade
 
 For OS version upgrade, we need to specify the new version of OS Image that is available for upgrade & the name of the OS Image in the worker node block.
+
+
 **Note**: The OS version is specific to a worker node pool. All the nodes in the worker node pool will be updated to the same OS version. However, we can have different node pool supporting different OS versions. 
 
 The worker node block consist of following fields - 
@@ -210,6 +212,8 @@ The worker node block consist of following fields -
 3. **count**: *Add the number of nodes to be present as part of this node pool. We can scale up & down by updating the count value here.*
 4. **os_image**: *The name of the OS image. Use the machine blueprint data source to retrieve the name of OS image*
 5. **os_version**: *The version to be upgraded to. We can get this version in the UI. Whenever there is a new version present, UI will pop up a banner mentioning the new version.*
+
+W﻿e can find the new version by clicking on the **Actions->Update OS** button on the right side of cluster's details page. 
 
  Below is the reference Terraform configuration for updating the worker nodepool's OS version.
 
