@@ -43,6 +43,12 @@ HPE Swarm Learning is the industry’s first privacy preserving, decentralized m
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ORujFJ1lVVw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+**\-﻿ HPE Swarm Learning Demo**
+
+In this around the IT Block demo, see HPE Swarm Learning in action, bringing machine learning model training to the data source and enabling collaboration across data silos. The example shown in this use case is cred card fraud detection.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/_LQsalXojSg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 - - -
 
 ## Listen to what the experts are saying
