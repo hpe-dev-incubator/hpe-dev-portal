@@ -301,7 +301,7 @@ Verify that every workload with same label as clusterSPIFFEID CRD’s match labe
 
 ![](/img/server-entries.png)
 
-**4.7** Verify that the certificate issuer of workloads is SPIRE using following commands for each workload.
+**4.7** Verify that the certificate issuer of workloads is SPIRE using the following commands for each workload.
 
 ```shellsession
 istioctl proxy-config secret <pod_name> -n <namespace_name> -o json | jq -r '.dynamicActiveSecrets[0].secret.tlsCertificate.certificateChain.inlineBytes' | base64 --decode > chain.pem
@@ -312,9 +312,9 @@ k8s-spiffe-integ-master-7j7fh-m67q9:~ openssl x509 -in chain.pem -text | grep SP
  Subject: C = US, O = SPIRE, x500UniqueIdentifier = e2f9c35b9198e1824373e874b13287d0
 ```
 
-You should also check the same for ingress-gateway pod in Istio-system namespace and verify that your deployed workloads and ingress-gateway has the same issuer.
+You should also check that everything is the same for the ingress-gateway pod in Istio-system namespace and verify that your deployed workloads and ingress-gateway has the same issuer.
 
-#### Step 5: Open the application outside traffic
+#### Step 5: Open the application to outside traffic
 
 The Bookinfo application is deployed but not accessible from the outside. To make it accessible, you need to create an Istio Ingress Gateway, which maps a path to a route at the edge of your mesh.
 
@@ -340,9 +340,9 @@ NAME                   TYPE           CLUSTER-IP      EXTERNAL-IP   PORT(S)     
 istio-ingressgateway   LoadBalancer   10.105.191.32   172.16.17.5   15021:30189/TCP,80:30392/TCP,443:30566/TCP   32d
 ```
 
-If the EXTERNAL-IP value is set, your environment has an external load balancer; if not, then set the external load balancer first then follow further steps.
+If the EXTERNAL-IP value is set, your environment has an external load balancer. If not, then set the external load balancer first then follow further steps.
 
-For this cluster we are using metallb.
+For this cluster, we are using metallb.
 
 **5.4** Download and install Kiali dashboard and Prometheus.
 
@@ -362,7 +362,7 @@ kubectl apply -f https://raw.githubusercontent.com/istio/istio/release-1.17/samp
 kubectl apply -f https://raw.githubusercontent.com/istio/istio/release-1.17/samples/addons/prometheus.yaml
 ```
 
-**5.5** Later after setting up ingress gateway and bookinfo gateway, we will view the dashboard, so for that you need to make these setting changes in your system proxy status.
+**5.5** After setting up the ingress gateway and bookinfo gateway, we will view the dashboard later on in this post. To ensure you'll be able to do this, you'll need to make these setting changes in your system proxy status.
 
 Go to **Settings > Network > Proxy status >** Turn Use a **proxy server On**. In the exceptions field, add your external IP address of kiali and ingressgateway service.
 
