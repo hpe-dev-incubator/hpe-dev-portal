@@ -10,4 +10,6 @@ width: large
 ## HPE Discover 2023
 ### The Hack Shack at Discover 2023
 
+Las Vegas, June 20-22
+
 This year, the Hack Shack will serve as the technology hub for all technologists and home base for the HPE Office of the CTO. Join us at HPE Discover 2023 to take advantage of opportunities to learn more about the HPE GreenLake platform and meet with HPE executives and technology experts, sharing your experiences and hopes for the platform. While you’re there, take advantage of opportunities to win prizes with activities like our Treasure Hunt and Hack Shack challenges and join us for our annual celebration party!
