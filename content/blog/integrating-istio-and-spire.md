@@ -68,9 +68,9 @@ kubectl apply -f spire-quickstart.yaml
 
 This will install SPIRE into your cluster, along with two additional components: the SPIFFE CSI Driver and the SPIRE Kubernetes **Controller manager** which facilitate the registration of workloads and establishment of federation relationships.
 
-Verify installation of SPIRE by checking if all pods are running and containers within them are up. Specifically, you are looking for agent and SPIRE server.
+Verify installation of SPIRE by checking if all pods are running and containers within them are up. Specifically, you should look for the agent and SPIRE server.
 
-**Note:** Number of agents depends on number of nodes you are working with. Here we are working with three worker nodes, so three agents are assigned for each node. 
+**Note:** The number of agents depends on number of nodes you are working with. Here, we are working with three worker nodes, so three agents are assigned for each node. 
 
 Use the command given below, and you will get the output as shown.
 
@@ -87,27 +87,27 @@ spire-server-574474c7dc-42kln   2/2     Running   4 (4d1h ago)   31d
 
 #### Download the latest release:
 
-You can download the latest release using the official Istio repository or just copy the following command, which would do the same for you.
+You can download the latest release using the official Istio repository or just copy the following command (which would do the same thing for you).
 
 ```shellsession
 curl -L https://istio.io/downloadIstio | sh -
 ```
 
-For details reach out to **[ISTIO download page](https://istio.io/latest/docs/setup/getting-started/#download)**.
+For details, reach out to **[ISTIO download page](https://istio.io/latest/docs/setup/getting-started/#download)**.
 
-cd into the Istio directory and set the path by command:
+Get into the Istio directory and set the path by command:
 
 ```shellsession
 export PATH=$PWD/bin:$PATH
 ```
 
-After exporting get out of directory.
+After exporting, get out of directory.
 
 ```shellsession
 cd ..
 ```
 
-**Note:** In the future, a case might occur when your cluster does not recognize istioctl. In this case, export the path again after getting into istio directory.
+**Note:** In the future, a case might occur when your cluster does not recognize istioctl. In this case, export the path again after getting into the Istio directory.
 
 #### **Install Istio with patches:**
 
@@ -127,7 +127,7 @@ This will share the spiffe-csi-driver with the Ingress Gateway and the sidecars 
 
   ![](/img/patch-error-ingress.jpg)
 
-   For patching, the first step is to get and apply one of SPIRE controller manager’s [CRD(Custom Resource Definition)](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/) ClusterSPIFFEID. It is a cluster-wide resource used to register workloads with SPIRE. The ClusterSPIFFEID can target all workloads in the cluster or can be optionally scoped to specific pods or namespaces via label selectors.
+   For patching, the first step is to get and apply one of SPIRE controller manager’s [CRD (Custom Resource Definition)](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/) ClusterSPIFFEID. It is a cluster-wide resource used to register workloads with SPIRE. The ClusterSPIFFEID can target all workloads in the cluster or can be optionally scoped to specific pods or namespaces via label selectors.
 
   Create a ClusterSPIFFEID CRD to generate registration entries in SPIRE server for all workloads with the label **`spiffe.io/spire-managed-identity: true`**.
 
@@ -137,9 +137,9 @@ This will share the spiffe-csi-driver with the Ingress Gateway and the sidecars 
   kubectl apply -f cluster-spiffeID-crd.yaml
   ```
 
-  **Note:** You can create your own custom clusterSPIFFEID CRD with your own match label and own selector. For now, we have created simple CRD with one pod selector and one match label.
+  **Note:** You can create your own custom clusterSPIFFEID CRD with your own match label and own selector. For now, we have created a simple CRD with one pod selector and one match label.
 
-  Now simply patch the ingress-gateway with spiffe.io/spire managed-identity: true label.
+  Now, simply patch the ingress-gateway with spiffe.io/spire managed-identity: true label.
 
    This will register your ingress-gateway pod into the server.  
 
@@ -147,15 +147,15 @@ This will share the spiffe-csi-driver with the Ingress Gateway and the sidecars 
   kubectl patch deployment istio-ingressgateway -n istio-system -p '{"spec":{"template":{"metadata":{"labels":{"spiffe.io/spire-managed-identity": "true"}}}}}'
   ```
 
-  After patching, confirm the working of your ingress-gateway pod, istiod, and all their containers.
+  After patching, confirm that your ingress-gateway pod, istiod, and all their containers work.
 
 ## Step 4: Deploying Sample Application
 
 Now that our SPIRE and Istio are integrated, the identities to workloads must be issued by SPIRE. 
 
-For our case, we will create a namespace “bookinfo” and will add a label **“spiffe.io/spire-managed-identity: true”** to it, then we will create a new ClusterSPIFFEID CRD with **namespace selector** with match label as “spiffe.io/spire-managed-identity: true.” 
+For our case, we will create a namespace “bookinfo” and will add a label **“spiffe.io/spire-managed-identity: true”** to it. Then, we will create a new ClusterSPIFFEID CRD with **namespace selector** with match label as “spiffe.io/spire-managed-identity: true.” 
 
-Now when the new workload is added to this namespace or any other namespace which has the label mentioned above, then automatically it will get registered in the server. 
+When the new workload is added to this namespace or any other namespace that has the lable mentioned above, it will now automatically get registered in the server.
 
 **4.1** Create a new namespace.    
 
@@ -163,7 +163,7 @@ Now when the new workload is added to this namespace or any other namespace whic
 kubectl create namespace <insert-namespace-name-here>
 ```
 
-**4.2** Add a label to it, same as that you have used for clusterSPIFFEID.
+**4.2** Add a lable to it, using the same one that you have used for the clusterSPIFFEID.
 
 ```shellsession
 kubectl label namespaces <namespace_name> spiffe.io/spire-managed-identity=true
@@ -175,9 +175,9 @@ kubectl label namespaces <namespace_name> spiffe.io/spire-managed-identity=true
 kubectl label namespace <namespace_name> istio-injection=enabled --overwrite
 ```
 
-After all edits to your namespace, the namespace would look similar as shown below.
+After all edits to your namespace, the namespace  should look similar as shown below.
 
-**Note:** You can edit further if you want using following command, but take care that your resulting yaml is not invalid. You can validate your yaml using any online validator available.
+**Note:** If you want to, you can edit further using the following command. But take care that your resulting yaml is not invalid. You can validate your yaml using any online validator available.
 
 ```shellsession
 kubectl edit ns <namespace_name>
@@ -207,7 +207,7 @@ status:
 
 **4.4** Create and apply a ClusterSPIFFEID CRD with namespace selector. 
 
-Copy the clusterSPIFFEID from **[this link](https://raw.githubusercontent.com/cxteamtrials/caas-trials-content/main/services/spire/clusterspiffeid-example.yaml)** and just change the selector to **namespace selector** and make sure that the correct match label is there like shown below. 
+Copy the clusterSPIFFEID from **[this link](https://raw.githubusercontent.com/cxteamtrials/caas-trials-content/main/services/spire/clusterspiffeid-example.yaml)** and just change the selector to **namespace selector**. Make sure that the correct match label is there like shown below. 
 
 ```yaml
 apiVersion: spire.spiffe.io/v1alpha1
@@ -227,20 +227,20 @@ After editing your clusterSPIFFEID, apply it using kubectl.
 kubectl apply -f <your_clusterSPIFFEID_name>
 ```
 
-**4.5**  After successfully creating namespace and applying CRD, deploy your application in the namespace you created. But before you deploy your application, the workloads will need the SPIFFE CSI Driver volume to access the SPIRE Agent socket. To accomplish this, we can leverage the SPIRE pod annotation template:
+**4.5**  After successfully creating namespace and applying CRD, deploy your application in the namespace you created. But before you deploy your application, the workloads will need to have the SPIFFE CSI Driver volume be able to access the SPIRE Agent socket. To accomplish this, we can leverage the SPIRE pod annotation template:
 
 ```yaml
 annotations:
             inject.istio.io/templates: "sidecar,spire"
 ```
 
-You can patch it to workload or just add this to your deployment manifest at **{spec:{template:{metadata:{ annotation:}}}}** as shown below.
+You can patch it to the workload or just add this to your deployment manifest at **{spec:{template:{metadata:{ annotation:}}}}** as shown below.
 
 ![](/img/sidecar-patch.png)
 
 You can get the sample bookinfo application manifest from **[this link](https://raw.githubusercontent.com/cxteamtrials/caas-trials-content/main/services/istio/release-1.16/samples/bookinfo/bookinfo.yaml)**.
 
-**Note:** This manifest is annotation free, so you need to add annotation to its deployments by following above shown steps.
+**Note:** This manifest is annotation free, so you need to add annotation to its deployments by following the steps shown above.
 
 After editing the manifest, apply it in a newly created namespace.
 
@@ -289,7 +289,7 @@ replicaset.apps/reviews-v2-6b7c798cc8      1         1         1       37d
 replicaset.apps/reviews-v3-695c7f59db      1         1         1       37d
 ```
 
-Once everything is up, all workloads would get registered under SPIRE server.
+Once everything is up, all workloads would get registered under the SPIRE server.
 
 **4.6** You can verify the registration of workloads using the following command:
 
