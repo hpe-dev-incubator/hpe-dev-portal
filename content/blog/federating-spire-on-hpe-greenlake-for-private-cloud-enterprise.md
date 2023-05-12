@@ -192,6 +192,6 @@ The Cluster Federated Trust Domain CRD is used to federate the clusters with eac
 
 It requires the following configurations: 
 
-
+![Cluster Federated Trust Domain](/img/table1.png)
 
 <!--EndFragment-->
