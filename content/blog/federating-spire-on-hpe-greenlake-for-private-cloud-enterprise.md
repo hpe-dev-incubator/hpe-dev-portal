@@ -39,25 +39,25 @@ Verify the installation by checking if all pods are running and containers withi
 ```shellsession
 Cluster1:~ # kubectl get po -n spire 
 
-NAME                            	 READY   	STATUS   	 RESTARTS      AGE 
+NAME                            	 READY   	STATUS   	 RESTARTS   AGE 
 
-spire-agent-92q5m              	      3/3     	Running   		0          24h 
+spire-agent-92q5m              	     3/3     	Running   	 0          24h 
 
-spire-agent-jhgwf              	      3/3     	Running   		0          24h 
+spire-agent-jhgwf              	     3/3     	Running   	 0          24h 
 
-spire-agent-sm8gt                     3/3       Running   		0          24h 
+spire-agent-sm8gt                    3/3        Running   	 0          24h 
 
-spire-server-574474c7dc-gbzl6         2/2     	Running   		0          24h 
+spire-server-574474c7dc-gbzl6        2/2     	Running   	 0          24h 
 ```
 
 ```shellsession
 Cluster2:~ # kubectl get po -n spire 
 
-NAME                            	 READY      STATUS      RESTARTS        AGE 
+NAME                            	 READY      STATUS      RESTARTS       AGE 
 
-spire-agent-wttmd               	  3/3       Running      1 (24h ago)    24h 
+spire-agent-wttmd               	 3/3        Running     1 (24h ago)    24h 
 
-spire-server-574474c7dc-2bfcx   	  2/2       Running      0              24h 
+spire-server-574474c7dc-2bfcx   	 2/2        Running     0              24h 
 ```
 
 <!--EndFragment-->
@@ -127,9 +127,9 @@ Cluster1:~ # kubectl get po -n istio-system
 
 NAME                                   			READY   STATUS    RESTARTS      AGE 
 
-istio-ingressgateway-5d77cdd9d-gh9w4   	         1/1    Running      0          24h 
+istio-ingressgateway-5d77cdd9d-gh9w4   	        1/1     Running   0             24h 
 
-istiod-d5bc8669c-4bdvh                 		     1/1    Running      0          24h 
+istiod-d5bc8669c-4bdvh                 		    1/1     Running   0             24h 
 ```
 
 ```shellsession
@@ -137,9 +137,9 @@ Cluster2:~ #  kubectl get po -n istio-system
 
 NAME                                   			READY   STATUS    RESTARTS   AGE 
 
-istio-ingressgateway-64bd5ccbbb-kqs2h 	         1/1    Running      0       24h 
+istio-ingressgateway-64bd5ccbbb-kqs2h 	        1/1     Running   0          24h 
 
-istiod-d5bc8669c-thbpj                 		     1/1    Running      0       24h 
+istiod-d5bc8669c-thbpj                 		    1/1     Running   0          24h 
 ```
 
 <!--EndFragment-->
@@ -193,5 +193,150 @@ The Cluster Federated Trust Domain CRD is used to federate the clusters with eac
 It requires the following configurations: 
 
 ![Cluster Federated Trust Domain](/img/table1.png)
+
+![Bundle Endpoint](/img/table2.png)
+
+The sample CRD’s can be applied to each cluster.
+
+```shellsession
+kubectl apply -f services/spire/federation/clusterfederatedtrustdomain-cluster1.yaml 
+kubectl apply -f services/spire/federation/clusterfederatedtrustdomain-cluster2.yaml 
+```
+
+The Bundle endpoint URL and the TrustDomainBundle fields must be edited to be configured to the specifications of your cluster. 
+
+Using the previous step, the Bundle endpoint URL can be obtained. To obtain the trust domain bundle, edit the clusters as follows: 
+
+```shellsession
+Cluster1:~ # kubectl exec -n spire -c spire-server deployment/spire-server -- /opt/spire/bin/spire-server bundle show -format spiffe > cluster1.bundle 
+
+Cluster2:~ # kubectl exec -n spire -c spire-server deployment/spire-server -- /opt/spire/bin/spire-server bundle show -format spiffe > cluster2.bundle 
+```
+
+Doing a cat command of the bundles reveals the keys to be copied into the trust domain bundle field.  
+
+After the Bundle endpoint URL and the TrustDomainBundle fields are configured and applied, check the status of the spire pods to make sure they are running and check the logs of the spire-server to verify successful federation.
+
+```shellsession
+Cluster1:~ # kubectl logs -n spire -c spire-server spire-server-574474c7dc-gbzl6 
+```
+
+![Cluster-1 Logs](/img/table3.png)
+
+```shellsession
+Cluster2:~ # kubectl logs -n spire -c spire-server spire-server-574474c7dc-2bfcx 
+```
+
+![Cluster-2 Logs](/img/table4.png)
+
+<!--EndFragment-->
+
+<!--StartFragment-->
+
+# Step 4. Deploying a sample application :
+
+Now that SPIRE is federated and communication across clusters can be facilitated, let us deploy a sample application that verifies this functionality.   
+
+## 4.1 Deploy a resource in Cluster-1
+
+In Cluster 1, apply a new ClusterSpiffeID called federated that registers resources with the label **spiffe.io/spire-managed-identity=curl-greeter** that can be federated with cluster2. Create a resource called curl-greeter that has the label: **spiffe.io/spire-managed-identity=curl-greeter and annotation: inject.istio.io/templates=sidecar, spire** 
+
+```shellsession
+kubectl run curl-greeter --image=radial/busyboxplus:curl --labels="spiffe.io/spire-managed-identity=curl-greeter" --overrides='{ "apiVersion": "v1", "spec": { "template": {"metadata": {"annotations": { "inject.istio.io/templates":"sidecar,spire" } } }}}' -i --tty 
+```
+
+## 4﻿.2 Deploy Bookinfo Sample Application in Cluster-2
+
+In Cluster 2, apply a new ClusterSpiffeID called federated that registers resources with the label **spiffe.io/spire-managed-identity=spire** that can be federated with cluster1. Apply the bookinfo sample application manifest. 
+
+```shellsession
+kubectl apply -f services/istio/release-1.17/bookinfo.yaml 
+```
+
+## 4﻿.3 Check if all the resources created are up and running:
+
+```shellsession
+Cluster1:~ # kubectl get po 
+
+NAME                              READY   STATUS    RESTARTS   AGE 
+
+curl-greeter                      2/2     Running   0          15h 
+```
+
+```shellsession
+Cluster2:~ # kubectl get po 
+
+NAME                              	READY   STATUS    RESTARTS   AGE 
+
+details-v1-bff8759df-vkvb4       	2/2     Running   0          16h 
+
+greeter-client-76686757cd-6j2ft     2/2     Running   0          21h 
+
+productpage-v1-98887b9b-x5k24       2/2     Running   0          16h 
+
+ratings-v1-7ddbb859fc-htmfq         2/2     Running   0          16h 
+
+reviews-v1-67b576c8bf-jr6tj         2/2     Running   0          16h 
+
+reviews-v2-7ffbdcc5f7-m2c29         2/2     Running   0          16h 
+
+reviews-v3-6dbfcc6d89-zn9tw         2/2     Running   0          16h 
+```
+
+## 4﻿.4 Check that the workload identity was issued by SPIRE
+
+Spire Certificate at Curl-Greeter 
+
+```shellsession
+Cluster1:~ # istioctl proxy-config secret curl-greeter -o json | jq -r \ 
+
+> '.dynamicActiveSecrets[0].secret.tlsCertificate.certificateChain.inlineBytes' | base64 --decode > chain.pem 
+
+Cluster1:~ # openssl x509 -in chain.pem -text | grep SPIRE 
+
+        Subject: C = US, O = SPIRE, x500UniqueIdentifier = c3dd29b5f4a326f8a567854407456ea9 
+```
+
+*Note: Similarly, certificates for other pods can be checked.* 
+
+## 4﻿.5 Create a secret to hold bookinfo product page credentials like this: 
+
+```shellsession
+kubectl create -n istio-system secret generic bookinfo-credential \ 
+
+\--from-file=tls.key=bookinfo.com.key \ 
+
+\--from-file=tls.crt=bookinfo.com.crt \ 
+
+\--from-file=ca.crt=bookinfo.ca.crt
+```
+
+ 
+
+Obtain the tls cert and key using this command: 
+
+kubectl exec -n spire -c spire-server deployment/spire-server -- /opt/spire/bin/spire-server x509 mint -spiffeID spiffe://cluster2.demo/ns/default/sa/bookinfo-productpage 
+
+ 
+
+Note: Copy the SVID section into a new file bookinfo.com.crt and Private key section into bookinfo.com.key. 
+
+ 
+
+Obtain the ca cert using this command: 
+
+kubectl exec -n spire -c spire-server deployment/spire-server -- /opt/spire/bin/spire-server bundle list 
+
+ 
+
+Note: Copy the ca cert under the cluster1.demo section into a new file bookinfo.ca.cert. 
+
+ 
+
+Apply the gateway configuration for the bookinfo application found here: (It uses the istio-ingress gateway) 
+
+kubectl apply -f services/istio/release-1.17/bookinto-gateway.yaml 
+
+ 
 
 <!--EndFragment-->
