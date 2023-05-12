@@ -9,8 +9,6 @@ disable: false
 
 SPIRE is designed to enable widespread deployment of mTLS between workloads in distributed systems. In this blog, we will install and federate SPIRE across two clusters: cluster 1 and 2. We will deploy a sample application to verify the federation and visualize the communication across services through a graph. 
 
-
-
 ![SPIRE Federation](/img/spire-federation.png)
 
 <!--EndFragment-->
@@ -80,8 +78,6 @@ curl -L https://istio.io/downloadIstio | sh -
 
 Change to the Istio directory (cd command), and set the path by command:
 
- 
-
 ```shellsession
 cd istio-1.17.1 
 export PATH=$PWD/bin:$PATH 
@@ -124,7 +120,7 @@ This patch will register your ingress-gateway pod into the server.
 kubectl patch deployment istio-ingressgateway -n istio-system -p '{"spec":{"template":{"metadata":{"labels":{"spiffe.io/spire-managed-identity": "true"}}}}}' 
 ```
 
-2﻿.3.3 After patching, confirm the working of your ingress-gateway pod, istiod and all their containers. 
+### 2﻿.3.3 After patching, confirm the working of your ingress-gateway pod, istiod and all their containers. 
 
 ```shellsession
 Cluster1:~ # kubectl get po -n istio-system 
@@ -151,5 +147,51 @@ istiod-d5bc8669c-thbpj                 		     1/1    Running
 <!--StartFragment-->
 
 # Step 3. Federating SPIRE: 
+
+## 3﻿.1 Expose SPIRE server bundle endpoint. 
+
+Assign an external IP to your spire-server-bundle-endpoint service on each cluster.  
+
+A SPIFFE bundle is a resource that contains the public key material needed to authenticate credentials from a particular trust domain. A SPIFFE bundle endpoint is a resource (represented by a URL) that serves a copy of a SPIFFE bundle for a trust domain. SPIFFE control planes may both expose and consume these endpoints to transfer bundles between themselves, thereby achieving federation. We use the SPIRE server to host the “spire-server-bundle-endpoint” service that serves the SPIFFE bundle to an external Spire agent of a different trust domain.  
+
+We use MetalLB to assign the IP for this service. MetalLB hooks into your Kubernetes cluster and provides a network load-balancer implementation. In short, it allows you to create Kubernetes services of type LoadBalancer in clusters that don’t run on a cloud provider, and thus cannot simply hook into paid products to provide load balancers. 
+
+Follow this [link](https://metallb.universe.tf/configuration/_advanced_ipaddresspool_configuration/#controlling-automatic-address-allocation) to set up an automatic address allocation for all services that have type external IP. 
+
+Ours looks something like this: 
+
+```shellsession
+Cluster1:~ # kubectl get svc -n spire 
+
+NAME                                       		TYPE              CLUSTER-IP      EXTERNAL-IP   PORT(S)          AGE 
+
+spire-controller-manager-webhook-service        ClusterIP         10.111.48.177   <none>        443/TCP          24h 
+
+spire-server                               		NodePort          10.106.72.102   <none>        8081:30256/TCP   24h 
+
+spire-server-bundle-endpoint               	    LoadBalancer      10.99.0.208     172.16.17.9   8443:30889/TCP   24h 
+```
+
+```shellsession
+Cluster2:~ # kubectl get svc -n spire 
+
+NAME                                       		TYPE           CLUSTER-IP       EXTERNAL-IP      PORT(S)             AGE 
+
+spire-controller-manager-webhook-service        ClusterIP      10.97.108.123    <none>           443/TCP             24h 
+
+spire-server                               		NodePort       10.104.109.247   <none>           8081:32614/TCP      24h 
+
+spire-server-bundle-endpoint                    LoadBalancer   10.104.151.184    172.16.17.3     8443:31587/TCP      24h 
+
+ 
+```
+
+## 3﻿.2 Create cluster federated trust domain 
+
+The Cluster Federated Trust Domain CRD is used to federate the clusters with each other.  
+
+It requires the following configurations: 
+
+
 
 <!--EndFragment-->
