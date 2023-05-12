@@ -18,9 +18,7 @@ The HPE GreenLake platform, along with its marketplace and partner ecosystem, pr
 
 ## APIs and Documentation
 
-HPE GreenLake customers and partners can take advantage of our well-documented, secure, and scalable framework of APIs for HPE GreenLake found in our developer portal. Learn more about the unified HPE GreenLake experience offered through the HPE GreenLake Developer Portal by clicking on the button below.
-
-[Check out the HPE GreenLake Developer Portal](https://developer.greenlake.hpe.com)
+HPE GreenLake customers and partners can take advantage of our well-documented, secure, and scalable framework of APIs for HPE GreenLake found in our developer portal. Learn more about the unified HPE GreenLake experience for developers by visiting the [HPE GreenLake Developer Portal](https://developer.greenlake.hpe.com).
 
 ## Demos and resources
 
