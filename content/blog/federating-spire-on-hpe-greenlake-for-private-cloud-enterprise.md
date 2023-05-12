@@ -48,7 +48,6 @@ spire-agent-92q5m               3/3     Running   0             37d
 spire-agent-jhgwf               3/3     Running   0             37d
 spire-agent-sm8gt               3/3     Running   0             37d
 spire-server-574474c7dc-gbzl6   2/2     Running   1 (11d ago)   37d
-
 ```
 
 ```shellsession
@@ -127,7 +126,6 @@ Cluster1:~ # kubectl get po -n istio-system
 NAME                                   READY   STATUS    RESTARTS   AGE
 istio-ingressgateway-5d77cdd9d-gh9w4   1/1     Running   0          37d
 istiod-d5bc8669c-4bdvh                 1/1     Running   0          37d
-
 ```
 
 ```shellsession
@@ -161,7 +159,6 @@ NAME                                       TYPE           CLUSTER-IP      EXTERN
 spire-controller-manager-webhook-service   ClusterIP      10.111.48.177   <none>        443/TCP          37d
 spire-server                               NodePort       10.106.72.102   <none>        8081:30256/TCP   37d
 spire-server-bundle-endpoint               LoadBalancer   10.99.0.208     172.16.17.9   8443:30889/TCP   37d
-
 ```
 
 ```shellsession
@@ -170,7 +167,6 @@ NAME                                       TYPE           CLUSTER-IP      EXTERN
 spire-controller-manager-webhook-service   ClusterIP      10.97.108.123   <none>        443/TCP          37d
 spire-server                               NodePort       10.104.109.247  <none>        8081:30256/TCP   37d
 spire-server-bundle-endpoint               LoadBalancer   10.104.151.184  172.16.17.3   8443:30889/TCP   37d
-
 ```
 
 ## 3﻿.2 Create cluster federated trust domain 
@@ -439,7 +435,7 @@ kubectl exec -n spire -c spire-server deployment/spire-server -- /opt/spire/bin/
 
 *Note: Copy the ca cert under the cluster2.demo section into a new file bookinfo.ca.cert.* 
 
-4﻿.7 Visualize using Service Mesh: 
+## 4﻿.7 Visualize using Service Mesh: 
 
 Using the Kiali dashboard, observing the graphs of generated traffic. 
 
