@@ -1,8 +1,8 @@
 ---
-title: Update Kubernetes Clusters using HPE GreenLake Terraform Provider
-date: 2023-05-11T15:47:11.101Z
+title: Upgrade Kubernetes Clusters using HPE GreenLake Terraform Provider
+date: 2023-05-12T03:06:12.264Z
 author: Tanushi Agarwal
-authorimage: /img/Avatar1.svg
+authorimage: /img/photoforblog.jpg
 disable: false
 ---
 IaC or Infrastructure as code is an practice of automating the process of managing and provisioning infrastructure through code instead of manual processes. It gives organizations tools to create, manage, and destroy compute resources by statically defining and declaring these resources in codeblocks. It helps to increase operational agility, simplify management, reduce errors, and save cost.
@@ -70,9 +70,11 @@ resource hpegl_caas_cluster test {
 
 For Kubernetes version upgrade, we need to specify the new version of kubernetes that is available for upgrade in the resources block. 
 
-1. kubernetes_version: *Use the Kubernetes version that pops up on the cluster details page in the UI*
+1. **kubernetes_version**: *Use the Kubernetes version that pops up on the cluster details page in the UI.*
 
-   ![UI shows new versions that are available](/img/blog1.jpg)
+   ![](/img/blog1.jpg)
+
+
 
  Below is the reference Terraform configuration for updating the cluster's kubernetes version.
 
@@ -203,17 +205,21 @@ Apply complete! Resources: 0 added, 1 changed, 0 destroyed.
 For OS version upgrade, we need to specify the new version of OS Image that is available for upgrade & the name of the OS Image in the worker node block.
 
 
-**Note**: The OS version is specific to a worker node pool. All the nodes in the worker node pool will be updated to the same OS version. However, we can have different node pool supporting different OS versions. 
+**Note**: The OS version is specific to a worker node pool. All the nodes in the worker node pool will be updated to the same OS version. However, we can have different node pools supporting different OS versions. 
 
 The worker node block consist of following fields - 
 
 1. **name**: *The name of the worker nodepool. If you wish to update default or existing worker node pool, enter the name of that node pool or you can create a new node pool by specifying a new name.*
 2. **machine_blueprint_id**: *Fill in the ID for the machine blueprint that is already present in HPE GreenLake Central for your tenant. Use the machine blueprint data source to retrieve the machine blueprint ID.*
 3. **count**: *Add the number of nodes to be present as part of this node pool. We can scale up & down by updating the count value here.*
-4. **os_image**: *The name of the OS image. Use the machine blueprint data source to retrieve the name of OS image*
-5. **os_version**: *The version to be upgraded to. We can get this version in the UI. Whenever there is a new version present, UI will pop up a banner mentioning the new version.*
+4. **os_image**: *The name of the OS image. Use the machine blueprint data source to retrieve the name of OS image.*
+5. **os_version**: *The version to be upgraded to. We can get this version in the UI. Whenever there is a new version available, UI will pop up a banner mentioning the new version.*
 
 W﻿e can find the new version by clicking on the **Actions->Update OS** button on the right side of cluster's details page. 
+
+![](/img/blog2.jpg)
+
+![](/img/blog4.jpg)
 
  Below is the reference Terraform configuration for updating the worker nodepool's OS version.
 
@@ -269,7 +275,7 @@ worker_nodes {
 
 # Ready to Terraform plan
 
-Terraform plan is a dry run that lets you preview the changes that Terraform plans to make to your infrastructure based on the data you provide in your Terraform file. To see this, run  **terraform plan**
+Again, to preview the changes, do a dry run by running **terraform plan**
 
 ```shellsession
 $ terraform plan
@@ -305,7 +311,7 @@ Note: You didn't use the -out option to save this plan, so Terraform can't guara
 
 # Ready to Terraform apply
 
-Terraform apply executes the actions proposed in the Terraform plan and updates the resources. Run the command  **terraform apply**  and type  **yes**  when asked to  **Enter a value**.
+Run the command  **terraform apply**  and type  **yes**  when asked to  **Enter a value**.
 
 ```shellsession
 $ terraform apply
