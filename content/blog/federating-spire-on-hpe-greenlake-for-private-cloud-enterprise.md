@@ -311,32 +311,162 @@ kubectl create -n istio-system secret generic bookinfo-credential \ 
 \--from-file=ca.crt=bookinfo.ca.crt
 ```
 
- 
-
 Obtain the tls cert and key using this command: 
 
-kubectl exec -n spire -c spire-server deployment/spire-server -- /opt/spire/bin/spire-server x509 mint -spiffeID spiffe://cluster2.demo/ns/default/sa/bookinfo-productpage 
+```shellsession
+kubectl exec -n spire -c spire-server deployment/spire-server -- /opt/spire/bin/spire-server x509 mint -spiffeID spiffe://cluster2.demo/ns/default/sa/bookinfo-productpage
+```
 
- 
-
-Note: Copy the SVID section into a new file bookinfo.com.crt and Private key section into bookinfo.com.key. 
-
- 
+*Note: Copy the SVID section into a new file bookinfo.com.crt and Private key section into bookinfo.com.key.* 
 
 Obtain the ca cert using this command: 
 
-kubectl exec -n spire -c spire-server deployment/spire-server -- /opt/spire/bin/spire-server bundle list 
+```shellsession
+kubectl exec -n spire -c spire-server deployment/spire-server -- /opt/spire/bin/spire-server bundle list
+```
 
- 
-
-Note: Copy the ca cert under the cluster1.demo section into a new file bookinfo.ca.cert. 
-
- 
+*Note: Copy the ca cert under the cluster1.demo section into a new file bookinfo.ca.cert.* 
 
 Apply the gateway configuration for the bookinfo application found here: (It uses the istio-ingress gateway) 
 
-kubectl apply -f services/istio/release-1.17/bookinto-gateway.yaml 
+```shellsession
+kubectl apply -f services/istio/release-1.17/bookinto-gateway.yaml
+```
 
- 
+## 4﻿.6 Generate traffic to the sample application on cluster2 from the curl greeter on cluster 1:  
+
+Curl Command at Cluster 1 (IP addr: istio-ingress-gateway external ip) 
+
+```shellsession
+Cluster1:~ # curl -v -HHost:bookinfo.com --resolve "bookinfo.com:443:172.16.17.2"   --cacert bookinfo.ca.crt --cert svid.pem --key key.pem   "https://bookinfo.com:443/productpage" -k 
+
+* Added bookinfo.com:443:172.16.17.2 to DNS cache 
+
+* Hostname bookinfo.com was found in DNS cache 
+
+*   Trying 172.16.17.2:443... 
+
+* TCP_NODELAY set 
+
+* Connected to bookinfo.com (172.16.17.2) port 443 (#0) 
+
+* ALPN, offering h2 
+
+* ALPN, offering http/1.1 
+
+* successfully set certificate verify locations: 
+
+*   CAfile: bookinfo.ca.crt 
+
+  CApath: none 
+
+* TLSv1.3 (OUT), TLS handshake, Client hello (1): 
+
+* TLSv1.3 (IN), TLS handshake, Server hello (2): 
+
+* TLSv1.3 (IN), TLS handshake, Encrypted Extensions (8): 
+
+* TLSv1.3 (IN), TLS handshake, Request CERT (13): 
+
+* TLSv1.3 (IN), TLS handshake, Certificate (11): 
+
+* TLSv1.3 (IN), TLS handshake, CERT verify (15): 
+
+* TLSv1.3 (IN), TLS handshake, Finished (20): 
+
+* TLSv1.3 (OUT), TLS change cipher, Change cipher spec (1): 
+
+* TLSv1.3 (OUT), TLS handshake, Certificate (11): 
+
+* TLSv1.3 (OUT), TLS handshake, CERT verify (15): 
+
+* TLSv1.3 (OUT), TLS handshake, Finished (20): 
+
+* SSL connection using TLSv1.3 / TLS_AES_256_GCM_SHA384 
+
+* ALPN, server accepted to use h2 
+
+* Server certificate: 
+
+*  subject: C=US; O=SPIRE; x500UniqueIdentifier=a09f8093609833482827d697f2719205 
+
+*  start date: May  9 08:45:18 2023 GMT 
+
+*  expire date: May  9 09:45:28 2023 GMT 
+
+*  issuer: C=US; O=SPIFFE 
+
+*  SSL certificate verify ok. 
+
+* Using HTTP2, server supports multi-use 
+
+* Connection state changed (HTTP/2 confirmed) 
+
+* Copying HTTP/2 data in stream buffer to connection buffer after upgrade: len=0 
+
+* Using Stream ID: 1 (easy handle 0x5569570e8050) 
+
+> GET /productpage HTTP/2 
+
+> Host:bookinfo.com 
+
+> User-Agent: curl/7.66.0 
+
+> Accept: */* 
+
+> 
+
+* TLSv1.3 (IN), TLS handshake, Newsession Ticket (4): 
+
+* TLSv1.3 (IN), TLS handshake, Newsession Ticket (4): 
+
+* old SSL session ID is stale, removing 
+
+* Connection state changed (MAX_CONCURRENT_STREAMS == 2147483647)! 
+
+< HTTP/2 200 
+
+< content-type: text/html; charset=utf-8 
+
+< content-length: 4294 
+
+< server: istio-envoy 
+
+< date: Tue, 09 May 2023 08:49:40 GMT 
+
+< x-envoy-upstream-service-time: 24 
+
+ 
+```
+
+Obtain cert and key file using: 
+
+```shellsession
+kubectl exec -n spire -c spire-server deployment/spire-server -- /opt/spire/bin/spire-server x509 mint -spiffeID spiffe://cluster.1demo/curl-greeter
+```
+
+*Note: Copy the SVID section into a new file svid.pem and Private key section into key.pem.* 
+
+Obtain ca cert using: 
+
+```shellsession
+kubectl exec -n spire -c spire-server deployment/spire-server -- /opt/spire/bin/spire-server bundle list
+```
+
+*Note: Copy the ca cert under the cluster2.demo section into a new file bookinfo.ca.cert.* 
+
+4﻿.7 Visualize using Service Mesh: 
+
+Using the Kiali dashboard, observing the graphs of generated traffic. 
+
+The graph below shows services communication, and the locks symbolize mTls protocol. 
+
+![mTLS Graph](/img/mtls.png)
+
+<!--EndFragment-->
+
+<!--StartFragment-->
+
+The goal of this blog was to guide you through federating SPIRE across two clusters by creating a cluster federated trust domain and federated ClusterSpiffeIDs for your sample application workloads as well as to help you visualize your service mesh through Kiali Dashboard. 
 
 <!--EndFragment-->
