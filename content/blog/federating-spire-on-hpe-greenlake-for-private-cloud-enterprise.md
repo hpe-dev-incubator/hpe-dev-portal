@@ -4,6 +4,11 @@ date: 2023-05-15T03:37:14.807Z
 author: Akansha Sajimon, Nishant Chaturvedi
 authorimage: /img/Avatar1.svg
 disable: false
+tags:
+  - SPIRE
+  - Istio
+  - SPIRE Federation
+  - SPIFFE
 ---
 <!--StartFragment-->
 
@@ -38,16 +43,12 @@ Verify the installation by checking if all pods are running and containers withi
 
 ```shellsession
 Cluster1:~ # kubectl get po -n spire 
+NAME                            READY   STATUS    RESTARTS      AGE
+spire-agent-92q5m               3/3     Running   0             37d
+spire-agent-jhgwf               3/3     Running   0             37d
+spire-agent-sm8gt               3/3     Running   0             37d
+spire-server-574474c7dc-gbzl6   2/2     Running   1 (11d ago)   37d
 
-NAME                            	 READY   	STATUS   	 RESTARTS   AGE 
-
-spire-agent-92q5m              	     3/3     	Running   	 0          24h 
-
-spire-agent-jhgwf              	     3/3     	Running   	 0          24h 
-
-spire-agent-sm8gt                    3/3        Running   	 0          24h 
-
-spire-server-574474c7dc-gbzl6        2/2     	Running   	 0          24h 
 ```
 
 ```shellsession
@@ -56,7 +57,6 @@ Cluster2:~ # kubectl get po -n spire
 NAME                            	 READY      STATUS      RESTARTS       AGE 
 
 spire-agent-wttmd               	 3/3        Running     1 (24h ago)    24h 
-
 spire-server-574474c7dc-2bfcx   	 2/2        Running     0              24h 
 ```
 
@@ -100,7 +100,7 @@ Installing Istio with the custom patch will share the spiffe-csi-driver with
 
 ### 2﻿.3.1 Apply SPIFFE ID
 
-The first step is to get and apply one of SPIRE controller manager’s CRD - ClusterSPIFFEID. The CRD - ClusterSPIFFEID is a cluster-wide resource used to register workloads with SPIRE. The ClusterSPIFFEID can target all workloads in the cluster or can be optionally scoped to specific pods or namespaces via label selectors.  
+The first step is to get and apply one of SPIRE controller manager’s [CRD (Custom Resource Definition)](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/) ClusterSPIFFEID. The CRD - ClusterSPIFFEID is a cluster-wide resource used to register workloads with SPIRE. The ClusterSPIFFEID can target all workloads in the cluster or can be optionally scoped to specific pods or namespaces via label selectors.  
 
 Create a ClusterSPIFFEID CRD to generate registration entries in SPIRE server for all workloads with label ***spiffe.io/spire-managed-identity: true.***
 
@@ -124,22 +124,17 @@ kubectl patch deployment istio-ingressgateway -n istio-system -p '{"spec":{"temp
 
 ```shellsession
 Cluster1:~ # kubectl get po -n istio-system 
+NAME                                   READY   STATUS    RESTARTS   AGE
+istio-ingressgateway-5d77cdd9d-gh9w4   1/1     Running   0          37d
+istiod-d5bc8669c-4bdvh                 1/1     Running   0          37d
 
-NAME                                   			READY   STATUS    RESTARTS      AGE 
-
-istio-ingressgateway-5d77cdd9d-gh9w4   	        1/1     Running   0             24h 
-
-istiod-d5bc8669c-4bdvh                 		    1/1     Running   0             24h 
 ```
 
 ```shellsession
 Cluster2:~ #  kubectl get po -n istio-system 
-
-NAME                                   			READY   STATUS    RESTARTS   AGE 
-
-istio-ingressgateway-64bd5ccbbb-kqs2h 	        1/1     Running   0          24h 
-
-istiod-d5bc8669c-thbpj                 		    1/1     Running   0          24h 
+NAME                                   READY   STATUS    RESTARTS   AGE
+istio-ingressgateway-64bd5ccbbb-kqs2h  1/1     Running   0          37d
+istiod-d5bc8669c-thbpj                 1/1     Running   0          37d
 ```
 
 <!--EndFragment-->
@@ -162,28 +157,20 @@ Ours looks something like this: 
 
 ```shellsession
 Cluster1:~ # kubectl get svc -n spire 
+NAME                                       TYPE           CLUSTER-IP      EXTERNAL-IP   PORT(S)          AGE
+spire-controller-manager-webhook-service   ClusterIP      10.111.48.177   <none>        443/TCP          37d
+spire-server                               NodePort       10.106.72.102   <none>        8081:30256/TCP   37d
+spire-server-bundle-endpoint               LoadBalancer   10.99.0.208     172.16.17.9   8443:30889/TCP   37d
 
-NAME                                       		TYPE              CLUSTER-IP      EXTERNAL-IP   PORT(S)          AGE 
-
-spire-controller-manager-webhook-service        ClusterIP         10.111.48.177   <none>        443/TCP          24h 
-
-spire-server                               		NodePort          10.106.72.102   <none>        8081:30256/TCP   24h 
-
-spire-server-bundle-endpoint               	    LoadBalancer      10.99.0.208     172.16.17.9   8443:30889/TCP   24h 
 ```
 
 ```shellsession
 Cluster2:~ # kubectl get svc -n spire 
+NAME                                       TYPE           CLUSTER-IP      EXTERNAL-IP   PORT(S)          AGE
+spire-controller-manager-webhook-service   ClusterIP      10.97.108.123   <none>        443/TCP          37d
+spire-server                               NodePort       10.104.109.247  <none>        8081:30256/TCP   37d
+spire-server-bundle-endpoint               LoadBalancer   10.104.151.184  172.16.17.3   8443:30889/TCP   37d
 
-NAME                                       		TYPE           CLUSTER-IP       EXTERNAL-IP      PORT(S)             AGE 
-
-spire-controller-manager-webhook-service        ClusterIP      10.97.108.123    <none>           443/TCP             24h 
-
-spire-server                               		NodePort       10.104.109.247   <none>           8081:32614/TCP      24h 
-
-spire-server-bundle-endpoint                    LoadBalancer   10.104.151.184    172.16.17.3     8443:31587/TCP      24h 
-
- 
 ```
 
 ## 3﻿.2 Create cluster federated trust domain 
@@ -192,7 +179,11 @@ The Cluster Federated Trust Domain CRD is used to federate the clusters with eac
 
 It requires the following configurations: 
 
+C﻿luster Federated Trust Domain:
+
 ![Cluster Federated Trust Domain](/img/table1.png)
+
+B﻿undle Endpoint:
 
 ![Bundle Endpoint](/img/table2.png)
 
@@ -266,20 +257,13 @@ curl-greeter                      2/2     Running   
 ```shellsession
 Cluster2:~ # kubectl get po 
 
-NAME                              	READY   STATUS    RESTARTS   AGE 
-
-details-v1-bff8759df-vkvb4       	2/2     Running   0          16h 
-
+NAME                                READY   STATUS    RESTARTS   AGE 
+details-v1-bff8759df-vkvb4          2/2     Running   0          16h 
 greeter-client-76686757cd-6j2ft     2/2     Running   0          21h 
-
 productpage-v1-98887b9b-x5k24       2/2     Running   0          16h 
-
 ratings-v1-7ddbb859fc-htmfq         2/2     Running   0          16h 
-
 reviews-v1-67b576c8bf-jr6tj         2/2     Running   0          16h 
-
 reviews-v2-7ffbdcc5f7-m2c29         2/2     Running   0          16h 
-
 reviews-v3-6dbfcc6d89-zn9tw         2/2     Running   0          16h 
 ```
 
