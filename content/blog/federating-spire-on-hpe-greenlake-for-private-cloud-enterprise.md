@@ -1,6 +1,6 @@
 ---
 title: Federating SPIRE on HPE GreenLake for Private Cloud Enterprise
-date: 2023-05-12T03:37:14.807Z
+date: 2023-05-15T03:37:14.807Z
 author: Akansha Sajimon, Nishant Chaturvedi
 authorimage: /img/Avatar1.svg
 disable: false
