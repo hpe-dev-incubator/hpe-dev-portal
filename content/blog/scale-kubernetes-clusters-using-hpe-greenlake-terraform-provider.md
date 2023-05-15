@@ -73,7 +73,7 @@ For the Kubernetes version upgrade, you need to specify the new version of Kuber
 
 1. **kubernetes_version**: *Use the Kubernetes version that pops up on the cluster details page in the UI.*
 
-   ![](/img/blog1.jpg)
+![](/img/blog1.jpg)
 
  Below is the reference Terraform configuration for updating the cluster's Kubernetes version.
 
@@ -203,19 +203,19 @@ Apply complete! Resources: 0 added, 1 changed, 0 destroyed.
 
 For an OS version upgrade, you need to specify the new version of the OS image that is available for upgrade & the name of the OS image in the worker node block.
 
-**Note**: The OS version is specific to a worker node pool. All the nodes in the worker node pool will be updated to the same OS version. However, we can have different node pools supporting different OS versions. 
+**Note**: The OS version is specific to a worker node pool. All the nodes in the worker node pool will be updated to the same OS version. However, you can have different node pools supporting different OS versions. 
 
 The worker node block consist of following fields - 
 
 1. **name**: *The name of the worker node pool. If you wish to update the default or existing worker node pool, enter the name of that node pool. To create a node pool, specify a new name.*
-2. **machine_blueprint_id**: *Fill in the ID for the machine blueprint that is already present in HPE GreenLake Central for your tenant. Use the machine blueprint data source to retrieve the machine blueprint ID.*
+2. **machine\_blueprint\_id**: *Fill in the ID for the machine blueprint that is already present in HPE GreenLake Central for your tenant. Use the machine blueprint data source to retrieve the machine blueprint ID.*
 3. **count**: *Add the number of nodes to be present as part of this node pool. We can scale up & down by updating the count value here.*
 4. **os_image**: *The name of the OS image. Use the machine blueprint data source to retrieve the name of OS image.*
 5. **os_version**: *The version to be upgraded to. We can get this version in the UI. Whenever there is a new version available, UI will pop up a banner mentioning the new version.*
 
 W﻿e can find the new version by clicking on the **Actions->Update OS** button on the right side of cluster details page. 
 
-![](/img/blog2.jpg)
+![](/img/blog3.jpg)
 
 ![](/img/blog4.jpg)
 
@@ -373,7 +373,7 @@ hpegl_caas_cluster.test: Modifications complete after 43m18s [id=a32fabb9-7c19-4
 Apply complete! Resources: 0 added, 1 changed, 0 destroyed.
 ```
 
-**Note**: If you wish to only scale up or down the worker node pool & not update the OS version, add only the 3 fields i.e. **name**, **machine_blueprint_id** & **count** in the worker node block. 
+**Note**: If you wish to only scale up or down the worker node pool & not update the OS version, add only the 3 fields i.e. **name**, **machine\_blueprint\_id** & **count** in the worker node block. 
 
 # Summary
 
