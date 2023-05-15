@@ -1,6 +1,6 @@
 ---
 title: Upgrade Kubernetes Clusters using HPE GreenLake Terraform Provider
-date: 2023-05-15T15:05:49.805Z
+date: 2023-05-15T19:21:37.419Z
 author: Tanushi Agarwal
 authorimage: /img/photoforblog.jpg
 disable: false
@@ -216,7 +216,7 @@ For an OS version upgrade, you need to specify the new version of the OS image t
 
 **Note**: The OS version is specific to a worker node pool. All the nodes in the worker node pool will be updated to the same OS version. However, you can have different node pools supporting different OS versions. 
 
-The worker node block consist of following fields - 
+The worker node block consists of the following fields -
 
 1. **name**: *The name of the worker node pool. If you wish to update the default or existing worker node pool, enter the name of that node pool. To create a node pool, specify a new name.*
 2. **machine\_blueprint\_id**: *Fill in the ID for the machine blueprint that is already present in HPE GreenLake Central for your tenant. Use the machine blueprint data source to retrieve the machine blueprint ID.*
