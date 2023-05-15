@@ -113,12 +113,11 @@ const HPEDiscoverTreasureHuntTC = () => {
             of the submission. Odds of winning depend on the total number of eligible 
             entries received during the Program Period. Should you be awarded a Prize, 
             it shall be your responsibility to claim the Prize by attending the 
-            HPE Hack Shack celebration party on Wednesday, June 21, 2023 between 5:30 PM
-            Pacific Time and 6:30 PM Pacific Time in the HPE Hack Shack zone in
-            the Event show floor. In order to win a Prize, participants must be
-            present at the HPE Hack Shack celebration party at the time the winners
-            are announced. Failure to be present will result in forfeiture of
-            the Prize, and an alternate winner may be selected from among the
+            HPE Hack Shack celebration party on Wednesday, June 21, 2023 at 5:30 PM
+            Pacific Time in the HPE Hack Shack zone in the Event show floor. 
+            In order to win a Prize, participants must be present at the HPE Hack Shack
+            celebration party at the time the winners are announced. Failure to be present will result 
+            in forfeiture of the Prize, and an alternate winner may be selected from among the
             remaining eligible entries.
           </Text>
           <br />

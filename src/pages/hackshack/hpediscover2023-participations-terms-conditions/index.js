@@ -97,9 +97,8 @@ const ParticipationTC = () => {
             <li>Attend one Hack Shack Meet-the-Expert session or customer discussion meetup</li>
             <li>
               Attend the Hack Shack celebration evening on Wednesday, June 21
-              from 5:30 PM Pacific Time to 6:30 PM Pacific Time at the Hack
-              Shack zone in the Event show floor and complete the Hack Shack
-              foosball game at the celebration
+              at 5:30 PM Pacific Time at the Hack Shack zone in the Event show floor 
+              and complete the Hack Shack foosball game at the celebration
             </li>
           </ul>
           <Text size="xlarge">
