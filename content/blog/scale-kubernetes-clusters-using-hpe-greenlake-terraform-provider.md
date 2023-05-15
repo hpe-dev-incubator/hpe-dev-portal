@@ -4,20 +4,21 @@ date: 2023-05-12T04:07:48.888Z
 author: Tanushi Agarwal
 authorimage: /img/photoforblog.jpg
 disable: false
+tags: []
 ---
-IaC or Infrastructure as code is an practice of automating the process of managing and provisioning infrastructure through code instead of manual processes. It gives organizations tools to create, manage, and destroy compute resources by statically defining and declaring these resources in codeblocks. It helps to increase operational agility, simplify management, reduce errors, and save cost.
+IaC or Infrastructure as code is a practice of automating the process of managing and provisioning infrastructure through code instead of through manual processes. It gives organizations the tools to create, manage, and destroy compute resources by statically defining and declaring these resources in codeblocks. It helps to increase operational agility, simplify management, reduce errors, and save cost.
 
-> I﻿n this post, I will explore options to declare and upgrade Kubernetes clusters on HPE GreenLake using the HPE GreenLake Terraform Provider.
+I﻿n this post, I will explore options to declare and upgrade Kubernetes clusters on HPE GreenLake using the HPE GreenLake Terraform Provider.
 
 A﻿s the part of upgrade, the following 3 scenarios are supported --  
 
-1. Scaling of a cluster's worker nodes. Please refer blog post [Scale Kubernetes Clusters using HPE GreenLake Terraform Provider](https://developer.hpe.com/blog/scale-kubernetes-cluster-using-hpe-greenlake-terraform-provider/) to check out scaling options available for woker nodes. 
-2. Upgrade the kubernetes version of the cluster. Covered in this blog.
-3. Upgrade the OS version of the worker nodes inside a cluster. Covered in this blog.
+1. Scaling of a cluster's worker nodes. Please refer to the blog post [Scale Kubernetes Clusters using HPE GreenLake Terraform Provider](<1. https://developer.hpe.com/blog/scale-kubernetes-cluster-using-hpe-greenlake-terraform-provider/>)to check out scaling options available for worker nodes.
+2. Upgrade the Kubernetes version of the cluster. This step is covered in this blog.
+3. Upgrade the OS version of the worker nodes inside a cluster. This step is covered in this blog.
 
 # Prerequisite
 
-Before starting this tutorial, it is recommended that you read the blog post  [Kubernetes Cluster as Code - Part 1](https://developer.hpe.com/blog/kubernetes-clusters-as-code-part1/), which includes steps for creating a Kubernetes cluster. This post expands upon that scenario by examining how to upgrade a cluster's kubernetes version & OS version of its woker nodes. 
+Before starting this tutorial, read the blog post [Kubernetes Cluster as Code - Part 1](https://developer.hpe.com/blog/kubernetes-clusters-as-code-part1/), which includes steps for creating a Kubernetes cluster. This post expands upon that scenario by examining how to upgrade a cluster's Kubernetes version & OS version of its worker nodes.
 
 # Verify existing Kubernetes cluster
 
@@ -66,17 +67,15 @@ resource hpegl_caas_cluster test {
 }
 ```
 
-# Kubernetes version upgrade
+# Upgrade the Kubernetes version
 
-For Kubernetes version upgrade, we need to specify the new version of kubernetes that is available for upgrade in the resources block. 
+For the Kubernetes version upgrade, you need to specify the new version of Kubernetes that is available for upgrade in the resources block. 
 
 1. **kubernetes_version**: *Use the Kubernetes version that pops up on the cluster details page in the UI.*
 
    ![](/img/blog1.jpg)
 
-
-
- Below is the reference Terraform configuration for updating the cluster's kubernetes version.
+ Below is the reference Terraform configuration for updating the cluster's Kubernetes version.
 
 ```hcl
 terraform {
@@ -116,7 +115,7 @@ resource hpegl_caas_cluster test {
 }
 ```
 
-# Ready to Terraform plan
+## Run Terraform plan
 
 Terraform plan is a dry run that lets you preview the changes that Terraform plans to make to your infrastructure based on the data you provide in your Terraform file. To see this, run  **terraform plan**
 
@@ -145,7 +144,7 @@ Plan: 0 to add, 1 to change, 0 to destroy.
 Note: You didn't use the -out option to save this plan, so Terraform can't guarantee to take exactly these actions if you run "terraform apply" now.
 ```
 
-# Ready to Terraform apply
+## Run Terraform apply
 
 Terraform apply executes the actions proposed in the Terraform plan and updates the resources. Run the command  **terraform apply**  and type  **yes**  when asked to  **Enter a value**.
 
@@ -200,28 +199,27 @@ hpegl_caas_cluster.test: Modifications complete after 35m18s [id=a32fabb9-7c19-4
 Apply complete! Resources: 0 added, 1 changed, 0 destroyed.
 ```
 
-# OS Version upgrade
+# U﻿pgrade the OS Version
 
-For OS version upgrade, we need to specify the new version of OS Image that is available for upgrade & the name of the OS Image in the worker node block.
-
+For an OS version upgrade, you need to specify the new version of the OS image that is available for upgrade & the name of the OS image in the worker node block.
 
 **Note**: The OS version is specific to a worker node pool. All the nodes in the worker node pool will be updated to the same OS version. However, we can have different node pools supporting different OS versions. 
 
 The worker node block consist of following fields - 
 
-1. **name**: *The name of the worker nodepool. If you wish to update default or existing worker node pool, enter the name of that node pool or you can create a new node pool by specifying a new name.*
+1. **name**: *The name of the worker node pool. If you wish to update the default or existing worker node pool, enter the name of that node pool. To create a node pool, specify a new name.*
 2. **machine_blueprint_id**: *Fill in the ID for the machine blueprint that is already present in HPE GreenLake Central for your tenant. Use the machine blueprint data source to retrieve the machine blueprint ID.*
 3. **count**: *Add the number of nodes to be present as part of this node pool. We can scale up & down by updating the count value here.*
 4. **os_image**: *The name of the OS image. Use the machine blueprint data source to retrieve the name of OS image.*
 5. **os_version**: *The version to be upgraded to. We can get this version in the UI. Whenever there is a new version available, UI will pop up a banner mentioning the new version.*
 
-W﻿e can find the new version by clicking on the **Actions->Update OS** button on the right side of cluster's details page. 
+W﻿e can find the new version by clicking on the **Actions->Update OS** button on the right side of cluster details page. 
 
 ![](/img/blog2.jpg)
 
 ![](/img/blog4.jpg)
 
- Below is the reference Terraform configuration for updating the worker nodepool's OS version.
+Below is the reference Terraform configuration for updating the OS version of the worker node pool.
 
 ```hcl
 terraform {
@@ -273,7 +271,7 @@ worker_nodes {
 }
 ```
 
-# Ready to Terraform plan
+## Run Terraform plan
 
 Again, to preview the changes, do a dry run by running **terraform plan**
 
@@ -309,7 +307,7 @@ Plan: 0 to add, 1 to change, 0 to destroy.
 Note: You didn't use the -out option to save this plan, so Terraform can't guarantee to take exactly these actions if you run "terraform apply" now.
 ```
 
-# Ready to Terraform apply
+## Run Terraform apply
 
 Run the command  **terraform apply**  and type  **yes**  when asked to  **Enter a value**.
 
@@ -388,7 +386,3 @@ I hope you found this information interesting and useful while considering the u
 * [Learn more about the HPE GreenLake Terraform provider](https://registry.terraform.io/providers/HPE/hpegl)
 
 Don’t forget, you can always find other tutorials and articles on HPE GreenLake on the  [HPE Developer blog](https://developer.hpe.com/blog/tag/hpe-greenlake).
-
-## Tags
-
-[hpe-greenlake,](https://developer.hpe.com/blog/tag/hpe-greenlake)[devops,](https://developer.hpe.com/blog/tag/devops)[terraform,](https://developer.hpe.com/blog/tag/terraform)[opensource,](https://developer.hpe.com/blog/tag/opensource)[hpe-greenlake-for-private-cloud-enterprise,](https://developer.hpe.com/blog/tag/hpe-greenlake-for-private-cloud-enterprise)[hpe-greenlake-for-private-cloud-enterprise-containers,](https://developer.hpe.com/blog/tag/hpe-greenlake-for-private-cloud-enterprise-containers)[containers-service,](https://developer.hpe.com/blog/tag/containers-service)[developer,](https://developer.hpe.com/blog/tag/developer)[devops,](https://developer.hpe.com/blog/tag/devops)[sre,](https://developer.hpe.com/blog/tag/sre)[site-reliability-engineer](https://developer.hpe.com/blog/tag/site-reliability-engineer)
