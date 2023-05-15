@@ -1,6 +1,6 @@
 ---
 title: Upgrade Kubernetes Clusters using HPE GreenLake Terraform Provider
-date: 2023-05-12T04:07:48.888Z
+date: 2023-05-15T15:05:49.805Z
 author: Tanushi Agarwal
 authorimage: /img/photoforblog.jpg
 disable: false
@@ -10,7 +10,7 @@ tags:
   - terraform
   - opensource
   - hpe-greenlake-for-private-cloud-enterprise
-  - hpe-greenlake-for-private-cloud-enterprise-containers,
+  - hpe-greenlake-for-private-cloud-enterprise-containers
   - containers-service
   - developer
   - devops
@@ -23,7 +23,7 @@ I﻿n this post, I will explore options to declare and upgrade Kubernetes cluste
 
 A﻿s the part of upgrade, the following 3 scenarios are supported --  
 
-1. Scaling of a cluster's worker nodes. Please refer to the blog post [Scale Kubernetes Clusters using HPE GreenLake Terraform Provider](<1. https://developer.hpe.com/blog/scale-kubernetes-cluster-using-hpe-greenlake-terraform-provider/>)to check out scaling options available for worker nodes.
+1. Scaling of a cluster's worker nodes. Please refer to the blog post [Scale Kubernetes Clusters using HPE GreenLake Terraform Provider](https://developer.hpe.com/blog/scale-kubernetes-cluster-using-hpe-greenlake-terraform-provider/) to check out scaling options available for worker nodes.
 2. Upgrade the Kubernetes version of the cluster. This step is covered in this blog.
 3. Upgrade the OS version of the worker nodes inside a cluster. This step is covered in this blog.
 
