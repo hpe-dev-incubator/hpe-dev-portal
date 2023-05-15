@@ -4,7 +4,18 @@ date: 2023-05-12T04:07:48.888Z
 author: Tanushi Agarwal
 authorimage: /img/photoforblog.jpg
 disable: false
-tags: []
+tags:
+  - hpe-greenlake
+  - devops
+  - terraform
+  - opensource
+  - hpe-greenlake-for-private-cloud-enterprise
+  - hpe-greenlake-for-private-cloud-enterprise-containers,
+  - containers-service
+  - developer
+  - devops
+  - sre
+  - site-reliability-engineer
 ---
 IaC or Infrastructure as code is a practice of automating the process of managing and provisioning infrastructure through code instead of through manual processes. It gives organizations the tools to create, manage, and destroy compute resources by statically defining and declaring these resources in codeblocks. It helps to increase operational agility, simplify management, reduce errors, and save cost.
 
