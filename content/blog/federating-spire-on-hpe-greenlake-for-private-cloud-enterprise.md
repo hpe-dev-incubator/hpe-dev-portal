@@ -19,7 +19,9 @@ In this blog post, we will install and federate SPIRE across two Kubernetes clus
 
 # Step 1. Installing SPIRE: 
 
-Using the QuickStart files provided in this [link](https://github.com/cxteamtrials/caas-trials-content/tree/main/services/spire) we can get started on installing SPIRE on both clusters. Since we are working with two clusters, the trust domain configured for the first cluster is ***cluster1.demo***, and the other is ***cluster2.demo***.  
+Using the QuickStart files provided in this [link](https://github.com/cxteamtrials/caas-trials-content/tree/main/services/spire) we can get started on installing SPIRE on both clusters. Since we are working with two clusters, the trust domain configured for the first cluster is ***cluster1.demo***, and the other is ***cluster2.demo***. 
+
+*Note: you may configure your own custom trust domains for the clusters by replacing these values across the configuration files.* 
 
 ## 1.1 Clone the repo using:
 
