@@ -219,7 +219,7 @@ Now that SPIRE is federated and communication across clusters can be facilitated
 
 ## 4.1 Deploy a resource in Cluster-1
 
-In Cluster 1, apply a new ClusterSpiffeID called federated that registers resources with the label **spiffe.io/spire-managed-identity=curl-greeter** that can be federated with cluster2. Create a resource called curl-greeter that has the label: **spiffe.io/spire-managed-identity=curl-greeter and annotation: inject.istio.io/templates=sidecar, spire** 
+In Cluster 1, apply a new ClusterSpiffeID called federated that registers resources with the label **spiffe.io/spire-managed-identity=curl-greeter** that can be federated with cluster2. Create a resource called curl-greeter that has the label: **spiffe.io/spire-managed-identity=curl-greeter** and annotation: **inject.istio.io/templates=sidecar, spire** 
 
 ```shellsession
 kubectl run curl-greeter --image=radial/busyboxplus:curl --labels="spiffe.io/spire-managed-identity=curl-greeter" --overrides='{ "apiVersion": "v1", "spec": { "template": {"metadata": {"annotations": { "inject.istio.io/templates":"sidecar,spire" } } }}}' -i --tty 
