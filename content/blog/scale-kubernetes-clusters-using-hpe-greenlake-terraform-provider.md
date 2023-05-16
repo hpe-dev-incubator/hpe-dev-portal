@@ -219,7 +219,7 @@ For an OS version upgrade, you need to specify the new version of the OS image t
 The worker node block consists of the following fields:
 
 1. **name**: The name of the worker node pool. If you wish to update the default or existing worker node pool, enter the name of that node pool. To create a node pool, specify a new name.
-2. **machine_blueprint_id**: Fill in the ID for the machine blueprint that is already present in HPE GreenLake Central for your tenant. Use the machine blueprint data source to retrieve the machine blueprint ID.
+2. **machine\_blueprint\_id**: Fill in the ID for the machine blueprint that is already present in HPE GreenLake Central for your tenant. Use the machine blueprint data source to retrieve the machine blueprint ID.
 3. **count**: Add the number of nodes to be present as part of this node pool. We can scale up and down by updating the count value here.
 4. **os_image**: The name of the OS image. Use the machine blueprint data source to retrieve the name of OS image.
 5. **os_version**: The version to be upgraded to. We can get this version in the UI. Whenever there is a new version available, UI will pop up a banner mentioning the new version.
@@ -386,7 +386,7 @@ hpegl_caas_cluster.test: Modifications complete after 43m18s [id=a32fabb9-7c19-4
 Apply complete! Resources: 0 added, 1 changed, 0 destroyed.
 ```
 
-**Note**: If you wish to only scale up or down the worker node pool and not update the OS version, add only the 3 fields i.e. **name**, **machine_blueprint_id** and **count** in the worker node block. 
+**Note**: If you wish to only scale up or down the worker node pool and not update the OS version, add only the 3 fields i.e. **name**, **machine\_blueprint\_id** and **count** in the worker node block. 
 
 # Summary
 
