@@ -23,13 +23,13 @@ Using the QuickStart files provided in this [link](https://github.com/cxteamtria
 
 *Note: You may configure your own custom trust domains for the clusters by replacing these values across the configuration files.* 
 
-## 1.1 Clone the repo using:
+## 1.1 Clone the repo using the command
 
 ```shellsession
 git clone https://github.com/cxteamtrials/caas-trials-content.git 
 ```
 
-## 1.2 Apply the QuickStart file on each cluster using the following commands: 
+## 1.2 Apply the QuickStart file on each cluster using the following commands
 
 As the Kubectl command is required for installation and configuration, please refer to our first [blog ](https://developer.hpe.com/blog/integrating-istio-and-spire/)post, which explains how to obtain the Kubeconfig file to manage the K8s clusters using Kubectl.
 
@@ -104,7 +104,7 @@ First, you must get and apply one of SPIRE controller manager’s [CRD (Custom 
 
 Create a ClusterSPIFFEID CRD to generate registration entries in SPIRE server for all workloads labeled ***spiffe.io/spire-managed-identity: true.***
 
-Get the ClusterSPIFFEID used for this demo using this [link](https://github.com/cxteamtrials/caas-trials-content/blob/main/services/spire/clusterspiffeid-example.yaml) and  apply it to both clusters. 
+Apply the ClusterSPIFFEID used for this demo to both clusters. 
 
 ```shellsession
 kubectl apply -f services/spire/clusterspiffeid-example.yaml 
@@ -144,7 +144,7 @@ istiod-d5bc8669c-thbpj                 1/1     Running   0          37d
 
 Assign an external IP to your spire-server-bundle-endpoint service on each cluster.  
 
-SPIFFE (*Secure Production Identity Framework For Everyone*) is a specification for implementing identity for workloads, and SPIRE is the code that implements this specification in practice. A SPIFFE bundle is a resource that contains the public key material needed to authenticate credentials from a particular trust domain. A SPIFFE bundle endpoint is a resource (represented by a URL) that serves a copy of a SPIFFE bundle for a trust domain. SPIFFE control planes may both expose and consume these endpoints to transfer bundles between themselves, thereby achieving federation. The SPIRE server is used to host the “spire-server-bundle-endpoint” service that serves the SPIFFE bundle to an external Spire agent of a different trust domain.  
+SPIFFE (*Secure Production Identity Framework For Everyone*) is a specification for implementing identity for workloads, and SPIRE is the code that implements this specification in practice. A SPIFFE bundle is a resource that contains the public key material needed to authenticate credentials from a particular trust domain. A SPIFFE bundle endpoint is a resource (represented by a URL) that serves a copy of a SPIFFE bundle for a trust domain. SPIFFE control planes may both expose and consume these endpoints to transfer bundles between themselves, thereby achieving federation. The SPIRE server is used to host the “spire-server-bundle-endpoint” service that serves the SPIFFE bundle to an external SPIRE agent of a different trust domain.  
 
 MetalLB is used to assign the IP for this service. MetalLB hooks into your Kubernetes cluster and provides a network load-balancer implementation. In short, it allows you to create Kubernetes services of type LoadBalancer in clusters that don’t run on a cloud provider, and thus cannot simply hook into paid products to provide load balancers. 
 
@@ -223,17 +223,23 @@ Now that SPIRE is federated and communication across clusters can be facilitated
 
 ## 4.1 Deploy a resource in Cluster-1
 
-In Cluster 1, apply a new ClusterSpiffeID called ***federated*** that registers resources with the label **spiffe.io/spire-managed-identity=curl-greeter** that can be federated with cluster2. Create a resource called ***curl-greeter*** that has the label: **spiffe.io/spire-managed-identity=curl-greeter** and annotation: **inject.istio.io/templates=sidecar, spire** 
+In Cluster 1, apply a new ClusterSpiffeID called ***curl-greeter*** that registers resources with the label **spiffe.io/spire-managed-identity=curl-greeter** that can be federated with cluster2. Create a resource called ***curl-greeter*** that has the label: **spiffe.io/spire-managed-identity=curl-greeter** and annotation: **inject.istio.io/templates=sidecar, spire** 
 
 ```shellsession
+#Apply SPIFFEID
+kubectl apply -f /services/spire/federation/clusterspiffeid-curl-greeter-cluster1.yaml
+#Create Curl-Greeter Resource
 kubectl run curl-greeter --image=radial/busyboxplus:curl --labels="spiffe.io/spire-managed-identity=curl-greeter" --overrides='{ "apiVersion": "v1", "spec": { "template": {"metadata": {"annotations": { "inject.istio.io/templates":"sidecar,spire" } } }}}' -i --tty 
 ```
 
 ## 4﻿.2 Deploy Bookinfo Sample Application in Cluster-2
 
-In Cluster 2, apply a new ClusterSpiffeID called ***federated*** that registers resources with the label **spiffe.io/spire-managed-identity=spire** that can be federated with cluster1. Apply the bookinfo sample application manifest. 
+In Cluster 2, apply a new ClusterSpiffeID called ***federated*** that registers resources with the label **spiffe.io/spire-managed-identity=spire** that can be federated with cluster1. Then apply the bookinfo sample application manifest.
 
 ```shellsession
+#Apply SPIFFEID
+kubectl apply -f /services/spire/federation/clusterspiffeid-federated-cluster2.yaml
+#Apply Bookinfo Manifest
 kubectl apply -f services/istio/release-1.17/bookinfo.yaml 
 ```
 
