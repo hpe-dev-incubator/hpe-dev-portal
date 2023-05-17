@@ -11,17 +11,17 @@ tags:
   - SPIFFE
   - spiffe-and-spire-projects
 ---
-SPIRE is designed to enable widespread deployment of mTLS between workloads in distributed systems. In the previous [blog](https://developer.hpe.com/blog/integrating-istio-and-spire/) we explain how to deploy a Kubernetes cluster on HPE GreenLake for Private Cloud Enterprise and integrate Istio and SPIRE to enable advanced analysis and visualization of the service mesh.
+SPIRE is designed to enable widespread deployment of Mutual TLS (mTLS), a method for mutual authentication, between workloads in distributed systems. In our previous [blog ](https://developer.hpe.com/blog/integrating-istio-and-spire/)post, we explained how you can deploy a Kubernetes cluster on HPE GreenLake for Private Cloud Enterprise and integrate Istio and SPIRE to enable advanced analysis and visualization of the service mesh.
 
-In this blog post, we will install and federate SPIRE across two Kubernetes clusters deployed on HPE GreenLake for Private Cloud Enterprise: cluster 1 and cluster 2. We will deploy a sample application to verify the federation and visualize the communication across services through a graph.
+In this blog post, we will install and federate SPIRE across two Kubernetes clusters deployed on HPE GreenLake for Private Cloud Enterprise: cluster 1 and cluster 2. We will then show you how to deploy a sample application to verify the federation and visualize the communication across services through a graph.
 
 ![SPIRE Federation](/img/spire-federation.png)
 
-# Step 1. Installing SPIRE: 
+# Step 1. Installing SPIRE
 
-Using the QuickStart files provided in this [link](https://github.com/cxteamtrials/caas-trials-content/tree/main/services/spire) we can get started on installing SPIRE on both clusters. Since we are working with two clusters, the trust domain configured for the first cluster is ***cluster1.demo***, and the other is ***cluster2.demo***. 
+Using the QuickStart files provided in this [link](https://github.com/cxteamtrials/caas-trials-content/tree/main/services/spire/federation), get started installing SPIRE on both Clusters. Since there are two clusters in our example, the trust domain configured for the first cluster is ***cluster 1.demo*** and the other is ***cluster2.demo***.
 
-*Note: you may configure your own custom trust domains for the clusters by replacing these values across the configuration files.* 
+*Note: You may configure your own custom trust domains for the clusters by replacing these values across the configuration files.* 
 
 ## 1.1 Clone the repo using:
 
@@ -31,7 +31,7 @@ git clone https://github.com/cxteamtrials/caas-trials-content.git
 
 ## 1.2 Apply the QuickStart file on each cluster using the following commands: 
 
-A﻿s we require the Kubectl command for installation and configuration t﻿he first [blog ](https://developer.hpe.com/blog/integrating-istio-and-spire/)explains how to obtain the Kubeconfig file to manage the K8s clusters using Kubectl. 
+As the Kubectl command is required for installation and configuration, please refer to our first [blog ](https://developer.hpe.com/blog/integrating-istio-and-spire/)post, which explains how to obtain the Kubeconfig file to manage the K8s clusters using Kubectl.
 
 ```shellsession
 #for K8s cluster 1:
@@ -40,9 +40,9 @@ kubectl apply -f services/spire/federation/spire-quickstart-cluster-1.yaml
 kubectl apply -f services/spire/federation/spire-quickstart-cluster-2.yaml 
 ```
 
-This step will install SPIRE into your Kubernetes clusters, along with two additional components: the SPIFFE CSI Driver and the SPIRE Kubernetes Controller manager which facilitates the registration of workloads and establishment of federated relationships. 
+This step will install SPIRE into your Kubernetes clusters, along with two additional components: the SPIFFE CSI Driver and the SPIRE Kubernetes Controller manager, which facilitates the registration of workloads and establishment of federated relationships. 
 
-Verify the installation by checking if all pods are running and containers within them are up. 
+Verify the installation by checking to see if all the pods are running and that the containers within them are up.
 
 ```shellsession
 Cluster1:~ # kubectl get po -n spire 
@@ -62,26 +62,26 @@ spire-agent-wttmd               	 3/3        Running     1 (
 spire-server-574474c7dc-2bfcx   	 2/2        Running     0              24h 
 ```
 
-# Step 2. Installing Istio: 
+# Step 2. Installing Istio
 
 On each of your Kubernetes clusters, install Istio and patch Istio ingress gateway. Istio can detect the existence of a UNIX Domain Socket that implements the Envoy SDS API on a defined socket path, allowing Envoy to communicate and fetch identities directly from it. SPIRE can be configured for Istio workloads through an integration with Envoy’s SDS API. 
 
-## 2.1 Download the latest release: 
+## 2.1 Download the latest release
 
-You can download the latest release using the official Istio repository or just copy the following command, which would do the same for you.
+You can download the latest release using the official Istio repository or just copy the following command, which would do the same thing for you.
 
 ```shellsession
 curl -L https://istio.io/downloadIstio | sh - 
 ```
 
-Change to the Istio directory (cd command), and set the path by command:
+Change to the Istio directory (cd command), and set the path by using this command:
 
 ```shellsession
 cd istio-1.17.1 
 export PATH=$PWD/bin:$PATH 
 ```
 
-## 2.2 I﻿nstall Istio with custom patch: 
+## 2.2 I﻿nstall Istio with custom patch
 
 Install Istio with custom patches for the Ingress-gateway as well as for Istio-proxy.  
 
@@ -96,13 +96,13 @@ istioctl apply -f services/istio/release-1.17/spire/spire-patch-cluster2.yaml
 
 Installing Istio with the custom patch will share the spiffe-csi-driver with the Ingress Gateway and the sidecars that are going to be injected on workload pods, granting them access to the SPIRE Agent’s UNIX Domain Socket. 
 
-## 2.3 Patch Istio Ingress Gateway:
+## 2.3 Patch Istio Ingress Gateway
 
 ### 2﻿.3.1 Apply SPIFFE ID
 
-The first step is to get and apply one of SPIRE controller manager’s [CRD (Custom Resource Definition)](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/) ClusterSPIFFEID. The CRD - ClusterSPIFFEID is a cluster-wide resource used to register workloads with SPIRE. The ClusterSPIFFEID can target all workloads in the cluster or can be optionally scoped to specific pods or namespaces via label selectors.  
+First, you must get and apply one of SPIRE controller manager’s [CRD (Custom Resource Definition)](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/) ClusterSPIFFEID. The CRD - ClusterSPIFFEID is a cluster-wide resource used to register workloads with SPIRE. The ClusterSPIFFEID can target all workloads in the cluster or can be optionally scoped to specific pods or namespaces via label selectors.  
 
-Create a ClusterSPIFFEID CRD to generate registration entries in SPIRE server for all workloads with label ***spiffe.io/spire-managed-identity: true.***
+Create a ClusterSPIFFEID CRD to generate registration entries in SPIRE server for all workloads labeled ***spiffe.io/spire-managed-identity: true.***
 
 Get the ClusterSPIFFEID used for this demo using this [link](https://github.com/cxteamtrials/caas-trials-content/blob/main/services/spire/clusterspiffeid-example.yaml) and  apply it to both clusters. 
 
@@ -136,7 +136,7 @@ istio-ingressgateway-64bd5ccbbb-kqs2h  1/1     Running   0          37d
 istiod-d5bc8669c-thbpj                 1/1     Running   0          37d
 ```
 
-# Step 3. Federating SPIRE: 
+# Step 3. Federating SPIRE
 
 ## 3﻿.1 Expose SPIRE server bundle endpoint. 
 
