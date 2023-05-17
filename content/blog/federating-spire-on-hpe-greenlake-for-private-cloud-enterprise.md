@@ -442,4 +442,6 @@ The graph below shows services communication, and the locks symbolize mTls proto
 
 ![mTLS Graph](/img/mtls.png)
 
+# S﻿ummary
+
 The goal of this blog post was to guide you through federating SPIRE across two Kubernetes clusters deployed on HPE GreenLake for Private Cloud Enterprise. It shows you how to do this by creating a cluster federated trust domain and federated ClusterSpiffeIDs for your sample application workloads and **then helps** you visualize your service mesh through Kiali Dashboard
