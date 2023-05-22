@@ -10,6 +10,12 @@ tags:
   - SPIRE Federation
   - SPIFFE
   - spiffe-and-spire-projects
+  - hpe-greenlake-for-private-cloud-enterprise
+  - hpe-greenlake-for-private-cloud-enterprise-containers
+  - developer
+  - HPE GreenLake for Containers
+  - hpe-greenlake
+  - istio-service-mesh
 ---
 SPIRE is designed to enable widespread deployment of Mutual TLS (mTLS), a method for mutual authentication, between workloads in distributed systems. In our previous [blog ](https://developer.hpe.com/blog/integrating-istio-and-spire/)post, we explained how you can deploy a Kubernetes cluster on HPE GreenLake for Private Cloud Enterprise and integrate Istio and SPIRE to enable advanced analysis and visualization of the service mesh.
 
