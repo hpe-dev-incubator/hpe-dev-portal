@@ -58,7 +58,7 @@ The traditional Hack Shack Celebration party will be held on Wednesday, June 21s
 
 ### Hack Shack challenges
 
-For those looking for more mind-stimulating activities, there will be 4 Hack Shack challenges this year focused on the HPE GreenLake edge-to-cloud platform.  They will center on the HPE GreenLake Aruba Central API, the HPE Data Services Cloud Console API, the HPE Compute Ops Management API and the Private Cloud Enterprise Terraform provider. These are perfect for those who’d like some hands-on experience in working with these APIs. 
+For those looking for more mind-stimulating activities, there will be 4 Hack Shack challenges this year focused on the HPE GreenLake edge-to-cloud platform.  They will center on the HPE GreenLake Aruba Central API, the HPE Data Services Cloud Console API, the HPE Compute Ops Management API and the HPE GreenLake Terraform provider. These are perfect for those who’d like some hands-on experience in working with these APIs. 
 
 ### Post-presentation “Meet the experts” sessions
 
