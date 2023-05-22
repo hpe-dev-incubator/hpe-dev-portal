@@ -68,13 +68,20 @@ Event attendees are invited to Meet-the-Expert sessions immediately following pr
 
 New for this year, the Hack Shack will host 4 different meetup sessions for customers to meet with the CTO, other HPE executives, and HPE Fellows. These meetups are interactive sessions designed to collect customer feedback. In many of them, you’ll be able to share your experiences, challenges, and expectations related to a particular topic. Take advantage of these opportunities to connect with HPE executives on:
 
-* **HPE GreenLake Private Cloud Enterprise**\
+* **HPE GreenLake Private Cloud Enterprise**
+
   In this meetup, share your thoughts on what services, in addition to the resource capacity, could be offered from a managed private cloud services offering. We’d love to hear what key features, functionalities, and capabilities you’d like to see offered as part of, or in addition to the existing bare-metal, VMs and container offerings. 
-* **Unlocking Data Insights: Maximizing Your Cloud's Potential**\
+
+* **Unlocking Data Insights: Maximizing Your Cloud's Potential**
+
   In this meetup, we’d love to hear your thoughts on what the minimum data services a cloud platform should offer. Focus on key features, functionalities, and capabilities that you consider essential in any cloud data service. 
-* **Site-as-a-Service**\
+
+* **Site-as-a-Service**
+
   Starting with a brief presentation from the Office of the CTO on HPE current and near-term projects, this meetup will focus on Site-as-a-Service, where HPE performs edge management on behalf of an enterprise, as well as work in distributed data and workload management at the edge. After the presentation, we will lead an open discussion on the challenges and requirements of the use and management of distributed edge sites in the enterprise and how HPE can help address them.
+
 * **Simplifying Hybrid Cloud Operations**
+
   In this meetup, we invite you to share your perspectives and experiences in managing IT operations across a hybrid cloud environment. We’ll delve into various challenges and use cases in monitoring, managing events, and automating tasks using the OpsRamp solution. Don’t miss out on this opportunity to engage with industry peers and have a say in product directions by joining this session. 
 
 ## What sessions are being held in the CTO Theater?
