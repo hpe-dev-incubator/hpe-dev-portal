@@ -20,12 +20,12 @@ li {
 Hewlett Packard Enterprise (HPE) will be hosting Discover 2023 from June 20-22 at the Venetian Convention and Expo Center in Las Vegas, Nevada. The HPE Developer Community team is excited to be there once again to greet customers and partners in the Hack Shack. There will be some exciting changes this year. Read on to learn more about what will be happening in the Hack Shack!
 
 ## What’s new for the Hack Shack?
+
 Since 2017, the HPE Hack Shack has been enjoyed by developers as a place to meet with HPE software engineers and other software subject matter experts, to brainstorm about solutions to issues they may be experiencing back home, and to learn a bit more about what HPE is doing in the software space. It’s also provided an opportunity for attendees to enjoy a little down time, relaxing over a few games and software-focused Hack Shack challenges.
 
 This year, the Hack Shack will serve as the Technology Hub for technologists of all types; be they developers, data scientists, ITOps or DevOps personnel. It will be the home base for the HPE Office of the Chief Technology Officer (CTO), where you’ll be able to meet and chat with engineering representatives and subject matter experts (SMEs) who work on the HPE GreenLake edge-to-cloud platform. Here, you’ll get to have in-depth conversations about the platform that was created to eliminate complexity, delivering a cloud experience for customer workloads wherever their data may be. 
 
 The Hack Shack will complement the CTO Theater, where over a dozen different HPE GreenLake platform sessions will take place covering everything from platform APIs to future innovations, by providing a place where you can continue the conversations and hone in on any specific questions you might have.
-
 
 ## What is the HPE Office of the CTO?
 
@@ -48,7 +48,7 @@ The Office of the CTO is driving this transformation through its work on the HPE
 
 ## What’s happening specifically in the Hack Shack?
 
-<image 1>
+![Hack Shack at HPE Discover](/img/hack-shack-image.png "Hack Shack at HPE Discover")
 
 ### Prize winning activities and celebration party
 
@@ -64,20 +64,18 @@ For those looking for more mind-stimulating activities, there will be 4 Hack Sha
 
 Event attendees are invited to Meet-the-Expert sessions immediately following presentations being held in the CTO Theater. After attending the session in the theater, you’ll have the opportunity to follow the speaker back to the Hack Shack and continue the conversation in a fun and friendly environment.
 
-### Customer-engaging meetups 
+### Customer-engaging meetups
+
 New for this year, the Hack Shack will host 4 different meetup sessions for customers to meet with the CTO, other HPE executives, and HPE Fellows. These meetups are interactive sessions designed to collect customer feedback. In many of them, you’ll be able to share your experiences, challenges, and expectations related to a particular topic. Take advantage of these opportunities to connect with HPE executives on:
 
-   * **HPE GreenLake Private Cloud Enterprise**    
-     In this meetup, share your thoughts on what services, in addition to the resource capacity, could be offered from a managed private cloud services offering. We’d love to hear what key features, functionalities, and capabilities you’d like to see offered as part of, or in addition to the existing bare-metal, VMs and container offerings. 
-
-   * **Unlocking Data Insights: Maximizing Your Cloud's Potential**    
-     In this meetup, we’d love to hear your thoughts on what the minimum data services a cloud platform should offer. Focus on key features, functionalities, and capabilities that you consider essential in any cloud data service. 
-
-   * **Site-as-a-Service**    
-     Starting with a brief presentation from the Office of the CTO on HPE current and near-term projects, this meetup will focus on Site-as-a-Service, where HPE performs edge management on behalf of an enterprise, as well as work in distributed data and workload management at the edge. After the presentation, we will lead an open discussion on the challenges and requirements of the use and management of distributed edge sites in the enterprise and how HPE can help address them.
-
-   * **Simplifying Hybrid Cloud Operations**
-     In this meetup, we invite you to share your perspectives and experiences in managing IT operations across a hybrid cloud environment. We’ll delve into various challenges and use cases in monitoring, managing events, and automating tasks using the OpsRamp solution. Don’t miss out on this opportunity to engage with industry peers and have a say in product directions by joining this session. 
+* **HPE GreenLake Private Cloud Enterprise**\
+  In this meetup, share your thoughts on what services, in addition to the resource capacity, could be offered from a managed private cloud services offering. We’d love to hear what key features, functionalities, and capabilities you’d like to see offered as part of, or in addition to the existing bare-metal, VMs and container offerings. 
+* **Unlocking Data Insights: Maximizing Your Cloud's Potential**\
+  In this meetup, we’d love to hear your thoughts on what the minimum data services a cloud platform should offer. Focus on key features, functionalities, and capabilities that you consider essential in any cloud data service. 
+* **Site-as-a-Service**\
+  Starting with a brief presentation from the Office of the CTO on HPE current and near-term projects, this meetup will focus on Site-as-a-Service, where HPE performs edge management on behalf of an enterprise, as well as work in distributed data and workload management at the edge. After the presentation, we will lead an open discussion on the challenges and requirements of the use and management of distributed edge sites in the enterprise and how HPE can help address them.
+* **Simplifying Hybrid Cloud Operations**
+  In this meetup, we invite you to share your perspectives and experiences in managing IT operations across a hybrid cloud environment. We’ll delve into various challenges and use cases in monitoring, managing events, and automating tasks using the OpsRamp solution. Don’t miss out on this opportunity to engage with industry peers and have a say in product directions by joining this session. 
 
 ## What sessions are being held in the CTO Theater?
 
@@ -105,7 +103,7 @@ Yes! The celebration party will be held at 5.30 pm on Wednesday evening. Attende
 
 We’ll also be giving out t-shirts to those who participate in any of our Hack Shack activities, such as the virtual treasure hunt or a Workshop-on-Demand. 
 
-<image 2>
+![Giveaways at HPE Discover](/img/swag-2.png "Giveaways at HPE Discover")
 
 ## Join us in the Hack Shack!
 
