@@ -10,6 +10,8 @@ disable: false
 
 We’re excited to announce HPE Swarm Learning 2.0.0 community release!!
 
+In the previous swarm version, if the sentinel SN goes down during Swarm training, the training process would stop, and there was no way to resume it. However, with this release, we have addressed the issue by implementing a mesh connectivity approach between SNs, replacing the previous star topology where only the sentinel SN was connected to other SNs. Now, even if the initial sentinel SN goes down, other SNs can also function as sentinels, allowing the training to continue uninterrupted. Additionally, if a new SN wants to join the network, it can seamlessly integrate and participate in the training process. **High Availability of SN** ensures improved resilience and robustness of the Swarm training system.
+
 In Swarm Learning at the sync stage (defined by Sync Frequency), when it is time to share the learning from the individual model, one of the SL nodes is designated as “leader”. This leader node collects the individual models from each peer node and merges them into a single model by combining parameters of all the individuals.
 
 **Leader Failure Detection and Recovery (LFDR)** feature enables SL nodes to continue Swarm training during merging process when an SL leader node fails. A new SL leader node is selected to continue the merging process. If the failed SL leader node comes back after the new SL leader node is in action, the failed SL leader node is treated as a normal SL node and contributes its learning to the swarm global model.
