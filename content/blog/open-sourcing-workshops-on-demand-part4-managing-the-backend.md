@@ -17,7 +17,7 @@ If you take a look at the file structure of the `wod-backend` directory, you wil
 
 S﻿imple tree view of the wod-backend directory:
 
-![](/img/wod-blogserie2-tree4.png "Tree view of wod-backend directory")
+![](/img/tree-wkshop2.png "Tree view of wod-backend directory")
 
 T﻿he `ansible` folder contains all the necessary playbooks and variables files to support the main functions of the backend server. It provides playbooks for a minimal installation of the server or appliances, setup of the servers (backend, frontend, api-db),of appliances or workshops as well as maintenance tasks.
 
