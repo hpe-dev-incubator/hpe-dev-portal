@@ -12,3 +12,4 @@ width: large
 May 24, 2023
 
 Learn how coders and project architects alike are using Large Language Model tools like ChatGPT to transform software development. Tailored for those with some developer experience, this Munch & Learn session explores the highly iterative nature of these tools and their potential to serve as your 24/7 developer assistant.
+
