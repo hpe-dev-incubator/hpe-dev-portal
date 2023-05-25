@@ -1,6 +1,7 @@
 ---
 title: "Digital twins, the Metaverse, and augmented reality: Immersive
   technologies powered by AI"
+active: true
 fit: contain
 link: https://hpe.zoom.us/webinar/register/6616850005124/WN_cYsv-3xZQG6GOXimfZ9Xfw
 imageBackground: white
