@@ -41,6 +41,8 @@ Take advantage of our free, Jupyter-Notebook based Workshops-on-Demand available
 
 <br/>
 
+
+
 ## Any questions on HPE GreenLake?
 
 Join the [HPE Developer Community Slack Workspace](https://slack.hpedev.io/) and start a discussion in our [\#HPEGreenLake](https://hpedev.slack.com/archives/C02EG5XFK8Q) channel.
