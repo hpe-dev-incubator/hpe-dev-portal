@@ -1,13 +1,13 @@
 ---
-author: Frederic Passeron
+author: Dale Rensing
 priority: 7
 active: true
 width: medium
 imageScale: 1.5
-title: Meet the HPE Developer Community team at HPE Technology and Solution
-  Summit 2023!
+title: New for HPE Discover 2023! Hack Shack serves as home base for HPE’s
+  Office of the CTO
 category: Feature Blog
-link: /blog/meet-our-new-hpe-dev-team-representative-at-hpe-technology-and-solution-summit-2023/
-image: /img/frederic-passeron-hpedev-192.jpg
+link: /blog/new-for-hpe-discover-2023-hack-shack-serves-as-home-base-for-hpe%E2%80%99s-office-of-the-cto/
+image: /img/blog-author-rensing-96.jpg
 ---
-HPE Technology and Solution Summit 2023 (HPE TSS 2023) goes physical again this year in sunny Barcelona. After being relegated to virtual sessions these last couple of times, you will once again enjoy the pleasure of being able to engage with an HPE Developer Community representative in person.
+Hewlett Packard Enterprise (HPE) will be hosting Discover 2023 from June 20-22 at the Venetian Convention and Expo Center in Las Vegas, Nevada. The HPE Developer Community team is excited to be there once again to greet customers and partners in the Hack Shack. There will be some exciting changes this year. Read on to learn more about what will be happening in the Hack Shack!
