@@ -4,7 +4,7 @@ dateStart: 2023-05-30T22:01:55.243Z
 dateEnd: 2023-05-31T21:59:55.313Z
 category: Virtual Event
 image: /img/event-meetups-newlogo-400x400.png
-link: https://hpe.zoom.us/webinar/register/6216789872385/WN_yE9Y_5drRlOycA-XMlD_9g
+link: https://developer.hpe.com/campaign/meetups
 width: large
 ---
 ## HPE Machine Learning Development Environment and the Open Source ML Advantage
