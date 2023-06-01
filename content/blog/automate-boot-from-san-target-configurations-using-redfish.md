@@ -5,6 +5,9 @@ featuredBlog: false
 author: HPE Global Sales Engineering (GSE) team
 authorimage: /img/Avatar5.svg
 disable: false
+tags:
+  - redfish
+  - restapi
 ---
 As the scale and complexity of infrastructure deployed in a customer environment increases, the need for consistency, ease of management and agility in responding to the changing needs of the infrastructure consumers becomes a key priority for IT staff.  Operational efficiency has become a key business imperative for customers hosting large IT footprint, and the operational efficiency gains are often achieved through automation of repetitive tasks performed by IT staff to deploy, manage, and operate IT infrastructure.
 
