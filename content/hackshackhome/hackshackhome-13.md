@@ -1,6 +1,6 @@
 ---
 title: HPE Machine Learning Development Environment and the open source ML advantage
-active: true
+active: false
 fit: contain
 link: https://hpe.zoom.us/webinar/register/6016789872516/WN_yE9Y_5drRlOycA-XMlD_9g
 path: ""
