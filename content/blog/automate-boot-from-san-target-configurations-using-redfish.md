@@ -142,7 +142,11 @@ ilorest rawget /redfish/v1/Chassis/1/NetworkAdapters/DE083000
 ```
 
 Towards the end of the generated output from the above command, please check for an entry. 
+
+```markdown
 "RedfishConfiguration": "Enabled"
+```
+
 
 If the value is not set, please perform  the following:
 
