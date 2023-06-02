@@ -23,7 +23,7 @@
 
 [Adding an Event](#adding-an-event)
 
-[Onboarding an external blog post](#onboarding-an-external-blog-post)
+[Onboarding an external blog post via a blog link card](#onboarding-an-external-blog-post)
 
 [Tips and trick using the CMS Editor](#tips-and-trick-using-the-cms-editor)
 
