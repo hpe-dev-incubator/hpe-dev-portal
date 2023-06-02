@@ -215,6 +215,8 @@ To modify the value of this property,
     }
    }
    ```
+
+
 2. Apply this patch via iLOrest
 
    ```markdown
@@ -226,7 +228,7 @@ To modify the value of this property,
    ilorest rawpost <file path>\flushtonvm.txt
    ```
 
-   ``
+   
 
    ## Step 5: Create the SAN boot target entry
 
@@ -272,7 +274,7 @@ To modify the value of this property,
       }
       ```
 
-      ``
+
    2. Apply this patch file via iLOrest
 
       ```markdown
