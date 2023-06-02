@@ -222,13 +222,13 @@ To modify the value of this property,
    ```markdown
    ilorest rawpatch <file path>\enable-sanboot.txt
    ```
+
+
 3. Flush or commit the changes to ilo NVM using the flushtonvm.txt file created before
 
    ```markdown
    ilorest rawpost <file path>\flushtonvm.txt
    ```
-
-   
 
    ## Step 5: Create the SAN boot target entry
 
@@ -273,8 +273,6 @@ To modify the value of this property,
         }
       }
       ```
-
-
    2. Apply this patch file via iLOrest
 
       ```markdown
