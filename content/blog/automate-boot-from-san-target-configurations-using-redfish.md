@@ -41,19 +41,19 @@ Now that you have gathered the pre-requisite information and installed the ilore
 
 ## Step 1: Ensure that the FCScanPolicy value is set to ‘AllTargets’
 
-```
+```markdown
 ilorest  get FCScanPolicy --selector Bios
 ```
 
 Expected output:
 
-```
+```markdown
 FCScanPolicy=AllTargets
 ```
 
 If the value is not set to AllTargets, you can change it using the following:
 
-```
+```markdown
 ilorest set "FCScanPolicy"="AllTargets" --selector Bios
 
 ilorest commit
@@ -107,13 +107,13 @@ Make a note of the device IDs in the output above - DC080000, DE083000, DE081000
 
 Query these items using the device ID to verify it is the right FC card that you would like to configure, for example using DE083000 device (your output and device IDs might be different).
 
-```
+```markdown
 ilorest rawget /redfish/v1/Chassis/1/NetworkAdapters/DE083000
 ```
 
 Look for the following in the output.
 
-```
+```markdown
 "Location": {
         "PartLocation": {
           "LocationOrdinalValue": 4,
@@ -148,7 +148,7 @@ If the value is not set, please perform  the following:
 
 1. Create a file named enable-redfish.txt with the following contents
 
-   ```
+   ```json
    {
      "/redfish/v1/Chassis/1/NetworkAdapters/DE083000/":
     {
@@ -164,7 +164,7 @@ If the value is not set, please perform  the following:
    ```
 2. Apply this patch via iLOrest
 
-   ```
+   ```markdown
    ilorest rawpatch <file path>\enable-redfish.txt
    ```
 3. To make this patch permanent, flush the configuration to the iLO NVRAM by creating a file name flushtonvm.txt, with the following contents
@@ -178,12 +178,12 @@ If the value is not set, please perform  the following:
    ```
 4. Post the flush action via iLOrest
 
-   ```
+   ```markdown
    ilorest rawpost <file path>\flushtonvm.txt
    ```
 5. Reboot the server
 
-   ```
+   ```markdown
    ilorest reboot
    ```
 
@@ -197,7 +197,7 @@ This can be viewed from BIOS configuration UI at the location shown in Figure 2.
 
 This value is part of the FC adapter configuration, and is visible in the output of the following command:
 
-```
+```markdown
 ilorest rawget /redfish/v1/Chassis/1/NetworkAdapters/DE083000/NetworkDeviceFunctions/1/
 ```
 
@@ -207,7 +207,7 @@ To modify the value of this property,
 
 1. Create a file named enable-sanboot.txt with the following
 
-   ```
+   ```json
    {
     "/redfish/v1/Chassis/1/NetworkAdapters/DE083000/NetworkDeviceFunctions/1/":
     {
@@ -217,12 +217,12 @@ To modify the value of this property,
    ```
 2. Apply this patch via iLOrest
 
-   ```
+   ```markdown
    ilorest rawpatch <file path>\enable-sanboot.txt
    ```
 3. Flush or commit the changes to ilo NVM using the flushtonvm.txt file created before
 
-   ```
+   ```markdown
    ilorest rawpost <file path>\flushtonvm.txt
    ```
 
@@ -234,13 +234,13 @@ To modify the value of this property,
 
    This entry is created within the BootTargets collection for the Port on the Adapter.
 
-   ```
+   ```markdown
    ilorest rawget /redfish/v1/Chassis/1/NetworkAdapters/DE083000/NetworkDeviceFunctions/1/
    ```
 
    In the output, look for entries such as:
 
-   ```
+   ```json
    "FibreChannel": {
           "BootTargets": [
             {
@@ -254,7 +254,7 @@ To modify the value of this property,
 
    1. Create a patch file (example bootentry.txt file contents shown below).
 
-      ```
+      ```json
       {
         "/redfish/v1/Chassis/1/NetworkAdapters/DE083000/NetworkDeviceFunctions/1":
         {
@@ -275,22 +275,22 @@ To modify the value of this property,
       ``
    2. Apply this patch file via iLOrest
 
-      ```
+      ```markdown
       ilorest rawpatch <file path>\bootentry.txt
       ```
    3. Commit the changes by flashing the ilo NVRAM using the using the flushtonvm.txt file created before
 
-      ```
+      ```markdown
       ilorest rawpost <file path>\flushtonvm.txt
       ```
    4. Reboot the server
 
-      ```
+      ```markdown
       ilorest reboot
       ```
    5. Once the server has reset, you can view the boot order to verify that the new entry for the SAN boot target has been created.
 
-      ```
+      ```markdown
       ilorest bootorder
       ```
 
