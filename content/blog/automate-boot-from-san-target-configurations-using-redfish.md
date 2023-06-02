@@ -16,9 +16,8 @@ There are several use-cases of infrastructure automation that exist, and in this
 
 **Note**:
 
-•	The steps outlined in this document were tested on HPE DL 380 Gen10 and Gen10 plus servers with Emulex based SN1610E FibreChannel (FC) cards, HPE iLO firmware 2.81 and Service Pack for ProLiant (SPP) available as of March 2023. 
-
-•	 QLogic SN1610Q cards do not support the steps outlined in this document (as of April 2023) However, future firmware releases might enable this Redfish API based configuration method.
+* The steps outlined in this document were tested on HPE DL 380 Gen10 and Gen10 plus servers with Emulex based SN1610E FibreChannel (FC) cards, HPE iLO firmware 2.81 and Service Pack for ProLiant (SPP) available as of March 2023.
+* QLogic SN1610Q cards do not support the steps outlined in this document (as of April 2023) However, future firmware releases might enable this Redfish API based configuration method.
 
 # Pre-requisite information
 
@@ -42,17 +41,25 @@ Now that you have gathered the pre-requisite information and installed the ilore
 
 ## Step 1: Ensure that the FCScanPolicy value is set to ‘AllTargets’
 
-`ilorest  get FCScanPolicy --selector Bios`
+```
+ilorest  get FCScanPolicy --selector Bios
+```
 
-Expected output: FCScanPolicy=AllTargets
+Expected output:
+
+```
+FCScanPolicy=AllTargets
+```
 
 If the value is not set to AllTargets, you can change it using the following:
 
-`ilorest  set "FCScanPolicy"="AllTargets" --selector Bios`
+```
+ilorest set "FCScanPolicy"="AllTargets" --selector Bios
 
-`ilorest commit`
+ilorest commit
 
-`ilorest reboot`
+ilorest reboot
+```
 
 After rebooting the server, you can verify that the settings have taken effect using the get FCScanPolicy command or navigating to the BIOS menus as shown in Figure 1.
 
@@ -72,17 +79,28 @@ The previous command returns the following output:
 
 ```json
 { 
+ 
   "@odata.context": "/redfish/v1/$metadata#NetworkAdapterCollection.NetworkAdapterCollection", 
- "@odata.etag": "W/"F09DE05C"", "@odata.id": "/redfish/v1/Chassis/1/NetworkAdapters/", 
- "@odata.type": "#NetworkAdapterCollection.NetworkAdapterCollection", 
- "Description": "The collection of network adapter resource instances available in this chassis.",
- "Members": [ 
- { "@odata.id": "/redfish/v1/Chassis/1/NetworkAdapters/DC080000/" }, 
- { "@odata.id": "/redfish/v1/Chassis/1/NetworkAdapters/DE083000/" }, 
- { "@odata.id": "/redfish/v1/Chassis/1/NetworkAdapters/DE081000/" }, 
- { "@odata.id": "/redfish/v1/Chassis/1/NetworkAdapters/DE07B000/" } 
- ],
- "Members@odata.count": 4, …
+ 
+  "@odata.etag": "W/"F09DE05C"", "@odata.id": "/redfish/v1/Chassis/1/NetworkAdapters/", 
+  
+  "@odata.type": "#NetworkAdapterCollection.NetworkAdapterCollection", 
+ 
+  "Description": "The collection of network adapter resource instances available in this chassis.",
+ 
+  "Members": [ 
+ 
+  { "@odata.id": "/redfish/v1/Chassis/1/NetworkAdapters/DC080000/" }, 
+ 
+  { "@odata.id": "/redfish/v1/Chassis/1/NetworkAdapters/DE083000/" }, 
+
+  { "@odata.id": "/redfish/v1/Chassis/1/NetworkAdapters/DE081000/" }, 
+
+  { "@odata.id": "/redfish/v1/Chassis/1/NetworkAdapters/DE07B000/" } 
+
+  ],
+
+"Members@odata.count": 4, …
 ```
 
 Make a note of the device IDs in the output above - DC080000, DE083000, DE081000, DE07B000.  The values for these items might be different on the server you are using.
@@ -197,16 +215,11 @@ To modify the value of this property,
     }
    }
    ```
-
-     
 2. Apply this patch via iLOrest
 
    ```
    ilorest rawpatch <file path>\enable-sanboot.txt
    ```
-
-
-
 3. Flush or commit the changes to ilo NVM using the flushtonvm.txt file created before
 
    ```
