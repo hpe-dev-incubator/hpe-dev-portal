@@ -4,7 +4,7 @@ date: 2023-04-26T11:33:07.486Z
 externalLink: ""
 author: Lionel Jullien
 authorimage: /img/small-size-id.jpg
-disable: false
+disable: true
 tags:
   - GreenLake
   - GLCP
