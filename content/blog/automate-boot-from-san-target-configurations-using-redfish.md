@@ -8,13 +8,13 @@ disable: false
 tags:
   - redfish
   - restapi
+  - ilo-restful-api
 ---
 As the scale and complexity of infrastructure deployed in a customer environment increases, the need for consistency, ease of management and agility in responding to the changing needs of the infrastructure consumers becomes a key priority for IT staff.  Operational efficiency has become a key business imperative for customers hosting large IT footprint, and the operational efficiency gains are often achieved through automation of repetitive tasks performed by IT staff to deploy, manage, and operate IT infrastructure.
 
-\
 There are several use-cases of infrastructure automation that exist, and in this blog post we will address the aspect of configuration of OS boot for a server from a Storage Area Network (SAN) based storage array.  Specifically, we will discuss the   procedure for configuring an HPE ProLiant DL Gen10, Gen10 plus and Gen11 servers to boot from a SAN target Logical Unit Number (LUN) using the Redfish® standard DMTF API. 
 
-Note:
+**Note**:
 
 •	The steps outlined in this document were tested on HPE DL 380 Gen10 and Gen10 plus servers with Emulex based SN1610E FibreChannel (FC) cards, HPE iLO firmware 2.81 and Service Pack for ProLiant (SPP) available as of March 2023. 
 
@@ -58,61 +58,58 @@ After rebooting the server, you can verify that the settings have taken effect u
 
 ![](/img/picture1.png "Figure 1: FCScanPolicy configuration")
 
-Step 2: Identify the right FC Card
+## Step 2: Identify the right FC Card
+
 The server you are trying to configure might have one or more FC cards in it, and you need to identify the right card using the steps below.
 
 List out available network adapters (includes FC cards)
 
-`ilorest rawget /redfish/v1/Chassis/1/NetworkAdapters/`
+```markdown
+ilorest rawget /redfish/v1/Chassis/1/NetworkAdapters/
+```
 
 The previous command returns the following output: 
 
-`{
-  "@odata.context": "/redfish/v1/$metadata#NetworkAdapterCollection.NetworkAdapterCollection",
-  "@odata.etag": "W/"F09DE05C"",
-  "@odata.id": "/redfish/v1/Chassis/1/NetworkAdapters/",
-  "@odata.type": "#NetworkAdapterCollection.NetworkAdapterCollection",
-  "Description": "The collection of network adapter resource instances available in this chassis.",`
+```json
+{ 
+  "@odata.context": "/redfish/v1/$metadata#NetworkAdapterCollection.NetworkAdapterCollection", 
+ "@odata.etag": "W/"F09DE05C"", "@odata.id": "/redfish/v1/Chassis/1/NetworkAdapters/", 
+ "@odata.type": "#NetworkAdapterCollection.NetworkAdapterCollection", 
+ "Description": "The collection of network adapter resource instances available in this chassis.",
+ "Members": [ 
+ { "@odata.id": "/redfish/v1/Chassis/1/NetworkAdapters/DC080000/" }, 
+ { "@odata.id": "/redfish/v1/Chassis/1/NetworkAdapters/DE083000/" }, 
+ { "@odata.id": "/redfish/v1/Chassis/1/NetworkAdapters/DE081000/" }, 
+ { "@odata.id": "/redfish/v1/Chassis/1/NetworkAdapters/DE07B000/" } 
+ ],
+ "Members@odata.count": 4, …
+```
 
-`"Members": [
-    {
-      "@odata.id": "/redfish/v1/Chassis/1/NetworkAdapters/DC080000/"
-    },
-    {
-      "@odata.id": "/redfish/v1/Chassis/1/NetworkAdapters/DE083000/"
-    },
-    {
-      "@odata.id": "/redfish/v1/Chassis/1/NetworkAdapters/DE081000/"
-    },
-    {
-      "@odata.id": "/redfish/v1/Chassis/1/NetworkAdapters/DE07B000/"
-    }
-  ],`
-
-`"Members@odata.count": 4,
-…`
-
-Make a note of the device IDs highlighted in the output above.  The values for these highlighted items might be different on the server you are using.
+Make a note of the device IDs in the output above - DC080000, DE083000, DE081000, DE07B000.  The values for these items might be different on the server you are using.
 
 Query these items using the device ID to verify it is the right FC card that you would like to configure, for example using DE083000 device (your output and device IDs might be different).
 
-`ilorest rawget /redfish/v1/Chassis/1/NetworkAdapters/DE083000`
+```
+ilorest rawget /redfish/v1/Chassis/1/NetworkAdapters/DE083000
+```
 
 Look for the following in the output.
 
-`"Location": {
+```
+"Location": {
         "PartLocation": {
           "LocationOrdinalValue": 4,
           "LocationType": "Slot",
           "ServiceLabel": "PCI-E Slot 4"
         }
-…`
+…
 
-`"Manufacturer": "Hewlett Packard Enterprise",`
+"Manufacturer": "Hewlett Packard Enterprise",
 
-`"Model": "HPE StoreFabric SN1610E 32Gb 2-port Fibre Channel Host Bus Adapt",`
+"Model": "HPE StoreFabric SN1610E 32Gb 2-port Fibre Channel Host Bus Adapt",
 
-`"Name": "HPE SN1610E 32Gb 2p FC HBA"`
+"Name": "HPE SN1610E 32Gb 2p FC HBA"
+```
 
 The above values can help you ascertain that you have the right card, and its device ID.
 
@@ -122,54 +119,55 @@ Before you can change the boot from SAN configurations on an FC card, you need t
 
 The current value of this variable can be viewed by querying the adapter.
 
-`ilorest rawget /redfish/v1/Chassis/1/NetworkAdapters/DE083000`
+```markdown
+ilorest rawget /redfish/v1/Chassis/1/NetworkAdapters/DE083000
+```
 
 Towards the end of the generated output from the above command, please check for an entry. 
 "RedfishConfiguration": "Enabled"
 
-If this value is not set, please perform  the following:
+If the value is not set, please perform  the following:
 
 1. Create a file named enable-redfish.txt with the following contents
 
-{
+   ```
+   {
+     "/redfish/v1/Chassis/1/NetworkAdapters/DE083000/":
+    {
+     "Oem":
+     {
+      "Hpe":
+      {
+          "RedfishConfiguration": "Enabled"
+      }
+     }
+    }
+   }
+   ```
+2. Apply this patch via iLOrest
 
-  "/redfish/v1/Chassis/1/NetworkAdapters/DE083000/":
+   ```
+   ilorest rawpatch <file path>\enable-redfish.txt
+   ```
+3. To make this patch permanent, flush the configuration to the iLO NVRAM by creating a file name flushtonvm.txt, with the following contents
 
- {
+   ```json
+   {
+    "/redfish/v1/Chassis/1/NetworkAdapters/DE083000/Actions/Oem/Hpe/HpeNetworkAdapter.FlushConfigurationToNVM/":
+    {
+    }
+   }
+   ```
+4. Post the flush action via iLOrest
 
-  "Oem":
+   ```
+   ilorest rawpost <file path>\flushtonvm.txt
+   ```
+5. Reboot the server
 
-  {
-
-"Hpe": {
-
-"RedfishConfiguration": "Enabled"
-
-}
-
-}
-
-}
-
-}
-
-2 Apply this patch via iLOrest
-`ilorest rawpatch <file path>\enable-redfish.txt`
-
-`3﻿.`To make this patch permanent, flush the configuration to the iLO NVRAM by creating a file name flushtonvm.txt, with the following contents
-`{
-  "/redfish/v1/Chassis/1/NetworkAdapters/DE083000/Actions/Oem/Hpe/HpeNetworkAdapter.FlushConfigurationToNVM/":
-  {`\
-`}
-}`
-
-4 Post the flush action via iLOrest
-
-`ilorest rawpost <file path>\flushtonvm.txt`
-
-5 Reboot the server
-
-`ilorest reboot`
+   ```
+   ilorest reboot
+   ```
 
 ## Step 4: Set Boot from SAN value to Enable for the Adapter
 
@@ -181,7 +179,9 @@ This can be viewed from BIOS configuration UI at the location shown in Figure 2.
 
 This value is part of the FC adapter configuration, and is visible in the output of the following command:
 
-`ilorest rawget /redfish/v1/Chassis/1/NetworkAdapters/DE083000/NetworkDeviceFunctions/1/`
+```
+ilorest rawget /redfish/v1/Chassis/1/NetworkAdapters/DE083000/NetworkDeviceFunctions/1/
+```
 
 Look for "BootMode" in the output generated.
 
@@ -189,21 +189,31 @@ To modify the value of this property,
 
 1. Create a file named enable-sanboot.txt with the following
 
-   `{
-     "/redfish/v1/Chassis/1/NetworkAdapters/DE083000/NetworkDeviceFunctions/1/":
-     {
+   ```
+   {
+    "/redfish/v1/Chassis/1/NetworkAdapters/DE083000/NetworkDeviceFunctions/1/":
+    {
        "BootMode":"FibreChannel"
-     }
-   }`  
+    }
+   }
+   ```
+
+     
 2. Apply this patch via iLOrest
 
-   `ilorest rawpatch <file path>\enable-sanboot.txt`
+   ```
+   ilorest rawpatch <file path>\enable-sanboot.txt
+   ```
 
-<!---->
+
 
 3. Flush or commit the changes to ilo NVM using the flushtonvm.txt file created before
 
-   `ilorest rawpost <file path>\flushtonvm.txt`
+   ```
+   ilorest rawpost <file path>\flushtonvm.txt
+   ```
+
+   ``
 
    ## Step 5: Create the SAN boot target entry
 
@@ -211,64 +221,65 @@ To modify the value of this property,
 
    This entry is created within the BootTargets collection for the Port on the Adapter.
 
-   `ilorest rawget /redfish/v1/Chassis/1/NetworkAdapters/DE083000/NetworkDeviceFunctions/1/`
+   ```
+   ilorest rawget /redfish/v1/Chassis/1/NetworkAdapters/DE083000/NetworkDeviceFunctions/1/
+   ```
 
    In the output, look for entries such as:
 
-   `"FibreChannel": {
-       "BootTargets": [
-         {
-           "BootPriority": 0,
-           "LUNID": "00:00:00:00:00:00:00:00",
-           "WWPN": "00:00:00:00:00:00:00:00"
-         }`
+   ```
+   "FibreChannel": {
+          "BootTargets": [
+            {
+              "BootPriority": 0,
+              "LUNID": "00:00:00:00:00:00:00:00",
+              "WWPN": "00:00:00:00:00:00:00:00"
+            }
+   ```
 
    To create this entry, you will need to find out the Storage WWN and the LUN number exported to this server.
 
    1. Create a patch file (example bootentry.txt file contents shown below).
 
-      `{`
+      ```
+      {
+        "/redfish/v1/Chassis/1/NetworkAdapters/DE083000/NetworkDeviceFunctions/1":
+        {
+        "FibreChannel":
+          {
+          "BootTargets":[
+            {
+            "BootPriority": 0,
+            "LUNID": "00:00:00:00:00:00:00:00",
+            "WWPN": "00:00:00:00:00:00:00:C3"
+            }
+          ]
+         }
+        }
+      }
+      ```
 
-      `"/redfish/v1/Chassis/1/NetworkAdapters/DE083000/NetworkDeviceFunctions/1":`
-
-      `{`
-
-      `"FibreChannel":`
-
-      `{`
-
-      `"BootTargets":[`
-
-      `{`
-
-      `"BootPriority": 0, `
-
-      `"LUNID": "00:00:00:00:00:00:00:00",`
-
-      `"WWPN": "00:00:00:00:00:00:00:C3"`
-
-      `}`
-
-      `]`
-
-      `}`
-
-      `}`
-
-      `}`
+      ``
    2. Apply this patch file via iLOrest
 
-      `ilorest rawpatch <file path>\bootentry.txt`
+      ```
+      ilorest rawpatch <file path>\bootentry.txt
+      ```
    3. Commit the changes by flashing the ilo NVRAM using the using the flushtonvm.txt file created before
 
-      `ilorest rawpost <file path>\flushtonvm.txt`
+      ```
+      ilorest rawpost <file path>\flushtonvm.txt
+      ```
    4. Reboot the server
 
-      `ilorest reboot`
+      ```
+      ilorest reboot
+      ```
+   5. Once the server has reset, you can view the boot order to verify that the new entry for the SAN boot target has been created.
 
-      Once the server has reset, you can view the boot order to verify that the new entry for the SAN boot target has been created.
-
-      `ilorest bootorder`
+      ```
+      ilorest bootorder
+      ```
 
       # Summary
 
