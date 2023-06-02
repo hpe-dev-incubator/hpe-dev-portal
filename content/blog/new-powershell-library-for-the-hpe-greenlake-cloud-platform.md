@@ -13,7 +13,6 @@ tags:
   - Platform
   - Cloud
   - HPE GreenLake
-  - hpe-greenlake-cloud-platform
 ---
 <style>ul li{ font-size:28px;padding-bottom: 10px; line-height: 1.2}</style>
 
