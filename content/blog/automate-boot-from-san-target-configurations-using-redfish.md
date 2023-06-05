@@ -39,7 +39,7 @@ Refer to the [iLOrest documentation](https://hewlettpackard.github.io/python-red
 
 Now that you have gathered the pre-requisite information and installed the ilorest tool, let’s discuss the detailed steps for implementing the automation.
 
-## Step 1: Ensure that the FCScanPolicy value is set to ‘AllTargets’
+## Step 1: Ensure that the `FCScanPolicy` value is set to ‘AllTargets’
 
 ```markdown
 ilorest  get FCScanPolicy --selector Bios
@@ -61,9 +61,25 @@ ilorest commit
 ilorest reboot
 ```
 
-After rebooting the server, you can verify that the settings have taken effect using the get FCScanPolicy command or navigating to the BIOS menus as shown in Figure 1.
+You can monitor the server restart state and continue the configuration when it reaches the `FinishedPost` state, and the `vMainDeviceDiscoveryComplete` device discovery state.  More details about monitoring server state is described in this [article](https://developer.hpe.com/blog/master-the-redfish-server-states-to-improve-your-monitoring-and-manageme/).
 
-![](/img/picture1.png "Figure 1: FCScanPolicy configuration")
+The server state can be retrieved with
+
+`ilorest serverstate`
+
+The device discovery state can be obtained with
+
+```markdown
+ilorest get Oem/Hpe/DeviceDiscoveryComplete/DeviceDiscovery --json
+```
+
+After restarting the server, you can verify that the settings have taken effect using the by navigating to the BIOS menus as shown in Figure 1 or using the commands
+
+```
+ilorest get FCScanPolicy --selector Bios
+```
+
+![Figure 1: FCScanPolicy Bios setting](/img/picture1.png "Figure 1: FCScanPolicy Bios setting")
 
 ## Step 2: Identify the right FC Card
 
@@ -100,7 +116,8 @@ The previous command returns the following output:
 
   ],
 
-"Members@odata.count": 4, …
+"Members@odata.count": 4, 
+…
 ```
 
 Make a note of the device IDs in the output above - DC080000, DE083000, DE081000, DE07B000.  The values for these items might be different on the server you are using.
@@ -146,7 +163,6 @@ Towards the end of the generated output from the above command, please check for
 ```markdown
 "RedfishConfiguration": "Enabled"
 ```
-
 
 If the value is not set, please perform  the following:
 
@@ -219,15 +235,11 @@ To modify the value of this property,
     }
    }
    ```
-
-
 2. Apply this patch via iLOrest
 
    ```markdown
    ilorest rawpatch <file path>\enable-sanboot.txt
    ```
-
-
 3. Flush or commit the changes to ilo NVM using the flushtonvm.txt file created before
 
    ```markdown
