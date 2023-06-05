@@ -61,8 +61,6 @@ ilorest commit
 ilorest reboot
 ```
 
-
-
 **Note**:
 
 A﻿fter restarting the server, remember to logout/login again to the server using ilorest tool to retrieve the updated settings from the server directly, rather than the cache.  You can also update the ilorest cache contents with the following command
@@ -166,16 +164,10 @@ The above values can help you ascertain that you have the right card, and its de
 
 Before you can change the boot from SAN configurations on an FC card, you will have to set `RedfishConfiguration` key to "Enabled" for the specific adapter, if not already done.
 
-The current value of this variable can be viewed by querying the adapter.
+The current value of this key can be viewed by querying the adapter.
 
 ```markdown
 ilorest rawget /redfish/v1/Chassis/1/NetworkAdapters/DE083000
-```
-
-Towards the end of the generated output from the above command, please check for an entry. 
-
-```markdown
-"RedfishConfiguration": "Enabled"
 ```
 
 If the value is not set, please perform  the following:
@@ -313,12 +305,12 @@ To modify the value of this property,
       ```markdown
       ilorest rawpost <file path>\flushtonvm.txt
       ```
-   4. Reboot the server
+   4. Restart the server
 
       ```markdown
       ilorest reboot
       ```
-   5. Once the server has reset, you can view the boot order to verify that the new entry for the SAN boot target has been created.
+   5. Once the server has restarted, you can view the boot order to verify that the new entry for the SAN boot target has been created.
 
       ```markdown
       ilorest bootorder
