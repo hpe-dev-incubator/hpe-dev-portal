@@ -195,7 +195,7 @@ function Header() {
         <TextAlignLeft>
           <ButtonLink
             key="pl"
-            label="HPE GreenLake Cloud Platform"
+            label="HPE GreenLake edge-to-cloud platform"
             to="/greenlake/hpe-greenlake-cloud-platform/home/"
             state={{ state: { isPlatformHeaderClicked: true } }}
             alignSelf="start"
