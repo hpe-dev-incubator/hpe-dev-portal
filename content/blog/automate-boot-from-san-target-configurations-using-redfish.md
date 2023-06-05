@@ -61,11 +61,25 @@ ilorest commit
 ilorest reboot
 ```
 
+
+
+**Note**:
+
+A﻿fter restarting the server, remember to logout/login again to the server using ilorest tool to retrieve the updated settings from the server directly, rather than the cache.  You can also update the ilorest cache contents with the following command
+
+```markdown
+ilorest select Bios. --refresh
+```
+
 You can monitor the server restart state and continue the configuration when it reaches the `FinishedPost` state, and the `vMainDeviceDiscoveryComplete` device discovery state.  More details about monitoring server state is described in this [article](https://developer.hpe.com/blog/master-the-redfish-server-states-to-improve-your-monitoring-and-manageme/).
 
 The server state can be retrieved with
 
-`ilorest serverstate`
+```markdown
+ilorest serverstate
+```
+
+``
 
 The device discovery state can be obtained with
 
@@ -150,7 +164,7 @@ The above values can help you ascertain that you have the right card, and its de
 
 ## Step 3: Verify that Redfish configuration is Enabled
 
-Before you can change the boot from SAN configurations on an FC card, you need to have a variable named "RedfishConfiguration" set to "Enabled" for the specific adapter. 
+Before you can change the boot from SAN configurations on an FC card, you will have to set `RedfishConfiguration` key to "Enabled" for the specific adapter, if not already done.
 
 The current value of this variable can be viewed by querying the adapter.
 
