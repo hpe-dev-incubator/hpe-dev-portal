@@ -89,21 +89,6 @@ function Header() {
     //    );
     // });
     const allLinks = [/* ...elColumns, */ ...glColumns];
-=======
-    const elColumns = externalLinksColumn.map((el, index) => {
-      const { slug, title } = el;
-      return (
-        <ExternalButtonLink
-          key={index}
-          label={title}
-          to={`${slug}`}
-          alignSelf="start"
-          fill="horizontal"
-        />
-      );
-    });
-    const allLinks = [...elColumns, ...glColumns];
->>>>>>> d50b4f7f (removing the replay table and start shrinking down the content of the web portal)
     return allLinks;
   };
   // const iframeRef = useRef();
