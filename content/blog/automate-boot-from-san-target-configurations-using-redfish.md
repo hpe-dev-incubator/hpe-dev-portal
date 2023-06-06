@@ -63,7 +63,7 @@ ilorest reboot
 
 **Note**:
 
-A﻿fter restarting the server, remember to logout/login again to the server using ilorest tool to retrieve the updated settings from the server directly, rather than the cache.  You can also update the ilorest cache contents with the following command
+A﻿fter restarting the server, remember to retrieve the updated Bios settings from the iLO of the server with the following command
 
 ```markdown
 ilorest select Bios. --refresh
@@ -77,18 +77,18 @@ The server state can be retrieved with
 ilorest serverstate
 ```
 
-``
-
-The device discovery state can be obtained with
+The device discovery state can be obtained with the following commands
 
 ```markdown
+ilorest select ComputerSystem. --refresh
 ilorest get Oem/Hpe/DeviceDiscoveryComplete/DeviceDiscovery --json
 ```
 
-After restarting the server, you can verify that the settings have taken effect using the by navigating to the BIOS menus as shown in Figure 1 or using the commands
+After restarting the server, you can verify that the settings have taken effect using the BIOS menus as shown in Figure 1 or using the commands
 
 ```
-ilorest get FCScanPolicy --selector Bios
+ilorest select Bios. --refresh
+ilorest get FCScanPolicy
 ```
 
 ![Figure 1: FCScanPolicy Bios setting](/img/picture1.png "Figure 1: FCScanPolicy Bios setting")
