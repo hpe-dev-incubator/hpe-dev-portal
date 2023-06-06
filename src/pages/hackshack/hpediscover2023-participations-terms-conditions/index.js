@@ -94,11 +94,14 @@ const ParticipationTC = () => {
           <ul>
             <li>Complete one (1) Hack Shack Workshops-on-demand challenge</li>
             <li>Complete the Hack Shack Treasure Hunt</li>
-            <li>Attend one Hack Shack Meet-the-Expert session or customer discussion meetup</li>
             <li>
-              Attend the Hack Shack celebration evening on Wednesday, June 21
-              at 5:30 PM Pacific Time at the Hack Shack zone in the Event show floor 
-              and complete the Hack Shack foosball game at the celebration
+              Attend one Hack Shack Meet-the-Expert session or customer
+              discussion meetup
+            </li>
+            <li>
+              Attend the Hack Shack celebration evening on Wednesday, June 21 at
+              5:30 PM Pacific Time at the Hack Shack zone in the Event show
+              floor and complete the Hack Shack foosball game at the celebration
             </li>
           </ul>
           <Text size="xlarge">
@@ -110,23 +113,29 @@ const ParticipationTC = () => {
           <Text size="xlarge">
             6. <strong>PRIZE:</strong> Interested parties who merely complete an
             Activity or submit an entry are not guaranteed a Prize. Eligible
-            participants who are awarded a Prize will receive either an
-            HPE Developer/Innovate branded t-shirt, or an HPE Developer branded hat
+            participants who are awarded a Prize will receive either an HPE
+            Developer/Innovate branded t-shirt, or an HPE Developer branded hat
             depending on the Activity completed as outlined below:
           </Text>
           <ul>
             <li>
-              One (1) HPE Developer/Innovate branded t-shirt will be awarded for the 
-              completion of one (1) of the following Activities (each, a “Shirt Activity”):
+              One (1) HPE Developer/Innovate branded t-shirt will be awarded for
+              the completion of one (1) of the following Activities (each, a
+              “Shirt Activity”):
               <ul>
-                <li>Complete one (1) Hack Shack Workshops-on-demand challenge</li>
+                <li>
+                  Complete one (1) Hack Shack Workshops-on-demand challenge
+                </li>
                 <li>Complete the Hack Shack Treasure Hunt</li>
-                <li>Attend a Hack Shack Meet-the-Expert session or customer discussion meetup</li>
+                <li>
+                  Attend a Hack Shack Meet-the-Expert session or customer
+                  discussion meetup
+                </li>
               </ul>
             </li>
             <li>
-              One (1) HPE Developer branded hat will be awarded for the completion of the
-              following Activity (“Hat Activity”):
+              One (1) HPE Developer branded hat will be awarded for the
+              completion of the following Activity (“Hat Activity”):
             </li>
             <ul>
               <li>
@@ -140,16 +149,16 @@ const ParticipationTC = () => {
             of the Program by completing one (1) Shirt Activity and one (1) Hat
             Activity during the Program Period. For the sake of clarity, the
             total Prize each participant may win is one (1) t-shirt, one (1)
-            hat. Once a participant has received the total permitted Prize, the participant 
-            may continue to participate in the Activities, but will not be eligible to receive
-            any further Prize(s). The total estimated retail value of each Prize
-            is USD $15.00. The Program budget will not exceed USD $7,350.00 in
-            total and will be allocated on a first come first serve basis. HPE
-            reserves the right to distribute Prizes until the budget is reached.
-            Prizes will be awarded to each participant who completes an eligible
-            entry during the Program Period, while supplies last. Odds of
-            winning depend on the total number of eligible entries received
-            during the Program Period.
+            hat. Once a participant has received the total permitted Prize, the
+            participant may continue to participate in the Activities, but will
+            not be eligible to receive any further Prize(s). The total estimated
+            retail value of each Prize is USD $15.00. The Program budget will
+            not exceed USD $7,350.00 in total and will be allocated on a first
+            come first serve basis. HPE reserves the right to distribute Prizes
+            until the budget is reached. Prizes will be awarded to each
+            participant who completes an eligible entry during the Program
+            Period, while supplies last. Odds of winning depend on the total
+            number of eligible entries received during the Program Period.
           </Text>
           <br />
           <Text size="xlarge">
