@@ -10,7 +10,6 @@ export default function Slacksignup() {
     evt.preventDefault();
     const form = evt.target;
     const email = form.email.value;
-    console.log(email);
     if (email) {
       const doInvite = () => {
         // add as a formdata in key value pairs ;
@@ -36,7 +35,6 @@ export default function Slacksignup() {
               });
             } else {
               let { error } = data;
-              console.log(error);
               if (error === 'already_invited' || error === 'already_in_team') {
                 const el = document.createElement('div');
                 el.innerHTML =
