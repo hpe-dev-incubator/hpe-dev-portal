@@ -246,6 +246,8 @@ You may want to edit an existing blog post. For example, you may need to update 
 
 ## Creating and editing a platform page
 
+>**Important Note:** In this document, a platform can be a product page, an HPE GreenLake page or an HPE key Open Source project page. Select the appropriate category in the CMS editor as explained below.
+
 1.  In the CMS, from the **Contents** tab, select **(1) Platforms (for a Product page); (2) GreenLake for an HPE GreenLake page; (3) Opensource for an Opensource page.** in the Collections tab. Click on **(1) New Platforms; (2) New GreenLake; (3) New Opensource** button to create a new product page, GreenLake page, and Opensource page respectively. To edit an existing Product/GreenLake/Opensource page, locate the Platform/GreenLake/Opensource page to edit (HPE Ezmeral Data Fabric in our example). This opens the editor.
 
     <center><img src="media/guide-platform-content-edit.png" width="800" height="773"></center>
