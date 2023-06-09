@@ -21,8 +21,6 @@ Grommet is used by developers and designers alike to build both enterprise-class
 
 [Join HPE and the active Grommet Community on GitHub ![](Github)](https://github.com/grommet/grommet) 
 
-- - -
-
 ## What’s new with Grommet v2?
 
 HPE product designer at grommet.io, Chris Carlozzi, explains how Grommet is evolving.
@@ -37,17 +35,13 @@ HPE product designer at grommet.io, Chris Carlozzi, explains how Grommet is evol
 * [Access the Grommet Storybook](https://storybook.grommet.io/?path=/story/components--all)
 * [Check out the Grommet PlayGround](https://v2.grommet.io/play)
 
-- - -
-
 ## HPE Design System
 
 The HPE Design System demonstrates how grommet can be themed and used to build user interfaces with your own brand. The HPE Design System is used within HPE to guide the design of the user interfaces that HPE creates.
 
 * [Go to the HPE Design System Homepage](https://design-system.hpe.design/)
 
-- - -
-
-# Workshops-on-Demand
+## Workshops-on-Demand
 
 Take advantage of our free, Jupyter-Notebook based Workshops-on-Demand available in the [Hack Shack](/hackshack). These technical workshops provide you with an in-depth, hands-on learning experience where you can interact with and learn from the experts. Designed to fit your schedule, these workshops are available 24/7 – any time, from anywhere. Grommet workshops are available today.
 
@@ -55,7 +49,6 @@ Take advantage of our free, Jupyter-Notebook based Workshops-on-Demand available
 <div class="w3-container w3-center w3-margin-bottom">
   <a href="/hackshack/workshops"><button type="button" class="button">Try now!</button></a>
 </div>
-- - -
 
 ## Any questions on Grommet?
 

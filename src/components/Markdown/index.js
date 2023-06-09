@@ -66,17 +66,45 @@ const components = {
   p: {
     component: Paragraph,
     props: {
-      fill: true,
       size: 'xlarge',
+    },
+  },
+  h1: {
+    component: Heading,
+    props: {
+      margin: { vertical: 'large' },
+      level: 1,
+    },
+  },
+  h2: {
+    component: Heading,
+    props: {
+      margin: { vertical: 'large' },
+      level: 2,
+    },
+  },
+  h3: {
+    component: Heading,
+    props: {
+      margin: { vertical: 'medium' },
+      level: 3,
+    },
+  },
+  h4: {
+    component: Heading,
+    props: {
+      margin: { vertical: 'medium' },
+      level: 4,
     },
   },
   hr: {
     component: Box,
     props: {
       border: {
-        top: 'small',
+        side: 'top',
         color: 'border',
       },
+      margin: { vertical: 'large' },
     },
   },
   img: {

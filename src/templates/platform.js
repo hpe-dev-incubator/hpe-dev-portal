@@ -20,7 +20,6 @@ import { useSiteMetadata } from '../hooks/use-site-metadata';
 // Remove padding or margin from first markdown element.
 // This allows the heading and content to have the same gap.
 const MarkdownLayout = styled(Markdown)`
-  max-width: 988px;
   & > *:first-child {
     margin-top: 0;
     padding-top: 0;
