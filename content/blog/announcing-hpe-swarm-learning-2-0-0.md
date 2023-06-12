@@ -5,6 +5,8 @@ featuredBlog: true
 author: HPE Swarm Learning Team
 authorimage: /img/Avatar1.svg
 disable: false
+tags:
+  - swarm-learning
 ---
 We’re excited to announce HPE Swarm Learning 2.0.0 community release!!
 
