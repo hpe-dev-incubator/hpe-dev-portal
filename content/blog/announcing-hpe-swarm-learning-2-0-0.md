@@ -1,15 +1,12 @@
 ---
 title: Announcing HPE Swarm Learning 2.0.0
-date: 2023-05-11T04:47:46.996Z
+date: 2023-06-12T16:48:53.923Z
 featuredBlog: true
 author: HPE Swarm Learning Team
 authorimage: /img/Avatar1.svg
 disable: false
 ---
-<!--StartFragment-->
-
 We’re excited to announce HPE Swarm Learning 2.0.0 community release!!
-
 
 In the previous Swarm version, if the sentinel SN goes down during Swarm training, the training process would stop, and there was no way to resume it. However, with this release, we have addressed the issue by implementing a mesh topology(connectivity) between SNs, replacing the previous star topology where only the sentinel SN was connected to other SNs. Also, we now support multiple blockchain miners instead of just one miner in the sentinel SN. Now, even if the initial sentinel SN goes down, since other SNs also function as miners, it allows the training to continue uninterrupted. Additionally, when the initial sentinel SN is down and if a new SN wants to join the network, it can seamlessly integrate and join the Swarm network with the help of any other SN node. This **high availability configuration** ensures improved resilience and robustness of  Swarm Learning.
 
@@ -43,5 +40,3 @@ With HPE Swarm Learning v2.0.0 release, user can now extend Swarm client to supp
 * [H﻿PE Swarm Learning client readme](https://github.com/HewlettPackard/swarm-learning/blob/master/lib/src/README.md)
 
 #### For any questions, start a discussion in our [\#hpe-swarm-learning](https://hpedev.slack.com/archives/C04A5DK9TUK) slack channel on [HPE Developer Slack Workspace](https://slack.hpedev.io/)
-
-<!--EndFragment-->
