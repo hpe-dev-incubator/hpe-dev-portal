@@ -16,19 +16,19 @@ Also, we now support multiple blockchain miners instead of just one miner in the
 
 In the HPE Swarm Learning sync stage (defined by sync frequency), when it is time to share the learning from the individual model, one of the Swarm Learning (SL) nodes is designated as the “leader” node. This leader node collects the individual models from each peer node and merges them into a single model by combining parameters of all the individuals. The **Leader Failure Detection and Recovery (LFDR)** feature enables SL nodes to continue Swarm training during the merging process when an SL leader node fails. A new SL leader node is selected to continue the merging process. If the failed SL leader node comes back after the new SL leader node is in action, the failed SL leader node is treated as a normal SL node and contributes its learning to the swarm global model.
 
-With HPE Swarm Learning v2.0.0 release, user can now extend Swarm client to support other machine learning platforms as well. Currently Swarm client supports machine learning platforms like PyTorch and Keras (based on Tensorflow 2 in backend). Please find the instructions to extend Swarm client [here](https://github.com/HewlettPackard/swarm-learning/blob/master/lib/src/README.md).
+With the HPE Swarm Learning v2.0.0 release, a user can now extend a Swarm client to support other machine learning platforms as well. Currently Swarm client supports machine learning platforms like PyTorch and Keras (based on Tensorflow 2 in backend). Please find the instructions to extend Swarm client [here](https://github.com/HewlettPackard/swarm-learning/blob/master/lib/src/README.md).
 
 #### **2.0.0 release contains following updates:**
 
 * High availability for SN
 
-  * Handling Sentinel node failure.
-  * Any SN node can act as sentinel while adding new node.
-  * Supports mesh topology of SN network.
+  * Handles Sentinel node failure
+  * Ensures any SN node can act as sentinel while adding new node
+  * Supports mesh topology of SN network
 * High availability for SL leader
 
-  * Electing new merge leader when a leader failure is detected.
-  * Handles stale leader recovery.
+  * Elects a new merge leader when a leader failure is detected
+  * Handles stale leader recovery
 * Swarm Learning Management UI (SLM-UI)
 
   * Swarm product installation through SLM-UI.
