@@ -302,12 +302,12 @@ To modify the value of this property,
       ```markdown
       ilorest rawpatch <file path>\bootentry.txt
       ```
-   3. Commit the changes by flashing the ilo NVRAM using the flushtonvm.txt file created before
+   3. Commit the changes by flashing the ilo NVRAM using the flushtonvm.txt file created before.
 
       ```markdown
       ilorest rawpost <file path>\flushtonvm.txt
       ```
-   4. Restart the server
+   4. Restart the server.
 
       ```markdown
       ilorest reboot
