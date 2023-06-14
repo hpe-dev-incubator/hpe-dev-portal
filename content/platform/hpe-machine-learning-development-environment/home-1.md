@@ -32,6 +32,6 @@ With the HPE Machine Learning Development Environment, ML practitioners can:
 
 Using a comprehensive array of features integrated into an easy-to-use, high-performance ML environment, ML engineers can focus on building better models, instead of managing IT infrastructure. Using the HPE Machine Learning Development Environment that supports both cloud and on-premises deployment infrastructure, practitioners can develop models using PyTorch, TensorFlow, or Keras. HPE Machine Learning Development Environment also integrates seamlessly with today’s most popular ML tools for data preparation and model deployment.
 
-H﻿PE Machine Learning Development Environment is built upon the widely popular open source training platform, [Determined](determined.ai). You can see related articles about Determined on the HPE Developer portal [here](https://developer.hpe.com/platform/determined-ai/home). 
+H﻿PE Machine Learning Development Environment is built upon the widely popular open source training platform, [Determined](determined.ai). Check out [these related articles](https://developer.hpe.com/platform/determined-ai/home) about Determined on the HPE Developer portal.[here](https://developer.hpe.com/platform/determined-ai/home). 
 
-W﻿e also invite you to check out the Documentation for HPE Machine Learning Development Environment [here](https://hpe-mlde.determined.ai/latest/).
+W﻿e also invite you to check out the [Documentation](https://hpe-mlde.determined.ai/latest/) for HPE Machine Learning Development Environment.
