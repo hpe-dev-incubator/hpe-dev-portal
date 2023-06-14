@@ -43,4 +43,4 @@ With the HPE Swarm Learning v2.0.0 release, a user can now extend a Swarm client
 * [H﻿PE Swarm Learning home page](https://github.com/HewlettPackard/swarm-learning)
 * [H﻿PE Swarm Learning client readme](https://github.com/HewlettPackard/swarm-learning/blob/master/lib/src/README.md)
 
-#### For any questions, start a discussion in our [\#hpe-swarm-learning](https://hpedev.slack.com/archives/C04A5DK9TUK) slack channel on [HPE Developer Slack Workspace](https://slack.hpedev.io/)
+For any questions, start a discussion in our [\#hpe-swarm-learning](https://hpedev.slack.com/archives/C04A5DK9TUK) slack channel on [HPE Developer Slack Workspace](https://slack.hpedev.io/)
