@@ -40,20 +40,20 @@ const HPEDiscoverTreasureHuntTC = () => {
           <br />
           <Text size="xlarge">
             2. <strong>INTRODUCTION:</strong> HPE invites HPE Discover 2023
-            (“Event”) attendees who wish to complete the HPE Developer Community Hack
-            Shack Treasure Hunt (“Treasure Hunt”) to participate in the HPE
-            Developer Community Hack Shack Treasure Hunt Giveaway (“Program”) for a chance
-            to win an HPE Developer Community branded sweatshirt (“Prize”), subject to the
-            terms and conditions below (“Terms and Conditions”). By
-            participating in the Program, participants affirm that they have
-            read, accepted, and agree to waive any right to claim any ambiguity
-            or error in these Terms and Conditions or the entry itself and agree
-            to be bound by these Terms and Conditions and HPE’s decisions, which
-            are final and binding in all respects. HPE reserves the right to
-            review, modify, extend or discontinue any and/or all aspects of the
-            Program, including these Terms and Conditions, at any time without
-            prior notice. The Program is subject to federal, state, and local
-            laws and regulations and is void where prohibited.
+            (“Event”) attendees who wish to complete the HPE Developer Community
+            Hack Shack Treasure Hunt (“Treasure Hunt”) to participate in the HPE
+            Developer Community Hack Shack Treasure Hunt Giveaway (“Program”)
+            for a chance to win an HPE Developer Community branded sweatshirt
+            (“Prize”), subject to the terms and conditions below (“Terms and
+            Conditions”). By participating in the Program, participants affirm
+            that they have read, accepted, and agree to waive any right to claim
+            any ambiguity or error in these Terms and Conditions or the entry
+            itself and agree to be bound by these Terms and Conditions and HPE’s
+            decisions, which are final and binding in all respects. HPE reserves
+            the right to review, modify, extend or discontinue any and/or all
+            aspects of the Program, including these Terms and Conditions, at any
+            time without prior notice. The Program is subject to federal, state,
+            and local laws and regulations and is void where prohibited.
           </Text>
           <br />
           <Text size="xlarge">
@@ -91,12 +91,12 @@ const HPEDiscoverTreasureHuntTC = () => {
             must access the Treasure Hunt website by either (i) scanning the
             Treasure Hunt QR Code provided in the Hack Shack using their mobile
             phone, or (ii) using one of the designated Treasure Hunt laptops
-            provided in the Hack Shack. At the HPE Developer Community Hack Shack website,
-            participants must then select the Treasure Hunt card and click on
-            the “Hunt for Treasure!” button. Participants must then complete the
-            Treasure Hunt quiz by exploring the Hack Shack area and the HPE
-            Developer Community’s rich ecosystem and submit their entry via the
-            Treasure Hunt form during the Program Period.
+            provided in the Hack Shack. At the HPE Developer Community Hack
+            Shack website, participants must then select the Treasure Hunt card
+            and click on the “Hunt for Treasure!” button. Participants must then
+            complete the Treasure Hunt quiz by exploring the Hack Shack area and
+            the HPE Developer Community’s rich ecosystem and submit their entry
+            via the Treasure Hunt form during the Program Period.
           </Text>
           <br />
           <Text size="xlarge">
@@ -109,16 +109,17 @@ const HPEDiscoverTreasureHuntTC = () => {
             eligible entries received during the Program Period. A panel of two
             (2) HPE judges will select the twelve (12) winners who they
             determine have submitted the best Treasure Hunt entries based on the
-            following criteria: Completeness, accuracy of responses, and date/time
-            of the submission. Odds of winning depend on the total number of eligible 
-            entries received during the Program Period. Should you be awarded a Prize, 
-            it shall be your responsibility to claim the Prize by attending the 
-            HPE Hack Shack celebration party on Wednesday, June 21, 2023 at 5:30 PM
-            Pacific Time in the HPE Hack Shack zone in the Event show floor. 
-            In order to win a Prize, participants must be present at the HPE Hack Shack
-            celebration party at the time the winners are announced. Failure to be present will result 
-            in forfeiture of the Prize, and an alternate winner may be selected from among the
-            remaining eligible entries.
+            following criteria: Completeness, accuracy of responses, and
+            date/time of the submission. Odds of winning depend on the total
+            number of eligible entries received during the Program Period.
+            Should you be awarded a Prize, it shall be your responsibility to
+            claim the Prize by attending the HPE Hack Shack celebration party on
+            Wednesday, June 21, 2023 at 5:30 PM Pacific Time in the HPE Hack
+            Shack zone in the Event show floor. In order to win a Prize,
+            participants must be present at the HPE Hack Shack celebration party
+            at the time the winners are announced. Failure to be present will
+            result in forfeiture of the Prize, and an alternate winner may be
+            selected from among the remaining eligible entries.
           </Text>
           <br />
           <Text size="xlarge">
