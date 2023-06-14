@@ -65,7 +65,7 @@ ilorest reboot
 
 **Note**:
 
-A﻿fter restarting the server, remember to retrieve the updated Bios settings from the iLO of the server with the following command
+A﻿fter restarting the server, remember to retrieve the updated Bios settings from the iLO of the server with the following command:
 
 ```markdown
 ilorest select Bios. --refresh
@@ -73,20 +73,20 @@ ilorest select Bios. --refresh
 
 You can monitor the server restart state and continue the configuration when it reaches the `FinishedPost` state, and the `vMainDeviceDiscoveryComplete` device discovery state.  More details about monitoring server state is described in this [article](https://developer.hpe.com/blog/master-the-redfish-server-states-to-improve-your-monitoring-and-manageme/).
 
-The server state can be retrieved with
+The server state can be retrieved with:
 
 ```markdown
 ilorest serverstate
 ```
 
-The device discovery state can be obtained with the following commands
+The device discovery state can be obtained with the following commands:
 
 ```markdown
 ilorest select ComputerSystem. --refresh
 ilorest get Oem/Hpe/DeviceDiscoveryComplete/DeviceDiscovery --json
 ```
 
-After restarting the server, you can verify that the settings have taken effect using the BIOS menus as shown in Figure 1 or using the commands
+After restarting the server, you can verify that the settings have taken effect using the BIOS menus as shown in Figure 1 or using the commands:
 
 ```
 ilorest select Bios. --refresh
@@ -164,7 +164,7 @@ The above values can help you ascertain that you have the right card, and its de
 
 ## Step 3: Verify that Redfish configuration is Enabled
 
-Before you can change the boot from SAN configurations on an FC card, you will have to set `RedfishConfiguration` key to "Enabled" for the specific adapter, if not already done.
+Before you can change the boot from SAN configurations on an FC card, you will have to set `RedfishConfiguration` key to "Enabled" for the specific adapter, if it has not already been done.
 
 The current value of this key can be viewed by querying the adapter.
 
