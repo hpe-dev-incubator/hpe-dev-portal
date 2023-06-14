@@ -29,17 +29,17 @@ Before we dive into the steps for performing the automation, you will need to ga
 Download and install the [HPE RESTful Interface Tool](https://www.hpe.com/info/resttool)  (version 4.1.0.0 or later) on the system you will initiate the automation actions from.
 
 
-Once the RESTful Interface tool (referred to as iLOrest in the remainder of the document) has been installed, you can review the current boot target and their order of execution by following the steps below
+Once the RESTful Interface tool (referred to as iLOREST in the remainder of the document) has been installed, you can review the current boot target and their order of execution by following the steps below
 
 `ilorest login <ilo-ip> -u <ilo-user> -p password`
 
 `ilorest bootorder`
 
-Refer to the [iLOrest documentation](https://hewlettpackard.github.io/python-redfish-utility/#bootorder-command) for more information on this command.
+Refer to the iLOREST[documentation](https://hewlettpackard.github.io/python-redfish-utility/#bootorder-command) for more information on this command.
 
 # Configuration Steps
 
-Now that you have gathered the pre-requisite information and installed the ilorest tool, let’s discuss the detailed steps for implementing the automation.
+Now that you have gathered the pre-requisite information and installed the iLOREST tool, let’s discuss the detailed steps for implementing the automation.
 
 ## Step 1: Ensure that the `FCScanPolicy` value is set to ‘AllTargets’
 
@@ -190,7 +190,7 @@ If the value is not set, please perform  the following:
     }
    }
    ```
-2. Apply this patch via iLOrest
+2. Apply this patch via iLOREST
 
    ```markdown
    ilorest rawpatch <file path>\enable-redfish.txt
@@ -204,7 +204,7 @@ If the value is not set, please perform  the following:
     }
    }
    ```
-4. Post the flush action via iLOrest
+4. Post the flush action via iLOREST
 
    ```markdown
    ilorest rawpost <file path>\flushtonvm.txt
@@ -243,7 +243,7 @@ To modify the value of this property,
     }
    }
    ```
-2. Apply this patch via iLOrest
+2. Apply this patch via iLOREST
 
    ```markdown
    ilorest rawpatch <file path>\enable-sanboot.txt
@@ -297,7 +297,7 @@ To modify the value of this property,
         }
       }
       ```
-   2. Apply this patch file via iLOrest
+   2. Apply this patch file via iLOREST
 
       ```markdown
       ilorest rawpatch <file path>\bootentry.txt
@@ -320,6 +320,6 @@ To modify the value of this property,
 
       # Summary
 
-      In this blog post, we have learnt how easy it is to automate the configuration of boot from SAN targets for HPE servers using the iLOrest tool.  There are other aspects of server provisioning, monitoring, and management that you can automate with this tool and using the Redfish API interface supported by HPE iLO.  
+      In this blog post, we have learnt how easy it is to automate the configuration of boot from SAN targets for HPE servers using the iLOREST tool.  There are other aspects of server provisioning, monitoring, and management that you can automate with this tool and using the Redfish API interface supported by HPE iLO.  
 
       To learn more about these topics, check out [HPE Developer portal](https://developer.hpe.com/search/?term=redfish) for additional blogs and technical articles.
