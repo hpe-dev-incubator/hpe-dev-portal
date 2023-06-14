@@ -9,8 +9,8 @@ description: HPE Machine Learning Development Environment helps developers train
   machine learning model development.
 image: /img/platforms/hpe-element.png
 width: large
-priority: 2
-active: false
+priority: 4
+active: true
 ---
 Machine learning (ML) engineers and data scientists are on a never-ending search for new solutions that will enable them to better focus on innovation and accelerate their time to production—and this is what [HPE Machine Learning Development Environment](https://www.hpe.com/us/en/solutions/artificial-intelligence/machine-learning-development-environment.html) is all about.
 
@@ -30,7 +30,7 @@ With the HPE Machine Learning Development Environment, ML practitioners can:
 
 • Track and reproduce their work with experiment tracking that works out of the box, covering code versions, metrics, checkpoints, and hyperparameters
 
-Using a comprehensive array of features integrated into an easy-to-use, high-performance ML environment, ML engineers can focus on building better models, instead of managing IT infrastructure. Using the HPE Machine Learning Development Environment that supports both cloud and on-premises deployment infrastructure, practitioners can develop models using PyTorch, TensorFlow™, or Keras. HPE Machine Learning Development Environment also integrates seamlessly with today’s most popular ML tools for data preparation and model deployment.
+Using a comprehensive array of features integrated into an easy-to-use, high-performance ML environment, ML engineers can focus on building better models, instead of managing IT infrastructure. Using the HPE Machine Learning Development Environment that supports both cloud and on-premises deployment infrastructure, practitioners can develop models using PyTorch, TensorFlow, or Keras. HPE Machine Learning Development Environment also integrates seamlessly with today’s most popular ML tools for data preparation and model deployment.
 
 H﻿PE Machine Learning Development Environment is built upon the widely popular open source training platform, [Determined](determined.ai). You can see related articles about Determined on the HPE Developer portal [here](https://developer.hpe.com/platform/determined-ai/home). 
 
