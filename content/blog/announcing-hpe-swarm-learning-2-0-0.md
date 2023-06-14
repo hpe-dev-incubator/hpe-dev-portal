@@ -8,7 +8,7 @@ disable: false
 tags:
   - swarm-learning
 ---
-We’re excited to announce HPE Swarm Learning 2.0.0 community release!!
+We’re excited to announce the HPE Swarm Learning 2.0.0 community release!!
 
 In the previous Swarm version, if the sentinel Swarm Network (SN) node goes down during Swarm training, the training process would stop, and there was no way to resume it. However, with this release, we have addressed the issue by implementing a mesh topology(connectivity) between SNs, replacing the previous star topology where only the sentinel SN was connected to other SNs. Also, we now support multiple blockchain miners instead of just one miner in the sentinel SN. Now, even if the initial sentinel SN goes down, since other SNs also function as miners, it allows the training to continue uninterrupted. Additionally, when the initial sentinel SN is down and if a new SN wants to join the network, it can seamlessly integrate and join the Swarm network with the help of any other SN node. This **high availability configuration** ensures improved resilience and robustness of HPE Swarm Learning.
 
