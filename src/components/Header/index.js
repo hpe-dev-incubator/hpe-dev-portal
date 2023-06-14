@@ -38,10 +38,10 @@ function Header() {
   const greenlake = data?.greenlake?.edges;
 
   const GreenLakeButtonLinks = ({ column }) => {
-  /* const leftColumn = greenlake.filter((gl, index) => index % 2 === 0); */
-  const leftColumn = greenlake;
-  const rightColumn = greenlake.filter((gl, index) => index % 2); 
-  
+    /* const leftColumn = greenlake.filter((gl, index) => index % 2 === 0); */
+    const leftColumn = greenlake;
+    const rightColumn = greenlake.filter((gl, index) => index % 2);
+
     const externalLinks = [
       {
         title: 'HPE GreenLake API Portal',
