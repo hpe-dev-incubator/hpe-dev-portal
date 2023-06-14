@@ -35,7 +35,7 @@ With the HPE Swarm Learning v2.0.0 release, a user can now extend a Swarm client
   * Deploys and manages Swarm Learning through SLM-UI
 * Swarm client library
 
-  * Extends Swarm Learning for new ML platforms.
+  * Extends Swarm Learning for new ML platforms
 * Improved diagnostics and utility script for logs collection.
 
 #### For complete details on this new release, please refer to the following resources:
