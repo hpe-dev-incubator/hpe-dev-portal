@@ -1,237 +1,362 @@
-import React, { useState,useContext } from 'react';
-// import '../../css/style.css';
-import Swal from 'sweetalert2';
-import { Box, Image, Button, TextInput, Text } from 'grommet';
-import PropTypes from 'prop-types';
-import { graphql } from 'gatsby';
-import { Layout, SEO } from '../../components';
+/* eslint-disable max-len */
+import React, { useContext, useEffect } from 'react';
+import axios from 'axios';
+import {
+  Box,
+  Button,
+  DropButton,
+  Header as GrommetHeader,
+  Nav,
+  // Menu as HeaderMenu,
+  ResponsiveContext,
+} from 'grommet';
+import { Menu, Search, FormDown } from 'grommet-icons';
+import styled from 'styled-components';
 import { AppContext } from '../../providers/AppProvider';
+import { ButtonLink } from '..';
+import { UserMenu } from './UserMenu';
 
-const { GATSBY_SLACK_TOKEN } = process.env;
-const { GATSBY_SLACK_INVITE_URL } = process.env;
-const image = '/images/hero-pic.png';
-const buttonstyle = {
-  backgroundColor: '#dcdcdc',
-  borderRadius: '100px',
-  align: 'center',
-  height: '50px',
-  fontSize: '15px',
-  fontFamily: 'sans-serif',
-};
-export default function Slacksignup() {
-  const { user: userDetails } = useContext(AppContext);
-  const [email, setemail] = useState(userDetails?.email || '');
-  const onsubmit = (evt) => {
-    evt.preventDefault();
-    if (email) {
-      const doInvite = () => {
-        const formData = new FormData();
-        formData.append('email', email);
-        formData.append('token', GATSBY_SLACK_TOKEN);
-        formData.append('set_active', true);
-        return fetch(GATSBY_SLACK_INVITE_URL, {
-          method: 'POST',
-          body: formData,
-          json: true,
-        })
-          .then((res) => res.json())
-          .then((res) => {
-            if (res.ok) {
-              const el = document.createElement('div');
-              el.innerHTML = `Please check <b> ${email}</b> 
-                              for an invite from slack`;
-              Swal.fire({
-                title: 'SUCCESS !',
-                html: el,
-                icon: 'success',
-              });
-            } else {
-              let { error } = res;
-              if (error === 'already_invited' || error === 'already_in_team') {
-                const el = document.createElement('div');
-                el.innerHTML =
-                  "It seems like you are already member of our slack.<br>Visit <a href=https://hpedev.slack.com target='_blank' > <b> HPE Developer Community</b></a> on slack";
-                Swal.fire({
-                  title: 'Success',
-                  html: el,
-                  icon: 'success',
-                });
-              } else if (error === 'already_in_team_invited_user') {
-                const l = document.createElement('div');
-                l.innerHTML = `Please check again <b style="font-size:large;" > ${email} </b> for an invite from Slack.<br>Visit <a href=https://developer.hpe.com/ target="_blank"> HPE Developer Community</a>`;
-                Swal.fire({
-                  title: 'It seems like we already sent you our slack invite',
-                  html: l,
-                  icon: 'info',
-                });
-              } else {
-                if (error === 'invalid_email') {
-                  error = 'The email you entered is an invalid email.';
-                } else if (error === 'invalid_auth') {
-                  error =
-                    'Something has gone wrong. Please' +
-                    ' contact a system administrator.';
-                }
-                Swal.fire({
-                  title: 'Error',
-                  html: error,
-                  icon: 'error',
-                });
-              }
-            }
-          })
-          .catch((err) => {
-            Swal.fire({
-              title: 'Error !',
-              html: err,
-              icon: 'error',
-            });
-          });
-      }; // end of doInvite
-      doInvite();
-    } // end of if statement
-    else {
-      const errMsg = [];
-      if (!email) {
-        errMsg.push('your email is required');
-      }
-      Swal.fire({
-        html: `Failed! ${errMsg.join(' and ')}.`,
-        icon: 'info',
-      });
+const { GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT } = process.env;
+const { GATSBY_COCKPIT_HPE_OAUTH } = process.env;
+
+// const { GATSBY_CLIENT_ID } = process.env;
+// const { GATSBY_CLIENT_OAUTH } = process.env;
+
+const TextAlignLeft = styled(Box)`
+  & > a {
+    text-align: left;
+    font-weight: 400;
+    padding-right: 30px;
+  }
+`;
+
+function Header() {
+  const { data, user: userDetail } = useContext(AppContext);
+
+  const platforms = data?.platform?.edges;
+  const opensource = data?.opensource?.edges;
+  const greenlake = data?.greenlake?.edges;
+
+  const GreenLakeButtonLinks = ({ column }) => {
+    /* const leftColumn = greenlake.filter((gl, index) => index % 2 === 0); */
+    const leftColumn = greenlake;
+    const rightColumn = greenlake.filter((gl, index) => index % 2);
+
+    const externalLinks = [
+      {
+        title: 'HPE GreenLake API Portal',
+        slug: 'https://developer.greenlake.hpe.com/',
+      },
+      {
+        title: 'HPE GreenLake Test Drive',
+        slug: 'https://testdrive.greenlake.hpe.com/',
+      },
+    ];
+
+    // const externalLeftColumn = externalLinks.filter(
+    //   (el, index) => index % 2 === 0,
+    // );
+    // const externalRightColumn = externalLinks.filter((el, index) => index % 2);
+    // const externalLinksColumn =
+    //   column === 'left' ? externalLeftColumn : externalRightColumn;
+    const greenlakeColumn = column === 'left' ? leftColumn : rightColumn;
+
+    const glColumns = greenlakeColumn.map((gl, index) => {
+      const { slug } = gl.node.fields;
+      const { title } = gl.node.frontmatter;
+
+      return (
+        <ButtonLink
+          key={index}
+          label={title}
+          to={`/greenlake${slug}`}
+          alignSelf="start"
+          fill="horizontal"
+        />
+      );
+    });
+    // const elColumns = externalLinksColumn.map((el, index) => {
+    //   const { slug, title } = el;
+    //   return (
+    //     <ExternalButtonLink
+    //       key={index}
+    //       label={title}
+    //       to={`${slug}`}
+    //       alignSelf="start"
+    //       fill="horizontal"
+    //     />
+    //   );
+    // });
+    const allLinks = [/* ...elColumns, */ ...glColumns];
+    return allLinks;
+  };
+  // const iframeRef = useRef();
+
+  const PlatformButtonLinks = ({ column }) => {
+    const leftColumn = platforms.filter((platform, index) => index % 2 === 0);
+    const rightColumn = platforms.filter((platform, index) => index % 2);
+    const platformsColumn = column === 'left' ? leftColumn : rightColumn;
+
+    return platformsColumn.map((platform, index) => {
+      const { slug } = platform.node.fields;
+      const { title } = platform.node.frontmatter;
+
+      return (
+        <ButtonLink
+          key={index}
+          label={title}
+          to={`/platform${slug}`}
+          alignSelf="start"
+          fill="horizontal"
+        />
+      );
+    });
+  };
+
+  const OpenSourceButtonLinks = ({ column }) => {
+    const leftColumn = opensource.filter((os, index) => index % 2 === 0);
+    const rightColumn = opensource.filter((os, index) => index % 2);
+    const osColumn = column === 'left' ? leftColumn : rightColumn;
+
+    return osColumn.map((os, index) => {
+      const { slug } = os.node.fields;
+      const s = slug.toLowerCase();
+      const { title } = os.node.frontmatter;
+
+      return (
+        <ButtonLink
+          key={index}
+          label={title}
+          to={`/platform${s}home`}
+          alignSelf="start"
+          fill="horizontal"
+        />
+      );
+    });
+  };
+
+  const handleHPESignIn = () => {
+    let redirectURI =
+      typeof window !== 'undefined'
+        ? window.location.href
+        : 'https://developer.hpe.com';
+    redirectURI +=
+      redirectURI.charAt(redirectURI.length - 1) !== '/' ? '/' : '';
+
+    console.log(
+      'Sign in URL+++',
+      `${GATSBY_COCKPIT_HPE_OAUTH}?redirectUri=${redirectURI}`,
+    );
+    window.location.href = `${GATSBY_COCKPIT_HPE_OAUTH}?redirectUri=${redirectURI}`;
+  };
+  // const hanldeGitHubSignIn = () => {
+  //   window.location.href = `${GATSBY_CLIENT_OAUTH}?scope=user&client_id=${GATSBY_CLIENT_ID}&redirect_uri=${GATSBY_REDIRECT_URI}`;
+  // };
+
+  useEffect(() => {
+    // After requesting Github access, Github redirects back to your app with a code parameter
+    const url = window.location.href;
+    const hasCode = url.includes('?code=');
+    // If Github API returns the code parameter
+    if (hasCode) {
+      const newUrl = url.split('?code=');
+      window.history.pushState({}, null, newUrl[0]);
+      axios
+        .post(
+          `${GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/users/github-auth`,
+          {
+            code: newUrl[1],
+          },
+        )
+        .then((result) => {
+          localStorage.setItem('userInfo', JSON.stringify(result.data));
+          window.location.reload();
+        });
     }
-    setTimeout(() => {
-      setemail('');
-    }, 2500);
-  };
-  const handlechange = (event) => {
-    setemail(event.target.value);
-  };
-  return (
-    <Layout>
-      <SEO title="Slack-signup" />
-      <Box direction="row-responsive" pad="xlarge" gap="xlarge" align="center">
-        <Box>
-          <Box style={{ marginTop: '-30px' }}>
-            <Text size="xlarge" style={{ margingTop: '-10px', color: 'grey' }}>
-              Sign up for
-            </Text>
-            <h1
-              style={{
-                fontFamily: 'sans-serif',
-                color: '#220',
-                fontWeight: 550,
-                letterSpacing: '0.5px',
-                fontSize: '63px',
-                lineHeight: '5rem',
-              }}
-            >
-              HPE Developer Community <br /> Slack
-            </h1>
-            <Image
-              style={{
-                height: '80px',
-                width: '100px',
-                float: 'right',
-                marginTop: '-120px',
-                marginLeft: '170px',
-              }}
-              src="/img/community/slack.svg"
-              alt="slack logo"
-            />
-            <p style={{ fontWeight: 400, fontSize: '22px' }}>
-              Where you’ll find all things software at HPE. Join us to
-              collaborate and build applications and integrations with HPE
-              products using the latest software and open source technologies
-            </p>
+  }, []);
+
+  // console.log('--user-- Header', userDetail);
+  const size = useContext(ResponsiveContext);
+  const navLinks = [
+    // <ButtonLink align="start" key="os" label="Open Source" to="/opensource" />,
+    // <ButtonLink
+    //   align="start"
+    //   key="os"
+    //   label="HPE GreenLake"
+    //   to="/platform/hpe-greenlake/home"
+    // />,
+    <DropButton
+      label="HPE GreenLake"
+      align="start"
+      dropAlign={{ top: 'bottom', left: 'left' }}
+      icon={<FormDown />}
+      reverse
+      dropContent={
+        <TextAlignLeft>
+          <ButtonLink
+            key="pl"
+            label="HPE GreenLake edge-to-cloud platform"
+            to="/greenlake/hpe-greenlake-cloud-platform/home/"
+            state={{ state: { isPlatformHeaderClicked: true } }}
+            alignSelf="start"
+            fill="horizontal"
+          />
+          <Box direction="row">
+            <TextAlignLeft>
+              <GreenLakeButtonLinks column="left" />
+            </TextAlignLeft>
+            {/*             <TextAlignLeft>
+              <GreenLakeButtonLinks column="right" />
+            </TextAlignLeft> */}
           </Box>
-          <Text size="large">Email</Text>
-          <form className="form" id="join-form" onSubmit={onsubmit}>
-            <Box align="center" border={{ side: 'bottom', size: 'small' }}>
-              <TextInput
-                type="email"
-                placeholder="example@my.com"
-                value={email}
-                name="email"
-                onChange={handlechange}
-                style={{ position: 'relative', marginLeft: '-10px' }}
-                required
-                plain
-              />
-            </Box>
-            <br />
-            <Button
-              label="Join us on Slack"
-              primary
-              reverse
-              type="submit"
-              onSubmit={onsubmit}
-              icon={
-                <Image
-                  src="/img/home/hpe-element.png"
-                  style={{ width: '50px' }}
-                />
-              }
-              style={{
-                backgroundColor: '#01A982',
-                borderRadius: '100px',
-                color: '#ffffff',
-                width: '250px',
-                position: 'relative',
-                height: '40px',
-              }}
-            />
-          </form>
-        </Box>
-        <Box align="center">
-          <Image src={image} alt="hpedev logo" />
-        </Box>
+        </TextAlignLeft>
+      }
+    />,
+    <DropButton
+      label="Products"
+      dropAlign={{ top: 'bottom', left: 'left' }}
+      icon={<FormDown />}
+      reverse
+      dropContent={
+        <TextAlignLeft>
+          <ButtonLink
+            key="pl"
+            label="All Products"
+            to="/platforms"
+            state={{ state: { isPlatformHeaderClicked: true } }}
+            alignSelf="start"
+            fill="horizontal"
+          />
+          <Box direction="row">
+            <TextAlignLeft>
+              <PlatformButtonLinks column="left" />
+            </TextAlignLeft>
+            <TextAlignLeft>
+              <PlatformButtonLinks column="right" />
+            </TextAlignLeft>
+          </Box>
+        </TextAlignLeft>
+      }
+    />,
+    <DropButton
+      label="OpenSource"
+      align="start"
+      dropAlign={{ top: 'bottom', left: 'left' }}
+      icon={<FormDown />}
+      reverse
+      dropContent={
+        <TextAlignLeft>
+          <ButtonLink
+            key="pl"
+            label="All Open Source"
+            to="/opensource"
+            state={{ state: { isPlatformHeaderClicked: true } }}
+            alignSelf="start"
+            fill="horizontal"
+          />
+          <Box direction="row">
+            <TextAlignLeft>
+              <OpenSourceButtonLinks column="left" />
+            </TextAlignLeft>
+            <TextAlignLeft>
+              <OpenSourceButtonLinks column="right" />
+            </TextAlignLeft>
+          </Box>
+        </TextAlignLeft>
+      }
+    />,
+    // <ButtonLink
+    //   key="euc"
+    //   label="Explore Use Cases"
+    //   to="/use-cases"
+    //   alignSelf="start"
+    // />,
+    // <ButtonLink align="start" key="yr" label="Your Role" to="/role" />,
+    <ButtonLink align="start" key="ev" label="Events" to="/events" />,
+    <ButtonLink align="start" key="su" label="Skill Up" to="/skillup" />,
+
+    <ButtonLink align="start" key="cm" label="Community" to="/community" />,
+  ];
+
+  navLinks.push(
+    <ButtonLink
+      align="start"
+      key="bl"
+      label="Blog"
+      to="/blog"
+      state={{ state: { isBlogHeaderClicked: true } }}
+    />,
+  );
+
+  if (!userDetail) {
+    navLinks.push(
+      <Button
+        align="start"
+        key="os"
+        label="SIGN IN"
+        secondary
+        onClick={handleHPESignIn}
+      />,
+    );
+  }
+  if (size === 'small') {
+    navLinks.push(
+      <ButtonLink
+        align="start"
+        to="/search"
+        icon={<Search />}
+        label="Search"
+        reverse
+      />,
+    );
+  }
+
+  return (
+    <GrommetHeader
+      justify="between"
+      pad={{ horizontal: 'medium', vertical: 'small' }}
+    >
+      <Box flex={false}>
+        <ButtonLink label="HPE Developer" to="/" />
       </Box>
-      <Box
-        direction="row-responsive"
-        pad="xlarge"
-        gap="medium"
-        align="center"
-        style={{ marginTop: '-120px' }}
-      >
-        <Button label="50+ Channels" style={buttonstyle} />
-        <Button label="Over 4,000 members" style={buttonstyle} />
-        <Button label="6 Years+ Community" style={buttonstyle} />
-      </Box>
-    </Layout>
+      {size === 'small' ? (
+        <DropButton
+          icon={<Menu />}
+          dropAlign={{ top: 'bottom' }}
+          dropContent={<Nav direction="column">{navLinks}</Nav>}
+        />
+      ) : (
+        <Box flex="shrink" overflow="hidden" pad="2px">
+          <Nav direction="row" gap="medium">
+            {navLinks.map((l, index) => (
+              <Box key={index} flex={false}>
+                {l}
+              </Box>
+            ))}
+          </Nav>
+        </Box>
+      )}
+      {size !== 'small' && (
+        <ButtonLink
+          align="start"
+          to="/search"
+          icon={<Search />}
+          label="Search"
+          reverse
+        />
+      )}
+      {userDetail && <UserMenu userInfo={userDetail} />}
+
+      {/* <iframe
+        title="cookie-session"
+        ref={iframeRef}
+        id="iframe"
+        src="https://origin-qa-www-hpe-com.ext.hpe.com/us/en/service-pages/hfws-cookie.html"
+        style={{ display: 'none' }}
+      /> */}
+    </GrommetHeader>
   );
 }
 
-Slacksignup.propTypes = {
-  data: PropTypes.shape({
-    site: PropTypes.shape({
-      siteMetadata: PropTypes.shape({
-        title: PropTypes.string.isRequired,
-      }).isRequired,
-    }).isRequired,
-    markdownRemark: PropTypes.shape({
-      frontmatter: PropTypes.shape({
-        title: PropTypes.string.isRequired,
-        image: PropTypes.string,
-      }).isRequired,
-      rawMarkdownBody: PropTypes.string,
-    }).isRequired,
-  }),
-};
-export const slack = graphql`
-  query {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-    markdownRemark(fields: { slug: { eq: "/" } }) {
-      excerpt
-      frontmatter {
-        title
-        image
-      }
-      rawMarkdownBody
-    }
-  }
-`;
+export default Header;
+
