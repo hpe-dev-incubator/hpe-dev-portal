@@ -31,8 +31,8 @@ With the HPE Swarm Learning v2.0.0 release, a user can now extend a Swarm client
   * Handles stale leader recovery
 * Swarm Learning Management UI (SLM-UI)
 
-  * Swarm product installation through SLM-UI.
-  * Deploy and Manage Swarm Learning through SLM-UI.
+  * Supports Swarm product installation through SLM-UI
+  * Deploys and manages Swarm Learning through SLM-UI
 * Swarm client library
 
   * Extend Swarm Learning for new ML platforms.
