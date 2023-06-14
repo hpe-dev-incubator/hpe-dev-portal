@@ -1,5 +1,5 @@
 # HPE Developer External Contributor Guide
-**Version 2.0** - 20 March, 2023
+**Version 2.1** - 7 June, 2023
 
 >**Note:** A recording of the training session delivered on April 30, 2021 is available [here](https://vimeo.com/544486602). 
 
@@ -246,9 +246,9 @@ You may want to edit an existing blog post. For example, you may need to update 
 
 ## Creating and editing a platform page
 
->**Important Note:** For the image logo for the platform, make sure you first work with HPE Developer team to determine the best image logo for your platform page. The recommended image size 216px x 216px and format is **SVG** file (an SVG image will not lose quality/resolution when scaled up or down). if needed, HPE Developer team can work with you to design an appropriate image logo for your platform. 
+>**Important Note:** In this document, a platform can be a product page, an HPE GreenLake page or an HPE key Open Source project page. Select the appropriate category in the CMS editor as explained below.
 
-1.  In the CMS, from the **Contents** tab, select **Platforms** in the Collections tab. Click on **New Platforms** button to create a new platform. To edit an existing platform, locate the platform to edit (HPE Ezmeral Data Fabric in our example) and select the Platform. This opens the editor.
+1.  In the CMS, from the **Contents** tab, select **(1) Platforms (for a Product page); (2) GreenLake for an HPE GreenLake page; (3) Opensource for an Opensource page.** in the Collections tab. Click on **(1) New Platforms; (2) New GreenLake; (3) New Opensource** button to create a new product page, GreenLake page, and Opensource page respectively. To edit an existing Product/GreenLake/Opensource page, locate the Platform/GreenLake/Opensource page to edit (HPE Ezmeral Data Fabric in our example). This opens the editor.
 
     <center><img src="media/guide-platform-content-edit.png" width="800" height="773"></center>
 
@@ -729,6 +729,7 @@ If appropriate, use a tag to tie your blog post to a **"Product"** page or a **"
   | **Chapel**                         | chapel |
   | **HPE Cray Programming environment** | hpe-cray-programming-environment |
   | **Determined AI**                  | determined-ai |
+  | **HPE Machine Learning Development Environment** | hpe-machine-learning-development-environment |
   | **Grommet**                        | grommet |
   | **Aruba Central**                  | aruba ; aruba-central|
   | **HPE 3PAR and Primera**           | hpe-3par-and-primera |
