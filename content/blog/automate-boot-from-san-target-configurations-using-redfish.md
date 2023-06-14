@@ -172,7 +172,7 @@ The current value of this key can be viewed by querying the adapter.
 ilorest rawget /redfish/v1/Chassis/1/NetworkAdapters/DE083000
 ```
 
-If the value is not set, please perform  the following:
+If the value is not set, please perform the following steps:
 
 1. Create a file named enable-redfish.txt with the following contents
 
