@@ -729,6 +729,7 @@ If appropriate, use a tag to tie your blog post to a **"Product"** page or a **"
   | **Chapel**                         | chapel |
   | **HPE Cray Programming environment** | hpe-cray-programming-environment |
   | **Determined AI**                  | determined-ai |
+  | **HPE Machine Learning Development Environment** | hpe-machine-learning-development-environment |
   | **Grommet**                        | grommet |
   | **Aruba Central**                  | aruba ; aruba-central|
   | **HPE 3PAR and Primera**           | hpe-3par-and-primera |
