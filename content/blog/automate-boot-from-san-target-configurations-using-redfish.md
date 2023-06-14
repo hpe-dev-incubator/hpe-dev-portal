@@ -195,7 +195,7 @@ If the value is not set, please perform the following steps:
    ```markdown
    ilorest rawpatch <file path>\enable-redfish.txt
    ```
-3. To make this patch permanent, flush the configuration to the iLO NVRAM by creating a file name flushtonvm.txt, with the following contents
+3. To make this patch permanent, flush the configuration to the iLO NVRAM by creating a file name flushtonvm.txt, with the following contents:
 
    ```json
    {
@@ -215,7 +215,7 @@ If the value is not set, please perform the following steps:
    ilorest reboot
    ```
 
-## Step 4: Set Boot from SAN value to Enable for the Adapter
+## Step 4: Set boot from SAN value to "Enable" for the adapter
 
 For each SN1610E adapter on your server that you would like to enable for SAN boot, there is a variable "BootMode" that needs to have a value of "FibreChannel".  
 
@@ -233,7 +233,7 @@ Look for "BootMode" in the output generated.
 
 To modify the value of this property, 
 
-1. Create a file named enable-sanboot.txt with the following
+1. Create a file named enable-sanboot.txt with the following:
 
    ```json
    {
