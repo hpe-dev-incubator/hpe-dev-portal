@@ -27,7 +27,9 @@ Before we dive into the steps for performing the automation, you will need to ga
 * Storage target World Wide Number (WWN) and LUN id.  A storage administrator can typically provide you with this information.
 
 Download and install the [HPE RESTful Interface Tool](https://www.hpe.com/info/resttool)  (version 4.1.0.0 or later) on the system you will initiate the automation actions from.
-Once the RESTful Interface tool (referred to as iLOrest in the remainder of the document), you can review the current boot target and their order of execution by following the steps below
+
+
+Once the RESTful Interface tool (referred to as iLOrest in the remainder of the document) has been installed, you can review the current boot target and their order of execution by following the steps below
 
 `ilorest login <ilo-ip> -u <ilo-user> -p password`
 
