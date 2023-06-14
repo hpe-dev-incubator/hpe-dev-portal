@@ -17,6 +17,7 @@ tags:
   - data-ml-engineer
   - machine-learning
   - developer
+  - hpe-machine-learning-development-environment
 ---
 Determined is an open-source training platform that aims to simplify deep learning (DL) model development and experimentation for data science teams by providing tools like distributing training, automatic model tuning, GPU resource management, and automatic experiment tracking.
 
