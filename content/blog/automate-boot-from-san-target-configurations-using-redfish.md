@@ -83,6 +83,7 @@ The device discovery state can be obtained with the following commands:
 
 ```markdown
 ilorest select ComputerSystem. --refresh
+
 ilorest get Oem/Hpe/DeviceDiscoveryComplete/DeviceDiscovery --json
 ```
 
