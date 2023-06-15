@@ -482,7 +482,6 @@ _=predict(model,images_t_list,targets_t_list)
 ```
 
 In the next part of our blog, we scale our model training using distributed training within HPE Machine Learning Development Environment & System. 
--﻿---
 
 # Part 4: Training on HPE Machine Learning Development & System
 
