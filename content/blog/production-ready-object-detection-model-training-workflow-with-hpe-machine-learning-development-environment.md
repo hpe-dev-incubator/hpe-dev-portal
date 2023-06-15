@@ -6,6 +6,10 @@ priority: 4
 author: Andrew Mendez
 authorimage: /img/andrew.jpeg
 disable: false
+tags:
+  - hpe-machine-learning-development-environment
+  - machine-learning
+  - data-ml-engineer
 ---
 This blog will recount the seamless user experience with [HPE Machine Learning Development Environment](https://www.hpe.com/us/en/solutions/artificial-intelligence/machine-learning-development-environment.html), pointing out how easy it is to achieve machine learning at scale with HPE.  
 
