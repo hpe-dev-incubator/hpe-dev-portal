@@ -49,6 +49,4 @@ I owe a lot to free software. That's mostly what allowed me to learn computing, 
 
 But that takes time (that is, personal time) and money (we need machines to test on, as well as power to run them). I am glad to see more and more companies supporting open source. Recently, HPE gave me a replacement for my old server, I'll never thank them enough for that kindness! This is a sign that things are changing: this would probably have not been possible a few years ago. I think everybody now understands why it is so important to support open source development. Giving hardware is a kind of support, sharing code is another one. Let's encourage companies to continue that way!
 
-As for individuals, do not hesitate to report bugs or share code. You will participate in making great things and get fantastic feedback from the community...
-
-Way to go!
+As for individuals, do not hesitate to report bugs or share code. You will participate in making great things and get fantastic feedback from the community!
