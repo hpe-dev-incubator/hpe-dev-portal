@@ -257,7 +257,9 @@ You may want to edit an existing blog post. For example, you may need to update 
     
     >**Important Note:** Please keep the options "FEATURED" and "ACTIVE" toggled Off.
      
-    >**Important Note:** The text font size in the preview area will be smaller than what is rendered in the Platform page in HPE Developer portal. 
+    >**Important Note:** The text font size in the preview area will be smaller than what is rendered in the Platform page in HPE Developer portal.
+    
+    > **Important Note:** The HPE developer COmmunity team will create a "Tag" for your platform page as appropriate in order to tie related blog posts to the plaform landing page. 
 
     <center><img src="media/guide-platform-body.png" width="1200" height="541"></center>
 
