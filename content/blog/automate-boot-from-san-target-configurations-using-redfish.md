@@ -90,6 +90,7 @@ After restarting the server, you can verify that the settings have taken effect 
 
 ```
 ilorest select Bios. --refresh
+
 ilorest get FCScanPolicy
 ```
 
