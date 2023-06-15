@@ -772,7 +772,7 @@ Now that we have a checkpoint from our trained object detection model, we can de
 
 # Part 5: Deploying Trained model on Kserve
 
- ----
+
 This notebook walks you each step to deploy a custom object detection model on KServe. 
 
 We will show you how to:
@@ -787,15 +787,19 @@ Note: This notebook was tested on a Linux-based machine with Nvidia T4 GPUs. We 
 
 Let's get started!
 
- ----
-
 ## Pre-reqs: Setting up Python and Jupyter Lab environment:
 Run the below commands to set up a python virtual environment, and install all the python packages needed for this tutorial
-* `sudo apt-get update && sudo apt-get  install python3.8-venv`
-* `python3 -m venv kserve_env`
-* `source kserve_env/bin/activate`
-* `pip install kserve jupyterlab torch-model-archiver torch==1.11.0 torchvision==0.12.0 matplotlib`
-* `jupyter lab --ip=0.0.0.0 --port=8008 --NotebookApp.token='' --NotebookApp.password=''`
+```
+sudo apt-get update && sudo apt-get  install python3.8-venv
+python3 -m venv kserve_env
+source kserve_env/bin/activate
+pip install kserve jupyterlab torch-model-archiver
+pip install torch==1.11.0 torchvision==0.12.0 matplotlib
+jupyter lab --ip=0.0.0.0 \
+  --port=8008 \
+  --NotebookApp.token='' \
+  --NotebookApp.password=''
+```
 
 ## Install Kserve Natively using Kind and Knative
 
@@ -1057,7 +1061,7 @@ im
 
 
     
-![png](E2E-Part-5_Deployment_Kserve_files/E2E-Part-5_Deployment_Kserve_26_0.png)
+![png](output_26_0.png)
     
 
 
@@ -1144,7 +1148,7 @@ plt.imshow(im)
 
 
     
-![png](E2E-Part-5_Deployment_Kserve_files/E2E-Part-5_Deployment_Kserve_34_1.png)
+![png](output_34_1.png)
     
 
 
