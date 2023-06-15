@@ -73,7 +73,7 @@ ilorest select Bios. --refresh
 
 You can monitor the server restart state and continue the configuration when it reaches the `FinishedPost` state, and the `vMainDeviceDiscoveryComplete` device discovery state.  More details about monitoring server state is described in this [article](https://developer.hpe.com/blog/master-the-redfish-server-states-to-improve-your-monitoring-and-manageme/).
 
-The server state can be retrieved with:
+The server state can be retrieved with the following command:
 
 ```markdown
 ilorest serverstate
