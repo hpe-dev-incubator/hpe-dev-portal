@@ -68,9 +68,10 @@ Open up your favorite browser and enter: [http://localhost:8888/?token=*yourtok
 You should see the Jupyter Lab application. Click on the plus icon to launch a new Python 3 notebook. Follow along with the image classification with the TensorFlow example provided in Part 2. 
 
 Now that we have our Docker Engine installed and the PyTorch Container running, we need to fetch and prepare our training dataset. That’s coming up in Part 2 below.
- ----
-# Part 2: Data Preparation
 
+- - -
+
+# Part 2: Data Preparation
 
 Note this Demo is based on ngc docker image `nvcr.io/nvidia/pytorch:21.11-py3`
 
@@ -85,22 +86,24 @@ We will show you how to:
 
 Let's get started!
 
----
+- - -
 
-## Pre-reqs, set up jupyter notebook environment using NGC container 
+## Pre-reqs, set up jupyter notebook environment using NGC container
 
 ### Execute docker run to create NGC environment for Data Prep
+
 Make sure to map host directory to docker directory, we will use the host directory again to 
+
 * `docker run   --gpus all --ipc=host --ulimit memlock=-1 --ulimit stack=67108864 -v /home/ubuntu:/home/ubuntu  -p 8008:8888 -it nvcr.io/nvidia/pytorch:21.11-py3  /bin/bash`
 
 ### Run Jupyter notebook command within Docker container to access it on your local browser
+
 * `cd /home/ubuntu`
 * `jupyter lab --ip=0.0.0.0 --port=8888 --NotebookApp.token='' --NotebookApp.password=''` 
 * `git clone https://github.com/interactivetech/e2e_blogposts.git`
 
-
-
 ### Download the Xview Dataset
+
 The dataset we will be using is from the [DIUx xView 2018 Challenge](https://challenge.xviewdataset.org) by U.S. National Geospatial-Intelligence Agency (NGA). You will need to [create an account](https://challenge.xviewdataset.org/welcome), agree to the terms and conditions, and download the dataset manually.
 
 You can also [download the dataset](https://challenge.xviewdataset.org/data-download).
@@ -110,24 +113,20 @@ You can also [download the dataset](https://challenge.xviewdataset.org/data-down
 !pip install sahi scikit-image opencv-python-headless==4.5.5.64
 ```
 
-
 ```python
 # Example command to download train images with wget command, you will need to update the url as the token is expired"
 !wget -O train_images.tgz "https://d307kc0mrhucc3.cloudfront.net/train_images.tgz?Expires=1680923794&Signature=pn0R9k3BpSukGEdjcNx7Kvs363HWkngK8sQLHxkDOqqkDAHSOCDBmAMAsBhYZ820uMpyu4Ynp1UAV60OmUURyvGorfIRaVF~jJO8-oqRVLeO1f24OGCQg7HratHNUsaf6owCb8XXy~3zaW15FcuORuPV-2Hr6Jxekwcdw9D~g4M2dLufA~qBfTLh3uNjWK5UCAMvyPz2SRLtvc3JLzGYq1eXiKh1dI9W0DyWXov3mVDpBdwS84Q21S2lVi24KJsiZOSJqozuvahydW2AuR~tbXTRbYtmAyPF9ZqT8ZCd9MLeKw2qQJjb7tvzaSZ0F9zPjm2RS8961bo6QoBVeo6kzA__&Key-Pair-Id=APKAIKGDJB5C3XUL2DXQ"
 ```
-
 
 ```python
 # Example command to download train images with wget command, you will need to update the url as the token is expired"
 !wget -O train_labels.tgz "https://d307kc0mrhucc3.cloudfront.net/train_labels.tgz?Expires=1680923794&Signature=YEX~4gioZ7J0pAjEPx7BjJfnOa2j412mx2HlStlqa0cHj-T0T21vo17S8Fs71DXgPlZ5qnIre2-icc7wQ~EuQV-HL1ViS8qH1Aubgj9i0pnHZL07ktiyulX7QStOLywxJ7bOOmQ37iFF~-OcJW3MZfQCTWrP~LdlZMmXz0yGs5WEIYeMyvfUfIhGvrpHcJ14Z3czasSMeOKfwdQsUJoRcFTbmlbZk98IVeEWjmnGTfxGbPBdMmQ96XdT4NohggtzGdqeZhGNfwm7dKGSUbXvGCoFe~fIjBz0~5BvB6rNIaMaFuBA6aGTbCLeG8FlvijcECouhZdMTHmQUlgtSlZjGw__&Key-Pair-Id=APKAIKGDJB5C3XUL2DXQ"
 ```
 
-
 ```python
 # unzip images and labels from /home/ubuntu/e2e_blogposts/ngc_blog
 !tar -xf train_images.tgz -C xview_dataset/
 ```
-
 
 ```python
 # unzip labels from /home/ubuntu/e2e_blogposts/ngc_blog directory 
@@ -135,7 +134,6 @@ You can also [download the dataset](https://challenge.xviewdataset.org/data-down
 ```
 
 ## 1. Convert TIF to RGB
-
 
 ```python
 # Here loop through all the images and convert them to RGB, this is important for tiling the images and training with pytorch
@@ -145,10 +143,10 @@ You can also [download the dataset](https://challenge.xviewdataset.org/data-down
 ```
 
 ## 2. How to convert labels to coco format
+
 Here we run a script to convert the dataset labels from .geojson format to COCO format. More details on the COCO format here: 
 
 The result will be two files (in COCO formal) generated `train.json` and `val.json`
-
 
 ```python
 # make sure train_images_dir is pointing to the .tif images
@@ -159,12 +157,11 @@ The result will be two files (in COCO formal) generated `train.json` and `val.js
   --train_split_rate 0.75 \
   --category_id_remapping data_utils/category_id_mapping.json \
   --xview_class_labels data_utils/xview_class_labels.txt
-
 ```
 
 ## 3. Slicing/Tiling the Dataset
-Here we are using the SAHI library to slice our large satellite images. Satellite images can be up to 50k^2 pixels in size, which wouldnt fit in GPU memory. We alleviate this problem by slicing the image. 
 
+Here we are using the SAHI library to slice our large satellite images. Satellite images can be up to 50k^2 pixels in size, which wouldnt fit in GPU memory. We alleviate this problem by slicing the image. 
 
 ```python
 !python data_utils/slice_coco.py --image_dir xview_dataset/train_images_rgb/ \
@@ -182,21 +179,24 @@ Here we are using the SAHI library to slice our large satellite images. Satellit
 
 We will now upload our exported data to a publically accessible S3 bucket. This will enable for a large scale distributed experiment to have access to the dataset without installing the dataset on device. 
 View these links to learn how to upload your dataset to an S3 bucket. Review the `S3Backend` class in `data.py`
+
 * https://docs.determined.ai/latest/training/load-model-data.html#streaming-from-object-storage
 * https://codingsight.com/upload-files-to-aws-s3-with-the-aws-cli/
 
 Once you create an S3 bucket that is publically accessible, here are example commands to upload the preprocessed dataset to S3:
+
 * `aws s3 cp --recursive xview_dataset/train_sliced_no_neg/   s3://determined-ai-xview-coco-dataset/train_sliced_no_neg`
 * `aws s3 cp --recursive xview_dataset/val_sliced_no_neg/   s3://determined-ai-xview-coco-dataset/val_sliced_no_neg`
 
 ```python
 
 ```
+
 Our satellite imagery data is in an S3 bucket and is prepped for distributed training, so now we can progress to model training and inference via the NGC Container.  
 
 # Part 3: End-to-End Example training object detection model using NVIDIA Pytorch Container from NGC
-## Training and Inference via NGC Container
 
+## Training and Inference via NGC Container
 
 This notebook walks you each step to train a model using containers from the NGC Catalog. We chose the GPU optimized Pytorch container as an example. The basics of working with docker containers apply to all NGC containers.
 
@@ -212,15 +212,15 @@ We assume you completed step 2 of dataset preprocessing and have your tiled sate
 Let's get started!
 
 ## Execute docker run to create NGC environment for Data Prep
+
 make sure to map host directory to docker directory, we will use the host directory again to 
+
 * `docker run   --gpus all --ipc=host --ulimit memlock=-1 --ulimit stack=67108864 -v /home/ubuntu:/home/ubuntu  -p 8008:8888 -it nvcr.io/nvidia/pytorch:21.11-py3  /bin/bash`
 
 ## Run Jupyter notebook command within docker container to access it on your local browser
+
 * `cd /home/ubuntu`
 * `jupyter lab --ip=0.0.0.0 --port=8888 --NotebookApp.token='' --NotebookApp.password=''` 
-
-
-
 
 ```python
 %%capture
@@ -228,9 +228,10 @@ make sure to map host directory to docker directory, we will use the host direct
 ```
 
 ## TLDR; Run training job on 4 GPUS
-The below cell will run a multi-gpu training job. This job will train an object detection model (faster-rcnn) on a dataset of satellite imagery images that contain 61 classes of objects
-* Change `nproc_per_node` argument to specify the number of GPUs available on your server
 
+The below cell will run a multi-gpu training job. This job will train an object detection model (faster-rcnn) on a dataset of satellite imagery images that contain 61 classes of objects
+
+* Change `nproc_per_node` argument to specify the number of GPUs available on your server
 
 ```python
 !torchrun --nproc_per_node=4 detection/train.py\
@@ -239,14 +240,13 @@ The below cell will run a multi-gpu training job. This job will train an object 
 ```
 
 ### 1. Object Detection on Satellite Imagery with PyTorch (Single GPU)
-Follow and Run the code to train a Faster RCNN FPN (Resnet50 backbone) that classifies images of clothing. 
 
+Follow and Run the code to train a Faster RCNN FPN (Resnet50 backbone) that classifies images of clothing. 
 
 ```python
 import sys
 sys.path.insert(0,'detection')
 ```
-
 
 ```python
 # Import python dependencies
@@ -282,7 +282,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 ```
 
-
 ```python
 output_dir='output'
 data_path='xview_dataset/'
@@ -311,7 +310,6 @@ test_only=False
 sync_bn=False
 ```
 
-
 ```python
 # Import the dataset.
 # Data loading code
@@ -337,14 +335,11 @@ data_loader_test = torch.utils.data.DataLoader(
     dataset_test, batch_size=1,
     sampler=test_sampler, num_workers=0,
     collate_fn=utils.collate_fn)
-
 ```
-
 
 ```python
 
 ```
-
 
 ```python
 # Getting three examples from the test dataset
@@ -365,7 +360,6 @@ for ind in tqdm(range(3)):
     targets_t_list.append(targets[0])
 ```
 
-
 ```python
 # Let's have a look at one of the images. The following code visualizes the images using the matplotlib library.
 im = Image.fromarray((255.*images_t_list[0].cpu().permute((1,2,0)).numpy()).astype(np.uint8))
@@ -373,11 +367,9 @@ plt.imshow(im)
 plt.show()
 ```
 
-
 ```python
 
 ```
-
 
 ```python
 # Let's look again at the first three images, but this time with the class names.
@@ -391,12 +383,9 @@ for i,t in zip(images_t_list,targets_t_list):
     plt.show()
 ```
 
-
 ```python
 
-
 ```
-
 
 ```python
 # Let's build the model:
@@ -404,15 +393,11 @@ print("Creating model")
 print("Number of classes: ",dataset.num_classes)
 model = build_frcnn_model(num_classes=dataset.num_classes)
 _=model.to('cpu')
-
-
 ```
-
 
 ```python
 
 ```
-
 
 ```python
 # Compile the model:
@@ -431,9 +416,7 @@ elif lr_scheduler == 'cosineannealinglr':
 else:
     raise RuntimeError("Invalid lr scheduler '{}'. Only MultiStepLR and CosineAnnealingLR "
                        "are supported.".format(args.lr_scheduler))
-
 ```
-
 
 ```python
 # Train the model:
@@ -465,7 +448,6 @@ total_time = time.time() - start_time
 total_time_str = str(datetime.timedelta(seconds=int(total_time)))
 print('Training time {}'.format(total_time_str))
 ```
-
 
 ```python
 def build_frcnn_model2(num_classes):
@@ -501,25 +483,22 @@ def build_frcnn_model2(num_classes):
     return model
 ```
 
-
 ```python
 # Let's see how the model performs on the test data:
 model = build_frcnn_model2(num_classes=61)
 ckpt = torch.load('model_8.pth',map_location='cpu')
 model.load_state_dict(ckpt['model'])
 _=model.eval()
-
 ```
-
 
 ```python
 _=predict(model,images_t_list,targets_t_list)
 ```
 
-
 ```python
 
 ```
+
 In the next part of our blog, we scale our model training using distributed training within HPE Machine Learning Development Environment & System. 
 -﻿---
 
@@ -540,11 +519,12 @@ We will show you how to:
 
 Let's get started!
 
- ----
+- - -
 
 ## Pre-req: Run startup-hook.sh
 
 This script will install some python dependencies, and install dataset labels needed when loading the Xview dataset:
+
 ```bash
 ## Temporary disable for Grenoble Demo
 wget "https://determined-ai-xview-coco-dataset.s3.us-west-2.amazonaws.com/train_sliced_no_neg/train_300_02.json"
@@ -556,6 +536,7 @@ mv val_300_02.json /tmp/val_sliced_no_neg/val_300_02.json
 ```
 
 *Note that completing this tutorial requires you to upload your dataset from Step 2 into a publically accessible S3 bucket. This will enable for a large scale distributed experiment to have access to the dataset without installing the dataset on device. View these links to learn how to upload your dataset to an S3 bucket. Review the `S3Backend` class in `data.py`.*
+
 * https://docs.determined.ai/latest/training/load-model-data.html#streaming-from-object-storage
 * https://codingsight.com/upload-files-to-aws-s3-with-the-aws-cli/
 
@@ -584,13 +565,14 @@ def build_training_data_loader(self) -> DataLoader:
     print("NUMBER OF BATCHES IN COCO: ",len(data_loader))# 59143, 7392 for mini coco
 ```
 
-
 ```python
 !bash demos/xview-torchvision-coco/startup-hook.sh 
 ```
 
 ## Define environment variable DET_MASTER and login in terminal
+
 Run the below commands in a terminal, and complete logging into the determined cluster by chaning <username> to your username.
+
 * `export DET_MASTER=10.182.1.43`
 * `det user login <username>`
 
@@ -660,20 +642,20 @@ resources:
 max_restarts: 0
 
 entrypoint: python3 -m determined.launch.torch_distributed --trial model_def:ObjectDetectionTrial
-
 ```
-
 
 ```python
 # Run the below cell to kick off an experiment
 !det e create determined_files/const-distributed.yaml determined_files/
 ```
 
-    Preparing files to send to master... 237.5KB and 36 files
-    Created experiment 77
-
+```
+Preparing files to send to master... 237.5KB and 36 files
+Created experiment 77
+```
 
 ## Launching a Distributed Hyperparameter Search Experiment
+
 To implement an automatic hyperparameter tuning experiment, we need to define the hyperparameter space, e.g., by listing the decisions that may impact model performance. We can specify a range of possible values in the experiment configuration for each hyperparameter in the search space.
 
 View the `x.yaml` file that defines a hyperparameter search where we find the model architecture that achieves the best performance on the dataset.
@@ -737,29 +719,27 @@ resources:
 max_restarts: 0
 
 entrypoint: python3 -m determined.launch.torch_distributed --trial model_def:ObjectDetectionTrial
-
 ```
-
 
 ```python
 # Run the below cell to run a hyperparameter search experiment
 !det e create determined_files/const-distributed-search.yaml determined_files/
 ```
 
-    Preparing files to send to master... 312.2KB and 40 files
-    Created experiment 79
-
+```
+Preparing files to send to master... 312.2KB and 40 files
+Created experiment 79
+```
 
 ## Load Checkpoint of Trained Experiment.
-Replace the `<EXP_ID>` and run the below cells with the experiment ID once the experiment is completed.
 
+Replace the `<EXP_ID>` and run the below cells with the experiment ID once the experiment is completed.
 
 ```python
 from determined_files.utils.model import build_frcnn_model
 from utils import load_model_from_checkpoint
 from determined.experimental import Determined,client
 ```
-
 
 ```python
 experiment_id = 76
@@ -768,10 +748,10 @@ checkpoint = client.get_experiment(experiment_id).top_checkpoint(sort_by="mAP", 
 print(checkpoint.uuid)
 loaded_model = load_model_from_checkpoint(checkpoint)
 ```
+
 Now that we have a checkpoint from our trained object detection model, we can deploy it to Kserve to run inference and predictions.  
 
 # Part 5: Deploying Trained model on Kserve
-
 
 This notebook walks you each step to deploy a custom object detection model on KServe. 
 
@@ -787,8 +767,10 @@ Note: This notebook was tested on a Linux-based machine with Nvidia T4 GPUs. We 
 
 Let's get started!
 
-## Pre-reqs: Setting up Python and Jupyter Lab environment:
+# Pre-reqs: Setting up Python and Jupyter Lab environment:
+
 Run the below commands to set up a python virtual environment, and install all the python packages needed for this tutorial
+
 ```
 sudo apt-get update && sudo apt-get  install python3.8-venv
 python3 -m venv kserve_env
@@ -801,48 +783,56 @@ jupyter lab --ip=0.0.0.0 \
   --NotebookApp.password=''
 ```
 
-## Install Kserve Natively using Kind and Knative
+# Install Kserve Natively using Kind and Knative
 
-### Install Kind
+## Install Kind
+
 Open a Terminal and run the following bash commands to install a kubernetes cluster using Kind:
+
 * `curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.18.0/kind-linux-amd64`
 * `chmod +x ./kind`
 * `sudo mv ./kind /usr/local/bin/kind`
 
 After running these commands, create a cluster by running the command: `kind create cluster`
 
-### Install Kubectl
+## Install Kubectl
+
 Run the following bash commmands in a terminal to to install the kubectl runtime:
+
 * `curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"`
 * `curl -LO "https://dl.k8s.io/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl.sha256"`
 * `sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl`
 
-### Install Kserve
+## Install Kserve
 
 Run this bash script to install KServe onto our default Kubernetes Cluster, note this will install the following artifacts:
-* ISTIO_VERSION=1.15.2, KNATIVE_VERSION=knative-v1.9.0, KSERVE_VERSION=v0.9.0-rc0, CERT_MANAGER_VERSION=v1.3.0
 
+* ISTIO_VERSION=1.15.2, KNATIVE_VERSION=knative-v1.9.0, KSERVE_VERSION=v0.9.0-rc0, CERT_MANAGER_VERSION=v1.3.0
 * `bash e2e_blogposts/ngc_blog/kserve_utils/bash_scripts/kserve_install.sh`
 
-### Patch Domain for local connection to KServe cluster/environment
+## Patch Domain for local connection to KServe cluster/environment
+
 Run this command to patch your cluster when you want to connect to your cluster on the same machine:
 
 `kubectl patch cm config-domain --patch '{"data":{"example.com":""}}' -n knative-serving`
 
-### Run Port Forwarding to access KServe cluster
+## Run Port Forwarding to access KServe cluster
+
 * `INGRESS_GATEWAY_SERVICE=$(kubectl get svc --namespace istio-system --selector="app=istio-ingressgateway" --output jsonpath='{.items[0].metadata.name}')`
 * `kubectl port-forward --namespace istio-system svc/${INGRESS_GATEWAY_SERVICE} 8080:80`
 
 Make sure to open a new terminal to continue the configuration. 
 
-## Create a Persistent Volume Claim for local model deployment
+# Create a Persistent Volume Claim for local model deployment
 
 We will be creating a Persistent Volume Claim to host and access our Pytorch based Object Detection model locally. A persistent volume claim requires three k8s artifacts:
+
 * A Persistent Volume
 * A Persistent Volume Claim
 * A K8S pod that connects the PVC to be accessed by other K8S resources
 
-### Creating a Persistent Volume and Persistent Volume Claim
+## Creating a Persistent Volume and Persistent Volume Claim
+
 Below is the yaml definition that defines the Persistent Volume (PV) and a Persistent Volume Claim (PVC). We already created a file that defines this PV in `k8s_files/pv-and-pvc.yaml`
 
 ```yaml
@@ -876,7 +866,8 @@ spec:
 
 To create the PV and PVC, run the command: `kubectl apply -f k8s_files/pv-and-pvc.yaml`
 
-### Create K8s Pod to access PVC
+## Create K8s Pod to access PVC
+
 Below is the yaml definition that defines the K8s Pod that mounts the Persistent Volume Claim (PVC). We already created a file that defines this PV in `k8s_files/model-store-pod.yaml`
 
 ```yaml
@@ -905,13 +896,13 @@ spec:
 
 To create the Pod, run the command: `kubectl apply -f k8s_files/model-store-pod.yaml`
 
-## Preparing custom model for Kserve inference
+# Preparing custom model for Kserve inference
 
 Here we will complete some preparation steps to deploy a trained custom FasterRCNN Object Detection model using KServe. A pre-requisite is to download a checkpoint from a determined experiement. You can read this [tutorial](https://docs.determined.ai/latest/training/model-management/checkpoints.html#downloading-checkpoints-using-the-cli) on how to download a checkpoint using the Determined CLI. For this tutorial, you can download an already prepared checkpoint using the following bash command:
 
 * `wget -O kserve_utils/torchserve_utils/trained_model.pth https://determined-ai-xview-coco-dataset.s3.us-west-2.amazonaws.com/trained_model.pth`
 
-### Stripping the Checkpoint of the Optimizer State Dict
+## Stripping the Checkpoint of the Optimizer State Dict
 
 Checkpoints created from a Determined Experiment will save both the model parameters and the optimizer parameters. We will need to strip the checkpoint of all parameters except the model parameters for inference. Run the bash command to generate `train_model_stripped.pth`:
 
@@ -922,7 +913,7 @@ python kserve_utils/torchserve_utils/strip_checkpoint.py --ckpt-path kserve_util
   --new-ckpt-name kserve_utils/torchserve_utils/trained_model_stripped.pth
 ```
 
-### Run TorchServe Export to create .mar file
+## Run TorchServe Export to create .mar file
 
 Run the below command to export the Pytorch Checkpoint into a .mar file that is required for torchserve inference. Our Kserve InferenceService will automatically deploy a Pod with a docker image that support TorchServe inferencing.
 
@@ -936,11 +927,13 @@ torch-model-archiver --model-name xview-fasterrcnn \
 ```
 
 After command finishes, run command to move file to our prepared `model-store/` directory:
+
 * `cp xview-fasterrcnn.mar kserve_utils/torchserve_utils/model-store -v`
 
-### Copy `config/` and `model-store/` folders to the K8S PVC Pod
+## Copy `config/` and `model-store/` folders to the K8S PVC Pod
 
 This is the directory structure needed to prepare our custom Pytorch Model for KServe inferencing:
+
 ```
 ├── config
 │   └── config.properties
@@ -949,7 +942,7 @@ This is the directory structure needed to prepare our custom Pytorch Model for K
 │   └── xview-fasterrcnn.mar
 ```
 
-#### What the config.properties file looks like
+### What the config.properties file looks like
 
 ```
 inference_address=http://0.0.0.0:8085
@@ -967,7 +960,7 @@ model_store=/mnt/models/model-store
 model_snapshot={"name": "startup.cfg","modelCount": 1,"models": {"xview-fasterrcnn": {"1.0": {"defaultVersion": true,"marName": "xview-fasterrcnn.mar","serialized-file":"trained_model_stripped.pth","extra-files":"index_to_name.json","handler":"fasterrcnn_handler.py","minWorkers": 1,"maxWorkers": 5,"batchSize": 1,"maxBatchDelay": 100,"responseTimeout": 120}}}}
 ```
 
-#### What the properties.json looks like
+### What the properties.json looks like
 
 ```
 [
@@ -991,16 +984,18 @@ model_snapshot={"name": "startup.cfg","modelCount": 1,"models": {"xview-fasterrc
 Note that we have a `config/` folder that includes a config.properties. This defines A. We also have a `model-store/` directory that contains are exported models and a `properties.json` file. We need this file for B
 
 Now we will run several kubectl commands to copy over these folders into our Pod and into the PVC defined directory
+
 * `kubectl cp kserve_utils/torchserve_utils/config/ model-store-pod:/pv/config/`
 * `kubectl cp kserve_utils/torchserve_utils/model-store/ model-store-pod:/pv/model-store/`
 
 Run these commands to verify the contents have been copied over to the pod.
+
 * `kubectl exec --tty model-store-pod -- ls /pv/config`
 * `kubectl exec --tty model-store-pod -- ls /pv/model-store`
 
 # Deploying model using a KServe InferenceService
 
-### Create Inference Service
+## Create Inference Service
 
 Below is the yaml definition that defines the KServe InferenceService that deploys models stored in the PVC. We already created a file that defines this PV in `k8s_files/torch-kserve-pvc.yaml`
 
@@ -1017,22 +1012,12 @@ spec:
 
 To create the Pod, run the command: `kubectl apply -f kserve_utils/k8s_files/torch-kserve-pvc.yaml`
 
-#### - After running the previous command `kubectl get inferenceservice`, you should see that the inferenceservice is not loaded yet
-<img src="img_content/inf_service_not_loaded.png" width="800" />
+* After running the previous command `kubectl get inferenceservice`, you should see that the inferenceservice is not loaded yet
+* Keep running the command every minute until you see the InferenceService loaded (view screenshot below of example)
+* Next, run command `kubectl get pods` to get underlying pod that is running inference service. Copy the pod name (example seen in screenshot)
+* Finally run command: `kubectl logs -f <POD_NAME>` to see the logs and if the model was successfully loaded. 
 
-#### - Keep running the command every minute until you see the InferenceService loaded (view screenshot below of example)
-<img src="img_content/inf_service_loaded.png" width="800" />
-
-#### - Next, run command `kubectl get pods` to get underlying pod that is running inference service. Copy the pod name (example seen in screenshot)
-<img src="img_content/get_pod_name.png" width="800" />
-
-#### - Finally run command: `kubectl logs -f <POD_NAME>` to see the logs and if the model was successfully loaded. 
-
-<img src="img_content/check_logs.png" width="800" />
-
-
-## Complete a sample request and plot predictions
-
+# Complete a sample request and plot predictions
 
 ```python
 import json
@@ -1043,31 +1028,20 @@ from PIL import ImageDraw
 import matplotlib.pyplot as plt 
 ```
 
-
 ```python
 filename='kserve_utils/torchserve_utils/example_img.jpg'
 im = Image.open(filename)
-
 ```
 
 Here is the test image we will send to the Deployed Model
-
 
 ```python
 im
 ```
 
-
-
-
-    
-![png](output_26_0.png)
-    
-
-
+![png](/img/output_26_0.png)
 
 Here we will encode the image into into base64 binary format 
-
 
 ```python
 image = open(filename, 'rb')  # open binary file in read mode
@@ -1085,14 +1059,13 @@ result_file = "{filename}.{ext}".format(filename=str(filename).split(".")[0], ex
 print("Result File: ",result_file)
 with open(result_file, 'w') as outfile:
     json.dump(request, outfile, indent=4, sort_keys=True)
-
 ```
 
-    Result File:  kserve_utils/torchserve_utils/example_img.json
-
+```
+Result File:  kserve_utils/torchserve_utils/example_img.json
+```
 
 Lets submit the image to our deployed endpoint and visualize the predictions!
-
 
 ```python
 headers = {
@@ -1107,14 +1080,13 @@ resp = json.loads(response.content)
 print("Number of Predictions: ", len(resp['predictions'][0]))
 ```
 
-    Number of Predictions:  95
-
-
+```
+Number of Predictions:  95
+```
 
 ```python
 draw = ImageDraw.Draw(im)
 ```
-
 
 ```python
 for pred in resp['predictions'][0]:
@@ -1133,34 +1105,13 @@ for pred in resp['predictions'][0]:
 
 Here we will see the model predictions overlaid on the input image
 
-
 ```python
 plt.figure(figsize=(12,12))
 plt.imshow(im)
 ```
 
-
-
-
-    <matplotlib.image.AxesImage at 0x7ff6341ccf10>
-
-
-
-
-    
-![png](output_34_1.png)
-    
-
-
-
-```python
-
+```
+<matplotlib.image.AxesImage at 0x7ff6341ccf10>
 ```
 
-#﻿# Conclusion
-
-There are numerous ways to get started with end-to-end ML model training with HPE. You can find the full example on [GitHub](https://github.com/interactivetech/e2e_blogposts/tree/main/ngc_blog); to get started with Determined AI’s open source model training platform, visit the [Documentation](https://docs.determined.ai/latest/) page.  
-
-If you’re ready to begin your ML journey with HPE, we’re excited to help you get started! [HPE Machine Learning Development Environment](https://www.hpe.com/us/en/solutions/artificial-intelligence/machine-learning-development-environment.html) comes with premium HPE support and expert advisory services, which you can read more about here. 
-
-HPE also offers a purpose-built, turnkey AI infrastructure for model development and training at scale. Get in touch with us about [HPE Machine Learning Development System](https://www.hpe.com/us/en/hpe-machine-learning-development-system.html).
+![png](/img/output_34_1.png)
