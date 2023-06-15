@@ -732,7 +732,7 @@ loaded_model = load_model_from_checkpoint(checkpoint)
 
 Now that we have a checkpoint from our trained object detection model, we can deploy it to Kserve to run inference and predictions.  
 
-# Part 5: Deploying Trained model on Kserve
+# Part 5: Deploying Trained Model on Kserve
 
 This notebook walks you each step to deploy a custom object detection model on KServe. 
 
