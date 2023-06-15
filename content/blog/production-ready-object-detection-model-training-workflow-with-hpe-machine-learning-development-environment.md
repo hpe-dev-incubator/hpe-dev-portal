@@ -1115,3 +1115,12 @@ plt.imshow(im)
 ```
 
 ![png](/img/output_34_1.png)
+
+## Conclusion
+
+There are numerous ways to get started with end-to-end ML model training with HPE. You can find the [full example on GitHub here](https://github.com/interactivetech/e2e_blogposts/tree/main/ngc_blog); to get started with Determined AI’s open source model training platform, visit the [Documentation](https://docs.determined.ai/latest/) page.  
+
+If you’re ready to begin your ML journey with HPE, we’re excited to help you get started! [HPE Machine Learning Development Environment](https://www.hpe.com/us/en/solutions/artificial-intelligence/machine-learning-development-environment.html) comes with premium HPE support, which you can read more about [here](https://www.hpe.com/us/en/solutions/artificial-intelligence/machine-learning-development-environment.html).  
+
+HPE also offers a purpose-built, turnkey AI infrastructure for model development and training \
+at scale. [Get in touch with us about HPE Machine Learning Development System here](https://www.hpe.com/us/en/hpe-machine-learning-development-system.html).
