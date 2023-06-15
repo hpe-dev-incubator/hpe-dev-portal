@@ -767,7 +767,7 @@ Note: This notebook was tested on a Linux-based machine with Nvidia T4 GPUs. We 
 
 Let's get started!
 
-# Pre-reqs: Setting up Python and Jupyter Lab environment:
+## Pre-reqs: Setting up Python and Jupyter Lab environment
 
 Run the below commands to set up a python virtual environment, and install all the python packages needed for this tutorial
 
@@ -783,9 +783,9 @@ jupyter lab --ip=0.0.0.0 \
   --NotebookApp.password=''
 ```
 
-# Install Kserve Natively using Kind and Knative
+## Install Kserve Natively using Kind and Knative
 
-## Install Kind
+### Install Kind
 
 Open a Terminal and run the following bash commands to install a kubernetes cluster using Kind:
 
@@ -795,7 +795,7 @@ Open a Terminal and run the following bash commands to install a kubernetes clus
 
 After running these commands, create a cluster by running the command: `kind create cluster`
 
-## Install Kubectl
+### Install Kubectl
 
 Run the following bash commmands in a terminal to to install the kubectl runtime:
 
@@ -803,27 +803,27 @@ Run the following bash commmands in a terminal to to install the kubectl runtime
 * `curl -LO "https://dl.k8s.io/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl.sha256"`
 * `sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl`
 
-## Install Kserve
+### Install Kserve
 
 Run this bash script to install KServe onto our default Kubernetes Cluster, note this will install the following artifacts:
 
 * ISTIO_VERSION=1.15.2, KNATIVE_VERSION=knative-v1.9.0, KSERVE_VERSION=v0.9.0-rc0, CERT_MANAGER_VERSION=v1.3.0
 * `bash e2e_blogposts/ngc_blog/kserve_utils/bash_scripts/kserve_install.sh`
 
-## Patch Domain for local connection to KServe cluster/environment
+### Patch Domain for local connection to KServe cluster/environment
 
 Run this command to patch your cluster when you want to connect to your cluster on the same machine:
 
 `kubectl patch cm config-domain --patch '{"data":{"example.com":""}}' -n knative-serving`
 
-## Run Port Forwarding to access KServe cluster
+### Run Port Forwarding to access KServe cluster
 
 * `INGRESS_GATEWAY_SERVICE=$(kubectl get svc --namespace istio-system --selector="app=istio-ingressgateway" --output jsonpath='{.items[0].metadata.name}')`
 * `kubectl port-forward --namespace istio-system svc/${INGRESS_GATEWAY_SERVICE} 8080:80`
 
 Make sure to open a new terminal to continue the configuration. 
 
-# Create a Persistent Volume Claim for local model deployment
+### Create a Persistent Volume Claim for local model deployment
 
 We will be creating a Persistent Volume Claim to host and access our Pytorch based Object Detection model locally. A persistent volume claim requires three k8s artifacts:
 
@@ -831,7 +831,7 @@ We will be creating a Persistent Volume Claim to host and access our Pytorch bas
 * A Persistent Volume Claim
 * A K8S pod that connects the PVC to be accessed by other K8S resources
 
-## Creating a Persistent Volume and Persistent Volume Claim
+### Creating a Persistent Volume and Persistent Volume Claim
 
 Below is the yaml definition that defines the Persistent Volume (PV) and a Persistent Volume Claim (PVC). We already created a file that defines this PV in `k8s_files/pv-and-pvc.yaml`
 
@@ -866,7 +866,7 @@ spec:
 
 To create the PV and PVC, run the command: `kubectl apply -f k8s_files/pv-and-pvc.yaml`
 
-## Create K8s Pod to access PVC
+### Create K8s Pod to access PVC
 
 Below is the yaml definition that defines the K8s Pod that mounts the Persistent Volume Claim (PVC). We already created a file that defines this PV in `k8s_files/model-store-pod.yaml`
 
@@ -896,13 +896,13 @@ spec:
 
 To create the Pod, run the command: `kubectl apply -f k8s_files/model-store-pod.yaml`
 
-# Preparing custom model for Kserve inference
+## Preparing custom model for Kserve inference
 
 Here we will complete some preparation steps to deploy a trained custom FasterRCNN Object Detection model using KServe. A pre-requisite is to download a checkpoint from a determined experiement. You can read this [tutorial](https://docs.determined.ai/latest/training/model-management/checkpoints.html#downloading-checkpoints-using-the-cli) on how to download a checkpoint using the Determined CLI. For this tutorial, you can download an already prepared checkpoint using the following bash command:
 
 * `wget -O kserve_utils/torchserve_utils/trained_model.pth https://determined-ai-xview-coco-dataset.s3.us-west-2.amazonaws.com/trained_model.pth`
 
-## Stripping the Checkpoint of the Optimizer State Dict
+### Stripping the Checkpoint of the Optimizer State Dict
 
 Checkpoints created from a Determined Experiment will save both the model parameters and the optimizer parameters. We will need to strip the checkpoint of all parameters except the model parameters for inference. Run the bash command to generate `train_model_stripped.pth`:
 
@@ -913,7 +913,7 @@ python kserve_utils/torchserve_utils/strip_checkpoint.py --ckpt-path kserve_util
   --new-ckpt-name kserve_utils/torchserve_utils/trained_model_stripped.pth
 ```
 
-## Run TorchServe Export to create .mar file
+### Run TorchServe Export to create .mar file
 
 Run the below command to export the Pytorch Checkpoint into a .mar file that is required for torchserve inference. Our Kserve InferenceService will automatically deploy a Pod with a docker image that support TorchServe inferencing.
 
@@ -930,7 +930,7 @@ After command finishes, run command to move file to our prepared `model-store/` 
 
 * `cp xview-fasterrcnn.mar kserve_utils/torchserve_utils/model-store -v`
 
-## Copy `config/` and `model-store/` folders to the K8S PVC Pod
+### Copy `config/` and `model-store/` folders to the K8S PVC Pod
 
 This is the directory structure needed to prepare our custom Pytorch Model for KServe inferencing:
 
@@ -942,7 +942,7 @@ This is the directory structure needed to prepare our custom Pytorch Model for K
 │   └── xview-fasterrcnn.mar
 ```
 
-### What the config.properties file looks like
+#### What the config.properties file looks like
 
 ```
 inference_address=http://0.0.0.0:8085
@@ -960,7 +960,7 @@ model_store=/mnt/models/model-store
 model_snapshot={"name": "startup.cfg","modelCount": 1,"models": {"xview-fasterrcnn": {"1.0": {"defaultVersion": true,"marName": "xview-fasterrcnn.mar","serialized-file":"trained_model_stripped.pth","extra-files":"index_to_name.json","handler":"fasterrcnn_handler.py","minWorkers": 1,"maxWorkers": 5,"batchSize": 1,"maxBatchDelay": 100,"responseTimeout": 120}}}}
 ```
 
-### What the properties.json looks like
+#### What the properties.json looks like
 
 ```
 [
@@ -993,9 +993,9 @@ Run these commands to verify the contents have been copied over to the pod.
 * `kubectl exec --tty model-store-pod -- ls /pv/config`
 * `kubectl exec --tty model-store-pod -- ls /pv/model-store`
 
-# Deploying model using a KServe InferenceService
+## Deploying model using a KServe InferenceService
 
-## Create Inference Service
+### Create Inference Service
 
 Below is the yaml definition that defines the KServe InferenceService that deploys models stored in the PVC. We already created a file that defines this PV in `k8s_files/torch-kserve-pvc.yaml`
 
@@ -1017,7 +1017,7 @@ To create the Pod, run the command: `kubectl apply -f kserve_utils/k8s_files/tor
 * Next, run command `kubectl get pods` to get underlying pod that is running inference service. Copy the pod name (example seen in screenshot)
 * Finally run command: `kubectl logs -f <POD_NAME>` to see the logs and if the model was successfully loaded. 
 
-# Complete a sample request and plot predictions
+### Complete a sample request and plot predictions
 
 ```python
 import json
