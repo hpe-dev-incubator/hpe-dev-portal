@@ -1,7 +1,7 @@
 ---
 title: "Production-ready object detection model training workflow with HPE
   Machine Learning Development Environment "
-date: 2023-06-15T19:00:21.680Z
+date: 2023-06-16T16:00:00.000Z
 priority: 4
 author: Andrew Mendez
 authorimage: /img/andrew.jpeg
