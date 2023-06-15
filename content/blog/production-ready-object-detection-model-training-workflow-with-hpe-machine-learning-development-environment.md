@@ -15,7 +15,7 @@ This blog will recount the seamless user experience with [HPE Machine Learning D
 
 Over the five parts of this blog, we’re going to review end-to-end training of an object detection model using NVIDIA’s PyTorch Container from [NVIDIA's NGC Catalog](https://www.nvidia.com/en-us/gpu-cloud/), a Jupyter Notebook, the open-source training platform from [Determined AI](http://www.determined.ai/), and [Kserve](https://www.kubeflow.org/docs/external-add-ons/kserve/kserve/) to deploy the model into production.  
 
-# Part 1 End-to-End Example training object detection model using NVIDIA PyTorch Container from NGC
+# Part 1: End-to-End Example training object detection model using NVIDIA PyTorch Container from NGC
 
 ## [](https://github.com/interactivetech/e2e_blogposts/blob/main/ngc_blog/E2E-Part-1-Installation.md#installation)Installation
 
@@ -57,7 +57,9 @@ The container starts downloading to your computer. A container image consists of
 
 Once the container download is completed, run the following code in your command line to run and start the container:
 
-`$ docker run -it --gpus all -p 8888:8888 -v $PWD:/projects --network=host nvcr.io/nvidia/pytorch:21.11-py3` [![](https://raw.githubusercontent.com/kbojo/images/master/commandline1.png)](https://raw.githubusercontent.com/kbojo/images/master/commandline1.png)
+`$ docker run -it --gpus all -p 8888:8888 -v $PWD:/projects --network=host nvcr.io/nvidia/pytorch:21.11-py3` 
+
+[![](https://raw.githubusercontent.com/kbojo/images/master/commandline1.png)](https://raw.githubusercontent.com/kbojo/images/master/commandline1.png)
 
 ### [](https://github.com/interactivetech/e2e_blogposts/blob/main/ngc_blog/E2E-Part-1-Installation.md#4-install-jupyter-lab-and-open-a-notebook)4. Install Jupyter lab and open a notebook
 
@@ -191,10 +193,6 @@ Once you create an S3 bucket that is publically accessible, here are example com
 
 * `aws s3 cp --recursive xview_dataset/train_sliced_no_neg/   s3://determined-ai-xview-coco-dataset/train_sliced_no_neg`
 * `aws s3 cp --recursive xview_dataset/val_sliced_no_neg/   s3://determined-ai-xview-coco-dataset/val_sliced_no_neg`
-
-```python
-
-```
 
 Our satellite imagery data is in an S3 bucket and is prepped for distributed training, so now we can progress to model training and inference via the NGC Container.  
 
