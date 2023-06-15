@@ -340,10 +340,6 @@ data_loader_test = torch.utils.data.DataLoader(
 ```
 
 ```python
-
-```
-
-```python
 # Getting three examples from the test dataset
 inds_that_have_boxes = []
 test_images = list(data_loader_test)
@@ -370,10 +366,6 @@ plt.show()
 ```
 
 ```python
-
-```
-
-```python
 # Let's look again at the first three images, but this time with the class names.
 
 for i,t in zip(images_t_list,targets_t_list):
@@ -386,19 +378,11 @@ for i,t in zip(images_t_list,targets_t_list):
 ```
 
 ```python
-
-```
-
-```python
 # Let's build the model:
 print("Creating model")
 print("Number of classes: ",dataset.num_classes)
 model = build_frcnn_model(num_classes=dataset.num_classes)
 _=model.to('cpu')
-```
-
-```python
-
 ```
 
 ```python
@@ -495,10 +479,6 @@ _=model.eval()
 
 ```python
 _=predict(model,images_t_list,targets_t_list)
-```
-
-```python
-
 ```
 
 In the next part of our blog, we scale our model training using distributed training within HPE Machine Learning Development Environment & System. 
