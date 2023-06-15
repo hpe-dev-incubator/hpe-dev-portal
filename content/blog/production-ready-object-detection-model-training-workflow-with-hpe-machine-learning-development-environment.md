@@ -4,7 +4,7 @@ title: "Production-ready object detection model training workflow with HPE
 date: 2023-06-15T19:00:21.680Z
 priority: 4
 author: Andrew Mendez
-authorimage: /img/Avatar1.svg
+authorimage: /img/andrew.jpeg
 disable: false
 ---
 This blog will recount the seamless user experience with [HPE Machine Learning Development Environment](https://www.hpe.com/us/en/solutions/artificial-intelligence/machine-learning-development-environment.html), pointing out how easy it is to achieve machine learning at scale with HPE.  
