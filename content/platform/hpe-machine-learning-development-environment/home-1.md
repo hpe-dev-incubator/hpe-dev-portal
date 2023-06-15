@@ -1,6 +1,6 @@
 ---
 title: HPE Machine Learning Development Environment
-version: "1"
+version: "1.0"
 description: HPE Machine Learning Development Environment helps developers train
   machine learning models faster—in hours and minutes, not days and weeks—build
   more accurate models, manage GPU costs,  and track and reproduce experiments.
