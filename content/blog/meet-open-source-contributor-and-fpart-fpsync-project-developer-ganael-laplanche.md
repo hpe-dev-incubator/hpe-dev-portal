@@ -45,7 +45,7 @@ These are all the reasons why I use FreeBSD on my systems - not just for servers
 
 # What other open source projects are you involved with?
 
-I became a FreeBSD developer in 2011 and I now maintain more than 40 ports (a port is a set of patches and build options that makes a software work on FreeBSD, it also acts as the basis for binary packages). Maintaining ports is a fantastic hobby because one the one hand you have the chance to work for your favorite OS, and on the other hand you can contribute patches back upstream, so you are always in relation with different communities.
+I became a FreeBSD developer in 2011 and I now maintain more than 40 ports (A port is a set of patches and build options that makes a software work on FreeBSD. It also acts as the basis for binary packages). Maintaining ports is a fantastic hobby because on the one hand, you have the chance to work on your favorite OS, and on the other hand, you can contribute patches back upstream. This way, you are always connected with the different communities.
 
 Aside from my FreeBSD activities, I have more [personal projects](https://contribs.martymac.org/): I wrote about Fpart and Fpsync, but I am also the author of the ldapscripts, a set of tools to simplify user and group management within an LDAP directory. They are quite old now, but they still do the job. I also worked on various smaller projects, such as sms1xxx kernel module (a port of Linux' Siano DVB-T driver to FreeBSD, now deprecated in favor of webcamd), evtViewer (a viewer for Ms event log files) or Grpar (a Build engine group archive extract tool). I also wrote several courses (in french).
 
