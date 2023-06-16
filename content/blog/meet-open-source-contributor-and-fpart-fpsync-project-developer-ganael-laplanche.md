@@ -27,7 +27,9 @@ Of course, as an ardent open source supporter, those tools were released with an
 
 # What attracted you to free software?
 
-I first discovered free software reading magazines (trying GNU/Linux distros offered on CDROM) surfing on Linux hype during mid-90's. But I really understood what free software meant later during my studies. I was immediately seduced as that single concept gathers human beings' best : sharing knowledge to move forward together. As a student, the most important aspect has been that one : being able to *learn*, as the code is freely available and the open source community very responsive. But I then quickly felt I owed something to that community : I didn't want to use all that free (as in free beer) software without giving something back. So I started looking at how I could contribute back. This is where FreeBSD played a important role, acting as a catalyzer...
+I first discovered free software by reading magazines that were surfing on Linux hype during mid-90's (and trying their GNU/Linux distros offered on CDROM). But I really began to understand what free software meant later during my studies. I was immediately seduced by the thought that it exemplified humanity's best attribute: the willingness to share knowledge in order to move forward together.
+
+As a student, this was very important to me: it enabled me to learn more, as the code is freely available and the open source community very responsive. I quickly felt that I owed the community something in return; I didn't want to use all that free software (as in free beer) without giving something back. So I started looking at how I could make my own contribution. This is where FreeBSD played a important role, acting as a catalyst...
 
 # Why did you come to FreeBSD as a development platform?
 
