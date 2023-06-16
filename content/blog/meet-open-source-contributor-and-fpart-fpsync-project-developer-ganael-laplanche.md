@@ -23,7 +23,7 @@ At that time, we needed to move petabyte-scale filesystems to freshly-acquired s
 
 That's where [fpsync](https://www.fpart.org/fpsync/) comes into play : the tool wraps fpart and embeds its own scheduler to trigger small rsync jobs to parallelize data migration *by itself*. It can leverage your SSH cluster to get the best from your data servers, acting as a powerful, standalone, data migration tool.
 
-Of course, as an ardent open source supporter, those tools were released with an open source license (BSD 2-Clause "Simplified" License). They quickly became used by big companies (Intel, AWS, Microsoft, Alibaba, Oracle, ...) as well as research centers to migrate petabyte-scale filesystems.
+Of course, as an ardent open source supporter, those tools were released with an open source license (BSD 2-Clause "Simplified" License). They were quickly adopted by large companies (Intel, AWS, Microsoft, Alibaba, Oracle, ...) as well as research centers to migrate petabyte-scale filesystems.
 
 # What attracted you to free software?
 
