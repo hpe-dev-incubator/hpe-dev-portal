@@ -13,9 +13,15 @@ tags:
   - migration
   - FreeBSD
 ---
-# Ganael, can you present Fpart and Fpsync tools?
+As part of our blog series on open source experts, the HPE Developer team recently met up with Ganael Laplanche, the project developer for [Fpart](https://www.fpart.org/), a sysadmin-oriented tool that helps users sort files and pack them into bags or 'partitions'. Here, we'll introduce you to his work, how it came about, and learn more about what got Ganael involved with working with open source software.
 
-[Fpart](https://www.fpart.org/) is a sysadmin-oriented tool that helps you sort files and pack them into bags ('partitions'). The project started when I was working for a renowned center for biomedical research after a discussion with a friend of mine. We wanted to implement a fast bin-packing tool to produce filesystem tree partitions with the same size and number of files. The tool quickly evolved and got support for hooks that can be triggered when a partition is generated. At that time, we needed to move petabyte-scale filesystems to freshly-acquired storage arrays. With its new hooking system, fpart seemed to be a good basement to launch small migration jobs in parallel through our SSH cluster. Initial tests ([see our article in french](https://connect.ed-diamond.com/GNU-Linux-Magazine/glmf-164/parallelisez-vos-transferts-de-fichiers)) were successful but we were still depending on our on-site scheduler to orchestrate submitted jobs and it was to be retired soon or later. We needed a new scheduler. That's where [fpsync](https://www.fpart.org/fpsync/) comes into play : the tools wraps fpart and embeds its own scheduler to trigger small rsync jobs to parallelize data migration *by itself*. It can leverage your SSH cluster to get the best from your data servers, acting as a powerful -standalone- data migration tool.
+# Ganael, can you tell us a little about the tools Fpart and Fpsync?
+
+The project started when I was working for a renowned center for biomedical research after a discussion with a friend of mine. We wanted to implement a fast bin-packing tool to produce filesystem tree partitions with the same size and number of files. The tool quickly evolved and got support for hooks that can be triggered when a partition is generated.
+
+At that time, we needed to move petabyte-scale filesystems to freshly-acquired storage arrays. With its new hooking system, fpart seemed to be a good basement to launch small migration jobs in parallel through our SSH cluster. Initial tests ([see our article in French](https://connect.ed-diamond.com/GNU-Linux-Magazine/glmf-164/parallelisez-vos-transferts-de-fichiers)) were successful but we were still depending on our on-site scheduler to orchestrate submitted jobs and it was to be retired sooner or later. We needed a new scheduler.
+
+That's where [fpsync](https://www.fpart.org/fpsync/) comes into play : the tool wraps fpart and embeds its own scheduler to trigger small rsync jobs to parallelize data migration *by itself*. It can leverage your SSH cluster to get the best from your data servers, acting as a powerful, standalone, data migration tool.
 
 Of course, as an ardent open source supporter, those tools were released with an open source license (BSD 2-Clause "Simplified" License). They quickly became used by big companies (Intel, AWS, Microsoft, Alibaba, Oracle, ...) as well as research centers to migrate petabyte-scale filesystems.
 
