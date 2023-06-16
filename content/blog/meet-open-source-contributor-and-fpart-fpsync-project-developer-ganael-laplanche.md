@@ -41,7 +41,7 @@ About development, specifically, FreeBSD is a good choice because it is POSIX co
 
 Finally, the system is a pleasure to administrate and update. I think I have not reinstalled my machine since late 2000's, just performing upgrades since. Third-party applications can be easily installed and upgraded using binary packages, which was not the case when I started using FreeBSD.
 
-All those reasons are why I use FreeBSD on my systems, for servers and development but also as a daily desktop OS. Lots of people still think FreeBSD is not ready for everyday use on a desktop, I am living proof this is not true!
+These are all the reasons why I use FreeBSD on my systems - not just for servers and development, but also as a daily desktop OS. Lots of people still think FreeBSD is ot ready for everyday use on the desktop, but I am living proof that this is not true!
 
 # What other open source projects are you involved with?
 
