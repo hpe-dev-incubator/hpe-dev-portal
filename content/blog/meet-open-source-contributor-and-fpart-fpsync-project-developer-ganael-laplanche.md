@@ -39,7 +39,7 @@ I later came to understand another reason why FreeBSD appeared more clear. It is
 
 FreeBSD is a good choice for developers because it is POSIX compliant. This is important if you want to produce portable code. Also, it is very easy to access source code for world, kernel and ports (third-party applications ported to FreeBSD). One can easily patch things and test the modifications, which is a bit harder on other systems where you would often have to install a dedicated source package to be able to patch it.
 
-Finally, the system is a pleasure to administrate and update. I think I have not reinstalled my machine since late 2000's, just performing upgrades since. Third-party applications can be easily installed and upgraded using binary packages, which was not the case when I started using FreeBSD.
+Finally, the system is a pleasure to administrate and update. I think I have not needed to reinstall my machine since the late 2000's; I've only performed updates since. Third-party applications can now be easily installed and upgraded using binary packages, which was not the case when I first started using FreeBSD.
 
 These are all the reasons why I use FreeBSD on my systems - not just for servers and development, but also as a daily desktop OS. Lots of people still think FreeBSD is not ready for everyday use on the desktop, but I am living proof that this is not true!
 
