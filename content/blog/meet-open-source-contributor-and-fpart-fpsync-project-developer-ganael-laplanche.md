@@ -6,7 +6,7 @@ authorimage: /img/ganael.jpg
 thumbnailimage: ""
 disable: false
 tags:
-  - open source
+  - opensource
   - fpart
   - fpsync
   - data
