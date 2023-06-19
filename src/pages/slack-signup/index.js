@@ -1,18 +1,25 @@
-import React from 'react';
-import '../../css/style.css';
+import React ,{ useState } from 'react';
+// import '../../css/style.css';
 import Swal from 'sweetalert2';
+import { Box,Image,Button,TextInput,Text } from 'grommet' ;
+import PropTypes from 'prop-types';
+import { graphql } from 'gatsby';
+import { Layout,SEO } from '../../components' ;
 
 const { GATSBY_SLACK_TOKEN } = process.env;
 const { GATSBY_SLACK_INVITE_URL } = process.env;
+const image='/images/hero-pic.png' ;
+const buttonstyle={
+backgroundColor:'#dcdcdc',borderRadius:'100px',align:'center',
+height:'50px',fontSize:'15px',fontFamily:'sans-serif',
+
+};
 export default function Slacksignup() {
-  // eslint-disable-next-line consistent-return
+  const [email,setemail]=useState('');
   const onsubmit = (evt) => {
     evt.preventDefault();
-    const form = evt.target;
-    const email = form.email.value;
     if (email) {
       const doInvite = () => {
-        // add as a formdata in key value pairs ;
         const formData = new FormData();
         formData.append('email', email);
         formData.append('token', GATSBY_SLACK_TOKEN);
@@ -23,8 +30,8 @@ export default function Slacksignup() {
           json: true,
         })
           .then((res) => res.json())
-          .then((data) => {
-            if (data.ok) {
+          .then((res) => {
+            if (res.ok) {
               const el = document.createElement('div');
               el.innerHTML = `Please check <b> ${email}</b> 
                               for an invite from slack`;
@@ -34,7 +41,7 @@ export default function Slacksignup() {
                 icon: 'success',
               });
             } else {
-              let { error } = data;
+              let { error } = res;
               if (error === 'already_invited' || error === 'already_in_team') {
                 const el = document.createElement('div');
                 el.innerHTML =
@@ -88,70 +95,120 @@ export default function Slacksignup() {
         icon: 'info',
       });
     }
-    form.email.value = ' ';
+    setTimeout(()=>{setemail(''); },2500);
   };
-
+  const handlechange =(event)=>{
+  setemail(event.target.value);
+  } ;
   return (
-    <div>
-      {/* <script src="https://www.google.com/recaptcha/api.js" /> */}
-      {/* <script src="sweetalert2.min.js" /> */}
-      <link
-        href="//fonts.googleapis.com/css?family=Lato:300,400,700,900,700italic|
-        Open+Sans:700italic,400,600,300,700,800"
-        rel="stylesheet"
-        type="text/css"
-      />
-      <link rel="icon" type="image/x-icon" href="/images/favicon1.ico" />
-      {/* <body> */}
-      <main className="main">
-        <div className="blogo">
-          {/* <!-- main innerbox--> */}
-          <div className="info">
-            <div>
-              <h1 className="hpe-developer-community">
-                HPE Developer Community
+<Layout>     
+  <SEO title='Slack-signup' />
+      <Box direction="row-responsive" pad="xlarge" gap="xlarge" align="center">
+        <Box >
+          <Box style={{ marginTop:'-30px' }} >
+              <Text 
+              size='xlarge' 
+              style={{ margingTop:'-10px',color:'grey' }}>
+                Sign up for
+              </Text>
+              <h1
+              style={{ fontFamily:'sans-serif' ,color:'#220', fontWeight: 550
+              ,letterSpacing:'0.5px',
+              fontSize:'63px',lineHeight:'5rem' }}>
+              HPE Developer Community <br/> Slack
               </h1>
-              <p className="para">
-                Where you'll find all things software at HPE. Join us to
-                collaborate and build applications and integrations with HPE
-                products using the latest software and open source technologies.
-              </p>
-              <p className="email">
-                Enter your email below to join HPE Developer Community on Slack!
-              </p>
-              <form className="form" id="join-form" onSubmit={onsubmit}>
-                <input
-                  className="field"
-                  type="email"
-                  name="email"
-                  autoComplete="off"
-                  required
-                  placeholder="Email Address"
-                  id="slack-email"
-                />
-                <input
-                  className="submit"
-                  type="image"
-                  name="submit"
-                  src="/images/arrow.svg"
-                  alt="submit"
-                />
-              </form>
-            </div>
-          </div>
-          <div className="container">
-            <div className="column2" />
-            <div className="column3">
-              <img
-                className="hero_pic hero-pic"
-                alt="hpe dev logo"
-                src="/images/hero-pic.png"
+              <Image
+              style={{ height:'80px',width:'100px'
+              ,float:'right',marginTop:'-120px',marginLeft:'170px' }}
+              src='/img/community/slack.svg'
+              alt="slack logo"
               />
-            </div>
-          </div>
-        </div>
-      </main>
-      {/* </body> */}
-    </div>
-  );
+              <p style={{ fontWeight:400 ,fontSize:'22px' }}>
+              Where you’ll find all things software at HPE. 
+              Join us to collaborate and build applications and integrations 
+              with HPE
+              products using the latest software and open source technologies
+              </p>
+          </Box>
+          <Text size="large">
+            Email
+          </Text>
+          <form className="form" id="join-form" onSubmit={onsubmit}>
+            <Box 
+            align='center'
+            border={{ side:'bottom' ,size:'small' }}
+            >
+              <TextInput
+                  type="email"
+                  placeholder="sample@gmail.com"
+                  value={email}
+                  name='email'
+                  onChange={handlechange}
+                  style={{ position: 'relative', marginLeft:'-10px' }}
+                  required
+                  plain/>
+            </Box>
+            <br />
+            <Button
+            label="Join us on Slack"
+            primary
+            reverse
+            type='submit'
+            onSubmit={onsubmit}
+            icon={<Image 
+              src="/img/home/hpe-element.png" style={{ width:'50px' }} />
+                 }
+            style={{
+              backgroundColor: '#01A982',
+              borderRadius: '100px',
+              color: '#ffffff',
+              width: '250px',height:'40px',
+            }}
+          />   
+          </form>
+        </Box>
+        <Box align="center">
+          <Image src={image} alt="hpedev logo" />
+        </Box>     
+      </Box>  
+      <Box 
+      direction="row-responsive" pad="xlarge" gap="medium" align="center"
+      style={{ marginTop:'-120px' }}>
+        <Button label='50+ Channels' style={buttonstyle} />
+        <Button label='Over 4,000 members' style={buttonstyle} />
+        <Button label='6 Years+ Community' style={buttonstyle} />
+      </Box>
+      </Layout>
+        );
 }
+
+Slacksignup.propTypes = {
+    data: PropTypes.shape({
+      site: PropTypes.shape({
+        siteMetadata: PropTypes.shape({
+          title: PropTypes.string.isRequired,
+        }).isRequired,
+      }).isRequired,
+      markdownRemark: PropTypes.shape({
+        frontmatter: PropTypes.shape({
+          title: PropTypes.string.isRequired,
+          image: PropTypes.string,
+        }).isRequired,
+        rawMarkdownBody: PropTypes.string,
+      }).isRequired,
+    }),
+};
+export const slack=graphql`query {
+  site {
+    siteMetadata {
+      title
+    }
+  }
+  markdownRemark(fields: { slug: { eq: "/" } }) {
+    excerpt
+    frontmatter {
+      title
+      image
+    }
+    rawMarkdownBody
+  }}` ;
