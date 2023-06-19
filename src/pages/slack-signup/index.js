@@ -1,21 +1,24 @@
-import React ,{ useState } from 'react';
+import React, { useState } from 'react';
 // import '../../css/style.css';
 import Swal from 'sweetalert2';
-import { Box,Image,Button,TextInput,Text } from 'grommet' ;
+import { Box, Image, Button, TextInput, Text } from 'grommet';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
-import { Layout,SEO } from '../../components' ;
+import { Layout, SEO } from '../../components';
 
 const { GATSBY_SLACK_TOKEN } = process.env;
 const { GATSBY_SLACK_INVITE_URL } = process.env;
-const image='/images/hero-pic.png' ;
-const buttonstyle={
-backgroundColor:'#dcdcdc',borderRadius:'100px',align:'center',
-height:'50px',fontSize:'15px',fontFamily:'sans-serif',
-
+const image = '/images/hero-pic.png';
+const buttonstyle = {
+  backgroundColor: '#dcdcdc',
+  borderRadius: '100px',
+  align: 'center',
+  height: '50px',
+  fontSize: '15px',
+  fontFamily: 'sans-serif',
 };
 export default function Slacksignup() {
-  const [email,setemail]=useState('');
+  const [email, setemail] = useState('');
   const onsubmit = (evt) => {
     evt.preventDefault();
     if (email) {
@@ -95,120 +98,137 @@ export default function Slacksignup() {
         icon: 'info',
       });
     }
-    setTimeout(()=>{setemail(''); },2500);
+    setTimeout(() => {
+      setemail('');
+    }, 2500);
   };
-  const handlechange =(event)=>{
-  setemail(event.target.value);
-  } ;
+  const handlechange = (event) => {
+    setemail(event.target.value);
+  };
   return (
-<Layout>     
-  <SEO title='Slack-signup' />
+    <Layout>
+      <SEO title="Slack-signup" />
       <Box direction="row-responsive" pad="xlarge" gap="xlarge" align="center">
-        <Box >
-          <Box style={{ marginTop:'-30px' }} >
-              <Text 
-              size='xlarge' 
-              style={{ margingTop:'-10px',color:'grey' }}>
-                Sign up for
-              </Text>
-              <h1
-              style={{ fontFamily:'sans-serif' ,color:'#220', fontWeight: 550
-              ,letterSpacing:'0.5px',
-              fontSize:'63px',lineHeight:'5rem' }}>
-              HPE Developer Community <br/> Slack
-              </h1>
-              <Image
-              style={{ height:'80px',width:'100px'
-              ,float:'right',marginTop:'-120px',marginLeft:'170px' }}
-              src='/img/community/slack.svg'
-              alt="slack logo"
-              />
-              <p style={{ fontWeight:400 ,fontSize:'22px' }}>
-              Where you’ll find all things software at HPE. 
-              Join us to collaborate and build applications and integrations 
-              with HPE
-              products using the latest software and open source technologies
-              </p>
-          </Box>
-          <Text size="large">
-            Email
-          </Text>
-          <form className="form" id="join-form" onSubmit={onsubmit}>
-            <Box 
-            align='center'
-            border={{ side:'bottom' ,size:'small' }}
+        <Box>
+          <Box style={{ marginTop: '-30px' }}>
+            <Text size="xlarge" style={{ margingTop: '-10px', color: 'grey' }}>
+              Sign up for
+            </Text>
+            <h1
+              style={{
+                fontFamily: 'sans-serif',
+                color: '#220',
+                fontWeight: 550,
+                letterSpacing: '0.5px',
+                fontSize: '63px',
+                lineHeight: '5rem',
+              }}
             >
+              HPE Developer Community <br /> Slack
+            </h1>
+            <Image
+              style={{
+                height: '80px',
+                width: '100px',
+                float: 'right',
+                marginTop: '-120px',
+                marginLeft: '170px',
+              }}
+              src="/img/community/slack.svg"
+              alt="slack logo"
+            />
+            <p style={{ fontWeight: 400, fontSize: '22px' }}>
+              Where you’ll find all things software at HPE. Join us to
+              collaborate and build applications and integrations with HPE
+              products using the latest software and open source technologies
+            </p>
+          </Box>
+          <Text size="large">Email</Text>
+          <form className="form" id="join-form" onSubmit={onsubmit}>
+            <Box align="center" border={{ side: 'bottom', size: 'small' }}>
               <TextInput
-                  type="email"
-                  placeholder="sample@gmail.com"
-                  value={email}
-                  name='email'
-                  onChange={handlechange}
-                  style={{ position: 'relative', marginLeft:'-10px' }}
-                  required
-                  plain/>
+                type="email"
+                placeholder="sample@gmail.com"
+                value={email}
+                name="email"
+                onChange={handlechange}
+                style={{ position: 'relative', marginLeft: '-10px' }}
+                required
+                plain
+              />
             </Box>
             <br />
             <Button
-            label="Join us on Slack"
-            primary
-            reverse
-            type='submit'
-            onSubmit={onsubmit}
-            icon={<Image 
-              src="/img/home/hpe-element.png" style={{ width:'50px' }} />
-                 }
-            style={{
-              backgroundColor: '#01A982',
-              borderRadius: '100px',
-              color: '#ffffff',
-              width: '250px',height:'40px',
-            }}
-          />   
+              label="Join us on Slack"
+              primary
+              reverse
+              type="submit"
+              onSubmit={onsubmit}
+              icon={
+                <Image
+                  src="/img/home/hpe-element.png"
+                  style={{ width: '50px' }}
+                />
+              }
+              style={{
+                backgroundColor: '#01A982',
+                borderRadius: '100px',
+                color: '#ffffff',
+                width: '250px',
+                height: '40px',
+              }}
+            />
           </form>
         </Box>
         <Box align="center">
           <Image src={image} alt="hpedev logo" />
-        </Box>     
-      </Box>  
-      <Box 
-      direction="row-responsive" pad="xlarge" gap="medium" align="center"
-      style={{ marginTop:'-120px' }}>
-        <Button label='50+ Channels' style={buttonstyle} />
-        <Button label='Over 4,000 members' style={buttonstyle} />
-        <Button label='6 Years+ Community' style={buttonstyle} />
+        </Box>
       </Box>
-      </Layout>
-        );
+      <Box
+        direction="row-responsive"
+        pad="xlarge"
+        gap="medium"
+        align="center"
+        style={{ marginTop: '-120px' }}
+      >
+        <Button label="50+ Channels" style={buttonstyle} />
+        <Button label="Over 4,000 members" style={buttonstyle} />
+        <Button label="6 Years+ Community" style={buttonstyle} />
+      </Box>
+    </Layout>
+  );
 }
 
 Slacksignup.propTypes = {
-    data: PropTypes.shape({
-      site: PropTypes.shape({
-        siteMetadata: PropTypes.shape({
-          title: PropTypes.string.isRequired,
-        }).isRequired,
+  data: PropTypes.shape({
+    site: PropTypes.shape({
+      siteMetadata: PropTypes.shape({
+        title: PropTypes.string.isRequired,
       }).isRequired,
-      markdownRemark: PropTypes.shape({
-        frontmatter: PropTypes.shape({
-          title: PropTypes.string.isRequired,
-          image: PropTypes.string,
-        }).isRequired,
-        rawMarkdownBody: PropTypes.string,
+    }).isRequired,
+    markdownRemark: PropTypes.shape({
+      frontmatter: PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        image: PropTypes.string,
       }).isRequired,
-    }),
+      rawMarkdownBody: PropTypes.string,
+    }).isRequired,
+  }),
 };
-export const slack=graphql`query {
-  site {
-    siteMetadata {
-      title
+export const slack = graphql`
+  query {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+    markdownRemark(fields: { slug: { eq: "/" } }) {
+      excerpt
+      frontmatter {
+        title
+        image
+      }
+      rawMarkdownBody
     }
   }
-  markdownRemark(fields: { slug: { eq: "/" } }) {
-    excerpt
-    frontmatter {
-      title
-      image
-    }
-    rawMarkdownBody
-  }}` ;
+`;
