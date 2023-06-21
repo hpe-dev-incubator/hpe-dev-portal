@@ -11,7 +11,7 @@ tags:
   - machine-learning
   - data-ml-engineer
 ---
-This blog will recount the seamless user experience with [HPE Machine Learning Development Environment](https://www.hpe.com/us/en/solutions/artificial-intelligence/machine-learning-development-environment.html), pointing out how easy it is to achieve machine learning at scale with HPE.  
+This in-depth blog tutorial is divided into five separate sections, where I will recount the seamless user experience one has when working with [HPE Machine Learning Development Environment](https://www.hpe.com/us/en/solutions/artificial-intelligence/machine-learning-development-environment.html), pointing out how easy it is to achieve machine learning at scale with HPE.  
 
 Over the five parts of this blog, we’re going to review end-to-end training of an object detection model using NVIDIA’s PyTorch Container from [NVIDIA's NGC Catalog](https://www.nvidia.com/en-us/gpu-cloud/), a Jupyter Notebook, the open-source training platform from [Determined AI](http://www.determined.ai/), and [Kserve](https://www.kubeflow.org/docs/external-add-ons/kserve/kserve/) to deploy the model into production.  
 
@@ -184,10 +184,7 @@ Here we are using the SAHI library to slice our large satellite images. Satellit
 ## 4. Upload to s3 bucket to support distributed training
 
 We will now upload our exported data to a publically accessible S3 bucket. This will enable for a large scale distributed experiment to have access to the dataset without installing the dataset on device. 
-View these links to learn how to upload your dataset to an S3 bucket. Review the `S3Backend` class in `data.py`
-
-* https://docs.determined.ai/latest/training/load-model-data.html#streaming-from-object-storage
-* https://codingsight.com/upload-files-to-aws-s3-with-the-aws-cli/
+View [Determined Documentation](<* https://docs.determined.ai/latest/training/load-model-data.html#streaming-from-object-storage>) and [AWS instructions](<* https://codingsight.com/upload-files-to-aws-s3-with-the-aws-cli/>) to learn how to upload your dataset to an S3 bucket. Review the `S3Backend` class in `data.py`
 
 Once you create an S3 bucket that is publically accessible, here are example commands to upload the preprocessed dataset to S3:
 
@@ -215,7 +212,7 @@ Let's get started!
 
 ## Execute docker run to create NGC environment for Data Prep
 
-make sure to map host directory to docker directory, we will use the host directory again to 
+Make sure to map host directory to docker directory, we will use the host directory again to 
 
 * `docker run   --gpus all --ipc=host --ulimit memlock=-1 --ulimit stack=67108864 -v /home/ubuntu:/home/ubuntu  -p 8008:8888 -it nvcr.io/nvidia/pytorch:21.11-py3  /bin/bash`
 
@@ -516,10 +513,7 @@ mkdir /tmp/val_sliced_no_neg
 mv val_300_02.json /tmp/val_sliced_no_neg/val_300_02.json
 ```
 
-*Note that completing this tutorial requires you to upload your dataset from Step 2 into a publically accessible S3 bucket. This will enable for a large scale distributed experiment to have access to the dataset without installing the dataset on device. View these links to learn how to upload your dataset to an S3 bucket. Review the `S3Backend` class in `data.py`.*
-
-* https://docs.determined.ai/latest/training/load-model-data.html#streaming-from-object-storage
-* https://codingsight.com/upload-files-to-aws-s3-with-the-aws-cli/
+*Note that completing this tutorial requires you to upload your dataset from Step 2 into a publically accessible S3 bucket. This will enable for a large scale distributed experiment to have access to the dataset without installing the dataset on device. View [Determined Documentation](<* https://docs.determined.ai/latest/training/load-model-data.html#streaming-from-object-storage>) and [AWS instructions](<* https://codingsight.com/upload-files-to-aws-s3-with-the-aws-cli/>) to learn how to upload your dataset to an S3 bucket. Review the* `S3Backend` class in `data.py`
 
 When you define your S3 bucket and uploaded your dataset, make sure to change the `TARIN_DATA_DIR` in `build_training_data_loader` with the defined path in the S3 bucket.
 
@@ -559,7 +553,7 @@ Run the below commands in a terminal, and complete logging into the determined c
 
 ## Define Determined Experiment
 
-In [Determined](www.determined.ai), a *trial* is a training task that consists of a dataset, a deep learning model, and values for all of the model’s hyperparameters. An *experiment* is a collection of one or more trials: an experiment can either train a single model (with a single trial), or can train multiple models via. a hyperparameter sweep a user-defined hyperparameter space. 
+In [Determined](https://www.determined.ai/), a *trial* is a training task that consists of a dataset, a deep learning model, and values for all of the model’s hyperparameters. An *experiment* is a collection of one or more trials: an experiment can either train a single model (with a single trial), or can train multiple models via. a hyperparameter sweep a user-defined hyperparameter space. 
 
 Here is what a configuration file looks like for a distributed training experiment.
 
@@ -752,7 +746,7 @@ Let's get started!
 
 Run the below commands to set up a python virtual environment, and install all the python packages needed for this tutorial
 
-```
+```cwl
 sudo apt-get update && sudo apt-get  install python3.8-venv
 python3 -m venv kserve_env
 source kserve_env/bin/activate
@@ -889,7 +883,7 @@ Checkpoints created from a Determined Experiment will save both the model parame
 
 Run the below command in a terminal:
 
-```bash
+```cwl
 python kserve_utils/torchserve_utils/strip_checkpoint.py --ckpt-path kserve_utils/torchserve_utils/trained_model.pth \
   --new-ckpt-name kserve_utils/torchserve_utils/trained_model_stripped.pth
 ```
@@ -898,7 +892,7 @@ python kserve_utils/torchserve_utils/strip_checkpoint.py --ckpt-path kserve_util
 
 Run the below command to export the Pytorch Checkpoint into a .mar file that is required for torchserve inference. Our Kserve InferenceService will automatically deploy a Pod with a docker image that support TorchServe inferencing.
 
-```bash
+```cwl
 torch-model-archiver --model-name xview-fasterrcnn \
   --version 1.0 \
   --model-file kserve_utils/torchserve_utils/model-xview.py \
@@ -943,7 +937,7 @@ model_snapshot={"name": "startup.cfg","modelCount": 1,"models": {"xview-fasterrc
 
 #### What the properties.json looks like
 
-```
+```json
 [
     {
     "model-name": "xview-fasterrcnn",
