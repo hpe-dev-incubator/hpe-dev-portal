@@ -27,15 +27,13 @@ This notebook walks you each step to train a model using containers from the NGC
 
 ## NGC
 
-The [NGC Catalog from NVIDIA](https://catalog.ngc.nvidia.com/?filters=&orderBy=weightPopularASC&query=) offers ready-to-use containers, pretrained models, SDKs, and Helm charts for diverse use cases and industries to speed up model training, development, and deployment. We’ll be pulling the popular PyTorch Container from NGC for this example.  
-
-We will show you how to:
+The [NGC catalog from NVIDIA](https://www.nvidia.com/en-us/gpu-cloud/) offers ready-to-use containers, pretrained models, SDKs, and Helm charts for diverse use cases and industries to speed up model training, development, and deployment. For this example, I'm pulling the popular PyTorch Container from NGC and show you how to: 
 
 * Install the Docker Engine on your system
-* Pull a PyTorch container from the NGC Catalog using Docker
+* Pull a PyTorch container from the NGC catalog using Docker
 * Run the PyTorch container using Docker
 
-Let's get started!
+Let's get started! 
 
 - - -
 
