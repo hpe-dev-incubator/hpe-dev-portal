@@ -13,7 +13,7 @@ tags:
 ---
 This in-depth blog tutorial is divided into five separate sections, where I will recount the seamless user experience one has when working with [HPE Machine Learning Development Environment](https://www.hpe.com/us/en/solutions/artificial-intelligence/machine-learning-development-environment.html), pointing out how easy it is to achieve machine learning at scale with HPE.  
 
-Over the five parts of this blog, we’re going to review end-to-end training of an object detection model using NVIDIA’s PyTorch Container from [NVIDIA's NGC Catalog](https://www.nvidia.com/en-us/gpu-cloud/), a Jupyter Notebook, the open-source training platform from [Determined AI](http://www.determined.ai/), and [Kserve](https://www.kubeflow.org/docs/external-add-ons/kserve/kserve/) to deploy the model into production.  
+Throughout the different parts of this tutorial, I will review the end-to-end training of an object detection model using NVIDIA’s PyTorch Container from [NVIDIA's NGC Catalog](https://www.nvidia.com/en-us/gpu-cloud/), a Jupyter Notebook, the open-source training platform from [Determined AI](http://www.determined.ai/), and [Kserve](https://www.kubeflow.org/docs/external-add-ons/kserve/kserve/) to deploy the model into production.  
 
 # Part 1: End-to-End Example training object detection model using NVIDIA PyTorch Container from NGC
 
