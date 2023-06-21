@@ -79,7 +79,7 @@ Now that we have our Docker Engine installed and the PyTorch Container running, 
 
 # Part 2: Data Preparation
 
-Note this Demo is based on ngc docker image `nvcr.io/nvidia/pytorch:21.11-py3`
+*Note this Demo is based on ngc docker image* `nvcr.io/nvidia/pytorch:21.11-py3`
 
 This notebook walks you each step to train a model using containers from the NGC Catalog. We chose the GPU optimized Pytorch container as an example. The basics of working with docker containers apply to all NGC containers.
 
@@ -150,7 +150,7 @@ You can also [download the dataset](https://challenge.xviewdataset.org/data-down
 
 ## 2. How to convert labels to coco format
 
-Here we run a script to convert the dataset labels from .geojson format to COCO format. More details on the COCO format here: 
+Here we run a script to convert the dataset labels from .geojson format to COCO format. [Read more details about the COCO format at this link.](https://www.immersivelimit.com/tutorials/create-coco-annotations-from-scratch)
 
 The result will be two files (in COCO formal) generated `train.json` and `val.json`
 
@@ -167,7 +167,7 @@ The result will be two files (in COCO formal) generated `train.json` and `val.js
 
 ## 3. Slicing/Tiling the Dataset
 
-Here we are using the SAHI library to slice our large satellite images. Satellite images can be up to 50k^2 pixels in size, which wouldnt fit in GPU memory. We alleviate this problem by slicing the image. 
+Here we are using the SAHI library to slice our large satellite images. Satellite images can be up to 50k^2 pixels in size, which wouldn't fit in GPU memory. We alleviate this problem by slicing the image. 
 
 ```python
 !python data_utils/slice_coco.py --image_dir xview_dataset/train_images_rgb/ \
