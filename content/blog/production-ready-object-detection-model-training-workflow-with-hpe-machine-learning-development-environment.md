@@ -41,11 +41,11 @@ Let's get started!
 
 ### [](https://github.com/interactivetech/e2e_blogposts/blob/main/ngc_blog/E2E-Part-1-Installation.md#1-install-the-docker-engine)1. Install the Docker Engine
 
-Go to <https://docs.docker.com/engine/install/> to install the Docker Engine on your system.
+Go to the [Docker Installation Engine documentation](https://docs.docker.com/engine/install/) to install the Docker Engine on your system.
 
 ### [](https://github.com/interactivetech/e2e_blogposts/blob/main/ngc_blog/E2E-Part-1-Installation.md#2-download-the-tensorflow-container-from-the-ngc-catalog)2. Download the TensorFlow container from the NGC Catalog
 
-Once the Docker Engine is installed on your machine, visit <https://ngc.nvidia.com/catalog/containers> and search for the TensorFlow container. Click on the TensorFlow card and copy the pull command. [![](https://raw.githubusercontent.com/kbojo/images/master/NGC.png)](https://raw.githubusercontent.com/kbojo/images/master/NGC.png)
+Once the Docker Engine is installed on your machine, visit the [NVIDIA NGC Container Catalog](https://catalog.ngc.nvidia.com/containers) and search for[](https://ngc.nvidia.com/catalog/containers)and search for the TensorFlow container. Click on the TensorFlow card and copy the pull command. [![](https://raw.githubusercontent.com/kbojo/images/master/NGC.png)](https://raw.githubusercontent.com/kbojo/images/master/NGC.png)
 
 Open the command line of your machine and past the pull command into your command line. Execute the command to download the container.
 
