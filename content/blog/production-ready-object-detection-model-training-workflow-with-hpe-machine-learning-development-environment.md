@@ -21,7 +21,7 @@ Over the five parts of this blog, we’re going to review end-to-end training of
 
 - - -
 
-***Note: this Object Deterction demo is based on the [TochVision package GitHub repository](https://github.com/pytorch/vision/tree/v0.11.3).***
+***Note: this Object Detection demo is based on the [TochVision package GitHub repository](https://github.com/pytorch/vision/tree/v0.11.3).***
 
 This notebook walks you each step to train a model using containers from the NGC Catalog. We chose the GPU optimized PyTorch container as an example. The basics of working with docker containers apply to all NGC containers.
 
