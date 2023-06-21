@@ -27,9 +27,9 @@ This notebook walks you each step to train a model using containers from the NGC
 
 ## NGC
 
-The [NGC catalog from NVIDIA](https://www.nvidia.com/en-us/gpu-cloud/) offers ready-to-use containers, pretrained models, SDKs, and Helm charts for diverse use cases and industries to speed up model training, development, and deployment. For this example, I'm pulling the popular PyTorch Container from NGC and show you how to: 
+The [NGC catalog from NVIDIA](https://www.nvidia.com/en-us/gpu-cloud/) offers ready-to-use containers, pre-trained models, SDKs, and Helm charts for diverse use cases and industries to speed up model training, development, and deployment. For this example, I'm pulling the popular PyTorch container from NGC and show you how to: 
 
-* Install the Docker Engine on your system
+* Install the Docker engine on your system
 * Pull a PyTorch container from the NGC catalog using Docker
 * Run the PyTorch container using Docker
 
@@ -45,7 +45,7 @@ Go to the [Docker Installation Engine documentation](https://docs.docker.com/en
 
 Once the Docker Engine is installed on your machine, visit the [NVIDIA NGC Container Catalog](https://catalog.ngc.nvidia.com/containers) and search for[](https://ngc.nvidia.com/catalog/containers)and search for the TensorFlow container. Click on the TensorFlow card and copy the pull command. [![](https://raw.githubusercontent.com/kbojo/images/master/NGC.png)](https://raw.githubusercontent.com/kbojo/images/master/NGC.png)
 
-Open the command line of your machine and past the pull command into your command line. Execute the command to download the container.
+Open the command line of your machine and paste the pull command into your command line. Execute the command to download the container.
 
 `$ docker pull nvcr.io/nvidia/pytorch:21.11-py3`
 
@@ -77,9 +77,9 @@ Now that we have our Docker Engine installed and the PyTorch Container running, 
 
 # Part 2: Data Preparation
 
-*Note this Demo is based on ngc docker image* `nvcr.io/nvidia/pytorch:21.11-py3`
+*Note this Demo is based on* NGC *Docker image* `nvcr.io/nvidia/pytorch:21.11-py3`
 
-This notebook walks you each step to train a model using containers from the NGC Catalog. We chose the GPU optimized Pytorch container as an example. The basics of working with docker containers apply to all NGC containers.
+This notebook walks you each step to train a model using containers from the NGC catalog. We chose the GPU optimized PyTorch container as an example. The basics of working with docker containers apply to all NGC containers.
 
 We will show you how to:
 
