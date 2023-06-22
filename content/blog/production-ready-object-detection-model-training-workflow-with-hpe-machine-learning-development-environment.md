@@ -69,32 +69,32 @@ Within the container, run the following commands:
 
 Open up your favorite browser and enter: [http://localhost:8888/?token=*yourtoken](http://localhost:8888/?token=*yourtoken)*. [![](https://raw.githubusercontent.com/kbojo/images/master/commandline2.png)](https://raw.githubusercontent.com/kbojo/images/master/commandline2.png)
 
-You should see the Jupyter Lab application. Click on the plus icon to launch a new Python 3 notebook. Follow along with the image classification with the TensorFlow example provided in Part 2. 
+You should see the Jupyter Lab application. Click on the plus icon to launch a new Python 3 notebook. Follow the instructions regarding the image classification with the TensorFlow example provided in Part 2. 
 
-Now that we have our Docker Engine installed and the PyTorch Container running, we need to fetch and prepare our training dataset. That’s coming up in Part 2 below.
+Now that you have your Docker engine installed and the PyTorch Container running, we need to fetch and prepare our training dataset. You'll see that coming up in Part 2 below. 
 
 - - -
 
-# Part 2: Data Preparation
+# Part 2: Data preparation
 
-*Note this Demo is based on* NGC *Docker image* `nvcr.io/nvidia/pytorch:21.11-py3`
+*Note this Demo is based on NGC Docker image* `nvcr.io/nvidia/pytorch:21.11-py3`
 
-This notebook walks you each step to train a model using containers from the NGC catalog. We chose the GPU optimized PyTorch container as an example. The basics of working with docker containers apply to all NGC containers.
+This notebook walks you through each step required to train a model using containers from the NGC catalog. We chose the GPU optimized PyTorch container as an example. The basics of working with docker containers apply to all NGC containers.
 
 We will show you how to:
 
 * Download the Xview Dataset
 * How to convert labels to coco format
-* How to conduct the preprocessing step, Tiling: slicing large satellite imagery into chunks 
+* How to conduct the preprocessing step, **Tiling**: slicing large satellite imagery into chunks 
 * How to upload to s3 bucket to support distributed training
 
 Let's get started!
 
 - - -
 
-## Pre-reqs, set up jupyter notebook environment using NGC container
+## Pre-reqs, set up Jupyter notebook environment using NGC container
 
-### Execute docker run to create NGC environment for Data Prep
+### Execute docker run to create NGC environment for data preparation
 
 Make sure to map host directory to docker directory, we will use the host directory again to 
 
