@@ -954,9 +954,9 @@ model_snapshot={"name": "startup.cfg","modelCount": 1,"models": {"xview-fasterrc
 ]
 ```
 
-Note that we have a `config/` folder that includes a config.properties. This defines A. We also have a `model-store/` directory that contains are exported models and a `properties.json` file. We need this file for B
+Note that there is a `config/` folder that includes a config.properties. This defines A. There is also a `model-store/` directory that contains are exported models and a `properties.json` file. You will need this file for B.
 
-Now we will run several kubectl commands to copy over these folders into our Pod and into the PVC defined directory
+Now, run several kubectl commands to copy over these folders into your Pod and into the PVC defined directory.
 
 * `kubectl cp kserve_utils/torchserve_utils/config/ model-store-pod:/pv/config/`
 * `kubectl cp kserve_utils/torchserve_utils/model-store/ model-store-pod:/pv/model-store/`
@@ -966,11 +966,11 @@ Run these commands to verify the contents have been copied over to the pod.
 * `kubectl exec --tty model-store-pod -- ls /pv/config`
 * `kubectl exec --tty model-store-pod -- ls /pv/model-store`
 
-## Deploying model using a KServe InferenceService
+## Deploying a model using a KServe InferenceService
 
 ### Create Inference Service
 
-Below is the yaml definition that defines the KServe InferenceService that deploys models stored in the PVC. We already created a file that defines this PV in `k8s_files/torch-kserve-pvc.yaml`
+Below is the yaml definition that defines the KServe InferenceService that deploys models stored in the PVC. A file that defines this PV has already been created in `k8s_files/torch-kserve-pvc.yaml`
 
 ```yaml
 apiVersion: "serving.kserve.io/v1beta1"
@@ -1006,7 +1006,7 @@ filename='kserve_utils/torchserve_utils/example_img.jpg'
 im = Image.open(filename)
 ```
 
-Here is the test image we will send to the Deployed Model
+Here is the test image that will be sent to the deployed model.
 
 ```python
 im
@@ -1014,7 +1014,7 @@ im
 
 ![png](/img/output_26_0.png)
 
-Here we will encode the image into into base64 binary format 
+Now, encode the image into the base64 binary format.
 
 ```python
 image = open(filename, 'rb')  # open binary file in read mode
