@@ -81,7 +81,7 @@ Now that you have your Docker engine installed and the PyTorch Container running
 
 This notebook walks you through each step required to train a model using containers from the NGC catalog. We chose the GPU optimized PyTorch container as an example. The basics of working with docker containers apply to all NGC containers.
 
-We will show you how to:
+Here, I will show you how to:
 
 * Download the Xview Dataset
 * How to convert labels to coco format
@@ -92,25 +92,25 @@ Let's get started!
 
 - - -
 
-## Pre-reqs, set up Jupyter notebook environment using NGC container
+## Pre-reqs, set up Jupyter Notebook environment using NGC container
 
-### Execute docker run to create NGC environment for data preparation
+### Execute Docker run to create NGC environment for data preparation
 
-Make sure to map host directory to docker directory, we will use the host directory again to 
+Make sure to map host directory to Docker directory. You will use the host directory again to do the following:
 
 * `docker run   --gpus all --ipc=host --ulimit memlock=-1 --ulimit stack=67108864 -v /home/ubuntu:/home/ubuntu  -p 8008:8888 -it nvcr.io/nvidia/pytorch:21.11-py3  /bin/bash`
 
-### Run Jupyter notebook command within Docker container to access it on your local browser
+### Run Jupyter Notebook command within Docker container to access it on your local browser
 
 * `cd /home/ubuntu`
 * `jupyter lab --ip=0.0.0.0 --port=8888 --NotebookApp.token='' --NotebookApp.password=''` 
 * `git clone https://github.com/interactivetech/e2e_blogposts.git`
 
-### Download the Xview Dataset
+### Download the xView dataset
 
 The dataset we will be using is from the [DIUx xView 2018 Challenge](https://challenge.xviewdataset.org) by U.S. National Geospatial-Intelligence Agency (NGA). You will need to [create an account](https://challenge.xviewdataset.org/welcome), agree to the terms and conditions, and download the dataset manually.
 
-You can also [download the dataset](https://challenge.xviewdataset.org/data-download).
+You can also [download the dataset](https://challenge.xviewdataset.org/data-download). 
 
 ```python
 # run pip install to get the SAHI library
@@ -146,9 +146,9 @@ You can also [download the dataset](https://challenge.xviewdataset.org/data-down
   --out_dir xview_dataset/train_images_rgb/
 ```
 
-## 2. How to convert labels to coco format
+## 2. How to convert labels to COCO format
 
-Here we run a script to convert the dataset labels from .geojson format to COCO format. [Read more details about the COCO format at this link.](https://www.immersivelimit.com/tutorials/create-coco-annotations-from-scratch)
+Run a script to convert the dataset labels from .geojson format to COCO format. [Read more details about the COCO format at this link.](https://www.immersivelimit.com/tutorials/create-coco-annotations-from-scratch)
 
 The result will be two files (in COCO formal) generated `train.json` and `val.json`
 
@@ -165,7 +165,7 @@ The result will be two files (in COCO formal) generated `train.json` and `val.js
 
 ## 3. Slicing/Tiling the Dataset
 
-Here we are using the SAHI library to slice our large satellite images. Satellite images can be up to 50k^2 pixels in size, which wouldn't fit in GPU memory. We alleviate this problem by slicing the image. 
+Here, you will be using the SAHI library to slice our large satellite images. Satellite images can be up to 50k^2 pixels in size, which wouldn't fit in GPU memory. You can alleviate this problem by slicing the image. 
 
 ```python
 !python data_utils/slice_coco.py --image_dir xview_dataset/train_images_rgb/ \
@@ -179,9 +179,9 @@ Here we are using the SAHI library to slice our large satellite images. Satellit
   --output_val_dir xview_dataset/val_images_rgb_no_neg/
 ```
 
-## 4. Upload to s3 bucket to support distributed training
+## 4. Upload to S3 bucket to support distributed training
 
-We will now upload our exported data to a publically accessible S3 bucket. This will enable for a large scale distributed experiment to have access to the dataset without installing the dataset on device. 
+We will now upload our exported data to a publically accessible AWS S3 bucket. This will enable for a large scale distributed experiment to have access to the dataset without installing the dataset on device. 
 View [Determined Documentation](<* https://docs.determined.ai/latest/training/load-model-data.html#streaming-from-object-storage>) and [AWS instructions](<* https://codingsight.com/upload-files-to-aws-s3-with-the-aws-cli/>) to learn how to upload your dataset to an S3 bucket. Review the `S3Backend` class in `data.py`
 
 Once you create an S3 bucket that is publically accessible, here are example commands to upload the preprocessed dataset to S3:
@@ -191,7 +191,7 @@ Once you create an S3 bucket that is publically accessible, here are example com
 
 Our satellite imagery data is in an S3 bucket and is prepped for distributed training, so now we can progress to model training and inference via the NGC Container.  
 
-# Part 3: End-to-End Example training object detection model using NVIDIA Pytorch Container from NGC
+# Part 3: End-to-End example training object detection model using NVIDIA PyTorch Container from NGC
 
 ## Training and Inference via NGC Container
 
