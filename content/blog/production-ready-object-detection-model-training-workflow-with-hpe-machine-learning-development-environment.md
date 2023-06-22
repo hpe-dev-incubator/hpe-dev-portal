@@ -108,7 +108,7 @@ Make sure to map host directory to Docker directory. You will use the host direc
 
 ### Download the xView dataset
 
-The dataset we will be using is from the [DIUx xView 2018 Challenge](https://challenge.xviewdataset.org) by U.S. National Geospatial-Intelligence Agency (NGA). You will need to [create an account](https://challenge.xviewdataset.org/welcome), agree to the terms and conditions, and download the dataset manually.
+The dataset you will be using is from the [DIUx xView 2018 Challenge](https://challenge.xviewdataset.org) by U.S. National Geospatial-Intelligence Agency (NGA). You will need to [create an account](https://challenge.xviewdataset.org/welcome), agree to the terms and conditions, and download the dataset manually.
 
 You can also [download the dataset](https://challenge.xviewdataset.org/data-download). 
 
