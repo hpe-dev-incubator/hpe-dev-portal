@@ -724,25 +724,25 @@ loaded_model = load_model_from_checkpoint(checkpoint)
 
 Now that you have a checkpoint from the trained object detection model, you can deploy it to Kserve to run inference and predictions.  
 
-# Part 5: Deploying Trained Model on Kserve
+# Part 5: Deploying trained model on Kserve
 
 This notebook walks you each step to deploy a custom object detection model on KServe. 
 
-We will show you how to:
+Here, I will show you how to:
 
-* Install Kserve Natively using Kind and Knative
+* Install Kserve natively using Kind and Knative
 * Create a Persistent Volume Claim for local model deployment
 * Preparing custom model for Kserve inference
 * Deploying model using a KServe InferenceService
 * Complete a sample request and plot predictions
 
-Note: This notebook was tested on a Linux-based machine with Nvidia T4 GPUs. We also assume Docker is installed in your Linux system/environment
+*Note: This notebook was tested on a Linux-based machine with Nvidia T4 GPUs. We also assume Docker is installed in your Linux system/environment*
 
 Let's get started!
 
 ## Pre-reqs: Setting up Python and Jupyter Lab environment
 
-Run the below commands to set up a python virtual environment, and install all the python packages needed for this tutorial
+Run the below commands to set up a Python virtual environment, and install all the Python packages needed for this tutorial
 
 ```cwl
 sudo apt-get update && sudo apt-get  install python3.8-venv
@@ -756,11 +756,11 @@ jupyter lab --ip=0.0.0.0 \
   --NotebookApp.password=''
 ```
 
-## Install Kserve Natively using Kind and Knative
+## Install Kserve natively using Kind and Knative
 
 ### Install Kind
 
-Open a Terminal and run the following bash commands to install a kubernetes cluster using Kind:
+Open a terminal and run the following bash commands to install a Kubernetes cluster using Kind:
 
 * `curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.18.0/kind-linux-amd64`
 * `chmod +x ./kind`
