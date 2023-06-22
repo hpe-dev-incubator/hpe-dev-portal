@@ -778,35 +778,35 @@ Run the following bash commmands in a terminal to to install the kubectl runtime
 
 ### Install Kserve
 
-Run this bash script to install KServe onto our default Kubernetes Cluster, note this will install the following artifacts:
+Run this bash script to install KServe onto our default Kubernetes cluster, note this will install the following artifacts:
 
 * ISTIO_VERSION=1.15.2, KNATIVE_VERSION=knative-v1.9.0, KSERVE_VERSION=v0.9.0-rc0, CERT_MANAGER_VERSION=v1.3.0
 * `bash e2e_blogposts/ngc_blog/kserve_utils/bash_scripts/kserve_install.sh`
 
-### Patch Domain for local connection to KServe cluster/environment
+### Patch domain for local connection to KServe cluster/environment
 
 Run this command to patch your cluster when you want to connect to your cluster on the same machine:
 
 `kubectl patch cm config-domain --patch '{"data":{"example.com":""}}' -n knative-serving`
 
-### Run Port Forwarding to access KServe cluster
+### Run port forwarding to access KServe cluster
 
 * `INGRESS_GATEWAY_SERVICE=$(kubectl get svc --namespace istio-system --selector="app=istio-ingressgateway" --output jsonpath='{.items[0].metadata.name}')`
 * `kubectl port-forward --namespace istio-system svc/${INGRESS_GATEWAY_SERVICE} 8080:80`
 
 Make sure to open a new terminal to continue the configuration. 
 
-### Create a Persistent Volume Claim for local model deployment
+### Create a persistent volume claim for local model deployment
 
-We will be creating a Persistent Volume Claim to host and access our Pytorch based Object Detection model locally. A persistent volume claim requires three k8s artifacts:
+You will be creating a persistent volume claim to host and access the PyTorch-based object detection model locally. A persistent volume claim requires three k8s artifacts:
 
-* A Persistent Volume
-* A Persistent Volume Claim
-* A K8S pod that connects the PVC to be accessed by other K8S resources
+* A persistent volume
+* A persistent volume claim
+* A k8s pod that connects the PVC to be accessed by other k8s resources 
 
-### Creating a Persistent Volume and Persistent Volume Claim
+### Creating a persistent volume and persistent volume claim
 
-Below is the yaml definition that defines the Persistent Volume (PV) and a Persistent Volume Claim (PVC). We already created a file that defines this PV in `k8s_files/pv-and-pvc.yaml`
+Below is the yaml definition that defines the Persistent Volume (PV) and a PersistentVolumeClaim (PVC). We already created a file that defines this PV in `k8s_files/pv-and-pvc.yaml`
 
 ```yaml
 apiVersion: v1
@@ -839,9 +839,9 @@ spec:
 
 To create the PV and PVC, run the command: `kubectl apply -f k8s_files/pv-and-pvc.yaml`
 
-### Create K8s Pod to access PVC
+### Create k8s pod to access PVC
 
-Below is the yaml definition that defines the K8s Pod that mounts the Persistent Volume Claim (PVC). We already created a file that defines this PV in `k8s_files/model-store-pod.yaml`
+Below is the yaml definition that defines the k8s Pod that mounts the PersistentVolumeClaim (PVC). We already created a file that defines this PV in `k8s_files/model-store-pod.yaml`
 
 ```yaml
 apiVersion: v1
@@ -875,9 +875,9 @@ Here we will complete some preparation steps to deploy a trained custom FasterRC
 
 * `wget -O kserve_utils/torchserve_utils/trained_model.pth https://determined-ai-xview-coco-dataset.s3.us-west-2.amazonaws.com/trained_model.pth`
 
-### Stripping the Checkpoint of the Optimizer State Dict
+### Stripping the checkpoint of the optimizer state dictionary
 
-Checkpoints created from a Determined Experiment will save both the model parameters and the optimizer parameters. We will need to strip the checkpoint of all parameters except the model parameters for inference. Run the bash command to generate `train_model_stripped.pth`:
+Checkpoints created from a Determined experiment will save both the model parameters and the optimizer parameters. You will need to strip the checkpoint of all parameters except the model parameters for inference. Run the bash command to generate `train_model_stripped.pth`:
 
 Run the below command in a terminal:
 
@@ -888,7 +888,7 @@ python kserve_utils/torchserve_utils/strip_checkpoint.py --ckpt-path kserve_util
 
 ### Run TorchServe Export to create .mar file
 
-Run the below command to export the Pytorch Checkpoint into a .mar file that is required for torchserve inference. Our Kserve InferenceService will automatically deploy a Pod with a docker image that support TorchServe inferencing.
+Run the below command to export the PyTorch checkpoint into a .mar file that is required for torchserve inference. The Kserve InferenceService will automatically deploy a Pod with a docker image that support TorchServe inferencing. 
 
 ```cwl
 torch-model-archiver --model-name xview-fasterrcnn \
@@ -905,7 +905,7 @@ After command finishes, run command to move file to our prepared `model-store/` 
 
 ### Copy `config/` and `model-store/` folders to the K8S PVC Pod
 
-This is the directory structure needed to prepare our custom Pytorch Model for KServe inferencing:
+This is the directory structure needed to prepare your custom PyTorch model for KServe inferencing:
 
 ```
 ├── config
