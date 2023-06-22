@@ -163,7 +163,7 @@ The result will be two files (in COCO formal) generated `train.json` and `val.js
   --xview_class_labels data_utils/xview_class_labels.txt
 ```
 
-## 3. Slicing/Tiling the Dataset
+## 3. Slicing/Tiling the dataset
 
 Here, you will be using the SAHI library to slice our large satellite images. Satellite images can be up to 50k^2 pixels in size, which wouldn't fit in GPU memory. You can alleviate this problem by slicing the image. 
 
