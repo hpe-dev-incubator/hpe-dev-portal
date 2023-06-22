@@ -899,7 +899,7 @@ torch-model-archiver --model-name xview-fasterrcnn \
   --extra-files kserve_utils/torchserve_utils/index_to_name.json
 ```
 
-After command finishes, run command to move file to our prepared `model-store/` directory:
+After command finishes, run the command to move the file to our prepared `model-store/` directory: 
 
 * `cp xview-fasterrcnn.mar kserve_utils/torchserve_utils/model-store -v`
 
