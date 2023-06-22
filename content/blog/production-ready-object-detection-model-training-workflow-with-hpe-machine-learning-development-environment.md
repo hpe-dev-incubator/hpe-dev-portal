@@ -83,10 +83,10 @@ This notebook walks you through each step required to train a model using co
 
 Here, I will show you how to:
 
-* Download the Xview Dataset
+* Download the xView Dataset
 * How to convert labels to coco format
 * How to conduct the preprocessing step, **Tiling**: slicing large satellite imagery into chunks 
-* How to upload to s3 bucket to support distributed training
+* How to upload to S3 bucket to support distributed training
 
 Let's get started!
 
@@ -499,7 +499,7 @@ Let's get started!
 
 ## Pre-req: Run startup-hook.sh
 
-This script will install some python dependencies, and install dataset labels needed when loading the Xview dataset:
+This script will install some python dependencies, and install dataset labels needed when loading the xView dataset:
 
 ```bash
 ## Temporary disable for Grenoble Demo
@@ -511,7 +511,7 @@ mkdir /tmp/val_sliced_no_neg
 mv val_300_02.json /tmp/val_sliced_no_neg/val_300_02.json
 ```
 
-*Note that completing this tutorial requires you to upload your dataset from Step 2 into a publicly accessible S3 bucket. This will enable for a large scale distributed experiment to have access to the dataset without installing the dataset on device. View [Determined Documentation](<* https://docs.determined.ai/latest/training/load-model-data.html#streaming-from-object-storage>) and [AWS instructions](<* https://codingsight.com/upload-files-to-aws-s3-with-the-aws-cli/>) to learn how to upload your dataset to an S3 bucket. Review the* `S3Backend` class in `data.py`
+*Note that completing this tutorial requires you to upload your dataset from Step 2 into a publicly accessible S3 bucket. This will enable for a large scale distributed experiment to have access to the dataset without installing the dataset on device. View [Determined Documentation](https://docs.determined.ai/latest/model-dev-guide/load-model-data.html) and [AWS instructions](https://codingsight.com/upload-files-to-aws-s3-with-the-aws-cli/) to learn how to upload your dataset to an S3 bucket. Review the* `S3Backend` class in `data.py`
 
 When you define your S3 bucket and uploaded your dataset, make sure to change the `TARIN_DATA_DIR` in `build_training_data_loader` with the defined path in the S3 bucket.
 
@@ -907,7 +907,7 @@ After command finishes, run the command to move the file to our prepared `model-
 
 This is the directory structure needed to prepare your custom PyTorch model for KServe inferencing:
 
-```
+```markdown
 ├── config
 │   └── config.properties
 ├── model-store
@@ -917,7 +917,7 @@ This is the directory structure needed to prepare your custom PyTorch model for 
 
 #### What the config.properties file looks like
 
-```
+```markdown
 inference_address=http://0.0.0.0:8085
 management_address=http://0.0.0.0:8085
 metrics_address=http://0.0.0.0:8082
