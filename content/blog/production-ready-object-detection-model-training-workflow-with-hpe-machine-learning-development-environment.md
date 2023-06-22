@@ -1078,7 +1078,7 @@ for pred in resp['predictions'][0]:
         draw.text([bboxes[0],bboxes[1]-10],"{} :{:.2f}".format(cl_name,pred['score']),fill=(250,0,0))
 ```
 
-Here we will see the model predictions overlaid on the input image
+Here, you can see the model predictions overlaid onto the input image.
 
 ```python
 plt.figure(figsize=(12,12))
@@ -1093,7 +1093,7 @@ plt.imshow(im)
 
 ## Conclusion
 
-There are numerous ways to get started with end-to-end ML model training with HPE. You can find the [full example on GitHub here](https://github.com/interactivetech/e2e_blogposts/tree/main/ngc_blog); to get started with Determined AI’s open source model training platform, visit the [Documentation](https://docs.determined.ai/latest/) page.  
+There are numerous ways to get started with end-to-end ML model training with HPE. You can find the [full example on GitHub here](https://github.com/interactivetech/e2e_blogposts/tree/main/ngc_blog) To get started with Determined AI’s open source model training platform, visit the [Documentation](https://docs.determined.ai/latest/) page.  
 
 If you’re ready to begin your ML journey with HPE, we’re excited to help you get started! [HPE Machine Learning Development Environment](https://www.hpe.com/us/en/solutions/artificial-intelligence/machine-learning-development-environment.html) comes with premium HPE support, which you can read more about [here](https://www.hpe.com/us/en/solutions/artificial-intelligence/machine-learning-development-environment.html).  
 
