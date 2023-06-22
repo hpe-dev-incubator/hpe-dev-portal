@@ -182,7 +182,7 @@ Here, you will be using the SAHI library to slice our large satellite images. Sa
 ## 4. Upload to S3 bucket to support distributed training
 
 Now, you can upload your exported data to a publicly accessible AWS S3 bucket. For a large-scale distributed experiment, this will enable you to access the dataset without installing the dataset on the device.
-View [Determined Documentation](<* https://docs.determined.ai/latest/training/load-model-data.html#streaming-from-object-storage>) and [AWS instructions](<* https://codingsight.com/upload-files-to-aws-s3-with-the-aws-cli/>) to learn how to upload your dataset to an S3 bucket. Review the `S3Backend` class in `data.py`
+View [Determined Documentation](https://docs.determined.ai/latest/model-dev-guide/load-model-data.html) and [AWS instructions](https://codingsight.com/upload-files-to-aws-s3-with-the-aws-cli/) to learn how to upload your dataset to an S3 bucket. Review the `S3Backend` class in `data.py`
 
 Once you create an S3 bucket that is publicly accessible, here are example commands to upload the preprocessed dataset to S3:
 
