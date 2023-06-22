@@ -1038,7 +1038,7 @@ with open(result_file, 'w') as outfile:
 Result File:  kserve_utils/torchserve_utils/example_img.json
 ```
 
-Lets submit the image to our deployed endpoint and visualize the predictions!
+Now you can submit the image to the deployed endpoint and visualize the predictions!
 
 ```python
 headers = {
@@ -1052,6 +1052,8 @@ resp = json.loads(response.content)
 
 print("Number of Predictions: ", len(resp['predictions'][0]))
 ```
+
+
 
 ```
 Number of Predictions:  95
