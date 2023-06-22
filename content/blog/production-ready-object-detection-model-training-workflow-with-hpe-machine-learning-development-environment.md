@@ -631,7 +631,7 @@ Created experiment 77
 
 To implement an automatic hyperparameter tuning experiment, define the hyperparameter space, e.g. by listing the decisions that may impact model performance. You can specify a range of possible values in the experiment configuration for each hyperparameter in the search space.
 
-View the `x.yaml` file that defines a hyperparameter search where we find the model architecture that achieves the best performance on the dataset.
+View the `x.yaml` file that defines a hyperparameter search where the model architecture that achieves the best performance on the dataset is found..
 
 ```yaml
 name: xview_frxnn_search
@@ -704,7 +704,7 @@ Preparing files to send to master... 312.2KB and 40 files
 Created experiment 79
 ```
 
-## Load Checkpoint of Trained Experiment.
+## Load checkpoint of trained experiment
 
 Replace the `<EXP_ID>` and run the below cells with the experiment ID once the experiment is completed.
 
@@ -722,7 +722,7 @@ print(checkpoint.uuid)
 loaded_model = load_model_from_checkpoint(checkpoint)
 ```
 
-Now that we have a checkpoint from our trained object detection model, we can deploy it to Kserve to run inference and predictions.  
+Now that you have a checkpoint from the trained object detection model, you can deploy it to Kserve to run inference and predictions.  
 
 # Part 5: Deploying Trained Model on Kserve
 
