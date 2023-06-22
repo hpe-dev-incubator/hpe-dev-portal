@@ -181,40 +181,40 @@ Here, you will be using the SAHI library to slice our large satellite images. Sa
 
 ## 4. Upload to S3 bucket to support distributed training
 
-We will now upload our exported data to a publically accessible AWS S3 bucket. This will enable for a large scale distributed experiment to have access to the dataset without installing the dataset on device. 
+Now, you can upload your exported data to a publicly accessible AWS S3 bucket. For a large-scale distributed experiment, this will enable you to access the dataset without installing the dataset on the device.
 View [Determined Documentation](<* https://docs.determined.ai/latest/training/load-model-data.html#streaming-from-object-storage>) and [AWS instructions](<* https://codingsight.com/upload-files-to-aws-s3-with-the-aws-cli/>) to learn how to upload your dataset to an S3 bucket. Review the `S3Backend` class in `data.py`
 
-Once you create an S3 bucket that is publically accessible, here are example commands to upload the preprocessed dataset to S3:
+Once you create an S3 bucket that is publicly accessible, here are example commands to upload the preprocessed dataset to S3:
 
 * `aws s3 cp --recursive xview_dataset/train_sliced_no_neg/   s3://determined-ai-xview-coco-dataset/train_sliced_no_neg`
 * `aws s3 cp --recursive xview_dataset/val_sliced_no_neg/   s3://determined-ai-xview-coco-dataset/val_sliced_no_neg`
 
-Our satellite imagery data is in an S3 bucket and is prepped for distributed training, so now we can progress to model training and inference via the NGC Container.  
+Now that the satellite imagery data is in an S3 bucket and is prepped for distributed training, you can progress to model training and inferencing via the NGC container.  
 
-# Part 3: End-to-End example training object detection model using NVIDIA PyTorch Container from NGC
+# Part 3: End-to-End example training object detection model using NVIDIA PyTorch container from NGC
 
-## Training and Inference via NGC Container
+## Training and inference via NGC Container
 
-This notebook walks you each step to train a model using containers from the NGC Catalog. We chose the GPU optimized Pytorch container as an example. The basics of working with docker containers apply to all NGC containers.
+This notebook walks you through each step to train a model using containers from the NGC Catalog. I chose the GPU-optimized PyTorch container for this example. The basics of working with Docker containers apply to all NGC containers. 
 
 We will show you how to:
 
-* Execute training a object detection on satellite imagery using TensorFlow and Jupyter Notebook
+* Execute training an object detection model on satellite imagery using TensorFlow and Jupyter Notebook 
 * Run inference on a trained object detection model using the SAHI library
 
-Note this Object Detection demo is based on https://github.com/pytorch/vision/tree/v0.11.3 and ngc docker image `nvcr.io/nvidia/pytorch:21.11-py3`
+Note this object detection demo is based on [this PyTorch repo](https://github.com/pytorch/vision/tree/v0.11.3) and ngc docker image `nvcr.io/nvidia/pytorch:21.11-py3`
 
-We assume you completed step 2 of dataset preprocessing and have your tiled satellite imagery dataset completed and in the local directory `train_images_rgb_no_neg/train_images_300_02`
+It is assumed that, by now, you have completed step 2 of dataset preprocessing and have your tiled satellite imagery dataset completed and in the local directory `train_images_rgb_no_neg/train_images_300_02`
 
-Let's get started!
+Let's get started! 
 
-## Execute docker run to create NGC environment for Data Prep
+## Execute Docker run to create NGC environment for data prep
 
-Make sure to map host directory to docker directory, we will use the host directory again to 
+Make sure to map host directory to Docker directory. You will use the host directory again to: 
 
 * `docker run   --gpus all --ipc=host --ulimit memlock=-1 --ulimit stack=67108864 -v /home/ubuntu:/home/ubuntu  -p 8008:8888 -it nvcr.io/nvidia/pytorch:21.11-py3  /bin/bash`
 
-## Run Jupyter notebook command within docker container to access it on your local browser
+## Run Jupyter Notebook command within Docker container to access it on your local browser
 
 * `cd /home/ubuntu`
 * `jupyter lab --ip=0.0.0.0 --port=8888 --NotebookApp.token='' --NotebookApp.password=''` 
@@ -224,9 +224,9 @@ Make sure to map host directory to docker directory, we will use the host direct
 !pip install cython pycocotools matplotlib terminaltables
 ```
 
-## TLDR; Run training job on 4 GPUS
+## TLDR; Run training job on 4 GPUs
 
-The below cell will run a multi-gpu training job. This job will train an object detection model (faster-rcnn) on a dataset of satellite imagery images that contain 61 classes of objects
+The below cell will run a multi-gpu training job. This job will train an object detection model (faster-rcnn) on a dataset of satellite imagery images that contain 61 classes of objects.
 
 * Change `nproc_per_node` argument to specify the number of GPUs available on your server
 
