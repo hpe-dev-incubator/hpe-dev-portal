@@ -236,9 +236,9 @@ The below cell will run a multi-gpu training job. This job will train an object 
     --lr-steps 16 22 --aspect-ratio-group-factor 3
 ```
 
-### 1. Object Detection on Satellite Imagery with PyTorch (Single GPU)
+### 1. Object detection on satellite imagery with PyTorch (single GPU)
 
-Follow and Run the code to train a Faster RCNN FPN (Resnet50 backbone) that classifies images of clothing. 
+Follow and run the code to train a Faster RCNN FPN (Resnet50 backbone) that classifies images of clothing. 
 
 ```python
 import sys
@@ -476,17 +476,17 @@ _=model.eval()
 _=predict(model,images_t_list,targets_t_list)
 ```
 
-In the next part of our blog, we scale our model training using distributed training within HPE Machine Learning Development Environment & System. 
+In the next part of this blog post, I will show you how to scale your model training using using distributed training within HPE Machine Learning Development Environment & System. 
 
 # Part 4: Training on HPE Machine Learning Development & System
 
-[HPE Machine Learning Development Environment](https://www.hpe.com/us/en/solutions/artificial-intelligence/machine-learning-development-environment.html) is a training platform software that reduces complexity for ML researchers and helps research teams collaborate. HPE combines this incredibly powerful training platform with best-of-breed hardware and interconnect in [HPE Machine Learning Development System](https://www.hpe.com/us/en/hpe-machine-learning-development-system.html), an AI turnkey solution that we'll be using for the duration of the tutorial. 
+[HPE Machine Learning Development Environment](https://www.hpe.com/us/en/solutions/artificial-intelligence/machine-learning-development-environment.html) is a training platform software that reduces complexity for ML researchers and helps research teams collaborate. HPE combines this incredibly powerful training platform with best-of-breed hardware and interconnect in [HPE Machine Learning Development System](https://www.hpe.com/us/en/hpe-machine-learning-development-system.html), an AI turnkey solution that will be used for the duration of the tutorial. 
 
-This notebook walks you the commands to run the same training as Step 3, but using the HPE Machine Learning Development Environment together with the PyTorchTrial API.
+This notebook walks you through the commands to run the same training you did in stepin Step 3, but using the HPE Machine Learning Development Environment together with the PyTorchTrial API.
 All the code is configured to run out of the box. The main change is defining a `class ObjectDetectionTrial(PyTorchTrial)` to incorporate the model, optimizer, dataset, and other training loop essentials.
-You can view implementation details looking at `determined_files/model_def.py`
+You can view implementation details by looking at `determined_files/model_def.py`
 
-We will show you how to: 
+Here, I will show you how to:
 
 * Run a distributed training experiment
 * Run a distributed hyperparameter search
@@ -511,7 +511,7 @@ mkdir /tmp/val_sliced_no_neg
 mv val_300_02.json /tmp/val_sliced_no_neg/val_300_02.json
 ```
 
-*Note that completing this tutorial requires you to upload your dataset from Step 2 into a publically accessible S3 bucket. This will enable for a large scale distributed experiment to have access to the dataset without installing the dataset on device. View [Determined Documentation](<* https://docs.determined.ai/latest/training/load-model-data.html#streaming-from-object-storage>) and [AWS instructions](<* https://codingsight.com/upload-files-to-aws-s3-with-the-aws-cli/>) to learn how to upload your dataset to an S3 bucket. Review the* `S3Backend` class in `data.py`
+*Note that completing this tutorial requires you to upload your dataset from Step 2 into a publicly accessible S3 bucket. This will enable for a large scale distributed experiment to have access to the dataset without installing the dataset on device. View [Determined Documentation](<* https://docs.determined.ai/latest/training/load-model-data.html#streaming-from-object-storage>) and [AWS instructions](<* https://codingsight.com/upload-files-to-aws-s3-with-the-aws-cli/>) to learn how to upload your dataset to an S3 bucket. Review the* `S3Backend` class in `data.py`
 
 When you define your S3 bucket and uploaded your dataset, make sure to change the `TARIN_DATA_DIR` in `build_training_data_loader` with the defined path in the S3 bucket.
 
@@ -544,14 +544,14 @@ def build_training_data_loader(self) -> DataLoader:
 
 ## Define environment variable DET_MASTER and login in terminal
 
-Run the below commands in a terminal, and complete logging into the determined cluster by chaning <username> to your username.
+Run the below commands in a terminal, and complete logging into the Determined cluster by changing <username> to your username.
 
 * `export DET_MASTER=10.182.1.43`
 * `det user login <username>`
 
-## Define Determined Experiment
+## Define Determined experiment
 
-In [Determined](https://www.determined.ai/), a *trial* is a training task that consists of a dataset, a deep learning model, and values for all of the model’s hyperparameters. An *experiment* is a collection of one or more trials: an experiment can either train a single model (with a single trial), or can train multiple models via. a hyperparameter sweep a user-defined hyperparameter space. 
+In [Determined](https://www.determined.ai/), a *trial* is a training task that consists of a dataset, a deep learning model, and values for all of the model’s hyperparameters. An *experiment* is a collection of one or more trials: an experiment can either train a single model (with a single trial), or can train multiple models via a hyperparameter sweep a user-defined hyperparameter space. 
 
 Here is what a configuration file looks like for a distributed training experiment.
 
@@ -627,9 +627,9 @@ Preparing files to send to master... 237.5KB and 36 files
 Created experiment 77
 ```
 
-## Launching a Distributed Hyperparameter Search Experiment
+## Launching a distributed hyperparameter search experiment
 
-To implement an automatic hyperparameter tuning experiment, we need to define the hyperparameter space, e.g., by listing the decisions that may impact model performance. We can specify a range of possible values in the experiment configuration for each hyperparameter in the search space.
+To implement an automatic hyperparameter tuning experiment, define the hyperparameter space, e.g. by listing the decisions that may impact model performance. You can specify a range of possible values in the experiment configuration for each hyperparameter in the search space.
 
 View the `x.yaml` file that defines a hyperparameter search where we find the model architecture that achieves the best performance on the dataset.
 
