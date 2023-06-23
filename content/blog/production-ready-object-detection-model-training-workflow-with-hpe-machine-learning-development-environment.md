@@ -1097,5 +1097,5 @@ There are numerous ways to get started with end-to-end ML model training with HP
 
 If you’re ready to begin your ML journey with HPE, we’re excited to help you get started! [HPE Machine Learning Development Environment](https://www.hpe.com/us/en/solutions/artificial-intelligence/machine-learning-development-environment.html) comes with premium HPE support, which you can read more about [here](https://www.hpe.com/us/en/solutions/artificial-intelligence/machine-learning-development-environment.html).  
 
-HPE also offers a purpose-built, turnkey AI infrastructure for model development and training \
+HPE also offers a purpose-built, turnkey AI infrastructure for model development and training
 at scale. [Get in touch with us about HPE Machine Learning Development System here](https://www.hpe.com/us/en/hpe-machine-learning-development-system.html).
