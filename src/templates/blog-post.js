@@ -162,7 +162,6 @@ function BlogPostTemplate({ data }) {
             <SectionHeader title="Related" color="border">
               <ResponsiveGrid gap="large" rows={rows} columns={columns}>
                 {blogsByTags.map((blogPost) =>
-                  blogPost.url !== '/' &&
                   (blogPost.node.frontmatter.authorimage ||
                     blogPost.node.frontmatter.author) ? (
                     <BlogCard key={blogPost.node.id} node={blogPost.node} />

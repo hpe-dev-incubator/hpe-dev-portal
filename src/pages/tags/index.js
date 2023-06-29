@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
@@ -8,7 +9,6 @@ import { useSiteMetadata } from '../../hooks/use-site-metadata';
 
 const tags = (group) => {
   const counts = {};
-
   group.map(({ fieldValue, totalCount }) => {
     if (fieldValue) {
       const tag = fieldValue.toLowerCase();
@@ -32,7 +32,6 @@ function Tags({ data }) {
   const { group } = data.allMarkdownRemark;
   const siteMetadata = useSiteMetadata();
   const siteTitle = siteMetadata.title;
-
   return (
     <Layout title={siteTitle}>
       <SEO title="Tags" />
@@ -85,7 +84,7 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(limit: 2000) {
+    allMarkdownRemark(limit: 2000,filter: {frontmatter: {disable: {ne: true}}}) {
       group(field: frontmatter___tags) {
         fieldValue
         totalCount

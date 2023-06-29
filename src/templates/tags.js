@@ -36,7 +36,7 @@ const Tags = ({ pageContext, data }) => {
   const tagHeader = `${totalCount} post${
     totalCount === 1 ? '' : 's'
   } tagged with "${tag}"`;
-
+  // eslint-disable-next-line react/prop-types
   return (
     <Layout title={siteTitle}>
       <SEO title="Tags" />
@@ -125,6 +125,7 @@ export const pageQuery = graphql`
             title
             author
             date
+            externalLink
             authorimage
           }
           excerpt

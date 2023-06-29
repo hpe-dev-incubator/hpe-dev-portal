@@ -258,7 +258,8 @@ exports.createPages = async ({ graphql, actions }) => {
             }
           }
         }
-        tagsGroup: allMarkdownRemark(limit: 2000) {
+        tagsGroup: allMarkdownRemark(limit: 2000,
+           filter: {frontmatter: {disable: {ne: true}}}) {
           group(field: frontmatter___tags) {
             fieldValue
           }
@@ -275,8 +276,9 @@ exports.createPages = async ({ graphql, actions }) => {
 
     posts.forEach((post, index) => {
       // Don't create a page for any markdown file which are asides.
-      if (!post.node.frontmatter.isAside) {
-        if (post.node.fields.sourceInstanceName === 'blog') {
+      if (!post.node.frontmatter.isAside ) {
+        // eslint-disable-next-line max-len
+        if (post.node.fields.sourceInstanceName === 'blog' && !post.node.frontmatter.disable ) {
           const previous =
             index === posts.length - 1 ? null : posts[index + 1].node;
           const next = index === 0 ? null : posts[index - 1].node;
@@ -415,7 +417,6 @@ exports.createPages = async ({ graphql, actions }) => {
 
 exports.onCreatePage = ({ page, actions }) => {
   const { deletePage, createPage } = actions;
-
   console.log(`onCreatePage ${page.componentPath}`);
   return new Promise((resolve) => {
     // if the page component is the index page component
@@ -427,7 +428,6 @@ exports.onCreatePage = ({ page, actions }) => {
         path: '/',
       });
     }
-
     resolve();
   });
 };
