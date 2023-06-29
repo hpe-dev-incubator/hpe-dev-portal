@@ -43,7 +43,7 @@ Additionally, collaboration is an important part of ML development. Many researc
 
 In this blog post, you'll get to see firsthand how HPE Machine Learning Development Environment can remove infrastructure code in a real-world research script and, at the same time, provide out-of-the-box distributed training, checkpointing, hyperparameter search, and visualization functionality, drastically accelerating research teams’ capabilities. You'll also learn about features that allow teams to collaborate effectively.. 
 
-If you are interested in more details about how this example was developed, take a look at the "Practice" section. For a full, in-depth, model porting guide, check out this [model porting guide.](https://docs.determined.ai/latest/tutorials/pytorch-porting-tutorial.html) The code for this example and the instructions used to run it can be found in the[repository](https://github.com/ighodgao/determined_medmnist_e2e).
+If you are interested in more details about how this example was developed, take a look at the "Practice" section. For a full, in-depth, model porting guide, check out this [model porting guide.](https://docs.determined.ai/latest/tutorials/pytorch-porting-tutorial.html) The code for this example and the instructions used to run it can be found in the [repository](https://github.com/ighodgao/determined_medmnist_e2e).
 
 L﻿et's take a closer look at the core features of HPE Machine Learning Development Environment!
 
