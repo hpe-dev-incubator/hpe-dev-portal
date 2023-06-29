@@ -47,8 +47,10 @@ If you are interested in more details about how this example was developed, take
 
 | *Feature* | *Without HPE Machine Learning Development Environment* | *With HPE Machine Learning Development Environment* |
 | ----------- | ----------- | ----------- |
-| Distributed Training       | Title       | 
-| Experiment Visualization    | Text        |
+| Distributed Training       | Configure using open-source tools of your choice (e.g. Ray, Horovod)         | Fault tolerant distributed training automatically enabled |
+| Experiment Visualization    | Write custom code or configure using open-source tools of your choice, (e.g. Weights & Biases, Tensorboard) | Training metrics (model accuracy, model loss) available natively in WebUI, including Tensorboard extension |
+﻿Checkpointing | Write custom logic to save checkpoints during training, which may not be robust to code failures, or configure using open-source tools of your choice | Automatic, robust checkpoint management (e.g. best checkpoint saved at end of training, automatic checkpoint deletion, save checkpoint on experiment pause)|
+Hyperparameter Search | Write custom code or configure using tools of your choice (e.g. Ray Tune, Optuna) | State-of-the-art hyperparameter search algorithm (Adaptive ASHA) automatically available out of the box 
 
 L﻿et's take a closer look at the core features of HPE Machine Learning Development Environment!
 
