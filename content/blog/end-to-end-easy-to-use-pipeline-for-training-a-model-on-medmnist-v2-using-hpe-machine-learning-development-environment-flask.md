@@ -45,7 +45,7 @@ In this blog post, you'll get to see firsthand how HPE Machine Learning Developm
 
 If you are interested in more details about how this example was developed, take a look at the "Practice" section. For a full, in-depth, model porting guide, check out this [model porting guide.](https://docs.determined.ai/latest/tutorials/pytorch-porting-tutorial.html) The code for this example and the instructions used to run it can be found in the [repository](https://github.com/ighodgao/determined_medmnist_e2e).
 
-| Feature | Without HPE Machine Learning Development Environment | With HPE Machine Learning Development Environment |
+| *Feature* | *Without HPE Machine Learning Development Environment* | *With HPE Machine Learning Development Environment* |
 | ----------- | ----------- | ----------- |
 | Distributed Training       | Title       | 
 | Experiment Visualization    | Text        |
