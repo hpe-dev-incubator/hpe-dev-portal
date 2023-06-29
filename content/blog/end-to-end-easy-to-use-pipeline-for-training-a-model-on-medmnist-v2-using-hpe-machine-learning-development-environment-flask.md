@@ -45,12 +45,12 @@ In this blog post, you'll get to see firsthand how HPE Machine Learning Developm
 
 If you are interested in more details about how this example was developed, take a look at the "Practice" section. For a full, in-depth, model porting guide, check out this [model porting guide.](https://docs.determined.ai/latest/tutorials/pytorch-porting-tutorial.html) The code for this example and the instructions used to run it can be found in the [repository](https://github.com/ighodgao/determined_medmnist_e2e).
 
-| *Feature* | *Without HPE Machine Learning Development Environment* | *With HPE Machine Learning Development Environment* |
-| ----------- | ----------- | ----------- |
-| Distributed Training       | Configure using open-source tools of your choice (e.g. Ray, Horovod)         | Fault tolerant distributed training automatically enabled |
-| Experiment Visualization    | Write custom code or configure using open-source tools of your choice, (e.g. Weights & Biases, Tensorboard) | Training metrics (model accuracy, model loss) available natively in WebUI, including Tensorboard extension |
-﻿Checkpointing | Write custom logic to save checkpoints during training, which may not be robust to code failures, or configure using open-source tools of your choice | Automatic, robust checkpoint management (e.g. best checkpoint saved at end of training, automatic checkpoint deletion, save checkpoint on experiment pause)|
-Hyperparameter Search | Write custom code or configure using tools of your choice (e.g. Ray Tune, Optuna) | State-of-the-art hyperparameter search algorithm (Adaptive ASHA) automatically available out of the box 
+| *Feature*                | *Without HPE Machine Learning Development Environment*                                                                                                | *With HPE Machine Learning Development Environment*                                                                                                         |
+| ------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Distributed Training     | Configure using open-source tools of your choice (e.g. Ray, Horovod)                                                                                  | Fault tolerant distributed training automatically enabled                                                                                                   |
+| Experiment Visualization | Write custom code or configure using open-source tools of your choice, (e.g. Weights & Biases, Tensorboard)                                           | Training metrics (model accuracy, model loss) available natively in WebUI, including Tensorboard extension                                                  |
+| ﻿Checkpointing           | Write custom logic to save checkpoints during training, which may not be robust to code failures, or configure using open-source tools of your choice | Automatic, robust checkpoint management (e.g. best checkpoint saved at end of training, automatic checkpoint deletion, save checkpoint on experiment pause) |
+| Hyperparameter Search    | Write custom code or configure using tools of your choice (e.g. Ray Tune, Optuna)                                                                     | State-of-the-art hyperparameter search algorithm (Adaptive ASHA) automatically available out of the box                                                     |
 
 As you can see, without a centralized training platform to handle all necessary features in one place, users are left to write custom code or use a variety of open-source tools. This can get complicated very quickly, as it’s difficult to manage multiple dependencies, and compatibility issues start to arise between tools. 
 
@@ -58,50 +58,9 @@ In many cases, HPE Machine Learning Development Environment can reduce the lengt
 
 L﻿et's take a closer look at the core features of HPE Machine Learning Development Environment!
 
-### Experiment visualization and metric logging 
-
-Visualization tools are important when developing models due to the probabilistic nature of machine learning. Debugging a model often involves analyzing a model’s training journey by visualizing metrics at different timestamps during an experiment. Commonly used tools for visualization often require manual configuration. Let’s take a look at how the [original training script](https://github.com/MedMNIST/experiments/blob/main/MedMNIST2D/train_and_eval_pytorch.py) handles visualization:  
-
-The original script uses a library called [tensorboardX](https://tensorboardx.readthedocs.io/en/latest/tensorboard.html#module-tensorboardX): 
-
-```python
-from tensorboardX import SummaryWriter
-```
-
-Using this library, a writer object is created for handling visualization data: 
-
-```python
-writer = SummaryWriter(log_dir=os.path.join(output_root, 'Tensorboard_Results'))
-```
-
-The writer object is referenced a total of 9 times throughout the script.  
-
-In addition, training and testing metrics are manually calculated and logged in various places throughout the script, e.g.:  
-
-```python
-logs = ['loss', 'auc', 'acc']
-    train_logs = ['train_'+log for log in logs]
-    val_logs = ['val_'+log for log in logs]
-    test_logs = ['test_'+log for log in logs]
-    log_dict = OrderedDict.fromkeys(train_logs+val_logs+test_logs, 0)
-```
-
-```python
-    train_log = 'train  auc: %.5f  acc: %.5f\n' % (train_metrics[1], train_metrics[2])
-    val_log = 'val  auc: %.5f  acc: %.5f\n' % (val_metrics[1], val_metrics[2])
-    test_log = 'test  auc: %.5f  acc: %.5f\n' % (test_metrics[1], test_metrics[2])
-
-    log = '%s\n' % (data_flag) + train_log + val_log + test_log
-    print(log)
-```
-
-With Determined, no manual metric tracking or logging is necessary. When porting your model to one of our high-level APIs, the default training and testing metrics, such as model losses, are automatically configured and rendered natively in the WebUI: 
-
-![](/img/screenshot1.png)
-
 ### Distributed training 
 
-Distributed training refers to the process of distributing a model training workload across multiple devices, such as GPUs. It’s very common for machine learning workloads to run for weeks on end due to large model and dataset sizes, so distributing mode training across GPUs can drastically speed up the time it takes to develop a machine learning model.  
+Distributed training refers to the process of distributing a model training workload across multiple devices, such as GPUs. It’s very common for machine learning workloads to run for weeks on end due to large model and dataset sizes, so distributing mode training across GPUs can drastically speed up the time it takes to develop a machine learning model, from weeks to hours.  
 
 However, this is difficult to set up and difficult to manage: manual interaction with GPUs through code is often necessary when setting up distributed training, and, once set up, managing distributed training is cumbersome due to issues like fault tolerance. Fault tolerance refers to the ability of a system to gracefully handle and continue a training job even if something on the infrastructure level goes wrong, such as a device failing. Setting up a fault tolerant solution manually is an enormous lift on an ML team, and not normally within the scope of a researcher’s abilities.  
 
@@ -143,6 +102,47 @@ resources:
 After taking these steps, you’d be able to watch your experiment progress in the WebUI and be assured that you’re utilizing multiple GPUs. By viewing the “Cluster” tab, you will notice that 4/5 CUDA Slots are allocated and in use: 
 
 ![](/img/screenshot2.png)
+
+### Experiment visualization and metric logging 
+
+Visualization tools are important when developing models due to the probabilistic nature of machine learning. Debugging a model often involves analyzing a model’s training journey by visualizing metrics at different timestamps during an experiment. Commonly used tools for visualization often require manual configuration. Let’s take a look at how the [original training script](https://github.com/MedMNIST/experiments/blob/main/MedMNIST2D/train_and_eval_pytorch.py) handles visualization:  
+
+The original script uses a library called [tensorboardX](https://tensorboardx.readthedocs.io/en/latest/tensorboard.html#module-tensorboardX): 
+
+```python
+from tensorboardX import SummaryWriter
+```
+
+Using this library, a writer object is created for handling visualization data: 
+
+```python
+writer = SummaryWriter(log_dir=os.path.join(output_root, 'Tensorboard_Results'))
+```
+
+The writer object is referenced a total of 9 times throughout the script.  
+
+In addition, training and testing metrics are manually calculated and logged in various places throughout the script, e.g.:  
+
+```python
+logs = ['loss', 'auc', 'acc']
+    train_logs = ['train_'+log for log in logs]
+    val_logs = ['val_'+log for log in logs]
+    test_logs = ['test_'+log for log in logs]
+    log_dict = OrderedDict.fromkeys(train_logs+val_logs+test_logs, 0)
+```
+
+```python
+    train_log = 'train  auc: %.5f  acc: %.5f\n' % (train_metrics[1], train_metrics[2])
+    val_log = 'val  auc: %.5f  acc: %.5f\n' % (val_metrics[1], val_metrics[2])
+    test_log = 'test  auc: %.5f  acc: %.5f\n' % (test_metrics[1], test_metrics[2])
+
+    log = '%s\n' % (data_flag) + train_log + val_log + test_log
+    print(log)
+```
+
+With Determined, no manual metric tracking or logging is necessary. When porting your model to one of our high-level APIs, the default training and testing metrics, such as model losses, are automatically configured and rendered natively in the WebUI: 
+
+![](/img/screenshot1.png)
 
 ### Automatic checkpointing 
 
