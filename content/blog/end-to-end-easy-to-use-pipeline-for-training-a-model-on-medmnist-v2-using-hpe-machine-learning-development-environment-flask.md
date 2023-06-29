@@ -39,11 +39,16 @@ At its core, Determined and HPE Machine Learning Development Environment are tra
 
 Researchers currently write training scripts that include not only the core ML functionalities to train a model on a dataset, but also code to manage the underlying infrastructure such as training on multiple GPUs, running a hyperparameter search, visualizing the training progress, and saving model checkpoints. Researchers should not have to focus on infrastructure problems – taking away these software engineering and systems administration-related tasks can allow researchers to focus on what’s important: building great models.  
 
-Additionally, collaboration is an important part of ML development. Many research teams don’t have the appropriate resources to share experiment results or share GPU infrastructure, resulting in a lack of reproducibility and ad-hoc resource management. This frustration due to a lack of high-quality resources causes slow progress and is a common reason why ML projects fail.  
+Additionally, collaboration is an important part of ML development. Many research teams don’t have the appropriate resources to share experiment results or share GPU infrastructure, resulting in a lack of reproducibility and ad-hoc resource management. This frustration due to a lack of high-quality resources causes slow progress and is a common reason why ML projects fail. Even at the smallest scale – say, one data scientist working alone – using a tool like HPE Machine Learning Development Environment can drastically speed up iteration time by removing the need to write boilerplate code.
 
-In this blog post, you'll get to see firsthand how HPE Machine Learning Development Environment can remove infrastructure code in a real-world research script and, at the same time, provide out-of-the-box distributed training, checkpointing, hyperparameter search, and visualization functionality, drastically accelerating research teams’ capabilities. You'll also learn about features that allow teams to collaborate effectively.. 
+In this blog post, you'll get to see firsthand how HPE Machine Learning Development Environment can remove infrastructure code in a real-world research script and, at the same time, provide out-of-the-box distributed training, checkpointing, hyperparameter search, and visualization functionailty, drastically accelerating research teams’ capabilities. You'll also learn about features that allow teams to collaborate effectively. 
 
 If you are interested in more details about how this example was developed, take a look at the "Practice" section. For a full, in-depth, model porting guide, check out this [model porting guide.](https://docs.determined.ai/latest/tutorials/pytorch-porting-tutorial.html) The code for this example and the instructions used to run it can be found in the [repository](https://github.com/ighodgao/determined_medmnist_e2e).
+
+| Feature | Without HPE Machine Learning Development Environment | With HPE Machine Learning Development Environment |
+| ----------- | ----------- | ----------- |
+| Distributed Training       | Title       | 
+| Experiment Visualization    | Text        |
 
 L﻿et's take a closer look at the core features of HPE Machine Learning Development Environment!
 
