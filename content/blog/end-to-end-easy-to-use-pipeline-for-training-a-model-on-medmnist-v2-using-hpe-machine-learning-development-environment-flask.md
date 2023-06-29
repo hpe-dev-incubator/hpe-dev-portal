@@ -52,6 +52,10 @@ If you are interested in more details about how this example was developed, take
 ﻿Checkpointing | Write custom logic to save checkpoints during training, which may not be robust to code failures, or configure using open-source tools of your choice | Automatic, robust checkpoint management (e.g. best checkpoint saved at end of training, automatic checkpoint deletion, save checkpoint on experiment pause)|
 Hyperparameter Search | Write custom code or configure using tools of your choice (e.g. Ray Tune, Optuna) | State-of-the-art hyperparameter search algorithm (Adaptive ASHA) automatically available out of the box 
 
+As you can see, without a centralized training platform to handle all necessary features in one place, users are left to write custom code or use a variety of open-source tools. This can get complicated very quickly, as it’s difficult to manage multiple dependencies, and compatibility issues start to arise between tools. 
+
+In many cases, HPE Machine Learning Development Environment can reduce the length of a training script to nearly half its original size, due to the sheer amount of boilerplate code normally required to enable these features. Let’s take a closer look at each of these to see HPE Machine Learning Development Environment in action. 
+
 L﻿et's take a closer look at the core features of HPE Machine Learning Development Environment!
 
 ### Experiment visualization and metric logging 
