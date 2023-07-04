@@ -4,8 +4,8 @@ active: false
 fit: cover
 link: https://forms.office.com/r/5keeRne7KX
 imageBackground: rgba(0, 86, 122, 0.8);
-description: Find developer resources and discover ways to collaborate in the
-  HPE Developer Community Treasure Hunt.
+description: "Find developer resources and discover ways to collaborate in the
+  HPE Developer Community Treasure Hunt. "
 background: rgba(0, 86, 122, 0.8);
 label: Hunt for Treasure!
 priority: 1

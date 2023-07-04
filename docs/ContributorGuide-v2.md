@@ -246,18 +246,22 @@ You may want to edit an existing blog post. For example, you may need to update 
 
 ## Creating and editing a platform page
 
->**Important Note:** In this document, a platform can be a product page, an HPE GreenLake page or an HPE key Open Source project page. Select the appropriate category in the CMS editor as explained below.
+>**Important Note:** In this document, a platform can be a product page or an HPE GreenLake related page or an HPE key open source project. Select the category in the CMS editor as explained below:
 
-1.  In the CMS, from the **Contents** tab, select **(1) Platforms (for a Product page); (2) GreenLake for an HPE GreenLake page; (3) Opensource for an Opensource page.** in the Collections tab. Click on **(1) New Platforms; (2) New GreenLake; (3) New Opensource** button to create a new product page, GreenLake page, and Opensource page respectively. To edit an existing Product/GreenLake/Opensource page, locate the Platform/GreenLake/Opensource page to edit (HPE Ezmeral Data Fabric in our example). This opens the editor.
+1.  In the CMS, from the **Contents** section, **Collections** tab, select **(1) Platforms (for a Product page or a HPE key Open Source project); (2) GreenLake for an HPE GreenLake page**. Click on **(1) New Platforms; (2) New GreenLake** button to create a new product/Open Source page or GreenLake page respectively. To edit an existing Product/GreenLake/Opensource page, locate the Platform page or the GreenLake page to edit (HPE Ezmeral Data Fabric in our example). This opens the editor.
 
     <center><img src="media/guide-platform-content-edit.png" width="800" height="773"></center>
 
 2.  In the editor, for a new platform page, specify a title, description, logo image and content in the Body area. Make the required changes using **Rich Text** mode or
     **Markdown** mode. Verify content in the preview pane on the right side of the screen.
     
-    >**Important Note:** Please keep the options "FEATURED" and "ACTIVE" toggled Off.
+    >**Important Note:** Please keep the options "FEATURED" and "ACTIVE" toggled Off. The HPE Developer Community team will toggle on the "ACTIVE" flag upon publication of the page.
      
-    >**Important Note:** The text font size in the preview area will be smaller than what is rendered in the Platform page in HPE Developer portal. 
+    >**Important Note:** The text font size in the preview area may be smaller than what is rendered in the Platform page in HPE Developer portal.
+    
+    > **Important Note:** Upon publication of the page, the HPE developer Community team will create a "Tag" for your platform page as appropriate in order to tie related blog posts to the plaform landing page.
+     
+    > **Important Note:** for an Open Source page the HPE Developer Community team will create a mapping page in the **Opensource** collection.  
 
     <center><img src="media/guide-platform-body.png" width="1200" height="541"></center>
 
@@ -710,11 +714,11 @@ To add a the GitHub repo URL in a platform/Technology page, you can use the mark
 
 -  **Tip #18: Tagging:**
 
-If appropriate, use a tag to tie your blog post to a **"Product"** page or a **"HPE GreenLake"** page on HPE Developer portal. List of appropiate tags to use is in the table below.
+If appropriate, use a tag to tie your blog post to a **"Product"** page or a **"HPE GreenLake"** page on HPE Developer portal. List of appropriate tags to use is in the table below.
 
 >**Note:** You can also tag your article with popular keywords (1 to 4 keywords) that reflect the relevancy of your topic. Use tags as one way to optimize your blog post for results from search engines such as Google search engine. Visit the site [here](https://developer.hpe.com/tags/) to look for existing tags in our HPE Developer site.
 
->**Note about HPE GLCP**: When tagging blog posts for DSCC, COM and Aruba Central, please add the tag hpe-greenlake-cloud-platform because COM, DSCC and Aruba Central are native SaaS-based console delivered from HPE GreenLake Cloud Platform.
+>**Note about HPE GreenLake edge-to-cloud platform**: When tagging blog posts for DSCC, COM and Aruba Central, please add the tag _hpe-greenlake-cloud-platform_ because COM, DSCC and Aruba Central are native SaaS-based console delivered from HPE GreenLake edge-to-cloud platform.
 
   | **Products and HPE GreenLake**      |   **Associated tag**    |
   | ---------------------------------- | ----------------------- |
@@ -729,6 +733,7 @@ If appropriate, use a tag to tie your blog post to a **"Product"** page or a **"
   | **Chapel**                         | chapel |
   | **HPE Cray Programming environment** | hpe-cray-programming-environment |
   | **Determined AI**                  | determined-ai |
+  | **HPE Machine Learning Development Environment** | hpe-machine-learning-development-environment |
   | **Grommet**                        | grommet |
   | **Aruba Central**                  | aruba ; aruba-central|
   | **HPE 3PAR and Primera**           | hpe-3par-and-primera |

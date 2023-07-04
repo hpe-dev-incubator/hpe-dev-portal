@@ -11,6 +11,7 @@ tags:
   - Deep Learning
   - data-scientist
   - data-ml-engineer
+  - hpe-machine-learning-development-environment
 ---
 Machine learning (ML) is exploding in popularity, and, as it does, ML tooling is frantically trying to keep up. Tools for everything you can imagine are popping up: data versioning, experiment tracking, model serving, and, yes, even tools to help ML run on Kubernetes. Although some projects are more popular than others, given the newness of this space, there are no clear winners yet and no one has yet established the perfect set of software to enable and accelerate ML.
 

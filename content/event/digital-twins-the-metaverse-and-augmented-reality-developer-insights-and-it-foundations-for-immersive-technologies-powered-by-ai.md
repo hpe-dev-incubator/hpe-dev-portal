@@ -5,7 +5,7 @@ dateStart: 2023-06-13T22:01:56.817Z
 dateEnd: 2023-06-14T21:59:56.898Z
 category: Virtual Event
 image: /img/event-munch-and-learn-newlogo400x400.png
-link: https://hpe.zoom.us/webinar/register/8816850004959/WN_cYsv-3xZQG6GOXimfZ9Xfw
+link: https://www.youtube.com/watch?v=T1aWHB0-4kA&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF
 width: large
 ---
 ## Digital twins, the Metaverse, and augmented reality: Developer insights and IT foundations for immersive technologies powered by AI
