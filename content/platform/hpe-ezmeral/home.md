@@ -1,5 +1,5 @@
 ---
-title: HPE Ezmeral Software
+title: HPE Ezmeral Software l
 version: "1.0"
 description: Accelerate modern data analytics initiatives at scale with this
   Kubernetes orchestrated container platform that helps you unify data and
