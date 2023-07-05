@@ -75,18 +75,18 @@ function Header() {
       );
     });
 
- const elColumns = externalLinksColumn.map((el, index) => {
- const { slug, title } = el;
- return (
-   <ExternalButtonLink
-  key={index}
-  label={title}
-   to={`${slug}`}
-  alignSelf="start"
-   fill="horizontal"
-  />
-   );
-});
+//  const elColumns = externalLinksColumn.map((el, index) => {
+//  const { slug, title } = el;
+//  return (
+//    <ExternalButtonLink
+//   key={index}
+//   label={title}
+//    to={`${slug}`}
+//   alignSelf="start"
+//    fill="horizontal"
+//   />
+//    );
+// });
     const allLinks = [/* ...elColumns, */ ...glColumns];
     return allLinks;
   };
