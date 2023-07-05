@@ -52,12 +52,12 @@ function Header() {
       },
     ];
 
-    // const externalLeftColumn = externalLinks.filter(
-    //   (el, index) => index % 2 === 0,
-    // );
-    // const externalRightColumn = externalLinks.filter((el, index) => index % 2);
-    // const externalLinksColumn =
-    //   column === 'left' ? externalLeftColumn : externalRightColumn;
+     const externalLeftColumn = externalLinks.filter(
+       (el, index) => index % 2 === 0,
+     );
+     const externalRightColumn = externalLinks.filter((el, index) => index % 2);
+     const externalLinksColumn =
+       column === 'left' ? externalLeftColumn : externalRightColumn;
     const greenlakeColumn = column === 'left' ? leftColumn : rightColumn;
 
     const glColumns = greenlakeColumn.map((gl, index) => {
