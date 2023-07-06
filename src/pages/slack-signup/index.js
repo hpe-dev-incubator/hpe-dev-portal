@@ -175,7 +175,7 @@ export default function Slacksignup() {
                 borderRadius: '100px',
                 color: '#ffffff',
                 width: '250px',
-                position: 'relative', 
+                position: 'relative',
                 height: '40px',
               }}
             />
