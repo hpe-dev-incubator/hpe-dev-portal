@@ -113,8 +113,7 @@ export const pageQuery = graphql`
       limit: 2000
       sort: { fields: [frontmatter___date], order: DESC }
       filter: {
-        frontmatter: { tags: { regex: $tagRE }, disbale: { ne: true } }
-      }
+        frontmatter: { tags: { regex: $tagRE },disable: {ne: true}  }}
     ) {
       totalCount
       edges {
