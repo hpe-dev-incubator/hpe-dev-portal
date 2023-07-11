@@ -54,8 +54,7 @@ HPE GreenLake for Private Cloud Enterprise includes powerful DevOps tools that s
 * Enable and disable projects and deployment pipelines
 * Easily monitor and manage the status of projects
 
-
-![HPE GreenLake for Private Cloud Enterprise architecture](/img/hpegl4pce-architecture.png "HPE GreenLake for Private Cloud Enterprise architecture")
+![HPE GreenLake for Private Cloud Enterprise architecture](/img/hpegl4pce-architecture-v2.png "HPE GreenLake for Private Cloud Enterprise architecture")
 
 ### Infrastructure as code (IaC)
 
@@ -65,6 +64,7 @@ Get some real, hands-on experience by registering for this workshops-on-demand:
 [Introduction to Virtual Machine Infrastructure-as-Code using Terraform and HPE GreenLake for Private Cloud Enterprise](https://developer.hpe.com/hackshack/workshop/36)
 
 ### REST APIs
+
 HPE GreenLake APIs provide a secure, standardized interface for automating common and repetitive tasks, programmatically configuring and provisioning services, and integrating applications with cloud services. The APIs are based on the OpenAPI specification and governed by administratively defined RBACs and strong authentication methods.
 
 ### Cloud shell
@@ -72,6 +72,7 @@ HPE GreenLake APIs provide a secure, standardized interface for automating commo
 Cloud shell as an interactive browser-based shell enables secure access to your HPE GreenLake for Private Cloud Enterprise resources. Development packages, orchestration tools and the latest IaC libraries are pre-installed as part of the cloud shell.
 
 * Access pre-loaded with latest libraries and utilities with in-built authentication 
+
   * Pre-packaged orchestration & IaC tools and templates (HPE GreenLake specific resources and tooling)
   * Development packages such as Terraform, Git, Docker / Docker Compose/ Docker CLI, Golang (latest), Python 3.x
 * Clone GitHub repo in cloud shell, debug and deploy applications into HPE GreenLake for Private Cloud Enterprise resources
