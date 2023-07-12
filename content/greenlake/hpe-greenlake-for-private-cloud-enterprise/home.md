@@ -9,6 +9,8 @@ image: /img/greenlake/greenlake.svg
 width: large
 priority: 9
 active: true
+tags:
+  - hpe-greenlake-for-private-cloud-enterprise
 ---
 <style>
 li {
