@@ -50,8 +50,7 @@ HPE GreenLake for Private Cloud Enterprise includes powerful DevOps tools that s
 
 * Fast self-service access to leverage the platform and its resources 
 * Reduce manual DevOps tasks with automation
-* Integrate with your familiar DevOps toolchains
-* Enable and disable projects and deployment pipelines
+* Integrate with your familiar DevOps toolchains (currently GitHub)
 * Easily monitor and manage the status of projects
 
 ![HPE GreenLake for Private Cloud Enterprise architecture](/img/hpegl4pce-architecture-v2.png "HPE GreenLake for Private Cloud Enterprise architecture")
@@ -77,7 +76,6 @@ Cloud shell as an interactive browser-based shell enables secure access to your 
   * Development packages such as Terraform, Git, Docker / Docker Compose/ Docker CLI, Golang (latest), Python 3.x
 * Clone GitHub repo in cloud shell, debug and deploy applications into HPE GreenLake for Private Cloud Enterprise resources
 * Create and manage VM and container resources via IaC using HPE GreenLake Terraform modules
-* Secure access to HPE GreenLake for Private Cloud Enterprise resources by automatically injecting the right security credentials (like kubeconfig for container clusters)
 * Each cloud shell instance backed by 1GB of persistent storage provisioned for User's $HOME directory 
 
 ![HPE GreenLake for Private Cloud Enterprise cloud shell](/img/hpegl4pce-cloud-shell.png "HPE GreenLake for Private Cloud Enterprise cloud shell")
