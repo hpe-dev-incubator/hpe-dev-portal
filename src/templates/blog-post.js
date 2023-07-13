@@ -1,3 +1,6 @@
+/* eslint-disable max-len */
+/* eslint-disable react/jsx-no-comment-textnodes */
+/* eslint-disable react/prop-types */
 import React from 'react';
 import { Location } from '@reach/router';
 import styled from 'styled-components';
@@ -45,7 +48,6 @@ const rows = {
   large: ['auto'],
   xlarge: ['auto'],
 };
-
 const findThumbnailImage = (thumbnailimage) => {
   if (thumbnailimage) {
     const imageURL = thumbnailimage.includes('https://')
@@ -100,6 +102,19 @@ function BlogPostTemplate({ data }) {
     authorimage,
     thumbnailimage,
   } = post.frontmatter;
+  const k = [];
+  const node = [];
+  let count = 0;
+  tags.forEach((tag) => {
+    blogsByTags.forEach((n) => {
+      if (n.node.frontmatter.tags.includes(tag) && count <8 && !k.includes(n.node.id) && n.node.frontmatter.authorimage && n.node.frontmatter.author) {
+        count += 1;
+        k.push(n.node.id);
+        node.push(n.node);
+      }
+    });
+  });
+  const blogCards = k.map((item, i) => <BlogCard key={item} node={node[i]} />);
 
   return (
     <Layout title={siteTitle}>
@@ -161,13 +176,14 @@ function BlogPostTemplate({ data }) {
             )}
             <SectionHeader title="Related" color="border">
               <ResponsiveGrid gap="large" rows={rows} columns={columns}>
-                {blogsByTags.map((blogPost) =>
+                {/* {blogsByTags.map((blogPost) =>
                   blogPost.url !== '/' &&
                   (blogPost.node.frontmatter.authorimage ||
                     blogPost.node.frontmatter.author) ? (
                     <BlogCard key={blogPost.node.id} node={blogPost.node} />
                   ) : undefined,
-                )}
+                )} */}
+                {blogCards}
               </ResponsiveGrid>
             </SectionHeader>
           </Content>
@@ -260,8 +276,6 @@ export const pageQuery = graphql`
         fields: { sourceInstanceName: { eq: "blog" } }
         frontmatter: { tags: { regex: $tagRE } }
       }
-      sort: { fields: [frontmatter___priority], order: ASC }
-      limit: 8
     ) {
       edges {
         node {
