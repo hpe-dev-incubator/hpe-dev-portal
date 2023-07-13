@@ -105,8 +105,8 @@ function BlogPostTemplate({ data }) {
   const k = [];
   const node = [];
   let count = 0;
-  tags.forEach((tag) => {
-    blogsByTags.forEach((n) => {
+  tags?.forEach((tag) => {
+    blogsByTags?.forEach((n) => {
       if (
         n.node.frontmatter.tags.includes(tag) &&
         count < 8 &&
