@@ -107,7 +107,13 @@ function BlogPostTemplate({ data }) {
   let count = 0;
   tags.forEach((tag) => {
     blogsByTags.forEach((n) => {
-      if (n.node.frontmatter.tags.includes(tag) && count <8 && !k.includes(n.node.id) && n.node.frontmatter.authorimage && n.node.frontmatter.author) {
+      if (
+        n.node.frontmatter.tags.includes(tag) &&
+        count < 8 &&
+        !k.includes(n.node.id) &&
+        n.node.frontmatter.authorimage &&
+        n.node.frontmatter.author
+      ) {
         count += 1;
         k.push(n.node.id);
         node.push(n.node);
