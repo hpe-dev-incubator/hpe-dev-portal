@@ -108,7 +108,7 @@ T﻿he very last line of the trace will provide you with the credentials necessa
 
 T﻿here are two types of activities that can occur on the backend server: punctual or regular. The punctual activity is one that is performed once every now and then. The regular one is usually set up on the backend server as a cron job. Sometimes however, one of these cron tasks can be forced manually if necessary. One the main scheduled task is the `deliver` task. I will explain it later on in this chapter. I will start now by explaining an important possible punctual task, the update of the backend server.
 
-##### U﻿pdate of the backend server:
+#### U﻿pdate of the backend server:
 
 T﻿he backend server hosts all the necessary content for delivering workshops: it implies notebooks and scripts and playbooks to deploy and personalize them. It also hosts some services that are needed by the overall architecture solution (Jupyterhub, Procmail, Fail2ban among others).
 
@@ -179,7 +179,7 @@ P﻿ossible Use Cases:
 
  Then you will perform a merge request with the main repository. We plan to integrate here  in a proper CICD (continuous integration continous development) pipeline to allow a vagrant based test deployment. Whenever someone performs a merge request on the main repo, the test deployment task kicks in and deploy a virtual backend server on which the new version of the installation process is automatically tested. When successful, the merge request is accepted. Once merged, you will need to move to your backend server and perform git remote update and git rebase on the wod-backend directory. Once done, you will then be able to perform the installation process.
 
-##### R﻿egular maintenance of the backend server:
+#### R﻿egular maintenance of the backend server:
 
 O﻿n a daily basis, some tasks are launched to check the integrity of the backend server. Some tasks are related to the security integrity of the system. The following playbook is at the heart of this verification: **wod-backend/ansible/check_backend.yml**. Full version of the file is available [here](https://github.com/Workshops-on-Demand/wod-backend/blob/main/ansible/check_backend.yml) for review.
 
@@ -228,4 +228,5 @@ I﻿t checks a quite long list of items like:
   * Ensure jupyterhub students users exist
   * Setup ACL for students with jupyterhub account
   * Setup default ACL for students with jupyterhub account
-*
+
+  A﻿ similar script exists for the different parts of the solution (check_api-db.yml for api-db server, check_frontend.yml for frontend server for instance).
