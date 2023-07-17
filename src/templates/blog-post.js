@@ -102,7 +102,7 @@ function BlogPostTemplate({ data }) {
     authorimage,
     thumbnailimage,
   } = post.frontmatter;
-  const k = [];
+  const ids = [];
   const node = [];
   let count = 0;
   tags?.forEach((tag) => {
@@ -110,17 +110,18 @@ function BlogPostTemplate({ data }) {
       if (
         n.node.frontmatter.tags.includes(tag) &&
         count < 8 &&
-        !k.includes(n.node.id) &&
+        !ids.includes(n.node.id) &&
+        post.id!==n.node.id  &&
         n.node.frontmatter.authorimage &&
         n.node.frontmatter.author
       ) {
         count += 1;
-        k.push(n.node.id);
+        ids.push(n.node.id);
         node.push(n.node);
       }
     });
   });
-  const blogCards = k.map((item, i) => <BlogCard key={item} node={node[i]} />);
+  const blogCards = ids.map((item, i) => <BlogCard key={item} node={node[i]} />);
 
   return (
     <Layout title={siteTitle}>
@@ -280,7 +281,7 @@ export const pageQuery = graphql`
     blogsByTags: allMarkdownRemark(
       filter: {
         fields: { sourceInstanceName: { eq: "blog" } }
-        frontmatter: { tags: { regex: $tagRE } }
+        frontmatter: { tags: { regex: $tagRE }, disable: { ne: true } }
       }
     ) {
       edges {
@@ -298,6 +299,7 @@ export const pageQuery = graphql`
             tags
             authorimage
             thumbnailimage
+            disable
           }
           rawMarkdownBody
         }
