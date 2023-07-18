@@ -171,10 +171,11 @@ P﻿ossible Use Cases:
 * A﻿dd a new package needed by a workshop. 
 
 For e.g:
-  * Kubectl client  
-  * T﻿erraform client
-  * P﻿owerShell module  
-  * P﻿ython Library
+
+* Kubectl client  
+* T﻿erraform client
+* P﻿owerShell module  
+* P﻿ython Library
 
 You will start by moving to your public backend forked repository and apply the necessary changes before committing and push locally. 
 
@@ -188,7 +189,8 @@ I﻿t checks a quite long list of items like:
 
 * W﻿od System compliancy: is this really a wod system? by calling out [check_system.yml](https://github.com/Workshops-on-Demand/wod-backend/blob/main/ansible/check_system.yml) playbook. 
 
-  T﻿his first check includes:  
+T﻿his first check includes:  
+
 * nproc hard and soft limits 
 * n﻿ofile hard and soft limits
 * Setup sysctl params 
