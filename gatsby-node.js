@@ -258,7 +258,8 @@ exports.createPages = async ({ graphql, actions }) => {
             }
           }
         }
-        tagsGroup: allMarkdownRemark(limit: 2000) {
+        tagsGroup: allMarkdownRemark(limit: 2000,
+          filter:{frontmatter:{disable:{ne:true}}}) {
           group(field: frontmatter___tags) {
             fieldValue
           }

@@ -126,6 +126,7 @@ export const pageQuery = graphql`
             title
             author
             date
+            externalLink
             authorimage
           }
           excerpt

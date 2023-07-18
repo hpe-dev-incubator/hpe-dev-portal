@@ -2,8 +2,8 @@
 title: New for HPE Discover 2023! Hack Shack serves as home base for HPE’s
   Office of the CTO
 date: 2023-05-22T11:06:25.060Z
-featuredBlog: true
-priority: 1
+featuredBlog: false
+priority: 9
 author: Dale Rensing
 authorimage: /img/blog-author-rensing-96.jpg
 disable: false

@@ -187,6 +187,7 @@ function BlogPostTemplate({ data }) {
                   blogPost.url !== '/' &&
                   (blogPost.node.frontmatter.authorimage ||
                     blogPost.node.frontmatter.author) ? (
+
                     <BlogCard key={blogPost.node.id} node={blogPost.node} />
                   ) : undefined,
                 )} */}
@@ -300,6 +301,7 @@ export const pageQuery = graphql`
             authorimage
             thumbnailimage
             disable
+            externalLink
           }
           rawMarkdownBody
         }
