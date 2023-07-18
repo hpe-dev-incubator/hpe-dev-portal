@@ -1,6 +1,6 @@
 ---
 title: "Open Sourcing Workshops-on-Demand part 4: Manage the Backend"
-date: 2023-03-03T13:27:23.312Z
+date: 2023-07-18T09:28:35.992Z
 author: Frederic Passeron
 authorimage: /img/frederic-passeron-hpedev-192.jpg
 disable: false
@@ -168,16 +168,17 @@ P﻿ossible Use Cases:
 * A﻿dd a new kernel to Jupyterhub
 * A﻿dd a new Ansible Galaxy collection
 * A﻿dd a new PowerShell library 
-* A﻿dd a new package needed by a workshop. For e.g:
+* A﻿dd a new package needed by a workshop. 
 
+For e.g:
   * Kubectl client  
   * T﻿erraform client
   * P﻿owerShell module  
   * P﻿ython Library
 
- You will start by moving to your public backend forked repository and apply the necessary changes before committing and push locally. 
+You will start by moving to your public backend forked repository and apply the necessary changes before committing and push locally. 
 
- Then you will perform a merge request with the main repository. We plan to integrate here  in a proper CICD (continuous integration continous development) pipeline to allow a vagrant based test deployment. Whenever someone performs a merge request on the main repo, the test deployment task kicks in and deploy a virtual backend server on which the new version of the installation process is automatically tested. When successful, the merge request is accepted. Once merged, you will need to move to your backend server and perform git remote update and git rebase on the wod-backend directory. Once done, you will then be able to perform the installation process.
+Then you will perform a merge request with the main repository. We plan to integrate here  in a proper CICD (continuous integration continous development) pipeline to allow a vagrant based test deployment. Whenever someone performs a merge request on the main repo, the test deployment task kicks in and deploy a virtual backend server on which the new version of the installation process is automatically tested. When successful, the merge request is accepted. Once merged, you will need to move to your backend server and perform git remote update and git rebase on the wod-backend directory. Once done, you will then be able to perform the installation process.
 
 #### R﻿egular maintenance of the backend server:
 
