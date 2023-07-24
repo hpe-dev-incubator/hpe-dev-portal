@@ -1,6 +1,6 @@
 ---
 title: iLO RESTful API
-version: v 6.01.8965
+version: v 6.01.8966
 description: Redfish® API conformant for simple and automate remote HPE Server management.
 image: /img/platforms/iLOrestfulAPI.svg
 width: medium
@@ -21,7 +21,7 @@ A single API interface integrates server management components and full compute 
 
 Obtain simple, secure management of today’s scalable data center hardware with the Redfish® API ecosystem. It’s an open industry-standard specification and schema that helps you integrate solutions within your existing tools. Published by the Distributed Management Task Force ([DMTF](http://www.dmtf.org/standards/redfish)), it's ideal for cloud and web-based infrastructures, which typically have large quantities of servers in heterogeneous environments.
 
-* [Read about Redfish on iLO](https://h50146.www5.hpe.com/products/software/oe/linux/mainstream/support/whitepaper/pdfs/4AA6-1727ENW.pdf)
+* [Read about Redfish on HPE iLO](https://h50146.www5.hpe.com/products/software/oe/linux/mainstream/support/whitepaper/pdfs/4AA6-1727ENW.pdf)
 
 * [Explore the API](https://ilorestfulapiexplorer.ext.hpe.com/)
 
@@ -33,7 +33,7 @@ Find tools you need to help you leverage the iLO RESTful API SDKs.
 
 ## SDKs and Language Bindings
 
-### [iLO RESTful API Documentation ![](Github)](https://hewlettpackard.github.io/ilo-rest-api-docs/ilo6)
+### [iLO RESTful API Documentation](https://servermanagementportal.ext.hpe.com)
 
 HPE Reference documentation with examples to help you write Redfish client programs and scripts.
 
@@ -63,6 +63,12 @@ The JavaScript library enables Java developers to easily integrate with the iLO 
 
 ## DevOps
 
+### [Ansible ![](Github)](https://galaxy.ansible.com/hpe/ilo)
+
+[Ansible playbooks and roles](https://github.com/HewlettPackard/ilo-ansible-collection/) for HPE iLO using the Redfish® API.
+
+- - -
+
 ### [Chef Cookbook ![](Github)](https://github.com/HewlettPackard/chef-ilorest-cookbook)
 
 Chef Cookbook for installing the Python iLOrest library and examples.
@@ -73,19 +79,13 @@ Chef Cookbook for installing the Python iLOrest library and examples.
 
 Puppet module for installing the Python iLOrest library and examples.
 
-- - -
-
-### [Ansible ![](Github)](https://galaxy.ansible.com/hpe/ilo)
-
-[Ansible playbooks and roles](https://github.com/HewlettPackard/ilo-ansible-collection/) for iLOs using the Redfish API.
-
 ## IT Operations
 
 ### [RESTful Interface Tool ![iLOrest](Github)](https://github.com/HewlettPackard/python-redfish-utility)
 
 HPE iLOrest, the HPE RESTful Interface Tool ([iLOrest](https://www.hpe.com/info/resttool)) is an open source Redfish client scripting tool also featuring interactive and debug modes.
 
-* [Read the documentation guide](https://hewlettpackard.github.io/python-redfish-utility/)
+* [Read the documentation guide](https://servermanagementportal.ext.hpe.com/docs/redfishclients/ilorest-userguide/)
 * [Watch the Demo](https://www.youtube.com/watch?v=xfEN95pNNfY)
 
 - - -
