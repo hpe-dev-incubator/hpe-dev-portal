@@ -14,7 +14,7 @@ O﻿nce up and running, the main purpose of the backend server is to deliver wor
 
 #### B﻿ackend server management:
 
-If you take a look at the file structure of the `wod-backend` directory, you will discover that we did our best to sort things properly depending on their relationship to system  or workshops.
+If you take a look at the file structure of the `wod-backend` directory, you will discover that the team did its best to sort things properly depending on their relationship to system  or workshops.
 
 ##### C﻿ontent of the backend server:
 
