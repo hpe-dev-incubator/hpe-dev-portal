@@ -31,7 +31,7 @@ l﻿et's consider that I plan to create a new workshop on the Go language. It be
 
 A﻿s an admin of the Workshops-on-demand infrastructure, I had to perform several tasks:
 
-1. Test and validate installation of the new kernel on the staging backend server by:
+1. ###### Test and validate installation of the new kernel on the staging backend server by:
 
 * Creating a new branch for this test
 * M﻿odifying the [backend server installation yaml file ](https://github.com/Workshops-on-Demand/wod-backend/blob/main/ansible/install_backend.yml#L326)to include the new kernel.
@@ -56,7 +56,6 @@ A﻿s an admin of the Workshops-on-demand infrastructure, I had to perform sever
         - psacct
         - golang
         state: present
-.﻿....
 
     - name: Ensure Go kernel is installed
       shell: env GO111MODULE=off go get -d -u github.com/gopherdata/gophernotes && cd "{{ ansible_env.HOME }}/go/src/github.com/gopherdata/gophernotes" && env GO111MODULE=off go install && mkdir -p {{ JPHUB }}/share/jupyter/kernels/gophernotes && cp kernel/* {{ JPHUB }}/share/jupyter/kernels/gophernotes
@@ -91,8 +90,9 @@ A﻿s an admin of the Workshops-on-demand infrastructure, I had to perform sever
         path: '{{ ansible_env.HOME }}/go'
         state: absent
 ```
-*﻿ Validating the changes by testing a new backend insatll process.
-*﻿ 
+
+﻿* Validating the changes by testing a new backend insatll process.*
+﻿ 
 2﻿. 
 
 In order to exist, a workshop requires serveral things:
