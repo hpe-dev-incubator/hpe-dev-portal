@@ -10,7 +10,7 @@ tags:
 ---
 I﻿n previous articles of this series dedicated to the [open sourcing of our Workshops-on-Demand project](https://developer.hpe.com/blog/willing-to-build-up-your-own-workshops-on-demand-infrastructure/), I covered the reasons why we open sourced  the project and how we did it. I also explained in details how you could install your own Workshops-on-Demand backend server. I also took the time to detail the automation that was hosted on this backend server. Today, I plan to describe to you the management of this backend server. This is what is often referred to as Day2 operations. 
 
-O﻿nce up and running, the backend server main purpose is to deliver workshops-on-Demand. But to do so, it may require updates, upgrades, new kernels for the Jupyterhub server. If new workshops are created, this means new jinja templates for related workshops' scripts (`create<WKSHP>.sh`, `cleanup<WKSHP>.sh`, `reset<WKSHP>.sh` among others). This also means new variables files. And obviously, these templates and variables will need to be taken into account by scripts and notebooks. Some tasks handle all of this. And we will see now how.
+O﻿nce up and running, the main purpose of the backend server is to deliver workshops-on-Demand. But to do so, it may require updates, upgrades, and/or new kernels for the Jupyterhub server. If new workshops are created, this means you'll need new jinja templates for related workshops' scripts (i.e `create<WKSHP>.sh`, `cleanup<WKSHP>.sh`, `reset<WKSHP>.sh`, among others). This also means new variable files. And obviously, these templates and variables will need to be taken into account by scripts and notebooks. Some tasks handle all of this. And that's what I'll show now.
 
 #### B﻿ackend server management:
 
@@ -22,32 +22,34 @@ S﻿imple tree view of the wod-backend directory:
 
 ![](/img/wod-blogserie2-tree1.png "Tree view of wod-backend directory")
 
-T﻿he `ansible` folder contains all the necessary playbooks and variables files to support the main functions of the backend server. It provides playbooks for a minimal installation of the server or appliances, setup of the servers (backend, frontend, api-db),of appliances or workshops as well as maintenance tasks.
+T﻿he `ansible` folder contains all the necessary playbooks and variables files to support the main functions of the backend server. It provides playbooks for a minimal installation of the servers or appliances. It also allows the setup of the
+different types of servers (i.e backend, frontend, and/or api-db), appliances (virtual machines or containers), or workshops as well as maintenance tasks.
 
 A﻿t the root of this directory can be found:
 
-`C﻿heck*.yml playbooks`: These playbooks are used to perform checks on the different systems. These checks ensure that this a compliant WoD system by checking Firewall rules and many other things. We will see this a bit later in more details.
+`C﻿heck*.yml playbooks`: These playbooks are used to perform checks on the different systems. These checks ensure that this a compliant WoD system by checking firewall rules and many other things. You will see this a bit later in more details.
 
-`C﻿opy_folder.yml`: This is historically one of very first playbook we used and therefore a very important one. It performs the necessary actions to deploy, personnalize (by substituting ansible variables) the selected notebook to the appropriate student home folder.
+`C﻿opy_folder.yml`: Historically, this is one of very first playbook we used and therefore, it is very important to me. It performs the necessary actions to deploy
+and personnalize (by substituting Ansible variables) the selected notebook to the appropriate student home folder.
 
-`c﻿ompile_scripts.yml`: Should you need to hide from the student a simple api call that is made on some private endpoint with non shareable data (credentials for instance), this playbook will make sure to compile it and create a executable file allowing it to happen. 
+`c﻿ompile_scripts.yml`: Should you need to hide from the student a simple api call that is made on some private endpoint with non-shareable data (credentials for instance), this playbook will make sure to compile it and create a executable file allowing it to happen. 
 
 `d﻿istrib.yml`: This playbook retrieves the distribution name and version from the machine it is run on.
 
-`install_*.yml`: These playbooks take care of installing the necessary packages needed by the defined type (frontend, backend, api-db, base-system or even appliance)
+`install_*.yml`: These playbooks take care of installing the necessary packages needed by the defined type (frontend, backend, api-db, base-system or even appliance).
 
 `setup_*.ym`: There are several types of setup playbooks in this directory. 
 
 * `setup_WKSHP-*.yml`: These playbooks are responsible for preparing a base appliance for a given workshop by adding and configuring the necessary packages or services related to the workshop.
-* `s﻿etup_appliance.yml`: this playbook is used to perform the base setup for a JupyterHub environment server or appliance. It includes setup_base_appliance.yml playbook.
-* `s﻿etup_base_appliance`: takes care of setting the minimal requierements for an appliance. it includes therefore `install_base_system.yml` playbook. On top of it, it creates and configure the necessary users.
+* `s﻿etup_appliance.yml`: This playbook is used to perform the base setup for a JupyterHub environment server or appliance. It includes setup_base_appliance.yml playbook.
+* `s﻿etup_base_appliance`: This takes care of setting the minimal requierements for an appliance. It includes `install_base_system.yml` playbook. On top of it, it creates and configures the necessary users.
 * `s﻿etup_docker_based_appliance.yml`: Quite self explanatory ? it performs setup tasks to enable docker on a given appliance.
 
-It also hosts the `inventory` file describing the role of jupyterhub servers. Place your jupyterhub machine (FQDN) in a group used as PBKDIR namerole
+It also hosts the `inventory` file describing the role of JupyterHub servers. Place your JupyterHub machine (FQDN) in a group used as PBKDIR namerole.
 
 ```shellsession
 #
-# Place to your jupyterhub machine (FQDN) in a group used as PBKDIR name
+# Place to your JupyterHub machine (FQDN) in a group used as PBKDIR name
 #
 [production]
 127.0.0.1  ansible_connection=localhost
