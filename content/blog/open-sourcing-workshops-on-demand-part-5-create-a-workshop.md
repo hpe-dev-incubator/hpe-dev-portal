@@ -7,6 +7,12 @@ disable: false
 ---
 I﻿n this new article that is part of this series dedicated to the [open sourcing of our Workshops-on-Demand project](https://developer.hpe.com/blog/willing-to-build-up-your-own-workshops-on-demand-infrastructure/), I will focus on the necessary steps to build up a new workshop. I already covered most of the infrastructure part that supports the workshops. It now makes sense to emphasize a bit on the content creation.
 
+H﻿ere is a simple flowchart describing the 10000 feet view of the creation process:
+
+![](/img/wod-b-process.png "Workshop's creation flow.")
+
+
+
 In order to exist, a workshop requires serveral things:
 
 From a frontend standpoint:
@@ -27,21 +33,21 @@ A﻿ new entry will need the following:
 
 **A﻿ capacity:** The number of maximum concurrent students allowed to take on the workshop.
 
-A﻿ student range: The range between which students get picked at registration time.
+**A﻿ student range:** The range between which students get picked at registration time.
 
-R﻿eset and ldap entries are to be used by backend server automation if dedicated reset scripts and ldap authentication are required by the workshop.
+**R﻿eset and ldap** entries are to be used by backend server automation if dedicated reset scripts and ldap authentication are required by the workshop.
 
-A﻿ session type (Workshops-on-Demand by default)
+**A﻿ session type:** Workshops-on-Demand by default
 
-A﻿ location: If your setup includes multiple production sites, use this field to allocate workshops according to your needs. In the case of the HPE Developer Community, some workshops can only run on a HPE GreenLake cloud environment. As a consequence, the location is set to greenlake in this case.
+**A﻿ location:** If your setup includes multiple production sites, use this field to allocate workshops according to your needs. In the case of the HPE Developer Community, some workshops can only run on a HPE GreenLake cloud environment. As a consequence, the location is set to greenlake in this case.
 
-A﻿vatar, role and replayLink are superseeded by entries in the replay table. I will explain later.
+**A﻿vatar, role and replayLink** are superseeded by entries in the replay table. I will explain later.
 
 ![](/img/wod-db-entry2.png "Workshop's fields in the Database #2.")
 
-Compile: This entry will be filled with the name of a script to be compiled at deployment time. This feature allows for instance the admin to hide login scripts and credentials in non-editable executable files.
+**Compile:** This entry will be filled with the name of a script to be compiled at deployment time. This feature allows for instance the admin to hide login scripts and credentials in non-editable executable files.
 
-Varpass: This defines whethere a workshop require some password variable to be leveraged or not.
+**Varpass:**  This defines whethere a workshop require some password variable to be leveraged or not.
 
 R﻿eplayId: This entry links the dedicated replay video to the workshop. it enables the presence of the replay in the learn more page of the workshop.
 
