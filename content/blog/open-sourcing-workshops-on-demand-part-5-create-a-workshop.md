@@ -103,57 +103,67 @@ A﻿s an admin of the Workshops-on-demand infrastructure, I had to perform sever
 
 In order to exist, a workshop requires serveral things:
 
-I﻿n the Workshops table:
+I﻿n the **Workshops table:**
 
 A﻿ new entry will need the following:
 
-![](/img/wod-db-entry1.png "Workshop's fields in the Database.")
+![](/img/wod-db-go-1.png "Workshop's fields in the Database.")
 
 * **An id:** A workshop id to be used by backend server automation and Replays table to reference the associated replay video of the workshop.
-
 * **A﻿ name:** The workshop's name as it will will be displayed on the registration portal.
-
 * **A name of the folder** containing all the workshop's notebooks
-
 * **A﻿ description / abstract**
-
 * **A﻿ capacity:** The number of maximum concurrent students allowed to take on the workshop.
-
 * **A﻿ student range:** The range between which students get picked at registration time.
-
 * **R﻿eset and ldap** entries are to be used by backend server automation if dedicated reset scripts and ldap authentication are required by the workshop.
-
 * **A﻿ session type:** Workshops-on-Demand by default
-
 * **A﻿ location:** If your setup includes multiple production sites, use this field to allocate workshops according to your needs. In the case of the HPE Developer Community, some workshops can only run on a HPE GreenLake cloud environment. As a consequence, the location is set to greenlake in this case.
-
 * **A﻿vatar, role and replayLink** are superseeded by entries in the replay table. I will explain later.
 
-![](/img/wod-db-entry2.png "Workshop's fields in the Database #2.")
+![](/img/wod-db-go-2.png "Workshop's fields in the Database #2.")
 
 * **Compile:** This entry will be filled with the name of a script to be compiled at deployment time. This feature allows for instance the admin to hide login scripts and credentials in non-editable executable files.
-
 * **Varpass:**  This defines whethere a workshop require some password variable to be leveraged or not.
-
 * **R﻿eplayId:** This entry links the dedicated replay video to the workshop. it enables the presence of the replay in the learn more page of the workshop.
-
 * **W﻿orkshopImg:** As part of the lifecycle of the workshop, several emails are sent to the student. A workshop image is embbeded in the first emails.
-
 * **B﻿adgeImg:** As part of the lifecycle of the workshop, several emails are sent to the student. In the final email, a badge is included. It allows the student to share its accomplishment on SoME like linkedin for instance.
 
-***N﻿ote:***
-
-B﻿oth W﻿orkshopImg and B﻿adgeImg are located on the same remote web server.
+***N﻿ote:*** B﻿oth W﻿orkshopImg and B﻿adgeImg are located on the same remote web server.
 
 * **B﻿eta:** Not implemented yet :-)
-
 * **Category:** The workshops' registration portal proposes several filters to display the catlog's content. You can view all workshops, the most poular ones, or by category. Use this field to sort workshops accordingly.
-
 * **A﻿lternateLocation:** Not implemented yet. The purpose is allow automation of the relocation of a workshop in case of primary location's failure.
-
 * **D﻿uration:** All workshops are time bombed. You will define here the time alloacted to perform the workshop.
+* **A﻿ctive:** Tag to set to enable visibility of the workshop's tile in the registration portal.
 
 I﻿f you feel you need more details about the registration process, please take a look at the **Register Phase** paragraph in [the following introductionary blog](https://developer.hpe.com/blog/willing-to-build-up-your-own-workshops-on-demand-infrastructure/).
+
+I﻿n the **Replays table:**
+
+A﻿ new entry will need the following:
+
+![](/img/wod-db-go-3.png)
+
+* **Id:** This entry will be filled with the name of a script to be compiled at deployment time. This feature allows for instance the admin to hide login scripts and credentials in non-editable executable files.
+* **Avatar:**  This defines whethere a workshop require some password variable to be leveraged or not.
+
+* **D﻿escription:** Same description as the one available in the workshop's table entry
+
+* **P﻿resenter:** Name of the presenter
+
+* **Role:** Roe of the presenter (the workshop developer in fact: Solution Architect, Fullstack Developer, etc...)
+
+* **V﻿ideoLink:** Youtube link of the recorded video to be used as a replay.
+
+* **W﻿orkshopId:** Id of the workshop linked to the video. 
+
+* **A﻿ctive:** Tag to set to enable visibility of the replay in registration portal.
+
+
+
+
+
+
 
 A﻿ set of notebooks that will be used by the student to follow instructions cells in markdown and run code cells leveraging the relevant kernel. If you are not familiar with Jupyter notebooks, a simple [101 workshop](https://developer.hpe.com/hackshack/workshop/25) is available in our Workshops-on-Demand 's catalog.
 
