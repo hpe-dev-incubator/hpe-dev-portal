@@ -49,7 +49,7 @@ It also hosts the `inventory` file describing the role of JupyterHub servers. Pl
 
 ```shellsession
 #
-# Place to your JupyterHub machine (FQDN) in a group used as PBKDIR name
+# Place to your JupyterHub machine (FQDN) in a group used as PBKDIR name.
 #
 [production]
 127.0.0.1  ansible_connection=localhost
