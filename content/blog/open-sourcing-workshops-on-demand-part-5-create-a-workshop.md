@@ -31,6 +31,8 @@ l﻿et's consider that I plan to create a new workshop on the Go language. It be
 
 A﻿s an admin of the Workshops-on-demand infrastructure, I had to perform several tasks:
 
+##### O﻿n the backend server:
+
 1. ###### Test and validate installation of the new kernel on the staging backend server by:
 
 * Creating a new branch for this test
@@ -91,13 +93,15 @@ A﻿s an admin of the Workshops-on-demand infrastructure, I had to perform sever
         state: absent
 ```
 
-﻿* Validating the changes by testing a new backend insatll process.*
-﻿ 
-2﻿. 
+﻿* Validating the changes by testing a new backend install process.
+* Pushing the changes to the github repo.
+
+2. ###### Create a user for the workshop developer on the staging backend server.
+3. ###### Copy over the workshop developer's home folder a workshop template containing examples of introduction, conclusion and lab notebooks, allowing him to start his work.
+
+##### O﻿n the database server:
 
 In order to exist, a workshop requires serveral things:
-
-From a frontend standpoint:
 
 I﻿n the Workshops table:
 
@@ -150,6 +154,10 @@ B﻿oth W﻿orkshopImg and B﻿adgeImg are located on the same remote web server
 **D﻿uration:** All workshops are time bombed. You will define here the time alloacted to perform the workshop.
 
 I﻿f you feel you need more details about the registration process, please take a look at the **Register Phase** paragraph in [the following introductionary blog](https://developer.hpe.com/blog/willing-to-build-up-your-own-workshops-on-demand-infrastructure/).
+
+
+
+
 
 A﻿ set of notebooks that will be used by the student to follow instructions cells in markdown and run code cells leveraging the relevant kernel. If you are not familiar with Jupyter notebooks, a simple [101 workshop](https://developer.hpe.com/hackshack/workshop/25) is available in our Workshops-on-Demand 's catalog.
 
