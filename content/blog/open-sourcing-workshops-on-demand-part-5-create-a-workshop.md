@@ -33,72 +33,20 @@ A﻿s an admin of the Workshops-on-demand infrastructure, I had to perform sever
 
 ##### O﻿n the backend server:
 
-1. ###### Test and validate installation of the new kernel on the staging backend server by:
+1. ##### Test and validate installation of the new kernel on the staging backend server by:
 
 * Creating a new branch for this test
 * M﻿odifying the [backend server installation yaml file ](https://github.com/Workshops-on-Demand/wod-backend/blob/main/ansible/install_backend.yml#L326)to include the new kernel.
 
-```
-    - name: Ensure all required RPM packages are installed
-      become: yes
-      become_user: root
-      package:
-        pkg:
-        - python3-devel
-        - openldap-clients
-        - glibc-devel
-        - java
-        - nfs-utils
-        - zeromq-devel
-        - perl-Crypt-PasswdMD5
-        - openmpi-devel
-        - fail2ban-all
-        - perl-Proc-ProcessTable
-        - perl-Data-Dumper
-        - psacct
-        - golang
-        state: present
+  ![](/img/wod-go-yml1.png)
 
-    - name: Ensure Go kernel is installed
-      shell: env GO111MODULE=off go get -d -u github.com/gopherdata/gophernotes && cd "{{ ansible_env.HOME }}/go/src/github.com/gopherdata/gophernotes" && env GO111MODULE=off go install && mkdir -p {{ JPHUB }}/share/jupyter/kernels/gophernotes && cp kernel/* {{ JPHUB }}/share/jupyter/kernels/gophernotes
-
-    - name: Ensure required directories under /usr/local are owned by "{{ WODUSER }}"
-      become: yes
-      become_user: root
-      file:
-        path: "{{ item }}"
-        state: directory
-        owner: "{{ WODUSER }}"
-        group: "{{ WODUSER }}"
-        mode: 0755
-      with_items:
-        - /usr/local/bin
-        - /usr/local/share
-
-    - name: Make gophernotes available under /usr/local/bin
-      become: yes
-      become_user: root
-      copy:
-        src: "{{ ansible_env.HOME }}/go/bin/gophernotes"
-        dest: /usr/local/bin/gophernotes
-        owner: "{{ WODUSER }}"
-        group: "{{ WODUSER }}"
-        mode: 0755
-
-    - name: Cleanup intermediate go directory
-      become: yes
-      become_user: root
-      file:
-        path: '{{ ansible_env.HOME }}/go'
-        state: absent
-```
-
+  ![](/img/wod-go-yaml2.png)
 * Validating the changes by testing a new backend install process.
 * Pushing the changes to the github repo.
 
-2. ###### Creating a user for the workshop developer on the test/dev and staging backend servers.
-3﻿. ###### Providing 
-4. ###### Copy over the workshop developer's home folder a workshop template containing examples of introduction, conclusion and lab notebooks, allowing him to start his work.
+2. ##### Creating a user for the workshop developer on the test/dev and staging backend servers.
+3. ##### Providing to the developer the necessary information to connect to the test/dev and staging backend servers.
+4. ##### Copy over the workshop developer's home folder a workshop template containing examples of introduction, conclusion and lab notebooks, allowing him to start his work.
 
 ##### O﻿n the database server:
 
@@ -147,28 +95,23 @@ A﻿ new entry will need the following:
 
 * **Id:** This entry will be filled with the name of a script to be compiled at deployment time. This feature allows for instance the admin to hide login scripts and credentials in non-editable executable files.
 * **Avatar:**  This defines whethere a workshop require some password variable to be leveraged or not.
-
 * **D﻿escription:** Same description as the one available in the workshop's table entry
-
 * **P﻿resenter:** Name of the presenter
-
 * **Role:** Roe of the presenter (the workshop developer in fact: Solution Architect, Fullstack Developer, etc...)
-
 * **V﻿ideoLink:** Youtube link of the recorded video to be used as a replay.
-
 * **W﻿orkshopId:** Id of the workshop linked to the video. 
-
 * **A﻿ctive:** Tag to set to enable visibility of the replay in registration portal.
-
-
 
 A﻿s the developer of the Workshops-on-demand content, Matt had to perform several tasks:
 
 ##### O﻿n the backend server:
 
-1. ###### Log on to the backend server and clone the notebook repo in his home folder.
-2. ###### Create a new branch for his workshop following the naming convention defined with the admin.
-* M﻿odifying the [backend server installation yaml file ]
+1. ##### Log on to the backend server and clone the notebook repo in his home folder.
+2. ##### Create a new branch for his workshop following the naming convention defined with the admin.
+3. L﻿everage the template provided by me to build up the content of his workshop.
+4. T﻿est the workshop leveraging the `test-action.sh` script
+
+* M﻿odifying the \[backend server installation yaml file ]
 
 A﻿ set of notebooks that will be used by the student to follow instructions cells in markdown and run code cells leveraging the relevant kernel. If you are not familiar with Jupyter notebooks, a simple [101 workshop](https://developer.hpe.com/hackshack/workshop/25) is available in our Workshops-on-Demand 's catalog.
 
