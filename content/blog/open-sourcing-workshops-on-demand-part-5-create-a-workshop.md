@@ -27,7 +27,7 @@ I﻿ will consider two scenarios going further. In the first one, I will create 
 
 # S﻿imple workshop example:
 
-l﻿et's consider that I plan to create a new workshop on the Go language. It becomes more and more popular among the developer community I interact with and one of the the developer was kind enough to agree with working with me on creating this new workshop. After a first meeting, where I explainied to him the creation process, and the expectations, we quickly started to work together. We defined title, abstract,  notebooks' folder name, and student range. As far as infrastructure's requirements, a new kernel was needed. 
+l﻿et's consider that I plan to create a new workshop on the Go language. It becomes more and more popular among the developer community I interact with and one of the the developer was kind enough to agree with working with me on creating this new workshop. After a first meeting, where I explainied to him the creation process, and the expectations, we quickly started to work together. We defined title, abstract,  notebooks' folder name, and student range. As far as infrastructure's requirements, a new kernel was needed. No additional scripts are requiered for this workshop.
 
 A﻿s an admin of the Workshops-on-demand infrastructure, I had to perform several tasks:
 
@@ -96,8 +96,9 @@ A﻿s an admin of the Workshops-on-demand infrastructure, I had to perform sever
 * Validating the changes by testing a new backend install process.
 * Pushing the changes to the github repo.
 
-2. ###### Create a user for the workshop developer on the test/dev and staging backend servers.
-3. ###### Copy over the workshop developer's home folder a workshop template containing examples of introduction, conclusion and lab notebooks, allowing him to start his work.
+2. ###### Creating a user for the workshop developer on the test/dev and staging backend servers.
+3﻿. ###### Providing 
+4. ###### Copy over the workshop developer's home folder a workshop template containing examples of introduction, conclusion and lab notebooks, allowing him to start his work.
 
 ##### O﻿n the database server:
 
@@ -161,9 +162,13 @@ A﻿ new entry will need the following:
 
 
 
+A﻿s the developer of the Workshops-on-demand content, Matt had to perform several tasks:
 
+##### O﻿n the backend server:
 
-
+1. ###### Log on to the backend server and clone the notebook repo in his home folder.
+2. ###### Create a new branch for his workshop following the naming convention defined with the admin.
+* M﻿odifying the [backend server installation yaml file ]
 
 A﻿ set of notebooks that will be used by the student to follow instructions cells in markdown and run code cells leveraging the relevant kernel. If you are not familiar with Jupyter notebooks, a simple [101 workshop](https://developer.hpe.com/hackshack/workshop/25) is available in our Workshops-on-Demand 's catalog.
 
