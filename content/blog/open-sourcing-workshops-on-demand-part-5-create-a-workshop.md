@@ -92,7 +92,8 @@ A﻿s an admin of the Workshops-on-demand infrastructure, I had to perform sever
         path: '{{ ansible_env.HOME }}/go'
         state: absent
 ```
-﻿* Validating the changes by testing a new backend install process.
+﻿
+* Validating the changes by testing a new backend install process.
 * Pushing the changes to the github repo.
 
 2. ###### Create a user for the workshop developer on the staging backend server.
