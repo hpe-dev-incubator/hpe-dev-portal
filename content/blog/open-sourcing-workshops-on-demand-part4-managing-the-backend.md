@@ -70,7 +70,7 @@ These Jinja templates can refer to some Jupyterhub kernel needs like `wod-build-
 Let's say that you want to provide some AI/ML 101 type of workshops. As part of it, 
 you may consider providing servers with some GPUs. Any twisted minded cryptominer discovering your resources will definitely think he's hits the jackpot! This little anecdot actually happened to us and not only on GPU based servers, some regular servers got hit as well. We found out that performance on some servers became very poor and when looking into it, we found some scripts that were not supposed to run there. As a result, we implemented monitors to check the load on our servers and made sure that to  kill any suspicious processes before kicking out the misbehaving student.
 
-`wod-test-action.sh.j2` is another interesting template that will create a script that we use for testing. This script mimics the procmail API and actually enables you to test the complete lifecycle of a workshop from deployment to cleanup or reset.
+`wod-test-action.sh.j2` is another interesting template that will create a script that can be used for testing workshops. This script mimics the procmail API and actually enables you to test the complete lifecycle of a workshop from deployment to cleanup or reset.
 
 ```shellsession
 wodadmin@server:/usr/local/bin$ ./wod-test-action.sh
