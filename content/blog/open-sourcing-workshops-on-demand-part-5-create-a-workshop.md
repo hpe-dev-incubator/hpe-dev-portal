@@ -92,11 +92,11 @@ A﻿s an admin of the Workshops-on-demand infrastructure, I had to perform sever
         path: '{{ ansible_env.HOME }}/go'
         state: absent
 ```
-﻿
+
 * Validating the changes by testing a new backend install process.
 * Pushing the changes to the github repo.
 
-2. ###### Create a user for the workshop developer on the staging backend server.
+2. ###### Create a user for the workshop developer on the test/dev and staging backend servers.
 3. ###### Copy over the workshop developer's home folder a workshop template containing examples of introduction, conclusion and lab notebooks, allowing him to start his work.
 
 ##### O﻿n the database server:
@@ -109,25 +109,25 @@ A﻿ new entry will need the following:
 
 ![](/img/wod-db-entry1.png "Workshop's fields in the Database.")
 
-**An id:** A workshop id to be used by backend server automation and Replays table to reference the associated replay video of the workshop.
+* **An id:** A workshop id to be used by backend server automation and Replays table to reference the associated replay video of the workshop.
 
-**A﻿ name:** The workshop's name as it will will be displayed on the registration portal.
+  **A﻿ name:** The workshop's name as it will will be displayed on the registration portal.
 
-**A name of the folder** containing all the workshop's notebooks
+  **A name of the folder** containing all the workshop's notebooks
 
-**A﻿ description / abstract**
+  **A﻿ description / abstract**
 
-**A﻿ capacity:** The number of maximum concurrent students allowed to take on the workshop.
+  **A﻿ capacity:** The number of maximum concurrent students allowed to take on the workshop.
 
-**A﻿ student range:** The range between which students get picked at registration time.
+  **A﻿ student range:** The range between which students get picked at registration time.
 
-**R﻿eset and ldap** entries are to be used by backend server automation if dedicated reset scripts and ldap authentication are required by the workshop.
+  **R﻿eset and ldap** entries are to be used by backend server automation if dedicated reset scripts and ldap authentication are required by the workshop.
 
-**A﻿ session type:** Workshops-on-Demand by default
+  **A﻿ session type:** Workshops-on-Demand by default
 
-**A﻿ location:** If your setup includes multiple production sites, use this field to allocate workshops according to your needs. In the case of the HPE Developer Community, some workshops can only run on a HPE GreenLake cloud environment. As a consequence, the location is set to greenlake in this case.
+  **A﻿ location:** If your setup includes multiple production sites, use this field to allocate workshops according to your needs. In the case of the HPE Developer Community, some workshops can only run on a HPE GreenLake cloud environment. As a consequence, the location is set to greenlake in this case.
 
-**A﻿vatar, role and replayLink** are superseeded by entries in the replay table. I will explain later.
+  **A﻿vatar, role and replayLink** are superseeded by entries in the replay table. I will explain later.
 
 ![](/img/wod-db-entry2.png "Workshop's fields in the Database #2.")
 
@@ -154,10 +154,6 @@ B﻿oth W﻿orkshopImg and B﻿adgeImg are located on the same remote web server
 **D﻿uration:** All workshops are time bombed. You will define here the time alloacted to perform the workshop.
 
 I﻿f you feel you need more details about the registration process, please take a look at the **Register Phase** paragraph in [the following introductionary blog](https://developer.hpe.com/blog/willing-to-build-up-your-own-workshops-on-demand-infrastructure/).
-
-
-
-
 
 A﻿ set of notebooks that will be used by the student to follow instructions cells in markdown and run code cells leveraging the relevant kernel. If you are not familiar with Jupyter notebooks, a simple [101 workshop](https://developer.hpe.com/hackshack/workshop/25) is available in our Workshops-on-Demand 's catalog.
 
