@@ -7,6 +7,8 @@ tags:
   - ilo-restful-api
   - Redfish
 ---
+### Updated July 25, 2023
+
 ## Introduction
 
 In 2016, the [Distributed Management Task Force](https://dmtf.org) published the first version of the Platform Level Data Model for Firmware Update Specification ([PLDM for FWUPD](https://www.dmtf.org/dsp/DSP0267)). This DMTF standard started to be implemented in the Redfish® service of HPE iLO 5 version 2.30.
@@ -31,7 +33,7 @@ Computer firmware update is a complex process involving several types of objects
 
 Although the above articles provide many definitions, acronyms and their relationship with the firmware update process, I will use, in this blog post, a different approach to this process than the one used in the three articles mentioned above.
 
-Firmware updates can be classified in four types called A, B, C and D. This classification is HPE specific but you may read or hear references to it, like in the [HPE Redfish API Reference Document](https://hewlettpackard.github.io/ilo-rest-api-docs/ilo5/#configuration).
+Firmware updates can be classified in four types called A, B, C and D. This classification is HPE specific but you may read or hear references to it, like in the [HPE Redfish API Reference Document](https://servermanagementportal.ext.hpe.com/docs/redfishservices/ilos/ilo6/ilo6_145/ilo6_hpe_resourcedefns145/#configuration).
 
 ### Type A firmware update
 
