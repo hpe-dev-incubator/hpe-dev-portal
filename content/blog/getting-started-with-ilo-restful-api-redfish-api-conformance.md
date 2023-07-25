@@ -10,6 +10,8 @@ tags:
   - ilo-restful-api
   - redfish
 ---
+### Updated July 25, 2023
+
 # **A primer for coders**
 
 ## Introduction
@@ -20,7 +22,9 @@ With the introduction of iLO 4 2.00 on ProLiant Gen9 servers, we introduced our 
 
 - Include the HTTP header `"OData-Version": "4.0"' in all HTTP requests. This causes iLO 4 2.30 to hide pre-Redfish properties, decreasing your chance of inadvertently creating a dependency on something that will be removed in the future.
 
-- For iLO 5, we updated the HPE branding on the OEM extension properties, so some updates might be needed from your iLO 4 scripts if you have already integrated with the API. For detailed information of the differences between iLO 4 and iLO 5 visit our [documentation](https://hewlettpackard.github.io/ilo-rest-api-docs/ilo5/#adapting-from-ilo-4).
+- For iLO 5, we updated the HPE branding on the OEM extension properties, so some updates might be needed from your iLO 4 scripts if you have already integrated with the API. For detailed information of the differences between iLO 4 and iLO 5 visit our [documentation](https://servermanagementportal.ext.hpe.com/docs/redfishservices/ilos/ilo5/ilo5_adaptation/).
+
+Differences between HPE iLO 5 and iLO 6 are also listed in the [documentation](https://servermanagementportal.ext.hpe.com/docs/redfishservices/ilos/ilo6/ilo6_adaptation/)
 
 ## Redfish Versioning
 
