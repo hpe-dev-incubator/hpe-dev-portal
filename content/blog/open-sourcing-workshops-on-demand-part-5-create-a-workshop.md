@@ -113,7 +113,46 @@ A﻿s the developer of the Workshops-on-demand content, Matt had to perform seve
 5. ###### T﻿est the workshop using the staging registration portal.
 6. ###### W﻿hen all tests are green, create a pull request to merge content with master repo.
 
+A﻿s an admin, I need to check the pull request and accept it. Once done, the test/dev and staging environments will require an update.
+
+1. ###### Log on to the backend server as wodadmin and update the notebook repository.
+2. ###### R﻿un a wod-deliver to update the relevant backend server.
+
+   ```
+   git remote update
+   git rebase
+   wod-deliver
+   ```
+
+T﻿he very same processes will apply to the move to production phase.
+
+
+
 * M﻿odifying the \[backend server installation yaml file ]
+
+
+
+# Complex workshop example:
+
+II will not repeat the steps I descirbed earlier for the simple workshop example. I will focus here on the specific aspects related to this  new workshop. Are you familiar with High Performance Computing (HPC)? I am not. Even tough I am surrounded by some experts in that field in the HPE Grenoble Office. Let's consider that one of these colleagues is willing to build up a dedicated workshop on HPC Stax. As usual, we will start by a meeting each of us will explain to the other his goals, and how to achieve them. Once I get a clearer understanding of the technology involved, he and I can move on figure out the best platform to run his woorkshop on.
+
+A﻿s an admin of the Workshops-on-demand infrastructure, I had to perform several tasks:
+
+##### O﻿n the backend server:
+
+t﻿he  workshop will require:
+
+* A dedicated server running docker to host the student containers in which the workshops' labs will take place.
+
+* A﻿ set of Ansible playbooks to setup the dedicated server.
+
+* A﻿ set of scripts to manage the workshop's lifecycle.
+
+* A set of variables to be leveraged by the notebooks. 
+
+
+
+
 
 A﻿ set of notebooks that will be used by the student to follow instructions cells in markdown and run code cells leveraging the relevant kernel. If you are not familiar with Jupyter notebooks, a simple [101 workshop](https://developer.hpe.com/hackshack/workshop/25) is available in our Workshops-on-Demand 's catalog.
 
