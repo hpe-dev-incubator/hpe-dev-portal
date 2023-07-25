@@ -1,5 +1,5 @@
 ---
-title: "Open sourcing Workshops-on-Demand - Part 5: Create a workshop"
+title: "Open sourcing Workshops-on-Demand - Part 5: Create new workshops"
 date: 2023-07-24T10:43:53.548Z
 author: Frederic Passeron
 authorimage: /img/frederic-passeron-hpedev-192.jpg
