@@ -12,7 +12,7 @@ tags:
   - uefi
   - redfish
 ---
-### Updated: June 10, 2022
+### Updated: July 25, 2023
 
 ## Introduction
 
@@ -74,7 +74,7 @@ Smart Components larger than 32 MiB have several associated `.compsig` files, be
 
 ## Update agents
 
-HPE iLO can flash its own firmware as well as the firmware of other devices. However, it is not able to flash all types of firmware to their target locations. Other update agents exist that can help with this and are listed in the `UpdatableBy` JSON array mentioned in the [HPE Redfish API reference document](https://hewlettpackard.github.io/ilo-rest-api-docs/ilo5/#updatableby-array). The description of each element (`Uefi, RuntimeAgent` and `Bmc`) is shown in the following screenshot.
+HPE iLO can flash its own firmware as well as the firmware of other devices. However, it is not able to flash all types of firmware to their target locations. Other update agents exist that can help with this and are listed in the `UpdatableBy` JSON array mentioned in the [HPE Redfish API reference document](https://servermanagementportal.ext.hpe.com/docs/redfishservices/ilos/ilo6/ilo6_145/ilo6_hpe_resourcedefns145/#updatableby-array). The description of each element (`Uefi, RuntimeAgent` and `Bmc`) is shown in the following screenshot.
             
 
 ![d9](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/7/d9-1598025925410.png)
