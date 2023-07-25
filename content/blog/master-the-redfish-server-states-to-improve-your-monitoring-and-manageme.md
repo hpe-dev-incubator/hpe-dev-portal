@@ -16,15 +16,21 @@ tags:
   - ProLiant
   - Synergy
 ---
+#### Updated July 25, 2023
+
 ## Introduction
 
 Server management and monitoring often require the knowledge of the state of the managed servers (On, Off....). The [Redfish®](https://www.dmtf.org/standards/redfish) standard defines the [`PowerState`](https://redfish.dmtf.org/schemas/v1/ComputerSystem.v1_5_0.json) property with 0 (`Off`) and 1 (`On`) as possible values. However, when the system is in the `On` state, we'd like to know in which sub-state the server is: Pre-OS Tasks (POST), UEFI, OS...
 
-This blog presents the [`PostState`](https://hewlettpackard.github.io/ilo-rest-api-docs/ilo5/#oem-hpe-poststate) property available in an `Oem.Hpe` Redfish sub-tree of HPE servers (Gen9 and Gen10) and providing a fine grained server state.
+This blog presents the [`PostState`](https://servermanagementportal.ext.hpe.com/docs/redfishservices/ilos/ilo6/ilo6_145/ilo6_computersystem_resourcedefns145/#oemhpepoststate) property available in an `Oem.Hpe` Redfish sub-tree of HPE servers (Gen9, Gen10 and Gen11) and providing a fine grained server state.
 
 ## HPE PostState
 
-As mentioned in the [iLO 4](https://hewlettpackard.github.io/ilo-rest-api-docs/ilo4/#poststate) and [iLO 5](https://hewlettpackard.github.io/ilo-rest-api-docs/ilo5/#oem-hpe-poststate) API Reference documents, the `PostState` property can have the following values: `Null`, `Unknown`, `Reset`, `PowerOff`, `InPost`, `InPostDiscoveryComplete` and `FinishedPost`. Since the first four values have a straight forward meaning, we will only focus on the other ones.
+As mentioned in the [HPE iLO 4](https://hewlettpackard.github.io/ilo-rest-api-docs/ilo4/#poststate) API Reference documents, the `PostState` property can have the following values: `Null`, `Unknown`, `Reset`, `PowerOff`, `InPost`, `InPostDiscoveryComplete` and `FinishedPost`.
+
+[Following HPE iLO generations ](https://servermanagementportal.ext.hpe.com/docs/redfishservices/ilos/ilo6/ilo6_145/ilo6_computersystem_resourcedefns145/#oemhpepoststate) have one more value: `InPostDiscoveryStart`. 
+
+Since the first four values have a straight forward meaning, we will only focus on the other ones.
 
 The `InPost` value means that the server is still performing the Pre-OS Tasks (tests and hardware discovery). With a graphical console opened, when a server is in this state you can see a green progress bar:
 
@@ -32,7 +38,7 @@ The `InPost` value means that the server is still performing the Pre-OS Tasks (t
 
 ![InPost state 2](https://redfish-lab.sourceforge.io/media/redfish-wiki/Master-the-Redfish-Server-States/2-InPost.png)
 
-`InPostDiscoveryComplete` follows the `InPost` state in the boot process of a server. For the purpose of this blog, we assume that it corresponds to the state in which UEFI is loaded and running:
+`InPostDiscoveryStart` follows the `InPost` state and then, `InPostDiscoveryComplete`.  For the purpose of this blog, we assume that it corresponds to the state in which UEFI is loaded and running:
 
 ![InPostDiscoveryComplete / UEFI](https://redfish-lab.sourceforge.io/media/redfish-wiki/Master-the-Redfish-Server-States/3-InPostDiscoveryComplete.png)
 
@@ -58,15 +64,15 @@ Hence, as a best practice, it is wise to pool the managed nodes and check for po
 
 ## How do I retrieve the Server State
 
-The easiest way to obtain the `PostState` of a server is to issue the `serverstate` macro command of the [ilorest](http://hpe.com/info/resttool) utility. `ilorest`  automatically detects the generation of the server (Gen9, Gen10...) and fetches the `PostState` value from the right Redfish path.
+The easiest way to obtain the `PostState` of a server is to issue the `serverstate` macro command of the [iLOrest](http://hpe.com/info/resttool) utility. ILOrest  automatically detects the generation of the server (Gen9, Gen10...) and fetches the `PostState` value from the right Redfish path.
 
-The [Open Source](https://github.com/HewlettPackard/python-redfish-utility) version of `ilorest` contains the source of this [`ServerState` macro command](https://github.com/HewlettPackard/python-redfish-utility/blob/master/src/extensions/iLO%20COMMANDS/ServerStateCommand.py) in python. Feel free to consult it.
+The [Open Source](https://github.com/HewlettPackard/python-redfish-utility) version of iLOrest contains the source of this [`ServerState` macro command](https://github.com/HewlettPackard/python-redfish-utility/blob/master/src/extensions/iLO_COMMANDS/ServerStateCommand.py) in python. Feel free to consult it.
 
 ![Retrieve `PostState` with `ilorest`](https://redfish-lab.sourceforge.io/media/redfish-wiki/Master-the-Redfish-Server-States/5-RetrieveServerStateWithIlorest.png)
 
-If you decide to create your own application you will have to adapt your code to the potential Redfish [data model changes](https://hewlettpackard.github.io/ilo-rest-api-docs/ilo5/#ilo-5-data-model-changes) between the different generations of servers or iLOs.
+If you decide to create your own Redfish client, you will have to adapt your code to the potential Redfish [data model changes](https://servermanagementportal.ext.hpe.com/docs/redfishservices/ilos/ilo5/ilo5_adaptation/#ilo-5-data-model-changes) between the different generations of servers or iLOs. 
 
-As a concrete example, in an HPE rack mount server the `PostState` property has moved from `/redfish/v1/Systems/1/oem/hp` in Gen9 models to `/redfish/v1/Systems/1/oem/hpe` in Gen10s.
+As a concrete example, in an HPE rack mount server the `PostState` property has moved from `/redfish/v1/Systems/1/oem/hp` in Gen9 models to `/redfish/v1/Systems/1/oem/hpe` in Gen10s and Gen11s. 
 
 ## The HPE Agentless Management Service is your friend
 
