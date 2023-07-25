@@ -10,7 +10,7 @@ tags:
 ---
 I﻿n previous articles of this series dedicated to the [open sourcing of our Workshops-on-Demand project](https://developer.hpe.com/blog/willing-to-build-up-your-own-workshops-on-demand-infrastructure/), I covered the reasons why we open sourced  the project and how we did it. I also explained in details how you could install your own Workshops-on-Demand backend server. I also took the time to detail the automation that was hosted on this backend server. Today, I plan to describe to you the management of this backend server. This is what is often referred to as Day2 operations. 
 
-O﻿nce up and running, the main purpose of the backend server is to deliver workshops-on-Demand. But to do so, it may require updates, upgrades, and/or new kernels for the Jupyterhub server. If new workshops are created, this means you'll need new jinja templates for related workshops' scripts (i.e `create<WKSHP>.sh`, `cleanup<WKSHP>.sh`, `reset<WKSHP>.sh`, among others). This also means new variable files. And obviously, these templates and variables will need to be taken into account by scripts and notebooks. Some tasks handle all of this. And that's what I'll show now.
+O﻿nce up and running, the main purpose of the backend server is to deliver workshops-on-Demand. But to do so, it may require updates, upgrades, and/or new kernels for the JupyterHub server. If new workshops are created, this means you'll need new jinja templates for related workshops' scripts (i.e `create<WKSHP>.sh`, `cleanup<WKSHP>.sh`, `reset<WKSHP>.sh`, among others). This also means new variable files. And obviously, these templates and variables will need to be taken into account by scripts and notebooks. Some tasks handle all of this. And that's what I'll show now.
 
 #### B﻿ackend server management:
 
@@ -63,7 +63,7 @@ We separated the workshops' related scripts from the system ones. When one creat
 
 T﻿his directory hosts important configuration files for both the system and JupyterHub. You can see for instance `fail2ban` configuration files. Some Jinja templates are present here, too. These templates will be expanded through the `deliver` mechanism allowing the creation of files customized with Ansible variables. All the wod related tasks are prefixed with wod for better understanding and ease of use.
 
-These Jinja templates can refer to some Jupyterhub kernel needs like `wod-build-evcxr.sh.j2` that aims at creating a script allowing the rust kernel installation. Some other templates are related to the system and JupyterHub. `wod-kill-processes.pl.j2` has been created after discovering the harsh reality of online mining. In a ideal world, I would not have to explain further as the script would not be needed. Unfortunately, this is not the case. When one offers access to some hardware freely online, sooner or later, he can expect to  see his original idea to be hyjacked.
+These Jinja templates can refer to some JupyterHub kernel needs like `wod-build-evcxr.sh.j2` that aims at creating a script allowing the rust kernel installation. Some other templates are related to the system and JupyterHub. `wod-kill-processes.pl.j2` has been created after discovering the harsh reality of online mining. In a ideal world, I would not have to explain further as the script would not be needed. Unfortunately, this is not the case. When one offers access to some hardware freely online, sooner or later, he can expect to  see his original idea to be hyjacked.
 
 Let's say that you want to provide some AI/ML 101 type of workshops. As part of it, 
 you may consider providing servers with some GPUs. Any twisted minded cryptominer discovering your resources will definitely think he's hits the jackpot! This little anecdot actually happened to us and not only on GPU based servers, some regular servers got hit as well. We found out that performance on some servers became very poor and when looking into it, we found some scripts that were not supposed to run there. As a result, we implemented monitors to check the load on our servers and made sure that to  kill any suspicious processes before kicking out the misbehaving student.
@@ -205,7 +205,7 @@ T﻿his first check includes:
   * kernel.threads-max, value: "4096000"  
   * kernel.pid_max, value: "200000" 
   * vm.max_map_count, value: "600000"
-* S﻿etup UDP and TCP firewall rules
+  * S﻿etup UDP and TCP firewall rules
 * Enable services:
 
   * Fi﻿rewalld 
@@ -213,21 +213,21 @@ T﻿his first check includes:
 * S﻿tudent Management:
 
   * Ensure limits are correct for students accounts 
-* Copy the skeleton content under /etc/skel
-* Test `.profile` file
-* Ensure vim is the default EDITOR
-* Setup `logind.conf`
-* M﻿anage `/etc/hosts` file
-* Install the pkg update script
-* Setup `crontab` for daily pkg security update
-* Deliver create/reset/setup scripts as ansible template for variable expansion
-* Install utility scripts
-* Deliver the system scripts (`cleanup-processes.sh.j2`)
-* Installation of the cleanup-processes script
-* Setup weekly cleanup processes task
-* Enable WoD service
-* Test private tasks YAML file
-* Call private tasks if available. It performs the private part before users management to allow interruption of the deliver script during normal operations - waiting till end of users management can take hours for 2000 users. Potential impact: private scripts are run before users creation, so may miss some part of setup.
+  * Copy the skeleton content under /etc/skel
+  * Test `.profile` file
+  * Ensure vim is the default EDITOR
+  * Setup `logind.conf`
+  * M﻿anage `/etc/hosts` file
+  * Install the pkg update script
+  * Setup `crontab` for daily pkg security update
+  * Deliver create/reset/setup scripts as ansible template for variable expansion
+  * Install utility scripts
+  * Deliver the system scripts (`cleanup-processes.sh.j2`)
+  * Installation of the cleanup-processes script
+  * Setup weekly cleanup processes task
+  * Enable WoD service
+  * Test private tasks YAML file
+  * Call private tasks if available. It performs the private part before users management to allow interruption of the deliver script during normal operations - waiting till end of users management can take hours for 2000 users. Potential impact: private scripts are run before users creation, so may miss some part of setup.
 * U﻿ser Management:
 
   * Remove existing JupyterHub users
