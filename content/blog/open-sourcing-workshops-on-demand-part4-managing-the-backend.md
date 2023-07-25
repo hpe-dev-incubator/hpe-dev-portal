@@ -28,8 +28,7 @@ A﻿t the root of this directory can be found:
 
 `C﻿heck*.yml playbooks`: These playbooks are used to perform checks on the different systems. These checks ensure that this a compliant WoD system by checking firewall rules and many other things. You will see this a bit later in more details.
 
-`C﻿opy_folder.yml`: Historically, this is one of very first playbook we used and therefore, it is very important to me. It performs the necessary actions to deploy
-and personnalize (by substituting Ansible variables) the selected notebook to the appropriate student home folder.
+`C﻿opy_folder.yml`: Historically, this is one of very first playbook we used and therefore, it is very important to me. It performs the necessary actions to deploy and personnalize (by substituting Ansible variables) the selected notebook to the appropriate student home folder.
 
 `c﻿ompile_scripts.yml`: Should you need to hide from the student a simple api call that is made on some private endpoint with non-shareable data (credentials for instance), this playbook will make sure to compile it and create a executable file allowing it to happen. 
 
@@ -239,7 +238,7 @@ T﻿his first check includes:
   * Setup ACL for students with JupyterHub account
   * Setup default ACL for students with JupyterHub account
 
-A﻿ similar set of scripts exist for the different parts of the solution ([check_api-db.yml](https://github.com/Workshops-on-Demand/wod-backend/blob/main/ansible/check_api-db.yml) for api-db server, [check_frontend.yml ](https://github.com/Workshops-on-Demand/wod-backend/blob/main/ansible/check_frontend.yml)for frontend server for instance).
+A﻿ similar set of scripts exist for the different parts of the solution ([check_api-db.yml](https://github.com/Workshops-on-Demand/wod-backend/blob/main/ansible/check_api-db.yml) for api-db server, [check_frontend.yml ](https://github.com/Workshops-on-Demand/wod-backend/blob/main/ansible/check_frontend.yml)for frontend server for instance). 
 
 You should now have a better understanding of the maintenance tasks associated to the backend server. Similar actions are available for the other components of the project. Checking tasks have been created for the frontend and api-db server. Having now mostly covered all the subjects related to the backend server from an infrastructure standpoint, it is high time to discuss the content part. In my next blog, I plan to describe the workshop creation process.  Time to understand how to build up some content for the JupyterHub server!
 
