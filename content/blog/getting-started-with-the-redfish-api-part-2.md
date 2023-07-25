@@ -11,6 +11,8 @@ tags:
   - redfish
   - iLO 5
 ---
+### Updated July 25, 2023
+
 # **A primer for coders**
 
 In my last blog [post](/blog/getting-started-with-ilo-restful-api-redfish-api-conformance) I began a discussion about best practices for writing Redfish API client code. Last time we talked about resource versioning and resource inter-linking. I explained that client code should discover the data model and avoid making incorrect assumptions. In this post I will continue discussing some issues you should be aware of in order to create durable clients that interoperate across different implementations of the Redfish API.
@@ -33,4 +35,4 @@ We are often asked the question:  â€œWhat version of Redfish does iLO support?â€
 
 ## What is next?
 
-We hope we have given you enough information to get started with the iLO RESTful API and see the benefits of server automation from a single API. As we continue to improve and update our Redfish interface, please refer to our [documentation](https://hewlettpackard.github.io/ilo-rest-api-docs/ilo5/). 
+We hope we have given you enough information to get started with the iLO RESTful API and see the benefits of server automation from a single API. As we continue to improve and update our Redfish interface, please refer to our [documentation](https://servermanagementportal.ext.hpe.com/). 
