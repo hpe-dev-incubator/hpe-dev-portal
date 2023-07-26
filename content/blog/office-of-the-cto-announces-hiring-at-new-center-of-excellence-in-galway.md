@@ -1,6 +1,8 @@
 ---
 title: Office of the CTO announces hiring at new Center of Excellence in Galway
 date: 2023-07-25T10:59:41.529Z
+featuredBlog: true
+priority: 1
 author: Dale Rensing
 authorimage: /img/blog-author-rensing-96.jpg
 disable: false
