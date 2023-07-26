@@ -1,14 +1,13 @@
 ---
-author: Isha Ghodgaonkar
+author: Dale Rensing
 priority: 7
 active: true
 width: medium
 imageScale: 1.5
-title: End-to-end, easy-to-use pipeline for training a model on Medical Image
-  Data using HPE Machine Learning Development Environment
+title: Office of the CTO announces hiring at new Center of Excellence in Galway
 category: Feature Blog
-link: /blog/end-to-end-easy-to-use-pipeline-for-training-a-model-on-medmnist-v2-using-hpe-machine-learning-development-environment-flask/
-image: /img/isha-192x192.png
+link: /blog/office-of-the-cto-announces-hiring-at-new-center-of-excellence-in-galway/
+image: /img/blog-author-rensing-96.jpg
 ---
-Use HPE Machine Learning Development Environment and Flask to supply an end-to-end, easy-to-use pipeline you can use to train and serve a medical image data model.
+At Hewlett Packard Enterprise (HPE), our purpose is to advance the way people live and work. And we invite you to join us in our mission! Hewlett Packard Enterprise and the Office of the Chief Technology Officer recently announced hiring for several roles at a new Center of Excellence in Galway, Ireland. 
 
