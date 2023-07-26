@@ -12,7 +12,7 @@ tags:
   - iLO5
   - iLOsessionmanagement
 ---
-Updated: July 2021
+Updated: July 26, 2023
 
 ## Introduction
 
@@ -34,7 +34,7 @@ Session management using the Redfish RESTful API is performed with the `/redfish
 
 ## OOB management with basic authentication
 
-In the following screenshot we use the popular `curl` tool and its [Basic Authentication](https://hewlettpackard.github.io/ilo-rest-api-docs/ilo5/?shell#basic-authentication) mechanism (`--user user:password`) to login and retrieve the active iLO session list. For clarity reasons, we use as well the `--silent` and `--insecure` options. However, they don't interact with our demonstration.
+In the following screenshot we use the popular `curl` tool and its [Basic Authentication](https://servermanagementportal.ext.hpe.com/docs/concepts/redfishauthentication/#basic-authentication) mechanism (`--user user:password`) to login and retrieve the active iLO session list. For clarity reasons, we use as well the `--silent` and `--insecure` options. However, they don't interact with our demonstration.
 
 Each invocation of the script returns a list composed of a single but different iLO session. This is due to the Basic Authentication mechanism which deletes automatically the session after completion of the HTTP GET request.
 
@@ -44,7 +44,7 @@ As a conclusion, the basic authentication mechanism, no matter the used tool, ha
 
 ## OOB management with OAuth 2.0 authentication
 
-For more complex operations, a better way to connect to a Redfish server is to use the OAuth 2.0 mechanism to [create a session object](https://hewlettpackard.github.io/ilo-rest-api-docs/ilo5/?shell#creating-and-using-sessions) in the Redfish session manager. A successful Redfish session creation is synonym of the creation of an iLO session. In return the Redfish server sends a unique session token and associated session location to the Redfish client. Subsequent HTTP operations will be authorized using the session token.
+For more complex operations, a better way to connect to a Redfish server is to use the OAuth 2.0 mechanism to [create a session object](https://servermanagementportal.ext.hpe.com/docs/concepts/redfishauthentication/#session-authentication) in the Redfish session manager. A successful Redfish session creation is synonym of the creation of an iLO session. In return the Redfish server sends a unique session token and associated session location to the Redfish client. Subsequent HTTP operations will be authorized using the session token.
 
 The [HPE `ilorest` interface tool](http://www.hpe.com/info/resttool) uses this token session mechanism and stores the token somewhere in the file system of the Redfish client. The following script illustrates the different behavior in terms of session management between the OAuth 2.0 protocol and the Basic Authentication processes.
 
@@ -62,9 +62,9 @@ In that case, the opened session will stay active in the iLO and in Redfish. Dur
 
 In the following screenshot, we removed the `logout` command and launched the script twice. The second invocation shows two active sessions. A third invocation would have shown three active sessions...
 
-![Two ilorest logins with no logout in between](https://redfish-lab.sourceforge.io/media/redfish-wiki/Managing-iLO-Sessions-With-Redfish/3-IlorestNoLogout.png)
+![Two iLOrest logins with no logout in between](https://redfish-lab.sourceforge.io/media/redfish-wiki/Managing-iLO-Sessions-With-Redfish/3-IlorestNoLogout.png)
 
-At some point of time, if you call again and again such a badly written script, you will reach the iLO maximum number of sessions and get completely locked out until the iLO is physically reset or until sessions are removed when the [`UserExpires`](https://hewlettpackard.github.io/ilo-rest-api-docs/ilo5/?shell#oem-hpe-userexpires) time is reached.
+At some point of time, if you call again and again such a badly written script, you will reach the iLO maximum number of sessions and get completely locked out until the iLO is physically reset or until sessions are removed when the [`UserExpires`](https://servermanagementportal.ext.hpe.com/docs/redfishservices/ilos/ilo6/ilo6_145/ilo6_other_resourcedefns145/#oemhpeuserexpires) time is reached.
 
 ## iLO session life cycle management with Redfish
 
