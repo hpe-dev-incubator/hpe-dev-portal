@@ -111,7 +111,7 @@ function BlogPostTemplate({ data }) {
         n.node.frontmatter.tags.includes(tag) &&
         count < 8 &&
         !ids.includes(n.node.id) &&
-        post.id!==n.node.id  &&
+        post.id !== n.node.id &&
         n.node.frontmatter.authorimage &&
         n.node.frontmatter.author
       ) {
@@ -121,7 +121,9 @@ function BlogPostTemplate({ data }) {
       }
     });
   });
-  const blogCards = ids.map((item, i) => <BlogCard key={item} node={node[i]} />);
+  const blogCards = ids.map((item, i) => (
+    <BlogCard key={item} node={node[i]} />
+  ));
 
   return (
     <Layout title={siteTitle}>
