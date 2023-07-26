@@ -112,6 +112,10 @@ function BlogTabs({ data, columns }) {
       label: 'HPE Cray Programming Environment',
       count: data?.crayBlogsCount?.totalCount || 0,
     },
+    swarmBlogs: {
+      label: 'HPE Swarm Learning',
+      count: data?.swarmBlogsCount?.totalCount || 0,
+    },
   };
 
   const opensource = {
@@ -407,6 +411,7 @@ BlogTabs.propTypes = {
     smartSimBlogsCount: PropTypes.objectOf(PropTypes.number),
     dsccBlogsCount: PropTypes.objectOf(PropTypes.number),
     crayBlogsCount: PropTypes.objectOf(PropTypes.number),
+    swarmBlogsCount: PropTypes.objectOf(PropTypes.number),
     othersBlogsCount: PropTypes.objectOf(PropTypes.number),
   }).isRequired,
   columns: PropTypes.shape({
