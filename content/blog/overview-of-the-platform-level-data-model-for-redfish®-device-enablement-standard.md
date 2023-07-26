@@ -8,6 +8,8 @@ tags:
   - Redfish
   - ilo-restful-api
 ---
+Update July 26, 2023
+
 ## Introduction
 
 In 2019, the [Distributed Management Task Force](https://dmtf.org) (DMTF) published the first version of the Platform Level Data Model for Redfish Device Enablement ([PLDM for RDE](https://www.dmtf.org/dsp/DSP0218)) standard. This Redfish standard extension started to be implemented in HPE iLO 5 based servers (Gen10 and Gen10 Plus) as well as in several storage controller (i.e. HPE Smart Array) and network adapter option cards.
@@ -76,7 +78,7 @@ Lastly, PLDM for RDE device modifications do not require a reboot of the server 
 
 ## HPE implementation of PLDM for RDE
 
-On the server side, the implementation of PLDM for RDE started in iLO 5 [firmware version 2.33](https://hewlettpackard.github.io/ilo-rest-api-docs/ilo5/#changelog) and newer firmware releases implement more and more PLDM related features that can be leveraged by devices providing their support of this standard. As an example, Redfish clients connected to an iLO 5 version 2.65 can perform read and write operations on logical drives (LD) hosted by  [HPE SR Smart Arrays](https://www.hpe.com/psnow/doc/a00047736enw.html?jumpid=in_pdp-psnow-qs) running firmware version 5.00.
+On the server side, the implementation of [PLDM for RDE](https://servermanagementportal.ext.hpe.com/docs/redfishservices/ilos/supplementdocuments/rdesupport/#redfish-device-enablement-rde-support) started in iLO 5 firmware version 2.33 and in iLO 6 version 1.05. Newer firmware releases implement more and more PLDM related features that can be leveraged by devices providing their support of this standard. As an example, Redfish clients connected to an iLO 5 version 2.65 can perform read and write operations on logical drives (LD) hosted by  [HPE SR Smart Arrays](https://www.hpe.com/psnow/doc/a00047736enw.html?jumpid=in_pdp-psnow-qs) running firmware version 5.00 and above.
 
 This statement is clearly mentioned in the `readme.txt` file embedded in the `ilo5_265.fwpkg` firmware package. You can use the `unzip` utility to extract this file from the package as shown in the next picture.
 
@@ -88,15 +90,15 @@ The [Enhancements paragraph](https://support.hpe.com/connect/s/softwaredetails?l
 
 ![PLDM Enhancements](/img/firmwareenhancements.png "PLDM Enhancements")
 
-If you power on a server containing this type of storage controller and the correct firmware versions, you will notice a device with string `DE` in its URI similar to : `/redfish/v1/systems/1/DExxxxxx`. This `DE` string is synonymous with a device supporting the PLDM for RDE standard and discovered as such by the Redfish service.
+MegaRAID (MR) storage controllers support read and write operations since version [52.24.3-4948](https://internal.support.hpe.com/connect/s/softwaredetails?language=en_US&softwareId=MTX_7770514895d94ff4b1fcb86c5b&tab=Enhancements). 
+
+If you power on a server containing this type of storage controller (SR or MR) and the correct firmware versions, you will notice a device with string `DE` in its URI similar to : `/redfish/v1/systems/1/DExxxxxx`. This `DE` string is synonymous with a device supporting the PLDM for RDE standard and discovered as such by the Redfish service.
 
 A GET request toward this URI returns links to controllers, drives and volumes property end points as shown in the next picture.
 
-[](RdeStorageEndPoint.png)
-
 ![RDE storage end point](/img/rdestorageendpoint.png "RDE storage end point")
 
-If you want to create a Logical Drive, you can POST a request toward `{{iloURI}}/redfish/v1/Systems/1/Storage/DE07C000/Volumes` with a payload similar to:
+If you want to create a Logical Drive (aka volume), you can POST a request toward `{{iloURI}}/redfish/v1/Systems/1/Storage/DE07C000/Volumes` with a payload similar to:
 
 ```json
 {
@@ -127,6 +129,10 @@ curl --request DELETE "$iloURI/redfish/v1/Systems/1/Storage/DE07C000/Volumes/1"
 ```
 
 **NOTE**: For backward compatibility concerning HPE Smart Array SR devices, HPE Gen10 and Gen10 Plus servers offer the possibility to manage those devices using both `SmartStorageConfig` and `Storage` data types. However, always stick to a single management data type. Mixing those data types may lead to hazardous results.
+
+**NOTE**: Gen11 HPE servers don't implement the `SmartStorageConfig` OEM data type. The `Storage` data type and its sub-resources (Volume, Drive) is the only implemented type.
+
+Refer to the [HPE Storage Controllers: Management Overview](https://www.hpe.com/psnow/doc/a50006146enw?from=app&section=search&isFutureVersion=true) document for more information
 
 ### Network adapters
 
