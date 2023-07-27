@@ -4,7 +4,7 @@ dateStart: 2023-07-25T22:01:34.108Z
 dateEnd: 2023-07-26T21:59:34.176Z
 category: Virtual Event
 image: /img/event-meetups-newlogo-400x400.png
-link: https://hpe.zoom.us/webinar/register/9116878530463/WN_-pyZ8SBtQgCEzzgeyZ7ZQg
+link: https://www.youtube.com/watch?v=ogBb_IPXorM&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF
 width: large
 ---
 ## Observability in Action
