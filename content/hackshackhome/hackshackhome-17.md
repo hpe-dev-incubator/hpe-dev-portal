@@ -1,6 +1,6 @@
 ---
 title: Observability in action
-active: true
+active: false
 fit: contain
 path: https://hpe.zoom.us/webinar/register/1616878530720/WN_-pyZ8SBtQgCEzzgeyZ7ZQg
 imageBackground: white
