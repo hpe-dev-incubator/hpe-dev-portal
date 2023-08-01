@@ -6,7 +6,7 @@ description: NonStop is HPE’s self-healing platform which allows applications 
 image: /img/platforms/Greenlake.svg
 width: large
 priority: 6
-active: false
+active: true
 tags:
   - hpe-nonstop
 ---
@@ -30,7 +30,7 @@ NonStop is a platform that runs some of the world’s most exciting workloads in
 
 [HPE NonStop Home Page](https://www.hpe.com/us/en/servers/nonstop.html)
 
-[HPE NonStop family of systems](https://www.hpe.com/psnow/doc/4aa4-2988enw)
+[HPE NonStop family of systems brochure](https://www.hpe.com/psnow/doc/4aa4-2988enw)
 
 - - -
 
