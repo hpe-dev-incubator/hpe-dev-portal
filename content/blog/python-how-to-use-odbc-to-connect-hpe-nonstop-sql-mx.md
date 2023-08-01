@@ -2,7 +2,7 @@
 title: Using Python and ODBC to connect HPE NonStop SQL/MX
 date: 2021-05-04T06:27:49.069Z
 featuredBlog: false
-priority:
+priority: null
 author: Shanice Abigail
 authorimage: /img/profile_pic-formatted-copy-2-.jpg
 tags:
@@ -10,6 +10,7 @@ tags:
   - nonstop
   - sqlmx
   - odbc
+  - hpe-nonstop
 ---
 Hello World! In this tutorial, I will show you how Python can execute queries on the HPE NonStop SQL/MX Database using pyodbc and the NonStop SQL/MX ODBC driver.
 
