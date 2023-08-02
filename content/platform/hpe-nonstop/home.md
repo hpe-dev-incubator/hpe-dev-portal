@@ -10,7 +10,7 @@ active: true
 tags:
   - hpe-nonstop
 ---
-NonStop is a platform that runs some of the world’s most exciting workloads in our day-to-day life. From producing luxury cars, to making payments in our grocery shopping, to helping people to travel to executing massive amount of transactions in stock exchanges, NonStop is the platform that lets our customers, and their engineers get their sleep, while their mission-critical applications continue relentlessly in data centres and on private clouds. 
+NonStop is a platform that runs some of the world’s most exciting workloads in our day-to-day life. From producing luxury cars, to making payments in our grocery shopping, to helping people to travel to executing massive amount of transactions in financial industry, NonStop is the platform that lets our customers, and their engineers get their sleep, while their mission-critical applications continue relentlessly in data centres and on private clouds. 
 
 
 ## YouTube Videos
