@@ -1,12 +1,12 @@
 ---
 title: Testing OpsRamp APIs with PyTest Fixtures
 date: 2023-07-26T06:58:31.750Z
-featuredBlog: true
+featuredBlog: false
 author: BalaSubramanian Vetrivel
 authorimage: /img/vetrivel-balasubramanian1-photo.jpg
 disable: false
 ---
-<!--StartFragment-->
+
 
 # Testing OpsRamp APIs with PyTest Fixtures
 
@@ -239,4 +239,3 @@ In this article we have seen what are PyTest Fixtures, how to define, invoke and
 
 
 
-<!--EndFragment-->
