@@ -12,7 +12,7 @@ disable: false
 
 
 
-OpsRamp platform  provides rich set of APIs. By using these APIs customers can build soultion to automate various ITOM workflows such as discovery and monitoring , event and incident mangement and remidiation and automation. Testing these APIs, automated solution  are very critical to ensure reliability and stability of the same. PyTest is a powerful python testing framework and it is widely used to test APIs. Fixtures is one of the most important capabilities of PyTest framework. In this article, we will discuss some advanced techniques of testing OpsRamp APIs using PyTest fixtures.
+OpsRamp platform  provides rich set of APIs. By using these APIs customers can build soultion to automate various IT Operations Management (ITOM) workflows such as discovery and monitoring , event and incident mangement and remidiation and automation. Testing these APIs and automated solution is very critical to ensure reliability and stability of the same. PyTest is a powerful python testing framework and it is widely used to test APIs. Fixtures is one of the most important capabilities of PyTest framework. In this article, we will discuss some advanced techniques of testing OpsRamp APIs using PyTest fixtures.
 
 
 
