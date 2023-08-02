@@ -18,7 +18,7 @@ OpsRamp platform  provides rich set of APIs. By using these APIs customers can 
 
 ## What Fixtures are 
 
-PyTest fixtures are a special type of python function that provision fixed base line for testing.With the help of this base line we can ensure tests are run in reliable manner and produce consistent results and the same tests can be repeatable.
+PyTest fixtures are a special type of python function that provision fixed base line for testing. With the help of this base line we can ensure tests are run in reliable manner and produce consistent results and the same tests can be repeatable.
 
 ## Install PyTest
 
@@ -43,6 +43,9 @@ pytest 7.4.0
 ## Define Fixture
 
 We can define fixtures just by decorating a simple python function with [@pytest.fixture](https://docs.pytest.org/en/6.2.x/reference.html#pytest.fixture) for example 
+
+Python Decorators is a very powerful and convenient way to alter behviour of functions, For more details refer
+[Python Decorators](https://www.geeksforgeeks.org/decorators-in-python)
 
 ```python
 import pytest
