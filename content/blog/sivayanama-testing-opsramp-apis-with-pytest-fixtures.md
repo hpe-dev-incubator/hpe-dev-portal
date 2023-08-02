@@ -8,31 +8,22 @@ disable: false
 ---
 
 
+
 # Testing OpsRamp APIs with PyTest Fixtures
+OpsRamp platform provides a rich set of APIs. By using these APIs customers can build solutions to automate various IT Operations Management (ITOM) workflows such as discovery and monitoring , event and incident mangement and remidiation and automation. Testing these APIs and automated solution is very critical to ensure reliability and stability of the same. PyTest is a powerful python testing framework and it is widely used to test APIs. Fixtures is one of the most important capabilities of PyTest framework. In this article, I will discuss some advanced techniques of testing OpsRamp APIs using PyTest fixtures.
 
-
-
-OpsRamp platform  provides rich set of APIs. By using these APIs customers can build soultion to automate various IT Operations Management (ITOM) workflows such as discovery and monitoring , event and incident mangement and remidiation and automation. Testing these APIs and automated solution is very critical to ensure reliability and stability of the same. PyTest is a powerful python testing framework and it is widely used to test APIs. Fixtures is one of the most important capabilities of PyTest framework. In this article, we will discuss some advanced techniques of testing OpsRamp APIs using PyTest fixtures.
-
-
-
-## What Fixtures are 
-
-PyTest fixtures are a special type of python function that provision fixed base line for testing. With the help of this base line we can ensure tests are run in reliable manner and produce consistent results and the same tests can be repeatable.
+## What Fixtures are 
+PyTest fixtures are a special type of Python function that provisions a fixed baseline for testing. With the help of this baseline we can ensure tests are run in reliable manner and produce consistent results and the same tests can be repeatable.
 
 ## Install PyTest
-
-Run the below command 
+Run the below command 
 
 ```shell
 pip install -U pytest
 ```
 
- 
-
-## Verify PyTest installation 
-
-Run the below command 
+## Verify PyTest installation 
+Run the below command 
 
 ```shell
 pytest --version
@@ -41,10 +32,9 @@ pytest 7.4.0
 ```
 
 ## Define Fixture
+You can define fixtures just by decorating a simple Python function with [@pytest.fixture](https://docs.pytest.org/en/6.2.x/reference.html#pytest.fixture) for example 
 
-We can define fixtures just by decorating a simple python function with [@pytest.fixture](https://docs.pytest.org/en/6.2.x/reference.html#pytest.fixture) for example 
-
-Python Decorators is a very powerful and convenient way to alter behviour of functions, For more details refer
+Python Decorators is a very powerful and convenient way to alter the behavior of functions, For more details refer
 [Python Decorators](https://www.geeksforgeeks.org/decorators-in-python)
 
 ```python
@@ -58,8 +48,7 @@ def hello_world():
 
 
 ## Invoke fixtures
-
-Test functions can invoke fixtures just by declaring the required fixtures as arguments. 
+Test functions can invoke fixtures just by declaring the required fixtures as arguments. 
 
 ```python
 def test_hello_world(hello_world):
@@ -67,8 +56,7 @@ def test_hello_world(hello_world):
 ```
 
 ## Invoke OpsRamp API
-
-Let us try to execute OpsRamp [Get Access Token API](https://develop.opsramp.com/v2/api/auth/tenancy-auth-oauth-token)  as shown below.
+Let us try to execute OpsRamp [*Get Access Token* API](https://develop.opsramp.com/v2/api/auth/tenancy-auth-oauth-token)  as shown below.
 
 ```python
 import http.client
@@ -99,7 +87,7 @@ def get_auth_header(api_endpoint, client_id, client_secret, grant_type="client_c
 
 ## Define Fixture to get Access Token
 
-You can transform above function as PyTest Fixture by simply decorating the code as shown below 
+You can transform the above function as PyTest Fixture by simply decorating the code as shown below 
 
 
 
@@ -111,7 +99,7 @@ def get_auth_header(api_endpoint, client_id, client_secret, grant_type="client_c
 
 ## Autouse fixtures
 
-Sometimes some of your fixtures are required for all other tests. The above Get acces token is perfect use case for this. Every API call is depending on this API. In this case you can make this fixture as “autouse fixture”  by passing in autouse=True to the fixture’s decorator. The autouse fixure capability will reduce lot of reduanct requests. 
+Sometimes some of your fixtures are required for all other tests. The above Get access token is the perfect use case for this. Every API call is depending on this API. In this case you can make this fixture as “autouse fixture”  by passing in *autouse=True* to the fixture’s decorator. The autouse fixure capability will reduce lot of redundant requests. 
 
 ```python
 @pytest.fixture(autouse=True)
@@ -120,13 +108,13 @@ def get_auth_header(api_endpoint, client_id, client_secret, grant_type="client_c
 
 
 
-## Provisioing of third-party plugin Fixtures 
+## Provisioning of third-party plugin Fixtures 
 
-Not necessarily you have to define all fixtures on your own code. Fixtures can be provided by third party plugins as well and you are free to use them. You just need to install the required plugins. We will see an example with  pytest-datadir plugin
+Not necessarily have to define all fixtures on your own code. Fixtures can be provided by third-party plugins as well and you are free to use them. You just need to install the required plugins. We will see an example with pytest-datadir plugin.
 
 
 
-Install this plugin as shown below 
+Install this plugin as shown below 
 
 ```shell
 pip install pytest-datadir
@@ -146,24 +134,23 @@ json_path = (shared_datadir / "auth_header_input.json")
 
 
 
-get_bearer_token  fixture is using [shared_datadir](https://pypi.org/project/pytest-datadir/) fixture from third party plugin. Shared_datadir fixture provision  data folder from the current folder as pathlib.Path object. 
+get\_bearer\_token fixture is using [shared_datadir](https://pypi.org/project/pytest-datadir/) fixture from third party plugin. Shared_datadir fixture provision data folder from the current folder as pathlib.Path object. 
 
 
 
 ## Fixture finalization
 
-Usually we do teardown or cleanup acititivties for each test for many good reasons such as the following 
+Usually, you do teardown or cleanup activities for each test for many good reasons such as the following: 
 
-The executed tests will not impact other tests
+- The executed tests will not impact other tests
 
-Do not want to have the testing environment piled up with tons of test data
+- Do not want to have the testing environment piled up with tons of test data
 
-Every tests should execute in a clean state
+- Every test should execute in a clean state
 
 
 
-Fixtures offers very powerful teardown, cleanup capability known as finalization. 
-
+Fixtures offer a very powerful teardown, cleanup capability known as finalization. 
 
 
 ```python
@@ -222,19 +209,20 @@ client.logger.debug("OUT\*\**")
 return client_response
 ```
 
-You should add the finalizer function to the request’s context object of the test as shown below 
+You should add the finalizer function to the request’s context object of the test as shown below:
 
-request.addfinalizer(terminate_client)
+*request.addfinalizer(terminate_client)*
 
 
 
-In the above example we do all the test set up on the client and execute the tests, Once the test is complete finalizer function runs and cleans up the whole thing. 
+In the above example, you do all the test setup on the client and execute the test. Once the test is complete finalizer function runs and cleans up the whole thing. 
 
 
 
 ## Conclusion
 
-In this article we have seen what are PyTest Fixtures, how to define, invoke and Fixtures. Also we have seen how to leverage testing of OpsRamp APIs using these fixtures, how to do teardown activities using finalizer functions. 
+In this article, you have seen what are PyTest Fixtures, and how to define, invoke, and Fixtures. Also, you have seen how to leverage testing of OpsRamp APIs using these fixtures, how to do teardown activities using finalizer functions. 
+
 
 
 
