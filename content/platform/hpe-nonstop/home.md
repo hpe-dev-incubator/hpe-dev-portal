@@ -26,11 +26,12 @@ NonStop is a platform that runs some of the world’s most exciting workloads in
 
 ## Resources
 
-[Applications for HPE NonStop products ![](Github)](https://github.com/HewlettPackard/NonStop)
-
 [HPE NonStop Home Page](https://www.hpe.com/us/en/servers/nonstop.html)
 
 [HPE NonStop family of systems brochure](https://www.hpe.com/psnow/doc/4aa4-2988enw)
+
+[Sample Code for HPE NonStop products ![](Github)](https://github.com/HewlettPackard/NonStop)
+
 
 - - -
 
