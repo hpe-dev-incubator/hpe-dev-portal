@@ -10,13 +10,9 @@ active: true
 tags:
   - hpe-nonstop
 ---
-NonStop is a platform that runs some of the world’s most exciting workloads in our day-to-day life. From producing luxury cars, to making payments in our grocery shopping, to helping people to travel to executing massive amount of transactions in financial industry, NonStop is the platform that lets our customers, and their engineers get their sleep, while their mission-critical applications continue relentlessly in data centres and on private clouds. 
-
+NonStop is a platform that runs some of the world’s most exciting workloads in our day-to-day life. From producing luxury cars, to making payments in our grocery shopping, to helping people travel and executing massive amount of transactions in global payments networks, NonStop is the platform that lets our customers, and their engineers get their sleep, while their mission-critical applications continue relentlessly in data centres and on private clouds.
 
 ## YouTube Videos
-
-#### Get an overview of the NonStop products and solutions
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Kel5ft2bUDo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 #### HPE NonStop System Average Rating
 <iframe width="560" height="315" src="https://www.youtube.com/embed/R9OWC5jRpuE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
@@ -31,10 +27,3 @@ NonStop is a platform that runs some of the world’s most exciting workloads in
 [HPE NonStop family of systems brochure](https://www.hpe.com/psnow/doc/4aa4-2988enw)
 
 [Sample Code for HPE NonStop products ![](Github)](https://github.com/HewlettPackard/NonStop)
-
-
-- - -
-
-## Any questions on HPE NonStop?
-
-Join the [HPE Developer Community Slack Workspace](https://developer.hpe.com/slack-signup) and start a discussion in our #xxxxx channel.
