@@ -15,7 +15,7 @@ tags:
   - ProLiant
   - iLO5
 ---
-Updated: June, 2022  
+Updated: July 26, 2023
     
 ## Introduction
 
@@ -23,7 +23,9 @@ Integrated Lights-Out ([iLO](https://www.hpe.com/info/ilo))  is an HPE ProLiant 
 
 In HPE ProLiant and Synergy Gen10 servers, HPE iLO 5 introduced the management of storage controllers via its graphical user interface and via the [Redfish](http://www.dmtf.org/redfish) RESTful API standard. Although [videos](https://www.youtube.com/channel/UCIZhrIYcNh3wHLiY4ola5ew/search?query=logicaldrive) already exist that cover the graphical user interface, I wanted to address this feature with a pure Redfish API approach, bypassing the `ilorest` [interface tool](http://www.hpe.com/info/resttool) and its Smart Array macro commands.
 
-In this article you start by learning how to cleanup and prepare a SmartRAID (SR) storage Controller for receiving a configuration with one or more logical drives using an HPE proprietary OEM process. Then, on this fresh environment, you will learn how to create a simple RAID array configuration prior to more complex ones to complement the [API reference documentation](https://hewlettpackard.github.io/ilo-rest-api-docs/ilo5/?python#smartstorageconfig).
+In this article you start by learning how to cleanup and prepare a SmartRAID (SR) storage Controller for receiving a configuration with one or more logical drives using an HPE proprietary OEM process. Then, on this fresh environment, you will learn how to create a simple RAID array configuration prior to more complex ones.
+
+**NOTE**: The HPE proprietary `SmartStorageConfig` introduced with HPE iLO 5 has been [deprecated](https://servermanagementportal.ext.hpe.com/docs/redfishservices/ilos/ilo6/ilo6_adaptation/#hpe-smart-storage-model-oem-deprecated) in iLO 6 based servers (Gen11) in favor of the standard [DMTF storage model](https://servermanagementportal.ext.hpe.com/docs/redfishservices/ilos/supplementdocuments/storage/). For backward compatibility, HPE iLO 5 implements both models.
 
 ## Foreword
 
@@ -31,7 +33,7 @@ I've used the [Postman](https://www.getpostman.com/) API development to illustra
 
 The reader should have the knowledge of HTTP [request methods](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Request_methods) like `GET`, `PUT` and `PATCH`.
 
-Moreover, it is assumed that the reader knows how to manage Redfish sessions as described in the [Redfish API Reference documentation](https://hewlettpackard.github.io/ilo-rest-api-docs/ilo5/#authentication-and-sessions). More hints for managing iLO sessions with Redfish can be found in this [article](/blog/managing-ilo-sessions-with-redfish).
+Moreover, it is assumed that the reader knows how to manage Redfish sessions as described in the [Redfish API Reference documentation](https://servermanagementportal.ext.hpe.com/docs/concepts/redfishauthentication/). More hints for managing iLO sessions with Redfish can be found in this [article](/blog/managing-ilo-sessions-with-redfish).
 
 ## Storage data models
 
@@ -70,7 +72,7 @@ Upon reboot, and once the server has finished its Pre-OS Tasks (POST), you shoul
 
 ## The `DataGuard` property
 
-The management of HPE Smart Storage devices requires a proper understanding of the `DataGuard` property part of the `SmartStorageConfig` sub-tree. The value of this attribute "_indicates  whether or not data destructive actions are allowed_" as explained in the [API Reference documentation](https://hewlettpackard.github.io/ilo-rest-api-docs/ilo5/#dataguard).
+The management of HPE Smart Storage devices requires a proper understanding of the `DataGuard` property part of the `SmartStorageConfig` sub-tree. The value of this attribute "_indicates  whether or not data destructive actions are allowed_" as explained in the [API Reference documentation](https://servermanagementportal.ext.hpe.com/docs/redfishservices/ilos/ilo5/ilo5_290/ilo5_other_resourcedefns290/#dataguard).
 
 This property is set in the pending settings (`SmartStorageConfig/Settings`) along with the directives to be performed by the Smart Storage device (i.e. Logical Volume Creation, Deletion...). During the next POST, the firmware checks its value and performs, or does not perform, the requested directives.
 
@@ -78,7 +80,7 @@ If the value is `Strict`, which is the default value when not changed in the pen
 
 If the value is set to `Disabled`, destructive data actions are allowed. Finally, when the value is `Permissive`, only destructive data actions are allowed on the specified objects.
 
- Refer to the [iLO RESTful API documentation](https://hewlettpackard.github.io/ilo-rest-api-docs/ilo5/#delete-logical-drives) for more information.
+Refer to the [iLO RESTful API documentation](https://servermanagementportal.ext.hpe.com/docs/redfishservices/ilos/supplementdocuments/storage/) for more information.
 
 ## Storage controller and physical disks preparation
 
@@ -130,12 +132,11 @@ To delete a specific logical drive you have to send a `PUT` request to the `Smar
 
 ### Sanitizing / disk drives
 
-In addition to the removal of logical drives and the meta data cleanup of physical drives, you may want to [erase / sanitize](https://hewlettpackard.github.io/ilo-rest-api-docs/ilo5/#sanitize-drives) a list of physical drives. To perform this (long) operation, send the following `PATCH` action with the correct list of the drives to erase, separated by a comma.  Don't forget to disabled  the `DataGuard` property as well:
+In addition to the removal of logical drives and the meta data cleanup of physical drives, you may want to erase / sanitize a list of physical drives. To perform this (long) operation, send the following `PATCH` action with the correct list of the drives to erase, separated by a comma.  Don't forget to disabled  the `DataGuard` property as well:
 
 ![Sanitize physical disk drives](https://redfish-lab.sourceforge.io/media/redfish-wiki/StorageManagementWithRedfifsh/5-SanitizePhysicalDrive.png)
 
-The `ErasePattern` property supports the following [values](https://hewlettpackard.github.io/ilo-rest-api-docs/ilo5/#actions-array):
-
+The `ErasePattern` property supports the following [values](https://servermanagementportal.ext.hpe.com/docs/redfishservices/ilos/ilo5/ilo5_290/ilo5_other_resourcedefns290/#actions-array):
 
 ````text
     SanitizeRestrictedBlockErase
@@ -157,7 +158,7 @@ As mentioned above, the sanitize process is extremely long and you can retrieve 
 
 Logical drives can be created using the `PUT` method. In some circumstances a `PATCH` can be used. To keep things simple, I'll only use the `PUT` method.
 
-For this section, start with the clean infrastructure generated previously to create a 100GB RAID1 logical drive with a [`Roaming`](https://hewlettpackard.github.io/ilo-rest-api-docs/ilo5/#sparerebuildmode) spare drive.
+For this section, start with the clean infrastructure generated previously to create a 100GB RAID1 logical drive with a `Roaming` spare drive.
 
 Then, add a RAID0 Logical drive located on a single hard disk without spare drive and spanning the entire disk (300GB).
 
@@ -204,7 +205,7 @@ The following screenshot shows the characteristics of the added RAID0 logical dr
 
 ![Adding a logical drive in an existing array](https://redfish-lab.sourceforge.io/media/redfish-wiki/StorageManagementWithRedfifsh/12-AddLogicalDriveToExistingArray.png)
 
-After reboot, the requested RAID0 logical drive is visible in the current configuration. Note that the `SpareRebuildMode` has been automatically adjusted to [`Dedicated`](https://hewlettpackard.github.io/ilo-rest-api-docs/ilo5/#sparerebuildmode) since `Roaming` is not a valid value anymore.
+After reboot, the requested RAID0 logical drive is visible in the current configuration. Note that the `SpareRebuildMode` has been automatically adjusted to `Dedicated` since `Roaming` is not a valid value anymore.
 
 ![Current configuration after the addition of logical drive in an existing array](https://redfish-lab.sourceforge.io/media/redfish-wiki/StorageManagementWithRedfifsh/13-RunningZoneAfterAddition.png)
 

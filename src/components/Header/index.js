@@ -13,7 +13,7 @@ import {
 import { Menu, Search, FormDown } from 'grommet-icons';
 import styled from 'styled-components';
 import { AppContext } from '../../providers/AppProvider';
-import { ButtonLink, ExternalButtonLink } from '..';
+import { ButtonLink } from '..';
 import { UserMenu } from './UserMenu';
 
 const { GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT } = process.env;
@@ -38,25 +38,26 @@ function Header() {
   const greenlake = data?.greenlake?.edges;
 
   const GreenLakeButtonLinks = ({ column }) => {
-    const leftColumn = greenlake.filter((gl, index) => index % 2 === 0);
+    /* const leftColumn = greenlake.filter((gl, index) => index % 2 === 0); */
+    const leftColumn = greenlake;
     const rightColumn = greenlake.filter((gl, index) => index % 2);
-    const externalLinks = [
-      {
-        title: 'HPE GreenLake API Portal',
-        slug: 'https://developer.greenlake.hpe.com/',
-      },
-      {
-        title: 'HPE GreenLake Test Drive',
-        slug: 'https://testdrive.greenlake.hpe.com/',
-      },
-    ];
+    // const externalLinks = [
+    //   {
+    //     title: 'HPE GreenLake API Portal',
+    //     slug: 'https://developer.greenlake.hpe.com/',
+    //   },
+    //   {
+    //     title: 'HPE GreenLake Test Drive',
+    //     slug: 'https://testdrive.greenlake.hpe.com/',
+    //   },
+    // ];
 
-    const externalLeftColumn = externalLinks.filter(
-      (el, index) => index % 2 === 0,
-    );
-    const externalRightColumn = externalLinks.filter((el, index) => index % 2);
-    const externalLinksColumn =
-      column === 'left' ? externalLeftColumn : externalRightColumn;
+    // const externalLeftColumn = externalLinks.filter(
+    //   (el, index) => index % 2 === 0,
+    // );
+    // const externalRightColumn = externalLinks.filter((el, index) => index % 2);
+    // const externalLinksColumn =
+    //   column === 'left' ? externalLeftColumn : externalRightColumn;
     const greenlakeColumn = column === 'left' ? leftColumn : rightColumn;
 
     const glColumns = greenlakeColumn.map((gl, index) => {
@@ -73,19 +74,20 @@ function Header() {
         />
       );
     });
-    const elColumns = externalLinksColumn.map((el, index) => {
-      const { slug, title } = el;
-      return (
-        <ExternalButtonLink
-          key={index}
-          label={title}
-          to={`${slug}`}
-          alignSelf="start"
-          fill="horizontal"
-        />
-      );
-    });
-    const allLinks = [...elColumns, ...glColumns];
+
+    //  const elColumns = externalLinksColumn.map((el, index) => {
+    //  const { slug, title } = el;
+    //  return (
+    //    <ExternalButtonLink
+    //   key={index}
+    //   label={title}
+    //    to={`${slug}`}
+    //   alignSelf="start"
+    //    fill="horizontal"
+    //   />
+    //    );
+    // });
+    const allLinks = [/* ...elColumns, */ ...glColumns];
     return allLinks;
   };
   // const iframeRef = useRef();
@@ -193,7 +195,7 @@ function Header() {
         <TextAlignLeft>
           <ButtonLink
             key="pl"
-            label="HPE GreenLake Cloud Platform"
+            label="HPE GreenLake edge-to-cloud platform"
             to="/greenlake/hpe-greenlake-cloud-platform/home/"
             state={{ state: { isPlatformHeaderClicked: true } }}
             alignSelf="start"
@@ -203,9 +205,9 @@ function Header() {
             <TextAlignLeft>
               <GreenLakeButtonLinks column="left" />
             </TextAlignLeft>
-            <TextAlignLeft>
+            {/*             <TextAlignLeft>
               <GreenLakeButtonLinks column="right" />
-            </TextAlignLeft>
+            </TextAlignLeft> */}
           </Box>
         </TextAlignLeft>
       }

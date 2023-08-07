@@ -259,21 +259,33 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-adobe-launch-hpe',
       options: {
+        trackingIds: [
+        'G-45LYYFDK5J', // Google Analytics / GA
+        ],
         pluginConfig: {
-          analyticsScript:
-            'https://www.hpe.com/global/metrics/easy/basic_measurement.js',
-        },
-        events: {
-          onRouteUpdate: 'ANALYTICS.PAGEVIEW',
-        },
-        breadCrumbs: {
-          countryCode: 'us',
-          languageCode: 'en',
-          siteSection: 'non-aem:developer',
-          pageLevel: 'main',
+          // Puts tracking script in the head instead of the body
+          head: true,
         },
       },
     },
+    // {
+    //   resolve: 'gatsby-plugin-adobe-launch-hpe',
+    //   options: {
+    //     pluginConfig: {
+    //       analyticsScript:
+    //         'https://www.hpe.com/global/metrics/easy/basic_measurement.js',
+    //     },
+    //     events: {
+    //       onRouteUpdate: 'ANALYTICS.PAGEVIEW',
+    //     },
+    //     breadCrumbs: {
+    //       countryCode: 'us',
+    //       languageCode: 'en',
+    //       siteSection: 'non-aem:developer',
+    //       pageLevel: 'main',
+    //     },
+    //   },
+    // },
     'gatsby-plugin-feed',
     {
       resolve: 'gatsby-plugin-manifest',
@@ -370,9 +382,11 @@ module.exports = {
           "iLOrest",
           "ilo-restful-api",
           "Redfish",
-          "hpe-ezmeral"
-          "data-services-cloud-console"
-          "determined-ai"
+          "hpe-ezmeral",
+          "data-services-cloud-console",
+          "determined-ai",
+          "cray",
+          "swarm-learning"
           ]}}}, sort: {fields: [frontmatter___date], order: DESC}) {
             nodes {
               id
@@ -434,6 +448,8 @@ module.exports = {
       'hpe-oneview-global-dashboard',
     ),
     paginatedCollection('determined-ai-posts', 'determined-ai'),
+    paginatedCollection('cray-posts', 'cray'),
+    paginatedCollection('swarm-posts', 'swarm-learning'),
     paginatedCollection('dscc-posts', 'data-services-cloud-console'),
     {
       resolve: 'gatsby-plugin-paginated-collection',

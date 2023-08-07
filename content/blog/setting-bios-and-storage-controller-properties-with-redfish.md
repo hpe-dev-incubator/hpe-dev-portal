@@ -1,14 +1,25 @@
 ---
-title: "Setting Bios and Storage Controller Properties with Redfish"
+title: Setting Bios and Storage Controller Properties with Redfish
 date: 2018-07-19T15:11:44.185Z
-author: Francois Donze 
-tags: ["ilo-restful-api","Redfish","SmartArray","Bios","Postman"]
-authorimage: "/img/blogs/Avatar5.svg"
 featuredBlog: false
-priority:
-thumbnailimage:
+priority: null
+author: Francois Donze
+authorimage: /img/blogs/Avatar5.svg
+thumbnailimage: null
+tags:
+  - ilo-restful-api
+  - Redfish
+  - SmartArray
+  - Bios
+  - Postman
 ---
-The concept of deferred / pending settings in the [Bios]( https://hewlettpackard.github.io/ilo-rest-api-docs/ilo5/#changing-pending-settings-and-understanding-redfish-settings) and [SmartStorage]( https://hewlettpackard.github.io/ilo-rest-api-docs/ilo5/#smartstorage-configuration) subsystems of HPE iLO 4 and 5 is briefly presented in the [HPE Reference API]( https://hewlettpackard.github.io/ilo-rest-api-docs/ilo5/) documentation. With two examples, this document illustrates what is happening when properties are modified in those subsystems using the Redfish REST API against HPE servers.
+Updated July 26, 2023
+
+The concept of deferred / pending settings in the [Bios]( https://servermanagementportal.ext.hpe.com/docs/concepts/biosdatamodel/#bios-current-and-pending-areas) and `SmartStorageConfig` subsystems of HPE iLO 5 is briefly presented in the [HPE Reference API](https://servermanagementportal.ext.hpe.com/) documentation. With two examples, this document illustrates what is happening when properties are modified in those subsystems using the Redfish REST API against HPE servers.
+
+**NOTE**: The `SmartStorageConfig` [data type](https://servermanagementportal.ext.hpe.com/docs/concepts/datatypesandcollections/) is [deprecated in HPE iLO 6](https://servermanagementportal.ext.hpe.com/docs/redfishservices/ilos/ilo6/ilo6_adaptation/#hpe-smart-storage-model-oem-deprecated) based servers.
+
+**NOTE**: The latest versions of iLO 5 firmware support both the HPE `SmartStorageConfig` and the DMTF standard storage models. Volume management with controllers implementing the DMTF storage model is described in the [HPE server management portal](https://servermanagementportal.ext.hpe.com/docs/redfishservices/ilos/supplementdocuments/storage/).
 
 We assume that the reader is familiar with REST APIs in general and Redfish in particular. A good entry point for developers to grasp the power of Redfish is the [iLO RESTful API Ecosystem](https://www.hpe.com/us/en/servers/restful-api.html#).
 
@@ -32,9 +43,7 @@ The important thing to note in this flow is that the final status code and assoc
 
 ## Successful example
 
-In this example, we create a Raid1 storage array of two physical disks using Postman.
-
-As mentioned in the [HPE Redfish documentation](https://hewlettpackard.github.io/ilo-rest-api-docs/ilo5/#create-logical-drives), we have to issue a `PUT` to `{{iloURI}}/redfish/v1/Systems/1/SmartStorageConfig/Settings/` with a body (aka payload) similar to the example shown below:
+In this example, we create a Raid1 storage array of two physical disks using Postman. To achieve this goal, we have to issue a `PUT` to `{{iloURI}}/redfish/v1/Systems/1/SmartStorageConfig/Settings/` with a body (aka payload) similar to the example shown below:
 
 ![Body to PUT to .../SmartStorageConfig/Settings/](https://redfish-lab.sourceforge.io/media/redfish-wiki/Setting-Bios-and-StorageControllerProperties-with-Redfish/1-PUT-Body.png)
 

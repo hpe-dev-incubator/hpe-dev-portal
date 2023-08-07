@@ -20,7 +20,6 @@ tags:
 
 - - -
 
-
 The process of managing and provisioning computer data centers through machine-readable definition files, otherwise known as Infrastructure-as-Code (IaC), offers many significant benefits. It helps to increase operational agility, simplify management, reduce errors, and save cost. In this post, I’ll explore some of the benefits of using IaC on HPE GreenLake through the use of Terraform.
 
 ## Let’s harness some of the benefits of Infrastructure as Code
@@ -75,7 +74,7 @@ terraform {
       required_providers {
          hpegl = {
             source  = "hpe/hpegl"
-            version = "0.1.7"
+            version = "0.3.17"
          }
       }
    }
@@ -154,7 +153,7 @@ Your next step with the TF file is to query the HPE GreenLake provider to collec
 * Template ID
 * Folder Code
 
-For this, you will use the Terraform **data** statements. For example, the following statement retrieves the Cloud ID and stores it (in variable called **cloud**), which we can later retrieve using: **data.hpegl\_vmaas\_cloud.cloud.id**
+For this, you will use the Terraform **data** statements. For example, the following statement retrieves the Cloud ID and stores it (in variable called **cloud**), which we can later retrieve using: **data.hpegl_vmaas_cloud.cloud.id**
 
 ```json
 # Retrieve cloud id
@@ -258,8 +257,8 @@ Initializing the backend...
 
 Initializing provider plugins...
 - Finding hpe/hpegl versions matching "0.1.7"...
-- Installing hpe/hpegl v0.1.7...
-- Installed hpe/hpegl v0.1.7 (signed by a HashiCorp partner, key ID D1F277A1AC66CE3D)
+- Installing hpe/hpegl v0.3.17...
+- Installed hpe/hpegl v0.3.17 (signed by a HashiCorp partner, key ID D1F277A1AC66CE3D)
 
 Partner and community providers are signed by their developers.
 If you'd like to know more about provider signing, you can read about it here:

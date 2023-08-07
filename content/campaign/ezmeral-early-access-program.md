@@ -7,7 +7,7 @@ Companies that leverage business analytics, data management, and artificial inte
 
 HPE Ezmeral simplifies business analytics, data management, and AI to provide the foundational layer you need for hybrid data analytics. With HPE Ezmeral, you can seamlessly access, manage, and govern all your data from a single view, regardless of where it is located. It then layers on HPE-supported open source tools and frameworks allowing developers to use their preferred tools of choice for data analytics and processing.
 
-HPE is offering an exciting opportunity for early access to new capabilities and features. Through the [HPE Ezmeral Early Access](https://connect.hpe.com/HPEEzmeralEarlyAccess) (EEA) program, developers will get hands-on experience, training, and support from HPE to try our two new solutions designed to solve your hybrid data analytics problems. In return, we ask that you provide regular feedback to guide product development and roadmaps.
+HPE is offering an exciting opportunity for early access to new capabilities and features. Through the HPE Ezmeral Early Access (EEA) program, developers will get hands-on experience, training, and support from HPE to try our two new solutions designed to solve your hybrid data analytics problems. In return, we ask that you provide regular feedback to guide product development and roadmaps.
 
 Register today for one of two webinars where you can learn more.  
 
@@ -43,18 +43,19 @@ thead tr:first-child td {
 }
 </style>
 
-**HPE Ezmeral Unified Analytics** is ideal for developers who want to accelerate app development using HPE curated and supported open-source tools for full lifecycle management of today’s most popular data engineering, data analytics, and data science tasks.
+**HPE Ezmeral Unified Analytics Software** is ideal for developers who want to accelerate app development using HPE curated and supported open-source tools for full lifecycle management of today’s most popular data engineering, data analytics, and data science tasks.
 
 | Date          | Title                             | Speaker                    | Webinar link                                                                                            | HPE Ezmeral Early Access link                                                                             |
 | ------------- | --------------------------------- | -------------------------- | ------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
-| **17-Jan-23** | **HPE Ezmeral Unified Analytics** | **Srikanth Venkata Seshu** | [Replay](https://www.youtube.com/watch?v=1Z4fNOHGYlk&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF) | **[Learn about EEA](https://connect.hpe.com/HPEEzmeralEarlyAccessUnifiedAnalytics)** |
+| **17-Jan-23** | **HPE Ezmeral Unified Analytics Software** | **Srikanth Venkata Seshu** | [Replay](https://www.youtube.com/watch?v=1Z4fNOHGYlk&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF) | **[Learn about EEA](https://www.hpe.com/us/en/hpe-ezmeral-unified-analytics.html#EEAUA)** |
 
 <br/>
 
-**HPE GreenLake for Data Fabric** is a true hybrid cloud platform that delivers a consistent data experience across edge, core, and multiple clouds. It’s perfect for developers who want to write applications once and then run them on any deployment target.  
+**HPE Ezmeral Data Fabric Software** is a true hybrid cloud platform that delivers a consistent data experience across edge, core, and multiple clouds. It’s perfect for developers who want to write applications once and then run them on any deployment target.  
 
 | Date          | Title                             | Speaker                    | Webinar link                                                                                            | HPE Ezmeral Early Access link                                                                             |
 | ------------- | --------------------------------- | -------------------------- | ------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
-| **19-Jan-23**     | **HPE GreenLake for Data Fabric**     | **Alaric Thomas**              | [Replay](https://www.youtube.com/watch?v=rzLxGZIraTg&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF) | **[Learn about EEA](https://home.hpe-df.com)** |
+| **19-Jan-23**     | **HPE Ezmeral Data Fabric Software**     | **Alaric Thomas**              | [Replay](https://www.youtube.com/watch?v=rzLxGZIraTg&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF) | **[Learn about EEA](https://home.hpe-df.com)** |
+
 
 

@@ -49,7 +49,7 @@ export const BlogCard = ({ node, ...rest }) => {
           console.log('external open link window');
           window.open(
             `${
-              node?.externalLink
+              node?.externalLink != null
                 ? node?.externalLink
                 : node?.frontmatter?.externalLink
             }`,

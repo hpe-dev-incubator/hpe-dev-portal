@@ -12,6 +12,8 @@ tags:
   - ilo-restful-api
   - update
 ---
+### Updated: July 25, 2023
+
 # Introduction
 
 In the first two blogs of this three part series regarding HPE firmware updates, I explained the [different objects](/blog/hpe-firmware-updates-part-1-file-types-and-smart-components) involved in firmware updates and how they are packaged, as well as the interaction between these objects when used in different [operating modes](/blog/hpe-firmware-updates-part-2-interaction-in-operating-modes).
@@ -21,6 +23,7 @@ This third article describes the standard Redfish® update service, including it
 For didactic reasons, cases described in this blog post have been performed with the [Postman](https://www.postman.com/) platform for API development with hard-coded resource locations. Writing Redfish scripts with hard-coded locations is definitively a bad practice as explained in this [article](/blog/getting-started-with-ilo-restful-api-redfish-api-conformance) and demonstrated in these [Jupyter Notebooks](https://github.com/HewlettPackard/hpe-notebooks/tree/master/Redfish). “Well written” public examples in [Python](https://github.com/HewlettPackard/python-ilorest-library/tree/master/examples/Redfish) and [PowerShell](https://www.powershellgallery.com/packages/HPRESTCmdlets/1.2.0.0) can be found on the Internet.
 
 # The Redfish update service
+
 The Redfish update service contains software and firmware information as well as methods for updating these resources. Located at `/redfish/v1/UpdateService`, this [ServiceRoot](https://redfish.dmtf.org/schemas/v1/ServiceRoot.yaml) resource is populated with five endpoints, which are highlighted in the next screenshot. Note that this picture shows the output of a request performed against an iLO 5 (version 2.18) implementing [schema version 1.1.1](https://redfish.dmtf.org/schemas/v1/UpdateService.v1_1_1.yaml) of the Redfish update service. Later schemas may have different content.
 
 In this article, I will cover these five endpoints in the following order: `SoftwareInventory`, `FirmwareInventory`, `Actions`, `HttpPushUri` and finally the `Oem.Hpe` extension.
@@ -45,7 +48,6 @@ To avoid issuing multiple GET requests for retrieving the details of each instal
 
 <img src="https://redfish-lab.sourceforge.io/media/redfish-wiki/FirmwareUpdates-Part3-TheRedfishUpdateService/4_ExpandedSoftwareInventory.png" alt="Expanded Software Inventory" />
 
-
 A Python example for fetching the software inventory of a server without hard coding its location can be found in the [HPE Python iLOrest library](https://github.com/HewlettPackard/python-ilorest-library/blob/master/examples/Redfish/software_firmware_inventory.py) on GitHub.
 
 # Firmware inventory
@@ -53,7 +55,6 @@ A Python example for fetching the software inventory of a server without hard co
 Similar to the `SoftwareInventory` resource, the `FirmwareInventory` endpoint contains the collection of all installed firmware in a server. The exact endpoint is `/redfish/v1/UpdateService/FirmwareUpdate` and, with a single `?$expand=.` OData query, you can retrieve all the details of installed firmware on your server.
 
 <img src="https://redfish-lab.sourceforge.io/media/redfish-wiki/FirmwareUpdates-Part3-TheRedfishUpdateService/5_ExpandedFirmwareCollection.png" alt="Expanded Firmware Collection" />
-
 
 A Python example to retrieve the firmware inventory of a server (using Redfish) can be found in the [HPE Python iLOrest library](https://github.com/HewlettPackard/python-ilorest-library/blob/master/examples/Redfish/software_firmware_inventory.py) on GitHub.
 
@@ -68,28 +69,24 @@ The implementation of the `SimpleUpdate` used for the writing of this article al
 <img src="https://redfish-lab.sourceforge.io/media/redfish-wiki/FirmwareUpdates-Part3-TheRedfishUpdateService/6_SimpleUpdateAction.png" alt="Simple Update Action" />
 <img src="https://redfish-lab.sourceforge.io/media/redfish-wiki/FirmwareUpdates-Part3-TheRedfishUpdateService/7_SimpleUpdateActionWithTransferProtocol.png" alt="Simple Update Action With Transfer Protocol" />
 
-
 You can monitor the update process by polling the `State` and `FlashProgressPercent` properties part of the `Oem.Hpe` section as shown in the following screenshot.
 
 <img src="https://redfish-lab.sourceforge.io/media/redfish-wiki/FirmwareUpdates-Part3-TheRedfishUpdateService/8_SimpleUpdateFlashPercent.png" alt="SimpleUpdateFlashPercent" />
 
+Refer to the [HPE API Reference document](https://servermanagementportal.ext.hpe.com/docs/redfishservices/ilos/ilo6/ilo6_145/ilo6_other_resourcedefns145/#oemhpestate) for the exhaustive list of possible states.
 
-Refer to the [HPE API Reference document](https://hewlettpackard.github.io/ilo-rest-api-docs/ilo5/#oem-hpe-state) for the exhaustive list of possible states.
-
-<img src="https://redfish-lab.sourceforge.io/media/redfish-wiki/FirmwareUpdates-Part3-TheRedfishUpdateService/9_OemHpeStates.png" alt="OemHpeStates" />
-
+![OemHpeStates](/img/9_oemhpestates.png)
 
 With iLO 5 firmware 2.30 and higher versions, a successful `SimpleUpdate` returns two pointers in the Task Service: a task location and a task monitor location. The task location `(/redfish/v1/TaskService/Tasks/22` in the next picture) contains the details of the update and the task monitor location (`/redfish/v1/TaskService/TaskMonitors/22`) contains the status of the task at the time of the query.
-   
+
 The following two pictures show, respectively, the response of a successful `SimpleUpdate` and the task monitor details including a running task state. Note that the accomplished percentage of the task is not present in the Task Monitor location. It is only mentioned in the `Oem.Hpe` extension properties, as mentioned above.
 
 <img src="https://redfish-lab.sourceforge.io/media/redfish-wiki/FirmwareUpdates-Part3-TheRedfishUpdateService/10_SuccessfulSimpleUpdate.png" alt="SuccessfulSimpleUpdate" />
 <img src="https://redfish-lab.sourceforge.io/media/redfish-wiki/FirmwareUpdates-Part3-TheRedfishUpdateService/11_TaskMonitorDetails.png" alt="TaskMonitorDetails" />
 
+The list of all possible values of the `TaskState` key is found in the [HPE API Reference document](https://servermanagementportal.ext.hpe.com/docs/redfishservices/ilos/ilo6/ilo6_145/ilo6_other_resourcedefns145/#taskstate).
 
-The list of all possible values of the `TaskState` key is found in the [HPE API Reference document](https://hewlettpackard.github.io/ilo-rest-api-docs/ilo5/#taskstate).
-
-<img src="https://redfish-lab.sourceforge.io/media/redfish-wiki/FirmwareUpdates-Part3-TheRedfishUpdateService/12_TaskStates.png" alt="TaskStates" />
+![TaskStates](/img/12_taskstates.png)
 
 **Important note:** Only iLO binaries (`.bin`) and UEFI/Bios binaries (`.signed.flash`) can be processed with the `SimpleUpdate` action. If you supply a Smart Component or a firmware package (`.fwpkg`), the response to the POST request will contain a successful return code (`200 OK`). However, the flash operation will never occur and an error record will be posted in the iLO event log, as shown in the following image.
 
@@ -97,13 +94,12 @@ The list of all possible values of the `TaskState` key is found in the [HPE API 
 
 The iLO log record can be retrieved from the `Oem.Hpe` extension of the update service, as shown below.
 
-
 <img src="https://redfish-lab.sourceforge.io/media/redfish-wiki/FirmwareUpdates-Part3-TheRedfishUpdateService/14_SimpleUpdateInvalidFormat.png" alt="TheRedfishUpdateService" />
 
 ## Scripting a SimpleUpdate
 
 There are several possibilities to script a `SimpleUpdate` action. Here are some of them.
-   
+
 The [HPE iLOrest](http://hpe.com/info/resttool) utility provides the `firmwareupdate` macro command. The command expects the URI of the binary firmware image to flash. The sources of this macro command is public and published on [GitHub](https://github.com/HewlettPackard/python-redfish-utility/tree/master/src/extensions/iLO%20COMMANDS).
 
 <img src="https://redfish-lab.sourceforge.io/media/redfish-wiki/FirmwareUpdates-Part3-TheRedfishUpdateService/15_IlorestFirmwareUpdate.png" alt="IlorestFirmwareUpdate" />
@@ -113,7 +109,7 @@ A simple Python script updating an iLO 5 firmware is published in the [HPE Pytho
 # HTTP Push Update
 
 The HTTP Push Update endpoint (`HttpPushUri`) allows you to embed a firmware update component in the body of a request and push it to a server. As its name suggests, it is a “push” update method in contrast to “pull” methods that I just described with `SimpleUpdate`.
-    
+
 The update service schema [version 1.8.1](http://redfish.dmtf.org/schemas/v1/UpdateService.v1_8_1.json) provides the following description of the `HttpPushUri` property: “*The URI used to perform an HTTP or HTTPS push update to the update service. The format of the message is vendor-specific.*”
 
 To overcome the loose definition of the `HttpPushURI`, Redfish introduced the `MultipartHttpPushUri` method in version [1.6.0](http://redfish.dmtf.org/schemas/v1/UpdateService.v1_6_0.json) of the Update Service schema (not yet implemented in the server used for writing this article).
@@ -126,7 +122,7 @@ The payload of a POST request to the `HttpPushURI` (see first picture below) is 
 
 The flexibility of the Redfish standard offers the possibility for computer makers to extend it with properties not present in the standard or proprietary added-value features. HPE has a unique way of managing firmware through the iLO Repository that can only be leveraged by Redfish in its `Oem.Hpe` extension.
 
-The iLO Repository is a persistent storage area for update components. To trigger the installation of a single component or a group of components (install set) already present in the iLO Repository, you just need to add its name to the Installation Queue. Components in this queue are processed according to their specificities and nature. Refer to [Part 1](/blog/hpe-firmware-updates-part-1-file-types-and-smart-components) and [Part 2](/blog/hpe-firmware-updates-part-2-interaction-in-operating-modes) of this blog series for component description and to the [HPE API Reference document](https://hewlettpackard.github.io/ilo-rest-api-docs/ilo5/#software-and-firmware-management-flow) for a detailed flow of operations.
+The iLO Repository is a persistent storage area for update components. To trigger the installation of a single component or a group of components (install set) already present in the iLO Repository, you just need to add its name to the Installation Queue. Components in this queue are processed according to their specificities and nature. Refer to [Part 1](/blog/hpe-firmware-updates-part-1-file-types-and-smart-components) and [Part 2](/blog/hpe-firmware-updates-part-2-interaction-in-operating-modes) of this blog series for component description and to the [HPE API Reference document](https://servermanagementportal.ext.hpe.com/docs/redfishservices/ilos/supplementdocuments/updateservice/#software-and-firmware-management-flow) for a detailed flow of operations.
 
 The update service `Oem.Hpe` extension is a pull update service like the `SimpleUpdate` service described earlier. However, it is not limited to instant flash of binary firmware files. It provides all the necessary operations to fully manage the iLO 5 update subsystem.
 
@@ -196,14 +192,13 @@ You can add the name of a component present in the iLO Repository into the Insta
 
 The following screenshot shows the addition of component cp040154.exe in the Installation Queue with three properties: `Name`, `Filename` and `Command`. The `Name` property is not required, but it is interesting to provide as it appears as a description in the Installation Queue listing. The `Filename` property contains the component file name visible in the iLO Repository. Thus, this property is required. The `Command` property is required as well, as it describes the action to take by the Installation Queue subsystem.
 
-
 Smart Components embed all necessary [meta-data](/blog/hpe-firmware-updates-part-1-file-types-and-smart-components) information to process their installation. Hence, no other property is required in the request to better qualify the deployment process.
 
 <img src="https://redfish-lab.sourceforge.io/media/redfish-wiki/FirmwareUpdates-Part3-TheRedfishUpdateService/26_AddScToQueue.png" alt="AddScToQueue" />
 
-The list of `Command` possible values can be found in the [HPE API RESTful Reference Document](https://hewlettpackard.github.io/ilo-rest-api-docs/ilo5/#command).
+The list of `Command` possible values can be found in the [HPE API RESTful Reference Document](https://servermanagementportal.ext.hpe.com/docs/redfishservices/ilos/ilo6/ilo6_145/ilo6_hpe_resourcedefns145/#command).
 
-<img src="https://redfish-lab.sourceforge.io/media/redfish-wiki/FirmwareUpdates-Part3-TheRedfishUpdateService/27_CommandValues.png" alt="CommandValues" />
+![CommandValues](/img/27_commandvalues.png)
 
 The body response of a component addition in the Installation Queue contains the URI of this new item in the list, as well as many other details. This URI can be used later to review the details or to delete the component from the queue, as explained in the next paragraph.
 
@@ -280,7 +275,7 @@ You can create an install Set with a POST request to the install set end point m
 
 <img src="https://redfish-lab.sourceforge.io/media/redfish-wiki/FirmwareUpdates-Part3-TheRedfishUpdateService/39_InstallSetCreation.png" alt="InstallSetCreation" />
 
-In the response of a successful install set creation you will get its` Id, `which can be used to view its details, modify it or delete it.
+In the response of a successful install set creation you will get its`Id,`which can be used to view its details, modify it or delete it.
 
 ### Install set modification
 

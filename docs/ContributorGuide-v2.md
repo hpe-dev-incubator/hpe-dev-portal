@@ -1,5 +1,5 @@
 # HPE Developer External Contributor Guide
-**Version 2.0** - 20-Jan-2023
+**Version 2.1** - 7 June, 2023
 
 >**Note:** A recording of the training session delivered on April 30, 2021 is available [here](https://vimeo.com/544486602). 
 
@@ -23,7 +23,7 @@
 
 [Adding an Event](#adding-an-event)
 
-[Onboarding an external blog post](#onboarding-an-external-blog-post)
+[Onboarding an external blog post via a blog link card](#onboarding-an-external-blog-post)
 
 [Tips and trick using the CMS Editor](#tips-and-trick-using-the-cms-editor)
 
@@ -122,6 +122,7 @@ You can create a new blog directly from the **Contents** tab or by navigating to
 
     - **IMPORTANT NOTE: Thumbnail image** for Social Media card: although a Thumbnail image is an optional element of the post, it is **highly recommended** to add a Thumbnail image to your blog post that you want to use to promote the post on Social Media such as Twitter and LinkedIn. If you do not add a Thumbnail image, the first image in your post will be used. The thumbnail image or the first image of the post should tell the best story about what the blog post is about. The following image sizes have been tested successfully: **512x400** and **1200x675**.
     
+    - **FEATURED** and **PRIORITY** are optional elements. **Please make sure to keep these default option toggled off**.
     
 4.  Start writing the content using either **Rich Text** mode or **Markdown** mode in the *BODY* canvas.   
 
@@ -245,18 +246,22 @@ You may want to edit an existing blog post. For example, you may need to update 
 
 ## Creating and editing a platform page
 
->**Important Note:** For the image logo for the platform, make sure you first work with HPE Developer team to determine the best image logo for your platform page. The recommended image size 216px x 216px and format is **SVG** file (an SVG image will not lose quality/resolution when scaled up or down). if needed, HPE Developer team can work with you to design an appropriate image logo for your platform. 
+>**Important Note:** In this document, a platform can be a product page or an HPE GreenLake related page or an HPE key open source project. Select the category in the CMS editor as explained below:
 
-1.  In the CMS, from the **Contents** tab, select **Platforms** in the Collections tab. Click on **New Platforms** button to create a new platform. To edit an existing platform, locate the platform to edit (HPE Ezmeral Data Fabric in our example) and select the Platform. This opens the editor.
+1.  In the CMS, from the **Contents** section, **Collections** tab, select **(1) Platforms (for a Product page or a HPE key Open Source project); (2) GreenLake for an HPE GreenLake page**. Click on **(1) New Platforms; (2) New GreenLake** button to create a new product/Open Source page or GreenLake page respectively. To edit an existing Product/GreenLake/Opensource page, locate the Platform page or the GreenLake page to edit (HPE Ezmeral Data Fabric in our example). This opens the editor.
 
     <center><img src="media/guide-platform-content-edit.png" width="800" height="773"></center>
 
 2.  In the editor, for a new platform page, specify a title, description, logo image and content in the Body area. Make the required changes using **Rich Text** mode or
     **Markdown** mode. Verify content in the preview pane on the right side of the screen.
     
-    >**Important Note:** Please keep the options "FEATURED" and "ACTIVE" toggled Off.
+    >**Important Note:** Please keep the options "FEATURED" and "ACTIVE" toggled Off. The HPE Developer Community team will toggle on the "ACTIVE" flag upon publication of the page.
      
-    >**Important Note:** The text font size in the preview area will be smaller than what is rendered in the Platform page in HPE Developer portal. 
+    >**Important Note:** The text font size in the preview area may be smaller than what is rendered in the Platform page in HPE Developer portal.
+    
+    > **Important Note:** Upon publication of the page, the HPE developer Community team will create a "Tag" for your platform page as appropriate in order to tie related blog posts to the plaform landing page.
+     
+    > **Important Note:** for an Open Source page the HPE Developer Community team will create a mapping page in the **Opensource** collection.  
 
     <center><img src="media/guide-platform-body.png" width="1200" height="541"></center>
 
@@ -371,7 +376,9 @@ Here is how you can crate an external blog post entry in the HPE Developer Commu
 
 1. From the **Contents** tab select the **Blog** section in the Collections tab, click on the **New Blog** button. You can also navigate to the **Workflow** tab, and click on the **New Post** button. This open the editor.
 
-2. In the blog editor, you can set properties (title, author name, author picture) in the left pane and see the effect in the preview pane on the right side of the screen. 
+2. In the blog editor, you can set properties (title, author name, author picture, external link, body) in the left pane and see the effect in the preview pane on the right side of the screen. 
+
+>**IMPORTANT NOTE:** Do not set any PRIORITY for the blog link entry. 
 
 3. Make sure you set the following parameters:
 
@@ -389,8 +396,10 @@ Here is how you can crate an external blog post entry in the HPE Developer Commu
      - **Body** - Just type the text: External blog
      - **Thumbnail image** (Optional element):
      > NOTE: **Thumbnail image** for Social Media card: although a Thumbnail image is an optional element of the post, it is **highly recommended** to add a Thumbnail image to your blog post that you want to use to promote the post on Social Media such as Twitter and LinkedIn. The thumbnail image of the post card should tell the best story about what the blog post is about. The following image sizes have been tested successfully: **512x400** and **1200x675**.
+     
      - **Tag** (Optional element) - For more information on how to use tags and tie your blog post to a "Product, HPE GreenLake or Open Source" page refer to section "***Tips and Tricks using the CMS Editor***" at the end of this document.
-     - **FEATURED** and **PRIORITY** are optional elements. Please keep the default option toggled off.
+     
+     - **FEATURED** and **PRIORITY** are optional elements. **Please make sure to keep these default option toggled off**.
      
 4. When ready, **Save** your work. 
 
@@ -625,13 +634,24 @@ Example with **no line break** between list items:
     
   >Note: As explained in the tip "**Tip #14: Inserting List items/sub-list items**", the bullet list items will be rendered with smaller font size than a text in a "standard" paragraph. You can adjust the size of the bullet list items using the HTML style below: 
 
-   Insert the following Style statement in your markdown at the beginning of your post. The standard text size is 25px. 
+   Insert the following Style statement in your markdown at the beginning of your post. The standard text size is 27px. 
    You can use different font-size according to your needs. The font-size will then apply to **ALL** the bullet lists in your article. 
-       
+ 
+ ```html
+<style>
+li {
+    font-size: 27px;
+    line-height: 33px;
+    max-width: none;
+}
+</style>
+```
+or you can use the following style font:
+
 ```html
 <style>
 ul li{
- font-size:25px;
+ font-size:27px;
 }
 </style>
 ```       
@@ -694,23 +714,26 @@ To add a the GitHub repo URL in a platform/Technology page, you can use the mark
 
 -  **Tip #18: Tagging:**
 
-If appropriate, use a tag to tie your blog post to a **"Product"** page or a **"HPE GreenLake"** page on HPE Developer portal. List of appropiate tags to use is in the table below.
+If appropriate, use a tag to tie your blog post to a **"Product"** page or a **"HPE GreenLake"** page on HPE Developer portal. List of appropriate tags to use is in the table below.
 
 >**Note:** You can also tag your article with popular keywords (1 to 4 keywords) that reflect the relevancy of your topic. Use tags as one way to optimize your blog post for results from search engines such as Google search engine. Visit the site [here](https://developer.hpe.com/tags/) to look for existing tags in our HPE Developer site.
 
->**Note about HPE GLCP**: When tagging blog posts for DSCC, COM and Aruba Central, please add the tag hpe-greenlake-cloud-platform because COM, DSCC and Aruba Central are native SaaS-based console delivered from HPE GreenLake Cloud Platform.
+>**Note about HPE GreenLake edge-to-cloud platform**: When tagging blog posts for DSCC, COM and Aruba Central, please add the tag _hpe-greenlake-cloud-platform_ because COM, DSCC and Aruba Central are native SaaS-based console delivered from HPE GreenLake edge-to-cloud platform.
 
   | **Products and HPE GreenLake**      |   **Associated tag**    |
   | ---------------------------------- | ----------------------- |
   | **HPE Ezmeral**                    | hpe-ezmeral     |
   | **HPE Ezmeral Data Fabric**        | hpe-ezmeral-data-fabric |
   | **HPE GreenLake**                  | hpe-greenlake |
+  | **HPE GreenLake egde-to-cloud platform**   | hpe-greenlake-cloud-platform |
   | **HPE GreenLake for Compute Ops Management** | hpe-greenlake-for-compute-ops-management |
-  | **HPE GreenLake Cloud Platform**   | hpe-greenlake-cloud-platform |
+  | **HPE GreenLake for Private Cloud Enterprise** | hpe-greenlake-for-private-cloud-enterprise |
   | **Data Sevices Cloud Console**     | data-services-cloud-console |
   | **Spiffe and Spire**               | spiffe-and-spire-projects |
   | **Chapel**                         | chapel |
+  | **HPE Cray Programming environment** | hpe-cray-programming-environment |
   | **Determined AI**                  | determined-ai |
+  | **HPE Machine Learning Development Environment** | hpe-machine-learning-development-environment |
   | **Grommet**                        | grommet |
   | **Aruba Central**                  | aruba ; aruba-central|
   | **HPE 3PAR and Primera**           | hpe-3par-and-primera |

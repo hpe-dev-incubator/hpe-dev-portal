@@ -203,6 +203,14 @@ exports.createPages = async ({ graphql, actions }) => {
     paginatedCollectionQuery('smartsim-posts'),
   );
 
+  const crayQueryResult = await graphql(
+    paginatedCollectionQuery('cray-posts'),
+  );
+
+  const swarmQueryResult = await graphql(
+    paginatedCollectionQuery('swarm-posts'),
+  );
+
   const othersQueryResult = await graphql(
     paginatedCollectionQuery('others-posts'),
   );
@@ -230,6 +238,8 @@ exports.createPages = async ({ graphql, actions }) => {
   setPagination(kubeDirectorQueryResult);
   setPagination(simplivityQueryResult);
   setPagination(smartsimQueryResult);
+  setPagination(crayQueryResult);
+  setPagination(swarmQueryResult);
   setPagination(othersQueryResult);
 
   return graphql(
@@ -255,7 +265,8 @@ exports.createPages = async ({ graphql, actions }) => {
             }
           }
         }
-        tagsGroup: allMarkdownRemark(limit: 2000) {
+        tagsGroup: allMarkdownRemark(limit: 2000,
+          filter:{frontmatter:{disable:{ne:true}}}) {
           group(field: frontmatter___tags) {
             fieldValue
           }

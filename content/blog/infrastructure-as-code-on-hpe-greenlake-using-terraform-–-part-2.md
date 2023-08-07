@@ -21,7 +21,6 @@ tags:
 
 - - -
 
-
 The process of managing and provisioning computer data centers through machine-readable definition files, otherwise known as Infrastructure-as-Code (IaC), offers many significant benefits. It helps to increase operational agility, simplify management, reduce errors, and save cost. In this second post, I’ll explore how to extract more of the benefits of using IaC on HPE GreenLake through the use of Terraform.
 
 ## Let’s recap
@@ -38,7 +37,7 @@ terraform {
       required_providers {
          hpegl = {
             source  = "hpe/hpegl"
-            version = "0.1.7"
+            version = "0.3.17"
          }
       }
    }
@@ -257,7 +256,7 @@ Once your infrastructure is created, it will need to evolve over time in order t
 
 ### Use case 1: Stop this VM
 
-To start, let’s keep things simple. You might want to just turn off the VMs that are part of an infrastructure when you don’t need them to save cost or limit your carbon impact on the planet. If you paid attention to the current configuration file, you’ll see that we inserted a power statement when originally creating the VM. While *poweron* is the only valid option when creating a new resource of type **hpegl\_vmaas\_instance**, other values are available for lifecycle management, such as *poweroff* and *suspend*.
+To start, let’s keep things simple. You might want to just turn off the VMs that are part of an infrastructure when you don’t need them to save cost or limit your carbon impact on the planet. If you paid attention to the current configuration file, you’ll see that we inserted a power statement when originally creating the VM. While *poweron* is the only valid option when creating a new resource of type **hpegl_vmaas_instance**, other values are available for lifecycle management, such as *poweroff* and *suspend*.
 
 Locate the following section in your configuration file:
 
@@ -356,7 +355,7 @@ Save the file, apply those changes, wait a little and check the details of the V
 ## Debugging when things go wrong
 
 In this post, I’ve showed you how to make sure the Terraform configuration file is valid before applying changes using the **terraform validate** command. To see more details during an apply command, you can also enable Terraform debug by simply setting up the TF_LOG environment variable. I suggest setting it up to DEBUG but other supported values are: TRACE, INFO, WARN and ERROR.
- 
+
 ```markdown
 export TF_LOG=DEBUG
 ```
