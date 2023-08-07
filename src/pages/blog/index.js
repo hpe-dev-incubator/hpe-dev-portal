@@ -516,6 +516,28 @@ export const pageQuery = graphql`
         id
       }
     }
+    hpeNonstopBlogsCount: allMarkdownRemark(
+      filter: {
+        fields: { sourceInstanceName: { eq: "blog" } }
+        frontmatter: { tags: { eq: "hpe-nonstop" }, disable: { ne: true } }
+      }
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
+      totalCount
+    }
+    hpeNonstopBlogs: paginatedCollectionPage(
+      collection: { name: { eq: "hpe-nonstop-posts" } }
+      index: { eq: 0 }
+    ) {
+      nodes
+      hasNextPage
+      nextPage {
+        id
+      }
+      collection {
+        id
+      }
+    }
     simplivityBlogsCount: allMarkdownRemark(
       filter: {
         fields: { sourceInstanceName: { eq: "blog" } }
