@@ -38,7 +38,7 @@ pytest --version
 pytest 7.4.0
 ```
 ## Define fixture
-You can define fixtures just by decorating a simple Python function with [@pytest.fixture](https://docs.pytest.org/en/6.2.x/reference.html#pytest.fixture) for example
+You can define fixtures by decorating a simple Python function with [@pytest.fixture](https://docs.pytest.org/en/6.2.x/reference.html#pytest.fixture) for example
 
 
 Python Decorators are a very powerful and convenient way to alter the behaviour of functions. For more details, refer to [Python Decorators](https://www.geeksforgeeks.org/decorators-in-python).
@@ -88,7 +88,7 @@ def get_auth_header(api_endpoint, client_id, client_secret, grant_type="client_c
         'content-type': "application/x-www-form-urlencoded",
     }
 ```
-## Define fixture to get Access Token
+## Define fixture to get access token
 You can transform the above function as a PyTest fixture by simply decorating the code as shown below.
 
 
