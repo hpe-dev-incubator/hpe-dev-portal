@@ -1,8 +1,8 @@
 ---
 title: HPE NonStop
 version: "1.0"
-description: NonStop is HPE’s self-healing platform which allows applications to
-  inherit fault-tolerance from the OS level.
+description: HPE NonStop is HPE’s self-healing platform which allows
+  applications to inherit fault-tolerance from the OS level.
 image: /img/platforms/Greenlake.svg
 width: large
 priority: 6
@@ -10,7 +10,7 @@ active: true
 tags:
   - hpe-nonstop
 ---
-NonStop is a platform that runs some of the world’s most exciting workloads in our day-to-day life. From producing luxury cars, to making payments in our grocery shopping, to helping people travel and executing massive amount of transactions in global payments networks, NonStop is the platform that lets our customers, and their engineers get their sleep, while their mission-critical applications continue relentlessly in data centres and on private clouds.
+HPE NonStop is a platform that runs some of the world’s most exciting workloads in our day-to-day life. From producing luxury cars, to making payments in our grocery shopping, to helping people travel and executing massive amount of transactions in global payments networks, HPE NonStop is the platform that lets our customers, and their engineers get their sleep, while their mission-critical applications continue relentlessly in data centres and on private clouds.
 
 ## YouTube Videos
 
