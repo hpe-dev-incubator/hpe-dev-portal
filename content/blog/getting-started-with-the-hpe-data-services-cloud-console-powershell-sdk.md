@@ -2,7 +2,7 @@
 title: Getting started with the HPE Data Services Cloud Console Powershell SDK
 date: 2023-08-07T09:01:09.212Z
 author: Thomas Beha
-authorimage: /img/Avatar1.svg
+authorimage: /img/Avatar3.svg
 disable: false
 tags:
   - data-services-cloud-console
