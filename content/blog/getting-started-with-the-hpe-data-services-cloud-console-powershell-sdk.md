@@ -168,4 +168,4 @@ These are the steps, I used to create a new Volume on my Primera 650 array with 
 
 In conclusion, the DSCC PowerShell SDK, derived from the DSCC Open API 3.x spec, includes at the time of writing this blog already 349 commands that can be used to manage your storage with  the DSCC API. It is at the moment the most complete PowerShell tool to manage DSCC managed HPE storage arrays. Since it is also easily updated with new features once they are available - simply recreate it with the most current DSCC Open API 3.x spec - it is the recommended way for customer  to build PowerShell scripts accessing the DSCC API. 
 
-I﻿ hope that the above examples help in getting started with the DSCC PowerShell SDK. While I have not tested every possible command, I did not find any issues working on the daily task list that I received from my customer . with the SDK.
+I﻿ hope that the above examples will help in getting you started with the DSCC PowerShell SDK. While I have not tested every possible command, I did not find any issues in the SDK working on the extensive daily tasks list that I received from my customer.
