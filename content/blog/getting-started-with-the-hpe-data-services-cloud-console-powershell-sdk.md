@@ -4,7 +4,13 @@ date: 2023-08-07T09:01:09.212Z
 author: Thomas Beha
 authorimage: /img/Avatar1.svg
 disable: false
-tags: []
+tags:
+  - data-services-cloud-console
+  - api
+  - PowerShell
+  - RESTAPI
+  - Storage
+  - hpe-alletra
 ---
 The Data Services Cloud Console (DSCC) UI might be sufficient for many customer (maybe even most of them), but lately I was approached from multiple customer that were looking for an efficient way to manage the HPE storage assets with PowerShell scripts. When I started looking into the available option to access the DSCC API with PowerShell I obviously first found the [PowerShell toolkit for managing the HPE Data Services Cloud Console](https://developer.hpe.com/blog/new-powershell-toolkit-available-for-managing-hpe-data-services-cloud-console/) on the [HPE Developer Portal](https://developer.hpe.com/). Working with this PowerShell toolkit I realized that it is on one hand an honorable first approach of my colleagues to write such a toolkit, but it is not complete and not yet fully tested. On the other hand, the DSCC provides an public Open API 3.X spec that can be used to generate your preferred language SDK as it is described for Python in this [blog](https://developer.hpe.com/blog/get-started-building-dscc-api-client-libraries-for-python-using-openapi-generator/). Using the Open API 3.X spec of the DSCC API has the benefit, that it is providing a complete list of possible API operations. 
 
