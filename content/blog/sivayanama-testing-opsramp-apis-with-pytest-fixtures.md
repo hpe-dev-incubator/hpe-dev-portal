@@ -89,7 +89,7 @@ def get_auth_header(api_endpoint, client_id, client_secret, grant_type="client_c
     }
 ```
 ## Define fixture to get Access Token
-You can transform the above function as a PyTest Fixture by simply decorating the code as shown below.
+You can transform the above function as a PyTest fixture by simply decorating the code as shown below.
 
 
 ```python
