@@ -6,17 +6,13 @@ author: BalaSubramanian Vetrivel
 authorimage: /img/vetrivel-balasubramanian1-photo.jpg
 disable: false
 ---
-The OpsRamp platform provides a rich set of APIs.
+The OpsRamp platform provides a rich set of APIs. By using these APIs, customers can build solutions to automate various IT Operations Management (ITOM) workflows. These could include discovery and monitoring, event and incident management, or remediation and automation. Testing these APIs and the resulting automated solution is critical to ensure the reliability and stability of the workflow.
 
 
-By using these APIs, customers can build solutions to automate various IT Operations Management (ITOM) workflows. These could include discovery and monitoring, event and incident management, or remediation and automation.
-Testing these APIs and the resulting automated solution is critical to ensure the reliability and stability of the workflow
+PyTest is a powerful Python testing framework and it is widely used to test APIs. Fixtures are one of the most important capabilities of the PyTest framework. In this article, I will discuss some advanced techniques for testing OpsRamp APIs using PyTest fixtures.
 
 
-The PyTest is a powerful Python testing framework and it is widely used to test APIs. Fixtures are one of the most important capabilities of the PyTest framework. In this article, I will discuss some advanced techniques for testing OpsRamp APIs using PyTest fixtures.
-
-
-## What Fixtures are
+## What fixtures are
 PyTest fixtures are a special type of Python function that provisions a fixed baseline for testing. With the help of this baseline, you can ensure tests are run reliably and produce consistent results. In addition, you can ensure that the same tests are repeatable.
 
 
@@ -38,7 +34,7 @@ pytest --version
 pytest 7.4.0
 ```
 ## Define fixture
-You can define fixtures by decorating a simple Python function with [@pytest.fixture](https://docs.pytest.org/en/6.2.x/reference.html#pytest.fixture) for example
+You can define fixtures by decorating a simple Python function with [@pytest.fixture](https://docs.pytest.org/en/6.2.x/reference.html#pytest.fixture).
 
 
 Python Decorators are a very powerful and convenient way to alter the behaviour of functions. For more details, refer to [Python Decorators](https://www.geeksforgeeks.org/decorators-in-python).
@@ -193,7 +189,7 @@ In the above example, you do all the test set-up on the client and execute the t
 
 
 ## Conclusion
-In this article, I have explained what PyTest fixtures are and how to define, invoke and implement fixtures. I also showed you how to leverage the testing of OpsRamp APIs using these fixtures and how to do teardown activities using the finalizer functions. Check back often on the HPE Developer Community blog to find more blog posts on OpsRamp.
+In this article, I have explained what PyTest fixtures are and how to define, invoke and implement fixtures. I also showed you how to leverage the testing of OpsRamp APIs using these fixtures and how to do teardown activities using the finalizer functions. Check back often on the [HPE Developer Community blog](https://developer.hpe.com/blog) to find more blog posts on OpsRamp.
 
 
 
