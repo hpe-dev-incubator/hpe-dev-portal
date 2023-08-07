@@ -374,7 +374,8 @@ module.exports = {
           "data-services-cloud-console",
           "determined-ai",
           "cray",
-          "swarm-learning"
+          "swarm-learning",
+          "hpe-nonstop"
           ]}}}, sort: {fields: [frontmatter___date], order: DESC}) {
             nodes {
               id
@@ -438,6 +439,7 @@ module.exports = {
     paginatedCollection('determined-ai-posts', 'determined-ai'),
     paginatedCollection('cray-posts', 'cray'),
     paginatedCollection('swarm-posts', 'swarm-learning'),
+    paginatedCollection('hpe-nonstop-posts', 'hpe-nonstop'),
     paginatedCollection('dscc-posts', 'data-services-cloud-console'),
     {
       resolve: 'gatsby-plugin-paginated-collection',

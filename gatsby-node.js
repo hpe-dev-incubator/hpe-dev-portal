@@ -211,6 +211,10 @@ exports.createPages = async ({ graphql, actions }) => {
     paginatedCollectionQuery('swarm-posts'),
   );
 
+  const hpeNonStopQueryResult = await graphql(
+    paginatedCollectionQuery('hpe-nonstop-posts'),
+  );
+
   const othersQueryResult = await graphql(
     paginatedCollectionQuery('others-posts'),
   );
@@ -240,6 +244,7 @@ exports.createPages = async ({ graphql, actions }) => {
   setPagination(smartsimQueryResult);
   setPagination(crayQueryResult);
   setPagination(swarmQueryResult);
+  setPagination(hpeNonStopQueryResult);
   setPagination(othersQueryResult);
 
   return graphql(
