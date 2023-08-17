@@ -12,13 +12,14 @@ tags:
   - RESTAPI
   - Storage
   - hpe-alletra
+  - SDK
 ---
-HPE provides the Data Services Cloud Console (DSCC), a SaaS-based cloud console, to eliminate silos and to reduce complexity by delivering a unified management of HPE storage arrays.  It's UI may be sufficient for many customer to manage their HPE storage assets, but lately I was approached from multiple customer that were looking for an efficient way to manage their HPE storage assets with PowerShell scripts. When I started looking into the available options to access the DSCC API with PowerShell, I first found the [PowerShell toolkit for managing the HPE Data Services Cloud Console](https://developer.hpe.com/blog/new-powershell-toolkit-available-for-managing-hpe-data-services-cloud-console/) on the [HPE Developer Community Portal](https://developer.hpe.com/). Working with this PowerShell toolkit, I realized that it is, on one hand, an honorable first approach by my colleagues to write such a toolkit, but it is not complete and not yet fully tested.
+HPE provides the Data Services Cloud Console (DSCC), a SaaS-based cloud console, to eliminate silos and to reduce complexity by delivering a unified management of HPE storage arrays.  It's UI may be sufficient for many customers to manage their HPE storage assets, but lately I was approached from multiple customers that were looking for an efficient way to manage their HPE storage assets with PowerShell scripts. When I started looking into the available options to access the DSCC API with PowerShell, I first found the [PowerShell toolkit for managing the HPE Data Services Cloud Console](https://developer.hpe.com/blog/new-powershell-toolkit-available-for-managing-hpe-data-services-cloud-console/) on the [HPE Developer Community Portal](https://developer.hpe.com/). Working with this PowerShell toolkit, I realized that it is, on one hand, an honorable first approach by my colleagues to write such a toolkit, but it is not complete and not yet fully tested.
 H﻿ence, a different solution needed to be found.
 
 The DSCC provides an public OpenAPI 3.x spec that can be used to generate your preferred language SDK as it is described for Python in this [blog](https://developer.hpe.com/blog/get-started-building-dscc-api-client-libraries-for-python-using-openapi-generator/). U﻿sing the OpenAPI 3.x spec of the DSCC API has the benefit of providing complete list of possible API operations. And once the procedure to generate the SDK is in place, a new SDK can easily be created if new features are exposed via the DSCC API. 
 
-In this blog, I will describe the steps I used to generate a DSCC PowerShell SDK and show how this SDK is used for daily tasks.
+In this blog post, I will describe the steps I used to generate a DSCC PowerShell SDK and show how this SDK is used for daily tasks.
 
 # Creating the DSCC Powershell SDK
 
@@ -66,7 +67,7 @@ T﻿he DSCC PowerShell SDK output directory contains a README.md file that gives
 
 ![](/img/dscc_ps_api_endpoints.png "DSCC PowerShell SDK API Endpoints")
 
-T﻿o do what I did, you can scroll through the README.md file and use the links in the file to get to the detailed information for every available API endpoint. The detailed information includes usage examples for the commands, like the following one that is used getting all storage systems, *Invoke-SystemsList*:
+T﻿o do what I did, you can scroll through the README.md file and use the links in the file to get to the detailed information for every available API endpoint. The detailed information includes usage examples for the commands, like the following one that is used for getting all storage systems, *Invoke-SystemsList*:
 
 ```powershell
 # general setting of the PowerShell module, e.g. base URL, authentication, etc
@@ -143,9 +144,9 @@ try {
 }
 ```
 
-A﻿fter getting the systems list with the *Invoke-SystemsList* command, I storage the system name and system ID in an array because I needed the system ID for many of the possible API commands. Generally it is the case that  the systems, volume, hosts, initiators etc. you want to manipulate in your scripts are defined by their IDs. For example, if you work with the DSCC API, you will work with the id of the object you want to change or delete. 
+A﻿fter getting the systems list with the *Invoke-SystemsList* command, I stored the system name and system ID in an array because I needed the system ID for many of the possible API commands. Generally it is the case that  the systems, volume, hosts, initiators etc. you want to manipulate in your scripts are defined by their IDs. For example, if you work with the DSCC API, you will work with the id of the object you want to change or delete. 
 
-F﻿or instance, if you want to create a new volume, then you need to to define the volume parameters like name, size etc. and the system where you want to create the volume. A new volume can be created with the *Invoke-VolumeCreate* command that has two input parameters: the system ID and the volume parameters that are stored in a *CreateVolumeInput* object using the *Initialize-CreateVolumeInput* method. 
+F﻿or instance, if you want to create a new volume, then you need to define the volume parameters, like name, size, etc., and the system where you want to create the volume. A new volume can be created with the *Invoke-VolumeCreate* command that has two input parameters: the system ID and the volume parameters that are stored in a *CreateVolumeInput* object using the *Initialize-CreateVolumeInput* method. 
 
 ```powershell
 $SystemId = $System.Primera650
