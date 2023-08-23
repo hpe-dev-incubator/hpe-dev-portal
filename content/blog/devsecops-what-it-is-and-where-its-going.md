@@ -57,6 +57,13 @@ Another way to help DevOps teams succeed at integrating security more tightly in
 
 One of the most straightforward ways to potentially stop that from happening is with pre-commit hooks. Fox said she expects to see policies like these baked into developer tools. Such checks are then reinforced with additional tests throughout the development pipeline to ensure that workloads being deployed remain compliant.
 
-In addition to NIST's work on the [Open Policy Agent](https://www.openpolicyagent.org/), other standards have been developed to help organizations enable a policy-first footing. One such set of standards is ]SPIFFE (Secure Production Identity Framework For Everyone) and SPIRE](https://www.hpe.com/us/en/insights/articles/zero-trust-makes-business-secure-by-default-2010.html) (a software implementation of the SPIFFE API). "It's been happening around SPIFFE and other standards," James said.
+In addition to NIST's work on the [Open Policy Agent](https://www.openpolicyagent.org/), other standards have been developed to help organizations enable a policy-first footing. One such set of standards is [SPIFFE (Secure Production Identity Framework For Everyone) and SPIRE](https://developer.hpe.com/platform/spiffe-and-spire-projects/home) (a software implementation of the SPIFFE API). "It's been happening around SPIFFE and other standards," James said.
 
+Essentially, SPIFFE is a workload API that creates trust between workloads and system actions. Because SPIFFE is an API and eliminates manual key generation and distribution, authentication such as Kerberos and OAuth can be fully automated within cloud workloads. SPIRE is a software implementation of the SPIFFE API and can be integrated with call providers, middleware layers, hardware trust mechanisms, and more.
+
+According to James, the approaches to policy-first DevOps are moving toward allow/deny lists that help create scalable, automated mechanisms that can determine what something is and what it will be allowed to do and then create a centralized framework to manage the policy over time.
+
+James added that the policy-first mindset isn't optional in today's fast-paced environment. "When you're looking at organizations scaling their use of microservices—whether they are going from five, to 10, to 100, to whatever the ultimate number might be—they're not going to be able to get their hands around [management challenges] unless they have a policy-first mindset," he said.
+
+"We've seen these patterns before DevSecOps, though. We've seen policy-first in other domains, such as application security and information security. And I think there are a lot of lessons learned that are going to find their way back into the cloud-native landscape."
 
