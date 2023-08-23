@@ -2,7 +2,7 @@
 title: "DevOps Alert: Tool Sprawl"
 active: true
 fit: contain
-path: https://developer.hpe.com
+path: https://hpe.zoom.us/webinar/register/4216927952332/WN_HuXCvPG4TAOdw12fJ3XTpg
 imageBackground: white
 description: "September 27, 2023: Learn how to address DevOps challenges like
   tool sprawl and managing Kubernetes application operations across hybrid and
