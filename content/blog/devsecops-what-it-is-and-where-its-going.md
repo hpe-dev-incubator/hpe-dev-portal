@@ -73,6 +73,8 @@ James added that the policy-first mindset isn't optional in today's fast-paced e
 * The security policy-first mindset isn't optional in today's fast-paced environment.
 * DevSecOps isn't just about software code security but also about maintaining compliance with various industry and government regulations.
 
+<br />
+
 <u>**About the author:**</u>
 
 George V. Hulme is an award-winning journalist and internationally recognized information security and business technology writer. He has covered business, technology, and IT security topics for more than 20 years. His work has appeared in CSOOnline, ComputerWorld, InformationWeek, and dozens of other technology publications. He is also a founding editor at DevOps.com
