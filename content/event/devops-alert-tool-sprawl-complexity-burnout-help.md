@@ -4,7 +4,7 @@ dateStart: 2023-09-26T22:01:07.227Z
 dateEnd: 2023-09-27T21:59:07.305Z
 category: Virtual Event
 image: /img/event-meetups-newlogo-400x400.png
-link: https://developer.hpe.com
+link: https://hpe.zoom.us/webinar/register/5616927952223/WN_HuXCvPG4TAOdw12fJ3XTpg
 width: large
 ---
 ## DevOps Alert: Tool Sprawl. Complexity. Burnout. Help!
