@@ -2,7 +2,7 @@
 title: State of the Nation – Linux distributions
 active: true
 fit: contain
-path: https://developer.hpe.com
+path: https://hpe.zoom.us/webinar/register/3016927947883/WN_ls_aveRZS8KSLCa3rQ4iHg
 imageBackground: white
 description: "September 13, 2023: Explore the latest trends in Linux, including
   new minimal container deployment operating systems like CoreOS and SLE-Micro,
