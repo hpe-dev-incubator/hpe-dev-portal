@@ -17,7 +17,7 @@ While the practices that drive DevOps are more than a decade old, integrating se
 
 Like DevOps itself, DevSecOps developed organically in the community of developers. It didn't come down as standards from on high; rather, developers shared ideas about best practices. Consequently, there isn't one agreed-upon definition of what DevSecOps is, how one implements it, and where current DevSecOps trends are going. 
 
-A recent media panel at [the KubeCon 2020 conference](https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/), comprised of technical leaders in the DevSecOps space, sought to tackle the question of how to implement DevSecOps in the enterprise, illustrating where there is and is not consensus. 
+In 2020, at the KubeCon conference, a media panel comprised of technical leaders in the DevSecOps space sought to tackle the question on how to implement DevSecOps in the enterprise. Panel members illustrated where there was and was not consensus. 
 
 ![Block Text](/img/devsecops_-what-it-is-and-where-it-s-going.png "Block text")
 
@@ -33,7 +33,7 @@ According to Peter Bosch, distinguished engineer at Cisco Systems, when it comes
 
 "You will not run into your [OWASP Top 10 security issues](https://owasp.org/www-project-top-ten/) as frequently," Bosch added. "And you will start making applications that actually contribute better to the bottom line."
 
-Sunil James, senior director at Hewlett Packard Enterprise, also sees DevSecOps as a way to move development efforts forward securely and quickly. When done correctly, DevSecOps enables enterprises to move at "cloud speed," he said.
+Sunil James, senior director at Hewlett Packard Enterprise, also saw DevSecOps as a way to move development efforts forward securely and quickly. When done correctly, DevSecOps enables enterprises to move at "cloud speed," he said.
 
 "The impetus for this [DevOps] movement is cloud. And cloud materially drives the cadence of our ability to deliver," James noted. "While not many organizations are delivering at the scale and the pace of a Google or a Netflix, they'd like to. They'd like to get to that point because they can then bring value to their customers faster and faster."
 
