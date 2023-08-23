@@ -67,3 +67,12 @@ James added that the policy-first mindset isn't optional in today's fast-paced e
 
 "We've seen these patterns before DevSecOps, though. We've seen policy-first in other domains, such as application security and information security. And I think there are a lot of lessons learned that are going to find their way back into the cloud-native landscape."
 
+### Lessons for leaders
+
+* When done right, DevSecOps enables enterprises to make secure software at "cloud speed."
+* The security policy-first mindset isn't optional in today's fast-paced environment.
+* DevSecOps isn't just about software code security but also about maintaining compliance with various industry and government regulations.
+
+<u>**About the author:**</u>
+
+George V. Hulme is an award-winning journalist and internationally recognized information security and business technology writer. He has covered business, technology, and IT security topics for more than 20 years. His work has appeared in CSOOnline, ComputerWorld, InformationWeek, and dozens of other technology publications. He is also a founding editor at DevOps.com
