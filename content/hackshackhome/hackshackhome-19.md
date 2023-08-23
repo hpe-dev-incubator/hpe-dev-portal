@@ -1,5 +1,6 @@
 ---
 title: State of the Nation – Linux distributions
+active: true
 fit: contain
 path: https://developer.hpe.com
 imageBackground: white
