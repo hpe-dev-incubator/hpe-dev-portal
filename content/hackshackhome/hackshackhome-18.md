@@ -1,5 +1,6 @@
 ---
 title: "DevOps Alert: Tool Sprawl"
+active: true
 fit: contain
 path: https://developer.hpe.com
 imageBackground: white
