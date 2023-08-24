@@ -40,10 +40,6 @@ Supports files, object, NoSQL databases, and streams
 
 ## Munch & Learn
 
-#### Great unification:  Building analytic pipelines with Apache Spark
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/TxZP_T9CC5Y" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
 #### What's a data fabric and how does it work?
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/qi6sTvu8osk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
