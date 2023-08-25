@@ -50,7 +50,7 @@ The following overview videos are available to provide more information on EEA a
 * [HPE Ezmeral Home Page](https://www.hpe.com/us/en/software.html)
 * [HPE Ezmeral Runtime Enterprise API Documentation](https://docs.containerplatform.hpe.com/home/)[](https://docs.containerplatform.hpe.com/home/)
 * [HPE Ezmeral Data Fabric API Documentation](https://docs.datafabric.hpe.com/home/)
-* [HPE Ezmeral Learn On-Demand](https://learn.ezmeral.software.hpe.com/)
+* [HPE Ezmeral Learn On-Demand](https://learn.software.hpe.com/)
 * [Request your own demo from the HPE Demo Portal](https://hpedemoportal.ext.hpe.com/home)
 
 [HPE Ezmeral demo](https://github.com/HewlettPackard/ezdemo)
