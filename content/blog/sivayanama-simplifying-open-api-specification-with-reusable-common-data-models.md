@@ -1,8 +1,8 @@
 ---
-title: Sivayanama Simplifying open API specification with reusable common data models
+title: Simplifying open API specification with reusable common data models
 date: 2023-08-26T08:06:19.141Z
 author: BalaSubramanian Vetrivel
-authorimage: /img/Avatar1.svg
+authorimage: /img/vetrivel-balasubramanian1-photo.jpg
 disable: false
 ---
 The open API specification is one of the most widely followed API contracts. It is language-agonistic.
