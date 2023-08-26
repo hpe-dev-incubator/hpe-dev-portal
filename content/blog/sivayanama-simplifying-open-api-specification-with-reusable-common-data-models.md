@@ -24,6 +24,7 @@ I will discuss four approaches to deal with these definitions.
 
 ## In line definition
 The definition is inline right at the reference point as shown below.
+
 ```yaml
 schema:
   type: object
