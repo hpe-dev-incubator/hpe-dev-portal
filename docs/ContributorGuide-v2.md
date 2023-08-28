@@ -738,6 +738,7 @@ If appropriate, use a tag to tie your blog post to a **"Product"** page or a **"
   | **Aruba Central**                  | aruba ; aruba-central|
   | **HPE 3PAR and Primera**           | hpe-3par-and-primera |
   | **HPE Nimble Storage**             | hpe-nimble-storage |
+  | **HPE NonStop**                    | hpe-nonstop |
   | **HPE OneView**                    | hpe-oneview |
   | **HPE OneView Global Dashboard**   | hpe-oneview-global-dashboard |
   | **HPE SimpliVity**                 | hpe-simplivity |
