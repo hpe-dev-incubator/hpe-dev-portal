@@ -4,6 +4,9 @@ date: 2023-08-28T11:15:01.431Z
 author: Shanice Abigail
 authorimage: /img/profile_pic-formatted-copy-2-.jpg
 disable: false
+tags:
+  - Tableau
+  - hpe-nonstop
 ---
 HPE NonStop is a platform and an operating environment that turns your applications into fault-tolerant apps. Trusting in over 40 years of continued evolution and developments on the platform, financial institutions payment processors, manufacturers and retailers continue to put their most mission-critical workloads on HPE NonStop.
 
@@ -17,13 +20,13 @@ This means that software and tools programmed to use industry-standard [Open Dat
 
 There are many data visualization and analytics tools that provide such connectors, and, in this tutorial, we will be connecting the SQL/MX database to Tableau, a leading data visualization tool used for data analysis and business intelligence.
 
-<Image-1: Connecting Tableau to HPE NonStop>
+![Connecting Tableau to HPE NonStop](/img/connectingtableau-tohpenonstopaql.png "Connecting Tableau to HPE NonStop")
 
 ## What is Tableau?
 
 Tableau is an excellent data visualization and business intelligence tool used for reporting and analysing vast volumes of data, helping users create charts, graphs, and dashboards that assist in business decision making. It helps users see and understand their data through its intuitive interface and feature-packed application. Tableau has spent a decade as a leader in the Gartner Magic Quadrant for Analytics and Business Intelligence space, and remains one of the top business intelligence platforms for graduates just out of college and [top companies, such as LinkedIn and RedHat](https://www.tableau.com/solutions/customers).
 
-<Image-2: Sample Tableau Dashboard>
+![Sample Tableau Dashboard with SQL/MX Database](/img/sampletableaudashboard-withsql.png "Sample Tableau Dashboard with SQL/MX Database")
 
 ## Connecting Tableau to the SQL/MX database
 
@@ -46,32 +49,28 @@ The data for this tutorial was taken from Tableau’s tutorial and desktop clien
 Each excel sheet is visualized as one table in the database. To import the data into SQL/MX, you need to:
 
 1. Save each excel sheet as a .csv file.
-
 2. Create tables in the database through MXCI.
-
 3. Import from OSS using the command:
-***/usr/tandem/sqlmx/bin/import** [catalog].[schema].[table name] **-I** [table name]**.csv**. For example: _/usr/tandem/sqlmx/bin/import catalog.schema.orders -I orders.csv_
+   **/usr/tandem/sqlmx/bin/import** \[catalog].\[schema].\[table name] **\-I** \[table name]**.csv**. For example: */usr/tandem/sqlmx/bin/import catalog.schema.orders -I orders.csv*
 
 ## Connecting to the HPE NonStop server
 
 Create a new workbook in Tableau and select the “Other Databases (ODBC)” option when choosing the type of connection to a server.
 
-<Image-3: New Tableau Connection>
+![New Tableau Connection](/img/newtableauconnection.png "New Tableau Connection")
 
 ### Connection requirements
 
 Here are the details you will need:
 
 * Database username    
-
 * Database password    
-
 * Catalog name    
-
 * Schema name    
 
 
-<Image-4: HPE NonStop ODBC DataSource>
+
+![HPE NonStop ODBC DataSource](/img/hpenonatopodbcdatasource.png "HPE NonStop ODBC DataSource")
 
 You will see another window prompt — make sure that you select the DSN (data source name) that you have registered in your ODBC configuration.
 
@@ -80,19 +79,18 @@ You will see another window prompt — make sure that you select the DSN (data s
 Server attributes needed:
 
 * IP address    
-
 * Port number    
-
 * Catalog name    
-
 
 **Format:**   
 
-_TCP:[IP address]/[Port number]_
+*TCP:\[IP address]/\[Port number]*
 
-_Database name: [Catalog name]_
+*Database name: \[Catalog name]*
 
-<Image-5: Database server details>
+
+
+![Database server details](/img/databaseserverdetails.png "Database server details")
 
 ## Setting up tables for Tableau’s Superstore tutorial
 
@@ -100,25 +98,24 @@ If you’ve made it to this step, it means that your SQL/MX database has success
 
 Now you can configure the relationship between the tables in this database.
 
-<Image-6: Successful connection db>
+![Shows a successful connection to database](/img/succesfulconnectiontodb.png "Shows a successful connection to database")
 
 ### Selecting tables for Superstore
 
 Select the database and schema where you have created and populated the database. Click and drag the tables into the orange space indicated.
 
-<Image-7: Chck and drag tables>
+![Click and drag tables into the area](/img/dragtablesintothearea.png "Click and drag tables into the area")
 
 ### Creating relationships between tables
 
 * Start with the “Orders” table, and then the “People” table    
-
 * A line between the tables, and a box showing the relation between the tables will appear    
-
 * Check the fields used to link the 2 tables together    
-
 * Repeat with the “Returned” table and “Orders” table    
 
-<Image-8: Relationship between orders table>
+
+
+![Relationship between orders table and People table](/img/relationshiporderstable-peopletable.png "Relationship between orders table and People table")
 
 Once completed, you should be all set. Now you can continue onto the Tableau tutorial [Step 2: Drag and Drop to take a first look](https://help.tableau.com/current/guides/get-started-tutorial/en-us/get-started-tutorial-drag.htm).
 
@@ -126,10 +123,10 @@ Once completed, you should be all set. Now you can continue onto the Tableau tut
 
 Tableau is not the only data visualization tool that works with HPE NonStop SQL/MX’s ODBC driver. Other applications such as Power BI, and even Excel, can also connect in a similar way to the HPE NonStop database.
 
-<Image-9: Popular data visualization tools>
+
+
+![Popular data visualization tools](/img/populardatavisualizationtools.png "Popular data visualization tools")
 
 It’s important to note that not only is HPE NonStop SQL/MX ANSI compliant, but it also adopts ODBC and JDBC standards, allowing effortless database connection with a state-of-the-art fault tolerance.
 
 Don’t forget to check back frequently on the [HPE Developer Community portal](https://developer.hpe.com/) to find more information on HPE NonStop.
-
-
