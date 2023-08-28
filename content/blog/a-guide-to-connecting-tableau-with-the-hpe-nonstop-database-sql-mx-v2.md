@@ -8,6 +8,14 @@ tags:
   - Tableau
   - hpe-nonstop
 ---
+<style>
+li {
+   font-size: 27px;
+   line-height: 33px;
+   max-width: none;
+}
+</style>
+
 HPE NonStop is a platform and an operating environment that turns your applications into fault-tolerant apps. Trusting in over 40 years of continued evolution and developments on the platform, financial institutions payment processors, manufacturers and retailers continue to put their most mission-critical workloads on HPE NonStop.
 
 HPE NonStop offers a modern RDBMS, with interfaces, tools, and experts available to lead the integration into customers’ IT environments.
@@ -68,8 +76,6 @@ Here are the details you will need:
 * Catalog name    
 * Schema name    
 
-
-
 ![HPE NonStop ODBC DataSource](/img/hpenonatopodbcdatasource.png "HPE NonStop ODBC DataSource")
 
 You will see another window prompt — make sure that you select the DSN (data source name) that you have registered in your ODBC configuration.
@@ -87,8 +93,6 @@ Server attributes needed:
 *TCP:\[IP address]/\[Port number]*
 
 *Database name: \[Catalog name]*
-
-
 
 ![Database server details](/img/databaseserverdetails.png "Database server details")
 
@@ -113,8 +117,6 @@ Select the database and schema where you have created and populated the database
 * Check the fields used to link the 2 tables together    
 * Repeat with the “Returned” table and “Orders” table    
 
-
-
 ![Relationship between orders table and People table](/img/relationshiporderstable-peopletable.png "Relationship between orders table and People table")
 
 Once completed, you should be all set. Now you can continue onto the Tableau tutorial [Step 2: Drag and Drop to take a first look](https://help.tableau.com/current/guides/get-started-tutorial/en-us/get-started-tutorial-drag.htm).
@@ -122,8 +124,6 @@ Once completed, you should be all set. Now you can continue onto the Tableau tut
 ## Other data visualization tools that can work with SQL/MX
 
 Tableau is not the only data visualization tool that works with HPE NonStop SQL/MX’s ODBC driver. Other applications such as Power BI, and even Excel, can also connect in a similar way to the HPE NonStop database.
-
-
 
 ![Popular data visualization tools](/img/populardatavisualizationtools.png "Popular data visualization tools")
 
