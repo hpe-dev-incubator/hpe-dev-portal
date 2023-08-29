@@ -5,11 +5,13 @@ author: BalaSubramanian Vetrivel
 authorimage: /img/vetrivel-balasubramanian1-photo.jpg
 disable: false
 ---
-The open API specification is one of the most widely followed API contracts. It is language-agonistic.
-With the help of these Open API specifications, clients can understand the API and invoke them without having access to the code or worrying about the implementation details. At times, this open specification file is becoming too complex to manage and understand. In this article, I will discuss the techniques to simplify the open specification with loosely coupled reusable data models.
+The [OpenAPI specification](https://www.openapis.org)  is one of the most widely followed API contracts. It is language-agonistic.
+With the help of these OpenAPI specifications, clients can understand the API and invoke them without having access to the code or worrying about the implementation details. 
 
-## Items of open API specification
-Open API specifications files have many definitions in them. However, the below List of entities is typically bigger in terms of the number of lines and tends to be reused
+At times, this open specification file is becoming too complex to manage and understand. In this article, I will discuss the techniques to simplify the open specification with loosely coupled reusable data models.
+
+## Items of OpenAPI specification
+OpenAPI specifications files have many definitions in them. However, the below list of entities are typically bigger in terms of the number of lines and tends to be reused in the specification file.
 
 - schemas
 - pathitems
@@ -36,7 +38,7 @@ schema:
 ```
 
 ## In line inside components object
-Components object in the Open API specification is the home of reusable object definitions. However, these defined objects must be explicitly referred to outside of the components section wherever required.
+Components object in the OpenAPI specification is the home of reusable object definitions. However, these defined objects must be explicitly referred to outside of the components section wherever required.
 
 ```yaml
 components:
@@ -55,7 +57,7 @@ $ref: '#/components/parameters/tenantId’
 ```
 
 ## Externalized definition
-Data models can be defined outside of the Open API specification file.
+Data models can be defined outside of the OpenAPI specification file.
 
 ```yaml
 example-multiple-threshold-type-example-request:
@@ -85,6 +87,7 @@ value:
 
 ## Externalized definition with local aliases 
 The above externalized definition can be further improved by defining local aliases. The local aliases can be used instead of the relative path of the definition. The example is shown below.
+
 ```yaml
 components:
   parameters:
@@ -94,16 +97,12 @@ components:
 ```
 
 ## Advantages of externalised definitions 
-- Externalized definitions have many advantages over traditional inline definitions. Here are a few 
-- Loosely coupling data models, and definitions from Open API Specification.
+Externalized definitions have many advantages over traditional inline definitions. Here are a few 
+- Loosely coupling data models, and definitions from OpenAPI Specification.
 - Data models can be reused with common definitions.
-- This will reduce the Open API specification files significantly.
-- Easy to manage and govern open API specification files.
+- This will reduce the OpenAPI specification files significantly.
+- Easy to manage and govern OpenAPI specification files.
    
+
 ## Conclusion
-In this article, I have explained the four techniques to simplify the Open API specification using loosely coupled, reusable data model definitions. I have also explained the advantages of these approaches. 
-
-
-
-
-
+In this article, I have explained the four techniques to simplify the OpenAPI specification using loosely coupled, reusable data model definitions. I have also explained the advantages of these approaches. 
