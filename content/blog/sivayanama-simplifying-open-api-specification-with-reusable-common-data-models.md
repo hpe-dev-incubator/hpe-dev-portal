@@ -1,5 +1,5 @@
 ---
-title: Simplifying open API specification with reusable common data models
+title: Simplifying OpenAPI specification with reusable common data models
 date: 2023-08-26T08:06:19.141Z
 author: BalaSubramanian Vetrivel
 authorimage: /img/vetrivel-balasubramanian1-photo.jpg
