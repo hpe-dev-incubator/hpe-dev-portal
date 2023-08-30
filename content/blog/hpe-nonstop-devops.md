@@ -5,8 +5,8 @@ author: Kamala Sreenivasan
 authorimage: /img/Avatar1.svg
 disable: false
 tags:
-  - devops
   - hpe-nonstop
+  - devops
 ---
 The DevOps approach has gained significant momentum over the past decade as today’s enterprises require shorter development and deployment cycles to gain faster time to market and obtain fast feedback for improvement. DevOps helps in continual product rollouts by bridging silos and streamlining change management practices, improving not only  development efficiency but also ensuring consistency and reliability of deployments.
 
