@@ -52,12 +52,15 @@ components:
       description: Describes the clientId or mspId of tenant
 ```
 
+*$ref* is one of the fixed fields in the schema. It is a string value which refers to other components in the OpenAPI document, internally and externally. The above defined *tenantId* parameter can be referred to below: 
+
+
 ```yaml
 $ref: '#/components/parameters/tenantId’
 ```
 
 ## Externalized definition
-Data models can be defined outside of the OpenAPI specification file.
+Data models can be defined outside of the OpenAPI specification file using a $ref reference to an external definition. For example:
 
 ```yaml
 example-multiple-threshold-type-example-request:
@@ -86,7 +89,7 @@ value:
 ```
 
 ## Externalized definition with local aliases 
-The above externalized definition can be further improved by defining local aliases. The local aliases can be used instead of the relative path of the definition. The example is shown below.
+The above externalized definition can be further improved by defining local aliases. The local aliases can be used instead of repeating the relative path of the definition in all references. In the example shown below, the external definition referenced with the $ref can be referred by *#components/parameters/tenanId*:
 
 ```yaml
 components:
@@ -97,7 +100,8 @@ components:
 ```
 
 ## Advantages of externalised definitions 
-Externalized definitions have many advantages over traditional inline definitions. Here are a few 
+Externalized definitions have many advantages over traditional inline definitions, such as:
+
 - Loosely coupling data models, and definitions from OpenAPI Specification.
 - Data models can be reused with common definitions.
 - This will reduce the OpenAPI specification files significantly.
