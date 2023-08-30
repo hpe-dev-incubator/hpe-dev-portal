@@ -24,6 +24,36 @@ HPE NonStop supports multiple languages and usage of DevOps for HPE NonStop is c
 The intent of the starter kit is to demonstrate pipelines and tools for a language usage profile. These reusable scripts and pipelines in the starter kit are an effortless way to get started with DevOps and try it out with customer applications.
 
 The starter kits currently available are:
+<style>
+table {
+    display: block;
+    width: 100%;
+    width: max-content;
+    max-width: 100%;
+    overflow: auto; 
+     -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none; 
+    border:1px solid grey;
+}
+td {
+   -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    border:1px solid grey;
+    text-align: left !important; 
+    padding: 10px !important;
+}
+thead tr:first-child td {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  border:1px solid grey;
+  text-align: center !important; 
+  padding: 20px !important; 
+  font-weight: bold !important;
+}
+</style>
 
 |  Name   |  Description   |  Location :NonStop Git /nsdevops/   |
 | --- | --- | --- |
