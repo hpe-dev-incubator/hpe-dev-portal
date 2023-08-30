@@ -4,6 +4,8 @@ date: 2023-08-26T08:06:19.141Z
 author: BalaSubramanian Vetrivel
 authorimage: /img/vetrivel-balasubramanian1-photo.jpg
 disable: false
+tags:
+  - API, OpenAPI, OpenAPI specification, OpsRamp API, Yaml
 ---
 The [OpenAPI specification](https://www.openapis.org)  is one of the most widely followed API contracts. It is language-agonistic.
 With the help of these OpenAPI specifications, clients can understand the API and invoke them without having access to the code or worrying about the implementation details. 
