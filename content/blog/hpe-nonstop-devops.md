@@ -16,9 +16,9 @@ DevOps is a culture and a continuous process of improving efficiency. It can be 
 
 # HPE NonStop is DevOps ready!
 
-DevOps is based off of CI/CD, and is a continuous process. The first part refers to Continuous Integration (CI) and includes phases such as plan, code, build, and test, while the second part (CD) represents the continuous delivery and deployments aspects. These include the release, deployment, operation, and monitoring of the software.
+In DevOps, you build and operate Continuous Integration/Continuous Delivery (CI/CD) pipelines. Continuous Integration includes phases such as plan, code, build, and test, while Continuous Delivery (CD) covers the continuous delivery and deployment aspects, including release, deployment, operation, and monitoring of the software. 
 
-HPE NonStop is DevOps ready. This means that,for each of the phases, there are tool sets specific to the platform identified and workflows that can be automated to achieve efficient, repeatable, and reliable production ready software.
+HPE NonStop is DevOps ready. This means that, for each of the phases, there are tool sets specific to the platform identified and workflows that can be automated to achieve efficient, repeatable, and reliable production ready software.
 
 # HPE NonStop DevOps starter kits
 
@@ -27,6 +27,7 @@ HPE NonStop supports multiple languages and usage of DevOps for HPE NonStop is c
 The intent of the starter kit is to demonstrate pipelines and tools for a language usage profile. These reusable scripts and pipelines in the starter kit are an effortless way to get started with DevOps and try it out with customer applications.
 
 The starter kits currently available are:
+
 <style>
 table {
     display: block;
@@ -58,14 +59,13 @@ thead tr:first-child td {
 }
 </style>
 
-|  Name   |  Description   |  Location :NonStop Git /nsdevops/   |
-| --- | --- | --- |
-| C Starter Kit    |   CI sample for C/C++  based applications built using cross-compilers  |  C   |
-| Java Starter Kit   |  CI sample for Java based applications built off-platform compilers   |  java   |
-| Java JNI Starter Kit   |  CI sample for polyglot Java and C applications built on-platform on HPE NonStop   |  javajni   |
-| Python Starter Kit    |   CI sample for Pythons based applications  |  python   |
-| CD Starter Kit   |    Continuous Deployment using HPE NonStop Manageability Framework (NSMF) and Ansible |   cd  |
-
+| Name                 | Description                                                                        | Location :NonStop Git /nsdevops/ |
+| -------------------- | ---------------------------------------------------------------------------------- | -------------------------------- |
+| C Starter Kit        | CI sample for C/C++  based applications built using cross-compilers                | C                                |
+| Java Starter Kit     | CI sample for Java based applications built off-platform compilers                 | java                             |
+| Java JNI Starter Kit | CI sample for polyglot Java and C applications built on-platform on HPE NonStop    | javajni                          |
+| Python Starter Kit   | CI sample for Pythons based applications                                           | python                           |
+| CD Starter Kit       | Continuous Deployment using HPE NonStop Manageability Framework (NSMF) and Ansible | cd                               |
 
 Most of the starter kits demonstrate continuous integration (CI). For the continuous deployment, NSMF and Ansible-based deployments are used. While the CD starter kit is demonstrated with a Java application, the dev, test and production environment setup and concepts remain the same for application of any language profile. The CD starter kit can also be extended to HPE NonStop system configuration management and HPE NonStop system administration activities.
 
@@ -75,13 +75,10 @@ Developers new to DevOps should use the [HPE NonStop ModernDevOps - Instructions
 
 Getting started with the starter kits is easy.
 
-- First download the starter kit from the HPE NonStop [git repository](https://github.com/HewlettPackard/NonStop/tree/main/nsdevops).
-
-- Select the appropriate folder applicable to language profile.
-
-- Upload the code from that folder to the organization GIT. Go through the instructions in the README.md file of the starter kit and update the pipeline script to point to the right repository.
-
-- Make appropriate changes based on the environment. Commit the changes to the organization git. The pipelines will start executing.
+* First download the starter kit from the HPE NonStop [git repository](https://github.com/HewlettPackard/NonStop/tree/main/nsdevops).
+* Select the appropriate folder applicable to language profile.
+* Upload the code from that folder to the organization GIT. Go through the instructions in the README.md file of the starter kit and update the pipeline script to point to the right repository.
+* Make appropriate changes based on the environment. Commit the changes to the organization git. The pipelines will start executing.
 
 The scripts can be reused for applications in the same language profile with minor changes, such as modifying GIT repository and build steps, if any.
 
