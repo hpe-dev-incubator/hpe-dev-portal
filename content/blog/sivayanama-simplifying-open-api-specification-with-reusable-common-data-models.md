@@ -7,13 +7,13 @@ disable: false
 tags:
   - API, OpenAPI, OpenAPI specification, OpsRamp API, Yaml
 ---
-The [OpenAPI specification](https://www.openapis.org)  is one of the most widely followed API contracts. It is language-agonistic.
-With the help of these OpenAPI specifications, clients can understand the API and invoke them without having access to the code or worrying about the implementation details. 
+The [OpenAPI specification](https://www.openapis.org) (OAS)  is one of the most widely followed API contracts. It is language-agonistic.
+With the help of the information found in the OpenAPI specification, clients can better understand APIs and how to invoke them without having access to the code or worrying about the implementation details. 
 
-At times, this open specification file is becoming too complex to manage and understand. In this article, I will discuss the techniques to simplify the open specification with loosely coupled reusable data models.
+At times, this open specification file can be too complex to manage and understand. In this article, I will discuss the techniques to simplify the open specification with loosely coupled reusable data models.
 
-## Items of OpenAPI specification
-OpenAPI specifications files have many definitions in them. However, the below list of entities are typically bigger in terms of the number of lines and tends to be reused in the specification file.
+## Items found in the OpenAPI Specification
+OpenAPI specifications files have many definitions in them. However, the below list of entities are typically bigger in terms of the number of lines and tend to be reused in the specification file.
 
 - schemas
 - pathitems
@@ -26,8 +26,8 @@ OpenAPI specifications files have many definitions in them. However, the below l
 
 I will discuss four approaches to deal with these definitions.
 
-## In line definition
-The definition is inline right at the reference point as shown below.
+## Inline definition
+With inline definition, the definition is inline right at the reference point, as shown below:
 
 ```yaml
 schema:
@@ -39,8 +39,8 @@ schema:
       type: string
 ```
 
-## In line inside components object
-Components object in the OpenAPI specification is the home of reusable object definitions. However, these defined objects must be explicitly referred to outside of the components section wherever required.
+## Inline inside components object
+The components object in the OpenAPI specification is the home of reusable object definitions. However, these defined objects must be explicitly referred to outside of the components section wherever required.
 
 ```yaml
 components:
@@ -54,7 +54,7 @@ components:
       description: Describes the clientId or mspId of tenant
 ```
 
-*$ref* is one of the fixed fields in the schema. It is a string value which refers to other components in the OpenAPI document, internally and externally. The above defined *tenantId* parameter can be referred to below: 
+*$ref* is one of the fixed fields in the schema. It is a string value that refers to other components in the OpenAPI document, internally and externally. The above defined *tenantId* parameter can be referred to below: 
 
 
 ```yaml
@@ -69,7 +69,7 @@ example-multiple-threshold-type-example-request:
    $ref: ./models/opsramp-monitoring-management/multiple-threshold-type-example-request-v1.yaml
 ```
 ### Content of multiple-threshold-type-example-request-v1.yaml
-Please note that the request object definition should be defined within the *value:* as shown below.
+Please note that the request object definition should be defined within the *value:* as shown below:
 
 ```yaml
 value:
@@ -101,14 +101,14 @@ components:
       # this can be referred by #components/parameters/tenantId
 ```
 
-## Advantages of externalised definitions 
+## Advantages of externalized definitions 
 Externalized definitions have many advantages over traditional inline definitions, such as:
 
-- Loosely coupling data models, and definitions from OpenAPI Specification.
-- Data models can be reused with common definitions.
-- This will reduce the OpenAPI specification files significantly.
-- Easy to manage and govern OpenAPI specification files.
+- Loosely coupled data models, and definitions from the OpenAPI Specification
+- Reusable data models with common definitions
+- This will reduce the OpenAPI specification files significantly
+- Easy to manage and govern OpenAPI specification files
    
 
 ## Conclusion
-In this article, I have explained the four techniques to simplify the OpenAPI specification using loosely coupled, reusable data model definitions. I have also explained the advantages of these approaches. 
+In this article, I explained four techniques used to simplify the OpenAPI Specification using loosely coupled, reusable data model definitions and pointed out the advantages of these approaches. Check back for more articles on this and other subjects on the HPE Developer [blog](https://developer.hpe.com/blog).
