@@ -219,6 +219,10 @@ T﻿o verify the deployed Nginx application is working, l﻿aunch your web brows
  
 ![](/img/web-nginx-app.png)
 
+
+
+
 ### Summary
 
-This blog post describes the detailed process used to deploy and set up MetalLB 
+This blog post describes the detailed process used to deploy and set up MetalLB to support customers to configure load balancers for the K8s clusters in HPE GreenLake for Private Cloud Enterprise. By deploying custom load balancing configuration, it allows customers to easily work together with Kubernetes Ingress for different traffic routing support of their deployed workloads in the K8s clusters. It also supports deploying applications by passing the customer certificates through their own authority. It unblocks a list of potential use cases and enhances HPE GreenLake product with additional flexibilities.
+
