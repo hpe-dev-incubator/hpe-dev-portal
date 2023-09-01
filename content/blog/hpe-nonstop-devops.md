@@ -59,8 +59,6 @@ thead tr:first-child td {
 }
 </style>
 
-</style>
-
 | Name | Description | Location |
 | ---- |-------------|----------|
 | C Starter Kit | CI sample for C/C++  based applications built using cross-compilers | [C](https://github.com/HewlettPackard/NonStop/tree/main/nsdevops/c)            |
