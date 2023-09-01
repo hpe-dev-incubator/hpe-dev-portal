@@ -19,7 +19,7 @@ Before starting, make sure you have the following requirements:
 * The kubectl CLI tool, together with the kubeconfig files for accessing the K8s cluster
 * A range of virtual IP addresses. Those IP addresses should not be used in any existing K8s clusters. They will be assigned to the load balancer services. 
 
-### MetalLB
+### D﻿eploy MetalLB for load balancing
 
 [MetalLB](https://metallb.universe.tf/) is a network load-balancer implementation for Kubernetes clusters using standard routing protocols. By installing MetalLB, it will support the LoadBalancer services within the Kubernetes cluster.  
 
@@ -137,9 +137,12 @@ NAME      IPADDRESSPOOLS   IPADDRESSPOOL SELECTORS   INTERFACES
 example   ["cfe-pool"]               
 ```
 
-#### 4 Deploy the sample Nginx app with its service type _LoadBalancer_
+### D﻿eploy Nginx App as the service type _LoadBalancer_
+
 
 As a sample web application, the *Nginx* with the service type of *LoadBalancer* will be deployed to the K8s cluster using the following YAML manifest file:
+
+
 
 ```markdown
 $ cat nginx-deployment.yaml 
@@ -211,3 +214,4 @@ deployment.apps/cfe-nginx-app   1/1     1            1           3m21s
 NAME                                       DESIRED   CURRENT   READY   AGE
 replicaset.apps/cfe-nginx-app-66cb4f5bbf   1         1         1       3m22s
 ```
+![](/img/web-ngnix-app.png)
