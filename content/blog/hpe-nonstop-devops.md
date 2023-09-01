@@ -59,13 +59,14 @@ thead tr:first-child td {
 }
 </style>
 
-| Name | Description | Location |
-| ---- |-------------|----------|
-| C Starter Kit | CI sample for C/C++  based applications built using cross-compilers | [C](https://github.com/HewlettPackard/NonStop/tree/main/nsdevops/c)            |
-| Java Starter Kit | CI sample for Java based applications built off-platform compilers | [java](https://github.com/HewlettPackard/NonStop/tree/main/nsdevops/java) |
-| Java JNI Starter Kit | CI sample for polyglot Java and C applications built on-platform on HPE NonStop | [javajni](https://github.com/HewlettPackard/NonStop/tree/main/nsdevops/javajni) |
-| Python Starter Kit | CI sample for Pythons based applications | [python](https://github.com/HewlettPackard/NonStop/tree/main/nsdevops/python) |
-| CD Starter Kit | Continuous Deployment using HPE NonStop Manageability Framework (NSMF) and Ansible | [cd](https://github.com/HewlettPackard/NonStop/tree/main/nsdevops/cd) |
+| **Name**             | **Description**                                                                    | **Location** |
+|----------------------|------------------------------------------------------------------------------------|--------------|
+| C Starter Kit        | CI sample for C/C++  based applications built using cross-compilers                | C            |
+| Java Starter Kit     | CI sample for Java based applications built off-platform compilers                 | java         |
+| Java JNI Starter Kit | CI sample for polyglot Java and C applications built on-platform on HPE NonStop    | javajni      |
+| Python Starter Kit   | CI sample for Pythons based applications                                           | python       |
+| CD Starter Kit       | Continuous Deployment using HPE NonStop Manageability Framework (NSMF) and Ansible | cd           |
+
 
 Most of the starter kits demonstrate continuous integration (CI). For the continuous deployment, NSMF and Ansible-based deployments are used. While the CD starter kit is demonstrated with a Java application, the dev, test and production environment setup and concepts remain the same for application of any language profile. The CD starter kit can also be extended to HPE NonStop system configuration management and HPE NonStop system administration activities.
 
