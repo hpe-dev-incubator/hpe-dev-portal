@@ -138,7 +138,7 @@ NAME      IPADDRESSPOOLS   IPADDRESSPOOL SELECTORS   INTERFACES
 example   ["cfe-pool"]               
 ```
 
-### D﻿eploy Nginx App as the service type *LoadBalancer*
+### D﻿eploy Nginx app as the service type *LoadBalancer*
 
 As a sample web application, the *Nginx* with the service type of *LoadBalancer* will be deployed to the K8s cluster using the following YAML manifest file:
 
@@ -196,7 +196,7 @@ service/cfe-nginx-app created
 deployment.apps/cfe-nginx-app created
 ```
 
-You can check the Nginx deployment, using the label *app=nginx-app*, and confirm all pods and services are in running states. For the service *cfe-nginx-app*, you should see it’s deployed with the *LoadBalancer* type and an IP address, 172.16.17.250, gets assigned as its  *EXTERNAL-IP* :
+You can check the Nginx a﻿pplication deployment b﻿y typing the following command, using the label *app=nginx-app*, and confirm all pods and services are in running states. For the service *cfe-nginx-app*, you should see it’s been deployed as the *LoadBalancer* type and an IP address, *172.16.17.250*, gets assigned as its *EXTERNAL-IP* :
 
 ```markdown
 $ kubectl get all -l app=nginx-app
@@ -213,4 +213,12 @@ NAME                                       DESIRED   CURRENT   READY   AGE
 replicaset.apps/cfe-nginx-app-66cb4f5bbf   1         1         1       3m22s
 ```
 
+T﻿o verify the deployed Nginx application is working, l﻿aunch your web browser, type the string "http://" followed by the IP address *'172.16.17.250'* assigned t﻿o the Nginx service, then press the *Enter* key.  You should see the following texts showing in the browser:
+
+*﻿Hi, this is the sample <font color=blue>Nginx App</font> deployed as the Load Balancer service type !*
+ 
 ![](/img/web-nginx-app.png)
+
+### Summary
+
+This blog post describes the detailed process used to deploy and set up MetalLB 
