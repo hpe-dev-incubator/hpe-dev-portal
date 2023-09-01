@@ -1,5 +1,6 @@
 ---
-title: Set up load balancer with MetalLB in HPE GreenLake for Private Cloud Enterprise
+title: Set up load balancers with MetalLB in HPE GreenLake for Private Cloud
+  Enterprise
 date: 2023-09-01T08:59:11.280Z
 author: Guoping Jia
 authorimage: /img/guoping.png
