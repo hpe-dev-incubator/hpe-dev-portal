@@ -48,8 +48,6 @@ td {
     text-align: left !important; 
     padding: 10px !important;
 }
-
-}
 </style>
 
 
