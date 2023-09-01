@@ -7,7 +7,6 @@ disable: false
 ---
 This blog post describes how to set up the load balancer using [MetalLB](https://metallb.universe.tf/) for a K8s cluster in [HPE GreenLake for Private Cloud Enterprise](https://www.hpe.com/us/en/greenlake/private-cloud-enterprise.html). It allows customers to configure load balancing services for their workload deployeds in the K8s clusters. 
 
-
 ### Overview
 
 In [HPE GreenLake for Private Cloud Enterprise: Containers](https://www.hpe.com/us/en/greenlake/containers.html), customers can create services of type *NodePort* for their workloads in K8s clusters using the label *hpecp.hpe.com/hpecp-internal-gateway=true*. The services will be automatically exposed to a container platform gateway host with assigned ports. The deployed workload will become accessible externally using the gateway host name and the assigned ports as URLs. Different from various public cloud providers, such as *GCP*, *AWS* and *Microsoft Azure*, HPE GreenLake for Containers doesn’t support external load balancers. This blog post describes how to use MetalLB to provide load balancing services for K8s clusters in HPE GreenLake for Containers. It provides customers with the flexibility to configure custom load balancers for their workloads deployed in HPE GreenLake for Private Cloud Enterprise.
@@ -15,6 +14,7 @@ In [HPE GreenLake for Private Cloud Enterprise: Containers](https://www.hpe.com/
 ### Prerequisites
 
 Before starting, make sure you have the following requirements:
+
 * A K8s cluster, being provisioned in HPE GreenLake for Private Cloud Enterprise
 * The kubectl CLI tool, together with the kubeconfig files for accessing the K8s cluster
 * A range of virtual IP addresses. Those IP addresses should not be used in any existing K8s clusters. They will be assigned to the load balancer services. 
@@ -58,6 +58,7 @@ deployment.apps/controller created
 daemonset.apps/speaker created
 validatingwebhookconfiguration.admissionregistration.k8s.io/metallb-webhook-configuration created
 ```
+
 The above command will install the latest MetalLB v0.13.10 to the K8s cluster. It will first create the namespace *metallb-system*, set up role-based access control (*RBAC*), create a list of customer resource definitions (CRDs) and deploy a list of pods and services.
 
 You can check and confirm all pods and services are deployed successful:
@@ -84,7 +85,6 @@ deployment.apps/controller   0/1     1            0           38s
 
 NAME                                   DESIRED   CURRENT   READY   AGE
 replicaset.apps/controller-7967ffcf8   1         1         0       38s
-
 ```
 
 #### 2 Define a range of IP addresses
@@ -116,7 +116,7 @@ The above command allocates the IP pool that has the IP range 172.16.17.250-172.
 
 #### 3 Announce the service IP addresses
 
-Once the IP addresses are allocated, you must announce service IPs. The [MetalLB Configuration site]( https://metallb.universe.tf/configuration/#announce-the-service-ips) shows a list of configuration approaches you can use to announce service IPs. The below example shows the details of using the *Layer 2* mode to configure service IP addresses. You don’t need any protocol specific configuration using this approach, only IP addresses from an *IPAddressPool*.
+Once the IP addresses are allocated, you must announce service IPs. The [MetalLB Configuration site](https://metallb.universe.tf/configuration/#announce-the-service-ips) shows a list of configuration approaches you can use to announce service IPs. The below example shows the details of using the *Layer 2* mode to configure service IP addresses. You don’t need any protocol specific configuration using this approach, only IP addresses from an *IPAddressPool*.
 
 ```markdown
 $ cat L2Advertisement.yaml 
@@ -137,12 +137,9 @@ NAME      IPADDRESSPOOLS   IPADDRESSPOOL SELECTORS   INTERFACES
 example   ["cfe-pool"]               
 ```
 
-### D﻿eploy Nginx App as the service type _LoadBalancer_
-
+### D﻿eploy Nginx App as the service type *LoadBalancer*
 
 As a sample web application, the *Nginx* with the service type of *LoadBalancer* will be deployed to the K8s cluster using the following YAML manifest file:
-
-
 
 ```markdown
 $ cat nginx-deployment.yaml 
@@ -198,7 +195,7 @@ service/cfe-nginx-app created
 deployment.apps/cfe-nginx-app created
 ```
 
-You can check the Nginx deployment, using the label *app=nginx-app*, and confirm all pods and services are in running states. For the service *cfe-nginx-app*, you should see it’s deployed with the *LoadBalancer* type and an IP address, 172.16.17.250, gets assigned as its * EXTERNAL-IP *:
+You can check the Nginx deployment, using the label *app=nginx-app*, and confirm all pods and services are in running states. For the service *cfe-nginx-app*, you should see it’s deployed with the *LoadBalancer* type and an IP address, 172.16.17.250, gets assigned as its  *EXTERNAL-IP* :
 
 ```markdown
 $ kubectl get all -l app=nginx-app
@@ -214,4 +211,5 @@ deployment.apps/cfe-nginx-app   1/1     1            1           3m21s
 NAME                                       DESIRED   CURRENT   READY   AGE
 replicaset.apps/cfe-nginx-app-66cb4f5bbf   1         1         1       3m22s
 ```
-![](/img/web-ngnix-app.png)
+
+![](/img/web-nginx-app.png)
