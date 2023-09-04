@@ -34,18 +34,17 @@ table {
     width: 100%;
     width: max-content;
     max-width: 100%;
-    overflow: auto; 
+    overflow: auto;
      -webkit-box-shadow: none;
     -moz-box-shadow: none;
-    box-shadow: none; 
-    border:1px solid grey;
+    box-shadow: none;
 }
 td {
    -webkit-box-shadow: none;
     -moz-box-shadow: none;
     box-shadow: none;
     border:1px solid grey;
-    text-align: left !important; 
+    text-align: left !important;
     padding: 10px !important;
 }
 </style>
