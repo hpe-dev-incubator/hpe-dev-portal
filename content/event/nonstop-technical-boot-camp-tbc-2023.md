@@ -9,4 +9,8 @@ width: large
 tags:
   - hpe-nonstop
 ---
+## NonStop Technical Boot Camp (TBC) 2023
+
+September 12-14, 2023
+
 Do not miss the opportunity to be the first to discover solutions in cyber resilience and hybrid cloud while staying ahead of the pack. Sys admins, architects, DBAs, DevOps practitioners and new comers will meet and hear from a thriving community that continues to define the gold standard for building the most reliable IT solutions! Register for the conference and book your hotel room now!
