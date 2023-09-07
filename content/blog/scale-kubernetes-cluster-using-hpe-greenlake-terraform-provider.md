@@ -18,6 +18,7 @@ tags:
 ---
 The process of managing and provisioning computer data centers through machine-readable definition files, also known as Infrastructure-as-Code (IaC), offers many significant benefits. It helps to increase operational agility, simplify management, reduce errors, and save cost.
 
+
 In this post, I will explore options to declare and scale Kubernetes clusters on HPE GreenLake using the HPE GreenLake Terraform Provider.
 
 # Prerequisite
@@ -77,8 +78,9 @@ You can scale the cluster by adding a worker node. The following worker-node att
 
 1. **name**: Fill in the name that would ideally represent each node pool.
 2. **machine\_blueprint\_id**: Fill in the ID for the machine blueprint that is already present in HPE GreenLake Central for your tenant. Use the machine blueprint data source to retrieve the machine blueprint ID.
-3. **count**: Add the number of nodes to be present as part of this node pool.
-
+3. **min_size**: Add the number of minimum nodes to be present as part of this node pool. The autoscaler will not scale the nodepool below this number.
+4. **max_size**: Add the number of maximum nodes to be present as part of this node pool. The autoscaler will not scale the nodepool above this number.
+ 
 Below is the reference Terraform configuration for creating the cluster with additional nodes.
 
 ```hcl
@@ -124,7 +126,8 @@ resource hpegl_caas_cluster test {
   worker_nodes {
     name = "test-node-pool"
     machine_blueprint_id = data.hpegl_caas_machine_blueprint.standard_worker.id
-    count = "1"
+    min_size = "1"
+    max_size = "2"
   }
 }
 ```
@@ -156,7 +159,8 @@ Terraform will perform the following actions:
         # (17 unchanged attributes hidden)
 
       + worker_nodes {
-          + count                = 1
+          + min_size             = "1"
+          + max_size             = "2"
           + machine_blueprint_id = "0ac21c99-2fdb-491d-a590-a5016690b80b"
           + name                 = "test-node-pool"
         }
@@ -190,7 +194,8 @@ Terraform will perform the following actions:
         # (17 unchanged attributes hidden)
 
       + worker_nodes {
-          + count                = 1
+          + min_size             = "1"
+          + max_size             = "2"
           + machine_blueprint_id = "0ac21c99-2fdb-491d-a590-a5016690b80b"
           + name                 = "test-node-pool"
         }
@@ -225,16 +230,18 @@ From the HPE GreenLake edge-to-cloud platform, launch the HPE GreenLake Central 
 
 ![](/img/cluster_detail_page.jpg)
 
-# Scale Options
+# Scale Options with Auto Scaler
 
-The above example is specifically for adding a single worker node pool to an existing cluster. Below are all the possible options available for scaling.
+Cluster Autoscaler is a tool that automatically adjusts the size of the Kubernetes cluster nodepool within the min_size and max_size value. It increases the size of the cluster when there are pods that failed to schedule due to insufficient resources and decreases the size of the cluster when some nodes are consistently unneeded for a significant amount of time.
+
+The above example is specifically for adding a single worker node pool to an existing cluster. Below are all the possible options available for auto scaling.
 
 1. ***Add worker node pools*:** You can add multiple node pools by simply declaring corresponding **worker_nodes** in the same cluster resource.
 2. ***Reduce worker node pools*:** Remove **worker_nodes** associated with a specific node pool from the cluster resource.
-3. ***Increase/decrease worker node count*:** Updating the **count** field increases or decreases the number of nodes under each node pool.
-4. ***Increase/decrease default worker node count*:** Every cluster by default has a worker node with the node pool name “**worker**” even if **worker_nodes** are not declared in the Terraform configuration. This originally comes from what's declared in the cluster blueprint. You can override and update the count and machine blueprint for this default worker by declaring **worker_nodes** with the name “**worker**”. 
+3. ***Scaling up/down worker node*:** Updating the **min_size** and **max_size** field increases(scale up) or decreases(scale down) the number of nodes under each node pool. If both the values are same, auto scaling will be disabled. In any case, **min_size** cannot be greater than **max_size**.
+4. ***Increase/decrease default worker node count*:** Every cluster by default has a worker node even if **worker_nodes** are not declared in the Terraform configuration. This originally comes from what's declared in the cluster blueprint. You can override and update the min_size, max_size and machine blueprint for this default worker by declaring **worker_nodes** with the default worker node name. 
 
-Note: If you remove the default node pool (**worker_nodes** with name “**worker**”), the default configuration coming from the cluster blueprint shall be retained.
+Note: If you remove the default node pool (**worker_nodes** with the default worker node name) in your configuration file, the default configuration coming from the cluster blueprint shall be retained.
 
 # Summary
 
