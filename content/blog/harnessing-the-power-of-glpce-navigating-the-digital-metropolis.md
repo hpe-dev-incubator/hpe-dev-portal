@@ -4,6 +4,9 @@ date: 2023-09-07T18:36:41.947Z
 author: Sudhendra Seshachala
 authorimage: /img/Avatar1.svg
 disable: false
+tags:
+  - GreenLake Private Cloud Enterprise, GLPCE
+  - " GreenLake Central, GLC"
 ---
 **Harnessing the Power of GLPCE: Navigating the Digital Metropolis** 
 
