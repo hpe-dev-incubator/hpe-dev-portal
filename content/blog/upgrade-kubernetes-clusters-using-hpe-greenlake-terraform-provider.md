@@ -220,9 +220,10 @@ The worker node block consists of the following fields:
 
 1. **name**: The name of the worker node pool. If you wish to update the default or existing worker node pool, enter the name of that node pool. To create a node pool, specify a new name.
 2. **machine\_blueprint\_id**: Fill in the ID for the machine blueprint that is already present in HPE GreenLake Central for your tenant. Use the machine blueprint data source to retrieve the machine blueprint ID.
-3. **count**: Add the number of nodes to be present as part of this node pool. We can scale up and down by updating the count value here.
-4. **os_image**: The name of the OS image. Use the machine blueprint data source to retrieve the name of OS image.
-5. **os_version**: The version to be upgraded to. We can get this version in the UI. Whenever there is a new version available, UI will pop up a banner mentioning the new version.
+3. **min_size**: Add the number of minimum nodes to be present as part of this node pool. We can scale up and down by updating the value here.
+4. **max_size**: Add the number of maximum nodes to be present as part of this node pool. We can scale up and down by updating the value here.
+5. **os_image**: The name of the OS image. Use the machine blueprint data source to retrieve the name of OS image.
+6. **os_version**: The version to be upgraded to. We can get this version in the UI. Whenever there is a new version available, UI will pop up a banner mentioning the new version.
 
 You can find the new version by clicking on the **Actions->Update OS** button on the right side of cluster details page. 
 
@@ -277,7 +278,8 @@ resource hpegl_caas_cluster test {
 worker_nodes {
    name = "test-node-pool"
    machine_blueprint_id = data.hpegl_caas_machine_blueprint.standard_worker.id
-   count = "1"
+   min_size = "1"
+   max_size = "2"
    os_image = "sles-custom"
    os_version = "15.3"
  }
@@ -305,7 +307,8 @@ Terraform will perform the following actions:
         # (18 unchanged attributes hidden)
 
       + worker_nodes {
-          + count                = 1
+          + min_size             = "1"
+          + max_size             = "2"
           + machine_blueprint_id = "0ac21c99-2fdb-491d-a590-a5016690b80b"
           + name                 = "test-node-pool"
           + os_image             = "sles-custom"
@@ -341,7 +344,8 @@ Terraform will perform the following actions:
         # (17 unchanged attributes hidden)
 
       + worker_nodes {
-          + count                = 1
+          + min_size             = "1"
+          + max_size             = "2"
           + machine_blueprint_id = "0ac21c99-2fdb-491d-a590-a5016690b80b"
           + name                 = "test-node-pool"
           + os_image             = "sles-custom"
@@ -386,7 +390,7 @@ hpegl_caas_cluster.test: Modifications complete after 43m18s [id=a32fabb9-7c19-4
 Apply complete! Resources: 0 added, 1 changed, 0 destroyed.
 ```
 
-**Note**: If you wish to only scale up or down the worker node pool and not update the OS version, add only the 3 fields i.e. **name**, **machine\_blueprint\_id** and **count** in the worker node block. 
+**Note**: If you wish to only scale up or down the worker node pool and not update the OS version, add only the 4 fields i.e. **name**, **machine\_blueprint\_id**, **min\_size** & **max\_size** in the worker node block. 
 
 # Summary
 
