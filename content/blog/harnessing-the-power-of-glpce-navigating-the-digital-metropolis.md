@@ -7,6 +7,7 @@ disable: false
 tags:
   - GreenLake Private Cloud Enterprise, GLPCE
   - " GreenLake Central, GLC"
+  - Consumption Analytics, Capacity Usage and Monitoring
 ---
 **Harnessing the Power of GLPCE: Navigating the Digital Metropolis** 
 
