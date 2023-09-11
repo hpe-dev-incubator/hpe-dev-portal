@@ -67,7 +67,7 @@ Data Sources and Sinks: Spark Streaming can ingest data from various sources, in
 
 HPE Ezmeral Unified Analytics is equipped with notebook servers that can execute Python commands seamlessly along with scalable resources like CPUs, GPUs, and memory. Notebook servers can be spun up on Kubeflow using pre-defined Jupyter notebook images or custom-built notebook images based on your requirement. It will take a few minutes to bring the notebook server up and running. 
 
-![](https://lh3.googleusercontent.com/8WjmN9__cQO0SYaS_s6Qq0bg0m4DRdSjrbyfdvL3QrsYWztDZB6am7tyjK0aWeMxGiwyNuVs-hZX8BYZbMgpakFsOUJQc_aUdHItNpLkF9tvEmY5-l6upUu8GHsLhZ_NKLZljEsEDo30FbJ1HN39M4Y)
+![](/img/05-kubeflow-new-notebook-screen-shot.png)
 
 Once it is available, you can connect to the notebook server either on HPE Ezmeral Unified Analytics Notebooks Tab or directly from the Kubeflow Notebooks.
 
