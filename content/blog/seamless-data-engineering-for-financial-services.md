@@ -133,4 +133,4 @@ In concluding Part 1 of this blog series, you’ve journeyed through the data en
 
 Don't miss Part 2, where you’ll get to explore the machine learning capabilities of our platform. To get familiar with HPE Unified Analytics Software, [try it](https://www.hpe.com/us/en/hpe-ezmeral-unified-analytics.html) for free or visit our [website](https://docs.ezmeral.hpe.com/unified-analytics/11/index.html) for details. Let's unlock the future of analytics together!
 
-Contributors to this blog post include Suvralipi Mohanta (suvralipi.mohanta@hpe.com), Harikrishnan Nair (harikrishnan.nair@hpe.com), and Joann Starke (joann.starke@hpe.com).
+Contributors to this blog post include Suvralipi Mohanta ([suvralipi.mohanta@hpe.com](suvralipi.mohanta@hpe.com)), Harikrishnan Nair ([harikrishnan.nair@hpe.com](mailto:harikrishnan.nair@hpe.com)), and Joann Starke ([joann.starke@hpe.com](joann.starke@hpe.com)).
