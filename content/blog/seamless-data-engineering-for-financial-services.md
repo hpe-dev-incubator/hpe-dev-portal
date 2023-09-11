@@ -27,9 +27,9 @@ HPE Ezmeral Unified Analytics software is a usage-based Software-as-a-Service (S
 
 ![](https://lh6.googleusercontent.com/I8m-F21ZhxExbOUCZsUjrAlQ6i1oapby2gnfJcelgsVDgSXEtQt_hvOeQSLWBwXAPVydqEEwMjiC_C2_mG3d7EKFL6uN6igCaetumxr-PFPvHtBNa6DiMKgp-qSvan4WzHf3UfRRwhxPOvgsD9sN7gA)
 
-This use case involves leveraging external pricing server/rest API calls, which are streamed into the data lake/data warehouse of a cloud provider (Microsoft Azure) using Spark from HPE Ezmeral Unified Analytics. Let me demonstrate how this platform enables data analysis using EzPresto (an enterprise-supported version of Presto) and empowers the creation of live dashboards using Superset. For a hands-on experience with the concepts discussed in this blog, explore the code examples on our GitHub repository ***(Link)***.
+This use case involves leveraging external pricing server/rest API calls, which are streamed into the data lake/data warehouse of a cloud provider (Microsoft Azure) using Spark from HPE Ezmeral Unified Analytics. Let me demonstrate how this platform enables data analysis using EzPresto (an enterprise-supported version of Presto) and empowers the creation of live dashboards using Superset. 
 
-## Step1: **Data Gathering**
+## Step 1: **Data Gathering**
 
 The data consists of stock prices of different companies listed in National Stock Exchange (NSE) of India. The files consist of historical data from the year 2000 to 2021, which was transformed to a streaming data source. The data was pulled from external servers hosted publicly and then saved to HPE Ezmeral Data Fabric Volume.
 
@@ -131,4 +131,4 @@ Here, a new dashboard is created in HPE Ezmeral Unified Analytics, and the conne
 
 In concluding Part 1 of this blog series, you’ve journeyed through the data engineering and analytics aspects of using Spark, EzPresto, and Superset, powered by HPE Ezmeral Unified Analytics. With a spotlight on assimilating external pricing data to craft a dynamic dashboard, I hope I have illuminated how this platform brings together best of breed open-source tools to transform complex data into valuable insights.
 
-Don't miss Part 2, where you’ll get to explore the machine learning capabilities of our platform. To get familiar with HPE Unified Analytics Software, [try it](https://www.hpe.com/us/en/hpe-ezmeral-unified-analytics.html) for free or visit our ***[website](https://www.hpe.com/us/en/hpe-ezmeral-unified-analytic)*** for details. Let's unlock the future of analytics together!
+Don't miss Part 2, where you’ll get to explore the machine learning capabilities of our platform. To get familiar with HPE Unified Analytics Software, [try it](https://www.hpe.com/us/en/hpe-ezmeral-unified-analytics.html) for free or visit our [website](https://www.hpe.com/us/en/hpe-ezmeral-unified-analytics.html)for details. Let's unlock the future of analytics together!
