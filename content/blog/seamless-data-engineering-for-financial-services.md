@@ -5,6 +5,15 @@ author: Abhishek Kumar Agarwal
 authorimage: /img/abi.png
 thumbnailimage: /img/some-requested-image.jpg
 disable: false
+tags:
+  - hpe-ezmeral
+  - data-engineering
+  - hybrid-cloud
+  - data-analytics
+  - Spark
+  - Presto
+  - GPU
+  - hybrid
 ---
 Welcome to the three-part blog series showcasing the remarkable capabilities of HPE Ezmeral Unified Analytics through a real-world use case: Stock Market Prediction. In Part 1 of this series, I will delve into the data engineering aspect of the platform, exploring how it facilitates seamless data management and analysis.
 
@@ -68,7 +77,7 @@ Once it is available, you can connect to the notebook server either on HPE Ezmer
 
 A MySQL database was created and hosted in Microsoft Azure to capture the structured streaming data to a single table. The database server is configured to permit access to the select IP addresses.
 
-Step 3: Streaming data to database
+## Step 3: **Streaming data to database**
 
 The data is read from HPE Ezmeral Data Fabric volume by the Spark Streaming engine in constant time intervals. The Spark engine converts the files into batches and does some data engineering like transformations and aggregations on the data. Finally, it is saved to MySQL database using jdbc connections. It is mandatory for all the incoming files to share the same schema.
 
@@ -96,7 +105,7 @@ Define the data schema for the data to stream in the application.
 
 ![](https://lh4.googleusercontent.com/gMBQ7IbeVKFi9YDjjVn485VXx8Kt-jcJvNBFV7HsWYjGqnSZzpdEKrgfvypRiTCUIYMVLlOag3FDjwhNFPdVJyZrXqqf9cOiLJkJ6T89MajBJccQizawt0lqo7gPrVM4DPTEbx9dJj5zR7BHVwbnFUs)
 
-Step 4: Connecting the database to HPE Ezmeral Unified Analytics
+## Step 4: **Connecting the database to HPE Ezmeral Unified Analytics**
 
 HPE Ezmeral Unified Analytics provides users with a quick and simple process to connect to external data sources like different databases, Hive, Snowflake, Teradata, etc. Here a new data source connection is added, and the source is selected as MySQL. The connection is established once the jdbc connection url, username and password are validated.
 
@@ -106,7 +115,7 @@ This will connect the database to EzPresto, which is a distributed analytic quer
 
 ![](https://lh3.googleusercontent.com/EJZsyxnH6tUhlduTbkddolYL3QHc3QUmAihD_QmE8L0_p1j_y1DfgA8HE0ug1dF3RecvRuomELlrp7LtSYIqWuk6U2vs15MR6SvmnLz-1zTeZGf_v9iXzkCu43kyrEpucyHnBVRTvAXb7nff5uWXEiM)
 
-Step 5: Visualization using Superset.
+## Step 5: **Visualization using Superset**
 
 Apache Superset, a data visualization tool has been integrated into HPE Ezmeral Unified Analytics, which helps with the graphical representation of data, from simple line charts to highly detailed geospatial charts. The dashboards help users to get a clear picture of the KPIs and other relevant metrices of the business.
 
@@ -122,8 +131,4 @@ Here, a new dashboard is created in HPE Ezmeral Unified Analytics, and the conne
 
 In concluding Part 1 of this blog series, you’ve journeyed through the data engineering and analytics aspects of using Spark, EzPresto, and Superset, powered by HPE Ezmeral Unified Analytics. With a spotlight on assimilating external pricing data to craft a dynamic dashboard, I hope I have illuminated how this platform brings together best of breed open-source tools to transform complex data into valuable insights.
 
-Don't miss Part 2, where you’ll get to explore the machine learning capabilities of our platform. To get familiar with HPE Unified Analytics Software, [try it](https://www.hpe.com/us/en/hpe-ezmeral-unified-analytics) for free or visit our [website](https://www.hpe.com/us/en/hpe-ezmeral-unified-analytic) for details. Let's unlock the future of analytics together!
-
-
-
-<!--EndFragment-->
+Don't miss Part 2, where you’ll get to explore the machine learning capabilities of our platform. To get familiar with HPE Unified Analytics Software, [try it](https://www.hpe.com/us/en/hpe-ezmeral-unified-analytics.html) for free or visit our ***[website](https://www.hpe.com/us/en/hpe-ezmeral-unified-analytic)*** for details. Let's unlock the future of analytics together!
