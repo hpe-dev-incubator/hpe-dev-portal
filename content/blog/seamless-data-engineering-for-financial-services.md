@@ -131,4 +131,6 @@ Here, a new dashboard is created in HPE Ezmeral Unified Analytics, and the conne
 
 In concluding Part 1 of this blog series, you’ve journeyed through the data engineering and analytics aspects of using Spark, EzPresto, and Superset, powered by HPE Ezmeral Unified Analytics. With a spotlight on assimilating external pricing data to craft a dynamic dashboard, I hope I have illuminated how this platform brings together best of breed open-source tools to transform complex data into valuable insights.
 
-Don't miss Part 2, where you’ll get to explore the machine learning capabilities of our platform. To get familiar with HPE Unified Analytics Software, [try it](https://www.hpe.com/us/en/hpe-ezmeral-unified-analytics.html) for free or visit our [website](https://docs.ezmeral.hpe.com/unified-analytics/11/index.html)for details. Let's unlock the future of analytics together!
+Don't miss Part 2, where you’ll get to explore the machine learning capabilities of our platform. To get familiar with HPE Unified Analytics Software, [try it](https://www.hpe.com/us/en/hpe-ezmeral-unified-analytics.html) for free or visit our [website](https://docs.ezmeral.hpe.com/unified-analytics/11/index.html) for details. Let's unlock the future of analytics together!
+
+Contributors to this blog post include Suvralipi Mohanta (suvralipi.mohanta@hpe.com), Harikrishnan Nair (harikrishnan.nair@hpe.com), and Joann Starke (joann.starke@hpe.com).
