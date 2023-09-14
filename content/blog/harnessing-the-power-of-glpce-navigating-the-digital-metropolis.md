@@ -2,7 +2,7 @@
 title: "Harnessing the Power of GLPCE: Navigating the Digital Metropolis"
 date: 2023-09-07T18:36:41.947Z
 author: Sudhendra Seshachala
-authorimage: /img/Avatar1.svg
+authorimage: /img/photo-1-.jpeg
 disable: false
 tags:
   - GreenLake Private Cloud Enterprise, GLPCE
