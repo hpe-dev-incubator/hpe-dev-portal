@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import PropTypes from 'prop-types';
 import {
   Box,
@@ -13,7 +13,7 @@ import {
 } from 'grommet';
 
 import { Link } from '../../components';
-// import { AppContext } from '../../providers/AppProvider';
+import { AppContext } from '../../providers/AppProvider';
 
 const { GATSBY_NEWSLETTER_API } = process.env;
 
@@ -39,10 +39,10 @@ export const EmailCapture = ({ children, heading, bodyCopy1, bodyCopy2 }) => {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
-  // const { user: userDetails } = useContext(AppContext);
+  const { user: userDetails } = useContext(AppContext);
   const [formData, setFormData] = useState({
-    // email: userDetails.email,
-      email: '',
+    email: userDetails.email,
+     // email: '',
   });
 
   const onSubmit = () => {
