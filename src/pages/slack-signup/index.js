@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 // import '../../css/style.css';
 import Swal from 'sweetalert2';
 import { Box, Image, Button, TextInput, Text } from 'grommet';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import { Layout, SEO } from '../../components';
+import { AppContext } from '../../providers/AppProvider';
 
 const { GATSBY_SLACK_TOKEN } = process.env;
 const { GATSBY_SLACK_INVITE_URL } = process.env;
@@ -18,7 +19,8 @@ const buttonstyle = {
   fontFamily: 'sans-serif',
 };
 export default function Slacksignup() {
-  const [email, setemail] = useState('');
+  const { user: userDetails } = useContext(AppContext);
+  const [email, setemail] = useState(userDetails.email);
   const onsubmit = (evt) => {
     evt.preventDefault();
     if (email) {
