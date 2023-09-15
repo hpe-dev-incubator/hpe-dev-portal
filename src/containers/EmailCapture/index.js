@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import PropTypes from 'prop-types';
 import {
   Box,
@@ -13,6 +13,8 @@ import {
 } from 'grommet';
 
 import { Link } from '../../components';
+import { AppContext } from '../../providers/AppProvider';
+
 
 const { GATSBY_NEWSLETTER_API } = process.env;
 
@@ -38,8 +40,9 @@ export const EmailCapture = ({ children, heading, bodyCopy1, bodyCopy2 }) => {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
+  const { user: userDetails } = useContext(AppContext);
   const [formData, setFormData] = useState({
-    email: '',
+    email: userDetails?.email,
   });
 
   const onSubmit = () => {
@@ -49,6 +52,7 @@ export const EmailCapture = ({ children, heading, bodyCopy1, bodyCopy2 }) => {
     const listId = 14530343;
     return fetch(GATSBY_NEWSLETTER_API, {
       method: 'POST',
+      mode: 'no-cors',
       headers: new Headers({
         'content-type': 'application/json',
       }),
@@ -118,7 +122,7 @@ export const EmailCapture = ({ children, heading, bodyCopy1, bodyCopy2 }) => {
           </FormField>
           <Box margin={{ top: 'medium' }} gap="medium">
             <Paragraph margin="none">
-              By clicking on “Subscribe Now”, I agree to HPE sending me
+              By clicking on "Subscribe Now", I agree to HPE sending me
               personalized email communication about HPE and select HPE-Partner
               products, services, offers and events. I understand that my email
               address will be used in accordance with{' '}
