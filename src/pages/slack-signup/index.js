@@ -19,7 +19,7 @@ const buttonstyle = {
   fontFamily: 'sans-serif',
 };
 export default function Slacksignup() {
-  const { userDetails } = useContext(AppContext);
+  const { user: userDetails } = useContext(AppContext);
   const [email, setemail] = useState(userDetails.email);
   const onsubmit = (evt) => {
     evt.preventDefault();
