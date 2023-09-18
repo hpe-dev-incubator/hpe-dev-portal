@@ -42,7 +42,7 @@ Dive into our three-part blog post series designed to unveil the robust features
 
 ## Allocation / Deallocation
 
-| <img src="/img/blog1.png" width="50%" height="50%" alt="" title=""> | <img src="/img/blog2.png" width="50%" height="50%" alt="" title=""> |
+\| <img src="/img/blog1.png" width="50%" height="50%" alt="" title=""> | <img src="/img/blog2.png" width="50%" height="50%" alt="" title=""> |
 | col 1 is            | left-aligned        |
 
 Screenshot 1: screenshot of an animation showing allocation and reallocation.
@@ -87,10 +87,14 @@ In conclusion, GreenLake PCE isn't just an advanced infrastructure for enterpris
 
 Plan and monitor capacity usage in PCE across the 3 services.
 
+![Bare Metal Service Monitoring](/img/blog6.png "Screenshot 2: Bare Metal Service Monitoring")
+
 Screenshot 2: Bare Metal Service Monitoring
 
 \
 In Screenshot 2, the Capacity tab displays Bare metal resources categorized by "Compute Group, Site, and Instance Type." Users can set thresholds for CPU and memory usage. Yellow bars in the CPU and memory columns signify that resource usage is nearing the configured maximum threshold.
+
+![Virtual Machine Service Monitoring](/img/blog7.png "Screenshot 3: Virtual Machine Service Monitoring")
 
 Screenshot 3: Virtual Machine Service Monitoring
 
@@ -98,6 +102,8 @@ In Screenshot 3, the Capacity tab categorizes Virtual Machine service resources 
 
 * CPU and memory usage thresholds reflect active resource consumption by hosted apps/processes. By defining a range, we can optimize resources, preventing underuse or potential performance issues.
 * CPU and memory allocated thresholds show reserved resources per cluster/instance type, regardless of activity. This ensures we identify over-allocated or under-allocated resources.
+
+  ![Screenshot 4: ](/img/blog8.png "Screenshot 4: Container Service Monitoring")
 
 Screenshot 4: Container Service Monitoring
 
