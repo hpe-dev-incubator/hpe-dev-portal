@@ -1,5 +1,6 @@
 ---
-title: Closing the gap between HPC and AI
+title: Closing the gap between High-Performance Computing (HPC) and artificial
+  intelligence (AI)
 date: 2023-09-15T06:34:38.086Z
 author: "Philipp Offenhäuser & Christopher Williams "
 authorimage: /img/Avatar1.svg
@@ -10,23 +11,23 @@ tags:
   - Reinforcement Learning
   - AI
 ---
-Scientists and engineers face a number of technical hurdles to utilizing artificial intelligence (AI) techniques alongside high-performance scientific computing applications. Recently, a multidisciplinary team of researchers at Hewlett Packard Enterprise (HPE), the University of Stuttgart, and the High-Performance Computing Center Stuttgart (HLRS), created Relexi to overcome these technical challenges and provide the community with a large-scale simulation framework that can be tailored to their use cases. This solution was built on top of another existing open-source library developed at HPE called [SmartSim](https://developer.hpe.com/platform/smartsim/home/).
+Scientists and engineers face a number of technical hurdles to utilizing artificial intelligence (AI) techniques alongside high-performance scientific computing applications. Recently, a multidisciplinary team of researchers at Hewlett Packard Enterprise (HPE), the Institute of Aerodynamics and Gas Dynamics of the University of Stuttgart, and the High-Performance Computing Center Stuttgart (HLRS), created Relexi to overcome these technical challenges and provide the community with a large-scale simulation framework that can be tailored to their use cases. This solution was built on top of another existing open-source library developed at HPE called [SmartSim](https://developer.hpe.com/platform/smartsim/home/).
 
 Researchers were looking for machine learning (ML)-based techniques that could help with common engineering problems, such as using a simulation of fluid flow to improve the performance of an airplane wing. Relexi was able to realize this by combining FLEXI, a computational fluid dynamics solver, and Tensorflow, one of the most popular machine learning packages, to create a reinforcement learning framework by which a computer can ‘learn’ how to optimize these types of problems.
 
-FLEXI was developed at the University of Stuttgart’s Institute for Aerodynamics and Gas Dynamics (IAG) over the course of many years, and is used for computationally demanding, high-resolution CFD simulations. Engineers use the code, for example, to simulate the flow around an airfoil to optimize the performance of new airplane wing designs. Modeling such phenomena based on physical principles is currently only practical using powerful, highly parallelized supercomputers. Recently, however, researchers at the IAG have been exploring how machine learning could enhance FLEXI’s capabilities and make such simulations more accessible. Tested on HLRS’s Hawk supercomputer, this approach holds the potential to make high-performance simulation more accessible for state-of-the-art engineering applications.
+FLEXI was developed at the Institute for Aerodynamics and Gas Dynamics (IAG) in the lab for Numerical Methods in Fluid Mechanics of Prof. Dr. Ing. Andrea Beck over the course of many years, and is used for computationally demanding, high-resolution computational fluid dynamics (CFD) simulations. Engineers use the code, for example, to simulate the flow around an airfoil to optimize the performance of new airplane wing designs. Modeling such phenomena based on physical principles is currently only practical using powerful, highly parallelized supercomputers. Recently, however, researchers at the IAG have been exploring how machine learning could enhance FLEXI’s capabilities and make such simulations more accessible. Tested on HLRS’s Hawk supercomputer, this approach holds the potential to make high-performance simulation more accessible for state-of-the-art engineering applications.
 
 **Reinforcement learning makes simulations easier**
 
-Turbulence is one of the most challenging problems for engineers to deal with because it exists at a variety of points, all the way down to the molecular level. Normally, these tiny features require very computationally expensive simulations to represent. Additionally, there is no single formula that describes the effects of turbulence well in the types of coarser simulations that most engineers are practically restricted to. Traditionally, fluid dynamicists have needed to derive approximations using complex mathematical techniques, most of which form the foundation of countless PhD theses, with no clear ‘winner’ emerging among the field. More recently, researchers have tried using a machine learning approach, called supervised learning, that analyzes a training dataset to develop a turbulence model. This approach has also proved to be insufficient, because of discrepancies between the training set and the actual simulation environment, which are not easy to resolve in this learning paradigm.
+Turbulence is one of the most challenging problems for engineers to deal with because it exists at a variety of scales, all the way down to the molecular level. Normally, the simulations that represent the smallest structures of a turbulent flow are very computationally intensive and expensive. Additionally, there is no single formula that describes the effects of turbulence well in the types of coarser simulations that most engineers are practically restricted to. Traditionally, fluid dynamicists have needed to derive approximations using complex mathematical techniques, most of which form the foundation of countless PhD theses, with no clear ‘winner’ emerging among the field. More recently, researchers have tried using a machine learning approach called supervised learning that analyzes a training dataset to develop a turbulence model. This approach has also proved to be insufficient, because of discrepancies between the training set and the actual simulation environment, which are not easy to resolve this way.
 
 Scientists in the Beck Lab have been exploring whether another ML approach, called reinforcement learning, could help to overcome these limitations. In reinforcement learning, a machine learning model is not trained on a static dataset, but rather on data generated by the actual system it will later model. The team calls the new framework [Relexi](https://github.com/flexi-framework/relexi), and in recent publications they have demonstrated its effectiveness in finding suitable turbulence models and making the simulations more accurate. Figure 1 below shows the general architecture of Relexi.
 
 ![Figure 1: General architecture of Relexi.](/img/blog-hpc-ai.png "Figure 1: General architecture of Relexi. To train the agent, Relexi launches simulations on distributed worker nodes during each iteration of the training process. The entire training process is configured by Relexi’s YAML configuration file. The communication between TensorFlow and FLEXI is implemented via the Orchestrator database and the SmartRedis (SR) Clients provided by SmartSim.")
 
-This is the first mention of Professor Beck, but I have a feeling that the research going on in her lab is key to the article. Since her organization is at the University of Stuttgart, consider introducing her a little more in the very first paragraph (see highlighted section). Perhaps the first paragraph just needs a little work to make it clearer that you’ll be discussing the work going on in her laboratory.
+###### Fig. 1: General architecture of Relexi. To train the agent, Relexi launches simulations on distributed worker nodes during each iteration of the training process. The entire training process is configured by Relexi’s YAML configuration file. The communication between TensorFlow and FLEXI is implemented via the Orchestrator database and the SmartRedis (SR) Clients provided by SmartSim.
 
-To combine HPC and AI, Relexi uses an iterative workflow. Simulation data from FLEXI are fed into a reinforcement learning algorithm, becoming training data that the program uses to optimize the parameters of the turbulence model. The turbulence model then predicts the eddy viscosity as input data for the larger FLEXI simulation, which once again generates data for another round of training. By producing many FLEXI instances over multiple iterations, the optimization of the turbulence model eventually converges to a point where the simulation remains stable and accurate. The scientists can then be confident that their model is suitable for other types of applications
+To combine HPC and AI, Relexi uses an iterative workflow. Simulation data from FLEXI are fed into a reinforcement learning algorithm, becoming training data that the program uses to optimize the parameters of the turbulence model. The turbulence model then predicts the eddy viscosity as input data for the larger FLEXI simulation, which once again generates data for another round of training. By producing many FLEXI instances over multiple iterations, the optimization of the turbulence model eventually converges to a point where the simulation remains stable and accurate. The scientists can then be confident that their model is suitable for other types of applications.
 
 **SmartSim enables the implementation of hybrid AI/HPC workflows**
 
@@ -40,22 +41,24 @@ A critical piece that was needed to make Relexi work, however, was an open-sourc
 
 The implementation of SmartSim within FLEXI was relatively straightforward, as the programmers needed to change only 16 lines of code in FLEXI to make it work. The approach also scaled extremely well to 16 compute nodes (2,048 cores) on Hawk, with minimal drop-offs in performance. The team’s study demonstrated that by running higher numbers of simulations per training iteration, the turbulence model converged more quickly. They also showed that the more data that is produced, the better the resulting turbulence model will be.
 
-**Relexi could support other HPC solvers**
+**Relexi could support other CFD software**
 
-Relexi was developed to enhance FLEXI, but is designed to be modular so that other HPC solvers can also be used as well. In this way, it holds great potential to support other hybrid applications that combine traditional high-performance computing with AI methods. The Beck Lab, HLRS, and HPE will continue developing Relexi, and plan to test it on a real-world simulation to determine the flow around an plane wing in the near future.
+Relexi was developed to enhance FLEXI, but is designed to be modular so that other CFD software can also be used as well. In this way, it holds great potential to support other hybrid applications that combine traditional high-performance computing with AI methods. The Beck Lab, HLRS, and HPE will continue developing Relexi, and plan to test it on a real-world simulation to determine the flow around a plane wing in the near future.
 
-**Additional resources**
+Additional resources
 
-***SmartSim on GitHub:*** <https://github.com/CrayLabs/SmartSim>
+SmartSim on GitHub: <https://github.com/CrayLabs/SmartSim>
 
-***FLEXI and Relexi on GitHub:***
+FLEXI and Relexi on GitHub:
 
 <https://github.com/flexi-framework/flexi>
 
 <https://github.com/flexi-framework/relexi>
 
-***Related publications:***
+Related publications:
 
 Kurz M, Offenhäuser P, Beck A. 2023. [Deep reinforcement learning for turbulence modeling in largy eddy simulations](https://www.sciencedirect.com/science/article/abs/pii/S0142727X2200162X?via%3Dihub). Int J Heat Fluid Flow. 99: 109094.
 
 Kurz M, Offenhäuser P, Viola D, Shcherbakov O, Resch M, Beck A. 2022. [Deep reinforcement learning for computational fluid dynamics on HPC systems](https://www.sciencedirect.com/science/article/pii/S1877750322002435). J Comp Sci. 65: 101884.
+
+Kurz M, Offenhäuser P, Viola D, Shcherbakov O, Resch M, Beck A. 2022. [Relexi — A scalable open source reinforcement learning framework for high-performance computing](https://www.softwareimpacts.com/article/S2665-9638(22)00106-3/fulltext). Software Impacts 14: 100422.
