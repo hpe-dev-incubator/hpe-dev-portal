@@ -42,13 +42,17 @@ Dive into our three-part blog post series designed to unveil the robust features
 
 ## Allocation / Deallocation
 
-
+| <img src="/img/blog1.png" width="50%" height="50%" alt="" title=""> | <img src="/img/blog2.png" width="50%" height="50%" alt="" title=""> |
+| col 1 is            | left-aligned        |
 
 Screenshot 1: screenshot of an animation showing allocation and reallocation.
 
-In GreenLake PCE's resource management:
+<img src="/img/blog1.png" width="50%" height="50%" alt="" title="">
 
- 
+![](/img/blog1.png) 
+![](/img/blog2.png)
+
+In GreenLake PCE's resource management:
 
 * Resource Allocation Strategy:
 
@@ -59,8 +63,6 @@ In GreenLake PCE's resource management:
 
 1. Monitoring for Efficiency/Capacity: Continuously monitor the utilization rates across all three services: Bare Metal, virtual machines, and containers. To understand how such resource utilization is tracked and assessed, stay tuned for our upcoming section on Capacity Planning and Monitoring.
 2. Responsive Adjustments: If Cluster 2 has unused M2i instance types, they can be deallocated from Cluster 2 and reallocated to the Bare Metal pool, or even to Cluster 1 if there's a demand. The reverse can be done if there are excess G2i units in Cluster 1. This fluidity ensures that resources are always optimally utilized and aren't left idle in one corner when they could be serving pressing tasks elsewhere.
-
- 
 
 ## The Benefits
 
@@ -85,31 +87,19 @@ In conclusion, GreenLake PCE isn't just an advanced infrastructure for enterpris
 
 Plan and monitor capacity usage in PCE across the 3 services.
 
-
-
 Screenshot 2: Bare Metal Service Monitoring
 
 \
 In Screenshot 2, the Capacity tab displays Bare metal resources categorized by "Compute Group, Site, and Instance Type." Users can set thresholds for CPU and memory usage. Yellow bars in the CPU and memory columns signify that resource usage is nearing the configured maximum threshold.
 
- 
-
- 
-
 Screenshot 3: Virtual Machine Service Monitoring
-
- 
 
 In Screenshot 3, the Capacity tab categorizes Virtual Machine service resources by "Cluster and Instance Type." The screen displays four key metrics: CPU usage, CPU allocated, memory usage, and memory allocated.
 
 * CPU and memory usage thresholds reflect active resource consumption by hosted apps/processes. By defining a range, we can optimize resources, preventing underuse or potential performance issues.
 * CPU and memory allocated thresholds show reserved resources per cluster/instance type, regardless of activity. This ensures we identify over-allocated or under-allocated resources.
 
- 
-
 Screenshot 4: Container Service Monitoring
-
- 
 
 In Screenshot 4, the Capacity tab displays grouping of Container resources by "Cluster, Instance Type, and Site." PCE supports two container deployment models: on Virtual Machines and on Bare Metal. While allocated thresholds are predetermined, this interface allows for the customization of usage thresholds. Stay tuned for our upcoming section on Container service scaling.
 
