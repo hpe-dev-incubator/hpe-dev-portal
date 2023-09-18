@@ -45,6 +45,11 @@ Dive into our three-part blog post series designed to unveil the robust features
 ![](/img/blog1.png)
 ![](/img/blog2.png)
 
+![](/img/blog3.png)
+
+![](/img/blog4.png)
+
+![](/img/blog-5.png)
 
 Screenshot 1: screenshot of an animation showing allocation and reallocation.
 
