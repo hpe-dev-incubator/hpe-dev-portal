@@ -57,3 +57,69 @@ When expecting extensive data-processing tasks, the system designates a higher n
 ![Screenshot 2: Reallocation](/img/picture2.png "Screenshot 2: Reallocation")
 
 As depicted in screenshot 2, these instance types can be promptly and efficiently reallocated to any of the virtualization clusters, contingent on their immediate demands. This dynamic reallocation ensures that resources are always optimally utilized, adapting in real-time to the ever-changing workload requirements.
+
+**Tune Resource Allocations:** 
+
+* **Monitoring for Efficiency/Capacity**: Continuously monitor the utilization rates across all three services: Bare Metal, virtual machines, and containers. To understand how such resource utilization is tracked and assessed, stay tuned for our upcoming section on Capacity Planning and Monitoring
+
+![Screenshot 3: Add New Capacity](/img/picture3.png)
+
+![Screenshot 3: Responsive Adjustments](/img/picture4.png "Screenshot 3: Responsive Adjustments")
+
+* **Responsive Adjustments**:  Referring to Screenshots 3 and 4, observe that if Cluster 2 possesses idle memory optimized (M2i) instances, they can be shifted from Cluster 2 either to the Bare Metal pool or to Cluster 1, depending on demand. Conversely, if Cluster 1 has surplus general purpose (G2i) units, they can be relocated in a similar manner. Such adaptability ensures that resources are consistently maximized, preventing them from sitting unused when they could be beneficial elsewhere. 
+
+  **The Benefits**
+
+  GreenLake PCE stands out with its versatile offerings:
+
+  1. **Flex Capacity for Varied Workloads**: Adapt to any challenge, be it data-heavy tasks needing memory-optimized solutions or general-purpose assignments. The infrastructure's ability to dynamically alter instance types ensures you're never caught off-guard.
+
+  2. **Cost Efficiency**: The intelligent utilization of varied instance types avoids redundant costs by preventing over-provisioning, leading to tangible savings.
+
+  3. **Performance Enhancement**: No matter the environment - bare metal, VM, or container - resources are meticulously tuned to guarantee top-tier operational efficiency.
+
+  For a Cloud or an IT admin, this translates to:
+
+  **Resource Agility**: Resources are allocated quickly and as per demand, ensuring seamless coding and testing phases.
+
+  **Optimized App Development:** Tailored resources mean your applications run at their prime, ensuring your work shines.
+
+  **Hassle-free Environment Transition** : While GreenLake PCE doesn't make transitioning between BM, VM, and Containers effortless, it does simplify the infrastructure aspect, ensuring that whatever environment you're developing for or operating within is backed by a robust, flexible, and optimal resource.
+
+  **Informed Application Optimization** : With GreenLake PCE's optimized infrastructure, developers gain insights into the utilization and cost implications of their applications. This transparency empowers them to refine and optimize their apps, ensuring efficient resource use and cost-effectiveness during the application's lifecycle.
+
+  **Performance Assurance**: You develop with the certainty that applications will consistently deliver peak performance, enhancing the end-user experience.
+
+  **Influence & Advocacy**: As a developer, you hold a pivotal role in steering decisions. With the tangible benefits of GreenLake PCE, championing its adoption becomes a compelling argument.
+
+  In conclusion, GreenLake PCE isn't just an advanced infrastructure for enterprises; it's a developer's ally. It not only streamlines the development process but also amplifies the impact of your work, making it an obvious choice for those looking for modern, efficient, and developer-friendly infrastructure solutions.
+
+  But I’m also having trouble correlating support for multiple instance types with making it easier to develop against BM, VM & Container.
+
+  **Capacity Planning & Monitoring**
+
+  Plan and monitor capacity usage in PCE across the 3 services.
+
+   
+
+  ![Screenshot 2: Bare Metal Service Monitoring](/img/picture5.png "Screenshot 2: Bare Metal Service Monitoring")
+
+  In Screenshot 2, the Capacity tab displays Bare metal resources categorized by "Compute Group, Site, and Instance Type." Users can set thresholds for CPU and memory usage. Yellow bars in the CPU and memory columns signify that resource usage is nearing the configured maximum threshold.
+
+  ![Screenshot 3: Virtual Machine Service Monitoring](/img/picture6.png "Screenshot 3: Virtual Machine Service Monitoring")
+
+  In Screenshot 3, the Capacity tab categorizes Virtual Machine service resources by "Cluster and Instance Type." The screen displays four key metrics: CPU usage, CPU allocated, memory usage, and memory allocated. 
+
+  ·     CPU and memory usage thresholds reflect active resource consumption by hosted apps/processes. By defining a range, we can optimize resources, preventing underuse or potential performance issues.
+
+  ·       CPU and memory allocated thresholds show reserved resources per cluster/instance type, regardless of activity. This ensures we identify over-allocated or under-allocated resources.
+
+  ![Screenshot 4: Container Service Monitoring](/img/picture7.png "Screenshot 4: Container Service Monitoring")
+
+  In Screenshot 4, the Capacity tab displays grouping of Container resources by "Cluster, Instance Type, and Site." PCE supports two container deployment models: on Virtual Machines and on Bare Metal. While allocated thresholds are predetermined, this interface allows for the customization of usage thresholds. Stay tuned for our upcoming section on Container service scaling.
+
+  **Conclusion**
+
+  In conclusion, GLPCE offers businesses a flexible infrastructure through its Infrastructure Resource Pool and Capacity Planning. This not only addresses current needs but also prepares for future demands. Moreover, GLPCE's consumption analytics provide clear cost insights, facilitating informed financial decisions. In the digital age, choosing the right infrastructure is essential. With GLPCE, businesses gain both scalability and transparency in costs. Consider GLPCE for a comprehensive infrastructure solution.
+
+  Join us in upcoming blog posts as we delve deeper into GLPCE's dynamic features, underscoring how they come together to create an agile and resilient foundation for the modern digital enterprise.
