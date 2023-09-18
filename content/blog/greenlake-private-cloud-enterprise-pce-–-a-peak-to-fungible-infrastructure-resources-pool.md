@@ -5,6 +5,11 @@ date: 2023-09-18T21:31:53.388Z
 author: Sudhendra Seshachala
 authorimage: /img/photo-1-.jpeg
 disable: false
+tags:
+  - GLPCE, GreenLake Private Cloud Enterprise, Enterprise IT, Infrastructure
+    Resource Pool, Capacity Planning, Fungible Infrastructure, Cloud
+    Strategists, Hybrid Cloud Architecture, Enterprise Cloud Governance,
+    Enterprise Compliance, IT Resource Management
 ---
 ## **[Introduction](<>)**
 
