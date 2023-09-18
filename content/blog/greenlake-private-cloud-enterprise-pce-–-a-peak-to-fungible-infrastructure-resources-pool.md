@@ -41,4 +41,19 @@ Join us for the first of a three-part series on GreenLake PCE, tagged #unleashpo
 
 [Allocation / Deallocation](<>)
 
-GLPCE prioritizes resource allocation in line with expected workloads. Should a cluster harbor idle resources, they can be redirected to areas of higher demand. Through consumption analytics and continuous monitoring, optimal utilization is ensured. We'll delve deeper into this concept with a forthcoming visual representation.
+GLPCE prioritizes resource allocation in line with expected workloads. Should a cluster harbor idle resources, they can be redirected to areas of higher demand. Through consumption analytics and continuous monitoring, optimal utilization is ensured. We'll delve deeper into this concept with a forthcoming visual representation
+
+**Resource Allocation Strategy:**  
+
+**Initial Allocation**: As seen in screenshot 1, the initial resource allocation process is primarily based on anticipated workload demands. 
+
+![Screenshot 1: Initial Allocation](/img/picture1.png "Screenshot 1: Initial Allocation")
+
+When expecting extensive data-processing tasks, the system designates a higher number of memory optimized (M2i) instance types to Cluster 2, situated within the virtualization resource pool. On the other hand, for every day, routine operations, Cluster 1 is typically outfitted with general purpose (G2i) instance types to ensure smooth and efficient operations. This allocation strategy aims to match resource types with the specific requirements of each cluster.
+
+
+**Reallocation**: Drawing attention to screenshot 2, it's evident that as workloads ebb and flow, there may be instances within the Bare Metal resource pool that remain unused. Such idle resources aren't just dormant assets; they have potential. 
+
+![Screenshot 2: Reallocation](/img/picture2.png "Screenshot 2: Reallocation")
+
+As depicted in screenshot 2, these instance types can be promptly and efficiently reallocated to any of the virtualization clusters, contingent on their immediate demands. This dynamic reallocation ensures that resources are always optimally utilized, adapting in real-time to the ever-changing workload requirements.
