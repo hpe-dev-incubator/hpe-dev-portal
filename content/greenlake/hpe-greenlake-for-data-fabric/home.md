@@ -29,14 +29,6 @@ Don’t worry, you won’t have to learn new tools or processes because HPE Gree
 
 Develop in the cloud while data and models are automatically replicated to production environments such as edge, on-premises, or cloud environments. Layer on an ecosystem of the most popular open source tools to process data right where its created while the resulting insights are replicated back to your environment of choice. 
 
-## HPE Ezmeral Early Access Program
-
-Here’s your chance to [try HPE GreenLake for Data Fabric](https://home.hpe-df.com/) before it is officially released. With early access, you have the opportunity to get hands-on experience with new features and capabilities while helping to guide the product roadmap. 
-
-* [Read this blog post for more information about the HPE Ezmeral Early Access program](https://developer.hpe.com/blog/hpe-ezmeral-early-access-gives-developers-hands-on-experience-with-the-new-hpe-greenlake-for-data-fabric/).   
-
-* Learn more about this program [here](https://connect.hpe.com/HPEEzmeralEarlyAccess).   
-
 - - -
 
 ## Documentation
