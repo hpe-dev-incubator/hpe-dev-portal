@@ -103,7 +103,7 @@ In Screenshot 3, the Capacity tab categorizes Virtual Machine service resources 
 * CPU and memory usage thresholds reflect active resource consumption by hosted apps/processes. By defining a range, we can optimize resources, preventing underuse or potential performance issues.
 * CPU and memory allocated thresholds show reserved resources per cluster/instance type, regardless of activity. This ensures we identify over-allocated or under-allocated resources.
 
-  ![Screenshot 4: ](/img/blog8.png "Screenshot 4: Container Service Monitoring")
+  ![Container Service Monitoring](/img/blog8.png "Screenshot 4: Container Service Monitoring")
 
 Screenshot 4: Container Service Monitoring
 
