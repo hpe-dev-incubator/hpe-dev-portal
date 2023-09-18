@@ -7,7 +7,7 @@ priority: 10
 author: Alaric Thomas
 authorimage: /img/alaric_0.1.jpg
 thumbnailimage: /img/1338228_zh3kqtu6roaxv7asnc97_sw-dc-ezmeralwebinars-220921-gldatafabric-v1c.jpg
-disable: false
+disable: true
 tags:
   - hpe-ezmeral
   - hpe-greenlake
