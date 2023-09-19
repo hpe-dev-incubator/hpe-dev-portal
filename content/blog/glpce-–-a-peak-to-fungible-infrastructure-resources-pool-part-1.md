@@ -83,13 +83,13 @@ In conclusion, GreenLake PCE isn't just an advanced infrastructure for enterpris
 
 Plan and monitor capacity usage in PCE across the 3 services.
 
-![Bare Metal Service Monitoring](/img/blog6.png "Screenshot 2: Bare Metal Service Monitoring")
+![Bare Metal Service Monitoring](/img/picture5-19-sep-23.png "Screenshot 2: Bare Metal Service Monitoring")
 
 ###### Screenshot 2: Bare Metal Service Monitoring
 
 In Screenshot 2, the Capacity tab displays Bare metal resources categorized by "Compute Group, Site, and Instance Type." Users can set thresholds for CPU and memory usage. Yellow bars in the CPU and memory columns signify that resource usage is nearing the configured maximum threshold.
 
-![Virtual Machine Service Monitoring](/img/blog7.png "Screenshot 3: Virtual Machine Service Monitoring")
+![Virtual Machine Service Monitoring](/img/picture6-19-sep-23.png "Screenshot 3: Virtual Machine Service Monitoring")
 
 ###### Screenshot 3: Virtual Machine Service Monitoring
 
@@ -98,7 +98,7 @@ In Screenshot 3, the Capacity tab categorizes Virtual Machine service resources 
 * CPU and memory usage thresholds reflect active resource consumption by hosted apps/processes. By defining a range, we can optimize resources, preventing underuse or potential performance issues.
 * CPU and memory allocated thresholds show reserved resources per cluster/instance type, regardless of activity. This ensures we identify over-allocated or under-allocated resources.
 
-![Container Service Monitoring](/img/blog8.png "Screenshot 4: Container Service Monitoring")
+![Container Service Monitoring](/img/picture7-19-sep-23.png "Screenshot 4: Container Service Monitoring")
 
 ###### Screenshot 4: Container Service Monitoring
 
