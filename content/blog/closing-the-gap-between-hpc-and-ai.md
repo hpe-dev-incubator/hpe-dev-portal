@@ -25,7 +25,11 @@ Scientists in the Beck Lab have been exploring whether another ML approach, call
 
 ![Figure 1: General architecture of Relexi.](/img/blog-hpc-ai.png "Figure 1: General architecture of Relexi. To train the agent, Relexi launches simulations on distributed worker nodes during each iteration of the training process. The entire training process is configured by Relexi’s YAML configuration file. The communication between TensorFlow and FLEXI is implemented via the Orchestrator database and the SmartRedis (SR) Clients provided by SmartSim.")
 
+<font size="2">
+
 *Fig. 1: General architecture of Relexi. To train the agent, Relexi launches simulations on distributed worker nodes during each iteration of the training process. The entire training process is configured by Relexi’s YAML configuration file. The communication between TensorFlow and FLEXI is implemented via the Orchestrator database and the SmartRedis (SR) Clients provided by SmartSim.*
+
+</font>
 
 To combine HPC and AI, Relexi uses an iterative workflow. Simulation data from FLEXI are fed into a reinforcement learning algorithm, becoming training data that the program uses to optimize the parameters of the turbulence model. The turbulence model then predicts the eddy viscosity as input data for the larger FLEXI simulation, which once again generates data for another round of training. By producing many FLEXI instances over multiple iterations, the optimization of the turbulence model eventually converges to a point where the simulation remains stable and accurate. The scientists can then be confident that their model is suitable for other types of applications.
 
