@@ -1,8 +1,9 @@
 ---
-title: GLPCE – A  peak to fungible Infrastructure Resources Pool - part 1
+title: HPE GreenLake Private Cloud Enterprise  – A  peak to fungible
+  Infrastructure Resources Pool - part 1
 date: 2023-09-18T10:08:35.138Z
 author: "Sudhendra Seshachala "
-authorimage: /img/Avatar1.svg
+authorimage: /img/sudhendra-profile-photo.jpeg
 disable: false
 tags:
   - GreenLake Private Cloud Enterprise
