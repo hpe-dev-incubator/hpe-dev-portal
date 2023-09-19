@@ -3,7 +3,7 @@ title: GreenLake Private Cloud Enterprise (PCE) – A peak to fungible
   Infrastructure Resources Pool
 date: 2023-09-18T21:31:53.388Z
 author: Sudhendra Seshachala
-authorimage: /img/photo-1-.jpeg
+authorimage: /img/profile-photo.jpeg
 disable: false
 tags:
   - GLPCE, GreenLake Private Cloud Enterprise, Enterprise IT, Infrastructure
