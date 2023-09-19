@@ -48,7 +48,7 @@ Dive into our three-part blog post series designed to unveil the robust features
 
 ![Screenshot of an animation showing allocation and reallocation](/img/blog-new.jpg "Screenshot 1: screenshot of an animation showing allocation and reallocation")
 
-*Screenshot 1: screenshot of an animation showing allocation and reallocation*
+>> <span style="color:grey; font-family:Arial; font-size:1em">*Screenshot 1: screenshot of an animation showing allocation and reallocation*
 
 In GreenLake PCE's resource management:
 
@@ -91,13 +91,13 @@ Plan and monitor capacity usage in PCE across the 3 services.
 
 ![Bare Metal Service Monitoring](/img/picture5-19-sep-23.png "Screenshot 2: Bare Metal Service Monitoring")
 
-*Screenshot 2: Bare Metal Service Monitoring*
+>> <span style="color:grey; font-family:Arial; font-size:1em">*Screenshot 2: Bare Metal Service Monitoring*
 
 In Screenshot 2, the Capacity tab displays Bare metal resources categorized by "Compute Group, Site, and Instance Type." Users can set thresholds for CPU and memory usage. Yellow bars in the CPU and memory columns signify that resource usage is nearing the configured maximum threshold.
 
 ![Virtual Machine Service Monitoring](/img/picture6-19-sep-23.png "Screenshot 3: Virtual Machine Service Monitoring")
 
-*Screenshot 3: Virtual Machine Service Monitoring*
+>> <span style="color:grey; font-family:Arial; font-size:1em">*Screenshot 3: Virtual Machine Service Monitoring*
 
 In Screenshot 3, the Capacity tab categorizes Virtual Machine service resources by "Cluster and Instance Type." The screen displays four key metrics: CPU usage, CPU allocated, memory usage, and memory allocated.
 
@@ -106,7 +106,7 @@ In Screenshot 3, the Capacity tab categorizes Virtual Machine service resources 
 
 ![Container Service Monitoring](/img/picture7-19-sep-23.png "Screenshot 4: Container Service Monitoring")
 
-*Screenshot 4: Container Service Monitoring*
+>> <span style="color:grey; font-family:Arial; font-size:1em">*Screenshot 4: Container Service Monitoring*
 
 In Screenshot 4, the Capacity tab displays grouping of Container resources by "Cluster, Instance Type, and Site." PCE supports two container deployment models: on Virtual Machines and on Bare Metal. While allocated thresholds are predetermined, this interface allows for the customization of usage thresholds. Stay tuned for our upcoming section on Container service scaling.
 
