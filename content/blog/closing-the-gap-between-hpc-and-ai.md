@@ -25,7 +25,7 @@ Scientists in the Beck Lab have been exploring whether another ML approach, call
 
 ![Figure 1: General architecture of Relexi.](/img/blog-hpc-ai.png "Figure 1: General architecture of Relexi. To train the agent, Relexi launches simulations on distributed worker nodes during each iteration of the training process. The entire training process is configured by Relexi’s YAML configuration file. The communication between TensorFlow and FLEXI is implemented via the Orchestrator database and the SmartRedis (SR) Clients provided by SmartSim.")
 
-<font size="2">
+<font size="1">
 
 *Fig. 1: General architecture of Relexi. To train the agent, Relexi launches simulations on distributed worker nodes during each iteration of the training process. The entire training process is configured by Relexi’s YAML configuration file. The communication between TensorFlow and FLEXI is implemented via the Orchestrator database and the SmartRedis (SR) Clients provided by SmartSim.*
 
