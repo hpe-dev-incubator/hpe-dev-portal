@@ -53,20 +53,24 @@ In GreenLake PCE's resource management:
 
 * Resource Allocation Strategy:
 
-1. Initial Allocation: Refer to screenshot 1. Begin with a default allocation based on anticipated workload patterns. For instance, if heavy data-processing is expected, more M2i (memory optimized) instance types might be allocated to Cluster 2 under the virtualization resource pool. Meanwhile, for general tasks, G2i (general purpose) instance types can be allocated to Cluster 1.
-2. Reallocation: As workloads fluctuate, you might find unused instance types in the Bare Metal resource pool. These can be swiftly reallocated to either of the virtualization clusters based on their current demands.
+   1. Initial Allocation: Refer to screenshot 1. Begin with a default allocation based on anticipated workload patterns. For instance, if heavy data-processing is expected, more M2i (memory optimized) instance types might be allocated to Cluster 2 under the virtualization resource pool. Meanwhile, for general tasks, G2i (general purpose) instance types can be allocated to Cluster 1.
+
+   2. Reallocation: As workloads fluctuate, you might find unused instance types in the Bare Metal resource pool. These can be swiftly reallocated to either of the virtualization clusters based on their current demands.
 
 * Tune Resource Allocations:
 
-1. Monitoring for Efficiency/Capacity: Continuously monitor the utilization rates across all three services: Bare Metal, virtual machines, and containers. To understand how such resource utilization is tracked and assessed, stay tuned for our upcoming section on Capacity Planning and Monitoring.
-2. Responsive Adjustments: If Cluster 2 has unused M2i instance types, they can be deallocated from Cluster 2 and reallocated to the Bare Metal pool, or even to Cluster 1 if there's a demand. The reverse can be done if there are excess G2i units in Cluster 1. This fluidity ensures that resources are always optimally utilized and aren't left idle in one corner when they could be serving pressing tasks elsewhere.
+   1. Monitoring for Efficiency/Capacity: Continuously monitor the utilization rates across all three services: Bare Metal, virtual machines, and containers. To understand how such resource utilization is tracked and assessed, stay tuned for our upcoming section on Capacity Planning and Monitoring.
+
+   2. Responsive Adjustments: If Cluster 2 has unused M2i instance types, they can be deallocated from Cluster 2 and reallocated to the Bare Metal pool, or even to Cluster 1 if there's a demand. The reverse can be done if there are excess G2i units in Cluster 1. This fluidity ensures that resources are always optimally utilized and aren't left idle in one corner when they could be serving pressing tasks elsewhere.
 
 ## The Benefits
 
 GreenLake PCE stands out with its versatile offerings:
 
 1. Flex Capacity for Varied Workloads: Adapt to any challenge, be it data-heavy tasks needing memory-optimized solutions or general-purpose assignments. The infrastructure's ability to dynamically alter instance types ensures you're never caught off-guard.
+
 2. Cost Efficiency: The intelligent utilization of varied instance types avoids redundant costs by preventing over-provisioning, leading to tangible savings.
+
 3. Performance Enhancement: No matter the environment - bare metal, VM, or container - resources are meticulously tuned to guarantee top-tier operational efficiency.
 
 For a developer, this translates to: 
