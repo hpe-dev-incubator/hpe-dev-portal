@@ -114,7 +114,7 @@ data "hpegl_caas_cluster_blueprint" "bp" {
  
 data "hpegl_caas_machine_blueprint" "standard_worker" {
   name = "standard-worker"
-  site_id = "data.hpegl_caas_site.blr.id"
+  site_id = data.hpegl_caas_site.blr.id
 }
 
 resource hpegl_caas_cluster test {
