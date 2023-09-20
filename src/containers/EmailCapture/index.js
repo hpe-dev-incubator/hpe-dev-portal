@@ -41,7 +41,7 @@ export const EmailCapture = ({ children, heading, bodyCopy1, bodyCopy2 }) => {
   const [errorMsg, setErrorMsg] = useState('');
   const { user: userDetails } = useContext(AppContext);
   const [formData, setFormData] = useState({
-    email: userDetails?.email,
+    email: userDetails?.email || '',
   });
 
   const onSubmit = () => {
