@@ -1,4 +1,4 @@
-import React, { useState, useContext} from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import {
   Box,
@@ -51,7 +51,7 @@ export const EmailCapture = ({ children, heading, bodyCopy1, bodyCopy2 }) => {
       // Update email field when userDetails changes
     }));
   }, [userDetails.email]);
-  
+
   const onSubmit = () => {
     // eslint-disable-line
     setErrorMsg('');
