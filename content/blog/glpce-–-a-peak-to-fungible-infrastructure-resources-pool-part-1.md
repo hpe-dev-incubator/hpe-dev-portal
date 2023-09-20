@@ -15,6 +15,14 @@ tags:
   - Hybrid Cloud Architecture
   - greenlake-for-private-cloud-enterprise
 ---
+<style>
+li {
+   font-size: 27px;
+   line-height: 33px;
+   max-width: none;
+}
+</style>
+
 ## Introduction 
 
 Welcome to the HPE GreenLake Private Cloud Enterprise (GLPCE) blog series: Showcasing how GLPCE features address business challenges. In the series I delve deep into the advanced capabilities of modern cloud infrastructure, illuminating the path to heightened innovation and sustainable growth for organizations. By consistently offering up-to-date insights and expert perspectives, I aim to be your trusted guide in this rapidly shifting digital landscape. Join me in this exploration, and together, we'll chart the course for the next era of enterprise technology. 
