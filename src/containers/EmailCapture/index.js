@@ -41,9 +41,17 @@ export const EmailCapture = ({ children, heading, bodyCopy1, bodyCopy2 }) => {
   const [errorMsg, setErrorMsg] = useState('');
   const { user: userDetails } = useContext(AppContext);
   const [formData, setFormData] = useState({
-    email: userDetails?.email || '',
+    email: '',
   });
 
+  useEffect(() => {
+    setFormData(() => ({
+      ...formData,
+      email: userDetails?.email || '',
+      // Update email field when userDetails changes
+    }));
+  }, [userDetails.email]);
+  
   const onSubmit = () => {
     // eslint-disable-line
     setErrorMsg('');
