@@ -1,5 +1,5 @@
 # HPE Developer External Contributor Guide
-**Version 2.1** - 7 June, 2023
+**Version 2.1** - 20 Sep, 2023
 
 >**Note:** A recording of the training session delivered on April 30, 2021 is available [here](https://vimeo.com/544486602). 
 
@@ -492,6 +492,8 @@ Here is how you can crate an external blog post entry in the HPE Developer Commu
     -  In the IMAGE wizard, click **Choose an image**  
 
     -  On the top right of the wizard, click **Upload** to upload the image stored on your PC/laptop and select image you have just uploaded by clicking **Choose selected**.
+
+      >**IMPORTANT NOTE:** When you upload an image, make sure the image name you upload is unique within the CMS repository. A simple method to make sure your image name is ***unique*** is to amend the image file name with the current date: for example, if your image file name is "Picture1.png" and the date of the upload is September 17, 2023, please rename your image file as "Picture1-17-sep-2023.png" before uploading the image.
      
     -  Specify a "**Title**" for your image in the _TITLE_ section of the _IMAGE_ block. The title will appear when the reader hovers or pauses the mouse over the image. It aims to make the image collateral more accessible for people who use screen readers and for people with visual impairments. 
     
