@@ -150,7 +150,7 @@ export default function Slacksignup() {
             <Box align="center" border={{ side: 'bottom', size: 'small' }}>
               <TextInput
                 type="email"
-                placeholder="sample@gmail.com"
+                placeholder="example@my.com"
                 value={email}
                 name="email"
                 onChange={handlechange}

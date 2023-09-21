@@ -1,4 +1,4 @@
-import React, { useState, useContext} from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import {
   Box,
@@ -43,6 +43,15 @@ export const EmailCapture = ({ children, heading, bodyCopy1, bodyCopy2 }) => {
   const [formData, setFormData] = useState({
     email: userDetails?.email || '',
   });
+ 
+  useEffect(() => {
+    if (userDetails?.email) {
+      setFormData((prevFormData) => ({
+        ...prevFormData,
+        email: userDetails.email,
+      }))
+    }
+  }, [userDetails?.email]);
 
   const onSubmit = () => {
     // eslint-disable-line
