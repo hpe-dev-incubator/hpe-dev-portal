@@ -39,7 +39,7 @@ export const EmailCapture = ({ children, heading, bodyCopy1, bodyCopy2 }) => {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
-  const { user: userDetails = {} } = useContext(AppContext);
+  const { user: userDetails } = useContext(AppContext);
   const [formData, setFormData] = useState({
     email: userDetails?.email || '',
   });
