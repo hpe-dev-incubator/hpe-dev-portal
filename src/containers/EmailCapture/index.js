@@ -41,15 +41,14 @@ export const EmailCapture = ({ children, heading, bodyCopy1, bodyCopy2 }) => {
   const [errorMsg, setErrorMsg] = useState('');
   const { user: userDetails = {} } = useContext(AppContext);
   const [formData, setFormData] = useState({
-    email: '',
+    email: userDetails?.email || '',
   });
  
   useEffect(() => {
-    setFormData((prevFormData) => ({
-      ...prevFormData,
-      email: userDetails?.email || '',
-    }));
-  }, [userDetails.email]);
+    if (userDetails.email) {
+      setFormData({ email: userDetails.email });
+    }
+  }, [userDetails]);
 
   const onSubmit = () => {
     // eslint-disable-line
