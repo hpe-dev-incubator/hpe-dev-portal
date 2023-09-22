@@ -1,4 +1,4 @@
-.md---
+---
 title: "HPE GreenLake for Private Cloud Enterprise: Exploring a flexible
   infrastructure resource pool "
 date: 2023-09-18T10:08:35.138Z
