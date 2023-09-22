@@ -1,5 +1,6 @@
 ---
-title: Set up load balancer with MetalLB in HPE GreenLake for Private Cloud Enterprise
+title: Setting up the load balancer with MetalLB in HPE GreenLake for Private
+  Cloud Enterprise
 date: 2023-09-01T08:59:11.280Z
 author: Guoping Jia
 authorimage: /img/guoping.png
@@ -12,15 +13,17 @@ tags:
   - HPE GreenLake for Private Cloud Enterprise
   - HPE GreenLake for Containers
 ---
-This blog post describes how to set up the load balancer using [MetalLB](https://metallb.universe.tf/) for a K8s cluster in [HPE GreenLake for Private Cloud Enterprise](https://www.hpe.com/us/en/greenlake/private-cloud-enterprise.html). It allows customers to configure load balancing services for their workloads deployed in the K8s clusters. 
+This blog post describes how to set up the load balancer using [MetalLB](https://metallb.universe.tf/) for a Kubernetes (K8s) cluster in [HPE GreenLake for Private Cloud Enterprise](https://www.hpe.com/us/en/greenlake/private-cloud-enterprise.html). It allows customers to configure load balancing services for their workloads deployed in K8s clusters. 
 
 ### Overview
 
-In [HPE GreenLake for Private Cloud Enterprise: Containers](https://www.hpe.com/us/en/greenlake/containers.html), customers can create services with the type of *NodePort* for their workloads deployed in K8s clusters using the label *hpecp.hpe.com/hpecp-internal-gateway=true*. The services will be automatically exposed to a container platform gateway host with assigned ports. The deployed workloads will become accessible externally using the gateway host name and the assigned ports as access URLs. Different from various public cloud providers, such as *GCP*, *AWS* and *Microsoft Azure*, HPE GreenLake for Containers doesn’t support network load balancers. When you create services with the type of *LoadBalancer*, they will remain in the *'pending'* state indefinitely when created. This blog post will show you how to use MetalLB to provide load balancing services for K8s clusters in HPE GreenLake for Containers. It provides customers with the flexibility to configure custom load balancers for their deployed workloads in HPE GreenLake for Private Cloud Enterprise.
+Using [HPE GreenLake for Private Cloud Enterprise: Containers](https://www.hpe.com/us/en/greenlake/containers.html), customers can create services with the type of *NodePort* for their workloads deployed in K8s clusters using the label *hpecp.hpe.com/hpecp-internal-gateway=true*. The services will be automatically exposed to a container platform gateway host with assigned ports. The deployed workloads will become accessible externally using the gateway host name and the assigned ports as access URLs. 
+
+Different from various public cloud providers, such as *GCP*, *AWS* and *Microsoft Azure*, HPE GreenLake for Private Cloud Enterprise doesn’t support network load balancers by default. As cluster administrators, after you create K8s cluster, you can integrate cluster with any load balancers in place to support K8s services of type *LoadBalancer*. This blog post will show you how to use MetalLB to provide load balancing services for K8s clusters in HPE GreenLake for Private Cloud Enterprise. It provides customers with the flexibility to configure custom load balancers for their deployed workloads in HPE GreenLake for Private Cloud Enterprise.
 
 ### Prerequisites
 
-Before starting, make sure you have the following requirements:
+Before starting, make sure you meet the following requirements:
 
 * A K8s cluster, being provisioned in HPE GreenLake for Private Cloud Enterprise
 * The kubectl CLI tool, together with the kubeconfig file for accessing the K8s cluster
@@ -34,7 +37,7 @@ This section describes the detailed steps to deploy MetalLB and configure it to 
 
 #### 1 Deploy MetalLB:
 
-The MetalLB can be deployed by applying the following YAML manifest file:
+MetalLB can be deployed by applying the following YAML manifest file:
 
 ```markdown
 $ MetalLB_RTAG=$(curl -s https://api.github.com/repos/metallb/metallb/releases/latest|grep tag_name|cut -d '"' -f 4|sed 's/v//')
@@ -66,9 +69,9 @@ daemonset.apps/speaker created
 validatingwebhookconfiguration.admissionregistration.k8s.io/metallb-webhook-configuration created
 ```
 
-The above command installs the latest MetalLB *v0.13.10* to the K8s cluster. It first creates the namespace *metallb-system*, sets up the role-based access control (*RBAC*), creates a list of customer resource definitions (CRDs) andfinally deploys a list of pods and services. 
+The above command installs the latest MetalLB *v0.13.10* to the K8s cluster. It first creates the namespace *metallb-system*, sets up the role-based access control (*RBAC*), creates a list of customer resource definitions (CRDs) and finally deploys a list of pods and services. 
 
-You can check and confirm all pods and services are deployed successful:
+You can check and confirm all pods and services are deployed successfully:
 
 ```markdown
 $ kubectl get all -n metallb-system 
@@ -219,9 +222,7 @@ NAME                                       DESIRED   CURRENT   READY   AGE
 replicaset.apps/cfe-nginx-app-66cb4f5bbf   1         1         1       3m22s
 ```
 
-T﻿o verify the deployed Nginx application is working, l﻿aunch your web browser, type the string "http://" followed by the IP address *'172.16.17.250'* that's assigned t﻿o the Nginx service, then press the *Enter* key. You should see the following texts showing in the browser:
-
-*﻿Hi, this is the sample <font color=blue>Nginx App</font> deployed as the Load Balancer service type !*
+T﻿o verify the deployed Nginx application is working, l﻿aunch your web browser a﻿nd open *http://172.16.17.250*. The following should now show in your browser:
  
 ![](/img/web-nginx-app.png)
 
@@ -230,5 +231,6 @@ T﻿o verify the deployed Nginx application is working, l﻿aunch your web brows
 
 ### Summary
 
-This blog post describes the detailed process used to deploy and set up MetalLB to support customers to configure load balancers for the K8s clusters in HPE GreenLake for Private Cloud Enterprise. By deploying load balancing configuration, it allows customers to easily work together with Kubernetes Ingress for different traffic routing support of their deployed workloads in the K8s clusters. It also supports deploying applications by passing the customer certificates through their own authority. It unblocks a list of potential use cases and enhances HPE GreenLake product with additional flexibilities.
+This blog post describes the detailed process used to deploy and set up MetalLB to support customers to configure load balancers for K8s clusters in HPE GreenLake for Private Cloud Enterprise. By deploying load balancing configuration, it provides an externally accessible IP address that sends traffic to the deployed workload. It also allows customers to use [Kubernetes Ingress]( https://kubernetes.io/docs/concepts/services-networking/ingress/), in place of *Service*, for different traffic routing support of their deployed workloads in K8s clusters. This supports deploying applications by passing the customer certificates through their own authority. It unblocks a list of potential use cases and enhances HPE GreenLake by providing additional flexibilities.
 
+You can keep coming back to the [HPE Developer blog]( https://developer.hpe.com/blog) to learn more about HPE GreenLake for Private Cloud Enterprise. 
