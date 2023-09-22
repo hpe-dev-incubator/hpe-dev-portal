@@ -25,6 +25,8 @@ Different from various public cloud providers, such as *GCP*, *AWS* and *Microso
 
 Before starting, make sure you meet the following requirements:
 
+<style> li { font-size: 100%; line-height: 23px; max-width: none; } </style>
+
 * A K8s cluster, being provisioned in HPE GreenLake for Private Cloud Enterprise
 * The kubectl CLI tool, together with the kubeconfig file for accessing the K8s cluster
 * A range of virtual IP addresses. Those IP addresses should not be used in any existing K8s clusters. They will be assigned to the load balancer services. 
@@ -35,7 +37,7 @@ Before starting, make sure you meet the following requirements:
 
 This section describes the detailed steps to deploy MetalLB and configure it to support the *LoadBalancer* services in the Kubernetes clusters.
 
-#### 1 Deploy MetalLB:
+#### 1. Deploy MetalLB
 
 MetalLB can be deployed by applying the following YAML manifest file:
 
@@ -97,7 +99,7 @@ NAME                                   DESIRED   CURRENT   READY   AGE
 replicaset.apps/controller-7967ffcf8   1         1         0       38s
 ```
 
-#### 2 Define a range of IP addresses
+#### 2. Define a range of IP addresses
 
 After all MetalLB components are deployed, you can start creating and allocating a range of IP addresses, which can be used by MetalLB to assign IP addresses to services. 
 
@@ -124,7 +126,7 @@ cfe-pool   true          false             ["172.16.17.250-172.16.17.254"]
 
 The above command allocates the IP pool that has the IP range 172.16.17.250-172.16.17.254. The IP addresses in the *IPAddressPool* can be defined by *CIDR* and *IPV6* addresses as well.
 
-#### 3 Announce the service IP addresses
+#### 3. Announce the service IP addresses
 
 Once the IP addresses are allocated, you must announce service IPs. The [MetalLB Configuration site](https://metallb.universe.tf/configuration/#announce-the-service-ips) shows a list of configuration approaches you can use to announce service IPs. The below example shows the details of using the *Layer 2* mode to configure service IP addresses. This approach does not need any protocol specific configuration, only IP addresses from the *IPAddressPool*.
 
@@ -223,14 +225,12 @@ replicaset.apps/cfe-nginx-app-66cb4f5bbf   1         1         1       3m22s
 ```
 
 T﻿o verify the deployed Nginx application is working, l﻿aunch your web browser a﻿nd open *http://172.16.17.250*. The following should now show in your browser:
- 
+
 ![](/img/web-nginx-app.png)
-
-
-
 
 ### Summary
 
-This blog post describes the detailed process used to deploy and set up MetalLB to support customers to configure load balancers for K8s clusters in HPE GreenLake for Private Cloud Enterprise. By deploying load balancing configuration, it provides an externally accessible IP address that sends traffic to the deployed workload. It also allows customers to use [Kubernetes Ingress]( https://kubernetes.io/docs/concepts/services-networking/ingress/), in place of *Service*, for different traffic routing support of their deployed workloads in K8s clusters. This supports deploying applications by passing the customer certificates through their own authority. It unblocks a list of potential use cases and enhances HPE GreenLake by providing additional flexibilities.
+This blog post describes the detailed process used to deploy and set up MetalLB to support customers to configure load balancers for K8s clusters in HPE GreenLake for Private Cloud Enterprise. By deploying load balancing configuration, it provides an externally accessible IP address that sends traffic to the deployed workload. It also allows customers to use [Kubernetes Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/), in place of *Service*, for different traffic routing support of their deployed workloads in K8s clusters. T
+his supports deploying applications by passing the customer certificates through their own authority. It unblocks a list of potential use cases and enhances HPE GreenLake by providing additional flexibilities.
 
-You can keep coming back to the [HPE Developer blog]( https://developer.hpe.com/blog) to learn more about HPE GreenLake for Private Cloud Enterprise. 
+You can keep coming back to the [HPE Developer blog](https://developer.hpe.com/blog) to learn more about HPE GreenLake for Private Cloud Enterprise.
