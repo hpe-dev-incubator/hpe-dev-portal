@@ -2,7 +2,7 @@
 title: "HPE GreenLake for Private Cloud Enterprise: Exploring a flexible
   infrastructure resource pool "
 date: 2023-09-18T10:08:35.138Z
-author: "Sudhendra Seshachala "
+author: "Sudheendra Seshachala "
 authorimage: /img/sudhendra-profile-photo.jpeg
 disable: false
 tags:
