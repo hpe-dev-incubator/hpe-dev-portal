@@ -13,5 +13,5 @@ description: "October 25, 2023: Kubernetes is the undisputed go-to platform for
 background: rgba(0, 86, 122, 0.8);
 label: Register Now!
 priority: 1
-image: /img/Meetups_192_192.svg
+image: /img/event-meetups-newlogo-400x400.png
 ---
