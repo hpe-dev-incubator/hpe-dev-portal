@@ -13,7 +13,7 @@ tags:
   - Enterprise Compliance
   - IT Resource Management
   - Hybrid Cloud Architecture
-  - greenlake-for-private-cloud-enterprise
+  - hpe-greenlake-for-private-cloud-enterprise
 ---
 <style>
 li {
