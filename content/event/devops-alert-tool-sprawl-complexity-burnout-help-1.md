@@ -5,7 +5,7 @@ dateStart: 2023-10-25T15:00:00.000Z
 dateEnd: 2023-10-25T16:00:00.000Z
 category: Virtual Event
 image: /img/Meetups_192_192.svg
-link: https://hpe.zoom.us/webinar/register/5616927952223/WN_HuXCvPG4TAOdw12fJ3XTpg
+link: https://hpe.zoom.us/webinar/register/9216952182074/WN_mrFAM02tQ8KGW_cHc5oHGg
 width: large
 ---
 ## **Going from containers, to pods, to Kubernetes – help for your developer environments!** 
