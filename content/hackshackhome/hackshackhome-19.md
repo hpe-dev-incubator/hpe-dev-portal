@@ -1,6 +1,6 @@
 ---
 title: State of the Nation – Linux distributions
-active: true
+active: false
 fit: contain
 path: https://hpe.zoom.us/webinar/register/3016927947883/WN_ls_aveRZS8KSLCa3rQ4iHg
 imageBackground: white
