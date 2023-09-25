@@ -130,7 +130,7 @@ You can create a new blog directly from the **Contents** tab or by navigating to
 
 * Use **Markdown** mode when your source file is in Markdown file or when you are familiar with Markdown syntax. If your content is already in Markdown, simply use copy (CTRL+C) and paste the content in **PLAIN TEXT** (**CTRL+SHIFT+V**) in the body canvas. You might find easier to go and paste it a paragraph at a time and then format it.
 
-* Use **Rich Text** mode when your source file is an MS-Word document or a RTF document: simply copy the content from your source file and paste the content in **PLAIN TEXT** (**CTRL+SHIFT+V**) in the body. You might find easier to go and paste it a paragraph at a time and then format it.
+* Use **Rich Text** mode when your source file is either an MS-Word, Google Docs, or RTF document. Simply copy the content from your source file and paste the content in using **PLAIN TEXT** (**CTRL+SHIFT+V**) in the body. MS-Word has a tendency of including hidden characters that mess up how the material is presented. When using MS-Word, paste (**CTRL+SHIFT+V**) copy in a paragraph at a time and then format it using the CMS editor. We recommended using Google Docs over MS-Word when possible, since it provides a cleaner cut & paste.
 
  >Note: To get started using the CMS editor for common elements (headings, list, code blocks, bold, italics, image), refer to section "***Tips and Tricks using the CMS Editor***" at the end of this document.
     
