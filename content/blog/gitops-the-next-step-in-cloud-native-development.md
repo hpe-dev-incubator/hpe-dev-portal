@@ -5,7 +5,7 @@ author: "Steven Vaughan-Nichols "
 authorimage: /img/Avatar1.svg
 disable: false
 ---
-#### Editor’s note: This article was originally posted on HPE Enterprise.nxt on June 2, 2021 
+##### Editor’s note: This article was originally posted on HPE Enterprise.nxt on June 2, 2021 
 
 What do you get when you combine DevOps management and the Git distributed version control system? Say hello to GitOps. 
 
