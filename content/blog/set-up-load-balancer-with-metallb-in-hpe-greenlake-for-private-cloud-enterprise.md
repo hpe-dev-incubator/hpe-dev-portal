@@ -6,12 +6,12 @@ author: Guoping Jia
 authorimage: /img/guoping.png
 disable: false
 tags:
+  - hpe-greenlake-for-private-cloud-enterprise
   - Kubernetes
+  - hpe-greenLake
+  - hpe-greenlake-for-private-cloud-enterprise-containers
   - MetalLB
   - Load Balancer
-  - HPE GreenLake
-  - HPE GreenLake for Private Cloud Enterprise
-  - HPE GreenLake for Containers
 ---
 This blog post describes how to set up the load balancer using [MetalLB](https://metallb.universe.tf/) for a Kubernetes (K8s) cluster in [HPE GreenLake for Private Cloud Enterprise](https://www.hpe.com/us/en/greenlake/private-cloud-enterprise.html). It allows customers to configure load balancing services for their workloads deployed in K8s clusters. 
 
