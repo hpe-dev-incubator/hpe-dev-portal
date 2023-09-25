@@ -5,9 +5,7 @@ author: "Steven Vaughan-Nichols "
 authorimage: /img/Avatar1.svg
 disable: false
 ---
-
-
-##### Editor’s note: This article was originally posted on HPE Enterprise.nxt on June 2, 2021 
+#### Editor’s note: This article was originally posted on HPE Enterprise.nxt on June 2, 2021 
 
 What do you get when you combine DevOps management and the Git distributed version control system? Say hello to GitOps. 
 
@@ -24,8 +22,6 @@ Why? Because GitOps is a set of practices that enables you to manage and deploy 
 Now if just a single vendor was promoting its approach, you might be wise to be skeptical. But it's not just Weaveworks. Priyanka Sharma, general manager at the [Cloud Native Computing Foundation (CNCF)](https://www.cncf.io/), believes GitOps is becoming to Kubernetes what Git already is to Linux: the fundamental building tool for the next generation of [cloud-native computing](https://www.hpe.com/us/en/insights/articles/how-to-implement-cloud-native-computing-with-kubernetes-1710.html).
 
 GitOps is designed for and, as it now stands, really applicable to just orchestrated cloud-native applications. 
-
- 
 
 "GitOps is basically utilizing the Git workflows that every developer is used to. "
 
@@ -107,8 +103,6 @@ Do it right, however, and you can expect to reap the following: 
 
 Sound good to you? It does to me. I predicted long before most people did that Kubernetes would become the container orchestration program. I'm now going to go on a limb and predict that GitOps, in turn, is going to become the way most of us will end up deploying programs to the cloud in the next few years. It just makes too much sense for it not to work. 
 
-
-
 Tom Phelan, Fellow, big data and storage organization at Hewlett Packard Enterprise, contributed to this article. 
 
 ## Lessons for leaders 
@@ -119,8 +113,6 @@ Tom Phelan, Fellow, big data and storage organization at Hewlett Packard Enterpr
 
 This article/content was written by the individual writer identified and does not necessarily reflect the view of Hewlett Packard Enterprise Company. 
 
-
-
 ## About the author: 
 
 [Steven Vaughan-Nichols](https://www.hpe.com/us/en/insights/contributors/steven-j-vaughan-nichols.html) 
@@ -128,8 +120,6 @@ This article/content was written by the individual writer identified and does no
  CEO, Vaughan-Nichols & Associates 53 publications 
 
 Steven J. Vaughan-Nichols, a.k.a. sjvn, has been writing about technology and the business of technology since CP/M-80 was the cutting-edge PC operating system, 300bps was a fast Internet connection, WordStar was the state-of-the-art word processor, and we liked it. His work has been published in everything from highly technical publications (IEEE Computer, ACM NetWorker, Byte) and business publications (eWeek, InformationWeek, ZDNet) to popular technology magazines (Computer Shopper, PC Magazine, PC World) and the mainstream press (Washington Post, San Francisco Chronicle, Businessweek). 
-
-
 
 ##### Original Enterprise.nxt link: 
 
