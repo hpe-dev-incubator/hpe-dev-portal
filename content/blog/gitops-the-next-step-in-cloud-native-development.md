@@ -4,6 +4,8 @@ date: 2023-09-25T15:37:56.853Z
 author: "Steven Vaughan-Nichols "
 authorimage: /img/Avatar1.svg
 disable: false
+tags:
+  - GitOps
 ---
 **Editor’s note: This article was originally posted on HPE Enterprise.nxt on June 2, 2021**
 
