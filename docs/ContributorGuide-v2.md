@@ -482,8 +482,7 @@ Here is how you can crate an external blog post entry in the HPE Developer Commu
 
      >**IMPORTANT NOTE:** If your images are stored in **a personal website** you owned, it is recommended to proceed as explained below to get you images uploaded and stored to the HPE Developer CMS rather than using a link URL to your image on your web site. Security filter such as Zscaler may filter your images and make your images unrendered by the CMS. 
      
-    Small resolution image is recommended (i.e.: width: 800px)
-    
+    Minimum resolution image recommended: width 800px
 
     -   Toggle to **Rich Text** mode in the editor (Body area)
 
@@ -493,7 +492,7 @@ Here is how you can crate an external blog post entry in the HPE Developer Commu
 
     -  On the top right of the wizard, click **Upload** to upload the image stored on your PC/laptop and select image you have just uploaded by clicking **Choose selected**.
 
-      >**IMPORTANT NOTE:** When you upload an image, make sure the image name you upload is unique within the CMS repository. A simple method to make sure your image name is ***unique*** is to amend the image file name with the current date: for example, if your image file name is "Picture1.png" and the date of the upload is September 17, 2023, please rename your image file as "Picture1-17-sep-2023.png" before uploading the image.
+      >**IMPORTANT NOTE:** When you upload an image, make sure the image name you upload is **unique** within the CMS repository. A simple method to make sure your image name is ***unique*** is to amend the image file name with the current date: for example, if your image file name is "Picture1.png" and the date of the upload is September 17, 2023, please rename your image file as "Picture1-17-sep-2023.png" before uploading the image.
      
     -  Specify a "**Title**" for your image in the _TITLE_ section of the _IMAGE_ block. The title will appear when the reader hovers or pauses the mouse over the image. It aims to make the image collateral more accessible for people who use screen readers and for people with visual impairments. 
     
