@@ -5,7 +5,9 @@ author: "Steven Vaughan-Nichols "
 authorimage: /img/Avatar1.svg
 disable: false
 ---
-##### Editor’s note: This article was originally posted on HPE Enterprise.nxt on June 2, 2021 
+**Editor’s note: This article was originally posted on HPE Enterprise.nxt on June 2, 2021**
+
+- - -
 
 What do you get when you combine DevOps management and the Git distributed version control system? Say hello to GitOps. 
 
@@ -23,9 +25,7 @@ Now if just a single vendor was promoting its approach, you might be wise to be 
 
 GitOps is designed for and, as it now stands, really applicable to just orchestrated cloud-native applications. 
 
-"GitOps is basically utilizing the Git workflows that every developer is used to. "
-
-###### PRIYANKA SHARMA GENERAL MANAGER OF THE CLOUD NATIVE COMPUTING FOUNDATION 
+![Block Text](/img/gitops_-the-next-step-in-cloud-native-development.png "Block text")
 
 ## So what is GitOps today? 
 
@@ -111,7 +111,11 @@ Tom Phelan, Fellow, big data and storage organization at Hewlett Packard Enterpr
 * GitOps enables more efficient processes and, ultimately, better service for customers than traditional approaches. 
 * One of the best reasons to give GitOps a chance is that it uses tools that developers already know. 
 
-This article/content was written by the individual writer identified and does not necessarily reflect the view of Hewlett Packard Enterprise Company. 
+<br />
+
+> > <span style="color:grey; font-family:Arial; font-size:1em"> This article/content was written by the individual writer identified and does not necessarily reflect the view of Hewlett Packard Enterprise Company.</span>
+
+<br />
 
 ## About the author: 
 
