@@ -126,7 +126,3 @@ Tom Phelan, Fellow, big data and storage organization at Hewlett Packard Enterpr
  CEO, Vaughan-Nichols & Associates 53 publications 
 
 Steven J. Vaughan-Nichols, a.k.a. sjvn, has been writing about technology and the business of technology since CP/M-80 was the cutting-edge PC operating system, 300bps was a fast Internet connection, WordStar was the state-of-the-art word processor, and we liked it. His work has been published in everything from highly technical publications (IEEE Computer, ACM NetWorker, Byte) and business publications (eWeek, InformationWeek, ZDNet) to popular technology magazines (Computer Shopper, PC Magazine, PC World) and the mainstream press (Washington Post, San Francisco Chronicle, Businessweek). 
-
-##### Original Enterprise.nxt link: 
-
-<https://www.hpe.com/us/en/insights/articles/gitops-the-next-step-in-cloud-native-development-2106.html>
