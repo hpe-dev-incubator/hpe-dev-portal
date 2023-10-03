@@ -44,13 +44,13 @@ By integrating these capabilities, HPE GreenLake for Private Cloud Enterprise st
 **Deploying and scaling traditional applications**
 
 The Virtual Machine service enables the utilization of virtual machine infrastructure through code, offering support for tools like Terraform and Ansible. This promotes rapid deployments, uniformity, and enhanced scalability. It also strengthens security and consistency by reducing manual steps, priming businesses for efficient digital asset management. 
-In this blog post, I’ll help you navigate the HPE GreenLake for Private Cloud Enterprise console to initialize assets for hosting and deploying code. We'll begin by setting up web layer instances with the compute-optimized (c2i) type and scale them twice based on memory thresholds. Using an Ansible playbook, we will be able to automate tasks and incorporate a load balancer to prevent any single point of failure. Although the focus is on port 80 for HTTP, options for port 443, SSL certificates, and other TCP ports are available for diverse cluster scaling. Screenshots will illustrate instance launches upon reaching scaling thresholds.
+In this blog post, I’ll help you navigate the HPE GreenLake for Private Cloud Enterprise console to initialize assets for hosting and deploying code. I begin by setting up web layer instances with the compute-optimized (c2i) type and scale them twice based on memory thresholds. Using an Ansible playbook, I will be able to automate tasks and incorporate a load balancer to prevent any single point of failure. Although the focus is on port 80 for HTTP, options for port 443, SSL certificates, and other TCP ports are available for diverse cluster scaling. Screenshots will illustrate instance launches upon reaching scaling thresholds.
 
-Next, we will explore the two key phases of application deployment and scaling: 
+Next, I will explore the two key phases of application deployment and scaling: 
 
 1. Design and Development
 2. Runtime
-   In the Design and Development phase, you will initialize hosting in the HPE GreenLake for Private Cloud Enterprise console and set up web layer instances using the c2i type. Utilizing Ansible, you will implement threshold-based scaling and integrate a load balancer to ensure continuous service. Although the primary focus is on port 80, other ports are also available.
+   the Design and Development phase, you will initialize hosting in the HPE GreenLake for Private Cloud Enterprise console and set up web layer instances using the c2i type. Utilizing Ansible, you will implement threshold-based scaling and integrate a load balancer to ensure continuous service. Although the primary focus is on port 80, other ports are also available.
    During the Runtime phase, instances are activated and monitored as they launch upon reaching scaling thresholds. 
    For a clearer understanding, this post will include step-by-step screenshots. To start, log into the HPE GreenLake for Private Cloud Enterprise console and navigate to the Virtual Machines section on the dashboard.
 
@@ -78,6 +78,7 @@ a. Initiating instance creation: Begin by navigating to **Provisioning**, then s
 > > <span style="color:grey; font-family:Arial; font-size:1em">Screenshot 3: Creating and configuring instance </span>
 
 b. Layout configuration: Subsequently, shift your focus to integrating the instance with a load balancer. While many prominent load-balancing options are available, including the likes of F5, the NSX-T Load Balancer (screenshot 2) native to HPE GreenLake for Private Cloud Enterprise  is a good fit. It's equipped with a comprehensive set of features tailored to meet our deployment requirements, ensuring even distribution of incoming traffic across multiple endpoints.
+
 c. Final settings: Concluding the process, determine the root volume size to match your data storage necessities. Concurrently, select and designate the network on which these instances will function. This guarantees flawless interaction and operation within the stipulated digital ecosystem.
 
 ![Screenshot 4: Configuring automation, scale factor and load balancer](/img/configuring-automation-scale-factor-and-load-balancer.png "Screenshot 4: Configuring automation, scale factor and load balancer")
@@ -87,9 +88,13 @@ c. Final settings: Concluding the process, determine the root volume size to mat
 In Screenshot 4, as you navigate the automation phase of the instance wizard:
 
 1. Initiate the workflow configuration, opting for Ansible based on your needs. It's worth noting the availability of a Node.js workflow alternative.
+
 2. The Scale type selection follows, referencing the threshold previously established in Screenshot 1. For clarity, you can revisit Screenshot 1.
+
 3. In Screenshot 2, you’ll see how to set up an NSX-T Load Balancer. Port 80 is primarily designated for HTTP traffic. While port 80 is the focus, other ports like 443 for HTTPS or custom ports for database tasks (e.g., 1433, 1521) can be configured. It's crucial to note that, initially, configurations apply only to the servers behind the load balancer. When a new instance arises due to scaling thresholds, it inherits these settings but isn't automatically added to the load balancer. A separate script is required to include the new instance to the load balancer.
+
 4. It's essential to highlight that activating port 443 for HTTPS provides the capability to configure and implement SSL certificates, bolstering security.
+
 5. Additionally, there's flexibility to choose the installation of custom agents on the instances, such as third-party monitoring tools or security vulnerability scanners.
 
    ![Screenshot 5: Tagging the resources.](/img/tagging-the-resources..png "Screenshot 5: Tagging the resources.")
@@ -115,6 +120,7 @@ Scaling observation: Now, draw your attention to the tripartite progression of i
 1. **Initial state**: This stage represents the baseline, illustrating the system's configuration before any significant memory demand. It's the foundation, where the system awaits triggers or conditions to initiate any scaling.
 2. **Intermediate phase**: During the transition, memory demand escalates and meets the scaling threshold. This juncture is pivotal — the system responds by initializing new instances. It's an adaptive phase, wherein the system's agility becomes evident, reacting in real-time to the increasing demands.
 3. **Final state**: The culmination is a full display of responsiveness. With memory utilization hitting its designated peak, the system maximizes its resources. Four active instances, mirroring the set scaling threshold, now operate cohesively. This not only reflects an adaptive system but also showcases a setup geared for efficiency and robust performance, ensuring user demands are consistently met.
+
 
 **Conclusion**
 
