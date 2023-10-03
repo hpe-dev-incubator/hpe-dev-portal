@@ -5,6 +5,8 @@ date: 2023-10-03T03:45:24.053Z
 author: Sudheendra Seshachala Rao
 authorimage: /img/1695127848528.jpeg
 disable: false
+tags:
+  - hpe-greenlake-for-private-cloud-enterprise
 ---
 <style>
 li {
