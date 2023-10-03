@@ -6,9 +6,9 @@ author: Sudheendra Seshachala
 authorimage: /img/1695127848528.jpeg
 disable: false
 tags:
-  - hpe-greenlake-for-private-cloud-enterprise,
-    deploy-apps-across-private-public-and-hybrid,GreenLake Private Cloud
-    Enterprise
+  - hpe-greenlake-for-private-cloud-enterprise
+  - " deploy-apps-across-private-public-and-hybrid"
+  - GreenLake Private Cloud Enterprise
 ---
 <style>
 li {
