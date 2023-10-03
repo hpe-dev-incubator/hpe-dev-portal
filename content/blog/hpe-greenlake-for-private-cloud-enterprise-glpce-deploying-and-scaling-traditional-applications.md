@@ -17,7 +17,7 @@ li {
 }
 </style>
 
-In my first blog post on [HPE GreenLake for Private Cloud Enterprise: Exploring a flexible infrastructure resource pool](https://developer.hpe.com/blog/hpe-greenlake-for-private-cloud-enterprise--Exploring-a-flexible-infrastructure-resource-pool/)I underscored the flexible nature of HPE GreenLake for Private Cloud Enterprise infrastructure. Its transparent cost analytics stand out as a significant benefit, aiding organizations in making well-informed financial and infrastructural choices. In our present digital era, having the right infrastructure is imperative, a need that HPE GreenLake for Private Cloud Enterprise aptly fulfills through its robust support for automated tools like Terraform and Ansible, ensuring seamless and efficient infrastructure management and scaling.
+In my first blog post on [HPE GreenLake for Private Cloud Enterprise: Exploring a flexible infrastructure resource pool](https://developer.hpe.com/blog/hpe-greenlake-for-private-cloud-enterprise--Exploring-a-flexible-infrastructure-resource-pool/) I underscored the flexible nature of HPE GreenLake for Private Cloud Enterprise infrastructure. Its transparent cost analytics stand out as a significant benefit, aiding organizations in making well-informed financial and infrastructural choices. In our present digital era, having the right infrastructure is imperative, a need that HPE GreenLake for Private Cloud Enterprise aptly fulfills through its robust support for automated tools like Terraform and Ansible, ensuring seamless and efficient infrastructure management and scaling.
 In this second segment, I will delve further into the enhanced features of HPE GreenLake for Private Cloud Enterprise: Virtual Machines. This exploration will highlight the substantial support these services extend to modern businesses. By demystifying the intricacies of deploying and efficiently scaling traditional applications, HPE GreenLake for Private Cloud Enterprise stands as a pivotal ally for contemporary enterprise operations.
 
 **Introduction**
@@ -33,7 +33,9 @@ Amidst this backdrop, HPE GreenLake for Private Cloud Enterprise emerges as a si
 The real advantage that HPE GreenLake for Private Cloud Enterprise delivers lies in its ability to deploy essential components like Tier 0 (top or external tier) and Tier 1 (middle or distribution tier) routers, load balancers, and firewalls. This ability enables customers to seamlessly establish a three-tier application in the private cloud environment, ensuring robustness and efficiency in their operations. Beyond this, HPE GreenLake for Private Cloud Enterprise empowers customers to construct a comprehensive blueprint of a three-tier application, leveraging it for consistent and repeatable deployments. This approach not only simplifies deployment challenges but also enhances the efficiency and reliability of deploying traditional three-tier applications in a cloud environment.
 
 ![Figure 1: A Traditional n-tier application to be hosted on Virtual Machine Service](/img/a-traditional-n-tier-application-to-be-hosted-on-virtual-machine-service.png "Figure 1: A Traditional n-tier application to be hosted on Virtual Machine Service")
-Figure 1: A Traditional n-tier application to be hosted on Virtual Machine Service
+
+> > <span style="color:grey; font-family:Arial; font-size:1em">Figure 1: A Traditional n-tier application to be hosted on Virtual Machine Service </span>
+
 
 By integrating these capabilities, HPE GreenLake for Private Cloud Enterprise stands out as a solution that not only supports the deployment of traditional applications but also underscores the advancements in modern applications, ensuring seamless cloud transitions and robust integration. It adeptly positions enterprises to navigate the intricate waters of technological evolution, ensuring they remain at the forefront of innovation and operational efficiency.
 
@@ -54,9 +56,15 @@ Next, we will explore the two key phases of application deployment and scaling:
 1. Creating a Group: Start by accessing the Virtual Machines link on the dashboard. Click on **Launch Service console** and then select **Groups** from the **Infrastructures** dropdown. Here, initiates the creation of a designated group, as illustrated in screenshot 1. This approach allows you to bundle associated resources, ensuring streamlined management and clear oversight.
 
    ![Screenshot 1: Managing groups and setting scaled thresholds for CPU and memory.](/img/managing-groups-and-setting-scaled-thresholds-for-cpu-and-memory.png "Screenshot 1: Managing groups and setting scaled thresholds for CPU and memory.")
+
+> > <span style="color:grey; font-family:Arial; font-size:1em">Screenshot 1: Managing groups and setting scaled thresholds for CPU and memory. </span>
+
 2. Setting scale threshold: Navigate to **Library** and choose **Scale** **threshold**. Here is where you will define specific criteria for automatic scaling as shown in screenshot 1. With this in place, the system self-adjusts, activating anywhere from 1 to 4 instances based on memory consumption. When memory usage is minimal, the system conserves resources by operating fewer instances. Conversely, as memory usage approaches its limit, the system scales upwards, guaranteeing consistent performance without the need for human input.
 3. Create NSX-T Load Balancer: Screenshot 2 shows creating the **Scale-Post-LB** load balancer, set to **Small** size and **Enabled**, is in an Up administrative state. Connected to the main network router, **Tier-1 Gateway**, it logs activity at a Warning level. 
       ![Screenshot 2: NSX-T Load Balancer](/img/nsx-t-load-balancer.png "Screenshot 2: NSX-T Load Balancer")
+
+> > <span style="color:grey; font-family:Arial; font-size:1em">Screenshot 2: NSX-T Load Balancer </span>
+
    This tool distributes traffic across servers, enhancing performance and reliability, while granting access to all groups.
 4. Instance provisioning: Screenshot 3 takes you through the detailed steps of setting up an instance:
 
@@ -64,10 +72,14 @@ a. Initiating instance creation: Begin by navigating to **Provisioning**, then s
 
 ![Screenshot 3: Creating and configuring instance](/img/screenshot-3-creating-and-configuring-instance.png "Screenshot 3: Creating and configuring instance")
 
+> > <span style="color:grey; font-family:Arial; font-size:1em">Screenshot 3: Creating and configuring instance </span>
+
 b. Layout configuration: Subsequently, shift your focus to integrating the instance with a load balancer. While many prominent load-balancing options are available, including the likes of F5, the NSX-T Load Balancer (screenshot 2) native to HPE GreenLake for Private Cloud Enterprise  is a good fit. It's equipped with a comprehensive set of features tailored to meet our deployment requirements, ensuring even distribution of incoming traffic across multiple endpoints.
 c. Final settings: Concluding the process, determine the root volume size to match your data storage necessities. Concurrently, select and designate the network on which these instances will function. This guarantees flawless interaction and operation within the stipulated digital ecosystem.
 
 ![Screenshot 4: Configuring automation, scale factor and load balancer](/img/configuring-automation-scale-factor-and-load-balancer.png "Screenshot 4: Configuring automation, scale factor and load balancer")
+
+> > <span style="color:grey; font-family:Arial; font-size:1em">Screenshot 4: Configuring automation, scale factor and load balancer </span>
 
 In Screenshot 4, as you navigate the automation phase of the instance wizard:
 
@@ -79,15 +91,20 @@ In Screenshot 4, as you navigate the automation phase of the instance wizard:
 
    ![Screenshot 5: Tagging the resources.](/img/tagging-the-resources..png "Screenshot 5: Tagging the resources.")
 
+> > <span style="color:grey; font-family:Arial; font-size:1em">Screenshot 5: Tagging the resources. </span>
+
 In Screenshot 5, you’ll notice an invaluable feature: the ability to create tags during the instance setup. Tagging resources allows organizations to effortlessly track and evaluate their resource consumption, providing insights into patterns, trends, and potential areas of optimization. Furthermore, these tags become indispensable when delving into spend analytics, helping to allocate and manage costs effectively. This functionality is especially crucial within the HPE GreenLake suite, as it promotes both transparency and strategic decision-making for businesses.
 
 **Runtime**: Observe screenshot 6, where you’ll notice instances are activated and are attached to load balancer.
 
 ![Screenshot 6: Provisioning – 2 instances up and attached to load balancer.](/img/provisioning-–-2-instances-up-and-attached-to-load-balancer.png "Screenshot 6: Provisioning – 2 instances up and attached to load balancer.")
 
+> > <span style="color:grey; font-family:Arial; font-size:1em">Screenshot 6: Provisioning – 2 instances up and attached to load balancer. </span>
+
 Provisioning: Screenshot 6 shows the final phase of the instance wizard: the Review screen. This overview permits users to review and affirm their established configurations. By clicking the complete button, the provisioning process is activated. Although the instances themselves do not undergo optimization, the earlier described workflow and automation contribute to enhancing application performance. This enhancement is achieved by efficiently scaling out or scaling in the number of virtual machines based on the predefined scale factor, ensuring optimal application operation without manually adjusting the VM count.
 
 ![Screenshot 7: Scaled up VMs](/img/scaled-up-vms.png "Screenshot 7: Scaled up VMs")
+> > <span style="color:grey; font-family:Arial; font-size:1em">Screenshot 7: Scaled up VMs. </span>
 
 Scaling observation: Now, draw your attention to the tripartite progression of instance scaling that is shown in Screenshot 7:
 
