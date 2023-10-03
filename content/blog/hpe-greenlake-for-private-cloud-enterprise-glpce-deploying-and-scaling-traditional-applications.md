@@ -1,6 +1,6 @@
 ---
-title: HPE GreenLake for Private Cloud Enterprise (GLPCE) Deploying and scaling
-  traditional applications
+title: "HPE GreenLake for Private Cloud Enterprise: Deploying and scaling
+  traditional applications"
 date: 2023-10-03T03:45:24.053Z
 author: Sudheendra Seshachala Rao
 authorimage: /img/1695127848528.jpeg
