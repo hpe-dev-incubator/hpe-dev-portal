@@ -106,6 +106,7 @@ In Screenshot 5, you’ll notice an invaluable feature: the ability to create ta
 Provisioning: Screenshot 6 shows the final phase of the instance wizard: the Review screen. This overview permits users to review and affirm their established configurations. By clicking the complete button, the provisioning process is activated. Although the instances themselves do not undergo optimization, the earlier described workflow and automation contribute to enhancing application performance. This enhancement is achieved by efficiently scaling out or scaling in the number of virtual machines based on the predefined scale factor, ensuring optimal application operation without manually adjusting the VM count.
 
 ![Screenshot 7: Scaled up VMs](/img/scaled-up-vms.png "Screenshot 7: Scaled up VMs")
+
 > > <span style="color:grey; font-family:Arial; font-size:1em">Screenshot 7: Scaled up VMs. </span>
 
 Scaling observation: Now, draw your attention to the tripartite progression of instance scaling that is shown in Screenshot 7:
