@@ -7,6 +7,7 @@ thumbnailimage: /img/developers-512x400.png
 disable: false
 tags:
   - "opensource hpe-ezmeral data-ml-engineer data-scientist "
+  - opensource hpe-ezmeral data-ml-engineer data-scientist
 ---
 This is part two of a blog series that showcases the capabilities of [HPE Ezmeral Unified Analytics](https://www.hpe.com/us/en/hpe-ezmeral-unified-analytics) through the real-world example of stock market predicting. In that blog post [previous blog post](https://developer.hpe.com/blog/seamless-data-engineering-for-financial-services/), we covered the data engineering aspects of Apache Spark and Superset to streamline pipelines and visualize data. In this blog, the same use case is retained, stock market forecasting, to showcase how HPE Ezmeral simplifies building, deploying, and productizing machine learning models and pipelines. 
 
