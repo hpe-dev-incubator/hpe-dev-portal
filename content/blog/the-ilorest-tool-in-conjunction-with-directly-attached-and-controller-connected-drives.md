@@ -13,8 +13,6 @@ tags:
   - ilo-restful-api
 ---
 
-**The iLORest tool in conjunction with Direct-Attached and Controller-Connected Drives.**
-
 **Introduction**
 
 In the domain of data storage and server setups, the method of connecting hard drives holds considerable sway over performance, scalability, and the general operational capabilities. Two prevalent techniques for linking hard drives to a server or storage system include direct-attached and controller-connected setups. This article will delve into a comprehensive examination of these two methodologies, investigating their respective merits, practical applications, and their impact on contemporary computing environments. Additionally, it will focus on examining how the iLORest tool facilitates Drive Firmware (FW) updates in both of these configurations.
