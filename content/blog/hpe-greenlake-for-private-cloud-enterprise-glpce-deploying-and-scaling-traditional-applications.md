@@ -10,7 +10,7 @@ tags:
   - " deploy-apps-across-private-public-and-hybrid"
   - GreenLake Private Cloud Enterprise
 ---
-### <style>
+<style>
 li {
    font-size: 27px;
    line-height: 33px;
