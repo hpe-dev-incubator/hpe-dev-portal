@@ -149,4 +149,3 @@ Model serving: HPE Unified Analytics through Kubeflow Serving (KServe) simplifie
 Automated workflow orchestration: Kubeflow pipelines simplify the orchestration of ML workflows as code. With HPE Unified Analytics, this automation reduces manual effort, enhances reproducibility, and accelerates experimentation, resulting in more efficient model operations.
 
 Contributors to this blog post include Suvralipi Mohanta (suvralipi.mohanta@hpe.com), Harikrishnan Nair (harikrishnan.nair@hpe.com), Ashok Manda (ashok.manda@hpe.com) and Joann Starke (joann.starke@hpe.com).
-
