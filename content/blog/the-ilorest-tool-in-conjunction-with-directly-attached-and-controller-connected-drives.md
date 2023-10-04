@@ -17,7 +17,7 @@ tags:
 
 **Introduction**
 
-In the domain of data storage and server setups, the method of connecting hard drives holds considerable sway over performance, scalability, and the general operational capabilities. Two prevalent techniques for linking hard drives to a server or storage system include direct-attached and controller-connected setups. Within this article, we will delve into a comprehensive examination of these two methodologies, investigating their respective merits, practical applications, and their impact on contemporary computing environments. Additionally, we will examine how the iLORest tool facilitates Drive Firmware (FW) updates in both of these configurations.
+In the domain of data storage and server setups, the method of connecting hard drives holds considerable sway over performance, scalability, and the general operational capabilities. Two prevalent techniques for linking hard drives to a server or storage system include direct-attached and controller-connected setups. This article will delve into a comprehensive examination of these two methodologies, investigating their respective merits, practical applications, and their impact on contemporary computing environments. Additionally, it will focus on examining how the iLORest tool facilitates Drive Firmware (FW) updates in both of these configurations.
 
 **Direct-Attached Drives**
 
@@ -34,10 +34,10 @@ In this specific configuration, iLORest identifies drives that are direct-attach
 
 Controller-connected drives, on the other hand, involve a more complex setup. These drives are connected to a storage controller or RAID (Redundant Array of Independent Disks) controller, which is then connected to the server. This controller manages the storage devices and can offer several advantages:
 
-1. **Scalability**: Controller connected drives are highly scalable. Storage controllers can handle a large number of drives, allowing for significant storage expansion without the need to clutter the server with additional physical drives.
+1. **Scalability**: Controller-connected drives are highly scalable. Storage controllers can handle a large number of drives, allowing for significant storage expansion without the need to clutter the server with additional physical drives.
 2. **Data Protection**: Many controller systems offer RAID configurations, which provide data redundancy and protection against drive failures. This is crucial for mission-critical applications and data centers.
 3. **Centralized Management**: Storage controllers often come with management interfaces that allow for centralized monitoring, configuration, and maintenance of all connected drives. This simplifies storage administration in large-scale environments.
-4. **Use Cases**: Controller connected drives are commonly used in enterprise environments, data centers, and any scenario where data reliability, scalability, and centralized management are paramount.
+4. **Use Cases**: Controller-connected drives are commonly used in enterprise environments, data centers, and any scenario where data reliability, scalability, and centralized management are paramount.
 
 In this particular setup, iLORest identifies drives connected to the controller, initiates the upload of the firmware component, and then proceeds to flash it directly using iLO (BMC). In this configuration, there is no necessity to restart the server.
 
