@@ -53,7 +53,7 @@ In this section, I guide you through managing groups and establishing scaling pa
 ### 2. Runtime
 In the Runtime phase, as instances reach scaling thresholds, they are activated and tracked. For detailed insights, I provide a series of screenshots in this post. 
 
-Now lets begin by logging into the HPE GreenLake for Private Cloud Enterprise console, then head to the Virtual Machines section displayed on the dashboard.
+Now lets begin by login into the HPE GreenLake for Private Cloud Enterprise console, then head to the Virtual Machines section displayed on the dashboard.
 
 **Design and development phase**: 
 
