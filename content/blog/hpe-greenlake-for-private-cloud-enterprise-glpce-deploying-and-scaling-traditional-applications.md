@@ -69,10 +69,8 @@ Now lets begin by logging into the HPE GreenLake for Private Cloud Enterprise co
 
 > > <span style="color:grey; font-family:Arial; font-size:1em">Screenshot 2: NSX-T Load Balancer </span>
 
-   This tool distributes traffic across servers, enhancing performance and reliability, while granting access to all groups.
-
+This tool distributes traffic across servers, enhancing performance and reliability, while granting access to all groups.
 4. Instance provisioning: Screenshot 3 takes you through the detailed steps of setting up an instance:
-
 a. Initiating instance creation: Begin by navigating to **Provisioning**, then select **Instances** and click on Create Instance. At this juncture, identify and assign the right group for your resources. It is now also the time to detail key attributes, such as the instance name, its operating environment, and any relevant labels. This meticulous labeling aids in precise resource tracking and management.
 
 ![Screenshot 3: Creating and configuring instance](/img/screenshot-3-creating-and-configuring-instance.png "Screenshot 3: Creating and configuring instance")
@@ -112,7 +110,7 @@ Provisioning: Screenshot 6 shows the final phase of the instance wizard: the Rev
 
 > > <span style="color:grey; font-family:Arial; font-size:1em">Screenshot 7: Scaled up VMs. </span>
 
-Scaling observation: Now, draw your attention to the tripartite progression of instance scaling that is shown in Screenshot 7:
+Scaling observation: Now, draw your attention to the tripartite progression of instance scaling that is shown in Screenshot 7.
 
 1. **Initial state**: This stage represents the baseline, illustrating the system's configuration before any significant memory demand. It's the foundation, where the system awaits triggers or conditions to initiate any scaling.
 2. **Intermediate phase**: During the transition, memory demand escalates and meets the scaling threshold. This juncture is pivotal — the system responds by initializing new instances. It's an adaptive phase, wherein the system's agility becomes evident, reacting in real-time to the increasing demands.
