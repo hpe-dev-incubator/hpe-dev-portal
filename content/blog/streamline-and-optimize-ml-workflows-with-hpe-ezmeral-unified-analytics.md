@@ -6,8 +6,10 @@ authorimage: /img/abbie-192x192.png
 thumbnailimage: /img/developers-512x400.png
 disable: false
 tags:
-  - "opensource hpe-ezmeral data-ml-engineer data-scientist "
-  - opensource hpe-ezmeral data-ml-engineer data-scientist
+  - hpe-ezmeral
+  - opensource
+  - data-ml-engineer
+  - data-scientist
 ---
 This is part two of a blog series that showcases the capabilities of [HPE Ezmeral Unified Analytics](https://www.hpe.com/us/en/hpe-ezmeral-unified-analytics) through the real-world example of stock market predicting. In that blog post [previous blog post](https://developer.hpe.com/blog/seamless-data-engineering-for-financial-services/), we covered the data engineering aspects of Apache Spark and Superset to streamline pipelines and visualize data. In this blog, the same use case is retained, stock market forecasting, to showcase how HPE Ezmeral simplifies building, deploying, and productizing machine learning models and pipelines. 
 
@@ -15,18 +17,15 @@ This is part two of a blog series that showcases the capabilities of [HPE Ezmera
 
 Business problem: Forecast stock prices of different companies listed in the National Stock Exchange (NSE) of India.
 
-Step 1 
-Data Gathering
+Step 1 Data Gathering:    
 The data is streamed from external servers hosted publicly and then saved to a HPE Ezmeral Data Fabric volume as explained in the  previous blog. 
 
-Step 2
-Data Preprocessing
+Step 2 Data Preprocessing:    
 The stock market does not function on holidays and weekends but the model expects continuous data. For this reason, the data feature, along with the open and closing price for each stock, is being used to impute the model with the previous working day’s data.
 
 ![](/img/step2-data-preprocessing.png "Figure 1. Selecting data for preprocessing. ")
 
-Step 3
-Modeling
+Step 3 Modeling:    
 First, the data is divided between training and validation and then used to train a long short term memory (LSTM) model. After training, the model is evaluated on the error metric.
 
 LSTM is a variety of [recurrent neural networks (RNNs)](https://www.techtarget.com/searchenterpriseai/definition/recurrent-neural-networks#:~:text=A%20recurrent%20neural%20network%20is,predict%20the%20next%20likely%20scenario.) capable of learning long-term dependencies, especially in sequence prediction problems.  
@@ -35,8 +34,8 @@ LSTM is a variety of [recurrent neural networks (RNNs)](https://www.techtarget.c
 
 MLflow is an open-source platform designed to manage the end-to-end machine learning lifecycle. It provides tools for tracking experiments, packaging code, sharing models, and managing deployment. MLflow was developed by Databricks, a company that specializes in big data and AI. They have gained popularity within the machine learning community for their ability to streamline and organize various stages of machine learning workflows.
 
-MLflow consists of several key components\
-\
+MLflow consists of several key components:    
+
 Tracking: This component allows you to record and compare different experiments, including the parameters, metrics, and artifacts (such as models, visualizations, and data) associated with each experiment. It helps keep track of the different iterations and configurations tried during the model development process.
 
 Projects: MLflow projects provide a way to package code into a reproducible format, allowing you to define and share your machine learning projects with others. This ensures that the code and dependencies used for a particular experiment can be easily reproduced by others.
@@ -83,14 +82,14 @@ The source code for the model is stored in a private repository on GitHub then s
 
 The next step is to deploy the best model chosen from the MLflow experiment. Here, Kserve, which is a standard model inference platform on Kubernetes that is build for highly scalable use cases, is being used. 
 
-Kubeflow Serving, also known as KServe, is a component of the Kube Flow ecosystem and is designed to serve machine learning models in Kubernetes environments. Kubeflow itself is an open-source platform for deploying, monitoring, and managing machine learning models on Kubernetes. KServe provides several features and benefits:
+Kubeflow Serving, also known as KServe, is a component of the Kubeflow ecosystem and is designed to serve machine learning models in Kubernetes environments. Kubeflow itself is an open-source platform for deploying, monitoring, and managing machine learning models on Kubernetes. KServe provides several features and benefits:
 
 1. Scalability: It is designed to handle serving machine learning models at scale. You can easily scale up or down based on the traffic and load requirements.
 2. Multi-framework support: KServe supports serving models trained in various machine learning frameworks, such as Tensor Flow, PyTorch, scikit-learn, and others.
 3. Advanced deployment strategies: KServe supports various deployment strategies, for example  Canary deployments or Blue-Green deployments,  allowing you to roll out new model versions gradually and monitor their performance.
 4. Monitoring and metrics: It provides metrics and monitoring capabilities, allowing you to keep track of model performance, errors, and other relevant statistics.
 5. Customization: KServe is highly customizable, allowing you to define how you want to serve your models, handle preprocessing and post-processing tasks, and even add custom logic to your serving containers.
-6. Integration with Kube Flow Pipelines: If you're using Kubeflow Pipelines for end-to-end machine learning workflows, KServe can be integrated seamlessly to deploy models as part of your pipeline.
+6. Integration with Kubeflow pipelines: If you're using Kubeflow pipelines for end-to-end machine learning workflows, KServe can be integrated seamlessly to deploy models as part of your pipeline.
 
 Visit the [Kserve documentation](https://kserve.github.io/website/0.10/modelserving/control_plane/) for more information.
 
@@ -106,15 +105,15 @@ Next, a new model server must be created in Kubeflow and the yaml file uploaded.
 
 **Model retraining**
 
-The models deployed into production are constantly monitored to identify inconsistencies and degradation in performance. Because models can skew to the old data used for training resulting in under performance, models should be retrained whenever performance drops below a defined threshold. To retrain a model, a pipeline is developed that could trigger all the steps associated with model retraining to occur in the appropriate sequence using Kube Flow pipelines.  
+The models deployed into production are constantly monitored to identify inconsistencies and degradation in performance. Because models can skew to the old data used for training resulting in under performance, models should be retrained whenever performance drops below a defined threshold. To retrain a model, a pipeline is developed that could trigger all the steps associated with model retraining to occur in the appropriate sequence using Kubeflow pipelines.  
 
 Python programs need to be modified to run as a Kubeflow pipeline because each step runs as a containerized module. The whole cycle of data collection, preprocessing, and modeling are divided into separate components with each process isolated and running as independent containers inside individual Kubernetes pods. All the dependencies of each task must be mentioned inside the task due to the isolated nature of the environment. The artifacts that are used in the process, such as input data files and model objects, are saved in specific locations and referenced by the tasks. 
 
-To prepare the KubeFlow pipelines, define each task as a function. First “read_data()” is defined to read the input file from the data volume on the Kubeflow pipeline.
+To prepare the Kubeflow pipelines, define each task as a function. First “read_data()” is defined to read the input file from the data volume on the Kubeflow pipeline.
 
 ![](/img/fig-1-define-each-task.png "Figure 10. Each task is defined as a function that includes all necessary packages. ")
 
-Once defined, functions are converted into a Kubeflow component using “create_component_from_func()”.
+Once defined, functions are converted into a Kubeflow component using “create\_component\_from\_func()”.
 
 ![](/img/fig-2-converting-each-task.png "Figure 11. Each task is converted into a component that includes base line images and packages. ")
 
