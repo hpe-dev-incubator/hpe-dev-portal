@@ -19,13 +19,14 @@ li {
 </style>
 
 In my first blog post on [HPE GreenLake for Private Cloud Enterprise: Exploring a flexible infrastructure resource pool](https://developer.hpe.com/blog/hpe-greenlake-for-private-cloud-enterprise--Exploring-a-flexible-infrastructure-resource-pool/) I underscored the flexible nature of HPE GreenLake for Private Cloud Enterprise infrastructure. Its transparent cost analytics stand out as a significant benefit, aiding organizations in making well-informed financial and infrastructural choices. In our present digital era, having the right infrastructure is imperative, a need that HPE GreenLake for Private Cloud Enterprise aptly fulfills through its robust support for automated tools like Terraform and Ansible, ensuring seamless and efficient infrastructure management and scaling.
+
 In this second segment, I will delve further into the enhanced features of HPE GreenLake for Private Cloud Enterprise: Virtual Machines. This exploration will highlight the substantial support these services extend to modern businesses. By demystifying the intricacies of deploying and efficiently scaling traditional applications, HPE GreenLake for Private Cloud Enterprise stands as a pivotal ally for contemporary enterprise operations.
 
 **Introduction**
 
 In the current business landscape, organizations face the intricate task of integrating their applications, built on traditional time-tested and trusted technology and processes, like three-tier architectures, with the rapid pace and adaptability of modern applications, like containers and serverless computing. These older technologies have proven their reliability and effectiveness over time, forming the backbone of many enterprise systems. Meanwhile, applications have become modernized, emphasizing scalability, agility, and efficiency, and often relying on cloud-native architectures and services to deliver seamless, robust functionality.
 
-Navigating the integration of these disparate systems requires a thoughtful approach, balancing the stability and reliability of traditional architectures with the innovative features of modern application development and deployment strategies. This blending ensures organizations can harness the full potential of both technological paradigms to drive operational excellence and competitive advantage in the marketplace. Addressing this challenge, the HPE GreenLake for Private Cloud Enterprise: Virtual Machines   serves as a comprehensive platform. It is designed to support the simultaneous operation and integration of both traditional and modern application types.
+Navigating the integration of these disparate systems requires a thoughtful approach, balancing the stability and reliability of traditional architectures with the innovative features of modern application development and deployment strategies. This blending ensures organizations can harness the full potential of both technological paradigms to drive operational excellence and competitive advantage in the marketplace. Addressing this challenge, the HPE GreenLake for Private Cloud Enterprise: Virtual Machines serves as a comprehensive platform. It is designed to support the simultaneous operation and integration of both traditional and modern application types.
 
 **Traditional architecture**
 
@@ -64,13 +65,16 @@ Now lets begin by login into the HPE GreenLake for Private Cloud Enterprise cons
 > > <span style="color:grey; font-family:Arial; font-size:1em">Screenshot 1: Managing groups and setting scaled thresholds for CPU and memory. </span>
 
 2. Setting scale threshold: Navigate to **Library** and choose **Scale** **threshold**. Here is where you will define specific criteria for automatic scaling as shown in screenshot 1. With this in place, the system self-adjusts, activating anywhere from 1 to 4 instances based on memory consumption. When memory usage is minimal, the system conserves resources by operating fewer instances. Conversely, as memory usage approaches its limit, the system scales upwards, guaranteeing consistent performance without the need for human input.
+
 3. Create NSX-T Load Balancer: Screenshot 2 shows creating the **Scale-Post-LB** load balancer, set to **Small** size and **Enabled**, is in an Up administrative state. Connected to the main network router, **Tier-1 Gateway**, it logs activity at a Warning level. 
      ![Screenshot 2: NSX-T Load Balancer](/img/nsx-t-load-balancer.png "Screenshot 2: NSX-T Load Balancer")
 
 > > <span style="color:grey; font-family:Arial; font-size:1em">Screenshot 2: NSX-T Load Balancer </span>
 
 This tool distributes traffic across servers, enhancing performance and reliability, while granting access to all groups.
+
 4. Instance provisioning: Screenshot 3 takes you through the detailed steps of setting up an instance:
+
 a. Initiating instance creation: Begin by navigating to **Provisioning**, then select **Instances** and click on Create Instance. At this juncture, identify and assign the right group for your resources. It is now also the time to detail key attributes, such as the instance name, its operating environment, and any relevant labels. This meticulous labeling aids in precise resource tracking and management.
 
 ![Screenshot 3: Creating and configuring instance](/img/screenshot-3-creating-and-configuring-instance.png "Screenshot 3: Creating and configuring instance")
@@ -78,6 +82,7 @@ a. Initiating instance creation: Begin by navigating to **Provisioning**, then s
 > > <span style="color:grey; font-family:Arial; font-size:1em">Screenshot 3: Creating and configuring instance </span>
 
 b. Layout configuration: Subsequently, shift your focus to integrating the instance with a load balancer. While many prominent load-balancing options are available, including the likes of F5, the NSX-T Load Balancer (screenshot 2) native to HPE GreenLake for Private Cloud Enterprise  is a good fit. It's equipped with a comprehensive set of features tailored to meet our deployment requirements, ensuring even distribution of incoming traffic across multiple endpoints.
+
 c. Final settings: Concluding the process, determine the root volume size to match your data storage necessities. Concurrently, select and designate the network on which these instances will function. This guarantees flawless interaction and operation within the stipulated digital ecosystem.
 
 ![Screenshot 4: Configuring automation, scale factor and load balancer](/img/configuring-automation-scale-factor-and-load-balancer.png "Screenshot 4: Configuring automation, scale factor and load balancer")
@@ -87,9 +92,13 @@ c. Final settings: Concluding the process, determine the root volume size to mat
 In Screenshot 4, as you navigate the automation phase of the instance wizard:
 
 1. Initiate the workflow configuration, opting for Ansible based on your needs. It's worth noting the availability of a Node.js workflow alternative.
+
 2. The Scale type selection follows, referencing the threshold previously established in Screenshot 1. For clarity, you can revisit Screenshot 1.
+
 3. In Screenshot 2, you’ll see how to set up an NSX-T Load Balancer. Port 80 is primarily designated for HTTP traffic. While port 80 is the focus, other ports like 443 for HTTPS or custom ports for database tasks (e.g., 1433, 1521) can be configured. It's crucial to note that, initially, configurations apply only to the servers behind the load balancer. When a new instance arises due to scaling thresholds, it inherits these settings but isn't automatically added to the load balancer. A separate script is required to include the new instance to the load balancer.
+
 4. It's essential to highlight that activating port 443 for HTTPS provides the capability to configure and implement SSL certificates, bolstering security.
+
 5. Additionally, there's flexibility to choose the installation of custom agents on the instances, such as third-party monitoring tools or security vulnerability scanners.
 
    ![Screenshot 5: Tagging the resources.](/img/tagging-the-resources..png "Screenshot 5: Tagging the resources.")
@@ -118,6 +127,10 @@ Scaling observation: Now, draw your attention to the tripartite progression of i
 
 **Conclusion**
 
-In this post, I showed you how HPE GreenLake for Private Cloud Enterprise:  Virtual Machines simplifies the deployment and scaling of traditional applications, making it an efficient choice for modern digital business needs. The Design and Development phase highlights the ease of managing groups and setting scaling thresholds for CPU and memory, emphasized by the detailed visual walkthrough. Through the HPE GreenLake for Private Cloud Enterprise console and Ansible automation, the establishment of a robust and efficient scaling environment is showcased, ensuring operational consistency and responsiveness.
+In this post, I showed you how HPE GreenLake for Private Cloud Enterprise:  Virtual Machines simplifies the deployment and scaling of traditional applications, making it an efficient choice for modern digital business needs. The Design and Development phase highlights the ease of managing groups and setting scaling thresholds for CPU and memory, emphasized by the detailed visual walkthrough. 
+
+Through the HPE GreenLake for Private Cloud Enterprise console and Ansible automation, the establishment of a robust and efficient scaling environment is showcased, ensuring operational consistency and responsiveness.
+
 In the Runtime phase, the system’s agility comes to the forefront. The seamless integration with NSX-T Load Balancer and clear, step-by-step provisioning and setup underscore the system’s focus on optimal performance and reliability. The nuanced instance setup process, from initiation to layout configuration and tagging, exemplifies the comprehensive control and oversight organizations hold over their resources and deployment processes.
+
 In conclusion, the HPE GreenLake for Private Cloud Enterprise stands out as a robust, intuitive, and adaptive platform for efficiently deploying and scaling traditional applications. This detailed overview underscores the significant value it brings to enterprises, ensuring consistent meeting of user demands while promoting operational efficiency and innovation. Stay tuned for the final post in this series.
