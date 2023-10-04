@@ -1,6 +1,6 @@
 ---
-title: The iLORest tool in conjunction with Direct-Attached and
-  Controller-Connected Drives.
+title: The iLORest tool in conjunction with direct-attached and
+  controller-connected drives
 date: 2023-09-30T06:13:14.233Z
 author: Rajeevalochana Kallur
 authorimage: /img/Avatar1.svg
@@ -17,18 +17,18 @@ tags:
 
 In the domain of data storage and server setups, the method of connecting hard drives holds considerable sway over performance, scalability, and the general operational capabilities. Two prevalent techniques for linking hard drives to a server or storage system include direct-attached and controller-connected setups. This article will delve into a comprehensive examination of these two methodologies, investigating their respective merits, practical applications, and their impact on contemporary computing environments. Additionally, it will focus on examining how the iLORest tool facilitates Drive Firmware (FW) updates in both of these configurations.
 
-**Direct-Attached Drives**
+**Direct-attached drives**
 
-Direct-attached drives, as the name suggests, are storage devices that are directly connected to a server or host system. These drives can be connected using various interfaces, such as SATA (Serial Advanced Technology Attachment), NVMe (Non-Volatile Memory Express), or SAS (Serial Attached SCSI). Let's examine the key aspects of direct attached drives:
+Direct-attached drives, as the name suggests, are storage devices that are directly connected to a server or host system. These drives can be connected using various interfaces, such as SATA (Serial Advanced Technology Attachment), NVMe (Non-Volatile Memory Express), or SAS (Serial Attached SCSI). Let's examine the key aspects of direct-attached drives:
 
 1. **Simplicity**: Direct-attached drives are straightforward to set up and manage. They are typically installed inside the server's chassis or externally connected via cables.
 2. **Performance**: These drives often offer excellent performance, especially when used in high-speed interfaces like NVMe. They are well-suited for applications that demand low latency and high throughput.
 3. **Scalability**: While direct-attached drives are easy to install, their scalability is somewhat limited. Expanding storage capacity often requires physically adding more drives to the server, which may not be suitable for large-scale data storage needs.
 4. **Use cases**: Direct-attached drives are commonly used in small to medium-sized businesses, as well as for specific applications where high-speed local storage is essential, such as gaming servers or databases.
 
-When updating configurations where directly attached drives are being used, iLORest automatically identifies drives that are directly attached, initiates the upload of the firmware component, and generates a UEFI task to perform the update. The UEFI task is scheduled to execute during the next server reboot, and the firmware update is carried out at that time as well.
+When updating configurations where direct-attached drives are being used, iLORest automatically identifies drives that are directly attached, initiates the upload of the firmware component, and generates a UEFI task to perform the update. The UEFI task is scheduled to execute during the next server reboot, and the firmware update is carried out at that time as well.
 
-**Controller-Connected Drives**
+**Controller-connected drives**
 
 Controller-connected drives, on the other hand, involve a more complex setup. These drives are connected to a storage controller or RAID (Redundant Array of Independent Disks) controller, which is then connected to the server. This controller manages the storage devices and can offer several advantages:
 
