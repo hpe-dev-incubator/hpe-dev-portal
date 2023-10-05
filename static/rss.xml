@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<rss version="2.0"
+    xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <atom:link href="http://developer.hpe,com/rss.xml" rel="self" type="application/rss+xml" />
+        <title>News from the HPE Developer Community</title>
+        <link>https://developer.hpe.com</link>
+        <description>We're all developing something.
+Come join us in making the future. </description>
+        <item>
+            <guid isPermaLink="false">Updated 02102023</guid>
+            <title>Latest News from the HPE Developer Community</title>
+            <link>https://developer.hpe.com</link>
+            <description>
+
+
+&lt;br/ &gt;blog | GitOps: The next step in cloud-native development | https://developer.hpe.com/blog/gitops-the-next-step-in-cloud-native-development/
+&lt;br/ &gt;blog | HPE GreenLake for Private Cloud Enterprise: Exploring a flexible infrastructure resource pool | https://developer.hpe.com/blog/hpe-greenlake-for-private-cloud-enterprise--Exploring-a-flexible-infrastructure-resource-pool/
+&lt;br/ &gt;wod | Deep Learning Model Training at Scale with Determined | https://developer.hpe.com/hackshack/replays/38
+&lt;br/ &gt;talk | 25-Oct-23 Going from containers, to pods, to Kubernetes â help for your developer environments! by Cedric Clyburn / Evan Shortiss at Red Hat | https://hpe.zoom.us/webinar/register/2016945256903/WN_mrFAM02tQ8KGW_cHc5oHGg
+
+
+
+
+&lt;br /&gt; &lt;br /&gt; Stay tuned!
+            </description>
+        </item>
+    </channel>
+</rss>
