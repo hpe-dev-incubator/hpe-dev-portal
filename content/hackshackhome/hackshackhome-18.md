@@ -1,6 +1,6 @@
 ---
 title: "DevOps Alert: Tool Sprawl"
-active: true
+active: false
 fit: contain
 path: https://hpe.zoom.us/webinar/register/4216927952332/WN_HuXCvPG4TAOdw12fJ3XTpg
 imageBackground: white
