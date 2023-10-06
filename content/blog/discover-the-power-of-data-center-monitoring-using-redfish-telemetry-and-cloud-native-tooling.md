@@ -10,10 +10,8 @@ tags:
   - ilo-restful-api
 ---
 <style>
-li {
-   font-size: 27px;
-   line-height: 33px;
-   max-width: none;
+ul li{
+ font-size:27px;
 }
 </style>
 
