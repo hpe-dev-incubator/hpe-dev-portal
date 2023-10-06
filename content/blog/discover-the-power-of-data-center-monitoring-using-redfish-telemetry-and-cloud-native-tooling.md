@@ -9,6 +9,14 @@ disable: false
 tags:
   - ilo-restful-api
 ---
+<style>
+li {
+   font-size: 27px;
+   line-height: 33px;
+   max-width: none;
+}
+</style>
+
 Monitoring data center infrastructure is critical for ensuring optimal performance, resource utilization, and timely issue detection. Redfish, an open industry standard for hardware management, provides a standardized way to access telemetry data from servers and other devices. Coupling Redfish telemetry with cloud-native monitoring tools offers a robust solution for real-time monitoring, data analysis, visualization, and alerting. 
 
 ## **Why does data center monitoring matter?**
