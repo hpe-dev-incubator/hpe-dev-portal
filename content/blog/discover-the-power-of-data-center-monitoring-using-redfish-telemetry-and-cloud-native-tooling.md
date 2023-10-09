@@ -8,6 +8,12 @@ thumbnailimage: ""
 disable: false
 tags:
   - ilo-restful-api
+  - Grafana
+  - Telemetry
+  - monitoring
+  - Prometheus
+  - Redfish
+  - Alertmanager
 ---
 <style>
 ul li{
