@@ -3,7 +3,7 @@ title: Discover the power of data center monitoring using Redfish telemetry and
   cloud-native tooling
 date: 2023-10-05T17:03:36.464Z
 author: Naveen Gupta
-authorimage: /img/img-2142.jpg
+authorimage: /img/photo-jpg-ng.jpg
 thumbnailimage: ""
 disable: false
 tags:
@@ -34,7 +34,7 @@ Data centers are the backbone of modern businesses, housing critical application
 
 ## **A comprehensive approach**
 
-Our latest technical whitepaper, *“[Data center monitoring using Redfish telemetry and cloud-native tooling](https://www.hpe.com/psnow/doc/a00134351enw)”*, presents a comprehensive approach to data center monitoring by integrating the Redfish telemetry with cloud-native open-source tools including Telegraf, Prometheus, Alertmanager, and Grafana. These tools work seamlessly together to provide a holistic view of your data center infrastructure. The telemetry data source for this stack is HPE Integrated Lights-Out (iLO) which exposes metrics via Redfish interface.
+My latest technical whitepaper, *“[Data center monitoring using Redfish telemetry and cloud-native tooling](https://www.hpe.com/psnow/doc/a00134351enw)”*, presents a comprehensive approach to data center monitoring by integrating the Redfish telemetry with cloud-native open-source tools including Telegraf, Prometheus, Alertmanager, and Grafana. These tools work seamlessly together to provide a holistic view of your data center infrastructure. The telemetry data source for this stack is HPE Integrated Lights-Out (iLO) which exposes metrics via Redfish interface.
 
 Here's a glimpse of what you'll discover in the whitepaper:
 
