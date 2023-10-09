@@ -39,7 +39,7 @@ Our latest technical whitepaper, *“[Data center monitoring using Redfish telem
 Here's a glimpse of what you'll discover in the whitepaper:
 
 * **Understanding Redfish Telemetry:** Learn about the Redfish standard and how it simplifies hardware telemetry data collection.
-* **Cloud-Native Tools:** Explore the capabilities of Telegraf, Prometheus, and Grafana and how they enhance data center monitoring.
+* **Cloud-Native Tools:** Explore the capabilities of Telegraf, Prometheus, Alertmanager, and Grafana and how they enhance data center monitoring.
 * **Architecture:** Dive into the architecture of this integrated solution, detailing how data flows from the source to the visualization layer.
   Setup Process: Follow a step-by-step guide on how to set up this monitoring solution in your data center.
 * **Benefits:** Understand the benefits of this approach, including real-time monitoring, scaling, and customizable visualization.
