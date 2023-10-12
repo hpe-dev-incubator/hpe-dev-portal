@@ -16,11 +16,10 @@ tags:
   - Alertmanager
 ---
 <style>
-ul li{
+li{
  font-size: 27px;
  ﻿line-height: 33px;
  max-width: none;
-
 }
 </style>
 
@@ -31,13 +30,9 @@ Monitoring data center infrastructure is critical to ensuring optimal performanc
 Data centers are the backbone of modern businesses, housing critical applications, databases, and services. Ensuring the seamless operation of these data centers is essential for business continuity and meeting the demands of today's digital world. Data center monitoring helps with following:
 
 * **Performance optimization:** Monitoring helps identify bottlenecks, inefficiencies, and potential failures, allowing for proactive optimization.
-
 * **Resource utilization:** Tracking resource usage ensures that capacity is allocated effectively, saving costs and energy.
-
 * **Predictive maintenance:** Real-time insights enable predictive maintenance, reducing downtime and associated costs.
-
 * **Compliance:** Monitoring helps meet regulatory requirements by maintaining accurate records and ensuring security.
-
 ## **A comprehensive approach**
 
 My latest technical whitepaper, *“[Data center monitoring using Redfish telemetry and cloud-native tooling](https://www.hpe.com/psnow/doc/a00134351enw)”*, presents a comprehensive approach to data center monitoring by integrating the Redfish telemetry with cloud-native open-source tools including Telegraf, Prometheus, Alertmanager, and Grafana. These tools work seamlessly together to provide a holistic view of your data center infrastructure. The telemetry data source for this stack is HPE Integrated Lights-Out (iLO) which exposes metrics via Redfish interface.
