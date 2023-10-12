@@ -75,56 +75,58 @@ exports.createPages = async ({ graphql, actions }) => {
 
   try {
     // eslint-disable-next-line max-len
-    const replaysApi = `${GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/replays?active=true`;
-    const getReplays = await axios({
+    const workshopsApi = `${GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/workshops?active=true`;
+    const getWorkshops = await axios({
       method: 'GET',
-      url: replaysApi,
+      url: workshopsApi,
     });
 
-    getReplays.data.forEach(({ id, title, desc, workshop }) => {
-      createPage({
-        path: `/hackshack/replays/${id}`,
-        component: require.resolve('./src/pages/hackshack/replays/template.js'),
-        context: {
-          workshopId: id,
-          workshopTitle: title,
-          workshopDesc: desc,
-          workshopImg: workshop && workshop.workshopImg,
-        },
-      });
+    getWorkshops.data.forEach(({ id, name, description,workshop }) => {
+  //     createPage({
+  //       path: `/hackshack/replays/${id}`,
+  // eslint-disable-next-line max-len
+  //       component: require.resolve('./src/pages/hackshack/replays/template.js'),
+  //       context: {
+  //         workshopId: id,
+  //         workshopTitle: title,
+  //         workshopDesc: desc,
+  //         workshopImg: workshop && workshop.workshopImg,
+  //       },
+  //     });
 
-      console.log(`Create pages /hackshack/replays/${id} from ${id}`);
-      console.log('------------------------------');
+  //     console.log(`Create pages /hackshack/replays/${id} from ${id}`);
+  //     console.log('------------------------------');
 
       createPage({
         path: `/hackshack/workshop/${id}`,
         component: require.resolve('./src/pages/hackshack/replays/template.js'),
         context: {
           workshopId: id,
-          workshopTitle: title,
-          workshopDesc: desc,
+          workshopTitle: name,
+          workshopDesc: description,
           workshopImg: workshop && workshop.workshopImg,
         },
       });
 
-      console.log(`Create pages /hackshack/workshop/${id} from ${id}`);
-      console.log('------------------------------');
+  //     console.log(`Create pages /hackshack/workshop/${id} from ${id}`);
+  //     console.log('------------------------------');
 
-      createPage({
-        path: `/hackshack/workshop/${id}/finisher-badge`,
-        component: require.resolve('./src/pages/hackshack/replays/template.js'),
-        context: {
-          workshopId: id,
-          workshopTitle: title,
-          workshopDesc: desc,
-          workshopImg: workshop && workshop.badgeImg,
-        },
-      });
+  //     createPage({
+  //       path: `/hackshack/workshop/${id}/finisher-badge`,
+  // eslint-disable-next-line max-len
+  //       component: require.resolve('./src/pages/hackshack/replays/template.js'),
+  //       context: {
+  //         workshopId: id,
+  //         workshopTitle: title,
+  //         workshopDesc: desc,
+  //         workshopImg: workshop && workshop.badgeImg,
+  //       },
+  //     });
 
-      console.log(
-        `Create pages /hackshack/workshop/${id}/finisher-badge from ${id}`,
-      );
-      console.log('------------------------------');
+  //     console.log(
+  //       `Create pages /hackshack/workshop/${id}/finisher-badge from ${id}`,
+  //     );
+  //     console.log('------------------------------');
     });
   } catch (error) {
     console.log('error: ', error);

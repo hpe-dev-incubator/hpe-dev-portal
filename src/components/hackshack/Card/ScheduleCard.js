@@ -23,7 +23,7 @@ import {
   CircleInformation,
 } from 'grommet-icons';
 import PropTypes from 'prop-types';
-import { Link } from 'gatsby';
+// import { Link } from 'gatsby';
 import { CardWrapper, ContrastLayer } from './styles';
 import AuthService from '../../../services/auth.service';
 import { AppContext } from '../../../providers/AppProvider';
@@ -874,18 +874,22 @@ const ScheduleCard = ({
               )}
               {sessionType === 'Coding Challenge' ||
               sessionType === 'Workshops-on-Demand' ? (
-                <Link to={`../${sessionLink}`}>
-                  <Button
-                    label={
-                      <Box pad="xsmall">
-                        <Text color="text-strong" size={textSize}>
-                          Learn more
-                        </Text>
-                      </Box>
-                    }
-                  />
-                </Link>
+                // <Link to={`${sessionLink}`}>
+                <Button
+                  alignSelf="start"
+                  href={sessionLink}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  label={
+                    <Box pad="xsmall">
+                      <Text color="text-strong" size={textSize}>
+                        Learn more
+                      </Text>
+                    </Box>
+                  }
+                />
               ) : (
+                // </Link>
                 <Box direction="row" gap="medium">
                   <Button
                     alignSelf="start"

@@ -31,7 +31,7 @@ const sortReplays = (replayData, current) => {
 
 const ReplayTemplate = (props) => {
   const { GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT } = process.env;
-  const getReplaysApi = `${GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/replays?active=true`;
+  const getReplaysApi = `${GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/workshops?active=true`;
   const [replays, setReplays] = useState([]);
   const [error, setError] = useState('');
 
@@ -92,14 +92,14 @@ const ReplayTemplate = (props) => {
           {selectedReplay ? (
             <>
               <Video
-                videolink={selectedReplay.videoLink}
+                videolink={selectedReplay.replayLink}
                 id={selectedReplay.id}
                 avatar={selectedReplay.avatar}
-                desc={selectedReplay.desc}
-                key={selectedReplay.title}
+                desc={selectedReplay.description}
+                key={selectedReplay.name}
                 presenter={selectedReplay.presenter}
                 role={selectedReplay.role}
-                title={selectedReplay.title}
+                title={selectedReplay.name}
                 setCurrent={setCurrent}
                 current={current}
                 replaysLength={replays.length}
@@ -149,15 +149,15 @@ const ReplayTemplate = (props) => {
             </Box>
           )}
           {sortedReplays.map(
-            ({ desc, presenter, role, title, videoLink, id }) =>
+            ({ description, presenter, role, name, replayLink, id }) =>
               id !== current && (
                 <VideoList
-                  key={title}
+                  key={name}
                   id={id}
-                  desc={`${desc.slice(0, 150)}...`}
-                  title={title}
+                  desc={`${description.slice(0, 150)}...`}
+                  title={name}
                   presenter={presenter}
-                  videoLink={videoLink}
+                  videoLink={replayLink}
                   role={role}
                   setCurrent={setCurrent}
                   setAutoPlay={setAutoPlay}
