@@ -48,4 +48,4 @@ Here's a glimpse of what you'll discover in the whitepaper:
 
 ## **Take the next step**
 
-Discover how the integration of Redfish Telemetry Service with cloud-native tools can transform your data center monitoring, making it not only efficient but also highly insightful by reading my whitepaper and dive into the world of data center monitoring with HPE iLO today! Keep coming back to the [HPE Developer blog](https://developer.hpe.com/blog) for more articles on HPE iLO.
+Discover how the integration of Redfish telemetry service with cloud-native tools can transform your data center monitoring, making it not only efficient but also highly insightful by reading my whitepaper and dive into the world of data center monitoring with HPE iLO today! Keep coming back to the [HPE Developer blog](https://developer.hpe.com/blog) for more articles on HPE iLO.
