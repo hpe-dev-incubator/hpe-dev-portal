@@ -3,13 +3,14 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-alert */
 /* eslint-disable react/prop-types */
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Box } from 'grommet';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import FeedBackButton from './FeedbackButton/FeedbackButton';
 import FeedbackForm from './FeedbackForm/FeedbackForm';
+import { AppContext } from '../../providers/AppProvider';
 
 const isEmpty = (str) => !str.trim().length;
 
@@ -48,10 +49,10 @@ const Feedback = (props) => {
   const [showButton, setShowButton] = useState(true);
   const [showForm, setShowForm] = useState(false);
   const [selQuestion, setSelQuestion] = useState(undefined);
-
+  const { user }=useContext(AppContext);
   const initialState = {
     value: '',
-    email: '',
+    email: user?.email || '',
   };
 
   const {
