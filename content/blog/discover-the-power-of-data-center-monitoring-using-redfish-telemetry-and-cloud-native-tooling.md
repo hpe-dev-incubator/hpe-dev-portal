@@ -17,19 +17,23 @@ tags:
 ---
 <style>
 ul li{
- font-size:27px;
+ font-size: 27px;
+
+ ﻿line-height: 33px;
+ max-width: none;
+
 }
 </style>
 
-Monitoring data center infrastructure is critical for ensuring optimal performance, resource utilization, and timely issue detection. Redfish, an open industry standard for hardware management, provides a standardized way to access telemetry data from servers and other devices. Coupling Redfish telemetry with cloud-native monitoring tools offers a robust solution for real-time monitoring, data analysis, visualization, and alerting. 
+Monitoring data center infrastructure is critical to ensuring optimal performance, resource utilization, and timely issue detection. Redfish, an open industry standard for hardware management, provides a standardized way to access telemetry data from servers and other devices. Coupling Redfish telemetry with cloud-native monitoring tools offers a robust solution for real-time monitoring, data analysis, visualization, and alerting.
 
 ## **Why does data center monitoring matter?**
 
 Data centers are the backbone of modern businesses, housing critical applications, databases, and services. Ensuring the seamless operation of these data centers is essential for business continuity and meeting the demands of today's digital world. Data center monitoring helps with following:
 
-* **Performance Optimization:** Monitoring helps identify bottlenecks, inefficiencies, and potential failures, allowing for proactive optimization.
-* **Resource Utilization:** Tracking resource usage ensures that capacity is allocated effectively, saving costs and energy.
-* **Predictive Maintenance:** Real-time insights enable predictive maintenance, reducing downtime and associated costs.
+* **Performance optimization:** Monitoring helps identify bottlenecks, inefficiencies, and potential failures, allowing for proactive optimization.
+* **Resource utilization:** Tracking resource usage ensures that capacity is allocated effectively, saving costs and energy.
+* **Predictive maintenance:** Real-time insights enable predictive maintenance, reducing downtime and associated costs.
 * **Compliance:** Monitoring helps meet regulatory requirements by maintaining accurate records and ensuring security.
 
 ## **A comprehensive approach**
