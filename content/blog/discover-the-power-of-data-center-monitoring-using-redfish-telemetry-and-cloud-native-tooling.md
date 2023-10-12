@@ -16,8 +16,10 @@ tags:
   - Alertmanager
 ---
 <style>
-ul li{
- font-size:27px;
+li {
+   font-size: 27px;
+   line-height: 33px;
+   max-width: none;
 }
 </style>
 
