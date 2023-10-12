@@ -3,14 +3,13 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-alert */
 /* eslint-disable react/prop-types */
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Box } from 'grommet';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import FeedBackButton from './FeedbackButton/FeedbackButton';
 import FeedbackForm from './FeedbackForm/FeedbackForm';
-import { AppContext } from '../../providers/AppProvider';
 
 const isEmpty = (str) => !str.trim().length;
 
@@ -49,12 +48,6 @@ const Feedback = (props) => {
   const [showButton, setShowButton] = useState(true);
   const [showForm, setShowForm] = useState(false);
   const [selQuestion, setSelQuestion] = useState(undefined);
-  const { user }=useContext(AppContext);
-  const initialState = {
-    value: '',
-    email: user?.email || '',
-  };
-
   const {
     headerText,
     buttonText,
@@ -69,8 +62,9 @@ const Feedback = (props) => {
     handleButtonClick,
     handleSubmit,
     isSubmissionSuccess,
+    emailvalue,
+    feedbackvalue,
   } = props;
-
   useEffect(() => {
     if (isSubmissionSuccess !== undefined) {
       setSelQuestion(undefined);
@@ -100,13 +94,15 @@ const Feedback = (props) => {
     value: yup.string().required('Required'),
     email: yup.string().email('Invalid email format'),
   });
-
+  const initialState = {
+    value: feedbackvalue,
+    email: emailvalue,
+  };
   const feedbackFromik = useFormik({
     initialValues: initialState,
     onSubmit: submithandler,
     validationSchema,
   });
-
   const buttonClickHandler = () => {
     setShowButton(false);
     setShowForm(true);
