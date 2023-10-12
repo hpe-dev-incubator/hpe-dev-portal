@@ -232,7 +232,7 @@ const FeedbackBody = ({
                 value={feedbackFromik.values.email}
                 style={{ marginTop: 10 }}
                 placeholder="Enter Your Email"
-                onChange={feedbackFromik.handleChange}
+                onChange={(val)=>{feedbackFromik.handleChange(val);}}
                 onBlur={feedbackFromik.handleBlur}
               />
               {feedbackFromik.errors.email && (

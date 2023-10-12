@@ -49,7 +49,7 @@ export const EmailCapture = ({ children, heading, bodyCopy1, bodyCopy2 }) => {
       setFormData((prevFormData) => ({
         ...prevFormData,
         email: userDetails.email,
-      }))
+      }));
     }
   }, [userDetails?.email]);
 
