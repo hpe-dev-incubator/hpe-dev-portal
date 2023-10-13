@@ -11,6 +11,6 @@ width: large
 
 November 7, 2023
 
-Join us on 7 November with [TitanML](https://www.titanml.co/) as we bring together the HPE data science user group to discuss the latest trends, best approaches and practical experiences.
+Join us on 7 November with TitanML as we bring together the HPE data science user group to discuss the latest trends, best approaches and practical experiences.
 
 We’ll have technical talks, live demos and plenty of opportunity to network with your community while enjoying drinks, food and making the most of the table tennis at Bounce Farringdon.
