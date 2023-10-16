@@ -151,7 +151,7 @@ const FeedbackBody = ({
 
                 <Button
                   label="Close"
-                  style={{ marginTop: 30 }}
+                  style={{ marginTop: 30,backgroundColor:'#01A982' }}
                   onClick={() => {
                     successClose();
                   }}
@@ -166,7 +166,7 @@ const FeedbackBody = ({
                 </div>
                 <Button
                   label="Close"
-                  style={{ marginTop: 30 }}
+                  style={{ marginTop: 30,backgroundColor:'#01A982' }}
                   onClick={() => {
                     successClose();
                   }}
@@ -207,7 +207,9 @@ const FeedbackBody = ({
               )}
               <Button
                 label="Next"
-                style={{ marginTop: 20 }}
+                style={ feedbackFromik.errors.value || feedbackFromik.values.value==='' || feedbackFromik.values.value===' '? 
+                  { marginTop: 20,backgroundColor:'white' }:
+                  { marginTop: 20,backgroundColor:'#01A982' }} 
                 icon={<FormNextLink />}
                 onClick={() => setEmailDis(true)}
                 alignSelf="end"
@@ -215,8 +217,7 @@ const FeedbackBody = ({
                 primary
                 disabled={
                   feedbackFromik.values.value === '' ||
-                  feedbackFromik.errors.value
-                }
+                  feedbackFromik.errors.value || feedbackFromik.values.value===' '}
               />
             </>
           ) : (
@@ -242,13 +243,15 @@ const FeedbackBody = ({
               )}
               <Button
                 label="Send Feedback"
-                style={{ marginTop: 20 }}
+                style={ feedbackFromik.errors.email || feedbackFromik.values.email==='' ? 
+                  { marginTop: 20,backgroundColor:'#fffa' }:
+                  { marginTop: 20,backgroundColor:'#01A982' }} 
                 onClick={() => {
                   feedbackFromik.submitForm();
                 }}
                 alignSelf="end"
                 primary
-                disabled={!!feedbackFromik.errors.email}
+                disabled={!!feedbackFromik.errors.email || feedbackFromik.values.email===''} 
               />
             </>
           )}
