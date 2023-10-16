@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 /* eslint-disable react/jsx-no-undef */
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { Box, Heading, Anchor } from 'grommet';
 import axios from 'axios';
 import { EmailCapture } from '../../containers';
@@ -13,6 +13,10 @@ const { GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT } = process.env;
 export const Footer = () => {
   const [isSubmissionSuccess, setIsSubmissionSuccess] = useState(undefined);
   const { user } = useContext(AppContext);
+  const [useremail,setUseremail]=useState(user?.email || '');
+  useEffect(()=>{
+    setUseremail(user?.email || '');
+},[user?.email]);
   const sendEmail = (data) => {
     axios({
       method: 'POST',
@@ -140,7 +144,7 @@ export const Footer = () => {
         headerText="Help us improve the Community"
         bodyText="What kind of feedback do you have?"
         buttonText="Feedback"
-        emailvalue= {user?.email || ''}
+        emailvalue= {useremail}
         feedbackvalue=' '
         handleClose={() => setIsSubmissionSuccess(undefined)}
         isSubmissionSuccess={isSubmissionSuccess}
