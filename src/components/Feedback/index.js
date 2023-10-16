@@ -48,12 +48,6 @@ const Feedback = (props) => {
   const [showButton, setShowButton] = useState(true);
   const [showForm, setShowForm] = useState(false);
   const [selQuestion, setSelQuestion] = useState(undefined);
-
-  const initialState = {
-    value: '',
-    email: '',
-  };
-
   const {
     headerText,
     buttonText,
@@ -68,8 +62,9 @@ const Feedback = (props) => {
     handleButtonClick,
     handleSubmit,
     isSubmissionSuccess,
+    emailvalue,
+    feedbackvalue,
   } = props;
-
   useEffect(() => {
     if (isSubmissionSuccess !== undefined) {
       setSelQuestion(undefined);
@@ -99,13 +94,15 @@ const Feedback = (props) => {
     value: yup.string().required('Required'),
     email: yup.string().email('Invalid email format'),
   });
-
+  const initialState = {
+    value: feedbackvalue,
+    email: emailvalue,
+  };
   const feedbackFromik = useFormik({
     initialValues: initialState,
     onSubmit: submithandler,
     validationSchema,
   });
-
   const buttonClickHandler = () => {
     setShowButton(false);
     setShowForm(true);

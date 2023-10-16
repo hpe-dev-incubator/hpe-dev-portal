@@ -1,16 +1,22 @@
 /* eslint-disable max-len */
 /* eslint-disable react/jsx-no-undef */
-import React, { useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { Box, Heading, Anchor } from 'grommet';
 import axios from 'axios';
 import { EmailCapture } from '../../containers';
 import Feedback from '../Feedback/index';
 import AuthService from '../../services/auth.service';
+import { AppContext } from '../../providers/AppProvider';
 
 const { GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT } = process.env;
 
 export const Footer = () => {
   const [isSubmissionSuccess, setIsSubmissionSuccess] = useState(undefined);
+  const { user } = useContext(AppContext);
+  const [useremail,setUseremail]=useState(user?.email || '');
+  useEffect(()=>{
+    setUseremail(user?.email || '');
+},[user?.email]);
   const sendEmail = (data) => {
     axios({
       method: 'POST',
@@ -132,12 +138,14 @@ export const Footer = () => {
           </Box>
         </Box>
       </Box>
-      <Feedback
+        <Feedback
         style={{ zIndex: '100', position: 'fixed', left: '2px!' }}
         position="right"
         headerText="Help us improve the Community"
         bodyText="What kind of feedback do you have?"
         buttonText="Feedback"
+        emailvalue= {useremail}
+        feedbackvalue=' '
         handleClose={() => setIsSubmissionSuccess(undefined)}
         isSubmissionSuccess={isSubmissionSuccess}
         handleSubmit={(data) => {
