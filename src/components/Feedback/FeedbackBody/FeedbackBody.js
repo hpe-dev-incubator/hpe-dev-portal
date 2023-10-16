@@ -218,8 +218,7 @@ const FeedbackBody = ({
                 primary
                 disabled={
                   feedbackFromik.values.value === '' ||
-                  feedbackFromik.errors.value || feedbackFromik.values.value===' '
-                }
+                  feedbackFromik.errors.value || feedbackFromik.values.value===' '}
               />
             </>
           ) : (
