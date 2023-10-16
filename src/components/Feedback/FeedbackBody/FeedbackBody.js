@@ -251,7 +251,7 @@ const FeedbackBody = ({
                 }}
                 alignSelf="end"
                 primary
-                disabled={feedbackFromik.errors.email || feedbackFromik.values.email===''} 
+                disabled={!!feedbackFromik.errors.email || feedbackFromik.values.email===''} 
               />
             </>
           )}
