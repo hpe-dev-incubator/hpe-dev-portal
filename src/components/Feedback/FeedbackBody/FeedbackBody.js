@@ -221,7 +221,7 @@ const FeedbackBody = ({
               )}
               <Button
                 label="Next"
-                style={ feedbackFromik.errors.value || feedbackFromik.values.value==='' || feedbackFromik.values.value===' '? 
+                style={ feedbackFromik.errors.value || feedbackFromik.values.value.trim().length===0? 
                   { marginTop: 20,backgroundColor:'white' }:
                   { marginTop: 20,backgroundColor:'#01A982' }} 
                 icon={<FormNextLink />}
@@ -230,8 +230,7 @@ const FeedbackBody = ({
                 reverse
                 primary
                 disabled={
-                  feedbackFromik.values.value === '' ||
-                  feedbackFromik.errors.value || feedbackFromik.values.value===' '}
+                  !!feedbackFromik.errors.value || feedbackFromik.values.value.trim().length===0}
               />
             </>
           ) : (
@@ -256,7 +255,7 @@ const FeedbackBody = ({
               )}
               <Button
                 label="Send Feedback"
-                style={ feedbackFromik.errors.email || feedbackFromik.values.email==='' ? 
+                style={ feedbackFromik.errors.email ? 
                   { marginTop: 20,backgroundColor:'#fffa' }:
                   { marginTop: 20,backgroundColor:'#01A982' }} 
                 onClick={() => {
@@ -264,7 +263,7 @@ const FeedbackBody = ({
                 }}
                 alignSelf="end"
                 primary
-                disabled={!!feedbackFromik.errors.email || feedbackFromik.values.email===''} 
+                disabled={!!feedbackFromik.errors.email} 
               />
             </>
           )}
