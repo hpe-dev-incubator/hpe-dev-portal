@@ -73,17 +73,16 @@ const Feedback = (props) => {
   }, [isSubmissionSuccess]);
 
   const submithandler = (values) => {
-    if (isEmpty(values.value) || isEmpty(values.email)) {
-      alert('Fields are missing!');
-    } else {
-      handleSubmit({
+    if (isEmpty(values.value)) {
+      alert('Please provide the feeback');
+    } 
+      else{handleSubmit({
         message: values.value,
         email: values.email,
         proxy: 'hackshack',
       });
-    }
+    };
   };
-
   const successClose = () => {
     handleClose();
     setShowForm(false);
