@@ -1,8 +1,9 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable max-len */
 import { Box, Button, TextInput, Text, TextArea, Image } from 'grommet';
-import React, { useState } from 'react';
+import React, { useState,useContext,useEffect } from 'react';
 import { FormNextLink, FormPreviousLink } from 'grommet-icons';
+import { AppContext } from '../../../providers/AppProvider';
 
 const defaultBodyStyles = {
   padding: '10px',
@@ -41,6 +42,13 @@ const FeedbackBody = ({
       cancelQuestion();
     }
   };
+  const { user }=useContext(AppContext);
+  useEffect(() => {
+    if (user?.email) {
+      // Update the email value in the Formik form
+      feedbackFromik.setFieldValue('email', user.email);
+    }
+  }, [user?.email]);
   return (
     <Box gap="small" style={{ height: 300, width: 350 }}>
       {selQuestion === undefined &&
