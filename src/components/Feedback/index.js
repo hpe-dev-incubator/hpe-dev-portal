@@ -62,8 +62,6 @@ const Feedback = (props) => {
     handleButtonClick,
     handleSubmit,
     isSubmissionSuccess,
-    emailvalue,
-    feedbackvalue,
   } = props;
   useEffect(() => {
     if (isSubmissionSuccess !== undefined) {
@@ -78,7 +76,7 @@ const Feedback = (props) => {
     } 
       else{handleSubmit({
         message: values.value,
-        email: values.email,
+        email: values?.email || '',
         proxy: 'hackshack',
       });
     };
@@ -94,8 +92,8 @@ const Feedback = (props) => {
     email: yup.string().email('Invalid email format'),
   });
   const initialState = {
-    value: feedbackvalue,
-    email: emailvalue,
+    value: '',
+    email: '',
   };
   const feedbackFromik = useFormik({
     initialValues: initialState,
