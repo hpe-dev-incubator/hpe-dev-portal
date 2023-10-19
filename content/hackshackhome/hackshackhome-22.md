@@ -1,7 +1,7 @@
 ---
 title: Optimizing deep neural network inference workloads
 fit: contain
-path: https://developer.hpe.com/campaign/munch-and-learn
+path: https://hpe.zoom.us/webinar/register/3216977210269/WN_Q1uQ0i9FR0SKGi6CInmwUw
 imageBackground: white
 description: "November 15, 2023: Learn about deep neural network inference
   optimization techniques, their pros and cons, and how to use them together to
