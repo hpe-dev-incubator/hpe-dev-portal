@@ -1,7 +1,7 @@
 ---
 title: "The open-source advantage: Exploring machine learning through thought
   leadership"
-active: true
+active: false
 fit: contain
 path: https://hpe.zoom.us/webinar/register/8716965164489/WN_teW8Cyo4QAiCSzKbMsmofA
 imageBackground: white
