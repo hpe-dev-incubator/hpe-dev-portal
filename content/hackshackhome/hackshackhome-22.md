@@ -1,5 +1,6 @@
 ---
 title: Optimizing deep neural network inference workloads
+active: true
 fit: contain
 path: https://hpe.zoom.us/webinar/register/3216977210269/WN_Q1uQ0i9FR0SKGi6CInmwUw
 imageBackground: white
