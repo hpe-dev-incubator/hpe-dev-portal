@@ -2,7 +2,7 @@ WOD-HOW-TO-Series:
 In the workshops-on-demand project,  a few images are needed:
 * Speaker's image related to a given workshop:
 The speaker image is currently hosted on the frontend server itself under the following path:
-static/img/hackshack/SpeakerImages  wich becomes /img/hackshack/SpeakerImages/Denis.png in the database
+static/img/hackshack/SpeakerImages  which becomes /img/hackshack/SpeakerImages/Denis.png in the database
 Simply upload the image there.
 * Social Card Workshop Image related to a given workshop:
 These are used in emails sent to participants. They can also be used to promote wod on SO-ME.
