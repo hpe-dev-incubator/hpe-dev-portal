@@ -111,12 +111,12 @@ const SideNav = ({ data }) => {
       >
         WORKSHOPS
       </NavButton>
-      <NavButton
+      {/* <NavButton
         active={location.pathname === '/hackshack/challenges'}
         to="/hackshack/challenges"
       >
         CHALLENGES
-      </NavButton>
+      </NavButton> */}
       {/* <NavButton
         active={location.pathname === '/hackshack/ezmeral'}
         to="/hackshack/ezmeral"
@@ -129,7 +129,7 @@ const SideNav = ({ data }) => {
       >
         REPLAYS
       </NavButton> */}
-      <NavButton
+      {/* <NavButton
         active={
           location.pathname === '/hackshack/arcade' ||
           location.pathname === '/hackshack/sticker-wall' ||
@@ -138,7 +138,7 @@ const SideNav = ({ data }) => {
         to="/hackshack/arcade"
       >
         ARCADE
-      </NavButton>
+      </NavButton> */}
       {size === 'small' && (
         <Box border="top">
           <DropButton

@@ -357,13 +357,25 @@ export const SignupLayer = ({
             error={emailError}
             required
           >
-            <TextInput name="email" value={formData.email} onChange={setFormData} />
+            <TextInput
+              name="email"
+              value={formData.email}
+              onChange={setFormData}
+            />
           </FormField>
           <FormField label="Full Name" name="name" required>
-            <TextInput name="name" value={formData.name} onChange={setFormData}/>
+            <TextInput
+              name="name"
+              value={formData.name}
+              onChange={setFormData}
+            />
           </FormField>
           <FormField label="Company Name" name="company" required>
-            <TextInput name="company" value={formData.company} onChange={setFormData} />
+            <TextInput
+              name="company"
+              value={formData.company}
+              onChange={setFormData}
+            />
           </FormField>
           <Box
             margin={{ top: 'medium' }}
@@ -639,13 +651,14 @@ const ScheduleCard = ({
 
   const [hover, setHover] = useState(false);
   // const resetFormData = () => {
-    const handlechange=(e)=>{
-      const { name, value, type, checked } = e.target || '';
-      const inputvalue= (type==='checkbox') ? checked : value ;
-      setFormData({
+  const handlechange = (e) => {
+    const { name, value, type, checked } = e.target || '';
+    const inputvalue = type === 'checkbox' ? checked : value;
+    setFormData({
       ...formData,
-      [name]:inputvalue,
-    });};
+      [name]: inputvalue,
+    });
+  };
   // };
 
   const checkHover = (e) => {

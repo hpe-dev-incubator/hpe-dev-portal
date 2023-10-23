@@ -43,7 +43,7 @@ export const EmailCapture = ({ children, heading, bodyCopy1, bodyCopy2 }) => {
   const [formData, setFormData] = useState({
     email: userDetails?.email || '',
   });
- 
+
   useEffect(() => {
     if (userDetails?.email) {
       setFormData((prevFormData) => ({

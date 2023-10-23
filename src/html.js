@@ -31,7 +31,7 @@ export default function HTML(props) {
           dangerouslySetInnerHTML={{
             __html: `
             #site-branding {
-              left: -15px;
+              left: 15px;
             }`,
           }}
         />
@@ -42,20 +42,20 @@ export default function HTML(props) {
           This app works best with JavaScript enabled.
         </noscript>
         <div id="header_wrapper">
-          <div
+          {/* <div
             id="hpe_slim_header"
             className="hpe_slim_header"
             style={{ pointerEvents: 'none' }}
-          />
+          /> */}
         </div>
         <div
           key="body"
           id="___gatsby"
           dangerouslySetInnerHTML={{ __html: props.body }}
         />
-        <div id="hpe_slim_footer" className="hpe_slim_footer" />
+        {/* <div id="hpe_slim_footer" className="hpe_slim_footer" /> */}
         {props.postBodyComponents}
-        <div
+        {/* <div
           dangerouslySetInnerHTML={{
             __html: `
         <script src="https://cdnjs.cloudflare.com/ajax/libs/phaser/3.23.0/phaser.min.js" integrity="sha512-FgqGgzXpW1P9AjZuhLDIE5E5jH1ntIkrv3VKB36HoET27Ek2w60HenbIr21+rCu1qZ/Fvl64PkxNRP51a9m2Nw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -89,7 +89,7 @@ export default function HTML(props) {
         </script>
         `,
           }}
-        />
+        /> */}
       </body>
     </html>
   );

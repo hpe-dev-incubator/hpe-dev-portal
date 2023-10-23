@@ -42,16 +42,16 @@ function Header() {
     const leftColumn = greenlake;
     const rightColumn = greenlake.filter((gl, index) => index % 2);
 
-    const externalLinks = [
-      {
-        title: 'HPE GreenLake API Portal',
-        slug: 'https://developer.greenlake.hpe.com/',
-      },
-      {
-        title: 'HPE GreenLake Test Drive',
-        slug: 'https://testdrive.greenlake.hpe.com/',
-      },
-    ];
+    // const externalLinks = [
+    //   {
+    //     title: 'HPE GreenLake API Portal',
+    //     slug: 'https://developer.greenlake.hpe.com/',
+    //   },
+    //   {
+    //     title: 'HPE GreenLake Test Drive',
+    //     slug: 'https://testdrive.greenlake.hpe.com/',
+    //   },
+    // ];
 
     // const externalLeftColumn = externalLinks.filter(
     //   (el, index) => index % 2 === 0,
