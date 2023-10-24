@@ -43,16 +43,15 @@ const { createFilePath } = require('gatsby-source-filesystem');
 exports.createPages = async ({ actions }) => {
   const { createPage } = actions;
   const { GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT } = process.env;
-  console.log('++++++++++++++++++++++++++++++++++testing 1');
+
   try {
     // eslint-disable-next-line
-    console.log('#############################testing 2');
     const specialBadgesApi = `${GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT}/api/special-badges`;
     const getSpecialBadges = await axios({
       method: 'GET',
       url: specialBadgesApi,
     });
-    console.log(getSpecialBadges);
+
     getSpecialBadges.data.forEach(({ id, title, description, badgeImg }) => {
       createPage({
         path: `/Home/workshops/${id - 1}/special-badge`,

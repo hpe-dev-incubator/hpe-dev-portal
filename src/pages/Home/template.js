@@ -3,10 +3,10 @@ import React, { useEffect, useState } from 'react';
 import { Heading, Text, Box, Image, Tab, Tabs } from 'grommet';
 import axios from 'axios';
 import PropTypes from 'prop-types';
-import { Layout, ScheduleCard, CardGrid } from '../../../components/hackshack';
-import { MainTitle } from '../../../components/hackshack/StyledComponents';
-import AuthService from '../../../services/auth.service';
-import { SEO } from '../../../components';
+import { Layout, ScheduleCard, CardGrid } from '../../components/hackshack';
+import { MainTitle } from '../../components/hackshack/StyledComponents';
+import AuthService from '../../services/auth.service';
+import { SEO } from '../../components';
 
 const renderScheduleCard = (workshop, i) => (
   <ScheduleCard

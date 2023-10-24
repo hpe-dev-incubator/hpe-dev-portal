@@ -11,14 +11,14 @@ import { Box, ResponsiveContext, Text, Button } from 'grommet';
 import { Close } from 'grommet-icons';
 import { ResponsiveLayout, StyledLayer } from './styles';
 // import { Header as HackShackHeader, SideNav } from '../index';
-import { SideNav } from '../index';
+// import { SideNav } from '../index';
 // import { Header as HPEDevHeader } from '../../index';
-import { AppContext } from '../../../providers/AppProvider';
+// import { AppContext } from '../../../providers/AppProvider';
 
 const Layout = ({ children, background }) => {
   const size = useContext(ResponsiveContext);
   const location = useLocation();
-  const { data } = useContext(AppContext);
+  // const { data } = useContext(AppContext);
   const [layer, setLayer] = useState(false);
 
   const childrenWithProps = Children.map(children, (child) => {
@@ -49,7 +49,7 @@ const Layout = ({ children, background }) => {
         <Box direction="row">
           {location.pathname.includes('/hackshack') && size !== 'small' && (
             <Box margin={{ top: 'xlarge', left: 'large' }}>
-              <SideNav data={data} />
+              {/* <SideNav data={data} /> */}
             </Box>
           )}
           <Box
@@ -75,7 +75,7 @@ const Layout = ({ children, background }) => {
               <Button icon={<Close />} onClick={() => setLayer(false)} />
             </Box>
             <Box align="start" gap="large" pad="xlarge">
-              <SideNav data={data} />
+              {/* <SideNav data={data} /> */}
             </Box>
           </Box>
         </StyledLayer>

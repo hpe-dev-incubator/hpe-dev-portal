@@ -163,7 +163,7 @@ const Video = ({
                 <Link
                   style={{ color: '#FFF' }}
                   color="white"
-                  to="/hackshack/workshops"
+                  to="/"
                 >
                   register for this workshops-on-demand.
                 </Link>
