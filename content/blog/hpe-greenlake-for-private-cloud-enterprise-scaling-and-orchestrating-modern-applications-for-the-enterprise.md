@@ -1,6 +1,6 @@
 ---
 title: "HPE GreenLake for Private Cloud Enterprise: Scaling and orchestrating
-  modern applications for the enterprise."
+  modern applications for the enterprise"
 date: 2023-10-19T14:34:37.983Z
 author: Sudheendra Seshachala
 authorimage: https://media.licdn.com/dms/image/D5603AQGMJCplt_LTFQ/profile-displayphoto-shrink_800_800/0/1695127848528?e=1703116800&v=beta&t=4gbr2tD1-sH5-mhFh6O05iibw3B0UMHnL-1CPVF_2uU
@@ -8,6 +8,14 @@ disable: false
 tags:
   - hpe-greenlake-for-private-cloud-enterprise
 ---
+<style>
+li {
+   font-size: 27px;
+   line-height: 33px;
+   max-width: none;
+}
+</style>
+
 In my blog post on [HPE GreenLake for Private Cloud Enterprise: Deploying and scaling traditional applications](https://developer.hpe.com/blog/hpe-greenlake-for-private-cloud-enterprise-glpce-deploying-and-scaling-traditional-applications/), I highlighted how HPE GreenLake for Private Cloud Enterprise seamlessly integrates traditional applications with modern demands, transforming infrastructure into programmable code for optimal flexibility and security. Its strategic approach to scalability ensures businesses consistently operate at their best, making applications resilient to ever-changing requirements. 
 In this post, I'll delve into the features and capabilities of HPE GreenLake for Private Cloud Enterprise, with a specific focus on its support for scaling containers using Kubernetes (K8s). Let's explore the advancements and offerings of the HPE GreenLake for Private Cloud Enterprise platform.
 
@@ -83,7 +91,6 @@ In screenshot 2 , I created a cluster. I selected configurations and resources, 
    * Recent scale-up within 10 minutes
    * Failed scale-down in the last 3 minutes
    * Nodes with critical pods or those facing specific constraints
-
 3. Autoscaler operates from the control plane, checking conditions every minute.
 
    ![Screenshot 3: Scale cluster](/img/screenshot-3-scale-cluster.png "Screenshot 3: Scale cluster")
