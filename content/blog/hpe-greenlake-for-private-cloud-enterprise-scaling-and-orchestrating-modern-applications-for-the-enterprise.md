@@ -86,12 +86,13 @@ In screenshot 2 , I created a cluster. I selected configurations and resources, 
 
 **Scaling criteria**: 
 
-1. Pending pods due to limited resources trigger a scale-up.    
-2. Underutilized nodes for 10 minutes prompt a scale-down, but certain conditions can prevent this:    
+1. Pending pods due to limited resources trigger a scale-up.
+2. Underutilized nodes for 10 minutes prompt a scale-down, but certain conditions can prevent this:
    * Recent scale-up within 10 minutes
    * Failed scale-down in the last 3 minutes
    * Nodes with critical pods or those facing specific constraints
-3. Autoscaler operates from the control plane, checking conditions every minute.
+3. Autoscaler operates from the control plane, checking conditions every minute.   
+
 
    ![Screenshot 3: Scale cluster](/img/screenshot-3-scale-cluster.png "Screenshot 3: Scale cluster")
 
