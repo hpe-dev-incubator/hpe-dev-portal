@@ -160,11 +160,7 @@ const Video = ({
                 size="22px"
               >
                 Try it out for yourself. Get some real, hands-on experience by{' '}
-                <Link
-                  style={{ color: '#FFF' }}
-                  color="white"
-                  to="/"
-                >
+                <Link style={{ color: '#FFF' }} color="white" to="/">
                   register for this workshops-on-demand.
                 </Link>
               </Text>

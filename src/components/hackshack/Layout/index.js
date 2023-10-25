@@ -10,10 +10,6 @@ import PropTypes from 'prop-types';
 import { Box, ResponsiveContext, Text, Button } from 'grommet';
 import { Close } from 'grommet-icons';
 import { ResponsiveLayout, StyledLayer } from './styles';
-// import { Header as HackShackHeader, SideNav } from '../index';
-// import { SideNav } from '../index';
-// import { Header as HPEDevHeader } from '../../index';
-// import { AppContext } from '../../../providers/AppProvider';
 
 const Layout = ({ children, background }) => {
   const size = useContext(ResponsiveContext);

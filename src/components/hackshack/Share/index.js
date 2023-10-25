@@ -16,7 +16,7 @@ const Share = ({ workshopId, workshop }) => {
         a11yTitle="Share on LinkedIn"
         label={workshop && 'LinkedIn'}
         reverse
-        href={`https://www.linkedin.com/sharing/share-offsite/?url=${origin}/Home/workshop/${workshopId}`}
+        href={`https://www.linkedin.com/sharing/share-offsite/?url=${origin}/workshop/${workshopId}`}
       />
       <Button
         margin={{ horizontal: '20px' }}
@@ -26,7 +26,7 @@ const Share = ({ workshopId, workshop }) => {
         a11yTitle="Share on Twitter"
         label={workshop && 'Twitter'}
         reverse
-        href={`https://twitter.com/intent/tweet?url=${origin}/Home/workshop/${workshopId}`}
+        href={`https://twitter.com/intent/tweet?url=${origin}/workshop/${workshopId}`}
       />
       <Button
         icon={<GrommetLink size="medium" />}
@@ -35,7 +35,7 @@ const Share = ({ workshopId, workshop }) => {
           workshop
             ? navigator.clipboard.writeText(
                 // `${origin}/hackshack/workshop/${workshopId}`,
-                `${origin}/Home/workshop/${workshopId}`,
+                `${origin}/workshop/${workshopId}`,
               )
             : navigator.clipboard.writeText(window.location.href);
           /* eslint-enable no-unused-expressions */

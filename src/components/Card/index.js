@@ -15,7 +15,6 @@ import {
   Text,
 } from 'grommet';
 import { navigate } from 'gatsby';
-import { cardComponents } from '..';
 
 // Remove padding or margin from first markdown element.
 // This allows the heading and content to have the same gap.

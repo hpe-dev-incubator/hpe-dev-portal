@@ -420,7 +420,7 @@ export const SignupLayer = ({
                       <Anchor
                         target="_blank"
                         label="Terms and Conditions"
-                        href="/Home/workshop-terms-conditions"
+                        href="workshop-terms-conditions"
                       />{' '}
                       and{' '}
                       <Anchor
