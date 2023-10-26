@@ -5,7 +5,7 @@ dateStart: 2023-10-17T22:01:28.976Z
 dateEnd: 2023-10-18T21:59:29.024Z
 category: Virtual Event
 image: /img/event-munch-and-learn-newlogo400x400.png
-link: https://developer.hpe.com/campaign/munch-and-learn
+link: https://www.youtube.com/watch?v=BgirPJNDtxs&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF
 width: large
 ---
 ## The open-source advantage: Exploring machine learning through thought leadership
