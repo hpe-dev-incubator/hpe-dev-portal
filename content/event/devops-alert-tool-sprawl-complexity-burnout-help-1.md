@@ -5,7 +5,7 @@ dateStart: 2023-10-25T15:00:00.000Z
 dateEnd: 2023-10-25T16:00:00.000Z
 category: Virtual Event
 image: /img/event-meetups-newlogo-400x400.png
-link: https://developer.hpe.com/campaign/meetups
+link: https://www.youtube.com/watch?v=Hy4MsJgxG8k&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF
 width: large
 ---
 ## **Going from containers, to pods, to Kubernetes – help for your developer environments!** 
