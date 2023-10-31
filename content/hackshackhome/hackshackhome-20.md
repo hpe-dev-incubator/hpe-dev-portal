@@ -1,6 +1,6 @@
 ---
 title: From containers, to pods, to Kubernetes
-active: true
+active: false
 fit: contain
 path: https://hpe.zoom.us/webinar/register/8016952182231/WN_mrFAM02tQ8KGW_cHc5oHGg
 imageBackground: white
