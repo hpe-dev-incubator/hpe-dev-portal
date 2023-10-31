@@ -6,6 +6,10 @@ priority: ""
 author: John Lenihan,  Thirukkannan M, Saurabh Kadiyali
 authorimage: /img/Avatar1.svg
 disable: false
+tags:
+  - high-availability
+  - serviceguard-for-linux
+  - greenlake-private-cloud-enterprise
 ---
 # Introduction
 
@@ -96,7 +100,6 @@ In the capture below, Default is the space you will use for your work with Terra
 
 ## Setting up API Client access
 
-
 Next, you need to create a new API Client access dedicated to Terraform. You can do this from the HPE GreenLake console under your settings icon, select User Management and then the API Clients tab.
 
 ![](/img/picture3.png)
@@ -115,21 +118,16 @@ export HPEGL_USER_SECRET=<Secret Key displayed when you created the API Client>
 export HPEGL_IAM_SERVICE_URL=<Issuer URL>
 ```
 
-
-
 And execute it on your machine to set these environment variables.
 
 ## Assign Roles to API Client
-
 
 Once your API Client has been created, you need to assign a Role and a Space. You can assign a Role and a Space by clicking on your new API Client and then clicking the Create Assignment button. 
 Since intent is to use this API Client to create resources in the Virtual Machines Service, we need to assign an appropriate Virtual Machines Role. Choose a Role like ‘Private Cloud Tenant Contributor’ and choose the same Space as used earlier, I.e., ‘Default.’ 
 
 Note: More details on HPE GreenLake user roles can be found in the HPE GreenLake documentation.
 
-## 
 Set API Client Usernames and Passwords
-
 
 When a user creates virtual machines using the HPE GreenLake for Private Cloud Enterprise: Virtual Machines user interface, they first set the Linux and Windows username and password. Once this is done, any virtual machines subsequently created by that user will inherit these credentials. The user can later use these credentials to log into these virtual machines.
 API Clients which are used to create virtual machines can also set Linux and Windows username and password values. Since the API Client does not use the HPE GreenLake for Private Cloud Enterprise: Virtual Machines user interface, this must be done via an API call.
@@ -168,12 +166,9 @@ curl -s -k -X POST \
       "windowsPassword": '${VM_PASSWORD}'
     }
   }'
-
 ```
 
-## 
 Querying for infrastructure components
-
 
 Your next step with the TF file is to query the HPE GreenLake provider to collect information needed to create your first VM instance. From the documentation, you can see that you need to gather the following information:
 •	Cloud ID
@@ -192,7 +187,6 @@ For this, you will use the Terraform data statements. For example, the following
 data "hpegl_vmaas_cloud" "cloud" {
      name = "HPE GreenLake VMaaS Cloud"
    }
-
 ```
 
 Using a similar technique, you can retrieve the rest of the data you need:
@@ -234,20 +228,13 @@ data "hpegl_vmaas_layout" "vmware" {
 data "hpegl_vmaas_template" "vanilla" {
      name = "redhat8-20220331T1850"
    }
-
 ```
-
-###### 
-
 
 You can get information about each of the data statements supported by the hpegl provider from [GitHub.](https://github.com/hpe/terraform-provider-hpegl/tree/main/docs/data-sources)
 
 ## Creating VM resources
 
-
 The next step is to use a Terraform resource statement to create a random integer (used in VM names) and a second resource to request the creation of several VM instances:
-
-
 
 ```
 resource "random_integer" "random" {
@@ -289,12 +276,9 @@ resource "hpegl_vmaas_instance" " my_HA_NFS" {
      }
  
    }
-
 ```
 
-   
 Finally, we will create a VM to act as Serviceguard quorum node:
-
 
 ```
 resource "hpegl_vmaas_instance" "my_quorum" {
@@ -325,32 +309,23 @@ resource "hpegl_vmaas_instance" "my_quorum" {
          create_user      = true
      }
    }
-
 ```
-
-   
 
 3 VMs need to be created to setup SGLX. 2 VMs will be used to create Serviceguard for Linux nodes where the NFS service will be up and running. The third VM will act as a quorum server for the Serviceguard cluster to ensure that split brain of the cluster does not impact the availability of the monitored workload.
 Note: You can get information about each of the resource statements supported by the hpegl provider from GitHub.
 Note: An existing Serviceguard Quorum Server in your environment can be used instead of provisioning a third VM, provided the Quorum Server is reachable to the 2 VM’s that were created.
 
-## 
 Terraform init
-
 
 Before you can use Terraform, you need to initialize it from the configuration file we have created. This is done with the following step: 
 `terraform init`
 
-## 
 Terraform ready to plan
-
 
 To validate your configuration file, it is recommended to run the terraform validate command. Once ready, the terraform plan command will provide the a summary of the deployment that would be built when terraform apply method would be  used.
 Once you agree with the plan and confirm, you can apply the configuration.
 
-
 ## Terraform ready to apply
-
 
 The command you need to use is now: 
 
@@ -380,20 +355,16 @@ hpegl_vmaas_instance.my_quorum\[0]: Creation complete after 2m8s \[id=3108]
 Apply complete! Resources: 4 added, 0 changed, 0 destroyed.
 ```
 
-
-
 Once the command completes, your virtual machines are ready.
 
 # Configuring a Highly Available NFS solution
 
 Now that the VMs are provisioned, we can now deploy HPE Serviceguard for Linux on these VMs to create a cluster to provide high availability for the applications running on the VMs, NFS server in this case.
 
-## Installing Serviceguard for Linux 
-
+## Installing Serviceguard for Linux
 
 Serviceguard and all its components can be installed using Ansible playbooks 
 Clone the repository on ansible control node.
-
 
 ```
 git clone https://github.com/HewlettPackard/serviceguard.git
@@ -402,18 +373,15 @@ cd serviceguard/ansible-sglx
 
 Checkout the stable branch. For ex: to checkout branch 1.0,
 
-
-`git checkout Stable-v1.0 `
+`git checkout Stable-v1.0`
 
 ``
 
 To upgrade to the latest version of the playbooks:
 
-
 `git pull https://github.com/HewlettPackard/serviceguard.git`
 
-
-Master playbook ` site.yml` contains the roles which will be executed for the inventory defined in hosts. 
+Master playbook `site.yml` contains the roles which will be executed for the inventory defined in hosts. 
 When the master playbook is run, version specified in the parameters file will be installed. The parameters for the master playbook, roles are configured in group_vars/all.yml. We will now look into some of the fields in this file which needs to be configured.
 We should configure the version of Serviceguard to be installed, in this case SGLX 15.10.00 will be installed. `sglx_version : 15.10.00`
 Now provide the Serviceguard for Linux ISO location on the controller node
@@ -424,21 +392,16 @@ sglx_inst_upg_additional_params:
         iso_location: <absolute path of the iso on ansible controller node>`
 Next, install Serviceguard NFS add-on.
 `sglx_add_on_inst_upg_params:
-    sglx_addon: nfs
-`Serviceguard installation mandates a replicated user configuration. As part of the installation, a replicated user for Serviceguard Manager (sgmgr) is created on the hosts and the password for the same can be configured under the below parameter.
+    sglx_addon: nfs`Serviceguard installation mandates a replicated user configuration. As part of the installation, a replicated user for Serviceguard Manager (sgmgr) is created on the hosts and the password for the same can be configured under the below parameter.
 `sglx_sgmgr_password: "{{ vault_sglx_sgmgr_password }}"`
 
-`
-`Ansible vault will be used to encrypt this password, run the command as below
+Ansible vault will be used to encrypt this password, run the command as below
 
-`
-ansible-vault encrypt_string 'your_password' --name 'vault_sglx_sgmgr_password'`
+`ansible-vault encrypt_string 'your_password' --name 'vault_sglx_sgmgr_password'`
 
-`
-`The generated output must be substituted in
+The generated output must be substituted in
 
-`
-vault_sglx_sgmgr_password: !vault |
+`vault_sglx_sgmgr_password: !vault |
           $ANSIBLE_VAULT;1.1;AES256
           34363834323266326237363636613833396665333061653138623431626261343064373363656165
           6639383863383633643035656336336639373161323663380a303331306337396435366535313663
@@ -448,9 +411,7 @@ vault_sglx_sgmgr_password: !vault |
 
 ``
 
-
 Once these parameters are populated, one can modify the hosts file to add the 2 VMs that were provisioned earlier where the cluster will be formed, and the quorum server that was provisioned earlier. In this case, it’s as shown below
-
 
 `[sglx-storage-flex-add-on-hosts]
 drbd-0-808
@@ -464,18 +425,14 @@ drbd-0-808
 [secondary]
 drbd-1-808`
 
-
 When the parameters specified above are configured, playbook site.yml can be run from the directory where the repository is cloned on the ansible control node.
-
 
 `cd serviceguard/ansible-sglx
 ansible-playbook -i hosts -v --vault-password-file <path_to_vault_password_file> site.yml`
 
-
 This completes the Serviceguard software installation.
 
 ## Configuring data replication using Serviceguard flex Storage Add-on
-
 
 Serviceguard for Linux Flex Storage Add-on is a software-based, shared-nothing, replicated storage solution that mirrors the content of block devices. NFS server export data will be replicated to all Serviceguard cluster nodes using this add-on. Ansible snippet below can be used to configure the replication. 
 
@@ -552,13 +509,9 @@ Serviceguard for Linux Flex Storage Add-on is a software-based, shared-nothing, 
     shell: |
       drbdadm primary drbd0 --force
     when: res.rc != 0
-
 ```
 
-
-
 ## Configuring LVM
-
 
 Once data replication is configured on the nodes, we can now configure LVM on top of the DRBD disk /dev/drbd0. The following Ansible snippet can be used to configure the LVM volume group named nfsvg and an logical volume names nfsvol of size 45GB
 
@@ -604,13 +557,9 @@ Once data replication is configured on the nodes, we can now configure LVM on to
     filesystem:
       dev: /dev/nfsvg/nfsvol 
       fstype: xfs
-
 ```
 
-
-
 ## Setting up the NFS server
-
 
 Now we will start the NFS service and export the NFS share from the primary node using the ansible snippet below.
 
@@ -658,11 +607,9 @@ Now we will start the NFS service and export the NFS share from the primary node
       shell: |
          mount /dev/nfsvg/nfsvol /nfs
          exportfs -a
-
 ```
 
 ## Creating an SGLX cluster and providing HA to the NFS workload
-
 
 Once NFS share is configured, we will now look into creating an SGLX cluster and deploy the NFS workload in the SGLX environment to make it highly available. The below snippet will help us achieve the same.
 
@@ -762,8 +709,6 @@ $SGSBIN/cmcheckconf -P /tmp/nfs_drbd.conf
     become: True
     shell: |
       $SGSBIN /cmmodpkg -e nfs_drbd
-
-
 ```
 
 Now we have the NFS server deployed in Serviceguard cluster with high availability.
