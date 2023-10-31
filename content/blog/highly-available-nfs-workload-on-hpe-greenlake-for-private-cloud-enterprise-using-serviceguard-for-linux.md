@@ -463,9 +463,15 @@ drbd-0-qs-808
 drbd-0-808
 [secondary]
 drbd-1-808`
+
+
 When the parameters specified above are configured, playbook site.yml can be run from the directory where the repository is cloned on the ansible control node.
+
+
 `cd serviceguard/ansible-sglx
 ansible-playbook -i hosts -v --vault-password-file <path_to_vault_password_file> site.yml`
+
+
 This completes the Serviceguard software installation.
 
 ## Configuring data replication using Serviceguard flex Storage Add-on
