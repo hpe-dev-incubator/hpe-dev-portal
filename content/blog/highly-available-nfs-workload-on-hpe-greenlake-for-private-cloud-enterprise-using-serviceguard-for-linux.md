@@ -401,14 +401,21 @@ cd serviceguard/ansible-sglx
 ```
 
 Checkout the stable branch. For ex: to checkout branch 1.0,
+
+
 `git checkout Stable-v1.0 `
 
+``
+
 To upgrade to the latest version of the playbooks:
+
+
 `git pull https://github.com/HewlettPackard/serviceguard.git`
-Master playbook` site.yml `contains the roles which will be executed for the inventory defined in hosts. 
+
+
+Master playbook ` site.yml` contains the roles which will be executed for the inventory defined in hosts. 
 When the master playbook is run, version specified in the parameters file will be installed. The parameters for the master playbook, roles are configured in group_vars/all.yml. We will now look into some of the fields in this file which needs to be configured.
-We should configure the version of Serviceguard to be installed, in this case SGLX 15.10.00 will be installed. 
-`sglx_version : 15.10.00`
+We should configure the version of Serviceguard to be installed, in this case SGLX 15.10.00 will be installed. `sglx_version : 15.10.00`
 Now provide the Serviceguard for Linux ISO location on the controller node
 `sglx_inst_upg_mode: iso
 sglx_inst_upg_additional_params:
@@ -419,10 +426,18 @@ Next, install Serviceguard NFS add-on.
 `sglx_add_on_inst_upg_params:
     sglx_addon: nfs
 `Serviceguard installation mandates a replicated user configuration. As part of the installation, a replicated user for Serviceguard Manager (sgmgr) is created on the hosts and the password for the same can be configured under the below parameter.
-`sglx_sgmgr_password: "{{ vault_sglx_sgmgr_password }}"
-Ansible vault will be used to encrypt this password, run the command as below
-ansible-vault encrypt_string 'your_password' --name 'vault_sglx_sgmgr_password'
-The generated output must be substituted in
+`sglx_sgmgr_password: "{{ vault_sglx_sgmgr_password }}"`
+
+`
+`Ansible vault will be used to encrypt this password, run the command as below
+
+`
+ansible-vault encrypt_string 'your_password' --name 'vault_sglx_sgmgr_password'`
+
+`
+`The generated output must be substituted in
+
+`
 vault_sglx_sgmgr_password: !vault |
           $ANSIBLE_VAULT;1.1;AES256
           34363834323266326237363636613833396665333061653138623431626261343064373363656165
@@ -430,7 +445,13 @@ vault_sglx_sgmgr_password: !vault |
           31336636333862303462346234336138393135393363323739633661653534306162323565646561
           6662396366333534350a663033303862646331613765306433353632316435306630343761623237
           3863`
+
+``
+
+
 Once these parameters are populated, one can modify the hosts file to add the 2 VMs that were provisioned earlier where the cluster will be formed, and the quorum server that was provisioned earlier. In this case, it’s as shown below
+
+
 `[sglx-storage-flex-add-on-hosts]
 drbd-0-808
 drbd-1-808`\
