@@ -17,15 +17,13 @@ One of the options provided through HPE GreenLake is to make it easy for custome
 
 ## Terraform
 
-
 Terraform is an open-source Infrastructure-as-Code framework originally created by HashiCorp that is written in Go. It uses a declarative language (HashiCorp Configuration Language HCL or JSON more recently) to describe the desired state of the infrastructure in terms of cloud, virtual machines, networks, storage, and many other components. Terraform uses the concept of “providers” to integrate with all major public clouds. Terraform is a so-called idempotent system in the sense that it does not generate any side effects if applied multiple times on infrastructure already in the desired state. Terraform has gained quite the momentum in the last few years.
 
 ## HPE Serviceguard for Linux
 
 HPE Serviceguard for Linux (SGLX) is a high availability (HA) and disaster recovery (DR) clustering solution that increases uptime for your critical applications by protecting them from a multitude of infrastructure and application faults across physical or virtual environments over any distance. The solution also reduces the impact of unplanned downtime with no compromise on data integrity or performance, and it helps achieve near zero planned downtime for maintenance.
 
-## Ansible 
-
+## Ansible
 
 Ansible Automation Platform is an end-to-end automation platform to configure systems, deploy software, and orchestrate advanced workflows. It includes resources to create, manage, and scale across the entire enterprise.
 
@@ -46,7 +44,6 @@ You can create a virtual machine in the Virtual Machines service of HPE GreenLak
    At this point, you are ready to start building your infrastructure description file.   
 
 ## Building a Terraform configuration file from scratch
-
 
 Let’s start building this Terraform (TF) file using your favourite editor.
 Selecting a Terraform provider
@@ -74,9 +71,7 @@ https://registry.terraform.io/providers/HPE/hpegl/latest This page also provides
 The docs folder is your best source of information for using the different data sources and resources provided by the provider. If you navigate to the resources section, you will see that one resource you can configure with this provider is a VM instance. This article will focus on this resource.
 Note: Because this is open source, do not hesitate to open issues, or even a pull request, if you identify an issue.
 
-## 
-Setting up the Terraform provider
-
+## Setting up the Terraform provider
 
 Set up the required parameters for hpegl provider that was specified earlier. As previously explained, you can either explicitly set those parameters in your TF file or have them set in a series of environment variables or have a mix of both. It is recommended to add the following two parameters in your TF file:
 
@@ -93,31 +88,55 @@ provider "hpegl" {
 The rest (such as tenant id, user id and user secret key) can be placed in a RC file, which you can source before running your Terraform command.
 You can find your location and your space name from the HPE GreenLake for Private Cloud Enterprise Overview. In the example shown below, FTC06 is our location:
 
+![](/img/picture1.png)
+
 In the capture below, Default is the space you will use for your work with Terraform. You can check your available Spaces from the HPE GreenLake console under your profile icon, Change Space.
 
-Setting up API Client access
+![](/img/picture2.png)
+
+## Setting up API Client access
+
+
 Next, you need to create a new API Client access dedicated to Terraform. You can do this from the HPE GreenLake console under your settings icon, select User Management and then the API Clients tab.
+
+![](/img/picture3.png)
 
 Create a new API Client and be sure to note down the Issuer, Client ID and Client Secret values which are shown. 
 The value for the tenant ID may be seen in the Tenant ID field under the API Access menu and in the URL of your browser.
 
+![](/img/picture4.png)
+
 With this you can now build a resource file that defines the following environment variables:
+
+```
 export HPEGL_TENANT_ID=<Your Tenant ID>
 export HPEGL_USER_ID=<Client ID of the API Client>
 export HPEGL_USER_SECRET=<Secret Key displayed when you created the API Client>
 export HPEGL_IAM_SERVICE_URL=<Issuer URL>
+```
+
+
+
 And execute it on your machine to set these environment variables.
 
-Assign Roles to API Client
+## Assign Roles to API Client
+
+
 Once your API Client has been created, you need to assign a Role and a Space. You can assign a Role and a Space by clicking on your new API Client and then clicking the Create Assignment button. 
 Since intent is to use this API Client to create resources in the Virtual Machines Service, we need to assign an appropriate Virtual Machines Role. Choose a Role like ‘Private Cloud Tenant Contributor’ and choose the same Space as used earlier, I.e., ‘Default.’ 
 
 Note: More details on HPE GreenLake user roles can be found in the HPE GreenLake documentation.
+
+## 
 Set API Client Usernames and Passwords
+
+
 When a user creates virtual machines using the HPE GreenLake for Private Cloud Enterprise: Virtual Machines user interface, they first set the Linux and Windows username and password. Once this is done, any virtual machines subsequently created by that user will inherit these credentials. The user can later use these credentials to log into these virtual machines.
 API Clients which are used to create virtual machines can also set Linux and Windows username and password values. Since the API Client does not use the HPE GreenLake for Private Cloud Enterprise: Virtual Machines user interface, this must be done via an API call.
-Here is a sample script which reads the VM*USERNAME and VM_PASSWORD environment variables and uses the values for Linux and Windows username and password for the API Client. The script assumes a Location value of ‘FTC06’ and Space value of ‘Default’. 
-To execute this script, first set appropriate values for the VM_USERNAME and VM_PASSWORD environment variables. Next, execute the resource file, which was created earlier, which sets the HPEGL** environment variables for your API Client. Finally, execute the script below.
+Here is a sample script which reads the VM\*USERNAME and VM_PASSWORD environment variables and uses the values for Linux and Windows username and password for the API Client. The script assumes a Location value of ‘FTC06’ and Space value of ‘Default’. 
+To execute this script, first set appropriate values for the VM_USERNAME and VM_PASSWORD environment variables. Next, execute the resource file, which was created earlier, which sets the HPEGL\** environment variables for your API Client. Finally, execute the script below.
+
+```
 #!/bin/bash
 export LOCATION='FTC06'
 export SPACE='Default'
@@ -135,9 +154,8 @@ echo "Token: ${ACCESS_TOKEN}"
 curl -s -k -X GET \
    "https://client.greenlake.hpe.com/api/iac-vmaas/v1/whoami?space=${SPACE_ENCODED}&location=${LOCATION}" \
    -H "Authorization: ${ACCESS_TOKEN}" | jq '.'
-
+   
 # Sets user settings
-
 curl -s -k -X POST \
   "https://client.greenlake.hpe.com/api/iac-vmaas/v1beta1/user-settings?space=${SPACE_ENCODED}&location=${LOCATION}" \
   -H "Authorization: ${ACCESS_TOKEN}" \
@@ -151,7 +169,12 @@ curl -s -k -X POST \
     }
   }'
 
+```
+
+## 
 Querying for infrastructure components
+
+
 Your next step with the TF file is to query the HPE GreenLake provider to collect information needed to create your first VM instance. From the documentation, you can see that you need to gather the following information:
 •	Cloud ID
 •	Group ID
@@ -164,58 +187,69 @@ Your next step with the TF file is to query the HPE GreenLake provider to collec
 •	Folder Code
 For this, you will use the Terraform data statements. For example, the following statement retrieves the Cloud ID and stores it (in variable called cloud), which we can later retrieve using: data.hpegl_vmaas_cloud.cloud.id
 
+```
 # Retrieve cloud id
-
 data "hpegl_vmaas_cloud" "cloud" {
      name = "HPE GreenLake VMaaS Cloud"
    }
+
+```
+
 Using a similar technique, you can retrieve the rest of the data you need:
 
+```
 # And a network
-
 data "hpegl_vmaas_network" "blue_segment" {
      name = "Blue-Segment"
    }
-
+ 
 data "hpegl_vmaas_cloud_folder" "compute_folder" {
    cloud_id = data.hpegl_vmaas_cloud.cloud.id
    name     = "ComputeFolder"
    }
-
+ 
 # Locate a resource pool
-
 data "hpegl_vmaas_resource_pool" "cl_resource_pool" {
      cloud_id = data.hpegl_vmaas_cloud.cloud.id
      name = "gl-ftc06-G2i-vm-02"
    }
-
+ 
 # And a group
-
 data "hpegl_vmaas_group" "default_group" {
   name = "Default"
 }
-
+ 
 # Locate a plan
-
 data "hpegl_vmaas_plan" "g2i_medium" {
      name = "G2i-medium"
    }
-
+ 
 # A layout
-
 data "hpegl_vmaas_layout" "vmware" {
   name               = "Vmware VM"
   instance_type_code = "vmware"
 }
-
+ 
 # And a template
-
 data "hpegl_vmaas_template" "vanilla" {
      name = "redhat8-20220331T1850"
    }
-You can get information about each of the data statements supported by the hpegl provider from GitHub.
-Creating VM resources
+
+```
+
+###### 
+
+
+You can get information about each of the data statements supported by the hpegl provider from [GitHub.](https://github.com/hpe/terraform-provider-hpegl/tree/main/docs/data-sources)
+
+## Creating VM resources
+
+
 The next step is to use a Terraform resource statement to create a random integer (used in VM names) and a second resource to request the creation of several VM instances:
+
+
+
+```
 resource "random_integer" "random" {
   min = 1
   max = 50000
@@ -230,13 +264,39 @@ resource "hpegl_vmaas_instance" " my_HA_NFS" {
      layout_id          = data.hpegl_vmaas_layout.vmware.id
      plan_id            = data.hpegl_vmaas_plan.g2i_medium.id
      instance_type_code = data.hpegl_vmaas_layout.vmware.instance_type_code
+     network {
+         id = data.hpegl_vmaas_network.blue_segment.id
+     }
+ 
+     volume {
+         name         = "root_vol"
+         size         = 50
+         datastore_id = "auto"
+     }
+      volume {
+         name         = "drbd_vol"
+         size         = 50
+         datastore_id = "auto"
+     }
 
-```
-
-```
-
+     config {
+         resource_pool_id = data.hpegl_vmaas_resource_pool.cl_resource_pool.id
+         template_id      = data.hpegl_vmaas_template.vanilla.id
+         no_agent         = false
+         asset_tag        = "vm_terraform_sglx"
+         folder_code      = data.hpegl_vmaas_cloud_folder.compute_folder.code
+         create_user      = true
+     }
+ 
    }
+
+```
+
+   
 Finally, we will create a VM to act as Serviceguard quorum node:
+
+
+```
 resource "hpegl_vmaas_instance" "my_quorum" {
      count           = 1 
      name            = "drbd-${count.index}-qs-${random_integer.random.result}"
@@ -246,17 +306,38 @@ resource "hpegl_vmaas_instance" "my_quorum" {
      layout_id       = data.hpegl_vmaas_layout.vmware.id
      plan_id         = data.hpegl_vmaas_plan.g2i_medium.id
      instance_type_code = data.hpegl_vmaas_layout.vmware.instance_type_code
+     network {
+         id = data.hpegl_vmaas_network.blue_segment.id
+     }
+ 
+     volume {
+         name         = "root_vol"
+         size         = 50
+         datastore_id = "auto"
+     }
 
-```
-
-```
-
+     config {
+         resource_pool_id = data.hpegl_vmaas_resource_pool.cl_resource_pool.id
+         template_id      = data.hpegl_vmaas_template.vanilla.id
+         no_agent         = false
+         asset_tag        = "vm_terraform_sglx_quorum"
+         folder_code      = data.hpegl_vmaas_cloud_folder.compute_folder.code
+         create_user      = true
+     }
    }
+
+```
+
+   
 
 3 VMs need to be created to setup SGLX. 2 VMs will be used to create Serviceguard for Linux nodes where the NFS service will be up and running. The third VM will act as a quorum server for the Serviceguard cluster to ensure that split brain of the cluster does not impact the availability of the monitored workload.
 Note: You can get information about each of the resource statements supported by the hpegl provider from GitHub.
 Note: An existing Serviceguard Quorum Server in your environment can be used instead of provisioning a third VM, provided the Quorum Server is reachable to the 2 VM’s that were created.
+
+## 
 Terraform init
+
+
 Before you can use Terraform, you need to initialize it from the configuration file we have created. This is done with the following step: 
 terraform init
 Terraform ready to plan
