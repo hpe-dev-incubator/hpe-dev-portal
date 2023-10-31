@@ -479,24 +479,26 @@ This completes the Serviceguard software installation.
 
 Serviceguard for Linux Flex Storage Add-on is a software-based, shared-nothing, replicated storage solution that mirrors the content of block devices. NFS server export data will be replicated to all Serviceguard cluster nodes using this add-on. Ansible snippet below can be used to configure the replication. 
 
-* hosts: sglx-storage-flex-add-on-hosts
+```
+- hosts: sglx-storage-flex-add-on-hosts
   tasks:
-
-  * name: Populate /etc/drbd.d/global_common.conf file
+  - name: Populate /etc/drbd.d/global_common.conf file
     become: True
     shell: |
       echo "global { usage-count yes; } common { handlers { disconnected /usr/local/cmcluster/conf/scripts/sgenss/replication_software/drbd/drbd_disconnect_handler.sh; } options { auto-promote no; } }" > /etc/drbd.d/global_common.conf
-  * name: Create first part of drbd config file
+
+  - name: Create first part of drbd config file
     become: True
     shell: |
       echo "resource drbd0 {" >/etc/drbd.d/drbd0.res
       echo "    disk /dev/sdb;" >> /etc/drbd.d/drbd0.res
       echo "    device /dev/drbd0;" >> /etc/drbd.d/drbd0.res
       echo "    meta-disk internal;" >> /etc/drbd.d/drbd0.res
-  * name: Create second part of drbd config file
+
+  - name: Create second part of drbd config file
     become: True
     vars:
-      this_nodename: "{{ hostvars\[item] }}"
+      this_nodename: "{{ hostvars[item]['ansible_hostname'] }}"
     shell: |
         echo "    on {{ this_nodename }} {" >> /etc/drbd.d/drbd0.res
         echo "      address {{ item }}:7789;" >> /etc/drbd.d/drbd0.res
@@ -505,46 +507,59 @@ Serviceguard for Linux Flex Storage Add-on is a software-based, shared-nothing, 
     loop: "{{ ansible_play_batch }}"
     loop_control:
       index_var: my_index
-  * name: Set initial empty mesh list
+
+  - name: Set initial empty mesh list
     set_fact:
       mesh: ""
-  * name: Build list of nodes for connection-mesh entry
+
+  - name: Build list of nodes for connection-mesh entry
     loop: "{{ ansible_play_batch }}"
     set_fact:
-      mesh: "{{ mesh + hostvars\[item] + ' ' }}"
-  * name: Check mesh nodes
+      mesh: "{{ mesh + hostvars[item]['ansible_hostname'] + ' ' }}"
+
+  - name: Check mesh nodes
     debug: var=mesh
-  * name: Create connection-mesh portion of config file
+
+  - name: Create connection-mesh portion of config file
     become: True
     shell: |
       echo "    connection-mesh {" >> /etc/drbd.d/drbd0.res
       echo "      hosts {{ mesh|trim }};" >> /etc/drbd.d/drbd0.res
       echo "    }" >> /etc/drbd.d/drbd0.res
-  * name: Create last part of drbd config file
+
+  - name: Create last part of drbd config file
     become: True
     shell: |
       echo "}" >> /etc/drbd.d/drbd0.res
-* name: Create drbd0 device
-   become: True
-   shell: |
-     drbdadm create-md drbd0
-   when: res.rc != 0
-* name: Start DRBD service
-  become: True
-  systemd:
-    name: drbd
-    enabled: True
-    state: started
-* hosts: primary
-  tasks:
 
-  * name: Enable this node as Primary
+ - name: Create drbd0 device
+    become: True
+    shell: |
+      drbdadm create-md drbd0
+    when: res.rc != 0
+
+  - name: Start DRBD service
+    become: True
+    systemd:
+      name: drbd
+      enabled: True
+      state: started
+
+- hosts: primary
+  tasks:
+  - name: Enable this node as Primary
     become: True
     shell: |
       drbdadm primary drbd0 --force
     when: res.rc != 0
 
-Configuring LVM
+```
+
+
+
+## Configuring LVM
+
+
 Once data replication is configured on the nodes, we can now configure LVM on top of the DRBD disk /dev/drbd0. The following Ansible snippet can be used to configure the LVM volume group named nfsvg and an logical volume names nfsvol of size 45GB
 
 - - -
