@@ -171,15 +171,35 @@ curl -s -k -X POST \
 Querying for infrastructure components
 
 Your next step with the TF file is to query the HPE GreenLake provider to collect information needed to create your first VM instance. From the documentation, you can see that you need to gather the following information:
+
+
 •	Cloud ID
+
+
 •	Group ID
+
+
 •	Layout ID
+
+
 •	Plan ID
+
+
 •	Instance type code
+
+
 •	Network ID
+
+
 •	Resource Pool ID
+
+
 •	Template ID
+
+
 •	Folder Code
+
+
 For this, you will use the Terraform data statements. For example, the following statement retrieves the Cloud ID and stores it (in variable called cloud), which we can later retrieve using: data.hpegl_vmaas_cloud.cloud.id
 
 ```
