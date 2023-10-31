@@ -3,7 +3,7 @@ title: Highly available NFS workload on HPE GreenLake for Private Cloud
   Enterprise using Serviceguard for Linux
 date: 2023-10-30T17:51:45.972Z
 priority: ""
-author: John Lenihan,  Thirukkannan M, Saurabh Kadiyali
+author: John Lenihan,  Thirukkannan M, Srinivas Shapur Krishnappa, Saurabh Kadiyali
 authorimage: /img/Avatar1.svg
 disable: false
 tags:
