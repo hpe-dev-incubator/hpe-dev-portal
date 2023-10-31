@@ -339,13 +339,27 @@ Terraform init
 
 
 Before you can use Terraform, you need to initialize it from the configuration file we have created. This is done with the following step: 
-terraform init
+`terraform init`
+
+## 
 Terraform ready to plan
+
+
 To validate your configuration file, it is recommended to run the terraform validate command. Once ready, the terraform plan command will provide the a summary of the deployment that would be built when terraform apply method would be  used.
 Once you agree with the plan and confirm, you can apply the configuration.
-Terraform ready to apply
-The command you need to use is now: terraform apply. This will rerun the plan command, then prompt you to confirm before it starts building what is in the plan:
+
+
+## Terraform ready to apply
+
+
+The command you need to use is now: 
+
+`terraform apply`
+
+ This will rerun the plan command, then prompt you to confirm before it starts building what is in the plan:
 Here is some sample output from the terraform apply command:
+
+```
 Do you want to perform these actions?
   Terraform will perform the actions described above.
   Only 'yes' will be accepted to approve.
@@ -364,37 +378,48 @@ hpegl_vmaas_instance.my_drbd\[0]: Creation complete after 2m8s \[id=3111]
 hpegl_vmaas_instance.my_quorum\[0]: Creation complete after 2m8s \[id=3108]
 
 Apply complete! Resources: 4 added, 0 changed, 0 destroyed.
+```
+
+
+
 Once the command completes, your virtual machines are ready.
 
-Configuring a Highly Available NFS solution
+# Configuring a Highly Available NFS solution
 
 Now that the VMs are provisioned, we can now deploy HPE Serviceguard for Linux on these VMs to create a cluster to provide high availability for the applications running on the VMs, NFS server in this case.
 
-Installing Serviceguard for Linux 
+## Installing Serviceguard for Linux 
+
+
 Serviceguard and all its components can be installed using Ansible playbooks 
 Clone the repository on ansible control node.
+
+
+```
 git clone https://github.com/HewlettPackard/serviceguard.git
 cd serviceguard/ansible-sglx
+```
+
 Checkout the stable branch. For ex: to checkout branch 1.0,
-git checkout Stable-v1.0 
+`git checkout Stable-v1.0 `
 
 To upgrade to the latest version of the playbooks:
-git pull https://github.com/HewlettPackard/serviceguard.git
-Master playbook site.yml contains the roles which will be executed for the inventory defined in hosts. 
+`git pull https://github.com/HewlettPackard/serviceguard.git`
+Master playbook` site.yml `contains the roles which will be executed for the inventory defined in hosts. 
 When the master playbook is run, version specified in the parameters file will be installed. The parameters for the master playbook, roles are configured in group_vars/all.yml. We will now look into some of the fields in this file which needs to be configured.
 We should configure the version of Serviceguard to be installed, in this case SGLX 15.10.00 will be installed. 
-sglx_version : 15.10.00
+`sglx_version : 15.10.00`
 Now provide the Serviceguard for Linux ISO location on the controller node
-sglx_inst_upg_mode: iso
+`sglx_inst_upg_mode: iso
 sglx_inst_upg_additional_params:
     ..
     iso_params:
-        iso_location: <absolute path of the iso on ansible controller node>
+        iso_location: <absolute path of the iso on ansible controller node>`
 Next, install Serviceguard NFS add-on.
-sglx_add_on_inst_upg_params:
+`sglx_add_on_inst_upg_params:
     sglx_addon: nfs
-Serviceguard installation mandates a replicated user configuration. As part of the installation, a replicated user for Serviceguard Manager (sgmgr) is created on the hosts and the password for the same can be configured under the below parameter.
-sglx_sgmgr_password: "{{ vault_sglx_sgmgr_password }}"
+`Serviceguard installation mandates a replicated user configuration. As part of the installation, a replicated user for Serviceguard Manager (sgmgr) is created on the hosts and the password for the same can be configured under the below parameter.
+`sglx_sgmgr_password: "{{ vault_sglx_sgmgr_password }}"
 Ansible vault will be used to encrypt this password, run the command as below
 ansible-vault encrypt_string 'your_password' --name 'vault_sglx_sgmgr_password'
 The generated output must be substituted in
@@ -404,25 +429,27 @@ vault_sglx_sgmgr_password: !vault |
           6639383863383633643035656336336639373161323663380a303331306337396435366535313663
           31336636333862303462346234336138393135393363323739633661653534306162323565646561
           6662396366333534350a663033303862646331613765306433353632316435306630343761623237
-          3863
+          3863`
 Once these parameters are populated, one can modify the hosts file to add the 2 VMs that were provisioned earlier where the cluster will be formed, and the quorum server that was provisioned earlier. In this case, it’s as shown below
-\[sglx-storage-flex-add-on-hosts]
+`[sglx-storage-flex-add-on-hosts]
 drbd-0-808
-drbd-1-808\
-\[sglx-cluster-hosts:children]
+drbd-1-808`\
+`[sglx-cluster-hosts:children]
 sglx-storage-flex-add-on-hosts 
-\[quorum-server-hosts]
+[quorum-server-hosts]
 drbd-0-qs-808
-\[primary]
+[primary]
 drbd-0-808
-\[secondary]
-drbd-1-808
+[secondary]
+drbd-1-808`
 When the parameters specified above are configured, playbook site.yml can be run from the directory where the repository is cloned on the ansible control node.
-cd serviceguard/ansible-sglx
-ansible-playbook -i hosts -v --vault-password-file <path_to_vault_password_file> site.yml
+`cd serviceguard/ansible-sglx
+ansible-playbook -i hosts -v --vault-password-file <path_to_vault_password_file> site.yml`
 This completes the Serviceguard software installation.
 
-Configuring data replication using Serviceguard flex Storage Add-on
+## Configuring data replication using Serviceguard flex Storage Add-on
+
+
 Serviceguard for Linux Flex Storage Add-on is a software-based, shared-nothing, replicated storage solution that mirrors the content of block devices. NFS server export data will be replicated to all Serviceguard cluster nodes using this add-on. Ansible snippet below can be used to configure the replication. 
 
 * hosts: sglx-storage-flex-add-on-hosts
