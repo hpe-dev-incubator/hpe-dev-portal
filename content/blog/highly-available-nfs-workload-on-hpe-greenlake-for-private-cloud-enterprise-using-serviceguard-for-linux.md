@@ -562,196 +562,212 @@ Serviceguard for Linux Flex Storage Add-on is a software-based, shared-nothing, 
 
 Once data replication is configured on the nodes, we can now configure LVM on top of the DRBD disk /dev/drbd0. The following Ansible snippet can be used to configure the LVM volume group named nfsvg and an logical volume names nfsvol of size 45GB
 
-- - -
-
-* hosts: sglx-storage-flex-add-on-hosts
+```
+---
+- hosts: sglx-storage-flex-add-on-hosts
   tasks:
-
-  * name: Modify lvm configuration
+  - name: Modify lvm configuration
     become: True
     lineinfile:
       path: /etc/lvm/lvm.conf
       regexp: "# volume_list"
-      line: volume_list=\["nfsvg","nfsvg/nfsvol","@tag1","@*"]
+      line: volume_list=["nfsvg","nfsvg/nfsvol","@tag1","@*"]
       state: present
       backup: True
-  * name: reject disk in lvm configuration
+  - name: reject disk in lvm configuration
     become: True
     lineinfile:
       path: /etc/lvm/lvm.conf
       regexp: ".*/dev/cdrom.*"
-      line: '      filter = \[ "r|/dev/sdb|", "a|/dev/drbd0|" ] '
+      line: '      filter = [ "r|/dev/sdb|", "a|/dev/drbd0|" ] '
       state: present
       backup: True
-* hosts: primary 
-  tasks:
 
-  * name: Create a volume group on /dev/drbd0
+- hosts: primary 
+  tasks:
+  - name: Create a volume group on /dev/drbd0
     become: True
     lvg:
       vg: nfsvg
       pvs: /dev/drbd0
-  * name: create logical volume for nfs
+
+  - name: create logical volume for nfs
     become: True
     lvol:
       vg: nfsvg
       lv: nfsvol
       size: 45g
       force: True
-  * name: Format filesystem
+
+  - name: Format filesystem
     become: True
     filesystem:
       dev: /dev/nfsvg/nfsvol 
       fstype: xfs
 
-Setting up the NFS server
+```
+
+
+
+## Setting up the NFS server
+
+
 Now we will start the NFS service and export the NFS share from the primary node using the ansible snippet below.
 
-- - -
-
-* hosts: sglx-storage-flex-add-on-hosts
+```
+---
+- hosts: sglx-storage-flex-add-on-hosts
   tasks:
-
-  * name: Install NFS Server and related components
+  - name: Install NFS Server and related components
     become: True
     ansible.builtin.yum:
       name:
         - nfs-utils
       state: present
     ignore_errors: True
-  * name: Enable NFS related services
+  
+  - name: Enable NFS related services
     become: True
     systemd:
       name: "{{ item }}"
       enabled: True
     with_items:
+      - rpcbind
+      - nfs-server
 
-    * rpcbind
-    * nfs-server
-  * name: Start NFS related services
+  - name: Start NFS related services
     become: True
     systemd:
       name: "{{ item }}"
       state: started
     with_items:
+      - rpcbind
+      - nfs-server
 
-    * rpcbind
-    * nfs-server
-  * name: Add /etc/exports entry and create NFS mount point
+  - name: Add /etc/exports entry and create NFS mount point
     become: True
     shell: |
        mkdir -p /nfs
        chmod go+rwx /nfs
        echo '/nfs *(rw,sync,no_root_squash)' > /etc/exports
       
-* hosts: primary 
+- hosts: primary 
   tasks:
-
-  * name: mount nfs on primary
-    become: True
-    shell: |
-       mount /dev/nfsvg/nfsvol /nfs
-       exportfs -a
-
-Creating an SGLX cluster and providing HA to the NFS workload
-Once NFS share is configured, we will now look into creating an SGLX cluster and deploy the NFS workload in the SGLX environment to make it highly available. The below snippet will help us achieve the same.
-
-- - -
-
-* hosts: primary
-* name: Build string of primary nodes
-  set_fact:
-    primary_nodes: "{{ primary_nodes  | default ('') + ' -n ' + hostvars\[item].ansible_hostname }}"
-  with_items: 
-
-  * "{{ groups\['primary'] }}" 
-* name: Build string of secondary nodes
-  set_fact:
-    secondary_nodes: "{{ secondary_nodes  | default ('') + ' -n ' + hostvars\[item].ansible_hostname }}"
-  with_items:
-
-  * "{{ groups\['secondary'] }}"
-* name: Build string of quorum nodes
-  set_fact:
-    quorum_nodes: "{{ quorum_nodes  | default ('') + ' -q ' + hostvars\[item].ansible_hostname }}"
-  with_items:
-
-  * "{{ groups\['quorum-server-hosts'] }}"
-* name: Run cmdeploycl command
-  become: True
-  ansible.builtin.expect:
-    command: "$SGSBIN/cmdeploycl {{ primary_nodes }} {{secondary_nodes }} {{ quorum_nodes }}" 
-    responses:
-      password: "{{ root_pass }}"
-    timeout: 300
-* name: Update cluster config
-  become: True
-  shell: |
-    rm -rf /tmp/cluster.txt
-    $SGSBIN/cmgetconf > /tmp/cluster.txt
-    echo "GENERIC_RESOURCE_NAME CGR_SGeNSS_drbd" >> /tmp/cluster.txt
-    echo "GENERIC_RESOURCE_TYPE simple" >> /tmp/cluster.txt
-    echo "GENERIC_RESOURCE_CMD $SGSBIN/scripts/sgenss/replication_software/drbd/cluster_generic_resource.sh" >> /tmp/cluster.txt
-    echo "GENERIC_RESOURCE_SCOPE node" >> /tmp/cluster.txt
-    echo "GENERIC_RESOURCE_RESTART none" >> /tmp/cluster.txt
-    echo "GENERIC_RESOURCE_HALT_TIMEOUT 10000000" >> /tmp/cluster.txt
-    
-* name: Run cmapplyconf command
-  become: True
-  shell: |
-    $SGSBIN/cmapplyconf -v -C /tmp/cluster.txt -f
-    
-* name: Create a DRBD and NFS package
-  become: True
-  shell: |
-    rm -rf /tmp/nfs_drbd.conf
-    $SGSBIN/cmmakepkg -m sgenss/rf_drbd -m tkit/nfs/nfs /tmp/nfs_drbd.conf
-* name: update the drbd resource name
-  become: True
-  replace:
-    path: /tmp/nfs_drbd.conf
-    regexp: "{{ item.regexp }}"
-    replace: "{{ item.rep }}"
-  with_items: 
-
-  * { regexp: 'res0', rep: 'drbd0'}
-* name: Make change to package configuration
-  become: True
-  lineinfile:
-    path: /tmp/nfs_drbd.conf
-    regexp: "{{ item.regexp }}"
-    line: "{{ item.line }}"
-    state: present
-  with_items:
-
-  * { regexp: '^package_name', line: 'package_name          nfs_drbd'}
-  * { regexp: '^#vg', line: 'vg     nfsvg'}
-  * { regexp: '^tkit/nfs/nfs/XFS', line: 'tkit/nfs/nfs/XFS  "-o rw,sync,no_root_squash *:/nfs"'}
-  * { regexp: '^tkit/nfs/nfs/QUOTA_MON', line: 'tkit/nfs/nfs/QUOTA_MON      no'}
-* name: Add additional NFS configuration
-  become: True
-  lineinfile:
-    path: /tmp/nfs_drbd.conf
-    insertafter: EOF
-    line: |
-      fs_name /dev/nfsvg/nfsvol
-      fs_directory /nfs
-      fs_type "xfs"
-      fs_mount_opt "-o rw"
-      ip_subnet 10.10.180.0
-      ip_address 10.10.180.99
-* name: check the package and apply it
+    - name: mount nfs on primary
       become: True
       shell: |
-  $SGSBIN/cmcheckconf -P /tmp/nfs_drbd.conf
-        $SGSBIN /cmapplyconf -P /tmp/nfs_drbd.conf -f
-* name: enable the package
-  become: True
-  shell: |
-    $SGSBIN /cmmodpkg -e nfs_drbd
+         mount /dev/nfsvg/nfsvol /nfs
+         exportfs -a
+
+```
+
+## Creating an SGLX cluster and providing HA to the NFS workload
+
+
+Once NFS share is configured, we will now look into creating an SGLX cluster and deploy the NFS workload in the SGLX environment to make it highly available. The below snippet will help us achieve the same.
+
+```
+---
+ - hosts: primary
+  - name: Build string of primary nodes
+    set_fact:
+      primary_nodes: "{{ primary_nodes  | default ('') + ' -n ' + hostvars[item].ansible_hostname }}"
+    with_items: 
+      - "{{ groups['primary'] }}" 
+
+  - name: Build string of secondary nodes
+    set_fact:
+      secondary_nodes: "{{ secondary_nodes  | default ('') + ' -n ' + hostvars[item].ansible_hostname }}"
+    with_items:
+      - "{{ groups['secondary'] }}"
+
+  - name: Build string of quorum nodes
+    set_fact:
+      quorum_nodes: "{{ quorum_nodes  | default ('') + ' -q ' + hostvars[item].ansible_hostname }}"
+    with_items:
+      - "{{ groups['quorum-server-hosts'] }}"
+
+  - name: Run cmdeploycl command
+    become: True
+    ansible.builtin.expect:
+      command: "$SGSBIN/cmdeploycl {{ primary_nodes }} {{secondary_nodes }} {{ quorum_nodes }}" 
+      responses:
+        password: "{{ root_pass }}"
+      timeout: 300
+  - name: Update cluster config
+    become: True
+    shell: |
+      rm -rf /tmp/cluster.txt
+      $SGSBIN/cmgetconf > /tmp/cluster.txt
+      echo "GENERIC_RESOURCE_NAME CGR_SGeNSS_drbd" >> /tmp/cluster.txt
+      echo "GENERIC_RESOURCE_TYPE simple" >> /tmp/cluster.txt
+      echo "GENERIC_RESOURCE_CMD $SGSBIN/scripts/sgenss/replication_software/drbd/cluster_generic_resource.sh" >> /tmp/cluster.txt
+      echo "GENERIC_RESOURCE_SCOPE node" >> /tmp/cluster.txt
+      echo "GENERIC_RESOURCE_RESTART none" >> /tmp/cluster.txt
+      echo "GENERIC_RESOURCE_HALT_TIMEOUT 10000000" >> /tmp/cluster.txt
+      
+  - name: Run cmapplyconf command
+    become: True
+    shell: |
+      $SGSBIN/cmapplyconf -v -C /tmp/cluster.txt -f
+      
+  - name: Create a DRBD and NFS package
+    become: True
+    shell: |
+      rm -rf /tmp/nfs_drbd.conf
+      $SGSBIN/cmmakepkg -m sgenss/rf_drbd -m tkit/nfs/nfs /tmp/nfs_drbd.conf
+
+  - name: update the drbd resource name
+    become: True
+    replace:
+      path: /tmp/nfs_drbd.conf
+      regexp: "{{ item.regexp }}"
+      replace: "{{ item.rep }}"
+    with_items: 
+      - { regexp: 'res0', rep: 'drbd0'}
+
+  - name: Make change to package configuration
+    become: True
+    lineinfile:
+      path: /tmp/nfs_drbd.conf
+      regexp: "{{ item.regexp }}"
+      line: "{{ item.line }}"
+      state: present
+    with_items:
+      - { regexp: '^package_name', line: 'package_name          nfs_drbd'}
+      - { regexp: '^#vg', line: 'vg     nfsvg'}
+      - { regexp: '^tkit/nfs/nfs/XFS', line: 'tkit/nfs/nfs/XFS  "-o rw,sync,no_root_squash *:/nfs"'}
+      - { regexp: '^tkit/nfs/nfs/QUOTA_MON', line: 'tkit/nfs/nfs/QUOTA_MON      no'}
+
+  - name: Add additional NFS configuration
+    become: True
+    lineinfile:
+      path: /tmp/nfs_drbd.conf
+      insertafter: EOF
+      line: |
+        fs_name /dev/nfsvg/nfsvol
+        fs_directory /nfs
+        fs_type "xfs"
+        fs_mount_opt "-o rw"
+        ip_subnet 10.10.180.0
+        ip_address 10.10.180.99
+
+  - name: check the package and apply it
+    become: True
+    shell: |
+$SGSBIN/cmcheckconf -P /tmp/nfs_drbd.conf
+      $SGSBIN /cmapplyconf -P /tmp/nfs_drbd.conf -f
+
+  - name: enable the package
+    become: True
+    shell: |
+      $SGSBIN /cmmodpkg -e nfs_drbd
+
+
+```
 
 Now we have the NFS server deployed in Serviceguard cluster with high availability.
 
-Conclusion
+# Conclusion
 
 In this blog we looked at how we could use platforms like Terraform and Ansible to easily provision and deploy a highly available NFS server solution with Serviceguard for Linux on an HPE GreenLake for Private Cloud Enterprise  environment.
