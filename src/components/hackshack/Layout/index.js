@@ -70,9 +70,9 @@ const Layout = ({ children, background }) => {
               <Text color="#FFFFFF">CLOSE</Text>
               <Button icon={<Close />} onClick={() => setLayer(false)} />
             </Box>
-            <Box align="start" gap="large" pad="xlarge">
+            {/* <Box align="start" gap="large" pad="xlarge"> */}
               {/* <SideNav data={data} /> */}
-            </Box>
+            {/* </Box> */}
           </Box>
         </StyledLayer>
       )}

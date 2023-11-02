@@ -100,14 +100,14 @@ const Workshop = (props) => {
     <Layout background="/img/hackshack/BackgroundImages/schedule-background.png">
       <SEO title={title} description={description} image={badgeImg} />
       <MainTitle>
-        <Heading color="text-strong" margin={{ top: 'none', bottom: 'small' }}>
+        <Heading color="text-strong" margin={{ top: 'none', bottom: 'small', left: '160px' }} >
           Workshops-on-Demand
         </Heading>
       </MainTitle>
       {workshops.length > 0 ? (
-        <Tabs activeIndex={index} onActive={onActive} justify="start">
+        <Tabs activeIndex={index} onActive={onActive} justify="start" margin={{ top: 'none', bottom: 'small', left: '160px' }}>
           <Tab title="All">
-            <CardGrid pad={{ top: 'medium' }} key="all">
+            <CardGrid pad={{ top: 'medium'  }} key="all">
               {workshops.map((workshop, i) => renderScheduleCard(workshop, i))}
             </CardGrid>
           </Tab>
