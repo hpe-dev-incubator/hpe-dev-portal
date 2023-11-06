@@ -10,4 +10,4 @@ This is a test with the priority set.
 Test:
 I will set the priority to 2 then remove it (set to 0) to check how goes the Netlify process in the Pull Request.
 
-Another test.
+Another test with priority manually set to "" is causing issue for Netlify process and AWS Amplify. So lessons learned: do not set priority with "".
