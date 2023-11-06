@@ -1,7 +1,7 @@
 ---
 title: Test 6 with priority set
 date: 2023-11-06T09:33:44.150Z
-priority: 0
+priority: -1
 author: Denis Choukroun
 authorimage: /img/Avatar1.svg
 disable: false
