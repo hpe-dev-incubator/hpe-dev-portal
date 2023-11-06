@@ -9,7 +9,7 @@ disable: false
 tags:
   - high-availability
   - serviceguard-for-linux
-  - greenlake-private-cloud-enterprise
+  - hpe-greenlake-for-private-cloud-enterprise
 ---
 # Introduction
 
