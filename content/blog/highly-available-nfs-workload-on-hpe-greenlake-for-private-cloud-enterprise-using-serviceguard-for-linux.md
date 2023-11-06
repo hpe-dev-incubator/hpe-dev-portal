@@ -67,8 +67,6 @@ terraform {
    }
 ```
 
-``
-
 You can find out more about the HPE GreenLake Terraform provider from its Terraform Registry page: 
 
 https://registry.terraform.io/providers/HPE/hpegl/latest This page also provides a link to the GitHub repository corresponding to this provider. 
@@ -323,16 +321,13 @@ resource "hpegl_vmaas_instance" "my_quorum" {
 
 3 VMs need to be created to setup SGLX. 2 VMs will be used to create Serviceguard for Linux nodes where the NFS service will be up and running. The third VM will act as a quorum server for the Serviceguard cluster to ensure that split brain of the cluster does not impact the availability of the monitored workload.
 
-
 **Note:** You can get information about each of the resource statements supported by the hpegl provider from [GitHub](https://github.com/hpe/terraform-provider-hpegl/tree/main/docs/resources).
-
 
 **Note:** An existing Serviceguard Quorum Server in your environment can be used instead of provisioning a third VM, provided the Quorum Server is reachable to the 2 VM’s that were created.
 
 ### Terraform init
 
 Before you can use Terraform, you need to initialize it from the configuration file we have created. This is done with the following step: 
-
 
 `terraform init`
 
@@ -345,7 +340,9 @@ Once you agree with the plan and confirm, you can apply the configuration.
 
 The command you need to use is now: 
 
-`terraform apply`
+```shell
+terraform apply
+```
 
  This will rerun the plan command, then prompt you to confirm before it starts building what is in the plan:
 Here is some sample output from the terraform apply command:
@@ -391,8 +388,6 @@ Checkout the stable branch. For ex: to checkout branch 1.0,
 
 `git checkout Stable-v1.0`
 
-``
-
 To upgrade to the latest version of the playbooks:
 
 `git pull https://github.com/HewlettPackard/serviceguard.git`
@@ -405,10 +400,9 @@ We should configure the version of Serviceguard to be installed, in this case SG
 
 `sglx_version : 15.10.00`
 
-
 Now provide the Serviceguard for Linux ISO location on the controller node
 
-```
+```yaml
 sglx_inst_upg_mode: iso
 sglx_inst_upg_additional_params:
     ..
@@ -416,18 +410,14 @@ sglx_inst_upg_additional_params:
         iso_location: <absolute path of the iso on ansible controller node>
 ```
 
-
-
 Next, install Serviceguard NFS add-on.
 
-```
+```yaml
 sglx_add_on_inst_upg_params:
     sglx_addon: nfs
 ```
 
-
 Serviceguard installation mandates a replicated user configuration. As part of the installation, a replicated user for Serviceguard Manager (sgmgr) is created on the hosts and the password for the same can be configured under the below parameter.
-
 
 `sglx_sgmgr_password: "{{ vault_sglx_sgmgr_password }}"`
 
@@ -437,7 +427,7 @@ Ansible vault will be used to encrypt this password, run the command as below
 
 The generated output must be substituted in
 
-```
+```yaml
 vault_sglx_sgmgr_password: !vault |
           $ANSIBLE_VAULT;1.1;AES256
           34363834323266326237363636613833396665333061653138623431626261343064373363656165
@@ -447,13 +437,9 @@ vault_sglx_sgmgr_password: !vault |
           3863
 ```
 
-``
-
-``
-
 Once these parameters are populated, one can modify the hosts file to add the 2 VMs that were provisioned earlier where the cluster will be formed, and the quorum server that was provisioned earlier. In this case, it’s as shown below
 
-```
+```yaml
 [sglx-storage-flex-add-on-hosts]
 drbd-0-808
 drbd-1-808
@@ -469,7 +455,7 @@ drbd-1-808
 
 When the parameters specified above are configured, playbook `site.yml` can be run from the directory where the repository is cloned on the ansible control node.
 
-```
+```shell
 cd serviceguard/ansible-sglx
 ansible-playbook -i hosts -v --vault-password-file <path_to_vault_password_file> site.yml
 ```
