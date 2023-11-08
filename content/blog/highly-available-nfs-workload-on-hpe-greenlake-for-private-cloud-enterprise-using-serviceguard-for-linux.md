@@ -55,7 +55,7 @@ You can create a virtual machine in the Virtual Machines service of HPE GreenLak
 Let’s start building this Terraform (TF) file using your favourite editor.
     
 
-## Selecting a Terraform provider
+### Selecting a Terraform provider
 
 
 The first section of the file will enumerate the “providers” you rely upon for building your infrastructure, and they could be multiple providers in a single TF file. In the case here, you only have the HPE GreenLake provider referenced as hpe/hpegl in the official Terraform registry.
@@ -80,7 +80,7 @@ https://registry.terraform.io/providers/HPE/hpegl/latest This page also provides
 The docs folder is your best source of information for using the different data sources and resources provided by the provider. If you navigate to the resources section, you will see that one resource you can configure with this provider is a VM instance. This article will focus on this resource.
 Note: Because this is open source, do not hesitate to open issues, or even a pull request, if you identify an issue.
 
-## Setting up the Terraform provider
+### Setting up the Terraform provider
 
 Set up the required parameters for hpegl provider that was specified earlier. As previously explained, you can either explicitly set those parameters in your TF file or have them set in a series of environment variables or have a mix of both. It is recommended to add the following two parameters in your TF file:
 
