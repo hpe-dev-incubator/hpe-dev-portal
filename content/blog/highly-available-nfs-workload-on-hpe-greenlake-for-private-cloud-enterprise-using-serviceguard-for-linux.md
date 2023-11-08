@@ -13,7 +13,9 @@ tags:
 ---
 # Introduction
 
-HPE GreenLake for Private Cloud Enterprise offers the ability to manage and provision compute through machine-readable definition files, otherwise known as Infrastructure-as-Code (IaC). This offers many significant benefits; for example, it helps increase operational agility, simplifies management, reduces errors, and saves cost. In this blog post, you will discover how to provision a highly available and scalable NFS server solution on HPE GreenLake for Private Cloud Enterprise platform in conjunction with HPE Serviceguard for Linux. This blog post is covers provisioning VMs and other required components using Terraform, and the second part talks about installing and configuring an NFS server and Serviceguard for Linux (SGLX) to provide a highly available NFS service.
+HPE GreenLake for Private Cloud Enterprise offers the ability to manage and provision compute through machine-readable definition files, otherwise known as Infrastructure-as-Code (IaC). This offers many significant benefits; for example, it helps increase operational agility, simplifies management, reduces errors, and saves cost. 
+
+In this blog post, you will discover how to provision a highly available and scalable NFS server solution on HPE GreenLake for Private Cloud Enterprise platform in conjunction with HPE Serviceguard for Linux. This blog post covers provisioning of VMs and other required components using Terraform, and the second part talks about installing and configuring an NFS server and Serviceguard for Linux (SGLX) to provide a highly available NFS service.
 
 ## HPE GreenLake for Private Cloud Enterprise
 
