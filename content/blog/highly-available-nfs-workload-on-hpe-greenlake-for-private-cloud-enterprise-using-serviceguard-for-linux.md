@@ -44,17 +44,22 @@ You can create a virtual machine in the Virtual Machines service of HPE GreenLak
 2. Launch the Virtual Machines Service Console
 3. Select Provisioning --> Instances and create a Linux-based virtual machine using whichever VM (Virtual Machine) image, Plan, and the network you find most suitable. 
 4. (optional) Configure your virtual machine so you can access your GitHub or other code repository.
-5. Log into your virtual machine and install Terraform: Hashi Corp has provided a useful tutorial on how to do this for various distributions of Linux: https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli
+5. Log into your virtual machine and install Terraform: Hashi Corp has provided a useful [tutorial ](<1. https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli>)on how to do this for various distributions of Linux
 6. Verify the installation: 
-   a.	Execute this command: terraform --help
-   At this point, you are ready to start building your infrastructure description file.   
+   a.	Execute this command: `terraform --help`
+
+   At this point, you are ready to start building your infrastructure description file.  
 
 ## Building a Terraform configuration file from scratch
 
 Let’s start building this Terraform (TF) file using your favourite editor.
-Selecting a Terraform provider
+    
+
+## Selecting a Terraform provider
+
+
 The first section of the file will enumerate the “providers” you rely upon for building your infrastructure, and they could be multiple providers in a single TF file. In the case here, you only have the HPE GreenLake provider referenced as hpe/hpegl in the official Terraform registry.
-The first lines of your Terraform configuration file should look like this:
+The first lines of your Terraform configuration file should look like this:      
 
 ```json
 # Load HPE GreenLake terraform provider
