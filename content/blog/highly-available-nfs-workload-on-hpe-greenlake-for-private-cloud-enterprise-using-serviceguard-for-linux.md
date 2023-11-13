@@ -544,7 +544,7 @@ Serviceguard for Linux Flex Storage Add-on is a software-based, shared-nothing, 
 
 ## Configuring LVM
 
-Once data replication is configured on the nodes, we can now configure LVM on top of the DRBD disk /dev/drbd0. The following Ansible snippet can be used to configure the LVM volume group named nfsvg and an logical volume names nfsvol of size 45GB
+Once data replication is configured on the nodes, you can configure LVM on top of the DRBD disk /dev/drbd0. The following Ansible snippet can be used to configure the LVM volume group named nfsvg and logical volume names nfsvol of size 45GB.
 
 ```yaml
 ---
@@ -592,7 +592,7 @@ Once data replication is configured on the nodes, we can now configure LVM on to
 
 ## Setting up the NFS server
 
-Now we will start the NFS service and export the NFS share from the primary node using the ansible snippet below.
+Now start the NFS service and export the NFS share from the primary node using the Ansible snippet below.
 
 ```yaml
 ---
@@ -642,7 +642,7 @@ Now we will start the NFS service and export the NFS share from the primary node
 
 ## Creating an SGLX cluster and providing HA to the NFS workload
 
-Once NFS share is configured, we will now look into creating an SGLX cluster and deploy the NFS workload in the SGLX environment to make it highly available. The below snippet will help us achieve the same.
+Once NFS share is configured, look into creating an SGLX cluster and deploy the NFS workload in the SGLX environment to make it highly available. The below snippet will help you achieve this.
 
 ```yaml
 ---
