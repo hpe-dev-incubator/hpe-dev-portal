@@ -411,6 +411,16 @@ sglx_inst_upg_additional_params:
         iso_location: <absolute path of the iso on ansible controller node>
 ```
 
+Provide the Serviceguard Flex storage add-on ISO location on the control node.
+
+```yaml
+   storage_flex_add_on:
+        install_upgrade: yes
+        install_upg_mode: iso 
+        iso_params: 
+            iso_location: <absolute path of the iso on ansible controller node>
+```
+
 Next, install Serviceguard NFS add-on.
 
 ```yaml
@@ -746,4 +756,8 @@ The NFS server is now deployed in Serviceguard cluster with high availability.
 
 # Conclusion
 
-In this blog, you learned how to use platforms like Terraform and Ansible to easily provision and deploy a highly available NFS server solution with Serviceguard for Linux on an HPE GreenLake Private Cloud Enterprise environment.
+In this blog, you learned how to use platforms like Terraform and Ansible to easily provision and deploy a highly available NFS server solution with Serviceguard for Linux on an HPE GreenLake Private Cloud Enterprise environment. 
+
+Serviceguard for Linux has high availability and disaster recovery solutions available for various applications such as SAP, Oracle, SQL Server On Linux, EDB Postgres etc. For more information regarding these solutions you can refer to the HPE Serviceguard for Linux operational guide for workloads and solutions available at  https://www.hpe.com/info/linux-serviceguard-docs
+
+Check back on the HPE Developer Community blog for more articles on HPE GreenLake for Private Cloud.
