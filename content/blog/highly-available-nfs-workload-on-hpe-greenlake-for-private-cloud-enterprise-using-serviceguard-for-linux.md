@@ -53,10 +53,8 @@ You can create a virtual machine in the Virtual Machines service of HPE GreenLak
 ## Building a Terraform configuration file from scratch
 
 Let’s start building this Terraform (TF) file using your favourite editor.
-    
 
 ### Selecting a Terraform provider
-
 
 The first section of the file will enumerate the “providers” you rely upon for building your infrastructure, and they could be multiple providers in a single TF file. In the case here, you only have the HPE GreenLake provider referenced as hpe/hpegl in the official Terraform registry.
 The first lines of your Terraform configuration file should look like this:      
@@ -74,9 +72,7 @@ terraform {
    }
 ```
 
-You can find out more about the HPE GreenLake Terraform provider from its Terraform Registry page: 
-
-https://registry.terraform.io/providers/HPE/hpegl/latest This page also provides a link to the GitHub repository corresponding to this provider. 
+You can find out more about the HPE GreenLake Terraform provider from its [Terraform Registry page](https://registry.terraform.io/providers/HPE/hpegl/latest).  This page also provides a link to the GitHub repository corresponding to this provider. 
 The docs folder is your best source of information for using the different data sources and resources provided by the provider. If you navigate to the resources section, you will see that one resource you can configure with this provider is a VM instance. This article will focus on this resource.
 Note: Because this is open source, do not hesitate to open issues, or even a pull request, if you identify an issue.
 
@@ -195,7 +191,7 @@ Your next step with the TF file is to query the HPE GreenLake provider to collec
 
 •	Folder Code
 
-For this, you will use the Terraform data statements. For example, the following statement retrieves the Cloud ID and stores it (in variable called cloud), which we can later retrieve using: data.hpegl_vmaas_cloud.cloud.id
+For this, you will use the Terraform data statements. For example, the following statement retrieves the Cloud ID and stores it (in variable called cloud), which we can later retrieve using: data.hpegl\_vmass\_cloud.cloud.id
 
 ```json
 # Retrieve cloud id
