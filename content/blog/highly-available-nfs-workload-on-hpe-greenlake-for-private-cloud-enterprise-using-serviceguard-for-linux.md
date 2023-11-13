@@ -132,8 +132,8 @@ Note: More details on HPE GreenLake user roles can be found in the HPE GreenLake
 
 When a user creates virtual machines using the HPE GreenLake for Private Cloud Enterprise: Virtual Machines user interface, they first set the Linux and Windows username and password. Once this is done, any virtual machines subsequently created by that user will inherit these credentials. The user can later use these credentials to log into these virtual machines.
 API Clients which are used to create virtual machines can also set Linux and Windows username and password values. Since the API Client does not use the HPE GreenLake for Private Cloud Enterprise: Virtual Machines user interface, this must be done via an API call.
-Here is a sample script which reads the VM\_USERNAME and VM\_PASSWORD environment variables and uses the values for Linux and Windows username and password for the API Client. The script assumes a Location value of ‘FTC06’ and Space value of ‘Default’. 
-To execute this script, first set appropriate values for the VM\_USERNAME and VM\_PASSWORD environment variables. Next, execute the resource file, which was created earlier, which sets the HPEGL\\*\\* environment variables for your API Client. Finally, execute the script below.
+Here is a sample script which reads the VM_USERNAME and VM_PASSWORD environment variables and uses the values for Linux and Windows username and password for the API Client. The script assumes a Location value of ‘FTC06’ and Space value of ‘Default’. 
+To execute this script, first set appropriate values for the VM_USERNAME and VM_PASSWORD environment variables. Next, execute the resource file, which was created earlier, which sets the HPEGL\*\* environment variables for your API Client. Finally, execute the script below.
 
 ```shell
 #!/bin/bash
@@ -347,8 +347,7 @@ The command you need to use is now:
 terraform apply
 ```
 
- This will rerun the plan command, then prompt you to confirm before it starts building what is in the plan:
-Here is some sample output from the terraform apply command:
+ This will rerun the plan command, then prompt you to confirm before it starts building what is in the plan. Here is some sample output from the `terraform apply` command:
 
 ```
 Do you want to perform these actions?
@@ -357,16 +356,16 @@ Do you want to perform these actions?
 
   Enter a value: yes
 
-hpegl_vmaas_instance.my_drbd\[1]: Creating...
-hpegl_vmaas_instance.my_quorum\[0]: Creating...
-hpegl_vmaas_instance.my_drbd\[0]: Creating...
-hpegl_vmaas_instance.my_quorum\[0]: Still creating... \[10s elapsed]
-hpegl_vmaas_instance.my_drbd\[1]: Still creating... \[10s elapsed]
-hpegl_vmaas_instance.my_drbd\[1]: Still creating... \[10s elapsed]
+hpegl_vmaas_instance.my_drbd[1]: Creating...
+hpegl_vmaas_instance.my_quorum[0]: Creating...
+hpegl_vmaas_instance.my_drbd[0]: Creating...
+hpegl_vmaas_instance.my_quorum[0]: Still creating... [10s elapsed]
+hpegl_vmaas_instance.my_drbd[1]: Still creating... [10s elapsed]
+hpegl_vmaas_instance.my_drbd[1]: Still creating... [10s elapsed]
 
-hpegl_vmaas_instance.my_drbd\[1]: Creation complete after 2m8s \[id=3105]
-hpegl_vmaas_instance.my_drbd\[0]: Creation complete after 2m8s \[id=3111]
-hpegl_vmaas_instance.my_quorum\[0]: Creation complete after 2m8s \[id=3108]
+hpegl_vmaas_instance.my_drbd[1]: Creation complete after 2m8s [id=3105]
+hpegl_vmaas_instance.my_drbd[0]: Creation complete after 2m8s [id=3111]
+hpegl_vmaas_instance.my_quorum[0]: Creation complete after 2m8s [id=3108]
 
 Apply complete! Resources: 4 added, 0 changed, 0 destroyed.
 ```
@@ -379,8 +378,7 @@ Now that the VMs are provisioned, we can now deploy HPE Serviceguard for Linux o
 
 ## Installing Serviceguard for Linux
 
-Serviceguard and all its components can be installed using Ansible playbooks 
-Clone the repository on ansible control node.
+Serviceguard and all its components can be installed using Ansible playbooks. Clone the repository on ansible control node:
 
 ```shell
 git clone https://github.com/HewlettPackard/serviceguard.git
@@ -396,14 +394,14 @@ To upgrade to the latest version of the playbooks:
 `git pull https://github.com/HewlettPackard/serviceguard.git`
 
 Master playbook `site.yml` contains the roles which will be executed for the inventory defined in hosts. 
-When the master playbook is run, version specified in the parameters file will be installed. The parameters for the master playbook, roles are configured in `group_vars/all.yml`.
+When the master playbook is run, the version specified in the parameters file will be installed. The parameters for the master playbook, roles are configured in `group_vars/all.yml`.
 
-We will now look into some of the fields in this file which needs to be configured.
-We should configure the version of Serviceguard to be installed, in this case SGLX 15.10.00 will be installed. 
+Now let's look into some of the fields in this file which needs to be configured.
+It’s time to configure the version of Serviceguard to be installed, in this case SGLX 15.10.00 will be installed. 
 
 `sglx_version : 15.10.00`
 
-Now provide the Serviceguard for Linux ISO location on the controller node
+Provide the Serviceguard for Linux ISO location on the controller node.
 
 ```yaml
 sglx_inst_upg_mode: iso
@@ -424,7 +422,7 @@ Serviceguard installation mandates a replicated user configuration. As part of t
 
 `sglx_sgmgr_password: "{{ vault_sglx_sgmgr_password }}"`
 
-Ansible vault will be used to encrypt this password, run the command as below
+Ansible vault will be used to encrypt this password, when you run the command as below:
 
 `ansible-vault encrypt_string 'your_password' --name 'vault_sglx_sgmgr_password'`
 
@@ -440,7 +438,7 @@ vault_sglx_sgmgr_password: !vault |
           3863
 ```
 
-Once these parameters are populated, one can modify the hosts file to add the 2 VMs that were provisioned earlier where the cluster will be formed, and the quorum server that was provisioned earlier. In this case, it’s as shown below
+Once these parameters are populated, you can modify the hosts file to add the two  VMs that were provisioned earlier where the cluster will be formed, and the quorum server that was provisioned earlier. In this case, it’s as shown below:
 
 ```yaml
 [sglx-storage-flex-add-on-hosts]
@@ -467,7 +465,7 @@ This completes the Serviceguard software installation.
 
 ## Configuring data replication using Serviceguard flex Storage Add-on
 
-Serviceguard for Linux Flex Storage Add-on is a software-based, shared-nothing, replicated storage solution that mirrors the content of block devices. NFS server export data will be replicated to all Serviceguard cluster nodes using this add-on. Ansible snippet below can be used to configure the replication. 
+Serviceguard for Linux Flex Storage Add-on is a software-based, shared-nothing, replicated storage solution that mirrors the content of block devices. NFS server export data will be replicated to all Serviceguard cluster nodes using this add-on. The Ansible snippet below can be used to configure the replication.
 
 ```yaml
 - hosts: sglx-storage-flex-add-on-hosts
