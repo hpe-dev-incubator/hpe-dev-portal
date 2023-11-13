@@ -742,8 +742,8 @@ $SGSBIN/cmcheckconf -P /tmp/nfs_drbd.conf
       $SGSBIN /cmmodpkg -e nfs_drbd
 ```
 
-Now we have the NFS server deployed in Serviceguard cluster with high availability.
+The NFS server is now deployed in Serviceguard cluster with high availability.
 
 # Conclusion
 
-In this blog we looked at how we could use platforms like Terraform and Ansible to easily provision and deploy a highly available NFS server solution with Serviceguard for Linux on an HPE GreenLake for Private Cloud Enterprise  environment.
+In this blog, you learned how to use platforms like Terraform and Ansible to easily provision and deploy a highly available NFS server solution with Serviceguard for Linux on an HPE GreenLake Private Cloud Enterprise environment.
