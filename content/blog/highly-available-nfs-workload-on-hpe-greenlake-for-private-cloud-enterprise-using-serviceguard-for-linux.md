@@ -128,12 +128,12 @@ Since intent is to use this API Client to create resources in the Virtual Machin
 
 Note: More details on HPE GreenLake user roles can be found in the HPE GreenLake documentation.
 
-Set API Client Usernames and Passwords
+### Set API Client Usernames and Passwords
 
 When a user creates virtual machines using the HPE GreenLake for Private Cloud Enterprise: Virtual Machines user interface, they first set the Linux and Windows username and password. Once this is done, any virtual machines subsequently created by that user will inherit these credentials. The user can later use these credentials to log into these virtual machines.
 API Clients which are used to create virtual machines can also set Linux and Windows username and password values. Since the API Client does not use the HPE GreenLake for Private Cloud Enterprise: Virtual Machines user interface, this must be done via an API call.
-Here is a sample script which reads the VM\*USERNAME and VM_PASSWORD environment variables and uses the values for Linux and Windows username and password for the API Client. The script assumes a Location value of ‘FTC06’ and Space value of ‘Default’. 
-To execute this script, first set appropriate values for the VM_USERNAME and VM_PASSWORD environment variables. Next, execute the resource file, which was created earlier, which sets the HPEGL\** environment variables for your API Client. Finally, execute the script below.
+Here is a sample script which reads the VM\_USERNAME and VM\_PASSWORD environment variables and uses the values for Linux and Windows username and password for the API Client. The script assumes a Location value of ‘FTC06’ and Space value of ‘Default’. 
+To execute this script, first set appropriate values for the VM\_USERNAME and VM\_PASSWORD environment variables. Next, execute the resource file, which was created earlier, which sets the HPEGL\\*\\* environment variables for your API Client. Finally, execute the script below.
 
 ```shell
 #!/bin/bash
@@ -191,7 +191,7 @@ Your next step with the TF file is to query the HPE GreenLake provider to collec
 
 •	Folder Code
 
-For this, you will use the Terraform data statements. For example, the following statement retrieves the Cloud ID and stores it (in variable called cloud), which we can later retrieve using: data.hpegl\_vmass\_cloud.cloud.id
+For this, you will use the Terraform data statements. For example, the following statement retrieves the Cloud ID and stores it (in variable called cloud), which we can later retrieve using: data.hpegl_vmass_cloud.cloud.id
 
 ```json
 # Retrieve cloud id
