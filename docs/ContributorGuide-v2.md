@@ -376,7 +376,7 @@ Here is how you can crate an external blog post entry in the HPE Developer Commu
 
 2. In the blog editor, you can set properties (title, author name, author picture, external link, body) in the left pane and see the effect in the preview pane on the right side of the screen. 
 
->**IMPORTANT NOTE:** Do not set any PRIORITY for the blog link entry. 
+>**IMPORTANT NOTE:** Do not set any PRIORITY and keep the FEATURE flag toggle off for the blog link entry. 
 
 3. Make sure you set the following parameters:
 
