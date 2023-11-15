@@ -35,13 +35,13 @@ This another paragraph
 
 <font size="3"> *Apache® and Apache Spark™ are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by the Apache Software Foundation is implied by the use of these marks.* </font>
 
-*greenlake\_audit\_events\_facts* - Get details of audit events
+*greenlake_audit_events_facts* - Get details of audit events
 
-*greenlake\_host* - Manage host
+*greenlake_host* - Manage host
 
-*greenlake\_host\_facts -* Get details of a host
+*greenlake_host_facts -* Get details of a host
 
-*greenlake\_host\_group -* Manage host group
+*greenlake_host_group -* Manage host group
 
 <br />
  ﻿   
@@ -76,17 +76,53 @@ thead tr:first-child td {
 }
 </style>
 
+
+
+```chapel
+import IO;
+import Map.map as map;
+import Set.set;
+import Sort;
+import Regex.regex;
+import ArgumentParser;
+
+proc countUniqueWarnings(ref warningsMap: map(string, ?t), inputFileReader: IO.fileReader(?)) where t == (int, set(string)){
+  // A pattern of a typical warning line
+  // Ex: filename.chpl:lineNumber: warning message blah
+  const warningRegex = new regex("(.*.chpl|<command-line arg>):\\d+: (.*)\n"); // Anything inside ( ) is a capture group
+  var warning : string;
+  var fileName: string;
+  for (fullMatch, fileNameMatch, warningMatch) in inputFileReader.matches(warningRegex, captures=2) {
+    inputFileReader.extractMatch(warningMatch, warning);
+    inputFileReader.extractMatch(fileNameMatch, fileName);
+    // Check if the string mentions that something is unstable
+    // If so, add it to the map
+    if !containsUnstableWarning(warning) then
+      continue;
+    warning = anonymizeWarning(warning);
+    if warningsMap.contains(warning) {
+      warningsMap[warning][0] += 1;
+    } else {
+      warningsMap[warning][0] = 1;
+    }
+    warningsMap[warning][1].add(fileName); // Add the fileName to the set of files that have this warning
+  }
+}
+
+proc containsUnstableWarning(warning: string) : bool {
+  // Check if the string mentions that something is unstable
+  return warning.find("unstable") != -1 || warning.find("enum-to-bool") != -1 ||
+         warning.find("enum-to-float") != -1;
+}
+```
+
 | Date          | Title                             | Speaker           | Webinar Link                                                                                            | Early Access Link                                                                         |
 | ------------- | --------------------------------- | ----------------- | ------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
 | **10-Nov-22** | **HPE GreenLake for Data Fabric** | **Alaric Thomas** | **[Register to Webinar](https://hpe.zoom.us/webinar/register/1016631597484/WN_xLR2ynonSi6SojUswkVmRw)** | **[Sign up for Early Access](https://connect.hpe.com/HPEGreenLakeEarlyAccessDataFabric)** |
 | 17-Nov-22     | HPE Ezmeral Unified Analytics     | Terry Chiang      | [Register to Webinar](https://hpe.zoom.us/webinar/register/7516631596092/WN_qEWHxuucTa-UilEnOqmByg)     | [Sign up for Early Access](https://connect.hpe.com/HPEEzmeralEarlyAccessUnifiedAnalytics) |
 
+- - -
 
-
-- - -   
-
-
- 
 - - -
 
 <br />
