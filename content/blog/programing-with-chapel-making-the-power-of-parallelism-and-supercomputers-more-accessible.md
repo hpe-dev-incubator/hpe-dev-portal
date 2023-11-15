@@ -1,5 +1,5 @@
 ---
-title: "Programing with Chapel: Making the Power of Parallelism and
+title: "Programming with Chapel: Making the Power of Parallelism and
   Supercomputers More Accessible"
 date: 2023-11-14T16:38:00.424Z
 featuredBlog: false
