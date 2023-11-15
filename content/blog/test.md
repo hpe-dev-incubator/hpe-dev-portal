@@ -78,7 +78,7 @@ thead tr:first-child td {
 
 
 
-```chapel
+```markdown
 import IO;
 import Map.map as map;
 import Set.set;
