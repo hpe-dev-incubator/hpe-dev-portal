@@ -8,6 +8,9 @@ image: https://www.hpe.com/content/dam/hpe/shared-publishing/images-norend/gener
 width: large
 priority: 1
 active: "true"
+tags:
+  - hpe-greenlake-cloud-platform
+  - hpe-greenlake-platform
 ---
 The HPE GreenLake platform, along with its marketplace and partner ecosystem, provides customers with a consistent, unified foundation for application development and hybrid cloud innovation. This helps customers reduce costs and complexity, while enhancing stability and performance across multiple IT environments.
 
