@@ -42,11 +42,9 @@ After these commands, `myUnstableOutput.txt` (or whatever you've named it) shoul
 
 ```markdown
 ./unstableAnonScript --csv --sorted --inputFiles myUnstableOutput.txt --outputFile mySummary.csv
-```
 
 or
 
-```markdown
 ./unstableAnonScript -c -d -i myUnstableOutput.txt -o mySummary.csv
 ```
 
@@ -64,11 +62,9 @@ You could also additionally run with the `--numFiles` flag (`-n` for short), whi
 
 ```markdown
 ./unstableAnonScript --csv --sorted --numFiles --inputFiles myUnstableOutput.txt --outputFile mySummary.csv
-```
 
-Or
+or
 
-```markdown
 ./unstableAnonScript -c -d -n -i myUnstableOutput.txt -o mySummary.csv
 ```
 
