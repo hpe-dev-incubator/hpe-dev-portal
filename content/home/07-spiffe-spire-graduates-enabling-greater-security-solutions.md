@@ -1,13 +1,13 @@
 ---
-author: Dale Rensing
+author: HPE DEV
 priority: 7
 active: true
 width: medium
 imageScale: 1.5
-title: Office of the CTO announces hiring at new Center of Excellence in Galway
+title: "Programming with Chapel: Making the Power of Parallelism and
+  Supercomputers More Accessible"
 category: Feature Blog
-link: /blog/office-of-the-cto-announces-hiring-at-new-center-of-excellence-in-galway/
-image: /img/blog-author-rensing-96.jpg
+link: https://devm.io/programming/brad-chamberlain-chapel-programming-language-interview-001?_branch_match_id=1253386617516862791&_branch_referrer=H4sIAAAAAAAAA8soKSkottLXTywo0EtJLcvVy8zXT8tJLTRx8jNzck0CAHq%2BldgfAAAA
+image: /img/Avatar1.svg
 ---
-At Hewlett Packard Enterprise (HPE), our purpose is to advance the way people live and work. And we invite you to join us in our mission! Hewlett Packard Enterprise and the Office of the Chief Technology Officer recently announced hiring for several roles at a new Center of Excellence in Galway, Ireland. 
-
+Chapel is one rich with potential in the world of parallel programming. We were very lucky to have the chance to speak with Brad Chamberlain, Distinguished Technologist at Hewlett Packard Enterprise, Chapel Founder & Technical Lead to talk all things Chapel.
