@@ -5,7 +5,7 @@ author: Lydia Rose Duncan
 authorimage: /img/lydia-rose-small.png
 disable: false
 tags:
-  - Chapel
+  - chapel
 ---
 <style>
 li {
