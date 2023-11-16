@@ -1,6 +1,6 @@
 ---
 reverse: true
-author: hpedev
+author: " "
 priority: 2
 active: true
 width: medium
