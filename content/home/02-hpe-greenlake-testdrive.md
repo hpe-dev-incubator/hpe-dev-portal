@@ -1,13 +1,13 @@
 ---
-title: HPE GreenLake Test Drive
-width: medium
-category: Featured
-priority: 2
-link: https://testdrive.greenlake.hpe.com/
-image: /img/stoplight.jpg
-imageScale: 0.7
 reverse: true
+author: hpedev
+priority: 2
 active: true
+width: medium
+imageScale: 0.7
+title: Missed a session? - Get the replay
+category: Featured
+link: https://www.youtube.com/playlist?list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF
+image: /img/youtube_logo_icon_168737.png
 ---
-
-Get first-hand experience on our platform, customized by technology, use case, and role.
+Browse replays of our most successful technology talks.
