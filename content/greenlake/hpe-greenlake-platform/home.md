@@ -7,7 +7,7 @@ description: A managed cloud experience that accelerates your transformation by
 image: https://www.hpe.com/content/dam/hpe/shared-publishing/images-norend/generic-named/c-e/Data-slice-CO-02-16-9.jpg.hpetransform/bounded-resize:width=1200/image.webp
 width: large
 priority: 1
-active: "true"
+active: false
 tags:
   - hpe-greenlake-cloud-platform
   - hpe-greenlake-platform
