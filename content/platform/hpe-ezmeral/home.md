@@ -10,6 +10,7 @@ priority: 1
 active: true
 tags:
   - hpe-ezmeral
+  - hpe-ezmeral-data-fabric
 ---
 <a id="top"></a>
 
