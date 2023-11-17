@@ -4,7 +4,7 @@ dateStart: 2023-11-14T23:01:04.402Z
 dateEnd: 2023-11-15T22:59:04.454Z
 category: Virtual Event
 image: /img/event-munch-and-learn-newlogo400x400.png
-link: https://developer.hpe.com/campaign/munch-and-learn
+link: https://www.youtube.com/watch?v=Ck5dVgp68uA&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF
 width: large
 ---
 ## Optimizing deep neural network inference workloads
