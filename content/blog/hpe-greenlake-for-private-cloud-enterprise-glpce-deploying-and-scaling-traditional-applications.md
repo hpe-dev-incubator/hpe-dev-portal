@@ -9,6 +9,7 @@ tags:
   - hpe-greenlake-for-private-cloud-enterprise
   - " deploy-apps-across-private-public-and-hybrid"
   - GreenLake Private Cloud Enterprise
+  - hpe-greenlake
 ---
 <style>
 li {
