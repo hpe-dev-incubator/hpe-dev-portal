@@ -108,7 +108,5 @@ In screenshot 2 , I created a cluster. I selected configurations and resources, 
 **Conclusion – The perfect synergy**    
 HPE GreenLake for Private Cloud Enterprise, in conjunction with Kubernetes, addresses a broad spectrum of enterprise applications. Whether dealing with brownfield applications that have evolved over time or greenfield applications that are freshly developed, this combination ensures seamless integration and deployment.     
 
-HPE GreenLake for Private Cloud Enterprise, in conjunction with Kubernetes, addresses a broad spectrum of enterprise applications. Whether dealing with brownfield applications that have evolved over time or greenfield applications that are freshly developed, this combination ensures seamless integration and deployment.    
-
 Containers service’s ability to scale resources up or down based on workload demands ensures that businesses can respond effectively to varying operational requirements. 
 Additionally, the integrated framework provides a secure stack, reinforcing infrastructure integrity, governance, compliance, and application security. In essence, the union of HPE GreenLake for Private Cloud Enterprise and Kubernetes provides a comprehensive solution that caters to both existing and new enterprise applications, fostering a flexible, responsive, and secure environment.
