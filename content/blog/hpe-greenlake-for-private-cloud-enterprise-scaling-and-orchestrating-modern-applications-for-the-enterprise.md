@@ -7,6 +7,7 @@ authorimage: https://media.licdn.com/dms/image/D5603AQGMJCplt_LTFQ/profile-displ
 disable: false
 tags:
   - hpe-greenlake-for-private-cloud-enterprise
+  - hpe-greenlake
 ---
 <style>
 li {
