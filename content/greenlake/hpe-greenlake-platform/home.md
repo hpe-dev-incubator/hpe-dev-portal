@@ -11,6 +11,7 @@ active: false
 tags:
   - hpe-greenlake-cloud-platform
   - hpe-greenlake-platform
+  - hpe-greenlake
 ---
 The HPE GreenLake platform, along with its marketplace and partner ecosystem, provides customers with a consistent, unified foundation for application development and hybrid cloud innovation. This helps customers reduce costs and complexity, while enhancing stability and performance across multiple IT environments.
 
@@ -39,4 +40,4 @@ Take advantage of our free, Jupyter-Notebook based Workshops-on-Demand available
 
 ## Any questions on HPE GreenLake?
 
-Join the [HPE Developer Community Slack Workspace](https://slack.hpedev.io/) and start a discussion in our [\#HPEGreenLake](https://hpedev.slack.com/archives/C02EG5XFK8Q) channel.
+Join the [HPE Developer Community Slack Workspace](https://slack.hpedev.io/) and start a discussion in our [\#hpe-greenlake-api](https://hpedev.slack.com/archives/C02EG5XFK8Q) channel.
