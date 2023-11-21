@@ -2,7 +2,7 @@
 title: "How to Integrate Custom Data Sources Into Apache Spark"
 date: 2021-01-29T05:41:49.300Z
 author: Nicolas Perez 
-tags: ["hpe-ezmeral-data-fabric","MapR","apache-spark","opensource"]
+tags: ["hpe-ezmeral-data-fabric","hpe-ezmeral","MapR","apache-spark","opensource"]
 authorimage: "/img/blogs/Avatar4.svg"
 featuredBlog: false
 priority:

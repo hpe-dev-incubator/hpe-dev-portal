@@ -2,7 +2,7 @@
 title: "How to Get Started with Spark Streaming and MapR Event Store Using the Kafka API"
 date: 2021-02-19T06:14:14.688Z
 author: Carol McDonald 
-tags: ["hpe-ezmeral-data-fabric","MapR","kafka"]
+tags: ["hpe-ezmeral-data-fabric","hpe-ezmeral","MapR","kafka"]
 authorimage: "/img/blogs/Avatar3.svg"
 featuredBlog: false
 priority:

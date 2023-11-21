@@ -2,7 +2,7 @@
 title: "Top Trends: Machine Learning, Microservices, Containers, Kubernetes, Cloud to Edge. What are they and how do they fit together?"
 date: 2021-01-22T06:42:26.928Z
 author: Carol McDonald 
-tags: ["hpe-ezmeral-data-fabric","MapR","machine-learning","microservices"]
+tags: ["hpe-ezmeral-data-fabric","hpe-ezmeral","MapR","machine-learning","microservices"]
 authorimage: "/img/blogs/Avatar2.svg"
 featuredBlog: false
 priority:

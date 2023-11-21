@@ -2,7 +2,7 @@
 title: "Association Rule Mining – Not Your Typical Data Science Algorithm"
 date: 2021-01-22T06:28:06.806Z
 author: Kirk Borne 
-tags: ["hpe-ezmeral-data-fabric","MapR","machine-learning","data-mining", "data-scientist"]
+tags: ["hpe-ezmeral-data-fabric","hpe-ezmeral","MapR","machine-learning","data-mining", "data-scientist"]
 authorimage: "/img/blogs/Avatar1.svg"
 featuredBlog: false
 priority:

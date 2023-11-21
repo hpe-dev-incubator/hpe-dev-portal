@@ -2,7 +2,7 @@
 title: "Event-Driven Microservices on the MapR Data Platform"
 date: 2021-02-05T07:05:46.365Z
 author: Rachel Silver 
-tags: ["hpe-ezmeral-data-fabric","MapR"]
+tags: ["hpe-ezmeral-data-fabric","hpe-ezmeral","MapR"]
 authorimage: "/img/blogs/Avatar3.svg"
 featuredBlog: false
 priority:

@@ -2,7 +2,7 @@
 title: "Kubernetes, Kafka Event Sourcing Architecture Patterns and Use Case Examples"
 date: 2020-11-11T07:02:01.953Z
 author: Carol McDonald 
-tags: ["hpe-ezmeral-data-fabric","MapR","Kafka","opensource","use-cases"]
+tags: ["hpe-ezmeral-data-fabric","hpe-ezmeral","MapR","Kafka","opensource","use-cases"]
 authorimage: "/img/blogs/Avatar1.svg"
 featuredBlog: false
 priority:

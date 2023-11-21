@@ -5,6 +5,7 @@ author: Carol McDonald
 authorimage: /img/blogs/Avatar2.svg
 tags:
   - hpe-ezmeral-data-fabric
+  - hpe-ezmeral
   - MapR
   - apache-spark
 ---

@@ -5,6 +5,7 @@ author: Nicolas Perez
 authorimage: /img/blogs/Avatar1.svg
 tags:
   - hpe-ezmeral-data-fabric
+  - hpe-ezmeral
   - MapR
   - apache-spark
   - MapR

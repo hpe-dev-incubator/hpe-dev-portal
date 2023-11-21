@@ -8,6 +8,7 @@ authorimage: /img/sridhar-reddy.png
 thumbnailimage: /img/data-fabric-7-1200-x-675.png
 tags:
   - hpe-ezmeral-data-fabric
+  - hpe-ezmeral
   - MapR
 ---
 Analytics and machine learning (ML) have become key elements of every data-driven enterprise. The good news is that organizations have a lot of data at their disposal. The not-so-good news is that this data is distributed across data lakes, warehouses, edge, core, and data centers, making it more difficult for data engineers and scientists to do their jobs.  HPE Ezmeral Data Fabric solves this problem by ingesting and cleansing hybrid data distributed across edge to cloud into a single logical infrastructure providing data teams with a unified data source that increases data integrity and trust in analytic insights. 

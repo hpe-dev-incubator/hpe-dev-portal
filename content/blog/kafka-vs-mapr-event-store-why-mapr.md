@@ -2,7 +2,7 @@
 title: "Kafka vs. MapR Event Store: Why MapR?"
 date: 2020-11-11T06:51:11.635Z
 author: Ian Downard 
-tags: ["hpe-ezmeral-data-fabric","MapR","streaming","opensource"]
+tags: ["hpe-ezmeral-data-fabric","hpe-ezmeral","MapR","streaming","opensource"]
 authorimage: "/img/blogs/Avatar3.svg"
 featuredBlog: false
 priority:

@@ -2,7 +2,7 @@
 title: "How Spark Runs Your Applications"
 date: 2020-11-18T23:48:48.210Z
 author: Carol McDonald 
-tags: ["hpe-ezmeral-data-fabric","MapR","apache-spark","opensource"]
+tags: ["hpe-ezmeral-data-fabric","hpe-ezmeral","MapR","apache-spark","opensource"]
 authorimage: "/img/blogs/Avatar1.svg"
 featuredBlog: false
 priority:

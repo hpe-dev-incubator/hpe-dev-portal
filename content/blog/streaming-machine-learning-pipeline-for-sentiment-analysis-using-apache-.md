@@ -9,6 +9,7 @@ authorimage: /img/blogs/Avatar4.svg
 thumbnailimage: null
 tags:
   - hpe-ezmeral-data-fabric
+  - hpe-ezmeral
   - MapR
   - Machine-Learning
   - Spark

@@ -2,7 +2,7 @@
 title: "Getting Started with MapR Event Store"
 date: 2021-02-19T06:51:45.400Z
 author: Tugdual Grall 
-tags: ["hpe-ezmeral-data-fabric","MapR","kafka"]
+tags: ["hpe-ezmeral-data-fabric","hpe-ezmeral","MapR","kafka"]
 authorimage: "/img/blogs/Avatar6.svg"
 featuredBlog: false
 priority:
