@@ -2,7 +2,7 @@
 title: "Streaming Data Pipeline to Transform, Store and Explore Healthcare Dataset With Apache Kafka API, Apache Spark, Apache Drill, JSON and MapR Database"
 date: 2021-01-14T05:59:02.445Z
 author: Carol McDonald 
-tags: ["hpe-ezmeral-data-fabric","MapR","apache-spark","data-scientist", "data-ml-engineer"]
+tags: ["hpe-ezmeral-data-fabric","hpe-ezmeral","MapR","apache-spark","data-scientist", "data-ml-engineer"]
 authorimage: "/img/blogs/Avatar3.svg"
 featuredBlog: false
 priority:

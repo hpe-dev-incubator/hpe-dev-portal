@@ -2,7 +2,7 @@
 title: "End-to-End Machine Learning Using Containerization"
 date: 2021-02-05T06:50:53.739Z
 author: Rachel Silver 
-tags: ["hpe-ezmeral-data-fabric","MapR","machine-learning","AI"]
+tags: ["hpe-ezmeral-data-fabric","hpe-ezmeral","MapR","machine-learning","AI"]
 authorimage: "/img/blogs/Avatar5.svg"
 featuredBlog: false
 priority:

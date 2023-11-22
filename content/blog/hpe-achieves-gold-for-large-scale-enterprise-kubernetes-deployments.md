@@ -10,6 +10,7 @@ tags:
   - hpe-ezmeral
   - spiffe-and-spire-projects
   - hpe-ezmeral-data-fabric
+  - hpe-ezmeral
   - spiffe
   - spire
   - opensource

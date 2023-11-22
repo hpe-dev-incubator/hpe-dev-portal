@@ -6,6 +6,7 @@ authorimage: /img/Avatar1.svg
 disable: false
 tags:
   - hpe-ezmeral-data-fabric
+  - hpe-ezmeral
 ---
 **Editor’s note: This article was originally posted on HPE Enterprise.nxt on March 15, 2022**
 

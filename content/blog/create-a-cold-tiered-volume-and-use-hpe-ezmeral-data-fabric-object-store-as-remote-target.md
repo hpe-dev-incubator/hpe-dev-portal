@@ -8,6 +8,7 @@ thumbnailimage: https://i.ibb.co/rvp7d53/thumbnail-image.png
 disable: false
 tags:
   - hpe-ezmeral-data-fabric
+  - hpe-ezmeral
   - data-tiering
   - object-store
   - hpe-greenlake-for-data-fabric

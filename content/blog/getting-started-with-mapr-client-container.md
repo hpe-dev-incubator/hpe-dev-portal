@@ -2,7 +2,7 @@
 title: "Getting Started with MapR Client Container"
 date: 2021-02-13T06:58:44.317Z
 author: Tugdual Grall 
-tags: ["hpe-ezmeral-data-fabric","MapR"]
+tags: ["hpe-ezmeral-data-fabric","hpe-ezmeral","MapR"]
 authorimage: "/img/blogs/Avatar2.svg"
 featuredBlog: false
 priority:

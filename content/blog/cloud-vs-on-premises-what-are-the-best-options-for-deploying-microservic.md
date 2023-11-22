@@ -2,7 +2,7 @@
 title: "Cloud vs. On-Premises – What Are the Best Options for Deploying Microservices with Containers?"
 date: 2020-12-16T06:55:47.622Z
 author: Jim Scott 
-tags: ["cloud-computing","microservices","hpe-ezmeral-data-fabric","MapR"]
+tags: ["cloud-computing","microservices","hpe-ezmeral-data-fabric","hpe-ezmeral","MapR"]
 authorimage: "/img/blogs/Avatar3.svg"
 featuredBlog: false
 priority:

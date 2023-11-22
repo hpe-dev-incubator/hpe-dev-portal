@@ -2,7 +2,7 @@
 title: "Kubernetized Machine Learning and AI Using KubeFlow"
 date: 2021-02-05T07:00:42.136Z
 author: Rachel Silver 
-tags: ["hpe-ezmeral-data-fabric","MapR","machine-learning","AI","kubeflow"]
+tags: ["hpe-ezmeral-data-fabric","hpe-ezmeral","MapR","machine-learning","AI","kubeflow"]
 authorimage: "/img/blogs/Avatar3.svg"
 featuredBlog: false
 priority:

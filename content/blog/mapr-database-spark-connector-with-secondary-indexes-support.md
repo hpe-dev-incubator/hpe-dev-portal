@@ -2,7 +2,7 @@
 title: "MapR Database Spark Connector with Secondary Indexes Support"
 date: 2021-02-19T05:57:39.803Z
 author: Nicolas Perez 
-tags: ["hpe-ezmeral-data-fabric","MapR","apache-spark"]
+tags: ["hpe-ezmeral-data-fabric","hpe-ezmeral","MapR","apache-spark"]
 authorimage: "/img/blogs/Avatar6.svg"
 featuredBlog: false
 priority:

@@ -2,7 +2,7 @@
 title: "Event Driven Microservices Architecture Patterns and Examples"
 date: 2020-11-19T00:06:45.026Z
 author: Carol McDonald 
-tags: ["hpe-ezmeral-data-fabric","MapR","nosql","microservices","opensource"]
+tags: ["hpe-ezmeral-data-fabric","hpe-ezmeral","MapR","nosql","microservices","opensource"]
 authorimage: "/img/blogs/Avatar3.svg"
 featuredBlog: false
 priority:

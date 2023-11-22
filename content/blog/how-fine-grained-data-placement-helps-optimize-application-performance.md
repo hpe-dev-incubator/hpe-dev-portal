@@ -7,6 +7,7 @@ author: Ellen Friedman
 authorimage: /img/Avatar3.svg
 tags:
   - hpe-ezmeral-data-fabric
+  - hpe-ezmeral
 ---
 Does data locality matter? In an ideal world, after all the work you put into developing an analytics or AI application, you would have unlimited access to resources to run the application to get top performance when it’s deployed in production. But the world is not perfect.
 

@@ -2,7 +2,7 @@
 title: "Fast data processing pipeline for predicting flight delays using Apache APIs: Kafka, Spark Streaming and Machine Learning (part 1)"
 date: 2020-10-21T05:53:58.578Z
 author: Carol McDonald 
-tags: ["hpe-ezmeral-data-fabric","MapR","Machine-Learning","Spark","opensource", "data-scientist", "data-ml-engineer"]
+tags: ["hpe-ezmeral-data-fabric","hpe-ezmeral","MapR","Machine-Learning","Spark","opensource", "data-scientist", "data-ml-engineer"]
 authorimage: "/img/blogs/Avatar5.svg"
 featuredBlog: false
 priority:

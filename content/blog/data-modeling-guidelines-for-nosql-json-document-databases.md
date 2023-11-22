@@ -8,6 +8,7 @@ authorimage: /img/blogs/Avatar5.svg
 thumbnailimage: null
 tags:
   - hpe-ezmeral-data-fabric
+  - hpe-ezmeral
   - MapR
   - opensource
   - data-ml-engineer

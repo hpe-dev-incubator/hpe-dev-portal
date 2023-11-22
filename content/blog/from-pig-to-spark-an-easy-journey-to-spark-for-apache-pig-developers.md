@@ -5,6 +5,7 @@ author: Philippe de Cuzey
 authorimage: /img/blogs/Avatar6.svg
 tags:
   - hpe-ezmeral-data-fabric
+  - hpe-ezmeral
   - MapR
   - apache-spark
   - opensource

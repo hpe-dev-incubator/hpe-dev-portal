@@ -2,7 +2,7 @@
 title: "A Functional Approach to Logging in Apache Spark"
 date: 2021-02-05T05:32:01.948Z
 author: Nicolas Perez 
-tags: ["hpe-ezmeral-data-fabric","MapR","apache-spark"]
+tags: ["hpe-ezmeral-data-fabric","hpe-ezmeral","MapR","apache-spark"]
 authorimage: "/img/blogs/Avatar4.svg"
 featuredBlog: false
 priority:

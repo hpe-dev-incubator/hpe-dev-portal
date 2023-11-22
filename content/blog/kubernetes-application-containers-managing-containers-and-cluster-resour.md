@@ -2,7 +2,7 @@
 title: "Kubernetes Application Containers: Managing Containers and Cluster Resources"
 date: 2020-07-10T02:52:44.848Z
 author: Suzanne Ferry 
-tags: ["hpe-ezmeral-data-fabric","MapR","Containers","Kubernetes","opensource"]
+tags: ["hpe-ezmeral-data-fabric","hpe-ezmeral","MapR","Containers","Kubernetes","opensource"]
 authorimage: "/img/blogs/Avatar3.svg"
 featuredBlog: false
 priority:

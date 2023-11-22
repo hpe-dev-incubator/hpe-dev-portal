@@ -10,6 +10,7 @@ thumbnailimage: null
 tags:
   - MapR
   - hpe-ezmeral-data-fabric
+  - hpe-ezmeral
   - Kuberneter
   - Container
   - opensource

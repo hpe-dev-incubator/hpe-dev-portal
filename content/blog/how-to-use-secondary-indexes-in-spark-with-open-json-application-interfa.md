@@ -2,7 +2,7 @@
 title: "How to Use Secondary Indexes in Spark With Open JSON Application Interface (OJAI)"
 date: 2021-02-05T05:25:49.558Z
 author: Ranjit Lingaiah 
-tags: ["hpe-ezmeral-data-fabric","MapR","apache-spark", "data-ml-engineer"]
+tags: ["hpe-ezmeral-data-fabric","hpe-ezmeral","MapR","apache-spark", "data-ml-engineer"]
 authorimage: "/img/blogs/Avatar3.svg"
 featuredBlog: false
 priority:

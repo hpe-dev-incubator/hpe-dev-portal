@@ -6,6 +6,7 @@ author: Mathieu Dumoulin
 authorimage: /img/Avatar1.svg
 tags:
   - hpe-ezmeral-data-fabric
+  - hpe-ezmeral
 ---
 ```json
 "authorDisplayName": "Mathieu Dumoulin",

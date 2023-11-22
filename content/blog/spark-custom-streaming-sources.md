@@ -2,7 +2,7 @@
 title: "Spark Custom Streaming Sources"
 date: 2021-01-14T05:34:57.546Z
 author: Nicolas Perez 
-tags: ["hpe-ezmeral-data-fabric","MapR","apache-spark"]
+tags: ["hpe-ezmeral-data-fabric","hpe-ezmeral","MapR","apache-spark"]
 authorimage: "/img/blogs/Avatar6.svg"
 featuredBlog: false
 priority:

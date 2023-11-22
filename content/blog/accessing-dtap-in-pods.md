@@ -8,6 +8,7 @@ authorimage: https://avatars.githubusercontent.com/u/44856918?v=4
 tags:
   - hpe-ezmeral
   - hpe-ezmeral-data-fabric
+  - hpe-ezmeral
   - data-ml-engineer
 ---
 **Editor’s Note – HPE Ezmeral Container Platform is now HPE Ezmeral Runtime Enterprise**. For more information on why the name was changed, please [click here](https://community.hpe.com/t5/HPE-Ezmeral-Uncut/HPE-Ezmeral-Container-Platform-is-now-HPE-Ezmeral-Runtime/ba-p/7151720#.YW7nOxrMKM8).
