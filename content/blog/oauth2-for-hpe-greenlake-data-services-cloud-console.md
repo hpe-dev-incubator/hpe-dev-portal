@@ -9,6 +9,7 @@ tags:
   - data-services-cloud-console
   - developer
   - hpe-greenlake-cloud-platform
+  - hpe-greenlake
 ---
 ## HPE GreenLake API Security
 
@@ -195,3 +196,4 @@ Isn't it awesome?
 ![](/img/postman-get-storage-system-sort-select-id-only.png)
 
 I hope you find this blog post is helpful in using the Data Services Cloud Console public REST API. More blog posts will be coming to help you take further advantage of its capabilities. Stay tuned to the [HPE DEV blog](https://developer.hpe.com/blog) for more blog posts about HPE Data Services Cloud Console REST API.
+
