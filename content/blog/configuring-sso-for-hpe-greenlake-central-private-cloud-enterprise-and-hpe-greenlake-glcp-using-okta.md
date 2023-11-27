@@ -75,7 +75,7 @@ Provide a name for the HPE Greenlake Central (Private Cloud Enterprise) applicat
 
    Format: {version}#{pcid}:{app id}:{role_name}:{ALL_SCOPES}
 
-   ![](/img/hpe-greenlake-saml-attributes.jpg "test")
+   ![](/img/hpe-greenlake-saml-attributes.jpg)
 
 ![](/img/ws-image3.png)
 
