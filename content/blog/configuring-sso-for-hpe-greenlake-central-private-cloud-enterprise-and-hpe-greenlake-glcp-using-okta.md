@@ -9,11 +9,11 @@ authorimage: /img/Avatar1.svg
 thumbnailimage: /img/hpe-greenlake-sso-page.jpg
 disable: false
 tags:
-  - aruba-central
+  - HPE Greenlake Central (Private Cloud Enterprise)
   - hpe-greenlake-cloud-platform
   - sso
   - okta
-  - aruba
+  - Private Cloud Enterprise
   - hpe-greenlake
 ---
 HPE Greenlake Central for Private Cloud Enterprise has been integrated into the HPE GreenLake Cloud Platform (GLCP).  GLCP supports Single Sign On (SSO) 
@@ -104,8 +104,6 @@ Click Next and Select “Internal App”, then Finish.
    Suggestion: Click **Identity Provider metadata** and save the XML data to a file.
 
    ![](/img/ws-image9.png)
-
-
 2. C﻿lick Next.       
 3. Select Internal app, and Click Finish.    
 
@@ -155,3 +153,11 @@ Enter the SSO credentials. You will be redirected to Okta to authenticate. Once 
 * SSO user access is determined by the “role_name” attribute included in the SAML hpe_ccs_attribute provided by the IdP.    
 * SSO users can initiate a Single Sign On request by trying to log into Aruba Central (SP-initiated login).     
 * For more troubleshooting: <https://support.hpe.com/hpesc/public/docDisplay?docId=a00120892en_us>
+
+  Customer users should be given access to SAML application.
+
+  After authentication when clicking the **HPE GreenLake for Private Cloud Enterprise application**, if it leads to the below error
+
+  * **it will take 1 hr to sync, if not customer should contact HPE administrator.** 
+
+![](/img/user_sync.jpg)
