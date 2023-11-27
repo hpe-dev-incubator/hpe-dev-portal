@@ -1,6 +1,6 @@
 ---
-title: Configuring SSO for HPE Greenlake Central (Private Cloud Enterprise) and
-  HPE GreenLake (GLP) using Okta
+title: Configuring Okta AD as the SAML IDP with HPE Greenlake Central (Private
+  Cloud Enterprise) and HPE GreenLake (GLP) using Okta
 date: 2023-11-27T16:04:10.145Z
 featuredBlog: false
 externalLink: ""
