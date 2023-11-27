@@ -16,9 +16,9 @@ tags:
   - Private Cloud Enterprise
   - hpe-greenlake
 ---
-HPE Greenlake Central for Private Cloud Enterprise has been integrated into the HPE GreenLake Cloud Platform (GLCP).  GLCP supports Single Sign On (SSO) 
+HPE Greenlake Central for Private Cloud Enterprise has been integrated into the HPE GreenLake Cloud Platform (GLCP). 
 
-Many enterprises today are looking to implement a single-sign on (SSO) solution that enables their users to easily access all of their cloud and web applications. A key requirement of these solutions is Active Directory integration, which makes it possible to connect cloud applications back to a single source of truth, Active Directory.
+Many enterprises today are looking to implement a single-sign on (SSO) solution that enables their users to easily access all of their cloud and web applications. A key requirement of these solutions is Active Directory integration, which makes it possible to connect cloud applications back to a single source of truth, Active Directory. HPE GreenLake Cloud Platform (GLCP) supports Single Sign On (SSO)
 
 I will walk you through the process of configuring Okta AD to authenticate users into the HPE GreenLake Cloud Platform (HPE GLCP) and HPE GreenLake for Private Cloud Enterprise application using SAML IDP.
 
