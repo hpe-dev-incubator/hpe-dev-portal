@@ -87,7 +87,7 @@ Example:
 
 version_1#7ede5c36b7b911edacf45a78eb8b07d1:00000000-0000-0000-0000-000000000000:Observer:ALL_SCOPES
 
-![](/img/ws-image6.png)
+![](/img/saml_settings.jpg)
 
 2﻿. Complete the setup.
 
@@ -138,7 +138,7 @@ On the HPE GreenLake Cloud Platform home page, click **Sign In with SSO**.
 
 ![](/img/ws-image15.png)
 
-![](/img/ws-image16.png)
+![](/img/hpe-greenlake-sso-page.jpg)
 
 Enter the SSO credentials. You will be redirected to Okta to authenticate. Once you successfully authenticate, you will be redirected back to HPE GreenLake. You can then click on the Aruba Central application and be given access based on the configured role/permissions.
 
