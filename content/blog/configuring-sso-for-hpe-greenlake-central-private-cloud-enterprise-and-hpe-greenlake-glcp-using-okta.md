@@ -154,10 +154,8 @@ Enter the SSO credentials. You will be redirected to Okta to authenticate. Once 
 * SSO users can initiate a Single Sign On request by trying to log into Aruba Central (SP-initiated login).     
 * For more troubleshooting: <https://support.hpe.com/hpesc/public/docDisplay?docId=a00120892en_us>
 
-  Customer users should be given access to SAML application.
+  * Customer users should be given access to SAML application.
 
-  After authentication when clicking the **HPE GreenLake for Private Cloud Enterprise application**, if it leads to the below error
-
-  * **it will take 1 hr to sync, if not customer should contact HPE administrator.** 
+    After authentication when clicking theHPE GreenLake for Private Cloud Enterprise application**,** if it leads to the below error **it will take 1 hr to sync**, if not customer should contact HPE administrator. 
 
 ![](/img/user_sync.jpg)
