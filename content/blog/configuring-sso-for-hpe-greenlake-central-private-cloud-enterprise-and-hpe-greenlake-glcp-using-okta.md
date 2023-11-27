@@ -6,7 +6,7 @@ featuredBlog: false
 externalLink: ""
 author: Prabhu Murthy - Cloud Operations
 authorimage: /img/Avatar1.svg
-thumbnailimage: /img/gl-sso.jpg
+thumbnailimage: /img/hpe-greenlake-sso-page.jpg
 disable: false
 tags:
   - aruba-central
@@ -75,11 +75,11 @@ Provide a name for the HPE Greenlake Central (Private Cloud Enterprise) applicat
 
    Format: {version}#{pcid}:{app id}:{role_name}:{ALL_SCOPES}
 
-   ![](/img/hpe-greenlake-saml-attributes.jpg)
+![](/img/hpe-greenlake-saml-attributes.jpg)
 
-![](/img/ws-image3.png)
+![](/img/workspace-pcid.jpg)
 
-![](/img/ws-image5.png)
+![](/img/glp_role_name.jpg)
 
 The **hpe_ccs_attribute** always starts with version*1#. You must first configure the attributes for HPE GreenLake and To do so, enter the PCID for the account, followed by the HPE GreenLake application ID. This will always be **00000000-0000-0000-0000-000000000000**. Following this, enter the role name and ALL*SCOPES**.** 
 
