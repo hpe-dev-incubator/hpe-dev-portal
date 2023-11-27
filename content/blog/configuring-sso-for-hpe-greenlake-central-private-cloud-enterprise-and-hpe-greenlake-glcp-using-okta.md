@@ -104,8 +104,14 @@ Click Next and Select “Internal App”, then Finish.
    Suggestion: Click **Identity Provider metadata** and save the XML data to a file.
 
    ![](/img/ws-image9.png)
+
+
 2. C﻿lick Next.       
 3. Select Internal app, and Click Finish.    
+
+   **Step 3.1 :  Access to the SAML application and HPE Greenlake is determined by assigning only those members or group to the SAML application.**
+
+![](/img/customer-user-assignment-to-saml.jpg)
 
 **Step 4: Create SAML Authorization Profile in HPE GreenLake Cloud Platform**
 
@@ -116,7 +122,7 @@ Click Next and Select “Internal App”, then Finish.
    ![](/img/ws-image10.png)
 2. Type in the domain you want to enable SSO on:
 
-   ![](/img/ws-image11.png)
+   ![](/img/glp_domain.jpg)
 3. Input the metadata from the step above.
 
    While HPE GreenLake does support entering this information manually, it's recommended that you simply upload the XML metadata that was downloaded in the previous step. To do so, Select Metadata File, selecting the XML file. Then, click Next.
