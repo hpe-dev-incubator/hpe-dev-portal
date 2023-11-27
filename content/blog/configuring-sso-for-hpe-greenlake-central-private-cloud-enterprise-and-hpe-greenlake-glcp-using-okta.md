@@ -71,15 +71,17 @@ Provide a name for the HPE Greenlake Central (Private Cloud Enterprise) applicat
 
    See here for IdP attribute details: <https://support.hpe.com/hpesc/public/docDisplay?docId=a00120892en_us>
 
+   A new SAML attribute has been added “hpe_ccs_attribute” which tells HPE GreenLake and HPE Greenlake Central (Private Cloud Enterprise) the exact role/permissions for each user. The following describes how to format the attribute.
 
 
-   A new SAML attribute has been added “hpe_ccs_attribute” which tells HPE GreenLake and HPE Greenlake Central (Private Cloud Enterprise)  the exact role/permissions for each user. The following describes how to format the attribute.
 
-![](/img/ws-image2.png)
+   Format: {version}#{pcid}:{app id}:{role_name}:{ALL_SCOPES}
+
+
+
+   ![](/img/hpe-greenlake-saml-attributes.jpg)
 
 ![](/img/ws-image3.png)
-
-![](/img/ws-image4.png)
 
 ![](/img/ws-image5.png)
 
