@@ -4,7 +4,7 @@ title: Configuring Okta AD as the SAML IDP with HPE Greenlake Central (Private
 date: 2023-11-27T16:04:10.145Z
 featuredBlog: false
 externalLink: ""
-author: "Will Smith - Consulting Systems Engineer (ACEX #34)"
+author: Prabhu Murthy - Cloud Operations
 authorimage: /img/Avatar1.svg
 thumbnailimage: /img/gl-sso.jpg
 disable: false
