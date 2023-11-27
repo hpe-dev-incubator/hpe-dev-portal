@@ -128,11 +128,11 @@ Click Next and Select “Internal App”, then Finish.
    ![](/img/ws-image12.png)
 4. Enter the SAML attributes to match what was entered in Okta. Set the idle timeout value as well.
 
-   ![](/img/ws-image13.png)
+   ![](/img/config_setting_sso_appjpg.jpg)
 5. Then click Next.    
 6. Create a recover user so that, in the event SSO fails, an admin will still be able to access the HPE GreenLake portal.    
 
-   ![](/img/ws-image14.png)
+   ![](/img/recovery_user.jpg)
 
    Congratulations! SSO will now be enabled for HPE GreenLake as well as the HPE GreenLake Cloud Platform (GLCP) application. Log out and on the HPE GreenLake home page, click **Sign in with SSO**.
 
