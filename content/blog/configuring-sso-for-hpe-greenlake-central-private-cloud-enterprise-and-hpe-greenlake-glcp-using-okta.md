@@ -16,9 +16,9 @@ tags:
   - Private Cloud Enterprise
   - hpe-greenlake
 ---
-HPE Greenlake Central for Private Cloud Enterprise has been integrated into the HPE GreenLake Cloud Platform (GLCP). 
-
 Many enterprises today are looking to implement a single-sign on (SSO) solution that enables their users to easily access all of their cloud and web applications. A key requirement of these solutions is Active Directory integration, which makes it possible to connect cloud applications back to a single source of truth, Active Directory. HPE GreenLake Cloud Platform (GLCP) supports Single Sign On (SSO)
+
+HPE Greenlake Central for Private Cloud Enterprise has been integrated into the HPE GreenLake Cloud Platform (GLCP). 
 
 I will walk you through the process of configuring Okta AD to authenticate users into the HPE GreenLake Cloud Platform (HPE GLCP) and HPE GreenLake for Private Cloud Enterprise application using SAML IDP.
 
@@ -26,9 +26,11 @@ I will walk you through the process of configuring Okta AD to authenticate users
 
 Please review the [HPE GreenLake](https://support.hpe.com/hpesc/public/docDisplay?docId=a00120892en_us&page=GUID-D7192971-EF71-4304-B51E-548E7954E644.html) User Guide to understand how the SAML framework works in the context of Common Cloud Services for the HPE GreenLake Cloud Platform for HPE Greenlake Central (Private Cloud Enterprise) application.
 
-### Configure SSO/SAML applications in Okta
+**S﻿teps to be followed in Customer Okta:**
 
-To configure application metadata in Okta, complete the following steps:
+###   Configure SSO/SAML applications in Okta    
+
+   To configure application metadata in Okta, complete the following steps:
 
 * Step 1: Create an Okta SAML application
 * Step 2: Configure Sign On settings
@@ -111,9 +113,13 @@ Click Next and Select “Internal App”, then Finish.
 
 ![](/img/customer-user-assignment-to-saml.jpg)
 
-**Step 4: Create SAML Authorization Profile in HPE GreenLake Cloud Platform**
 
-1. Log into HPE GreenLake and click Menu > Manage > Authentication and Click Set Up SAML Connection.
+
+**S﻿teps to be followed in HPE GreenLake Cloud Platform(GLCP)**
+
+ **   Step 4: Create SAML Authorization Profile in HPE GreenLake Cloud Platform**
+
+1. Log into **HPE GreenLake Cloud Platform** and click Menu > Manage > Authentication and Click Set Up SAML Connection.
 
    *Before you can add a new SAML configuration, you must have at least one user account with that domain already enabled in HPE GreenLake. Also, you must be logged into HPE GreenLake with an account from that domain in order to enable SSO for it.*
 
