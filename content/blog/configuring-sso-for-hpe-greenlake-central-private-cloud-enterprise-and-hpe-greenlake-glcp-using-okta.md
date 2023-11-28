@@ -43,9 +43,9 @@ To configure application metadata in Okta, complete the following steps:
 
 ![](/img/ws-image0.png)
 
-Provide a name for the HPE Greenlake Central (Private Cloud Enterprise) application SSO service (Okta application)
+Provide a name for the SAML application which gets connected to HPE GreenLake Cloud Platform(GLCP)
 
-![](/img/ws-image1.png)
+![](/img/customer_saml_app.jpg)
 
 **Step 2: How to configure Single Sign On settings**
 
