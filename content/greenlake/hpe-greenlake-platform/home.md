@@ -33,6 +33,7 @@ We provide APIs for foundational, common services on the HPE GreenLake platform,
 
 Here’s a summary of what you can expect to find:
 
+<p style="font-size: 16px">
 <u>[Workspace management](https://developer.greenlake.hpe.com/docs/greenlake/services/iam/)</u>
 
 Learn about the details of a workspace, and discover how to fully create, read, update, and delete (CRUD) on managed service provider (MSP) tenant workspaces. You can also access a full CRUD roster of users, enabling you to send invitations to join a workspace.
@@ -56,6 +57,7 @@ Read details about user actions for accountability.
 <u>[Wellness](https://developer.greenlake.hpe.com/docs/greenlake/services/wellness/public/)</u>
 
 Get a list of wellness events via searches and filters, organize them with tags, read event details, pull KPIs, and open support cases.
+</p>
 
 Learn more about the unified HPE GreenLake experience for developers by visiting the [HPE GreenLake Developer Portal](https://developer.greenlake.hpe.com).
 
