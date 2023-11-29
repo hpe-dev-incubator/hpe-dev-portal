@@ -35,7 +35,7 @@ Please review the [HPE GreenLake](https://support.hpe.com/hpesc/public/docDispl
 
 **Step 1: Create an Okta SAML application**
 
-1. Log in to the Okta administration console.
+1. Log into the Okta administration console.
 2. Click **Applications > Create new app integration.** The Create a new app integration window opens.
 3. Select SAML 2.0 and click **Next**.
 
@@ -43,7 +43,7 @@ Please review the [HPE GreenLake](https://support.hpe.com/hpesc/public/docDispl
 
 Provide a name for the SAML application which gets connected to the HPE GreenLake edge-to-cloud platform
 
-![](/img/customer_saml_app.jpg)
+![](/img/saml_app-okta.jpg)
 
 **Step 2: How to configure single sign-on settings**
 
@@ -67,15 +67,15 @@ Provide a name for the SAML application which gets connected to the HPE GreenLak
 
     **hpe_ccs_attribute = (See Below)**
 
-   See here for IdP attribute details: <https://support.hpe.com/hpesc/public/docDisplay?docId=a00120892en_us>
+   See here for IdP attribute details: [](https://support.hpe.com/hpesc/public/docDisplay?docId=a00120892en_us)<https://support.hpe.com/hpesc/public/docDisplay?docId=a00120892en_us&page=GUID-D7192971-EF71-4304-B51E-548E7954E644.html>
 
    A new SAML attribute has been added “hpe_ccs_attribute” which tells HPE GreenLake edge-to-cloud platform and HPE GreenLake Private Cloud Enterprise application the exact role/permissions for each user. The following describes how to format the attribute.
 
    Format: {version}#{pcid}:{app id}:{role_name}:{ALL_SCOPES}
 
+   N﻿ote :  At present HPE GreenLake Private Cloud Enterprise application role should be excluded
 
-
-![](/img/hpe-greenlake-saml-attributes.jpg)
+![](/img/saml_app-okta2.jpg)
 
 ![](/img/workspace-pcid.jpg)
 
@@ -97,15 +97,15 @@ Click Next and Select “Internal App”, then Finish.
 
 **Step 3:** **Export the SAML 2.0 IdP metadata**
 
-1. Click Next – Configure the Sign On settings
+1. Click Next – Configure the single sign-on settings
 
    You will find two options are available: **View Setup Instructions** which steps you through the SAML configuration and **Identity Provider metadata**, which will produce an XML file that can be loaded into HPE GreenLake edge-to-cloud platform application
 
    Suggestion: Click **Identity Provider metadata** and save the XML data to a file.
 
    ![](/img/ws-image9.png)
-2. C﻿lick Next.       
-3. Select Internal app, and Click Finish.    
+2. C﻿lick **Next**.       
+3. Select **Internal app**, and click **Finish**.    
 
    ##### **Step 3.1 :  Access to the SAML application and HPE GreenLake edge-to-cloud platform is determined by assigning only those members or group to the SAML application.**
 
@@ -131,8 +131,8 @@ Click Next and Select “Internal App”, then Finish.
 4. Enter the SAML attributes to match what was entered in Okta. Set the idle timeout value as well.
 
    ![](/img/config_setting_sso_appjpg.jpg)
-5. Then click Next.    
-6. Create a recover user so that, in the event SSO fails, an admin will still be able to access the HPE GreenLake edge-to-cloud platform.    
+5. Then click **Next**.    
+6. Create a recovery user so that, in the event SSO fails, an admin will still be able to access the HPE GreenLake edge-to-cloud platform.    
 
    ![](/img/recovery_user.jpg)
 
