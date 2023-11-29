@@ -1,7 +1,7 @@
 ---
 title: How to implement a single sign-on solution to authenticate users onto the
   HPE GreenLake edge-to-cloud platform
-date: 2023-11-29T11:41:15.414Z
+date: 2023-11-29T12:37:26.615Z
 featuredBlog: false
 externalLink: ""
 author: Prabhu Murthy - Cloud Operations
@@ -22,7 +22,7 @@ In this blog post, I will walk you through the process of configuring Okta Activ
 
 ### Before starting
 
-Please review the [HPE GreenLake](https://support.hpe.com/hpesc/public/docDisplay?docId=a00120892en_us&page=GUID-D7192971-EF71-4304-B51E-548E7954E644.html) User Guide to understand how the SAML framework works in the context of Common Cloud Services for the HPE GreenLake edge-to-cloud platform for the HPE GreenLake for Private Cloud Enterprise application.
+Please review the [HPE GreenLake](https://support.hpe.com/hpesc/public/docDisplay?docId=a00120892en_us&page=GUID-D7192971-EF71-4304-B51E-548E7954E644.html) User Guide to understand how the SAML framework works in the context of HPE GreenLake for Private Cloud Enterprise Services for the HPE GreenLake edge-to-cloud platform.
 
 ### Configure SSO/SAML applications in Okta
 
