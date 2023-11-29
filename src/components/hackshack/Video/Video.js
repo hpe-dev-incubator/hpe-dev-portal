@@ -54,6 +54,15 @@ const Video = ({
       proxy: 'hackshack',
     });
   };
+  const handlechange = (e) => {
+    const { name, value, type, checked } = e.target || '';
+    const inputvalue= (type==='checkbox') ? checked : value ;
+    setFormData({
+      ...formData,
+      [name]:inputvalue,
+    });
+  };
+
   const size = useContext(ResponsiveContext);
   const optionsLarge = { width: '640px', height: '380px' };
   const optionsSmall = {
@@ -129,7 +138,7 @@ const Video = ({
             <SignupLayer
               formData={formData}
               reset={resetFormData}
-              setFormData={setFormData}
+              setFormData={handlechange}
               setLayer={setSignupLayer}
               setSuccess={setSuccessLayer}
               title={title}
