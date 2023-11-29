@@ -113,10 +113,6 @@ Click Next and Select “Internal App”, then Finish.
 
 **S﻿teps to be followed in HPE GreenLake edge-to-cloud platform**
 
-```
-**Step 4: Create SAML Authorization Profile in HPE GreenLake edge-to-cloud platform**
-```
-
 1. Log into HPE GreenLake edge-to-cloud platform and click Menu > Manage > Authentication and Click Set Up SAML Connection.
 
    *Before you can add a new SAML configuration, you must have at least **one** user account with that **domain** already enabled in HPE GreenLake edge-to-cloud platform. Also, you must be logged into HPE GreenLake edge-to-cloud platform with an account from that domain in order to enable SSO for it.*
