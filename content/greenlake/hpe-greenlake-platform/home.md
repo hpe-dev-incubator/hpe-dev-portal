@@ -34,6 +34,7 @@ We provide APIs for foundational, common services on the HPE GreenLake platform,
 Here’s a summary of what you can expect to find:
 
 <p style="font-size: 16px">
+
 <u>[Workspace management](https://developer.greenlake.hpe.com/docs/greenlake/services/iam/)</u>
 
 Learn about the details of a workspace, and discover how to fully create, read, update, and delete (CRUD) on managed service provider (MSP) tenant workspaces. You can also access a full CRUD roster of users, enabling you to send invitations to join a workspace.
