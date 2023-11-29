@@ -93,7 +93,7 @@ The **hpe\_ccs\_attribute** always starts with version1#. You must first confi
 
 Example:
 
-`version_1\#7ede5c36b7b911edacf45a78eb8b07d1:00000000-0000-0000-0000-000000000000:Observer:ALL_SCOPES`
+`version_1#7ede5c36b7b911edacf45a78eb8b07d1:00000000-0000-0000-0000-000000000000:Observer:ALL_SCOPES`
 
 ![](/img/saml_settings.jpg)
 
