@@ -68,8 +68,6 @@ Get a list of wellness events via searches and filters, organize them with tags,
 
 Learn more about the unified HPE GreenLake experience for developers by visiting the [HPE GreenLake Developer Portal](https://developer.greenlake.hpe.com).
 
-Learn about the details of a workspace, and discover how to fully create, read, update, and delete (CRUD) on managed service provider (MSP) tenant workspaces. You can also access a full CRUD roster of users, enabling you to send invitations to join a workspace.
-
 ## Demos and resources
 
 Get an overview of how you can manage workloads with the HPE GreenLake platform using our [quick demos](https://www.hpe.com/us/en/greenlake/demos.html).
