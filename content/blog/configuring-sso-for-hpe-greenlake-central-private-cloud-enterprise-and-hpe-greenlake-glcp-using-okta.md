@@ -79,7 +79,7 @@ Provide a name for the SAML application which gets connected to the HPE GreenLak
 
    A new SAML attribute has been added “hpe\_ccs\_attribute” which tells HPE GreenLake platform and HPE GreenLake for Private Cloud Enterprise application the exact role/permissions for each user. The following describes how to format the attribute.
 
-   Format: {version}#{pcid}:{app id}:{role_name}:{ALL\_SCOPES}
+   `Format: {version}#{pcid}:{app id}:{role_name}:{ALL_SCOPES}`
 
    N﻿ote :  At present HPE GreenLake for Private Cloud Enterprise application role should be excluded.
 
@@ -93,7 +93,7 @@ The **hpe\_ccs\_attribute** always starts with version1#. You must first confi
 
 Example:
 
-version_1\#7ede5c36b7b911edacf45a78eb8b07d1:00000000-0000-0000-0000-000000000000:Observer:ALL\_SCOPES
+`version_1\#7ede5c36b7b911edacf45a78eb8b07d1:00000000-0000-0000-0000-000000000000:Observer:ALL_SCOPES`
 
 ![](/img/saml_settings.jpg)
 
