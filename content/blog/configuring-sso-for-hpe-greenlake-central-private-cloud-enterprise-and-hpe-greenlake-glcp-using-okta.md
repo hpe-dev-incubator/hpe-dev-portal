@@ -1,7 +1,7 @@
 ---
 title: Configuring Okta AD as the SAML IDP with HPE Greenlake Central (Private
   Cloud Enterprise) and HPE GreenLake (GLP) using Okta
-date: 2023-11-28T05:08:38.582Z
+date: 2023-11-29T10:08:49.979Z
 featuredBlog: false
 externalLink: ""
 author: Prabhu Murthy - Cloud Operations
