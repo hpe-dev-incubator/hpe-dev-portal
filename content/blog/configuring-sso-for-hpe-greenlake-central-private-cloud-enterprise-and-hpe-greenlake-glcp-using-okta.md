@@ -75,6 +75,8 @@ Provide a name for the SAML application which gets connected to the HPE GreenLak
 
    Format: {version}#{pcid}:{app id}:{role_name}:{ALL_SCOPES}
 
+
+
 ![](/img/hpe-greenlake-saml-attributes.jpg)
 
 ![](/img/workspace-pcid.jpg)
