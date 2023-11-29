@@ -2,7 +2,7 @@
 title: "Apache Spark as a Distributed SQL Engine"
 date: 2021-01-07T22:53:50.203Z
 author: Nicolas Perez 
-tags: ["hpe-ezmeral-data-fabric","MapR","apache-spark","opensource"]
+tags: ["hpe-ezmeral-data-fabric","hpe-ezmeral","MapR","apache-spark","opensource"]
 authorimage: "/img/blogs/Avatar2.svg"
 featuredBlog: false
 priority:

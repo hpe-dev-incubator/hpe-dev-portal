@@ -8,6 +8,7 @@ thumbnailimage: /img/mapreduce_with_edf_binarytable.png
 disable: false
 tags:
   - hpe-ezmeral-data-fabric
+  - hpe-ezmeral
   - MapReduce
 ---
 ## Introduction

@@ -2,7 +2,7 @@
 title: "Architecting the World’s Largest Biometric Identity System: The Aadhaar Experience"
 date: 2021-01-07T23:06:37.255Z
 author: Michele Nemschoff 
-tags: ["hpe-ezmeral-data-fabric","MapR"]
+tags: ["hpe-ezmeral-data-fabric","hpe-ezmeral","MapR"]
 authorimage: "/img/blogs/Avatar4.svg"
 featuredBlog: false
 priority:

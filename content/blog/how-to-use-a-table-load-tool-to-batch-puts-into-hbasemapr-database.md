@@ -2,7 +2,7 @@
 title: "How to Use a Table Load Tool to Batch Puts into HBase/MapR Database"
 date: 2020-10-15T06:28:44.470Z
 author: Terry He 
-tags: ["hpe-ezmeral-data-fabric","MapR","opensource", "data-ml-engineer"]
+tags: ["hpe-ezmeral-data-fabric","hpe-ezmeral","MapR","opensource", "data-ml-engineer"]
 authorimage: "/img/blogs/Avatar2.svg"
 featuredBlog: false
 priority:

@@ -1,15 +1,15 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable max-len */
 import { Box, Button, TextInput, Text, TextArea, Image } from 'grommet';
-import React, { useState } from 'react';
+import React, { useState,useContext,useEffect } from 'react';
 import { FormNextLink, FormPreviousLink } from 'grommet-icons';
+import { AppContext } from '../../../providers/AppProvider';
 
 const defaultBodyStyles = {
   padding: '10px',
   fontSize: '14px',
   display: 'block !important',
 };
-
 const defaultMessageStyles = {
   boxSizing: 'border-box',
   padding: '10px 10px 10px 10px',
@@ -17,7 +17,6 @@ const defaultMessageStyles = {
   // width: '300px',
   fontFamily: 'arial',
 };
-
 const FeedbackBody = ({
   bodyText,
   feedbackFromik,
@@ -28,7 +27,13 @@ const FeedbackBody = ({
   isSubmissionSuccess,
 }) => {
   const [emailDis, setEmailDis] = useState(false);
-
+  const [ishovered,setIshovered]=useState(null);
+  const handleMouseEnter=(button)=>{
+    setIshovered(button);
+  };
+  const handleMouseLeave=()=>{
+    setIshovered(null);
+  };
   const backHandler = () => {
     if (emailDis) {
       setEmailDis(false);
@@ -37,6 +42,13 @@ const FeedbackBody = ({
       cancelQuestion();
     }
   };
+  const { user }=useContext(AppContext);
+  useEffect(() => {
+    if (user?.email) {
+      // Update the email value in the Formik form
+      feedbackFromik.setFieldValue('email', user.email);
+    }
+  }, [user?.email]);
   return (
     <Box gap="small" style={{ height: 300, width: 350 }}>
       {selQuestion === undefined &&
@@ -49,8 +61,12 @@ const FeedbackBody = ({
             </Box>
             <Button
               alignSelf="center"
-              secondary
-              style={{ marginTop: 10, padding: 0, paddingInline: 10 }}
+              onMouseEnter={()=>handleMouseEnter(1)}
+              onMouseLeave={handleMouseLeave}
+              style={{ marginTop: 10, padding: 0, paddingInline: 10,
+              border: ishovered===1?'3px solid #01A982':'2px solid #01A982',
+              backgroundColor:'white',
+              }}
               onClick={() => changeQuestion(0)}
             >
               {() => (
@@ -70,11 +86,14 @@ const FeedbackBody = ({
                 </Box>
               )}
             </Button>
-
             <Button
               alignSelf="center"
-              secondary
-              style={{ marginTop: 10, padding: 0, paddingInline: 10 }}
+              onMouseEnter={()=>handleMouseEnter(2)}
+              onMouseLeave={handleMouseLeave}
+              style={{ marginTop: 10, padding: 0, paddingInline: 10,
+              border: ishovered===2 ? '3px solid #01A982' : '2px solid #01A982',
+              backgroundColor:'white',
+              }}
               onClick={() => changeQuestion(1)}
             >
               {() => (
@@ -96,8 +115,12 @@ const FeedbackBody = ({
             </Button>
             <Button
               alignSelf="center"
-              secondary
-              style={{ marginTop: 10, padding: 0, paddingInline: 10 }}
+              onMouseEnter={()=>handleMouseEnter(3)}
+              onMouseLeave={handleMouseLeave}
+              style={{ marginTop: 10, padding: 0, paddingInline: 10,
+              border: ishovered===3 ? '3px solid #01A982' : '2px solid #01A982',
+              backgroundColor:'white',
+              }}
               onClick={() => changeQuestion(2)}
             >
               {() => (
@@ -149,10 +172,9 @@ const FeedbackBody = ({
                   We value your feedback and we will use it to improve our
                   websites and services.
                 </Text>
-
                 <Button
                   label="Close"
-                  style={{ marginTop: 30 }}
+                  style={{ marginTop: 30,backgroundColor:'#01A982' }}
                   onClick={() => {
                     successClose();
                   }}
@@ -167,7 +189,7 @@ const FeedbackBody = ({
                 </div>
                 <Button
                   label="Close"
-                  style={{ marginTop: 30 }}
+                  style={{ marginTop: 30,backgroundColor:'#01A982' }}
                   onClick={() => {
                     successClose();
                   }}
@@ -178,7 +200,6 @@ const FeedbackBody = ({
             )}
           </Box>
         ))}
-
       {selQuestion && (
         <Box style={{ marginInline: 20, marginTop: 20, marginBottom: 20 }}>
           <Box style={{ marginBottom: 20 }} onClick={() => backHandler()}>
@@ -208,16 +229,16 @@ const FeedbackBody = ({
               )}
               <Button
                 label="Next"
-                style={{ marginTop: 20 }}
+                style={ feedbackFromik.errors.value || feedbackFromik.values.value.trim().length===0? 
+                  { marginTop: 20,backgroundColor:'white' }:
+                  { marginTop: 20,backgroundColor:'#01A982' }} 
                 icon={<FormNextLink />}
                 onClick={() => setEmailDis(true)}
                 alignSelf="end"
                 reverse
                 primary
                 disabled={
-                  feedbackFromik.values.value === '' ||
-                  feedbackFromik.errors.value
-                }
+                  !!feedbackFromik.errors.value || feedbackFromik.values.value.trim().length===0}
               />
             </>
           ) : (
@@ -242,13 +263,15 @@ const FeedbackBody = ({
               )}
               <Button
                 label="Send Feedback"
-                style={{ marginTop: 20 }}
+                style={ feedbackFromik.errors.email ? 
+                  { marginTop: 20,backgroundColor:'#fffa' }:
+                  { marginTop: 20,backgroundColor:'#01A982' }} 
                 onClick={() => {
                   feedbackFromik.submitForm();
                 }}
                 alignSelf="end"
                 primary
-                disabled={feedbackFromik.errors.email}
+                disabled={!!feedbackFromik.errors.email} 
               />
             </>
           )}
@@ -257,7 +280,6 @@ const FeedbackBody = ({
     </Box>
   );
 };
-
 FeedbackBody.defaultProps = {
   bodyText:
     "Need help? Have feedback? I'm a human so please be nice and I'll fix it!",
@@ -267,5 +289,4 @@ FeedbackBody.defaultProps = {
   showNameInput: true,
   numberOfStars: 5,
 };
-
 export default FeedbackBody;

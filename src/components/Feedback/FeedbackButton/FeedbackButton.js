@@ -13,6 +13,7 @@ const defaultButtonStyles = {
   bottom: 0,
   width: 'auto',
   zIndex: 10,
+  backgroundColor:'#01A982',
 };
 
 const FeedBackButton = (props) => {

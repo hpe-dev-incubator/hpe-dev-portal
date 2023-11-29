@@ -2,7 +2,7 @@
 title: "Containers: Best Practices for Running in Production"
 date: 2020-09-16T16:06:50.613Z
 author: Suzy Visvanathan 
-tags: ["hpe-ezmeral-data-fabric","MapR","containers","opensource","devops","sre","site-reliability-engineer"]
+tags: ["hpe-ezmeral-data-fabric","hpe-ezmeral","MapR","containers","opensource","devops","sre","site-reliability-engineer"]
 authorimage: "/img/blogs/Avatar4.svg"
 featuredBlog: false
 priority:
@@ -14,7 +14,7 @@ thumbnailimage:
 ```
 "authorDisplayName": "Suzy Visvanathan",
 "publish": "2018-05-17T10:45:00.000",
-"tags": "hpe-ezmeral-data-fabric"
+"tags": "hpe-ezmeral-data-fabric","hpe-ezmeral"
 ```
 
 ---

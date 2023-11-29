@@ -1,7 +1,5 @@
 # HPE Developer External Contributor Guide
-**Version 2.1** - 7 June, 2023
-
->**Note:** A recording of the training session delivered on April 30, 2021 is available [here](https://vimeo.com/544486602). 
+**Version 2.1** - 20 Sep, 2023
 
 >**IMPORTANT Note:** The recommended way for submitting your contribution is through the HPE Developer CMS editor as explained in this document. HPE Developer team provides review feedback to blog post authors, event card and platform page owners through GitHub. 
 
@@ -130,7 +128,7 @@ You can create a new blog directly from the **Contents** tab or by navigating to
 
 * Use **Markdown** mode when your source file is in Markdown file or when you are familiar with Markdown syntax. If your content is already in Markdown, simply use copy (CTRL+C) and paste the content in **PLAIN TEXT** (**CTRL+SHIFT+V**) in the body canvas. You might find easier to go and paste it a paragraph at a time and then format it.
 
-* Use **Rich Text** mode when your source file is an MS-Word document or a RTF document: simply copy the content from your source file and paste the content in **PLAIN TEXT** (**CTRL+SHIFT+V**) in the body. You might find easier to go and paste it a paragraph at a time and then format it.
+* Use **Rich Text** mode when your source file is either an MS-Word, Google Docs, or RTF document. Simply copy the content from your source file and paste the content in using **PLAIN TEXT** (**CTRL+SHIFT+V**) in the body. MS-Word has a tendency of including hidden characters that mess up how the material is presented. When using MS-Word, paste (**CTRL+SHIFT+V**) copy in a paragraph at a time and then format it using the CMS editor. We recommended using Google Docs over MS-Word when possible, since it provides a cleaner cut & paste.
 
  >Note: To get started using the CMS editor for common elements (headings, list, code blocks, bold, italics, image), refer to section "***Tips and Tricks using the CMS Editor***" at the end of this document.
     
@@ -378,7 +376,7 @@ Here is how you can crate an external blog post entry in the HPE Developer Commu
 
 2. In the blog editor, you can set properties (title, author name, author picture, external link, body) in the left pane and see the effect in the preview pane on the right side of the screen. 
 
->**IMPORTANT NOTE:** Do not set any PRIORITY for the blog link entry. 
+>**IMPORTANT NOTE:** Do not set any PRIORITY and keep the FEATURE flag toggle off for the blog link entry. 
 
 3. Make sure you set the following parameters:
 
@@ -482,8 +480,7 @@ Here is how you can crate an external blog post entry in the HPE Developer Commu
 
      >**IMPORTANT NOTE:** If your images are stored in **a personal website** you owned, it is recommended to proceed as explained below to get you images uploaded and stored to the HPE Developer CMS rather than using a link URL to your image on your web site. Security filter such as Zscaler may filter your images and make your images unrendered by the CMS. 
      
-    Small resolution image is recommended (i.e.: width: 800px)
-    
+    Minimum resolution image recommended: width 800px
 
     -   Toggle to **Rich Text** mode in the editor (Body area)
 
@@ -492,6 +489,8 @@ Here is how you can crate an external blog post entry in the HPE Developer Commu
     -  In the IMAGE wizard, click **Choose an image**  
 
     -  On the top right of the wizard, click **Upload** to upload the image stored on your PC/laptop and select image you have just uploaded by clicking **Choose selected**.
+
+      >**IMPORTANT NOTE:** When you upload an image, make sure the image name you upload is **unique** within the CMS repository. A simple method to make sure your image name is ***unique*** is to amend the image file name with the current date: for example, if your image file name is "Picture1.png" and the date of the upload is September 17, 2023, please rename your image file as "Picture1-17-sep-2023.png" before uploading the image.
      
     -  Specify a "**Title**" for your image in the _TITLE_ section of the _IMAGE_ block. The title will appear when the reader hovers or pauses the mouse over the image. It aims to make the image collateral more accessible for people who use screen readers and for people with visual impairments. 
     
@@ -722,10 +721,10 @@ If appropriate, use a tag to tie your blog post to a **"Product"** page or a **"
 
   | **Products and HPE GreenLake**      |   **Associated tag**    |
   | ---------------------------------- | ----------------------- |
-  | **HPE Ezmeral**                    | hpe-ezmeral     |
+  | **HPE Ezmeral Software**           | hpe-ezmeral     |
   | **HPE Ezmeral Data Fabric**        | hpe-ezmeral-data-fabric |
   | **HPE GreenLake**                  | hpe-greenlake |
-  | **HPE GreenLake egde-to-cloud platform**   | hpe-greenlake-cloud-platform |
+  | **HPE GreenLake egde-to-cloud platform**   | hpe-greenlake-platform |
   | **HPE GreenLake for Compute Ops Management** | hpe-greenlake-for-compute-ops-management |
   | **HPE GreenLake for Private Cloud Enterprise** | hpe-greenlake-for-private-cloud-enterprise |
   | **Data Sevices Cloud Console**     | data-services-cloud-console |
@@ -738,6 +737,7 @@ If appropriate, use a tag to tie your blog post to a **"Product"** page or a **"
   | **Aruba Central**                  | aruba ; aruba-central|
   | **HPE 3PAR and Primera**           | hpe-3par-and-primera |
   | **HPE Nimble Storage**             | hpe-nimble-storage |
+  | **HPE NonStop**                    | hpe-nonstop |
   | **HPE OneView**                    | hpe-oneview |
   | **HPE OneView Global Dashboard**   | hpe-oneview-global-dashboard |
   | **HPE SimpliVity**                 | hpe-simplivity |

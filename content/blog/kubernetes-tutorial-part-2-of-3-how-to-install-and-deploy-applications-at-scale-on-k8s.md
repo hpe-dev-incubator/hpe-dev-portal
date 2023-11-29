@@ -7,6 +7,7 @@ authorimage: /img/Avatar1.svg
 tags:
   - kubernetes
   - hpe-ezmeral-data-fabric
+  - hpe-ezmeral
   - MapR
   - container
   - opensource

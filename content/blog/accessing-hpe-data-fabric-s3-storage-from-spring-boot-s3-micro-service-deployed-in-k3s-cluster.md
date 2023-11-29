@@ -11,6 +11,7 @@ tags:
   - Spring Boot
   - HPE Ezmeral Data Fabric Object Storage
   - hpe-ezmeral-data-fabric
+  - hpe-ezmeral
   - MapR
   - Quarkus
   - Kubernetes

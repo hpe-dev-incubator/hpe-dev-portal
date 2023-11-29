@@ -2,7 +2,7 @@
 title: "Artificial Intelligence and Machine Learning: What Are They and Why Are They Important?"
 date: 2020-11-12T08:03:23.804Z
 author: Saira Kennedy 
-tags: ["hpe-ezmeral-data-fabric","MapR","machine-learning","AI"]
+tags: ["hpe-ezmeral-data-fabric","hpe-ezmeral","MapR","machine-learning","AI"]
 authorimage: "/img/blogs/Avatar5.svg"
 featuredBlog: false
 priority:

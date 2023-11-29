@@ -2,7 +2,7 @@
 title: "Best Practices on Migrating from a Data Warehouse to a Big Data Platform"
 date: 2020-12-16T07:00:29.349Z
 author: Michael Farnbach 
-tags: ["hpe-ezmeral-data-fabric","MapR","big-data", "data-ml-engineer"]
+tags: ["hpe-ezmeral-data-fabric","hpe-ezmeral","MapR","big-data", "data-ml-engineer"]
 authorimage: "/img/blogs/Avatar4.svg"
 featuredBlog: false
 priority:

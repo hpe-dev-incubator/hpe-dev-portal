@@ -2,7 +2,7 @@
 title: "Containers vs. VMs: A 5-Minute Guide to Understanding Their Differences"
 date: 2021-01-29T05:33:44.878Z
 author: Suzy Visvanathan 
-tags: ["hpe-ezmeral-data-fabric","MapR","containers","virtual-machine"]
+tags: ["hpe-ezmeral-data-fabric","hpe-ezmeral","MapR","containers","virtual-machine"]
 authorimage: "/img/blogs/Avatar6.svg"
 featuredBlog: false
 priority:

@@ -9,6 +9,7 @@ tags:
   - data-services-cloud-console
   - developer
   - hpe-greenlake-cloud-platform
+  - hpe-greenlake
 ---
 <center><img src="/img/dscc-idp-core-architect.png" width="500" height="501" alt="Unified DataOps"></center>
 
@@ -205,3 +206,4 @@ For more in depth discussion on the topics about API Gateway and OAuth 2.0 (Open
 * TEKTALK ON POINT: [Introduction to Data Services Cloud Console public API](https://vshow.on24.com/vshow/HPETekTalks/content/3571890/)
 
 More blog posts will be coming to help you take further advantage of its capabilities. Stay tuned to the [HPE DEV blog](https://developer.hpe.com/blog) for more blog posts about HPE Data Services Cloud Console REST API.
+

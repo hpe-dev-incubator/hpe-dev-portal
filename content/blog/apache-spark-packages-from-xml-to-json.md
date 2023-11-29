@@ -2,7 +2,7 @@
 title: "Apache Spark Packages, from XML to JSON"
 date: 2020-12-11T03:26:34.663Z
 author: Nicolas Perez 
-tags: ["hpe-ezmeral-data-fabric","MapR","apache-spark","opensource"]
+tags: ["hpe-ezmeral-data-fabric","hpe-ezmeral","MapR","apache-spark","opensource"]
 authorimage: "/img/blogs/Avatar4.svg"
 featuredBlog: false
 priority:

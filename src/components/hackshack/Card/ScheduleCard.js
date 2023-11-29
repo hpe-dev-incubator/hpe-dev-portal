@@ -206,7 +206,7 @@ UnregisterLayer.propTypes = {
 };
 
 export const SignupLayer = ({
-  reset,
+  // reset,
   setLayer,
   setFormData,
   formData,
@@ -323,7 +323,7 @@ export const SignupLayer = ({
     >
       <Button
         onClick={() => {
-          reset();
+          // reset();
           setLayer(false);
         }}
         alignSelf="end"
@@ -357,13 +357,13 @@ export const SignupLayer = ({
             error={emailError}
             required
           >
-            <TextInput name="email" />
+            <TextInput name="email" value={formData.email} onChange={setFormData} />
           </FormField>
           <FormField label="Full Name" name="name" required>
-            <TextInput name="name" />
+            <TextInput name="name" value={formData.name} onChange={setFormData}/>
           </FormField>
           <FormField label="Company Name" name="company" required>
-            <TextInput name="company" />
+            <TextInput name="company" value={formData.company} onChange={setFormData} />
           </FormField>
           <Box
             margin={{ top: 'medium' }}
@@ -372,6 +372,8 @@ export const SignupLayer = ({
             <FormField required name="termsAndConditions">
               <CheckBox
                 name="termsAndConditions"
+                value={formData.termsAndConditions}
+                onChange={setFormData}
                 label={
                   sessionType === 'Coding Challenge' ? (
                     <Text>
@@ -482,7 +484,7 @@ export const SignupLayer = ({
 };
 
 SignupLayer.propTypes = {
-  reset: PropTypes.func,
+  // reset: PropTypes.func,
   formData: PropTypes.object,
   setFormData: PropTypes.func,
   setLayer: PropTypes.func,
@@ -499,7 +501,7 @@ export const SuccessLayer = ({
   size,
   title,
   email,
-  reset,
+  // reset,
   sessionType,
 }) => (
   <Layer
@@ -564,7 +566,7 @@ export const SuccessLayer = ({
           alignSelf="start"
           label="close"
           onClick={() => {
-            reset();
+            // reset();
             setLayer(false);
           }}
           primary
@@ -577,7 +579,7 @@ export const SuccessLayer = ({
 SuccessLayer.propTypes = {
   name: PropTypes.string,
   setLayer: PropTypes.func,
-  reset: PropTypes.func,
+  // reset: PropTypes.func,
   size: PropTypes.string,
   title: PropTypes.string,
   email: PropTypes.string,
@@ -634,20 +636,17 @@ const ScheduleCard = ({
     termsAndConditions: false,
     proxy: 'hackshack',
   });
+
   const [hover, setHover] = useState(false);
-  const resetFormData = () => {
-    setFormData({
-      name: '',
-      email: '',
-      company: '',
-      title,
-      notebook,
-      sessionType,
-      location,
-      termsAndConditions: false,
-      proxy: 'hackshack',
-    });
-  };
+  // const resetFormData = () => {
+    const handlechange=(e)=>{
+      const { name, value, type, checked } = e.target || '';
+      const inputvalue= (type==='checkbox') ? checked : value ;
+      setFormData({
+      ...formData,
+      [name]:inputvalue,
+    });};
+  // };
 
   const checkHover = (e) => {
     if (cardRef.current) {
@@ -943,8 +942,7 @@ const ScheduleCard = ({
             {signupLayer && (
               <SignupLayer
                 formData={formData}
-                reset={resetFormData}
-                setFormData={setFormData}
+                setFormData={handlechange}
                 setLayer={setSignupLayer}
                 setSuccess={setSuccessLayer}
                 title={title}
@@ -961,7 +959,7 @@ const ScheduleCard = ({
                 size={size}
                 title={title}
                 email={formData.email}
-                reset={resetFormData}
+                // reset={resetFormData}
                 sessionType={sessionType}
               />
             )}

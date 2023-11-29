@@ -6,6 +6,7 @@ import axios from 'axios';
 import { EmailCapture } from '../../containers';
 import Feedback from '../Feedback/index';
 import AuthService from '../../services/auth.service';
+// import { AppContext } from '../../providers/AppProvider';
 
 const { GATSBY_WORKSHOPCHALLENGE_API_ENDPOINT } = process.env;
 
@@ -132,7 +133,7 @@ export const Footer = () => {
           </Box>
         </Box>
       </Box>
-      <Feedback
+        <Feedback
         style={{ zIndex: '100', position: 'fixed', left: '2px!' }}
         position="right"
         headerText="Help us improve the Community"

@@ -2,7 +2,7 @@
 title: "Types of Machine Learning – Part #2 in the Intro to AI/ML Series"
 date: 2020-12-09T07:38:36.968Z
 author: Saira Kennedy 
-tags: ["hpe-ezmeral-data-fabric","MapR","machine-learning","AI"]
+tags: ["hpe-ezmeral-data-fabric","hpe-ezmeral","MapR","machine-learning","AI"]
 authorimage: "/img/blogs/Avatar5.svg"
 featuredBlog: false
 priority:

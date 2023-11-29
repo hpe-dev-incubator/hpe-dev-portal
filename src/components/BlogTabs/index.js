@@ -116,6 +116,10 @@ function BlogTabs({ data, columns }) {
       label: 'HPE Swarm Learning',
       count: data?.swarmBlogsCount?.totalCount || 0,
     },
+    hpeNonstopBlogs: {
+      label: 'HPE NonStop',
+      count: data?.hpeNonstopBlogsCount?.totalCount || 0,
+    },
   };
 
   const opensource = {
@@ -412,6 +416,7 @@ BlogTabs.propTypes = {
     dsccBlogsCount: PropTypes.objectOf(PropTypes.number),
     crayBlogsCount: PropTypes.objectOf(PropTypes.number),
     swarmBlogsCount: PropTypes.objectOf(PropTypes.number),
+    hpeNonstopBlogsCount: PropTypes.objectOf(PropTypes.number),
     othersBlogsCount: PropTypes.objectOf(PropTypes.number),
   }).isRequired,
   columns: PropTypes.shape({

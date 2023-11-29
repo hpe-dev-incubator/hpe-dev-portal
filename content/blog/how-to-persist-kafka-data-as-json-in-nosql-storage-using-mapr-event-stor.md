@@ -2,7 +2,7 @@
 title: "How to Persist Kafka Data as JSON in NoSQL Storage Using MapR Event Store and MapR Database"
 date: 2020-09-25T06:11:31.778Z
 author: Ian Downard 
-tags: ["hpe-ezmeral-data-fabric","MapR","Kafka","noSQL","opensource", "data-ml-engineer"]
+tags: ["hpe-ezmeral-data-fabric","hpe-ezmeral","MapR","Kafka","noSQL","opensource", "data-ml-engineer"]
 authorimage: "/img/blogs/Avatar3.svg"
 featuredBlog: false
 priority:

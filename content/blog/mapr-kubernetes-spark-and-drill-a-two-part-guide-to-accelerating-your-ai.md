@@ -2,7 +2,7 @@
 title: "MapR, Kubernetes, Spark and Drill: A Two-Part Guide to Accelerating Your AI and Analytics Workloads"
 date: 2020-11-03T16:17:29.186Z
 author: Suresh Ollala 
-tags: ["hpe-ezmeral-data-fabric","MapR","opensource"]
+tags: ["hpe-ezmeral-data-fabric","hpe-ezmeral","MapR","opensource"]
 authorimage: "/img/blogs/Avatar5.svg"
 featuredBlog: false
 priority:

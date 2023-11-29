@@ -2,7 +2,7 @@
 title: "Scaling with Kafka – Common Challenges Solved"
 date: 2021-01-29T05:13:45.899Z
 author: Will Ochandarena 
-tags: ["hpe-ezmeral-data-fabric","MapR","kafka", "data-ml-engineer"]
+tags: ["hpe-ezmeral-data-fabric","hpe-ezmeral","MapR","kafka", "data-ml-engineer"]
 authorimage: "/img/blogs/Avatar1.svg"
 featuredBlog: false
 priority:

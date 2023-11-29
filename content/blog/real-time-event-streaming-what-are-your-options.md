@@ -2,7 +2,7 @@
 title: "Real-Time Event Streaming: What Are Your Options?"
 date: 2021-01-29T05:22:57.331Z
 author: Ankur Desai 
-tags: ["hpe-ezmeral-data-fabric","MapR","apache-spark","event-streaming"]
+tags: ["hpe-ezmeral-data-fabric","hpe-ezmeral","MapR","apache-spark","event-streaming"]
 authorimage: "/img/blogs/Avatar4.svg"
 featuredBlog: false
 priority:

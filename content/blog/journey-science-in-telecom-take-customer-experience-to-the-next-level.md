@@ -2,7 +2,7 @@
 title: "Journey Science in Telecom: Take Customer Experience to the Next Level"
 date: 2021-01-14T05:27:21.177Z
 author: Ronald Van Loon 
-tags: ["hpe-ezmeral-data-fabric","MapR"]
+tags: ["hpe-ezmeral-data-fabric","hpe-ezmeral","MapR"]
 authorimage: "/img/blogs/Avatar6.svg"
 featuredBlog: false
 priority:

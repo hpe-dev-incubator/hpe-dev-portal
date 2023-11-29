@@ -2,7 +2,7 @@
 title: "An Inside Look at the Components of a Recommendation Engine"
 date: 2021-01-22T06:01:22.914Z
 author: Carol McDonald 
-tags: ["hpe-ezmeral-data-fabric","MapR","Elasticsearch"]
+tags: ["hpe-ezmeral-data-fabric","hpe-ezmeral","MapR","Elasticsearch"]
 authorimage: "/img/blogs/Avatar6.svg"
 featuredBlog: false
 priority:

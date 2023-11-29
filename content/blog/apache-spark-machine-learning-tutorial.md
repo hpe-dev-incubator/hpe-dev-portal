@@ -2,7 +2,7 @@
 title: "Apache Spark Machine Learning Tutorial"
 date: 2020-11-25T03:08:41.724Z
 author: Carol McDonald 
-tags: ["hpe-ezmeral-data-fabric","MapR","apache-spark","machine-learning","opensource"]
+tags: ["hpe-ezmeral-data-fabric","hpe-ezmeral","MapR","apache-spark","machine-learning","opensource"]
 authorimage: "/img/blogs/Avatar5.svg"
 featuredBlog: false
 priority:

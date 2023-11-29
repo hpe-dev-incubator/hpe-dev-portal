@@ -2,7 +2,7 @@
 title: "Spark Data Source API: Extending Our Spark SQL Query Engine"
 date: 2020-12-16T06:52:16.163Z
 author: Nicolas Perez 
-tags: ["hpe-ezmeral-data-fabric","MapR","apache-spark","opensource","data-scientist", "data-ml-engineer"]
+tags: ["hpe-ezmeral-data-fabric","hpe-ezmeral","MapR","apache-spark","opensource","data-scientist", "data-ml-engineer"]
 authorimage: "/img/blogs/Avatar4.svg"
 featuredBlog: false
 priority:

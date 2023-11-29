@@ -10,6 +10,7 @@ priority: 1
 active: true
 tags:
   - hpe-ezmeral
+  - hpe-ezmeral-data-fabric
 ---
 <a id="top"></a>
 
@@ -27,30 +28,12 @@ HPE Ezmeral Software supports the most popular open-source ML Ops, Airflow, MLfl
 
 - - -
 
-## Get started with HPE Ezmeral Software
-
-The HPE Ezmeral Early Access (EEA) program allows you to access soon to be released products – typically in private Beta or Select Availability – with exemplary training and support provided by HPE. The goal of the EEA program is to solicit early user feedback, and foster design partnerships with the application development community. By signing up, participants get real-time, hands-on experience with next generation capabilities to solve advanced data and analytics problems in hybrid environments.
-
-The first two products that are available through EEA are:
-
-* [HPE Ezmeral Data Fabric Software](https://home.hpe-df.com/) – access HPE Ezmeral Data Fabric as a fully managed service. Register now for a 300GB instance to try out features and capabilities.    
-
-* [HPE Ezmeral Unified Analytics Software]( https://www.hpe.com/us/en/hpe-ezmeral-unified-analytics.html#EEAUA) (UA) – secure, fully managed, open-source software-as-a-service (SaaS) for the data analytics lifecycle that delivers a complete end-to-end solution.
-
-The following overview videos are available to provide more information on EEA and the first two products:
-
-* [HPE Ezmeral Early Access overview video](https://youtu.be/_ygMN4UvqU4)
-* [HPE Ezmeral Data Fabric Software overview video](https://youtu.be/YTf5OPsb-cM)
-* [HPE Ezmeral Unified Analytics Software overview video](https://youtu.be/z9Q4FG7LzgI)
-
-- - -
-
 ## Resources
 
 * [HPE Ezmeral Home Page](https://www.hpe.com/us/en/software.html)
 * [HPE Ezmeral Runtime Enterprise API Documentation](https://docs.containerplatform.hpe.com/home/)[](https://docs.containerplatform.hpe.com/home/)
 * [HPE Ezmeral Data Fabric API Documentation](https://docs.datafabric.hpe.com/home/)
-* [HPE Ezmeral Learn On-Demand](https://learn.ezmeral.software.hpe.com/)
+* [HPE Ezmeral Learn On-Demand](https://learn.software.hpe.com/)
 * [Request your own demo from the HPE Demo Portal](https://hpedemoportal.ext.hpe.com/home)
 
 [HPE Ezmeral demo](https://github.com/HewlettPackard/ezdemo)
@@ -60,14 +43,6 @@ Automated installation for HPE Ezmeral Runtime Enterprise and HPE Ezmeral ML Ops
 [HPE Ezmeral Python Library](https://github.com/hpe-container-platform-community/hpecp-python-library)
 
 Python library and Command Line Interface (CLI) for HPE Ezmeral Runtime Enterprise and HPE Ezmeral ML Ops.
-
-#### Learn from the experts
-
-> <font size="3"> **Note:** The *HPE Ezmeral Container Platform* referenced in these videos has been renamed to *HPE Ezmeral Runtime Enterprise*. All other information is correct. </font> 
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/fCQpSHDEHY0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-<br />
-<br />
 
 #### Interactive Demo Experience (IDE)
 

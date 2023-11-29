@@ -5,6 +5,7 @@ author: MapR Tutorials
 authorimage: /img/Avatar1.svg
 tags:
   - hpe-ezmeral-data-fabric
+  - hpe-ezmeral
   - MapR
   - Sandbox
 ---

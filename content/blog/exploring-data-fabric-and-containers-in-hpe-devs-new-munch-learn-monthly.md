@@ -13,6 +13,7 @@ tags:
   - learn
   - hpe-ezmeral
   - hpe-ezmeral-data-fabric
+  - hpe-ezmeral
   - data-scientist
 ---
 ![munch learn feb 2021](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/12/munch-learn-feb-2021-1611858129501.jpg)

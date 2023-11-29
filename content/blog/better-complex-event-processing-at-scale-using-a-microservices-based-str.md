@@ -9,6 +9,7 @@ authorimage: /img/blogs/Avatar1.svg
 thumbnailimage: null
 tags:
   - hpe-ezmeral-data-fabric
+  - hpe-ezmeral
   - CEP
   - MapR
   - opensource

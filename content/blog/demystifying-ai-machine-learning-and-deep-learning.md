@@ -2,7 +2,7 @@
 title: "Demystifying AI, Machine Learning and Deep Learning"
 date: 2020-11-25T02:31:24.462Z
 author: Carol McDonald 
-tags: ["hpe-ezmeral-data-fabric","MapR","machine-learning","AI","deep-learning"]
+tags: ["hpe-ezmeral-data-fabric","hpe-ezmeral","MapR","machine-learning","AI","deep-learning"]
 authorimage: "/img/blogs/Avatar5.svg"
 featuredBlog: false
 priority:
