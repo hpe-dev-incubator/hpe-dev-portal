@@ -30,7 +30,7 @@ HPE GreenLake customers and partners can take advantage of our well-documented, 
 The HPE GreenLake API:
 
 * Conform to the OpenAPI 3.0 specification. This makes them easy to learn, discoverable by code, and accessible with any programming language.
-* Use a single endpoint. All calls go to https://global.api.greenlake.hpe.com
+* Use a single endpoint. All calls go to ht<span>tps://</span>global.api.greenlake.hpe.com
 * Use a single token to access all APIs.
 * Are built to be secure and highly available.
 * Are RESTful for flexible implementation.
