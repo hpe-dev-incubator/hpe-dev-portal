@@ -24,8 +24,6 @@ In this blog post, I will walk you through the process of configuring Okta Activ
 
 Please review the [HPE GreenLake](https://support.hpe.com/hpesc/public/docDisplay?docId=a00120892en_us&page=GUID-D7192971-EF71-4304-B51E-548E7954E644.html) User Guide to understand how the SAML framework works in the context of Common Cloud Services for the HPE GreenLake edge-to-cloud platform for the HPE GreenLake Private Cloud Enterprise application .
 
-**S﻿teps to be followed in Customer Okta:**
-
 ### Configure SSO/SAML applications in Okta
 
    To configure application metadata in Okta, complete the following steps:
