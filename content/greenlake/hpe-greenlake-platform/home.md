@@ -13,6 +13,12 @@ tags:
   - hpe-greenlake-platform
   - hpe-greenlake
 ---
+<style>
+ul li{
+ font-size:27px;
+}
+</style>
+
 The HPE GreenLake platform, along with its marketplace and partner ecosystem, provides customers with a consistent, unified foundation for application development and hybrid cloud innovation. This helps customers reduce costs and complexity, while enhancing stability and performance across multiple IT environments.
 
 [Learn more about HPE GreenLake](https://www.hpe.com/us/en/greenlake.html)
@@ -31,9 +37,9 @@ The HPE GreenLake API:
 
 We provide APIs for foundational, common services on the HPE GreenLake platform, along with a developer portal to support you with documentation, code, community, and more. 
 
-Here’s a summary of what you can expect to find:
+Here’s a summary of what you can find:
 
-<p style="font-size: 16px">
+<p style="font-size: 27px">
 
 <u>[Workspace management](https://developer.greenlake.hpe.com/docs/greenlake/services/iam/)</u>
 
