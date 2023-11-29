@@ -28,7 +28,7 @@ Please review the [HPE GreenLake](https://support.hpe.com/hpesc/public/docDispl
 
 **S﻿teps to be followed in Customer Okta:**
 
-###   Configure SSO/SAML applications in Okta    
+### Configure SSO/SAML applications in Okta
 
    To configure application metadata in Okta, complete the following steps:
 
@@ -83,7 +83,7 @@ Provide a name for the SAML application which gets connected to HPE GreenLake Cl
 
 ![](/img/glp_role_name.jpg)
 
-The **hpe_ccs_attribute** always starts with version*1#. You must first configure the attributes for HPE GreenLake and To do so, enter the PCID for the account, followed by the HPE GreenLake application ID. This will always be **00000000-0000-0000-0000-000000000000**. Following this, enter the role name and ALL*SCOPES**.** 
+The **hpe_ccs_attribute** always starts with version1#. You must first configure the attributes for HPE GreenLake and To do so, enter the PCID for the account, followed by the HPE GreenLake application ID. This will always be **00000000-0000-0000-0000-000000000000**. Following this, enter the role name and ALL_SCOPES**.** 
 
 Example:
 
@@ -113,11 +113,9 @@ Click Next and Select “Internal App”, then Finish.
 
 ![](/img/customer-user-assignment-to-saml.jpg)
 
-
-
 **S﻿teps to be followed in HPE GreenLake Cloud Platform(GLCP)**
 
- **   Step 4: Create SAML Authorization Profile in HPE GreenLake Cloud Platform**
+  **  Step 4: Create SAML Authorization Profile in HPE GreenLake Cloud Platform**
 
 1. Log into **HPE GreenLake Cloud Platform** and click Menu > Manage > Authentication and Click Set Up SAML Connection.
 
