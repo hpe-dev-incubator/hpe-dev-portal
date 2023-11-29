@@ -49,7 +49,7 @@ Please review the [HPE GreenLake](https://support.hpe.com/hpesc/public/docDispl
 
 ![](/img/ws-image0.png)
 
-Provide a name for the SAML application which gets connected to the HPE GreenLake platform
+Provide a name for the SAML application which gets connected to the HPE GreenLake platform:
 
 ![](/img/saml_app-okta.jpg)
 
@@ -79,7 +79,7 @@ Provide a name for the SAML application which gets connected to the HPE GreenLak
 
    A new SAML attribute has been added “hpe\_ccs\_attribute” which tells HPE GreenLake platform and HPE GreenLake for Private Cloud Enterprise application the exact role/permissions for each user. The following describes how to format the attribute.
 
-   Format: {version}#{pcid}:{app id}:{role_name}:{ALL_SCOPES}
+   Format: {version}#{pcid}:{app id}:{role_name}:{ALL\_SCOPES}
 
    N﻿ote :  At present HPE GreenLake for Private Cloud Enterprise application role should be excluded.
 
@@ -89,11 +89,11 @@ Provide a name for the SAML application which gets connected to the HPE GreenLak
 
 ![](/img/glp_role_name.jpg)
 
-The **hpe\_ccs\_attribute** always starts with version1#. You must first configure the attributes for HPE GreenLake platform and to do so, enter the PCID for the account, followed by the HPE GreenLake application ID. This will always be **00000000-0000-0000-0000-000000000000**. Following this, enter the role name and ALL_SCOPES**.** 
+The **hpe\_ccs\_attribute** always starts with version1#. You must first configure the attributes for HPE GreenLake platform and to do so, enter the PCID for the account, followed by the HPE GreenLake application ID. This will always be **00000000-0000-0000-0000-000000000000**. Following this, enter the role name and ALL\_SCOPES**.** 
 
 Example:
 
-version_1#7ede5c36b7b911edacf45a78eb8b07d1:00000000-0000-0000-0000-000000000000:Observer:ALL\_SCOPES
+version_1\#7ede5c36b7b911edacf45a78eb8b07d1:00000000-0000-0000-0000-000000000000:Observer:ALL\_SCOPES
 
 ![](/img/saml_settings.jpg)
 
@@ -127,7 +127,7 @@ Click **Next** and select **Internal App**, then **Finish**.
 
 1. Log into HPE GreenLake platform and click **Menu** > **Manage** > **Authentication** and click **Set Up SAML Connection**.
 
-   *Before you can add a new SAML configuration, you must have at least **one** user account with that **domain** already enabled in HPE GreenLake platform. Also, you must be logged into HPE GreenLake platform with an account from that domain in order to enable SSO for it.*
+   _Before you can add a new SAML configuration, you must have at least **one** user account with that **domain** already enabled in HPE GreenLake platform. Also, you must be logged into HPE GreenLake platform with an account from that domain in order to enable SSO for it._
 
    ![](/img/ws-image10.png)
 
