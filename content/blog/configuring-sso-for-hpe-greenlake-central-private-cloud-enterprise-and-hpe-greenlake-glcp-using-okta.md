@@ -73,9 +73,9 @@ Provide a name for the SAML application which gets connected to the HPE GreenLak
 
    Format: {version}#{pcid}:{app id}:{role_name}:{ALL_SCOPES}
 
-   N﻿ote :  At present HPE GreenLake Private Cloud Enterprise application role should be excluded
+   N﻿ote :  At present HPE GreenLake Private Cloud Enterprise application role should be excluded.
 
-![](/img/saml_app-okta2.jpg)
+![](/img/hpe-greenlake-saml-attributes.jpg)
 
 ![](/img/workspace-pcid.jpg)
 
@@ -113,7 +113,9 @@ Click Next and Select “Internal App”, then Finish.
 
 **S﻿teps to be followed in HPE GreenLake edge-to-cloud platform**
 
-    **Step 4: Create SAML Authorization Profile in HPE GreenLake edge-to-cloud platform**
+```
+**Step 4: Create SAML Authorization Profile in HPE GreenLake edge-to-cloud platform**
+```
 
 1. Log into HPE GreenLake edge-to-cloud platform and click Menu > Manage > Authentication and Click Set Up SAML Connection.
 
@@ -156,7 +158,5 @@ Enter the SSO credentials. You will be redirected to Okta to authenticate. Once 
 * For more troubleshooting: <https://support.hpe.com/hpesc/public/docDisplay?docId=a00120892en_us>
 * Customer users should be given access to SAML application.
 * After authentication when clicking the HPE GreenLake edge-to-cloud platform for Private Cloud Enterprise application**,** if it leads to the below error, it will take 1 hr to sync. If it does not do so within that time period, the customer should contact their HPE administrator. 
-
-
 
 I hope this blog post answers any questions you may have had in regards to how to configure single sign-on for HPE GreenLake Private Cloud Enterprise on the HPE GreenLake edge-to-cloud platform using Okta Active Directory. Please return back to the [HPE Developer blog](https://developer.hpe.com/blog) for more tips and tricks on working with the HPE GreenLake edge-to-cloud platform. If you have any further questions, please feel free to reach out to us via the #glc-support Slack channel.
