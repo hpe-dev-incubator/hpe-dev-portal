@@ -1,7 +1,7 @@
 ---
 title: How to implement a single sign-on solution to authenticate users onto the
   HPE GreenLake edge-to-cloud platform
-date: 2023-11-29T10:08:49.979Z
+date: 2023-11-29T11:01:34.237Z
 featuredBlog: false
 externalLink: ""
 author: Prabhu Murthy - Cloud Operations
@@ -159,4 +159,4 @@ Enter the SSO credentials. You will be redirected to Okta to authenticate. Once 
 
 
 
-I hope this blog post answers any questions you may have had in regards to how to configure single sign-on for HPE GreenLake Private Cloud Enterprise on the HPE GreenLake platform using Okta Active Directory. Please return back to the [HPE Developer blog](https://developer.hpe.com/blog) for more tips and tricks on working with the HPE GreenLake edge-to-cloud platform. If you have any further questions, please feel free to reach out to us via the #glc-support Slack channel.
+I hope this blog post answers any questions you may have had in regards to how to configure single sign-on for HPE GreenLake Private Cloud Enterprise on the HPE GreenLake edge-to-cloud platform using Okta Active Directory. Please return back to the [HPE Developer blog](https://developer.hpe.com/blog) for more tips and tricks on working with the HPE GreenLake edge-to-cloud platform. If you have any further questions, please feel free to reach out to us via the #glc-support Slack channel.
