@@ -9,13 +9,15 @@ authorimage: /img/Avatar1.svg
 thumbnailimage: /img/hpe-greenlake-sso-page.jpg
 disable: false
 tags:
-  - HPE Greenlake Central (Private Cloud Enterprise)
-  - hpe-greenlake-cloud-platform
+  - HPE GreenLake Private Cloud Enterprise application
+  - HPE GreenLake edge-to-cloud platform
   - sso
   - okta
-  - Private Cloud Enterprise
+  - Active Directory
   - hpe-greenlake
 ---
+
+
 Enterprises looking to use HPE GreenLake for Private Cloud Enterprise can benefit from the use of SSO, as it has been integrated onto the HPE GreenLake edge-to-cloud platform, which supports single sign-on
 
 In this blog post, I will walk you through the process of configuring Okta AD to authenticate users into the HPE GreenLake for Private Cloud Enterprise application on the HPE GreenLake platform using SAML Identity Provider (IdP) for single sign-on.
@@ -154,9 +156,7 @@ Enter the SSO credentials. You will be redirected to Okta to authenticate. Once 
 * In order to configure SSO, you must be logged into the HPE GreenLake edge-to-cloud platform with a user from the domain.
 * SSO user access is determined by the “role_name” attribute included in the SAML hpe_ccs_attribute provided by the IdP.    
 * For more troubleshooting: <https://support.hpe.com/hpesc/public/docDisplay?docId=a00120892en_us>
+* Customer users should be given access to SAML application.
+* After authentication when clicking the HPE GreenLake edge-to-cloud platform for Private Cloud Enterprise application**,** if it leads to the below error, it will take 1 hr to sync. If it does not do so within that time period, the customer should contact their HPE administrator. 
 
-  * Customer users should be given access to SAML application.
-
-    After authentication when clicking the HPE GreenLake edge-to-cloud platform for Private Cloud Enterprise application**,** if it leads to the below error, it will take 1 hr to sync. If it does not do so within that time period, the customer should contact their HPE administrator. 
-
-![](/img/user_sync.jpg)
+I hope this blog post answers any questions you may have had in regards to how to configure single sign-on for HPE GreenLake Private Cloud Enterprise on the HPE GreenLake platform using Okta Active Directory. Please return back to the [HPE Developer blog](https://developer.hpe.com/blog) for more tips and tricks on working with the HPE GreenLake edge-to-cloud platform. If you have any further questions, please feel free to reach out to us via the #glc-support Slack channel.
