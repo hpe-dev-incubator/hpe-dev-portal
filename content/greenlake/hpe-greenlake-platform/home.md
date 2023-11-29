@@ -33,27 +33,27 @@ We provide APIs for foundational, common services on the HPE GreenLake platform,
 
 Here’s a summary of what you can expect to find:
 
-#### [Workspace management](https://developer.greenlake.hpe.com/docs/greenlake/services/iam/)
+<u>[Workspace management](https://developer.greenlake.hpe.com/docs/greenlake/services/iam/)</u>
 
 Learn about the details of a workspace, and discover how to fully create, read, update, and delete (CRUD) on managed service provider (MSP) tenant workspaces. You can also access a full CRUD roster of users, enabling you to send invitations to join a workspace.
 
-#### Authorization
+<u>Authorization</u>
 
 Familiarize yourself with the details about a permissions role, or full CRUD on user assignments to roles.
 
-#### [Devices](https://developer.greenlake.hpe.com/docs/greenlake/services/device-management/public) and [subscriptions](https://developer.greenlake.hpe.com/docs/greenlake/services/subscription-management/public)
+<u>[Devices](https://developer.greenlake.hpe.com/docs/greenlake/services/device-management/public) and [subscriptions](https://developer.greenlake.hpe.com/docs/greenlake/services/subscription-management/public)</u>
 
 Add and modify hardware devices in a workspace, initiate subscriptions, and assign to devices.
 
-#### [Locations](https://developer.greenlake.hpe.com/docs/greenlake/services/location-management/public)
+<u>[Locations](https://developer.greenlake.hpe.com/docs/greenlake/services/location-management/public)</u>
 
 Create, read, and update physical locations used for shipping and support.
 
-#### [Audit log](https://developer.greenlake.hpe.com/docs/greenlake/services/audit-logs/public/)
+<u>[Audit log](https://developer.greenlake.hpe.com/docs/greenlake/services/audit-logs/public/)</u>
 
 Read details about user actions for accountability.
 
-#### [Wellness](https://developer.greenlake.hpe.com/docs/greenlake/services/wellness/public/)
+<u>[Wellness](https://developer.greenlake.hpe.com/docs/greenlake/services/wellness/public/)</u>
 
 Get a list of wellness events via searches and filters, organize them with tags, read event details, pull KPIs, and open support cases.
 
