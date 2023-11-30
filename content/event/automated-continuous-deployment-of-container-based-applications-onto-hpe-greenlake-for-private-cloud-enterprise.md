@@ -5,7 +5,7 @@ dateStart: 2023-11-28T23:01:42.052Z
 dateEnd: 2023-11-29T22:59:42.089Z
 category: Virtual Event
 image: /img/event-meetups-newlogo-400x400.png
-link: " https://hpe.zoom.us/webinar/register/5116977235601/WN_I2ca1qcAQs6HS4iAaDvmfw"
+link: https://developer.hpe.com/campaign/meetups
 width: large
 ---
 ## Automated continuous deployment of container-based applications onto HPE GreenLake for Private Cloud Enterprise
