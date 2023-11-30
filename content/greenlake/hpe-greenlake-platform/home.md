@@ -25,17 +25,17 @@ The HPE GreenLake platform, along with its marketplace and partner ecosystem, pr
 
 ## APIs and Documentation
 
-HPE GreenLake customers and partners can take advantage of our well-documented, secure, and scalable framework of APIs for HPE GreenLake found in our developer portal. 
+HPE GreenLake customers and partners can take advantage of our well-documented, secure, and scalable framework of APIs for HPE GreenLake found in the [HPE GreenLake Developer Portal](https://developer.greenlake.hpe.com). 
 
-The HPE GreenLake API:
+The HPE GreenLake APIs:
 
 * Conform to the OpenAPI 3.0 specification. This makes them easy to learn, discoverable by code, and accessible with any programming language.
-* Use a single endpoint. All calls go to ht<span>tps://</span>global.api.greenlake.hpe.com
-* Use a single token to access all APIs.
+* Use a single endpoint. All calls go to a single unified API global domain endpoint: _ht<span>tps://</span>global.api.greenlake.hpe.com_
+* Use a single OAuth token to access all APIs.
 * Are built to be secure and highly available.
 * Are RESTful for flexible implementation.
 
-We provide APIs for foundational, common services on the HPE GreenLake platform, along with a developer portal to support you with documentation, code, community, and more. 
+We provide APIs for foundational, common services on the HPE GreenLake platform, along with a [dedicated developer portal](https://developer.greenlake.hpe.com) to support you with documentation, code, community, and more. 
 
 Here’s a summary of what you can find:
 
