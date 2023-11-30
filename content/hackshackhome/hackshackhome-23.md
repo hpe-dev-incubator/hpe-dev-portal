@@ -1,6 +1,6 @@
 ---
 title: Automated continuous deployment of container-based applications
-active: true
+active: false
 fit: contain
 path: https://hpe.zoom.us/webinar/register/8816977235731/WN_I2ca1qcAQs6HS4iAaDvmfw
 imageBackground: white
