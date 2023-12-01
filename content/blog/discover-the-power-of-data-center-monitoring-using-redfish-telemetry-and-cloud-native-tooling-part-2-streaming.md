@@ -15,6 +15,14 @@ tags:
   - Redfish
   - monitoring
 ---
+<style>
+li {
+   font-size: 27px;
+   line-height: 33px;
+   max-width: none;
+}
+</style>
+
 Unlock the full potential of data center monitoring with Redfish telemetry streaming and cutting-edge cloud-native tools. The second part of our data center monitoring whitepaper series delves into the world of streaming, showcasing the efficiency and scalability of HPE iLO's Redfish telemetry streaming using event subscription.
 
 # A Holistic Approach
