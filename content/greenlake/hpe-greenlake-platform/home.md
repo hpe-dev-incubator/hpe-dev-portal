@@ -74,7 +74,7 @@ Learn more about the unified HPE GreenLake experience for developers by visiting
 
 ## Demos and resources
 
-Get an overview of how you can manage workloads with the HPE GreenLake platform using our [quick demos](https://hpe.com/greenlake/demos).
+Get an overview of how you can manage workloads with the HPE GreenLake platform using our [interactive demos](https://hpe.com/greenlake/demos).
 
 ## Workshops-on-Demand
 
