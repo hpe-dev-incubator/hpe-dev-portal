@@ -1,6 +1,6 @@
 ---
 title: "Discover the power of data center monitoring using Redfish telemetry and
-  cloud-native tooling part 2: streaming"
+  cloud-native tooling: Part 2 - streaming"
 date: 2023-12-01T21:50:51.315Z
 author: Naveen Gupta
 authorimage: /img/photo-jpg-ng.jpg
