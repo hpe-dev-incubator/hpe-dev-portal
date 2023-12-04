@@ -43,33 +43,42 @@ We provide a [dedicated developer portal](https://developer.greenlake.hpe.com) t
 
 For the HPE GreenLake platform, the following APIs are currently available:
 
-<p style="font-size: 27px">
-
-<u>**[Workspace management](https://developer.greenlake.hpe.com/docs/greenlake/services/iam/)**</u>
+### Workspace management
 
 Learn about the details of a workspace, and discover how to fully create, read, update, and delete (CRUD) on managed service provider (MSP) tenant workspaces. You can also access a full CRUD roster of users, enabling you to send invitations to join a workspace.
 
-<u>**Authorization**</u>
+  [Visit Workspace management API Reference](https://developer.greenlake.hpe.com/docs/greenlake/services/iam/)
+
+### Authorization
 
 Familiarize yourself with the details about a permissions role, or full CRUD on user assignments to roles.
 
-<u>**[Devices](https://developer.greenlake.hpe.com/docs/greenlake/services/device-management/public) and [subscriptions](https://developer.greenlake.hpe.com/docs/greenlake/services/subscription-management/public)**</u>
+### Devices and subscriptions management
 
 Add and modify hardware devices in a workspace, initiate subscriptions, and assign to devices.
 
-<u>**[Locations](https://developer.greenlake.hpe.com/docs/greenlake/services/location-management/public)**</u>
+  [Visit device management API Reference](https://developer.greenlake.hpe.com/docs/greenlake/services/device-management/public)
+
+  [Visit subscription management API Reference](https://developer.greenlake.hpe.com/docs/greenlake/services/subscription-management/public))
+
+### Locations
 
 Create, read, and update physical locations used for shipping and support.
 
-<u>**[Audit log](https://developer.greenlake.hpe.com/docs/greenlake/services/audit-logs/public/)**</u>
+  [Visit locations management API Reference](https://developer.greenlake.hpe.com/docs/greenlake/services/location-management/public)
+
+### Audit Log 
 
 Read details about user actions for accountability.
 
-<u>**[Wellness](https://developer.greenlake.hpe.com/docs/greenlake/services/wellness/public/)**</u>
+  [Visit Audit log API reference](https://developer.greenlake.hpe.com/docs/greenlake/services/audit-logs/public/)
+
+### Wellness
 
 Get a list of wellness events via searches and filters, organize them with tags, read event details, pull KPIs, and open support cases.
 
-</p>
+  [Visit Wellness API reference](https://developer.greenlake.hpe.com/docs/greenlake/services/wellness/public/)
+
 
 Learn more about the unified HPE GreenLake experience for developers by visiting the [HPE GreenLake Developer Portal](https://developer.greenlake.hpe.com).
 
