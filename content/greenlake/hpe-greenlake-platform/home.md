@@ -34,7 +34,7 @@ HPE GreenLake customers and partners can take advantage of our well-documented, 
 The HPE GreenLake APIs:
 
 * Conform to the OpenAPI 3.0 specification. This makes them easy to learn, discoverable by code, and accessible with any programming language.
-* Use a single endpoint. All calls go to a single unified API global domain endpoint: _ht<span>tps://</span>global.api.greenlake.hpe.com_
+* Use a single endpoint. All calls go to a single unified API global domain endpoint: *ht<span>tps://</span>global.api.greenlake.hpe.com*
 * Use a single OAuth token to access all APIs.
 * Are built to be secure and highly available.
 * Are RESTful for flexible implementation.
@@ -45,29 +45,30 @@ For the HPE GreenLake platform, the following APIs are currently available:
 
 <p style="font-size: 27px">
 
-<u>[Workspace management](https://developer.greenlake.hpe.com/docs/greenlake/services/iam/)</u>
+<u>**[Workspace management](https://developer.greenlake.hpe.com/docs/greenlake/services/iam/)**</u>
 
 Learn about the details of a workspace, and discover how to fully create, read, update, and delete (CRUD) on managed service provider (MSP) tenant workspaces. You can also access a full CRUD roster of users, enabling you to send invitations to join a workspace.
 
-<u>Authorization</u>
+<u>**Authorization**</u>
 
 Familiarize yourself with the details about a permissions role, or full CRUD on user assignments to roles.
 
-<u>[Devices](https://developer.greenlake.hpe.com/docs/greenlake/services/device-management/public) and [subscriptions](https://developer.greenlake.hpe.com/docs/greenlake/services/subscription-management/public)</u>
+<u>**[Devices](https://developer.greenlake.hpe.com/docs/greenlake/services/device-management/public) and [subscriptions](https://developer.greenlake.hpe.com/docs/greenlake/services/subscription-management/public)**</u>
 
 Add and modify hardware devices in a workspace, initiate subscriptions, and assign to devices.
 
-<u>[Locations](https://developer.greenlake.hpe.com/docs/greenlake/services/location-management/public)</u>
+<u>**[Locations](https://developer.greenlake.hpe.com/docs/greenlake/services/location-management/public)**</u>
 
 Create, read, and update physical locations used for shipping and support.
 
-<u>[Audit log](https://developer.greenlake.hpe.com/docs/greenlake/services/audit-logs/public/)</u>
+<u>**[Audit log](https://developer.greenlake.hpe.com/docs/greenlake/services/audit-logs/public/)**</u>
 
 Read details about user actions for accountability.
 
-<u>[Wellness](https://developer.greenlake.hpe.com/docs/greenlake/services/wellness/public/)</u>
+<u>**[Wellness](https://developer.greenlake.hpe.com/docs/greenlake/services/wellness/public/)**</u>
 
 Get a list of wellness events via searches and filters, organize them with tags, read event details, pull KPIs, and open support cases.
+
 </p>
 
 Learn more about the unified HPE GreenLake experience for developers by visiting the [HPE GreenLake Developer Portal](https://developer.greenlake.hpe.com).
