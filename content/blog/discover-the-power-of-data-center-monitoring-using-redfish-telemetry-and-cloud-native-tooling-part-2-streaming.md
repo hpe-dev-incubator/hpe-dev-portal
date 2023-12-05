@@ -27,7 +27,7 @@ Ensuring the seamless operation of your data center is critical to business cont
 
 # A holistic approach
 
-To fully tap the potential of data center monitoring, embark on a comprehensive journey by exploring my latest technical whitepaper, **"[Data Center Monitoring using Redfish Telemetry and Cloud-Native Tooling: Part 2 – Streaming](https://www.hpe.com/psnow/doc/a50009739enw)"**. This guide not only introduces you to the intricacies of Redfish telemetry streaming but also demonstrates the seamless integration with open-source cloud-native tools such as Telegraf, InfluxDB, and Grafana. The telemetry data source, HPE iLO, provides a wealth of performance metrics through the Redfish interface, and event subscription ensures a continuous flow of metric reports from the telemetry service.
+To fully tap the potential of data center monitoring, embark on a comprehensive journey by exploring my latest technical whitepaper, **"[Data center monitoring using Redfish telemetry and cloud-native tooling: Part 2 — streaming](https://www.hpe.com/psnow/doc/a50009739enw)"**. This guide not only introduces you to the intricacies of Redfish telemetry streaming but also demonstrates the seamless integration with open-source cloud-native tools such as Telegraf, InfluxDB, and Grafana. The telemetry data source, HPE iLO, provides a wealth of performance metrics through the Redfish interface, and event subscription ensures a continuous flow of metric reports from the telemetry service.
 
 # Key highlights from the whitepaper
 
