@@ -193,14 +193,14 @@ function Header() {
       reverse
       dropContent={
         <TextAlignLeft>
-          <ButtonLink
+          {/* <ButtonLink
             key="pl"
             label="HPE GreenLake Platform"
             to="/greenlake/hpe-greenlake-platform/home/"
             state={{ state: { isPlatformHeaderClicked: true } }}
             alignSelf="start"
             fill="horizontal"
-          />
+          /> */}
           <Box direction="row">
             <TextAlignLeft>
               <GreenLakeButtonLinks column="left" />
