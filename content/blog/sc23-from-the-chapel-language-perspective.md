@@ -6,7 +6,6 @@ author: Michelle Strout and Engin Kayraklioglu
 authorimage: https://developer.hpe.com/img/combined-author-pic-correct-ratio.jpg
 disable: false
 tags:
-  - Chapel
   - opensource
   - HPC
   - Arkouda
