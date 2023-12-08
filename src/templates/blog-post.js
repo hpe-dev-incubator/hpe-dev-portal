@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import { Box, Heading, Text, Avatar } from 'grommet';
 import { FormPreviousLink } from 'grommet-icons';
-import remark from 'remark';
+import {remark} from 'remark';
 import strip from 'strip-markdown';
 
 import {

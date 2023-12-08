@@ -227,7 +227,7 @@ export const pageQuery = graphql`
     }
     blogs: allMarkdownRemark(
       limit: 2000
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: {frontmatter: {date: DESC}}
       filter: {
         frontmatter: { tags: { regex: $tagRE } }
         fields: { sourceInstanceName: { eq: "blog" } }
@@ -253,7 +253,7 @@ export const pageQuery = graphql`
     }
     events: allMarkdownRemark(
       limit: 2000
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: {frontmatter: {date: DESC}}
       filter: {
         frontmatter: { tags: { regex: $tagRE } }
         fields: { sourceInstanceName: { eq: "event" } }

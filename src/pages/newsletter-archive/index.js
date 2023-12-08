@@ -110,9 +110,9 @@ export const pageQuery = graphql`
   query {
     allMarkdownRemark(
       filter: { fields: { sourceInstanceName: { eq: "newsletter" } } }
-      sort: { fields: [frontmatter___date], order: ASC }
+      sort: {frontmatter: {date: ASC}}
     ) {
-      group(field: fields___year) {
+      group(field: {fields: {year: SELECT}}) {
         fieldValue
         totalCount
         edges {

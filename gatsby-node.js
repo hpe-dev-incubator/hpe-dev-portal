@@ -252,7 +252,7 @@ exports.createPages = async ({ graphql, actions }) => {
       {
         allMarkdownRemark(
           filter: { frontmatter: { disable: { ne: true } } }
-          sort: { fields: [frontmatter___date], order: DESC }
+          sort: {frontmatter: {date: DESC}}
           limit: 1000
         ) {
           edges {
@@ -272,7 +272,7 @@ exports.createPages = async ({ graphql, actions }) => {
         }
         tagsGroup: allMarkdownRemark(limit: 2000,
           filter:{frontmatter:{disable:{ne:true}}}) {
-          group(field: frontmatter___tags) {
+          group(field: {frontmatter: {tags: SELECT}}) {
             fieldValue
           }
         }
@@ -310,10 +310,10 @@ exports.createPages = async ({ graphql, actions }) => {
           });
         } else if (post.node.fields.sourceInstanceName === 'platform') {
           const { sourceInstanceName, slug } = post.node.fields;
-          console.log(
-            `Create pages /${sourceInstanceName}${slug} from ${slug}`,
-          );
-          console.log('------------------------------');
+          // console.log(
+          //   `Create pages /${sourceInstanceName}${slug} from ${slug}`,
+          // );
+          // console.log('------------------------------');
           createPage({
             path: `/${sourceInstanceName}${slug}`,
             component: platform,
@@ -324,10 +324,10 @@ exports.createPages = async ({ graphql, actions }) => {
           });
         } else if (post.node.fields.sourceInstanceName === 'greenlake') {
           const { sourceInstanceName, slug } = post.node.fields;
-          console.log(
-            `Create pages /${sourceInstanceName}${slug} from ${slug}`,
-          );
-          console.log('------------------------------');
+          // console.log(
+          //   `Create pages /${sourceInstanceName}${slug} from ${slug}`,
+          // );
+          // console.log('------------------------------');
           createPage({
             path: `/${sourceInstanceName}${slug}`,
             component: platform,
@@ -338,10 +338,10 @@ exports.createPages = async ({ graphql, actions }) => {
           });
         } else if (post.node.fields.sourceInstanceName === 'event') {
           const { sourceInstanceName, slug } = post.node.fields;
-          console.log(
-            `Create pages /${sourceInstanceName}${slug} from ${slug}`,
-          );
-          console.log('------------------------------');
+          // console.log(
+          //   `Create pages /${sourceInstanceName}${slug} from ${slug}`,
+          // );
+          // console.log('------------------------------');
           createPage({
             path: `/${sourceInstanceName}${slug}`,
             component: event,
@@ -352,10 +352,10 @@ exports.createPages = async ({ graphql, actions }) => {
           });
         } else if (post.node.fields.sourceInstanceName === 'newsletter') {
           const { sourceInstanceName, slug } = post.node.fields;
-          console.log(
-            `Create pages /${sourceInstanceName}${slug} from ${slug}`,
-          );
-          console.log('------------------------------');
+          // console.log(
+          //   `Create pages /${sourceInstanceName}${slug} from ${slug}`,
+          // );
+          // console.log('------------------------------');
           createPage({
             path: `/${sourceInstanceName}${slug}`,
             component: newsletter,
@@ -366,10 +366,10 @@ exports.createPages = async ({ graphql, actions }) => {
           });
         } else if (post.node.fields.sourceInstanceName === 'campaign') {
           const { sourceInstanceName, slug } = post.node.fields;
-          console.log(
-            `Create pages /${sourceInstanceName}${slug} from ${slug}`,
-          );
-          console.log('------------------------------');
+          // console.log(
+          //   `Create pages /${sourceInstanceName}${slug} from ${slug}`,
+          // );
+          // console.log('------------------------------');
           createPage({
             path: `/${sourceInstanceName}${slug}`,
             component: campaignTemplate,
@@ -380,10 +380,10 @@ exports.createPages = async ({ graphql, actions }) => {
           });
         } else if (post.node.fields.sourceInstanceName === 'role') {
           const { sourceInstanceName, slug } = post.node.fields;
-          console.log(
-            `Create pages /${sourceInstanceName}${slug} from ${slug}`,
-          );
-          console.log('------------------------------');
+          // console.log(
+          //   `Create pages /${sourceInstanceName}${slug} from ${slug}`,
+          // );
+          // console.log('------------------------------');
           createPage({
             path: `/${sourceInstanceName}${slug}`,
             component: roleTemplate,
@@ -394,10 +394,10 @@ exports.createPages = async ({ graphql, actions }) => {
           });
         } else if (post.node.fields.sourceInstanceName === 'use-cases') {
           const { sourceInstanceName, slug } = post.node.fields;
-          console.log(
-            `Create pages /${sourceInstanceName}${slug} from ${slug}`,
-          );
-          console.log('------------------------------');
+          // console.log(
+          //   `Create pages /${sourceInstanceName}${slug} from ${slug}`,
+          // );
+          // console.log('------------------------------');
           createPage({
             path: `/${sourceInstanceName}${slug}`,
             component: useCasesTemplate,

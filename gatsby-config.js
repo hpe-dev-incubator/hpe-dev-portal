@@ -1,5 +1,5 @@
-const remark = require('remark');
-const strip = require('strip-markdown');
+const remark = import('remark');
+const strip = import('strip-markdown');
 require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 });
@@ -28,7 +28,7 @@ const paginatedCollection = (name, tag) => {
       {
         allMarkdownRemark(filter: {fields: {sourceInstanceName: {eq: "blog"}
       }, frontmatter: {disable:{ne: true},tags: {eq: "${tag}"}}},
-        sort: {fields: [frontmatter___date], order: DESC}) {
+        sort: {frontmatter: {date: DESC}}) {
           nodes {
             id
             fields {
@@ -230,8 +230,9 @@ module.exports = {
               wrapperStyle: 'margin-bottom: 1.0725rem',
             },
           },
-          'gatsby-remark-copy-linked-files',
           'gatsby-plugin-catch-links',
+          'gatsby-remark-copy-linked-files',
+       
         ],
       },
     },
@@ -274,7 +275,47 @@ module.exports = {
     //     },
     //   },
     // },
-    'gatsby-plugin-feed',
+    {
+      resolve: 'gatsby-plugin-feed',
+      options:{
+        feeds: [
+          {
+            serialize: ({ query: { site, allMarkdownRemark } }) => {
+              return allMarkdownRemark.nodes.map(node => {
+                return Object.assign({}, node.frontmatter, {
+                  description: node.excerpt,
+                  date: node.frontmatter.date,
+                  url: site.siteMetadata.siteUrl + node.fields.slug,
+                  guid: site.siteMetadata.siteUrl + node.fields.slug,
+                  custom_elements: [{ "content:encoded": node.html }],
+                })
+              })
+            },
+            query: `
+              {
+                allMarkdownRemark(
+                  sort: {frontmatter: {date: DESC}}
+                ) {
+                  nodes {
+                    excerpt
+                    html
+                    fields {
+                      slug
+                    }
+                    frontmatter {
+                      title
+                      date
+                    }
+                  }
+                }
+              }
+            `,
+            output: "/rss.xml",
+            title: "Your Site's RSS Feed",
+          },
+        ],
+      }
+    },
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
@@ -304,7 +345,7 @@ module.exports = {
         {
           allMarkdownRemark(filter: {fields: {sourceInstanceName: {eq: "blog"}
         }, frontmatter: {disable:{ne: true},featuredBlog: {ne: true}}},
-          sort: {fields: [frontmatter___date], order: DESC}) {
+          sort: {frontmatter: {date: DESC}}) {
             nodes {
               id
               fields {
@@ -376,7 +417,7 @@ module.exports = {
           "cray",
           "swarm-learning",
           "hpe-nonstop"
-          ]}}}, sort: {fields: [frontmatter___date], order: DESC}) {
+          ]}}}, sort: {frontmatter: {date: DESC}}) {
             nodes {
               id
               fields {
@@ -455,7 +496,7 @@ module.exports = {
               "ilorest",
               "iLOrest",
               "ilo-restful-api" 
-              ]}}}, sort: {fields: [frontmatter___date], order: DESC}) {
+              ]}}}, sort: {frontmatter: {date: DESC}}) {
               nodes {
                 id
                 fields {

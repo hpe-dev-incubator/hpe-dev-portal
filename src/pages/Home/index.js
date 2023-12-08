@@ -216,7 +216,7 @@ export const pageQuery = graphql`
         fields: { sourceInstanceName: { eq: "homepanels" } }
         frontmatter: { active: { eq: true } }
       }
-      sort: { fields: [frontmatter___priority] }
+      sort: {frontmatter: {priority: ASC}}
     ) {
       edges {
         node {
@@ -241,7 +241,7 @@ export const pageQuery = graphql`
         fields: { sourceInstanceName: { eq: "opensource" } }
         frontmatter: { Featured: { eq: true } }
       }
-      sort: { fields: [frontmatter___priority] }
+      sort: {frontmatter: {priority: ASC}}
     ) {
       edges {
         node {

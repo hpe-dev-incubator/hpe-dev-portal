@@ -129,58 +129,53 @@ RoleTemplate.propTypes = {
 export default RoleTemplate;
 
 export const pageQuery = graphql`
-  query RoleBySlug($slug: String!, $tagRE: String!) {
-    site {
-      siteMetadata {
-        title
-        author
-      }
-    }
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      id
-      excerpt(pruneLength: 160)
-      rawMarkdownBody
-      frontmatter {
-        title
-        version
-        description
-        image
-      }
-      fields {
-        slug
-      }
-    }
-    blogs: allMarkdownRemark(
-      limit: 2000
-      sort: { fields: [frontmatter___date], order: DESC }
-      filter: {
-        frontmatter: { tags: { regex: $tagRE } }
-        fields: { sourceInstanceName: { eq: "blog" } }
-      }
-    ) {
-      totalCount
-      edges {
-        node {
-          fields {
-            slug
-            sourceInstanceName
-          }
-          frontmatter {
-            title
-            author
-            date
-            authorimage
-          }
-          excerpt(format: MARKDOWN)
-        }
-      }
-    }
-    aside: markdownRemark(
-      frontmatter: { tags: { regex: $tagRE }, isAside: { eq: true } }
-    ) {
-      id
-      excerpt
-      rawMarkdownBody
+query RoleBySlug($slug: String!, $tagRE: String!) {
+  site {
+    siteMetadata {
+      title
+      author
     }
   }
+  markdownRemark(fields: {slug: {eq: $slug}}) {
+    id
+    excerpt(pruneLength: 160)
+    rawMarkdownBody
+    frontmatter {
+      title
+      version
+      description
+      image
+    }
+    fields {
+      slug
+    }
+  }
+  blogs: allMarkdownRemark(
+    limit: 2000
+    sort: {frontmatter: {date: DESC}}
+    filter: {frontmatter: {tags: {regex: $tagRE}}, fields: {sourceInstanceName: {eq: "blog"}}}
+  ) {
+    totalCount
+    edges {
+      node {
+        fields {
+          slug
+          sourceInstanceName
+        }
+        frontmatter {
+          title
+          author
+          date
+          authorimage
+        }
+        excerpt(format: MARKDOWN)
+      }
+    }
+  }
+  aside: markdownRemark(frontmatter: {tags: {regex: $tagRE}, isAside: {eq: true}}) {
+    id
+    excerpt
+    rawMarkdownBody
+  }
+}
 `;
