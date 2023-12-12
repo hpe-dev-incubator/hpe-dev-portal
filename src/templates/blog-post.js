@@ -79,7 +79,7 @@ const stripDescription = (markdown) => {
     .process(markdown, (err, file) => {
       text = file.contents;
     });
-  return text.trim();
+  return text?.trim();
 };
 
 function BlogPostTemplate({ data }) {
@@ -267,7 +267,7 @@ export const pageQuery = graphql`
     }
     post: markdownRemark(fields: { slug: { eq: $slug } }) {
       id
-      excerpt(format: MARKDOWN, pruneLength: 160)
+      excerpt(format: PLAIN, pruneLength: 160)
       html
       rawMarkdownBody
       frontmatter {
@@ -294,7 +294,7 @@ export const pageQuery = graphql`
             slug
             sourceInstanceName
           }
-          excerpt(format: MARKDOWN)
+          excerpt(format: PLAIN)
           frontmatter {
             title
             date
