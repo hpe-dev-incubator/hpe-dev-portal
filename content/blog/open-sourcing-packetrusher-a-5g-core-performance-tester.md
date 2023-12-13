@@ -1,5 +1,5 @@
 ---
-title: "Open-sourcing PacketRusher: a 5G Core performance tester"
+title: "Open-sourcing PacketRusher: A 5G Core performance tester"
 date: 2023-12-13T09:44:43.865Z
 author: Valentin D'Emmanuele
 authorimage: /img/profile.png
