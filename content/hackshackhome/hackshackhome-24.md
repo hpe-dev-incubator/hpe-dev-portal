@@ -1,6 +1,6 @@
 ---
 title: Exploring HPE GreenLake Platform APIs through use cases
-active: true
+active: false
 fit: contain
 path: https://hpe.zoom.us/webinar/register/2817007334744/WN_QWAMDQY2QuyY3h-suXACsA
 imageBackground: white
