@@ -48,7 +48,7 @@ Open this [starting code](https://codesandbox.io/s/grommet-theme-toggle-0starter
 
 ### Development Environment
 
-For this tutorial, I’m using [Codesandbox](https://codesandbox.io/) as the development environment. [Codesandbox](https://codesandbox.io/)  presents the user with: 
+For this tutorial, I’m using [Codesandbox](https://codesandbox.io/) as the development environment. Codesandbox  presents the user with: 
 
 * An interface for the project’s file and directory structure
 * A text editor for editing files
