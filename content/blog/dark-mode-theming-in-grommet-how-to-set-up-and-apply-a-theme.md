@@ -1,5 +1,5 @@
 ---
-title: "Dark Mode Theming in Grommet: How to set up and apply a theme"
+title: "Dark Mode Theming in Grommet - Part 1: How to set up and apply a theme"
 date: 2020-10-14T07:50:10.733Z
 featuredBlog: false
 priority: null
