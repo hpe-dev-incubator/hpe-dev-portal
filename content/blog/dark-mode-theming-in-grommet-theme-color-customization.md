@@ -1,5 +1,5 @@
 ---
-title: "Dark Mode Theming in Grommet: Theme color customization"
+title: "Dark Mode Theming in Grommet - Part 3: Theme color customization"
 date: 2023-12-15T15:45:13.046Z
 featuredBlog: false
 priority: null
