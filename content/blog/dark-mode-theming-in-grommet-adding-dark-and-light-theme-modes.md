@@ -1,6 +1,6 @@
 ---
 title: "Dark Mode Theming in Grommet - Part 2: Adding dark and light theme modes"
-date: 2020-10-21T12:49:17.679Z
+date: 2023-12-15T15:45:57.380Z
 featuredBlog: false
 priority: null
 author: Matt Glissmann
