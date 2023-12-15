@@ -1,6 +1,6 @@
 ---
 title: "Dark Mode Theming in Grommet: Theme color customization"
-date: 2020-10-28T13:39:20.480Z
+date: 2023-12-15T15:45:13.046Z
 featuredBlog: false
 priority: null
 author: Matt Glissmann
