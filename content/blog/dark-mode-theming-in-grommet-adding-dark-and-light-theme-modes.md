@@ -39,7 +39,7 @@ In App.js:
 Add the ***[themeMode](https://v2.grommet.io/grommet#themeMode)*** prop to the `<Grommet>` component and set its value to `"dark"`. The value referenced by `themeMode` specifies whether Grommet should use the dark or light versions of the theme.
 
 ```javascript
-  <Grommet full theme={theme} themeMode="dark">
+  <Grommet full theme={grommet} themeMode="dark">
 ```
 
 This should result in:
@@ -94,7 +94,7 @@ Modify the button’s `onClick` handler to toggle `darkMode` between `true` and 
 Next, replace `themeMode`’s value to be “dark” when `darkMode` is true, and “light” when `darkMode` is false.
 
 ```javascript
-<Grommet full theme={theme} themeMode={darkMode ? "dark" : "light"} >
+<Grommet full theme={grommet} themeMode={darkMode ? "dark" : "light"} >
 ```
 
 The theme mode toggling should be good to go. Give the toggle button a few clicks!
@@ -151,4 +151,4 @@ As quick review, here’s what we’ve done to modify the app:
    
 * Added a `<Button>` to serve as control to toggle the theme mode by toggling the state of `darkMode`.
    
-* Lastly, made the app interface a bit more interesting to demonstrate how various components are affected by toggling the `themeMode`.That’s it for Part 2! In [Part 3](https://developer.hpe.com/blog/dark-mode-theming-in-grommet-theme-color-customization/), I’ll demonstrate how to customize a theme with custom dark and light mode colors. Don’t forget to check back at the HPE DEV blog to catch [Part 3](https://developer.hpe.com/blog/dark-mode-theming-in-grommet-theme-color-customization/) of this series. Again, if you have any questions, please feel free to reach out to me and others in the Grommet group on our Slack channel.
+* Lastly, made the app interface a bit more interesting to demonstrate how various components are affected by toggling the `themeMode`. That’s it for Part 2! In [Part 3](https://developer.hpe.com/blog/dark-mode-theming-in-grommet-theme-color-customization/), I’ll demonstrate how to customize a theme with custom dark and light mode colors. Don’t forget to check back at the HPE DEV blog to catch [Part 3](https://developer.hpe.com/blog/dark-mode-theming-in-grommet-theme-color-customization/) of this series. Again, if you have any questions, please feel free to reach out to me and others in the Grommet group on our Slack channel.
