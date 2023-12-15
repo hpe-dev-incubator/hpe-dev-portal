@@ -148,4 +148,4 @@ Your code and resulting app should resemble this [Codesandbox](https://codesandb
 
 At this point, you now have an understanding for how to apply a theme to a Grommet app. This is the foundation from which we will build custom theming. In my next post, I will show you how to add dark/light theming and give users control over toggling between theme modes. In my final post, I will wrap up with a how to customize a theme with custom dark and light mode colors.
 
-Stay tuned to the [HPE DEV blog](/blog) to catch Parts 2 and 3 of this series. If you have any questions, please feel free to reach out to me and others in the Grommet group on our [Slack channel](https://app.slack.com/client/T04LMHMUT/C04LMHN59).
+Stay tuned to the [HPE DEV blog](/blog) to catch Parts [2](https://developer.hpe.com/blog/dark-mode-theming-in-grommet-adding-dark-and-light-theme-modes/) and [3](https://developer.hpe.com/blog/dark-mode-theming-in-grommet-theme-color-customization/) of this series. If you have any questions, please feel free to reach out to me and others in the Grommet group on our [Slack channel](https://app.slack.com/client/T04LMHMUT/C04LMHN59).
