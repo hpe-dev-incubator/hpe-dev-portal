@@ -179,7 +179,7 @@ Then, add the line `const theme = deepMerge(grommet, acme)`. The imported `deepM
 
 ```javascript
 import React from "react";
-import { Grommet, Anchor, Box, Button, Heading, Paragraph } from "grommet";
+import { Grommet, grommet, Anchor, Box, Button, Heading, Paragraph } from "grommet";
 import { deepMerge } from "grommet/utils";
 
 import { acme } from "./acme-theme";
