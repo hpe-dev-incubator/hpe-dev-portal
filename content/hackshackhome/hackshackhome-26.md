@@ -1,7 +1,7 @@
 ---
 title: Getting Started with Aruba Central automation
 fit: contain
-path: https://developer.hpe.com
+path: https://hpe.zoom.us/webinar/register/2517026430853/WN__9e84eGrRdO5uXAUAeuF3A
 imageBackground: white
 description: "February 28, 2024: Learn how to configure, manage, and retrieve
   information using the various automation interfaces of Aruba Central and view
