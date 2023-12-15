@@ -1,5 +1,5 @@
 ---
-title: "Dark Mode Theming in Grommet: Adding dark and light theme modes"
+title: "Dark Mode Theming in Grommet - Part 2: Adding dark and light theme modes"
 date: 2020-10-21T12:49:17.679Z
 featuredBlog: false
 priority: null
