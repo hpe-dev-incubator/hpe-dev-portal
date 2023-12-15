@@ -124,7 +124,7 @@ export default App;
 
 # Applying a Theme
 
-To provide some initial styling, I’ll apply the `grommet` theme. In Part 3 of this series, I will show you how to customize and incorporate a custom theme.
+To provide some initial styling, I’ll apply the `grommet` theme. In [Part 3](https://developer.hpe.com/blog/dark-mode-theming-in-grommet-theme-color-customization/) of this series, I will show you how to customize and incorporate a custom theme.
 
 In App.js, import and apply the Grommet theme:
 
