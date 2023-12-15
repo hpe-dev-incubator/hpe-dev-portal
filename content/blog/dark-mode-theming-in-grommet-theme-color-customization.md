@@ -209,6 +209,6 @@ As review, here’s how the app was modified:
 
 Now that you have seen how easy it is to apply a theme to Grommet, set and toggle the theme’s light/dark modes, and even start applying custom colors to your own theme, here are some great next steps you can take:
 
-* Check out Grommet’s Theme Designer (Beta) and other Grommet Resourre﻿
+* Check out [Grommet’s Theme Designer](https://theme-designer.grommet.io/) (Beta) and other [Grommet Resources](https://developer.hpe.com/platform/grommet/home/).
 * Explore Grommet’s other theme properties which can be customized.
 * Create and apply your own theme to your own project, then share it on Grommet’s [\#i-made-this](https://grommet.slack.com/archives/CG25TE0KZ) Slack channel for community members to enjoy.
