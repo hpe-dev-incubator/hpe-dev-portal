@@ -1,7 +1,7 @@
 ---
 title: "APIs for HPE GreenLake for block storage and next-gen platforms "
 fit: contain
-path: https://developer.hpe.com
+path: https://hpe.zoom.us/webinar/register/2317026434715/WN_K7U3uifFQqaibyjqyHVyQA
 imageBackground: white
 description: "March 27, 2024: Get introduced to HPE GreenLake for block storage
   automation using Data Services Cloud Console APIs. Learn how to use them to
