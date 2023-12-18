@@ -1,6 +1,6 @@
 ---
 title: "Open-sourcing PacketRusher: A 5G Core performance tester"
-date: 2023-12-13T09:44:43.865Z
+date: 2023-12-18T10:04:11.852Z
 author: Valentin D'Emmanuele
 authorimage: /img/profile.png
 thumbnailimage: /img/thumbnail.png
@@ -34,18 +34,18 @@ Before I show you how PacketRusher works, it's important to have an understandin
 
 ![High-level diagram of a 5G deployment](/img/high-level-diagram-of-a-5g-deployment.png "High-level diagram of a 5G deployment")
 
-To summarize, there are essentially three main components:
-- User equipment, which is any 5G device used directly by a user to communicate. For example, a smartphone or an IoT device.
-- The gNodeB, which is the radio used for wireless communication between the User Equipment and the 5G network core.
-- And finally, the 5G network core itself, which manages all mobile network functionalities. This is the component that will manage phone authentication in the network, quality of service, routing to the data network, and so on...
+To summarize, there are essentially three main components:   
+- User equipment, which is any 5G device used directly by a user to communicate. For example, a smartphone or an IoT device.   
+- The gNodeB, which is the radio used for wireless communication between the User Equipment and the 5G network core.   
+- And finally, the 5G network core itself, which manages all mobile network functionalities. This is the component that will manage phone authentication in the network, quality of service, routing to the data network, and so on...   
 
 
 ![﻿High-level diagram of the PacketRusher's architecture and its interaction with a 5G Core's AMF and UPF](/img/packetrusher-architecture.png "﻿High-level diagram of the PacketRusher's architecture and its interaction with a 5G Core's AMF and UPF")
 
-PacketRusher's behavior is quite simple; it essentially simulates two of the three major components of a 5G network: 
-- the User Equipments, i.e. the phones
-- and the gNodeB, i.e. the antennas.
-- At the same time, it connects to the 5G Core via its external interfaces, as if it were a black box.
+PacketRusher's behavior is quite simple; it essentially simulates two of the three major components of a 5G network:   
+- the User Equipments, i.e. the phones   
+- and the gNodeB, i.e. the antennas.   
+- At the same time, it connects to the 5G Core via its external interfaces, as if it were a black box.   
 PacketRusher simulates both components en masse, which means it can simulate several user devices and gNodeBs at the same time.
 
 ## Community contributions
