@@ -41,7 +41,7 @@ The environment provides:
 * Profiling and performance optimization tools    
 
 
-Learn more about the HPE Cray Programming Environment components
+Learn more about the HPE Cray Programming Environment components by exploring the [CPE documentation](https://cpe.ext.hpe.com/docs/).
 
 ## HPE Cray user environment
 
