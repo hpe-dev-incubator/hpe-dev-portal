@@ -7,7 +7,7 @@ author: Matt Glissmann
 authorimage: /img/blogs/Avatar1.svg
 thumbnailimage: null
 tags:
-  - Grommet
+  - grommet
   - theme
   - mode
   - opensource
