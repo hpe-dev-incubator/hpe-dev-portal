@@ -6,10 +6,11 @@ authorimage: /img/gshcopy.jpg
 thumbnailimage: null
 disable: false
 tags:
-  - AI
-  - opensource AI
-  - Mistral
-  - Mixtral 7x8B
+  - "#LLM"
+  - "#opensource AI"
+  - "#Mixtral 7x8B"
+  - "#Mistral"
+  - "#AI"
 ---
 On 8th Dec, Mistral AI releases Mixtral 8x7B, a high-quality sparse mixture of experts model (SMoE) with open weights (ref: [Mistral AI](https://mistral.ai/news/mixtral-of-experts/)). What is this Mixtral 8x7B ? In very simple language, basically, it takes 8 x Mixtral 7B models and combined them and make one model. It is a mixture of expert model (MOE). What is a Mixture of Expert Model? Extract from this [paper](https://arxiv.org/pdf/2305.14705.pdf), a MOE models build upon the observation that language models can be decomposed into smaller, specialized sub-models, or "experts", that focus on distinct aspects of the input data, thereby enabling more efficient computation and resource allocation. Why is it popular? Because such AI Models with sparsely activated MOE significantly reduce the computational cost of LLMs.
 
