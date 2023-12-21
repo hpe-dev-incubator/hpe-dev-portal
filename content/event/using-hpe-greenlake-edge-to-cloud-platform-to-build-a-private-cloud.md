@@ -11,5 +11,5 @@ width: large
 
 January 24, 2024
 
-Learn how to onboard and manage your HPE hardware devices onto the HPE GreenLake edge-to-cloud platform using RESTful API commands and the web console. Then learn how HPE GreenLake for Private Cloud Business Edition enables you to create and manage a private cloud on your own hardware.
+Learn how to onboard & manage your HPE hardware devices with the HPE GreenLake edge-to-cloud platform and how to configure and use RESTful API commands to automate IT management via the platform. Get to view a demo on using the web console to access an array of integrated services such as HPE GreenLake for Private Cloud Business Edition.
 
