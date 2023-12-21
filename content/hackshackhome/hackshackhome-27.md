@@ -10,6 +10,6 @@ description: "March 27, 2024: Get introduced to HPE GreenLake for block storage
   how they can be integrated into custom-built applications."
 background: rgba(0, 86, 122, 0.8);
 label: Register Now!
-priority: 3
+priority: 4
 image: /img/event-meetups-newlogo-400x400.png
 ---
