@@ -1,6 +1,6 @@
 ---
 title: "APIs for HPE GreenLake for block storage and next-gen platforms "
-active: true
+active: false
 fit: contain
 path: https://hpe.zoom.us/webinar/register/2317026434715/WN_K7U3uifFQqaibyjqyHVyQA
 imageBackground: white
