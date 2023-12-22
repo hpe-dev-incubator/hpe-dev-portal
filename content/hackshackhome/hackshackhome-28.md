@@ -1,7 +1,9 @@
 ---
 title: Using HPE GreenLake edge-to-cloud platform to build a private cloud
+active: true
 fit: contain
-path: https://developer.hpe.com
+link: ""
+path: https://hpe.zoom.us/webinar/register/9117032307627/WN_KA1t3_QOSoi4cL-_EjPkXg
 imageBackground: white
 description: "January 24, 2024: Join this session to learn how to onboard and
   manage your HPE hardware devices with the HPE GreenLake edge-to-cloud platform
