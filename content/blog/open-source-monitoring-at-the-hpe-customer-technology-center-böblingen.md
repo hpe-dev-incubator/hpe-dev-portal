@@ -4,11 +4,7 @@ date: 2024-01-31T08:39:46.474Z
 author: "Thomas Beha "
 authorimage: /img/tb10092023.jpg
 disable: false
-tags:
-  - ILO
-  - Redfish
-  - Prometheus
-  - Grafana
+tags: []
 ---
 # The Challenge
 
@@ -174,7 +170,7 @@ def get_server_urls( login_account, login_password, server, lfile):
 
 ## g﻿et_server_data
 
-<!--StartFragment-->The get_server_data routine is using the entry of  one of the server_urls directory together with the Prometheus user information to retrieve the power and thermal data as well as some general system information data. The captured data is packed into a server_data directory and returned to the main program.<!--EndFragment-->
+The get_server_data routine is using the entry of  one of the server_urls directory together with the Prometheus user information to retrieve the power and thermal data as well as some general system information data. The captured data is packed into a server_data directory and returned to the main program.
 
 ```
 def get_server_data( login_account, login_password, server, lfile):
@@ -208,7 +204,7 @@ def get_server_data( login_account, login_password, server, lfile):
 
 ## d﻿isplay_results
 
-<!--StartFragment-->The display_results routine is taking the server_metrics retrieved by the get_server_data routine and put it into the corresponding Prometheus node gauges.<!--EndFragment-->
+The display_results routine is taking the server_metrics retrieved by the get_server_data routine and put it into the corresponding Prometheus node gauges.
 
 ```
 def display_results( node, inode, server_metrics, server):
@@ -224,3 +220,7 @@ def display_results( node, inode, server_metrics, server):
             node.labels(cn,server['Rack'],'Temperature',temperature["Name"]).set(temperature['ReadingCelsius'])
     return 0
 ```
+
+The complete most current ILO Prometheus connector (iloPromConnector.v4.3.py at the time of writing this blog) together with a routine (createILOcreadentials.v1.0.py) to generate XML-input file with encrypted user credentials is available on [Github](https://github.com/tbeha/iloPrometheus).
+
+# V﻿isualize the data
