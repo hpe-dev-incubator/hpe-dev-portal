@@ -66,6 +66,8 @@ Testing the initial Prometheus connector showed, that I can consolidate multiple
 
 The first part of the connector is to read the input data, i.e. the ILO ip addresses and the ILO username and password. Followed by retrieving the correct URLs for each monitored server and store it in a Python directory.  Next the script starts the http server and the corresponding Prometheus counters and gauges. Having completed these preparation steps, the script enters an endless loop that first captures the start time of the current iteration, second retrieves the data from the monitored server, third displays the captured data and waits until the current monitoring intervall is completed. Additionally, I have added that at least once per day the input data and monitor URLs are refreshed. This allowed me to change the list of monitored systems without starting and stopping the script. I just needed to edit the input data file to adjust the list of monitored systems.
 
+## Main routine
+
 The Python main routine of the ILO Prometheus connector is then as simple as (I removed some of the log commands to improve the readability):
 
 ```
@@ -104,4 +106,121 @@ if __name__ == "__main__":
             start0 = t1
             input = getServerList() 
             monitor_urls = get_server_urls(input['user'], input['password'], input['server'], input['lfile'])
+```
+
+As you can see, I used four Python functions within the main routine:
+
+* getServerList
+* get_server_urls
+* get_server_data
+* display_results
+
+The first one - getServerList - is just reading the input data out of an XML file. Since this is a pretty standard task in Python I do not want to discuss this function here further. It should be sufficient to know, that it is reading the list of server IPs and additional runtime parameters (username, password, monitoring intervall, …) into a Python directory, that is used in the subsequent parts of the script. I want to focus on the other three functions, that are more specific to the ILO Prometheus connector.
+
+## g﻿et_server_urls
+
+The get_server_urls routine is using the list of ILO IP addresses and if the ILO is alive it is creating a Redfish client object for this ILO and reads the ILO resource directory. The URLs for retrieved in the resource directory for the thermal, power and general computer system information are stored for in server_urls directory. The server_urls directory is the return value of this function.
+
+```
+def get_server_urls( login_account, login_password, server, lfile):
+
+    server_urls={}
+    if LINUX:
+        cmd='ping -c 2 '
+    log=logopen(lfile)
+    logwriter(log,'get_server_urls')
+    for s in server:
+        ilo_url="https://"+s['ilo']
+        s["url"]=ilo_url
+        if LINUX:
+            response=os.system(cmd+s['ilo'])   # works on Linux without root priviliges
+        else:
+            response = ping(address=s['ilo'],count=1)  # requires root priviliges on Linux
+            if(response.is_alive):
+                response = 0
+            else:
+                response = 256
+        if (response == 0):        
+            try:
+                # Create a Redfish client object
+                REDFISHOBJ = redfish.redfish_client(base_url=ilo_url, username=login_account, password=login_password)  
+                # Login with the Redfish client
+                REDFISHOBJ.login()
+                s["redfish"]=REDFISHOBJ
+                resource_instances = get_resource_directory(REDFISHOBJ, lfile)
+                for instance in resource_instances:
+                    if '#ComputerSystem.' in instance ['@odata.type']:
+                        s["ComputerSystem"]=instance['@odata.id'] 
+                    if '#Power.' in instance ['@odata.type']:
+                        s["Power"]=instance['@odata.id'] 
+                    if '#Thermal.' in instance ['@odata.type']:
+                        s["Thermal"]=instance['@odata.id']
+                if len(s) > 4:
+                    server_urls[s['ilo']]=s
+                    logwriter(log,s['ilo']+' completed')
+            except Exception as ex:
+                logwriter(log,'Exception - get_server_urls: '+s['ilo'])
+                logwriter(log,str(ex.__context__))
+                if len(s) > 4:
+                    server_urls[s['ilo']]=s
+                pass
+        else:
+            logwriter(log,'Exception - ILO is not reachable: '+s['ilo'])
+    logclose(log)
+    return server_urls
+```
+
+
+
+## g﻿et_server_data
+
+<!--StartFragment-->The get_server_data routine is using the entry of  one of the server_urls directory together with the Prometheus user information to retrieve the power and thermal data as well as some general system information data. The captured data is packed into a server_data directory and returned to the main program.<!--EndFragment-->
+
+```
+def get_server_data( login_account, login_password, server, lfile):
+
+    server_data={}
+    try:
+        REDFISHOBJ = server["redfish"]
+        # System Data
+        server_data['System'] = REDFISHOBJ.get(server["ComputerSystem"]).obj
+        # Power Data
+        uri = REDFISHOBJ.get(server["Power"]).obj.Oem.Hpe['Links']['PowerMeter']['@odata.id']
+        server_data["PowerMeter"] = REDFISHOBJ.get(uri).obj
+        # Temperatures
+        server_data['Temperatures'] = REDFISHOBJ.get(server["Thermal"]).obj["Temperatures"]
+        return server_data;
+    
+    except Exception as ex:
+        sys.stderr.write("ERROR during get_server_date: "+server["url"])
+        if ex.status == 401:
+            REDFISHOBJ = redfish.redfish_client(base_url=server["url"], username=login_account, password=login_password)
+            REDFISHOBJ.login()
+            server["redfish"] = REDFISHOBJ
+        log=logopen(lfile)
+        logwriter(log,'Exception')
+        logwriter(log,str(ex.__context__))
+        logclose(log)        
+        pass
+```
+
+
+
+## d﻿isplay_results
+
+<!--StartFragment-->The display_results routine is taking the server_metrics retrieved by the get_server_data routine and put it into the corresponding Prometheus node gauges.<!--EndFragment-->
+
+```
+def display_results( node, inode, server_metrics, server):
+    hostname = (server_metrics['System']['HostName']).split('.')[0].replace('-','_')
+    cn = server['ilo']
+    inode.labels(cn).info({"Model":server_metrics['System']["Model"],"Manufacturer":server_metrics['System']["Manufacturer"],"SerialNumber":server_metrics['System']["SerialNumber"],"Hostname":hostname})
+    node.labels(cn,server['Rack'],'Power','State').set(power_state[server_metrics['System']["PowerState"]]) 
+    node.labels(cn,server['Rack'],'Power','Average').set(server_metrics["PowerMeter"]['Average'])           
+    node.labels(cn,server['Rack'],'Power','Maximum').set(server_metrics["PowerMeter"]['Maximum'])
+    node.labels(cn,server['Rack'],'Power','Minimum').set(server_metrics["PowerMeter"]['Minimum'])
+    for temperature in server_metrics['Temperatures']:
+        if temperature['Status']['State'] == 'Enabled': 
+            node.labels(cn,server['Rack'],'Temperature',temperature["Name"]).set(temperature['ReadingCelsius'])
+    return 0
 ```
