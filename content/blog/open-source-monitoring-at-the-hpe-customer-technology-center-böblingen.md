@@ -2,7 +2,7 @@
 title: Open Source Monitoring at the HPE Customer Technology Center Böblingen
 date: 2024-01-31T08:39:46.474Z
 author: "Thomas Beha "
-authorimage: /img/Avatar1.svg
+authorimage: /img/tb10092023.jpg
 disable: false
 ---
 ## **T﻿he Challenge**
