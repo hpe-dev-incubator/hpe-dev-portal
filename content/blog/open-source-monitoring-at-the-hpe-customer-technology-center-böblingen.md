@@ -100,80 +100,40 @@ The first part of the connector is to read the input data, i.e. the ILO ip addre
 
 The Python main routine of the ILO Prometheus connector is then as simple as (I removed some of the log commands to improve the readability):
 
- 
-
-if \_\_name\_\_ == "\_\_main\_\_":
-
-    input = getServerList()    
-
-\# Get the monitoring URLs of the server
-
-    monitor_urls = get_server_urls(input\['user'], input\['password'], input\['server'], input\['lfile'])
-
-\# Start the http_server and the counters, gauges
-
-    start_http_server(input\['port'])
-
-    c = Counter('ilorest_sample','ILO REST sample number')
-
-    node = Gauge('ilorest_node','ILO Node Data',\['nodename','rack','nodemetric','metricdetail'])
-
-    delta = Gauge('ConnectorRuntime','Time required for last data collection in seconds')
-
-    inode = Info('node','Additional Node Info',\['node'])
-
-\# Start the endless loop
-
-    while True:
-
-        t0 = time.time()
-
-        start0 = t0
-
-        c.inc()      
-
-        for server in monitor_urls:
-
-            try:
-
-                server_metrics = get_server_data(input\['user'], input\['password'], monitor_urls\[server], input\['lfile'])
-
-                display_results(node, inode, server_metrics, monitor_urls\[server])
-
-            except Exception as ex:
-
-                log=logopen(input\['lfile'])
-
-                logwriter(log,'Exception')
-
-                logwriter(log,str(ex.\_\_context\_\_))
-
-                logclose(log)
-
-                pass
-
-        t1 = time.time()
-
-        delta.set((t1-t0))
-
-        while ((t1-t0) < input\['mintervall']):
-
-            time.sleep(1.0)
-
-            t1 = time.time()  
-
-\# update once per day the input
-
-        if ( t1 - start0 > 86400):
-
-            start0 = t1
-
-            input = getServerList()
-
-            monitor_urls = get_server_urls(input\['user'], input\['password'], input\['server'], input\['lfile'])
-
- 
-
- 
-
-<!--EndFragment-->
+```
+if __name__ == "__main__":
+    input = getServerList()    
+    # Get the monitoring URLs of the server
+    monitor_urls = get_server_urls(input['user'], input['password'], input['server'], input['lfile'])
+    # Start the http_server and the counters, gauges
+    start_http_server(input['port'])
+    c = Counter('ilorest_sample','ILO REST sample number')
+    node = Gauge('ilorest_node','ILO Node Data',['nodename','rack','nodemetric','metricdetail'])
+    delta = Gauge('ConnectorRuntime','Time required for last data collection in seconds')
+    inode = Info('node','Additional Node Info',['node'])
+    # Start the endless loop
+    while True: 
+        t0 = time.time()
+        start0 = t0
+        c.inc()      
+        for server in monitor_urls:
+            try:
+                server_metrics = get_server_data(input['user'], input['password'], monitor_urls[server], input['lfile'])
+                display_results(node, inode, server_metrics, monitor_urls[server])
+            except Exception as ex:
+                log=logopen(input['lfile'])
+                logwriter(log,'Exception')
+                logwriter(log,str(ex.__context__))
+                logclose(log)
+                pass
+        t1 = time.time()
+        delta.set((t1-t0))
+        while ((t1-t0) < input['mintervall']):
+            time.sleep(1.0)
+            t1 = time.time()   
+        # update once per day the input
+        if ( t1 - start0 > 86400):
+            start0 = t1
+            input = getServerList() 
+            monitor_urls = get_server_urls(input['user'], input['password'], input['server'], input['lfile'])
+```
