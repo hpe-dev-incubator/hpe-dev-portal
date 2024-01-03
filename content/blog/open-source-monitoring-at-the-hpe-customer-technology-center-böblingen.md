@@ -366,3 +366,5 @@ As you can see, I actually used six server exporter (ilo1 up to ilo6) in the CTC
 ![](/img/ctcracktemppower.2.png "CTC Rack Temperature & Power Overview")
 
 # C﻿onclusion
+
+I tried to show my approach on solving a challenge we had in the Customer Technology Center Böblingen by using available API interfaces and building on existing Kubernetes, Prometheus and Grafana knowledge. I decided to write this rather long blog in order to give you all necessary steps I did in detail with the goal to show you what can be done with public APIs, a little bit of Python scripting and the use of open source tools like Prometheus and Grafana. The complete Python script together with sample Grafana dashboards and a Jupyter notebook for the deployment as a Kubernetes service is available at <https://github.com/tbeha/iloPrometheus>.
