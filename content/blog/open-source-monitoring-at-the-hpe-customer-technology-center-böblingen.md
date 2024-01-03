@@ -5,7 +5,11 @@ author: "Thomas Beha "
 authorimage: /img/tb10092023.jpg
 thumbnailimage: /img/ctcracktemppower.small.png
 disable: false
-tags: []
+tags:
+  - ILO
+  - Redfish
+  - Prometheus
+  - Grafana
 ---
 # The Challenge
 
