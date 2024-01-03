@@ -3,6 +3,7 @@ title: Open Source Monitoring at the HPE Customer Technology Center Böblingen
 date: 2024-01-02T15:34:10.449Z
 author: "Thomas Beha "
 authorimage: /img/tb10092023.jpg
+thumbnailimage: /img/ctcracktemppower.small.png
 disable: false
 tags: []
 ---
@@ -360,4 +361,8 @@ So now I need to update the Prometheus config map to make sure, that the server 
       scheme: http
 ```
 
-As you can see, I actually used six server exporter (ilo1 up to ilo6) in the CTC monitoring environment to cover the complete list of server hosted in the CTC. Having the data collected into the Prometheus timeseries database I needed to define some Grafana dashboards to visualize the collected data. I don't want to get here into the details of defining Grafana dashboards - this is well documented in the Grafana documentation. I just want to give you some examples of the dashboards I use:
+As you can see, I actually used six server exporter (ilo1 up to ilo6) in the CTC monitoring environment to cover the complete list of server hosted in the CTC. Having the data collected into the Prometheus timeseries database I needed to define some Grafana dashboards to visualize the collected data. I don't want to get here into the details of defining Grafana dashboards - this is well documented in the Grafana documentation. I just want to give you an example of the dashboards I use:
+
+![](/img/ctcracktemppower.2.png "CTC Rack Temperature & Power Overview")
+
+# C﻿onclusion
