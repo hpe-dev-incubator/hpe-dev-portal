@@ -121,7 +121,7 @@ The first one - *getServerList* - is just reading the input data out of an XML f
 
 ## g﻿et\_server\_urls
 
-The get\_server_urls routine is using the list of ILO IP addresses to gather the correct URLs out of the Redfish resource directory. If the ILO is alive  a Redfish client object for this ILO is created and the redfish resource directory is read. The client object is stored together with the URLs for the thermal, power and computer system information in the python directory server_urls, which is the return value of the routine.
+The get\_server_urls routine is using the list of ILO IP addresses to gather the correct URLs out of the Redfish resource directory. If the ILO is alive  a Redfish client object for this ILO is created and the redfish resource directory is read. The client object is stored together with the URLs for the thermal, power and computer system information in the python directory server\_urls, which is the return value of the routine.
 
 ```python
 def get_server_urls( login_account, login_password, server, lfile):
@@ -172,9 +172,9 @@ def get_server_urls( login_account, login_password, server, lfile):
     return server_urls
 ```
 
-## g﻿et_server_data
+## g﻿et\_server\_data
 
-The get_server_data routine is using the obtained server_urls of one of the monitored server together with the Prometheus user information to retrieve the power and thermal data as well as some general system information data. The captured data is packed into a server_data directory and returned to the main program.
+The get\_server\_data routine is using the obtained server\_urls of one of the monitored server together with the Prometheus user information to retrieve the power and thermal data as well as some general system information data. The captured data is packed into a server\_data directory and returned to the main program.
 
 ```python
 def get_server_data( login_account, login_password, server, lfile):
@@ -204,9 +204,9 @@ def get_server_data( login_account, login_password, server, lfile):
         pass
 ```
 
-## d﻿isplay_results
+## d﻿isplay\_results
 
-The display_results routine is taking the server_data retrieved by the get_server_data routine and put it into the corresponding Prometheus node gauges.
+The display\_results routine is taking the server\_data retrieved by the get\_server\_data routine and put it into the corresponding Prometheus node gauges.
 
 ```python
 def display_results( node, inode, server_metrics, server):
@@ -291,13 +291,13 @@ As you can see the config map contains two data parts: the iloprometheus.key and
 
 T﻿he config map was stored in a YAML-file (iloprom1.yml) and then applied in my Kubernetes environment:
 
-```
+```shell
 kubectl apply -f iloprom1.yml
 ```
 
 With the config map in place, I could define the Kubernetes pod for the HPE Server exporter. The pod is using the iloprometheus:v4.3.1 container image, mounting the config map data to the /opt/prometheus/data directory in the container and is starting the Python script /opt/prometheus/iloPromConnector.v4.3.py.
 
-```
+```shell
 cat << 'EOF' | kubectl apply -f -
 apiVersion: apps/v1
 kind: Deployment
@@ -333,7 +333,7 @@ EOF
 
 After checking that the pod is up and running, I still needed to define a Kubernetes service using this pod/app in order to have at the end the exporter data available for Prometheus.
 
-```
+```shell
 cat << 'EOF' | kubectl apply -f -
 apiVersion: v1
 kind: Service
@@ -355,7 +355,7 @@ EOF
 
 Next, I updated the Prometheus config map to make sure, that the server exporter data is collected and stored in the Prometheus time series database. Hence, I added a job for the server exporter to the existing job list of the Prometheus config map:
 
-```
+```shell
     - job_name: 'iloredfish'
       static_configs:
       - targets: ['ilo1:9091','ilo2:9091','ilo3:9091','ilo4:9091','ilo5:9091','ilo6:9091']
