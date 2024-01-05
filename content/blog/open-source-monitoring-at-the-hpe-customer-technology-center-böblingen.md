@@ -14,7 +14,7 @@ tags:
 ---
 # The challenge
 
-T﻿he HPE Customer Technology Center (CTC) Böblingen is a customer visit center in Germany where a wide range of HPE solutions are demonstrated. The core infrastructure of the CTC is based on HPE SimpliVity. Its performance, capacity and uptime has been monitored for some time using Prometheus and Grafana. You can find the implementation of the HPE SimpliVity-Prometheus exporter described in the [HPE SimpliVity Prometheus connector whitepaper.](https://www.hpe.com/psnow/doc/a50000514enw)  Over time, this monitoring environment was extended with the [HPE array exporter](https://github.com/hpe-storage/array-exporter) for HPE storage arrays (HPE Alletra 6000, HPE Alletra 9000 and HPE Alletra MP).
+T﻿he HPE Customer Technology Center (CTC) Böblingen is a customer visit center in Germany where a wide range of HPE solutions are demonstrated. The core infrastructure of the CTC is based on HPE SimpliVity. Its performance, capacity and uptime has been monitored for some time using Prometheus and Grafana. You can find the implementation of the HPE SimpliVity-Prometheus exporter described in the <a href="https://www.hpe.com/psnow/doc/a50000514enw" target="_blank">HPE SimpliVity Prometheus exporter whitepaper</a>. Over time, this monitoring environment was extended with the <a href="https://github.com/hpe-storage/array-exporter" target="_blank">HPE array exporter</a> for HPE storage arrays (HPE Alletra 6000, HPE Alletra 9000 and HPE Alletra MP).
 
 O﻿ver the last few summers, the CTC lab team was challenged with how to cool the growing infrastructure. The cooling capacity initially planned was no longer sufficient given the new generation servers and storage that were deployed in the CTC. The team found that the lab temperature was rising to a level that caused several incidents where HPE ProLiant servers were automatically shutting down to avoid damages. To remedy this situation, the team looked for a CTC lab temperature warning system that would be easy to implement and would provide a "heads up" of any rise in temperature in the CTC and allow us to shutdown equipment that was not urgently needed for customer demos - ensuring that the booked customer demos would still be able to run. 
 
@@ -24,7 +24,7 @@ Each HPE ProLiant server has a lot of temperature sensors spread across the syst
 
 ![](/img/ilotemperature.png "ILO Temperature Information")
 
-The first sensor, 01-Inlet Ambient temperature, is measuring the inlet temperature at the front of the server and can be used as an indicator of the temperature of the overall CTC environment. Now that I have identified a usable data point an automated reading of the temperature values is needed. Since I already used the the HPE Simplivity REST API to build the HPE SimpliVity-Prometheus exporter used to monitor the core infrastructure, it was only natural that I would look into the [Redfish® iLO RESTful API](https://developer.hpe.com/platform/ilo-restful-api/home/). The Redfish® API ecosystem is an open industry-standard specification (published by the Distributed Management Task Force [DTMF](http://www.dmtf.org/standards/redfish)) and provides remote server provisioning, inventory and monitoring.
+The first sensor, 01-Inlet Ambient temperature, is measuring the inlet temperature at the front of the server and can be used as an indicator of the temperature of the overall CTC environment. Now that I have identified a usable data point an automated reading of the temperature values is needed. Since I already used the the HPE Simplivity REST API to build the HPE SimpliVity-Prometheus exporter used to monitor the core infrastructure, it was only natural that I would look into the <a href="https://developer.hpe.com/platform/ilo-restful-api/home/" target="_blank">Redfish® iLO RESTful API</a>. The Redfish® API ecosystem is an open industry-standard specification (published by the Distributed Management Task Force <a href="http://www.dmtf.org/standards/redfish" target="_blank">DMTF</a> and provides remote server provisioning, inventory and monitoring.
 
 A directory of the available Redfish® resources at an interface can be retrieved with the following RESTful API command: 
 
@@ -32,7 +32,7 @@ A directory of the available Redfish® resources at an interface can be retrieve
 GET {{baseUrl}}/redfish/v1/resourcedirectory
 ```
 
-I used [Postman](https://www.postman.com/) as a developer tool to retrieve and search the resource directory. The above RESTful API comand was used in Postman with a basic username/password authorization at one of the ILOs in the CTC, where the baseUrl is defined as <https://iloIPaddress>. I searched in the obtained resource directory for "thermal" in order to find the correct command to retrieve thermal data:
+I used <a href="https://www.postman.com/" target="_blank">Postman</a> as a developer tool to retrieve and search the resource directory. The above RESTful API comand was used in Postman with a basic username/password authorization at one of the ILOs in the CTC, where the baseUrl is defined as <https://iloIPaddress>. I searched in the obtained resource directory for "thermal" in order to find the correct command to retrieve thermal data:
 
 ![](/img/redfishresourcedirectory.png "Redfish resource directory (Postman output)")
 
@@ -50,7 +50,7 @@ And using this Get command with Postman confirmed that I could get the values of
 
 O﻿nce I had the Prometheus-Grafana based monitoring established in the Customer Technology Center and knew the RESTful command required to retrieve the data I was looking for, the only missing piece was a Prometheus exporter for the HPE ILO interfaces and the according Grafana dashboards. This required me to write another Prometheus exporter - one designed for the HPE ILO interface. I decided to use Python as the programming language for this connector, because I could build on the knowledge gained when I developed the HPE SimpliVity-Prometheus exporter. 
 
-First I had to decide which redfish library I wanted to use - the [DMTF Redfish Python library](https://github.com/DMTF/python-redfish-library) or the [HPE Python Redfish library](https://github.com/HewlettPackard/python-ilorest-library) - as they cannot coexist both in a Python environment. I decided to use the DMTF Redfish Python library, since I didn't need the additional features of the HPE Python Redfish library for my use case. The retrieved data can easily made digestible for Prometheus with the prometheus_client Python library. The additional libraries, that I used are mainly for providing the input data in XML-format (etree library) and for the permanent monitoring loop (time, sys and os library) and logging (datetime library). Hence, I needed the following libraries included in my Python script:
+First I had to decide which redfish library I wanted to use - the <a href="https://github.com/DMTF/python-redfish-library" target="_blank">DMTF Redfish Python Library</a> or the <a href="https://github.com/HewlettPackard/python-ilorest-library" target="_blank">HPE Python Redfish library</a> - as they cannot coexist both in a Python environment. I decided to use the DMTF Redfish Python library, since I didn't need the additional features of the HPE Python Redfish library for my use case. The retrieved data can easily made digestible for Prometheus with the prometheus_client Python library. The additional libraries, that I used are mainly for providing the input data in XML-format (etree library) and for the permanent monitoring loop (time, sys and os library) and logging (datetime library). Hence, I needed the following libraries included in my Python script:
 
 ```python
 from lxml import etree 
@@ -117,15 +117,15 @@ if __name__ == "__main__":
 As you can see, I used four Python functions within the main routine:
 
 * *getServerList*
-* *get\_server\_urls*
-* *get\_server\_data*
-* *display\_results*
+* *get_server_urls*
+* *get_server_data*
+* *display_results*
 
 The first one - *getServerList* - is just reading the input data out of an XML file. Since this is a pretty standard task in Python, I do not want to discuss this function here further. It should be sufficient to know, that it is reading the list of server IPs and additional runtime parameters (username, password, monitoring intervall, …) into a Python directory that is used in the subsequent parts of the script. I want to focus on the other three functions that are more specific to the ILO Prometheus exporter.
 
-## g﻿et\_server\_urls
+## g﻿et_server_urls
 
-The get\_server\_urls routine uses  the list of ILO IP addresses to gather the correct URLs out of the Redfish resource directory. If the ILO is alive  a Redfish client object for this ILO is created and the Redfish resource directory is read. The client object is stored together with the URLs for the thermal, power and computer system information in the python directory server\_urls, which is the return value of the routine.
+The get_server_urls routine uses  the list of ILO IP addresses to gather the correct URLs out of the Redfish resource directory. If the ILO is alive  a Redfish client object for this ILO is created and the Redfish resource directory is read. The client object is stored together with the URLs for the thermal, power and computer system information in the python directory server_urls, which is the return value of the routine.
 
 ```python
 def get_server_urls( login_account, login_password, server, lfile):
@@ -176,9 +176,9 @@ def get_server_urls( login_account, login_password, server, lfile):
     return server_urls
 ```
 
-## g﻿et\_server\_data
+## g﻿et_server_data
 
-The get\_server\_data routine takes the obtained server\_urls of one of the monitored servers together with the Prometheus user information to retrieve the power and thermal data as well as some general system information data. The captured data is packed into a server\_data directory and returned to the main program.
+The get_server_data routine takes the obtained server_urls of one of the monitored servers together with the Prometheus user information to retrieve the power and thermal data as well as some general system information data. The captured data is packed into a server_data directory and returned to the main program.
 
 ```python
 def get_server_data( login_account, login_password, server, lfile):
@@ -208,9 +208,9 @@ def get_server_data( login_account, login_password, server, lfile):
         pass
 ```
 
-## d﻿isplay\_results
+## d﻿isplay_results
 
-The display\_results routine takes the server\_data retrieved by the get\_server\_data routine and puts it into the corresponding Prometheus node gauges.
+The display_results routine takes the server_data retrieved by the get_server_data routine and puts it into the corresponding Prometheus node gauges.
 
 ```python
 def display_results( node, inode, server_metrics, server):
@@ -227,11 +227,11 @@ def display_results( node, inode, server_metrics, server):
     return 0
 ```
 
-The most current and complete HPE ILO Prometheus exporter (iloPromConnector.v4.3.py at the time of writing this blog), together with a routine (createILOcreadentials.v1.0.py) to generate XML-input file with encrypted user credentials, is available on [Github](https://github.com/tbeha/iloPrometheus).
+The most current and complete HPE ILO Prometheus exporter (iloPromConnector.v4.3.py at the time of writing this blog), together with a routine (createILOcreadentials.v1.0.py) to generate XML-input file with encrypted user credentials, is available on  <a href="https://github.com/tbeha/iloPrometheus" target="_blank">Github</a>.
 
 # V﻿isualize the data
 
-The CTC monitoring environment uses Prometheus as a time series database to store and Grafana to visualize the gathered data. Prometheus, Grafana, the  [HPE Storage Array Exporter for Prometheus](https://developer.hpe.com/blog/get-started-with-prometheus-and-grafana-on-docker-with-hpe-storage-array-exporter/) and the [HPE SimpliVity Exporter](https://www.hpe.com/psnow/doc/a50000514enw) are deployed as Kubernetes pods in order to easily scale and adjust the CTC monitoring environment. 
+The CTC monitoring environment uses Prometheus as a time series database to store and Grafana to visualize the gathered data. Prometheus, Grafana, the <a href="https://developer.hpe.com/blog/get-started-with-prometheus-and-grafana-on-docker-with-hpe-storage-array-exporter/" target="_blank">HPE Storage Array Exporter for Prometheus</a> and the <a href="https://www.hpe.com/psnow/doc/a50000514enw" target="_blank">HPE SimpliVity Exporter</a> are deployed as Kubernetes pods in order to easily scale and adjust the CTC monitoring environment. 
 
 In order to insert the CTC power and temperature monitoring into this environment, I first had to containerize the HPE Server Exporter.  I based the container on Ubuntu Linux, added Python and the necessary Python libraries to it and stored the server exporter script in the directory /opt/prometheus:
 
@@ -378,6 +378,6 @@ A﻿s you can see from the above, I actually used six server exporter (ilo1 up t
 
 I﻿n this blog post, I documented my approach on solving a challenge we had in the Customer Technology Center Böblingen by using available API interfaces and building on an existing Kubernetes, Prometheus and Grafana environment. I decided to write this rather long blog in order to give you all necessary steps I did in detail with the goal to show you what can be done with public APIs, a little bit of Python scripting and the use of open source tools like Prometheus and Grafana. I do hope that this is helpful when you need to develop your own data collectors.
 
-The complete Python script together with sample Grafana dashboards and a Jupyter notebook for the deployment as a Kubernetes service is available at <https://github.com/tbeha/iloPrometheus>.
+The complete Python script together with sample Grafana dashboards and a Jupyter notebook for the deployment as a Kubernetes service is available at <a href="https://github.com/tbeha/iloPrometheus" target="_blank">https://github.com/tbeha/iloPrometheus</a>.
 
-C﻿heck out what the Customer Technology Center in Boeblingen looks like [here](https://www.hpe.com/us/en/about/customer-centers/boeblingen.html).
+C﻿heck out what the Customer Technology Center in Boeblingen looks like  <a href="https://www.hpe.com/us/en/about/customer-centers/boeblingen.html" target="_blank">here</a>.
