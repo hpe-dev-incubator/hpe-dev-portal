@@ -12,6 +12,15 @@ tags:
   - HPE GreenLake for Private Cloud Enterprise
   - HPE GreenLake for Private Cloud Enterprise Containers
 ---
+### Prerequisites
+
+Before starting, make sure you meet the following requirements:
+
+<style> li { font-size: 100%; line-height: 23px; max-width: none; } </style>
+
+* A K8s cluster, being provisioned in HPE GreenLake for Private Cloud Enterprise
+* The kubectl CLI tool, together with the kubeconfig file for accessing the K8s cluster
+
 H﻿ere is the terraform config file. Apart from using the HPE GreenLake _hpegl_ provider, it also uses the _helm_ provider from Hashicorp to deploy both Prometheus and Grafana to the K8s cluster.
 
 ```markdown
