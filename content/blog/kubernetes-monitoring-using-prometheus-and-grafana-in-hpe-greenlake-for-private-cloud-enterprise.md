@@ -21,7 +21,7 @@ Before starting, make sure you meet the following requirements:
 * A K8s cluster, being provisioned in HPE GreenLake for Private Cloud Enterprise
 * The kubectl CLI tool, together with the kubeconfig file for accessing the K8s cluster
 
-H﻿ere is the terraform config file. Apart from using the HPE GreenLake _hpegl_ provider, it also uses the _helm_ provider from Hashicorp to deploy both Prometheus and Grafana to the K8s cluster.
+H﻿ere is the terraform config file. Apart from using the HPE GreenLake *hpegl* provider, it also uses the *helm* provider from Hashicorp to deploy both Prometheus and Grafana to the K8s cluster.
 
 ```markdown
 $ cat main.tf 
@@ -101,22 +101,21 @@ resource "helm_release" "grafana-dashboard" {
   }
 }
 ```
+
 There a few things need to point out in above config file. 
 
-* In Grafana, the persistence by default is disabled. In case the Grafana pod gets terminated for some reason, you will lose all your data. In production deployment, such as HPE GreenLake for Containers, this needs to be enabled to prevent any data lose, * persistence.enabled: true*
+* In Grafana, the persistence by default is disabled. In case the Grafana pod gets terminated for some reason, you will lose all your data. In production deployment, such as HPE GreenLake for Containers, this needs to be enabled to prevent any data lose,  *persistence.enabled: true*
 * In Prometheus, the DaemonSet deployment of the Node Exporter is trying to mount the *hostPath* volume to the container root “/”, which violates against one deployed OPA policy to the K8s cluster for FS mount protections. Therefore, the DaemonSet deployment will never be ready, keep showing below warning event:
 
 ```markdown
 Warning  FailedCreate daemonset-controller  Error creating: admission webhook "soft-validate.hpecp.hpe.com" denied the request: Hostpath ("/") referenced in volume is not valid for this namespace because of FS Mount protections.
 ```
 
-
-
 #### Run Terraform init, plan and apply
 
-  * terraform init
+* terraform init
 
-```markdown
+````markdown
     $ terraform init
     
     Initializing the backend...
@@ -389,13 +388,9 @@ Warning  FailedCreate daemonset-controller  Error creating: admission webhook "s
     helm_release.prometheus-stack: Creation complete after 1m18s [id=prometheus-stack]
     
     Apply complete! Resources: 2 added, 0 changed, 0 destroyed.
-```
-
-
-
+````
 
 ```markdown
-
 $ k get all -n monitoring 
 NAME                                                           READY   STATUS    RESTARTS   AGE
 pod/grafana-dashboard-5674bcd6d4-zh8zk                         1/1     Running   0          4d17h
@@ -434,45 +429,40 @@ NAME                                             READY   AGE
 statefulset.apps/prometheus-stack-alertmanager   1/1     4d17h
 ```
 
-
-
 ```markdown
-
 $ helm list -n monitoring
 NAME             	NAMESPACE 	REVISION	UPDATED                                	STATUS  	CHART            	APP VERSION
 grafana-dashboard	monitoring	1       	2023-11-22 15:28:07.986364628 +0100 CET	deployed	grafana-6.57.4   	9.5.5      
 prometheus-stack 	monitoring	1       	2023-11-22 15:28:13.290386574 +0100 CET	deployed	prometheus-23.0.0	v2.45.0
-
 ```
 
-
-
 ```markdown
-
 $ kubectl get service/prometheus-stack-server -n monitoring -o jsonpath='{.metadata.annotations.hpecp-internal-gateway/80}'
 gl-tor-upc-cp-gw-node1.customer.yyz.gl-hpe.local:10015
-
 ```
+
+![](/img/prometheus.png)
 
 ```markdown
-
 $ kubectl get service/grafana-dashboard -n monitoring -o jsonpath='{.metadata.annotations.hpecp-internal-gateway/80}'
 gl-tor-upc-cp-gw-node1.customer.yyz.gl-hpe.local:10016
-
 ```
 
-T﻿he Grafana dashboard can be accessed by typing the URL _gl-tor-upc-cp-gw-node1.customer.yyz.gl-hpe.local:10016_. Its admin password can be extracted by the following command
+T﻿he Grafana dashboard can be accessed by typing the URL *gl-tor-upc-cp-gw-node1.customer.yyz.gl-hpe.local:10016*. Its admin password can be extracted by the following command
 
 ```markdown
 $ kubectl get secrets -n monitoring grafana-dashboard -o jsonpath='{.data.admin-password}' | base64 -d
 cs3O6LF2H9m0jLrgdR8UXplmZG22d9Co9WbnJNzx
 ```
 
-T﻿he Prometheus can be configured as the data sources to the Grafana dashboard, by specifying the HTTP URL as _http://gl-tor-upc-cp-gw-node1.customer.yyz.gl-hpe.local:10015/_.
+T﻿he Prometheus can be configured as the data sources to the Grafana dashboard, by specifying the HTTP URL as *http://gl-tor-upc-cp-gw-node1.customer.yyz.gl-hpe.local:10015/*.
+
+![](/img/grafana-datasources.png)
 
 F﻿rom [Grafana Labs](https://grafana.com/grafana/dashboards/), there is a list of dashboard templates you can download and imported them as monitoring dashboards to the Grafana. 
 
+![](/img/grafana-dashboard-import.png)
+
 H﻿ere is the imported dashboard for K8s cluster monitoring (via Prometheus):
 
-
-
+![](/img/grafana-cluster-monitoring.png)
