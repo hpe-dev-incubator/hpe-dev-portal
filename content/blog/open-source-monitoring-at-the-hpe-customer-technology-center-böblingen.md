@@ -117,15 +117,15 @@ if __name__ == "__main__":
 As you can see, I used four Python functions within the main routine:
 
 * *getServerList*
-* *get_server_urls*
-* *get_server_data*
-* *display_results*
+* *get\_server\_urls*
+* *get\_server\_data*
+* *display\_results*
 
 The first one - *getServerList* - is just reading the input data out of an XML file. Since this is a pretty standard task in Python, I do not want to discuss this function here further. It should be sufficient to know, that it is reading the list of server IPs and additional runtime parameters (username, password, monitoring intervall, …) into a Python directory that is used in the subsequent parts of the script. I want to focus on the other three functions that are more specific to the ILO Prometheus exporter.
 
-## g﻿et_server_urls
+## g﻿et\_server\_urls
 
-The get_server_urls routine uses  the list of ILO IP addresses to gather the correct URLs out of the Redfish resource directory. If the ILO is alive  a Redfish client object for this ILO is created and the Redfish resource directory is read. The client object is stored together with the URLs for the thermal, power and computer system information in the python directory server_urls, which is the return value of the routine.
+The get\_server\_urls routine uses  the list of ILO IP addresses to gather the correct URLs out of the Redfish resource directory. If the ILO is alive  a Redfish client object for this ILO is created and the Redfish resource directory is read. The client object is stored together with the URLs for the thermal, power and computer system information in the python directory server\_urls, which is the return value of the routine.
 
 ```python
 def get_server_urls( login_account, login_password, server, lfile):
@@ -176,9 +176,9 @@ def get_server_urls( login_account, login_password, server, lfile):
     return server_urls
 ```
 
-## g﻿et_server_data
+## g﻿et\_server\_data
 
-The get_server_data routine takes the obtained server_urls of one of the monitored servers together with the Prometheus user information to retrieve the power and thermal data as well as some general system information data. The captured data is packed into a server_data directory and returned to the main program.
+The get\_server\_data routine takes the obtained server\_urls of one of the monitored servers together with the Prometheus user information to retrieve the power and thermal data as well as some general system information data. The captured data is packed into a server\_data directory and returned to the main program.
 
 ```python
 def get_server_data( login_account, login_password, server, lfile):
@@ -208,9 +208,9 @@ def get_server_data( login_account, login_password, server, lfile):
         pass
 ```
 
-## d﻿isplay_results
+## d﻿isplay\_results
 
-The display_results routine takes the server_data retrieved by the get_server_data routine and puts it into the corresponding Prometheus node gauges.
+The display\_results routine takes the server\_data retrieved by the get\_server\_data routine and puts it into the corresponding Prometheus node gauges.
 
 ```python
 def display_results( node, inode, server_metrics, server):
