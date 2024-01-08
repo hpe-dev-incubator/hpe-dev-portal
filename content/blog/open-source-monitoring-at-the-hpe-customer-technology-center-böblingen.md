@@ -26,7 +26,7 @@ Each HPE ProLiant server has a lot of temperature sensors spread across the syst
 
 The first sensor, 01-Inlet Ambient temperature, is measuring the inlet temperature at the front of the server and can be used as an indicator of the temperature of the overall CTC environment. Now that I have identified a usable data point an automated reading of the temperature values is needed. Since I already used the the HPE Simplivity REST API to build the HPE SimpliVity-Prometheus exporter used to monitor the core infrastructure, it was only natural that I would look into the <a href="https://developer.hpe.com/platform/ilo-restful-api/home/" target="_blank">Redfish® iLO RESTful API</a>. The Redfish® API ecosystem is an open industry-standard specification (published by the Distributed Management Task Force <a href="http://www.dmtf.org/standards/redfish" target="_blank">DMTF</a> and provides remote server provisioning, inventory and monitoring.
 
-A directory of the available Redfish® resources at an interface can be retrieved with the following RESTful API command: 
+A directory of the available Redfish® resources at an ILO interface can be retrieved with the following RESTful API command: 
 
 ```http
 GET {{baseUrl}}/redfish/v1/resourcedirectory
