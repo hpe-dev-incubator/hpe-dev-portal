@@ -1,6 +1,6 @@
 ---
-title: Kubernetes monitoring using Prometheus and Grafana in HPE GreenLake for
-  Private Cloud Enterprise
+title: Adding observability stack to a Kubernete cluster using Prometheus and
+  Grafana in HPE GreenLake for Private Cloud Enterprise
 date: 2024-01-04T09:08:32.582Z
 author: Guoping Jia
 authorimage: /img/guoping.png
