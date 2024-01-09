@@ -1,5 +1,5 @@
 ---
-title: Determined AI weekly update 6
+title: Mobile ALOHA, AppAgent, Virtual Token Counter, and Time Vectors
 date: 2024-01-09T09:55:36.750Z
 externalLink: https://www.determined.ai/blog/weekly-update-6
 author: Kevin Musgrave
