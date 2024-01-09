@@ -1,5 +1,5 @@
 ---
-title: Adding observability stack to a Kubernete cluster using Prometheus and
+title: Adding monitoring stack to a Kubernete cluster using Prometheus and
   Grafana in HPE GreenLake for Private Cloud Enterprise
 date: 2024-01-04T09:08:32.582Z
 author: Guoping Jia
@@ -12,6 +12,12 @@ tags:
   - HPE GreenLake for Private Cloud Enterprise
   - HPE GreenLake for Private Cloud Enterprise Containers
 ---
+I﻿n this blog post, I will discuss Kubernetes monitoring and show you how to add a monitoring stack to a Kubernetes cluster using Prometheus and Grafana in HPE GreenLake for Private Cloud Enterprise. By setting up Prometheus as the data source and importing different dashboard templates into Grafana, various resources and applications can be monitored in the Kubernetes cluster.
+
+### Why monitor Kubernetes
+
+
+
 ### Prerequisites
 
 Before starting, make sure you meet the following requirements:
@@ -19,7 +25,9 @@ Before starting, make sure you meet the following requirements:
 <style> li { font-size: 100%; line-height: 23px; max-width: none; } </style>
 
 * A K8s cluster, being provisioned in HPE GreenLake for Private Cloud Enterprise
+* Terraform, being installed by following [these steps](https://learn.hashicorp.com/tutorials/terraform/install-cli)
 * The kubectl CLI tool, together with the kubeconfig file for accessing the K8s cluster
+* The Helm CLI tool, version 3.12.0 or later
 
 H﻿ere is the terraform config file. Apart from using the HPE GreenLake *hpegl* provider, it also uses the *helm* provider from Hashicorp to deploy both Prometheus and Grafana to the K8s cluster.
 
