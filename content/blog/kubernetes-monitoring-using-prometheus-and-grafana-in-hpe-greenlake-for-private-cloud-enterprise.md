@@ -41,6 +41,8 @@ Before starting, make sure you meet the following requirements:
 
 Apart from using the HPE GreenLake *hpegl* provider, it also uses the *helm* provider from Hashicorp to deploy both Prometheus and Grafana to the K8s cluster.
 
+#### Terraform config
+
 H﻿ere is the terraform config file. 
 
 ```markdown
@@ -128,9 +130,9 @@ There a few things need to point out in above config file.
 
 * In both Prometheus and Grafana, the persistence by default is disabled. In case the Prometheus and Grafana pods get terminated for some reason, you will lose all your data. In production deployment, such as HPE GreenLake for Containers, this needs to be enabled to prevent any data lose,  *persistence.enabled: true*  
 * In Prometheus, the DaemonSet deployment of the Node Exporter is trying to mount the *hostPath* volume to the container root “/”, which violates against one deployed OPA (Open Policy Agent) policy to the K8s cluster for FS mount protections. Therefore, the DaemonSet deployment will never be ready, keep showing the warning events as *Warning  FailedCreate daemonset-controller  Error creating: admission webhook "soft-validate.hpecp.hpe.com" denied the request: Hostpath ("/") referenced in volume is not valid for this namespace because of FS Mount protections.*. You need disable the *hostRootFsMount*, together with *hostNetwork* and *hostPID*.
-* Both Prometheus and Grafana services are deployed as *NodePort* service type. Those services will be automatically mapped to the gateway host with assigned ports to easy their access
+* Both Prometheus and Grafana services are deployed as *NodePort* service type. Those services will be automatically mapped to the gateway host with assigned ports for easy acces 
 
-#### Run Terraform
+#### Terraform run
 
 * terraform init
 
@@ -408,9 +410,14 @@ There a few things need to point out in above config file.
     
     Apply complete! Resources: 2 added, 0 changed, 0 destroyed.
 ````
+#### Prometheus and Grafana access
+
+A﻿fter few minutes Terraform run, both Prometheus and Grafana get deployed in the K8s cluster, to its _monitoring_ namespace. 
+
+T﻿ype the following command to check all the deployed monitoring resources. They should be all in _Running_ and _Ready_ states.
 
 ```markdown
-$ k get all -n monitoring 
+$ kubectl get all -n monitoring 
 NAME                                                           READY   STATUS    RESTARTS   AGE
 pod/grafana-dashboard-5674bcd6d4-zh8zk                         1/1     Running   0          4d17h
 pod/prometheus-stack-alertmanager-0                            1/1     Running   0          4d17h
@@ -447,6 +454,8 @@ replicaset.apps/prometheus-stack-server-7646574d75                   1         1
 NAME                                             READY   AGE
 statefulset.apps/prometheus-stack-alertmanager   1/1     4d17h
 ```
+
+T﻿ype _helm list_ command, both Prometheus and Grafana helm charts are deployed to the _monitoring_ namespace:
 
 ```markdown
 $ helm list -n monitoring
