@@ -39,11 +39,15 @@ In this blog post here, I will explore the usage of the HPE GreenLake platform A
 
 Let’s say I’d like to check  what is in my audit log at regular intervals in order to keep an eye on my HPE GreenLake workspace. The following graphics explain what I will be doing: 
 
-![](/img/don-picture.png)
+![Figure 1: Picture view of the script](/img/don-picture.png "Figure 1: Picture view of the script")
+
+> Figure 1: Picture view of the script 
 
 For reference, I can also check the content of this audit log in the HPE GreenLake console, under the Manage Workspace tab. 
 
 ![Figure 2: Audit log in HPE GreenLake platform console](/img/auditlogui.jpg "Figure 2: Audit log in HPE GreenLake platform console")
+
+> Figure 2: Audit log in HPE GreenLake platform console
 
 ## High-level algorithm 
 
@@ -64,7 +68,7 @@ The HPE GreenLake platform console provides a way to create an API access that w
 
 My script will prompt for these two values (**client_id** and **client_secret**) and will make sure that **client_secret** is never printed anywhere. Because these values are quite long, I will also test the presence of the operating system’s environment variables CLIENTID and CLIENTSECRET. If present, I will use their values and not prompt the user. 
 
- From the HPE GreenLake console, I’ve learned that the cURL command to get a session token is: 
+From the HPE GreenLake console, I’ve learned that the cURL command to get a session token is: 
 
 ```markdown
 curl -s --location 'https://sso.common.cloud.hpe.com/as/token.oauth2' \ 
@@ -77,6 +81,12 @@ curl -s --location 'https://sso.common.cloud.hpe.com/as/token.oauth2' \ 
 You can see this in the API section of the Manage Workspace screen of the HPE GreenLake console shown below: 
 
 ![Figure 3: API access management page](/img/apiaccess.jpg "Figure 3: API access management page")
+
+> Figure 3: API access management page
+
+![Figure 4: cURL sample code for generating access token](/img/codesample-for-token.jpg "Figure 4: cURL sample code for generating access token")
+
+> Figure 4: cURL sample code for generating access token
 
 The JSON response is received from this call in the following format: 
 
@@ -108,7 +118,7 @@ GET /audit-log/v1beta1/logs?filter=createdAt ge '2023-07-24T04:21:22.00Z'
 
 > > *Note: the format of the date used by the API, which is [ISO 8601](https://www.iso.org/standard/70908.html) of the form: YYYY-MM-DDTHH:MM:SS.ss-/+FF:ff. For example: '2023-07-24T04:21:22.00Z' for 4:21AM on the 24th of July, 2023 in UTC (Z=Zero Meridian)* 
 
-This call needs an Authorization header which contains the access_token preceded with the string “Bearer ”. It is also a best practice to provide an Accept header to specify that a response in JSON (application/json) is expected, although this has become the default nowadays. 
+This call needs an **Authorization** header which contains the access_token preceded with the string “Bearer ”. It is also a best practice to provide an **Accept** header to specify that a response in JSON (application/json) is expected, although this has become the default nowadays. 
 
 The JSON response received from this API call should be in the form of: 
 
