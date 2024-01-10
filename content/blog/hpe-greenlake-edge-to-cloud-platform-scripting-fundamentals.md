@@ -13,6 +13,11 @@ ul li{
  font-size:27px;
 }
 </style>
+<style>
+ol li{
+ font-size:27px;
+}
+</style>
 
 ## What are the HPE GreenLake edge-to-cloud platform APIs  
 
@@ -20,7 +25,7 @@ The foundational APIs for common HPE GreenLake  platform services allow IT admi
 
 This set of APIs for common platform services includes API for workspace management, identity and access management, device and subscription, locations, audit logs, and wellness.   
 
-Note: The [HPE Greenlake platform documentation](https://developer.greenlake.hpe.com/docs/greenlake/services/) for these APIs leverages OpenAPI specifications and associated reference material. The documentation provides a complete explanation of the operations supported by these APIs for common HPE GreenLake platform services, as well as sample requests and responses.   
+>> Note: The [HPE Greenlake platform documentation](https://developer.greenlake.hpe.com/docs/greenlake/services/) for these APIs leverages OpenAPI specifications and associated reference material. The documentation provides a complete explanation of the operations supported by these APIs for common HPE GreenLake platform services, as well as sample requests and responses.   
 
  The following blog posts are an excellent way to learn more about the APIs using Postman. 
 
@@ -54,7 +59,7 @@ Let’s look at the steps necessary to accomplish this. 
 
 The HPE GreenLake platform console provides a way to create an API access that will deliver a Client ID and a Client Secret, which, in turn, I am going to use to generate a session token.  
 
-> Note: To learn how to create API credentials for HPE GreenLake platform APIS, check out the [Generate and Reset application credentials documentation](https://developer.greenlake.hpe.com/docs/greenlake/guides/#generate-or-reset-application-credentials).  
+> *Note: To learn how to create API credentials for HPE GreenLake platform APIS, check out the [Generate and Reset application credentials documentation](https://developer.greenlake.hpe.com/docs/greenlake/guides/#generate-or-reset-application-credentials).*  
 
 My script will prompt for these two values (client_id and client_secret) and will make sure that client_secret is never printed anywhere. Because these values are quite long, I will also test the presence of the operating system’s environment variables CLIENTID and CLIENTSECRET. If present, I will use their values and not prompt the user. 
 
