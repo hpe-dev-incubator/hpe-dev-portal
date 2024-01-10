@@ -31,9 +31,9 @@ Before starting, make sure you meet the following requirements:
 
 ### Prometheus and Grafana
 
-[Prometheus]() is a robust open-source monitoring and alerting tool used to collect, store, query, and alert on time-series data. It employs a pull-based model to gather metrics from instrumented targets and features a powerful query language (PromQL) for data analysis. It enables developers to monitor various aspects of their systems, including metrics, performance, and health.
+[Prometheus](<>) is a robust open-source monitoring and alerting tool used to collect, store, query, and alert on time-series data. It employs a pull-based model to gather metrics from instrumented targets and features a powerful query language (PromQL) for data analysis. It enables developers to monitor various aspects of their systems, including metrics, performance, and health.
 
-[Grafana]() is a powerful data visualization and monitoring tool. It serves as the interface for developers to visualize and analyze the data collected by Prometheus. With its rich set of visualization options and customizable dashboards, Grafana empowers developers to gain real-time insights into their systems’ performance, identify trends, and detect anomalies. By leveraging Grafana’s capabilities, developers can create comprehensive visual representations of their systems’ metrics, facilitating informed decision-making and proactive system management.
+[Grafana](<>) is a powerful data visualization and monitoring tool. It serves as the interface for developers to visualize and analyze the data collected by Prometheus. With its rich set of visualization options and customizable dashboards, Grafana empowers developers to gain real-time insights into their systems’ performance, identify trends, and detect anomalies. By leveraging Grafana’s capabilities, developers can create comprehensive visual representations of their systems’ metrics, facilitating informed decision-making and proactive system management.
 
 ### Deeploy Prometheus and Grafana using Terraform
 
@@ -124,8 +124,9 @@ There a few things need to point out in above config file.
 
 <style> li { font-size: 100%; line-height: 23px; max-width: none; } </style>
 
-* In Grafana, the persistence by default is disabled. In case the Grafana pod gets terminated for some reason, you will lose all your data. In production deployment, such as HPE GreenLake for Containers, this needs to be enabled to prevent any data lose,  *persistence.enabled: true*
-* In Prometheus, the DaemonSet deployment of the Node Exporter is trying to mount the *hostPath* volume to the container root “/”, which violates against one deployed OPA (Open Policy Agent) policy to the K8s cluster for FS mount protections. Therefore, the DaemonSet deployment will never be ready, keep showing the warning events as *Warning  FailedCreate daemonset-controller  Error creating: admission webhook "soft-validate.hpecp.hpe.com" denied the request: Hostpath ("/") referenced in volume is not valid for this namespace because of FS Mount protections.*
+* In both Prometheus and Grafana, the persistence by default is disabled. In case the Prometheus and Grafana pods get terminated for some reason, you will lose all your data. In production deployment, such as HPE GreenLake for Containers, this needs to be enabled to prevent any data lose,  *persistence.enabled: true*  
+* In Prometheus, the DaemonSet deployment of the Node Exporter is trying to mount the *hostPath* volume to the container root “/”, which violates against one deployed OPA (Open Policy Agent) policy to the K8s cluster for FS mount protections. Therefore, the DaemonSet deployment will never be ready, keep showing the warning events as *Warning  FailedCreate daemonset-controller  Error creating: admission webhook "soft-validate.hpecp.hpe.com" denied the request: Hostpath ("/") referenced in volume is not valid for this namespace because of FS Mount protections.*. You need disable the *hostRootFsMount*, together with *hostNetwork* and *hostPID*.
+* Both Prometheus and Grafana services are deployed as *NodePort* service type. Those services will be automatically mapped to the gateway host with assigned ports to easy their access
 
 #### Run Terraform
 
@@ -470,6 +471,8 @@ T﻿he Grafana dashboard can be accessed by typing the URL *gl-tor-upc-cp-gw-nod
 $ kubectl get secrets -n monitoring grafana-dashboard -o jsonpath='{.data.admin-password}' | base64 -d
 cs3O6LF2H9m0jLrgdR8UXplmZG22d9Co9WbnJNzx
 ```
+
+![](/img/grafana.png)
 
 T﻿he Prometheus can be configured as the data sources to the Grafana dashboard, by specifying the HTTP URL as *http://gl-tor-upc-cp-gw-node1.customer.yyz.gl-hpe.local:10015/*.
 
