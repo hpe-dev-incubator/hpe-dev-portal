@@ -8,6 +8,12 @@ tags:
   - API
   - hpe-greenlake
 ---
+<style>
+ul li{
+ font-size:27px;
+}
+</style>
+
 ## What are the HPE GreenLake edge-to-cloud platform APIs  
 
 The foundational APIs for common HPE GreenLake  platform services allow IT administrators and IT operators to programmatically operate and manage users and resources in an HPE GreenLake platform’s workspace.   
@@ -27,13 +33,13 @@ In this blog post here, I will explore the usage of the HPE GreenLake platform A
 
 Let’s say I’d like to check  what is in my audit log at regular intervals in order to keep an eye on my HPE GreenLake workspace. The following graphics explain what I will be doing: 
 
-Picture
+![](/img/don-picture.png)
 
 For reference, I can also check the content of this audit log in the HPE GreenLake console, under the Manage Workspace tab. 
 
-Picture
+![Figure 1: Audit log in HPE GreenLake platform console](/img/auditlogui.jpg "Figure 1: Audit log in HPE GreenLake platform console")
 
-*Figure 1: Audit log in HPE GreenLake platform console* 
+Figure 1: Audit log in HPE GreenLake platform console
 
 ## High-level algorithm 
 
@@ -82,7 +88,7 @@ The JSON response is received from this call in the following format: 
 
 The response provides an access token of type “Bearer” with a time to live of 7200 seconds (2 hours). You should renew a token before expiration, but for the purposes of this blog, I will just check and terminate cleanly if it happens. 
 
-> Note: The token is returned as a standard JWT (JSON Web Token) described by [RFC 7519](https://datatracker.ietf.org/doc/html/rfc7519). You can dissect the content of your token using <https://jwt.io/>. Part of the data provided in the content is the date of expiration.
+> > Note: The token is returned as a standard JWT (JSON Web Token) described by [RFC 7519](https://datatracker.ietf.org/doc/html/rfc7519). You can dissect the content of your token using <https://jwt.io/>. Part of the data provided in the content is the date of expiration.
 
 ## Querying the audit log 
 
@@ -92,13 +98,13 @@ GET /audit-log/v1beta1/logs 
 
 I can also see from the documentation, that I can use a filter to keep only logs after a certain date using the following select parameter: 
 
-> GET /audit-log/v1beta1/logs?filter=createdAt ge '2023-07-24T04:21:22.00Z' 
->
-> Note: the format of the date used by the API, which is [ISO 8601](https://www.iso.org/standard/70908.html) of the form: 
->
-> YYYY-MM-DDTHH:MM:SS.ss-/+FF:ff 
->
-> For example: '2023-07-24T04:21:22.00Z' for 4:21AM on the 24th of July, 2023 in UTC (Z=Zero Meridian) 
+GET /audit-log/v1beta1/logs?filter=createdAt ge '2023-07-24T04:21:22.00Z' 
+
+> > Note: the format of the date used by the API, which is [ISO 8601](https://www.iso.org/standard/70908.html) of the form: 
+> >
+> > YYYY-MM-DDTHH:MM:SS.ss-/+FF:ff 
+> >
+> > For example: '2023-07-24T04:21:22.00Z' for 4:21AM on the 24th of July, 2023 in UTC (Z=Zero Meridian) 
 
 This call needs an Authorization header which contains the access_token preceded with the string “Bearer ”. It is also a best practice to provide an Accept header to specify that a response in JSON (application/json) is expected, although this has become the default nowadays. 
 
@@ -269,7 +275,7 @@ Last check at (UTC): 2023-12-18T09:07:55.00Z 
 ---------------------
 ```
 
-> Note: The audit log API returns logs in LIFO (Last In First Out) mode. This is great for a GUI interface; however, it makes things a little more complicated for CLI and scripts. Sorting the logs is outside the scope of the blog post.   
+> > Note: The audit log API returns logs in LIFO (Last In First Out) mode. This is great for a GUI interface; however, it makes things a little more complicated for CLI and scripts. Sorting the logs is outside the scope of the blog post.   
 
 When the token expires after 2 hours, I can catch the error, display a message, and exit. 
 
@@ -385,10 +391,8 @@ Running the code in PowerShell (tested on Windows and MacOS) provides similar re
 
 ```markdown 
 PS> ./spy-workspace.ps1 
-Last check at (UTC):  2023-12-18T15:16:59.00Z                                                                            
--------------------- 
-createdAt: 12/18/2023 3:17:40 PM                                                                                         
-username:  <usename> 
+Last check at (UTC):  2023-12-18T15:16:59.00Z                                                            -------------------- 
+createdAt: 12/18/2023 3:17:40 PM                                                                                 username:  <usename> 
 description:  User <usename> logged out 
 ipAddress:  <ip address> 
 -------------- 
@@ -409,7 +413,7 @@ ipAddress:  <ip address> 
 --------------
 ```
 
-> Note: The audit log API returns logs in LIFO (Last In First Out) mode. This is great for a GUI interface; however, it makes things a little more complicated for CLI and scripts. Sorting the logs is outside the scope of the blog post.   
+> > Note: The audit log API returns logs in LIFO (Last In First Out) mode. This is great for a GUI interface; however, it makes things a little more complicated for CLI and scripts. Sorting the logs is outside the scope of the blog post.   
 
 Here I can catch the exception when the token has expired, display a message, and stop: 
 
@@ -506,11 +510,7 @@ json = response.json()  
         except: { 
             print('ipAddress:') 
         } 
-
- 
-
         print('-----------') 
-
         e = e + 1
 ```
 
