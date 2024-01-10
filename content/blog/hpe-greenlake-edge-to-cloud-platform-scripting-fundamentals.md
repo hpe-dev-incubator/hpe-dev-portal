@@ -37,9 +37,7 @@ Let’s say I’d like to check  what is in my audit log at regular intervals i
 
 For reference, I can also check the content of this audit log in the HPE GreenLake console, under the Manage Workspace tab. 
 
-![Figure 1: Audit log in HPE GreenLake platform console](/img/auditlogui.jpg "Figure 1: Audit log in HPE GreenLake platform console")
-
-Figure 1: Audit log in HPE GreenLake platform console
+![Figure 2: Audit log in HPE GreenLake platform console](/img/auditlogui.jpg "Figure 2: Audit log in HPE GreenLake platform console")
 
 ## High-level algorithm 
 
@@ -96,15 +94,11 @@ According to the [API Reference documentation](https://developer.greenlake.hpe.c
 
 GET /audit-log/v1beta1/logs 
 
-I can also see from the documentation, that I can use a filter to keep only logs after a certain date using the following select parameter: 
+I can also see from the documentation, that I can use a filter to keep only logs after a certain date using the following parameter: 
 
 GET /audit-log/v1beta1/logs?filter=createdAt ge '2023-07-24T04:21:22.00Z' 
 
-> > Note: the format of the date used by the API, which is [ISO 8601](https://www.iso.org/standard/70908.html) of the form: 
-> >
-> > YYYY-MM-DDTHH:MM:SS.ss-/+FF:ff 
-> >
-> > For example: '2023-07-24T04:21:22.00Z' for 4:21AM on the 24th of July, 2023 in UTC (Z=Zero Meridian) 
+> > Note: the format of the date used by the API, which is [ISO 8601](https://www.iso.org/standard/70908.html) of the form: YYYY-MM-DDTHH:MM:SS.ss-/+FF:ff. For example: '2023-07-24T04:21:22.00Z' for 4:21AM on the 24th of July, 2023 in UTC (Z=Zero Meridian) 
 
 This call needs an Authorization header which contains the access_token preceded with the string “Bearer ”. It is also a best practice to provide an Accept header to specify that a response in JSON (application/json) is expected, although this has become the default nowadays. 
 
@@ -112,8 +106,7 @@ The JSON response received from this API call should be in the form of: 
 
 ```json
 { 
-"items":  
-\[], 
+"items":[], 
 "count": 0, 
 "offset": 0, 
 "total": 0, 
@@ -121,9 +114,9 @@ The JSON response received from this API call should be in the form of: 
 }
 ```
 
-In this response, count provides the size of the array of items returned and total, the total number of existing items. If total is greater than count, I will need to call the same API multiple times, specifying an offset parameter to get the next batch, until total is reached. 
+In this response, **count** provides the size of **items**, the returned array of items and **total**, the total number of existing items. If **total** is greater than **count**, I would need to call the same API multiple times, specifying an **offset** parameter to get the next batch, until **total** is reached or **remainingRecords** is false. 
 
-Items will return an array of audit items, such as: 
+**Items** is an array of audit items, such as: 
 
 ```json
 { 
