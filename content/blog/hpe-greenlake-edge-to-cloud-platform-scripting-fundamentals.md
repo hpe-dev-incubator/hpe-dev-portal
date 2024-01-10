@@ -90,23 +90,23 @@ The JSON response is received from this call in the following format: 
 
 The response provides an access token of type “Bearer” with a time to live of 7200 seconds (2 hours). You should renew a token before expiration, but for the purposes of this blog, I will just check and terminate cleanly if it happens. 
 
-> > Note: The token is returned as a standard JWT (JSON Web Token) described by [RFC 7519](https://datatracker.ietf.org/doc/html/rfc7519). You can dissect the content of your token using <https://jwt.io/>. Part of the data provided in the content is the date of expiration.
+>> Note: The token is returned as a standard JWT (JSON Web Token) described by [RFC 7519](https://datatracker.ietf.org/doc/html/rfc7519). You can dissect the content of your token using <https://jwt.io/>. Part of the data provided in the content is the date of expiration.
 
 ## Querying the audit log 
 
 According to the [API Reference documentation](https://developer.greenlake.hpe.com/docs/greenlake/services/audit-logs/public/) for the Audit Log service, I can query the log using:  
 
-```
+```markdown
 GET /audit-log/v1beta1/logs
 ```
 
 I can also see from the documentation, that I can use a filter to keep only logs after a certain date using the following parameter: 
 
-```
+```markdown
 GET /audit-log/v1beta1/logs?filter=createdAt ge '2023-07-24T04:21:22.00Z'
 ```
 
-> > Note: the format of the date used by the API, which is [ISO 8601](https://www.iso.org/standard/70908.html) of the form: YYYY-MM-DDTHH:MM:SS.ss-/+FF:ff. For example: '2023-07-24T04:21:22.00Z' for 4:21AM on the 24th of July, 2023 in UTC (Z=Zero Meridian) 
+>> Note: the format of the date used by the API, which is [ISO 8601](https://www.iso.org/standard/70908.html) of the form: YYYY-MM-DDTHH:MM:SS.ss-/+FF:ff. For example: '2023-07-24T04:21:22.00Z' for 4:21AM on the 24th of July, 2023 in UTC (Z=Zero Meridian) 
 
 This call needs an Authorization header which contains the access_token preceded with the string “Bearer ”. It is also a best practice to provide an Accept header to specify that a response in JSON (application/json) is expected, although this has become the default nowadays. 
 
@@ -276,7 +276,7 @@ Last check at (UTC): 2023-12-18T09:07:55.00Z 
 ---------------------
 ```
 
-> > Note: The audit log API returns logs in LIFO (Last In First Out) mode. This is great for a GUI interface; however, it makes things a little more complicated for CLI and scripts. Sorting the logs is outside the scope of the blog post.   
+>> Note: The audit log API returns logs in LIFO (Last In First Out) mode. This is great for a GUI interface; however, it makes things a little more complicated for CLI and scripts. Sorting the logs is outside the scope of the blog post.   
 
 When the token expires after 2 hours, I can catch the error, display a message, and exit. 
 
@@ -292,7 +292,8 @@ Let’s now see how I could do the same (or better) using PowerShell: 
 
 ### Step 1: Gather details about the API Access 
 
-```powershell 
+```powershell
+
 if ($Env:CLIENTID -eq $null) { 
     $ClientID = read-host "Enter your HPE GreenLake Client ID"  
 } 
@@ -312,7 +313,7 @@ else { 
 
 ### Step 2: Get a session token 
 
-```powershell 
+```powershell
 $headers = @{}  
 $body = "grant_type=client_credentials&client_id=" + $ClientID + "&client_secret=" + $ClientSecret 
 
@@ -334,7 +335,7 @@ $AccessToken = ($response.Content  | Convertfrom-Json).access_token
 
 I can now prepare the headers for Step 4 
 
-```powershell 
+```powershell
 # Headers creation 
 $headers = @{}  
 $headers["Authorization"] = "Bearer $AccessToken" 
@@ -343,7 +344,7 @@ $headers["Accept"] = "application/json"
 
 ### Step 3: Compute date for filtering events 
 
-```powershell 
+```powershell
 While ($true) { 
     $d=((Get-Date).AddMinutes(-1)).ToUniversalTime() 
     $sd=$d.tostring('yyyy-MM-ddTHH:mm:ss.00Z') 
@@ -355,7 +356,7 @@ While ($true) { 
 
 Here, you’ll see that I can leverage exceptions that PowerShell supports: 
 
-```powershell 
+```powershell
     try { 
         $response = Invoke-webrequest "https://global.api.greenlake.hpe.com/audit-log/v1beta1/logs?filter=startTime%20ge%20'$sd'" -Method GET -Headers $headers  
     } 
@@ -367,7 +368,7 @@ Here, you’ll see that I can leverage exceptions that PowerShell supports: 
 
 ### Step 5: Extract data and print results 
 
-```powershell 
+```powershell
 $my_json=$response | ConvertFrom-Json 
 
     foreach ($i in $my_json.items){ 
@@ -381,7 +382,7 @@ $my_json=$response | ConvertFrom-Json 
 
 ### Step 6: Wait a bit and go to Step 3 
 
-```powershell 
+```powershell
   start-sleep -Seconds 60 
 }
 ```
@@ -390,7 +391,7 @@ $my_json=$response | ConvertFrom-Json 
 
 Running the code in PowerShell (tested on Windows and MacOS) provides similar results: 
 
-```markdown 
+```markdown
 PS> ./spy-workspace.ps1 
 Last check at (UTC):  2023-12-18T15:16:59.00Z                                                            -------------------- 
 createdAt: 12/18/2023 3:17:40 PM                                                                                 username:  <usename> 
@@ -414,7 +415,7 @@ ipAddress:  <ip address> 
 --------------
 ```
 
-> > Note: The audit log API returns logs in LIFO (Last In First Out) mode. This is great for a GUI interface; however, it makes things a little more complicated for CLI and scripts. Sorting the logs is outside the scope of the blog post.   
+>> Note: The audit log API returns logs in LIFO (Last In First Out) mode. This is great for a GUI interface; however, it makes things a little more complicated for CLI and scripts. Sorting the logs is outside the scope of the blog post.   
 
 Here I can catch the exception when the token has expired, display a message, and stop: 
 
