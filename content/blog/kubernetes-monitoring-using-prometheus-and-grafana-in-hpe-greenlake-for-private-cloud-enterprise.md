@@ -31,9 +31,9 @@ Before starting, make sure you meet the following requirements:
 
 ### Prometheus and Grafana
 
-[Prometheus](<>) is a robust open-source monitoring and alerting tool used to collect, store, query, and alert on time-series data. It employs a pull-based model to gather metrics from instrumented targets and features a powerful query language (PromQL) for data analysis. It enables developers to monitor various aspects of their systems, including metrics, performance, and health.
+[Prometheus](https://prometheus.io/docs/introduction/overview/) is a robust open-source monitoring and alerting tool used to collect, store, query, and alert on time-series data. It employs a pull-based model to gather metrics from instrumented targets and features a powerful query language (PromQL) for data analysis. It enables developers to monitor various aspects of their systems, including metrics, performance, and health.
 
-[Grafana](<>) is a powerful data visualization and monitoring tool. It serves as the interface for developers to visualize and analyze the data collected by Prometheus. With its rich set of visualization options and customizable dashboards, Grafana empowers developers to gain real-time insights into their systems’ performance, identify trends, and detect anomalies. By leveraging Grafana’s capabilities, developers can create comprehensive visual representations of their systems’ metrics, facilitating informed decision-making and proactive system management.
+[Grafana](https://grafana.com/) is a powerful data visualization and monitoring tool. It serves as the interface for developers to visualize and analyze the data collected by Prometheus. With its rich set of visualization options and customizable dashboards, Grafana empowers developers to gain real-time insights into their systems’ performance, identify trends, and detect anomalies. By leveraging Grafana’s capabilities, developers can create comprehensive visual representations of their systems’ metrics, facilitating informed decision-making and proactive system management.
 
 ### Deeploy Prometheus and Grafana using Terraform
 
