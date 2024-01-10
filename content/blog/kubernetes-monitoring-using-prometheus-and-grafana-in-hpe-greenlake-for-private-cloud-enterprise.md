@@ -16,7 +16,7 @@ I﻿n this blog post, I will discuss Kubernetes monitoring and show you how to a
 
 ### Why monitor Kubernetes
 
-
+[HPE GreenLake for Private Cloud Enterprise: Containers](https://www.hpe.com/us/en/greenlake/containers.html), one of the HPE GreenLake Cloud services available on the HPE GreenLake for Private Cloud Enterprise, allows customers to open the Clusters screen to create a Kubernetes (K8s) cluster, view details about existing clusters, and launch the HPE GreenLake for Container service console. It provides an enterprise-grade container management service using open source K8s. 
 
 ### Prerequisites
 
@@ -31,9 +31,13 @@ Before starting, make sure you meet the following requirements:
 
 ### Prometheus and Grafana
 
+[Prometheus]() is an open-source monitoring tool used to collect, query, and alert on time-series data. It employs a pull-based model to gather metrics from instrumented targets and features a powerful query language (PromQL) for data analysis.
 
+### Deeploy Prometheus and Grafana using Terraform
 
-H﻿ere is the terraform config file. Apart from using the HPE GreenLake *hpegl* provider, it also uses the *helm* provider from Hashicorp to deploy both Prometheus and Grafana to the K8s cluster.
+Apart from using the HPE GreenLake *hpegl* provider, it also uses the *helm* provider from Hashicorp to deploy both Prometheus and Grafana to the K8s cluster.
+
+H﻿ere is the terraform config file. 
 
 ```markdown
 $ cat main.tf 
@@ -119,11 +123,11 @@ There a few things need to point out in above config file.
 * In Grafana, the persistence by default is disabled. In case the Grafana pod gets terminated for some reason, you will lose all your data. In production deployment, such as HPE GreenLake for Containers, this needs to be enabled to prevent any data lose,  *persistence.enabled: true*
 * In Prometheus, the DaemonSet deployment of the Node Exporter is trying to mount the *hostPath* volume to the container root “/”, which violates against one deployed OPA policy to the K8s cluster for FS mount protections. Therefore, the DaemonSet deployment will never be ready, keep showing below warning event:
 
-```markdown
+**
 Warning  FailedCreate daemonset-controller  Error creating: admission webhook "soft-validate.hpecp.hpe.com" denied the request: Hostpath ("/") referenced in volume is not valid for this namespace because of FS Mount protections.
-```
+**
 
-#### Run Terraform init, plan and apply
+#### Run Terraform
 
 * terraform init
 
