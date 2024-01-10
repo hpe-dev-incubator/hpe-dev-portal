@@ -275,3 +275,106 @@ Last check at (UTC): 2023-12-18T11:05:55.00Z 
 --------------------- 
 Error calling the API or token has expired!
 ```
+
+## Putting it all together in PowerShell 
+
+Let’s now see how I could do the same (or better) using PowerShell: 
+
+### Step 1: Gather details about the API Access 
+
+```PowerShell 
+if ($Env:CLIENTID -eq $null) { 
+    $ClientID = read-host "Enter your HPE GreenLake Client ID"  
+} 
+else { 
+    $ClientID = $Env:CLIENTID  
+} 
+
+if ($Env:CLIENTSECRET -eq $null) { 
+    $secClientSecret = read-host  "Enter your HPE GreenLake Client Secret" -AsSecureString 
+    $bstr = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($secClientSecret) 
+    $ClientSecret = [System.Runtime.InteropServices.Marshal]::PtrToStringBSTR($bstr)  
+} 
+else { 
+    $ClientSecret = $Env:CLIENTSECRET 
+}
+```
+
+### Step 2: Get a session token 
+
+```PowerShell 
+$headers = @{}  
+$body = "grant_type=client_credentials&client_id=" + $ClientID + "&client_secret=" + $ClientSecret 
+
+# Get a Token 
+$headers = @{}  
+$headers["Content-Type"] = "application/x-www-form-urlencoded" 
+
+try { 
+    $response = Invoke-webrequest "https://sso.common.cloud.hpe.com/as/token.oauth2" -Method POST -Headers $headers -Body $body 
+} 
+catch { 
+    Write-Host "Error retrieving access token!"  
+    exit 
+} 
+
+# Capturing API Access Token 
+$AccessToken = ($response.Content  | Convertfrom-Json).access_token
+```
+
+I can now prepare the headers for Step 4 
+
+```
+# Headers creation 
+$headers = @{}  
+$headers["Authorization"] = "Bearer $AccessToken" 
+$headers["Accept"] = "application/json"
+```
+
+### Step 3: Compute date for filtering events 
+
+```
+While ($true) { 
+    $d=((Get-Date).AddMinutes(-1)).ToUniversalTime() 
+    $sd=$d.tostring('yyyy-MM-ddTHH:mm:ss.00Z') 
+    write-host "Last check at (UTC): " $sd 
+    write-host "--------------------"
+```
+
+### Step 4: Call audit log API 
+
+Here, you’ll see that I can leverage exceptions that PowerShell supports: 
+
+```
+    try { 
+        $response = Invoke-webrequest "https://global.api.greenlake.hpe.com/audit-log/v1beta1/logs?filter=startTime%20ge%20'$sd'" -Method GET -Headers $headers  
+    } 
+    catch { 
+        write-host "Error calling the API or token has expired!" 
+        exit 
+    }
+```
+
+### Step 5: Extract data and print results 
+
+ 
+
+```
+$my_json=$response | ConvertFrom-Json 
+
+    foreach ($i in $my_json.items){ 
+        write-host "createdAt:" $i.createdAt 
+        write-host "username: " $i.user.username  
+        write-host "description: " $i.description  
+        write-host "ipAddress: " $i.additionalInfo.ipAddress 
+        write-host "--------------" 
+    }
+```
+
+### Step 6: Wait a bit and go to Step 3 
+
+```
+
+  start-sleep -Seconds 60 
+}
+```
