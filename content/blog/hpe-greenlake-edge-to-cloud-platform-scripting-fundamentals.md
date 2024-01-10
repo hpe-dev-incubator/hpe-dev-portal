@@ -26,7 +26,7 @@ The foundational APIs for common HPE GreenLake  platform services allow IT admi
 
 This set of APIs for common platform services includes API for workspace management, identity and access management, device and subscription, locations, audit logs, and wellness.   
 
-> > Note: The [HPE Greenlake platform documentation](https://developer.greenlake.hpe.com/docs/greenlake/services/) for these APIs leverages OpenAPI specifications and associated reference material. The documentation provides a complete explanation of the operations supported by these APIs for common HPE GreenLake platform services, as well as sample requests and responses.   
+> > *Note: The [HPE Greenlake platform documentation](https://developer.greenlake.hpe.com/docs/greenlake/services/) for these APIs leverages OpenAPI specifications and associated reference material. The documentation provides a complete explanation of the operations supported by these APIs for common HPE GreenLake platform services, as well as sample requests and responses.*   
 
  The following blog posts are an excellent way to learn more about the APIs using Postman. 
 
@@ -90,7 +90,7 @@ The JSON response is received from this call in the following format: 
 
 The response provides an access token of type “Bearer” with a time to live of 7200 seconds (2 hours). You should renew a token before expiration, but for the purposes of this blog, I will just check and terminate cleanly if it happens. 
 
->> Note: The token is returned as a standard JWT (JSON Web Token) described by [RFC 7519](https://datatracker.ietf.org/doc/html/rfc7519). You can dissect the content of your token using <https://jwt.io/>. Part of the data provided in the content is the date of expiration.
+> > *Note: The token is returned as a standard JWT (JSON Web Token) described by [RFC 7519](https://datatracker.ietf.org/doc/html/rfc7519). You can dissect the content of your token using <https://jwt.io/>. Part of the data provided in the content is the date of expiration.*
 
 ## Querying the audit log 
 
@@ -106,7 +106,7 @@ I can also see from the documentation, that I can use a filter to keep only logs
 GET /audit-log/v1beta1/logs?filter=createdAt ge '2023-07-24T04:21:22.00Z'
 ```
 
->> Note: the format of the date used by the API, which is [ISO 8601](https://www.iso.org/standard/70908.html) of the form: YYYY-MM-DDTHH:MM:SS.ss-/+FF:ff. For example: '2023-07-24T04:21:22.00Z' for 4:21AM on the 24th of July, 2023 in UTC (Z=Zero Meridian) 
+> > *Note: the format of the date used by the API, which is [ISO 8601](https://www.iso.org/standard/70908.html) of the form: YYYY-MM-DDTHH:MM:SS.ss-/+FF:ff. For example: '2023-07-24T04:21:22.00Z' for 4:21AM on the 24th of July, 2023 in UTC (Z=Zero Meridian)* 
 
 This call needs an Authorization header which contains the access_token preceded with the string “Bearer ”. It is also a best practice to provide an Accept header to specify that a response in JSON (application/json) is expected, although this has become the default nowadays. 
 
@@ -276,7 +276,7 @@ Last check at (UTC): 2023-12-18T09:07:55.00Z 
 ---------------------
 ```
 
->> Note: The audit log API returns logs in LIFO (Last In First Out) mode. This is great for a GUI interface; however, it makes things a little more complicated for CLI and scripts. Sorting the logs is outside the scope of the blog post.   
+> > *Note: The audit log API returns logs in LIFO (Last In First Out) mode. This is great for a GUI interface; however, it makes things a little more complicated for CLI and scripts. Sorting the logs is outside the scope of the blog post.*   
 
 When the token expires after 2 hours, I can catch the error, display a message, and exit. 
 
@@ -293,7 +293,6 @@ Let’s now see how I could do the same (or better) using PowerShell: 
 ### Step 1: Gather details about the API Access 
 
 ```powershell
-
 if ($Env:CLIENTID -eq $null) { 
     $ClientID = read-host "Enter your HPE GreenLake Client ID"  
 } 
@@ -415,7 +414,7 @@ ipAddress:  <ip address> 
 --------------
 ```
 
->> Note: The audit log API returns logs in LIFO (Last In First Out) mode. This is great for a GUI interface; however, it makes things a little more complicated for CLI and scripts. Sorting the logs is outside the scope of the blog post.   
+> > *Note: The audit log API returns logs in LIFO (Last In First Out) mode. This is great for a GUI interface; however, it makes things a little more complicated for CLI and scripts. Sorting the logs is outside the scope of the blog post.*   
 
 Here I can catch the exception when the token has expired, display a message, and stop: 
 
