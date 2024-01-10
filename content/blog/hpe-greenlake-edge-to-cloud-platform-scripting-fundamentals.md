@@ -55,10 +55,10 @@ My script will prompt for these two values (client_id and client_secret) and wil
 
 ```markdown
 curl -s --location 'https://sso.common.cloud.hpe.com/as/token.oauth2' \ 
-\--header 'Content-Type: application/x-www-form-urlencoded' \ 
-\--data-urlencode 'grant_type=client_credentials' \ 
-\--data-urlencode 'client_id='<CLIENTID>' \ 
-\--data-urlencode 'client_secret='<CLIENTSECRET>'
+--header 'Content-Type: application/x-www-form-urlencoded' \ 
+--data-urlencode 'grant_type=client_credentials' \ 
+--data-urlencode 'client_id='<CLIENTID>' \ 
+--data-urlencode 'client_secret='<CLIENTSECRET>'
 ```
 
 You can see this in the API section of the Manage Workspace screen of the HPE GreenLake console shown below: 
@@ -70,11 +70,208 @@ Figure 2: API access management page 
 The JSON response is received from this call in the following format: 
 
 ```json
-{"access_token":"eyJhbGciOiJSUzI1NiIsImtpZCI6IjJGSmhvZ1lRMDZNazNBc2Q4UU8zU09ZVE9wayIsInBpLmF0bSI6ImRlejAifQ.eyJjbGllbnRfaWQiOiI1ZDVjMDVjMi00OGM5LTRmNzAtOWY4ZS1iMzIwZmQxNTA0NmYiLCJpc3MiOiJodHRwczovL3Nzby5jb21tb24uY2xvdWQuaHBZGUyODI1ZjIxMWVjOGE4NGZlZGViY2I0YTc1NCIsImF1dGhfc291cmNlIjoiY2NzX3Rva2VuX21hbmFnZW1lbnQiLCJwbGF0Zm9ybV9jdXN0b21lcl9pZCI6IjMwMQlkZTI4MjVmMjExZWM4YTg0ZmVkZWJjYjRhNzU0IiwiaWF0IjoxNzAyMDUxMDg1LCJhcHBsaWNhdGlvbl9pbnN0YW5jZV9pZCI6IjAwMDAwMDAwLTAwMDAtMDAwMC0wMDAwLTAwMDAwMDAwMDAwMCIsImV4cCI6MTcwMjA1ODI4NX0.ocpBLPKG5XdL1s_ndMmuySGt5S2-ngcaZDTrb3P0L_M4px-6_7JOavSOW-x_lCns1i1mrYKk6vfswgsRtVVq7HQA-NT8PCbxNGBVzeBjhf0SLYtPUsDLr8tfZgIH3-tE4KoW9frAWVOM1plJ5DL8i7xIpj33yyrQiLEb84IAq5TuLQ6KesSvgatQyKgB4dGRZ6lISqh9jeXU7ZuoO2rnFRC8wDcPlx-XNX3oGM0-ZO5U-NXckdmxhaWMETKmDxnvvqmLbr_jvDxUwZWCcbPfIYyqP_OYpCljhtAPkGbj8U4V0xF7HMBms1qazSy9ZVgfJEPwvbdRwo5iRKAxi7oFnQ", 
+{
+"access_token":"eyJhbGciOiJSUzI1NiIsImtpZCI6IjJGSmhvZ1lRMDZNazNBc2Q4UU8zU09ZVE9wayIsInBpLmF0bSI6ImRlejAifQ.eyJjbGllbnRfaWQiOiI1ZDVjMDVjMi00OGM5LTRmNzAtOWY4ZS1iMzIwZmQxNTA0NmYiLCJpc3MiOiJodHRwczovL3Nzby5jb21tb24uY2xvdWQuaHBZGUyODI1ZjIxMWVjOGE4NGZlZGViY2I0YTc1NCIsImF1dGhfc291cmNlIjoiY2NzX3Rva2VuX21hbmFnZW1lbnQiLCJwbGF0Zm9ybV9jdXN0b21lcl9pZCI6IjMwMQlkZTI4MjVmMjExZWM4YTg0ZmVkZWJjYjRhNzU0IiwiaWF0IjoxNzAyMDUxMDg1LCJhcHBsaWNhdGlvbl9pbnN0YW5jZV9pZCI6IjAwMDAwMDAwLTAwMDAtMDAwMC0wMDAwLTAwMDAwMDAwMDAwMCIsImV4cCI6MTcwMjA1ODI4NX0.ocpBLPKG5XdL1s_ndMmuySGt5S2-ngcaZDTrb3P0L_M4px-6_7JOavSOW-x_lCns1i1mrYKk6vfswgsRtVVq7HQA-NT8PCbxNGBVzeBjhf0SLYtPUsDLr8tfZgIH3-tE4KoW9frAWVOM1plJ5DL8i7xIpj33yyrQiLEb84IAq5TuLQ6KesSvgatQyKgB4dGRZ6lISqh9jeXU7ZuoO2rnFRC8wDcPlx-XNX3oGM0-ZO5U-NXckdmxhaWMETKmDxnvvqmLbr_jvDxUwZWCcbPfIYyqP_OYpCljhtAPkGbj8U4V0xF7HMBms1qazSy9ZVgfJEPwvbdRwo5iRKAxi7oFnQ", 
 "token_type":"Bearer", 
-"expires_in":7199}
+"expires_in":7199
+}
 ```
 
 The response provides an access token of type “Bearer” with a time to live of 7200 seconds (2 hours). You should renew a token before expiration, but for the purposes of this blog, I will just check and terminate cleanly if it happens. 
 
-Note: The token is returned as a standard JWT (JSON Web Token) described by [RFC 7519](https://datatracker.ietf.org/doc/html/rfc7519). You can dissect the content of your token using <https://jwt.io/>. Part of the data provided in the content is the date of expiration.
+> Note: The token is returned as a standard JWT (JSON Web Token) described by [RFC 7519](https://datatracker.ietf.org/doc/html/rfc7519). You can dissect the content of your token using <https://jwt.io/>. Part of the data provided in the content is the date of expiration.
+
+## Querying the audit log 
+
+According to the [API Reference documentation](https://developer.greenlake.hpe.com/docs/greenlake/services/audit-logs/public/) for the Audit Log service, I can query the log using:  
+
+GET /audit-log/v1beta1/logs 
+
+I can also see from the documentation, that I can use a filter to keep only logs after a certain date using the following select parameter: 
+
+> GET /audit-log/v1beta1/logs?filter=createdAt ge '2023-07-24T04:21:22.00Z' 
+>
+> Note: the format of the date used by the API, which is [ISO 8601](https://www.iso.org/standard/70908.html) of the form: 
+>
+> YYYY-MM-DDTHH:MM:SS.ss-/+FF:ff 
+>
+> For example: '2023-07-24T04:21:22.00Z' for 4:21AM on the 24th of July, 2023 in UTC (Z=Zero Meridian) 
+
+This call needs an Authorization header which contains the access_token preceded with the string “Bearer ”. It is also a best practice to provide an Accept header to specify that a response in JSON (application/json) is expected, although this has become the default nowadays. 
+
+The JSON response received from this API call should be in the form of: 
+
+```json
+{ 
+"items":  
+\[], 
+"count": 0, 
+"offset": 0, 
+"total": 0, 
+"remainingRecords": true 
+}
+```
+
+In this response, count provides the size of the array of items returned and total, the total number of existing items. If total is greater than count, I will need to call the same API multiple times, specifying an offset parameter to get the next batch, until total is reached. 
+
+Items will return an array of audit items, such as: 
+
+```json
+{ 
+"id": "string", 
+"type": "/audit-log/logs", 
+"application":  
+   { 
+   "id": "string" 
+   }, 
+"region": "string", 
+"user":  
+   { 
+   "username": "string" 
+   }, 
+"category": "string", 
+"description": "string", 
+"workspace":  
+  { 
+  "id": "string", 
+  "workspaceName": "string" 
+  }, 
+"createdAt": "2019-08-24T14:15:22Z", 
+"updatedAt": "2019-08-24T14:15:22Z", 
+"generation": 0, 
+"additionalInfo": { }, 
+"hasDetails": true 
+}
+```
+
+To keep it simple and human readable, I will only display: 
+
+* user.username 
+* description 
+* createdAt 
+* additionalInfo.ipAddress
+
+## Putting it all together in bash 
+
+Let’s first try to assemble a bash script. In the next sections, I will show you how to achieve the same using PowerShell and Python. 
+
+### Step 1: Gather details about the API Access 
+
+The first section of the script needs to take care of collecting the CLIENTID and CLIENTSECRET, checking first for environment variables, and prompting the user if no environment variables are set. Reading the CLIENTSECRET shall be done in a secure way to avoid displaying it. 
+
+```shell
+if [[ -z "${CLIENTID}" ]]; then 
+  read -p "Enter your HPE GreenLake Client ID: " client_id 
+else 
+  client_id="${CLIENTID}" 
+fi 
+
+if [[ -z "${CLIENTSECRET}" ]]; then 
+  client_secret="" 
+  pass_var="Enter your HPE GreenLake Client Secret: "       
+
+  while IFS= read -p "$pass_var" -r -s -n 1 letter 
+  do 
+    if [[ $letter == $'\0' ]]        
+    then 
+        break 
+    fi 
+    client_secret="${client_secret}$letter"      
+    pass_var="*"             
+  done 
+else 
+  client_secret="${CLIENTSECRET}" 
+fi
+```
+
+### Step 2: Get a session token 
+
+```shell
+access_token="Bearer "`curl -s --location 'https://sso.common.cloud.hpe.com/as/token.oauth2' \ 
+--header 'Content-Type: application/x-www-form-urlencoded' \ 
+--data-urlencode 'grant_type=client_credentials' \ 
+--data-urlencode 'client_id='$client_id'' \ 
+--data-urlencode 'client_secret='$client_secret''  | jq .access_token | xargs`
+```
+
+### Step 3: Compute date for filtering events 
+
+I can start this infinite loop and each time, I will collect the audit logs that were generated during the last minute. To do so, I will need to compute the time now and subtract 1 minute. 
+
+```shell
+for (( ; ; )) 
+do 
+  d=`date -v "-1M" -u +"%Y-%m-%dT%H:%M:%S.00Z"` 
+  echo Last check at \(UTC\): $d 
+  echo '---------------------'
+```
+
+### Step 4: Call audit log API 
+
+I can now call the API with the right authorization header and set the filter parameter,  startTime greater than the computed date: 
+
+```shell
+http_response=$(curl -s -o out.json -w "%{http_code}" --location "https://global.api.greenlake.hpe.com/audit-log/v1beta1/logs?filter=startTime%20ge%20'$d'" \ 
+--header 'Accept: application/json' \ 
+--header "Authorization: $access_token")
+```
+
+### Step 5: Extract data and print results 
+
+I need to check that the call returned an HTTP status code of 200 (Success) and then use [jq](https://jqlang.github.io/jq/download/) to display the selected fields: 
+
+```shell
+  if [ "$http_response" != "200" ]; then 
+      echo "Error calling the API or token has expired!" 
+      exit $http_response 
+  else 
+      cat out.json | jq '.items[] | { createdAt: .createdAt, username: .user.username, description: .description, ipAddress: .additionalInfo.ipAddress}' 
+  fi
+```
+
+### Step 6: Wait a bit and go to Step 3 
+
+I decided that a 1mn was a good interval, so I used the sleep command to wait 60 seconds and go back to the beginning of the infinite loop (Step 3). 
+
+```shell
+ sleep 60
+
+done
+```
+
+### Running the bash code 
+
+When the code is invoked in bash (tested on MacOS and Ubuntu), I can see that, every minute, the script displays time and audit logs (if any have occurred): 
+
+```shell
+$ ./spy_workspace.sh 
+
+Last check at (UTC): 2023-12-18T09:05:53.00Z 
+--------------------- 
+{ 
+  "createdAt": "2023-12-18T09:06:11.000000Z", 
+  "username": "<usename>" 
+  "description": "Loading workspace 3009de2825f211ec8a84fedebcb4a754 for user <username> 
+  "ipAddress": "<ip address>" 
+} 
+{ 
+  "createdAt": "2023-12-18T09:05:55.000000Z", 
+  "username": "<usename>", 
+  "description": "User <usename> logged in via ping mode.", 
+  "ipAddress": "<ip address>" 
+} 
+Last check at (UTC): 2023-12-18T09:06:54.00Z 
+--------------------- 
+Last check at (UTC): 2023-12-18T09:07:55.00Z 
+---------------------
+```
+
+> Note: The audit log API returns logs in LIFO (Last In First Out) mode. This is great for a GUI interface; however, it makes things a little more complicated for CLI and scripts. Sorting the logs is outside the scope of the blog post.   
+
+When the token expires after 2 hours, I can catch the error, display a message, and exit. 
+
+```shell
+Last check at (UTC): 2023-12-18T11:05:55.00Z 
+--------------------- 
+Error calling the API or token has expired!
+```
