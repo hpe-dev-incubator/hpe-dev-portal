@@ -13,6 +13,7 @@ ul li{
  font-size:27px;
 }
 </style>
+
 <style>
 ol li{
  font-size:27px;
@@ -25,7 +26,7 @@ The foundational APIs for common HPE GreenLake  platform services allow IT admi
 
 This set of APIs for common platform services includes API for workspace management, identity and access management, device and subscription, locations, audit logs, and wellness.   
 
->> Note: The [HPE Greenlake platform documentation](https://developer.greenlake.hpe.com/docs/greenlake/services/) for these APIs leverages OpenAPI specifications and associated reference material. The documentation provides a complete explanation of the operations supported by these APIs for common HPE GreenLake platform services, as well as sample requests and responses.   
+> > Note: The [HPE Greenlake platform documentation](https://developer.greenlake.hpe.com/docs/greenlake/services/) for these APIs leverages OpenAPI specifications and associated reference material. The documentation provides a complete explanation of the operations supported by these APIs for common HPE GreenLake platform services, as well as sample requests and responses.   
 
  The following blog posts are an excellent way to learn more about the APIs using Postman. 
 
@@ -75,9 +76,7 @@ curl -s --location 'https://sso.common.cloud.hpe.com/as/token.oauth2' \ 
 
 You can see this in the API section of the Manage Workspace screen of the HPE GreenLake console shown below: 
 
-Picture
-
-Figure 2: API access management page 
+![Figure 3: API access management page](/img/apiaccess.jpg "Figure 3: API access management page")
 
 The JSON response is received from this call in the following format: 
 
@@ -97,11 +96,15 @@ The response provides an access token of type “Bearer” with a time to live o
 
 According to the [API Reference documentation](https://developer.greenlake.hpe.com/docs/greenlake/services/audit-logs/public/) for the Audit Log service, I can query the log using:  
 
-GET /audit-log/v1beta1/logs 
+```
+GET /audit-log/v1beta1/logs
+```
 
 I can also see from the documentation, that I can use a filter to keep only logs after a certain date using the following parameter: 
 
-GET /audit-log/v1beta1/logs?filter=createdAt ge '2023-07-24T04:21:22.00Z' 
+```
+GET /audit-log/v1beta1/logs?filter=createdAt ge '2023-07-24T04:21:22.00Z'
+```
 
 > > Note: the format of the date used by the API, which is [ISO 8601](https://www.iso.org/standard/70908.html) of the form: YYYY-MM-DDTHH:MM:SS.ss-/+FF:ff. For example: '2023-07-24T04:21:22.00Z' for 4:21AM on the 24th of July, 2023 in UTC (Z=Zero Meridian) 
 
