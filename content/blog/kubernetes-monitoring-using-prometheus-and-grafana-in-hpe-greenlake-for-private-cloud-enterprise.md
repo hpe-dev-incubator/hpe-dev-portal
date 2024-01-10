@@ -29,6 +29,10 @@ Before starting, make sure you meet the following requirements:
 * The kubectl CLI tool, together with the kubeconfig file for accessing the K8s cluster
 * The Helm CLI tool, version 3.12.0 or later
 
+### Prometheus and Grafana
+
+
+
 H﻿ere is the terraform config file. Apart from using the HPE GreenLake *hpegl* provider, it also uses the *helm* provider from Hashicorp to deploy both Prometheus and Grafana to the K8s cluster.
 
 ```markdown
