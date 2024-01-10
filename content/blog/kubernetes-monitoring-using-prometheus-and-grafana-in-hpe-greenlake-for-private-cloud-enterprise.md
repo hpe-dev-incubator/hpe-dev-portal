@@ -12,11 +12,13 @@ tags:
   - HPE GreenLake for Private Cloud Enterprise
   - HPE GreenLake for Private Cloud Enterprise Containers
 ---
-I﻿n this blog post, I will discuss Kubernetes monitoring and show you how to add a monitoring stack to a Kubernetes cluster using Prometheus and Grafana in HPE GreenLake for Private Cloud Enterprise. By setting up Prometheus as the data source and importing different dashboard templates into Grafana, various resources and applications can be monitored in the Kubernetes cluster.
+I﻿n this blog post, I will discuss Kubernetes monitoring and show you how to add monitoring stack using Prometheus and Grafana to a Kubernetes cluster in HPE GreenLake for Private Cloud Enterprise. By setting up Prometheus as the data source and importing different dashboard templates into Grafana, various resources and applications can be monitored in the Kubernetes cluster.
 
 ### Why monitor Kubernetes
 
-[HPE GreenLake for Private Cloud Enterprise: Containers](https://www.hpe.com/us/en/greenlake/containers.html), one of the HPE GreenLake Cloud services available on the HPE GreenLake for Private Cloud Enterprise, allows customers to open the Clusters screen to create a Kubernetes (K8s) cluster, view details about existing clusters, and launch the HPE GreenLake for Container service console. It provides an enterprise-grade container management service using open source K8s. 
+[HPE GreenLake for Private Cloud Enterprise: Containers](https://www.hpe.com/us/en/greenlake/containers.html), one of the HPE GreenLake Cloud services available on the HPE GreenLake for Private Cloud Enterprise, allows customers to create a Kubernetes (K8s) cluster, view details about existing clusters, and launch the HPE GreenLake for Container service console. It provides an enterprise-grade container management service using open source K8s. 
+
+Though Kubernetes dramatically simplifies application deployment in containers and across clouds, it adds a new set of complexities for managing, securing and troubleshooting applications. Container-based applications are dynamic and they are being designed using microservices, where the number of components is increased by an order of magnitude. To ensure Kubernetes security, it requires self-configuration that is typically specified in code, whether Kubernetes yaml manifests, Helm charts, or templating tools. Properly configuring for workloads, clusters, networks, and infrastructure is crucial for averting issues and limiting the impact if a breach occurs. Dynamic provisioning via Infrastructure as Code (IaC), automated configuration management and orchestration also add to monitoring and troubleshooting complexity. Kubernetes monitoring is critical to managing application performance, service uptime and troubleshooting. Having a good monitoring tool is becoming essential for Kubernetes monitoring. This blog post escribesd how to add a monitoring stack using Prometheus and Grafana to a Kubernetes cluster in HPE GreenLake for Private Cloud Enterprise. 
 
 ### Prerequisites
 
