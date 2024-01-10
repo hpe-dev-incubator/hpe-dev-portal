@@ -8,7 +8,7 @@ disable: false
 tags:
   - Prometheus
   - Grafana
-  - Kubernetes monitoring
+  - Kubernetes
   - HPE GreenLake for Private Cloud Enterprise
   - HPE GreenLake for Private Cloud Enterprise Containers
 ---
