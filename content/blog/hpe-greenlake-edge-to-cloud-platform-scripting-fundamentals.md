@@ -62,7 +62,7 @@ The HPE GreenLake platform console provides a way to create an API access that w
 
 > *Note: To learn how to create API credentials for HPE GreenLake platform APIS, check out the [Generate and Reset application credentials documentation](https://developer.greenlake.hpe.com/docs/greenlake/guides/#generate-or-reset-application-credentials).*  
 
-My script will prompt for these two values (client_id and client_secret) and will make sure that client_secret is never printed anywhere. Because these values are quite long, I will also test the presence of the operating system’s environment variables CLIENTID and CLIENTSECRET. If present, I will use their values and not prompt the user. 
+My script will prompt for these two values (**client_id** and **client_secret**) and will make sure that **client_secret** is never printed anywhere. Because these values are quite long, I will also test the presence of the operating system’s environment variables CLIENTID and CLIENTSECRET. If present, I will use their values and not prompt the user. 
 
  From the HPE GreenLake console, I’ve learned that the cURL command to get a session token is: 
 
@@ -124,7 +124,7 @@ The JSON response received from this API call should be in the form of: 
 
 In this response, **count** provides the size of **items**, the returned array of items and **total**, the total number of existing items. If **total** is greater than **count**, I would need to call the same API multiple times, specifying an **offset** parameter to get the next batch, until **total** is reached or **remainingRecords** is false. 
 
-**Items** is an array of audit items, such as: 
+**Items** is an array of audit items, with a single audit item being defined as shown below: 
 
 ```json
 { 
@@ -154,7 +154,7 @@ In this response, **count** provides the size of **items**, the returned array o
 }
 ```
 
-To keep it simple and human readable, I will only display: 
+To keep it simple and human readable, in my scripts, I will only display: 
 
 * user.username 
 * description 
