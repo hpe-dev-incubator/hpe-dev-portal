@@ -6,7 +6,6 @@ author: Daniel Fedorin
 authorimage: https://chapel-lang.org/blog/img/logo.png
 disable: false
 tags:
-  - Chapel
   - opensource
   - HPC
   - GPU Programming
