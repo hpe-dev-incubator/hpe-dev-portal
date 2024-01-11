@@ -39,9 +39,9 @@ In this blog post here, I will explore the usage of the HPE GreenLake platform A
 
 Let’s say I’d like to check  what is in my audit log at regular intervals in order to keep an eye on my HPE GreenLake workspace. The following graphics explain what I will be doing: 
 
-![Figure 1: Picture view of the script](/img/don-picture.png "Figure 1: Picture view of the script")
+![Figure 1: Illustrating the interactions made between workspace users and the HPE GreenLake platform](/img/don-picture.png "Figure 1: Illustrating the interactions made between workspace users and the HPE GreenLake platform")
 
-> Figure 1: Picture view of the script 
+> Figure 1: Illustrating the interactions made between workspace users and the HPE GreenLake platform
 
 For reference, I can also check the content of this audit log in the HPE GreenLake console, under the Manage Workspace tab. 
 
@@ -556,6 +556,6 @@ Error calling the API or token has expired!
 
 ## What’s next? 
 
-The next step for the HPE GreenLake APIs is to provide language specific SDK, which would provide better handling in PowerShell and Python, with stronger type checking and exception handling. In the meantime, I have shown you through this blog post that it is already possible to integrate with HPE GreenLake platform using the most popular scripting languages. 
+The next step for the HPE GreenLake APIs is to provide language specific SDK, which would provide better handling in PowerShell and Python, with stronger type checking and exception handling. In the meantime, I have shown you through this blog post that it is already possible to integrate with HPE GreenLake platform using the most popular scripting languages. You can get the source code for these scripts from [our community tooling repository](https://github.com/hpe-dev-incubator/GLP-API-Tooling).
 
 Do you have any questions on HPE GreenLake platform API? Please join the [HPE Developer Community Slack Workspace](https://developer.hpe.com/slack-signup/) and start a discussion in our [\#hpe-greenlake-api](https://hpedev.slack.com/archives/C02EG5XFK8Q) channel.
