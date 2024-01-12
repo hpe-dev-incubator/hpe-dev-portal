@@ -136,7 +136,8 @@ The *Generate AccessToken* API call has defined a script in the **Tests** tab to
 
 ![Figure 2: Defining collection variables programmatically in script](/img/blog-part1-bearertoken-testscript-image2.png "Figure 2: Defining collection variables programmatically in script")
 
-_Figure 2: Defining collection variables programmatically in script_
+>> <span style="color:grey; font-family:Arial; font-size:1em"> Figure 2: Defining collection variables programmatically in script</span>
+
 
 > **Note:** Access bearer tokens expire after 120 minutes (about 2 hours). Run the *Generate AccessToken* API request again to refresh the token before or after it expires.
 
@@ -148,11 +149,12 @@ As shown in the two pictures below, all REST API requests in the collection will
 
 ![Figure 3: Authorization type (bearer token) specified at the collection level](/img/blog-part1-collection-level-authorization-image3.png "Figure 3: Authorization type (bearer token) specified at the collection level")
 
-_Figure 3: Authorization type (bearer token) specified at the collection level_
+>> <span style="color:grey; font-family:Arial; font-size:1em"> Figure 3: Authorization type (bearer token) specified at the collection level</span>
+
 
 ![Figure 4: REST API request with authorization type inherited from parent collection](/img/blog-part1-collection-api-call-authorization-image4.png "Figure 4: REST API request with authorization type inherited from parent collection")
 
-_Figure 4: REST API request with authorization type inherited from parent collection_
+>> <span style="color:grey; font-family:Arial; font-size:1em"> Figure 4: REST API request with authorization type inherited from parent collection</span>
 
 To validate the access token, pick the next REST API call ***Get workspace information*** from the ***Step1-Generate Token*** folder. Click the **Send** button and verify you get a *status code of 200* for a successful response. You will get a JSON representation of your HPE GreenLake platform workspace. An example is shown below:
 
