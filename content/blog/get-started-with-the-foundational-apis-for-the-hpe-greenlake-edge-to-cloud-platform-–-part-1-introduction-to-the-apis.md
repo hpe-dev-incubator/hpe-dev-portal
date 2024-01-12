@@ -37,7 +37,7 @@ The foundational APIs for the HPE GreenLake platform services are designed to en
 
 > **Note:** A workspace is an identity and access management boundary. Users and resources must be in a workspace to be operated according to specific user permissions.
 
-For example, the current set of APIs for common platform services allows HPE GreenLake customers and partners to **programmatically** add users, assign permissions to users, add devices and associated subscriptions (licenses), track users’ activities and monitor the overall health of the managed services and devices in the workspace.
+For example, the current set of APIs for common platform services allows HPE GreenLake customers and partners to **programmatically** add users, add devices and associated subscriptions (licenses), track users’ activities and monitor the overall health of the managed services and devices in the workspace.
 
 > **Important note:** This set of APIs for common platform services differentiates from the specific APIs for the featured services (also known as applications) that HPE GreenLake administrators can deploy in their workspace to operate and manage cloud services and their underlying infrastructure for networking, compute, storage and data services. You can find more information about these applications’ specific APIs in the HPE Developer Community portal: [Aruba Central](https://developer.hpe.com/greenlake/aruba-central/home/), [HPE GreenLake for Compute Ops Management](https://developer.hpe.com/greenlake/hpe-greenlake-for-compute-ops-management/home/), and [Data Services Cloud Console](https://developer.hpe.com/greenlake/data-services-cloud-console/home/).   
 
@@ -47,10 +47,7 @@ The set of APIs for common platform services includes:
 
   * **Workspace management service:** Workspace management service allows you to manage workspace information and operate tenants for a Managed Service Provider (MSP) workspace.
   * **Identity management service:** Identity management service allows you to manage the workspace users. The service allows you to invite users to join the workspace, retrieve a list of existing users in the workspace and delete users from the workspace.
-  * **Authorization service:** Authorization service handles the decision on whether a user, in a workspace, has privileges to access a resource owned by an application, and performs a particular action based on the roles assigned to that user. 
-
->**Note:** Authorization service has limited availability at this time.
-
+  
 * **Location management:** Location management service manages service delivery information (SDI), including device location and support contact information.     
 
 * **Device inventory management:** Device service maintains the inventory of all devices (networking, compute and storage devices) manufactured by HPE.    
@@ -93,7 +90,7 @@ As an IT administrator, before you can work with the APIs for common HPE GreenLa
 
 ## Setting the Postman collection for the HPE GreenLake platform APIs
 
-As you know, one of the benefits of working within a community is the ability to take advantage of open collaboration, sharing hints, tools, and resources. Although you can build your own Postman collection by downloading the OpenAPI specification files from the [HPE GreenLake documentation](https://developer.greenlake.hpe.com/docs/greenlake/services/) and importing them to Postman, you can take advantage of the Postman collection I built for you. The Postman collection is available here `GitHub link to be inserted here`. Simply download the JSON file and import it to Postman. Then set the collection variables as explained in the next section.
+As you know, one of the benefits of working within a community is the ability to take advantage of open collaboration, sharing hints, tools, and resources. Although you can build your own Postman collection by downloading the OpenAPI specification files from the [HPE GreenLake documentation](https://developer.greenlake.hpe.com/docs/greenlake/services/) and importing them to Postman, you can take advantage of the Postman collection I built for you. The Postman collection for the _APIs for common HPE GreenLake platform services_ is available in the [HPE Developer Community tooling repository](https://github.com/hpe-dev-incubator/GLP-API-Tooling/tree/main/Postman-Collections). Simply download the JSON file and import it to Postman. Then set the collection variables as explained in the next section.
 
 > **Note:** As HPE will enrich the APIs for common platform services overtime, I will update the Postman collection as appropriate. So, check out the link above regularly to download the latest release of the Postman collection. 
 
@@ -176,6 +173,8 @@ To validate the access token, pick the next REST API call ***Get workspace infor
 
 This blog post helps you get started with the HPE GreenLake platform APIs by taking advantage of Postman Collection. It explains you the preparation steps you need to take to use the APIs for common platform services and walks you through the steps required to obtain an OAuth access token to make secure REST API calls to the HPE GreenLake platform APIs.
 
-Don’t miss Part 2, Part 3 and Part 4 of this blog series, where you will further explore the rest of the collection to learn how you, as an IT administrator of the HPE GreenLake platform, can configure and manage workspace resources (users’ identity, roles, devices and subscriptions) and how you can track activities within your workspace and monitor overall health of services and devices in your workspace. 
+You can get the Postman collection from the HPE Developer Community tooling GitHub repository [here](https://github.com/hpe-dev-incubator/GLP-API-Tooling/tree/main/Postman-Collections).
+
+Don’t miss Part 2, Part 3 and Part 4 of this blog series, where you will further explore the rest of the collection to learn how you, as an IT administrator of the HPE GreenLake platform, can configure and manage workspace resources (users’ identity, devices and subscriptions) and how you can track activities within your workspace and monitor overall health of services and devices in your workspace. 
 
 Do you have any questions on HPE GreenLake platform API? Please join the [HPE Developer Community Slack Workspace](https://developer.hpe.com/slack-signup/) and start a discussion in our [\#hpe-greenlake-api](https://hpedev.slack.com/archives/C02EG5XFK8Q) channel.
