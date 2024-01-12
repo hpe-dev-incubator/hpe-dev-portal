@@ -1,6 +1,8 @@
 ---
 title: Mixtral 8x7B could pave the way to adopt the "Mixture of Experts" model
 date: 2023-12-20T01:25:25.421Z
+featuredBlog: true
+priority: 4
 author: SOON HENG
 authorimage: /img/gshcopy.jpg
 thumbnailimage: null
