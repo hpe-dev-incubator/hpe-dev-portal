@@ -103,7 +103,7 @@ The collection I built makes use of collection variables that are available thro
 
 ![Figure 1: HPE GreenLake platform API collections variables](/img/blog-part1-collection-variables-image1.png "Figure 1: HPE GreenLake platform API collections variables")
 
-_Figure 1: HPE GreenLake platform API collections variables_
+*Figure 1: HPE GreenLake platform API collections variables*
 
 Define the **current value** of the collection variables to match your HPE GreenLake platform workspace context:
 
