@@ -109,7 +109,7 @@ Now, edit each `config.env` in each directory. I use `vi` to “:wn” myself th
 vi kustomize/overlays/mytest-*/config.env
 ```
 
-In each iteration, we’ll double `workloadThreads` so we end up with a sequence like 1, 2, 4, 8, 16, 32, 64 and 128. Wouldn’t it be useful if we could run these in sequence and report the results in the same template we used previously to understand if the system scales to when adding more threads to the workload? (The entire demo environment runs in virtual machines on decade old hardware, please don’t judge.)
+In each iteration, we’ll double `workloadThreads` so we end up with a sequence like 1, 2, 4, 8, 16, 32, 64 and 128. Would it not be useful if we could run these in sequence and report the results in the same template we used previously to understand if the system scales to when adding more threads to the workload? (The entire demo environment runs in virtual machines on decade old hardware, please don’t judge.)
 
 Run the sequence:
 
