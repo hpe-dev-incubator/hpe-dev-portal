@@ -1,8 +1,8 @@
 ---
 title: Help us prioritize features for future releases of Chapel
 date: 2023-11-15T18:36:57.937Z
-featuredBlog: true
-priority: 2
+featuredBlog: false
+priority: 10
 author: Lydia Rose Duncan
 authorimage: /img/lydia-rose-small.png
 disable: false
