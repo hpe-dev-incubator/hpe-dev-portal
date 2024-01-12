@@ -27,7 +27,7 @@ Let’s walk through a practical example of configuring, running and reporting a
 
 # Prerequisites
 
-At the time of writing, parts of Benk can only be run on Mac and Linux due to a dependency on Bash. It will of course run in WSL on Windows. Besides cloning the [GitHub repo](https://github.com/hpe-storage/benk) with `git`, a recent version of `kubectl` and Python 3.x needs to be installed.
+At the time of writing, parts of Benk can only be run on Mac and Linux due to a dependency on Bash. It will of course run in WSL on Windows. Besides cloning the [GitHub repository](https://github.com/hpe-storage/benk) with `git`, a recent version of `kubectl` and Python 3.x needs to be installed.
 
 Some pro-efficiency working with scripts, JSON and Kubernetes is helpful to better understand the workflows.
 
@@ -75,7 +75,7 @@ kubectl logs -n benk job/benk | jq
 
 This will render the log in pretty JSON. The log is pretty substantial and intentionally left out from the blog. An example log entry from the above job is available [on GitHub](https://github.com/hpe-storage/benk/tree/main/jinja2).
 
-There’s also tiny output template provided in the repo `jinja2/example-default.yaml.j2` that pulls some data out of the log file. 
+There’s also tiny output template provided in the repository `jinja2/example-default.yaml.j2` that pulls some data out of the log file. 
 
 ```text
 kubectl logs -n benk job/benk | ./src/benk/outputter.py -t jinja2/example-default.yaml.j2 -l-
@@ -95,7 +95,7 @@ Now we’ve completed the three corners of running Benk. Configured the environm
 
 # The sequencer
 
-The core of Benk for now, is to run preconfigured jobs with kustomize. It may seem a lot of work for very little output. That’s why the repo contain two important scripts, `sequencer.sh` and `sequencer-cluster.sh`. These scripts will help you run multiple jobs and structure the output to create more meaty reports.
+The core of Benk for now, is to run preconfigured jobs with kustomize. It may seem a lot of work for very little output. That’s why the repository contain two important scripts, `sequencer.sh` and `sequencer-cluster.sh`. These scripts will help you run multiple jobs and structure the output to create more meaty reports.
 
 First, copy the “default” kustomize directory into eight separate directories.
 
@@ -215,11 +215,13 @@ Clearly, the performance increases nearly 5x across the board and we also have a
 
 A good exercise for the reader could be to factor in latency in the report to understand the impact, which there will be as performance plateaus when you add more workload usually result in higher latency. How high?
 
-# More sequencers!
+# More sequencers and examples!
 
 There’s also a `sequencer-cluster.sh` script that allows users to orchestrate load generation across multiple clusters attached to one or many storage systems to isolate problems with high concurrency. The possibilities are quite endless.
 
-Learn more about multi-cluster scaling in [the GitHub repo](https://github.com/hpe-storage/benk#multi-cluster-testing).
+Learn more about multi-cluster scaling in [the GitHub repository](https://github.com/hpe-storage/benk#multi-cluster-testing).
+
+You'll also find more practical examples in [the GitHub repository](https://github.com/hpe-storage/benk/tree/main/examples) stemming from real world performance testing conducted by the HPE Hybrid Cloud solutions team.
 
 # Summary
 
