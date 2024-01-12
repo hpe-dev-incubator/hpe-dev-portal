@@ -1,8 +1,8 @@
 ---
 title: "Dark Mode Theming in Grommet - Part 1: How to set up and apply a theme"
 date: 2023-12-15T15:45:24.933Z
-featuredBlog: false
-priority: null
+featuredBlog: true
+priority: 3
 author: Matt Glissmann
 authorimage: /img/blogs/Avatar6.svg
 thumbnailimage: null
