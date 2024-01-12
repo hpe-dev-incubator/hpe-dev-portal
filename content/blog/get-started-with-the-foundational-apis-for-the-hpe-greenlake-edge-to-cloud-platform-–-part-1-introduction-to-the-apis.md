@@ -9,7 +9,7 @@ tags:
   - hpe-greenlake-platform
   - hpe-greenlake
 ---
-<style>
+ <style>
 li {
    font-size: 27px;
    line-height: 33px;
@@ -47,11 +47,13 @@ The set of APIs for common platform services includes:
   * **Workspace management service:** Workspace management service allows you to manage workspace information and operate tenants for a Managed Service Provider (MSP) workspace.
   * **Identity management service:** Identity management service allows you to manage the workspace users. The service allows you to invite users to join the workspace, retrieve a list of existing users in the workspace and delete users from the workspace.
   * **Authorization service:** Authorization service handles the decision on whether a user, in a workspace, has privileges to access a resource owned by an application, and performs a particular action based on the roles assigned to that user. 
+>**Note:** Authorization service has limited availability at this time.
+
 * **Location management:** Location management service manages service delivery information (SDI), including device location and support contact information. 
 * **Device inventory management:** Device service maintains the inventory of all devices (networking, compute and storage devices) manufactured by HPE.
 * **Subscription management:** Subscription management service maintains the subscriptions and licenses for cloud management of devices for networking, compute and storage, and cloud software as-a-service.
 * **Audit log management:** Audit log service records the occurrence of an event emitted from all devices and applications. These logs can also be used for auditing purposes, track user activity, investigate breaches and ensure compliance with regulatory requirements.
-* **Wellness event service:** Wellness service presents wellness events for several HPE services and products in the workspace. It also enables you to open a support ticket corresponding to a wellness event when appropriate.
+* **Wellness event service:** Wellness service presents wellness events for several HPE services and products in the workspace. In a near future, it will also enable you to open a support ticket corresponding to a wellness event when appropriate.
 
 These APIs conform to [OpenAPI specifications](https://spec.openapis.org/oas/latest.html) and are [RESTful](https://restfulapi.net/). This makes them easy to learn, discoverable by code, and accessible with any programming language. By using OAuth protocol to authenticate and authorize API client applications, secure and time-limited access to the collection of HPE GreenLake platform service APIs are provided via an access token. The token ensures that client API requests access HPE GreenLake platform services and resources securely and according to the authorization granted to the user who created the access token.
 
