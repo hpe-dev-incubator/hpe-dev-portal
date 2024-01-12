@@ -2,8 +2,8 @@
 title: End-to-end, easy-to-use pipeline for training a model on Medical Image
   Data using HPE Machine Learning Development Environment
 date: 2023-06-16T16:00:00.000Z
-featuredBlog: true
-priority: 4
+featuredBlog: false
+priority: 9
 author: Isha Ghodgaonkar
 authorimage: /img/isha.jpeg
 thumbnailimage: null
