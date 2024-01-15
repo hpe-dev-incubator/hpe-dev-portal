@@ -171,7 +171,7 @@ To validate the access token, pick the next REST API call ***Get workspace infor
 
 This blog post helps you get started with the HPE GreenLake platform APIs by taking advantage of Postman Collection. It explains you the preparation steps you need to take to use the APIs for common platform services and walks you through the steps required to obtain an OAuth access token to make secure REST API calls to the HPE GreenLake platform APIs.
 
-You can get the Postman collection from the HPE Developer Community tooling GitHub repository [here](https://github.com/hpe-dev-incubator/GLP-API-Tooling/tree/main/Postman-Collections).
+You can get the Postman collection from the [HPE Developer Community tooling GitHub repository](https://github.com/hpe-dev-incubator/GLP-API-Tooling/tree/main/Postman-Collections).
 
 Don’t miss Part 2 and Part 3 of this blog series, where you will further explore the rest of the collection to learn how you, as an IT administrator of the HPE GreenLake platform, can configure and manage workspace resources (users’ identity, devices and subscriptions) and how you can track activities within your workspace and monitor overall health of services and devices in your workspace. 
 
