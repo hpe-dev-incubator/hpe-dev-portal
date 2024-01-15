@@ -169,123 +169,12 @@ With above main.tf file, the working directory can be initialized by running the
     commands will detect it and remind you to do so if necessary.
     ```
 
-#### Initialize working directoryDeploy 
+#### Deploy Prometheus and Grafana 
 
-Apply the Terraform configuration and deploy Prometheus and Grafana to the K8s cluster by responingd _yes_ at the prompt to confirm the operation. 
+Apply the Terraform configuration and deploy Prometheus and Grafana to the K8s cluster by responding _yes_ at the prompt to confirm the operation. You may start first a dry run, by running *terraform plan*, to preview the changes to your infrastructure based on the data you provide in your Terraform file. 
   
 ```markdown
-    $ terraform plan --var-file=../tfvar_files/variables.tfvars 
-    
-    Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
-      + create
-    
-    Terraform will perform the following actions:
-    
-      # helm_release.grafana-dashboard will be created
-      + resource "helm_release" "grafana-dashboard" {
-          + atomic                     = false
-          + chart                      = "grafana"
-          + cleanup_on_fail            = false
-          + create_namespace           = true
-          + dependency_update          = false
-          + disable_crd_hooks          = false
-          + disable_openapi_validation = false
-          + disable_webhooks           = false
-          + force_update               = false
-          + id                         = (known after apply)
-          + lint                       = false
-          + manifest                   = (known after apply)
-          + max_history                = 0
-          + metadata                   = (known after apply)
-          + name                       = "grafana-dashboard"
-          + namespace                  = "monitoring"
-          + pass_credentials           = false
-          + recreate_pods              = false
-          + render_subchart_notes      = true
-          + replace                    = false
-          + repository                 = "https://grafana.github.io/helm-charts"
-          + reset_values               = false
-          + reuse_values               = false
-          + skip_crds                  = false
-          + status                     = "deployed"
-          + timeout                    = 300
-          + verify                     = false
-          + version                    = "6.57.4"
-          + wait                       = true
-          + wait_for_jobs              = false
-    
-          + set {
-              + name  = "persistence.enabled"
-              + value = "true"
-            }
-          + set {
-              + name  = "service.type"
-              + value = "NodePort"
-            }
-        }
-    
-      # helm_release.prometheus-stack will be created
-      + resource "helm_release" "prometheus-stack" {
-         + atomic                     = false
-          + chart                      = "prometheus"
-          + cleanup_on_fail            = false
-          + create_namespace           = true
-          + dependency_update          = false
-          + disable_crd_hooks          = false
-          + disable_openapi_validation = false
-          + disable_webhooks           = false
-          + force_update               = false
-          + id                         = (known after apply)
-          + lint                       = false
-          + manifest                   = (known after apply)
-          + max_history                = 0
-          + metadata                   = (known after apply)
-          + name                       = "prometheus-stack"
-          + namespace                  = "monitoring"
-          + pass_credentials           = false
-          + recreate_pods              = false
-          + render_subchart_notes      = true
-          + replace                    = false
-          + repository                 = "https://prometheus-community.github.io/helm-charts"
-          + reset_values               = false
-          + reuse_values               = false
-          + skip_crds                  = false
-          + status                     = "deployed"
-          + timeout                    = 300
-          + verify                     = false
-          + version                    = "23.0.0"
-          + wait                       = true
-          + wait_for_jobs              = false
-    
-          + set {
-              + name  = "prometheus-node-exporter.hostNetwork"
-              + value = "false"
-            }
-          + set {
-              + name  = "prometheus-node-exporter.hostPID"
-              + value = "false"
-            }
-          + set {
-              + name  = "prometheus-node-exporter.hostRootFsMount.enabled"
-              + value = "false"
-            }
-          + set {
-              + name  = "server.service.type"
-              + value = "NodePort"
-            }
-        }
-    
-    Plan: 2 to add, 0 to change, 0 to destroy.
-    
-───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-    
-    Note: You didn't use the -out option to save this plan, so Terraform can't guarantee to take exactly these actions if you run "terraform apply" now.
-    ```
-    
-  * terraform apply
-
-```markdown
-    $ terraform apply --var-file=../tfvar_files/variables_cmc.tfvars 
+    $ terraform apply --var-file=variables.tfvars 
     
     Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
       + create
@@ -412,11 +301,11 @@ Apply the Terraform configuration and deploy Prometheus and Grafana to the K8s c
     
     Apply complete! Resources: 2 added, 0 changed, 0 destroyed.
 ````
-#### Prometheus and Grafana access
+#### Check Prometheus and Grafana
 
-A﻿fter few minutes Terraform run, both Prometheus and Grafana get deployed in the K8s cluster, to its _monitoring_ namespace. 
+A﻿fter few minutes Terraform run, both Prometheus and Grafana will be deployed in the K8s cluster to the namespace _monitoring_. 
 
-T﻿ype the following command to check all the deployed monitoring resources. They should be all in _Running_ and _Ready_ states.
+T﻿ype the following command to check the deployed monitoring resources. They should be all in _Running_ and _Ready_ states.
 
 ```markdown
 $ kubectl get all -n monitoring 
@@ -457,7 +346,7 @@ NAME                                             READY   AGE
 statefulset.apps/prometheus-stack-alertmanager   1/1     4d17h
 ```
 
-T﻿ype _helm list_ command, both Prometheus and Grafana helm charts are deployed to the _monitoring_ namespace:
+T﻿ype _helm list_ command, it shows both Prometheus and Grafana helm charts are deployed to the _monitoring_ namespace: 
 
 ```markdown
 $ helm list -n monitoring
@@ -466,6 +355,12 @@ grafana-dashboard	monitoring	1       	2023-11-22 15:28:07.986364628 +0100 CET	de
 prometheus-stack 	monitoring	1       	2023-11-22 15:28:13.290386574 +0100 CET	deployed	prometheus-23.0.0	v2.45.0
 ```
 
+### Set up Prometheus and Grafana for K8s monitoring
+
+#### Access Prometheus 
+
+T﻿he Prometheus application can be accessed by pointing the browser to the URL *gl-tor-upc-cp-gw-node1.customer.yyz.gl-hpe.local:10015*, extracted by the following command:
+
 ```markdown
 $ kubectl get service/prometheus-stack-server -n monitoring -o jsonpath='{.metadata.annotations.hpecp-internal-gateway/80}'
 gl-tor-upc-cp-gw-node1.customer.yyz.gl-hpe.local:10015
@@ -473,28 +368,30 @@ gl-tor-upc-cp-gw-node1.customer.yyz.gl-hpe.local:10015
 
 ![](/img/prometheus.png)
 
+#### Access Grafana dashboard
+
+T﻿he Grafana dashboard can be accessed by pointing the browser to the URL *gl-tor-upc-cp-gw-node1.customer.yyz.gl-hpe.local:10016*. The URL and the admin password can be extracted by the following commands:
+
 ```markdown
 $ kubectl get service/grafana-dashboard -n monitoring -o jsonpath='{.metadata.annotations.hpecp-internal-gateway/80}'
 gl-tor-upc-cp-gw-node1.customer.yyz.gl-hpe.local:10016
-```
 
-T﻿he Grafana dashboard can be accessed by typing the URL *gl-tor-upc-cp-gw-node1.customer.yyz.gl-hpe.local:10016*. Its admin password can be extracted by the following command
-
-```markdown
 $ kubectl get secrets -n monitoring grafana-dashboard -o jsonpath='{.data.admin-password}' | base64 -d
 cs3O6LF2H9m0jLrgdR8UXplmZG22d9Co9WbnJNzx
 ```
 
 ![](/img/grafana.png)
 
-T﻿he Prometheus can be configured as the data sources to the Grafana dashboard, by specifying the HTTP URL as *http://gl-tor-upc-cp-gw-node1.customer.yyz.gl-hpe.local:10015/*.
+#### Configure Grafana dashboard 
+
+T﻿he Prometheus can be configured as the data sources from the Grafana dashboard, by specifying the HTTP URL as *http://gl-tor-upc-cp-gw-node1.customer.yyz.gl-hpe.local:10015/*:
 
 ![](/img/grafana-datasources.png)
 
-F﻿rom [Grafana Labs](https://grafana.com/grafana/dashboards/), there is a list of dashboard templates you can download and imported them as monitoring dashboards to the Grafana. 
+F﻿rom [Grafana Labs](https://grafana.com/grafana/dashboards/), there is a list of Grafana dashboard templates you can download and then import them as monitoring dashboards to the Grafana. 
 
 ![](/img/grafana-dashboard-import.png)
 
-H﻿ere is the imported dashboard for K8s cluster monitoring (via Prometheus):
+H﻿ere is the imported dashboard for _K8s cluster monitoring (via Prometheus)_:
 
 ![](/img/grafana-cluster-monitoring.png)
