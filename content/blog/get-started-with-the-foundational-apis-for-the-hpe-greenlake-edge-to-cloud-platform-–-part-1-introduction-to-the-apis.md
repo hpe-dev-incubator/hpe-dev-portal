@@ -1,5 +1,5 @@
 ---
-title: "Get started with the foundational APIs for the HPE GreenLake
+title: "Getting started with the foundational APIs for the HPE GreenLake
   edge-to-cloud platform – Part 1: Introduction to the APIs"
 date: 2024-01-12T15:33:48.384Z
 author: Denis Choukroun
@@ -25,9 +25,7 @@ If you are looking for a quick way to discover what you can do with the HPE Gree
 
 In Part 1 of this series, I will help you get started with the HPE GreenLake platform APIs by taking advantage of a Postman collection I built for you. I will describe the current set of APIs for HPE GreenLake platform. I will also show you how to obtain an OAuth access token to make subsequent secure REST API calls to the HPE GreenLake platform APIs. 
 
-In Part 2 and Part 3 of the blog series, I will take you on a deep dive into the foundational HPE GreenLake platform APIs through a typical customer scenario in which one automates IT operations via APIs such as managing users and resources, tracking activities and monitoring the overall health of services and devices in a Standard Enterprise workspace. This type of workspace is a single-tenant environment for a single customer and organization.
-
-In Part 4, I will jump into another customer scenario where I can show you how to manage a Managed Service Provider (MSP) workspace. This type of workspace is for service providers who centrally manage and monitor multiple tenant workspaces for their clients.
+In Part 2 and Part 3 of the blog series, I will take you on a deep dive into the foundational HPE GreenLake platform APIs through a typical customer scenario in which one automates IT operations via APIs such as managing users and resources, tracking activities and monitoring the overall health of services and devices in a ***Standard Enterprise*** workspace. This type of workspace is a single-tenant environment for a single customer and organization.
 
 Let’s embark on this exciting journey into the HPE GreenLake platform APIs.
 
@@ -175,6 +173,6 @@ This blog post helps you get started with the HPE GreenLake platform APIs by tak
 
 You can get the Postman collection from the HPE Developer Community tooling GitHub repository [here](https://github.com/hpe-dev-incubator/GLP-API-Tooling/tree/main/Postman-Collections).
 
-Don’t miss Part 2, Part 3 and Part 4 of this blog series, where you will further explore the rest of the collection to learn how you, as an IT administrator of the HPE GreenLake platform, can configure and manage workspace resources (users’ identity, devices and subscriptions) and how you can track activities within your workspace and monitor overall health of services and devices in your workspace. 
+Don’t miss Part 2 and Part 3 of this blog series, where you will further explore the rest of the collection to learn how you, as an IT administrator of the HPE GreenLake platform, can configure and manage workspace resources (users’ identity, devices and subscriptions) and how you can track activities within your workspace and monitor overall health of services and devices in your workspace. 
 
 Do you have any questions on HPE GreenLake platform API? Please join the [HPE Developer Community Slack Workspace](https://developer.hpe.com/slack-signup/) and start a discussion in our [\#hpe-greenlake-api](https://hpedev.slack.com/archives/C02EG5XFK8Q) channel.
