@@ -37,14 +37,13 @@ Before starting, make sure you meet the following requirements:
 
 [Grafana](https://grafana.com/) is a powerful data visualization and monitoring tool. It serves as the interface for developers to visualize and analyze the data collected by Prometheus. With its rich set of visualization options and customizable dashboards, Grafana empowers developers to gain real-time insights into their systems’ performance, identify trends, and detect anomalies. By leveraging Grafana’s capabilities, developers can create comprehensive visual representations of their systems’ metrics, facilitating informed decision-making and proactive system management.
 
-### Deeploy Prometheus and Grafana using Terraform
+### Deploy Prometheus and Grafana using Terraform
 
+Both Prometheus and Gafana can be installed to the K8s cluster using the [HPE GreenLake Terraform provider *hpegl*](https://registry.terraform.io/providers/HPE/hpegl/latest), together with the [Helm provider from Hashicorp]( https://registry.terraform.io/providers/hashicorp/helm/latest). 
 
-Apart from using the HPE GreenLake *hpegl* provider, it also uses the *helm* provider from Hashicorp to deploy both Prometheus and Grafana to the K8s cluster.
+#### Create Terraform config
 
-#### Terraform config
-
-H﻿ere is the terraform config file. 
+H﻿ere is the terraform config file. You can refer to [Infrastructure-as-code on HPE GreenLake using Terraform](https://developer.hpe.com/blog/infrastructure-as-code-on-hpe-greenlake-using-terraform/) for the details about HPE GreenLake Terraform provider and its usage.
 
 ```markdown
 $ cat main.tf 
@@ -125,7 +124,7 @@ resource "helm_release" "grafana-dashboard" {
 }
 ```
 
-There a few things need to point out in above config file. 
+There a few things I want to point out in above config file:
 
 <style> li { font-size: 100%; line-height: 23px; max-width: none; } </style>
 
@@ -133,9 +132,9 @@ There a few things need to point out in above config file.
 * In Prometheus, the *DaemonSet* deployment of the node exporter is trying to mount the *hostPath* volume to the container root “/”, which violates against one deployed OPA (Open Policy Agent) policy to the K8s cluster for FS mount protections. Therefore, the DaemonSet deployment will never be ready, keep showing the warning events as *Warning  FailedCreate daemonset-controller  Error creating: admission webhook "soft-validate.hpecp.hpe.com" denied the request: Hostpath ("/") referenced in volume is not valid for this namespace because of FS Mount protections.*. You need disable the *hostRootFsMount*, together with *hostNetwork* and *hostPID*, to comply with the security policy in the cluster.
 * Both Prometheus and Grafana services are deployed as *NodePort* service types. Those services will be automatically mapped to the gateway host with assigned ports for easy access. 
 
-#### Terraform run
+#### Initialize working directory
 
-* terraform init
+With above main.tf file, the working directory can be initialized by running the following command:   
 
 ````markdown
     $ terraform init
@@ -170,8 +169,10 @@ There a few things need to point out in above config file.
     commands will detect it and remind you to do so if necessary.
     ```
 
-  * terraform plan    
-    
+#### Initialize working directoryDeploy 
+
+Apply the Terraform configuration and deploy Prometheus and Grafana to the K8s cluster by responingd _yes_ at the prompt to confirm the operation. 
+  
 ```markdown
     $ terraform plan --var-file=../tfvar_files/variables.tfvars 
     
