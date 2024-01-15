@@ -39,6 +39,7 @@ Before starting, make sure you meet the following requirements:
 
 ### Deeploy Prometheus and Grafana using Terraform
 
+
 Apart from using the HPE GreenLake *hpegl* provider, it also uses the *helm* provider from Hashicorp to deploy both Prometheus and Grafana to the K8s cluster.
 
 #### Terraform config
@@ -119,7 +120,7 @@ resource "helm_release" "grafana-dashboard" {
 
    set {
     name  = "persistence.enabled"
-    value = "false"
+    value = "true"
   }
 }
 ```
@@ -128,9 +129,9 @@ There a few things need to point out in above config file.
 
 <style> li { font-size: 100%; line-height: 23px; max-width: none; } </style>
 
-* In both Prometheus and Grafana, the persistence by default is disabled. In case the Prometheus and Grafana pods get terminated for some reason, you will lose all your data. In production deployment, such as HPE GreenLake for Containers, this needs to be enabled to prevent any data lose,  *persistence.enabled: true*  
-* In Prometheus, the DaemonSet deployment of the Node Exporter is trying to mount the *hostPath* volume to the container root “/”, which violates against one deployed OPA (Open Policy Agent) policy to the K8s cluster for FS mount protections. Therefore, the DaemonSet deployment will never be ready, keep showing the warning events as *Warning  FailedCreate daemonset-controller  Error creating: admission webhook "soft-validate.hpecp.hpe.com" denied the request: Hostpath ("/") referenced in volume is not valid for this namespace because of FS Mount protections.*. You need disable the *hostRootFsMount*, together with *hostNetwork* and *hostPID*.
-* Both Prometheus and Grafana services are deployed as *NodePort* service type. Those services will be automatically mapped to the gateway host with assigned ports for easy acces 
+* In Grafana, the persistence by default is disabled. In case Grafana pod gets terminated for some reason, you will lose all your data. In production deployment, such as HPE GreenLake for Containers, this needs to be enabled, by setting *persistence.enabled* as *true*, to prevent any data lose. 
+* In Prometheus, the *DaemonSet* deployment of the node exporter is trying to mount the *hostPath* volume to the container root “/”, which violates against one deployed OPA (Open Policy Agent) policy to the K8s cluster for FS mount protections. Therefore, the DaemonSet deployment will never be ready, keep showing the warning events as *Warning  FailedCreate daemonset-controller  Error creating: admission webhook "soft-validate.hpecp.hpe.com" denied the request: Hostpath ("/") referenced in volume is not valid for this namespace because of FS Mount protections.*. You need disable the *hostRootFsMount*, together with *hostNetwork* and *hostPID*, to comply with the security policy in the cluster.
+* Both Prometheus and Grafana services are deployed as *NodePort* service types. Those services will be automatically mapped to the gateway host with assigned ports for easy access. 
 
 #### Terraform run
 
