@@ -26,12 +26,13 @@ The foundational APIs for common HPE GreenLake  platform services allow IT admi
 
 This set of APIs for common platform services includes API for workspace management, identity and access management, device and subscription, locations, audit logs, and wellness.   
 
-> > *Note: The [HPE Greenlake platform documentation](https://developer.greenlake.hpe.com/docs/greenlake/services/) for these APIs leverages OpenAPI specifications and associated reference material. The documentation provides a complete explanation of the operations supported by these APIs for common HPE GreenLake platform services, as well as sample requests and responses.*   
+> > *Note: The [HPE GreenLake platform documentation](https://developer.greenlake.hpe.com/docs/greenlake/services/) for these APIs leverages OpenAPI specifications and associated reference material. The documentation provides a complete explanation of the operations supported by these APIs for common HPE GreenLake platform services, as well as sample requests and responses.*   
 
  The following blog posts are an excellent way to learn more about the APIs using Postman. 
 
-* URL Blog Denis Part 1 
+* [Get started with the foundational APIs for the HPE GreenLake edge-to-cloud platform – Part 1: Introduction to the APIs](<* https://developer.hpe.com/blog/get-started-with-the-foundational-apis-for-the-hpe-greenlake-edge-to-cloud-platform-%E2%80%93-part-1-introduction-to-the-apis/>)
 * URL Blog Denis Part 2 
+* URL Blog Denis Part 3 
 
 In this blog post here, I will explore the usage of the HPE GreenLake platform API one step further by using the APIs to build automation scripts or custom integrations. To develop my script, I will use bash, python and PowerShell. 
 
