@@ -10,7 +10,7 @@ thumbnailimage:
 ---
 **Editor’s Note:** MapR products and solutions sold prior to the acquisition of such assets by Hewlett Packard Enterprise Company in 2019, may have older product names and model numbers that differ from current solutions. For information about current offerings, which are now part of HPE Ezmeral Data Fabric, please visit [https://www.hpe.com/us/en/software/data-fabric.html](https://www.hpe.com/us/en/software/data-fabric.html)
 
-## Original Post Information:
+## Original Post Information
 
 ```
 "authorDisplayName": "Saira Kennedy",
@@ -21,8 +21,6 @@ thumbnailimage:
 ---
 
 Editor's Note: This post is based on the MapR Academy course, [_Introduction to Artificial Intelligence and Machine Learning_](https://learn.ezmeral.software.hpe.com/bus-introduction-to-artificial-intelligence-and-machine-learning).
-
-<div style="padding:75% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/279683304?title=0&byline=0&portrait=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
 
 This post will give you a basic background on artificial intelligence and machine learning. It's a good place to gain an intro-level, working understanding of the categories, how they fit together, and their differences.
 
@@ -60,9 +58,9 @@ Remember from the robot nesting doll example that machine learning is nested wit
 
 Symbolic artificial intelligence is one of the first approaches to AI, which is based on the assertion that human intelligence can be achieved through the manipulation of symbols. This is the basis for physical symbol systems, also called formal systems, which center around three basic concepts that follow human thinking abilities:
 
-*   Symbols, like the plus sign as the physical joining of two perpendicular lines, are first encoded in our brains.
-*   Thoughts are the structures, like the plus sign means to add things together.
-*   The manipulation process is the act of thinking, or applying the symbol and its structure together, like when we use the plus sign in a mathematical equation for one plus two equals three.
+* Symbols, like the plus sign as the physical joining of two perpendicular lines, are first encoded in our brains.
+* Thoughts are the structures, like the plus sign means to add things together.
+* The manipulation process is the act of thinking, or applying the symbol and its structure together, like when we use the plus sign in a mathematical equation for one plus two equals three.
 
 ![](https://hpe-developer-portal.s3.amazonaws.com/uploads/media/2020/11/image15-1605168382441.jpg)
 

@@ -64,10 +64,10 @@ exports.createPages = async ({ graphql, actions }) => {
           badgeImg,
         },
       });
-      console.log(
-        `Create pages /hackshack/workshops/${id - 1}/special-badge from ${id}`,
-      );
-      console.log('------------------------------');
+      // console.log(
+      //   `Create pages /hackshack/workshops/${id - 1}/special-badge from ${id}`,
+      // );
+      // console.log('------------------------------');
     });
   } catch (error) {
     console.log('error: ', error);
@@ -93,8 +93,8 @@ exports.createPages = async ({ graphql, actions }) => {
         },
       });
 
-      console.log(`Create pages /hackshack/replays/${id} from ${id}`);
-      console.log('------------------------------');
+      // console.log(`Create pages /hackshack/replays/${id} from ${id}`);
+      // console.log('------------------------------');
 
       createPage({
         path: `/hackshack/workshop/${id}`,
@@ -107,8 +107,8 @@ exports.createPages = async ({ graphql, actions }) => {
         },
       });
 
-      console.log(`Create pages /hackshack/workshop/${id} from ${id}`);
-      console.log('------------------------------');
+      // console.log(`Create pages /hackshack/workshop/${id} from ${id}`);
+      // console.log('------------------------------');
 
       createPage({
         path: `/hackshack/workshop/${id}/finisher-badge`,
@@ -121,10 +121,10 @@ exports.createPages = async ({ graphql, actions }) => {
         },
       });
 
-      console.log(
-        `Create pages /hackshack/workshop/${id}/finisher-badge from ${id}`,
-      );
-      console.log('------------------------------');
+      // console.log(
+      //   `Create pages /hackshack/workshop/${id}/finisher-badge from ${id}`,
+      // );
+      // console.log('------------------------------');
     });
   } catch (error) {
     console.log('error: ', error);
@@ -294,10 +294,10 @@ exports.createPages = async ({ graphql, actions }) => {
             index === posts.length - 1 ? null : posts[index + 1].node;
           const next = index === 0 ? null : posts[index - 1].node;
           const { sourceInstanceName, slug } = post.node.fields;
-          console.log(
-            `Create pages /${sourceInstanceName}${slug} from ${slug}`,
-          );
-          console.log('------------------------------');
+          // console.log(
+          //   `Create pages /${sourceInstanceName}${slug} from ${slug}`,
+          // );
+          // console.log('------------------------------');
           createPage({
             path: `/${sourceInstanceName}${slug}`,
             component: blogPost,
@@ -411,8 +411,8 @@ exports.createPages = async ({ graphql, actions }) => {
     });
     const tags = result.data.tagsGroup.group;
     tags.forEach((tag) => {
-      console.log(`Create pages /blog/tag/${tag.fieldValue.toLowerCase()}/`);
-      console.log('------------------------------');
+      // console.log(`Create pages /blog/tag/${tag.fieldValue.toLowerCase()}/`);
+      // console.log('------------------------------');
       createPage({
         path: `/blog/tag/${tag.fieldValue.toLowerCase()}/`,
         component: tagTemplate,
@@ -429,7 +429,7 @@ exports.createPages = async ({ graphql, actions }) => {
 exports.onCreatePage = ({ page, actions }) => {
   const { deletePage, createPage } = actions;
 
-  console.log(`onCreatePage ${page.componentPath}`);
+  // console.log(`onCreatePage ${page.componentPath}`);
   return new Promise((resolve) => {
     // if the page component is the index page component
     if (page.componentPath.indexOf('/src/pages/Home/index.js') >= 0) {
@@ -450,7 +450,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 
   if (node.internal.type === 'MarkdownRemark') {
     const { sourceInstanceName, absolutePath } = getNode(node.parent);
-    console.log(`==== onCreateNode ${sourceInstanceName} ---- ${absolutePath}`);
+    // console.log(`==== onCreateNode ${sourceInstanceName} ---- ${absolutePath}`);
     const value = createFilePath({ node, getNode });
     const date = new Date(node.frontmatter.date);
     const year = date.getFullYear();

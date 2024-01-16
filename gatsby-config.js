@@ -8,14 +8,18 @@ const lunrHighlightPlugin = () => (builder) => {
   builder.metadataWhitelist.push('position');
 };
 
-const stripMarkdown = (markdown) => {
-  let text = markdown;
-  remark()
+const stripMarkdown = async (markdown) => {
+  // let text = markdown;
+  // remark.then(r => {
+  //   r.remark().use(strip).process(markdown, (err, file) => {
+  //     text = file.contents;
+  //   });
+  // });
+  // return text;
+  const markedup = await (await remark).remark()
     .use(strip)
-    .process(markdown, (err, file) => {
-      text = file.contents;
-    });
-  return text;
+    .process(markdown);
+  return markedup.contents;
 };
 
 const paginatedCollection = (name, tag) => {
