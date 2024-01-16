@@ -1,6 +1,6 @@
 ---
 title: "Working with Benk: A storage provisioning and IO performance benchmark
-  suite for Kubernetes."
+  suite for Kubernetes"
 date: 2024-01-12T20:03:16.376Z
 author: Michael Mattsson
 authorimage: /img/portrait-192.jpg
@@ -20,7 +20,7 @@ A few of the features include:
 * Highly customizable rendering of Kubernetes resources through kustomize templates
 * A simple Kubernetes batch job that manage all the provisioning, decommissioning and benchmarking
 * Single configuration file per job that abstracts Kubernetes constructs and IO parameters
-* Uses industry standard FIO for filesystem benchmarking
+* Uses industry standard Flexible I/O tester (FIO) for filesystem benchmarking
 * Easy to build your own output templates using Jinja2 with the rich metrics in JSON format
 
 Let’s walk through a practical example of configuring, running and reporting a benchmark with Benk.
@@ -229,4 +229,4 @@ This hopefully gets you started on ideas you’d like to build and use cases you
 
 HPE invites collaboration and accepts pull requests to Benk on GitHub. The [first issue](https://github.com/hpe-storage/benk/issues/2) discusses a solution on how to collapse initial configuration and reporting into a single intuitive Python CLI.
 
-Let us know what you’re building or have questions. The team behind the tool are available on HPE Developer Community Slack in the #Kubernetes channel. Sign up [here](https://developer.hpe.com/slack-signup) and sign in at [hpedev.slack.com](https://hpedev.slack.com).
+Let us know what you’re building or have questions. The team behind the tool are available on HPE Developer Community Slack in the [#Kubernetes](https://hpedev.slack.com/archives/C81QZ4X62) channel. Sign up [here](https://developer.hpe.com/slack-signup) and sign in at [hpedev.slack.com](https://hpedev.slack.com).
