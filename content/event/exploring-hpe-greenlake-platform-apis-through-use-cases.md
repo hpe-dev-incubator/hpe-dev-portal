@@ -4,7 +4,7 @@ dateStart: 2023-12-12T23:01:48.854Z
 dateEnd: 2023-12-13T22:59:48.885Z
 category: Virtual Event
 image: /img/event-munch-and-learn-newlogo400x400.png
-link: " https://hpe.zoom.us/webinar/register/3517007334502/WN_QWAMDQY2QuyY3h-suXACsA"
+link: https://www.youtube.com/watch?v=IM7W89Vt7zQ&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF
 width: large
 ---
 ## Exploring HPE GreenLake Platform APIs through use cases

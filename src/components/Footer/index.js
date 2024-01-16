@@ -67,8 +67,8 @@ export const Footer = () => {
             <Box gap="small">
               <Anchor
                 align="start"
-                href="https://slack.hpedev.io/"
-                label="Slack Channel"
+                href="https://developer.hpe.com/slack-signup"
+                label="Slack"
                 target="_blank"
                 rel="noopener noreferrer"
               />

@@ -1,8 +1,8 @@
 ---
 title: "Open sourcing Workshops-on-Demand part 4: Manage the Backend"
 date: 2023-07-18T09:28:35.992Z
-featuredBlog: true
-priority: 5
+featuredBlog: false
+priority: 9
 author: Frederic Passeron
 authorimage: /img/frederic-passeron-hpedev-192.jpg
 disable: false
