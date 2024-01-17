@@ -13,15 +13,15 @@ tags:
   - hpe-nimble-storage
   - hpe-3par-and-primera
 ---
-Recently Hewlett Packard Enterprise published an open source benchmark suite for storage drivers capable of dynamically provisioning persistent volumes to Kubernetes. The suite is called [Benk](https://github.com/hpe-storage/benk) and it is an acronym that plays with the word bench as in benchmark and Kubernetes. Benk is used internally at HPE for mapping performance metrics around the provisioning process itself as well as IO performance. It’s still a bit rough around the edges and not feature complete but it’s still a very useful tool to capture performance across large swaths of configurations with a high degree of automation and repeatability without too much of user attendance.
+Recently Hewlett Packard Enterprise (HPE) published an open source benchmark suite for storage drivers capable of dynamically provisioning persistent volumes to Kubernetes. The suite is called [Benk](https://github.com/hpe-storage/benk) and it is an acronym that plays with the word bench as in benchmark and Kubernetes. Benk is used internally at HPE for mapping performance metrics around the provisioning process itself as well as for IO performance. It’s still a bit rough around the edges and not feature complete, but it’s still a very useful tool to capture performance across large swaths of configurations with a high degree of automation and repeatability without too much user attendance.
 
 A few of the features include:
 
 * Highly customizable rendering of Kubernetes resources through kustomize templates
 * A simple Kubernetes batch job that manage all the provisioning, decommissioning and benchmarking
-* Single configuration file per job that abstracts Kubernetes constructs and IO parameters
-* Uses industry standard Flexible I/O tester (FIO) for filesystem benchmarking
-* Easy to build your own output templates using Jinja2 with the rich metrics in JSON format
+* A single configuration file per job that abstracts Kubernetes constructs and IO parameters
+* Use of industry standard Flexible I/O tester (FIO) for filesystem benchmarking
+* Easy-to-build-your-own output templates using Jinja2 with the rich metrics in JSON format
 
 Let’s walk through a practical example of configuring, running and reporting a benchmark with Benk.
 
@@ -211,22 +211,22 @@ This report template will summarize the findings in a markdown table, suitable t
 | 128     | 147      | 833      | 5.7x |
 ```
 
-Clearly, the performance increases nearly 5x across the board and we also have a discrepancy in the dataset. Which one?
+Clearly, the performance increases nearly 5x across the board. We also have a discrepancy in the dataset. Which one?
 
-A good exercise for the reader could be to factor in latency in the report to understand the impact, which there will be as performance plateaus when you add more workload usually result in higher latency. How high?
+A good exercise would be to factor in latency into the report in order to understand the impact, which there will be, as performance plateaus when you add more workloads – usually as a result of higher latency. But, how high?
 
 # More sequencers and examples!
 
 There’s also a `sequencer-cluster.sh` script that allows users to orchestrate load generation across multiple clusters attached to one or many storage systems to isolate problems with high concurrency. The possibilities are quite endless.
 
-Learn more about multi-cluster scaling in [the GitHub repository](https://github.com/hpe-storage/benk#multi-cluster-testing).
+You can learn more about multi-cluster scaling in [the GitHub repository](https://github.com/hpe-storage/benk#multi-cluster-testing).
 
 You'll also find more practical examples in [the GitHub repository](https://github.com/hpe-storage/benk/tree/main/examples) stemming from real world performance testing conducted by the HPE Hybrid Cloud solutions team.
 
 # Summary
 
-This hopefully gets you started on ideas you’d like to build and use cases you want to explore. The possibilities are endless. Bear in mind that Benk is by all means provided as-is and a very early implementation HPE chose to open source to better collaborate with customers and partners to isolate performance bottlenecks with full transparency. Not all advertised features in `config.env` has been implemented yet as an example and the CLI is not completed yet.
+Hopefully, this blog post gets you started on ideas you’d like to build and use cases you want to explore. The possibilities are endless. Bear in mind that Benk is, by all means, provided as-is. In addition, to be fully transparent, this is a very early implementation that HPE chose to open source in order to better collaborate with customers and partners to isolate performance bottlenecks. For example, not all advertised features in `config.env` have been implemented yet and the CLI is not yet completed.
 
 HPE invites collaboration and accepts pull requests to Benk on GitHub. The [first issue](https://github.com/hpe-storage/benk/issues/2) discusses a solution on how to collapse initial configuration and reporting into a single intuitive Python CLI.
 
-Let us know what you’re building or have questions. The team behind the tool are available on HPE Developer Community Slack in the [#Kubernetes](https://hpedev.slack.com/archives/C81QZ4X62) channel. Sign up [here](https://developer.hpe.com/slack-signup) and sign in at [hpedev.slack.com](https://hpedev.slack.com).
+Let us know what you’re building or have questions. The team behind the tool is available on HPE Developer Community Slack in the [#Kubernetes](https://hpedev.slack.com/archives/C81QZ4X62) channel. Sign up [here](https://developer.hpe.com/slack-signup) and sign in at [hpedev.slack.com](https://hpedev.slack.com).
