@@ -175,4 +175,6 @@ You can get the Postman collection from the [HPE Developer Community tooling Git
 
 Don’t miss Part 2 and Part 3 of this blog series, where you will further explore the rest of the collection to learn how you, as an IT administrator of the HPE GreenLake platform, can configure and manage workspace resources (users’ identity, devices and subscriptions) and how you can track activities within your workspace and monitor overall health of services and devices in your workspace. 
 
-Do you have any questions on HPE GreenLake platform API? Please join the [HPE Developer Community Slack Workspace](https://developer.hpe.com/slack-signup/) and start a discussion in our [\#hpe-greenlake-api](https://hpedev.slack.com/archives/C02EG5XFK8Q) channel.
+If you’re interested in trying out what I just discussed, you might first want to check out one of our hands-on Workshops-on-Demand that let you play with the HPE GreenLake APIs mentioned in this blog post. The workshops are free, available 24/7, and very easy to use. They give you a real-world experience without any risk. Check out our [catalog of workshops](https://developer.hpe.com/hackshack/workshops), register for the one you’re interested and go! It’s as simple as that. 
+
+If you still have any questions regarding the HPE GreenLake platform APIs, join the [HPE Developer Community Slack Workspace](https://developer.hpe.com/slack-signup/) and start a discussion in our [\#hpe-greenlake-api](https://hpedev.slack.com/archives/C02EG5XFK8Q) channel. We’re always here to help.
