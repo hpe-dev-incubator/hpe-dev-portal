@@ -31,7 +31,7 @@ This set of APIs for common platform services includes API for workspace managem
  The following blog posts are an excellent way to learn more about the APIs using Postman. 
 
 * [Get started with the foundational APIs for the HPE GreenLake edge-to-cloud platform – Part 1: Introduction to the APIs](https://developer.hpe.com/blog/get-started-with-the-foundational-apis-for-the-hpe-greenlake-edge-to-cloud-platform-%E2%80%93-part-1-introduction-to-the-apis/)
-* URL Blog Denis Part 2 
+* [Get started with the foundational APIs for the HPE GreenLake edge-to-cloud platform – Part 2: Configuring and managing a workspace](https://developer.hpe.com/blog/get-started-with-the-foundational-apis-for-the-hpe-greenlake-edge-to-cloud-platform-–-part-2-configuring-and-managing-a-workspace/)
 * URL Blog Denis Part 3 
 
 In this blog post here, I will explore the usage of the HPE GreenLake platform API one step further by using the APIs to build automation scripts or custom integrations. To develop my script, I will use bash, python and PowerShell. 
