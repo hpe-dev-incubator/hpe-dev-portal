@@ -31,13 +31,13 @@ As I do so, I will show you how to use these foundational, common APIs to **prog
   * Attach the device to a regional application instance (for example, Aruba Central application in Central Europe) and a subscription key (a license) to operate the device.
   * Remove application and subscription assignments for a device.  
 
-## Step 1: Obtaining the OAuth access token
+## Obtaining the OAuth access token
 As I prepare to access and use the HPE GreenLake platform workspace resources through REST API calls to the platform API services, I first need to generate an OAuth access token. Refer to [my blog post Part 1](https://developer.hpe.com/blog/get-started-with-the-foundational-apis-for-the-hpe-greenlake-edge-to-cloud-platform-%E2%80%93-part-1-introduction-to-the-apis/) to learn how to generate the access token using the Postman collection available [here](https://github.com/hpe-dev-incubator/GLP-API-Tooling/tree/main/Postman-Collections). 
 
 Once the access token is generated, it will be used as the **authorization bearer token** for all subsequent REST API calls.
 
-## Step 2: Inviting a tenant user to collaborate in the workspace
-As a workspace administrator in my HPE GreenLake platform workspace, I can easily invite other members of my organization to join the workspace by sending them a sign-up link in email. Here I am using the POST REST API call - ***Invite a user***, taken from the Postman collection folder: ***Configuring and Managing GLP Workspace/Step2-IAM/Identity/v1/users***.
+## Inviting a tenant user to collaborate in the workspace
+As a workspace administrator in my HPE GreenLake platform workspace, I can easily invite other members of my organization to join the workspace by sending them a sign-up link in email. Here I am using the **POST** REST API call - ***Invite a user***, taken from the Postman collection folder: ***Configuring and Managing GLP Workspace/Step2-IAM/Identity/v1/users***.
 
 `POST {{baseUrl}}/identity/v1/users`
 
@@ -75,4 +75,73 @@ In this example, I use ***filter*** as the query parameter to limit the scope of
 I now hit the **Send** button. The request indicates success (***Status: 200 OK***). In the response, a _userStatus_ of _VERIFIED_ means that the user has activated the HPE account and joined the workspace. A _userStatus_ of _UNVERIFIED_ would mean that the user has not created and activated the HPE account yet.  
 
 > **Note:** Thanks to the _Test script_ associated with this request, the user-Id of the invited user is automatically saved as collection variable. The user-id is needed should an administrator want to disassociate (delete) a user from the workspace using the REST API call ***DELETE Disassociate a user***.
+
+## Managing IT resources (devices and subscriptions) into the workspace
+A typical scenario to manage infrastructure resources from the HPE GreenLake platform would be where one would:
+* Add an infrastructure device and a subscription key for this device to the workspace. In this scenario, I will add an HPE Aruba Access Point and associated subscription key to the inventory of the workspace. 
+* Attach the device to an application to manage and operate the device. In this scenario, I will assign the Aruba Access Point to the Aruba Central application already deployed in the workspace. The Aruba Central application is a SaaS-based User Interface that lets customers manage their fleet of networking equipment from edge-to-cloud from a single web interface.
+* Assign a subscription key to the device. A subscription key is a license key needed to activate the device and allows the IT administrator to use and operate it using the appropriate application management console such as Aruba Central for Aruba networking devices, Compute Ops Management for compute servers, and Data Services Cloud Console for Storage arrays.
+* Remove assignment of an application or a subscription for a device.
+
+### Adding a device and subscription 
+Here I am going to use the REST API calls from the Postman collection folder: ***Configuring and Managing GLP Workspace/Step4-Devices and Subscriptions***.
+
+The **POST** REST API call ***Add devices - Aruba Access Point with Tag*** from ***/devices/v1beta1/devices*** subfolder allows me to add an Aruba networking device to the inventory in the workspace by providing device details in the data payload (Body) of the request. The device information for Aruba equipment includes the _Serial Number_ and the _MAC address_. 
+
+Optionally I can assign a “**tag**” to the device while adding it to the inventory. Tags are _name-value_ pairs that can be very useful for identifying groups of resources. In the example below, the tag’s name is “_Aruba Access Point_”, and the value is “_Lab Building 2_”.
+
+`POST {{baseUrl}}/devices/v1beta1/devices` 
+
+```json
+{
+    "compute": [],
+    "storage": [],
+    "network": [
+        {
+            "serialNumber": "<SerialNumber of the device>",
+            "macAddress": "<MAC-address of the device>",
+             "tags": {
+               "Aruba Access Point": "Lab Building 2"
+             }
+        }
+    ]
+}
+```
+
+The “**Add devices**” API call is an asynchronous operation, and the response of the request indicates ***Status: 202 Accepted***. The response contains the transaction Id of the asynchronous operation that I can use as a Path variable in the subsequent **GET** API call ***Get progress or status of async operations in devices*** to verify whether the asynchronous operation is successful or not:
+
+`GET {{baseUrl}}/devices/v1beta1/async-operations/:id`
+
+Image-3
+>> <span style="color:grey; font-family:Arial; font-size:1em"> Figure 3: Checking the status of the asynchronous operation for adding devices</span>
+
+A similar sequence of REST API calls can be used to add a subscription key in the workspace inventory and verify the status of the asynchronous operation. The **POST** REST API call ***Add subscriptions key for AP device** derived from the API call ***POST Add subscriptions*** from ***/subscriptions/v1beta1*** subfolder allows me to add a subscription for Aruba networking devices to the inventory in the workspace by providing the _subscription key_ in the data payload (Body) of the request. The API call is an asynchronous operation.
+
+`POST {{baseUrl}}/subscriptions/v1beta1/subscriptions`
+
+```json
+{
+  "subscriptions": [
+    {
+      "key": "<Subscription key>"
+    }
+  ]
+}
+```
+
+The GET API call ***Get progress or status of async operations in subscriptions”*** is used to verify status of the asynchronous operation:
+
+`GET {{baseUrl}}/subscriptions/v1beta1/async-operations/:id`
+
+I can now use the two subsequent REST API calls below to fetch detailed information about the device and the subscription key I have just added to the inventory: 
+
+* The ***Get devices managed in a workspace*** API call allows me to obtain detailed information about the device by specifying the SerialNumber of the device in the filter query parameter. This request will allow me to save the device ID as a collection variable.
+
+* Similarly, the ***Get subscriptions of a workspace*** API call allows me to get detailed information about the subscription key and fetch the subscription key ID as collection variable. 
+
+`GET {{baseUrl}}/devices/v1beta1/devices?filter=serialNumber eq '<SerialNumber>'` 
+
+`GET {{baseUrl}}/subscriptions/v1alpha1/subscriptions?filter=key eq '<SubcriptionKey>'`
+
+> **Note:** I will need the _device ID_ to attach the device to a regional instance of an application. I will also need the _subscription key ID_ to assign the subscription key to the device as explained in the next step.
 
