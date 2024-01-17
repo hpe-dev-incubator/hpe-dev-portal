@@ -124,7 +124,7 @@ The “**Add devices**” API call is an asynchronous operation, and the respons
 
 > > <span style="color:grey; font-family:Arial; font-size:1em"> Figure 3: Checking the status of the asynchronous operation for adding devices</span>
 
-A similar sequence of REST API calls can be used to add a subscription key in the workspace inventory and verify the status of the asynchronous operation. The **POST** REST API call **\*Add subscriptions key for AP device** derived from the API call ***POST Add subscriptions*** from ***/subscriptions/v1beta1*** subfolder allows me to add a subscription for Aruba networking devices to the inventory in the workspace by providing the *subscription key* in the data payload (Body) of the request. The API call is an asynchronous operation.
+A similar sequence of REST API calls can be used to add a subscription key in the workspace inventory and verify the status of the asynchronous operation. The **POST** REST API call ***Add subscriptions key for AP device*** derived from the API call ***POST Add subscriptions*** from ***/subscriptions/v1beta1*** subfolder allows me to add a subscription for Aruba networking devices to the inventory in the workspace by providing the *subscription key* in the data payload (Body) of the request. The API call is an asynchronous operation.
 
 `POST {{baseUrl}}/subscriptions/v1beta1/subscriptions`
 
@@ -138,7 +138,7 @@ A similar sequence of REST API calls can be used to add a subscription key in th
 }
 ```
 
-The GET API call ***Get progress or status of async operations in subscriptions”*** is used to verify status of the asynchronous operation:
+The GET API call ***Get progress or status of async operations in subscriptions*** is used to verify status of the asynchronous operation:
 
 `GET {{baseUrl}}/subscriptions/v1beta1/async-operations/:id`
 
