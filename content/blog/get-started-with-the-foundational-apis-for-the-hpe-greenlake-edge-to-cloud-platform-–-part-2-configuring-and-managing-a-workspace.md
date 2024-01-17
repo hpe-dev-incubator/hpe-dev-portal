@@ -145,3 +145,75 @@ I can now use the two subsequent REST API calls below to fetch detailed informat
 
 > **Note:** I will need the _device ID_ to attach the device to a regional instance of an application. I will also need the _subscription key ID_ to assign the subscription key to the device as explained in the next step.
 
+### Assigning the device to a regional application instance
+Next, using the **PATCH** ***Update devices - Assign Application to a device*** REST API request (derived from the ***PATCH Update devices API call***), I can attach the device to a regional instance of the Aruba Central application already deployed in the workspace. The device ID is specified as a query parameter, the Aruba Central application ID and region are specified in the data payload (Body) as shown below: 
+
+`PATCH {{baseUrl}}/devices/v1beta1/devices?id={{DeviceId}}`
+
+```json
+{
+  "application": {
+    "id": "{{Aruba_Application_Id}}"
+  },
+  "region": "<region>"
+}
+```
+
+Image-4
+>> <span style="color:grey; font-family:Arial; font-size:1em"> Figure 4: Assign device to a regional application instance</span>
+
+This API call is an asynchronous operation, and I can use the **GET** API call ***Get progress or status of async operations in devices*** to verify the status of the operation.
+
+### Applying a subscription key to the device
+Similarly, I can use the same REST API call to assign a subscription key to the device specifying the device ID as the query parameter and the subscription Key ID in the data payload (Body):
+
+`PATCH {{baseUrl}}/devices/v1beta1/devices?id={{DeviceId}}`
+
+```json
+{
+  "subscription": [
+    {
+      "id": "{{SubscriptionKeyId}}"
+    }
+  ]
+}
+```
+
+Image-5
+>> <span style="color:grey; font-family:Arial; font-size:1em"> Figure 5: Assign a subscription key to a device</span>
+
+### Removing assignment of application and subscription
+During on-going operations in the workspace, I may need to remove assignment of an application and a subscription for a particular device. I can use the **PATCH** REST API calls ***Update devices – Unassign Application for a Device*** and ***Update devices - Unassign Subscription Key for a device*** respectively.
+
+To remove an assignment of application for a device, leave the application field as empty value in the data payload as shown here: 
+
+`PATCH {{baseUrl}}/devices/v1beta1/devices?id={{DeviceId}}`
+
+```json
+{
+  "application": {
+  }
+}
+```
+
+To remove an assignment of a subscription key for a device, leave the subscription field as empty value in the data payload as shown here: 
+
+`PATCH {{baseUrl}}/devices/v1beta1/devices?id={{DeviceId}}`
+
+```json
+{
+  "subscription": [
+  ]
+}
+```
+
+## Summary
+This blog post walks you through the APIs for common HPE GreenLake platform services **for a single-tenant workspace** environment from the perspective of an IT administrator. I took advantage of the [Postman collection](https://github.com/hpe-dev-incubator/GLP-API-Tooling/tree/main/Postman-Collections) to help you get started with these APIs, learn through examples the REST API call syntax for the API requests and how to **programmatically** configure and manage workspace resources such as users, users’ roles and infrastructure devices. 
+
+To learn more about all the REST API calls for the platform, I invite you to refer to the [HPE GreenLake platform documentation](https://developer.greenlake.hpe.com/docs/greenlake/services/) for these APIs. You can get the Postman collection from the [HPE Developer Community tooling GitHub repository](https://github.com/hpe-dev-incubator/GLP-API-Tooling/tree/main/Postman-Collections).
+
+In the next part of this blog series, I will explore the set of APIs used for tracking activities and monitoring overall health of services and devices in the workspace.
+
+If you’re interested in trying out what I just discussed, you might first want to check out one of our hands-on Workshops-on-Demand that let you play with the HPE GreenLake APIs mentioned in this blog post. The workshops are free, available 24/7, and very easy to use. They give you a real-world experience without any risk. Check out our [catalog of workshops](https://developer.hpe.com/hackshack/workshops), register for the one you’re interested and go! It’s as simple as that. 
+
+If you still have any questions regarding the HPE GreenLake platform APIs, join the [HPE Developer Community Slack Workspace](https://developer.hpe.com/slack-signup/) and start a discussion in our [\#hpe-greenlake-api](https://hpedev.slack.com/archives/C02EG5XFK8Q) channel. We’re always here to help.
