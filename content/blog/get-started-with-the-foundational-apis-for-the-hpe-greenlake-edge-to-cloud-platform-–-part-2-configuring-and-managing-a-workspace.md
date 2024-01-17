@@ -50,7 +50,29 @@ Let’s look at this REST API request **syntax**. All REST API calls to HPE Gree
 
 * The single unified domain endpoint (_https://global.api.greenlake.hpe.com_) defined in the baseURL variable, 
 * The HTTP request method such as GET, POST, PUT/PATCH, or DELETE. In this example, the POST method is specified to create a new user instance in the workspace.
-* The path (API-group-name/API-Version/Workspace-Resources). The path specifies the API group name (here identity), the version of the API (here v1), and the resource path in the workspace (here users).
+* The path (_API-group-name/API-Version/Workspace-Resources_). The path specifies the API group name (here identity), the version of the API (here v1), and the resource path in the workspace (here users).
 * A data payload when using a method that involves changing (PUT/PATCH) or creating (POST) an object instance. In this example, as the method involves creating a user instance in the workspace, the data payload (the Body) specifies the e-mail user address, and a welcome email is sent to the user to invite the user to join the workspace.
 
-To get started, I hit the **Send** button and I get a ***201 Created*** response indicating that the user has been successfully invited. The user then receives an email to confirm and accept the invitation. The user will then be invited to create and activate an HPE account to join the workspace.  Users who are invited are not verified users until they accept the email confirmation. 
+To get started, I hit the **Send** button and I get a ***201 Created*** response indicating that the user has been successfully invited. The user then receives an email to confirm and accept the invitation. The user will then be invited to create and activate an HPE account to join the workspace.  Users who are invited are not **verified** users until they accept the email confirmation. 
+
+I can then verify the user has joined the workspace by using the GET REST API call ***Get invited users by Username*** below: 
+
+`GET {{baseUrl}}/identity/v1/users?filter=username eq '<user’s email address>'`
+
+Image-2
+>> <span style="color:grey; font-family:Arial; font-size:1em"> Figure 2: Checking the status of the invited user in the workspace</span>
+
+The REST API call syntax is the same as the previous API request, but here a **GET** method is used to list the users in the workspace. 
+
+One or more **query parameters** indicated after the question mark (“**?**”) in the URL can be used to filter the data that an API request returns. Typical query parameters are:
+
+   * **filter:** filter the set of resources returned based on the criteria specified in the filter query parameter 
+   * **limit:** maximum number of records to return 
+   * **offset:** resource offset to start the response from
+
+In this example, I use ***filter*** as the query parameter to limit the scope of the output of the call to just the invited user’s email specified in the filter query parameter.
+
+I now hit the **Send** button. The request indicates success (***Status: 200 OK***). In the response, a _userStatus_ of _VERIFIED_ means that the user has activated the HPE account and joined the workspace. A _userStatus_ of _UNVERIFIED_ would mean that the user has not created and activated the HPE account yet.  
+
+> **Note:** Thanks to the _Test script_ associated with this request, the user-Id of the invited user is automatically saved as collection variable. The user-id is needed should an administrator want to disassociate (delete) a user from the workspace using the REST API call ***DELETE Disassociate a user***.
+
