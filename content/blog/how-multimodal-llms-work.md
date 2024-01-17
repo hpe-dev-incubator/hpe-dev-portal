@@ -6,6 +6,7 @@ author: Kevin Musgrave
 authorimage: /img/profilepic-small.jpg
 thumbnailimage: /img/preview_image.jpg
 disable: false
-tags: []
+tags:
+  - determined-ai
 ---
 E﻿xternal blog
