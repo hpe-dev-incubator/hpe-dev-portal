@@ -1,5 +1,5 @@
 ---
-title: "Getting started with the foundational APIs for the HPE GreenLake
+title: "Get started with the foundational APIs for the HPE GreenLake
   edge-to-cloud platform – Part 1: Introduction to the APIs"
 date: 2024-01-12T15:33:48.384Z
 author: Denis Choukroun
