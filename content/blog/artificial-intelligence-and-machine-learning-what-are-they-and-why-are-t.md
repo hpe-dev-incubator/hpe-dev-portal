@@ -22,6 +22,8 @@ thumbnailimage:
 
 Editor's Note: This post is based on the MapR Academy course, [_Introduction to Artificial Intelligence and Machine Learning_](https://learn.ezmeral.software.hpe.com/bus-introduction-to-artificial-intelligence-and-machine-learning).
 
+<!-- <div style="padding:75% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/279683304?title=0&byline=0&portrait=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div><script src="https://player.vimeo.com/api/player.js"></script> -->
+
 This post will give you a basic background on artificial intelligence and machine learning. It's a good place to gain an intro-level, working understanding of the categories, how they fit together, and their differences.
 
 In this post, we begin by defining the differences between artificial intelligence and machine learning and what these terms mean. In future posts, we will discuss the different methods of machine learning and some of the most common algorithms available for your projects. After that, you'll learn about real-world use cases, utilizing this technology, and the unique value MapR solutions provide for machine learning endeavors.

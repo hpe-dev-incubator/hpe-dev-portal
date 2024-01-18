@@ -168,7 +168,7 @@ query RoleBySlug($slug: String!, $tagRE: String!) {
           date
           authorimage
         }
-        excerpt(format: PLAIN)
+        excerpt(format: MARKDOWN)
       }
     }
   }

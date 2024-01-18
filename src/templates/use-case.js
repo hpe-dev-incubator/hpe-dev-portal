@@ -171,7 +171,7 @@ export const pageQuery = graphql`
             date
             authorimage
           }
-          excerpt(format: PLAIN)
+          excerpt(format: MARKDOWN)
         }
       }
     }

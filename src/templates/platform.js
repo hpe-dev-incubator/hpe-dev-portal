@@ -247,7 +247,7 @@ export const pageQuery = graphql`
             authorimage
             externalLink
           }
-          excerpt(format: PLAIN)
+          excerpt(format: MARKDOWN)
         }
       }
     }
