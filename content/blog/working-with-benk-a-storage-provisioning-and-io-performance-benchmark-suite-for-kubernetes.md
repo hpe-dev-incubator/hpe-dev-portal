@@ -33,15 +33,15 @@ Some pro-efficiency working with scripts, JSON and Kubernetes is helpful to bett
 
 # Hello Benk!
 
-The synopsis section of Benk on GitHub highlights the main steps to run the default job. It’s a good measure stick to understand if the lights come on and determine if the system under test is ready for a more complex job.
+The synopsis section of Benk on GitHub highlights the main steps to run the default job. It's a good measuring stick one can use to understand if the lights come on and determine if the system under test is ready for a more complex job.
 
-Let’s walk through each step and explain as we go along. Descriptions are below the commands unless noted.
+I'll walk you through each step and explain more as I go along. Descriptions are below the commands unless noted.
 
 ```text
 git clone https://github.com/hpe-storage/benk && cd benk
 ```
 
-Cloning and entering the benk directory is now considered your home. Your logs will go into `logs`, your workload configurations are in `kustomize/overlays` and the Jinja2 templates are in `jinja2`.
+Cloning and entering the `benk` directory is now considered your home. Your logs will go into `logs`, your workload configurations are in `kustomize/overlays` and the Jinja2 templates are in `jinja2`.
 
 ```text
 pip3 install -r requirements.txt
@@ -54,7 +54,7 @@ cp kustomize/base/config-dist.env kustomize/base/config.env
 cp kustomize/base/storageclass-dist.yaml kustomize/base/storageclass.yaml
 ```
 
-The two “dist” files are the base of your configuration. A `config.env` file that contains information that will be inserted into the `StorageClass` `Secret` reference. While the base configuration is heavily biased towards the HPE CSI Driver for Kubernetes, any storage driver that uses a `StorageClass` for dynamic provisioning for filesystems `Persistent Volume Claims` (PVC) can be used. Using the `storageclass.yaml` to configure your driver and pertinent details is at your discretion. 
+The two “dist” files are the base of your configuration. A `config.env` file that contains information about your storage backend that will be inserted into the `StorageClass` `Secret` reference. While the base configuration is heavily biased towards the HPE CSI Driver for Kubernetes, any storage driver that uses a `StorageClass` for dynamic provisioning for filesystems `Persistent Volume Claims` (PVC) can be used. Using the `storageclass.yaml` to configure your driver and pertinent details is at your discretion. 
 
 ```text
 kubectl create ns benk
@@ -67,15 +67,15 @@ kubectl apply -k kustomize/overlays/default
 kubectl wait -n benk  --for=condition=complete job/benk
 ```
 
-This will create the default job and wait for it to complete. It runs a 80/20 read/write random 8K workload for 30 seconds on a single replica `Deployment` using a single `PVC`.
+This will create the default job. Wait for it to complete. It runs a 80/20 read/write random 8K workload for 30 seconds on a single replica `Deployment` using a single `PVC`.
 
 ```text
 kubectl logs -n benk job/benk | jq
 ```
 
-This will render the log in pretty JSON. The log is pretty substantial and intentionally left out from the blog. An example log entry from the above job is available [on GitHub](https://github.com/hpe-storage/benk/tree/main/jinja2).
+This will render the log in colorized and indented JSON. The log is pretty substantial and intentionally left out from the blog. An example log entry from the above job is available [on GitHub](https://github.com/hpe-storage/benk/tree/main/jinja2).
 
-There’s also tiny output template provided in the repository `jinja2/example-default.yaml.j2` that pulls some data out of the log file. 
+There’s also a tiny output template provided in the repository `jinja2/example-default.yaml.j2` that pulls some data out of the log file. 
 
 ```text
 kubectl logs -n benk job/benk | ./src/benk/outputter.py -t jinja2/example-default.yaml.j2 -l-
@@ -91,11 +91,11 @@ report:
       bs: 8k
 ```
 
-Now we’ve completed the three corners of running Benk. Configured the environment and a job, ran the job successfully and distilled the results into something human readable for our demonstration.
+Congratulations. You've just completed the three corners of running Benk. You've configured the environment and a job, ran the job successfully and distilled the results into something more easily readable by humans for our demonstration.
 
 # The sequencer
 
-The core of Benk for now, is to run preconfigured jobs with kustomize. It may seem a lot of work for very little output. That’s why the repository contain two important scripts, `sequencer.sh` and `sequencer-cluster.sh`. These scripts will help you run multiple jobs and structure the output to create more meaty reports.
+The core of Benk, for now, is to run preconfigured jobs with kustomize. It may seem like a lot of work for very little output. That’s why the repository contain two important scripts, `sequencer.sh` and `sequencer-cluster.sh`. These scripts will help you run multiple jobs and structure the output to create more meaty reports.
 
 First, copy the “default” kustomize directory into eight separate directories.
 
@@ -109,7 +109,7 @@ Now, edit each `config.env` in each directory. I use `vi` to “:wn” myself th
 vi kustomize/overlays/mytest-*/config.env
 ```
 
-In each iteration, we’ll double `workloadThreads` so we end up with a sequence like 1, 2, 4, 8, 16, 32, 64 and 128. Would it not be useful if we could run these in sequence and report the results in the same template we used previously to understand if the system scales to when adding more threads to the workload? (The entire demo environment runs in virtual machines on decade old hardware, please don’t judge.)
+In each iteration, double `workloadThreads` so you end up with a sequence like 1, 2, 4, 8, 16, 32, 64 and 128. Would it not be useful to run these in sequence and report the results in the same template used previously to understand if the system scales to when adding more threads to the workload? (The entire demo environment runs in virtual machines on decade-old hardware, so please don’t judge.)
 
 Run the sequence:
 
@@ -117,9 +117,9 @@ Run the sequence:
 ./sequencer.sh mytest-
 ```
 
-What happens here is that the sequencer script will use globbing to find all overlays that has the prefix “mytest-”. Be mindful how you name things to avoid unexpected jobs to be executed.
+What happens here is that the sequencer script will use globbing to find all overlays that have the prefix “mytest-”. Be mindful of how you name things to avoid unexpected jobs to be executed.
 
-Next we can use the same report for all the jobs.
+Note that the same report can be used for all the jobs.
 
 ```text
 ./src/benk/outputter.py -l logs/run-mytest-<unique timestamp>.log -t jinja2/example-default.yaml.j2
@@ -170,13 +170,13 @@ report:
       bs: 8k
 ```
 
-We can now observe that we’re seeing diminishing returns by adding more than 16 threads to this workload.
+Observe that it shows diminishing returns by adding more than 16 threads to this workload.
 
 # A/B comparison
 
-A/B testing is something that has gained popularity in human interaction testing for websites. This is also a crucial testing methodology to analyze systems performance by simply changing a single parameter and rerun the exact same test to compare the outcomes. We’re in luck as Benk allows reporting on two log files at once with just a slightly different data structures being fed to the Jinja2 templates.
+A/B testing is something that has gained popularity in human interaction testing for websites. This is also a crucial testing methodology used to analyze systems performance by simply changing a single parameter and rerunning the exact same test to compare the outcomes. We’re in luck as Benk allows reporting on two log files at once with just a slightly different data structures being fed to the Jinja2 templates.
 
-Let’s change block size for our previous workload example. We’re going to summarize if increasing the block size will increase the bandwidth for the workload.
+Now, change the block size for the previous workload example. We’re going to test out if increasing the block size will increase the bandwidth for the workload.
 
 Change the “workloadBlockSize” to “64k” with the `vi` ceremony.
 
@@ -190,13 +190,13 @@ Re-run the sequencer.
 ./sequencer.sh mytest-
 ```
 
-We’ll have to use a different template as Jinja2 now has to deal with managing two log files at a time. The syntax for the `outputter.py` script is also slightly different.
+You'll have to use a different template, as Jinja2 now has to deal with managing two log files at a time. The syntax for the `outputter.py` script is also slightly different.
 
 ```text
 ./src/benk/outputter.py -a logs/run-mytest-<unique timestamp>.log -b logs/run-mytest-<unique timestamp>.log -t jinja2/example-default-ab.md.j2
 ```
 
-This report template will summarize the findings in a markdown table, suitable to include in a GitHub pull request or similar to illustrate a certain discovery.
+This report template will summarize the findings in a markdown table suitable to include in a GitHub pull request or similar to illustrate a certain discovery.
 
 ```text
 | Threads | A (MB/s) | B (MB/s) | Diff |
