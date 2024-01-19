@@ -33,7 +33,7 @@ Let’s embark on this exciting journey into the HPE GreenLake platform APIs.
 
 The foundational APIs for the HPE GreenLake platform services are designed to enable IT administrators and IT operators to automate IT operations by **programmatically** managing users and resources in an HPE GreenLake platform **workspace**. 
 
-> **Note:** A workspace is an identity and access management boundary. Users and resources must be in a workspace to be operated according to specific user permissions.
+> **Note:** A workspace is an identity and access management boundary. HPE GreenLake customers can organize their users, hardware and services into one or more workspaces. Users and resources must be in a workspace to be operated according to specific user permissions.
 
 For example, the current set of APIs for common platform services allows HPE GreenLake customers and partners to **programmatically** add users, add devices and associated subscriptions (licenses), track users’ activities and monitor the overall health of the managed services and devices in the workspace.
 
