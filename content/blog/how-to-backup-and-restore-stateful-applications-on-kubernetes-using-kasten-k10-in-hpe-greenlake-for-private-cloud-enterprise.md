@@ -89,7 +89,29 @@ B﻿efore showing the volume snapshots, a MySQL database will be deployed as an 
 MySQL database requires a persistent volume to store data. Here are the MySQL database deployment and the PVC YAML manifest files: 
 
 ```markdown
-$ cat setup/mysql-deployment.yaml 
+$ tree mysql-app
+mysql-app
+├── base
+│   ├── kustomization.yaml
+│   ├── mysql-deployment.yaml
+│   └── mysql-pvc.yaml
+├── overlays
+├── README.md
+└── test
+    ├── employees.sql
+    ├── load_departments.dump
+    ├── load_dept_emp.dump
+    ├── load_dept_manager.dump
+    ├── load_employees.dump
+    ├── load_salaries1.dump
+    ├── load_salaries2.dump
+    ├── load_salaries3.dump
+    ├── load_titles.dump
+    ├── show_elapsed.sql
+    ├── test_employees_md5.sql
+    └── test_employees_sha.sql
+
+$ cat mysql-app/base/mysql-deployment.yaml 
 apiVersion: v1
 kind: Namespace
 metadata:
@@ -153,7 +175,7 @@ spec:
 
 
 
-$ cat setup/mysql-pvc.yaml 
+$ cat mysql-app/base/mysql-pvc.yaml 
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
@@ -173,8 +195,8 @@ spec:
 The YAML manifest files in the folder *setup* will be used to install the WordPress applicaiton using [Kustomize](https://kustomize.io/).
 
 ```markdown
-$ tree setup
-setup
+$ tree mysql-app/base
+mysql-app/base
 ├── kustomization.yaml
 ├── mysql-deployment.yaml
 └── mysql-pvc.yaml
@@ -182,7 +204,7 @@ setup
 The file kustomization.yaml lists all YAML files in its resources section, together with the secret generator for MySQL password:
 
 ```markdown
-$ cat setup/kustomization.yaml 
+$ cat mysql-app/base/kustomization.yaml 
 secretGenerator:
 - name: mysql-pass
   namespace: wordpress
@@ -197,7 +219,7 @@ resources:
 T﻿yping below command to install the WordPress application to the namespace *wordpress*:
 
 ```markdown
-$ kubectl apply -k setup
+$ kubectl apply -k mysql-app/base
 namespace/mysql created
 secret/mysql-pass-m62cbhd9kf created
 service/mysql created
@@ -234,17 +256,18 @@ mysql-pvc   Bound    pvc-3e55e9b3-097f-4ddf-bdcb-60825a7905ec   1Gi        RWO  
 In order to access MySQL database service using the mysql CLI, set first the port-forward of _service/mysql_:   
 
 ```markdown
-$ kubectl port-forward service/mysql -n mysql :3306
-Forwarding from 127.0.0.1:41797 -> 3306
-Forwarding from [::1]:41797 -> 3306
+$ k port-forward service/mysql -n mysql :3306
+Forwarding from 127.0.0.1:42281 -> 3306
+Forwarding from [::1]:42281 -> 3306
+Handling connection for 42281
 ```
 
 The d﻿eployed MySQL database service can be accessed by typing the following mysql command:
 
 ```markdown
-$ mysql -h 127.0.0.1 -uroot -pCfeDemo@123 -P 41797 
+$ mysql -h 127.0.0.1 -uroot -pCfeDemo@123 -P 42281
 Welcome to the MariaDB monitor.  Commands end with ; or \g.
-Your MySQL connection id is 1
+Your MySQL connection id is 3
 Server version: 5.6.51 MySQL Community Server (GPL)
 
 Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
@@ -259,43 +282,16 @@ MySQL [(none)]> show databases;
 | mysql              |
 | performance_schema |
 +--------------------+
-3 rows in set (0,237 sec)
+3 rows in set (0,282 sec)
 ```
 
 I﻿n order to add data to the MySQL database, I will use a sample database test suite [test_db](https://github.com/datacharmer/test_db) to populate a large number of data records to the database and test the contents:
 
 ```markdown
-$ tree test_db/
-test_db/
-├── Changelog
-├── employees_partitioned_5.1.sql
-├── employees_partitioned.sql
-├── employees.sql
-├── images
-│   ├── employees.gif
-│   ├── employees.jpg
-│   └── employees.png
-├── load_departments.dump
-├── load_dept_emp.dump
-├── load_dept_manager.dump
-├── load_employees.dump
-├── load_salaries1.dump
-├── load_salaries2.dump
-├── load_salaries3.dump
-├── load_titles.dump
-├── objects.sql
-├── README.md
-├── sakila
-│   ├── README.md
-│   ├── sakila-mv-data.sql
-│   └── sakila-mv-schema.sql
-├── show_elapsed.sql
-├── sql_test.sh
-├── test_employees_md5.sql
-├── test_employees_sha.sql
-└── test_versions.sh
 
-$ mysql -h 127.0.0.1 -uroot -pCfeDemo@123 -P 41797 <employees.sql
+
+$ cd mysql-app/test
+$ mysql -h 127.0.0.1 -uroot -pCfeDemo@123 -P 41797 < employees.sql
 INFO
 CREATING DATABASE STRUCTURE
 INFO
@@ -341,7 +337,7 @@ MySQL [(none)]> show databases;
 
 
 
-$ mysql -h 127.0.0.1 -uroot -pCfeDemo@123 -P 41797 -t <test_employees_sha.sql
+$ mysql -h 127.0.0.1 -uroot -pCfeDemo@123 -P 41797 -t < test_employees_sha.sql
 +----------------------+
 | INFO                 |
 +----------------------+
@@ -390,3 +386,6 @@ $ mysql -h 127.0.0.1 -uroot -pCfeDemo@123 -P 41797 -t <test_employees_sha.sql
 +---------+--------+
 ```
 
+```markdown
+
+```
