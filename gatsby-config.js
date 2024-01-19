@@ -237,25 +237,28 @@ module.exports = {
     },
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
-    {
-      resolve: 'gatsby-plugin-google-analytics',
-      options: {
-        trackingId: 'UA-108944070-6',
-        head: true,
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-google-gtag',
-      options: {
-        trackingIds: [
-        'G-45LYYFDK5J', // Google Analytics / GA
-        ],
-        pluginConfig: {
-          // Puts tracking script in the head instead of the body
-          head: true,
-        },
-      },
-    },
+    // Old version of GA
+    //{
+    //  resolve: 'gatsby-plugin-google-analytics',
+    //  options: {
+    //    trackingId: 'UA-108944070-6',
+    //    head: true,
+    //  },
+    //},
+    // Current version of GA but launch from adobe
+    //{
+    //  resolve: 'gatsby-plugin-google-gtag',
+    //  options: {
+    //   trackingIds: [
+    //    'G-45LYYFDK5J', // Google Analytics / GA
+    //    ],
+    //    pluginConfig: {
+    //      // Puts tracking script in the head instead of the body
+    //      head: true,
+    //    },
+    //  },
+    //},
+    // Adobe that was already commented
     // {
     //   resolve: 'gatsby-plugin-adobe-launch-hpe',
     //   options: {
