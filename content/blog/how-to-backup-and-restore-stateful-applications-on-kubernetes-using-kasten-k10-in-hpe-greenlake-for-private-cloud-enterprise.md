@@ -81,101 +81,123 @@ $ k﻿ubectl  get volumesnapshotclasses
 NAME                                 DRIVER        DELETIONPOLICY   AGE
 gl-sbp-frank-gl1-sstor01             csi.hpe.com   Delete           56d
 ```
+### Install Kasten K10
+
+```markdown
+$ helm repo add kasten https://charts.kasten.io/
+$ helm repo update
+
+
+
+
+
+$ helm install k10 kasten/k10 --namespace=kasten-io --create-namespace
+NAME: k10
+LAST DEPLOYED: Thu Jan 18 22:34:17 2024
+NAMESPACE: kasten-io
+STATUS: deployed
+REVISION: 1
+TEST SUITE: None
+NOTES:
+Thank you for installing Kasten\u2019s K10 Data Management Platform 6.5.2!
+
+Documentation can be found at https://docs.kasten.io/.
+
+How to access the K10 Dashboard:
+
+To establish a connection to it use the following `kubectl` command:
+
+`kubectl --namespace kasten-io port-forward service/gateway 8080:8000`
+
+The Kasten dashboard will be available at: `http://127.0.0.1:8080/k10/#/`
+```
+
+T﻿he Kasten K10 will be installed to the the namespace *kasten-io* in cluster. Helm installs a list of Pods to the namespace. It takes a while before all those Pods start and running. Typing the following command to keep checking Pod states to be sure they are all in running status:
+
+```markdown
+$ k get pods -n kasten-io -w
+NAME                                    READY   STATUS    RESTARTS   AGE
+aggregatedapis-svc-6fc8fcf7bd-cdw8p     1/1     Running   0          15m
+auth-svc-6fcb76d7df-pt748               1/1     Running   0          15m
+catalog-svc-7c6f8b76fb-bsdqn            2/2     Running   0          15m
+controllermanager-svc-5fffc97d7-b5whv   1/1     Running   0          15m
+crypto-svc-8568584f9f-br8kn             4/4     Running   0          15m
+dashboardbff-svc-b58b6d8cd-gnt5n        2/2     Running   0          15m
+executor-svc-cb5fd4698-7zqjg            1/1     Running   0          15m
+executor-svc-cb5fd4698-n27d5            1/1     Running   0          15m
+executor-svc-cb5fd4698-rvj4v            1/1     Running   0          15m
+frontend-svc-6c5677595b-9tsmj           1/1     Running   0          15m
+gateway-54d778c955-n9wt5                1/1     Running   0          15m
+jobs-svc-668b76cb86-q27nk               1/1     Running   0          15m
+k10-grafana-889ff545b-g7px7             1/1     Running   0          15m
+kanister-svc-76cdb967bd-hkhql           1/1     Running   0          15m
+logging-svc-79599589f6-hdsp5            1/1     Running   0          15m
+metering-svc-55f84f7766-rsm5f           1/1     Running   0          15m
+prometheus-server-689ccf5f57-j9hpz      2/2     Running   0          15m
+state-svc-b4b996d9b-jnbrl               3/3     Running   0          15m
+```
+
+A﻿fter all the Pods are in running states, edit the service *gateway* to change its service type from *ClusterIP* to *NodePort*:
+
+```markdown
+$ k edit svc gateway -n kasten-io
+…
+spec:
+  clusterIP: 10.102.36.25
+  clusterIPs:
+  - 10.102.36.25
+  externalTrafficPolicy: Cluster
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - name: http
+    nodePort: 31334
+    port: 8000
+    protocol: TCP
+    targetPort: 8000
+  selector:
+    service: gateway
+  sessionAffinity: None
+  type: NodePort
+…
+service/gateway edited
+```
+
+
+
+```markdown
+$ kubectl get svc gateway -n kasten-io -o jsonpath={.metadata.annotations.hpecp-internal-gateway/8000}
+gl-tor-upc-cp-gw-node1.customer.yyz.gl-hpe.local:10021
+```
+
+T﻿he Kasten K10 service dashboard can be accessed by pointing the URL *http://gl-tor-upc-cp-gw-node1.customer.yyz.gl-hpe.local:10021/k10/#/* in the browser:
+
+![](/img/k10-login.png)
+
+![](/img/k10-dashboard.png)
+
+![](/img/k10-backup.png)
+
+![](/img/k10-data-backup.png)
+
+![](/img/k10-dashboard-backup.png)
+
+![](/img/k10-restore.png)
+
+![](/img/k10-dashboard-restore.png)
 
 ### Deploy MySQL database
 
-B﻿efore showing the volume snapshots, a MySQL database will be deployed as an sample stateful application to the cluster.
-
-MySQL database requires a persistent volume to store data. Here are the MySQL database deployment and the PVC YAML manifest files: 
+I﻿n order to show backup and restore process, [a MySQL database](https://github.com/GuopingJia/mysql-app) will be deployed as a sample stateful application to the cluster.
+ 
+MySQL database requires a persistent volume to store data. Here is the PVC YAML manifest files: 
 
 ```markdown
-$ tree mysql-app
-mysql-app
-├── base
-│   ├── kustomization.yaml
-│   ├── mysql-deployment.yaml
-│   └── mysql-pvc.yaml
-├── overlays
-├── README.md
-└── test
-    ├── employees.sql
-    ├── load_departments.dump
-    ├── load_dept_emp.dump
-    ├── load_dept_manager.dump
-    ├── load_employees.dump
-    ├── load_salaries1.dump
-    ├── load_salaries2.dump
-    ├── load_salaries3.dump
-    ├── load_titles.dump
-    ├── show_elapsed.sql
-    ├── test_employees_md5.sql
-    └── test_employees_sha.sql
-
-$ cat mysql-app/base/mysql-deployment.yaml 
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: mysql
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: mysql
-  namespace: mysql
-  labels:
-    app: mysql
-spec:
-  ports:
-    - port: 3306
-  selector:
-    app: mysql
-    tier: mysql
-  clusterIP: None
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: mysql
-  namespace: mysql
-  labels:
-    app: mysql
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: mysql
-      tier: mysql
-  strategy:
-    type: Recreate
-  template:
-    metadata:
-      labels:
-        app: mysql
-        tier: mysql
-    spec:
-      containers:
-      - image: mysql:5.6
-        name: mysql
-        env:
-        - name: MYSQL_ROOT_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: mysql-pass
-              key: password
-        ports:
-        - containerPort: 3306
-          name: mysql
-        volumeMounts:
-        - name: mysql-persistent-storage
-          mountPath: /var/lib/mysql
-      volumes:
-      - name: mysql-persistent-storage
-        persistentVolumeClaim:
-          claimName: mysql-pvc
 
 
-
-$ cat mysql-app/base/mysql-pvc.yaml 
+$ cat mysql-app/base/mysql-pvc.yaml 
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
@@ -192,10 +214,10 @@ spec:
 
 ```
 
-The YAML manifest files in the folder *setup* will be used to install the WordPress applicaiton using [Kustomize](https://kustomize.io/).
+The YAML manifest files in the folder *base* will be used to install the WordPress applicaiton using [Kustomize](https://kustomize.io/).
 
 ```markdown
-$ tree mysql-app/base
+$ tree mysql-app/base
 mysql-app/base
 ├── kustomization.yaml
 ├── mysql-deployment.yaml
@@ -204,7 +226,7 @@ mysql-app/base
 The file kustomization.yaml lists all YAML files in its resources section, together with the secret generator for MySQL password:
 
 ```markdown
-$ cat mysql-app/base/kustomization.yaml 
+$ cat mysql-app/base/kustomization.yaml 
 secretGenerator:
 - name: mysql-pass
   namespace: wordpress
@@ -216,10 +238,10 @@ resources:
 
 ```
 
-T﻿yping below command to install the WordPress application to the namespace *wordpress*:
+T﻿yping below command to install the MySQL application to the namespace *mysql*:
 
 ```markdown
-$ kubectl apply -k mysql-app/base
+$ kubectl apply -k mysql-app/base
 namespace/mysql created
 secret/mysql-pass-m62cbhd9kf created
 service/mysql created
@@ -285,7 +307,9 @@ MySQL [(none)]> show databases;
 3 rows in set (0,282 sec)
 ```
 
-I﻿n order to add data to the MySQL database, I will use a sample database test suite [test_db](https://github.com/datacharmer/test_db) to populate a large number of data records to the database and test the contents:
+The MySQL database repo has the *test* folder that contains a list of scripts for populating data records and testing the contents. 
+
+T﻿yping the following command to populate a sample *employees* data to the database:
 
 ```markdown
 
@@ -312,7 +336,7 @@ data_load_time_diff
 NULL
 ```
 
-T﻿he added sample data records *employees* can be verified by below commands:*
+T﻿he added sample data records *employees* can be checked and verified by below commands:
 
 ```markdown
 $ mysql -h 127.0.0.1 -uroot -pCfeDemo@123 -P 41797 
@@ -385,6 +409,7 @@ $ mysql -h 127.0.0.1 -uroot -pCfeDemo@123 -P 41797 -t < test_employees_sha.sql
 | count   | OK     |
 +---------+--------+
 ```
+
 
 ```markdown
 
