@@ -135,7 +135,7 @@ prometheus-server-689ccf5f57-j9hpz      2/2     Running   0          15m
 state-svc-b4b996d9b-jnbrl               3/3     Running   0          15m
 ```
 
-A﻿fter all the Pods are in running states, edit the service *gateway* to change its service type from *ClusterIP* to *NodePort*. This will assign the gateway host name with an generate a service port and expose the service via the configured gatway host plus the port. 
+A﻿fter all the Pods are in running states, edit the service *gateway* to change its service type from *ClusterIP* to *NodePort*. This will generate a service port and expose the service via the configured gatway host plus the port. 
 
 ```markdown
 $ k edit svc gateway -n kasten-io
@@ -180,9 +180,9 @@ C﻿lick *Accept Terms* after specifying your email and company name, you will b
 
 ### Deploy MySQL database
 
-I﻿n order to show backup and restore process, [a MySQL database](https://github.com/GuopingJia/mysql-app) will be deployed as a sample stateful application to the cluster.
+I﻿n order to show backup and restore process, [the MySQL database](https://github.com/GuopingJia/mysql-app) will be deployed as a sample stateful application to the cluster.
 
-MySQL database requires a persistent volume to store data. Here is the PVC YAML manifest files: 
+The MySQL database requires a persistent volume to store data. Here is the PVC YAML manifest files: 
 
 ```markdown
 $ cat mysql-app/base/mysql-pvc.yaml 
@@ -201,7 +201,7 @@ spec:
       storage: 1Gi
 ```
 
-The YAML manifest files in the folder *base* will be used to install the WordPress applicaiton using [Kustomize](https://kustomize.io/).
+The YAML manifest files in the folder *base* will be used to install the MySQL applicaiton using [Kustomize](https://kustomize.io/).
 
 ```markdown
 $ tree mysql-app/base
