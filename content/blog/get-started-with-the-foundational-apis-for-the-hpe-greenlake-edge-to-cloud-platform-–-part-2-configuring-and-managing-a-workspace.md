@@ -40,7 +40,7 @@ Once the access token is generated, it will be used as the **authorization beare
 
 ## Inviting a tenant user to collaborate in the workspace
 
-As a workspace administrator in my HPE GreenLake platform workspace, I can easily invite other members of my organization to join the workspace by sending them a sign-up link in email. Here I am using the **POST** REST API call - ***Invite a user***, taken from the Postman collection folder: ***Configuring and Managing GLP Workspace/Step2-IAM/Identity/v1/users***.
+As an administrator in my HPE GreenLake platform workspace, I can easily invite other members of my organization to join the workspace by sending them a sign-up link in email. Here I am using the **POST** REST API call - ***Invite a user***, taken from the Postman collection folder: ***Configuring and Managing GLP Workspace/Step2-IAM/Identity/v1/users***.
 
 `POST {{baseUrl}}/identity/v1/users`
 
@@ -86,9 +86,9 @@ I now hit the **Send** button. The request indicates success (***Status: 200 OK*
 A typical scenario to manage infrastructure resources from the HPE GreenLake platform would be where one would:
 
 * Add an infrastructure device and a subscription key for this device to the workspace. In this scenario, I will add an HPE Aruba Access Point and associated subscription key to the inventory of the workspace. 
-* Attach the device to an application to manage and operate the device. In this scenario, I will assign the Aruba Access Point to the Aruba Central application already deployed in the workspace. The Aruba Central application is a SaaS-based User Interface that lets customers manage their fleet of networking equipment from edge-to-cloud from a single web interface.
-* Assign a subscription key to the device. A subscription key is a license key needed to activate the device and allows the IT administrator to use and operate it using the appropriate application management console such as Aruba Central for Aruba networking devices, Compute Ops Management for compute servers, and Data Services Cloud Console for Storage arrays.
-* Remove assignment of an application or a subscription for a device.
+* Attach the device to a service to manage and operate the device. In this scenario, I will assign the Aruba Access Point to the Aruba Central service already deployed in the workspace. The Aruba Central service is a SaaS-based User Interface that lets customers manage their fleet of networking equipment from edge-to-cloud from a single web interface.
+* Assign a subscription key to the device. A subscription key is a license key needed to activate the device and allows the IT administrator to use and operate it using the appropriate service management console such as Aruba Central for Aruba networking devices, Compute Ops Management for compute servers, and Data Services Cloud Console for Storage arrays.
+* Remove assignment of a service or a subscription for a device.
 
 ### Adding a device and subscription
 
@@ -151,11 +151,11 @@ I can now use the two subsequent REST API calls below to fetch detailed informat
 
 `GET {{baseUrl}}/subscriptions/v1alpha1/subscriptions?filter=key eq '<SubcriptionKey>'`
 
-> **Note:** I will need the *device ID* to attach the device to a regional instance of an application. I will also need the *subscription key ID* to assign the subscription key to the device as explained in the next step.
+> **Note:** I will need the *device ID* to attach the device to a regional instance of a service. I will also need the *subscription key ID* to assign the subscription key to the device as explained in the next step.
 
 ### Assigning the device to a regional application instance
 
-Next, using the **PATCH** ***Update devices - Assign Application to a device*** REST API request (derived from the ***PATCH Update devices API call***), I can attach the device to a regional instance of the Aruba Central application already deployed in the workspace. The device ID is specified as a query parameter, the Aruba Central application ID and region are specified in the data payload (Body) as shown below: 
+Next, using the **PATCH** ***Update devices - Assign Application to a device*** REST API request (derived from the ***PATCH Update devices API call***), I can attach the device to a regional instance of the Aruba Central service already deployed in the workspace. The device ID is specified as a query parameter, the Aruba Central _identifier_ and region are specified in the data payload (Body) as shown below: 
 
 `PATCH {{baseUrl}}/devices/v1beta1/devices?id={{DeviceId}}`
 
@@ -168,9 +168,9 @@ Next, using the **PATCH** ***Update devices - Assign Application to a device*** 
 }
 ```
 
-![Figure 4: Assign device to a regional application instance](/img/blog-part2-assign-app-to-device-image6.png "Figure 4: Assign device to a regional application instance")
+![Figure 4: Assign device to a regional service instance](/img/blog-part2-assign-app-to-device-image6.png "Figure 4: Assign device to a service application instance")
 
-> > <span style="color:grey; font-family:Arial; font-size:1em"> Figure 4: Assign device to a regional application instance</span>
+> > <span style="color:grey; font-family:Arial; font-size:1em"> Figure 4: Assign device to a regional instance of the Aruba Central service</span>
 
 This API call is an asynchronous operation, and I can use the **GET** API call ***Get progress or status of async operations in devices*** to verify the status of the operation.
 
@@ -194,11 +194,11 @@ Similarly, I can use the same REST API call to assign a subscription key to the 
 
 > > <span style="color:grey; font-family:Arial; font-size:1em"> Figure 5: Assign a subscription key to a device</span>
 
-### Removing assignment of application and subscription
+### Removing assignment of service and subscription
 
-During on-going operations in the workspace, I may need to remove assignment of an application and a subscription for a particular device. I can use the **PATCH** REST API calls ***Update devices – Unassign Application for a Device*** and ***Update devices - Unassign Subscription Key for a device*** respectively.
+During on-going operations in the workspace, I may need to remove assignment of a service and a subscription for a particular device. I can use the **PATCH** REST API calls ***Update devices – Unassign Application for a Device*** and ***Update devices - Unassign Subscription Key for a device*** respectively.
 
-To remove an assignment of application for a device, leave the application field as empty value in the data payload as shown here: 
+To remove an assignment of a service for a device, leave the application field as empty value in the data payload as shown here: 
 
 `PATCH {{baseUrl}}/devices/v1beta1/devices?id={{DeviceId}}`
 
