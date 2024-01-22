@@ -17,11 +17,11 @@ li {
 }
 </style>
 
-HPE’s unified management plane for hybrid cloud, the HPE GreenLake edge-to-cloud platform (also referred to as the "HPE GreenLake platform" or just “the platform”), provides a set of common services that are used by cloud services that run on top of the HPE GreenLake platform. Cloud services rely on these common services for user's authentication, authorization, devices and subscriptions management, monitoring, audit trail and more. 
+HPE’s unified management plane for hybrid cloud, the HPE GreenLake edge-to-cloud platform, provides a set of _common services_ that are used by cloud services that run on top of the platform. Cloud services rely on these common services for user's authentication, authorization, devices and subscriptions management, monitoring, audit trail and more. 
 
 The HPE GreenLake platform now provides a collection of RESTful application programming interfaces (APIs) for these foundational, common services. 
 
-If you are looking for a quick way to discover what you can do with the HPE GreenLake platform APIs from the perspective of being a user of the platform (such as an IT administrator) and using popular tools that don’t require programming (such as [Postman](https://www.postman.com/product/what-is-postman/)), this blog post series is for you.
+If you are looking for a quick way to discover what you can do with the HPE GreenLake platform APIs using popular tools that don’t require programming (such as [Postman](https://www.postman.com/product/what-is-postman/)), this blog post series is for you.
 
 In Part 1 of this series, I will help you get started with the HPE GreenLake platform APIs by taking advantage of a Postman collection I built for you. I will describe the current set of APIs for HPE GreenLake platform. I will also show you how to obtain an OAuth access token to make subsequent secure REST API calls to the HPE GreenLake platform APIs. 
 
@@ -37,7 +37,7 @@ The foundational APIs for the HPE GreenLake platform services are designed to en
 
 For example, the current set of APIs for common platform services allows HPE GreenLake customers and partners to **programmatically** add users, add devices and associated subscriptions (licenses), track users’ activities and monitor the overall health of the managed services and devices in the workspace.
 
-> **Important note:** This set of APIs for common platform services differentiates from the specific APIs for the featured services (also known as applications) that HPE GreenLake administrators can deploy in their workspace to operate and manage cloud services and their underlying infrastructure for networking, compute, storage and data services. You can find more information about these applications’ specific APIs in the HPE Developer Community portal: [Aruba Central](https://developer.hpe.com/greenlake/aruba-central/home/), [HPE GreenLake for Compute Ops Management](https://developer.hpe.com/greenlake/hpe-greenlake-for-compute-ops-management/home/), and [Data Services Cloud Console](https://developer.hpe.com/greenlake/data-services-cloud-console/home/).   
+> **Important note:** This set of APIs for common platform services differentiates from the specific APIs for the cloud services that HPE GreenLake administrators can deploy in their workspace to operate and manage workloads and their underlying infrastructure for networking, compute, storage and data services. You can find more information about these services’ specific APIs in the HPE Developer Community portal: [Aruba Central](https://developer.hpe.com/greenlake/aruba-central/home/), [HPE GreenLake for Compute Ops Management](https://developer.hpe.com/greenlake/hpe-greenlake-for-compute-ops-management/home/), and [Data Services Cloud Console](https://developer.hpe.com/greenlake/data-services-cloud-console/home/).   
 
 The set of APIs for common platform services includes:
 
@@ -48,11 +48,11 @@ The set of APIs for common platform services includes:
   
 * **Location management:** Location management service manages service delivery information (SDI), including device location and support contact information.     
 
-* **Device inventory management:** Device service maintains the inventory of all devices (networking, compute and storage devices) manufactured by HPE.    
+* **Device inventory management:** Device service maintains the inventory of all devices (networking, compute and storage devices) connected to the workspace.    
 
 * **Subscription management:** Subscription management service maintains the subscriptions and licenses for cloud management of devices for networking, compute and storage, and cloud software as-a-service.    
 
-* **Audit log management:** Audit log service records the occurrence of an event emitted from all devices and applications. These logs can also be used for auditing purposes, track user activity, investigate breaches and ensure compliance with regulatory requirements.    
+* **Audit log management:** Audit log service records the occurrence of events emitted by any device or service. These logs can also be used for auditing purposes, track user activity, investigate breaches and ensure compliance with regulatory requirements.    
 
 * **Wellness event service:** Wellness service presents wellness events for several HPE services and products in the workspace. In a near future, it will also enable you to open a support ticket corresponding to a wellness event when appropriate.
 
@@ -70,17 +70,17 @@ Postman is an API platform for building and using APIs. You can sign into your P
 
 As an IT administrator, before you can work with the APIs for common HPE GreenLake platform services, you will need to:
 
-1. Create an HPE account and a company workspace for your organization. Ensure you get assigned the ***Workspace Account Administrator*** role in HPE GreenLake platform for your organization workspace. 
+1. Create an HPE account and a company workspace for your organization. Ensure you get assigned the ***Account Administrator*** role in HPE GreenLake platform for your organization workspace. 
 
 > **Note:** You can refer to the [HPE GreenLake edge-to-cloud platform user guide](https://support.hpe.com/hpesc/public/docDisplay?docId=a00120892en_us&page=index.html) to learn how to create an HPE account, a workspace and assign roles.  
 
 2. Generate API client credentials for the *HPE GreenLake platform*. The credentials consist of a *ClientID* and *ClientSecret* pair that represents the permissions granted to the user who creates the API client credentials. **Save** the *ClientID* and *ClientSecret* to a safe location. You will need the credentials to generate and refresh an expired OAuth based access token when making REST API calls. Once the token is generated or refreshed, it can be used as an **authorization bearer token** to make further secure REST API calls to the APIs for HPE GreenLake platform common services. 
 
-> **Note:** To make REST API calls to HPE GreenLake platform APIs, you will need to select “HPE GreenLake platform” as an option when configuring API client credentials. To learn how to create API client credentials for HPE GreenLake platform APIs, check out the [Generate and Reset application credentials documentation](https://developer.greenlake.hpe.com/docs/greenlake/guides/#generate-or-reset-application-credentials).
+> **Note:** To make REST API calls to HPE GreenLake platform APIs, you will need to select “HPE GreenLake platform” as an option when configuring API client credentials. To learn how to create API client credentials for HPE GreenLake platform APIs, check out the [Configuring API client credentials](https://support.hpe.com/hpesc/public/docDisplay?docId=a00120892en_us&page=GUID-23E6EE78-AAB7-472C-8D16-7169938BE628.html) and [Requesting access to HPE GreenLake platform APIs](https://support.hpe.com/hpesc/public/docDisplay?docId=a00120892en_us&page=GUID-771F9B3A-B029-43E5-A38F-6D8D04178FAB.html) in the HPE GreenLake edge-to-cloud platform user guide.
 
 3. Gather the Workspace ID of your organization workspace: Go to **Manage Workspace** in the [HPE GreenLake platform Graphical User Interface](https://common.cloud.hpe.com/) to get your workspace ID. **Save** the *workspace ID*.
 
-4. Obtain the application ID of your featured services (also known as applications) deployed in your workspace. These applications are typically Aruba Central, Data Services, and Compute Ops Management used to manage and operate your networking, compute and storage infrastructure. Using your Internet browser, log in to the HPE GreenLake platform UI and launch the **inspect element** feature of your browser to inspect the **Network** activity. In your workspace, select **Services** and check the network activity in the inspect element. In the left-end panel, select **provisions**, and select **Response** in the Network activity panel to display the list of applications provisioned in your workspace. **Save** the *application_id* for each of your applications. You will need this information when making REST API calls to the common HPE GreenLake platform services. 
+4. Obtain the ***identifier*** of your services deployed in your workspace. These services are typically Aruba Central, Data Services, and Compute Ops Management used to manage and operate your networking, compute and storage infrastructure. Using your Internet browser, log in to the HPE GreenLake platform UI and launch the **inspect element** feature of your browser to inspect the **Network** activity. In your workspace, select **Services** and check the network activity in the inspect element. In the left-end panel, select **provisions**, and select **Response** in the Network activity panel to display the list of services provisioned in your workspace. **Save** the ***identifier*** (displayed as _application_id_ in the Response tab) for each of your _PROVISIONED_ services. You will need this information when making REST API calls to the common HPE GreenLake platform services. 
 
 5. Get information (email address) for a user to invite to your workspace.
 
@@ -90,7 +90,7 @@ As an IT administrator, before you can work with the APIs for common HPE GreenLa
 
 As you know, one of the benefits of working within a community is the ability to take advantage of open collaboration, sharing hints, tools, and resources. Although you can build your own Postman collection by downloading the OpenAPI specification files from the [HPE GreenLake documentation](https://developer.greenlake.hpe.com/docs/greenlake/services/) and importing them to Postman, you can take advantage of the Postman collection I built for you. The Postman collection for the _APIs for common HPE GreenLake platform services_ is available in the [HPE Developer Community tooling repository](https://github.com/hpe-dev-incubator/GLP-API-Tooling/tree/main/Postman-Collections). Simply download the JSON file and import it to Postman. Then set the collection variables as explained in the next section.
 
-> **Note:** As HPE will enrich the APIs for common platform services overtime, I will update the Postman collection as appropriate. So, check out the link above regularly to download the latest release of the Postman collection. 
+> **Note:** As HPE will enrich the APIs for common platform services over time, I will update the Postman collection as appropriate. So, check out the link above regularly to download the latest release of the Postman collection. 
 
 ### Defining the HPE GreenLake platform APIs collection variables
 
@@ -113,9 +113,9 @@ Define the **current value** of the collection variables to match your HPE Green
 
 * **Workspace ID:** This variable should be set with the value of your Workspace ID you previously saved.
 
-* **Aruba_Application_Id**, **COM_Application_Id**, and **DSCC_Application_Id:** These variables should be set with the value of the application ID of the applications you deployed in your workspace to manage your infrastructure services for networking, compute and storage.
+* **Aruba_Application_Id**, **COM_Application_Id**, and **DSCC_Application_Id:** These variables should be set with the value of the _identifier_ of the services you deployed in your workspace to manage your infrastructure services for networking, compute and storage.
 
-* **GLP_Application_Id:** This variable is the application ID of the HPE GreenLake platform application. This is always set to value “00000000-0000-0000-0000-000000000000”.
+* **GLP_Application_Id:** This variable is the _identifier_ of the HPE GreenLake platform. This is always set to value “00000000-0000-0000-0000-000000000000”.
 
 **Note:** Do not edit the other variables. Keep the value field empty. The collection variables will be set automatically upon successful execution of REST API calls using Postman Test scripts.
 
