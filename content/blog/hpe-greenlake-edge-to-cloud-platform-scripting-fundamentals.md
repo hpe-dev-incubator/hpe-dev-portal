@@ -65,7 +65,7 @@ Let’s look at the steps necessary to accomplish this. 
 
 The HPE GreenLake platform console provides a way to create an API access that will deliver a Client ID and a Client Secret, which, in turn, I am going to use to generate a session token.  
 
-> *Note: To learn how to create API credentials for HPE GreenLake platform APIS, check out the [Generate and Reset application credentials documentation](https://developer.greenlake.hpe.com/docs/greenlake/guides/#generate-or-reset-application-credentials).*  
+> ***Note:** To make REST API calls to HPE GreenLake platform APIs, you will need to select “HPE GreenLake platform” as an option when configuring API client credentials. To learn how to create API client credentials for HPE GreenLake platform APIs, check out the [Configuring API client credentials](https://support.hpe.com/hpesc/public/docDisplay?docId=a00120892en_us&page=GUID-23E6EE78-AAB7-472C-8D16-7169938BE628.html) and [Requesting access to HPE GreenLake platform APIs](https://support.hpe.com/hpesc/public/docDisplay?docId=a00120892en_us&page=GUID-771F9B3A-B029-43E5-A38F-6D8D04178FAB.html) in the HPE GreenLake edge-to-cloud platform user guide.*
 
 My script will prompt for these two values (**client_id** and **client_secret**) and will make sure that **client_secret** is never printed anywhere. Because these values are quite long, I will also test the presence of the operating system’s environment variables CLIENTID and CLIENTSECRET. If present, I will use their values and not prompt the user. 
 
