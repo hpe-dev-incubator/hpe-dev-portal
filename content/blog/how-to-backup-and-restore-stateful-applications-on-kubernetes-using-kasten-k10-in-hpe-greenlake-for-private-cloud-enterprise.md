@@ -172,21 +172,14 @@ $ kubectl get svc gateway -n kasten-io -o jsonpath={.metadata.annotations.hpecp-
 gl-tor-upc-cp-gw-node1.customer.yyz.gl-hpe.local:10021
 ```
 
-T﻿he Kasten K10 service dashboard can be accessed by pointing the URL *http://gl-tor-upc-cp-gw-node1.customer.yyz.gl-hpe.local:10021/k10/#/* in the browser:
+T﻿he Kasten K10 service dashboard can be accessed by pointing the browser to the URL *http://gl-tor-upc-cp-gw-node1.customer.yyz.gl-hpe.local:10021/k10/#/*:
 
 ![](/img/k10-login.png)
 
+C﻿lick *Accept Terms* after specifying your email and company name, you will be landed to Kasten K10 Dashboard:
+
 ![](/img/k10-dashboard.png)
 
-![](/img/k10-backup.png)
-
-![](/img/k10-data-backup.png)
-
-![](/img/k10-dashboard-backup.png)
-
-![](/img/k10-restore.png)
-
-![](/img/k10-dashboard-restore.png)
 
 ### Deploy MySQL database
 
@@ -410,6 +403,31 @@ $ mysql -h 127.0.0.1 -uroot -pCfeDemo@123 -P 41797 -t < test_employees_sha.sql
 +---------+--------+
 ```
 
+### Back up MySQL database 
+
+G﻿o to the Kasten K10 Dashboard and click the Applications. Find the deployed MySQL application from the application list and expand its menu. Then click *Snapshot* button.
+
+![](/img/k10-backup-button.png)
+
+U﻿sing all the default options from **Snapshot *mysql***, click *Snapshot Application* button:
+
+![](/img/k10-backup.png)
+
+T﻿he snapshot of the MySQL database will be started that takes a few seconds. Go back to the Dashboard, you should see the completed backup entry under **Actions**:
+
+![](/img/k10-dashboard-backup.png)
+
+Y﻿ou can also check the **Data Usage* page to see the data used by application backups:
+
+![](/img/k10-data-backup.png)
+
+### Rstore MySQL database 
+
+
+
+![](/img/k10-restore.png)
+
+![](/img/k10-dashboard-restore.png)
 
 ```markdown
 
