@@ -369,7 +369,6 @@ MySQL [(none)]> show databases;
 | performance_schema |
 +--------------------+
 4 rows in set (0,237 sec)
-```
 
 $ mysql -h 127.0.0.1 -uroot -pCfeDemo@123 -P 42281 -t < test_employees_sha.sql
 +----------------------+
