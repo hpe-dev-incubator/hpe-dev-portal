@@ -350,7 +350,7 @@ NAME                                             READY   AGE
 statefulset.apps/prometheus-stack-alertmanager   1/1     4d17h
 ```
 
-T﻿ype _helm list_ command, it will show both Prometheus and Grafana helm charts are deployed to the _monitoring_ namespace:  
+T﻿yping _helm list_ command, it will show both Prometheus and Grafana helm charts and versions that are deployed to the _monitoring_ namespace in the cluster:
 
 ```markdown
 $ helm list -n monitoring
@@ -370,13 +370,13 @@ $ kubectl get service/prometheus-stack-server -n monitoring -o jsonpath='{.metad
 gl-tor-upc-cp-gw-node1.customer.yyz.gl-hpe.local:10015
 ```
 
-Y﻿ou can execute the query by using some metric, e.g., *kube_pod_start_time*:
+Y﻿ou can execute the query by using some metrics, e.g., *kube_pod_start_time*:
 
 ![](/img/prometheus.png)
 
-#### Access Grafana dashboard
+#### Access Grafana 
 
-T﻿he Grafana dashboard can be accessed by pointing the browser to the URL *http://gl-tor-upc-cp-gw-node1.customer.yyz.gl-hpe.local:10016*. The URL and the admin password can be extracted by the following commands:
+Grafana can be accessed by pointing the browser to the URL *http://gl-tor-upc-cp-gw-node1.customer.yyz.gl-hpe.local:10016*. The URL and the admin password can be extracted by the following commands:
 
 ```markdown
 $ kubectl get service/grafana-dashboard -n monitoring -o jsonpath='{.metadata.annotations.hpecp-internal-gateway/80}'
