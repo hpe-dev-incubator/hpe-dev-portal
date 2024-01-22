@@ -83,13 +83,11 @@ gl-sbp-frank-gl1-sstor01             csi.hpe.com   Delete           56d
 
 ### Install Kasten K10
 
+F﻿ollowing the [Kasten K10 installation page](https://docs.kasten.io/latest/index.html), the Kasten K10 can be installed to the K8s cluster using the following commands with helm:
+
 ```markdown
 $ helm repo add kasten https://charts.kasten.io/
 $ helm repo update
-
-
-
-
 
 $ helm install k10 kasten/k10 --namespace=kasten-io --create-namespace
 NAME: k10
@@ -112,7 +110,7 @@ To establish a connection to it use the following `kubectl` command:
 The Kasten dashboard will be available at: `http://127.0.0.1:8080/k10/#/`
 ```
 
-T﻿he Kasten K10 will be installed to the the namespace *kasten-io* in cluster. Helm installs a list of Pods to the namespace. It takes a while before all those Pods start and running. Typing the following command to keep checking Pod states to be sure they are all in running status:
+T﻿he Kasten K10 will be installed to the namespace *kasten-io* in the cluster. To validate the installation, typing the following command to watch for the status of all Pods. Helm installs a list of Pods to the namespace. It takes a while before all those Pods start running. 
 
 ```markdown
 $ k get pods -n kasten-io -w
@@ -137,7 +135,7 @@ prometheus-server-689ccf5f57-j9hpz      2/2     Running   0          15m
 state-svc-b4b996d9b-jnbrl               3/3     Running   0          15m
 ```
 
-A﻿fter all the Pods are in running states, edit the service *gateway* to change its service type from *ClusterIP* to *NodePort*:
+A﻿fter all the Pods are in running states, edit the service *gateway* to change its service type from *ClusterIP* to *NodePort*. This will assign the gateway host name with an generate a service port and expose the service via the configured gatway host plus the port. 
 
 ```markdown
 $ k edit svc gateway -n kasten-io
@@ -164,6 +162,8 @@ spec:
 …
 service/gateway edited
 ```
+
+T﻿yping the following command to get the service endpoint:
 
 ```markdown
 $ kubectl get svc gateway -n kasten-io -o jsonpath={.metadata.annotations.hpecp-internal-gateway/8000}
