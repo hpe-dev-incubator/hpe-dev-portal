@@ -295,8 +295,6 @@ MySQL [(none)]> show databases;
 3 rows in set (0,282 sec)
 ```
 
-The MySQL database repo has the *test* folder that contains a list of scripts for populating data records and testing the contents. 
-
 T﻿yping the following command to populate a sample *employees* data to the database:
 
 ```markdown
@@ -344,9 +342,11 @@ MySQL [(none)]> show databases;
 | performance_schema |
 +--------------------+
 4 rows in set (0,237 sec)
+```
 
+The MySQL database repo has the *test* folder that contains a list of scripts for populating data records and testing the contents. 
 
-
+```markdown
 $ mysql -h 127.0.0.1 -uroot -pCfeDemo@123 -P 42281 -t < test_employees_sha.sql
 +----------------------+
 | INFO                 |
@@ -398,7 +398,7 @@ $ mysql -h 127.0.0.1 -uroot -pCfeDemo@123 -P 42281 -t < test_employees_sha.sql
 
 ### Back up MySQL database
 
-G﻿o to the Kasten K10 Dashboard and click the Applications. Find the deployed MySQL application from the application list and expand its menu. Then click *Snapshot* button.
+In order to back up the MySQL database, go to the Kasten K10 Dashboard and click the Applications. Find the deployed MySQL application *mysql* from the application list and expand its menu. Then click *Snapshot* button. 
 
 ![](/img/k10-backup-button.png)
 
@@ -509,19 +509,19 @@ $ mysql -h 127.0.0.1 -uroot -pCfeDemo@123 -P 41797 -t <test_employees_sha.sql
 
 #### Perform MySQL database restore
 
-G﻿o to application list of the Kasten K10 Dashboard and expand the menu of *mysql* application. Then click *Restore* button.
+In order to restore the MySQL database, g﻿o to application list of the Kasten K10 Dashboard and expand the menu of *mysql* application. Then click *Restore* button.
 
 ![](/img/k10-restore-button.png)
 
-S﻿elect a restore point from the list and click it. 
+S﻿elect a restore point from the list and click it. The *Restore Point* page will show up:
 
 ![](/img/k10-restore-point.png)
 
-U﻿sing all the default options from **Restore Point**, click *Restore* button:
+U﻿se all the default options from **Restore Point** and click *Restore* button:
 
 ![](/img/k10-restore.png)
 
-T﻿he restore of the MySQL database will be started from the selected restore point. It will another few seconds. Go back to the Dashboard, you should see the completed *Restore* entry under **Actions**:
+T﻿he restore of the MySQL database will be started from the selected restore point. It will take a few seconds. Go back to the Dashboard, you should see the completed *Restore* entry under **Actions**:
 
 ![](/img/k10-dashboard-restore.png)
 
@@ -587,5 +587,6 @@ $ mysql -h 127.0.0.1 -uroot -pCfeDemo@123 -P 42281 -t < test_employees_sha.sql
 | count   | OK     |
 +---------+--------+
 
-
 ```
+
+### Summary
