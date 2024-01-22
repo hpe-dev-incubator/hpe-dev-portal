@@ -30,7 +30,7 @@ As I do so, I will show you how to use these foundational, common APIs to **prog
   * Invite users to join a workspace.
   * Add a device (for example an HPE Aruba Access Point) and subscription to the workspace.
   * Attach the device to a regional application instance (for example, Aruba Central application in Central Europe) and a subscription key (a license) to operate the device.
-  * Remove application and subscription assignments for a device.  
+  * Remove service and subscription assignments for a device.  
 
 ## Obtaining the OAuth access token
 
@@ -153,9 +153,9 @@ I can now use the two subsequent REST API calls below to fetch detailed informat
 
 > **Note:** I will need the *device ID* to attach the device to a regional instance of a service management console. I will also need the *subscription key ID* to assign the subscription key to the device as explained in the next step.
 
-### Assigning the device to a regional instance of a service management console
+### Assigning the device to a regional instance of a service
 
-Next, using the **PATCH** ***Update devices - Assign Application to a device*** REST API request (derived from the ***PATCH Update devices API call***), I can attach the device to a regional instance of the Aruba Central service already deployed in the workspace. The device ID is specified as a query parameter, the Aruba Central _identifier_ and region are specified in the data payload (Body) as shown below: 
+Next, using the **PATCH** ***Update devices - Assign Application to a device*** REST API request (derived from the ***PATCH Update devices API call***), I can attach the device to a regional instance of the Aruba Central management console service already deployed in the workspace. The device ID is specified as a query parameter, the Aruba Central service _identifier_ and region are specified in the data payload (Body) as shown below: 
 
 `PATCH {{baseUrl}}/devices/v1beta1/devices?id={{DeviceId}}`
 
