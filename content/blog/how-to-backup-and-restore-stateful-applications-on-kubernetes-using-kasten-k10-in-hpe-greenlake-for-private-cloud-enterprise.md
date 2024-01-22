@@ -180,9 +180,12 @@ C﻿lick *Accept Terms* after specifying your email and company name, you will b
 
 ### Deploy MySQL database
 
-I﻿n order to show backup and restore process, [the MySQL database](https://github.com/GuopingJia/mysql-app) will be deployed as a sample stateful application to the cluster.
+I﻿n order to show backup and restore process, an MySQL database from [my GitHub repo](https://github.com/GuopingJia/mysql-app) will be deployed as a sample stateful application to the cluster. 
 
-The MySQL database requires a persistent volume to store data. Here is the PVC YAML manifest files: 
+1. Install MySQL application 
+
+
+MySQL database requires a persistent volume to store data. Here is the PVC YAML manifest file: 
 
 ```markdown
 $ cat mysql-app/base/mysql-pvc.yaml 
@@ -201,7 +204,7 @@ spec:
       storage: 1Gi
 ```
 
-The YAML manifest files in the folder *base* will be used to install the MySQL applicaiton using [Kustomize](https://kustomize.io/).
+The YAML manifest files in the folder *base* will be used to install the MySQL application using [Kustomize](https://kustomize.io/).
 
 ```markdown
 $ tree mysql-app/base
@@ -250,7 +253,7 @@ NAME                               DESIRED   CURRENT   READY   AGE
 replicaset.apps/mysql-6974b58d48   1         1         1       24s
 ```
 
-Y﻿ou can check the PVC and the PV created as part of application deployment:
+Y﻿ou can check the PV and the PVC created as part of application deployment:
 
 ```markdown
 $ kubectl get persistentvolumes 
@@ -262,6 +265,8 @@ $ kubectl get persistentvolumeclaims -n mysql
 NAME        STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS               AGE
 mysql-pvc   Bound    pvc-3e55e9b3-097f-4ddf-bdcb-60825a7905ec   1Gi        RWO            gl-sbp-frank-gl1-sstor01   9m50s
 ```
+
+2. Access MySQL database
 
 In order to access MySQL database service using the mysql CLI, set first the port-forward of *service/mysql*:   
 
@@ -293,6 +298,28 @@ MySQL [(none)]> show databases;
 | performance_schema |
 +--------------------+
 3 rows in set (0,282 sec)
+```
+
+3. Populate MySQL database 
+
+
+The MySQL database repo has the test folder that contains a list of scripts for populating data records and testing the contents: 
+
+```markdown
+$ tree mysql-app/test
+mysql-app/test
+├── employees.sql
+├── load_departments.dump
+├── load_dept_emp.dump
+├── load_dept_manager.dump
+├── load_employees.dump
+├── load_salaries1.dump
+├── load_salaries2.dump
+├── load_salaries3.dump
+├── load_titles.dump
+├── show_elapsed.sql
+├── test_employees_md5.sql
+└── test_employees_sha.sql
 ```
 
 T﻿yping the following command to populate a sample *employees* data to the database:
@@ -344,9 +371,6 @@ MySQL [(none)]> show databases;
 4 rows in set (0,237 sec)
 ```
 
-The MySQL database repo has the *test* folder that contains a list of scripts for populating data records and testing the contents. 
-
-```markdown
 $ mysql -h 127.0.0.1 -uroot -pCfeDemo@123 -P 42281 -t < test_employees_sha.sql
 +----------------------+
 | INFO                 |
