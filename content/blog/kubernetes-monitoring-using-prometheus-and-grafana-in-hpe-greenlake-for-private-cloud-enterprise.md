@@ -401,3 +401,7 @@ H﻿ere is another imported dashboard for _K8s pod metrics_. It shows overall cl
 ![](/img/grafana-cluster-monitoring.png)
 
 ### Summary
+
+This blog post described the detailed process to deploy and set up Prometheus and Grafana as a monitoring stack in a K8s cluster in HPE GreenLake for Private Cloud Enterprise. Prometheus excels at collecting and storing time-series data, enabling developers to monitor various aspects of K8s, including metrics, performance, and health. Grafana complements Prometheus by providing developers with intuitive dashboards and visualizations, enabling them to gain meaningful insights into K8s performance and behavior. Integration of Prometheus and Grafana by deploying them in the K8s cluster adds a monitoring stack. It empowers users to gain a deep understanding of the cluster’s internal states and behaviors, enabling them to identify potential issues, optimize performance and enhance overall reliability.
+
+You can keep coming back to the [HPE Developer blog]( https://developer.hpe.com/blog)] to learn more about HPE GreenLake for Private Cloud Enterprise.
