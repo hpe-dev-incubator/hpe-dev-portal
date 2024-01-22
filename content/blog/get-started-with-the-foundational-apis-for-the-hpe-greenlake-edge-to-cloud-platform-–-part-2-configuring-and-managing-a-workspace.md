@@ -151,9 +151,9 @@ I can now use the two subsequent REST API calls below to fetch detailed informat
 
 `GET {{baseUrl}}/subscriptions/v1alpha1/subscriptions?filter=key eq '<SubcriptionKey>'`
 
-> **Note:** I will need the *device ID* to attach the device to a regional instance of a service. I will also need the *subscription key ID* to assign the subscription key to the device as explained in the next step.
+> **Note:** I will need the *device ID* to attach the device to a regional instance of a service management console. I will also need the *subscription key ID* to assign the subscription key to the device as explained in the next step.
 
-### Assigning the device to a regional application instance
+### Assigning the device to a regional instance of a service management console
 
 Next, using the **PATCH** ***Update devices - Assign Application to a device*** REST API request (derived from the ***PATCH Update devices API call***), I can attach the device to a regional instance of the Aruba Central service already deployed in the workspace. The device ID is specified as a query parameter, the Aruba Central _identifier_ and region are specified in the data payload (Body) as shown below: 
 
@@ -168,7 +168,7 @@ Next, using the **PATCH** ***Update devices - Assign Application to a device*** 
 }
 ```
 
-![Figure 4: Assign device to a regional service instance](/img/blog-part2-assign-app-to-device-image6.png "Figure 4: Assign device to a service application instance")
+![Figure 4: Assign device to a regional service instance](/img/blog-part2-assign-app-to-device-image6.png "Figure 4: Assign device to a regional service instance")
 
 > > <span style="color:grey; font-family:Arial; font-size:1em"> Figure 4: Assign device to a regional instance of the Aruba Central service</span>
 
@@ -198,7 +198,7 @@ Similarly, I can use the same REST API call to assign a subscription key to the 
 
 During on-going operations in the workspace, I may need to remove assignment of a service and a subscription for a particular device. I can use the **PATCH** REST API calls ***Update devices – Unassign Application for a Device*** and ***Update devices - Unassign Subscription Key for a device*** respectively.
 
-To remove an assignment of a service for a device, leave the application field as empty value in the data payload as shown here: 
+To remove an assignment of a service for a device, leave the *application* field as empty value in the data payload as shown here: 
 
 `PATCH {{baseUrl}}/devices/v1beta1/devices?id={{DeviceId}}`
 
@@ -209,7 +209,7 @@ To remove an assignment of a service for a device, leave the application field a
 }
 ```
 
-To remove an assignment of a subscription key for a device, leave the subscription field as empty value in the data payload as shown here: 
+To remove an assignment of a subscription key for a device, leave the *subscription* field as empty value in the data payload as shown here: 
 
 `PATCH {{baseUrl}}/devices/v1beta1/devices?id={{DeviceId}}`
 
