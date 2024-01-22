@@ -395,3 +395,9 @@ F﻿rom [Grafana Labs](https://grafana.com/grafana/dashboards/), there is a list
 H﻿ere is the imported dashboard for _K8s cluster monitoring (via Prometheus)_:
 
 ![](/img/grafana-cluster-monitoring.png)
+
+H﻿ere is another imported dashboard for _K8s pod metrics_. It shows overall cluster CPU / Memory / Filesystem usage as well as individual pod, containers, systemd services statistics, etc.
+
+![](/img/grafana-cluster-monitoring.png)
+
+### Summary
