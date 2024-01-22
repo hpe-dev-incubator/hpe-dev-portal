@@ -80,7 +80,7 @@ As an IT administrator, before you can work with the APIs for common HPE GreenLa
 
 3. Gather the Workspace ID of your organization workspace: Go to **Manage Workspace** in the [HPE GreenLake platform Graphical User Interface](https://common.cloud.hpe.com/) to get your workspace ID. **Save** the *workspace ID*.
 
-4. Obtain the ***identifier*** of your services deployed in your workspace. These services are typically Aruba Central, Data Services, and Compute Ops Management used to manage and operate your networking, compute and storage infrastructure. Using your Internet browser, log in to the HPE GreenLake platform UI and launch the **inspect element** feature of your browser to inspect the **Network** activity. In your workspace, select **Services** and check the network activity in the inspect element. In the left-end panel, select **provisions**, and select **Response** in the Network activity panel to display the list of services provisioned in your workspace. **Save** the ***identifier*** (displayed as _application_id_ in the Response tab) for each of your _PROVISIONED_ services. You will need this information when making REST API calls to the common HPE GreenLake platform services. 
+4. Obtain the ***identifier*** of your services deployed in your workspace. These services are typically Aruba Central, Data Services, and Compute Ops Management used to manage and operate your networking, compute and storage infrastructure. Using your Internet browser, log in to the HPE GreenLake platform UI and launch the **inspect element** feature of your browser to inspect the **Network** activity. In your workspace, select **Services** and check the network activity in the inspect element. In the left-end panel, select **provisions**, and select **Response** in the Network activity panel to display the list of services provisioned in your workspace. **Save** the ***identifier*** (displayed as _application\_id_ in the Response tab) for each of your _PROVISIONED_ services. You will need this information when making REST API calls to the HPE GreenLake platform APIs. 
 
 5. Get information (email address) for a user to invite to your workspace.
 
@@ -113,9 +113,9 @@ Define the **current value** of the collection variables to match your HPE Green
 
 * **Workspace ID:** This variable should be set with the value of your Workspace ID you previously saved.
 
-* **Aruba_Application_Id**, **COM_Application_Id**, and **DSCC_Application_Id:** These variables should be set with the value of the _identifier_ of the services you deployed in your workspace to manage your infrastructure services for networking, compute and storage.
+* **Aruba\_Application\_Id**, **COM\_Application\_Id**, and **DSCC\_Application\_Id:** These variables should be set with the value of the _identifier_ of the services you deployed in your workspace to manage your infrastructure services for networking, compute and storage.
 
-* **GLP_Application_Id:** This variable is the _identifier_ of the HPE GreenLake platform. This is always set to value “00000000-0000-0000-0000-000000000000”.
+* **GLP\_Application\_Id:** This variable is the _identifier_ of the HPE GreenLake platform. This is always set to value “00000000-0000-0000-0000-000000000000”.
 
 **Note:** Do not edit the other variables. Keep the value field empty. The collection variables will be set automatically upon successful execution of REST API calls using Postman Test scripts.
 
