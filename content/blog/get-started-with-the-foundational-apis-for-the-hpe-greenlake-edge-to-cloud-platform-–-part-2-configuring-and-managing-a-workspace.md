@@ -17,11 +17,11 @@ li {
 }
 </style>
 
-This is Part 2 of a blog series that showcases the capabilities of APIs for common HPE GreenLake services through a real customer use case, presenting it from the perspective of a user of the platform, such as an IT administrator. 
+This is Part 2 of a blog series that showcases the capabilities of APIs for common HPE GreenLake platform services through a real customer use case, presenting it from the perspective of a user of the platform, such as an IT administrator. 
 
 [In the previous blog post](https://developer.hpe.com/blog/get-started-with-the-foundational-apis-for-the-hpe-greenlake-edge-to-cloud-platform-%E2%80%93-part-1-introduction-to-the-apis/), I described the current set of APIs for the HPE GreenLake platform, and I covered the Postman collection aspect I built to get started with these APIs.   
 
-In this second part of the series, I will put on my IT administrator’s hat and assume the role of the HPE GreenLake platform workspace administrator for a ***Standard Enterprise*** workspace. This type of workspace is a *single-tenant* environment for a single customer and organization. As workspace administrator, I have full privileges to provision, manage and monitor the users, users’ permissions, and IT resources in the workspace.  
+In this second part of the series, I will put on my IT administrator’s hat and assume the role of the HPE GreenLake platform account administrator for a ***Standard Enterprise*** workspace. This type of workspace is a *single-tenant* environment for a single customer and organization. As workspace administrator, I have full privileges to provision, manage and monitor the users, users’ permissions, and IT resources in the workspace.  
 
 As I do so, I will show you how to use these foundational, common APIs to **programmatically** configure and manage workspace resources (users and infrastructure devices) like an administrator would do using the HPE GreenLake platform User Interface (UI). I will walk you through some of the most common REST API calls to the HPE GreenLake platform API services based on a typical customer scenario that will allow you to learn what you can do on the platform using this set of APIs:  
 
