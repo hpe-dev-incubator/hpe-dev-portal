@@ -272,7 +272,7 @@ Last check at (UTC): 2023-12-18T09:05:53.00Z 
 { 
   "createdAt": "2023-12-18T09:06:11.000000Z", 
   "username": "<usename>" 
-  "description": "Loading workspace 3009de2825f211ec8a84fedebcb4a754 for user <username> 
+  "description": "Loading workspace 3009de2825f211ec8a84fedebcb4a754 for user <username>"
   "ipAddress": "<ip address>" 
 } 
 { 
