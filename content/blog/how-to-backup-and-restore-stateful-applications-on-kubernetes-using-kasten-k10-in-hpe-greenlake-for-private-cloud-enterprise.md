@@ -22,18 +22,17 @@ Before starting, make sure you meet the following requirements:
 
 The Container Storage Interface (CSI) defines a standard interface for container orchestration systems, like K8s, to expose arbitrary block and file storage systems to their containerized workloads. Support for CSI in K8s was introduced as *alpha* in its v1.9 release, and promoted to *beta* in its v1.10 release. Since v1.13 release, the implementation of the CSI has been in *GA* in K8s. With the adoption of CSI, the K8s volume layer becomes truly extensible. Using CSI, 3rd party storage providers, such as HPE,  can write and deploy plugins exposing new storage systems in K8s without ever having to touch the core K8s code. This gives K8s users more options for storage and makes the system more secure and reliable.
 
-
 A CSI driver for K8s is a plugin that allows K8s to access different types of storage systems, such as Azure Disks, AWS EBS, and HPE Storage, etc. HPE CSI driver for K8s is one of those CSI driver plugins that follows the K8s CSI specification and enables K8s to use various HPE storage systems, such as Nimble Storage, 3PAR and Primera. 
 
-As part of K8s cluster provisioning in HPE GreenLake for Private Cloud Enterprise, HPE CSI driver for K8s has been installed on the cluster. The installation consists of two components, a _controller_ component and a _per-node_ component. The controller component is deployed as a *Deployment* on any node in the K8s cluster. It implements the CSI Controller service and a list of sidecar containers, such as _external-provisioner_, _external-attacher_, _external-snapshotter_, and _external-resizer_, etc. These controller sidecar containers typically interact with K8s objects, make calls to the driver’s CSI Controller service, manage K8s events and make the appropriate calls to the CSI driver. The per-node component is deployed on every node in the cluster through a _DaemonSet_. It implements the CSI Node service and the _node-driver-registrar_ sidecar container that registers the CSI driver to kubelet running on every cluster node and being responsible for making the CSI Node service calls. These calls mount and unmount the storage volume from the HPE storage system, making it available to the Pod to consume.   
+As part of K8s cluster provisioning in HPE GreenLake for Private Cloud Enterprise, HPE CSI driver for K8s has been installed on the cluster. The installation consists of two components, a *controller* component and a *per-node* component. The controller component is deployed as a *Deployment* on any node in the K8s cluster. It implements the CSI Controller service and a list of sidecar containers, such as *external-provisioner*, *external-attacher*, *external-snapshotter*, and *external-resizer*, etc. These controller sidecar containers typically interact with K8s objects, make calls to the driver’s CSI Controller service, manage K8s events and make the appropriate calls to the CSI driver. The per-node component is deployed on every node in the cluster through a *DaemonSet*. It implements the CSI Node service and the *node-driver-registrar* sidecar container that registers the CSI driver to kubelet running on every cluster node and being responsible for making the CSI Node service calls. These calls mount and unmount the storage volume from the HPE storage system, making it available to the Pod to consume.   
 
+As part of HPE CSI driver configuration, a list of *StorageClasses* is created that refers to the CSI driver name. The *PersistentVolumeClaim* (PVCs) can then be created that uses the *StorageClass* to dynamically provision persisten volume backed by the HPE storage systems. 
 
-As part of HPE CSI driver configuration, a list of _StorageClasses_ is created that refers to the CSI driver name. The _PersistentVolumeClaim_ (PVCs) can then be created that uses the _StorageClass_ to dynamically provision persisten volume backed by the HPE storage systems. 
+Apart from features such as dynamic provisioning, raw block volumes, inline ephemeral volumes, and volume encryption, HPE CSI driver implements and supports volume snapshot on K8s cluster. The common snapshot controller *snapshot-controller* and a *VolumeSnapshotClass*, together with a list of snapshot CustomResourceDefinitions (CRDs), gets deployed and added to the cluster.  
 
-Apart from features such as dynamic provisioning, raw block volumes, inline ephemeral volumes, and volume encryption, HPE CSI driver implements and supports volume snapshot on K8s cluster. The common snapshot controller _snapshot-controller_ and a _VolumeSnapshotClass_, together with a list of snapshot CustomResourceDefinitions (CRDs), gets deployed and added to the cluster.  
- 
-The following shows the details about deployed HPE CSI driver for K8s in the cluster to the namespace *hpe-storage*: 
- 
+The following shows the details about deployed HPE CSI driver for K8s in the cluster 
+to the namespace *hpe-storage*: 
+
 ```markdown
 $ k﻿ubectl get all -n hpe-storage
 NAME                                       READY   STATUS    RESTARTS      AGE
@@ -66,7 +65,7 @@ replicaset.apps/primera3par-csp-59f5dfc499       1         1         1       56d
 replicaset.apps/snapshot-controller-5fd799f6b5   2         2         2       56d
 ```
 
-Here is the list of _StorageClasses_ and the _VolumeSnapshotClass_ created in the cluster:
+Here is the list of *StorageClasses* and the *VolumeSnapshotClass* created in the cluster:
 
 ```markdown
 $ k﻿ubectl get storageclasses
@@ -81,6 +80,7 @@ $ k﻿ubectl  get volumesnapshotclasses
 NAME                                 DRIVER        DELETIONPOLICY   AGE
 gl-sbp-frank-gl1-sstor01             csi.hpe.com   Delete           56d
 ```
+
 ### Install Kasten K10
 
 ```markdown
@@ -165,8 +165,6 @@ spec:
 service/gateway edited
 ```
 
-
-
 ```markdown
 $ kubectl get svc gateway -n kasten-io -o jsonpath={.metadata.annotations.hpecp-internal-gateway/8000}
 gl-tor-upc-cp-gw-node1.customer.yyz.gl-hpe.local:10021
@@ -180,16 +178,13 @@ C﻿lick *Accept Terms* after specifying your email and company name, you will b
 
 ![](/img/k10-dashboard.png)
 
-
 ### Deploy MySQL database
 
 I﻿n order to show backup and restore process, [a MySQL database](https://github.com/GuopingJia/mysql-app) will be deployed as a sample stateful application to the cluster.
- 
+
 MySQL database requires a persistent volume to store data. Here is the PVC YAML manifest files: 
 
 ```markdown
-
-
 $ cat mysql-app/base/mysql-pvc.yaml 
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -204,18 +199,19 @@ spec:
   resources:
     requests:
       storage: 1Gi
-
 ```
 
 The YAML manifest files in the folder *base* will be used to install the WordPress applicaiton using [Kustomize](https://kustomize.io/).
 
 ```markdown
 $ tree mysql-app/base
-mysql-app/base
+mysql-app
+/base
 ├── kustomization.yaml
 ├── mysql-deployment.yaml
 └── mysql-pvc.yaml
 ```
+
 The file kustomization.yaml lists all YAML files in its resources section, together with the secret generator for MySQL password:
 
 ```markdown
@@ -228,7 +224,6 @@ secretGenerator:
 resources:
   - mysql-deployment.yaml
   - mysql-pvc.yaml
-
 ```
 
 T﻿yping below command to install the MySQL application to the namespace *mysql*:
@@ -268,10 +263,10 @@ NAME        STATUS   VOLUME                                     CAPACITY   ACCES
 mysql-pvc   Bound    pvc-3e55e9b3-097f-4ddf-bdcb-60825a7905ec   1Gi        RWO            gl-sbp-frank-gl1-sstor01   9m50s
 ```
 
-In order to access MySQL database service using the mysql CLI, set first the port-forward of _service/mysql_:   
+In order to access MySQL database service using the mysql CLI, set first the port-forward of *service/mysql*:   
 
 ```markdown
-$ k port-forward service/mysql -n mysql :3306
+$ k port-forward service/mysql -n mysql 42281:3306
 Forwarding from 127.0.0.1:42281 -> 3306
 Forwarding from [::1]:42281 -> 3306
 Handling connection for 42281
@@ -305,10 +300,8 @@ The MySQL database repo has the *test* folder that contains a list of scripts fo
 T﻿yping the following command to populate a sample *employees* data to the database:
 
 ```markdown
-
-
 $ cd mysql-app/test
-$ mysql -h 127.0.0.1 -uroot -pCfeDemo@123 -P 41797 < employees.sql
+$ mysql -h 127.0.0.1 -uroot -pCfeDemo@123 -P 42281 < employees.sql
 INFO
 CREATING DATABASE STRUCTURE
 INFO
@@ -332,7 +325,7 @@ NULL
 T﻿he added sample data records *employees* can be checked and verified by below commands:
 
 ```markdown
-$ mysql -h 127.0.0.1 -uroot -pCfeDemo@123 -P 41797 
+$ mysql -h 127.0.0.1 -uroot -pCfeDemo@123 -P 42281
 Welcome to the MariaDB monitor.  Commands end with ; or \g.
 Your MySQL connection id is 3
 Server version: 5.6.51 MySQL Community Server (GPL)
@@ -354,7 +347,7 @@ MySQL [(none)]> show databases;
 
 
 
-$ mysql -h 127.0.0.1 -uroot -pCfeDemo@123 -P 41797 -t < test_employees_sha.sql
+$ mysql -h 127.0.0.1 -uroot -pCfeDemo@123 -P 42281 -t < test_employees_sha.sql
 +----------------------+
 | INFO                 |
 +----------------------+
@@ -403,7 +396,7 @@ $ mysql -h 127.0.0.1 -uroot -pCfeDemo@123 -P 41797 -t < test_employees_sha.sql
 +---------+--------+
 ```
 
-### Back up MySQL database 
+### Back up MySQL database
 
 G﻿o to the Kasten K10 Dashboard and click the Applications. Find the deployed MySQL application from the application list and expand its menu. Then click *Snapshot* button.
 
@@ -413,7 +406,7 @@ U﻿sing all the default options from **Snapshot *mysql***, click *Snapshot Appl
 
 ![](/img/k10-backup.png)
 
-T﻿he snapshot of the MySQL database will be started that takes a few seconds. Go back to the Dashboard, you should see the completed backup entry under **Actions**:
+T﻿he snapshot of the MySQL database will be started that takes a few seconds. Go back to the Dashboard, you should see the completed *Backup* entry under **Actions**:
 
 ![](/img/k10-dashboard-backup.png)
 
@@ -421,14 +414,178 @@ Y﻿ou can also check the **Data Usage* page to see the data used by application
 
 ![](/img/k10-data-backup.png)
 
-### Rstore MySQL database 
+### Restore MySQL database
+
+I﻿ will first delete some table from MySQL database to simulate a loss of data. Then, I will perform the database recovery from the application backup.
+
+#### Delete table
+
+D﻿elete data from the table *departments*:
+
+```markdown
+$ mysql -h 127.0.0.1 -uroot -pCfeDemo@123 -P 42281 -Demployees
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MySQL connection id is 15
+Server version: 5.6.51 MySQL Community Server (GPL)
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 
 
+MySQL [employees]> show tables;
++----------------------+
+| Tables_in_employees  |
++----------------------+
+| current_dept_emp     |
+| departments          |
+| dept_emp             |
+| dept_emp_latest_date |
+| dept_manager         |
+| employees            |
+| salaries             |
+| titles               |
++----------------------+
+8 rows in set (0,237 sec)
+
+MySQL [employees]> delete from departments;
+Query OK, 9 rows affected (1,523 sec)
+```
+
+Then re-run the script *test_employees_sha.sql*. It will show the failures of *CRC* and *count* which indicate the loss of data in the database:
+
+```markdown
+$ mysql -h 127.0.0.1 -uroot -pCfeDemo@123 -P 41797 -t <test_employees_sha.sql
++----------------------+
+| INFO                 |
++----------------------+
+| TESTING INSTALLATION |
++----------------------+
++--------------+------------------+------------------------------------------+
+| table_name   | expected_records | expected_crc                             |
++--------------+------------------+------------------------------------------+
+| departments  |                9 | 4b315afa0e35ca6649df897b958345bcb3d2b764 |
+| dept_emp     |           331603 | d95ab9fe07df0865f592574b3b33b9c741d9fd1b |
+| dept_manager |               24 | 9687a7d6f93ca8847388a42a6d8d93982a841c6c |
+| employees    |           300024 | 4d4aa689914d8fd41db7e45c2168e7dcb9697359 |
+| salaries     |          2844047 | b5a1785c27d75e33a4173aaa22ccf41ebd7d4a9f |
+| titles       |           443308 | d12d5f746b88f07e69b9e36675b6067abb01b60e |
++--------------+------------------+------------------------------------------+
++--------------+------------------+------------------------------------------+
+| table_name   | found_records    | found_crc                                |
++--------------+------------------+------------------------------------------+
+| departments  |                0 |                                          |
+| dept_emp     |                0 |                                          |
+| dept_manager |                0 |                                          |
+| employees    |           300024 | 4d4aa689914d8fd41db7e45c2168e7dcb9697359 |
+| salaries     |          2844047 | b5a1785c27d75e33a4173aaa22ccf41ebd7d4a9f |
+| titles       |           443308 | d12d5f746b88f07e69b9e36675b6067abb01b60e |
++--------------+------------------+------------------------------------------+
++--------------+---------------+-----------+
+| table_name   | records_match | crc_match |
++--------------+---------------+-----------+
+| departments  | not ok        | not ok    |
+| dept_emp     | not ok        | not ok    |
+| dept_manager | not ok        | not ok    |
+| employees    | OK            | ok        |
+| salaries     | OK            | ok        |
+| titles       | OK            | ok        |
++--------------+---------------+-----------+
++------------------+
+| computation_time |
++------------------+
+| 00:00:24         |
++------------------+
++---------+--------+
+| summary | result |
++---------+--------+
+| CRC     | FAIL   |
+| count   | FAIL   |
++---------+--------+
+```
+
+#### Perform MySQL database restore
+
+G﻿o to application list of the Kasten K10 Dashboard and expand the menu of *mysql* application. Then click *Restore* button.
+
+![](/img/k10-restore-button.png)
+
+S﻿elect a restore point from the list and click it. 
+
+![](/img/k10-restore-point.png)
+
+U﻿sing all the default options from **Restore Point**, click *Restore* button:
 
 ![](/img/k10-restore.png)
 
+T﻿he restore of the MySQL database will be started from the selected restore point. It will another few seconds. Go back to the Dashboard, you should see the completed *Restore* entry under **Actions**:
+
 ![](/img/k10-dashboard-restore.png)
 
+Re-run the script *test_employees_sha.sql*. You should see the test ends without showing any issue. It indicates the MySQL database gets recovered from its backup:
+
 ```markdown
+$ mysql -h 127.0.0.1 -uroot -pCfeDemo@123 -P 42281 -t < test_employees_sha.sql
++----------------------+
+| INFO                 |
++----------------------+
+| TESTING INSTALLATION |
++----------------------+
++--------------+------------------+------------------------------------------+
+| table_name   | expected_records | expected_crc                             |
++--------------+------------------+------------------------------------------+
+| departments  |                9 | 4b315afa0e35ca6649df897b958345bcb3d2b764 |
+| dept_emp     |           331603 | d95ab9fe07df0865f592574b3b33b9c741d9fd1b |
+| dept_manager |               24 | 9687a7d6f93ca8847388a42a6d8d93982a841c6c |
+| employees    |           300024 | 4d4aa689914d8fd41db7e45c2168e7dcb9697359 |
+| salaries     |          2844047 | b5a1785c27d75e33a4173aaa22ccf41ebd7d4a9f |
+| titles       |           443308 | d12d5f746b88f07e69b9e36675b6067abb01b60e |
++--------------+------------------+------------------------------------------+
++--------------+------------------+------------------------------------------+
+| table_name   | found_records    | found_crc                                |
++--------------+------------------+------------------------------------------+
+| departments  |                9 | 4b315afa0e35ca6649df897b958345bcb3d2b764 |
+| dept_emp     |           331603 | d95ab9fe07df0865f592574b3b33b9c741d9fd1b |
+| dept_manager |               24 | 9687a7d6f93ca8847388a42a6d8d93982a841c6c |
+| employees    |           300024 | 4d4aa689914d8fd41db7e45c2168e7dcb9697359 |
+| salaries     |          2844047 | b5a1785c27d75e33a4173aaa22ccf41ebd7d4a9f |
+| titles       |           443308 | d12d5f746b88f07e69b9e36675b6067abb01b60e |
++--------------+------------------+------------------------------------------+
++--------------+---------------+-----------+
+| table_name   | records_match | crc_match |
++--------------+---------------+-----------+
+| departments  | OK            | ok        |
+| dept_emp     | OK            | ok        |
+| dept_manager | OK            | ok        |
+| employees    | OK            | ok        |
+| salaries     | OK            | ok        |
+| titles       | OK            | ok        |
++--------------+---------------+-----------+
++------------------+
+| computation_time |
++------------------+
++--------------+---------------+-----------+
+| departments  | OK            | ok        |
+| dept_emp     | OK            | ok        |
+| dept_manager | OK            | ok        |
+| employees    | OK            | ok        |
+| salaries     | OK            | ok        |
+| titles       | OK            | ok        |
++--------------+---------------+-----------+
++------------------+
+| computation_time |
++------------------+
+| 00:00:31         |
++------------------+
++---------+--------+
+| summary | result |
++---------+--------+
+| CRC     | OK     |
+| count   | OK     |
++---------+--------+
+
 
 ```
