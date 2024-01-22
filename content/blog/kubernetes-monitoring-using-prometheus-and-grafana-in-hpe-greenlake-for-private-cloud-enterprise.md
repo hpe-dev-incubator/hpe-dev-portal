@@ -20,8 +20,6 @@ I﻿n this blog post, I will discuss Kubernetes (K8s) monitoring and show you ho
 
 Though K8s dramatically simplifies application deployment in containers and across clouds, it adds a new set of complexities for managing, securing and troubleshooting applications. Container-based applications are dynamic and they are being designed using microservices, where the number of components is increased by an order of magnitude. To ensure K8s security, it requires self-configuration that is typically specified in code, whether (K8s) yaml manifests, Helm charts, or templating tools. Properly configuring for workloads, clusters, networks, and infrastructure is crucial for averting issues and limiting the impact if a breach occurs. Dynamic provisioning via Infrastructure as Code (IaC), automated configuration management and orchestration also add to monitoring and troubleshooting complexity. K8s monitoring is critical to managing application performance, service uptime and troubleshooting. Having a good monitoring tool is becoming essential for K8s monitoring. 
 
-This blog post escribesd how to add a monitoring stack using Prometheus and Grafana to a K8s cluster in HPE GreenLake for Private Cloud Enterprise. 
-
 ### Prerequisites
 
 Before starting, make sure you meet the following requirements:
@@ -38,6 +36,8 @@ Before starting, make sure you meet the following requirements:
 [Prometheus](https://prometheus.io/docs/introduction/overview/) is a robust open-source monitoring and alerting tool used to collect, store, query, and alert on time-series data. It employs a pull-based model to gather metrics from instrumented targets and features a powerful query language (PromQL) for data analysis. It enables developers to monitor various aspects of their systems, including metrics, performance, and health.
 
 [Grafana](https://grafana.com/) is a powerful data visualization and monitoring tool. It serves as the interface for developers to visualize and analyze the data collected by Prometheus. With its rich set of visualization options and customizable dashboards, Grafana empowers developers to gain real-time insights into their systems’ performance, identify trends, and detect anomalies. By leveraging Grafana’s capabilities, developers can create comprehensive visual representations of their systems’ metrics, facilitating informed decision-making and proactive system management.
+
+Following sections will show how to add a monitoring stack using Prometheus and Grafana to a K8s cluster in HPE GreenLake for Private Cloud Enterprise.  
 
 ### Deploy Prometheus and Grafana using Terraform
 
