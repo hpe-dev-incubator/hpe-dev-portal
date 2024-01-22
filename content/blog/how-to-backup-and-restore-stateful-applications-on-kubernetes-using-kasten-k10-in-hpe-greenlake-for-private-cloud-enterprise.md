@@ -113,7 +113,7 @@ The Kasten dashboard will be available at: `http://127.0.0.1:8080/k10/#/`
 T﻿he Kasten K10 will be installed to the namespace *kasten-io* in the cluster. To validate the installation, typing the following command to watch for the status of all Pods. Helm installs a list of Pods to the namespace. It takes a while before all those Pods start running. 
 
 ```markdown
-$ k get pods -n kasten-io -w
+$ k﻿ubectl  get pods -n kasten-io -w
 NAME                                    READY   STATUS    RESTARTS   AGE
 aggregatedapis-svc-6fc8fcf7bd-cdw8p     1/1     Running   0          15m
 auth-svc-6fcb76d7df-pt748               1/1     Running   0          15m
@@ -138,7 +138,7 @@ state-svc-b4b996d9b-jnbrl               3/3     Running   0          15m
 A﻿fter all the Pods are in running states, edit the service *gateway* to change its service type from *ClusterIP* to *NodePort*. This will generate a service port and expose the service via the configured gatway host plus the port. 
 
 ```markdown
-$ k edit svc gateway -n kasten-io
+$ k﻿ubectl  edit svc gateway -n kasten-io
 …
 spec:
   clusterIP: 10.102.36.25
