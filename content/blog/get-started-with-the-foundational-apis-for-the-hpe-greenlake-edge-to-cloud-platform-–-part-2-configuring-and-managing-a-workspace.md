@@ -21,7 +21,7 @@ This is Part 2 of a blog series that showcases the capabilities of APIs for comm
 
 [In the previous blog post](https://developer.hpe.com/blog/get-started-with-the-foundational-apis-for-the-hpe-greenlake-edge-to-cloud-platform-%E2%80%93-part-1-introduction-to-the-apis/), I described the current set of APIs for the HPE GreenLake platform, and I covered the Postman collection aspect I built to get started with these APIs.   
 
-In this second part of the series, I will put on my IT administrator’s hat and assume the role of the HPE GreenLake platform account administrator for a ***Standard Enterprise*** workspace. This type of workspace is a *single-tenant* environment for a single customer and organization. As workspace administrator, I have full privileges to provision, manage and monitor the users, users’ permissions, and IT resources in the workspace.  
+In this second part of the series, I will put on my IT administrator’s hat and assume the role of the HPE GreenLake platform Account Administrator for a ***Standard Enterprise*** workspace. This type of workspace is a *single-tenant* environment for a single customer and organization. As workspace administrator, I have full privileges to provision, manage and monitor the users, users’ permissions, and IT resources in the workspace.  
 
 As I do so, I will show you how to use these foundational, common APIs to **programmatically** configure and manage workspace resources (users and infrastructure devices) like an administrator would do using the HPE GreenLake platform User Interface (UI). I will walk you through some of the most common REST API calls to the HPE GreenLake platform API services based on a typical customer scenario that will allow you to learn what you can do on the platform using this set of APIs:  
 
@@ -144,8 +144,8 @@ The GET API call ***Get progress or status of async operations in subscriptions*
 
 I can now use the two subsequent REST API calls below to fetch detailed information about the device and the subscription key I have just added to the inventory: 
 
-* The ***Get devices managed in a workspace*** API call allows me to obtain detailed information about the device by specifying the SerialNumber of the device in the filter query parameter. This request will allow me to save the unique identifier of the device as a collection variable.
-* Similarly, the ***Get subscriptions of a workspace*** API call allows me to get detailed information about the subscription key and fetch the unique identifier of the subscription key as collection variable. 
+* The ***Get devices managed in a workspace*** API call allows me to obtain detailed information about the device by specifying the *SerialNumber* of the device in the filter query parameter. This request will allow me to save the unique identifier of the device as a collection variable.
+* Similarly, the ***Get subscriptions of a workspace*** API call allows me to get detailed information about the *subscription key* and fetch the unique identifier of the subscription key as collection variable. 
 
 `GET {{baseUrl}}/devices/v1beta1/devices?filter=serialNumber eq '<SerialNumber>'` 
 
@@ -155,7 +155,7 @@ I can now use the two subsequent REST API calls below to fetch detailed informat
 
 ### Assigning the device to a regional instance of a service
 
-Next, using the **PATCH** ***Update devices - Assign Application to a device*** REST API request (derived from the ***PATCH Update devices API call***), I can attach the device to a regional instance of the HPE Aruba Networking Central management console service already deployed in the workspace. The identifer of the device is specified as a query parameter, the HPE Aruba Networking Central service _identifier_ and *region* are specified in the data payload (Body) as shown below: 
+Next, using the **PATCH** ***Update devices - Assign Application to a device*** REST API request (derived from the ***PATCH Update devices API call***), I can attach the device to a regional instance of the HPE Aruba Networking Central management console service already deployed in the workspace. The identifier of the device is specified as a query parameter, the HPE Aruba Networking Central service _identifier_ and *region* are specified in the data payload (Body) as shown below: 
 
 `PATCH {{baseUrl}}/devices/v1beta1/devices?id={{DeviceId}}`
 
@@ -193,6 +193,8 @@ Similarly, I can use the same REST API call to assign a subscription key to the 
 ![Figure 5: Assign a subscription key to a device](/img/blog-part2-assign-subscriptionkey-to-device-image7.png "Figure 5: Assign a subscription key to a device")
 
 > > <span style="color:grey; font-family:Arial; font-size:1em"> Figure 5: Assign a subscription key to a device</span>
+
+This API call is an asynchronous operation, and I can use the **GET** API call ***Get progress or status of async operations in devices*** to verify the status of the operation.
 
 ### Removing assignment of service and subscription
 
