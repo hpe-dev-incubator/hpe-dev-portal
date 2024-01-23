@@ -1,7 +1,7 @@
 /* eslint-disable no-underscore-dangle */
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { navigate } from '@reach/router';
+import { navigate } from "gatsby"
 import { Box, Heading, Tabs, Tab, Text, TextInput } from 'grommet';
 import { Search as SearchIcon } from 'grommet-icons';
 
@@ -163,8 +163,8 @@ const SearchContainer = ({ location }) => {
     setValue(newValue);
 
     // update the URL
-    // const query = newValue ? `?term=${encodeURIComponent(newValue)}` : '';
-    // navigate(`/search/${query}`, { replace: true });
+    const query = newValue ? `?term=${encodeURIComponent(newValue)}` : '';
+    navigate(`/search/${query}`, { replace: true });
     // todo update route term= param
   };
 
