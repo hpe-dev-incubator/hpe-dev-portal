@@ -23,7 +23,7 @@ The **GET** REST API call ***Get all audit logs of a user*** is used to track ac
 
 `GET {{baseUrl}}/audit-log/v1beta1/logs?filter=user/username eq '<UserEmail@example.com>'&filter=createdAt ge '2023-12-14T11:00:00.00000Z'&limit=300` 
 
-> **Note:** You can specify additional query parameters to limit the scope of the output to a specific category of activities. For example, User Management, Device Management, or Customer Management.
+> **Note:** You can specify additional query parameters to limit the scope of the output to a specific category of activities. For example, *User Management*, *Device Management*, or *Customer Management*.
 
 ![Figure 1: Tracking activities for a specific user](/img/blog-part3-auditlog-tracking-user-activities-image1.png "Figure 1: Tracking activities for a specific user")
 
@@ -31,7 +31,7 @@ The **GET** REST API call ***Get all audit logs of a user*** is used to track ac
 
 ### Service-specific logs and platform logs
 
-A similar REST API request can be used to get logs from a specific service in the workspace and platform logs in the workspace. I just need to specify the service identifier or HPE GreenLake platform identifier to obtain the list of logs. In the example below, I specify the identifier of the HPE GreenLake platform and limit the output for activities that occurred after a certain date and time in UTC following the [ISO 8601 standard](https://en.wikipedia.org/wiki/ISO_8601):
+A similar REST API request can be used to get logs from a specific service in the workspace and platform logs in the workspace. I just need to specify the service identifier or the HPE GreenLake platform identifier to obtain the list of logs. In the example below, I specify the identifier of the HPE GreenLake platform and limit the output for activities that occurred after a certain date and time in UTC following the [ISO 8601 standard](https://en.wikipedia.org/wiki/ISO_8601):
 
 `GET {{baseUrl}}/audit-log/v1beta1/logs?filter=application/id eq '{{GLP_Application_Id}}'&filter=createdAt ge '2023-12-10T11:00:00.00000Z'&limit=50&offset=0` 
 
@@ -53,7 +53,7 @@ The **GET** REST API call ***Get list of wellness events*** is used to retrieve 
 
 > > <span style="color:grey; font-family:Arial; font-size:1em"> Figure 3:Retrieve list of health events for a specific service, device model and severity</span>
 
-To view information about a specific event ID, I can use the REST API request ***Get Event with specific event I*** by specifying the event ID as a Path variable in the parameters of the API call:
+To view information about a specific event ID, I can use the REST API request ***Get Event with specific event ID*** by specifying the event ID as a Path variable in the parameters of the API call:
 
 `GET {{baseUrl}}/wellness/v2beta1/events/:id`
 
@@ -64,7 +64,7 @@ To view information about a specific event ID, I can use the REST API request **
 
 ## Summary
 
-This blog series walks you through the APIs for common HPE GreenLake platform services **for a single-tenant workspace** environment from the perspective of an IT administrator. I took advantage of the [Postman collection](https://github.com/hpe-dev-incubator/GLP-API-Tooling/tree/main/Postman-Collections) to help you get started with these APIs, learn the REST API call syntax for the API requests through the use of examples, how to **programmatically** configure and manage workspace resources such as users and infrastructure devices, and how to track activities and monitor health events for the workspace. 
+This blog series walks you through the APIs for common HPE GreenLake platform services **for a single-tenant workspace** environment from the perspective of an IT administrator. I took advantage of the Postman collection available on the [HPE Developer Community tooling GitHub repository](https://github.com/hpe-dev-incubator/GLP-API-Tooling/tree/main/Postman-Collections) to help you get started with these APIs, learn the REST API call syntax for the API requests through the use of examples, how to **programmatically** configure and manage workspace resources such as users and infrastructure devices, and how to track activities and monitor health events for the workspace. 
 
 To learn more about all the REST API calls for the platform, I invite you to refer to the [HPE GreenLake platform documentation](https://developer.greenlake.hpe.com/docs/greenlake/services/) for these APIs. The documentation leverages OpenAPI specifications and associated reference documentation for these API services. It provides a complete explanation of the operations supported by these APIs for common HPE GreenLake platform services, as well as sample requests and responses.
 
