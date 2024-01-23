@@ -291,7 +291,7 @@ MySQL [(none)]> show databases;
 
 
 
-3﻿. Populate MySQL database 
+3﻿. Populate MySQL database
 
 
 
