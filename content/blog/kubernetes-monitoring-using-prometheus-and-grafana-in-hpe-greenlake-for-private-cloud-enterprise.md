@@ -39,7 +39,7 @@ Before starting, make sure you meet the following requirements:
 
 [Grafana](https://grafana.com/) is a powerful data visualization and monitoring tool. It serves as the interface for developers to visualize and analyze the data collected by Prometheus. With its rich set of visualization options and customizable dashboards, Grafana empowers developers to gain real-time insights into their systems’ performance, identify trends, and detect anomalies. By leveraging Grafana’s capabilities, developers can create comprehensive visual representations of their systems’ metrics, facilitating informed decision-making and proactive system management.
 
-Following sections will show how to add a monitoring stack using Prometheus and Grafana to a K8s cluster in HPE GreenLake for Private Cloud Enterprise.  
+In the following sections, I will show how to add a monitoring stack using Prometheus and Grafana to a K8s cluster in HPE GreenLake for Private Cloud Enterprise. 
 
 ### Deploy Prometheus and Grafana using Terraform
 
