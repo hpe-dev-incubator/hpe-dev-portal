@@ -26,7 +26,7 @@ In this blog post, I discuss first the persistent volumes and volume snapshots i
 
 
 
-In K8s, a persistent volume (PV) is a piece of storage in the cluster that has been provisioned, either statically by an administer or dynamically using *StorageClasses*. It provides a way for data to persist beyond the lifecycle of individual Pods. PV provides the necessary data persistence for stateful applications, ensuring that they function correctly even in the event of Pod or node failures. So it's a key component in managing storage in K8s. Backing up PVs is then becoming a critical aspect of managing stateful applications in K8s.
+In K8s, a persistent volume (PV) is a piece of storage in the cluster that has been provisioned, either statically by an administor or dynamically using *StorageClasses*. It provides a way for data to persist beyond the lifecycle of individual Pods. PV provides the necessary data persistence for stateful applications, ensuring that they function correctly even in the event of Pod or node failures. It's a key component in managing storage in K8s. Backing up PVs is then becoming a critical aspect of managing stateful applications in K8s.
 
 
 
@@ -40,7 +40,7 @@ Support of volume snapshots in K8s is only available for CSI driver deployed in 
 
 
 
-CSI defines a standard interface for container orchestration systems, like K8s, to expose arbitrary block and file storage systems to their containerized workloads. Support for CSI in K8s was introduced as *alpha* in its v1.9 release, and promoted to *beta* in its v1.10 release. Since v1.13 release, the implementation of the CSI has been in *GA* in K8s. With the adoption of CSI, the K8s volume layer becomes truly extensible. Using CSI, 3rd party storage providers, such as HPE,  can write and deploy plugins exposing new storage systems in K8s without ever having to touch the core K8s code. This gives K8s users more options for storage and makes the system more secure and reliable.
+The CSI defines a standard interface for container orchestration systems, like K8s, to expose arbitrary block and file storage systems to their containerized workloads. Support for CSI in K8s was introduced as *alpha* in its v1.9 release, and promoted to *beta* in its v1.10 release. Since v1.13 release, the implementation of the CSI has been in *GA* in K8s. With the adoption of CSI, the K8s volume layer becomes truly extensible. Using CSI, 3rd party storage providers, such as HPE,  can write and deploy plugins exposing new storage systems in K8s without ever having to touch the core K8s code. This gives K8s users more options for storage and makes the system more secure and reliable.
 
 
 
@@ -49,15 +49,14 @@ A CSI driver for K8s is a plugin that allows K8s to access different types of st
 
 
 
-As part of K8s cluster provisioning in HPE GreenLake for Private Cloud Enterprise, HPE CSI driver for K8s has been installed on the cluster. The installation consists of two components, a _controller_ component and a _per-node_ component. The controller component is deployed as a *Deployment* on any node in the K8s cluster. It implements the CSI Controller service and a list of sidecar containers, such as _external-provisioner_, _external-attacher_, _external-snapshotter_, and _external-resizer_, etc. These controller sidecar containers typically interact with K8s objects, make calls to the driver’s CSI Controller service, manage K8s events and make the appropriate calls to the CSI driver. The per-node component is deployed on every node in the cluster through a _DaemonSet_. It implements the CSI Node service and the _node-driver-registrar_ sidecar container that registers the CSI driver to kubelet running on every cluster node and being responsible for making the CSI Node service calls. These calls mount and unmount the storage volume from the HPE storage system, making it available to the Pod to consume.   
+As part of K8s cluster provisioning in HPE GreenLake for Private Cloud Enterprise, HPE CSI driver for K8s has been installed on the cluster. The installation consists of two components, a _controller_ component and a _per-node_ component. 
 
+1. The controller component is deployed as a *Deployment* on any node in the K8s cluster. It implements the CSI Controller service and a list of sidecar containers, such as _external-provisioner_, _external-attacher_, _external-snapshotter_, and _external-resizer_, etc. These controller sidecar containers typically interact with K8s objects, make calls to the driver’s CSI Controller service, manage K8s events and make the appropriate calls to the CSI driver. 
 
-As part of HPE CSI driver configuration, a list of _StorageClasses_ is created that refers to the CSI driver name. The _PersistentVolumeClaim_ (PVCs) can then be created that uses the _StorageClass_ to dynamically provision persisten volume backed by the HPE storage systems. 
+2. The per-node component is deployed on every node in the cluster through a _DaemonSet_. It implements the CSI Node service and the _node-driver-registrar_ sidecar container that registers the CSI driver to kubelet running on every cluster node and being responsible for making the CSI Node service calls. These calls mount and unmount the storage volume from the HPE storage system, making it available to the Pod to consume.
 
-Apart from features such as dynamic provisioning, raw block volumes, inline ephemeral volumes, and volume encryption, HPE CSI driver implements and supports volume snapshot on K8s cluster. The common snapshot controller _snapshot-controller_ and a _VolumeSnapshotClass_, together with a list of snapshot CustomResourceDefinitions (CRDs), gets deployed and added to the cluster.  
- 
 The following shows the details about deployed HPE CSI driver for K8s in the cluster 
-to the namespace *hpe-storage*: 
+to its namespace *hpe-storage*: 
  
 ```markdown
 $ k﻿ubectl get all -n hpe-storage
@@ -91,7 +90,16 @@ replicaset.apps/primera3par-csp-59f5dfc499       1         1         1       56d
 replicaset.apps/snapshot-controller-5fd799f6b5   2         2         2       56d
 ```
 
+
+
+
+As part of HPE CSI driver configuration, a list of _StorageClasses_ is created that refers to the CSI driver name. The _PersistentVolumeClaim_ (PVCs) can then be created that uses the _StorageClass_ to dynamically provision persisten volume backed by the HPE storage systems. Apart from features such as dynamic provisioning, raw block volumes, inline ephemeral volumes, and volume encryption, HPE CSI driver implements and supports volume snapshot on K8s cluster. The common snapshot controller _snapshot-controller_ and a _VolumeSnapshotClass_, together with a list of snapshot CustomResourceDefinitions (CRDs), gets deployed and added to the cluster.  
+ 
+
+
 Here is the list of _StorageClasses_ and the _VolumeSnapshotClass_ created in the cluster:
+
+
 
 ```markdown
 $ k﻿ubectl get storageclasses
@@ -107,3 +115,709 @@ NAME                                 DRIVER        DELETIONPOLICY   AGE
 gl-sbp-frank-gl1-sstor01             csi.hpe.com   Delete           56d
 ```
  
+In﻿ the following sections, I will describe the steps to create volume snapshots of persistent volumes in K8s using HPE CSI driver for K8s. 
+
+### Prerequisites
+
+
+
+Before starting, make sure you meet the following requirements:
+
+<style> li { font-size: 100%; line-height: 23px; max-width: none; } </style>
+
+* A K8s cluster, being provisioned in HPE GreenLake for Private Cloud Enterprise
+* The kubectl CLI tool, together with the kubeconfig file for accessing the K8s cluster
+* The o﻿ptional mysql CLI tool, for accessing the deployed sample MySQL database service
+  
+### Deploy MySQL database
+
+
+
+B﻿efore showing the volume snapshots, a MySQL database instance from [my GitHub repo](https://github.com/GuopingJia/mysql-app) will be deployed as a sample stateful application to the cluster. 
+
+
+1﻿. Install MySQL application 
+
+
+
+MySQL database requires a persistent volume to store data. Here is the PVC YAML manifest file: 
+
+
+
+```markdown
+
+
+$ cat setup/mysql-pvc.yaml 
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mysql-pvc
+  namespace: mysql
+  labels:
+    app: mysql
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+
+```
+
+
+
+The YAML manifest files in the folder *base* will be used to install the MySQL application using [Kustomize](https://kustomize.io/).
+
+
+
+```markdown
+ $ tree mysql-app/base
+mysql-app/base
+├── kustomization.yaml
+├── mysql-deployment.yaml
+└── mysql-pvc.yaml
+```
+
+
+
+The file kustomization.yaml lists all YAML files in its resources section, together with the secret generator for MySQL password:
+
+
+
+```markdown
+$ cat mysql-app/base/kustomization.yaml
+secretGenerator:
+- name: mysql-pass
+  namespace: mysql
+  literals:
+  - password=CfeDemo@123
+resources:
+  - mysql-deployment.yaml
+  - mysql-pvc.yaml
+
+```
+
+
+
+T﻿ype below command to install the MySQL application to the namespace *mysql*:
+
+
+
+```markdown
+$ kubectl apply -k mysql-app/base
+namespace/mysql created
+secret/mysql-pass-m62cbhd9kf created
+service/mysql created
+persistentvolumeclaim/mysql-pvc created
+deployment.apps/mysql created
+
+
+
+$ kubectl get all -n mysql
+NAME                         READY   STATUS    RESTARTS   AGE
+pod/mysql-6974b58d48-wb8g5   1/1     Running   0          14s
+
+NAME            TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)    AGE
+service/mysql   ClusterIP   None         <none>        3306/TCP   24s
+
+NAME                    READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/mysql   1/1     1            1           23s
+
+NAME                               DESIRED   CURRENT   READY   AGE
+replicaset.apps/mysql-6974b58d48   1         1         1       24s
+```
+
+
+
+Y﻿ou can check the PVC and the PV created as part of MySQL application deployment:
+
+
+
+```markdown
+$ kubectl get persistentvolumes 
+NAME                                       CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS   CLAIM                                                                                                                 STORAGECLASS               REASON   AGE
+
+pvc-3e55e9b3-097f-4ddf-bdcb-60825a7905ec   1Gi        RWO            Delete           Bound    mysql/mysql-pvc    
+                                                                                                                       
+
+$ kubectl get persistentvolumeclaims -n mysql
+NAME        STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS               AGE
+mysql-pvc   Bound    pvc-3e55e9b3-097f-4ddf-bdcb-60825a7905ec   1Gi        RWO            gl-sbp-frank-gl1-sstor01   9m50s
+```
+
+
+
+2﻿. Access MySQL database
+
+
+
+In order to access MySQL database service using the mysql CLI, set first the port-forward of _service/mysql_:  
+ 
+
+```markdown
+$ kubectl port-forward service/mysql -n mysql :3306
+Forwarding from 127.0.0.1:41797 -> 3306
+Forwarding from [::1]:41797 -> 3306
+```
+
+
+
+The d﻿eployed MySQL database service can be accessed by typing the following mysql command:
+
+
+
+```markdown
+$ mysql -h 127.0.0.1 -uroot -pCfeDemo@123 -P 41797 
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MySQL connection id is 1
+Server version: 5.6.51 MySQL Community Server (GPL)
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MySQL [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
++--------------------+
+3 rows in set (0,237 sec)
+```
+
+
+
+3﻿. Populate MySQL database 
+
+
+
+The MySQL database repo has the *test* folder that contains a list of scripts for populating data records and testing the contents: 
+
+
+
+```markdown
+$ tree mysql-app/test
+mysql-app/test
+├── employees.sql
+├── load_departments.dump
+├── load_dept_emp.dump
+├── load_dept_manager.dump
+├── load_employees.dump
+├── load_salaries1.dump
+├── load_salaries2.dump
+├── load_salaries3.dump
+├── load_titles.dump
+├── show_elapsed.sql
+├── test_employees_md5.sql
+└── test_employees_sha.sql
+```
+
+
+
+Typing the following command to populate a sample *employees* data to the database:
+
+
+
+```markdown
+$ cd mysql-app/test
+$ mysql -h 127.0.0.1 -uroot -pCfeDemo@123 -P 41797 < employees.sql
+INFO
+CREATING DATABASE STRUCTURE
+INFO
+storage engine: InnoDB
+INFO
+LOADING departments
+INFO
+LOADING employees
+INFO
+LOADING dept_emp
+INFO
+LOADING dept_manager
+INFO
+LOADING titles
+INFO
+LOADING salaries
+data_load_time_diff
+NULL
+```
+
+
+
+The added sample data records *employees* can be checked and verified by running below commands:
+
+
+
+```markdown
+$ mysql -h 127.0.0.1 -uroot -pCfeDemo@123 -P 41797 
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MySQL connection id is 3
+Server version: 5.6.51 MySQL Community Server (GPL)
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MySQL [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| employees          |
+| mysql              |
+| performance_schema |
++--------------------+
+4 rows in set (0,237 sec)
+
+
+
+
+
+$ mysql -h 127.0.0.1 -uroot -pCfeDemo@123 -P 41797 -t < test_employees_sha.sql
++----------------------+
+| INFO                 |
++----------------------+
+| TESTING INSTALLATION |
++----------------------+
++--------------+------------------+------------------------------------------+
+| table_name   | expected_records | expected_crc                             |
++--------------+------------------+------------------------------------------+
+| departments  |                9 | 4b315afa0e35ca6649df897b958345bcb3d2b764 |
+| dept_emp     |           331603 | d95ab9fe07df0865f592574b3b33b9c741d9fd1b |
+| dept_manager |               24 | 9687a7d6f93ca8847388a42a6d8d93982a841c6c |
+| employees    |           300024 | 4d4aa689914d8fd41db7e45c2168e7dcb9697359 |
+| salaries     |          2844047 | b5a1785c27d75e33a4173aaa22ccf41ebd7d4a9f |
+| titles       |           443308 | d12d5f746b88f07e69b9e36675b6067abb01b60e |
++--------------+------------------+------------------------------------------+
++--------------+------------------+------------------------------------------+
+| table_name   | found_records    | found_crc                                |
++--------------+------------------+------------------------------------------+
+| departments  |                9 | 4b315afa0e35ca6649df897b958345bcb3d2b764 |
+| dept_emp     |           331603 | d95ab9fe07df0865f592574b3b33b9c741d9fd1b |
+| dept_manager |               24 | 9687a7d6f93ca8847388a42a6d8d93982a841c6c |
+| employees    |           300024 | 4d4aa689914d8fd41db7e45c2168e7dcb9697359 |
+| salaries     |          2844047 | b5a1785c27d75e33a4173aaa22ccf41ebd7d4a9f |
+| titles       |           443308 | d12d5f746b88f07e69b9e36675b6067abb01b60e |
++--------------+------------------+------------------------------------------+
++--------------+---------------+-----------+
+| table_name   | records_match | crc_match |
++--------------+---------------+-----------+
+| departments  | OK            | ok        |
+| dept_emp     | OK            | ok        |
+| dept_manager | OK            | ok        |
+| employees    | OK            | ok        |
+| salaries     | OK            | ok        |
+| titles       | OK            | ok        |
++--------------+---------------+-----------+
++------------------+
+| computation_time |
++------------------+
+| 00:00:27         |
++------------------+
++---------+--------+
+| summary | result |
++---------+--------+
+| CRC     | OK     |
+| count   | OK     |
++---------+--------+
+```
+
+
+
+### Create volume snapshot
+
+
+
+H﻿ere is the *VolumeSnapshot* YAML manifest file that creates a volume snapshot from the existing PVC *'mysql-pvc'*:
+
+
+
+```markdown
+$ cat volumesnapshot.yaml 
+apiVersion: snapshot.storage.k8s.io/v1
+kind: VolumeSnapshot
+metadata:
+  name: mysql-snapshot
+  namespace: mysql
+spec:
+  volumeSnapshotClassName: gl-sbp-frank-gl1-sstor01
+  source:
+persistentVolumeClaimName: mysql-pvc
+```
+
+
+
+T﻿yping the following command to create the volume snapshot:
+
+
+
+```markdown
+$ kubectl apply -f volumesnapshot.yaml 
+volumesnapshot.snapshot.storage.k8s.io/mysql-snapshot created
+```
+
+
+
+Y﻿ou can check the volume snapshot is created in the namespace *mysql*. A *VolumeSnapshotContent* is also created, at cluster level, with its *READYTOUSE* showing as *true*:
+
+
+
+```markdown
+$ kubectl get volumesnapshot -n mysql
+NAME             READYTOUSE   SOURCEPVC   SOURCESNAPSHOTCONTENT   RESTORESIZE   SNAPSHOTCLASS              SNAPSHOTCONTENT                                    CREATIONTIME   AGE
+mysql-snapshot   true         mysql-pvc                           1Gi           gl-sbp-frank-gl1-sstor01   snapcontent-41de6346-1ba3-4ce7-9483-2ca074e476a2   2m21s          2m22s
+
+
+$ kubectl get volumesnapshotcontents
+NAME                                               READYTOUSE   RESTORESIZE   DELETIONPOLICY   DRIVER        VOLUMESNAPSHOTCLASS        VOLUMESNAPSHOT                  VOLUMESNAPSHOTNAMESPACE   AGE
+snapcontent-41de6346-1ba3-4ce7-9483-2ca074e476a2   true         1073741824    Delete           csi.hpe.com   gl-sbp-frank-gl1-sstor01   mysql-snapshot                  mysql                     2m50s
+
+```
+
+
+
+### Restore MySQL database using volume snapshot
+
+
+
+B﻿efore showing the database restore, I﻿ will first delete some table from MySQL database to simulate a loss of data. Then, I will perform the database recovery from the created volume snapshot. 
+ 
+
+
+#### Delete table
+
+
+
+```markdown
+$ mysql -h 127.0.0.1 -uroot -pCfeDemo@123 -P 41797 
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MySQL connection id is 5
+Server version: 5.6.51 MySQL Community Server (GPL)
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MySQL [(none)]> use employees;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+MySQL [employees]> show tables;
++----------------------+
+| Tables_in_employees  |
++----------------------+
+| current_dept_emp     |
+| departments          |
+| dept_emp             |
+| dept_emp_latest_date |
+| dept_manager         |
+| employees            |
+| salaries             |
+| titles               |
++----------------------+
+8 rows in set (0,237 sec)
+
+MySQL [employees]> delete from departments;
+Query OK, 9 rows affected (1,523 sec)
+```
+
+
+
+I﻿f re-run the script *test_employees_sha.sql*, it will show the failures of *CRC* and *count*:
+
+
+
+```markdown
+$ mysql -h 127.0.0.1 -uroot -pCfeDemo@123 -P 41797 -t <test_employees_sha.sql
++----------------------+
+| INFO                 |
++----------------------+
+| TESTING INSTALLATION |
++----------------------+
++--------------+------------------+------------------------------------------+
+| table_name   | expected_records | expected_crc                             |
++--------------+------------------+------------------------------------------+
+| departments  |                9 | 4b315afa0e35ca6649df897b958345bcb3d2b764 |
+| dept_emp     |           331603 | d95ab9fe07df0865f592574b3b33b9c741d9fd1b |
+| dept_manager |               24 | 9687a7d6f93ca8847388a42a6d8d93982a841c6c |
+| employees    |           300024 | 4d4aa689914d8fd41db7e45c2168e7dcb9697359 |
+| salaries     |          2844047 | b5a1785c27d75e33a4173aaa22ccf41ebd7d4a9f |
+| titles       |           443308 | d12d5f746b88f07e69b9e36675b6067abb01b60e |
++--------------+------------------+------------------------------------------+
++--------------+------------------+------------------------------------------+
+| table_name   | found_records    | found_crc                                |
++--------------+------------------+------------------------------------------+
+| departments  |                0 |                                          |
+| dept_emp     |                0 |                                          |
+| dept_manager |                0 |                                          |
+| employees    |           300024 | 4d4aa689914d8fd41db7e45c2168e7dcb9697359 |
+| salaries     |          2844047 | b5a1785c27d75e33a4173aaa22ccf41ebd7d4a9f |
+| titles       |           443308 | d12d5f746b88f07e69b9e36675b6067abb01b60e |
++--------------+------------------+------------------------------------------+
++--------------+---------------+-----------+
+| table_name   | records_match | crc_match |
++--------------+---------------+-----------+
+| departments  | not ok        | not ok    |
+| dept_emp     | not ok        | not ok    |
+| dept_manager | not ok        | not ok    |
+| employees    | OK            | ok        |
+| salaries     | OK            | ok        |
+| titles       | OK            | ok        |
++--------------+---------------+-----------+
++------------------+
+| computation_time |
++------------------+
+| 00:00:24         |
++------------------+
++---------+--------+
+| summary | result |
++---------+--------+
+| CRC     | FAIL   |
+| count   | FAIL   |
++---------+--------+
+```
+
+
+
+#### Perform MySQL database restore
+
+
+
+1﻿. Scale MySQL database deployment config to 0
+
+
+
+Before start MySQL database restore, I need to stop the mysql Pod by scaling the replicas in MySQL deployment to 0: 
+
+
+
+```markdown
+$ kubectl scale deployment.apps/mysql -n mysql --replicas=0
+deployment.apps/mysql scaled
+```
+
+
+
+T﻿yping below command to check the MySQL database deployment has 0 replica:
+
+
+
+```markdown
+$ kubectl get all -n mysql
+NAME            TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)    AGE
+service/mysql   ClusterIP   None         <none>        3306/TCP   28m
+
+NAME                    READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/mysql   0/0     0            0           28m
+
+NAME                               DESIRED   CURRENT   READY   AGE
+replicaset.apps/mysql-6974b58d48   0         0         0       28m
+```
+
+
+
+2﻿. Create a new PVC using volume snapshot
+
+
+
+Here is the PVC YAML manifest file that creates a new PVC *mysql-pvc-restore* from the volume snapshot *mysql-snapshot*:
+
+
+
+```markdown
+$ cat mysql-pvc-restore.yaml 
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mysql-pvc-restore
+  namespace: mysql
+  labels:
+    app: mysql
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+  dataSource:
+    name: mysql-snapshot
+    kind: VolumeSnapshot
+    apiGroup: snapshot.storage.k8s.io
+
+$ kubectl apply -f mysql-pvc-restore.yaml 
+persistentvolumeclaim/mysql-pvc-restore created
+
+
+```
+
+
+
+Y﻿ou will see the new PVC *mysql-pvc-restore*, together with its PV, is crated:
+
+
+
+```markdown
+$ kubectl get persistentvolumeclaims -n mysql
+NAME                STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS               AGE
+mysql-pvc           Bound    pvc-3e55e9b3-097f-4ddf-bdcb-60825a7905ec   1Gi        RWO            gl-sbp-frank-gl1-sstor01   33m
+mysql-pvc-restore   Bound    pvc-92940c36-eb1d-4de5-9c1e-57261ccbecad   1Gi        RWO            gl-sbp-frank-gl1-sstor01   8s
+
+
+
+
+$ kubectl get persistentvolumes
+NAME                                       CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS   CLAIM                                                                                                                 STORAGECLASS               REASON   AGE
+
+pvc-3e55e9b3-097f-4ddf-bdcb-60825a7905ec   1Gi        RWO            Delete           Bound    mysql/mysql-pvc                                                                                                       gl-sbp-frank-gl1-sstor01            42m
+pvc-92940c36-eb1d-4de5-9c1e-57261ccbecad   1Gi        RWO            Delete           Bound    mysql/mysql-pvc-restore                                                                                               gl-sbp-frank-gl1-sstor01            8m48s
+```
+
+
+
+3﻿. Edit MySQL Deployment config
+
+
+
+T﻿yping the following command to edit the MySQL deployment config and change the PVC name to *mysql-pvc-restore*:
+
+
+
+```markdown
+$ kubectl edit deployment.apps/mysql -n mysql
+…
+      volumes:
+      - name: mysql-persistent-storage
+        persistentVolumeClaim:
+          claimName: mysql-pvc-restore
+…
+
+deployment.apps/mysql edited
+```
+
+
+
+4﻿. Scale MySQL database deployment config back to 1 
+
+
+
+Start the mysql Pod by scaling the replicas in MySQL deployment back to 1: 
+
+
+
+```markdown
+$ kubectl scale deployment.apps/mysql -n mysql --replicas=1
+deployment.apps/mysql scaled
+
+
+
+$ kubectl get all -n mysql
+NAME                         READY   STATUS    RESTARTS   AGE
+pod/mysql-697499cd4c-k4phg   1/1     Running   0          13s
+
+NAME            TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)    AGE
+service/mysql   ClusterIP   None         <none>        3306/TCP   36m
+
+NAME                    READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/mysql   1/1     1            1           36m
+
+NAME                               DESIRED   CURRENT   READY   AGE
+replicaset.apps/mysql-697499cd4c   1         1         1       107s
+replicaset.apps/mysql-6974b58d48   0         0         0       36m
+```
+
+
+
+5﻿. Verify database data records
+
+
+
+Y﻿ou can connect to the MySQL database service and re-run the test script. You should see the test script now reports everything is *OK*:
+
+
+
+```markdown
+$ k port-forward service/mysql -n mysql :3306
+Forwarding from 127.0.0.1:43959 -> 3306
+Forwarding from [::1]:43959 -> 3306
+```
+
+
+
+```markdown
+$ mysql -h 127.0.0.1 -uroot -pCfeDemo@123 -P 43959
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MySQL connection id is 1
+Server version: 5.6.51 MySQL Community Server (GPL)
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MySQL [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| employees          |
+| mysql              |
+| performance_schema |
++--------------------+
+4 rows in set (0,238 sec)
+
+
+$ mysql -h 127.0.0.1 -uroot -pCfeDemo@123 -P 43959 -t <test_employees_sha.sql 
++----------------------+
+| INFO                 |
++----------------------+
+| TESTING INSTALLATION |
++----------------------+
++--------------+------------------+------------------------------------------+
+| table_name   | expected_records | expected_crc                             |
++--------------+------------------+------------------------------------------+
+| departments  |                9 | 4b315afa0e35ca6649df897b958345bcb3d2b764 |
+| dept_emp     |           331603 | d95ab9fe07df0865f592574b3b33b9c741d9fd1b |
+| dept_manager |               24 | 9687a7d6f93ca8847388a42a6d8d93982a841c6c |
+| employees    |           300024 | 4d4aa689914d8fd41db7e45c2168e7dcb9697359 |
+| salaries     |          2844047 | b5a1785c27d75e33a4173aaa22ccf41ebd7d4a9f |
+| titles       |           443308 | d12d5f746b88f07e69b9e36675b6067abb01b60e |
++--------------+------------------+------------------------------------------+
++--------------+------------------+------------------------------------------+
+| table_name   | found_records    | found_crc                                |
++--------------+------------------+------------------------------------------+
+| departments  |                9 | 4b315afa0e35ca6649df897b958345bcb3d2b764 |
+| dept_emp     |           331603 | d95ab9fe07df0865f592574b3b33b9c741d9fd1b |
+| dept_manager |               24 | 9687a7d6f93ca8847388a42a6d8d93982a841c6c |
+| employees    |           300024 | 4d4aa689914d8fd41db7e45c2168e7dcb9697359 |
+| salaries     |          2844047 | b5a1785c27d75e33a4173aaa22ccf41ebd7d4a9f |
+| titles       |           443308 | d12d5f746b88f07e69b9e36675b6067abb01b60e |
++--------------+------------------+------------------------------------------+
++--------------+---------------+-----------+
+| table_name   | records_match | crc_match |
++--------------+---------------+-----------+
+| departments  | OK            | ok        |
+| dept_emp     | OK            | ok        |
+| dept_manager | OK            | ok        |
+| employees    | OK            | ok        |
+| salaries     | OK            | ok        |
+| titles       | OK            | ok        |
++--------------+---------------+-----------+
++------------------+
+| computation_time |
++------------------+
+| 00:00:29         |
++------------------+
++---------+--------+
+| summary | result |
++---------+--------+
+| CRC     | OK     |
+| count   | OK     |
++---------+--------+
+```
+
+
+
+### Summary
+
+
