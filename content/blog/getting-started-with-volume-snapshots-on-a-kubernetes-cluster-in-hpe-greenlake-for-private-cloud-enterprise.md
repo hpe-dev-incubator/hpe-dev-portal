@@ -93,7 +93,7 @@ replicaset.apps/snapshot-controller-5fd799f6b5   2         2         2       56d
 
 
 
-As part of HPE CSI driver configuration, a list of _StorageClasses_ is created that refers to the CSI driver name. The _PersistentVolumeClaim_ (PVCs) can then be created that uses the _StorageClass_ to dynamically provision persisten volume backed by the HPE storage systems. Apart from features such as dynamic provisioning, raw block volumes, inline ephemeral volumes, and volume encryption, HPE CSI driver implements and supports volume snapshot on K8s cluster. The common snapshot controller _snapshot-controller_ and a _VolumeSnapshotClass_, together with a list of snapshot CustomResourceDefinitions (CRDs), gets deployed and added to the cluster.  
+As part of HPE CSI driver configuration, a list of _StorageClasses_ is created that refers to the CSI driver name. The _PersistentVolumeClaim_ (PVCs) can then be created that uses the _StorageClass_ to dynamically provision persisten volume backed by the HPE storage systems. Apart from features such as dynamic provisioning, raw block volumes, inline ephemeral volumes, and volume encryption, HPE CSI driver implements and supports volume snapshot on K8s cluster. The common snapshot controller _snapshot-controller_ and a _VolumeSnapshotClass_, together with a list of snapshot *CustomResourceDefinitions* (CRDs), gets deployed and added to the cluster.  
  
 
 
@@ -124,6 +124,8 @@ In﻿ the following sections, I will describe the steps to create volume snapsho
 Before starting, make sure you meet the following requirements:
 
 <style> li { font-size: 100%; line-height: 23px; max-width: none; } </style>
+
+
 
 * A K8s cluster, being provisioned in HPE GreenLake for Private Cloud Enterprise
 * The kubectl CLI tool, together with the kubeconfig file for accessing the K8s cluster
@@ -821,3 +823,6 @@ $ mysql -h 127.0.0.1 -uroot -pCfeDemo@123 -P 43959 -t <test_employees_sha.sql
 ### Summary
 
 
+I﻿n this blog post, I described persistent volumes and volume snapshots in K8s, and the CSI driver for K8s. Using HPE CSI driver for K8s, I demonstrated how to create a volume snapshot of a MySQL database as a backup and how to restore database using volume snapshot in the cluster. Though the whole process contained quite a few manual steps, you can easily integrate the volume snapshot capability with 3rd part tools, such as Kasten K10 by Veeam, to provide automatic backup and recovery solutions in K8s cluster. 
+
+You can keep coming back to the [HPE Developer blog]( https://developer.hpe.com/blog)] to learn more about HPE GreenLake for Private Cloud Enterprise.
