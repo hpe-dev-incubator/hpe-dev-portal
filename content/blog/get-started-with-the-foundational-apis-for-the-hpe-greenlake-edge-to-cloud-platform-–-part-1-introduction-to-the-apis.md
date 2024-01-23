@@ -111,13 +111,13 @@ Define the **current value** of the collection variables to match your HPE Green
 
 * **BearerToken:** Do not edit this variable. Keep the value field empty. The collection variable BearerToken will be set automatically upon successful execution of the ***Generate AccessToken*** API call as explained in the next step.
 
-* **Workspace ID:** This variable should be set with the value of your Workspace ID you previously saved.
+* **Workspace ID:** This variable should be set with the value of the *identifier* of your Workspace you previously saved.
 
 * **Aruba\_Application\_Id**, **COM\_Application\_Id**, and **DSCC\_Application\_Id:** These variables should be set with the value of the _identifier_ of the services you deployed in your workspace to manage your infrastructure services for networking, compute and storage.
 
 * **GLP\_Application\_Id:** This variable is the _identifier_ of the HPE GreenLake platform. This is always set to value “00000000-0000-0000-0000-000000000000”.
 
-**Note:** Do not edit the other variables. Keep the value field empty. The collection variables will be set automatically upon successful execution of REST API calls using Postman Test scripts.
+**Note:** Do not edit the other variables. Keep the value field empty. The collection variables will be set automatically upon successful execution of REST API calls using Postman ***Test scripts***.
 
 ## Acquire an OAuth access token as your session bearer token
 
