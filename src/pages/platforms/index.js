@@ -130,7 +130,7 @@ export const pageQuery = graphql`
         }
         frontmatter: { isAside: { ne: true }, active: { eq: true } }
       }
-      sort: { fields: [frontmatter___priority] }
+      sort: {frontmatter: {priority: ASC}}
     ) {
       edges {
         node {

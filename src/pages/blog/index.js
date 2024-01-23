@@ -140,7 +140,7 @@ export const pageQuery = graphql`
           disable: { ne: true }
         }
       }
-      sort: { fields: [frontmatter___priority], order: ASC }
+      sort: {frontmatter: {priority: ASC}}
     ) {
       edges {
         node {
@@ -171,7 +171,7 @@ export const pageQuery = graphql`
         fields: { sourceInstanceName: { eq: "blog" } }
         frontmatter: { featuredBlog: { ne: true }, disable: { ne: true } }
       }
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: {frontmatter: {date: DESC}}
     ) {
       totalCount
     }
@@ -193,7 +193,7 @@ export const pageQuery = graphql`
         fields: { sourceInstanceName: { eq: "blog" } }
         frontmatter: { tags: { eq: "project-data-map" }, disable: { ne: true } }
       }
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: {frontmatter: {date: DESC}}
     ) {
       totalCount
     }
@@ -215,7 +215,7 @@ export const pageQuery = graphql`
         fields: { sourceInstanceName: { eq: "blog" } }
         frontmatter: { tags: { eq: "hpe-ezmeral" }, disable: { ne: true } }
       }
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: {frontmatter: {date: DESC}}
     ) {
       totalCount
     }
@@ -237,7 +237,7 @@ export const pageQuery = graphql`
         fields: { sourceInstanceName: { eq: "blog" } }
         frontmatter: { tags: { eq: "zerto" }, disable: { ne: true } }
       }
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: {frontmatter: {date: DESC}}
     ) {
       totalCount
     }
@@ -262,7 +262,7 @@ export const pageQuery = graphql`
           disable: { ne: true }
         }
       }
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: {frontmatter: {date: DESC}}
     ) {
       totalCount
     }
@@ -284,7 +284,7 @@ export const pageQuery = graphql`
         fields: { sourceInstanceName: { eq: "blog" } }
         frontmatter: { tags: { eq: "aruba" }, disable: { ne: true } }
       }
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: {frontmatter: {date: DESC}}
     ) {
       totalCount
     }
@@ -309,7 +309,7 @@ export const pageQuery = graphql`
           disable: { ne: true }
         }
       }
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: {frontmatter: {date: DESC}}
     ) {
       totalCount
     }
@@ -336,7 +336,7 @@ export const pageQuery = graphql`
           disable: { ne: true }
         }
       }
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: {frontmatter: {date: DESC}}
     ) {
       totalCount
     }
@@ -361,7 +361,7 @@ export const pageQuery = graphql`
           disable: { ne: true }
         }
       }
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: {frontmatter: {date: DESC}}
     ) {
       totalCount
     }
@@ -386,7 +386,7 @@ export const pageQuery = graphql`
           disable: { ne: true }
         }
       }
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: {frontmatter: {date: DESC}}
     ) {
       totalCount
     }
@@ -408,7 +408,7 @@ export const pageQuery = graphql`
         fields: { sourceInstanceName: { eq: "blog" } }
         frontmatter: { tags: { eq: "hpe-alletra" }, disable: { ne: true } }
       }
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: {frontmatter: {date: DESC}}
     ) {
       totalCount
     }
@@ -433,7 +433,7 @@ export const pageQuery = graphql`
           disable: { ne: true }
         }
       }
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: {frontmatter: {date: DESC}}
     ) {
       totalCount
     }
@@ -455,7 +455,7 @@ export const pageQuery = graphql`
         fields: { sourceInstanceName: { eq: "blog" } }
         frontmatter: { tags: { eq: "hpe-oneview" }, disable: { ne: true } }
       }
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: {frontmatter: {date: DESC}}
     ) {
       totalCount
     }
@@ -477,7 +477,7 @@ export const pageQuery = graphql`
         fields: { sourceInstanceName: { eq: "blog" } }
         frontmatter: { tags: { eq: "cray" }, disable: { ne: true } }
       }
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: {frontmatter: {date: DESC}}
     ) {
       totalCount
     }
@@ -499,7 +499,7 @@ export const pageQuery = graphql`
         fields: { sourceInstanceName: { eq: "blog" } }
         frontmatter: { tags: { eq: "swarm-learning" }, disable: { ne: true } }
       }
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: {frontmatter: {date: DESC}}
     ) {
       totalCount
     }
@@ -521,7 +521,7 @@ export const pageQuery = graphql`
         fields: { sourceInstanceName: { eq: "blog" } }
         frontmatter: { tags: { eq: "hpe-nonstop" }, disable: { ne: true } }
       }
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: {frontmatter: {date: DESC}}
     ) {
       totalCount
     }
@@ -543,7 +543,7 @@ export const pageQuery = graphql`
         fields: { sourceInstanceName: { eq: "blog" } }
         frontmatter: { tags: { eq: "hpe-simplivity" }, disable: { ne: true } }
       }
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: {frontmatter: {date: DESC}}
     ) {
       totalCount
     }
@@ -566,7 +566,7 @@ export const pageQuery = graphql`
         fields: { sourceInstanceName: { eq: "blog" } }
         frontmatter: { tags: { eq: "hpe-greenlake" }, disable: { ne: true } }
       }
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: {frontmatter: {date: DESC}}
     ) {
       totalCount
     }
@@ -588,7 +588,7 @@ export const pageQuery = graphql`
         fields: { sourceInstanceName: { eq: "blog" } }
         frontmatter: { tags: { eq: "kubedirector" }, disable: { ne: true } }
       }
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: {frontmatter: {date: DESC}}
     ) {
       totalCount
     }
@@ -613,7 +613,7 @@ export const pageQuery = graphql`
           disable: { ne: true }
         }
       }
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: {frontmatter: {date: DESC}}
     ) {
       totalCount
     }
@@ -636,7 +636,7 @@ export const pageQuery = graphql`
         fields: { sourceInstanceName: { eq: "blog" } }
         frontmatter: { tags: { eq: "chapel" }, disable: { ne: true } }
       }
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: {frontmatter: {date: DESC}}
     ) {
       totalCount
     }
@@ -659,7 +659,7 @@ export const pageQuery = graphql`
         fields: { sourceInstanceName: { eq: "blog" } }
         frontmatter: { tags: { eq: "grommet" }, disable: { ne: true } }
       }
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: {frontmatter: {date: DESC}}
     ) {
       totalCount
     }
@@ -681,7 +681,7 @@ export const pageQuery = graphql`
         fields: { sourceInstanceName: { eq: "blog" } }
         frontmatter: { tags: { eq: "SmartSim" }, disable: { ne: true } }
       }
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: {frontmatter: {date: DESC}}
     ) {
       totalCount
     }
@@ -707,7 +707,7 @@ export const pageQuery = graphql`
           disable: { ne: true }
         }
       }
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: {frontmatter: {date: DESC}}
     ) {
       totalCount
     }
@@ -730,7 +730,7 @@ export const pageQuery = graphql`
         fields: { sourceInstanceName: { eq: "blog" } }
         frontmatter: { tags: { eq: "determined-ai" }, disable: { ne: true } }
       }
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: {frontmatter: {date: DESC}}
     ) {
       totalCount
     }
@@ -752,7 +752,7 @@ export const pageQuery = graphql`
         fields: { sourceInstanceName: { eq: "blog" } }
         frontmatter: { tags: { eq: "opensource" }, disable: { ne: true } }
       }
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: {frontmatter: {date: DESC}}
     ) {
       totalCount
     }
@@ -811,7 +811,7 @@ export const pageQuery = graphql`
           }
         }
       }
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: {frontmatter: {date: DESC}}
     ) {
       totalCount
     }

@@ -122,14 +122,8 @@ export default UseCase;
 export const pageQuery = graphql`
   query {
     allMarkdownRemark(
-      filter: {
-        fields: {
-          sourceInstanceName: { eq: "use-cases" }
-          slug: { regex: "//home/$/" }
-        }
-        frontmatter: { isAside: { ne: true } }
-      }
-      sort: { fields: [frontmatter___priority] }
+      filter: {fields: {sourceInstanceName: {eq: "use-cases"}, slug: {regex: "//home/$/"}}, frontmatter: {isAside: {ne: true}}}
+      sort: {frontmatter: {priority: ASC}}
     ) {
       edges {
         node {

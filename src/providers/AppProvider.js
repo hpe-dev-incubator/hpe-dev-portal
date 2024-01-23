@@ -58,7 +58,7 @@ const AppProvider = ({ children }) => {
           }
           frontmatter: { active: { eq: true } }
         }
-        sort: { fields: [frontmatter___priority] }
+        sort: {frontmatter: {priority: ASC}}
       ) {
         edges {
           node {
@@ -82,7 +82,7 @@ const AppProvider = ({ children }) => {
           }
           frontmatter: { active: { eq: true } }
         }
-        sort: { fields: [frontmatter___priority] }
+        sort: {frontmatter: {priority: ASC}}
       ) {
         edges {
           node {
@@ -103,7 +103,7 @@ const AppProvider = ({ children }) => {
           fields: { sourceInstanceName: { eq: "opensource" } }
           frontmatter: { active: { eq: true } }
         }
-        sort: { fields: [frontmatter___priority] }
+        sort: {frontmatter: {priority: ASC}}
       ) {
         edges {
           node {

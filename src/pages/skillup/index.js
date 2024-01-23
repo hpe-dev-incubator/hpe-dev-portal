@@ -94,7 +94,7 @@ export const pageQuery = graphql`
         fields: { sourceInstanceName: { eq: "skillup" } }
         frontmatter: { disable: { ne: true } }
       }
-      sort: { fields: [frontmatter___priority] }
+      sort: {frontmatter: {priority: ASC}}
     ) {
       edges {
         node {

@@ -204,7 +204,7 @@ export const pageQuery = graphql`
         fields: { sourceInstanceName: { eq: "event" } }
         isPast: { eq: true }
       }
-      sort: { fields: [frontmatter___dateStart], order: DESC }
+      sort: {frontmatter: {dateStart: DESC}}
     ) {
       edges {
         node {
@@ -232,7 +232,7 @@ export const pageQuery = graphql`
         fields: { sourceInstanceName: { eq: "event" } }
         isUpcoming: { eq: true }
       }
-      sort: { fields: [frontmatter___dateStart], order: ASC }
+      sort: {frontmatter: {dateStart: ASC}}
     ) {
       edges {
         node {
@@ -259,7 +259,7 @@ export const pageQuery = graphql`
         fields: { sourceInstanceName: { eq: "event" } }
         isOngoing: { eq: true }
       }
-      sort: { fields: [frontmatter___dateStart], order: ASC }
+      sort: {frontmatter: {dateStart: ASC}}
     ) {
       edges {
         node {
