@@ -52,7 +52,7 @@ The set of APIs for common platform services includes:
 
 * **Subscription management:** Subscription management service maintains the subscriptions and licenses for cloud management of devices for networking, compute and storage, and cloud software as-a-service.    
 
-* **Audit log management:** Audit log service records the occurrence of events emitted by any device or service. These logs can also be used for auditing purposes, track user activity, investigate breaches and ensure compliance with regulatory requirements.    
+* **Audit logs management:** Audit logs service records the occurrence of events emitted by any device or service. These logs can also be used for auditing purposes, track user activity, investigate breaches and ensure compliance with regulatory requirements.    
 
 * **Wellness event service:** Wellness service presents wellness events for several HPE services and products in the workspace. In a near future, it will also enable you to open a support ticket corresponding to a wellness event when appropriate.
 
