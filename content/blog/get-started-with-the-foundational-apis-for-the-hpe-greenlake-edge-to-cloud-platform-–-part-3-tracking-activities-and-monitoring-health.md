@@ -14,7 +14,7 @@ This is part three of a blog series that showcases the capabilities of the APIs 
 Continuing on from the [second part of this series](https://developer.hpe.com/blog/get-started-with-the-foundational-apis-for-the-hpe-greenlake-edge-to-cloud-platform-%E2%80%93-part-2-configuring-and-managing-a-workspace/), where I had put on my IT administrator’s hat for a ***Standard Enterprise*** workspace, I will now explore the set of REST API calls used for tracking activities in the workspace and monitoring the overall health of HPE services and HPE products in the workspace.
 
 ## Tracking activities in the workspace
-Audit logs service records the occurrence of events emitted by users, any device or service in the workspace. These logs can be used for tracking user activities, doing root cause analysis of an incident, investigating breaches, and for auditing purposes.
+**Audit logs** service records the occurrence of events emitted by users, any device or service in the workspace. These logs can be used for tracking user activities, doing root cause analysis of an incident, investigating breaches, and for auditing purposes.
 
 Let’s assume that I would like to identify the root cause of an incident in the workspace. This involves an analysis of logs for the services and the platform in the workspace, and tracking activities for users. To conduct this analysis, I will use the set of audit logs API calls from the Postman collection folder: ***Tracking GLP Workspace/Step5-audit-log/audit-log/v1beta1/logs***.
 
@@ -43,7 +43,7 @@ The **GET** REST API call ***Get all audit logs of a user*** derived from the RE
 
 ### Monitoring health events for the workspace
 
-The HPE GreenLake platform provides a wellness service to enable you to monitor the overall health of the managed services and devices in the workspace. The wellness service API provides programmatic access to view health events and insights about HPE services and HPE products in the workspace.
+The HPE GreenLake platform provides a **wellness** service to enable you to monitor the overall health of the managed services and devices in the workspace. The wellness service API provides programmatic access to view health events and insights about HPE services and HPE products in the workspace.
 
 I will use the set of Wellness API calls from the Postman collection folder: ***Tracking GLP Workspace/Step6-Wellness/wellness/v2beta1/events***.
 
