@@ -11,6 +11,39 @@ You know about the [HPE Developer Community portal](https://developer.hpe.com/) 
 
 From the HPE Developer Community portal, you can access the HPE GreenLake-specific developer portal where you can access the API documentation along with some trial capabilities. 
 
+When reaching the [HPE GreenLake Developer Portal](https://developer.greenlake.hpe.com/), you are presented with three tiles that allow you to make the best use of the portal.
+
+![](/img/blog-greenlake-dev-portal1.png)
+
+ 
+
+## Guides: Learn how to get started using the HPE Greenlake Developer Portal. 
+
+ The minimal requirement of being able to start using the portal is to have an HPE user account or an HPE GreenLake Account. To leverage the HPE GreenLake platform APIs, the user will need to create an API client credentials for the HPE GreenLake platform. With the API client credentials, the user will be able to create an access token.  
+
+One cannot generate an access token without having an HPE account part of a workspace. You will be guided through all the different steps to create the account either through the present portal or through the HPE GreenLake portal. 
+
+It is important to note that some content on the portal is private or only visible to a restricted group (for example, partners, developers, or administrators The portal comes with the following roles: 
+
+ *Public* 
+
+The portal comes with the following default roles. 
+
+Guest: Every visitor will have this role with a single permission to read all public content on the portal. 
+
+Authenticated-User: Every logged in user will have this role. 
+
+*Partner* 
+
+Users with the Partner role can access restricted content that is specific to a Partner.  
+
+ 
+
+## Services:  Discover the HPE Greenlake platform APIs  
+
+When clicking on the second tile (Services), provides you with access to the HPE GreenLake APIs. But, as mentioned previously, without any access token, one cannot really do much with any APIs. Therefore, the very first step described in the documentation [here](https://developer.greenlake.hpe.com/docs/greenlake/guides/#generate-or-reset-application-credentials) is to create API client credentials for the HPE GreenLake platform and generate an access token. 
+
+![](/img/blog-greenlake-dev-portal2.png)
 
 Once you have your token, you can try the different APIs that are related to the different services listed on the left-hand side of the page.  
 
@@ -24,7 +57,29 @@ Finally, “la cerise sur le gateau” as we say in French, the try part. There 
 
 By simply clicking the Try it button, you can get access to the API. 
 
-Summary 
+![](/img/blog-greenlake-dev-portal3.png)
+
+Now, you can pass your first API call. Simply paste the token in the security window and hit the Send button. 
+
+![](/img/blog-greenlake-dev-portal4.png)
+
+As a result, a 200 status will inform you that the call was passed correctly, and the Headers window will display the result of the call. 
+
+On the right-hand side of the windows, you will see that samples are being presented. You will find Curl, JavaScript, Node.js, Java, Python versions that you can copy / paste to test, allowing you to integrate them easily. 
+
+![](/img/blog-greenlake-dev-portal5.png)
+
+
+
+
+
+In addition, a Change Log section will inform you about the versioning of the API and changes related to it.  
+
+The HPE GreenLake Developer Portal offers one last important feature: The search window. Rather than browsing through the page to look for a necessary piece of information, you can use the search box and get the result you need straight away. Let ‘s say you would like to know about HPE GreenLake for Compute Ops ‘APIs.  A quick search will present you with many relevant entries.  
+
+![](/img/blog-greenlake-dev-portal6.png)
+
+## Summary 
 
 This blog post is intended to help you get started with the HPE GreenLake Developer Portal. Additional posts on the HPE GreenLake platform APIs have been produced by the HPE Developer Community team. There is a three-part series that takes you through the preparation steps you need  to use the APIs for common platform services and walks you through the steps required to obtain an OAuth access token to make secure REST API calls to the HPE GreenLake platform APIs. Then, you can dive into the Postman collection to learn how you, as an IT (Information Technology) administrator of the HPE GreenLake platform, can configure and manage workspace resources (users’ identity, devices, and subscriptions), and how you can track activities within your workspace to monitor the overall health of services and devices in your workspace.  
 
