@@ -9,18 +9,18 @@ tags:
   - Prometheus
   - Grafana
   - Kubernetes
+  - Kubernetes monitoring
   - HPE GreenLake for Private Cloud Enterprise
-  - HPE GreenLake for Private Cloud Enterprise Containers
 ---
 ### Introduction
 
-[HPE GreenLake for Private Cloud Enterprise: Containers](https://www.hpe.com/us/en/greenlake/containers.html), one of the HPE GreenLake Cloud services available on the HPE GreenLake for Private Cloud Enterprise, allows customers to create a K8s cluster, view details about existing clusters, and deploy containerized applications to the cluster. It provides an enterprise-grade container management service using open source K8s. 
+[HPE GreenLake for Private Cloud Enterprise: Containers](https://www.hpe.com/us/en/greenlake/containers.html), one of the HPE GreenLake cloud services available on the HPE GreenLake for Private Cloud Enterprise, allows customers to create a Kubernetes (K8s) cluster, view details about existing clusters, and deploy containerized applications to the cluster. It provides an enterprise-grade container management service using open source K8s. 
 
-I﻿n this blog post, I will discuss Kubernetes (K8s) monitoring and show you how to add a monitoring stack using Prometheus and Grafana to a K8s cluster in HPE GreenLake for Private Cloud Enterprise. By setting up Prometheus as the data source and importing different dashboard templates into Grafana, various aspects of K8s, including metrics, performance, and health, can be monitored in the K8s cluster.
+I﻿n this blog post, I will discuss K8s monitoring and show you how to add a monitoring stack using Prometheus and Grafana to a K8s cluster in HPE GreenLake for Private Cloud Enterprise. By setting up Prometheus as the data source and importing different dashboard templates into Grafana, various aspects of K8s, including metrics, performance, and health, can be monitored in the K8s cluster.
 
 ### Why monitor K8s
 
-Though K8s dramatically simplifies application deployment in containers and across clouds, it adds a new set of complexities for managing, securing and troubleshooting applications. Container-based applications are dynamic and they are being designed using microservices, where the number of components is increased by an order of magnitude. To ensure K8s security, it requires self-configuration that is typically specified in code, whether (K8s) yaml manifests, Helm charts, or templating tools. Properly configuring for workloads, clusters, networks, and infrastructure is crucial for averting issues and limiting the impact if a breach occurs. Dynamic provisioning via Infrastructure as Code (IaC), automated configuration management and orchestration also add to monitoring and troubleshooting complexity. K8s monitoring is critical to managing application performance, service uptime and troubleshooting. Having a good monitoring tool is becoming essential for K8s monitoring. 
+Though K8s dramatically simplifies application deployment in containers and across clouds, it adds a new set of complexities for managing, securing and troubleshooting applications. Container-based applications are dynamic and they are being designed using microservices, where the number of components is increased by an order of magnitude. To ensure K8s security, it requires self-configuration that is typically specified in code, whether K8s yaml manifests, Helm charts, or templating tools. Properly configuring for workloads, clusters, networks, and infrastructure is crucial for averting issues and limiting the impact if a breach occurs. Dynamic provisioning via Infrastructure as Code (IaC), automated configuration management and orchestration also add to monitoring and troubleshooting complexity. K8s monitoring is critical to managing application performance, service uptime and troubleshooting. Having a good monitoring tool is becoming essential for K8s monitoring. 
 
 ### Prerequisites
 
@@ -39,13 +39,13 @@ Before starting, make sure you meet the following requirements:
 
 [Grafana](https://grafana.com/) is a powerful data visualization and monitoring tool. It serves as the interface for developers to visualize and analyze the data collected by Prometheus. With its rich set of visualization options and customizable dashboards, Grafana empowers developers to gain real-time insights into their systems’ performance, identify trends, and detect anomalies. By leveraging Grafana’s capabilities, developers can create comprehensive visual representations of their systems’ metrics, facilitating informed decision-making and proactive system management.
 
-In the following sections, I will show how to add a monitoring stack using Prometheus and Grafana to a K8s cluster in HPE GreenLake for Private Cloud Enterprise. 
+In the following sections, I will show you how to add a monitoring stack using Prometheus and Grafana to a K8s cluster in HPE GreenLake for Private Cloud Enterprise. 
 
 ### Deploy Prometheus and Grafana using Terraform
 
 Prometheus and Gafana will be deployed to the K8s cluster using the [HPE GreenLake Terraform provider *hpegl*](https://registry.terraform.io/providers/HPE/hpegl/latest), together with the [Helm provider from Hashicorp](https://registry.terraform.io/providers/hashicorp/helm/latest). 
 
-#### Create Terraform config
+#### Create a Terraform config
 
 H﻿ere is the terraform config file. You can refer to [Infrastructure-as-code on HPE GreenLake using Terraform](https://developer.hpe.com/blog/infrastructure-as-code-on-hpe-greenlake-using-terraform/) for the details about HPE GreenLake Terraform provider and its usage.
 
@@ -128,17 +128,17 @@ resource "helm_release" "grafana-dashboard" {
 }
 ```
 
-There are a few things worth noting in above config file:
+There are a few things worth noting in above Terraform config file:
 
 <style> li { font-size: 100%; line-height: 23px; max-width: none; } </style>
 
-* In Grafana, the persistence by default is disabled. In case Grafana pod gets terminated for some reason, you will lose all your data. In production deployment, such as HPE GreenLake for Containers, this needs to be enabled by setting *persistence.enabled* as *true* to prevent any data lose. 
-* In Prometheus, the *DaemonSet* deployment of the node exporter is trying to mount the *hostPath* volume to the container root “/”, which violates against one deployed OPA (Open Policy Agent) policy to the K8s cluster for FS mount protections. The DaemonSet deployment will never be ready, keep showing the warning events as *Warning  FailedCreate daemonset-controller  Error creating: admission webhook "soft-validate.hpecp.hpe.com" denied the request: Hostpath ("/") referenced in volume is not valid for this namespace because of FS Mount protections.*. You need disable the *hostRootFsMount*, together with *hostNetwork* and *hostPID*, to comply with the security policy in the cluster.
-* Both Prometheus and Grafana services are deployed as *NodePort* service types. Those services will be automatically mapped to the gateway host with automatically generated ports for easy access and configuration.
+* In Grafana, the persistence by default is disabled. In case Grafana Pod gets terminated for some reason, you will lose all your data. In production deployment, such as HPE GreenLake for Containers, this needs to be enabled, by setting *persistence.enabled* as *true*, to prevent any data lose.  
+* In Prometheus, the *DaemonSet* deployment of the node exporter is trying to mount the *hostPath* volume to the container root “/”, which violates against one deployed OPA (Open Policy Agent) policy to the K8s cluster for filesystem (FS) mount protections. The DaemonSet deployment will never be ready, keep showing the warning events as *Warning  FailedCreate daemonset-controller  Error creating: admission webhook "soft-validate.hpecp.hpe.com" denied the request: Hostpath ("/") referenced in volume is not valid for this namespace because of FS Mount protections.*. You need disable the *hostRootFsMount*, together with *hostNetwork* and *hostPID*, to comply with the security policy in the cluster.
+* Both Prometheus and Grafana services are deployed as *NodePort* service types. Those services will be mapped to the gateway host with automatically generated ports for easy access and service configuration.
 
 #### Initialize working directory
 
-With above main.tf config file, the working directory can be initialized by running the following command: 
+With above *main.tf* config file, the working directory can be initialized by running the following command: 
 
 ```markdown
     $ terraform init
@@ -173,9 +173,11 @@ With above main.tf config file, the working directory can be initialized by runn
     commands will detect it and remind you to do so if necessary.
 ```
 
+F﻿rom the ouput of the command run, in addition to the HPE GreenLake Terraform provider *hpegl*, the provider *helm* is also installed to the Terraform working directory.
+
 #### Deploy Prometheus and Grafana
 
-Apply the Terraform configuration and deploy Prometheus and Grafana to the K8s cluster by responding *yes* at the prompt to confirm the operation. You may start first a dry run, by running *terraform plan*, to preview the changes to your infrastructure based on the data you provide in your Terraform file. 
+Typing the following command to apply the Terraform configuration and deploy Prometheus and Grafana to the K8s cluster while responding *yes* at the prompt to confirm the operation. You may try first a dry run, by running *terraform plan*, to preview the changes to your infrastructure based on the data you provide in your Terraform file. 
 
 ```markdown
     $ terraform apply --var-file=variables.tfvars 
@@ -310,7 +312,7 @@ Apply the Terraform configuration and deploy Prometheus and Grafana to the K8s c
 
 A﻿fter few minutes Terraform run, both Prometheus and Grafana will be deployed in the K8s cluster to the namespace *monitoring*. 
 
-T﻿ype the following command to check the deployed monitoring resources. They should be all in *Running* states.
+T﻿yping the following command to check the deployed monitoring resources. All the Pods should be in *Running* states. 
 
 ```markdown
 $ kubectl get all -n monitoring 
@@ -364,20 +366,20 @@ prometheus-stack 	monitoring	1       	2023-11-22 15:28:13.290386574 +0100 CET	de
 
 #### Access Prometheus
 
-Prometheus can be accessed by pointing the browser to the URL *http://gl-tor-upc-cp-gw-node1.customer.yyz.gl-hpe.local:10015*, extracted by the following command:
+Prometheus can be accessed by pointing your browser to the URL *http://gl-tor-upc-cp-gw-node1.customer.yyz.gl-hpe.local:10015*, extracted by the following command:
 
 ```markdown
 $ kubectl get service/prometheus-stack-server -n monitoring -o jsonpath='{.metadata.annotations.hpecp-internal-gateway/80}'
 gl-tor-upc-cp-gw-node1.customer.yyz.gl-hpe.local:10015
 ```
 
-Y﻿ou can execute the query by using some metrics, e.g., *node_procs_running*:
+Y﻿ou can execute the query in Prometheus by using some metrics, e.g., *node_procs_running*:
 
 ![](/img/prometheus.png)
 
 #### Access Grafana
 
-Grafana can be accessed by pointing the browser to the URL *http://gl-tor-upc-cp-gw-node1.customer.yyz.gl-hpe.local:10016*. The URL and the admin password can be extracted by the following commands:
+Grafana can be accessed by pointing your browser to the URL *http://gl-tor-upc-cp-gw-node1.customer.yyz.gl-hpe.local:10016*. The URL and the admin password can be extracted by the following commands:
 
 ```markdown
 $ kubectl get service/grafana-dashboard -n monitoring -o jsonpath='{.metadata.annotations.hpecp-internal-gateway/80}'
@@ -389,9 +391,9 @@ cs3O6LF2H9m0jLrgdR8UXplmZG22d9Co9WbnJNzx
 
 ![](/img/grafana.png)
 
-#### Configure Grafana
+#### Configure Grafana data sources
 
-Prometheus can be configured as the data sources from the Grafana Administration page, by specifying the HTTP URL as *http://gl-tor-upc-cp-gw-node1.customer.yyz.gl-hpe.local:10015/*:
+From Grafana Administration page, Prometheus can be configured as the data source by specifying the HTTP URL as *http://gl-tor-upc-cp-gw-node1.customer.yyz.gl-hpe.local:10015/*: 
 
 ![](/img/grafana-datasources.png)
 
@@ -401,11 +403,11 @@ F﻿rom [Grafana Labs](https://grafana.com/grafana/dashboards/), there is a list
 
 ![](/img/grafana-dashboard-import.png)
 
-H﻿ere is the imported dashboard for *K8s cluster monitoring (via Prometheus)*:
+H﻿ere is the imported dashboard for *K8s cluster monitoring (via Prometheus)*. It shows overall cluster CPU / Memory / Filesystem usage.
 
 ![](/img/grafana-cluster-monitoring.png)
 
-H﻿ere is another imported dashboard for *K8s pod metrics*. It shows overall cluster CPU / memory / filesystem usage as well as individual pod, containers, systemd services statistics, etc.
+H﻿ere is another imported dashboard for *K8s Pod metrics*. It shows individual Pod CPU / memory usage.
 
 ![](/img/grafana-pod-metrics.png)
 
