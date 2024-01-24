@@ -14,34 +14,36 @@ This is part three of a blog series that showcases the capabilities of the APIs 
 Continuing on from the [second part of this series](https://developer.hpe.com/blog/get-started-with-the-foundational-apis-for-the-hpe-greenlake-edge-to-cloud-platform-%E2%80%93-part-2-configuring-and-managing-a-workspace/), where I had put on my IT administrator’s hat for a ***Standard Enterprise*** workspace, I will now explore the set of REST API calls used for tracking activities in the workspace and monitoring the overall health of HPE services and HPE products in the workspace.
 
 ## Tracking activities in the workspace
+Audit logs service records the occurrence of events emitted by users, any device or service in the workspace. These logs can be used for tracking user activities, doing root cause analysis of an incident, investigating breaches, and for auditing purposes.
 
-To track activities for a user, such as service-specific logs and platform logs in the workspace, I will use the set of audit logs API calls from the Postman collection folder: ***Tracking GLP Workspace/Step5-audit-log/audit-log/v1beta1/logs***.
+Let’s assume that I would like to identify the root cause of an incident in the workspace. This involves an analysis of logs for the services and the platform in the workspace, and tracking activities for users. To conduct this analysis, I will use the set of audit logs API calls from the Postman collection folder: ***Tracking GLP Workspace/Step5-audit-log/audit-log/v1beta1/logs***.
+
+### Collecting service-specific logs and platform logs
+
+The **GET** REST API request ***Get all audit logs of an application*** derived from the API call ***GET all audit logs of an application or user*** is used to get logs from a specific service in the workspace and platform logs in the workspace. I just need to specify the service identifier or the HPE GreenLake platform identifier to obtain the list of logs for a particular service or for the platform. In the example below, I specify the identifier of the HPE GreenLake platform and limit the output for activities that occurred after a certain date and time in UTC following the [ISO 8601 standard](https://en.wikipedia.org/wiki/ISO_8601):
+
+`GET {{baseUrl}}/audit-log/v1beta1/logs?filter=application/id eq '{{GLP_Application_Id}}'&filter=createdAt ge '2023-12-10T11:00:00.00000Z'&limit=50&offset=0` 
+
+![Figure 1: Audit logs for the HPE GreenLake platform in the workspace](/img/blog-part3-auditlog-application-specific-logs-image2.png "Figure 1: Audit logs for the HPE GreenLake platform in the workspace")
+
+> > <span style="color:grey; font-family:Arial; font-size:1em"> Figure 1: Audit logs for the HPE GreenLake platform in the workspace</span>
 
 ### Tracking user-specific activities
 
-The **GET** REST API call ***Get all audit logs of a user*** is used to track activities for a specific user in the workspace based on the criteria specified in the filter query parameters. In this example I limit the output for a particular user’s activities that occurred after a certain date and time in UTC following the [ISO 8601 standard](https://en.wikipedia.org/wiki/ISO_8601):
+The **GET** REST API call ***Get all audit logs of a user*** derived from the REST API call ***Get all audit logs of an application or user*** is used to track activities for a specific user in the workspace based on the criteria specified in the filter query parameters. In this example I limit the output for a particular user’s activities that occurred after a certain date and time in UTC following the [ISO 8601 standard](https://en.wikipedia.org/wiki/ISO_8601):
 
 `GET {{baseUrl}}/audit-log/v1beta1/logs?filter=user/username eq '<UserEmail@example.com>'&filter=createdAt ge '2023-12-14T11:00:00.00000Z'&limit=300` 
 
 > **Note:** You can specify additional query parameters to limit the scope of the output to a specific category of activities. For example, *User Management*, *Device Management*, or *Customer Management*.
 
-![Figure 1: Tracking activities for a specific user](/img/blog-part3-auditlog-tracking-user-activities-image1.png "Figure 1: Tracking activities for a specific user")
+![Figure 2: Tracking activities for a specific user](/img/blog-part3-auditlog-tracking-user-activities-image1.png "Figure 2: Tracking activities for a specific user")
 
-> > <span style="color:grey; font-family:Arial; font-size:1em"> Figure 1: Tracking activities for a specific user</span>
+> > <span style="color:grey; font-family:Arial; font-size:1em"> Figure 2: Tracking activities for a specific user</span>
 
-### Service-specific logs and platform logs
-
-A similar REST API request can be used to get logs from a specific service in the workspace and platform logs in the workspace. I just need to specify the service identifier or the HPE GreenLake platform identifier to obtain the list of logs. In the example below, I specify the identifier of the HPE GreenLake platform and limit the output for activities that occurred after a certain date and time in UTC following the [ISO 8601 standard](https://en.wikipedia.org/wiki/ISO_8601):
-
-`GET {{baseUrl}}/audit-log/v1beta1/logs?filter=application/id eq '{{GLP_Application_Id}}'&filter=createdAt ge '2023-12-10T11:00:00.00000Z'&limit=50&offset=0` 
-
-![Figure 2: Audit logs for service-specific: HPE GreenLake platform in the workspace](/img/blog-part3-auditlog-application-specific-logs-image2.png "Figure 2: Audit logs for service-specific: HPE GreenLake platform in the workspace")
-
-> > <span style="color:grey; font-family:Arial; font-size:1em"> Figure 2: Audit logs for service-specific: HPE GreenLake platform in the workspace</span>
 
 ### Monitoring health events for the workspace
 
-In the HPE GreenLake platform user interface, a wellness service presents a dashboard to allow HPE GreenLake users to monitor the overall health of the managed services and devices in the workspace. The wellness service API provides programmatic access to view health events and insights about HPE services and HPE products in the workspace.
+The HPE GreenLake platform provides a wellness service to enable you to monitor the overall health of the managed services and devices in the workspace. The wellness service API provides programmatic access to view health events and insights about HPE services and HPE products in the workspace.
 
 I will use the set of Wellness API calls from the Postman collection folder: ***Tracking GLP Workspace/Step6-Wellness/wellness/v2beta1/events***.
 
