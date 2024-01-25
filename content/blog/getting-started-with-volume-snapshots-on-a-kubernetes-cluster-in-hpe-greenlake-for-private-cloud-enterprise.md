@@ -6,13 +6,13 @@ author: Guoping Jia
 authorimage: /img/guoping.png
 disable: false
 tags:
-  - HPE GreenLake for Private Cloud Enterprise
   - Kubernetes
   - Persistent volumes
   - Volume snapshots
   - HPE CSI driver for Kubernetes
-  - Stateful applications
+  - Stateful application
   - Backup and restore
+  - HPE GreenLake for Private Cloud Enterprise
 ---
 ### Overview
 
@@ -823,6 +823,6 @@ $ mysql -h 127.0.0.1 -uroot -pCfeDemo@123 -P 43959 -t <test_employees_sha.sql
 ### Summary
 
 
-I﻿n this blog post, I described persistent volumes and volume snapshots in K8s, and the CSI driver for K8s. Using HPE CSI driver for K8s, I demonstrated how to create a volume snapshot of a MySQL database as a backup and how to restore database using volume snapshot in the cluster. Though the whole process contained quite a few manual steps, you can easily integrate the volume snapshot capability with 3rd part tools, such as Kasten K10 by Veeam, to provide automatic backup and recovery solutions in K8s cluster. 
+I﻿n this blog post, I described persistent volumes, volume snapshots, and the CSI driver in K8s. Using HPE CSI driver for K8s, I demonstrated how to create a volume snapshot of a MySQL database and how to restore database using the created volume snapshot in the cluster. The volume snapshot capability can be easily integrated with third-party tools like Kasten K10 by Veeam as an automatic backup and recovery solution. It can significantly simplify the process and enhance the robustness of data management in a K8s cluster.
 
-You can keep coming back to the [HPE Developer blog]( https://developer.hpe.com/blog)] to learn more about HPE GreenLake for Private Cloud Enterprise.
+You can keep coming back to the [HPE Developer blog]( https://developer.hpe.com/blog/) to learn more about HPE GreenLake for Private Cloud Enterprise.
