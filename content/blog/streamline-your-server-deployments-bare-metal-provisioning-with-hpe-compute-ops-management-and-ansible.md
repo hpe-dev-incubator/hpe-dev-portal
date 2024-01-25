@@ -6,6 +6,10 @@ externalLink: https://github.com/jullienl/HPE-COM-baremetal
 author: Lionel Jullien
 authorimage: /img/id-4_5_small_2.jpg
 disable: false
+tags:
+  - hpe-greenlake-for-compute-ops-management
+  - COM
+  - Ansible
 ---
 <style>ul li{ font-size:28px;padding-bottom: 0.5em;}</style>
 
