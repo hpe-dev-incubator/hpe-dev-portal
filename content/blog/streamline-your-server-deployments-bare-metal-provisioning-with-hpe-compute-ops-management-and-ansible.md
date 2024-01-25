@@ -74,16 +74,18 @@ A cornerstone feature of Ansible is its ability to carry out tasks across multip
 
 We're excited for you to explore our project on GitHub, and see firsthand how it can enhance your bare metal provisioning process using HPE Compute Ops Management and Ansible. 
 
-- Video 1: Microsoft Windows Server provisioning with HPE Compute Ops Management and Ansible     
 
-  [![Efficient Bare Metal Provisioning for Windows Server with HPE Compute Ops Management and Ansible](https://img.youtube.com/vi/A6RD6nIAFmw/0.jpg)](https://www.youtube.com/watch?v=A6RD6nIAFmw)
-- Video 2: RHEL 9.3 provisioning with HPE Compute Ops Management and Ansible
+### Windows Server Bare Metal Provisioning on 2 x HPE ProLiant DL360 Gen10 Plus
 
-  [![Efficient Bare Metal Provisioning for RHEL 9.3 with HPE Compute Ops Management and Ansible](https://img.youtube.com/vi/6_o8yB4cvag/0.jpg)](https://www.youtube.com/watch?v=6_o8yB4cvag)
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/A6RD6nIAFmw?si=_kEqBAsVx20nvONy" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-- Video 3: VMware ESXi provisioning with HPE Compute Ops Management and Ansible
+### RHEL 9.3 Bare Metal Provisioning on 2 x HPE ProLiant DL360 Gen10 Plus
 
-  [![Efficient Bare Metal Provisioning for ESXi with HPE Compute Ops Management and Ansible](https://img.youtube.com/vi/_ySgROdd_Bw/0.jpg)](https://www.youtube.com/watch?v=_ySgROdd_Bw)
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/6_o8yB4cvag?si=OGQob5dNNF28rTF-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+### VMware ESXi  Bare Metal Provisioning on 2 x HPE ProLiant DL360 Gen10 Plus
+
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/_ySgROdd_Bw?si=CSzCklbTeRzaRtFg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 Stay tuned as we will continue to update and maintain this project, incorporating user feedback and the latest advancements in technology.
 
