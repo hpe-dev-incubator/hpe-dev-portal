@@ -89,9 +89,9 @@ Dive into my video series showcasing the seamless bare metal operation across th
 
   <iframe width="560" height="315" src="https://www.youtube.com/embed/_ySgROdd_Bw?si=CSzCklbTeRzaRtFg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-Join me on my [GitHub repository](https://github.com/jullienl/HPE-COM-baremetal), where a wealth of information awaits you in the README file. Learn how to effectively utilize this project, from cloning it into your environment to commencing its use—and witness the ways it can streamline your bare metal provisioning workflow.
+Join me on my [GitHub repository](https://github.com/jullienl/HPE-COM-baremetal), where a wealth of information awaits you in the README file. Learn how to effectively utilize this project, from cloning it into your environment to commencing its use, and witness the ways it can streamline your bare metal provisioning workflow.
 
-Stay tuned as we will continue to update and maintain this project, incorporating user feedback and the latest advancements that HPE GreenLake will offer.
+Stay tuned as I will continue to update and maintain this project, incorporating user [feedback](mailto:lio@hpe.com)   and the latest advancements that HPE GreenLake will offer.
 
 Get started now, and begin transforming your server deployment strategy today!
 
