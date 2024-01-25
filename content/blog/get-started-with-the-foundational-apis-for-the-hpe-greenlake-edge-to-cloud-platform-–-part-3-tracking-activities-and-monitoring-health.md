@@ -16,7 +16,7 @@ Continuing on from the [second part of this series](https://developer.hpe.com/bl
 ## Tracking activities in the workspace
 **Audit log** service records the occurrence of events emitted by users, any device or service in the workspace. These logs can be used for tracking user activities, doing root cause analysis of an incident, investigating breaches, and for auditing purposes.
 
-Let’s assume that I would like to identify the root cause of an incident in the workspace. This involves an analysis of logs for the services and the platform in the workspace, and tracking activities for users. To conduct this analysis, I will use the set of audit log API calls from the Postman collection folder: ***Tracking GLP Workspace/Step5-audit-log/audit-log/v1beta1/logs***.
+Let’s assume that I have been notified of unusual activities in the workspace and I would like to act to begin an investigation and identify the root cause of the incident in the workspace. This involves an analysis of logs for the services and the platform in the workspace, and tracking activities for users. To conduct this analysis, I will use the set of audit log API calls from the Postman collection folder: ***Tracking GLP Workspace/Step5-audit-log/audit-log/v1beta1/logs***.
 
 ### Collecting service-specific logs and platform logs
 
