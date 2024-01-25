@@ -22,9 +22,9 @@ ol li{
 
 ## What are the HPE GreenLake edge-to-cloud platform APIs  
 
-The foundational APIs for common HPE GreenLake  platform services allow IT administrators and IT operators to programmatically operate and manage users and resources in an HPE GreenLake platform’s workspace.   
+The foundational APIs for common HPE GreenLake platform services allow IT administrators and IT operators to programmatically operate and manage users and resources in an HPE GreenLake platform workspace.   
 
-This set of APIs for common platform services includes API for workspace management, identity and access management, device and subscription, locations, audit logs, and wellness.   
+This set of APIs for common platform services includes APIs for workspace management, identity and access management, device and subscription, locations, audit logs, and wellness.   
 
 > > *Note: The [HPE GreenLake platform documentation](https://developer.greenlake.hpe.com/docs/greenlake/services/) for these APIs leverages OpenAPI specifications and associated reference material. The documentation provides a complete explanation of the operations supported by these APIs for common HPE GreenLake platform services, as well as sample requests and responses.*   
 
@@ -34,11 +34,11 @@ This set of APIs for common platform services includes API for workspace managem
 * [Get started with the foundational APIs for the HPE GreenLake edge-to-cloud platform – Part 2: Configuring and managing a workspace](https://developer.hpe.com/blog/get-started-with-the-foundational-apis-for-the-hpe-greenlake-edge-to-cloud-platform-–-part-2-configuring-and-managing-a-workspace/)
 * [Get started with the foundational APIs for the HPE GreenLake edge-to-cloud platform – Part 3: Tracking activities and monitoring health](https://developer.hpe.com/blog/get-started-with-the-foundational-apis-for-the-hpe-greenlake-edge-to-cloud-platform-%E2%80%93-part-3-tracking-activities-and-monitoring-health/)
 
-In this blog post here, I will explore the usage of the HPE GreenLake platform API one step further by using the APIs to build automation scripts or custom integrations. To develop my script, I will use bash, python and PowerShell. 
+In this blog post here, I will explore the usage of the HPE GreenLake platform APIs one step further by using the APIs to build automation scripts or custom integrations. To develop my script, I will use bash, python and PowerShell. 
 
-## Let’s pick a use case  
+## Let’s pick a use case
 
-Let’s say I’d like to check  what is in my audit log at regular intervals in order to keep an eye on my HPE GreenLake workspace. The following graphics explain what I will be doing: 
+Let’s say I’d like to check what is in my audit log at regular intervals in order to keep an eye on my HPE GreenLake workspace. The following graphics explain what I will be doing: 
 
 ![Figure 1: Illustrating the interactions made between workspace users and the HPE GreenLake platform](/img/don-picture.png "Figure 1: Illustrating the interactions made between workspace users and the HPE GreenLake platform")
 
@@ -54,16 +54,16 @@ For reference, I can also check the content of this audit log in the HPE GreenLa
 
 Let’s look at the steps necessary to accomplish this. 
 
-1. Gather details about the API access  
+1. Gather details about the API access
 2. Get an API access/session token 
 3. Compute date for filtering events 
 4. Call audit log API 
 5. Extract data and print results 
 6. Wait a bit and go to Step 3 
 
-## Give me a token, my friend!  
+## Give me a token, my friend!
 
-The HPE GreenLake platform console provides a way to create an API access that will deliver a Client ID and a Client Secret, which, in turn, I am going to use to generate a session token.  
+The HPE GreenLake platform console provides a way to create API client credentials (up to 5 per workspace) in the form of a Client ID and a Client Secret pair, which, in turn, I am going to use to generate a session token.
 
 > > *Note: To make REST API calls to HPE GreenLake platform APIs, you will need to select “HPE GreenLake platform” as an option when configuring API client credentials. To learn how to create API client credentials for HPE GreenLake platform APIs, check out the [Configuring API client credentials](https://support.hpe.com/hpesc/public/docDisplay?docId=a00120892en_us&page=GUID-23E6EE78-AAB7-472C-8D16-7169938BE628.html) and [Requesting access to HPE GreenLake platform APIs](https://support.hpe.com/hpesc/public/docDisplay?docId=a00120892en_us&page=GUID-771F9B3A-B029-43E5-A38F-6D8D04178FAB.html) in the HPE GreenLake edge-to-cloud platform user guide.*
 
@@ -105,7 +105,7 @@ The response provides an access token of type “Bearer” with a time to live o
 
 ## Querying the audit log 
 
-According to the [API Reference documentation](https://developer.greenlake.hpe.com/docs/greenlake/services/audit-logs/public/) for the Audit Log service, I can query the log using:  
+According to the [API Reference documentation](https://developer.greenlake.hpe.com/docs/greenlake/services/audit-logs/public/) for the Audit Log service, I can query the log using:
 
 ```markdown
 GET /audit-log/v1beta1/logs
@@ -229,7 +229,7 @@ do 
 
 ### Step 4: Call audit log API 
 
-I can now call the API with the right authorization header and set the filter parameter,  startTime greater than the computed date: 
+I can now call the API with the right authorization header and set the filter parameter, **startTime** greater than the computed date: 
 
 ```shell
 http_response=$(curl -s -o out.json -w "%{http_code}" --location "https://global.api.greenlake.hpe.com/audit-log/v1beta1/logs?filter=startTime%20ge%20'$d'" \ 
@@ -287,7 +287,7 @@ Last check at (UTC): 2023-12-18T09:07:55.00Z 
 ---------------------
 ```
 
-> > *Note: The audit log API returns logs in LIFO (Last In First Out) mode. This is great for a GUI interface; however, it makes things a little more complicated for CLI and scripts. Sorting the logs is outside the scope of the blog post.*   
+> > *Note: The audit log API returns logs in LIFO (Last In First Out) mode. This is great for a GUI interface; however, it makes things a little more complicated for CLI and scripts. Sorting the logs is outside the scope of the blog post.*
 
 When the token expires after 2 hours, I can catch the error, display a message, and exit. 
 
