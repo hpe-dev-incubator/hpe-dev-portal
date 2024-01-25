@@ -13,14 +13,15 @@ tags:
   - Stateful application
   - Backup and restore
   - HPE GreenLake for Private Cloud Enterprise
+  - hpe-greenlake-for-private-cloud-enterprise
 ---
 ### Overview
 
 
 
-[HPE GreenLake for Private Cloud Enterprise: Containers](https://www.hpe.com/us/en/greenlake/containers.html), one of the HPE GreenLake cloud services available on the HPE GreenLake for Private Cloud Enterprise, allows customers to create a Kubernetes (K8s) cluster, view details about existing clusters, and deploy containerized applications to the cluster. It provides an enterprise-grade container management service using open source K8s.  
+[HPE GreenLake for Private Cloud Enterprise: Containers](https://www.hpe.com/us/en/greenlake/containers.html) ("containers service"), one of the HPE GreenLake cloud services available on the HPE GreenLake for Private Cloud Enterprise, allows customers to create a Kubernetes (K8s) cluster, view details about existing clusters, and deploy containerized applications to the cluster. It provides an enterprise-grade container management service using open source K8s.  
 
-In this blog post, I discuss first the persistent volumes and volume snapshots in K8s. Then I describe the Container Storage Interface (CSI) and HPE CSI driver for K8s in HPE GreenLake for Private Cloud Enterprise. With a MySQL database instance deployed as a sample stateful application using persistent volume in the cluster, I show the detailed steps to create a volume snapshot of the database as a backup using HPE CSI driver. Finally I describe how to restore MySQL database using the created volume snapshot. 
+In this blog post, I discuss first the persistent volumes and volume snapshots in K8s. Then I describe the Container Storage Interface (CSI) and HPE CSI driver for K8s in HPE GreenLake for Private Cloud Enterprise. With a MySQL database instance deployed as a sample stateful application using persistent volume in the cluster, I show the detailed steps to create a volume snapshot of the database as a backup using HPE CSI driver for K8s. Finally I demonstrate how to restore the MySQL database using the created volume snapshot. 
 
 ### Persistent volumes and volume snapshots  
 
@@ -45,11 +46,11 @@ The CSI defines a standard interface for container orchestration systems, like K
 
 
 
-A CSI driver for K8s is a plugin that allows K8s to access different types of storage systems, such as Azure Disks, AWS EBS, and HPE Storage, etc. HPE CSI driver for K8s is one of those CSI driver plugins that follows the K8s CSI specification and enables K8s to use various HPE storage systems, such as Nimble Storage, 3PAR and Primera. 
+A CSI driver for K8s is a plugin that allows K8s to access different types of storage systems, such as *Azure Disks*, *AWS EBS*, and *HPE Storage*, etc. HPE CSI driver for K8s is one of those CSI driver plugins that follows the K8s CSI specification and enables K8s to use various HPE storage systems, such as *Nimble Storage*, *3PAR* and *Primera*. 
 
 
 
-As part of K8s cluster provisioning in HPE GreenLake for Private Cloud Enterprise, HPE CSI driver for K8s has been installed on the cluster. The installation consists of two components, a _controller_ component and a _per-node_ component. 
+As part of K8s cluster provisioning in HPE GreenLake for Private Cloud Enterprise, HPE CSI driver for K8s has been installed in the cluster. The installation consists of two components, a _controller_ component and a _per-node_ component. 
 
 1. The controller component is deployed as a *Deployment* on any node in the K8s cluster. It implements the CSI Controller service and a list of sidecar containers, such as _external-provisioner_, _external-attacher_, _external-snapshotter_, and _external-resizer_, etc. These controller sidecar containers typically interact with K8s objects, make calls to the driver’s CSI Controller service, manage K8s events and make the appropriate calls to the CSI driver. 
 
@@ -93,7 +94,7 @@ replicaset.apps/snapshot-controller-5fd799f6b5   2         2         2       56d
 
 
 
-As part of HPE CSI driver configuration, a list of _StorageClasses_ is created that refers to the CSI driver name. The _PersistentVolumeClaim_ (PVCs) can then be created that uses the _StorageClass_ to dynamically provision persisten volume backed by the HPE storage systems. Apart from features such as dynamic provisioning, raw block volumes, inline ephemeral volumes, and volume encryption, HPE CSI driver implements and supports volume snapshot on K8s cluster. The common snapshot controller _snapshot-controller_ and a _VolumeSnapshotClass_, together with a list of snapshot *CustomResourceDefinitions* (CRDs), gets deployed and added to the cluster.  
+As part of HPE CSI driver configuration, a list of _StorageClasses_ is created that refers to the CSI driver name. The _PersistentVolumeClaim_ (PVC) can then be created that uses the _StorageClass_ to dynamically provision PV backed by the HPE storage systems. Apart from features such as dynamic provisioning, raw block volumes, inline ephemeral volumes, and volume encryption, HPE CSI driver implements and supports volume snapshot on K8s cluster. As you can see in above deployment, the common snapshot controller _snapshot-controller_ and a _VolumeSnapshotClass_, together with a list of snapshot *CustomResourceDefinitions* (CRDs), get all deployed and added to the cluster. 
  
 
 
@@ -115,7 +116,7 @@ NAME                                 DRIVER        DELETIONPOLICY   AGE
 gl-sbp-frank-gl1-sstor01             csi.hpe.com   Delete           56d
 ```
  
-In﻿ the following sections, I will describe the steps to create volume snapshots of persistent volumes in K8s using HPE CSI driver for K8s. 
+Now that you understand the basics, in﻿ the following sections, I will describe how to create volume snapshots of persistent volumes in K8s using HPE CSI driver for K8s.  
 
 ### Prerequisites
 
@@ -138,18 +139,18 @@ Before starting, make sure you meet the following requirements:
 B﻿efore showing the volume snapshots, a MySQL database instance from [my GitHub repo](https://github.com/GuopingJia/mysql-app) will be deployed as a sample stateful application to the cluster. 
 
 
-1﻿. Install MySQL application 
+1﻿. Install MySQL database 
 
 
 
-MySQL database requires a persistent volume to store data. Here is the PVC YAML manifest file: 
+MySQL database requires a persistent volume to store data. Here is the PVC YAML manifest file *mysql-pvc.yaml* in the repo's *base* folder:
 
 
 
 ```markdown
 
 
-$ cat setup/mysql-pvc.yaml 
+$ cat mysql-app/base/mysql-pvc.yaml 
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
@@ -168,7 +169,7 @@ spec:
 
 
 
-The YAML manifest files in the folder *base* will be used to install the MySQL application using [Kustomize](https://kustomize.io/).
+This PVC file, together with other YAML manifest files in the folder *base*, will be used to install a MySQL database instance using [Kustomize](https://kustomize.io/). 
 
 
 
@@ -182,7 +183,7 @@ mysql-app/base
 
 
 
-The file kustomization.yaml lists all YAML files in its resources section, together with the secret generator for MySQL password:
+The file *kustomization.yaml* lists all YAML files in its resources section, together with the secret generator for MySQL password:
 
 
 
@@ -201,7 +202,7 @@ resources:
 
 
 
-T﻿ype below command to install the MySQL application to the namespace *mysql*:
+T﻿yping below command to install the MySQL database to the namespace *mysql*:
 
 
 
@@ -231,7 +232,7 @@ replicaset.apps/mysql-6974b58d48   1         1         1       24s
 
 
 
-Y﻿ou can check the PVC and the PV created as part of MySQL application deployment:
+Y﻿ou can check the PVC and the PV created as part of MySQL database deployment:
 
 
 
@@ -268,7 +269,7 @@ The d﻿eployed MySQL database service can be accessed by typing the following m
 
 
 
-```markdown
+```shell
 $ mysql -h 127.0.0.1 -uroot -pCfeDemo@123 -P 41797 
 Welcome to the MariaDB monitor.  Commands end with ; or \g.
 Your MySQL connection id is 1
@@ -295,11 +296,11 @@ MySQL [(none)]> show databases;
 
 
 
-The MySQL database repo has the *test* folder that contains a list of scripts for populating data records and testing the contents: 
+The MySQL application repo has the *test* folder that contains a list of scripts for populating data records and testing the contents: 
 
 
 
-```markdown
+```shell
 $ tree mysql-app/test
 mysql-app/test
 ├── employees.sql
@@ -318,11 +319,11 @@ mysql-app/test
 
 
 
-Typing the following command to populate a sample *employees* data to the database:
+Typing the following command to populate a sample *employees* data to the MySQL database:
 
 
 
-```markdown
+```shell
 $ cd mysql-app/test
 $ mysql -h 127.0.0.1 -uroot -pCfeDemo@123 -P 41797 < employees.sql
 INFO
@@ -351,7 +352,7 @@ The added sample data records *employees* can be checked and verified by running
 
 
 
-```markdown
+```shell
 $ mysql -h 127.0.0.1 -uroot -pCfeDemo@123 -P 41797 
 Welcome to the MariaDB monitor.  Commands end with ; or \g.
 Your MySQL connection id is 3
@@ -431,7 +432,7 @@ $ mysql -h 127.0.0.1 -uroot -pCfeDemo@123 -P 41797 -t < test_employees_sha.sql
 
 
 
-H﻿ere is the *VolumeSnapshot* YAML manifest file that creates a volume snapshot from the existing PVC *'mysql-pvc'*:
+H﻿ere is the *VolumeSnapshot* YAML manifest file that creates a volume snapshot from the PVC *'mysql-pvc'*:
 
 
 
@@ -461,7 +462,7 @@ volumesnapshot.snapshot.storage.k8s.io/mysql-snapshot created
 
 
 
-Y﻿ou can check the volume snapshot is created in the namespace *mysql*. A *VolumeSnapshotContent* is also created, at cluster level, with its *READYTOUSE* showing as *true*:
+Y﻿ou can check the volume snapshot *mysql-snapshot* is created in the namespace *mysql*. A *VolumeSnapshotContent* object is also created, at cluster level, with its *READYTOUSE* showing as *true*: 
 
 
 
@@ -491,7 +492,7 @@ B﻿efore showing the database restore, I﻿ will first delete some table from M
 
 
 
-```markdown
+```shell
 $ mysql -h 127.0.0.1 -uroot -pCfeDemo@123 -P 41797 
 Welcome to the MariaDB monitor.  Commands end with ; or \g.
 Your MySQL connection id is 5
@@ -527,11 +528,11 @@ Query OK, 9 rows affected (1,523 sec)
 
 
 
-I﻿f re-run the script *test_employees_sha.sql*, it will show the failures of *CRC* and *count*:
+I﻿f re-run the testing script *test_employees_sha.sql*, it will show the failures of *CRC* and *count*:
 
 
 
-```markdown
+```shell
 $ mysql -h 127.0.0.1 -uroot -pCfeDemo@123 -P 41797 -t <test_employees_sha.sql
 +----------------------+
 | INFO                 |
@@ -648,6 +649,8 @@ spec:
     kind: VolumeSnapshot
     apiGroup: snapshot.storage.k8s.io
 
+
+
 $ kubectl apply -f mysql-pvc-restore.yaml 
 persistentvolumeclaim/mysql-pvc-restore created
 
@@ -678,11 +681,11 @@ pvc-92940c36-eb1d-4de5-9c1e-57261ccbecad   1Gi        RWO            Delete     
 
 
 
-3﻿. Edit MySQL Deployment config
+3﻿. Edit MySQL deployment config
 
 
 
-T﻿yping the following command to edit the MySQL deployment config and change the PVC name to *mysql-pvc-restore*:
+T﻿yping the following command to edit the MySQL deployment config and change the PVC name from *mysql-pvc* to *mysql-pvc-restore*: 
 
 
 
@@ -731,11 +734,11 @@ replicaset.apps/mysql-6974b58d48   0         0         0       36m
 
 
 
-5﻿. Verify database data records
+5﻿. Verify MySQL database data records
 
 
 
-Y﻿ou can connect to the MySQL database service and re-run the test script. You should see the test script now reports everything is *OK*:
+Y﻿ou can connect to the MySQL database service and re-run the testing script. You should see the testing script now reports everything is *OK*:
 
 
 
@@ -817,6 +820,8 @@ $ mysql -h 127.0.0.1 -uroot -pCfeDemo@123 -P 43959 -t <test_employees_sha.sql
 | count   | OK     |
 +---------+--------+
 ```
+
+T﻿his indicates the database restore using the volume snapshot succeeds and MySQL database data is back !
 
 
 
