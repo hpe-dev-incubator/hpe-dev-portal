@@ -47,7 +47,7 @@ I am excited to share a new project, an open-source initiative hosted on GitHub 
 - **Automated Provisions**: Kickstart your server setups without the tedious manual configurations.
 - **Centralized Control**: Manage your entire fleet of servers from a single pane of glass.
 - **Scalable Architecture**: Effortlessly scale your infrastructure to meet growing business demands.
-- **Pre-Built Playbooks**: Jumpstart your automation with our curated collection, crafted for various deployment scenarios (Microsoft Windows Server, VMware ESXi and Red Hat Enterprise Linux).
+- **Pre-Built Playbooks**: Jumpstart your automation with curated collection, crafted for various deployment scenarios (Microsoft Windows Server, VMware ESXi and Red Hat Enterprise Linux).
 - **Custom Ansible Variables**: Enable you to define environment-specific parameters, ensuring that each server gets a configuration that fits its role in the infrastructure, ensuring that you have granular control over server provisioning.
 - **Comprehensive Documentation**: Detailed guides, videos and examples help you customize the workflow to your specific requirements.
 
@@ -66,16 +66,16 @@ HPE GreenLake for Compute Ops Management provides the foundational management ca
 - **Reduced Human Error**: Minimize mistakes by standardizing server configurations across the board.
 
 ## Mastering parallel execution with Ansible
-A cornerstone feature of Ansible is its ability to carry out tasks across multiple systems simultaneously (5 by default). With our GitHub project, we use inventory files that specifically leverages this strength to maximize the efficiency of your bare metal provisioning.
+A cornerstone feature of Ansible is its ability to carry out tasks across multiple systems simultaneously (5 by default). With this GitHub project, I use inventory files that specifically leverages this strength to maximize the efficiency of your bare metal provisioning.
 
-## Benefits of parallel execution through our project:
+## Benefits of parallel execution through this project:
 - **Accelerated Deployment**: By running configurations in parallel, you reduce the overall time required to bring a fleet of servers online.
 - **Consistency Maintenance**: Achieve a uniform setup across all servers mitigating configuration drift.
 - **Resource Efficiency**: Optimize your IT personnel's time by allowing them to focus on strategic tasks while Ansible manages server deployments.
 
-## Explore Our Video Series
+## Explore My Video Series
 
-Dive into our video series showcasing the seamless bare metal operation across three major operating systems. Each video provides a walk through over the different variables and files that are required, along with the explanation of the different steps found in the playbooks.
+Dive into my video series showcasing the seamless bare metal operation across three major operating systems. Each video provides a walk through over the different variables and files that are required, along with the explanation of the different steps found in the playbooks.
 
 ### Windows Server Bare Metal Provisioning on 2 x HPE ProLiant DL360 Gen10 Plus
 
@@ -89,7 +89,7 @@ Dive into our video series showcasing the seamless bare metal operation across t
 
   <iframe width="560" height="315" src="https://www.youtube.com/embed/_ySgROdd_Bw?si=CSzCklbTeRzaRtFg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-Join us on our [GitHub repository](https://github.com/jullienl/HPE-COM-baremetal), where a wealth of information awaits you in the README file. Learn how to effectively utilize our project— from cloning it into your environment to commencing its use—and witness the ways it can streamline your bare metal provisioning workflow.
+Join me on my [GitHub repository](https://github.com/jullienl/HPE-COM-baremetal), where a wealth of information awaits you in the README file. Learn how to effectively utilize this project, from cloning it into your environment to commencing its use—and witness the ways it can streamline your bare metal provisioning workflow.
 
 Stay tuned as we will continue to update and maintain this project, incorporating user feedback and the latest advancements that HPE GreenLake will offer.
 
