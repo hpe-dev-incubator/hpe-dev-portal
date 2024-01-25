@@ -2,7 +2,7 @@
 title: "Streamline Your Server Deployments: Bare Metal Provisioning with HPE
   Compute Ops Management and Ansible"
 date: 2024-01-26T07:03:53.659Z
-externalLink: https://github.com/jullienl/HPE-COM-baremetal
+externalLink: ""
 author: Lionel Jullien
 authorimage: /img/id-4_5_small_2.jpg
 disable: false
