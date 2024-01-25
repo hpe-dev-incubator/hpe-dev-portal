@@ -75,7 +75,7 @@ A cornerstone feature of Ansible is its ability to carry out tasks across multip
 
 ## Explore My Video Series
 
-Dive into my video series showcasing the seamless bare metal operation across three major operating systems. Each video provides a walk through over the different variables and files that are required, along with the explanation of the different steps found in the playbooks.
+Dive into my video series showcasing the seamless bare metal operation across three major operating systems. Each video provides a walk through over the different variables involved and the files that are required to update HPE drivers and software, along with the explanation of the different steps of each playbook.
 
 ### Windows Server Bare Metal Provisioning on 2 x HPE ProLiant DL360 Gen10 Plus
 
