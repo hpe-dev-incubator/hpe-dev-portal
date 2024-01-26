@@ -1,7 +1,7 @@
 ---
 title: How to backup and restore stateful applications on Kubernetes using
   Kasten K10 in HPE GreenLake for Private Cloud Enterprise
-date: 2024-01-18T07:33:24.381Z
+date: 2024-01-26T10:07:05.982Z
 author: Guoping Jia
 authorimage: /img/guoping.png
 disable: false
@@ -13,7 +13,7 @@ tags:
   - HPE GreenLake for Private Cloud Enterprise
   - hpe-greenlake-for-private-cloud-enterprise
 ---
-T﻿his blog post describes how to backup and restore using Kasten K10 the stateful applications running in a Kubernetes (K8s) cluster in HPE GreenLake for Private Cloud Enterprise. Using pre-installed HPE CSI driver for K8s in the cluster, Kasten K10 works seamlessly for 
+T﻿his blog post describes how to backup and restore  the stateful applications running in a Kubernetes (K8s) cluster using Kasten K10 in HPE GreenLake for Private Cloud Enterprise. Using pre-installed HPE CSI driver for K8s in the cluster, Kasten K10 works seamlessly for 
 
 ### Prerequisites
 
@@ -23,6 +23,7 @@ Before starting, make sure you meet the following requirements:
 
 * A K8s cluster, being provisioned in HPE GreenLake for Private Cloud Enterprise
 * The kubectl CLI tool, together with the kubeconfig file for accessing the K8s cluster
+* The [Helm](https://helm.sh/docs/intro/install/) CLI tool, version 3.12.1 or later
 * The o﻿ptional mysql CLI tool, for accessing the deployed sample MySQL database service
 
 ### Kasten K10
@@ -99,7 +100,7 @@ gl-sbp-frank-gl1-sstor01             csi.hpe.com   Delete           56d
 
 ### Install Kasten K10
 
-F﻿ollowing the [Kasten K10 installation page](https://docs.kasten.io/latest/index.html), the Kasten K10 can be installed to the K8s cluster using the following commands using helm:
+F﻿ollowing the [Kasten K10 installation page](https://docs.kasten.io/latest/index.html), the Kasten K10 can be installed to the cluster with the following commands using helm:
 
 ```shell
 $ helm repo add kasten https://charts.kasten.io/
@@ -151,10 +152,10 @@ prometheus-server-689ccf5f57-j9hpz      2/2     Running   0          15m
 state-svc-b4b996d9b-jnbrl               3/3     Running   0          15m
 ```
 
-A﻿fter all the Pods are in running states, edit the service *gateway* to change its service type from *ClusterIP* to *NodePort*. This will generate a service port and expose the service via the configured gatway host name plus the generated the port.
+A﻿fter all the Pods are in running states, edit the service *gateway* to change its service type from *ClusterIP* to *NodePort*. This will generate a service port and expose the service via the configured gatway host name plus the generated port.
 
 ```markdown
-$ k﻿ubectl  edit svc gateway -n kasten-io
+$ k﻿ubectl edit svc gateway -n kasten-io
 …
 spec:
   clusterIP: 10.102.36.25
@@ -203,7 +204,7 @@ I﻿n order to show backup and restore process, an MySQL database from [my GitHu
 1. Install MySQL database
 
 
-MySQL database requires a persistent volume to store data. Here is the PVC YAML manifest file: 
+MySQL database requires a persistent volume to store data. Here is the PVC YAML manifest file *mysql-pvc.yaml* in the repo's *base* folder: 
 
 ```markdown
 $ cat mysql-app/base/mysql-pvc.yaml 
@@ -222,7 +223,7 @@ spec:
       storage: 1Gi
 ```
 
-The YAML manifest files in the folder *base* will be used to install the MySQL application using [Kustomize](https://kustomize.io/).
+This PVC file, together with other YAML manifest files in the folder *base*, will be used to install the MySQL database using [Kustomize](https://kustomize.io/).
 
 ```markdown
 $ tree mysql-app/base
@@ -233,7 +234,7 @@ mysql-app
 └── mysql-pvc.yaml
 ```
 
-The file kustomization.yaml lists all YAML files in its resources section, together with the secret generator for MySQL password:
+The file *kustomization.yaml* lists all YAML files in its resources section, together with the secret generator for MySQL password:
 
 ```markdown
 $ cat mysql-app/base/kustomization.yaml 
@@ -247,9 +248,9 @@ resources:
   - mysql-pvc.yaml
 ```
 
-T﻿yping below command to install the MySQL application to the namespace *mysql*:
+T﻿yping below command to install the MySQL database to the namespace *mysql*:
 
-```markdown
+```shell
 $ kubectl apply -k mysql-app/base
 namespace/mysql created
 secret/mysql-pass-m62cbhd9kf created
@@ -271,7 +272,7 @@ NAME                               DESIRED   CURRENT   READY   AGE
 replicaset.apps/mysql-6974b58d48   1         1         1       24s
 ```
 
-Y﻿ou can check the PV and the PVC created as part of application deployment:
+Y﻿ou can check the PV and the PVC created as part of database deployment:
 
 ```markdown
 $ kubectl get persistentvolumes 
@@ -297,7 +298,7 @@ Handling connection for 42281
 
 The d﻿eployed MySQL database service can be accessed by typing the following mysql command:
 
-```markdown
+```shell
 $ mysql -h 127.0.0.1 -uroot -pCfeDemo@123 -P 42281
 Welcome to the MariaDB monitor.  Commands end with ; or \g.
 Your MySQL connection id is 3
@@ -321,7 +322,7 @@ MySQL [(none)]> show databases;
 3. Populate MySQL database 
 
 
-The MySQL database repo has the test folder that contains a list of scripts for populating data records and testing the contents: 
+The MySQL application repo has the *test* folder that contains a list of scripts for populating data records and testing the contents: 
 
 ```markdown
 $ tree mysql-app/test
@@ -340,9 +341,9 @@ mysql-app/test
 └── test_employees_sha.sql
 ```
 
-T﻿yping the following command to populate a sample *employees* data to the database:
+Typing the following command to populate a sample *employees* data to the MySQL database:
 
-```markdown
+```shell
 $ cd mysql-app/test
 $ mysql -h 127.0.0.1 -uroot -pCfeDemo@123 -P 42281 < employees.sql
 INFO
@@ -365,9 +366,9 @@ data_load_time_diff
 NULL
 ```
 
-T﻿he added sample data records *employees* can be checked and verified by below commands:
+T﻿he added sample data records *employees* can be checked and verified by running below commands:
 
-```markdown
+```shell
 $ mysql -h 127.0.0.1 -uroot -pCfeDemo@123 -P 42281
 Welcome to the MariaDB monitor.  Commands end with ; or \g.
 Your MySQL connection id is 3
@@ -439,7 +440,7 @@ $ mysql -h 127.0.0.1 -uroot -pCfeDemo@123 -P 42281 -t < test_employees_sha.sql
 
 ### Back up MySQL database
 
-In order to back up the MySQL database, go to the Kasten K10 Dashboard and click the Applications. Find the deployed MySQL application *mysql* from the application list and expand its menu. Then click *Snapshot* button. 
+In order to back up the MySQL database, go to the Kasten K10 Dashboard and click the Applications. Find the deployed MySQL database *'mysql'* from the application list and expand its menu. Then click *Snapshot* button. 
 
 ![](/img/k10-backup-button.png)
 
@@ -447,23 +448,38 @@ U﻿sing all the default options from **Snapshot *mysql***, click *Snapshot Appl
 
 ![](/img/k10-backup.png)
 
-T﻿he snapshot of the MySQL database will be started that takes a few seconds. Go back to the Dashboard, you should see the completed *Backup* entry under **Actions**:
+T﻿he snapshot of the MySQL database will be started that takes a few seconds. Go back to the K10 Dashboard, you should see the completed *Backup* entry under **Actions**:
 
 ![](/img/k10-dashboard-backup.png)
 
-Y﻿ou can also check the **Data Usage* page to see the data used by application backups:
+Y﻿ou can also check the **Data Usage** page to see the data used by database backups:
 
 ![](/img/k10-data-backup.png)
 
+I﻿n the cluster, after snapshot of the MySQL database, you can check there is a *VolumeSnapshot* _k10-csi-snap-ltxzrwxgp6r5pwkp_ created f﻿rom the PVC *mysql-pvc* in the namespace *mysql*, together with a *VolumeSnapshotContent* object created at cluster level:
+
+```shell
+
+$ k get volumesnapshot -n mysql
+NAME                            READYTOUSE   SOURCEPVC   SOURCESNAPSHOTCONTENT   RESTORESIZE   SNAPSHOTCLASS              SNAPSHOTCONTENT                                    CREATIONTIME   AGE
+k10-csi-snap-ltxzrwxgp6r5pwkp   true         mysql-pvc                           1Gi           gl-sbp-frank-gl1-sstor01   snapcontent-f3890356-d47f-4b36-a7e4-eb4c5792ec59   6d12h          6d12h
+
+ $ k get volumesnapshotcontents
+NAME                                               READYTOUSE   RESTORESIZE   DELETIONPOLICY   DRIVER        VOLUMESNAPSHOTCLASS        VOLUMESNAPSHOT                  VOLUMESNAPSHOTNAMESPACE   AGE
+snapcontent-f3890356-d47f-4b36-a7e4-eb4c5792ec59   true         1073741824    Delete           csi.hpe.com   gl-sbp-frank-gl1-sstor01   k10-csi-snap-ltxzrwxgp6r5pwkp   mysql                     6d12h
+```
+
+T﻿his volume snapshot can be used for MySQL database restore.
+
 ### Restore MySQL database
 
-I﻿ will first delete some table from MySQL database to simulate a loss of data. Then, I will perform the database recovery from the application backup.
+B﻿efore showing the database restore, I﻿ will first delete some table from MySQL database to simulate a loss of data. Then, I will perform the database recovery using the Kasten K10.
 
 #### Delete table
 
 D﻿elete data from the table *departments*:
 
-```markdown
+```shell
 $ mysql -h 127.0.0.1 -uroot -pCfeDemo@123 -P 42281 -Demployees
 Reading table information for completion of table and column names
 You can turn off this feature to get a quicker startup with -A
@@ -496,10 +512,10 @@ MySQL [employees]> delete from departments;
 Query OK, 9 rows affected (1,523 sec)
 ```
 
-Then re-run the script *test_employees_sha.sql*. It will show the failures of *CRC* and *count* which indicate the loss of data in the database:
+I﻿f re-run the testing script *test_employees_sha.sql*, it will show the failures of *CRC* and *count* which indicate the loss of data in the MySQL database:
 
-```markdown
-$ mysql -h 127.0.0.1 -uroot -pCfeDemo@123 -P 41797 -t <test_employees_sha.sql
+```shell
+$ mysql -h 127.0.0.1 -uroot -pCfeDemo@123 -P 42281 -t <test_employees_sha.sql
 +----------------------+
 | INFO                 |
 +----------------------+
@@ -550,11 +566,11 @@ $ mysql -h 127.0.0.1 -uroot -pCfeDemo@123 -P 41797 -t <test_employees_sha.sql
 
 #### Perform MySQL database restore
 
-In order to restore the MySQL database, g﻿o to application list of the Kasten K10 Dashboard and expand the menu of *mysql* application. Then click *Restore* button.
+In order to restore the MySQL database, g﻿o to again the Kasten K10 Dashboard, locate the MySQL database *'mysql'* from the application list, expand the menu of *mysql*, then click *Restore* button: 
 
 ![](/img/k10-restore-button.png)
 
-S﻿elect a restore point from the list and click it. The *Restore Point* page will show up:
+S﻿elect a restore point from the list and click it. The **Restore Point** page will show up:
 
 ![](/img/k10-restore-point.png)
 
@@ -562,13 +578,13 @@ U﻿se all the default options from **Restore Point** and click *Restore* button
 
 ![](/img/k10-restore.png)
 
-T﻿he restore of the MySQL database will be started from the selected restore point. It will take a few seconds. Go back to the Dashboard, you should see the completed *Restore* entry under **Actions**:
+T﻿he restore of the MySQL database will be started from the selected restore point. It will take a few seconds. Go back to the Kasten K10 Dashboard, you should see the completed *Restore* entry under **Actions**:
 
 ![](/img/k10-dashboard-restore.png)
 
-Re-run the script *test_employees_sha.sql*. You should see the test ends without showing any issue. It indicates the MySQL database gets recovered from its backup:
+Connect to the MySQL database service and re-run the testing script *test_employees_sha.sql*. You should see the testing script now reports everything is *OK*: 
 
-```markdown
+```shell
 $ mysql -h 127.0.0.1 -uroot -pCfeDemo@123 -P 42281 -t < test_employees_sha.sql
 +----------------------+
 | INFO                 |
@@ -630,4 +646,11 @@ $ mysql -h 127.0.0.1 -uroot -pCfeDemo@123 -P 42281 -t < test_employees_sha.sql
 
 ```
 
+
+T﻿his indicates the MySQL database gets recovered from its backup and MySQL database data is back !
+
 ### Summary
+
+I﻿n this blog post, I described persistent volumes, volume snapshots, and the CSI driver in K8s. Using HPE CSI driver for K8s, I demonstrated how to create a volume snapshot of a MySQL database and how to restore database using the created volume snapshot in the cluster. The volume snapshot capability can be easily integrated with third-party tools like Kasten K10 by Veeam as an automatic backup and recovery solution. It can significantly simplify the process and enhance the robustness of data management in a K8s cluster.
+
+You can keep coming back to the [HPE Developer blog]( https://developer.hpe.com/blog/) to learn more about HPE GreenLake for Private Cloud Enterprise.
