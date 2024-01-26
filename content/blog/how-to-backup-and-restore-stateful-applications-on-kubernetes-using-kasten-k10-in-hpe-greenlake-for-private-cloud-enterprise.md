@@ -5,6 +5,13 @@ date: 2024-01-18T07:33:24.381Z
 author: Guoping Jia
 authorimage: /img/guoping.png
 disable: false
+tags:
+  - Backup and restore
+  - Volume snapshots
+  - Stateful applications
+  - Kubernetes
+  - HPE GreenLake for Private Cloud Enterprise
+  - hpe-greenlake-for-private-cloud-enterprise
 ---
 T﻿his blog post describes how to backup and restore using Kasten K10 the stateful applications running in a Kubernetes (K8s) cluster in HPE GreenLake for Private Cloud Enterprise. Using pre-installed HPE CSI driver for K8s in the cluster, Kasten K10 works seamlessly for 
 
@@ -17,6 +24,15 @@ Before starting, make sure you meet the following requirements:
 * A K8s cluster, being provisioned in HPE GreenLake for Private Cloud Enterprise
 * The kubectl CLI tool, together with the kubeconfig file for accessing the K8s cluster
 * The o﻿ptional mysql CLI tool, for accessing the deployed sample MySQL database service
+
+### Kasten K10
+
+Kasten K10 is a data management platform purpose-built for K8s that was developed by Kasten. Following Veeam acquisition of Kasten early in 2020, Kasten K10 is often referred to as Kasten by Veeam. 
+
+
+
+Kasten K10 has been named [a Leader and Outperformer in GigaOm’s K8s Data Protection report for the third consecutive year]( https://www.veeam.com/news/kasten.html). It offers an easy-to-use, scalable, and secure system for K8s backup/restore, disaster recovery and mobility of K8s applications. 
+
 
 ### HPE CSI driver for K8s
 
@@ -83,9 +99,9 @@ gl-sbp-frank-gl1-sstor01             csi.hpe.com   Delete           56d
 
 ### Install Kasten K10
 
-F﻿ollowing the [Kasten K10 installation page](https://docs.kasten.io/latest/index.html), the Kasten K10 can be installed to the K8s cluster using the following commands with helm:
+F﻿ollowing the [Kasten K10 installation page](https://docs.kasten.io/latest/index.html), the Kasten K10 can be installed to the K8s cluster using the following commands using helm:
 
-```markdown
+```shell
 $ helm repo add kasten https://charts.kasten.io/
 $ helm repo update
 
@@ -135,7 +151,7 @@ prometheus-server-689ccf5f57-j9hpz      2/2     Running   0          15m
 state-svc-b4b996d9b-jnbrl               3/3     Running   0          15m
 ```
 
-A﻿fter all the Pods are in running states, edit the service *gateway* to change its service type from *ClusterIP* to *NodePort*. This will generate a service port and expose the service via the configured gatway host plus the port. 
+A﻿fter all the Pods are in running states, edit the service *gateway* to change its service type from *ClusterIP* to *NodePort*. This will generate a service port and expose the service via the configured gatway host name plus the generated the port.
 
 ```markdown
 $ k﻿ubectl  edit svc gateway -n kasten-io
@@ -163,26 +179,28 @@ spec:
 service/gateway edited
 ```
 
-T﻿yping the following command to get the service endpoint:
+T﻿yping the following command to get the *gateway* service endpoint:
 
 ```markdown
 $ kubectl get svc gateway -n kasten-io -o jsonpath={.metadata.annotations.hpecp-internal-gateway/8000}
 gl-tor-upc-cp-gw-node1.customer.yyz.gl-hpe.local:10021
 ```
 
-T﻿he Kasten K10 service dashboard can be accessed by pointing the browser to the URL *http://gl-tor-upc-cp-gw-node1.customer.yyz.gl-hpe.local:10021/k10/#/*:
+T﻿he Kasten K10 service dashboard can then be accessed by pointing your browser to the URL *http://gl-tor-upc-cp-gw-node1.customer.yyz.gl-hpe.local:10021/k10/#/*:
 
 ![](/img/k10-login.png)
 
-C﻿lick *Accept Terms* after specifying your email and company name, you will be landed to Kasten K10 Dashboard:
+C﻿licking *Accept Terms* after specifying your email and company name, you will be landed to Kasten K10 Dashboard:
 
 ![](/img/k10-dashboard.png)
+
+Kasten K10 automatically discovers all the applications and their data across namespaces in the cluster. The K10 dashboard displays a list of applications that are mapped to namespaces. It also displays a summary of the cluster’s backup data footprint, showing *0.0 B* when accessing the dashboard for the first time. 
 
 ### Deploy MySQL database
 
 I﻿n order to show backup and restore process, an MySQL database from [my GitHub repo](https://github.com/GuopingJia/mysql-app) will be deployed as a sample stateful application to the cluster. 
 
-1. Install MySQL application 
+1. Install MySQL database
 
 
 MySQL database requires a persistent volume to store data. Here is the PVC YAML manifest file: 
