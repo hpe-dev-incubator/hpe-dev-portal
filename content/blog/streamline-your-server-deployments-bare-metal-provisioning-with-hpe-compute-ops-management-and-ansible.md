@@ -71,7 +71,7 @@ A key attribute of Ansible that I sought in this project is its impressive capab
 
 ## Explore My Video Series
 
-Dive into my video series showcasing the seamless bare metal operation across three major operating systems. Each video provides a walk through over the different variables involved and the files that are required to update HPE drivers and software, along with the explanation of the different steps of each playbook.
+Dive into this series of videos showcasing the seamless bare metal operation across three major operating systems. Each video provides a walk through over the different variables involved and the files that are required to update HPE drivers and software, along with the explanation of the different steps of each playbook.
 
 ### Windows Server Bare Metal Provisioning on 2 x HPE ProLiant DL360 Gen10 Plus
 
