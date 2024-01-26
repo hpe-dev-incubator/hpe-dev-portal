@@ -66,12 +66,8 @@ HPE GreenLake for Compute Ops Management provides the foundational management ca
 - **Reduced Human Error**: Minimize mistakes by standardizing server configurations across the board.
 
 ## Mastering parallel execution with Ansible
-A cornerstone feature of Ansible is its ability to carry out tasks across multiple systems simultaneously (5 by default). With this GitHub project, I use inventory files that specifically leverages this strength to maximize the efficiency of your bare metal provisioning.
 
-## Benefits of parallel execution through this project:
-- **Accelerated Deployment**: By running configurations in parallel, you reduce the overall time required to bring a fleet of servers online.
-- **Consistency Maintenance**: Achieve a uniform setup across all servers mitigating configuration drift.
-- **Resource Efficiency**: Optimize your IT personnel's time by allowing them to focus on strategic tasks while Ansible manages server deployments.
+A key attribute of Ansible that I sought in this project is its impressive capability to execute tasks concurrently across numerous systems, thereby accelerating deployment processes. This feature is referred to as "forks" within Ansible. Set at a default of 5, the forks value is adjustable based on available system resources (CPU and memory), signifying that Ansible can carry out playbook tasks in parallel across five hosts from the inventory list. This parallel execution is among Ansible's standout functionalities, enhancing the effectiveness of bare-metal provisioning substantially.
 
 ## Explore My Video Series
 
