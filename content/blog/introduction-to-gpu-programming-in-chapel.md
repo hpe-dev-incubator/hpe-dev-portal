@@ -2,7 +2,7 @@
 title: Introduction to GPU Programming in Chapel
 date: 2024-01-11T06:25:58.731Z
 featuredBlog: true
-priority: 2
+priority: 4
 externalLink: https://chapel-lang.org/blog/posts/intro-to-gpus/
 author: Daniel Fedorin
 authorimage: https://chapel-lang.org/blog/img/logo.png
