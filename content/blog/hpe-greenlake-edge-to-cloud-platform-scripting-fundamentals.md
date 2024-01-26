@@ -1,12 +1,13 @@
 ---
 title: HPE GreenLake edge-to-cloud platform scripting fundamentals
-date: 2024-01-10T09:51:57.270Z
+date: 2024-01-24T09:51:57.270Z
 author: Didier Lalli
 authorimage: /img/didier-lalli.png
 disable: false
 tags:
   - API
   - hpe-greenlake
+  - hpe-greenlake-platform
 ---
 <style>
 ul li{
