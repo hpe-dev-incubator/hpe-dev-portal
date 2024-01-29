@@ -15,6 +15,8 @@ tags:
   - HPE GreenLake for Private Cloud Enterprise
   - hpe-greenlake-for-private-cloud-enterprise
 ---
+<style> li { font-size: 27px; line-height: 33px; max-width: none; } </style>
+
 ### Overview
 
 
@@ -27,11 +29,11 @@ In this blog post, I discuss first the persistent volumes and volume snapshots i
 
 
 
-In K8s, a persistent volume (PV) is a piece of storage in the cluster that has been provisioned, either statically by an administor or dynamically using *StorageClasses*. It provides a way for data to persist beyond the lifecycle of individual Pods. PV provides the necessary data persistence for stateful applications, ensuring that they function correctly even in the event of Pod or node failures. It's a key component in managing storage in K8s. Backing up PVs is then becoming a critical aspect of managing stateful applications in K8s.
+In K8s, a persistent volume (PV) is a piece of storage in the cluster that has been provisioned, either statically by an administrator or dynamically using *StorageClasses*. It provides a way for data to persist beyond the lifecycle of individual Pods. PV provides the necessary data persistence for stateful applications, ensuring that they function correctly even in the event of Pod or node failures. It's a key component in managing storage in K8s. Backing up PVs is then becoming a critical aspect of managing stateful applications in K8s.
 
 
 
-A volume snapshot is a copy of the data stored in a PV in K8s at a specific point in time. It provides the ability to create snapshot of a PV from stateful applications. Volume snapshot can be used to back up data of a PV, restore a PV from a previous state, or create a new PV from a snapshot. Volume snapshot provides K8s users with a standardized way to copy the contents of a PV at a particular point in time without creating an entirely new volume. This functionality enables, for example, database administrators to backup databases before perfoming edit or delete modifications.
+A volume snapshot is a copy of the data stored in a PV in K8s at a specific point in time. It provides the ability to create snapshot of a PV from stateful applications. Volume snapshot can be used to back up data of a PV, restore a PV from a previous state, or create a new PV from a snapshot. Volume snapshot provides K8s users with a standardized way to copy the contents of a PV at a particular point in time without creating an entirely new volume. This functionality enables, for example, database administrators to backup databases before performing edit or delete modifications.
 
 
 
@@ -94,7 +96,7 @@ replicaset.apps/snapshot-controller-5fd799f6b5   2         2         2       56d
 
 
 
-As part of HPE CSI driver configuration, a list of _StorageClasses_ is created that refers to the CSI driver name. The _PersistentVolumeClaim_ (PVC) can then be created that uses the _StorageClass_ to dynamically provision PV backed by the HPE storage systems. Apart from features such as dynamic provisioning, raw block volumes, inline ephemeral volumes, and volume encryption, HPE CSI driver implements and supports volume snapshot on K8s cluster. As you can see in above deployment, the common snapshot controller _snapshot-controller_ and a _VolumeSnapshotClass_, together with a list of snapshot *CustomResourceDefinitions* (CRDs), get all deployed and added to the cluster. 
+As part of HPE CSI driver configuration, a list of _StorageClasses_ is created that refers to the CSI driver name. The _PersistentVolumeClaim_ (PVC) can then be created that uses the _StorageClass_ to dynamically provision PV backed by the HPE storage systems. Apart from features such as dynamic provisioning, raw block volumes, inline ephemeral volumes, and volume encryption, HPE CSI driver implements and supports volume snapshot on K8s cluster. As you can see in above deployment, the common snapshot controller _snapshot-controller_ and a _VolumeSnapshotClass_, together with a list of snapshot *CustomResourceDefinitions* (CRDs), get all deployed and added to the cluster. 
  
 
 
@@ -124,7 +126,6 @@ Now that you understand the basics, in﻿ the following sections, I will describ
 
 Before starting, make sure you meet the following requirements:
 
-<style> li { font-size: 100%; line-height: 23px; max-width: none; } </style>
 
 
 
@@ -139,7 +140,7 @@ Before starting, make sure you meet the following requirements:
 B﻿efore showing the volume snapshots, a MySQL database instance from [my GitHub repo](https://github.com/GuopingJia/mysql-app) will be deployed as a sample stateful application to the cluster. 
 
 
-1﻿. Install MySQL database 
+**1﻿. Install MySQL database**
 
 
 
@@ -250,7 +251,7 @@ mysql-pvc   Bound    pvc-3e55e9b3-097f-4ddf-bdcb-60825a7905ec   1Gi        RWO  
 
 
 
-2﻿. Access MySQL database
+**2﻿. Access MySQL database**
 
 
 
@@ -292,7 +293,7 @@ MySQL [(none)]> show databases;
 
 
 
-3﻿. Populate MySQL database
+**3﻿. Populate MySQL database**
 
 
 
@@ -588,7 +589,7 @@ $ mysql -h 127.0.0.1 -uroot -pCfeDemo@123 -P 41797 -t <test_employees_sha.sql
 
 
 
-1﻿. Scale MySQL database deployment config to 0
+**1﻿. Scale MySQL database deployment config to 0**
 
 
 
@@ -621,7 +622,7 @@ replicaset.apps/mysql-6974b58d48   0         0         0       28m
 
 
 
-2﻿. Create a new PVC using volume snapshot
+**2﻿. Create a new PVC using volume snapshot**
 
 
 
@@ -681,7 +682,7 @@ pvc-92940c36-eb1d-4de5-9c1e-57261ccbecad   1Gi        RWO            Delete     
 
 
 
-3﻿. Edit MySQL deployment config
+**3﻿. Edit MySQL deployment config**
 
 
 
@@ -703,7 +704,7 @@ deployment.apps/mysql edited
 
 
 
-4﻿. Scale MySQL database deployment config back to 1 
+**4﻿. Scale MySQL database deployment config back to 1** 
 
 
 
@@ -734,7 +735,7 @@ replicaset.apps/mysql-6974b58d48   0         0         0       36m
 
 
 
-5﻿. Verify MySQL database data records
+**5﻿. Verify MySQL database data records**
 
 
 
@@ -828,6 +829,6 @@ T﻿his indicates the database restore using the volume snapshot succeeds and My
 ### Summary
 
 
-I﻿n this blog post, I described persistent volumes, volume snapshots, and the CSI driver in K8s. Using HPE CSI driver for K8s, I demonstrated how to create a volume snapshot of a MySQL database and how to restore database using the created volume snapshot in the cluster. The volume snapshot capability can be easily integrated with third-party tools like Kasten K10 by Veeam as an automatic backup and recovery solution. It can significantly simplify the process and enhance the robustness of data management in a K8s cluster.
+I﻿n this blog post, I described persistent volumes, volume snapshots, and the CSI driver in K8s. Using HPE CSI driver for K8s, I demonstrated how to create a volume snapshot of a MySQL database and how to restore database using the created volume snapshot in the cluster. The volume snapshot capability can be easily integrated with third-party tools like [Kasten K10 by Veeam](https://www.veeam.com/products/cloud/kubernetes-data-protection.html) as an automatic backup and recovery solution. It can significantly simplify the process and enhance the robustness of data management in a K8s cluster.
 
 You can keep coming back to the [HPE Developer blog]( https://developer.hpe.com/blog/) to learn more about HPE GreenLake for Private Cloud Enterprise.
