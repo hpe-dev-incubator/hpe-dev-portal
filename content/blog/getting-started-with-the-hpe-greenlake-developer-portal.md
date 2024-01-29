@@ -71,7 +71,11 @@ In addition, a Change Log section will inform you about the versioning of the AP
 
 T﻿her third tile allows you to reach out to us,  the HPE Developer Community. Our web portal as mentionned in the introductionnary words of this blog, will help you find all things software at HPE. [Join us](https://developer.hpe.com/community) to collaborate and build applications and integrations with HPE products using the latest software and open source technologies.
 
-The HPE GreenLake Developer Portal offers one last important feature: **The search window**. Rather than browsing through the page to look for a necessary piece of information, you can use the search box and get the result you need straight away. Let ‘s say you would like to know about HPE GreenLake for Compute Ops ‘APIs.  A quick search will present you with many relevant entries.
+The HPE GreenLake Developer Portal offers one last important feature: 
+
+## **The search window:** 
+
+Rather than browsing through the page to look for a necessary piece of information, you can use the search box and get the result you need straight away. Let ‘s say you would like to know about HPE GreenLake for Compute Ops ‘APIs.  A quick search will present you with many relevant entries.
 
 ![](/img/blog-greenlake-dev-portal6.png)
 
