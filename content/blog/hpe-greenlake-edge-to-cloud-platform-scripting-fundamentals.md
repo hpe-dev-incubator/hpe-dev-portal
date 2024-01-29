@@ -31,11 +31,9 @@ This set of APIs for common platform services includes APIs for workspace manage
 
 > > *Note: The [HPE GreenLake platform documentation](https://developer.greenlake.hpe.com/docs/greenlake/services/) for these APIs leverages OpenAPI specifications and associated reference material. The documentation provides a complete explanation of the operations supported by these APIs for common HPE GreenLake platform services, as well as sample requests and responses.*   
 
- The following blog posts are an excellent way to learn more about the APIs using Postman. 
+ The following blog post is an excellent way to learn more about the APIs using Postman. 
 
 * [Get started with the foundational APIs for the HPE GreenLake edge-to-cloud platform – Part 1: Introduction to the APIs](https://developer.hpe.com/blog/get-started-with-the-foundational-apis-for-the-hpe-greenlake-edge-to-cloud-platform-%E2%80%93-part-1-introduction-to-the-apis/)
-* [Get started with the foundational APIs for the HPE GreenLake edge-to-cloud platform – Part 2: Configuring and managing a workspace](https://developer.hpe.com/blog/get-started-with-the-foundational-apis-for-the-hpe-greenlake-edge-to-cloud-platform-–-part-2-configuring-and-managing-a-workspace/)
-* [Get started with the foundational APIs for the HPE GreenLake edge-to-cloud platform – Part 3: Tracking activities and monitoring health](https://developer.hpe.com/blog/get-started-with-the-foundational-apis-for-the-hpe-greenlake-edge-to-cloud-platform-%E2%80%93-part-3-tracking-activities-and-monitoring-health/)
 
 In this blog post here, I will explore the usage of the HPE GreenLake platform APIs one step further by using the APIs to build automation scripts or custom integrations. To develop my script, I will use bash, python and PowerShell. 
 
@@ -562,6 +560,6 @@ Error calling the API or token has expired!
 
 The next step for the HPE GreenLake APIs is to provide language specific SDK, which would provide better handling in PowerShell and Python, with stronger type checking and exception handling. In the meantime, I have shown you through this blog post that it is already possible to integrate with HPE GreenLake platform using the most popular scripting languages. You can get the source code for these scripts from [our community tooling repository](https://github.com/hpe-dev-incubator/GLP-API-Tooling).
 
-If you’re interested in trying out what I just discussed, you might first want to check out one of our hands-on Workshops-on-Demand that let you play with the HPE GreenLake APIs mentioned in this blog post. The workshops are free, available 24/7, and very easy to use. They give you a real-world experience without any risk. Check out our [catalog of workshops](https://developer.hpe.com/hackshack/workshops), register for the one you’re interested and go! It’s as simple as that. 
+If you’re interested in trying out what I just discussed, you might first want to check out one of our hands-on Workshops-on-Demand that lets you play with the HPE GreenLake APIs mentioned in this blog post. The workshops are free, available 24/7, and very easy to use. They give you a real-world experience without any risk. Check out our [catalog of workshops](https://developer.hpe.com/hackshack/workshops), register for the one you’re interested and go! It’s as simple as that. 
 
 If you still have any questions regarding the HPE GreenLake platform APIs, join the [HPE Developer Community Slack Workspace](https://developer.hpe.com/slack-signup/) and start a discussion in our [\#hpe-greenlake-api](https://hpedev.slack.com/archives/C02EG5XFK8Q) channel. We’re always here to help.
