@@ -4,7 +4,7 @@ title: "Get started with the foundational APIs for the HPE GreenLake
 date: 2024-01-22T14:51:38.811Z
 author: Denis Choukroun
 authorimage: https://gravatar.com/avatar/f66dd9562c53567466149af06ae9d4f1?s=96
-disable: false
+disable: true
 tags:
   - hpe-greenlake
   - hpe-greenlake-platform
