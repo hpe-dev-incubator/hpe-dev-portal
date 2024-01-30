@@ -125,6 +125,7 @@ Now that you understand the basics, in﻿ the following sections, I will describ
 
 
 Before starting, make sure you meet the following requirements:
+<style> li { font-size: 27px; line-height: 33px; max-width: none; } </style>
 
 
 
