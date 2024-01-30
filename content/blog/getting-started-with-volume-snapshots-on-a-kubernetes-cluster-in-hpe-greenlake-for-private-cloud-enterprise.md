@@ -631,7 +631,7 @@ Here is the PVC YAML manifest file that creates a new PVC *mysql-pvc-restore* fr
 
 
 
-```markdown
+```shell
 $ cat mysql-pvc-restore.yaml 
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -665,12 +665,11 @@ Y﻿ou will see the new PVC *mysql-pvc-restore*, together with its PV, is crated
 
 
 
-```markdown
+```shell
 $ kubectl get persistentvolumeclaims -n mysql
 NAME                STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS               AGE
 mysql-pvc           Bound    pvc-3e55e9b3-097f-4ddf-bdcb-60825a7905ec   1Gi        RWO            gl-sbp-frank-gl1-sstor01   33m
 mysql-pvc-restore   Bound    pvc-92940c36-eb1d-4de5-9c1e-57261ccbecad   1Gi        RWO            gl-sbp-frank-gl1-sstor01   8s
-
 
 
 
@@ -691,7 +690,7 @@ T﻿yping the following command to edit the MySQL deployment config and change t
 
 
 
-```markdown
+```shell
 $ kubectl edit deployment.apps/mysql -n mysql
 …
       volumes:
@@ -713,7 +712,7 @@ Start the mysql Pod by scaling the replicas in MySQL deployment back to 1:
 
 
 
-```markdown
+```shell
 $ kubectl scale deployment.apps/mysql -n mysql --replicas=1
 deployment.apps/mysql scaled
 
@@ -752,7 +751,7 @@ Forwarding from [::1]:43959 -> 3306
 
 
 
-```markdown
+```shell
 $ mysql -h 127.0.0.1 -uroot -pCfeDemo@123 -P 43959
 Welcome to the MariaDB monitor.  Commands end with ; or \g.
 Your MySQL connection id is 1
@@ -772,6 +771,8 @@ MySQL [(none)]> show databases;
 | performance_schema |
 +--------------------+
 4 rows in set (0,238 sec)
+
+
 
 
 $ mysql -h 127.0.0.1 -uroot -pCfeDemo@123 -P 43959 -t <test_employees_sha.sql 
