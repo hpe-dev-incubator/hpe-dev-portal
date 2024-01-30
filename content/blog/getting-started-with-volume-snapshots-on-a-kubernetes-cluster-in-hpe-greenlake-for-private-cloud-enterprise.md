@@ -137,7 +137,7 @@ Before starting, make sure you meet the following requirements:
 
 
 
-B﻿efore showing the volume snapshots, a MySQL database instance from [my GitHub repo](https://github.com/GuopingJia/mysql-app) will be deployed as a sample stateful application to the cluster. 
+B﻿efore showing the volume snapshots, a MySQL database instance from [my GitHub repo](https://github.com/GuopingJia/mysql-app) will be deployed as a sample stateful application to the cluster. 
 
 
 **1﻿. Install MySQL database**
