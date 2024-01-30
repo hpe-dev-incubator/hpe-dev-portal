@@ -13,6 +13,7 @@ tags:
   - HPE GreenLake for Private Cloud Enterprise
   - hpe-greenlake-for-private-cloud-enterprise
 ---
+<style> li { font-size: 27px; line-height: 33px; max-width: none; } </style>
 ### Overview
 
 
@@ -23,13 +24,11 @@ tags:
 
 
 
-T﻿his blog post describes how to backup and restore the stateful applications running in a Kubernetes (K8s) cluster using Kasten K10 in HPE GreenLake for Private Cloud Enterprise. Using pre-installed HPE CSI driver for K8s in the cluster, Kasten K10 works seamlessly for 
+In this blog post, I will describe how to use Kasten K10 to backup and restore stateful applications on a K8s cluster deployed in HPE GreenLake for Private Cloud Enterprise. Kasten K10 leverages the volume snapshot capability in the HPE Container Storage Interface (CSI) driver for K8s, which allows it to connect to various HPE storage systems in K8s. It offers a powerful and intuitive interface and platform that enables you to easily backup and restore the persistent volumes of your stateful applications in the cluster.
 
 ### Prerequisites
 
 Before starting, make sure you meet the following requirements:
-
-<style> li { font-size: 100%; line-height: 23px; max-width: none; } </style>
 
 * A K8s cluster, being provisioned in HPE GreenLake for Private Cloud Enterprise
 * The kubectl CLI tool, together with the kubeconfig file for accessing the K8s cluster
@@ -44,7 +43,7 @@ Kasten K10 is a data management platform purpose-built for K8s that was develope
 
 Kasten K10 has been named [a Leader and Outperformer in GigaOm’s K8s Data Protection report for the third consecutive year]( https://www.veeam.com/news/kasten.html). It offers an easy-to-use, scalable, and secure system for K8s backup/restore, disaster recovery and mobility of K8s applications. 
 
-Apart from direct integration with a number of storage providers, Kasten K10 supports invoking volume snapshots operations via the Container Storage Interface (CSI). By using the volume snapshot capability in the CSI driver for K8s, Kasten K10 can access different types of storage systems, and enable you to backup and restore persistent volumes of your stateful applications running on K8s. 
+Apart from direct integration with a number of storage providers, Kasten K10 supports invoking volume snapshots operations via the CSI driver. By using the volume snapshot capability in the CSI driver for K8s, Kasten K10 can access different types of storage systems that enables you to backup and restore persistent volumes of your stateful applications running on K8s. 
 
 
 
@@ -110,6 +109,8 @@ $ k﻿ubectl  get volumesnapshotclasses
 NAME                                 DRIVER        DELETIONPOLICY   AGE
 gl-sbp-frank-gl1-sstor01             csi.hpe.com   Delete           56d
 ```
+
+
 
 ### Install Kasten K10
 
