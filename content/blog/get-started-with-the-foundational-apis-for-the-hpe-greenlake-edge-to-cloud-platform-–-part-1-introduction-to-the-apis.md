@@ -23,7 +23,7 @@ HPE’s unified management plane for hybrid cloud, the HPE GreenLake edge-to-clo
 
 The HPE GreenLake platform now provides a collection of RESTful application programming interfaces (APIs) for these foundational, common services. 
 
-If you are looking for a quick way to discover what you can do with the HPE GreenLake platform APIs using popular tools that don’t require programming (such as [Postman](https://www.postman.com/product/what-is-postman/)), this blog post series is for you.
+If you are looking for a quick way to discover what you can do with the HPE GreenLake platform APIs using popular tools that don’t require programming (such as [Postman](https://www.postman.com/product/what-is-postman/)), this blog post series is for you. This series will offer you the opportunity to automate IT operations via these APIs to achieve velocity, be more agile, get consistent results, reduce costs, and scale.
 
 In Part 1 of this series, I will help you get started with the HPE GreenLake platform APIs by taking advantage of a Postman collection I built for you. I will describe the current set of APIs for HPE GreenLake platform. I will also show you how to obtain an OAuth access token to make subsequent secure REST API calls to the HPE GreenLake platform APIs. 
 
