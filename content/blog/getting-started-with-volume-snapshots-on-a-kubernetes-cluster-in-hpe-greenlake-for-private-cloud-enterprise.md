@@ -125,7 +125,7 @@ Now that you understand the basics, in﻿ the following sections, I will describ
 
 
 Before starting, make sure you meet the following requirements:
-<style> li { font-size: 27px; line-height: 33px; max-width: none; } </style>
+
 
 
 
@@ -133,7 +133,7 @@ Before starting, make sure you meet the following requirements:
 * A K8s cluster, being provisioned in HPE GreenLake for Private Cloud Enterprise
 * The kubectl CLI tool, together with the kubeconfig file for accessing the K8s cluster
 * The o﻿ptional mysql CLI tool, for accessing the deployed sample MySQL database service
-  
+
 ### Deploy MySQL database
 
 
