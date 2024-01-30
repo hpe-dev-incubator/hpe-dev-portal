@@ -4,7 +4,7 @@ dateStart: 2024-01-23T23:01:18.279Z
 dateEnd: 2024-01-24T22:59:18.327Z
 category: Virtual Event
 image: /img/event-munch-and-learn-newlogo400x400.png
-link: https://developer.hpe.com/campaign/munch-and-learn
+link: https://www.youtube.com/watch?v=Rm1z2pHtyw0&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF
 width: large
 ---
 ## Using HPE GreenLake edge-to-cloud platform to build a private cloud
