@@ -1,7 +1,7 @@
 ---
 title: "Get started with the foundational APIs for the HPE GreenLake
   edge-to-cloud platform – Part 2: Configuring and managing a workspace"
-date: 2024-01-17T16:01:44.375Z
+date: 2024-01-31T17:29:10.532Z
 author: Denis Choukroun
 authorimage: https://gravatar.com/avatar/f66dd9562c53567466149af06ae9d4f1?s=96
 disable: false
