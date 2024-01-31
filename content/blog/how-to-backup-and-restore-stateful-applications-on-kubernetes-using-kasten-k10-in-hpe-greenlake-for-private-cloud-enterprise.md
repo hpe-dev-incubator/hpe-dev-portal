@@ -14,38 +14,20 @@ tags:
   - hpe-greenlake-for-private-cloud-enterprise
 ---
 <style> li { font-size: 27px; line-height: 33px; max-width: none; } </style>
+
 ### Overview
-
-
-
-
 
 [HPE GreenLake for Private Cloud Enterprise: Containers](https://www.hpe.com/us/en/greenlake/containers.html), one of the HPE GreenLake cloud services available on the HPE GreenLake for Private Cloud Enterprise, allows customers to create a Kubernetes (K8s) cluster, view details about existing clusters, and deploy containerized applications to the cluster. It provides an enterprise-grade container management service using open source K8s.  
 
-
-
-In this blog post, I will describe how to use Kasten K10 to backup and restore stateful applications deployed in a K8s cluster in HPE GreenLake for Private Cloud Enterprise. Kasten K10 leverages the volume snapshot capability in HPE Container Storage Interface (CSI) driver for K8s, which allows it to connect to various HPE storage systems in K8s. It offers a powerful and intuitive interface and platform that enables to easily backup and restore persistent volumes of the stateful applications in the cluster.
-
-### Prerequisites
-
-Before starting, make sure you meet the following requirements:
-
-* A K8s cluster, being provisioned in HPE GreenLake for Private Cloud Enterprise
-* The kubectl CLI tool, together with the kubeconfig file for accessing the K8s cluster
-* The [Helm](https://helm.sh/docs/intro/install/) CLI tool, version 3.12.1 or later
-* The o﻿ptional mysql CLI tool, for accessing the deployed sample MySQL database service
+This blog post will show you how to backup and restore the stateful applications deployed in a K8s cluster in HPE GreenLake for Private Cloud Enterprise using Kasten K10. Kasten K10 uses the volume snapshot capability in HPE Container Storage Interface (CSI) driver for K8s to connect to different HPE storage systems and take volume snapshots of persistent volumes in K8s. It provides a user-friendly and intuitive interface and platform for easy and reliable backup and restore of the stateful applications running in the cluster.
 
 ### Kasten K10
 
 Kasten K10 is a data management platform purpose-built for K8s that was developed by Kasten. Following Veeam acquisition of Kasten early in 2020, Kasten K10 is often referred to as Kasten by Veeam. 
 
-
-
-Kasten K10 has been named [a Leader and Outperformer in GigaOm’s K8s Data Protection report for the third consecutive year]( https://www.veeam.com/news/kasten.html). It offers an easy-to-use, scalable, and secure system for K8s backup/restore, disaster recovery and mobility of K8s applications. 
+Kasten K10 has been named [a Leader and Outperformer in GigaOm’s K8s Data Protection report for the third consecutive year](https://www.veeam.com/news/kasten.html). It offers an easy-to-use, scalable, and secure system for K8s backup/restore, disaster recovery and mobility of K8s applications. 
 
 Apart from direct integration with a number of storage providers, Kasten K10 supports invoking volume snapshots operations via the CSI driver for K8s. By using the volume snapshot capability in the CSI driver for K8s, Kasten K10 can access different types of storage systems that enables you to backup and restore persistent volumes of the stateful applications running on K8s. 
-
-
 
 ### HPE CSI driver for K8s
 
@@ -101,7 +83,16 @@ NAME                                 DRIVER        DELETIONPOLICY   AGE
 gl-sbp-frank-gl1-sstor01             csi.hpe.com   Delete           56d
 ```
 
-HPE CSI driver for K8s and Kasten K10 has been a supported data management solution through the [joint partnership between HPE and Veeam]( https://www.kasten.io/kubernetes/resources/blog/kubernetes-backup-with-hpe-csi-and-kasten-k10). In the following sections, I will first deploy Kasten k10 to the cluster. Then I will describe how to use Kasten K10 with the volume snapshot capability from HPE CSI driver for K8s to backup and restore persistent volumes of the stateful applications running in the cluster. 
+HPE CSI driver for K8s and Kasten K10 has been a supported data management solution through the [joint partnership between HPE and Veeam](https://www.kasten.io/kubernetes/resources/blog/kubernetes-backup-with-hpe-csi-and-kasten-k10). In the following sections, I will first deploy Kasten k10 to the cluster. Then I will describe how to use Kasten K10 with the volume snapshot capability from HPE CSI driver for K8s to backup and restore persistent volumes of the stateful applications running in the cluster. 
+
+### Prerequisites
+
+Before starting, make sure you meet the following requirements:
+
+* A K8s cluster, being provisioned in HPE GreenLake for Private Cloud Enterprise
+* The kubectl CLI tool, together with the kubeconfig file for accessing the K8s cluster
+* The [Helm](https://helm.sh/docs/intro/install/) CLI tool, version 3.12.1 or later
+* The o﻿ptional mysql CLI tool, for accessing the deployed sample MySQL database service
 
 ### Install Kasten K10
 
@@ -190,11 +181,9 @@ C﻿lick *Accept Terms* after specifying your email and company name, you will b
 
 Kasten K10 automatically discovers all the applications and their data across namespaces in the cluster. The K10 dashboard displays a list of applications that are mapped to namespaces. It also displays a summary of the cluster’s backup data footprint, showing *0.0 B* when accessing the dashboard for the first time. 
 
-To use Kasten K10 with HPE CSI driver for K8s, you need to ensure the configured *VolumeSnapshotClass* in the cluster contains the K10 annotation _**k10.kasten.io/is-snapshot-class: "true"**_.  Typing the following command to add this required K10 annotation to the *VolumeSnapshotClass*:
+To use Kasten K10 with HPE CSI driver for K8s, you need to ensure the configured *VolumeSnapshotClass* in the cluster contains the K10 annotation ***k10.kasten.io/is-snapshot-class: "true"***.  Typing the following command to add this required K10 annotation to the *VolumeSnapshotClass*:
 
 ```shell
-
-
 $ kubectl get volumesnapshotclasses
 NAME                                 DRIVER        DELETIONPOLICY   AGE
 gl-sbp-frank-gl1-sstor01             csi.hpe.com   Delete           69d
@@ -203,7 +192,6 @@ gl-sbp-frank-gl1-sstor01             csi.hpe.com   Delete           69d
 
 $ kubectl annotate volumesnapshotclasses gl-sbp-frank-gl1-sstor01  k10.kasten.io/is-snapshot-class=true
 volumesnapshotclasses.snapshot.storage.k8s.io/gl-sbp-frank-gl1-sstor01 annotated
-
 ```
 
 Whenever Kasten K10 detects volumes that were provisioned via the CSI driver deployed in the cluster, it will look for a *VolumeSnapshotClass* with this K10 annotation for the identified CSI driver and use it to create snapshots. 
@@ -220,7 +208,6 @@ $ kubectl get volumesnapshotclass gl-sbp-frank-gl1-sstor01 -o yaml -o jsonpath='
 I﻿n order to show backup and restore process, an MySQL database instance from [my GitHub repo](https://github.com/GuopingJia/mysql-app) will be deployed as a sample stateful application to the cluster. 
 
 **1. Install MySQL database**
-
 
 MySQL database requires a persistent volume to store data. Here is the *PersistentVolumeClaim* (PVC) YAML manifest file *mysql-pvc.yaml* in the repo's *'base'* folder: 
 
@@ -338,7 +325,6 @@ MySQL [(none)]> show databases;
 ```
 
 **3. Populate MySQL database** 
-
 
 The MySQL application repo has the *'test'* folder that contains a list of scripts for populating data records and testing the contents: 
 
@@ -458,7 +444,7 @@ $ mysql -h 127.0.0.1 -uroot -pCfeDemo@123 -P 42281 -t < test_employees_sha.sql
 
 ### Back up MySQL database
 
-In order to back up the MySQL database, go to the Kasten K10 Dashboard and click the _Applications_. Find the deployed MySQL database *'mysql'* from the application list and expand its menu. Then click *Snapshot* button. 
+In order to back up the MySQL database, go to the Kasten K10 Dashboard and click the *Applications*. Find the deployed MySQL database *'mysql'* from the application list and expand its menu. Then click *Snapshot* button. 
 
 ![](/img/k10-backup-button.png)
 
@@ -474,7 +460,7 @@ Y﻿ou can also check the **Data Usage** page to see the data used by database b
 
 ![](/img/k10-data-backup.png)
 
-I﻿n the cluster, after snapshot of the MySQL database, you can check there is a *VolumeSnapshot* _k10-csi-snap-ltxzrwxgp6r5pwkp_ created f﻿rom the PVC *mysql-pvc* in the namespace *mysql*, together with a *VolumeSnapshotContent* object created at cluster level. The _READYTOUSE_ of the *VolumeSnapshot* should be showing as _true_:
+I﻿n the cluster, after snapshot of the MySQL database, you can check there is a *VolumeSnapshot* *k10-csi-snap-ltxzrwxgp6r5pwkp* created f﻿rom the PVC *mysql-pvc* in the namespace *mysql*, together with a *VolumeSnapshotContent* object created at cluster level. The *READYTOUSE* of the *VolumeSnapshot* should be showing as *true*:
 
 ```shell
 $ k get volumesnapshot -n mysql
@@ -659,14 +645,13 @@ $ mysql -h 127.0.0.1 -uroot -pCfeDemo@123 -P 42281 -t < test_employees_sha.sql
 | CRC     | OK     |
 | count   | OK     |
 +---------+--------+
-
 ```
-
 
 T﻿his indicates the MySQL database gets recovered from its backup and MySQL database data is back !
 
 ### Summary
 
-I﻿n this blog post, I introduced and discussed Kasten K10 and HPE CSI driver for K8s. Using the volume snapshot capability in HPE CSI driver for K8s, I demonstrated how to use Kasten K10 dashboard to backup the persistent volume of a sample MySQL database deployed in the cluster, and how to restore databasae using the created backup. K﻿asten K10 provides a powerful and intuitive interface that enables you to easily backup and restore  the stateful applications running in the cluster. It can significantly simplify the process and enhance the robustness of data management in a K8s cluster.  
+I﻿n this blog post, I 
+introduced and discussed Kasten K10 and HPE CSI driver for K8s. Using the volume snapshot capability in HPE CSI driver for K8s, I demonstrated how to use Kasten K10 dashboard to backup the persistent volume of a sample MySQL database deployed in the cluster, and how to restore databasae using the created backup. K﻿asten K10 provides a powerful and intuitive interface that enables you to easily backup and restore  the stateful applications running in the cluster. It can significantly simplify the process and enhance the robustness of data management in a K8s cluster.  
 
-You can keep coming back to the [HPE Developer blog]( https://developer.hpe.com/blog/) to learn more about HPE GreenLake for Private Cloud Enterprise.
+You can keep coming back to the [HPE Developer blog](https://developer.hpe.com/blog/) to learn more about HPE GreenLake for Private Cloud Enterprise.
