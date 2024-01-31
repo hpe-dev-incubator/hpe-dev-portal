@@ -480,7 +480,7 @@ T﻿his volume snapshot can be used for MySQL database restore.
 
 B﻿efore showing the database restore, I﻿ will first delete some table from MySQL database to simulate a loss of data. Then, I will perform the database recovery using the Kasten K10.
 
-##### Delete table
+**1. Delete table**
 
 D﻿elete data from the table '*departments'* by typing the following commands:
 
@@ -568,7 +568,7 @@ $ mysql -h 127.0.0.1 -uroot -pCfeDemo@123 -P 42281 -t <test_employees_sha.sql
 +---------+--------+
 ```
 
-##### Perform MySQL database restore
+**2. Perform MySQL database restore**
 
 In order to restore the MySQL database, g﻿o to the Kasten K10 Dashboard, locate the MySQL database *'mysql'* from the application list, expand the menu of *mysql*, then click *Restore* button: 
 
@@ -585,6 +585,8 @@ U﻿se all the default options from **Restore Point** and click *Restore* button
 T﻿he restore of the MySQL database will be started from the selected restore point. It will take a few seconds. Go back to the Kasten K10 Dashboard, you should see the completed *Restore* entry under **Actions** with target namespace as *mysql*:
 
 ![](/img/k10-dashboard-restore.png)
+
+**3. Verify MySQL database** 
 
 Connect to the MySQL database service and re-run the testing script *test_employees_sha.sql*. You should see the testing script now reports everything is *OK*: 
 
