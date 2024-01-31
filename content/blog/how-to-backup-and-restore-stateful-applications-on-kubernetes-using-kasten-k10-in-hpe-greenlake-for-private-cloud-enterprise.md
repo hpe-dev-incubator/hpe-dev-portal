@@ -31,12 +31,12 @@ Apart from direct integration with a number of storage providers, Kasten K10 sup
 
 ### HPE CSI driver for K8s
 
-The CSI defines a standard interface for exposing storage systems to container orchestration systems, like K8s. The CSI driver for K8s is a software component that implements the CSI specification and provides a way for K8s to interact with external storage systems. There are several CSI drivers available for K8s. HPE CSI Driver for K8s is one of those CSI drivers developed by HPE that uses the CSI to perform data management operations on various HPE storage systems, such as Nimble Storage, 3PAR and Primera. 
+The CSI defines a standard interface that allows container orchestration systems, such as K8s, to access storage systems. The CSI driver for K8s is a software component that implements the CSI specification and enables K8s to communicate with external storage systems. K8s supports many CSI drivers. HPE CSI Driver for K8s is one of the CSI drivers developed by HPE that uses the CSI to perform data management operations on different HPE storage systems, such as Nimble Storage, 3PAR and Primera.
 
-HPE CSI driver for K8s has been installed and configured as part of K8s cluster provisioning in HPE GreenLake for Private Cloud Enterprise. The following shows the details about deployed HPE CSI driver for K8s in the cluster to the namespace *'hpe-storage'*: 
+The K8s cluster provisioned in HPE GreenLake for Private Cloud Enterprise comes with HPE CSI driver for K8s pre-installed and configured. The details of the HPE CSI driver for K8s deployed in the cluster under the namespace *'hpe-storage'* are shown below: 
 
-```markdown
-$ k﻿ubectl get all -n hpe-storage
+```shell
+$ kubectl get all -n hpe-storage
 NAME                                       READY   STATUS    RESTARTS      AGE
 pod/hpe-csi-controller-54cf448d85-g4w4c    9/9     Running   0             56d
 pod/hpe-csi-node-5xtdb                     2/2     Running   0             56d
@@ -67,10 +67,10 @@ replicaset.apps/primera3par-csp-59f5dfc499       1         1         1       56d
 replicaset.apps/snapshot-controller-5fd799f6b5   2         2         2       56d
 ```
 
-HPE CSI driver for K8s supports both dynamical persistent volumes and volume snapshots. Here is the list of *StorageClasses* and the *VolumeSnapshotClass* created in the cluster:
+HPE CSI driver for K8s supports both dynamical persistent volumes and volume snapshots. The following are the *StorageClasses* and the *VolumeSnapshotClass* that are configured in the cluster: 
 
-```markdown
-$ k﻿ubectl get storageclasses
+```shell
+$ kubectl get storageclasses
 NAME                                 PROVISIONER                    RECLAIMPOLICY   VOLUMEBINDINGMODE      ALLOWVOLUMEEXPANSION   AGE
 gl-sbc-hpe                           csi.hpe.com                    Delete          Immediate              true                   56d
 gl-sbp-frank-gl1-sstor01 (default)   csi.hpe.com                    Delete          Immediate              true                   56d
@@ -78,12 +78,12 @@ hpe-hdd-storage                      kubernetes.io/no-provisioner   Delete      
 hpe-nvme-storage                     kubernetes.io/no-provisioner   Delete          WaitForFirstConsumer   false                  56d
 hpe-ssd-storage                      kubernetes.io/no-provisioner   Delete          WaitForFirstConsumer   false                  56d
 
-$ k﻿ubectl  get volumesnapshotclasses
+$ kubectl  get volumesnapshotclasses
 NAME                                 DRIVER        DELETIONPOLICY   AGE
 gl-sbp-frank-gl1-sstor01             csi.hpe.com   Delete           56d
 ```
 
-HPE CSI driver for K8s and Kasten K10 has been a supported data management solution through the [joint partnership between HPE and Veeam](https://www.kasten.io/kubernetes/resources/blog/kubernetes-backup-with-hpe-csi-and-kasten-k10). In the following sections, I will first deploy Kasten k10 to the cluster. Then I will describe how to use Kasten K10 with the volume snapshot capability from HPE CSI driver for K8s to backup and restore persistent volumes of the stateful applications running in the cluster. 
+[The joint partnership between HPE and Veeam](https://www.kasten.io/kubernetes/resources/blog/kubernetes-backup-with-hpe-csi-and-kasten-k10) supports HPE CSI driver for K8s and Kasten K10 as a data management solution for K8s backup and recovery. The following sections will show you how to install Kasten K10 on the cluster and how to use it with HPE CSI driver for K8s to backup and restore the persistent volumes of the stateful applications running in the cluster using volume snapshots. 
 
 ### Prerequisites
 
@@ -128,7 +128,7 @@ The Kasten dashboard will be available at: `http://127.0.0.1:8080/k10/#/`
 With above commands, Kasten K10 is installed to the namespace *'kasten-io'* in the cluster. To validate the installation, typing the following command to watch for the status of all Pods. Helm installs a list of Pods to the namespace. It takes a while before all those Pods start running.  
 
 ```shell
-$ k﻿ubectl  get pods -n kasten-io -w
+$ kubectl  get pods -n kasten-io -w
 NAME                                    READY   STATUS    RESTARTS   AGE
 aggregatedapis-svc-6fc8fcf7bd-cdw8p     1/1     Running   0          15m
 auth-svc-6fcb76d7df-pt748               1/1     Running   0          15m
@@ -152,8 +152,8 @@ state-svc-b4b996d9b-jnbrl               3/3     Running   0          15m
 
 A﻿fter all the Pods are in running states, edit the service *gateway* to change its service type from *ClusterIP* to *NodePort*. This will generate a service port and expose the service via the configured gatway host name plus the generated port.
 
-```markdown
-$ k﻿ubectl edit svc gateway -n kasten-io
+```shell
+$ kubectl edit svc gateway -n kasten-io
 …
 spec:
   selector:
@@ -166,7 +166,7 @@ service/gateway edited
 
 T﻿yping the following command to get the *gateway* service endpoint:
 
-```markdown
+```shell
 $ kubectl get svc gateway -n kasten-io -o jsonpath={.metadata.annotations.hpecp-internal-gateway/8000}
 gl-tor-upc-cp-gw-node1.customer.yyz.gl-hpe.local:10021
 ```
@@ -187,8 +187,6 @@ To use Kasten K10 with HPE CSI driver for K8s, you need to ensure the configured
 $ kubectl get volumesnapshotclasses
 NAME                                 DRIVER        DELETIONPOLICY   AGE
 gl-sbp-frank-gl1-sstor01             csi.hpe.com   Delete           69d
-
-
 
 $ kubectl annotate volumesnapshotclasses gl-sbp-frank-gl1-sstor01  k10.kasten.io/is-snapshot-class=true
 volumesnapshotclasses.snapshot.storage.k8s.io/gl-sbp-frank-gl1-sstor01 annotated
@@ -211,7 +209,7 @@ I﻿n order to show backup and restore process, an MySQL database instance from 
 
 MySQL database requires a persistent volume to store data. Here is the *PersistentVolumeClaim* (PVC) YAML manifest file *mysql-pvc.yaml* in the repo's *'base'* folder: 
 
-```markdown
+```shell
 $ cat mysql-app/base/mysql-pvc.yaml 
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -230,7 +228,7 @@ spec:
 
 This PVC file, together with other YAML manifest files in the folder *base*, will be used to install the MySQL database instance using [Kustomize](https://kustomize.io/).
 
-```markdown
+```shell
 $ tree mysql-app/base
 mysql-app
 /base
@@ -241,7 +239,7 @@ mysql-app
 
 The file *kustomization.yaml* lists all YAML files in its resources section, together with the secret generator for MySQL password:
 
-```markdown
+```shell
 $ cat mysql-app/base/kustomization.yaml 
 secretGenerator:
 - name: mysql-pass
@@ -262,7 +260,11 @@ secret/mysql-pass-m62cbhd9kf created
 service/mysql created
 persistentvolumeclaim/mysql-pvc created
 deployment.apps/mysql created
+```
 
+T﻿yping the following command to check the MySQL database deployment state. The MySQL Pod should be in *Running* status:
+
+```shell
 $ kubectl get all -n mysql
 NAME                         READY   STATUS    RESTARTS   AGE
 pod/mysql-6974b58d48-wb8g5   1/1     Running   0          14s
@@ -277,9 +279,9 @@ NAME                               DESIRED   CURRENT   READY   AGE
 replicaset.apps/mysql-6974b58d48   1         1         1       24s
 ```
 
-Y﻿ou can check the *PersistentVolume* (PV) and the PVC provisioned as part of the MySQL database deployment:
+Y﻿ou can check the *PersistentVolume* (PV) and the PVC get provisioned as part of the MySQL database deployment:
 
-```markdown
+```shell
 $ kubectl get persistentvolumes 
 NAME                                       CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS   CLAIM                                                                                                                 STORAGECLASS               REASON   AGE
 
@@ -294,8 +296,8 @@ mysql-pvc   Bound    pvc-3e55e9b3-097f-4ddf-bdcb-60825a7905ec   1Gi        RWO  
 
 In order to access MySQL database service using the mysql CLI, set first the port-forward of *service/mysql*:   
 
-```markdown
-$ k port-forward service/mysql -n mysql 42281:3306
+```shell
+$ kubectl port-forward service/mysql -n mysql 42281:3306
 Forwarding from 127.0.0.1:42281 -> 3306
 Forwarding from [::1]:42281 -> 3306
 Handling connection for 42281
@@ -328,7 +330,7 @@ MySQL [(none)]> show databases;
 
 The MySQL application repo has the *'test'* folder that contains a list of scripts for populating data records and testing the contents: 
 
-```markdown
+```shell
 $ tree mysql-app/test
 mysql-app/test
 ├── employees.sql
@@ -463,11 +465,11 @@ Y﻿ou can also check the **Data Usage** page to see the data used by database b
 I﻿n the cluster, after snapshot of the MySQL database, you can check there is a *VolumeSnapshot* *k10-csi-snap-ltxzrwxgp6r5pwkp* created f﻿rom the PVC *mysql-pvc* in the namespace *mysql*, together with a *VolumeSnapshotContent* object created at cluster level. The *READYTOUSE* of the *VolumeSnapshot* should be showing as *true*:
 
 ```shell
-$ k get volumesnapshot -n mysql
+$ kubectl get volumesnapshot -n mysql
 NAME                            READYTOUSE   SOURCEPVC   SOURCESNAPSHOTCONTENT   RESTORESIZE   SNAPSHOTCLASS              SNAPSHOTCONTENT                                    CREATIONTIME   AGE
 k10-csi-snap-ltxzrwxgp6r5pwkp   true         mysql-pvc                           1Gi           gl-sbp-frank-gl1-sstor01   snapcontent-f3890356-d47f-4b36-a7e4-eb4c5792ec59   6d12h          6d12h
 
- $ k get volumesnapshotcontents
+ $ kubectl get volumesnapshotcontents
 NAME                                               READYTOUSE   RESTORESIZE   DELETIONPOLICY   DRIVER        VOLUMESNAPSHOTCLASS        VOLUMESNAPSHOT                  VOLUMESNAPSHOTNAMESPACE   AGE
 snapcontent-f3890356-d47f-4b36-a7e4-eb4c5792ec59   true         1073741824    Delete           csi.hpe.com   gl-sbp-frank-gl1-sstor01   k10-csi-snap-ltxzrwxgp6r5pwkp   mysql                     6d12h
 ```
