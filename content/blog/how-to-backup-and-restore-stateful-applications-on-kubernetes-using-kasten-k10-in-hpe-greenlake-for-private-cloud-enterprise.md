@@ -49,17 +49,9 @@ Apart from direct integration with a number of storage providers, Kasten K10 sup
 
 ### HPE CSI driver for K8s
 
-The Container Storage Interface (CSI) defines a standard interface for container orchestration systems, like K8s, to expose arbitrary block and file storage systems to their containerized workloads. Support for CSI in K8s was introduced as *alpha* in its v1.9 release, and promoted to *beta* in its v1.10 release. Since v1.13 release, the implementation of the CSI has been in *GA* in K8s. With the adoption of CSI, the K8s volume layer becomes truly extensible. Using CSI, 3rd party storage providers, such as HPE,  can write and deploy plugins exposing new storage systems in K8s without ever having to touch the core K8s code. This gives K8s users more options for storage and makes the system more secure and reliable.
+The Container Storage Interface (CSI) defines a standard interface for exposing storage systems to container orchestration systems, like K8s. The CSI driver for K8s is a software component that implements the CSI specification and provides a way for K8s to interact with external storage systems. There are several CSI drivers available for K8s. HPE CSI Driver for K8s is one of those CSI drivers developed by HPE that uses the CSI to perform data management operations on various HPE storage systems, such as Nimble Storage, 3PAR and Primera. 
 
-A CSI driver for K8s is a plugin that allows K8s to access different types of storage systems, such as Azure Disks, AWS EBS, and HPE Storage, etc. HPE CSI driver for K8s is one of those CSI driver plugins that follows the K8s CSI specification and enables K8s to use various HPE storage systems, such as Nimble Storage, 3PAR and Primera. 
-
-As part of K8s cluster provisioning in HPE GreenLake for Private Cloud Enterprise, HPE CSI driver for K8s has been installed on the cluster. The installation consists of two components, a *controller* component and a *per-node* component. The controller component is deployed as a *Deployment* on any node in the K8s cluster. It implements the CSI Controller service and a list of sidecar containers, such as *external-provisioner*, *external-attacher*, *external-snapshotter*, and *external-resizer*, etc. These controller sidecar containers typically interact with K8s objects, make calls to the driver’s CSI Controller service, manage K8s events and make the appropriate calls to the CSI driver. The per-node component is deployed on every node in the cluster through a *DaemonSet*. It implements the CSI Node service and the *node-driver-registrar* sidecar container that registers the CSI driver to kubelet running on every cluster node and being responsible for making the CSI Node service calls. These calls mount and unmount the storage volume from the HPE storage system, making it available to the Pod to consume.   
-
-As part of HPE CSI driver configuration, a list of *StorageClasses* is created that refers to the CSI driver name. The *PersistentVolumeClaim* (PVCs) can then be created that uses the *StorageClass* to dynamically provision persisten volume backed by the HPE storage systems. 
-
-Apart from features such as dynamic provisioning, raw block volumes, inline ephemeral volumes, and volume encryption, HPE CSI driver implements and supports volume snapshot on K8s cluster. The common snapshot controller *snapshot-controller* and a *VolumeSnapshotClass*, together with a list of snapshot CustomResourceDefinitions (CRDs), gets deployed and added to the cluster.  
-
-The following shows the details about deployed HPE CSI driver for K8s in the cluster 
+HPE CSI driver for K8s has been installed and configured as part of K8s cluster provisioning in HPE GreenLake for Private Cloud Enterprise. The following shows the details about deployed HPE CSI driver for K8s in the cluster 
 to the namespace *hpe-storage*: 
 
 ```markdown
@@ -94,7 +86,7 @@ replicaset.apps/primera3par-csp-59f5dfc499       1         1         1       56d
 replicaset.apps/snapshot-controller-5fd799f6b5   2         2         2       56d
 ```
 
-Here is the list of *StorageClasses* and the *VolumeSnapshotClass* created in the cluster:
+HPE CSI driver for K8s supports both dynamical persistent volumes and volume snapshots. Here is the list of *StorageClasses* and the *VolumeSnapshotClass* created in the cluster:
 
 ```markdown
 $ k﻿ubectl get storageclasses
@@ -110,7 +102,7 @@ NAME                                 DRIVER        DELETIONPOLICY   AGE
 gl-sbp-frank-gl1-sstor01             csi.hpe.com   Delete           56d
 ```
 
-
+HPE CSI driver for K8s and Kasten K10 has been a supported data management solution through the [joint partnership between HPE and Veeam]( https://www.kasten.io/kubernetes/resources/blog/kubernetes-backup-with-hpe-csi-and-kasten-k10). In the following sections, I will first deploy the Kasten k10 to the cluster. Then, I will describe how to use Kasten K10 with the volume snapshot capability from HPE CSI driver for K8s for backup and restore of stateful applications running in the cluster.
 
 ### Install Kasten K10
 
