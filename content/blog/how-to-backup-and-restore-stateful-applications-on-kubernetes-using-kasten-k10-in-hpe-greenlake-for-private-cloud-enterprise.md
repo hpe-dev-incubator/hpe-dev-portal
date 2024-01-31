@@ -96,7 +96,7 @@ Before starting, make sure you meet the following requirements:
 
 ### Install Kasten K10
 
-Kasten K10 can be deployed on K8s like any other application, and it runs in its own namespace. 
+Kasten K10 can be deployed on K8s like any other application and it runs in its own namespace. 
 
 F﻿ollowing the [Kasten K10 installation page](https://docs.kasten.io/latest/index.html), Kasten K10 can be installed to the cluster with the following commands using helm:
 
@@ -179,7 +179,7 @@ C﻿lick *Accept Terms* after specifying your email and company name, you will b
 
 ![](/img/k10-dashboard.png)
 
-Kasten K10 automatically discovers all the applications and their data across namespaces in the cluster. The K10 dashboard displays a list of applications that are mapped to namespaces. It also displays a summary of the cluster’s backup data footprint, showing *0.0 B* when accessing the dashboard for the first time. 
+Kasten K10 automatically discovers all the applications and their data across namespaces in the cluster. The K10 Dashboard displays a list of applications that are mapped to namespaces. It also displays a summary of the cluster’s backup data footprint, showing *0.0 B* when accessing the dashboard for the first time. 
 
 To use Kasten K10 with HPE CSI driver for K8s, you need to ensure the configured *VolumeSnapshotClass* in the cluster contains the K10 annotation ***k10.kasten.io/is-snapshot-class: "true"***.  Typing the following command to add this required K10 annotation to the *VolumeSnapshotClass*:
 
@@ -203,7 +203,7 @@ $ kubectl get volumesnapshotclass gl-sbp-frank-gl1-sstor01 -o yaml -o jsonpath='
 
 ### Deploy MySQL database
 
-I﻿n order to show backup and restore process, an MySQL database instance from [my GitHub repo](https://github.com/GuopingJia/mysql-app) will be deployed as a sample stateful application to the cluster. 
+I﻿n order to show backup and restore process, a MySQL database instance from [my GitHub repo](https://github.com/GuopingJia/mysql-app) will be deployed as a sample stateful application to the cluster. 
 
 **1. Install MySQL database**
 
@@ -226,7 +226,7 @@ spec:
       storage: 1Gi
 ```
 
-This PVC file, together with other YAML manifest files in the folder *base*, will be used to install the MySQL database instance using [Kustomize](https://kustomize.io/).
+This PVC file, together with other YAML manifest files in the folder *'base'*, will be used to install the MySQL database instance using [Kustomize](https://kustomize.io/).
 
 ```shell
 $ tree mysql-app/base
@@ -462,7 +462,7 @@ Y﻿ou can also check the **Data Usage** page to see the data used by database b
 
 ![](/img/k10-data-backup.png)
 
-I﻿n the cluster, after snapshot of the MySQL database, you can check there is a *VolumeSnapshot* *k10-csi-snap-ltxzrwxgp6r5pwkp* created f﻿rom the PVC *mysql-pvc* in the namespace *mysql*, together with a *VolumeSnapshotContent* object created at cluster level. The *READYTOUSE* of the *VolumeSnapshot* should be showing as *true*:
+I﻿n the cluster, after snapshot of the MySQL database, you can check there is a *VolumeSnapshot* *'k10-csi-snap-ltxzrwxgp6r5pwkp'* created f﻿rom the source PVC *'mysql-pvc'* in the namespace *mysql*, together with a *VolumeSnapshotContent* object created at cluster level. The *READYTOUSE* of the *VolumeSnapshot* should be showing as *true*:
 
 ```shell
 $ kubectl get volumesnapshot -n mysql
@@ -480,9 +480,9 @@ T﻿his volume snapshot can be used for MySQL database restore.
 
 B﻿efore showing the database restore, I﻿ will first delete some table from MySQL database to simulate a loss of data. Then, I will perform the database recovery using the Kasten K10.
 
-#### Delete table
+##### Delete table
 
-D﻿elete data from the table *departments* by typing the following commands:
+D﻿elete data from the table '*departments'* by typing the following commands:
 
 ```shell
 $ mysql -h 127.0.0.1 -uroot -pCfeDemo@123 -P 42281 -Demployees
@@ -568,7 +568,7 @@ $ mysql -h 127.0.0.1 -uroot -pCfeDemo@123 -P 42281 -t <test_employees_sha.sql
 +---------+--------+
 ```
 
-#### Perform MySQL database restore
+##### Perform MySQL database restore
 
 In order to restore the MySQL database, g﻿o to the Kasten K10 Dashboard, locate the MySQL database *'mysql'* from the application list, expand the menu of *mysql*, then click *Restore* button: 
 
@@ -653,7 +653,6 @@ T﻿his indicates the MySQL database gets recovered from its backup and MySQL da
 
 ### Summary
 
-I﻿n this blog post, I 
-introduced and discussed Kasten K10 and HPE CSI driver for K8s. Using the volume snapshot capability in HPE CSI driver for K8s, I demonstrated how to use Kasten K10 dashboard to backup the persistent volume of a sample MySQL database deployed in the cluster, and how to restore databasae using the created backup. K﻿asten K10 provides a powerful and intuitive interface that enables you to easily backup and restore  the stateful applications running in the cluster. It can significantly simplify the process and enhance the robustness of data management in a K8s cluster.  
+I﻿n this blog post, I introduced and discussed Kasten K10 and HPE CSI driver for K8s. Using the volume snapshot capability in HPE CSI driver for K8s, I demonstrated how to use Kasten K10 to backup the persistent volume of a sample MySQL database deployed in the cluster, and how to restore databasae using the created backup. K﻿asten K10 provides a powerful and intuitive interface that enables you to easily backup and restore  the stateful applications running in the cluster. It can significantly simplify the process and enhance the robustness of data management in a K8s cluster.  
 
 You can keep coming back to the [HPE Developer blog](https://developer.hpe.com/blog/) to learn more about HPE GreenLake for Private Cloud Enterprise.
