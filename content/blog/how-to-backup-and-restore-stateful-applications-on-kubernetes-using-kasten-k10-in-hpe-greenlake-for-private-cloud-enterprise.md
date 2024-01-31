@@ -171,7 +171,7 @@ $ kubectl get svc gateway -n kasten-io -o jsonpath={.metadata.annotations.hpecp-
 gl-tor-upc-cp-gw-node1.customer.yyz.gl-hpe.local:10021
 ```
 
-T﻿he Kasten K10 service dashboard can then be accessed by pointing your browser to the URL *http://gl-tor-upc-cp-gw-node1.customer.yyz.gl-hpe.local:10021/k10/#/*:
+T﻿he Kasten K10 service dashboard can then be accessed by pointing your browser to the URL '*http://gl-tor-upc-cp-gw-node1.customer.yyz.gl-hpe.local:10021/k10/#/'* :
 
 ![](/img/k10-login.png)
 
@@ -653,6 +653,6 @@ T﻿his indicates the MySQL database gets recovered from its backup and MySQL da
 
 ### Summary
 
-In this blog post, I explored the functionalities of Kasten K10 and HPE CSI driver for K8s. Using the volume snapshot capability in HPE CSI driver for K8s, I demonstrated how to use Kasten K10 to backup the persistent volume of a sample MySQL database deployed in the cluster in HPE GreenLake for Private Cloud Enterprise. I then illustrated how to restore database from the backup. Kasten K10, with its user-friendly and intuitive interface, simplifies the backup and recovery of stateful applications running in the cluster. It simplifies the backup/restore process and enhances the efficiency and reliability of data management in a K8s cluster.
+In this blog post, I explored the functionalities of Kasten K10 and HPE CSI driver for K8s. Using the volume snapshot capability in HPE CSI driver for K8s, I demonstrated how to use Kasten K10 to backup the persistent volume of a sample MySQL database deployed in the cluster in HPE GreenLake for Private Cloud Enterprise. I then illustrated how to restore database from the backup. Kasten K10, with its user-friendly and intuitive interface, simplifies the backup and recovery of stateful applications running in the cluster. It enhances the efficiency and reliability of data management in a K8s cluster.
 
 You can keep coming back to the [HPE Developer blog](https://developer.hpe.com/blog/) to learn more about HPE GreenLake for Private Cloud Enterprise.
