@@ -1,6 +1,6 @@
 ---
 title: Getting started with HPE GreenLake for Compute Ops Management APIs
-active: true
+active: false
 fit: contain
 link: https://hpe.zoom.us/webinar/register/9617026426927/WN_MUlXgKg7S0-449p8mi84yQ
 path: https://developer.hpe.com
