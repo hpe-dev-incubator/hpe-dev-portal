@@ -5,7 +5,7 @@ author: Frederic Passeron
 authorimage: /img/frederic-passeron-hpedev-192.jpg
 disable: false
 tags:
-  - HPE GreenLake
+  - " API,hpe-greenlake,hpe-greenlake-platform"
 ---
 # Getting started with the HPE GreenLake Developer Portal 
 
