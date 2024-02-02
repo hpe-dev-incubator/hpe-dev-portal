@@ -19,7 +19,7 @@ tags:
 
 [HPE GreenLake for Private Cloud Enterprise: Containers](https://www.hpe.com/us/en/greenlake/containers.html), one of the HPE GreenLake cloud services available on the HPE GreenLake for Private Cloud Enterprise, allows customers to create a Kubernetes (K8s) cluster, view details about existing clusters, and deploy containerized applications to the cluster. It provides an enterprise-grade container management service using open source K8s.  
 
-This blog post will show you how to backup and restore the stateful applications deployed in a K8s cluster in HPE GreenLake for Private Cloud Enterprise using Kasten K10. Kasten K10 uses the volume snapshot capability in HPE Container Storage Interface (CSI) driver for K8s to connect to different HPE storage systems and take volume snapshots of persistent volumes in K8s. It provides a user-friendly and intuitive interface and platform for easy and reliable backup and restore of the stateful applications running in the cluster.
+In the blog post [Getting started with volume snapshots on K8s cluster](https://developer.hpe.com/blog/getting-started-with-volume-snapshots-on-a-kubernetes-cluster-in-hpe-greenlake-for-private-cloud-enterprise/), I explained you how to create a volume snapshot of a persistent volume in a MySQL database instance running on a K8s cluster deployed on HPE GreenLake for Private Cloud Enterprise. In this blog post, I will show you how to backup and restore the stateful applications deployed in a K8s cluster in HPE GreenLake for Private Cloud Enterprise using Kasten K10. Kasten K10 uses the volume snapshot capability in HPE Container Storage Interface (CSI) driver for K8s to connect to different HPE storage systems and take volume snapshots of persistent volumes in K8s. It provides a user-friendly and intuitive interface and platform for easy and reliable backup and restore of the stateful applications running in the cluster.
 
 ### Kasten K10
 
@@ -125,7 +125,7 @@ To establish a connection to it use the following `kubectl` command:
 The Kasten dashboard will be available at: `http://127.0.0.1:8080/k10/#/`
 ```
 
-With above commands, Kasten K10 is installed to the namespace *'kasten-io'* in the cluster. To validate the installation, typing the following command to watch for the status of all Pods. Helm installs a list of Pods to the namespace. It takes a while before all those Pods start running.  
+With above commands, Kasten K10 is installed to the namespace *'kasten-io'* in the cluster. To validate the installation, typing the following command to watch the status of all Pods. Helm installs a list of Pods to the namespace. It takes a while before all those Pods start running.  
 
 ```shell
 $ kubectl  get pods -n kasten-io -w
