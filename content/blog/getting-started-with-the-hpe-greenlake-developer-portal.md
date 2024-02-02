@@ -9,7 +9,7 @@ tags:
 ---
 # Getting started with the HPE GreenLake Developer Portal 
 
-You know about the [HPE Developer Community portal](https://developer.hpe.com/) that provides an entry point to everything you need to know about HPE from a software developer and user standpoint, including how to access APIs (application programming interfaces), SDKs (software development kits), and training. The HPE Developer Community portal covers a wide range of HPE products, from HPE OneView, iLO, and Cray to the HPE GreenLake platform. 
+You know about the [HPE Developer Community portal](https://developer.hpe.com/) that provides an entry point to everything you need to know about HPE from a software developer and  IT Ops standpoint, including how to access APIs (application programming interfaces), SDKs (software development kits), and training. The HPE Developer Community portal covers a wide range of HPE products, from HPE OneView, iLO, and Cray to the HPE GreenLake platform. 
 
 From the HPE Developer Community portal, you can access the HPE GreenLake-specific developer portal where you can access the API documentation along with some trial capabilities. 
 
@@ -17,17 +17,15 @@ When reaching the [HPE GreenLake Developer Portal](https://developer.greenlake.h
 
 ![](/img/blog-greenlake-dev-portal1.png)
 
-## Guides: Learn how to get started using the HPE Greenlake Developer Portal. 
+## Guides: Learn how to get started using the HPE GreenLake Developer Portal. 
 
  The minimal requirement of being able to start using the portal is to have an HPE user account or an HPE GreenLake Account. To leverage the HPE GreenLake platform APIs, the user will need to create an API client credentials for the HPE GreenLake platform. With the API client credentials, the user will be able to create an access token.  
 
 One cannot generate an access token without having an HPE account part of a workspace. You will be guided through all the different steps to create the account either through the present portal or through the HPE GreenLake portal. 
 
-It is important to note that some content on the portal is private or only visible to a restricted group (for example, partners, developers, or administrators The portal comes with the following roles: 
+It is important to note that some content on the portal is private or only visible to a restricted group (for example, partners or developers). The portal comes with the following roles:  
 
  *Public* 
-
-The portal comes with the following default roles. 
 
 Guest: Every visitor will have this role with a single permission to read all public content on the portal. 
 
@@ -39,13 +37,13 @@ Users with the Partner role can access restricted content that is specific to a 
 
 ## Services:  Discover the HPE Greenlake platform APIs  
 
-When clicking on the second tile (Services), provides you with access to the HPE GreenLake APIs. But, as mentioned previously, without any access token, one cannot really do much with any APIs. Therefore, the very first step described in the documentation [here](https://developer.greenlake.hpe.com/docs/greenlake/guides/#generate-or-reset-application-credentials) is to create API client credentials for the HPE GreenLake platform and generate an access token. 
+When clicking on the second tile (Services), provides you with access to the HPE GreenLake APIs. But, as mentioned previously, an API needs a token to be tested. Therefore, the very first step described in the documentation n API [here](https://developer.greenlake.hpe.com/docs/greenlake/guides/#generate-or-reset-application-credentials) is to create API client credentials for the HPE GreenLake platform and generate an access token. 
 
 ![](/img/blog-greenlake-dev-portal2.png)
 
 Once you have your token, you can try the different APIs that are related to the different services listed on the left-hand side of the page.  
 
-The HPE GreenLake audit log service, for instance, will offer a collection of RESTful APIs for publishing audit logs, managing configurations, and retrieving application-specific and overall platform logs. 
+[The HPE GreenLake audit log service](https://developer.greenlake.hpe.com/docs/greenlake/services/audit-logs/public/), for instance, will offer a collection of RESTful APIs for publishing audit logs, managing configurations, and retrieving application-specific and overall platform logs.
 
 Each service section offers, at a minimum, an overview, a guide, the Open API specification, and the associated API reference documentation. Some services provide additional parts to dive into more specific's areas of the service. For instance, HPE GreenLake for Compute Ops Management service provide additional details about event webhooks and jobs. A webhook is an HTTP-based callback function that allows lightweight, event-driven communication between two APIs.  A job is a multi-step task that is managed by Compute Ops Management to perform an action on a resource. For example, performing power operations or firmware updates on a server. 
 
@@ -75,7 +73,7 @@ T﻿her third tile allows you to reach out to us,  the HPE Developer Community. 
 
 The HPE GreenLake Developer Portal offers one last important feature: 
 
-## **The search window:** 
+## **The search window:**
 
 Rather than browsing through the page to look for a necessary piece of information, you can use the search box and get the result you need straight away. Let ‘s say you would like to know about HPE GreenLake for Compute Ops ‘APIs.  A quick search will present you with many relevant entries.
 
