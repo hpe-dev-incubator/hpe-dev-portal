@@ -1,20 +1,32 @@
 ---
-title: Deploying Cribl Stream Containers on HPE GreenLake
+title: Deploying Cribl Stream Containers on HPE GreenLake for Private Cloud Enterprise
 date: 2024-01-17T21:25:38.155Z
-author: Elias Alagna, HPE Distinguished Technologist & Kam Amir, Cribl Director
-  of Technical Alliances
+author: Elias Alagna & Kam Amir
 authorimage: /img/Avatar1.svg
 disable: false
 tags:
-  - ezmeral, hpe-ezmeral-container-platform, hpe-ezmeral-data-fabric,
-    kubernetes, hpe-greenlake, as-a-service, PCE, Private Cloud Enterprise,
-    logging, Splunk, GreenLake, Cribl
+  - ezmeral
+  - hpe-ezmeral-container-platform
+  - hpe-ezmeral-data-fabric
+  - kubernetes
+  - hpe-greenlake
+  - as-a-service
+  - PCE
+  - Private Cloud Enterprise
+  - logging
+  - Splunk
+  - GreenLake
+  - Cribl
 ---
-Hewlett Packard Enterprise and [Cribl](https://cribl.io/) bring together breakthrough technology to optimize and modernize observability data management offering new levels of performance and platform independence.
+Hewlett Packard Enterprise and [Cribl](https://cribl.io/) bring together breakthrough technology to optimize and modernize observability data management, offering new levels of performance and platform independence.
 
-The challenges of security and log management are only partly solved by existing software solutions. HPE and Cribl address the remaining problems of optimizing, routing, and replaying logs to provide independence from the industry’s software products in this space. HPE provides a robust way to run multiple log management software solutions and the Cribl Stream in a modern, easy-to-use, and robust platform. Together HPE and Cribl reduce the total cost of ownership of log management systems by optimizing the software, accelerating infrastructure, and reducing management costs.
+The challenges of security and log management are only partly solved by existing software solutions. HPE and Cribl address the remaining problems of optimizing, routing, and replaying logs to provide independence from the industry’s software products in this space. HPE provides a robust way to run multiple log management software solutions and the Cribl Stream in a modern, easy-to-use, and robust platform. Together, HPE and Cribl reduce the total cost of ownership of log management systems by optimizing the software, accelerating the infrastructure, and reducing management costs.
 
-Cribl Stream is a vendor-agnostic observability pipeline that gives you the flexibility to collect, reduce, enrich, normalize, and route data from any source to any destination within your existing data infrastructure. HPE GreenLake is a private and hybrid cloud service that delivers the benefits of public cloud to your on-premises environment.
+Cribl Stream is an observability and data streaming platform for real-time processing of logs, metrics, traces, and observability data that enables the ITops, SRE, SecOps and observability teams to collect the data they want, shape the data in the formats they need, route the data wherever they want it to go, and replay data on-demand; thereby enabling customers to observe more and spend less, to have choice and flexibility, and to provide control over their data. HPE GreenLake is a private and hybrid cloud service that delivers the benefits of public cloud to your on-premises environment.
+
+C﻿ribl software can be deployed as stand alone software or run on a fully managed HPE GreenLake platform to offer further ease-of-use for organizations that want the benefits of cloud in an on-premise private cloud offering.
+
+Deploying Cribl Stream containers on HPE GreenLake is a simple and effective way to implement a vendor-agnostic observability pipeline. Cribl Stream containers offer a number of advantages, including agility, cost savings, security, and management simplicity. [Cribl software](https://www.hpe.com/us/en/software/marketplace/cribl-stream.html) is available in the[ HPE GreenLake Marketplace](https://www.hpe.com/us/en/software/marketplace.html).
 
 Deploying Cribl Stream containers on HPE GreenLake offers a number of advantages, including:
 
@@ -23,16 +35,16 @@ Deploying Cribl Stream containers on HPE GreenLake offers a number of advantages
 * **Security:** Cribl Stream containers can help you secure your data by encrypting it at rest and in transit.
 * **Management simplicity:** HPE GreenLake provides a single management console for managing your Cribl Stream containers, making it easy to keep your observability pipeline running smoothly.
 
-![Cribl architecture diagram](/img/criblarchitecure.png "Cribl architecture")
+![Cribl architecture diagram](/img/cribl-on-hpe-architecture.png "Cribl architecture")
 
 #### Prerequisites
 
 Before you deploy Cribl Stream containers on HPE GreenLake, you will need to:
 
-* Have a HPE GreenLake account on <https://common.cloud.hpe.com/>.
-* Install the HPE GreenLake CLI.
-* Create a HPE GreenLake cluster.
-* Install the Cribl Stream Kubernetes operator.
+* Have an active HPE GreenLake agreement and deployed HPE GreenLake for Private Cloud Enterprise and an account on [https://common.cloud.hpe.com/](<* https://common.cloud.hpe.com/>).
+* Install the HPE Ezmeral Runtime Enterprise [Kubectl executable](https://docs.ezmeral.hpe.com/runtime-enterprise/56/reference/kubernetes/tenant-project-administration/Dashboard__Kubernetes_TenantProject_Administrator.html).
+* Create a HPE Ezmeral Runtime Enterprise [Kubernetes cluster](https://youtu.be/HSYWa2MalF4).
+* Install the Cribl Stream [Kubernetes operator](https://docs.cribl.io/stream/getting-started-guide/).
 
 Steps to deploy Cribl Stream containers on HPE GreenLake:
 
@@ -114,9 +126,9 @@ nodeSelector:
      stream: worker
 ```
 
-Next set the labels for your workers and leader node.
+Next, set the labels for your workers and leader node.
 
-First get a list of all the nodes and see the labels associated with them:
+To do this, you'll first need to get a list of all the nodes and the labels associated with them.
 
 ```shell
 kubectl get nodes --show-labels
@@ -142,13 +154,13 @@ If you accidentally label a node and want to remove or overwrite the label, you 
 kubectl label nodes k8s-cribl-wor8v32g-cdjdc-876nq.gl-hpe.net stream=worker --overwrite=true
 ```
 
-Once the labels have been set, now you are ready to run the helm command and deploy Cribl Stream on your environment. The first command will deploy the Cribl Leader node:
+Once the labels have been set, you are ready to run the helm command and deploy Cribl Stream on your environment. The first command will deploy the Cribl Leader node:
 
 ```shell
 helm install --generate-name cribl/logstream-leader -f leader_values.yaml -n cribl
 ```
 
-When successful, you will see a similar output like the one below: 
+When successful, you will see output similar to what's shown below: 
 
 ```shell
 NAME: logstream-leader-1696441333
@@ -194,7 +206,7 @@ logstream-leader-1696441333-internal  ClusterIP      10.105.14.164	 <none>    	 
 logstream-workergroup-1696441592   	  LoadBalancer   10.102.239.137  <pending> 	  10001:30942/TCP,9997:32609/TCP,10080:32174/TCP,10081:31898/TCP,5140:30771/TCP,8125:31937/TCP,9200:32134/TCP,8088:32016/TCP,10200:32528/TCP,10300:30836/TCP 5m35s
 ```
 
-Note, the names and IP addresses will differ from the above example. To test that the deployment was successful, you can run the following command and log into your deployment using the localhost and port 9000:
+Note: the names and IP addresses will differ from the above example. To test that the deployment was successful, you can run the following command and log into your deployment using the localhost and port 9000:
 
 ```shell
 kubectl port-forward service/logstream-leader-1696441333 9000:9000 &
@@ -213,7 +225,7 @@ Make sure to use your leader and worker group name when uninstalling Cribl from 
 
 #### Configuring Cribl Stream
 
-Once you have deployed the Cribl Stream containers, you need to configure them to collect and process your data. You can do this by editing the Cribl Stream configuration file. The Cribl Stream documentation provides detailed instructions on how to configure Cribl Stream.
+Once you have [deployed the Cribl Stream](https://docs.cribl.io/stream/deploy-kubernetes-leader/) containers, you need to configure them to collect and process your data. You can do this by editing the Cribl Stream configuration file. The Cribl Stream documentation provides detailed instructions on how to configure Cribl Stream.
 
 #### Sending your data to your analysis platform of choice
 
@@ -221,4 +233,6 @@ Once you have configured Cribl Stream to collect and process your data, you need
 
 #### Conclusion
 
-Deploying Cribl Stream containers on HPE GreenLake is a simple and effective way to implement a vendor-agnostic observability pipeline. Cribl Stream containers offer a number of advantages, including agility, cost savings, security, and management simplicity.
+For more information on Cribl Stream, check out "Optimized Enterprise Logging Solution With HPE Ezmeral And Cribl Business white paper": <https://www.hpe.com/psnow/doc/a50006507enw>
+
+For more blog posts related to HPE Ezmeral Software, keep coming back to the HPE Developer Community blog and search on HPE Ezmeral.
