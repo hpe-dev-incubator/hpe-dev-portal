@@ -4,6 +4,8 @@ date: 2024-01-24T13:53:38.494Z
 author: Frederic Passeron
 authorimage: /img/frederic-passeron-hpedev-192.jpg
 disable: false
+tags:
+  - HPE GreenLake
 ---
 # Getting started with the HPE GreenLake Developer Portal 
 
