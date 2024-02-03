@@ -118,13 +118,13 @@ NAME                                 DRIVER        DELETIONPOLICY   AGE
 gl-sbp-frank-gl1-sstor01             csi.hpe.com   Delete           56d
 ```
  
-Now that you understand the basics, in﻿ the following sections, I will describe how to create volume snapshots of persistent volumes in K8s using HPE CSI driver for K8s.  
+Now that you understand the basics, in﻿ the following sections, I will describe how to create volume snapshots of persistent volumes in K8s using the HPE CSI driver for K8s.  
 
 ### Prerequisites
 
 
 
-Before starting, make sure you meet the following requirements:
+Before starting, make sure you have the following:
 
 
 
@@ -204,11 +204,11 @@ resources:
 
 
 
-T﻿yping below command to install the MySQL database to the namespace *mysql*:
+T﻿ype below command to install the MySQL database to the namespace *mysql*:
 
 
 
-```markdown
+```shell
 $ kubectl apply -k mysql-app/base
 namespace/mysql created
 secret/mysql-pass-m62cbhd9kf created
@@ -217,7 +217,11 @@ persistentvolumeclaim/mysql-pvc created
 deployment.apps/mysql created
 
 
+```
 
+T﻿ype the following command to check the MySQL database deployment state. The MySQL Pod should be in *Running* status:
+
+```shell
 $ kubectl get all -n mysql
 NAME                         READY   STATUS    RESTARTS   AGE
 pod/mysql-6974b58d48-wb8g5   1/1     Running   0          14s
@@ -234,7 +238,7 @@ replicaset.apps/mysql-6974b58d48   1         1         1       24s
 
 
 
-Y﻿ou can check the PVC and the PV created as part of MySQL database deployment:
+Y﻿ou can check that the PVC and the PV created as part of MySQL database deployment:
 
 
 
@@ -256,7 +260,7 @@ mysql-pvc   Bound    pvc-3e55e9b3-097f-4ddf-bdcb-60825a7905ec   1Gi        RWO  
 
 
 
-In order to access MySQL database service using the mysql CLI, set first the port-forward of _service/mysql_:  
+In order to access MySQL database service using the mysql CLI, first set the port-forward of _service/mysql_:  
  
 
 ```markdown
@@ -298,7 +302,7 @@ MySQL [(none)]> show databases;
 
 
 
-The MySQL application repo has the *test* folder that contains a list of scripts for populating data records and testing the contents: 
+The MySQL application repo has a *test* folder that contains a list of scripts for populating data records and testing the contents: 
 
 
 
@@ -321,7 +325,7 @@ mysql-app/test
 
 
 
-Typing the following command to populate a sample *employees* data to the MySQL database:
+Type the following command to populate a sample *employees* data to the MySQL database:
 
 
 
@@ -350,7 +354,7 @@ NULL
 
 
 
-The added sample data records *employees* can be checked and verified by running below commands:
+The added sample data records called *employees* can be checked and verified by running commands shown below:
 
 
 
@@ -434,7 +438,7 @@ $ mysql -h 127.0.0.1 -uroot -pCfeDemo@123 -P 41797 -t < test_employees_sha.sql
 
 
 
-H﻿ere is the *VolumeSnapshot* YAML manifest file that creates a volume snapshot from the PVC *'mysql-pvc'*:
+H﻿ere is the *VolumeSnapshot* YAML manifest file that creates a volume snapshot from the source PVC *'mysql-pvc'*:
 
 
 
@@ -453,7 +457,7 @@ persistentVolumeClaimName: mysql-pvc
 
 
 
-T﻿yping the following command to create the volume snapshot:
+T﻿ype the following command to create the volume snapshot:
 
 
 
@@ -464,7 +468,7 @@ volumesnapshot.snapshot.storage.k8s.io/mysql-snapshot created
 
 
 
-Y﻿ou can check the volume snapshot *mysql-snapshot* is created in the namespace *mysql*. A *VolumeSnapshotContent* object is also created, at cluster level, with its *READYTOUSE* showing as *true*: 
+Y﻿ou can check that there is a *VolumeSnapshot* *'mysql-snapshot'* is created in the namespace *mysql*, together with a *VolumeSnapshotContent* object created at cluster level. The *READYTOUSE* of the *VolumeSnapshot* should show as *true*:
 
 
 
@@ -486,7 +490,7 @@ snapcontent-41de6346-1ba3-4ce7-9483-2ca074e476a2   true         1073741824    De
 
 
 
-B﻿efore showing the database restore, I﻿ will first delete some table from MySQL database to simulate a loss of data. Then, I will perform the database recovery from the created volume snapshot. 
+B﻿efore showing the database restore, I﻿ will first delete a table from MySQL database to simulate a loss of data. Then, I will perform the database recovery from the created volume snapshot. 
  
 
 
@@ -530,7 +534,7 @@ Query OK, 9 rows affected (1,523 sec)
 
 
 
-I﻿f re-run the testing script *test_employees_sha.sql*, it will show the failures of *CRC* and *count*:
+I﻿f you rerun the testing script *test_employees_sha.sql*, it will show the failures of *CRC* and *count*, which indicate the loss of data in the MySQL database:
 
 
 
@@ -605,7 +609,7 @@ deployment.apps/mysql scaled
 
 
 
-T﻿yping below command to check the MySQL database deployment has 0 replica:
+T﻿ype below command to check the MySQL database deployment has 0 replica:
 
 
 
@@ -686,7 +690,7 @@ pvc-92940c36-eb1d-4de5-9c1e-57261ccbecad   1Gi        RWO            Delete     
 
 
 
-T﻿yping the following command to edit the MySQL deployment config and change the PVC name from *mysql-pvc* to *mysql-pvc-restore*: 
+T﻿ype the following command to edit the MySQL deployment config and change the PVC name from *mysql-pvc* to *mysql-pvc-restore*: 
 
 
 
@@ -739,7 +743,7 @@ replicaset.apps/mysql-6974b58d48   0         0         0       36m
 
 
 
-Y﻿ou can connect to the MySQL database service and re-run the testing script. You should see the testing script now reports everything is *OK*:
+Y﻿ou can connect to the MySQL database service and rerun the testing script. You should see the testing script now reports everything is *OK*:
 
 
 
@@ -824,7 +828,7 @@ $ mysql -h 127.0.0.1 -uroot -pCfeDemo@123 -P 43959 -t <test_employees_sha.sql
 +---------+--------+
 ```
 
-T﻿his indicates the database restore using the volume snapshot succeeds and MySQL database data is back !
+T﻿his indicates the database restore using the volume snapshot succeeds and MySQL database data is back!
 
 
 
