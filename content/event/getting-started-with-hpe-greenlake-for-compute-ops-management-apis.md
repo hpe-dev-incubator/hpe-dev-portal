@@ -4,7 +4,7 @@ dateStart: 2024-01-30T23:01:41.356Z
 dateEnd: 2024-01-31T22:59:13.621Z
 category: Virtual Event
 image: /img/event-meetups-newlogo-400x400.png
-link: https://developer.hpe.com/campaign/meetups
+link: https://www.youtube.com/watch?v=uwpxzHNXKvE&list=PLtS6YX0YOX4f5TyRI7jUdjm7D9H4laNlF
 width: large
 ---
 ## Getting started with HPE GreenLake for Compute Ops Management APIs
