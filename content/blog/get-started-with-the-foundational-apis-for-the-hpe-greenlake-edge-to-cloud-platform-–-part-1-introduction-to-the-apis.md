@@ -72,7 +72,7 @@ Postman is an API platform for building and using APIs. You can sign into your P
 
 As an IT administrator, before you can work with the APIs for common HPE GreenLake platform services, you will need to:
 
-1. Create an HPE account and a company workspace for your organization. Ensure you get assigned the ***Account Administrator*** role in HPE GreenLake platform for your organization workspace. 
+1. Create an HPE account and a company workspace for your organization. Ensure you get assigned the ***Workspace Administrator*** role in HPE GreenLake platform for your organization workspace. 
 
 > **Note:** You can refer to the [HPE GreenLake edge-to-cloud platform user guide](https://support.hpe.com/hpesc/public/docDisplay?docId=a00120892en_us&page=index.html) to learn how to create an HPE account, a workspace and assign roles.  
 
